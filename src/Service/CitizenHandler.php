@@ -194,11 +194,10 @@ class CitizenHandler
         $nbComplaint = $this->entity_manager->getRepository(Complaint::class)->countComplaintsFor($citizen, Complaint::SeverityBanish);
 
         $conf = $this->conf->getTownConfiguration( $citizen->getTown() );
-        $complaintNeeded = $conf->get(TownConf::CONF_MODIFIER_COMPLAINTS_SHUN, 7);  
-        $complaintNeededKill = $conf->get(TownConf::CONF_MODIFIER_COMPLAINTS_KILL, 8); 
+        $complaintNeeded = $conf->get(TownConf::CONF_MODIFIER_COMPLAINTS_SHUN, 8);
+        $complaintNeededKill = $conf->get(TownConf::CONF_MODIFIER_COMPLAINTS_KILL, 6);
         $shunningEnabled = $conf->get(TownConf::CONF_FEATURE_SHUN, true);
 
-        // If the citizen is already shunned, we need 1 more complains to hang him
         // If the citizen is already shunned and cage/gallows is not built, do nothing
         if ($citizen->getBanished()) {
             if (!$gallows && !$cage) return false;
@@ -208,9 +207,8 @@ class CitizenHandler
         if (($shunningEnabled || $gallows || $cage) && $nbComplaint >= $complaintNeeded)
             $action = true;
 
-        if ($nbComplaint >= $complaintNeededKill && $action && ($gallows || $cage)) {
+        if ($action && ($gallows || $cage))
             $kill = true;
-        }
 
         if ($action) {
             if (!$citizen->getBanished() && !$kill) $this->entity_manager->persist( $this->log->citizenBanish( $citizen ) );
@@ -288,6 +286,7 @@ class CitizenHandler
                 $this->container->get(DeathHandler::class)->kill( $citizen, CauseOfDeath::FleshCage, $rem );
                 $cage->setTempDefenseBonus( $cage->getTempDefenseBonus() + ( $citizen->getProfession()->getHeroic() ? 60 : 40 ) );
                 $this->entity_manager->persist( $cage );
+                $citizen->getHome()->setHoldsBody(false);
             }
             $this->entity_manager->persist( $this->log->citizenDeath( $citizen, 0, null ) );
             foreach ($rem as $r) $this->entity_manager->remove( $r );
@@ -503,7 +502,7 @@ class CitizenHandler
         $this->setPM($citizen, false, 0);
 
         if ($profession->getName() !== 'none')
-            $this->entity_manager->persist( $this->log->citizenProfession( $citizen ) );
+            $this->entity_manager->persist( $this->log->citizenJoinProfession( $citizen ) );
 
     }
 
@@ -704,9 +703,8 @@ class CitizenHandler
         $camping_datetime = new DateTime();
         if ($citizen->getCampingTimestamp() > 0)
             $camping_datetime->setTimestamp( $citizen->getCampingTimestamp() );
-        if ($config->get(TownConf::CONF_FEATURE_NIGHTMODE, true) && $citizen->getTown()->isNight()) {
+        if ($config->isNightMode())
             $camping_values['night'] = 2;
-        }
 
         // Leuchtturm
         $camping_values['lighthouse'] = 0;
@@ -759,24 +757,9 @@ class CitizenHandler
         if($citizen->getProfession()->getHeroic() && $this->user_handler->hasSkill($citizen->getUser(), 'prowatch'))
             $fatigue /= 2;
 
-        $fatigue = max($this->getNightwatchBaseFatigue($citizen), $fatigue);
-
-        $chances = $fatigue;
-
-        $status_effect_list = [
-            'drunk'     => -0.04,
-            'hungover'  =>  0.05,
-            'terror'    =>  0.45,
-            'addict'    =>  0.10,
-            'healed'    =>  0.10,
-            'infection' =>  0.20,
-        ];
-
-        foreach ($status_effect_list as $status => $value)
-            if ($this->hasStatusEffect($citizen, $status))
-                $chances += $value;
-
-        if($this->isWounded($citizen)) $chances += 0.20;
+        $chances = max($this->getNightwatchBaseFatigue($citizen), $fatigue);
+        foreach ($citizen->getStatus() as $status)
+            $chances += $status->getNightWatchDeathChancePenalty();
         if($citizen->hasRole('ghoul')) $chances -= 0.05;
 
         return round($chances, 2, PHP_ROUND_HALF_DOWN);
@@ -795,25 +778,10 @@ class CitizenHandler
     }
 
     public function getNightWatchDefense(Citizen $citizen, bool $shooting_gallery, bool $trebuchet, bool $ikea, bool $armory): int {
-        $def = 10;
-        $def += $this->getNightwatchProfessionDefenseBonus($citizen);
+        $def = 10 + $this->getNightwatchProfessionDefenseBonus($citizen);
 
-        $status_effect_list = [
-            'drunk'     =>  20,
-            'hungover'  => -15,
-            'terror'    => -30,
-            'drugged'   =>  10,
-            'addict'    =>  15,
-            'healed'    => -10,
-            'infection' => -15,
-            'thirst2'   => -10,
-        ];
-
-        foreach ($status_effect_list as $status => $value)
-            if ($this->hasStatusEffect($citizen, $status))
-                $def += $value;
-
-        if($this->isWounded($citizen)) $def -= 20;
+        foreach ($citizen->getStatus() as $status)
+            $def += $status->getNightWatchDefenseBonus();
 
         foreach ($citizen->getInventory()->getItems() as $item)
             $def += $this->getNightWatchItemDefense($item, $shooting_gallery, $trebuchet, $ikea, $armory);
@@ -869,5 +837,28 @@ class CitizenHandler
         }
 
         return false;
+    }
+
+    public function getActivityLevel(Citizen $citizen): int {
+        $level = 0;
+        if($this->hasStatusEffect($citizen, 'tg_chk_forum')) $level++;
+        if($this->hasStatusEffect($citizen, 'tg_chk_active')) $level++;
+        if($this->hasStatusEffect($citizen, 'tg_chk_workshop')) $level++;
+        if($this->hasStatusEffect($citizen, 'tg_chk_build')) $level++;
+        if($this->hasStatusEffect($citizen, 'tg_chk_movewb')) $level++;
+        return $level;
+    }
+
+    public function getDecoPoints(Citizen $citizen, &$decoItems = []): int {
+        $deco = 0;
+        foreach ($citizen->getHome()->getChest()->getItems() as $item) {
+            /** @var Item $item */
+            if ($item->getBroken()) continue;
+            $deco += $item->getPrototype()->getDeco();
+            if ($item->getPrototype()->getDeco())
+                $decoItems[] = $item;
+        }
+
+        return $deco;
     }
 }

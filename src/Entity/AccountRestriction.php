@@ -15,10 +15,11 @@ class AccountRestriction
     // Social restrictions
     const RestrictionNone = 0;
     const RestrictionForum               = 1 << 1;
-    const RestrictionTownCommunication   = 1 << 2;
     const RestrictionGlobalCommunication = 1 << 3;
     const RestrictionComments            = 1 << 4;
     const RestrictionOrganization        = 1 << 5;
+    const RestrictionBlackboard          = 1 << 6;
+    const RestrictionTownCommunication   = 1 << 2 | AccountRestriction::RestrictionBlackboard;
     const RestrictionSocial              = AccountRestriction::RestrictionForum |
                                            AccountRestriction::RestrictionTownCommunication |
                                            AccountRestriction::RestrictionGlobalCommunication |
@@ -32,9 +33,11 @@ class AccountRestriction
     const RestrictionProfileAvatar       = 1 << 20;
     const RestrictionProfileDescription  = 1 << 21;
     const RestrictionProfileTitle        = 1 << 22;
+    const RestrictionProfileDisplayName  = 1 << 23;
     const RestrictionProfile             = AccountRestriction::RestrictionProfileAvatar |
                                            AccountRestriction::RestrictionProfileDescription |
-                                           AccountRestriction::RestrictionProfileTitle;
+                                           AccountRestriction::RestrictionProfileTitle |
+                                           AccountRestriction::RestrictionProfileDisplayName;
 
     /**
      * @ORM\Id

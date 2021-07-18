@@ -32,8 +32,8 @@
                     {% set uri = ex.contact %}
                 {% endif %}
                 <li>
-                    {% trans with { '%contact%': '<a href="' ~ uri ~ '">' ~ ex.contact ~ '</a>' } from 'global' %}
-                        Wenn du Fragen oder Probleme mit der Seite hast, kontaktiere bitte %contact%.
+                    {% trans with { '{contact}': '<a href="' ~ uri ~ '">' ~ ex.contact ~ '</a>' } from 'global' %}
+                        Wenn du Fragen oder Probleme mit der Seite hast, kontaktiere bitte {contact}.
                     {% endtrans %}
                 </li>
                 {% endif %}

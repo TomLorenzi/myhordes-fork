@@ -20,8 +20,8 @@ class GazetteEntryTemplate
     const TypeGazetteDehydration   = 8;
     const TypeGazettePoison        = 9;
     const TypeGazetteVanished      = 10;
-
     const TypeGazetteWind          = 11;
+    const TypeGazetteReactor       = 12;
 
     const RequiresNothing       =  0;
 

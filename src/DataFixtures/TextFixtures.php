@@ -3419,7 +3419,7 @@ class TextFixtures extends Fixture
             "author" => "Teia",
             "content" => [
                 '>
-                %asset%build/images/fanart/worldmap03.png%endasset%'
+                {asset}build/images/fanart/worldmap03.png{endasset}'
             ],
             "lang" => "fr",
             "background" => "carton",
@@ -4003,7 +4003,7 @@ class TextFixtures extends Fixture
             "author" => "Ana147",
             "content" => [
                 '>
-				%asset%build/images/fanart/worldmap05.jpg%endasset%'
+				{asset}build/images/fanart/worldmap05.jpg{endasset}'
             ],
             "lang" => "fr",
             "background" => "carton",
@@ -4823,7 +4823,7 @@ class TextFixtures extends Fixture
              "author" => "Than",
              "content" => [
                 '>
-                %asset%build/images/fanart/worldmap01.jpg%endasset%'
+                {asset}build/images/fanart/worldmap01.jpg{endasset}'
              ],
              "lang" => "fr",
              "background" => "carton",
@@ -4834,7 +4834,7 @@ class TextFixtures extends Fixture
              "author" => "solenator",
              "content" => [
                 '>
-                %asset%build/images/fanart/worldmap04.png%endasset%'
+                {asset}build/images/fanart/worldmap04.png{endasset}'
              ],
              "lang" => "fr",
              "background" => "carton",
@@ -4845,7 +4845,7 @@ class TextFixtures extends Fixture
              "author" => "Portative",
              "content" => [
                 '>
-                %asset%build/images/fanart/worldmap02.png%endasset%'
+                {asset}build/images/fanart/worldmap02.png{endasset}'
              ],
              "lang" => "fr",
              "background" => "carton",
@@ -4856,7 +4856,7 @@ class TextFixtures extends Fixture
              "author" => "Opaline",
              "content" => [
                 '>
-                %asset%build/images/fanart/toutesdentsdehors.png%endasset%'
+                {asset}build/images/fanart/toutesdentsdehors.png{endasset}'
              ],
              "lang" => "fr",
              "background" => "notepad",

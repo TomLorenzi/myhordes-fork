@@ -19,16 +19,9 @@
                 <div class="padded cell background header ro-1 rw-10 ro-md-0 rw-md-12">
                     <h4>{% trans from 'welcome' %}Willkommen bei MyHordes{% endtrans %}</h4>
                     <p class="justify">
-                        {% trans with {'%motiontwin%':'<b>MotionTwin</b>'} from 'welcome' %}
-                            MyHordes ist eine von der Community entwickelte offene Implementierung des Browser-Spiels
-                            "Die Verdammten" und seine anderen Versionen von %motiontwin%.
-                        {% endtrans %}
+                        {{ 'MyHordes ist eine von der Community entwickelte offene Implementierung des Browser-Spiels "Die Verdammten" und seine anderen Versionen von {motiontwin}.'|trans({'{motiontwin}':'<b>MotionTwin</b>'},'welcome')|raw }}
                         <br />
-                        {% trans from 'welcome' %}
-                            Ziel des Projektes ist es, eine Version von "Die Verdammten" und seinen anderen Versionen zu erschaffen, die nicht nur nach der
-                            Flash-Abschaltung im Jahr 2020 funktionsfähig ist, sondern auch weiterentwickelt und mit neuen
-                            Inhalten versorgt werden kann.
-                        {% endtrans %}
+                        {{ 'Ziel des Projektes ist es, eine Version von "Die Verdammten" und seinen anderen Versionen zu erschaffen, die nicht nur nach der Flash-Abschaltung im Jahr 2020 funktionsfähig ist, sondern auch weiterentwickelt und mit neuen Inhalten versorgt werden kann.'|trans({},'welcome') }}
                     </p>
 
                     <div class="row">
@@ -47,10 +40,7 @@
                     </div>
 
                     <p>
-                        {% trans with {'%motiontwin%':'<b>MotionTwin</b>'} from 'welcome' %}
-                            Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus "Die Verdammten" und seine anderen Versionen und sind
-                            damit Eigentum von %motiontwin%.
-                        {% endtrans %}
+                        {{ 'Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus "Die Verdammten" und seine anderen Versionen und sind damit Eigentum von {motiontwin}.'|trans({'{motiontwin}':'<b>MotionTwin</b>'},'welcome')|raw }}
                     </p>
                 </div>
             </div>

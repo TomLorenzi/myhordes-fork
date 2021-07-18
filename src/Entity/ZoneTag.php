@@ -52,6 +52,11 @@ class ZoneTag implements NamedEntity
      */
     private $ref;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $temporary;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -101,6 +106,18 @@ class ZoneTag implements NamedEntity
     public function setRef(int $ref): self
     {
         $this->ref = $ref;
+
+        return $this;
+    }
+
+    public function getTemporary(): ?bool
+    {
+        return $this->temporary;
+    }
+
+    public function setTemporary(bool $temporary): self
+    {
+        $this->temporary = $temporary;
 
         return $this;
     }

@@ -319,9 +319,11 @@ export default class HTML {
             element.style.display = 'block';
             container.append( element );
             fun_tooltip_pos(e);
+            element.dispatchEvent( new Event('appear') );
         }
 
         const fun_tooltip_hide = function(e: PointerEvent|TouchEvent|MouseEvent) {
+            element.dispatchEvent( new Event('disappear') );
             element.style.display = 'none';
             parent.append( element );
         }
@@ -466,5 +468,10 @@ export default class HTML {
     setTitleSegmentAddendum(add: string|null): void {
         this.title_segments[2] = add;
         this.updateTitle(this.title_alt);
+    }
+
+    validateEmail(email: string): boolean {
+        const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(email).toLowerCase());
     }
 }

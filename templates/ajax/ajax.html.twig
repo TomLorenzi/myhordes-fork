@@ -37,7 +37,7 @@
                 <ul>
                     {% for adminAction in adminActions %}
                         {# @var adminAction \App\Entity\AdminAction #}
-                        <a href="{{ path('admin_action', { 'id': adminAction.id }) }}"><span>{{ adminAction.name|trans({},'admin') }}</span></a><br>
+                        <a class="link" {% if app.user.openModToolsSameWindow %}x-ajax-{% endif %}href="{{ path('admin_action', { 'id': adminAction.id }) }}"><span>{{ adminAction.name|trans({},'admin') }}</span></a><br>
                     {% endfor %}
                 </ul>
             </div>

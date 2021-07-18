@@ -16,6 +16,7 @@ class ItemTargetDefinition
     const ItemCitizenOnZoneType = 4;
     const ItemCitizenOnZoneSBType = 5;
     const ItemSelectionTypePoison = 6;
+    const ItemCitizenVoteType = 7;
 
     /**
      * @ORM\Id()

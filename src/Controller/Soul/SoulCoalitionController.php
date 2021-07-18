@@ -31,9 +31,10 @@ class SoulCoalitionController extends SoulController
 {
     /**
      * @Route("jx/soul/coalitions", name="soul_coalitions")
+     * @param ConfMaster $conf
      * @return Response
      */
-    public function soul_coalitions(): Response
+    public function soul_coalitions(ConfMaster $conf): Response
     {
         $user = $this->getUser();
 
@@ -64,6 +65,8 @@ class SoulCoalitionController extends SoulController
             'membership' => $user_coalition,
             'all_users' => $all_users,
             'invitations' => $user_invitations,
+            'max_coa_size' => $conf->getGlobalConf()->get(MyHordesConf::CONF_COA_MAX_NUM, 5),
+            'coa_full' => count($all_users) >= $conf->getGlobalConf()->get(MyHordesConf::CONF_COA_MAX_NUM, 5),
         ]) );
     }
 
@@ -129,7 +132,7 @@ class SoulCoalitionController extends SoulController
 
         $this->entity_manager->persist(
             $g = (new UserGroup())
-                ->setName($trans->trans("%name%'s Koalition", ['%name%' => $user->getUsername()], 'soul'))
+                ->setName($trans->trans("{name}'s Koalition", ['{name}' => $user->getUsername()], 'soul'))
                 ->setType(UserGroup::GroupSmallCoalition)
                 ->setRef1($user->getId())
         );

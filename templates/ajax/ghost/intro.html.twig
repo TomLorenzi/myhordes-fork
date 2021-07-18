@@ -135,7 +135,7 @@
                                                     <div class="padded cell rw-1 rw-sm-2 center"><img x-town-details="{{ town.id }}" x-town-toggle="{{ town.id }}" class="pointer" alt="+" src="{{ asset('build/images/icons/small_more.gif') }}" /><div class="tooltip help">{{ 'Die Liste der eingeschriebenen Spieler ansehen.'|trans({},'game') }}</div></div>
                                                     <div class="padded cell rw-3 rw-sm-12">
                                                         {% if cdm_level != 2 %}
-                                                            <button {% if joinable and (not town|whitelisted or town|whitelisted(app.user)) %}x-town-lang="{{ town.getLanguage }}" x-town-id="{{ town.id }}" x-town-name="{{ town.getName }}" x-town-locked="{% if town.password is not null %}1{% else %}0{% endif %}" {% else %}disabled="disabled" title="{{ 'Deine Seele genügt den Anforderungen für diesen Stadttypen.'|trans({}, 'ghost') }}"{% endif %}>{% trans from 'ghost' %}Beitreten{% endtrans %}</button>
+                                                            <button {% if joinable and (not town|whitelisted or town|whitelisted(app.user)) %}x-coa-restricted="{{ (coa is not empty and (town|whitelisted or town.password)) ? 1 : 0 }}" x-coa-discard="{{ town|whitelisted or town.password ? "" : coa|filter( member => not town|openFor(member) )|map( member => member.name )|join(';') }}" x-town-lang="{{ town.getLanguage }}" x-town-id="{{ town.id }}" x-town-name="{{ town.getName }}" x-town-locked="{% if town.password is not null %}1{% else %}0{% endif %}" {% else %}disabled="disabled" title="{{ 'Deine Seele genügt den Anforderungen für diesen Stadttypen.'|trans({}, 'ghost') }}"{% endif %}>{% trans from 'ghost' %}Beitreten{% endtrans %}</button>
                                                         {% endif %}
                                                     </div>
                                                     <div x-town-details="{{ town.id }}" class="padded cell rw-12 hidden" style="background-color: #3b3249;">
@@ -192,20 +192,29 @@
             const user_lang = '{{ app.request.locale|e('js') }}';
             const town_lang = elem.getAttribute('x-town-lang');
             const town_name = elem.getAttribute('x-town-name');
+
+            const coa_restriction = elem.getAttribute('x-coa-restricted') === '1';
+            const coa_discard = elem.getAttribute('x-coa-discard') ? elem.getAttribute('x-coa-discard').split(';') : [];
+
             if (user_lang && town_lang && user_lang.split('_')[0] !== town_lang.split('_')[0]) {
                 const user_lang_rep = window.c.langs[user_lang.split('_')[0]] ? window.c.langs[user_lang.split('_')[0]] : user_lang;
                 const town_lang_rep = window.c.langs[town_lang.split('_')[0]] ? window.c.langs[town_lang.split('_')[0]] : town_lang;
                 let message =
-                    ('{{ 'Die Sprache der gewählten Stadt ist %lang_town%. Deine aktuelle Spracheinstellung ist %lang_user%.'|trans({},'ghost')|e('js') }}' + "\n\n" +
+                    ('{{ 'Die Sprache der gewählten Stadt ist {lang_town}. Deine aktuelle Spracheinstellung ist {lang_user}.'|trans({},'ghost')|e('js') }}' + "\n\n" +
                     '{{ 'Kommunikation ist wichtig in MyHordes. Bitte betritt keine Stadt, deren Sprache du nicht beherrscht. Möchtest du fortfahren?'|trans({},'ghost')|e('js') }}')
-                    .replace(/%lang_user%/g, user_lang_rep).replace(/%lang_town%/g, town_lang_rep);
+                    .replace(/{lang_user}/g, user_lang_rep).replace(/{lang_town}/g, town_lang_rep);
 
                 if (!confirm(message)) return;
-            } else if (!confirm('{{ 'Möchtest du die schreckliche Welt der Verdammten als Bürge der Stadt %town_name% betreten'|trans({},'ghost')|e('js') }} ?'.replace('%town_name%', town_name)))
+            } else if (!confirm('{{ 'Möchtest du die schreckliche Welt der Verdammten als Bürge der Stadt {town_name} betreten'|trans({},'ghost')|e('js') }} ?'.replace('{town_name}', town_name)))
                 return;
 
             {% if cdm_level == 1 %}
                 if (!confirm('{{ 'Du bist in mehreren deiner letzten Städte frühzeitig durch Verdursten gestorben. Sollte dies in deiner nächsten Stadt erneut geschehen, wirst du für einige Wochen vom Spiel ausgeschlossen.'|trans({},'ghost')|e('js') }}')) return;
+            {% endif %}
+
+            {% if coa is not empty %}
+                if (coa_restriction && !confirm('{{ 'Diese Stadt verfügt über eine Zugangsbeschränkung. Die Mitglieder deiner Koalition können dir nicht automatisch folgen, wenn du diese Stadt betrittst. Fortfahren?'|trans({},'ghost')|e('js') }}')) return;
+                if (coa_discard.length && !confirm('{{ 'Die folgenden Koalitionsmitglieder können dir nicht in die ausgewählte Stadt folgen. Fortfahren?'|trans({},'ghost')|e('js') }}' + "\n\n" + coa_discard.join("\n"))) return;
             {% endif %}
 
             const pass = (elem.getAttribute('x-town-locked') === '1') ? prompt('{{ 'Bitte gib das Stadtpasswort ein :'|trans({}, 'ghost') }}') : '';

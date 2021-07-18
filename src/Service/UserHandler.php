@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use App\Entity\AccountRestriction;
+use App\Entity\AntiSpamDomains;
 use App\Entity\Avatar;
 use App\Entity\Award;
 use App\Entity\AwardPrototype;
@@ -15,6 +16,7 @@ use App\Entity\Picto;
 use App\Entity\Season;
 use App\Entity\Shoutbox;
 use App\Entity\ShoutboxEntry;
+use App\Entity\SocialRelation;
 use App\Entity\User;
 use App\Entity\UserGroup;
 use App\Entity\UserGroupAssociation;
@@ -25,6 +27,9 @@ use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Security\Core\Role\RoleHierarchyInterface;
+use Symfony\Component\Validator\Context\ExecutionContextInterface;
+use Symfony\Component\Validator\Validation;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class UserHandler
 {
@@ -47,14 +52,16 @@ class UserHandler
     private ContainerInterface $container;
     private CrowService $crow;
     private MediaService $media;
+    private TranslatorInterface $translator;
 
-    public function __construct( EntityManagerInterface $em, RoleHierarchyInterface $roles,ContainerInterface $c, CrowService $crow, MediaService $media)
+    public function __construct( EntityManagerInterface $em, RoleHierarchyInterface $roles,ContainerInterface $c, CrowService $crow, MediaService $media, TranslatorInterface  $translator)
     {
         $this->entity_manager = $em;
         $this->container = $c;
         $this->roles = $roles;
         $this->crow = $crow;
         $this->media = $media;
+        $this->translator = $translator;
     }
 
     public function getPoints(User $user){
@@ -669,6 +676,15 @@ class UserHandler
         return $restriction === null ? ($r !== AccountRestriction::RestrictionNone) : (($r & $restriction) === $restriction);
     }
 
+    protected array $_relation_cache = [];
+    public function checkRelation( User $user, User $relation, int $type ) {
+        if ($user === $relation) return false;
+        $key = "{$user->getId()}:{$relation->getId()}:{$type}";
+        return
+            $this->_relation_cache[$key] ??
+            ( $this->_relation_cache[$key] = (bool)$this->entity_manager->getRepository(SocialRelation::class)->findOneBy(['owner' => $user, 'related' => $relation, 'type' => $type]) );
+    }
+
     public function checkFeatureUnlock(User $user, $feature, bool $deduct): bool {
         /** @var FeatureUnlock $r */
         $r = $this->entity_manager->getRepository(FeatureUnlock::class)->findOneActiveForUser(
@@ -684,5 +700,24 @@ class UserHandler
         if ($r->getExpirationMode() === FeatureUnlock::FeatureExpirationTownCount)
             $this->entity_manager->persist( $r->setTownCount( max(0,$r->getTownCount() - 1 )) );
         return true;
+    }
+
+    /**
+     * Tests if the username wanted is valid
+     * Uses Levenshtein's algo
+     * @param string $name The username to test
+     * @return bool The validity of the username
+     */
+    public function isNameValid(string $name): bool {
+        $invalidNames = ['Der Rabe', 'Le Corbeau', 'The Crow', 'El Cuervo'];
+        $closestDistance = 99999;
+        foreach ($invalidNames as $invalidName) {
+            $dist = levenshtein($name,$invalidName);
+            if ($dist < $closestDistance) {
+                $closestDistance = $dist;
+            }
+        }
+
+        return !preg_match('/[^\w]/', $name) && strlen($name) >= 4 && strlen($name) <= 16 && $closestDistance > 2;
     }
 }

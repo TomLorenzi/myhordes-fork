@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
 use App\Entity\Town;
+use App\Entity\TownLogEntry;
 use App\Entity\TownRankingProxy;
 use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
@@ -71,14 +72,19 @@ class PictoRepository extends ServiceEntityRepository
 
     /**
      * @param User $user
+     * @param Town|TownRankingProxy $town
      * @return Picto[]
      */
-    public function findPendingByUser(User $user)
+    public function findPendingByUserAndTown(User $user, $town)
     {
-        return $this->createQueryBuilder('i')
+        $query = $this->createQueryBuilder('i')
             ->andWhere('i.user = :val')->setParameter('val', $user)
-            ->andWhere('i.persisted < 2')
-            ->getQuery()->getResult();
+            ->andWhere('i.persisted < 2');
+        if(is_a($town, Town::class))
+            $query->andWhere('i.town = :town')->setParameter('town', $town);
+        else if (is_a($town, TownRankingProxy::class))
+            $query->andWhere('i.townEntry = :town')->setParameter('town', $town);
+        return $query->getQuery()->getResult();
     }
 
     /**

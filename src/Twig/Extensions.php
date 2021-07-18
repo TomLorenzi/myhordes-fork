@@ -5,11 +5,15 @@ namespace App\Twig;
 
 
 use App\Entity\Award;
+use App\Entity\Item;
 use App\Entity\Town;
 use App\Entity\TownSlotReservation;
 use App\Entity\ItemProperty;
 use App\Entity\ItemPrototype;
 use App\Entity\User;
+use App\Service\CitizenHandler;
+use App\Service\GameFactory;
+use App\Service\TownHandler;
 use App\Service\UserHandler;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
@@ -27,12 +31,18 @@ class Extensions extends AbstractExtension  implements GlobalsInterface
     private UrlGeneratorInterface $router;
     private UserHandler $userHandler;
     private EntityManagerInterface $entityManager;
+    private CitizenHandler $citizenHandler;
+    private TownHandler $townHandler;
+    private GameFactory $gameFactory;
 
-    public function __construct(TranslatorInterface $ti, UrlGeneratorInterface $r, UserHandler $uh, EntityManagerInterface $em) {
+    public function __construct(TranslatorInterface $ti, UrlGeneratorInterface $r, UserHandler $uh, EntityManagerInterface $em, CitizenHandler $ch, TownHandler $th, GameFactory $gf) {
         $this->translator = $ti;
         $this->router = $r;
         $this->userHandler = $uh;
         $this->entityManager = $em;
+        $this->citizenHandler = $ch;
+        $this->townHandler = $th;
+        $this->gameFactory = $gf;
     }
 
     public function getFilters(): array
@@ -47,8 +57,11 @@ class Extensions extends AbstractExtension  implements GlobalsInterface
             new TwigFilter('restricted',  [$this, 'user_is_restricted']),
             new TwigFilter('restricted_until',  [$this, 'user_restricted_until']),
             new TwigFilter('whitelisted',  [$this, 'town_whitelisted']),
+            new TwigFilter('openFor',  [$this, 'town_openFor']),
             new TwigFilter('items',  [$this, 'item_prototypes_with']),
             new TwigFilter('group_titles',  [$this, 'group_titles']),
+            new TwigFilter('watchpoint',  [$this, 'fetch_watch_points']),
+            new TwigFilter('related',  [$this, 'user_relation']),
         ];
     }
 
@@ -124,10 +137,18 @@ class Extensions extends AbstractExtension  implements GlobalsInterface
         return $this->userHandler->isRestricted($user,$mask);
     }
 
+    public function user_relation(User $user, User $other, int $relation): bool {
+        return $this->userHandler->checkRelation($user,$other,$relation);
+    }
+
     public function town_whitelisted(Town $town, ?User $user = null): bool {
         return $user
             ? ($this->entityManager->getRepository(TownSlotReservation::class)->count(['town' => $town, 'user' => $user]) === 1)
             : ($this->entityManager->getRepository(TownSlotReservation::class)->count(['town' => $town]) > 0);
+    }
+
+    public function town_openFor(Town $town, User $user = null): bool {
+        return $this->gameFactory->userCanEnterTown($town,$user,$this->entityManager->getRepository(TownSlotReservation::class)->count(['town' => $town]) > 0);
     }
 
     public function user_restricted_until(User $user, ?int $mask = null): ?DateTime {
@@ -176,5 +197,25 @@ class Extensions extends AbstractExtension  implements GlobalsInterface
 
         foreach ($g as &$list) usort( $list, fn( Award $a, Award $b ) => $a->getPrototype()->getUnlockQuantity() <=> $b->getPrototype()->getUnlockQuantity() );
         return $g;
+    }
+
+    public function fetch_watch_points(Item $item): int {
+        if ($item->getInventory() === null) return $item->getPrototype()->getWatchpoint();
+
+        $town = null;
+        if ($item->getInventory()->getTown()) $town = $item->getInventory()->getTown();
+        else if ($item->getInventory()->getCitizen()) $town = $item->getInventory()->getCitizen()->getTown();
+        else if ($item->getInventory()->getZone()) $town = $item->getInventory()->getZone()->getTown();
+        else if ($item->getInventory()->getHome()) $town = $item->getInventory()->getHome()->getCitizen()->getTown();
+        else if ($item->getInventory()->getRuinZone()) $town = $item->getInventory()->getRuinZone()->getZone()->getTown();
+        else if ($item->getInventory()->getRuinZoneRoom()) $town = $item->getInventory()->getRuinZoneRoom()->getZone()->getTown();
+
+        if ($town === null) return $item->getPrototype()->getWatchpoint();
+        return $this->citizenHandler->getNightWatchItemDefense($item,
+            (bool)$this->townHandler->getBuilding($town, 'small_tourello_#00', true),
+            (bool)$this->townHandler->getBuilding($town, 'small_catapult3_#00', true),
+            (bool)$this->townHandler->getBuilding($town, 'small_ikea_#00', true),
+            (bool)$this->townHandler->getBuilding($town, 'small_armor_#00', true)
+        );
     }
 }

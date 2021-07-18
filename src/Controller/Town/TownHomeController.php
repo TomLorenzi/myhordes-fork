@@ -95,8 +95,8 @@ class TownHomeController extends TownController
 
         // Calculate decoration
         $deco = 0;
-        foreach ($home->getChest()->getItems() as $item)
-            $deco += $item->getPrototype()->getDeco();
+        $decoItems = [];
+        $deco = $this->citizen_handler->getDecoPoints($citizen, $decoItems);
 
         $can_send_global_pm = !$citizen->getBanished() && $citizen->getProfession()->getHeroic() && $this->user_handler->hasSkill($citizen->getUser(), 'writer');
 
@@ -145,12 +145,12 @@ class TownHomeController extends TownController
                     case PrivateMessage::TEMPLATE_CROW_AGGRESSION_SUCCESS:
                         /** @var Citizen $aggressor */
                         $aggressor = $this->entity_manager->getRepository(Citizen::class)->find( $thread->getMessages()[0]->getForeignID() );
-                        $thread->setTitle( $this->translator->trans('%username% hat dich angegriffen und verletzt!', ['%username%' => $aggressor->getName()], 'game') );
+                        $thread->setTitle( $this->translator->trans('{username} hat dich angegriffen und verletzt!', ['{username}' => $aggressor->getName()], 'game') );
                         break;
                     case PrivateMessage::TEMPLATE_CROW_AGGRESSION_FAIL:
                         /** @var Citizen $aggressor */
                         $aggressor = $this->entity_manager->getRepository(Citizen::class)->find( $thread->getMessages()[0]->getForeignID() );
-                        $thread->setTitle( $this->translator->trans('%username% hat dich angegriffen!', ['%username%' => $aggressor->getName()], 'game') );
+                        $thread->setTitle( $this->translator->trans('{username} hat dich angegriffen!', ['{username}' => $aggressor->getName()], 'game') );
                         break;
                     case PrivateMessage::TEMPLATE_CROW_NIGHTWATCH_WOUND:
                         $thread->setTitle( $this->translator->trans('Verletzt', [], 'game') );
@@ -198,6 +198,7 @@ class TownHomeController extends TownController
 
             'def' => $summary,
             'deco' => $deco,
+            'decoItems' => $decoItems,
 
             'log' => $this->renderLog( -1, $citizen, false, null, 10 )->getContent(),
             'day' => $town->getDay(),
@@ -293,7 +294,7 @@ class TownHomeController extends TownController
         if (!$next) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
         // Make sure the citizen is not tired
-        if ($ch->isTired( $citizen ) || ($citizen->getAp() + $citizen->getBp()) < $next->getAp()) return AjaxResponse::error( ErrorHelper::ErrorNoAP );
+        if ($ch->isTired( $citizen ) || $citizen->getAp() < $next->getAp()) return AjaxResponse::error( ErrorHelper::ErrorNoAP );
 
         // Make sure the citizen has not upgraded their home today, only if we're not in chaos
         if ($ch->hasStatusEffect($citizen, 'tg_home_upgrade') && !$town->getChaos())
@@ -314,7 +315,7 @@ class TownHomeController extends TownController
         $home->setPrototype($next);
 
         // Deduct AP and set the has-upgraded status
-        $this->citizen_handler->deductAPBP( $citizen, $next->getAp() );
+        $this->citizen_handler->setAP( $citizen, true, -$next->getAp() );
         $ch->inflictStatus( $citizen, 'tg_home_upgrade' );
 
         // Consume items
@@ -327,8 +328,8 @@ class TownHomeController extends TownController
         $this->picto_handler->give_picto( $citizen, "r_homeup_#00" );
 
         $text = [];
-        // Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home% verwandelt und hast dafür 2 Aktionspunkt(e) ausgegeben.
-        $text[] = $this->translator->trans('Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home% verwandelt.', ['%home%' => "<span>" . $this->translator->trans($next->getLabel(), [], 'buildings') . "</span>"], 'game');
+        // Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) {home} verwandelt und hast dafür 2 Aktionspunkt(e) ausgegeben.
+        $text[] = $this->translator->trans('Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) {home} verwandelt.', ['{home}' => "<span>" . $this->translator->trans($next->getLabel(), [], 'buildings') . "</span>"], 'game');
         if($next->getResources()){
             /** @var ItemGroupEntry $r */
             $resText = " " . $this->translator->trans('Folgenden Dinge wurden dazu gebraucht:', [], 'game');
@@ -338,7 +339,7 @@ class TownHomeController extends TownController
             $text[] = $resText;
         }
 
-        $text[]= " " . $this->translator->trans("Du hast %count% Aktionspunkt(e) benutzt.", ['%count%' => "<strong>" . $next->getAp() . "</strong>"], "game");
+        $text[]= " " . $this->translator->trans("Du hast {count} Aktionspunkt(e) benutzt.", ['{count}' => "<strong>" . $next->getAp() . "</strong>", '{raw_count}' => $next->getAp()], "game");
 
         $this->addFlash('notice', implode("<hr />", $text));
 
@@ -444,8 +445,8 @@ class TownHomeController extends TownController
             $this->inventory_handler->forceRemoveItem( $item, $r ? $r->getChance() : 1 );
         }
 
-        // Mit dem Bau der(s) %name% hat dein Haus %level% erreicht!
-        $text = $this->translator->trans("Mit dem Bau der(s) %upgrade% hat dein Haus Stufe %level% erreicht!", ['%upgrade%' => $this->translator->trans($proto->getLabel(), [], 'buildings'), '%level%' => $current->getLevel()], 'game');
+        // Mit dem Bau der(s) {name} hat dein Haus {level} erreicht!
+        $text = $this->translator->trans("Mit dem Bau der(s) {upgrade} hat dein Haus Stufe {level} erreicht!", ['{upgrade}' => $this->translator->trans($proto->getLabel(), [], 'buildings'), '{level}' => $current->getLevel()], 'game');
 
         $this->addFlash('notice', $text);
 

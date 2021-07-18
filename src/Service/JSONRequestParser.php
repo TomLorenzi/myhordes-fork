@@ -59,9 +59,11 @@ class JSONRequestParser
         return is_numeric($v) ? $v : $default;
     }
 
-    public function get_int( string $key, ?int $default = -1 ): ?int {
+    public function get_int( string $key, ?int $default = -1, ?int $min = null, ?int $max = null ): ?int {
         $v = $this->get($key, $default);
-        return is_numeric($v) ? intval($v) : $default;
+        if (!is_numeric($v)) return $default;
+        $v = intval($v);
+        return (($min !== null && $v < $min) || ($max !== null && $v > $min)) ? $default : $v;
     }
 
     public function get_base64( string $key, $default = null ) {

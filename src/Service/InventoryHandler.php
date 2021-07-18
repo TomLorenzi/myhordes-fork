@@ -269,7 +269,7 @@ class InventoryHandler
 
     protected function validateTransferTypes( Item &$item, int $target, int $source ): bool {
         $valid_types = [
-            self::TransferTypeSpawn => [ self::TransferTypeRucksack, self::TransferTypeBank, self::TransferTypeHome, self::TransferTypeLocal ],
+            self::TransferTypeSpawn => [ self::TransferTypeRucksack, self::TransferTypeBank, self::TransferTypeHome, self::TransferTypeLocal, self::TransferTypeTamer ],
             self::TransferTypeRucksack => [ self::TransferTypeBank, self::TransferTypeLocal, self::TransferTypeHome, self::TransferTypeConsume, self::TransferTypeSteal, self::TransferTypeTamer ],
             self::TransferTypeBank => [ self::TransferTypeRucksack, self::TransferTypeConsume ],
             self::TransferTypeHome => [ self::TransferTypeRucksack, self::TransferTypeConsume ],
@@ -454,6 +454,9 @@ class InventoryHandler
                     return self::ErrorUnstealableItem;
             }
         }
+
+        if ($type_from === self::TransferTypeSpawn && $type_to === self::TransferTypeTamer && $modality !== self::ModalityNone && (!$actor->getZone() || !$actor->getZone()->isTownZone()) )
+            return self::ErrorInvalidTransfer;
 
         if ($type_from === self::TransferTypeRucksack && $type_to === self::TransferTypeTamer && $modality !== self::ModalityTamer && $modality !== self::ModalityImpound)
             return self::ErrorInvalidTransfer;

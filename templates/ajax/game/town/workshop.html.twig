@@ -3,7 +3,7 @@
 {% block content %}
     {% set hour = "now"|date("G") %}
     <div class="row">
-        <div class="cell rw-12 town-banner town-banner-workshop time-{{ hour }} {% if town.isNight %}night{% endif %}"></div>
+        <div class="cell rw-12 town-banner town-banner-workshop time-{{ hour }} {% if conf.isNightTime %}night{% endif %}"></div>
     </div>
 
     <div class="help">
@@ -14,8 +14,8 @@
             {% trans from 'game' %}
                 Alle zu bearbeitenden Gegenstände müssen direkt in der Bank deponiert werden.
             {% endtrans %}
-            {% trans with {'%ap%': '<div class="ap">' ~ need_ap ~ '</div>'} from 'game' %}
-                Jede Verarbeitung kostet %ap% (manche Gegenstände und Konstruktionen können diese Verarbeitungskosten senken).
+            {% trans with {'{ap}': '<div class="ap">' ~ need_ap ~ '</div>'} from 'game' %}
+                Jede Verarbeitung kostet {ap} (manche Gegenstände und Konstruktionen können diese Verarbeitungskosten senken).
             {% endtrans %}
             {% if saw or manu %}
                 <p><b>
@@ -44,6 +44,7 @@
 
     {% if has_recipes %}
         <div class="note note-critical">
+            <img src="{{ asset('build/images/icons/small_warning.gif') }}" alt="" />
             {% trans from 'game' %}
                 Achte darauf, keine <strong>nutzlosen Ressourcen</strong> herzustellen! Wenn du dir nicht sicher bist, sieh in dem <strong>Forum</strong> hier unten nach...
             {% endtrans %}
@@ -132,7 +133,7 @@
     </div>
 
     <div class="row">
-        <h5>{{ 'Werkstatt-Register'|trans({},'game') }}</h5>
+        <h5>{{ 'Werkstatt-Register'|trans({},'game') }} <a class="float-right link" x-ajax-href="{{ path("game_newspaper") }}">{{ 'Das Gesamtregister ansehen'|trans({}, 'game') }}<div class="tooltip normal">{{ 'Dieser Link bringt dich zum <strong>Großen Register</strong>. Darin werden alle wichtigen Handlungen und Aktionen der Stadtbürger gespeichert...'|trans({}, 'game')|raw }}</div></a></h5>
         <div class="cell rw-12">
             {% embed "ajax/game/log.html.twig" with {'log_content': log, 'log_source': path('town_workshop_log_controller') } %}
             {% endembed %}

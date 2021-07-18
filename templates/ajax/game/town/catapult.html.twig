@@ -13,13 +13,13 @@
                 <strong>{{'Du wurdest als Verantwortlicher für das Katapult bestimmt!'|trans({},'game')}}</strong>
                 {{'Wähle einen Gegenstand aus deinem Inventar und gib die Zielkoordinaten ein.'|trans({},'game')}}
             {% elseif catapult_master is not null %}
-                {{'Unser Katapult wird von dem vom Schicksal auserwählten Bürger %citizen% gesteuert. Sollte ihm etwas Schreckliches zustoßen, könnte dann ein neuer Bürger gewählt werden.'|trans({'%citizen%': ('<span class="link" x-ajax-href="' ~ path('town_visit', {id: catapult_master.id}) ~ '"><b>' ~ catapult_master.name ~ '</b></span>')},'game')|raw}}
+                {{'Unser Katapult wird von dem vom Schicksal auserwählten Bürger {citizen} gesteuert. Sollte ihm etwas Schreckliches zustoßen, könnte dann ein neuer Bürger gewählt werden.'|trans({'{citizen}': ('<span class="link" x-ajax-href="' ~ path('town_visit', {id: catapult_master.id}) ~ '"><b>' ~ catapult_master.name ~ '</b></span>')},'game')|raw}}
             {% endif %}
         </p>
         {% if catapult_improved %}
-            {{ 'Die Aktivierung des Katapults kostet %ap%.'|trans({'%ap%': '<div class="ap">2</div>'},'game')|raw }}
+            {{ 'Die Aktivierung des Katapults kostet {ap}.'|trans({'{ap}': '<div class="ap">2</div>'},'game')|raw }}
         {% else %}
-            {{ 'Die Aktivierung des Katapults kostet %ap% (diese Kosten können durch den Bau eines besseren Katapults gesenkt werden).'|trans({'%ap%': '<div class="ap">4</div>'},'game')|raw }}
+            {{ 'Die Aktivierung des Katapults kostet {ap} (diese Kosten können durch den Bau eines besseren Katapults gesenkt werden).'|trans({'{ap}': '<div class="ap">4</div>'},'game')|raw }}
         {% endif %}
     </div>
 
@@ -60,7 +60,7 @@
     {% endif %}
 
     <div class="row">
-        <h5>{% trans from 'game' %}Katapultregister{% endtrans %}</h5>
+        <h5>{% trans from 'game' %}Katapultregister{% endtrans %} <a class="float-right link" x-ajax-href="{{ path("game_newspaper") }}">{{ 'Das Gesamtregister ansehen'|trans({}, 'game') }}<div class="tooltip normal">{{ 'Dieser Link bringt dich zum <strong>Großen Register</strong>. Darin werden alle wichtigen Handlungen und Aktionen der Stadtbürger gespeichert...'|trans({}, 'game')|raw }}</div></a></h5>
         <div class="cell rw-12">
             {% embed "ajax/game/log.html.twig" with {'log_content': log, 'log_source': path('town_catapult_log_controller') } %}
             {% endembed %}

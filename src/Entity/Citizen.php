@@ -278,6 +278,12 @@ class Citizen
      */
     private $usedHeroicActions;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Zone::class, orphanRemoval=true, cascade={"persist"})
+     * @ORM\JoinTable(name="citizen_visited_zones")
+     */
+    private $visitedZones;
+
     public function __construct()
     {
         $this->status = new ArrayCollection();
@@ -296,6 +302,7 @@ class Citizen
         $this->helpNotifications = new ArrayCollection();
         $this->specialActions = new ArrayCollection();
         $this->usedHeroicActions = new ArrayCollection();
+        $this->visitedZones = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -523,6 +530,7 @@ class Citizen
     public function setZone(?Zone $zone): self
     {
         $this->zone = $zone;
+        if($zone) $this->addVisitedZone($zone);
 
         return $this;
     }
@@ -1272,6 +1280,30 @@ class Citizen
     public function removeUsedHeroicAction(HeroicActionPrototype $usedHeroicAction): self
     {
         $this->usedHeroicActions->removeElement($usedHeroicAction);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Zone[]
+     */
+    public function getVisitedZones(): Collection
+    {
+        return $this->visitedZones;
+    }
+
+    public function addVisitedZone(Zone $visitedZone): self
+    {
+        if (!$this->visitedZones->contains($visitedZone)) {
+            $this->visitedZones[] = $visitedZone;
+        }
+
+        return $this;
+    }
+
+    public function removeVisitedZone(Zone $visitedZone): self
+    {
+        $this->visitedZones->removeElement($visitedZone);
 
         return $this;
     }

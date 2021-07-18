@@ -14,8 +14,9 @@
             <div class="rp-context">
                 {{'Letzter freigeschalteter Heldenvorteil:'|trans({}, 'game')}}
                 <strong>{% if latestSkill is not null %}
+                        {# @var latestSkill \App\Entity\HeroSkillPrototype #}
                     <img src="{{asset('build/images/heroskill/' ~ latestSkill.icon ~ '.gif')}}" alt="">
-                    {{latestSkill.title|trans({}, 'game')}}
+                    {{latestSkill.title|trans({}, 'game')}} {{ help_btn(latestSkill.description|trans({}, 'game')) }}
                 {% else %}
                     {{'Niemand'|trans({}, 'game')}}
                 {% endif %}</strong>
@@ -37,7 +38,7 @@
                         {% if end_date is null %}
                             <li>{{ name }} {{ help_btn(desc ~ '<p><br/><i class="small">' ~ 'Dauerhafte Beschränkung'|trans({},'soul') ~ '</i></p>') }}</li>
                         {% else %}
-                            <li>{{ name }} {{ help_btn(desc ~ '<p><br/><i class="small">' ~ 'Ende der Beschränkung: %date%'|trans({'%date%': '<br/>' ~ end_date|format_datetime('medium', 'short') },'soul') ~ '</i></p>') }}</li>
+                            <li>{{ name }} {{ help_btn(desc ~ '<p><br/><i class="small">' ~ 'Ende der Beschränkung: {date}'|trans({'{date}': '<br/>' ~ end_date|format_datetime('medium', 'short') },'soul') ~ '</i></p>') }}</li>
                         {% endif %}
                     {% endif %}
                 {% endmacro %}
@@ -48,6 +49,9 @@
                     <ul>
                         {{ _self.restriction_info(constant('App\\Entity\\AccountRestriction::RestrictionForum'), 'In Foren posten'|trans({},'soul'), 'Du verlierst die Schreibrechte im Stadtforum sowie allen Weltforen.'|trans({},'soul')) }}
                         {{ _self.restriction_info(constant('App\\Entity\\AccountRestriction::RestrictionTownCommunication'), 'Kommunikation in der Stadt'|trans({},'soul'), 'Du kannst keine Stadtnachrichten schreiben sowie das Schwarze Brett oder den Zonenchat verwenden.'|trans({},'soul')) }}
+                        {% if not app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionTownCommunication')) %}
+                            {{ _self.restriction_info(constant('App\\Entity\\AccountRestriction::RestrictionBlackboard'), 'Schwarzes Brett'|trans({},'soul'), 'Du kannst das Schwarze Brett nicht verwenden.'|trans({},'soul')) }}
+                        {% endif %}
                         {{ _self.restriction_info(constant('App\\Entity\\AccountRestriction::RestrictionGlobalCommunication'), 'Stadtübergreifende Kommunikation'|trans({},'soul'), 'Du kannst keine Nachrichten über das Nachrichtenzentrum versenden.'|trans({},'soul')) }}
                         {{ _self.restriction_info(constant('App\\Entity\\AccountRestriction::RestrictionComments'), 'Kommentare'|trans({},'soul'), 'Du kannst keine Letzten Worte übermitteln und keine Stadtkommentare verfassen.'|trans({},'soul')) }}
                         {{ _self.restriction_info(constant('App\\Entity\\AccountRestriction::RestrictionOrganization'), 'Gruppenorganisation'|trans({},'soul'), 'Du kannst keine Kleinen Koalitionen gründen oder ihnen beitreten.'|trans({},'soul')) }}
@@ -55,6 +59,7 @@
                         {{ _self.restriction_info(constant('App\\Entity\\AccountRestriction::RestrictionProfileAvatar'), 'Ändern des Avatars'|trans({},'soul'), 'Du kannst deinen Avatar nicht mehr bearbeiten. Falls du aktuell einen Avatar hast, kannst du diesen jedoch löschen.'|trans({},'soul')) }}
                         {{ _self.restriction_info(constant('App\\Entity\\AccountRestriction::RestrictionProfileTitle'), 'Ändern des Profiltitels'|trans({},'soul'), 'Du kannst deinen deinen Profil-Titel sowie Icon nicht länger ändern. Wenn du aktuell einen Titel oder ein Icon gesetzt hast, kannst du diese jedoch entfernen.'|trans({},'soul')) }}
                         {{ _self.restriction_info(constant('App\\Entity\\AccountRestriction::RestrictionProfileDescription'), 'Ändern der Profilbeschreibung'|trans({},'soul'), 'Du kannst deine Profilbeschreibung nicht länger ändern. Eine bestehende Profilbeschreibung kann jedoch gelöscht werden.'|trans({},'soul')) }}
+                        {{ _self.restriction_info(constant('App\\Entity\\AccountRestriction::RestrictionProfileDisplayName'), 'Ändern des Spielernamens'|trans({},'soul'), 'Du kannst deinen Spielernamen nicht mehr ändern.'|trans({},'soul')) }}
 
                     </ul>
                     <i>{{ 'Dieser Hinweis ist nur für dich, nicht aber für Besucher auf deiner Seelenseite sichtbar.'|trans({},'soul') }}</i>
@@ -63,7 +68,7 @@
 
             {% endif %}
 
-            <div class="score"><img src="{{ asset('build/images/soul/small_score.gif') }}" alt="" /> {{ 'Seelenpunktzahl'|trans({}, 'global') }} : <strong>{{ '%points% Punkte'|trans({'%points%': app.user.allSoulPoints}, 'global') }}</strong> <a class="help-button"><div class="tooltip help">{{ 'Diese Punkte werden für die Seelenrangliste verwendet.'|trans({},'global') }}<p style="color: #f0d79e;"><i>{{ 'Abhängig von der Anzahl der Tage, die du überlebt hast, erhältst du nach jeder Partie eine bestimmte Anzahl an Punkten.'|trans({},'global') }}</i></p></div>{{ 'Hilfe'|trans({},'global') }}</a></div>
+            <div class="score"><img src="{{ asset('build/images/soul/small_score.gif') }}" alt="" /> {{ 'Seelenpunktzahl'|trans({}, 'global') }} : <strong>{{ '{points} Punkte'|trans({'{points}': app.user.allSoulPoints}, 'global') }}</strong> <a class="help-button"><div class="tooltip help">{{ 'Diese Punkte werden für die Seelenrangliste verwendet.'|trans({},'global') }}<p style="color: #f0d79e;"><i>{{ 'Abhängig von der Anzahl der Tage, die du überlebt hast, erhältst du nach jeder Partie eine bestimmte Anzahl an Punkten.'|trans({},'global') }}</i></p></div>{{ 'Hilfe'|trans({},'global') }}</a></div>
 
             {% if features is not empty %}
                 <ul class="inventory soul">
@@ -80,8 +85,8 @@
                                     <b>
                                         {% if (feature.expirationMode == constant('App\\Entity\\FeatureUnlock::FeatureExpirationNone')) %}{{ 'Dauerhaft!'|trans({},'game') }}
                                         {% elseif (feature.expirationMode == constant('App\\Entity\\FeatureUnlock::FeatureExpirationSeason')) %}{{ 'Für diese Saison'|trans({},'game') }}
-                                        {% elseif (feature.expirationMode == constant('App\\Entity\\FeatureUnlock::FeatureExpirationTimestamp')) %}{{ 'Bis %date%'|trans({'%date%': feature.timestamp|format_datetime('short', 'none')},'game') }}
-                                        {% elseif (feature.expirationMode == constant('App\\Entity\\FeatureUnlock::FeatureExpirationTownCount')) %}{{ 'Für %num% weitere Städte'|trans({'%num%': feature.townCount},'game') }}
+                                        {% elseif (feature.expirationMode == constant('App\\Entity\\FeatureUnlock::FeatureExpirationTimestamp')) %}{{ 'Bis {date}'|trans({'{date}': feature.timestamp|format_datetime('short', 'none')},'game') }}
+                                        {% elseif (feature.expirationMode == constant('App\\Entity\\FeatureUnlock::FeatureExpirationTownCount')) %}{{ 'Für {num} weitere Städte'|trans({'{num}': feature.townCount},'game') }}
                                         {% else  %}???{% endif %}
                                     </b>
                                 </span>
@@ -93,7 +98,7 @@
 
             {% if app.user.activeCitizen is not null and app.user.activeCitizen.alive %}
                 <div class="current">
-                    <em>{{'Aktuelles Leben'|trans({}, 'global')}} : </em><br /><strong><img src="{{ asset('build/images/soul/r_explor.gif') }}" alt="" /> {{ app.user.activeCitizen.town.name }}</strong> ({{ 'Tag %day%'|trans({ '%day%':app.user.activeCitizen.town.day }, 'game') }})
+                    <em>{{'Aktuelles Leben'|trans({}, 'global')}} : </em><br /><strong><img src="{{ asset('build/images/soul/r_explor.gif') }}" alt="" /> {{ app.user.activeCitizen.town.name }}</strong> ({{ 'Tag {day}'|trans({ '{day}':app.user.activeCitizen.town.day }, 'game') }})
                 </div>
             {% endif %}
             {% if user_desc %}
@@ -108,7 +113,7 @@
                             {% for season in seasons %}
                                 {% if season.number > 0 %}
                                     <option value="{{season.id}}">
-                                        {{ 'Saison %n%'|trans({'%n%': season.number},'soul') }} - {{ ('Saison ' ~ season.number ~ '.' ~ season.subNumber)|trans({}, "season")}}
+                                        {{ 'Saison {n}'|trans({'{n}': season.number},'soul') }} - {{ ('Saison ' ~ season.number ~ '.' ~ season.subNumber)|trans({}, "season")}}
                                     </option>
                                 {% endif %}
                             {% endfor %}
@@ -117,7 +122,7 @@
                                 {% if season.number == 0 %}
                                     <option value="{{season.id}}">
                                         {{ 'Gute Alte Zeit'|trans({},'soul') }} -
-                                        {{ 'Saison %n%'|trans({'%n%': season.subNumber},'soul') }}
+                                        {{ 'Saison {n}'|trans({'{n}': season.subNumber},'soul') }}
                                     </option>
                                 {% endif %}
                             {% endfor %}

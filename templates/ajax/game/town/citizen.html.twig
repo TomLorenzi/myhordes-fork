@@ -4,7 +4,7 @@
     {# @var citizen \App\Entity\Citizen #}
     {% set hour = "now"|date("G") %}
     <div class="row">
-        <div class="cell rw-12 town-banner town-banner-houses time-{{ hour }} {% if town.isNight %}night{% endif %}"></div>
+        <div class="cell rw-12 town-banner town-banner-houses time-{{ hour }} {% if conf.isNightTime %}night{% endif %}"></div>
     </div>
     <ul class="tabs plain">
         <li class="tab selected">
@@ -30,7 +30,7 @@
     {% if is_ghoul %}
         {% if caught_chance < 0.5 %}{% set chances = 'gering'|trans({}, 'game') %}{% else %}{% set chances = 'hoch'|trans({}, 'game') %}{% endif %}
     <div class="note warning">
-        <strong><img src="{{ asset('build/images/status/status_ghoul.gif') }}" alt="" />{{'Die Chance, beim Verschlingen eines Bürgers entdeckt zu werden, ist %chances%...'|trans({'%chances%': chances}, 'game')|raw }}</strong><br />
+        <strong><img src="{{ asset('build/images/status/status_ghoul.gif') }}" alt="" />{{'Die Chance, beim Verschlingen eines Bürgers entdeckt zu werden, ist {chances}...'|trans({'{chances}': chances}, 'game')|raw }}</strong><br />
         {{'Das Risiko basiert auf der Anzahl der Bürger in der Aussenwelt. Je mehr Bürger sich außerhalb der Stadt aufhalten, desto geringer sind die Chancen, entdeckt zu werden.'|trans({}, 'game')|raw }}
     </div>
     {% endif %}
@@ -63,17 +63,20 @@
                                 {% if citizen.home.holdsBody %}
                                     <div class="inline-block">
                                     <img alt="{{ 'Leiche nicht beseitigt!'|trans({},'game') }}" src="{{ asset('build/images/icons/small_warning.gif') }}" />
-                                        <div class="tooltip normal"><span class="warning">{{'Der Leichnam von %citizen% wurde nicht zerstört.'|trans({'%citizen%': citizen.name}, 'game')}}</span> {{'Es ist gut möglich, dass er diese Nacht aufersteht und versuchen wird, uns anzugreifen.'|trans({}, 'game')}}</div>
+                                        <div class="tooltip normal"><span class="warning">{{'Der Leichnam von {citizen} wurde nicht zerstört.'|trans({'{citizen}': citizen.name}, 'game')}}</span> {{'Es ist gut möglich, dass er diese Nacht aufersteht und versuchen wird, uns anzugreifen.'|trans({}, 'game')}}</div>
                                     </div>
                                 {% else %}
                                     <img alt="" src="{{ asset('build/images/professions/void.gif') }}" />
                                 {% endif %}
-                                    <img alt="{{ 'Tot!'|trans({},'game') }}" src="{{ asset('build/images/professions/death.gif') }}" />
+                                <img alt="{{ 'Tot!'|trans({},'game') }}" src="{{ asset('build/images/professions/death.gif') }}" />
+                                {% if citizen.home.recycling >= 15 %}
+                                    <img alt="{{ 'Tot!'|trans({},'game') }}" src="{{ asset('build/images/icons/home_recycled.gif') }}" />
+                                {% endif %}
                                 {% if citizen.hasEaten %}
                                     <div class="inline-block">
                                         <img alt="" src="{{ asset('build/images/professions/cannib.gif') }}" />
                                         <div class="tooltip normal">
-                                            {{'%citizen% hat einen Teil seines Heißhungers gestillt, indem er Teile seiner Mitbürger gegessen hat. Um sicherzustellen, dass so etwas nicht noch einmal passiert, übergieße die Verstorbenen das nächste Mal mit Wasser...'|trans({'%citizen%':citizen.name}, 'game')}}
+                                            {{'{citizen} hat einen Teil seines Heißhungers gestillt, indem er Teile seiner Mitbürger gegessen hat. Um sicherzustellen, dass so etwas nicht noch einmal passiert, übergieße die Verstorbenen das nächste Mal mit Wasser...'|trans({'{citizen}':citizen.name}, 'game')}}
                                         </div>
                                     </div>
                                 {% endif %}
@@ -84,7 +87,7 @@
                                     {% if not role.secret and not role.hidden %}
                                     <span>
                                         <img alt="" src="{{ asset('build/images/roles/' ~ role.icon ~ '.gif') }}" />
-                                        <div class="tooltip">{{'Diese Bürger is der %role% der Stadt'|trans({'%role%': role.label|trans({}, 'game')}, 'game')}}</div>
+                                        <div class="tooltip">{{'Diese Bürger is der {role} der Stadt'|trans({'role': role.label|trans({'ref': citizen}, 'game'), 'ref': citizen}, 'game')}}</div>
                                     </span>
                                     {% endif %}
                                 {% endfor %}
@@ -108,12 +111,15 @@
                                 {% else %}
                                     <em>{{ 'Truhe'|trans({},'game') }}</em><br />
                                 {% endif %}
+                                <ul class="inventory borderless">
                                 {% for item in citizen.home.chest.items %}
                                     {# @var \App\Entity\Item item #}
                                     {% if (citizen == me or not item.prototype.hideInForeignChest) %}
-                                        <img alt="{{ item.prototype.label|trans({},'items') }}" src="{{ asset('build/images/item/item_' ~ item.prototype.icon ~ '.gif') }}" />
+                                        {% embed "ajax/game/item.html.twig" with {'item': item, 'no_tooltip': true} %}{% endembed %}
                                     {% endif %}
                                 {% endfor %}
+                                </ul>
+
                             {% else %}
                                 <em>{{ 'Der Inhalt dieses Hauses wird durch Vorhänge an den Fenstern verdeckt...'|trans({},'game') }}</em>
                             {% endif %}
@@ -143,10 +149,14 @@
                         {% if citizen.home.chest.items|length == 0 %}
                             <em>{{ 'Leere Truhe'|trans({},'game') }}</em>
                         {% endif %}
-                        {% for item in citizen.home.chest.items %}
-                            {# @var \App\Entity\Item item #}
-                            <img alt="{{ item.prototype.label|trans({},'items') }}" src="{{ asset('build/images/item/item_' ~ item.prototype.icon ~ '.gif') }}" />
-                        {% endfor %}
+                        <ul class="inventory borderless">
+                            {% for item in citizen.home.chest.items %}
+                                {# @var \App\Entity\Item item #}
+                                {% if (citizen == me or not item.prototype.hideInForeignChest) %}
+                                    {% embed "ajax/game/item.html.twig" with {'item': item, 'no_id': true} %}{% endembed %}
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
                         <div class="tooltip normal">
                             <strong class="warning">{{'Todesursache'|trans({}, 'game')}}</strong> : {{ citizen.causeOfDeath.label|trans({}, "game") }}
                         </div>
@@ -178,24 +188,24 @@
         
     </div>
 
-    <div class="row prof-list">
+    <div class="cell padded center prof-list">
         {% for elem in prof_count %}
-            <div class="padded cell small center rw-4">
+            <span class="prof">
                 <img alt="{{ elem[1].label|trans({},'game') }}" src="{{ asset('build/images/professions/' ~ elem[1].icon ~ '.gif') }}" />
-                {{ elem[1].label|trans({},'game') }} x {{ elem[0] }}
-            </div>
+                <em>{{ elem[1].label|trans({},'game') }}</em> x {{ elem[0] }}
+            </span>
         {% endfor %}
+        {#
         {% if death_count > 0 %}
-            <div class="padded cell small center rw-4">
+            <span class="prof">
                 <img alt="{{ 'Tot'|trans({},'game') }}" src="{{ asset('build/images/professions/death.gif') }}" />
-                {{ 'Tot'|trans({},'game') }} x {{ death_count }}
-            </div>
+                <em>{{ 'Tot'|trans({},'game') }}</em> x {{ death_count }}
+            </span>
         {% endif %}
-    </div>
-    <div class="row prof-list">
-        <div class="padded cell small center ro-4 rw-4 rw-md-4">
-            <img alt="" src="{{ asset('build/images/icons/small_human.gif') }}" /> {{ "@citizens Bürger"|trans({ '@citizens': citizens|length - death_count }, 'game') }} {% if death_count > 0 %}(+ {{ death_count }} {{ 'Tot'|trans({},'game') }}){% endif %}
-        </div>
+        #}
+        <span class="prof">
+            <img alt="" src="{{ asset('build/images/icons/small_human.gif') }}" /> <span class="citizen_count">{{ "{citizens} Bürger"|trans({ '{citizens}': citizens|length - death_count }, 'game') }} {% if death_count > 0 %}<em>(+ {{ '{deads} Tot'|trans({'{deads}': death_count},'game') }})</em>{% endif %}</span>
+        </span>
     </div>
 
 {% endblock %}

@@ -9,7 +9,7 @@
 <ul>
 <li>{{ 'Die Stadt muss insgesamt <strong>mindestens 5 volle Tage</strong> überlebt haben.'|trans({},'help')|raw }}</li>
 <li>{{ 'Der letzte Bürger muss während des <strong>letzten Zombieangriffs</strong> aufgefressen worden sein.'|trans({},'help')|raw }}</li>
-<li>{{ 'Die Stadt darf in den vorangegangenen Tagen nicht <span x-ajax-href=%url_devast%>zerstört</span> worden sein. <i>Eine Stadt gilt dann als zerstört, wenn sich in einer Nacht keine Bürger in ihr ("intra muros") aufgehalten haben.</i>'|trans({'%url_devast%': url('help', {'name': 'devastated_town'})},'help')|raw }}</li>
+<li>{{ 'Die Stadt darf in den vorangegangenen Tagen nicht <span x-ajax-href={url_devast}>zerstört</span> worden sein. <i>Eine Stadt gilt dann als zerstört, wenn sich in einer Nacht keine Bürger in ihr ("intra muros") aufgehalten haben.</i>'|trans({'{url_devast}': url('help', {'name': 'devastated_town'})},'help')|raw }}</li>
 </ul>
 <p>{{ 'Dementsprechend können <strong>Selbstmörder, Bürger die am letzten Abend in Folge einer Dehydratation sterben oder Spieler, die in der Außenwelt umkommen</strong>, diese Auszeichnung nicht bekommen.'|trans({},'help')|raw }}</p>
 <p>

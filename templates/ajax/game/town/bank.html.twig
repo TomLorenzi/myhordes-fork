@@ -3,7 +3,7 @@
 {% block content %}
     {% set hour = "now"|date("G") %}
     <div class="row">
-        <div class="cell rw-12 town-banner town-banner-bank time-{{ hour }} {% if town.isNight %}night{% endif %}"></div>
+        <div class="cell rw-12 town-banner town-banner-bank time-{{ hour }} {% if conf.isNightTime %}night{% endif %}"></div>
     </div>
 
     <div class="help">
@@ -31,7 +31,7 @@
                 <div class="tooltip help">{{ 'Beachte: Behälter wie Rucksack, Einkaufswagen etc. werden nicht in der Bank abgelegt.'|trans({},'game') }}</div>
             </div>
 
-            {% if conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_NIGHTMODE'),true) and town.isNight %}
+            {% if conf.isNightMode %}
                 <button style="margin-top: 5px;" id="night-steal-button" {% if bank|length == 0 %}disabled{% endif %}>
                     <img alt="" src="{{ asset('build/images/icons/theft.gif') }}"> {{ 'Versuchen etwas zu stehlen'|trans({},'game') }}
                     <div class="tooltip">{{ 'Diebstahlsversuche können nur <strong>während der Nacht</strong> unternommen werden: Sie haben eine reduzierte Erfolgschance und jeder Fehlschlag wird im Register vermerkt!'|trans({},'game')|raw }}</div>
@@ -57,7 +57,7 @@
         </div>
     </div>
     <div class="row">
-        <h5>{% trans from 'game' %}Bankregister{% endtrans %}</h5>
+        <h5>{% trans from 'game' %}Bankregister{% endtrans %} <a class="float-right link" x-ajax-href="{{ path("game_newspaper") }}">{{ 'Das Gesamtregister ansehen'|trans({}, 'game') }}<div class="tooltip normal">{{ 'Dieser Link bringt dich zum <strong>Großen Register</strong>. Darin werden alle wichtigen Handlungen und Aktionen der Stadtbürger gespeichert...'|trans({}, 'game')|raw }}</div></a></h5>
         <div class="cell rw-12">
             {% embed "ajax/game/log.html.twig" with {'log_content': log, 'log_source': path('town_bank_log_controller') } %}
             {% endembed %}
@@ -93,7 +93,7 @@
             container.scrollTop = container.scrollHeight;
         } );
 
-        {% if conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_NIGHTMODE'),true) and town.isNight %}
+        {% if conf.isNightMode %}
             $.html.addEventListenerAll('#night-steal-button', 'click', (e,elem) => {
                 if (!confirm('{{ 'Achtung! Deinen Mitbürgern wird das gar nicht gefallen.'|trans({},'game')|e('js') }}')) return;
                 elem.classList.add('hidden');

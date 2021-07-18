@@ -2,7 +2,7 @@
     {% if single_entry and users|length > 1 %}
         <div class="users-list-entry">
             <div x-soul-group="{{ users|length }}" x-soul-name="{{ users|map(u => u.name)|join(',') }}" x-soul-id="{{ users|map(u => u.id)|join(',') }}">
-                <b>{{ 'Gruppe aus %num% Spielern'|trans({'%num%': users|length}, 'global') }}</b>
+                <b>{{ 'Gruppe aus {num} Spielern'|trans({'{num}': users|length}, 'global') }}</b>
                 <div class="small">{{ users|map(u => u.name)|join(' ') }}</div>
 
             </div>

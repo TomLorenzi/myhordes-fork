@@ -32,6 +32,7 @@ use App\Entity\RuinExplorerStats;
 use App\Entity\Town;
 use App\Entity\TownRankingProxy;
 use App\Entity\User;
+use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
 use App\Response\AjaxResponse;
 use App\Service\CrowService;
@@ -51,6 +52,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Tools\Pagination\Paginator;
 use Exception;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
@@ -338,9 +340,11 @@ class AdminTownController extends AdminActionController
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         if (in_array($action, [
-            'release', 'quarantine', 'advance', 'nullify',
+                'release', 'quarantine', 'advance', 'nullify', 'pw_change',
                 'ex_del', 'ex_co+', 'ex_co-', 'ex_ref', 'ex_inf',
-                'dbg_fill_town', 'dbg_fill_bank', 'dbg_unlock_bank', 'dbg_hydrate', 'dbg_disengage', 'dbg_engage', 'dbg_set_well', 'dbg_unlock_buildings', 'dbg_map_progress', 'dbg_map_zombie_set', 'dbg_adv_days'
+                'dbg_fill_town', 'dbg_fill_bank', 'dbg_unlock_bank', 'dbg_hydrate', 'dbg_disengage', 'dbg_engage',
+                'dbg_set_well', 'dbg_unlock_buildings', 'dbg_map_progress', 'dbg_map_zombie_set', 'dbg_adv_days',
+                'dbg_set_attack', 'dbg_toggle_chaos', 'dbg_toggle_devas'
             ]) && !$this->isGranted('ROLE_ADMIN'))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
@@ -374,6 +378,10 @@ class AdminTownController extends AdminActionController
                     $this->entity_manager->persist($town);
                 }
                 break;
+            case 'pw_change':
+                if (!$town->isOpen()) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+                $town->setPassword( empty(trim($param)) ? null : $param );
+                break;
             case 'nullify':
                 foreach ($town->getCitizens() as $citizen)
                     $this->entity_manager->persist(
@@ -381,7 +389,11 @@ class AdminTownController extends AdminActionController
                     );
                 $gameFactory->nullifyTown($town, true);
                 break;
-
+            case 'clear_bb':
+                $town->setWordsOfHeroes("");
+                $this->entity_manager->persist((new BlackboardEdit())->setText("")->setTime(new \DateTime())->setTown($town)->setUser($this->getUser()));
+                $this->entity_manager->persist($town);
+                break;
             case 'dbg_disengage':
                 foreach ($town->getCitizens() as $citizen)
                     if ($citizen->getAlive() && $citizen->getActive())
@@ -538,6 +550,7 @@ class AdminTownController extends AdminActionController
 
                 $this->entity_manager->persist( $town );
                 break;
+
             case 'dbg_adv_days':
                 $days = (int)$param;
                 if ($days <= 0) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
@@ -553,6 +566,47 @@ class AdminTownController extends AdminActionController
                     } else break;
 
                 break;
+
+            case 'dbg_set_attack':
+                if (empty($param)) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+                $list = explode(':', $param);
+                if (count($list) === 1) $list = [ $town->getDay(), (int)$list[0] ];
+                else $list = [ (int)$list[0], (int)$list[1] ];
+
+                if ($list[0] < $town->getDay() || $list[1] <= 0) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest, [$list[0],$town->getDay(),$list[1]]);
+                $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$list[0]);
+                if ($est === null) {
+                    $off_min = mt_rand( 10, 24 );
+                    $off_max = 34 - $off_min;
+                    $town->addZombieEstimation(
+                        $est = (new ZombieEstimation())
+                            ->setDay( $list[0] )
+                            ->setZombies( $list[1] )
+                            ->setOffsetMin( $off_min )
+                            ->setOffsetMax( $off_max )
+                    );
+                } else $est->setZombies($list[1]);
+
+                $this->entity_manager->persist($est);
+                break;
+
+            case 'dbg_toggle_chaos':
+                $on = $param === '1';
+                if (($town->getChaos() === $on) || ($town->getDevastated() && !$on))
+                    return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+                $town->setChaos($on);
+                if ($on) foreach ($town->getCitizens() as $target_citizen)
+                    $target_citizen->setBanished(false);
+                break;
+
+            case 'dbg_toggle_devas':
+                $on = $param === '1';
+                if ($town->getDevastated() === $on) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+                if ($on)
+                    $townHandler->devastateTown($town);
+                else $town->setDevastated(false);
+                break;
+
             case 'ex_del': case 'ex_co+': case 'ex_co-':case 'ex_ref':case 'ex_inf':
                 /** @var RuinExplorerStats $session */
                 $session = $this->entity_manager->getRepository(RuinExplorerStats::class)->find($param);
@@ -1334,7 +1388,10 @@ class AdminTownController extends AdminActionController
             $hp = $building->getPrototype()->getHp();
         }
 
-        if (!$building->getComplete() || ($hp < $building->getPrototype()->getHp() && $building->getPrototype()->getImpervious()))
+        $impervious = $building->getPrototype()->getImpervious();
+        if (in_array($building->getPrototype()->getName(), ['small_arma_#00'])) $impervious = false;
+
+        if (!$building->getComplete() || ($hp < $building->getPrototype()->getHp() && $impervious))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $building->setHp($hp);

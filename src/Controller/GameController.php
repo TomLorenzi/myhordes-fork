@@ -183,13 +183,7 @@ class GameController extends CustomAbstractController
             return $this->redirect($this->generateUrl('game_landing'));
 
         /** @var Gazette $gazette */
-        $gazette = $town->findGazette( $day );
-        if (!$gazette) {
-            $gazette = new Gazette();
-            $gazette->setTown($town)->setDay($town->getDay());
-            $town->addGazette($gazette);
-        }
-
+        $gazette = $town->findGazette( $day, true );
         $survivors = [];
         foreach ($town->getCitizens() as $citizen) {
             if(!$citizen->getAlive()) continue;
@@ -265,21 +259,17 @@ class GameController extends CustomAbstractController
                 // TODO: Turn into LogEntryTemplate
                 $text = "<p>" . $this->translator->trans('Heute Morgen ist kein Artikel erschienen...', [], 'game') . "</p>";
                 if ($town->isOpen()){
-                    $text .= "<p>" . $this->translator->trans('Die Stadt wird erst starten, wenn sie <strong>%population% Bürger hat</strong>.', ['%population%' => $town->getPopulation()], 'game') . "</p>" . "<a class='help-button'>" . "<div class='tooltip help'>" . $this->translator->trans("Falls sich dieser Zustand auch um Mitternacht noch nicht geändert hat, findet kein Zombieangriff statt. Der Tag wird dann künstlich verlängert.", [], 'global') . "</div>" . $this->translator->trans("Hilfe", [], 'global') . "</a>";
+                    $text .= "<p>" . $this->translator->trans('Die Stadt wird erst starten, wenn sie <strong>{population} Bürger hat</strong>.', ['{population}' => $town->getPopulation()], 'game') . "</p>" . "<a class='help-button'>" . "<div class='tooltip help'>" . $this->translator->trans("Falls sich dieser Zustand auch um Mitternacht noch nicht geändert hat, findet kein Zombieangriff statt. Der Tag wird dann künstlich verlängert.", [], 'global') . "</div>" . $this->translator->trans("Hilfe", [], 'global') . "</a>";
                 } else {
                     $text .= $this->translator->trans('Fangt schon mal an zu beten, Bürger - die Zombies werden um Mitternacht angreifen!', [], 'game');
                 }
             } else {
                 // 1. TOWN
-                if($town->getDevastated()){
-                    $criteria = [
-                        'name' => 'gazetteTownDevastated'
-                    ];
-                } else {
-                    $criteria = [
+                if ( $gazette->getReactorExplosion() ) $criteria = [ 'type' => GazetteEntryTemplate::TypeGazetteReactor ];
+                elseif ( $town->getDevastated() ) $criteria = [ 'name' => 'gazetteTownDevastated' ];
+                else $criteria = [
                         'type' => GazetteEntryTemplate::TypeGazetteNoDeaths + (count($death_inside) < 3 ? count($death_inside) : 3),
                     ];
-                }
 
                 $applicableEntryTemplates = $this->entity_manager->getRepository(GazetteEntryTemplate::class)->findBy($criteria);
                 shuffle($applicableEntryTemplates);
@@ -331,7 +321,7 @@ class GameController extends CustomAbstractController
                 $text .= '<p>' . $this->parseGazetteLog($news) . '</p>';
 
                 // 2. INDIVIDUAL DEATHS
-                if (!$town->getDevastated() && count($death_outside) > 0) {
+                if (!$town->getDevastated() && !$gazette->getReactorExplosion() && count($death_outside) > 0) {
                     $other_deaths = $death_outside;
                     shuffle($other_deaths);
                     /** @var Citizen $featured_cadaver */
@@ -435,6 +425,8 @@ class GameController extends CustomAbstractController
             while (count($gazette_logs) > 0) {
                 /** @var GazetteLogEntry $log */
                 $log = array_shift($gazette_logs);
+                if ($log->getTemplate() === null && $log->getLogEntryTemplate() === null)
+                    continue;
                 $type = $log->getTemplate() !== null ? $log->getTemplate()->getType() : $log->getLogEntryTemplate()->getType();
                 if($type !== GazetteEntryTemplate::TypeGazetteWind)
                     $text .= '<p>' . $this->parseGazetteLog($log) . '</p>';
@@ -467,6 +459,7 @@ class GameController extends CustomAbstractController
             'devast' => $town->getDevastated(),
             'chaos' => $town->getChaos(),
             'door' => $gazette->getDoor(),
+            'reactorExplosion' => $gazette->getReactorExplosion(),
             'death_outside' => $death_outside,
             'death_inside' => $death_inside,
             'attack' => $gazette->getAttack(),
@@ -483,8 +476,9 @@ class GameController extends CustomAbstractController
 
         $show_register = $in_town || !$this->getActiveCitizen()->getAlive();
 
-        $this->getActiveCitizen()->setHasSeenGazette(true);
-        $this->entity_manager->persist($this->getActiveCitizen());
+        $citizen = $this->getActiveCitizen();
+        $citizen->setHasSeenGazette(true);
+        $this->entity_manager->persist($citizen);
         $this->entity_manager->flush();
 
         return $this->render( 'ajax/game/newspaper.html.twig', $this->addDefaultTwigArgs(null, [
@@ -742,7 +736,7 @@ class GameController extends CustomAbstractController
 
         $log->setHidden(true);
         $log->setHiddenBy($citizen);
-        $this->addFlash( 'notice', $this->translator->trans('Du hast heimlich einen Eintrag im Register unkenntlich gemacht... Du kannst das noch %times% mal tun.', ['%times%' => $limit - $counter->getCount()], 'game') );
+        $this->addFlash( 'notice', $this->translator->trans('Du hast heimlich einen Eintrag im Register unkenntlich gemacht... Du kannst das noch {times} mal tun.', ['{times}' => $limit - $counter->getCount()], 'game') );
 
         try {
             $this->entity_manager->persist( $log );

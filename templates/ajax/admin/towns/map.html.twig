@@ -3,6 +3,14 @@
         {% set cellnum = 1+map.map_x1-map.map_x0 %}
         {% set size = 100.0/cellnum %}
 
+        <div class="frame-plane">
+            <div class="tl"></div><div class="tr"></div><div class="bl"></div><div class="br"></div>
+            <div class="t0l"></div><div class="t1"></div><div class="t0r"></div>
+            <div class="l0t"></div><div class="l1"></div><div class="l0m"></div><div class="l0b"></div><div class="l2"></div>
+            <div class="r0t"></div><div class="r1"></div><div class="r0b"></div>
+            <div class="b"></div>
+        </div>
+
         <div class="scroll-plane" x-default-size="{{ cellnum*20 }}" x-current-scroll-level="{{ default_zoom }}">
             <div class="svg">
                 <svg viewBox="{{ map.map_x0 }} {{ map.map_y0 }} {{ 1+(map.map_x1-map.map_x0) }} {{ 1+(map.map_y1-map.map_y0) }}" xmlns="http://www.w3.org/2000/svg">
@@ -99,11 +107,6 @@
 
         {% if allow_zone_view %}
             <div class="zone-plane retro">
-                <div class="retro-effect hide-lg hide-md hide-sm"></div>
-                <div class="retro-effect hide-lg hide-md hide-sm"></div>
-                <div class="retro-effect hide-lg hide-md hide-sm"></div>
-                <div class="retro-effect hide-lg hide-md hide-sm"></div>
-                <div class="retro-effect hide-lg hide-md hide-sm"></div>
                 <div class="zone-sub-container">
                     {% for plane_y in 2..-2 %}
                         {% for plane_x in -2..2 %}
@@ -222,32 +225,9 @@
         <div class="retro-effect"></div> #}
     </div>
     <div class="controls">
-        <div class="tilemap_controls">
-            <div class="row">
-                <div class="float-left">
-                    <button x-control="plus"   class="small inline"><i class="fa fa-plus"></i></button>
-                    <button x-control="center" {% if default_zoom == 0 %}disabled{% endif %} class="small inline"><i class="fa fa-map-marker-alt"></i></button>
-                    <button x-control="minus"  {% if default_zoom == 0 %}disabled{% endif %} class="small inline"><i class="fa fa-minus"></i></button>
-                </div>
-                <div class="float-right">
-                    <button x-control="tags" class="small inline hide-tags">{% trans from 'game' %}Mark.{% endtrans %}</button>
-                    {% if map.routes|length > 0 %}
-                        <button x-control="routes" class="small inline">{% trans from 'game' %}Routen{% endtrans %}</button>
-                    {% endif %}
-                    {% if allow_zone_view %}
-                        <button x-control="zone" class="small inline"><i class="fa fa-compress-arrows-alt"></i></button>
-                    {% endif %}
-                </div>
-            </div>
-        </div>
+        <div class="tilemap_controls"></div>
         {% if allow_zone_view %}
-            <div class="zonemap_controls">
-                <div class="row">
-                    <div class="cell rw-12 right">
-                        <button x-control="map" class="small inline">{% trans from 'game' %}Karte{% endtrans %}</button>
-                    </div>
-                </div>
-            </div>
+            <div class="zonemap_controls"></div>
         {% endif %}
     </div>
 </div>

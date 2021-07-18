@@ -73,6 +73,7 @@ parameters:
 
       modifiers:
         watchtower_estimation_threshold: 33
+        watchtower_estimation_offset: 0
         allow_redig: false
         assemble_items_from_floor: false
         preview_item_assemblage: false
@@ -101,6 +102,9 @@ parameters:
         sandball_nastyness: 0.1
         massive_respawn_factor: 1
         ghoul_infection_begin: 5
+        daytime:
+          range: [7,18]
+          invert: false
 
       features:
         camping: true
@@ -162,6 +166,7 @@ parameters:
 
       modifiers:
         watchtower_estimation_threshold: 0
+        watchtower_estimation_offset: 8
         citizen_attack:
           protection: true
         wind_distance: -1

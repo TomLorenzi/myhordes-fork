@@ -31,6 +31,7 @@ class ErrorHelper
     const ErrorDatabaseException = 2;
     const ErrorInternalError     = 3;
     const ErrorPermissionError   = 4;
+    const ErrorSendingEmail      = 5;
 
     const ErrorNoAP                      = 51;
     const ErrorActionNotAvailable        = 52;
@@ -39,4 +40,6 @@ class ErrorHelper
     const ErrorActionNotAvailableWounded = 55;
     const ErrorActionNotAvailableSP      = 56;
     const ErrorActionNotAvailableTerror  = 57;
+
+    const ErrorBlockedByUser             = 71;
 }

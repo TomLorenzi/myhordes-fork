@@ -3,7 +3,7 @@
 {% block content %}
     {% set hour = "now"|date("G") %}
     <div class="row">
-        <div class="cell rw-12 town-banner town-banner-upgrades time-{{ hour }} {% if town.isNight %}night{% endif %}"></div>
+        <div class="cell rw-12 town-banner town-banner-upgrades time-{{ hour }} {% if conf.isNightTime %}night{% endif %}"></div>
     </div>
 
     <div class="help">
@@ -43,7 +43,7 @@
             {# @var building \App\Entity\Building #}
             <div class="row {% if building.level >= 1 %}complete{% endif %}">
                 <div class="padded cell rw-10 rw-md-12">
-                    <strong>{{ building.prototype.label|trans({},'buildings') }}{% if building.level > 0 %} ({% trans with {'%lv%': building.level} from 'game' %}Level %lv%{% endtrans %}/{{building.prototype.maxLevel}}){% endif %}</strong>
+                    <strong>{{ building.prototype.label|trans({},'buildings') }}{% if building.level > 0 %} ({% trans with {'{lv}': building.level} from 'game' %}Level {lv}{% endtrans %}/{{building.prototype.maxLevel}}){% endif %}</strong>
                     {% if building.prototype.upgradeTexts %}
                         <p>
                             <b>{% trans from 'game' %}Aktuelles Level:{% endtrans %}</b>

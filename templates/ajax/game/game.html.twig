@@ -5,7 +5,7 @@
     {% if clock is defined %}
         <ul class="clock">
             <li>{{ clock.desc }}</li>
-            <li>{% if clock.towntype == 'panda' %}<span class="hardcore">{{'Pandämonium'|trans({}, 'game')}}</span> {% endif %}{% if clock.day != "" %}{{ 'Tag %day%'|trans({'%day%': clock.day}, 'game') }}{% endif %}</li>
+            <li>{% if clock.towntype == 'panda' %}<span class="hardcore">{{'Pandämonium'|trans({}, 'game')}}</span> {% endif %}{% if clock.day != "" %}{{ 'Tag {day}'|trans({'{day}': clock.day}, 'game') }}{% endif %}</li>
             <li x-current-time="{{ clock.offset }}" x-no-seconds="1" x-force-hours="1"><div class="tooltip help">{{ 'Spielzeit'|trans({},'game') }}</div>{{ clock.timestamp.format('G:i') }}</li>
             <li x-countdown="{{ clock.attack }}" x-countdown-no-seconds="1" x-countdown-force-hours="1"><div class="tooltip help">{{ 'Zeit bis zum nächsten Zombieangriff'|trans({},'game') }}</div></li>
             <li><a target="_self" href="{{ path('auto_logout') }}"><img src="{{ asset('build/images/icons/b_exit.png') }}" alt="{{ 'Logout'|trans({},'soul') }}"></a><div class="tooltip">{{ 'Logout'|trans({},'soul') }}</div></li>
@@ -40,12 +40,26 @@
                     	{% if stat.description %}
                     	<div class="tooltip normal">
                             <h1>{{ stat.label|trans({}, 'game') }}</h1>
-                            {{ stat.description|trans({}, 'game')}}
+                            {{ stat.description|trans({}, 'game')|raw }}
                     	</div>
                     	{% endif %}
                     </li>
                 {% endif %}
             {% endfor %}
+            {% if is_granted('ROLE_CROW') and app.environment == 'dev'  %}
+                <li class="status">
+                    <img src="{{ asset('build/images/status/status_unknown.gif') }}" alt="[ ]">
+                    <div class="tooltip normal">
+                        <h1>{{ 'Versteckte Statuseffekte'|trans({}, 'admin') }}</h1>
+                    {% for stat in status %}
+                        {# @var stat \App\Entity\CitizenStatus #}
+                        {% if stat.hidden %}
+                            {{ stat.name }}<br />
+                        {% endif %}
+                    {% endfor %}
+                    </div>
+                </li>
+            {% endif %}
         </ul>
     {% endif %}
 
@@ -125,7 +139,7 @@
                                 <div class="ghoul-message hide-sm"><img src="{{ asset('build/images/icons/warning_anim.gif') }}" alt="/!\"> {{"Du wirst heute Nacht sterben!"|trans({}, 'game')}}</div>
                             {% endif %}
                             <div class="tooltip help">
-                                {{ (role.message ?? 'Du bist der %rolename% dieser Stadt.')|trans({'%rolename%': role.label|trans({}, 'game')}, 'game')}}
+                                {{ (role.message ?? 'Du bist der {rolename} dieser Stadt.')|trans({'{rolename}': role.label|trans({}, 'game')}, 'game')}}
                                 <br />
                                 <div class="ghoul-hunger-container hide-md hide-lg hide-desktop">
                                     <div class="ghoul-hunger-background"></div>

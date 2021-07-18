@@ -97,7 +97,7 @@
                                         <optgroup label="{{ 'Berechtigungen'|trans({},'admin') }}">
                                             {% for role in user_handler.admin_validRoles %}
                                                 {% if user_handler.admin_canGrant(app.user,role) and not user_handler.hasRole( user,role ) %}
-                                                    <option value="{{ url('admin_users_account_manage', {action: 'grant', id: user.id, param: role}) }}">{{ 'Gewähren: %role%'|trans({'%role%': role},'admin') }}</option>
+                                                    <option value="{{ url('admin_users_account_manage', {action: 'grant', id: user.id, param: role}) }}">{{ 'Gewähren: {role}'|trans({'{role}': role},'admin') }}</option>
                                                 {% endif %}
                                             {% endfor %}
                                             {% if user.rightsElevation > 0 %}
@@ -206,7 +206,7 @@
                             {% set parts = user.email|split('@',2) %}
                             {% if parts|length > 1 and parts[1] == 'localhost' %}
                                 {% if is_granted("ROLE_ADMIN") %}
-                                    {{ 'Lokal: %account%'|trans({'%account%': parts[0]}, 'admin') }}
+                                    {{ 'Lokal: {account}'|trans({'{account}': parts[0]}, 'admin') }}
                                 {% else %}
                                     [{{ 'Nur für Administratoren sichtbar'|trans({}, 'admin') }}]
                                 {% endif %}
@@ -324,6 +324,7 @@
                                         <div>{{ token.pkey }}
                                             ({% if     token.type ==  constant('App\\Entity\\UserPendingValidation::EMailValidation') %} EMailValidation
                                         {% elseif token.type ==  constant('App\\Entity\\UserPendingValidation::ResetValidation') %} ResetValidation
+                                        {% elseif token.type ==  constant('App\\Entity\\UserPendingValidation::ChangeEmailValidation') %} ChangeEmailValidation
                                         {% else                                                                                  %} {{ token.type }} {% endif %})
                                             <div x-delete-token="{{ token.id }}" class="button small inline"><i class="fa fa-trash"></i></div>
                                         </div>

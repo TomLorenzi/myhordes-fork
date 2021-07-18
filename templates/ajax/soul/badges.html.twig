@@ -66,4 +66,17 @@
             </div>
         </div>
     {% endif %}
+
+    {% if badger.nameHistory|length > 0 %}
+        <div class="badge badge-name-history">
+            <div><i class="fa fa-user-tag"></i></div>
+            <div class="tooltip badge-tooltip">
+                <b>{% if badger == app.user %}{{'Du hattest in der Vergangenheit folgende Spielernamen:'|trans({}, 'soul')}}{% else %}{{'%user% war in der Vergangenheit unter folgenden Namen bekannt:'|trans({'%user%': user.name}, 'soul')}}{% endif %}</b>
+                {{ badger.username }}
+                {% for name in badger.nameHistory %}
+                    {{ name }}{% if not loop.last %}, {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
 </div>

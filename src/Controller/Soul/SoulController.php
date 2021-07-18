@@ -6,6 +6,7 @@ use App\Annotations\GateKeeperProfile;
 use App\Controller\CustomAbstractController;
 use App\Entity\AccountRestriction;
 use App\Entity\Announcement;
+use App\Entity\AntiSpamDomains;
 use App\Entity\Award;
 use App\Entity\CauseOfDeath;
 use App\Entity\Changelog;
@@ -21,6 +22,7 @@ use App\Entity\PictoPrototype;
 use App\Entity\RememberMeTokens;
 use App\Entity\ShoutboxEntry;
 use App\Entity\ShoutboxReadMarker;
+use App\Entity\SocialRelation;
 use App\Entity\TownClass;
 use App\Entity\TownRankingProxy;
 use App\Entity\User;
@@ -28,6 +30,7 @@ use App\Entity\RolePlayTextPage;
 use App\Entity\Season;
 use App\Entity\UserDescription;
 use App\Entity\UserGroupAssociation;
+use App\Entity\UserPendingValidation;
 use App\Entity\UserReferLink;
 use App\Entity\UserSponsorship;
 use App\Response\AjaxResponse;
@@ -58,6 +61,7 @@ use Symfony\Component\Routing\Exception\RouteNotFoundException;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Validator\ConstraintViolationInterface;
+use Symfony\Component\Validator\Context\ExecutionContextInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Component\Validator\Constraints;
 use Symfony\Component\Validator\Validation;
@@ -75,11 +79,15 @@ class SoulController extends CustomAbstractController
     const ErrorTwinImportProfileInUse        = ErrorHelper::BaseSoulErrors + 5;
     const ErrorETwinImportProfileInUse       = ErrorHelper::BaseSoulErrors + 6;
     const ErrorETwinImportServerCrash        = ErrorHelper::BaseSoulErrors + 7;
+    const ErrorUserEditUserName              = ErrorHelper::BaseSoulErrors + 8;
+    const ErrorUserEditTooSoon               = ErrorHelper::BaseSoulErrors + 9;
+    const ErrorUserUseEternalTwin            = ErrorHelper::BaseSoulErrors + 10;
+    const ErrorUserConfirmToken              = ErrorHelper::BaseSoulErrors + 11;
 
-    const ErrorCoalitionAlreadyMember        = ErrorHelper::BaseSoulErrors + 10;
-    const ErrorCoalitionNotSet               = ErrorHelper::BaseSoulErrors + 11;
-    const ErrorCoalitionUserAlreadyMember    = ErrorHelper::BaseSoulErrors + 12;
-    const ErrorCoalitionFull                 = ErrorHelper::BaseSoulErrors + 13;
+    const ErrorCoalitionAlreadyMember        = ErrorHelper::BaseSoulErrors + 20;
+    const ErrorCoalitionNotSet               = ErrorHelper::BaseSoulErrors + 21;
+    const ErrorCoalitionUserAlreadyMember    = ErrorHelper::BaseSoulErrors + 22;
+    const ErrorCoalitionFull                 = ErrorHelper::BaseSoulErrors + 23;
 
 
     protected UserFactory $user_factory;
@@ -404,9 +412,34 @@ class SoulController extends CustomAbstractController
         $title = $parser->get_int('title', -1);
         $icon  = $parser->get_int('icon', -1);
         $desc  = mb_substr(trim($parser->get('desc')) ?? '', 0, 256);
+        $displayName = mb_substr(trim($parser->get('displayName')) ?? '', 0, 30);
+        $pronoun = $parser->get('pronoun','none', ['male','female','none']);
+
+        if ($pronoun !== 'none' && $user->getUseICU() !== true)
+            $user->setUseICU(true);
+
+        switch ($pronoun) {
+            case 'male': $user->setPreferredPronoun( User::PRONOUN_MALE ); break;
+            case 'female': $user->setPreferredPronoun( User::PRONOUN_FEMALE ); break;
+            default: $user->setPreferredPronoun( User::PRONOUN_NONE ); break;
+        }
 
         if ($title < 0 && $icon >= 0)
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+        if (!$this->user_handler->isNameValid($displayName))
+            return AjaxResponse::error(self::ErrorUserEditUserName);
+
+        $name_change = ($displayName !== $user->getDisplayName() && $user->getDisplayName() !== null) || ($displayName !== $user->getUsername() && $user->getDisplayName() === null);
+
+        if ($name_change && $user->getLastNameChange() !== null && $user->getLastNameChange()->diff(new DateTime())->days < (30 * 6)) { // 6 months
+            return  AjaxResponse::error(self::ErrorUserEditTooSoon);
+        }
+        if ($name_change && $user->getEternalID() !== null)
+            return AjaxResponse::error(self::ErrorUserUseEternalTwin);
+
+        if ($this->user_handler->isRestricted($user, AccountRestriction::RestrictionProfileDisplayName) && $name_change)
+            return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
         if ($title < 0)
             $user->setActiveTitle(null);
@@ -442,6 +475,19 @@ class SoulController extends CustomAbstractController
                 $this->entity_manager->persist($desc_obj);
             }
         } elseif ($desc_obj) $this->entity_manager->remove($desc_obj);
+
+        if(!empty($displayName) && $displayName !== $user->getName() && $user->getEternalID() === null) {
+            if ($displayName === $user->getUsername())
+                $user->setDisplayName(null);
+            else {
+                $history = $user->getNameHistory() ?? [];
+                $history[] = $displayName;
+                $user->setNameHistory(array_unique($history));
+                $user->setDisplayName($displayName);
+            }
+
+            $user->setLastNameChange(new DateTime());
+        }
 
         $this->entity_manager->persist($user);
         $this->entity_manager->flush();
@@ -518,7 +564,7 @@ class SoulController extends CustomAbstractController
      * @param null $type Type of ranking to display
      * @return Response
      */
-    public function soul_season_solo($type = null, $page = 1, JSONRequestParser $parser): Response
+    public function soul_season_solo(JSONRequestParser $parser, $type = null, $page = 1): Response
     {
         $resultsPerPage = 30;
         $offset = $resultsPerPage * ($page - 1);
@@ -544,10 +590,10 @@ class SoulController extends CustomAbstractController
         if ($type === "soul") {
             $ranking = $this->entity_manager->getRepository(User::class)->getGlobalSoulRankingPage($offset, $resultsPerPage);
         } else {
-            return $this->redirect($this->generateUrl( 'soul_ranking' ));
+            return $this->redirect($this->generateUrl( 'soul_season' ));
         }
         if(!$ranking) {
-            return $this->redirect($this->generateUrl( 'soul_ranking' ));
+            return $this->redirect($this->generateUrl( 'soul_season' ));
         }
 
         return $this->render( 'ajax/soul/season.html.twig', $this->addDefaultTwigArgs("soul_season", [
@@ -614,7 +660,7 @@ class SoulController extends CustomAbstractController
 
         $pageContent = $this->entity_manager->getRepository(RolePlayTextPage::class)->findOneByRpAndPageNumber($rp->getText(), $page);
 
-        preg_match('/%asset%([a-zA-Z0-9.\/]+)%endasset%/', $pageContent->getContent(), $matches);
+        preg_match('/{asset}([a-zA-Z0-9.\/]+){endasset}/', $pageContent->getContent(), $matches);
 
         if(count($matches) > 0) {
             $pageContent->setContent(preg_replace("={$matches[0]}=", "<img src='" . $this->asset->getUrl($matches[1]) . "' alt='' />", $pageContent->getContent()));
@@ -757,6 +803,7 @@ class SoulController extends CustomAbstractController
 
         $user->setPreferSmallAvatars( (bool)$parser->get('sma', false) );
         $user->setDisableFx( (bool)$parser->get('disablefx', false) );
+        $user->setUseICU( (bool)$parser->get('useicu', false) );
         $this->entity_manager->persist( $user );
         $this->entity_manager->flush();
 
@@ -812,6 +859,24 @@ class SoulController extends CustomAbstractController
             return AjaxResponse::success();
 
         return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+    }
+
+    /**
+     * @Route("api/soul/settings/mod_tools_window", name="api_soul_mod_tools_window")
+     * @param JSONRequestParser $parser
+     * @param AdminActionHandler $admh
+     * @return Response
+     */
+    public function soul_mod_tools_window(JSONRequestParser $parser, AdminActionHandler $admh): Response {
+        $user = $this->getUser();
+
+        $new_window = $parser->get('same_window', false);
+        $user->setOpenModToolsSameWindow($new_window);
+
+        $this->entity_manager->persist($user);
+        $this->entity_manager->flush();
+
+        return AjaxResponse::success();
     }
 
     /**
@@ -889,40 +954,120 @@ class SoulController extends CustomAbstractController
     }
 
     /**
-     * @Route("api/soul/settings/change_password", name="api_soul_change_password")
+     * @Route("api/soul/settings/change_account_details", name="api_soul_change_account_details")
      * @param UserPasswordEncoderInterface $passwordEncoder
      * @param JSONRequestParser $parser
      * @param TokenStorageInterface $token
      * @return Response
      */
-    public function soul_settings_change_pass(UserPasswordEncoderInterface $passwordEncoder, JSONRequestParser $parser, TokenStorageInterface $token): Response
+    public function soul_settings_change_account_details(UserPasswordEncoderInterface $passwordEncoder, JSONRequestParser $parser, TokenStorageInterface $token): Response
     {
         $user = $this->getUser();
+        $new_pw = $parser->trimmed('pw_new', '');
+        $new_email = $parser->trimmed('email_new', '');
+        $confirm_token = $parser->trimmed('email_token', '');
 
         if ($this->isGranted('ROLE_DUMMY') && !$this->isGranted( 'ROLE_CROW' ))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
-        if ($this->isGranted('ROLE_ETERNAL'))
+        if ($this->isGranted('ROLE_ETERNAL') && !empty($new_pw))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
-        $new_pw = $parser->trimmed('pw_new', '');
-        if (mb_strlen($new_pw) < 6) return AjaxResponse::error(self::ErrorUserEditPasswordIncorrect);
+        $change = false;
 
-        if (!$passwordEncoder->isPasswordValid( $user, $parser->trimmed('pw') ))
-            return AjaxResponse::error(self::ErrorUserEditPasswordIncorrect );
+        if(!empty($new_pw)) {
+            if (mb_strlen($new_pw) < 6) return AjaxResponse::error(self::ErrorUserEditPasswordIncorrect);
 
-        $user
-            ->setPassword( $passwordEncoder->encodePassword($user, $parser->trimmed('pw_new')) )
-            ->setCheckInt($user->getCheckInt() + 1);
+            if (!$passwordEncoder->isPasswordValid( $user, $parser->trimmed('pw') ))
+                return AjaxResponse::error(self::ErrorUserEditPasswordIncorrect );
 
-        if ($rm_token = $this->entity_manager->getRepository(RememberMeTokens::class)->findOneBy(['user' => $user]))
-            $this->entity_manager->remove($rm_token);
+            $user
+                ->setPassword( $passwordEncoder->encodePassword($user, $parser->trimmed('pw_new')) )
+                ->setCheckInt($user->getCheckInt() + 1);
 
+            if ($rm_token = $this->entity_manager->getRepository(RememberMeTokens::class)->findOneBy(['user' => $user]))
+                $this->entity_manager->remove($rm_token);
+            $change = true;
+
+        }
+
+        if (!empty($new_email)) {
+            $user->setPendingEmail($new_email);
+            if (!$this->user_factory->announceValidationToken($this->user_factory->ensureValidation($user, UserPendingValidation::ChangeEmailValidation, true)))
+                return AjaxResponse::error(ErrorHelper::ErrorSendingEmail);
+            $change = true;
+        } else if (!empty($confirm_token)) {
+            if (($pending = $this->entity_manager->getRepository(UserPendingValidation::class)->findOneByTokenAndUserandType(
+                    $confirm_token, $user, UserPendingValidation::ChangeEmailValidation)) === null) {
+                return AjaxResponse::error(self::ErrorUserConfirmToken);
+            }
+
+            if ($pending->getUser() === null || ($user !== null && !$user->isEqualTo( $pending->getUser() ))) {
+                return AjaxResponse::error(self::ErrorUserConfirmToken);
+            }
+
+            if ($pending->getPkey() !== $confirm_token) {
+                return AjaxResponse::error(self::ErrorUserConfirmToken);
+            }
+
+            $user->setEmail($user->getPendingEmail());
+            $user->setPendingEmail(null);
+            $this->entity_manager->remove( $pending );
+            $change = true;
+        }
+
+        if ($change){
+            $message = [];
+            $this->entity_manager->persist($user);
+            $this->entity_manager->flush();
+
+            if (!empty($new_pw)) {
+                $message[] = $this->translator->trans('Dein Passwort wurde erfolgreich geändert. Bitte logge dich mit deinem neuen Passwort ein.', [], 'login');
+                $token->setToken(null);
+            }
+
+            if (!empty($new_email)) {
+                $message[] = $this->translator->trans('Deine E-Mail Adresse wurde geändert. Bitte validiere die neue Adresse, damit du sie verwenden kannst.', [], 'login');
+            }
+
+            $this->addFlash('notice', implode('<hr />', $message));
+        }
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/soul/settings/resend_token_email", name="api_soul_resend_token_email")
+     * @return Response
+     */
+    public function soul_settings_resend_token_email(): Response
+    {
+        $user = $this->getUser();
+
+        if ($this->user_factory->announceValidationToken($this->user_factory->ensureValidation($user, UserPendingValidation::ChangeEmailValidation, true))) {
+            return AjaxResponse::success();
+        }
+
+        return AjaxResponse::error();
+    }
+
+    /**
+     * @Route("api/soul/settings/cancel_token_email", name="api_soul_cancel_email_token")
+     * @return Response
+     */
+    public function soul_settings_cancel_token_email(): Response
+    {
+        $user = $this->getUser();
+
+        $token = $this->entity_manager->getRepository(UserPendingValidation::class)->findOneByUserAndType($user,UserPendingValidation::ChangeEmailValidation);
+
+        if ($token) {
+            $this->entity_manager->remove( $token );
+        }
+        $user->setPendingEmail(null);
         $this->entity_manager->persist($user);
         $this->entity_manager->flush();
 
-        $this->addFlash( 'notice', $this->translator->trans('Dein Passwort wurde erfolgreich geändert. Bitte logge dich mit deinem neuen Passwort ein.', [], 'login') );
-        $token->setToken(null);
         return AjaxResponse::success();
     }
 
@@ -970,7 +1115,7 @@ class SoulController extends CustomAbstractController
         $user->setDeleteAfter( new DateTime('+24hour') );
         $this->entity_manager->flush();
 
-        $this->addFlash( 'notice', $this->translator->trans('Auf wiedersehen, %name%. Wir werden dich vermissen und hoffen, dass du vielleicht doch noch einmal zurück kommst.', ['%name%' => $name], 'login') );
+        $this->addFlash( 'notice', $this->translator->trans('Auf wiedersehen, {name}. Wir werden dich vermissen und hoffen, dass du vielleicht doch noch einmal zurück kommst.', ['{name}' => $name], 'login') );
         $token->setToken(null);
         return AjaxResponse::success();
     }
@@ -1019,6 +1164,39 @@ class SoulController extends CustomAbstractController
     }
 
     /**
+     * @Route("api/soul/{id}/block/{action}", name="soul_block_control", requirements={"id"="\d+", "action"="\d+"})
+     * @param int $id
+     * @param int $action
+     * @return Response
+     */
+    public function soul_control_block(int $id, int $action): Response
+    {
+        if ($action !== 0 && $action !== 1) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $target_user = $this->entity_manager->getRepository(User::class)->find($id);
+        if ($target_user === null || $target_user === $this->getUser())
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        if ($this->user_handler->hasRole($target_user, 'ROLE_CROW'))
+            return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+
+        $is_blocked = $this->user_handler->checkRelation($this->getUser(), $target_user, SocialRelation::SocialRelationTypeBlock);
+        if (($is_blocked && $action === 1) || (!$is_blocked && $action === 0)) return AjaxResponse::success();
+
+        if ($action === 1) $this->entity_manager->persist( (new SocialRelation())->setType( SocialRelation::SocialRelationTypeBlock )->setOwner( $this->getUser())->setRelated( $target_user ) );
+        else $this->entity_manager->remove( $this->entity_manager->getRepository( SocialRelation::class )->findOneBy( ['owner' => $this->getUser(), 'related' => $target_user, 'type' => SocialRelation::SocialRelationTypeBlock ] ) );
+
+        try {
+            $this->entity_manager->flush();
+        } catch (Exception $e) { return AjaxResponse::error( ErrorHelper::ErrorDatabaseException ); }
+
+        if ($action === 1) $this->addFlash('notice', $this->translator->trans('Du hast diesen Spieler auf deine Blacklist gesetzt.', [], 'global'));
+        else $this->addFlash('notice', $this->translator->trans('Du hast diesen Spieler von deiner Blacklist genommen.', [], 'global'));
+
+        return AjaxResponse::success();
+    }
+
+    /**
      * @Route("api/soul/unsubscribe", name="api_unsubscribe")
      * @param JSONRequestParser $parser
      * @param SessionInterface $session
@@ -1039,7 +1217,7 @@ class SoulController extends CustomAbstractController
         // Here, we delete picto with persisted = 0,
         // and definitively validate picto with persisted = 1
         /** @var Picto[] $pendingPictosOfUser */
-        $pendingPictosOfUser = $this->entity_manager->getRepository(Picto::class)->findPendingByUser($user);
+        $pendingPictosOfUser = $this->entity_manager->getRepository(Picto::class)->findPendingByUserAndTown($user, $nextDeath->getTown());
         foreach ($pendingPictosOfUser as $pendingPicto) {
             if($pendingPicto->getPersisted() == 0)
                 $this->entity_manager->remove($pendingPicto);

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="de" trgLang="fr">
+  <file id="welcome.fr">
+    <unit id="7VfCrWl" name="Foren">
+      <notes>
+        <note category="german">Foren</note>
+        <note category="from">[unused]</note>
+      </notes>
+      <segment>
+        <source>Foren</source>
+        <target>Forums</target>
+      </segment>
+    </unit>
+    <unit id="a66OWC." name="Willkommen bei MyHordes">
+      <notes>
+        <note category="german">Willkommen bei MyHordes</note>
+        <note category="from">twig:///templates/ajax/public/intro.html.twig</note>
+      </notes>
+      <segment>
+        <source>Willkommen bei MyHordes</source>
+        <target>Bienvenue sur MyHordes</target>
+      </segment>
+    </unit>
+    <unit id="mbIzlHW" name="Zum Spiel">
+      <notes>
+        <note category="german">Zum Spiel</note>
+        <note category="from">twig:///templates/ajax/public/intro.html.twig</note>
+      </notes>
+      <segment>
+        <source>Zum Spiel</source>
+        <target>Jouer</target>
+      </segment>
+    </unit>
+    <unit id="M_25pDW" name="Account validieren">
+      <notes>
+        <note category="german">Account validieren</note>
+        <note category="from">twig:///templates/ajax/public/intro.html.twig</note>
+      </notes>
+      <segment>
+        <source>Account validieren</source>
+        <target>Valider le compte</target>
+      </segment>
+    </unit>
+    <unit id="vMG7P9w" name="Zum Login">
+      <notes>
+        <note category="german">Zum Login</note>
+        <note category="from">twig:///templates/ajax/public/intro.html.twig</note>
+      </notes>
+      <segment>
+        <source>Zum Login</source>
+        <target>Se connecter</target>
+      </segment>
+    </unit>
+    <unit id="lHIUXzm" name="Bürger gestorben">
+      <notes>
+        <note category="german">Bürger gestorben</note>
+        <note category="from">twig:///templates/ajax/public/intro.html.twig;twig:///templates/ajax/public/login.html.twig;twig:///templates/ajax/public/login_legacy.html.twig;twig:///templates/ajax/public/privacy.html.twig;twig:///templates/ajax/public/register.html.twig</note>
+      </notes>
+      <segment>
+        <source>Bürger gestorben</source>
+        <target>Citoyens tués</target>
+      </segment>
+    </unit>
+    <unit id="5bHzvXH" name="Zombies gekillt">
+      <notes>
+        <note category="german">Zombies gekillt</note>
+        <note category="from">twig:///templates/ajax/public/intro.html.twig;twig:///templates/ajax/public/login.html.twig;twig:///templates/ajax/public/login_legacy.html.twig;twig:///templates/ajax/public/privacy.html.twig;twig:///templates/ajax/public/register.html.twig</note>
+      </notes>
+      <segment>
+        <source>Zombies gekillt</source>
+        <target>Zombies exterminés</target>
+      </segment>
+    </unit>
+    <unit id="YlMROjW" name="Akte von Kannibalismus">
+      <notes>
+        <note category="german">Akte von Kannibalismus</note>
+        <note category="from">twig:///templates/ajax/public/intro.html.twig;twig:///templates/ajax/public/login.html.twig;twig:///templates/ajax/public/login_legacy.html.twig;twig:///templates/ajax/public/privacy.html.twig;twig:///templates/ajax/public/register.html.twig</note>
+      </notes>
+      <segment>
+        <source>Akte von Kannibalismus</source>
+        <target>Actes de cannibalisme</target>
+      </segment>
+    </unit>
+    <unit id="ad6M6Yb" name="Und das wird kaum besser werden...">
+      <notes>
+        <note category="german">Und das wird kaum besser werden...</note>
+        <note category="from">twig:///templates/ajax/public/intro.html.twig;twig:///templates/ajax/public/login.html.twig;twig:///templates/ajax/public/login_legacy.html.twig;twig:///templates/ajax/public/privacy.html.twig;twig:///templates/ajax/public/register.html.twig</note>
+      </notes>
+      <segment>
+        <source>Und das wird kaum besser werden...</source>
+        <target>et ça ne va pas en s'améliorant...</target>
+      </segment>
+    </unit>
+    <unit id="ksm96Ek" name="Willkommen bei MyHordes!">
+      <notes>
+        <note category="german">Willkommen bei MyHordes!</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>Willkommen bei MyHordes!</source>
+        <target>Bienvenue sur MyHordes !</target>
+      </segment>
+    </unit>
+    <unit id="Ybpua.N" name="Abonnierte Themen">
+      <notes>
+        <note category="german">Abonnierte Themen</note>
+        <note category="from">twig:///templates/ajax/forum/list.html.twig</note>
+      </notes>
+      <segment>
+        <source>Abonnierte Themen</source>
+        <target>Les sujets que je suis</target>
+      </segment>
+    </unit>
+    <unit id="P9PTDGu">
+      <notes>
+        <note category="german">MyHordes ist eine von der Community entwickelte offene Implementierung des Browser-Spiels "Die Verdammten" und seine anderen Versionen von {motiontwin}.</note>
+        <note category="from">twig:///templates/ajax/public/intro.html.twig</note>
+      </notes>
+      <segment>
+        <source>MyHordes ist eine von der Community entwickelte offene Implementierung des Browser-Spiels "Die Verdammten" und seine anderen Versionen von {motiontwin}.</source>
+        <target>MyHordes est une implémentation libre développée par la communauté du jeu "Hordes.fr" et de ses autres versions de {motiontwin}.</target>
+      </segment>
+    </unit>
+    <unit id="JyLklnq">
+      <notes>
+        <note category="german">Ziel des Projektes ist es, eine Version von "Die Verdammten" und seinen anderen Versionen zu erschaffen, die nicht nur nach der Flash-Abschaltung im Jahr 2020 funktionsfähig ist, sondern auch weiterentwickelt und mit neuen Inhalten versorgt werden kann.</note>
+        <note category="from">twig:///templates/ajax/public/intro.html.twig</note>
+      </notes>
+      <segment>
+        <source>Ziel des Projektes ist es, eine Version von "Die Verdammten" und seinen anderen Versionen zu erschaffen, die nicht nur nach der Flash-Abschaltung im Jahr 2020 funktionsfähig ist, sondern auch weiterentwickelt und mit neuen Inhalten versorgt werden kann.</source>
+        <target>Le but de ce projet est de créer une version de "Hordes.fr" et de ses autres versions qui soit fonctionnelle malgré l'arrêt de Flash en 2020, mais aussi de la faire évoluer avec du nouveau contenu.</target>
+      </segment>
+    </unit>
+    <unit id="psTpKgc">
+      <notes>
+        <note category="german">Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus "Die Verdammten" und seine anderen Versionen und sind damit Eigentum von {motiontwin}.</note>
+        <note category="from">twig:///templates/ajax/public/intro.html.twig;twig:///templates/ajax/public/privacy.html.twig</note>
+      </notes>
+      <segment>
+        <source>Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus "Die Verdammten" und seine anderen Versionen und sind damit Eigentum von {motiontwin}.</source>
+        <target>Sauf indication contraire, tous les éléments graphiques proviennent de "Hordes.fr" et de ses autres versions et sont la propriété de {motiontwin}.</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

@@ -13,7 +13,11 @@
                         {% else %}
                             <div class="pm-avatar empty"></div>
                         {% endif %}
-                        <div class="pm-userbox-name">{{ user.name }}</div>
+                        {% if user == owning_user %}
+                            <div class="pm-userbox-name"><i class="fa fa-crown"></i> <b>{{ user.name }}</b></div>
+                        {% else %}
+                            <div class="pm-userbox-name">{{ user.name }}</div>
+                        {% endif %}
                         {% if owner %}
                             {% if user != app.user %}
                                 <div class="pm-userbox-action" x-api-call="{{ path('pm_conv_group_user_kick', {gid: gid, uid: user.id}) }}">

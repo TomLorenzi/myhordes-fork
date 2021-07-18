@@ -3,6 +3,8 @@
 
 namespace App\Structures;
 
+use DateTime;
+
 class TownConf extends Conf
 {
     const CONF_ALLOW_LOCAL           = 'allow_local_conf';
@@ -62,6 +64,7 @@ class TownConf extends Conf
     const CONF_MODIFIER_POISON_STACK         = 'modifiers.poison.stack_poisoned_items';
     const CONF_MODIFIER_POISON_TRANS         = 'modifiers.poison.transgress';
     const CONF_MODIFIER_WT_THRESHOLD         = 'modifiers.watchtower_estimation_threshold';
+    const CONF_MODIFIER_WT_OFFSET            = 'modifiers.watchtower_estimation_offset';
     const CONF_MODIFIER_ALLOW_REDIGS         = 'modifiers.allow_redig';
     const CONF_MODIFIER_FLOOR_ASMBLY         = 'modifiers.assemble_items_from_floor';
     const CONF_MODIFIER_PRE_ASSEMBLY         = 'modifiers.preview_item_assemblage';
@@ -82,6 +85,8 @@ class TownConf extends Conf
     const CONF_MODIFIER_STRICT_PICTOS        = 'modifiers.strict_picto_distribution';
     const CONF_MODIFIER_RESPAWN_FACTOR       = 'modifiers.massive_respawn_factor';
     const CONF_MODIFIER_AUTOGHOUL_FROM       = 'modifiers.ghoul_infection_begin';
+    const CONF_MODIFIER_DAYTIME_RANGE        = 'modifiers.daytime.range';
+    const CONF_MODIFIER_DAYTIME_INVERT       = 'modifiers.daytime.invert';
 
     const CONF_FEATURE_CAMPING         = 'features.camping';
     const CONF_FEATURE_NIGHTMODE       = 'features.nightmode';
@@ -116,5 +121,16 @@ class TownConf extends Conf
                 $first = true;
             }
             else $this->import( $conf_block );
+    }
+
+    public function isNightMode(?DateTime $dateTime = null): bool {
+        return $this->get(TownConf::CONF_FEATURE_NIGHTMODE, true) && $this->isNightTime($dateTime);
+    }
+
+    public function isNightTime(?DateTime $dateTime = null): bool {
+        $h = (int)($dateTime ?? new DateTime())->format('H');
+        $range = $this->get(TownConf::CONF_MODIFIER_DAYTIME_RANGE, [7,18]);
+        return $this->get(TownConf::CONF_MODIFIER_DAYTIME_INVERT, false) !==
+            ($h < $range[0] || $h > $range[1]);
     }
 }

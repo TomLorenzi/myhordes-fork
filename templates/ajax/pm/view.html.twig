@@ -72,6 +72,11 @@
                                         <i class="fa fa-users"></i> {{ 'Teilnehmer'|trans({},'global') }}
                                     </div>
                                 </div>
+                                <div class="cell">
+                                    <div x-pm-action="block-sender" class="pm-button" id="block-single-button">
+                                        <i class="fa fa-shield-alt"></i> {{ 'Absender blockieren'|trans({},'global') }}
+                                    </div>
+                                </div>
                             </div>
 
                         </div>
@@ -158,6 +163,7 @@
 
 {% block js %}
     {{ parent() }}
+    {{ include('ajax/flash.html.twig') }}
     <script>
         (function() {
 
@@ -192,6 +198,10 @@
 
                     if (elem.getAttribute('x-userlist')) $.html.forEach('[x-pm-action="show-users"]', e => e.classList.remove('hidden'));
                     else $.html.forEach('[x-pm-action="show-users"]', e => e.classList.add('hidden'));
+
+                    if (elem.getAttribute('x-block'))
+                        $.html.forEach('[x-pm-action="block-sender"]', e => e.classList.remove('hidden'));
+                    else $.html.forEach('[x-pm-action="block-sender"]', e => e.classList.add('hidden'));
 
                     let editor = document.getElementById('global-pm-forum-editor');
                     if (editor) editor.innerText = '';
@@ -328,9 +338,30 @@
             document.getElementById('pm-conversation-list').addEventListener('scroll', fun_conv_loader_control);
 
             const fun_msg_events = function() {
+                $.html.addEventListenerAll('ul.group-conversation>li div[x-unveil]', 'click', function(e,elem) {
+                    document.querySelector('[x-domain="m-d"][x-identifier="' + elem.getAttribute('x-unveil') + '"]').classList.remove('collapsed');
+                });
                 $.html.addEventListenerAll('ul.group-conversation>li .pm-button[x-report-url]', 'click', function(e,elem) {
                     if (confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
                         $.ajax.easySend( elem.getAttribute('x-report-url'), {}, (data)=>{ if (data.msg) $.html.notice(data.msg); });
+                });
+                $.html.addEventListenerAll('ul.group-conversation>li .pm-button[x-pin-url]', 'click', function(e,elem) {
+                    if (confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
+                        $.ajax.easySend( elem.getAttribute('x-pin-url'), {}, ()=>{
+                            document.querySelector('[x-message-id="' + elem.getAttribute('x-message-id') + '"][x-pin-state="' + elem.getAttribute('x-pin-state') + '"]').classList.add('hidden');
+                            document.querySelector('[x-message-id="' + elem.getAttribute('x-message-id') + '"][x-pin-state]:not([x-pin-state="' + elem.getAttribute('x-pin-state') + '"])').classList.remove('hidden');
+                            let selected = document.querySelector('.pm-conversation-list>li.selected');
+                            if (selected) selected.click();
+                        });
+                });
+                $.html.addEventListenerAll('ul.group-conversation>li .pm-button[x-collapse-url]', 'click', function(e,elem) {
+                    if (confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
+                        $.ajax.easySend( elem.getAttribute('x-collapse-url'), {}, ()=>{
+                            if (elem.getAttribute('x-collapse-state') === "1")
+                                document.querySelector('[x-domain="m-d"][x-identifier="' + elem.getAttribute('x-message-id') + '"]').classList.add('collapsed');
+                            document.querySelector('[x-message-id="' + elem.getAttribute('x-message-id') + '"][x-collapse-state="' + elem.getAttribute('x-collapse-state') + '"]').classList.add('hidden');
+                            document.querySelector('[x-message-id="' + elem.getAttribute('x-message-id') + '"][x-collapse-state]:not([x-collapse-state="' + elem.getAttribute('x-collapse-state') + '"])').classList.remove('hidden');
+                        });
                 });
             }
 
@@ -481,7 +512,6 @@
             });
 
             $.html.addEventListenerAll('[x-pm-action="show-users"]', 'click', function () {
-
                 const selected_thread = document.querySelector('ul.pm-conversation-list>li[x-editor].selected');
                 let container = document.getElementById('pm-user-list-container');
                 let target = document.getElementById('pm-user-list-payload');
@@ -496,8 +526,22 @@
                     target.innerHTML = '';
                     document.getElementById('pm-user-list-container').classList.add('hidden');
                 }
+            });
 
+            $.html.addEventListenerAll('[x-pm-action="block-sender"]', 'click', function (e,elem) {
+                const selected_thread = document.querySelector('ul.pm-conversation-list>li[x-block].selected');
+                if (!selected_thread) return;
 
+                const preamble = selected_thread.getAttribute('x-block-name')
+                    ? ( '{{ '{user} blockieren'|trans({},'global')|e('js') }}\n\n'.replace('{user}', selected_thread.getAttribute('x-block-name')) )
+                    : '';
+                if (confirm(preamble +
+                    '{{ 'Wenn du den Absender dieser Nachricht blockierst, kann dieser dir keine neuen Nachrichten schicken. Werdet ihr beide von einer dritten Person in eine Gruppennachricht hinzugefügt, so werden Beiträge des blockierten Spielers standartmäßig für dich versteckt.'|trans({},'global')|e('js') }}' +
+                    '\n\n{{ 'Möchtest du fortfahren?'|trans({},'global')|e('js') }}')) {
+                    $.ajax.easySend(selected_thread.getAttribute('x-block'), {}, function() {
+                        $.ajax.load( document.getElementById('post-office-content'), '{{ path('pm_view')|e('js') }}' );
+                    });
+                }
             });
 
             $.html.addEventListenerAll('[x-pm-action="trash-single"]', 'click', function () {

@@ -1,0 +1,2399 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="de" trgLang="de">
+  <file id="admin.de">
+    <unit id="KANZ2Py" name="Diesen Bürger töten?">
+      <segment>
+        <source>Diesen Bürger töten?</source>
+        <target>Diesen Bürger töten?</target>
+      </segment>
+    </unit>
+    <unit id="kg5BPH1" name="Status">
+      <segment>
+        <source>Status</source>
+        <target>Status</target>
+      </segment>
+    </unit>
+    <unit id="1BvDdjk" name="Verbannt bis">
+      <segment>
+        <source>Verbannt bis</source>
+        <target>Verbannt bis</target>
+      </segment>
+    </unit>
+    <unit id="bZx3MQe" name="Aufheben">
+      <segment>
+        <source>Aufheben</source>
+        <target>Aufheben</target>
+      </segment>
+    </unit>
+    <unit id="gswoKQz" name="Letzte Verbannung">
+      <segment>
+        <source>Letzte Verbannung</source>
+        <target>Letzte Verbannung</target>
+      </segment>
+    </unit>
+    <unit id="KqvNLEL" name="Verbannungen">
+      <segment>
+        <source>Verbannungen</source>
+        <target>Verbannungen</target>
+      </segment>
+    </unit>
+    <unit id="0.QpL14" name="Verbannen">
+      <segment>
+        <source>Verbannen</source>
+        <target>Verbannen</target>
+      </segment>
+    </unit>
+    <unit id="Zoy_MWF" name="Dauer">
+      <segment>
+        <source>Dauer</source>
+        <target>Dauer</target>
+      </segment>
+    </unit>
+    <unit id="1E2BbPr" name="1 Tag">
+      <segment>
+        <source>1 Tag</source>
+        <target>1 Tag</target>
+      </segment>
+    </unit>
+    <unit id="JU_xNFX" name="3 Tage">
+      <segment>
+        <source>3 Tage</source>
+        <target>3 Tage</target>
+      </segment>
+    </unit>
+    <unit id="84RJxpK" name="5 Tage">
+      <segment>
+        <source>5 Tage</source>
+        <target>5 Tage</target>
+      </segment>
+    </unit>
+    <unit id="zEDFlzj" name="7 Tage">
+      <segment>
+        <source>7 Tage</source>
+        <target>7 Tage</target>
+      </segment>
+    </unit>
+    <unit id="GtUIerm" name="15 Tage">
+      <segment>
+        <source>15 Tage</source>
+        <target>15 Tage</target>
+      </segment>
+    </unit>
+    <unit id="WB_sVVK" name="30 Tage">
+      <segment>
+        <source>30 Tage</source>
+        <target>30 Tage</target>
+      </segment>
+    </unit>
+    <unit id="tF9Axzf" name="Grund">
+      <segment>
+        <source>Grund</source>
+        <target>Grund</target>
+      </segment>
+    </unit>
+    <unit id="r8Abf9v" name="Derzeitiges Leben">
+      <segment>
+        <source>Derzeitiges Leben</source>
+        <target>Derzeitiges Leben</target>
+      </segment>
+    </unit>
+    <unit id="XspCSk2" name="TOD NICHT BESTÄTIGT">
+      <segment>
+        <source>TOD NICHT BESTÄTIGT</source>
+        <target>TOD NICHT BESTÄTIGT</target>
+      </segment>
+    </unit>
+    <unit id="Cp7etpd" name="Kopfschuss">
+      <segment>
+        <source>Kopfschuss</source>
+        <target>Kopfschuss</target>
+      </segment>
+    </unit>
+    <unit id="Kt_pe8F" name="Tod bestätigen">
+      <segment>
+        <source>Tod bestätigen</source>
+        <target>Tod bestätigen</target>
+      </segment>
+    </unit>
+    <unit id="lS.zZKk" name="Das Leben dieses Bürgers sofort beenden?">
+      <segment>
+        <source>Das Leben dieses Bürgers sofort beenden?</source>
+        <target>Das Leben dieses Bürgers sofort beenden?</target>
+      </segment>
+    </unit>
+    <unit id=".fEIHVH" name="Tod dieses Bürgers zwangsweise bestätigen?">
+      <segment>
+        <source>Tod dieses Bürgers zwangsweise bestätigen?</source>
+        <target>Tod dieses Bürgers zwangsweise bestätigen?</target>
+      </segment>
+    </unit>
+    <unit id="8kHR6Z1" name="Akte">
+      <segment>
+        <source>Akte</source>
+        <target>Akte</target>
+      </segment>
+    </unit>
+    <unit id="Tae9Qqu" name="Forum">
+      <segment>
+        <source>Forum</source>
+        <target>Foren</target>
+      </segment>
+    </unit>
+    <unit id="BygLauq" name="Autor">
+      <segment>
+        <source>Autor</source>
+        <target>Autor</target>
+      </segment>
+    </unit>
+    <unit id="5qZlTRd" name="Meldungen">
+      <segment>
+        <source>Meldungen</source>
+        <target>Meldungen</target>
+      </segment>
+    </unit>
+    <unit id="YlkNCJx" name="gemeldet von">
+      <segment>
+        <source>gemeldet von</source>
+        <target>gemeldet von</target>
+      </segment>
+    </unit>
+    <unit id="wbOHhHO" name="Gesehen">
+      <segment>
+        <source>Gesehen</source>
+        <target>Gesehen</target>
+      </segment>
+    </unit>
+    <unit id="S8vqbzA" name="Verbannung">
+      <segment>
+        <source>Verbannung</source>
+        <target>Verbannung</target>
+      </segment>
+    </unit>
+    <unit id="FlZntyi" name="Bürger">
+      <segment>
+        <source>Bürger</source>
+        <target>Bürger</target>
+      </segment>
+    </unit>
+    <unit id="eRsa9rX" name="Beginne, einen Namen zu tippen, um alle passenden Nutzer anzuzeigen:">
+      <segment>
+        <source>Beginne, einen Namen zu tippen, um alle passenden Nutzer anzuzeigen:</source>
+        <target>Beginne, einen Namen zu tippen, um alle passenden Nutzer anzuzeigen:</target>
+      </segment>
+    </unit>
+    <unit id="UNGMFAu" name="Suche:">
+      <segment>
+        <source>Suche:</source>
+        <target>Suche:</target>
+      </segment>
+    </unit>
+    <unit id="fhsNVkH" name="Account">
+      <segment>
+        <source>Account</source>
+        <target>Account</target>
+      </segment>
+    </unit>
+    <unit id=".DCeMNu" name="Benutzername">
+      <segment>
+        <source>Benutzername</source>
+        <target>Benutzername</target>
+      </segment>
+    </unit>
+    <unit id="L65vsws" name="E-Mail">
+      <segment>
+        <source>E-Mail</source>
+        <target>E-Mail</target>
+      </segment>
+    </unit>
+    <unit id=".Dfg1PE" name="Validiert">
+      <segment>
+        <source>Validiert</source>
+        <target>Validiert</target>
+      </segment>
+    </unit>
+    <unit id="zenlipp" name="Ja">
+      <segment>
+        <source>Ja</source>
+        <target>Ja</target>
+      </segment>
+    </unit>
+    <unit id="kOvBveb" name="Nein">
+      <segment>
+        <source>Nein</source>
+        <target>Nein</target>
+      </segment>
+    </unit>
+    <unit id="yhpV6j2" name="Berechtigungsstufe">
+      <segment>
+        <source>Berechtigungsstufe</source>
+        <target>Berechtigungsstufe</target>
+      </segment>
+    </unit>
+    <unit id="9DAxndj" name="Spieler">
+      <segment>
+        <source>Spieler</source>
+        <target>Spieler</target>
+      </segment>
+    </unit>
+    <unit id="mP_cZCA" name="Krähe">
+      <segment>
+        <source>Krähe</source>
+        <target>Krähe</target>
+      </segment>
+    </unit>
+    <unit id="wcIksDz" name="Admin">
+      <segment>
+        <source>Admin</source>
+        <target>Admin</target>
+      </segment>
+    </unit>
+    <unit id=".ZDDrus" name="Validierungstokens">
+      <segment>
+        <source>Validierungstokens</source>
+        <target>Validierungstokens</target>
+      </segment>
+    </unit>
+    <unit id="ilcgFcS" name="Keine">
+      <segment>
+        <source>Keine</source>
+        <target>Keine</target>
+      </segment>
+    </unit>
+    <unit id="89Qjza1" name="User administrieren">
+      <segment>
+        <source>User administrieren</source>
+        <target>User administrieren</target>
+      </segment>
+    </unit>
+    <unit id="1L8hv8q" name="Validierung">
+      <segment>
+        <source>Validierung</source>
+        <target>Validierung</target>
+      </segment>
+    </unit>
+    <unit id="fMUMZY4" name="Erneute Validierung erzwingen">
+      <segment>
+        <source>Erneute Validierung erzwingen</source>
+        <target>Erneute Validierung erzwingen</target>
+      </segment>
+    </unit>
+    <unit id="1oFUORm" name="Manuell validieren">
+      <segment>
+        <source>Manuell validieren</source>
+        <target>Manuell validieren</target>
+      </segment>
+    </unit>
+    <unit id="TkGKlfl" name="Offene Token erneut ankündigen">
+      <segment>
+        <source>Offene Token erneut ankündigen</source>
+        <target>Offene Token erneut ankündigen</target>
+      </segment>
+    </unit>
+    <unit id="2EfsA22" name="Offene Token regenerieren">
+      <segment>
+        <source>Offene Token regenerieren</source>
+        <target>Offene Token regenerieren</target>
+      </segment>
+    </unit>
+    <unit id="RHTHUmC" name="Sicherheit">
+      <segment>
+        <source>Sicherheit</source>
+        <target>Sicherheit</target>
+      </segment>
+    </unit>
+    <unit id="gJTkU2W" name="Passwort-Reset auslösen">
+      <segment>
+        <source>Passwort-Reset auslösen</source>
+        <target>Passwort-Reset auslösen</target>
+      </segment>
+    </unit>
+    <unit id="GdwECmm" name="Passwort-Reset erzwingen">
+      <segment>
+        <source>Passwort-Reset erzwingen</source>
+        <target>Passwort-Reset erzwingen</target>
+      </segment>
+    </unit>
+    <unit id="6KnH3XO" name="Ausführen">
+      <segment>
+        <source>Ausführen</source>
+        <target>Ausführen</target>
+      </segment>
+    </unit>
+    <unit id="TSuzaPk" name="Übersicht">
+      <segment>
+        <source>Übersicht</source>
+        <target>Übersicht</target>
+      </segment>
+    </unit>
+    <unit id="gw9T6N6" name="Gewähltes Forum">
+      <segment>
+        <source>Gewähltes Forum</source>
+        <target>Gewähltes Forum</target>
+      </segment>
+    </unit>
+    <unit id="zTivRKG" name="Posts mit nur einer Meldung werden ausgeblendet.">
+      <segment>
+        <source>Posts mit nur einer Meldung werden ausgeblendet.</source>
+        <target>Posts mit nur einer Meldung werden ausgeblendet.</target>
+      </segment>
+    </unit>
+    <unit id="2GEnVsN" name="Alle anzeigen">
+      <segment>
+        <source>Alle anzeigen</source>
+        <target>Alle anzeigen</target>
+      </segment>
+    </unit>
+    <unit id="lb_oeKi" name="Du hast kein Forum ausgewählt.">
+      <segment>
+        <source>Du hast kein Forum ausgewählt.</source>
+        <target>Du hast kein Forum ausgewählt.</target>
+      </segment>
+    </unit>
+    <unit id="awzJBNC" name="Users">
+      <segment>
+        <source>Users</source>
+        <target>Users</target>
+      </segment>
+    </unit>
+    <unit id="h7YL9VW" name="Städte">
+      <segment>
+        <source>Städte</source>
+        <target>Städte</target>
+      </segment>
+    </unit>
+    <unit id="jA6UdTz" name="Zukunft">
+      <segment>
+        <source>Zukunft</source>
+        <target>Zukunft</target>
+      </segment>
+    </unit>
+    <unit id="fcC4_EM" name="Auszeichnungen">
+      <segment>
+        <source>Auszeichnungen</source>
+        <target>Auszeichnungen</target>
+      </segment>
+    </unit>
+    <unit id="8KPM2IV" name="Admin-Wachturm">
+      <segment>
+        <source>Admin-Wachturm</source>
+        <target>Admin-Wachturm</target>
+      </segment>
+    </unit>
+    <unit id="Sq.PLVK" name="Ruinenscanner">
+      <segment>
+        <source>Ruinenscanner</source>
+        <target>Ruinenscanner</target>
+      </segment>
+    </unit>
+    <unit id="OEOXHc." name="ID">
+      <segment>
+        <source>ID</source>
+        <target>ID</target>
+      </segment>
+    </unit>
+    <unit id="Bfb7kn4" name="Stadtname">
+      <segment>
+        <source>Stadtname</source>
+        <target>Stadtname</target>
+      </segment>
+    </unit>
+    <unit id="8qHMcfp" name="Sprache">
+      <segment>
+        <source>Sprache</source>
+        <target>Sprache</target>
+      </segment>
+    </unit>
+    <unit id="GwJBg8s" name="Typ">
+      <segment>
+        <source>Typ</source>
+        <target>Typ</target>
+      </segment>
+    </unit>
+    <unit id="W4KIYa7" name="Population">
+      <segment>
+        <source>Population</source>
+        <target>Population</target>
+      </segment>
+    </unit>
+    <unit id="fmZlI_I" name="Saison">
+      <segment>
+        <source>Saison</source>
+        <target>Saison</target>
+      </segment>
+    </unit>
+    <unit id="FQORaiq" name="Tag">
+      <segment>
+        <source>Tag</source>
+        <target>Tag</target>
+      </segment>
+    </unit>
+    <unit id="ZFCeGvS" name="Offen">
+      <segment>
+        <source>Offen</source>
+        <target>Offen</target>
+      </segment>
+    </unit>
+    <unit id="eoUwOj7" name="Chaos">
+      <segment>
+        <source>Chaos</source>
+        <target>Chaos</target>
+      </segment>
+    </unit>
+    <unit id="QO.RSCl" name="Zerstört">
+      <segment>
+        <source>Zerstört</source>
+        <target>Zerstört</target>
+      </segment>
+    </unit>
+    <unit id="vZWh3VH" name="Tor offen">
+      <segment>
+        <source>Tor offen</source>
+        <target>Tor offen</target>
+      </segment>
+    </unit>
+    <unit id="lQNhv.P" name="Brunnen">
+      <segment>
+        <source>Brunnen</source>
+        <target>Brunnen</target>
+      </segment>
+    </unit>
+    <unit id="DNyzXO8" name="Angriff">
+      <segment>
+        <source>Angriff</source>
+        <target>Angriff</target>
+      </segment>
+    </unit>
+    <unit id="ROsRjPo" name="Bereich Min">
+      <segment>
+        <source>Bereich Min</source>
+        <target>Bereich Min</target>
+      </segment>
+    </unit>
+    <unit id="nwAUKAU" name="Bereich Max">
+      <segment>
+        <source>Bereich Max</source>
+        <target>Bereich Max</target>
+      </segment>
+    </unit>
+    <unit id="bQMa8Q2" name="Position">
+      <segment>
+        <source>Position</source>
+        <target>Position</target>
+      </segment>
+    </unit>
+    <unit id="_ZJhoqB" name="Distanz">
+      <segment>
+        <source>Distanz</source>
+        <target>Distanz</target>
+      </segment>
+    </unit>
+    <unit id="8N0dl_g" name="Zombies">
+      <segment>
+        <source>Zombies</source>
+        <target>Zombies</target>
+      </segment>
+    </unit>
+    <unit id="QIZzCEw" name="Abdruck">
+      <segment>
+        <source>Abdruck</source>
+        <target>Abdruck</target>
+      </segment>
+    </unit>
+    <unit id="H716AMr" name="Schlüssel">
+      <segment>
+        <source>Schlüssel</source>
+        <target>Schlüssel</target>
+      </segment>
+    </unit>
+    <unit id="Q2ZDp94" name="Durchsucht">
+      <segment>
+        <source>Durchsucht</source>
+        <target>Durchsucht</target>
+      </segment>
+    </unit>
+    <unit id="VxMRN_s" name="Aktuelle Sitzung">
+      <segment>
+        <source>Aktuelle Sitzung</source>
+        <target>Aktuelle Sitzung</target>
+      </segment>
+    </unit>
+    <unit id="ajNZZUO" name="Flucht">
+      <segment>
+        <source>Flucht</source>
+        <target>Flucht</target>
+      </segment>
+    </unit>
+    <unit id="0vxeWOf" name="Raum">
+      <segment>
+        <source>Raum</source>
+        <target>Raum</target>
+      </segment>
+    </unit>
+    <unit id="dPJJMfT" name="Zeit">
+      <segment>
+        <source>Zeit</source>
+        <target>Zeit</target>
+      </segment>
+    </unit>
+    <unit id="ILol6i6" name="Alle Sitzungen">
+      <segment>
+        <source>Alle Sitzungen</source>
+        <target>Alle Sitzungen</target>
+      </segment>
+    </unit>
+    <unit id="kc92YAV" name="Stadtübersicht">
+      <segment>
+        <source>Stadtübersicht</source>
+        <target>Stadtübersicht</target>
+      </segment>
+    </unit>
+    <unit id="4Gs3q79" name="Liste aller Städte">
+      <segment>
+        <source>Liste aller Städte</source>
+        <target>Liste aller Städte</target>
+      </segment>
+    </unit>
+    <unit id="47Pj4uU" name="Pop.">
+      <segment>
+        <source>Pop.</source>
+        <target>Pop.</target>
+      </segment>
+    </unit>
+    <unit id="Vlb5Lbe" name="Aktionen">
+      <segment>
+        <source>Aktionen</source>
+        <target>Aktionen</target>
+      </segment>
+    </unit>
+    <unit id="ygfGVvY" name="Tot">
+      <segment>
+        <source>Tot</source>
+        <target>Tot</target>
+      </segment>
+    </unit>
+    <unit id="sMr3P0Z" name="Getrennt">
+      <segment>
+        <source>Getrennt</source>
+        <target>Getrennt</target>
+      </segment>
+    </unit>
+    <unit id="RZid5J_" name="Details">
+      <segment>
+        <source>Details</source>
+        <target>Details</target>
+      </segment>
+    </unit>
+    <unit id="q8r8gtq" name="Titel">
+      <segment>
+        <source>Titel</source>
+        <target>Titel</target>
+      </segment>
+    </unit>
+    <unit id="3RZ5Bd4" name="Version">
+      <segment>
+        <source>Version</source>
+        <target>Version</target>
+      </segment>
+    </unit>
+    <unit id="gvEcbOu" name="Neue Update">
+      <segment>
+        <source>Neue Update</source>
+        <target>Neues Update</target>
+      </segment>
+    </unit>
+    <unit id="eFGF2zF" name="Dieser Login ist ausschließlich für Administratoren gedacht.">
+      <segment>
+        <source>Dieser Login ist ausschließlich für Administratoren gedacht.</source>
+        <target>Dieser Login ist ausschließlich für Administratoren gedacht.</target>
+      </segment>
+    </unit>
+    <unit id="ZtFgVEb" name="Admin Dashboard">
+      <segment>
+        <source>Admin Dashboard</source>
+        <target>Admin Dashboard</target>
+      </segment>
+    </unit>
+    <unit id="aZibx3x" name="Server-Log herunterladen">
+      <segment>
+        <source>Server-Log herunterladen</source>
+        <target>Server-Log herunterladen</target>
+      </segment>
+    </unit>
+    <unit id="yvg6S11" name="Server-Log ansehen">
+      <segment>
+        <source>Server-Log ansehen</source>
+        <target>Server-Log ansehen</target>
+      </segment>
+    </unit>
+    <unit id="UYFKH.u" name="Server-Log löschen">
+      <segment>
+        <source>Server-Log löschen</source>
+        <target>Server-Log löschen</target>
+      </segment>
+    </unit>
+    <unit id="LzfXrql" name="Geplante Angriffe">
+      <segment>
+        <source>Geplante Angriffe</source>
+        <target>Geplante Angriffe</target>
+      </segment>
+    </unit>
+    <unit id="UzWLhrt" name="Überfällig seit {s} Sekunden!">
+      <segment>
+        <source>Überfällig seit {s} Sekunden!</source>
+        <target>Überfällig seit {s} Sekunden!</target>
+      </segment>
+    </unit>
+    <unit id=".vvAKHY" name="Soldatenberuf freischalten">
+      <segment>
+        <source>Soldatenberuf freischalten</source>
+        <target>Soldatenberuf freischalten</target>
+      </segment>
+    </unit>
+    <unit id="rhc00FL" name="999 AP zuweisen">
+      <segment>
+        <source>999 AP zuweisen</source>
+        <target>999 AP zuweisen</target>
+      </segment>
+    </unit>
+    <unit id="hkxRxBa" name="Munition erzeugen">
+      <segment>
+        <source>Munition erzeugen</source>
+        <target>Munition erzeugen</target>
+      </segment>
+    </unit>
+    <unit id="Hizwkp7" name="Admin-Berechtigung setzen">
+      <segment>
+        <source>Admin-Berechtigung setzen</source>
+        <target>Admin-Berechtigung setzen</target>
+      </segment>
+    </unit>
+    <unit id="zbkR0H6" name="+ 9999 Seelenpunkte">
+      <segment>
+        <source>+ 9999 Seelenpunkte</source>
+        <target>+ 9999 Seelenpunkte</target>
+      </segment>
+    </unit>
+    <unit id="WgSXz1." name="Geheime Saison freischalten">
+      <segment>
+        <source>Geheime Saison freischalten</source>
+        <target>Geheime Saison freischalten</target>
+      </segment>
+    </unit>
+    <unit id="B6BJJfF" name="Computer sagt nein.">
+      <segment>
+        <source>Computer sagt nein.</source>
+        <target>Computer sagt nein.</target>
+      </segment>
+    </unit>
+    <unit id="yu8TLDr" name="Du hast dich umgebracht.">
+      <segment>
+        <source>Du hast dich umgebracht.</source>
+        <target>Du hast dich umgebracht.</target>
+      </segment>
+    </unit>
+    <unit id="xkgfKms" name="Du gehörst keiner Stadt an.">
+      <segment>
+        <source>Du gehörst keiner Stadt an.</source>
+        <target>Du gehörst keiner Stadt an.</target>
+      </segment>
+    </unit>
+    <unit id="jnQ5tRO" name="Selbstmord begehen">
+      <segment>
+        <source>Selbstmord begehen</source>
+        <target>Selbstmord begehen</target>
+      </segment>
+    </unit>
+    <unit id="K_rzvjv" name="PM vom Raben">
+      <segment>
+        <source>PM vom Raben</source>
+        <target>PM vom Raben</target>
+      </segment>
+    </unit>
+    <unit id="nq1XXly" name="Stadtregister">
+      <segment>
+        <source>Stadtregister</source>
+        <target>Stadtregister</target>
+      </segment>
+    </unit>
+    <unit id="sqS3JFR" name="Rundmail als Rabe">
+      <segment>
+        <source>Rundmail als Rabe</source>
+        <target>Rundmail als Rabe</target>
+      </segment>
+    </unit>
+    <unit id="l2_e9hX" name="Stadt administrieren">
+      <segment>
+        <source>Stadt administrieren</source>
+        <target>Stadt administrieren</target>
+      </segment>
+    </unit>
+    <unit id="Enh.KhP" name="Nächtlicher Angriff">
+      <segment>
+        <source>Nächtlicher Angriff</source>
+        <target>Nächtlicher Angriff</target>
+      </segment>
+    </unit>
+    <unit id="YBKE35r" name="Quarantäne aufheben">
+      <segment>
+        <source>Quarantäne aufheben</source>
+        <target>Quarantäne aufheben</target>
+      </segment>
+    </unit>
+    <unit id="ZG32Cjn" name="Unter Quarantäne stellen">
+      <segment>
+        <source>Unter Quarantäne stellen</source>
+        <target>Unter Quarantäne stellen</target>
+      </segment>
+    </unit>
+    <unit id="akWsVTF" name="Manueller Tageswechsel">
+      <segment>
+        <source>Manueller Tageswechsel</source>
+        <target>Manueller Tageswechsel</target>
+      </segment>
+    </unit>
+    <unit id="w84b5LJ" name="Twinoid-Konto">
+      <segment>
+        <source>Twinoid-Konto</source>
+        <target>Twinoid-Konto</target>
+      </segment>
+    </unit>
+    <unit id="BCS.RQ1" name="Orakel">
+      <segment>
+        <source>Orakel</source>
+        <target>Orakel</target>
+      </segment>
+    </unit>
+    <unit id="HkzsKIz" name="Twinoid-Integration">
+      <segment>
+        <source>Twinoid-Integration</source>
+        <target>Twinoid-Integration</target>
+      </segment>
+    </unit>
+    <unit id="p2lp75S" name="Integrationen löschen">
+      <segment>
+        <source>Integrationen löschen</source>
+        <target>Integrationen löschen</target>
+      </segment>
+    </unit>
+    <unit id="oL3B9wW" name="Hauptseele zurücksetzen">
+      <segment>
+        <source>Hauptseele zurücksetzen</source>
+        <target>Hauptseele zurücksetzen</target>
+      </segment>
+    </unit>
+    <unit id="Le1sVIR" name="Du hast keine Berechtigung, diesen Benutzer zu administrieren!">
+      <segment>
+        <source>Du hast keine Berechtigung, diesen Benutzer zu administrieren!</source>
+        <target>Du hast keine Berechtigung, diesen Benutzer zu administrieren!</target>
+      </segment>
+    </unit>
+    <unit id="4mfTQ4I" name="Profil">
+      <segment>
+        <source>Profil</source>
+        <target>Profil</target>
+      </segment>
+    </unit>
+    <unit id="dbuAR1O" name="Neuen Namen eingeben.">
+      <segment>
+        <source>Neuen Namen eingeben.</source>
+        <target>Neuen Namen eingeben.</target>
+      </segment>
+    </unit>
+    <unit id="g_B_0fN" name="Umbenennen">
+      <segment>
+        <source>Umbenennen</source>
+        <target>Umbenennen</target>
+      </segment>
+    </unit>
+    <unit id="bC01IWH" name="Löschen">
+      <segment>
+        <source>Löschen</source>
+        <target>Löschen</target>
+      </segment>
+    </unit>
+    <unit id="A2t0n2E" name="Berechtigungen">
+      <segment>
+        <source>Berechtigungen</source>
+        <target>Berechtigungen</target>
+      </segment>
+    </unit>
+    <unit id="ZFErHHS" name="Gewähren: {role}">
+      <segment>
+        <source>Gewähren: {role}</source>
+        <target>Gewähren: {role}</target>
+      </segment>
+    </unit>
+    <unit id="BiuEB.T" name="Berechtigungsstufe zurücksetzen">
+      <segment>
+        <source>Berechtigungsstufe zurücksetzen</source>
+        <target>Berechtigungsstufe zurücksetzen</target>
+      </segment>
+    </unit>
+    <unit id="EHG8mpy" name="Bitte bestätige folgende Aktion:">
+      <segment>
+        <source>Bitte bestätige folgende Aktion:</source>
+        <target>Bitte bestätige folgende Aktion:</target>
+      </segment>
+    </unit>
+    <unit id="XCp8Tn4" name="Multi-Account Report">
+      <segment>
+        <source>Multi-Account Report</source>
+        <target>Multi-Account Report</target>
+      </segment>
+    </unit>
+    <unit id="NBT1t.l" name="Verdacht">
+      <segment>
+        <source>Verdacht</source>
+        <target>Verdacht</target>
+      </segment>
+    </unit>
+    <unit id="5D_B4LJ" name="Andere Accounts">
+      <segment>
+        <source>Andere Accounts</source>
+        <target>Andere Accounts</target>
+      </segment>
+    </unit>
+    <unit id="E6OsQAN" name="Bann">
+      <segment>
+        <source>Bann</source>
+        <target>Bann</target>
+      </segment>
+    </unit>
+    <unit id="oTFpWe9" name="Durch {admin} vom Spiel ausgeschlossen!">
+      <segment>
+        <source>Durch {admin} vom Spiel ausgeschlossen!</source>
+        <target>Durch {admin} vom Spiel ausgeschlossen!</target>
+      </segment>
+    </unit>
+    <unit id="jyuOkNg" name="Grund angeben">
+      <segment>
+        <source>Grund angeben</source>
+        <target>Grund angeben</target>
+      </segment>
+    </unit>
+    <unit id="Gn20uPe" name="Spielbann">
+      <segment>
+        <source>Spielbann</source>
+        <target>Spielbann</target>
+      </segment>
+    </unit>
+    <unit id="BfojyKe" name="Spielbann aufheben">
+      <segment>
+        <source>Spielbann aufheben</source>
+        <target>Spielbann aufheben</target>
+      </segment>
+    </unit>
+    <unit id="JFa7jtc" name="Verwaltung">
+      <segment>
+        <source>Verwaltung</source>
+        <target>Verwaltung</target>
+      </segment>
+    </unit>
+    <unit id="OEN26ap" name="Annulieren">
+      <segment>
+        <source>Annulieren</source>
+        <target>Annulieren</target>
+      </segment>
+    </unit>
+    <unit id="OasWqCK" name="Verschüttet">
+      <segment>
+        <source>Verschüttet</source>
+        <target>Verschüttet</target>
+      </segment>
+    </unit>
+    <unit id="XGKeQ9m" name="Multi-Account Whitelist">
+      <segment>
+        <source>Multi-Account Whitelist</source>
+        <target>Multi-Account Whitelist</target>
+      </segment>
+    </unit>
+    <unit id="8slYyDF" name="Spieler-ID">
+      <segment>
+        <source>Spieler-ID</source>
+        <target>Spieler-ID</target>
+      </segment>
+    </unit>
+    <unit id="101JnrD" name="Multi-Account Whitelist-Eintrag hinzufügen">
+      <segment>
+        <source>Multi-Account Whitelist-Eintrag hinzufügen</source>
+        <target>Multi-Account Whitelist-Eintrag hinzufügen</target>
+      </segment>
+    </unit>
+    <unit id=".rV_1n2" name="Verwende folgende Syntax, um deine Suche zu spezifizieren:">
+      <segment>
+        <source>Verwende folgende Syntax, um deine Suche zu spezifizieren:</source>
+        <target>Verwende folgende Syntax, um deine Suche zu spezifizieren:</target>
+      </segment>
+    </unit>
+    <unit id="E26lZPz" name="Klick, um Profil in neuem Tab zu öffnen">
+      <segment>
+        <source>Klick, um Profil in neuem Tab zu öffnen</source>
+        <target>Klick, um Profil in neuem Tab zu öffnen</target>
+      </segment>
+    </unit>
+    <unit id="KQDagiG" name="STRG+Klick, um zur Whitelist hinzuzufügen">
+      <segment>
+        <source>STRG+Klick, um zur Whitelist hinzuzufügen</source>
+        <target>STRG+Klick, um zur Whitelist hinzuzufügen</target>
+      </segment>
+    </unit>
+    <unit id="hVmvpi1" name="Whitelist">
+      <segment>
+        <source>Whitelist</source>
+        <target>Whitelist</target>
+      </segment>
+    </unit>
+    <unit id="GEzMtJe" name="E-Mail eingeben.">
+      <segment>
+        <source>E-Mail eingeben.</source>
+        <target>E-Mail eingeben.</target>
+      </segment>
+    </unit>
+    <unit id="lJqqLMl" name="E-Mail ändern">
+      <segment>
+        <source>E-Mail ändern</source>
+        <target>E-Mail ändern</target>
+      </segment>
+    </unit>
+    <unit id="5sAjGFp" name="Neues Passwort eingeben.">
+      <segment>
+        <source>Neues Passwort eingeben.</source>
+        <target>Neues Passwort eingeben.</target>
+      </segment>
+    </unit>
+    <unit id="n2HwFFe" name="Neues Passwort setzen">
+      <segment>
+        <source>Neues Passwort setzen</source>
+        <target>Neues Passwort setzen</target>
+      </segment>
+    </unit>
+    <unit id="V1ukt7Z" name="EternalTwin-Integration">
+      <segment>
+        <source>EternalTwin-Integration</source>
+        <target>EternalTwin-Integration</target>
+      </segment>
+    </unit>
+    <unit id="OkyzTP2" name="In lokalen Account umwandeln">
+      <segment>
+        <source>In lokalen Account umwandeln</source>
+        <target>In lokalen Account umwandeln</target>
+      </segment>
+    </unit>
+    <unit id="B9D7Dk5" name="Kartei">
+      <segment>
+        <source>Kartei</source>
+        <target>Kartei</target>
+      </segment>
+    </unit>
+    <unit id="OrLqzbq" name="Anzeigename">
+      <segment>
+        <source>Anzeigename</source>
+        <target>Anzeigename</target>
+      </segment>
+    </unit>
+    <unit id="kaV8fJ." name="Lokal: {account}">
+      <segment>
+        <source>Lokal: {account}</source>
+        <target>Lokal: {account}</target>
+      </segment>
+    </unit>
+    <unit id="OaKjJho" name="Von EternalTwin verwaltet">
+      <segment>
+        <source>Von EternalTwin verwaltet</source>
+        <target>Von EternalTwin verwaltet</target>
+      </segment>
+    </unit>
+    <unit id="uCT9EnO" name="Nur für Administratoren sichtbar">
+      <segment>
+        <source>Nur für Administratoren sichtbar</source>
+        <target>Nur für Administratoren sichtbar</target>
+      </segment>
+    </unit>
+    <unit id="pitbSje" name="Verknüpfte Konten">
+      <segment>
+        <source>Verknüpfte Konten</source>
+        <target>Verknüpfte Konten</target>
+      </segment>
+    </unit>
+    <unit id="L0eG_iZ" name="EternalTwin-Konto">
+      <segment>
+        <source>EternalTwin-Konto</source>
+        <target>EternalTwin-Konto</target>
+      </segment>
+    </unit>
+    <unit id="nz1fjZT" name="Sonstiges">
+      <segment>
+        <source>Sonstiges</source>
+        <target>Sonstiges</target>
+      </segment>
+    </unit>
+    <unit id="TklQ7Ze" name="AntiSpam">
+      <segment>
+        <source>AntiSpam</source>
+        <target>AntiSpam</target>
+      </segment>
+    </unit>
+    <unit id="j137AeF" name="Account zur Löschung vorgemerkt!">
+      <segment>
+        <source>Account zur Löschung vorgemerkt!</source>
+        <target>Account zur Löschung vorgemerkt!</target>
+      </segment>
+    </unit>
+    <unit id="Z3wFfH_" name="Anzahl der gelisteten Domains: {number}">
+      <segment>
+        <source>Anzahl der gelisteten Domains: {number}</source>
+        <target>Anzahl der gelisteten Domains: {number}</target>
+      </segment>
+    </unit>
+    <unit id="u.IOicZ" name="Domain-Suche">
+      <segment>
+        <source>Domain-Suche</source>
+        <target>Domain-Suche</target>
+      </segment>
+    </unit>
+    <unit id="zptHdme" name="Gewählte entfernen">
+      <segment>
+        <source>Gewählte entfernen</source>
+        <target>Gewählte entfernen</target>
+      </segment>
+    </unit>
+    <unit id="l.ziWyi" name="Domains hinzufügen">
+      <segment>
+        <source>Domains hinzufügen</source>
+        <target>Domains hinzufügen</target>
+      </segment>
+    </unit>
+    <unit id="y7lc8Ct" name="Hinzufügen">
+      <segment>
+        <source>Hinzufügen</source>
+        <target>Hinzufügen</target>
+      </segment>
+    </unit>
+    <unit id="_b4bK2O" name="Nachricht?">
+      <segment>
+        <source>Nachricht?</source>
+        <target>Nachricht?</target>
+      </segment>
+    </unit>
+    <unit id="XCTslOz" name="Foren-Meldungen">
+      <segment>
+        <source>Foren-Meldungen</source>
+        <target>Foren-Meldungen</target>
+      </segment>
+    </unit>
+    <unit id="EdJ7diC" name="PN-Meldungen">
+      <segment>
+        <source>PN-Meldungen</source>
+        <target>PN-Meldungen</target>
+      </segment>
+    </unit>
+    <unit id="vDhaMLU" name="Öffnen">
+      <segment>
+        <source>Öffnen</source>
+        <target>Öffnen</target>
+      </segment>
+    </unit>
+    <unit id="Z7aWRoY" name="Dashboard">
+      <segment>
+        <source>Dashboard</source>
+        <target>Dashboard</target>
+      </segment>
+    </unit>
+    <unit id="CgPo05m" name="Stadt {townname}">
+      <segment>
+        <source>Stadt {townname}</source>
+        <target>Stadt {townname}</target>
+      </segment>
+    </unit>
+    <unit id="Z2xHG8j" name="Bank">
+      <segment>
+        <source>Bank</source>
+        <target>Bank</target>
+      </segment>
+    </unit>
+    <unit id="id10hEL" name="Apps">
+      <segment>
+        <source>Apps</source>
+        <target>Apps</target>
+      </segment>
+    </unit>
+    <unit id="r.FNJtH" name="Einen Gegenstand erzeugen:">
+      <segment>
+        <source>Einen Gegenstand erzeugen:</source>
+        <target>Einen Gegenstand erzeugen:</target>
+      </segment>
+    </unit>
+    <unit id="pkg069a" name="Nummer des Gegenstandes:">
+      <segment>
+        <source>Nummer des Gegenstandes:</source>
+        <target>Anzahl des Gegenstandes:</target>
+      </segment>
+    </unit>
+    <unit id="9B3v_rN" name="Vergiftet:">
+      <segment>
+        <source>Vergiftet:</source>
+        <target>Vergiftet:</target>
+      </segment>
+    </unit>
+    <unit id="ba2jGNX" name="Zerstört:">
+      <segment>
+        <source>Zerstört:</source>
+        <target>Zerstört:</target>
+      </segment>
+    </unit>
+    <unit id="_vIjrdl" name="Essentiell:">
+      <segment>
+        <source>Essentiell:</source>
+        <target>Essentiell:</target>
+      </segment>
+    </unit>
+    <unit id="pAhkch3" name="Erzeugen!">
+      <segment>
+        <source>Erzeugen!</source>
+        <target>Erzeugen!</target>
+      </segment>
+    </unit>
+    <unit id="HMtmyP_" name="Rucksack">
+      <segment>
+        <source>Rucksack</source>
+        <target>Rucksack</target>
+      </segment>
+    </unit>
+    <unit id="n__v7g9" name="Truhe">
+      <segment>
+        <source>Truhe</source>
+        <target>Truhe</target>
+      </segment>
+    </unit>
+    <unit id="fUbvGiO" name="Leere Truhe">
+      <segment>
+        <source>Leere Truhe</source>
+        <target>Leere Truhe</target>
+      </segment>
+    </unit>
+    <unit id="fV5wxwj" name="In der Stadt">
+      <segment>
+        <source>In der Stadt</source>
+        <target>In der Stadt</target>
+      </segment>
+    </unit>
+    <unit id="I5qOX6_" name="Anwendung">
+      <segment>
+        <source>Anwendung</source>
+        <target>Anwendung</target>
+      </segment>
+    </unit>
+    <unit id="zO1HXOo" name="Besitzer">
+      <segment>
+        <source>Besitzer</source>
+        <target>Besitzer</target>
+      </segment>
+    </unit>
+    <unit id="Ml7s_dM" name="Kontakt">
+      <segment>
+        <source>Kontakt</source>
+        <target>Kontakt</target>
+      </segment>
+    </unit>
+    <unit id="zYXso4d" name="Name der Anwendung">
+      <segment>
+        <source>Name der Anwendung</source>
+        <target>Name der Anwendung</target>
+      </segment>
+    </unit>
+    <unit id="gwaSbiX" name="Niemand">
+      <segment>
+        <source>Niemand</source>
+        <target>Niemand</target>
+      </segment>
+    </unit>
+    <unit id="56JB3rr" name="URL">
+      <segment>
+        <source>URL</source>
+        <target>URL</target>
+      </segment>
+    </unit>
+    <unit id="Li9tZI." name="Anzeige">
+      <segment>
+        <source>Anzeige</source>
+        <target>Anzeige</target>
+      </segment>
+    </unit>
+    <unit id="YIZ57UG" name="Anwendungen im Testbetrieb können nur von ihrem Besitzer verwendet werden.">
+      <segment>
+        <source>Anwendungen im Testbetrieb können nur von ihrem Besitzer verwendet werden.</source>
+        <target>Anwendungen im Testbetrieb können nur von ihrem Besitzer verwendet werden.</target>
+      </segment>
+    </unit>
+    <unit id="pmqhEIB" name="Testbetrieb">
+      <segment>
+        <source>Testbetrieb</source>
+        <target>Testbetrieb</target>
+      </segment>
+    </unit>
+    <unit id="o1q81tr" name="Icon">
+      <segment>
+        <source>Icon</source>
+        <target>Icon</target>
+      </segment>
+    </unit>
+    <unit id="CgS2hD0" name="Datenzugriff">
+      <segment>
+        <source>Datenzugriff</source>
+        <target>Datenzugriff</target>
+      </segment>
+    </unit>
+    <unit id="PgM27MC" name="Anwendungen ohne API-Zugang werden nur als Links eingebunden.">
+      <segment>
+        <source>Anwendungen ohne API-Zugang werden nur als Links eingebunden.</source>
+        <target>Anwendungen ohne API-Zugang werden nur als Links eingebunden.</target>
+      </segment>
+    </unit>
+    <unit id="ftE4M1T" name="Zugang zur API">
+      <segment>
+        <source>Zugang zur API</source>
+        <target>Zugang zur API</target>
+      </segment>
+    </unit>
+    <unit id="oFJRNSD" name="Wird automatisch generiert">
+      <segment>
+        <source>Wird automatisch generiert</source>
+        <target>Wird automatisch generiert</target>
+      </segment>
+    </unit>
+    <unit id="NoNAzwa" name="Schlüssel regenerieren">
+      <segment>
+        <source>Schlüssel regenerieren</source>
+        <target>Schlüssel regenerieren</target>
+      </segment>
+    </unit>
+    <unit id="i2H25l5" name="Foren-Mod.">
+      <segment>
+        <source>Foren-Mod.</source>
+        <target>Foren-Mod.</target>
+      </segment>
+    </unit>
+    <unit id="EK4cGZo" name="Kurztexte">
+      <segment>
+        <source>Kurztexte</source>
+        <target>Kurztexte</target>
+      </segment>
+    </unit>
+    <unit id="PMRlWSR" name="Inhalt">
+      <segment>
+        <source>Inhalt</source>
+        <target>Inhalt</target>
+      </segment>
+    </unit>
+    <unit id="yqFNLUk" name="Neuen Kurztext anlegen">
+      <segment>
+        <source>Neuen Kurztext anlegen</source>
+        <target>Neuen Kurztext anlegen</target>
+      </segment>
+    </unit>
+    <unit id="EA6TVUx" name="ID eingeben">
+      <segment>
+        <source>ID eingeben</source>
+        <target>ID eingeben</target>
+      </segment>
+    </unit>
+    <unit id="8ZkPldW" name="Eine Auszeichnung auswählen:">
+      <segment>
+        <source>Eine Auszeichnung auswählen:</source>
+        <target>Eine Auszeichnungen auswählen:</target>
+      </segment>
+    </unit>
+    <unit id="jm_rhmk" name="Anzahl der Auszeichnungen:">
+      <segment>
+        <source>Anzahl der Auszeichnungen:</source>
+        <target>Anzahl der Auszeichnungen:</target>
+      </segment>
+    </unit>
+    <unit id="XtyN3Vk" name="Vergeben!">
+      <segment>
+        <source>Vergeben!</source>
+        <target>Vergeben!</target>
+      </segment>
+    </unit>
+    <unit id="BYzHaeg" name="Aktuelle Städte">
+      <segment>
+        <source>Aktuelle Städte</source>
+        <target>Aktuelle Städte</target>
+      </segment>
+    </unit>
+    <unit id="7BBdmva" name="Fertige Städte">
+      <segment>
+        <source>Fertige Städte</source>
+        <target>Fertige Städte</target>
+      </segment>
+    </unit>
+    <unit id="zFOkrfz" name="Importiert">
+      <segment>
+        <source>Importiert</source>
+        <target>Importiert</target>
+      </segment>
+    </unit>
+    <unit id="Z5HXK7D" name="Seite {page}/{total}">
+      <segment>
+        <source>Seite {page}/{total}</source>
+        <target>Seite {page}/{total}</target>
+      </segment>
+    </unit>
+    <unit id="HAvttwf" name="Gib den Namen der Stadt ein.">
+      <segment>
+        <source>Gib den Namen der Stadt ein.</source>
+        <target>Gib den Namen der Stadt ein.</target>
+      </segment>
+    </unit>
+    <unit id="F_ijNEI" name="Neue Anwendung registrieren">
+      <segment>
+        <source>Neue Anwendung registrieren</source>
+        <target>Neue Anwendung registrieren</target>
+      </segment>
+    </unit>
+    <unit id="MxCYTlN" name="Änderungen an '{appname}' speichern">
+      <segment>
+        <source>Änderungen an '{appname}' speichern</source>
+        <target>Änderungen an '{appname}' speichern</target>
+      </segment>
+    </unit>
+    <unit id="zLJ.A.A" name="Anzeigen">
+      <segment>
+        <source>Anzeigen</source>
+        <target>Anzeigen</target>
+      </segment>
+    </unit>
+    <unit id="t.MMG.6" name="Gegen {culprit}">
+      <segment>
+        <source>Gegen {culprit}</source>
+        <target>Gegen {culprit}</target>
+      </segment>
+    </unit>
+    <unit id="OeZ5Hgz" name="Anwendungen">
+      <segment>
+        <source>Anwendungen</source>
+        <target>Anwendungen</target>
+      </segment>
+    </unit>
+    <unit id="I2gx52t" name="Neue Anwendung">
+      <segment>
+        <source>Neue Anwendung</source>
+        <target>Neue Anwendung</target>
+      </segment>
+    </unit>
+    <unit id="MBDZMn9" name="Anwendung &quot;{external_app}&quot;">
+      <segment>
+        <source>Anwendung "{external_app}"</source>
+        <target>Anwendung "{external_app}"</target>
+      </segment>
+    </unit>
+    <unit id="IeSesrK" name="Log">
+      <segment>
+        <source>Log</source>
+        <target>Log</target>
+      </segment>
+    </unit>
+    <unit id="GYf8Lr5" name="Eine Auszeichnungen auswählen:">
+      <segment>
+        <source>Eine Auszeichnungen auswählen:</source>
+        <target>Eine Auszeichnung auswählen:</target>
+      </segment>
+    </unit>
+    <unit id="tAQPtd4" name="Einen Status auswählen:">
+      <segment>
+        <source>Einen Status auswählen:</source>
+        <target>Einen Status auswählen:</target>
+      </segment>
+    </unit>
+    <unit id="R7yBd_O" name="Vergeben">
+      <segment>
+        <source>Vergeben</source>
+        <target>Vergeben</target>
+      </segment>
+    </unit>
+    <unit id="OCg3Wi1" name="Entfernen">
+      <segment>
+        <source>Entfernen</source>
+        <target>Entfernen</target>
+      </segment>
+    </unit>
+    <unit id="S1OmuJB" name="Saisons">
+      <segment>
+        <source>Saisons</source>
+        <target>Saisons</target>
+      </segment>
+    </unit>
+    <unit id="wWE.yC2" name="Neue Saison">
+      <segment>
+        <source>Neue Saison</source>
+        <target>Neue Saison</target>
+      </segment>
+    </unit>
+    <unit id="pcCL6tz" name="Status vergeben">
+      <segment>
+        <source>Status vergeben</source>
+        <target>Status vergeben</target>
+      </segment>
+    </unit>
+    <unit id="PLdhbVW" name="Status entfernen">
+      <segment>
+        <source>Status entfernen</source>
+        <target>Status entfernen</target>
+      </segment>
+    </unit>
+    <unit id="YkT2Odb" name="Eine Rolle auswählen:">
+      <segment>
+        <source>Eine Rolle auswählen:</source>
+        <target>Eine Rolle auswählen:</target>
+      </segment>
+    </unit>
+    <unit id="v6OJxnk" name="Rolle vergeben">
+      <segment>
+        <source>Rolle vergeben</source>
+        <target>Rolle vergeben</target>
+      </segment>
+    </unit>
+    <unit id="sOLeN_J" name="Rolle entfernen">
+      <segment>
+        <source>Rolle entfernen</source>
+        <target>Rolle entfernen</target>
+      </segment>
+    </unit>
+    <unit id="x8Xk.ym" name="Bürger nach Sprache">
+      <segment>
+        <source>Bürger nach Sprache</source>
+        <target>Bürger nach Sprache</target>
+      </segment>
+    </unit>
+    <unit id="gvDyCm1" name="Geöffnet">
+      <segment>
+        <source>Geöffnet</source>
+        <target>Geöffnet</target>
+      </segment>
+    </unit>
+    <unit id="gTA4SQS" name="Leben">
+      <segment>
+        <source>Leben</source>
+        <target>Leben</target>
+      </segment>
+    </unit>
+    <unit id="wVUnsZu" name="Seasons">
+      <segment>
+        <source>Seasons</source>
+        <target>Seasons</target>
+      </segment>
+    </unit>
+    <unit id="5vc95gS" name="Akt.">
+      <segment>
+        <source>Akt.</source>
+        <target>Akt.</target>
+      </segment>
+    </unit>
+    <unit id="lzLlEpR" name="Nummer">
+      <segment>
+        <source>Nummer</source>
+        <target>Nummer</target>
+      </segment>
+    </unit>
+    <unit id="ZOp9mWZ" name="Sub-Nummer">
+      <segment>
+        <source>Sub-Nummer</source>
+        <target>Sub-Nummer</target>
+      </segment>
+    </unit>
+    <unit id="3NHVIj9" name="Name">
+      <segment>
+        <source>Name</source>
+        <target>Name</target>
+      </segment>
+    </unit>
+    <unit id="GCGUxtQ" name="Saison &quot;{season}&quot;">
+      <segment>
+        <source>Saison "{season}"</source>
+        <target>Saison "{season}"</target>
+      </segment>
+    </unit>
+    <unit id="3RyPmTj" name="Saison Nummer">
+      <segment>
+        <source>Saison Nummer</source>
+        <target>Saison Nummer</target>
+      </segment>
+    </unit>
+    <unit id="1uPFCaE" name="Saison Sub-Nummer">
+      <segment>
+        <source>Saison Sub-Nummer</source>
+        <target>Saison Sub-Nummer</target>
+      </segment>
+    </unit>
+    <unit id="V8mA5zz" name="Aktuelle Saison">
+      <segment>
+        <source>Aktuelle Saison</source>
+        <target>Aktuelle Saison</target>
+      </segment>
+    </unit>
+    <unit id="hIEL.qI" name="AP">
+      <segment>
+        <source>AP</source>
+        <target>AP</target>
+      </segment>
+    </unit>
+    <unit id="Q_CT7Yc" name="Setzen">
+      <segment>
+        <source>Setzen</source>
+        <target>Setzen</target>
+      </segment>
+    </unit>
+    <unit id="wM4Qh3r" name="Abziehen">
+      <segment>
+        <source>Abziehen</source>
+        <target>Abziehen</target>
+      </segment>
+    </unit>
+    <unit id="lEIUlKS" name="Changelogs">
+      <segment>
+        <source>Changelogs</source>
+        <target>Changelogs</target>
+      </segment>
+    </unit>
+    <unit id="vdD8Evg" name="Ankündigungen">
+      <segment>
+        <source>Ankündigungen</source>
+        <target>Ankündigungen</target>
+      </segment>
+    </unit>
+    <unit id="lkqERse" name="Neue Ankündigung">
+      <segment>
+        <source>Neue Ankündigung</source>
+        <target>Neue Ankündigung</target>
+      </segment>
+    </unit>
+    <unit id="OlFB1V6" name="Konstruktionen">
+      <segment>
+        <source>Konstruktionen</source>
+        <target>Konstruktionen</target>
+      </segment>
+    </unit>
+    <unit id="JgVl7oE" name="Gib den Namen oder die ID der Stadt ein.">
+      <segment>
+        <source>Gib den Namen oder die ID der Stadt ein.</source>
+        <target>Gib den Namen oder die ID der Stadt ein.</target>
+      </segment>
+    </unit>
+    <unit id="U4p3p8Q" name="Stimmen">
+      <segment>
+        <source>Stimmen</source>
+        <target>Stimmen</target>
+      </segment>
+    </unit>
+    <unit id="JCkhvqs" name="Für {target}">
+      <segment>
+        <source>Für {target}</source>
+        <target>Für {target}</target>
+      </segment>
+    </unit>
+    <unit id="jBGmXFb" name="Ersteller">
+      <segment>
+        <source>Ersteller</source>
+        <target>Ersteller</target>
+      </segment>
+    </unit>
+    <unit id="HQAYQ7y" name="Existierende Beschränkungen">
+      <segment>
+        <source>Existierende Beschränkungen</source>
+        <target>Existierende Beschränkungen</target>
+      </segment>
+    </unit>
+    <unit id="d.ixmWC" name="Dieser Spieler hat eine weiße Weste.">
+      <segment>
+        <source>Dieser Spieler hat eine weiße Weste.</source>
+        <target>Dieser Spieler hat eine weiße Weste.</target>
+      </segment>
+    </unit>
+    <unit id="qvAoyVN" name="Bestätigt von">
+      <segment>
+        <source>Bestätigt von</source>
+        <target>Bestätigt von</target>
+      </segment>
+    </unit>
+    <unit id="kTWILTI" name="Datum">
+      <segment>
+        <source>Datum</source>
+        <target>Datum</target>
+      </segment>
+    </unit>
+    <unit id="hrvEXJr" name="Endet">
+      <segment>
+        <source>Endet</source>
+        <target>Endet</target>
+      </segment>
+    </unit>
+    <unit id="FwMioy8" name="Info">
+      <segment>
+        <source>Info</source>
+        <target>Info</target>
+      </segment>
+    </unit>
+    <unit id="R9HFTdn" name="Neue Beschränkung hinzufügen">
+      <segment>
+        <source>Neue Beschränkung hinzufügen</source>
+        <target>Neue Beschränkung hinzufügen</target>
+      </segment>
+    </unit>
+    <unit id="o.gLHi8" name="24 Stunden">
+      <segment>
+        <source>24 Stunden</source>
+        <target>24 Stunden</target>
+      </segment>
+    </unit>
+    <unit id="JUr1eVI" name="{d} Tage">
+      <segment>
+        <source>{d} Tage</source>
+        <target>{d} Tage</target>
+      </segment>
+    </unit>
+    <unit id="YvnlIm5" name="Bestätigung erforderlich">
+      <segment>
+        <source>Bestätigung erforderlich</source>
+        <target>Bestätigung erforderlich</target>
+      </segment>
+    </unit>
+    <unit id="j.lIpae" name="1 Jahr">
+      <segment>
+        <source>1 Jahr</source>
+        <target>1 Jahr</target>
+      </segment>
+    </unit>
+    <unit id="vFTx03L" name="Admin-Bestätigung erforderlich">
+      <segment>
+        <source>Admin-Bestätigung erforderlich</source>
+        <target>Admin-Bestätigung erforderlich</target>
+      </segment>
+    </unit>
+    <unit id="rX0oy40" name="2 Jahre">
+      <segment>
+        <source>2 Jahre</source>
+        <target>2 Jahre</target>
+      </segment>
+    </unit>
+    <unit id="NhpWriw" name="Dauerhaft">
+      <segment>
+        <source>Dauerhaft</source>
+        <target>Dauerhaft</target>
+      </segment>
+    </unit>
+    <unit id="IvHcoEk" name="Interner Vermerk">
+      <segment>
+        <source>Interner Vermerk</source>
+        <target>Interner Vermerk</target>
+      </segment>
+    </unit>
+    <unit id="VBYHRyg" name="Art der Beschränkung">
+      <segment>
+        <source>Art der Beschränkung</source>
+        <target>Art der Beschränkung</target>
+      </segment>
+    </unit>
+    <unit id="t5PuA4i" name="Soziale Interaktion verbieten">
+      <segment>
+        <source>Soziale Interaktion verbieten</source>
+        <target>Soziale Interaktion verbieten</target>
+      </segment>
+    </unit>
+    <unit id="N35nJiR" name="Posten in Foren verbieten">
+      <segment>
+        <source>Posten in Foren verbieten</source>
+        <target>Posten in Foren verbieten</target>
+      </segment>
+    </unit>
+    <unit id="S.Z0svV" name="Stadt-interne Kommunikation verbieten">
+      <segment>
+        <source>Stadt-interne Kommunikation verbieten</source>
+        <target>Stadt-interne Kommunikation verbieten</target>
+      </segment>
+    </unit>
+    <unit id="TofCy.V" name="Stadtübergreifende Kommunikation verbieten">
+      <segment>
+        <source>Stadtübergreifende Kommunikation verbieten</source>
+        <target>Stadtübergreifende Kommunikation verbieten</target>
+      </segment>
+    </unit>
+    <unit id="4Ih2_KV" name="Kommentare verbieten">
+      <segment>
+        <source>Kommentare verbieten</source>
+        <target>Kommentare verbieten</target>
+      </segment>
+    </unit>
+    <unit id="Hk8oxc5" name="Organisation in Gruppen verbieten">
+      <segment>
+        <source>Organisation in Gruppen verbieten</source>
+        <target>Organisation in Gruppen verbieten</target>
+      </segment>
+    </unit>
+    <unit id="IdwEk1H" name="Spielen verbieten">
+      <segment>
+        <source>Spielen verbieten</source>
+        <target>Spielen verbieten</target>
+      </segment>
+    </unit>
+    <unit id="67OtxCl">
+      <segment>
+        <source>Diese Account-Beschränkung muss von einem anderen Moderator bestätigt werden, bevor sie aktiv wird.</source>
+        <target>Diese Account-Beschränkung muss von einem anderen Moderator bestätigt werden, bevor sie aktiv wird.</target>
+      </segment>
+    </unit>
+    <unit id="6q.DKYz" name="Die Dauer der Beschränkung zählt erst ab dem Moment, wo sie aktiviert wird.">
+      <segment>
+        <source>Die Dauer der Beschränkung zählt erst ab dem Moment, wo sie aktiviert wird.</source>
+        <target>Die Dauer der Beschränkung zählt erst ab dem Moment, wo sie aktiviert wird.</target>
+      </segment>
+    </unit>
+    <unit id="3Bzuyaj">
+      <segment>
+        <source>Diese Account-Beschränkung muss von einem Administrator bestätigt werden, bevor sie aktiv wird.</source>
+        <target>Diese Account-Beschränkung muss von einem Administrator bestätigt werden, bevor sie aktiv wird.</target>
+      </segment>
+    </unit>
+    <unit id="Fz9FcFZ" name="Stadt ansehen">
+      <segment>
+        <source>Stadt ansehen</source>
+        <target>Stadt ansehen</target>
+      </segment>
+    </unit>
+    <unit id="DJfkxFo" name="Nicht bestätigt!">
+      <segment>
+        <source>Nicht bestätigt!</source>
+        <target>Nicht bestätigt!</target>
+      </segment>
+    </unit>
+    <unit id="jpPy6FB" name="Abgelaufen">
+      <segment>
+        <source>Abgelaufen</source>
+        <target>Abgelaufen</target>
+      </segment>
+    </unit>
+    <unit id="ifwhezW" name="Deaktiviert">
+      <segment>
+        <source>Deaktiviert</source>
+        <target>Deaktiviert</target>
+      </segment>
+    </unit>
+    <unit id="dd81ecc" name="Art">
+      <segment>
+        <source>Art</source>
+        <target>Art</target>
+      </segment>
+    </unit>
+    <unit id="Dm3TgUa" name="Sozial">
+      <segment>
+        <source>Sozial</source>
+        <target>Sozial</target>
+      </segment>
+    </unit>
+    <unit id="3a9NlWd" name="Stadt-Kom.">
+      <segment>
+        <source>Stadt-Kom.</source>
+        <target>Stadt-Kom.</target>
+      </segment>
+    </unit>
+    <unit id="gIfLcdm" name="Globale Kom.">
+      <segment>
+        <source>Globale Kom.</source>
+        <target>Globale Kom.</target>
+      </segment>
+    </unit>
+    <unit id="4L8kPem" name="Kommentare">
+      <segment>
+        <source>Kommentare</source>
+        <target>Kommentare</target>
+      </segment>
+    </unit>
+    <unit id="mQVpay." name="Org.">
+      <segment>
+        <source>Org.</source>
+        <target>Org.</target>
+      </segment>
+    </unit>
+    <unit id="aE.gAX6" name="Spiel">
+      <segment>
+        <source>Spiel</source>
+        <target>Spiel</target>
+      </segment>
+    </unit>
+    <unit id="FbY7TeM" name="Bestätigen">
+      <segment>
+        <source>Bestätigen</source>
+        <target>Bestätigen</target>
+      </segment>
+    </unit>
+    <unit id="vsOyofZ" name="Schwarzes Brett">
+      <segment>
+        <source>Schwarzes Brett</source>
+        <target>Schwarzes Brett</target>
+      </segment>
+    </unit>
+    <unit id="rDIuKb4" name="Stadt füllen">
+      <segment>
+        <source>Stadt füllen</source>
+        <target>Stadt füllen</target>
+      </segment>
+    </unit>
+    <unit id="I6NYwV3" name="Bank füllen">
+      <segment>
+        <source>Bank füllen</source>
+        <target>Bank füllen</target>
+      </segment>
+    </unit>
+    <unit id="NECchbh" name="Banksperre aufheben">
+      <segment>
+        <source>Banksperre aufheben</source>
+        <target>Banksperre aufheben</target>
+      </segment>
+    </unit>
+    <unit id="HBKEVAD" name="Durst aufheben">
+      <segment>
+        <source>Durst aufheben</source>
+        <target>Durst aufheben</target>
+      </segment>
+    </unit>
+    <unit id="9hzLkBp" name="Alle Spieler entkoppeln">
+      <segment>
+        <source>Alle Spieler entkoppeln</source>
+        <target>Alle Spieler entkoppeln</target>
+      </segment>
+    </unit>
+    <unit id="t5vj7sC" name="Alle Spieler koppeln">
+      <segment>
+        <source>Alle Spieler koppeln</source>
+        <target>Alle Spieler koppeln</target>
+      </segment>
+    </unit>
+    <unit id="qKBuSla" name="Zone">
+      <segment>
+        <source>Zone</source>
+        <target>Zone</target>
+      </segment>
+    </unit>
+    <unit id="QzMRMH1" name="Leere Zone">
+      <segment>
+        <source>Leere Zone</source>
+        <target>Leere Zone</target>
+      </segment>
+    </unit>
+    <unit id="dgw_NYB" name="Entkoppelte Leben">
+      <segment>
+        <source>Entkoppelte Leben</source>
+        <target>Entkoppelte Leben</target>
+      </segment>
+    </unit>
+    <unit id="TLxPMB8" name="Entkoppeln">
+      <segment>
+        <source>Entkoppeln</source>
+        <target>Entkoppeln</target>
+      </segment>
+    </unit>
+    <unit id="hn7LsRJ" name="Punkte">
+      <segment>
+        <source>Punkte</source>
+        <target>Punkte</target>
+      </segment>
+    </unit>
+    <unit id="dPobLXQ" name="Rollen">
+      <segment>
+        <source>Rollen</source>
+        <target>Rollen</target>
+      </segment>
+    </unit>
+    <unit id="LsFE_gX" name="Versteckter Status">
+      <segment>
+        <source>Versteckter Status</source>
+        <target>Versteckter Status</target>
+      </segment>
+    </unit>
+    <unit id="bauA9lx" name="Versteckt:">
+      <segment>
+        <source>Versteckt:</source>
+        <target>Versteckt:</target>
+      </segment>
+    </unit>
+    <unit id="Fe136ia" name="Kein Bürger ausgewählt!">
+      <segment>
+        <source>Kein Bürger ausgewählt!</source>
+        <target>Kein Bürger ausgewählt!</target>
+      </segment>
+    </unit>
+    <unit id="NrcXgR7" name="BP">
+      <segment>
+        <source>BP</source>
+        <target>BP</target>
+      </segment>
+    </unit>
+    <unit id="IErGaoh" name="MP">
+      <segment>
+        <source>MP</source>
+        <target>MP</target>
+      </segment>
+    </unit>
+    <unit id="tVQnz.X" name="Einen Beruf auswählen:">
+      <segment>
+        <source>Einen Beruf auswählen:</source>
+        <target>Einen Beruf auswählen:</target>
+      </segment>
+    </unit>
+    <unit id="_Kc4j.e" name="Stadt anlegen">
+      <segment>
+        <source>Stadt anlegen</source>
+        <target>Stadt anlegen</target>
+      </segment>
+    </unit>
+    <unit id="yo6CbZw" name="Avatar">
+      <segment>
+        <source>Avatar</source>
+        <target>Avatar</target>
+      </segment>
+    </unit>
+    <unit id="A2Ihk63" name="Profilbeschreibung">
+      <segment>
+        <source>Profilbeschreibung</source>
+        <target>Profilbeschreibung</target>
+      </segment>
+    </unit>
+    <unit id="5AoQtM8" name="Änderungen am Profil verbieten">
+      <segment>
+        <source>Änderungen am Profil verbieten</source>
+        <target>Änderungen am Profil verbieten</target>
+      </segment>
+    </unit>
+    <unit id="o2BjdF6" name="Ändern des Avatars verbieten">
+      <segment>
+        <source>Ändern des Avatars verbieten</source>
+        <target>Ändern des Avatars verbieten</target>
+      </segment>
+    </unit>
+    <unit id="es9o32g" name="Ändern der Profilbeschreibung verbieten">
+      <segment>
+        <source>Ändern der Profilbeschreibung verbieten</source>
+        <target>Ändern der Profilbeschreibung verbieten</target>
+      </segment>
+    </unit>
+    <unit id="tJ4N6CO" name="Ändern des Titels verbieten">
+      <segment>
+        <source>Ändern des Titels verbieten</source>
+        <target>Ändern des Titels verbieten</target>
+      </segment>
+    </unit>
+    <unit id="nXkHd12" name="Anzeigenamen ändern">
+      <segment>
+        <source>Anzeigenamen ändern</source>
+        <target>Anzeigenamen ändern</target>
+      </segment>
+    </unit>
+    <unit id="zX2Ikki" name="Anzeigenamen entfernen">
+      <segment>
+        <source>Anzeigenamen entfernen</source>
+        <target>Anzeigenamen entfernen</target>
+      </segment>
+    </unit>
+    <unit id="ZBGzbqz" name="Avatar entfernen">
+      <segment>
+        <source>Avatar entfernen</source>
+        <target>Avatar entfernen</target>
+      </segment>
+    </unit>
+    <unit id="5yzpFRy" name="Profilbeschreibung entfernen">
+      <segment>
+        <source>Profilbeschreibung entfernen</source>
+        <target>Profilbeschreibung entfernen</target>
+      </segment>
+    </unit>
+    <unit id="R1lleS7" name="Titel &amp; Icon entfernen">
+      <segment>
+        <source>Titel &amp; Icon entfernen</source>
+        <target><![CDATA[Titel & Icon entfernen]]></target>
+      </segment>
+    </unit>
+    <unit id="BaVbT2z" name="Neuer Füllstand:">
+      <segment>
+        <source>Neuer Füllstand:</source>
+        <target>Neuer Füllstand:</target>
+      </segment>
+    </unit>
+    <unit id="dIVIxL." name="Brunnen-Füllstand setzen">
+      <segment>
+        <source>Brunnen-Füllstand setzen</source>
+        <target>Brunnen-Füllstand setzen</target>
+      </segment>
+    </unit>
+    <unit id="2xHk8Wn" name="Alle Gebäude freischalten">
+      <segment>
+        <source>Alle Gebäude freischalten</source>
+        <target>Alle Gebäude freischalten</target>
+      </segment>
+    </unit>
+    <unit id="IurwAt2" name="Baufortschritt setzen:">
+      <segment>
+        <source>Baufortschritt setzen:</source>
+        <target>Baufortschritt setzen:</target>
+      </segment>
+    </unit>
+    <unit id="C0IagjD" name="Integrität setzen:">
+      <segment>
+        <source>Integrität setzen:</source>
+        <target>Integrität setzen:</target>
+      </segment>
+    </unit>
+    <unit id="PmdlsrB" name="Neue Anzahl:">
+      <segment>
+        <source>Neue Anzahl:</source>
+        <target>Neue Anzahl:</target>
+      </segment>
+    </unit>
+    <unit id="VxMIE8o" name="Heldentage setzen">
+      <segment>
+        <source>Heldentage setzen</source>
+        <target>Heldentage setzen</target>
+      </segment>
+    </unit>
+    <unit id="RkHxHq_" name="Hausverbesserungen:">
+      <segment>
+        <source>Hausverbesserungen:</source>
+        <target>Hausverbesserungen:</target>
+      </segment>
+    </unit>
+    <unit id="hiqEnyg" name="Teleportieren:">
+      <segment>
+        <source>Teleportieren:</source>
+        <target>Teleportieren:</target>
+      </segment>
+    </unit>
+    <unit id="rwkqvEL" name="In die Stadt">
+      <segment>
+        <source>In die Stadt</source>
+        <target>In die Stadt</target>
+      </segment>
+    </unit>
+    <unit id="9L29399" name="Zu einer Zone">
+      <segment>
+        <source>Zu einer Zone</source>
+        <target>Zu einer Zone</target>
+      </segment>
+    </unit>
+    <unit id="qD9loXa" name="Neue Saison registrieren">
+      <segment>
+        <source>Neue Saison registrieren</source>
+        <target>Neue Saison registrieren</target>
+      </segment>
+    </unit>
+    <unit id="bIa5kIj" name="Änderungen speichern">
+      <segment>
+        <source>Änderungen speichern</source>
+        <target>Änderungen speichern</target>
+      </segment>
+    </unit>
+    <unit id="ohcn8tz" name="Freundschaftswerbung">
+      <segment>
+        <source>Freundschaftswerbung</source>
+        <target>Freundschaftswerbung</target>
+      </segment>
+    </unit>
+    <unit id="uIkrK0q" name="Ref-Namen ändern">
+      <segment>
+        <source>Ref-Namen ändern</source>
+        <target>Ref-Namen ändern</target>
+      </segment>
+    </unit>
+    <unit id="o81xxnX" name="Ref-Namen sperren">
+      <segment>
+        <source>Ref-Namen sperren</source>
+        <target>Ref-Namen sperren</target>
+      </segment>
+    </unit>
+    <unit id="hYqcqsf" name="Ref-Namen entsprerren">
+      <segment>
+        <source>Ref-Namen entsprerren</source>
+        <target>Ref-Namen entsprerren</target>
+      </segment>
+    </unit>
+    <unit id="TcAZPZH" name="Sponsor setzen">
+      <segment>
+        <source>Sponsor setzen</source>
+        <target>Sponsor setzen</target>
+      </segment>
+    </unit>
+    <unit id="eeN3gHp" name="Ref-Name">
+      <segment>
+        <source>Ref-Name</source>
+        <target>Ref-Name</target>
+      </segment>
+    </unit>
+    <unit id="ZzLzTI." name="Gesponsort von">
+      <segment>
+        <source>Gesponsort von</source>
+        <target>Gesponsort von</target>
+      </segment>
+    </unit>
+    <unit id="MJJ_lOb" name="Gesponsorte Spieler">
+      <segment>
+        <source>Gesponsorte Spieler</source>
+        <target>Gesponsorte Spieler</target>
+      </segment>
+    </unit>
+    <unit id="QWjy74v" name="Basierend auf Tag (frei lassen, um aktuellen Tag zu verwenden):">
+      <segment>
+        <source>Basierend auf Tag (frei lassen, um aktuellen Tag zu verwenden):</source>
+        <target>Basierend auf Tag (frei lassen, um aktuellen Tag zu verwenden):</target>
+      </segment>
+    </unit>
+    <unit id="m56Z2c0" name="Zombie-Spread ausführen">
+      <segment>
+        <source>Zombie-Spread ausführen</source>
+        <target>Zombie-Spread ausführen</target>
+      </segment>
+    </unit>
+    <unit id="EPOEUwe">
+      <segment>
+        <source>Format: "{x0}/{y0}:{x1}/{y1},{zombies}" (Bereich) oder "{x}/{y},{zombies}" (einzelne Zone), zum Beispiel "-1/3:-4/2,5". Statt der Positionsangabe kann "all" verwendet werden. Statt einem numerischen Wert für die Zahl der Zombies ist folgendes ebenfalls gültig: "today" (Anzahl der Zombies beim letzten Tageswechsel), "initial" (Anzahl der Zombies an Tag 1).</source>
+        <target>Format: "{x0}/{y0}:{x1}/{y1},{zombies}" (Bereich) oder "{x}/{y},{zombies}" (einzelne Zone), zum Beispiel "-1/3:-4/2,5". Statt der Positionsangabe kann "all" verwendet werden. Statt einem numerischen Wert für die Zahl der Zombies ist folgendes ebenfalls gültig: "today" (Anzahl der Zombies beim letzten Tageswechsel), "initial" (Anzahl der Zombies an Tag 1).</target>
+      </segment>
+    </unit>
+    <unit id="_kkbddG" name="Zombies setzen">
+      <segment>
+        <source>Zombies setzen</source>
+        <target>Zombies setzen</target>
+      </segment>
+    </unit>
+    <unit id="TCnrA_Z" name="Basierend auf Tag (frei lassen, um aktuellen Tag zu verwenden)">
+      <segment>
+        <source>Basierend auf Tag (frei lassen, um aktuellen Tag zu verwenden)</source>
+        <target>Basierend auf Tag (frei lassen, um aktuellen Tag zu verwenden)</target>
+      </segment>
+    </unit>
+    <unit id="j9J2yMz" name="Gruppen">
+      <segment>
+        <source>Gruppen</source>
+        <target>Gruppen</target>
+      </segment>
+    </unit>
+    <unit id="OFylvr8" name="Anon.">
+      <segment>
+        <source>Anon.</source>
+        <target>Anon.</target>
+      </segment>
+    </unit>
+    <unit id="vBZ55s_" name="Mitglieder">
+      <segment>
+        <source>Mitglieder</source>
+        <target>Mitglieder</target>
+      </segment>
+    </unit>
+    <unit id="TTOMzoJ" name="Mitglied">
+      <segment>
+        <source>Mitglied</source>
+        <target>Mitglied</target>
+      </segment>
+    </unit>
+    <unit id="Kz_5uSy" name="Die Mitgliederliste ist versteckt.">
+      <segment>
+        <source>Die Mitgliederliste ist versteckt.</source>
+        <target>Die Mitgliederliste ist versteckt.</target>
+      </segment>
+    </unit>
+    <unit id="zAjLutF" name="Neue Gruppe">
+      <segment>
+        <source>Neue Gruppe</source>
+        <target>Neue Gruppe</target>
+      </segment>
+    </unit>
+    <unit id="P5wAMly" name="Gruppe &quot;{group}&quot;">
+      <segment>
+        <source>Gruppe "{group}"</source>
+        <target>Gruppe "{group}"</target>
+      </segment>
+    </unit>
+    <unit id="tMAiZYW" name="Gruppe">
+      <segment>
+        <source>Gruppe</source>
+        <target>Gruppe</target>
+      </segment>
+    </unit>
+    <unit id="6SYvAH3" name="Beschreibung">
+      <segment>
+        <source>Beschreibung</source>
+        <target>Beschreibung</target>
+      </segment>
+    </unit>
+    <unit id="7Cc8BkZ" name="Anonyme Gruppe">
+      <segment>
+        <source>Anonyme Gruppe</source>
+        <target>Anonyme Gruppe</target>
+      </segment>
+    </unit>
+    <unit id="1uiWprE" name="Neue Gruppe anlegen">
+      <segment>
+        <source>Neue Gruppe anlegen</source>
+        <target>Neue Gruppe anlegen</target>
+      </segment>
+    </unit>
+    <unit id="gJH3HgQ" name="Anzahl der Tage">
+      <segment>
+        <source>Anzahl der Tage</source>
+        <target>Anzahl der Tage</target>
+      </segment>
+    </unit>
+    <unit id="VkIwwfC" name="Vorspulen">
+      <segment>
+        <source>Vorspulen</source>
+        <target>Vorspulen</target>
+      </segment>
+    </unit>
+    <unit id="omuvjZI" name="Herauswerfen (ohne Verletzung)">
+      <segment>
+        <source>Herauswerfen (ohne Verletzung)</source>
+        <target>Herauswerfen (ohne Verletzung)</target>
+      </segment>
+    </unit>
+    <unit id="uo.zViv" name="Herauswerfen (mit Verletzung)">
+      <segment>
+        <source>Herauswerfen (mit Verletzung)</source>
+        <target>Herauswerfen (mit Verletzung)</target>
+      </segment>
+    </unit>
+    <unit id="g2hjSxs" name="Timer erhöhen (1min)">
+      <segment>
+        <source>Timer erhöhen (1min)</source>
+        <target>Timer erhöhen (1min)</target>
+      </segment>
+    </unit>
+    <unit id="Aybos0Z" name="Timer erhöhen (24h)">
+      <segment>
+        <source>Timer erhöhen (24h)</source>
+        <target>Timer erhöhen (24h)</target>
+      </segment>
+    </unit>
+    <unit id=".5H3ako" name="Löschen (ermöglicht erneutes Betreten der Ruine)">
+      <segment>
+        <source>Löschen (ermöglicht erneutes Betreten der Ruine)</source>
+        <target>Löschen (ermöglicht erneutes Betreten der Ruine)</target>
+      </segment>
+    </unit>
+    <unit id="b7SFlpH" name="Feature freigeben:">
+      <segment>
+        <source>Feature freigeben:</source>
+        <target>Feature freigeben:</target>
+      </segment>
+    </unit>
+    <unit id="hORe5zQ" name="Bearbeiten">
+      <segment>
+        <source>Bearbeiten</source>
+        <target>Bearbeiten</target>
+      </segment>
+    </unit>
+    <unit id="b6xEh89" name="Werte">
+      <segment>
+        <source>Werte</source>
+        <target>Werte</target>
+      </segment>
+    </unit>
+    <unit id="N89SWeP" name="Hunger">
+      <segment>
+        <source>Hunger</source>
+        <target>Hunger</target>
+      </segment>
+    </unit>
+    <unit id="7JnkyKJ" name="Camp Chance">
+      <segment>
+        <source>Camp Chance</source>
+        <target>Camp Chance</target>
+      </segment>
+    </unit>
+    <unit id="b5V7Hy2" name="Camp Zähler">
+      <segment>
+        <source>Camp Zähler</source>
+        <target>Camp Zähler</target>
+      </segment>
+    </unit>
+    <unit id="L4jLopa" name="Verwendung des Schwarzen Bretts verbieten">
+      <segment>
+        <source>Verwendung des Schwarzen Bretts verbieten</source>
+        <target>Verwendung des Schwarzen Bretts verbieten</target>
+      </segment>
+    </unit>
+    <unit id="Oxn3AlI" name="Passwort-geschützt">
+      <segment>
+        <source>Passwort-geschützt</source>
+        <target>Passwort-geschützt</target>
+      </segment>
+    </unit>
+    <unit id="TabP5k8" name="Passwort ändern">
+      <segment>
+        <source>Passwort ändern</source>
+        <target>Passwort ändern</target>
+      </segment>
+    </unit>
+    <unit id="SvdvL6C" name="Passwort entfernen">
+      <segment>
+        <source>Passwort entfernen</source>
+        <target>Passwort entfernen</target>
+      </segment>
+    </unit>
+    <unit id="WgvpXRX" name="Passwort setzen">
+      <segment>
+        <source>Passwort setzen</source>
+        <target>Passwort setzen</target>
+      </segment>
+    </unit>
+    <unit id="fDbnikT">
+      <segment>
+        <source>Format: {zombies} (heutiger Angriff) oder {tag}:{zombies} (Angriff an einem bestimmten Tag). Es können keine Tage in der Vergangenheit gewählt werden.</source>
+        <target>Format: {zombies} (heutiger Angriff) oder {tag}:{zombies} (Angriff an einem bestimmten Tag). Es können keine Tage in der Vergangenheit gewählt werden.</target>
+      </segment>
+    </unit>
+    <unit id="mKJLGIS" name="Stärke des Angriffs setzen">
+      <segment>
+        <source>Stärke des Angriffs setzen</source>
+        <target>Stärke des Angriffs setzen</target>
+      </segment>
+    </unit>
+    <unit id="oVZvTco" name="Chaos-Modus">
+      <segment>
+        <source>Chaos-Modus</source>
+        <target>Chaos-Modus</target>
+      </segment>
+    </unit>
+    <unit id="cCl3Gqe" name="Stadt zerstören">
+      <segment>
+        <source>Stadt zerstören</source>
+        <target>Stadt zerstören</target>
+      </segment>
+    </unit>
+    <unit id="k_02uKb" name="Ändern des Spielernamens verbieten">
+      <segment>
+        <source>Ändern des Spielernamens verbieten</source>
+        <target>Ändern des Spielernamens verbieten</target>
+      </segment>
+    </unit>
+    <unit id="VR0KmfL" name="Spielername">
+      <segment>
+        <source>Spielername</source>
+        <target>Spielername</target>
+      </segment>
+    </unit>
+    <unit id="EG1rjyV" name="Chaos-Modus deaktivieren">
+      <segment>
+        <source>Chaos-Modus deaktivieren</source>
+        <target>Chaos-Modus deaktivieren</target>
+      </segment>
+    </unit>
+    <unit id="LqAEYTA" name="Stadt reparieren">
+      <segment>
+        <source>Stadt reparieren</source>
+        <target>Stadt reparieren</target>
+      </segment>
+    </unit>
+    <unit id="qiwbmCe" name="Versteckte Statuseffekte">
+      <segment>
+        <source>Versteckte Statuseffekte</source>
+        <target>Versteckte Statuseffekte</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

@@ -5,7 +5,7 @@
 
     <div class="town-header{% if town.type.name == 'panda' %} hardcore{% endif %}">
         <b>{{ town.name }}</b><br />
-        <span>{{ 'Tag %day%'|trans({'%day%':town.day},'game') }}</span>
+        <span>{{ 'Tag {day}'|trans({'{day}':town.day},'game') }}</span>
     </div>
 
     <div class="dashboard">
@@ -68,8 +68,8 @@
                 die sich auf der Webseite links befindet. Interaktive Schritt-für-Schritt-Anleitungen erklären dir in 5 Minuten die Grundlagen des Spiels.
             {% endtrans %}
             <p>
-                {% trans with { '%helplink%': '<a href="' ~ url('help') ~ '">' ~ ('komplette Spielhilfe'|trans({},'game')) ~ '</a>' } from 'game' %}
-                    Du kannst jederzeit die %helplink% im oberen Abschnitt der Seite aufsuchen.
+                {% trans with { '{helplink}': '<a href="' ~ url('help') ~ '">' ~ ('komplette Spielhilfe'|trans({},'game')) ~ '</a>' } from 'game' %}
+                    Du kannst jederzeit die {helplink} im oberen Abschnitt der Seite aufsuchen.
                 {% endtrans %}
             </p>
         </div>
@@ -98,7 +98,7 @@
                 {% for name,role in votes_needed %}
                     {% if role %}
                     <li x-ajax-href="{{ path('town_citizen_vote', {roleId: role.id}) }}" {% if has_voted[role.name] %}class="checked"{% endif %}>
-                        {{ 'Den %rolename% wählen'|trans({'%rolename%': role.label|trans({}, 'game')}, 'game') }}
+                        {{ 'Den {rolename} wählen'|trans({'{rolename}': role.label|trans({}, 'game')}, 'game') }}
                     </li>
                     {% endif %}
                 {% endfor %}
@@ -123,7 +123,11 @@
 
             <div class="padded cell rw-6 rw-md-8 rw-sm-12">
                 <button x-ajax-href="{{ url('game_newspaper') }}">{% trans from 'game' %}Lesen Sie das Mitteilungsblatt{% endtrans %}</button>
+                {% if is_granted('ROLE_CROW') and app.environment == 'dev' %}
+                    <button x-ajax-href="{{ path('admin_town_explorer', {id: town.id, tab: null}) }}"><img alt="" src="{{ asset('build/images/icons/small_admin.gif') }}">{{ 'Admin Dashboard'|trans({},'admin') }}</button>
+                {% endif %}
             </div>
+
 
             {% if town.dayWithoutAttack > 0 and (app.user == town.creator or is_granted('ROLE_CROW')) and town.type.name == 'custom' %}
                 <h5>{{ 'Deine Stadt'|trans({}, 'game') }}</h5>
@@ -134,11 +138,27 @@
                 </ul>
             {% endif %}
         </div>
-        {% if conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_WORDS_OF_HEROS'),false) %}
+        {% if conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_WORDS_OF_HEROS'),false) and (town.wordsOfHeroes is not empty or can_edit_blackboard) %}
             <div class="padded cell rw-6 rw-lg-12">
                     <h5>{{ 'Heldentafel'|trans({}, 'game')}}</h5>
                     <div class="words-of-heroes {{ town.language }}">
-                        <div class="content" id="words-of-heroes-content">{{ town.wordsOfHeroes|nl2br }}</div>
+                        <div class="content" id="words-of-heroes-content">
+                            {% if town.wordsOfHeroes != '' %}
+                            {{ town.wordsOfHeroes|nl2br }}
+                            {% else %}
+                                <em>
+                                    {{'Die Wandtafel ermöglicht altgedienten Helden, der ganzen Stadt Anweisungen zu geben.'|trans({}, 'game')}}
+                                </em>
+                                {% if has_dictator %}
+                                <em>
+                                    {{'Diese Option steht dir ab sofort zur Verfügung, da du auf deiner Seelenseite den Diktatorbonus freigeschaltet hast.'|trans({}, 'game')}}
+                                </em>
+                                {% else %}
+                                    {# Check if someone doesn't have this skill to get the message #}
+                                {% endif %}
+                                <em x-ajax-href="{{ path('soul_heroskill') }}" class="link">{{'Mehr darüber erfahren...'|trans({}, 'game')}}</em>
+                            {% endif %}
+                        </div>
                         {% if can_edit_blackboard %}
                             <div class="content hidden" id="words-of-heroes-editor">
                                 <textarea>{{ town.wordsOfHeroes }}</textarea>

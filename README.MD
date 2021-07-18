@@ -16,6 +16,7 @@ The rest of the project, is under [AGPL3 license](https://spdx.org/licenses/AGPL
 * php-zip
 * php-imagick
 * php-curl
+* php-mbstring
 * apache2
 
 Depending on the database engine you want to use you will need the following:
@@ -460,9 +461,10 @@ bin/console app:town:create remote 40 <en,fr,de,es,multi>
 bin/console app:debug --fill-town <town.id>
 ```
 
-### Night attack
+### CronJob
 
-To enable the night attack, you should add a cron job.
+MyHordes requires a special command to be executed regularly to function properly, for example to run the nightly 
+attack. To create a cron job on your server, run
 
 ```bash
 crontab -e
@@ -470,30 +472,22 @@ crontab -e
 
 At the end of the file, add this **in one** line :
 
-`00 00 * * * cd /MyHordes; bin/console app:schedule --add "now"; bin/console app:schedule --now -vvv > attack.log`
+`* * * * * cd /MyHordes; bin/console app:cron`
 
 Explanation:
 
-- `00 00 * * * *` : Causes the following command to run at midnight every day
+- `* * * * *` : Causes the following command to run once every minute.
 - `cd /MyHordes;` : Replace `/MyHordes` with the path to the root of your cloned project. This puts the script's scope in this directory.
-- `bin/console app:schedule --add "now";` : This tells the MyHordes server an attack can be run any time from now.
-- `bin/console app:schedule --now -vvv` : Actually starts the nightly attack and outputs as much logs as possible.
-- ` > attack.log` : Redirects the attack logs to a file. Will overwrite each time, you can use `>>` to append instead.
+- `bin/console app:cron` : This tells the cron job to call the MyHordes cron handler.
 
 #### Schedule an attack
+By default, MyHordes runs its attack at midnight. However, the time point of the very first attack must be specified manually.
+
+Schedule an attack at the next midnight:
 ```
 bin/console app:schedule --add "tomorrow"
 ```
-
-#### Schedule the attack now
-```
-bin/console app:schedule --add "now"
-```
-
-#### Run the scheduled attack
-```
-bin/console app:schedule --now
-```
+Schedule the attack now:
 
 ### Administration
 

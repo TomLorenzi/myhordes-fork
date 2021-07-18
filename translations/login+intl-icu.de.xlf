@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="de" trgLang="de">
+  <file id="login.de">
+    <unit id="crJFns0" name="Dein Name muss mindestens { limit } Zeichen umfassen.">
+      <segment>
+        <source>Dein Name muss mindestens { limit } Zeichen umfassen.</source>
+        <target>Dein Name muss mindestens { limit } Zeichen umfassen.</target>
+      </segment>
+    </unit>
+    <unit id="VAaM7eo" name="Dein Name kann höchstens { limit } Zeichen umfassen.">
+      <segment>
+        <source>Dein Name kann höchstens { limit } Zeichen umfassen.</source>
+        <target>Dein Name kann höchstens { limit } Zeichen umfassen.</target>
+      </segment>
+    </unit>
+    <unit id="WvW8_JI" name="Die eingegebene E-Mail Adresse ist nicht gültig.">
+      <segment>
+        <source>Die eingegebene E-Mail Adresse ist nicht gültig.</source>
+        <target>Die eingegebene E-Mail Adresse ist nicht gültig.</target>
+      </segment>
+    </unit>
+    <unit id="6UV8ek7" name="Die eingegebenen E-Mail Adressen stimmen nicht überein.">
+      <segment>
+        <source>Die eingegebenen E-Mail Adressen stimmen nicht überein.</source>
+        <target>Die eingegebenen E-Mail Adressen stimmen nicht überein.</target>
+      </segment>
+    </unit>
+    <unit id="jz03..f" name="Dein Passwort muss mindestens { limit } Zeichen umfassen.">
+      <segment>
+        <source>Dein Passwort muss mindestens { limit } Zeichen umfassen.</source>
+        <target>Dein Passwort muss mindestens { limit } Zeichen umfassen.</target>
+      </segment>
+    </unit>
+    <unit id="OK9eVbg" name="Die eingegebenen Passwörter stimmen nicht überein.">
+      <segment>
+        <source>Die eingegebenen Passwörter stimmen nicht überein.</source>
+        <target>Die eingegebenen Passwörter stimmen nicht überein.</target>
+      </segment>
+    </unit>
+    <unit id="o5ZFZh6" name="Der Validierungscode muss { limit } Zeichen umfassen.">
+      <segment>
+        <source>Der Validierungscode muss { limit } Zeichen umfassen.</source>
+        <target>Der Validierungscode muss { limit } Zeichen umfassen.</target>
+      </segment>
+    </unit>
+    <unit id="0f1ZNLd" name="Der angegebene Validierungscode ist nicht gültig.">
+      <segment>
+        <source>Der angegebene Validierungscode ist nicht gültig.</source>
+        <target>Der angegebene Validierungscode ist nicht gültig.</target>
+      </segment>
+    </unit>
+    <unit id="ePGiZSF" name="Der angegebene Name existiert bereits im Spiel.">
+      <segment>
+        <source>Der angegebene Name existiert bereits im Spiel.</source>
+        <target>Der angegebene Name existiert bereits im Spiel.</target>
+      </segment>
+    </unit>
+    <unit id="kVhhGdk" name="Die angegebene E-Mail Adresse wird bereits von einem anderen Profil verwendet.">
+      <segment>
+        <source>Die angegebene E-Mail Adresse wird bereits von einem anderen Profil verwendet.</source>
+        <target>Die angegebene E-Mail Adresse wird bereits von einem anderen Profil verwendet.</target>
+      </segment>
+    </unit>
+    <unit id="Qu4FAIf" name="E-Mail Adresse validieren">
+      <segment>
+        <source>E-Mail Adresse validieren</source>
+        <target>E-Mail Adresse validieren</target>
+      </segment>
+    </unit>
+    <unit id="mGW7q29" name="Hallo {name}!">
+      <segment>
+        <source>Hallo {name}!</source>
+        <target>Hallo {name}!</target>
+      </segment>
+    </unit>
+    <unit id="UA_FeeT" name="Bevor du loslegen kannst, musst du noch deine E-Mail Adresse validieren.">
+      <segment>
+        <source>Bevor du loslegen kannst, musst du noch deine E-Mail Adresse validieren.</source>
+        <target>Bevor du loslegen kannst, musst du noch deine E-Mail Adresse validieren.</target>
+      </segment>
+    </unit>
+    <unit id="JeRbwqT" name="Bitte gib den Validierungscode ein, den du via E-Mail erhalten hast.">
+      <segment>
+        <source>Bitte gib den Validierungscode ein, den du via E-Mail erhalten hast.</source>
+        <target>Bitte gib den Validierungscode ein, den du via E-Mail erhalten hast.</target>
+      </segment>
+    </unit>
+    <unit id="ANnpnHZ" name="Validierungscode">
+      <segment>
+        <source>Validierungscode</source>
+        <target>Validierungscode</target>
+      </segment>
+    </unit>
+    <unit id="ocoTV1m" name="Prüfen">
+      <segment>
+        <source>Prüfen</source>
+        <target>Prüfen</target>
+      </segment>
+    </unit>
+    <unit id="tkZocIU" name="Ausloggen">
+      <segment>
+        <source>Ausloggen</source>
+        <target>Ausloggen</target>
+      </segment>
+    </unit>
+    <unit id="VBEBU.F" name="Du hast noch keinen Account?">
+      <segment>
+        <source>Du hast noch keinen Account?</source>
+        <target>Du hast noch keinen Account?</target>
+      </segment>
+    </unit>
+    <unit id="pMJydfA" name="Registrieren!">
+      <segment>
+        <source>Registrieren!</source>
+        <target>Registrieren!</target>
+      </segment>
+    </unit>
+    <unit id="0wO.38C" name="Du hast deine E-Mail Adresse schon validiert?">
+      <segment>
+        <source>Du hast deine E-Mail Adresse schon validiert?</source>
+        <target>Du hast deine E-Mail Adresse schon validiert?</target>
+      </segment>
+    </unit>
+    <unit id="cLGN4MZ" name="Einloggen!">
+      <segment>
+        <source>Einloggen!</source>
+        <target>Einloggen!</target>
+      </segment>
+    </unit>
+    <unit id="m8bXbyH" name="Validierung fehlgeschlagen. Bitte prüfe deine Eingaben.">
+      <segment>
+        <source>Validierung fehlgeschlagen. Bitte prüfe deine Eingaben.</source>
+        <target>Validierung fehlgeschlagen. Bitte prüfe deine Eingaben.</target>
+      </segment>
+    </unit>
+    <unit id="Bw.Ze07" name="Einige Felder sind nicht korrekt ausgefüllt. Bitte prüfe eine Eingaben.">
+      <segment>
+        <source>Einige Felder sind nicht korrekt ausgefüllt. Bitte prüfe eine Eingaben.</source>
+        <target>Einige Felder sind nicht korrekt ausgefüllt. Bitte prüfe eine Eingaben.</target>
+      </segment>
+    </unit>
+    <unit id="O63JhDQ" name="Registrieren">
+      <segment>
+        <source>Registrieren</source>
+        <target>Registrieren</target>
+      </segment>
+    </unit>
+    <unit id="VR0KmfL" name="Spielername">
+      <segment>
+        <source>Spielername</source>
+        <target>Spielername</target>
+      </segment>
+    </unit>
+    <unit id="Up_TjZv" name="E-Mail Adresse">
+      <segment>
+        <source>E-Mail Adresse</source>
+        <target>E-Mail Adresse</target>
+      </segment>
+    </unit>
+    <unit id="QNpwRBL" name="wiederholen">
+      <segment>
+        <source>wiederholen</source>
+        <target>wiederholen</target>
+      </segment>
+    </unit>
+    <unit id="o2wQFXD" name="Passwort">
+      <segment>
+        <source>Passwort</source>
+        <target>Passwort</target>
+      </segment>
+    </unit>
+    <unit id="MI8TC0R">
+      <segment>
+        <source>Um die Registrierung abzuschließen und deinen Account zu aktivieren, musst du auf einen
+                        Aktivierungslink klicken, der dir an die angegebene E-Mail Adresse geschickt wird.</source>
+        <target>Um die Registrierung abzuschließen und deinen Account zu aktivieren, musst du auf einen
+                        Aktivierungslink klicken, der dir an die angegebene E-Mail Adresse geschickt wird.</target>
+      </segment>
+    </unit>
+    <unit id="._jFtS_" name="Du hast schon einen Account?">
+      <segment>
+        <source>Du hast schon einen Account?</source>
+        <target>Du hast schon einen Account?</target>
+      </segment>
+    </unit>
+    <unit id="kTHLCAW" name="Einloggen">
+      <segment>
+        <source>Einloggen</source>
+        <target>Einloggen</target>
+      </segment>
+    </unit>
+    <unit id="k.cRHPZ" name="Bitte gib deinen Spielernamen und dein Passwort ein.">
+      <segment>
+        <source>Bitte gib deinen Spielernamen und dein Passwort ein.</source>
+        <target>Bitte gib deinen Spielernamen und dein Passwort ein.</target>
+      </segment>
+    </unit>
+    <unit id="ku3di7g" name="Login fehlgeschlagen. Bitte prüfe deine Eingaben.">
+      <segment>
+        <source>Login fehlgeschlagen. Bitte prüfe deine Eingaben.</source>
+        <target>Login fehlgeschlagen. Bitte prüfe deine Eingaben.</target>
+      </segment>
+    </unit>
+    <unit id="DMKAJPg" name="Dein Name kann keine Leerzeichen sowie &quot;$&quot;, &quot;&lt;&quot; und &quot;&gt;&quot; enthalten.">
+      <segment>
+        <source>Dein Name kann keine Leerzeichen sowie "$", "&lt;" und "&gt;" enthalten.</source>
+        <target><![CDATA[Dein Name kann keine Leerzeichen sowie "$", "<" und ">" enthalten.]]></target>
+      </segment>
+    </unit>
+    <unit id="ZJtAei3">
+      <segment>
+        <source>Dein Passwort wurde erfolgreich geändert. Bitte logge dich mit deinem neuen Passwort ein.</source>
+        <target>Dein Passwort wurde erfolgreich geändert. Bitte logge dich mit deinem neuen Passwort ein.</target>
+      </segment>
+    </unit>
+    <unit id="MO7x7sr">
+      <segment>
+        <source>Auf wiedersehen, {name}. Wir werden dich vermissen und hoffen, dass du vielleicht doch noch einmal zurück kommst.</source>
+        <target>Auf wiedersehen, {name}. Wir werden dich vermissen und hoffen, dass du vielleicht doch noch einmal zurück kommst.</target>
+      </segment>
+    </unit>
+    <unit id="e99uiXA" name="Aktuelles Passwort">
+      <segment>
+        <source>Aktuelles Passwort</source>
+        <target>Aktuelles Passwort</target>
+      </segment>
+    </unit>
+    <unit id="1kcI_60" name="Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.">
+      <segment>
+        <source>Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.</source>
+        <target>Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.</target>
+      </segment>
+    </unit>
+    <unit id="eO_T4uw" name="Passwort vergessen?">
+      <segment>
+        <source>Passwort vergessen?</source>
+        <target>Passwort vergessen?</target>
+      </segment>
+    </unit>
+    <unit id="bGFqxj8" name="Passwort zurücksetzen">
+      <segment>
+        <source>Passwort zurücksetzen</source>
+        <target>Passwort zurücksetzen</target>
+      </segment>
+    </unit>
+    <unit id=".Mffux1" name="Bitte gib ein neues Passwort ein.">
+      <segment>
+        <source>Bitte gib ein neues Passwort ein.</source>
+        <target>Bitte gib ein neues Passwort ein.</target>
+      </segment>
+    </unit>
+    <unit id="lTbuIE7" name="Bitte gib deine E-Mail Adresse ein.">
+      <segment>
+        <source>Bitte gib deine E-Mail Adresse ein.</source>
+        <target>Bitte gib deine E-Mail Adresse ein.</target>
+      </segment>
+    </unit>
+    <unit id="9.8ReK8" name="Abbrechen">
+      <segment>
+        <source>Abbrechen</source>
+        <target>Abbrechen</target>
+      </segment>
+    </unit>
+    <unit id="yr3nj09" name="Dieses Konto wartet bereits auf eine Passwortzurücksetzung.">
+      <segment>
+        <source>Dieses Konto wartet bereits auf eine Passwortzurücksetzung.</source>
+        <target>Dieses Konto wartet bereits auf eine Passwortzurücksetzung.</target>
+      </segment>
+    </unit>
+    <unit id="axBQZ1o">
+      <segment>
+        <source>Wenn deine eingegebene E-Mail Adresse korrekt war, wurde dir soeben ein Link zum Zurücksetzen deines Passwortes geschickt.</source>
+        <target>Wenn deine eingegebene E-Mail Adresse korrekt war, wurde dir soeben ein Link zum Zurücksetzen deines Passwortes geschickt.</target>
+      </segment>
+    </unit>
+    <unit id="w6NXTHc">
+      <segment>
+        <source>Dein Passwort wurde geändert. Du kannst dich nun mit deinem neuen Passwort einloggen.</source>
+        <target>Dein Passwort wurde geändert. Du kannst dich nun mit deinem neuen Passwort einloggen.</target>
+      </segment>
+    </unit>
+    <unit id="LRrjhiE" name="Angemeldet bleiben">
+      <segment>
+        <source>Angemeldet bleiben</source>
+        <target>Angemeldet bleiben</target>
+      </segment>
+    </unit>
+    <unit id="B0ZNAR." name="Fehler bei der Datenübertragung.">
+      <segment>
+        <source>Fehler bei der Datenübertragung.</source>
+        <target>Fehler bei der Datenübertragung.</target>
+      </segment>
+    </unit>
+    <unit id="wPXsZnE">
+      <segment>
+        <source>MyHordes ist ein Teil des EternalTwin-Netzwerks. Wenn du einen EternalTwin-Account hast, kannst du MyHordes ohne zusätzliche Registrierung spielen!</source>
+        <target>MyHordes ist ein Teil des EternalTwin-Netzwerks. Wenn du einen EternalTwin-Account hast, kannst du MyHordes ohne zusätzliche Registrierung spielen!</target>
+      </segment>
+    </unit>
+    <unit id="qo4M11k" name="Über EternalTwin einloggen">
+      <segment>
+        <source>Über EternalTwin einloggen</source>
+        <target>Über EternalTwin einloggen</target>
+      </segment>
+    </unit>
+    <unit id="LiGRhEI">
+      <segment>
+        <source>Wenn du noch einen alten MyHordes-Account hast, kannst du dich vorerst auch damit einloggen.</source>
+        <target>Wenn du noch einen alten MyHordes-Account hast, kannst du dich auch damit weiter einloggen.</target>
+      </segment>
+    </unit>
+    <unit id="ho.WxzI">
+      <segment>
+        <source>Dies wird nicht für immer möglich sein. Wir raten dir, deinen alten MyHordes-Account so bald wie möglich mit EternalTwin zu verknüpfen.</source>
+        <target>Dies wird nicht für immer möglich sein. Wir raten dir, deinen alten MyHordes-Account so bald wie möglich mit EternalTwin zu verknüpfen.</target>
+      </segment>
+    </unit>
+    <unit id="uT6i9yH">
+      <segment>
+        <source>Deine Seele bleibt bei der Verknüpfung mit EternalTwin selbstverständlich vollständig erhalten.</source>
+        <target>Deine Seele bleibt bei der Verknüpfung mit EternalTwin selbstverständlich vollständig erhalten.</target>
+      </segment>
+    </unit>
+    <unit id="RG1kp2m" name="Über MyHordes einloggen">
+      <segment>
+        <source>Über MyHordes einloggen</source>
+        <target>Über MyHordes einloggen</target>
+      </segment>
+    </unit>
+    <unit id="CvfPvDp" name="Verknüpfung mit EternalTwin">
+      <segment>
+        <source>Verknüpfung mit EternalTwin</source>
+        <target>Verknüpfung mit EternalTwin</target>
+      </segment>
+    </unit>
+    <unit id="sndALWW" name="Gleich kanns losgehen!">
+      <segment>
+        <source>Gleich kanns losgehen!</source>
+        <target>Gleich kanns losgehen!</target>
+      </segment>
+    </unit>
+    <unit id="NYi.sD7">
+      <segment>
+        <source>Dank deines EternalTwin-Account kannst du ohne vorherige Registrierung MyHordes spielen!</source>
+        <target>Dank deines EternalTwin-Account kannst du ohne vorherige Registrierung MyHordes spielen!</target>
+      </segment>
+    </unit>
+    <unit id="zK1Sfzm">
+      <segment>
+        <source>&lt;strong&gt;Achtung:&lt;/strong&gt; Du hast bereits einen MyHordes-Account? Dann solltest du jetzt
+                                    &lt;i&gt;abbrechen&lt;/i&gt; und dich zuerst mit deinem alten MyHordes-Account einloggen. Du kannst deinen
+                                    EternalTwin-Account in den Einstellungen mit deinem MyHordes-Account verknüpfen.</source>
+        <target><![CDATA[<strong>Achtung:</strong> Du hast bereits einen MyHordes-Account? Dann solltest du jetzt
+                                    <i>abbrechen</i> und dich zuerst mit deinem alten MyHordes-Account einloggen. Du kannst deinen
+                                    EternalTwin-Account in den Einstellungen mit deinem MyHordes-Account verknüpfen.]]></target>
+      </segment>
+    </unit>
+    <unit id="zHOj.3O" name="Los geht's!">
+      <segment>
+        <source>Los geht's!</source>
+        <target>Los geht's!</target>
+      </segment>
+    </unit>
+    <unit id="wMeOIH." name="Hallo {username}!">
+      <segment>
+        <source>Hallo {username}!</source>
+        <target>Hallo {username}!</target>
+      </segment>
+    </unit>
+    <unit id="2WaNcqR" name="Dein Account wurde erfolgreich verknüpft!">
+      <segment>
+        <source>Dein Account wurde erfolgreich verknüpft!</source>
+        <target>Dein Account wurde erfolgreich verknüpft!</target>
+      </segment>
+    </unit>
+    <unit id="Oi3QrV3" name="Du wirst eingeloggt. Bitte warte eine Sekunde ...">
+      <segment>
+        <source>Du wirst eingeloggt. Bitte warte eine Sekunde ...</source>
+        <target>Du wirst eingeloggt. Bitte warte eine Sekunde ...</target>
+      </segment>
+    </unit>
+    <unit id="p_2G6pv">
+      <segment>
+        <source>Vielen Dank, dass du deinen MyHordes-Account {namecheck_mh} mit deinem EternalTwin-Account {namecheck_et} verknüpfst!</source>
+        <target>Vielen Dank, dass du deinen MyHordes-Account {namecheck_mh} mit deinem EternalTwin-Account {namecheck_et} verknüpfst!</target>
+      </segment>
+    </unit>
+    <unit id="7JD3pLt">
+      <segment>
+        <source>Nach der Verknüpfung kannst du dich nur noch über EternalTwin in MyHordes anmelden. Deine alten Zugangsdaten werden ungültig.</source>
+        <target>Nach der Verknüpfung kannst du dich nur noch über EternalTwin in MyHordes anmelden. Deine alten Zugangsdaten werden ungültig.</target>
+      </segment>
+    </unit>
+    <unit id="r.jGoXw">
+      <segment>
+        <source>Wenn du fortfahren möchtest, gib bitte ein letztes Mal dein MyHordes-Passwort ein und klicke auf "Verknüpfen".</source>
+        <target>Wenn du fortfahren möchtest, gib bitte ein letztes Mal dein MyHordes-Passwort ein und klicke auf "Verknüpfen".</target>
+      </segment>
+    </unit>
+    <unit id="jKP5PMR" name="Verknüpfen">
+      <segment>
+        <source>Verknüpfen</source>
+        <target>Verknüpfen</target>
+      </segment>
+    </unit>
+    <unit id="7Nk4Nxa" name="Willkommen zurück! Dein Account ist nicht länger zur Löschung vorgemerkt.">
+      <segment>
+        <source>Willkommen zurück! Dein Account ist nicht länger zur Löschung vorgemerkt.</source>
+        <target>Willkommen zurück! Dein Account ist nicht länger zur Löschung vorgemerkt.</target>
+      </segment>
+    </unit>
+    <unit id="n69_UZl">
+      <segment>
+        <source>Es haben sich zu viele Nutzer aus deinem Netzwerk heraus bei MyHordes registriert. Weitere Registrierungen aus deinem Netzwerk sind für eine Weile nicht mehr möglich.</source>
+        <target>Es haben sich zu viele Nutzer aus deinem Netzwerk heraus bei MyHordes registriert. Weitere Registrierungen aus deinem Netzwerk sind für eine Weile nicht mehr möglich.</target>
+      </segment>
+    </unit>
+    <unit id="jUZA576" name="Du wurdest erfolgreich von allen Geräten abgemeldet.">
+      <segment>
+        <source>Du wurdest erfolgreich von allen Geräten abgemeldet.</source>
+        <target>Du wurdest erfolgreich von allen Geräten abgemeldet.</target>
+      </segment>
+    </unit>
+    <unit id="iGunNf8" name="Dein Name kann nur alphanumerische Zeichen enthalten.">
+      <segment>
+        <source>Dein Name kann nur alphanumerische Zeichen enthalten.</source>
+        <target>Dein Name kann nur alphanumerische Zeichen enthalten.</target>
+      </segment>
+    </unit>
+    <unit id="6zAO87a">
+      <segment>
+        <source>Der eingegebene Pate ist ungültig. Um dich ohne einen Paten anzumelden, lasse das Feld frei.</source>
+        <target>Der eingegebene Pate ist ungültig. Um dich ohne einen Paten anzumelden, lasse das Feld frei.</target>
+      </segment>
+    </unit>
+    <unit id="e_EqP86" name="Pate">
+      <segment>
+        <source>Pate</source>
+        <target>Pate</target>
+      </segment>
+    </unit>
+    <unit id="X.GbWI5">
+      <segment>
+        <source>Wenn du von einem anderen Spieler für MyHordes geworben wurdest, gib hier seinen Namen ein. Er oder sie wird dir sehr dankbar sein...</source>
+        <target>Wenn du von einem anderen Spieler für MyHordes geworben wurdest, gib hier seinen Namen ein. Er oder sie wird dir sehr dankbar sein...</target>
+      </segment>
+    </unit>
+    <unit id="zPzPmd5">
+      <segment>
+        <source>Dein E-Mail Anbieter stellt Nachrichten von MyHordes nicht oder nur sehr unzuverlässig zu. Wir empfehlen, wenn möglich eine andere E-Mail Adresse für die Registrierung zu verwenden. Bitte entschuldige die Unannehmlichkeiten.</source>
+        <target>Dein E-Mail Anbieter stellt Nachrichten von MyHordes nicht oder nur sehr unzuverlässig zu. Wir empfehlen, wenn möglich eine andere E-Mail Adresse für die Registrierung zu verwenden. Bitte entschuldige die Unannehmlichkeiten.</target>
+      </segment>
+    </unit>
+    <unit id="uQUHCC6">
+      <segment>
+        <source>Bevor du mit deinem EternalTwin-Account spielen kannst, brauchen wir noch ein paar zusätzliche Informationen von dir.</source>
+        <target>Bevor du mit deinem EternalTwin-Account spielen kannst, brauchen wir noch ein paar zusätzliche Informationen von dir.</target>
+      </segment>
+    </unit>
+    <unit id="wmjJuDK">
+      <segment>
+        <source>Um die Registrierung abzuschließen und deinen Account zu aktivieren, musst du auf einen
+                                            Aktivierungslink klicken, der dir an die angegebene E-Mail Adresse geschickt wird.</source>
+        <target>Um die Registrierung abzuschließen und deinen Account zu aktivieren, musst du auf einen
+                                            Aktivierungslink klicken, der dir an die angegebene E-Mail Adresse geschickt wird.</target>
+      </segment>
+    </unit>
+    <unit id="Nm0UxBL">
+      <segment>
+        <source>Um dich einzuloggen, musst du nach wie vor deinen &lt;b&gt;ursprünglichen Namen&lt;/b&gt; verwenden: &lt;i&gt;{name}&lt;/i&gt;.</source>
+        <target><![CDATA[Um dich einzuloggen, musst du nach wie vor deinen <b>ursprünglichen Namen</b> verwenden: <i>{name}</i>.]]></target>
+      </segment>
+    </unit>
+    <unit id="tW3qs0M" name="Die eingegebene E-Mail Adresse ist nicht korrekt.">
+      <segment>
+        <source>Die eingegebene E-Mail Adresse ist nicht korrekt.</source>
+        <target>Die eingegebene E-Mail Adresse ist nicht korrekt.</target>
+      </segment>
+    </unit>
+    <unit id="y2_Gamb">
+      <segment>
+        <source>Deine E-Mail Adresse wurde geändert. Bitte validiere die neue Adresse, damit du sie verwenden kannst.</source>
+        <target>Deine E-Mail Adresse wurde geändert. Bitte validiere die neue Adresse, damit du sie verwenden kannst.</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

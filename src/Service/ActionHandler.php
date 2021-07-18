@@ -109,6 +109,7 @@ class ActionHandler
 
         $messages = [];
 
+
         $current_state = self::ActionValidityFull;
         foreach ($action->getRequirements() as $meta_requirement) {
             $last_state = $current_state;
@@ -304,11 +305,11 @@ class ActionHandler
 
                     // Day & Night
                     case 1:
-                        if ($this->conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_FEATURE_NIGHTMODE, true) && $citizen->getTown()->isNight() )
+                        if ($this->conf->getTownConfiguration($citizen->getTown())->isNightMode() )
                             $current_state = min($current_state, Requirement::HideOnFail);
                         break;
                     case 2:
-                        if (!$this->conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_FEATURE_NIGHTMODE, true) || !$citizen->getTown()->isNight() )
+                        if (!$this->conf->getTownConfiguration($citizen->getTown())->isNightMode() )
                             $current_state = min($current_state, Requirement::HideOnFail);
                         break;
 
@@ -466,9 +467,10 @@ class ActionHandler
      * @param Citizen $citizen
      * @param ItemAction[] $available
      * @param ItemAction[] $crossed
+     * @param ItemAction[] $used
      */
-    public function getAvailableIHeroicActions(Citizen $citizen, ?array &$available, ?array &$crossed ) {
-        $available = $crossed = [];
+    public function getAvailableIHeroicActions(Citizen $citizen, ?array &$available, ?array &$crossed, ?array &$used ) {
+        $available = $crossed = $used = [];
 
         if (!$citizen->getProfession()->getHeroic()) return;
         $is_at_00 = $citizen->getZone() && $citizen->getZone()->isTownZone();
@@ -483,7 +485,7 @@ class ActionHandler
         foreach ($citizen->getUsedHeroicActions() as $used_heroic) {
             if ($citizen->getHeroicActions()->contains($used_heroic) || ($is_at_00 && !$used_heroic->getAction()->getAllowedAtGate())) continue;
             $mode = $this->evaluate( $citizen, null, null, $used_heroic->getAction(), $tx );
-            if ($mode >= self::ActionValidityCrossed) $crossed[] = $used_heroic;
+            if ($mode >= self::ActionValidityCrossed) $used[] = $used_heroic;
         }
 
     }
@@ -510,7 +512,6 @@ class ActionHandler
      * @return bool
      */
     public function targetDefinitionApplies($target, ItemTargetDefinition $definition): bool {
-
         switch ($definition->getSpawner()) {
             case ItemTargetDefinition::ItemSelectionType:case ItemTargetDefinition::ItemSelectionTypePoison:
                 if (!is_a( $target, Item::class )) return false;
@@ -530,7 +531,7 @@ class ActionHandler
                 if (!$target->getZone() || !$target->getAlive()) return false;
                 if ( round( sqrt(pow($target->getZone()->getX(),2 ) + pow($target->getZone()->getY(),2 )) ) > 2 ) return false;
                 break;
-            case ItemTargetDefinition::ItemCitizenType: case ItemTargetDefinition::ItemCitizenOnZoneType: case ItemTargetDefinition::ItemCitizenOnZoneSBType:
+            case ItemTargetDefinition::ItemCitizenType: case ItemTargetDefinition::ItemCitizenVoteType: case ItemTargetDefinition::ItemCitizenOnZoneType: case ItemTargetDefinition::ItemCitizenOnZoneSBType:
                 if (!is_a( $target, Citizen::class )) return false;
                 if (!$target->getAlive()) return false;
                 break;
@@ -643,7 +644,11 @@ class ActionHandler
                 $escort_mode ? $action->getEscortMessage() : $action->getMessage(),
             ],
             'kills' => 0,
-            'bury_count' => 0
+            'bury_count' => 0,
+            'items_count' => 0,
+            'size' => 0,
+            'home_storage' => 0,
+            'home_defense' => 0
         ];
 
         if ($citizen->activeExplorerStats())
@@ -653,8 +658,10 @@ class ActionHandler
         $floor_inventory = null;
         if (!$citizen->getZone())
             $floor_inventory = $citizen->getHome()->getChest();
+        elseif ($citizen->getZone()->getX() === 0 && $citizen->getZone()->getY() === 0)
+            $floor_inventory = $citizen->getTown()->getBank();
         elseif (!$ruinZone)
-            $floor_inventory = ($citizen->getZone()->getX() !== 0 || $citizen->getZone()->getY() !== 0) ? $citizen->getZone()->getFloor() : null;
+            $floor_inventory = $citizen->getZone()->getFloor();
         /*elseif ($citizen->activeExplorerStats()->getInRoom())
             $floor_inventory = $ruinZone->getRoomFloor();*/
         else
@@ -799,8 +806,11 @@ class ActionHandler
                     $execute_info_cache['items_consume'][] = $item->getPrototype();
                     $tags[] = 'consumed';
                 } else {
-                    if ($item_result->getMorph())
+                    if ($item_result->getMorph()) {
                         $item->setPrototype( $execute_info_cache['item_morph'][1] = $item_result->getMorph() );
+                        $tags[] = 'morphed';
+                    }
+
                     if ($item_result->getBreak()  !== null) $item->setBroken( $item_result->getBreak() );
                     if ($item_result->getPoison() !== null) $item->setPoison( $item_result->getPoison() );
                 }
@@ -839,7 +849,7 @@ class ActionHandler
                 } elseif (is_a($target, ItemPrototype::class)) {
                     if ($target->getHeavy() && $this->inventory_handler->countHeavyItems( $citizen->getInventory() ) > 0)
                         $execute_info_cache['message'][] = $this->translator->trans('Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...', [], 'game');
-                    if ($this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $target ), [ $citizen->getInventory(), $floor_inventory, $citizen->getZone() ? null : $citizen->getTown()->getBank() ], true)) {
+                    if ($this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $target ), [ $citizen->getInventory(), $floor_inventory, $citizen->getZone() ? null : $citizen->getTown()->getBank() ])) {
                         $execute_info_cache['items_spawn'][] = $target;
                         if(!$citizen->getZone())
                             $tags[] = "inside";
@@ -926,8 +936,12 @@ class ActionHandler
                     if ($kills > 0) {
                         $ruinZone->setZombies( $ruinZone->getZombies() - $kills );
                         $ruinZone->setKilledZombies( $ruinZone->getKilledZombies() + $kills );
+                        $execute_info_cache['kills'] = $kills;
                         $this->picto_handler->give_picto($citizen, 'r_killz_#00', $kills);
                         $this->entity_manager->persist( $this->log->zombieKill( $citizen, $execute_info_cache['item'], $kills, $action->getName() ) );
+                        $tags[] = 'kills';
+                        if($ruinZone->getZombies() <= 0)
+                            $tags[] = 'kill-latest';
                     }
                 }
             }
@@ -935,6 +949,8 @@ class ActionHandler
             if ($home_set = $result->getHome()) {
                 $citizen->getHome()->setAdditionalStorage( $citizen->getHome()->getAdditionalStorage() + $home_set->getAdditionalStorage() );
                 $citizen->getHome()->setAdditionalDefense( $citizen->getHome()->getAdditionalDefense() + $home_set->getAdditionalDefense() );
+                $execute_info_cache["home_storage"] = $home_set->getAdditionalStorage();
+                $execute_info_cache["home_defense"] = $home_set->getAdditionalDefense();
             }
 
             if($town_set = $result->getTown()){
@@ -991,16 +1007,34 @@ class ActionHandler
                 if($zoneEffect->getChatSilence() !== null && $zoneEffect->getChatSilence() > 0) {
                     $base_zone->addChatSilenceTimer((new ChatSilenceTimer())->setTime(new DateTime("+{$zoneEffect->getChatSilence()}sec"))->setCitizen($citizen));
                     $limit = new DateTime("-3min");
-                    $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'smokeBombReplacement']);
 
-                    foreach ($this->entity_manager->getRepository(TownLogEntry::class)->findByFilter( $base_zone->getTown(), null, null, $base_zone, null, null ) as $entry)
+                    foreach ($this->entity_manager->getRepository(TownLogEntry::class)->findByFilter( $base_zone->getTown(), null, null, $base_zone ) as $entry) {
                         /** @var TownLogEntry $entry */
-                        if ($entry->getLogEntryTemplate() !== null){
-                            if($entry->getTimestamp() > $limit) {
+                        if ($entry->getLogEntryTemplate() !== null) {
+                            $suffix = '';
+                            switch ($entry->getLogEntryTemplate()->getClass()) {
+                                case LogEntryTemplate::ClassWarning:
+                                    $suffix = "Warning";
+                                    break;
+                                case LogEntryTemplate::ClassCritical:
+                                    $suffix = "Critical";
+                                    break;
+                                case LogEntryTemplate::ClassChat:
+                                    $suffix = "Chat";
+                                    break;
+                                case LogEntryTemplate::ClassDanger:
+                                    $suffix = "Danger";
+                                    break;
+                            }
+
+                            $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'smokeBombReplacement' . $suffix]);
+                            if ($entry->getTimestamp() > $limit) {
                                 $entry->setLogEntryTemplate($template);
-                                $this->entity_manager->persist( $entry );
+                                $this->entity_manager->persist($entry);
                             }
                         }
+                    }
+                    $this->entity_manager->persist($this->log->smokeBombUsage($base_zone));
                 }
             }
 
@@ -1155,12 +1189,13 @@ class ActionHandler
 
                         $heavy_break = false;
                         $item_count = 0; $success_count = 0;
-                        if (!$heavy)
-                            foreach ( $citizen->getInventory()->getItems() as $target_item ) {
-                                if ($target_item !== $item) $item_count++;
-                                if ($target_item->getPrototype()->getHeavy())
-                                    $heavy_break = true;
-                            }
+
+                        foreach ( $citizen->getInventory()->getItems() as $target_item ) {
+                            if ($target_item->getEssential()) continue;
+                            if ($target_item !== $item) $item_count++;
+                            if ($target_item->getPrototype()->getHeavy())
+                                if (!$heavy) $heavy_break = true;
+                        }
 
                         if ($heavy_break) {
                             $tags[] = 'fail';
@@ -1168,14 +1203,14 @@ class ActionHandler
                         } elseif ($this->inventory_handler->getFreeSize( $bank ) < $item_count) {
                             $tags[] = 'fail';
                             $tags[] = 'no-room';
+                            $execute_info_cache["items_count"] = $item_count;
+                            $execute_info_cache["size"] = ($freeSize = $this->inventory_handler->getFreeSize($bank)) > 0 ? $freeSize : 0;
                         } else {
                             foreach ( $citizen->getInventory()->getItems() as $target_item ) if ($target_item !== $item) {
-
                                 if ($this->inventory_handler->transferItem($citizen, $target_item, $source, $bank, InventoryHandler::ModalityTamer) === InventoryHandler::ErrorNone) {
                                     $success_count++;
                                     if ($create_log) $this->entity_manager->persist($this->log->bankItemTamerLog($citizen, $target_item->getPrototype(), $target_item->getBroken()));
                                 }
-
                             }
 
                             if ($success_count > 0) {
@@ -1282,7 +1317,7 @@ class ActionHandler
                         if ( $result->getCustom() === 9 )
                             $this->entity_manager->persist( $this->log->heroicRescueLog( $citizen, $jumper, $zone ) );
                         else $this->entity_manager->persist( $this->log->doorPass( $jumper, true ) );
-                        $this->zone_handler->handleCitizenCountUpdate( $zone, $cp_ok );
+                        $this->zone_handler->handleCitizenCountUpdate( $zone, $cp_ok, $jumper );
 
                         break;
                     }
@@ -1351,9 +1386,22 @@ class ActionHandler
                             'kalach_#01' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'kalach_#00']),
                         ];
 
-                        foreach ($citizen->getInventory()->getItems() as $i) if (isset($trans[$i->getPrototype()->getName()])) $i->setPrototype( $trans[$i->getPrototype()->getName()] );
-                        foreach ($citizen->getHome()->getChest()->getItems() as $i) if (isset($trans[$i->getPrototype()->getName()])) $i->setPrototype( $trans[$i->getPrototype()->getName()] );
+                        $fill_targets = [];
+                        $filled = [];
 
+                        foreach ($citizen->getInventory()->getItems() as $i) if (isset($trans[$i->getPrototype()->getName()]))
+                            $fill_targets[] = $i;
+                        foreach ($citizen->getHome()->getChest()->getItems() as $i) if (isset($trans[$i->getPrototype()->getName()]))
+                            $fill_targets[] = $i;
+
+                        foreach ($fill_targets as $i) {
+                            $i->setPrototype($trans[$i->getPrototype()->getName()]);
+                            if (!isset($filled[$i->getPrototype()->getId()])) $filled[$i->getPrototype()->getId()] = [$i];
+                            else $filled[$i->getPrototype()->getId()][] = $i;
+                            $execute_info_cache['items_spawn'][] = $i->getPrototype();
+                        }
+
+                        if (empty($filled)) $tags[] = 'fail';
                         break;
                     }
 
@@ -1551,8 +1599,7 @@ class ActionHandler
         	// We translate & replace placeholders in each messages
         	$addedContent = [];
         	foreach ($execute_info_cache['message'] as $contentMessage) {
-
-                $contentMessage = $this->translator->trans( $contentMessage, [
+                $placeholders = [
 	                '{ap}'            => $execute_info_cache['ap'],
 	                '{minus_ap}'      => -$execute_info_cache['ap'],
 	                '{well}'          => $execute_info_cache['well'],
@@ -1577,7 +1624,20 @@ class ActionHandler
 	                '{kills}'         => $execute_info_cache['kills'],
 	                '{bury_count}'    => $execute_info_cache['bury_count'],
 	                '{hr}'            => "<hr />",
-	            ], 'items' );
+                    '{items_count}'   => $execute_info_cache['items_count'],
+                    '{size}'          => $execute_info_cache['size'],
+                    '{home_storage}'  => $execute_info_cache['home_storage'],
+                    '{home_defense}'  => $execute_info_cache['home_defense'],
+	            ];
+
+                // How many indexes we need for array placeholders seeks
+                // Currently only items_consume, more can be added in this loop as needed
+                $seekIndexes = 2;
+                for($currentIndex = 0; $currentIndex < $seekIndexes; $currentIndex++) {
+                    $placeholders['{items_consume_'.$currentIndex.'}'] = isset($execute_info_cache['items_consume'][$currentIndex]) ? ($this->wrap($execute_info_cache['items_consume'][$currentIndex])) : "-";
+                }
+
+                $contentMessage = $this->translator->trans( $contentMessage, $placeholders, 'items' );
 	        	do {
 	                $contentMessage = preg_replace_callback( '/<t-(.*?)>(.*?)<\/t-\1>/' , function(array $m) use ($tags): string {
 	                    [, $tag, $text] = $m;
@@ -1658,18 +1718,18 @@ class ActionHandler
             case Recipe::WorkshopTypeShamanSpecific:
               switch($recipe->getAction()) {
                 case "Öffnen":
-                  $base = T::__('Du hast %item_list% in der Werkstatt geöffnet und erhälst %item%.', 'game');
+                  $base = T::__('Du hast {item_list} in der Werkstatt geöffnet und erhälst {item}.', 'game');
                   break;
                 case "Zerlegen":
-                  $base = T::__('Du hast %item_list% in der Werkstatt zu %item% zerlegt.', 'game');
+                  $base = T::__('Du hast {item_list} in der Werkstatt zu {item} zerlegt.', 'game');
                   break;
                 default:
-                  $base = T::__('Du hast %item_list% in der Werkstatt zu %item% umgewandelt.', 'game');
+                  $base = T::__('Du hast {item_list} in der Werkstatt zu {item} umgewandelt.', 'game');
               }
               $this->picto_handler->give_picto($citizen, "r_refine_#00");
               break;
             case Recipe::ManualOutside:case Recipe::ManualInside:case Recipe::ManualAnywhere:default:
-                $base = T::__('Du hast %item_list% zu %item% umgewandelt.', 'game');
+                $base = T::__('Du hast {item_list} zu {item} umgewandelt.', 'game');
                 break;
         }
 
@@ -1678,9 +1738,9 @@ class ActionHandler
         }
 
         $message = $this->translator->trans( $base, [
-            '%item_list%' => $this->wrap_concat( $list ),
-            '%item%' => $this->wrap( $new_item ),
-            '%ap%' => $ap,
+            '{item_list}' => $this->wrap_concat( $list ),
+            '{item}' => $this->wrap( $new_item ),
+            '{ap}' => $ap,
         ], 'game' );
 
         return self::ErrorNone;

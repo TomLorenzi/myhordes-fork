@@ -6,8 +6,8 @@
     {% block buttons %}
         <div class="{% if first_buttons %}forum-control{% endif %}">
             {% if first_buttons %}<div class="forum-header-bar"><i class="fa fa-comments"></i> {{ title }}</div>{% endif %}
-            <div class="row">
-                <div class="cell padded rw-6 left rw-lg-12">
+            <div class="row-flex wrap stretch">
+                <div class="cell padded grow-1 left">
                     {% if permission.moderate() or owned %}
                         {% if not locked %}
                             <div x-forum-moderator-action="lock" class="forum-button">
@@ -34,7 +34,7 @@
                     {% endif %}
 
                 </div>
-                <div class="cell padded rw-6 right rw-lg-12">
+                <div class="cell padded grow-1 right">
                     <div x-forum-action="{{ subscribed ? 'unsub' : 'sub' }}" class="forum-button">
                         {% if subscribed %}
                             <img alt="" src="{{ asset('build/images/icons/tickOn.gif') }}" />
@@ -74,7 +74,7 @@
                         <div class="forum-button-disabled"><i class="fa fa-backward"></i></div>
                     {% endif %}
                     <div class="forum-button" x-forum-action="post-select-page">
-                        {{ 'Seite %page%/%pages%'|trans({'%page%': '<span class="current_page_marker">&nbsp;' ~ current_page ~ '</span>', '%pages%': pages},'global')|raw }}
+                        {{ 'Seite {page}/{pages}'|trans({'{page}': '<span class="current_page_marker">&nbsp;' ~ current_page ~ '</span>', '{pages}': pages},'global')|raw }}
                         <div class="tooltip">
                             {{ 'Zum Wechsein der Seite hier klicken'|trans({}, 'global') }}
                         </div>
@@ -96,7 +96,7 @@
         <div class="row">
             <div class="cell padded rw-8 ro-2">
                 <div class="reported announces">
-                    <span class="announce">{{'Dieses Thema enthält %count% gemeldete Posts:'|trans({"%count%": announces.reported|length}, 'global')}}</span>
+                    <span class="announce">{{'Dieses Thema enthält {count} gemeldete Posts:'|trans({"{count}": announces.reported|length}, 'global')}}</span>
                     <ul>
                         {% for reported in announces.reported %}
                             <li x-ajax-target="#content" x-ajax-href="{{path('forum_jump_view', {pid: reported.id})}}">[{{reported.date|format_datetime('medium', 'none')}}] {{reported.text|striptags|slice(0, 50)}}[...]</li>
@@ -111,7 +111,7 @@
         <div class="row">
             <div class="cell padded rw-8 ro-2">
                 <div class="adminAnnounces announces">
-                    <span class="announce">{{'Dieses Thema enthält %count% offizielle Ansage(n) der MyHordes-Administratoren:'|trans({"%count%": announces.admin|length}, 'global')}}</span>
+                    <span class="announce">{{'Dieses Thema enthält {count} offizielle Ansage(n) der MyHordes-Administratoren:'|trans({"{count}": announces.admin|length}, 'global')}}</span>
                     <ul>
                         {% for adminannounce in announces.admin %}
                             <li x-ajax-target="#content" x-ajax-href="{{path('forum_jump_view', {pid: adminannounce.id})}}">[{{adminannounce.date|format_datetime('medium', 'none')}}] {{adminannounce.text|striptags|slice(0, 50)}}[...]</li>
@@ -127,7 +127,7 @@
             <div class="row">
                 <div class="cell padded rw-8 ro-2">
                     <div class="oracleAnnounces announces">
-                        <span class="announce">{{'Dieses Thema enthält %count% Ansage(n) von Community-Vertretern:'|trans({"%count%": announces.oracle|length}, 'global')}}</span>
+                        <span class="announce">{{'Dieses Thema enthält {count} Ansage(n) von Community-Vertretern:'|trans({"{count}": announces.oracle|length}, 'global')}}</span>
                         <ul>
                             {% for oracleannounce in announces.oracle %}
                                 <li x-ajax-target="#content" x-ajax-href="{{path('forum_jump_view', {pid: oracleannounce.id})}}">[{{oracleannounce.date|format_datetime('medium', 'none')}}] {{oracleannounce.text|striptags|slice(0, 50)}}[...]</li>
@@ -183,12 +183,12 @@
                                 {% if post.owner.activeTitle %}<i>{{ post.owner.activeTitle.prototype.title|trans({},'game') }}</i>{% endif %}
                             </span>
                         {% endif %}
-                        {% if post.note is not null %}<div class="float-right post-note">{{ post.note|replace({'%at_00%': 'in der Stadt oder am Stadttor'|trans({},'game')})|raw }}</div>{% endif %}
+                        {% if post.note is not null %}<div class="float-right post-note">{{ post.note|replace({'{at_00}': 'in der Stadt oder am Stadttor'|trans({},'game')})|raw }}</div>{% endif %}
                     </div>
                     {% if permission.moderate() %}
                         {% if post.adminReports(true)|length > 0 %}
                             <div class="modrev modWarnText pointer">
-                                <span>{{ '%num% Meldungen. Klicken, um Benutzer anzuzeigen.'|trans({'%num%': post.adminReports(true)|length},'global') }}</span>
+                                <span>{{ '{num} Meldungen. Klicken, um Benutzer anzuzeigen.'|trans({'{num}': post.adminReports(true)|length},'global') }}</span>
                                 <div>
                                     {% for report in post.adminReports(true) %}
                                         <a target="_blank" href="{{ path('soul_visit', {id: report.sourceUser.id}) }}">{{ report.sourceUser.name }}</a>
@@ -204,9 +204,9 @@
                         {% endif %}
                         {% if post.adminDeletion is not null %}
                             <div class="modrev modInfoText pointer">
-                            <span>{{ 'Gelöscht von %user% (%time%). Klicken, um den Grund einzublenden.'|trans({
-                                    '%user%': post.adminDeletion.sourceUser.name,
-                                    '%time%': post.adminDeletion.timestamp|format_datetime('medium', 'short'),
+                            <span>{{ 'Gelöscht von {user} ({time}). Klicken, um den Grund einzublenden.'|trans({
+                                    '{user}': post.adminDeletion.sourceUser.name,
+                                    '{time}': post.adminDeletion.timestamp|format_datetime('medium', 'short'),
                                 },'global') }}</span>
                                 <div>{{ post.adminDeletion.reason }}</div>
                             </div>
@@ -219,9 +219,9 @@
                         {% if not post.translate and paranoid and post.owner.name != 'Der Rabe' %}
                             {% set mode = (app.user.id + post.id + post.owner.id) % 12 %}
                             {% if mode == 0 %}
-                                <br/>{{ 'Hängt %user%!'|trans({'%user%': author_name},'game') }}
+                                <br/>{{ 'Hängt {user}!'|trans({'{user}': author_name},'game') }}
                             {% elseif mode == 1 %}
-                                <br/>{{ '%user% wir kriegen dich!'|trans({'%user%': author_name},'game') }}
+                                <br/>{{ '{user} wir kriegen dich!'|trans({'{user}': author_name},'game') }}
                             {% endif %}
                         {% endif %}
                     </div>
@@ -229,15 +229,15 @@
                         <div class="float-left small">
                             {% if not permission.own() %}
                                 {% if post.edited is not null and post.lastAdminActionBy is null %}
-                                    {{ 'Zuletzt bearbeitet: %date%'|trans({'%date%': post.edited|format_datetime('medium', 'short')},'game') }}
+                                    {{ 'Zuletzt bearbeitet: {date}'|trans({'{date}': post.edited|format_datetime('medium', 'short')},'game') }}
                                 {% elseif post.edited is not null and post.lastAdminActionBy is not null %}
                                     {{ 'Von einem Moderator bearbeitet.'|trans({},'game') }}
                                 {% endif %}
                             {% else %}
                                 {% if post.edited is not null and post.lastAdminActionBy is null %}
-                                    {{ 'Zuletzt bearbeitet: %date%'|trans({'%date%': post.edited|format_datetime('medium', 'short')},'game') }}
+                                    {{ 'Zuletzt bearbeitet: {date}'|trans({'{date}': post.edited|format_datetime('medium', 'short')},'game') }}
                                 {% elseif post.lastAdminActionBy is not null and post.edited is not null %}
-                                    {{ 'Zuletzt bearbeitet: %date%'|trans({'%date%': post.edited|format_datetime('medium', 'short')},'game') }}
+                                    {{ 'Zuletzt bearbeitet: {date}'|trans({'{date}': post.edited|format_datetime('medium', 'short')},'game') }}
                                     {{ ' ~ MOD: ' ~ post.lastAdminActionBy.name }}
                                 {% elseif post.lastAdminActionBy is not null and post.edited is null %}
                                     {{ 'MOD: ' ~ post.lastAdminActionBy.name }}
@@ -268,6 +268,7 @@
                             {% endif %}
                             [ <a class="action-button" id="link_post" x-forum-action="link-post" x-post-id={{ post.id }}>{{ 'Link'|trans({},'global') }}</a> ]
                             {% if not locked %}
+                                [ <a class="action-button" id="copy_post" x-forum-action="copy-post" x-post-id={{ post.id }} >{{ 'Kopieren'|trans({},'global') }}</a> ]
                                 [ <a class="action-button" id="quote_post" x-forum-action="quote-post" x-post-id={{ post.id }} >{{ 'Zitieren'|trans({},'global') }}</a> ]
                             {% endif %}
                             {% if not post.translate and app.user != post.owner and not permission.only_mod_access %}
@@ -314,17 +315,18 @@
                 $.ajax.easySend( '{{ url('forum_report_post_controller', { 'fid': fid, 'tid': tid}) }}', {postId: parseInt( elem.getAttribute('x-post-id')), page: parseInt( elem.getAttribute('x-to-page')) }, reloadPage );
         });
 
-        $.html.addEventListenerAll('[x-forum-action="quote-post"]', 'click', function(e,elem) {
+        $.html.addEventListenerAll('[x-forum-action="quote-post"],[x-forum-action="copy-post"]', 'click', function(e,elem) {
             let editor = document.getElementById('forum-forum-editor');
 
             let fun_quote = function() {
                 let content = document.querySelector('[x-post-content-id="' + elem.getAttribute('x-post-id') + '"]');
                 let author = content.getAttribute('x-post-content-author');
                 let textEditor = document.getElementById("forum-forum-editor-text");
+                const quote = elem.getAttribute('x-forum-action') === 'quote-post';
 
-                if(textEditor.value != '' && !textEditor.value.endsWith("\n")) textEditor.value += "\n";
+                if(textEditor.value !== '' && !textEditor.value.endsWith("\n")) textEditor.value += "\n";
 
-                textEditor.value += (author ? ('[quote=' + author + ']') : '[quote]') + $.html.twinoParser.parseFrom( content.innerHTML, $.html.twinoParser.OpModeQuote ) + '[/quote]' + "\n";
+                textEditor.value += (quote ? (author ? ('[quote=' + author + ']') : '[quote]') : '') + $.html.twinoParser.parseFrom( content.innerHTML, $.html.twinoParser.OpModeQuote ) + (quote ? '[/quote]' : '') + "\n";
                 textEditor.dispatchEvent(new Event('input', {bubbles: true,cancelable: true}));
                 textEditor.focus();
             };
@@ -449,7 +451,7 @@
         } );
 
         $.html.addEventListenerAll('[x-forum-action="post-select-page"]', 'focusout', function(e, elem){
-            elem.innerHTML = '{{ 'Seite %page%/%pages%'|trans({'%page%': '<span class="current_page_marker">&nbsp;' ~ current_page ~ '</span>', '%pages%': pages},'global')|raw }}';
+            elem.innerHTML = '{{ 'Seite {page}/{pages}'|trans({'{page}': '<span class="current_page_marker">&nbsp;' ~ current_page ~ '</span>', '{pages}': pages},'global')|raw }}';
         });
 
         {% if pages == current_page %}

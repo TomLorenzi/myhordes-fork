@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\AntiSpamDomains;
 use App\Controller\Soul\SoulController;
 use App\Entity\Citizen;
+use App\Entity\CitizenRankingProxy;
 use App\Entity\HordesFact;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
@@ -20,7 +21,9 @@ use App\Service\EternalTwinHandler;
 use App\Service\JSONRequestParser;
 use App\Service\UserFactory;
 use App\Response\AjaxResponse;
+use App\Service\UserHandler;
 use App\Structures\MyHordesConf;
+use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -47,7 +50,11 @@ class PublicController extends CustomAbstractController
     protected function addDefaultTwigArgs(?string $section = null, ?array $data = null): array {
         $data = parent::addDefaultTwigArgs($section, $data);
 
-        $deadCitizenCount = count($this->entity_manager->getRepository(Citizen::class)->findBy(['alive' => 0]));
+        $criteria = new Criteria();
+        $criteria->andWhere($criteria->expr()->neq('end', null));
+        $criteria->orWhere($criteria->expr()->neq('importID', 0));
+
+        $deadCitizenCount = $this->entity_manager->getRepository(CitizenRankingProxy::class)->matching($criteria)->count() + $this->entity_manager->getRepository(Citizen::class)->count(['alive' => 0]);
         
         $pictoKillZombies = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => 'r_killz_#00']);
         $zombiesKilled = $this->entity_manager->getRepository(Picto::class)->countPicto($pictoKillZombies);
@@ -94,6 +101,7 @@ class PublicController extends CustomAbstractController
     /**
      * @Route("jx/public/register", name="public_register")
      * @param EternalTwinHandler $etwin
+     * @param SessionInterface $s
      * @return Response
      */
     public function register(EternalTwinHandler $etwin, SessionInterface $s): Response
@@ -164,7 +172,7 @@ class PublicController extends CustomAbstractController
             $violations = Validation::createValidator()->validate( $parser->all( true ), new Constraints\Collection([
                 'mail' => new Constraints\NotBlank(), 'pkey' => new Constraints\NotBlank(),
                 'pass1' => new Constraints\Length(
-                    ['min' => 6, 'minMessage' => $translator->trans('Dein Passwort muss mindestens {{ limit }} Zeichen umfassen.', [], 'login')]),
+                    ['min' => 6, 'minMessage' => $translator->trans('Dein Passwort muss mindestens { limit } Zeichen umfassen.', [], 'login')]),
                 'pass2' => new Constraints\EqualTo(
                     ['value' => $parser->trimmed( 'pass1' ), 'message' => $translator->trans('Die eingegebenen Passwörter stimmen nicht überein.', [], 'login')]),
             ]) );
@@ -232,7 +240,8 @@ class PublicController extends CustomAbstractController
         TranslatorInterface $translator,
         UserFactory $factory,
         EntityManagerInterface $entityManager,
-        EternalTwinHandler $etwin
+        EternalTwinHandler $etwin,
+        UserHandler $userHandler
     ): Response
     {
         if ($this->isGranted( 'ROLE_REGISTERED' ) || $etwin->isReady())
@@ -242,7 +251,7 @@ class PublicController extends CustomAbstractController
         if (!$parser->has_all( ['user','mail1','mail2','pass1','pass2'], true ))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        if (in_array($parser->trimmed('user', ''), ['Der Rabe','DerRabe','Der_Rabe','DerRaabe','TheCrow']))
+        if (!$userHandler->isNameValid($parser->trimmed('user', '')))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $violations = Validation::createValidator()->validate( $parser->all( true ), new Constraints\Collection([
@@ -250,8 +259,8 @@ class PublicController extends CustomAbstractController
                 new Constraints\Regex( ['match' => false, 'pattern' => '/[^\w]/', 'message' => $translator->trans('Dein Name kann nur alphanumerische Zeichen enthalten.', [], 'login') ] ),
                 new Constraints\Length(
                     ['min' => 4, 'max' => 16,
-                        'minMessage' => $translator->trans('Dein Name muss mindestens {{ limit }} Zeichen umfassen.', [], 'login'),
-                        'maxMessage' => $translator->trans('Dein Name kann höchstens {{ limit }} Zeichen umfassen.', [], 'login'),
+                        'minMessage' => $translator->trans('Dein Name muss mindestens { limit } Zeichen umfassen.', [], 'login'),
+                        'maxMessage' => $translator->trans('Dein Name kann höchstens { limit } Zeichen umfassen.', [], 'login'),
                     ]),
             ],
             'mail1' => [
@@ -278,7 +287,7 @@ class PublicController extends CustomAbstractController
             'mail2' => new Constraints\EqualTo(
                 ['value' => $parser->trimmed( 'mail1'), 'message' => $translator->trans('Die eingegebenen E-Mail Adressen stimmen nicht überein.', [], 'login')]),
             'pass1' => new Constraints\Length(
-                ['min' => 6, 'minMessage' => $translator->trans('Dein Passwort muss mindestens {{ limit }} Zeichen umfassen.', [], 'login')]),
+                ['min' => 6, 'minMessage' => $translator->trans('Dein Passwort muss mindestens { limit } Zeichen umfassen.', [], 'login')]),
             'pass2' => new Constraints\EqualTo(
                 ['value' => $parser->trimmed( 'pass1' ), 'message' => $translator->trans('Die eingegebenen Passwörter stimmen nicht überein.', [], 'login')]),
         ]), ['user','mail1','mail2','pass1','pass2'] );
@@ -547,7 +556,7 @@ class PublicController extends CustomAbstractController
             if ($this->entity_manager->getRepository(User::class)->findOneByEternalID( $etwin_user->getID() ))
                 return AjaxResponse::error( SoulController::ErrorETwinImportProfileInUse );
 
-            $myhordes_user->setEternalID( $etwin_user->getID() )->setPassword(null);
+            $myhordes_user->setEternalID( $etwin_user->getID() );
             if ($etwin_user->getDisplayName() !== $myhordes_user->getUsername())
                 $myhordes_user->setDisplayName( $etwin_user->getDisplayName() );
 
@@ -642,7 +651,7 @@ class PublicController extends CustomAbstractController
         $violations = Validation::createValidator()->validate( $parser->all( true ), new Constraints\Collection([
             'validate'  => new Constraints\Length(
                 ['min' => 16, 'max' => 16,
-                    'exactMessage' => $translator->trans('Der Validierungscode muss {{ limit }} Zeichen umfassen.', [], 'login'),
+                    'exactMessage' => $translator->trans('Der Validierungscode muss { limit } Zeichen umfassen.', [], 'login'),
                 ])
         ]) );
 

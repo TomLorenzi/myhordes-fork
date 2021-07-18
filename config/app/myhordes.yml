@@ -1,6 +1,19 @@
 parameters:
   local: []
   myhordes:
+    nightly:
+      retries: 3
+      date_modifier: "tomorrow"
+    backup:
+      path: ~
+      compression: ~
+      limits:
+        nightly: 0
+        daily: 7
+        weekly: 4
+        monthly: 12
+        update: 2
+        manual: -1
     coalitions:
       size: 5
     anti-grief:
@@ -9,9 +22,11 @@ parameters:
     fatalmail:
       target: ~
       source: ~
+    domains: []
     twinoid:
       sk: ~
       id: ~
+      domain: ~
     etwin:
       reg: ~
       auth: ~

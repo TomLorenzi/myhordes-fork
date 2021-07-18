@@ -3,7 +3,7 @@
 {% block content %}
     {% set hour = "now"|date("G") %}
     <div class="row">
-        <div class="cell rw-12 town-banner town-banner-door-{% if town.door %}open{% else %}closed{% endif%} time-{{ hour }} {% if town.isNight %}night{% endif %}"></div>
+        <div class="cell rw-12 town-banner town-banner-door-{% if town.door %}open{% else %}closed{% endif%} time-{{ hour }} {% if conf.isNightTime %}night{% endif %}"></div>
     </div>
 
     {% embed "ajax/game/town/door_tabs.html.twig" with {'door_section': door_section, 'has_battlement': has_battlement} %}
@@ -22,7 +22,7 @@
 
     {% if is_watcher %}
     <div class="help">
-        {{'Und übrigens, uns erscheint die Idee ganz gut dir noch zu sagen, dass du heute zu einer Wahrscheinlichkeit von %deathChance%% sterben und zu einer Wahrscheinlichkeit von %woundAndTerrorChance%% eine Verwundung oder Angststarre während der Wache erleiden wirst.'|trans({'%deathChance%': deathChance * 100, '%woundAndTerrorChance%': woundAndTerrorChance * 100}, 'game')}}
+        {{'Und übrigens, uns erscheint die Idee ganz gut dir noch zu sagen, dass du heute zu einer Wahrscheinlichkeit von {deathChance}% sterben und zu einer Wahrscheinlichkeit von {woundAndTerrorChance}% eine Verwundung oder Angststarre während der Wache erleiden wirst.'|trans({'{deathChance}': deathChance * 100, '{woundAndTerrorChance}': woundAndTerrorChance * 100}, 'game')}}
     </div>
     {% endif %}
 

@@ -17,7 +17,7 @@
             Ein neuer Horizont öffnet sich für dich: Du bist nicht länger ein gewöhnlicher Bürger, sondern ein geistiger Führer!
         {% endtrans %}
     </p>
-    <p>{{ 'Mit deinen %mp% kannst du:'|trans({'%mp%': '<span class="pm">5</span>'},'game')|raw }}</p>
+    <p>{{ 'Mit deinen {mp} kannst du:'|trans({'{mp}': '<span class="pm">5</span>'},'game')|raw }}</p>
     <ul class="bluelist">
         <li>{{ 'Die Seelen deiner verstorbenen Mitbürger lokalisieren.'|trans({},'game') }}</li>
         <li>{{ 'Schamanische Tränke für deine Nachbarn herstellen.'|trans({},'game') }}</li>
@@ -25,8 +25,8 @@
         <li>{{ 'Deine Nachbarn heilen, möglichst ohne sie dabei umzubringen...'|trans({},'game') }}</li>
     </ul>
     <p>
-        {% trans with {'%shaman_help%': ('<a target="_blank" href="' ~ path('help', {'name': 'shaman'}) ~ '">' ~ 'Schamanen-Ratgeber'|trans({},'game') ~ '</a>')} from 'game' %}
-            Schau dir am besten gleich den %shaman_help% an.
+        {% trans with {'{shaman_help}': ('<a target="_blank" href="' ~ path('help', {'name': 'shaman'}) ~ '">' ~ 'Schamanen-Ratgeber'|trans({},'game') ~ '</a>')} from 'game' %}
+            Schau dir am besten gleich den {shaman_help} an.
         {% endtrans %}<br />
         {% trans from 'game' %}
             Es enthält alle wesentlichen Informationen, um endlich deinen überlegenen Status in den Augen aller anerkennen zu lassen...

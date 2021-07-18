@@ -64,7 +64,7 @@ class ItemFixtures extends Fixture
 		['label' => 'Krebserregender Ofen', 'icon' => 'machine_2', 'category' => 'Furniture', 'deco' =>2, 'heavy' =>true, 'watchpoint' => 15],                                    // -- Out
 		['label' => 'Alte Waschmaschine', 'icon' => 'machine_1', 'category' => 'Furniture', 'deco' =>2, 'heavy' =>true, 'watchpoint' => 19],                                      // -- Out
 		['label' => 'Wütende Mieze (halb verdaut)', 'icon' => 'angryc', 'category' => 'Furniture', 'deco' =>1, 'heavy' =>false, 'watchpoint' => 0, 'fragile' => true],                           // --
-		['label' => 'Kassettenradio', 'icon' => 'radio_on', 'category' => 'Furniture', 'deco' =>2, 'heavy' =>false, 'watchpoint' => -10],                                    // -- ---
+		['label' => 'Kassettenradio', 'icon' => 'radio_on', 'category' => 'Furniture', 'deco' =>2, 'heavy' =>false, 'watchpoint' => -8],                                    // -- ---
         ['label' => 'Schaukelstuhl', 'icon' => 'chair', 'category' => 'Furniture', 'deco' =>5, 'heavy' =>true, 'watchpoint' => 15],                                         // -- ---
         ['label' => 'Ausgeschaltete Nachttischlampe', 'icon' => 'lamp', 'category' => 'Furniture', 'deco' =>1, 'heavy' =>false, 'watchpoint' => 4],                        // In Out
         ['label' => 'Perser', 'icon' => 'carpet', 'category' => 'Furniture', 'deco' =>10, 'heavy' =>true, 'watchpoint' => 8],                                             // -- ---
@@ -94,7 +94,7 @@ class ItemFixtures extends Fixture
         ['label' => 'Best of The King CD', 'icon' => 'cdelvi', 'category' => 'Furniture', 'deco' =>7, 'heavy' =>false, 'watchpoint' => 0],                                 // -- ---
         ['label' => 'Rock n Roll HiFi', 'icon' => 'dfhifi', 'category' => 'Furniture', 'deco' =>10, 'heavy' =>true, 'watchpoint' => 0],                                     // -- ---
         ['label' => 'Verteidigende HiFi', 'icon' => 'dfhifi', 'category' => 'Furniture', 'deco' =>10, 'heavy' =>true, 'watchpoint' => 0],                                   // -- ---
-		['label' => 'Großer knuddeliger Kater', 'icon' => 'pet_cat', 'category' => 'Furniture', 'deco' =>5, 'heavy' =>false, 'watchpoint' => 10, 'fragile' => true],                              // -- Out
+		['label' => 'Großer knuddeliger Kater', 'icon' => 'pet_cat', 'category' => 'Furniture', 'deco' =>5, 'heavy' =>false, 'watchpoint' => 8, 'fragile' => true],                              // -- Out
 		['label' => 'Kaffeekocher', 'icon' => 'coffee_machine', 'category' => 'Furniture', 'deco' =>5, 'heavy' =>true, 'watchpoint' => 0],                                       // -- ---
 		['label' => 'PC-Gehäuse', 'icon' => 'pc', 'category' => 'Furniture', 'deco' =>3, 'heavy' =>true, 'watchpoint' => 11],                                                  // -- Out
 		['label' => 'Selbstgebaute Gitarre', 'icon' => 'guitar', 'category' => 'Furniture', 'deco' =>6, 'heavy' =>false, 'watchpoint' => 19],                                     // In ---
@@ -873,7 +873,7 @@ class ItemFixtures extends Fixture
         'food_bag_#00'               => [ 'hero_find' ],
         'rsc_pack_3_#00'             => [ 'hero_find_lucky' ],
         'rsc_pack_2_#00'             => [ 'hero_find' ],
-        'bretz_#00'                  => [ 'food', 'esc_fixed', 'can_cook' ],
+        'bretz_#00'                  => [ 'food', 'can_cook' ],
         'undef_#00'                  => [ 'food', 'can_cook' ],
         'dish_#00'                   => [ 'food' ],
         'chama_#00'                  => [ 'can_cook' ],
@@ -960,7 +960,6 @@ class ItemFixtures extends Fixture
             array('item' => 'jerrycan_#00', 'count' => '1456'),
             array('item' => 'chest_tools_#00', 'count' => '1390'),
             array('item' => 'deco_box_#00', 'count' => '1309'),
-            array('item' => 'bplan_drop_#00', 'count' => '1232'),
             array('item' => 'digger_#00', 'count' => '1231'),
             array('item' => 'tube_#00', 'count' => '1184'),
             array('item' => 'wood_beam_#00', 'count' => '1176'),
@@ -978,12 +977,12 @@ class ItemFixtures extends Fixture
             array('item' => 'pet_snake_#00', 'count' => '877'),
             array('item' => 'pet_snake2_#00', 'count' => '877'),
             array('item' => 'electro_box_#00', 'count' => '854'),
-            array('item' => 'tekel_#00', 'count' => '845'),
             array('item' => 'door_#00', 'count' => '841'),
             array('item' => 'drug_random_#00', 'count' => '818'),
             array('item' => 'smoke_bomb_#00', 'count' => '814'),
             array('item' => 'bag_#00', 'count' => '808'),
             array('item' => 'water_cleaner_#00', 'count' => '803'),
+            array('item' => 'bplan_drop_#00', 'count' => '800'),
             array('item' => 'tagger_#00', 'count' => '794'),
             array('item' => 'machine_3_#00', 'count' => '794'),
             array('item' => 'trestle_#00', 'count' => '790'),
@@ -1014,6 +1013,7 @@ class ItemFixtures extends Fixture
             array('item' => 'chair_basic_#00', 'count' => '423'),
             array('item' => 'xanax_#00', 'count' => '418'),
             array('item' => 'diode_#00', 'count' => '416'),
+            array('item' => 'tekel_#00', 'count' => '400'),
             array('item' => 'pet_cat_#00', 'count' => '396'),
             array('item' => 'lights_#00', 'count' => '381'),
             array('item' => 'sport_elec_empty_#00', 'count' => '376'),
@@ -1042,6 +1042,7 @@ class ItemFixtures extends Fixture
             array('item' => 'music_part_#00', 'count' => '210'),
             array('item' => 'book_gen_box_#00', 'count' => '209'),
             array('item' => 'cyanure_#00', 'count' => '206'),
+            array('item' => 'vodka_#00', 'count' => '200'),
             array('item' => 'hmeat_#00', 'count' => '195'),
             array('item' => 'knife_#00', 'count' => '194'),
             array('item' => 'engine_part_#00', 'count' => '193'),
@@ -1060,7 +1061,6 @@ class ItemFixtures extends Fixture
             array('item' => 'cadaver_#00', 'count' => '102'),
             array('item' => 'smelly_meat_#00', 'count' => '102'),
             array('item' => 'maglite_off_#00', 'count' => '100'),
-            array('item' => 'vodka_#00', 'count' => '100'),
             array('item' => 'postal_box_#00', 'count' => '98'),
             array('item' => 'big_pgun_part_#00', 'count' => '95'),
             array('item' => 'car_door_part_#00', 'count' => '95'),

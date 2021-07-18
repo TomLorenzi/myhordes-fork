@@ -321,6 +321,38 @@
                     </div>
                     <div class="row">
                         <div class="cell padded rw-3 rw-md-6 rw-sm-12 note note-lightest">
+                            <label for="nightTime">{{'Zeitzone:'|trans({}, 'ghost')}}</label>
+                        </div>
+                        <div class="cell rw-3 rw-md-6 rw-sm-12">
+                            <div class="row-flex wrap stretch">
+                                <div class="padded cell rw-12">
+                                    <select name="nightTime" id="nightTime" x-payload="nighttime">
+                                        <option selected value="day" title="{{'Die eingestellte Zeit gibt die Dauer des Tages an.'|trans({}, 'ghost')}} {{'Ist der Nachtmodus deaktiviert, hat diese Einstellung ausschließlich kosmetischen Einfluss.'|trans({}, 'ghost')}}">{{'Tagesphase'|trans({}, 'ghost')}}</option>
+                                        <option value="night" title="{{'Die eingestellte Zeit gibt die Dauer der Nacht an.'|trans({}, 'ghost')}} {{'Ist der Nachtmodus deaktiviert, hat diese Einstellung ausschließlich kosmetischen Einfluss.'|trans({}, 'ghost')}}">{{'Nachtphase'|trans({}, 'ghost')}}</option>
+                                    </select>
+                                </div>
+                                <div class="padded cell">
+                                    <label><select name="nightTimeBegin" id="nightTimeBegin" x-payload="nighttime0">
+                                        {% for h in 0..23 %}<option {% if h == 7 %}selected{% endif %} value="{{ h }}">{{ h }}:00</option>{% endfor %}
+                                    </select></label>
+                                </div>
+                                <div class="padded grow-1 cell center">-</div>
+                                <div class="padded cell">
+                                    <label><select name="nightTimeEnd" id="nightTimeEnd" x-payload="nighttime1">
+                                        {% for h in 1..24 %}<option {% if h == 18 %}selected{% endif %} value="{{ h }}">{{ h }}:00</option>{% endfor %}
+                                    </select></label>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                        <div class="cell padded rw-6 rw-md-12">
+                            <div class="help" id="helpNightTime"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="cell padded rw-3 rw-md-6 rw-sm-12 note note-lightest">
                             <label for="nightMode">{{'Nachtmodus:'|trans({}, 'ghost')}}</label>
                         </div>
                         <div class="cell padded rw-3 rw-md-6 rw-sm-12">
@@ -461,8 +493,20 @@
         fun_link_help('ghoulType','helpGhoul');
         fun_link_help('nightWatchMode','helpNightWatch');
         fun_link_help('nightMode','helpNightMode');
+        fun_link_help('nightTime','helpNightTime');
         fun_link_help('shamanMode','helpShaman', v => {
             if (document.getElementById('shaman')) document.getElementById('shaman').checked = (v === 'job')
+        });
+
+        $.html.addEventListenerAll('#nightTimeBegin', 'change', function() {
+            const h0 = parseInt(document.getElementById('nightTimeBegin').value);
+            const h1 = parseInt(document.getElementById('nightTimeEnd').value);
+            if (h0 >= h1) document.querySelector('#nightTimeEnd>option[value="' + (h0 + 1) + '"]').setAttribute('selected','selected');
+        });
+        $.html.addEventListenerAll('#nightTimeEnd', 'change', function() {
+            const h0 = parseInt(document.getElementById('nightTimeBegin').value);
+            const h1 = parseInt(document.getElementById('nightTimeEnd').value);
+            if (h0 >= h1) document.querySelector('#nightTimeBegin>option[value="' + (h1 - 1) + '"]').setAttribute('selected','selected');
         });
 
         $.html.addEventListenerAll('#negate', 'change', function(e,elem) {

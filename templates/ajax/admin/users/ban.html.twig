@@ -26,7 +26,6 @@
                                 <div class="row">
                                     <div class="cell rw-2 padded">
                                         {% if restriction.active %}
-
                                             {% if not restriction.confirmed %}
                                                 <div class="inline-block">
                                                     <img alt="!" src="{{ asset('build/images/assets/img/icons/small_warning.gif') }}" />
@@ -63,6 +62,7 @@
                                                 {% else %}
                                                     {% if restriction.restriction|bin_contains(constant('App\\Entity\\AccountRestriction::RestrictionForum')) %}<div>{{ 'Forum'|trans({},'admin') }}</div>{% endif %}
                                                     {% if restriction.restriction|bin_contains(constant('App\\Entity\\AccountRestriction::RestrictionTownCommunication')) %}<div>{{ 'Stadt-Kom.'|trans({},'admin') }}</div>{% endif %}
+                                                    {% if not restriction.restriction|bin_contains(constant('App\\Entity\\AccountRestriction::RestrictionTownCommunication')) and restriction.restriction|bin_contains(constant('App\\Entity\\AccountRestriction::RestrictionBlackboard')) %}<div>{{ 'Schwarzes Brett'|trans({},'admin') }}</div>{% endif %}
                                                     {% if restriction.restriction|bin_contains(constant('App\\Entity\\AccountRestriction::RestrictionGlobalCommunication')) %}<div>{{ 'Globale Kom.'|trans({},'admin') }}</div>{% endif %}
                                                     {% if restriction.restriction|bin_contains(constant('App\\Entity\\AccountRestriction::RestrictionComments')) %}<div>{{ 'Kommentare'|trans({},'admin') }}</div>{% endif %}
                                                     {% if restriction.restriction|bin_contains(constant('App\\Entity\\AccountRestriction::RestrictionOrganization')) %}<div>{{ 'Org.'|trans({},'admin') }}</div>{% endif %}
@@ -76,6 +76,7 @@
                                                     {% if restriction.restriction|bin_contains(constant('App\\Entity\\AccountRestriction::RestrictionProfileAvatar')) %}<div>{{ 'Avatar'|trans({},'admin') }}</div>{% endif %}
                                                     {% if restriction.restriction|bin_contains(constant('App\\Entity\\AccountRestriction::RestrictionProfileDescription')) %}<div>{{ 'Profilbeschreibung'|trans({},'admin') }}</div>{% endif %}
                                                     {% if restriction.restriction|bin_contains(constant('App\\Entity\\AccountRestriction::RestrictionProfileTitle')) %}<div>{{ 'Titel'|trans({},'admin') }}</div>{% endif %}
+                                                    {% if restriction.restriction|bin_contains(constant('App\\Entity\\AccountRestriction::RestrictionProfileDisplayName')) %}<div>{{ 'Spielername'|trans({},'admin') }}</div>{% endif %}
                                                 {% endif %}
                                             </div>
                                         </div>
@@ -91,7 +92,7 @@
                                     </div>
                                     <div class="cell rw-2 padded"><span class="small">{{ restriction.created|format_datetime('medium', 'short') }}</span></div>
                                     <div class="cell rw-2 padded">
-                                        {% if restriction.originalDuration < 0 %}<b>∞</b>{% else %}{{ '%d% Tage'|trans({'%d%': (restriction.originalDuration/86400)|round},'admin') }}{% endif %}
+                                        {% if restriction.originalDuration < 0 %}<b>∞</b>{% else %}{{ '{d} Tage'|trans({'{d}': (restriction.originalDuration/86400)|round},'admin') }}{% endif %}
                                     </div>
                                     <div class="cell rw-2 padded">
                                         {% if restriction.originalDuration > 0 and restriction.expires is not null %}<span class="small">{{ restriction.expires|format_datetime('medium', 'short') }}</span>{% endif %}
@@ -113,7 +114,7 @@
                             <select x-confirmation id="rest_duration">
                                 <option value="86400">{{ '24 Stunden'|trans({},'admin') }}</option>
                                 {% for duration in [2,3,5,7,15,30,60,90,120,240] %}
-                                    <option {% if duration > 30%}x-confirmation="1"{% endif %} value="{{ duration * 86400 }}">{{ '%d% Tage'|trans({'%d%': duration},'admin') }}{% if duration > 30 and not is_granted('ROLE_ADMIN') %} ({{ 'Bestätigung erforderlich'|trans({},'admin') }}){% endif %}</option>
+                                    <option {% if duration > 30%}x-confirmation="1"{% endif %} value="{{ duration * 86400 }}">{{ '{d} Tage'|trans({'{d}': duration},'admin') }}{% if duration > 30 and not is_granted('ROLE_ADMIN') %} ({{ 'Bestätigung erforderlich'|trans({},'admin') }}){% endif %}</option>
                                 {% endfor %}
                                 <option x-confirmation="2" value="31536000">{{ '1 Jahr'|trans({},'admin') }}{% if not is_granted('ROLE_ADMIN') %} ({{ 'Admin-Bestätigung erforderlich'|trans({},'admin') }}){% endif %}</option>
                                 <option x-confirmation="2" value="63072000">{{ '2 Jahre'|trans({},'admin') }}{% if not is_granted('ROLE_ADMIN') %} ({{ 'Admin-Bestätigung erforderlich'|trans({},'admin') }}){% endif %}</option>
@@ -133,6 +134,7 @@
                                 <div class="cell rw-12"><label><input type="checkbox" x-restriction="{{ constant('App\\Entity\\AccountRestriction::RestrictionSocial') }}"> {{ 'Soziale Interaktion verbieten'|trans({},'admin') }}</label></div>
                                 <div class="cell ro-1 rw-11"><label><input type="checkbox" x-restriction="{{ constant('App\\Entity\\AccountRestriction::RestrictionForum') }}"> {{ 'Posten in Foren verbieten'|trans({},'admin') }}</label></div>
                                 <div class="cell ro-1 rw-11"><label><input type="checkbox" x-restriction="{{ constant('App\\Entity\\AccountRestriction::RestrictionTownCommunication') }}"> {{ 'Stadt-interne Kommunikation verbieten'|trans({},'admin') }}</label></div>
+                                <div class="cell ro-2 rw-11"><label><input type="checkbox" x-restriction="{{ constant('App\\Entity\\AccountRestriction::RestrictionBlackboard') }}"> {{ 'Verwendung des Schwarzen Bretts verbieten'|trans({},'admin') }}</label></div>
                                 <div class="cell ro-1 rw-11"><label><input type="checkbox" x-restriction="{{ constant('App\\Entity\\AccountRestriction::RestrictionGlobalCommunication') }}"> {{ 'Stadtübergreifende Kommunikation verbieten'|trans({},'admin') }}</label></div>
                                 <div class="cell ro-1 rw-11"><label><input type="checkbox" x-restriction="{{ constant('App\\Entity\\AccountRestriction::RestrictionComments') }}"> {{ 'Kommentare verbieten'|trans({},'admin') }}</label></div>
                                 <div class="cell ro-1 rw-11"><label><input type="checkbox" x-restriction="{{ constant('App\\Entity\\AccountRestriction::RestrictionOrganization') }}"> {{ 'Organisation in Gruppen verbieten'|trans({},'admin') }}</label></div>
@@ -141,6 +143,7 @@
                                 <div class="cell ro-1 rw-11"><label><input type="checkbox" x-restriction="{{ constant('App\\Entity\\AccountRestriction::RestrictionProfileAvatar') }}"> {{ 'Ändern des Avatars verbieten'|trans({},'admin') }}</label></div>
                                 <div class="cell ro-1 rw-11"><label><input type="checkbox" x-restriction="{{ constant('App\\Entity\\AccountRestriction::RestrictionProfileDescription') }}"> {{ 'Ändern der Profilbeschreibung verbieten'|trans({},'admin') }}</label></div>
                                 <div class="cell ro-1 rw-11"><label><input type="checkbox" x-restriction="{{ constant('App\\Entity\\AccountRestriction::RestrictionProfileTitle') }}"> {{ 'Ändern des Titels verbieten'|trans({},'admin') }}</label></div>
+                                <div class="cell ro-1 rw-11"><label><input type="checkbox" x-restriction="{{ constant('App\\Entity\\AccountRestriction::RestrictionProfileDisplayName') }}"> {{ 'Ändern des Spielernamens verbieten'|trans({},'admin') }}</label></div>
                             </div>
                             <div class="row">
                                 <div class="cell rw-12">

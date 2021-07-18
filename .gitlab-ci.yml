@@ -1,0 +1,93 @@
+# To contribute improvements to CI/CD templates, please follow the Development guide at:
+# https://docs.gitlab.com/ee/development/cicd/templates.html
+# This specific template is located at:
+# https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/PHP.gitlab-ci.yml
+
+# Select image from https://hub.docker.com/_/php/
+image: php:7.4-cli
+
+# Bring in any services we need http://docs.gitlab.com/ee/ci/docker/using_docker_images.html#what-is-a-service
+# See http://docs.gitlab.com/ee/ci/services/README.html for examples.
+services:
+  - mariadb:10.5
+
+# Set any variables we need
+variables:
+  # Configure mysql environment variables (https://hub.docker.com/r/_/mysql/)
+  # MYSQL_DATABASE: myhordes
+  MARIADB_ROOT_PASSWORD : MyH0rd3sD@tAbaze!
+  DATABASE_URL: mysql://root:MyH0rd3sD@tAbaze!@mariadb:3306/myhordes
+  XDEBUG_MODE: coverage
+
+stages:
+  - build
+  - test
+  - deploy
+
+build:
+  stage: build
+  script:
+    - apt-get update -yqq
+    # Installing some dependancies
+    - apt-get install -yqq sudo git imagemagick curl unzip
+    # Changing php's maximum memory to 256M
+    - mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
+    - sed -Ei 's/memory_limit = (.*)/memory_limit = 256M/' "$PHP_INI_DIR/php.ini"
+    # Install Node & Yarn
+    - curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+    - sudo apt-get install -y nodejs
+    - npm install --global yarn
+    # Install PHP extensions
+    - curl -L https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions -o /usr/local/bin/install-php-extensions
+    - chmod +x /usr/local/bin/install-php-extensions
+    - install-php-extensions intl gd zip opcache pdo_mysql
+    # Install & enable Xdebug for code coverage reports
+    - pecl install xdebug
+    - docker-php-ext-enable xdebug
+    # Install and run Composer
+    - curl -sS https://getcomposer.org/installer | php
+    - php composer.phar install
+    # Install assets
+    - yarn install
+    - yarn encore dev
+    # Install default DB
+    - php bin/console app:migrate -i
+  cache:
+    key: "$CI_COMMIT_REF_NAME"
+    policy: push
+    paths:
+      - vendor
+      - node_modules
+      - public/build
+
+# Run our tests
+# If Xdebug was installed you can generate a coverage report and see code coverage metrics.
+test:
+  stage: test
+  dependencies:
+    - build
+  script:
+    - vendor/bin/phpunit # --coverage-text --colors=never
+  cache:
+    key: "$CI_COMMIT_REF_NAME"
+    policy: pull
+    paths:
+      - vendor
+      - node_modules
+      - public/build
+
+deploy_staging:
+  stage: deploy
+  dependencies:
+    - test
+  script:
+    - apt-get update -yqq
+    - apt-get install -yqq sshpass
+    - export SSHPASS=$SSH_PASSWORD
+    - sshpass -e ssh -p 2244 -o stricthostkeychecking=no deployer@newhope.aifesdespets.fr 'cd /var/www/chehtan.dev/myhordes/www && bin/console app:migrate -g --remote origin --branch Dev-Ludofloria --environment dev --phar'
+    - unset SSHPASS
+  only:
+    - Dev-Ludofloria
+  environment:
+    name: ludo-staging
+    url: https://myhordes.chehtan.dev

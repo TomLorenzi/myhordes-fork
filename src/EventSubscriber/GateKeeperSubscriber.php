@@ -10,6 +10,7 @@ use App\Entity\CitizenProfession;
 use App\Entity\User;
 use App\Exception\DynamicAjaxResetException;
 use App\Service\AntiCheatService;
+use App\Service\CitizenHandler;
 use App\Service\Locksmith;
 use App\Service\TimeKeeperService;
 use App\Service\TownHandler;
@@ -40,13 +41,14 @@ class GateKeeperSubscriber implements EventSubscriberInterface
     private UrlGeneratorInterface $url_generator;
     private TranslatorInterface $translator;
     private UserHandler $userHandler;
+    private CitizenHandler $citizenHandler;
 
     /** @var LockInterface|null  */
     private $current_lock = null;
 
     public function __construct(
         EntityManagerInterface $em, Locksmith $locksmith, Security $security, UserHandler $uh,
-        TownHandler $th, TimeKeeperService $tk, AntiCheatService $anti_cheat, UrlGeneratorInterface $url, TranslatorInterface $translator)
+        TownHandler $th, TimeKeeperService $tk, AntiCheatService $anti_cheat, UrlGeneratorInterface $url, TranslatorInterface $translator, CitizenHandler $ch)
     {
         $this->em = $em;
         $this->locksmith = $locksmith;
@@ -57,6 +59,7 @@ class GateKeeperSubscriber implements EventSubscriberInterface
         $this->url_generator = $url;
         $this->translator = $translator;
         $this->userHandler = $uh;
+        $this->citizenHandler = $ch;
     }
 
     public function holdTheDoor(ControllerEvent $event) {
@@ -106,6 +109,10 @@ class GateKeeperSubscriber implements EventSubscriberInterface
             if ($gk_profile->onlyWhenAlive() && !$citizen->getAlive())
                 // This is a game action controller; it is not available to players who are dead
                 throw new DynamicAjaxResetException($event->getRequest());
+
+            if ($citizen->getAlive()){
+                $this->citizenHandler->inflictStatus($citizen, 'tg_chk_active');
+            }
 
             if ($gk_profile->onlyWithProfession() && $citizen->getProfession()->getName() === CitizenProfession::DEFAULT) {
                 // This is a game profession controller; it is not available to players who have not chosen a profession

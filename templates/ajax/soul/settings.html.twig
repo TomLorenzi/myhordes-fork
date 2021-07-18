@@ -29,6 +29,49 @@
             <div class="row">
                 <div class="padded cell rw-3 rw-md-4 rw-sm-12">
                     <div class="note note-lightest">
+                        <label for="user_displayname">{{ 'Dein Spielername'|trans({}, 'soul') }}</label>
+                    </div>
+                </div>
+                <div class="padded cell rw-9 rw-md-8 rw-sm-12">
+                    <input {% if app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionProfileDisplayName')) or app.user.eternalID is not null %}disabled{% endif %} id="user_displayname" type="text" value="{% if app.user.displayName is not null %}{{ app.user.displayName }}{% else %}{{ app.user.name }}{% endif %}" />
+                </div>
+                {% if app.user.eternalID is null and app.user.displayName is not null and app.user.displayName != app.user.username %}
+                    <div class="padded cell ro-3 rw-9 ro-md-4 rw-md-8 ro-sm-0 rw-sm-12">
+                        <div  class="note warning-box">
+                            {{ 'Um dich einzuloggen, musst du nach wie vor deinen <b>ursprünglichen Namen</b> verwenden: <i>{name}</i>.'|trans({name: app.user.username},'login')|raw }}
+                        </div>
+                    </div>
+                {% endif %}
+                <div id="name-warning-box" class="padded cell ro-3 rw-9 ro-md-4 rw-md-8 ro-sm-0 rw-sm-12 {% if app.user.eternalID is null %}hidden{% endif %}">
+                    <div  class="note warning-box">
+                        {% if app.user.eternalID is null %}
+                        {{ 'WARNUNG: Du kannst deinen Spielernamen nicht jederzeit ändern, wähle ihn also weiße, denn du wirst ihn für mehrere Monate behalten. Um anderen Spielern zu helfen dich zu finden wird der Verlauf deiner Spielernamen in deinem Profil angezeigt.'|trans({}, 'soul') }}
+                        {% else %}
+                        {{ 'Du kannst deinen Spielernamen nicht ändern, weil du einen zugehörigen Eternal Twin Account hast. Du musst zu deinem Eternal Twin-Konto gehen, um deinen Spielernamen zu ändern.'|trans({}, 'soul') }}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="padded cell rw-3 rw-md-4 rw-sm-12">
+                    <div class="note note-lightest">
+                        <label>
+                            {{ 'Bevorzugte Pronomen'|trans({}, 'global') }}
+                            <a class="help-button"><div class="tooltip help">{{ 'Hier kannst du festlegen, welche Personalpronomen das Spiel verwenden soll, wenn es sich auf dich bezieht (z.B. "männlich" für "er", "ihn", etc und "weiblich" für "sie", "ihr", etc).<br /><em>Diese Einstellung beeinflusst, wie dir und anderen Spielern bestimmte Texte angezeigt werden, wenn die Option "Neue Übersetzungen verwenden" aktiv ist.</em>.'|trans({},'global')|raw }}</div>{{ 'Hilfe'|trans({},'global') }}</a>
+                        </label>
+                    </div>
+                </div>
+                <div class="cell rw-9 rw-md-8 rw-sm-12">
+                    <div class="row-flex wrap">
+                        <div class="padded cell"><label class="small"><input {{ app.user.preferredPronoun == constant('App\\Entity\\User::PRONOUN_MALE') ? 'checked' : '' }} type="radio" name="user_pronoun" value="male" /> {{ 'Männlich'|trans({},'global') }}</label></div>
+                        <div class="padded cell"><label class="small"><input {{ app.user.preferredPronoun == constant('App\\Entity\\User::PRONOUN_FEMALE') ? 'checked' : '' }} type="radio" name="user_pronoun" value="female" /> {{ 'Weiblich'|trans({},'global') }}</label></div>
+                        <div class="padded cell"><label class="small"><input {{ app.user.preferredPronoun is null or app.user.preferredPronoun == constant('App\\Entity\\User::PRONOUN_NONE') ? 'checked' : '' }} type="radio" name="user_pronoun" value="none" /> {{ 'Keine Präferenz'|trans({},'global') }}</label></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="padded cell rw-3 rw-md-4 rw-sm-12">
+                    <div class="note note-lightest">
                         <label>{{ 'Dein Icon'|trans({}, 'global') }}</label>
                     </div>
                 </div>
@@ -231,6 +274,12 @@
                                 <input x-setting {% if app.user.disableFx %}checked{% endif%} type="checkbox" id="setting_disable_fx">&nbsp;<label for="setting_disable_fx">{{ 'Animationen verringern'|trans({}, 'soul') }}</label> <a class="help-button"><div class="tooltip help">{{ 'Mache hier einen Haken, wenn die Landkarte nur sehr langsam geladen wird.<br /><em>Mit dieser Option senkst du die Qualität der Spielkartenanimationen.</em>.'|trans({},'soul')|raw }}</div>{{ 'Hilfe'|trans({},'global') }}</a>
                             </div>
                         </div>
+                        <div class="padded cell rw-12">
+                            <div class="note note-lightest">
+                                <input x-setting {% if app.user.useICU %}checked{% endif%} type="checkbox" id="setting_use_icu">&nbsp;<label for="setting_use_icu">{{'Neue Übersetzungen verwenden'|trans({}, 'soul')}}</label>
+                                {{help_btn("Mit dem neuen Übersetzungssystem werden Texte akkurater in deiner Sprache dargestellt (zum Beispiel die passende Verwendung von Singular und Plural-Formen). Deaktiviere diese Option, um die originalen Texte aus Die Verdammten zu sehen."|trans({}, 'soul'))}}
+                            </div>
+                        </div>
                     </div>
 
                     <h5>{{ 'Browser-Einstellungen'|trans({},'soul') }}</h5>
@@ -255,8 +304,8 @@
                     <div class="importSoulBanner">
                         <h4>{{ 'Willkommen bei MyHordes!'|trans({},'welcome') }}</h4>
                         <p>
-                            {{ 'Hast du ein Seele bei %hordes%, %dv%, %d2n% oder %zn%?'|trans({
-                                '%hordes%': '<i>Hordes</i>', '%dv%': '<i>Die Verdammten</i>', '%d2n%': '<i>Die2Nite</i>', '%zn%': '<i>Zombinoia</i>'
+                            {{ 'Hast du ein Seele bei {hordes}, {dv}, {d2n} oder {zn}?'|trans({
+                                '{hordes}': '<i>Hordes</i>', '{dv}': '<i>Die Verdammten</i>', '{d2n}': '<i>Die2Nite</i>', '{zn}': '<i>Zombinoia</i>'
                             },'soul')|raw }}
                             <b>{{ 'Dann musst du nicht von Vorne beginnen!'|trans({},'soul') }}</b> {{ 'Importiere deine Seele und mache dort weiter, wo du aufgehört hast.'|trans({},'soul') }}
                         </p>
@@ -279,6 +328,16 @@
                     </div>
                 </div>
             {% endif %}
+            {% if is_granted("ROLE_CROW") %}
+                <h5>{{ 'Moderationseinstellungen'|trans({}, 'soul') }}</h5>
+                <div class="row">
+                    <div class="padded cell rw-12">
+                        <div class="note note-lightest">
+                            <input x-open-mod-tools-window {% if app.user.openModToolsSameWindow %}checked{% endif%} type="checkbox" id="setting_open_same_window">&nbsp;<label for="setting_open_same_window">{{ 'Moderationslinks in neuem Fenster öffnen'|trans({}, 'soul') }}</label>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
 
             {% if not is_granted('ROLE_ETERNAL') %}
                 <h5>{{ 'Login und Sicherheit'|trans({},'soul') }}</h5>
@@ -287,9 +346,47 @@
                         <div class="note note-lightest"><label for="app_mail">{% trans from 'soul' %}E-Mail-Adresse{% endtrans %}</label></div>
                     </div>
                     <div class="cell padded rw-8 rw-sm-12">
-                        <input id="app_mail" type="text" disabled value="{{ app.user.email }}" />
+                        <input id="app_mail" type="text" disabled value="{{ app.user.email }}{% if app.user.pendingEmail is not null %} ({{ app.user.pendingEmail }}){% endif %}" />
                     </div>
                 </div>
+                {% if app.user.pendingEmail is null %}
+                    <div class="row">
+                    <div class="cell padded rw-4 rw-sm-12">
+                        <div class="note note-lightest">{% trans from 'soul' %}E-Mail-Adresse ändern{% endtrans %}</div>
+                    </div>
+
+                    <div class="cell rw-8 rw-sm-12">
+                        <div class="row">
+                            <div class="cell padded rw-6"><label><input id="app_email_change_new1" placeholder="{{ 'Neue E-Mail-Adresse'|trans({},'soul') }}" type="email" value="" /></label></div>
+                            <div class="cell padded rw-6"><label><input id="app_email_change_new2" placeholder="{{ 'E-Mail-Adresse wiederholen'|trans({},'soul') }}" type="email" value="" /></label></div>
+                            <div class="cell padded rw-12">
+                                <div class="note warning-box">
+                                    {{ 'Du musst deine neue E-Mail Adresse validieren, bevor du sie verwenden kannst.'|trans({}, 'soul') }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                <div class="row">
+                    <div class="cell padded rw-4 rw-sm-12">
+                        <div class="note note-lightest">{% trans from 'soul' %}Validierungs-Token{% endtrans %}</div>
+                    </div>
+                    <div class="cell rw-8 rw-sm-12">
+                        <div class="row">
+                            <div class="cell padded rw-12">
+                                <label><input id="email_validation_token" type="text" placeholder="abcdef123456" /></label>
+                            </div>
+                            <div class="cell padded rw-6">
+                                <button id="resend_token">{{ 'Validierung erneut senden'|trans({},'soul') }}</button>
+                            </div>
+                            <div class="cell padded rw-6">
+                                <button id="cancel_token">{{ 'Änderung der E-Mail Adresse abbrechen'|trans({},'soul') }}</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
                 <div class="row">
                     <div class="cell padded rw-4 rw-sm-12">
                         <div class="note note-lightest">{% trans from 'soul' %}Passwort ändern{% endtrans %}</div>
@@ -299,7 +396,7 @@
                             <div class="cell padded rw-6"><label><input id="app_pw_change_new1" placeholder="{{ 'Neues Passwort'|trans({},'soul') }}" type="password" value="" /></label></div>
                             <div class="cell padded rw-6"><label><input id="app_pw_change_new2" placeholder="{{ 'Neues Passwort wiederholen'|trans({},'soul') }}" type="password" value="" /></label></div>
                             <div class="cell padded rw-6"><label><input id="app_pw_change_old" placeholder="{{ 'Aktuelles Passwort'|trans({},'soul') }}" type="password" value="" /></label></div>
-                            <div class="cell padded rw-6"><button id="acc_ch_pw">{{ 'Passwort aktualisieren'|trans({},'soul') }}</button></div>
+                            <div class="cell padded rw-6"><button id="acc_ch_details">{{ 'Account-Infos aktualisieren'|trans({},'soul') }}</button></div>
                         </div>
                     </div>
                 </div>
@@ -378,28 +475,63 @@
                 } )
         });
 
-
-        $.html.addEventListenerAll('#acc_ch_pw', 'click', function(e) {
+        $.html.addEventListenerAll('#acc_ch_details', 'click', function(e) {
             e.preventDefault();
-            const pw_old = document.getElementById('app_pw_change_old').value;
-            const pw_new1 = document.getElementById('app_pw_change_new1').value;
-            const pw_new2 = document.getElementById('app_pw_change_new2').value;
+            let pw_old = document.getElementById('app_pw_change_old').value;
+            let pw_new1 = document.getElementById('app_pw_change_new1').value;
+            let pw_new2 = document.getElementById('app_pw_change_new2').value;
+            let email_new1 = document.getElementById('app_email_change_new1').value;
+            let email_new2 = document.getElementById('app_email_change_new2').value;
 
-            if (pw_new1 !== pw_new2) {
+            let email_token = '';
+            {% if app.user.pendingEmail is not null %}
+            email_token = document.getElementById('email_validation_token').value;
+            {% endif %}
+
+            if (pw_new1 !== '' && pw_new1 !== pw_new2) {
                 $.html.error('{{ 'Die eingegebenen Passwörter stimmen nicht überein.'|trans({},'login')|e('js') }}');
                 return;
             }
 
-            if (pw_new1.length < 6) {
-                $.html.error('{{ 'Dein Passwort muss mindestens {{ limit }} Zeichen umfassen.'|trans({'{{ limit }}': 6},'login')|e('js') }}');
+            if (pw_new1 !== '' && pw_new1.length < 6) {
+                $.html.error('{{ 'Dein Passwort muss mindestens { limit } Zeichen umfassen.'|trans({'{{ limit }}': 6},'login')|e('js') }}');
                 return;
             }
 
-            $.ajax.easySend( '{{ path('api_soul_change_password') }}', {'pw': pw_old, 'pw_new': pw_new1},
+            if (email_new1 !== '' && email_new1 !== email_new2) {
+                $.html.error('{{ 'Die eingegebenen E-Mail Adressen stimmen nicht überein.'|trans({},'login')|e('js') }}');
+                return;
+            }
+
+            if (email_new1 !== '' && !$.html.validateEmail(email_new1)) {
+                $.html.error('{{ 'Die eingegebene E-Mail Adresse ist nicht korrekt.'|trans({},'login')|e('js') }}');
+                return;
+            }
+
+            $.ajax.easySend( '{{ path('api_soul_change_account_details') }}', {'pw': pw_old, 'pw_new': pw_new1, 'email_new': email_new1, 'email_token': email_token},
                 function () {
-                    $.ajax.load(null, '{{ path('public_login') }}', true);
+                    $.ajax.load(null, pw_new1 !== '' ? '{{ path('public_login') }}' : '{{ path('soul_settings') }}', true);
                 } )
         });
+        {% if app.user.pendingEmail is not null %}
+        $.html.addEventListenerAll('#resend_token', 'click', function(e) {
+            e.preventDefault();
+
+            $.ajax.easySend( '{{ path('api_soul_resend_token_email') }}', {},
+                function () {
+                    $.ajax.load(null, '{{ path('soul_settings') }}', true);
+                } )
+        });
+
+        $.html.addEventListenerAll('#cancel_token', 'click', function(e) {
+            e.preventDefault();
+
+            $.ajax.easySend( '{{ path('api_soul_cancel_email_token') }}', {},
+                function () {
+                    $.ajax.load(null, '{{ path('soul_settings') }}', true);
+                } )
+        });
+        {% endif %}
 
         $.html.addEventListenerAll('#acc_unremember_me', 'click', function(e) {
             $.ajax.easySend( '{{ path('api_soul_unremember_me') }}', {},
@@ -435,6 +567,7 @@
             $.ajax.easySend( '{{ path('api_soul_common') }}', {
                     sma: document.getElementById('setting_prefer_classic_avatars').checked,
                     disablefx: document.getElementById('setting_disable_fx').checked,
+                    useicu: document.getElementById('setting_use_icu').checked,
                 },
                 function () {
                     $.ajax.load(null, '{{ path('soul_settings') }}', true);
@@ -450,14 +583,25 @@
         });
 
         {% if is_granted("ROLE_ADMIN") %}
-            $.html.addEventListenerAll('[x-default-role-setting]', 'change', function(e,elem) {
-                $.ajax.easySend( '{{ path('api_soul_defaultrole') }}', {
+        $.html.addEventListenerAll('[x-default-role-setting]', 'change', function(e,elem) {
+            $.ajax.easySend( '{{ path('api_soul_defaultrole') }}', {
                     dev: document.getElementById('setting_default_forum_role').checked
-                    },
-                    function () {
-                        $.ajax.load(null, '{{ path('soul_settings') }}', true);
-                    } )
-            });
+                },
+                function () {
+                    $.ajax.load(null, '{{ path('soul_settings') }}', true);
+                } )
+        });
+        {% endif %}
+
+        {% if is_granted("ROLE_CROW") %}
+        $.html.addEventListenerAll('[x-open-mod-tools-window]', 'change', function(e,elem) {
+            $.ajax.easySend( '{{ path('api_soul_mod_tools_window') }}', {
+                    same_window: document.getElementById('setting_open_same_window').checked
+                },
+                function () {
+                    $.ajax.load(null, '{{ path('soul_settings') }}', true);
+                } )
+        });
         {% endif %}
 
         document.getElementById('avatar_file_select').addEventListener('change', function(e) {
@@ -569,9 +713,13 @@
             } )
         {% endif %}
 
+        $.html.addEventListenerAll('#user_displayname', 'input', () => $.html.forEach('#name-warning-box', e => e.classList.remove('hidden')))
+
         $.html.addEventListenerAll('#save_profile_header', 'click', () => {
             const title = parseInt(document.getElementById('user_title').value);
             const icon = parseInt(document.getElementById('user_icon').value);
+            const pronounSel = document.querySelector('input[name="user_pronoun"]:checked');
+            const pronoun = pronounSel ? pronounSel.value : 'none';
 
             if (icon >= 0 && title < 0) {
                 $.html.error('{{ 'Du kannst kein Icon ohne einen Titel wählen.'|trans({},'soul')|e('js') }}');
@@ -581,7 +729,9 @@
             $.ajax.easySend('{{ path('api_soul_header')|e('js') }}', {
                 title: title,
                 icon: icon,
-                desc: $.html.twinoParser.parseToString(document.getElementById('user_desc').value, s => [null,s])
+                desc: $.html.twinoParser.parseToString(document.getElementById('user_desc').value, s => [null,s]),
+                displayName: $.html.twinoParser.parseToString(document.getElementById('user_displayname').value, s => [null,s]),
+                pronoun: pronoun
             }, () => {
                 $.html.notice('{{ 'Deine Einstellung wurde gespeichert.'|trans({},'soul')|e('js') }}');
                 $.ajax.load(null, '{{ path('soul_settings')|e('js') }}');

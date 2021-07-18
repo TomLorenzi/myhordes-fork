@@ -12,6 +12,7 @@ use App\Entity\ForumUsagePermissions;
 use App\Entity\GlobalPrivateMessage;
 use App\Entity\OfficialGroup;
 use App\Entity\OfficialGroupMessageLink;
+use App\Entity\SocialRelation;
 use App\Entity\User;
 use App\Entity\UserGroup;
 use App\Entity\UserGroupAssociation;
@@ -146,7 +147,7 @@ class MessageGlobalPMController extends MessageController
                 } catch (\Exception $e) {}
 
                 foreach ($messages as $message) $message->setText( $this->html->prepareEmotes( $message->getText() ) );
-                $focus = $this->render( 'ajax/pm/bubbles.html.twig', ['raw_gp' => $messages] )->getContent();
+                $focus = $this->render( 'ajax/pm/bubbles.html.twig', ['raw_gp' => $messages, 'raw_gp_owner' => $group_association->getAssociationLevel() == UserGroupAssociation::GroupAssociationLevelFounder] )->getContent();
 
                 break;
         }
@@ -468,6 +469,9 @@ class MessageGlobalPMController extends MessageController
         if (!$other_user) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
         if ($userHandler->hasRole($other_user, 'ROLE_DUMMY')) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
+        if ($userHandler->checkRelation($other_user,$this->getUser(),SocialRelation::SocialRelationTypeBlock))
+            return AjaxResponse::error(ErrorHelper::ErrorBlockedByUser);
+
         /** @var UserGroupAssociation $other_association */
         $other_association = $em->getRepository(UserGroupAssociation::class)->findOneBy(['user' => $other_user,'association' => $group]);
         if ($other_association) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
@@ -506,9 +510,13 @@ class MessageGlobalPMController extends MessageController
         if ($og_link = $this->entity_manager->getRepository(OfficialGroupMessageLink::class)->findOneBy(['messageGroup' => $group]))
             $og_link = $og_link->getOfficialGroup();
 
+        $oa = array_filter( array_map( fn(UserGroupAssociation $a): ?User => $a->getAssociationLevel() === UserGroupAssociation::GroupAssociationLevelFounder ? $a->getUser() : null, $all_associations ) );
+        $oa = count($oa) === 1 ? $oa[0] : null;
+
         return $this->render( 'ajax/pm/user_list.html.twig', $this->addDefaultTwigArgs(null, [
             'gid' => $id,
             'owner' => $group_association->getAssociationLevel() === UserGroupAssociation::GroupAssociationLevelFounder,
+            'owning_user' => $oa,
             'can_add' => count($all_associations) < 100,
             'active'   => array_filter( array_map( fn(UserGroupAssociation $a): ?User => $a->getAssociationType() === UserGroupAssociation::GroupAssociationTypePrivateMessageMember ? $a->getUser() : null, $all_associations ) ),
             'inactive' => array_filter( array_map( fn(UserGroupAssociation $a): ?User => $a->getAssociationType() !== UserGroupAssociation::GroupAssociationTypePrivateMessageMember ? $a->getUser() : null, $all_associations ) ),
@@ -558,10 +566,14 @@ class MessageGlobalPMController extends MessageController
         /** @var GlobalPrivateMessage[] $sliced */
         $sliced = array_slice($messages, 0, $num);
 
+        $pinned =  $em->getRepository(GlobalPrivateMessage::class)->findOneBy(['receiverGroup' => $group, 'pinned' => true]);
+
         return $this->render( 'ajax/pm/conversation_group.html.twig', $this->addDefaultTwigArgs(null, [
             'gid' => $id,
+            'owner' => $group_association->getAssociationLevel() === UserGroupAssociation::GroupAssociationLevelFounder,
             'last' => $last,
             'more' => count($messages) > $num,
+            'pinned' => $pinned,
             'messages' => $sliced,
             'last_message' => $sliced[array_key_last($sliced)]->getId()
         ] ));
@@ -746,6 +758,45 @@ class MessageGlobalPMController extends MessageController
         if (!$group_association) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         $this->entity_manager->persist( $group_association->setRef1(0)->setRef2(null) );
+
+        try {
+            $em->flush();
+        } catch (\Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/pm/conversation/group/block/{id<\d+>}", name="pm_block_conv_group")
+     * @param int $id
+     * @param EntityManagerInterface $em
+     * @return Response
+     */
+    public function pm_block_conversation_group(int $id, EntityManagerInterface $em): Response {
+
+        $group = $em->getRepository( UserGroup::class )->find($id);
+        if (!$group || $group->getType() !== UserGroup::GroupMessageGroup) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        /** @var UserGroupAssociation $group_association */
+        $group_association = $em->getRepository(UserGroupAssociation::class)->findOneBy(['user' => $this->getUser(), 'associationType' => [
+            UserGroupAssociation::GroupAssociationTypePrivateMessageMember, UserGroupAssociation::GroupAssociationTypePrivateMessageMemberInactive
+        ], 'association' => $group]);
+        if (!$group_association || $group_association->getAssociationLevel() === UserGroupAssociation::GroupAssociationLevelFounder)
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        $owner_assoc = $em->getRepository(UserGroupAssociation::class)->findOneBy(['associationType' => [
+            UserGroupAssociation::GroupAssociationTypePrivateMessageMember, UserGroupAssociation::GroupAssociationTypePrivateMessageMemberInactive
+        ], 'association' => $group, 'associationLevel' => UserGroupAssociation::GroupAssociationLevelFounder]);
+
+        if (!$owner_assoc || $owner_assoc->getUser() === $this->getUser() || $this->userHandler->hasRole( $owner_assoc->getUser(), 'ROLE_CROW' ))
+            return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+
+        if ($this->userHandler->checkRelation($this->getUser(), $owner_assoc->getUser(), SocialRelation::SocialRelationTypeBlock))
+            return AjaxResponse::success();
+
+        $this->entity_manager->persist( (new SocialRelation())->setOwner($this->getUser())->setRelated($owner_assoc->getUser())->setType( SocialRelation::SocialRelationTypeBlock ) );
 
         try {
             $em->flush();
@@ -945,10 +996,24 @@ class MessageGlobalPMController extends MessageController
 
         if (count($users) > 100) return AjaxResponse::error( self::ErrorGPMMemberLimitHit);
 
-        foreach ($users as $chk_user) {
-            //if ($chk_user === $user) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        foreach ($users as $chk_user)
             if ($userHandler->hasRole($chk_user, 'ROLE_DUMMY')) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-        }
+
+        /** @var User[] $blocked_users */
+        $blocked_users = [];
+        $valid_non_blocked = 0;
+        $users = array_filter($users, function(User $chk_user) use ($user,&$valid_non_blocked,&$blocked_users) {
+            if ($chk_user === $user) return true;
+            if ($this->userHandler->checkRelation($chk_user,$user,SocialRelation::SocialRelationTypeBlock)) {
+                $blocked_users[] = $chk_user;
+                return false;
+            }
+
+            $valid_non_blocked++;
+            return true;
+        });
+
+        if ($valid_non_blocked === 0) return AjaxResponse::error(ErrorHelper::ErrorBlockedByUser);
 
         if ($em->getRepository(UserGroupAssociation::class)->countRecentRecipients($user) > 100)
             return AjaxResponse::error( self::ErrorGPMThreadLimitHit);
@@ -979,6 +1044,15 @@ class MessageGlobalPMController extends MessageController
             $em->flush();
         } catch (\Exception $e) {
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        if (!empty($blocked_users)) {
+            if (count($blocked_users) === 1)
+                $this->addFlash('error', $this->translator->trans('{user} hat dich geblockt und wurde daher aus der Liste der Empfänger für diese Nachricht gestrichen.',['{user}' => $blocked_users[0]->getName()],'global'));
+            else {
+                $users_text = $this->translator->trans('{users} und {last_user}', ['{users}' => implode( ', ', array_map(fn(User $u) => $u->getName(), array_slice($blocked_users, 0, -1) )), '{last_user}' => $blocked_users[array_key_last($blocked_users)]->getName()], 'global');
+                $this->addFlash('error', $this->translator->trans('{users} haben dich geblockt und wurden daher aus der Liste der Empfänger für diese Nachricht gestrichen.',['{users}' => $users_text],'global'));
+            }
         }
 
         return AjaxResponse::success( true , ['url' => $this->generateUrl('pm_view')] );
@@ -1155,6 +1229,89 @@ class MessageGlobalPMController extends MessageController
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
 
-        return AjaxResponse::success( true, ['msg' => $ti->trans('Du hast die Nachricht von %username% dem Raben gemeldet. Wer weiß, vielleicht wird %username% heute Nacht stääärben...', ['%username%' => '<span>' . $message->getSender()->getName() . '</span>'], 'game')]);
+        return AjaxResponse::success( true, ['msg' => $ti->trans('Du hast die Nachricht von {username} dem Raben gemeldet. Wer weiß, vielleicht wird {username} heute Nacht stääärben...', ['{username}' => '<span>' . $message->getSender()->getName() . '</span>'], 'game')]);
+    }
+
+    /**
+     * @Route("api/pm/{pid<\d+>}/pin/{action<\d+>}", name="pm_pin_post_controller")
+     * @param int $pid
+     * @param int $action
+     * @param EntityManagerInterface $em
+     * @return Response
+     */
+    public function report_pin_api(int $pid, int $action, EntityManagerInterface $em): Response {
+        $user = $this->getUser();
+
+        if ($action !== 0 && $action !== 1) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $message = $em->getRepository( GlobalPrivateMessage::class )->find( $pid );
+        if (!$message || $message->getHidden()) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $group = $message->getReceiverGroup();
+        if (!$group || $group->getType() !== UserGroup::GroupMessageGroup)
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        /** @var UserGroupAssociation $group_association */
+        $group_association = $em->getRepository(UserGroupAssociation::class)->findOneBy(['user' => $this->getUser(),
+                                                                                            'associationType' => [UserGroupAssociation::GroupAssociationTypePrivateMessageMember, UserGroupAssociation::GroupAssociationTypePrivateMessageMemberInactive], 'association' => $group]);
+        if (!$group_association || $group_association->getAssociationLevel() !== UserGroupAssociation::GroupAssociationLevelFounder)
+            return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+
+        if ($action === 1) {
+            $message->setCollapsed( false );
+            foreach ($em->getRepository( GlobalPrivateMessage::class )->findBy(['receiverGroup' => $group, 'pinned' => true]) as $pinned)
+                $this->entity_manager->persist($pinned->setPinned(false));
+        }
+
+        $message->setPinned( $action === 1 );
+
+        $this->entity_manager->persist($message);
+
+        try {
+            $this->entity_manager->flush();
+        } catch (\Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/pm/{pid<\d+>}/collapse/{action<\d+>}", name="pm_collapse_post_controller")
+     * @param int $pid
+     * @param int $action
+     * @param EntityManagerInterface $em
+     * @return Response
+     */
+    public function report_collapse_api(int $pid, int $action, EntityManagerInterface $em): Response {
+        $user = $this->getUser();
+
+        if ($action !== 0 && $action !== 1) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $message = $em->getRepository( GlobalPrivateMessage::class )->find( $pid );
+        if (!$message || $message->getHidden()) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $group = $message->getReceiverGroup();
+        if (!$group || $group->getType() !== UserGroup::GroupMessageGroup)
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        /** @var UserGroupAssociation $group_association */
+        $group_association = $em->getRepository(UserGroupAssociation::class)->findOneBy(['user' => $this->getUser(),
+                                                                                            'associationType' => [UserGroupAssociation::GroupAssociationTypePrivateMessageMember, UserGroupAssociation::GroupAssociationTypePrivateMessageMemberInactive], 'association' => $group]);
+        if (!$group_association || $group_association->getAssociationLevel() !== UserGroupAssociation::GroupAssociationLevelFounder)
+            return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+
+        $message->setCollapsed( $action === 1 );
+        if ($action === 1) $message->setPinned(false);
+
+        $this->entity_manager->persist($message);
+
+        try {
+            $this->entity_manager->flush();
+        } catch (\Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        return AjaxResponse::success();
     }
 }

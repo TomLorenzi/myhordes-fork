@@ -18,7 +18,7 @@ div.buildings {
     margin: 32px 0;
   }
   border: 1px solid @myhordes-smalltext;
-
+  border-bottom: 2px solid @myhordes-cell-header-text-color;
   .lv_list(@max,@n:1) when (@n <= @max) {
     &.lv-@{n} > div.cell:first-child { padding-left: 16px * @n; }
     .lv_list(@max,@n+1)
@@ -103,29 +103,62 @@ div.buildings {
     background-size: cover;
     background-repeat: no-repeat;
   }
-  &.type_small_building:before {
-    background-image: url('../../img/building/construction/building_fondations.png');
+  &.type_small_wallimprove {
+    border-top: 1px solid #899775;
+    border-left: 5px solid #899775;
+    &:before {
+      background-image: url('../../img/building/construction/building_wall1.png');
+    }
   }
-  &.type_small_spa4souls:before {
-    background-image: url('../../img/building/construction/building_spa4souls.png');
+  &.type_small_water {
+    border-top: 1px solid #93b0c1;
+    border-left: 5px solid #93b0c1;
+    &:before {
+      background-image: url('../../img/building/construction/building_pump.png');
+    }
   }
-  &.type_small_door_closed:before {
-    background-image: url('../../img/building/construction/building_doorLock.png');
+  &.type_item_meat {
+    border-top: 1px solid #ff9073;
+    border-left: 5px solid #ff9073;
+    &:before {
+      background-image: url('../../img/building/construction/building_meat.png');
+    }
   }
-  &.type_item_tagger:before {
-    background-image: url('../../img/building/construction/building_tower.png');
+  &.type_small_refine {
+    border-top: 1px solid #c5ba8f;
+    border-left: 5px solid #c5ba8f;
+    &:before {
+      background-image: url('../../img/building/construction/building_command.png');
+    }
   }
-  &.type_small_water:before {
-    background-image: url('../../img/building/construction/building_pump.png');
+  &.type_item_tagger {
+    border-top: 1px solid #edb867;
+    border-left: 5px solid #edb867;
+    &:before {
+      background-image: url('../../img/building/construction/building_tower.png');
+    }
   }
-  &.type_small_wallimprove:before {
-    background-image: url('../../img/building/construction/building_wall1.png');
+  &.type_small_building {
+    border-top: 1px solid #e39191;
+    border-left: 5px solid #e39191;
+
+    &:before {
+      background-image: url('../../img/building/construction/building_fondations.png');
+    }
   }
-  &.type_small_refine:before {
-    background-image: url('../../img/building/construction/building_command.png');
+  &.type_small_door_closed {
+    border-top: 1px solid #c982d2;
+    border-left: 5px solid #c982d2;
+    &:before {
+      background-image: url('../../img/building/construction/building_doorLock.png');
+    }
   }
-  &.type_item_meat:before {
-    background-image: url('../../img/building/construction/building_meat.png');
+  &.type_small_spa4souls {
+    border-top: 1px solid #66c295;
+    border-left: 5px solid #66c295;
+    &:before {
+      background-image: url('../../img/building/construction/building_spa4souls.png');
+    }
   }
 }
 

@@ -60,32 +60,32 @@ class AdminActionHandler
         return $acting_user && $this->userHandler->hasRole( $acting_user, $this->requiredRole[$desiredAction] );
     }
 
-    public function headshot(int $sourceUser, int $targetUserId): string
+    public function headshot(int $sourceUser, int $targetCitizenId): string
     {
         if(!$this->hasRights($sourceUser, 'headshot'))
             return $this->translator->trans('Dazu hast Du kein Recht.', [], 'game');        
-        /** @var User $user */
-        $user = $this->entity_manager->getRepository(User::class)->find($targetUserId);
-
-        $citizen = $user->getActiveCitizen();
-        if (isset($citizen)) {
+        /** @var Citizen $citizen */
+        $citizen = $this->entity_manager->getRepository(Citizen::class)->find($targetCitizenId);
+        if ($citizen && $citizen->getAlive()) {
             $rem = [];
             $this->death_handler->kill( $citizen, CauseOfDeath::Headshot, $rem );
             $this->entity_manager->persist( $this->log->citizenDeath( $citizen ) );
             $this->entity_manager->flush();
-            $message = $this->translator->trans('%username% wurde standrechtlich erschossen.', ['%username%' => '<span>' . $citizen->getName() . '</span>'], 'game');
+            $message = $this->translator->trans('{username} wurde standrechtlich erschossen.', ['{username}' => '<span>' . $citizen->getName() . '</span>'], 'game');
         }
         else {
-            $message = $this->translator->trans('%username% gehört keiner Stadt an.', ['%username%' => '<span>' . $citizen->getName() . '</span>'], 'game');
+            $message = $this->translator->trans('Dieser Bürger gehört keiner Stadt an.', [], 'game');
         }
         return $message;
     }
 
-    public function confirmDeath(int $sourceUser, int $targetUser): bool {
+    public function confirmDeath(int $sourceUser, int $targetUserId): bool {
         if(!$this->hasRights($sourceUser, 'confirmDeath'))
             return false;
 
-        $targetUser = $this->entity_manager->getRepository(User::class)->find($targetUser);
+        /** @var User $targetUser */
+        $targetUser = $this->entity_manager->getRepository(User::class)->find($targetUserId);
+
         $activeCitizen = $targetUser->getActiveCitizen();
         if (!(isset($activeCitizen)))
             return false;
@@ -96,7 +96,7 @@ class AdminActionHandler
 
         // Delete not validated picto from DB
         // Here, every validated picto should have persisted to 2
-        $pendingPictosOfUser = $this->entity_manager->getRepository(Picto::class)->findPendingByUser($targetUser);
+        $pendingPictosOfUser = $this->entity_manager->getRepository(Picto::class)->findPendingByUserAndTown($targetUser, $activeCitizen->getTown());
         foreach ($pendingPictosOfUser as $pendingPicto) {
             $this->entity_manager->remove($pendingPicto);
         }

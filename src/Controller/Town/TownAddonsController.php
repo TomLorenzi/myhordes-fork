@@ -267,7 +267,6 @@ class TownAddonsController extends TownController
             return AjaxResponse::error( $error );
         else try {
             // Set the activity status
-            $this->citizen_handler->inflictStatus($citizen, 'tg_chk_active');
             $this->citizen_handler->inflictStatus($citizen, 'tg_chk_workshop');
 
             $this->entity_manager->persist($town);
@@ -469,6 +468,8 @@ class TownAddonsController extends TownController
 
         /** @var CitizenWatch $watcher */
         foreach ($citizenWatch as $watcher) {
+            if ($watcher->getCitizen()->getZone() !== null) continue;
+
             if($watcher->getCitizen()->getId() === $this->getActiveCitizen()->getId())
                 $is_watcher = true;
 
@@ -484,87 +485,14 @@ class TownAddonsController extends TownController
                 'items' => array()
             );
 
-            foreach ($watcher->getCitizen()->getStatus() as $status) {
-                switch($status->getName()){
-                    case 'drunk':
-                        $watchers[$watcher->getId()]['status'][] = array(
-                            'icon' => $status->getIcon(),
-                            'label' => $status->getLabel(),
-                            'defImpact' => 20,
-                            'deathImpact' => 4
-                        );
-                        break;
-                    case 'hungover':
-                        $watchers[$watcher->getId()]['status'][] = array(
-                            'icon' => $status->getIcon(),
-                            'label' => $status->getLabel(),
-                            'defImpact' => -15,
-                            'deathImpact' => 5
-                        );
-                        break;
-                    case 'terror':
-                        $watchers[$watcher->getId()]['status'][] = array(
-                            'icon' => $status->getIcon(),
-                            'label' => $status->getLabel(),
-                            'defImpact' => -30,
-                            'deathImpact' => 45
-                        );
-                        break;
-                    case 'drugged':
-                        $watchers[$watcher->getId()]['status'][] = array(
-                            'icon' => $status->getIcon(),
-                            'label' => $status->getLabel(),
-                            'defImpact' => 10,
-                            'deathImpact' => 0
-                        );
-                        break;
-                    case 'addict':
-                        $watchers[$watcher->getId()]['status'][] = array(
-                            'icon' => $status->getIcon(),
-                            'label' => $status->getLabel(),
-                            'defImpact' => 15,
-                            'deathImpact' => 15
-                        );
-                        break;
-                    case 'wound1':
-                    case 'wound2':
-                    case 'wound3':
-                    case 'wound4':
-                    case 'wound5':
-                    case 'wound6':
-                        $watchers[$watcher->getId()]['status'][] = array(
-                            'icon' => $status->getIcon(),
-                            'label' => $status->getLabel(),
-                            'defImpact' => -20,
-                            'deathImpact' => 20
-                        );
-                        break;
-                    case 'healed':
-                        $watchers[$watcher->getId()]['status'][] = array(
-                            'icon' => $status->getIcon(),
-                            'label' => $status->getLabel(),
-                            'defImpact' => -10,
-                            'deathImpact' => 10
-                        );
-                        break;
-                    case 'infection':
-                        $watchers[$watcher->getId()]['status'][] = array(
-                            'icon' => $status->getIcon(),
-                            'label' => $status->getLabel(),
-                            'defImpact' => -15,
-                            'deathImpact' => 20
-                        );
-                        break;
-                    case 'thirst2':
-                        $watchers[$watcher->getId()]['status'][] = array(
-                            'icon' => $status->getIcon(),
-                            'label' => $status->getLabel(),
-                            'defImpact' => -10,
-                            'deathImpact' => 0
-                        );
-                        break;
-                }
-            }
+            foreach ($watcher->getCitizen()->getStatus() as $status)
+                if ($status->getNightWatchDefenseBonus() !== 0 || $status->getNightWatchDeathChancePenalty() !== 0.0)
+                    $watchers[$watcher->getId()]['status'][] = array(
+                        'icon' => $status->getIcon(),
+                        'label' => $status->getLabel(),
+                        'defImpact' => $status->getNightWatchDefenseBonus(),
+                        'deathImpact' => round($status->getNightWatchDeathChancePenalty() * 100)
+                    );
 
             if ($watcher->getCitizen()->hasRole('ghoul')) 
                 $watchers[$watcher->getId()]['status'][] = array(
@@ -795,9 +723,9 @@ class TownAddonsController extends TownController
             $this->inventory_handler->forceMoveItem( $target_inv, $item );
         }
 
-        $this->addFlash('notice', $trans->trans('Sorgfältig verpackt hast du %item% in das Katapult gelegt. Der Gegenstand wurde auf %zone% geschleudert.', [
-            '%item%' => "<span><img alt='' src='" . $asset->getUrl("build/images/item/item_{$item->getPrototype()->getIcon()}.gif") . "' />" . $trans->trans($item->getPrototype()->getLabel(), [], 'items') . "</span>",
-            '%zone%' => "<strong>[{$target_zone->getX()}/{$target_zone->getY()}]</strong>"
+        $this->addFlash('notice', $trans->trans('Sorgfältig verpackt hast du {item} in das Katapult gelegt. Der Gegenstand wurde auf {zone} geschleudert.', [
+            '{item}' => "<span><img alt='' src='" . $asset->getUrl("build/images/item/item_{$item->getPrototype()->getIcon()}.gif") . "' />" . $trans->trans($item->getPrototype()->getLabel(), [], 'items') . "</span>",
+            '{zone}' => "<strong>[{$target_zone->getX()}/{$target_zone->getY()}]</strong>"
         ], 'game'));
 
         // Persist

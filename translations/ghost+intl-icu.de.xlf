@@ -1,0 +1,1061 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="de" trgLang="de">
+  <file id="ghost.de">
+    <unit id="Ytua8lq" name="Die gewählte Stadt ist bereits voll.">
+      <segment>
+        <source>Die gewählte Stadt ist bereits voll.</source>
+        <target>Die gewählte Stadt ist bereits voll.</target>
+      </segment>
+    </unit>
+    <unit id="9O4x._6" name="Du kannst nicht mehr als einer Stadt gleichzeitig beitreten.">
+      <segment>
+        <source>Du kannst nicht mehr als einer Stadt gleichzeitig beitreten.</source>
+        <target>Du kannst nicht mehr als einer Stadt gleichzeitig beitreten.</target>
+      </segment>
+    </unit>
+    <unit id="KGUlxGY" name="Du bist dieser Stadt bereits beigetreten.">
+      <segment>
+        <source>Du bist dieser Stadt bereits beigetreten.</source>
+        <target>Du bist dieser Stadt bereits beigetreten.</target>
+      </segment>
+    </unit>
+    <unit id="xkZqSVc" name="Wähle eine Stadt">
+      <segment>
+        <source>Wähle eine Stadt</source>
+        <target>Wähle eine Stadt</target>
+      </segment>
+    </unit>
+    <unit id="Bfb7kn4" name="Stadtname">
+      <segment>
+        <source>Stadtname</source>
+        <target>Stadtname</target>
+      </segment>
+    </unit>
+    <unit id="Vlb5Lbe" name="Aktionen">
+      <segment>
+        <source>Aktionen</source>
+        <target>Aktionen</target>
+      </segment>
+    </unit>
+    <unit id="rgtSNg9" name="Aktuell gibt es keine Stadt diesen Typs.">
+      <segment>
+        <source>Aktuell gibt es keine Stadt diesen Typs.</source>
+        <target>Aktuell gibt es keine Stadt diesen Typs.</target>
+      </segment>
+    </unit>
+    <unit id="Enh.KhP" name="Nächtlicher Angriff">
+      <segment>
+        <source>Nächtlicher Angriff</source>
+        <target>Nächtlicher Angriff</target>
+      </segment>
+    </unit>
+    <unit id="xOWTZkZ">
+      <segment>
+        <source>Der Server wird aktuell von Zombies überrannt. Bitte hab einen Moment Geduld, während wir die angreifenden Horden abwehren.</source>
+        <target>Der Server wird aktuell von Zombies überrannt. Bitte hab einen Moment Geduld, während wir die angreifenden Horden abwehren.</target>
+      </segment>
+    </unit>
+    <unit id="e6r4m6r">
+      <segment>
+        <source>Der nächtliche Angriff findet jeden Tag um Mitternacht statt und dauert ungefähr 20 Minuten. Während dieser Zeit ist MyHordes nicht erreichbar.</source>
+        <target>Der nächtliche Angriff findet jeden Tag um Mitternacht statt und dauert ungefähr 20 Minuten. Während dieser Zeit ist MyHordes nicht erreichbar.</target>
+      </segment>
+    </unit>
+    <unit id="gqk_gdE" name="Beitreten">
+      <segment>
+        <source>Beitreten</source>
+        <target>Beitreten</target>
+      </segment>
+    </unit>
+    <unit id="CwvX2yq">
+      <segment>
+        <source>Die Sprache der gewählten Stadt ist {lang_town}. Deine aktuelle Spracheinstellung ist {lang_user}.</source>
+        <target>Die Sprache der gewählten Stadt ist {lang_town}. Deine aktuelle Spracheinstellung ist {lang_user}.</target>
+      </segment>
+    </unit>
+    <unit id="0C3XaFv">
+      <segment>
+        <source>Kommunikation ist wichtig in MyHordes. Bitte betritt keine Stadt, deren Sprache du nicht beherrscht. Möchtest du fortfahren?</source>
+        <target>Kommunikation ist wichtig in MyHordes. Bitte betritt keine Stadt, deren Sprache du nicht beherrscht. Möchtest du fortfahren?</target>
+      </segment>
+    </unit>
+    <unit id="FbY7TeM" name="Bestätigen">
+      <segment>
+        <source>Bestätigen</source>
+        <target>Bestätigen</target>
+      </segment>
+    </unit>
+    <unit id="x8NF3LC">
+      <segment>
+        <source>Möchtest du die schreckliche Welt der Verdammten als Bürge der Stadt {town_name} betreten</source>
+        <target>Möchtest du die schreckliche Welt der Verdammten als Bürger der Stadt {town_name} betreten?</target>
+      </segment>
+    </unit>
+    <unit id="uwIFRKe" name="Deine Seele genügt den Anforderungen für diesen Stadttypen.">
+      <segment>
+        <source>Deine Seele genügt den Anforderungen für diesen Stadttypen.</source>
+        <target>Deine Seele genügt den Anforderungen für diesen Stadttypen.</target>
+      </segment>
+    </unit>
+    <unit id="AwZY28C">
+      <segment>
+        <source>&lt;p&gt;
+                    Deine Stadt wird gerade von den Zombies &lt;strong&gt;angegriffen&lt;/strong&gt;! Du hörst wie sie &lt;strong&gt;grunzend&lt;/strong&gt; gegen eure Hütten schlagen. Dazwischen immer wieder &lt;strong&gt;Hilferufe&lt;/strong&gt; und Schreie... Sie scheinen überall zu sein...
+                    &lt;/p&gt;
+                    &lt;p&gt;
+                    Was tust du, solange der Angriff tobt?               
+                    &lt;/p&gt;</source>
+        <target><![CDATA[<p>
+                    Deine Stadt wird gerade von den Zombies <strong>angegriffen</strong>! Du hörst wie sie <strong>grunzend</strong> gegen eure Hütten schlagen. Dazwischen immer wieder <strong>Hilferufe</strong> und Schreie... Sie scheinen überall zu sein...
+                    </p>
+                    <p>
+                    Was tust du, solange der Angriff tobt?               
+                    </p>]]></target>
+      </segment>
+    </unit>
+    <unit id="EVKC8.Z" name="Was hat das zu bedeuten?">
+      <segment>
+        <source>Was hat das zu bedeuten?</source>
+        <target>Was hat das zu bedeuten?</target>
+      </segment>
+    </unit>
+    <unit id="ePJ.g5_">
+      <segment>
+        <source>Die Verdammten wird gerade von den Zombies überfallen! Es ist der tägliche Angriff!</source>
+        <target>MyHordes wird gerade von den Zombies überfallen! Es ist der tägliche Angriff!</target>
+      </segment>
+    </unit>
+    <unit id="6YlCau0">
+      <segment>
+        <source>Registrierung sowie Log-in sind zur Zeit nicht möglich... Die Seite müsste gegen 00.30 wieder erreichbar sein.</source>
+        <target>Registrierung sowie Log-in sind zur Zeit nicht möglich... Die Seite müsste gegen 00.30 wieder erreichbar sein.</target>
+      </segment>
+    </unit>
+    <unit id="QfY5rKB" name="Und ja, es wird Tote geben...">
+      <segment>
+        <source>Und ja, es wird Tote geben...</source>
+        <target>Und ja, es wird Tote geben...</target>
+      </segment>
+    </unit>
+    <unit id="T206xUy" name="Worauf warten Sie noch?">
+      <segment>
+        <source>Worauf warten Sie noch?</source>
+        <target>Worauf wartest du noch?</target>
+      </segment>
+    </unit>
+    <unit id="L4_Jvrm" name="Privatstadt gründen">
+      <segment>
+        <source>Privatstadt gründen</source>
+        <target>Privatstadt gründen</target>
+      </segment>
+    </unit>
+    <unit id="iita2xJ">
+      <segment>
+        <source>In Privatstädten kannst du gemeinsam mit Freunden oder in Städten zu bestimmten "Theen" zu spielen.</source>
+        <target>In Privatstädten kannst du gemeinsam mit Freunden oder in Städten zu bestimmten "Themen" zu spielen.</target>
+      </segment>
+    </unit>
+    <unit id="KAAmbDC" name="Name der Stadt">
+      <segment>
+        <source>Name der Stadt</source>
+        <target>Name der Stadt</target>
+      </segment>
+    </unit>
+    <unit id="pUImk8L" name="Zugangscode">
+      <segment>
+        <source>Zugangscode</source>
+        <target>Zugangscode</target>
+      </segment>
+    </unit>
+    <unit id=".x7RJF5" name="Stadttyp">
+      <segment>
+        <source>Stadttyp</source>
+        <target>Stadttyp</target>
+      </segment>
+    </unit>
+    <unit id="KOB6h9k" name="Ghule">
+      <segment>
+        <source>Ghule</source>
+        <target>Ghule</target>
+      </segment>
+    </unit>
+    <unit id="CVyYW8Q" name="Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.">
+      <segment>
+        <source>Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.</source>
+        <target>Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.</target>
+      </segment>
+    </unit>
+    <unit id="pySO60X" name="Normal">
+      <segment>
+        <source>Normal</source>
+        <target>Normal</target>
+      </segment>
+    </unit>
+    <unit id="jNQMs2P">
+      <segment>
+        <source>Das Auftreten von Ghulen wird nicht geändert. Allerdings kann ein Ghul seinen Hunger nur stillen, indem er einen Mitbürger verspeist.</source>
+        <target>Das Auftreten von Ghulen wird nicht geändert. Allerdings kann ein Ghul seinen Hunger nur stillen, indem er einen Mitbürger verspeist.</target>
+      </segment>
+    </unit>
+    <unit id="aQ_K79K" name="Blutdurst">
+      <segment>
+        <source>Blutdurst</source>
+        <target>Blutdurst</target>
+      </segment>
+    </unit>
+    <unit id="Zj_q.r8">
+      <segment>
+        <source>Es erscheint zwar kein Ghul um Mitternacht. Dafür können andere Ereignisse das Auftreten von Ghulen auslösen.</source>
+        <target>Es erscheint zwar kein Ghul um Mitternacht. Dafür können andere Ereignisse das Auftreten von Ghulen auslösen.</target>
+      </segment>
+    </unit>
+    <unit id="iE_uBzc" name="Stadt der Kuscheltiere">
+      <segment>
+        <source>Stadt der Kuscheltiere</source>
+        <target>Stadt der Kuscheltiere</target>
+      </segment>
+    </unit>
+    <unit id="1zFAtcT" name="Wasservorrat">
+      <segment>
+        <source>Wasservorrat</source>
+        <target>Wasservorrat</target>
+      </segment>
+    </unit>
+    <unit id="oix8aY3">
+      <segment>
+        <source>Normale Werte liegen zwischen 100 und 180. Wert ist in Pandämonium-Städten reduziert. Maximum ist 300</source>
+        <target>Normale Werte liegen zwischen 100 und 180. Wert ist in Pandämonium-Städten reduziert. Maximum ist 300</target>
+      </segment>
+    </unit>
+    <unit id="9XUKXXI" name="Einstellungen">
+      <segment>
+        <source>Einstellungen</source>
+        <target>Einstellungen</target>
+      </segment>
+    </unit>
+    <unit id="0beSyHH" name="XML Feed für diese Stadt deaktivieren">
+      <segment>
+        <source>XML Feed für diese Stadt deaktivieren</source>
+        <target>XML Feed für diese Stadt deaktivieren</target>
+      </segment>
+    </unit>
+    <unit id="QI93AMS" name="Event-Stadt">
+      <segment>
+        <source>Event-Stadt</source>
+        <target>Event-Stadt</target>
+      </segment>
+    </unit>
+    <unit id="_GOkdZm" name="Spezialregeln">
+      <segment>
+        <source>Spezialregeln</source>
+        <target>Spezialregeln</target>
+      </segment>
+    </unit>
+    <unit id="9qD2u0I" name="Keine Spezialregeln">
+      <segment>
+        <source>Keine Spezialregeln</source>
+        <target>Keine Spezialregeln</target>
+      </segment>
+    </unit>
+    <unit id="ilcgFcS" name="Keine">
+      <segment>
+        <source>Keine</source>
+        <target>Keine</target>
+      </segment>
+    </unit>
+    <unit id="LDmQN2V">
+      <segment>
+        <source>Kein Gebäude ist zu Beginn freigeschaltet. Alle müssen in der Aussenwelt gefunden werden!</source>
+        <target>Kein Gebäude ist zu Beginn freigeschaltet. Alle müssen in der Aussenwelt gefunden werden!</target>
+      </segment>
+    </unit>
+    <unit id="KzRE1mD" name="Keine Startgebäude">
+      <segment>
+        <source>Keine Startgebäude</source>
+        <target>Keine Startgebäude</target>
+      </segment>
+    </unit>
+    <unit id="lU_pn2u">
+      <segment>
+        <source>Jedes Essen und jede Droge, die du zu dir nimmst, birgt ein geringes Infektionsrisiko.</source>
+        <target>Jedes Essen und jede Droge, die du zu dir nimmst, birgt ein geringes Infektionsrisiko.</target>
+      </segment>
+    </unit>
+    <unit id="gQkxXIB" name="Kontaminierte Zone">
+      <segment>
+        <source>Kontaminierte Zone</source>
+        <target>Kontaminierte Zone</target>
+      </segment>
+    </unit>
+    <unit id="w9rtgEq" name="Stadtmodifikationen">
+      <segment>
+        <source>Stadtmodifikationen</source>
+        <target>Stadtmodifikationen</target>
+      </segment>
+    </unit>
+    <unit id="dhtPmmZ" name="Exploration:">
+      <segment>
+        <source>Exploration:</source>
+        <target>Exploration:</target>
+      </segment>
+    </unit>
+    <unit id="i9uL7bg" name="Begehbare Ruinen aktivieren">
+      <segment>
+        <source>Begehbare Ruinen aktivieren</source>
+        <target>Begehbare Ruinen aktivieren</target>
+      </segment>
+    </unit>
+    <unit id="DxyIzHy" name="Seelen &amp; Schamane:">
+      <segment>
+        <source>Seelen &amp; Schamane:</source>
+        <target><![CDATA[Seelen & Schamane:]]></target>
+      </segment>
+    </unit>
+    <unit id="k2SkMiM" name="Verlorene Seelen und Schamanen aktivieren">
+      <segment>
+        <source>Verlorene Seelen und Schamanen aktivieren</source>
+        <target>Verlorene Seelen und Schamanen aktivieren</target>
+      </segment>
+    </unit>
+    <unit id="KwchNgg" name="Eskorte:">
+      <segment>
+        <source>Eskorte:</source>
+        <target>Eskorte:</target>
+      </segment>
+    </unit>
+    <unit id="siVFR7b" name="Eskorten aktivieren">
+      <segment>
+        <source>Eskorten aktivieren</source>
+        <target>Eskorten aktivieren</target>
+      </segment>
+    </unit>
+    <unit id="M7KjFnf" name="Verbannung:">
+      <segment>
+        <source>Verbannung:</source>
+        <target>Verbannung:</target>
+      </segment>
+    </unit>
+    <unit id="QosET96" name="Verbannung aktivieren">
+      <segment>
+        <source>Verbannung aktivieren</source>
+        <target>Verbannung aktivieren</target>
+      </segment>
+    </unit>
+    <unit id="hR9OXtO" name="Nachtmodus:">
+      <segment>
+        <source>Nachtmodus:</source>
+        <target>Nachtmodus:</target>
+      </segment>
+    </unit>
+    <unit id="3lbcc06" name="Nachtmodus aktivieren (schwerer)">
+      <segment>
+        <source>Nachtmodus aktivieren (schwerer)</source>
+        <target>Nachtmodus aktivieren (schwerer)</target>
+      </segment>
+    </unit>
+    <unit id="Ip2o27i" name="Camping:">
+      <segment>
+        <source>Camping:</source>
+        <target>Camping:</target>
+      </segment>
+    </unit>
+    <unit id="PWZojkF" name="Camping in der Wildnis aktivieren">
+      <segment>
+        <source>Camping in der Wildnis aktivieren</source>
+        <target>Camping in der Wildnis aktivieren</target>
+      </segment>
+    </unit>
+    <unit id="8h7b0Dd" name="Ghule:">
+      <segment>
+        <source>Ghule:</source>
+        <target>Ghule:</target>
+      </segment>
+    </unit>
+    <unit id="Rsw_o_o" name="Ghule aktivieren">
+      <segment>
+        <source>Ghule aktivieren</source>
+        <target>Ghule aktivieren</target>
+      </segment>
+    </unit>
+    <unit id="rBxUVmT" name="Gebäudeschaden:">
+      <segment>
+        <source>Gebäudeschaden:</source>
+        <target>Gebäudeschaden:</target>
+      </segment>
+    </unit>
+    <unit id="k.ofzD6" name="Gebäudeschaden aktivieren">
+      <segment>
+        <source>Gebäudeschaden aktivieren</source>
+        <target>Gebäudeschaden aktivieren</target>
+      </segment>
+    </unit>
+    <unit id="BZ2yast" name="Nachtwache:">
+      <segment>
+        <source>Nachtwache:</source>
+        <target>Nachtwache:</target>
+      </segment>
+    </unit>
+    <unit id="85ixbKa" name="Nachtwache aktivieren">
+      <segment>
+        <source>Nachtwache aktivieren</source>
+        <target>Nachtwache aktivieren</target>
+      </segment>
+    </unit>
+    <unit id="aOW2H78" name="Verbesserte Müllhalde:">
+      <segment>
+        <source>Verbesserte Müllhalde:</source>
+        <target>Verbesserte Müllhalde:</target>
+      </segment>
+    </unit>
+    <unit id="ZqzbCRl" name="Verbesserte Müllhalde aktivieren">
+      <segment>
+        <source>Verbesserte Müllhalde aktivieren</source>
+        <target>Verbesserte Müllhalde aktivieren</target>
+      </segment>
+    </unit>
+    <unit id="0B82Z13" name="Aktiviere/deaktiviere Spielmodifikationen spezifisch für diese Stadt">
+      <segment>
+        <source>Aktiviere/deaktiviere Spielmodifikationen spezifisch für diese Stadt</source>
+        <target>Aktiviere/deaktiviere Spielmodifikationen spezifisch für diese Stadt</target>
+      </segment>
+    </unit>
+    <unit id="BpFg4zU" name="Angriffe">
+      <segment>
+        <source>Angriffe</source>
+        <target>Angriffe</target>
+      </segment>
+    </unit>
+    <unit id="0AcV_6s" name="Stärke der Angriffe">
+      <segment>
+        <source>Stärke der Angriffe</source>
+        <target>Stärke der Angriffe</target>
+      </segment>
+    </unit>
+    <unit id="mkXpu2_" name="Leiche Angriffe">
+      <segment>
+        <source>Leiche Angriffe</source>
+        <target>Leiche Angriffe</target>
+      </segment>
+    </unit>
+    <unit id="MKxsVor" name="Schwere Angriffe">
+      <segment>
+        <source>Schwere Angriffe</source>
+        <target>Schwere Angriffe</target>
+      </segment>
+    </unit>
+    <unit id="WLIeM8b" name="Spiel-Optionen">
+      <segment>
+        <source>Spiel-Optionen</source>
+        <target>Spiel-Optionen</target>
+      </segment>
+    </unit>
+    <unit id="7L3ndtf" name="Abstimmung aller Piktogramme:">
+      <segment>
+        <source>Abstimmung aller Piktogramme:</source>
+        <target>Abstimmung aller Piktogramme:</target>
+      </segment>
+    </unit>
+    <unit id="WjDyWyC">
+      <segment>
+        <source>Gibt die Gesamtheit der während der Stadt erhaltenen Piktogramme an, anstatt ein Drittel davon.</source>
+        <target>Gibt die Gesamtheit der während der Stadt erhaltenen Piktogramme an, anstatt ein Drittel davon.</target>
+      </segment>
+    </unit>
+    <unit id="vLYm3DY" name="Seelenpunkte vergeben:">
+      <segment>
+        <source>Seelenpunkte vergeben:</source>
+        <target>Seelenpunkte vergeben:</target>
+      </segment>
+    </unit>
+    <unit id="Uadj6Vo" name="Gibt Ihnen Seelenpunkte.">
+      <segment>
+        <source>Gibt Ihnen Seelenpunkte.</source>
+        <target>Gibt dir Seelenpunkte.</target>
+      </segment>
+    </unit>
+    <unit id="ROOTy.N" name="Achtung!">
+      <segment>
+        <source>Achtung!</source>
+        <target>Achtung!</target>
+      </segment>
+    </unit>
+    <unit id="VItPxqY" name="Falls die Stadt night in 2 Tagen gefüllt ist, wird sie wieder negiert.">
+      <segment>
+        <source>Falls die Stadt night in 2 Tagen gefüllt ist, wird sie wieder negiert.</source>
+        <target>Falls die Stadt night in 2 Tagen gefüllt ist, wird sie wieder negiert.</target>
+      </segment>
+    </unit>
+    <unit id="qakF4ad" name="Diese Stadt gründen">
+      <segment>
+        <source>Diese Stadt gründen</source>
+        <target>Diese Stadt gründen</target>
+      </segment>
+    </unit>
+    <unit id="ijucPI." name="Platzreservierung">
+      <segment>
+        <source>Platzreservierung</source>
+        <target>Platzreservierung</target>
+      </segment>
+    </unit>
+    <unit id="JmzKQyu">
+      <segment>
+        <source>Beginne ein neues Leben in der Welt der Verdammten une versuche, so lang wie möglich zu überleben. Wer weiß, ws dich in dieser neuen Stadt erwarten wird?</source>
+        <target>Beginne ein neues Leben in der Welt der Verdammten und versuche, so lang wie möglich zu überleben. Wer weiß, was dich in dieser neuen Stadt erwarten wird?</target>
+      </segment>
+    </unit>
+    <unit id="Knuuneb" name="Karten-Seed">
+      <segment>
+        <source>Karten-Seed</source>
+        <target>Karten-Seed</target>
+      </segment>
+    </unit>
+    <unit id="_SibAUY">
+      <segment>
+        <source>Seed, das eine kontrollierte Kartenerstellung ermöglicht. Erlaubt im Falle von Ereignissen, ähnliche Karten zu generieren.
+                                Gib eine positive ganze Zahl ein, um es zu aktivieren.
+                                DENKT DARÜBER NACH, DIESE GANZE ZAHL VON EINEM EREIGNIS ZUM ANDEREN ZU ÄNDERN !</source>
+        <target>Seed, das eine kontrollierte Kartenerstellung ermöglicht. Erlaubt im Falle von Ereignissen, ähnliche Karten zu generieren.
+                                Gib eine positive ganze Zahl ein, um es zu aktivieren.
+                                DENKT DARÜBER NACH, DIESE GANZE ZAHL VON EINEM EREIGNIS ZUM ANDEREN ZU ÄNDERN !</target>
+      </segment>
+    </unit>
+    <unit id="EYBH.W." name="Der Schamane wird gewählt und die Seelen werden gequält.">
+      <segment>
+        <source>Der Schamane wird gewählt und die Seelen werden gequält.</source>
+        <target>Der Schamane wird gewählt und die Seelen werden gequält.</target>
+      </segment>
+    </unit>
+    <unit id="YnsFoKy" name="Der Schamane ist ein Beruf, die Seelen werden in der Werkstatt verwandelt.">
+      <segment>
+        <source>Der Schamane ist ein Beruf, die Seelen werden in der Werkstatt verwandelt.</source>
+        <target>Der Schamane ist ein Beruf, die Seelen werden in der Werkstatt verwandelt.</target>
+      </segment>
+    </unit>
+    <unit id="rWF6D91" name="Job">
+      <segment>
+        <source>Job</source>
+        <target>Job</target>
+      </segment>
+    </unit>
+    <unit id="_kZYbUN" name="Der Schamane und die Seelen werden deaktiviert.">
+      <segment>
+        <source>Der Schamane und die Seelen werden deaktiviert.</source>
+        <target>Der Schamane und die Seelen werden deaktiviert.</target>
+      </segment>
+    </unit>
+    <unit id="ifwhezW" name="Deaktiviert">
+      <segment>
+        <source>Deaktiviert</source>
+        <target>Deaktiviert</target>
+      </segment>
+    </unit>
+    <unit id="TxDkI9W" name="Die Nachtwache ist verfügbar, wenn das Gebäude &quot;Brustwehr&quot; errichtet wurde.">
+      <segment>
+        <source>Die Nachtwache ist verfügbar, wenn das Gebäude "Brustwehr" errichtet wurde.</source>
+        <target>Die Nachtwache ist verfügbar, wenn das Gebäude "Brustwehr" errichtet wurde.</target>
+      </segment>
+    </unit>
+    <unit id="I6A5smr" name="Die Nachtwache ist von Anfang an verfügbar.">
+      <segment>
+        <source>Die Nachtwache ist von Anfang an verfügbar.</source>
+        <target>Die Nachtwache ist von Anfang an verfügbar.</target>
+      </segment>
+    </unit>
+    <unit id="AvGVwK2" name="Sofort">
+      <segment>
+        <source>Sofort</source>
+        <target>Sofort</target>
+      </segment>
+    </unit>
+    <unit id="s4VKN2Z" name="Die Nachtwache ist deaktiviert.">
+      <segment>
+        <source>Die Nachtwache ist deaktiviert.</source>
+        <target>Die Nachtwache ist deaktiviert.</target>
+      </segment>
+    </unit>
+    <unit id="YY0WZyp" name="Verkörperung in der Stadt:">
+      <segment>
+        <source>Verkörperung in der Stadt:</source>
+        <target>Verkörperung in der Stadt:</target>
+      </segment>
+    </unit>
+    <unit id="4iMXGoK" name="Verkörpert dich in der Stadt bei ihrer Entstehung">
+      <segment>
+        <source>Verkörpert dich in der Stadt bei ihrer Entstehung</source>
+        <target>Verkörpert dich in der Stadt bei ihrer Entstehung</target>
+      </segment>
+    </unit>
+    <unit id="Vwi2p0a" name="Verfügbare Berufe">
+      <segment>
+        <source>Verfügbare Berufe</source>
+        <target>Verfügbare Berufe</target>
+      </segment>
+    </unit>
+    <unit id="UgJmKP7" name="Bitte gib das Stadtpasswort ein :">
+      <segment>
+        <source>Bitte gib das Stadtpasswort ein :</source>
+        <target>Bitte gib das Stadtpasswort ein :</target>
+      </segment>
+    </unit>
+    <unit id="VHJI.J4" name="Nicht als Privatstadt erstellen:">
+      <segment>
+        <source>Nicht als Privatstadt erstellen:</source>
+        <target>Nicht als Privatstadt erstellen:</target>
+      </segment>
+    </unit>
+    <unit id="QFPVvM5">
+      <segment>
+        <source>Die Stadt wird nicht in der Liste der Privatstädte, sondern in der oben gewählten Gruppe erscheinen. Diese Option hat keine Auswirkungen auf die Spielregeln oder die Vergabe von Auszeichnungen und Seelenpunkten!</source>
+        <target>Die Stadt wird nicht in der Liste der Privatstädte, sondern in der oben gewählten Gruppe erscheinen. Diese Option hat keine Auswirkungen auf die Spielregeln oder die Vergabe von Auszeichnungen und Seelenpunkten!</target>
+      </segment>
+    </unit>
+    <unit id="Y1vuSS7" name="Kein XML Feed:">
+      <segment>
+        <source>Kein XML Feed:</source>
+        <target>Kein XML Feed:</target>
+      </segment>
+    </unit>
+    <unit id="dSkZ2BY">
+      <segment>
+        <source>Seed, das eine kontrollierte Kartenerstellung ermöglicht. Erlaubt im Falle von Ereignissen, ähnliche Karten zu generieren.
+                                    Gib eine positive ganze Zahl ein, um es zu aktivieren.
+                                    DENKT DARÜBER NACH, DIESE GANZE ZAHL VON EINEM EREIGNIS ZUM ANDEREN ZU ÄNDERN !</source>
+        <target>Seed, das eine kontrollierte Kartenerstellung ermöglicht. Erlaubt im Falle von Ereignissen, ähnliche Karten zu generieren.
+                                    Gib eine positive ganze Zahl ein, um es zu aktivieren.
+                                    DENKT DARÜBER NACH, DIESE GANZE ZAHL VON EINEM EREIGNIS ZUM ANDEREN ZU ÄNDERN !</target>
+      </segment>
+    </unit>
+    <unit id="9SrqJ_A" name="Strikte Vergabe von Auszeichnungen:">
+      <segment>
+        <source>Strikte Vergabe von Auszeichnungen:</source>
+        <target>Strikte Vergabe von Auszeichnungen:</target>
+      </segment>
+    </unit>
+    <unit id="FtgTDco" name="Vergabe von Auszeichnungen folgt den Regeln kleiner Städte.">
+      <segment>
+        <source>Vergabe von Auszeichnungen folgt den Regeln kleiner Städte.</source>
+        <target>Vergabe von Auszeichnungen folgt den Regeln kleiner Städte.</target>
+      </segment>
+    </unit>
+    <unit id="wuiQkOi" name="Nach 2 Tagen negieren:">
+      <segment>
+        <source>Nach 2 Tagen negieren:</source>
+        <target>Nach 2 Tagen negieren:</target>
+      </segment>
+    </unit>
+    <unit id="q64vyDh" name="Negiert die Stadt, wenn sie nach 2 Tagen nicht gefüllt ist.">
+      <segment>
+        <source>Negiert die Stadt, wenn sie nach 2 Tagen nicht gefüllt ist.</source>
+        <target>Negiert die Stadt, wenn sie nach 2 Tagen nicht gefüllt ist.</target>
+      </segment>
+    </unit>
+    <unit id="MOZLgFu" name="Tor versperren:">
+      <segment>
+        <source>Tor versperren:</source>
+        <target>Tor versperren:</target>
+      </segment>
+    </unit>
+    <unit id="lC8mS57" name="Das Stadttor kann erst geöffnet werden, wenn die Stadt voll ist.">
+      <segment>
+        <source>Das Stadttor kann erst geöffnet werden, wenn die Stadt voll ist.</source>
+        <target>Das Stadttor kann erst geöffnet werden, wenn die Stadt voll ist.</target>
+      </segment>
+    </unit>
+    <unit id="8UBVWFJ" name="Betapropin steht nicht zur Verfügung.">
+      <segment>
+        <source>Betapropin steht nicht zur Verfügung.</source>
+        <target>Betapropin steht nicht zur Verfügung.</target>
+      </segment>
+    </unit>
+    <unit id="QjQvnlj" name="Beta-Funktionen deaktivieren">
+      <segment>
+        <source>Beta-Funktionen deaktivieren</source>
+        <target>Beta-Funktionen deaktivieren</target>
+      </segment>
+    </unit>
+    <unit id="VoOkBZ0" name="Ein Mitglied deiner Koalition kann dieser Stadt nicht beitreten.">
+      <segment>
+        <source>Ein Mitglied deiner Koalition kann dieser Stadt nicht beitreten.</source>
+        <target>Ein Mitglied deiner Koalition kann dieser Stadt nicht beitreten.</target>
+      </segment>
+    </unit>
+    <unit id="jLPuWWW" name="In dieser Stadt ist kein Platz mehr für dich und deine Koalition.">
+      <segment>
+        <source>In dieser Stadt ist kein Platz mehr für dich und deine Koalition.</source>
+        <target>In dieser Stadt ist kein Platz mehr für dich und deine Koalition.</target>
+      </segment>
+    </unit>
+    <unit id="hMJko2L">
+      <segment>
+        <source>Achtung: Du stehst deiner Koalition NICHT ZUR VERFÜGUNG! Das bedeutet, dass du diese Partie allein spielen wirst.</source>
+        <target>Achtung: Du stehst deiner Koalition NICHT ZUR VERFÜGUNG! Das bedeutet, dass du diese Partie allein spielen wirst.</target>
+      </segment>
+    </unit>
+    <unit id="cglpSDE">
+      <segment>
+        <source>Achtung: Im Moment steht kein Mitglied deiner Koalition zur Verfügung, um dir in eine Stadt zu folgen.</source>
+        <target>Achtung: Im Moment steht kein Mitglied deiner Koalition zur Verfügung, um dir in eine Stadt zu folgen.</target>
+      </segment>
+    </unit>
+    <unit id="UtrdfFQ">
+      <segment>
+        <source>Achtung: Im Moment stehen nicht alle Mitglieder deiner Koalition zur Verfügung, um dir in eine Stadt zu folgen.</source>
+        <target>Achtung: Im Moment stehen nicht alle Mitglieder deiner Koalition zur Verfügung, um dir in eine Stadt zu folgen.</target>
+      </segment>
+    </unit>
+    <unit id="EwLUGr9">
+      <segment>
+        <source>Wenn du eine Stadt betrittst, werden folgende Mitglieder deiner Koalition dir folgen:</source>
+        <target>Wenn du eine Stadt betrittst, werden folgende Mitglieder deiner Koalition dir folgen:</target>
+      </segment>
+    </unit>
+    <unit id="U6CJxvc">
+      <segment>
+        <source>Da du in mehreren deiner letzten Städte frühzeitig durch Verdursten gestorben bist, bist du für einige Zeit vom Spiel ausgeschlossen. Du kannst aktuell keine neue Stadt betreten.</source>
+        <target>Da du in mehreren deiner letzten Städte frühzeitig durch Verdursten gestorben bist, bist du für einige Zeit vom Spiel ausgeschlossen. Du kannst aktuell keine neue Stadt betreten.</target>
+      </segment>
+    </unit>
+    <unit id="pOtfy6G">
+      <segment>
+        <source>Du bist in mehreren deiner letzten Städte frühzeitig durch Verdursten gestorben. Sollte dies in deiner nächsten Stadt erneut geschehen, wirst du für einige Wochen vom Spiel ausgeschlossen.</source>
+        <target>Du bist in mehreren deiner letzten Städte frühzeitig durch Verdursten gestorben. Sollte dies in deiner nächsten Stadt erneut geschehen, wirst du für einige Wochen vom Spiel ausgeschlossen.</target>
+      </segment>
+    </unit>
+    <unit id="TIikksZ" name="Wiedergeburt: Privatstadt gründen">
+      <segment>
+        <source>Wiedergeburt: Privatstadt gründen</source>
+        <target>Wiedergeburt: Privatstadt gründen</target>
+      </segment>
+    </unit>
+    <unit id="LCh7GiT" name="Wiedergeburt: Wahl der Partie">
+      <segment>
+        <source>Wiedergeburt: Wahl der Partie</source>
+        <target>Wiedergeburt: Wahl der Partie</target>
+      </segment>
+    </unit>
+    <unit id="QkcknlN" name="Kartengröße">
+      <segment>
+        <source>Kartengröße</source>
+        <target>Kartengröße</target>
+      </segment>
+    </unit>
+    <unit id="TCo5k8F" name="Automatisch">
+      <segment>
+        <source>Automatisch</source>
+        <target>Automatisch</target>
+      </segment>
+    </unit>
+    <unit id="a0HGkUJ" name="Kleine Karte">
+      <segment>
+        <source>Kleine Karte</source>
+        <target>Kleine Karte</target>
+      </segment>
+    </unit>
+    <unit id="Pv2k4jm" name="Normale Karte">
+      <segment>
+        <source>Normale Karte</source>
+        <target>Normale Karte</target>
+      </segment>
+    </unit>
+    <unit id="5pSNNaZ" name="Riesige Karte">
+      <segment>
+        <source>Riesige Karte</source>
+        <target>Riesige Karte</target>
+      </segment>
+    </unit>
+    <unit id="Fi9y5O9" name="Eigene Einstellung">
+      <segment>
+        <source>Eigene Einstellung</source>
+        <target>Eigene Einstellung</target>
+      </segment>
+    </unit>
+    <unit id="6m4Eofp" name="Exakte Kartengröße">
+      <segment>
+        <source>Exakte Kartengröße</source>
+        <target>Exakte Kartengröße</target>
+      </segment>
+    </unit>
+    <unit id="OpX8hPZ" name="Anzahl Ruinen">
+      <segment>
+        <source>Anzahl Ruinen</source>
+        <target>Anzahl Ruinen</target>
+      </segment>
+    </unit>
+    <unit id="iXjB0RG" name="Anzahl Begehbare Ruinen">
+      <segment>
+        <source>Anzahl Begehbare Ruinen</source>
+        <target>Anzahl Begehbare Ruinen</target>
+      </segment>
+    </unit>
+    <unit id="tOEjYLQ" name="Position der Stadt">
+      <segment>
+        <source>Position der Stadt</source>
+        <target>Position der Stadt</target>
+      </segment>
+    </unit>
+    <unit id="hXA9n9R" name="Eher Zentral">
+      <segment>
+        <source>Eher Zentral</source>
+        <target>Eher Zentral</target>
+      </segment>
+    </unit>
+    <unit id="uzMPtR4" name="Zentral">
+      <segment>
+        <source>Zentral</source>
+        <target>Zentral</target>
+      </segment>
+    </unit>
+    <unit id="Am_FKUL" name="Spielmodifikationen:">
+      <segment>
+        <source>Spielmodifikationen:</source>
+        <target>Spielmodifikationen:</target>
+      </segment>
+    </unit>
+    <unit id="fz803_w" name="Raben-Optionen">
+      <segment>
+        <source>Raben-Optionen</source>
+        <target>Raben-Optionen</target>
+      </segment>
+    </unit>
+    <unit id="jRT25y3" name="Events">
+      <segment>
+        <source>Events</source>
+        <target>Events</target>
+      </segment>
+    </unit>
+    <unit id="dctQQtZ" name="Der Nachtmodus ist aktiviert und die Straßenbeleuchtung ist verfügbar.">
+      <segment>
+        <source>Der Nachtmodus ist aktiviert und die Straßenbeleuchtung ist verfügbar.</source>
+        <target>Der Nachtmodus ist aktiviert und die Straßenbeleuchtung ist verfügbar.</target>
+      </segment>
+    </unit>
+    <unit id="JeVu4ox" name="Erweitert">
+      <segment>
+        <source>Erweitert</source>
+        <target>Erweitert</target>
+      </segment>
+    </unit>
+    <unit id="kKT9.CK">
+      <segment>
+        <source>Der Nachtmodus ist aktiviert. Die Straßenbeleuchtung steht nicht zur Verfügung.</source>
+        <target>Der Nachtmodus ist aktiviert. Die Straßenbeleuchtung steht nicht zur Verfügung.</target>
+      </segment>
+    </unit>
+    <unit id="1dCs8Np" name="Der Nachtmodus ist deaktiviert.">
+      <segment>
+        <source>Der Nachtmodus ist deaktiviert.</source>
+        <target>Der Nachtmodus ist deaktiviert.</target>
+      </segment>
+    </unit>
+    <unit id="YgGsjbm" name="Eine Reservierung hinzufügen">
+      <segment>
+        <source>Eine Reservierung hinzufügen</source>
+        <target>Eine Reservierung hinzufügen</target>
+      </segment>
+    </unit>
+    <unit id="HU4iMjQ">
+      <segment>
+        <source>Du kannst hier festlegen, welche Spieler in deiner Privatstadt spielen dürfen. Andere Spieler können die Stadt nicht betreten! Als Stadtgründer kannst du in deiner Privatstadt immer auch selber mitspielen. Gibst du nur 39 Spieler an, wärst du der also der 40. Bürger.</source>
+        <target>Du kannst hier festlegen, welche Spieler in deiner Privatstadt spielen dürfen. Andere Spieler können die Stadt nicht betreten! Als Stadtgründer kannst du in deiner Privatstadt immer auch selber mitspielen. Gibst du nur 39 Spieler an, wärst du der also der 40. Bürger.</target>
+      </segment>
+    </unit>
+    <unit id="KgvbGLh">
+      <segment>
+        <source>So geht's: Tippe einen Spielernamen in das Feld ein. Wähle ihn dann aus den angezeigten Namen aus. Klicke dann auf "Hinzufügen". Wiederhole das für alle Spieler, die du auf die Liste setzen möchtest. Alternativ kannst du auch eine mit Komma getrennte Liste von Spielernamen eingeben, um mehrere Spieler auf einmal hiinzuzufügen. Falls du ein Passwort vergeben hast, vergiss nicht, es den Spielern zu schicken (z.B. in einer privaten Nachricht).</source>
+        <target>So geht's: Tippe einen Spielernamen in das Feld ein. Wähle ihn dann aus den angezeigten Namen aus. Klicke dann auf "Hinzufügen". Wiederhole das für alle Spieler, die du auf die Liste setzen möchtest. Alternativ kannst du auch eine mit Komma getrennte Liste von Spielernamen eingeben, um mehrere Spieler auf einmal hiinzuzufügen. Falls du ein Passwort vergeben hast, vergiss nicht, es den Spielern zu schicken (z.B. in einer privaten Nachricht).</target>
+      </segment>
+    </unit>
+    <unit id="VsZ8wM4">
+      <segment>
+        <source>&lt;strong&gt;Hinweis:&lt;/strong&gt; Beachte, dass sich diese Liste nicht nachträglich ändern lässt. Es ist darum empfehlenwert, &lt;strong&gt;mehr als nur 39 Spieler&lt;/strong&gt; anzugeben. Dann hast du eine Reserve, falls ein oder mehrere Spieler nicht teilnehmen können.</source>
+        <target><![CDATA[<strong>Hinweis:</strong> Beachte, dass sich diese Liste nicht nachträglich ändern lässt. Es ist darum empfehlenwert, <strong>mehr als nur 39 Spieler</strong> anzugeben. Dann hast du eine Reserve, falls ein oder mehrere Spieler nicht teilnehmen können.]]></target>
+      </segment>
+    </unit>
+    <unit id="t6F_Rrm">
+      <segment>
+        <source>&lt;strong&gt;Hinweis:&lt;/strong&gt; Wenn du &lt;strong&gt;weniger als 39 Spieler&lt;/strong&gt; angibst, wird die Stadt automatisch für alle Spieler geöffnet, sobald alle Spieler auf der Liste die Stadt betreten haben.</source>
+        <target><![CDATA[<strong>Hinweis:</strong> Wenn du <strong>weniger als 39 Spieler</strong> angibst, wird die Stadt automatisch für alle Spieler geöffnet, sobald alle Spieler auf der Liste die Stadt betreten haben.]]></target>
+      </segment>
+    </unit>
+    <unit id="PrhBm6y">
+      <segment>
+        <source>&lt;strong&gt;Falls bis Mitternacht des übernächsten Tags nicht 40 Spieler die Stadt betreten haben, wird sie automatisch negiert. Alle Spieler, die sich dann bereits in der Stadt eingefunden haben, sind dann wieder frei für andere Städte.&lt;/strong&gt;</source>
+        <target><![CDATA[<strong>Falls bis Mitternacht des übernächsten Tags nicht 40 Spieler die Stadt betreten haben, wird sie automatisch negiert. Alle Spieler, die sich dann bereits in der Stadt eingefunden haben, sind dann wieder frei für andere Städte.</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="YHB3zxO" name="Ghule sind deaktiviert.">
+      <segment>
+        <source>Ghule sind deaktiviert.</source>
+        <target>Ghule sind deaktiviert.</target>
+      </segment>
+    </unit>
+    <unit id="Az4lDWu" name="Aerogen">
+      <segment>
+        <source>Aerogen</source>
+        <target>Aerogen</target>
+      </segment>
+    </unit>
+    <unit id="AostWDd">
+      <segment>
+        <source>Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln. Außerdem kann ein Ghul seinen Hunger nur stillen, indem er einen Mitbürger verspeist.</source>
+        <target>Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln. Außerdem kann ein Ghul seinen Hunger nur stillen, indem er einen Mitbürger verspeist.</target>
+      </segment>
+    </unit>
+    <unit id="F4.K1yp" name="Blutdurst und Aerogen">
+      <segment>
+        <source>Blutdurst und Aerogen</source>
+        <target>Blutdurst und Aerogen</target>
+      </segment>
+    </unit>
+    <unit id="6rgCZ72" name="Diese Stadt ist durch ein Passwort geschützt.">
+      <segment>
+        <source>Diese Stadt ist durch ein Passwort geschützt.</source>
+        <target>Diese Stadt ist durch ein Passwort geschützt.</target>
+      </segment>
+    </unit>
+    <unit id="n5Q6CYy" name="Für diese Stadt gilt eine Platzreservierung.">
+      <segment>
+        <source>Für diese Stadt gilt eine Platzreservierung.</source>
+        <target>Für diese Stadt gilt eine Platzreservierung.</target>
+      </segment>
+    </unit>
+    <unit id="WhL1uY." name="Einer Stadt beitreten">
+      <segment>
+        <source>Einer Stadt beitreten</source>
+        <target>Einer Stadt beitreten</target>
+      </segment>
+    </unit>
+    <unit id="tnT0nBQ" name="Wähle dein nächstes Leben:">
+      <segment>
+        <source>Wähle dein nächstes Leben:</source>
+        <target>Wähle dein nächstes Leben:</target>
+      </segment>
+    </unit>
+    <unit id="mm_OH8u" name="Ein neues Leben beginnen">
+      <segment>
+        <source>Ein neues Leben beginnen</source>
+        <target>Ein neues Leben beginnen</target>
+      </segment>
+    </unit>
+    <unit id="NH1qMKw" name="...und mit 39 Mitbürgern in der Hölle schmoren">
+      <segment>
+        <source>...und mit 39 Mitbürgern in der Hölle schmoren</source>
+        <target>...und mit 39 Mitbürgern in der Hölle schmoren</target>
+      </segment>
+    </unit>
+    <unit id="ilHQ7qt" name="Das Leben nach dem Tod">
+      <segment>
+        <source>Das Leben nach dem Tod</source>
+        <target>Das Leben nach dem Tod</target>
+      </segment>
+    </unit>
+    <unit id="s0KqeMJ" name="Meine Seele ansehen">
+      <segment>
+        <source>Meine Seele ansehen</source>
+        <target>Meine Seele ansehen</target>
+      </segment>
+    </unit>
+    <unit id="_pEJUyq" name="Spendenseite aufrufen">
+      <segment>
+        <source>Spendenseite aufrufen</source>
+        <target>Spendenseite aufrufen</target>
+      </segment>
+    </unit>
+    <unit id="lrar0xr" name="Willkommen in der Hölle!">
+      <segment>
+        <source>Willkommen in der Hölle!</source>
+        <target>Willkommen in der Hölle!</target>
+      </segment>
+    </unit>
+    <unit id="7zJqkQY">
+      <segment>
+        <source>Du bist dabei, dich mit 39 anderen armen Seelen einer Stadt anzuschließen, mit dem Ziel, so lange wie möglich zu überleben.</source>
+        <target>Du bist dabei, dich mit 39 anderen armen Seelen einer Stadt anzuschließen, mit dem Ziel, so lange wie möglich zu überleben.</target>
+      </segment>
+    </unit>
+    <unit id="29U26Sd" name="Spiel betreten">
+      <segment>
+        <source>Spiel betreten</source>
+        <target>Spiel betreten</target>
+      </segment>
+    </unit>
+    <unit id="Lj_OYdi" name="Einwohnerzahl">
+      <segment>
+        <source>Einwohnerzahl</source>
+        <target>Einwohnerzahl</target>
+      </segment>
+    </unit>
+    <unit id="kjZ829E" name="Muss zwischen 10 und 80 liegen.">
+      <segment>
+        <source>Muss zwischen 10 und 80 liegen.</source>
+        <target>Muss zwischen 10 und 80 liegen.</target>
+      </segment>
+    </unit>
+    <unit id="aASpCwA" name="Bürger-Aliase:">
+      <segment>
+        <source>Bürger-Aliase:</source>
+        <target>Bürger-Aliase:</target>
+      </segment>
+    </unit>
+    <unit id="VcRaioj">
+      <segment>
+        <source>Ermöglicht dem Bürger, einen Alias anstelle seines üblichen Benutzernamens zu wählen</source>
+        <target>Ermöglicht dem Bürger, einen Alias anstelle seines üblichen Benutzernamens zu wählen</target>
+      </segment>
+    </unit>
+    <unit id="CQsXVvw" name="Dein Name">
+      <segment>
+        <source>Dein Name</source>
+        <target>Dein Name</target>
+      </segment>
+    </unit>
+    <unit id="U59mj2e" name="Zeitzone:">
+      <segment>
+        <source>Zeitzone:</source>
+        <target>Zeitzone:</target>
+      </segment>
+    </unit>
+    <unit id="e3MFczK" name="Die eingestellte Zeit gibt die Dauer des Tages an.">
+      <segment>
+        <source>Die eingestellte Zeit gibt die Dauer des Tages an.</source>
+        <target>Die eingestellte Zeit gibt die Dauer des Tages an.</target>
+      </segment>
+    </unit>
+    <unit id="GhcEWUz">
+      <segment>
+        <source>Ist der Nachtmodus deaktiviert, hat diese Einstellung ausschließlich kosmetischen Einfluss.</source>
+        <target>Ist der Nachtmodus deaktiviert, hat diese Einstellung ausschließlich kosmetischen Einfluss.</target>
+      </segment>
+    </unit>
+    <unit id="lLT6O3P" name="Tagesphase">
+      <segment>
+        <source>Tagesphase</source>
+        <target>Tagesphase</target>
+      </segment>
+    </unit>
+    <unit id="Xhpz327" name="Die eingestellte Zeit gibt die Dauer der Nacht an.">
+      <segment>
+        <source>Die eingestellte Zeit gibt die Dauer der Nacht an.</source>
+        <target>Die eingestellte Zeit gibt die Dauer der Nacht an.</target>
+      </segment>
+    </unit>
+    <unit id="dkUvCKc" name="Nachtphase">
+      <segment>
+        <source>Nachtphase</source>
+        <target>Nachtphase</target>
+      </segment>
+    </unit>
+    <unit id="W907qRt">
+      <segment>
+        <source>Diese Stadt verfügt über eine Zugangsbeschränkung. Die Mitglieder deiner Koalition können dir nicht automatisch folgen, wenn du diese Stadt betrittst. Fortfahren?</source>
+        <target>Diese Stadt verfügt über eine Zugangsbeschränkung. Die Mitglieder deiner Koalition können dir nicht automatisch folgen, wenn du diese Stadt betrittst. Fortfahren?</target>
+      </segment>
+    </unit>
+    <unit id="T4fjCif">
+      <segment>
+        <source>Die folgenden Koalitionsmitglieder können dir nicht in die ausgewählte Stadt folgen. Fortfahren?</source>
+        <target>Die folgenden Koalitionsmitglieder können dir nicht in die ausgewählte Stadt folgen. Fortfahren?</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

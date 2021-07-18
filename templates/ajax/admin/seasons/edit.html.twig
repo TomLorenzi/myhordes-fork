@@ -2,7 +2,7 @@
 {% if current_season is not null %}
     {% set season_name = ('Saison ' ~ current_season.number ~ '.' ~ current_season.subNumber)|trans({}, "season") %}
 {% endif %}
-{% block title %}{% if current_season is null %}{{ 'Neue Saison'|trans({}, 'admin') }}{% else %}{{ 'Saison "%season%"'|trans({'%season%': season_name}, "admin")|raw }}{% endif %}{% endblock %}
+{% block title %}{% if current_season is null %}{{ 'Neue Saison'|trans({}, 'admin') }}{% else %}{{ 'Saison "{season}"'|trans({'{season}': season_name}, "admin")|raw }}{% endif %}{% endblock %}
 {% block ajax %}
     {# @var current_season \App\Entity\Season #}
     <div class="row">

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="de" trgLang="de">
+  <file id="season.de">
+    <unit id="5av5KpC" name="Saison 0.14">
+      <segment>
+        <source>Saison 0.14</source>
+        <target>Saison 0.14</target>
+      </segment>
+    </unit>
+    <unit id="MKuQjMi" name="Saison 0.13">
+      <segment>
+        <source>Saison 0.13</source>
+        <target>Saison 0.13</target>
+      </segment>
+    </unit>
+    <unit id="ZahwwoN" name="Saison 0.12">
+      <segment>
+        <source>Saison 0.12</source>
+        <target>Saison 0.12</target>
+      </segment>
+    </unit>
+    <unit id="Qb8gU6v" name="Saison 0.11">
+      <segment>
+        <source>Saison 0.11</source>
+        <target>Mysteriöse Saison</target>
+      </segment>
+    </unit>
+    <unit id="1_E.ytA" name="Saison 0.10">
+      <segment>
+        <source>Saison 0.10</source>
+        <target>Mysteriöse Saison</target>
+      </segment>
+    </unit>
+    <unit id="oLxl2RQ" name="Saison 0.9">
+      <segment>
+        <source>Saison 0.9</source>
+        <target>Mysteriöse Saison</target>
+      </segment>
+    </unit>
+    <unit id="ocnWude" name="Saison 0.8">
+      <segment>
+        <source>Saison 0.8</source>
+        <target>Mysteriöse Saison</target>
+      </segment>
+    </unit>
+    <unit id="BbqgTUU" name="Saison 0.7">
+      <segment>
+        <source>Saison 0.7</source>
+        <target>Nachtschicht</target>
+      </segment>
+    </unit>
+    <unit id="2py6hDF" name="Saison 0.6">
+      <segment>
+        <source>Saison 0.6</source>
+        <target>????</target>
+      </segment>
+    </unit>
+    <unit id="UmYesiE" name="Saison 0.5">
+      <segment>
+        <source>Saison 0.5</source>
+        <target>Seelenfrieden</target>
+      </segment>
+    </unit>
+    <unit id="R6v2_H_" name="Saison 0.4">
+      <segment>
+        <source>Saison 0.4</source>
+        <target>Modernde Zeiten</target>
+      </segment>
+    </unit>
+    <unit id="YL.wVHS" name="Saison 0.3">
+      <segment>
+        <source>Saison 0.3</source>
+        <target>Geburt der Ghule</target>
+      </segment>
+    </unit>
+    <unit id="OKCTySu" name="Saison 0.2">
+      <segment>
+        <source>Saison 0.2</source>
+        <target>Rache der Verbannten</target>
+      </segment>
+    </unit>
+    <unit id="VwuJDaU" name="Saison 0.1">
+      <segment>
+        <source>Saison 0.1</source>
+        <target>Galgenvögel</target>
+      </segment>
+    </unit>
+    <unit id="ffgTaDr" name="Saison 0.0">
+      <segment>
+        <source>Saison 0.0</source>
+        <target>Saison 0.0</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

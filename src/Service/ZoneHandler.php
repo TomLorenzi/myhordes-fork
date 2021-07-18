@@ -98,6 +98,22 @@ class ZoneHandler
         $found_by_escorts = [];
         $ret_str = [];
 
+        $valid_timers = [];
+        $timers_to_remove = [];
+        foreach ($zone->getEscapeTimers() as $timer)
+            if ($timer->getTime() < $up_to) $timers_to_remove[] = $timer;
+            else $valid_timers[] = $timer;
+
+        $longest_timer = null;
+        foreach ($timers_to_remove as $timer) {
+            if (!$timer->getCitizen() && ( $longest_timer == null || $timer->getTime() > $longest_timer ))
+                $longest_timer = $timer->getTime();
+            $this->entity_manager->remove( $timer );
+        }
+
+        if ($longest_timer !== null && empty($valid_timers) && !$this->check_cp($zone) && !empty($zone->getCitizens()))
+            $this->entity_manager->persist( $this->log->zoneEscapeTimerExpired($zone, $longest_timer) );
+
         /** @var DigTimer[] $dig_timers */
         $dig_timers = [];
         $cp = 0;
@@ -175,9 +191,9 @@ class ZoneHandler
                     if ($this->citizen_handler->hasStatusEffect( $timer->getCitizen(), 'camper' )) $factor += 0.1;
                     if ($this->citizen_handler->hasStatusEffect( $timer->getCitizen(), 'wound5' )) $factor -= 0.3; // Totally arbitrary
                     if ($this->citizen_handler->hasStatusEffect( $timer->getCitizen(), 'drunk'  )) $factor -= 0.3; // Totally arbitrary
-                    if ($conf->get(TownConf::CONF_FEATURE_NIGHTMODE, true) && $timer->getCitizen()->getTown()->isNight() && $this->inventory_handler->countSpecificItems($zone->getFloor(), 'prevent_night', true) == 0) $factor -= 0.2;
+                    if ($conf->isNightMode($timer->getTimestamp()) && $this->inventory_handler->countSpecificItems($zone->getFloor(), 'prevent_night', true) == 0) $factor -= 0.2;
 
-                    if ($conf->get(TownConf::CONF_FEATURE_NIGHTMODE, true) && $timer->getCitizen()->getTown()->isNight()) {
+                    if ($conf->isNightMode($timer->getTimestamp())) {
 
                         // If there are items that prevent night mode present, the night malus is set to 0
                         $night_mode_malue = ($this->inventory_handler->countSpecificItems($zone->getFloor(), 'prevent_night', true) == 0) ? 0.2 : 0.0;
@@ -264,7 +280,7 @@ class ZoneHandler
                     if(!$timer->getCitizen()->getBanished() && $this->hasHiddenItem($timer->getZone()) && $this->random_generator->chance(0.05)){
                         $items = $timer->getZone()->getFloor()->getItems();
                         $itemsproto = array_map( function($e) {return $e->getPrototype(); }, $items->toArray() );
-                        $ret_str[] = $this->trans->trans('Beim Graben bist du auf eine Art... geheimes Versteck mit %items% gestoßen! Es wurde vermutlich von einem verbannten Mitbürger angelegt...', ['%items%' => $wrap($itemsproto) ], 'game');
+                        $ret_str[] = $this->trans->trans('Beim Graben bist du auf eine Art... geheimes Versteck mit {items} gestoßen! Es wurde vermutlich von einem verbannten Mitbürger angelegt...', ['{items}' => $wrap($itemsproto) ], 'game');
                         foreach ($items as $item) {
                             if($item->getHidden()){
                                 $item->setHidden(false);
@@ -288,17 +304,17 @@ class ZoneHandler
                 array_unshift($ret_str, $this->trans->trans( 'Trotz all deiner Anstrengungen hast du hier leider nichts gefunden ...', [], 'game' ));
             }
             elseif (count($found_by_player) === 1)
-                array_unshift($ret_str, $this->trans->trans( 'Nach einigen Anstrengungen hast du folgendes gefunden: %item%!', [
-                    '%item%' => $wrap($found_by_player)
+                array_unshift($ret_str, $this->trans->trans( 'Nach einigen Anstrengungen hast du folgendes gefunden: {item}!', [
+                    '{item}' => $wrap($found_by_player)
                 ], 'game' ));
-            else array_unshift($ret_str, $this->trans->trans( 'Du gräbst schon seit einiger Zeit und hast mehrere Gegenstände gefunden: %items%', ['%items%' => $wrap($found_by_player)], 'game' ));
+            else array_unshift($ret_str, $this->trans->trans( 'Du gräbst schon seit einiger Zeit und hast mehrere Gegenstände gefunden: {items}', ['{items}' => $wrap($found_by_player)], 'game' ));
         }
 
         if ($chances_by_escorts > 0) {
             if (empty($found_by_escorts) && $chances_by_escorts === 1) array_unshift($ret_str, $this->trans->trans( 'Trotz all seiner Anstrengungen hat dein Freund hier leider nichts gefunden...', [], 'game' ));
             elseif (empty($found_by_escorts) && $chances_by_escorts > 1) array_unshift($ret_str, $this->trans->trans( 'Trotz all ihrer Anstrengungen hat deine Expedition hier leider nichts gefunden...', [], 'game' ));
-            elseif ($chances_by_escorts === 1) array_unshift($ret_str, $this->trans->trans( 'Nach einigen Anstrengungen hat dein Freund folgendes gefunden: %item%!', ['%item%' => $wrap($found_by_escorts)], 'game' ));
-            else array_unshift($ret_str, $this->trans->trans( 'Nach einigen Anstrengungen hat deine Expedition folgendes gefunden: %item%!', ['%item%' => $wrap($found_by_escorts)], 'game' ));
+            elseif ($chances_by_escorts === 1) array_unshift($ret_str, $this->trans->trans( 'Nach einigen Anstrengungen hat dein Freund folgendes gefunden: {item}!', ['{item}' => $wrap($found_by_escorts)], 'game' ));
+            else array_unshift($ret_str, $this->trans->trans( 'Nach einigen Anstrengungen hat deine Expedition folgendes gefunden: {item}!', ['{item}' => $wrap($found_by_escorts)], 'game' ));
         }
 
         if(($chances_by_player > 0 || $chances_by_escorts > 0) && $zone->getDigs() <= 0) {
@@ -471,14 +487,17 @@ class ZoneHandler
     /**
      * @param Zone $zone
      * @param $cp_ok_before
+     * @param Citizen|null $leaving_citizen
      */
-    public function handleCitizenCountUpdate(&$zone, $cp_ok_before) {
+    public function handleCitizenCountUpdate(Zone &$zone, $cp_ok_before, ?Citizen $leaving_citizen = null) {
         // If no citizens remain in a zone, invalidate all associated escape timers and clear the log
         if (!count($zone->getCitizens())) {
             foreach ($zone->getEscapeTimers() as $et)
                 $this->entity_manager->remove( $et );
+            $zone->getEscapeTimers()->clear();
             foreach ($zone->getChatSilenceTimers() as $cst)
                 $this->entity_manager->remove( $cst );
+            $zone->getChatSilenceTimers()->clear();
             foreach ($this->entity_manager->getRepository(TownLogEntry::class)->findByFilter( $zone->getTown(), null, null, $zone, null, null ) as $entry)
                 /** @var TownLogEntry $entry */
                 if ($entry->getLogEntryTemplate() === null || !$entry->getLogEntryTemplate()->getNonVolatile() )
@@ -488,12 +507,17 @@ class ZoneHandler
         // If zombies can take control after leaving the zone and there are citizens remaining, install a grace escape timer
         else if ($cp_ok_before !== null) {
             if ( $cp_ok_before && !$this->check_cp( $zone ) ) {
+                if ( $leaving_citizen && !$zone->getCitizens()->isEmpty() ) $this->entity_manager->persist( $this->log->zoneLostControlLeaving( $zone, $leaving_citizen ) );
                 $zone->addEscapeTimer( (new EscapeTimer())->setTime( new DateTime('+30min') ) );
                 // Disable all dig timers
+                $has_dt = false;
                 foreach ($zone->getDigTimers() as $dig_timer) {
+                    $has_dt = $has_dt || !$dig_timer->getPassive();
                     $dig_timer->setPassive(true);
                     $this->entity_manager->persist( $dig_timer );
                 }
+                if ($has_dt) $this->entity_manager->persist( $this->log->zoneSearchInterrupted( $zone ) );
+
             }
             // If we took back control of the zone, logs it
             elseif (!$cp_ok_before && $this->check_cp($zone)) {
@@ -580,6 +604,9 @@ class ZoneHandler
         } else {
             if (!$admin && $zone->getDiscoveryStatus() === Zone::DiscoveryStatePast) {
                 $attributes[] = 'past';
+            } 
+            if(!$admin && $citizen && !($zone->getX() == 0 && $zone->getY() == 0) && !$citizen->getVisitedZones()->contains($zone)) {
+                $attributes[] = 'global';
             }
             if ($zone->getPrototype()) {
                 $attributes[] = 'ruin';
