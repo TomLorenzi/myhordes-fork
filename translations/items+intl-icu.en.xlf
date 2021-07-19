@@ -9083,14 +9083,34 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
         <target>Schlechte Nachrichten, du hättest das nicht herunterschlucken sollen... du hast dir eine Infektion eingefangen!</target>
       </segment>
     </unit>
-    <unit id="stXotvA">
+    <unit id="gf4WieX">
       <notes>
-        <note category="german">Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.</note>
+        <note category="german">Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.</note>
         <note category="from">db://ItemAction</note>
       </notes>
       <segment>
-        <source>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.</source>
-        <target>You have opened the {item_from}, you have found the {item_to} inside.</target>
+        <source>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.</source>
+        <target>You have opened the {item_from}, you have found the {items_spawn} inside.</target>
+      </segment>
+    </unit>
+    <unit id="2bqTMKS">
+      <notes>
+        <note category="german">Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.{hr}Die Kiste ist nicht leer...</note>
+        <note category="from">db://ItemAction</note>
+      </notes>
+      <segment>
+        <source>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.{hr}Die Kiste ist nicht leer...</source>
+        <target>You have opened the {item_from}, you have found the {items_spawn} inside.{hr}The box is not empty...</target>
+      </segment>
+    </unit>
+    <unit id="Np_I24h">
+      <notes>
+        <note category="german">Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.{hr}{item_from} ist &lt;strong&gt;leer&lt;/strong&gt;.</note>
+        <note category="from">db://ItemAction</note>
+      </notes>
+      <segment>
+        <source>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.{hr}{item_from} ist &lt;strong&gt;leer&lt;/strong&gt;.</source>
+        <target><![CDATA[You have opened the {item_from}, you have found the {items_spawn} inside.{hr}{item_from} is <strong>empty</strong>.]]></target>
       </segment>
     </unit>
     <unit id="dvSEUyn">

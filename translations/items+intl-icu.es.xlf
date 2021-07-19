@@ -9046,14 +9046,34 @@
         <target><![CDATA[Malas noticias, no debiste haberte comido eso... ¡Ahora estás <strong>infectado</strong>!]]></target>
       </segment>
     </unit>
-    <unit id="stXotvA">
+    <unit id="gf4WieX">
       <notes>
-        <note category="german">Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.</note>
+        <note category="german">Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.</note>
         <note category="from">db://ItemAction</note>
       </notes>
       <segment>
-        <source>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.</source>
-        <target>Abriste {item_from} y encontraste {item_to} en su interior.</target>
+        <source>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.</source>
+        <target>Abriste {item_from} y encontraste {items_spawn} en su interior.</target>
+      </segment>
+    </unit>
+    <unit id="2bqTMKS">
+      <notes>
+        <note category="german">Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.{hr}Die Kiste ist nicht leer...</note>
+        <note category="from">db://ItemAction</note>
+      </notes>
+      <segment>
+        <source>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.{hr}Die Kiste ist nicht leer...</source>
+        <target>Abriste {item_from} y encontraste {items_spawn} en su interior.{hr}La caja no está vacía...</target>
+      </segment>
+    </unit>
+    <unit id="Np_I24h">
+      <notes>
+        <note category="german">Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.{hr}{item_from} ist &lt;strong&gt;leer&lt;/strong&gt;.</note>
+        <note category="from">db://ItemAction</note>
+      </notes>
+      <segment>
+        <source>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.{hr}{item_from} ist &lt;strong&gt;leer&lt;/strong&gt;.</source>
+        <target><![CDATA[Abriste {item_from} y encontraste {items_spawn} en su interior.{hr}{item_from} está <strong>vacío</strong>.]]></target>
       </segment>
     </unit>
     <unit id="dvSEUyn">
