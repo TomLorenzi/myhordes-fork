@@ -20241,7 +20241,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Es weiß zwar keiner wie unser Held {citizen} das angestellt hat, aber es ist ihm gelungen aus dieser Zone direkt in die Stadt zurückzukehren... Ein Wunder!</source>
-        <target>Es weiß zwar keiner wie unser Held {citizen} das angestellt hat, aber es ist ihm gelungen aus dieser Zone direkt in die Stadt zurückzukehren... Ein Wunder!</target>
+        <target>Nobody knows how, but the Hero {citizen} managed to get out of this zone and go back to the town... it's a miracle!</target>
       </segment>
     </unit>
     <unit id="RqmtAaX">
