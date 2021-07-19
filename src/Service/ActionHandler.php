@@ -1598,6 +1598,7 @@ class ActionHandler
         	ksort($execute_info_cache['message']);
         	// We translate & replace placeholders in each messages
         	$addedContent = [];
+
         	foreach ($execute_info_cache['message'] as $contentMessage) {
                 $placeholders = [
 	                '{ap}'            => $execute_info_cache['ap'],

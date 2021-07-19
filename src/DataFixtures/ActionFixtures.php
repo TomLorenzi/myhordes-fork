@@ -646,13 +646,13 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'open_abox'     => [ 'label' => 'Öffnen', 'meta' => ['is_not_wounded_hands'], 'result' => [ 'consume_item', [ 'spawn' => [ 'bplan_r_#00' ] ] ], 'message_key' => 'container_open' ],
             'open_cbox'     => [ 'label' => 'Öffnen', 'meta' => ['is_not_wounded_hands'], 'result' => [ 'consume_item', [ 'spawn' => [ ['bplan_c_#00',50], ['bplan_u_#00',35], ['bplan_r_#00',10], ['bplan_e_#00',5]] ] ], 'message_key' => 'container_open_cbox' ],
 
-            'open_matbox3'   => [ 'label' => 'Öffnen', 'meta' => ['is_not_wounded_hands'], 'result' => [ [ 'item' => [ 'consume' => false, 'morph' => 'rsc_pack_2_#00' ],  'spawn' => 'matbox' ] ], 'message_key' => 'container_open' ],
-            'open_matbox2'   => [ 'label' => 'Öffnen', 'meta' => ['is_not_wounded_hands'], 'result' => [ [ 'item' => [ 'consume' => false, 'morph' => 'rsc_pack_1_#00' ],  'spawn' => 'matbox' ] ], 'message_key' => 'container_open' ],
-            'open_matbox1'   => [ 'label' => 'Öffnen', 'meta' => ['is_not_wounded_hands'], 'result' => [ 'consume_item', [ 'spawn' => 'matbox' ] ], 'message_key' => 'container_open' ],
+            'open_matbox3'   => [ 'label' => 'Öffnen', 'meta' => ['is_not_wounded_hands'], 'result' => [ [ 'item' => [ 'consume' => false, 'morph' => 'rsc_pack_2_#00' ],  'spawn' => 'matbox' ] ], 'message_key' => 'container_open_not_empty' ],
+            'open_matbox2'   => [ 'label' => 'Öffnen', 'meta' => ['is_not_wounded_hands'], 'result' => [ [ 'item' => [ 'consume' => false, 'morph' => 'rsc_pack_1_#00' ],  'spawn' => 'matbox' ] ], 'message_key' => 'container_open_not_empty' ],
+            'open_matbox1'   => [ 'label' => 'Öffnen', 'meta' => ['is_not_wounded_hands'], 'result' => [ 'consume_item', [ 'spawn' => 'matbox' ] ], 'message_key' => 'container_open_empty' ],
 
-            'open_xmasbox3'  => [ 'label' => 'Öffnen', 'meta' => ['is_not_wounded_hands'], 'result' => [ [ 'item' => [ 'consume' => false, 'morph' => 'chest_christmas_2_#00' ],  'spawn' => 'xmas_3' ] ], 'message_key' => 'container_open' ],
-            'open_xmasbox2'  => [ 'label' => 'Öffnen', 'meta' => ['is_not_wounded_hands'], 'result' => [ [ 'item' => [ 'consume' => false, 'morph' => 'chest_christmas_1_#00' ],  'spawn' => 'xmas_2' ] ], 'message_key' => 'container_open' ],
-            'open_xmasbox1'  => [ 'label' => 'Öffnen', 'meta' => ['is_not_wounded_hands'], 'result' => [ 'consume_item', [ 'spawn' => 'xmas_1' ] ], 'message_key' => 'container_open' ],
+            'open_xmasbox3'  => [ 'label' => 'Öffnen', 'meta' => ['is_not_wounded_hands'], 'result' => [ [ 'item' => [ 'consume' => false, 'morph' => 'chest_christmas_2_#00' ],  'spawn' => 'xmas_3' ] ], 'message_key' => 'container_open_not_empty' ],
+            'open_xmasbox2'  => [ 'label' => 'Öffnen', 'meta' => ['is_not_wounded_hands'], 'result' => [ [ 'item' => [ 'consume' => false, 'morph' => 'chest_christmas_1_#00' ],  'spawn' => 'xmas_2' ] ], 'message_key' => 'container_open_not_empty' ],
+            'open_xmasbox1'  => [ 'label' => 'Öffnen', 'meta' => ['is_not_wounded_hands'], 'result' => [ 'consume_item', [ 'spawn' => 'xmas_1' ] ], 'message_key' => 'container_open_empty' ],
 
             'open_metalbox'  => [ 'label' => 'Öffnen', 'meta' => [ 'not_profession_tech', 'have_can_opener', 'is_not_wounded_hands' ], 'result' => [ 'consume_item', [ 'spawn' => 'metalbox' ] ], 'message_key' => 'container_open_tool' ],
             'open_metalbox2' => [ 'label' => 'Öffnen', 'meta' => [ 'not_profession_tech', 'have_can_opener', 'is_not_wounded_hands' ], 'result' => [ 'consume_item', [ 'spawn' => 'metalbox2' ] ], 'message_key' => 'container_open_tool' ],
@@ -1357,7 +1357,9 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
     
         'container_open_tool'       => 'Du hast mit dem(r) {item_tool} ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.',    
         'container_open_weapon'     => 'Du hast ein(e) {item_from} mit einer(m) {item_tool} zerstört. In den Resten auf dem Boden findest du: {item_to}.',
-        'container_open'            => 'Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.',
+        'container_open'            => 'Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.',
+        'container_open_not_empty'  => 'Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.{hr}Die Kiste ist nicht leer...',
+        'container_open_empty'      => 'Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.{hr}{item_from} ist <strong>leer</strong>.',
         'container_open_cbox'       => 'Verloren inmitten einer lächerlichen Menge sinnloser Dokumente hast du einen {item_to} entdeckt.',
         'container_optional'        => '<nt-spawned>Trotz aller Anstrengungen ist es dir nicht gelungen, den {item} zu öffnen...</nt-spawned><t-spawned>Du hast die {item} geöffnet und darin {items_spawn} gefunden!</t-spawned>',
         
