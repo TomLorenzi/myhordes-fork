@@ -91,7 +91,6 @@
       <notes>
         <note category="german">E-Mail Validierung</note>
         <note category="from">php:///src/Service/UserFactory.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>E-Mail Validierung</source>
@@ -102,7 +101,6 @@
       <notes>
         <note category="german">Jemand (hoffentlich du!) hat versucht, die mit deinem Account verknüpfte E-Mail Adresse zu ändern. Um die Änderung durchzuführen, verwende bitte folgenden Token in deinen Seelen-Einstellungen:</note>
         <note category="from">twig:///templates/mail/email_change_validation.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Jemand (hoffentlich du!) hat versucht, die mit deinem Account verknüpfte E-Mail Adresse zu ändern. Um die Änderung durchzuführen, verwende bitte folgenden Token in deinen Seelen-Einstellungen:</source>

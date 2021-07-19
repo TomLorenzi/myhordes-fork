@@ -1727,7 +1727,6 @@
       <notes>
         <note category="german">Diese Stadt verfügt über eine Zugangsbeschränkung. Die Mitglieder deiner Koalition können dir nicht automatisch folgen, wenn du diese Stadt betrittst. Fortfahren?</note>
         <note category="from">twig:///templates/ajax/ghost/intro.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Diese Stadt verfügt über eine Zugangsbeschränkung. Die Mitglieder deiner Koalition können dir nicht automatisch folgen, wenn du diese Stadt betrittst. Fortfahren?</source>
@@ -1738,7 +1737,6 @@
       <notes>
         <note category="german">Die folgenden Koalitionsmitglieder können dir nicht in die ausgewählte Stadt folgen. Fortfahren?</note>
         <note category="from">twig:///templates/ajax/ghost/intro.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Die folgenden Koalitionsmitglieder können dir nicht in die ausgewählte Stadt folgen. Fortfahren?</source>

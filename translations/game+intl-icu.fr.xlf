@@ -2546,7 +2546,7 @@
     <unit id="m0NU7Ex" name="Angststarre">
       <notes>
         <note category="german">Angststarre</note>
-        <note category="from">db://CitizenStatus</note>
+        <note category="from">db://CitizenStatus;twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
         <source>Angststarre</source>
@@ -22835,6 +22835,16 @@
       <segment>
         <source>Trinke oder nimm einen Happen zu dir, aber unternimm etwas, um wieder in Schuss zu kommen!</source>
         <target>Buvez, mangez, faites quelque chose si vous voulez de nouveau vous sentir en forme !</target>
+      </segment>
+    </unit>
+    <unit id="Be.3GRF">
+      <notes>
+        <note category="german">Klick hier, wenn du mit deiner Heldenfähigkeit &lt;strong&gt;diesen Registereintrag fälschen&lt;/strong&gt; möchtest...</note>
+        <note category="from">twig:///templates/ajax/game/log_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Klick hier, wenn du mit deiner Heldenfähigkeit &lt;strong&gt;diesen Registereintrag fälschen&lt;/strong&gt; möchtest...</source>
+        <target><![CDATA[Cliquez pour utiliser votre capacité de héros et <strong>falsifier cette entrée du registre</strong>...]]></target>
       </segment>
     </unit>
   </file>

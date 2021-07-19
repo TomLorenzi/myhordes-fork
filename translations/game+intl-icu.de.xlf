@@ -14007,5 +14007,11 @@
         <target>Trinke oder nimm einen Happen zu dir, aber unternimm etwas, um wieder in Schuss zu kommen!</target>
       </segment>
     </unit>
+    <unit id="Be.3GRF">
+      <segment>
+        <source>Klick hier, wenn du mit deiner Heldenfähigkeit &lt;strong&gt;diesen Registereintrag fälschen&lt;/strong&gt; möchtest...</source>
+        <target><![CDATA[Klick hier, wenn du mit deiner Heldenfähigkeit <strong>diesen Registereintrag fälschen</strong> möchtest...]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

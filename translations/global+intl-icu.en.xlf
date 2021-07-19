@@ -2865,7 +2865,6 @@
     <unit id="TvN2VX9" name="Diese Aktion kostet dich 1 AP!">
       <notes>
         <note category="german">Diese Aktion kostet dich 1 AP!</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
@@ -3354,7 +3353,6 @@
       <notes>
         <note category="german">Kopieren</note>
         <note category="from">twig:///templates/ajax/forum/posts.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Kopieren</source>
@@ -3365,7 +3363,6 @@
       <notes>
         <note category="german">E-Mail konnte nicht gesendet werden.</note>
         <note category="from">twig:///templates/scripts/errors/generic.txt.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>E-Mail konnte nicht gesendet werden.</source>
