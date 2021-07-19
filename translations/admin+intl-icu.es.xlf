@@ -3978,7 +3978,6 @@
       <notes>
         <note category="german">Versteckte Statuseffekte</note>
         <note category="from">twig:///templates/ajax/game/game.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Versteckte Statuseffekte</source>
