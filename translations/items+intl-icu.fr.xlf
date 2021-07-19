@@ -9193,7 +9193,7 @@
       </notes>
       <segment>
         <source>Um dieses Wasser trinkbar zu machen, brauchst du &lt;strong&gt;irgendein Reinigungsmittel&lt;/strong&gt; oder deine Stadt muss über einen &lt;strong&gt;Wasserreiniger&lt;/strong&gt; verfügen. Die zweite Variante ist nicht verfügbar, wenn Du verbannt bist.</source>
-        <target><![CDATA[Um dieses Wasser trinkbar zu machen, brauchst du <strong>irgendein Reinigungsmittel</strong> oder deine Stadt muss über einen <strong>Wasserreiniger</strong> verfügen. Die zweite Variante ist nicht verfügbar, wenn Du verbannt bist.]]></target>
+        <target><![CDATA[Vous devez avoir un <strong>produit nettoyant quelconque</strong> ou bien que votre ville dispose d'un <strong>Purificateur</strong> pour rendre cette eau potable. La seconde solution n'est pas disponible si vous êtes banni(e).]]></target>
       </segment>
     </unit>
     <unit id="LB_nTi3">
