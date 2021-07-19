@@ -21819,7 +21819,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Dieser Bürger hat sich für heute Nacht hier versteckt.</source>
-        <target>Dieser Bürger hat sich für heute Nacht hier versteckt.</target>
+        <target>This citizen has hidden to spend the night here...</target>
       </segment>
     </unit>
     <unit id="PEGlllX">
