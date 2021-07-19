@@ -104,7 +104,7 @@
       </notes>
       <segment>
         <source>Jemand (hoffentlich du!) hat versucht, die mit deinem Account verknüpfte E-Mail Adresse zu ändern. Um die Änderung durchzuführen, verwende bitte folgenden Token in deinen Seelen-Einstellungen:</source>
-        <target>Alguien (¡con suerte usted!) Intentó cambiar la dirección de correo electrónico asociada a su cuenta. Para realizar el cambio, utilice el siguiente codigo en la configuración de su alma:</target>
+        <target>Alguien (¡con suerte usted!) Intentó cambiar la dirección de correo electrónico asociada a su cuenta. Para realizar el cambio, utilice el siguiente token en la configuración de su alma:</target>
       </segment>
     </unit>
   </file>
