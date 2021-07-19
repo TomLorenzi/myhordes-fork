@@ -3538,7 +3538,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>{citizen} hat diese Ruine freigelegt. Es handelt sich um {type}. Hurra!</source>
-        <target>Thanks to {citizen}, the zone has been completely cleared, revealing a: {type}. Hurray!</target>
+        <target>The zone has been completely cleared, revealing a: {type}.</target>
       </segment>
     </unit>
     <unit id="WcZ7GhE">
