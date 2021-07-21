@@ -920,7 +920,7 @@ class NightlyHandler
                 	if($km >= 10) continue;
 
                     $factor = 1 - 0.1 * (10 - $km);
-                    $zone->setZombies(max(0, $zone->getZombies() * $factor));
+                    $zone->setZombies(max(0, round($zone->getZombies() * $factor, 0)));
                 }
                 
                 $ratio = 1 - mt_rand(13, 16) / 100;
