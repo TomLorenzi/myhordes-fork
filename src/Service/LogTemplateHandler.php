@@ -1720,12 +1720,12 @@ class LogTemplateHandler
             ->setZone($zone);
     }
 
-    public function zoneSearchInterrupted( Zone $zone ): TownLogEntry {
+    public function zoneSearchInterrupted( Zone $zone, Citizen $citizen ): TownLogEntry {
         $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'zoneSearchInterrupted']);
 
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
-            ->setVariables([])
+            ->setVariables(['citizen' => $citizen->getId()])
             ->setTown( $zone->getTown() )
             ->setDay( $zone->getTown()->getDay() )
             ->setTimestamp( new DateTime('now') )

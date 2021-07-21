@@ -135,7 +135,10 @@ class DeathHandler
         $citizen->setCauseOfDeath($cod);
         $citizen->setAlive(false);
 
-        $survivedDays = max(0, $citizen->getTown()->getDay() - ($citizen->getTown()->getDevastated() ? 0 : 1));
+        $survivedDays = max(0, $citizen->getTown()->getDay() - 1);
+
+        if($citizen->getTown()->getDevastated() && ($this->citizen_handler->hasStatusEffect($citizen, 'tg_hide') || $this->citizen_handler->hasStatusEffect($citizen, 'tg_tomb')))
+            $survivedDays += 1;
 
         $citizen->setSurvivedDays($survivedDays);
         $citizen->setDayOfDeath($citizen->getTown()->getDay());
