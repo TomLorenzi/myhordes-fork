@@ -5654,7 +5654,7 @@
                 other {# Pkte. Angriff}
               }
             }
-            other {# pkt attacke}
+            other {{watchpoint__copy} pkt attacke}
           }
         </target>
       </segment>
