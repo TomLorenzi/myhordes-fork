@@ -3538,7 +3538,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>{citizen} hat diese Ruine freigelegt. Es handelt sich um {type}. Hurra!</source>
-        <target>Thanks to {citizen}, the zone has been completely cleared, revealing a: {type}. Hurray!</target>
+        <target>The zone has been completely cleared, revealing a: {type}.</target>
       </segment>
     </unit>
     <unit id="WcZ7GhE">
@@ -20241,7 +20241,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Es weiß zwar keiner wie unser Held {citizen} das angestellt hat, aber es ist ihm gelungen aus dieser Zone direkt in die Stadt zurückzukehren... Ein Wunder!</source>
-        <target>Es weiß zwar keiner wie unser Held {citizen} das angestellt hat, aber es ist ihm gelungen aus dieser Zone direkt in die Stadt zurückzukehren... Ein Wunder!</target>
+        <target>Nobody knows how, but the Hero {citizen} managed to get out of this zone and go back to the town... it's a miracle!</target>
       </segment>
     </unit>
     <unit id="RqmtAaX">
@@ -21819,7 +21819,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Dieser Bürger hat sich für heute Nacht hier versteckt.</source>
-        <target>Dieser Bürger hat sich für heute Nacht hier versteckt.</target>
+        <target>This citizen has hidden to spend the night here...</target>
       </segment>
     </unit>
     <unit id="PEGlllX">
