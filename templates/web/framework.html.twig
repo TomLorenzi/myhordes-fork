@@ -14,6 +14,12 @@
         <!-- Set the base URL to account for virtual mod_rewrite URLs -->
         <base target="_blank" href="{{ app.request.getBaseURL() }}">
 
+        <!-- Set OG tags for Social Network Ads :] -->
+        <meta property="og:title" content="MyHordes">
+        <meta property="og:description" content="Das Zombie Survival Game!">
+        <meta property="og:image" content="{{ asset('build/images/favicon.ico') }}">
+        <meta property="og:url" content="{{ app.request.uri }}">
+
         <!-- Load CSS -->
         {{ encore_entry_link_tags('app') }}
 
