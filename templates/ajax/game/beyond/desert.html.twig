@@ -672,6 +672,14 @@
                                                 <div class="tooltip">{{ 'Dieser Bürger gräbt gerade in einer Zone.'|trans({},'game') }}</div>
                                             </li>
                                         {% endif %}
+                                        {% if other_citizen.hasStatus('terror') %}
+                                            <li class="status">
+                                                <img src="{{ asset('build/images/status/status_terror.gif') }}" alt="{{ 'Angststarre'|trans({},'game') }}">
+                                                <div class="tooltip">
+
+                                                </div>
+                                            </li>
+                                        {% endif %}
                                         {% if other_citizen.escortSettings is not null and other_citizen.escortSettings.leader is not null %}
                                             <li class="status">
                                                 <img src="{{ asset('build/images/icons/escort_other.gif') }}" alt="{{ 'Eskorte'|trans({},'game') }}">

@@ -42,7 +42,7 @@ img.fit { width: 100%; }
 
 .link {
 	cursor: pointer;
-	text-decoration: underline;
+	&:not(.undecorated) { text-decoration: underline; }
 	color: @myhordes-smalltext;
 	&:hover {
 		color: white;

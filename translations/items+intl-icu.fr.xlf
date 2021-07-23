@@ -8973,14 +8973,34 @@
         <target>Schlechte Nachrichten, du hättest das nicht herunterschlucken sollen... du hast dir eine Infektion eingefangen!</target>
       </segment>
     </unit>
-    <unit id="stXotvA">
+    <unit id="gf4WieX">
       <notes>
-        <note category="german">Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.</note>
+        <note category="german">Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.</note>
         <note category="from">db://ItemAction</note>
       </notes>
       <segment>
-        <source>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.</source>
-        <target>Vous avez ouvert {item_from}, vous trouvez {item_to} à l'intérieur.</target>
+        <source>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.</source>
+        <target>Vous avez ouvert {item_from}, vous trouvez {items_spawn} à l'intérieur.</target>
+      </segment>
+    </unit>
+    <unit id="2bqTMKS">
+      <notes>
+        <note category="german">Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.{hr}Die Kiste ist nicht leer...</note>
+        <note category="from">db://ItemAction</note>
+      </notes>
+      <segment>
+        <source>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.{hr}Die Kiste ist nicht leer...</source>
+        <target>Vous avez ouvert {item_from}, vous trouvez {items_spawn} à l'intérieur.{hr}Il reste des choses à l'intérieur...</target>
+      </segment>
+    </unit>
+    <unit id="Np_I24h">
+      <notes>
+        <note category="german">Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.{hr}{item_from} ist &lt;strong&gt;leer&lt;/strong&gt;.</note>
+        <note category="from">db://ItemAction</note>
+      </notes>
+      <segment>
+        <source>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.{hr}{item_from} ist &lt;strong&gt;leer&lt;/strong&gt;.</source>
+        <target><![CDATA[Vous avez ouvert {item_from}, vous trouvez {items_spawn} à l'intérieur.{hr}{item_from} est maintenant <strong>vide</strong>.]]></target>
       </segment>
     </unit>
     <unit id="dvSEUyn">
@@ -9173,7 +9193,7 @@
       </notes>
       <segment>
         <source>Um dieses Wasser trinkbar zu machen, brauchst du &lt;strong&gt;irgendein Reinigungsmittel&lt;/strong&gt; oder deine Stadt muss über einen &lt;strong&gt;Wasserreiniger&lt;/strong&gt; verfügen. Die zweite Variante ist nicht verfügbar, wenn Du verbannt bist.</source>
-        <target><![CDATA[Um dieses Wasser trinkbar zu machen, brauchst du <strong>irgendein Reinigungsmittel</strong> oder deine Stadt muss über einen <strong>Wasserreiniger</strong> verfügen. Die zweite Variante ist nicht verfügbar, wenn Du verbannt bist.]]></target>
+        <target><![CDATA[Vous devez avoir un <strong>produit nettoyant quelconque</strong> ou bien que votre ville dispose d'un <strong>Purificateur</strong> pour rendre cette eau potable. La seconde solution n'est pas disponible si vous êtes banni(e).]]></target>
       </segment>
     </unit>
     <unit id="LB_nTi3">

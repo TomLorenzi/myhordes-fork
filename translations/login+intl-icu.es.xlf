@@ -792,22 +792,20 @@
       <notes>
         <note category="german">Die eingegebene E-Mail Adresse ist nicht korrekt.</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Die eingegebene E-Mail Adresse ist nicht korrekt.</source>
-        <target>Die eingegebene E-Mail Adresse ist nicht korrekt.</target>
+        <target>La dirección de correo electrónico es incorrecta.</target>
       </segment>
     </unit>
     <unit id="y2_Gamb">
       <notes>
         <note category="german">Deine E-Mail Adresse wurde geändert. Bitte validiere die neue Adresse, damit du sie verwenden kannst.</note>
         <note category="from">php:///src/Controller/Soul/SoulController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Deine E-Mail Adresse wurde geändert. Bitte validiere die neue Adresse, damit du sie verwenden kannst.</source>
-        <target>Deine E-Mail Adresse wurde geändert. Bitte validiere die neue Adresse, damit du sie verwenden kannst.</target>
+        <target>Su dirección de correo electrónico ha sido modificada. Valide la nueva dirección para poder utilizarla.</target>
       </segment>
     </unit>
   </file>

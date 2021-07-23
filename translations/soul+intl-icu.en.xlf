@@ -3875,7 +3875,6 @@
       <notes>
         <note category="german">Validierung erneut senden</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Validierung erneut senden</source>
@@ -3886,7 +3885,6 @@
       <notes>
         <note category="german">Änderung der E-Mail Adresse abbrechen</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Änderung der E-Mail Adresse abbrechen</source>

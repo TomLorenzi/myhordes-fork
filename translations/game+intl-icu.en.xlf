@@ -2562,7 +2562,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="m0NU7Ex" name="Angststarre">
       <notes>
         <note category="german">Angststarre</note>
-        <note category="from">db://CitizenStatus</note>
+        <note category="from">db://CitizenStatus;twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
         <source>Angststarre</source>
@@ -3538,7 +3538,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>{citizen} hat diese Ruine freigelegt. Es handelt sich um {type}. Hurra!</source>
-        <target>Thanks to {citizen}, the zone has been completely cleared, revealing a: {type}. Hurray!</target>
+        <target>The zone has been completely cleared, revealing a: {type}.</target>
       </segment>
     </unit>
     <unit id="WcZ7GhE">
@@ -8877,7 +8877,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>{citizen} hat einen Bauplan für {plan} gefunden. Dafür ist das Bauprojekt {parent} nötig.</source>
-        <target>{citizen} has discovered the blueprints for the {plan}! This required the construction of the {parent}.</target>
+        <target>{citizen} has discovered the blueprints for the {plan}! It requires the construction of the {parent}.</target>
       </segment>
     </unit>
     <unit id="33aXJuK" name="{num} Zombies haben vergeblich versucht, in das Haus von {citizen} einzudringen.">
@@ -9024,7 +9024,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="IuJ39ML">
       <notes>
         <note category="german">Gestern war ein unbedeutender Tag. Einem Gerücht zufolge wurden {citizen1} und {citizen2} dabei beobachtet, wie sie zusammen im Brunnen badeten. Wenn morgen alle mit einer Pilzinfektion flach liegen, ist ja wohl klar, an wem das lag.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -9035,7 +9034,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="1RIoi6Z">
       <notes>
         <note category="german">Was für ein denkwürdiger Tag! Die Zombies spielten keine Rolle mehr, nachdem {citizen1} zur Mittagszeit nackt auf der Mauer einmal um die Stadt rannte. Kommentar von {citizen2} dazu: "Der Anblick war nicht von schlechten Eltern."</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -9086,7 +9084,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="ejEJjVt">
       <notes>
         <note category="german">Abgesehen davon, gut, dass letzte Nacht niemand starb. Eine Horde von fast {attack} Zombies heulte die ganze Nacht draußen, aber keiner von ihnen schaffte es, unsere Verteidigung zu durchbrechen.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -9157,7 +9154,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="i8FSlBg">
       <notes>
         <note category="german">Unsere Verteidigung an der Ostmauer scheint zufriedenstellend zu sein. Die furchterregenden Kreaturen der Horde wurden in Schach gehalten... dieses Mal!</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -9178,7 +9174,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="_KcsEZD">
       <notes>
         <note category="german">Die Zombies von gestern Abend hatten nichts außer unseren Fetzen, in die sie ihre Zähne bekommen konnten, und einige Tierkadaver... Unsere Verteidigung hat sich gut gehalten.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -9249,7 +9244,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="RiEm2s6">
       <notes>
         <note category="german">{cadaver1} hatte gestern Abend kein Glück. Abgesehen davon war es eine ruhige Nacht in der Stadt...</note>
-        <note category="state">new</note>
         <note category="from">[unused]</note>
       </notes>
       <segment>
@@ -9260,7 +9254,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="X7mffuU">
       <notes>
         <note category="german">Alle scheinen sich still und leise über den Tod von {cadaver1} gestern Abend zu freuen... Allerdings hat niemand erklärt, warum. {citizen1} kommentierte: "Seine Mutter war ein Hamster, und sein Vater roch nach Holunderbeeren".</note>
-        <note category="state">new</note>
         <note category="from">[unused]</note>
       </notes>
       <segment>
@@ -9271,7 +9264,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="WWLQc3o">
       <notes>
         <note category="german">Jeder hörte {cadaver1} schreien, als er von den Zombies auseinander gerissen wurde. Offensichtlich versuchte niemand zu helfen. Überlebensinstinkt. Wirst du jetzt nachts schlafen können?</note>
-        <note category="state">new</note>
         <note category="from">[unused]</note>
       </notes>
       <segment>
@@ -9282,7 +9274,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="IEPC99r">
       <notes>
         <note category="german">Ich bin sicher, dass nicht nur ich der Meinung bin, dass wir eine Rechnung mit {cadaver1} zu begleichen hatten. Letztendlich scheint es also Karma gewesen zu sein, dass ausgerechnet er heute Nacht ums Leben kam.</note>
-        <note category="state">new</note>
         <note category="from">[unused]</note>
       </notes>
       <segment>
@@ -9293,7 +9284,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="EvcUHEC">
       <notes>
         <note category="german">Einige Bürger wurden Zeugen eines seltsamen Vorfalls... Man könnte sagen, dass die Zombies gestern Abend ausschließlich für {cadaver1} gekommen sind. Sie trugen die Leiche den ganzen Weg zur Baustelle, bevor die Zerstückelung begann!</note>
-        <note category="state">new</note>
         <note category="from">[unused]</note>
       </notes>
       <segment>
@@ -9304,7 +9294,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="ZuQMNC6">
       <notes>
         <note category="german">Einige sagen, daß der Tod von {cadaver1} nicht dem Glück zu verdanken ist... das einzige Opfer gestern Abend... Könnte jemand unter uns seinen Tod provoziert haben?</note>
-        <note category="state">new</note>
         <note category="from">[unused]</note>
       </notes>
       <segment>
@@ -9315,7 +9304,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="MHTYtp1">
       <notes>
         <note category="german">Ausgangssperre gilt für alle. Auch für {cadaver1} und {cadaver2} – das haben sie nun davon.</note>
-        <note category="state">new</note>
         <note category="from">[unused]</note>
       </notes>
       <segment>
@@ -9326,7 +9314,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="Phxyt4a">
       <notes>
         <note category="german">So richtig scheint keiner über den Tod von {cadaver1} und {cadaver2} zu trauern. Sie waren wohl nicht die beliebtesten in der Stadt.</note>
-        <note category="state">new</note>
         <note category="from">[unused]</note>
       </notes>
       <segment>
@@ -9337,7 +9324,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="HjXCgon">
       <notes>
         <note category="german">Eine schreckliche Nacht für die Stadt. Die lebenden Toten massakrierten {deaths} unserer Gemeinde während des Angriffs. Vielleicht möchtet ihr vor heute Abend noch einmal einen Blick auf unsere Verteidigung werfen...</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -9348,7 +9334,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="tWF6qem">
       <notes>
         <note category="german">Die Zombies fanden gestern Abend an der Nordwand eine Schwäche in unserer Verteidigung... Einige Häuser hielten dem Angriff stand. Andere nicht... ... {deaths} tot. Ende der Geschichte.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -9359,7 +9344,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="xVDXz8v">
       <notes>
         <note category="german">Einige Bewohner brachen heute Morgen ob der Opfer in Tränen aus. Tränen der Freude mit Sicherheit, nicht eines der {deaths} Opfer des letzten Angriffs zu sein.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -9370,7 +9354,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="FgoMd0R">
       <notes>
         <note category="german">Eine Handvoll Zombies durchbrach unsere Verteidigungsanlagen in der Nähe des nördlichen Viertels, wir haben keine Ahnung, wie... Wie es das "Glück" wollte, sind {deaths} Bürger tot, aber ihr habt seltsamerweise überlebt. ... Klingt das nicht ein wenig verdächtig?</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -9381,7 +9364,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="MwOt2NN">
       <notes>
         <note category="german">Eine Flutwelle von Zombies stürzte letzte Nacht gegen unsere Stadt! Bürger wurden in ihren eigenen Häusern verschlungen oder in die Wüste geschleift... Noch so eine Nacht, und wir werden nicht mehr hier sein, um darüber zu reden.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -9392,7 +9374,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="aHDkQ88">
       <notes>
         <note category="german">Wir müssen uns beeilen; unsere Unfähigkeit, zufriedenstellende Verteidigungsanlagen zu errichten, kostete letzte Nacht {deaths} Bürgern das Leben. Zu eurer Information: Gestern Abend wurde die Stadt von {attack} Zombies angegriffen.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -9403,7 +9384,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="TI38FCg">
       <notes>
         <note category="german">Die Verteidigungsanlagen waren gestern Abend unzureichend. {deaths} Bürger bezahlten für eure mangelnde Organisation mit ihrem Leben.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -9414,7 +9394,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="j6M_Tqs">
       <notes>
         <note category="german">Letzte Nacht haben es {deaths} Bürger nicht rechtzeitig nach Hause geschafft. Einige Teile von ihnen wurden in der Nähe des westlichen Viertels gefunden. Augenzeugen berichten, dass die Anwohner riefen: "Lauf, Forrest, lauf!", bevor sie vor Lachen ausbrachen und in ihr Haus rannten.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -9425,7 +9404,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="FRBVY_U">
       <notes>
         <note category="german">Was für ein Riesenschlamassel: {deaths} starben letzte Nacht in der Stadt! Ein Massaker, zu dem noch der zertrümmerter Schädel eines Haustiers zu zählen ist, der in den Toren verkeilt gefunden wurde. Vermisst jemand einen Hund?</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -10110,7 +10088,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="WGjdoHe">
       <notes>
         <note category="german">"Auf wiedersehen, du schnöde Welt...", dachte sich wohl &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1}. Jedenfalls hat er den Zombies Arbeit abgenommen und sich selbst umgebracht.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -10121,7 +10098,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="Hb1CJc.">
       <notes>
         <note category="german">Ohne großes Bedauern starb &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} heute Nacht in Folge seiner Abhängigkeit. "Ganz ehrlich, das ist kein großer Verlust", kommentierte {citizen1}.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -10142,7 +10118,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id=".5W7nuy">
       <notes>
         <note category="german">Eindeutig! &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} starb an einer Vergiftung. Wie genau das passieren konnte, weiß niemand so recht, aber {citizen1} verhielt sich sehr verdächtig.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -10153,7 +10128,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="jC0g8aF">
       <notes>
         <note category="german">Nichts genaues weiß man nicht, auf jeden Fall hat seit geraumer Zeit niemand mehr &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} gesehen.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -16173,7 +16147,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="WOgQABU" name="Letzte Nacht wurde der {sector} von starken Winden heimgesucht.">
       <notes>
         <note category="german">Letzte Nacht wurde der {sector} von starken Winden heimgesucht.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -16184,7 +16157,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="vMWPnXd" name="Gestern Abend gab es starke Windböen im {sector}.">
       <notes>
         <note category="german">Gestern Abend gab es starke Windböen im {sector}.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -16195,7 +16167,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="b1WS2ti" name="{sector2} haben gestern ein paar heftige Sandstrürme gewütet.">
       <notes>
         <note category="german">{sector2} haben gestern ein paar heftige Sandstrürme gewütet.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -16206,7 +16177,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="8SlXCl0" name="{sector2} wurden gestern ein paar meteorologische Anomalien gesichtet.">
       <notes>
         <note category="german">{sector2} wurden gestern ein paar meteorologische Anomalien gesichtet.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -16217,7 +16187,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="IQK3nfT" name="Ein paar Sandstürme wurden im {sector} beobachtet.">
       <notes>
         <note category="german">Ein paar Sandstürme wurden im {sector} beobachtet.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -16228,7 +16197,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id=".HHbbOe" name="Ungewöhnlich starke Winde haben gestern den Sand {sector} aufgewirbelt.">
       <notes>
         <note category="german">Ungewöhnlich starke Winde haben gestern den Sand {sector} aufgewirbelt.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -16239,7 +16207,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="ceJmauc" name="Verschiedene Aufzeichnungen zeigen Wetteranomalien {sector2}.">
       <notes>
         <note category="german">Verschiedene Aufzeichnungen zeigen Wetteranomalien {sector2}.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -16250,7 +16217,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="BJcjHpt" name="Gestern Abend war der gesamte {sector} Schauplatz mehrerer Wetteranomalien.">
       <notes>
         <note category="german">Gestern Abend war der gesamte {sector} Schauplatz mehrerer Wetteranomalien.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -16261,7 +16227,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="BwUnqIG">
       <notes>
         <note category="german">Unsere Messungen deuten darauf hin, dass im {sector} Wetteranomalien aufgetreten sind.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -16272,7 +16237,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="MxiRuQv" name="Einige vereinzelte Phänomene wurden {sector2} entdeckt.">
       <notes>
         <note category="german">Einige vereinzelte Phänomene wurden {sector2} entdeckt.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -16283,7 +16247,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="u1QojJk" name="In der vergangenen Nacht brach im {sector2} ein heftiger Sturm aus...">
       <notes>
         <note category="german">In der vergangenen Nacht brach im {sector2} ein heftiger Sturm aus...</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -16294,7 +16257,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="0AnA3pq" name="{sector2} wurden gestern heftige Sturmwinde beobachtet.">
       <notes>
         <note category="german">{sector2} wurden gestern heftige Sturmwinde beobachtet.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -16305,7 +16267,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="uoXdth9" name="Gestern Natch wurden im {sector} mehrere Sandstürme beobachtet.">
       <notes>
         <note category="german">Gestern Natch wurden im {sector} mehrere Sandstürme beobachtet.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -20280,7 +20241,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Es weiß zwar keiner wie unser Held {citizen} das angestellt hat, aber es ist ihm gelungen aus dieser Zone direkt in die Stadt zurückzukehren... Ein Wunder!</source>
-        <target>Es weiß zwar keiner wie unser Held {citizen} das angestellt hat, aber es ist ihm gelungen aus dieser Zone direkt in die Stadt zurückzukehren... Ein Wunder!</target>
+        <target>Nobody knows how, but the Hero {citizen} managed to get out of this zone and go back to the town... it's a miracle!</target>
       </segment>
     </unit>
     <unit id="RqmtAaX">
@@ -21609,7 +21570,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Die Stadt hat nichts Nützliches aus dem Haus herausbekommen, da war wirklich nichts zu holen...</source>
-        <target>The town didn't recover anything useful from their house, there was really nothing of interest to take...</target>
+        <target><![CDATA[The town didn't recover anything useful from their house, there was really <strong>nothing of interest to take</strong>...]]></target>
       </segment>
     </unit>
     <unit id="cmDQRlA">
@@ -21858,7 +21819,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Dieser Bürger hat sich für heute Nacht hier versteckt.</source>
-        <target>Dieser Bürger hat sich für heute Nacht hier versteckt.</target>
+        <target>This citizen has hidden to spend the night here...</target>
       </segment>
     </unit>
     <unit id="PEGlllX">
@@ -22476,15 +22437,15 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>Kein Wasser mehr!</target>
       </segment>
     </unit>
-    <unit id="DjCbLrn">
+    <unit id=".4llLEr">
       <notes>
-        <note category="german">&lt;strong&gt;Verlust der Zonenkontrolle&lt;/strong&gt;: Die Suchen der Bürger wurden unterbrochen!</note>
+        <note category="german">&lt;strong&gt;Verlust der Zonenkontrolle&lt;/strong&gt;: Die Suchen von {citizen} wurden unterbrochen!</note>
         <note category="state">new</note>
         <note category="from">db://LogEntryTemplate</note>
       </notes>
       <segment>
-        <source>&lt;strong&gt;Verlust der Zonenkontrolle&lt;/strong&gt;: Die Suchen der Bürger wurden unterbrochen!</source>
-        <target><![CDATA[<strong>Verlust der Zonenkontrolle</strong>: Die Suchen der Bürger wurden unterbrochen!]]></target>
+        <source>&lt;strong&gt;Verlust der Zonenkontrolle&lt;/strong&gt;: Die Suchen von {citizen} wurden unterbrochen!</source>
+        <target><![CDATA[<strong>Verlust der Zonenkontrolle</strong>: Die Suchen von {citizen} wurden unterbrochen!]]></target>
       </segment>
     </unit>
     <unit id="2L4fAWv">
@@ -22800,66 +22761,60 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <notes>
         <note category="german">Unsere aktuelle Schätzung ist zu ungenau, um brauchbar zu sein: Wir brauchen mehr Bürger, die auf den Turm gehen!</note>
         <note category="from">twig:///templates/ajax/game/town/watchtower.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Unsere aktuelle Schätzung ist zu ungenau, um brauchbar zu sein: Wir brauchen mehr Bürger, die auf den Turm gehen!</source>
-        <target>Unsere aktuelle Schätzung ist zu ungenau, um brauchbar zu sein: Wir brauchen mehr Bürger, die auf den Turm gehen!</target>
+        <target>Our current estimation is too inaccurate to be of any use : more citizens need to come to the tower!</target>
       </segment>
     </unit>
     <unit id="gZG1unt">
       <notes>
         <note category="german">Du kannst das Haus, in dem {citizen} lebte, recyceln. Alle darin gelagerten Gegenstände (in seinem Inventar) werden in der Bank abgelegt. Außerdem hast du die Möglichkeit, einen Teil der beim Bau verwendeten Ressourcen zurückzugewinnen.</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Du kannst das Haus, in dem {citizen} lebte, recyceln. Alle darin gelagerten Gegenstände (in seinem Inventar) werden in der Bank abgelegt. Außerdem hast du die Möglichkeit, einen Teil der beim Bau verwendeten Ressourcen zurückzugewinnen.</source>
-        <target>Du kannst das Haus, in dem {citizen} lebte, recyceln. Alle darin gelagerten Gegenstände (in seinem Inventar) werden in der Bank abgelegt. Außerdem hast du die Möglichkeit, einen Teil der beim Bau verwendeten Ressourcen zurückzugewinnen.</target>
+        <target>You can recycle the house where {citizen} lived. Everything found inside (i.e. in the inventory) will be placed in the bank. There is also a chance you could recover some of the materials used to build it.</target>
       </segment>
     </unit>
     <unit id=".CFiQni">
       <notes>
         <note category="german">Nichts mehr da! Die Bürger haben beschlossen, das Haus zu zerstören... Welch eine dankbare Gemeinschaft.</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Nichts mehr da! Die Bürger haben beschlossen, das Haus zu zerstören... Welch eine dankbare Gemeinschaft.</source>
-        <target>Nichts mehr da! Die Bürger haben beschlossen, das Haus zu zerstören... Welch eine dankbare Gemeinschaft.</target>
+        <target>There's nothing left! The citizens decided to destroy it... That's gratitude for you.</target>
       </segment>
     </unit>
     <unit id="SlAwtjZ" name="Wiederverwertung:">
       <notes>
         <note category="german">Wiederverwertung:</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wiederverwertung:</source>
-        <target>Wiederverwertung:</target>
+        <target>Recycling:</target>
       </segment>
     </unit>
     <unit id="sQTLfdC" name="Fortschritt bei der Wiederverwertung dieses Hauses: {progress} / {total} AP">
       <notes>
         <note category="german">Fortschritt bei der Wiederverwertung dieses Hauses: {progress} / {total} AP</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Fortschritt bei der Wiederverwertung dieses Hauses: {progress} / {total} AP</source>
-        <target>Fortschritt bei der Wiederverwertung dieses Hauses: {progress} / {total} AP</target>
+        <target>Progress made in the recycling of their house: {progress} / {total} AP</target>
       </segment>
     </unit>
     <unit id="1XGWhmm">
       <notes>
         <note category="german">Die Truhe von {citizen} ist komplett leer, das ganze Haus wurde bereits abgerissen.</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Die Truhe von {citizen} ist komplett leer, das ganze Haus wurde bereits abgerissen.</source>
-        <target>Die Truhe von {citizen} ist komplett leer, das ganze Haus wurde bereits abgerissen.</target>
+        <target>There is nothing left in {citizen}'s chest, the house has been totally recycled!</target>
       </segment>
     </unit>
     <unit id="LrUZw5u">
@@ -22970,6 +22925,16 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Trinke oder nimm einen Happen zu dir, aber unternimm etwas, um wieder in Schuss zu kommen!</source>
         <target>Drink, eat or do something if you want to feel better again!</target>
+      </segment>
+    </unit>
+    <unit id="Be.3GRF">
+      <notes>
+        <note category="german">Klick hier, wenn du mit deiner Heldenfähigkeit &lt;strong&gt;diesen Registereintrag fälschen&lt;/strong&gt; möchtest...</note>
+        <note category="from">twig:///templates/ajax/game/log_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Klick hier, wenn du mit deiner Heldenfähigkeit &lt;strong&gt;diesen Registereintrag fälschen&lt;/strong&gt; möchtest...</source>
+        <target><![CDATA[Click here to use your hero skill to <strong>tamper with the registry entry</strong>...]]></target>
       </segment>
     </unit>
   </file>

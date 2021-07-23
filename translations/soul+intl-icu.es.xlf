@@ -3753,7 +3753,6 @@
       <notes>
         <note category="german">Moderationseinstellungen</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Moderationseinstellungen</source>
@@ -3764,7 +3763,6 @@
       <notes>
         <note category="german">Moderationslinks in neuem Fenster öffnen</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Moderationslinks in neuem Fenster öffnen</source>
@@ -3775,7 +3773,6 @@
       <notes>
         <note category="german">E-Mail-Adresse ändern</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>E-Mail-Adresse ändern</source>
@@ -3786,7 +3783,6 @@
       <notes>
         <note category="german">Neue E-Mail-Adresse</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Neue E-Mail-Adresse</source>
@@ -3797,7 +3793,6 @@
       <notes>
         <note category="german">E-Mail-Adresse wiederholen</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>E-Mail-Adresse wiederholen</source>
@@ -3808,18 +3803,16 @@
       <notes>
         <note category="german">Validierungs-Token</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Validierungs-Token</source>
-        <target>Validación</target>
+        <target>Token de validación</target>
       </segment>
     </unit>
     <unit id="_yPAzh1" name="Account-Infos aktualisieren">
       <notes>
         <note category="german">Account-Infos aktualisieren</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Account-Infos aktualisieren</source>
@@ -3830,18 +3823,16 @@
       <notes>
         <note category="german">Der Validierungs-Token ist ungültig.</note>
         <note category="from">twig:///templates/scripts/errors/profile.txt.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Der Validierungs-Token ist ungültig.</source>
-        <target>La validación no es válida.</target>
+        <target>El token de validación no es válido.</target>
       </segment>
     </unit>
     <unit id="aYTkIgC" name="Du musst deine neue E-Mail Adresse validieren, bevor du sie verwenden kannst.">
       <notes>
         <note category="german">Du musst deine neue E-Mail Adresse validieren, bevor du sie verwenden kannst.</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Du musst deine neue E-Mail Adresse validieren, bevor du sie verwenden kannst.</source>
@@ -3852,7 +3843,6 @@
       <notes>
         <note category="german">Validierung erneut senden</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Validierung erneut senden</source>
@@ -3863,7 +3853,6 @@
       <notes>
         <note category="german">Änderung der E-Mail Adresse abbrechen</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Änderung der E-Mail Adresse abbrechen</source>

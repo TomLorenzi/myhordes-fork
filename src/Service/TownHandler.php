@@ -451,7 +451,9 @@ class TownHandler
         foreach ($town->getCitizens() as $citizen)
             if ($citizen->getAlive()) {
                 $home = $citizen->getHome();
-                $f_house_def += $this->calculate_home_def( $home ) * $home_def_factor;
+                $this->calculate_home_def( $home, $home_summary);
+                /** @var HomeDefenseSummary $home_summary */
+                $f_house_def += ($home_summary->house_defense + $home_summary->job_defense + $home_summary->upgrades_defense) * $home_def_factor;
 
                 if (!$citizen->getZone() && $citizen->getProfession()->getName() === 'guardian')
                     $summary->guardian_defense += $guardian_bonus;

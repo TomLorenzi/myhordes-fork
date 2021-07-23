@@ -641,7 +641,8 @@ button, *.button, *.modal-button {
 
   &:hover,&:focus { border-color: @myhordes-button-color; color: lighten(@myhordes-button-color, 50%); }
   &:active { border-bottom-width: 1px; border-top-width: 2px; }
-  &.inline { padding: 0 24px 0; }
+  &.inline { padding: 0 5px 0; }
+
   &:not(.inline) { display: block; width: 100%; }
 
   &.small {
@@ -1617,6 +1618,9 @@ ul.hordes-bullets {
     position: relative;
     b.emph { font-weight: normal; color: @myhordes-smalltext; font-variant: small-caps; }
     &:before { position: absolute; left: -24px; top: 0; content: " "; width: 24px; height: 16px; background: url("../img/icons/small_middot.gif") no-repeat; }
+    &.note {
+      margin-left: -40px;
+    }
   }
 
 }

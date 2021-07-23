@@ -2538,7 +2538,7 @@
     <unit id="m0NU7Ex" name="Angststarre">
       <notes>
         <note category="german">Angststarre</note>
-        <note category="from">db://CitizenStatus</note>
+        <note category="from">db://CitizenStatus;twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
         <source>Angststarre</source>
@@ -22581,14 +22581,14 @@
         <target>¡No hay más agua!</target>
       </segment>
     </unit>
-    <unit id="DjCbLrn">
+    <unit id=".4llLEr">
       <notes>
-        <note category="german">&lt;strong&gt;Verlust der Zonenkontrolle&lt;/strong&gt;: Die Suchen der Bürger wurden unterbrochen!</note>
+        <note category="german">&lt;strong&gt;Verlust der Zonenkontrolle&lt;/strong&gt;: Die Suchen von {citizen} wurden unterbrochen!</note>
         <note category="from">db://LogEntryTemplate</note>
       </notes>
       <segment>
-        <source>&lt;strong&gt;Verlust der Zonenkontrolle&lt;/strong&gt;: Die Suchen der Bürger wurden unterbrochen!</source>
-        <target><![CDATA[<strong>Pérdida de control</strong>: las búsquedas de Citoyen han sido interrumpidas!]]></target>
+        <source>&lt;strong&gt;Verlust der Zonenkontrolle&lt;/strong&gt;: Die Suchen von {citizen} wurden unterbrochen!</source>
+        <target><![CDATA[<strong>Pérdida de control</strong>: las búsquedas de {citizen} han sido interrumpidas!]]></target>
       </segment>
     </unit>
     <unit id="2L4fAWv">
@@ -23078,6 +23078,16 @@
       <segment>
         <source>Trinke oder nimm einen Happen zu dir, aber unternimm etwas, um wieder in Schuss zu kommen!</source>
         <target>¡Bebe, come, haz algo si deseas recuperar energías!</target>
+      </segment>
+    </unit>
+    <unit id="Be.3GRF">
+      <notes>
+        <note category="german">Klick hier, wenn du mit deiner Heldenfähigkeit &lt;strong&gt;diesen Registereintrag fälschen&lt;/strong&gt; möchtest...</note>
+        <note category="from">twig:///templates/ajax/game/log_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Klick hier, wenn du mit deiner Heldenfähigkeit &lt;strong&gt;diesen Registereintrag fälschen&lt;/strong&gt; möchtest...</source>
+        <target><![CDATA[Clic para utilizar tu capacidad de héroe y <strong>adulterar esta información en el Registro</strong>...]]></target>
       </segment>
     </unit>
   </file>

@@ -3337,7 +3337,6 @@
       <notes>
         <note category="german">E-Mail konnte nicht gesendet werden.</note>
         <note category="from">twig:///templates/scripts/errors/generic.txt.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>E-Mail konnte nicht gesendet werden.</source>
@@ -3348,7 +3347,6 @@
       <notes>
         <note category="german">Kopieren</note>
         <note category="from">twig:///templates/ajax/forum/posts.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Kopieren</source>

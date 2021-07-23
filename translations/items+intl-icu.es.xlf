@@ -9046,14 +9046,34 @@
         <target><![CDATA[Malas noticias, no debiste haberte comido eso... ¡Ahora estás <strong>infectado</strong>!]]></target>
       </segment>
     </unit>
-    <unit id="stXotvA">
+    <unit id="gf4WieX">
       <notes>
-        <note category="german">Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.</note>
+        <note category="german">Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.</note>
         <note category="from">db://ItemAction</note>
       </notes>
       <segment>
-        <source>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.</source>
-        <target>Abriste {item_from} y encontraste {item_to} en su interior.</target>
+        <source>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.</source>
+        <target>Abriste {item_from} y encontraste {items_spawn} en su interior.</target>
+      </segment>
+    </unit>
+    <unit id="2bqTMKS">
+      <notes>
+        <note category="german">Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.{hr}Die Kiste ist nicht leer...</note>
+        <note category="from">db://ItemAction</note>
+      </notes>
+      <segment>
+        <source>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.{hr}Die Kiste ist nicht leer...</source>
+        <target>Abriste {item_from} y encontraste {items_spawn} en su interior.{hr}La caja no está vacía...</target>
+      </segment>
+    </unit>
+    <unit id="Np_I24h">
+      <notes>
+        <note category="german">Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.{hr}{item_from} ist &lt;strong&gt;leer&lt;/strong&gt;.</note>
+        <note category="from">db://ItemAction</note>
+      </notes>
+      <segment>
+        <source>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.{hr}{item_from} ist &lt;strong&gt;leer&lt;/strong&gt;.</source>
+        <target><![CDATA[Abriste {item_from} y encontraste {items_spawn} en su interior.{hr}{item_from} está <strong>vacío</strong>.]]></target>
       </segment>
     </unit>
     <unit id="dvSEUyn">
@@ -9476,7 +9496,7 @@
       </notes>
       <segment>
         <source>Du stellst den(die) {item} bei dir daheim auf. Zugegeben, es sieht nicht gerade ästhetisch aus, aber mal ganz ehrlich: Wen kümmert das?{hr}Dieser Gegenstand erweitert deine Truhe dauerhaft um soviele freie Plätze: &lt;strong&gt;{home_storage}&lt;/strong&gt;.</source>
-        <target><![CDATA[Du stellst den(die) {item} bei dir daheim auf. Zugegeben, es sieht nicht gerade ästhetisch aus, aber mal ganz ehrlich: Wen kümmert das?{hr}Dieser Gegenstand erweitert deine Truhe dauerhaft um soviele freie Plätze: <strong>{home_storage}</strong>.]]></target>
+        <target><![CDATA[Instalas {item} en tu casa. No se ve muy bien. Pero francamente... ¿a quién le importa?{hr}Este objeto te permite agregar definitivamente <strong>{home_storage} compartimento(s)</strong> a tu baúl.]]></target>
       </segment>
     </unit>
     <unit id="Oww.AzB">

@@ -1758,22 +1758,20 @@
       <notes>
         <note category="german">Diese Stadt verfügt über eine Zugangsbeschränkung. Die Mitglieder deiner Koalition können dir nicht automatisch folgen, wenn du diese Stadt betrittst. Fortfahren?</note>
         <note category="from">twig:///templates/ajax/ghost/intro.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Diese Stadt verfügt über eine Zugangsbeschränkung. Die Mitglieder deiner Koalition können dir nicht automatisch folgen, wenn du diese Stadt betrittst. Fortfahren?</source>
-        <target>Diese Stadt verfügt über eine Zugangsbeschränkung. Die Mitglieder deiner Koalition können dir nicht automatisch folgen, wenn du diese Stadt betrittst. Fortfahren?</target>
+        <target>Este pueblo tiene un cupo limitado. Los miembros de su alianza no pueden seguirlo automáticamente cuando ingrese a esta ciudad. ¿Continuar?</target>
       </segment>
     </unit>
     <unit id="T4fjCif">
       <notes>
         <note category="german">Die folgenden Koalitionsmitglieder können dir nicht in die ausgewählte Stadt folgen. Fortfahren?</note>
         <note category="from">twig:///templates/ajax/ghost/intro.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Die folgenden Koalitionsmitglieder können dir nicht in die ausgewählte Stadt folgen. Fortfahren?</source>
-        <target>Die folgenden Koalitionsmitglieder können dir nicht in die ausgewählte Stadt folgen. Fortfahren?</target>
+        <target>Los siguientes miembros de la alianza no pueden seguirte a el pueblo seleccionado. ¿Continuar?</target>
       </segment>
     </unit>
   </file>

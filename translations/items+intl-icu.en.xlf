@@ -7078,7 +7078,7 @@
       </notes>
       <segment>
         <source>&lt;t-bp_ok&gt;Du liest den {item} und stellst fest, dass es sich um einen Plan für {bp_spawn} handelt.&lt;/t-bp_ok&gt;&lt;t-bp_parent&gt;{hr}Dafür ist das Bauprojekt {bp_parent} nötig.&lt;/t-bp_parent&gt;&lt;t-bp_fail&gt;Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...&lt;/t-bp_fail&gt;</source>
-        <target><![CDATA[<t-bp_ok>After examining the {item}, you realise that it shows precisely how to build the {bp_spawn}!{hr}You record this new information in the construction site section.</t-bp_ok><t-bp_parent>{hr}This project requires the {bp_parent} to be build first.</t-bp_parent><t-bp_fail>You read the {item} but you do not understand a word of what is written...</t-bp_fail>]]></target>
+        <target><![CDATA[<t-bp_ok>After examining the {item}, you realise that it shows precisely how to build the {bp_spawn}!{hr}You record this new information in the construction site section.</t-bp_ok><t-bp_parent>{hr}This project requires the {bp_parent} to be built first.</t-bp_parent><t-bp_fail>You read the {item} but you do not understand a word of what is written...</t-bp_fail>]]></target>
       </segment>
     </unit>
     <unit id="V2fAVB5" name="Aufbauen">
@@ -9083,14 +9083,34 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
         <target>Schlechte Nachrichten, du hättest das nicht herunterschlucken sollen... du hast dir eine Infektion eingefangen!</target>
       </segment>
     </unit>
-    <unit id="stXotvA">
+    <unit id="gf4WieX">
       <notes>
-        <note category="german">Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.</note>
+        <note category="german">Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.</note>
         <note category="from">db://ItemAction</note>
       </notes>
       <segment>
-        <source>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.</source>
-        <target>You have opened the {item_from}, you have found the {item_to} inside.</target>
+        <source>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.</source>
+        <target>You have opened the {item_from}, you have found the {items_spawn} inside.</target>
+      </segment>
+    </unit>
+    <unit id="2bqTMKS">
+      <notes>
+        <note category="german">Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.{hr}Die Kiste ist nicht leer...</note>
+        <note category="from">db://ItemAction</note>
+      </notes>
+      <segment>
+        <source>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.{hr}Die Kiste ist nicht leer...</source>
+        <target>You have opened the {item_from}, you have found the {items_spawn} inside.{hr}The box is not empty...</target>
+      </segment>
+    </unit>
+    <unit id="Np_I24h">
+      <notes>
+        <note category="german">Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.{hr}{item_from} ist &lt;strong&gt;leer&lt;/strong&gt;.</note>
+        <note category="from">db://ItemAction</note>
+      </notes>
+      <segment>
+        <source>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.{hr}{item_from} ist &lt;strong&gt;leer&lt;/strong&gt;.</source>
+        <target><![CDATA[You have opened the {item_from}, you have found the {items_spawn} inside.{hr}{item_from} is <strong>empty</strong>.]]></target>
       </segment>
     </unit>
     <unit id="dvSEUyn">
