@@ -807,7 +807,7 @@ class ItemFixtures extends Fixture
         'tube_#00'                   => [ 'impoundable', 'ressource' ],
         'rustine_#00'                => [ 'impoundable', 'ressource' ],
         'electro_#00'                => [ 'impoundable', 'ressource' ],
-        'meca_parts_#00'             => [ 'impoundable', 'ressource' ],
+        'meca_parts_#00'             => [ 'ressource' ],
         'explo_#00'                  => [ 'impoundable', 'ressource' ],
         'pumpkin_on_#00'             => [ 'defence' ],
         'mecanism_#00'               => [ 'impoundable', 'ressource', 'hero_find_lucky' ],
