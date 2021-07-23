@@ -368,7 +368,7 @@
       </notes>
       <segment>
         <source>Bist du sicher?</source>
-        <target>Êtes-vous sûr ?</target>
+        <target>Etes-vous sûr de vouloir laisser ce message ?</target>
       </segment>
     </unit>
     <unit id="lO_TcU3" name="Auswahl bestätigen">
