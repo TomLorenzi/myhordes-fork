@@ -829,7 +829,7 @@ class NightlyHandler
             $attacking_cache -= $repartition[$i];
 		}
 
-		while ($attacking_cache > 0) {
+		while ($attacking_cache > 0 && count($repartition) > 0) {
             $repartition[mt_rand(0, count($repartition)-1)] += 1;
             $attacking_cache--;
         }
