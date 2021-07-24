@@ -15,7 +15,7 @@
             <br />
 
             <div class="row">
-                <div class="cell rw-6 rw-sm-12">
+                <div class="cell rw-6 rw-sm-12 death-desc">
                     <img class="fit" alt="" src="{{ asset('build/images/death/' ~ citizen.cod.icon ~ '.jpg') }}" />
                     <div class="small-note">{{ citizen.cod.description|trans({},'game') }}</div>
                     <div>
@@ -57,6 +57,8 @@
                             {% endfor %}
                             </ul>
                         {% endif %}
+                        <hr class="dashed" />
+                        {{ help_lnk('Die Auszeichnungen'|trans({}, 'help'), 'help', {'name': 'your_soul'}) }}
                     </div>
                 </div>
             </div>

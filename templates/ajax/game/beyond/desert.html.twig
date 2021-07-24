@@ -401,7 +401,7 @@
                     {% endif %}
                 {% endif %}
                 {% if show_ventilation %}
-                    <button id="town-enter-hero"{% if not allow_ventilation %}disabled{% endif %}><img alt="" src="{{ asset('build/images/icons/star.gif') }}">{% trans from 'game' %}Durch die Lüftungsschächte klettern{% endtrans %}</button>
+                    <button id="town-enter-hero" {% if not allow_ventilation %}disabled{% endif %}><img alt="" src="{{ asset('build/images/icons/star.gif') }}">{% trans from 'game' %}Durch die Lüftungsschächte klettern{% endtrans %}</button>
                 {% endif %}
                 {% if show_sneaky %}
                     <button id="town-enter-sneak">
@@ -676,7 +676,7 @@
                                             <li class="status">
                                                 <img src="{{ asset('build/images/status/status_terror.gif') }}" alt="{{ 'Angststarre'|trans({},'game') }}">
                                                 <div class="tooltip">
-
+{# TODO: Find the tooltip from DieVerdammten #}
                                                 </div>
                                             </li>
                                         {% endif %}
@@ -980,6 +980,10 @@
         {% if allow_enter_town %}
         let townEnterBtn = document.getElementById('town-enter');
         if(townEnterBtn) townEnterBtn.addEventListener('click', function() {
+            {% if not zone.x == 0 or not zone.y == 0 %}
+            if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
+                return;
+            {% endif %}
             $.ajax.easySend( '{{ path('beyond_desert_exit_controller') }}', {},
                 function () {
                     $.ajax.load(null, '{{ path('game_landing') }}', true);
