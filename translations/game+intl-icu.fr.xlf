@@ -518,7 +518,7 @@
       </notes>
       <segment>
         <source>Du kannst keinen weiteren schweren Gegenstand tragen!</source>
-        <target>Vous ne pouvez pas porter plus d'un encombrant !</target>
+        <target><![CDATA[Vous ne pouvez <strong>pas</strong> prendre cet objet.<hr />Vous êtes limité(e) à un objet encombrant à la fois sur vous.]]></target>
       </segment>
     </unit>
     <unit id="QRxC8ol" name="Du kannst für eine Weile keine weiteren Gegenstände aus der Bank entnehmen.">
@@ -2287,7 +2287,7 @@
       </notes>
       <segment>
         <source>Du kannst in einer neuen Stadt wiedergeboren werden und das so oft wie du möchtest. Sei erfinderisch, probiere verschiedene Optionen aus und finde deinen eigenen Spielstil!</source>
-        <target>Vous pouvez renaître dans une nouvelle ville aussi souvent que vous le souhaitez. Soyez inventif, essayez différentes options et trouvez votre propre style de jeu !</target>
+        <target>Vous pouvez vous incarner dans une nouvelle ville aussi souvent que vous le désirez. Jouez selon votre style, expérimentez, soyez imaginatif !</target>
       </segment>
     </unit>
     <unit id="em6PCOi" name="Wiedergeboren werden">
@@ -4791,7 +4791,7 @@
       </notes>
       <segment>
         <source>Du kannst nur einen Behälter auf einmal tragen.</source>
-        <target>Vous ne pouvez porter qu'un conteneur à la fois.</target>
+        <target><![CDATA[Vous ne pouvez <strong>pas</strong> prendre cet objet.<hr />Vous êtes limité(e) à un conteneur à la fois sur vous.]]></target>
       </segment>
     </unit>
     <unit id="Pq_GOUr">
@@ -18855,7 +18855,7 @@
       </notes>
       <segment>
         <source>Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.</source>
-        <target>Malheureusement, le sable du désert a déjà recouvert jusqu'à l'existence de votre ville... La communauté s'est éteinte..</target>
+        <target>Malheureusement, le sable du désert a déjà recouvert jusqu'à l'existence de votre ville... La communauté s'est éteinte.</target>
       </segment>
     </unit>
     <unit id="eunLp3W" name="Ich habe Magenschmerzen...">
