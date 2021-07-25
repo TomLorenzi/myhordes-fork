@@ -459,7 +459,7 @@ class GameFactory
 
         if (!$internal) {
             $conf = $this->conf->getGlobalConf();
-            $sp = $user->getAllSoulPoints();
+            $sp = $this->user_handler->fetchSoulPoints($user);
             $allowed = false;
             switch ($town->getType()->getName()) {
                 case 'small':

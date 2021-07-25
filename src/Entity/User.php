@@ -547,14 +547,6 @@ class User implements UserInterface, EquatableInterface
         return $this;
     }
 
-    public function addSoulPoints(int $soulPoints): self
-    {
-        $this->soulPoints += $soulPoints;
-
-        return $this;
-    }
-
-
     public function getExternalId(): ?string
     {
         return $this->externalId;

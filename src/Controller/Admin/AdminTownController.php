@@ -963,9 +963,9 @@ class AdminTownController extends AdminActionController
                     ->setPersisted(2)
                     ->setUser($citizen->getUser());
                 if (is_a($town, Town::class))
-                    $picto->setTown($town);
+                    $picto->setTown($town)->setDisabled( $town->getRankingEntry()->getDisabled() || $citizen->getRankingEntry()->getDisabled() );
                 else
-                    $picto->setTownEntry($town);
+                    $picto->setTownEntry($town)->setDisabled( $town->getDisabled() || $citizen->getRankingEntry()->getDisabled() );
                 $citizen->getUser()->addPicto($picto);
                 $this->entity_manager->persist($citizen->getUser());
             }

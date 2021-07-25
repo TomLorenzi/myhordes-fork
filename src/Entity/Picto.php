@@ -66,6 +66,11 @@ class Picto
      */
     private $imported = false;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $disabled = false;
+
     public function __construct() {}
 
     public function getId(): ?int
@@ -154,6 +159,18 @@ class Picto
     public function setImported(bool $imported): self
     {
         $this->imported = $imported;
+
+        return $this;
+    }
+
+    public function getDisabled(): ?bool
+    {
+        return $this->disabled;
+    }
+
+    public function setDisabled(bool $disabled): self
+    {
+        $this->disabled = $disabled;
 
         return $this;
     }

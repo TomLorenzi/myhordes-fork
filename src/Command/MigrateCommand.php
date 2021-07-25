@@ -159,10 +159,12 @@ class MigrateCommand extends Command
 
             ->addOption('update-ranking-entries', null, InputOption::VALUE_NONE, 'Update ranking values')
             ->addOption('fix-ruin-inventories', null, InputOption::VALUE_NONE, 'Move each items belonging to a RuinRoom to its corresponding RuinZone')
+            ->addOption('repair-proxies', null, InputOption::VALUE_NONE, 'Repairs incomplete CitizenRankingProxie entities.')
             ->addOption('update-shaman-immune', null, InputOption::VALUE_NONE, 'Changes status tg_immune to tg_shaman_immune')
             ->addOption('place-explorables', null, InputOption::VALUE_NONE, 'Adds explorable ruins to all towns')
             ->addOption('assign-awards', null, InputOption::VALUE_NONE, '')
             ->addOption('assign-features', null, InputOption::VALUE_NONE, '')
+            ->addOption('update-all-sp', null, InputOption::VALUE_NONE, '')
 
             ->addOption('repair-permissions', null, InputOption::VALUE_NONE, 'Makes sure forum permissions and user groups are set up properly')
             ->addOption('repair-restrictions', null, InputOption::VALUE_NONE, '')
@@ -684,6 +686,21 @@ class MigrateCommand extends Command
             return 0;
         }
 
+        if ($input->getOption('update-all-sp')) {
+            $this->helper->leChunk($output, User::class, 100, [], true, false, function(User $user) use ( $output ): bool {
+                $calculated_sp_mh = $this->user_handler->fetchSoulPoints($user,false);
+                $calculated_sp_im = $this->user_handler->fetchImportedSoulPoints($user);
+
+                $stored_sp_mh  = $user->getSoulPoints() ?? 0;
+                $stored_sp_im  = $user->getImportedSoulPoints() ?? 0;
+
+                if ($calculated_sp_mh !== $stored_sp_mh || $calculated_sp_im !== $stored_sp_im) {
+                    $user->setSoulPoints( $calculated_sp_mh )->setImportedSoulPoints( $calculated_sp_im );
+                    return true;
+                } else return false;
+            });
+        }
+
         if ($input->getOption('migrate-account-bans')) {
             $this->helper->leChunk($output, AdminBan::class, 100, [], false, false, function(AdminBan $ban): bool {
                 $this->entity_manager->remove($ban);
@@ -750,6 +767,25 @@ class MigrateCommand extends Command
                     $this->entity_manager->persist( $picto->setTownEntry( $picto->getTown()->getRankingEntry() ) );
             $this->entity_manager->flush();
             $output->writeln('Pictos updated!');
+
+            return 0;
+        }
+
+        if ($input->getOption('repair-proxies')) {
+            $this->helper->leChunk($output, CitizenRankingProxy::class, 1000, [], true, false, function(CitizenRankingProxy $cp): bool {
+                $b = false;
+                if ($cp->getTown()->getImported() && ($cp->getImportID() !== $cp->getTown()->getBaseID() || $cp->getImportLang() !== $cp->getTown()->getLanguage()) ) {
+                    $cp->setImportLang($cp->getTown()->getLanguage())->setImportID( $cp->getTown()->getBaseID() );
+                    $b = true;
+                }
+
+                if ($cp->getTown()->getType() && $cp->getTown()->getType()->getName() === 'custom' && $cp->getPoints() > 0) {
+                    $cp->setPoints(0);
+                    $b = true;
+                }
+
+                return $b;
+            });
 
             return 0;
         }

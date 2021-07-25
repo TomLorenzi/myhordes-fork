@@ -47,6 +47,7 @@ use App\Service\CitizenHandler;
 use App\Service\InventoryHandler;
 use App\Service\TimeKeeperService;
 use App\Structures\MyHordesConf;
+use App\Structures\TownConf;
 use DateTime;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
@@ -1222,7 +1223,9 @@ class SoulController extends CustomAbstractController
             if($pendingPicto->getPersisted() == 0)
                 $this->entity_manager->remove($pendingPicto);
             else {
-                $pendingPicto->setPersisted(2);
+                $pendingPicto
+                    ->setPersisted(2)
+                    ->setDisabled( $nextDeath->getDisabled() || $nextDeath->getTown()->getDisabled() );
                 $this->entity_manager->persist($pendingPicto);
             }
         }
@@ -1233,13 +1236,18 @@ class SoulController extends CustomAbstractController
             $nextDeath = CitizenRankingProxy::fromCitizen( $active, true );
             $this->entity_manager->persist( $active );
         }
-        
+
         $nextDeath->setConfirmed(true)->setLastWords( $last_words );
 
         $this->entity_manager->persist( $nextDeath );
         $this->entity_manager->flush();
 
         $this->user_handler->computePictoUnlocks($user);
+        $this->entity_manager->flush();
+
+        // Update soul points
+        $user->setSoulPoints( $this->user_handler->fetchSoulPoints( $user, false ) );
+        $this->entity_manager->persist($user);
         $this->entity_manager->flush();
 
         if ($session->has('_town_lang')) {

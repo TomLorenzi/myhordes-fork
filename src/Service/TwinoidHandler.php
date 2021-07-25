@@ -218,7 +218,7 @@ class TwinoidHandler
             if ($past->getTown()->getImported() && $past->getTown()->getLanguage() === $lang ) {
 
                 // The town is not in the list of imported towns; remove citizen
-                if (!isset($tid_list[$past->getTown()->getBaseID()])) {
+                if (!isset($tid_list[$past->getImportID()])) {
                     $user->removePastLife($past);
                     $this->em->remove( $past );
                 } else
@@ -229,7 +229,7 @@ class TwinoidHandler
         $default_town_type = $this->em->getRepository(TownClass::class)->findOneBy(['name' => TownClass::DEFAULT]);
 
         $seasons = [];
-        foreach ($data->getPastTowns() as $town) if ($tid_list[$town->getID()] == false) {
+        foreach ($data->getPastTowns() as $town) if ($tid_list[$town->getID()] === false) {
 
             if (!isset($seasons[$town->getSeason()])) {
 
@@ -368,7 +368,6 @@ class TwinoidHandler
                 }
             }
 
-            $user->setImportedSoulPoints( $data->getSummarySoulPoints() );
             $user->setImportedHeroDaysSpent( $data->getSummaryHeroDays() );
             $this->em->persist($user);
 

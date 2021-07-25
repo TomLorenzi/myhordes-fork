@@ -97,6 +97,7 @@ class PictoRepository extends ServiceEntityRepository
             ->select('SUM(i.count) as c', 'pp.id', 'pp.rare', 'pp.icon', 'pp.label', 'pp.description', 'pp.name')
             ->andWhere('i.user = :val')->setParameter('val', $user)
             ->andWhere('i.persisted = 2')
+            ->andWhere('i.disabled = false')
             ->orderBy('pp.rare', 'DESC')
             ->addOrderBy('c', 'DESC')
             ->addOrderBy('pp.id', 'DESC')
@@ -110,11 +111,11 @@ class PictoRepository extends ServiceEntityRepository
      * @param Town|TownRankingProxy|null $town
      * @return Picto[]
      */
-    public function findPictoByUserAndTown(User $user, $town)
+    public function findPictoByUserAndTown(User $user, $town): array
     {
         return $this->createQueryBuilder('i')
             ->andWhere('i.user = :val')->setParameter('val', $user)
-            ->andWhere(($town !== null && $town instanceof Town) ? 'i.town = :town' : 'i.townEntry = :town')->setParameter('town', $town)
+            ->andWhere(($town instanceof Town) ? 'i.town = :town' : 'i.townEntry = :town')->setParameter('town', $town)
             ->getQuery()->getResult();
     }
 
@@ -130,16 +131,5 @@ class PictoRepository extends ServiceEntityRepository
         } catch (Exception $e) {
             return 0;
         }
-    }
-
-    public function getAllByUserAndPicto(User $user, PictoPrototype $proto) {
-        return $this->createQueryBuilder('a')
-            ->andWhere('a.user = :valUser')
-            ->setParameter('valUser', $user)
-            ->andWhere('a.prototype = :valProto')
-            ->setParameter('valProto', $proto)
-            ->andWhere('a.persisted = 2')
-            ->getQuery()
-            ->getResult();
     }
 }
