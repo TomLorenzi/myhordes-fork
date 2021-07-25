@@ -178,7 +178,7 @@
       </notes>
       <segment>
         <source>{citizen} hat seine neue Berufung als {profession} gefunden.</source>
-        <target>{citizen} has found thier new calling as a {profession}.</target>
+        <target>{citizen} has found their new calling as a {profession}.</target>
       </segment>
     </unit>
     <unit id="tflCZQU" name="{zombies} haben vergeblich versucht, in das Haus von {citizen} einzudringen.">
@@ -1183,7 +1183,7 @@
       </notes>
       <segment>
         <source>Um dein Haus weiter auszubauen, muss die Stadt über folgendes Gebäude verfügen:</source>
-        <target>To upgarde your home, the Town need the following construction:</target>
+        <target>To upgrade your home, the Town need the following construction:</target>
       </segment>
     </unit>
     <unit id="N6UlT0G" name="Für diesen Ausbau benötigst du folgende Gegenstände:">
@@ -1849,7 +1849,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Wasser ist unersetzbar. Es ermöglicht dir einmal pro Tag deine Aktionspunkte durch Trinken wieder aufzufüllen. Des weiteren kann man es auch gegen Zombies einsetzen (reines Wasser zerstört sie).</source>
-        <target> Water is used to restore Action Points (by drinking it), and for use as a weapon against the zombies (pure water destroys the living dead).</target>
+        <target>Water is used to restore Action Points (by drinking it), and for use as a weapon against the zombies (pure water destroys the living dead).</target>
       </segment>
     </unit>
     <unit id="96udPgY" name="Brunnenregister">
@@ -2029,7 +2029,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Dank deiner Tarnung kannst du dich dennoch bewegen - werde nur nicht zu übermütig...</source>
-        <target>Your  Camouflage Suit allows you to move around undetected.</target>
+        <target>Your Camouflage Suit allows you to move around undetected.</target>
       </segment>
     </unit>
     <unit id="DJhmFr9" name="Bestimmte Aktionen können deine Tarnung auffliegen lassen!">
@@ -2039,7 +2039,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Bestimmte Aktionen können deine Tarnung auffliegen lassen!</source>
-        <target>Many actions, if carried out in this zone will make you lose your camouflage (only actions marked with the  icon can be used)!</target>
+        <target>Many actions, if carried out in this zone will make you lose your camouflage (only actions marked with the icon can be used)!</target>
       </segment>
     </unit>
     <unit id="Zkh813p">
@@ -2400,7 +2400,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur
                         Verfügung.</source>
-        <target>Citizens dicided to shun you from the community. Some actions aren't available for you anymore.</target>
+        <target>Citizens decided to shun you from the community. Some actions aren't available for you anymore.</target>
       </segment>
     </unit>
     <unit id="Qc.QL70">
@@ -3588,7 +3588,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>... das OFFEN stand! {num} Zombies sind in die Stadt eingedrungen!</source>
-        <target>... which were LEFT OPEN !! The zombie horde swept mercilessly over the citizens. The town's defences were completely useless!</target>
+        <target>... which were LEFT OPEN!! The zombie horde swept mercilessly over the citizens. The town's defences were completely useless!</target>
       </segment>
     </unit>
     <unit id="EOdUfnx" name="{num} Zombies sind durch unsere Verteidigung gebrochen!">
@@ -8072,7 +8072,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.</source>
-        <target>You will receive a blueprint if you camp this building.</target>
+        <target>You will earn a construction blueprint if you camp in this building.</target>
       </segment>
     </unit>
     <unit id="XZI.RVp" name="Hier wurde bereits ein Bauplan gefunden.">
@@ -16090,7 +16090,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>&lt;i class="dagger"&gt;†&lt;/i&gt; {zombie} wurde schreiend und sabbernd am Brunnen angetroffen. Er hielt einen großen Felsen in seinen Händen und schickte  sich an, diesen in den Brunnen zu werfen. Leider konnte ihn keiner mehr rechtzeitig hindern, sodass uns jetzt {num} Wasserrationnen fehlen! Was für eine Katastrophe!</source>
-        <target><![CDATA[<i class="dagger">†</i> {zombie} wurde schreiend und sabbernd am Brunnen angetroffen. Er hielt einen großen Felsen in seinen Händen und schickte  sich an, diesen in den Brunnen zu werfen. Leider konnte ihn keiner mehr rechtzeitig hindern, sodass uns jetzt {num} Wasserrationnen fehlen! Was für eine Katastrophe!]]></target>
+        <target><![CDATA[<i class="dagger">†</i> {zombie} was seen foaming at the mouth, screaming and brandishing a large stone. Upon arriving at the well, they threw it in, causing the loss of {num} rations of water! Disaster!]]></target>
       </segment>
     </unit>
     <unit id="qX1gDpX" name="Die Stadt ist zerstört! Flieht, irh Narren!">
@@ -22019,7 +22019,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Als du folgendes Gebäude: {building} erkundest hast, lief es eiskalt den Rücken runter... Aber es war nicht umsonst! Du hast folgenden Gegenstand gefunden: {item}.</source>
-        <target>Als du folgendes Gebäude: {building} erkundest hast, lief es eiskalt den Rücken runter... Aber es war nicht umsonst! Du hast folgenden Gegenstand gefunden: {item}.</target>
+        <target>Gut-wrenching fear grips you as you search the {building}... However, it wasn't a waste of time, because you manage to find the {item}.</target>
       </segment>
     </unit>
     <unit id="ijrzep1">
@@ -22123,7 +22123,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Wenn der Name auf der Rückseite dieses kleinen Briefs korrekt ist, war diese Nachricht in Wirklichkeit für {citizen}! Durch einen seltsamen Zufall ist sie irgendwie bei dir gelanded ...</source>
-        <target>Wenn der Name auf der Rückseite dieses kleinen Briefs korrekt ist, war diese Nachricht in Wirklichkeit für {citizen}! Durch einen seltsamen Zufall ist sie irgendwie bei dir gelanded ...</target>
+        <target>Judging by the writing on the back of this paper, the message below was intended for {citizen}! By some mysterious turn of events, it has landed in your mailbox...</target>
       </segment>
     </unit>
     <unit id="H790t1y">

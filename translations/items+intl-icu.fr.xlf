@@ -3499,7 +3499,7 @@
       </notes>
       <segment>
         <source>&lt;nt-spawned&gt;Trotz aller Anstrengungen ist es dir nicht gelungen, den {item} zu öffnen...&lt;/nt-spawned&gt;&lt;t-spawned&gt;Du hast die {item} geöffnet und darin {items_spawn} gefunden!&lt;/t-spawned&gt;</source>
-        <target><![CDATA[<nt-spawned>Malgré tous les efforts, vous n'avez pas réussi à ouvrir le {item}...</nt-spawned><t-spawned>Vous avez ouvert {item} , vous trouvez {items_spawn} à l'intérieur.</t-spawned>]]></target>
+        <target><![CDATA[<nt-spawned>Vous perdez un temps précieux à chercher la combinaison de {item}, en vain.<hr />Vous avez utilisé <strong>1 point d'action</strong>.</nt-spawned><t-spawned>Ça y est ! <strong>Vous avez trouvé la combinaison secrète du coffre !</strong> Il s'agissait de 1234... Vous découvrez {items_spawn} à l'intérieur.<hr />Vous avez utilisé <strong>1 point d'action</strong>.</t-spawned>]]></target>
       </segment>
     </unit>
     <unit id="ANXSLZW" name="Laden">
