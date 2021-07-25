@@ -17558,7 +17558,7 @@
       </notes>
       <segment>
         <source>{attacker} hat {defender} mit einem üblen Sandballwurf verwundet. Autsch, das hat sicher weh getan...!</source>
-        <target>{attacker} hat {defender} mit einem üblen Sandballwurf verwundet. Autsch, das hat sicher weh getan...!</target>
+        <target>{attacker} hirió a {defender} con un desagradable lanzamiento de bola de arena. Ay, eso seguro duele...!</target>
       </segment>
     </unit>
     <unit id="7Fs6S13" name="{attacker} hat {defender} einen Sandball direkt ins Gesicht geworfen!">
@@ -17569,7 +17569,7 @@
       </notes>
       <segment>
         <source>{attacker} hat {defender} einen Sandball direkt ins Gesicht geworfen!</source>
-        <target>{attacker} hat {defender} einen Sandball direkt ins Gesicht geworfen!</target>
+        <target>{attacker} le lanzó a {defender} una bola de arena justo en la cara!</target>
       </segment>
     </unit>
     <unit id="PixTJAs" name="Hurra! Folgendes Gebäude wurde fertiggestellt: {plan}!">
@@ -19291,7 +19291,7 @@
       </notes>
       <segment>
         <source>Der Bürger weigert sich, dies zu tun...</source>
-        <target>Der Bürger weigert sich, dies zu tun...</target>
+        <target>El ciudadano se niega a hacer esto...</target>
       </segment>
     </unit>
     <unit id="qrDT924" name="{citizen} hat an dem Bauprojekt {plan} mitgearbeitet.">
@@ -19322,7 +19322,7 @@
       </notes>
       <segment>
         <source>Die Stadt hat folgende Gegenstände in Folge der Verbannung von {shunned} zurückerhalten: {list}</source>
-        <target>Die Stadt hat folgende Gegenstände in Folge der Verbannung von {shunned} zurückerhalten: {list}</target>
+        <target>La ciudad ha recibido los siguientes elementos como resultado del destierro de {shunned}: {list}</target>
       </segment>
     </unit>
     <unit id="JZByFlC">
@@ -19443,7 +19443,7 @@
       </notes>
       <segment>
         <source>{citizen} hat {items} in der Müllhalde zerstört (+{def} Verteidigung)</source>
-        <target>{citizen} hat {items} in der Müllhalde zerstört (+{def} Verteidigung)</target>
+        <target>{citizen} destruyó {items} en el vertedero (+{def} defensa)</target>
       </segment>
     </unit>
     <unit id="DaS3LJ7" name="{username} hat dich angegriffen!">
@@ -19454,7 +19454,7 @@
       </notes>
       <segment>
         <source>{username} hat dich angegriffen!</source>
-        <target>{username} hat dich angegriffen!</target>
+        <target>{username} te atacó!</target>
       </segment>
     </unit>
     <unit id="kPJRUv1">
@@ -19476,7 +19476,7 @@
       </notes>
       <segment>
         <source>{username} hat dich angegriffen und verletzt!</source>
-        <target>{username} hat dich angegriffen und verletzt!</target>
+        <target>{username} te atacó y te hirió!</target>
       </segment>
     </unit>
     <unit id="WGi7LUy">
@@ -19498,7 +19498,7 @@
       </notes>
       <segment>
         <source>Verletzt</source>
-        <target>Verletzt</target>
+        <target>Herido</target>
       </segment>
     </unit>
     <unit id="rt69Tb7">
@@ -19509,7 +19509,7 @@
       </notes>
       <segment>
         <source>Wir haben zwei Neuigkeiten für dich. Die Gute: du konntest die {count} Zombie(s) abwehren! Die Schlechte: du wurdest dabei verletzt...</source>
-        <target>Wir haben zwei Neuigkeiten für dich. Die Gute: du konntest die {count} Zombie(s) abwehren! Die Schlechte: du wurdest dabei verletzt...</target>
+        <target>Tenemos dos noticias para ti. La buena: ¡pudiste defenderte de los {count} zombis! Lo malo: te hirieron...</target>
       </segment>
     </unit>
     <unit id="zKN7f_C" name="Du verlässt deinen Posten?...">
@@ -19630,7 +19630,7 @@
       </notes>
       <segment>
         <source>Nachtwächter {citizen} hat sein Bestes gegeben, aber dieser Angriff hat ihn schwer verängstigt...</source>
-        <target>Nachtwächter {citizen} hat sein Bestes gegeben, aber dieser Angriff hat ihn schwer verängstigt...</target>
+        <target>El centinela {ciudadano} hizo todo lo posible, pero este ataque lo aterrorizó...</target>
       </segment>
     </unit>
     <unit id="yN3afGs">
@@ -19641,7 +19641,7 @@
       </notes>
       <segment>
         <source>Verdammt! Nachtwächter {citizen} wurde von Zombies überrumpelt und verwundet...</source>
-        <target>Verdammt! Nachtwächter {citizen} wurde von Zombies überrumpelt und verwundet...</target>
+        <target>¡Maldita sea! El centinela {ciudadano} fue tomado por sorpresa y herido por zombies...</target>
       </segment>
     </unit>
     <unit id="yZJkrQZ" name="{citizen} wurde in die Stadt &lt;span&gt;teleportiert&lt;/span&gt;">
