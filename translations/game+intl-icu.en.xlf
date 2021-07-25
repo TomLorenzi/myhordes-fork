@@ -16085,7 +16085,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="qFmcCUx">
       <notes>
         <note category="german">&lt;i class="dagger"&gt;†&lt;/i&gt; {zombie} wurde schreiend und sabbernd am Brunnen angetroffen. Er hielt einen großen Felsen in seinen Händen und schickte  sich an, diesen in den Brunnen zu werfen. Leider konnte ihn keiner mehr rechtzeitig hindern, sodass uns jetzt {num} Wasserrationnen fehlen! Was für eine Katastrophe!</note>
-        <note category="state">new</note>
         <note category="from">db://LogEntryTemplate</note>
       </notes>
       <segment>
@@ -20236,7 +20235,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="K56ofiL">
       <notes>
         <note category="german">Es weiß zwar keiner wie unser Held {citizen} das angestellt hat, aber es ist ihm gelungen aus dieser Zone direkt in die Stadt zurückzukehren... Ein Wunder!</note>
-        <note category="state">new</note>
         <note category="from">db://LogEntryTemplate</note>
       </notes>
       <segment>
@@ -21814,7 +21812,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="6spO8K_" name="Dieser Bürger hat sich für heute Nacht hier versteckt.">
       <notes>
         <note category="german">Dieser Bürger hat sich für heute Nacht hier versteckt.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
@@ -22014,7 +22011,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="WvVANsU">
       <notes>
         <note category="german">Als du folgendes Gebäude: {building} erkundest hast, lief es eiskalt den Rücken runter... Aber es war nicht umsonst! Du hast folgenden Gegenstand gefunden: {item}.</note>
-        <note category="state">new</note>
         <note category="from">php:///src/Controller/BeyondController.php</note>
       </notes>
       <segment>
@@ -22118,7 +22114,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="rfxQCmg">
       <notes>
         <note category="german">Wenn der Name auf der Rückseite dieses kleinen Briefs korrekt ist, war diese Nachricht in Wirklichkeit für {citizen}! Durch einen seltsamen Zufall ist sie irgendwie bei dir gelanded ...</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/posts.html.twig</note>
       </notes>
       <segment>
@@ -22935,6 +22930,26 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Klick hier, wenn du mit deiner Heldenfähigkeit &lt;strong&gt;diesen Registereintrag fälschen&lt;/strong&gt; möchtest...</source>
         <target><![CDATA[Click here to use your hero skill to <strong>tamper with the registry entry</strong>...]]></target>
+      </segment>
+    </unit>
+    <unit id="AspdF7m" name="Ranking-Ausschluss">
+      <notes>
+        <note category="german">Ranking-Ausschluss</note>
+        <note category="from">twig:///templates/ajax/soul/death.html.twig</note>
+      </notes>
+      <segment>
+        <source>Ranking-Ausschluss</source>
+        <target>Ranking Exclusion</target>
+      </segment>
+    </unit>
+    <unit id="XEwyP0J">
+      <notes>
+        <note category="german">Dieses Leben wird aus den Annalen der Geschichte getilgt. Du erhälst weder Seelenpunkte noch Auszeichnungen.</note>
+        <note category="from">twig:///templates/ajax/soul/death.html.twig</note>
+      </notes>
+      <segment>
+        <source>Dieses Leben wird aus den Annalen der Geschichte getilgt. Du erhälst weder Seelenpunkte noch Auszeichnungen.</source>
+        <target>Your life will be purged from the annals of history. You will not receive soul points or distinctions.</target>
       </segment>
     </unit>
   </file>

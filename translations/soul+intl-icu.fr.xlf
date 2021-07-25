@@ -3835,5 +3835,27 @@
         <target>Annuler le changement d'email</target>
       </segment>
     </unit>
+    <unit id="0_cdRLf" name="Diese Stadt wurde aus dem Ranking ausgeschlossen.">
+      <notes>
+        <note category="german">Diese Stadt wurde aus dem Ranking ausgeschlossen.</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Diese Stadt wurde aus dem Ranking ausgeschlossen.</source>
+        <target>Diese Stadt wurde aus dem Ranking ausgeschlossen.</target>
+      </segment>
+    </unit>
+    <unit id="7kH99Rl" name="Dieser Eintrag wurde aus dem Ranking gestrichen.">
+      <notes>
+        <note category="german">Dieser Eintrag wurde aus dem Ranking gestrichen.</note>
+        <note category="from">twig:///templates/ajax/soul/town_list.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Dieser Eintrag wurde aus dem Ranking gestrichen.</source>
+        <target>Dieser Eintrag wurde aus dem Ranking gestrichen.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

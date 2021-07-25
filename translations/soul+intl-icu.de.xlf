@@ -2304,5 +2304,17 @@
         <target>Änderung der E-Mail Adresse abbrechen</target>
       </segment>
     </unit>
+    <unit id="0_cdRLf" name="Diese Stadt wurde aus dem Ranking ausgeschlossen.">
+      <segment>
+        <source>Diese Stadt wurde aus dem Ranking ausgeschlossen.</source>
+        <target>Diese Stadt wurde aus dem Ranking ausgeschlossen.</target>
+      </segment>
+    </unit>
+    <unit id="7kH99Rl" name="Dieser Eintrag wurde aus dem Ranking gestrichen.">
+      <segment>
+        <source>Dieser Eintrag wurde aus dem Ranking gestrichen.</source>
+        <target>Dieser Eintrag wurde aus dem Ranking gestrichen.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

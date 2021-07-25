@@ -21384,7 +21384,6 @@
     <unit id="sG6LFYJ" name="Die Bank enthält zur Zeit keine Gegenstände, die bearbeitet werden können...">
       <notes>
         <note category="german">Die Bank enthält zur Zeit keine Gegenstände, die bearbeitet werden können...</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/workshop.html.twig</note>
       </notes>
       <segment>
@@ -22845,6 +22844,28 @@
       <segment>
         <source>Klick hier, wenn du mit deiner Heldenfähigkeit &lt;strong&gt;diesen Registereintrag fälschen&lt;/strong&gt; möchtest...</source>
         <target><![CDATA[Cliquez pour utiliser votre capacité de héros et <strong>falsifier cette entrée du registre</strong>...]]></target>
+      </segment>
+    </unit>
+    <unit id="AspdF7m" name="Ranking-Ausschluss">
+      <notes>
+        <note category="german">Ranking-Ausschluss</note>
+        <note category="from">twig:///templates/ajax/soul/death.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Ranking-Ausschluss</source>
+        <target>Ranking-Ausschluss</target>
+      </segment>
+    </unit>
+    <unit id="XEwyP0J">
+      <notes>
+        <note category="german">Dieses Leben wird aus den Annalen der Geschichte getilgt. Du erhälst weder Seelenpunkte noch Auszeichnungen.</note>
+        <note category="from">twig:///templates/ajax/soul/death.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Dieses Leben wird aus den Annalen der Geschichte getilgt. Du erhälst weder Seelenpunkte noch Auszeichnungen.</source>
+        <target>Dieses Leben wird aus den Annalen der Geschichte getilgt. Du erhälst weder Seelenpunkte noch Auszeichnungen.</target>
       </segment>
     </unit>
   </file>

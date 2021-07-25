@@ -3984,5 +3984,38 @@
         <target>Efectos de estado ocultos</target>
       </segment>
     </unit>
+    <unit id="Sn2_Qth" name="Ranking-Ausschluss zurücknehmen">
+      <notes>
+        <note category="german">Ranking-Ausschluss zurücknehmen</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Ranking-Ausschluss zurücknehmen</source>
+        <target>Ranking-Ausschluss zurücknehmen</target>
+      </segment>
+    </unit>
+    <unit id="F9LAKy6" name="Diese Stadt aus dem Ranking ausschließen">
+      <notes>
+        <note category="german">Diese Stadt aus dem Ranking ausschließen</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Diese Stadt aus dem Ranking ausschließen</source>
+        <target>Diese Stadt aus dem Ranking ausschließen</target>
+      </segment>
+    </unit>
+    <unit id="VVx9Eja" name="Ranking-Eintrag">
+      <notes>
+        <note category="german">Ranking-Eintrag</note>
+        <note category="from">twig:///templates/ajax/admin/towns/old_town_explorer.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Ranking-Eintrag</source>
+        <target>Ranking-Eintrag</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

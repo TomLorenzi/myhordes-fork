@@ -2989,7 +2989,7 @@ Leider ist es unmöglich, Karten von diesen Gebäuden aufzustöbern. Aber es bes
     <unit id="27FD0EG" name="Die Auszeichnungen">
       <notes>
         <note category="german">Die Auszeichnungen</note>
-        <note category="from">twig:///templates/ajax/help/your_soul.html.twig</note>
+        <note category="from">twig:///templates/ajax/help/your_soul.html.twig;twig:///templates/ajax/soul/death.html.twig</note>
       </notes>
       <segment>
         <source>Die Auszeichnungen</source>

@@ -14013,5 +14013,17 @@
         <target><![CDATA[Klick hier, wenn du mit deiner Heldenfähigkeit <strong>diesen Registereintrag fälschen</strong> möchtest...]]></target>
       </segment>
     </unit>
+    <unit id="AspdF7m" name="Ranking-Ausschluss">
+      <segment>
+        <source>Ranking-Ausschluss</source>
+        <target>Ranking-Ausschluss</target>
+      </segment>
+    </unit>
+    <unit id="XEwyP0J">
+      <segment>
+        <source>Dieses Leben wird aus den Annalen der Geschichte getilgt. Du erhälst weder Seelenpunkte noch Auszeichnungen.</source>
+        <target>Dieses Leben wird aus den Annalen der Geschichte getilgt. Du erhälst weder Seelenpunkte noch Auszeichnungen.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

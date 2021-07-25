@@ -9451,7 +9451,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     </unit>
     <unit id="O4qYqLB" name="{watchpoint} pkt attacke">
       <notes>
-        <note category="german"># pkt attacke</note>
+        <note category="german">{watchpoint__copy} pkt attacke</note>
         <note category="from">twig:///templates/ajax/game/item_tooltip.html.twig</note>
       </notes>
       <segment>

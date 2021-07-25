@@ -2395,5 +2395,23 @@
         <target>Versteckte Statuseffekte</target>
       </segment>
     </unit>
+    <unit id="Sn2_Qth" name="Ranking-Ausschluss zurücknehmen">
+      <segment>
+        <source>Ranking-Ausschluss zurücknehmen</source>
+        <target>Ranking-Ausschluss zurücknehmen</target>
+      </segment>
+    </unit>
+    <unit id="F9LAKy6" name="Diese Stadt aus dem Ranking ausschließen">
+      <segment>
+        <source>Diese Stadt aus dem Ranking ausschließen</source>
+        <target>Diese Stadt aus dem Ranking ausschließen</target>
+      </segment>
+    </unit>
+    <unit id="VVx9Eja" name="Ranking-Eintrag">
+      <segment>
+        <source>Ranking-Eintrag</source>
+        <target>Ranking-Eintrag</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
