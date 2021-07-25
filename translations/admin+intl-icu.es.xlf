@@ -3992,7 +3992,7 @@
       </notes>
       <segment>
         <source>Ranking-Ausschluss zurücknehmen</source>
-        <target>Ranking-Ausschluss zurücknehmen</target>
+        <target>Revocar la exclusión de clasificación</target>
       </segment>
     </unit>
     <unit id="F9LAKy6" name="Diese Stadt aus dem Ranking ausschließen">
@@ -4003,7 +4003,7 @@
       </notes>
       <segment>
         <source>Diese Stadt aus dem Ranking ausschließen</source>
-        <target>Diese Stadt aus dem Ranking ausschließen</target>
+        <target>Excluir este pueblo del ranking</target>
       </segment>
     </unit>
     <unit id="VVx9Eja" name="Ranking-Eintrag">
@@ -4014,7 +4014,7 @@
       </notes>
       <segment>
         <source>Ranking-Eintrag</source>
-        <target>Ranking-Eintrag</target>
+        <target>Entrada de clasificación</target>
       </segment>
     </unit>
   </file>
