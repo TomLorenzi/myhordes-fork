@@ -1774,5 +1774,27 @@
         <target>Los siguientes miembros de la alianza no pueden seguirte a el pueblo seleccionado. ¿Continuar?</target>
       </segment>
     </unit>
+    <unit id="8X5XTC5" name="Spielhilfe ansehen">
+      <notes>
+        <note category="german">Spielhilfe ansehen</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Spielhilfe ansehen</source>
+        <target>Spielhilfe ansehen</target>
+      </segment>
+    </unit>
+    <unit id="9RpTHEU" name="Spielen, Lernen und STERBEN!">
+      <notes>
+        <note category="german">Spielen, Lernen und STERBEN!</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Spielen, Lernen und STERBEN!</source>
+        <target>Spielen, Lernen und STERBEN!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

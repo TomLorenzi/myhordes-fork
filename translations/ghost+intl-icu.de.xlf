@@ -1057,5 +1057,17 @@
         <target>Die folgenden Koalitionsmitglieder können dir nicht in die ausgewählte Stadt folgen. Fortfahren?</target>
       </segment>
     </unit>
+    <unit id="8X5XTC5" name="Spielhilfe ansehen">
+      <segment>
+        <source>Spielhilfe ansehen</source>
+        <target>Spielhilfe ansehen</target>
+      </segment>
+    </unit>
+    <unit id="9RpTHEU" name="Spielen, Lernen und STERBEN!">
+      <segment>
+        <source>Spielen, Lernen und STERBEN!</source>
+        <target>Spielen, Lernen und STERBEN!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

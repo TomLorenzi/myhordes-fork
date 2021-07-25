@@ -25,6 +25,7 @@ use App\Service\TownHandler;
 use App\Service\UserHandler;
 use App\Structures\EventConf;
 use App\Structures\MyHordesConf;
+use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\HttpFoundation\Response;
@@ -93,7 +94,21 @@ class GhostController extends CustomAbstractController
      */
     public function postgame_screen(): Response
     {
-        return $this->render( 'ajax/ghost/donate.html.twig' );
+        $last_game_sp = $this->entity_manager->getRepository( CitizenRankingProxy::class )->matching(
+            (new Criteria())
+                ->andWhere( Criteria::expr()->gt('points', 0) )
+                ->andWhere( Criteria::expr()->neq('points', null) )
+                ->andWhere( Criteria::expr()->eq('disabled', false) )
+                ->andWhere( Criteria::expr()->eq('confirmed', true) )
+                ->andWhere( Criteria::expr()->eq('user', $this->getUser()) )
+                ->orderBy(['end' => Criteria::DESC])
+                ->setMaxResults(1)
+        );
+        $last_game_sp = $last_game_sp->isEmpty() ? 0 : $last_game_sp->first()->getPoints();
+        $all_sp = $this->user_handler->fetchSoulPoints($this->getUser(), true);
+        $town_limit = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_SOULPOINT_LIMIT_REMOTE);
+
+        return $this->render( 'ajax/ghost/donate.html.twig', ['exp' => $all_sp >= $town_limit && ($all_sp - $last_game_sp) < $town_limit] );
     }
 
     /**

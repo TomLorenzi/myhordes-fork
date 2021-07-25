@@ -3857,5 +3857,15 @@
         <target>Dieser Eintrag wurde aus dem Ranking gestrichen.</target>
       </segment>
     </unit>
+    <unit id="vv_dKqx" name="Bürger, Willkommen in der Hölle!">
+      <notes>
+        <note category="german">Bürger, Willkommen in der Hölle!</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Bürger, Willkommen in der Hölle!</source>
+        <target>Bienvenue dans le véritable enfer, citoyen !</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

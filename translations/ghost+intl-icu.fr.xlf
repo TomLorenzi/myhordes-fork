@@ -1743,5 +1743,25 @@
         <target>Les membres suivants de votre coalition ne sont pas en mesure de vous suivre dans cette ville. Continuer ?</target>
       </segment>
     </unit>
+    <unit id="8X5XTC5" name="Spielhilfe ansehen">
+      <notes>
+        <note category="german">Spielhilfe ansehen</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Spielhilfe ansehen</source>
+        <target>Consulter le guide du jeu !</target>
+      </segment>
+    </unit>
+    <unit id="9RpTHEU" name="Spielen, Lernen und STERBEN!">
+      <notes>
+        <note category="german">Spielen, Lernen und STERBEN!</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Spielen, Lernen und STERBEN!</source>
+        <target>Jouer, découvrir et MOURIR !</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -2316,5 +2316,11 @@
         <target>Dieser Eintrag wurde aus dem Ranking gestrichen.</target>
       </segment>
     </unit>
+    <unit id="vv_dKqx" name="Bürger, Willkommen in der Hölle!">
+      <segment>
+        <source>Bürger, Willkommen in der Hölle!</source>
+        <target>Bürger, Willkommen in der Hölle!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
