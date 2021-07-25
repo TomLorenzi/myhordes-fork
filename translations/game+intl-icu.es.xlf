@@ -23097,7 +23097,7 @@
       </notes>
       <segment>
         <source>Ranking-Ausschluss</source>
-        <target>Ranking-Ausschluss</target>
+        <target>Exclusión de clasificación</target>
       </segment>
     </unit>
     <unit id="XEwyP0J">
@@ -23108,7 +23108,7 @@
       </notes>
       <segment>
         <source>Dieses Leben wird aus den Annalen der Geschichte getilgt. Du erhälst weder Seelenpunkte noch Auszeichnungen.</source>
-        <target>Dieses Leben wird aus den Annalen der Geschichte getilgt. Du erhälst weder Seelenpunkte noch Auszeichnungen.</target>
+        <target>Esta vida se borra de los anales de la historia. No recibe puntos de alma ni premios.</target>
       </segment>
     </unit>
     <unit id="gLhMShO" name="Das wird dir in Zukunft schlaflose Nächte bereiten!">
@@ -23119,7 +23119,7 @@
       </notes>
       <segment>
         <source>Das wird dir in Zukunft schlaflose Nächte bereiten!</source>
-        <target>Das wird dir in Zukunft schlaflose Nächte bereiten!</target>
+        <target>¡Esto le provocará noches de insomnio en el futuro!</target>
       </segment>
     </unit>
     <unit id="k8ELM3Z" name="Erkunde die Außenwelt:">
@@ -23130,7 +23130,7 @@
       </notes>
       <segment>
         <source>Erkunde die Außenwelt:</source>
-        <target>Erkunde die Außenwelt:</target>
+        <target>Explore el mundo exterior:</target>
       </segment>
     </unit>
     <unit id="99xLniA" name="Die Weltkarte ist nun größer. Viel größer!">
