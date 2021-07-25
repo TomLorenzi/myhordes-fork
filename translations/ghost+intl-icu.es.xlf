@@ -1782,7 +1782,7 @@
       </notes>
       <segment>
         <source>Spielhilfe ansehen</source>
-        <target>Spielhilfe ansehen</target>
+        <target>Ver la ayuda del juego</target>
       </segment>
     </unit>
     <unit id="9RpTHEU" name="Spielen, Lernen und STERBEN!">
@@ -1793,7 +1793,7 @@
       </notes>
       <segment>
         <source>Spielen, Lernen und STERBEN!</source>
-        <target>Spielen, Lernen und STERBEN!</target>
+        <target>¡Juega, aprende y MUERE!</target>
       </segment>
     </unit>
   </file>
