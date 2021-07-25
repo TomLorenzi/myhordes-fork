@@ -529,13 +529,16 @@ class SoulController extends CustomAbstractController
         if ($currentType === null) {
             $this->redirect($this->generateUrl('soul_season'));
         }
-        $criteria = new Criteria();
-        $criteria->andWhere($criteria->expr()->eq('season', $currentSeason));
-        $criteria->andWhere($criteria->expr()->eq('type', $currentType));
-        $criteria->andWhere($criteria->expr()->neq('end', null));
+        $criteria = (new Criteria())
+            ->andWhere(Criteria::expr()->eq('disabled', false))
+            ->andWhere(Criteria::expr()->eq('season', $currentSeason))
+            ->andWhere(Criteria::expr()->eq('type', $currentType))
+            ->andWhere(Criteria::expr()->neq('end', null));
 
-        $criteria->orderBy(['score' => 'DESC', 'days' => 'DESC', 'end' => 'ASC', 'id'=> 'ASC']);
-        $criteria->setMaxResults(35);
+        $criteria
+            ->orderBy(['score' => 'DESC', 'days' => 'DESC', 'end' => 'ASC', 'id'=> 'ASC'])
+            ->setMaxResults(35);
+
         $towns = $this->entity_manager->getRepository(TownRankingProxy::class)->matching($criteria);
         $played = [];
         foreach ($towns as $town) {
@@ -1326,7 +1329,7 @@ class SoulController extends CustomAbstractController
         $limit = (bool)$parser->get('limit10', true);
 
         return $this->render( 'ajax/soul/town_list.html.twig', [
-            'towns' => $this->entity_manager->getRepository(CitizenRankingProxy::class)->findPastByUserAndSeason($user, $season, $limit),
+            'towns' => $this->entity_manager->getRepository(CitizenRankingProxy::class)->findPastByUserAndSeason($user, $season, $limit, true),
             'editable' => $user->getId() === $this->getUser()->getId()
         ]);
     }

@@ -89,6 +89,23 @@ class PictoRepository extends ServiceEntityRepository
 
     /**
      * @param User $user
+     * @param Town|TownRankingProxy $town
+     * @return Picto[]
+     */
+    public function findNotPendingByUserAndTown(User $user, $town)
+    {
+        $query = $this->createQueryBuilder('i')
+            ->andWhere('i.user = :val')->setParameter('val', $user)
+            ->andWhere('i.persisted = 2');
+        if(is_a($town, Town::class))
+            $query->andWhere('i.town = :town')->setParameter('town', $town);
+        else if (is_a($town, TownRankingProxy::class))
+            $query->andWhere('i.townEntry = :town')->setParameter('town', $town);
+        return $query->getQuery()->getResult();
+    }
+
+    /**
+     * @param User $user
      * @return Picto[]
      */
     public function findNotPendingByUser(User $user): array

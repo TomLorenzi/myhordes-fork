@@ -54,7 +54,14 @@
                 {% endif %}
             </div>
             <div class="cell padded rw-2 center town-points bold">
-                +{{incarnation.points}}
+                {% if not incarnation.disabled and not incarnation.town.disabled %}
+                    +{{incarnation.points}}
+                {% else %}
+                    <div>
+                        <img alt="" src="{{ asset('build/images/icons/small_warning.gif') }}">
+                        <div class="tooltip help">{{ 'Dieser Eintrag wurde aus dem Ranking gestrichen.'|trans({},'soul')|raw }}</div>
+                    </div>
+                {% endif %}
             </div>
         </div>
     {% else %}

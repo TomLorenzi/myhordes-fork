@@ -86,7 +86,12 @@
             </div>
             <br />
             <div class="row">
-                <div class="cell rw-3 ro-9">
+                <div class="padded cell rw-3 ro-6">
+                    {% if town.citizens is not empty %}
+                        <a class="button" target="_blank" href="{{ url('soul_view_town', {sid: town.citizens[0].user.id, idtown: town.id}) }}">{{ 'Ranking-Eintrag'|trans({},'admin') }}</a>
+                    {% endif %}
+                </div>
+                <div class="padded cell rw-3">
                     <button x-ajax-href="{{ path('admin_old_town_list') }}">{{ 'Stadtübersicht'|trans({},'admin') }}</button>
                 </div>
             </div>
