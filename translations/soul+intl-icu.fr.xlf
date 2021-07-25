@@ -3843,7 +3843,7 @@
       </notes>
       <segment>
         <source>Diese Stadt wurde aus dem Ranking ausgeschlossen.</source>
-        <target>Diese Stadt wurde aus dem Ranking ausgeschlossen.</target>
+        <target>Cette ville a été exclue du classement.</target>
       </segment>
     </unit>
     <unit id="7kH99Rl" name="Dieser Eintrag wurde aus dem Ranking gestrichen.">
@@ -3854,7 +3854,7 @@
       </notes>
       <segment>
         <source>Dieser Eintrag wurde aus dem Ranking gestrichen.</source>
-        <target>Dieser Eintrag wurde aus dem Ranking gestrichen.</target>
+        <target>Cette entrée a été supprimée du classement.</target>
       </segment>
     </unit>
     <unit id="vv_dKqx" name="Bürger, Willkommen in der Hölle!">
