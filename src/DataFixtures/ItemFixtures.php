@@ -73,7 +73,7 @@ class ItemFixtures extends Fixture
         ['label' => 'Fußabstreifer', 'icon' => 'door_carpet', 'category' => 'Furniture', 'deco' =>5, 'heavy' =>false, 'watchpoint' => 0],                                  // -- ---
         ['label' => 'Videoprojektor', 'icon' => 'cinema', 'category' => 'Furniture', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                                       // -- ---
         ['label' => 'Nachttischlampe (an)', 'icon' => 'lamp_on', 'category' => 'Furniture', 'deco' =>3, 'heavy' =>false, 'watchpoint' => 10],                               // -- ---
-        ['label' => 'Mini Hi-Fi Anlage (an)', 'icon' => 'music', 'category' => 'Furniture', 'deco' =>10, 'heavy' =>true, 'watchpoint' => -20],                               // -- ---
+        ['label' => 'Mini Hi-Fi Anlage (an)', 'icon' => 'music', 'category' => 'Furniture', 'deco' =>10, 'heavy' =>true, 'watchpoint' => -15],                               // -- ---
         ['label' => 'Ektorp-Gluten Stuhl', 'icon' => 'chair_basic', 'category' => 'Furniture', 'deco' =>2, 'heavy' =>true, 'watchpoint' => 8],                             // -- Out
         ['label' => 'Revolver (entladen)', 'icon' => 'gun', 'category' => 'Furniture', 'deco' =>5, 'heavy' =>false, 'watchpoint' => 0],                                    // -- ---
         ['label' => 'Sturmgewehr (entladen)', 'icon' => 'machine_gun', 'category' => 'Furniture', 'deco' =>15, 'heavy' =>false, 'watchpoint' => 0],                        // -- ---
