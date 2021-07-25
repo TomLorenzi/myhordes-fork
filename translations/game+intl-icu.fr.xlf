@@ -22854,7 +22854,7 @@
       </notes>
       <segment>
         <source>Ranking-Ausschluss</source>
-        <target>Ranking-Ausschluss</target>
+        <target>Exclusion du classement</target>
       </segment>
     </unit>
     <unit id="XEwyP0J">
@@ -22865,7 +22865,7 @@
       </notes>
       <segment>
         <source>Dieses Leben wird aus den Annalen der Geschichte getilgt. Du erhälst weder Seelenpunkte noch Auszeichnungen.</source>
-        <target>Dieses Leben wird aus den Annalen der Geschichte getilgt. Du erhälst weder Seelenpunkte noch Auszeichnungen.</target>
+        <target>Cette existance est effacée des annales de l’histoire. Vous n’avez pas obtenu de points d’âme ou de récompenses pour celle-ci.</target>
       </segment>
     </unit>
     <unit id="gLhMShO" name="Das wird dir in Zukunft schlaflose Nächte bereiten!">
@@ -22935,7 +22935,7 @@
       </notes>
       <segment>
         <source>Du könntest als der Schamane der Stadt enden! Koste die Macht dieses mystischen Voodoo-Mannes, aber denk an deine Verantwortung für die Seelen der Verdammten...</source>
-        <target>Attention, vous pourrez endosser le rôle de chaman, tester ses pouvoir mais sa responsabilité dans la chasse aux âmes errantes</target>
+        <target>Attention, vous pourrez endosser le rôle de chaman, tester ses pouvoirs mais sa responsabilité est princpalement dans la chasse aux âmes errantes</target>
       </segment>
     </unit>
     <unit id="YZ9vmmI" name="Es gibt keine &quot;vorbereiteten&quot; Gebäude. Du bist auf dich allein gestellt.">
@@ -22985,7 +22985,7 @@
       </notes>
       <segment>
         <source>Um Baupläne zu finden musst du nun in Gebäuden in der Außenwelt campen.</source>
-        <target>Les bâtiments du désert nécessitent d’être campé pour que le plan associé soit disponible</target>
+        <target>Les bâtiments du désert nécessitent d’être campés pour que le plan associé soit disponible</target>
       </segment>
     </unit>
     <unit id="ejSpLIg">
@@ -22995,7 +22995,7 @@
       </notes>
       <segment>
         <source>Diese letzten Nächte des Überlebens haben deiner verlorenen Seele zugesetzt, aber du bist daraus gestärkt hervorgegangen. Nun bist du bereit für die wirklichen Herausforderungen, die jetzt beginnen.</source>
-        <target>Ces dernières nuits de survie ont renforcées votre âme de damné. Vous voilà plus fort, plus résistant et il est grand temps de découvrir la vraie vie.</target>
+        <target>Ces dernières nuits de survie ont renforcé votre âme de damné. Vous voilà plus fort, plus résistant et il est grand temps de découvrir la vraie vie.</target>
       </segment>
     </unit>
   </file>
