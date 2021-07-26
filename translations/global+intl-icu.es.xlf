@@ -334,7 +334,7 @@
     <unit id="9.8ReK8" name="Abbrechen">
       <notes>
         <note category="german">Abbrechen</note>
-        <note category="from">twig:///templates/ajax/forum/editor.html.twig;twig:///templates/ajax/game/town/bank.html.twig;twig:///templates/ajax/game/town/construction.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/planner.html.twig;twig:///templates/ajax/soul/import_preview.html.twig;twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="from">twig:///templates/ajax/forum/editor.html.twig;twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/bank.html.twig;twig:///templates/ajax/game/town/construction.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/planner.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig;twig:///templates/ajax/soul/import_preview.html.twig;twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Abbrechen</source>
@@ -1647,7 +1647,7 @@
     <unit id="GgZ6pgy" name="Bist du sicher, dass du diesen Post an die Moderatoren melden willst?">
       <notes>
         <note category="german">Bist du sicher, dass du diesen Post an die Moderatoren melden willst?</note>
-        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
       </notes>
       <segment>
         <source>Bist du sicher, dass du diesen Post an die Moderatoren melden willst?</source>
@@ -3332,6 +3332,162 @@
       <segment>
         <source>E-Mail konnte nicht gesendet werden.</source>
         <target>El correo electrónico no pudo ser enviado.</target>
+      </segment>
+    </unit>
+    <unit id="S5yBc2R" name="Wenn möglich gib bitte einen Grund für deine Meldung an:">
+      <notes>
+        <note category="german">Wenn möglich gib bitte einen Grund für deine Meldung an:</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Wenn möglich gib bitte einen Grund für deine Meldung an:</source>
+        <target>Wenn möglich gib bitte einen Grund für deine Meldung an:</target>
+      </segment>
+    </unit>
+    <unit id="APXGipg" name="Keinen Grund angeben">
+      <notes>
+        <note category="german">Keinen Grund angeben</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Keinen Grund angeben</source>
+        <target>Keinen Grund angeben</target>
+      </segment>
+    </unit>
+    <unit id="ePXpaiZ" name="Cheating">
+      <notes>
+        <note category="german">Cheating</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+      </notes>
+      <segment>
+        <source>Cheating</source>
+        <target>Trampas</target>
+      </segment>
+    </unit>
+    <unit id="6Hh6LXv" name="Flooding oder Spam">
+      <notes>
+        <note category="german">Flooding oder Spam</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+      </notes>
+      <segment>
+        <source>Flooding oder Spam</source>
+        <target>Flood o Spam</target>
+      </segment>
+    </unit>
+    <unit id="XqMHQ7B" name="Verwendung einer anderen als der Forensprache">
+      <notes>
+        <note category="german">Verwendung einer anderen als der Forensprache</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Verwendung einer anderen als der Forensprache</source>
+        <target>Verwendung einer anderen als der Forensprache</target>
+      </segment>
+    </unit>
+    <unit id="feEwSD7" name="Beleidigungen / Unangemessener Ausdruck">
+      <notes>
+        <note category="german">Beleidigungen / Unangemessener Ausdruck</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+      </notes>
+      <segment>
+        <source>Beleidigungen / Unangemessener Ausdruck</source>
+        <target>Insultos / Lenguaje inapropiado</target>
+      </segment>
+    </unit>
+    <unit id="o64FZLa" name="Pornographie">
+      <notes>
+        <note category="german">Pornographie</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+      </notes>
+      <segment>
+        <source>Pornographie</source>
+        <target>Pornografía</target>
+      </segment>
+    </unit>
+    <unit id="l9G12go" name="Hassrede">
+      <notes>
+        <note category="german">Hassrede</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+      </notes>
+      <segment>
+        <source>Hassrede</source>
+        <target>Incitación al odio racial</target>
+      </segment>
+    </unit>
+    <unit id="ZVAuBRQ" name="Verbreitung persönlicher Informationen">
+      <notes>
+        <note category="german">Verbreitung persönlicher Informationen</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+      </notes>
+      <segment>
+        <source>Verbreitung persönlicher Informationen</source>
+        <target>Difusión de datos personales privados</target>
+      </segment>
+    </unit>
+    <unit id="dE9afiC" name="Verletzung von Copyright">
+      <notes>
+        <note category="german">Verletzung von Copyright</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+      </notes>
+      <segment>
+        <source>Verletzung von Copyright</source>
+        <target>Violación de derechos de autor</target>
+      </segment>
+    </unit>
+    <unit id="haH8YNU" name="Aufruf zu Gesetzesverstößen">
+      <notes>
+        <note category="german">Aufruf zu Gesetzesverstößen</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Aufruf zu Gesetzesverstößen</source>
+        <target>Aufruf zu Gesetzesverstößen</target>
+      </segment>
+    </unit>
+    <unit id="cczOm4l" name="Ermutigung von Selbstmord oder Selbstverletzung">
+      <notes>
+        <note category="german">Ermutigung von Selbstmord oder Selbstverletzung</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+      </notes>
+      <segment>
+        <source>Ermutigung von Selbstmord oder Selbstverletzung</source>
+        <target>Incitación al suicidio o amenaza a la vida de otros</target>
+      </segment>
+    </unit>
+    <unit id="EblNNdf" name="Inhalt melden">
+      <notes>
+        <note category="german">Inhalt melden</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Inhalt melden</source>
+        <target>Inhalt melden</target>
+      </segment>
+    </unit>
+    <unit id="4M3lurj" name="Verwendung einer anderen als der Stadtsprache">
+      <notes>
+        <note category="german">Verwendung einer anderen als der Stadtsprache</note>
+        <note category="from">twig:///templates/ajax/game/town/posts.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Verwendung einer anderen als der Stadtsprache</source>
+        <target>Verwendung einer anderen als der Stadtsprache</target>
+      </segment>
+    </unit>
+    <unit id="GAVyRWS" name="Unangemessenen Inhalt melden">
+      <notes>
+        <note category="german">Unangemessenen Inhalt melden</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+      </notes>
+      <segment>
+        <source>Unangemessenen Inhalt melden</source>
+        <target>Señalar un contenido inapropiado</target>
       </segment>
     </unit>
   </file>

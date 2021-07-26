@@ -1977,5 +1977,95 @@
         <target>Kopieren</target>
       </segment>
     </unit>
+    <unit id="S5yBc2R" name="Wenn möglich gib bitte einen Grund für deine Meldung an:">
+      <segment>
+        <source>Wenn möglich gib bitte einen Grund für deine Meldung an:</source>
+        <target>Wenn möglich gib bitte einen Grund für deine Meldung an:</target>
+      </segment>
+    </unit>
+    <unit id="APXGipg" name="Keinen Grund angeben">
+      <segment>
+        <source>Keinen Grund angeben</source>
+        <target>Keinen Grund angeben</target>
+      </segment>
+    </unit>
+    <unit id="ePXpaiZ" name="Cheating">
+      <segment>
+        <source>Cheating</source>
+        <target>Cheating</target>
+      </segment>
+    </unit>
+    <unit id="6Hh6LXv" name="Flooding oder Spam">
+      <segment>
+        <source>Flooding oder Spam</source>
+        <target>Flooding oder Spam</target>
+      </segment>
+    </unit>
+    <unit id="XqMHQ7B" name="Verwendung einer anderen als der Forensprache">
+      <segment>
+        <source>Verwendung einer anderen als der Forensprache</source>
+        <target>Verwendung einer anderen als der Forensprache</target>
+      </segment>
+    </unit>
+    <unit id="feEwSD7" name="Beleidigungen / Unangemessener Ausdruck">
+      <segment>
+        <source>Beleidigungen / Unangemessener Ausdruck</source>
+        <target>Beleidigungen / Unangemessener Ausdruck</target>
+      </segment>
+    </unit>
+    <unit id="o64FZLa" name="Pornographie">
+      <segment>
+        <source>Pornographie</source>
+        <target>Pornographie</target>
+      </segment>
+    </unit>
+    <unit id="l9G12go" name="Hassrede">
+      <segment>
+        <source>Hassrede</source>
+        <target>Hassrede</target>
+      </segment>
+    </unit>
+    <unit id="ZVAuBRQ" name="Verbreitung persönlicher Informationen">
+      <segment>
+        <source>Verbreitung persönlicher Informationen</source>
+        <target>Verbreitung persönlicher Informationen</target>
+      </segment>
+    </unit>
+    <unit id="dE9afiC" name="Verletzung von Copyright">
+      <segment>
+        <source>Verletzung von Copyright</source>
+        <target>Verletzung von Copyright</target>
+      </segment>
+    </unit>
+    <unit id="haH8YNU" name="Aufruf zu Gesetzesverstößen">
+      <segment>
+        <source>Aufruf zu Gesetzesverstößen</source>
+        <target>Aufruf zu Gesetzesverstößen</target>
+      </segment>
+    </unit>
+    <unit id="cczOm4l" name="Ermutigung von Selbstmord oder Selbstverletzung">
+      <segment>
+        <source>Ermutigung von Selbstmord oder Selbstverletzung</source>
+        <target>Ermutigung von Selbstmord oder Selbstverletzung</target>
+      </segment>
+    </unit>
+    <unit id="EblNNdf" name="Inhalt melden">
+      <segment>
+        <source>Inhalt melden</source>
+        <target>Inhalt melden</target>
+      </segment>
+    </unit>
+    <unit id="4M3lurj" name="Verwendung einer anderen als der Stadtsprache">
+      <segment>
+        <source>Verwendung einer anderen als der Stadtsprache</source>
+        <target>Verwendung einer anderen als der Stadtsprache</target>
+      </segment>
+    </unit>
+    <unit id="GAVyRWS" name="Unangemessenen Inhalt melden">
+      <segment>
+        <source>Unangemessenen Inhalt melden</source>
+        <target>Unangemessenen Inhalt melden</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
