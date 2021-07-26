@@ -450,7 +450,7 @@ class InventoryHandler
             if ($victim->getAlive()) {
                 $ch = $this->container->get(CitizenHandler::class);
                 if ($ch->houseIsProtected( $victim )) return self::ErrorStealBlocked;
-                if ($item->getPrototype() === $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => "trapma_#00"]))
+                if ($item->getPrototype()->getName() === 'trapma_#00' && $type_from === self::TransferTypeSteal)
                     return self::ErrorUnstealableItem;
             }
         }
