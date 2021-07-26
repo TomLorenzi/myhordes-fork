@@ -2622,7 +2622,6 @@
     <unit id="hWzJnYc" name="und">
       <notes>
         <note category="german">und</note>
-        <note category="state">new</note>
         <note category="from">php:///src/Controller/InventoryAwareController.php</note>
       </notes>
       <segment>
@@ -2633,7 +2632,6 @@
     <unit id="dotZmBq" name="HINWEIS: Diese Aktion ist nur in der Stadt möglich.">
       <notes>
         <note category="german">HINWEIS: Diese Aktion ist nur in der Stadt möglich.</note>
-        <note category="state">new</note>
         <note category="from">php:///src/EventSubscriber/GateKeeperSubscriber.php</note>
       </notes>
       <segment>
@@ -2644,7 +2642,6 @@
     <unit id="GnItekT" name="HINWEIS: Diese Aktion ist nur in Übersee möglich.">
       <notes>
         <note category="german">HINWEIS: Diese Aktion ist nur in der Außenwelt möglich.</note>
-        <note category="state">new</note>
         <note category="from">php:///src/EventSubscriber/GateKeeperSubscriber.php</note>
       </notes>
       <segment>
@@ -2655,7 +2652,6 @@
     <unit id="u9UzAKC" name="Neuer Beitrag in">
       <notes>
         <note category="german">Neuer Beitrag in</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/pm/bubbles.html.twig</note>
       </notes>
       <segment>
@@ -2807,7 +2803,6 @@
     <unit id="uvXzw5b">
       <notes>
         <note category="german">Deine Suchanfrage hat mehr Ergebnisse geliefert, als hier angezeigt werden können. Versuche, deine Anfrage zu präzisieren, wenn du nicht gefunden hast wonach du suchst.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/forum/search_result.html.twig</note>
       </notes>
       <segment>
@@ -2818,7 +2813,6 @@
     <unit id="6QgTFsD" name="Wenn du deine Flucht erzwingst, wirst du zwangsläufig verletzt!">
       <notes>
         <note category="german">Wenn du deine Flucht erzwingst, wirst du zwangsläufig verletzt!</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
@@ -2829,7 +2823,6 @@
     <unit id="TvN2VX9" name="Diese Aktion kostet dich 1 AP!">
       <notes>
         <note category="german">Diese Aktion kostet dich 1 AP!</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
@@ -2890,7 +2883,6 @@
     <unit id="qplNLmy" name="Bitte wähle die Art der Beschränkung.">
       <notes>
         <note category="german">Bitte wähle die Art der Beschränkung.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
       </notes>
       <segment>
@@ -3014,7 +3006,6 @@
     <unit id="Dh.6Cm7" name="Mit offiziellen Gruppen in Kontakt treten">
       <notes>
         <note category="german">Mit offiziellen Gruppen in Kontakt treten</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/forum/list.html.twig</note>
       </notes>
       <segment>
@@ -3025,7 +3016,6 @@
     <unit id="UsfYbvX" name="Eine offizielle Gruppe kontaktieren">
       <notes>
         <note category="german">Eine offizielle Gruppe kontaktieren</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/pm/view.html.twig</note>
       </notes>
       <segment>
@@ -3338,7 +3328,6 @@
       <notes>
         <note category="german">Wenn möglich gib bitte einen Grund für deine Meldung an:</note>
         <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wenn möglich gib bitte einen Grund für deine Meldung an:</source>
@@ -3349,7 +3338,6 @@
       <notes>
         <note category="german">Keinen Grund angeben</note>
         <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Keinen Grund angeben</source>
@@ -3380,7 +3368,6 @@
       <notes>
         <note category="german">Verwendung einer anderen als der Forensprache</note>
         <note category="from">twig:///templates/ajax/forum/posts.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Verwendung einer anderen als der Forensprache</source>
@@ -3441,7 +3428,6 @@
       <notes>
         <note category="german">Aufruf zu Gesetzesverstößen</note>
         <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Aufruf zu Gesetzesverstößen</source>
@@ -3462,7 +3448,6 @@
       <notes>
         <note category="german">Inhalt melden</note>
         <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Inhalt melden</source>
@@ -3473,7 +3458,6 @@
       <notes>
         <note category="german">Verwendung einer anderen als der Stadtsprache</note>
         <note category="from">twig:///templates/ajax/game/town/posts.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Verwendung einer anderen als der Stadtsprache</source>
