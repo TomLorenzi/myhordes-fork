@@ -165,8 +165,8 @@ class UserFactory
 
         $i = 0;
         $user_mail = $mail ?? "{$etwin_user->getID()}@user.eternal-twin.net";
-        $display_name = preg_replace('/[^\w]/', '', trim($etwin_user->getDisplayName()));
-        $new_name = $display_name;
+        $display_name = substr(preg_replace('/[^\w]/', '', trim($etwin_user->getDisplayName())),0,32);
+        $new_name = substr($display_name,0,16);
 
         if ($this->entity_manager->getRepository(User::class)->findOneByMail( $user_mail )) {
             $error = self::ErrorMailExists;
@@ -175,7 +175,7 @@ class UserFactory
 
         while ($this->entity_manager->getRepository(User::class)->findOneByName($new_name)) {
             $it = "" . (++$i);
-            $new_name = substr( $display_name, 0, 16 - mb_strlen( $it ) ) . $it;
+            $new_name = substr( $display_name, 0, 16 - strlen( $it ) ) . $it;
         }
 
         $new_user = (new User())
