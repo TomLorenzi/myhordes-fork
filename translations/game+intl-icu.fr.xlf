@@ -23006,5 +23006,15 @@
         <target>Le larcin que vous venez de commettre a été repéré ! Les citoyens sont avertis que vous avez volé {item} à {victim}.</target>
       </segment>
     </unit>
+    <unit id="ljh7pXv">
+      <notes>
+        <note category="german">&lt;strong&gt;Das Stadttor ist geschlossen&lt;/strong&gt;, eine Rückkehr ist nicht möglich!</note>
+        <note category="from">twig:///templates/scripts/errors/beyond.txt.twig</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Das Stadttor ist geschlossen&lt;/strong&gt;, eine Rückkehr ist nicht möglich!</source>
+        <target><![CDATA[<strong>Les portes de la ville sont fermées</strong>, impossible d'être rapatrié(e) !]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

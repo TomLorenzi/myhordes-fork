@@ -23250,5 +23250,16 @@
         <target>Der Diebstahl, den du gerade begangen hast, wurde bemerkt! Die Bürger werden gewarnt, dass du den(die,das) {item} bei {victim} gestohlen hast.</target>
       </segment>
     </unit>
+    <unit id="ljh7pXv">
+      <notes>
+        <note category="german">&lt;strong&gt;Das Stadttor ist geschlossen&lt;/strong&gt;, eine Rückkehr ist nicht möglich!</note>
+        <note category="from">twig:///templates/scripts/errors/beyond.txt.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Das Stadttor ist geschlossen&lt;/strong&gt;, eine Rückkehr ist nicht möglich!</source>
+        <target><![CDATA[<strong>Das Stadttor ist geschlossen</strong>, eine Rückkehr ist nicht möglich!]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>
