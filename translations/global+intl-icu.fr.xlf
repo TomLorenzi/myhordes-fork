@@ -3361,7 +3361,7 @@
       </notes>
       <segment>
         <source>Wenn möglich gib bitte einen Grund für deine Meldung an:</source>
-        <target>Wenn möglich gib bitte einen Grund für deine Meldung an:</target>
+        <target>Si possible, merci d'indiquer la raison du signalement :</target>
       </segment>
     </unit>
     <unit id="APXGipg" name="Keinen Grund angeben">
@@ -3372,7 +3372,7 @@
       </notes>
       <segment>
         <source>Keinen Grund angeben</source>
-        <target>Keinen Grund angeben</target>
+        <target>Ne pas donner de raison</target>
       </segment>
     </unit>
     <unit id="ePXpaiZ" name="Cheating">
@@ -3403,7 +3403,7 @@
       </notes>
       <segment>
         <source>Verwendung einer anderen als der Forensprache</source>
-        <target>Verwendung einer anderen als der Forensprache</target>
+        <target>Utilisation d’une langue autre que la langue du forum</target>
       </segment>
     </unit>
     <unit id="feEwSD7" name="Beleidigungen / Unangemessener Ausdruck">
@@ -3465,7 +3465,7 @@
       </notes>
       <segment>
         <source>Aufruf zu Gesetzesverstößen</source>
-        <target>Aufruf zu Gesetzesverstößen</target>
+        <target>Incitation à la violation de la loi</target>
       </segment>
     </unit>
     <unit id="cczOm4l" name="Ermutigung von Selbstmord oder Selbstverletzung">
@@ -3486,7 +3486,7 @@
       </notes>
       <segment>
         <source>Inhalt melden</source>
-        <target>Inhalt melden</target>
+        <target>Signaler le contenu</target>
       </segment>
     </unit>
     <unit id="4M3lurj" name="Verwendung einer anderen als der Stadtsprache">
@@ -3497,7 +3497,7 @@
       </notes>
       <segment>
         <source>Verwendung einer anderen als der Stadtsprache</source>
-        <target>Verwendung einer anderen als der Stadtsprache</target>
+        <target>Utilisation d’une langue autre que la langue de la ville</target>
       </segment>
     </unit>
     <unit id="GAVyRWS" name="Unangemessenen Inhalt melden">
