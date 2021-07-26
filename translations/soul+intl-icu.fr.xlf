@@ -3865,5 +3865,16 @@
         <target>Bienvenue dans le véritable enfer, citoyen !</target>
       </segment>
     </unit>
+    <unit id="i6X57vg" name="Dies ist eine Event-Stadt.">
+      <notes>
+        <note category="german">Dies ist eine Event-Stadt.</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Dies ist eine Event-Stadt.</source>
+        <target>Dies ist eine Event-Stadt.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

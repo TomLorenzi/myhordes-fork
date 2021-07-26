@@ -61,6 +61,8 @@
                         {{ _self.valuelist('Tor offen'|trans({},'admin'),  town.door) }}
                         {{ _self.valuelist('Brunnen'|trans({},'admin'),    town.well) }}
                         {{ _self.valuelist('Quarantäne'|trans({},'game'),  town.attackFails >= 3) }}
+                        {{ _self.valuelist('Ranking-Ausschluss'|trans({},'game'),  town.rankingEntry.disabled) }}
+                        {{ _self.valuelist('Event-Stadt'|trans({},'ghost'),         town.rankingEntry.event) }}
 
                         <div class="row">
                             <div class="padded cell rw-4 note note-lightest"><label for="administer-town">{{ 'Stadt administrieren'|trans({},'admin') }}</label></div>
@@ -92,6 +94,11 @@
                                             {% endif %}
                                         {% endif %}
                                         {% if is_granted("ROLE_CROW") %}
+                                            {% if town.rankingEntry.event %}
+                                                <option value="{{ url('admin_town_event_tag_control', {tid: town.rankingEntry.id, act: 0}) }}">{{ 'Event-Markierung entfernen'|trans({},'admin') }}</option>
+                                            {% else %}
+                                                <option value="{{ url('admin_town_event_tag_control', {tid: town.rankingEntry.id, act: 1}) }}">{{ 'Als Event-Stadt markieren'|trans({},'admin') }}</option>
+                                            {% endif %}
                                             {% if town.rankingEntry.disabled %}
                                                 <option value="{{ url('admin_town_town_ranking_control', {tid: town.rankingEntry.id, act: 0}) }}">{{ 'Ranking-Ausschluss zurücknehmen'|trans({},'admin') }}</option>
                                             {% else %}

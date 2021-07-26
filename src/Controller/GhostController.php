@@ -396,6 +396,11 @@ class GhostController extends CustomAbstractController
 
         }
 
+        if ($parser->get('rk-event-tag', false) && $crow_permissions) {
+            $em->persist($town->getRankingEntry()->setEvent(true));
+            $em->flush();
+        }
+
         if ($incarnated) {
             $citizen = $gf->createCitizen($town, $user, $error);
             if (!$citizen) return AjaxResponse::error($error);
@@ -406,7 +411,6 @@ class GhostController extends CustomAbstractController
               return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
             }
 
-            // $em->persist( $log->citizenJoin( $citizen ) );
             try {
                 $em->flush();
             } catch (Exception $e) {

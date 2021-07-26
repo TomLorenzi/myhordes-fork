@@ -2322,5 +2322,11 @@
         <target>Bürger, Willkommen in der Hölle!</target>
       </segment>
     </unit>
+    <unit id="i6X57vg" name="Dies ist eine Event-Stadt.">
+      <segment>
+        <source>Dies ist eine Event-Stadt.</source>
+        <target>Dies ist eine Event-Stadt.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

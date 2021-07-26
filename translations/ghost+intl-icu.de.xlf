@@ -452,7 +452,7 @@
     <unit id="7L3ndtf" name="Abstimmung aller Piktogramme:">
       <segment>
         <source>Abstimmung aller Piktogramme:</source>
-        <target>Abstimmung aller Piktogramme:</target>
+        <target>Alle Auszeichnungen vergeben</target>
       </segment>
     </unit>
     <unit id="WjDyWyC">
@@ -1067,6 +1067,24 @@
       <segment>
         <source>Spielen, Lernen und STERBEN!</source>
         <target>Spielen, Lernen und STERBEN!</target>
+      </segment>
+    </unit>
+    <unit id="RSDaSun" name="Als Event-Stadt markieren">
+      <segment>
+        <source>Als Event-Stadt markieren</source>
+        <target>Als Event-Stadt markieren</target>
+      </segment>
+    </unit>
+    <unit id="3EdNfST">
+      <segment>
+        <source>Event-Städte werden nicht ins Ranking aufgenommen und erhalten eine spezielle Markierung in der Stadtliste.</source>
+        <target>Event-Städte werden nicht ins Ranking aufgenommen und erhalten eine spezielle Markierung in der Stadtliste.</target>
+      </segment>
+    </unit>
+    <unit id="yP7t0FZ">
+      <segment>
+        <source>Dies ist eine Event-Stadt, sie wird nach ihrem Ende nicht im Ranking erscheinen. Möglicherweise gelten unübliche Regeln für diese Stadt.</source>
+        <target>Dies ist eine Event-Stadt, sie wird nach ihrem Ende nicht im Ranking erscheinen. Möglicherweise gelten unübliche Regeln für diese Stadt.</target>
       </segment>
     </unit>
   </file>

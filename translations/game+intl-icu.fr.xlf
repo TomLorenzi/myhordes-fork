@@ -22849,7 +22849,7 @@
     <unit id="AspdF7m" name="Ranking-Ausschluss">
       <notes>
         <note category="german">Ranking-Ausschluss</note>
-        <note category="from">twig:///templates/ajax/soul/death.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/towns/list.html.twig;twig:///templates/ajax/soul/death.html.twig</note>
       </notes>
       <segment>
         <source>Ranking-Ausschluss</source>

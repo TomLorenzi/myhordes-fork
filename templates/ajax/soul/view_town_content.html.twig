@@ -34,9 +34,22 @@
                 </div>
             </div>
         </div>
+    {% elseif town.event %}
+        <div class="row">
+            <div class="cell rw-12 padded">
+                <div class="note green-note">
+                    <img alt="E" src="{{ asset('build/images/icons/small_star.gif') }}">
+                    {{ 'Dies ist eine Event-Stadt.'|trans({},'soul') }}
+                    {% if is_granted('ROLE_CROW') %}
+                        <div class="button small inline" id="event_redact">{{ 'Event-Markierung entfernen'|trans({},'admin') }}</div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
     {% elseif is_granted('ROLE_CROW') %}
         <div class="row">
             <div class="cell rw-12 padded">
+                <div class="button small inline" id="event">{{ 'Als Event-Stadt markieren'|trans({},'admin') }}</div>
                 <div class="button small inline" id="unrank">{{ 'Diese Stadt aus dem Ranking ausschließen'|trans({},'admin') }}</div>
             </div>
         </div>
@@ -139,12 +152,22 @@
             $.html.addEventListenerAll('#unrank', 'click', (e,elem) => {
                 if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}')) return;
                 $.ajax.easySend('{{ path('admin_town_town_ranking_control', {tid: town.id, act: 1}) }}', {}, () => $.ajax.load(null, '{{ return_to|e('js') }}'));
-            })
+            });
 
             $.html.addEventListenerAll('#unrank_redact', 'click', (e,elem) => {
                 if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}')) return;
                 $.ajax.easySend('{{ path('admin_town_town_ranking_control', {tid: town.id, act: 0}) }}', {}, () => $.ajax.load(null, '{{ return_to|e('js') }}'));
-            })
+            });
+
+            $.html.addEventListenerAll('#event', 'click', (e,elem) => {
+                if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}')) return;
+                $.ajax.easySend('{{ path('admin_town_event_tag_control', {tid: town.id, act: 1}) }}', {}, () => $.ajax.load(null, '{{ return_to|e('js') }}'));
+            });
+
+            $.html.addEventListenerAll('#event_redact', 'click', (e,elem) => {
+                if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}')) return;
+                $.ajax.easySend('{{ path('admin_town_event_tag_control', {tid: town.id, act: 0}) }}', {}, () => $.ajax.load(null, '{{ return_to|e('js') }}'));
+            });
 
             $.html.addEventListenerAll('[x-endpoint][x-action="unrank"]', 'click', (e,elem) => {
                 if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}')) return;

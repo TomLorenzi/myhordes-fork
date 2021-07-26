@@ -526,26 +526,26 @@ class SoulController extends CustomAbstractController
             $currentType = $this->entity_manager->getRepository(TownClass::class)->find($type);
         }
 
-        if ($currentType === null) {
-            $this->redirect($this->generateUrl('soul_season'));
-        }
-        $criteria = (new Criteria())
-            ->andWhere(Criteria::expr()->eq('disabled', false))
-            ->andWhere(Criteria::expr()->eq('season', $currentSeason))
-            ->andWhere(Criteria::expr()->eq('type', $currentType))
-            ->andWhere(Criteria::expr()->neq('end', null));
+        if ($currentType === null)
+            return $this->redirect($this->generateUrl('soul_season'));
 
-        $criteria
-            ->orderBy(['score' => 'DESC', 'days' => 'DESC', 'end' => 'ASC', 'id'=> 'ASC'])
-            ->setMaxResults(35);
+        $towns = $this->entity_manager->getRepository(TownRankingProxy::class)->matching(
+            (new Criteria())
+                ->andWhere(Criteria::expr()->eq('disabled', false))
+                ->andWhere(Criteria::expr()->eq('event', false))
+                ->andWhere(Criteria::expr()->eq('season', $currentSeason))
+                ->andWhere(Criteria::expr()->eq('type', $currentType))
+                ->andWhere(Criteria::expr()->neq('end', null))
 
-        $towns = $this->entity_manager->getRepository(TownRankingProxy::class)->matching($criteria);
+                ->orderBy(['score' => 'DESC', 'days' => 'DESC', 'end' => 'ASC', 'id'=> 'ASC'])
+                ->setMaxResults(35)
+        );
         $played = [];
         foreach ($towns as $town) {
             /* @var TownRankingProxy $town */
             foreach ($town->getCitizens() as $citizen) {
                 /* @var CitizenRankingProxy $citizen */
-                if($citizen->getUser() == $user) {
+                if($citizen->getUser() === $user) {
                     $played[$town->getId()] = true;
                     break;
                 }

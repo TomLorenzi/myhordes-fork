@@ -2413,5 +2413,17 @@
         <target>Ranking-Eintrag</target>
       </segment>
     </unit>
+    <unit id="gk_4TAg" name="Event-Markierung entfernen">
+      <segment>
+        <source>Event-Markierung entfernen</source>
+        <target>Event-Markierung entfernen</target>
+      </segment>
+    </unit>
+    <unit id="RSDaSun" name="Als Event-Stadt markieren">
+      <segment>
+        <source>Als Event-Stadt markieren</source>
+        <target>Als Event-Stadt markieren</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

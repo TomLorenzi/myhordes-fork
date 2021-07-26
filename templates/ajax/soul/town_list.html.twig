@@ -15,7 +15,7 @@
 <div class="town-container">
     {#@var incarnation \App\Entity\CitizenRankingProxy #}
     {% for incarnation in towns %}
-        <div class="row-flex stretch {% if incarnation.town.type.name == 'panda' %}hardcore{% elseif incarnation.town.type.name == 'custom' %}custom{% endif %}">
+        <div class="row-flex stretch {% if incarnation.town.event %}event{% elseif incarnation.town.type.name == 'panda' %}hardcore{% elseif incarnation.town.type.name == 'custom' %}custom{% endif %}">
             <div class="cell padded rw-2 center season bold">
                 {% if incarnation.town.season is null %}
                     --
@@ -32,10 +32,15 @@
                             <img src="{{ asset('build/images/soul/r_cannib.gif') }}" alt="" />
                             <div class="tooltip">{{ 'Pandämoniumsstadt'|trans({}, 'soul') }}</div>
                         </div>
-                    {% elseif incarnation.town.type.name == 'custom' %}
+                    {% elseif incarnation.town.type.name == 'custom' and not incarnation.town.event %}
                         <div class="inline-block">
                             <img src="{{ asset('build/images/soul/item_chair.gif') }}" alt="" />
                             <div class="tooltip">{{ 'Privatstadt'|trans({}, 'soul') }}</div>
+                        </div>
+                    {% elseif incarnation.town.event %}
+                        <div class="inline-block">
+                            <img src="{{ asset('build/images/icons/small_star.gif') }}" alt="" />
+                            <div class="tooltip">{{ 'Event-Stadt'|trans({}, 'ghost') }}</div>
                         </div>
                     {% endif %}
                     {{ incarnation.town.name }}

@@ -925,6 +925,25 @@ class AdminTownController extends AdminActionController
     }
 
     /**
+     * @Route("/api/admin/town/{tid}/event-tag/{act}", name="admin_town_event_tag_control", requirements={"tid"="\d+","act"="\d+"})
+     * @Security("is_granted('ROLE_ADMIN')")
+     * @param int $tid
+     * @param int $act
+     * @return Response
+     */
+    public function ranking_event_toggle_town(int $tid, int $act): Response
+    {
+        $town_proxy = $this->entity_manager->getRepository(TownRankingProxy::class)->find($tid);
+        if (!$town_proxy) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $town_proxy->setEvent( $act !== 0 );
+        $this->entity_manager->persist($town_proxy);
+        $this->entity_manager->flush();
+
+        return AjaxResponse::success();
+    }
+
+    /**
      * @Route("/api/admin/town/{tid}/unrank/{act}", name="admin_town_town_ranking_control", requirements={"tid"="\d+","act"="\d+"})
      * @Security("is_granted('ROLE_ADMIN')")
      * @param int $tid
