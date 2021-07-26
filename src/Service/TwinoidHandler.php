@@ -338,7 +338,7 @@ class TwinoidHandler
             //</editor-fold>
 
             $f_cam = $this->em->getRepository(FeatureUnlockPrototype::class)->findOneBy(['name' => 'f_cam']);
-            if ($this->em->getRepository(Season::class)->findLatest() === null && $this->userHandler->checkFeatureUnlock($user, $f_cam, false))
+            if ($this->em->getRepository(Season::class)->findLatest() === null && !$this->userHandler->checkFeatureUnlock($user, $f_cam, false))
                 $this->em->persist( (new FeatureUnlock())->setPrototype( $f_cam )->setUser( $user )->setExpirationMode( FeatureUnlock::FeatureExpirationSeason)->setSeason( null ) );
 
             $existing_rps    = $this->em->getRepository(FoundRolePlayText::class)->findBy(['imported' => true,  'user' => $user]);
