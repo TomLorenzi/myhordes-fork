@@ -68,7 +68,7 @@
       </notes>
       <segment>
         <source>Du ziehst eine Karte... und stellst fest, dass dein Name darauf mit Blut geschrieben steht! Du erstarrst vor Schreck!</source>
-        <target>Vous tirez une carte… Vous poussez un hurlement en découvrant votre nom écrit en lettre de sang sur celle-ci ! Vous ignorez qui est à l'origine de cette blague de très mauvais goût... Vous êtes maintenant terrorisé(e) !</target>
+        <target>Vous tirez une carte... Vous poussez un hurlement en découvrant votre nom écrit en lettre de sang sur celle-ci ! Vous ignorez qui est à l'origine de cette blague de très mauvais goût... Vous êtes maintenant terrorisé(e) !</target>
       </segment>
     </unit>
     <unit id="NcJ93EV">
@@ -78,7 +78,7 @@
       </notes>
       <segment>
         <source>Du ziehst eine Karte... und stellst fest, dass du die Karte mit den Spielregeln gezogen hast! Das erheitert dich so sehr, dass du 1AP gewinnst.</source>
-        <target>Vous tirez la carte ... sur laquelle sont inscrites les règles du jeu. Ça vous fait tellement rire que vous gagnez 1 PA.</target>
+        <target>Vous tirez la carte... sur laquelle sont inscrites les règles du jeu. Ça vous fait tellement rire que vous gagnez 1 PA.</target>
       </segment>
     </unit>
     <unit id="kPlE9C6">
@@ -3079,7 +3079,7 @@
       </notes>
       <segment>
         <source>Trockene Kräuter</source>
-        <target>Sachet d'herbe fraîche</target>
+        <target>Sac d'herbe fraîche</target>
       </segment>
     </unit>
     <unit id="SrwSSZ5" name="Mutterkorn">
@@ -3499,7 +3499,7 @@
       </notes>
       <segment>
         <source>&lt;nt-spawned&gt;Trotz aller Anstrengungen ist es dir nicht gelungen, den {item} zu öffnen...&lt;/nt-spawned&gt;&lt;t-spawned&gt;Du hast die {item} geöffnet und darin {items_spawn} gefunden!&lt;/t-spawned&gt;</source>
-        <target><![CDATA[<nt-spawned>Malgré tous les efforts, vous n'avez pas réussi à ouvrir le {item}...</nt-spawned><t-spawned>Vous avez ouvert {item} , vous trouvez {items_spawn} à l'intérieur.</t-spawned>]]></target>
+        <target><![CDATA[<nt-spawned>Vous perdez un temps précieux à chercher la combinaison de {item}, en vain.<hr />Vous avez utilisé <strong>1 point d'action</strong>.</nt-spawned><t-spawned>Ça y est ! <strong>Vous avez trouvé la combinaison secrète du coffre !</strong> Il s'agissait de 1234... Vous découvrez {items_spawn} à l'intérieur.<hr />Vous avez utilisé <strong>1 point d'action</strong>.</t-spawned>]]></target>
       </segment>
     </unit>
     <unit id="ANXSLZW" name="Laden">
@@ -3990,7 +3990,7 @@
       </notes>
       <segment>
         <source>Hierfür bist du zu weit von der Stadt entfernt ...</source>
-        <target>Vous êtes trop loin de la ville pour cela ...</target>
+        <target>Vous êtes trop loin de la ville pour cela...</target>
       </segment>
     </unit>
     <unit id="9XqTW0w" name="Fund">
@@ -8069,7 +8069,7 @@
     <unit id="sGKanc7" name="Abstimmen">
       <notes>
         <note category="german">Abstimmen</note>
-        <note category="from">[unused]</note>
+        <note category="from">db://ItemAction</note>
       </notes>
       <segment>
         <source>Abstimmen</source>
@@ -8080,7 +8080,7 @@
       <notes>
         <note category="german">Vous avez voté pour {citizen} en tant que {role} !</note>
         <note category="state">new</note>
-        <note category="from">[unused]</note>
+        <note category="from">db://ItemAction</note>
       </notes>
       <segment>
         <source>Vous avez voté pour {citizen} en tant que {role} !</source>
@@ -8264,7 +8264,7 @@
       </notes>
       <segment>
         <source>Du hast {item} getrunken, aber scheinbar geschieht nichts...</source>
-        <target>Vous avez bu {item} mais rien ne semble se passer ...</target>
+        <target>Vous avez bu {item} mais rien ne semble se passer...</target>
       </segment>
     </unit>
     <unit id="MDcK7Yw" name="Geschenkpaket">
@@ -8404,7 +8404,7 @@
       </notes>
       <segment>
         <source>Du versuchst dich einem Zombie zu nähern, aber &lt;strong&gt;der Zombie reißt dir fast das Gesicht mit seinen Zähnen ab&lt;/strong&gt;! Unmöglich zu bestehen...</source>
-        <target><![CDATA[Vous tentez d'approcher un zombie, mais <strong>celui-ci manque de peu de vous arracher le visage à coups de dent</strong> ! Impossible de passer...]]></target>
+        <target><![CDATA[Vous tentez d'approcher un zombie, mais <strong>celui-ci manque de peu de vous arracher le visage avec ses dents</strong> ! Impossible de passer...]]></target>
       </segment>
     </unit>
     <unit id="eKYdtdt">
@@ -8858,7 +8858,7 @@
       </notes>
       <segment>
         <source>&lt;t-fail&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-no-items&gt;{tamer_dog} kann nichts mitnehmen, da du &lt;strong&gt;nichts im Rucksack hast&lt;/strong&gt;.&lt;/t-no-items&gt;&lt;t-too-heavy&gt;{tamer_dog} kann deinen Rucksackinhalt nicht mitnehmen, da du einen &lt;strong&gt;sperrigen Gegenstand&lt;/strong&gt; mit dir rumschleppt. Das ist dann wohl etwas zu viel des Guten für den Kleinen!&lt;/t-too-heavy&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}&lt;strong&gt;Deine Mitbürger werden sich über all diese Gegenstände in der Bank mächtig freuen.&lt;/strong&gt;&lt;/nt-fail&gt;</source>
-        <target><![CDATA[<t-fail><t-door-closed>La porte de la ville est fermée ...</t-door-closed><t-no-items>{tamer_dog} n'a rien à ramener, votre sac à dos est <strong>vide</strong>.</t-no-items><t-too-heavy>{tamer_dog} ne peut pas ramener le contenu de votre sac : vous transportez un <strong>objet encombrant</strong> qu'il n'est pas en mesure de déplacer !</t-too-heavy></t-fail><nt-fail>Vous renvoyez {tamer_dog} en direction de la ville avec tout le contenu de votre sac à dos..{hr}<strong>Ce sont vos voisins qui vont être contents quand il vont trouver tout ça dans la banque.</strong></nt-fail>]]></target>
+        <target><![CDATA[<t-fail><t-door-closed>La porte de la ville est fermée...</t-door-closed><t-no-items>{tamer_dog} n'a rien à ramener, votre sac à dos est <strong>vide</strong>.</t-no-items><t-too-heavy>{tamer_dog} ne peut pas ramener le contenu de votre sac : vous transportez un <strong>objet encombrant</strong> qu'il n'est pas en mesure de déplacer !</t-too-heavy></t-fail><nt-fail>Vous renvoyez {tamer_dog} en direction de la ville avec tout le contenu de votre sac à dos..{hr}<strong>Ce sont vos voisins qui vont être contents quand il vont trouver tout ça dans la banque.</strong></nt-fail>]]></target>
       </segment>
     </unit>
     <unit id="BAyi5eR">
@@ -8868,7 +8868,7 @@
       </notes>
       <segment>
         <source>&lt;t-fail&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-no-items&gt;{tamer_dog} kann nichts mitnehmen, da du &lt;strong&gt;nichts im Rucksack hast&lt;/strong&gt;.&lt;/t-no-items&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}&lt;strong&gt;Deine Mitbürger werden sich über all diese Gegenstände in der Bank mächtig freuen.&lt;/strong&gt;&lt;/nt-fail&gt;</source>
-        <target><![CDATA[<t-fail><t-door-closed>La porte de la ville est fermée ...</t-door-closed><t-no-items>{tamer_dog} n'a rien à ramener, votre sac à dos est <strong>vide</strong>.</t-no-items></t-fail><nt-fail>Vous renvoyez {tamer_dog} en direction de la ville avec tout le contenu de votre sac à dos..{hr}<strong>Ce sont vos voisins qui vont être contents quand il vont trouver tout ça dans la banque.</strong></nt-fail>]]></target>
+        <target><![CDATA[<t-fail><t-door-closed>La porte de la ville est fermée...</t-door-closed><t-no-items>{tamer_dog} n'a rien à ramener, votre sac à dos est <strong>vide</strong>.</t-no-items></t-fail><nt-fail>Vous renvoyez {tamer_dog} en direction de la ville avec tout le contenu de votre sac à dos...{hr}<strong>Ce sont vos voisins qui vont être contents quand il vont trouver tout ça dans la banque.</strong></nt-fail>]]></target>
       </segment>
     </unit>
     <unit id="KJwuNW3">
@@ -8878,7 +8878,7 @@
       </notes>
       <segment>
         <source>&lt;t-fail&gt;&lt;t-no-room&gt;Deine Truhe kann nicht &lt;strong&gt;{items_count} Gegenstände&lt;/strong&gt; aufnehmen: er hat &lt;strong&gt;{size} Platz(e)&lt;/strong&gt; übrig.&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-no-items&gt;{tamer_dog} kann nichts mitnehmen, da du &lt;strong&gt;nichts im Rucksack hast&lt;/strong&gt;.&lt;/t-no-items&gt;&lt;t-too-heavy&gt;{tamer_dog} kann deinen Rucksackinhalt nicht mitnehmen, da du einen &lt;strong&gt;sperrigen Gegenstand&lt;/strong&gt; mit dir rumschleppt. Das ist dann wohl etwas zu viel des Guten für den Kleinen!&lt;/t-too-heavy&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}Genau wie du es gewünscht hast, &lt;strong&gt;hat er alles zur Truhe in deinem Haus gebracht&lt;/strong&gt;.{hr}Braver Junge!&lt;/nt-fail&gt;</source>
-        <target><![CDATA[<t-fail><t-no-room>Votre coffre ne peut pas accueillir <strong>{items_count} objet(s)</strong> : il y reste <strong>{size} place(s)</strong>.</t-no-room><t-door-closed>La porte de la ville est fermée ...</t-door-closed><t-no-items>{tamer_dog} n'a rien à ramener, votre sac à dos est <strong>vide</strong>.</t-no-items><t-too-heavy>{tamer_dog} ne peut pas ramener le contenu de votre sac : vous transportez un <strong>objet encombrant</strong> qu'il n'est pas en mesure de déplacer !</t-too-heavy></t-fail><nt-fail>Vous renvoyez {tamer_dog} en direction de la ville avec tout le contenu de votre sac à dos..{hr}Comme vous le lui avez demandé, <strong>il lâchera tout chez vous, dans votre coffre.</strong>{hr}Brave bête !</nt-fail>]]></target>
+        <target><![CDATA[<t-fail><t-no-room>Votre coffre ne peut pas accueillir <strong>{items_count} objet(s)</strong> : il y reste <strong>{size} place(s)</strong>.</t-no-room><t-door-closed>La porte de la ville est fermée...</t-door-closed><t-no-items>{tamer_dog} n'a rien à ramener, votre sac à dos est <strong>vide</strong>.</t-no-items><t-too-heavy>{tamer_dog} ne peut pas ramener le contenu de votre sac : vous transportez un <strong>objet encombrant</strong> qu'il n'est pas en mesure de déplacer !</t-too-heavy></t-fail><nt-fail>Vous renvoyez {tamer_dog} en direction de la ville avec tout le contenu de votre sac à dos...{hr}Comme vous le lui avez demandé, <strong>il lâchera tout chez vous, dans votre coffre.</strong>{hr}Brave bête !</nt-fail>]]></target>
       </segment>
     </unit>
     <unit id="p1t.HhO">
@@ -8888,7 +8888,7 @@
       </notes>
       <segment>
         <source>&lt;t-fail&gt;&lt;t-no-room&gt;Deine Truhe kann nicht &lt;strong&gt;{items_count} Gegenstände&lt;/strong&gt; aufnehmen: er hat &lt;strong&gt;{size} Platz(e)&lt;/strong&gt; übrig.&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-no-items&gt;{tamer_dog} kann nichts mitnehmen, da du &lt;strong&gt;nichts im Rucksack hast&lt;/strong&gt;.&lt;/t-no-items&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}Genau wie du es gewünscht hast, &lt;strong&gt;hat er alles zur Truhe in deinem Haus gebracht&lt;/strong&gt;.{hr}Braver Junge!&lt;/nt-fail&gt;</source>
-        <target><![CDATA[<t-fail><t-no-room>Votre coffre ne peut pas accueillir <strong>{items_count} objet(s)</strong> : il y reste <strong>{size} place(s)</strong>.</t-no-room><t-door-closed>La porte de la ville est fermée ...</t-door-closed><t-no-items>{tamer_dog} n'a rien à ramener, votre sac à dos est <strong>vide</strong>.</t-no-items></t-fail><nt-fail>Vous renvoyez {tamer_dog} en direction de la ville avec tout le contenu de votre sac à dos..{hr}Comme vous le lui avez demandé, <strong>il lâchera tout chez vous, dans votre coffre.</strong>{hr}Brave bête !</nt-fail>]]></target>
+        <target><![CDATA[<t-fail><t-no-room>Votre coffre ne peut pas accueillir <strong>{items_count} objet(s)</strong> : il y reste <strong>{size} place(s)</strong>.</t-no-room><t-door-closed>La porte de la ville est fermée...</t-door-closed><t-no-items>{tamer_dog} n'a rien à ramener, votre sac à dos est <strong>vide</strong>.</t-no-items></t-fail><nt-fail>Vous renvoyez {tamer_dog} en direction de la ville avec tout le contenu de votre sac à dos...{hr}Comme vous le lui avez demandé, <strong>il lâchera tout chez vous, dans votre coffre.</strong>{hr}Brave bête !</nt-fail>]]></target>
       </segment>
     </unit>
     <unit id="Zvxrii3">
@@ -8973,14 +8973,34 @@
         <target>Schlechte Nachrichten, du hättest das nicht herunterschlucken sollen... du hast dir eine Infektion eingefangen!</target>
       </segment>
     </unit>
-    <unit id="stXotvA">
+    <unit id="gf4WieX">
       <notes>
-        <note category="german">Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.</note>
+        <note category="german">Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.</note>
         <note category="from">db://ItemAction</note>
       </notes>
       <segment>
-        <source>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.</source>
-        <target>Vous avez ouvert {item_from}, vous trouvez {item_to} à l'intérieur.</target>
+        <source>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.</source>
+        <target>Vous avez ouvert {item_from}, vous trouvez {items_spawn} à l'intérieur.</target>
+      </segment>
+    </unit>
+    <unit id="2bqTMKS">
+      <notes>
+        <note category="german">Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.{hr}Die Kiste ist nicht leer...</note>
+        <note category="from">db://ItemAction</note>
+      </notes>
+      <segment>
+        <source>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.{hr}Die Kiste ist nicht leer...</source>
+        <target>Vous avez ouvert {item_from}, vous trouvez {items_spawn} à l'intérieur.{hr}Il reste des choses à l'intérieur...</target>
+      </segment>
+    </unit>
+    <unit id="Np_I24h">
+      <notes>
+        <note category="german">Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.{hr}{item_from} ist &lt;strong&gt;leer&lt;/strong&gt;.</note>
+        <note category="from">db://ItemAction</note>
+      </notes>
+      <segment>
+        <source>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.{hr}{item_from} ist &lt;strong&gt;leer&lt;/strong&gt;.</source>
+        <target><![CDATA[Vous avez ouvert {item_from}, vous trouvez {items_spawn} à l'intérieur.{hr}{item_from} est maintenant <strong>vide</strong>.]]></target>
       </segment>
     </unit>
     <unit id="dvSEUyn">
@@ -9168,12 +9188,11 @@
     <unit id="poSLxEf">
       <notes>
         <note category="german">Um dieses Wasser trinkbar zu machen, brauchst du &lt;strong&gt;irgendein Reinigungsmittel&lt;/strong&gt; oder deine Stadt muss über einen &lt;strong&gt;Wasserreiniger&lt;/strong&gt; verfügen. Die zweite Variante ist nicht verfügbar, wenn Du verbannt bist.</note>
-        <note category="state">new</note>
         <note category="from">db://Requirement</note>
       </notes>
       <segment>
         <source>Um dieses Wasser trinkbar zu machen, brauchst du &lt;strong&gt;irgendein Reinigungsmittel&lt;/strong&gt; oder deine Stadt muss über einen &lt;strong&gt;Wasserreiniger&lt;/strong&gt; verfügen. Die zweite Variante ist nicht verfügbar, wenn Du verbannt bist.</source>
-        <target><![CDATA[Um dieses Wasser trinkbar zu machen, brauchst du <strong>irgendein Reinigungsmittel</strong> oder deine Stadt muss über einen <strong>Wasserreiniger</strong> verfügen. Die zweite Variante ist nicht verfügbar, wenn Du verbannt bist.]]></target>
+        <target><![CDATA[Vous devez avoir un <strong>produit nettoyant quelconque</strong> ou bien que votre ville dispose d'un <strong>Purificateur</strong> pour rendre cette eau potable. La seconde solution n'est pas disponible si vous êtes banni(e).]]></target>
       </segment>
     </unit>
     <unit id="LB_nTi3">
@@ -9288,7 +9307,7 @@
     </unit>
     <unit id="nnxBJDq" name="Die Waffe hat &lt;strong&gt;keine Batterie mehr&lt;/strong&gt;.">
       <notes>
-        <note category="german">Die Waffe hat &lt;strong&gt;keine Batterie mehr&lt;/strong&gt;.</note>
+        <note category="german">Die Waffe &lt;strong&gt;hat keine Batterie&lt;/strong&gt; mehr.</note>
         <note category="from">db://AffectMessage</note>
       </notes>
       <segment>
@@ -9318,7 +9337,7 @@
     </unit>
     <unit id="O4qYqLB" name="{watchpoint} pkt attacke">
       <notes>
-        <note category="german"># pkt attacke</note>
+        <note category="german">{watchpoint__copy} pkt attacke</note>
         <note category="from">twig:///templates/ajax/game/item_tooltip.html.twig</note>
       </notes>
       <segment>
@@ -9377,6 +9396,58 @@
       <segment>
         <source>&lt;nt-morphed&gt;Gute Nachrichten: Es ist noch Wasser im Kanister!&lt;/nt-morphed&gt;&lt;t-morphed&gt;&lt;strong&gt;Der Kanister ist LEER&lt;/strong&gt;!&lt;/t-morphed&gt;</source>
         <target><![CDATA[<nt-morphed>Gute Nachrichten: Es ist noch Wasser im Kanister!</nt-morphed><t-morphed><strong>Der Kanister ist LEER</strong>!</t-morphed>]]></target>
+      </segment>
+    </unit>
+    <unit id="x2hIMFw">
+      <notes>
+        <note category="german">Du stellst den(die) {item} bei dir daheim auf. Zugegeben, es sieht nicht gerade ästhetisch aus, aber mal ganz ehrlich: Wen kümmert das?{hr}Dieser Gegenstand erweitert deine Truhe dauerhaft um soviele freie Plätze: &lt;strong&gt;{home_storage}&lt;/strong&gt;.</note>
+        <note category="from">db://AffectMessage</note>
+      </notes>
+      <segment>
+        <source>Du stellst den(die) {item} bei dir daheim auf. Zugegeben, es sieht nicht gerade ästhetisch aus, aber mal ganz ehrlich: Wen kümmert das?{hr}Dieser Gegenstand erweitert deine Truhe dauerhaft um soviele freie Plätze: &lt;strong&gt;{home_storage}&lt;/strong&gt;.</source>
+        <target><![CDATA[
+          Vous installez {item} chez vous. Ça n'est pas très esthétique. Mais franchement... qui s'en préoccupe ?{hr}
+          {ref__icu, select,
+            on {
+              {home_storage, plural,
+                =1 {Cet objet vous permet d'ajouter <strong># emplacement</strong> définitivement à votre coffre.}
+                other {Cet objet vous permet d'ajouter <strong># emplacements</strong> définitivement à votre coffre.}
+              }
+            }
+            other { Cet objet vous permet d'ajouter <strong>{home_storage__copy} emplacement(s)</strong> définitivement à votre coffre.}
+          }
+        ]]></target>
+      </segment>
+    </unit>
+    <unit id="Oww.AzB">
+      <notes>
+        <note category="german">Sorgfältig befestigst du bei dir daheim ein(e) {item}. So und das hält jetzt, so viel steht schon mal fest.{hr}Dieser Gegenstand gibt deinem Haus permament &lt;strong&gt;{home_defense} zusätzliche Verteidigungspunkt(e).&lt;/strong&gt;</note>
+        <note category="from">db://AffectMessage</note>
+      </notes>
+      <segment>
+        <source>Sorgfältig befestigst du bei dir daheim ein(e) {item}. So und das hält jetzt, so viel steht schon mal fest.{hr}Dieser Gegenstand gibt deinem Haus permament &lt;strong&gt;{home_defense} zusätzliche Verteidigungspunkt(e).&lt;/strong&gt;</source>
+        <target><![CDATA[
+          Vous fixez solidement {item} chez vous. Ça ne bougera plus d'ici dorénavant, mais c'est aussi le but...{hr}
+          {ref__icu, select,
+            on {
+              {home_defense, plural,
+                =1 {Cet objet vous permet d'ajouter <strong># point de défense</strong> définitivement à votre habitation.}
+                other {Cet objet vous permet d'ajouter <strong># points de défense</strong> définitivement à votre habitation.}
+              }
+            }
+            other { Cet objet vous permet d'ajouter <strong>{home_defense__copy} point(s) de défense</strong> définitivement à votre habitation.}
+          }
+        ]]></target>
+      </segment>
+    </unit>
+    <unit id="H.4hGj8" name="Du hast bereits volle AP.">
+      <notes>
+        <note category="german">Du hast bereits volle AP.</note>
+        <note category="from">db://Requirement</note>
+      </notes>
+      <segment>
+        <source>Du hast bereits volle AP.</source>
+        <target>Vous avez déjà tous vos PA.</target>
       </segment>
     </unit>
   </file>

@@ -3085,12 +3085,11 @@
     <unit id="DFJoP7h" name="Du kannst kein Icon ohne einen Titel wählen.">
       <notes>
         <note category="german">Du kannst kein Icon ohne einen Titel wählen.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Du kannst kein Icon ohne einen Titel wählen.</source>
-        <target>Du kannst kein Icon ohne einen Titel wählen.</target>
+        <target>No puede elegir un icono sin título.</target>
       </segment>
     </unit>
     <unit id="wMIPplV" name="Statistiken">
@@ -3116,144 +3115,131 @@
     <unit id="hI27y3h" name="Hat dir dein letztes Leben gefallen?">
       <notes>
         <note category="german">Hat dir dein letztes Leben gefallen?</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
       </notes>
       <segment>
         <source>Hat dir dein letztes Leben gefallen?</source>
-        <target>Hat dir dein letztes Leben gefallen?</target>
+        <target>¿Te gustó tu última vida?</target>
       </segment>
     </unit>
     <unit id=".XNMg8S">
       <notes>
         <note category="german">MyHordes wird von einem unabhängigen Team von Programmierern in deren Freizeit entwickelt.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
       </notes>
       <segment>
         <source>MyHordes wird von einem unabhängigen Team von Programmierern in deren Freizeit entwickelt.</source>
-        <target>MyHordes wird von einem unabhängigen Team von Programmierern in deren Freizeit entwickelt.</target>
+        <target>MyHordes es desarrollado por un equipo independiente de programadores en su tiempo libre.</target>
       </segment>
     </unit>
     <unit id="JbPwhWn">
       <notes>
         <note category="german">Wir sind ein Teil des EternalTwin-Projektes, welches es sich zur Aufgabe gemacht hat die Browserspiele von MotionTwin am Leben zu erhalten.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
       </notes>
       <segment>
         <source>Wir sind ein Teil des EternalTwin-Projektes, welches es sich zur Aufgabe gemacht hat die Browserspiele von MotionTwin am Leben zu erhalten.</source>
-        <target>Wir sind ein Teil des EternalTwin-Projektes, welches es sich zur Aufgabe gemacht hat die Browserspiele von MotionTwin am Leben zu erhalten.</target>
+        <target>Somos parte del proyecto EternalTwin, que se ha propuesto la tarea de mantener vivos los juegos de navegador de MotionTwin.</target>
       </segment>
     </unit>
     <unit id="GLZ2E_L">
       <notes>
         <note category="german">Das Spiel ist komplett kostenlos - es gibt keine Bezahlinhalte, wir zeigen keine Werbung an und führen auch kein Nutzer-Tracking durch.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
       </notes>
       <segment>
         <source>Das Spiel ist komplett kostenlos - es gibt keine Bezahlinhalte, wir zeigen keine Werbung an und führen auch kein Nutzer-Tracking durch.</source>
-        <target>Das Spiel ist komplett kostenlos - es gibt keine Bezahlinhalte, wir zeigen keine Werbung an und führen auch kein Nutzer-Tracking durch.</target>
+        <target>El juego es completamente gratuito: no hay contenido pago, no mostramos anuncios y no rastreamos a los usuarios.</target>
       </segment>
     </unit>
     <unit id="E6_xVpY">
       <notes>
         <note category="german">Wenn dir MyHordes gefällt und du uns unterstützen möchtest, kannst du dies mit einer Spende an das EternalTwin Projekt tun.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
       </notes>
       <segment>
         <source>Wenn dir MyHordes gefällt und du uns unterstützen möchtest, kannst du dies mit einer Spende an das EternalTwin Projekt tun.</source>
-        <target>Wenn dir MyHordes gefällt und du uns unterstützen möchtest, kannst du dies mit einer Spende an das EternalTwin Projekt tun.</target>
+        <target>Si te gusta MyHordes y quieres apoyarnos, puedes hacerlo con una donación al proyecto EternalTwin.</target>
       </segment>
     </unit>
     <unit id="uK4jynd" name="Geworbener Spieler">
       <notes>
         <note category="german">Geworbener Spieler</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Geworbener Spieler</source>
-        <target>Geworbener Spieler</target>
+        <target>Jugador referido</target>
       </segment>
     </unit>
     <unit id="4n2PgVx" name="Heldenerfahrung">
       <notes>
         <note category="german">Heldenerfahrung</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Heldenerfahrung</source>
-        <target>Heldenerfahrung</target>
+        <target>Días de héroe</target>
       </segment>
     </unit>
     <unit id="QGRs.s1" name="Du hast keine Koalition.">
       <notes>
         <note category="german">Du hast keine Koalition.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Du hast keine Koalition.</source>
-        <target>Du hast keine Koalition.</target>
+        <target>No tienes una alianza.</target>
       </segment>
     </unit>
     <unit id="ljPPYyM" name="Du bist nicht Anführer deiner Koalition.">
       <notes>
         <note category="german">Du bist nicht Anführer deiner Koalition.</note>
-        <note category="state">new</note>
         <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Du bist nicht Anführer deiner Koalition.</source>
-        <target>Du bist nicht Anführer deiner Koalition.</target>
+        <target>No eres el líder de tu alianza.</target>
       </segment>
     </unit>
     <unit id="nnaWQyL" name="Kein freier Platz">
       <notes>
         <note category="german">Kein freier Platz</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Kein freier Platz</source>
-        <target>Kein freier Platz</target>
+        <target>Sin espacio libre</target>
       </segment>
     </unit>
     <unit id="vOzFwXw" name="Koalitionsmitglied">
       <notes>
         <note category="german">Koalitionsmitglied</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Koalitionsmitglied</source>
-        <target>Koalitionsmitglied</target>
+        <target>Miembro de la alianza</target>
       </segment>
     </unit>
     <unit id="2.dDOzw" name="Noch nicht bestätigt...">
       <notes>
         <note category="german">Noch nicht bestätigt...</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Noch nicht bestätigt...</source>
-        <target>Noch nicht bestätigt...</target>
+        <target>Todavia no esta confirmado...</target>
       </segment>
     </unit>
     <unit id="yf4a0g_" name="Koalitionseinladung">
       <notes>
         <note category="german">Koalitionseinladung</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Koalitionseinladung</source>
-        <target>Koalitionseinladung</target>
+        <target>Invitación a la alianza</target>
       </segment>
     </unit>
     <unit id="IDuEdUg" name="Die Freundschaftswerbung">
@@ -3279,12 +3265,11 @@
     <unit id="hWsy49U" name="Lass dich überraschen!">
       <notes>
         <note category="german">Lass dich überraschen!</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Lass dich überraschen!</source>
-        <target>Lass dich überraschen!</target>
+        <target>¡Déjate sorprender!</target>
       </segment>
     </unit>
     <unit id="xfA2CXp">
@@ -3300,177 +3285,161 @@
     <unit id="phHRy7R" name="Du bekommst einen frischen jugendlichen Teint und einen Babypopo.">
       <notes>
         <note category="german">Du bekommst einen frischen jugendlichen Teint und einen Babypopo.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Du bekommst einen frischen jugendlichen Teint und einen Babypopo.</source>
-        <target>Du bekommst einen frischen jugendlichen Teint und einen Babypopo.</target>
+        <target>Obtienes un cutis fresco y juvenil y un trasero de bebé.</target>
       </segment>
     </unit>
     <unit id="yR7_2mq" name="Du bekommst straffere Brüste.">
       <notes>
         <note category="german">Du bekommst straffere Brüste.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Du bekommst straffere Brüste.</source>
-        <target>Du bekommst straffere Brüste.</target>
+        <target>Obtienes senos más firmes.</target>
       </segment>
     </unit>
     <unit id="DmEId2H" name="Bekämpft wirksam deinen Körpergeruch. Deine Mitbürger werden es dir danken!">
       <notes>
         <note category="german">Bekämpft wirksam deinen Körpergeruch. Deine Mitbürger werden es dir danken!</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Bekämpft wirksam deinen Körpergeruch. Deine Mitbürger werden es dir danken!</source>
-        <target>Bekämpft wirksam deinen Körpergeruch. Deine Mitbürger werden es dir danken!</target>
+        <target>Combate eficazmente el mal olor corporal. ¡Tus conciudadanos te lo agradecerán!</target>
       </segment>
     </unit>
     <unit id="0vm9fA_" name="Du wirst angenehm nach Orangenblüten duften.">
       <notes>
         <note category="german">Du wirst angenehm nach Orangenblüten duften.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Du wirst angenehm nach Orangenblüten duften.</source>
-        <target>Du wirst angenehm nach Orangenblüten duften.</target>
+        <target>Olerá agradablemente a flor de naranjo.</target>
       </segment>
     </unit>
     <unit id="9dCZIYd" name="Du wirst ein respektierter und angesehener Bürger deiner Gemeinschaft.">
       <notes>
         <note category="german">Du wirst ein respektierter und angesehener Bürger deiner Gemeinschaft.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Du wirst ein respektierter und angesehener Bürger deiner Gemeinschaft.</source>
-        <target>Du wirst ein respektierter und angesehener Bürger deiner Gemeinschaft.</target>
+        <target>Se convertirá en un ciudadano respetado y respetado de su comunidad.</target>
       </segment>
     </unit>
     <unit id="lmPRBJ0" name="Deine natürlichen Abwehrkräfte werden gestärkt.">
       <notes>
         <note category="german">Deine natürlichen Abwehrkräfte werden gestärkt.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Deine natürlichen Abwehrkräfte werden gestärkt.</source>
-        <target>Deine natürlichen Abwehrkräfte werden gestärkt.</target>
+        <target>Tus defensas naturales se fortalecen.</target>
       </segment>
     </unit>
     <unit id="sPSRoTg" name="Du bekommst stahlharte Waschbrettbauchmuskeln.">
       <notes>
         <note category="german">Du bekommst stahlharte Waschbrettbauchmuskeln.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Du bekommst stahlharte Waschbrettbauchmuskeln.</source>
-        <target>Du bekommst stahlharte Waschbrettbauchmuskeln.</target>
+        <target>Obtienes abdominales duros como el acero</target>
       </segment>
     </unit>
     <unit id="23cz.bn" name="Du hast eine gute Tat vollbracht.">
       <notes>
         <note category="german">Du hast eine gute Tat vollbracht.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Du hast eine gute Tat vollbracht.</source>
-        <target>Du hast eine gute Tat vollbracht.</target>
+        <target>Hiciste una buena acción.</target>
       </segment>
     </unit>
     <unit id="nlq39Ht" name="Die Leute auf der Straße werden sich nach dir umdrehen.">
       <notes>
         <note category="german">Die Leute auf der Straße werden sich nach dir umdrehen.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Die Leute auf der Straße werden sich nach dir umdrehen.</source>
-        <target>Die Leute auf der Straße werden sich nach dir umdrehen.</target>
+        <target>La gente en la calle se volteara para mirarte</target>
       </segment>
     </unit>
     <unit id="bRBEaOX" name="Stärkt dein Zahnfleisch und deine Zähne.">
       <notes>
         <note category="german">Stärkt dein Zahnfleisch und deine Zähne.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Stärkt dein Zahnfleisch und deine Zähne.</source>
-        <target>Stärkt dein Zahnfleisch und deine Zähne.</target>
+        <target>Fortalece tus encías y dientes.</target>
       </segment>
     </unit>
     <unit id="ekcviFN" name="Gib dir das beruhigende Gefühl etwas Gutes getan zu haben.">
       <notes>
         <note category="german">Gib dir das beruhigende Gefühl etwas Gutes getan zu haben.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Gib dir das beruhigende Gefühl etwas Gutes getan zu haben.</source>
-        <target>Gib dir das beruhigende Gefühl etwas Gutes getan zu haben.</target>
+        <target>Date la reconfortante sensación de haber hecho algo bueno.</target>
       </segment>
     </unit>
     <unit id="rrVNfDl" name="Du bekommst einen frischen Atem - schnell und effektiv.">
       <notes>
         <note category="german">Du bekommst einen frischen Atem - schnell und effektiv.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Du bekommst einen frischen Atem - schnell und effektiv.</source>
-        <target>Du bekommst einen frischen Atem - schnell und effektiv.</target>
+        <target>Obtienes un aliento fresco, de forma rápida y eficaz.</target>
       </segment>
     </unit>
     <unit id="2rVePUl" name="Die Zombies werden dich lieben, dass du für Nachschub sorgst. ;)">
       <notes>
         <note category="german">Die Zombies werden dich lieben, dass du für Nachschub sorgst. ;)</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Die Zombies werden dich lieben, dass du für Nachschub sorgst. ;)</source>
-        <target>Die Zombies werden dich lieben, dass du für Nachschub sorgst. ;)</target>
+        <target>A los zombies les encantará que guardes suministros. ;)</target>
       </segment>
     </unit>
     <unit id="mkKr7.Y" name="Das andere Geschlecht wird dir nicht widerstehen können.">
       <notes>
         <note category="german">Das andere Geschlecht wird dir nicht widerstehen können.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Das andere Geschlecht wird dir nicht widerstehen können.</source>
-        <target>Das andere Geschlecht wird dir nicht widerstehen können.</target>
+        <target>El sexo opuesto no podrá resistirse.</target>
       </segment>
     </unit>
     <unit id="Sz2KR6B" name="Verleiht deinem Haar einen seidigen Glanz und stärkt deine Kopfhaut.">
       <notes>
         <note category="german">Verleiht deinem Haar einen seidigen Glanz und stärkt deine Kopfhaut.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Verleiht deinem Haar einen seidigen Glanz und stärkt deine Kopfhaut.</source>
-        <target>Verleiht deinem Haar einen seidigen Glanz und stärkt deine Kopfhaut.</target>
+        <target>Da a tu cabello un brillo sedoso y fortalece tu cuero cabelludo.</target>
       </segment>
     </unit>
     <unit id=".BIUTzQ" name="Dieser Vorteil ist von Mal zu Mal verschieden.">
       <notes>
         <note category="german">Dieser Vorteil ist von Mal zu Mal verschieden.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Dieser Vorteil ist von Mal zu Mal verschieden.</source>
-        <target>Dieser Vorteil ist von Mal zu Mal verschieden.</target>
+        <target>Este beneficio varía de vez en cuando.</target>
       </segment>
     </unit>
     <unit id="BkMtMYQ">
@@ -3620,56 +3589,51 @@
     <unit id="vsOyofZ" name="Schwarzes Brett">
       <notes>
         <note category="german">Schwarzes Brett</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Schwarzes Brett</source>
-        <target>Schwarzes Brett</target>
+        <target>Tablón de anuncios</target>
       </segment>
     </unit>
     <unit id="Q2jvlBg" name="Du kannst das Schwarze Brett nicht verwenden.">
       <notes>
         <note category="german">Du kannst das Schwarze Brett nicht verwenden.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Du kannst das Schwarze Brett nicht verwenden.</source>
-        <target>Du kannst das Schwarze Brett nicht verwenden.</target>
+        <target>No puede utilizar el tablón de anuncios.</target>
       </segment>
     </unit>
     <unit id="TTWCiLb" name="Neue Übersetzungen verwenden">
       <notes>
         <note category="german">Neue Übersetzungen verwenden</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Neue Übersetzungen verwenden</source>
-        <target>Neue Übersetzungen verwenden</target>
+        <target>Utilizar nuevas traducciones</target>
       </segment>
     </unit>
     <unit id="oHq1QSk">
       <notes>
         <note category="german">Mit dem neuen Übersetzungssystem werden Texte akkurater in deiner Sprache dargestellt (zum Beispiel die passende Verwendung von Singular und Plural-Formen). Deaktiviere diese Option, um die originalen Texte aus Die Verdammten zu sehen.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Mit dem neuen Übersetzungssystem werden Texte akkurater in deiner Sprache dargestellt (zum Beispiel die passende Verwendung von Singular und Plural-Formen). Deaktiviere diese Option, um die originalen Texte aus Die Verdammten zu sehen.</source>
-        <target>Mit dem neuen Übersetzungssystem werden Texte akkurater in deiner Sprache dargestellt (zum Beispiel die passende Verwendung von Singular und Plural-Formen). Deaktiviere diese Option, um die originalen Texte aus Die Verdammten zu sehen.</target>
+        <target>Con el nuevo sistema de traducción, los textos se representan con mayor precisión en su idioma (por ejemplo, el uso apropiado de formas singulares y plurales). Desmarca esta opción para ver la traduccion original.</target>
       </segment>
     </unit>
     <unit id="N0JgSpD" name="Dein Spielername">
       <notes>
         <note category="german">Dein Spielername</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Dein Spielername</source>
-        <target>Dein Spielername</target>
+        <target>Su nombre de usuario</target>
       </segment>
     </unit>
     <unit id="eUo8GNZ">
@@ -3685,89 +3649,81 @@
     <unit id="CnsnaNX" name="Du kannst deinen Spielernamen aktuell nicht ändern.">
       <notes>
         <note category="german">Du kannst deinen Spielernamen aktuell nicht ändern.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/scripts/errors/profile.txt.twig</note>
       </notes>
       <segment>
         <source>Du kannst deinen Spielernamen aktuell nicht ändern.</source>
-        <target>Du kannst deinen Spielernamen aktuell nicht ändern.</target>
+        <target>Actualmente no puedes cambiar tu nombre de jugador.</target>
       </segment>
     </unit>
     <unit id="6d9Ha3Q" name="Ändern des Spielernamens">
       <notes>
         <note category="german">Ändern des Spielernamens</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Ändern des Spielernamens</source>
-        <target>Ändern des Spielernamens</target>
+        <target>Cambiar el nombre del jugador</target>
       </segment>
     </unit>
     <unit id="LIMbDjH" name="Du kannst deinen Spielernamen nicht mehr ändern.">
       <notes>
         <note category="german">Du kannst deinen Spielernamen nicht mehr ändern.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Du kannst deinen Spielernamen nicht mehr ändern.</source>
-        <target>Du kannst deinen Spielernamen nicht mehr ändern.</target>
+        <target>Ya no puedes cambiar tu nombre de jugador.</target>
       </segment>
     </unit>
     <unit id="yF2vVL5" name="%user% war in der Vergangenheit unter folgenden Namen bekannt:">
       <notes>
         <note category="german">%user% war in der Vergangenheit unter folgenden Namen bekannt:</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/badges.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
       </notes>
       <segment>
         <source>%user% war in der Vergangenheit unter folgenden Namen bekannt:</source>
-        <target>%user% war in der Vergangenheit unter folgenden Namen bekannt:</target>
+        <target>%user% era conocido con los siguientes nombres en el pasado:</target>
       </segment>
     </unit>
     <unit id="tT1wWcP" name="Du hattest in der Vergangenheit folgende Spielernamen:">
       <notes>
         <note category="german">Du hattest in der Vergangenheit folgende Spielernamen:</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/badges.html.twig</note>
       </notes>
       <segment>
         <source>Du hattest in der Vergangenheit folgende Spielernamen:</source>
-        <target>Du hattest in der Vergangenheit folgende Spielernamen:</target>
+        <target>Tenías los siguientes nombres de jugador en el pasado:</target>
       </segment>
     </unit>
     <unit id="nA9SyfS" name="Dafür ist es zu früh!">
       <notes>
         <note category="german">Dafür ist es zu früh!</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/scripts/errors/profile.txt.twig</note>
       </notes>
       <segment>
         <source>Dafür ist es zu früh!</source>
-        <target>Dafür ist es zu früh!</target>
+        <target>¡Es demasiado pronto para eso!</target>
       </segment>
     </unit>
     <unit id="7aH8vQI" name="Bitte ändere deinen Anzeigenamen auf EternalTwin.">
       <notes>
         <note category="german">Bitte ändere deinen Anzeigenamen auf EternalTwin.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/scripts/errors/profile.txt.twig</note>
       </notes>
       <segment>
         <source>Bitte ändere deinen Anzeigenamen auf EternalTwin.</source>
-        <target>Bitte ändere deinen Anzeigenamen auf EternalTwin.</target>
+        <target>Cambie su nombre para mostrar a EternalTwin.</target>
       </segment>
     </unit>
     <unit id="4DFz5Xa">
       <notes>
         <note category="german">Du kannst deinen Spielernamen nicht ändern, weil du einen zugehörigen Eternal Twin Account hast. Du musst zu deinem Eternal Twin-Konto gehen, um deinen Spielernamen zu ändern.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Du kannst deinen Spielernamen nicht ändern, weil du einen zugehörigen Eternal Twin Account hast. Du musst zu deinem Eternal Twin-Konto gehen, um deinen Spielernamen zu ändern.</source>
-        <target>Du kannst deinen Spielernamen nicht ändern, weil du einen zugehörigen Eternal Twin Account hast. Du musst zu deinem Eternal Twin-Konto gehen, um deinen Spielernamen zu ändern.</target>
+        <target>No puedes cambiar tu nombre de jugador porque tienes una cuenta asociada de Eternal Twin. Deberá ir a su cuenta de Eternal Twin para cambiar su nombre de jugador.</target>
       </segment>
     </unit>
     <unit id=".NQ7ahe">
@@ -3791,6 +3747,157 @@
             }
         
         ]]></target>
+      </segment>
+    </unit>
+    <unit id="rDqFWB2" name="Moderationseinstellungen">
+      <notes>
+        <note category="german">Moderationseinstellungen</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>Moderationseinstellungen</source>
+        <target>Configuración de moderación</target>
+      </segment>
+    </unit>
+    <unit id="J979vsp" name="Moderationslinks in neuem Fenster öffnen">
+      <notes>
+        <note category="german">Moderationslinks in neuem Fenster öffnen</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>Moderationslinks in neuem Fenster öffnen</source>
+        <target>Abrir enlaces de moderación en una nueva ventana</target>
+      </segment>
+    </unit>
+    <unit id="DDDHPI7" name="E-Mail-Adresse ändern">
+      <notes>
+        <note category="german">E-Mail-Adresse ändern</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>E-Mail-Adresse ändern</source>
+        <target>Cambiar la dirección de correo electrónico</target>
+      </segment>
+    </unit>
+    <unit id="939TZNJ" name="Neue E-Mail-Adresse">
+      <notes>
+        <note category="german">Neue E-Mail-Adresse</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>Neue E-Mail-Adresse</source>
+        <target>Nueva dirección de correo electrónico</target>
+      </segment>
+    </unit>
+    <unit id="GI_Pk7k" name="E-Mail-Adresse wiederholen">
+      <notes>
+        <note category="german">E-Mail-Adresse wiederholen</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>E-Mail-Adresse wiederholen</source>
+        <target>Repita la dirección de correo electrónico</target>
+      </segment>
+    </unit>
+    <unit id="AZomVy8" name="Validierungs-Token">
+      <notes>
+        <note category="german">Validierungs-Token</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>Validierungs-Token</source>
+        <target>Token de validación</target>
+      </segment>
+    </unit>
+    <unit id="_yPAzh1" name="Account-Infos aktualisieren">
+      <notes>
+        <note category="german">Account-Infos aktualisieren</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>Account-Infos aktualisieren</source>
+        <target>Actualizar la información de la cuenta</target>
+      </segment>
+    </unit>
+    <unit id="bx1XUpr" name="Der Validierungs-Token ist ungültig.">
+      <notes>
+        <note category="german">Der Validierungs-Token ist ungültig.</note>
+        <note category="from">twig:///templates/scripts/errors/profile.txt.twig</note>
+      </notes>
+      <segment>
+        <source>Der Validierungs-Token ist ungültig.</source>
+        <target>El token de validación no es válido.</target>
+      </segment>
+    </unit>
+    <unit id="aYTkIgC" name="Du musst deine neue E-Mail Adresse validieren, bevor du sie verwenden kannst.">
+      <notes>
+        <note category="german">Du musst deine neue E-Mail Adresse validieren, bevor du sie verwenden kannst.</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du musst deine neue E-Mail Adresse validieren, bevor du sie verwenden kannst.</source>
+        <target>Deberá validar su nueva dirección de correo electrónico antes de poder usarla.</target>
+      </segment>
+    </unit>
+    <unit id="_9dPwLd" name="Validierung erneut senden">
+      <notes>
+        <note category="german">Validierung erneut senden</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>Validierung erneut senden</source>
+        <target>Reenviar validación</target>
+      </segment>
+    </unit>
+    <unit id="7OcuS8s" name="Änderung der E-Mail Adresse abbrechen">
+      <notes>
+        <note category="german">Änderung der E-Mail Adresse abbrechen</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>Änderung der E-Mail Adresse abbrechen</source>
+        <target>Cancelar el cambio de la dirección de correo electrónico</target>
+      </segment>
+    </unit>
+    <unit id="0_cdRLf" name="Diese Stadt wurde aus dem Ranking ausgeschlossen.">
+      <notes>
+        <note category="german">Diese Stadt wurde aus dem Ranking ausgeschlossen.</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Diese Stadt wurde aus dem Ranking ausgeschlossen.</source>
+        <target>Esta ciudad fue excluida del ranking.</target>
+      </segment>
+    </unit>
+    <unit id="7kH99Rl" name="Dieser Eintrag wurde aus dem Ranking gestrichen.">
+      <notes>
+        <note category="german">Dieser Eintrag wurde aus dem Ranking gestrichen.</note>
+        <note category="from">twig:///templates/ajax/soul/town_list.html.twig</note>
+      </notes>
+      <segment>
+        <source>Dieser Eintrag wurde aus dem Ranking gestrichen.</source>
+        <target>Esta entrada ha sido eliminada del ranking.</target>
+      </segment>
+    </unit>
+    <unit id="vv_dKqx" name="Bürger, Willkommen in der Hölle!">
+      <notes>
+        <note category="german">Bürger, Willkommen in der Hölle!</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Bürger, Willkommen in der Hölle!</source>
+        <target>Ciudadanos, ¡bienvenidos al infierno!</target>
+      </segment>
+    </unit>
+    <unit id="i6X57vg" name="Dies ist eine Event-Stadt.">
+      <notes>
+        <note category="german">Dies ist eine Event-Stadt.</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Dies ist eine Event-Stadt.</source>
+        <target>Dies ist eine Event-Stadt.</target>
       </segment>
     </unit>
   </file>

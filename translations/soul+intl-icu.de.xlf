@@ -2238,5 +2238,95 @@
         ]]></target>
       </segment>
     </unit>
+    <unit id="rDqFWB2" name="Moderationseinstellungen">
+      <segment>
+        <source>Moderationseinstellungen</source>
+        <target>Moderationseinstellungen</target>
+      </segment>
+    </unit>
+    <unit id="J979vsp" name="Moderationslinks in neuem Fenster öffnen">
+      <segment>
+        <source>Moderationslinks in neuem Fenster öffnen</source>
+        <target>Moderationslinks in neuem Fenster öffnen</target>
+      </segment>
+    </unit>
+    <unit id="DDDHPI7" name="E-Mail-Adresse ändern">
+      <segment>
+        <source>E-Mail-Adresse ändern</source>
+        <target>E-Mail-Adresse ändern</target>
+      </segment>
+    </unit>
+    <unit id="939TZNJ" name="Neue E-Mail-Adresse">
+      <segment>
+        <source>Neue E-Mail-Adresse</source>
+        <target>Neue E-Mail-Adresse</target>
+      </segment>
+    </unit>
+    <unit id="GI_Pk7k" name="E-Mail-Adresse wiederholen">
+      <segment>
+        <source>E-Mail-Adresse wiederholen</source>
+        <target>E-Mail-Adresse wiederholen</target>
+      </segment>
+    </unit>
+    <unit id="AZomVy8" name="Validierungs-Token">
+      <segment>
+        <source>Validierungs-Token</source>
+        <target>Validierungs-Token</target>
+      </segment>
+    </unit>
+    <unit id="_yPAzh1" name="Account-Infos aktualisieren">
+      <segment>
+        <source>Account-Infos aktualisieren</source>
+        <target>Account-Infos aktualisieren</target>
+      </segment>
+    </unit>
+    <unit id="bx1XUpr" name="Der Validierungs-Token ist ungültig.">
+      <segment>
+        <source>Der Validierungs-Token ist ungültig.</source>
+        <target>Der Validierungs-Token ist ungültig.</target>
+      </segment>
+    </unit>
+    <unit id="aYTkIgC" name="Du musst deine neue E-Mail Adresse validieren, bevor du sie verwenden kannst.">
+      <segment>
+        <source>Du musst deine neue E-Mail Adresse validieren, bevor du sie verwenden kannst.</source>
+        <target>Du musst deine neue E-Mail Adresse validieren, bevor du sie verwenden kannst.</target>
+      </segment>
+    </unit>
+    <unit id="_9dPwLd" name="Validierung erneut senden">
+      <segment>
+        <source>Validierung erneut senden</source>
+        <target>Validierung erneut senden</target>
+      </segment>
+    </unit>
+    <unit id="7OcuS8s" name="Änderung der E-Mail Adresse abbrechen">
+      <segment>
+        <source>Änderung der E-Mail Adresse abbrechen</source>
+        <target>Änderung der E-Mail Adresse abbrechen</target>
+      </segment>
+    </unit>
+    <unit id="0_cdRLf" name="Diese Stadt wurde aus dem Ranking ausgeschlossen.">
+      <segment>
+        <source>Diese Stadt wurde aus dem Ranking ausgeschlossen.</source>
+        <target>Diese Stadt wurde aus dem Ranking ausgeschlossen.</target>
+      </segment>
+    </unit>
+    <unit id="7kH99Rl" name="Dieser Eintrag wurde aus dem Ranking gestrichen.">
+      <segment>
+        <source>Dieser Eintrag wurde aus dem Ranking gestrichen.</source>
+        <target>Dieser Eintrag wurde aus dem Ranking gestrichen.</target>
+      </segment>
+    </unit>
+    <unit id="vv_dKqx" name="Bürger, Willkommen in der Hölle!">
+      <segment>
+        <source>Bürger, Willkommen in der Hölle!</source>
+        <target>Bürger, Willkommen in der Hölle!</target>
+      </segment>
+    </unit>
+    <unit id="i6X57vg" name="Dies ist eine Event-Stadt.">
+      <segment>
+        <source>Dies ist eine Event-Stadt.</source>
+        <target>Dies ist eine Event-Stadt.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

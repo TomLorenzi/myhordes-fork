@@ -706,8 +706,10 @@ class InventoryAwareController extends CustomAbstractController
                             if($steal_up) {
                                 if ($hasExplodingDoormat && $victim_home->getCitizen()->getAlive()) {
 
-                                    if ($this->citizen_handler->isWounded($citizen))
+                                    if ($this->citizen_handler->isWounded($citizen)) {
                                         $this->death_handler->kill($citizen, CauseOfDeath::ExplosiveDoormat);
+                                        $this->entity_manager->persist($this->log->citizenDeath( $citizen ) );
+                                    }
                                     else {
                                         $this->citizen_handler->inflictWound( $citizen );
                                         $dm = $this->inventory_handler->fetchSpecificItems($victim_home->getChest(), [new ItemRequest('trapma_#00')]);
@@ -715,8 +717,11 @@ class InventoryAwareController extends CustomAbstractController
                                     }
     
                                     $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), $citizen, $current_item->getPrototype(), $steal_up, false, $current_item->getBroken() ) );
-                                    $this->addFlash( 'notice', $this->translator->trans('"Einen Schritt weiter..." stand auf {victim}s Fußmatte. Ihre Explosion hat einen bleibenden Eindruck bei dir hinterlassen. Wenn du noch laufen kannst, such dir besser einen Arzt.', 
-                                    ['{victim}' => $victim_home->getCitizen()->getName()], 'game') );
+                                    $this->addFlash( 'notice',
+                                                     $this->translator->trans('"Einen Schritt weiter..." stand auf {victim}s Fußmatte. Ihre Explosion hat einen bleibenden Eindruck bei dir hinterlassen. Wenn du noch laufen kannst, such dir besser einen Arzt.', ['victim' => $victim_home->getCitizen()->getName()], 'game') .
+                                                     "<hr/>" .
+                                                     $this->translator->trans('Der Diebstahl, den du gerade begangen hast, wurde bemerkt! Die Bürger werden gewarnt, dass du den(die,das) {item} bei {victim} gestohlen hast.', ['victim' => $victim_home->getCitizen()->getName(), '{item}' => "<strong><img alt='' src='{$this->asset->getUrl( "build/images/item/item_{$current_item->getPrototype()->getIcon()}.gif" )}'> {$this->translator->trans($current_item->getPrototype()->getLabel(),[],'items')}</strong>"], 'game')
+                                    );
                                 } elseif ($isSanta || $isLeprechaun) {
                                     $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), null, $current_item->getPrototype(), $steal_up, $isSanta, $current_item->getBroken(), $isLeprechaun ) );
                                     $this->addFlash( 'notice', $this->translator->trans('Dank deines Kostüms konntest du {item} von {victim} stehlen, ohne erkannt zu werden', [

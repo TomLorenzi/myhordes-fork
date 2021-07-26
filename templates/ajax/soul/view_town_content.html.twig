@@ -21,8 +21,40 @@
                 </div>
             </div>
         </div>
-
     {% endif %}
+
+    {% if town.disabled %}
+        <div class="row">
+            <div class="cell rw-12 padded">
+                <div class="note note-warning">
+                    {{ 'Diese Stadt wurde aus dem Ranking ausgeschlossen.'|trans({},'soul') }}
+                    {% if is_granted('ROLE_CROW') %}
+                        <div class="button small inline" id="unrank_redact">{{ 'Ranking-Ausschluss zurücknehmen'|trans({},'admin') }}</div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    {% elseif town.event %}
+        <div class="row">
+            <div class="cell rw-12 padded">
+                <div class="note green-note">
+                    <img alt="E" src="{{ asset('build/images/icons/small_star.gif') }}">
+                    {{ 'Dies ist eine Event-Stadt.'|trans({},'soul') }}
+                    {% if is_granted('ROLE_CROW') %}
+                        <div class="button small inline" id="event_redact">{{ 'Event-Markierung entfernen'|trans({},'admin') }}</div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    {% elseif is_granted('ROLE_CROW') %}
+        <div class="row">
+            <div class="cell rw-12 padded">
+                <div class="button small inline" id="event">{{ 'Als Event-Stadt markieren'|trans({},'admin') }}</div>
+                <div class="button small inline" id="unrank">{{ 'Diese Stadt aus dem Ranking ausschließen'|trans({},'admin') }}</div>
+            </div>
+        </div>
+    {% endif %}
+
     <div class="row-table citizens-list">
         <div class="row header">
             <div class="padded cell rw-1 rw-lg-2 rw-md-3 rw-sm-4">{{'Tage'|trans({}, 'soul')}}</div>
@@ -36,7 +68,20 @@
             {% set sp = days * ( days + 1 ) / 2 %}
         <div class="row {% if citizen.user.id == app.user.id %}me{% endif %}">
             <div class="padded cell rw-1 rw-lg-2 rw-md-3 rw-sm-4">{{citizen.day}}</div>
-            <div class="padded cell rw-1 rw-lg-2 rw-md-3 rw-sm-4 town-points bold">+{{sp}}</div>
+            <div class="padded cell rw-1 rw-lg-2 rw-md-3 rw-sm-4 town-points bold">
+                {% if not citizen.disabled and not town.disabled %}
+                    +{{sp}}
+                {% elseif is_granted('ROLE_CROW') %}
+                    <div style="{% if citizen.disabled %}color: red;{% endif %} {% if town.disabled %}opacity: 0.5;{% endif %}">+{{sp}}</div>
+                {% endif %}
+                {% if is_granted('ROLE_CROW') %}
+                    {% if not citizen.disabled %}
+                        <img x-action="unrank" x-endpoint="{{ path('admin_town_citizen_ranking_control', {tid: town.id, cid: citizen.id, act: 1}) }}" class="pointer" src="{{ asset('build/images/icons/small_remove.gif') }}" alt="del" />
+                    {% else %}
+                        <img x-action="unrank" x-endpoint="{{ path('admin_town_citizen_ranking_control', {tid: town.id, cid: citizen.id, act: 0}) }}" class="pointer" src="{{ asset('build/images/icons/small_back.gif') }}" alt="re" />
+                    {% endif %}
+                {% endif %}
+            </div>
             <div class="padded cell rw-2 rw-md-3 rw-sm-4">
                 {% if not last_user_standing is null and last_user_standing == citizen.user %}
                 <span>
@@ -104,6 +149,31 @@
 {% if is_granted('ROLE_CROW') %}
     <script>
         (function() {
+            $.html.addEventListenerAll('#unrank', 'click', (e,elem) => {
+                if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}')) return;
+                $.ajax.easySend('{{ path('admin_town_town_ranking_control', {tid: town.id, act: 1}) }}', {}, () => $.ajax.load(null, '{{ return_to|e('js') }}'));
+            });
+
+            $.html.addEventListenerAll('#unrank_redact', 'click', (e,elem) => {
+                if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}')) return;
+                $.ajax.easySend('{{ path('admin_town_town_ranking_control', {tid: town.id, act: 0}) }}', {}, () => $.ajax.load(null, '{{ return_to|e('js') }}'));
+            });
+
+            $.html.addEventListenerAll('#event', 'click', (e,elem) => {
+                if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}')) return;
+                $.ajax.easySend('{{ path('admin_town_event_tag_control', {tid: town.id, act: 1}) }}', {}, () => $.ajax.load(null, '{{ return_to|e('js') }}'));
+            });
+
+            $.html.addEventListenerAll('#event_redact', 'click', (e,elem) => {
+                if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}')) return;
+                $.ajax.easySend('{{ path('admin_town_event_tag_control', {tid: town.id, act: 0}) }}', {}, () => $.ajax.load(null, '{{ return_to|e('js') }}'));
+            });
+
+            $.html.addEventListenerAll('[x-endpoint][x-action="unrank"]', 'click', (e,elem) => {
+                if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}')) return;
+                $.ajax.easySend(elem.getAttribute('x-endpoint'), {}, () => $.ajax.load(null, '{{ return_to|e('js') }}'));
+            });
+
             $.html.addEventListenerAll('[x-model][x-endpoint][x-action]', 'click', (e,elem) => {
                 const action = elem.getAttribute('x-action');
                 let text = null;

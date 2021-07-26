@@ -148,7 +148,7 @@ class NightlyHandler
 
                     if (!$this->random->chance($survival_chance)) {
                         $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> was at <info>{$citizen->getZone()->getX()}/{$citizen->getZone()->getY()}</info> and died while camping (survival chance was " . ($survival_chance * 100) . "%)!");
-                        $this->kill_wrap($citizen, $cod, false, 0, false, $town->getDay()+1);
+                        $this->kill_wrap($citizen, $cod, false, 0, true, $town->getDay()+1);
                     }
                     else {
                         $citizen->setCampingCounter($citizen->getCampingCounter() + 1);
@@ -172,7 +172,7 @@ class NightlyHandler
                 }
                 else {
                   $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> is at <info>{$citizen->getZone()->getX()}/{$citizen->getZone()->getY()}</info> without protection!");
-                  $this->kill_wrap($citizen, $cod, false, 0, false, $town->getDay()+1);
+                  $this->kill_wrap($citizen, $cod, false, 0, true, $town->getDay()+1);
                 }
 
                 $this->zone_handler->handleCitizenCountUpdate($zone, $cp_ok);
@@ -579,8 +579,6 @@ class NightlyHandler
         $inactive_watchers = array_filter( $watchers, fn(CitizenWatch $w) => $w->getCitizen()->getZone() !== null || !$w->getCitizen()->getAlive() );
         $watchers = array_filter( $watchers, fn(CitizenWatch $w) => $w->getCitizen()->getZone() === null && $w->getCitizen()->getAlive() );
 
-        $this->entity_manager->persist( $this->logTemplates->nightlyAttackSummary($town, $town->getDoor(), $overflow, count($watchers) > 0 && $has_nightwatch));
-
         $count_zombified_citizens = 0;
         foreach ($town->getCitizens() as $citizen)
             if (!$citizen->getAlive() && $citizen->getCauseOfDeath()->getRef() === CauseOfDeath::Vanished)
@@ -588,6 +586,8 @@ class NightlyHandler
 
         if ($count_zombified_citizens > 0)
             $this->entity_manager->persist( $this->logTemplates->nightlyAttackBegin($town, $count_zombified_citizens, true) );
+
+        $this->entity_manager->persist( $this->logTemplates->nightlyAttackSummary($town, $town->getDoor(), $overflow, count($watchers) > 0 && $has_nightwatch));
 
         if ($overflow > 0 && count($watchers) > 0 && $has_nightwatch)
             $this->entity_manager->persist( $this->logTemplates->nightlyAttackWatchersCount($town, count($watchers)) );
@@ -821,11 +821,18 @@ class NightlyHandler
 		}
 		
 		$sum = array_sum($repartition);
-		
+
+		$attacking_cache = $attacking;
 		for ($i = 0; $i < count($repartition); $i++) {
 			$repartition[$i] /= $sum;
-			$repartition[$i] = round($repartition[$i]*$attacking);
+			$repartition[$i] = max(0,min($attacking_cache, round($repartition[$i]*$attacking)));
+            $attacking_cache -= $repartition[$i];
 		}
+
+		while ($attacking_cache > 0 && count($repartition) > 0) {
+            $repartition[mt_rand(0, count($repartition)-1)] += 1;
+            $attacking_cache--;
+        }
 
 		//remove citizen receiving 0 zombie
 		foreach (array_keys($repartition, 0) as $key) {
@@ -851,9 +858,7 @@ class NightlyHandler
             else {
                 $this->entity_manager->persist($this->logTemplates->citizenZombieAttackRepelled( $targets[$i], $def, $force));
                 // Calculate decoration
-                $deco = 0;
-                foreach ($targets[$i]->getHome()->getChest()->getItems() as $item)
-                    $deco += $item->getPrototype()->getDeco();
+                $deco = $this->citizen_handler->getDecoPoints($targets[$i]);
 
                 if (!$has_kino && !$this->citizen_handler->hasStatusEffect($targets[$i], $status_terror)) {
                     if ($this->random->chance(1 - ($deco / 100))) {
@@ -915,7 +920,7 @@ class NightlyHandler
                 	if($km >= 10) continue;
 
                     $factor = 1 - 0.1 * (10 - $km);
-                    $zone->setZombies(max(0, $zone->getZombies() * $factor));
+                    $zone->setZombies(max(0, round($zone->getZombies() * $factor, 0)));
                 }
                 
                 $ratio = 1 - mt_rand(13, 16) / 100;

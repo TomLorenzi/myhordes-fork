@@ -55,5 +55,17 @@
         durch das Anklicken des oben genannten Links änderst.</target>
       </segment>
     </unit>
+    <unit id="8PZ98mx" name="E-Mail Validierung">
+      <segment>
+        <source>E-Mail Validierung</source>
+        <target>E-Mail Validierung</target>
+      </segment>
+    </unit>
+    <unit id="DNnXYW1">
+      <segment>
+        <source>Jemand (hoffentlich du!) hat versucht, die mit deinem Account verknüpfte E-Mail Adresse zu ändern. Um die Änderung durchzuführen, verwende bitte folgenden Token in deinen Seelen-Einstellungen:</source>
+        <target>Jemand (hoffentlich du!) hat versucht, die mit deinem Account verknüpfte E-Mail Adresse zu ändern. Um die Änderung durchzuführen, verwende bitte folgenden Token in deinen Seelen-Einstellungen:</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

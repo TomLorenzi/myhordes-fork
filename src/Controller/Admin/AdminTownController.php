@@ -15,6 +15,7 @@ use App\Entity\CitizenHomeUpgrade;
 use App\Entity\CitizenHomeUpgradeCosts;
 use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\CitizenProfession;
+use App\Entity\CitizenRankingProxy;
 use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
 use App\Entity\CitizenVote;
@@ -919,12 +920,92 @@ class AdminTownController extends AdminActionController
             }
         }
 
+        $this->entity_manager->flush();
+        return AjaxResponse::success();
+    }
 
+    /**
+     * @Route("/api/admin/town/{tid}/event-tag/{act}", name="admin_town_event_tag_control", requirements={"tid"="\d+","act"="\d+"})
+     * @Security("is_granted('ROLE_ADMIN')")
+     * @param int $tid
+     * @param int $act
+     * @return Response
+     */
+    public function ranking_event_toggle_town(int $tid, int $act): Response
+    {
+        $town_proxy = $this->entity_manager->getRepository(TownRankingProxy::class)->find($tid);
+        if (!$town_proxy) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $town_proxy->setEvent( $act !== 0 );
+        $this->entity_manager->persist($town_proxy);
         $this->entity_manager->flush();
 
         return AjaxResponse::success();
     }
 
+    /**
+     * @Route("/api/admin/town/{tid}/unrank/{act}", name="admin_town_town_ranking_control", requirements={"tid"="\d+","act"="\d+"})
+     * @Security("is_granted('ROLE_ADMIN')")
+     * @param int $tid
+     * @param int $act
+     * @return Response
+     */
+    public function ranking_toggle_town(int $tid, int $act): Response
+    {
+        $town_proxy = $this->entity_manager->getRepository(TownRankingProxy::class)->find($tid);
+        if (!$town_proxy) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $town_proxy->setDisabled( $act !== 0 );
+        $this->entity_manager->persist($town_proxy);
+        $this->entity_manager->flush();
+
+        foreach ($town_proxy->getCitizens() as $citizen) {
+            $this->entity_manager->persist($citizen->getUser()
+                ->setSoulPoints( $this->user_handler->fetchSoulPoints( $citizen->getUser(), false ) )
+                ->setImportedSoulPoints( $this->user_handler->fetchImportedSoulPoints( $citizen->getUser() ) )
+            );
+            foreach ($this->entity_manager->getRepository(Picto::class)->findNotPendingByUserAndTown($citizen->getUser(), $town_proxy) as $picto)
+                $this->entity_manager->persist($picto->setDisabled($act !== 0 || $citizen->getDisabled()));
+        }
+
+
+        $this->entity_manager->flush();
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("/api/admin/town/{tid}/unrank_single/{cid}/{act}", name="admin_town_citizen_ranking_control", requirements={"tid"="\d+","cid"="\d+","act"="\d+"})
+     * @Security("is_granted('ROLE_ADMIN')")
+     * @param int $tid
+     * @param int $cid
+     * @param int $act
+     * @return Response
+     */
+    public function ranking_toggle_citizen(int $tid, int $cid, int $act): Response
+    {
+        $town_proxy = $this->entity_manager->getRepository(TownRankingProxy::class)->find($tid);
+        if (!$town_proxy) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $citizen_proxy = $this->entity_manager->getRepository(CitizenRankingProxy::class)->find($cid);
+        if (!$citizen_proxy) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        if (!$town_proxy->getCitizens()->contains($citizen_proxy))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $citizen_proxy->setDisabled( $act !== 0 );
+        $this->entity_manager->persist($citizen_proxy);
+        $this->entity_manager->flush();
+
+        $this->entity_manager->persist($citizen_proxy->getUser()
+            ->setSoulPoints( $this->user_handler->fetchSoulPoints( $citizen_proxy->getUser(), false ) )
+            ->setImportedSoulPoints( $this->user_handler->fetchImportedSoulPoints( $citizen_proxy->getUser() ) )
+        );
+        foreach ($this->entity_manager->getRepository(Picto::class)->findNotPendingByUserAndTown($citizen_proxy->getUser(), $town_proxy) as $picto)
+            $this->entity_manager->persist($picto->setDisabled($act !== 0 || $town_proxy->getDisabled()));
+
+        $this->entity_manager->flush();
+        return AjaxResponse::success();
+    }
 
     /**
      * @Route("/api/admin/town/{id}/picto/give", name="admin_town_give_picto", requirements={"id"="\d+"})
@@ -963,9 +1044,9 @@ class AdminTownController extends AdminActionController
                     ->setPersisted(2)
                     ->setUser($citizen->getUser());
                 if (is_a($town, Town::class))
-                    $picto->setTown($town);
+                    $picto->setTown($town)->setDisabled( $town->getRankingEntry()->getDisabled() || $citizen->getRankingEntry()->getDisabled() );
                 else
-                    $picto->setTownEntry($town);
+                    $picto->setTownEntry($town)->setDisabled( $town->getDisabled() || $citizen->getRankingEntry()->getDisabled() );
                 $citizen->getUser()->addPicto($picto);
                 $this->entity_manager->persist($citizen->getUser());
             }

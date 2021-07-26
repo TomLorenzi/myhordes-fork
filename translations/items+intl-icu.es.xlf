@@ -8149,7 +8149,7 @@
     <unit id="sGKanc7" name="Abstimmen">
       <notes>
         <note category="german">Abstimmen</note>
-        <note category="from">[unused]</note>
+        <note category="from">db://ItemAction</note>
       </notes>
       <segment>
         <source>Abstimmen</source>
@@ -8159,7 +8159,7 @@
     <unit id="Rrf3E_z" name="Vous avez voté pour {citizen} en tant que {role} !">
       <notes>
         <note category="german">Vous avez voté pour {citizen} en tant que {role} !</note>
-        <note category="from">[unused]</note>
+        <note category="from">db://ItemAction</note>
       </notes>
       <segment>
         <source>Vous avez voté pour {citizen} en tant que {role} !</source>
@@ -9046,14 +9046,34 @@
         <target><![CDATA[Malas noticias, no debiste haberte comido eso... ¡Ahora estás <strong>infectado</strong>!]]></target>
       </segment>
     </unit>
-    <unit id="stXotvA">
+    <unit id="gf4WieX">
       <notes>
-        <note category="german">Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.</note>
+        <note category="german">Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.</note>
         <note category="from">db://ItemAction</note>
       </notes>
       <segment>
-        <source>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.</source>
-        <target>Abriste {item_from} y encontraste {item_to} en su interior.</target>
+        <source>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.</source>
+        <target>Abriste {item_from} y encontraste {items_spawn} en su interior.</target>
+      </segment>
+    </unit>
+    <unit id="2bqTMKS">
+      <notes>
+        <note category="german">Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.{hr}Die Kiste ist nicht leer...</note>
+        <note category="from">db://ItemAction</note>
+      </notes>
+      <segment>
+        <source>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.{hr}Die Kiste ist nicht leer...</source>
+        <target>Abriste {item_from} y encontraste {items_spawn} en su interior.{hr}La caja no está vacía...</target>
+      </segment>
+    </unit>
+    <unit id="Np_I24h">
+      <notes>
+        <note category="german">Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.{hr}{item_from} ist &lt;strong&gt;leer&lt;/strong&gt;.</note>
+        <note category="from">db://ItemAction</note>
+      </notes>
+      <segment>
+        <source>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.{hr}{item_from} ist &lt;strong&gt;leer&lt;/strong&gt;.</source>
+        <target><![CDATA[Abriste {item_from} y encontraste {items_spawn} en su interior.{hr}{item_from} está <strong>vacío</strong>.]]></target>
       </segment>
     </unit>
     <unit id="dvSEUyn">
@@ -9385,7 +9405,7 @@
     </unit>
     <unit id="nnxBJDq" name="Die Waffe hat &lt;strong&gt;keine Batterie mehr&lt;/strong&gt;.">
       <notes>
-        <note category="german">Die Waffe hat &lt;strong&gt;keine Batterie mehr&lt;/strong&gt;.</note>
+        <note category="german">Die Waffe &lt;strong&gt;hat keine Batterie&lt;/strong&gt; mehr.</note>
         <note category="from">db://AffectMessage</note>
       </notes>
       <segment>
@@ -9417,7 +9437,7 @@
     </unit>
     <unit id="O4qYqLB" name="{watchpoint} pkt attacke">
       <notes>
-        <note category="german"># pkt attacke</note>
+        <note category="german">{watchpoint__copy} pkt attacke</note>
         <note category="from">twig:///templates/ajax/game/item_tooltip.html.twig</note>
         <note category="state">new</note>
       </notes>
@@ -9466,6 +9486,38 @@
       <segment>
         <source>&lt;nt-morphed&gt;Gute Nachrichten: Es ist noch Wasser im Kanister!&lt;/nt-morphed&gt;&lt;t-morphed&gt;&lt;strong&gt;Der Kanister ist LEER&lt;/strong&gt;!&lt;/t-morphed&gt;</source>
         <target><![CDATA[<nt-morphed>Buena noticia, ¡el bidón aún contiene agua!</nt-morphed><t-morphed><strong>El bidón está VACÍO</strong> !</t-morphed>]]></target>
+      </segment>
+    </unit>
+    <unit id="x2hIMFw">
+      <notes>
+        <note category="german">Du stellst den(die) {item} bei dir daheim auf. Zugegeben, es sieht nicht gerade ästhetisch aus, aber mal ganz ehrlich: Wen kümmert das?{hr}Dieser Gegenstand erweitert deine Truhe dauerhaft um soviele freie Plätze: &lt;strong&gt;{home_storage}&lt;/strong&gt;.</note>
+        <note category="from">db://AffectMessage</note>
+      </notes>
+      <segment>
+        <source>Du stellst den(die) {item} bei dir daheim auf. Zugegeben, es sieht nicht gerade ästhetisch aus, aber mal ganz ehrlich: Wen kümmert das?{hr}Dieser Gegenstand erweitert deine Truhe dauerhaft um soviele freie Plätze: &lt;strong&gt;{home_storage}&lt;/strong&gt;.</source>
+        <target><![CDATA[Instalas {item} en tu casa. No se ve muy bien. Pero francamente... ¿a quién le importa?{hr}Este objeto te permite agregar definitivamente <strong>{home_storage} compartimento(s)</strong> a tu baúl.]]></target>
+      </segment>
+    </unit>
+    <unit id="Oww.AzB">
+      <notes>
+        <note category="german">Sorgfältig befestigst du bei dir daheim ein(e) {item}. So und das hält jetzt, so viel steht schon mal fest.{hr}Dieser Gegenstand gibt deinem Haus permament &lt;strong&gt;{home_defense} zusätzliche Verteidigungspunkt(e).&lt;/strong&gt;</note>
+        <note category="from">db://AffectMessage</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Sorgfältig befestigst du bei dir daheim ein(e) {item}. So und das hält jetzt, so viel steht schon mal fest.{hr}Dieser Gegenstand gibt deinem Haus permament &lt;strong&gt;{home_defense} zusätzliche Verteidigungspunkt(e).&lt;/strong&gt;</source>
+        <target><![CDATA[Sorgfältig befestigst du bei dir daheim ein(e) {item}. So und das hält jetzt, so viel steht schon mal fest.{hr}Dieser Gegenstand gibt deinem Haus permament <strong>{home_defense} zusätzliche Verteidigungspunkt(e).</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="H.4hGj8" name="Du hast bereits volle AP.">
+      <notes>
+        <note category="german">Du hast bereits volle AP.</note>
+        <note category="from">db://Requirement</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Du hast bereits volle AP.</source>
+        <target>Du hast bereits volle AP.</target>
       </segment>
     </unit>
   </file>

@@ -40,8 +40,10 @@
                             {% endif %}
                         </div>
                         <div class="cell padded rw-5">
-                            {{ town.name }}<br />
-                            {% if town.attackFails >= 3 %}<span style="color: red">{{ 'Quarantäne'|trans({},'game') }}</span> {% endif %}<span class="small">{% if town.open %}<i class="fa fa-door-open"></i> {% endif %}{{ town.type.label|trans({},'game') }}</span>
+                            {{ town.name }}<br /><span class="small">{% if town.open %}<i class="fa fa-door-open"></i> {% endif %}{{ town.type.label|trans({},'game') }}</span>
+                            {% if town.attackFails >= 3 %}<div style="color: red">{{ 'Quarantäne'|trans({},'game') }}</div> {% endif %}
+                            {% if town.rankingEntry.disabled %}<div class="bold" style="color: #ff8800">{{ 'Ranking-Ausschluss'|trans({},'game') }}</div> {% endif %}
+                            {% if town.rankingEntry.event %}<div class="bold" style="color: #81b3e2">{{ 'Event-Stadt'|trans({},'ghost') }}</div> {% endif %}
                         </div>
                         <div class="cell padded rw-1">{{ town.day }}</div>
                         <div class="cell padded rw-2">

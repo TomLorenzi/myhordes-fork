@@ -178,7 +178,7 @@
       </notes>
       <segment>
         <source>{citizen} hat seine neue Berufung als {profession} gefunden.</source>
-        <target>{citizen} has found thier new calling as a {profession}.</target>
+        <target>{citizen} has found their new calling as a {profession}.</target>
       </segment>
     </unit>
     <unit id="tflCZQU" name="{zombies} haben vergeblich versucht, in das Haus von {citizen} einzudringen.">
@@ -1183,7 +1183,7 @@
       </notes>
       <segment>
         <source>Um dein Haus weiter auszubauen, muss die Stadt über folgendes Gebäude verfügen:</source>
-        <target>To upgarde your home, the Town need the following construction:</target>
+        <target>To upgrade your home, the Town need the following construction:</target>
       </segment>
     </unit>
     <unit id="N6UlT0G" name="Für diesen Ausbau benötigst du folgende Gegenstände:">
@@ -1849,7 +1849,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Wasser ist unersetzbar. Es ermöglicht dir einmal pro Tag deine Aktionspunkte durch Trinken wieder aufzufüllen. Des weiteren kann man es auch gegen Zombies einsetzen (reines Wasser zerstört sie).</source>
-        <target> Water is used to restore Action Points (by drinking it), and for use as a weapon against the zombies (pure water destroys the living dead).</target>
+        <target>Water is used to restore Action Points (by drinking it), and for use as a weapon against the zombies (pure water destroys the living dead).</target>
       </segment>
     </unit>
     <unit id="96udPgY" name="Brunnenregister">
@@ -2029,7 +2029,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Dank deiner Tarnung kannst du dich dennoch bewegen - werde nur nicht zu übermütig...</source>
-        <target>Your  Camouflage Suit allows you to move around undetected.</target>
+        <target>Your Camouflage Suit allows you to move around undetected.</target>
       </segment>
     </unit>
     <unit id="DJhmFr9" name="Bestimmte Aktionen können deine Tarnung auffliegen lassen!">
@@ -2039,7 +2039,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Bestimmte Aktionen können deine Tarnung auffliegen lassen!</source>
-        <target>Many actions, if carried out in this zone will make you lose your camouflage (only actions marked with the  icon can be used)!</target>
+        <target>Many actions, if carried out in this zone will make you lose your camouflage (only actions marked with the icon can be used)!</target>
       </segment>
     </unit>
     <unit id="Zkh813p">
@@ -2400,7 +2400,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur
                         Verfügung.</source>
-        <target>Citizens dicided to shun you from the community. Some actions aren't available for you anymore.</target>
+        <target>Citizens decided to shun you from the community. Some actions aren't available for you anymore.</target>
       </segment>
     </unit>
     <unit id="Qc.QL70">
@@ -2562,7 +2562,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="m0NU7Ex" name="Angststarre">
       <notes>
         <note category="german">Angststarre</note>
-        <note category="from">db://CitizenStatus</note>
+        <note category="from">db://CitizenStatus;twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
         <source>Angststarre</source>
@@ -3538,7 +3538,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>{citizen} hat diese Ruine freigelegt. Es handelt sich um {type}. Hurra!</source>
-        <target>Thanks to {citizen}, the zone has been completely cleared, revealing a: {type}. Hurray!</target>
+        <target>The zone has been completely cleared, revealing a: {type}.</target>
       </segment>
     </unit>
     <unit id="WcZ7GhE">
@@ -3588,7 +3588,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>... das OFFEN stand! {num} Zombies sind in die Stadt eingedrungen!</source>
-        <target>... which were LEFT OPEN !! The zombie horde swept mercilessly over the citizens. The town's defences were completely useless!</target>
+        <target>... which were LEFT OPEN!! The zombie horde swept mercilessly over the citizens. The town's defences were completely useless!</target>
       </segment>
     </unit>
     <unit id="EOdUfnx" name="{num} Zombies sind durch unsere Verteidigung gebrochen!">
@@ -8072,7 +8072,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.</source>
-        <target>You will receive a blueprint if you camp this building.</target>
+        <target>You will earn a construction blueprint if you camp in this building.</target>
       </segment>
     </unit>
     <unit id="XZI.RVp" name="Hier wurde bereits ein Bauplan gefunden.">
@@ -8877,7 +8877,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>{citizen} hat einen Bauplan für {plan} gefunden. Dafür ist das Bauprojekt {parent} nötig.</source>
-        <target>{citizen} has discovered the blueprints for the {plan}! This required the construction of the {parent}.</target>
+        <target>{citizen} has discovered the blueprints for the {plan}! It requires the construction of the {parent}.</target>
       </segment>
     </unit>
     <unit id="33aXJuK" name="{num} Zombies haben vergeblich versucht, in das Haus von {citizen} einzudringen.">
@@ -9024,23 +9024,21 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="IuJ39ML">
       <notes>
         <note category="german">Gestern war ein unbedeutender Tag. Einem Gerücht zufolge wurden {citizen1} und {citizen2} dabei beobachtet, wie sie zusammen im Brunnen badeten. Wenn morgen alle mit einer Pilzinfektion flach liegen, ist ja wohl klar, an wem das lag.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
         <source>Gestern war ein unbedeutender Tag. Einem Gerücht zufolge wurden {citizen1} und {citizen2} dabei beobachtet, wie sie zusammen im Brunnen badeten. Wenn morgen alle mit einer Pilzinfektion flach liegen, ist ja wohl klar, an wem das lag.</source>
-        <target>Gestern war ein unbedeutender Tag. Einem Gerücht zufolge wurden {citizen1} und {citizen2} dabei beobachtet, wie sie zusammen im Brunnen badeten. Wenn morgen alle mit einer Pilzinfektion flach liegen, ist ja wohl klar, an wem das lag.</target>
+        <target>It is rumored that {citizen1} and {citizen2} were seen bathing together in the Well. I strongly advise against water this morning, it's a blow to nab an infection...</target>
       </segment>
     </unit>
     <unit id="1RIoi6Z">
       <notes>
         <note category="german">Was für ein denkwürdiger Tag! Die Zombies spielten keine Rolle mehr, nachdem {citizen1} zur Mittagszeit nackt auf der Mauer einmal um die Stadt rannte. Kommentar von {citizen2} dazu: "Der Anblick war nicht von schlechten Eltern."</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
         <source>Was für ein denkwürdiger Tag! Die Zombies spielten keine Rolle mehr, nachdem {citizen1} zur Mittagszeit nackt auf der Mauer einmal um die Stadt rannte. Kommentar von {citizen2} dazu: "Der Anblick war nicht von schlechten Eltern."</source>
-        <target>Was für ein denkwürdiger Tag! Die Zombies spielten keine Rolle mehr, nachdem {citizen1} zur Mittagszeit nackt auf der Mauer einmal um die Stadt rannte. Kommentar von {citizen2} dazu: "Der Anblick war nicht von schlechten Eltern."</target>
+        <target><![CDATA[This morning, {citizen1} wanted to celebrate with dignity the night passed without a dead <strong>by running naked like a worm</strong> in our alleys. "The view was not bad." {citizen2} would have explained.]]></target>
       </segment>
     </unit>
     <unit id="HHrNFas">
@@ -9086,12 +9084,11 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="ejEJjVt">
       <notes>
         <note category="german">Abgesehen davon, gut, dass letzte Nacht niemand starb. Eine Horde von fast {attack} Zombies heulte die ganze Nacht draußen, aber keiner von ihnen schaffte es, unsere Verteidigung zu durchbrechen.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
         <source>Abgesehen davon, gut, dass letzte Nacht niemand starb. Eine Horde von fast {attack} Zombies heulte die ganze Nacht draußen, aber keiner von ihnen schaffte es, unsere Verteidigung zu durchbrechen.</source>
-        <target>Abgesehen davon, gut, dass letzte Nacht niemand starb. Eine Horde von fast {attack} Zombies heulte die ganze Nacht draußen, aber keiner von ihnen schaffte es, unsere Verteidigung zu durchbrechen.</target>
+        <target>It's good that no one died last night. A horde of almost {attack} zombies howled outside all night, but none of them managed to break through our defenses.</target>
       </segment>
     </unit>
     <unit id="iPILTOC">
@@ -9157,12 +9154,11 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="i8FSlBg">
       <notes>
         <note category="german">Unsere Verteidigung an der Ostmauer scheint zufriedenstellend zu sein. Die furchterregenden Kreaturen der Horde wurden in Schach gehalten... dieses Mal!</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
         <source>Unsere Verteidigung an der Ostmauer scheint zufriedenstellend zu sein. Die furchterregenden Kreaturen der Horde wurden in Schach gehalten... dieses Mal!</source>
-        <target>Unsere Verteidigung an der Ostmauer scheint zufriedenstellend zu sein. Die furchterregenden Kreaturen der Horde wurden in Schach gehalten... dieses Mal!</target>
+        <target><![CDATA[The terrifying creatures of the horde were able to be kept <strong>afar</strong> near the wall this time. The defenses seem satisfactory.]]></target>
       </segment>
     </unit>
     <unit id="V.H.RZw">
@@ -9172,18 +9168,17 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Einige Bürger kamen letzte Nacht ins Schwitzen. Eine Welle von etwa {attack} Monstern versuchte, unsere Stadt zu zerstören, wenn auch ohne Erfolg.</source>
-        <target>Some citizens were sweating last night. A wave of around {attack} monsters tried to destroy our town, albeit unsuccessfully.</target>
+        <target><![CDATA[Some citizens were sweating last night. A wave of around {attack} monsters tried to <strong>destroy</strong> our town, albeit unsuccessfully.]]></target>
       </segment>
     </unit>
     <unit id="_KcsEZD">
       <notes>
         <note category="german">Die Zombies von gestern Abend hatten nichts außer unseren Fetzen, in die sie ihre Zähne bekommen konnten, und einige Tierkadaver... Unsere Verteidigung hat sich gut gehalten.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
         <source>Die Zombies von gestern Abend hatten nichts außer unseren Fetzen, in die sie ihre Zähne bekommen konnten, und einige Tierkadaver... Unsere Verteidigung hat sich gut gehalten.</source>
-        <target>Die Zombies von gestern Abend hatten nichts außer unseren Fetzen, in die sie ihre Zähne bekommen konnten, und einige Tierkadaver... Unsere Verteidigung hat sich gut gehalten.</target>
+        <target>The zombies last night only had our garbage to eat and a few dead animals... The defenses seem to have worked well.</target>
       </segment>
     </unit>
     <unit id="33A2X4_">
@@ -9193,7 +9188,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Die Zombies griffen uns eine Zeit lang hart an, aber keiner kam durch... Aber zweifelt nicht eine Sekunde daran, dass sie heute Abend zurückkommen werden, noch hungriger und sicherlich zahlenmäßig größer...</source>
-        <target>The zombies came at us hard for some time, but none got through... However, don't doubt for a second that they'll be back tonight, even hungrier and certainly greater in number...</target>
+        <target><![CDATA[The zombies came at us <strong>hard</strong> for some time, but none got through... However, don't doubt for a second that they'll be back tonight, even hungrier and certainly greater in number...]]></target>
       </segment>
     </unit>
     <unit id="9OEwJJM">
@@ -9203,7 +9198,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Heute Morgen feierte {citizen1} das Vereiteln der Zombiehorden von gestern Abend, indem er splitternackt durch die Straßen rannte. "Ich wollte den Anbruch dieses neuen Tages auf angemessene Weise feiern", erklärte der Bürger.</source>
-        <target>This morning, {citizen1} celebrated last night's thwarting of the zombie hordes by running buck naked through the streets. "I wanted to celebrate the dawning of this new day in an appropriate fashion", the citizen explained.</target>
+        <target><![CDATA[This morning, {citizen1} celebrated last night's thwarting of the zombie hordes <strong>by running buck naked</strong> through the streets. "I wanted to celebrate the dawning of this new day in an appropriate fashion", the citizen explained.]]></target>
       </segment>
     </unit>
     <unit id=".ArUqcq">
@@ -9233,7 +9228,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Ihr hast sie letzte Nacht gehört... die Schreie, das Stöhnen. Um die {attack} Zombies herum griffen an. Diesmal konnten wir uns durchsetzen, aber morgen... morgen wird es noch schlimmer...</source>
-        <target>You heard them last night... the cries, the groans. Around {attack} zombies. We managed to prevail this time, but tomorrow... tomorrow will be even worse...</target>
+        <target><![CDATA[You <strong>heard</strong> them last night... the cries, the groans. Around {attack} zombies. We managed to prevail this time, but tomorrow... tomorrow will be even worse...]]></target>
       </segment>
     </unit>
     <unit id="6eLsL9d">
@@ -9249,188 +9244,171 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="RiEm2s6">
       <notes>
         <note category="german">{cadaver1} hatte gestern Abend kein Glück. Abgesehen davon war es eine ruhige Nacht in der Stadt...</note>
-        <note category="state">new</note>
         <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>{cadaver1} hatte gestern Abend kein Glück. Abgesehen davon war es eine ruhige Nacht in der Stadt...</source>
-        <target>{cadaver1} hatte gestern Abend kein Glück. Abgesehen davon war es eine ruhige Nacht in der Stadt...</target>
+        <target>{cadaver1} was unlucky last night. Other than that, it was a quiet night in town...</target>
       </segment>
     </unit>
     <unit id="X7mffuU">
       <notes>
         <note category="german">Alle scheinen sich still und leise über den Tod von {cadaver1} gestern Abend zu freuen... Allerdings hat niemand erklärt, warum. {citizen1} kommentierte: "Seine Mutter war ein Hamster, und sein Vater roch nach Holunderbeeren".</note>
-        <note category="state">new</note>
         <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Alle scheinen sich still und leise über den Tod von {cadaver1} gestern Abend zu freuen... Allerdings hat niemand erklärt, warum. {citizen1} kommentierte: "Seine Mutter war ein Hamster, und sein Vater roch nach Holunderbeeren".</source>
-        <target>Alle scheinen sich still und leise über den Tod von {cadaver1} gestern Abend zu freuen... Allerdings hat niemand erklärt, warum. {citizen1} kommentierte: "Seine Mutter war ein Hamster, und sein Vater roch nach Holunderbeeren".</target>
+        <target><![CDATA[Everyone seems to be <strong>delighted</strong> in silence at the death of {cadaver1} that night... However, no one explains why. {citizen1} would still have commented: "yeah, he got what he deserved!".]]></target>
       </segment>
     </unit>
     <unit id="WWLQc3o">
       <notes>
         <note category="german">Jeder hörte {cadaver1} schreien, als er von den Zombies auseinander gerissen wurde. Offensichtlich versuchte niemand zu helfen. Überlebensinstinkt. Wirst du jetzt nachts schlafen können?</note>
-        <note category="state">new</note>
         <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Jeder hörte {cadaver1} schreien, als er von den Zombies auseinander gerissen wurde. Offensichtlich versuchte niemand zu helfen. Überlebensinstinkt. Wirst du jetzt nachts schlafen können?</source>
-        <target>Jeder hörte {cadaver1} schreien, als er von den Zombies auseinander gerissen wurde. Offensichtlich versuchte niemand zu helfen. Überlebensinstinkt. Wirst du jetzt nachts schlafen können?</target>
+        <target>Everyone heard {cadaver1} scream as the zombies dismember his body. Nobody did anything, of course. Survival instinct. Will you still be able to sleep with this?</target>
       </segment>
     </unit>
     <unit id="IEPC99r">
       <notes>
         <note category="german">Ich bin sicher, dass nicht nur ich der Meinung bin, dass wir eine Rechnung mit {cadaver1} zu begleichen hatten. Letztendlich scheint es also Karma gewesen zu sein, dass ausgerechnet er heute Nacht ums Leben kam.</note>
-        <note category="state">new</note>
         <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Ich bin sicher, dass nicht nur ich der Meinung bin, dass wir eine Rechnung mit {cadaver1} zu begleichen hatten. Letztendlich scheint es also Karma gewesen zu sein, dass ausgerechnet er heute Nacht ums Leben kam.</source>
-        <target>Ich bin sicher, dass nicht nur ich der Meinung bin, dass wir eine Rechnung mit {cadaver1} zu begleichen hatten. Letztendlich scheint es also Karma gewesen zu sein, dass ausgerechnet er heute Nacht ums Leben kam.</target>
+        <target>I'm sure I'm not the only one who thinks we had a score to settle with {cadaver1}. So in the end it seems like it was karma that he died tonight.</target>
       </segment>
     </unit>
     <unit id="EvcUHEC">
       <notes>
         <note category="german">Einige Bürger wurden Zeugen eines seltsamen Vorfalls... Man könnte sagen, dass die Zombies gestern Abend ausschließlich für {cadaver1} gekommen sind. Sie trugen die Leiche den ganzen Weg zur Baustelle, bevor die Zerstückelung begann!</note>
-        <note category="state">new</note>
         <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Einige Bürger wurden Zeugen eines seltsamen Vorfalls... Man könnte sagen, dass die Zombies gestern Abend ausschließlich für {cadaver1} gekommen sind. Sie trugen die Leiche den ganzen Weg zur Baustelle, bevor die Zerstückelung begann!</source>
-        <target>Einige Bürger wurden Zeugen eines seltsamen Vorfalls... Man könnte sagen, dass die Zombies gestern Abend ausschließlich für {cadaver1} gekommen sind. Sie trugen die Leiche den ganzen Weg zur Baustelle, bevor die Zerstückelung begann!</target>
+        <target><![CDATA[We saw something strange... It looked like the zombies were only coming to {cadaver1} last night. They took his body to the construction sites before dismembering it <strong>entirely</strong>!]]></target>
       </segment>
     </unit>
     <unit id="ZuQMNC6">
       <notes>
         <note category="german">Einige sagen, daß der Tod von {cadaver1} nicht dem Glück zu verdanken ist... das einzige Opfer gestern Abend... Könnte jemand unter uns seinen Tod provoziert haben?</note>
-        <note category="state">new</note>
         <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Einige sagen, daß der Tod von {cadaver1} nicht dem Glück zu verdanken ist... das einzige Opfer gestern Abend... Könnte jemand unter uns seinen Tod provoziert haben?</source>
-        <target>Einige sagen, daß der Tod von {cadaver1} nicht dem Glück zu verdanken ist... das einzige Opfer gestern Abend... Könnte jemand unter uns seinen Tod provoziert haben?</target>
+        <target><![CDATA[Some say that the death of {cadaver1} would not be the result of chance... She is the <strong>only</strong> victim last night. Did anyone among us <strong>cause</strong> this death?]]></target>
       </segment>
     </unit>
     <unit id="MHTYtp1">
       <notes>
         <note category="german">Ausgangssperre gilt für alle. Auch für {cadaver1} und {cadaver2} – das haben sie nun davon.</note>
-        <note category="state">new</note>
         <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Ausgangssperre gilt für alle. Auch für {cadaver1} und {cadaver2} – das haben sie nun davon.</source>
-        <target>Ausgangssperre gilt für alle. Auch für {cadaver1} und {cadaver2} – das haben sie nun davon.</target>
+        <target>The curfew applies to everyone. Also for {cadaver1} and {cadaver2} - this is what you get.</target>
       </segment>
     </unit>
     <unit id="Phxyt4a">
       <notes>
         <note category="german">So richtig scheint keiner über den Tod von {cadaver1} und {cadaver2} zu trauern. Sie waren wohl nicht die beliebtesten in der Stadt.</note>
-        <note category="state">new</note>
         <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>So richtig scheint keiner über den Tod von {cadaver1} und {cadaver2} zu trauern. Sie waren wohl nicht die beliebtesten in der Stadt.</source>
-        <target>So richtig scheint keiner über den Tod von {cadaver1} und {cadaver2} zu trauern. Sie waren wohl nicht die beliebtesten in der Stadt.</target>
+        <target>No one really seems to mourn the death of {cadaver1} and {cadaver2}. They probably weren't the most popular in town.</target>
       </segment>
     </unit>
     <unit id="HjXCgon">
       <notes>
         <note category="german">Eine schreckliche Nacht für die Stadt. Die lebenden Toten massakrierten {deaths} unserer Gemeinde während des Angriffs. Vielleicht möchtet ihr vor heute Abend noch einmal einen Blick auf unsere Verteidigung werfen...</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
         <source>Eine schreckliche Nacht für die Stadt. Die lebenden Toten massakrierten {deaths} unserer Gemeinde während des Angriffs. Vielleicht möchtet ihr vor heute Abend noch einmal einen Blick auf unsere Verteidigung werfen...</source>
-        <target>Eine schreckliche Nacht für die Stadt. Die lebenden Toten massakrierten {deaths} unserer Gemeinde während des Angriffs. Vielleicht möchtet ihr vor heute Abend noch einmal einen Blick auf unsere Verteidigung werfen...</target>
+        <target>A terrible night for the city. The living dead slaughtered {deaths} members of our community in the attack. Maybe you want to take another look at our defenses before tonight...</target>
       </segment>
     </unit>
     <unit id="tWF6qem">
       <notes>
         <note category="german">Die Zombies fanden gestern Abend an der Nordwand eine Schwäche in unserer Verteidigung... Einige Häuser hielten dem Angriff stand. Andere nicht... ... {deaths} tot. Ende der Geschichte.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
         <source>Die Zombies fanden gestern Abend an der Nordwand eine Schwäche in unserer Verteidigung... Einige Häuser hielten dem Angriff stand. Andere nicht... ... {deaths} tot. Ende der Geschichte.</source>
-        <target>Die Zombies fanden gestern Abend an der Nordwand eine Schwäche in unserer Verteidigung... Einige Häuser hielten dem Angriff stand. Andere nicht... ... {deaths} tot. Ende der Geschichte.</target>
+        <target>The zombies broke through our walls this evening taking advantage of a loophole in the north wall... Some houses held up. Others not... {deaths} dead. Without appeal.</target>
       </segment>
     </unit>
     <unit id="xVDXz8v">
       <notes>
         <note category="german">Einige Bewohner brachen heute Morgen ob der Opfer in Tränen aus. Tränen der Freude mit Sicherheit, nicht eines der {deaths} Opfer des letzten Angriffs zu sein.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
         <source>Einige Bewohner brachen heute Morgen ob der Opfer in Tränen aus. Tränen der Freude mit Sicherheit, nicht eines der {deaths} Opfer des letzten Angriffs zu sein.</source>
-        <target>Einige Bewohner brachen heute Morgen ob der Opfer in Tränen aus. Tränen der Freude mit Sicherheit, nicht eines der {deaths} Opfer des letzten Angriffs zu sein.</target>
+        <target>Some residents are in tears this morning because of the victims (the nerves without doubt). Too happy not to be one of the {deaths} victims of that night.</target>
       </segment>
     </unit>
     <unit id="FgoMd0R">
       <notes>
         <note category="german">Eine Handvoll Zombies durchbrach unsere Verteidigungsanlagen in der Nähe des nördlichen Viertels, wir haben keine Ahnung, wie... Wie es das "Glück" wollte, sind {deaths} Bürger tot, aber ihr habt seltsamerweise überlebt. ... Klingt das nicht ein wenig verdächtig?</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
         <source>Eine Handvoll Zombies durchbrach unsere Verteidigungsanlagen in der Nähe des nördlichen Viertels, wir haben keine Ahnung, wie... Wie es das "Glück" wollte, sind {deaths} Bürger tot, aber ihr habt seltsamerweise überlebt. ... Klingt das nicht ein wenig verdächtig?</source>
-        <target>Eine Handvoll Zombies durchbrach unsere Verteidigungsanlagen in der Nähe des nördlichen Viertels, wir haben keine Ahnung, wie... Wie es das "Glück" wollte, sind {deaths} Bürger tot, aber ihr habt seltsamerweise überlebt. ... Klingt das nicht ein wenig verdächtig?</target>
+        <target>A handful of zombies broke through our defenses on the north wall, without anyone knowing how... According to one of your neighbors, it would be a breach in the wall near his house. As luck would have it, {deaths} citizens died, but he didn't. Obviously, after the attack, this conscientious citizen carefully filled in this breach... Suspect eh?</target>
       </segment>
     </unit>
     <unit id="MwOt2NN">
       <notes>
         <note category="german">Eine Flutwelle von Zombies stürzte letzte Nacht gegen unsere Stadt! Bürger wurden in ihren eigenen Häusern verschlungen oder in die Wüste geschleift... Noch so eine Nacht, und wir werden nicht mehr hier sein, um darüber zu reden.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
         <source>Eine Flutwelle von Zombies stürzte letzte Nacht gegen unsere Stadt! Bürger wurden in ihren eigenen Häusern verschlungen oder in die Wüste geschleift... Noch so eine Nacht, und wir werden nicht mehr hier sein, um darüber zu reden.</source>
-        <target>Eine Flutwelle von Zombies stürzte letzte Nacht gegen unsere Stadt! Bürger wurden in ihren eigenen Häusern verschlungen oder in die Wüste geschleift... Noch so eine Nacht, und wir werden nicht mehr hier sein, um darüber zu reden.</target>
+        <target>A tidal wave of zombies crashed into our city last night! The citizens were devoured at their homes or dragged into the desert... Another night and we will not be here to talk about it.</target>
       </segment>
     </unit>
     <unit id="aHDkQ88">
       <notes>
         <note category="german">Wir müssen uns beeilen; unsere Unfähigkeit, zufriedenstellende Verteidigungsanlagen zu errichten, kostete letzte Nacht {deaths} Bürgern das Leben. Zu eurer Information: Gestern Abend wurde die Stadt von {attack} Zombies angegriffen.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
         <source>Wir müssen uns beeilen; unsere Unfähigkeit, zufriedenstellende Verteidigungsanlagen zu errichten, kostete letzte Nacht {deaths} Bürgern das Leben. Zu eurer Information: Gestern Abend wurde die Stadt von {attack} Zombies angegriffen.</source>
-        <target>Wir müssen uns beeilen; unsere Unfähigkeit, zufriedenstellende Verteidigungsanlagen zu errichten, kostete letzte Nacht {deaths} Bürgern das Leben. Zu eurer Information: Gestern Abend wurde die Stadt von {attack} Zombies angegriffen.</target>
+        <target>Also, we should move a little; our inability to build sufficient defenses claimed the lives of {deaths} citizens last night. As a reminder, the zombies were near {attack} during this assault.</target>
       </segment>
     </unit>
     <unit id="TI38FCg">
       <notes>
         <note category="german">Die Verteidigungsanlagen waren gestern Abend unzureichend. {deaths} Bürger bezahlten für eure mangelnde Organisation mit ihrem Leben.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
         <source>Die Verteidigungsanlagen waren gestern Abend unzureichend. {deaths} Bürger bezahlten für eure mangelnde Organisation mit ihrem Leben.</source>
-        <target>Die Verteidigungsanlagen waren gestern Abend unzureichend. {deaths} Bürger bezahlten für eure mangelnde Organisation mit ihrem Leben.</target>
+        <target>The defenses were insufficient last night. {deaths} citizens have paid for their lack of organization with their lives.</target>
       </segment>
     </unit>
     <unit id="j6M_Tqs">
       <notes>
         <note category="german">Letzte Nacht haben es {deaths} Bürger nicht rechtzeitig nach Hause geschafft. Einige Teile von ihnen wurden in der Nähe des westlichen Viertels gefunden. Augenzeugen berichten, dass die Anwohner riefen: "Lauf, Forrest, lauf!", bevor sie vor Lachen ausbrachen und in ihr Haus rannten.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
         <source>Letzte Nacht haben es {deaths} Bürger nicht rechtzeitig nach Hause geschafft. Einige Teile von ihnen wurden in der Nähe des westlichen Viertels gefunden. Augenzeugen berichten, dass die Anwohner riefen: "Lauf, Forrest, lauf!", bevor sie vor Lachen ausbrachen und in ihr Haus rannten.</source>
-        <target>Letzte Nacht haben es {deaths} Bürger nicht rechtzeitig nach Hause geschafft. Einige Teile von ihnen wurden in der Nähe des westlichen Viertels gefunden. Augenzeugen berichten, dass die Anwohner riefen: "Lauf, Forrest, lauf!", bevor sie vor Lachen ausbrachen und in ihr Haus rannten.</target>
+        <target>Yesterday evening, {deaths} citizens did not reach their house in time. Caught up by the zombies during the attack, they had no chance. Some pieces were even found on the north wall. Some testimonies say that residents would have shouted "Run, Forrest, run!" before bursting into laughter and locking themselves in their house.</target>
       </segment>
     </unit>
     <unit id="FRBVY_U">
       <notes>
         <note category="german">Was für ein Riesenschlamassel: {deaths} starben letzte Nacht in der Stadt! Ein Massaker, zu dem noch der zertrümmerter Schädel eines Haustiers zu zählen ist, der in den Toren verkeilt gefunden wurde. Vermisst jemand einen Hund?</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
         <source>Was für ein Riesenschlamassel: {deaths} starben letzte Nacht in der Stadt! Ein Massaker, zu dem noch der zertrümmerter Schädel eines Haustiers zu zählen ist, der in den Toren verkeilt gefunden wurde. Vermisst jemand einen Hund?</source>
-        <target>Was für ein Riesenschlamassel: {deaths} starben letzte Nacht in der Stadt! Ein Massaker, zu dem noch der zertrümmerter Schädel eines Haustiers zu zählen ist, der in den Toren verkeilt gefunden wurde. Vermisst jemand einen Hund?</target>
+        <target><![CDATA[a big fiasco : <strong>{deaths} dead</strong> at our place last night! A massacre to which must be added the broken skull of a pet found stuck in the Gate.]]></target>
       </segment>
     </unit>
     <unit id="bkMZ85E" name="Horizont">
@@ -10110,23 +10088,21 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="WGjdoHe">
       <notes>
         <note category="german">"Auf wiedersehen, du schnöde Welt...", dachte sich wohl &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1}. Jedenfalls hat er den Zombies Arbeit abgenommen und sich selbst umgebracht.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
         <source>"Auf wiedersehen, du schnöde Welt...", dachte sich wohl &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1}. Jedenfalls hat er den Zombies Arbeit abgenommen und sich selbst umgebracht.</source>
-        <target><![CDATA["Auf wiedersehen, du schnöde Welt...", dachte sich wohl <i class="dagger">†</i> {cadaver1}. Jedenfalls hat er den Zombies Arbeit abgenommen und sich selbst umgebracht.]]></target>
+        <target><![CDATA["Goodbye, boring world...", <i class="dagger">†</i> {cadaver1} was probably thinking. Anyway, he did the zombie job and committed suicide.]]></target>
       </segment>
     </unit>
     <unit id="Hb1CJc.">
       <notes>
         <note category="german">Ohne großes Bedauern starb &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} heute Nacht in Folge seiner Abhängigkeit. "Ganz ehrlich, das ist kein großer Verlust", kommentierte {citizen1}.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
         <source>Ohne großes Bedauern starb &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} heute Nacht in Folge seiner Abhängigkeit. "Ganz ehrlich, das ist kein großer Verlust", kommentierte {citizen1}.</source>
-        <target><![CDATA[Ohne großes Bedauern starb <i class="dagger">†</i> {cadaver1} heute Nacht in Folge seiner Abhängigkeit. "Ganz ehrlich, das ist kein großer Verlust", kommentierte {citizen1}.]]></target>
+        <target><![CDATA[With few regret, <i class="dagger">†</i> {cadaver1} passed away tonight from his addiction. "Honestly, it's not a big loss" commented {citizen1}.]]></target>
       </segment>
     </unit>
     <unit id="dmfUc6J">
@@ -10142,23 +10118,21 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id=".5W7nuy">
       <notes>
         <note category="german">Eindeutig! &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} starb an einer Vergiftung. Wie genau das passieren konnte, weiß niemand so recht, aber {citizen1} verhielt sich sehr verdächtig.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
         <source>Eindeutig! &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} starb an einer Vergiftung. Wie genau das passieren konnte, weiß niemand so recht, aber {citizen1} verhielt sich sehr verdächtig.</source>
-        <target><![CDATA[Eindeutig! <i class="dagger">†</i> {cadaver1} starb an einer Vergiftung. Wie genau das passieren konnte, weiß niemand so recht, aber {citizen1} verhielt sich sehr verdächtig.]]></target>
+        <target><![CDATA[I'll be you, double-check before swallowing anything. Indeed, <i class="dagger">†</i> {cadaver1} will have lacked caution yesterday. Victim of cyanide poisoning. Criminal act ? Accident ? Blame it on {citizen1} ? Who knows ? ... Oh yes... <strong>I know</strong>.]]></target>
       </segment>
     </unit>
     <unit id="jC0g8aF">
       <notes>
         <note category="german">Nichts genaues weiß man nicht, auf jeden Fall hat seit geraumer Zeit niemand mehr &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} gesehen.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
         <source>Nichts genaues weiß man nicht, auf jeden Fall hat seit geraumer Zeit niemand mehr &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} gesehen.</source>
-        <target><![CDATA[Nichts genaues weiß man nicht, auf jeden Fall hat seit geraumer Zeit niemand mehr <i class="dagger">†</i> {cadaver1} gesehen.]]></target>
+        <target><![CDATA[We don't know anything specific, in any case no one has seen <i class="dagger">†</i> {cadaver1} for some time.]]></target>
       </segment>
     </unit>
     <unit id="DZRfvZb" name="Aufgrund deiner Verletzung bist du gestolpert. So ein Ärger...">
@@ -10594,7 +10568,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="9NwZjWy" name="Teilnehmen">
       <notes>
         <note category="german">Teilnehmen</note>
-        <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/construction.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig</note>
       </notes>
       <segment>
         <source>Teilnehmen</source>
@@ -16111,12 +16085,11 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="qFmcCUx">
       <notes>
         <note category="german">&lt;i class="dagger"&gt;†&lt;/i&gt; {zombie} wurde schreiend und sabbernd am Brunnen angetroffen. Er hielt einen großen Felsen in seinen Händen und schickte  sich an, diesen in den Brunnen zu werfen. Leider konnte ihn keiner mehr rechtzeitig hindern, sodass uns jetzt {num} Wasserrationnen fehlen! Was für eine Katastrophe!</note>
-        <note category="state">new</note>
         <note category="from">db://LogEntryTemplate</note>
       </notes>
       <segment>
         <source>&lt;i class="dagger"&gt;†&lt;/i&gt; {zombie} wurde schreiend und sabbernd am Brunnen angetroffen. Er hielt einen großen Felsen in seinen Händen und schickte  sich an, diesen in den Brunnen zu werfen. Leider konnte ihn keiner mehr rechtzeitig hindern, sodass uns jetzt {num} Wasserrationnen fehlen! Was für eine Katastrophe!</source>
-        <target><![CDATA[<i class="dagger">†</i> {zombie} wurde schreiend und sabbernd am Brunnen angetroffen. Er hielt einen großen Felsen in seinen Händen und schickte  sich an, diesen in den Brunnen zu werfen. Leider konnte ihn keiner mehr rechtzeitig hindern, sodass uns jetzt {num} Wasserrationnen fehlen! Was für eine Katastrophe!]]></target>
+        <target><![CDATA[<i class="dagger">†</i> {zombie} was seen foaming at the mouth, screaming and brandishing a large stone. Upon arriving at the well, they threw it in, causing the loss of {num} rations of water! Disaster!]]></target>
       </segment>
     </unit>
     <unit id="qX1gDpX" name="Die Stadt ist zerstört! Flieht, irh Narren!">
@@ -16173,144 +16146,131 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="WOgQABU" name="Letzte Nacht wurde der {sector} von starken Winden heimgesucht.">
       <notes>
         <note category="german">Letzte Nacht wurde der {sector} von starken Winden heimgesucht.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
         <source>Letzte Nacht wurde der {sector} von starken Winden heimgesucht.</source>
-        <target>Letzte Nacht wurde der {sector} von starken Winden heimgesucht.</target>
+        <target>This night {sector} was swept by strong winds.</target>
       </segment>
     </unit>
     <unit id="vMWPnXd" name="Gestern Abend gab es starke Windböen im {sector}.">
       <notes>
         <note category="german">Gestern Abend gab es starke Windböen im {sector}.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
         <source>Gestern Abend gab es starke Windböen im {sector}.</source>
-        <target>Gestern Abend gab es starke Windböen im {sector}.</target>
+        <target>Heavy squalls swept through the entire {sector} overnight.</target>
       </segment>
     </unit>
     <unit id="b1WS2ti" name="{sector2} haben gestern ein paar heftige Sandstrürme gewütet.">
       <notes>
         <note category="german">{sector2} haben gestern ein paar heftige Sandstrürme gewütet.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
         <source>{sector2} haben gestern ein paar heftige Sandstrürme gewütet.</source>
-        <target>{sector2} haben gestern ein paar heftige Sandstrürme gewütet.</target>
+        <target>Major sandstorms hit {sector2}.</target>
       </segment>
     </unit>
     <unit id="8SlXCl0" name="{sector2} wurden gestern ein paar meteorologische Anomalien gesichtet.">
       <notes>
         <note category="german">{sector2} wurden gestern ein paar meteorologische Anomalien gesichtet.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
         <source>{sector2} wurden gestern ein paar meteorologische Anomalien gesichtet.</source>
-        <target>{sector2} wurden gestern ein paar meteorologische Anomalien gesichtet.</target>
+        <target>Meteorological anomalies were seen {sector2}.</target>
       </segment>
     </unit>
     <unit id="IQK3nfT" name="Ein paar Sandstürme wurden im {sector} beobachtet.">
       <notes>
         <note category="german">Ein paar Sandstürme wurden im {sector} beobachtet.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
         <source>Ein paar Sandstürme wurden im {sector} beobachtet.</source>
-        <target>Ein paar Sandstürme wurden im {sector} beobachtet.</target>
+        <target>Sandstorms have been recorded near {sector}.</target>
       </segment>
     </unit>
     <unit id=".HHbbOe" name="Ungewöhnlich starke Winde haben gestern den Sand {sector} aufgewirbelt.">
       <notes>
         <note category="german">Ungewöhnlich starke Winde haben gestern den Sand {sector} aufgewirbelt.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
         <source>Ungewöhnlich starke Winde haben gestern den Sand {sector} aufgewirbelt.</source>
-        <target>Ungewöhnlich starke Winde haben gestern den Sand {sector} aufgewirbelt.</target>
+        <target>Abnormal winds swept across the desert in {sector}.</target>
       </segment>
     </unit>
     <unit id="ceJmauc" name="Verschiedene Aufzeichnungen zeigen Wetteranomalien {sector2}.">
       <notes>
         <note category="german">Verschiedene Aufzeichnungen zeigen Wetteranomalien {sector2}.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
         <source>Verschiedene Aufzeichnungen zeigen Wetteranomalien {sector2}.</source>
-        <target>Verschiedene Aufzeichnungen zeigen Wetteranomalien {sector2}.</target>
+        <target>Yesterday evening, the whole {sector} was the scene of several weather anomalies.</target>
       </segment>
     </unit>
     <unit id="BJcjHpt" name="Gestern Abend war der gesamte {sector} Schauplatz mehrerer Wetteranomalien.">
       <notes>
         <note category="german">Gestern Abend war der gesamte {sector} Schauplatz mehrerer Wetteranomalien.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
         <source>Gestern Abend war der gesamte {sector} Schauplatz mehrerer Wetteranomalien.</source>
-        <target>Gestern Abend war der gesamte {sector} Schauplatz mehrerer Wetteranomalien.</target>
+        <target>Our readings point to weather anomalies towards {sector}.</target>
       </segment>
     </unit>
     <unit id="BwUnqIG">
       <notes>
         <note category="german">Unsere Messungen deuten darauf hin, dass im {sector} Wetteranomalien aufgetreten sind.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
         <source>Unsere Messungen deuten darauf hin, dass im {sector} Wetteranomalien aufgetreten sind.</source>
-        <target>Unsere Messungen deuten darauf hin, dass im {sector} Wetteranomalien aufgetreten sind.</target>
+        <target>A few isolated phenomena were detected {sector2}.</target>
       </segment>
     </unit>
     <unit id="MxiRuQv" name="Einige vereinzelte Phänomene wurden {sector2} entdeckt.">
       <notes>
         <note category="german">Einige vereinzelte Phänomene wurden {sector2} entdeckt.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
         <source>Einige vereinzelte Phänomene wurden {sector2} entdeckt.</source>
-        <target>Einige vereinzelte Phänomene wurden {sector2} entdeckt.</target>
+        <target>Our readings point to weather anomalies towards {sector}.</target>
       </segment>
     </unit>
     <unit id="u1QojJk" name="In der vergangenen Nacht brach im {sector2} ein heftiger Sturm aus...">
       <notes>
         <note category="german">In der vergangenen Nacht brach im {sector2} ein heftiger Sturm aus...</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
         <source>In der vergangenen Nacht brach im {sector2} ein heftiger Sturm aus...</source>
-        <target>In der vergangenen Nacht brach im {sector2} ein heftiger Sturm aus...</target>
+        <target>A severe storm erupted last night {sector2}.</target>
       </segment>
     </unit>
     <unit id="0AnA3pq" name="{sector2} wurden gestern heftige Sturmwinde beobachtet.">
       <notes>
         <note category="german">{sector2} wurden gestern heftige Sturmwinde beobachtet.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
         <source>{sector2} wurden gestern heftige Sturmwinde beobachtet.</source>
-        <target>{sector2} wurden gestern heftige Sturmwinde beobachtet.</target>
+        <target>Yesterday strong winds were observed {sector2}.</target>
       </segment>
     </unit>
     <unit id="uoXdth9" name="Gestern Natch wurden im {sector} mehrere Sandstürme beobachtet.">
       <notes>
         <note category="german">Gestern Natch wurden im {sector} mehrere Sandstürme beobachtet.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
         <source>Gestern Natch wurden im {sector} mehrere Sandstürme beobachtet.</source>
-        <target>Gestern Natch wurden im {sector} mehrere Sandstürme beobachtet.</target>
+        <target>Yesterday evening several sandstorms were observed in {sector}.</target>
       </segment>
     </unit>
     <unit id="OhpvQec" name="im Nordwesten">
@@ -17157,7 +17117,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Die Stadt ist nichts weiter als ein widerwärtiger Friedhof. Es war niemand hier, der den letzten Angriff der Zombies hätte aufhalten können: &lt;strong&gt;das Stadttor wurde aufgebrochen&lt;/strong&gt; und &lt;strong&gt;liegt nun in Trümmern&lt;/strong&gt;. {town} existiert nicht mehr...</source>
-        <target>The town is no more than a vast, sickening cemetery. There was nobody here last night to resist the last attack : the town gates were forced open and reduced to splinters. {town} is no more.</target>
+        <target><![CDATA[The town is no more than a vast, sickening cemetery. There was nobody here last night to resist the last attack : <strong>the town gates were forced open</strong> and <strong>reduced to splinters</strong>. {town} is no more.]]></target>
       </segment>
     </unit>
     <unit id="dPIl.ph">
@@ -20275,12 +20235,11 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="K56ofiL">
       <notes>
         <note category="german">Es weiß zwar keiner wie unser Held {citizen} das angestellt hat, aber es ist ihm gelungen aus dieser Zone direkt in die Stadt zurückzukehren... Ein Wunder!</note>
-        <note category="state">new</note>
         <note category="from">db://LogEntryTemplate</note>
       </notes>
       <segment>
         <source>Es weiß zwar keiner wie unser Held {citizen} das angestellt hat, aber es ist ihm gelungen aus dieser Zone direkt in die Stadt zurückzukehren... Ein Wunder!</source>
-        <target>Es weiß zwar keiner wie unser Held {citizen} das angestellt hat, aber es ist ihm gelungen aus dieser Zone direkt in die Stadt zurückzukehren... Ein Wunder!</target>
+        <target>Nobody knows how, but the Hero {citizen} managed to get out of this zone and go back to the town... it's a miracle!</target>
       </segment>
     </unit>
     <unit id="RqmtAaX">
@@ -21609,7 +21568,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Die Stadt hat nichts Nützliches aus dem Haus herausbekommen, da war wirklich nichts zu holen...</source>
-        <target>The town didn't recover anything useful from their house, there was really nothing of interest to take...</target>
+        <target><![CDATA[The town didn't recover anything useful from their house, there was really <strong>nothing of interest to take</strong>...]]></target>
       </segment>
     </unit>
     <unit id="cmDQRlA">
@@ -21853,12 +21812,11 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="6spO8K_" name="Dieser Bürger hat sich für heute Nacht hier versteckt.">
       <notes>
         <note category="german">Dieser Bürger hat sich für heute Nacht hier versteckt.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
         <source>Dieser Bürger hat sich für heute Nacht hier versteckt.</source>
-        <target>Dieser Bürger hat sich für heute Nacht hier versteckt.</target>
+        <target>This citizen has hidden to spend the night here...</target>
       </segment>
     </unit>
     <unit id="PEGlllX">
@@ -22053,12 +22011,11 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="WvVANsU">
       <notes>
         <note category="german">Als du folgendes Gebäude: {building} erkundest hast, lief es eiskalt den Rücken runter... Aber es war nicht umsonst! Du hast folgenden Gegenstand gefunden: {item}.</note>
-        <note category="state">new</note>
         <note category="from">php:///src/Controller/BeyondController.php</note>
       </notes>
       <segment>
         <source>Als du folgendes Gebäude: {building} erkundest hast, lief es eiskalt den Rücken runter... Aber es war nicht umsonst! Du hast folgenden Gegenstand gefunden: {item}.</source>
-        <target>Als du folgendes Gebäude: {building} erkundest hast, lief es eiskalt den Rücken runter... Aber es war nicht umsonst! Du hast folgenden Gegenstand gefunden: {item}.</target>
+        <target>Gut-wrenching fear grips you as you search the {building}... However, it wasn't a waste of time, because you manage to find the {item}.</target>
       </segment>
     </unit>
     <unit id="ijrzep1">
@@ -22157,12 +22114,11 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="rfxQCmg">
       <notes>
         <note category="german">Wenn der Name auf der Rückseite dieses kleinen Briefs korrekt ist, war diese Nachricht in Wirklichkeit für {citizen}! Durch einen seltsamen Zufall ist sie irgendwie bei dir gelanded ...</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/posts.html.twig</note>
       </notes>
       <segment>
         <source>Wenn der Name auf der Rückseite dieses kleinen Briefs korrekt ist, war diese Nachricht in Wirklichkeit für {citizen}! Durch einen seltsamen Zufall ist sie irgendwie bei dir gelanded ...</source>
-        <target>Wenn der Name auf der Rückseite dieses kleinen Briefs korrekt ist, war diese Nachricht in Wirklichkeit für {citizen}! Durch einen seltsamen Zufall ist sie irgendwie bei dir gelanded ...</target>
+        <target>Judging by the writing on the back of this paper, the message below was intended for {citizen}! By some mysterious turn of events, it has landed in your mailbox...</target>
       </segment>
     </unit>
     <unit id="H790t1y">
@@ -22476,15 +22432,15 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>Kein Wasser mehr!</target>
       </segment>
     </unit>
-    <unit id="DjCbLrn">
+    <unit id=".4llLEr">
       <notes>
-        <note category="german">&lt;strong&gt;Verlust der Zonenkontrolle&lt;/strong&gt;: Die Suchen der Bürger wurden unterbrochen!</note>
+        <note category="german">&lt;strong&gt;Verlust der Zonenkontrolle&lt;/strong&gt;: Die Suchen von {citizen} wurden unterbrochen!</note>
         <note category="state">new</note>
         <note category="from">db://LogEntryTemplate</note>
       </notes>
       <segment>
-        <source>&lt;strong&gt;Verlust der Zonenkontrolle&lt;/strong&gt;: Die Suchen der Bürger wurden unterbrochen!</source>
-        <target><![CDATA[<strong>Verlust der Zonenkontrolle</strong>: Die Suchen der Bürger wurden unterbrochen!]]></target>
+        <source>&lt;strong&gt;Verlust der Zonenkontrolle&lt;/strong&gt;: Die Suchen von {citizen} wurden unterbrochen!</source>
+        <target><![CDATA[<strong>Verlust der Zonenkontrolle</strong>: Die Suchen von {citizen} wurden unterbrochen!]]></target>
       </segment>
     </unit>
     <unit id="2L4fAWv">
@@ -22531,7 +22487,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="nbgyiEG">
       <notes>
         <note category="german">Du hast eine Beschwerde gegen &lt;strong&gt;{citizen}&lt;/strong&gt; eingereicht. Wenn sich genug Beschwerden ansammeln, &lt;strong&gt;wird {citizen} aus der Gemeinschaft verbannt oder gehängt&lt;/strong&gt;, falls ein Galgen vorhanden ist.</note>
-        <note category="state">new</note>
         <note category="from">php:///src/Controller/Town/TownController.php</note>
       </notes>
       <segment>
@@ -22542,7 +22497,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="CgXv4BN">
       <notes>
         <note category="german">Deine Beschwerde wurde zurückgezogen... Denke das nächste Mal besser nach...</note>
-        <note category="state">new</note>
         <note category="from">php:///src/Controller/Town/TownController.php</note>
       </notes>
       <segment>
@@ -22675,12 +22629,11 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="BnOANPI">
       <notes>
         <note category="german">Mehrere Brandherde wurden im Reaktorkern gesichtet, bevor er komplett in Flammen aufging. Kurz danach wurde das gesamte Gebiet von einem grünen Blitz vollkommen verwüstet. Die wenigen Überlebenden sind innerhalb nur weniger Sekunden an Strahlenkrankheit gestorben. Was für ein Ende!</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
         <source>Mehrere Brandherde wurden im Reaktorkern gesichtet, bevor er komplett in Flammen aufging. Kurz danach wurde das gesamte Gebiet von einem grünen Blitz vollkommen verwüstet. Die wenigen Überlebenden sind innerhalb nur weniger Sekunden an Strahlenkrankheit gestorben. Was für ein Ende!</source>
-        <target>Mehrere Brandherde wurden im Reaktorkern gesichtet, bevor er komplett in Flammen aufging. Kurz danach wurde das gesamte Gebiet von einem grünen Blitz vollkommen verwüstet. Die wenigen Überlebenden sind innerhalb nur weniger Sekunden an Strahlenkrankheit gestorben. Was für ein Ende!</target>
+        <target>Multiple fires were reported in our Reactor core before it burst into flames. Then a huge green flash wiped out and contaminated the whole area. It only took a few seconds for the few remaining survivors to perish through radiation poisoning. What a climax!</target>
       </segment>
     </unit>
     <unit id="mw_CjlK" name="Wenn die Stadt eine Pumpe baut, ist sie im Stande mehr Wasser zu fördern!">
@@ -22803,66 +22756,60 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <notes>
         <note category="german">Unsere aktuelle Schätzung ist zu ungenau, um brauchbar zu sein: Wir brauchen mehr Bürger, die auf den Turm gehen!</note>
         <note category="from">twig:///templates/ajax/game/town/watchtower.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Unsere aktuelle Schätzung ist zu ungenau, um brauchbar zu sein: Wir brauchen mehr Bürger, die auf den Turm gehen!</source>
-        <target>Unsere aktuelle Schätzung ist zu ungenau, um brauchbar zu sein: Wir brauchen mehr Bürger, die auf den Turm gehen!</target>
+        <target>Our current estimation is too inaccurate to be of any use : more citizens need to come to the tower!</target>
       </segment>
     </unit>
     <unit id="gZG1unt">
       <notes>
         <note category="german">Du kannst das Haus, in dem {citizen} lebte, recyceln. Alle darin gelagerten Gegenstände (in seinem Inventar) werden in der Bank abgelegt. Außerdem hast du die Möglichkeit, einen Teil der beim Bau verwendeten Ressourcen zurückzugewinnen.</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Du kannst das Haus, in dem {citizen} lebte, recyceln. Alle darin gelagerten Gegenstände (in seinem Inventar) werden in der Bank abgelegt. Außerdem hast du die Möglichkeit, einen Teil der beim Bau verwendeten Ressourcen zurückzugewinnen.</source>
-        <target>Du kannst das Haus, in dem {citizen} lebte, recyceln. Alle darin gelagerten Gegenstände (in seinem Inventar) werden in der Bank abgelegt. Außerdem hast du die Möglichkeit, einen Teil der beim Bau verwendeten Ressourcen zurückzugewinnen.</target>
+        <target>You can recycle the house where {citizen} lived. Everything found inside (i.e. in the inventory) will be placed in the bank. There is also a chance you could recover some of the materials used to build it.</target>
       </segment>
     </unit>
     <unit id=".CFiQni">
       <notes>
         <note category="german">Nichts mehr da! Die Bürger haben beschlossen, das Haus zu zerstören... Welch eine dankbare Gemeinschaft.</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Nichts mehr da! Die Bürger haben beschlossen, das Haus zu zerstören... Welch eine dankbare Gemeinschaft.</source>
-        <target>Nichts mehr da! Die Bürger haben beschlossen, das Haus zu zerstören... Welch eine dankbare Gemeinschaft.</target>
+        <target>There's nothing left! The citizens decided to destroy it... That's gratitude for you.</target>
       </segment>
     </unit>
     <unit id="SlAwtjZ" name="Wiederverwertung:">
       <notes>
         <note category="german">Wiederverwertung:</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wiederverwertung:</source>
-        <target>Wiederverwertung:</target>
+        <target>Recycling:</target>
       </segment>
     </unit>
     <unit id="sQTLfdC" name="Fortschritt bei der Wiederverwertung dieses Hauses: {progress} / {total} AP">
       <notes>
         <note category="german">Fortschritt bei der Wiederverwertung dieses Hauses: {progress} / {total} AP</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Fortschritt bei der Wiederverwertung dieses Hauses: {progress} / {total} AP</source>
-        <target>Fortschritt bei der Wiederverwertung dieses Hauses: {progress} / {total} AP</target>
+        <target>Progress made in the recycling of their house: {progress} / {total} AP</target>
       </segment>
     </unit>
     <unit id="1XGWhmm">
       <notes>
         <note category="german">Die Truhe von {citizen} ist komplett leer, das ganze Haus wurde bereits abgerissen.</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Die Truhe von {citizen} ist komplett leer, das ganze Haus wurde bereits abgerissen.</source>
-        <target>Die Truhe von {citizen} ist komplett leer, das ganze Haus wurde bereits abgerissen.</target>
+        <target>There is nothing left in {citizen}'s chest, the house has been totally recycled!</target>
       </segment>
     </unit>
     <unit id="LrUZw5u">
@@ -22899,11 +22846,262 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <notes>
         <note category="german">Einen anderen Bürger angreifen, bedeutet ihn körperlich zu verletzen... Die Chance ihn zu verletzen ist gering, aber die ganze Stadt wird davon erfahren...</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Einen anderen Bürger angreifen, bedeutet ihn körperlich zu verletzen... Die Chance ihn zu verletzen ist gering, aber die ganze Stadt wird davon erfahren...</source>
         <target>Attacking a citizen means you gotta get physical... You have a minimal chance of wounding them and the whole town will be told about it...</target>
+      </segment>
+    </unit>
+    <unit id="ownttVn" name="Das Gesamtregister ansehen">
+      <notes>
+        <note category="german">Das Gesamtregister ansehen</note>
+        <note category="from">twig:///templates/ajax/game/town/bank.html.twig;twig:///templates/ajax/game/town/catapult.html.twig;twig:///templates/ajax/game/town/construction.html.twig;twig:///templates/ajax/game/town/door.html.twig;twig:///templates/ajax/game/town/dump.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/game/town/well.html.twig;twig:///templates/ajax/game/town/workshop.html.twig</note>
+      </notes>
+      <segment>
+        <source>Das Gesamtregister ansehen</source>
+        <target>See the detailed town register.</target>
+      </segment>
+    </unit>
+    <unit id="JJjZLmq">
+      <notes>
+        <note category="german">Dieser Link bringt dich zum &lt;strong&gt;Großen Register&lt;/strong&gt;. Darin werden alle wichtigen Handlungen und Aktionen der Stadtbürger gespeichert...</note>
+        <note category="from">twig:///templates/ajax/game/town/bank.html.twig;twig:///templates/ajax/game/town/catapult.html.twig;twig:///templates/ajax/game/town/construction.html.twig;twig:///templates/ajax/game/town/door.html.twig;twig:///templates/ajax/game/town/dump.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/game/town/well.html.twig;twig:///templates/ajax/game/town/workshop.html.twig</note>
+      </notes>
+      <segment>
+        <source>Dieser Link bringt dich zum &lt;strong&gt;Großen Register&lt;/strong&gt;. Darin werden alle wichtigen Handlungen und Aktionen der Stadtbürger gespeichert...</source>
+        <target><![CDATA[This link lets you read the <strong>Great Register</strong> which records all actions carried out by citizens...]]></target>
+      </segment>
+    </unit>
+    <unit id="eOisfiB" name="Nichts Interessantes...">
+      <notes>
+        <note category="german">Nichts Interessantes...</note>
+        <note category="from">twig:///templates/ajax/game/inventory.html.twig</note>
+      </notes>
+      <segment>
+        <source>Nichts Interessantes...</source>
+        <target>Nothing of interest...</target>
+      </segment>
+    </unit>
+    <unit id="7ln_hQb" name="Zum Bau dieses Bauprojekts fehlen noch {ap} AP">
+      <notes>
+        <note category="german">Zum Bau dieses Bauprojekts fehlen noch {ap} AP</note>
+        <note category="from">twig:///templates/ajax/game/town/construction.html.twig</note>
+      </notes>
+      <segment>
+        <source>Zum Bau dieses Bauprojekts fehlen noch {ap} AP</source>
+        <target>The construction of this project requires an additional {ap} AP.</target>
+      </segment>
+    </unit>
+    <unit id="e1Ym_Ag">
+      <notes>
+        <note category="german">Das Stadttor ist &lt;span class="critical"&gt;geöffnet&lt;/span&gt;! Achtung: Wenn das Tor geschlossen wird, können alle Spieler, die sich außerhalb der Stadt befinden, nicht mehr rein.</note>
+        <note category="from">twig:///templates/ajax/game/town/door.html.twig</note>
+      </notes>
+      <segment>
+        <source>Das Stadttor ist &lt;span class="critical"&gt;geöffnet&lt;/span&gt;! Achtung: Wenn das Tor geschlossen wird, können alle Spieler, die sich außerhalb der Stadt befinden, nicht mehr rein.</source>
+        <target><![CDATA[The Town gates are <span class="critical">open</span>! Warning, if you close them while citizens are outside, they will not be able to get back in...]]></target>
+      </segment>
+    </unit>
+    <unit id="Xa1yd0S">
+      <notes>
+        <note category="german">&lt;strong&gt;Du bist erschöpft&lt;/strong&gt;, du kannst deshalb weder &lt;strong&gt;in die Außenwelt gehen&lt;/strong&gt;, noch &lt;strong&gt;das Stadttor öffnen&lt;/strong&gt;, noch &lt;strong&gt;es schließen&lt;/strong&gt;.</note>
+        <note category="from">twig:///templates/ajax/game/town/door.html.twig</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Du bist erschöpft&lt;/strong&gt;, du kannst deshalb weder &lt;strong&gt;in die Außenwelt gehen&lt;/strong&gt;, noch &lt;strong&gt;das Stadttor öffnen&lt;/strong&gt;, noch &lt;strong&gt;es schließen&lt;/strong&gt;.</source>
+        <target><![CDATA[<strong>You are exhausted</strong>, so you cannot <strong>go into the World Beyond</strong>, <strong>open the town gates</strong>, or <strong>close them</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="S5F9Bue">
+      <notes>
+        <note category="german">Trinke oder nimm einen Happen zu dir, aber unternimm etwas, um wieder in Schuss zu kommen!</note>
+        <note category="from">twig:///templates/ajax/game/town/door.html.twig</note>
+      </notes>
+      <segment>
+        <source>Trinke oder nimm einen Happen zu dir, aber unternimm etwas, um wieder in Schuss zu kommen!</source>
+        <target>Drink, eat or do something if you want to feel better again!</target>
+      </segment>
+    </unit>
+    <unit id="Be.3GRF">
+      <notes>
+        <note category="german">Klick hier, wenn du mit deiner Heldenfähigkeit &lt;strong&gt;diesen Registereintrag fälschen&lt;/strong&gt; möchtest...</note>
+        <note category="from">twig:///templates/ajax/game/log_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Klick hier, wenn du mit deiner Heldenfähigkeit &lt;strong&gt;diesen Registereintrag fälschen&lt;/strong&gt; möchtest...</source>
+        <target><![CDATA[Click here to use your hero skill to <strong>tamper with the registry entry</strong>...]]></target>
+      </segment>
+    </unit>
+    <unit id="AspdF7m" name="Ranking-Ausschluss">
+      <notes>
+        <note category="german">Ranking-Ausschluss</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/towns/list.html.twig;twig:///templates/ajax/soul/death.html.twig</note>
+      </notes>
+      <segment>
+        <source>Ranking-Ausschluss</source>
+        <target>Ranking Exclusion</target>
+      </segment>
+    </unit>
+    <unit id="XEwyP0J">
+      <notes>
+        <note category="german">Dieses Leben wird aus den Annalen der Geschichte getilgt. Du erhälst weder Seelenpunkte noch Auszeichnungen.</note>
+        <note category="from">twig:///templates/ajax/soul/death.html.twig</note>
+      </notes>
+      <segment>
+        <source>Dieses Leben wird aus den Annalen der Geschichte getilgt. Du erhälst weder Seelenpunkte noch Auszeichnungen.</source>
+        <target>Your life will be purged from the annals of history. You will not receive soul points or distinctions.</target>
+      </segment>
+    </unit>
+    <unit id="gLhMShO" name="Das wird dir in Zukunft schlaflose Nächte bereiten!">
+      <notes>
+        <note category="german">Das wird dir in Zukunft schlaflose Nächte bereiten!</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Das wird dir in Zukunft schlaflose Nächte bereiten!</source>
+        <target>Now check out the new torments!</target>
+      </segment>
+    </unit>
+    <unit id="k8ELM3Z" name="Erkunde die Außenwelt:">
+      <notes>
+        <note category="german">Erkunde die Außenwelt:</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Erkunde die Außenwelt:</source>
+        <target>Explore the World Beyond:</target>
+      </segment>
+    </unit>
+    <unit id="99xLniA" name="Die Weltkarte ist nun größer. Viel größer!">
+      <notes>
+        <note category="german">Die Weltkarte ist nun größer. Viel größer!</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Die Weltkarte ist nun größer. Viel größer!</source>
+        <target>The world map is now bigger. Much bigger!</target>
+      </segment>
+    </unit>
+    <unit id="a8O8WQf" name="Du kannst nun Ruinen durch ein Minispiel erkunden.">
+      <notes>
+        <note category="german">Du kannst nun Ruinen durch ein Minispiel erkunden.</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du kannst nun Ruinen durch ein Minispiel erkunden.</source>
+        <target>You can now explore ruins in person through a minigame.</target>
+      </segment>
+    </unit>
+    <unit id="nuFU1XW" name="Du kannst nun Nachts in der Außenwelt campen (auf eigene Gefahr natürlich)">
+      <notes>
+        <note category="german">Du kannst nun Nachts in der Außenwelt campen (auf eigene Gefahr natürlich)</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du kannst nun Nachts in der Außenwelt campen (auf eigene Gefahr natürlich)</source>
+        <target>You can now camp outside overnight (at your own risk of course).</target>
+      </segment>
+    </unit>
+    <unit id="kI9jzjA" name="Von nun an ist die Nacht sowohl Freund als auch Feind...">
+      <notes>
+        <note category="german">Von nun an ist die Nacht sowohl Freund als auch Feind...</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Von nun an ist die Nacht sowohl Freund als auch Feind...</source>
+        <target>From now on the night is your ally and your enemy...</target>
+      </segment>
+    </unit>
+    <unit id="t7TzeHz">
+      <notes>
+        <note category="german">Du könntest als der Schamane der Stadt enden! Koste die Macht dieses mystischen Voodoo-Mannes, aber denk an deine Verantwortung für die Seelen der Verdammten...</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du könntest als der Schamane der Stadt enden! Koste die Macht dieses mystischen Voodoo-Mannes, aber denk an deine Verantwortung für die Seelen der Verdammten...</source>
+        <target>You might end up as the town Shaman! Taste the power of this mystical voodoo man, but don't forget your responsibilities to the souls of the lost...</target>
+      </segment>
+    </unit>
+    <unit id="YZ9vmmI" name="Es gibt keine &quot;vorbereiteten&quot; Gebäude. Du bist auf dich allein gestellt.">
+      <notes>
+        <note category="german">Es gibt keine "vorbereiteten" Gebäude. Du bist auf dich allein gestellt.</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Es gibt keine "vorbereiteten" Gebäude. Du bist auf dich allein gestellt.</source>
+        <target>There are no 'preconstructed' buildings. You're on your own.</target>
+      </segment>
+    </unit>
+    <unit id="C1Uk2nl" name="Versuch dich an einer Pandämonium-Stadt, wenn du dich traust...">
+      <notes>
+        <note category="german">Versuch dich an einer Pandämonium-Stadt, wenn du dich traust...</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Versuch dich an einer Pandämonium-Stadt, wenn du dich traust...</source>
+        <target>Try out a Hardcore Town. If you think you're up to it...</target>
+      </segment>
+    </unit>
+    <unit id="qDTyCV1" name="Städte werden nun basierend auf ihrem Überlebensfaktor bewertet.">
+      <notes>
+        <note category="german">Städte werden nun basierend auf ihrem Überlebensfaktor bewertet.</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Städte werden nun basierend auf ihrem Überlebensfaktor bewertet.</source>
+        <target>Towns are now classed in terms of their overall survival ranking.</target>
+      </segment>
+    </unit>
+    <unit id="wtNGNwN" name="Du kannst nun angreifen wen immer du willst, selbst wenn du kein Ghul bist.">
+      <notes>
+        <note category="german">Du kannst nun angreifen wen immer du willst, selbst wenn du kein Ghul bist.</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du kannst nun angreifen wen immer du willst, selbst wenn du kein Ghul bist.</source>
+        <target>You can now attack whoever you want even if you're not a Ghoul.</target>
+      </segment>
+    </unit>
+    <unit id="cs1EKvG" name="Um Baupläne zu finden musst du nun in Gebäuden in der Außenwelt campen.">
+      <notes>
+        <note category="german">Um Baupläne zu finden musst du nun in Gebäuden in der Außenwelt campen.</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Um Baupläne zu finden musst du nun in Gebäuden in der Außenwelt campen.</source>
+        <target>Now you need to camp in the buildings in the desert in order to unlock the associated blueprint.</target>
+      </segment>
+    </unit>
+    <unit id="ejSpLIg">
+      <notes>
+        <note category="german">Diese letzten Nächte des Überlebens haben deiner verlorenen Seele zugesetzt, aber du bist daraus gestärkt hervorgegangen. Nun bist du bereit für die wirklichen Herausforderungen, die jetzt beginnen.</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Diese letzten Nächte des Überlebens haben deiner verlorenen Seele zugesetzt, aber du bist daraus gestärkt hervorgegangen. Nun bist du bereit für die wirklichen Herausforderungen, die jetzt beginnen.</source>
+        <target>These last few nights of survival have left your lost soul battered but reinforced. You are ready for the real challenges to begin.</target>
+      </segment>
+    </unit>
+    <unit id="25LN4T2">
+      <notes>
+        <note category="german">Der Diebstahl, den du gerade begangen hast, wurde bemerkt! Die Bürger werden gewarnt, dass du den(die,das) {item} bei {victim} gestohlen hast.</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Der Diebstahl, den du gerade begangen hast, wurde bemerkt! Die Bürger werden gewarnt, dass du den(die,das) {item} bei {victim} gestohlen hast.</source>
+        <target>Der Diebstahl, den du gerade begangen hast, wurde bemerkt! Die Bürger werden gewarnt, dass du den(die,das) {item} bei {victim} gestohlen hast.</target>
+      </segment>
+    </unit>
+    <unit id="ljh7pXv">
+      <notes>
+        <note category="german">&lt;strong&gt;Das Stadttor ist geschlossen&lt;/strong&gt;, eine Rückkehr ist nicht möglich!</note>
+        <note category="from">twig:///templates/scripts/errors/beyond.txt.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Das Stadttor ist geschlossen&lt;/strong&gt;, eine Rückkehr ist nicht möglich!</source>
+        <target><![CDATA[<strong>Das Stadttor ist geschlossen</strong>, eine Rückkehr ist nicht möglich!]]></target>
       </segment>
     </unit>
   </file>

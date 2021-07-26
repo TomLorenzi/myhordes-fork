@@ -5425,10 +5425,22 @@
         <target>Du gibst deinem {tamer_dog} {items_consume}, die er gierig hinunterschlingt.{hr}Es vergeht keine Minute bis die Drogen Wirkung zeigen: Dein Fifi hat nun leuchtende Augen, ein glänzendes Fell und einen wedelnden Schwanz.</target>
       </segment>
     </unit>
-    <unit id="stXotvA">
+    <unit id="gf4WieX">
       <segment>
-        <source>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.</source>
-        <target>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.</target>
+        <source>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.</source>
+        <target>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.</target>
+      </segment>
+    </unit>
+    <unit id="2bqTMKS">
+      <segment>
+        <source>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.{hr}Die Kiste ist nicht leer...</source>
+        <target>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.{hr}Die Kiste ist nicht leer...</target>
+      </segment>
+    </unit>
+    <unit id="Np_I24h">
+      <segment>
+        <source>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.{hr}{item_from} ist &lt;strong&gt;leer&lt;/strong&gt;.</source>
+        <target><![CDATA[Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.{hr}{item_from} ist <strong>leer</strong>.]]></target>
       </segment>
     </unit>
     <unit id="dvSEUyn">
@@ -5614,7 +5626,7 @@
     <unit id="nnxBJDq" name="Die Waffe hat &lt;strong&gt;keine Batterie mehr&lt;/strong&gt;.">
       <segment>
         <source>Die Waffe hat &lt;strong&gt;keine Batterie mehr&lt;/strong&gt;.</source>
-        <target><![CDATA[Die Waffe hat <strong>keine Batterie mehr</strong>.]]></target>
+        <target><![CDATA[Die Waffe <strong>hat keine Batterie</strong> mehr.]]></target>
       </segment>
     </unit>
     <unit id="3YKCcgW">
@@ -5642,7 +5654,7 @@
                 other {# Pkte. Angriff}
               }
             }
-            other {# pkt attacke}
+            other {{watchpoint__copy} pkt attacke}
           }
         </target>
       </segment>
@@ -5669,6 +5681,24 @@
       <segment>
         <source>&lt;nt-morphed&gt;Gute Nachrichten: Es ist noch Wasser im Kanister!&lt;/nt-morphed&gt;&lt;t-morphed&gt;&lt;strong&gt;Der Kanister ist LEER&lt;/strong&gt;!&lt;/t-morphed&gt;</source>
         <target><![CDATA[<nt-morphed>Gute Nachrichten: Es ist noch Wasser im Kanister!</nt-morphed><t-morphed><strong>Der Kanister ist LEER</strong>!</t-morphed>]]></target>
+      </segment>
+    </unit>
+    <unit id="x2hIMFw">
+      <segment>
+        <source>Du stellst den(die) {item} bei dir daheim auf. Zugegeben, es sieht nicht gerade ästhetisch aus, aber mal ganz ehrlich: Wen kümmert das?{hr}Dieser Gegenstand erweitert deine Truhe dauerhaft um soviele freie Plätze: &lt;strong&gt;{home_storage}&lt;/strong&gt;.</source>
+        <target><![CDATA[Du stellst den(die) {item} bei dir daheim auf. Zugegeben, es sieht nicht gerade ästhetisch aus, aber mal ganz ehrlich: Wen kümmert das?{hr}Dieser Gegenstand erweitert deine Truhe dauerhaft um soviele freie Plätze: <strong>{home_storage}</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="Oww.AzB">
+      <segment>
+        <source>Sorgfältig befestigst du bei dir daheim ein(e) {item}. So und das hält jetzt, so viel steht schon mal fest.{hr}Dieser Gegenstand gibt deinem Haus permament &lt;strong&gt;{home_defense} zusätzliche Verteidigungspunkt(e).&lt;/strong&gt;</source>
+        <target><![CDATA[Sorgfältig befestigst du bei dir daheim ein(e) {item}. So und das hält jetzt, so viel steht schon mal fest.{hr}Dieser Gegenstand gibt deinem Haus permament <strong>{home_defense} zusätzliche Verteidigungspunkt(e).</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="H.4hGj8" name="Du hast bereits volle AP.">
+      <segment>
+        <source>Du hast bereits volle AP.</source>
+        <target>Du hast bereits volle AP.</target>
       </segment>
     </unit>
   </file>

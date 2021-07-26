@@ -400,7 +400,7 @@
     <unit id="QI93AMS" name="Event-Stadt">
       <notes>
         <note category="german">Event-Stadt</note>
-        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/towns/list.html.twig;twig:///templates/ajax/ghost/create_town.html.twig;twig:///templates/ajax/ghost/intro.html.twig;twig:///templates/ajax/soul/town_list.html.twig</note>
       </notes>
       <segment>
         <source>Event-Stadt</source>
@@ -749,7 +749,7 @@
     </unit>
     <unit id="7L3ndtf" name="Abstimmung aller Piktogramme:">
       <notes>
-        <note category="german">Abstimmung aller Piktogramme:</note>
+        <note category="german">Alle Auszeichnungen vergeben</note>
         <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
@@ -1752,6 +1752,79 @@
       <segment>
         <source>Nachtphase</source>
         <target>Fase nocturna</target>
+      </segment>
+    </unit>
+    <unit id="W907qRt">
+      <notes>
+        <note category="german">Diese Stadt verfügt über eine Zugangsbeschränkung. Die Mitglieder deiner Koalition können dir nicht automatisch folgen, wenn du diese Stadt betrittst. Fortfahren?</note>
+        <note category="from">twig:///templates/ajax/ghost/intro.html.twig</note>
+      </notes>
+      <segment>
+        <source>Diese Stadt verfügt über eine Zugangsbeschränkung. Die Mitglieder deiner Koalition können dir nicht automatisch folgen, wenn du diese Stadt betrittst. Fortfahren?</source>
+        <target>Este pueblo tiene un cupo limitado. Los miembros de su alianza no pueden seguirlo automáticamente cuando ingrese a esta ciudad. ¿Continuar?</target>
+      </segment>
+    </unit>
+    <unit id="T4fjCif">
+      <notes>
+        <note category="german">Die folgenden Koalitionsmitglieder können dir nicht in die ausgewählte Stadt folgen. Fortfahren?</note>
+        <note category="from">twig:///templates/ajax/ghost/intro.html.twig</note>
+      </notes>
+      <segment>
+        <source>Die folgenden Koalitionsmitglieder können dir nicht in die ausgewählte Stadt folgen. Fortfahren?</source>
+        <target>Los siguientes miembros de la alianza no pueden seguirte a el pueblo seleccionado. ¿Continuar?</target>
+      </segment>
+    </unit>
+    <unit id="8X5XTC5" name="Spielhilfe ansehen">
+      <notes>
+        <note category="german">Spielhilfe ansehen</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Spielhilfe ansehen</source>
+        <target>Ver la ayuda del juego</target>
+      </segment>
+    </unit>
+    <unit id="9RpTHEU" name="Spielen, Lernen und STERBEN!">
+      <notes>
+        <note category="german">Spielen, Lernen und STERBEN!</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Spielen, Lernen und STERBEN!</source>
+        <target>¡Juega, aprende y MUERE!</target>
+      </segment>
+    </unit>
+    <unit id="RSDaSun" name="Als Event-Stadt markieren">
+      <notes>
+        <note category="german">Als Event-Stadt markieren</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Als Event-Stadt markieren</source>
+        <target>Als Event-Stadt markieren</target>
+      </segment>
+    </unit>
+    <unit id="3EdNfST">
+      <notes>
+        <note category="german">Event-Städte werden nicht ins Ranking aufgenommen und erhalten eine spezielle Markierung in der Stadtliste.</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Event-Städte werden nicht ins Ranking aufgenommen und erhalten eine spezielle Markierung in der Stadtliste.</source>
+        <target>Event-Städte werden nicht ins Ranking aufgenommen und erhalten eine spezielle Markierung in der Stadtliste.</target>
+      </segment>
+    </unit>
+    <unit id="yP7t0FZ">
+      <notes>
+        <note category="german">Dies ist eine Event-Stadt, sie wird nach ihrem Ende nicht im Ranking erscheinen. Möglicherweise gelten unübliche Regeln für diese Stadt.</note>
+        <note category="from">twig:///templates/ajax/ghost/intro.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Dies ist eine Event-Stadt, sie wird nach ihrem Ende nicht im Ranking erscheinen. Möglicherweise gelten unübliche Regeln für diese Stadt.</source>
+        <target>Dies ist eine Event-Stadt, sie wird nach ihrem Ende nicht im Ranking erscheinen. Möglicherweise gelten unübliche Regeln für diese Stadt.</target>
       </segment>
     </unit>
   </file>

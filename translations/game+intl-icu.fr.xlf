@@ -518,7 +518,7 @@
       </notes>
       <segment>
         <source>Du kannst keinen weiteren schweren Gegenstand tragen!</source>
-        <target>Vous ne pouvez pas porter plus d'un encombrant !</target>
+        <target><![CDATA[Vous ne pouvez <strong>pas</strong> prendre cet objet.<hr />Vous êtes limité(e) à un objet encombrant à la fois sur vous.]]></target>
       </segment>
     </unit>
     <unit id="QRxC8ol" name="Du kannst für eine Weile keine weiteren Gegenstände aus der Bank entnehmen.">
@@ -970,7 +970,7 @@
       </notes>
       <segment>
         <source>Anzeigen können zu deiner Verbannung oder sogar Hinrichtung führen. Vielleicht solltest du das Verhältnis zwischen dir und dem Rest der Stadt verbessern ...</source>
-        <target>Les plaintes peuvent entraîner votre bannissement ou même votre exécution. Vous devriez peut-être améliorer votre relation avec le reste de la ville ...</target>
+        <target>Les plaintes peuvent entraîner votre bannissement ou même votre exécution. Vous devriez peut-être améliorer votre relation avec le reste de la ville...</target>
       </segment>
     </unit>
     <unit id="mvdJ1gZ" name="Meine Spezialaktionen">
@@ -1524,8 +1524,7 @@
       </notes>
       <segment>
         <source>Einmal pro Tag können bestimmte Konstruktionen umsonst verbessert werden (ohne Einsatz von AP oder Ressourcen). Das nennt sich die Verbesserung des Tages. Jede Verbesserung bringt verschiedene Vorteile mit sich (Verteidigung, Wasser, spezielle Fähigkeiten...). Es ist eure Aufgabe die Verbesserung des Tages zu wählen, die euch am geeignetsten scheint.</source>
-        <target>Une fois par jour, certains chantiers peuvent être améliorés gratuitement (sans PA, ni ressource) : c'est ce qu'on appelle l'évolution du jour.
-                  Chaque amélioration apporte des avantages divers (défense, eau, capacités spéciales...). À vous de choisir l'évolution du jour en votant pour celle qui vous semble la plus adaptée.</target>
+        <target><![CDATA[Une fois par jour, certains chantiers peuvent être améliorés gratuitement (sans PA, ni ressource) : c'est ce qu'on appelle l'<strong>évolution du jour</strong>.<br />Chaque amélioration apporte des avantages divers (défense, eau, capacités spéciales...). <strong>À vous de choisir l'évolution du jour en votant pour celle qui vous semble la plus adaptée.</strong>]]></target>
       </segment>
     </unit>
     <unit id="PhutSSq">
@@ -1575,7 +1574,7 @@
       </notes>
       <segment>
         <source>Max. Level</source>
-        <target>Niveau Max.</target>
+        <target>Niveau max.</target>
       </segment>
     </unit>
     <unit id="oda4Ktu" name="Level {lv}">
@@ -2158,7 +2157,7 @@
       </notes>
       <segment>
         <source>{ruin} durchsuchen</source>
-        <target>Fouiller {ruin}</target>
+        <target>Fouiller : {ruin}</target>
       </segment>
     </unit>
     <unit id="ZaxaGah" name="Zone freiräumen">
@@ -2288,7 +2287,7 @@
       </notes>
       <segment>
         <source>Du kannst in einer neuen Stadt wiedergeboren werden und das so oft wie du möchtest. Sei erfinderisch, probiere verschiedene Optionen aus und finde deinen eigenen Spielstil!</source>
-        <target>Vous pouvez renaître dans une nouvelle ville aussi souvent que vous le souhaitez. Soyez inventif, essayez différentes options et trouvez votre propre style de jeu !</target>
+        <target>Vous pouvez vous incarner dans une nouvelle ville aussi souvent que vous le désirez. Jouez selon votre style, expérimentez, soyez imaginatif !</target>
       </segment>
     </unit>
     <unit id="em6PCOi" name="Wiedergeboren werden">
@@ -2547,7 +2546,7 @@
     <unit id="m0NU7Ex" name="Angststarre">
       <notes>
         <note category="german">Angststarre</note>
-        <note category="from">db://CitizenStatus</note>
+        <note category="from">db://CitizenStatus;twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
         <source>Angststarre</source>
@@ -3401,7 +3400,7 @@
       </notes>
       <segment>
         <source>Hat jemand in letzter Zeit von {citizen} gehört? Er scheint verschwunden zu sein ...</source>
-        <target>Quelqu'un a-t-il entendu parler de {citizen} récemment ? Il semble avoir disparu ...</target>
+        <target>Quelqu'un a-t-il entendu parler de {citizen} récemment ? Il semble avoir disparu...</target>
       </segment>
     </unit>
     <unit id="Z05vQEU">
@@ -3741,7 +3740,7 @@
       </notes>
       <segment>
         <source>Meine objekte</source>
-        <target>Mes objets</target>
+        <target>Objets</target>
       </segment>
     </unit>
     <unit id="LQgPbVT" name="Nordosten">
@@ -4081,7 +4080,7 @@
       </notes>
       <segment>
         <source>Leere Truhe</source>
-        <target>Coffre vide</target>
+        <target>Coffre vide...</target>
       </segment>
     </unit>
     <unit id="a8zlw81">
@@ -4431,7 +4430,7 @@
       </notes>
       <segment>
         <source>Anmerkung: Verteidigungsgegenstände (Holzplatten etc...) müssen in der Bank abgelegt werden.</source>
-        <target>Note : les objets de défense (plaques de bois, ...etc.) sont à poser dans la Banque.</target>
+        <target>Note : les objets de défense (plaques de bois, etc.) sont à poser dans la Banque.</target>
       </segment>
     </unit>
     <unit id="fTFJ5hh" name="Nachtwächter">
@@ -4792,7 +4791,7 @@
       </notes>
       <segment>
         <source>Du kannst nur einen Behälter auf einmal tragen.</source>
-        <target>Vous ne pouvez porter qu'un conteneur à la fois.</target>
+        <target><![CDATA[Vous ne pouvez <strong>pas</strong> prendre cet objet.<hr />Vous êtes limité(e) à un conteneur à la fois sur vous.]]></target>
       </segment>
     </unit>
     <unit id="Pq_GOUr">
@@ -7642,7 +7641,7 @@
       </notes>
       <segment>
         <source>"Einen Schritt weiter..." stand auf {victim}s Fußmatte. Ihre Explosion hat einen bleibenden Eindruck bei dir hinterlassen. Wenn du noch laufen kannst, such dir besser einen Arzt.</source>
-        <target>"Un pas de plus ...", disait le paillasson de {victim}. L'explosion vous a laissé une impression durable. Si vous pouvez encore marcher, mieux vaut trouver un médecin.</target>
+        <target>Oulàlà, un de vos concitoyens ne veut visiblement pas que l'on fouille dans ses affaires. Un petit gadget explosif vient de se déclencher sous vos pieds et vous voilà projeté contre un mur... blessé !</target>
       </segment>
     </unit>
     <unit id="Eg1H7Qy" name="Während Zombies die Zone kontrollieren, kannst du nicht graben.">
@@ -8203,7 +8202,7 @@
       </notes>
       <segment>
         <source>Dieser Bürger hat keine letzten Worte hinterlassen ...</source>
-        <target>Ce citoyen n'a pas laissé de dernier mot ...</target>
+        <target>Ce citoyen n'a pas laissé de dernier message...</target>
       </segment>
     </unit>
     <unit id="O9RB2q8" name="Letzte Worte:">
@@ -8273,7 +8272,7 @@
       </notes>
       <segment>
         <source>{citizen} hat sein Versteck verlassen.</source>
-        <target>{citizen} a quitté sa planque.</target>
+        <target>{citizen} a quitté sa planque...</target>
       </segment>
     </unit>
     <unit id="63sz5vi" name="Akteneinsicht wird beantragt...">
@@ -8579,7 +8578,7 @@
       </notes>
       <segment>
         <source>Du hast {count} Aktionspunkt(e) benutzt.</source>
-        <target>{raw_count, plural, =0 {Vous avez utilisé {count} point d'action} one {Vous avez utilisé {count} point d'action} other {Vous avez utilisé {count} points d'action}}</target>
+        <target>{raw_count, plural,  one {Vous avez utilisé {count} point d'action.} other {Vous avez utilisé {count} points d'action.}}</target>
       </segment>
     </unit>
     <unit id="KYKuCCa">
@@ -10646,7 +10645,7 @@
     <unit id="9NwZjWy" name="Teilnehmen">
       <notes>
         <note category="german">Teilnehmen</note>
-        <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/construction.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig</note>
       </notes>
       <segment>
         <source>Teilnehmen</source>
@@ -17464,7 +17463,7 @@
       </notes>
       <segment>
         <source>Du hast dafür {count} Aktionspunkt(e) verbraucht.</source>
-        <target>{raw_count, plural, =0 {Vous avez utilisé {count} point d'action} one {Vous avez utilisé {count} point d'action} other {Vous avez utilisé {count} points d'action}}</target>
+        <target>{raw_count, plural, one {Vous avez utilisé {count} point d'action.} other {Vous avez utilisé {count} points d'action.}}</target>
       </segment>
     </unit>
     <unit id="tTMCru5">
@@ -18856,7 +18855,7 @@
       </notes>
       <segment>
         <source>Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.</source>
-        <target>Malheureusement, le sable du désert a déjà recouvert jusqu'à l'existence de votre ville... La communauté s'est éteinte..</target>
+        <target>Malheureusement, le sable du désert a déjà recouvert jusqu'à l'existence de votre ville... La communauté s'est éteinte.</target>
       </segment>
     </unit>
     <unit id="eunLp3W" name="Ich habe Magenschmerzen...">
@@ -19196,18 +19195,17 @@
       </notes>
       <segment>
         <source>{username} hat dich angegriffen!</source>
-        <target>{username} vous a aggressé !</target>
+        <target>{username} vous a agressé !</target>
       </segment>
     </unit>
     <unit id="kPJRUv1">
       <notes>
         <note category="german">Als du es dir gerade gemütlich machen wolltest, wurdest du von {username} übel angegangen. Du hast einiges abbekommen, aber auch ordentlich ausgeteilt! Zum Glück hast du dir nichts gebrochen.</note>
-        <note category="state">new</note>
         <note category="from">php:///src/Controller/Messages/MessageTownMessageController.php</note>
       </notes>
       <segment>
         <source>Als du es dir gerade gemütlich machen wolltest, wurdest du von {username} übel angegangen. Du hast einiges abbekommen, aber auch ordentlich ausgeteilt! Zum Glück hast du dir nichts gebrochen.</source>
-        <target>Als du es dir gerade gemütlich machen wolltest, wurdest du von {username} übel angegangen. Du hast einiges abbekommen, aber auch ordentlich ausgeteilt! Zum Glück hast du dir nichts gebrochen.</target>
+        <target>Alors que vous étiez bien tranquillement chez vous, le citoyen {username} est venu à votre rencontre, vous a bousculé avant de s'en prendre violemment à vous ! Vous vous êtes bien défendu(e), heureusement et vous n'avez pas hésité à répliquer... Rien de cassé. Les autres citoyens ont été informés.</target>
       </segment>
     </unit>
     <unit id="0XjfB3Z" name="{username} hat dich angegriffen und verletzt!">
@@ -19217,18 +19215,17 @@
       </notes>
       <segment>
         <source>{username} hat dich angegriffen und verletzt!</source>
-        <target>{username} vous a aggressé et blessé !</target>
+        <target>{username} vous a agressé et blessé !!</target>
       </segment>
     </unit>
     <unit id="WGi7LUy">
       <notes>
         <note category="german">Als du es dir gerade gemütlich machen wolltest, wurdest du von {username} übel angegangen. Du hast einiges abbekommen, aber auch ordentlich ausgeteilt! Leider wurdest du bei dem Angriff verletzt!</note>
-        <note category="state">new</note>
         <note category="from">php:///src/Controller/Messages/MessageTownMessageController.php</note>
       </notes>
       <segment>
         <source>Als du es dir gerade gemütlich machen wolltest, wurdest du von {username} übel angegangen. Du hast einiges abbekommen, aber auch ordentlich ausgeteilt! Leider wurdest du bei dem Angriff verletzt!</source>
-        <target>Als du es dir gerade gemütlich machen wolltest, wurdest du von {username} übel angegangen. Du hast einiges abbekommen, aber auch ordentlich ausgeteilt! Leider wurdest du bei dem Angriff verletzt!</target>
+        <target>Alors que vous étiez bien tranquillement chez vous, le citoyen {username} est venu à votre rencontre, vous a bousculé avant de s'en prendre violemment à vous ! Vous vous êtes bien défendu(e) mais l'affrontement vous a coûté une blessure ! Les autres citoyens ont été informés.</target>
       </segment>
     </unit>
     <unit id="cyaNyje" name="Verletzt">
@@ -19352,7 +19349,7 @@
       </notes>
       <segment>
         <source>{zombies} Zombies wurden von unseren Nachtwächtern gemetzelt!</source>
-        <target>{zombies} zombies ont été pulvérisés grâce à nos valereux veilleurs !</target>
+        <target>{zombies} zombies ont été pulvérisés grâce à nos valeureux veilleurs !</target>
       </segment>
     </unit>
     <unit id="VWlZ7Eh">
@@ -19593,7 +19590,7 @@
       </notes>
       <segment>
         <source>Die Nachtwächter der letzten nacht zeigten unglaublichen Mut, es ist nur schade, dass die Zombies offensichtlich mit etwas anderem beschäftigt waren!</source>
-        <target>Les veilleurs de la dernière nuit ont fait preuve d'un courage incroyable, c'est juste dommage que les zombies étaient occupés à autre chose!</target>
+        <target>Les veilleurs de la dernière nuit ont fait preuve d'un courage incroyable, c'est juste dommage que les zombies étaient occupés à autre chose !</target>
       </segment>
     </unit>
     <unit id="T9nn1le">
@@ -20471,7 +20468,7 @@
       </notes>
       <segment>
         <source>&lt;strong&gt;Achtung&lt;/strong&gt;: Befinden sich nicht genügend Rationen Wasser im Brunnen, arbeiten manche Konstruktionen (wie z.B. der Wasserturm) beim Angriff nicht mit voller Stärke!</source>
-        <target><![CDATA[<strong>Attention</strong> : sans eau, certaines évolutions (comme les Aqua-tourelles) ne fonctionneront pas lors de l'attaque !]]></target>
+        <target><![CDATA[<strong>Attention :</strong> sans eau, certaines évolutions (comme les aqua-tourelles) ne fonctionneront pas lors de l'attaque !]]></target>
       </segment>
     </unit>
     <unit id="5sc0Prt" name="Diese Leiche wurde bereits außerhalb der Stadt entsorgt!">
@@ -20491,7 +20488,7 @@
       </notes>
       <segment>
         <source>Diese Information gibt dir einen Hinweis darauf, ob Aufklärer gewöhnlicherweise hier vorbeikommen.&lt;br /&gt;&lt;em&gt;Je mehr eine Zone erforscht wurde, desto geringer ist die Chance bei &lt;strong&gt;Betreten&lt;/strong&gt; entdeckt zu werden (du kennst dann ein paar Schleichwege etc...).&lt;/em&gt;</source>
-        <target><![CDATA[Cette information vous indique si des éclaireurs ont l'habitude de passer par ici.<br /><em>Plus le secteur est connu, moins vous avez de chances de vous y faire repérer <strong>lorsque vous y entrez</strong> (vous connaissez quelques petits chemins cachés..etc.)</em>]]></target>
+        <target><![CDATA[Cette information vous indique si des éclaireurs ont l'habitude de passer par ici.<br /><em>Plus le secteur est connu, moins vous avez de chances de vous y faire repérer <strong>lorsque vous y entrez</strong> (vous connaissez quelques petits chemins cachés...)</em>]]></target>
       </segment>
     </unit>
     <unit id="7N1Upza">
@@ -21237,7 +21234,7 @@
       </notes>
       <segment>
         <source>Verteidigungsgegenstände (Blechplatten etc...) müssen in der Truhe abgelegt werden.</source>
-        <target>Les objets de défense (plaques de tôle, ...etc) sont à poser dans le Coffre.</target>
+        <target>Les objets de défense (plaques de tôle, etc.) sont à poser dans le Coffre.</target>
       </segment>
     </unit>
     <unit id="A9mtMsb" name="Wächterbonus">
@@ -21387,12 +21384,11 @@
     <unit id="sG6LFYJ" name="Die Bank enthält zur Zeit keine Gegenstände, die bearbeitet werden können...">
       <notes>
         <note category="german">Die Bank enthält zur Zeit keine Gegenstände, die bearbeitet werden können...</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/workshop.html.twig</note>
       </notes>
       <segment>
         <source>Die Bank enthält zur Zeit keine Gegenstände, die bearbeitet werden können...</source>
-        <target>Die Bank enthält zur Zeit keine Gegenstände, die bearbeitet werden können...</target>
+        <target>Il n'y a rien à transformer dans la Banque de la ville pour le moment...</target>
       </segment>
     </unit>
     <unit id="gLXdI1z" name="Diskussionen im Werkstatt-Forum">
@@ -22085,7 +22081,7 @@
       </notes>
       <segment>
         <source>{deads} Tot</source>
-        <target>{deads, plural, =0 {# mort} one {1 mort} other {# morts}}</target>
+        <target>{deads, plural, one {1 mort} other {# morts}}</target>
       </segment>
     </unit>
     <unit id="6ntsFNr">
@@ -22205,7 +22201,7 @@
       </notes>
       <segment>
         <source>Verteidigungsgegenstände (Blechplatten usw...) müssen in der Truhe abgelegt werden.</source>
-        <target>Les objets de défense (plaques de tôle, ...etc.) sont à poser dans le Coffre.</target>
+        <target>Les objets de défense (plaques de tôle, etc.) sont à poser dans le Coffre.</target>
       </segment>
     </unit>
     <unit id="HUYhE2a" name="kein Verteidigungsbonus">
@@ -22378,14 +22374,14 @@
         <target>Plus d'eau !</target>
       </segment>
     </unit>
-    <unit id="DjCbLrn">
+    <unit id=".4llLEr">
       <notes>
-        <note category="german">&lt;strong&gt;Verlust der Zonenkontrolle&lt;/strong&gt;: Die Suchen der Bürger wurden unterbrochen!</note>
+        <note category="german">&lt;strong&gt;Verlust der Zonenkontrolle&lt;/strong&gt;: Die Suchen von {citizen} wurden unterbrochen!</note>
         <note category="from">db://LogEntryTemplate</note>
       </notes>
       <segment>
-        <source>&lt;strong&gt;Verlust der Zonenkontrolle&lt;/strong&gt;: Die Suchen der Bürger wurden unterbrochen!</source>
-        <target><![CDATA[<strong>Perte de contrôle</strong> : les fouilles de Citoyen ont été interrompues !]]></target>
+        <source>&lt;strong&gt;Verlust der Zonenkontrolle&lt;/strong&gt;: Die Suchen von {citizen} wurden unterbrochen!</source>
+        <target><![CDATA[<strong>Perte de contrôle</strong> : les fouilles de {citizen} ont été interrompues !]]></target>
       </segment>
     </unit>
     <unit id="2L4fAWv">
@@ -22496,7 +22492,17 @@
       </notes>
       <segment>
         <source>In der Horde der Zombies wurden {num} ehemalige Bürger gesichtet, die in der Aussenwelt gestorben sind und sich der Stadt nun zähnefletschend und mit düsterem Blick nähern...</source>
-        <target>En plus de cette horde, {num} anciens citoyens morts dans l'Outre-Monde sont revenus, les dents en avant et le regard morne...</target>
+        <target><![CDATA[
+            {ref__icu, select,
+                on {
+                    {num, plural,
+                    one {En plus de cette horde, <span>#</span> ancien citoyen mort dans l'Outre-Monde est revenu, les dents en avant et le regard morne...}
+                    other {En plus de cette horde, <span>#</span> anciens citoyens morts dans l'Outre-Monde sont revenus, les dents en avant et le regard morne...}
+                    }
+                }
+                other {En plus de cette horde, <span>{num__copy}</span> anciens citoyens morts dans l'Outre-Monde sont revenus, les dents en avant et le regard morne...}
+            }
+        ]]></target>
       </segment>
     </unit>
     <unit id="DLc6Njb">
@@ -22536,7 +22542,7 @@
       </notes>
       <segment>
         <source>{points} Punkt(e)</source>
-        <target>{points, plural, =0 {# point} one {1 point} other {# points}}</target>
+        <target>{points, plural, one {1 point} other {# points}}</target>
       </segment>
     </unit>
     <unit id="uAj26XB" name="Schließen">
@@ -22563,12 +22569,11 @@
     <unit id="BnOANPI">
       <notes>
         <note category="german">Mehrere Brandherde wurden im Reaktorkern gesichtet, bevor er komplett in Flammen aufging. Kurz danach wurde das gesamte Gebiet von einem grünen Blitz vollkommen verwüstet. Die wenigen Überlebenden sind innerhalb nur weniger Sekunden an Strahlenkrankheit gestorben. Was für ein Ende!</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
         <source>Mehrere Brandherde wurden im Reaktorkern gesichtet, bevor er komplett in Flammen aufging. Kurz danach wurde das gesamte Gebiet von einem grünen Blitz vollkommen verwüstet. Die wenigen Überlebenden sind innerhalb nur weniger Sekunden an Strahlenkrankheit gestorben. Was für ein Ende!</source>
-        <target>Mehrere Brandherde wurden im Reaktorkern gesichtet, bevor er komplett in Flammen aufging. Kurz danach wurde das gesamte Gebiet von einem grünen Blitz vollkommen verwüstet. Die wenigen Überlebenden sind innerhalb nur weniger Sekunden an Strahlenkrankheit gestorben. Was für ein Ende!</target>
+        <target>Plusieurs incendies se sont déclarés au coeur de notre Réacteur avant que ce dernier ne s'embrase totalement. Puis un grand flash vert a balayé et empoisonné toute la région. Il n'a fallu que quelques secondes aux rares survivants pour périr irradiés. Un beau final !</target>
       </segment>
     </unit>
     <unit id="W8upWpv">
@@ -22755,11 +22760,260 @@
       <notes>
         <note category="german">Einen anderen Bürger angreifen, bedeutet ihn körperlich zu verletzen... Die Chance ihn zu verletzen ist gering, aber die ganze Stadt wird davon erfahren...</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Einen anderen Bürger angreifen, bedeutet ihn körperlich zu verletzen... Die Chance ihn zu verletzen ist gering, aber die ganze Stadt wird davon erfahren...</source>
         <target>Agresser un citoyen revient à s'en prendre physiquement à lui... Vous avez une chance de lui infliger une blessure et toute la ville sera mise au courant...</target>
+      </segment>
+    </unit>
+    <unit id="ownttVn" name="Das Gesamtregister ansehen">
+      <notes>
+        <note category="german">Das Gesamtregister ansehen</note>
+        <note category="from">twig:///templates/ajax/game/town/bank.html.twig;twig:///templates/ajax/game/town/catapult.html.twig;twig:///templates/ajax/game/town/construction.html.twig;twig:///templates/ajax/game/town/door.html.twig;twig:///templates/ajax/game/town/dump.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/game/town/well.html.twig;twig:///templates/ajax/game/town/workshop.html.twig</note>
+      </notes>
+      <segment>
+        <source>Das Gesamtregister ansehen</source>
+        <target>Voir le registre complet de la ville</target>
+      </segment>
+    </unit>
+    <unit id="JJjZLmq">
+      <notes>
+        <note category="german">Dieser Link bringt dich zum &lt;strong&gt;Großen Register&lt;/strong&gt;. Darin werden alle wichtigen Handlungen und Aktionen der Stadtbürger gespeichert...</note>
+        <note category="from">twig:///templates/ajax/game/town/bank.html.twig;twig:///templates/ajax/game/town/catapult.html.twig;twig:///templates/ajax/game/town/construction.html.twig;twig:///templates/ajax/game/town/door.html.twig;twig:///templates/ajax/game/town/dump.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/game/town/well.html.twig;twig:///templates/ajax/game/town/workshop.html.twig</note>
+      </notes>
+      <segment>
+        <source>Dieser Link bringt dich zum &lt;strong&gt;Großen Register&lt;/strong&gt;. Darin werden alle wichtigen Handlungen und Aktionen der Stadtbürger gespeichert...</source>
+        <target><![CDATA[Ce lien permet d'accéder au <strong>Grand Registre</strong> qui consigne toutes les actions importantes effectuées par les Citoyens...]]></target>
+      </segment>
+    </unit>
+    <unit id="eOisfiB" name="Nichts Interessantes...">
+      <notes>
+        <note category="german">Nichts Interessantes...</note>
+        <note category="from">twig:///templates/ajax/game/inventory.html.twig</note>
+      </notes>
+      <segment>
+        <source>Nichts Interessantes...</source>
+        <target>Rien d'intéressant...</target>
+      </segment>
+    </unit>
+    <unit id="7ln_hQb" name="Zum Bau dieses Bauprojekts fehlen noch {ap} AP">
+      <notes>
+        <note category="german">Zum Bau dieses Bauprojekts fehlen noch {ap} AP</note>
+        <note category="from">twig:///templates/ajax/game/town/construction.html.twig</note>
+      </notes>
+      <segment>
+        <source>Zum Bau dieses Bauprojekts fehlen noch {ap} AP</source>
+        <target>La construction de ce chantier nécessite encore {ap} PA.</target>
+      </segment>
+    </unit>
+    <unit id="e1Ym_Ag">
+      <notes>
+        <note category="german">Das Stadttor ist &lt;span class="critical"&gt;geöffnet&lt;/span&gt;! Achtung: Wenn das Tor geschlossen wird, können alle Spieler, die sich außerhalb der Stadt befinden, nicht mehr rein.</note>
+        <note category="from">twig:///templates/ajax/game/town/door.html.twig</note>
+      </notes>
+      <segment>
+        <source>Das Stadttor ist &lt;span class="critical"&gt;geöffnet&lt;/span&gt;! Achtung: Wenn das Tor geschlossen wird, können alle Spieler, die sich außerhalb der Stadt befinden, nicht mehr rein.</source>
+        <target><![CDATA[La Grande Porte est <span class="critical">ouverte</span> ! Attention, si vous la fermez et que des citoyens sont encore dehors, ils ne pourront plus rentrer...]]></target>
+      </segment>
+    </unit>
+    <unit id="Xa1yd0S">
+      <notes>
+        <note category="german">&lt;strong&gt;Du bist erschöpft&lt;/strong&gt;, du kannst deshalb weder &lt;strong&gt;in die Außenwelt gehen&lt;/strong&gt;, noch &lt;strong&gt;das Stadttor öffnen&lt;/strong&gt;, noch &lt;strong&gt;es schließen&lt;/strong&gt;.</note>
+        <note category="from">twig:///templates/ajax/game/town/door.html.twig</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Du bist erschöpft&lt;/strong&gt;, du kannst deshalb weder &lt;strong&gt;in die Außenwelt gehen&lt;/strong&gt;, noch &lt;strong&gt;das Stadttor öffnen&lt;/strong&gt;, noch &lt;strong&gt;es schließen&lt;/strong&gt;.</source>
+        <target><![CDATA[<strong>Vous êtes fatigué(e)</strong>, vous ne pouvez donc ni <strong>sortir dans l'Outre-Monde</strong>, ni <strong>ouvrir la Grande Porte</strong>, ni <strong>la fermer</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="S5F9Bue">
+      <notes>
+        <note category="german">Trinke oder nimm einen Happen zu dir, aber unternimm etwas, um wieder in Schuss zu kommen!</note>
+        <note category="from">twig:///templates/ajax/game/town/door.html.twig</note>
+      </notes>
+      <segment>
+        <source>Trinke oder nimm einen Happen zu dir, aber unternimm etwas, um wieder in Schuss zu kommen!</source>
+        <target>Buvez, mangez, faites quelque chose si vous voulez de nouveau vous sentir en forme !</target>
+      </segment>
+    </unit>
+    <unit id="Be.3GRF">
+      <notes>
+        <note category="german">Klick hier, wenn du mit deiner Heldenfähigkeit &lt;strong&gt;diesen Registereintrag fälschen&lt;/strong&gt; möchtest...</note>
+        <note category="from">twig:///templates/ajax/game/log_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Klick hier, wenn du mit deiner Heldenfähigkeit &lt;strong&gt;diesen Registereintrag fälschen&lt;/strong&gt; möchtest...</source>
+        <target><![CDATA[Cliquez pour utiliser votre capacité de héros et <strong>falsifier cette entrée du registre</strong>...]]></target>
+      </segment>
+    </unit>
+    <unit id="AspdF7m" name="Ranking-Ausschluss">
+      <notes>
+        <note category="german">Ranking-Ausschluss</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/towns/list.html.twig;twig:///templates/ajax/soul/death.html.twig</note>
+      </notes>
+      <segment>
+        <source>Ranking-Ausschluss</source>
+        <target>Exclusion du classement</target>
+      </segment>
+    </unit>
+    <unit id="XEwyP0J">
+      <notes>
+        <note category="german">Dieses Leben wird aus den Annalen der Geschichte getilgt. Du erhälst weder Seelenpunkte noch Auszeichnungen.</note>
+        <note category="from">twig:///templates/ajax/soul/death.html.twig</note>
+      </notes>
+      <segment>
+        <source>Dieses Leben wird aus den Annalen der Geschichte getilgt. Du erhälst weder Seelenpunkte noch Auszeichnungen.</source>
+        <target>Cette existance est effacée des annales de l’histoire. Vous n’avez pas obtenu de points d’âme ou de récompenses pour celle-ci.</target>
+      </segment>
+    </unit>
+    <unit id="gLhMShO" name="Das wird dir in Zukunft schlaflose Nächte bereiten!">
+      <notes>
+        <note category="german">Das wird dir in Zukunft schlaflose Nächte bereiten!</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Das wird dir in Zukunft schlaflose Nächte bereiten!</source>
+        <target>Voilà ce qui s'offre maintenant à vous !</target>
+      </segment>
+    </unit>
+    <unit id="k8ELM3Z" name="Erkunde die Außenwelt:">
+      <notes>
+        <note category="german">Erkunde die Außenwelt:</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Erkunde die Außenwelt:</source>
+        <target>Explorez l’outre-monde :</target>
+      </segment>
+    </unit>
+    <unit id="99xLniA" name="Die Weltkarte ist nun größer. Viel größer!">
+      <notes>
+        <note category="german">Die Weltkarte ist nun größer. Viel größer!</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Die Weltkarte ist nun größer. Viel größer!</source>
+        <target>La carte est désormais plus grande</target>
+      </segment>
+    </unit>
+    <unit id="a8O8WQf" name="Du kannst nun Ruinen durch ein Minispiel erkunden.">
+      <notes>
+        <note category="german">Du kannst nun Ruinen durch ein Minispiel erkunden.</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du kannst nun Ruinen durch ein Minispiel erkunden.</source>
+        <target>Rentrez dans les ruines labyrinthiques</target>
+      </segment>
+    </unit>
+    <unit id="nuFU1XW" name="Du kannst nun Nachts in der Außenwelt campen (auf eigene Gefahr natürlich)">
+      <notes>
+        <note category="german">Du kannst nun Nachts in der Außenwelt campen (auf eigene Gefahr natürlich)</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du kannst nun Nachts in der Außenwelt campen (auf eigene Gefahr natürlich)</source>
+        <target>Survivez la nuit dehors en campant (à vos risques et périls)</target>
+      </segment>
+    </unit>
+    <unit id="kI9jzjA" name="Von nun an ist die Nacht sowohl Freund als auch Feind...">
+      <notes>
+        <note category="german">Von nun an ist die Nacht sowohl Freund als auch Feind...</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Von nun an ist die Nacht sowohl Freund als auch Feind...</source>
+        <target>Désormais la nuit est à la fois votre ennemi et votre allié</target>
+      </segment>
+    </unit>
+    <unit id="t7TzeHz">
+      <notes>
+        <note category="german">Du könntest als der Schamane der Stadt enden! Koste die Macht dieses mystischen Voodoo-Mannes, aber denk an deine Verantwortung für die Seelen der Verdammten...</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du könntest als der Schamane der Stadt enden! Koste die Macht dieses mystischen Voodoo-Mannes, aber denk an deine Verantwortung für die Seelen der Verdammten...</source>
+        <target>Attention, vous pourrez endosser le rôle de chaman, tester ses pouvoirs mais sa responsabilité est princpalement dans la chasse aux âmes errantes</target>
+      </segment>
+    </unit>
+    <unit id="YZ9vmmI" name="Es gibt keine &quot;vorbereiteten&quot; Gebäude. Du bist auf dich allein gestellt.">
+      <notes>
+        <note category="german">Es gibt keine "vorbereiteten" Gebäude. Du bist auf dich allein gestellt.</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Es gibt keine "vorbereiteten" Gebäude. Du bist auf dich allein gestellt.</source>
+        <target>Les villes n’ont plus de chantiers préconstruits, à vos truelles</target>
+      </segment>
+    </unit>
+    <unit id="C1Uk2nl" name="Versuch dich an einer Pandämonium-Stadt, wenn du dich traust...">
+      <notes>
+        <note category="german">Versuch dich an einer Pandämonium-Stadt, wenn du dich traust...</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Versuch dich an einer Pandämonium-Stadt, wenn du dich traust...</source>
+        <target>Tentez le Pandémonium, mode difficile pour une expérience encore plus mortelle</target>
+      </segment>
+    </unit>
+    <unit id="qDTyCV1" name="Städte werden nun basierend auf ihrem Überlebensfaktor bewertet.">
+      <notes>
+        <note category="german">Städte werden nun basierend auf ihrem Überlebensfaktor bewertet.</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Städte werden nun basierend auf ihrem Überlebensfaktor bewertet.</source>
+        <target>Les villes sont désormais classées en fonction de leur survie globale</target>
+      </segment>
+    </unit>
+    <unit id="wtNGNwN" name="Du kannst nun angreifen wen immer du willst, selbst wenn du kein Ghul bist.">
+      <notes>
+        <note category="german">Du kannst nun angreifen wen immer du willst, selbst wenn du kein Ghul bist.</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du kannst nun angreifen wen immer du willst, selbst wenn du kein Ghul bist.</source>
+        <target>L’agression est possible sans Goule, gare à vos voisins</target>
+      </segment>
+    </unit>
+    <unit id="cs1EKvG" name="Um Baupläne zu finden musst du nun in Gebäuden in der Außenwelt campen.">
+      <notes>
+        <note category="german">Um Baupläne zu finden musst du nun in Gebäuden in der Außenwelt campen.</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Um Baupläne zu finden musst du nun in Gebäuden in der Außenwelt campen.</source>
+        <target>Les bâtiments du désert nécessitent d’être campés pour que le plan associé soit disponible</target>
+      </segment>
+    </unit>
+    <unit id="ejSpLIg">
+      <notes>
+        <note category="german">Diese letzten Nächte des Überlebens haben deiner verlorenen Seele zugesetzt, aber du bist daraus gestärkt hervorgegangen. Nun bist du bereit für die wirklichen Herausforderungen, die jetzt beginnen.</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Diese letzten Nächte des Überlebens haben deiner verlorenen Seele zugesetzt, aber du bist daraus gestärkt hervorgegangen. Nun bist du bereit für die wirklichen Herausforderungen, die jetzt beginnen.</source>
+        <target>Ces dernières nuits de survie ont renforcé votre âme de damné. Vous voilà plus fort, plus résistant et il est grand temps de découvrir la vraie vie.</target>
+      </segment>
+    </unit>
+    <unit id="25LN4T2">
+      <notes>
+        <note category="german">Der Diebstahl, den du gerade begangen hast, wurde bemerkt! Die Bürger werden gewarnt, dass du den(die,das) {item} bei {victim} gestohlen hast.</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php</note>
+      </notes>
+      <segment>
+        <source>Der Diebstahl, den du gerade begangen hast, wurde bemerkt! Die Bürger werden gewarnt, dass du den(die,das) {item} bei {victim} gestohlen hast.</source>
+        <target>Le larcin que vous venez de commettre a été repéré ! Les citoyens sont avertis que vous avez volé {item} à {victim}.</target>
+      </segment>
+    </unit>
+    <unit id="ljh7pXv">
+      <notes>
+        <note category="german">&lt;strong&gt;Das Stadttor ist geschlossen&lt;/strong&gt;, eine Rückkehr ist nicht möglich!</note>
+        <note category="from">twig:///templates/scripts/errors/beyond.txt.twig</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Das Stadttor ist geschlossen&lt;/strong&gt;, eine Rückkehr ist nicht möglich!</source>
+        <target><![CDATA[<strong>Les portes de la ville sont fermées</strong>, impossible d'être rapatrié(e) !]]></target>
       </segment>
     </unit>
   </file>

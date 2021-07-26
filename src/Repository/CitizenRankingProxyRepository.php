@@ -72,7 +72,7 @@ class CitizenRankingProxyRepository extends ServiceEntityRepository
         ;
     }
 
-    public function findPastByUserAndSeason(User $user, ?Season $season, $limit10) {
+    public function findPastByUserAndSeason(User $user, ?Season $season, $limit10, $show_hidden = false) {
         $query = $this->createQueryBuilder('c')
             ->join('c.town', 't')
             ->andWhere('c.user = :user')
@@ -80,6 +80,9 @@ class CitizenRankingProxyRepository extends ServiceEntityRepository
             ->setParameter('user', $user)
             ->addOrderBy('c.day', 'DESC')
             ->addOrderBy('c.id', 'DESC');
+
+        if (!$show_hidden)
+            $query->andWhere('(t.disabled = false AND c.disabled = false)');
 
         if($season !== null)
             $query->andWhere('t.season = :season')

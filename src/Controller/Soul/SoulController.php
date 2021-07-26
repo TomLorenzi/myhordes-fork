@@ -30,6 +30,7 @@ use App\Entity\RolePlayTextPage;
 use App\Entity\Season;
 use App\Entity\UserDescription;
 use App\Entity\UserGroupAssociation;
+use App\Entity\UserPendingValidation;
 use App\Entity\UserReferLink;
 use App\Entity\UserSponsorship;
 use App\Response\AjaxResponse;
@@ -46,6 +47,7 @@ use App\Service\CitizenHandler;
 use App\Service\InventoryHandler;
 use App\Service\TimeKeeperService;
 use App\Structures\MyHordesConf;
+use App\Structures\TownConf;
 use DateTime;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
@@ -81,6 +83,7 @@ class SoulController extends CustomAbstractController
     const ErrorUserEditUserName              = ErrorHelper::BaseSoulErrors + 8;
     const ErrorUserEditTooSoon               = ErrorHelper::BaseSoulErrors + 9;
     const ErrorUserUseEternalTwin            = ErrorHelper::BaseSoulErrors + 10;
+    const ErrorUserConfirmToken              = ErrorHelper::BaseSoulErrors + 11;
 
     const ErrorCoalitionAlreadyMember        = ErrorHelper::BaseSoulErrors + 20;
     const ErrorCoalitionNotSet               = ErrorHelper::BaseSoulErrors + 21;
@@ -210,7 +213,7 @@ class SoulController extends CustomAbstractController
         $refer = $this->entity_manager->getRepository(UserReferLink::class)->findOneBy(['user' => $this->getUser()]);
         if ($refer === null && !$this->user_handler->hasRole($this->getUser(), 'ROLE_DUMMY')) {
 
-            $name_base = strtolower($this->getUser()->getName());
+            $name_base = strtolower($this->getUser()->getUsername());
 
             $refer = (new UserReferLink)->setUser($this->getUser())->setActive(true)->setName($name_base);
             $n = 2;
@@ -425,10 +428,10 @@ class SoulController extends CustomAbstractController
         if ($title < 0 && $icon >= 0)
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
-        if (!$this->user_handler->isNameValid($displayName))
-            return AjaxResponse::error(self::ErrorUserEditUserName);
-
         $name_change = ($displayName !== $user->getDisplayName() && $user->getDisplayName() !== null) || ($displayName !== $user->getUsername() && $user->getDisplayName() === null);
+
+        if ($name_change && !$this->user_handler->isNameValid($displayName))
+            return AjaxResponse::error(self::ErrorUserEditUserName);
 
         if ($name_change && $user->getLastNameChange() !== null && $user->getLastNameChange()->diff(new DateTime())->days < (30 * 6)) { // 6 months
             return  AjaxResponse::error(self::ErrorUserEditTooSoon);
@@ -523,23 +526,26 @@ class SoulController extends CustomAbstractController
             $currentType = $this->entity_manager->getRepository(TownClass::class)->find($type);
         }
 
-        if ($currentType === null) {
-            $this->redirect($this->generateUrl('soul_season'));
-        }
-        $criteria = new Criteria();
-        $criteria->andWhere($criteria->expr()->eq('season', $currentSeason));
-        $criteria->andWhere($criteria->expr()->eq('type', $currentType));
-        $criteria->andWhere($criteria->expr()->neq('end', null));
+        if ($currentType === null)
+            return $this->redirect($this->generateUrl('soul_season'));
 
-        $criteria->orderBy(['score' => 'DESC', 'days' => 'DESC', 'end' => 'ASC', 'id'=> 'ASC']);
-        $criteria->setMaxResults(35);
-        $towns = $this->entity_manager->getRepository(TownRankingProxy::class)->matching($criteria);
+        $towns = $this->entity_manager->getRepository(TownRankingProxy::class)->matching(
+            (new Criteria())
+                ->andWhere(Criteria::expr()->eq('disabled', false))
+                ->andWhere(Criteria::expr()->eq('event', false))
+                ->andWhere(Criteria::expr()->eq('season', $currentSeason))
+                ->andWhere(Criteria::expr()->eq('type', $currentType))
+                ->andWhere(Criteria::expr()->neq('end', null))
+
+                ->orderBy(['score' => 'DESC', 'days' => 'DESC', 'end' => 'ASC', 'id'=> 'ASC'])
+                ->setMaxResults(35)
+        );
         $played = [];
         foreach ($towns as $town) {
             /* @var TownRankingProxy $town */
             foreach ($town->getCitizens() as $citizen) {
                 /* @var CitizenRankingProxy $citizen */
-                if($citizen->getUser() == $user) {
+                if($citizen->getUser() === $user) {
                     $played[$town->getId()] = true;
                     break;
                 }
@@ -562,7 +568,7 @@ class SoulController extends CustomAbstractController
      * @param null $type Type of ranking to display
      * @return Response
      */
-    public function soul_season_solo($type = null, $page = 1, JSONRequestParser $parser): Response
+    public function soul_season_solo(JSONRequestParser $parser, $type = null, $page = 1): Response
     {
         $resultsPerPage = 30;
         $offset = $resultsPerPage * ($page - 1);
@@ -860,6 +866,24 @@ class SoulController extends CustomAbstractController
     }
 
     /**
+     * @Route("api/soul/settings/mod_tools_window", name="api_soul_mod_tools_window")
+     * @param JSONRequestParser $parser
+     * @param AdminActionHandler $admh
+     * @return Response
+     */
+    public function soul_mod_tools_window(JSONRequestParser $parser, AdminActionHandler $admh): Response {
+        $user = $this->getUser();
+
+        $new_window = $parser->get('same_window', false);
+        $user->setOpenModToolsSameWindow($new_window);
+
+        $this->entity_manager->persist($user);
+        $this->entity_manager->flush();
+
+        return AjaxResponse::success();
+    }
+
+    /**
      * @Route("api/soul/settings/avatar", name="api_soul_avatar")
      * @param JSONRequestParser $parser
      * @param ConfMaster $conf
@@ -934,40 +958,120 @@ class SoulController extends CustomAbstractController
     }
 
     /**
-     * @Route("api/soul/settings/change_password", name="api_soul_change_password")
+     * @Route("api/soul/settings/change_account_details", name="api_soul_change_account_details")
      * @param UserPasswordEncoderInterface $passwordEncoder
      * @param JSONRequestParser $parser
      * @param TokenStorageInterface $token
      * @return Response
      */
-    public function soul_settings_change_pass(UserPasswordEncoderInterface $passwordEncoder, JSONRequestParser $parser, TokenStorageInterface $token): Response
+    public function soul_settings_change_account_details(UserPasswordEncoderInterface $passwordEncoder, JSONRequestParser $parser, TokenStorageInterface $token): Response
     {
         $user = $this->getUser();
+        $new_pw = $parser->trimmed('pw_new', '');
+        $new_email = $parser->trimmed('email_new', '');
+        $confirm_token = $parser->trimmed('email_token', '');
 
         if ($this->isGranted('ROLE_DUMMY') && !$this->isGranted( 'ROLE_CROW' ))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
-        if ($this->isGranted('ROLE_ETERNAL'))
+        if ($this->isGranted('ROLE_ETERNAL') && !empty($new_pw))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
-        $new_pw = $parser->trimmed('pw_new', '');
-        if (mb_strlen($new_pw) < 6) return AjaxResponse::error(self::ErrorUserEditPasswordIncorrect);
+        $change = false;
 
-        if (!$passwordEncoder->isPasswordValid( $user, $parser->trimmed('pw') ))
-            return AjaxResponse::error(self::ErrorUserEditPasswordIncorrect );
+        if(!empty($new_pw)) {
+            if (mb_strlen($new_pw) < 6) return AjaxResponse::error(self::ErrorUserEditPasswordIncorrect);
 
-        $user
-            ->setPassword( $passwordEncoder->encodePassword($user, $parser->trimmed('pw_new')) )
-            ->setCheckInt($user->getCheckInt() + 1);
+            if (!$passwordEncoder->isPasswordValid( $user, $parser->trimmed('pw') ))
+                return AjaxResponse::error(self::ErrorUserEditPasswordIncorrect );
 
-        if ($rm_token = $this->entity_manager->getRepository(RememberMeTokens::class)->findOneBy(['user' => $user]))
-            $this->entity_manager->remove($rm_token);
+            $user
+                ->setPassword( $passwordEncoder->encodePassword($user, $parser->trimmed('pw_new')) )
+                ->setCheckInt($user->getCheckInt() + 1);
 
+            if ($rm_token = $this->entity_manager->getRepository(RememberMeTokens::class)->findOneBy(['user' => $user]))
+                $this->entity_manager->remove($rm_token);
+            $change = true;
+
+        }
+
+        if (!empty($new_email)) {
+            $user->setPendingEmail($new_email);
+            if (!$this->user_factory->announceValidationToken($this->user_factory->ensureValidation($user, UserPendingValidation::ChangeEmailValidation, true)))
+                return AjaxResponse::error(ErrorHelper::ErrorSendingEmail);
+            $change = true;
+        } else if (!empty($confirm_token)) {
+            if (($pending = $this->entity_manager->getRepository(UserPendingValidation::class)->findOneByTokenAndUserandType(
+                    $confirm_token, $user, UserPendingValidation::ChangeEmailValidation)) === null) {
+                return AjaxResponse::error(self::ErrorUserConfirmToken);
+            }
+
+            if ($pending->getUser() === null || ($user !== null && !$user->isEqualTo( $pending->getUser() ))) {
+                return AjaxResponse::error(self::ErrorUserConfirmToken);
+            }
+
+            if ($pending->getPkey() !== $confirm_token) {
+                return AjaxResponse::error(self::ErrorUserConfirmToken);
+            }
+
+            $user->setEmail($user->getPendingEmail());
+            $user->setPendingEmail(null);
+            $this->entity_manager->remove( $pending );
+            $change = true;
+        }
+
+        if ($change){
+            $message = [];
+            $this->entity_manager->persist($user);
+            $this->entity_manager->flush();
+
+            if (!empty($new_pw)) {
+                $message[] = $this->translator->trans('Dein Passwort wurde erfolgreich geändert. Bitte logge dich mit deinem neuen Passwort ein.', [], 'login');
+                $token->setToken(null);
+            }
+
+            if (!empty($new_email)) {
+                $message[] = $this->translator->trans('Deine E-Mail Adresse wurde geändert. Bitte validiere die neue Adresse, damit du sie verwenden kannst.', [], 'login');
+            }
+
+            $this->addFlash('notice', implode('<hr />', $message));
+        }
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/soul/settings/resend_token_email", name="api_soul_resend_token_email")
+     * @return Response
+     */
+    public function soul_settings_resend_token_email(): Response
+    {
+        $user = $this->getUser();
+
+        if ($this->user_factory->announceValidationToken($this->user_factory->ensureValidation($user, UserPendingValidation::ChangeEmailValidation, true))) {
+            return AjaxResponse::success();
+        }
+
+        return AjaxResponse::error();
+    }
+
+    /**
+     * @Route("api/soul/settings/cancel_token_email", name="api_soul_cancel_email_token")
+     * @return Response
+     */
+    public function soul_settings_cancel_token_email(): Response
+    {
+        $user = $this->getUser();
+
+        $token = $this->entity_manager->getRepository(UserPendingValidation::class)->findOneByUserAndType($user,UserPendingValidation::ChangeEmailValidation);
+
+        if ($token) {
+            $this->entity_manager->remove( $token );
+        }
+        $user->setPendingEmail(null);
         $this->entity_manager->persist($user);
         $this->entity_manager->flush();
 
-        $this->addFlash( 'notice', $this->translator->trans('Dein Passwort wurde erfolgreich geändert. Bitte logge dich mit deinem neuen Passwort ein.', [], 'login') );
-        $token->setToken(null);
         return AjaxResponse::success();
     }
 
@@ -1122,7 +1226,9 @@ class SoulController extends CustomAbstractController
             if($pendingPicto->getPersisted() == 0)
                 $this->entity_manager->remove($pendingPicto);
             else {
-                $pendingPicto->setPersisted(2);
+                $pendingPicto
+                    ->setPersisted(2)
+                    ->setDisabled( $nextDeath->getDisabled() || $nextDeath->getTown()->getDisabled() );
                 $this->entity_manager->persist($pendingPicto);
             }
         }
@@ -1133,13 +1239,18 @@ class SoulController extends CustomAbstractController
             $nextDeath = CitizenRankingProxy::fromCitizen( $active, true );
             $this->entity_manager->persist( $active );
         }
-        
+
         $nextDeath->setConfirmed(true)->setLastWords( $last_words );
 
         $this->entity_manager->persist( $nextDeath );
         $this->entity_manager->flush();
 
         $this->user_handler->computePictoUnlocks($user);
+        $this->entity_manager->flush();
+
+        // Update soul points
+        $user->setSoulPoints( $this->user_handler->fetchSoulPoints( $user, false ) );
+        $this->entity_manager->persist($user);
         $this->entity_manager->flush();
 
         if ($session->has('_town_lang')) {
@@ -1218,7 +1329,7 @@ class SoulController extends CustomAbstractController
         $limit = (bool)$parser->get('limit10', true);
 
         return $this->render( 'ajax/soul/town_list.html.twig', [
-            'towns' => $this->entity_manager->getRepository(CitizenRankingProxy::class)->findPastByUserAndSeason($user, $season, $limit),
+            'towns' => $this->entity_manager->getRepository(CitizenRankingProxy::class)->findPastByUserAndSeason($user, $season, $limit, true),
             'editable' => $user->getId() === $this->getUser()->getId()
         ]);
     }

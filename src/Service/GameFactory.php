@@ -27,6 +27,7 @@ use App\Entity\UserGroup;
 use App\Entity\Zone;
 use App\Entity\ZonePrototype;
 use App\Entity\ZoneTag;
+use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -445,6 +446,62 @@ class GameFactory
         return $town;
     }
 
+    public function userCanEnterTown( Town &$town, User &$user, bool $whitelist_enabled = false, ?int &$error = null, bool $internal = false ): bool {
+        if (!$town->isOpen()) {
+            $error = self::ErrorTownClosed;
+            return false;
+        }
+
+        if (!$internal && $this->user_handler->getConsecutiveDeathLock($user)) {
+            $error = ErrorHelper::ErrorPermissionError;
+            return false;
+        }
+
+        if (!$internal) {
+            $conf = $this->conf->getGlobalConf();
+            $sp = $this->user_handler->fetchSoulPoints($user);
+            $allowed = false;
+            switch ($town->getType()->getName()) {
+                case 'small':
+                    $allowed = ($sp < $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_REMOTE, 100 ) || $sp >= $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_BACK_TO_SMALL, 500 ));
+                    break;
+                case 'remote':
+                    $allowed = $sp >= $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_REMOTE, 100 );
+                    break;
+                case 'panda':
+                    $allowed = $sp >= $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_PANDA, 500 );
+                    break;
+                case 'custom':
+                    $allowed = $sp >= $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_CUSTOM, 1000 );
+                    break;
+            }
+
+            if (!$allowed) {
+                $error = ErrorHelper::ErrorPermissionError;
+                return false;
+            }
+        }
+
+        $whitelist = $whitelist_enabled ? $this->entity_manager->getRepository(TownSlotReservation::class)->findOneBy(['town' => $town, 'user' => $user]) : null;
+        if ($whitelist_enabled && $whitelist === null && $user !== $town->getCreator()) {
+            $error = ErrorHelper::ErrorPermissionError;
+            return false;
+        }
+
+        if ($this->entity_manager->getRepository(Citizen::class)->findActiveByUser( $user ) !== null) {
+            $error = self::ErrorUserAlreadyInGame;
+            return false;
+        }
+
+        foreach ($town->getCitizens() as $existing_citizen)
+            if ($existing_citizen->getUser() === $user) {
+                $error = self::ErrorUserAlreadyInTown;
+                return false;
+            }
+
+        return true;
+    }
+
     public function createCitizen( Town &$town, User &$user, ?int &$error, ?array &$all_citizens = null, bool $internal = false ): ?Citizen {
         $error = self::ErrorNone;
         $lock = $this->locksmith->waitForLock('join-town');
@@ -453,50 +510,16 @@ class GameFactory
 
         $followers = ($internal || $town->getPassword() || $whitelist_enabled) ? [] : $this->user_handler->getAvailableCoalitionMembers( $user );
 
-        if (!$internal && $this->user_handler->getConsecutiveDeathLock($user)) {
-            $error = ErrorHelper::ErrorPermissionError;
+        if (!$this->userCanEnterTown($town,$user, $whitelist_enabled,$error,$internal))
             return null;
-        }
 
-        $whitelist = $whitelist_enabled ? $this->entity_manager->getRepository(TownSlotReservation::class)->findOneBy(['town' => $town, 'user' => $user]) : null;
-        if ($whitelist_enabled && $whitelist === null && $user !== $town->getCreator()) {
-            $error = ErrorHelper::ErrorPermissionError;
-            return null;
-        }
-
-        $active_citizen = $this->entity_manager->getRepository(Citizen::class)->findActiveByUser( $user );
-        if ($active_citizen !== null) {
-            $error = self::ErrorUserAlreadyInGame;
-            return null;
-        }
-
-        if (!$town->isOpen()) {
-            $error = self::ErrorTownClosed;
-            return null;
-        }
-
-        foreach ($town->getCitizens() as $existing_citizen)
-            if ($existing_citizen->getUser()->getId() === $user->getId()) {
-                $error = self::ErrorUserAlreadyInTown;
-                return null;
-            }
-
-        $followers = array_filter($followers, function (User $follower) use ($town): bool {
-            foreach ($town->getCitizens() as $existing_citizen)
-                if ($existing_citizen->getUser() === $follower) return false;
-            return true;
+        $followers = array_filter($followers, function (User $follower) use ($town,$whitelist_enabled,$internal): bool {
+            return $this->userCanEnterTown($town,$follower,$whitelist_enabled,$e, $internal);
         });
 
         if (($town->getCitizenCount() + count($followers) + 1) > $town->getPopulation()) {
             $error = self::ErrorTownNoCoaRoom;
             return null;
-        }
-
-        foreach ($followers as $follower) {
-            if ($follower->getActiveCitizen()) {
-                $error = self::ErrorMemberBlocked;
-                return null;
-            }
         }
 
         $base_profession = $this->entity_manager->getRepository(CitizenProfession::class)->findDefault();
@@ -581,6 +604,7 @@ class GameFactory
                 }
             }
 
+        $whitelist = $whitelist_enabled ? $this->entity_manager->getRepository(TownSlotReservation::class)->findOneBy(['town' => $town, 'user' => $user]) : null;
         if ($whitelist !== null) $this->entity_manager->remove($whitelist);
 
         return $main_citizen;

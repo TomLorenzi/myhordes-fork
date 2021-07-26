@@ -269,6 +269,16 @@ class User implements UserInterface, EquatableInterface
      */
     private $preferredPronoun;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $open_mod_tools_same_window = false;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $pendingEmail;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -536,14 +546,6 @@ class User implements UserInterface, EquatableInterface
 
         return $this;
     }
-
-    public function addSoulPoints(int $soulPoints): self
-    {
-        $this->soulPoints += $soulPoints;
-
-        return $this;
-    }
-
 
     public function getExternalId(): ?string
     {
@@ -1100,6 +1102,30 @@ class User implements UserInterface, EquatableInterface
     public function setPreferredPronoun(?int $preferredPronoun): self
     {
         $this->preferredPronoun = $preferredPronoun;
+
+        return $this;
+    }
+
+    public function getOpenModToolsSameWindow(): ?bool
+    {
+        return $this->open_mod_tools_same_window;
+    }
+
+    public function setOpenModToolsSameWindow(bool $open_mod_tools_same_window): self
+    {
+        $this->open_mod_tools_same_window = $open_mod_tools_same_window;
+
+        return $this;
+    }
+
+    public function getPendingEmail(): ?string
+    {
+        return $this->pendingEmail;
+    }
+
+    public function setPendingEmail(?string $pendingEmail): self
+    {
+        $this->pendingEmail = $pendingEmail;
 
         return $this;
     }

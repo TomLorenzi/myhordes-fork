@@ -101,6 +101,7 @@ class PublicController extends CustomAbstractController
     /**
      * @Route("jx/public/register", name="public_register")
      * @param EternalTwinHandler $etwin
+     * @param SessionInterface $s
      * @return Response
      */
     public function register(EternalTwinHandler $etwin, SessionInterface $s): Response
@@ -436,7 +437,8 @@ class PublicController extends CustomAbstractController
 
             // Update display name
             if ($myhordes_user) {
-                $this->entity_manager->persist( $myhordes_user->setDisplayName( $myhordes_user->getUsername() === $etwin_user->getDisplayName() ? null : $etwin_user->getDisplayName() ) );
+                $etu = substr($etwin_user->getDisplayName(),0,32);
+                $this->entity_manager->persist( $myhordes_user->setDisplayName( $myhordes_user->getUsername() === $etu ? null : $etu ) );
 
                 try {
                     $this->entity_manager->flush();

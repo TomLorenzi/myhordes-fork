@@ -34,7 +34,7 @@
     <unit id="6UV8ek7" name="Die eingegebenen E-Mail Adressen stimmen nicht überein.">
       <notes>
         <note category="german">Die eingegebenen E-Mail Adressen stimmen nicht überein.</note>
-        <note category="from">php:///src/Controller/PublicController.php</note>
+        <note category="from">php:///src/Controller/PublicController.php;twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Die eingegebenen E-Mail Adressen stimmen nicht überein.</source>
@@ -505,12 +505,12 @@
     </unit>
     <unit id="LiGRhEI">
       <notes>
-        <note category="german">Wenn du noch einen alten MyHordes-Account hast, kannst du dich vorerst auch damit einloggen.</note>
+        <note category="german">Wenn du noch einen alten MyHordes-Account hast, kannst du dich auch damit weiter einloggen.</note>
         <note category="from">twig:///templates/ajax/public/login.html.twig</note>
       </notes>
       <segment>
         <source>Wenn du noch einen alten MyHordes-Account hast, kannst du dich vorerst auch damit einloggen.</source>
-        <target>Si vous avez encore un ancien compte MyHordes, vous pouvez l'utiliser pour vous connecter pour le moment.</target>
+        <target>Si vous avez encore un ancien compte MyHordes, vous pouvez l'utiliser pour vous connecter.</target>
       </segment>
     </unit>
     <unit id="ho.WxzI">
@@ -584,7 +584,7 @@
         <source>&lt;strong&gt;Achtung:&lt;/strong&gt; Du hast bereits einen MyHordes-Account? Dann solltest du jetzt
                                     &lt;i&gt;abbrechen&lt;/i&gt; und dich zuerst mit deinem alten MyHordes-Account einloggen. Du kannst deinen
                                     EternalTwin-Account in den Einstellungen mit deinem MyHordes-Account verknüpfen.</source>
-        <target><![CDATA[<strong>Avertissement :</strong> avez-vous déjà un compte MyHordes? Alors tu devrais maintenant <i>annuler</i> et vous connecter d'abord avec votre ancien compte MyHordes. Vous pouvez lier votre compte EternalTwin à votre compte MyHordes dans les paramètres.]]></target>
+        <target><![CDATA[<strong>Attention :</strong> avez-vous déjà un compte MyHordes? Alors vous devriez maintenant <i>annuler la connexion</i> et vous connecter d'abord avec votre ancien compte MyHordes. Vous pouvez lier votre compte EternalTwin à votre compte MyHordes dans les paramètres.]]></target>
       </segment>
     </unit>
     <unit id="zHOj.3O" name="Los geht's!">
@@ -750,26 +750,23 @@
     <unit id="uQUHCC6">
       <notes>
         <note category="german">Bevor du mit deinem EternalTwin-Account spielen kannst, brauchen wir noch ein paar zusätzliche Informationen von dir.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/public/et_welcome.html.twig</note>
       </notes>
       <segment>
         <source>Bevor du mit deinem EternalTwin-Account spielen kannst, brauchen wir noch ein paar zusätzliche Informationen von dir.</source>
-        <target>Bevor du mit deinem EternalTwin-Account spielen kannst, brauchen wir noch ein paar zusätzliche Informationen von dir.</target>
+        <target>Avant de pouvoir jouer avec votre compte EternalTwin, nous avons besoin de quelques informations supplémentaires de votre part.</target>
       </segment>
     </unit>
     <unit id="wmjJuDK">
       <notes>
         <note category="german">Um die Registrierung abzuschließen und deinen Account zu aktivieren, musst du auf einen
                                             Aktivierungslink klicken, der dir an die angegebene E-Mail Adresse geschickt wird.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/public/et_welcome.html.twig</note>
       </notes>
       <segment>
         <source>Um die Registrierung abzuschließen und deinen Account zu aktivieren, musst du auf einen
                                             Aktivierungslink klicken, der dir an die angegebene E-Mail Adresse geschickt wird.</source>
-        <target>Um die Registrierung abzuschließen und deinen Account zu aktivieren, musst du auf einen
-                                            Aktivierungslink klicken, der dir an die angegebene E-Mail Adresse geschickt wird.</target>
+        <target>Pour terminer la procédure d'inscription et activer votre compte, vous devrez cliquer sur un lien d'activation qui sera envoyé à l'adresse email que vous avez fournie..</target>
       </segment>
     </unit>
     <unit id="Nm0UxBL">
@@ -780,6 +777,26 @@
       <segment>
         <source>Um dich einzuloggen, musst du nach wie vor deinen &lt;b&gt;ursprünglichen Namen&lt;/b&gt; verwenden: &lt;i&gt;{name}&lt;/i&gt;.</source>
         <target><![CDATA[Pour vous connecter, vous devrez toujours utiliser votre <b>nom d'utilisateur original</b> : <i>{name}</i>.]]></target>
+      </segment>
+    </unit>
+    <unit id="tW3qs0M" name="Die eingegebene E-Mail Adresse ist nicht korrekt.">
+      <notes>
+        <note category="german">Die eingegebene E-Mail Adresse ist nicht korrekt.</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>Die eingegebene E-Mail Adresse ist nicht korrekt.</source>
+        <target>L'adresse email est incorrecte.</target>
+      </segment>
+    </unit>
+    <unit id="y2_Gamb">
+      <notes>
+        <note category="german">Deine E-Mail Adresse wurde geändert. Bitte validiere die neue Adresse, damit du sie verwenden kannst.</note>
+        <note category="from">php:///src/Controller/Soul/SoulController.php</note>
+      </notes>
+      <segment>
+        <source>Deine E-Mail Adresse wurde geändert. Bitte validiere die neue Adresse, damit du sie verwenden kannst.</source>
+        <target>Votre adresse email a été changée. Veuillez la valider avant de pouvoir l'utiliser.</target>
       </segment>
     </unit>
   </file>

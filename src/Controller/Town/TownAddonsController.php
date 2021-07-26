@@ -267,7 +267,6 @@ class TownAddonsController extends TownController
             return AjaxResponse::error( $error );
         else try {
             // Set the activity status
-            $this->citizen_handler->inflictStatus($citizen, 'tg_chk_active');
             $this->citizen_handler->inflictStatus($citizen, 'tg_chk_workshop');
 
             $this->entity_manager->persist($town);

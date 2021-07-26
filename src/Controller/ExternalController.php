@@ -312,6 +312,9 @@ class ExternalController extends InventoryAwareController {
             $fields_user = $this->SURLL_preparser($fields);
         } else {
             $fields_user = ['id', 'name', 'avatar', 'isGhost'];
+            if($type === "me") {
+                array_push($fields_user, 'twinoidID');
+            }
         }
         if ($lang != false) {
             $this->langue = $this->SURLL_preparser($lang);
@@ -855,7 +858,7 @@ class ExternalController extends InventoryAwareController {
                 }
                 break;
             case "estimationsNext":
-                if (!isset($estim[1])) {
+                if (!isset($estimTown[1])) {
                     return $data;
                 } else {
                     $estim = $estimTown[1];
@@ -1382,6 +1385,9 @@ class ExternalController extends InventoryAwareController {
             switch ($field) {
                 case "id":
                     $user_data[$field] = $user->getId();
+                    break;
+                case "twinoidID":
+                    $user_data[$field] = $user->getTwinoidID();
                     break;
                 case "name":
                     $user_data[$field] = $user->getName();

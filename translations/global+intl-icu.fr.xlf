@@ -334,7 +334,7 @@
     <unit id="9.8ReK8" name="Abbrechen">
       <notes>
         <note category="german">Abbrechen</note>
-        <note category="from">twig:///templates/ajax/forum/editor.html.twig;twig:///templates/ajax/game/town/bank.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/planner.html.twig;twig:///templates/ajax/soul/import_preview.html.twig;twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="from">twig:///templates/ajax/forum/editor.html.twig;twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/bank.html.twig;twig:///templates/ajax/game/town/construction.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/planner.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig;twig:///templates/ajax/soul/import_preview.html.twig;twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Abbrechen</source>
@@ -368,7 +368,7 @@
       </notes>
       <segment>
         <source>Bist du sicher?</source>
-        <target>Êtes-vous sûr ?</target>
+        <target>Etes-vous sûr de vouloir laisser ce message ?</target>
       </segment>
     </unit>
     <unit id="lO_TcU3" name="Auswahl bestätigen">
@@ -1689,7 +1689,7 @@
     <unit id="GgZ6pgy" name="Bist du sicher, dass du diesen Post an die Moderatoren melden willst?">
       <notes>
         <note category="german">Bist du sicher, dass du diesen Post an die Moderatoren melden willst?</note>
-        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
       </notes>
       <segment>
         <source>Bist du sicher, dass du diesen Post an die Moderatoren melden willst?</source>
@@ -1975,18 +1975,6 @@
       <segment>
         <source>Code</source>
         <target>Code</target>
-      </segment>
-    </unit>
-    <unit id="rtJUaLn">
-      <notes>
-        <note category="german">Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
-                                &lt;p&gt;&lt;em&gt;Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..&lt;/em&gt;&lt;/p&gt;</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
-                                &lt;p&gt;&lt;em&gt;Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..&lt;/em&gt;&lt;/p&gt;</source>
-        <target><![CDATA[Le nombre de monticules de terre et de déchets vous indique qu'il n'y a sans doute plus grand chose à trouver ici. <p><em>Vous pouvez toutefois continuer à creuser pour trouver des ressources de mauvaise qualité pour les chantiers en ville.</em></p>]]></target>
       </segment>
     </unit>
     <unit id="i4kWNY_">
@@ -2950,8 +2938,7 @@
       <segment>
         <source>Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
                                     &lt;p&gt;&lt;em&gt;Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..&lt;/em&gt;&lt;/p&gt;</source>
-        <target><![CDATA[Le grand nombre de tas de terre et de détritus qui traînent indique qu'il n'y a probablement plus rien à trouver ici.
-                                    <p><em>Cependant, si vous le souhaitez, vous pouvez continuer à creuser et à déterrer des matériaux de qualité inférieure pour les différents chantiers de construction autour de la ville.</em></p>]]></target>
+        <target><![CDATA[Le nombre de monticules de terre et de déchets vous indique qu'il n'y a sans doute plus grand chose à trouver ici. <p><em>Vous pouvez toutefois continuer à creuser pour trouver des ressources de mauvaise qualité pour les chantiers en ville.</em></p>]]></target>
       </segment>
     </unit>
     <unit id="qplNLmy" name="Bitte wähle die Art der Beschränkung.">
@@ -3344,6 +3331,177 @@
       <segment>
         <source>Keine Präferenz</source>
         <target>Pas de préférence</target>
+      </segment>
+    </unit>
+    <unit id="rJ6n7d_" name="E-Mail konnte nicht gesendet werden.">
+      <notes>
+        <note category="german">E-Mail konnte nicht gesendet werden.</note>
+        <note category="from">twig:///templates/scripts/errors/generic.txt.twig</note>
+      </notes>
+      <segment>
+        <source>E-Mail konnte nicht gesendet werden.</source>
+        <target>Impossible d'envoyer l'email.</target>
+      </segment>
+    </unit>
+    <unit id="RyBQtzC" name="Kopieren">
+      <notes>
+        <note category="german">Kopieren</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig</note>
+      </notes>
+      <segment>
+        <source>Kopieren</source>
+        <target>Copier</target>
+      </segment>
+    </unit>
+    <unit id="S5yBc2R" name="Wenn möglich gib bitte einen Grund für deine Meldung an:">
+      <notes>
+        <note category="german">Wenn möglich gib bitte einen Grund für deine Meldung an:</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+      </notes>
+      <segment>
+        <source>Wenn möglich gib bitte einen Grund für deine Meldung an:</source>
+        <target>Si possible, merci d'indiquer la raison du signalement :</target>
+      </segment>
+    </unit>
+    <unit id="APXGipg" name="Keinen Grund angeben">
+      <notes>
+        <note category="german">Keinen Grund angeben</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+      </notes>
+      <segment>
+        <source>Keinen Grund angeben</source>
+        <target>Ne pas donner de raison</target>
+      </segment>
+    </unit>
+    <unit id="ePXpaiZ" name="Cheating">
+      <notes>
+        <note category="german">Cheating</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+      </notes>
+      <segment>
+        <source>Cheating</source>
+        <target>Triche</target>
+      </segment>
+    </unit>
+    <unit id="6Hh6LXv" name="Flooding oder Spam">
+      <notes>
+        <note category="german">Flooding oder Spam</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+      </notes>
+      <segment>
+        <source>Flooding oder Spam</source>
+        <target>Flood ou Spam</target>
+      </segment>
+    </unit>
+    <unit id="XqMHQ7B" name="Verwendung einer anderen als der Forensprache">
+      <notes>
+        <note category="german">Verwendung einer anderen als der Forensprache</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig</note>
+      </notes>
+      <segment>
+        <source>Verwendung einer anderen als der Forensprache</source>
+        <target>Utilisation d’une langue autre que la langue du forum</target>
+      </segment>
+    </unit>
+    <unit id="feEwSD7" name="Beleidigungen / Unangemessener Ausdruck">
+      <notes>
+        <note category="german">Beleidigungen / Unangemessener Ausdruck</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+      </notes>
+      <segment>
+        <source>Beleidigungen / Unangemessener Ausdruck</source>
+        <target>Insultes / Langage inapproprié</target>
+      </segment>
+    </unit>
+    <unit id="o64FZLa" name="Pornographie">
+      <notes>
+        <note category="german">Pornographie</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Pornographie</source>
+        <target>Pornographie</target>
+      </segment>
+    </unit>
+    <unit id="l9G12go" name="Hassrede">
+      <notes>
+        <note category="german">Hassrede</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+      </notes>
+      <segment>
+        <source>Hassrede</source>
+        <target>Incitation à la haine raciale</target>
+      </segment>
+    </unit>
+    <unit id="ZVAuBRQ" name="Verbreitung persönlicher Informationen">
+      <notes>
+        <note category="german">Verbreitung persönlicher Informationen</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+      </notes>
+      <segment>
+        <source>Verbreitung persönlicher Informationen</source>
+        <target>Diffusion d'informations personnelles sensibles</target>
+      </segment>
+    </unit>
+    <unit id="dE9afiC" name="Verletzung von Copyright">
+      <notes>
+        <note category="german">Verletzung von Copyright</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+      </notes>
+      <segment>
+        <source>Verletzung von Copyright</source>
+        <target>Non respect des droits d'auteur</target>
+      </segment>
+    </unit>
+    <unit id="haH8YNU" name="Aufruf zu Gesetzesverstößen">
+      <notes>
+        <note category="german">Aufruf zu Gesetzesverstößen</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+      </notes>
+      <segment>
+        <source>Aufruf zu Gesetzesverstößen</source>
+        <target>Incitation à la violation de la loi</target>
+      </segment>
+    </unit>
+    <unit id="cczOm4l" name="Ermutigung von Selbstmord oder Selbstverletzung">
+      <notes>
+        <note category="german">Ermutigung von Selbstmord oder Selbstverletzung</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+      </notes>
+      <segment>
+        <source>Ermutigung von Selbstmord oder Selbstverletzung</source>
+        <target>Mise en danger d'autrui</target>
+      </segment>
+    </unit>
+    <unit id="EblNNdf" name="Inhalt melden">
+      <notes>
+        <note category="german">Inhalt melden</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+      </notes>
+      <segment>
+        <source>Inhalt melden</source>
+        <target>Signaler le contenu</target>
+      </segment>
+    </unit>
+    <unit id="4M3lurj" name="Verwendung einer anderen als der Stadtsprache">
+      <notes>
+        <note category="german">Verwendung einer anderen als der Stadtsprache</note>
+        <note category="from">twig:///templates/ajax/game/town/posts.html.twig</note>
+      </notes>
+      <segment>
+        <source>Verwendung einer anderen als der Stadtsprache</source>
+        <target>Utilisation d’une langue autre que la langue de la ville</target>
+      </segment>
+    </unit>
+    <unit id="GAVyRWS" name="Unangemessenen Inhalt melden">
+      <notes>
+        <note category="german">Unangemessenen Inhalt melden</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+      </notes>
+      <segment>
+        <source>Unangemessenen Inhalt melden</source>
+        <target>Signaler un contenu illicite</target>
       </segment>
     </unit>
   </file>

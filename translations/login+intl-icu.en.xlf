@@ -34,7 +34,7 @@
     <unit id="6UV8ek7" name="Die eingegebenen E-Mail Adressen stimmen nicht überein.">
       <notes>
         <note category="german">Die eingegebenen E-Mail Adressen stimmen nicht überein.</note>
-        <note category="from">php:///src/Controller/PublicController.php</note>
+        <note category="from">php:///src/Controller/PublicController.php;twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Die eingegebenen E-Mail Adressen stimmen nicht überein.</source>
@@ -506,12 +506,12 @@
     </unit>
     <unit id="LiGRhEI">
       <notes>
-        <note category="german">Wenn du noch einen alten MyHordes-Account hast, kannst du dich vorerst auch damit einloggen.</note>
+        <note category="german">Wenn du noch einen alten MyHordes-Account hast, kannst du dich auch damit weiter einloggen.</note>
         <note category="from">twig:///templates/ajax/public/login.html.twig</note>
       </notes>
       <segment>
         <source>Wenn du noch einen alten MyHordes-Account hast, kannst du dich vorerst auch damit einloggen.</source>
-        <target>If you still use an old MyHordes account, you can log in with it for now.</target>
+        <target>If you still use an old MyHordes account, you can still log in with it.</target>
       </segment>
     </unit>
     <unit id="ho.WxzI">
@@ -781,6 +781,26 @@
       <segment>
         <source>Um dich einzuloggen, musst du nach wie vor deinen &lt;b&gt;ursprünglichen Namen&lt;/b&gt; verwenden: &lt;i&gt;{name}&lt;/i&gt;.</source>
         <target><![CDATA[To log in, you still need to use your <b>original name</b>: <i>{name}</i>.]]></target>
+      </segment>
+    </unit>
+    <unit id="tW3qs0M" name="Die eingegebene E-Mail Adresse ist nicht korrekt.">
+      <notes>
+        <note category="german">Die eingegebene E-Mail Adresse ist nicht korrekt.</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>Die eingegebene E-Mail Adresse ist nicht korrekt.</source>
+        <target>The email address is not correct.</target>
+      </segment>
+    </unit>
+    <unit id="y2_Gamb">
+      <notes>
+        <note category="german">Deine E-Mail Adresse wurde geändert. Bitte validiere die neue Adresse, damit du sie verwenden kannst.</note>
+        <note category="from">php:///src/Controller/Soul/SoulController.php</note>
+      </notes>
+      <segment>
+        <source>Deine E-Mail Adresse wurde geändert. Bitte validiere die neue Adresse, damit du sie verwenden kannst.</source>
+        <target>Your email address has been changed. Please validate it before using it.</target>
       </segment>
     </unit>
   </file>

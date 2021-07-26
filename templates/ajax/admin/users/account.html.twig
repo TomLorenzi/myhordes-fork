@@ -324,6 +324,7 @@
                                         <div>{{ token.pkey }}
                                             ({% if     token.type ==  constant('App\\Entity\\UserPendingValidation::EMailValidation') %} EMailValidation
                                         {% elseif token.type ==  constant('App\\Entity\\UserPendingValidation::ResetValidation') %} ResetValidation
+                                        {% elseif token.type ==  constant('App\\Entity\\UserPendingValidation::ChangeEmailValidation') %} ChangeEmailValidation
                                         {% else                                                                                  %} {{ token.type }} {% endif %})
                                             <div x-delete-token="{{ token.id }}" class="button small inline"><i class="fa fa-trash"></i></div>
                                         </div>

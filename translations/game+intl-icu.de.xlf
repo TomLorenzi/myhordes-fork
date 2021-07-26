@@ -13690,10 +13690,10 @@
         <target>Kein Wasser mehr!</target>
       </segment>
     </unit>
-    <unit id="DjCbLrn">
+    <unit id=".4llLEr">
       <segment>
-        <source>&lt;strong&gt;Verlust der Zonenkontrolle&lt;/strong&gt;: Die Suchen der Bürger wurden unterbrochen!</source>
-        <target><![CDATA[<strong>Verlust der Zonenkontrolle</strong>: Die Suchen der Bürger wurden unterbrochen!]]></target>
+        <source>&lt;strong&gt;Verlust der Zonenkontrolle&lt;/strong&gt;: Die Suchen von {citizen} wurden unterbrochen!</source>
+        <target><![CDATA[<strong>Verlust der Zonenkontrolle</strong>: Die Suchen von {citizen} wurden unterbrochen!]]></target>
       </segment>
     </unit>
     <unit id="2L4fAWv">
@@ -13963,6 +13963,156 @@
       <segment>
         <source>Einen anderen Bürger angreifen, bedeutet ihn körperlich zu verletzen... Die Chance ihn zu verletzen ist gering, aber die ganze Stadt wird davon erfahren...</source>
         <target>Einen anderen Bürger angreifen, bedeutet ihn körperlich zu verletzen... Die Chance ihn zu verletzen ist gering, aber die ganze Stadt wird davon erfahren...</target>
+      </segment>
+    </unit>
+    <unit id="ownttVn" name="Das Gesamtregister ansehen">
+      <segment>
+        <source>Das Gesamtregister ansehen</source>
+        <target>Das Gesamtregister ansehen</target>
+      </segment>
+    </unit>
+    <unit id="JJjZLmq">
+      <segment>
+        <source>Dieser Link bringt dich zum &lt;strong&gt;Großen Register&lt;/strong&gt;. Darin werden alle wichtigen Handlungen und Aktionen der Stadtbürger gespeichert...</source>
+        <target><![CDATA[Dieser Link bringt dich zum <strong>Großen Register</strong>. Darin werden alle wichtigen Handlungen und Aktionen der Stadtbürger gespeichert...]]></target>
+      </segment>
+    </unit>
+    <unit id="eOisfiB" name="Nichts Interessantes...">
+      <segment>
+        <source>Nichts Interessantes...</source>
+        <target>Nichts Interessantes...</target>
+      </segment>
+    </unit>
+    <unit id="7ln_hQb" name="Zum Bau dieses Bauprojekts fehlen noch {ap} AP">
+      <segment>
+        <source>Zum Bau dieses Bauprojekts fehlen noch {ap} AP</source>
+        <target>Zum Bau dieses Bauprojekts fehlen noch {ap} AP</target>
+      </segment>
+    </unit>
+    <unit id="e1Ym_Ag">
+      <segment>
+        <source>Das Stadttor ist &lt;span class="critical"&gt;geöffnet&lt;/span&gt;! Achtung: Wenn das Tor geschlossen wird, können alle Spieler, die sich außerhalb der Stadt befinden, nicht mehr rein.</source>
+        <target><![CDATA[Das Stadttor ist <span class="critical">geöffnet</span>! Achtung: Wenn das Tor geschlossen wird, können alle Spieler, die sich außerhalb der Stadt befinden, nicht mehr rein.]]></target>
+      </segment>
+    </unit>
+    <unit id="Xa1yd0S">
+      <segment>
+        <source>&lt;strong&gt;Du bist erschöpft&lt;/strong&gt;, du kannst deshalb weder &lt;strong&gt;in die Außenwelt gehen&lt;/strong&gt;, noch &lt;strong&gt;das Stadttor öffnen&lt;/strong&gt;, noch &lt;strong&gt;es schließen&lt;/strong&gt;.</source>
+        <target><![CDATA[<strong>Du bist erschöpft</strong>, du kannst deshalb weder <strong>in die Außenwelt gehen</strong>, noch <strong>das Stadttor öffnen</strong>, noch <strong>es schließen</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="S5F9Bue">
+      <segment>
+        <source>Trinke oder nimm einen Happen zu dir, aber unternimm etwas, um wieder in Schuss zu kommen!</source>
+        <target>Trinke oder nimm einen Happen zu dir, aber unternimm etwas, um wieder in Schuss zu kommen!</target>
+      </segment>
+    </unit>
+    <unit id="Be.3GRF">
+      <segment>
+        <source>Klick hier, wenn du mit deiner Heldenfähigkeit &lt;strong&gt;diesen Registereintrag fälschen&lt;/strong&gt; möchtest...</source>
+        <target><![CDATA[Klick hier, wenn du mit deiner Heldenfähigkeit <strong>diesen Registereintrag fälschen</strong> möchtest...]]></target>
+      </segment>
+    </unit>
+    <unit id="AspdF7m" name="Ranking-Ausschluss">
+      <segment>
+        <source>Ranking-Ausschluss</source>
+        <target>Ranking-Ausschluss</target>
+      </segment>
+    </unit>
+    <unit id="XEwyP0J">
+      <segment>
+        <source>Dieses Leben wird aus den Annalen der Geschichte getilgt. Du erhälst weder Seelenpunkte noch Auszeichnungen.</source>
+        <target>Dieses Leben wird aus den Annalen der Geschichte getilgt. Du erhälst weder Seelenpunkte noch Auszeichnungen.</target>
+      </segment>
+    </unit>
+    <unit id="gLhMShO" name="Das wird dir in Zukunft schlaflose Nächte bereiten!">
+      <segment>
+        <source>Das wird dir in Zukunft schlaflose Nächte bereiten!</source>
+        <target>Das wird dir in Zukunft schlaflose Nächte bereiten!</target>
+      </segment>
+    </unit>
+    <unit id="k8ELM3Z" name="Erkunde die Außenwelt:">
+      <segment>
+        <source>Erkunde die Außenwelt:</source>
+        <target>Erkunde die Außenwelt:</target>
+      </segment>
+    </unit>
+    <unit id="99xLniA" name="Die Weltkarte ist nun größer. Viel größer!">
+      <segment>
+        <source>Die Weltkarte ist nun größer. Viel größer!</source>
+        <target>Die Weltkarte ist nun größer. Viel größer!</target>
+      </segment>
+    </unit>
+    <unit id="a8O8WQf" name="Du kannst nun Ruinen durch ein Minispiel erkunden.">
+      <segment>
+        <source>Du kannst nun Ruinen durch ein Minispiel erkunden.</source>
+        <target>Du kannst nun Ruinen durch ein Minispiel erkunden.</target>
+      </segment>
+    </unit>
+    <unit id="nuFU1XW" name="Du kannst nun Nachts in der Außenwelt campen (auf eigene Gefahr natürlich)">
+      <segment>
+        <source>Du kannst nun Nachts in der Außenwelt campen (auf eigene Gefahr natürlich)</source>
+        <target>Du kannst nun Nachts in der Außenwelt campen (auf eigene Gefahr natürlich)</target>
+      </segment>
+    </unit>
+    <unit id="kI9jzjA" name="Von nun an ist die Nacht sowohl Freund als auch Feind...">
+      <segment>
+        <source>Von nun an ist die Nacht sowohl Freund als auch Feind...</source>
+        <target>Von nun an ist die Nacht sowohl Freund als auch Feind...</target>
+      </segment>
+    </unit>
+    <unit id="t7TzeHz">
+      <segment>
+        <source>Du könntest als der Schamane der Stadt enden! Koste die Macht dieses mystischen Voodoo-Mannes, aber denk an deine Verantwortung für die Seelen der Verdammten...</source>
+        <target>Du könntest als der Schamane der Stadt enden! Koste die Macht dieses mystischen Voodoo-Mannes, aber denk an deine Verantwortung für die Seelen der Verdammten...</target>
+      </segment>
+    </unit>
+    <unit id="YZ9vmmI" name="Es gibt keine &quot;vorbereiteten&quot; Gebäude. Du bist auf dich allein gestellt.">
+      <segment>
+        <source>Es gibt keine "vorbereiteten" Gebäude. Du bist auf dich allein gestellt.</source>
+        <target>Es gibt keine "vorbereiteten" Gebäude. Du bist auf dich allein gestellt.</target>
+      </segment>
+    </unit>
+    <unit id="C1Uk2nl" name="Versuch dich an einer Pandämonium-Stadt, wenn du dich traust...">
+      <segment>
+        <source>Versuch dich an einer Pandämonium-Stadt, wenn du dich traust...</source>
+        <target>Versuch dich an einer Pandämonium-Stadt, wenn du dich traust...</target>
+      </segment>
+    </unit>
+    <unit id="qDTyCV1" name="Städte werden nun basierend auf ihrem Überlebensfaktor bewertet.">
+      <segment>
+        <source>Städte werden nun basierend auf ihrem Überlebensfaktor bewertet.</source>
+        <target>Städte werden nun basierend auf ihrem Überlebensfaktor bewertet.</target>
+      </segment>
+    </unit>
+    <unit id="wtNGNwN" name="Du kannst nun angreifen wen immer du willst, selbst wenn du kein Ghul bist.">
+      <segment>
+        <source>Du kannst nun angreifen wen immer du willst, selbst wenn du kein Ghul bist.</source>
+        <target>Du kannst nun angreifen wen immer du willst, selbst wenn du kein Ghul bist.</target>
+      </segment>
+    </unit>
+    <unit id="cs1EKvG" name="Um Baupläne zu finden musst du nun in Gebäuden in der Außenwelt campen.">
+      <segment>
+        <source>Um Baupläne zu finden musst du nun in Gebäuden in der Außenwelt campen.</source>
+        <target>Um Baupläne zu finden musst du nun in Gebäuden in der Außenwelt campen.</target>
+      </segment>
+    </unit>
+    <unit id="ejSpLIg">
+      <segment>
+        <source>Diese letzten Nächte des Überlebens haben deiner verlorenen Seele zugesetzt, aber du bist daraus gestärkt hervorgegangen. Nun bist du bereit für die wirklichen Herausforderungen, die jetzt beginnen.</source>
+        <target>Diese letzten Nächte des Überlebens haben deiner verlorenen Seele zugesetzt, aber du bist daraus gestärkt hervorgegangen. Nun bist du bereit für die wirklichen Herausforderungen, die jetzt beginnen.</target>
+      </segment>
+    </unit>
+    <unit id="25LN4T2">
+      <segment>
+        <source>Der Diebstahl, den du gerade begangen hast, wurde bemerkt! Die Bürger werden gewarnt, dass du den(die,das) {item} bei {victim} gestohlen hast.</source>
+        <target>Der Diebstahl, den du gerade begangen hast, wurde bemerkt! Die Bürger werden gewarnt, dass du den(die,das) {item} bei {victim} gestohlen hast.</target>
+      </segment>
+    </unit>
+    <unit id="ljh7pXv">
+      <segment>
+        <source>&lt;strong&gt;Das Stadttor ist geschlossen&lt;/strong&gt;, eine Rückkehr ist nicht möglich!</source>
+        <target><![CDATA[<strong>Das Stadttor ist geschlossen</strong>, eine Rückkehr ist nicht möglich!]]></target>
       </segment>
     </unit>
   </file>

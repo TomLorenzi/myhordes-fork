@@ -44,6 +44,7 @@
 
     {% if has_recipes %}
         <div class="note note-critical">
+            <img src="{{ asset('build/images/icons/small_warning.gif') }}" alt="" />
             {% trans from 'game' %}
                 Achte darauf, keine <strong>nutzlosen Ressourcen</strong> herzustellen! Wenn du dir nicht sicher bist, sieh in dem <strong>Forum</strong> hier unten nach...
             {% endtrans %}
@@ -54,7 +55,7 @@
             <div class="padded cell rw-2">
                 <span class="hide-md hide-sm">{% trans from 'game' %}Vorrat{% endtrans %}</span>
             </div>
-            <div class="padded cell rw-6 hide-desktop hide-lg center">
+            <div class="padded cell rw-6 hide-desktop hide-lg">
                 {% trans from 'game' %}Umwandlung{% endtrans %}
             </div>
             <div class="padded cell rw-3 hide-sm hide-md left">
@@ -63,10 +64,10 @@
             <div class="padded cell rw-3 hide-sm hide-md left">
                 {% trans from 'game' %}Hergestellter Gegenstand{% endtrans %}
             </div>
-            <div class="padded cell rw-2">
+            <div class="padded cell rw-1">
                 <span class="hide-md hide-sm">{% trans from 'game' %}Anzahl{% endtrans %}</span>
             </div>
-            <div class="padded cell rw-2 right">
+            <div class="padded cell rw-3 right">
                 <div class="ap">{{ need_ap }}</div>
             </div>
         </div>
@@ -108,7 +109,10 @@
                             <span class="small">{{ result[recipe.id] }}</span>
                         {% endif %}
                     </div>
-                    <div class="padded cell rw-3 grow-0 shrink-0">
+                    <div class="padded cell rw-3 hide-desktop right">
+                        <button {% if banished%}disabled{% endif %} x-recipe-id="{{ recipe.id }}" class="inline small"><img src="{% if recipe.action == "Zerlegen" %}{{ asset('build/images/item/item_classicKey.gif') }}{% elseif recipe.action == "Öffnen" %}{{ asset('build/images/item/item_can_opener.gif') }}{% else %}{{ asset('build/images/icons/small_refine.gif') }}{% endif %}" alt="" /><span class="hide-lg hide-md hide-sm">{{ recipe.action|trans({},'items') }}</span></button>
+                    </div>
+                    <div class="padded cell rw-3 hide-mobile">
                         <button {% if banished%}disabled{% endif %} x-recipe-id="{{ recipe.id }}"><img src="{% if recipe.action == "Zerlegen" %}{{ asset('build/images/item/item_classicKey.gif') }}{% elseif recipe.action == "Öffnen" %}{{ asset('build/images/item/item_can_opener.gif') }}{% else %}{{ asset('build/images/icons/small_refine.gif') }}{% endif %}" alt="" /><span class="hide-lg hide-md hide-sm">{{ recipe.action|trans({},'items') }}</span></button>
                     </div>
                 </div>
@@ -132,7 +136,7 @@
     </div>
 
     <div class="row">
-        <h5>{{ 'Werkstatt-Register'|trans({},'game') }}</h5>
+        <h5>{{ 'Werkstatt-Register'|trans({},'game') }} <a class="float-right link" x-ajax-href="{{ path("game_newspaper") }}">{{ 'Das Gesamtregister ansehen'|trans({}, 'game') }}<div class="tooltip normal">{{ 'Dieser Link bringt dich zum <strong>Großen Register</strong>. Darin werden alle wichtigen Handlungen und Aktionen der Stadtbürger gespeichert...'|trans({}, 'game')|raw }}</div></a></h5>
         <div class="cell rw-12">
             {% embed "ajax/game/log.html.twig" with {'log_content': log, 'log_source': path('town_workshop_log_controller') } %}
             {% endembed %}

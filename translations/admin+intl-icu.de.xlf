@@ -2389,5 +2389,41 @@
         <target>Stadt reparieren</target>
       </segment>
     </unit>
+    <unit id="qiwbmCe" name="Versteckte Statuseffekte">
+      <segment>
+        <source>Versteckte Statuseffekte</source>
+        <target>Versteckte Statuseffekte</target>
+      </segment>
+    </unit>
+    <unit id="Sn2_Qth" name="Ranking-Ausschluss zurücknehmen">
+      <segment>
+        <source>Ranking-Ausschluss zurücknehmen</source>
+        <target>Ranking-Ausschluss zurücknehmen</target>
+      </segment>
+    </unit>
+    <unit id="F9LAKy6" name="Diese Stadt aus dem Ranking ausschließen">
+      <segment>
+        <source>Diese Stadt aus dem Ranking ausschließen</source>
+        <target>Diese Stadt aus dem Ranking ausschließen</target>
+      </segment>
+    </unit>
+    <unit id="VVx9Eja" name="Ranking-Eintrag">
+      <segment>
+        <source>Ranking-Eintrag</source>
+        <target>Ranking-Eintrag</target>
+      </segment>
+    </unit>
+    <unit id="gk_4TAg" name="Event-Markierung entfernen">
+      <segment>
+        <source>Event-Markierung entfernen</source>
+        <target>Event-Markierung entfernen</target>
+      </segment>
+    </unit>
+    <unit id="RSDaSun" name="Als Event-Stadt markieren">
+      <segment>
+        <source>Als Event-Stadt markieren</source>
+        <target>Als Event-Stadt markieren</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

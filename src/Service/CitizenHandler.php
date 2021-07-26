@@ -838,4 +838,27 @@ class CitizenHandler
 
         return false;
     }
+
+    public function getActivityLevel(Citizen $citizen): int {
+        $level = 0;
+        if($this->hasStatusEffect($citizen, 'tg_chk_forum')) $level++;
+        if($this->hasStatusEffect($citizen, 'tg_chk_active')) $level++;
+        if($this->hasStatusEffect($citizen, 'tg_chk_workshop')) $level++;
+        if($this->hasStatusEffect($citizen, 'tg_chk_build')) $level++;
+        if($this->hasStatusEffect($citizen, 'tg_chk_movewb')) $level++;
+        return $level;
+    }
+
+    public function getDecoPoints(Citizen $citizen, &$decoItems = []): int {
+        $deco = 0;
+        foreach ($citizen->getHome()->getChest()->getItems() as $item) {
+            /** @var Item $item */
+            if ($item->getBroken()) continue;
+            $deco += $item->getPrototype()->getDeco();
+            if ($item->getPrototype()->getDeco())
+                $decoItems[] = $item;
+        }
+
+        return $deco;
+    }
 }

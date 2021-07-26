@@ -1192,7 +1192,7 @@ class MessageGlobalPMController extends MessageController
      * @param TranslatorInterface $ti
      * @return Response
      */
-    public function report_post_api(int $pid, EntityManagerInterface $em, TranslatorInterface $ti): Response {
+    public function report_post_api(int $pid, EntityManagerInterface $em, TranslatorInterface $ti, JSONRequestParser $parser): Response {
         $user = $this->getUser();
 
         $message = $em->getRepository( GlobalPrivateMessage::class )->find( $pid );
@@ -1220,6 +1220,7 @@ class MessageGlobalPMController extends MessageController
         $newReport = (new AdminReport())
             ->setSourceUser($user)
             ->setTs(new DateTime('now'))
+            ->setReason( $parser->get_int('reason', 0, 0, 10) )
             ->setGpm($message);
 
         try {

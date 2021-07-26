@@ -64,6 +64,7 @@ class TownConf extends Conf
     const CONF_MODIFIER_POISON_STACK         = 'modifiers.poison.stack_poisoned_items';
     const CONF_MODIFIER_POISON_TRANS         = 'modifiers.poison.transgress';
     const CONF_MODIFIER_WT_THRESHOLD         = 'modifiers.watchtower_estimation_threshold';
+    const CONF_MODIFIER_WT_OFFSET            = 'modifiers.watchtower_estimation_offset';
     const CONF_MODIFIER_ALLOW_REDIGS         = 'modifiers.allow_redig';
     const CONF_MODIFIER_FLOOR_ASMBLY         = 'modifiers.assemble_items_from_floor';
     const CONF_MODIFIER_PRE_ASSEMBLY         = 'modifiers.preview_item_assemblage';

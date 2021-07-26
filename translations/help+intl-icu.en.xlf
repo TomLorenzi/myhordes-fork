@@ -2336,7 +2336,7 @@ sind &lt;strong&gt;nicht auf 90%&lt;/strong&gt; beschränkt.</source>
     <unit id="27FD0EG" name="Die Auszeichnungen">
       <notes>
         <note category="german">Die Auszeichnungen</note>
-        <note category="from">twig:///templates/ajax/help/your_soul.html.twig</note>
+        <note category="from">twig:///templates/ajax/help/your_soul.html.twig;twig:///templates/ajax/soul/death.html.twig</note>
       </notes>
       <segment>
         <source>Die Auszeichnungen</source>
@@ -5674,12 +5674,12 @@ Eine davon ist es der &lt;strong&gt;Nachtwache&lt;/strong&gt; beizutreten.</sour
     </unit>
     <unit id="26offDf">
       <notes>
-        <note category="german">Alle Waffen oder Verteidigungsgegenstände, die du während der Nachtwache benutzt, werden danach zerstört. Waffen mit mehr als einem Schuss werden eine Ladung verlie</note>
+        <note category="german">Alle Waffen oder Verteidigungsgegenstände, die du während der Nachtwache benutzt, werden danach zerstört. Waffen mit mehreren Ladungen werden durch die Wacht geleert</note>
         <note category="from">twig:///templates/ajax/help/the_watchmen.html.twig</note>
       </notes>
       <segment>
         <source>Alle Waffen oder Verteidigungsgegenstände, die du während der Nachtwache benutzt, werden danach zerstört. Waffen mit mehr als einem Schuss werden eine Ladung verlie</source>
-        <target>All weapons or defensive objects used on the watch will be destroyed once it is over, weapons with multiple charges will use one during the watch.</target>
+        <target>All weapons or defensive objects used on the watch will be destroyed once it is over, weapons with multiple charges will become empty during the watch.</target>
       </segment>
     </unit>
     <unit id="4yvcfEV" name="Wie funktioniert das?">

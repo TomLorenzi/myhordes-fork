@@ -1996,7 +1996,7 @@
       </notes>
       <segment>
         <source>Batteriewerfer Mark II (geladen)</source>
-        <target>Battery Laucher Mk. II (loaded)</target>
+        <target>Battery Launcher Mk. II (loaded)</target>
       </segment>
     </unit>
     <unit id="DrdIvIa" name="Zerquetschte Batterie">
@@ -3513,7 +3513,7 @@
       </notes>
       <segment>
         <source>&lt;nt-spawned&gt;Trotz aller Anstrengungen ist es dir nicht gelungen, den {item} zu öffnen...&lt;/nt-spawned&gt;&lt;t-spawned&gt;Du hast die {item} geöffnet und darin {items_spawn} gefunden!&lt;/t-spawned&gt;</source>
-        <target><![CDATA[<nt-spawned>You waste precious time looking for the combination to the {item}...</nt-spawned><t-spawned>Nice one! You have found the secret combination for the {item}! The code was 4715... You find the {items_spawn} inside.</t-spawned>]]></target>
+        <target><![CDATA[<nt-spawned>You waste precious time looking for the combination to the {item}.<hr />You have used <strong>1 action point</strong>.</nt-spawned><t-spawned>Nice one! You have found the secret combination for the {item}! The code was 4715... You find the {items_spawn} inside.<hr />You have used <strong>1 action point</strong>.</t-spawned>]]></target>
       </segment>
     </unit>
     <unit id="ANXSLZW" name="Laden">
@@ -7078,7 +7078,7 @@
       </notes>
       <segment>
         <source>&lt;t-bp_ok&gt;Du liest den {item} und stellst fest, dass es sich um einen Plan für {bp_spawn} handelt.&lt;/t-bp_ok&gt;&lt;t-bp_parent&gt;{hr}Dafür ist das Bauprojekt {bp_parent} nötig.&lt;/t-bp_parent&gt;&lt;t-bp_fail&gt;Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...&lt;/t-bp_fail&gt;</source>
-        <target><![CDATA[<t-bp_ok>After examining the {item}, you realise that it shows precisely how to build the {bp_spawn}!{hr}You record this new information in the construction site section.</t-bp_ok><t-bp_parent>{hr}This project requires the {bp_parent} to be build first.</t-bp_parent><t-bp_fail>You read the {item} but you do not understand a word of what is written...</t-bp_fail>]]></target>
+        <target><![CDATA[<t-bp_ok>After examining the {item}, you realise that it shows precisely how to build the {bp_spawn}!{hr}You record this new information in the construction site section.</t-bp_ok><t-bp_parent>{hr}This project requires the {bp_parent} to be built first.</t-bp_parent><t-bp_fail>You read the {item} but you do not understand a word of what is written...</t-bp_fail>]]></target>
       </segment>
     </unit>
     <unit id="V2fAVB5" name="Aufbauen">
@@ -7349,7 +7349,7 @@
       </notes>
       <segment>
         <source>Der Metzger hat sich gut um {item} gekümmert... Dafür hast du nun {items_spawn} erhalten. Auf wiedersehen, mein Freund!</source>
-        <target>The butcher took great care of {item} ... You now have {items_spawn}. Goodbye dear friend!</target>
+        <target>The butcher took great care of {item} ... You now have {items_spawn}. Goodbye dear friend.</target>
       </segment>
     </unit>
     <unit id="OeuOyF4" name="Haus aufräumen und putzen">
@@ -7851,7 +7851,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Du befestigst den {item} und bedeckst ihn zur Tarnung mit herumliegendem Müll und vertrockneten Zweigen. Na bitte, das sollte hoffentlich deine Überlebenschancen heute Nacht verbessern. Du hast dafür 1 Aktionspunkt verbraucht.</source>
-        <target><![CDATA[You install the {item}  then place some rubbish and dried branches over it for camouflage. There you go, that should hopefully improve your chances of making it through the night.{hr}You have used <strong>1 action point</strong>.]]></target>
+        <target><![CDATA[You install the {item} then place some rubbish and dried branches over it for camouflage. There you go, that should hopefully improve your chances of making it through the night.{hr}You have used <strong>1 action point</strong>.]]></target>
       </segment>
     </unit>
     <unit id="68c4rQB">
@@ -8167,7 +8167,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     <unit id="sGKanc7" name="Abstimmen">
       <notes>
         <note category="german">Abstimmen</note>
-        <note category="from">[unused]</note>
+        <note category="from">db://ItemAction</note>
       </notes>
       <segment>
         <source>Abstimmen</source>
@@ -8177,7 +8177,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     <unit id="Rrf3E_z" name="Vous avez voté pour {citizen} en tant que {role} !">
       <notes>
         <note category="german">Vous avez voté pour {citizen} en tant que {role} !</note>
-        <note category="from">[unused]</note>
+        <note category="from">db://ItemAction</note>
       </notes>
       <segment>
         <source>Vous avez voté pour {citizen} en tant que {role} !</source>
@@ -8608,23 +8608,21 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     <unit id="ClZU0Ua">
       <notes>
         <note category="german">Du versuchst dich einem Zombie zu nähern, aber &lt;strong&gt;der Zombie reißt dir fast das Gesicht mit seinen Zähnen ab&lt;/strong&gt;! Unmöglich zu bestehen...</note>
-        <note category="state">new</note>
         <note category="from">db://AffectMessage</note>
       </notes>
       <segment>
         <source>Du versuchst dich einem Zombie zu nähern, aber &lt;strong&gt;der Zombie reißt dir fast das Gesicht mit seinen Zähnen ab&lt;/strong&gt;! Unmöglich zu bestehen...</source>
-        <target><![CDATA[Du versuchst dich einem Zombie zu nähern, aber <strong>der Zombie reißt dir fast das Gesicht mit seinen Zähnen ab</strong>! Unmöglich zu bestehen...]]></target>
+        <target><![CDATA[You try to approach a zombie, but <strong>it almost rips your face off with its teeth</strong>! Impossible to escape...]]></target>
       </segment>
     </unit>
     <unit id="eKYdtdt">
       <notes>
         <note category="german">Du rennst schreiend in den ersten Zombie in Reichweite! Mit einem kraftvollen, gut angepassten Schulterschlag &lt;strong&gt;schickst du ihn ein paar Meter weiter in den Staub&lt;/strong&gt;...{hr}Du kannst diese Gelegenheit zur Flucht nutzen!</note>
-        <note category="state">new</note>
         <note category="from">db://AffectMessage</note>
       </notes>
       <segment>
         <source>Du rennst schreiend in den ersten Zombie in Reichweite! Mit einem kraftvollen, gut angepassten Schulterschlag &lt;strong&gt;schickst du ihn ein paar Meter weiter in den Staub&lt;/strong&gt;...{hr}Du kannst diese Gelegenheit zur Flucht nutzen!</source>
-        <target><![CDATA[Du rennst schreiend in den ersten Zombie in Reichweite! Mit einem kraftvollen, gut angepassten Schulterschlag <strong>schickst du ihn ein paar Meter weiter in den Staub</strong>...{hr}Du kannst diese Gelegenheit zur Flucht nutzen!]]></target>
+        <target><![CDATA[You scream and run into the first zombie in range! With a well adjusted powerful shoulder tackle, <strong>you send it to bite the dust a few meters further</strong>...{hr}You can take advantage of this opportunity to run away!]]></target>
       </segment>
     </unit>
     <unit id="8vj_Qd7" name="Du trägst keine Tarnkleidung und hast deswegen auch keinerlei Tarnungsvorteile!">
@@ -9085,14 +9083,34 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
         <target>Schlechte Nachrichten, du hättest das nicht herunterschlucken sollen... du hast dir eine Infektion eingefangen!</target>
       </segment>
     </unit>
-    <unit id="stXotvA">
+    <unit id="gf4WieX">
       <notes>
-        <note category="german">Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.</note>
+        <note category="german">Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.</note>
         <note category="from">db://ItemAction</note>
       </notes>
       <segment>
-        <source>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.</source>
-        <target>You have opened the {item_from}, you have found the {item_to} inside.</target>
+        <source>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.</source>
+        <target>You have opened the {item_from}, you have found the {items_spawn} inside.</target>
+      </segment>
+    </unit>
+    <unit id="2bqTMKS">
+      <notes>
+        <note category="german">Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.{hr}Die Kiste ist nicht leer...</note>
+        <note category="from">db://ItemAction</note>
+      </notes>
+      <segment>
+        <source>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.{hr}Die Kiste ist nicht leer...</source>
+        <target>You unpack the {item_from} and you find the {items_spawn}.{hr}The box is not empty...</target>
+      </segment>
+    </unit>
+    <unit id="Np_I24h">
+      <notes>
+        <note category="german">Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.{hr}{item_from} ist &lt;strong&gt;leer&lt;/strong&gt;.</note>
+        <note category="from">db://ItemAction</note>
+      </notes>
+      <segment>
+        <source>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.{hr}{item_from} ist &lt;strong&gt;leer&lt;/strong&gt;.</source>
+        <target><![CDATA[You unpack the {item_from} and you find the {items_spawn}.{hr}{item_from} is <strong>empty</strong>.]]></target>
       </segment>
     </unit>
     <unit id="dvSEUyn">
@@ -9402,7 +9420,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     </unit>
     <unit id="nnxBJDq" name="Die Waffe hat &lt;strong&gt;keine Batterie mehr&lt;/strong&gt;.">
       <notes>
-        <note category="german">Die Waffe hat &lt;strong&gt;keine Batterie mehr&lt;/strong&gt;.</note>
+        <note category="german">Die Waffe &lt;strong&gt;hat keine Batterie&lt;/strong&gt; mehr.</note>
         <note category="state">new</note>
         <note category="from">db://AffectMessage</note>
       </notes>
@@ -9433,7 +9451,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     </unit>
     <unit id="O4qYqLB" name="{watchpoint} pkt attacke">
       <notes>
-        <note category="german"># pkt attacke</note>
+        <note category="german">{watchpoint__copy} pkt attacke</note>
         <note category="from">twig:///templates/ajax/game/item_tooltip.html.twig</note>
       </notes>
       <segment>
@@ -9493,6 +9511,38 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       <segment>
         <source>&lt;nt-morphed&gt;Gute Nachrichten: Es ist noch Wasser im Kanister!&lt;/nt-morphed&gt;&lt;t-morphed&gt;&lt;strong&gt;Der Kanister ist LEER&lt;/strong&gt;!&lt;/t-morphed&gt;</source>
         <target><![CDATA[<nt-morphed>Gute Nachrichten: Es ist noch Wasser im Kanister!</nt-morphed><t-morphed><strong>Der Kanister ist LEER</strong>!</t-morphed>]]></target>
+      </segment>
+    </unit>
+    <unit id="x2hIMFw">
+      <notes>
+        <note category="german">Du stellst den(die) {item} bei dir daheim auf. Zugegeben, es sieht nicht gerade ästhetisch aus, aber mal ganz ehrlich: Wen kümmert das?{hr}Dieser Gegenstand erweitert deine Truhe dauerhaft um soviele freie Plätze: &lt;strong&gt;{home_storage}&lt;/strong&gt;.</note>
+        <note category="from">db://AffectMessage</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Du stellst den(die) {item} bei dir daheim auf. Zugegeben, es sieht nicht gerade ästhetisch aus, aber mal ganz ehrlich: Wen kümmert das?{hr}Dieser Gegenstand erweitert deine Truhe dauerhaft um soviele freie Plätze: &lt;strong&gt;{home_storage}&lt;/strong&gt;.</source>
+        <target><![CDATA[Du stellst den(die) {item} bei dir daheim auf. Zugegeben, es sieht nicht gerade ästhetisch aus, aber mal ganz ehrlich: Wen kümmert das?{hr}Dieser Gegenstand erweitert deine Truhe dauerhaft um soviele freie Plätze: <strong>{home_storage}</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="Oww.AzB">
+      <notes>
+        <note category="german">Sorgfältig befestigst du bei dir daheim ein(e) {item}. So und das hält jetzt, so viel steht schon mal fest.{hr}Dieser Gegenstand gibt deinem Haus permament &lt;strong&gt;{home_defense} zusätzliche Verteidigungspunkt(e).&lt;/strong&gt;</note>
+        <note category="from">db://AffectMessage</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Sorgfältig befestigst du bei dir daheim ein(e) {item}. So und das hält jetzt, so viel steht schon mal fest.{hr}Dieser Gegenstand gibt deinem Haus permament &lt;strong&gt;{home_defense} zusätzliche Verteidigungspunkt(e).&lt;/strong&gt;</source>
+        <target><![CDATA[Sorgfältig befestigst du bei dir daheim ein(e) {item}. So und das hält jetzt, so viel steht schon mal fest.{hr}Dieser Gegenstand gibt deinem Haus permament <strong>{home_defense} zusätzliche Verteidigungspunkt(e).</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="H.4hGj8" name="Du hast bereits volle AP.">
+      <notes>
+        <note category="german">Du hast bereits volle AP.</note>
+        <note category="from">db://Requirement</note>
+      </notes>
+      <segment>
+        <source>Du hast bereits volle AP.</source>
+        <target>Your AP are already full.</target>
       </segment>
     </unit>
   </file>

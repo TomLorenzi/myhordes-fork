@@ -165,8 +165,8 @@ class UserFactory
 
         $i = 0;
         $user_mail = $mail ?? "{$etwin_user->getID()}@user.eternal-twin.net";
-        $display_name = preg_replace('/[^\w]/', '', trim($etwin_user->getDisplayName()));
-        $new_name = $display_name;
+        $display_name = substr(preg_replace('/[^\w]/', '', trim($etwin_user->getDisplayName())),0,32);
+        $new_name = substr($display_name,0,16);
 
         if ($this->entity_manager->getRepository(User::class)->findOneByMail( $user_mail )) {
             $error = self::ErrorMailExists;
@@ -175,7 +175,7 @@ class UserFactory
 
         while ($this->entity_manager->getRepository(User::class)->findOneByName($new_name)) {
             $it = "" . (++$i);
-            $new_name = substr( $display_name, 0, 16 - mb_strlen( $it ) ) . $it;
+            $new_name = substr( $display_name, 0, 16 - strlen( $it ) ) . $it;
         }
 
         $new_user = (new User())
@@ -241,10 +241,17 @@ class UserFactory
         $headline = null;
         $message = null;
         switch ($token->getType()) {
-
             case UserPendingValidation::EMailValidation:
                 $headline = $this->trans->trans('Account validieren', [], 'mail');
                 $message = $this->twig->render( 'mail/validation.html.twig', [
+                    'title' => $headline,
+                    'user' => $token->getUser(),
+                    'token' => $token
+                ] );
+                break;
+            case UserPendingValidation::ChangeEmailValidation:
+                $headline = $this->trans->trans('E-Mail Validierung', [], 'mail');
+                $message = $this->twig->render( 'mail/email_change_validation.html.twig', [
                     'title' => $headline,
                     'user' => $token->getUser(),
                     'token' => $token
@@ -264,7 +271,7 @@ class UserFactory
 
         if ($message === null || $headline === null) return false;
         return mail(
-            $token->getUser()->getEmail(),
+            $token->getType() === UserPendingValidation::ChangeEmailValidation ? $token->getUser()->getPendingEmail() : $token->getUser()->getEmail(),
             "MyHordes - {$headline}", $message,
             [
                 'MIME-Version' => '1.0',

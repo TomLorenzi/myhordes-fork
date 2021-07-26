@@ -2149,7 +2149,7 @@ zweite ist etwas unsicherer, das dritte noch unsicherer etc...).</note>
       <segment>
         <source>Anzahl der Nächte, die du in einer Partie draußen verbracht hast (dein erstes Camping ist sicher, das 
 zweite ist etwas unsicherer, das dritte noch unsicherer etc...).</source>
-        <target>le nombre de nuits que vous avez vous-même passé dehors au cours de cette partie (votre premier camp est sûr, le 2ème moins, le 3ème encore moins, ...etc.).</target>
+        <target>le nombre de nuits que vous avez vous-même passé dehors au cours de cette partie (votre premier camp est sûr, le 2ème moins, le 3ème encore moins, etc.).</target>
       </segment>
     </unit>
     <unit id="CMw.m2Z">
@@ -2161,7 +2161,7 @@ mag, ein kleines Restrisiko besteht immer!</note>
       <segment>
         <source>&lt;strong&gt;ACHTUNG:&lt;/strong&gt; Deine Überlebenschancen sind auf 90% begrenzt! Wie gut dein Versteck auch sein 
 mag, ein kleines Restrisiko besteht immer!</source>
-        <target><![CDATA[<strong>ATTENTION :</strong> vos chances de survie sont plafonnées à 90% ! Quoique vous fassiez, vous aurez toujours un risque (faible) de mourir dehors.]]></target>
+        <target><![CDATA[<strong>ATTENTION :</strong> vos chances de survie sont plafonnées à 90% ! Quoi que vous fassiez, vous aurez toujours un risque (faible) de mourir dehors.]]></target>
       </segment>
     </unit>
     <unit id="OqVqAxa">
@@ -2325,7 +2325,7 @@ sind &lt;strong&gt;nicht auf 90%&lt;/strong&gt; beschränkt.</source>
       <segment>
         <source>Du musst etwas trinken... Warte nicht zu lang, sonst bist du
 &lt;strong&gt;{img_dehy} Dehydriert&lt;/strong&gt;!</source>
-        <target><![CDATA[Vous avez besoin de boire... Ne tardez pas trop à le faire, vous risquez de finir par devenir <strong>{img_dehy} Déshydraté(e)</strong>!]]></target>
+        <target><![CDATA[Vous avez besoin de boire... Ne tardez pas trop à le faire, vous risquez de finir par devenir <strong>{img_dehy} Déshydraté(e)</strong> !]]></target>
       </segment>
     </unit>
     <unit id="uB2Vk6P" name="oder">
@@ -2989,7 +2989,7 @@ Leider ist es unmöglich, Karten von diesen Gebäuden aufzustöbern. Aber es bes
     <unit id="27FD0EG" name="Die Auszeichnungen">
       <notes>
         <note category="german">Die Auszeichnungen</note>
-        <note category="from">twig:///templates/ajax/help/your_soul.html.twig</note>
+        <note category="from">twig:///templates/ajax/help/your_soul.html.twig;twig:///templates/ajax/soul/death.html.twig</note>
       </notes>
       <segment>
         <source>Die Auszeichnungen</source>
@@ -3003,7 +3003,7 @@ Leider ist es unmöglich, Karten von diesen Gebäuden aufzustöbern. Aber es bes
       </notes>
       <segment>
         <source>Nach jedem Tod erhältst für bestimmte Taten oder Erfolge ein paar Auszeichungen. Dies wird unter anderem gezählt: Anzahl der getöteten Zombies, Anzahl der seltenen gefundenen Gegenstände, Anzahl der APs, die du in Baustellen investiert hast...</source>
-        <target>À chaque mort, vous recevez des Distinctions pour de nombreuses choses réalisées au cours de votre partie : nombre de zombies éliminés, objets rares trouvés, ...etc.</target>
+        <target>À chaque mort, vous recevez des Distinctions pour de nombreuses choses réalisées au cours de votre partie : nombre de zombies éliminés, objets rares trouvés, etc.</target>
       </segment>
     </unit>
     <unit id="wCuacLL">
@@ -3265,7 +3265,7 @@ Der angebrochene Tag gilt dann als nicht überlebt. &lt;em&gt;Solltest du zum Be
       <segment>
         <source>&lt;strong&gt;Du stirbst im Laufe des Tages (Vergiftung, Wassermangel ...):&lt;/strong&gt;
 Der angebrochene Tag gilt dann als nicht überlebt. &lt;em&gt;Solltest du zum Beispiel am fünften Tag an einer Zyanidvergiftung sterben, wird deine Punktanzahl auf Grundlage der vier vollständig überlebten Tag berechnet.&lt;/em&gt;</source>
-        <target><![CDATA[<strong>si vous mourez au cours de la journée (empoisonnement, déshydratation en expédition, ...) :</strong> la journée en cours n'est pas considérée comme intégralement survécue. <em>Par exemple, si vous mourez d'empoisonnement au Cyanure pendant le jour 5 de votre ville, vous recevrez des points sur la base de 4 jours survécus.</em>]]></target>
+        <target><![CDATA[<strong>si vous mourez au cours de la journée (empoisonnement, déshydratation en expédition...) :</strong> la journée en cours n'est pas considérée comme intégralement survécue. <em>Par exemple, si vous mourez d'empoisonnement au Cyanure pendant le jour 5 de votre ville, vous recevrez des points sur la base de 4 jours survécus.</em>]]></target>
       </segment>
     </unit>
     <unit id="sIyefIc">
@@ -4247,7 +4247,7 @@ Der Buddler zum Beispiel findet in der Wüste im Durchschnitt mehr Gegenstände 
 Einwohner. Der Einsiedler hat bessere Überlebenschancen beim Campen in der Wildnis.
 Darüber hinaus erhält man je nach Beruf einen &lt;strong&gt;speziellen Gegenstand&lt;/strong&gt;. 
 Der Aufklärer besitzt eine Tarnkleidung, der Buddler eine Schaufel usw...</source>
-        <target><![CDATA[Un métier <strong>donne accès à un objet spécial que vous seul(e) pouvez posséder</strong>. La tenue de camouflage pour l'Éclaireur, une pelle pour le Fouineur...etc.]]></target>
+        <target><![CDATA[Un métier <strong>donne accès à un objet spécial que vous seul(e) pouvez posséder</strong>. La tenue de camouflage pour l'Éclaireur, une pelle pour le Fouineur, etc.]]></target>
       </segment>
     </unit>
     <unit id="gkceIWw">
@@ -5537,7 +5537,7 @@ müssen durchdacht geplant werden.</source>
       </notes>
       <segment>
         <source>Achtung: &lt;strong&gt;Wenn das Stadttor offen steht, werden die Verteidigungspunkte nicht gezählt!&lt;/strong&gt;</source>
-        <target><![CDATA[Attention: <strong>Si la Grande Porte est ouverte, aucune défense de ville ne compte !</strong>]]></target>
+        <target><![CDATA[Attention : <strong>Si la Grande Porte est ouverte, aucune défense de ville ne compte !</strong>]]></target>
       </segment>
     </unit>
     <unit id="3rNYOFg" name="Phase 3: Die Bürger werden angegriffen">
@@ -5599,7 +5599,7 @@ Lies dir den entsprechenden Abschnitt bitte &lt;span x-ajax-href={url_lms}&gt;hi
       </notes>
       <segment>
         <source>Phase 4: Gebäudeschäden (Pandämonium)</source>
-        <target>Phase 4: Dommage aux constructions (Pandémonium)</target>
+        <target>Phase 4 : Dommage aux constructions (Pandémonium)</target>
       </segment>
     </unit>
     <unit id="ATy2COP">
@@ -5690,12 +5690,12 @@ Eine davon ist es der &lt;strong&gt;Nachtwache&lt;/strong&gt; beizutreten.</sour
     </unit>
     <unit id="26offDf">
       <notes>
-        <note category="german">Alle Waffen oder Verteidigungsgegenstände, die du während der Nachtwache benutzt, werden danach zerstört. Waffen mit mehr als einem Schuss werden eine Ladung verlie</note>
+        <note category="german">Alle Waffen oder Verteidigungsgegenstände, die du während der Nachtwache benutzt, werden danach zerstört. Waffen mit mehreren Ladungen werden durch die Wacht geleert</note>
         <note category="from">twig:///templates/ajax/help/the_watchmen.html.twig</note>
       </notes>
       <segment>
         <source>Alle Waffen oder Verteidigungsgegenstände, die du während der Nachtwache benutzt, werden danach zerstört. Waffen mit mehr als einem Schuss werden eine Ladung verlie</source>
-        <target>Toutes les armes ou protections portées seront détruites ou cassées à la fin d'une veille, les armes ayant plusieurs charges se videront d'une charge durant cette nuit.</target>
+        <target>Toutes les armes ou protections portées seront détruites ou cassées à la fin d'une veille, les armes ayant plusieurs charges se videront entièrement durant cette nuit.</target>
       </segment>
     </unit>
     <unit id="4yvcfEV" name="Wie funktioniert das?">
@@ -5857,7 +5857,7 @@ Eine davon ist es der &lt;strong&gt;Nachtwache&lt;/strong&gt; beizutreten.</sour
       </notes>
       <segment>
         <source>Alle wichtigen Gegenstände des Verbannten (Holz, Metall, Waffen etc...) werden &lt;strong&gt;der Bank zurückgegeben&lt;/strong&gt;.</source>
-        <target><![CDATA[Tous les objets considérés comme primordiaux pour la communauté <strong>sont renvoyés dans la banque de la ville</strong> (bois, métal, défenses etc).]]></target>
+        <target><![CDATA[Tous les objets considérés comme primordiaux pour la communauté <strong>sont renvoyés dans la banque de la ville</strong> (bois, métal, défenses, etc.).]]></target>
       </segment>
     </unit>
     <unit id="kYx3L.F" name="Darüber hinaus kann ein Verbannter folgende Dinge nicht mehr tun:">
@@ -6017,7 +6017,7 @@ Eine davon ist es der &lt;strong&gt;Nachtwache&lt;/strong&gt; beizutreten.</sour
       </notes>
       <segment>
         <source>Hinweis: Es gibt noch weitere Möglichkeiten, unerwünschte Mitbürger loszuwerden (Mord, Fleischkäfig,...).</source>
-        <target>Note : il existe d'autres moyens de se débarasser des indésirables (meurtre, cage à viande, ...).</target>
+        <target>Note : il existe d'autres moyens de se débarasser des indésirables (meurtre, cage à viande...).</target>
       </segment>
     </unit>
     <unit id="WEMV.Xr" name="Aufstand der Verbannten">
@@ -6139,7 +6139,7 @@ Eine davon ist es der &lt;strong&gt;Nachtwache&lt;/strong&gt; beizutreten.</sour
       </notes>
       <segment>
         <source>Folgende Möglichkeiten stehen ihm offen:</source>
-        <target>À partir de ce moment, ils aura deux actions spéciales :</target>
+        <target>À partir de ce moment, il aura deux actions spéciales :</target>
       </segment>
     </unit>
     <unit id="mD2oD1y">
@@ -6149,7 +6149,7 @@ Eine davon ist es der &lt;strong&gt;Nachtwache&lt;/strong&gt; beizutreten.</sour
       </notes>
       <segment>
         <source>&lt;strong&gt;Er kann in den Abfällen der Stadt graben&lt;/strong&gt;: Diese Aktion geschieht vor dem Stadtor und erlaubt es manchmal, ein paar Kleinigkeiten minderer Qualität abzustauben...</source>
-        <target><![CDATA[<strong>Fouillez les déchets de la ville</strong>: cette action est réalisée aux portes de la ville (à l'extérieur) et permet de trouver des morceaux de très mauvaise qualité. Cependant, ils pourraient être utiles...]]></target>
+        <target><![CDATA[<strong>Fouillez les déchets de la ville</strong> : cette action est réalisée aux portes de la ville (à l'extérieur) et permet de trouver des morceaux de très mauvaise qualité. Cependant, ils pourraient être utiles...]]></target>
       </segment>
     </unit>
     <unit id="3i9s1Wp">
@@ -6159,7 +6159,7 @@ Eine davon ist es der &lt;strong&gt;Nachtwache&lt;/strong&gt; beizutreten.</sour
       </notes>
       <segment>
         <source>&lt;strong&gt;Seinen Rucksackinhalt verstecken&lt;/strong&gt;: In der Außenwelt ist diese Maßnahme ein probates Mittel, um den Inhalt seines Rucksacks vor den anderen Bürgern zu verstecken. Nur die Verbannten können derart versteckte Gegenstände sehen und aufsammeln. Allerdings besteht die geringe Wahrscheinlichkeit, dass normale Bürger diese Verstecke beim Graben finden.</source>
-        <target><![CDATA[<strong>Cachez votre sac à dos</strong>: cette action permet aux bannis de cacher le contenu de leur sac à dos. Seuls les bannis peuvent voir et collecter les objets ainsi dissimulés. Cependant, les citoyens normaux ont une petite chance de découvrir la cache lors de la recherche.]]></target>
+        <target><![CDATA[<strong>Cachez votre sac à dos</strong> : cette action permet aux bannis de cacher le contenu de leur sac à dos. Seuls les bannis peuvent voir et collecter les objets ainsi dissimulés. Cependant, les citoyens normaux ont une petite chance de découvrir la cache lors de la recherche.]]></target>
       </segment>
     </unit>
     <unit id="fGTGKwo">
@@ -6748,7 +6748,7 @@ Die Punkte für den Titel "Spiritueller Führer" kumulieren sich mit jedem Tag. 
       </notes>
       <segment>
         <source>Einige Regeln können frei bestimmt werden (Ghule, Wasser, Kartentyp,...).</source>
-        <target>certaines règles peuvent être modifiées librement (goule, eau, type de carte, ...).</target>
+        <target>certaines règles peuvent être modifiées librement (goule, eau, type de carte...).</target>
       </segment>
     </unit>
     <unit id="WrjdzG9" name="Besondere Regeln">
@@ -7171,7 +7171,7 @@ in die Rangliste aufgenommen. Kleine Städte oder Privatstädte werden nicht ins
       </notes>
       <segment>
         <source>Falls ein Problem mit dem Spiel auftreten sollte, bitten wir dich die nachfolgenden Anweisungen zu lesen und zu befolgen (überprüfe die Version deines Browsers, leere deinen Browsercache, ...).</source>
-        <target>Si vous rencontrez un problème en jeu, merci de suivre les instructions disponibles dans les sections suivantes (vérifier la version de votre navigateur internet, vider votre cache, ...).</target>
+        <target>Si vous rencontrez un problème en jeu, merci de suivre les instructions disponibles dans les sections suivantes (vérifier la version de votre navigateur internet, vider votre cache...).</target>
       </segment>
     </unit>
     <unit id="37V.eeL">
@@ -7193,7 +7193,7 @@ Lies dir bitte die offizielle &lt;span x-ajax-href={url_support}&gt;Technische S
       <segment>
         <source>&lt;strong&gt;HÄUFIG GESTELLTE FRAGEN:&lt;/strong&gt;
 Lies dir bitte die offizielle &lt;span x-ajax-href={url_support}&gt;Technische Supportseite von MyHordes&lt;/span&gt; durch!</source>
-        <target><![CDATA[<strong>QUESTIONS COURANTES:</strong> consultez le site officiel de <span x-ajax-href={url_support}>support technique de MyHordes</span> !]]></target>
+        <target><![CDATA[<strong>QUESTIONS COURANTES :</strong> consultez le site officiel de <span x-ajax-href={url_support}>support technique de MyHordes</span> !]]></target>
       </segment>
     </unit>
     <unit id="u6CHRLa">
@@ -7203,7 +7203,7 @@ Lies dir bitte die offizielle &lt;span x-ajax-href={url_support}&gt;Technische S
       </notes>
       <segment>
         <source>&lt;strong&gt;MIT ANDEREN SPIELERN REDEN:&lt;/strong&gt; Die meisten Spielfragen werden oder wurden meistens schon in den &lt;span x-ajax-href={url_forums}&gt;Foren&lt;/span&gt; beantwortet. Du kannst darauf zugreifen, wenn du im Spiel eingeloggt bist.</source>
-        <target><![CDATA[<strong>DISCUTER AVEC LES JOUEURS:</strong> vous trouverez souvent la réponse à vos questions directement sur les <span x-ajax-href={url_forums}>forums du site</span>, disponibles si vous êtes connecté(e),]]></target>
+        <target><![CDATA[<strong>DISCUTER AVEC LES JOUEURS :</strong> vous trouverez souvent la réponse à vos questions directement sur les <span x-ajax-href={url_forums}>forums du site</span>, disponibles si vous êtes connecté(e),]]></target>
       </segment>
     </unit>
     <unit id="4oAKxr3">
@@ -7785,7 +7785,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Du darfst keine &lt;strong&gt;automatischen Skripte zum regelmäßigen Datenabgleich&lt;/strong&gt; mit der API verwenden (Cron, automatisierte Tasks...),</source>
-        <target><![CDATA[Vous n'êtes pas autorisé à utiliser des <strong>scripts automatisés pour récupérer régulièrement</strong> les informations d'un flux (cron, tâches automatisées ...),]]></target>
+        <target><![CDATA[Vous n'êtes pas autorisé à utiliser des <strong>scripts automatisés pour récupérer régulièrement</strong> les informations d'un flux (cron, tâches automatisées...),]]></target>
       </segment>
     </unit>
     <unit id="pH0Mwkj">
@@ -7825,7 +7825,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Alle deine Gegenstände werden &lt;strong&gt;in der Truhe&lt;/strong&gt; aufbewahrt. Klick auf einen &lt;strong&gt;Gegenstand&lt;/strong&gt;, um ihn mitzunehmen...</source>
-        <target><![CDATA[Tous vos objets sont <strong>stockés dans le Coffre</strong>. Cliquez sur un <strong>objet</strong> pour l'emporter avec vous ...]]></target>
+        <target><![CDATA[Tous vos objets sont <strong>stockés dans le Coffre</strong>. Cliquez sur un <strong>objet</strong> pour l'emporter avec vous...]]></target>
       </segment>
     </unit>
     <unit id="K56xxmf">
@@ -8305,7 +8305,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Du kannst &lt;strong&gt;das Stadttor&lt;/strong&gt; in diesem Bereich öffnen... Achtung: Wenn das Tor beim allnächtlichen &lt;strong&gt;Angriff der Zombiehorde&lt;/strong&gt; offen steht, kann das für die Stadt fatale Folgen haben...&lt;strong&gt;&lt;/strong&gt;</source>
-        <target><![CDATA[Vous pouvez <strong>ouvrir les portes</strong> depuis cette section... Attention: si elles restent ouvertes lors de l'<strong>attaque de la Horde</strong> qui a lieu <strong>chaque soir</strong>, la ville pourrait courir de grands dangers...]]></target>
+        <target><![CDATA[Vous pouvez <strong>ouvrir les portes</strong> depuis cette section... Attention : si elles restent ouvertes lors de l'<strong>attaque de la Horde</strong> qui a lieu <strong>chaque soir</strong>, la ville pourrait courir de grands dangers...]]></target>
       </segment>
     </unit>
     <unit id="_1_xXoc">
@@ -8435,7 +8435,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Es wäre vielleicht nicht verkehrt etwas &lt;strong&gt;Proviant&lt;/strong&gt; (Nahrung und/oder Wasser) einzupacken, bevor du die Stadt verlässt... Gehe dazu in den Bereich &lt;strong&gt;Mein Zuhause&lt;/strong&gt;.</source>
-        <target><![CDATA[Il n'est peut-être pas faux d'emporter des <strong>provisions</strong> (nourriture et / ou eau) avant de quitter la ville ... Accédez à la zone <strong>Ma Maison</strong>.]]></target>
+        <target><![CDATA[Il n'est peut-être pas faux d'emporter des <strong>provisions</strong> (nourriture et / ou eau) avant de quitter la ville... Accédez à la zone <strong>Ma Maison</strong>.]]></target>
       </segment>
     </unit>
     <unit id="YWDgwY8" name="Externe Scripte">

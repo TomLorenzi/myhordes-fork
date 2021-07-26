@@ -334,7 +334,7 @@
     <unit id="9.8ReK8" name="Abbrechen">
       <notes>
         <note category="german">Abbrechen</note>
-        <note category="from">twig:///templates/ajax/forum/editor.html.twig;twig:///templates/ajax/game/town/bank.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/planner.html.twig;twig:///templates/ajax/soul/import_preview.html.twig;twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="from">twig:///templates/ajax/forum/editor.html.twig;twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/bank.html.twig;twig:///templates/ajax/game/town/construction.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/planner.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig;twig:///templates/ajax/soul/import_preview.html.twig;twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Abbrechen</source>
@@ -368,7 +368,7 @@
       </notes>
       <segment>
         <source>Bist du sicher?</source>
-        <target>¿Estás seguro?</target>
+        <target>¿Estás seguro de dejar este mensaje?</target>
       </segment>
     </unit>
     <unit id="lO_TcU3" name="Auswahl bestätigen">
@@ -1647,7 +1647,7 @@
     <unit id="GgZ6pgy" name="Bist du sicher, dass du diesen Post an die Moderatoren melden willst?">
       <notes>
         <note category="german">Bist du sicher, dass du diesen Post an die Moderatoren melden willst?</note>
-        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
       </notes>
       <segment>
         <source>Bist du sicher, dass du diesen Post an die Moderatoren melden willst?</source>
@@ -1933,20 +1933,6 @@
       <segment>
         <source>Diese Nachricht wurde dir vom Raben persönlich überbracht. Er schwebt über der Stadt und wirft immer ein wachsames Auge auf dich...</source>
         <target>Éste mensaje te lo trajo personalmente el Cuervo. Él siempre vuela sobre el pueblo y tiene un ojo clavado en tí...</target>
-      </segment>
-    </unit>
-    <unit id="rtJUaLn">
-      <notes>
-        <note category="german">Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
-                                &lt;p&gt;&lt;em&gt;Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..&lt;/em&gt;&lt;/p&gt;</note>
-        <note category="state">new</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
-                                &lt;p&gt;&lt;em&gt;Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..&lt;/em&gt;&lt;/p&gt;</source>
-        <target><![CDATA[Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
-                                <p><em>Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..</em></p>]]></target>
       </segment>
     </unit>
     <unit id="i4kWNY_">
@@ -2636,45 +2622,41 @@
     <unit id="hWzJnYc" name="und">
       <notes>
         <note category="german">und</note>
-        <note category="state">new</note>
         <note category="from">php:///src/Controller/InventoryAwareController.php</note>
       </notes>
       <segment>
         <source>und</source>
-        <target>und</target>
+        <target>y</target>
       </segment>
     </unit>
     <unit id="dotZmBq" name="HINWEIS: Diese Aktion ist nur in der Stadt möglich.">
       <notes>
         <note category="german">HINWEIS: Diese Aktion ist nur in der Stadt möglich.</note>
-        <note category="state">new</note>
         <note category="from">php:///src/EventSubscriber/GateKeeperSubscriber.php</note>
       </notes>
       <segment>
         <source>HINWEIS: Diese Aktion ist nur in der Stadt möglich.</source>
-        <target>HINWEIS: Diese Aktion ist nur in der Stadt möglich.</target>
+        <target>NOTA: Esta acción sólo está disponible en el pueblo.</target>
       </segment>
     </unit>
     <unit id="GnItekT" name="HINWEIS: Diese Aktion ist nur in Übersee möglich.">
       <notes>
         <note category="german">HINWEIS: Diese Aktion ist nur in der Außenwelt möglich.</note>
-        <note category="state">new</note>
         <note category="from">php:///src/EventSubscriber/GateKeeperSubscriber.php</note>
       </notes>
       <segment>
         <source>HINWEIS: Diese Aktion ist nur in Übersee möglich.</source>
-        <target>HINWEIS: Diese Aktion ist nur in Übersee möglich.</target>
+        <target>NOTA: Esta acción sólo está disponible en el ultramundo.</target>
       </segment>
     </unit>
     <unit id="u9UzAKC" name="Neuer Beitrag in">
       <notes>
         <note category="german">Neuer Beitrag in</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/pm/bubbles.html.twig</note>
       </notes>
       <segment>
         <source>Neuer Beitrag in</source>
-        <target>Neuer Beitrag in</target>
+        <target>Nueva publicación en</target>
       </segment>
     </unit>
     <unit id="nyhYCez" name="Nachrichten suchen">
@@ -2821,34 +2803,31 @@
     <unit id="uvXzw5b">
       <notes>
         <note category="german">Deine Suchanfrage hat mehr Ergebnisse geliefert, als hier angezeigt werden können. Versuche, deine Anfrage zu präzisieren, wenn du nicht gefunden hast wonach du suchst.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/forum/search_result.html.twig</note>
       </notes>
       <segment>
         <source>Deine Suchanfrage hat mehr Ergebnisse geliefert, als hier angezeigt werden können. Versuche, deine Anfrage zu präzisieren, wenn du nicht gefunden hast wonach du suchst.</source>
-        <target>Deine Suchanfrage hat mehr Ergebnisse geliefert, als hier angezeigt werden können. Versuche, deine Anfrage zu präzisieren, wenn du nicht gefunden hast wonach du suchst.</target>
+        <target>Su búsqueda ha dado más resultados de los que se pueden mostrar aquí. Intente afinar su consulta si no ha encontrado lo que buscaba.</target>
       </segment>
     </unit>
     <unit id="6QgTFsD" name="Wenn du deine Flucht erzwingst, wirst du zwangsläufig verletzt!">
       <notes>
         <note category="german">Wenn du deine Flucht erzwingst, wirst du zwangsläufig verletzt!</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
         <source>Wenn du deine Flucht erzwingst, wirst du zwangsläufig verletzt!</source>
-        <target>Wenn du deine Flucht erzwingst, wirst du zwangsläufig verletzt!</target>
+        <target>Si fuerza su escape, ¡inevitablemente resultará herido!</target>
       </segment>
     </unit>
     <unit id="TvN2VX9" name="Diese Aktion kostet dich 1 AP!">
       <notes>
         <note category="german">Diese Aktion kostet dich 1 AP!</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Diese Aktion kostet dich 1 AP!</source>
-        <target>Diese Aktion kostet dich 1 AP!</target>
+        <target>¡Esta acción te cuesta 1 PA!</target>
       </segment>
     </unit>
     <unit id="sXEtGH4" name="Diese Diskussion ist beendet.">
@@ -2904,12 +2883,11 @@
     <unit id="qplNLmy" name="Bitte wähle die Art der Beschränkung.">
       <notes>
         <note category="german">Bitte wähle die Art der Beschränkung.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
       </notes>
       <segment>
         <source>Bitte wähle die Art der Beschränkung.</source>
-        <target>Bitte wähle die Art der Beschränkung.</target>
+        <target>Seleccione el tipo de restricción.</target>
       </segment>
     </unit>
     <unit id="sYDz8ku" name="Wer?">
@@ -2936,14 +2914,12 @@
       <notes>
         <note category="german">Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
                                     &lt;p&gt;&lt;em&gt;Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..&lt;/em&gt;&lt;/p&gt;</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
         <source>Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
                                     &lt;p&gt;&lt;em&gt;Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..&lt;/em&gt;&lt;/p&gt;</source>
-        <target><![CDATA[Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
-                                    <p><em>Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..</em></p>]]></target>
+        <target><![CDATA[La cantidad de montículos de tierra y de desechos te indica que sin duda no queda nada aquí. <p><em>Si embargo puedes seguir escarbando, tal vez encuentres objetos de poco valor para las construcciones en el pueblo.</em></p>]]></target>
       </segment>
     </unit>
     <unit id="mU.wJHS" name="Dein Icon">
@@ -3030,23 +3006,21 @@
     <unit id="Dh.6Cm7" name="Mit offiziellen Gruppen in Kontakt treten">
       <notes>
         <note category="german">Mit offiziellen Gruppen in Kontakt treten</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/forum/list.html.twig</note>
       </notes>
       <segment>
         <source>Mit offiziellen Gruppen in Kontakt treten</source>
-        <target>Mit offiziellen Gruppen in Kontakt treten</target>
+        <target>Ponte en contacto con los grupos oficiales</target>
       </segment>
     </unit>
     <unit id="UsfYbvX" name="Eine offizielle Gruppe kontaktieren">
       <notes>
         <note category="german">Eine offizielle Gruppe kontaktieren</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/pm/view.html.twig</note>
       </notes>
       <segment>
         <source>Eine offizielle Gruppe kontaktieren</source>
-        <target>Eine offizielle Gruppe kontaktieren</target>
+        <target>Contactar con un grupo oficial</target>
       </segment>
     </unit>
     <unit id="jQrj982" name="via {group_inbox}">
@@ -3093,89 +3067,81 @@
     <unit id="r7op6WZ">
       <notes>
         <note category="german">Es ist nicht erlaubt, im Chaos-Modus einen Gegenstand an einen Bürger zu senden, der sich außerhalb der Stadt befindet.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/scripts/errors/forum.txt.twig</note>
       </notes>
       <segment>
         <source>Es ist nicht erlaubt, im Chaos-Modus einen Gegenstand an einen Bürger zu senden, der sich außerhalb der Stadt befindet.</source>
-        <target>Es ist nicht erlaubt, im Chaos-Modus einen Gegenstand an einen Bürger zu senden, der sich außerhalb der Stadt befindet.</target>
+        <target>No está permitido enviar un artículo a un ciudadano que está fuera de la ciudad en el modo Caos.</target>
       </segment>
     </unit>
     <unit id="Ot4PwfY" name="Pin entfernen">
       <notes>
         <note category="german">Pin entfernen</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/pm/bubbles.html.twig</note>
       </notes>
       <segment>
         <source>Pin entfernen</source>
-        <target>Pin entfernen</target>
+        <target>Quitar destacado</target>
       </segment>
     </unit>
     <unit id="oQRkk47" name="Angepinnte Nachricht">
       <notes>
         <note category="german">Angepinnte Nachricht</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/pm/bubbles.html.twig</note>
       </notes>
       <segment>
         <source>Angepinnte Nachricht</source>
-        <target>Angepinnte Nachricht</target>
+        <target>Mensaje fijado</target>
       </segment>
     </unit>
     <unit id="qsFANcA" name="Einblenden">
       <notes>
         <note category="german">Einblenden</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/pm/bubbles.html.twig</note>
       </notes>
       <segment>
         <source>Einblenden</source>
-        <target>Einblenden</target>
+        <target>Mostrar</target>
       </segment>
     </unit>
     <unit id="v8YzpLG" name="Ausgeblendete Nachricht von {user}. Klicken, um anzuzeigen.">
       <notes>
         <note category="german">Ausgeblendete Nachricht von {user}. Klicken, um anzuzeigen.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/pm/bubbles.html.twig</note>
       </notes>
       <segment>
         <source>Ausgeblendete Nachricht von {user}. Klicken, um anzuzeigen.</source>
-        <target>Ausgeblendete Nachricht von {user}. Klicken, um anzuzeigen.</target>
+        <target>Mensaje oculto de {user}. Haz clic para mostrar.</target>
       </segment>
     </unit>
     <unit id="YNxQwvO">
       <notes>
         <note category="german">{user} hat dich geblockt und wurde daher aus der Liste der Empfänger für diese Nachricht gestrichen.</note>
-        <note category="state">new</note>
         <note category="from">php:///src/Controller/Messages/MessageGlobalPMController.php</note>
       </notes>
       <segment>
         <source>{user} hat dich geblockt und wurde daher aus der Liste der Empfänger für diese Nachricht gestrichen.</source>
-        <target>{user} hat dich geblockt und wurde daher aus der Liste der Empfänger für diese Nachricht gestrichen.</target>
+        <target>{user} te ha bloqueado y, por lo tanto, se te ha eliminado de la lista de destinatarios de este mensaje.</target>
       </segment>
     </unit>
     <unit id="QZZefQX" name="{users} und {last_user}">
       <notes>
         <note category="german">{users} und {last_user}</note>
-        <note category="state">new</note>
         <note category="from">php:///src/Controller/Messages/MessageGlobalPMController.php</note>
       </notes>
       <segment>
         <source>{users} und {last_user}</source>
-        <target>{users} und {last_user}</target>
+        <target>{users} y {last_user}</target>
       </segment>
     </unit>
     <unit id="yJCPgfF">
       <notes>
         <note category="german">{users} haben dich geblockt und wurden daher aus der Liste der Empfänger für diese Nachricht gestrichen.</note>
-        <note category="state">new</note>
         <note category="from">php:///src/Controller/Messages/MessageGlobalPMController.php</note>
       </notes>
       <segment>
         <source>{users} haben dich geblockt und wurden daher aus der Liste der Empfänger für diese Nachricht gestrichen.</source>
-        <target>{users} haben dich geblockt und wurden daher aus der Liste der Empfänger für diese Nachricht gestrichen.</target>
+        <target>{users} te han bloqueado y, por lo tanto, se te ha eliminado de la lista de destinatarios de este mensaje.</target>
       </segment>
     </unit>
     <unit id="tgTK6TI" name="Du hast diesen Spieler auf deine Blacklist gesetzt.">
@@ -3201,12 +3167,11 @@
     <unit id="d1jQbJk" name="Du hast {user} blockiert.">
       <notes>
         <note category="german">Du hast {user} blockiert.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/visit.html.twig</note>
       </notes>
       <segment>
         <source>Du hast {user} blockiert.</source>
-        <target>Du hast {user} blockiert.</target>
+        <target>Bloqueaste a {user}.</target>
       </segment>
     </unit>
     <unit id="gURDnkT" name="Blockade aufheben">
@@ -3222,67 +3187,61 @@
     <unit id="NJp6yhE" name="Spieler blockieren">
       <notes>
         <note category="german">Spieler blockieren</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/visit.html.twig</note>
       </notes>
       <segment>
         <source>Spieler blockieren</source>
-        <target>Spieler blockieren</target>
+        <target>Bloquear jugador</target>
       </segment>
     </unit>
     <unit id="iu5_LY8" name="{user} blockieren">
       <notes>
         <note category="german">{user} blockieren</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/pm/view.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
       </notes>
       <segment>
         <source>{user} blockieren</source>
-        <target>{user} blockieren</target>
+        <target>Bloquear a {user}</target>
       </segment>
     </unit>
     <unit id="cIrelgU">
       <notes>
         <note category="german">Wenn du diesen Spieler blockierst, kann er dir keine neuen Nachrichten schicken. Werdet ihr beide von einer dritten Person in eine Gruppennachricht hinzugefügt, so werden Beiträge des blockierten Spielers standartmäßig für dich versteckt.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/visit.html.twig</note>
       </notes>
       <segment>
         <source>Wenn du diesen Spieler blockierst, kann er dir keine neuen Nachrichten schicken. Werdet ihr beide von einer dritten Person in eine Gruppennachricht hinzugefügt, so werden Beiträge des blockierten Spielers standartmäßig für dich versteckt.</source>
-        <target>Wenn du diesen Spieler blockierst, kann er dir keine neuen Nachrichten schicken. Werdet ihr beide von einer dritten Person in eine Gruppennachricht hinzugefügt, so werden Beiträge des blockierten Spielers standartmäßig für dich versteckt.</target>
+        <target>Si bloquea a este jugador, no podrás enviarle ningún mensaje nuevo. Si una tercera persona los agrega a un chat grupal, los mensajes del jugador bloqueado se ocultarán de forma predeterminada.</target>
       </segment>
     </unit>
     <unit id="XZjzgfL" name="Möchtest du fortfahren?">
       <notes>
         <note category="german">Möchtest du fortfahren?</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/pm/view.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
       </notes>
       <segment>
         <source>Möchtest du fortfahren?</source>
-        <target>Möchtest du fortfahren?</target>
+        <target>¿Quieres continuar?</target>
       </segment>
     </unit>
     <unit id="hQmss_b" name="Absender blockieren">
       <notes>
         <note category="german">Absender blockieren</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/pm/view.html.twig</note>
       </notes>
       <segment>
         <source>Absender blockieren</source>
-        <target>Absender blockieren</target>
+        <target>Bloquear remitentes</target>
       </segment>
     </unit>
     <unit id="aN1frHt">
       <notes>
         <note category="german">Wenn du den Absender dieser Nachricht blockierst, kann dieser dir keine neuen Nachrichten schicken. Werdet ihr beide von einer dritten Person in eine Gruppennachricht hinzugefügt, so werden Beiträge des blockierten Spielers standartmäßig für dich versteckt.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/pm/view.html.twig</note>
       </notes>
       <segment>
         <source>Wenn du den Absender dieser Nachricht blockierst, kann dieser dir keine neuen Nachrichten schicken. Werdet ihr beide von einer dritten Person in eine Gruppennachricht hinzugefügt, so werden Beiträge des blockierten Spielers standartmäßig für dich versteckt.</source>
-        <target>Wenn du den Absender dieser Nachricht blockierst, kann dieser dir keine neuen Nachrichten schicken. Werdet ihr beide von einer dritten Person in eine Gruppennachricht hinzugefügt, so werden Beiträge des blockierten Spielers standartmäßig für dich versteckt.</target>
+        <target>Si bloquea al remitente de este mensaje, no podras enviarle mensajes nuevos. Si una tercera persona los agrega a un mensaje grupal, las contribuciones del jugador bloqueado se ocultarán de forma predeterminada.</target>
       </segment>
     </unit>
     <unit id="q8KTox4" name="Dieser Spieler hat dich geblockt. Du kannst ihm keine Nachricht mehr schicken.">
@@ -3298,56 +3257,221 @@
     <unit id="CHfX5El" name="Bevorzugte Pronomen">
       <notes>
         <note category="german">Bevorzugte Pronomen</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Bevorzugte Pronomen</source>
-        <target>Bevorzugte Pronomen</target>
+        <target>Preferencia de pronombre</target>
       </segment>
     </unit>
     <unit id="z8t41lP">
       <notes>
         <note category="german">Hier kannst du festlegen, welche Personalpronomen das Spiel verwenden soll, wenn es sich auf dich bezieht (z.B. "männlich" für "er", "ihn", etc und "weiblich" für "sie", "ihr", etc).&lt;br /&gt;&lt;em&gt;Diese Einstellung beeinflusst, wie dir und anderen Spielern bestimmte Texte angezeigt werden, wenn die Option "Neue Übersetzungen verwenden" aktiv ist.&lt;/em&gt;.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Hier kannst du festlegen, welche Personalpronomen das Spiel verwenden soll, wenn es sich auf dich bezieht (z.B. "männlich" für "er", "ihn", etc und "weiblich" für "sie", "ihr", etc).&lt;br /&gt;&lt;em&gt;Diese Einstellung beeinflusst, wie dir und anderen Spielern bestimmte Texte angezeigt werden, wenn die Option "Neue Übersetzungen verwenden" aktiv ist.&lt;/em&gt;.</source>
-        <target><![CDATA[Hier kannst du festlegen, welche Personalpronomen das Spiel verwenden soll, wenn es sich auf dich bezieht (z.B. "männlich" für "er", "ihn", etc und "weiblich" für "sie", "ihr", etc).<br /><em>Diese Einstellung beeinflusst, wie dir und anderen Spielern bestimmte Texte angezeigt werden, wenn die Option "Neue Übersetzungen verwenden" aktiv ist.</em>.]]></target>
+        <target><![CDATA[Aquí puedes especificar qué pronombres personales debe usar el juego cuando se refiere a ti (por ejemplo, "masculino" para "él", "los", etc. y "femenino" para "la", "las", etc.). <Br/><em> Esta configuración afecta la forma en que ciertos textos se muestran a ti y a otros jugadores cuando la opción "Usar nuevas traducciones" está activa.</em>.]]></target>
       </segment>
     </unit>
     <unit id="n6hJSL5" name="Männlich">
       <notes>
         <note category="german">Männlich</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Männlich</source>
-        <target>Männlich</target>
+        <target>Masculino</target>
       </segment>
     </unit>
     <unit id="GoQ1yLW" name="Weiblich">
       <notes>
         <note category="german">Weiblich</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Weiblich</source>
-        <target>Weiblich</target>
+        <target>Femenino</target>
       </segment>
     </unit>
     <unit id="ttkKiaP" name="Keine Präferenz">
       <notes>
         <note category="german">Keine Präferenz</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Keine Präferenz</source>
-        <target>Keine Präferenz</target>
+        <target>Sin preferencia</target>
+      </segment>
+    </unit>
+    <unit id="RyBQtzC" name="Kopieren">
+      <notes>
+        <note category="german">Kopieren</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig</note>
+      </notes>
+      <segment>
+        <source>Kopieren</source>
+        <target>Copiar</target>
+      </segment>
+    </unit>
+    <unit id="rJ6n7d_" name="E-Mail konnte nicht gesendet werden.">
+      <notes>
+        <note category="german">E-Mail konnte nicht gesendet werden.</note>
+        <note category="from">twig:///templates/scripts/errors/generic.txt.twig</note>
+      </notes>
+      <segment>
+        <source>E-Mail konnte nicht gesendet werden.</source>
+        <target>El correo electrónico no pudo ser enviado.</target>
+      </segment>
+    </unit>
+    <unit id="S5yBc2R" name="Wenn möglich gib bitte einen Grund für deine Meldung an:">
+      <notes>
+        <note category="german">Wenn möglich gib bitte einen Grund für deine Meldung an:</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+      </notes>
+      <segment>
+        <source>Wenn möglich gib bitte einen Grund für deine Meldung an:</source>
+        <target>Si es posible, proporcione la razón de su denuncia:</target>
+      </segment>
+    </unit>
+    <unit id="APXGipg" name="Keinen Grund angeben">
+      <notes>
+        <note category="german">Keinen Grund angeben</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+      </notes>
+      <segment>
+        <source>Keinen Grund angeben</source>
+        <target>No dar una razón</target>
+      </segment>
+    </unit>
+    <unit id="ePXpaiZ" name="Cheating">
+      <notes>
+        <note category="german">Cheating</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+      </notes>
+      <segment>
+        <source>Cheating</source>
+        <target>Trampas</target>
+      </segment>
+    </unit>
+    <unit id="6Hh6LXv" name="Flooding oder Spam">
+      <notes>
+        <note category="german">Flooding oder Spam</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+      </notes>
+      <segment>
+        <source>Flooding oder Spam</source>
+        <target>Spam</target>
+      </segment>
+    </unit>
+    <unit id="XqMHQ7B" name="Verwendung einer anderen als der Forensprache">
+      <notes>
+        <note category="german">Verwendung einer anderen als der Forensprache</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig</note>
+      </notes>
+      <segment>
+        <source>Verwendung einer anderen als der Forensprache</source>
+        <target>Uso de un idioma que no sea el idioma del foro</target>
+      </segment>
+    </unit>
+    <unit id="feEwSD7" name="Beleidigungen / Unangemessener Ausdruck">
+      <notes>
+        <note category="german">Beleidigungen / Unangemessener Ausdruck</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+      </notes>
+      <segment>
+        <source>Beleidigungen / Unangemessener Ausdruck</source>
+        <target>Insultos / Lenguaje inapropiado</target>
+      </segment>
+    </unit>
+    <unit id="o64FZLa" name="Pornographie">
+      <notes>
+        <note category="german">Pornographie</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+      </notes>
+      <segment>
+        <source>Pornographie</source>
+        <target>Pornografía</target>
+      </segment>
+    </unit>
+    <unit id="l9G12go" name="Hassrede">
+      <notes>
+        <note category="german">Hassrede</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+      </notes>
+      <segment>
+        <source>Hassrede</source>
+        <target>Incitación al odio racial</target>
+      </segment>
+    </unit>
+    <unit id="ZVAuBRQ" name="Verbreitung persönlicher Informationen">
+      <notes>
+        <note category="german">Verbreitung persönlicher Informationen</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+      </notes>
+      <segment>
+        <source>Verbreitung persönlicher Informationen</source>
+        <target>Difusión de datos personales privados</target>
+      </segment>
+    </unit>
+    <unit id="dE9afiC" name="Verletzung von Copyright">
+      <notes>
+        <note category="german">Verletzung von Copyright</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+      </notes>
+      <segment>
+        <source>Verletzung von Copyright</source>
+        <target>Violación de derechos de autor</target>
+      </segment>
+    </unit>
+    <unit id="haH8YNU" name="Aufruf zu Gesetzesverstößen">
+      <notes>
+        <note category="german">Aufruf zu Gesetzesverstößen</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+      </notes>
+      <segment>
+        <source>Aufruf zu Gesetzesverstößen</source>
+        <target>Incitacion a las violaciones de la ley</target>
+      </segment>
+    </unit>
+    <unit id="cczOm4l" name="Ermutigung von Selbstmord oder Selbstverletzung">
+      <notes>
+        <note category="german">Ermutigung von Selbstmord oder Selbstverletzung</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+      </notes>
+      <segment>
+        <source>Ermutigung von Selbstmord oder Selbstverletzung</source>
+        <target>Incitación al suicidio o amenaza a la vida de otros</target>
+      </segment>
+    </unit>
+    <unit id="EblNNdf" name="Inhalt melden">
+      <notes>
+        <note category="german">Inhalt melden</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+      </notes>
+      <segment>
+        <source>Inhalt melden</source>
+        <target>Reportar contenido</target>
+      </segment>
+    </unit>
+    <unit id="4M3lurj" name="Verwendung einer anderen als der Stadtsprache">
+      <notes>
+        <note category="german">Verwendung einer anderen als der Stadtsprache</note>
+        <note category="from">twig:///templates/ajax/game/town/posts.html.twig</note>
+      </notes>
+      <segment>
+        <source>Verwendung einer anderen als der Stadtsprache</source>
+        <target>Uso de un idioma distinto al del pueblo.</target>
+      </segment>
+    </unit>
+    <unit id="GAVyRWS" name="Unangemessenen Inhalt melden">
+      <notes>
+        <note category="german">Unangemessenen Inhalt melden</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+      </notes>
+      <segment>
+        <source>Unangemessenen Inhalt melden</source>
+        <target>Señalar un contenido inapropiado</target>
       </segment>
     </unit>
   </file>

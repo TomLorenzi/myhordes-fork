@@ -34,7 +34,7 @@
     <unit id="6UV8ek7" name="Die eingegebenen E-Mail Adressen stimmen nicht überein.">
       <notes>
         <note category="german">Die eingegebenen E-Mail Adressen stimmen nicht überein.</note>
-        <note category="from">php:///src/Controller/PublicController.php</note>
+        <note category="from">php:///src/Controller/PublicController.php;twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Die eingegebenen E-Mail Adressen stimmen nicht überein.</source>
@@ -506,7 +506,7 @@
     </unit>
     <unit id="LiGRhEI">
       <notes>
-        <note category="german">Wenn du noch einen alten MyHordes-Account hast, kannst du dich vorerst auch damit einloggen.</note>
+        <note category="german">Wenn du noch einen alten MyHordes-Account hast, kannst du dich auch damit weiter einloggen.</note>
         <note category="from">twig:///templates/ajax/public/login.html.twig</note>
       </notes>
       <segment>
@@ -758,37 +758,54 @@
     <unit id="uQUHCC6">
       <notes>
         <note category="german">Bevor du mit deinem EternalTwin-Account spielen kannst, brauchen wir noch ein paar zusätzliche Informationen von dir.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/public/et_welcome.html.twig</note>
       </notes>
       <segment>
         <source>Bevor du mit deinem EternalTwin-Account spielen kannst, brauchen wir noch ein paar zusätzliche Informationen von dir.</source>
-        <target>Bevor du mit deinem EternalTwin-Account spielen kannst, brauchen wir noch ein paar zusätzliche Informationen von dir.</target>
+        <target>Antes de que puedas jugar con tu cuenta EternalTwin, necesitamos información adicional tuya.</target>
       </segment>
     </unit>
     <unit id="wmjJuDK">
       <notes>
         <note category="german">Um die Registrierung abzuschließen und deinen Account zu aktivieren, musst du auf einen
                                             Aktivierungslink klicken, der dir an die angegebene E-Mail Adresse geschickt wird.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/public/et_welcome.html.twig</note>
       </notes>
       <segment>
         <source>Um die Registrierung abzuschließen und deinen Account zu aktivieren, musst du auf einen
                                             Aktivierungslink klicken, der dir an die angegebene E-Mail Adresse geschickt wird.</source>
-        <target>Um die Registrierung abzuschließen und deinen Account zu aktivieren, musst du auf einen
-                                            Aktivierungslink klicken, der dir an die angegebene E-Mail Adresse geschickt wird.</target>
+        <target>Para completar el registro y activar su cuenta, debe ir a un
+                                            Haga clic en el enlace de activación que se enviará a la dirección de correo electrónico especificada.</target>
       </segment>
     </unit>
     <unit id="Nm0UxBL">
       <notes>
         <note category="german">Um dich einzuloggen, musst du nach wie vor deinen &lt;b&gt;ursprünglichen Namen&lt;/b&gt; verwenden: &lt;i&gt;{name}&lt;/i&gt;.</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Um dich einzuloggen, musst du nach wie vor deinen &lt;b&gt;ursprünglichen Namen&lt;/b&gt; verwenden: &lt;i&gt;{name}&lt;/i&gt;.</source>
-        <target><![CDATA[Um dich einzuloggen, musst du nach wie vor deinen <b>ursprünglichen Namen</b> verwenden: <i>{name}</i>.]]></target>
+        <target><![CDATA[Para iniciar sesión, aún debe usar su <b>nombre original</b>: <i>{name}</i>.]]></target>
+      </segment>
+    </unit>
+    <unit id="tW3qs0M" name="Die eingegebene E-Mail Adresse ist nicht korrekt.">
+      <notes>
+        <note category="german">Die eingegebene E-Mail Adresse ist nicht korrekt.</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>Die eingegebene E-Mail Adresse ist nicht korrekt.</source>
+        <target>La dirección de correo electrónico es incorrecta.</target>
+      </segment>
+    </unit>
+    <unit id="y2_Gamb">
+      <notes>
+        <note category="german">Deine E-Mail Adresse wurde geändert. Bitte validiere die neue Adresse, damit du sie verwenden kannst.</note>
+        <note category="from">php:///src/Controller/Soul/SoulController.php</note>
+      </notes>
+      <segment>
+        <source>Deine E-Mail Adresse wurde geändert. Bitte validiere die neue Adresse, damit du sie verwenden kannst.</source>
+        <target>Su dirección de correo electrónico ha sido modificada. Valide la nueva dirección para poder utilizarla.</target>
       </segment>
     </unit>
   </file>

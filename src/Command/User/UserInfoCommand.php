@@ -127,6 +127,7 @@ class UserInfoCommand extends Command
                             ->setPersisted(2)
                             ->setTown($town)
                             ->setTownEntry(null !== $town ? $town->getRankingEntry() : null)
+                            ->setDisabled(null !== $town && $town->getRankingEntry()->getDisabled())
                             ->setUser($user);
                     }
                     $picto->setCount($picto->getCount() + $count);
@@ -168,6 +169,7 @@ class UserInfoCommand extends Command
                         ->setPersisted(2)
                         ->setTown($town)
                         ->setTownEntry(null !== $town ? $town->getRankingEntry() : null)
+                        ->setDisabled(null !== $town && $town->getRankingEntry()->getDisabled())
                         ->setUser($user);
                     $user->addPicto($picto);
                     $this->entityManager->persist($user);

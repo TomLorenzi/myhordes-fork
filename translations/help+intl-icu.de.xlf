@@ -3471,7 +3471,7 @@ Eine davon ist es der <strong>Nachtwache</strong> beizutreten.]]></target>
     <unit id="26offDf">
       <segment>
         <source>Alle Waffen oder Verteidigungsgegenstände, die du während der Nachtwache benutzt, werden danach zerstört. Waffen mit mehr als einem Schuss werden eine Ladung verlie</source>
-        <target>Alle Waffen oder Verteidigungsgegenstände, die du während der Nachtwache benutzt, werden danach zerstört. Waffen mit mehr als einem Schuss werden eine Ladung verlie</target>
+        <target>Alle Waffen oder Verteidigungsgegenstände, die du während der Nachtwache benutzt, werden danach zerstört. Waffen mit mehreren Ladungen werden durch die Wacht geleert</target>
       </segment>
     </unit>
     <unit id="4yvcfEV" name="Wie funktioniert das?">

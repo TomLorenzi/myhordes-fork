@@ -151,6 +151,7 @@ export default class HTML {
 
             if (css) elem_modal.classList.add(css);
 
+            let first = true;
             for (const button of buttons) {
                 let elem_button = document.createElement('div');
                 elem_button.classList.add('modal-button', 'small', 'inline')
@@ -159,6 +160,9 @@ export default class HTML {
                 let c = 0;
                 for (const listener of button[1])
                     elem_button.addEventListener( listener[0], e => listener[1]( e, elem_button, c++ )  );
+
+                if (!first) elem_actions.appendChild( document.createTextNode(' ') );
+                first = false;
 
                 elem_actions.appendChild(elem_button);
             }
@@ -468,5 +472,10 @@ export default class HTML {
     setTitleSegmentAddendum(add: string|null): void {
         this.title_segments[2] = add;
         this.updateTitle(this.title_alt);
+    }
+
+    validateEmail(email: string): boolean {
+        const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(email).toLowerCase());
     }
 }

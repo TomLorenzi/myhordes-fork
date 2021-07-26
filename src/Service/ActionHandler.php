@@ -646,7 +646,9 @@ class ActionHandler
             'kills' => 0,
             'bury_count' => 0,
             'items_count' => 0,
-            'size' => 0
+            'size' => 0,
+            'home_storage' => 0,
+            'home_defense' => 0
         ];
 
         if ($citizen->activeExplorerStats())
@@ -656,8 +658,10 @@ class ActionHandler
         $floor_inventory = null;
         if (!$citizen->getZone())
             $floor_inventory = $citizen->getHome()->getChest();
+        elseif ($citizen->getZone()->getX() === 0 && $citizen->getZone()->getY() === 0)
+            $floor_inventory = $citizen->getTown()->getBank();
         elseif (!$ruinZone)
-            $floor_inventory = ($citizen->getZone()->getX() !== 0 || $citizen->getZone()->getY() !== 0) ? $citizen->getZone()->getFloor() : null;
+            $floor_inventory = $citizen->getZone()->getFloor();
         /*elseif ($citizen->activeExplorerStats()->getInRoom())
             $floor_inventory = $ruinZone->getRoomFloor();*/
         else
@@ -845,7 +849,7 @@ class ActionHandler
                 } elseif (is_a($target, ItemPrototype::class)) {
                     if ($target->getHeavy() && $this->inventory_handler->countHeavyItems( $citizen->getInventory() ) > 0)
                         $execute_info_cache['message'][] = $this->translator->trans('Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...', [], 'game');
-                    if ($this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $target ), [ $citizen->getInventory(), $floor_inventory, $citizen->getZone() ? null : $citizen->getTown()->getBank() ], true)) {
+                    if ($this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $target ), [ $citizen->getInventory(), $floor_inventory, $citizen->getZone() ? null : $citizen->getTown()->getBank() ])) {
                         $execute_info_cache['items_spawn'][] = $target;
                         if(!$citizen->getZone())
                             $tags[] = "inside";
@@ -945,6 +949,8 @@ class ActionHandler
             if ($home_set = $result->getHome()) {
                 $citizen->getHome()->setAdditionalStorage( $citizen->getHome()->getAdditionalStorage() + $home_set->getAdditionalStorage() );
                 $citizen->getHome()->setAdditionalDefense( $citizen->getHome()->getAdditionalDefense() + $home_set->getAdditionalDefense() );
+                $execute_info_cache["home_storage"] = $home_set->getAdditionalStorage();
+                $execute_info_cache["home_defense"] = $home_set->getAdditionalDefense();
             }
 
             if($town_set = $result->getTown()){
@@ -1592,6 +1598,7 @@ class ActionHandler
         	ksort($execute_info_cache['message']);
         	// We translate & replace placeholders in each messages
         	$addedContent = [];
+
         	foreach ($execute_info_cache['message'] as $contentMessage) {
                 $placeholders = [
 	                '{ap}'            => $execute_info_cache['ap'],
@@ -1620,6 +1627,8 @@ class ActionHandler
 	                '{hr}'            => "<hr />",
                     '{items_count}'   => $execute_info_cache['items_count'],
                     '{size}'          => $execute_info_cache['size'],
+                    '{home_storage}'  => $execute_info_cache['home_storage'],
+                    '{home_defense}'  => $execute_info_cache['home_defense'],
 	            ];
 
                 // How many indexes we need for array placeholders seeks

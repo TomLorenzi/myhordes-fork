@@ -16,6 +16,10 @@
 .pointer {cursor: pointer;}
 .no-ws { font-size: 0 }
 
+hr.dashed {
+	border: 1px dashed @myhordes-smalltext;
+}
+
 h5 {
   margin: 15px 0 2px;
   font-variant: small-caps; font-weight: bold; color: @myhordes-smalltext;
@@ -24,9 +28,9 @@ h5 {
 }
 
 h1.page-head {
-	height: 32px; padding: 7px 0 0 48px; margin: 0 0 8px; color: #f0d79e;
+	padding: 7px 0 14px 48px; margin: 0 0 8px; color: #f0d79e;
 	font-size: 1.4rem; line-height: 17px; letter-spacing: 1px; text-transform: uppercase;
-	background-image: url("../img/h1.gif");	background-repeat: no-repeat;
+	background-image: url("../img/h1.gif");	background-repeat: no-repeat; background-position-y: bottom;
 	clear: both;
 }
 
@@ -35,6 +39,16 @@ h1.page-head {
 
 img.fit { width: 100%; }
 
+ul.feature-list {
+  font-size: 0.8em;
+  strong, b { color: @myhordes-smalltext }
+}
+
+.boxed {
+  border: 1px solid #f0d79e;
+  outline: 1px solid #5c2b20;
+}
+
 .bold { font-weight: bold }
 .italic { font-style: italic  }
 
@@ -42,7 +56,7 @@ img.fit { width: 100%; }
 
 .link {
 	cursor: pointer;
-	text-decoration: underline;
+	&:not(.undecorated) { text-decoration: underline; }
 	color: @myhordes-smalltext;
 	&:hover {
 		color: white;

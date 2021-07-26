@@ -328,6 +328,16 @@
                     </div>
                 </div>
             {% endif %}
+            {% if is_granted("ROLE_CROW") %}
+                <h5>{{ 'Moderationseinstellungen'|trans({}, 'soul') }}</h5>
+                <div class="row">
+                    <div class="padded cell rw-12">
+                        <div class="note note-lightest">
+                            <input x-open-mod-tools-window {% if app.user.openModToolsSameWindow %}checked{% endif%} type="checkbox" id="setting_open_same_window">&nbsp;<label for="setting_open_same_window">{{ 'Moderationslinks in neuem Fenster öffnen'|trans({}, 'soul') }}</label>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
 
             {% if not is_granted('ROLE_ETERNAL') %}
                 <h5>{{ 'Login und Sicherheit'|trans({},'soul') }}</h5>
@@ -336,9 +346,47 @@
                         <div class="note note-lightest"><label for="app_mail">{% trans from 'soul' %}E-Mail-Adresse{% endtrans %}</label></div>
                     </div>
                     <div class="cell padded rw-8 rw-sm-12">
-                        <input id="app_mail" type="text" disabled value="{{ app.user.email }}" />
+                        <input id="app_mail" type="text" disabled value="{{ app.user.email }}{% if app.user.pendingEmail is not null %} ({{ app.user.pendingEmail }}){% endif %}" />
                     </div>
                 </div>
+                {% if app.user.pendingEmail is null %}
+                    <div class="row">
+                    <div class="cell padded rw-4 rw-sm-12">
+                        <div class="note note-lightest">{% trans from 'soul' %}E-Mail-Adresse ändern{% endtrans %}</div>
+                    </div>
+
+                    <div class="cell rw-8 rw-sm-12">
+                        <div class="row">
+                            <div class="cell padded rw-6"><label><input id="app_email_change_new1" placeholder="{{ 'Neue E-Mail-Adresse'|trans({},'soul') }}" type="email" value="" /></label></div>
+                            <div class="cell padded rw-6"><label><input id="app_email_change_new2" placeholder="{{ 'E-Mail-Adresse wiederholen'|trans({},'soul') }}" type="email" value="" /></label></div>
+                            <div class="cell padded rw-12">
+                                <div class="note warning-box">
+                                    {{ 'Du musst deine neue E-Mail Adresse validieren, bevor du sie verwenden kannst.'|trans({}, 'soul') }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                <div class="row">
+                    <div class="cell padded rw-4 rw-sm-12">
+                        <div class="note note-lightest">{% trans from 'soul' %}Validierungs-Token{% endtrans %}</div>
+                    </div>
+                    <div class="cell rw-8 rw-sm-12">
+                        <div class="row">
+                            <div class="cell padded rw-12">
+                                <label><input id="email_validation_token" type="text" placeholder="abcdef123456" /></label>
+                            </div>
+                            <div class="cell padded rw-6">
+                                <button id="resend_token">{{ 'Validierung erneut senden'|trans({},'soul') }}</button>
+                            </div>
+                            <div class="cell padded rw-6">
+                                <button id="cancel_token">{{ 'Änderung der E-Mail Adresse abbrechen'|trans({},'soul') }}</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
                 <div class="row">
                     <div class="cell padded rw-4 rw-sm-12">
                         <div class="note note-lightest">{% trans from 'soul' %}Passwort ändern{% endtrans %}</div>
@@ -348,7 +396,7 @@
                             <div class="cell padded rw-6"><label><input id="app_pw_change_new1" placeholder="{{ 'Neues Passwort'|trans({},'soul') }}" type="password" value="" /></label></div>
                             <div class="cell padded rw-6"><label><input id="app_pw_change_new2" placeholder="{{ 'Neues Passwort wiederholen'|trans({},'soul') }}" type="password" value="" /></label></div>
                             <div class="cell padded rw-6"><label><input id="app_pw_change_old" placeholder="{{ 'Aktuelles Passwort'|trans({},'soul') }}" type="password" value="" /></label></div>
-                            <div class="cell padded rw-6"><button id="acc_ch_pw">{{ 'Passwort aktualisieren'|trans({},'soul') }}</button></div>
+                            <div class="cell padded rw-6"><button id="acc_ch_details">{{ 'Account-Infos aktualisieren'|trans({},'soul') }}</button></div>
                         </div>
                     </div>
                 </div>
@@ -427,28 +475,63 @@
                 } )
         });
 
-
-        $.html.addEventListenerAll('#acc_ch_pw', 'click', function(e) {
+        $.html.addEventListenerAll('#acc_ch_details', 'click', function(e) {
             e.preventDefault();
-            const pw_old = document.getElementById('app_pw_change_old').value;
-            const pw_new1 = document.getElementById('app_pw_change_new1').value;
-            const pw_new2 = document.getElementById('app_pw_change_new2').value;
+            let pw_old = document.getElementById('app_pw_change_old').value;
+            let pw_new1 = document.getElementById('app_pw_change_new1').value;
+            let pw_new2 = document.getElementById('app_pw_change_new2').value;
+            let email_new1 = document.getElementById('app_email_change_new1').value;
+            let email_new2 = document.getElementById('app_email_change_new2').value;
 
-            if (pw_new1 !== pw_new2) {
+            let email_token = '';
+            {% if app.user.pendingEmail is not null %}
+            email_token = document.getElementById('email_validation_token').value;
+            {% endif %}
+
+            if (pw_new1 !== '' && pw_new1 !== pw_new2) {
                 $.html.error('{{ 'Die eingegebenen Passwörter stimmen nicht überein.'|trans({},'login')|e('js') }}');
                 return;
             }
 
-            if (pw_new1.length < 6) {
+            if (pw_new1 !== '' && pw_new1.length < 6) {
                 $.html.error('{{ 'Dein Passwort muss mindestens { limit } Zeichen umfassen.'|trans({'{{ limit }}': 6},'login')|e('js') }}');
                 return;
             }
 
-            $.ajax.easySend( '{{ path('api_soul_change_password') }}', {'pw': pw_old, 'pw_new': pw_new1},
+            if (email_new1 !== '' && email_new1 !== email_new2) {
+                $.html.error('{{ 'Die eingegebenen E-Mail Adressen stimmen nicht überein.'|trans({},'login')|e('js') }}');
+                return;
+            }
+
+            if (email_new1 !== '' && !$.html.validateEmail(email_new1)) {
+                $.html.error('{{ 'Die eingegebene E-Mail Adresse ist nicht korrekt.'|trans({},'login')|e('js') }}');
+                return;
+            }
+
+            $.ajax.easySend( '{{ path('api_soul_change_account_details') }}', {'pw': pw_old, 'pw_new': pw_new1, 'email_new': email_new1, 'email_token': email_token},
                 function () {
-                    $.ajax.load(null, '{{ path('public_login') }}', true);
+                    $.ajax.load(null, pw_new1 !== '' ? '{{ path('public_login') }}' : '{{ path('soul_settings') }}', true);
                 } )
         });
+        {% if app.user.pendingEmail is not null %}
+        $.html.addEventListenerAll('#resend_token', 'click', function(e) {
+            e.preventDefault();
+
+            $.ajax.easySend( '{{ path('api_soul_resend_token_email') }}', {},
+                function () {
+                    $.ajax.load(null, '{{ path('soul_settings') }}', true);
+                } )
+        });
+
+        $.html.addEventListenerAll('#cancel_token', 'click', function(e) {
+            e.preventDefault();
+
+            $.ajax.easySend( '{{ path('api_soul_cancel_email_token') }}', {},
+                function () {
+                    $.ajax.load(null, '{{ path('soul_settings') }}', true);
+                } )
+        });
+        {% endif %}
 
         $.html.addEventListenerAll('#acc_unremember_me', 'click', function(e) {
             $.ajax.easySend( '{{ path('api_soul_unremember_me') }}', {},
@@ -500,14 +583,25 @@
         });
 
         {% if is_granted("ROLE_ADMIN") %}
-            $.html.addEventListenerAll('[x-default-role-setting]', 'change', function(e,elem) {
-                $.ajax.easySend( '{{ path('api_soul_defaultrole') }}', {
+        $.html.addEventListenerAll('[x-default-role-setting]', 'change', function(e,elem) {
+            $.ajax.easySend( '{{ path('api_soul_defaultrole') }}', {
                     dev: document.getElementById('setting_default_forum_role').checked
-                    },
-                    function () {
-                        $.ajax.load(null, '{{ path('soul_settings') }}', true);
-                    } )
-            });
+                },
+                function () {
+                    $.ajax.load(null, '{{ path('soul_settings') }}', true);
+                } )
+        });
+        {% endif %}
+
+        {% if is_granted("ROLE_CROW") %}
+        $.html.addEventListenerAll('[x-open-mod-tools-window]', 'change', function(e,elem) {
+            $.ajax.easySend( '{{ path('api_soul_mod_tools_window') }}', {
+                    same_window: document.getElementById('setting_open_same_window').checked
+                },
+                function () {
+                    $.ajax.load(null, '{{ path('soul_settings') }}', true);
+                } )
+        });
         {% endif %}
 
         document.getElementById('avatar_file_select').addEventListener('change', function(e) {

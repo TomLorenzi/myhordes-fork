@@ -510,13 +510,13 @@ class ZoneHandler
                 if ( $leaving_citizen && !$zone->getCitizens()->isEmpty() ) $this->entity_manager->persist( $this->log->zoneLostControlLeaving( $zone, $leaving_citizen ) );
                 $zone->addEscapeTimer( (new EscapeTimer())->setTime( new DateTime('+30min') ) );
                 // Disable all dig timers
-                $has_dt = false;
                 foreach ($zone->getDigTimers() as $dig_timer) {
-                    $has_dt = $has_dt || !$dig_timer->getPassive();
+                    $has_dt = !$dig_timer->getPassive();
                     $dig_timer->setPassive(true);
                     $this->entity_manager->persist( $dig_timer );
+                    if ($has_dt) $this->entity_manager->persist( $this->log->zoneSearchInterrupted( $zone, $dig_timer->getCitizen() ) );
                 }
-                if ($has_dt) $this->entity_manager->persist( $this->log->zoneSearchInterrupted( $zone ) );
+
 
             }
             // If we took back control of the zone, logs it

@@ -15,8 +15,9 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 class UserPendingValidation
 {
 
-    const EMailValidation = 0;
-    const ResetValidation = 1;
+    const EMailValidation       = 0;
+    const ResetValidation       = 1;
+    const ChangeEmailValidation = 2;
 
     /**
      * @ORM\Id()

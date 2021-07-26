@@ -4005,5 +4005,67 @@
         <target>Réparer la ville</target>
       </segment>
     </unit>
+    <unit id="qiwbmCe" name="Versteckte Statuseffekte">
+      <notes>
+        <note category="german">Versteckte Statuseffekte</note>
+        <note category="from">twig:///templates/ajax/game/game.html.twig</note>
+      </notes>
+      <segment>
+        <source>Versteckte Statuseffekte</source>
+        <target>Status cachés</target>
+      </segment>
+    </unit>
+    <unit id="Sn2_Qth" name="Ranking-Ausschluss zurücknehmen">
+      <notes>
+        <note category="german">Ranking-Ausschluss zurücknehmen</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Ranking-Ausschluss zurücknehmen</source>
+        <target>Retirer l’exclusion du classement</target>
+      </segment>
+    </unit>
+    <unit id="F9LAKy6" name="Diese Stadt aus dem Ranking ausschließen">
+      <notes>
+        <note category="german">Diese Stadt aus dem Ranking ausschließen</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Diese Stadt aus dem Ranking ausschließen</source>
+        <target>Exclure cette ville du classement</target>
+      </segment>
+    </unit>
+    <unit id="VVx9Eja" name="Ranking-Eintrag">
+      <notes>
+        <note category="german">Ranking-Eintrag</note>
+        <note category="from">twig:///templates/ajax/admin/towns/old_town_explorer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Ranking-Eintrag</source>
+        <target>Entrée de classement</target>
+      </segment>
+    </unit>
+    <unit id="gk_4TAg" name="Event-Markierung entfernen">
+      <notes>
+        <note category="german">Event-Markierung entfernen</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Event-Markierung entfernen</source>
+        <target>Event-Markierung entfernen</target>
+      </segment>
+    </unit>
+    <unit id="RSDaSun" name="Als Event-Stadt markieren">
+      <notes>
+        <note category="german">Als Event-Stadt markieren</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Als Event-Stadt markieren</source>
+        <target>Als Event-Stadt markieren</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

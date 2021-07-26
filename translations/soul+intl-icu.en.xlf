@@ -3781,5 +3781,155 @@
         ]]></target>
       </segment>
     </unit>
+    <unit id="J979vsp" name="Moderationslinks in neuem Fenster öffnen">
+      <notes>
+        <note category="german">Moderationslinks in neuem Fenster öffnen</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>Moderationslinks in neuem Fenster öffnen</source>
+        <target>Open moderation links in the same window</target>
+      </segment>
+    </unit>
+    <unit id="rDqFWB2" name="Moderationseinstellungen">
+      <notes>
+        <note category="german">Moderationseinstellungen</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>Moderationseinstellungen</source>
+        <target>Moderation settings</target>
+      </segment>
+    </unit>
+    <unit id="DDDHPI7" name="E-Mail-Adresse ändern">
+      <notes>
+        <note category="german">E-Mail-Adresse ändern</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>E-Mail-Adresse ändern</source>
+        <target>Change email address</target>
+      </segment>
+    </unit>
+    <unit id="939TZNJ" name="Neue E-Mail-Adresse">
+      <notes>
+        <note category="german">Neue E-Mail-Adresse</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>Neue E-Mail-Adresse</source>
+        <target>New email</target>
+      </segment>
+    </unit>
+    <unit id="GI_Pk7k" name="E-Mail-Adresse wiederholen">
+      <notes>
+        <note category="german">E-Mail-Adresse wiederholen</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>E-Mail-Adresse wiederholen</source>
+        <target>Confirm new email</target>
+      </segment>
+    </unit>
+    <unit id="AZomVy8" name="Validierungs-Token">
+      <notes>
+        <note category="german">Validierungs-Token</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>Validierungs-Token</source>
+        <target>Validation token</target>
+      </segment>
+    </unit>
+    <unit id="_yPAzh1" name="Account-Infos aktualisieren">
+      <notes>
+        <note category="german">Account-Infos aktualisieren</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>Account-Infos aktualisieren</source>
+        <target>Save my account info</target>
+      </segment>
+    </unit>
+    <unit id="bx1XUpr" name="Der Validierungs-Token ist ungültig.">
+      <notes>
+        <note category="german">Der Validierungs-Token ist ungültig.</note>
+        <note category="from">twig:///templates/scripts/errors/profile.txt.twig</note>
+      </notes>
+      <segment>
+        <source>Der Validierungs-Token ist ungültig.</source>
+        <target>The validation token is incorrect.</target>
+      </segment>
+    </unit>
+    <unit id="aYTkIgC" name="Du musst deine neue E-Mail Adresse validieren, bevor du sie verwenden kannst.">
+      <notes>
+        <note category="german">Du musst deine neue E-Mail Adresse validieren, bevor du sie verwenden kannst.</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du musst deine neue E-Mail Adresse validieren, bevor du sie verwenden kannst.</source>
+        <target>You must validate your new email address before you can use it.</target>
+      </segment>
+    </unit>
+    <unit id="_9dPwLd" name="Validierung erneut senden">
+      <notes>
+        <note category="german">Validierung erneut senden</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>Validierung erneut senden</source>
+        <target>Resend the confirmation email</target>
+      </segment>
+    </unit>
+    <unit id="7OcuS8s" name="Änderung der E-Mail Adresse abbrechen">
+      <notes>
+        <note category="german">Änderung der E-Mail Adresse abbrechen</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>Änderung der E-Mail Adresse abbrechen</source>
+        <target>Cancel the email address change</target>
+      </segment>
+    </unit>
+    <unit id="0_cdRLf" name="Diese Stadt wurde aus dem Ranking ausgeschlossen.">
+      <notes>
+        <note category="german">Diese Stadt wurde aus dem Ranking ausgeschlossen.</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Diese Stadt wurde aus dem Ranking ausgeschlossen.</source>
+        <target>This town has been excluded from the ranking.</target>
+      </segment>
+    </unit>
+    <unit id="7kH99Rl" name="Dieser Eintrag wurde aus dem Ranking gestrichen.">
+      <notes>
+        <note category="german">Dieser Eintrag wurde aus dem Ranking gestrichen.</note>
+        <note category="from">twig:///templates/ajax/soul/town_list.html.twig</note>
+      </notes>
+      <segment>
+        <source>Dieser Eintrag wurde aus dem Ranking gestrichen.</source>
+        <target>This entry has been removed from the ranking.</target>
+      </segment>
+    </unit>
+    <unit id="vv_dKqx" name="Bürger, Willkommen in der Hölle!">
+      <notes>
+        <note category="german">Bürger, Willkommen in der Hölle!</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Bürger, Willkommen in der Hölle!</source>
+        <target>Welcome to hell, citizen!</target>
+      </segment>
+    </unit>
+    <unit id="i6X57vg" name="Dies ist eine Event-Stadt.">
+      <notes>
+        <note category="german">Dies ist eine Event-Stadt.</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Dies ist eine Event-Stadt.</source>
+        <target>This is an event town.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

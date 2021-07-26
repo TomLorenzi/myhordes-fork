@@ -18,6 +18,7 @@ use App\Entity\Picto;
 use App\Entity\PictoPrototype;
 use App\Entity\Season;
 use App\Entity\ShadowBan;
+use App\Entity\TownRankingProxy;
 use App\Entity\TwinoidImport;
 use App\Entity\TwinoidImportPreview;
 use App\Entity\User;
