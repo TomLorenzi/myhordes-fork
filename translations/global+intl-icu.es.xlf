@@ -334,7 +334,7 @@
     <unit id="9.8ReK8" name="Abbrechen">
       <notes>
         <note category="german">Abbrechen</note>
-        <note category="from">twig:///templates/ajax/forum/editor.html.twig;twig:///templates/ajax/game/town/bank.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/planner.html.twig;twig:///templates/ajax/soul/import_preview.html.twig;twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="from">twig:///templates/ajax/forum/editor.html.twig;twig:///templates/ajax/game/town/bank.html.twig;twig:///templates/ajax/game/town/construction.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/planner.html.twig;twig:///templates/ajax/soul/import_preview.html.twig;twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Abbrechen</source>

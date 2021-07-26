@@ -10568,7 +10568,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="9NwZjWy" name="Teilnehmen">
       <notes>
         <note category="german">Teilnehmen</note>
-        <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/construction.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig</note>
       </notes>
       <segment>
         <source>Teilnehmen</source>
@@ -23080,6 +23080,17 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Diese letzten Nächte des Überlebens haben deiner verlorenen Seele zugesetzt, aber du bist daraus gestärkt hervorgegangen. Nun bist du bereit für die wirklichen Herausforderungen, die jetzt beginnen.</source>
         <target>These last few nights of survival have left your lost soul battered but reinforced. You are ready for the real challenges to begin.</target>
+      </segment>
+    </unit>
+    <unit id="25LN4T2">
+      <notes>
+        <note category="german">Der Diebstahl, den du gerade begangen hast, wurde bemerkt! Die Bürger werden gewarnt, dass du den(die,das) {item} bei {victim} gestohlen hast.</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Der Diebstahl, den du gerade begangen hast, wurde bemerkt! Die Bürger werden gewarnt, dass du den(die,das) {item} bei {victim} gestohlen hast.</source>
+        <target>Der Diebstahl, den du gerade begangen hast, wurde bemerkt! Die Bürger werden gewarnt, dass du den(die,das) {item} bei {victim} gestohlen hast.</target>
       </segment>
     </unit>
   </file>

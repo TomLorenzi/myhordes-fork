@@ -1778,7 +1778,6 @@
       <notes>
         <note category="german">Spielhilfe ansehen</note>
         <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Spielhilfe ansehen</source>
@@ -1789,7 +1788,6 @@
       <notes>
         <note category="german">Spielen, Lernen und STERBEN!</note>
         <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Spielen, Lernen und STERBEN!</source>

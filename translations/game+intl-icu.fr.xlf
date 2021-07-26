@@ -10645,7 +10645,7 @@
     <unit id="9NwZjWy" name="Teilnehmen">
       <notes>
         <note category="german">Teilnehmen</note>
-        <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/construction.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig</note>
       </notes>
       <segment>
         <source>Teilnehmen</source>
@@ -22850,7 +22850,6 @@
       <notes>
         <note category="german">Ranking-Ausschluss</note>
         <note category="from">twig:///templates/ajax/soul/death.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ranking-Ausschluss</source>
@@ -22861,7 +22860,6 @@
       <notes>
         <note category="german">Dieses Leben wird aus den Annalen der Geschichte getilgt. Du erhälst weder Seelenpunkte noch Auszeichnungen.</note>
         <note category="from">twig:///templates/ajax/soul/death.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Dieses Leben wird aus den Annalen der Geschichte getilgt. Du erhälst weder Seelenpunkte noch Auszeichnungen.</source>
@@ -22996,6 +22994,16 @@
       <segment>
         <source>Diese letzten Nächte des Überlebens haben deiner verlorenen Seele zugesetzt, aber du bist daraus gestärkt hervorgegangen. Nun bist du bereit für die wirklichen Herausforderungen, die jetzt beginnen.</source>
         <target>Ces dernières nuits de survie ont renforcé votre âme de damné. Vous voilà plus fort, plus résistant et il est grand temps de découvrir la vraie vie.</target>
+      </segment>
+    </unit>
+    <unit id="25LN4T2">
+      <notes>
+        <note category="german">Der Diebstahl, den du gerade begangen hast, wurde bemerkt! Die Bürger werden gewarnt, dass du den(die,das) {item} bei {victim} gestohlen hast.</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php</note>
+      </notes>
+      <segment>
+        <source>Der Diebstahl, den du gerade begangen hast, wurde bemerkt! Die Bürger werden gewarnt, dass du den(die,das) {item} bei {victim} gestohlen hast.</source>
+        <target>Le larcin que vous venez de commettre a été repéré ! Les citoyens sont avertis que vous avez volé {item} à {victim}.</target>
       </segment>
     </unit>
   </file>

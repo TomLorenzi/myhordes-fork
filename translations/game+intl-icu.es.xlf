@@ -11215,7 +11215,7 @@
     <unit id="9NwZjWy" name="Teilnehmen">
       <notes>
         <note category="german">Teilnehmen</note>
-        <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/construction.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig</note>
       </notes>
       <segment>
         <source>Teilnehmen</source>
@@ -17553,7 +17553,6 @@
     <unit id="dPIl.ph">
       <notes>
         <note category="german">{attacker} hat {defender} mit einem üblen Sandballwurf verwundet. Autsch, das hat sicher weh getan...!</note>
-        <note category="state">new</note>
         <note category="from">db://LogEntryTemplate</note>
       </notes>
       <segment>
@@ -17564,7 +17563,6 @@
     <unit id="7Fs6S13" name="{attacker} hat {defender} einen Sandball direkt ins Gesicht geworfen!">
       <notes>
         <note category="german">{attacker} hat {defender} einen Sandball direkt ins Gesicht geworfen!</note>
-        <note category="state">new</note>
         <note category="from">db://LogEntryTemplate</note>
       </notes>
       <segment>
@@ -19286,7 +19284,6 @@
     <unit id="sZoC__." name="Der Bürger weigert sich, dies zu tun...">
       <notes>
         <note category="german">Der Bürger weigert sich, dies zu tun...</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/scripts/errors/beyond.txt.twig</note>
       </notes>
       <segment>
@@ -19317,7 +19314,6 @@
     <unit id="phdcejB">
       <notes>
         <note category="german">Die Stadt hat folgende Gegenstände in Folge der Verbannung von {shunned} zurückerhalten: {list}</note>
-        <note category="state">new</note>
         <note category="from">db://LogEntryTemplate</note>
       </notes>
       <segment>
@@ -19438,7 +19434,6 @@
     <unit id="xhhwuhJ" name="{citizen} hat {items} in der Müllhalde zerstört (+{def} Verteidigung)">
       <notes>
         <note category="german">{citizen} hat {items} in der Müllhalde zerstört (+{def} Verteidigung)</note>
-        <note category="state">new</note>
         <note category="from">db://LogEntryTemplate</note>
       </notes>
       <segment>
@@ -19449,7 +19444,6 @@
     <unit id="DaS3LJ7" name="{username} hat dich angegriffen!">
       <notes>
         <note category="german">{username} hat dich angegriffen!</note>
-        <note category="state">new</note>
         <note category="from">php:///src/Controller/Messages/MessageTownMessageController.php;php:///src/Controller/Town/TownHomeController.php</note>
       </notes>
       <segment>
@@ -19471,7 +19465,6 @@
     <unit id="0XjfB3Z" name="{username} hat dich angegriffen und verletzt!">
       <notes>
         <note category="german">{username} hat dich angegriffen und verletzt!</note>
-        <note category="state">new</note>
         <note category="from">php:///src/Controller/Messages/MessageTownMessageController.php;php:///src/Controller/Town/TownHomeController.php</note>
       </notes>
       <segment>
@@ -19493,7 +19486,6 @@
     <unit id="cyaNyje" name="Verletzt">
       <notes>
         <note category="german">Verletzt</note>
-        <note category="state">new</note>
         <note category="from">php:///src/Controller/Messages/MessageTownMessageController.php;php:///src/Controller/Town/TownHomeController.php</note>
       </notes>
       <segment>
@@ -19504,7 +19496,6 @@
     <unit id="rt69Tb7">
       <notes>
         <note category="german">Wir haben zwei Neuigkeiten für dich. Die Gute: du konntest die {count} Zombie(s) abwehren! Die Schlechte: du wurdest dabei verletzt...</note>
-        <note category="state">new</note>
         <note category="from">php:///src/Controller/Messages/MessageTownMessageController.php</note>
       </notes>
       <segment>
@@ -19625,7 +19616,6 @@
     <unit id="T9nn1le">
       <notes>
         <note category="german">Nachtwächter {citizen} hat sein Bestes gegeben, aber dieser Angriff hat ihn schwer verängstigt...</note>
-        <note category="state">new</note>
         <note category="from">db://LogEntryTemplate</note>
       </notes>
       <segment>
@@ -19636,7 +19626,6 @@
     <unit id="yN3afGs">
       <notes>
         <note category="german">Verdammt! Nachtwächter {citizen} wurde von Zombies überrumpelt und verwundet...</note>
-        <note category="state">new</note>
         <note category="from">db://LogEntryTemplate</note>
       </notes>
       <segment>
@@ -23093,7 +23082,6 @@
       <notes>
         <note category="german">Ranking-Ausschluss</note>
         <note category="from">twig:///templates/ajax/soul/death.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ranking-Ausschluss</source>
@@ -23104,7 +23092,6 @@
       <notes>
         <note category="german">Dieses Leben wird aus den Annalen der Geschichte getilgt. Du erhälst weder Seelenpunkte noch Auszeichnungen.</note>
         <note category="from">twig:///templates/ajax/soul/death.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Dieses Leben wird aus den Annalen der Geschichte getilgt. Du erhälst weder Seelenpunkte noch Auszeichnungen.</source>
@@ -23115,7 +23102,6 @@
       <notes>
         <note category="german">Das wird dir in Zukunft schlaflose Nächte bereiten!</note>
         <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Das wird dir in Zukunft schlaflose Nächte bereiten!</source>
@@ -23126,7 +23112,6 @@
       <notes>
         <note category="german">Erkunde die Außenwelt:</note>
         <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Erkunde die Außenwelt:</source>
@@ -23252,6 +23237,17 @@
       <segment>
         <source>Diese letzten Nächte des Überlebens haben deiner verlorenen Seele zugesetzt, aber du bist daraus gestärkt hervorgegangen. Nun bist du bereit für die wirklichen Herausforderungen, die jetzt beginnen.</source>
         <target>Diese letzten Nächte des Überlebens haben deiner verlorenen Seele zugesetzt, aber du bist daraus gestärkt hervorgegangen. Nun bist du bereit für die wirklichen Herausforderungen, die jetzt beginnen.</target>
+      </segment>
+    </unit>
+    <unit id="25LN4T2">
+      <notes>
+        <note category="german">Der Diebstahl, den du gerade begangen hast, wurde bemerkt! Die Bürger werden gewarnt, dass du den(die,das) {item} bei {victim} gestohlen hast.</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Der Diebstahl, den du gerade begangen hast, wurde bemerkt! Die Bürger werden gewarnt, dass du den(die,das) {item} bei {victim} gestohlen hast.</source>
+        <target>Der Diebstahl, den du gerade begangen hast, wurde bemerkt! Die Bürger werden gewarnt, dass du den(die,das) {item} bei {victim} gestohlen hast.</target>
       </segment>
     </unit>
   </file>

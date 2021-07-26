@@ -3988,7 +3988,6 @@
       <notes>
         <note category="german">Ranking-Ausschluss zurücknehmen</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ranking-Ausschluss zurücknehmen</source>
@@ -3999,7 +3998,6 @@
       <notes>
         <note category="german">Diese Stadt aus dem Ranking ausschließen</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Diese Stadt aus dem Ranking ausschließen</source>
@@ -4010,7 +4008,6 @@
       <notes>
         <note category="german">Ranking-Eintrag</note>
         <note category="from">twig:///templates/ajax/admin/towns/old_town_explorer.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ranking-Eintrag</source>

@@ -14103,5 +14103,11 @@
         <target>Diese letzten Nächte des Überlebens haben deiner verlorenen Seele zugesetzt, aber du bist daraus gestärkt hervorgegangen. Nun bist du bereit für die wirklichen Herausforderungen, die jetzt beginnen.</target>
       </segment>
     </unit>
+    <unit id="25LN4T2">
+      <segment>
+        <source>Der Diebstahl, den du gerade begangen hast, wurde bemerkt! Die Bürger werden gewarnt, dass du den(die,das) {item} bei {victim} gestohlen hast.</source>
+        <target>Der Diebstahl, den du gerade begangen hast, wurde bemerkt! Die Bürger werden gewarnt, dass du den(die,das) {item} bei {victim} gestohlen hast.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
