@@ -195,7 +195,7 @@ class BeyondController extends InventoryAwareController
                 !$this->citizen_handler->isWounded( $this->getActiveCitizen() ) &&
                 !$blocked && !$zone->activeExplorerStats() && !$this->getActiveCitizen()->currentExplorerStats(),
             'exploration_blocked_wound'     => $zone->getPrototype() && $zone->getPrototype()->getExplorable() && $this->citizen_handler->isWounded( $this->getActiveCitizen() ),
-            'exploration_blocked_blocked'   => $zone->getPrototype() && $zone->getPrototype()->getExplorable() && $blocked,
+            'exploration_blocked_blocked'   => $zone->getPrototype() && $zone->getPrototype()->getExplorable() && ($blocked && !$scout_movement),
             'exploration_blocked_infection' => $zone->getPrototype() && $zone->getPrototype()->getExplorable() && $this->citizen_handler->hasStatusEffect( $this->getActiveCitizen(), 'infection' ),
             'exploration_blocked_terror'    => $zone->getPrototype() && $zone->getPrototype()->getExplorable() && $this->citizen_handler->hasStatusEffect( $this->getActiveCitizen(), 'terror' ),
             'exploration_blocked_in_use'    => $zone->getPrototype() && $zone->getPrototype()->getExplorable() && $zone->activeExplorerStats(),
