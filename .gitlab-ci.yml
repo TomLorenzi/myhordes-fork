@@ -47,6 +47,7 @@ build:
     # Install and run Composer
     #- curl -sS https://getcomposer.org/installer | php
     #- php composer.phar install
+    - composer install
     # Install assets
     - yarn install
     - yarn encore dev
