@@ -4053,7 +4053,7 @@
       </notes>
       <segment>
         <source>Event-Markierung entfernen</source>
-        <target>Event-Markierung entfernen</target>
+        <target>Supprimer le marqueur d’événement</target>
       </segment>
     </unit>
     <unit id="RSDaSun" name="Als Event-Stadt markieren">
@@ -4064,7 +4064,7 @@
       </notes>
       <segment>
         <source>Als Event-Stadt markieren</source>
-        <target>Als Event-Stadt markieren</target>
+        <target>Marquer la ville comme événement</target>
       </segment>
     </unit>
   </file>
