@@ -38,15 +38,15 @@ build:
     - sudo apt-get install -y nodejs
     - npm install --global yarn
     # Install PHP extensions
-    - curl -L https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions -o /usr/local/bin/install-php-extensions
-    - chmod +x /usr/local/bin/install-php-extensions
-    - install-php-extensions intl gd zip opcache pdo_mysql
+    #- curl -L https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions -o /usr/local/bin/install-php-extensions
+    #- chmod +x /usr/local/bin/install-php-extensions
+    #- install-php-extensions intl gd zip opcache pdo_mysql
     # Install & enable Xdebug for code coverage reports
-    - pecl install xdebug
-    - docker-php-ext-enable xdebug
+    #- pecl install xdebug
+    #- docker-php-ext-enable xdebug
     # Install and run Composer
-    - curl -sS https://getcomposer.org/installer | php
-    - php composer.phar install
+    #- curl -sS https://getcomposer.org/installer | php
+    #- php composer.phar install
     # Install assets
     - yarn install
     - yarn encore dev
