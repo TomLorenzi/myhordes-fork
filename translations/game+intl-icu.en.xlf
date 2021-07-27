@@ -22108,7 +22108,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Diese Aktion ermöglicht es dir, diesen Bürger zu verschlingen, um deinen unersättlichen Heißhunger zu stillen!</source>
-        <target>Diese Aktion ermöglicht es dir, diesen Bürger zu verschlingen, um deinen unersättlichen Heißhunger zu stillen!</target>
+        <target>This action allows you to devour another citizen to calm your voracious appetite!</target>
       </segment>
     </unit>
     <unit id="rfxQCmg">
