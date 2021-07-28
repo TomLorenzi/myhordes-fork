@@ -10,6 +10,7 @@ use App\Entity\CitizenRankingProxy;
 use App\Entity\CitizenRole;
 use App\Entity\ExpeditionRoute;
 use App\Entity\ExternalApp;
+use App\Entity\GazetteEntryTemplate;
 use App\Entity\GazetteLogEntry;
 use App\Entity\ItemPrototype;
 use App\Entity\Town;
@@ -1187,6 +1188,7 @@ class ExternalController extends InventoryAwareController {
                             while (count($gazette_log) > 0) {
                                 $entry = array_shift($gazette_log);
                                 $template = $entry->getLogEntryTemplate() ?? $entry->getTemplate();
+                                if($template->getType() === GazetteEntryTemplate::TypeGazetteWind) continue;
                                 $text = $this->getTranslate($template->getText(), 'game',
                                                             $this->logTemplateHandler->parseTransParams($template->getVariableTypes(),
                                                                                                         $entry->getVariables()));
