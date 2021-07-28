@@ -8828,7 +8828,7 @@
       </notes>
       <segment>
         <source>Vielleicht solltest du das mithilfe des Wasserhahns füllen...</source>
-        <target>Vielleicht solltest du das mithilfe des Wasserhahns füllen...</target>
+        <target><![CDATA[Utilisez plutot l'action <strong>Remplir</strong> ci-dessus pour faire ceci...]]></target>
       </segment>
     </unit>
     <unit id="NVMPUn." name="Du bist ab sofort getarnt.">
