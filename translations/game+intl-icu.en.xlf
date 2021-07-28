@@ -319,7 +319,7 @@
       </notes>
       <segment>
         <source>Heute Nacht wurden von {building} folgende Gegenstände produziert: {items}</source>
-        <target>The construction {building} produced: {items}</target>
+        <target>{building} has produced: {items}. They have been deposited in the bank.</target>
       </segment>
     </unit>
     <unit id="vB3wgZU">
