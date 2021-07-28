@@ -20882,7 +20882,7 @@
       </notes>
       <segment>
         <source>&lt;strong&gt;Herzlichen Glückwunsch&lt;/strong&gt;, du hast folgende Titel freigeschaltet: {list_i} {list_t}</source>
-        <target><![CDATA[<strong>Félicitations</strong>, vous avez déverrouillé les titres suivants: {list_i} {list_t}]]></target>
+        <target><![CDATA[<strong>Félicitations</strong>, vous avez déverrouillé les titres suivants : {list_i} {list_t}]]></target>
       </segment>
     </unit>
     <unit id="jIKh96s">
