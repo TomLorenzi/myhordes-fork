@@ -260,6 +260,7 @@
                     document.body.append(prompt);
                 }
                 document.getElementById("prompt_id").value = this.getAttribute('x-building-id');
+                document.getElementById("ap_amount").value = "1";
                 prompt.style.display = "block";
                 prompt.style.top = (this.getBoundingClientRect().top + document.documentElement.scrollTop) + "px";
                 prompt.style.left = this.getBoundingClientRect().left - prompt.clientWidth + this.clientWidth + "px";
