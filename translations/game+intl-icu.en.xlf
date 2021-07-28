@@ -22602,7 +22602,10 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>{points} Punkt(e)</source>
-        <target>{points} Point(s)</target>
+        <target>{ref__icu, select,
+            on { {points, select, one {# point} other {{points} points}} }
+            other {{points} point(s)}
+            }</target>
       </segment>
     </unit>
     <unit id="uAj26XB" name="Schließen">

@@ -13801,7 +13801,7 @@
         <source>{points} Punkt(e)</source>
         <target>
             {ref__icu, select,
-                on { {points, select, 1 {1 Punkt} other {{points} Punkte}} }
+                on { {points, select, one {# Punkt} other {{points} Punkte}} }
                 other {{points} Punkt(e)}
             }
         </target>
