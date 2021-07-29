@@ -218,6 +218,10 @@ class TwinoConverterToBlocks {
                 if (nested) blocks.push( new TwinoInterimBlock(nodeContent) )
                 else blocks.push( new TwinoInterimBlock(nodeContent, match.nodeType(), [], [['x-nested','1']]) );
                 changed = true; break;
+            case 'poll':
+                if (nested) blocks.push( new TwinoInterimBlock(nodeContent) )
+                else blocks.push( new TwinoInterimBlock(nodeContent, 'ul', ['poll'], [['x-nested','1']]) );
+                changed = true; break;
             case 'c':
                 blocks.push( new TwinoInterimBlock(nodeContent, 'span', ['inline-code'], [ ['x-raw','1'] ]) ); changed = true; break;
             case '**': blocks.push( new TwinoInterimBlock(nodeContent, 'b') ); changed = true; break;
@@ -303,7 +307,7 @@ class TwinoConverterToBlocks {
         let listspace = false;
         for (let i = 0; i < parents.length; i++) {
 
-            if (!listspace && ['UL', 'OL'].indexOf(parents[i].tagName) !== -1)
+            if (!listspace && ['UL', 'OL', 'POLL'].indexOf(parents[i].tagName) !== -1)
                 listspace = true;
             else if (listspace && parents[i].tagName === 'LI')
                 listspace = false;
@@ -402,7 +406,8 @@ class HTMLConverterFromBlocks {
                     ret += (link_href ? HTMLConverterFromBlocks.wrapBlock( block, 'link', link_href ) : block.nodeText);
                     break;
                 case 'i': case 'u': case 's': case 'ul': case 'ol': case 'li':
-                    ret += HTMLConverterFromBlocks.wrapBlock( block, block.nodeName );
+                    if (block.nodeName == 'ul' && block.hasClass('poll')) break;
+                    else ret += HTMLConverterFromBlocks.wrapBlock( block, block.nodeName );
                     break;
                 case 'pre':
                     ret += HTMLConverterFromBlocks.wrapBlock( block, 'code' );
