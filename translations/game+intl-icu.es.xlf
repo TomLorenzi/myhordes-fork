@@ -23264,5 +23264,16 @@
         <target><![CDATA[<strong>Das Stadttor ist geschlossen</strong>, eine Rückkehr ist nicht möglich!]]></target>
       </segment>
     </unit>
+    <unit id="im0eaJb">
+      <notes>
+        <note category="german">Das Stadttor ist &lt;strong&gt;geschlossen&lt;/strong&gt;! Vielleicht kannst du im Forum nach Hilfe fragen...</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Das Stadttor ist &lt;strong&gt;geschlossen&lt;/strong&gt;! Vielleicht kannst du im Forum nach Hilfe fragen...</source>
+        <target><![CDATA[Das Stadttor ist <strong>geschlossen</strong>! Vielleicht kannst du im Forum nach Hilfe fragen...]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

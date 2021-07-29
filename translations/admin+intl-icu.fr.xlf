@@ -4049,7 +4049,6 @@
       <notes>
         <note category="german">Event-Markierung entfernen</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Event-Markierung entfernen</source>
@@ -4060,7 +4059,6 @@
       <notes>
         <note category="german">Als Event-Stadt markieren</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Als Event-Stadt markieren</source>

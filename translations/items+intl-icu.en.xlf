@@ -9297,7 +9297,6 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     <unit id="poSLxEf">
       <notes>
         <note category="german">Um dieses Wasser trinkbar zu machen, brauchst du &lt;strong&gt;irgendein Reinigungsmittel&lt;/strong&gt; oder deine Stadt muss über einen &lt;strong&gt;Wasserreiniger&lt;/strong&gt; verfügen. Die zweite Variante ist nicht verfügbar, wenn Du verbannt bist.</note>
-        <note category="state">new</note>
         <note category="from">db://Requirement</note>
       </notes>
       <segment>
