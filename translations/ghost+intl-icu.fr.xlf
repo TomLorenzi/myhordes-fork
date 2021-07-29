@@ -31,16 +31,6 @@
         <target>Vous avez déjà rejoint cette ville.</target>
       </segment>
     </unit>
-    <unit id="xkZqSVc" name="Wähle eine Stadt">
-      <notes>
-        <note category="german">Wähle eine Stadt</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Wähle eine Stadt</source>
-        <target>Choisissez votre prochaine existence :</target>
-      </segment>
-    </unit>
     <unit id="Bfb7kn4" name="Stadtname">
       <notes>
         <note category="german">Stadtname</note>
@@ -71,36 +61,6 @@
         <target>Aucune ville de ce type n'est actuellement disponible.</target>
       </segment>
     </unit>
-    <unit id="Enh.KhP" name="Nächtlicher Angriff">
-      <notes>
-        <note category="german">Nächtlicher Angriff</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Nächtlicher Angriff</source>
-        <target>Attaque en cours</target>
-      </segment>
-    </unit>
-    <unit id="xOWTZkZ">
-      <notes>
-        <note category="german">Der Server wird aktuell von Zombies überrannt. Bitte hab einen Moment Geduld, während wir die angreifenden Horden abwehren.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Der Server wird aktuell von Zombies überrannt. Bitte hab einen Moment Geduld, während wir die angreifenden Horden abwehren.</source>
-        <target>Le site est actuellement submergé de zombies ! C'est l'assaut quotidien ! Impossible de se connecter ou même de s'inscrire... Le site devrait ré-ouvrir d'ici quelque dizaines de minutes. Avec quelque cadavres en plus.</target>
-      </segment>
-    </unit>
-    <unit id="e6r4m6r">
-      <notes>
-        <note category="german">Der nächtliche Angriff findet jeden Tag um Mitternacht statt und dauert ungefähr 20 Minuten. Während dieser Zeit ist MyHordes nicht erreichbar.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Der nächtliche Angriff findet jeden Tag um Mitternacht statt und dauert ungefähr 20 Minuten. Während dieser Zeit ist MyHordes nicht erreichbar.</source>
-        <target>L'assaut quotidien a lieu tous les jours à minuit et dure environ 20 minutes. Le site ne peut pas être atteint durant cette période.</target>
-      </segment>
-    </unit>
     <unit id="gqk_gdE" name="Beitreten">
       <notes>
         <note category="german">Beitreten</note>
@@ -129,16 +89,6 @@
       <segment>
         <source>Kommunikation ist wichtig in MyHordes. Bitte betritt keine Stadt, deren Sprache du nicht beherrscht. Möchtest du fortfahren?</source>
         <target>La communication est indispensable dans MyHordes. Veuillez ne pas rejoindre une ville dont vous ne parlez pas la langue... Validez-vous ce choix?</target>
-      </segment>
-    </unit>
-    <unit id="FbY7TeM" name="Bestätigen">
-      <notes>
-        <note category="german">Bestätigen</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Bestätigen</source>
-        <target>Confirmer</target>
       </segment>
     </unit>
     <unit id="x8NF3LC">
@@ -524,16 +474,6 @@
         <target>Mode nuit :</target>
       </segment>
     </unit>
-    <unit id="3lbcc06" name="Nachtmodus aktivieren (schwerer)">
-      <notes>
-        <note category="german">Nachtmodus aktivieren (schwerer)</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Nachtmodus aktivieren (schwerer)</source>
-        <target>Active le mode nuit plus difficile</target>
-      </segment>
-    </unit>
     <unit id="Ip2o27i" name="Camping:">
       <notes>
         <note category="german">Camping:</note>
@@ -552,26 +492,6 @@
       <segment>
         <source>Camping in der Wildnis aktivieren</source>
         <target>Active le camping sauvage.</target>
-      </segment>
-    </unit>
-    <unit id="8h7b0Dd" name="Ghule:">
-      <notes>
-        <note category="german">Ghule:</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Ghule:</source>
-        <target>Goules :</target>
-      </segment>
-    </unit>
-    <unit id="Rsw_o_o" name="Ghule aktivieren">
-      <notes>
-        <note category="german">Ghule aktivieren</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Ghule aktivieren</source>
-        <target>Active les goules.</target>
       </segment>
     </unit>
     <unit id="rBxUVmT" name="Gebäudeschaden:">
@@ -602,16 +522,6 @@
       <segment>
         <source>Nachtwache:</source>
         <target>Veilles :</target>
-      </segment>
-    </unit>
-    <unit id="85ixbKa" name="Nachtwache aktivieren">
-      <notes>
-        <note category="german">Nachtwache aktivieren</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Nachtwache aktivieren</source>
-        <target>Active les veilleurs</target>
       </segment>
     </unit>
     <unit id="aOW2H78" name="Verbesserte Müllhalde:">
@@ -842,20 +752,6 @@
       <segment>
         <source>Karten-Seed</source>
         <target>Seed de la carte</target>
-      </segment>
-    </unit>
-    <unit id="_SibAUY">
-      <notes>
-        <note category="german">Seed, das eine kontrollierte Kartenerstellung ermöglicht. Erlaubt im Falle von Ereignissen, ähnliche Karten zu generieren.
-                                Gib eine positive ganze Zahl ein, um es zu aktivieren.
-                                DENKT DARÜBER NACH, DIESE GANZE ZAHL VON EINEM EREIGNIS ZUM ANDEREN ZU ÄNDERN !</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Seed, das eine kontrollierte Kartenerstellung ermöglicht. Erlaubt im Falle von Ereignissen, ähnliche Karten zu generieren.
-                                Gib eine positive ganze Zahl ein, um es zu aktivieren.
-                                DENKT DARÜBER NACH, DIESE GANZE ZAHL VON EINEM EREIGNIS ZUM ANDEREN ZU ÄNDERN !</source>
-        <target>Seed qui permet une génération de map maîtrisée. Permet, en cas d'event, de générer des maps similaires. Mettre un entier positif pour l'activer. PENSEZ À CHANGER CET ENTIER D'UN EVENT À L'AUTRE !</target>
       </segment>
     </unit>
     <unit id="YY0WZyp" name="Verkörperung in der Stadt:">

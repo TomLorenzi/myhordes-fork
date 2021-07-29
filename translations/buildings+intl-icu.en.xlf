@@ -261,16 +261,6 @@
         <target>Old-school traps</target>
       </segment>
     </unit>
-    <unit id="rCdMakD" name="Zaun">
-      <notes>
-        <note category="german">Zaun</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Zaun</source>
-        <target>Fence</target>
-      </segment>
-    </unit>
     <unit id="1VFjm8C" name="Holzzaun">
       <notes>
         <note category="german">Holzzaun</note>
@@ -649,16 +639,6 @@
       <segment>
         <source>Pumpe</source>
         <target>Pump</target>
-      </segment>
-    </unit>
-    <unit id="soE_FyU" name="Der Brunnen der Stadt wird einmalig um 5 Rationen Wasser aufgefüllt">
-      <notes>
-        <note category="german">Der Brunnen der Stadt wird einmalig um 5 Rationen Wasser aufgefüllt</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Der Brunnen der Stadt wird einmalig um 5 Rationen Wasser aufgefüllt</source>
-        <target>Add 5 water rations to the well (one time only).</target>
       </segment>
     </unit>
     <unit id="1gviUPR" name="Der Brunnen der Stadt wird einmalig um 20 Rationen Wasser aufgefüllt">
@@ -1059,26 +1039,6 @@
       <segment>
         <source>Die AP-Kosten aller Bauprojekte werden um 15% gesenkt.</source>
         <target>The cost (AP) of all construction projects is reduced by 18%.</target>
-      </segment>
-    </unit>
-    <unit id="SAknSq2" name="Die AP-Kosten aller Bauprojekte werden um 20% gesenkt.">
-      <notes>
-        <note category="german">Die AP-Kosten aller Bauprojekte werden um 24% gesenkt.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Die AP-Kosten aller Bauprojekte werden um 20% gesenkt.</source>
-        <target>The cost (AP) of all construction projects is reduced by 24%.</target>
-      </segment>
-    </unit>
-    <unit id="1dzbsZW" name="Die AP-Kosten aller Bauprojekte werden um 25% gesenkt.">
-      <notes>
-        <note category="german">Die AP-Kosten aller Bauprojekte werden um 30% gesenkt.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Die AP-Kosten aller Bauprojekte werden um 25% gesenkt.</source>
-        <target>The cost (AP) of all construction projects is reduced by 30%.</target>
       </segment>
     </unit>
     <unit id="cdTPlT5" name="Scanner">

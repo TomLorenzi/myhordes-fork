@@ -532,26 +532,6 @@
         <target>Support</target>
       </segment>
     </unit>
-    <unit id="BKRwO03" name="1- Überprüfe deinen Browser">
-      <notes>
-        <note category="german">1- Überprüfe deinen Browser</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>1- Überprüfe deinen Browser</source>
-        <target>1- Vérifier mon navigateur</target>
-      </segment>
-    </unit>
-    <unit id="cm9u5KI" name="2- Überprüfe sonstige installierte Programme">
-      <notes>
-        <note category="german">2- Überprüfe sonstige installierte Programme</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>2- Überprüfe sonstige installierte Programme</source>
-        <target>2- Vérifier mes logiciels tiers</target>
-      </segment>
-    </unit>
     <unit id="vm9r3tz" name="Hier erhältst du Hilfe">
       <notes>
         <note category="german">Hier erhältst du Hilfe</note>
@@ -892,19 +872,6 @@
         <target>Les points d'action et la Fatigue</target>
       </segment>
     </unit>
-    <unit id="TE8Fpt_">
-      <notes>
-        <note category="german">&lt;div class="ap"&gt;Solange du genügend &lt;/div&gt;&lt;strong&gt; Aktionspunkte&lt;/strong&gt; besitzt, kannst du dich in der Außenwelt bewegen:
-Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du &lt;img alt="" src="{path}"&gt; &lt;strong&gt;Erschöpft&lt;/strong&gt; und kannst dich nicht mehr bewegen.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>&lt;div class="ap"&gt;Solange du genügend &lt;/div&gt;&lt;strong&gt; Aktionspunkte&lt;/strong&gt; besitzt, kannst du dich in der Außenwelt bewegen:
-Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du &lt;img alt="" src="{path}"&gt; &lt;strong&gt;Erschöpft&lt;/strong&gt; und kannst dich nicht mehr bewegen.</source>
-        <target><![CDATA[<div class="ap">Vous pouvez vous déplacer dans l'Outre-Monde tant qu'il vous reste des </div><strong> Points d'action</strong>  :
-chaque mouvement coûte 1 point d'action. Dès que vous arrivez à 0 point, vous devenez <img alt="" src="{path}"> <strong>Fatigué(e)</strong> et vous ne pouvez plus bouger.]]></target>
-      </segment>
-    </unit>
     <unit id="bTdJb_Y">
       <notes>
         <note category="german">Deine Aktionspunkte werden oben rechts neben dem Hilfsbutton angezeigt. Du kannst deine &lt;strong&gt;Erschöpfung überwinden&lt;/strong&gt; und deine Aktionspunkte durch eine der folgenden Aktionen wieder &lt;strong&gt;auffüllen&lt;/strong&gt;:</note>
@@ -1065,17 +1032,6 @@ Im Schnelldurchlauf lässt du die schönen und unschönen Momente deines kurzen 
       <segment>
         <source>Der Mark.-Knopf &lt;strong&gt;[3]&lt;/strong&gt; zeigt alle von dir oder von anderen Spieler gesetzten Wegmarken an. Diese können zum Markieren von gefährlichen Zonen gesetzt werden, oder aber, um auf wichtige Gegenstände hinzuweisen.</source>
         <target><![CDATA[Le bouton Marqueurs <strong>[3]</strong> vous permet d'afficher les marqueurs placés par les autres joueurs ou vous-même sur la carte. Ils permettent d'indiquer les zones dangereuses, les zones contenant des objets importants, etc.]]></target>
-      </segment>
-    </unit>
-    <unit id="px25T6e">
-      <notes>
-        <note category="german">Der Globale Knopf &lt;strong&gt;[4]&lt;/strong&gt; zeigt alle Zonen an, die der &lt;strong&gt;Stadt als Ganzes&lt;/strong&gt; bekannt sind.</note>
-        <note category="state">new</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Der Globale Knopf &lt;strong&gt;[4]&lt;/strong&gt; zeigt alle Zonen an, die der &lt;strong&gt;Stadt als Ganzes&lt;/strong&gt; bekannt sind.</source>
-        <target><![CDATA[Der Globale Knopf <strong>[4]</strong> zeigt alle Zonen an, die der <strong>Stadt als Ganzes</strong> bekannt sind.]]></target>
       </segment>
     </unit>
     <unit id="Czm2yVn" name="Der Expeditionsknopf &lt;strong&gt;[4]&lt;/strong&gt; zeigt alle geplanten Expeditionen an.">
@@ -4044,17 +4000,6 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
         <target>consommer de la chair humaine vivante ou morte régénère vos {img_ap} et réduit votre Voracité,</target>
       </segment>
     </unit>
-    <unit id="h_gD9Uq">
-      <notes>
-        <note category="german">Pro gefressenem Mitbürger gewinnst du &lt;strong&gt;1 Heldentag&lt;/strong&gt; (Du erhältst sie nach deinem Tod).</note>
-        <note category="state">new</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Pro gefressenem Mitbürger gewinnst du &lt;strong&gt;1 Heldentag&lt;/strong&gt; (Du erhältst sie nach deinem Tod).</source>
-        <target><![CDATA[Pro gefressenem Mitbürger gewinnst du <strong>1 Heldentag</strong> (Du erhältst sie nach deinem Tod).]]></target>
-      </segment>
-    </unit>
     <unit id="v4LpsCZ">
       <notes>
         <note category="german">Du bist gegen die Wirkungen einer &lt;strong&gt;Infektion&lt;/strong&gt; immun und verspürst keinen &lt;strong&gt;Durst&lt;/strong&gt;.</note>
@@ -5406,50 +5351,6 @@ müssen durchdacht geplant werden.</source>
         <target>Chaque soir, à minuit (UTC+1), les Hordes de morts-vivants attaquent la ville. Chaque attaque comporte un nombre fixe de zombies.</target>
       </segment>
     </unit>
-    <unit id="D4X9Djo" name="España: 01h00">
-      <notes>
-        <note category="german">España: 01h00</note>
-        <note category="state">new</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>España: 01h00</source>
-        <target>España: 01h00</target>
-      </segment>
-    </unit>
-    <unit id="cf00bvp" name="México: 18h00">
-      <notes>
-        <note category="german">México: 18h00</note>
-        <note category="state">new</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>México: 18h00</source>
-        <target>México: 18h00</target>
-      </segment>
-    </unit>
-    <unit id="GBtY4go" name="Argentina, Chile y Uruguay: 20h00">
-      <notes>
-        <note category="german">Argentina, Chile y Uruguay: 20h00</note>
-        <note category="state">new</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Argentina, Chile y Uruguay: 20h00</source>
-        <target>Argentina, Chile y Uruguay: 20h00</target>
-      </segment>
-    </unit>
-    <unit id="EQq8xCY" name="Colombia y Perú: 18h00">
-      <notes>
-        <note category="german">Colombia y Perú: 18h00</note>
-        <note category="state">new</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Colombia y Perú: 18h00</source>
-        <target>Colombia y Perú: 18h00</target>
-      </segment>
-    </unit>
     <unit id="xMTq99h" name="Phase 1: Die Rückkehr der lebenden Toten">
       <notes>
         <note category="german">Phase 1: Die Rückkehr der lebenden Toten</note>
@@ -5806,16 +5707,6 @@ Eine davon ist es der &lt;strong&gt;Nachtwache&lt;/strong&gt; beizutreten.</sour
       <segment>
         <source>Das heißt allerdings nicht, dass deine stadtloyalen Mitbürger dein Handeln auch gutheißen würden...</source>
         <target>Il n'est pas dit cependant que les citoyens apprécient ce geste...</target>
-      </segment>
-    </unit>
-    <unit id="_bckoqm">
-      <notes>
-        <note category="german">Achtung! Wenn die Anzahl der Angreifer höher ist als die Stadtverteidigung sinken die Überlebenschancen der Nachtwächter! In solchen Situationen wird sich zeigen, wer die wahren Helden der Stadt sind.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Achtung! Wenn die Anzahl der Angreifer höher ist als die Stadtverteidigung sinken die Überlebenschancen der Nachtwächter! In solchen Situationen wird sich zeigen, wer die wahren Helden der Stadt sind.</source>
-        <target>Attention, si le nombre de zombies attaquant pendant la nuit est supérieur aux défenses de la ville, les chances de survie des veilleurs baissent drastiquement ! C'est à ce moment là que vous verrez qui sont les vrais défenseurs de la ville.</target>
       </segment>
     </unit>
     <unit id="SVBBTil">
@@ -6489,16 +6380,6 @@ Die Punkte für den Titel "Spiritueller Führer" kumulieren sich mit jedem Tag. 
       <segment>
         <source>&lt;strong&gt;Das Stadttor ist irreparabel zerstört&lt;/strong&gt;: Die Stadt kann von den Überlebenden nicht mehr  als sicherer Rückzugsort genutzt werden.</source>
         <target><![CDATA[<strong>ses portes sont détruites irrémédiablement</strong> : la ville ne pourra plus servir de refuge pour les survivants,]]></target>
-      </segment>
-    </unit>
-    <unit id="MBxcEi9" name="Alle Gebäude, die sich im Bau befanden, wurden zerstört.">
-      <notes>
-        <note category="german">Alle Gebäude, die sich im Bau befanden, wurden zerstört.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Alle Gebäude, die sich im Bau befanden, wurden zerstört.</source>
-        <target>les chantiers en cours de construction sont réduits à néant.</target>
       </segment>
     </unit>
     <unit id="4FoyWoL" name="Die Wasserreserven des Stadtbrunnens sind stark gesunken.">
@@ -7184,28 +7065,6 @@ in die Rangliste aufgenommen. Kleine Städte oder Privatstädte werden nicht ins
         <target>Consultez le site officiel du support technique MyHordes en cliquant ci-dessous :</target>
       </segment>
     </unit>
-    <unit id="qjGA5u0">
-      <notes>
-        <note category="german">&lt;strong&gt;HÄUFIG GESTELLTE FRAGEN:&lt;/strong&gt;
-Lies dir bitte die offizielle &lt;span x-ajax-href={url_support}&gt;Technische Supportseite von MyHordes&lt;/span&gt; durch!</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>&lt;strong&gt;HÄUFIG GESTELLTE FRAGEN:&lt;/strong&gt;
-Lies dir bitte die offizielle &lt;span x-ajax-href={url_support}&gt;Technische Supportseite von MyHordes&lt;/span&gt; durch!</source>
-        <target><![CDATA[<strong>QUESTIONS COURANTES :</strong> consultez le site officiel de <span x-ajax-href={url_support}>support technique de MyHordes</span> !]]></target>
-      </segment>
-    </unit>
-    <unit id="u6CHRLa">
-      <notes>
-        <note category="german">&lt;strong&gt;MIT ANDEREN SPIELERN REDEN:&lt;/strong&gt; Die meisten Spielfragen werden oder wurden meistens schon in den &lt;span x-ajax-href={url_forums}&gt;Foren&lt;/span&gt; beantwortet. Du kannst darauf zugreifen, wenn du im Spiel eingeloggt bist.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>&lt;strong&gt;MIT ANDEREN SPIELERN REDEN:&lt;/strong&gt; Die meisten Spielfragen werden oder wurden meistens schon in den &lt;span x-ajax-href={url_forums}&gt;Foren&lt;/span&gt; beantwortet. Du kannst darauf zugreifen, wenn du im Spiel eingeloggt bist.</source>
-        <target><![CDATA[<strong>DISCUTER AVEC LES JOUEURS :</strong> vous trouverez souvent la réponse à vos questions directement sur les <span x-ajax-href={url_forums}>forums du site</span>, disponibles si vous êtes connecté(e),]]></target>
-      </segment>
-    </unit>
     <unit id="4oAKxr3">
       <notes>
         <note category="german">&lt;strong&gt;EINEN REGELVERSTOSS MELDEN:&lt;/strong&gt;
@@ -7228,16 +7087,6 @@ Nutze bitte folgenden Link, wenn du uns einen Bug (technischen Fehler) melden m�
         <source>&lt;strong&gt;EINEN BUG MELDEN:&lt;/strong&gt;
 Nutze bitte folgenden Link, wenn du uns einen Bug (technischen Fehler) melden möchtest: &lt;a href={url_git}&gt;Buglisten&lt;/a&gt;.</source>
         <target><![CDATA[<strong>SIGNALER UN BUG :</strong> pour signaler un bug, utilisez l'espace de discussion suivant : <a href={url_git}>Rapport de bugs sur Gitlab</a>.]]></target>
-      </segment>
-    </unit>
-    <unit id="XkmnbTG">
-      <notes>
-        <note category="german">Zu guter Letzt: Für sämtliche Anregungen und Fragen, die die &lt;strong&gt;MyHordes-Community&lt;/strong&gt; betreffen, kannst dem &lt;span x-ajax-href={url_oracle}&gt;Orakels&lt;/span&gt; anschreiben.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Zu guter Letzt: Für sämtliche Anregungen und Fragen, die die &lt;strong&gt;MyHordes-Community&lt;/strong&gt; betreffen, kannst dem &lt;span x-ajax-href={url_oracle}&gt;Orakels&lt;/span&gt; anschreiben.</source>
-        <target><![CDATA[Enfin, pour toutes questions relatives à la <strong>communauté de MyHordes</strong>, vous pouvez écrire sur la <span x-ajax-href={url_oracle}>boîte des communautés</span>.]]></target>
       </segment>
     </unit>
     <unit id="jcxOFSe">
@@ -7359,16 +7208,6 @@ Nutze bitte folgenden Link, wenn du uns einen Bug (technischen Fehler) melden m�
       <segment>
         <source>Der nicht stattgefundene Angriff findet in diesem Fall wieder regulär um Mitternacht des folgenden Tags statt.</source>
         <target>L'attaque qui n'a pas eu lieu surviendra alors à minuit, au cours de la nuit suivante.</target>
-      </segment>
-    </unit>
-    <unit id="Y9Uk1gC">
-      <notes>
-        <note category="german">Beachte: Das Stadttor wird vor diesem verschobenen Zombieangriff ausnahmsweise automatisch geschlossen.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Beachte: Das Stadttor wird vor diesem verschobenen Zombieangriff ausnahmsweise automatisch geschlossen.</source>
-        <target>Note : les portes de la ville seront exceptionnellement refermées automatiquement avant cette attaque décalée. Elles seront ensuite ré-ouvertes dès la fin de l'attaque.</target>
       </segment>
     </unit>
     <unit id="GE.0HDW">
