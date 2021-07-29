@@ -361,7 +361,7 @@ class BeyondController extends InventoryAwareController
             'enter_costs_ap' => $require_ap,
             'allow_floor_access' => !$is_on_zero,
             'can_escape' => !$this->citizen_handler->isWounded( $this->getActiveCitizen() ) && !$citizen_tired,
-            'can_attack' => !$citizen_tired && !$this->citizen_handler->isWounded($this->getActiveCitizen()),
+            'can_attack' => !$citizen_tired && !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'wound2'),
             'can_attack_nr' => $citizen_tired ? 'tired' : ( $this->citizen_handler->isWounded($this->getActiveCitizen()) ? 'wounded' : false ),
             'can_escape_nr' => $citizen_tired ? 'tired' : ( $this->citizen_handler->isWounded($this->getActiveCitizen()) ? 'wounded' : false ),
             'zone_blocked' => $blocked,
