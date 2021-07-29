@@ -641,16 +641,6 @@
         <target>Pompe</target>
       </segment>
     </unit>
-    <unit id="soE_FyU" name="Der Brunnen der Stadt wird einmalig um 5 Rationen Wasser aufgefüllt">
-      <notes>
-        <note category="german">Der Brunnen der Stadt wird einmalig um 5 Rationen Wasser aufgefüllt</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Der Brunnen der Stadt wird einmalig um 5 Rationen Wasser aufgefüllt</source>
-        <target>Ajoute 5 Rations d'eau dans le puits (une seule fois).</target>
-      </segment>
-    </unit>
     <unit id="1gviUPR" name="Der Brunnen der Stadt wird einmalig um 20 Rationen Wasser aufgefüllt">
       <notes>
         <note category="german">Der Brunnen der Stadt wird einmalig um 20 Rationen Wasser aufgefüllt</note>
@@ -2942,16 +2932,6 @@
       <segment>
         <source>Mit dem Forschungsturm können in bereits "abgesuchten" Wüstenzonen jeden Tag neue Gegenstände gefunden werden! Der Forschungsturm versetzt dich in die Lage, jene anormalen meteorologischen Phänomene aufzuzeichnen und auszuwerten, die sich nachts in der Wüste abspielen. Die entsprechenden Fundstellen werden anschließend in der Zeitung veröffentlicht.</source>
         <target>Chaque jour, le Scrutateur permet de trouver à nouveau des objets dans certaines zones auparavant considérées comme “épuisées”. En effet, il détecte les phénomènes météorologiques anormaux qui surviennent dehors, pendant la nuit, et indique dans la gazette quelle région du désert a été affectée.</target>
-      </segment>
-    </unit>
-    <unit id="v3.4yJS">
-      <notes>
-        <note category="german">En cas d'alerte, il est souvent crucial de penser à fixer quelques morceaux de bois un peu partout pour tenir une nuit de plus.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>En cas d'alerte, il est souvent crucial de penser à fixer quelques morceaux de bois un peu partout pour tenir une nuit de plus.</source>
-        <target>Wenn es brenzlig wird, ist es oft überlebenswichtig, hier und dort mit ein paar Holzplanken nachzuhelfen und alles nochmal dicht zu machen. Das bringt dir oft noch eine weitere Nacht.</target>
       </segment>
     </unit>
     <unit id="CSPllWH">

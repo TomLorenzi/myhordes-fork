@@ -21,16 +21,6 @@
         <target>Citizen</target>
       </segment>
     </unit>
-    <unit id="eRsa9rX" name="Beginne, einen Namen zu tippen, um alle passenden Nutzer anzuzeigen:">
-      <notes>
-        <note category="german">Beginne, einen Namen zu tippen, um alle passenden Nutzer anzuzeigen:</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Beginne, einen Namen zu tippen, um alle passenden Nutzer anzuzeigen:</source>
-        <target>Start typing a name to see all matching users:</target>
-      </segment>
-    </unit>
     <unit id="kg5BPH1" name="Status">
       <notes>
         <note category="german">Status</note>
@@ -42,56 +32,6 @@
         <target>Status</target>
       </segment>
     </unit>
-    <unit id="1BvDdjk" name="Verbannt bis">
-      <notes>
-        <note category="german">Verbannt bis</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Verbannt bis</source>
-        <target>Banned until</target>
-      </segment>
-    </unit>
-    <unit id="bZx3MQe" name="Aufheben">
-      <notes>
-        <note category="german">Aufheben</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Aufheben</source>
-        <target>Cancel</target>
-      </segment>
-    </unit>
-    <unit id="gswoKQz" name="Letzte Verbannung">
-      <notes>
-        <note category="german">Letzte Verbannung</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Letzte Verbannung</source>
-        <target>Last ban</target>
-      </segment>
-    </unit>
-    <unit id="KqvNLEL" name="Verbannungen">
-      <notes>
-        <note category="german">Verbannungen</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Verbannungen</source>
-        <target>Total bans</target>
-      </segment>
-    </unit>
-    <unit id="0.QpL14" name="Verbannen">
-      <notes>
-        <note category="german">Verbannen</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Verbannen</source>
-        <target>Ban</target>
-      </segment>
-    </unit>
     <unit id="Zoy_MWF" name="Dauer">
       <notes>
         <note category="german">Dauer</note>
@@ -100,66 +40,6 @@
       <segment>
         <source>Dauer</source>
         <target>Duration</target>
-      </segment>
-    </unit>
-    <unit id="1E2BbPr" name="1 Tag">
-      <notes>
-        <note category="german">1 Tag</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>1 Tag</source>
-        <target>1 day</target>
-      </segment>
-    </unit>
-    <unit id="JU_xNFX" name="3 Tage">
-      <notes>
-        <note category="german">3 Tage</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>3 Tage</source>
-        <target>3 days</target>
-      </segment>
-    </unit>
-    <unit id="84RJxpK" name="5 Tage">
-      <notes>
-        <note category="german">5 Tage</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>5 Tage</source>
-        <target>5 days</target>
-      </segment>
-    </unit>
-    <unit id="zEDFlzj" name="7 Tage">
-      <notes>
-        <note category="german">7 Tage</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>7 Tage</source>
-        <target>7 days</target>
-      </segment>
-    </unit>
-    <unit id="GtUIerm" name="15 Tage">
-      <notes>
-        <note category="german">15 Tage</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>15 Tage</source>
-        <target>15 days</target>
-      </segment>
-    </unit>
-    <unit id="WB_sVVK" name="30 Tage">
-      <notes>
-        <note category="german">30 Tage</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>30 Tage</source>
-        <target>30 days</target>
       </segment>
     </unit>
     <unit id="tF9Axzf" name="Grund">
@@ -251,16 +131,6 @@
       <segment>
         <source>Autor</source>
         <target>Author</target>
-      </segment>
-    </unit>
-    <unit id="5qZlTRd" name="Meldungen">
-      <notes>
-        <note category="german">Meldungen</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Meldungen</source>
-        <target>Reports</target>
       </segment>
     </unit>
     <unit id="YlkNCJx" name="gemeldet von">
@@ -535,16 +405,6 @@
         <target>Overview</target>
       </segment>
     </unit>
-    <unit id="gw9T6N6" name="Gewähltes Forum">
-      <notes>
-        <note category="german">Gewähltes Forum</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Gewähltes Forum</source>
-        <target>Selected Forum</target>
-      </segment>
-    </unit>
     <unit id="zTivRKG" name="Posts mit nur einer Meldung werden ausgeblendet.">
       <notes>
         <note category="german">Posts mit nur einer Meldung werden ausgeblendet.</note>
@@ -563,16 +423,6 @@
       <segment>
         <source>Alle anzeigen</source>
         <target>View all</target>
-      </segment>
-    </unit>
-    <unit id="lb_oeKi" name="Du hast kein Forum ausgewählt.">
-      <notes>
-        <note category="german">Du hast kein Forum ausgewählt.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Du hast kein Forum ausgewählt.</source>
-        <target>You have not selected a forum.</target>
       </segment>
     </unit>
     <unit id="8KPM2IV" name="Admin-Wachturm">
@@ -1433,46 +1283,6 @@
         <target>Ban</target>
       </segment>
     </unit>
-    <unit id="oTFpWe9" name="Durch {admin} vom Spiel ausgeschlossen!">
-      <notes>
-        <note category="german">Durch {admin} vom Spiel ausgeschlossen!</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Durch {admin} vom Spiel ausgeschlossen!</source>
-        <target>Excluded from the game by {admin}!</target>
-      </segment>
-    </unit>
-    <unit id="jyuOkNg" name="Grund angeben">
-      <notes>
-        <note category="german">Grund angeben</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Grund angeben</source>
-        <target>State reason</target>
-      </segment>
-    </unit>
-    <unit id="Gn20uPe" name="Spielbann">
-      <notes>
-        <note category="german">Spielbann</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Spielbann</source>
-        <target>Ban</target>
-      </segment>
-    </unit>
-    <unit id="BfojyKe" name="Spielbann aufheben">
-      <notes>
-        <note category="german">Spielbann aufheben</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Spielbann aufheben</source>
-        <target>Remove the ban</target>
-      </segment>
-    </unit>
     <unit id="OasWqCK" name="Verschüttet">
       <notes>
         <note category="german">Verschüttet</note>
@@ -1879,16 +1689,6 @@
         <target>Create an item:</target>
       </segment>
     </unit>
-    <unit id="pkg069a" name="Nummer des Gegenstandes:">
-      <notes>
-        <note category="german">Anzahl des Gegenstandes:</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Nummer des Gegenstandes:</source>
-        <target>Amount:</target>
-      </segment>
-    </unit>
     <unit id="9B3v_rN" name="Vergiftet:">
       <notes>
         <note category="german">Vergiftet:</note>
@@ -2241,16 +2041,6 @@
         <target>Page {page}/{total}</target>
       </segment>
     </unit>
-    <unit id="HAvttwf" name="Gib den Namen der Stadt ein.">
-      <notes>
-        <note category="german">Gib den Namen der Stadt ein.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Gib den Namen der Stadt ein.</source>
-        <target>Enter the town's name.</target>
-      </segment>
-    </unit>
     <unit id="F_ijNEI" name="Neue Anwendung registrieren">
       <notes>
         <note category="german">Neue Anwendung registrieren</note>
@@ -2340,26 +2130,6 @@
       <segment>
         <source>Einen Status auswählen:</source>
         <target>Select status:</target>
-      </segment>
-    </unit>
-    <unit id="R7yBd_O" name="Vergeben">
-      <notes>
-        <note category="german">Vergeben</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Vergeben</source>
-        <target>Add status</target>
-      </segment>
-    </unit>
-    <unit id="OCg3Wi1" name="Entfernen">
-      <notes>
-        <note category="german">Entfernen</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Entfernen</source>
-        <target>Remove status</target>
       </segment>
     </unit>
     <unit id="S1OmuJB" name="Saisons">
@@ -3594,16 +3364,6 @@
       <segment>
         <source>Gesponsorte Spieler</source>
         <target>Sponsored players</target>
-      </segment>
-    </unit>
-    <unit id="QWjy74v" name="Basierend auf Tag (frei lassen, um aktuellen Tag zu verwenden):">
-      <notes>
-        <note category="german">Basierend auf Tag (frei lassen, um aktuellen Tag zu verwenden):</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Basierend auf Tag (frei lassen, um aktuellen Tag zu verwenden):</source>
-        <target>Based on day (leave empty to use current day):</target>
       </segment>
     </unit>
     <unit id="m56Z2c0" name="Zombie-Spread ausführen">

@@ -191,26 +191,6 @@
         <target>Nouveau sujet</target>
       </segment>
     </unit>
-    <unit id="bej0jm2" name="Themen">
-      <notes>
-        <note category="german">Themen</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Themen</source>
-        <target>Sujets</target>
-      </segment>
-    </unit>
-    <unit id="Zyb_RyS" name="Bisher hat niemand in dieses Forum geschrieben. Sei du doch der Erste!">
-      <notes>
-        <note category="german">Bisher hat niemand in dieses Forum geschrieben. Sei du doch der Erste!</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Bisher hat niemand in dieses Forum geschrieben. Sei du doch der Erste!</source>
-        <target>Personne n'a encore posté dans ce forum. Soyez le premier !</target>
-      </segment>
-    </unit>
     <unit id="Oxu558J" name="Der Rabe">
       <notes>
         <note category="german">Der Rabe</note>
@@ -421,26 +401,6 @@
         <target>Retour au site</target>
       </segment>
     </unit>
-    <unit id="tkZocIU" name="Ausloggen">
-      <notes>
-        <note category="german">Ausloggen</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Ausloggen</source>
-        <target>Déconnexion</target>
-      </segment>
-    </unit>
-    <unit id="YeLCoLU" name="Seite neu laden">
-      <notes>
-        <note category="german">Seite neu laden</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Seite neu laden</source>
-        <target>Recharger la page</target>
-      </segment>
-    </unit>
     <unit id="gBz_D6E" name="Deutsch">
       <notes>
         <note category="german">Deutsch</note>
@@ -592,16 +552,6 @@
         <target>Jouer</target>
       </segment>
     </unit>
-    <unit id="LiAR2Wp" name="Hinweis">
-      <notes>
-        <note category="german">Hinweis</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Hinweis</source>
-        <target>Remarque</target>
-      </segment>
-    </unit>
     <unit id="W6.HG9v">
       <notes>
         <note category="german">Achtung! Der von dir ausgewählte Link, leitet dich auf eine &lt;strong&gt;nicht-offizielle Seite&lt;/strong&gt; weiter (sprich: eine Fan- oder Spielerseite).</note>
@@ -722,16 +672,6 @@
         <target>Hors ligne</target>
       </segment>
     </unit>
-    <unit id=".dh3UEc" name="als Rabe">
-      <notes>
-        <note category="german">als Rabe</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>als Rabe</source>
-        <target>En tant que Corbeau</target>
-      </segment>
-    </unit>
     <unit id="vDhaMLU" name="Öffnen">
       <notes>
         <note category="german">Öffnen</note>
@@ -760,16 +700,6 @@
       <segment>
         <source>Dazu hast Du kein Recht.</source>
         <target>Vous n'avez pas le droit.</target>
-      </segment>
-    </unit>
-    <unit id="PzoUUMq" name="Nachricht senden als">
-      <notes>
-        <note category="german">Nachricht senden als</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Nachricht senden als</source>
-        <target>Écrire en tant que</target>
       </segment>
     </unit>
     <unit id="8WE8vgC" name="Rabe">
@@ -831,36 +761,6 @@
       <segment>
         <source>Dev</source>
         <target>Dev</target>
-      </segment>
-    </unit>
-    <unit id="oR9GFiR" name="Melden">
-      <notes>
-        <note category="german">Melden</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Melden</source>
-        <target>Signaler</target>
-      </segment>
-    </unit>
-    <unit id="awzJBNC" name="Users">
-      <notes>
-        <note category="german">Users</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Users</source>
-        <target>Utilisateurs</target>
-      </segment>
-    </unit>
-    <unit id="5qZlTRd" name="Meldungen">
-      <notes>
-        <note category="german">Meldungen</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Meldungen</source>
-        <target>Signalements</target>
       </segment>
     </unit>
     <unit id="5lMuG5Z" name="Schere">
@@ -932,46 +832,6 @@
       <segment>
         <source>Vorschau</source>
         <target>Aperçu</target>
-      </segment>
-    </unit>
-    <unit id="266wx0d" name="Verbesserung des Tages">
-      <notes>
-        <note category="german">Town Upgrades</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Verbesserung des Tages</source>
-        <target>Les évolutions du jour</target>
-      </segment>
-    </unit>
-    <unit id="I8m37R7" name="In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.">
-      <notes>
-        <note category="german">Use this subject for discussions involving the town upgrades you wish to carry out...</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.</source>
-        <target>Utilisez ce sujet pour discuter autour des évolutions du jour que vous souhaitez développer...</target>
-      </segment>
-    </unit>
-    <unit id="1moRVN8" name="In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.">
-      <notes>
-        <note category="german">Use this subject for discussions involving the workshop and production of resources in town...</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.</source>
-        <target>Utilisez ce sujet pour discuter autour de l'atelier et de la production de ressources en ville...</target>
-      </segment>
-    </unit>
-    <unit id="R.vbGQY" name="In diesem Thread dreht sich alles um zukünftige Bauprojekte.">
-      <notes>
-        <note category="german">Use this subject for discussions involving buildings and construction sites...</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>In diesem Thread dreht sich alles um zukünftige Bauprojekte.</source>
-        <target>Utilisez ce sujet pour discuter autour des chantiers à construire...</target>
       </segment>
     </unit>
     <unit id="BygLauq" name="Autor">
@@ -1062,26 +922,6 @@
       <segment>
         <source>Durchstreichen</source>
         <target>Barré</target>
-      </segment>
-    </unit>
-    <unit id="aZc6vxf" name="Einfache Liste">
-      <notes>
-        <note category="german">Einfache Liste</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Einfache Liste</source>
-        <target>Liste simple</target>
-      </segment>
-    </unit>
-    <unit id="1CuRrf_" name="Nummerierte Liste">
-      <notes>
-        <note category="german">Nummerierte Liste</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Nummerierte Liste</source>
-        <target>Liste numérotée</target>
       </segment>
     </unit>
     <unit id="Sk04seo" name="Listenpunkt">
@@ -1906,16 +1746,6 @@
         <target>Restaurer</target>
       </segment>
     </unit>
-    <unit id="uB2Vk6P" name="oder">
-      <notes>
-        <note category="german">oder</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>oder</source>
-        <target>ou</target>
-      </segment>
-    </unit>
     <unit id="1N_y7nB">
       <notes>
         <note category="german">Folgende Bürger sind wahlweise: &lt;ul&gt;&lt;li&gt;auf ihrer Todesanzeigeseite (sie haben ihren Tod noch nicht bestätigt),&lt;/li&gt;&lt;li&gt;bereits im Spiel,&lt;/li&gt;&lt;li&gt;sie haben sich entschieden, nicht automatisch einer Stadt und ihrer Koalition anzugehören.&lt;/li&gt;&lt;li&gt;oder, sie haben sich seit über 5 Tagen nicht mehr angemeldet.&lt;/li&gt;&lt;/ul&gt;</note>
@@ -2617,16 +2447,6 @@
       <segment>
         <source>Gestern</source>
         <target>Hier</target>
-      </segment>
-    </unit>
-    <unit id="BXmgyWZ" name="Neuer Beitrag in {topic}">
-      <notes>
-        <note category="german">Neuer Beitrag in {topic}</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Neuer Beitrag in {topic}</source>
-        <target>Nouvelle réponse dans {topic}</target>
       </segment>
     </unit>
     <unit id="0lz2qGs" name="Abonniert">

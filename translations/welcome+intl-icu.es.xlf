@@ -1,16 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="de" trgLang="es">
   <file id="welcome.es">
-    <unit id="7VfCrWl" name="Foren">
-      <notes>
-        <note category="german">Foren</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Foren</source>
-        <target>Foros</target>
-      </segment>
-    </unit>
     <unit id="a66OWC." name="Willkommen bei MyHordes">
       <notes>
         <note category="german">Willkommen bei MyHordes</note>

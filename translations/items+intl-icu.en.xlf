@@ -2660,16 +2660,6 @@
         <target>Bump Key Blank</target>
       </segment>
     </unit>
-    <unit id="ST6MLb5" name="Abdruck vom Dosenöffner">
-      <notes>
-        <note category="german">Abdruck vom Dosenöffner</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Abdruck vom Dosenöffner</source>
-        <target>Bottle Opener Blank</target>
-      </segment>
-    </unit>
     <unit id="UH8KN45" name="Ghul-Serum">
       <notes>
         <note category="german">Ghul-Serum</note>
@@ -3426,16 +3416,6 @@
         <target>You poured a {items_consume} into your {item_from} and received {item_to}!</target>
       </segment>
     </unit>
-    <unit id="foW8fmN" name="Hierfür brauchst du eine Ration Wasser.">
-      <notes>
-        <note category="german">Hierfür brauchst du eine Ration Wasser.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Hierfür brauchst du eine Ration Wasser.</source>
-        <target>You need a Water Ration for this.</target>
-      </segment>
-    </unit>
     <unit id="vDhaMLU" name="Öffnen">
       <notes>
         <note category="german">Öffnen</note>
@@ -3496,16 +3476,6 @@
         <target><![CDATA[You unpacked your <span class="tool">{item}</span> and received <span class="tool">{items_spawn}</span> !]]></target>
       </segment>
     </unit>
-    <unit id="RG55Xgx">
-      <notes>
-        <note category="german">Du hast die &lt;span class="tool"&gt;{item}&lt;/span&gt; geöffnet und darin &lt;span class="tool"&gt;{items_spawn}&lt;/span&gt; gefunden!</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Du hast die &lt;span class="tool"&gt;{item}&lt;/span&gt; geöffnet und darin &lt;span class="tool"&gt;{items_spawn}&lt;/span&gt; gefunden!</source>
-        <target><![CDATA[You have opened the <span class="tool">{item}</span>, you have found the: <span class="tool">{items_spawn}</span> inside.]]></target>
-      </segment>
-    </unit>
     <unit id="TbNnR3t">
       <notes>
         <note category="german">&lt;nt-spawned&gt;Trotz aller Anstrengungen ist es dir nicht gelungen, den {item} zu öffnen...&lt;/nt-spawned&gt;&lt;t-spawned&gt;Du hast die {item} geöffnet und darin {items_spawn} gefunden!&lt;/t-spawned&gt;</note>
@@ -3534,26 +3504,6 @@
       <segment>
         <source>Du hast eine {items_consume} in dein/e/n {item_from} eingelegt und {item_to} erhalten!</source>
         <target>You inserted a {items_consume} into your {item_from} and received a {item_to}!</target>
-      </segment>
-    </unit>
-    <unit id="80ooJ7d" name="Hierfür brauchst du eine Batterie.">
-      <notes>
-        <note category="german">Hierfür brauchst du eine Batterie.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Hierfür brauchst du eine Batterie.</source>
-        <target>You need a Battery for this.</target>
-      </segment>
-    </unit>
-    <unit id="Slr2fME" name="Hierfür brauchst du einen Kanister.">
-      <notes>
-        <note category="german">Hierfür brauchst du einen Kanister.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Hierfür brauchst du einen Kanister.</source>
-        <target>You need a Jerrycan for this.</target>
       </segment>
     </unit>
     <unit id="4W5shcA" name="Waffe einsetzen">
@@ -3687,16 +3637,6 @@
         <target>Heal</target>
       </segment>
     </unit>
-    <unit id="j6UDssn" name="Reinigen">
-      <notes>
-        <note category="german">Reinigen</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Reinigen</source>
-        <target>Clean</target>
-      </segment>
-    </unit>
     <unit id="8ngzajs" name="Du hast den Inhalt des {item} gereinigt und {items_spawn} erhalten.">
       <notes>
         <note category="german">Du hast den Inhalt des {item} gereinigt und {items_spawn} erhalten.</note>
@@ -3705,16 +3645,6 @@
       <segment>
         <source>Du hast den Inhalt des {item} gereinigt und {items_spawn} erhalten.</source>
         <target>You cleaned the contents of the {item} and received a {items_spawn}.</target>
-      </segment>
-    </unit>
-    <unit id="MAqdFU1" name="Hierfür brauchst du eine Micropur Brausetablette.">
-      <notes>
-        <note category="german">Hierfür brauchst du eine Micropur Brausetablette.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Hierfür brauchst du eine Micropur Brausetablette.</source>
-        <target>You need a Micropur Effervescent Tablet for this.</target>
       </segment>
     </unit>
     <unit id="TnRDqig" name="In den Brunnen schütten">
@@ -3735,16 +3665,6 @@
       <segment>
         <source>Du hast den Inhalt des {item} in den Brunnen geschüttet. Der Brunnen wurde um {well} Rationen Wasser aufgefüllt..</source>
         <target>You poured the contents of the {item} into the well. The well was replenished with {well} rations of water..</target>
-      </segment>
-    </unit>
-    <unit id="m2_GRND">
-      <notes>
-        <note category="german">Du hast den Inhalt des {item} in den Brunnen geschüttet. Der Brunnen wurde um {well} Rationen Wasser aufgefüllt.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Du hast den Inhalt des {item} in den Brunnen geschüttet. Der Brunnen wurde um {well} Rationen Wasser aufgefüllt.</source>
-        <target>You poured the contents of the {item} into the well. The well was replenished with {well} rations of water.</target>
       </segment>
     </unit>
     <unit id="T9EFRxo" name="Reparieren mit">
@@ -3777,16 +3697,6 @@
         <target>Poison with</target>
       </segment>
     </unit>
-    <unit id="6wfIVGg" name="Du hast {target} mit {item} vergiftet!">
-      <notes>
-        <note category="german">Du hast {target} mit {item} vergiftet!</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Du hast {target} mit {item} vergiftet!</source>
-        <target>You poisoned {target} with {item}!</target>
-      </segment>
-    </unit>
     <unit id="6qvzljH" name="Mithilfe des {item} hast du die Umgebung gescannt.">
       <notes>
         <note category="german">Mithilfe des {item} hast du die Umgebung gescannt.</note>
@@ -3795,16 +3705,6 @@
       <segment>
         <source>Mithilfe des {item} hast du die Umgebung gescannt.</source>
         <target>You scanned the area using the {item}.</target>
-      </segment>
-    </unit>
-    <unit id="2lPNuwg" name="Du hast das {item} verwendet, um einen Teil der Ruine freizulegen.">
-      <notes>
-        <note category="german">Du hast das {item} verwendet, um einen Teil der Ruine freizulegen.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Du hast das {item} verwendet, um einen Teil der Ruine freizulegen.</source>
-        <target>You used the {item} to uncover part of the ruin.</target>
       </segment>
     </unit>
     <unit id="ufBL9cN" name="Das kannst du nicht tun während du umzingelt bist...">
@@ -3869,36 +3769,6 @@
         <target>Smoke</target>
       </segment>
     </unit>
-    <unit id="4oX2an8" name="Hierfür brauchst du Streichhölzer...">
-      <notes>
-        <note category="german">Hierfür brauchst du Streichhölzer...</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Hierfür brauchst du Streichhölzer...</source>
-        <target>You need Matches for this...</target>
-      </segment>
-    </unit>
-    <unit id="4Xp26aZ" name="Losschicken">
-      <notes>
-        <note category="german">Losschicken</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Losschicken</source>
-        <target>Send back</target>
-      </segment>
-    </unit>
-    <unit id="l2NsvcD" name="Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.">
-      <notes>
-        <note category="german">Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.</source>
-        <target>You sent the {item} with your items to the Town.</target>
-      </segment>
-    </unit>
     <unit id="AYQyaTb" name="Dopen">
       <notes>
         <note category="german">Dopen</note>
@@ -3907,27 +3777,6 @@
       <segment>
         <source>Dopen</source>
         <target>Dope</target>
-      </segment>
-    </unit>
-    <unit id="ok9rcgr" name="Du hast den {item} mit einem {items_consume} ordentlich aufgeputscht!">
-      <notes>
-        <note category="german">Du hast den {item} mit einem {items_consume} ordentlich aufgeputscht!</note>
-        <note category="state">new</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Du hast den {item} mit einem {items_consume} ordentlich aufgeputscht!</source>
-        <target>Du hast den {item} mit einem {items_consume} ordentlich aufgeputscht!</target>
-      </segment>
-    </unit>
-    <unit id="Gn7WeIB" name="Hierfür brauchst du ein Steroid.">
-      <notes>
-        <note category="german">Hierfür brauchst du ein Steroid.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Hierfür brauchst du ein Steroid.</source>
-        <target>You need a steroid for this.</target>
       </segment>
     </unit>
     <unit id="9Wgu8lv" name="Wasser suchen">
@@ -4939,16 +4788,6 @@
       <segment>
         <source>Ein altes Transistorradio mit Kassettenfach. Es ist ein Blues-Klasette drin. Mit dem Radio wirst du nicht viel anfangen können, da du hier sowieso nichts empfängst, aber du kannst ein bisschen Musik hören. Das übertönt das Geschrei deiner Nachbarn...</source>
         <target>An old transistor radio with a Belle and Sebastian cassette stuck in it. The radio itself is useless as it doesn't pick anything up these days... It's always better to be able to listen to some good music at home than to listen to your neighbours screams as they are devoured by zombies. Better crank it up!</target>
-      </segment>
-    </unit>
-    <unit id="ZRYosW7">
-      <notes>
-        <note category="german">When everything has gone to hell, take a small cyanide capsule, a large glass of water, and just wait for all to go away with a peaceful smile.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Wenn wirklich gar nichts mehr geht, schluckst du diese Kapsel mit einem großen Glas Wasser. Danach einfach warten und sich mit einem zufriedenen Grinsen von dieser Welt verabschieden.</source>
-        <target>When everything has gone to hell, take a small cyanide capsule, a large glass of water, and just wait for all to go away with a peaceful smile.</target>
       </segment>
     </unit>
     <unit id="fzJgcMX">
@@ -7091,16 +6930,6 @@
         <target>Install</target>
       </segment>
     </unit>
-    <unit id="BNi5WCM" name="Du hast das hiesige Versteck erheblich verbessert.">
-      <notes>
-        <note category="german">Du hast das hiesige Versteck erheblich verbessert.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Du hast das hiesige Versteck erheblich verbessert.</source>
-        <target>You have improved the hiding place considerably.</target>
-      </segment>
-    </unit>
     <unit id="8f3LUQZ" name="Schlafplatz verbessern (schwacher permanenter Bonus, 1AP)">
       <notes>
         <note category="german">Schlafplatz verbessern (schwacher permanenter Bonus, 1AP)</note>
@@ -7251,17 +7080,6 @@
         <target>Pharmacy</target>
       </segment>
     </unit>
-    <unit id="bj.MFsK" name="Expedition">
-      <notes>
-        <note category="german">Expedition</note>
-        <note category="state">new</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Expedition</source>
-        <target>Expedition</target>
-      </segment>
-    </unit>
     <unit id="nz1fjZT" name="Sonstiges">
       <notes>
         <note category="german">Sonstiges</note>
@@ -7392,36 +7210,6 @@
         <target>You jump under the homemade shower without giving it a second thought. The frozen water shocks you but you stay under the weak stream of water for a few moments. In the absence of soap, you rub yourself with a smooth stone, trying to shift the mud and bloodstains. You try to persuade yourself that it feels good.</target>
       </segment>
     </unit>
-    <unit id="ZM5U_5i" name="Heilen (5AP)">
-      <notes>
-        <note category="german">Heilen (5AP)</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Heilen (5AP)</source>
-        <target>Heal (5AP)</target>
-      </segment>
-    </unit>
-    <unit id="8.uDazR" name="Heilen (6AP)">
-      <notes>
-        <note category="german">Heilen (6AP)</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Heilen (6AP)</source>
-        <target>Heal (6AP)</target>
-      </segment>
-    </unit>
-    <unit id="H0NWl9b" name="Verteidigung organisieren (1 AP)">
-      <notes>
-        <note category="german">Verteidigung organisieren (1 AP)</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Verteidigung organisieren (1 AP)</source>
-        <target>Organize defences (1 AP)</target>
-      </segment>
-    </unit>
     <unit id="vte2QYO" name="Du hast dir etwas Zeit genommen und zur Verteidigung der Stadt beigetragen.">
       <notes>
         <note category="german">Du hast dir etwas Zeit genommen und zur Verteidigung der Stadt beigetragen.</note>
@@ -7512,16 +7300,6 @@
         <target>You grind the contents of {items_consume} on the table and mix it with anything and everything that comes to hand... then let it infuse. You have obtained {items_spawn}.</target>
       </segment>
     </unit>
-    <unit id="6NDJKlk" name="Hierfür brauchst du 2x Pharmazeutische Substanz...">
-      <notes>
-        <note category="german">Hierfür brauchst du 2x Pharmazeutische Substanz...</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Hierfür brauchst du 2x Pharmazeutische Substanz...</source>
-        <target>You need 2x Pharmaceutical Products...</target>
-      </segment>
-    </unit>
     <unit id="z79RBPW" name="Kochen">
       <notes>
         <note category="german">Kochen</note>
@@ -7551,16 +7329,6 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       <segment>
         <source>Gegenstände suchen</source>
         <target>Search an object...</target>
-      </segment>
-    </unit>
-    <unit id="R2RcDum" name="Kompass">
-      <notes>
-        <note category="german">Kompass</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Kompass</source>
-        <target>Compass</target>
       </segment>
     </unit>
     <unit id="txP7Qji" name="Vodka Marinostov">
@@ -7652,16 +7420,6 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       <segment>
         <source>Tja, Vertrauen ist gut, Kontrolle ist besser... Ja, du wurdest bereits geschützt!</source>
         <target>The townsfolk can smell the confidence on you... As you were in fact, already protected.</target>
-      </segment>
-    </unit>
-    <unit id="TWuwK4M" name="Angriff und Verteidigung">
-      <notes>
-        <note category="german">Angriff und Verteidigung</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Angriff und Verteidigung</source>
-        <target>Attack and Defence</target>
       </segment>
     </unit>
     <unit id="s1_qYeB" name="Kreuz">
@@ -7772,16 +7530,6 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       <segment>
         <source> Wenn wirklich gar nichts mehr geht, schluckst du diese Kapsel mit einem großen Glas Wasser. Danach einfach warten und sich mit einem zufriedenen Grinsen von dieser Welt verabschieden.</source>
         <target> When everything has gone to hell, take a small cyanide capsule, a large glass of water, and just wait for all to go away with a peaceful smile.</target>
-      </segment>
-    </unit>
-    <unit id="UGai_eX">
-      <notes>
-        <note category="german">&lt;t-fail&gt;{item} kann keine schweren Gegenstände tragen...&lt;/t-fail&gt;&lt;nt-fail&gt;Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.&lt;/nt-fail&gt;</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>&lt;t-fail&gt;{item} kann keine schweren Gegenstände tragen...&lt;/t-fail&gt;&lt;nt-fail&gt;Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.&lt;/nt-fail&gt;</source>
-        <target><![CDATA[<t-fail>{item} cannot return the contents of your rucksack: you are carrying a <strong>heavy object</strong> which is just too much for your pet to take!</t-fail><nt-fail>You send {item} in the direction of the town with the contents of your rucksack.</nt-fail>]]></target>
       </segment>
     </unit>
     <unit id="tqLPvCK" name="Heilen">
@@ -7944,16 +7692,6 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
         <target>Use</target>
       </segment>
     </unit>
-    <unit id="Nsd1Ael">
-      <notes>
-        <note category="german">&lt;t-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus und blendet die Zombies! Du solltest diese Gelegenheit zur Flucht nutzen.&lt;/t-escape&gt;&lt;t-reverse-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.&lt;/t-reverse-escape&gt;</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>&lt;t-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus und blendet die Zombies! Du solltest diese Gelegenheit zur Flucht nutzen.&lt;/t-escape&gt;&lt;t-reverse-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.&lt;/t-reverse-escape&gt;</source>
-        <target><![CDATA[<t-escape>You set off the {item} The violent flash sends a blast of photons into the zombie ranks! Blinded, they stumble around, unable to find you.</t-escape><t-reverse-escape>Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.</t-reverse-escape>]]></target>
-      </segment>
-    </unit>
     <unit id="Y1T4Y0D" name="Schönes Fundstück">
       <notes>
         <note category="german">Schönes Fundstück</note>
@@ -7974,16 +7712,6 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
         <target>Send to the Chest</target>
       </segment>
     </unit>
-    <unit id="sTuI8fr">
-      <notes>
-        <note category="german">&lt;nt-any-escape&gt;Ein stumpfes Klicken ertönt und ein wenig grünlicher Rauch entschwebt der {item} ...&lt;/nt-any-escape&gt;&lt;t-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus und blendet die Zombies! Du solltest diese Gelegenheit zur Flucht nutzen.&lt;/t-escape&gt;&lt;t-reverse-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.&lt;/t-reverse-escape&gt;</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>&lt;nt-any-escape&gt;Ein stumpfes Klicken ertönt und ein wenig grünlicher Rauch entschwebt der {item} ...&lt;/nt-any-escape&gt;&lt;t-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus und blendet die Zombies! Du solltest diese Gelegenheit zur Flucht nutzen.&lt;/t-escape&gt;&lt;t-reverse-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.&lt;/t-reverse-escape&gt;</source>
-        <target><![CDATA[<nt-any-escape>A dull sound and a wisp of greenish smoke escape from the {item} ...<hr/><strong>That didn't seem to work</strong>. Disappointed...</nt-any-escape><t-escape>You set off the {item} ... The violent flash sends a blast of photons into the zombie ranks! Blinded, they stumble around, unable to find you.</t-escape><t-reverse-escape>You set off the {item} ... The violent flash sends a blast of photons into the zombie ranks! Blinded, the {zombies} zombies run away.</t-reverse-escape>]]></target>
-      </segment>
-    </unit>
     <unit id="0qToQ7z">
       <notes>
         <note category="german">&lt;nt-any-escape&gt;Ein stumpfes Klicken ertönt und ein wenig grünlicher Rauch entschwebt der {item} ...&lt;/nt-any-escape&gt;&lt;t-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet stolpern sie umher und sind nicht länger in der Lage, dich zu finden.&lt;/t-escape&gt;&lt;t-reverse-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.&lt;/t-reverse-escape&gt;</note>
@@ -7991,16 +7719,6 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>&lt;nt-any-escape&gt;Ein stumpfes Klicken ertönt und ein wenig grünlicher Rauch entschwebt der {item} ...&lt;/nt-any-escape&gt;&lt;t-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet stolpern sie umher und sind nicht länger in der Lage, dich zu finden.&lt;/t-escape&gt;&lt;t-reverse-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.&lt;/t-reverse-escape&gt;</source>
-        <target><![CDATA[<nt-any-escape>A dull sound and a wisp of greenish smoke escape from the {item} ... That didn't seem to work. Disappointed...</nt-any-escape><t-escape>You set off the {item} ... The violent flash sends a blast of photons into the zombie ranks! Blinded, they stumble around, unable to find you.</t-escape><t-reverse-escape>You set off the {item} ... The violent flash sends a blast of photons into the zombie ranks! Blinded, the {zombies} zombies run away.</t-reverse-escape>]]></target>
-      </segment>
-    </unit>
-    <unit id="h5657VO">
-      <notes>
-        <note category="german">&lt;nt-any-escape&gt;Ein stumpfes Klicken ertönt und ein wenig grünlicher Rauch entschwebt der {item} ...&lt;/nt-any-escape&gt;&lt;t-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus und blendet die Zombies! Geblendet stolpern sie umher und sind nicht länger in der Lage, dich zu finden.&lt;/t-escape&gt;&lt;t-reverse-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.&lt;/t-reverse-escape&gt;</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>&lt;nt-any-escape&gt;Ein stumpfes Klicken ertönt und ein wenig grünlicher Rauch entschwebt der {item} ...&lt;/nt-any-escape&gt;&lt;t-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus und blendet die Zombies! Geblendet stolpern sie umher und sind nicht länger in der Lage, dich zu finden.&lt;/t-escape&gt;&lt;t-reverse-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.&lt;/t-reverse-escape&gt;</source>
         <target><![CDATA[<nt-any-escape>A dull sound and a wisp of greenish smoke escape from the {item} ... That didn't seem to work. Disappointed...</nt-any-escape><t-escape>You set off the {item} ... The violent flash sends a blast of photons into the zombie ranks! Blinded, they stumble around, unable to find you.</t-escape><t-reverse-escape>You set off the {item} ... The violent flash sends a blast of photons into the zombie ranks! Blinded, the {zombies} zombies run away.</t-reverse-escape>]]></target>
       </segment>
     </unit>
@@ -8162,26 +7880,6 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       <segment>
         <source>Diese Trümmerstücke waren mal Teil eines Gegenstandes, den du nicht mehr identifizieren kannst. Die Verformung der Teile lassen vermuten, dass dieser Gegenstand mit hoher Geschwindigkeit am Boden aufgeprallt ist...</source>
         <target>This debris is that of an unidentifiable object that appears to have been thrown at high speed against the ground.</target>
-      </segment>
-    </unit>
-    <unit id="sGKanc7" name="Abstimmen">
-      <notes>
-        <note category="german">Abstimmen</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Abstimmen</source>
-        <target>Vote</target>
-      </segment>
-    </unit>
-    <unit id="Rrf3E_z" name="Vous avez voté pour {citizen} en tant que {role} !">
-      <notes>
-        <note category="german">Vous avez voté pour {citizen} en tant que {role} !</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Vous avez voté pour {citizen} en tant que {role} !</source>
-        <target>Your vote for {citizen} as {role} has been lost, I mean counted! It's been counted!</target>
       </segment>
     </unit>
     <unit id="aKn4VEo" name="Munitionsgriff">
@@ -8369,16 +8067,6 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
         <target>You drank {item} but nothing seems to be happening...</target>
       </segment>
     </unit>
-    <unit id="r4cpVVY" name="Du hast einen Sandball in {citizen}s Gesicht geworfen.">
-      <notes>
-        <note category="german">Du hast einen Sandball in {citizen}s Gesicht geworfen.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Du hast einen Sandball in {citizen}s Gesicht geworfen.</source>
-        <target>You threw a Sandball in {citizen}'s face.</target>
-      </segment>
-    </unit>
     <unit id="_2J5LX7" name="Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter.">
       <notes>
         <note category="german">Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter.</note>
@@ -8387,16 +8075,6 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       <segment>
         <source>Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter.</source>
         <target>You swallow a Christmas candy with a smile on your face...</target>
-      </segment>
-    </unit>
-    <unit id="n50zH5w">
-      <notes>
-        <note category="german">Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem starken psychoaktiven Gift!&lt;t-stat-up-terror&gt;{hr}Du bist vor Angst erstarrt!&lt;/t-stat-up-terror&gt;</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem starken psychoaktiven Gift!&lt;t-stat-up-terror&gt;{hr}Du bist vor Angst erstarrt!&lt;/t-stat-up-terror&gt;</source>
-        <target><![CDATA[You swallow a Christmas candy with a smile on your face... but you quickly fall apart. The candy contained a powerful psychotropic poison!<t-stat-up-terror>{hr}You are now terrorized</t-stat-up-terror>]]></target>
       </segment>
     </unit>
     <unit id="Mmr6mlb">
@@ -8481,17 +8159,6 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       <segment>
         <source>Beachte: Du hast heute bereits getrunken und deine Aktionspunkte für diesen Tag bereits erhalten.</source>
         <target>Note: you have already restored your Action Points by drinking today.</target>
-      </segment>
-    </unit>
-    <unit id="3yuRr1g" name="Tarnanzug (abgelegt)">
-      <notes>
-        <note category="german">Tarnanzug (abgelegt)</note>
-        <note category="state">new</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Tarnanzug (abgelegt)</source>
-        <target>Tarnanzug (abgelegt)</target>
       </segment>
     </unit>
     <unit id="m8tmcds">
@@ -8706,27 +8373,6 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
         <target>Now the labradoodle is on steroids, it can carry heavy stuff to the town. You notice that he is now drooling constantly and in increasing quantities. It looks like an attack is a matter of minutes away.</target>
       </segment>
     </unit>
-    <unit id=".pqCaKH" name="Du brauchst ein Werkzeug, um diesen Gegenstand zu öffnen...">
-      <notes>
-        <note category="german">Du brauchst ein Werkzeug, um diesen Gegenstand zu öffnen...</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Du brauchst ein Werkzeug, um diesen Gegenstand zu öffnen...</source>
-        <target>You have nothing to open it with...</target>
-      </segment>
-    </unit>
-    <unit id="BmWCshI">
-      <notes>
-        <note category="german">&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;nt-kill-latest&gt;Das hast {kills} Zombies mit dieser Waffe umgebracht: {item}. Haha! Es tut gut, es den Zombies ab und zu mal richtig zu zeigen!&lt;/nt-kill-latest&gt;</note>
-        <note category="state">new</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;nt-kill-latest&gt;Das hast {kills} Zombies mit dieser Waffe umgebracht: {item}. Haha! Es tut gut, es den Zombies ab und zu mal richtig zu zeigen!&lt;/nt-kill-latest&gt;</source>
-        <target><![CDATA[<t-kill-latest>Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?</t-kill-latest><nt-kill-latest>Das hast {kills} Zombies mit dieser Waffe umgebracht: {item}. Haha! Es tut gut, es den Zombies ab und zu mal richtig zu zeigen!</nt-kill-latest>]]></target>
-      </segment>
-    </unit>
     <unit id="5N_N9nB" name="Weicher Kürbis">
       <notes>
         <note category="german">Weicher Kürbis</note>
@@ -8817,16 +8463,6 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
         <target>You take the {item}, but it seems to have no notable effect... Maybe you didn't need it?</target>
       </segment>
     </unit>
-    <unit id="NU_DTOa">
-      <notes>
-        <note category="german">Du hast mit dem(r) &lt;span class="tool"&gt;{item_tool}&lt;/span&gt; ein(e) &lt;span class="tool"&gt;{item}&lt;/span&gt; geöffnet und darin folgenden Gegenstand gefunden: &lt;span class="tool"&gt;{items_spawn}&lt;/span&gt;.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Du hast mit dem(r) &lt;span class="tool"&gt;{item_tool}&lt;/span&gt; ein(e) &lt;span class="tool"&gt;{item}&lt;/span&gt; geöffnet und darin folgenden Gegenstand gefunden: &lt;span class="tool"&gt;{items_spawn}&lt;/span&gt;.</source>
-        <target><![CDATA[You managed to open the <span class="tool">{item}</span> with the <span class="tool">{item_tool}</span> . You have obtained: <span class="tool">{items_spawn}</span>.]]></target>
-      </segment>
-    </unit>
     <unit id="lXVMIpX">
       <notes>
         <note category="german">Dir ist schwindelig und du würdest dich am liebsten übergeben... Egal was, Hauptsache &lt;strong&gt;du bekommst wieder einen klaren Kopf&lt;/strong&gt;.</note>
@@ -8837,16 +8473,6 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
         <target><![CDATA[Your head is spinning, you almost want to be sick, but <strong>at least it woke you up</strong>. Now you just need to run...]]></target>
       </segment>
     </unit>
-    <unit id="Ddujs08">
-      <notes>
-        <note category="german">&lt;t-fail&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-too-heavy&gt;{tamer_dog} kann deinen Rucksackinhalt nicht mitnehmen, da du einen &lt;strong&gt;sperrigen Gegenstand&lt;/strong&gt; mit dir rumschleppt. Das ist dann wohl etwas zu viel des Guten für den Kleinen!&lt;/t-too-heavy&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;You send {tamer_dog} in the direction of the town with the contents of your rucksack.{hr}&lt;strong&gt;Your neighbours will be really happy when they see all that in the bank.&lt;/strong&gt;&lt;/nt-fail&gt;</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>&lt;t-fail&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-too-heavy&gt;{tamer_dog} kann deinen Rucksackinhalt nicht mitnehmen, da du einen &lt;strong&gt;sperrigen Gegenstand&lt;/strong&gt; mit dir rumschleppt. Das ist dann wohl etwas zu viel des Guten für den Kleinen!&lt;/t-too-heavy&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}&lt;strong&gt;Deine Mitbürger werden sich über all diese Gegenstände in der Bank mächtig freuen.&lt;/strong&gt;&lt;/nt-fail&gt;</source>
-        <target><![CDATA[<t-fail><t-door-closed>Das Stadttor ist geschlossen...</t-door-closed><t-too-heavy>{tamer_dog} kann deinen Rucksackinhalt nicht mitnehmen, da du einen <strong>sperrigen Gegenstand</strong> mit dir rumschleppt. Das ist dann wohl etwas zu viel des Guten für den Kleinen!</t-too-heavy></t-fail><nt-fail>You send {tamer_dog} in the direction of the town with the contents of your rucksack.{hr}<strong>Your neighbours will be really happy when they see all that in the bank.</strong></nt-fail>]]></target>
-      </segment>
-    </unit>
     <unit id="EGAZUcO">
       <notes>
         <note category="german">Du gibst deinem {tamer_dog} {items_consume}, die er gierig hinunterschlingt.{hr}Es vergeht keine Minute bis die Drogen Wirkung zeigen: Dein Fifi hat nun leuchtende Augen, ein glänzendes Fell und einen wedelnden Schwanz.</note>
@@ -8855,16 +8481,6 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       <segment>
         <source>Du gibst deinem {tamer_dog} {items_consume}, die er gierig hinunterschlingt.{hr}Es vergeht keine Minute bis die Drogen Wirkung zeigen: Dein Fifi hat nun leuchtende Augen, ein glänzendes Fell und einen wedelnden Schwanz.</source>
         <target>You give some {items_consume} to {tamer_dog} which got wolfed down in one gulp.{hr}It only took a few minutes for the drugs to kick in: your labradoodle now has bright eyes, a glossy coat and a wagging tail.</target>
-      </segment>
-    </unit>
-    <unit id="EhU2or6">
-      <notes>
-        <note category="german">&lt;t-fail&gt;&lt;t-door-closed&gt;The Town gates are closed ...&lt;/t-door-closed&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;You send {tamer_dog} in the direction of the town with the contents of your rucksack.{hr}&lt;strong&gt;Your neighbours will be really happy when they see all that in the bank.&lt;/strong&gt;&lt;/nt-fail&gt;</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>&lt;t-fail&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}&lt;strong&gt;Deine Mitbürger werden sich über all diese Gegenstände in der Bank mächtig freuen.&lt;/strong&gt;&lt;/nt-fail&gt;</source>
-        <target><![CDATA[<t-fail><t-door-closed>The Town gates are closed ...</t-door-closed></t-fail><nt-fail>You send {tamer_dog} in the direction of the town with the contents of your rucksack.{hr}<strong>Your neighbours will be really happy when they see all that in the bank.</strong></nt-fail>]]></target>
       </segment>
     </unit>
     <unit id="9P67IDx">

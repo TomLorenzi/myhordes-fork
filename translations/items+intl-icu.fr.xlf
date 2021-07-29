@@ -3412,16 +3412,6 @@
         <target>Vous avez rempli un {items_consume} dans votre {item_from} et reçu {item_to} !</target>
       </segment>
     </unit>
-    <unit id="foW8fmN" name="Hierfür brauchst du eine Ration Wasser.">
-      <notes>
-        <note category="german">Hierfür brauchst du eine Ration Wasser.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Hierfür brauchst du eine Ration Wasser.</source>
-        <target>Vous avez besoin d'une ration d'eau.</target>
-      </segment>
-    </unit>
     <unit id="vDhaMLU" name="Öffnen">
       <notes>
         <note category="german">Öffnen</note>
@@ -3482,16 +3472,6 @@
         <target><![CDATA[Vous avez ouvert <span class="tool">{item}</span>, vous trouvez <span class="tool">{items_spawn}</span> à l'intérieur.]]></target>
       </segment>
     </unit>
-    <unit id="RG55Xgx">
-      <notes>
-        <note category="german">Du hast die &lt;span class="tool"&gt;{item}&lt;/span&gt; geöffnet und darin &lt;span class="tool"&gt;{items_spawn}&lt;/span&gt; gefunden!</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Du hast die &lt;span class="tool"&gt;{item}&lt;/span&gt; geöffnet und darin &lt;span class="tool"&gt;{items_spawn}&lt;/span&gt; gefunden!</source>
-        <target><![CDATA[Vous avez ouvert <span class="tool">{item}</span>, vous trouvez <span class="tool">{items_spawn}</span> à l'intérieur.]]></target>
-      </segment>
-    </unit>
     <unit id="TbNnR3t">
       <notes>
         <note category="german">&lt;nt-spawned&gt;Trotz aller Anstrengungen ist es dir nicht gelungen, den {item} zu öffnen...&lt;/nt-spawned&gt;&lt;t-spawned&gt;Du hast die {item} geöffnet und darin {items_spawn} gefunden!&lt;/t-spawned&gt;</note>
@@ -3520,26 +3500,6 @@
       <segment>
         <source>Du hast eine {items_consume} in dein/e/n {item_from} eingelegt und {item_to} erhalten!</source>
         <target>Vous avez inséré une {items_consume} dans votre {item_from} et reçu {item_to} !</target>
-      </segment>
-    </unit>
-    <unit id="80ooJ7d" name="Hierfür brauchst du eine Batterie.">
-      <notes>
-        <note category="german">Hierfür brauchst du eine Batterie.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Hierfür brauchst du eine Batterie.</source>
-        <target>Vous avez besoin d'une pile.</target>
-      </segment>
-    </unit>
-    <unit id="Slr2fME" name="Hierfür brauchst du einen Kanister.">
-      <notes>
-        <note category="german">Hierfür brauchst du einen Kanister.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Hierfür brauchst du einen Kanister.</source>
-        <target>Vous avez besoin d'un jerrycan.</target>
       </segment>
     </unit>
     <unit id="4W5shcA" name="Waffe einsetzen">
@@ -3683,16 +3643,6 @@
         <target>Vous avez nettoyé le contenu de {item} et reçu {items_spawn}.</target>
       </segment>
     </unit>
-    <unit id="MAqdFU1" name="Hierfür brauchst du eine Micropur Brausetablette.">
-      <notes>
-        <note category="german">Hierfür brauchst du eine Micropur Brausetablette.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Hierfür brauchst du eine Micropur Brausetablette.</source>
-        <target>Pour cela, vous avez besoin d'un Micropur effervescent.</target>
-      </segment>
-    </unit>
     <unit id="TnRDqig" name="In den Brunnen schütten">
       <notes>
         <note category="german">In den Brunnen schütten</note>
@@ -3711,16 +3661,6 @@
       <segment>
         <source>Du hast den Inhalt des {item} in den Brunnen geschüttet. Der Brunnen wurde um {well} Rationen Wasser aufgefüllt..</source>
         <target>Vous avez versé le contenu de {item} dans le puits. Le puits a été rempli de {well} rations d'eau..</target>
-      </segment>
-    </unit>
-    <unit id="m2_GRND">
-      <notes>
-        <note category="german">Du hast den Inhalt des {item} in den Brunnen geschüttet. Der Brunnen wurde um {well} Rationen Wasser aufgefüllt.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Du hast den Inhalt des {item} in den Brunnen geschüttet. Der Brunnen wurde um {well} Rationen Wasser aufgefüllt.</source>
-        <target>Grâce au Purificateur, {well} rations d'eau supplémentaires ont été ajoutées dans le puits !</target>
       </segment>
     </unit>
     <unit id="T9EFRxo" name="Reparieren mit">
@@ -3753,16 +3693,6 @@
         <target>Empoisonner avec</target>
       </segment>
     </unit>
-    <unit id="6wfIVGg" name="Du hast {target} mit {item} vergiftet!">
-      <notes>
-        <note category="german">Du hast {target} mit {item} vergiftet!</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Du hast {target} mit {item} vergiftet!</source>
-        <target>Vous avez empoisonné {target} avec {item} !</target>
-      </segment>
-    </unit>
     <unit id="6qvzljH" name="Mithilfe des {item} hast du die Umgebung gescannt.">
       <notes>
         <note category="german">Mithilfe des {item} hast du die Umgebung gescannt.</note>
@@ -3771,16 +3701,6 @@
       <segment>
         <source>Mithilfe des {item} hast du die Umgebung gescannt.</source>
         <target>À l'aide de {item}, vous avez numérisé la zone.</target>
-      </segment>
-    </unit>
-    <unit id="2lPNuwg" name="Du hast das {item} verwendet, um einen Teil der Ruine freizulegen.">
-      <notes>
-        <note category="german">Du hast das {item} verwendet, um einen Teil der Ruine freizulegen.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Du hast das {item} verwendet, um einen Teil der Ruine freizulegen.</source>
-        <target>Vous avez utilisé {item} pour découvrir une partie du bâtiment.</target>
       </segment>
     </unit>
     <unit id="ufBL9cN" name="Das kannst du nicht tun während du umzingelt bist...">
@@ -3843,36 +3763,6 @@
         <target>Fumer</target>
       </segment>
     </unit>
-    <unit id="4oX2an8" name="Hierfür brauchst du Streichhölzer...">
-      <notes>
-        <note category="german">Hierfür brauchst du Streichhölzer...</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Hierfür brauchst du Streichhölzer...</source>
-        <target>Vous avez besoin d'allumettes...</target>
-      </segment>
-    </unit>
-    <unit id="4Xp26aZ" name="Losschicken">
-      <notes>
-        <note category="german">Losschicken</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Losschicken</source>
-        <target>Renvoyer</target>
-      </segment>
-    </unit>
-    <unit id="l2NsvcD" name="Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.">
-      <notes>
-        <note category="german">Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.</source>
-        <target>Vous avez renvoyé {item} avec vos objets dans la Ville.</target>
-      </segment>
-    </unit>
     <unit id="AYQyaTb" name="Dopen">
       <notes>
         <note category="german">Dopen</note>
@@ -3881,26 +3771,6 @@
       <segment>
         <source>Dopen</source>
         <target>Doper</target>
-      </segment>
-    </unit>
-    <unit id="ok9rcgr" name="Du hast den {item} mit einem {items_consume} ordentlich aufgeputscht!">
-      <notes>
-        <note category="german">Du hast den {item} mit einem {items_consume} ordentlich aufgeputscht!</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Du hast den {item} mit einem {items_consume} ordentlich aufgeputscht!</source>
-        <target>Vous donnez {items_consume} à {item} qui n'en fait qu'une bouchée. Il ne faut que quelques minutes à la drogue pour faire effet : votre bichon a maintenant l'oeil vif, le poil brillant et la queue qui frétille.</target>
-      </segment>
-    </unit>
-    <unit id="Gn7WeIB" name="Hierfür brauchst du ein Steroid.">
-      <notes>
-        <note category="german">Hierfür brauchst du ein Steroid.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Hierfür brauchst du ein Steroid.</source>
-        <target>Vous avez besoin d'un Stéroïde pour cela.</target>
       </segment>
     </unit>
     <unit id="9Wgu8lv" name="Wasser suchen">
@@ -6983,17 +6853,6 @@
         <target>Pharmacie</target>
       </segment>
     </unit>
-    <unit id="bj.MFsK" name="Expedition">
-      <notes>
-        <note category="german">Expedition</note>
-        <note category="state">new</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Expedition</source>
-        <target>Expedition</target>
-      </segment>
-    </unit>
     <unit id="nz1fjZT" name="Sonstiges">
       <notes>
         <note category="german">Sonstiges</note>
@@ -7182,16 +7041,6 @@
       <segment>
         <source>Aufbauen</source>
         <target>Installer</target>
-      </segment>
-    </unit>
-    <unit id="BNi5WCM" name="Du hast das hiesige Versteck erheblich verbessert.">
-      <notes>
-        <note category="german">Du hast das hiesige Versteck erheblich verbessert.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Du hast das hiesige Versteck erheblich verbessert.</source>
-        <target>Vous avez considérablement amélioré la cachette.</target>
       </segment>
     </unit>
     <unit id="8f3LUQZ" name="Schlafplatz verbessern (schwacher permanenter Bonus, 1AP)">
@@ -7484,16 +7333,6 @@
         <target>Vous combinez {items_consume} et produisez {items_spawn}.</target>
       </segment>
     </unit>
-    <unit id="6NDJKlk" name="Hierfür brauchst du 2x Pharmazeutische Substanz...">
-      <notes>
-        <note category="german">Hierfür brauchst du 2x Pharmazeutische Substanz...</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Hierfür brauchst du 2x Pharmazeutische Substanz...</source>
-        <target>Vous avez besoin de 2x Produits Pharmaceutiques...</target>
-      </segment>
-    </unit>
     <unit id="z79RBPW" name="Kochen">
       <notes>
         <note category="german">Kochen</note>
@@ -7706,36 +7545,6 @@
         <target>Pts</target>
       </segment>
     </unit>
-    <unit id="R2RcDum" name="Kompass">
-      <notes>
-        <note category="german">Kompass</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Kompass</source>
-        <target>Boussole</target>
-      </segment>
-    </unit>
-    <unit id="TWuwK4M" name="Angriff und Verteidigung">
-      <notes>
-        <note category="german">Angriff und Verteidigung</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Angriff und Verteidigung</source>
-        <target>Attaque et défense</target>
-      </segment>
-    </unit>
-    <unit id="UGai_eX">
-      <notes>
-        <note category="german">&lt;t-fail&gt;{item} kann keine schweren Gegenstände tragen...&lt;/t-fail&gt;&lt;nt-fail&gt;Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.&lt;/nt-fail&gt;</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>&lt;t-fail&gt;{item} kann keine schweren Gegenstände tragen...&lt;/t-fail&gt;&lt;nt-fail&gt;Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.&lt;/nt-fail&gt;</source>
-        <target><![CDATA[<t-fail>{item} ne peut pas transporter d'objets lourds...</t-fail><nt-fail>Vous avez envoyé {item} en direction de la ville avec tout le contenu de votre sac à dos.</nt-fail>]]></target>
-      </segment>
-    </unit>
     <unit id="brwfS0V" name="Reinigen (Wasser)">
       <notes>
         <note category="german">Reinigen</note>
@@ -7876,16 +7685,6 @@
         <target>Envoyer à la Banque</target>
       </segment>
     </unit>
-    <unit id="Nsd1Ael">
-      <notes>
-        <note category="german">&lt;t-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus und blendet die Zombies! Du solltest diese Gelegenheit zur Flucht nutzen.&lt;/t-escape&gt;&lt;t-reverse-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.&lt;/t-reverse-escape&gt;</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>&lt;t-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus und blendet die Zombies! Du solltest diese Gelegenheit zur Flucht nutzen.&lt;/t-escape&gt;&lt;t-reverse-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.&lt;/t-reverse-escape&gt;</source>
-        <target><![CDATA[<t-escape>Vous déclenchez {item} ... Le violent flash lumineux sème la panique dans les rangs de zombies ! Aveuglés, ils titubent en tous sens, sans réussir à vous localiser. Vous devriez profiter de cette occasion pour vous échapper.</t-escape><t-reverse-escape>Vous déclenchez {item} ... Le violent flash lumineux sème la panique dans les rangs de zombies ! Aveuglés, les {zombies} zombies s'enfuient.</t-reverse-escape>]]></target>
-      </segment>
-    </unit>
     <unit id="khQvNdC" name="Zur Truhe schicken">
       <notes>
         <note category="german">Zur Truhe schicken</note>
@@ -7896,16 +7695,6 @@
         <target>Envoyer à votre coffre</target>
       </segment>
     </unit>
-    <unit id="sTuI8fr">
-      <notes>
-        <note category="german">&lt;nt-any-escape&gt;Ein stumpfes Klicken ertönt und ein wenig grünlicher Rauch entschwebt der {item} ...&lt;/nt-any-escape&gt;&lt;t-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus und blendet die Zombies! Du solltest diese Gelegenheit zur Flucht nutzen.&lt;/t-escape&gt;&lt;t-reverse-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.&lt;/t-reverse-escape&gt;</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>&lt;nt-any-escape&gt;Ein stumpfes Klicken ertönt und ein wenig grünlicher Rauch entschwebt der {item} ...&lt;/nt-any-escape&gt;&lt;t-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus und blendet die Zombies! Du solltest diese Gelegenheit zur Flucht nutzen.&lt;/t-escape&gt;&lt;t-reverse-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.&lt;/t-reverse-escape&gt;</source>
-        <target><![CDATA[<nt-any-escape>Une sorte de bruit mou se fait entendre et une petite fumée verdâtre s'échappe de {item} ... Ça n'a pas l'air d'avoir fonctionné. Galère...</nt-any-escape><t-escape>Vous déclenchez {item} ... Le violent flash lumineux sème la panique dans les rangs de zombies ! Aveuglés, ils titubent en tous sens, sans réussir à vous localiser. Vous devriez profiter de cette occasion pour vous échapper.</t-escape><t-reverse-escape>Vous déclenchez {item} ... Le violent flash lumineux sème la panique dans les rangs de zombies ! Aveuglés, les {zombies} zombies s'enfuient.</t-reverse-escape>]]></target>
-      </segment>
-    </unit>
     <unit id="0qToQ7z">
       <notes>
         <note category="german">&lt;nt-any-escape&gt;Ein stumpfes Klicken ertönt und ein wenig grünlicher Rauch entschwebt der {item} ...&lt;/nt-any-escape&gt;&lt;t-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet stolpern sie umher und sind nicht länger in der Lage, dich zu finden.&lt;/t-escape&gt;&lt;t-reverse-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.&lt;/t-reverse-escape&gt;</note>
@@ -7913,16 +7702,6 @@
       </notes>
       <segment>
         <source>&lt;nt-any-escape&gt;Ein stumpfes Klicken ertönt und ein wenig grünlicher Rauch entschwebt der {item} ...&lt;/nt-any-escape&gt;&lt;t-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet stolpern sie umher und sind nicht länger in der Lage, dich zu finden.&lt;/t-escape&gt;&lt;t-reverse-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.&lt;/t-reverse-escape&gt;</source>
-        <target><![CDATA[<nt-any-escape>Une sorte de bruit mou se fait entendre et une petite fumée verdâtre s'échappe de {item} ... Ça n'a pas l'air d'avoir fonctionné. Galère...</nt-any-escape><t-escape>Vous déclenchez {item} ... Le violent flash lumineux sème la panique dans les rangs de zombies ! Aveuglés, ils titubent en tous sens, sans réussir à vous localiser. Vous devriez profiter de cette occasion pour vous échapper.</t-escape><t-reverse-escape>Vous déclenchez {item} ... Le violent flash lumineux sème la panique dans les rangs de zombies ! Aveuglés, les {zombies} zombies s'enfuient.</t-reverse-escape>]]></target>
-      </segment>
-    </unit>
-    <unit id="h5657VO">
-      <notes>
-        <note category="german">&lt;nt-any-escape&gt;Ein stumpfes Klicken ertönt und ein wenig grünlicher Rauch entschwebt der {item} ...&lt;/nt-any-escape&gt;&lt;t-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus und blendet die Zombies! Geblendet stolpern sie umher und sind nicht länger in der Lage, dich zu finden.&lt;/t-escape&gt;&lt;t-reverse-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.&lt;/t-reverse-escape&gt;</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>&lt;nt-any-escape&gt;Ein stumpfes Klicken ertönt und ein wenig grünlicher Rauch entschwebt der {item} ...&lt;/nt-any-escape&gt;&lt;t-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus und blendet die Zombies! Geblendet stolpern sie umher und sind nicht länger in der Lage, dich zu finden.&lt;/t-escape&gt;&lt;t-reverse-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.&lt;/t-reverse-escape&gt;</source>
         <target><![CDATA[<nt-any-escape>Une sorte de bruit mou se fait entendre et une petite fumée verdâtre s'échappe de {item} ... Ça n'a pas l'air d'avoir fonctionné. Galère...</nt-any-escape><t-escape>Vous déclenchez {item} ... Le violent flash lumineux sème la panique dans les rangs de zombies ! Aveuglés, ils titubent en tous sens, sans réussir à vous localiser. Vous devriez profiter de cette occasion pour vous échapper.</t-escape><t-reverse-escape>Vous déclenchez {item} ... Le violent flash lumineux sème la panique dans les rangs de zombies ! Aveuglés, les {zombies} zombies s'enfuient.</t-reverse-escape>]]></target>
       </segment>
     </unit>
@@ -8066,27 +7845,6 @@
         <target>Avec ce déguisement, vous êtes tellement voyant que personne ne vous remarquera, ou ils penserront qu'ils l'ont imaginé ! Vous n'en abuseriez pas, n'est-ce pas ?</target>
       </segment>
     </unit>
-    <unit id="sGKanc7" name="Abstimmen">
-      <notes>
-        <note category="german">Abstimmen</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Abstimmen</source>
-        <target>Voter</target>
-      </segment>
-    </unit>
-    <unit id="Rrf3E_z" name="Vous avez voté pour {citizen} en tant que {role} !">
-      <notes>
-        <note category="german">Vous avez voté pour {citizen} en tant que {role} !</note>
-        <note category="state">new</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Vous avez voté pour {citizen} en tant que {role} !</source>
-        <target>Vous avez voté pour {citizen} en tant que {role} !</target>
-      </segment>
-    </unit>
     <unit id="QcqmVZM" name="Unidentifizierbare Trümmerstücke">
       <notes>
         <note category="german">Unidentifizierbare Trümmerstücke</note>
@@ -8207,16 +7965,6 @@
         <target>Vous avez partiellement nettoyé la zone grace à votre {item} ({bury_count} points déblayés)...</target>
       </segment>
     </unit>
-    <unit id="byQCsY5">
-      <notes>
-        <note category="german">Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?</source>
-        <target>Tous les zombies de la zone ont été pulvérisés en utilisant {item} ! Vous pouvez vous détendre... Ou pas...</target>
-      </segment>
-    </unit>
     <unit id="LekZSqE">
       <notes>
         <note category="german">Mit aller Kraft schlägst du mehrmals auf einen Zombie ein, aber &lt;strong&gt;es scheint ihm nichts anzuhaben&lt;/strong&gt;!</note>
@@ -8297,16 +8045,6 @@
         <target>Gros colis postal</target>
       </segment>
     </unit>
-    <unit id="r4cpVVY" name="Du hast einen Sandball in {citizen}s Gesicht geworfen.">
-      <notes>
-        <note category="german">Du hast einen Sandball in {citizen}s Gesicht geworfen.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Du hast einen Sandball in {citizen}s Gesicht geworfen.</source>
-        <target>Vous avez jeté une boule de sable au visage de {citizen}.</target>
-      </segment>
-    </unit>
     <unit id="_2J5LX7" name="Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter.">
       <notes>
         <note category="german">Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter.</note>
@@ -8315,16 +8053,6 @@
       <segment>
         <source>Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter.</source>
         <target>Vous avalez un bonbon de Noël en souriant...</target>
-      </segment>
-    </unit>
-    <unit id="2aeHBqI">
-      <notes>
-        <note category="german">Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem &lt;strong&gt;starken psychoaktiven Gift&lt;/strong&gt;!&lt;t-stat-up-terror&gt;{hr}Du bist vor Angst erstarrt!&lt;/t-stat-up-terror&gt;</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem &lt;strong&gt;starken psychoaktiven Gift&lt;/strong&gt;!&lt;t-stat-up-terror&gt;{hr}Du bist vor Angst erstarrt!&lt;/t-stat-up-terror&gt;</source>
-        <target><![CDATA[Vous avalez un bonbon de Noël en souriant... mais vous déchantez rapidement. Le bonbon contenait un puissant <strong>poison psychotrope</strong> !<t-stat-up-terror>{hr}Vous êtes maintenant <strong>terrorisé(e)</strong></t-stat-up-terror>]]></target>
       </segment>
     </unit>
     <unit id="Mmr6mlb">
@@ -8627,16 +8355,6 @@
         <target><![CDATA[La drogue fait rapidement effet... Tout vous semble soudainement plus <strong>calme</strong>, plus serein... Même les évènements atroces des derniers jours vous semblent maintenant sans importance... Ca va mieux.]]></target>
       </segment>
     </unit>
-    <unit id="NU_DTOa">
-      <notes>
-        <note category="german">Du hast mit dem(r) &lt;span class="tool"&gt;{item_tool}&lt;/span&gt; ein(e) &lt;span class="tool"&gt;{item}&lt;/span&gt; geöffnet und darin folgenden Gegenstand gefunden: &lt;span class="tool"&gt;{items_spawn}&lt;/span&gt;.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Du hast mit dem(r) &lt;span class="tool"&gt;{item_tool}&lt;/span&gt; ein(e) &lt;span class="tool"&gt;{item}&lt;/span&gt; geöffnet und darin folgenden Gegenstand gefunden: &lt;span class="tool"&gt;{items_spawn}&lt;/span&gt;.</source>
-        <target><![CDATA[Vous avez ouvert <span class="tool">{item}</span> grâce à l'outil <span class="tool">{item_tool}</span>. Vous obtenez : <span class="tool">{items_spawn}</span>.]]></target>
-      </segment>
-    </unit>
     <unit id="sm7LFnd">
       <notes>
         <note category="german">Nun, da dein Hündchen auf Droge ist, kann es selbst schwere und sperrige Gegenstände in die Stadt schleppen. Dir fällt auf, dass es ohne Ende sabbert. Es sieht aus, als würde er dich jeden Augenblick anspringen.</note>
@@ -8655,27 +8373,6 @@
       <segment>
         <source>Du gibst deinem {tamer_dog} {items_consume}, die er gierig hinunterschlingt.{hr}Es vergeht keine Minute bis die Drogen Wirkung zeigen: Dein Fifi hat nun leuchtende Augen, ein glänzendes Fell und einen wedelnden Schwanz.</source>
         <target>Vous donnez {items_consume} à {tamer_dog} qui n'en fait qu'une bouchée.{hr}Il ne faut que quelques minutes à la drogue pour faire effet : votre bichon a maintenant l'oeil vif, le poil brillant et la queue qui frétille.</target>
-      </segment>
-    </unit>
-    <unit id=".pqCaKH" name="Du brauchst ein Werkzeug, um diesen Gegenstand zu öffnen...">
-      <notes>
-        <note category="german">Du brauchst ein Werkzeug, um diesen Gegenstand zu öffnen...</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Du brauchst ein Werkzeug, um diesen Gegenstand zu öffnen...</source>
-        <target>Vous n'avez rien pour ouvrir ce truc...</target>
-      </segment>
-    </unit>
-    <unit id="BmWCshI">
-      <notes>
-        <note category="german">&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;nt-kill-latest&gt;Das hast {kills} Zombies mit dieser Waffe umgebracht: {item}. Haha! Es tut gut, es den Zombies ab und zu mal richtig zu zeigen!&lt;/nt-kill-latest&gt;</note>
-        <note category="state">new</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;nt-kill-latest&gt;Das hast {kills} Zombies mit dieser Waffe umgebracht: {item}. Haha! Es tut gut, es den Zombies ab und zu mal richtig zu zeigen!&lt;/nt-kill-latest&gt;</source>
-        <target><![CDATA[<t-kill-latest>Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?</t-kill-latest><nt-kill-latest>Das hast {kills} Zombies mit dieser Waffe umgebracht: {item}. Haha! Es tut gut, es den Zombies ab und zu mal richtig zu zeigen!</nt-kill-latest>]]></target>
       </segment>
     </unit>
     <unit id="EetudYS">

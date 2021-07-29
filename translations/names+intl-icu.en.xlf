@@ -1427,16 +1427,6 @@
         <target>S+M B+B</target>
       </segment>
     </unit>
-    <unit id="38Pnm9V" name="Zm Schlafen Reichts Motel">
-      <notes>
-        <note category="german">Zm Schlafen Reichts Motel</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Zm Schlafen Reichts Motel</source>
-        <target>The Passing Trade Motel</target>
-      </segment>
-    </unit>
     <unit id="ugpUYNk" name="Hotel Peculiar">
       <notes>
         <note category="german">Hotel Peculiar</note>
