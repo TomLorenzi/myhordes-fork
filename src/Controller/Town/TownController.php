@@ -640,21 +640,13 @@ class TownController extends InventoryAwareController
                 $em->flush();
             }
 
-            if($severity > 0) {
-                if($town->getChaos()) {
-                    $this->addFlash('notice', $this->translator->trans('Ihre Reklamation wurde gut aufgenommen, wird aber in der aktuellen Situation <strong>nicht sehr hilfreich</strong> sein.<hr>Die Stadt ist im totalen <strong>Chaos</strong> versunken... Bei so wenigen Überlebenden sind <strong>die Gesetze des Landes gebrochen worden</strong>.', [], 'game'));
-                } else {
-                    $this->addFlash('notice', $this->translator->trans('Sie haben eine Beschwerde gegen <strong>{citizen}</strong> eingereicht. Wenn sich genug Beschwerden ansammeln, <strong>wird {citizen} aus der Gemeinschaft verbannt oder gehängt</strong>, falls ein Galgen vorhanden ist.', ['{citizen}' => $culprit->getName()], 'game'));
-                }
-            } else {
-                $this->addFlash('notice', $this->translator->trans('Ihre Beschwerde wurde zurückgezogen... Denken Sie das nächste Mal besser nach...', ['{citizen}' => $culprit->getName()], 'game'));
-            }
-
         } catch (Exception $e) {
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
 
-        if ($this->citizen_handler->updateBanishment( $culprit, $has_gallows, $has_cage ))
+        /** @var Building $a */
+
+        if ($this->citizen_handler->updateBanishment( $culprit, $has_gallows, $has_cage, $a ))
             try {
                 $em->persist($town);
                 $em->persist($culprit);
@@ -662,6 +654,36 @@ class TownController extends InventoryAwareController
             } catch (Exception $e) {
                 return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
             }
+
+        if ($a !== null) {
+            $m = [];
+            $m[] = $this->translator->trans('Deine Beschwerde ist der Tropfen, der das Fass zum Überlaufen brachte... Die Bürger haben sich in Scharen gegen <strong>{citizen}</strong> ausgesprochen.', ['citizen' => $culprit], 'game');
+
+            switch ($a->getPrototype()->getName()) {
+                case 'small_fleshcage_#00':
+                    $m[] = $this->translator->trans('Dieser Aussätzige wurde zum Fleischkäfig geschleppt und dort unter dem Beifall des Publikums gesteinigt. Welch ein Schauspiel!', [], 'game');
+                    break;
+                case 'r_dhang_#00':
+                    $m[] = $this->translator->trans('Dieser Aussätzige wurde kurzerhand <strong>gehängt</strong>.', [], 'game');
+                    $m[] = $this->translator->trans('Der Galgen wurde im Zuge dieser gewalttätigen Aktion <strong>zerstört</strong>...', [], 'game');
+                    break;
+                case 'small_eastercross_#00':
+                    $m[] = $this->translator->trans('Dieser Aussätzige wurde kurzerhand <strong>gekreuzigt</strong>.', [], 'game');
+                    $m[] = $this->translator->trans('Das Schokoladenkreuz wurde von den Bürgern im Rahmen dieses tragischen Ereignisses <strong>gegessen</strong>!', [], 'game');
+                    break;
+                default: break;
+            }
+            $this->addFlash( 'notice', implode('<hr/>', $m) );
+
+        } elseif ($severity > 0) {
+            if($town->getChaos()) {
+                $this->addFlash('notice', $this->translator->trans('Ihre Reklamation wurde gut aufgenommen, wird aber in der aktuellen Situation <strong>nicht sehr hilfreich</strong> sein.<hr>Die Stadt ist im totalen <strong>Chaos</strong> versunken... Bei so wenigen Überlebenden sind <strong>die Gesetze des Landes gebrochen worden</strong>.', [], 'game'));
+            } else {
+                $this->addFlash('notice', $this->translator->trans('Sie haben eine Beschwerde gegen <strong>{citizen}</strong> eingereicht. Wenn sich genug Beschwerden ansammeln, <strong>wird {citizen} aus der Gemeinschaft verbannt oder gehängt</strong>, falls ein Galgen vorhanden ist.', ['citizen' => $culprit], 'game'));
+            }
+        } else {
+            $this->addFlash('notice', $this->translator->trans('Ihre Beschwerde wurde zurückgezogen... Denken Sie das nächste Mal besser nach...', ['{citizen}' => $culprit->getName()], 'game'));
+        }
 
         return AjaxResponse::success();
     }

@@ -16,7 +16,7 @@
       <notes>
         <note category="german">Saison 0.13</note>
         <note category="state">new</note>
-        <note category="from">db://Season</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Saison 0.13</source>
@@ -27,7 +27,7 @@
       <notes>
         <note category="german">Saison 0.12</note>
         <note category="state">new</note>
-        <note category="from">db://Season</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Saison 0.12</source>
@@ -138,7 +138,7 @@
     <unit id="VwuJDaU" name="Saison 0.1">
       <notes>
         <note category="german">Galgenvögel</note>
-        <note category="from">db://Season</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Saison 0.1</source>
@@ -149,7 +149,7 @@
       <notes>
         <note category="german">Saison 0.0</note>
         <note category="state">new</note>
-        <note category="from">db://Season</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Saison 0.0</source>

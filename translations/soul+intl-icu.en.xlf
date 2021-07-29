@@ -548,7 +548,7 @@
     <unit id="wIQ05bj" name="Passwort aktualisieren">
       <notes>
         <note category="german">Passwort aktualisieren</note>
-        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Passwort aktualisieren</source>
@@ -1857,7 +1857,7 @@
     <unit id="XRr8eU." name="Gib den Pseudo des Bürgers ein.">
       <notes>
         <note category="german">Gib den Namen des Bürgers ein.</note>
-        <note category="from">twig:///templates/ajax/admin/snippets/user_search.html.twig;twig:///templates/ajax/forum/search.html.twig;twig:///templates/ajax/ghost/create_town.html.twig;twig:///templates/ajax/pm/user_list.html.twig;twig:///templates/ajax/pm/view.html.twig;twig:///templates/ajax/soul/coalitions.html.twig;twig:///templates/ajax/soul/me.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/snippets/user_search.html.twig;twig:///templates/ajax/forum/search.html.twig;twig:///templates/ajax/ghost/create_town.html.twig;twig:///templates/ajax/pm/user_list.html.twig;twig:///templates/ajax/pm/view.html.twig;twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Gib den Pseudo des Bürgers ein.</source>

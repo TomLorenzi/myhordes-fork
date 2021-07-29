@@ -7255,7 +7255,7 @@
       <notes>
         <note category="german">Expedition</note>
         <note category="state">new</note>
-        <note category="from">db://ItemCategory</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Expedition</source>
@@ -7657,7 +7657,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     <unit id="TWuwK4M" name="Angriff und Verteidigung">
       <notes>
         <note category="german">Angriff und Verteidigung</note>
-        <note category="from">db://ItemCategory</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Angriff und Verteidigung</source>
@@ -7757,7 +7757,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     <unit id="47LA9aV" name="Pkte">
       <notes>
         <note category="german">Pkte</note>
-        <note category="from">twig:///templates/ajax/game/item_proto_tooltip.html.twig;twig:///templates/ajax/game/item_tooltip.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/item_proto_tooltip.html.twig</note>
       </notes>
       <segment>
         <source>Pkte</source>
@@ -8167,7 +8167,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     <unit id="sGKanc7" name="Abstimmen">
       <notes>
         <note category="german">Abstimmen</note>
-        <note category="from">db://ItemAction</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Abstimmen</source>
@@ -8177,7 +8177,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     <unit id="Rrf3E_z" name="Vous avez voté pour {citizen} en tant que {role} !">
       <notes>
         <note category="german">Vous avez voté pour {citizen} en tant que {role} !</note>
-        <note category="from">db://ItemAction</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Vous avez voté pour {citizen} en tant que {role} !</source>
