@@ -496,5 +496,59 @@
             const selected_post = document.querySelector('[x-post-wrapper-id="{{markedPost}}"]');
             if (selected_post) selected_post.scrollIntoView();
         {% endif %}
+
+        let polls = [];
+        $.html.forEach('.forum-post-content ul.poll[x-poll-id]', element => {
+            const poll_id = parseInt(element.getAttribute('x-poll-id'), 10);
+            if (!poll_id || isNaN(poll_id) || poll_id < 0) element.innerHTML += '<li class="plain"><strong style="color: red">{{ 'Diese Umfrage ist ungültig oder wurde gelöscht.'|trans({},'global')|e('js') }}</strong></li>';
+            else polls.push(poll_id);
+        });
+
+        if (polls.length > 0)
+            $.ajax.background().easySend( '{{ path('forum_poll_query_api', {fid: fid, tid: tid}) }}', {polls: polls},
+                function (data) {
+                    const database = data.response ? data.response : [];
+                    polls.forEach(key => {
+                        if (typeof database[key] === "undefined" || database[key] === false) document.querySelector('.forum-post-content ul.poll[x-poll-id="' + key + '"]').innerHTML += '<li class="plain"><strong style="color: red">{{ 'Diese Umfrage ist ungültig oder wurde gelöscht.'|trans({},'global')|e('js') }}</strong></li>';
+                        else if (database[key] === true) {
+                            $.html.forEach('.forum-post-content ul.poll[x-poll-id="' + key + '"]>li[x-poll-id="' + key + '"][x-answer-id]', element => {
+                               let button = $.html.createElement('<button class="small inline" />', '{{ 'Abstimmen'|trans({},'global') }}');
+                               button.addEventListener('click',() => {
+                                   $.ajax.easySend( '{{ path('forum_poll_cast_api', {fid: fid, tid: tid}) }}', {poll: key, cast: parseInt(element.getAttribute('x-answer-id'))}, reloadPage);
+                               });
+                               let structure = $.html.createElement('<div class="row-flex wrap"><div class="cell grow-1"></div><div class="cell shrink-1"></div>');
+                               let children = element.childNodes;
+                               for (let i = 0; i < children.length; i++) structure.firstChild.appendChild(children[i]);
+                               structure.lastChild.appendChild( button );
+                               element.appendChild(structure);
+                            });
+                            let button = $.html.createElement('<button class="small inline" />', '{{ 'Ergebnisse anzeigen'|trans({},'global') }}');
+                            button.addEventListener('click',() => {
+                                if (confirm('{{ 'Wenn du die Ergebnisse abrufst kannst du danach nicht mehr abstimmen. Bist du sicher?'|trans({},'global') }}'))
+                                    $.ajax.easySend( '{{ path('forum_poll_cast_api', {fid: fid, tid: tid}) }}', {poll: key, cast: -42}, reloadPage);
+                            });
+                            let structure = $.html.createElement('<li class="plain right" />');
+                            structure.appendChild(button);
+                            document.querySelector('.forum-post-content ul.poll[x-poll-id="' + key + '"]').appendChild(structure);
+                        } else {
+                            let total = 0;
+                            database[key].forEach(answer => {total += answer[1];});
+                            database[key].forEach(answer => {
+                                let answer_object = document.querySelector('.forum-post-content ul.poll[x-poll-id="' + key + '"]>li[x-poll-id="' + key + '"][x-answer-id="' + answer[0] + '"]')
+                                if (answer_object) {
+                                    let structure = $.html.createElement('<div class="row-flex wrap"><div class="cell grow-1"></div><div class="cell rw-3 rw-lg-4 rw-sm-12 shrink-0"></div>');
+                                    let children = answer_object.childNodes;
+                                    for (let i = 0; i < children.length; i++) structure.firstChild.appendChild(children[i]);
+                                    let process = $.html.createElement('<div class="vote-bar"><div class="bar"></div></div>');
+                                    process.firstChild.style.width = total > 0 ? ((100*answer[1]/total)+'%') : '0%';
+                                    structure.lastChild.appendChild( $.html.createElement('<div class="right"><strong>' + answer[1] + '</strong></div>') );
+                                    structure.lastChild.appendChild( process );
+                                    answer_object.appendChild(structure);
+                                }
+                            });
+                        }
+                    });
+                } );
+
     </script>
 {% endblock %}

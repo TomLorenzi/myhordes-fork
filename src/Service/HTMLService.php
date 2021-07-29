@@ -11,6 +11,7 @@ use App\Entity\Town;
 use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use DOMDocument;
+use DOMElement;
 use DOMNode;
 use DOMXPath;
 use Symfony\Component\Asset\Packages;
@@ -71,7 +72,9 @@ class HTMLService {
                 'a' => [ 'href', 'title' ],
                 'figure' => [ 'style' ],
             ],
-            'oracle' => [],
+            'oracle' => [
+                'ul' => ['class'],
+            ],
             'crow' => [],
             'admin' => [
                 'img' => [ 'alt', 'src', 'title']
@@ -101,6 +104,9 @@ class HTMLService {
                 ]
             ],
             'oracle' => [
+                'ul.class' => [
+                    'poll'
+                ],
                 'div.class' => [
                     'oracleAnnounce'
                 ]
@@ -120,6 +126,7 @@ class HTMLService {
 
     protected const HTML_IMMUTABLE = [
         'img.*' => true,
+        'ul.class' => ['poll'],
         '*.class' => [
             'clear', 'dice-4', 'dice-6', 'dice-8', 'dice-10', 'dice-12', 'dice-20', 'dice-100',
             'letter-a', 'letter-v', 'letter-c', 'rps', 'coin', 'card', 'citizen', 'html',
@@ -214,9 +221,10 @@ class HTMLService {
      * @param Town|null $town
      * @param int|null $tx_len
      * @param bool|null $editable
+     * @param array|null $polls
      * @return bool
      */
-    public function htmlPrepare(User $user, int $permissions, $extended, string &$text, ?Town $town = null, ?int &$tx_len = null, ?bool &$editable = null): bool {
+    public function htmlPrepare(User $user, int $permissions, $extended, string &$text, ?Town $town = null, ?int &$tx_len = null, ?bool &$editable = null, ?array &$polls = []): bool {
 
         $editable = true;
 
@@ -232,6 +240,8 @@ class HTMLService {
         $emotes = array_keys($this->get_emotes());
 
         $cache = [ 'citizen' => [] ];
+
+        $poll_cache = $polls = [];
 
         $handlers = [
             // This invalidates emote tags within code blocks to prevent them from being replaced when rendering the
@@ -302,6 +312,40 @@ class HTMLService {
                 $cc = $this->rand->pick($valid);
                 if ($group !== null) $cache['citizen'][$group] = $cc->getId();
                 $d->nodeValue = $cc->getName();
+            },
+
+            // A poll node
+            '//ul[@class=\'poll\']'   => function (DOMElement $poll) use(&$editable, &$poll_cache, &$polls) {
+                $editable = false;
+                $remove = [];
+                foreach ($poll->childNodes as $child)
+                    /** @var DOMNode $child */
+                    if ($child->nodeType !== XML_ELEMENT_NODE || $child->nodeName !== 'li' || empty(trim($child->textContent)))
+                        $remove[] = $child;
+
+                foreach ($remove as $remove_child)
+                    $poll->removeChild($remove_child);
+
+                if ($poll->childNodes->count() === 0) {
+                    $poll->parentNode->removeChild($poll);
+                    return;
+                }
+
+                $gen = function () use (&$poll_cache): string {
+                    do $s = bin2hex(random_bytes(64));
+                    while (in_array($s,$poll_cache));
+                    return $poll_cache[] = $s;
+                };
+
+                $poll_parent = $gen();
+                $polls[$poll_parent] = [];
+                $poll->setAttribute( 'x-poll-id', $poll_parent );
+
+                foreach ($poll->childNodes as $answer) {
+                    /** @var DOMElement $answer */
+                    $answer->setAttribute('x-poll-id', $poll_parent);
+                    $answer->setAttribute('x-answer-id', $polls[$poll_parent][] = $gen());
+                }
             },
 
             // This MUST be the last element!

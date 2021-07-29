@@ -63,7 +63,7 @@ class MessageController extends CustomAbstractController
         $this->html = $html;
     }
 
-    protected function preparePost(User $user, ?Forum $forum, $post, int &$tx_len, ?Town $town = null, ?bool &$editable = null): bool {
+    protected function preparePost(User $user, ?Forum $forum, $post, int &$tx_len, ?Town $town = null, ?bool &$editable = null, ?array &$polls = []): bool {
         if (!$town && $forum && $forum->getTown())
             $town = $forum->getTown();
 
@@ -74,7 +74,7 @@ class MessageController extends CustomAbstractController
         );
 
         $tx = $post->getText();
-        $this->html->htmlPrepare($user, $p, true, $tx, $town, $tx_len, $editable);
+        $this->html->htmlPrepare($user, $p, true, $tx, $town, $tx_len, $editable, $polls);
 
         if ($town && $user->getActiveCitizen() && $town->getCitizens()->contains($user->getActiveCitizen()) && (!is_a( $post, Post::class) || $post->getType() === 'USER')) {
             $citizen = $user->getActiveCitizen();
@@ -110,7 +110,7 @@ class MessageController extends CustomAbstractController
                     $post->setNote("<img alt='' src='{$this->asset->getUrl("build/images/professions/{$citizen->getProfession()->getIcon()}.gif")}' /> <img alt='' src='{$this->asset->getUrl('build/images/icons/item_map.gif')}' /> <span>$note</span>");
                 }
             }
-        }
+        } elseif (!empty($polls)) return false;
 
         return true;
     }
