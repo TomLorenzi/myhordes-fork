@@ -203,17 +203,11 @@
 
         const send_build_request = function() {
             let ap = null, valid = false;
-            //do {
-               // ap = window.prompt("{{ 'Wie viele Aktionspunkte möchtest du in den Bau investieren?'|trans({},'game')|e('js') }}", "1");
-                ap = document.getElementById("ap_amount").value;
-                if (ap === null) valid = true;
-                else {
-                    ap = parseInt(ap);
-                    valid = !isNaN(ap) && ap >= 0;
-                }
-            //} while (!valid);
+            ap = document.getElementById("ap_amount").value;
+            ap = parseInt(ap);
+            valid = !isNaN(ap) && ap >= 0 && ap <= {{ app.user.activeCitizen.ap }};
 
-            if (!ap) return;
+            if (!ap || !valid) return;
 
             $.ajax.easySend( '{{ path('town_constructions_build_controller') }}', {id: document.getElementById("prompt_id").value, ap: ap},
                 function () {
@@ -242,7 +236,10 @@
                     let input_id = document.createElement("input");
                     input_id.setAttribute("type", "hidden");
                     input_id.id = "prompt_id";
+                    input.setAttribute('min', 1);
+                    input.setAttribute('max', {{ app.user.activeCitizen.ap }});
                     input_id.value = this.getAttribute('x-building-id');
+                    input.addEventListener("keyup", function(event) { if(event.key === "Enter") send_build_request()});
                     prompt.append(input_id);
 
                     let button = document.createElement("button");
@@ -260,9 +257,12 @@
                     document.body.append(prompt);
                 }
                 document.getElementById("prompt_id").value = this.getAttribute('x-building-id');
+                document.getElementById("ap_amount").value = "1";
                 prompt.style.display = "block";
                 prompt.style.top = (this.getBoundingClientRect().top + document.documentElement.scrollTop) + "px";
                 prompt.style.left = this.getBoundingClientRect().left - prompt.clientWidth + this.clientWidth + "px";
+                document.getElementById("ap_amount").focus();
+                document.getElementById("ap_amount").select();
             });
 
         const send_vote_request = function(id){

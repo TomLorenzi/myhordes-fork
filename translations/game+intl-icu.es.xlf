@@ -22761,7 +22761,10 @@
       </notes>
       <segment>
         <source>{points} Punkt(e)</source>
-        <target>{points, plural, =0 {# punto} one {1 punto} other {# puntos}}</target>
+        <target>{ref__icu, select,
+            on { {points, select, one {# punto} other {{points} puntos}} }
+            other {{points} punto(s)}
+            }</target>
       </segment>
     </unit>
     <unit id="uAj26XB" name="Schließen">

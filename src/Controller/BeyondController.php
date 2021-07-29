@@ -163,8 +163,8 @@ class BeyondController extends InventoryAwareController
 
         $zone_players = count($zone->getCitizens());
 
-        if ($zone->getX() === 0 and $zone->getY() === 0) {
-            $zone_players += $this->entity_manager->getRepository(Citizen::class)->count(['town' => $this->getActiveCitizen()->getTown(), 'zone' => null]);
+        if ($zone->isTownZone()) {
+            $zone_players += $this->entity_manager->getRepository(Citizen::class)->count(['town' => $this->getActiveCitizen()->getTown(), 'zone' => null, 'alive' => true]);
         }
         return parent::addDefaultTwigArgs( $section, array_merge( [
             'zone_players' => $zone_players,
