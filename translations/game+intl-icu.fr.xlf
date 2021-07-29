@@ -9288,7 +9288,7 @@
       </notes>
       <segment>
         <source>{attacker} hat {defender} gewalttätig angegriffen und verwundet!</source>
-        <target>{attacker} a violemment attaqué et blessé {defender} !</target>
+        <target>{attacker} a violemment agressé le citoyen {defender} et l'a blessé(e) !</target>
       </segment>
     </unit>
     <unit id="YMkR4mp" name="{attacker} hat {defender} gewalttätig angegriffen!">
@@ -9298,7 +9298,7 @@
       </notes>
       <segment>
         <source>{attacker} hat {defender} gewalttätig angegriffen!</source>
-        <target>{attacker} a violemment attaqué {defender} !</target>
+        <target>{attacker} a violemment agressé le citoyen {defender} !</target>
       </segment>
     </unit>
     <unit id="sxFSQdD">
@@ -17487,7 +17487,7 @@
       </notes>
       <segment>
         <source>Was für eine schreckliche Nacht!</source>
-        <target>Quelle nuit terrible !</target>
+        <target>Une nuit effroyable !</target>
       </segment>
     </unit>
     <unit id="pPZiySm">
