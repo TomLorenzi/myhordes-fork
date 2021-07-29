@@ -3782,7 +3782,7 @@
       </notes>
       <segment>
         <source>Event-Markierung entfernen</source>
-        <target>Event-Markierung entfernen</target>
+        <target>Eliminar marca de evento</target>
       </segment>
     </unit>
     <unit id="RSDaSun" name="Als Event-Stadt markieren">
@@ -3793,7 +3793,7 @@
       </notes>
       <segment>
         <source>Als Event-Stadt markieren</source>
-        <target>Als Event-Stadt markieren</target>
+        <target>Marcar como pueblo de evento</target>
       </segment>
     </unit>
   </file>
