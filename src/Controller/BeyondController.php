@@ -1119,7 +1119,7 @@ class BeyondController extends InventoryAwareController
         if ($this->inventory_handler->countSpecificItems($this->getActiveCitizen()->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'vest_on_#00'])) > 0)
             return AjaxResponse::error( self::ErrorZoneUnderControl );
 
-        if ($this->citizen_handler->isWounded($citizen)) {
+        if ($this->citizen_handler->hasStatusEffect($citizen, 'wound2')) {
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailableWounded);
         }
 
