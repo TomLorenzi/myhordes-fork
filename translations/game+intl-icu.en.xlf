@@ -7378,6 +7378,16 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>You have no right to do that.</target>
       </segment>
     </unit>
+    <unit id="0i49zPL" name="In diesem Thread dreht sich alles um die Bank.">
+      <notes>
+        <note category="german">In diesem Thread dreht sich alles um die Bank.</note>
+        <note category="from">[unused]</note>
+      </notes>
+      <segment>
+        <source>In diesem Thread dreht sich alles um die Bank.</source>
+        <target>Use this subject for discussions involving the town Bank...</target>
+      </segment>
+    </unit>
     <unit id="MaPiRBm">
       <notes>
         <note category="german">Du hast die Nachricht von {username} dem Raben gemeldet. Wer weiß, vielleicht wird {username} heute Nacht stääärben...</note>
@@ -7706,6 +7716,36 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Sie brachten die Leiche von {disposed} zum Kremato-Cue. Man bekommt {ration} Rationen davon...  Aber zu welchem Preis?</source>
         <target>You have brought {disposed}'s corpse to the cremato-cue. You manage to get {ration} rations out of it... but at what price ?</target>
+      </segment>
+    </unit>
+    <unit id="I8m37R7" name="In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.">
+      <notes>
+        <note category="german">In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.</note>
+        <note category="from">[unused]</note>
+      </notes>
+      <segment>
+        <source>In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.</source>
+        <target>Use this subject for discussions involving the town upgrades you wish to carry out...</target>
+      </segment>
+    </unit>
+    <unit id="1moRVN8" name="In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.">
+      <notes>
+        <note category="german">In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.</note>
+        <note category="from">[unused]</note>
+      </notes>
+      <segment>
+        <source>In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.</source>
+        <target>Use this subject for discussions involving the workshop and production of resources in town...</target>
+      </segment>
+    </unit>
+    <unit id="R.vbGQY" name="In diesem Thread dreht sich alles um zukünftige Bauprojekte.">
+      <notes>
+        <note category="german">In diesem Thread dreht sich alles um zukünftige Bauprojekte.</note>
+        <note category="from">[unused]</note>
+      </notes>
+      <segment>
+        <source>In diesem Thread dreht sich alles um zukünftige Bauprojekte.</source>
+        <target>Use this subject for discussions involving buildings and construction sites...</target>
       </segment>
     </unit>
     <unit id="ISRg2LH" name="{citizen} starb, als er auf lächerliche Weise von der Mauer fiel!">
