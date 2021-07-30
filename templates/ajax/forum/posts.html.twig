@@ -517,8 +517,7 @@
                                    $.ajax.easySend( '{{ path('forum_poll_cast_api', {fid: fid, tid: tid}) }}', {poll: key, cast: parseInt(element.getAttribute('x-answer-id'))}, reloadPage);
                                });
                                let structure = $.html.createElement('<div class="row-flex wrap"><div class="cell grow-1"></div><div class="cell shrink-1"></div>');
-                               let children = element.childNodes;
-                               for (let i = 0; i < children.length; i++) structure.firstChild.appendChild(children[i]);
+                               while (element.firstChild) structure.firstChild.appendChild(element.firstChild);
                                structure.lastChild.appendChild( button );
                                element.appendChild(structure);
                             });
@@ -537,8 +536,7 @@
                                 let answer_object = document.querySelector('.forum-post-content ul.poll[x-poll-id="' + key + '"]>li[x-poll-id="' + key + '"][x-answer-id="' + answer[0] + '"]')
                                 if (answer_object) {
                                     let structure = $.html.createElement('<div class="row-flex wrap"><div class="cell grow-1"></div><div class="cell rw-3 rw-lg-4 rw-sm-12 shrink-0"></div>');
-                                    let children = answer_object.childNodes;
-                                    for (let i = 0; i < children.length; i++) structure.firstChild.appendChild(children[i]);
+                                    while (answer_object.firstChild) structure.firstChild.appendChild(answer_object.firstChild);
                                     let process = $.html.createElement('<div class="vote-bar"><div class="bar"></div></div>');
                                     process.firstChild.style.width = total > 0 ? ((100*answer[1]/total)+'%') : '0%';
                                     structure.lastChild.appendChild( $.html.createElement('<div class="right"><strong>' + answer[1] + '</strong></div>') );
