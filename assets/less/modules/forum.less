@@ -85,8 +85,14 @@
     line-height: 0; font-size: 0;
     &>li {
       list-style: none; position: relative; padding: 10px 3px; margin: 0; line-height: normal; font-size: 1rem;
-      &:not(.plain):before { position: absolute; top: 9px; left: -26px; height: 16px; width: 16px; background: url(../../img/forum/selected.png); content: " "; }
-      &+li { border-top: 1px dotted @myhordes-smalltext; }
+      &:not(.plain):not(.q):not(.desc):before { position: absolute; top: 9px; left: -26px; height: 16px; width: 16px; background: url(../../img/forum/selected.png); content: " "; }
+      &.q {
+        font-weight: bold; font-size: 1.1rem; color: @myhordes-smalltext;
+        &:not(:first-child) {display: none}
+        &:before { position: absolute; top: 9px; left: -26px; height: 16px; width: 16px; background: url(../../img/icons/small_help.gif); content: " "; }
+      }
+      &.desc { color: @myhordes-smalltext }
+      &:not(.desc)+li { border-top: 1px dotted @myhordes-smalltext; }
 
       .vote-bar {
         height: 6px; background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%); overflow: hidden;

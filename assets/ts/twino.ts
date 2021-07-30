@@ -195,9 +195,12 @@ class TwinoConverterToBlocks {
 
         let quotespace = false;
         let nested = false;
+        let pollspace = false;
         for (let i = 0; i < parents.length; i++) {
             if (!quotespace && (parents[i].tagName === 'BLOCKQUOTE'))
                 quotespace = true;
+
+            pollspace = ((parents[i].tagName === 'UL' && parents[i].classList.contains('poll')))
 
             let css = typeToClass[match.nodeType()] ?? match.nodeType();
 
@@ -213,6 +216,9 @@ class TwinoConverterToBlocks {
             nodeContent = nodeContent.replace(/({br})$/g, '')
         }
 
+        if (pollspace && ['ul','li','q','desc'].indexOf(match.nodeType()) === -1)
+            return [true, []];
+
         switch (match.nodeType()) {
             case 'b': case 'i': case 'u': case 's': case 'ul': case 'ol': case 'li':
                 if (nested) blocks.push( new TwinoInterimBlock(nodeContent) )
@@ -222,6 +228,10 @@ class TwinoConverterToBlocks {
                 if (nested) blocks.push( new TwinoInterimBlock(nodeContent) )
                 else blocks.push( new TwinoInterimBlock(nodeContent, 'ul', ['poll'], [['x-nested','1']]) );
                 changed = true; break;
+            case 'desc': case 'q':
+                if (!pollspace) blocks.push( new TwinoInterimBlock(match.raw()) );
+                else blocks.push( new TwinoInterimBlock(nodeContent, 'li', [match.nodeType()], [['x-nested','1']]) );
+                break;
             case 'c':
                 blocks.push( new TwinoInterimBlock(nodeContent, 'span', ['inline-code'], [ ['x-raw','1'] ]) ); changed = true; break;
             case '**': blocks.push( new TwinoInterimBlock(nodeContent, 'b') ); changed = true; break;

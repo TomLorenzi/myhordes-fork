@@ -95,6 +95,9 @@
                     <div x-forum-action="edit" x-text-wrap-node="code" class="forum-button"><i class="fa fa-code"></i><span class="forum-button-tooltip">{{ 'Code'|trans({},'global') }}</span></div>
                     <div x-forum-action="edit" x-text-insert-node="hr" class="forum-button"><i class="fa fa-grip-lines"></i><span class="forum-button-tooltip">{{ 'Linie'|trans({},'global') }}</span></div>
                     <div x-forum-action="modal" x-text-modal-node="rp" class="forum-button"><i class="fas fa-scroll"></i><span class="forum-button-tooltip">{{ 'Rollenspiel'|trans({},'global') }}</span></div>
+                    {% if permission.format_oracle() %}
+                        <div x-forum-action="modal" x-text-modal-node="poll" class="forum-button"><i class="fa fa-poll"></i><span class="forum-button-tooltip">{{ 'Umfrage einfügen'|trans({},'global') }}</span></div>
+                    {% endif %}
                 </div>
             </div>
 
@@ -336,6 +339,32 @@
                     let label = $.html.createElement('<label for="rp-text">{{ 'Namen eingeben'|trans({},'global')|e('js') }}</label>');
                     let input = textInput = $.html.createElement('<input type="text" id="rp-text" />');
                     form.append(label,input);
+                } else if (tag === 'poll') {
+                    title = "{{ 'Umfrage einfügen'|trans({},'global') }}";
+
+                    form.append($.html.createElement('<div class="note note-critical" />', '{{ 'Kontrolliere deine Eingaben! Umfragen können nach dem Absenden des Posts nicht mehr bearbeitet werden!'|trans({},'global')|e('js') }}'))
+
+                    let label = $.html.createElement('<label for="poll-q"><img alt="[I]" src="{{ asset('build/images/icons/small_help.gif') }}" /> {{ 'Fragetext eingeben (optional)'|trans({},'global')|e('js') }}</label>');
+                    let input = textInput = $.html.createElement('<input type="text" id="poll-q" />');
+                    input.value = selected;
+                    form.append(label,input);
+
+                    let row = $.html.createElement('<div/>');
+
+                    let num_answer = 0, num_desc = 0;
+                    let add_answer_btn = $.html.createElement('<button class="small inline">{{ 'Antwort hinzufügen'|trans({},'global')|e('js') }}</label>');
+                    add_answer_btn.addEventListener('click',() => {
+                        let addition = $.html.createElement('<label><img alt="[I]" src="{{ asset('build/images/forum/selected.png') }}" /> ' + '{{ 'Antwort'|trans({},'global')|e('js') }} ' + (++num_answer) + (num_answer > 1 ? ' {{ '(optional)'|trans({},'global')|e('js') }}' : '') + '<input type="text" x-poll-model="answer" /></label>');
+                        form.insertBefore(addition,row);
+                    });
+                    let add_desc_btn   = $.html.createElement('<button class="small inline">{{ 'Info-Text hinzufügen'|trans({},'global')|e('js') }}</label>');
+                    add_desc_btn.addEventListener('click',() => {
+                        let addition = $.html.createElement('<label><img alt="[I]" src="{{ asset('build/images/icons/small_talk.gif') }}" /> ' + '{{ 'Info-Text'|trans({},'global')|e('js') }} ' + (++num_desc) + ' {{ '(optional)'|trans({},'global')|e('js') }}' + '<input type="text" x-poll-model="info" /></label>');
+                        form.insertBefore(addition,row);
+                    });
+
+                    row.append(add_answer_btn,document.createTextNode(' '),add_desc_btn);
+                    form.append(row);
                 }
 
                 const processModal = function(e,elem) {
@@ -386,6 +415,43 @@
                         node_transfer_source.setSelectionRange(
                             before.length + tag.length + 2 + (tagText ? tagText.length + 1 : 0),
                             before.length + tag.length + 2 + (tagText ? tagText.length + 1 : 0) + selected.length);
+                        node_transfer_source.focus()
+                        transfer_to_preview();
+                    } else if (tag === 'poll') {
+
+                        let answers = form.querySelectorAll('[x-poll-model="answer"]');
+                        let answer_count = 0;
+
+                        for (let i = 0; i < answers.length; i++)
+                            if (answers[i].value) answer_count++;
+
+                        if (answer_count <= 0) {
+                            alert('{{ 'Du musst mindestens eine Antwort eingeben.'|trans({},'global') }}');
+                            return;
+                        }
+
+                        let final = "[poll]\n";
+                        if (textInput.value) final += ('[q]' + textInput.value.replace('[/q]','') + "[/q]\n")
+                        let entries = form.querySelectorAll('[x-poll-model]');
+                        for (let i = 0; i < entries.length; i++)
+                            if (entries[i].value) {
+
+                                if (entries[i].getAttribute('x-poll-model') === 'answer')
+                                    final += '[*]' + entries[i].value + "\n";
+                                else if (entries[i].getAttribute('x-poll-model') === 'info')
+                                    final += '[desc]' + entries[i].value.replace('[/desc]','') + "[/desc]\n";
+                            }
+                        final += '[/poll]';
+
+                        $.html.triggerPopupPop(elem);
+
+                        node_transfer_source.value =
+                            before + final + after;
+
+                        node_transfer_source.setSelectionRange(
+                            before.length + final.length,
+                            before.length + final.length
+                        );
                         node_transfer_source.focus()
                         transfer_to_preview();
                     }

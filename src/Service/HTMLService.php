@@ -74,6 +74,7 @@ class HTMLService {
             ],
             'oracle' => [
                 'ul' => ['class'],
+                'li' => ['class'],
             ],
             'crow' => [],
             'admin' => [
@@ -106,6 +107,9 @@ class HTMLService {
             'oracle' => [
                 'ul.class' => [
                     'poll'
+                ],
+                'li.class' => [
+                    'desc','q'
                 ],
                 'div.class' => [
                     'oracleAnnounce'
@@ -318,15 +322,32 @@ class HTMLService {
             '//ul[@class=\'poll\']'   => function (DOMElement $poll) use(&$editable, &$poll_cache, &$polls) {
                 $editable = false;
                 $remove = [];
-                foreach ($poll->childNodes as $child)
-                    /** @var DOMNode $child */
-                    if ($child->nodeType !== XML_ELEMENT_NODE || $child->nodeName !== 'li' || empty(trim($child->textContent)))
+
+                $answer_count = 0;
+
+                $first = true;
+                foreach ($poll->childNodes as $child) {
+                    /** @var DOMNode|DOMElement $child */
+                    if ($child->nodeType !== XML_ELEMENT_NODE || $child->nodeName !== 'li' || empty(trim($child->textContent))) {
                         $remove[] = $child;
+                        continue;
+                    }
+
+                    if ($child->getAttribute('class') === 'q' && !$first ) {
+                        $remove[] = $child;
+                        continue;
+                    }
+
+                    $first = false;
+                    if (!in_array($child->getAttribute('class'), ['q','desc','']))
+                        $remove[] = $child;
+                    elseif ($child->getAttribute('class') === '') $answer_count++;
+                }
 
                 foreach ($remove as $remove_child)
                     $poll->removeChild($remove_child);
 
-                if ($poll->childNodes->count() === 0) {
+                if ($answer_count === 0) {
                     $poll->parentNode->removeChild($poll);
                     return;
                 }
@@ -343,6 +364,7 @@ class HTMLService {
 
                 foreach ($poll->childNodes as $answer) {
                     /** @var DOMElement $answer */
+                    if ($answer->getAttribute('class') !== '') continue;
                     $answer->setAttribute('x-poll-id', $poll_parent);
                     $answer->setAttribute('x-answer-id', $polls[$poll_parent][] = $gen());
                 }
