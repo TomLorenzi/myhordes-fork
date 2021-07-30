@@ -2151,5 +2151,11 @@
         <target>Du musst mindestens eine Antwort eingeben.</target>
       </segment>
     </unit>
+    <unit id="OO3MLkJ" name="Spielernamen einfügen">
+      <segment>
+        <source>Spielernamen einfügen</source>
+        <target>Spielernamen einfügen</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

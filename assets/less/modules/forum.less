@@ -62,9 +62,11 @@
 
   div.clear { display: block; height: 0; clear: left }
 
-  span.quoteauthor {
+  span.quoteauthor, div.cref {
+    &.quoteauthor { margin-left: 30px; }
+    &.cref { cursor: pointer }
+    display: inline-block;
     font-weight: bold;
-    margin-left: 30px;
     font-size: 1.25rem; 
     text-decoration: none;
     background-color: #5C0000 !important;
@@ -73,7 +75,7 @@
     padding-right: 5px !important;
     padding-left: 5px !important;
     color: #f0d79e !important;
-    + blockquote {
+    &.quoteauthor + blockquote {
       margin-top: 0;
     }
   }
@@ -429,6 +431,9 @@ ul.subscriptions {
   }
 }
 
+.forum-toggle {
+  display: inline-block;
+}
 .forum-button, .forum-button-disabled {
   font-size: 1.4rem; line-height: 16px;
   background: url('../../img/background/bg_button.gif') center / cover no-repeat;

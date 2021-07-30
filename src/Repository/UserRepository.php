@@ -61,7 +61,7 @@ class UserRepository extends ServiceEntityRepository implements UserLoaderInterf
         } catch (NonUniqueResultException $e) { return null; }
     }
 
-    public function findOneByNameOrDisplayName(string $value, bool $filter_special_users = true): ?User
+    public function findOneByNameOrDisplayName(string $value, bool $filter_special_users = true, $take_first = false): ?User
     {
         try {
             return $filter_special_users
@@ -70,9 +70,13 @@ class UserRepository extends ServiceEntityRepository implements UserLoaderInterf
                     ->andWhere('u.email NOT LIKE :crow')->setParameter('crow', 'crow')
                     ->andWhere('u.email NOT LIKE :local')->setParameter('local', "%@localhost")
                     ->andWhere('u.email != u.name')
+                    ->orderBy('u.id','ASC')
+                    ->setMaxResults( $take_first ? 1 : null )
                     ->getQuery()->getOneOrNullResult()
                 : $this->createQueryBuilder('u')
                     ->andWhere('u.name = :val OR u.displayName = :val')->setParameter('val', $value)
+                    ->orderBy('u.id','ASC')
+                    ->setMaxResults( $take_first ? 1 : null )
                     ->getQuery()->getOneOrNullResult();
         } catch (NonUniqueResultException $e) { return null; }
     }

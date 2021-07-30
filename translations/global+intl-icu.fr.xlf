@@ -3478,5 +3478,16 @@
         <target>Du musst mindestens eine Antwort eingeben.</target>
       </segment>
     </unit>
+    <unit id="OO3MLkJ" name="Spielernamen einfügen">
+      <notes>
+        <note category="german">Spielernamen einfügen</note>
+        <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Spielernamen einfügen</source>
+        <target>Spielernamen einfügen</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

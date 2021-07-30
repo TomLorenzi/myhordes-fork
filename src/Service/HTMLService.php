@@ -15,6 +15,7 @@ use DOMElement;
 use DOMNode;
 use DOMXPath;
 use Symfony\Component\Asset\Packages;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 class HTMLService {
@@ -25,6 +26,7 @@ class HTMLService {
     private RandomGenerator $rand;
     private Packages $asset;
     private UserHandler $userHandler;
+    private UrlGeneratorInterface $router;
 
     const ModulationNone    = 0;
     const ModulationDrunk   = 1 << 1;
@@ -32,7 +34,8 @@ class HTMLService {
     const ModulationHead    = 1 << 3;
 
 
-    public function __construct(EntityManagerInterface $em, PermissionHandler $perm, TranslatorInterface $trans, RandomGenerator $rand, Packages $a, UserHandler $uh)
+    public function __construct(EntityManagerInterface $em, PermissionHandler $perm, TranslatorInterface $trans,
+                                RandomGenerator $rand, Packages $a, UserHandler $uh, UrlGeneratorInterface $router)
     {
         $this->entity_manager = $em;
         $this->perm = $perm;
@@ -40,6 +43,7 @@ class HTMLService {
         $this->rand = $rand;
         $this->asset = $a;
         $this->userHandler = $uh;
+        $this->router = $router;
     }
 
     protected const HTML_LIB = [
@@ -58,7 +62,7 @@ class HTMLService {
                 'p'  => [],
             ],
             'core_rp' => [
-                'div' => [ 'class' ],
+                'div' => [ 'class', 'x-a', 'x-b' ],
             ],
             'extended' => [
                 'blockquote' => [],
@@ -87,7 +91,7 @@ class HTMLService {
                 'div.class' => [
                     'dice-4', 'dice-6', 'dice-8', 'dice-10', 'dice-12', 'dice-20', 'dice-100',
                     'letter-a', 'letter-v', 'letter-c',
-                    'rps', 'coin', 'card'
+                    'rps', 'coin', 'card', 'citizen', 'cref'
                 ],
             ],
             'glory' => [ 'div.class' => [ 'glory' ] ],
@@ -98,7 +102,7 @@ class HTMLService {
                     'dice-4', 'dice-6', 'dice-8', 'dice-10', 'dice-12', 'dice-20', 'dice-100',
                     'letter-a', 'letter-v', 'letter-c',
                     'rps', 'coin', 'card',
-                    'citizen', 'rpText',
+                    'citizen', 'rpText', 'cref'
                 ],
                 'span.class' => [
                     'quoteauthor','bad','big','rpauthor','inline-code',
@@ -134,7 +138,7 @@ class HTMLService {
         '*.class' => [
             'clear', 'dice-4', 'dice-6', 'dice-8', 'dice-10', 'dice-12', 'dice-20', 'dice-100',
             'letter-a', 'letter-v', 'letter-c', 'rps', 'coin', 'card', 'citizen', 'html',
-            'oracleAnnounce', 'modAnnounce', 'adminAnnounce'
+            'oracleAnnounce', 'modAnnounce', 'adminAnnounce', 'cref'
         ]
     ];
 
@@ -234,6 +238,7 @@ class HTMLService {
 
         $dom = new DOMDocument();
         libxml_use_internal_errors(true);
+        $text = str_replace('@​::','@::',$text);
         $dom->loadHTML( "<html lang=''><head><title></title><meta charset='UTF-8' /></head><body>$text</body></html>", LIBXML_COMPACT | LIBXML_NONET | LIBXML_HTML_NOIMPLIED);
         $body = $dom->getElementsByTagName('body');
         if (!$body || $body->length > 1) return false;
@@ -316,6 +321,26 @@ class HTMLService {
                 $cc = $this->rand->pick($valid);
                 if ($group !== null) $cache['citizen'][$group] = $cc->getId();
                 $d->nodeValue = $cc->getName();
+            },
+            // A citizen ref node
+            '//div[@class=\'cref\']'   => function (DOMElement $user_ref) {
+                $id = $user_ref->attributes->getNamedItem('x-a') ? $user_ref->attributes->getNamedItem('x-a')->nodeValue : null;
+                $user_ref->removeAttribute('x-a');
+
+                $target_user = null;
+                if ($id === 'auto') {
+                    $name = $user_ref->textContent;
+                    $target_user = !empty(trim($name)) ? $this->entity_manager->getRepository(User::class)->findOneByNameOrDisplayName($name,true,true) : null;
+                } elseif (is_numeric($id))
+                    $target_user = $this->entity_manager->getRepository(User::class)->find($id);
+
+                if ($target_user === null)
+                    $user_ref->textContent = '???';
+                else {
+                    $user_ref->textContent = "@​::un:{$target_user->getId()}";
+                    $user_ref->setAttribute('x-id', $target_user->getId());
+                    $user_ref->setAttribute('x-ajax-href', "@​::up:{$target_user->getId()}");
+                }
             },
 
             // A poll node
@@ -595,7 +620,16 @@ class HTMLService {
 
     public function prepareEmotes(string $str): string {
         $emotes = $this->get_emotes();
-        return str_replace( array_keys( $emotes ), array_values( $emotes ), $str );
+        return preg_replace_callback('/@​::(\w+):(\d+)/i', function(array $m) {
+            [, $type, $id] = $m;
+            switch ($type) {
+                case 'un':case 'up':
+                    $target_user = $this->entity_manager->getRepository(User::class)->find((int)$id);
+                    if ($target_user === null) return '';
+                    return $type === 'un' ? $target_user->getName() : $this->router->generate('soul_visit', ['id' => $target_user->getId()]);
+                default: return '';
+            }
+        }, str_replace( array_keys( $emotes ), array_values( $emotes ), $str ));
     }
 
     protected function filterLockedEmotes(User $user, string $text): string {
