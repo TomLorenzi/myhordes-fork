@@ -3332,7 +3332,7 @@
       </notes>
       <segment>
         <source>Umfragen können an dieser Stelle nicht angezeigt werden. Bitte besuche das Forum.</source>
-        <target>Umfragen können an dieser Stelle nicht angezeigt werden. Bitte besuche das Forum.</target>
+        <target>Les sondages ne peuvent pas être affichés ici. Veuillez visiter le forum.</target>
       </segment>
     </unit>
     <unit id="koiuckT" name="Diese Umfrage ist ungültig oder wurde gelöscht.">
@@ -3343,7 +3343,7 @@
       </notes>
       <segment>
         <source>Diese Umfrage ist ungültig oder wurde gelöscht.</source>
-        <target>Diese Umfrage ist ungültig oder wurde gelöscht.</target>
+        <target>Ce sondage n’est pas valide ou a été supprimé.</target>
       </segment>
     </unit>
     <unit id="sGKanc7" name="Abstimmen">
@@ -3354,7 +3354,7 @@
       </notes>
       <segment>
         <source>Abstimmen</source>
-        <target>Abstimmen</target>
+        <target>Voter</target>
       </segment>
     </unit>
     <unit id="CX_GKf1" name="Ergebnisse anzeigen">
@@ -3365,7 +3365,7 @@
       </notes>
       <segment>
         <source>Ergebnisse anzeigen</source>
-        <target>Ergebnisse anzeigen</target>
+        <target>Afficher les résultats</target>
       </segment>
     </unit>
     <unit id="PtyIfIY">
@@ -3376,7 +3376,7 @@
       </notes>
       <segment>
         <source>Wenn du die Ergebnisse abrufst kannst du danach nicht mehr abstimmen. Bist du sicher?</source>
-        <target>Wenn du die Ergebnisse abrufst kannst du danach nicht mehr abstimmen. Bist du sicher?</target>
+        <target>Si vous consultez les résultats, vous ne pouvez plus voter après. Etes-vous sur ?</target>
       </segment>
     </unit>
     <unit id="ZX7F37R" name="Umfrage einfügen">
@@ -3387,7 +3387,7 @@
       </notes>
       <segment>
         <source>Umfrage einfügen</source>
-        <target>Umfrage einfügen</target>
+        <target>Insérer un sondage</target>
       </segment>
     </unit>
     <unit id="_Ni9sII">
@@ -3398,7 +3398,7 @@
       </notes>
       <segment>
         <source>Kontrolliere deine Eingaben! Umfragen können nach dem Absenden des Posts nicht mehr bearbeitet werden!</source>
-        <target>Kontrolliere deine Eingaben! Umfragen können nach dem Absenden des Posts nicht mehr bearbeitet werden!</target>
+        <target>Vérifiez vos entrées ! Après avoir posté le message, les sondages ne peuvent plus être modifiés !</target>
       </segment>
     </unit>
     <unit id="HGaq1X3" name="Fragetext eingeben (optional)">
@@ -3409,7 +3409,7 @@
       </notes>
       <segment>
         <source>Fragetext eingeben (optional)</source>
-        <target>Fragetext eingeben (optional)</target>
+        <target>Insérer le texte de la question (optionel)</target>
       </segment>
     </unit>
     <unit id="6FsF5Ju" name="Antwort hinzufügen">
@@ -3420,7 +3420,7 @@
       </notes>
       <segment>
         <source>Antwort hinzufügen</source>
-        <target>Antwort hinzufügen</target>
+        <target>Ajouter une réponse</target>
       </segment>
     </unit>
     <unit id="FPilLZW" name="Antwort">
@@ -3431,7 +3431,7 @@
       </notes>
       <segment>
         <source>Antwort</source>
-        <target>Antwort</target>
+        <target>Réponse</target>
       </segment>
     </unit>
     <unit id="AFl5i39" name="(optional)">
@@ -3442,7 +3442,7 @@
       </notes>
       <segment>
         <source>(optional)</source>
-        <target>(optional)</target>
+        <target>(optionel)</target>
       </segment>
     </unit>
     <unit id="6ESuSHj" name="Info-Text hinzufügen">
@@ -3453,7 +3453,7 @@
       </notes>
       <segment>
         <source>Info-Text hinzufügen</source>
-        <target>Info-Text hinzufügen</target>
+        <target>Ajouter une description</target>
       </segment>
     </unit>
     <unit id="Cl1lF1C" name="Info-Text">
@@ -3464,7 +3464,7 @@
       </notes>
       <segment>
         <source>Info-Text</source>
-        <target>Info-Text</target>
+        <target>Description</target>
       </segment>
     </unit>
     <unit id="sYG6fGF" name="Du musst mindestens eine Antwort eingeben.">
@@ -3475,7 +3475,7 @@
       </notes>
       <segment>
         <source>Du musst mindestens eine Antwort eingeben.</source>
-        <target>Du musst mindestens eine Antwort eingeben.</target>
+        <target>Vous devez entrer au moins une réponse.</target>
       </segment>
     </unit>
     <unit id="OO3MLkJ" name="Spielernamen einfügen">
