@@ -3668,6 +3668,16 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>Survivalist</target>
       </segment>
     </unit>
+    <unit id="266wx0d" name="Verbesserung des Tages">
+      <notes>
+        <note category="german">Verbesserung des Tages</note>
+        <note category="from">[unused]</note>
+      </notes>
+      <segment>
+        <source>Verbesserung des Tages</source>
+        <target>Town Upgrades</target>
+      </segment>
+    </unit>
     <unit id="IbZvvYE" name="Wachturm">
       <notes>
         <note category="german">Wachturm</note>

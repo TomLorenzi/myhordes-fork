@@ -3646,6 +3646,16 @@
         <target>Ermitaño</target>
       </segment>
     </unit>
+    <unit id="266wx0d" name="Verbesserung des Tages">
+      <notes>
+        <note category="german">Verbesserung des Tages</note>
+        <note category="from">[unused]</note>
+      </notes>
+      <segment>
+        <source>Verbesserung des Tages</source>
+        <target>Mejora del día</target>
+      </segment>
+    </unit>
     <unit id="IbZvvYE" name="Wachturm">
       <notes>
         <note category="german">Wachturm</note>

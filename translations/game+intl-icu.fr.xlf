@@ -3633,6 +3633,16 @@
         <target>Tour</target>
       </segment>
     </unit>
+    <unit id="266wx0d" name="Verbesserung des Tages">
+      <notes>
+        <note category="german">Verbesserung des Tages</note>
+        <note category="from">[unused]</note>
+      </notes>
+      <segment>
+        <source>Verbesserung des Tages</source>
+        <target>Les évolutions du jour</target>
+      </segment>
+    </unit>
     <unit id="gd8sEx3" name="Werkstatt">
       <notes>
         <note category="german">Werkstatt</note>
