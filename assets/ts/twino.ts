@@ -351,7 +351,7 @@ class TwinoConverterToBlocks {
                 blocks.push( new TwinoInterimBlock( '???', 'div', 'coin') ); break;
             case 'carte': case 'card': case 'skat': case 'blatt':
                 blocks.push( new TwinoInterimBlock( '???', 'div', 'card') ); break;
-            case 'citizen': case 'rnduser': case 'user': case 'spieler':
+            case 'citizen': case 'rnduser': case 'user': case 'spieler': case 'habitant':
                 let attribs = match.nodeInfo() ? match.nodeInfo().split(',') : [];
                 if (!attribs[0]) attribs[0] = 'any';
                 if (!attribs[1]) attribs[1] = '0';
