@@ -750,7 +750,7 @@ class TownController extends InventoryAwareController
         $pump = $th->getBuilding( $town, 'small_water_#00', true );
 
         $allow_take = 1;
-        if($pump) {
+        if ($pump && !$this->getActiveCitizen()->getBanished()) {
             if($town->getChaos()) {
                 $allow_take = 3;
             } else if  (!$this->getActiveCitizen()->getBanished()) {
@@ -796,7 +796,7 @@ class TownController extends InventoryAwareController
 
             $pump = $this->town_handler->getBuilding($town, 'small_water_#00', true);
 
-            $limit = $pump ? ($town->getChaos() ? 3 : 2) : 1;
+            $limit = ($pump && !$this->getActiveCitizen()->getBanished()) ? ($town->getChaos() ? 3 : 2) : 1;
             if ($direction == 'up') {
                 if ($town->getWell() <= 0) return AjaxResponse::error(self::ErrorWellEmpty);
 
