@@ -104,7 +104,7 @@
     <unit id="7F6V04y" name="geöffnet">
       <notes>
         <note category="german">geöffnet</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>geöffnet</source>
@@ -114,7 +114,7 @@
     <unit id="2nMdNJ8" name="geschlossen">
       <notes>
         <note category="german">geschlossen</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>geschlossen</source>
@@ -144,7 +144,7 @@
     <unit id="RvCIvJN" name="betreten">
       <notes>
         <note category="german">ist in die Stadt zurückgekehrt</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>betreten</source>
@@ -154,7 +154,7 @@
     <unit id="N0kS6xp" name="verlassen">
       <notes>
         <note category="german">hat die Stadt verlassen..</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>verlassen</source>
@@ -1697,7 +1697,7 @@
     <unit id="Z2xHG8j" name="Bank">
       <notes>
         <note category="german">Bank</note>
-        <note category="from">twig:///templates/ajax/game/newspaper.html.twig;twig:///templates/ajax/game/town/town.html.twig</note>
+        <note category="from">php:///src/Service/GameFactory.php;twig:///templates/ajax/game/newspaper.html.twig;twig:///templates/ajax/game/town/town.html.twig</note>
       </notes>
       <segment>
         <source>Bank</source>
@@ -1717,7 +1717,7 @@
     <unit id="OlFB1V6" name="Konstruktionen">
       <notes>
         <note category="german">Konstruktionen</note>
-        <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/town.html.twig</note>
+        <note category="from">php:///src/Service/GameFactory.php;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/town.html.twig</note>
       </notes>
       <segment>
         <source>Konstruktionen</source>
@@ -3649,7 +3649,7 @@
     <unit id="266wx0d" name="Verbesserung des Tages">
       <notes>
         <note category="german">Verbesserung des Tages</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/GameFactory.php</note>
       </notes>
       <segment>
         <source>Verbesserung des Tages</source>
@@ -3669,7 +3669,7 @@
     <unit id="gd8sEx3" name="Werkstatt">
       <notes>
         <note category="german">Werkstatt</note>
-        <note category="from">twig:///templates/ajax/game/newspaper.html.twig;twig:///templates/ajax/game/town/workshop.html.twig</note>
+        <note category="from">php:///src/Service/GameFactory.php;twig:///templates/ajax/game/newspaper.html.twig;twig:///templates/ajax/game/town/workshop.html.twig</note>
       </notes>
       <segment>
         <source>Werkstatt</source>
@@ -7687,7 +7687,7 @@
     <unit id="0i49zPL" name="In diesem Thread dreht sich alles um die Bank.">
       <notes>
         <note category="german">In diesem Thread dreht sich alles um die Bank.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/GameFactory.php</note>
       </notes>
       <segment>
         <source>In diesem Thread dreht sich alles um die Bank.</source>
@@ -7697,7 +7697,7 @@
     <unit id="I8m37R7" name="In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.">
       <notes>
         <note category="german">In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/GameFactory.php</note>
       </notes>
       <segment>
         <source>In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.</source>
@@ -7707,7 +7707,7 @@
     <unit id="1moRVN8" name="In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.">
       <notes>
         <note category="german">In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/GameFactory.php</note>
       </notes>
       <segment>
         <source>In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.</source>
@@ -7717,7 +7717,7 @@
     <unit id="R.vbGQY" name="In diesem Thread dreht sich alles um zukünftige Bauprojekte.">
       <notes>
         <note category="german">In diesem Thread dreht sich alles um zukünftige Bauprojekte.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/GameFactory.php</note>
       </notes>
       <segment>
         <source>In diesem Thread dreht sich alles um zukünftige Bauprojekte.</source>

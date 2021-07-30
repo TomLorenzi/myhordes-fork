@@ -3328,7 +3328,6 @@
       <notes>
         <note category="german">Umfragen können an dieser Stelle nicht angezeigt werden. Bitte besuche das Forum.</note>
         <note category="from">twig:///templates/ajax/forum/posts_small.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Umfragen können an dieser Stelle nicht angezeigt werden. Bitte besuche das Forum.</source>
@@ -3339,7 +3338,6 @@
       <notes>
         <note category="german">Diese Umfrage ist ungültig oder wurde gelöscht.</note>
         <note category="from">twig:///templates/ajax/forum/posts.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Diese Umfrage ist ungültig oder wurde gelöscht.</source>
@@ -3350,7 +3348,6 @@
       <notes>
         <note category="german">Abstimmen</note>
         <note category="from">twig:///templates/ajax/forum/posts.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Abstimmen</source>
@@ -3361,7 +3358,6 @@
       <notes>
         <note category="german">Ergebnisse anzeigen</note>
         <note category="from">twig:///templates/ajax/forum/posts.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ergebnisse anzeigen</source>
@@ -3372,7 +3368,6 @@
       <notes>
         <note category="german">Wenn du die Ergebnisse abrufst kannst du danach nicht mehr abstimmen. Bist du sicher?</note>
         <note category="from">twig:///templates/ajax/forum/posts.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wenn du die Ergebnisse abrufst kannst du danach nicht mehr abstimmen. Bist du sicher?</source>
@@ -3383,7 +3378,6 @@
       <notes>
         <note category="german">Umfrage einfügen</note>
         <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Umfrage einfügen</source>
@@ -3394,7 +3388,6 @@
       <notes>
         <note category="german">Kontrolliere deine Eingaben! Umfragen können nach dem Absenden des Posts nicht mehr bearbeitet werden!</note>
         <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Kontrolliere deine Eingaben! Umfragen können nach dem Absenden des Posts nicht mehr bearbeitet werden!</source>
@@ -3405,7 +3398,6 @@
       <notes>
         <note category="german">Fragetext eingeben (optional)</note>
         <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Fragetext eingeben (optional)</source>
@@ -3416,7 +3408,6 @@
       <notes>
         <note category="german">Antwort hinzufügen</note>
         <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Antwort hinzufügen</source>
@@ -3427,7 +3418,6 @@
       <notes>
         <note category="german">Antwort</note>
         <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Antwort</source>
@@ -3438,7 +3428,6 @@
       <notes>
         <note category="german">(optional)</note>
         <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>(optional)</source>
@@ -3449,7 +3438,6 @@
       <notes>
         <note category="german">Info-Text hinzufügen</note>
         <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Info-Text hinzufügen</source>
@@ -3460,7 +3448,6 @@
       <notes>
         <note category="german">Info-Text</note>
         <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Info-Text</source>
@@ -3471,7 +3458,6 @@
       <notes>
         <note category="german">Du musst mindestens eine Antwort eingeben.</note>
         <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Du musst mindestens eine Antwort eingeben.</source>
