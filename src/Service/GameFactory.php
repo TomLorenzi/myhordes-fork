@@ -29,6 +29,7 @@ use App\Entity\ZonePrototype;
 use App\Entity\ZoneTag;
 use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
+use App\Translation\T;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
@@ -417,17 +418,17 @@ class GameFactory
         $town->setForum((new Forum())->setTitle($town->getName()));
         $this->crow->postToForum( $town->getForum(),
             [
-                'In diesem Thread dreht sich alles um die Bank.',
-                'In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.',
-                'In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.',
-                'In diesem Thread dreht sich alles um zukünftige Bauprojekte.',
+                T::_('In diesem Thread dreht sich alles um die Bank.', 'game'),
+                T::_('In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.', 'game'),
+                T::_('In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.', 'game'),
+                T::_('In diesem Thread dreht sich alles um zukünftige Bauprojekte.', 'game'),
             ],
             true, true,
             [
-                'Bank',
-                'Verbesserung des Tages',
-                'Werkstatt',
-                'Konstruktionen'
+                T::__('Bank', 'game'),
+                T::__('Verbesserung des Tages', 'game'),
+                T::__('Werkstatt', 'game'),
+                T::__('Konstruktionen', 'game')
             ],
             [
                 Thread::SEMANTIC_BANK,
