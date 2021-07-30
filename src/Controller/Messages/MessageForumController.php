@@ -307,11 +307,11 @@ class MessageForumController extends MessageController
         $read_only = !$this->perm->isPermitted( $this->perm->getEffectivePermissions($user, $forum), ForumUsagePermissions::PermissionCreatePost ) ||
             $this->userHandler->isRestricted( $user, AccountRestriction::RestrictionForum );
 
-        if ($read_only || $poll->getClosed() || $poll->getParticipants()->contains($user))
+        $answer = $parser->get_int('cast');
+        if ($read_only || $poll->getClosed() || ($poll->getParticipants()->contains($user) && $answer !== -666))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
-        $answer = $parser->get_int('cast');
-        if ($answer === -42) $answer = null;
+        if ($answer === -42 || $answer === -666) $answer = null;
         else {
             $answer = $this->entity_manager->getRepository(ForumPollAnswer::class)->find($answer);
             if (!$answer || $answer->getPoll() !== $poll) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
@@ -320,6 +320,8 @@ class MessageForumController extends MessageController
         $lock = $locksmith->waitForLock("poll-{$poll->getId()}");
         if ($answer)
             $this->entity_manager->persist($answer->setNum( $answer->getNum() + 1 ));
+
+        if ($parser->get_int('cast') === -666) $poll->setClosed(true);
         $this->entity_manager->persist($poll->addParticipant($user));
 
         try {
@@ -367,6 +369,7 @@ class MessageForumController extends MessageController
             else {
                 $data[$poll_id] = [];
                 foreach ($poll->getAnswers() as $answer) $data[$poll_id][] = [$answer->getId(),$answer->getNum()];
+                $data[$poll_id][] = [-666,$poll->getOwner() === $user && !$poll->getClosed()];
             }
         }
 
