@@ -529,9 +529,9 @@ class LogTemplateHandler
 
     public function doorControl( Citizen $citizen, bool $open ): TownLogEntry {
         if ($open)
-            $action = "geöffnet";
+            $action = T::__("geöffnet", 'game');
         else 
-            $action = "geschlossen";
+            $action = T::__("geschlossen", 'game');
         $variables = array('citizen' => $citizen->getId(), 'action' => $action);
         $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'doorControl']);
 
@@ -546,9 +546,9 @@ class LogTemplateHandler
 
     public function doorControlAuto( Town $town, bool $open, ?DateTimeInterface $time ): TownLogEntry {
         if ($open)
-            $action = "geöffnet";
+            $action = T::__("geöffnet", 'game');
         else 
-            $action = "geschlossen";
+            $action = T::__("geschlossen", 'game');
         $variables = array('action' => $action);
         $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'doorControlAuto']);
 
@@ -562,9 +562,9 @@ class LogTemplateHandler
 
     public function doorPass( Citizen $citizen, bool $in ): TownLogEntry {
         if ($in)
-            $action = "betreten";
+            $action = T::__("betreten", 'game');
         else 
-            $action = "verlassen";
+            $action = T::__("verlassen", 'game');
         $variables = array('citizen' => $citizen->getId(), 'action' => $action);
         $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'doorPass']);
 

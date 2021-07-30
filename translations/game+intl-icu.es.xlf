@@ -101,6 +101,26 @@
         <target>{citizen} ha {action} el Portal.</target>
       </segment>
     </unit>
+    <unit id="7F6V04y" name="geöffnet">
+      <notes>
+        <note category="german">geöffnet</note>
+        <note category="from">[unused]</note>
+      </notes>
+      <segment>
+        <source>geöffnet</source>
+        <target>abierto</target>
+      </segment>
+    </unit>
+    <unit id="2nMdNJ8" name="geschlossen">
+      <notes>
+        <note category="german">geschlossen</note>
+        <note category="from">[unused]</note>
+      </notes>
+      <segment>
+        <source>geschlossen</source>
+        <target>cerrado</target>
+      </segment>
+    </unit>
     <unit id="sjK4T.p" name="Das Stadttor wurde automatisch {action}.">
       <notes>
         <note category="german">Das Stadttor wurde automatisch {action}.</note>
@@ -119,6 +139,26 @@
       <segment>
         <source>{citizen} hat die Stadt {action}.</source>
         <target>{citizen} {action} pueblo.</target>
+      </segment>
+    </unit>
+    <unit id="RvCIvJN" name="betreten">
+      <notes>
+        <note category="german">ist in die Stadt zurückgekehrt</note>
+        <note category="from">[unused]</note>
+      </notes>
+      <segment>
+        <source>betreten</source>
+        <target>está de vuelta en el</target>
+      </segment>
+    </unit>
+    <unit id="N0kS6xp" name="verlassen">
+      <notes>
+        <note category="german">hat die Stadt verlassen..</note>
+        <note category="from">[unused]</note>
+      </notes>
+      <segment>
+        <source>verlassen</source>
+        <target>ha salido del</target>
       </segment>
     </unit>
     <unit id="7.iAHCv" name="Ein neuer Bürger ist in der Stadt angekommen: {citizen}.">
@@ -6896,6 +6936,16 @@
         <target>Cantidad de regalos robados a amigos</target>
       </segment>
     </unit>
+    <unit id="Gf1_yUr" name="Tagelang wurde an den Seelen der Toten herumgepfuscht.">
+      <notes>
+        <note category="german">Tagelang wurde an den Seelen der Toten herumgepfuscht.</note>
+        <note category="from">[unused]</note>
+      </notes>
+      <segment>
+        <source>Tagelang wurde an den Seelen der Toten herumgepfuscht.</source>
+        <target>Días pasados jugando con almas de muertos.</target>
+      </segment>
+    </unit>
     <unit id="H3ZzhL.">
       <notes>
         <note category="german">Beim Durchsuchen der Ruine merkst du, dass es nichts mehr zu finden gibt. Leider...</note>
@@ -7307,6 +7357,16 @@
       <segment>
         <source>Du hast furchtbare Kopfschmerzen... Keinesfalls kannst du heute weiteren Alkohol zu dir nehmen.</source>
         <target>Te duele la cabeza... No puedes beber ni una gota de alcohol hasta mañana.</target>
+      </segment>
+    </unit>
+    <unit id="E6vRFnM" name="Endlich kannst du deine Schwiegermutter loswerden!">
+      <notes>
+        <note category="german">Endlich kannst du deine Schwiegermutter loswerden!</note>
+        <note category="from">[unused]</note>
+      </notes>
+      <segment>
+        <source>Endlich kannst du deine Schwiegermutter loswerden!</source>
+        <target>¡Finalmente puedes deshacerte de tu madrastra!</target>
       </segment>
     </unit>
     <unit id="PMbiois">

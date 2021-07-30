@@ -101,6 +101,26 @@
         <target>{citizen} a {action} les portes de la ville.</target>
       </segment>
     </unit>
+    <unit id="7F6V04y" name="geöffnet">
+      <notes>
+        <note category="german">geöffnet</note>
+        <note category="from">[unused]</note>
+      </notes>
+      <segment>
+        <source>geöffnet</source>
+        <target>ouvert</target>
+      </segment>
+    </unit>
+    <unit id="2nMdNJ8" name="geschlossen">
+      <notes>
+        <note category="german">geschlossen</note>
+        <note category="from">[unused]</note>
+      </notes>
+      <segment>
+        <source>geschlossen</source>
+        <target>fermé</target>
+      </segment>
+    </unit>
     <unit id="sjK4T.p" name="Das Stadttor wurde automatisch {action}.">
       <notes>
         <note category="german">Das Stadttor wurde automatisch {action}.</note>
@@ -119,6 +139,26 @@
       <segment>
         <source>{citizen} hat die Stadt {action}.</source>
         <target>{citizen} {action}.</target>
+      </segment>
+    </unit>
+    <unit id="RvCIvJN" name="betreten">
+      <notes>
+        <note category="german">ist in die Stadt zurückgekehrt</note>
+        <note category="from">[unused]</note>
+      </notes>
+      <segment>
+        <source>betreten</source>
+        <target>est de retour en ville</target>
+      </segment>
+    </unit>
+    <unit id="N0kS6xp" name="verlassen">
+      <notes>
+        <note category="german">hat die Stadt verlassen..</note>
+        <note category="from">[unused]</note>
+      </notes>
+      <segment>
+        <source>verlassen</source>
+        <target>a quitté la ville</target>
       </segment>
     </unit>
     <unit id="7.iAHCv" name="Ein neuer Bürger ist in der Stadt angekommen: {citizen}.">
@@ -6764,6 +6804,16 @@
         <target>Nombre de cadeaux volés à vos amis.</target>
       </segment>
     </unit>
+    <unit id="Gf1_yUr" name="Tagelang wurde an den Seelen der Toten herumgepfuscht.">
+      <notes>
+        <note category="german">Tagelang wurde an den Seelen der Toten herumgepfuscht.</note>
+        <note category="from">[unused]</note>
+      </notes>
+      <segment>
+        <source>Tagelang wurde an den Seelen der Toten herumgepfuscht.</source>
+        <target>Jours passés à trafiquer l'âme des morts.</target>
+      </segment>
+    </unit>
     <unit id="2VXomcj">
       <notes>
         <note category="german">Gibt die Gesamtanzahl, der von dir umgebrachten Zombies an. Jede Tötungsmethode wird gezählt.</note>
@@ -7239,6 +7289,16 @@
       <segment>
         <source>Du hast furchtbare Kopfschmerzen... Keinesfalls kannst du heute weiteren Alkohol zu dir nehmen.</source>
         <target>Vous avez mal au crâne… Impossible d'avaler une goutte d'alcool jusqu'à demain.</target>
+      </segment>
+    </unit>
+    <unit id="E6vRFnM" name="Endlich kannst du deine Schwiegermutter loswerden!">
+      <notes>
+        <note category="german">Endlich kannst du deine Schwiegermutter loswerden!</note>
+        <note category="from">[unused]</note>
+      </notes>
+      <segment>
+        <source>Endlich kannst du deine Schwiegermutter loswerden!</source>
+        <target>Enfin, vous pouvez embrasser votre belle-mère !</target>
       </segment>
     </unit>
     <unit id="PMbiois">
