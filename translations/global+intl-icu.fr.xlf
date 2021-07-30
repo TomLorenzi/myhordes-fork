@@ -3324,5 +3324,59 @@
         <target>Signaler un contenu illicite</target>
       </segment>
     </unit>
+    <unit id="hgJwqqU">
+      <notes>
+        <note category="german">Umfragen können an dieser Stelle nicht angezeigt werden. Bitte besuche das Forum.</note>
+        <note category="from">twig:///templates/ajax/forum/posts_small.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Umfragen können an dieser Stelle nicht angezeigt werden. Bitte besuche das Forum.</source>
+        <target>Umfragen können an dieser Stelle nicht angezeigt werden. Bitte besuche das Forum.</target>
+      </segment>
+    </unit>
+    <unit id="koiuckT" name="Diese Umfrage ist ungültig oder wurde gelöscht.">
+      <notes>
+        <note category="german">Diese Umfrage ist ungültig oder wurde gelöscht.</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Diese Umfrage ist ungültig oder wurde gelöscht.</source>
+        <target>Diese Umfrage ist ungültig oder wurde gelöscht.</target>
+      </segment>
+    </unit>
+    <unit id="sGKanc7" name="Abstimmen">
+      <notes>
+        <note category="german">Abstimmen</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig</note>
+      </notes>
+      <segment>
+        <source>Abstimmen</source>
+        <target>Voter</target>
+      </segment>
+    </unit>
+    <unit id="CX_GKf1" name="Ergebnisse anzeigen">
+      <notes>
+        <note category="german">Ergebnisse anzeigen</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Ergebnisse anzeigen</source>
+        <target>Ergebnisse anzeigen</target>
+      </segment>
+    </unit>
+    <unit id="PtyIfIY">
+      <notes>
+        <note category="german">Wenn du die Ergebnisse abrufst kannst du danach nicht mehr abstimmen. Bist du sicher?</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Wenn du die Ergebnisse abrufst kannst du danach nicht mehr abstimmen. Bist du sicher?</source>
+        <target>Wenn du die Ergebnisse abrufst kannst du danach nicht mehr abstimmen. Bist du sicher?</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

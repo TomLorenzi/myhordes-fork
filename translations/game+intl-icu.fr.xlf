@@ -2366,7 +2366,7 @@
     <unit id="72h0.SN" name="Ghul">
       <notes>
         <note category="german">Ghul</note>
-        <note category="from">db://CitizenRole;twig:///templates/ajax/game/town/town.html.twig</note>
+        <note category="from">db://CitizenRole;db://CitizenStatus;twig:///templates/ajax/game/town/town.html.twig</note>
       </notes>
       <segment>
         <source>Ghul</source>
@@ -22060,6 +22060,70 @@
       <segment>
         <source>Das Schokoladenkreuz wurde von den Bürgern im Rahmen dieses tragischen Ereignisses &lt;strong&gt;gegessen&lt;/strong&gt;!</source>
         <target><![CDATA[Das Schokoladenkreuz wurde von den Bürgern im Rahmen dieses tragischen Ereignisses <strong>gegessen</strong>!]]></target>
+      </segment>
+    </unit>
+    <unit id="E6vRFnM" name="Endlich kannst du deine Schwiegermutter loswerden!">
+      <notes>
+        <note category="german">Endlich kannst du deine Schwiegermutter loswerden!</note>
+        <note category="from">db://CitizenStatus</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Endlich kannst du deine Schwiegermutter loswerden!</source>
+        <target>Endlich kannst du deine Schwiegermutter loswerden!</target>
+      </segment>
+    </unit>
+    <unit id="Gf1_yUr" name="Tagelang wurde an den Seelen der Toten herumgepfuscht.">
+      <notes>
+        <note category="german">Tagelang wurde an den Seelen der Toten herumgepfuscht.</note>
+        <note category="from">db://PictoPrototype</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Tagelang wurde an den Seelen der Toten herumgepfuscht.</source>
+        <target>Tagelang wurde an den Seelen der Toten herumgepfuscht.</target>
+      </segment>
+    </unit>
+    <unit id="7F6V04y" name="geöffnet">
+      <notes>
+        <note category="german">geöffnet</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
+      </notes>
+      <segment>
+        <source>geöffnet</source>
+        <target>ouvert</target>
+      </segment>
+    </unit>
+    <unit id="2nMdNJ8" name="geschlossen">
+      <notes>
+        <note category="german">geschlossen</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
+      </notes>
+      <segment>
+        <source>geschlossen</source>
+        <target>fermé</target>
+      </segment>
+    </unit>
+    <unit id="RvCIvJN" name="betreten">
+      <notes>
+        <note category="german">ist in die Stadt zurückgekehrt</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>betreten</source>
+        <target>est de retour en ville</target>
+      </segment>
+    </unit>
+    <unit id="N0kS6xp" name="verlassen">
+      <notes>
+        <note category="german">hat die Stadt verlassen..</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>verlassen</source>
+        <target>a quitté la ville</target>
       </segment>
     </unit>
   </file>
