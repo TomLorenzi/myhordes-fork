@@ -527,7 +527,7 @@ class BeyondController extends InventoryAwareController
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         $message = $parser->get('msg', null);
-        if (!$message || mb_strlen($message) < 2 || !$html->htmlPrepare($this->getActiveCitizen()->getUser(), 0, ['core_rp'], $message, null, $len) || $len < 2 || $len > 256 )
+        if (!$message || mb_strlen($message) < 2 || !$html->htmlPrepare($this->getActiveCitizen()->getUser(), 0, ['core_rp'], $message, $this->getActiveCitizen()->getTown(), $len) || $len < 2 || $len > 256 )
             return AjaxResponse::error(self::ErrorChatMessageInvalid);
 
         try {
