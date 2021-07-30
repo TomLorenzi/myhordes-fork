@@ -418,10 +418,10 @@ class GameFactory
         $town->setForum((new Forum())->setTitle($town->getName()));
         $this->crow->postToForum( $town->getForum(),
             [
-                T::_('In diesem Thread dreht sich alles um die Bank.', 'game'),
-                T::_('In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.', 'game'),
-                T::_('In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.', 'game'),
-                T::_('In diesem Thread dreht sich alles um zukünftige Bauprojekte.', 'game'),
+                T::__('In diesem Thread dreht sich alles um die Bank.', 'game'),
+                T::__('In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.', 'game'),
+                T::__('In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.', 'game'),
+                T::__('In diesem Thread dreht sich alles um zukünftige Bauprojekte.', 'game'),
             ],
             true, true,
             [
