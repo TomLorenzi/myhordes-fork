@@ -261,7 +261,7 @@ class MessageForumController extends MessageController
             ->setLastAdminActionBy($type === "CROW" ? $user : null);
 
         $tx_len = 0;
-        if (!$this->preparePost($user,$forum,$post,$tx_len, null, $edit))
+        if (!$this->preparePost($user,$forum,$post,$tx_len, null, $edit, $polls))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
         if ($tx_len < 2) return AjaxResponse::error( self::ErrorPostTextLength );
 
@@ -274,7 +274,8 @@ class MessageForumController extends MessageController
             $em->persist((new ForumThreadSubscription())->setThread($thread)->setUser($user));
             $em->persist($thread);
             $em->persist($forum);
-            $em->flush();
+
+            $this->commit_post_with_polls($em,$post,$polls);
         } catch (Exception $e) {
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
