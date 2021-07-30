@@ -2157,5 +2157,17 @@
         <target>Spielernamen einfügen</target>
       </segment>
     </unit>
+    <unit id="O23.43H" name="Umfrage schließen">
+      <segment>
+        <source>Umfrage schließen</source>
+        <target>Umfrage schließen</target>
+      </segment>
+    </unit>
+    <unit id="KWP5REq" name="Diese Aktion kann nicht rückgängig gemacht werden. Bist du sicher?">
+      <segment>
+        <source>Diese Aktion kann nicht rückgängig gemacht werden. Bist du sicher?</source>
+        <target>Diese Aktion kann nicht rückgängig gemacht werden. Bist du sicher?</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

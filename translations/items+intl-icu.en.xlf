@@ -9160,5 +9160,27 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
         <target>Your AP are already full.</target>
       </segment>
     </unit>
+    <unit id="bj.MFsK" name="Expedition">
+      <notes>
+        <note category="german">Expedition</note>
+        <note category="from">db://ItemCategory</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Expedition</source>
+        <target>Expedition</target>
+      </segment>
+    </unit>
+    <unit id="TWuwK4M" name="Angriff und Verteidigung">
+      <notes>
+        <note category="german">Angriff und Verteidigung</note>
+        <note category="from">db://ItemCategory</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Angriff und Verteidigung</source>
+        <target>Angriff und Verteidigung</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

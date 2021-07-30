@@ -3500,5 +3500,25 @@
         <target>Insert player name</target>
       </segment>
     </unit>
+    <unit id="O23.43H" name="Umfrage schließen">
+      <notes>
+        <note category="german">Umfrage schließen</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig</note>
+      </notes>
+      <segment>
+        <source>Umfrage schließen</source>
+        <target>Close poll</target>
+      </segment>
+    </unit>
+    <unit id="KWP5REq" name="Diese Aktion kann nicht rückgängig gemacht werden. Bist du sicher?">
+      <notes>
+        <note category="german">Diese Aktion kann nicht rückgängig gemacht werden. Bist du sicher?</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig</note>
+      </notes>
+      <segment>
+        <source>Diese Aktion kann nicht rückgängig gemacht werden. Bist du sicher?</source>
+        <target>This cannot be undone. Are you sure?</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
