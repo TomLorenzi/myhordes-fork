@@ -1686,7 +1686,7 @@
       </notes>
       <segment>
         <source>Als Event-Stadt markieren</source>
-        <target>Als Event-Stadt markieren</target>
+        <target>Marcar como pueblo de evento</target>
       </segment>
     </unit>
     <unit id="3EdNfST">
@@ -1697,7 +1697,7 @@
       </notes>
       <segment>
         <source>Event-Städte werden nicht ins Ranking aufgenommen und erhalten eine spezielle Markierung in der Stadtliste.</source>
-        <target>Event-Städte werden nicht ins Ranking aufgenommen und erhalten eine spezielle Markierung in der Stadtliste.</target>
+        <target>Los pueblos de evento no están incluidoas en el ranking y están especialmente marcadas en la lista de pueblos.</target>
       </segment>
     </unit>
     <unit id="yP7t0FZ">
@@ -1708,7 +1708,7 @@
       </notes>
       <segment>
         <source>Dies ist eine Event-Stadt, sie wird nach ihrem Ende nicht im Ranking erscheinen. Möglicherweise gelten unübliche Regeln für diese Stadt.</source>
-        <target>Dies ist eine Event-Stadt, sie wird nach ihrem Ende nicht im Ranking erscheinen. Möglicherweise gelten unübliche Regeln für diese Stadt.</target>
+        <target>Este es un pueblo de eventos, no aparecerá en el ranking cuando finalice. Es posible que se apliquen reglas inusuales a este pueblo.</target>
       </segment>
     </unit>
   </file>
