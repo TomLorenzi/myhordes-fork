@@ -33,21 +33,19 @@
                             {% if (user_handler.admin_canAdminister(app.user,user)) %}
                                 <select id="administer-user" style="width: 30rem;">
                                     <option value="">-</option>
-                                    {% if user.eternalID is null %}
-                                        <optgroup label="{{ 'Validierung'|trans({},'admin') }}">
-                                            {% if is_granted("ROLE_ADMIN") %}
-                                                {% if user.validated %}
-                                                    <option value="{{ url('admin_users_account_manage', {action: 'invalidate', id: user.id}) }}">{{ 'Erneute Validierung erzwingen'|trans({},'admin') }}</option>
-                                                {% else %}
-                                                    <option value="{{ url('admin_users_account_manage', {action: 'validate', id: user.id}) }}">{{ 'Manuell validieren'|trans({},'admin') }}</option>
-                                                {% endif %}
+                                    <optgroup label="{{ 'Validierung'|trans({},'admin') }}">
+                                        {% if is_granted("ROLE_ADMIN") %}
+                                            {% if user.validated %}
+                                                <option value="{{ url('admin_users_account_manage', {action: 'invalidate', id: user.id}) }}">{{ 'Erneute Validierung erzwingen'|trans({},'admin') }}</option>
+                                            {% else %}
+                                                <option value="{{ url('admin_users_account_manage', {action: 'validate', id: user.id}) }}">{{ 'Manuell validieren'|trans({},'admin') }}</option>
                                             {% endif %}
-                                            {% if not is_granted("ROLE_ADMIN") or validations|length > 0 %}
-                                                <option value="{{ url('admin_users_account_manage', {action: 'refresh_tokens', id: user.id}) }}">{{ 'Offene Token erneut ankündigen'|trans({},'admin') }}</option>
-                                                <option value="{{ url('admin_users_account_manage', {action: 'regen_tokens', id: user.id}) }}">{{ 'Offene Token regenerieren'|trans({},'admin') }}</option>
-                                            {% endif %}
-                                        </optgroup>
-                                    {% endif %}
+                                        {% endif %}
+                                        {% if not is_granted("ROLE_ADMIN") or validations|length > 0 %}
+                                            <option value="{{ url('admin_users_account_manage', {action: 'refresh_tokens', id: user.id}) }}">{{ 'Offene Token erneut ankündigen'|trans({},'admin') }}</option>
+                                            <option value="{{ url('admin_users_account_manage', {action: 'regen_tokens', id: user.id}) }}">{{ 'Offene Token regenerieren'|trans({},'admin') }}</option>
+                                        {% endif %}
+                                    </optgroup>
                                     <optgroup label="{{ 'Profil'|trans({},'admin') }}">
                                         {% if is_granted("ROLE_ADMIN") %}
                                             <option value="{{ url('admin_users_account_manage', {action: 'rename', id: user.id}) }}" x-confirm="RENAME" x-query="{{ 'Neuen Namen eingeben.'|trans({},'admin') }}">{{ 'Umbenennen'|trans({},'admin') }}</option>
@@ -73,6 +71,14 @@
                                             <option value="{{ url('admin_users_account_manage', {action: 'clear_title', id: user.id}) }}" x-confirm="CLEAR TITLE">{{ 'Titel & Icon entfernen'|trans({},'admin') }}</option>
                                         {% endif %}
                                     </optgroup>
+                                    {% if user|is_granted('ROLE_ANIMAC') or user|is_granted('ROLE_ORACLE') %}
+                                        <optgroup label="{{ 'Funktionen für Spezialrollen'|trans({},'admin') }}">
+                                            {% if user|is_granted('ROLE_ANIMAC') %}
+                                                <option value="{{ url('admin_users_account_manage', {action: 'permit_town_forum_access', id: user.id}) }}" x-query="{{ 'Stadt-ID eingeben.'|trans({},'admin') }}">{{ 'Zugang zu Stadtforum gewähren'|trans({},'admin') }}</option>
+                                                <option value="{{ url('admin_users_account_manage', {action: 'unpermit_town_forum_access', id: user.id}) }}" x-query="{{ 'Stadt-ID eingeben.'|trans({},'admin') }}">{{ 'Zugang zu Stadtforum entziehen'|trans({},'admin') }}</option>
+                                            {% endif %}
+                                        </optgroup>
+                                    {% endif %}
                                     {% if is_granted("ROLE_ADMIN") %}
                                         <optgroup label="{{ 'Freundschaftswerbung'|trans({},'admin') }}">
                                             {% if ref is null or ref.active %}
@@ -189,17 +195,6 @@
                             {{ user.displayName ?? '-' }}
                         </div>
                         <div class="cell padded rw-3 rw-sm-12 note note-lightest">
-                            {{ 'Berechtigungsstufe'|trans({}, 'admin') }}
-                        </div>
-                        <div class="cell padded rw-9 rw-sm-12">
-                            {% if     user.rightsElevation == 0 %} {{ 'Spieler'|trans({}, 'admin') }}
-                            {% elseif user.rightsElevation == 2 %} {{ 'Orakel'|trans({}, 'admin') }}
-                            {% elseif user.rightsElevation == 3 %} {{ 'Krähe'|trans({}, 'admin') }}
-                            {% elseif user.rightsElevation == 4 %} {{ 'Admin'|trans({}, 'admin') }}
-                            {% elseif user.rightsElevation == 5 %} {{ 'Admin'|trans({}, 'admin') }}[+]
-                            {% else                             %} {{ user.rightsElevation }} {% endif %}
-                        </div>
-                        <div class="cell padded rw-3 rw-sm-12 note note-lightest">
                             {{ 'E-Mail'|trans({}, 'admin') }}
                         </div>
                         <div class="cell padded rw-9 rw-sm-12">
@@ -219,6 +214,23 @@
                                     [{{ 'Nur für Administratoren sichtbar'|trans({}, 'admin') }}]
                                 {% endif %}
                             {% endif %}
+                        </div>
+                        <div class="cell padded rw-3 rw-sm-12 note note-lightest">
+                            {{ 'Berechtigungsstufe'|trans({}, 'admin') }}
+                        </div>
+                        <div class="cell padded rw-3 rw-sm-12">
+                            {% if     user.rightsElevation == 0 %} {{ 'Spieler'|trans({}, 'admin') }}
+                            {% elseif user.rightsElevation == 3 %} {{ 'Krähe'|trans({}, 'admin') }}
+                            {% elseif user.rightsElevation == 4 %} {{ 'Admin'|trans({}, 'admin') }}
+                            {% elseif user.rightsElevation == 5 %} {{ 'Admin'|trans({}, 'admin') }}[+]
+                            {% else                             %} {{ user.rightsElevation }} {% endif %}
+                        </div>
+                        <div class="cell padded rw-3 rw-sm-12 note note-lightest">
+                            {{ 'Spezialrollen'|trans({}, 'admin') }}
+                        </div>
+                        <div class="cell padded rw-3 rw-sm-12">
+                            <div><label><input {% if user|is_granted('ROLE_ORACLE') %}checked{% endif %} {% if user.rightsElevation >= 3 %}disabled{% endif%} type="checkbox" x-trigger-flag="FLAG_ORACLE" /> {{ 'Orakel'|trans({}, 'admin') }}</label></div>
+                            <div><label><input {% if user|is_granted('ROLE_ANIMAC') %}checked{% endif %} {% if user.rightsElevation >= 3 %}disabled{% endif%} type="checkbox" x-trigger-flag="FLAG_ANIMAC" /> {{ 'Animateur'|trans({}, 'admin') }}</label></div>
                         </div>
                     </div>
 
@@ -291,9 +303,9 @@
                                 <a target="_blank" href="https://twinoid.com/user/{{ user.twinoidID }}"><i class="fa fa-external-link-alt"></i> {{ user.twinoidID }}</a><br />
                                 {% for soul in user.twinoidImports %}
                                     {% if soul.main %}
-                                        <div><i class="fa fa-arrow-right"></i> <img alt="" src="{{ asset('build/images/icons/small_hero_up.gif') }}"> <b>{{ soul.scope }}</b></div>
+                                        <div><i class="fa fa-arrow-right"></i> <img alt="" src="{{ asset('build/images/icons/small_hero_up.gif') }}"> <b>{{ soul.scope|replace({'www.': ''}) }}</b></div>
                                     {% else %}
-                                        <div><i class="fa fa-arrow-right"></i> <i>{{ soul.scope }}</i></div>
+                                        <div><i class="fa fa-arrow-right"></i> <i>{{ soul.scope|replace({'www.': ''}) }}</i></div>
                                     {% endif %}
                                 {% endfor %}
                             {% else %} - {% endif %}
@@ -379,6 +391,11 @@
                     function () {
                         $.ajax.load(null, '{{ path('admin_users_account_view', {id: user.id}) }}', true);
                     } );
+            });
+
+            $.html.addEventListenerAll('[x-trigger-flag]', 'change', (e,elem) => {
+                $.ajax.easySend( '{{ url('admin_users_account_manage', {action: 'grant', id: user.id}) }}', {param: (elem.checked ? '' : '!') + elem.getAttribute('x-trigger-flag')},
+                    function () { $.ajax.load(null, '{{ path('admin_users_account_view', {id: user.id}) }}', true); } );
             });
         {% endif %}
 

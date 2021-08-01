@@ -2425,5 +2425,41 @@
         <target>Als Event-Stadt markieren</target>
       </segment>
     </unit>
+    <unit id="7npTNxR" name="Funktionen für Spezialrollen">
+      <segment>
+        <source>Funktionen für Spezialrollen</source>
+        <target>Funktionen für Spezialrollen</target>
+      </segment>
+    </unit>
+    <unit id="nG1VP4R" name="Stadt-ID eingeben.">
+      <segment>
+        <source>Stadt-ID eingeben.</source>
+        <target>Stadt-ID eingeben.</target>
+      </segment>
+    </unit>
+    <unit id="NIAMEKG" name="Zugang zu Stadtforum gewähren">
+      <segment>
+        <source>Zugang zu Stadtforum gewähren</source>
+        <target>Zugang zu Stadtforum gewähren</target>
+      </segment>
+    </unit>
+    <unit id="3PvUorI" name="Zugang zu Stadtforum entziehen">
+      <segment>
+        <source>Zugang zu Stadtforum entziehen</source>
+        <target>Zugang zu Stadtforum entziehen</target>
+      </segment>
+    </unit>
+    <unit id="K8iqUB2" name="Spezialrollen">
+      <segment>
+        <source>Spezialrollen</source>
+        <target>Spezialrollen</target>
+      </segment>
+    </unit>
+    <unit id="mupnQII" name="Animateur">
+      <segment>
+        <source>Animateur</source>
+        <target>Animateur</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -339,7 +339,7 @@ class UserInfoCommand extends Command
                 if ($input->getOption('validated') && !$user->getValidated()) {
                     return false;
                 }
-                if ($input->getOption('mods') && !$user->getRightsElevation() >= User::ROLE_CROW) {
+                if ($input->getOption('mods') && !$user->getRightsElevation() >= User::USER_LEVEL_CROW) {
                     return false;
                 }
 
@@ -354,7 +354,7 @@ class UserInfoCommand extends Command
                 $pendingValidation = $user->getPendingValidation();
                 $table->addRow([
                     $user->getId(), $user->getUsername(), $user->getEmail(), $user->getValidated() ? '1' : '0',
-                    $user->getRightsElevation() >= User::ROLE_CROW ? '1' : '0',
+                    $user->getRightsElevation() >= User::USER_LEVEL_CROW ? '1' : '0',
                     $activeCitizen ? $activeCitizen->getId() : '-',
                     $pendingValidation ? "{$pendingValidation->getPkey()} ({$pendingValidation->getType()})" : '-',
                 ]);

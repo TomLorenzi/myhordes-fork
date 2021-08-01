@@ -11,7 +11,11 @@
                         {% endif %}
                         <h4 class="soul-name">
                             <img src="{{ asset('build/images/icons/small_ghost_red.gif') }}" alt="{{'Held'|trans({}, 'game')}}" />
-                            <a class="username">{{ user.name }}</a>
+                            <a class="username">
+                                {% if user.name == 'Der Rabe' %}{{ 'Der Rabe'|trans({},'global') }}
+                                {% elseif user.name == 'Animateur-Team' %}{{ 'Animateur-Team'|trans({},'global') }}
+                                {% else %}{{ user.name }}{% endif %}
+                            </a>
                         </h4>
                     </div>
                     <div class="tab tab-floater">

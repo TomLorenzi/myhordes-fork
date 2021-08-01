@@ -2328,5 +2328,17 @@
         <target>Dies ist eine Event-Stadt.</target>
       </segment>
     </unit>
+    <unit id="mupnQII" name="Animateur">
+      <segment>
+        <source>Animateur</source>
+        <target>Animateur</target>
+      </segment>
+    </unit>
+    <unit id="9S5p0sP">
+      <segment>
+        <source>Diese Karteikarte gehört einem Animateur. Animateure organisieren und koordinieren Community-Events.</source>
+        <target>Diese Karteikarte gehört einem Animateur. Animateure organisieren und koordinieren Community-Events.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

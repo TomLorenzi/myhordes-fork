@@ -9,8 +9,12 @@
     <div class="forum-posts">
         {% for post in posts %}
             {% set variant = null %}
-            {% if post.owner.name == 'Der Rabe' or post.type == "CROW" %}{% set variant = 'crow' %}{% endif %}
-            {% if post.type == "DEV" %}{% set variant = 'dev' %}{% endif %}
+            {% if post.owner.name == 'Der Rabe' %}{% set variant = 'crow' %}
+            {% elseif post.type != "USER" and post.type is not null %}{% set variant = post.type|lower %}{% endif %}
+
+            {% set author_name = town and post.owner.citizenFor(town) ? post.owner.citizenFor(town).name : post.owner.name %}
+            {% if post.owner.name == 'Der Rabe' %}{% set author_name = 'Der Rabe'|trans({},'global') %}
+            {% elseif post.owner.name == 'Animateur-Team' %}{% set author_name = 'Animateur-Team'|trans({},'global') %}{% endif %}
 
             <div class="forum-post {% if variant is not null %}forum-post-variant-{{ variant }}{% endif %} forum-post-search-result" id="{{post.id}}">
                 <div class="forum-post-header {% if variant is not null %}header-variant-{{ variant }}{% endif %}">
@@ -32,15 +36,7 @@
                     {% else %}
                         <div class="avatar small ua-{{ random(0,9) }}"><img alt="" src="{{ asset('build/images/forum/empty_avatar.gif') }}"></div>
                     {% endif %}
-                    <b>
-                        {% if post.owner.name == 'Der Rabe' %}
-                            {{ 'Der Rabe'|trans({},'global') }}
-                        {% elseif post.type == "DEV" %}
-                            {{ post.owner.name }}
-                        {% else %}
-                            {{ post.owner.name }}
-                        {% endif %}
-                    </b>
+                    <b>{{ author_name }}</b>
                     <div class="found-in">{{ post.searchForum.title }} <i class="fa fa-caret-right"></i> <a x-ajax-href="{{ path('forum_jump_view', {pid: post.id}) }}" x-ajax-target="#content">{{ post.thread.title }}</a></div>
                 </div>
                 <div class="forum-post-content">

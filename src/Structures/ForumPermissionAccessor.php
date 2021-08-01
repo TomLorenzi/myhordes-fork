@@ -21,8 +21,10 @@ class ForumPermissionAccessor
     public function format_mod():    bool { return $this->perm->isPermitted( $this->permissions, ForumUsagePermissions::PermissionFormattingModerator ); }
     public function format_oracle(): bool { return $this->perm->isPermitted( $this->permissions, ForumUsagePermissions::PermissionFormattingOracle ); }
 
-    public function post_as_crow(): bool { return $this->perm->isPermitted( $this->permissions, ForumUsagePermissions::PermissionPostAsCrow ); }
-    public function post_as_dev():  bool { return $this->perm->isPermitted( $this->permissions, ForumUsagePermissions::PermissionPostAsDev ); }
+    public function alt_post_mode(): bool { return $this->post_as_animacteur() || $this->post_as_crow() || $this->post_as_dev(); }
+    public function post_as_animacteur(): bool { return $this->perm->isPermitted( $this->permissions, ForumUsagePermissions::PermissionPostAsAnim ); }
+    public function post_as_crow():       bool { return $this->perm->isPermitted( $this->permissions, ForumUsagePermissions::PermissionPostAsCrow ); }
+    public function post_as_dev():        bool { return $this->perm->isPermitted( $this->permissions, ForumUsagePermissions::PermissionPostAsDev ); }
 
     public function create_thread():  bool { return $this->perm->isPermitted( $this->permissions, ForumUsagePermissions::PermissionCreateThread ); }
     public function create_post():    bool { return $this->perm->isPermitted( $this->permissions, ForumUsagePermissions::PermissionCreatePost ); }
