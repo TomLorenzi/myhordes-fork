@@ -3863,7 +3863,7 @@
     <unit id="mupnQII" name="Animateur">
       <notes>
         <note category="german">Animateur</note>
-        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig;twig:///templates/ajax/forum/editor.html.twig</note>
         <note category="state">new</note>
       </notes>
       <segment>

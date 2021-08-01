@@ -3843,7 +3843,6 @@
       <notes>
         <note category="german">Funktionen für Spezialrollen</note>
         <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Funktionen für Spezialrollen</source>
@@ -3854,7 +3853,6 @@
       <notes>
         <note category="german">Stadt-ID eingeben.</note>
         <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Stadt-ID eingeben.</source>
@@ -3865,7 +3863,6 @@
       <notes>
         <note category="german">Zugang zu Stadtforum gewähren</note>
         <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Zugang zu Stadtforum gewähren</source>
@@ -3876,7 +3873,6 @@
       <notes>
         <note category="german">Zugang zu Stadtforum entziehen</note>
         <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Zugang zu Stadtforum entziehen</source>
@@ -3887,7 +3883,6 @@
       <notes>
         <note category="german">Spezialrollen</note>
         <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Spezialrollen</source>
@@ -3897,8 +3892,7 @@
     <unit id="mupnQII" name="Animateur">
       <notes>
         <note category="german">Animateur</note>
-        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
-        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig;twig:///templates/ajax/forum/editor.html.twig</note>
       </notes>
       <segment>
         <source>Animateur</source>
