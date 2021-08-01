@@ -94,7 +94,8 @@ class MigrateCommand extends Command
         '513ee3a0646478cf5d9bf363a47f2da56fa0cdca' => [
             ['app:migrate', ['--repair-proxies' => true] ],
             ['app:migrate', ['--update-all-sp' => true] ],
-        ]
+        ],
+        '4cf8df846bc5bb6391660cf77401a93c171226f2' => [ ['app:migrate', ['--migrate-oracles' => true] ] ],
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
@@ -117,7 +118,7 @@ class MigrateCommand extends Command
         $this->user_factory = $uf;
 
         $this->conf_trans = $conf_trans;
-        
+
         $this->helper = $helper;
 
         parent::__construct();
@@ -195,7 +196,7 @@ class MigrateCommand extends Command
             return 0;
 
         }
-        
+
         if ($input->getOption('from-git')) {
 
             $remote = $input->getOption('remote');
