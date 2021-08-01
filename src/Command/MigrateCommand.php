@@ -96,6 +96,10 @@ class MigrateCommand extends Command
             ['app:migrate', ['--update-all-sp' => true] ],
         ],
         '4cf8df846bc5bb6391660cf77401a93c171226f2' => [ ['app:migrate', ['--migrate-oracles' => true] ] ],
+        '2ce7f8222a95468ce4bf7b74cda62ef2c026307d' => [
+            ['app:debug', ['--add-animactor' => true] ],
+            ['app:migrate', ['--repair-permissions' => true] ],
+        ],
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
