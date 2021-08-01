@@ -203,7 +203,7 @@ class AdminActionController extends CustomAbstractController
     {
         /** @var User $user */
         $user = $this->getUser();
-        if (!$user || !$user->getValidated() || $user->getRightsElevation() < User::ROLE_CROW) {
+        if (!$user || !$user->getValidated() || $user->getRightsElevation() < User::USER_LEVEL_CROW) {
             $ts->setToken();
             return new AjaxResponse( ['success' => false ] );
         }

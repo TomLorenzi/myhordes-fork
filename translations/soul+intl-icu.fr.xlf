@@ -3780,5 +3780,27 @@
         <target>Dies ist eine Event-Stadt.</target>
       </segment>
     </unit>
+    <unit id="mupnQII" name="Animateur">
+      <notes>
+        <note category="german">Animateur</note>
+        <note category="from">twig:///templates/ajax/soul/badges.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Animateur</source>
+        <target>Animateur</target>
+      </segment>
+    </unit>
+    <unit id="9S5p0sP">
+      <notes>
+        <note category="german">Diese Karteikarte gehört einem Animateur. Animateure organisieren und koordinieren Community-Events.</note>
+        <note category="from">twig:///templates/ajax/soul/badges.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Diese Karteikarte gehört einem Animateur. Animateure organisieren und koordinieren Community-Events.</source>
+        <target>Diese Karteikarte gehört einem Animateur. Animateure organisieren und koordinieren Community-Events.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

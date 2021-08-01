@@ -139,14 +139,14 @@ class DebugCommand extends Command
                     $crow = $this->entity_manager->getRepository(User::class)->find(66);
                 }
 
-                if ($crow->getRightsElevation() > User::ROLE_USER || !strstr($crow->getEmail(), "@localhost") === "@localhost") {
+                if ($crow->getRightsElevation() > User::USER_LEVEL_BASIC || !strstr($crow->getEmail(), "@localhost") === "@localhost") {
                     $output->writeln('<error>User 66 is not a debug user. Will not proceed.</error>');
                     return -1;
                 }
                 $crow
                     ->setName("Der Rabe")
                     ->setEmail("crow")
-                    ->setRightsElevation(User::ROLE_CROW);
+                    ->setRightsElevation(User::USER_LEVEL_CROW);
 
                 $this->user_handler->setUserBaseAvatar($crow, file_get_contents("{$this->kernel->getProjectDir()}/assets/img/forum/crow/crow.png"), UserHandler::ImageProcessingPreferImagick, 'png', 100, 100);
                 $this->user_handler->setUserSmallAvatar($crow, file_get_contents("{$this->kernel->getProjectDir()}/assets/img/forum/crow/crow.small.png"));

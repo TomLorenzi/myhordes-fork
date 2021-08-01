@@ -18,6 +18,7 @@ use App\Entity\Picto;
 use App\Entity\PictoPrototype;
 use App\Entity\Season;
 use App\Entity\ShadowBan;
+use App\Entity\Town;
 use App\Entity\TownRankingProxy;
 use App\Entity\TwinoidImport;
 use App\Entity\TwinoidImportPreview;
@@ -141,8 +142,28 @@ class AdminUserController extends AdminActionController
         if (!$userHandler->admin_canAdminister( $this->getUser(), $user )) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         switch ($action) {
+            case 'permit_town_forum_access': case 'unpermit_town_forum_access':
+                if (!is_numeric($param) || !$userHandler->hasRole($user, 'ROLE_ANIMAC'))
+                    return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+                $town = $this->entity_manager->getRepository(Town::class)->find( $param );
+                if ($town === null || $town->getForum() === null)
+                    return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+                foreach ($town->getCitizens() as $citizen)
+                    if ($citizen->getAlive() && $citizen->getUser() === $user)
+                        return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+                $town_group = $this->entity_manager->getRepository(UserGroup::class)->findOneBy( ['type' => UserGroup::GroupTownInhabitants, 'ref1' => $town->getId()] );
+                if ($town_group === null)
+                    return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+                if ($action === 'permit_town_forum_access') $perm->associate( $user, $town_group );
+                else $perm->disassociate( $user, $town_group );
+                break;
+
             case 'validate':
-                if ($user->getValidated() || $user->getEternalID())
+                if ($user->getValidated())
                     return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
                 $pf = $this->entity_manager->getRepository(UserPendingValidation::class)->findOneByUserAndType($user, UserPendingValidation::EMailValidation);
                 if ($pf) {
@@ -155,7 +176,7 @@ class AdminUserController extends AdminActionController
                 break;
 
             case 'invalidate':
-                if (!$user->getValidated() || $user->getEternalID())
+                if (!$user->getValidated())
                     return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
                 $user->setValidated(false);
                 $perm->disassociate($user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultUserGroup ));
@@ -164,8 +185,6 @@ class AdminUserController extends AdminActionController
                 break;
 
             case 'refresh_tokens': case 'regen_tokens':
-                if ($user->getEternalID())
-                    return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
                 foreach ($this->entity_manager->getRepository(UserPendingValidation::class)->findByUser($user) as $pf) {
                     /** @var $pf UserPendingValidation */
                     if ($action === 'regen_tokens') $pf->generatePKey();
@@ -182,20 +201,17 @@ class AdminUserController extends AdminActionController
                 break;
 
             case 'overwrite_pw':
-                if (empty($param) || $user->getEternalID()) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+                if (empty($param)) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
                 $user->setPassword( $passwordEncoder->encodePassword( $user, $param ) );
                 $this->entity_manager->persist($user);
                 break;
 
             case 'change_mail':
-                if ($user->getEternalID()) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
                 $user->setEmail( $param ?? null );
                 $this->entity_manager->persist($user);
                 break;
 
             case 'delete_token':
-                if ($user->getEternalID())
-                    return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
                 /** @var $pv UserPendingValidation */
                 if (!$parser->has('tid') || ($pv = $this->entity_manager->getRepository(UserPendingValidation::class)->find((int)$parser->get('tid'))) === null)
                     return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
@@ -379,43 +395,58 @@ class AdminUserController extends AdminActionController
             case 'grant':
                 switch ($param) {
                     case 'NONE':
-                        $user->setRightsElevation( User::ROLE_USER );
-                        $perm->disassociate( $user, $perm->getDefaultGroup(UserGroup::GroupTypeDefaultOracleGroup));
+                        $user->setRightsElevation( User::USER_LEVEL_BASIC );
 
+                        $perm->disassociate( $user, $perm->getDefaultGroup(UserGroup::GroupTypeDefaultOracleGroup));
                         $perm->disassociate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultElevatedGroup ) );
                         $perm->disassociate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultModeratorGroup ) );
                         $perm->disassociate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultAdminGroup ) );
                         break;
-                    case 'ROLE_ORACLE':
-                        if ( $user->getRightsElevation() === User::ROLE_CROW )
-                            $user->setRightsElevation( User::ROLE_ORACLE );
-                        else $user->setRightsElevation( max($user->getRightsElevation(), User::ROLE_ORACLE) );
-                        $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultElevatedGroup ) );
-                        $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultOracleGroup));
-                        $perm->disassociate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultModeratorGroup ) );
-                        $perm->disassociate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultAdminGroup ) );
-                        break;
+
                     case 'ROLE_CROW':
-                        $user->setRightsElevation( max($user->getRightsElevation(), User::ROLE_CROW) );
+                        $user->setRightsElevation( max($user->getRightsElevation(), User::USER_LEVEL_CROW) );
+                        $user->removeRoleFlag( User::USER_ROLE_ORACLE | User::USER_ROLE_ANIMAC );
+
                         $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultElevatedGroup ) );
-                        $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultOracleGroup));
+                        $perm->disassociate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultOracleGroup));
                         $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultModeratorGroup ) );
                         $perm->disassociate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultAdminGroup ) );
                         break;
-                    case 'ROLE_ADMIN':
-                        $user->setRightsElevation( max($user->getRightsElevation(), User::ROLE_ADMIN) );
+                    case 'ROLE_ADMIN': case 'ROLE_SUPER':
+                        $user->setRightsElevation( max($user->getRightsElevation(), $param === 'ROLE_ADMIN' ? User::USER_LEVEL_ADMIN : User::USER_LEVEL_SUPER) );
+
                         $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultElevatedGroup ) );
                         $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultOracleGroup));
                         $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultModeratorGroup ) );
                         $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultAdminGroup ) );
                         break;
-                    case 'ROLE_SUPER':
-                        $user->setRightsElevation( max($user->getRightsElevation(), User::ROLE_SUPER) );
-                        $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultElevatedGroup ) );
+
+                    case 'FLAG_ORACLE':
+                        if ( $user->getRightsElevation() === User::USER_LEVEL_CROW )
+                            return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+                        else $user->addRoleFlag( User::USER_ROLE_ORACLE );
+
                         $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultOracleGroup));
-                        $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultModeratorGroup ) );
-                        $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultAdminGroup ) );
                         break;
+
+                    case '!FLAG_ORACLE':
+                        $user->removeRoleFlag( User::USER_ROLE_ORACLE );
+                        $perm->disassociate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultOracleGroup));
+                        break;
+
+                    case 'FLAG_ANIMAC':
+                        if ( $user->getRightsElevation() === User::USER_LEVEL_CROW )
+                            return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+                        else $user->addRoleFlag( User::USER_ROLE_ANIMAC );
+
+                        //$perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultOracleGroup));
+                        break;
+
+                    case '!FLAG_ANIMAC':
+                        $user->removeRoleFlag( User::USER_ROLE_ANIMAC );
+                        //$perm->disassociate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultOracleGroup));
+                        break;
+
                     default: breaK;
                 }
                 $this->entity_manager->persist($user);
@@ -659,10 +690,9 @@ class AdminUserController extends AdminActionController
             case 'et': $users = $em->getRepository(User::class)->findBy(['eternalID' => $searchName]); break; // EternalTwin ID
             case 'v0': $users = $em->getRepository(User::class)->findBy(['validated' => false]); break; // Non-validated
             case 'x':  $users = $em->getRepository(User::class)->findAboutToBeDeleted(); break; // Non-validated
-            case 'ro': $users = $em->getRepository(User::class)->findBy(['rightsElevation' => [User::ROLE_ORACLE]]); break; // Is Oracle
-            case 'rc': $users = $em->getRepository(User::class)->findBy(['rightsElevation' => [User::ROLE_CROW]]);   break; // Is Crow
-            case 'ra': $users = $em->getRepository(User::class)->findBy(['rightsElevation' => [User::ROLE_ADMIN, User::ROLE_SUPER]]);  break; // Is Admin
-            case 'rb': $users = $em->getRepository(User::class)->findBy(['rightsElevation' => [User::ROLE_SUPER]]);  break; // Is Brainbox
+            case 'rc': $users = $em->getRepository(User::class)->findBy(['rightsElevation' => [User::USER_LEVEL_CROW]]);   break; // Is Crow
+            case 'ra': $users = $em->getRepository(User::class)->findBy(['rightsElevation' => [User::USER_LEVEL_ADMIN, User::USER_LEVEL_SUPER]]);  break; // Is Admin
+            case 'rb': $users = $em->getRepository(User::class)->findBy(['rightsElevation' => [User::USER_LEVEL_SUPER]]);  break; // Is Brainbox
             default: $users = [];
         }
 
