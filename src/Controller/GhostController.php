@@ -75,7 +75,7 @@ class GhostController extends CustomAbstractController
             'cdm_level'          => $cdm_lock ? 2 : ( $cdm_warn ? 1 : 0 ),
             'townClasses' => $em->getRepository(TownClass::class)->findAll(),
             'userCanJoin' => $this->getUserTownClassAccess($this->conf->getGlobalConf()),
-            'canCreateTown' => $this->user_handler->hasSkill($user, 'mayor') || $user->getRightsElevation() >= User::ROLE_CROW,
+            'canCreateTown' => $this->user_handler->hasSkill($user, 'mayor') || $user->getRightsElevation() >= User::USER_LEVEL_CROW,
         ] ));
     }
 
@@ -125,7 +125,7 @@ class GhostController extends CustomAbstractController
         if ($em->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
             return $this->redirect($this->generateUrl( 'soul_death' ));
 
-        if(!$this->user_handler->hasSkill($user, 'mayor') && $user->getRightsElevation() < User::ROLE_CROW){
+        if(!$this->user_handler->hasSkill($user, 'mayor') && $user->getRightsElevation() < User::USER_LEVEL_CROW){
             return $this->redirect($this->generateUrl( 'initial_landing' ));
         }
 
@@ -153,7 +153,7 @@ class GhostController extends CustomAbstractController
         if ($em->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
             return AjaxResponse::success( true, ['url' => $this->generateUrl('soul_death')] );
 
-        if(!$this->user_handler->hasSkill($user, 'mayor') && $user->getRightsElevation() < User::ROLE_CROW){
+        if(!$this->user_handler->hasSkill($user, 'mayor') && $user->getRightsElevation() < User::USER_LEVEL_CROW){
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable, ['url' => $this->generateUrl('initial_landing')] );
         }
 

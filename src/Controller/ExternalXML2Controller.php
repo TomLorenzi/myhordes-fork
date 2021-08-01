@@ -319,7 +319,7 @@ class ExternalXML2Controller extends ExternalController {
             $data['error']['attributes'] = ['code' => "not_in_game"];
             $data['status']['attributes'] = ['open' => "1", "msg" => ""];
         } else {
-            if ($user->getRightsElevation() >= User::ROLE_ADMIN && $request->query->has('town')) {
+            if ($user->getRightsElevation() >= User::USER_LEVEL_ADMIN && $request->query->has('town')) {
                 $town = $this->entity_manager->getRepository(Town::class)->find($request->query->get('town'));
                 if ($town === null) {
                     $data['error']['attributes'] = ['code' => "town_not_found"];

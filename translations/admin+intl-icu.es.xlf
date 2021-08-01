@@ -3778,7 +3778,6 @@
       <notes>
         <note category="german">Event-Markierung entfernen</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Event-Markierung entfernen</source>
@@ -3789,11 +3788,76 @@
       <notes>
         <note category="german">Als Event-Stadt markieren</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Als Event-Stadt markieren</source>
         <target>Marcar como pueblo de evento</target>
+      </segment>
+    </unit>
+    <unit id="7npTNxR" name="Funktionen für Spezialrollen">
+      <notes>
+        <note category="german">Funktionen für Spezialrollen</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Funktionen für Spezialrollen</source>
+        <target>Funktionen für Spezialrollen</target>
+      </segment>
+    </unit>
+    <unit id="nG1VP4R" name="Stadt-ID eingeben.">
+      <notes>
+        <note category="german">Stadt-ID eingeben.</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Stadt-ID eingeben.</source>
+        <target>Stadt-ID eingeben.</target>
+      </segment>
+    </unit>
+    <unit id="NIAMEKG" name="Zugang zu Stadtforum gewähren">
+      <notes>
+        <note category="german">Zugang zu Stadtforum gewähren</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Zugang zu Stadtforum gewähren</source>
+        <target>Zugang zu Stadtforum gewähren</target>
+      </segment>
+    </unit>
+    <unit id="3PvUorI" name="Zugang zu Stadtforum entziehen">
+      <notes>
+        <note category="german">Zugang zu Stadtforum entziehen</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Zugang zu Stadtforum entziehen</source>
+        <target>Zugang zu Stadtforum entziehen</target>
+      </segment>
+    </unit>
+    <unit id="K8iqUB2" name="Spezialrollen">
+      <notes>
+        <note category="german">Spezialrollen</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Spezialrollen</source>
+        <target>Spezialrollen</target>
+      </segment>
+    </unit>
+    <unit id="mupnQII" name="Animateur">
+      <notes>
+        <note category="german">Animateur</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Animateur</source>
+        <target>Animateur</target>
       </segment>
     </unit>
   </file>

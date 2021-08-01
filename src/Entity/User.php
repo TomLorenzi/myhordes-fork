@@ -29,11 +29,13 @@ use Symfony\Component\Security\Core\User\UserInterface;
 class User implements UserInterface, EquatableInterface
 {
 
-    const ROLE_USER      =  0;
-    const ROLE_ORACLE    =  2;
-    const ROLE_CROW      =  3;
-    const ROLE_ADMIN     =  4;
-    const ROLE_SUPER     =  5;
+    const USER_LEVEL_BASIC  =  0;
+    const USER_LEVEL_CROW   =  3;
+    const USER_LEVEL_ADMIN  =  4;
+    const USER_LEVEL_SUPER  =  5;
+
+    const USER_ROLE_ORACLE = 1 << 0;
+    const USER_ROLE_ANIMAC = 1 << 1;
 
     const PRONOUN_NONE = 0;
     const PRONOUN_MALE = 1;
@@ -279,6 +281,11 @@ class User implements UserInterface, EquatableInterface
      */
     private $pendingEmail;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $roleFlag = 0;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -397,10 +404,12 @@ class User implements UserInterface, EquatableInterface
         $roles = [];
         if ($this->pass === null && $this->getEternalID() === null) return $roles;
 
-        if     ($this->rightsElevation >= self::ROLE_SUPER)  $roles[] = 'ROLE_SUPER';
-        elseif ($this->rightsElevation >= self::ROLE_ADMIN)  $roles[] = 'ROLE_ADMIN';
-        elseif ($this->rightsElevation >= self::ROLE_CROW)   $roles[] = 'ROLE_CROW';
-        elseif ($this->rightsElevation >= self::ROLE_ORACLE) $roles[] = 'ROLE_ORACLE';
+        if     ($this->rightsElevation >= self::USER_LEVEL_SUPER)  $roles[] = 'ROLE_SUPER';
+        elseif ($this->rightsElevation >= self::USER_LEVEL_ADMIN)  $roles[] = 'ROLE_ADMIN';
+        elseif ($this->rightsElevation >= self::USER_LEVEL_CROW)   $roles[] = 'ROLE_CROW';
+
+        if ($this->hasRoleFlag( self::USER_ROLE_ORACLE )) $roles[] = 'ROLE_ORACLE';
+        if ($this->hasRoleFlag( self::USER_ROLE_ANIMAC )) $roles[] = 'ROLE_ANIMAC';
 
         if (strstr($this->email, "@localhost") === "@localhost") $roles[] = 'ROLE_DUMMY';
         if ($this->email === 'crow') $roles[] = 'ROLE_CROW';
@@ -1128,5 +1137,31 @@ class User implements UserInterface, EquatableInterface
         $this->pendingEmail = $pendingEmail;
 
         return $this;
+    }
+
+    public function getRoleFlag(): ?int
+    {
+        return $this->roleFlag;
+    }
+
+    public function setRoleFlag(int $roleFlag): self
+    {
+        $this->roleFlag = $roleFlag;
+
+        return $this;
+    }
+
+    public function addRoleFlag(int $roleFlag): self {
+        $this->setRoleFlag( $this->getRoleFlag() | $roleFlag );
+        return $this;
+    }
+
+    public function removeRoleFlag(int $roleFlag): self {
+        $this->setRoleFlag( $this->getRoleFlag() & ~$roleFlag );
+        return $this;
+    }
+
+    public function hasRoleFlag(int $roleFlag): bool {
+        return ($this->getRoleFlag() & $roleFlag) === $roleFlag;
     }
 }

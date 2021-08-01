@@ -94,7 +94,8 @@ class MigrateCommand extends Command
         '513ee3a0646478cf5d9bf363a47f2da56fa0cdca' => [
             ['app:migrate', ['--repair-proxies' => true] ],
             ['app:migrate', ['--update-all-sp' => true] ],
-        ]
+        ],
+        '4cf8df846bc5bb6391660cf77401a93c171226f2' => [ ['app:migrate', ['--migrate-oracles' => true] ] ],
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
@@ -117,7 +118,7 @@ class MigrateCommand extends Command
         $this->user_factory = $uf;
 
         $this->conf_trans = $conf_trans;
-        
+
         $this->helper = $helper;
 
         parent::__construct();
@@ -171,6 +172,7 @@ class MigrateCommand extends Command
             ->addOption('update-all-sp', null, InputOption::VALUE_NONE, '')
 
             ->addOption('repair-permissions', null, InputOption::VALUE_NONE, 'Makes sure forum permissions and user groups are set up properly')
+            ->addOption('migrate-oracles', null, InputOption::VALUE_NONE, 'Moves the Oracle role from account elevation to the special permissions flag')
             ->addOption('repair-restrictions', null, InputOption::VALUE_NONE, '')
             ->addOption('count-admin-reports', null, InputOption::VALUE_NONE, '')
             ->addOption('set-icu-pref', null, InputOption::VALUE_NONE, '')
@@ -194,7 +196,7 @@ class MigrateCommand extends Command
             return 0;
 
         }
-        
+
         if ($input->getOption('from-git')) {
 
             $remote = $input->getOption('remote');
@@ -338,7 +340,7 @@ class MigrateCommand extends Command
 
                 $new_user = $this->user_factory->createUser( $name, $mail, $password1, true, $error );
                 if ($error !== UserFactory::ErrorNone) return -$error;
-                $new_user->setRightsElevation(User::ROLE_SUPER);
+                $new_user->setRightsElevation(User::USER_LEVEL_SUPER);
                 $this->entity_manager->persist($new_user);
                 $this->entity_manager->flush();
 
@@ -962,7 +964,7 @@ class MigrateCommand extends Command
             foreach ($all_users as $current_user) {
 
                 if ($current_user->getValidated()) $fun_assoc($current_user, $g_users); else $fun_dis_assoc($current_user, $g_users);
-                if ($current_user->getRightsElevation() > User::ROLE_USER) $fun_assoc($current_user, $g_elev); else $fun_dis_assoc($current_user, $g_elev);
+                if ($current_user->getRightsElevation() > User::USER_LEVEL_BASIC) $fun_assoc($current_user, $g_elev); else $fun_dis_assoc($current_user, $g_elev);
                 if ($this->user_handler->hasRole($current_user, "ROLE_ORACLE")) $fun_assoc($current_user, $g_oracle); else $fun_dis_assoc($current_user, $g_oracle);
                 if ($this->user_handler->hasRole($current_user, "ROLE_CROW"))   $fun_assoc($current_user, $g_mods); else $fun_dis_assoc($current_user, $g_mods);
                 if ($this->user_handler->hasRole($current_user, "ROLE_ADMIN"))  $fun_assoc($current_user, $g_admin); else $fun_dis_assoc($current_user, $g_admin);
@@ -978,9 +980,15 @@ class MigrateCommand extends Command
                 }
 
                 foreach ($all_users as $current_user) {
-                    if ($current_user->getAliveCitizen() && $current_user->getAliveCitizen()->getTown() === $current_town)
-                        $fun_assoc($current_user, $town_group);
-                    else $fun_dis_assoc($current_user, $town_group);
+                    $assoc = false; $allow = false;
+
+                    if ($this->user_handler->hasRole( $current_user, 'ROLE_ANIMAC' )) $allow = true;
+                    foreach ( $current_user->getCitizens()->filter(fn(Citizen $c) => $c->getAlive() ) as $alive_citizen )
+                            if ($alive_citizen->getTown() === $current_town)
+                                $assoc = true;
+
+                    if ($assoc) $fun_assoc($current_user, $town_group);
+                    elseif (!$allow) $fun_dis_assoc($current_user, $town_group);
                 }
             }
 
@@ -1012,6 +1020,14 @@ class MigrateCommand extends Command
             $this->entity_manager->flush();
             return 0;
 
+        }
+
+        if ($input->getOption('migrate-oracles')) {
+            $this->helper->leChunk($output, User::class, 5000, ['rightsElevation' => 2], false, true, function(User $user) {
+                $user->setRightsElevation(0)->addRoleFlag(User::USER_ROLE_ORACLE);
+            });
+
+            return 0;
         }
 
         return 99;
