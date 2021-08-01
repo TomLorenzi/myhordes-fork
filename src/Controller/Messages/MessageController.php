@@ -92,7 +92,7 @@ class MessageController extends CustomAbstractController
         if ($post instanceof Post) {
             $post->setSearchText( strip_tags( $tx ) );
 
-            if ($post->getType() !== 'CROW' && $forum !== null && $forum->getTown()){
+            if ($post->getType() !== 'CROW' && $post->getType() !== 'ANIM' && $forum !== null && $forum->getTown()){
                 $citizen = $user->getActiveCitizen();
                 if ($citizen && $citizen->getTown() === $forum->getTown()) {
 

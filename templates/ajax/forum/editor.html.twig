@@ -222,15 +222,20 @@
         </div>
         <div class="row">
             <div class="padded cell rw-12 right">
-                {% if forum and (permission.post_as_crow() or permission.post_as_dev()) and pid is null %}
+                {% if forum and (permission.alt_post_mode()) and pid is null %}
                     <div id="crowpost" class="forum-checkbox">
-                        <input class="forum-checkbox" type="radio" id="radio-user" name="post-type" value="USER" {% if app.user.postAsDefault != "DEV" %}checked{% endif %}>
-                        {% if permission.post_as_crow() %}
-                            <input class="forum-checkbox" type="radio" id="radio-crow" name="post-type" value="CROW">
-                        {% endif %}
-                        {% if permission.post_as_dev() %}
-                            <input class="forum-checkbox" type="radio" id="radio-dev" name="post-type" value="DEV" {% if app.user.postAsDefault == "DEV" %}checked{% endif %}>
-                        {% endif %}
+                        <div>
+                            <input class="forum-checkbox" type="radio" id="radio-user" name="post-type" value="USER" x-display-as="{{ app.user.name }}" {% if app.user.postAsDefault != "DEV" %}checked{% endif %}>
+                            {% if permission.post_as_animacteur() %}
+                                <input class="forum-checkbox" type="radio" id="radio-anim" name="post-type" value="ANIM" x-display-as="{{ 'Animateur'|trans({},'admin') }}">
+                            {% endif %}
+                            {% if permission.post_as_crow() %}
+                                <input class="forum-checkbox" type="radio" id="radio-crow" name="post-type" value="CROW" x-display-as="{{ 'Der Rabe'|trans({},'global') }}">
+                            {% endif %}
+                            {% if permission.post_as_dev() %}
+                                <input class="forum-checkbox" type="radio" id="radio-dev" name="post-type" value="DEV" x-display-as="{{ 'Entwickler'|trans({},'global') }}" {% if app.user.postAsDefault == "DEV" %}checked{% endif %}>
+                            {% endif %}
+                        </div>
                         <span id="crow_answer_content">{% if not permission.post_as_dev() or app.user.postAsDefault != "DEV" %}{{ app.user.name }}{% else %}{{ 'Dev'|trans({},'global') }}{% endif %}</span>
                     </div>
                 {% endif %}
@@ -589,39 +594,17 @@
 
             // Post as crow toggle
             {% if (permission.post_as_dev() or permission.post_as_crow()) and forum and not pid %}
-            function changeHandler(){
-                switch (document.querySelector("input[name=post-type]:checked").value) {
-                    case "USER":
-                        document.getElementById("radio-user").checked = false;
-                    {% if permission.post_as_crow() %}
-                        document.getElementById("radio-crow").checked = true;
-                        document.getElementById('crow_answer_content').innerHTML = "{{ 'Rabe'|trans({},'global') }}";
-                    {% elseif permission.post_as_dev() %}
-                        document.getElementById("radio-dev").checked = true;
-                        document.getElementById('crow_answer_content').innerHTML = "{{ 'Dev'|trans({},'global') }}";
-                    {% else %}
-                        document.getElementById("radio-user").checked = true;
-                        document.getElementById('crow_answer_content').innerHTML = "{{ app.user.name }}";
-                    {% endif %}
-                        break;
-                    case "CROW":
-                        document.getElementById("radio-crow").checked = false;
-                    {% if permission.post_as_dev() %}
-                        document.getElementById("radio-dev").checked = true;
-                        document.getElementById('crow_answer_content').innerHTML = "{{ 'Dev'|trans({},'global') }}";
-                    {% else %}
-                        document.getElementById("radio-user").checked = true;
-                        document.getElementById('crow_answer_content').innerHTML = "{{ app.user.name }}";
-                    {% endif %}
-                        break;
-                    case "DEV":
-                        document.getElementById("radio-dev").checked = false;
-                        document.getElementById("radio-user").checked = true;
-                        document.getElementById('crow_answer_content').innerHTML = "{{ app.user.name }}";
-                        break;
+                function changeHandler(){
+                    let current_option = document.querySelector("input[name=post-type]:checked");
+                    if (current_option === null) current_option = document.querySelector("input[name=post-type]").parentElement.firstElementChild;
+                    let next_option = current_option.nextElementSibling ? current_option.nextElementSibling : current_option.parentElement.firstElementChild;
+
+                    if (next_option === current_option) return;
+                    current_option.checked = false;
+                    next_option.checked = true;
+                    document.getElementById('crow_answer_content').innerText = next_option.getAttribute('x-display-as') ? next_option.getAttribute('x-display-as') : next_option.value;
                 }
-            }
-            document.getElementById('crowpost').addEventListener('click', changeHandler);
+                document.getElementById('crowpost').addEventListener('click', changeHandler);
             {% endif %}
 
             {% if type != 'numb' %}

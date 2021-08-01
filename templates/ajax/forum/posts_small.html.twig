@@ -6,8 +6,12 @@
         {% for post in posts %}
             {% if not post.hidden or is_granted("ROLE_CROW") %}
                 {% set variant = null %}
-                {% if post.owner.name == 'Der Rabe' or post.type == "CROW" %}{% set variant = 'crow' %}{% endif %}
-                {% if post.type == "DEV" %}{% set variant = 'dev' %}{% endif %}
+                {% if post.owner.name == 'Der Rabe' %}{% set variant = 'crow' %}
+                {% elseif post.type != "USER" and post.type is not null %}{% set variant = post.type|lower %}{% endif %}
+
+                {% set author_name = town and post.owner.citizenFor(town) ? post.owner.citizenFor(town).name : post.owner.name %}
+                {% if post.owner.name == 'Der Rabe' %}{% set author_name = 'Der Rabe'|trans({},'global') %}
+                {% elseif post.owner.name == 'Animateur-Team' %}{% set author_name = 'Animateur-Team'|trans({},'global') %}{% endif %}
 
                 <div class="forum-post forum-post-small {% if variant is not null %}forum-post-variant-{{ variant }}{% endif %} {% if not post.hidden %}{% else %}forum-post-hidden{% endif %} {% if post.new %}forum-post-new{% endif %} {% if markedPost is defined and post.id == markedPost %}forum-post-marked{% endif %}" id="{{post.id}}">
                     <div class="forum-post-content">
@@ -18,20 +22,7 @@
                         {% else %}
                             <div class="avatar small ua-{{ random(0,9) }}"><img alt="" src="{{ asset('build/images/forum/empty_avatar.gif') }}"></div>
                         {% endif %}
-                        <b>
-                            {% if post.owner.name == 'Der Rabe' %}
-                                {% set displayName = 'Der Rabe'|trans({},'global') %}
-                            {% elseif post.type == "DEV" %}
-                                {% set displayName = post.owner.name %}
-                            {% else %}
-                                {% if town and post.owner.citizenFor(town) %}
-                                    {% set displayName = post.owner.citizenFor(town).name %}
-                                {% else %}
-                                    {% set displayName = post.owner.name %}
-                                {% endif %}
-                            {% endif %}
-                            <a class="link" href="{{ path('soul_visit', {id: post.owner.id}) }}">{{ displayName }}:</a>
-                        </b>
+                        <b><a class="link" href="{{ path('soul_visit', {id: post.owner.id}) }}">{{ author_name }}:</a></b>
                         {{ post.translate ? (post.text|trans({},'game')|raw) : (post.text|raw) }}
                         {% if not post.translate and paranoid and post.owner.name != 'Der Rabe' %}
                             {% set mode = (app.user.id + post.id + post.owner.id) % 12 %}

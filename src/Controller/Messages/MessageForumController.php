@@ -243,6 +243,7 @@ class MessageForumController extends MessageController
 
         $type = $parser->get('type') ?? 'USER';
         $valid = ['USER'];
+        if ($this->perm->isPermitted( $permission, ForumUsagePermissions::PermissionPostAsAnim )) $valid[] = 'ANIM';
         if ($this->perm->isPermitted( $permission, ForumUsagePermissions::PermissionPostAsCrow )) $valid[] = 'CROW';
         if ($this->perm->isPermitted( $permission, ForumUsagePermissions::PermissionPostAsDev )) $valid[] = 'DEV';
         if (!in_array($type, $valid)) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
@@ -252,8 +253,13 @@ class MessageForumController extends MessageController
 
         $thread = (new Thread())->setTitle( $title )->setOwner($user);
 
+        $map_type = [
+            'CROW' => 66,
+            'ANIM' => 67,
+        ];
+
         $post = (new Post())
-            ->setOwner( $type === "CROW" ? $this->entity_manager->getRepository(User::class)->find(66) : $user )
+            ->setOwner( isset($map_type[$type]) ? $this->entity_manager->getRepository(User::class)->find($map_type[$type]) : $user )
             ->setText( $text )
             ->setDate( new DateTime('now') )
             ->setType($type)
@@ -428,12 +434,18 @@ class MessageForumController extends MessageController
 
         $type = $parser->get('type') ?? 'USER';
         $valid = ['USER'];
+        if ($this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionPostAsAnim )) $valid[] = 'ANIM';
         if ($this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionPostAsCrow )) $valid[] = 'CROW';
         if ($this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionPostAsDev )) $valid[] = 'DEV';
         if (!in_array($type, $valid)) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
+        $map_type = [
+            'CROW' => 66,
+            'ANIM' => 67
+        ];
+
         $post = (new Post())
-            ->setOwner( $type === "CROW" ? $this->entity_manager->getRepository(User::class)->find(66) : $user )
+            ->setOwner( isset($map_type[$type]) ? $this->entity_manager->getRepository(User::class)->find($map_type[$type]) : $user )
             ->setText( $text )
             ->setDate( new DateTime('now') )
             ->setType($type)
@@ -545,6 +557,9 @@ class MessageForumController extends MessageController
         $mod_permissions = $thread->hasReportedPosts() && $this->perm->isPermitted($permission, ForumUsagePermissions::PermissionModerate);
 
         if ($post->getOwner()->getId() === 66 && !$this->perm->isPermitted($permission, ForumUsagePermissions::PermissionPostAsCrow | ForumUsagePermissions::PermissionEditPost))
+            return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+
+        if ($post->getOwner()->getId() === 67 && !$this->perm->isPermitted($permission, ForumUsagePermissions::PermissionPostAsAnim | ForumUsagePermissions::PermissionEditPost))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         if ((($post->getOwner() !== $user && $post->getOwner()->getId() !== 66) || !$post->isEditable()) && !$mod_permissions && !$this->perm->isPermitted($permission, ForumUsagePermissions::PermissionModerate | ForumUsagePermissions::PermissionEditPost) )
@@ -1002,8 +1017,8 @@ class MessageForumController extends MessageController
         $post = null;
         if ($pid !== null) {
             $post = $em->getRepository(Post::class)->find((int)$pid);
-            if (!$post || (!$post->isEditable() && !$this->isGranted("ROLE_CROW")) || $post->getThread() !== $thread || (
-                (($post->getOwner() !== $user && !$this->isGranted("ROLE_CROW")) && !($this->isGranted("ROLE_CROW") && $post->getOwner()->getId() === 66))
+            if (!$post || (!$post->isEditable() && !$this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate )) || $post->getThread() !== $thread || (
+                (($post->getOwner() !== $user && !$this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate )) && !($this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionPostAsCrow ) && $post->getOwner()->getId() === 66) && !($this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionPostAsAnim ) && $post->getOwner()->getId() === 67))
                 )) return new Response('');
         }
 

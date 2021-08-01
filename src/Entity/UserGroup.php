@@ -17,6 +17,7 @@ class UserGroup
     const GroupTypeDefaultModeratorGroup = 3;
     const GroupTypeDefaultAdminGroup = 4;
     const GroupTypeDefaultOracleGroup = 5;
+    const GroupTypeDefaultAnimactorGroup = 6;
 
     const GroupTownInhabitants = 10;
 
