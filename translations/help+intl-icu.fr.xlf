@@ -669,7 +669,7 @@
       </notes>
       <segment>
         <source>Alle gefundenen Gegenstände können mit anderen Spielern geteilt werden. Vielleicht besitzt dein Nachbar ja genau die Schraube, die dir für deine Kettensäge noch fehlt. Dein Überleben hängt im entscheidendem Maße davon ab, wie gut die Kooperation und Organisation in deiner Stadt funktioniert. Das Hauptkommunikationsmittel ist ein stadtinternes Forum.</source>
-        <target>Les trouvailles des Citoyens peuvent être partagées. Peut être que votre voisin possède la Vis qu'il manque à votre Tronçonneuse ? Votre survie dépend de votre faculté à vous organiser ou à utiliser la communauté...</target>
+        <target>Les trouvailles des Citoyens peuvent être partagées. Peut-être que votre voisin possède la Vis qu'il manque à votre Tronçonneuse ? Votre survie dépend de votre faculté à vous organiser ou à utiliser la communauté...</target>
       </segment>
     </unit>
     <unit id="YjauAVu" name="Welche Aufgaben muss ich tagtäglich erledigen?">
@@ -2239,7 +2239,7 @@ sind &lt;strong&gt;nicht auf 90%&lt;/strong&gt; beschränkt.</source>
       </notes>
       <segment>
         <source>Eine oben auf der Seite platzierte Anzeige verrät dir mit einem Blick deinen aktuellen Gesundheitszustand und sagt dir, ob du etwas trinken musst, ob du verletzt bist usw. ...</source>
-        <target>Vous y apprendrez en un coup d'œil si vous avez besoin de boire, vous soigner, etc...</target>
+        <target>Vous y apprendrez en un coup d'œil si vous avez besoin de boire, vous soigner, etc.</target>
       </segment>
     </unit>
     <unit id="OAnJvWx" name="Erschöpfung">
@@ -3501,7 +3501,7 @@ Es basiert auf folgenden zwei Konzepten:</source>
       </notes>
       <segment>
         <source>Die Koalition wird gebildet, sobald ihr 5 Spieler beigetreten sind. Die Spieler können anschließend Strategien besprechen, etc...</source>
-        <target>Une fois que 5 joueurs ont rejoint la coalition, ils peuvent discuter entre eux, définir des stratégies, etc...</target>
+        <target>Une fois que 5 joueurs ont rejoint la coalition, ils peuvent discuter entre eux, définir des stratégies, etc.</target>
       </segment>
     </unit>
     <unit id="yr8y3nx">
@@ -4688,7 +4688,7 @@ Von diesem Moment an verfügt der neue Anführer über besondere Fähigkeiten, d
 In der ersten Nacht in der Stadt und nach dem Tod jedes nachfolgenden Führers (ja, es ist ein gefährlicher Job) wird eine Wahl abgehalten.
 Während dieser Manifestation der Demokratie wird eine Debatte stattfinden und die Abstimmung wird folgen. Am Ende wird der... qualifizierteste... Bürger ausgewählt, um eine Zielscheibe, ich meine Hut zu tragen...
 Von diesem Moment an verfügt der neue Anführer über besondere Fähigkeiten, die er zum Wohle der Stadt nutzen kann.</source>
-        <target>En se faisant élire ! Lors de la première nuit, et à chaque mort du Guide de l'Outre-Monde, une nouvelle assemblée citoyenne aura lieu. Durant cette assemblée, un débat prend place et l'assemblée termine par un vote, attribuant au citoyen le plus "qualifié" le titre de Guide de l'Outre-Monde. A partir de ce moment là, ce citoyen se voit attribuer des actions spécifiques qu'il pourra exploiter.</target>
+        <target>En se faisant élire ! Lors de la première nuit, et à chaque mort du Guide de l'Outre-Monde, une nouvelle assemblée citoyenne aura lieu. Durant cette assemblée, un débat prend place et l'assemblée termine par un vote, attribuant au citoyen le plus "qualifié" le titre de Guide de l'Outre-Monde. À partir de ce moment là, ce citoyen se voit attribuer des actions spécifiques qu'il pourra exploiter.</target>
       </segment>
     </unit>
     <unit id="9tmUsfs">
@@ -4730,7 +4730,7 @@ Der Schamane weiß, wie man das Nutzlose nutzt und wie man eine nützlichere Rei
       </notes>
       <segment>
         <source>In der ersten Nacht und jedes Mal, wenn der Schamane stirbt, findet ein Stadttreffen statt. Während dieses Treffens findet eine Debatte statt und nach vielem Streiten, Ausweichen vor Verantwortung und zweifellos Trinken wird der ... "qualifizierteste" Bewohner als Schamane bezeichnet! Von diesem Moment an wird der Schamane Zugang zu neuen Kräften und neuen "Punkten" haben.</source>
-        <target>Lors de la première nuit, et à chaque mort du chaman, une nouvelle assemblée citoyenne aura lieu. Durant cette assemblée, un débat prend place et l'assemblée termine par un vote, attribuant au citoyen le plus "qualifié" le titre de "Chaman" ! A partir de ce moment là, ce citoyen se voit attribuer des actions spécifiques qu'il pourra exploiter grâce à ses points de charlatanisme quotidiens.</target>
+        <target>Lors de la première nuit, et à chaque mort du chaman, une nouvelle assemblée citoyenne aura lieu. Durant cette assemblée, un débat prend place et l'assemblée termine par un vote, attribuant au citoyen le plus "qualifié" le titre de "Chaman" ! À partir de ce moment là, ce citoyen se voit attribuer des actions spécifiques qu'il pourra exploiter grâce à ses points de charlatanisme quotidiens.</target>
       </segment>
     </unit>
     <unit id="lX6N9d4" name="Ich bin der Schamane, was mache ich?">
@@ -5054,7 +5054,7 @@ Der Schamane kann:</source>
       </notes>
       <segment>
         <source>Jede neue Stadt beginnt mit 3 Bauplänen "gratis", die sich irgendwo in der Außenwelt befinden. Diese Blaupausen befinden sich in Truhen, im Gegensatz zu denen, die Sie beim Graben finden können. Alles was Sie tun müssen, ist es zu finden!</source>
-        <target>chaque nouvelle ville commence avec des plans "gratuits" posés dans des coffres quelque part dans l'Outre-Monde. Ces plans diffèrent de ceux trouvés lors des fouilles, car ils sont déjà révélés, posés à même le sol. A vous de les localiser !</target>
+        <target>chaque nouvelle ville commence avec des plans "gratuits" posés dans des coffres quelque part dans l'Outre-Monde. Ces plans diffèrent de ceux trouvés lors des fouilles, car ils sont déjà révélés, posés à même le sol. À vous de les localiser !</target>
       </segment>
     </unit>
     <unit id="ZfnVioE" name="Normale Karte: 3 seltene Pläne + 1 sehr seltener Plan">

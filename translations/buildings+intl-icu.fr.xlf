@@ -2981,7 +2981,7 @@
       </notes>
       <segment>
         <source>Das wird den Zombies Beine machen - oder besser: ausreißen!</source>
-        <target>Ca ne tuera pas les zombies, mais ça les stoppera dans leur avancée !</target>
+        <target>Ça ne tuera pas les zombies, mais ça les stoppera dans leur avancée !</target>
       </segment>
     </unit>
     <unit id="CQJhZS8" name="Dynamit, Zombies, Blut.">
@@ -3071,7 +3071,7 @@
       </notes>
       <segment>
         <source>Ein Schießstand mit Wasserpistolen, der wohl aus den Überresten eines Rummels geborgen wurde. Er zaubert eurer Nachtwache ein Lächeln ins Gesicht - damit schickt ihr sicher einen netten Schauer die Mauer runter! Verleiht jeder Wasserwaffe, die auf der Wacht genutzt wird, einen 20% Bonus.</source>
-        <target>Une tourelle de tir au ballon d'eau, peu maniable, elle aura un succès fou sur un rempart, ce sont les veilleurs qui vont être content. Elle apporte +20% de défense aux armes à eau équipées lors d'une veille.</target>
+        <target>Une tourelle de tir au ballon d'eau, peu maniable, elle aura un succès fou sur un rempart, ce sont les veilleurs qui vont être contents. Elle apporte +20% de défense aux armes à eau équipées lors d'une veille.</target>
       </segment>
     </unit>
     <unit id="xm64u3P">
