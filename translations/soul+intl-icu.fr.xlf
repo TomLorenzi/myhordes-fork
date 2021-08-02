@@ -3788,7 +3788,7 @@
       </notes>
       <segment>
         <source>Animateur</source>
-        <target>Animateur</target>
+        <target>Animacteur</target>
       </segment>
     </unit>
     <unit id="9S5p0sP">
@@ -3799,7 +3799,7 @@
       </notes>
       <segment>
         <source>Diese Karteikarte gehört einem Animateur. Animateure organisieren und koordinieren Community-Events.</source>
-        <target>Diese Karteikarte gehört einem Animateur. Animateure organisieren und koordinieren Community-Events.</target>
+        <target>Ce badge appartient à un animacteur. Les animacteurs organisent et coordonnent des événements communautaires.</target>
       </segment>
     </unit>
   </file>

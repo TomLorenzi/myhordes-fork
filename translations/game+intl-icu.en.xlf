@@ -3404,7 +3404,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Leiche grillen</source>
-        <target>Faire griller au Crémato-Cue</target>
+        <target>BBQ the corpse</target>
       </segment>
     </unit>
     <unit id="yFVdfG6" name="Rucksack in der Bank ausleeren">
