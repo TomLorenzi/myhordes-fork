@@ -1013,7 +1013,7 @@ class MigrateCommand extends Command
 
             // Fix permissions
             $fun_permissions(null, $g_oracle,  ForumUsagePermissions::PermissionFormattingOracle);
-            $fun_permissions(null, $g_anim,  ForumUsagePermissions::PermissionPostAsAnim, ForumUsagePermissions::PermissionFormattingOracle);
+            $fun_permissions(null, $g_anim,  ForumUsagePermissions::PermissionPostAsAnim | ForumUsagePermissions::PermissionFormattingOracle);
             $fun_permissions(null, $g_mods,  ForumUsagePermissions::PermissionModerate | ForumUsagePermissions::PermissionFormattingModerator | ForumUsagePermissions::PermissionPostAsCrow);
             $fun_permissions(null, $g_admin, ForumUsagePermissions::PermissionOwn);
 
