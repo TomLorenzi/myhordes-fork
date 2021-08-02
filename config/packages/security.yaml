@@ -30,12 +30,13 @@ security:
             # switch_user: true
 
     role_hierarchy:
-        ROLE_USER:  ROLE_REGISTERED
-        ROLE_ANIMAC: ROLE_USER
-        ROLE_ORACLE: ROLE_USER
-        ROLE_CROW:  ROLE_USER
-        ROLE_ADMIN: [ROLE_CROW, ROLE_ORACLE, ROLE_ANIMAC]
-        ROLE_SUPER: ROLE_ADMIN
+        ROLE_USER:      ROLE_REGISTERED
+        ROLE_ELEVATED:  ROLE_USER
+        ROLE_ANIMAC:    ROLE_ELEVATED
+        ROLE_ORACLE:    ROLE_ELEVATED
+        ROLE_CROW:      ROLE_ELEVATED
+        ROLE_ADMIN:     [ROLE_CROW, ROLE_ORACLE, ROLE_ANIMAC]
+        ROLE_SUPER:     ROLE_ADMIN
 
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
@@ -50,6 +51,7 @@ security:
         - { path: ^/jx/soul/,       roles: ROLE_USER }
         - { path: ^/jx/pm/,         roles: ROLE_USER }
         - { path: ^/jx/admin/dash,  roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/jx/admin/com/,  roles: ROLE_ELEVATED }
         - { path: ^/jx/admin/,      roles: ROLE_CROW }
         - { path: ^/admin/,         roles: ROLE_CROW }
 
@@ -61,6 +63,7 @@ security:
         - { path: ^/api/pm/,           roles: ROLE_USER}
         - { path: ^/api/public/,       roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/api/admin/login,   roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/admin/com/,    roles: ROLE_ELEVATED }
         - { path: ^/api/admin/,        roles: ROLE_CROW }
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }

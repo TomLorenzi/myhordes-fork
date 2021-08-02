@@ -70,7 +70,7 @@ class MessageController extends CustomAbstractController
         $p = $forum ? $this->perm->getEffectivePermissions($this->getUser(), $forum) : (
             ($this->isGranted("ROLE_ADMIN")  * ForumUsagePermissions::PermissionFormattingAdmin) |
             ($this->isGranted("ROLE_CROW")   * ForumUsagePermissions::PermissionFormattingModerator) |
-            ($this->isGranted("ROLE_ORACLE") * ForumUsagePermissions::PermissionFormattingOracle)
+            (($this->isGranted("ROLE_ORACLE") || $this->isGranted("ROLE_ANIMAC")) * ForumUsagePermissions::PermissionFormattingOracle)
         );
 
         $tx = $post->getText();

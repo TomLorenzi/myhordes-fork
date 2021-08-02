@@ -4,11 +4,14 @@
         <div class="cell rw-12">
 
             <ul class="tabs plain" x-tab-group="admin-announcements" x-tab-control x-tab-default="{{ tab }}">
-                <li class="tab" x-tab-id="changelog"><div class="tab-link">{% trans from 'admin' %}Changelogs{% endtrans %}</div></li>
+                {% if is_granted('ROLE_CROW') %}
+                    <li class="tab" x-tab-id="changelog"><div class="tab-link">{% trans from 'admin' %}Changelogs{% endtrans %}</div></li>
+                {% endif %}
                 <li class="tab" x-tab-id="announcement"><div class="tab-link">{% trans from 'admin' %}Ankündigungen{% endtrans %}</div></li>
             </ul>
 
-            <div x-tab-group="admin-announcements" x-tab-id="changelog" x-tab-target>
+            {% if is_granted('ROLE_CROW') %}
+                <div x-tab-group="admin-announcements" x-tab-id="changelog" x-tab-target>
                 <div class="row-table">
                     <div class="row header">
                         <div class="cell padded rw-6 rw-sm-12">
@@ -46,6 +49,7 @@
 
                 <div id="changelog-forum-editor"></div>
             </div>
+            {% endif %}
 
             <div x-tab-group="admin-announcements" x-tab-id="announcement" x-tab-target>
                 <div class="row-table">
@@ -66,7 +70,9 @@
                                 <span>{{ new.lang }}</span>
                             </div>
                             <div class="cell padded rw-2 rw-sm-6 right">
-                                <button class="small inline" x-trash-announce="{{ path('admin_changelog_del_announcement', {id: new.id}) }}"><i class="fa fa-trash"></i></button>
+                                {% if is_granted('ROLE_CROW') or new.sender == app.user %}
+                                    <button class="small inline" x-trash-announce="{{ path('admin_changelog_del_announcement', {id: new.id}) }}"><i class="fa fa-trash"></i></button>
+                                {% endif %}
                             </div>
                         </div>
                     {% endfor %}
@@ -90,11 +96,13 @@
     {{ parent() }}
     <script>
         (function() {
-            $.html.addEventListenerAll('#new_changelog' ,'click', function() {
-                let target = document.getElementById("changelog-forum-editor");
-                target.innerHTML = "";
-                $.ajax.no_history().load( target, '{{ path('admin_new_changelog_editor_controller') }}', false )
-            });
+            {% if is_granted('ROLE_CROW') %}
+                $.html.addEventListenerAll('#new_changelog' ,'click', function() {
+                    let target = document.getElementById("changelog-forum-editor");
+                    target.innerHTML = "";
+                    $.ajax.no_history().load( target, '{{ path('admin_new_changelog_editor_controller') }}', false )
+                });
+            {% endif %}
 
             $.html.addEventListenerAll('#new_announce' ,'click', function() {
                 let target = document.getElementById("announcement-forum-editor");

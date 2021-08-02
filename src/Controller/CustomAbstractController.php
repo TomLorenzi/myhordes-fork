@@ -83,6 +83,7 @@ class CustomAbstractController extends AbstractController {
         $data['apps'] = $this->entity_manager->getRepository(ExternalApp::class)->findBy(['active' => true]);
 
         $data['adminActions'] = AdminActionController::getAdminActions();
+        $data['comActions']   = AdminActionController::getCommunityActions();
 
         if($this->getActiveCitizen() !== null && $this->getActiveCitizen()->getAlive()){
             $is_shaman = $this->citizen_handler->hasRole($this->getActiveCitizen(), 'shaman') || $this->getActiveCitizen()->getProfession()->getName() == 'shaman';
