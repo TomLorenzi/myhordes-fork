@@ -370,7 +370,7 @@ class SoulCoalitionController extends SoulController
         $target = $this->entity_manager->getRepository(User::class)->find($id);
         if ($target === null) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
-        if ($target->getEmail() === 'crow' || $target->getEmail() === $target->getUsername() || mb_substr($target->getEmail(), -10) === '@localhost')
+        if ($target->getEmail() === 'crow' || $target->getEmail() === 'anim' || $target->getEmail() === $target->getUsername() || mb_substr($target->getEmail(), -10) === '@localhost')
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         /** @var UserGroupAssociation|null $user_coalition */

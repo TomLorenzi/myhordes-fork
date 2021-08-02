@@ -96,6 +96,10 @@ class MigrateCommand extends Command
             ['app:migrate', ['--update-all-sp' => true] ],
         ],
         '4cf8df846bc5bb6391660cf77401a93c171226f2' => [ ['app:migrate', ['--migrate-oracles' => true] ] ],
+        '2ce7f8222a95468ce4bf7b74cda62ef2c026307d' => [
+            ['app:debug', ['--add-animactor' => true] ],
+            ['app:migrate', ['--repair-permissions' => true] ],
+        ],
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
@@ -279,6 +283,11 @@ class MigrateCommand extends Command
 
             if (!$this->helper->capsule( 'app:debug --add-crow', $output )) {
                 $output->writeln("<error>Unable to add users and create crow.</error>");
+                return 4;
+            }
+
+            if (!$this->helper->capsule( 'app:debug --add-animactor', $output )) {
+                $output->writeln("<error>Unable to create animactor.</error>");
                 return 4;
             }
 
@@ -958,6 +967,7 @@ class MigrateCommand extends Command
             $g_oracle = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultOracleGroup]);
             $g_mods   = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultModeratorGroup]);
             $g_admin  = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultAdminGroup]);
+            $g_anim   = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultAnimactorGroup]);
 
             // Fix group associations
             $all_users = $this->entity_manager->getRepository(User::class)->findAll();
@@ -968,6 +978,7 @@ class MigrateCommand extends Command
                 if ($this->user_handler->hasRole($current_user, "ROLE_ORACLE")) $fun_assoc($current_user, $g_oracle); else $fun_dis_assoc($current_user, $g_oracle);
                 if ($this->user_handler->hasRole($current_user, "ROLE_CROW"))   $fun_assoc($current_user, $g_mods); else $fun_dis_assoc($current_user, $g_mods);
                 if ($this->user_handler->hasRole($current_user, "ROLE_ADMIN"))  $fun_assoc($current_user, $g_admin); else $fun_dis_assoc($current_user, $g_admin);
+                if ($this->user_handler->hasRole($current_user, "ROLE_ANIMAC"))  $fun_assoc($current_user, $g_anim); else $fun_dis_assoc($current_user, $g_anim);
 
             }
 
@@ -1002,6 +1013,7 @@ class MigrateCommand extends Command
 
             // Fix permissions
             $fun_permissions(null, $g_oracle,  ForumUsagePermissions::PermissionFormattingOracle);
+            $fun_permissions(null, $g_anim,  ForumUsagePermissions::PermissionPostAsAnim);
             $fun_permissions(null, $g_mods,  ForumUsagePermissions::PermissionModerate | ForumUsagePermissions::PermissionFormattingModerator | ForumUsagePermissions::PermissionPostAsCrow);
             $fun_permissions(null, $g_admin, ForumUsagePermissions::PermissionOwn);
 
@@ -1014,6 +1026,7 @@ class MigrateCommand extends Command
                 elseif ($forum->getType() === Forum::ForumTypeElevated) $fun_permissions($forum, $g_elev);
                 elseif ($forum->getType() === Forum::ForumTypeMods) $fun_permissions($forum, $g_mods);
                 elseif ($forum->getType() === Forum::ForumTypeAdmins) $fun_permissions($forum, $g_admin);
+                elseif ($forum->getType() === Forum::ForumTypeAnimac) $fun_permissions($forum, $g_anim);
 
             }
 

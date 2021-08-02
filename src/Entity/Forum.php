@@ -16,6 +16,7 @@ class Forum
     const ForumTypeMods = 2;
     const ForumTypeAdmins = 3;
     const ForumTypeCustom = 4;
+    const ForumTypeAnimac = 5;
 
     /**
      * @ORM\Id()

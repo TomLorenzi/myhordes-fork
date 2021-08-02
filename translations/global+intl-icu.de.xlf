@@ -2169,5 +2169,17 @@
         <target>Diese Aktion kann nicht rückgängig gemacht werden. Bist du sicher?</target>
       </segment>
     </unit>
+    <unit id="BNvQVoN" name="Animateur-Team">
+      <segment>
+        <source>Animateur-Team</source>
+        <target>Animateur-Team</target>
+      </segment>
+    </unit>
+    <unit id="vBbkKEM" name="Entwickler">
+      <segment>
+        <source>Entwickler</source>
+        <target>Entwickler</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -413,6 +413,7 @@ class User implements UserInterface, EquatableInterface
 
         if (strstr($this->email, "@localhost") === "@localhost") $roles[] = 'ROLE_DUMMY';
         if ($this->email === 'crow') $roles[] = 'ROLE_CROW';
+        if ($this->email === 'anim') $roles[] = 'ROLE_ANIMAC';
 
         if ($this->validated) $roles[] = 'ROLE_USER';
         else $roles[] = 'ROLE_REGISTERED';

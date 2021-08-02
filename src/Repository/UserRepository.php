@@ -68,6 +68,7 @@ class UserRepository extends ServiceEntityRepository implements UserLoaderInterf
                 ? $this->createQueryBuilder('u')
                     ->andWhere('u.name = :val OR u.displayName = :val')->setParameter('val', $value)
                     ->andWhere('u.email NOT LIKE :crow')->setParameter('crow', 'crow')
+                    ->andWhere('u.email NOT LIKE :anim')->setParameter('anim', 'anim')
                     ->andWhere('u.email NOT LIKE :local')->setParameter('local', "%@localhost")
                     ->andWhere('u.email != u.name')
                     ->orderBy('u.id','ASC')
@@ -105,6 +106,7 @@ class UserRepository extends ServiceEntityRepository implements UserLoaderInterf
         $qb = $this->createQueryBuilder('u')
             ->andWhere('u.name LIKE :val OR u.displayName LIKE :val')->setParameter('val', "%{$name}%")
             ->andWhere('u.email NOT LIKE :crow')->setParameter('crow', 'crow')
+            ->andWhere('u.email NOT LIKE :anim')->setParameter('anim', 'anim')
             ->andWhere('u.email NOT LIKE :local')->setParameter('local', "%@localhost")
             ->andWhere('u.email != u.name');
 
@@ -127,6 +129,7 @@ class UserRepository extends ServiceEntityRepository implements UserLoaderInterf
         $qb = $this->createQueryBuilder('u')
             ->select('(u.soulPoints + COALESCE(u.importedSoulPoints, 0)) as allPoints, u')
             ->andWhere('u.email NOT LIKE :crow')->setParameter('crow', 'crow')
+            ->andWhere('u.email NOT LIKE :anim')->setParameter('anim', 'anim')
             ->andWhere('u.email NOT LIKE :local')->setParameter('local', "%@localhost")
             ->andWhere('u.email != u.name')
             ->orderBy('allPoints', 'DESC');

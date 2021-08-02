@@ -142,12 +142,14 @@
     <div class="forum-posts">
         {% for post in posts %}
             {% set variant = null %}
-            {% if post.owner.name == 'Der Rabe' or post.type == "CROW" %}{% set variant = 'crow' %}{% endif %}
-            {% if post.type == "DEV" %}{% set variant = 'dev' %}{% endif %}
+            {% if post.owner.name == 'Der Rabe' %}{% set variant = 'crow' %}
+            {% elseif post.type != "USER" and post.type is not null %}{% set variant = post.type|lower %}{% endif %}
 
             {# @var post \App\Entity\Post #}
             {% if not post.hidden or permission.moderate() %}
-                {% set author_name = (post.owner.name == 'Der Rabe') ? 'Der Rabe'|trans({},'global') : town and post.owner.citizenFor(town) ? post.owner.citizenFor(town).name : post.owner.name %}
+                {% set author_name = town and post.owner.citizenFor(town) ? post.owner.citizenFor(town).name : post.owner.name %}
+                {% if post.owner.name == 'Der Rabe' %}{% set author_name = 'Der Rabe'|trans({},'global') %}
+                {% elseif post.owner.name == 'Animateur-Team' %}{% set author_name = 'Animateur-Team'|trans({},'global') %}{% endif %}
                 <div x-post-wrapper-id="{{ post.id }}" class="forum-post {% if variant is not null %}forum-post-variant-{{ variant }}{% endif %} {% if not post.hidden %}{% else %}forum-post-hidden{% endif %} {% if post.new %}forum-post-new{% endif %} {% if markedPost is defined and post.id == markedPost %}forum-post-marked{% endif %}">
                     <div class="forum-post-header {% if variant is not null %}header-variant-{{ variant }}{% endif %}">
                         <i>
@@ -272,7 +274,7 @@
                                 </label>
                             {% endif %}
                             {% if not locked %}
-                            {% if (post.owner == app.user or (post.owner.id == 66 and permission.post_as_crow())) and post.editable and (post == thread.firstPost(true) or post == thread.lastPost(false)) %}
+                                {% if (post.owner == app.user or (post.owner.id == 66 and permission.post_as_crow()) or (post.owner.id == 67 and permission.post_as_animacteur())) and post.editable and (post == thread.firstPost(true) or post == thread.lastPost(false)) %}
                                     [ <a class="action-button" id="edit_post"  x-forum-action="edit-post"  x-post-id={{ post.id }} ><img alt="" src="{{ asset('build/images/forum/edit.png') }}"><div class="tooltip forum-tooltip">{{'Bearbeiten'|trans({}, 'global')}}</div></a> ]
                                 {% endif %}
                             {% endif %}
