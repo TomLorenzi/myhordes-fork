@@ -667,7 +667,10 @@ class BeyondController extends InventoryAwareController
             return AjaxResponse::error( self::ErrorEscortFailureRuin );
 
         // Block exploring if the zone is controlled by zombies
-        if (!$this->zone_handler->check_cp( $citizen->getZone() ))
+        $scout_movement = $this->inventory_handler->countSpecificItems(
+                $this->getActiveCitizen()->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'vest_on_#00'])
+            ) > 0;
+        if (!$this->zone_handler->check_cp( $citizen->getZone() ) && !$scout_movement)
             return AjaxResponse::error( self::ErrorZoneBlocked );
 
         // Make sure the citizen has enough AP
