@@ -62,9 +62,11 @@
 
   div.clear { display: block; height: 0; clear: left }
 
-  span.quoteauthor {
+  span.quoteauthor, div.cref {
+    &.quoteauthor { margin-left: 30px; }
+    &.cref { cursor: pointer }
+    display: inline-block;
     font-weight: bold;
-    margin-left: 30px;
     font-size: 1.25rem; 
     text-decoration: none;
     background-color: #5C0000 !important;
@@ -73,12 +75,33 @@
     padding-right: 5px !important;
     padding-left: 5px !important;
     color: #f0d79e !important;
-    + blockquote {
+    &.quoteauthor + blockquote {
       margin-top: 0;
     }
   }
 
   ul,ol {clear:left;}
+
+  ul.poll {
+    .box();
+    line-height: 0; font-size: 0;
+    &>li {
+      list-style: none; position: relative; padding: 10px 3px; margin: 0; line-height: normal; font-size: 1rem;
+      &:not(.plain):not(.q):not(.desc):before { position: absolute; top: 9px; left: -26px; height: 16px; width: 16px; background: url(../../img/forum/selected.png); content: " "; }
+      &.q {
+        font-weight: bold; font-size: 1.1rem; color: @myhordes-smalltext;
+        &:not(:first-child) {display: none}
+        &:before { position: absolute; top: 9px; left: -26px; height: 16px; width: 16px; background: url(../../img/icons/small_help.gif); content: " "; }
+      }
+      &.desc { color: @myhordes-smalltext }
+      &:not(.desc)+li { border-top: 1px dotted @myhordes-smalltext; }
+
+      .vote-bar {
+        height: 6px; background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%); overflow: hidden;
+        &>.bar { background: linear-gradient(180deg, #fffb58 0%, #f2c94d 100%); height: 100% }
+      }
+    }
+  }
 
   blockquote {
     font-style: italic; border-color: rgba(0,0,0,.6); border-style: dashed; border-width: 0 0 1px 1px;
@@ -408,6 +431,9 @@ ul.subscriptions {
   }
 }
 
+.forum-toggle {
+  display: inline-block;
+}
 .forum-button, .forum-button-disabled {
   font-size: 1.4rem; line-height: 16px;
   background: url('../../img/background/bg_button.gif') center / cover no-repeat;

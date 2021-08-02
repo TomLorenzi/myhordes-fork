@@ -101,16 +101,6 @@
         <target>Esta acción no está disponible.</target>
       </segment>
     </unit>
-    <unit id="F.FGhtO" name="Hierfür fehlen die notwendige Gegenstände.">
-      <notes>
-        <note category="german">Hierfür fehlen die notwendige Gegenstände.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Hierfür fehlen die notwendige Gegenstände.</source>
-        <target>Faltan algunos objetos necesarios para esto.</target>
-      </segment>
-    </unit>
     <unit id="OAMaKv3" name="Diese Aktion steht nur Helden zur Verfügung.">
       <notes>
         <note category="german">Diese Aktion steht nur Helden zur Verfügung.</note>
@@ -191,30 +181,10 @@
         <target>Nuevo tema</target>
       </segment>
     </unit>
-    <unit id="bej0jm2" name="Themen">
-      <notes>
-        <note category="german">Themen</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Themen</source>
-        <target>Temas</target>
-      </segment>
-    </unit>
-    <unit id="Zyb_RyS" name="Bisher hat niemand in dieses Forum geschrieben. Sei du doch der Erste!">
-      <notes>
-        <note category="german">Bisher hat niemand in dieses Forum geschrieben. Sei du doch der Erste!</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Bisher hat niemand in dieses Forum geschrieben. Sei du doch der Erste!</source>
-        <target>Nadie ha escrito nada todavía. ¡Sé el primero!</target>
-      </segment>
-    </unit>
     <unit id="Oxu558J" name="Der Rabe">
       <notes>
         <note category="german">Der Rabe</note>
-        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/forum/posts_small.html.twig;twig:///templates/ajax/forum/search_result.html.twig;twig:///templates/ajax/forum/view.html.twig;twig:///templates/ajax/game/newspaper.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/bubbles.html.twig</note>
+        <note category="from">twig:///templates/ajax/forum/editor.html.twig;twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/forum/posts_small.html.twig;twig:///templates/ajax/forum/search_result.html.twig;twig:///templates/ajax/forum/view.html.twig;twig:///templates/ajax/game/newspaper.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/bubbles.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
       </notes>
       <segment>
         <source>Der Rabe</source>
@@ -421,26 +391,6 @@
         <target>Jugar</target>
       </segment>
     </unit>
-    <unit id="tkZocIU" name="Ausloggen">
-      <notes>
-        <note category="german">Ausloggen</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Ausloggen</source>
-        <target>Desconectarse</target>
-      </segment>
-    </unit>
-    <unit id="YeLCoLU" name="Seite neu laden">
-      <notes>
-        <note category="german">Seite neu laden</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Seite neu laden</source>
-        <target>Actualizar página</target>
-      </segment>
-    </unit>
     <unit id="gBz_D6E" name="Deutsch">
       <notes>
         <note category="german">Deutsch</note>
@@ -489,16 +439,6 @@
       <segment>
         <source>Bearbeiten</source>
         <target>Editar</target>
-      </segment>
-    </unit>
-    <unit id="LiAR2Wp" name="Hinweis">
-      <notes>
-        <note category="german">Hinweis</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Hinweis</source>
-        <target>Nota</target>
       </segment>
     </unit>
     <unit id="aE.gAX6" name="Spiel">
@@ -701,16 +641,6 @@
         <target>No tienes derecho a hacer esto.</target>
       </segment>
     </unit>
-    <unit id=".dh3UEc" name="als Rabe">
-      <notes>
-        <note category="german">als Rabe</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>als Rabe</source>
-        <target>como Cuervo</target>
-      </segment>
-    </unit>
     <unit id="vDhaMLU" name="Öffnen">
       <notes>
         <note category="german">Öffnen</note>
@@ -791,26 +721,6 @@
         <target>{value} de {color}</target>
       </segment>
     </unit>
-    <unit id="awzJBNC" name="Users">
-      <notes>
-        <note category="german">Users</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Users</source>
-        <target>Usuarios</target>
-      </segment>
-    </unit>
-    <unit id="5qZlTRd" name="Meldungen">
-      <notes>
-        <note category="german">Meldungen</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Meldungen</source>
-        <target>Mensajes</target>
-      </segment>
-    </unit>
     <unit id="qyBuyhw" name="Du wurdest aus dem Forum verbannt.">
       <notes>
         <note category="german">Du wurdest aus dem Forum verbannt.</note>
@@ -869,16 +779,6 @@
       <segment>
         <source>Sticky</source>
         <target>Destacado</target>
-      </segment>
-    </unit>
-    <unit id="oR9GFiR" name="Melden">
-      <notes>
-        <note category="german">Melden</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Melden</source>
-        <target>Reportar</target>
       </segment>
     </unit>
     <unit id="bC01IWH" name="Löschen">
@@ -1021,26 +921,6 @@
       <segment>
         <source>Durchstreichen</source>
         <target>Tachar</target>
-      </segment>
-    </unit>
-    <unit id="aZc6vxf" name="Einfache Liste">
-      <notes>
-        <note category="german">Einfache Liste</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Einfache Liste</source>
-        <target>Lista simple</target>
-      </segment>
-    </unit>
-    <unit id="1CuRrf_" name="Nummerierte Liste">
-      <notes>
-        <note category="german">Nummerierte Liste</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Nummerierte Liste</source>
-        <target>Lista numerada</target>
       </segment>
     </unit>
     <unit id="Sk04seo" name="Listenpunkt">
@@ -1865,16 +1745,6 @@
         <target><![CDATA[Cada <strong>objeto de defensa</strong> colocado en el Almacén le da <strong>1 punto de defensa al pueblo</strong>.]]></target>
       </segment>
     </unit>
-    <unit id="uB2Vk6P" name="oder">
-      <notes>
-        <note category="german">oder</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>oder</source>
-        <target>o</target>
-      </segment>
-    </unit>
     <unit id="1N_y7nB">
       <notes>
         <note category="german">Folgende Bürger sind wahlweise: &lt;ul&gt;&lt;li&gt;auf ihrer Todesanzeigeseite (sie haben ihren Tod noch nicht bestätigt),&lt;/li&gt;&lt;li&gt;bereits im Spiel,&lt;/li&gt;&lt;li&gt;sie haben sich entschieden, nicht automatisch einer Stadt und ihrer Koalition anzugehören.&lt;/li&gt;&lt;li&gt;oder, sie haben sich seit über 5 Tagen nicht mehr angemeldet.&lt;/li&gt;&lt;/ul&gt;</note>
@@ -2085,16 +1955,6 @@
       <segment>
         <source>Alle Foren</source>
         <target>Foros</target>
-      </segment>
-    </unit>
-    <unit id="l1gJnXq">
-      <notes>
-        <note category="german">Como &lt;strong&gt;desterrado&lt;/strong&gt;, las tareas de la comunidad como construir, tomar objetos del almacén o cerrar la puerta ya no están disponibles...</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Como &lt;strong&gt;desterrado&lt;/strong&gt;, las tareas de la comunidad como construir, tomar objetos del almacén o cerrar la puerta ya no están disponibles...</source>
-        <target></target>
       </segment>
     </unit>
     <unit id="M4kyeVr" name="Die Seite wird von Horden von Zombies belagert!">
@@ -2586,17 +2446,6 @@
       <segment>
         <source>Als &lt;strong&gt;Ausgestoßener&lt;/strong&gt; stehen dir die Gemeinschaftsaktionen der Stadt nicht länger zur Verfügung: Bank, Baustelle, Tor, etc...</source>
         <target><![CDATA[Als <strong>Ausgestoßener</strong> stehen dir die Gemeinschaftsaktionen der Stadt nicht länger zur Verfügung: Bank, Baustelle, Tor, etc...]]></target>
-      </segment>
-    </unit>
-    <unit id="BXmgyWZ" name="Neuer Beitrag in {topic}">
-      <notes>
-        <note category="german">Neuer Beitrag in {topic}</note>
-        <note category="state">new</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Neuer Beitrag in {topic}</source>
-        <target>Neuer Beitrag in {topic}</target>
       </segment>
     </unit>
     <unit id="0lz2qGs" name="Abonniert">
@@ -3472,6 +3321,226 @@
       <segment>
         <source>Unangemessenen Inhalt melden</source>
         <target>Señalar un contenido inapropiado</target>
+      </segment>
+    </unit>
+    <unit id="hgJwqqU">
+      <notes>
+        <note category="german">Umfragen können an dieser Stelle nicht angezeigt werden. Bitte besuche das Forum.</note>
+        <note category="from">twig:///templates/ajax/forum/posts_small.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Umfragen können an dieser Stelle nicht angezeigt werden. Bitte besuche das Forum.</source>
+        <target>Umfragen können an dieser Stelle nicht angezeigt werden. Bitte besuche das Forum.</target>
+      </segment>
+    </unit>
+    <unit id="koiuckT" name="Diese Umfrage ist ungültig oder wurde gelöscht.">
+      <notes>
+        <note category="german">Diese Umfrage ist ungültig oder wurde gelöscht.</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Diese Umfrage ist ungültig oder wurde gelöscht.</source>
+        <target>Diese Umfrage ist ungültig oder wurde gelöscht.</target>
+      </segment>
+    </unit>
+    <unit id="sGKanc7" name="Abstimmen">
+      <notes>
+        <note category="german">Abstimmen</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Abstimmen</source>
+        <target>Abstimmen</target>
+      </segment>
+    </unit>
+    <unit id="CX_GKf1" name="Ergebnisse anzeigen">
+      <notes>
+        <note category="german">Ergebnisse anzeigen</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Ergebnisse anzeigen</source>
+        <target>Ergebnisse anzeigen</target>
+      </segment>
+    </unit>
+    <unit id="PtyIfIY">
+      <notes>
+        <note category="german">Wenn du die Ergebnisse abrufst kannst du danach nicht mehr abstimmen. Bist du sicher?</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Wenn du die Ergebnisse abrufst kannst du danach nicht mehr abstimmen. Bist du sicher?</source>
+        <target>Wenn du die Ergebnisse abrufst kannst du danach nicht mehr abstimmen. Bist du sicher?</target>
+      </segment>
+    </unit>
+    <unit id="ZX7F37R" name="Umfrage einfügen">
+      <notes>
+        <note category="german">Umfrage einfügen</note>
+        <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Umfrage einfügen</source>
+        <target>Umfrage einfügen</target>
+      </segment>
+    </unit>
+    <unit id="_Ni9sII">
+      <notes>
+        <note category="german">Kontrolliere deine Eingaben! Umfragen können nach dem Absenden des Posts nicht mehr bearbeitet werden!</note>
+        <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Kontrolliere deine Eingaben! Umfragen können nach dem Absenden des Posts nicht mehr bearbeitet werden!</source>
+        <target>Kontrolliere deine Eingaben! Umfragen können nach dem Absenden des Posts nicht mehr bearbeitet werden!</target>
+      </segment>
+    </unit>
+    <unit id="HGaq1X3" name="Fragetext eingeben (optional)">
+      <notes>
+        <note category="german">Fragetext eingeben (optional)</note>
+        <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Fragetext eingeben (optional)</source>
+        <target>Fragetext eingeben (optional)</target>
+      </segment>
+    </unit>
+    <unit id="6FsF5Ju" name="Antwort hinzufügen">
+      <notes>
+        <note category="german">Antwort hinzufügen</note>
+        <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Antwort hinzufügen</source>
+        <target>Antwort hinzufügen</target>
+      </segment>
+    </unit>
+    <unit id="FPilLZW" name="Antwort">
+      <notes>
+        <note category="german">Antwort</note>
+        <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Antwort</source>
+        <target>Antwort</target>
+      </segment>
+    </unit>
+    <unit id="AFl5i39" name="(optional)">
+      <notes>
+        <note category="german">(optional)</note>
+        <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>(optional)</source>
+        <target>(optional)</target>
+      </segment>
+    </unit>
+    <unit id="6ESuSHj" name="Info-Text hinzufügen">
+      <notes>
+        <note category="german">Info-Text hinzufügen</note>
+        <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Info-Text hinzufügen</source>
+        <target>Info-Text hinzufügen</target>
+      </segment>
+    </unit>
+    <unit id="Cl1lF1C" name="Info-Text">
+      <notes>
+        <note category="german">Info-Text</note>
+        <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Info-Text</source>
+        <target>Info-Text</target>
+      </segment>
+    </unit>
+    <unit id="sYG6fGF" name="Du musst mindestens eine Antwort eingeben.">
+      <notes>
+        <note category="german">Du musst mindestens eine Antwort eingeben.</note>
+        <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Du musst mindestens eine Antwort eingeben.</source>
+        <target>Du musst mindestens eine Antwort eingeben.</target>
+      </segment>
+    </unit>
+    <unit id="OO3MLkJ" name="Spielernamen einfügen">
+      <notes>
+        <note category="german">Spielernamen einfügen</note>
+        <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Spielernamen einfügen</source>
+        <target>Jugador</target>
+      </segment>
+    </unit>
+    <unit id="O23.43H" name="Umfrage schließen">
+      <notes>
+        <note category="german">Umfrage schließen</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Umfrage schließen</source>
+        <target>Umfrage schließen</target>
+      </segment>
+    </unit>
+    <unit id="KWP5REq" name="Diese Aktion kann nicht rückgängig gemacht werden. Bist du sicher?">
+      <notes>
+        <note category="german">Diese Aktion kann nicht rückgängig gemacht werden. Bist du sicher?</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Diese Aktion kann nicht rückgängig gemacht werden. Bist du sicher?</source>
+        <target>Diese Aktion kann nicht rückgängig gemacht werden. Bist du sicher?</target>
+      </segment>
+    </unit>
+    <unit id="BNvQVoN" name="Animateur-Team">
+      <notes>
+        <note category="german">Animateur-Team</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/forum/posts_small.html.twig;twig:///templates/ajax/forum/search_result.html.twig;twig:///templates/ajax/forum/view.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Animateur-Team</source>
+        <target>Animateur-Team</target>
+      </segment>
+    </unit>
+    <unit id="vBbkKEM" name="Entwickler">
+      <notes>
+        <note category="german">Entwickler</note>
+        <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Entwickler</source>
+        <target>Entwickler</target>
+      </segment>
+    </unit>
+    <unit id="1.aaxoN" name="Community-Tools">
+      <notes>
+        <note category="german">Community-Tools</note>
+        <note category="from">twig:///templates/ajax/ajax.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Community-Tools</source>
+        <target>Community-Tools</target>
       </segment>
     </unit>
   </file>

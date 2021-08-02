@@ -2067,5 +2067,125 @@
         <target>Unangemessenen Inhalt melden</target>
       </segment>
     </unit>
+    <unit id="hgJwqqU">
+      <segment>
+        <source>Umfragen können an dieser Stelle nicht angezeigt werden. Bitte besuche das Forum.</source>
+        <target>Umfragen können an dieser Stelle nicht angezeigt werden. Bitte besuche das Forum.</target>
+      </segment>
+    </unit>
+    <unit id="koiuckT" name="Diese Umfrage ist ungültig oder wurde gelöscht.">
+      <segment>
+        <source>Diese Umfrage ist ungültig oder wurde gelöscht.</source>
+        <target>Diese Umfrage ist ungültig oder wurde gelöscht.</target>
+      </segment>
+    </unit>
+    <unit id="sGKanc7" name="Abstimmen">
+      <segment>
+        <source>Abstimmen</source>
+        <target>Abstimmen</target>
+      </segment>
+    </unit>
+    <unit id="CX_GKf1" name="Ergebnisse anzeigen">
+      <segment>
+        <source>Ergebnisse anzeigen</source>
+        <target>Ergebnisse anzeigen</target>
+      </segment>
+    </unit>
+    <unit id="PtyIfIY">
+      <segment>
+        <source>Wenn du die Ergebnisse abrufst kannst du danach nicht mehr abstimmen. Bist du sicher?</source>
+        <target>Wenn du die Ergebnisse abrufst kannst du danach nicht mehr abstimmen. Bist du sicher?</target>
+      </segment>
+    </unit>
+    <unit id="ZX7F37R" name="Umfrage einfügen">
+      <segment>
+        <source>Umfrage einfügen</source>
+        <target>Umfrage einfügen</target>
+      </segment>
+    </unit>
+    <unit id="_Ni9sII">
+      <segment>
+        <source>Kontrolliere deine Eingaben! Umfragen können nach dem Absenden des Posts nicht mehr bearbeitet werden!</source>
+        <target>Kontrolliere deine Eingaben! Umfragen können nach dem Absenden des Posts nicht mehr bearbeitet werden!</target>
+      </segment>
+    </unit>
+    <unit id="HGaq1X3" name="Fragetext eingeben (optional)">
+      <segment>
+        <source>Fragetext eingeben (optional)</source>
+        <target>Fragetext eingeben (optional)</target>
+      </segment>
+    </unit>
+    <unit id="6FsF5Ju" name="Antwort hinzufügen">
+      <segment>
+        <source>Antwort hinzufügen</source>
+        <target>Antwort hinzufügen</target>
+      </segment>
+    </unit>
+    <unit id="FPilLZW" name="Antwort">
+      <segment>
+        <source>Antwort</source>
+        <target>Antwort</target>
+      </segment>
+    </unit>
+    <unit id="AFl5i39" name="(optional)">
+      <segment>
+        <source>(optional)</source>
+        <target>(optional)</target>
+      </segment>
+    </unit>
+    <unit id="6ESuSHj" name="Info-Text hinzufügen">
+      <segment>
+        <source>Info-Text hinzufügen</source>
+        <target>Info-Text hinzufügen</target>
+      </segment>
+    </unit>
+    <unit id="Cl1lF1C" name="Info-Text">
+      <segment>
+        <source>Info-Text</source>
+        <target>Info-Text</target>
+      </segment>
+    </unit>
+    <unit id="sYG6fGF" name="Du musst mindestens eine Antwort eingeben.">
+      <segment>
+        <source>Du musst mindestens eine Antwort eingeben.</source>
+        <target>Du musst mindestens eine Antwort eingeben.</target>
+      </segment>
+    </unit>
+    <unit id="OO3MLkJ" name="Spielernamen einfügen">
+      <segment>
+        <source>Spielernamen einfügen</source>
+        <target>Spieler</target>
+      </segment>
+    </unit>
+    <unit id="O23.43H" name="Umfrage schließen">
+      <segment>
+        <source>Umfrage schließen</source>
+        <target>Umfrage schließen</target>
+      </segment>
+    </unit>
+    <unit id="KWP5REq" name="Diese Aktion kann nicht rückgängig gemacht werden. Bist du sicher?">
+      <segment>
+        <source>Diese Aktion kann nicht rückgängig gemacht werden. Bist du sicher?</source>
+        <target>Diese Aktion kann nicht rückgängig gemacht werden. Bist du sicher?</target>
+      </segment>
+    </unit>
+    <unit id="BNvQVoN" name="Animateur-Team">
+      <segment>
+        <source>Animateur-Team</source>
+        <target>Animateur-Team</target>
+      </segment>
+    </unit>
+    <unit id="vBbkKEM" name="Entwickler">
+      <segment>
+        <source>Entwickler</source>
+        <target>Entwickler</target>
+      </segment>
+    </unit>
+    <unit id="1.aaxoN" name="Community-Tools">
+      <segment>
+        <source>Community-Tools</source>
+        <target>Community-Tools</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

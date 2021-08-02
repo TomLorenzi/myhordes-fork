@@ -25,14 +25,26 @@
         </div>
     {% endif %}
 
-    {% if user_handler.hasRole(badger, "ROLE_ORACLE") and not user_handler.hasRole(badger, "ROLE_ADMIN") %}
-        <div class="badge badge-oracle">
-            <div><i class="fa fa-bullhorn"></i></div>
-            <div class="tooltip badge-tooltip">
-                <b>{{ 'Orakel'|trans({},'soul') }}</b>
-                {{ 'Diese Karteikarte gehört einem Orakel. Orakel sind Bindeglieder zwischen der Community und den Entwicklern. Du kannst dich bei Fragen und Problemen vertrauensvoll an sie wenden.'|trans({},'soul') }}
+    {% if not user_handler.hasRole(badger, "ROLE_ADMIN") %}
+        {% if user_handler.hasRole(badger, "ROLE_ORACLE") %}
+            <div class="badge badge-oracle">
+                <div><i class="fa fa-bullhorn"></i></div>
+                <div class="tooltip badge-tooltip">
+                    <b>{{ 'Orakel'|trans({},'soul') }}</b>
+                    {{ 'Diese Karteikarte gehört einem Orakel. Orakel sind Bindeglieder zwischen der Community und den Entwicklern. Du kannst dich bei Fragen und Problemen vertrauensvoll an sie wenden.'|trans({},'soul') }}
+                </div>
             </div>
-        </div>
+        {% endif %}
+
+        {% if user_handler.hasRole(badger, "ROLE_ANIMAC") %}
+            <div class="badge badge-animac">
+                <div><i class="fas fa-broadcast-tower"></i></div>
+                <div class="tooltip badge-tooltip">
+                    <b>{{ 'Animateur'|trans({},'soul') }}</b>
+                    {{ 'Diese Karteikarte gehört einem Animateur. Animateure organisieren und koordinieren Community-Events.'|trans({},'soul') }}
+                </div>
+            </div>
+        {% endif %}
     {% endif %}
 
     {% if user_handler.hasRole(badger, "ROLE_DUMMY") and not user_handler.hasRole(badger, "ROLE_CROW") %}

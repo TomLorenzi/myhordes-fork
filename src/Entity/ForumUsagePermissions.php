@@ -44,6 +44,7 @@ class ForumUsagePermissions
     const PermissionFormattingAdmin     = 1 << 18;
     const PermissionPostAsCrow          = 1 << 19;
     const PermissionPostAsDev           = 1 << 20;
+    const PermissionPostAsAnim          = 1 << 21;
 
     /**
      * @ORM\Id

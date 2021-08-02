@@ -2,12 +2,15 @@
 
 namespace App\Controller\Messages;
 
+use App\Command\ResolveCommand;
 use App\Entity\AccountRestriction;
 use App\Entity\AdminDeletion;
 use App\Entity\AdminReport;
 use App\Entity\Citizen;
 use App\Entity\Forum;
 use App\Entity\ForumModerationSnippet;
+use App\Entity\ForumPoll;
+use App\Entity\ForumPollAnswer;
 use App\Entity\ForumThreadSubscription;
 use App\Entity\ForumUsagePermissions;
 use App\Entity\OfficialGroup;
@@ -20,9 +23,11 @@ use App\Service\CitizenHandler;
 use App\Service\CrowService;
 use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
+use App\Service\Locksmith;
 use App\Service\PictoHandler;
 use DateTime;
 use Doctrine\Common\Collections\Criteria;
+use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\QueryBuilder;
 use Exception;
@@ -238,6 +243,7 @@ class MessageForumController extends MessageController
 
         $type = $parser->get('type') ?? 'USER';
         $valid = ['USER'];
+        if ($this->perm->isPermitted( $permission, ForumUsagePermissions::PermissionPostAsAnim )) $valid[] = 'ANIM';
         if ($this->perm->isPermitted( $permission, ForumUsagePermissions::PermissionPostAsCrow )) $valid[] = 'CROW';
         if ($this->perm->isPermitted( $permission, ForumUsagePermissions::PermissionPostAsDev )) $valid[] = 'DEV';
         if (!in_array($type, $valid)) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
@@ -247,8 +253,13 @@ class MessageForumController extends MessageController
 
         $thread = (new Thread())->setTitle( $title )->setOwner($user);
 
+        $map_type = [
+            'CROW' => 66,
+            'ANIM' => 67,
+        ];
+
         $post = (new Post())
-            ->setOwner( $type === "CROW" ? $this->entity_manager->getRepository(User::class)->find(66) : $user )
+            ->setOwner( isset($map_type[$type]) ? $this->entity_manager->getRepository(User::class)->find($map_type[$type]) : $user )
             ->setText( $text )
             ->setDate( new DateTime('now') )
             ->setType($type)
@@ -256,7 +267,7 @@ class MessageForumController extends MessageController
             ->setLastAdminActionBy($type === "CROW" ? $user : null);
 
         $tx_len = 0;
-        if (!$this->preparePost($user,$forum,$post,$tx_len, null, $edit))
+        if (!$this->preparePost($user,$forum,$post,$tx_len, null, $edit, $polls))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
         if ($tx_len < 2) return AjaxResponse::error( self::ErrorPostTextLength );
 
@@ -269,12 +280,106 @@ class MessageForumController extends MessageController
             $em->persist((new ForumThreadSubscription())->setThread($thread)->setUser($user));
             $em->persist($thread);
             $em->persist($forum);
-            $em->flush();
+
+            $this->commit_post_with_polls($em,$post,$polls);
         } catch (Exception $e) {
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
 
         return AjaxResponse::success( true, ['url' => $this->generateUrl('forum_thread_view', ['fid' => $id, 'tid' => $thread->getId()])] );
+    }
+
+    /**
+     * @Route("api/forum/{fid<\d+>}/{tid<\d+>}/cast_vote", name="forum_poll_cast_api")
+     * @param int $fid
+     * @param int $tid
+     * @param JSONRequestParser $parser
+     * @param EntityManagerInterface $em
+     * @param Locksmith $locksmith
+     * @return Response
+     */
+    public function poll_cast_api( int $fid, int $tid, JSONRequestParser $parser, EntityManagerInterface $em, Locksmith $locksmith): Response {
+        $user = $this->getUser();
+
+        $thread = $em->getRepository(Thread::class)->find( $tid );
+        if (!$thread || $thread->getForum()->getId() !== $fid) return AjaxResponse::error( self::ErrorForumNotFound );
+        /** @var Forum $forum */
+        $forum = $thread->getForum();
+
+        $poll = $this->entity_manager->getRepository(ForumPoll::class)->find($parser->get_int('poll'));
+        if (!$poll || !$poll->getPost() || $poll->getPost()->getThread() !== $thread)
+            return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+        $read_only = !$this->perm->isPermitted( $this->perm->getEffectivePermissions($user, $forum), ForumUsagePermissions::PermissionCreatePost ) ||
+            $this->userHandler->isRestricted( $user, AccountRestriction::RestrictionForum );
+
+        $answer = $parser->get_int('cast');
+        if ($read_only || $poll->getClosed() || ($poll->getParticipants()->contains($user) && $answer !== -666))
+            return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+
+        if ($answer === -42 || $answer === -666) $answer = null;
+        else {
+            $answer = $this->entity_manager->getRepository(ForumPollAnswer::class)->find($answer);
+            if (!$answer || $answer->getPoll() !== $poll) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+        }
+
+        $lock = $locksmith->waitForLock("poll-{$poll->getId()}");
+        if ($answer)
+            $this->entity_manager->persist($answer->setNum( $answer->getNum() + 1 ));
+
+        if ($parser->get_int('cast') === -666) $poll->setClosed(true);
+        $this->entity_manager->persist($poll->addParticipant($user));
+
+        try {
+            $em->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/forum/{fid<\d+>}/{tid<\d+>}/polls", name="forum_poll_query_api")
+     * @param int $fid
+     * @param int $tid
+     * @param JSONRequestParser $parser
+     * @param EntityManagerInterface $em
+     * @return Response
+     */
+    public function poll_query_api( int $fid, int $tid, JSONRequestParser $parser, EntityManagerInterface $em): Response {
+        $user = $this->getUser();
+
+        $thread = $em->getRepository(Thread::class)->find( $tid );
+        if (!$thread || $thread->getForum()->getId() !== $fid) return AjaxResponse::error( self::ErrorForumNotFound );
+
+        /** @var Forum $forum */
+        $forum = $thread->getForum();
+
+        $permissions = $this->perm->getEffectivePermissions($user, $forum);
+        if (!$this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionReadThreads ))
+            return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+
+        $read_only = !$this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionCreatePost ) ||
+            $this->userHandler->isRestricted( $user, AccountRestriction::RestrictionForum );
+
+        $data = [];
+        foreach ($parser->get_array('polls') as $poll_id) {
+            if (!is_numeric($poll_id) || ($id = (int)$poll_id) <= 0) continue;
+
+            $poll = $em->getRepository(ForumPoll::class)->find($id);
+            if (!$poll || !$poll->getPost() || $read_only || $poll->getPost()->getThread() !== $thread)
+                $data[$poll_id] = false;
+            else if (!$poll->getClosed() && !$poll->getParticipants()->contains( $user ))
+                $data[$poll_id] = true;
+            else {
+                $data[$poll_id] = [];
+                foreach ($poll->getAnswers() as $answer) $data[$poll_id][] = [$answer->getId(),$answer->getNum()];
+                $data[$poll_id][] = [-666,$poll->getOwner() === $user && !$poll->getClosed()];
+            }
+        }
+
+        return AjaxResponse::success(true, ['response' => $data]);
     }
 
     /**
@@ -329,12 +434,18 @@ class MessageForumController extends MessageController
 
         $type = $parser->get('type') ?? 'USER';
         $valid = ['USER'];
+        if ($this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionPostAsAnim )) $valid[] = 'ANIM';
         if ($this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionPostAsCrow )) $valid[] = 'CROW';
         if ($this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionPostAsDev )) $valid[] = 'DEV';
         if (!in_array($type, $valid)) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
+        $map_type = [
+            'CROW' => 66,
+            'ANIM' => 67
+        ];
+
         $post = (new Post())
-            ->setOwner( $type === "CROW" ? $this->entity_manager->getRepository(User::class)->find(66) : $user )
+            ->setOwner( isset($map_type[$type]) ? $this->entity_manager->getRepository(User::class)->find($map_type[$type]) : $user )
             ->setText( $text )
             ->setDate( new DateTime('now') )
             ->setType($type)
@@ -342,7 +453,7 @@ class MessageForumController extends MessageController
             ->setLastAdminActionBy($type === "CROW" ? $user : null);
 
         $tx_len = 0;
-        if (!$this->preparePost($user,$forum,$post,$tx_len, null, $edit))
+        if (!$this->preparePost($user,$forum,$post,$tx_len, null, $edit, $polls))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
         if ($tx_len < 2) return AjaxResponse::error( self::ErrorPostTextLength );
@@ -372,7 +483,9 @@ class MessageForumController extends MessageController
         try {
             $em->persist($thread);
             $em->persist($forum);
-            $em->flush();
+
+            $this->commit_post_with_polls($em,$post,$polls);
+
         } catch (Exception $e) {
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
@@ -380,6 +493,39 @@ class MessageForumController extends MessageController
         return AjaxResponse::success( true, ['url' =>
             $this->generateUrl('forum_thread_view', ['fid' => $fid, 'tid' => $tid])
         ] );
+    }
+
+    protected function commit_post_with_polls(EntityManagerInterface $em, Post $post, array $polls = []) {
+        $em->persist($post);
+
+        $question_assoc = [];
+        $answer_assoc = [];
+
+        if (!empty($polls)) {
+            foreach ($polls as $question => $answers) {
+                $em->persist($question_assoc[$question] = (new ForumPoll())
+                    ->setOwner($post->getOwner())
+                    ->setPost($post)
+                    ->setClosed(false)
+                );
+                foreach ($answers as $answer)
+                    $question_assoc[$question]->addAnswer(
+                        $answer_assoc[$answer] = (new ForumPollAnswer())->setNum(0)
+                    );
+            }
+        }
+
+        $em->flush();
+
+        if (!empty($polls)) {
+            $tx = $post->getText();
+            $tx = str_replace( array_keys( $question_assoc ), array_map( fn(ForumPoll $o) => $o->getId(), array_values( $question_assoc ) ), $tx );
+            $tx = str_replace( array_keys( $answer_assoc ), array_map( fn(ForumPollAnswer $o) => $o->getId(), array_values( $answer_assoc ) ), $tx );
+            $post->setText($tx);
+
+            $em->persist($post);
+            $em->flush();
+        }
     }
 
     /**
@@ -411,6 +557,9 @@ class MessageForumController extends MessageController
         $mod_permissions = $thread->hasReportedPosts() && $this->perm->isPermitted($permission, ForumUsagePermissions::PermissionModerate);
 
         if ($post->getOwner()->getId() === 66 && !$this->perm->isPermitted($permission, ForumUsagePermissions::PermissionPostAsCrow | ForumUsagePermissions::PermissionEditPost))
+            return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+
+        if ($post->getOwner()->getId() === 67 && !$this->perm->isPermitted($permission, ForumUsagePermissions::PermissionPostAsAnim | ForumUsagePermissions::PermissionEditPost))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         if ((($post->getOwner() !== $user && $post->getOwner()->getId() !== 66) || !$post->isEditable()) && !$mod_permissions && !$this->perm->isPermitted($permission, ForumUsagePermissions::PermissionModerate | ForumUsagePermissions::PermissionEditPost) )
@@ -463,7 +612,7 @@ class MessageForumController extends MessageController
         }
 
         $tx_len = 0;
-        if (!$this->preparePost($user,$forum,$post,$tx_len, null, $edit))
+        if (!$this->preparePost($user,$forum,$post,$tx_len, null, $edit, $polls))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
         if ($tx_len < 2) return AjaxResponse::error( self::ErrorPostTextLength );
@@ -471,8 +620,9 @@ class MessageForumController extends MessageController
         if (!$edit) $post->setEditingMode(Post::EditorLocked);
 
         try {
-            $em->persist($post);
-            $em->flush();
+
+            $this->commit_post_with_polls($em,$post,$polls);
+
         } catch (Exception $e) {
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
@@ -867,8 +1017,8 @@ class MessageForumController extends MessageController
         $post = null;
         if ($pid !== null) {
             $post = $em->getRepository(Post::class)->find((int)$pid);
-            if (!$post || (!$post->isEditable() && !$this->isGranted("ROLE_CROW")) || $post->getThread() !== $thread || (
-                (($post->getOwner() !== $user && !$this->isGranted("ROLE_CROW")) && !($this->isGranted("ROLE_CROW") && $post->getOwner()->getId() === 66))
+            if (!$post || (!$post->isEditable() && !$this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate )) || $post->getThread() !== $thread || (
+                (($post->getOwner() !== $user && !$this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate )) && !($this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionPostAsCrow ) && $post->getOwner()->getId() === 66) && !($this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionPostAsAnim ) && $post->getOwner()->getId() === 67))
                 )) return new Response('');
         }
 

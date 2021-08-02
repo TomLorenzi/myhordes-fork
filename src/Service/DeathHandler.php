@@ -87,6 +87,13 @@ class DeathHandler
         if ($this->citizen_handler->hasStatusEffect($citizen, 'tg_air_infected') || $this->citizen_handler->hasStatusEffect($citizen, 'tg_air_ghoul'))
             $this->citizen_handler->pass_airborne_ghoul_infection($citizen);
 
+        $survivedDays = max(0, $citizen->getTown()->getDay() - 1);
+        if($citizen->getTown()->getDevastated() && ($this->citizen_handler->hasStatusEffect($citizen, 'tg_hide') || $this->citizen_handler->hasStatusEffect($citizen, 'tg_tomb')))
+            $survivedDays += 1;
+
+        $citizen->setSurvivedDays($survivedDays);
+        $citizen->setDayOfDeath($citizen->getTown()->getDay());
+
         $citizen->getStatus()->clear();
 
         foreach ($citizen->getCitizenWatch() as $cw) {
@@ -134,14 +141,6 @@ class DeathHandler
 
         $citizen->setCauseOfDeath($cod);
         $citizen->setAlive(false);
-
-        $survivedDays = max(0, $citizen->getTown()->getDay() - 1);
-
-        if($citizen->getTown()->getDevastated() && ($this->citizen_handler->hasStatusEffect($citizen, 'tg_hide') || $this->citizen_handler->hasStatusEffect($citizen, 'tg_tomb')))
-            $survivedDays += 1;
-
-        $citizen->setSurvivedDays($survivedDays);
-        $citizen->setDayOfDeath($citizen->getTown()->getDay());
 
         if ($citizen->getTown()->getDay() <= 3) {
             $cdm = $this->entity_manager->getRepository(ConsecutiveDeathMarker::class)->findOneBy( ['user' => $citizen->getUser()] )

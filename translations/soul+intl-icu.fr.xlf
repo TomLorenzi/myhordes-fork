@@ -1,16 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="de" trgLang="fr">
   <file id="soul.fr">
-    <unit id="BNcLxkK" name="Deine Seele">
-      <notes>
-        <note category="german">Deine Seele</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Deine Seele</source>
-        <target>Votre Âme</target>
-      </segment>
-    </unit>
     <unit id="wvl2WtX" name="E-Mail-Adresse">
       <notes>
         <note category="german">E-Mail-Adresse</note>
@@ -332,19 +322,6 @@
         <target>Choix de la zone d'affichage compressée</target>
       </segment>
     </unit>
-    <unit id="Af7eIx8">
-      <notes>
-        <note category="german">Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
-                                    Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
-                                    Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</source>
-        <target>Choisissez quelle partie de votre image sera utilisée pour l'affichage compressé.
-                                    Déplacez la sélection avec la souris et redimensionnez la avec la molette.</target>
-      </segment>
-    </unit>
     <unit id="37GuQ5_" name="Profilbild hochladen">
       <notes>
         <note category="german">Profilbild hochladen</note>
@@ -465,16 +442,6 @@
         <target>Commentaire</target>
       </segment>
     </unit>
-    <unit id="mUtATjH">
-      <notes>
-        <note category="german">This password is incorrect. To delete your account, please enter your current password.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Dein eingegebenes Passwort ist nicht korrekt. Du benötigst dein aktuelles Passwort, um deinen Account zu löschen.</source>
-        <target>Ce mot de passe est incorrect. Pour supprimer votre compte, merci d'entrer votre mot de passe actuel.</target>
-      </segment>
-    </unit>
     <unit id="HbhZq4U" name="Account löschen">
       <notes>
         <note category="german">Account löschen</note>
@@ -543,16 +510,6 @@
       <segment>
         <source>Aktuelles Passwort</source>
         <target>Mot de passe actuel</target>
-      </segment>
-    </unit>
-    <unit id="wIQ05bj" name="Passwort aktualisieren">
-      <notes>
-        <note category="german">Passwort aktualisieren</note>
-        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-      </notes>
-      <segment>
-        <source>Passwort aktualisieren</source>
-        <target>Mettre à jour le mot de passe</target>
       </segment>
     </unit>
     <unit id="EZLjPxc">
@@ -644,19 +601,6 @@
       <segment>
         <source>Saison {season}</source>
         <target>Saison {season}</target>
-      </segment>
-    </unit>
-    <unit id="EHTi.hN">
-      <notes>
-        <note category="german">Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
-                                            Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
-                                            Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</source>
-        <target>Choisissez la partie de votre photo de profil à utiliser pour l'affichage compressé.
-                                            Déplacez la section avec la souris et agrandissez-la ou réduisez-la avec la molette de la souris.</target>
       </segment>
     </unit>
     <unit id="x3_4s4O" name="Alte Städte">
@@ -799,16 +743,6 @@
         <target>Vos âmes importées</target>
       </segment>
     </unit>
-    <unit id="aTN.bek" name="Vorschau">
-      <notes>
-        <note category="german">Vorschau</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Vorschau</source>
-        <target>Aperçu</target>
-      </segment>
-    </unit>
     <unit id="pGqYh1Z" name="Hurra, wir haben dein Profil heruntergeladen!">
       <notes>
         <note category="german">Hurra, wir haben dein Profil heruntergeladen!</note>
@@ -890,16 +824,6 @@
         <target>Nom de la ville</target>
       </segment>
     </unit>
-    <unit id="H9ZffoW" name="Nachrichten">
-      <notes>
-        <note category="german">Nachrichten</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Nachrichten</source>
-        <target>Écrits</target>
-      </segment>
-    </unit>
     <unit id="hn7LsRJ" name="Punkte">
       <notes>
         <note category="german">Punkte</note>
@@ -908,16 +832,6 @@
       <segment>
         <source>Punkte</source>
         <target>Points</target>
-      </segment>
-    </unit>
-    <unit id="HcPQCBJ" name="{d} überlebt">
-      <notes>
-        <note category="german">{d} überlebt</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>{d} überlebt</source>
-        <target>{d} Survécu</target>
       </segment>
     </unit>
     <unit id="rD2ZHAN" name="Letzte Worte">
@@ -1816,11 +1730,11 @@
     <unit id="XRr8eU." name="Gib den Pseudo des Bürgers ein.">
       <notes>
         <note category="german">Gib den Namen des Bürgers ein.</note>
-        <note category="from">twig:///templates/ajax/admin/snippets/user_search.html.twig;twig:///templates/ajax/forum/search.html.twig;twig:///templates/ajax/ghost/create_town.html.twig;twig:///templates/ajax/pm/user_list.html.twig;twig:///templates/ajax/pm/view.html.twig;twig:///templates/ajax/soul/coalitions.html.twig;twig:///templates/ajax/soul/me.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/snippets/user_search.html.twig;twig:///templates/ajax/forum/editor.html.twig;twig:///templates/ajax/forum/search.html.twig;twig:///templates/ajax/ghost/create_town.html.twig;twig:///templates/ajax/pm/user_list.html.twig;twig:///templates/ajax/pm/view.html.twig;twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Gib den Pseudo des Bürgers ein.</source>
-        <target>Entrez ici le pseudo du citoyen</target>
+        <target>Entrez ici le pseudo du joueur</target>
       </segment>
     </unit>
     <unit id="CMpbuf0">
@@ -3167,16 +3081,6 @@
         <target>Vous n'avez pas de coalition.</target>
       </segment>
     </unit>
-    <unit id="ljPPYyM" name="Du bist nicht Anführer deiner Koalition.">
-      <notes>
-        <note category="german">Du bist nicht Anführer deiner Koalition.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Du bist nicht Anführer deiner Koalition.</source>
-        <target>Vous n'êtes pas le chef de votre coalition.</target>
-      </segment>
-    </unit>
     <unit id="nnaWQyL" name="Kein freier Platz">
       <notes>
         <note category="german">Kein freier Platz</note>
@@ -3874,6 +3778,26 @@
       <segment>
         <source>Dies ist eine Event-Stadt.</source>
         <target>Dies ist eine Event-Stadt.</target>
+      </segment>
+    </unit>
+    <unit id="mupnQII" name="Animateur">
+      <notes>
+        <note category="german">Animateur</note>
+        <note category="from">twig:///templates/ajax/soul/badges.html.twig</note>
+      </notes>
+      <segment>
+        <source>Animateur</source>
+        <target>Animacteur</target>
+      </segment>
+    </unit>
+    <unit id="9S5p0sP">
+      <notes>
+        <note category="german">Diese Karteikarte gehört einem Animateur. Animateure organisieren und koordinieren Community-Events.</note>
+        <note category="from">twig:///templates/ajax/soul/badges.html.twig</note>
+      </notes>
+      <segment>
+        <source>Diese Karteikarte gehört einem Animateur. Animateure organisieren und koordinieren Community-Events.</source>
+        <target>Ce badge appartient à un animacteur. Les animacteurs organisent et coordonnent des événements communautaires.</target>
       </segment>
     </unit>
   </file>

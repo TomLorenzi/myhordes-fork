@@ -63,18 +63,18 @@ class MessageController extends CustomAbstractController
         $this->html = $html;
     }
 
-    protected function preparePost(User $user, ?Forum $forum, $post, int &$tx_len, ?Town $town = null, ?bool &$editable = null): bool {
+    protected function preparePost(User $user, ?Forum $forum, $post, int &$tx_len, ?Town $town = null, ?bool &$editable = null, ?array &$polls = []): bool {
         if (!$town && $forum && $forum->getTown())
             $town = $forum->getTown();
 
         $p = $forum ? $this->perm->getEffectivePermissions($this->getUser(), $forum) : (
             ($this->isGranted("ROLE_ADMIN")  * ForumUsagePermissions::PermissionFormattingAdmin) |
             ($this->isGranted("ROLE_CROW")   * ForumUsagePermissions::PermissionFormattingModerator) |
-            ($this->isGranted("ROLE_ORACLE") * ForumUsagePermissions::PermissionFormattingOracle)
+            (($this->isGranted("ROLE_ORACLE") || $this->isGranted("ROLE_ANIMAC")) * ForumUsagePermissions::PermissionFormattingOracle)
         );
 
         $tx = $post->getText();
-        $this->html->htmlPrepare($user, $p, true, $tx, $town, $tx_len, $editable);
+        $this->html->htmlPrepare($user, $p, true, $tx, $town, $tx_len, $editable, $polls);
 
         if ($town && $user->getActiveCitizen() && $town->getCitizens()->contains($user->getActiveCitizen()) && (!is_a( $post, Post::class) || $post->getType() === 'USER')) {
             $citizen = $user->getActiveCitizen();
@@ -92,7 +92,7 @@ class MessageController extends CustomAbstractController
         if ($post instanceof Post) {
             $post->setSearchText( strip_tags( $tx ) );
 
-            if ($post->getType() !== 'CROW' && $forum !== null && $forum->getTown()){
+            if ($post->getType() !== 'CROW' && $post->getType() !== 'ANIM' && $forum !== null && $forum->getTown()){
                 $citizen = $user->getActiveCitizen();
                 if ($citizen && $citizen->getTown() === $forum->getTown()) {
 
@@ -110,7 +110,7 @@ class MessageController extends CustomAbstractController
                     $post->setNote("<img alt='' src='{$this->asset->getUrl("build/images/professions/{$citizen->getProfession()->getIcon()}.gif")}' /> <img alt='' src='{$this->asset->getUrl('build/images/icons/item_map.gif')}' /> <span>$note</span>");
                 }
             }
-        }
+        } elseif (!empty($polls)) return false;
 
         return true;
     }

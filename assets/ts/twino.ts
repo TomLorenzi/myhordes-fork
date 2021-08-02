@@ -41,6 +41,7 @@ class TwinoRegexResult {
     private static readonly TypeInsetA = 31;
     private static readonly TypeInsetB = 32;
     private static readonly TypeInsetC = 33;
+    private static readonly TypeInsetD = 34;
 
     private readonly type:  number;
     private readonly match: RegExpMatchArray|Array<string>;
@@ -60,6 +61,7 @@ class TwinoRegexResult {
             if      (this.match[1] !== undefined) this.type = TwinoRegexResult.TypeInsetA;
             else if (this.match[2] !== undefined) this.type = TwinoRegexResult.TypeInsetB;
             else if (this.match[4] !== undefined) this.type = TwinoRegexResult.TypeInsetC;
+            else if (this.match[6] !== undefined) this.type = TwinoRegexResult.TypeInsetD;
             else throw new Error( 'Unable to guess TRR subtype for TypeInset instance.' );
 
         }
@@ -69,7 +71,7 @@ class TwinoRegexResult {
 
         switch (type) {
             case TwinoRegexResult.TypeShortBB: return /(?:([^\w\s]){2})([\s\S]*?)\1{2}/gm;
-            case TwinoRegexResult.TypeInset:   return /{([a-zA-Z]+)}|{([a-zA-Z]+),([\w,]*)}|{([a-zA-Z]+)(\d+)}/g;
+            case TwinoRegexResult.TypeInset:   return /{([a-zA-Z]+)}|{([a-zA-Z]+),([\w,]*)}|{([a-zA-Z]+)(\d+)}|\B@([\w_]*)(?::(\d+))?\b/g;
             case TwinoRegexResult.TypeEmote:   return /(?::(\w+?):)|([:;].)/g;
             default: throw Error( 'No regex defined for this type of TRR!' )
         }
@@ -143,6 +145,8 @@ class TwinoRegexResult {
                 return this.match[2].toLowerCase();
             case TwinoRegexResult.TypeInsetC:
                 return this.match[4].toLowerCase();
+            case TwinoRegexResult.TypeInsetD:
+                return '@';
             case TwinoRegexResult.TypeEmote:
                 return this.match[0].toLowerCase();
             default:
@@ -156,6 +160,8 @@ class TwinoRegexResult {
                 return this.match[3];
             case TwinoRegexResult.TypeShortBB:
                 return this.match[2];
+            case TwinoRegexResult.TypeInsetD:
+                return this.match[6];
             default:
                 throw new Error('Attempt to access node content of a TRR not representing a block node.');
         }
@@ -171,6 +177,8 @@ class TwinoRegexResult {
                 return this.match[3] ?? null;
             case TwinoRegexResult.TypeInsetC:
                 return this.match[5] ?? null;
+            case TwinoRegexResult.TypeInsetD:
+                return this.match[7] ?? null;
             default:
                 throw new Error('Attempt to access node info of a TRR not supporting additional node information.');
         }
@@ -195,9 +203,12 @@ class TwinoConverterToBlocks {
 
         let quotespace = false;
         let nested = false;
+        let pollspace = false;
         for (let i = 0; i < parents.length; i++) {
             if (!quotespace && (parents[i].tagName === 'BLOCKQUOTE'))
                 quotespace = true;
+
+            pollspace = ((parents[i].tagName === 'UL' && parents[i].classList.contains('poll')))
 
             let css = typeToClass[match.nodeType()] ?? match.nodeType();
 
@@ -213,11 +224,22 @@ class TwinoConverterToBlocks {
             nodeContent = nodeContent.replace(/({br})$/g, '')
         }
 
+        if (pollspace && ['ul','li','q','desc'].indexOf(match.nodeType()) === -1)
+            return [true, []];
+
         switch (match.nodeType()) {
             case 'b': case 'i': case 'u': case 's': case 'ul': case 'ol': case 'li':
                 if (nested) blocks.push( new TwinoInterimBlock(nodeContent) )
                 else blocks.push( new TwinoInterimBlock(nodeContent, match.nodeType(), [], [['x-nested','1']]) );
                 changed = true; break;
+            case 'poll':
+                if (nested) blocks.push( new TwinoInterimBlock(nodeContent) )
+                else blocks.push( new TwinoInterimBlock(nodeContent, 'ul', ['poll'], [['x-nested','1']]) );
+                changed = true; break;
+            case 'desc': case 'q':
+                if (!pollspace) blocks.push( new TwinoInterimBlock(match.raw()) );
+                else blocks.push( new TwinoInterimBlock(nodeContent, 'li', [match.nodeType()], [['x-nested','1']]) );
+                break;
             case 'c':
                 blocks.push( new TwinoInterimBlock(nodeContent, 'span', ['inline-code'], [ ['x-raw','1'] ]) ); changed = true; break;
             case '**': blocks.push( new TwinoInterimBlock(nodeContent, 'b') ); changed = true; break;
@@ -303,7 +325,7 @@ class TwinoConverterToBlocks {
         let listspace = false;
         for (let i = 0; i < parents.length; i++) {
 
-            if (!listspace && ['UL', 'OL'].indexOf(parents[i].tagName) !== -1)
+            if (!listspace && ['UL', 'OL', 'POLL'].indexOf(parents[i].tagName) !== -1)
                 listspace = true;
             else if (listspace && parents[i].tagName === 'LI')
                 listspace = false;
@@ -329,11 +351,16 @@ class TwinoConverterToBlocks {
                 blocks.push( new TwinoInterimBlock( '???', 'div', 'coin') ); break;
             case 'carte': case 'card': case 'skat': case 'blatt':
                 blocks.push( new TwinoInterimBlock( '???', 'div', 'card') ); break;
-            case 'citizen': case 'rnduser': case 'user': case 'spieler':
+            case 'citizen': case 'rnduser': case 'user': case 'spieler': case 'habitant':
                 let attribs = match.nodeInfo() ? match.nodeInfo().split(',') : [];
                 if (!attribs[0]) attribs[0] = 'any';
                 if (!attribs[1]) attribs[1] = '0';
                 blocks.push( new TwinoInterimBlock( attribs[1] === '0' ? '???' : '??? [' + attribs[1] + ']', 'div', 'citizen', [['x-a', attribs[0]], ['x-b', attribs[1]]]) );
+                break;
+            case '@':
+                let id = match.nodeInfo() ? match.nodeInfo() : 'auto';
+                let name = match.nodeContent() ? match.nodeContent() : ('user #' + id)
+                blocks.push( new TwinoInterimBlock( name, 'div', 'cref', [['x-a',id]]) );
                 break;
             default: blocks.push( new TwinoInterimBlock( match.raw() ) ); break;
         }
@@ -402,7 +429,8 @@ class HTMLConverterFromBlocks {
                     ret += (link_href ? HTMLConverterFromBlocks.wrapBlock( block, 'link', link_href ) : block.nodeText);
                     break;
                 case 'i': case 'u': case 's': case 'ul': case 'ol': case 'li':
-                    ret += HTMLConverterFromBlocks.wrapBlock( block, block.nodeName );
+                    if (block.nodeName == 'ul' && block.hasClass('poll')) break;
+                    else ret += HTMLConverterFromBlocks.wrapBlock( block, block.nodeName );
                     break;
                 case 'pre':
                     ret += HTMLConverterFromBlocks.wrapBlock( block, 'code' );
@@ -426,7 +454,11 @@ class HTMLConverterFromBlocks {
                     else ret += block.nodeText;
                     break;
                 case 'div':
-                    if (block.hasClass('spoiler'))
+                    if (block.hasClass('cref')) {
+                        let id = '';
+                        block.nodeAttribs.forEach((value => { if (value[0] == 'x-id') id = value[1]; }))
+                        ret += '@' + block.nodeText + ( id !== '' ? (':' + id) : '' );
+                    } else if (block.hasClass('spoiler'))
                         ret += HTMLConverterFromBlocks.wrapBlock( block, 'spoiler' )
                     else if (block.hasClass('sideNote'))
                         ret += HTMLConverterFromBlocks.wrapBlock( block, 'aparte' );

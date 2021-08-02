@@ -11,46 +11,6 @@
         <target>États</target>
       </segment>
     </unit>
-    <unit id="1BvDdjk" name="Verbannt bis">
-      <notes>
-        <note category="german">Verbannt bis</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Verbannt bis</source>
-        <target>Banni jusqu'au</target>
-      </segment>
-    </unit>
-    <unit id="gswoKQz" name="Letzte Verbannung">
-      <notes>
-        <note category="german">Letzte Verbannung</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Letzte Verbannung</source>
-        <target>Dernier bannissement</target>
-      </segment>
-    </unit>
-    <unit id="KqvNLEL" name="Verbannungen">
-      <notes>
-        <note category="german">Verbannungen</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Verbannungen</source>
-        <target>Bannissements</target>
-      </segment>
-    </unit>
-    <unit id="0.QpL14" name="Verbannen">
-      <notes>
-        <note category="german">Verbannen</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Verbannen</source>
-        <target>Bannir</target>
-      </segment>
-    </unit>
     <unit id="Zoy_MWF" name="Dauer">
       <notes>
         <note category="german">Dauer</note>
@@ -59,66 +19,6 @@
       <segment>
         <source>Dauer</source>
         <target>Durée</target>
-      </segment>
-    </unit>
-    <unit id="1E2BbPr" name="1 Tag">
-      <notes>
-        <note category="german">1 Tag</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>1 Tag</source>
-        <target>1 Jour</target>
-      </segment>
-    </unit>
-    <unit id="JU_xNFX" name="3 Tage">
-      <notes>
-        <note category="german">3 Tage</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>3 Tage</source>
-        <target>3 Jours</target>
-      </segment>
-    </unit>
-    <unit id="84RJxpK" name="5 Tage">
-      <notes>
-        <note category="german">5 Tage</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>5 Tage</source>
-        <target>5 Jours</target>
-      </segment>
-    </unit>
-    <unit id="zEDFlzj" name="7 Tage">
-      <notes>
-        <note category="german">7 Tage</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>7 Tage</source>
-        <target>7 Jours</target>
-      </segment>
-    </unit>
-    <unit id="GtUIerm" name="15 Tage">
-      <notes>
-        <note category="german">15 Tage</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>15 Tage</source>
-        <target>15 Jours</target>
-      </segment>
-    </unit>
-    <unit id="WB_sVVK" name="30 Tage">
-      <notes>
-        <note category="german">30 Tage</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>30 Tage</source>
-        <target>30 Jours</target>
       </segment>
     </unit>
     <unit id="tF9Axzf" name="Grund">
@@ -141,16 +41,6 @@
         <target>Citoyens</target>
       </segment>
     </unit>
-    <unit id="8kHR6Z1" name="Akte">
-      <notes>
-        <note category="german">Akte</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Akte</source>
-        <target>Voir</target>
-      </segment>
-    </unit>
     <unit id="S8vqbzA" name="Verbannung">
       <notes>
         <note category="german">Verbannung</note>
@@ -169,16 +59,6 @@
       <segment>
         <source>Diesen Bürger töten?</source>
         <target>Tuer ce citoyen ?</target>
-      </segment>
-    </unit>
-    <unit id="bZx3MQe" name="Aufheben">
-      <notes>
-        <note category="german">Aufheben</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Aufheben</source>
-        <target>Annuler</target>
       </segment>
     </unit>
     <unit id="r8Abf9v" name="Derzeitiges Leben">
@@ -262,16 +142,6 @@
         <target>Auteur</target>
       </segment>
     </unit>
-    <unit id="5qZlTRd" name="Meldungen">
-      <notes>
-        <note category="german">Meldungen</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Meldungen</source>
-        <target>Signalements</target>
-      </segment>
-    </unit>
     <unit id="YlkNCJx" name="gemeldet von">
       <notes>
         <note category="german">gemeldet von</note>
@@ -290,26 +160,6 @@
       <segment>
         <source>Gesehen</source>
         <target>Vu</target>
-      </segment>
-    </unit>
-    <unit id="ZVsq_1H" name="Beitrag löschen?">
-      <notes>
-        <note category="german">Beitrag löschen?</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Beitrag löschen?</source>
-        <target>Effacer le poste ?</target>
-      </segment>
-    </unit>
-    <unit id="eRsa9rX" name="Beginne, einen Namen zu tippen, um alle passenden Nutzer anzuzeigen:">
-      <notes>
-        <note category="german">Beginne, einen Namen zu tippen, um alle passenden Nutzer anzuzeigen:</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Beginne, einen Namen zu tippen, um alle passenden Nutzer anzuzeigen:</source>
-        <target>Commencez à entrer un pseudo, ceux correspondant s'afficheront :</target>
       </segment>
     </unit>
     <unit id="UNGMFAu" name="Suche:">
@@ -332,16 +182,6 @@
         <target>Aperçu</target>
       </segment>
     </unit>
-    <unit id="gw9T6N6" name="Gewähltes Forum">
-      <notes>
-        <note category="german">Gewähltes Forum</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Gewähltes Forum</source>
-        <target>Forum sélectionné</target>
-      </segment>
-    </unit>
     <unit id="zTivRKG" name="Posts mit nur einer Meldung werden ausgeblendet.">
       <notes>
         <note category="german">Posts mit nur einer Meldung werden ausgeblendet.</note>
@@ -360,16 +200,6 @@
       <segment>
         <source>Alle anzeigen</source>
         <target>Voir tout</target>
-      </segment>
-    </unit>
-    <unit id="lb_oeKi" name="Du hast kein Forum ausgewählt.">
-      <notes>
-        <note category="german">Du hast kein Forum ausgewählt.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Du hast kein Forum ausgewählt.</source>
-        <target>Vous n'avez pas sélectionné de forum.</target>
       </segment>
     </unit>
     <unit id="fhsNVkH" name="Account">
@@ -1453,46 +1283,6 @@
         <target>Bannir</target>
       </segment>
     </unit>
-    <unit id="oTFpWe9" name="Durch {admin} vom Spiel ausgeschlossen!">
-      <notes>
-        <note category="german">Durch {admin} vom Spiel ausgeschlossen!</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Durch {admin} vom Spiel ausgeschlossen!</source>
-        <target>Exclus du jeu par {admin} !</target>
-      </segment>
-    </unit>
-    <unit id="jyuOkNg" name="Grund angeben">
-      <notes>
-        <note category="german">Grund angeben</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Grund angeben</source>
-        <target>Expliquer la raison</target>
-      </segment>
-    </unit>
-    <unit id="Gn20uPe" name="Spielbann">
-      <notes>
-        <note category="german">Spielbann</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Spielbann</source>
-        <target>Interdiction de jouer</target>
-      </segment>
-    </unit>
-    <unit id="BfojyKe" name="Spielbann aufheben">
-      <notes>
-        <note category="german">Spielbann aufheben</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Spielbann aufheben</source>
-        <target>Supprimer l'interdiction</target>
-      </segment>
-    </unit>
     <unit id="OasWqCK" name="Verschüttet">
       <notes>
         <note category="german">Verschüttet</note>
@@ -1884,16 +1674,6 @@
         <target>Faire apparaître un objet :</target>
       </segment>
     </unit>
-    <unit id="pkg069a" name="Nummer des Gegenstandes:">
-      <notes>
-        <note category="german">Anzahl des Gegenstandes:</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Nummer des Gegenstandes:</source>
-        <target>Nombre d'objets :</target>
-      </segment>
-    </unit>
     <unit id="9B3v_rN" name="Vergiftet:">
       <notes>
         <note category="german">Vergiftet:</note>
@@ -2256,16 +2036,6 @@
         <target>Page {page}/{total}</target>
       </segment>
     </unit>
-    <unit id="HAvttwf" name="Gib den Namen der Stadt ein.">
-      <notes>
-        <note category="german">Gib den Namen der Stadt ein.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Gib den Namen der Stadt ein.</source>
-        <target>Entrez ici le nom de la ville.</target>
-      </segment>
-    </unit>
     <unit id="zLJ.A.A" name="Anzeigen">
       <notes>
         <note category="german">Anzeigen</note>
@@ -2355,26 +2125,6 @@
       <segment>
         <source>Einen Status auswählen:</source>
         <target>Attribuer un statut :</target>
-      </segment>
-    </unit>
-    <unit id="R7yBd_O" name="Vergeben">
-      <notes>
-        <note category="german">Vergeben</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Vergeben</source>
-        <target>Donner</target>
-      </segment>
-    </unit>
-    <unit id="OCg3Wi1" name="Entfernen">
-      <notes>
-        <note category="german">Entfernen</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Entfernen</source>
-        <target>Retirer</target>
       </segment>
     </unit>
     <unit id="pcCL6tz" name="Status vergeben">
@@ -2537,16 +2287,6 @@
       <segment>
         <source>Saison "{season}"</source>
         <target>Saison "{season}"</target>
-      </segment>
-    </unit>
-    <unit id="TZqRtfG" name="Name der Saison">
-      <notes>
-        <note category="german">Name der Saison</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Name der Saison</source>
-        <target>Nom de la Saison</target>
       </segment>
     </unit>
     <unit id="3RyPmTj" name="Saison Nummer">
@@ -4049,22 +3789,91 @@
       <notes>
         <note category="german">Event-Markierung entfernen</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Event-Markierung entfernen</source>
-        <target>Event-Markierung entfernen</target>
+        <target>Supprimer le marqueur d’événement</target>
       </segment>
     </unit>
     <unit id="RSDaSun" name="Als Event-Stadt markieren">
       <notes>
         <note category="german">Als Event-Stadt markieren</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Als Event-Stadt markieren</source>
-        <target>Als Event-Stadt markieren</target>
+        <target>Marquer la ville comme événement</target>
+      </segment>
+    </unit>
+    <unit id="7npTNxR" name="Funktionen für Spezialrollen">
+      <notes>
+        <note category="german">Funktionen für Spezialrollen</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
+      </notes>
+      <segment>
+        <source>Funktionen für Spezialrollen</source>
+        <target>Fonctions pour les rôles spéciaux</target>
+      </segment>
+    </unit>
+    <unit id="nG1VP4R" name="Stadt-ID eingeben.">
+      <notes>
+        <note category="german">Stadt-ID eingeben.</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
+      </notes>
+      <segment>
+        <source>Stadt-ID eingeben.</source>
+        <target>Entrez l'identifiant de la ville</target>
+      </segment>
+    </unit>
+    <unit id="NIAMEKG" name="Zugang zu Stadtforum gewähren">
+      <notes>
+        <note category="german">Zugang zu Stadtforum gewähren</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
+      </notes>
+      <segment>
+        <source>Zugang zu Stadtforum gewähren</source>
+        <target>Accorder l'accès au forum ville</target>
+      </segment>
+    </unit>
+    <unit id="3PvUorI" name="Zugang zu Stadtforum entziehen">
+      <notes>
+        <note category="german">Zugang zu Stadtforum entziehen</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
+      </notes>
+      <segment>
+        <source>Zugang zu Stadtforum entziehen</source>
+        <target>Révoquer l'accès au forum ville</target>
+      </segment>
+    </unit>
+    <unit id="K8iqUB2" name="Spezialrollen">
+      <notes>
+        <note category="german">Spezialrollen</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
+      </notes>
+      <segment>
+        <source>Spezialrollen</source>
+        <target>Rôles spéciaux</target>
+      </segment>
+    </unit>
+    <unit id="mupnQII" name="Animateur">
+      <notes>
+        <note category="german">Animateur</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig;twig:///templates/ajax/forum/editor.html.twig</note>
+      </notes>
+      <segment>
+        <source>Animateur</source>
+        <target>Animacteur</target>
+      </segment>
+    </unit>
+    <unit id="A.he6Md" name="Community Dashboard">
+      <notes>
+        <note category="german">Community Dashboard</note>
+        <note category="from">twig:///templates/ajax/admin/dash.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Community Dashboard</source>
+        <target>Community Dashboard</target>
       </segment>
     </unit>
   </file>

@@ -297,7 +297,7 @@ class SoulController extends CustomAbstractController
         $data = [
             'var' => $url,
             'single_entry' => $selected_group,
-            'users' => in_array($url, ['soul_visit','soul_invite_coalition','pm_manage_users','pm_add_users','town_add_users','plain']) ? $users : [],
+            'users' => in_array($url, ['soul_visit','soul_invite_coalition','pm_manage_users','pm_add_users','town_add_users','plain','post_add_users']) ? $users : [],
             'route' => in_array($url, ['soul_visit','soul_invite_coalition']) ? $url : ''
         ];
 
@@ -505,8 +505,6 @@ class SoulController extends CustomAbstractController
     public function soul_season(JSONRequestParser $parser, $type = null): Response
     {
         $user = $this->getUser();
-        //if($user->getRightsElevation() <= User::ROLE_CROW)
-        //    return $this->redirect($this->generateUrl('soul_me'));
 
         $seasonId = $parser->get('season', null);
 
@@ -574,8 +572,6 @@ class SoulController extends CustomAbstractController
         $offset = $resultsPerPage * ($page - 1);
 
         $user = $this->getUser();
-        //if($user->getRightsElevation() <= User::ROLE_CROW)
-        //    return $this->redirect($this->generateUrl('soul_me'));
 
         $seasonId = $parser->get('season', null);
 

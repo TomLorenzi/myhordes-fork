@@ -418,7 +418,15 @@ class UserHandler
      * @return string[]
      */
     public function admin_validRoles(): array {
-        return ['ROLE_ORACLE', 'ROLE_CROW', 'ROLE_ADMIN', 'ROLE_SUPER'];
+        return ['ROLE_CROW', 'ROLE_ADMIN', 'ROLE_SUPER'];
+    }
+
+    /**
+     * Returns a list of grant-able flags
+     * @return string[]
+     */
+    public function admin_validFlags(): array {
+        return ['FLAG_ORACLE', 'FLAG_ANIMAC'];
     }
 
     /**
@@ -456,15 +464,21 @@ class UserHandler
         // Only admins can grant roles
         if (!$this->hasRole( $principal, 'ROLE_ADMIN' )) return false;
 
+
         // Make sure only valid roles can be granted
-        if (!in_array($role, $this->admin_validRoles())) return false;
+        if (str_starts_with($role, 'ROLE_') && !in_array($role, $this->admin_validRoles()))                      return false;
+        elseif (str_starts_with($role, 'FLAG_') && !in_array($role, $this->admin_validFlags()))                  return false;
+        elseif (str_starts_with($role, '!FLAG_') && !in_array(substr($role,1), $this->admin_validFlags())) return false;
+
+        if (!str_starts_with($role, 'ROLE_') && !str_starts_with($role, 'FLAG_') && !str_starts_with($role, '!FLAG_'))
+            return false;
 
         // Only super admins can grant admin role
         if ($role === 'ROLE_ADMIN' && !$this->hasRole( $principal, 'ROLE_SUPER' )) return false;
 
         // Super admin role can be granted by admins only if no super admin exists yet
         if ($role === 'ROLE_SUPER' &&  !$this->hasRole( $principal, 'ROLE_SUPER' ) &&
-            $this->entity_manager->getRepository(User::class)->findByLeastElevationLevel(User::ROLE_SUPER)
+            $this->entity_manager->getRepository(User::class)->findByLeastElevationLevel(User::USER_LEVEL_SUPER)
         ) return false;
 
         return true;

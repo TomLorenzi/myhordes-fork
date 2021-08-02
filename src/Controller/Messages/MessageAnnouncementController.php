@@ -23,18 +23,36 @@ use Symfony\Component\Routing\Annotation\Route;
 class MessageAnnouncementController extends MessageController
 {
     /**
+     * @Route("jx/admin/com/changelogs/{tab}", name="admin_changelogs")
+     * @param string $tab
+     * @return Response
+     */
+    public function changelogs( string $tab = 'changelog' ): Response
+    {
+        return $this->render( 'ajax/admin/changelogs/changelogs.html.twig', $this->addDefaultTwigArgs(null, [
+            'news' => $this->isGranted('ROLE_CROW') ? $this->entity_manager->getRepository(Changelog::class)->findAll() : [],
+            'announces' => $this->entity_manager->getRepository(Announcement::class)->findAll(),
+            'tab' => $tab
+        ]));
+    }
+
+    /**
      * @Route("jx/admin/changelogs/c/editor", name="admin_new_changelog_editor_controller")
      * @return Response
      */
     public function admin_new_changelog_editor_controller(): Response {
         $user = $this->getUser();
 
+        if ($this->isGranted('ROLE_ADMIN')) $p = ForumUsagePermissions::PermissionOwn;
+        elseif ($this->isGranted('ROLE_CROW')) $p = ForumUsagePermissions::PermissionReadWrite | ForumUsagePermissions::PermissionFormattingModerator;
+        else $p = ForumUsagePermissions::PermissionReadWrite | ForumUsagePermissions::PermissionFormattingOracle;
+
         return $this->render( 'ajax/forum/editor.html.twig', [
             'fid' => null,
             'tid' => null,
             'pid' => null,
 
-            'permission' => $this->getPermissionObject( ForumUsagePermissions::PermissionOwn ),
+            'permission' => $this->getPermissionObject( $p ),
             'snippets' => [],
             'emotes' => $this->getEmotesByUser($user,true),
 
@@ -47,18 +65,22 @@ class MessageAnnouncementController extends MessageController
     }
 
     /**
-     * @Route("jx/admin/changelogs/a/editor", name="admin_new_announcement_editor_controller")
+     * @Route("jx/admin/com/changelogs/a/editor", name="admin_new_announcement_editor_controller")
      * @return Response
      */
     public function admin_new_announcement_editor_controller(): Response {
         $user = $this->getUser();
+
+        if ($this->isGranted('ROLE_ADMIN')) $p = ForumUsagePermissions::PermissionOwn;
+        elseif ($this->isGranted('ROLE_CROW')) $p = ForumUsagePermissions::PermissionReadWrite | ForumUsagePermissions::PermissionFormattingModerator;
+        else $p = ForumUsagePermissions::PermissionReadWrite | ForumUsagePermissions::PermissionFormattingOracle;
 
         return $this->render( 'ajax/forum/editor.html.twig', [
             'fid' => null,
             'tid' => null,
             'pid' => null,
 
-            'permission' => $this->getPermissionObject( ForumUsagePermissions::PermissionOwn ),
+            'permission' => $this->getPermissionObject( $p ),
             'snippets' => [],
             'emotes' => $this->getEmotesByUser($user,true),
 
@@ -102,7 +124,7 @@ class MessageAnnouncementController extends MessageController
     }
 
     /**
-     * @Route("api/admin/changelogs/new_announcement", name="admin_changelog_new_announcement")
+     * @Route("api/admin/com/changelogs/new_announcement", name="admin_changelog_new_announcement")
      * @param EntityManagerInterface $em
      * @param JSONRequestParser $parser
      * @return Response
@@ -130,7 +152,7 @@ class MessageAnnouncementController extends MessageController
     }
 
     /**
-     * @Route("api/admin/changelogs/del_a/{id<\d+>}", name="admin_changelog_del_announcement")
+     * @Route("api/admin/com/changelogs/del_a/{id<\d+>}", name="admin_changelog_del_announcement")
      * @param int $id
      * @param EntityManagerInterface $em
      * @return Response
@@ -139,6 +161,9 @@ class MessageAnnouncementController extends MessageController
         $announcement = $em->getRepository(Announcement::class)->find($id);
 
         if (!$announcement) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        if (!$this->isGranted('ROLE_ADMIN') && $this->getUser() !== $announcement->getSender())
+            return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
         $em->remove($announcement);
         $em->flush();

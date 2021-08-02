@@ -163,8 +163,8 @@ class BeyondController extends InventoryAwareController
 
         $zone_players = count($zone->getCitizens());
 
-        if ($zone->getX() === 0 and $zone->getY() === 0) {
-            $zone_players += $this->entity_manager->getRepository(Citizen::class)->count(['town' => $this->getActiveCitizen()->getTown(), 'zone' => null]);
+        if ($zone->isTownZone()) {
+            $zone_players += $this->entity_manager->getRepository(Citizen::class)->count(['town' => $this->getActiveCitizen()->getTown(), 'zone' => null, 'alive' => true]);
         }
         return parent::addDefaultTwigArgs( $section, array_merge( [
             'zone_players' => $zone_players,
@@ -193,7 +193,7 @@ class BeyondController extends InventoryAwareController
             'can_explore' => $zone->getPrototype() && $zone->getPrototype()->getExplorable() &&
                 !$this->citizen_handler->hasStatusEffect( $this->getActiveCitizen(), ['infection','terror'] ) &&
                 !$this->citizen_handler->isWounded( $this->getActiveCitizen() ) &&
-                !$blocked && !$zone->activeExplorerStats() && !$this->getActiveCitizen()->currentExplorerStats(),
+                (!$blocked || $scout_movement) && !$zone->activeExplorerStats() && !$this->getActiveCitizen()->currentExplorerStats(),
             'exploration_blocked_wound'     => $zone->getPrototype() && $zone->getPrototype()->getExplorable() && $this->citizen_handler->isWounded( $this->getActiveCitizen() ),
             'exploration_blocked_blocked'   => $zone->getPrototype() && $zone->getPrototype()->getExplorable() && ($blocked && !$scout_movement),
             'exploration_blocked_infection' => $zone->getPrototype() && $zone->getPrototype()->getExplorable() && $this->citizen_handler->hasStatusEffect( $this->getActiveCitizen(), 'infection' ),
@@ -361,7 +361,7 @@ class BeyondController extends InventoryAwareController
             'enter_costs_ap' => $require_ap,
             'allow_floor_access' => !$is_on_zero,
             'can_escape' => !$this->citizen_handler->isWounded( $this->getActiveCitizen() ) && !$citizen_tired,
-            'can_attack' => !$citizen_tired && !$this->citizen_handler->isWounded($this->getActiveCitizen()),
+            'can_attack' => !$citizen_tired && !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'wound2'),
             'can_attack_nr' => $citizen_tired ? 'tired' : ( $this->citizen_handler->isWounded($this->getActiveCitizen()) ? 'wounded' : false ),
             'can_escape_nr' => $citizen_tired ? 'tired' : ( $this->citizen_handler->isWounded($this->getActiveCitizen()) ? 'wounded' : false ),
             'zone_blocked' => $blocked,
@@ -527,7 +527,7 @@ class BeyondController extends InventoryAwareController
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         $message = $parser->get('msg', null);
-        if (!$message || mb_strlen($message) < 2 || !$html->htmlPrepare($this->getActiveCitizen()->getUser(), 0, ['core_rp'], $message, null, $len) || $len < 2 || $len > 256 )
+        if (!$message || mb_strlen($message) < 2 || !$html->htmlPrepare($this->getActiveCitizen()->getUser(), 0, ['core_rp'], $message, $this->getActiveCitizen()->getTown(), $len) || $len < 2 || $len > 256 )
             return AjaxResponse::error(self::ErrorChatMessageInvalid);
 
         try {
@@ -667,7 +667,10 @@ class BeyondController extends InventoryAwareController
             return AjaxResponse::error( self::ErrorEscortFailureRuin );
 
         // Block exploring if the zone is controlled by zombies
-        if (!$this->zone_handler->check_cp( $citizen->getZone() ))
+        $scout_movement = $this->inventory_handler->countSpecificItems(
+                $this->getActiveCitizen()->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'vest_on_#00'])
+            ) > 0;
+        if (!$this->zone_handler->check_cp( $citizen->getZone() ) && !$scout_movement)
             return AjaxResponse::error( self::ErrorZoneBlocked );
 
         // Make sure the citizen has enough AP
@@ -1119,7 +1122,7 @@ class BeyondController extends InventoryAwareController
         if ($this->inventory_handler->countSpecificItems($this->getActiveCitizen()->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'vest_on_#00'])) > 0)
             return AjaxResponse::error( self::ErrorZoneUnderControl );
 
-        if ($this->citizen_handler->isWounded($citizen)) {
+        if ($this->citizen_handler->hasStatusEffect($citizen, 'wound2')) {
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailableWounded);
         }
 
