@@ -1730,7 +1730,7 @@
       </notes>
       <segment>
         <source>Gib den Pseudo des Bürgers ein.</source>
-        <target>Ingresa el nick del habitante.</target>
+        <target>Ingresa el nick del jugador.</target>
       </segment>
     </unit>
     <unit id="CMpbuf0">
