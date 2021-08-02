@@ -1734,7 +1734,7 @@
       </notes>
       <segment>
         <source>Gib den Pseudo des Bürgers ein.</source>
-        <target>Entrez ici le pseudo du citoyen</target>
+        <target>Entrez ici le pseudo du joueur</target>
       </segment>
     </unit>
     <unit id="CMpbuf0">
