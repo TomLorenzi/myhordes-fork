@@ -4422,7 +4422,7 @@
       </notes>
       <segment>
         <source>Dieser riesige Haufen aus Schutt und Metall war früher mal ein hell erleuchtetes Einkaufszentrum, das vor Menschen nur so wimmelte. Das Einzige, was hier noch herumwimmelt, sind Würmer und anderes Gekreuch und Gefleuch... Du bist jedoch zuversichtlich, hier allerhand nützliche Gegenstände zu finden.</source>
-        <target>Dieser riesige Haufen aus Schutt und Metall war früher mal ein hell erleuchtetes Einkaufszentrum, das vor Menschen nur so wimmelte. Das Einzige, was hier noch herumwimmelt, sind Würmer und anderes Gekreuch und Gefleuch... Du bist jedoch zuversichtlich, hier allerhand nützliche Gegenstände zu finden.</target>
+        <target>Este gran terreno de escombros fue seguramente un enorme centro comercial, de esos que tenían gente circulando como hormigas. Hoy no queda más que eso: insectos y otros bichos... Debe contener más de un tesoro.</target>
       </segment>
     </unit>
     <unit id="VsNvfPD">
@@ -4466,7 +4466,7 @@
       </notes>
       <segment>
         <source>Eine alte Hütte, die seit Jahren unbewohnt ist. Fast vollständig im Sand begraben, aber man hört immer noch einige beunruhigende Stöhngeräusche aus dem, was der Keller sein muss...</source>
-        <target>Eine alte Hütte, die seit Jahren unbewohnt ist. Fast vollständig im Sand begraben, aber man hört immer noch einige beunruhigende Stöhngeräusche aus dem, was der Keller sein muss...</target>
+        <target><![CDATA[Una vieja casa abandonada que se tambalea con el viento. Está llena de arena. A veces puedes oir <strong>algo que se mueve</strong> en lo que sería el sótano...]]></target>
       </segment>
     </unit>
     <unit id="jCOLohr">
@@ -4773,7 +4773,7 @@
       </notes>
       <segment>
         <source>Es sieht eigentlich nicht mehr wie eine Bar aus, aber das halb im Sand vergrabene Schild und das Vorhandensein einiger zerbrochener Optiken lassen keinen großen Zweifel aufkommen. Die meisten Flaschen sind zerbrochen, aber Sie können hier mit ziemlicher Sicherheit etwas Nützliches finden...</source>
-        <target>Es sieht eigentlich nicht mehr wie eine Bar aus, aber das halb im Sand vergrabene Schild und das Vorhandensein einiger zerbrochener Optiken lassen keinen großen Zweifel aufkommen. Die meisten Flaschen sind zerbrochen, aber Sie können hier mit ziemlicher Sicherheit etwas Nützliches finden...</target>
+        <target><![CDATA[Lo único que indica que se trata de un bar es el panel con el logo de una cerveza y gran la cantidad de <strong>botellas rotas</strong>. Algo interesante podrías encontrar aquí...]]></target>
       </segment>
     </unit>
     <unit id="e19N5sC">
@@ -7507,7 +7507,7 @@
       </notes>
       <segment>
         <source>Während du die Worte des Schamanen vernommen hast, dachtest du nie, dass er es ernst meinte. Nichts ist 100%ig sicher in dieser Wüste und der Trank, den er dir gegeben hat... Nun, er hat nicht funktioniert. Die gequälte Seele, der du zu helfen versuchtest, hat sich an dich geklammert und deine ungeschützte Seele mit Leichtigkeit überwältigt. Ihre Gewalt und Wut hinterließen nichts von dir als eine leere Hülle, dazu verdammt, von der Horde verschlungen zu werden.</source>
-        <target>Während du die Worte des Schamanen vernommen hast, dachtest du nie, dass er es ernst meinte. Nichts ist 100%ig sicher in dieser Wüste und der Trank, den er dir gegeben hat... Nun, er hat nicht funktioniert. Die gequälte Seele, der du zu helfen versuchtest, hat sich an dich geklammert und deine ungeschützte Seele mit Leichtigkeit überwältigt. Ihre Gewalt und Wut hinterließen nichts von dir als eine leere Hülle, dazu verdammt, von der Horde verschlungen zu werden.</target>
+        <target>Cuando escuchabas las historias del Chamán nunca lo tomabas en serio. Nada es 100% seguro en el desierto, y menos las pociones que suele hacer... No ha funcionado. La torturada alma que intentabas ayudar se ha apoderado de la situación, y de ti. La furia e ira desmedidas de su tormento no han dejado de ti más que una cáscara vacía a merced de la horda de esta noche.</target>
       </segment>
     </unit>
     <unit id="FoS7MOU">
@@ -19808,7 +19808,7 @@
       </notes>
       <segment>
         <source>Diese Information gibt dir einen Hinweis darauf, ob Aufklärer gewöhnlicherweise hier vorbeikommen.&lt;br /&gt;&lt;em&gt;Je mehr eine Zone erforscht wurde, desto geringer ist die Chance bei &lt;strong&gt;Betreten&lt;/strong&gt; entdeckt zu werden (du kennst dann ein paar Schleichwege etc...).&lt;/em&gt;</source>
-        <target><![CDATA[Diese Information gibt dir einen Hinweis darauf, ob Aufklärer gewöhnlicherweise hier vorbeikommen.<br /><em>Je mehr eine Zone erforscht wurde, desto geringer ist die Chance bei <strong>Betreten</strong> entdeckt zu werden (du kennst dann ein paar Schleichwege etc...).</em>]]></target>
+        <target><![CDATA[Esta información te indica si los exploradores suelen pasar por aquí. <br /><em>Mientras más conocido sea un sector, menos probabilidades tienes de ser descubierto <strong>cuando entres en él</strong> (ya conoces caminos ocultos y sabes esconderte.)</em>]]></target>
       </segment>
     </unit>
     <unit id="JxANNhs" name="Versuchen etwas zu stehlen">
@@ -21181,7 +21181,7 @@
       </notes>
       <segment>
         <source>Als du folgendes Gebäude: {building} erkundest hast, lief es eiskalt den Rücken runter... Aber es war nicht umsonst! Du hast folgenden Gegenstand gefunden: {item}.</source>
-        <target>Als du folgendes Gebäude: {building} erkundest hast, lief es eiskalt den Rücken runter... Aber es war nicht umsonst! Du hast folgenden Gegenstand gefunden: {item}.</target>
+        <target>El temor te hace un nudo en las tripas mientras exploras {building}... Pero no habrá sido en vano porque acabas de encontrar algo: {item}</target>
       </segment>
     </unit>
     <unit id="ijrzep1">
@@ -22294,7 +22294,7 @@
       </notes>
       <segment>
         <source>Das Stadttor ist &lt;strong&gt;geschlossen&lt;/strong&gt;! Vielleicht kannst du im Forum nach Hilfe fragen...</source>
-        <target><![CDATA[Das Stadttor ist <strong>geschlossen</strong>! Vielleicht kannst du im Forum nach Hilfe fragen...]]></target>
+        <target><![CDATA[¡El portal está <strong>cerrado</strong>! Tal vez puedas suplicar ayuda en el Foro...]]></target>
       </segment>
     </unit>
     <unit id="YaVLRXG">

@@ -7910,7 +7910,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Du hast das Gebiet mit deinem {item} teilweise geräumt ({bury_count} Punkte geräumt).</source>
-        <target>Du hast das Gebiet mit deinem {item} teilweise geräumt ({bury_count} Punkte geräumt).</target>
+        <target><![CDATA[You have partially cleared the zone using your {item} (<strong>{bury_count} points</strong> cleared)...]]></target>
       </segment>
     </unit>
     <unit id="y3qU7qO">
