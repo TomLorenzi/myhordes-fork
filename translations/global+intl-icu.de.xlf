@@ -2181,5 +2181,11 @@
         <target>Entwickler</target>
       </segment>
     </unit>
+    <unit id="1.aaxoN" name="Community-Tools">
+      <segment>
+        <source>Community-Tools</source>
+        <target>Community-Tools</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

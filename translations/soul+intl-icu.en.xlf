@@ -3809,7 +3809,6 @@
       <notes>
         <note category="german">Animateur</note>
         <note category="from">twig:///templates/ajax/soul/badges.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Animateur</source>
@@ -3820,7 +3819,6 @@
       <notes>
         <note category="german">Diese Karteikarte gehört einem Animateur. Animateure organisieren und koordinieren Community-Events.</note>
         <note category="from">twig:///templates/ajax/soul/badges.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Diese Karteikarte gehört einem Animateur. Animateure organisieren und koordinieren Community-Events.</source>

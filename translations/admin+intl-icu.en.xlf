@@ -3899,5 +3899,16 @@
         <target>Animactor</target>
       </segment>
     </unit>
+    <unit id="A.he6Md" name="Community Dashboard">
+      <notes>
+        <note category="german">Community Dashboard</note>
+        <note category="from">twig:///templates/ajax/admin/dash.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Community Dashboard</source>
+        <target>Community Dashboard</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

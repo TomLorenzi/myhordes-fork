@@ -3468,7 +3468,6 @@
       <notes>
         <note category="german">Spielernamen einfügen</note>
         <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Spielernamen einfügen</source>
@@ -3479,7 +3478,6 @@
       <notes>
         <note category="german">Umfrage schließen</note>
         <note category="from">twig:///templates/ajax/forum/posts.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Umfrage schließen</source>
@@ -3490,7 +3488,6 @@
       <notes>
         <note category="german">Diese Aktion kann nicht rückgängig gemacht werden. Bist du sicher?</note>
         <note category="from">twig:///templates/ajax/forum/posts.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Diese Aktion kann nicht rückgängig gemacht werden. Bist du sicher?</source>
@@ -3515,6 +3512,17 @@
       <segment>
         <source>Entwickler</source>
         <target>Développeur</target>
+      </segment>
+    </unit>
+    <unit id="1.aaxoN" name="Community-Tools">
+      <notes>
+        <note category="german">Community-Tools</note>
+        <note category="from">twig:///templates/ajax/ajax.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Community-Tools</source>
+        <target>Community-Tools</target>
       </segment>
     </unit>
   </file>

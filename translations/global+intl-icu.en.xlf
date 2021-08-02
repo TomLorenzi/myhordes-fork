@@ -3540,5 +3540,15 @@
         <target>Devs</target>
       </segment>
     </unit>
+    <unit id="1.aaxoN" name="Community-Tools">
+      <notes>
+        <note category="german">Community-Tools</note>
+        <note category="from">twig:///templates/ajax/ajax.html.twig</note>
+      </notes>
+      <segment>
+        <source>Community-Tools</source>
+        <target>Community Tools</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

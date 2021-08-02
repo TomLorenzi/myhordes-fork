@@ -2461,5 +2461,11 @@
         <target>Animateur</target>
       </segment>
     </unit>
+    <unit id="A.he6Md" name="Community Dashboard">
+      <segment>
+        <source>Community Dashboard</source>
+        <target>Community Dashboard</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
