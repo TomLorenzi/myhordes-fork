@@ -3471,7 +3471,7 @@
       </notes>
       <segment>
         <source>Spielernamen einfügen</source>
-        <target>Insérer le nom du jouer</target>
+        <target>Joueur</target>
       </segment>
     </unit>
     <unit id="O23.43H" name="Umfrage schließen">
