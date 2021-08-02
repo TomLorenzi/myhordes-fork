@@ -3813,7 +3813,7 @@
       </notes>
       <segment>
         <source>Animateur</source>
-        <target>AnimACTION team</target>
+        <target>Animactor</target>
       </segment>
     </unit>
     <unit id="9S5p0sP">
@@ -3824,7 +3824,7 @@
       </notes>
       <segment>
         <source>Diese Karteikarte gehört einem Animateur. Animateure organisieren und koordinieren Community-Events.</source>
-        <target>This badge belongs to a member of the AnimACTION team. The AnimACTION team organize and coordinate community events.</target>
+        <target>This badge belongs to an animactor. The animcators organize and coordinate community events.</target>
       </segment>
     </unit>
   </file>
