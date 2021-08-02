@@ -3771,7 +3771,7 @@
       </notes>
       <segment>
         <source>Dies ist eine Event-Stadt.</source>
-        <target>Dies ist eine Event-Stadt.</target>
+        <target>Este es un pueblo de eventos.</target>
       </segment>
     </unit>
     <unit id="mupnQII" name="Animateur">
@@ -3782,7 +3782,7 @@
       </notes>
       <segment>
         <source>Animateur</source>
-        <target>Animateur</target>
+        <target>Animador</target>
       </segment>
     </unit>
     <unit id="9S5p0sP">
@@ -3793,7 +3793,7 @@
       </notes>
       <segment>
         <source>Diese Karteikarte gehört einem Animateur. Animateure organisieren und koordinieren Community-Events.</source>
-        <target>Diese Karteikarte gehört einem Animateur. Animateure organisieren und koordinieren Community-Events.</target>
+        <target>Esta ficha pertenece a un animador. Los animadores organizan y coordinan eventos comunitarios.</target>
       </segment>
     </unit>
   </file>
