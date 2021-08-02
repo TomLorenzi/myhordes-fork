@@ -100,6 +100,7 @@ class MigrateCommand extends Command
             ['app:debug', ['--add-animactor' => true] ],
             ['app:migrate', ['--repair-permissions' => true] ],
         ],
+        'e01e6dea153f67d9a1d7f9f7f7d3c8b2eec5d5ed' => [ ['app:migrate', ['--repair-permissions' => true] ] ],
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
