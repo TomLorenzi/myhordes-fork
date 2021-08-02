@@ -1142,8 +1142,8 @@ class NightlyHandler
                 foreach ($town->getCitizens() as $target_citizen)
                     $target_citizen->setBanished(false);
 
-                foreach ($town->getBuildings() as $target_building)
-                    if (!$target_building->getComplete()) $target_building->setAp(0);
+                //foreach ($town->getBuildings() as $target_building)
+                //    if (!$target_building->getComplete()) $target_building->setAp(0);
             }
         }
     }
