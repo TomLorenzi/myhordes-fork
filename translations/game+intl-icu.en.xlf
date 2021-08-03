@@ -11729,7 +11729,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>{dogname}, der stinkende Köter von {citizen}, hat folgendes in die Bank gebracht: {item}</source>
-        <target>{dogname}, the stinking dog from {citizen} has brought the following to the bank: {item}</target>
+        <target>{dogname}, {citizen}'s foul-smelling dog has brought their owner's {item} to the town!</target>
       </segment>
     </unit>
     <unit id="OoZr7Sk" name="{citizen} hat seinen Hund mit {count} Gegenständen in die Stadt geschickt.">

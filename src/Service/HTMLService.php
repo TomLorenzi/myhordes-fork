@@ -91,7 +91,7 @@ class HTMLService {
                 'div.class' => [
                     'dice-4', 'dice-6', 'dice-8', 'dice-10', 'dice-12', 'dice-20', 'dice-100',
                     'letter-a', 'letter-v', 'letter-c',
-                    'rps', 'coin', 'card', 'citizen', 'cref'
+                    'rps', 'coin', 'card', 'citizen'
                 ],
             ],
             'glory' => [ 'div.class' => [ 'glory' ] ],
@@ -340,6 +340,7 @@ class HTMLService {
                     $user_ref->textContent = "@​::un:{$target_user->getId()}";
                     $user_ref->setAttribute('x-id', $target_user->getId());
                     $user_ref->setAttribute('x-ajax-href', "@​::up:{$target_user->getId()}");
+                    $user_ref->setAttribute('x-ajax-target', "#content");
                 }
             },
 

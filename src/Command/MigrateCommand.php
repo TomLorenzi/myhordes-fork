@@ -101,6 +101,7 @@ class MigrateCommand extends Command
             ['app:migrate', ['--repair-permissions' => true] ],
         ],
         'e01e6dea153f67d9a1d7f9f7f7d3c8b2eec5d5ed' => [ ['app:migrate', ['--repair-permissions' => true] ] ],
+        'fae118acfc0041183dac9622c142cab01fb10d44' => [ ['app:migrate', ['--fix-forum-posts' => true] ] ],
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
@@ -172,9 +173,10 @@ class MigrateCommand extends Command
             ->addOption('repair-proxies', null, InputOption::VALUE_NONE, 'Repairs incomplete CitizenRankingProxie entities.')
             ->addOption('update-shaman-immune', null, InputOption::VALUE_NONE, 'Changes status tg_immune to tg_shaman_immune')
             ->addOption('place-explorables', null, InputOption::VALUE_NONE, 'Adds explorable ruins to all towns')
-            ->addOption('assign-awards', null, InputOption::VALUE_NONE, '')
-            ->addOption('assign-features', null, InputOption::VALUE_NONE, '')
-            ->addOption('update-all-sp', null, InputOption::VALUE_NONE, '')
+            ->addOption('assign-awards', null, InputOption::VALUE_NONE, 'Assign awards to users')
+            ->addOption('assign-features', null, InputOption::VALUE_NONE, 'Assign features')
+            ->addOption('update-all-sp', null, InputOption::VALUE_NONE, 'Update all soul points')
+            ->addOption('fix-forum-posts', null, InputOption::VALUE_NONE, 'Fix forum post content')
 
             ->addOption('repair-permissions', null, InputOption::VALUE_NONE, 'Makes sure forum permissions and user groups are set up properly')
             ->addOption('migrate-oracles', null, InputOption::VALUE_NONE, 'Moves the Oracle role from account elevation to the special permissions flag')
@@ -715,6 +717,25 @@ class MigrateCommand extends Command
                     return true;
                 } else return false;
             });
+        }
+
+        if ($input->getOption('fix-forum-posts')) {
+            $posts = $this->entity_manager->getRepository(Post::class)->findAll();
+            foreach ($posts as $post) {
+                if (!preg_match('/<div class="cref" x-id="([0-9]+)" x-ajax-href="(@[a-z0-9: ​]+)">/', $post->getText()))
+                    continue;
+
+                $text = $post->getText();
+                while (preg_match('/<div class="cref" x-id="([0-9]+)" x-ajax-href="(@[a-z0-9: ​]+)">/', $text))
+                    $text = preg_replace('/<div class="cref" x-id="([0-9]+)" x-ajax-href="(@[a-z0-9: ​]+)">/', "<div class=\"cref\" x-id=\"$1\" x-ajax-href=\"$2\" x-ajax-target=\"#content\">", $text);
+
+                $post->setText($text);
+                $this->entity_manager->persist($post);
+            }
+
+            $this->entity_manager->flush();
+
+            return 0;
         }
 
         if ($input->getOption('migrate-account-bans')) {

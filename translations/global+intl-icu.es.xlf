@@ -3331,7 +3331,7 @@
       </notes>
       <segment>
         <source>Umfragen können an dieser Stelle nicht angezeigt werden. Bitte besuche das Forum.</source>
-        <target>Umfragen können an dieser Stelle nicht angezeigt werden. Bitte besuche das Forum.</target>
+        <target>Las encuestas no se pueden mostrar aquí. Visite el foro.</target>
       </segment>
     </unit>
     <unit id="koiuckT" name="Diese Umfrage ist ungültig oder wurde gelöscht.">
@@ -3342,7 +3342,7 @@
       </notes>
       <segment>
         <source>Diese Umfrage ist ungültig oder wurde gelöscht.</source>
-        <target>Diese Umfrage ist ungültig oder wurde gelöscht.</target>
+        <target>Esta encuesta no es válida o se ha eliminado.</target>
       </segment>
     </unit>
     <unit id="sGKanc7" name="Abstimmen">
@@ -3353,7 +3353,7 @@
       </notes>
       <segment>
         <source>Abstimmen</source>
-        <target>Abstimmen</target>
+        <target>Votar</target>
       </segment>
     </unit>
     <unit id="CX_GKf1" name="Ergebnisse anzeigen">
@@ -3364,7 +3364,7 @@
       </notes>
       <segment>
         <source>Ergebnisse anzeigen</source>
-        <target>Ergebnisse anzeigen</target>
+        <target>Ver resultados</target>
       </segment>
     </unit>
     <unit id="PtyIfIY">
@@ -3375,7 +3375,7 @@
       </notes>
       <segment>
         <source>Wenn du die Ergebnisse abrufst kannst du danach nicht mehr abstimmen. Bist du sicher?</source>
-        <target>Wenn du die Ergebnisse abrufst kannst du danach nicht mehr abstimmen. Bist du sicher?</target>
+        <target>Si consulta los resultados, ya no podrá votar después. ¿Está seguro?</target>
       </segment>
     </unit>
     <unit id="ZX7F37R" name="Umfrage einfügen">
@@ -3386,7 +3386,7 @@
       </notes>
       <segment>
         <source>Umfrage einfügen</source>
-        <target>Umfrage einfügen</target>
+        <target>Insertar encuesta</target>
       </segment>
     </unit>
     <unit id="_Ni9sII">
@@ -3397,7 +3397,7 @@
       </notes>
       <segment>
         <source>Kontrolliere deine Eingaben! Umfragen können nach dem Absenden des Posts nicht mehr bearbeitet werden!</source>
-        <target>Kontrolliere deine Eingaben! Umfragen können nach dem Absenden des Posts nicht mehr bearbeitet werden!</target>
+        <target>¡Consulta tus entradas! Las encuestas ya no se pueden editar una vez que se ha enviado la publicación.</target>
       </segment>
     </unit>
     <unit id="HGaq1X3" name="Fragetext eingeben (optional)">
@@ -3408,7 +3408,7 @@
       </notes>
       <segment>
         <source>Fragetext eingeben (optional)</source>
-        <target>Fragetext eingeben (optional)</target>
+        <target>Ingrese el texto de la pregunta (opcional)</target>
       </segment>
     </unit>
     <unit id="6FsF5Ju" name="Antwort hinzufügen">
@@ -3419,7 +3419,7 @@
       </notes>
       <segment>
         <source>Antwort hinzufügen</source>
-        <target>Antwort hinzufügen</target>
+        <target>Agregar respuesta</target>
       </segment>
     </unit>
     <unit id="FPilLZW" name="Antwort">
@@ -3430,7 +3430,7 @@
       </notes>
       <segment>
         <source>Antwort</source>
-        <target>Antwort</target>
+        <target>Respuesta</target>
       </segment>
     </unit>
     <unit id="AFl5i39" name="(optional)">
@@ -3441,7 +3441,7 @@
       </notes>
       <segment>
         <source>(optional)</source>
-        <target>(optional)</target>
+        <target>(opcional)</target>
       </segment>
     </unit>
     <unit id="6ESuSHj" name="Info-Text hinzufügen">
@@ -3452,7 +3452,7 @@
       </notes>
       <segment>
         <source>Info-Text hinzufügen</source>
-        <target>Info-Text hinzufügen</target>
+        <target>Agregar texto informativo</target>
       </segment>
     </unit>
     <unit id="Cl1lF1C" name="Info-Text">
@@ -3463,7 +3463,7 @@
       </notes>
       <segment>
         <source>Info-Text</source>
-        <target>Info-Text</target>
+        <target>Texto informativo</target>
       </segment>
     </unit>
     <unit id="sYG6fGF" name="Du musst mindestens eine Antwort eingeben.">
@@ -3474,7 +3474,7 @@
       </notes>
       <segment>
         <source>Du musst mindestens eine Antwort eingeben.</source>
-        <target>Du musst mindestens eine Antwort eingeben.</target>
+        <target>Debe introducir al menos una respuesta.</target>
       </segment>
     </unit>
     <unit id="OO3MLkJ" name="Spielernamen einfügen">
@@ -3496,7 +3496,7 @@
       </notes>
       <segment>
         <source>Umfrage schließen</source>
-        <target>Umfrage schließen</target>
+        <target>Cerrar encuesta</target>
       </segment>
     </unit>
     <unit id="KWP5REq" name="Diese Aktion kann nicht rückgängig gemacht werden. Bist du sicher?">
@@ -3507,7 +3507,7 @@
       </notes>
       <segment>
         <source>Diese Aktion kann nicht rückgängig gemacht werden. Bist du sicher?</source>
-        <target>Diese Aktion kann nicht rückgängig gemacht werden. Bist du sicher?</target>
+        <target>Esta acción no se puede deshacer. ¿Está seguro?</target>
       </segment>
     </unit>
     <unit id="BNvQVoN" name="Animateur-Team">
@@ -3518,7 +3518,7 @@
       </notes>
       <segment>
         <source>Animateur-Team</source>
-        <target>Animateur-Team</target>
+        <target>Equipo de animación</target>
       </segment>
     </unit>
     <unit id="vBbkKEM" name="Entwickler">
@@ -3529,7 +3529,7 @@
       </notes>
       <segment>
         <source>Entwickler</source>
-        <target>Entwickler</target>
+        <target>Desarrollador</target>
       </segment>
     </unit>
     <unit id="1.aaxoN" name="Community-Tools">
