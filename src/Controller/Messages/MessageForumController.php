@@ -590,7 +590,7 @@ class MessageForumController extends MessageController
         }
 
         $tx_len = 0;
-        if (!$this->preparePost($user,$forum,$post,$tx_len, null, $edit))
+        if (!$this->preparePost($user,$forum,$post,$tx_len, null, $edit, $polls))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
         if ($tx_len < 2) return AjaxResponse::error( self::ErrorPostTextLength );
@@ -610,14 +610,6 @@ class MessageForumController extends MessageController
             );
             if ($notification) $em->persist($notification);
         }
-
-        $tx_len = 0;
-        if (!$this->preparePost($user,$forum,$post,$tx_len, null, $edit, $polls))
-            return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-
-        if ($tx_len < 2) return AjaxResponse::error( self::ErrorPostTextLength );
-
-        if (!$edit) $post->setEditingMode(Post::EditorLocked);
 
         try {
 
