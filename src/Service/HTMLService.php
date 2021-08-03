@@ -340,6 +340,7 @@ class HTMLService {
                     $user_ref->textContent = "@​::un:{$target_user->getId()}";
                     $user_ref->setAttribute('x-id', $target_user->getId());
                     $user_ref->setAttribute('x-ajax-href', "@​::up:{$target_user->getId()}");
+                    $user_ref->setAttribute('x-ajax-target', "#content");
                 }
             },
 
