@@ -252,7 +252,9 @@ export default class Ajax {
         const no_hist    = this.fetch_no_history();
         const no_loader  = this.fetch_no_loader();
         const no_error  = this.fetch_soft_fail();
+
         if (push_history) history.pushState( url, '', url );
+        document.dispatchEvent( new CustomEvent('mh-navigation-begin', {detail: {url: url, post: data, node: target}}) );
 
         if (!no_loader) $.html.addLoadStack();
         let request = new XMLHttpRequest();
@@ -296,6 +298,8 @@ export default class Ajax {
             } else ajax_instance.render( this.responseURL, target, this.responseXML, false, !no_hist );
 
             if (callback) callback();
+
+            document.dispatchEvent( new CustomEvent('mh-navigation-complete', {detail: {url: url, post: data, node: target}}) );
 
             if (!no_loader) $.html.removeLoadStack();
         });
