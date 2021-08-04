@@ -8183,7 +8183,7 @@
       </notes>
       <segment>
         <source>Beim nächsten Angriff wird der Durst-, Infektions- und Abhängigkeitszustand außer Kraft gesetzt.</source>
-        <target>No suffrirás les efectos de la Sed, de la Infección, ni de la Adicción durante el próximo ataque.</target>
+        <target>Esta noche no sufrirás los efectos de la sed, de la infección, ni de la adicción durante el ataque.</target>
       </segment>
     </unit>
     <unit id="VDnHqpQ">
@@ -8713,7 +8713,7 @@
       </notes>
       <segment>
         <source>&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;nt-kill-latest&gt;Du hast mit dieser Waffe: {item} {kills} Zombie getötet. Ha! Ha! Ha! Das tut wirklich gut, ab und zu mal ein paar Zombies fertig zu machen...&lt;/nt-kill-latest&gt;</source>
-        <target><![CDATA[<t-kill-latest>¡Todos los zombies de la zona fueron aniquilados utilizando: {item} ! Puedes tomar un descanso... ¿o no?</t-kill-latest><nt-kill-latest>Has eliminado {kills} utilizando: {item}. ¡Ja, ja, ja! Se siente muy bien matar algunos zombies de vez en cuando.</nt-kill-latest>]]></target>
+        <target><![CDATA[<t-kill-latest>¡Todos los zombies de la zona fueron aniquilados utilizando: {item} ! Puedes tomar un descanso... ¿o no?</t-kill-latest><nt-kill-latest>Has eliminado {kills} zombie(s) utilizando: {item}. ¡Ja, ja, ja! Se siente muy bien matar algunos zombies de vez en cuando.</nt-kill-latest>]]></target>
       </segment>
     </unit>
     <unit id="BnW7_fH">
