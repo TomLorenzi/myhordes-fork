@@ -318,17 +318,22 @@ class NightlyHandler
                         $plans = [];
                         foreach ($bps[$target_building->getLevel()] as $id => $count) {
                             $proto = $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => $id]);
-                            $plans[] = [
+                            $plans[$proto->getId()] = [
                                 'item' => $proto,
                                 'count' => $count
                             ];
-                            // for ($i = 0; $i < $count; $i++) $plans[] = $this->item_factory->createItem( $id );
                         }
                         if ( $opt_bp[$target_building->getLevel()] !== null && $this->random->chance( 0.5 ) ) {
-                            $plans[] = [
-                                'item' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => $opt_bp[$target_building->getLevel()]]),
-                                'count' => 1
-                            ];
+                            $proto = $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => $opt_bp[$target_building->getLevel()]]);
+                            if(isset($plans[$proto->getId()])) {
+                                $plans[$proto->getId()]['count'] += 1;
+                            }
+                            else {
+                                $plans[] = [
+                                    'item' => $proto,
+                                    'count' => 1
+                                ];
+                            }
                         }
 
 
