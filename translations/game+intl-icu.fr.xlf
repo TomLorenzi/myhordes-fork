@@ -248,7 +248,7 @@
       </notes>
       <segment>
         <source>Was für ein Glück! Kurz nach dem Angriff wurde ein Bauplan in die Stadt geweht. Ihr erhaltet: {item}</source>
-        <target>Quelle chance ! Un plan est apparu dans la banque après l'attaque. Vous avez reçu : {item}</target>
+        <target><![CDATA[{item} a été découvert grâce à {building}. Cet objet a été déposé <span>à la banque</span>.]]></target>
       </segment>
     </unit>
     <unit id="v96.wPX" name="Heute Nacht wurden von {building} folgende Gegenstände produziert: {items}">

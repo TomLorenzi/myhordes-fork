@@ -378,7 +378,7 @@ class NightlyHandler
 
         $daily_items = []; $tx = [];
         if ($spawn_default_blueprint) {
-            $this->entity_manager->persist( $this->logTemplates->nightlyAttackProductionBlueprint( $town, $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'bplan_c_#00']) ) );
+            $this->entity_manager->persist( $this->logTemplates->nightlyAttackProductionBlueprint( $town, $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'bplan_c_#00']), $this->town_handler->getBuilding($town, 'small_refine_#01')->getPrototype()));
             $daily_items['bplan_c_#00'] = 1;
         }
 
