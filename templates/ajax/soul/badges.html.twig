@@ -79,7 +79,7 @@
         </div>
     {% endif %}
 
-    {% if badger.nameHistory|filter(n => n != badger.name)|length > 0 %}
+    {% if badger.nameHistory is not null and badger.nameHistory|filter(n => n != badger.name)|length > 0 %}
         <div class="badge badge-name-history">
             <div><i class="fa fa-user-tag"></i></div>
             <div class="tooltip badge-tooltip">
