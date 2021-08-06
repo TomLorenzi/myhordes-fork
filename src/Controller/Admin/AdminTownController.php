@@ -30,6 +30,7 @@ use App\Entity\ItemPrototype;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
 use App\Entity\RuinExplorerStats;
+use App\Entity\SpecialActionPrototype;
 use App\Entity\Town;
 use App\Entity\TownRankingProxy;
 use App\Entity\User;
@@ -1250,10 +1251,17 @@ class AdminTownController extends AdminActionController
                 }
                 break;
             case '_sh_':
+                $armag_day   = $this->entity_manager->getRepository(SpecialActionPrototype::class)->findOneBy(['name' => "special_armag_d"]);
+                $armag_night = $this->entity_manager->getRepository(SpecialActionPrototype::class)->findOneBy(['name' => "special_armag_n"]);
+
                 foreach ($this->entity_manager->getRepository(HeroicActionPrototype::class)->findAll() as $heroic_action)
                     foreach ($citizens as $citizen) {
                         $citizen->addHeroicAction( $heroic_action );
                         $this->citizen_handler->removeStatus($citizen,'tg_hero');
+
+                        $citizen->addSpecialAction($armag_day);
+                        $citizen->addSpecialAction($armag_night);
+
                         $this->entity_manager->persist( $citizen );
                     }
                 break;
