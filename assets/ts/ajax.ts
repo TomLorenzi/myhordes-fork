@@ -299,6 +299,8 @@ export default class Ajax {
 
             if (callback) callback();
 
+            document.dispatchEvent( new CustomEvent('mh-navigation-complete', {detail: {url: url, post: data, node: target}}) );
+
             if (!no_loader) $.html.removeLoadStack();
         });
         request.addEventListener('error', function(e) {
