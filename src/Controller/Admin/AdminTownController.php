@@ -1185,7 +1185,7 @@ class AdminTownController extends AdminActionController
         return AjaxResponse::success();
     }
 
-    private function town_manage_pseudo_role(Town $town, JSONRequestParser $parser, CitizenHandler $handler): Response {
+    private function town_manage_pseudo_role(Town $town, JSONRequestParser $parser, TownHandler $townHandler): Response {
         $targets = $parser->get_array('targets');
         $control = $parser->get_int('control', 0) > 0;
 
@@ -1222,6 +1222,7 @@ class AdminTownController extends AdminActionController
                     else $citizen->getEscortSettings()->setAllowInventoryAccess(true)->setForceDirectReturn(false);
                     $this->entity_manager->persist($citizen);
                 }
+                break;
             case '_nw_':
                 $watchers = $this->entity_manager->getRepository(CitizenWatch::class)->findCurrentWatchers($town);
                 foreach ($citizens as $citizen) {
@@ -1256,6 +1257,23 @@ class AdminTownController extends AdminActionController
                         $this->entity_manager->persist( $citizen );
                     }
                 break;
+            case '_wt_':
+                if (!$townHandler->getBuilding($town,'item_tagger_#00'))
+                    return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+                /** @var ZombieEstimation $est */
+                $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneBy(['town' => $town, 'day' => $town->getDay()]);
+                if (!$est) return AjaxResponse::error( ErrorHelper::ErrorInternalError );
+
+                foreach ($citizens as $citizen) {
+                    if (!$control)
+                        $est->removeCitizen($citizen);
+                    else $est->addCitizen($citizen);
+                }
+
+                $this->entity_manager->persist($est);
+
+                break;
             default: return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         }
@@ -1273,12 +1291,12 @@ class AdminTownController extends AdminActionController
      * @param CitizenHandler $handler
      * @return Response
      */
-    public function town_manage_role(int $id, JSONRequestParser $parser, CitizenHandler $handler): Response
+    public function town_manage_role(int $id, JSONRequestParser $parser, TownHandler $handler): Response
     {
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
         if (!$town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        if (in_array($parser->get('role'), ['_ban_','_esc_','_nw_','_sh_'] ))
+        if (in_array($parser->get('role'), ['_ban_','_esc_','_nw_','_sh_','_wt_'] ))
             return $this->town_manage_pseudo_role($town,$parser,$handler);
 
         $role_id = $parser->get_int('role');
