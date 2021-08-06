@@ -7966,7 +7966,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Auch du musst diese Stadt heute Nacht verteidigen! Tritt in die Wächtergruppe ein! Du möchtest Mitglied der selbstmörd... tapfersten Bürger werden? Was zögerst du noch:</source>
-        <target>You, too, can defend the town tonight! Join the Watchmen! Do you want to join the the most suicid... erm... brave citizens? Well then, don't wait any longer:</target>
+        <target><![CDATA[You, too, can defend the town tonight! Join <strong>the Watchmen!</strong><br /><br />Do you want to join the the most suicid... erm... <strong>brave citizens</strong>? Well then, don't wait any longer:]]></target>
       </segment>
     </unit>
     <unit id="UPuSUuC" name="Ich möchte Wächter werden!">
