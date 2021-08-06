@@ -3554,14 +3554,14 @@
         <target>Vous ne pouvez plus changer de nom d'affichage.</target>
       </segment>
     </unit>
-    <unit id="yF2vVL5" name="%user% war in der Vergangenheit unter folgenden Namen bekannt:">
+    <unit id="yF2vVL5" name="{user} war in der Vergangenheit unter folgenden Namen bekannt:">
       <notes>
-        <note category="german">%user% war in der Vergangenheit unter folgenden Namen bekannt:</note>
+        <note category="german">{user} war in der Vergangenheit unter folgenden Namen bekannt:</note>
         <note category="from">twig:///templates/ajax/soul/badges.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
       </notes>
       <segment>
-        <source>%user% war in der Vergangenheit unter folgenden Namen bekannt:</source>
-        <target>%user% a également porté les pseudos suivants :</target>
+        <source>{user} war in der Vergangenheit unter folgenden Namen bekannt:</source>
+        <target>{user} a également porté les pseudos suivants :</target>
       </segment>
     </unit>
     <unit id="tT1wWcP" name="Du hattest in der Vergangenheit folgende Spielernamen:">

@@ -2191,10 +2191,10 @@
         <target>Du kannst deinen Spielernamen nicht mehr ändern.</target>
       </segment>
     </unit>
-    <unit id="yF2vVL5" name="%user% war in der Vergangenheit unter folgenden Namen bekannt:">
+    <unit id="yF2vVL5" name="{user} war in der Vergangenheit unter folgenden Namen bekannt:">
       <segment>
-        <source>%user% war in der Vergangenheit unter folgenden Namen bekannt:</source>
-        <target>%user% war in der Vergangenheit unter folgenden Namen bekannt:</target>
+        <source>{user} war in der Vergangenheit unter folgenden Namen bekannt:</source>
+        <target>{user} war in der Vergangenheit unter folgenden Namen bekannt:</target>
       </segment>
     </unit>
     <unit id="tT1wWcP" name="Du hattest in der Vergangenheit folgende Spielernamen:">

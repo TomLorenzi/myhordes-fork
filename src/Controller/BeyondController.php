@@ -242,7 +242,7 @@ class BeyondController extends InventoryAwareController
         } else $port_distance = 0;
         $distance = round(sqrt( pow($zone->getX(),2) + pow($zone->getY(),2) ));
 
-        $can_enter = $distance <= $port_distance;
+        $can_enter = $distance <= $port_distance && !$this->getActiveCitizen()->isCamping();
         $is_on_zero = $zone->getX() == 0 && $zone->getY() == 0;
 
         $citizen_tired = $this->getActiveCitizen()->getAp() <= 0 || $this->citizen_handler->isTired( $this->getActiveCitizen());
