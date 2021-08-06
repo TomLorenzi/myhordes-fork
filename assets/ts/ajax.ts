@@ -247,11 +247,14 @@ export default class Ajax {
         let ajax_instance = this;
 
         if (!(target = this.prepareTarget( target ))) return;
+        url = this.prepareURL(url);
 
         const no_hist    = this.fetch_no_history();
         const no_loader  = this.fetch_no_loader();
         const no_error  = this.fetch_soft_fail();
-        if (push_history) this.push_history(url);
+
+        if (push_history) history.pushState( url, '', url );
+        document.dispatchEvent( new CustomEvent('mh-navigation-begin', {detail: {url: url, post: data, node: target}}) );
 
         if (!no_loader) $.html.addLoadStack();
         let request = new XMLHttpRequest();
