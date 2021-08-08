@@ -18998,7 +18998,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du wurdest zum Schamanen gewählt!</source>
-        <target>YOU HAVE BEEN ELECTED SHAMAN!</target>
+        <target>YOU HAVE BEEN ELECTED AS SHAMAN!</target>
       </segment>
     </unit>
     <unit id="TCisbbN">
@@ -19008,7 +19008,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du wachst heute Morgen mit einer schrecklichen Migräne auf und hast Schwierigkeiten, zu sehen... Du beschließt, aus deinem Zelt zu gehen. Die Nachbarn an denen du vorbeiläufst, neigen ihr Haupt vor dir.</source>
-        <target>You wake up this morning with a horrible migraine and you have difficulty seeing... You decide to get out of your tent. Neighbors that you pass you curtsy.</target>
+        <target>You wake up with a horrible migraine and you can't really see straight... You decide to take a steap outside your tent. All of the other people you meet are in awe of you.</target>
       </segment>
     </unit>
     <unit id="c2baI8U">
@@ -19018,7 +19018,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Was ist letzte Nacht nur passiert? Du hast wohl zu heftig gefeiert. Als du die Stadtmauer erreichst, kannst du ein kleines blaues Leuchten sehen... Ja, ja, du bist in der Tat der Ausgewählte. Der Zweifel verschwindet, als du dir die Hand an den Kopf hälst: eine lächerliche Maske klebt an deinem Gesicht und reduziert dein Sehvermögen erheblich.</source>
-        <target>What happened last night? You party too much. Arrived at ramparts you can make out little blue lights... Yes yes, it's you who have been designated. Doubt disappears when you reach out to your head: a ridiculous mask sticks to your face and reduces considerably your eyesight.</target>
+        <target>Oh dear... What did I do last night? It seems you might have partied a little too hard last night. Upon arriving at the walls you see some little blue lights... Yeeeerrrrp it's you who's been named. All vestigaes of doubt disappear as you lift your hand to scratch your head: You've got a ridiculous mask stuck to your face. At least you know why you can't see straight now...</target>
       </segment>
     </unit>
     <unit id="x09E3UL" name="Du bist nun der Schamane.">
@@ -19028,7 +19028,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du bist nun der Schamane.</source>
-        <target>You are now a Shaman.</target>
+        <target>You are now the Shaman.</target>
       </segment>
     </unit>
     <unit id="RjuBA.9">
@@ -19038,7 +19038,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Ein neuer Horizont öffnet sich für dich: Du bist nicht länger ein gewöhnlicher Bürger, sondern ein geistiger Führer!</source>
-        <target>A new horizon awaits you: You no longer an ordinary citizen, but a spiritual guide!</target>
+        <target>A new world has opened up before you! You're no longer just an average citizen, but a spiritual guide for the town!</target>
       </segment>
     </unit>
     <unit id="bJt7KIt" name="Mit deinen {mp} kannst du:">
@@ -19058,7 +19058,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Die Seelen deiner verstorbenen Mitbürger lokalisieren.</source>
-        <target>Locate the souls of your deceased fellow citizens.</target>
+        <target>Find the souls of lost citizens</target>
       </segment>
     </unit>
     <unit id="J7D2vc9" name="Schamanische Tränke für deine Nachbarn herstellen.">
@@ -19068,7 +19068,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Schamanische Tränke für deine Nachbarn herstellen.</source>
-        <target>Make shamanic potions for your neighbors.</target>
+        <target>Make some Shamanic potions for your comrades</target>
       </segment>
     </unit>
     <unit id="LBdBsIv" name="An den Toren der Stadt oder in der Außenwelt Regen herbeirufen!">
@@ -19088,7 +19088,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Deine Nachbarn heilen, möglichst ohne sie dabei umzubringen...</source>
-        <target>Provide curative care to your neighbors without killing them...</target>
+        <target>Provide medical attention to your friends, without killing them...</target>
       </segment>
     </unit>
     <unit id="JHQ01cl" name="Schau dir am besten gleich den {shaman_help} an.">
@@ -19118,7 +19118,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Es enthält alle wesentlichen Informationen, um endlich deinen überlegenen Status in den Augen aller anerkennen zu lassen...</source>
-        <target>They provide all the essential information to finally recognize, in the eyes of all, the superiority of your status...</target>
+        <target>It contains all of the necessary information essential to your success in convincing your friends that you are not just a nut in a mask...</target>
       </segment>
     </unit>
     <unit id="5U6vNQX" name="Du hast aktuell keine Themen abonniert.">
