@@ -1197,8 +1197,8 @@ class LogTemplateHandler
      * @param Item|ItemPrototype $item
      * @return TownLogEntry
      */
-    public function nightlyAttackProductionBlueprint( Town $town, ItemPrototype $item ): TownLogEntry {
-        $variables = array('item' => $item->getId());
+    public function nightlyAttackProductionBlueprint( Town $town, ItemPrototype $item, BuildingPrototype $building): TownLogEntry {
+        $variables = array('item' => $item->getId(), 'building' => $building->getId());
         $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'nightlyAttackProductionBlueprint']);
 
         return (new TownLogEntry())

@@ -316,18 +316,35 @@ class NightlyHandler
                         $opt_bp = [null,'bplan_c_#00','bplan_r_#00','bplan_e_#00'];
 
                         $plans = [];
-                        foreach ($bps[$target_building->getLevel()] as $id => $count)
-                            for ($i = 0; $i < $count; $i++) $plans[] = $this->item_factory->createItem( $id );
-                        if ( $opt_bp[$target_building->getLevel()] !== null && $this->random->chance( 0.5 ) )
-                            $plans[] = $this->item_factory->createItem( $opt_bp[$target_building->getLevel()] );
+                        foreach ($bps[$target_building->getLevel()] as $id => $count) {
+                            $proto = $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => $id]);
+                            $plans[$proto->getId()] = [
+                                'item' => $proto,
+                                'count' => $count
+                            ];
+                        }
+                        if ( $opt_bp[$target_building->getLevel()] !== null && $this->random->chance( 0.5 ) ) {
+                            $proto = $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => $opt_bp[$target_building->getLevel()]]);
+                            if(isset($plans[$proto->getId()])) {
+                                $plans[$proto->getId()]['count'] += 1;
+                            }
+                            else {
+                                $plans[] = [
+                                    'item' => $proto,
+                                    'count' => 1
+                                ];
+                            }
+                        }
+
 
                         $tx = [];
                         foreach ($plans as $plan) {
-                            $this->inventory_handler->forceMoveItem( $town->getBank(), $plan );
-                            $tx[] = "<info>{$plan->getPrototype()->getLabel()}</info>";
+                            for($i = 0; $i < $plan['count'] ; $i++)
+                                $this->inventory_handler->forceMoveItem( $town->getBank(), $this->item_factory->createItem($plan['item']) );
+                            $tx[] = "<info>{$plan['item']->getLabel()} x{$plan['count']}</info>";
                         }
 
-                        $this->entity_manager->persist( $this->logTemplates->nightlyAttackUpgradeBuildingItems( $target_building, array_map( function(Item $e) { return  array($e->getPrototype()) ;}, $plans ) ));
+                        $this->entity_manager->persist( $this->logTemplates->nightlyAttackUpgradeBuildingItems( $target_building, $plans ));
                         $this->log->debug("Leveling up <info>{$target_building->getPrototype()->getLabel()}</info>: Placing " . implode(', ', $tx) . " in the bank.");
                         break;
                     case 'item_home_def_#00':
@@ -361,7 +378,7 @@ class NightlyHandler
 
         $daily_items = []; $tx = [];
         if ($spawn_default_blueprint) {
-            $this->entity_manager->persist( $this->logTemplates->nightlyAttackProductionBlueprint( $town, $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'bplan_c_#00']) ) );
+            $this->entity_manager->persist( $this->logTemplates->nightlyAttackProductionBlueprint( $town, $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'bplan_c_#00']), $this->town_handler->getBuilding($town, 'small_refine_#01')->getPrototype()));
             $daily_items['bplan_c_#00'] = 1;
         }
 
