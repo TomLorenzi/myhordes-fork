@@ -9002,7 +9002,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Diesen Bürger verspeisen!</source>
-        <target>Eat this citizen!</target>
+        <target>Devour this citizen!</target>
       </segment>
     </unit>
     <unit id="6IAuVw5" name="Die Leiche verspeisen!">
@@ -21116,7 +21116,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>WARNUNG: Es besteht eine große Chance, dass du von anderen Bürgern entdeckt wirst, wenn du jemanden in der Stadt verschlingst! Mach das besser in der Aussenwelt...</source>
-        <target>WARNUNG: Es besteht eine große Chance, dass du von anderen Bürgern entdeckt wirst, wenn du jemanden in der Stadt verschlingst! Mach das besser in der Aussenwelt...</target>
+        <target>WARNING : there is a significant chance of being discovered by the other citizens if you devour someone in town! Maybe you should do your murdering in the World Beyond...</target>
       </segment>
     </unit>
     <unit id="lN02s2b">
