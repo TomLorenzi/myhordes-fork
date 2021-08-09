@@ -1168,7 +1168,7 @@
       </notes>
       <segment>
         <source>Zonenmarker 'Radius'</source>
-        <target>Balise "Radius"</target>
+        <target>Balise « Radius »</target>
       </segment>
     </unit>
     <unit id="xOfrB2C" name="Leuchtrakete">
@@ -3600,7 +3600,7 @@
       </notes>
       <segment>
         <source>Du machst es dir daheim gemütlich und entspannst dich... doch dann erlebst du ein böse Überraschung: Dieses Ding ist unglaublich schmerzhaft! Du versuchst es weiter bis du Stück für Stück Gefallen daran findest. Die nach wenige Minuten einsetzende Wirkung ist berauschend! Du schwitzt und zitterst und ein wohlig-warmes Gefühl breitet sich in dir aus...Die Batterie ist komplett leer.</source>
-        <target>Vous vous installez confortablement chez vous et vous vous laissez aller... Mauvaise surprise : l'outil se révèle effroyablement douloureux à l'usage ! Néanmoins, vous finissez par y prendre goût. Et au bout de quelques instants, l'effet est radical: vous êtes en sueur, mais vous vous sentez plus... "zen". La pile à l'intérieur a été entièrement utilisée.</target>
+        <target><![CDATA[Vous vous installez confortablement chez vous et vous vous laissez aller... Mauvaise surprise : l'outil se révèle <strong>effroyablement douloureux</strong> à l'usage ! Néanmoins, vous finissez par y prendre goût. Et au bout de quelques instants, l'effet est radical : vous êtes en sueur, mais vous vous sentez plus... "zen".{hr}La pile à l'intérieur a été entièrement utilisée.]]></target>
       </segment>
     </unit>
     <unit id="EoaSigx" name="Das brauchst du gerade nicht ...">
@@ -4150,7 +4150,7 @@
       </notes>
       <segment>
         <source>Diese Tasche eignet sich bestens für ausgedehnte Wanderungen unter Freunden, denn sie erlaubt dir, noch mehr Souvenirstücke jeglicher Art (biologische, nukleare, usw..) mitzunehmen.</source>
-        <target>Idéal pour vos randonnées entre amis, il vous permet de stocker plus de souvenirs: biologiques, nucléaires ou autres.</target>
+        <target>Idéal pour vos randonnées entre amis, il vous permet de stocker plus de souvenirs : biologiques, nucléaires ou autres.</target>
       </segment>
     </unit>
     <unit id="Tq7ckD5">
@@ -4990,7 +4990,7 @@
       </notes>
       <segment>
         <source>Ein starkes Antibiotikum, das jede Infektion platt macht. Auf dem Beipackzettel steht: "Dieses Medikament kann manchmal unerwünschte und unberechenbare Nebenwirkugen hervorrufen (Akne, Erbrechen, Krämpfe und Herzstillstand)".</source>
-        <target>Un antipyrétique puissant capable d'enrayer n'importe quelle infection. La notice précise : « ce médicament peut parfois provoquer quelques effets secondaire gênant (acné, vomissements, convulsions et mort violente) ».</target>
+        <target>Un antipyrétique puissant capable d'enrayer n'importe quelle infection. La notice précise : « ce médicament peut parfois provoquer quelques effets secondaires gênants (acné, vomissements, convulsions et mort violente) ».</target>
       </segment>
     </unit>
     <unit id="PvcJ7zb">
@@ -5840,7 +5840,7 @@
       </notes>
       <segment>
         <source>Die Wirkung dieser Tablette ist höchst zweifelhaft... Auf der Schachtel steht: "Für BETA-Tester unter 18 Jahren nicht geeignet". Seltsam...</source>
-        <target>Ce petit cachet a un effet pour le moins mystérieux... Sur la boîte, il est écrit : "ne pas donner à un testeur de moins de 18 ans". Étrange.</target>
+        <target>Ce petit cachet a un effet pour le moins mystérieux... Sur la boîte, il est écrit : « ne pas donner à un testeur de moins de 18 ans ». Étrange.</target>
       </segment>
     </unit>
     <unit id="fd6CFQ.">
@@ -5850,7 +5850,7 @@
       </notes>
       <segment>
         <source>Auf der Schachtel steht: "Für BETA-Tester unter 18 Jahren nicht geeignet". Seltsam...</source>
-        <target>Sur la boîte, il est écrit : "ne pas donner à un testeur de moins de 18 ans". Étrange.</target>
+        <target>Sur la boîte, il est écrit : « ne pas donner à un testeur de moins de 18 ans ». Étrange.</target>
       </segment>
     </unit>
     <unit id="hIO7e4L">
@@ -7421,7 +7421,7 @@
       </notes>
       <segment>
         <source>Du versuchst dich ein paar Minuten auszuruhen.&lt;t-ap-up&gt;Nach einer kurzen Pause fühlst du dich nun viel besser. Du hast 2 AP erhalten !&lt;/t-ap-up&gt;&lt;nt-ap-up&gt;Leider bekommst du kein Auge zu: Der Gedanke an heute Abend, deinen Tod, sowie deine geringen Überlebenschancen lassen dir keine Ruhe...&lt;/nt-ap-up&gt;</source>
-        <target><![CDATA[Vous vous reposez quelques minutes...<t-ap-up> Cette sieste vous a fait le plus grand bien, vous récupérez 2 PA !</t-ap-up><nt-ap-up> Malheureusement, vous n'arrivez même pas à fermer l'oeil. Vous pensez à ce soir, à la mort et à vos maigres chances de survie...</nt-ap-up>]]></target>
+        <target><![CDATA[Vous vous reposez quelques minutes.<t-ap-up> <strong>Cette petite pause vous fait le plus grand bien !</strong>{hr}Vous récupérez <strong>2 PA</strong> !</t-ap-up><nt-ap-up>..<br />Malheureusement, vous n'arrivez même pas à fermer l'oeil. Vous pensez à ce soir, à la mort et à vos maigres chances de survie...</nt-ap-up>]]></target>
       </segment>
     </unit>
     <unit id="p0SlVNr">
@@ -7642,7 +7642,7 @@
       </notes>
       <segment>
         <source>Mit diesem Abdruck des HighTech-Schlüssels lassen sich Türen der Sicherheitsklasse 6.2 AOC öffnen.</source>
-        <target>Cette empreinte de clé high-tech permettra d'ouvrir les portes sécurisés de niveau 6.2 AOC.</target>
+        <target>Cette empreinte de clé high-tech permettra d'ouvrir les portes sécurisées de niveau 6.2 AOC.</target>
       </segment>
     </unit>
     <unit id="m0F5VOz" name="Kamera aus Vorkriegs-Tagen">
