@@ -4924,7 +4924,7 @@
     <unit id="Ri.5LgC">
       <segment>
         <source>Du hast das Gebiet mit deinem {item} teilweise geräumt ({bury_count} Punkte geräumt).</source>
-        <target><![CDATA[Du hast das Gebiet mit deinem {item} teilweise geräumt (<strong>{bury_count} Punkte</strong> geräumt)]]>.</target>
+        <target><![CDATA[Du hast das Gebiet mit deinem {item} teilweise geräumt (<strong>{bury_count} Punkte</strong> geräumt).]]></target>
       </segment>
     </unit>
     <unit id="y3qU7qO">

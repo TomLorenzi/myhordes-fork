@@ -3466,7 +3466,7 @@
     </unit>
     <unit id="OO3MLkJ" name="Spielernamen einfügen">
       <notes>
-        <note category="german">Spielernamen einfügen</note>
+        <note category="german">Spieler</note>
         <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
       </notes>
       <segment>

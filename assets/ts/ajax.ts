@@ -253,7 +253,7 @@ export default class Ajax {
         const no_loader  = this.fetch_no_loader();
         const no_error  = this.fetch_soft_fail();
 
-        if (push_history) history.pushState( url, '', url );
+        if (push_history) this.push_history(url);
         document.dispatchEvent( new CustomEvent('mh-navigation-begin', {detail: {url: url, post: data, node: target}}) );
 
         if (!no_loader) $.html.addLoadStack();

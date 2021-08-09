@@ -7957,7 +7957,7 @@
     </unit>
     <unit id="Ri.5LgC">
       <notes>
-        <note category="german">Du hast das Gebiet mit deinem {item} teilweise geräumt ({bury_count} Punkte geräumt).</note>
+        <note category="german">Du hast das Gebiet mit deinem {item} teilweise geräumt (&lt;strong&gt;{bury_count} Punkte&lt;/strong&gt; geräumt).</note>
         <note category="from">db://ItemAction</note>
       </notes>
       <segment>

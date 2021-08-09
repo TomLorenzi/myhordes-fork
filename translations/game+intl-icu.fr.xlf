@@ -3626,7 +3626,7 @@
     <unit id="IbZvvYE" name="Wachturm">
       <notes>
         <note category="german">Wachturm</note>
-        <note category="from">php:///src/Controller/Town/TownController.php;twig:///templates/ajax/game/town/watchtower.html.twig</note>
+        <note category="from">php:///src/Controller/Town/TownController.php;twig:///templates/ajax/admin/widget/controls.twig;twig:///templates/ajax/game/town/watchtower.html.twig</note>
       </notes>
       <segment>
         <source>Wachturm</source>
@@ -9049,7 +9049,6 @@
     <unit id="1HduKoA">
       <notes>
         <note category="german">Plötzlich sackt {citizen} in sich zusammen, seine Augen drehen sich nach hinten, und mit einem schauerhaften Gurgeln löst sich sein ganzer Körper vor deinen Augen auf und hinterlässt nur den üblen Geruch von Tod und Verwesung! Es gibt keinen Zweifel mehr: {citizen} war ein Ghul!!</note>
-        <note category="state">new</note>
         <note category="from">php:///src/Controller/InventoryAwareController.php</note>
       </notes>
       <segment>
@@ -22110,6 +22109,16 @@
       <segment>
         <source>Das Schokoladenkreuz wurde von den Bürgern im Rahmen dieses tragischen Ereignisses &lt;strong&gt;gegessen&lt;/strong&gt;!</source>
         <target><![CDATA[Das Schokoladenkreuz wurde von den Bürgern im Rahmen dieses tragischen Ereignisses <strong>gegessen</strong>!]]></target>
+      </segment>
+    </unit>
+    <unit id="IOhU3iU">
+      <notes>
+        <note category="german">{citizen} hat &lt;strong&gt;{count} Haufen Schutt&lt;/strong&gt; mithilfe von {item} bereinigt.</note>
+        <note category="from">db://LogEntryTemplate</note>
+      </notes>
+      <segment>
+        <source>{citizen} hat &lt;strong&gt;{count} Haufen Schutt&lt;/strong&gt; mithilfe von {item} bereinigt.</source>
+        <target><![CDATA[{citizen} a déblayé la zone pour <strong>{count} points</strong> avec  {item} .]]></target>
       </segment>
     </unit>
   </file>

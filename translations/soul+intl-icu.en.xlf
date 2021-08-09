@@ -3582,7 +3582,7 @@
         <target>You can no longer change your username.</target>
       </segment>
     </unit>
-    <unit id="yF2vVL5" name="{user} war in der Vergangenheit unter folgenden Namen bekannt:">
+    <unit id="m65CDx_" name="{user} war in der Vergangenheit unter folgenden Namen bekannt:">
       <notes>
         <note category="german">{user} war in der Vergangenheit unter folgenden Namen bekannt:</note>
         <note category="from">twig:///templates/ajax/soul/badges.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
@@ -3823,6 +3823,17 @@
       <segment>
         <source>Diese Karteikarte gehört einem Animateur. Animateure organisieren und koordinieren Community-Events.</source>
         <target>This badge belongs to an animactor. The animcators organize and coordinate community events.</target>
+      </segment>
+    </unit>
+    <unit id="yF2vVL5" name="%user% war in der Vergangenheit unter folgenden Namen bekannt:">
+      <notes>
+        <note category="german">%user% war in der Vergangenheit unter folgenden Namen bekannt:</note>
+        <note category="from">twig:///templates/ajax/soul/visit.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>%user% war in der Vergangenheit unter folgenden Namen bekannt:</source>
+        <target>%user% war in der Vergangenheit unter folgenden Namen bekannt:</target>
       </segment>
     </unit>
   </file>

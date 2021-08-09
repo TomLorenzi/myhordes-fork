@@ -14157,5 +14157,11 @@
         <target><![CDATA[Das Schokoladenkreuz wurde von den Bürgern im Rahmen dieses tragischen Ereignisses <strong>gegessen</strong>!]]></target>
       </segment>
     </unit>
+    <unit id="IOhU3iU">
+      <segment>
+        <source>{citizen} hat &lt;strong&gt;{count} Haufen Schutt&lt;/strong&gt; mithilfe von {item} bereinigt.</source>
+        <target><![CDATA[{citizen} hat <strong>{count} Haufen Schutt</strong> mithilfe von {item} bereinigt.]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -2191,7 +2191,7 @@
         <target>Du kannst deinen Spielernamen nicht mehr ändern.</target>
       </segment>
     </unit>
-    <unit id="yF2vVL5" name="{user} war in der Vergangenheit unter folgenden Namen bekannt:">
+    <unit id="m65CDx_" name="{user} war in der Vergangenheit unter folgenden Namen bekannt:">
       <segment>
         <source>{user} war in der Vergangenheit unter folgenden Namen bekannt:</source>
         <target>{user} war in der Vergangenheit unter folgenden Namen bekannt:</target>
@@ -2338,6 +2338,12 @@
       <segment>
         <source>Diese Karteikarte gehört einem Animateur. Animateure organisieren und koordinieren Community-Events.</source>
         <target>Diese Karteikarte gehört einem Animateur. Animateure organisieren und koordinieren Community-Events.</target>
+      </segment>
+    </unit>
+    <unit id="yF2vVL5" name="%user% war in der Vergangenheit unter folgenden Namen bekannt:">
+      <segment>
+        <source>%user% war in der Vergangenheit unter folgenden Namen bekannt:</source>
+        <target>%user% war in der Vergangenheit unter folgenden Namen bekannt:</target>
       </segment>
     </unit>
   </file>

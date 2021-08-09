@@ -3681,7 +3681,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="IbZvvYE" name="Wachturm">
       <notes>
         <note category="german">Wachturm</note>
-        <note category="from">php:///src/Controller/Town/TownController.php;twig:///templates/ajax/game/town/watchtower.html.twig</note>
+        <note category="from">php:///src/Controller/Town/TownController.php;twig:///templates/ajax/admin/widget/controls.twig;twig:///templates/ajax/game/town/watchtower.html.twig</note>
       </notes>
       <segment>
         <source>Wachturm</source>
@@ -21111,7 +21111,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="Fu0IcEb">
       <notes>
         <note category="german">WARNUNG: Es besteht eine große Chance, dass du von anderen Bürgern entdeckt wirst, wenn du jemanden in der Stadt verschlingst! Mach das besser in der Aussenwelt...</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
@@ -22210,6 +22209,16 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Das Schokoladenkreuz wurde von den Bürgern im Rahmen dieses tragischen Ereignisses &lt;strong&gt;gegessen&lt;/strong&gt;!</source>
         <target><![CDATA[Das Schokoladenkreuz wurde von den Bürgern im Rahmen dieses tragischen Ereignisses <strong>gegessen</strong>!]]></target>
+      </segment>
+    </unit>
+    <unit id="IOhU3iU">
+      <notes>
+        <note category="german">{citizen} hat &lt;strong&gt;{count} Haufen Schutt&lt;/strong&gt; mithilfe von {item} bereinigt.</note>
+        <note category="from">db://LogEntryTemplate</note>
+      </notes>
+      <segment>
+        <source>{citizen} hat &lt;strong&gt;{count} Haufen Schutt&lt;/strong&gt; mithilfe von {item} bereinigt.</source>
+        <target><![CDATA[{citizen} cleared <strong>{count} parts</strong> of the zone with their {item}.]]></target>
       </segment>
     </unit>
   </file>

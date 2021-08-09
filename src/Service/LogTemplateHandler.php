@@ -817,13 +817,15 @@ class LogTemplateHandler
             ->setZone( $citizen->getZone() );
     }
 
-    public function outsideUncover( Citizen $citizen ): TownLogEntry {
+    public function outsideUncover( Citizen $citizen, int $count = 1, ?ItemPrototype $proto = null): TownLogEntry {
         $bc = $citizen->getZone()->getBuryCount() > 0;
-        if ($bc) {
+        if ($bc && $proto) {
+            $variables = array('citizen' => $citizen->getId(), 'count' => $count, 'item' => $proto->getId());
+            $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'outsideUncoverItem']);
+        } elseif ($bc) {
             $variables = array('citizen' => $citizen->getId());
             $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'outsideUncover']);
-        }
-        else {
+        } else {
             $variables = array('citizen' => $citizen->getId(), 'type' => $citizen->getZone()->getPrototype()->getLabel());
             $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'outsideUncoverComplete']);
         }

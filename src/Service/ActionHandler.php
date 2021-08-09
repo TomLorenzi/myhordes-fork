@@ -981,7 +981,7 @@ class ActionHandler
                     $execute_info_cache['bury_count'] = $count;
                     $base_zone->setBuryCount( max(0, $base_zone->getBuryCount() - $count ));
                     if ($base_zone->getPrototype())
-                        $this->entity_manager->persist( $this->log->outsideUncover( $citizen ) );
+                        $this->entity_manager->persist( $this->log->outsideUncover( $citizen, $count, $item ? $item->getPrototype() : null ) );
                 }
 
                 if ($zoneEffect->getEscape() !== null && $zoneEffect->getEscape() > 0) {

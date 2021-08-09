@@ -3659,7 +3659,7 @@
     <unit id="IbZvvYE" name="Wachturm">
       <notes>
         <note category="german">Wachturm</note>
-        <note category="from">php:///src/Controller/Town/TownController.php;twig:///templates/ajax/game/town/watchtower.html.twig</note>
+        <note category="from">php:///src/Controller/Town/TownController.php;twig:///templates/ajax/admin/widget/controls.twig;twig:///templates/ajax/game/town/watchtower.html.twig</note>
       </notes>
       <segment>
         <source>Wachturm</source>
@@ -4417,7 +4417,6 @@
     <unit id="pzQEC77">
       <notes>
         <note category="german">Dieser riesige Haufen aus Schutt und Metall war früher mal ein hell erleuchtetes Einkaufszentrum, das vor Menschen nur so wimmelte. Das Einzige, was hier noch herumwimmelt, sind Würmer und anderes Gekreuch und Gefleuch... Du bist jedoch zuversichtlich, hier allerhand nützliche Gegenstände zu finden.</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
@@ -4461,7 +4460,6 @@
     <unit id="Y0GOqx4">
       <notes>
         <note category="german">Eine alte Hütte, die seit Jahren unbewohnt ist. Fast vollständig im Sand begraben, aber man hört immer noch einige beunruhigende Stöhngeräusche aus dem, was der Keller sein muss...</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
@@ -4768,7 +4766,6 @@
     <unit id="rcbYTzS">
       <notes>
         <note category="german">Es sieht eigentlich nicht mehr wie eine Bar aus, aber das halb im Sand vergrabene Schild und das Vorhandensein einiger zerbrochener Optiken lassen keinen großen Zweifel aufkommen. Die meisten Flaschen sind zerbrochen, aber Sie können hier mit ziemlicher Sicherheit etwas Nützliches finden...</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
@@ -7119,7 +7116,6 @@
     <unit id="QHYoGw6">
       <notes>
         <note category="german">Dieser Bürger konnte nicht schlafen und redete wirres Zeug, von Tod, sprechenden Schatten und Stimmen in seinem Kopf...</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
@@ -7291,7 +7287,6 @@
     <unit id="PoxvW0_">
       <notes>
         <note category="german">Dir ist etwas furchtbares wiederfahren, und du bist vor Angst erstarrt! Du kannst dich nicht länger in einer von Zombies kontrollierten Zone aufhalten. Wenn du gefangen bist, kannst du nicht länger fliehen.</note>
-        <note category="state">new</note>
         <note category="from">db://CitizenStatus</note>
       </notes>
       <segment>
@@ -7502,7 +7497,6 @@
     <unit id="cxtMADZ">
       <notes>
         <note category="german">Während du die Worte des Schamanen vernommen hast, dachtest du nie, dass er es ernst meinte. Nichts ist 100%ig sicher in dieser Wüste und der Trank, den er dir gegeben hat... Nun, er hat nicht funktioniert. Die gequälte Seele, der du zu helfen versuchtest, hat sich an dich geklammert und deine ungeschützte Seele mit Leichtigkeit überwältigt. Ihre Gewalt und Wut hinterließen nichts von dir als eine leere Hülle, dazu verdammt, von der Horde verschlungen zu werden.</note>
-        <note category="state">new</note>
         <note category="from">db://CauseOfDeath</note>
       </notes>
       <segment>
@@ -19803,7 +19797,6 @@
     <unit id="lpKOzLM">
       <notes>
         <note category="german">Diese Information gibt dir einen Hinweis darauf, ob Aufklärer gewöhnlicherweise hier vorbeikommen.&lt;br /&gt;&lt;em&gt;Je mehr eine Zone erforscht wurde, desto geringer ist die Chance bei &lt;strong&gt;Betreten&lt;/strong&gt; entdeckt zu werden (du kennst dann ein paar Schleichwege etc...).&lt;/em&gt;</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/beyond/beyond.html.twig</note>
       </notes>
       <segment>
@@ -21176,7 +21169,6 @@
     <unit id="WvVANsU">
       <notes>
         <note category="german">Als du folgendes Gebäude: {building} erkundest hast, lief es eiskalt den Rücken runter... Aber es war nicht umsonst! Du hast folgenden Gegenstand gefunden: {item}.</note>
-        <note category="state">new</note>
         <note category="from">php:///src/Controller/BeyondController.php</note>
       </notes>
       <segment>
@@ -22290,7 +22282,6 @@
       <notes>
         <note category="german">Das Stadttor ist &lt;strong&gt;geschlossen&lt;/strong&gt;! Vielleicht kannst du im Forum nach Hilfe fragen...</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Das Stadttor ist &lt;strong&gt;geschlossen&lt;/strong&gt;! Vielleicht kannst du im Forum nach Hilfe fragen...</source>
@@ -22361,6 +22352,17 @@
       <segment>
         <source>Das Schokoladenkreuz wurde von den Bürgern im Rahmen dieses tragischen Ereignisses &lt;strong&gt;gegessen&lt;/strong&gt;!</source>
         <target><![CDATA[Das Schokoladenkreuz wurde von den Bürgern im Rahmen dieses tragischen Ereignisses <strong>gegessen</strong>!]]></target>
+      </segment>
+    </unit>
+    <unit id="IOhU3iU">
+      <notes>
+        <note category="german">{citizen} hat &lt;strong&gt;{count} Haufen Schutt&lt;/strong&gt; mithilfe von {item} bereinigt.</note>
+        <note category="from">db://LogEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>{citizen} hat &lt;strong&gt;{count} Haufen Schutt&lt;/strong&gt; mithilfe von {item} bereinigt.</source>
+        <target><![CDATA[{citizen} hat <strong>{count} Haufen Schutt</strong> mithilfe von {item} bereinigt.]]></target>
       </segment>
     </unit>
   </file>
