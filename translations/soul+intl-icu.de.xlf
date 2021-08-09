@@ -2340,11 +2340,5 @@
         <target>Diese Karteikarte gehört einem Animateur. Animateure organisieren und koordinieren Community-Events.</target>
       </segment>
     </unit>
-    <unit id="yF2vVL5" name="%user% war in der Vergangenheit unter folgenden Namen bekannt:">
-      <segment>
-        <source>%user% war in der Vergangenheit unter folgenden Namen bekannt:</source>
-        <target>%user% war in der Vergangenheit unter folgenden Namen bekannt:</target>
-      </segment>
-    </unit>
   </file>
 </xliff>

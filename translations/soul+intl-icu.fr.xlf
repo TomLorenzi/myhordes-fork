@@ -3800,16 +3800,5 @@
         <target>Ce badge appartient à un animacteur. Les animacteurs organisent et coordonnent des événements communautaires.</target>
       </segment>
     </unit>
-    <unit id="yF2vVL5" name="%user% war in der Vergangenheit unter folgenden Namen bekannt:">
-      <notes>
-        <note category="german">%user% war in der Vergangenheit unter folgenden Namen bekannt:</note>
-        <note category="from">twig:///templates/ajax/soul/visit.html.twig</note>
-        <note category="state">new</note>
-      </notes>
-      <segment>
-        <source>%user% war in der Vergangenheit unter folgenden Namen bekannt:</source>
-        <target>%user% war in der Vergangenheit unter folgenden Namen bekannt:</target>
-      </segment>
-    </unit>
   </file>
 </xliff>

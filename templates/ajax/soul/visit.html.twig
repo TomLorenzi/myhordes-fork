@@ -50,7 +50,7 @@
 
                     {% if user.nameHistory|length > 0 %}
                         <div class="personal_desc mt-1">
-                            <div>{{'%user% war in der Vergangenheit unter folgenden Namen bekannt:'|trans({'%user%': user.name}, 'soul')}}</div>
+                            <div>{{'{user} war in der Vergangenheit unter folgenden Namen bekannt:'|trans({'user': user}, 'soul')}}</div>
                             <div>
                                 {% for name in user.nameHistory %}
                                     {{ name }}{% if not loop.last %}, {% endif %}
