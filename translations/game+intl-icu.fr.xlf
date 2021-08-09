@@ -9043,7 +9043,7 @@
       </notes>
       <segment>
         <source>Mit aller Gewalt greifst du {citizen} an! Du hast den Überraschungsmoment auf deiner Seite und am Ende trägt {citizen} eine schwere Verletzung davon.</source>
-        <target>De toutes vos forces, vous attaquez {citizen} ! Vous avez l'élément de surprise de votre côté et à la fin {citizen} est gravement blessé.</target>
+        <target><![CDATA[Vous avez violemment attaqué <strong>{citizen}</strong> ! La bagarre a rapidement dégénéré et vous avez fini par <strong>blesser gravement ce citoyen</strong> !]]></target>
       </segment>
     </unit>
     <unit id="1HduKoA">
@@ -9054,7 +9054,7 @@
       </notes>
       <segment>
         <source>Plötzlich sackt {citizen} in sich zusammen, seine Augen drehen sich nach hinten, und mit einem schauerhaften Gurgeln löst sich sein ganzer Körper vor deinen Augen auf und hinterlässt nur den üblen Geruch von Tod und Verwesung! Es gibt keinen Zweifel mehr: {citizen} war ein Ghul!!</source>
-        <target>Plötzlich sackt {citizen} in sich zusammen, seine Augen drehen sich nach hinten, und mit einem schauerhaften Gurgeln löst sich sein ganzer Körper vor deinen Augen auf und hinterlässt nur den üblen Geruch von Tod und Verwesung! Es gibt keinen Zweifel mehr: {citizen} war ein Ghul!!</target>
+        <target><![CDATA[Contre toute attente, {citizen} s'effondre dans un gargouillis immonde, les yeux révulsés... <strong>Son corps se décompose littéralement par endroits et une odeur de putréfaction emplit l'air !</strong> L'horrible vérité vous saute alors au visage : <strong>{citizen} était une goule</strong> !!<hr />Toute la ville a été mise au courant.]]></target>
       </segment>
     </unit>
     <unit id="9goEXWW">
@@ -19873,7 +19873,7 @@
       </notes>
       <segment>
         <source>Achtung: Jede Aktion in der Zone sorgt dafür, dass deine &lt;strong&gt;Tarnung auffliegt&lt;/strong&gt;. (Es können nur Aktionen ausgeführt werden, die mit einem Icon {img_scout_ok} gekennzeichnet sind)!</source>
-        <target><![CDATA[Attention: toute action sur la zone vous fera <strong>perdre votre camouflage</strong>. (seules les actions marquées d'une icône {img_scout_ok} peuvent être utilisées) !]]></target>
+        <target><![CDATA[Attention : toute action sur la zone vous fera <strong>perdre votre camouflage</strong> (seules les actions marquées d'une icône {img_scout_ok} peuvent être utilisées) !]]></target>
       </segment>
     </unit>
     <unit id="SKPkihB">
@@ -19883,7 +19883,7 @@
       </notes>
       <segment>
         <source>Mit deinem {img_scout} &lt;strong&gt;Tarnanzug&lt;/strong&gt; kannst du dich bewegen ohne dabei entdeckt zu werden.</source>
-        <target><![CDATA[Votre {img_scout} <strong>Tenue de camouflage</strong> vous permet de vous déplacer sans être vu(e)]]></target>
+        <target><![CDATA[Votre {img_scout} <strong>Tenue de camouflage</strong> vous permet de vous déplacer sans être vu(e).]]></target>
       </segment>
     </unit>
     <unit id="Y3.7xA8" name="{building} hat {num} Batterien verbraucht.">
@@ -21012,7 +21012,7 @@
       </notes>
       <segment>
         <source>Dank des von der Stadt gebauten Kremato-Cue kannst du diese Leiche &lt;strong&gt;in Verpflegung umwandeln&lt;/strong&gt;. Aber willst du das wirklich tun?</source>
-        <target><![CDATA[Grace au Crémato-Cue construit par la ville, vous pouvez <strong>transformer ce corps en rations</strong>.. Mais voulez-vous vraiment faire cela ?]]></target>
+        <target><![CDATA[Grâce au Crémato-Cue construit par la ville, vous pouvez <strong>transformer ce corps en rations</strong>... Mais voulez-vous vraiment faire cela ?]]></target>
       </segment>
     </unit>
     <unit id="JQAKEqq">

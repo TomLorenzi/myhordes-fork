@@ -2531,7 +2531,7 @@
       </notes>
       <segment>
         <source>Nach der Pumpe könnt ihr mit dem Wasserleitungsnetz die auf Wasser basierenden Verteidigungsmechanismen angehen! Zusätzlich vergrößert das Netz auch die Wasserreserven des Brunnens.</source>
-        <target>Grace à ce réseau de tuyaux, vous pourrez bâtir de puissantes défenses à base d'eau en ville ! De plus, ce système apporte un petit surplus d'eau au puits.</target>
+        <target>Grâce à ce réseau de tuyaux, vous pourrez bâtir de puissantes défenses à base d'eau en ville ! De plus, ce système apporte un petit surplus d'eau au puits.</target>
       </segment>
     </unit>
     <unit id="9bvD0a1">
@@ -3181,7 +3181,7 @@
       </notes>
       <segment>
         <source>Dank dieses kleinen, am Brunnen angebrachten Wasserhahns, kannst Du nun die Wassermengen abschöpfen, die ansonten durch das Filtersystem verschwendet werden (es braucht kein zusätzliches Brunnen-Wasser). Du kannst mit diesem Wasser alle auf Wasser basierenden Waffen KOSTENLOS auffüllen (Wasserbombe, Wasserkanone,...)!</source>
-        <target>Grace à ce petit robinet relié au puits, vous pouvez récupérer les eaux gaspillées par le système de filtrage (donc sans prélever l'eau potable, si précieuse). Vous pourrez alors l'utiliser pour remplir GRATUITEMENT toutes vos armes à eau (ballon, pistolets…) !</target>
+        <target>Grâce à ce petit robinet relié au puits, vous pouvez récupérer les eaux gaspillées par le système de filtrage (donc sans prélever l'eau potable, si précieuse). Vous pourrez alors l'utiliser pour remplir GRATUITEMENT toutes vos armes à eau (ballon, pistolets…) !</target>
       </segment>
     </unit>
     <unit id="m0pInPT">
