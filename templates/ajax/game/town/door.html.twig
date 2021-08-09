@@ -34,12 +34,13 @@
         <div class="padded cell rw-4 ellipsis row-header"><img src="{{ asset('build/images/item/item_door.gif') }}" alt="" /> {{'Lage'|trans({}, 'game')}}</div>
         <div class="padded cell rw-8 ellipsis row-detail">
             {% if town.door and town.devastated %}
-                <span class="warning">{{'Stadttor zerstört!'|trans({}, 'game')}}</span> <span class="small">(<span class="link" x-ajax-href="{{ path("town_citizens") }}">{{'Wer ist draußen?'|trans({}, 'game')}}</span>)</span>
+                <span class="warning">{{'Stadttor zerstört!'|trans({}, 'game')}}</span>
             {% elseif (town.door) %}
-                <span class="warning">{{'Stadttor geöffnet'|trans({}, 'game')}}</span> <span class="small">(<span class="link" x-ajax-href="{{ path("town_citizens") }}">{{'Wer ist draußen?'|trans({}, 'game')}}</span>)</span>
+                <span class="warning">{{'Stadttor geöffnet'|trans({}, 'game')}}</span>
             {% else %}
                 {{'Stadttor geschlossen'|trans({}, 'game')}}
             {% endif %}
+            <span class="small">(<span class="link" x-ajax-href="{{ path("town_citizens") }}">{{'Wer ist draußen?'|trans({}, 'game')}}</span>)</span>
         </div>
     </div>
 
