@@ -8847,7 +8847,7 @@
       </notes>
       <segment>
         <source>Mit aller Gewalt greifst du {citizen} an! Du hast den Überraschungsmoment auf deiner Seite und am Ende trägt {citizen} eine schwere Verletzung davon.</source>
-        <target>¡Con todas tus fuerzas atacas a {citizen}! Lo agarraste con la guardia baja, al final {citizen} se ha llevado una buena herida, seguro no se va olvidar fácilemnte de ti.</target>
+        <target>¡Has atacado violentemente a {citizen}! La pelea fue tan brutal que heriste gravamente a ese povre tipo!</target>
       </segment>
     </unit>
     <unit id="1HduKoA">
