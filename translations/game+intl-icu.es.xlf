@@ -22365,5 +22365,16 @@
         <target><![CDATA[{citizen} hat <strong>{count} Haufen Schutt</strong> mithilfe von {item} bereinigt.]]></target>
       </segment>
     </unit>
+    <unit id="b0OOd25">
+      <notes>
+        <note category="german">Diese Aktion wird durch ein Gebäude in der Stadt ermöglicht (nur Helden können sie verwenden).</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/town/door.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Diese Aktion wird durch ein Gebäude in der Stadt ermöglicht (nur Helden können sie verwenden).</source>
+        <target>Diese Aktion wird durch ein Gebäude in der Stadt ermöglicht (nur Helden können sie verwenden).</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

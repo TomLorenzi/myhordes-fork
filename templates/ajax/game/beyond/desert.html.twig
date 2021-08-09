@@ -409,7 +409,10 @@
                     {% endif %}
                 {% endif %}
                 {% if show_ventilation %}
-                    <button id="town-enter-hero" {% if not allow_ventilation %}disabled{% endif %}><img alt="" src="{{ asset('build/images/icons/star.gif') }}">{% trans from 'game' %}Durch die Lüftungsschächte klettern{% endtrans %}</button>
+                    <button id="town-enter-hero" {% if not allow_ventilation %}disabled{% endif %}>
+                        <img alt="" src="{{ asset('build/images/icons/star.gif') }}">{% trans from 'game' %}Durch die Lüftungsschächte klettern{% endtrans %}
+                        <div class="tooltip help">{{ 'Diese Aktion wird durch ein Gebäude in der Stadt ermöglicht (nur Helden können sie verwenden).'|trans({},'game') }}</div>
+                    </button>
                 {% endif %}
                 {% if show_sneaky %}
                     <button id="town-enter-sneak">

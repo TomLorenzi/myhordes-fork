@@ -117,7 +117,10 @@
                 {% endif %}
             {% endif %}
             {% if show_ventilation %}
-                <button id="door_exit_hero"{% if not allow_ventilation or not can_go_out %}disabled{% endif %}><img alt="" src="{{ asset('build/images/icons/star.gif') }}">{% trans from 'game' %}Durch die Lüftungsschächte klettern{% endtrans %}</button>
+                <button id="door_exit_hero" {% if not allow_ventilation or not can_go_out %}disabled{% endif %}>
+                    <img alt="" src="{{ asset('build/images/icons/star.gif') }}">{% trans from 'game' %}Durch die Lüftungsschächte klettern{% endtrans %}
+                    <div class="tooltip help">{{ 'Diese Aktion wird durch ein Gebäude in der Stadt ermöglicht (nur Helden können sie verwenden).'|trans({},'game') }}</div>
+                </button>
             {% endif %}
             {% if show_sneaky %}
                 <button id="door_exit_sneak" {% if not town.door or not can_go_out %}disabled{% endif %}><img alt="" src="{{ asset('build/images/roles/ghoul.gif') }}">{% trans from 'game' %}Aus der Stadt schleichen{% endtrans %}</button>
