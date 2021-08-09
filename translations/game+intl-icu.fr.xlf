@@ -3453,16 +3453,6 @@
         <target>l'Ouest</target>
       </segment>
     </unit>
-    <unit id="25G93ga" name="Durch die Lüftungsschächte klettern">
-      <notes>
-        <note category="german">Durch die Lüftungsschächte klettern</note>
-        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/town/door.html.twig</note>
-      </notes>
-      <segment>
-        <source>Durch die Lüftungsschächte klettern</source>
-        <target>Passer par la conduite d'aération</target>
-      </segment>
-    </unit>
     <unit id="MJMhV5L" name="Kleine Stadt">
       <notes>
         <note category="german">Kleine Stadt</note>
@@ -22129,6 +22119,26 @@
       <segment>
         <source>Diese Aktion wird durch ein Gebäude in der Stadt ermöglicht (nur Helden können sie verwenden).</source>
         <target>Cette action est permise par un bâtiment de votre ville (seuls les héros peuvent en profiter).</target>
+      </segment>
+    </unit>
+    <unit id="Su8QIYk" name="Durch die Lüftungsschächte klettern (in)">
+      <notes>
+        <note category="german">Durch die Lüftungsschächte klettern</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+      </notes>
+      <segment>
+        <source>Durch die Lüftungsschächte klettern (in)</source>
+        <target>Entrer par l'aération</target>
+      </segment>
+    </unit>
+    <unit id="SNSC5Kg" name="Durch die Lüftungsschächte klettern (out)">
+      <notes>
+        <note category="german">Durch die Lüftungsschächte klettern</note>
+        <note category="from">twig:///templates/ajax/game/town/door.html.twig</note>
+      </notes>
+      <segment>
+        <source>Durch die Lüftungsschächte klettern (out)</source>
+        <target>Sortir par l'aération</target>
       </segment>
     </unit>
   </file>

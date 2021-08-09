@@ -2339,12 +2339,6 @@
         <target>Rucksack in der Bank ausleeren</target>
       </segment>
     </unit>
-    <unit id="25G93ga" name="Durch die Lüftungsschächte klettern">
-      <segment>
-        <source>Durch die Lüftungsschächte klettern</source>
-        <target>Durch die Lüftungsschächte klettern</target>
-      </segment>
-    </unit>
     <unit id="mwAKBpm" name="Meine objekte">
       <segment>
         <source>Meine objekte</source>
@@ -14167,6 +14161,18 @@
       <segment>
         <source>Diese Aktion wird durch ein Gebäude in der Stadt ermöglicht (nur Helden können sie verwenden).</source>
         <target>Diese Aktion wird durch ein Gebäude in der Stadt ermöglicht (nur Helden können sie verwenden).</target>
+      </segment>
+    </unit>
+    <unit id="Su8QIYk" name="Durch die Lüftungsschächte klettern (in)">
+      <segment>
+        <source>Durch die Lüftungsschächte klettern (in)</source>
+        <target>Durch die Lüftungsschächte klettern</target>
+      </segment>
+    </unit>
+    <unit id="SNSC5Kg" name="Durch die Lüftungsschächte klettern (out)">
+      <segment>
+        <source>Durch die Lüftungsschächte klettern (out)</source>
+        <target>Durch die Lüftungsschächte klettern</target>
       </segment>
     </unit>
   </file>

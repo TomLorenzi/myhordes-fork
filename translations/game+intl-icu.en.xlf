@@ -3578,16 +3578,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>There is no citizen nearby ...</target>
       </segment>
     </unit>
-    <unit id="25G93ga" name="Durch die Lüftungsschächte klettern">
-      <notes>
-        <note category="german">Durch die Lüftungsschächte klettern</note>
-        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/town/door.html.twig</note>
-      </notes>
-      <segment>
-        <source>Durch die Lüftungsschächte klettern</source>
-        <target>Climb through the Ventilation</target>
-      </segment>
-    </unit>
     <unit id="f1TzhOn" name="Gammler">
       <notes>
         <note category="german">Gammler</note>
@@ -22229,6 +22219,26 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Diese Aktion wird durch ein Gebäude in der Stadt ermöglicht (nur Helden können sie verwenden).</source>
         <target>This action is made possible by a building in your town (only Heroes can do this).</target>
+      </segment>
+    </unit>
+    <unit id="Su8QIYk" name="Durch die Lüftungsschächte klettern (in)">
+      <notes>
+        <note category="german">Durch die Lüftungsschächte klettern</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+      </notes>
+      <segment>
+        <source>Durch die Lüftungsschächte klettern (in)</source>
+        <target>Enter via the air-vent</target>
+      </segment>
+    </unit>
+    <unit id="SNSC5Kg" name="Durch die Lüftungsschächte klettern (out)">
+      <notes>
+        <note category="german">Durch die Lüftungsschächte klettern</note>
+        <note category="from">twig:///templates/ajax/game/town/door.html.twig</note>
+      </notes>
+      <segment>
+        <source>Durch die Lüftungsschächte klettern (out)</source>
+        <target>Climb out the air-vent</target>
       </segment>
     </unit>
   </file>

@@ -3546,16 +3546,6 @@
         <target>Vaciar tu mochila en el Almacén</target>
       </segment>
     </unit>
-    <unit id="25G93ga" name="Durch die Lüftungsschächte klettern">
-      <notes>
-        <note category="german">Durch die Lüftungsschächte klettern</note>
-        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/town/door.html.twig</note>
-      </notes>
-      <segment>
-        <source>Durch die Lüftungsschächte klettern</source>
-        <target>Trepar por la aeración</target>
-      </segment>
-    </unit>
     <unit id="mwAKBpm" name="Meine objekte">
       <notes>
         <note category="german">Meine Objekte</note>
@@ -22374,6 +22364,26 @@
       <segment>
         <source>Diese Aktion wird durch ein Gebäude in der Stadt ermöglicht (nur Helden können sie verwenden).</source>
         <target>Diese Aktion wird durch ein Gebäude in der Stadt ermöglicht (nur Helden können sie verwenden).</target>
+      </segment>
+    </unit>
+    <unit id="Su8QIYk" name="Durch die Lüftungsschächte klettern (in)">
+      <notes>
+        <note category="german">Durch die Lüftungsschächte klettern</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+      </notes>
+      <segment>
+        <source>Durch die Lüftungsschächte klettern (in)</source>
+        <target>Trepar por la aeración</target>
+      </segment>
+    </unit>
+    <unit id="SNSC5Kg" name="Durch die Lüftungsschächte klettern (out)">
+      <notes>
+        <note category="german">Durch die Lüftungsschächte klettern</note>
+        <note category="from">twig:///templates/ajax/game/town/door.html.twig</note>
+      </notes>
+      <segment>
+        <source>Durch die Lüftungsschächte klettern (out)</source>
+        <target>Trepar por la aeración</target>
       </segment>
     </unit>
   </file>
