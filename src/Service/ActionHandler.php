@@ -982,6 +982,8 @@ class ActionHandler
                     $base_zone->setBuryCount( max(0, $base_zone->getBuryCount() - $count ));
                     if ($base_zone->getPrototype())
                         $this->entity_manager->persist( $this->log->outsideUncover( $citizen, $count, $item ? $item->getPrototype() : null ) );
+                    if ($base_zone->getBuryCount() == 0)
+                        $this->entity_manager->persist( $this->log->outsideUncoverComplete( $citizen ) );
                 }
 
                 if ($zoneEffect->getEscape() !== null && $zoneEffect->getEscape() > 0) {
