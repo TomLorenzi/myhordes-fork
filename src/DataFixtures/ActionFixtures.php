@@ -840,7 +840,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
             'flash_photo_3' => [ 'label' => 'Benutzen', 'meta' => [ 'must_be_outside_not_at_doors', 'must_have_zombies', 'must_be_blocked' ], 'result' => [ ['item' => ['consume' => false, 'morph' => 'photo_2_#00'] ,   'zone' => ['escape' => 120] ] ],  'message_key' => 'escape_item_camera' ],
             'flash_photo_2' => [ 'label' => 'Benutzen', 'meta' => [ 'must_be_outside_not_at_doors', 'must_have_zombies', 'must_be_blocked' ], 'result' => [ ['item' => ['consume' => false, 'morph' => 'photo_1_#00'] ,   'group' => [ [['do_nothing'], 30], [[ ['zone' => ['escape' => 60] ]], 60]] ] ],   'message_key' => 'escape_item_camera' ],
-            'flash_photo_1' => [ 'label' => 'Benutzen', 'meta' => [ 'must_be_outside_not_at_doors', 'must_have_zombies', 'must_be_blocked' ], 'result' => [ ['item' => ['consume' => false, 'morph' => 'photo_off_#00'] , 'group' => [ [['do_nothing'], 60], [[ ['zone' => ['escape' => 60] ]], 30]] ] ],   'message_key' => 'escape_item_camera' ],
+            'flash_photo_1' => [ 'label' => 'Benutzen', 'meta' => [ 'must_be_outside_not_at_doors', 'must_have_zombies', 'must_be_blocked' ], 'result' => [ ['item' => ['consume' => false, 'morph' => 'photo_off_#00'] , 'group' => [ [['do_nothing'], 60], [[ ['zone' => ['escape' => 30] ]], 30]] ] ],   'message_key' => 'escape_item_camera' ],
 
             'alarm_clock' => [ 'label' => 'Benutzen', 'at00' => true, 'meta' => [  ], 'result' => [ ['item' => ['consume' => false, 'morph' => 'alarm_on_#00'] ] ],  'message' => 'Du hast {item_from} in {item_to} verwandelt.' ],
 
