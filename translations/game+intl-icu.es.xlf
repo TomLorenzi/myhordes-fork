@@ -7124,7 +7124,7 @@
       </notes>
       <segment>
         <source>Dieser Bürger konnte nicht schlafen und redete wirres Zeug, von Tod, sprechenden Schatten und Stimmen in seinem Kopf...</source>
-        <target>Dieser Bürger konnte nicht schlafen und redete wirres Zeug, von Tod, sprechenden Schatten und Stimmen in seinem Kopf...</target>
+        <target>no lograría dormir y diría frases incoherentes, hablando de muerte, sombras a su alrededor, voces en su cabeza...</target>
       </segment>
     </unit>
     <unit id="Kx1swjd">
@@ -7296,7 +7296,7 @@
       </notes>
       <segment>
         <source>Dir ist etwas furchtbares wiederfahren, und du bist vor Angst erstarrt! Du kannst dich nicht länger in einer von Zombies kontrollierten Zone aufhalten. Wenn du gefangen bist, kannst du nicht länger fliehen.</source>
-        <target>Dir ist etwas furchtbares wiederfahren, und du bist vor Angst erstarrt! Du kannst dich nicht länger in einer von Zombies kontrollierten Zone aufhalten. Wenn du gefangen bist, kannst du nicht länger fliehen.</target>
+        <target>iTe ha sucedido algo horrible y estás aterrorizado! Ya no puedes quedarte en una zona controlada por los zombies. Y si estás atrapado, ya no podrás huir.</target>
       </segment>
     </unit>
     <unit id="Bjszt3B">
@@ -8847,7 +8847,7 @@
       </notes>
       <segment>
         <source>Mit aller Gewalt greifst du {citizen} an! Du hast den Überraschungsmoment auf deiner Seite und am Ende trägt {citizen} eine schwere Verletzung davon.</source>
-        <target>¡Con todas tus fuerzas atacas a {citizen}! Lo agarraste con la guardia baja, al final {citizen} se ha llevado una buena herida, seguro no se va olvidar fácilemnte de ti.</target>
+        <target>¡Has atacado violentemente a {citizen}! La pelea fue tan brutal que heriste gravamente a ese povre tipo!</target>
       </segment>
     </unit>
     <unit id="1HduKoA">

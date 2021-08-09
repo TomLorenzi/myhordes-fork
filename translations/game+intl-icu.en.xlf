@@ -7966,7 +7966,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Auch du musst diese Stadt heute Nacht verteidigen! Tritt in die Wächtergruppe ein! Du möchtest Mitglied der selbstmörd... tapfersten Bürger werden? Was zögerst du noch:</source>
-        <target>You, too, can defend the town tonight! Join the Watchmen! Do you want to join the the most suicid... erm... brave citizens? Well then, don't wait any longer:</target>
+        <target><![CDATA[You, too, can defend the town tonight! Join <strong>the Watchmen!</strong><br /><br />Do you want to join the the most suicid... erm... <strong>brave citizens</strong>? Well then, don't wait any longer:]]></target>
       </segment>
     </unit>
     <unit id="UPuSUuC" name="Ich möchte Wächter werden!">
@@ -9002,7 +9002,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Diesen Bürger verspeisen!</source>
-        <target>Eat this citizen!</target>
+        <target>Devour this citizen!</target>
       </segment>
     </unit>
     <unit id="6IAuVw5" name="Die Leiche verspeisen!">
@@ -21116,7 +21116,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>WARNUNG: Es besteht eine große Chance, dass du von anderen Bürgern entdeckt wirst, wenn du jemanden in der Stadt verschlingst! Mach das besser in der Aussenwelt...</source>
-        <target>WARNUNG: Es besteht eine große Chance, dass du von anderen Bürgern entdeckt wirst, wenn du jemanden in der Stadt verschlingst! Mach das besser in der Aussenwelt...</target>
+        <target>WARNING : there is a significant chance of being discovered by the other citizens if you devour someone in town! Maybe you should do your murdering in the World Beyond...</target>
       </segment>
     </unit>
     <unit id="lN02s2b">
