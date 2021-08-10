@@ -22386,5 +22386,20 @@
         <target>Trepar por la aeración</target>
       </segment>
     </unit>
+    <unit id="dx8bzcp" name="Höchstens {nw_defense}">
+      <notes>
+        <note category="german">{nw_defense}</note>
+        <note category="from">twig:///templates/ajax/game/town/nightwatch.html.twig</note>
+      </notes>
+      <segment>
+        <source>Höchstens {nw_defense}</source>
+        <target>
+              {nw_defense, plural,
+                =0 {¡Ninguno!}
+                other {Por lo menos #}
+              }
+          </target>
+      </segment>
+    </unit>
   </file>
 </xliff>

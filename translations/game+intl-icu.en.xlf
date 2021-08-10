@@ -22241,5 +22241,20 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>Climb out the air-vent</target>
       </segment>
     </unit>
+    <unit id="dx8bzcp" name="Höchstens {nw_defense}">
+      <notes>
+        <note category="german">{nw_defense}</note>
+        <note category="from">twig:///templates/ajax/game/town/nightwatch.html.twig</note>
+      </notes>
+      <segment>
+        <source>Höchstens {nw_defense}</source>
+        <target>
+              {nw_defense, plural,
+                =0 {None!}
+                other {At most #}
+              }
+          </target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -14175,5 +14175,16 @@
         <target>Durch die Lüftungsschächte klettern</target>
       </segment>
     </unit>
+    <unit id="dx8bzcp" name="Höchstens {nw_defense}">
+      <segment>
+        <source>Höchstens {nw_defense}</source>
+        <target>
+            {nw_defense, plural,
+                =0 {Keine!}
+                other {Höchstens #}
+            }
+        </target>
+      </segment>
+    </unit>
   </file>
 </xliff>
