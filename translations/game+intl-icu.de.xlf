@@ -4562,17 +4562,7 @@
     <unit id="4OynnJl" name="Der Bürger wurde zuletzt {time} gesehen.">
       <segment>
         <source>Der Bürger wurde zuletzt {time} gesehen.</source>
-        <target>
-            {ref__icu, select,
-                on {
-                    {ref__gender, select,
-                        female {Die Bürgerin wurde zuletzt {time} gesehen.}
-                        other {Der Bürger wurde zuletzt {time} gesehen.}
-                    }
-                }
-            other {Der Bürger wurde zuletzt {time} gesehen.}
-            }
-        </target>
+        <target>wurde zuletzt {time} gesehen.</target>
       </segment>
     </unit>
     <unit id="SNTneh6" name="Dieser Bürger hat {ration} Wasserration(en) aus dem Brunnen genommen.">
@@ -4594,33 +4584,13 @@
     <unit id="VNIM3Mp" name="Dieser Bürger ist ernsthaft verletzt.">
       <segment>
         <source>Dieser Bürger ist ernsthaft verletzt.</source>
-        <target>
-            {ref__icu, select,
-                on {
-                    {ref__gender, select,
-                        female {Diese Bürgerin ist ernsthaft verletzt.}
-                        other {Dieser Bürger ist ernsthaft verletzt.}
-                    }
-                }
-            other {Dieser Bürger ist ernsthaft verletzt.}
-            }
-        </target>
+        <target>ernsthaft verletzt ist</target>
       </segment>
     </unit>
     <unit id="w5JoDMX">
       <segment>
         <source>Dieser Bürger hat eventuell schon seit einer Weile Blut gehustet... Einige reden von einer Infektion.</source>
-        <target>
-            {ref__icu, select,
-                on {
-                    {ref__gender, select,
-                        female {Diese Bürgerin hat eventuell schon seit einer Weile Blut gehustet... Einige reden von einer Infektion.}
-                        other {Dieser Bürger hat eventuell schon seit einer Weile Blut gehustet... Einige reden von einer Infektion.}
-                    }
-                }
-            other {Dieser Bürger hat eventuell schon seit einer Weile Blut gehustet... Einige reden von einer Infektion.}
-            }
-        </target>
+        <target>soll schon seit einer Weile Blut gehustet haben... Einige reden von einer Infektion.</target>
       </segment>
     </unit>
     <unit id="0LaQbDJ">
@@ -4630,11 +4600,11 @@
             {ref__icu, select,
                 on {
                     {ref__gender, select,
-                        female {Diese Bürgerin soll eventuell heute Morgen überall nach Wasser gebettelt haben... Ob sie durstig ist?}
-                        other {Dieser Bürger soll eventuell heute Morgen überall nach Wasser gebettelt haben... Ob er durstig ist?}
+                        female {soll heute Morgen überall nach Wasser gebettelt haben... Ob sie durstig ist?}
+                        other {soll heute Morgen überall nach Wasser gebettelt haben... Ob er durstig ist?}
                     }
                 }
-            other {Dieser Bürger soll eventuell heute Morgen überall nach Wasser gebettelt haben... Ob er durstig ist?}
+            other {soll eventuell heute Morgen überall nach Wasser gebettelt haben... Ob er durstig ist?}
             }
         </target>
       </segment>
@@ -4646,11 +4616,11 @@
             {ref__icu, select,
                 on {
                     {ref__gender, select,
-                        female {Diese Bürgerin ist eventuell süchtig... Wir nennen ihr Verhalten aggressiv, manchmal sogar assozial...}
-                        other {Dieser Bürger ist eventuell süchtig... Wir nennen sein Verhalten aggressiv, manchmal sogar assozial...}
+                        female {ist eventuell süchtig... Wir nennen ihr Verhalten aggressiv, manchmal sogar assozial...}
+                        other {ist eventuell süchtig... Wir nennen sein Verhalten aggressiv, manchmal sogar assozial...}
                     }
                 }
-            other {Dieser Bürger ist eventuell süchtig... Wir nennen sein Verhalten aggressiv, manchmal sogar assozial...}
+            other {ist eventuell süchtig... Wir nennen sein Verhalten aggressiv, manchmal sogar assozial...}
             }
         </target>
       </segment>
@@ -4662,11 +4632,11 @@
             {ref__icu, select,
                 on {
                     {ref__gender, select,
-                        female {Diese Bürgerin konnte nicht schlafen und redete wirres Zeug, von Tod, sprechenden Schatten und Stimmen in ihrem Kopf...}
-                        other {Dieser Bürger konnte nicht schlafen und redete wirres Zeug, von Tod, sprechenden Schatten und Stimmen in seinem Kopf...}
+                        female {konnte nicht schlafen und redete wirres Zeug, von Tod, sprechenden Schatten und Stimmen in ihrem Kopf...}
+                        other {konnte nicht schlafen und redete wirres Zeug, von Tod, sprechenden Schatten und Stimmen in seinem Kopf...}
                     }
                 }
-            other {Dieser Bürger konnte nicht schlafen und redete wirres Zeug, von Tod, sprechenden Schatten und Stimmen in seinem Kopf...}
+            other {konnte nicht schlafen und redete wirres Zeug, von Tod, sprechenden Schatten und Stimmen in seinem Kopf...}
             }
         </target>
       </segment>
@@ -4674,17 +4644,7 @@
     <unit id="Kx1swjd">
       <segment>
         <source>Dieser Bürger ist nicht in der Lage, einen Beruf zu wählen. Wir sind noch lange nicht über den Berg, das kann ich euch sagen!</source>
-        <target>
-            {ref__icu, select,
-                on {
-                    {ref__gender, select,
-                        female {Diese Bürgerin ist nicht in der Lage, einen Beruf zu wählen. Wir sind noch lange nicht über den Berg, das kann ich euch sagen!}
-                        other {Dieser Bürger ist nicht in der Lage, einen Beruf zu wählen. Wir sind noch lange nicht über den Berg, das kann ich euch sagen!}
-                    }
-                }
-            other {Dieser Bürger ist nicht in der Lage, einen Beruf zu wählen. Wir sind noch lange nicht über den Berg, das kann ich euch sagen!}
-            }
-        </target>
+        <target>ist nicht in der Lage, einen Beruf zu wählen. Wir sind noch lange nicht über den Berg, das kann ich euch sagen!</target>
       </segment>
     </unit>
     <unit id="dvSfZK0">
@@ -4694,11 +4654,11 @@
             {ref__icu, select,
                 on {
                     {ref__gender, select,
-                        female {Diese Bürgerin könnte jemand sehr Wichtiges sein. Vielleicht eine der Erschafferinnen?}
-                        other {Dieser Bürger könnte jemand sehr Wichtiges sein. Vielleicht einer der Erschaffer?}
+                        female {könnte jemand sehr Wichtiges sein. Vielleicht eine der Erschafferinnen?}
+                        other {könnte jemand sehr Wichtiges sein. Vielleicht einer der Erschaffer?}
                     }
                 }
-            other {Dieser Bürger könnte jemand sehr Wichtiges sein. Vielleicht einer der Erschaffer?}
+            other {könnte jemand sehr Wichtiges sein. Vielleicht einer der Erschaffer?}
             }
         </target>
       </segment>
@@ -14184,6 +14144,38 @@
                 other {Höchstens #}
             }
         </target>
+      </segment>
+    </unit>
+    <unit id="VAttJzW" name="Dieser Bürger">
+      <segment>
+        <source>Dieser Bürger</source>
+        <target>
+            {ref__icu, select,
+                on {
+                    {ref__gender, select,
+                        female {Diese Bürgerin}
+                        other {Dieser Bürger}
+                    }
+                }
+                other {Dieser Bürger}
+            }
+        </target>
+      </segment>
+    </unit>
+    <unit id="Z0MirrQ">
+      <segment>
+        <source>Dieser Bürger ist nicht in der Stadt sei und hat &lt;strong&gt;sein Haus nicht gegen Einbrecher geschützt&lt;/strong&gt;...</source>
+          <target>
+              {ref__icu, select,
+                on {
+                    {ref__gender, select,
+                        female {ist eventuell nicht in der Stadt und <![CDATA[<strong>hat ihr Haus nicht gegen Einbrecher geschützt</strong>]]>...}
+                        other {ist eventuell nicht in der Stadt und <![CDATA[<strong>hat sein Haus nicht gegen Einbrecher geschützt</strong>]]>...}
+                    }
+                }
+                other {ist eventuell nicht in der Stadt und <![CDATA[<strong>hätte ihr Haus nicht gegen Einbrecher geschützt</strong>]]>...}
+              }
+          </target>
       </segment>
     </unit>
   </file>

@@ -183,7 +183,7 @@
                     <button x-ajax-href="{{ path('admin_users_account_view', {id: owner.user.id}) }}"><img alt="" src="{{ asset('build/images/icons/small_admin.gif') }}">{{ 'Admin Dashboard'|trans({},'admin') }}</button>
                 {% endif %}
 
-                <h5>{% trans from 'game' %}Gemeinschaft{% endtrans %}</h5>
+                <h5>{% trans from 'game' %}Dieser Bürger{% endtrans %}</h5>
                 <ul class='gossips'>
                     {% if owner.lastActionTimestamp == 0 %}
                         <li>{{'Dieser Bürger wurde noch nie gesehen...'|trans({ref: owner}, 'game')}}</li>
@@ -196,6 +196,7 @@
                     {% if is_thirsty %}<li>{{'Dieser Bürger hat eventuell heute Morgen überall nach Wasser gebettelt haben... Ob er durstig ist?'|trans({ref: owner}, 'game')}}</li>{% endif %}
                     {% if is_addicted %}<li>{{'Dieser Bürger is eventuell süchtig... Wir nennen sein Verhalten aggressiv, manchmal sogar assozial...'|trans({ref: owner}, 'game')}}</li>{% endif %}
                     {% if is_terrorised %}<li>{{'Dieser Bürger konnte nicht schlafen und redete wirres Zeug, von Tod, sprechenden Schatten und Stimmen in seinem Kopf...'|trans({ref: owner}, 'game')}}</li>{% endif %}
+                    {% if is_outside_unprotected %}<li>{{'Dieser Bürger ist nicht in der Stadt sei und hat <strong>sein Haus nicht gegen Einbrecher geschützt</strong>...'|trans({ref: owner}, 'game')|raw}}</li>{% endif %}
                     {% if not has_job %}<li>{{'Dieser Bürger ist nicht in der Lage, einen Beruf zu wählen. Wir sind noch lange nicht über den Berg, das kann ich euch sagen!'|trans({ref: owner}, 'game')}}</li>{% endif %}
                     {% if is_admin %}<li>{{'Dieser Bürger könnte jemand sehr Wichtiges sein. Vielleicht einer der Erschaffer?'|trans({ref: owner}, 'game')}}</li>{% endif %}
                 </ul>

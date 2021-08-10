@@ -7033,7 +7033,7 @@
     </unit>
     <unit id="VNIM3Mp" name="Dieser Bürger ist ernsthaft verletzt.">
       <notes>
-        <note category="german">Dieser Bürger ist ernsthaft verletzt.</note>
+        <note category="german">ernsthaft verletzt ist</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
@@ -7043,7 +7043,7 @@
     </unit>
     <unit id="w5JoDMX">
       <notes>
-        <note category="german">Dieser Bürger hat eventuell schon seit einer Weile Blut gehustet... Einige reden von einer Infektion.</note>
+        <note category="german">soll schon seit einer Weile Blut gehustet haben... Einige reden von einer Infektion.</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
@@ -7053,7 +7053,7 @@
     </unit>
     <unit id="0LaQbDJ">
       <notes>
-        <note category="german">Dieser Bürger soll eventuell heute Morgen überall nach Wasser gebettelt haben... Ob er durstig ist?</note>
+        <note category="german">soll eventuell heute Morgen überall nach Wasser gebettelt haben... Ob er durstig ist?</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
@@ -7063,7 +7063,7 @@
     </unit>
     <unit id="IhkIaY6">
       <notes>
-        <note category="german">Dieser Bürger ist eventuell süchtig... Wir nennen sein Verhalten aggressiv, manchmal sogar assozial...</note>
+        <note category="german">ist eventuell süchtig... Wir nennen sein Verhalten aggressiv, manchmal sogar assozial...</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
@@ -7073,7 +7073,7 @@
     </unit>
     <unit id="QHYoGw6">
       <notes>
-        <note category="german">Dieser Bürger konnte nicht schlafen und redete wirres Zeug, von Tod, sprechenden Schatten und Stimmen in seinem Kopf...</note>
+        <note category="german">konnte nicht schlafen und redete wirres Zeug, von Tod, sprechenden Schatten und Stimmen in seinem Kopf...</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
@@ -7083,7 +7083,7 @@
     </unit>
     <unit id="Kx1swjd">
       <notes>
-        <note category="german">Dieser Bürger ist nicht in der Lage, einen Beruf zu wählen. Wir sind noch lange nicht über den Berg, das kann ich euch sagen!</note>
+        <note category="german">ist nicht in der Lage, einen Beruf zu wählen. Wir sind noch lange nicht über den Berg, das kann ich euch sagen!</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
@@ -7093,7 +7093,7 @@
     </unit>
     <unit id="dvSfZK0">
       <notes>
-        <note category="german">Dieser Bürger könnte jemand sehr Wichtiges sein. Vielleicht einer der Erschaffer?</note>
+        <note category="german">könnte jemand sehr Wichtiges sein. Vielleicht einer der Erschaffer?</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
@@ -22154,6 +22154,28 @@
                 other {Au maximum #}
               }
           </target>
+      </segment>
+    </unit>
+    <unit id="VAttJzW" name="Dieser Bürger">
+      <notes>
+        <note category="german">Dieser Bürger</note>
+        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger</source>
+        <target>Dieser Bürger</target>
+      </segment>
+    </unit>
+    <unit id="Z0MirrQ">
+      <notes>
+        <note category="german">Dieser Bürger ist nicht in der Stadt sei und hat &lt;strong&gt;sein Haus nicht gegen Einbrecher geschützt&lt;/strong&gt;...</note>
+        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger ist nicht in der Stadt sei und hat &lt;strong&gt;sein Haus nicht gegen Einbrecher geschützt&lt;/strong&gt;...</source>
+        <target><![CDATA[n'est pas en ville et <strong>n'a pas protégé sa maison contre les voleurs</strong>...]]></target>
       </segment>
     </unit>
   </file>

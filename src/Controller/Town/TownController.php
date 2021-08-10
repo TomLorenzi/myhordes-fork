@@ -361,6 +361,7 @@ class TownController extends InventoryAwareController
         $criteria->andWhere($criteria->expr()->eq('culprit', $c));
 
         $can_recycle = !$c->getAlive() && $c->getHome()->getPrototype()->getLevel() > 1 && $c->getHome()->getRecycling() < 15;
+        $protected = $this->citizen_handler->houseIsProtected($c, true);
 
         return $this->render( 'ajax/game/town/home_foreign.html.twig', $this->addDefaultTwigArgs('citizens', [
             'owner' => $c,
@@ -387,13 +388,14 @@ class TownController extends InventoryAwareController
             'is_thirsty' => $is_thirsty,
             'is_addicted' => $is_addicted,
             'is_terrorised' => $is_terrorised,
+            'is_outside_unprotected' => $c->getZone() !== null && !$protected,
             'has_job' => $has_job,
             'is_admin' => $is_admin,
             'log' =>  $c->getAlive() ? $this->renderLog( -1, $c, false, null, 10 )->getContent() : '',
             'day' => $c->getTown()->getDay(),
             'already_stolen' => $already_stolen,
             'hidden' => $hidden,
-            'protect' => $this->citizen_handler->houseIsProtected($c, true),
+            'protect' => $protected,
             'hasClairvoyance' => $hasClairvoyance,
             'clairvoyanceLevel' => $clairvoyanceLevel,
             'attackAP' => $this->getTownConf()->get( TownConf::CONF_MODIFIER_ATTACK_AP, 5 ),
