@@ -14165,17 +14165,17 @@
     <unit id="Z0MirrQ">
       <segment>
         <source>Dieser Bürger ist nicht in der Stadt sei und hat &lt;strong&gt;sein Haus nicht gegen Einbrecher geschützt&lt;/strong&gt;...</source>
-          <target>
+        <target><![CDATA[
               {ref__icu, select,
                 on {
                     {ref__gender, select,
-                        female {ist eventuell nicht in der Stadt und <![CDATA[<strong>hat ihr Haus nicht gegen Einbrecher geschützt</strong>]]>...}
-                        other {ist eventuell nicht in der Stadt und <![CDATA[<strong>hat sein Haus nicht gegen Einbrecher geschützt</strong>]]>...}
+                        female {ist eventuell nicht in der Stadt und <strong>hat ihr Haus nicht gegen Einbrecher geschützt</strong>...}
+                        other {ist eventuell nicht in der Stadt und <strong>hat sein Haus nicht gegen Einbrecher geschützt</strong>...}
                     }
                 }
-                other {ist eventuell nicht in der Stadt und <![CDATA[<strong>hätte ihr Haus nicht gegen Einbrecher geschützt</strong>]]>...}
+                other {ist eventuell nicht in der Stadt und <strong>hätte ihr Haus nicht gegen Einbrecher geschützt</strong>...}
               }
-          </target>
+          ]]></target>
       </segment>
     </unit>
   </file>

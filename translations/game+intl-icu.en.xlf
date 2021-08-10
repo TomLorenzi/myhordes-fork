@@ -7009,7 +7009,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="4OynnJl" name="Der Bürger wurde zuletzt {time} gesehen.">
       <notes>
-        <note category="german">Der Bürger wurde zuletzt {time} gesehen.</note>
+        <note category="german">wurde zuletzt {time} gesehen.</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
@@ -22260,7 +22260,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <notes>
         <note category="german">Dieser Bürger</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Dieser Bürger</source>
@@ -22269,9 +22268,8 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="Z0MirrQ">
       <notes>
-        <note category="german">Dieser Bürger ist nicht in der Stadt sei und hat &lt;strong&gt;sein Haus nicht gegen Einbrecher geschützt&lt;/strong&gt;...</note>
+        <note category="german">ist eventuell nicht in der Stadt und &lt;strong&gt;hätte ihr Haus nicht gegen Einbrecher geschützt&lt;/strong&gt;...</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Dieser Bürger ist nicht in der Stadt sei und hat &lt;strong&gt;sein Haus nicht gegen Einbrecher geschützt&lt;/strong&gt;...</source>
