@@ -22422,5 +22422,16 @@
         <target><![CDATA[no está en el pueblo y <strong>no ha protegido su vivienda contra los ladrones</strong>...]]></target>
       </segment>
     </unit>
+    <unit id="7oOTMUP" name="In der (&lt;strong&gt;leeren&lt;/strong&gt;) Zone graben">
+      <notes>
+        <note category="german">In der (&lt;strong&gt;leeren&lt;/strong&gt;) Zone graben</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>In der (&lt;strong&gt;leeren&lt;/strong&gt;) Zone graben</source>
+        <target><![CDATA[Escarbar (<strong>zona agotada</strong>)]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

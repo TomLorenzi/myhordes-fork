@@ -9172,5 +9172,16 @@
         <target><![CDATA[Enciendes un cigarrillo. El humo te hace toser intensamente, la falta de costumbre sin duda... Después de algunos minutos, <strong>logras respirar</strong>. Ese momento de alivio te da una visión diferente de tu suerte.<hr />Tiras la colilla al suelo, ¡y te armas de determinación!<t-consumed><hr />Era tu <strong>última cerilla</strong>... Ahora será difícil encontrar otra.</t-consumed>]]></target>
       </segment>
     </unit>
+    <unit id="5MlxE2I" name="Gegenstand verwenden">
+      <notes>
+        <note category="german">Gegenstand verwenden</note>
+        <note category="from">twig:///templates/ajax/game/actions.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Gegenstand verwenden</source>
+        <target>Usar un objeto de mi mochila</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

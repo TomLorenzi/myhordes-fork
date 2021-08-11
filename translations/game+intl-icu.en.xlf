@@ -22276,5 +22276,16 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target><![CDATA[is not in town and <strong>hasn't protected their house against thievery</strong>...]]></target>
       </segment>
     </unit>
+    <unit id="7oOTMUP" name="In der (&lt;strong&gt;leeren&lt;/strong&gt;) Zone graben">
+      <notes>
+        <note category="german">In der (&lt;strong&gt;leeren&lt;/strong&gt;) Zone graben</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>In der (&lt;strong&gt;leeren&lt;/strong&gt;) Zone graben</source>
+        <target><![CDATA[Search (<strong>depleted zone</strong>)]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

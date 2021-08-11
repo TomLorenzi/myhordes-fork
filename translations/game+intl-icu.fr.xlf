@@ -22177,5 +22177,16 @@
         <target><![CDATA[n'est pas en ville et <strong>n'a pas protégé sa maison contre les voleurs</strong>...]]></target>
       </segment>
     </unit>
+    <unit id="7oOTMUP" name="In der (&lt;strong&gt;leeren&lt;/strong&gt;) Zone graben">
+      <notes>
+        <note category="german">In der (&lt;strong&gt;leeren&lt;/strong&gt;) Zone graben</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>In der (&lt;strong&gt;leeren&lt;/strong&gt;) Zone graben</source>
+        <target><![CDATA[Fouiller (<strong>zone épuisée</strong>)]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

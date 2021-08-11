@@ -14178,5 +14178,11 @@
           ]]></target>
       </segment>
     </unit>
+    <unit id="7oOTMUP" name="In der (&lt;strong&gt;leeren&lt;/strong&gt;) Zone graben">
+      <segment>
+        <source>In der (&lt;strong&gt;leeren&lt;/strong&gt;) Zone graben</source>
+        <target><![CDATA[In der (<strong>leeren</strong>) Zone graben]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>
