@@ -181,7 +181,7 @@
                 <span>{{'Du kannst <strong>pro Tag eine Heldentat</strong> vollbringen und jede dieser Aktionen kann nur <strong>einmal</strong> pro Partie ausgeführt werden:'|trans({}, 'game')|raw}}</span>
             </li>
             {% for entry in heroic_action_list %}
-                <li class="heroic_action" {% if entry.crossed %}disabled{% elseif entry.targets is null %}x-action-id="{{ entry.id }}" x-action-confirm="1" {% else %}x-target-definition="{{ entry.id }}--hero"{% endif %}>
+                <li class="heroic_action {% if entry.used is defined and entry.used %}already{% endif %}"  {% if entry.crossed %}disabled{% elseif entry.targets is null %}x-action-id="{{ entry.id }}" x-action-confirm="1" {% else %}x-target-definition="{{ entry.id }}--hero"{% endif %}>
                     <img src="{{ asset('build/images/icons/tickOff.gif') }}" alt="">
                     {% if scout and entry.action.keepsCover %}
                         <img class="float-right" src="{{ asset('build/images/icons/small_stealthy.gif') }}" alt="">

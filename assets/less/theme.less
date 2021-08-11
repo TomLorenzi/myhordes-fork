@@ -818,6 +818,7 @@ ul.actions, ul.special_actions, ul.heroic_actions {
     }
     &+li { border-top: 1px solid fade(@myhordes-smalltext,20%) }
   }
+  &.heroic_actions>li:not(.already)[disabled]>span { text-decoration: none !important; }
 }
 
 ul.heroic_actions {
