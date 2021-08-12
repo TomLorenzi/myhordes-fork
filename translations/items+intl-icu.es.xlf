@@ -8423,7 +8423,7 @@
       </notes>
       <segment>
         <source>Die Droge zeigt sofort Wirkung: Du bist auf einmal ganz &lt;strong&gt;ruhig&lt;/strong&gt; geworden, so ausgeglichen... Die schrecklichen Ereignisse der letzten Tage erscheinen dir plötzlich bedeutungslos und ganz weit weg... Es geht dir schon viel besser.</source>
-        <target><![CDATA[La sustancia hace efecto rápidamente... De pronto todo te parece más <strong>sereno</strong>... Hasta los atroces hechos que presenciaste parecen sin importancia... Te sientes mejor]]></target>
+        <target><![CDATA[La sustancia hace efecto rápidamente... De pronto todo te parece más <strong>sereno</strong>... Hasta los atroces hechos que presenciaste parecen sin importancia... Te sientes mejor.]]></target>
       </segment>
     </unit>
     <unit id="EetudYS">
