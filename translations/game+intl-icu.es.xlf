@@ -3363,7 +3363,7 @@
       </notes>
       <segment>
         <source>Leiche aus der Stadt ziehen</source>
-        <target>Arrastrar a las afueras del pueblo</target>
+        <target>Arrastrar fuera del pueblo</target>
       </segment>
     </unit>
     <unit id="hXIZAOO" name="Leiche mit Wasser übergießen">
@@ -3373,7 +3373,7 @@
       </notes>
       <segment>
         <source>Leiche mit Wasser übergießen</source>
-        <target>Verter agua sobre el cádaver</target>
+        <target>Rociar el cádaver</target>
       </segment>
     </unit>
     <unit id="4hCJabi" name="Leiche grillen">
@@ -5440,7 +5440,7 @@
       </notes>
       <segment>
         <source>Du hast die Leiche von {disposed} außerhalb der Stadt entsorgt. Eine gute Sache, die Sie getan haben!</source>
-        <target>Has arrojado el cadáver de {disposed} en las afueras del pueblo. ¡De las pocas buenas cosas que has hecho!</target>
+        <target>Has tirado el cuerpo de † {disposed} fuera del pueblo. ¡Hiciste lo correcto!</target>
       </segment>
     </unit>
     <unit id="eZQzCp7">
@@ -5450,7 +5450,7 @@
       </notes>
       <segment>
         <source>Der Körper verflüssigte sich zu einer ekelerregenden, übel riechenden Pfütze. Deine Schuhe haben ganz schön was abgekriegt, das steht fest...</source>
-        <target>El cadáver se reduce a un charco pútrido y malholiente gracias al agua. Sientes un escalofrío recorrer tu cuerpo, podrías ser el siguiente...</target>
+        <target>El cuerpo se ha convertido en un charco nauseabundo. Tus zapatos llevan algo de eso seguramente.</target>
       </segment>
     </unit>
     <unit id="zpZa.52" name="Ein nicht freigeschaufeltes Gebäude.">
@@ -8015,7 +8015,7 @@
       </notes>
       <segment>
         <source>Was geschieht mit dieser Leiche?</source>
-        <target>¿Qué le ha pasado?</target>
+        <target>¿Qué pasará con su cadáver?</target>
       </segment>
     </unit>
     <unit id="TauIpAZ">
@@ -9822,7 +9822,7 @@
       </notes>
       <segment>
         <source>Und wieder 'ne Leiche weniger! {citizen} wurde von † {disposed} entsorgt!</source>
-        <target>{citizen} ha tirado el cuerpo de † {disposed} fuera del pueblo. ¡Hiciste lo correcto!</target>
+        <target>¡Uno menos! El cadáver de † {disposed} ha sido echado fuera por {citizen}.</target>
       </segment>
     </unit>
     <unit id="cAwULnv" name="{citizen} hat mit etwas Wasser † {disposed} &quot;verbrannt&quot;.">
@@ -19554,7 +19554,7 @@
       </notes>
       <segment>
         <source>Das Haus</source>
-        <target>Das Haus</target>
+        <target>Su vivienda</target>
       </segment>
     </unit>
     <unit id="EU49gfo">
@@ -19564,7 +19564,7 @@
       </notes>
       <segment>
         <source>Der Ort (kann man überhaupt von Zuhause reden?), an dem {citizen} lebte, ist keinen Blick wert. Da gibt es nichts zu holen, selbst wenn man alles auseinandernimmt.</source>
-        <target>No vale la pena mirar el lugar (¿se puede llamar siquiera hogar?) Donde vivía {citizen}. No hay nada que valga la pena allí, incluso si se lo desarma todo.</target>
+        <target>Su... ¿se le puede llamar casa?, en fin, el lugar donde vivía {citizen} no merece ni ser visitado. No hay nada que recuperar, ni como chatarra.</target>
       </segment>
     </unit>
     <unit id="T0WfRL2" name="Inventar: {citizen}">
@@ -19585,7 +19585,7 @@
       </notes>
       <segment>
         <source>Jetzt, da {citizen} tot ist, kannst du ihm einen &lt;strong&gt;Gegenstand klauen&lt;/strong&gt;, wenn du möchtest...</source>
-        <target><![CDATA[Jetzt, da {citizen} tot ist, kannst du ihm einen <strong>Gegenstand klauen</strong>, wenn du möchtest...]]></target>
+        <target><![CDATA[Ahora que {citizen} está muerto, puedes <strong>robarle un objeto</strong>, solo si lo deseas... claro está.]]></target>
       </segment>
     </unit>
     <unit id="ymlTLkS" name="Beim Durchwühlen seines Hauses entdeckst du folgende Dinge:">
@@ -19596,7 +19596,7 @@
       </notes>
       <segment>
         <source>Beim Durchwühlen seines Hauses entdeckst du folgende Dinge:</source>
-        <target>Beim Durchwühlen seines Hauses entdeckst du folgende Dinge:</target>
+        <target>Hurgando en las pertenencias del difunto, encuentras:</target>
       </segment>
     </unit>
     <unit id="ETllwNr">
@@ -19832,7 +19832,7 @@
       </notes>
       <segment>
         <source>Da {citizen} tot ist, besteht ein hohes Risiko, dass sein Körper mit ansteckenden Keimen von &lt;em&gt;{townname}&lt;/em&gt; kontaminiert ist. Wenn wir nicht wollen, dass er wieder aufersteht und uns angreift, muss er entweder mit Wasser übergossen oder weggeworfen werden.</source>
-        <target><![CDATA[Da {citizen} tot ist, besteht ein hohes Risiko, dass sein Körper mit ansteckenden Keimen von <em>{townname}</em> kontaminiert ist. Wenn wir nicht wollen, dass er wieder aufersteht und uns angreift, muss er entweder mit Wasser übergossen oder weggeworfen werden.]]></target>
+        <target><![CDATA[Al estar muerto, es muy probable que el cuerpo de {citizen} haya sido contaminado con bacterias infecciosas de <em>{townname}</em>. Hay que empaparlo o arrojarlo lejos, esperando que no vuelva a ponerse de pie para atacar a sus antiguos compañeros...]]></target>
       </segment>
     </unit>
     <unit id="fY8p2vV" name="Dein Diebstahlversuch ist gescheitert! Du bist entdeckt worden!">
@@ -21194,7 +21194,7 @@
       </notes>
       <segment>
         <source>Diese Aktion verbraucht 1x Ration Wasser. Bestätigen?</source>
-        <target>Diese Aktion verbraucht 1x Ration Wasser. Bestätigen?</target>
+        <target>Esto consumirá 1x Ración de agua. ¿Confirmas?</target>
       </segment>
     </unit>
     <unit id="dk0TbNl" name="Diese Aktion verbraucht 2 Aktionspunkte. Bestatigen ?">
@@ -21205,7 +21205,7 @@
       </notes>
       <segment>
         <source>Diese Aktion verbraucht 2 Aktionspunkte. Bestatigen ?</source>
-        <target>Diese Aktion verbraucht 2 Aktionspunkte. Bestatigen ?</target>
+        <target>Esto requiere 2 puntos de acción. ¿Confirmas?</target>
       </segment>
     </unit>
     <unit id="if9Rvma">
