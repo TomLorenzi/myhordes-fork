@@ -3602,5 +3602,16 @@
         <target>Es wurden keine passenden Nachrichten gefunden.</target>
       </segment>
     </unit>
+    <unit id="L6ToFIa">
+      <notes>
+        <note category="german">Beachte: Die Suchfunktion durchsucht nur den aktuell gewählten Tab (Posteingang oder Archiv).</note>
+        <note category="from">twig:///templates/ajax/pm/view.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Beachte: Die Suchfunktion durchsucht nur den aktuell gewählten Tab (Posteingang oder Archiv).</source>
+        <target>Beachte: Die Suchfunktion durchsucht nur den aktuell gewählten Tab (Posteingang oder Archiv).</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

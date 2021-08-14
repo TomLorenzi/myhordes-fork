@@ -2231,5 +2231,11 @@
         <target>Es wurden keine passenden Nachrichten gefunden.</target>
       </segment>
     </unit>
+    <unit id="L6ToFIa">
+      <segment>
+        <source>Beachte: Die Suchfunktion durchsucht nur den aktuell gewählten Tab (Posteingang oder Archiv).</source>
+        <target>Beachte: Die Suchfunktion durchsucht nur den aktuell gewählten Tab (Posteingang oder Archiv).</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

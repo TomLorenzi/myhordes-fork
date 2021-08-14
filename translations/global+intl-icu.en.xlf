@@ -3624,5 +3624,16 @@
         <target>We could not find a message fitting your query.</target>
       </segment>
     </unit>
+    <unit id="L6ToFIa">
+      <notes>
+        <note category="german">Beachte: Die Suchfunktion durchsucht nur den aktuell gewählten Tab (Posteingang oder Archiv).</note>
+        <note category="from">twig:///templates/ajax/pm/view.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Beachte: Die Suchfunktion durchsucht nur den aktuell gewählten Tab (Posteingang oder Archiv).</source>
+        <target>Note: The search only applies to the current tab (inbox or archive).</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

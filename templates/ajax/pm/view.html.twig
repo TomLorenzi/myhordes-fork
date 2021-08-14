@@ -31,14 +31,15 @@
 
                 <div class="cell grow-0">
                     <ul class="tabs plain" x-tab-group="gpm-inbox" x-tab-control id="gpm-inbox-control">
-                        <li class="tab" x-tab-id="inbox"><div class="tab-link">{{ 'Posteingang'|trans({},'global') }}</div></li>
-                        <li class="tab" x-tab-id="archive"><div class="tab-link">{{ 'Archiv'|trans({},'global') }}</div></li>
+                        <li class="tab" x-tab-id="inbox"><div class="tab-link"><img  src="{{ asset("build/images/icons/small_mail.gif") }}" alt="" /> {{ 'Posteingang'|trans({},'global') }}</div></li>
+                        <li class="tab" x-tab-id="archive"><div class="tab-link"><img src="{{ asset("build/images/icons/small_archive.gif") }}" alt="" /> {{ 'Archiv'|trans({},'global') }}</div></li>
                     </ul>
                     <div class="row-flex hidden" id="conv_search_bar">
                         <div class="padded cell"><label for="conv_list_filter"><i class="fa fa-search"></i></label></div>
                         <div class="padded cell grow-1"><input type="text" id="conv_list_filter" placeholder="{{ 'Nachricht suchen...'|trans({},'global') }}" /></div>
                         <div class="tooltip help">
-                            {{ 'Gib hier den Titel einer Nachricht ein, um danach zu suchen.'|trans({},'global') }}
+                            {{ 'Gib hier den Titel einer Nachricht ein, um danach zu suchen.'|trans({},'global') }}<br />
+                            <b>{{ 'Beachte: Die Suchfunktion durchsucht nur den aktuell gewählten Tab (Posteingang oder Archiv).'|trans({},'global') }}</b>
                         </div>
                     </div>
                     <div class="forum-note" style="border-bottom: none;"><b><i class="fa fa-comments"></i> {{ 'Konversationen'|trans({},'global') }}</b></div>
