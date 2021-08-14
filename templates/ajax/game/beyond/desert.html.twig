@@ -371,6 +371,9 @@
                             <button id="bury_rucksack_button">
                                 <img alt="" src="{{ asset('build/images/icons/small_ban.gif') }}" />
                                 {{ 'Rucksack verstecken'|trans({},'game') }} (<div class="ap">2</div>)
+                                {% if (zone_blocked and active_scout_mode and zone_escape <= 0) %}
+                                    <img class="icon right" alt="" src="{{ asset('build/images/icons/uncloak.gif') }}" />
+                                {% endif %}
                                 <div class="tooltip help">{{ 'Mit dieser Aktion kannst du alle Gegenstände in deinem Rucksack in der Zone verstecken. <strong>Sie werden nur für andere verbannte Bürger sichtbar sein.</strong> Eine nicht verbannte Person hat jedoch eine kleine Chance, sie beim Graben zu finden.'|trans({},'game')|raw }}</div>
                             </button>
                         {% endif %}
@@ -439,6 +442,9 @@
                             <img alt="" src="{{ asset('build/images/icons/water.gif') }}">{{'Zone reinigen'|trans({}, 'game')}} ({% if is_shaman_role %}3 <div class="pm"></div>{% else %}1 <div class="ap"></div> + 1 <img style="float: none;vertical-align: baseline;" src="{{ asset('build/images/item/item_soul_blue.gif') }}" alt="" />{% endif %})
                         {% else %}
                             <img alt="" src="{{ asset('build/images/icons/water.gif') }}">{{'Regentanz ausführen'|trans({}, 'game')}} ({% if is_shaman_role %}3 <div class="pm"></div>{% else %}1 <div class="ap"></div> + 1 <img style="float: none;vertical-align: baseline;" src="{{ asset('build/images/item/item_soul_blue.gif') }}" alt="" />{% endif %})
+                        {% endif %}
+                        {% if (active_scout_mode) %}
+                            <img class="icon right" alt="" src="{{ asset('build/images/icons/small_stealthy.gif') }}" />
                         {% endif %}
                         <div class="tooltip">{{ 'Diese Aktion ermöglicht die Reinigung der Zone durch herabfallenden Regen. Dieser kann den Brunnen in der Stadt füllen oder eine vernichtende Wirkung auf die umliegenden Zombies entfalten.'|trans({},'game') }}</div>
                     </button>
