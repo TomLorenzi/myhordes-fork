@@ -7379,7 +7379,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Herstellung eines Mystischern Trank</source>
-        <target>Brew a Mystic Potion</target>
+        <target>Brew up a shamanic potion!</target>
       </segment>
     </unit>
     <unit id="rQB150u" name="Nickerchen machen">
@@ -7409,7 +7409,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Du hast soeben den mystischen Trank getrunken. Hoffen wir, dass dieser Schamane weiß, was er tut...</source>
-        <target>You just drank a Mystic potion. Now there's nothing for it, but to cross your fingers and hope this witch doctor isn't just some crazy drunk who doesn't like to wash...</target>
+        <target>You just drank a shamanic potion. Now there's nothing for it, but to cross your fingers and hope this witch doctor isn't just some crazy drunk who doesn't like to wash...</target>
       </segment>
     </unit>
     <unit id="qpQMEHf">

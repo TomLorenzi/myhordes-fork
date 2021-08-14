@@ -14,7 +14,7 @@
 
     {% for post in posts %}
         {% set variant = null %}
-        {% if post.owner.name == 'Der Rabe' %}{% set variant = 'crow' %}{% endif %}
+        {% if not post.owner or post.owner.name == 'Der Rabe' %}{% set variant = 'crow' %}{% endif %}
 
         <div class="forum-post {% if variant is not null %}forum-post-variant-{{ variant }}{% endif %} {% if not post.owner %}crow-pm{% endif %}">
             <div class="forum-post-header {% if variant is not null %}header-variant-{{ variant }}{% endif %}">

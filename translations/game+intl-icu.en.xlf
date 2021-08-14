@@ -7645,7 +7645,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du vollführst einen Schamanentanz und betest zum Himmel, dass er Regen bringen und diese unselige Zone reinigen möge.</source>
-        <target>You perform a mystical dance and ask the sky for rain that will clear this zone of evil spirits.</target>
+        <target>You perform a shamanic dance and plead to the sky to bring rain to cleanse this zone of evil spirits.</target>
       </segment>
     </unit>
     <unit id="jveYh8O">
@@ -7655,7 +7655,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Doch nichts passiert... Soviel steht fest, du stehst nun wie ein lausiger Amateur da. Außer Blasen an den Füßen hat das alles nichts eingebracht...</source>
-        <target>Nothing happens. If someone had seen you, he would surely consider you the worst amateur ever. And now you have blisters on your feet ...</target>
+        <target>But nothing happens. Admittedly, for anyone watching, you looked like the worst kind of amateur. To add insult to injury, you've given yourself blisters on your feet...</target>
       </segment>
     </unit>
     <unit id="ROlGH4i">
@@ -8108,7 +8108,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Zone reinigen</source>
-        <target>Make it rain</target>
+        <target>Make it rain!</target>
       </segment>
     </unit>
     <unit id="i5FChQj" name="Deine Eskorte">
@@ -8972,7 +8972,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Nutze deine heilenden Hände</source>
-        <target>Use your healing hands</target>
+        <target>Use your healing hands!</target>
       </segment>
     </unit>
     <unit id="22n2wdo" name="Diesen Bürger angreifen!">
@@ -19978,7 +19978,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Diese Aktion ermöglicht die Reinigung der Zone durch herabfallenden Regen. Dieser kann den Brunnen in der Stadt füllen oder eine vernichtende Wirkung auf die umliegenden Zombies entfalten.</source>
-        <target>Diese Aktion ermöglicht die Reinigung der Zone durch herabfallenden Regen. Dieser kann den Brunnen in der Stadt füllen oder eine vernichtende Wirkung auf die umliegenden Zombies entfalten.</target>
+        <target>This action allows you to purify a zone by making it rain. This rain can help to refill the well or have a devastating effect on surrounding zombies.</target>
       </segment>
     </unit>
     <unit id="vScXMoh">
@@ -19989,7 +19989,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du kannst versuchen, diesen Bürger zu heilen, aber nichts ist garantiert... und hüte dich vor Nebenwirkungen!</source>
-        <target>Du kannst versuchen, diesen Bürger zu heilen, aber nichts ist garantiert... und hüte dich vor Nebenwirkungen!</target>
+        <target>You can try to heal this citizen, but there are no guarantees... and watch out for side effects!</target>
       </segment>
     </unit>
     <unit id="u4QY2vJ">

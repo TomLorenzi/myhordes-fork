@@ -3380,7 +3380,7 @@
       </notes>
       <segment>
         <source>Nordosten</source>
-        <target>le Nord-Est</target>
+        <target>le nord-est</target>
       </segment>
     </unit>
     <unit id="R9OI7Nm" name="Nordwesten">
@@ -3390,7 +3390,7 @@
       </notes>
       <segment>
         <source>Nordwesten</source>
-        <target>le Nord-Ouest</target>
+        <target>le nord-ouest</target>
       </segment>
     </unit>
     <unit id="dOCvO1b" name="Norden">
@@ -3400,7 +3400,7 @@
       </notes>
       <segment>
         <source>Norden</source>
-        <target>le Nord</target>
+        <target>le nord</target>
       </segment>
     </unit>
     <unit id="ac.6Rc5" name="Südosten">
@@ -3410,7 +3410,7 @@
       </notes>
       <segment>
         <source>Südosten</source>
-        <target>le Sud-Est</target>
+        <target>le sud-est</target>
       </segment>
     </unit>
     <unit id="YE0v6eT" name="Südwesten">
@@ -3420,7 +3420,7 @@
       </notes>
       <segment>
         <source>Südwesten</source>
-        <target>le Sud-Ouest</target>
+        <target>le sud-ouest</target>
       </segment>
     </unit>
     <unit id="qxvJIc." name="Süden">
@@ -3430,7 +3430,7 @@
       </notes>
       <segment>
         <source>Süden</source>
-        <target>le Sud</target>
+        <target>le sud</target>
       </segment>
     </unit>
     <unit id="xMKWHhf" name="Osten">
@@ -3440,7 +3440,7 @@
       </notes>
       <segment>
         <source>Osten</source>
-        <target>l'Est</target>
+        <target>l'est</target>
       </segment>
     </unit>
     <unit id="jdRT5Z5" name="Westen">
@@ -3450,7 +3450,7 @@
       </notes>
       <segment>
         <source>Westen</source>
-        <target>l'Ouest</target>
+        <target>l'ouest</target>
       </segment>
     </unit>
     <unit id="MJMhV5L" name="Kleine Stadt">
@@ -8513,7 +8513,7 @@
       </notes>
       <segment>
         <source>{citizen} hat {target_citizen} aus der Eskorte entlassen.</source>
-        <target>Finalement, {citizen} a décidé de planter {target_citizen} là.</target>
+        <target>Finalement, {citizen} a décidé de planter {target_citizen} là...</target>
       </segment>
     </unit>
     <unit id="wvs954U" name="Niemand!">
@@ -19208,7 +19208,7 @@
       </notes>
       <segment>
         <source>Es weiß zwar keiner wie unser Held {citizen} das angestellt hat, aber es ist ihm gelungen aus dieser Zone direkt in die Stadt zurückzukehren... Ein Wunder!</source>
-        <target>Personne ne sait comment, mais le héros {citizen} a réussi à quitter cette zone pour retourner directement en ville... C'est un miracle !</target>
+        <target><![CDATA[Personne ne sait comment, mais le <span>héros</span> {citizen} a réussi à quitter cette zone pour <span>retourner directement en ville</span>... C'est un miracle !]]></target>
       </segment>
     </unit>
     <unit id="SwbKwjj" name="Der Leichnam von {citizen} wurde nicht zerstört.">
