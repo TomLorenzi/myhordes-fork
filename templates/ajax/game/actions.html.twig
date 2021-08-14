@@ -36,7 +36,14 @@
 
     {% if (item_action_list is defined and item_action_list|length > 0) or (recipe_list is defined and recipe_list.recipes|length > 0)  %}
         {% if iec is defined and iec  %}
-            <button x-item-action-toggle="1" class="mb-1"><img src="{{ asset('build/images/icons/small_bag.gif') }}" alt="">{{ 'Gegenstand verwenden'|trans({},'items')  }}</button>
+            <button x-item-action-toggle="1" class="mb-1">
+                <img src="{{ asset('build/images/item/item_bag.gif') }}" alt="">
+                {{ 'Gegenstand verwenden'|trans({},'items')  }}
+                {% if (active_scout_mode) %}
+                    <img class="icon right" alt="" src="{{ asset('build/images/icons/small_stealthy.gif') }}" />
+                {% endif %}
+            </button>
+            <button x-item-action-toggle="0" class="mb-1" style="display:none;">{{'Abbrechen'|trans({}, 'global')  }}</button>
         {% endif %}
         <ul class="actions">
             {% if (item_action_list is defined) %}
@@ -120,9 +127,6 @@
                         {% endif %}
                     </li>
                 {% endfor %}
-            {% endif %}
-            {% if iec is defined and iec  %}
-                <li><div class="button" x-item-action-toggle="0">{{ 'Schließen'|trans({},'global') }}</div></li>
             {% endif %}
         </ul>
     {% endif %}
