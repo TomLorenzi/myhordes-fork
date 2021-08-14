@@ -818,17 +818,27 @@ class LogTemplateHandler
     }
 
     public function outsideUncover( Citizen $citizen, int $count = 1, ?ItemPrototype $proto = null): TownLogEntry {
-        $bc = $citizen->getZone()->getBuryCount() > 0;
-        if ($bc && $proto) {
+        if ($proto) {
             $variables = array('citizen' => $citizen->getId(), 'count' => $count, 'item' => $proto->getId());
             $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'outsideUncoverItem']);
-        } elseif ($bc) {
+        } else {
             $variables = array('citizen' => $citizen->getId());
             $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'outsideUncover']);
-        } else {
-            $variables = array('citizen' => $citizen->getId(), 'type' => $citizen->getZone()->getPrototype()->getLabel());
-            $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'outsideUncoverComplete']);
         }
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $citizen->getTown() )
+            ->setDay( $citizen->getTown()->getDay() )
+            ->setTimestamp( $time ?? new DateTime('now') )
+            ->setCitizen( $citizen )
+            ->setZone( $citizen->getZone() );
+    }
+
+    public function outsideUncoverComplete( Citizen $citizen ): TownLogEntry {
+        $variables = array('citizen' => $citizen->getId(), 'type' => $citizen->getZone()->getPrototype()->getLabel());
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'outsideUncoverComplete']);
 
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
