@@ -3522,7 +3522,7 @@
       </notes>
       <segment>
         <source>Community-Tools</source>
-        <target>Community-Tools</target>
+        <target>Outils communautaires</target>
       </segment>
     </unit>
     <unit id="kOI7gR8">
@@ -3535,8 +3535,8 @@
       <segment>
         <source>Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
                                                     &lt;p&gt;&lt;em&gt;Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..&lt;/em&gt;&lt;/p&gt;</source>
-        <target><![CDATA[Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
-                                                    <p><em>Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..</em></p>]]></target>
+        <target><![CDATA[Le nombre de monticules de terre et de déchets vous indique qu'il n'y a sans doute plus grand chose à trouver ici.
+                                                    <p><em>Vous pouvez toutefois continuer à creuser pour trouver des ressources de mauvaise qualité pour les chantiers en ville.</em></p>]]></target>
       </segment>
     </unit>
     <unit id="aD.KBg0" name="Posteingang">
@@ -3547,7 +3547,7 @@
       </notes>
       <segment>
         <source>Posteingang</source>
-        <target>Posteingang</target>
+        <target>Réception</target>
       </segment>
     </unit>
     <unit id="JyB0OZM" name="Archiv">
@@ -3558,7 +3558,7 @@
       </notes>
       <segment>
         <source>Archiv</source>
-        <target>Archiv</target>
+        <target>Archives</target>
       </segment>
     </unit>
     <unit id="UKr0mkh" name="Nachricht suchen...">
@@ -3569,7 +3569,7 @@
       </notes>
       <segment>
         <source>Nachricht suchen...</source>
-        <target>Nachricht suchen...</target>
+        <target>Rechercher un message...</target>
       </segment>
     </unit>
     <unit id="Z3zr0GN" name="Gib hier den Titel einer Nachricht ein, um danach zu suchen.">
@@ -3580,7 +3580,7 @@
       </notes>
       <segment>
         <source>Gib hier den Titel einer Nachricht ein, um danach zu suchen.</source>
-        <target>Gib hier den Titel einer Nachricht ein, um danach zu suchen.</target>
+        <target>Entrez le titre d’un message pour le rechercher.</target>
       </segment>
     </unit>
     <unit id="b3QY6Xc" name="Dieser Ordner ist leer.">
@@ -3591,7 +3591,7 @@
       </notes>
       <segment>
         <source>Dieser Ordner ist leer.</source>
-        <target>Dieser Ordner ist leer.</target>
+        <target>Ce dossier est vide.</target>
       </segment>
     </unit>
     <unit id="o1PB..H" name="Es wurden keine passenden Nachrichten gefunden.">
@@ -3602,7 +3602,7 @@
       </notes>
       <segment>
         <source>Es wurden keine passenden Nachrichten gefunden.</source>
-        <target>Es wurden keine passenden Nachrichten gefunden.</target>
+        <target>Nous n’avons pas pu trouver de message correspondant à votre requête.</target>
       </segment>
     </unit>
     <unit id="L6ToFIa">
@@ -3613,7 +3613,7 @@
       </notes>
       <segment>
         <source>Beachte: Die Suchfunktion durchsucht nur den aktuell gewählten Tab (Posteingang oder Archiv).</source>
-        <target>Beachte: Die Suchfunktion durchsucht nur den aktuell gewählten Tab (Posteingang oder Archiv).</target>
+        <target>Note : La fonction de recherche ne recherche que l’onglet (boîte de réception ou archive) actuellement sélectionné.</target>
       </segment>
     </unit>
     <unit id="cEUwQw8" name="Dieser Spieler ist ein Administrator auf diesem Server.">
@@ -3624,7 +3624,7 @@
       </notes>
       <segment>
         <source>Dieser Spieler ist ein Administrator auf diesem Server.</source>
-        <target>Dieser Spieler ist ein Administrator auf diesem Server.</target>
+        <target>Ce joueur est un administrateur sur ce serveur.</target>
       </segment>
     </unit>
     <unit id="TyNTK6_" name="Dieser Spieler ist ein Entwickler von MyHordes.">
@@ -3635,7 +3635,7 @@
       </notes>
       <segment>
         <source>Dieser Spieler ist ein Entwickler von MyHordes.</source>
-        <target>Dieser Spieler ist ein Entwickler von MyHordes.</target>
+        <target>Ce joueur est un développeur de MyHordes.</target>
       </segment>
     </unit>
     <unit id="z66IFLE" name="Dieser Spieler ist ein Moderator auf MyHordes.">
@@ -3646,7 +3646,7 @@
       </notes>
       <segment>
         <source>Dieser Spieler ist ein Moderator auf MyHordes.</source>
-        <target>Dieser Spieler ist ein Moderator auf MyHordes.</target>
+        <target>Ce joueur est un modérateur sur MyHordes.</target>
       </segment>
     </unit>
     <unit id="nCg5Jzp" name="Dieser Spieler ist ein Animateur auf MyHordes.">
@@ -3657,7 +3657,7 @@
       </notes>
       <segment>
         <source>Dieser Spieler ist ein Animateur auf MyHordes.</source>
-        <target>Dieser Spieler ist ein Animateur auf MyHordes.</target>
+        <target>Ce joueur est un animacteur sur MyHordes.</target>
       </segment>
     </unit>
     <unit id="yikRp.v" name="Dieser Spieler ist ein Orakel auf MyHordes.">
@@ -3668,7 +3668,7 @@
       </notes>
       <segment>
         <source>Dieser Spieler ist ein Orakel auf MyHordes.</source>
-        <target>Dieser Spieler ist ein Orakel auf MyHordes.</target>
+        <target>Ce lecteur est un oracle sur MyHordes.</target>
       </segment>
     </unit>
     <unit id="hiqmIxi" name="Dieser Spieler ist Mitglied des Entwickler-Teams von MyHordes.">
@@ -3679,7 +3679,7 @@
       </notes>
       <segment>
         <source>Dieser Spieler ist Mitglied des Entwickler-Teams von MyHordes.</source>
-        <target>Dieser Spieler ist Mitglied des Entwickler-Teams von MyHordes.</target>
+        <target>Ce joueur fait partie de l’équipe de développement de MyHordes.</target>
       </segment>
     </unit>
   </file>
