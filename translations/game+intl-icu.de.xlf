@@ -4568,23 +4568,13 @@
     <unit id="SNTneh6" name="Dieser Bürger hat {ration} Wasserration(en) aus dem Brunnen genommen.">
       <segment>
         <source>Dieser Bürger hat {ration} Wasserration(en) aus dem Brunnen genommen.</source>
-        <target>
-            {ref__icu, select,
-                on {
-                    {ref__gender, select,
-                        female {Diese Bürgerin hat {ration, select, 1 {eine Wasserration} other {{ration} Wasserrationen}} aus dem Brunnen genommen.}
-                        other {Dieser Bürger hat {ration, select, 1 {eine Wasserration} other {{ration} Wasserrationen}} aus dem Brunnen genommen.}
-                    }
-                }
-            other {Dieser Bürger hat {ration} Wasserration(en) aus dem Brunnen genommen.}
-            }
-        </target>
+        <target>hat {ration} Wasserration(en) aus dem Brunnen genommen.</target>
       </segment>
     </unit>
     <unit id="VNIM3Mp" name="Dieser Bürger ist ernsthaft verletzt.">
       <segment>
         <source>Dieser Bürger ist ernsthaft verletzt.</source>
-        <target>ernsthaft verletzt ist</target>
+        <target>ernsthaft verletzt ist.</target>
       </segment>
     </unit>
     <unit id="w5JoDMX">

@@ -6988,7 +6988,7 @@
       </notes>
       <segment>
         <source>Sekunde(n)</source>
-        <target>Seconde(s)</target>
+        <target>seconde(s)</target>
       </segment>
     </unit>
     <unit id="4OynnJl" name="Der Bürger wurde zuletzt {time} gesehen.">
@@ -6998,7 +6998,7 @@
       </notes>
       <segment>
         <source>Der Bürger wurde zuletzt {time} gesehen.</source>
-        <target>Ce citoyen a été aperçu pour la dernière fois {time}.</target>
+        <target><![CDATA[a été aperçu pour la dernière fois <strong>{time}</strong>.]]></target>
       </segment>
     </unit>
     <unit id="KsxoZXu" name="vor {time}">
@@ -7018,7 +7018,7 @@
       </notes>
       <segment>
         <source>Dieser Bürger wurde noch nie gesehen...</source>
-        <target>Ce citoyen n'a jamais été vu...</target>
+        <target>n'a jamais été vu...</target>
       </segment>
     </unit>
     <unit id="SNTneh6" name="Dieser Bürger hat {ration} Wasserration(en) aus dem Brunnen genommen.">
@@ -7028,7 +7028,7 @@
       </notes>
       <segment>
         <source>Dieser Bürger hat {ration} Wasserration(en) aus dem Brunnen genommen.</source>
-        <target>Ce citoyen a pris {ration} ration(s) au puits aujourd'hui</target>
+        <target><![CDATA[a été vu au puits prenant <strong>{ration} ration(s) d'eau</strong> aujourd'hui.]]></target>
       </segment>
     </unit>
     <unit id="VNIM3Mp" name="Dieser Bürger ist ernsthaft verletzt.">
@@ -7038,7 +7038,7 @@
       </notes>
       <segment>
         <source>Dieser Bürger ist ernsthaft verletzt.</source>
-        <target>Ce citoyen a été gravement blessé.</target>
+        <target>a été gravement blessé.</target>
       </segment>
     </unit>
     <unit id="w5JoDMX">
@@ -7048,7 +7048,7 @@
       </notes>
       <segment>
         <source>Dieser Bürger hat eventuell schon seit einer Weile Blut gehustet... Einige reden von einer Infektion.</source>
-        <target>Ce citoyen cracherait du sang depuis un petit moment déjà… Certains parlent d'une infection.</target>
+        <target>cracherait du sang depuis un petit moment déjà… Certains parlent d'une infection.</target>
       </segment>
     </unit>
     <unit id="0LaQbDJ">
@@ -7058,7 +7058,7 @@
       </notes>
       <segment>
         <source>Dieser Bürger hat eventuell heute Morgen überall nach Wasser gebettelt haben... Ob er durstig ist?</source>
-        <target>Ce citoyen aurait mendié pour de l'eau dans tout le village ce matin… Une petite soif ?</target>
+        <target>aurait mendié pour de l'eau dans tout le village ce matin… Une petite soif ?</target>
       </segment>
     </unit>
     <unit id="IhkIaY6">
@@ -7068,7 +7068,7 @@
       </notes>
       <segment>
         <source>Dieser Bürger is eventuell süchtig... Wir nennen sein Verhalten aggressiv, manchmal sogar assozial...</source>
-        <target>Ce citoyen serait dans un grave état de dépendance… On dit même que son comportement deviendrait violent voire “anti-citoyen” par moment...</target>
+        <target>serait dans un grave état de dépendance… On dit même que son comportement deviendrait violent voire “anti-citoyen” par moment.</target>
       </segment>
     </unit>
     <unit id="QHYoGw6">
@@ -7078,7 +7078,7 @@
       </notes>
       <segment>
         <source>Dieser Bürger konnte nicht schlafen und redete wirres Zeug, von Tod, sprechenden Schatten und Stimmen in seinem Kopf...</source>
-        <target>Ce citoyen n'arriverait plus à dormir et tiendrait des propos incohérents, parlant de mort, d'ombres qui parlent, de voix dans sa tête...</target>
+        <target>n'arriverait plus à dormir et tiendrait des propos incohérents, parlant de mort, d'ombres qui parlent, de voix dans sa tête...</target>
       </segment>
     </unit>
     <unit id="Kx1swjd">
@@ -7088,7 +7088,7 @@
       </notes>
       <segment>
         <source>Dieser Bürger ist nicht in der Lage, einen Beruf zu wählen. Wir sind noch lange nicht über den Berg, das kann ich euch sagen!</source>
-        <target>Ce citoyen ne serait même pas capable de choisir son occupation ! On est pas sorti, moi j'vous l'dis.</target>
+        <target>ne serait même pas capable de choisir son occupation ! On est pas sorti, moi j'vous l'dis.</target>
       </segment>
     </unit>
     <unit id="dvSfZK0">
@@ -7098,7 +7098,7 @@
       </notes>
       <segment>
         <source>Dieser Bürger könnte jemand sehr Wichtiges sein. Vielleicht einer der Erschaffer?</source>
-        <target>Ce citoyen serait quelqu'un de haut-placé… Un fondateur peut-être ?</target>
+        <target>serait quelqu'un de haut-placé… Un fondateur peut-être ?</target>
       </segment>
     </unit>
     <unit id="jeBATzG">
@@ -22164,7 +22164,7 @@
       </notes>
       <segment>
         <source>Dieser Bürger</source>
-        <target>Dieser Bürger</target>
+        <target>Selon les rumeurs, le citoyen {citizen} :</target>
       </segment>
     </unit>
     <unit id="Z0MirrQ">
