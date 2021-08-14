@@ -21115,7 +21115,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Die offensichtlichen Spuren zeigen, dass {user} die Grenzen zum Wahnsinn überschritten haben muss: abgenagte Knochen, zerfetzte menschliche Gliedmaßen, halb aufgegessene Tierreste... Sein ehemaliges Zuhause ist ein veritables stinkendes Massengrab, das keinen Zweifel zulässt: &lt;strong&gt;{user} war ein Ghoul&lt;/strong&gt;!</source>
-        <target>More obvious clues could not be left. {user} had definitely crossed the boundaries of crazy: gnawed bones, shredded human entrails, half-eaten animal remains... Their old house is a rancid mass grave that leaves us in no doubt: {user} was a ghoul!</target>
+        <target><![CDATA[More obvious clues could not be left. {user} had definitely crossed the boundaries of crazy: gnawed bones, shredded human entrails, half-eaten animal remains... Their old house is a rancid mass grave that leaves us in no doubt: <strong>{user} was a ghoul</strong>!]]></target>
       </segment>
     </unit>
     <unit id="rUnZoOv">
