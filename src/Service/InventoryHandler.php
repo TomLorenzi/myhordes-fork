@@ -535,7 +535,7 @@ class InventoryHandler
             $item->setCount($item->getCount() - $count);
             $this->entity_manager->persist($item);
         } else {
-            $item->getInventory()->removeItem($item);
+            if ($item->getInventory()) $item->getInventory()->removeItem($item);
             $this->entity_manager->remove( $item );
         }
     }
