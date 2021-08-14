@@ -3521,7 +3521,7 @@
       </notes>
       <segment>
         <source>Community-Tools</source>
-        <target>Community-Tools</target>
+        <target>Herramientas-comunitarias</target>
       </segment>
     </unit>
     <unit id="kOI7gR8">
@@ -3534,8 +3534,8 @@
       <segment>
         <source>Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
                                                     &lt;p&gt;&lt;em&gt;Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..&lt;/em&gt;&lt;/p&gt;</source>
-        <target><![CDATA[Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
-                                                    <p><em>Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..</em></p>]]></target>
+        <target><![CDATA[La gran cantidad de montones de tierra y basura que hay por ahí son un indicio de que probablemente no quede nada por encontrar aquí.
+                                                    <p><em>Sin embargo, si lo desea, puede seguir cavando y desenterrando algunos materiales inferiores para los distintos sitios de construcción del pueblo.</em></p>]]></target>
       </segment>
     </unit>
   </file>
