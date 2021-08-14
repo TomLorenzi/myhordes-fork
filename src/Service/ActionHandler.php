@@ -1323,7 +1323,7 @@ class ActionHandler
                             if ($others_are_here) $this->entity_manager->persist( $this->log->outsideMove( $jumper, $zone, $zero_zone, true ) );
                             $this->entity_manager->persist( $this->log->outsideMove( $jumper, $zero_zone, $zone, false ) );
                         }*/
-                        if ( $result->getCustom() === 8 )
+                        if ( ($result->getCustom() === 8) && (count($zone->getCitizens())) )
                             $this->entity_manager->persist( $this->log->heroicReturnLog( $citizen, $zone ) );
                         if ( $result->getCustom() === 9 )
                             $this->entity_manager->persist( $this->log->heroicRescueLog( $citizen, $jumper, $zone ) );
