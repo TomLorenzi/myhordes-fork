@@ -7050,7 +7050,7 @@
       </notes>
       <segment>
         <source>Der Bürger wurde zuletzt {time} gesehen.</source>
-        <target>Ha sido visto por última vez {time}.</target>
+        <target><![CDATA[ha sido visto por última vez <strong>{time}</strong>.]]></target>
       </segment>
     </unit>
     <unit id="SNTneh6" name="Dieser Bürger hat {ration} Wasserration(en) aus dem Brunnen genommen.">
@@ -7060,7 +7060,7 @@
       </notes>
       <segment>
         <source>Dieser Bürger hat {ration} Wasserration(en) aus dem Brunnen genommen.</source>
-        <target>ha sido visto en el pozo cogiendo {ration} racion(es) de agua hoy.</target>
+        <target><![CDATA[ha sido visto en el pozo cogiendo <strong>{ration} racion(es) de agua</strong> hoy.]]></target>
       </segment>
     </unit>
     <unit id="VNIM3Mp" name="Dieser Bürger ist ernsthaft verletzt.">
@@ -7080,7 +7080,7 @@
       </notes>
       <segment>
         <source>Dieser Bürger hat eventuell schon seit einer Weile Blut gehustet... Einige reden von einer Infektion.</source>
-        <target><![CDATA[Este habitante ha estado tosiendo sangre últimamente... Algunos hablan de una <strong>Infección</strong>.]]></target>
+        <target><![CDATA[ha estado tosiendo sangre últimamente... Algunos hablan de una <strong>Infección</strong>.]]></target>
       </segment>
     </unit>
     <unit id="0LaQbDJ">
@@ -7130,7 +7130,7 @@
       </notes>
       <segment>
         <source>Dieser Bürger könnte jemand sehr Wichtiges sein. Vielleicht einer der Erschaffer?</source>
-        <target>Este Habitante parece ser alguien importante. ¿Tal vez uno de los creadores?</target>
+        <target>parece ser alguien importante. ¿Tal vez uno de los creadores?</target>
       </segment>
     </unit>
     <unit id="q2ChVJX" name="Gereinigte Seelen">
@@ -22409,7 +22409,7 @@
       </notes>
       <segment>
         <source>Dieser Bürger</source>
-        <target>Dieser Bürger</target>
+        <target>Según las malas lenguas, el habitante {citizen}:</target>
       </segment>
     </unit>
     <unit id="Z0MirrQ">

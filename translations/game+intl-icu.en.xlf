@@ -6934,7 +6934,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Stunde(n)</source>
-        <target>Hour(s)</target>
+        <target>hour(s)</target>
       </segment>
     </unit>
     <unit id="zV6ExPR" name="Minute(n)">
@@ -6944,7 +6944,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Minute(n)</source>
-        <target>Minute(s)</target>
+        <target>minute(s)</target>
       </segment>
     </unit>
     <unit id="pJqC6wz" name="Sekunde(n)">
@@ -6954,7 +6954,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Sekunde(n)</source>
-        <target>Second(s)</target>
+        <target>second(s)</target>
       </segment>
     </unit>
     <unit id="KsxoZXu" name="vor {time}">
@@ -7004,7 +7004,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Dieser Bürger wurde noch nie gesehen...</source>
-        <target>this citizen has never been seen ...</target>
+        <target>has never been seen...</target>
       </segment>
     </unit>
     <unit id="4OynnJl" name="Der Bürger wurde zuletzt {time} gesehen.">
@@ -7014,7 +7014,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Der Bürger wurde zuletzt {time} gesehen.</source>
-        <target>Was seen last {time}.</target>
+        <target>was seen last {time}.</target>
       </segment>
     </unit>
     <unit id="SNTneh6" name="Dieser Bürger hat {ration} Wasserration(en) aus dem Brunnen genommen.">
@@ -7024,7 +7024,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Dieser Bürger hat {ration} Wasserration(en) aus dem Brunnen genommen.</source>
-        <target>was seen at the well taking {ration} water ration(s) today.</target>
+        <target><![CDATA[was seen at the well taking <strong>{ration} water ration(s)</strong> today.]]></target>
       </segment>
     </unit>
     <unit id="VNIM3Mp" name="Dieser Bürger ist ernsthaft verletzt.">
@@ -7064,7 +7064,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Dieser Bürger is eventuell süchtig... Wir nennen sein Verhalten aggressiv, manchmal sogar assozial...</source>
-        <target>is heavilty dependant... and violent... you could even say their behaviour is becoming 'anti-citizen'.</target>
+        <target>is heavily dependant... and violent... you could even say their behaviour is becoming 'anti-citizen'.</target>
       </segment>
     </unit>
     <unit id="QHYoGw6">
@@ -7084,7 +7084,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Dieser Bürger ist nicht in der Lage, einen Beruf zu wählen. Wir sind noch lange nicht über den Berg, das kann ich euch sagen!</source>
-        <target>wasn't even capable of choosing a profession! We're not through this yet, I promise you</target>
+        <target>wasn't even capable of choosing a profession! We're not through this yet, I promise you!</target>
       </segment>
     </unit>
     <unit id="dvSfZK0">
@@ -7094,7 +7094,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Dieser Bürger könnte jemand sehr Wichtiges sein. Vielleicht einer der Erschaffer?</source>
-        <target>this citizen could be someone very important. Maybe one of the creators?</target>
+        <target>could be someone very important. Maybe one of the creators?</target>
       </segment>
     </unit>
     <unit id="q2ChVJX" name="Gereinigte Seelen">
@@ -22263,7 +22263,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Dieser Bürger</source>
-        <target>This citizen</target>
+        <target>If you believe the rumors, {citizen}:</target>
       </segment>
     </unit>
     <unit id="Z0MirrQ">

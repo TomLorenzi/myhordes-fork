@@ -128,7 +128,7 @@
             <button id="door_exit" {% if not town.door or not can_go_out %}disabled{% endif %}><img alt="" src="{{ asset('build/images/icons/small_move.gif') }}" />{% trans from 'game' %}Stadt verlassen{% endtrans %}</button>
             <button x-ajax-href="{{ path('town_routes') }}"><img alt="" src="{{ asset('build/images/item/item_bagxl.gif') }}" />{{ 'Route planen...'|trans({},'game') }}</button>
             {% if town.door %}
-                <span>{{ 'Das Stadttor ist <span class="critical">geöffnet</span>! Achtung: Wenn das Tor geschlossen wird, können alle Spieler, die sich außerhalb der Stadt befinden, nicht mehr rein.'|trans({}, 'game')|raw }}</span>
+                <div style="font-size: 1.2rem;">{{ 'Das Stadttor ist <span class="critical">geöffnet</span>! Achtung: Wenn das Tor geschlossen wird, können alle Spieler, die sich außerhalb der Stadt befinden, nicht mehr rein.'|trans({}, 'game')|raw }}</div>
             {% endif %}
             {% endif %}
         </div>
