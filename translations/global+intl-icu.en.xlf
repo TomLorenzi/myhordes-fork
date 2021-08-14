@@ -3628,11 +3628,76 @@
       <notes>
         <note category="german">Beachte: Die Suchfunktion durchsucht nur den aktuell gewählten Tab (Posteingang oder Archiv).</note>
         <note category="from">twig:///templates/ajax/pm/view.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Beachte: Die Suchfunktion durchsucht nur den aktuell gewählten Tab (Posteingang oder Archiv).</source>
         <target>Note: The search only applies to the current tab (inbox or archive).</target>
+      </segment>
+    </unit>
+    <unit id="cEUwQw8" name="Dieser Spieler ist ein Administrator auf diesem Server.">
+      <notes>
+        <note category="german">Dieser Spieler ist ein Administrator auf diesem Server.</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/forum/posts_small.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Dieser Spieler ist ein Administrator auf diesem Server.</source>
+        <target>This player is an administrator on this server.</target>
+      </segment>
+    </unit>
+    <unit id="TyNTK6_" name="Dieser Spieler ist ein Entwickler von MyHordes.">
+      <notes>
+        <note category="german">Dieser Spieler ist ein Entwickler von MyHordes.</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/forum/posts_small.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Dieser Spieler ist ein Entwickler von MyHordes.</source>
+        <target>This player is a developer of MyHordes.</target>
+      </segment>
+    </unit>
+    <unit id="z66IFLE" name="Dieser Spieler ist ein Moderator auf MyHordes.">
+      <notes>
+        <note category="german">Dieser Spieler ist ein Moderator auf MyHordes.</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/forum/posts_small.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Dieser Spieler ist ein Moderator auf MyHordes.</source>
+        <target>This player is a moderator on MyHordes.</target>
+      </segment>
+    </unit>
+    <unit id="nCg5Jzp" name="Dieser Spieler ist ein Animateur auf MyHordes.">
+      <notes>
+        <note category="german">Dieser Spieler ist ein Animateur auf MyHordes.</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/forum/posts_small.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Dieser Spieler ist ein Animateur auf MyHordes.</source>
+        <target>This player is an Animactor on MyHordes.</target>
+      </segment>
+    </unit>
+    <unit id="yikRp.v" name="Dieser Spieler ist ein Orakel auf MyHordes.">
+      <notes>
+        <note category="german">Dieser Spieler ist ein Orakel auf MyHordes.</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/forum/posts_small.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Dieser Spieler ist ein Orakel auf MyHordes.</source>
+        <target>This player is an Oracle on MyHordes.</target>
+      </segment>
+    </unit>
+    <unit id="hiqmIxi" name="Dieser Spieler ist Mitglied des Entwickler-Teams von MyHordes.">
+      <notes>
+        <note category="german">Dieser Spieler ist Mitglied des Entwickler-Teams von MyHordes.</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/forum/posts_small.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Dieser Spieler ist Mitglied des Entwickler-Teams von MyHordes.</source>
+        <target>This player is part of the MyHordes Development Team.</target>
       </segment>
     </unit>
   </file>

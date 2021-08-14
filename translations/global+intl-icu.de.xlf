@@ -2237,5 +2237,41 @@
         <target>Beachte: Die Suchfunktion durchsucht nur den aktuell gewählten Tab (Posteingang oder Archiv).</target>
       </segment>
     </unit>
+    <unit id="cEUwQw8" name="Dieser Spieler ist ein Administrator auf diesem Server.">
+      <segment>
+        <source>Dieser Spieler ist ein Administrator auf diesem Server.</source>
+        <target>Dieser Spieler ist ein Administrator auf diesem Server.</target>
+      </segment>
+    </unit>
+    <unit id="TyNTK6_" name="Dieser Spieler ist ein Entwickler von MyHordes.">
+      <segment>
+        <source>Dieser Spieler ist ein Entwickler von MyHordes.</source>
+        <target>Dieser Spieler ist ein Entwickler von MyHordes.</target>
+      </segment>
+    </unit>
+    <unit id="z66IFLE" name="Dieser Spieler ist ein Moderator auf MyHordes.">
+      <segment>
+        <source>Dieser Spieler ist ein Moderator auf MyHordes.</source>
+        <target>Dieser Spieler ist ein Moderator auf MyHordes.</target>
+      </segment>
+    </unit>
+    <unit id="nCg5Jzp" name="Dieser Spieler ist ein Animateur auf MyHordes.">
+      <segment>
+        <source>Dieser Spieler ist ein Animateur auf MyHordes.</source>
+        <target>Dieser Spieler ist ein Animateur auf MyHordes.</target>
+      </segment>
+    </unit>
+    <unit id="yikRp.v" name="Dieser Spieler ist ein Orakel auf MyHordes.">
+      <segment>
+        <source>Dieser Spieler ist ein Orakel auf MyHordes.</source>
+        <target>Dieser Spieler ist ein Orakel auf MyHordes.</target>
+      </segment>
+    </unit>
+    <unit id="hiqmIxi" name="Dieser Spieler ist Mitglied des Entwickler-Teams von MyHordes.">
+      <segment>
+        <source>Dieser Spieler ist Mitglied des Entwickler-Teams von MyHordes.</source>
+        <target>Dieser Spieler ist Mitglied des Entwickler-Teams von MyHordes.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
