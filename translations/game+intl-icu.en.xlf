@@ -6999,7 +6999,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="9YXdyqO" name="Dieser Bürger wurde noch nie gesehen...">
       <notes>
-        <note category="german">Dieser Bürger wurde noch nie gesehen...</note>
+        <note category="german">noch nie gesehen worden sein...</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
@@ -7009,7 +7009,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="4OynnJl" name="Der Bürger wurde zuletzt {time} gesehen.">
       <notes>
-        <note category="german">wurde zuletzt {time} gesehen.</note>
+        <note category="german">zuletzt {time} gesehen worden sein.</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
@@ -7019,7 +7019,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="SNTneh6" name="Dieser Bürger hat {ration} Wasserration(en) aus dem Brunnen genommen.">
       <notes>
-        <note category="german">Dieser Bürger hat {ration} Wasserration(en) aus dem Brunnen genommen.</note>
+        <note category="german">{ration__copy} Wasserration(en) aus dem Brunnen genommen haben.</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
@@ -7029,7 +7029,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="VNIM3Mp" name="Dieser Bürger ist ernsthaft verletzt.">
       <notes>
-        <note category="german">ernsthaft verletzt ist</note>
+        <note category="german">ernsthaft verletzt sein.</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
@@ -7039,7 +7039,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="w5JoDMX">
       <notes>
-        <note category="german">soll schon seit einer Weile Blut gehustet haben... Einige reden von einer Infektion.</note>
+        <note category="german">schon seit einer Weile Blut gehustet haben... Einige reden von einer Infektion.</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
@@ -7049,7 +7049,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="0LaQbDJ">
       <notes>
-        <note category="german">soll eventuell heute Morgen überall nach Wasser gebettelt haben... Ob er durstig ist?</note>
+        <note category="german">heute Morgen überall nach Wasser gebettelt haben... Ob er durstig ist?</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
@@ -7059,7 +7059,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="IhkIaY6">
       <notes>
-        <note category="german">ist eventuell süchtig... Wir nennen sein Verhalten aggressiv, manchmal sogar assozial...</note>
+        <note category="german">süchtig sein... Wir nennen sein Verhalten aggressiv, manchmal sogar assozial...</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
@@ -7069,7 +7069,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="QHYoGw6">
       <notes>
-        <note category="german">konnte nicht schlafen und redete wirres Zeug, von Tod, sprechenden Schatten und Stimmen in seinem Kopf...</note>
+        <note category="german">nicht schlafen können und wirres Zeug reden, von Tod, sprechenden Schatten und Stimmen in seinem Kopf...</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
@@ -7079,7 +7079,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="Kx1swjd">
       <notes>
-        <note category="german">ist nicht in der Lage, einen Beruf zu wählen. Wir sind noch lange nicht über den Berg, das kann ich euch sagen!</note>
+        <note category="german">nicht in der Lage sein, einen Beruf zu wählen. Wir sind noch lange nicht über den Berg, das kann ich euch sagen!</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
@@ -7089,7 +7089,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="dvSfZK0">
       <notes>
-        <note category="german">könnte jemand sehr Wichtiges sein. Vielleicht einer der Erschaffer?</note>
+        <note category="german">jemand sehr Wichtiges sein. Vielleicht einer der Erschaffer?</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
@@ -15634,7 +15634,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="2ZzcscP" name="Verlorenes Brunnenwasser: {count} Einhet(en)">
       <notes>
-        <note category="german">Verlorenes Brunnenwasser: {count} Einhet(en)</note>
+        <note category="german">Verlorenes Brunnenwasser: {count__copy} Einhet(en)</note>
         <note category="from">twig:///templates/ajax/game/newspaper.html.twig</note>
       </notes>
       <segment>
@@ -19973,7 +19973,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="wX7RkO4">
       <notes>
         <note category="german">Diese Aktion ermöglicht die Reinigung der Zone durch herabfallenden Regen. Dieser kann den Brunnen in der Stadt füllen oder eine vernichtende Wirkung auf die umliegenden Zombies entfalten.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
@@ -19984,7 +19983,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="vScXMoh">
       <notes>
         <note category="german">Du kannst versuchen, diesen Bürger zu heilen, aber nichts ist garantiert... und hüte dich vor Nebenwirkungen!</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
@@ -22258,7 +22256,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="VAttJzW" name="Dieser Bürger">
       <notes>
-        <note category="german">Dieser Bürger</note>
+        <note category="german">Gerüchten zufolge ist dieser Bürger</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
@@ -22280,7 +22278,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <notes>
         <note category="german">In der (&lt;strong&gt;leeren&lt;/strong&gt;) Zone graben</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>In der (&lt;strong&gt;leeren&lt;/strong&gt;) Zone graben</source>

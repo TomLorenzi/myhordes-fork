@@ -2195,5 +2195,41 @@
                                                     <p><em>Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..</em></p>]]></target>
       </segment>
     </unit>
+    <unit id="aD.KBg0" name="Posteingang">
+      <segment>
+        <source>Posteingang</source>
+        <target>Posteingang</target>
+      </segment>
+    </unit>
+    <unit id="JyB0OZM" name="Archiv">
+      <segment>
+        <source>Archiv</source>
+        <target>Archiv</target>
+      </segment>
+    </unit>
+    <unit id="UKr0mkh" name="Nachricht suchen...">
+      <segment>
+        <source>Nachricht suchen...</source>
+        <target>Nachricht suchen...</target>
+      </segment>
+    </unit>
+    <unit id="Z3zr0GN" name="Gib hier den Titel einer Nachricht ein, um danach zu suchen.">
+      <segment>
+        <source>Gib hier den Titel einer Nachricht ein, um danach zu suchen.</source>
+        <target>Gib hier den Titel einer Nachricht ein, um danach zu suchen.</target>
+      </segment>
+    </unit>
+    <unit id="b3QY6Xc" name="Dieser Ordner ist leer.">
+      <segment>
+        <source>Dieser Ordner ist leer.</source>
+        <target>Dieser Ordner ist leer.</target>
+      </segment>
+    </unit>
+    <unit id="o1PB..H" name="Es wurden keine passenden Nachrichten gefunden.">
+      <segment>
+        <source>Es wurden keine passenden Nachrichten gefunden.</source>
+        <target>Es wurden keine passenden Nachrichten gefunden.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -211,7 +211,6 @@ export default class Ajax {
             for (let t = 0; t < tooltips.length; t++)
                 $.html.handleTooltip( <HTMLElement>tooltips[t] );
             target.appendChild( content_source[i] );
-            $.html.handleTabNavigation(target);
         }
 
         for (let i = 0; i < script_source.length; i++)
@@ -222,6 +221,7 @@ export default class Ajax {
                 console.error(e,script_source[i].innerText);
             }
 
+        $.html.handleTabNavigation(target);
 
         for (let i = 0; i < flash_source.length; i++)
             $.html.message( flash_source[i].getAttribute('x-label'), flash_source[i].innerHTML );

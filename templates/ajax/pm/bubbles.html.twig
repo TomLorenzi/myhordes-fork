@@ -8,6 +8,8 @@
     {% set endpoint_users   = null %}
     {% set endpoint_block   = null %}
     {% set endpoint_block_n = null %}
+    {% set endpoint_archive = null %}
+    {% set endpoint_restore = null %}
     {% set message_title_pre= null %}
     {% set message_title    = entry.title %}
     {% set message_id       = 0 %}
@@ -27,6 +29,11 @@
         {% if entry.official is null and entry.owner is not null and entry.owner != app.user and not app.user|related(entry.owner,constant('App\\Entity\\SocialRelation::SocialRelationTypeBlock')) %}
             {% set endpoint_block   = path('pm_block_conv_group', {'id': entry.obj.association.id}) %}
             {% set endpoint_block_n = entry.owner.name %}
+        {% endif %}
+        {% if entry.archive %}
+            {% set endpoint_restore = path('pm_archive_conv_group', {'id': entry.obj.association.id, 'arch': 0}) %}
+        {% else %}
+            {% set endpoint_archive = path('pm_archive_conv_group', {'id': entry.obj.association.id, 'arch': 1}) %}
         {% endif %}
         {% set message_id      = entry.obj.id %}
         {% set message_type    = 'g' %}
@@ -59,6 +66,8 @@
             {% if endpoint_answer is not null %}x-editor="{{ endpoint_answer }}"{% endif %}
             {% if endpoint_trash  is not null %}x-trash="{{ endpoint_trash }}"{% endif %}
             {% if endpoint_unread is not null %}x-unread="{{ endpoint_unread }}"{% endif %}
+            {% if endpoint_archive is not null %}x-archive="{{ endpoint_archive }}"{% endif %}
+            {% if endpoint_restore is not null %}x-restore="{{ endpoint_restore }}"{% endif %}
             {% if endpoint_users  is not null %}x-userlist="{{ endpoint_users }}"{% endif %}
             {% if endpoint_block  is not null %}x-block="{{ endpoint_block }}"{% endif %}
             {% if endpoint_block_n is not null %}x-block-name="{{ endpoint_block_n }}"{% endif %}

@@ -3798,7 +3798,6 @@
         <note category="german">Öffne MyHordes in einem größeren Fenster oder auf einem Gerät mit einem größeren Bildschirm,
                                                 um den Bildausschnitt für die komprimierte Anzeige einzustellen.</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Öffne MyHordes in einem größeren Fenster oder auf einem Gerät mit einem größeren Bildschirm,

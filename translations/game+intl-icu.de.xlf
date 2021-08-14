@@ -14154,10 +14154,10 @@
                 on {
                     {ref__gender, select,
                         female {Gerüchten zufolge soll diese Bürgerin}
-                        other {{Gerüchten zufolge soll dieser Bürger}
+                        other {Gerüchten zufolge soll dieser Bürger}
                     }
                 }
-                other {{Gerüchten zufolge ist dieser Bürger}
+                other {Gerüchten zufolge ist dieser Bürger}
             }
         </target>
       </segment>

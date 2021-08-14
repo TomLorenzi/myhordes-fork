@@ -304,7 +304,7 @@
     <unit id="9.8ReK8" name="Abbrechen">
       <notes>
         <note category="german">Abbrechen</note>
-        <note category="from">twig:///templates/ajax/forum/editor.html.twig;twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/bank.html.twig;twig:///templates/ajax/game/town/construction.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/planner.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig;twig:///templates/ajax/soul/import_preview.html.twig;twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="from">twig:///templates/ajax/forum/editor.html.twig;twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/actions.html.twig;twig:///templates/ajax/game/town/bank.html.twig;twig:///templates/ajax/game/town/construction.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/planner.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig;twig:///templates/ajax/soul/import_preview.html.twig;twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Abbrechen</source>
@@ -876,7 +876,7 @@
     <unit id="pUyN66u" name="Archivieren">
       <notes>
         <note category="german">Archivieren</note>
-        <note category="from">twig:///templates/ajax/game/town/posts.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
       </notes>
       <segment>
         <source>Archivieren</source>
@@ -1698,7 +1698,7 @@
     <unit id="q5mhXGv" name="Wiederherstellen">
       <notes>
         <note category="german">Wiederherstellen</note>
-        <note category="from">twig:///templates/ajax/forum/posts.html.twig</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
       </notes>
       <segment>
         <source>Wiederherstellen</source>
@@ -2622,7 +2622,7 @@
     <unit id="3Ql_d91" name="Suchen">
       <notes>
         <note category="german">Suchen</note>
-        <note category="from">twig:///templates/ajax/forum/search.html.twig</note>
+        <note category="from">twig:///templates/ajax/forum/search.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
       </notes>
       <segment>
         <source>Suchen</source>
@@ -3517,7 +3517,6 @@
       <notes>
         <note category="german">Community-Tools</note>
         <note category="from">twig:///templates/ajax/ajax.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Community-Tools</source>
@@ -3529,13 +3528,78 @@
         <note category="german">Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
                                                     &lt;p&gt;&lt;em&gt;Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..&lt;/em&gt;&lt;/p&gt;</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
                                                     &lt;p&gt;&lt;em&gt;Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..&lt;/em&gt;&lt;/p&gt;</source>
         <target><![CDATA[La gran cantidad de montones de tierra y basura que hay por ahí son un indicio de que probablemente no quede nada por encontrar aquí.
                                                     <p><em>Sin embargo, si lo desea, puede seguir cavando y desenterrando algunos materiales inferiores para los distintos sitios de construcción del pueblo.</em></p>]]></target>
+      </segment>
+    </unit>
+    <unit id="aD.KBg0" name="Posteingang">
+      <notes>
+        <note category="german">Posteingang</note>
+        <note category="from">twig:///templates/ajax/pm/view.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Posteingang</source>
+        <target>Posteingang</target>
+      </segment>
+    </unit>
+    <unit id="JyB0OZM" name="Archiv">
+      <notes>
+        <note category="german">Archiv</note>
+        <note category="from">twig:///templates/ajax/pm/view.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Archiv</source>
+        <target>Archiv</target>
+      </segment>
+    </unit>
+    <unit id="UKr0mkh" name="Nachricht suchen...">
+      <notes>
+        <note category="german">Nachricht suchen...</note>
+        <note category="from">twig:///templates/ajax/pm/view.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Nachricht suchen...</source>
+        <target>Nachricht suchen...</target>
+      </segment>
+    </unit>
+    <unit id="Z3zr0GN" name="Gib hier den Titel einer Nachricht ein, um danach zu suchen.">
+      <notes>
+        <note category="german">Gib hier den Titel einer Nachricht ein, um danach zu suchen.</note>
+        <note category="from">twig:///templates/ajax/pm/view.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Gib hier den Titel einer Nachricht ein, um danach zu suchen.</source>
+        <target>Gib hier den Titel einer Nachricht ein, um danach zu suchen.</target>
+      </segment>
+    </unit>
+    <unit id="b3QY6Xc" name="Dieser Ordner ist leer.">
+      <notes>
+        <note category="german">Dieser Ordner ist leer.</note>
+        <note category="from">twig:///templates/ajax/pm/view.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Dieser Ordner ist leer.</source>
+        <target>Dieser Ordner ist leer.</target>
+      </segment>
+    </unit>
+    <unit id="o1PB..H" name="Es wurden keine passenden Nachrichten gefunden.">
+      <notes>
+        <note category="german">Es wurden keine passenden Nachrichten gefunden.</note>
+        <note category="from">twig:///templates/ajax/pm/view.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Es wurden keine passenden Nachrichten gefunden.</source>
+        <target>Es wurden keine passenden Nachrichten gefunden.</target>
       </segment>
     </unit>
   </file>

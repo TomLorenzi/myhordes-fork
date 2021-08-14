@@ -9182,7 +9182,6 @@
       <notes>
         <note category="german">Gegenstand verwenden</note>
         <note category="from">twig:///templates/ajax/game/actions.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Gegenstand verwenden</source>

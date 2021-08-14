@@ -9195,7 +9195,6 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       <notes>
         <note category="german">Gegenstand verwenden</note>
         <note category="from">twig:///templates/ajax/game/actions.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Gegenstand verwenden</source>

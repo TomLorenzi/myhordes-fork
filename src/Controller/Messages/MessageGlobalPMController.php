@@ -83,14 +83,15 @@ class MessageGlobalPMController extends MessageController
     }
 
     /**
-     * @Route("api/pm/spring/{domain}/{id<\d+>}", name="api_pm_spring")
+     * @Route("api/pm/spring/{domain}/{id<\d+>}/{archive<\d>}", name="api_pm_spring")
      * @param EntityManagerInterface $em
      * @param JSONRequestParser $parser
      * @param string $domain
      * @param int $id
+     * @param int $archive
      * @return Response
      */
-    public function ping_fetch_new_messages(EntityManagerInterface $em, JSONRequestParser $parser, string $domain = '', int $id = 0): Response {
+    public function ping_fetch_new_messages(EntityManagerInterface $em, JSONRequestParser $parser, string $domain = '', int $id = 0, int $archive = 0): Response {
 
         $user = $this->getUser();
         if (!$user) return new AjaxResponse(['connected' => false, 'success' => true]);
@@ -218,6 +219,7 @@ class MessageGlobalPMController extends MessageController
                 'obj'    => $association,
                 'date'   => $last_post_date,
                 'system' => false,
+                'archive' => $association->getBref(),
                 'official' => $official_meta ? $official_meta->getOfficialGroup() : null,
                 'title'  => $association->getAssociation()->getName(),
                 'closed' => $association->getAssociationType() === UserGroupAssociation::GroupAssociationTypePrivateMessageMemberInactive,
@@ -245,6 +247,7 @@ class MessageGlobalPMController extends MessageController
                 'obj'    => $announcement,
                 'date'   => $announcement->getTimestamp(),
                 'system' => false,
+                'archive' => false,
                 'official' => null,
                 'title'  => $announcement->getTitle(),
                 'closed' => false,
@@ -281,6 +284,7 @@ class MessageGlobalPMController extends MessageController
                 'obj'    => $subscription->getThread(),
                 'date'   => new DateTime(),
                 'system' => false,
+                'archive' => false,
                 'official' => null,
                 'title'  => $subscription->getThread()->getTranslatable()
                         ? $this->translator->trans($subscription->getThread()->getTitle(), [], 'game') : $subscription->getThread()->getTitle()
@@ -322,26 +326,35 @@ class MessageGlobalPMController extends MessageController
     }
 
     /**
-     * @Route("jx/pm/list", name="pm_list")
+     * @Route("jx/pm/list/{set}", name="pm_list")
      * @param EntityManagerInterface $em
      * @param JSONRequestParser $p
+     * @param string $set
      * @return Response
      */
-    public function pm_load_list(EntityManagerInterface $em, JSONRequestParser $p): Response {
+    public function pm_load_list(EntityManagerInterface $em, JSONRequestParser $p, string $set = 'inbox'): Response {
         $entries = [];
+
+        if (!in_array($set,['inbox','archive'])) return new Response('');
 
         $skip = $p->get_array('skip');
         $num = max(5,min(30,$p->get_int('num', 30)));
 
+        $query = $p->get('filter');
+
         $this->render_group_associations( $em->getRepository(UserGroupAssociation::class)->findByUserAssociation($this->getUser(), [
             UserGroupAssociation::GroupAssociationTypePrivateMessageMember, UserGroupAssociation::GroupAssociationTypePrivateMessageMemberInactive, UserGroupAssociation::GroupAssociationTypeOfficialGroupMessageMember
-        ], $skip['g'] ?? [], $num+1), $entries );
+        ], $skip['g'] ?? [], $num+1, $set === 'archive', $query), $entries );
 
         $this->render_announcements( $em->getRepository(Announcement::class)->findByLang($this->getUserLanguage(),
-        $skip['a'] ?? [], $num+1), $entries );
+                                                                                         $skip['a'] ?? [], $num+1, $set === 'archive', $query), $entries );
 
-        if (empty($skip['d'])) $this->render_directNotifications($this->entity_manager->getRepository(GlobalPrivateMessage::class)->getDirectPMsByUser($this->getUser(), 0, 1), $entries);
-        $this->render_forumNotifications($entries, $skip['f'] ?? [] );
+        if ($set !== 'archive' && $query === null) {
+
+            if (empty($skip['d'])) $this->render_directNotifications($this->entity_manager->getRepository(GlobalPrivateMessage::class)->getDirectPMsByUser($this->getUser(), 0, 1), $entries);
+            $this->render_forumNotifications($entries, $skip['f'] ?? [] );
+
+        }
 
         usort($entries, fn($a,$b) => $b['date'] <=> $a['date']);
 
@@ -758,6 +771,35 @@ class MessageGlobalPMController extends MessageController
         if (!$group_association) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         $this->entity_manager->persist( $group_association->setRef1(0)->setRef2(null) );
+
+        try {
+            $em->flush();
+        } catch (\Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/pm/conversation/group/archive/{id<\d+>}/{arch<\d>}", name="pm_archive_conv_group")
+     * @param int $id
+     * @param int $arch
+     * @param EntityManagerInterface $em
+     * @return Response
+     */
+    public function pm_archive_conversation_group(int $id, int $arch, EntityManagerInterface $em): Response {
+
+        $group = $em->getRepository( UserGroup::class )->find($id);
+        if (!$group || $group->getType() !== UserGroup::GroupMessageGroup) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        /** @var UserGroupAssociation $group_association */
+        $group_association = $em->getRepository(UserGroupAssociation::class)->findOneBy(['user' => $this->getUser(), 'associationType' => [
+            UserGroupAssociation::GroupAssociationTypePrivateMessageMember, UserGroupAssociation::GroupAssociationTypePrivateMessageMemberInactive, UserGroupAssociation::GroupAssociationTypeOfficialGroupMessageMember
+        ], 'association' => $group]);
+        if (!$group_association) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        $this->entity_manager->persist( $group_association->setBref($arch !== 0) );
 
         try {
             $em->flush();
