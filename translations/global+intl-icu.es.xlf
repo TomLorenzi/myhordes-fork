@@ -3544,7 +3544,7 @@
       </notes>
       <segment>
         <source>Posteingang</source>
-        <target>Posteingang</target>
+        <target>Bandeja de entrada</target>
       </segment>
     </unit>
     <unit id="JyB0OZM" name="Archiv">
@@ -3555,7 +3555,7 @@
       </notes>
       <segment>
         <source>Archiv</source>
-        <target>Archiv</target>
+        <target>Archivo</target>
       </segment>
     </unit>
     <unit id="UKr0mkh" name="Nachricht suchen...">
@@ -3566,7 +3566,7 @@
       </notes>
       <segment>
         <source>Nachricht suchen...</source>
-        <target>Nachricht suchen...</target>
+        <target>Buscar mensaje...</target>
       </segment>
     </unit>
     <unit id="Z3zr0GN" name="Gib hier den Titel einer Nachricht ein, um danach zu suchen.">
@@ -3577,7 +3577,7 @@
       </notes>
       <segment>
         <source>Gib hier den Titel einer Nachricht ein, um danach zu suchen.</source>
-        <target>Gib hier den Titel einer Nachricht ein, um danach zu suchen.</target>
+        <target>Introduzca aquí el título de un mensaje para buscarlo.</target>
       </segment>
     </unit>
     <unit id="b3QY6Xc" name="Dieser Ordner ist leer.">
@@ -3588,7 +3588,7 @@
       </notes>
       <segment>
         <source>Dieser Ordner ist leer.</source>
-        <target>Dieser Ordner ist leer.</target>
+        <target>Esta carpeta está vacía.</target>
       </segment>
     </unit>
     <unit id="o1PB..H" name="Es wurden keine passenden Nachrichten gefunden.">
@@ -3599,7 +3599,7 @@
       </notes>
       <segment>
         <source>Es wurden keine passenden Nachrichten gefunden.</source>
-        <target>Es wurden keine passenden Nachrichten gefunden.</target>
+        <target>No se encontraron mensajes que coincidieran.</target>
       </segment>
     </unit>
     <unit id="L6ToFIa">
@@ -3610,7 +3610,7 @@
       </notes>
       <segment>
         <source>Beachte: Die Suchfunktion durchsucht nur den aktuell gewählten Tab (Posteingang oder Archiv).</source>
-        <target>Beachte: Die Suchfunktion durchsucht nur den aktuell gewählten Tab (Posteingang oder Archiv).</target>
+        <target>Nota: La función de búsqueda sólo busca en la pestaña actualmente seleccionada (Bandeja de entrada o Archivo).</target>
       </segment>
     </unit>
     <unit id="cEUwQw8" name="Dieser Spieler ist ein Administrator auf diesem Server.">
@@ -3621,7 +3621,7 @@
       </notes>
       <segment>
         <source>Dieser Spieler ist ein Administrator auf diesem Server.</source>
-        <target>Dieser Spieler ist ein Administrator auf diesem Server.</target>
+        <target>Este jugador es un administrador en este servidor.</target>
       </segment>
     </unit>
     <unit id="TyNTK6_" name="Dieser Spieler ist ein Entwickler von MyHordes.">
@@ -3632,7 +3632,7 @@
       </notes>
       <segment>
         <source>Dieser Spieler ist ein Entwickler von MyHordes.</source>
-        <target>Dieser Spieler ist ein Entwickler von MyHordes.</target>
+        <target>Este jugador es un Desarrollador de MyHordes.</target>
       </segment>
     </unit>
     <unit id="z66IFLE" name="Dieser Spieler ist ein Moderator auf MyHordes.">
@@ -3643,7 +3643,7 @@
       </notes>
       <segment>
         <source>Dieser Spieler ist ein Moderator auf MyHordes.</source>
-        <target>Dieser Spieler ist ein Moderator auf MyHordes.</target>
+        <target>Este jugador es un Moderador en MyHordes.</target>
       </segment>
     </unit>
     <unit id="nCg5Jzp" name="Dieser Spieler ist ein Animateur auf MyHordes.">
@@ -3654,7 +3654,7 @@
       </notes>
       <segment>
         <source>Dieser Spieler ist ein Animateur auf MyHordes.</source>
-        <target>Dieser Spieler ist ein Animateur auf MyHordes.</target>
+        <target>Este jugador es un Animador en MyHordes.</target>
       </segment>
     </unit>
     <unit id="yikRp.v" name="Dieser Spieler ist ein Orakel auf MyHordes.">
@@ -3665,7 +3665,7 @@
       </notes>
       <segment>
         <source>Dieser Spieler ist ein Orakel auf MyHordes.</source>
-        <target>Dieser Spieler ist ein Orakel auf MyHordes.</target>
+        <target>Este jugador es un Oráculo en MyHordes.</target>
       </segment>
     </unit>
     <unit id="hiqmIxi" name="Dieser Spieler ist Mitglied des Entwickler-Teams von MyHordes.">
@@ -3676,7 +3676,7 @@
       </notes>
       <segment>
         <source>Dieser Spieler ist Mitglied des Entwickler-Teams von MyHordes.</source>
-        <target>Dieser Spieler ist Mitglied des Entwickler-Teams von MyHordes.</target>
+        <target>Este jugador es miembro del equipo de desarrollo de MyHordes.</target>
       </segment>
     </unit>
   </file>
