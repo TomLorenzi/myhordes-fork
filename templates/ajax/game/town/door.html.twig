@@ -193,6 +193,8 @@
 
         {% if show_sneaky %}
         document.getElementById('door_exit_sneak').addEventListener('click', function() {
+            if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
+                return;
             $.ajax.easySend( '{{ path('town_door_exit_controller', {'special': 'sneak'}) }}', {},
                 function () {
                     $.ajax.load(null, '{{ path('game_landing') }}', true);
