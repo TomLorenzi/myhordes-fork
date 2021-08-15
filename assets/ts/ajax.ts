@@ -277,7 +277,6 @@ export default class Ajax {
 
                 switch (this.status) {
                     case 403:
-                        console.log(target === ajax_instance.defaultNode,url);
                         if (target === ajax_instance.defaultNode)
                             $.client.config.navigationCache.set(url);
                         window.location.href = ajax_instance.base; break;
