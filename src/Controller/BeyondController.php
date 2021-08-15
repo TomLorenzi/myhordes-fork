@@ -498,6 +498,8 @@ class BeyondController extends InventoryAwareController
             if(!$fellow_citizen->getBanished() && !$town->getChaos()) // If there's a non-banished citizen on the zone during a non-chaos town, the items are not hidden
                 $hide_success = false;
 
+        if (!$this->zone_handler->check_cp( $this->getActiveCitizen()->getZone() ) && $this->get_escape_timeout( $this->getActiveCitizen() ) < 0 && $this->uncoverHunter($this->getActiveCitizen()))
+            $this->addFlash( 'notice', $this->translator->trans('Deine <strong>Tarnung ist aufgeflogen</strong>!',[], 'game') );
         $r = $this->generic_item_api( $up_inv, $down_inv, true, $parser, $handler, $citizen, $hide_items, $processed);
         if ($r->isSuccessResponse() && $hide_items && $processed > 0) {
             if (!$hide_success)
