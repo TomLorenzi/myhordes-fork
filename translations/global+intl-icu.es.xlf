@@ -3540,7 +3540,6 @@
       <notes>
         <note category="german">Posteingang</note>
         <note category="from">twig:///templates/ajax/pm/view.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Posteingang</source>
@@ -3551,7 +3550,6 @@
       <notes>
         <note category="german">Archiv</note>
         <note category="from">twig:///templates/ajax/pm/view.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Archiv</source>
@@ -3562,7 +3560,6 @@
       <notes>
         <note category="german">Nachricht suchen...</note>
         <note category="from">twig:///templates/ajax/pm/view.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Nachricht suchen...</source>
@@ -3573,7 +3570,6 @@
       <notes>
         <note category="german">Gib hier den Titel einer Nachricht ein, um danach zu suchen.</note>
         <note category="from">twig:///templates/ajax/pm/view.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Gib hier den Titel einer Nachricht ein, um danach zu suchen.</source>
@@ -3584,7 +3580,6 @@
       <notes>
         <note category="german">Dieser Ordner ist leer.</note>
         <note category="from">twig:///templates/ajax/pm/view.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Dieser Ordner ist leer.</source>
@@ -3595,7 +3590,6 @@
       <notes>
         <note category="german">Es wurden keine passenden Nachrichten gefunden.</note>
         <note category="from">twig:///templates/ajax/pm/view.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Es wurden keine passenden Nachrichten gefunden.</source>
@@ -3606,7 +3600,6 @@
       <notes>
         <note category="german">Beachte: Die Suchfunktion durchsucht nur den aktuell gewählten Tab (Posteingang oder Archiv).</note>
         <note category="from">twig:///templates/ajax/pm/view.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Beachte: Die Suchfunktion durchsucht nur den aktuell gewählten Tab (Posteingang oder Archiv).</source>
@@ -3617,7 +3610,6 @@
       <notes>
         <note category="german">Dieser Spieler ist ein Administrator auf diesem Server.</note>
         <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/forum/posts_small.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Dieser Spieler ist ein Administrator auf diesem Server.</source>
@@ -3628,7 +3620,6 @@
       <notes>
         <note category="german">Dieser Spieler ist ein Entwickler von MyHordes.</note>
         <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/forum/posts_small.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Dieser Spieler ist ein Entwickler von MyHordes.</source>
@@ -3639,7 +3630,6 @@
       <notes>
         <note category="german">Dieser Spieler ist ein Moderator auf MyHordes.</note>
         <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/forum/posts_small.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Dieser Spieler ist ein Moderator auf MyHordes.</source>
@@ -3650,7 +3640,6 @@
       <notes>
         <note category="german">Dieser Spieler ist ein Animateur auf MyHordes.</note>
         <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/forum/posts_small.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Dieser Spieler ist ein Animateur auf MyHordes.</source>
@@ -3661,7 +3650,6 @@
       <notes>
         <note category="german">Dieser Spieler ist ein Orakel auf MyHordes.</note>
         <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/forum/posts_small.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Dieser Spieler ist ein Orakel auf MyHordes.</source>
@@ -3672,7 +3660,6 @@
       <notes>
         <note category="german">Dieser Spieler ist Mitglied des Entwickler-Teams von MyHordes.</note>
         <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/forum/posts_small.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Dieser Spieler ist Mitglied des Entwickler-Teams von MyHordes.</source>
