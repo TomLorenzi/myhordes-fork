@@ -3544,7 +3544,7 @@
       </notes>
       <segment>
         <source>Posteingang</source>
-        <target>Bandeja de entrada</target>
+        <target>Recibidos</target>
       </segment>
     </unit>
     <unit id="JyB0OZM" name="Archiv">
@@ -3555,7 +3555,7 @@
       </notes>
       <segment>
         <source>Archiv</source>
-        <target>Archivo</target>
+        <target>Archivos</target>
       </segment>
     </unit>
     <unit id="UKr0mkh" name="Nachricht suchen...">
