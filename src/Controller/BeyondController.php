@@ -622,10 +622,9 @@ class BeyondController extends InventoryAwareController
                 $this->entity_manager->persist( $dig_timer );
             }
 
-            if(($special === 'normal' || $special === 'normal-escort') && ($zone->getX() !== 0 || $zone->getY() !== 0)) {
+            if(($special === 'normal' || $special === 'normal-escort') && ($zone->getX() !== 0 || $zone->getY() !== 0)
+                && $others_are_here)
                 $this->entity_manager->persist($this->log->citizenTeleport($mover, $zone));
-                $this->entity_manager->flush();
-            }
 
             // Remove zone from citizen
             $mover->setZone( null );
