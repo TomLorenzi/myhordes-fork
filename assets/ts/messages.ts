@@ -164,6 +164,7 @@ class PayloadFetch extends payload {
 export default class MessageAPI {
 
     private fetch_default_endpoint: string = null;
+    private started: boolean = false;
 
     private nw_ping:  networker<PayloadPing> = null;
     private nw_fetch: networker<PayloadFetch> = null;
@@ -223,5 +224,9 @@ export default class MessageAPI {
         this.nw_ping.setTimeout(0);
         this.nw_fetch.setTimeout(0);
         return true;
+    }
+
+    public jumpstart(): boolean {
+        return this.started ? true : (this.started = this.execute());
     }
 }

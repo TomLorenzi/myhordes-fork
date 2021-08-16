@@ -727,7 +727,7 @@ class MigrateCommand extends Command
 
                 $text = $post->getText();
                 while (preg_match('/<div class="cref" x-id="([0-9]+)" x-ajax-href="(@[a-z0-9: ​]+)">/', $text))
-                    $text = preg_replace('/<div class="cref" x-id="([0-9]+)" x-ajax-href="(@[a-z0-9: ​]+)">/', "<div class=\"cref\" x-id=\"$1\" x-ajax-href=\"$2\" x-ajax-target=\"#content\">", $text);
+                    $text = preg_replace('/<div class="cref" x-id="([0-9]+)" x-ajax-href="(@[a-z0-9: ​]+)">/', "<div class=\"cref\" x-id=\"$1\" x-ajax-href=\"$2\" x-ajax-target=\"default\">", $text);
 
                 $post->setText($text);
                 $this->entity_manager->persist($post);

@@ -41,8 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
     $.ajax.setDefaultNode( document.getElementById('content') );
     $.html.init();
     const initial_landing = document.documentElement.getAttribute('x-ajax-landing');
-    if (initial_landing) $.ajax.no_loader().load( null, initial_landing, true, {}, ()=>setTimeout(() => $.msg.execute(), 5000) );
-    else setTimeout(() => $.msg.execute(), 5000);
+    if (initial_landing) $.ajax.no_loader().load( null, initial_landing, true, {} );
 }, {once: true, passive: true});
 
 window.addEventListener('popstate', function(event) {

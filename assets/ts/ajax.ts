@@ -129,9 +129,16 @@ export default class Ajax {
                 buttons[b].addEventListener('click', function(e) {
                     e.preventDefault();
                     let target_desc = buttons[b].getAttribute('x-ajax-target');
-                    let load_target = target_desc === 'default' ? ajax_instance.defaultNode : document.querySelector(target_desc) as HTMLElement;
-                    if (load_target == undefined)
+                    let load_target = null;
+
+                    if (target_desc === 'parent') load_target = target;
+                    else if (!target_desc || target_desc === 'default') load_target = ajax_instance.defaultNode;
+                    else load_target = document.querySelector(target_desc) as HTMLElement;
+
+                    if (!load_target) {
+                        console.warn('Unable to determine a DOM target for the active ajax href. Falling back to the DOM target the href was originally loaded in. This will likely break the site, consider reloading.');
                         load_target = target;
+                    }
 
                     let no_scroll = buttons[b].hasAttribute('x-ajax-sticky');
 
@@ -277,7 +284,6 @@ export default class Ajax {
 
                 switch (this.status) {
                     case 403:
-                        console.log(target === ajax_instance.defaultNode,url);
                         if (target === ajax_instance.defaultNode)
                             $.client.config.navigationCache.set(url);
                         window.location.href = ajax_instance.base; break;
