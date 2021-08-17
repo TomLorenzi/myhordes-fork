@@ -297,6 +297,10 @@ export default class Ajax {
                 return;
             }
 
+            document.querySelectorAll('[x-ajax-volatile="any"]').forEach(function (elem) {
+                elem.remove();
+            });
+
             if (ajax_instance.render_block_stack > 0) {
                 const r_url = this.responseURL;
                 const r_xml = this.responseXML;

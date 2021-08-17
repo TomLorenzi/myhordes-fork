@@ -225,6 +225,7 @@
                 if (prompt === null) {
                     prompt = document.createElement("div");
                     prompt.id = "ap_prompt";
+                    prompt.setAttribute('x-ajax-volatile', 'any');
 
                     let input = document.createElement("input");
                     input.setAttribute("type", "number");
