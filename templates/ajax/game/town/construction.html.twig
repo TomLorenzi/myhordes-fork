@@ -211,11 +211,8 @@
 
             $.ajax.easySend( '{{ path('town_constructions_build_controller') }}', {id: document.getElementById("prompt_id").value, ap: ap},
                 function () {
-                    $.ajax.load(null, '{{ path('town_constructions') }}', true, {}, function(){
-                        document.getElementById("ap_prompt").style.display = "";
-                    });
-
-            } );
+                    $.ajax.load(null, '{{ path('town_constructions') }}', true, {});
+                } );
         };
 
         let buttons = document.querySelectorAll('.build-btn[x-building-id]');
