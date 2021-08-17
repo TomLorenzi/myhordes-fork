@@ -8238,7 +8238,7 @@
       </notes>
       <segment>
         <source>Mystic-Punkte</source>
-        <target>Puntos místicos</target>
+        <target>Puntos chamánicos</target>
       </segment>
     </unit>
     <unit id="P4J9Y4E" name="Diese Punkte sind exklusiv für den Schamanen reserviert.">
@@ -8248,7 +8248,7 @@
       </notes>
       <segment>
         <source>Diese Punkte sind exklusiv für den Schamanen reserviert.</source>
-        <target>Estos puntos están reservados exclusivamente para los chamanes.</target>
+        <target>Estos puntos están reservados exclusivamente para el Chamán</target>
       </segment>
     </unit>
     <unit id="63sz5vi" name="Akteneinsicht wird beantragt...">
