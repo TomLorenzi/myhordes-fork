@@ -267,6 +267,23 @@
             <div class="padded cell rw-6 rw-md-12">
                 {% if not zone.townZone %}
                     <h5>{% trans from 'game' %}Meine Aktionen{% endtrans %}</h5>
+                    {% if zone.digs <= 0 %}
+                        <div class="note note-important">
+                            <img alt="" src="{{ asset('build/images/icons/Small_broken.gif') }}" />
+                            {% trans from 'game' %}
+                                Diese Zone ist leergesucht. Du wirst hier keine wertvollen Gegenstände mehr finden können.
+                            {% endtrans %}
+                            <a class="help-button">
+                                <div class="tooltip help">
+                                    {% trans from 'global' %}
+                                        Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
+                                        <p><em>Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..</em></p>
+                                    {% endtrans %}
+                                </div>
+                                {{ 'Hilfe'|trans({},'global') }}
+                            </a>
+                        </div>
+                    {% endif %}
                     {% if not citizen_hidden %}
                         {% if not digging %}
                             {% if zone_blocked %}
@@ -283,23 +300,6 @@
                                 </div>
                             {% endif %}
                             <div style="margin-bottom: 5px;">
-                                {% if zone.digs <= 0 %}
-                                    <div class="note note-important">
-                                        <img alt="" src="{{ asset('build/images/icons/Small_broken.gif') }}" />
-                                        {% trans from 'game' %}
-                                            Diese Zone ist leergesucht. Du wirst hier keine wertvollen Gegenstände mehr finden können.
-                                        {% endtrans %}
-                                        <a class="help-button">
-                                            <div class="tooltip help">
-                                                {% trans from 'global' %}
-                                                    Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
-                                                    <p><em>Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..</em></p>
-                                                {% endtrans %}
-                                            </div>
-                                            {{ 'Hilfe'|trans({},'global') }}
-                                        </a>
-                                    </div>
-                                {% endif %}
                                 <button id="dig_button" {% if zone_blocked or citizen.digTimeout > 0 or ( citizen.passiveDigTimer and not conf.get(constant('App\\Structures\\TownConf::CONF_MODIFIER_ALLOW_REDIGS'),false) ) %}disabled{% endif %}>
                                     {% if zone.digs <= 0 %}
                                         <img class="icon left" alt="" src="{{ asset('build/images/icons/Small_broken.gif') }}" />
