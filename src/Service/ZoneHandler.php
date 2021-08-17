@@ -174,6 +174,7 @@ class ZoneHandler
         $zone_update = false;
 
         $not_up_to_date = !empty($dig_timers_due);
+
         while ($not_up_to_date) {
             usort( $dig_timers_due, $sort_func );
             foreach ($dig_timers_due as &$timer)
@@ -215,13 +216,17 @@ class ZoneHandler
                     $found_item = $this->random_generator->chance($total_dig_chance);
                     $found_event_item = (!$found_item && $event_group && $zone->getDigs() > 0 && $this->random_generator->chance($total_dig_chance * $event_chance) );
 
+                    $cache = $timer->getDigCache() ?? [];
                     if ($found_item || $found_event_item) {
-                        $cache = $timer->getDigCache() ?? [];
+
                         $cache[$timer->getTimestamp()->getTimestamp()] = $found_event_item ? 2 : ( ($zone->getDigs() > 0) ? 1 : 0 );
-                        $timer->setDigCache($cache);
+
                         $zone->setDigs(max(0, $zone->getDigs() - 1));
                         $zone_update = true;
-                    }
+
+                    } else $cache[$timer->getTimestamp()->getTimestamp()] = -1;
+
+                    $timer->setDigCache($cache);
 
                     try {
                         $timer->setTimestamp(
@@ -235,6 +240,7 @@ class ZoneHandler
                         $timer->setTimestamp( new DateTime('+1min') );
                     }
                 }
+            usort( $dig_timers_due, $sort_func );
             $not_up_to_date = $dig_timers_due[0]->getTimestamp() < $up_to;
         }
 
@@ -253,6 +259,9 @@ class ZoneHandler
             else foreach ($executable_timer->getDigCache() as $time => $mode) {
 
                 switch ($mode) {
+                    case -1:
+                        $item_prototype = null;
+                        break;
                     case 0:
                         $item_prototype = $this->random_generator->pickItemPrototypeFromGroup( $empty_group );
                         break;
