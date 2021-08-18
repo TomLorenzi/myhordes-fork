@@ -3654,7 +3654,7 @@
       </notes>
       <segment>
         <source>Dieser Spieler ist ein Orakel auf MyHordes.</source>
-        <target>Ce lecteur est un oracle sur MyHordes.</target>
+        <target>Ce joueur est un oracle sur MyHordes.</target>
       </segment>
     </unit>
     <unit id="hiqmIxi" name="Dieser Spieler ist Mitglied des Entwickler-Teams von MyHordes.">
