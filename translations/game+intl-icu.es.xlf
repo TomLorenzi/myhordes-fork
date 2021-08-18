@@ -5110,7 +5110,7 @@
       </notes>
       <segment>
         <source>Einen Blick ins Forum werfen.</source>
-        <target>Echa un vistazo al foro.</target>
+        <target>Coordina con tus vecinos en el Foro.</target>
       </segment>
     </unit>
     <unit id=".vMt2eO" name="Meine Ration Wasser im Brunnen entnehmen (optional).">
@@ -5120,7 +5120,7 @@
       </notes>
       <segment>
         <source>Meine Ration Wasser im Brunnen entnehmen (optional).</source>
-        <target>Toma tu ración de agua del pozo (opcional).</target>
+        <target>Toma tu ración de agua en el pozo (opcional).</target>
       </segment>
     </unit>
     <unit id="UgqaO9M" name="An der Angriffsabschätzung teilnehmen">
