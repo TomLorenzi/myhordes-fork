@@ -48,6 +48,7 @@ use App\Service\InventoryHandler;
 use App\Service\TimeKeeperService;
 use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
+use App\Translation\T;
 use DateTime;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
@@ -1212,7 +1213,7 @@ class SoulController extends CustomAbstractController
 
         if ($nextDeath->getCod()->getRef() != CauseOfDeath::Poison && $nextDeath->getCod()->getRef() != CauseOfDeath::GhulEaten)
             $last_words = $parser->get('lastwords');
-        else $last_words = $this->translator->trans("...der Mörder .. ist.. IST.. AAARGHhh..", [], "game");
+        else $last_words = T::__("...der Mörder .. ist.. IST.. AAARGHhh..", "game");
 
         // Here, we delete picto with persisted = 0,
         // and definitively validate picto with persisted = 1
