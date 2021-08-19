@@ -196,7 +196,7 @@
                         {% elseif citizen.lastWords is empty %}
                             <span>{{ 'Dieser Bürger hat keine letzten Worte hinterlassen ...'|trans({}, 'game') }}</span>
                         {% else %}
-                            <b>{{"Letzte Worte:"|trans({}, 'game')}}</b> {{ citizen.lastWords }}
+                            <b>{{"Letzte Worte:"|trans({}, 'game')}}</b> {{ citizen.lastWords|trans({}, 'game') }}
                         {% endif %}
                     </div>
                 {% endif %}
