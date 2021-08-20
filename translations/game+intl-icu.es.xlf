@@ -19068,7 +19068,7 @@
       </notes>
       <segment>
         <source>Du wurdest zum Schamanen gewählt!</source>
-        <target>Du wurdest zum Schamanen gewählt!</target>
+        <target>¡Has sido elegido chamán!</target>
       </segment>
     </unit>
     <unit id="TCisbbN">
@@ -19079,7 +19079,7 @@
       </notes>
       <segment>
         <source>Du wachst heute Morgen mit einer schrecklichen Migräne auf und hast Schwierigkeiten, zu sehen... Du beschließt, aus deinem Zelt zu gehen. Die Nachbarn an denen du vorbeiläufst, neigen ihr Haupt vor dir.</source>
-        <target>Du wachst heute Morgen mit einer schrecklichen Migräne auf und hast Schwierigkeiten, zu sehen... Du beschließt, aus deinem Zelt zu gehen. Die Nachbarn an denen du vorbeiläufst, neigen ihr Haupt vor dir.</target>
+        <target>Te despiertas esta mañana con una migraña terrible y tienes problemas para ver... Decides salir de tu tienda. Los vecinos con los que pasas inclinan la cabeza frente a ti.</target>
       </segment>
     </unit>
     <unit id="c2baI8U">
@@ -19090,7 +19090,7 @@
       </notes>
       <segment>
         <source>Was ist letzte Nacht nur passiert? Du hast wohl zu heftig gefeiert. Als du die Stadtmauer erreichst, kannst du ein kleines blaues Leuchten sehen... Ja, ja, du bist in der Tat der Ausgewählte. Der Zweifel verschwindet, als du dir die Hand an den Kopf hälst: eine lächerliche Maske klebt an deinem Gesicht und reduziert dein Sehvermögen erheblich.</source>
-        <target>Was ist letzte Nacht nur passiert? Du hast wohl zu heftig gefeiert. Als du die Stadtmauer erreichst, kannst du ein kleines blaues Leuchten sehen... Ja, ja, du bist in der Tat der Ausgewählte. Der Zweifel verschwindet, als du dir die Hand an den Kopf hälst: eine lächerliche Maske klebt an deinem Gesicht und reduziert dein Sehvermögen erheblich.</target>
+        <target>¿Qué pasó anoche? Probablemente festejaste demasiado. Cuando llegas a la muralla del pueblo puedes ver un pequeño resplandor azul... Sí, sí, de hecho eres el elegido. La duda desaparece cuando te llevas la mano a la cabeza: una ridícula máscara se pega a tu rostro y reduce significativamente tu vista.</target>
       </segment>
     </unit>
     <unit id="x09E3UL" name="Du bist nun der Schamane.">
@@ -19101,7 +19101,7 @@
       </notes>
       <segment>
         <source>Du bist nun der Schamane.</source>
-        <target>Du bist nun der Schamane.</target>
+        <target>Ahora eres el chamán.</target>
       </segment>
     </unit>
     <unit id="RjuBA.9">
@@ -19112,7 +19112,7 @@
       </notes>
       <segment>
         <source>Ein neuer Horizont öffnet sich für dich: Du bist nicht länger ein gewöhnlicher Bürger, sondern ein geistiger Führer!</source>
-        <target>Ein neuer Horizont öffnet sich für dich: Du bist nicht länger ein gewöhnlicher Bürger, sondern ein geistiger Führer!</target>
+        <target>Se abre un nuevo horizonte para ti: ¡ya no eres un ciudadano común, sino un líder espiritual!</target>
       </segment>
     </unit>
     <unit id="bJt7KIt" name="Mit deinen {mp} kannst du:">
@@ -19123,7 +19123,7 @@
       </notes>
       <segment>
         <source>Mit deinen {mp} kannst du:</source>
-        <target>Mit deinen {mp} kannst du:</target>
+        <target>Con tu {mp} puedes:</target>
       </segment>
     </unit>
     <unit id="LjWDhmt" name="Die Seelen deiner verstorbenen Mitbürger lokalisieren.">
@@ -19134,7 +19134,7 @@
       </notes>
       <segment>
         <source>Die Seelen deiner verstorbenen Mitbürger lokalisieren.</source>
-        <target>Die Seelen deiner verstorbenen Mitbürger lokalisieren.</target>
+        <target>Localizar las almas de tus conciudadanos fallecidos.</target>
       </segment>
     </unit>
     <unit id="J7D2vc9" name="Schamanische Tränke für deine Nachbarn herstellen.">
@@ -19145,7 +19145,7 @@
       </notes>
       <segment>
         <source>Schamanische Tränke für deine Nachbarn herstellen.</source>
-        <target>Schamanische Tränke für deine Nachbarn herstellen.</target>
+        <target>Preparar pociones chamánicas para tus vecinos.</target>
       </segment>
     </unit>
     <unit id="LBdBsIv" name="An den Toren der Stadt oder in der Außenwelt Regen herbeirufen!">
@@ -19156,7 +19156,7 @@
       </notes>
       <segment>
         <source>An den Toren der Stadt oder in der Außenwelt Regen herbeirufen!</source>
-        <target>An den Toren der Stadt oder in der Außenwelt Regen herbeirufen!</target>
+        <target>¡Invocar lluvia a las puertas del pueblo o en el ultramundo!</target>
       </segment>
     </unit>
     <unit id="ZWHqNbl" name="Deine Nachbarn heilen, möglichst ohne sie dabei umzubringen...">
@@ -19167,7 +19167,7 @@
       </notes>
       <segment>
         <source>Deine Nachbarn heilen, möglichst ohne sie dabei umzubringen...</source>
-        <target>Deine Nachbarn heilen, möglichst ohne sie dabei umzubringen...</target>
+        <target>Curar a tus vecinos sin matarlos si es posible...</target>
       </segment>
     </unit>
     <unit id="JHQ01cl" name="Schau dir am besten gleich den {shaman_help} an.">
@@ -19178,7 +19178,7 @@
       </notes>
       <segment>
         <source>Schau dir am besten gleich den {shaman_help} an.</source>
-        <target>Schau dir am besten gleich den {shaman_help} an.</target>
+        <target>Lo mejor que puede hacer es echar un vistazo a la {shaman_help}.</target>
       </segment>
     </unit>
     <unit id="L8UIHsM" name="Schamanen-Ratgeber">
@@ -19189,7 +19189,7 @@
       </notes>
       <segment>
         <source>Schamanen-Ratgeber</source>
-        <target>Schamanen-Ratgeber</target>
+        <target>Guía del Chamán</target>
       </segment>
     </unit>
     <unit id="KqTfNKI">
@@ -19200,7 +19200,7 @@
       </notes>
       <segment>
         <source>Es enthält alle wesentlichen Informationen, um endlich deinen überlegenen Status in den Augen aller anerkennen zu lassen...</source>
-        <target>Es enthält alle wesentlichen Informationen, um endlich deinen überlegenen Status in den Augen aller anerkennen zu lassen...</target>
+        <target>Contiene toda la información esencial para que finalmente tu estatus superior sea reconocido a los ojos de todos...</target>
       </segment>
     </unit>
     <unit id="ZzQ7bDT" name="Du wurdest zum Reiseleiter in der Außenwelt gewählt!">
@@ -19211,7 +19211,7 @@
       </notes>
       <segment>
         <source>Du wurdest zum Reiseleiter in der Außenwelt gewählt!</source>
-        <target>Du wurdest zum Reiseleiter in der Außenwelt gewählt!</target>
+        <target>¡Has sido elegido para ser el guía del ultramundo!</target>
       </segment>
     </unit>
     <unit id="lMjxZHr">
@@ -19222,7 +19222,7 @@
       </notes>
       <segment>
         <source>Du wachst heute Morgen mit einem Lächeln in deinem Gesicht auf... Ein komisches Gefühl... Du verlässt dein Zelt und... die Leute salutieren dir?</source>
-        <target>Du wachst heute Morgen mit einem Lächeln in deinem Gesicht auf... Ein komisches Gefühl... Du verlässt dein Zelt und... die Leute salutieren dir?</target>
+        <target>Te despiertas esta mañana con una sonrisa en tu rostro... una sensación extraña... sales de tu tienda y... ¿la gente te saluda?</target>
       </segment>
     </unit>
     <unit id="pwrn2jS">
@@ -19233,7 +19233,7 @@
       </notes>
       <segment>
         <source>Was ist letzte Nacht nur passiert? Du hast wohl zu heftig gefeiert. Als du die Stadtmauer erreichst, spürst du... Ja, ja, du bist in der Tat der Ausgewählte. Der Zweifel verschwindet, als du den Blick in Richtung des Stadttors lenkst: Ein wahnsinniges Verlangen nach Abenteuer und Entdeckungen überkommt dich, was eigentlich eher untypisch ist...</source>
-        <target>Was ist letzte Nacht nur passiert? Du hast wohl zu heftig gefeiert. Als du die Stadtmauer erreichst, spürst du... Ja, ja, du bist in der Tat der Ausgewählte. Der Zweifel verschwindet, als du den Blick in Richtung des Stadttors lenkst: Ein wahnsinniges Verlangen nach Abenteuer und Entdeckungen überkommt dich, was eigentlich eher untypisch ist...</target>
+        <target>¿Qué pasó anoche? Probablemente festejaste demasiado. Cuando llegas a la muralla del pueblo, sientes... Sí, sí, de hecho eres el elegido. La duda desaparece cuando diriges tu mirada hacia la puerta del pueblo: estás abrumado por un loco deseo de aventura y descubrimiento, que en realidad es bastante atípico...</target>
       </segment>
     </unit>
     <unit id="M_Sa.96" name="Du bist nun der Reiseleiter in der Außenwelt.">
@@ -19244,7 +19244,7 @@
       </notes>
       <segment>
         <source>Du bist nun der Reiseleiter in der Außenwelt.</source>
-        <target>Du bist nun der Reiseleiter in der Außenwelt.</target>
+        <target>Ahora eres el guía del ultramundo.</target>
       </segment>
     </unit>
     <unit id="fytWhzm">
@@ -19255,7 +19255,7 @@
       </notes>
       <segment>
         <source>Ein neuer Horizont öffnet sich für dich: Du bist nicht länger ein gewöhnlicher Bürger, sondern ein Anführer!</source>
-        <target>Ein neuer Horizont öffnet sich für dich: Du bist nicht länger ein gewöhnlicher Bürger, sondern ein Anführer!</target>
+        <target>Se abre un nuevo horizonte para ti: ¡ya no eres un ciudadano común, sino un líder!</target>
       </segment>
     </unit>
     <unit id="nuZmjs1" name="Schau dir am besten gleich den {guide_help} an.">
@@ -19266,7 +19266,7 @@
       </notes>
       <segment>
         <source>Schau dir am besten gleich den {guide_help} an.</source>
-        <target>Schau dir am besten gleich den {guide_help} an.</target>
+        <target>Lo mejor que puede hacer es echar un vistazo a la {guide_help}.</target>
       </segment>
     </unit>
     <unit id="xElNBrl" name="Reiseleiter-Ratgeber">
@@ -19277,7 +19277,7 @@
       </notes>
       <segment>
         <source>Reiseleiter-Ratgeber</source>
-        <target>Reiseleiter-Ratgeber</target>
+        <target>Guía del Guía del Ultramundo</target>
       </segment>
     </unit>
     <unit id="9ahpfaF" name="Alle als gelesen markieren">
@@ -19338,7 +19338,7 @@
       </notes>
       <segment>
         <source>Mindestens ein Bürger in deiner Eskorte kann dir nicht folgen. Du musst die Situation in den Griff bekommen... oder die Schwachen zurücklassen.</source>
-        <target>Mindestens ein Bürger in deiner Eskorte kann dir nicht folgen. Du musst die Situation in den Griff bekommen... oder die Schwachen zurücklassen.</target>
+        <target>Al menos un ciudadano de su escolta no puede seguirlo. Tienes que controlar la situación... o dejar atrás a los débiles.</target>
       </segment>
     </unit>
     <unit id="5U6vNQX" name="Du hast aktuell keine Themen abonniert.">
@@ -19359,7 +19359,7 @@
       </notes>
       <segment>
         <source>Es weiß zwar keiner wie unser Held {citizen} das angestellt hat, aber es ist ihm gelungen aus dieser Zone direkt in die Stadt zurückzukehren... Ein Wunder!</source>
-        <target>Es weiß zwar keiner wie unser Held {citizen} das angestellt hat, aber es ist ihm gelungen aus dieser Zone direkt in die Stadt zurückzukehren... Ein Wunder!</target>
+        <target>Nadie sabe cómo {ciudadano} lo hizo, pero logró regresar de esta zona directamente a la ciudad... ¡Un milagro!</target>
       </segment>
     </unit>
     <unit id="RqmtAaX">
