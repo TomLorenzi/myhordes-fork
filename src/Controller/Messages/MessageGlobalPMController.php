@@ -1045,7 +1045,10 @@ class MessageGlobalPMController extends MessageController
         $blocked_users = [];
         $valid_non_blocked = 0;
         $users = array_filter($users, function(User $chk_user) use ($user,&$valid_non_blocked,&$blocked_users) {
-            if ($chk_user === $user) return true;
+            if ($chk_user === $user) {
+                $valid_non_blocked++;
+                return true;
+            }
             if ($this->userHandler->checkRelation($chk_user,$user,SocialRelation::SocialRelationTypeBlock)) {
                 $blocked_users[] = $chk_user;
                 return false;
