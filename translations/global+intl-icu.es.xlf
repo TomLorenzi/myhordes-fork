@@ -764,7 +764,7 @@
     <unit id="8WE8vgC" name="Rabe">
       <notes>
         <note category="german">Rabe</note>
-        <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Rabe</source>
@@ -2759,18 +2759,6 @@
         <target>Ingrese su nombre</target>
       </segment>
     </unit>
-    <unit id="HAtmchb">
-      <notes>
-        <note category="german">Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
-                                    &lt;p&gt;&lt;em&gt;Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..&lt;/em&gt;&lt;/p&gt;</note>
-        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
-      </notes>
-      <segment>
-        <source>Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
-                                    &lt;p&gt;&lt;em&gt;Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..&lt;/em&gt;&lt;/p&gt;</source>
-        <target><![CDATA[La cantidad de montículos de tierra y de desechos te indica que sin duda no queda nada aquí. <p><em>Si embargo puedes seguir escarbando, tal vez encuentres objetos de poco valor para las construcciones en el pueblo.</em></p>]]></target>
-      </segment>
-    </unit>
     <unit id="mU.wJHS" name="Dein Icon">
       <notes>
         <note category="german">Dein Icon</note>
@@ -3523,19 +3511,6 @@
         <target>Herramientas-comunitarias</target>
       </segment>
     </unit>
-    <unit id="kOI7gR8">
-      <notes>
-        <note category="german">Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
-                                                    &lt;p&gt;&lt;em&gt;Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..&lt;/em&gt;&lt;/p&gt;</note>
-        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
-      </notes>
-      <segment>
-        <source>Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
-                                                    &lt;p&gt;&lt;em&gt;Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..&lt;/em&gt;&lt;/p&gt;</source>
-        <target><![CDATA[La gran cantidad de montones de tierra y basura que hay por ahí son un indicio de que probablemente no quede nada por encontrar aquí.
-                                                    <p><em>Sin embargo, si lo desea, puede seguir cavando y desenterrando algunos materiales inferiores para los distintos sitios de construcción del pueblo.</em></p>]]></target>
-      </segment>
-    </unit>
     <unit id="aD.KBg0" name="Posteingang">
       <notes>
         <note category="german">Posteingang</note>
@@ -3664,6 +3639,19 @@
       <segment>
         <source>Dieser Spieler ist Mitglied des Entwickler-Teams von MyHordes.</source>
         <target>Este jugador es miembro del equipo de desarrollo de MyHordes.</target>
+      </segment>
+    </unit>
+    <unit id="9RwexXo">
+      <notes>
+        <note category="german">Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
+                                        &lt;p&gt;&lt;em&gt;Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..&lt;/em&gt;&lt;/p&gt;</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+      </notes>
+      <segment>
+        <source>Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
+                                        &lt;p&gt;&lt;em&gt;Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..&lt;/em&gt;&lt;/p&gt;</source>
+        <target><![CDATA[La gran cantidad de montones de tierra y basura que hay por ahí son un indicio de que probablemente no quede nada por encontrar aquí.
+                                                    <p><em>Sin embargo, si lo desea, puede seguir cavando y desenterrando algunos materiales inferiores para los distintos sitios de construcción del pueblo.</em></p>]]></target>
       </segment>
     </unit>
   </file>

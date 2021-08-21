@@ -231,6 +231,11 @@ class TownController extends InventoryAwareController
         $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$town->getDay());
         $has_estimated = ($est && ($est->getCitizens()->contains($this->getActiveCitizen()))) || (!$has_zombie_est_tomorrow && $zeds_today[3] >= 100) || ($has_zombie_est_tomorrow && $zeds_tomorrow[3] >= 100);
 
+        $additional_bullets = [];
+        $additional_situation = [];
+        foreach ($this->conf->getCurrentEvents($town) as $e)
+            $e->hook_dashboard($town, $additional_bullets, $additional_situation);
+
         return $this->render( 'ajax/game/town/dashboard.html.twig', $this->addDefaultTwigArgs(null, [
             'town' => $town,
             'def' => $this->town_handler->calculate_town_def($town, $defSummary),
@@ -253,7 +258,9 @@ class TownController extends InventoryAwareController
             'has_upgraded_house' => $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_home_upgrade'),
             'can_edit_blackboard' => $can_edit_blackboard,
             'has_dictator' => $has_dictator,
-            'new_coa_message' => $messages
+            'new_coa_message' => $messages,
+            'additional_bullet_points' => $additional_bullets,
+            'additional_situation_points' => $additional_situation
         ]) );
     }
 

@@ -19,5 +19,5 @@ class T
      * @param string $domain
      * @return string
      */
-    public static function __(string $s, string $domain = 'messages') { return $s; }
+    public static function __(string $s, string $domain = 'messages'): string { return $s; }
 }

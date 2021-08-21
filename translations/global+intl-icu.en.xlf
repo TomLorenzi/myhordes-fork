@@ -796,7 +796,7 @@
     <unit id="8WE8vgC" name="Rabe">
       <notes>
         <note category="german">Rabe</note>
-        <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Rabe</source>
@@ -2783,18 +2783,6 @@
         <target>Enter a name</target>
       </segment>
     </unit>
-    <unit id="HAtmchb">
-      <notes>
-        <note category="german">Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
-                                    &lt;p&gt;&lt;em&gt;Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..&lt;/em&gt;&lt;/p&gt;</note>
-        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
-      </notes>
-      <segment>
-        <source>Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
-                                    &lt;p&gt;&lt;em&gt;Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..&lt;/em&gt;&lt;/p&gt;</source>
-        <target><![CDATA[The number of mounds of earth and debris show that there is doubtless not much left here to find. <p><em>You can continue searching for poor quality resources for construction sites though...</em></p>]]></target>
-      </segment>
-    </unit>
     <unit id="mU.wJHS" name="Dein Icon">
       <notes>
         <note category="german">Dein Icon</note>
@@ -3550,19 +3538,6 @@
         <target>Community Tools</target>
       </segment>
     </unit>
-    <unit id="kOI7gR8">
-      <notes>
-        <note category="german">Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
-                                                    &lt;p&gt;&lt;em&gt;Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..&lt;/em&gt;&lt;/p&gt;</note>
-        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
-      </notes>
-      <segment>
-        <source>Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
-                                                    &lt;p&gt;&lt;em&gt;Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..&lt;/em&gt;&lt;/p&gt;</source>
-        <target><![CDATA[The number of mounds of earth and debris show that there is doubtless not much left here to find.
-                                                    <p><em>You can continue searching for poor quality resources for construction sites though...</em></p>]]></target>
-      </segment>
-    </unit>
     <unit id="aD.KBg0" name="Posteingang">
       <notes>
         <note category="german">Posteingang</note>
@@ -3691,6 +3666,18 @@
       <segment>
         <source>Dieser Spieler ist Mitglied des Entwickler-Teams von MyHordes.</source>
         <target>This player is part of the MyHordes Development Team.</target>
+      </segment>
+    </unit>
+    <unit id="9RwexXo">
+      <notes>
+        <note category="german">Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
+                                        &lt;p&gt;&lt;em&gt;Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..&lt;/em&gt;&lt;/p&gt;</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+      </notes>
+      <segment>
+        <source>Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
+                                        &lt;p&gt;&lt;em&gt;Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..&lt;/em&gt;&lt;/p&gt;</source>
+        <target><![CDATA[The number of mounds of earth and debris show that there is doubtless not much left here to find. <p><em>You can continue searching for poor quality resources for construction sites though...</em></p>]]></target>
       </segment>
     </unit>
   </file>

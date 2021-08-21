@@ -2366,7 +2366,7 @@
     <unit id="72h0.SN" name="Ghul">
       <notes>
         <note category="german">Ghul</note>
-        <note category="from">db://CitizenRole;db://CitizenStatus;twig:///templates/ajax/game/town/town.html.twig</note>
+        <note category="from">db://CitizenRole;twig:///templates/ajax/game/town/town.html.twig</note>
       </notes>
       <segment>
         <source>Ghul</source>
@@ -7675,7 +7675,7 @@
     <unit id="396xkzr" name="...der Mörder .. ist.. IST.. AAARGHhh..">
       <notes>
         <note category="german">...der Mörder .. ist.. IST.. AAARGHhh..</note>
-        <note category="from">php:///src/Controller/Soul/SoulController.php</note>
+        <note category="from">php:///src/Controller/ExternalXML2Controller.php;twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/soul/season.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
       </notes>
       <segment>
         <source>...der Mörder .. ist.. IST.. AAARGHhh..</source>
@@ -22083,7 +22083,6 @@
       <notes>
         <note category="german">Dieser Aussätzige wurde kurzerhand &lt;strong&gt;gekreuzigt&lt;/strong&gt;.</note>
         <note category="from">php:///src/Controller/Town/TownController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Dieser Aussätzige wurde kurzerhand &lt;strong&gt;gekreuzigt&lt;/strong&gt;.</source>
@@ -22094,7 +22093,6 @@
       <notes>
         <note category="german">Das Schokoladenkreuz wurde von den Bürgern im Rahmen dieses tragischen Ereignisses &lt;strong&gt;gegessen&lt;/strong&gt;!</note>
         <note category="from">php:///src/Controller/Town/TownController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Das Schokoladenkreuz wurde von den Bürgern im Rahmen dieses tragischen Ereignisses &lt;strong&gt;gegessen&lt;/strong&gt;!</source>
@@ -22185,6 +22183,105 @@ cette violente opération...]]></target>
       <segment>
         <source>In der (&lt;strong&gt;leeren&lt;/strong&gt;) Zone graben</source>
         <target><![CDATA[Fouiller (<strong>zone épuisée</strong>)]]></target>
+      </segment>
+    </unit>
+    <unit id="Szio5gY" name="Tod durch die Apokalypse">
+      <notes>
+        <note category="german">Tod durch die Apokalypse</note>
+        <note category="from">db://CauseOfDeath</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Tod durch die Apokalypse</source>
+        <target>Tod durch die Apokalypse</target>
+      </segment>
+    </unit>
+    <unit id="EhRWrg3">
+      <notes>
+        <note category="german">Eine Katastrophe apokalyptischen Ausmaßes hat dich, deine Stadt und alles in der Umgebung hinweggefegt. Es ist, als hätte jemand die gesamte Welt... gereinigt.</note>
+        <note category="from">db://CauseOfDeath</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Eine Katastrophe apokalyptischen Ausmaßes hat dich, deine Stadt und alles in der Umgebung hinweggefegt. Es ist, als hätte jemand die gesamte Welt... gereinigt.</source>
+        <target>Eine Katastrophe apokalyptischen Ausmaßes hat dich, deine Stadt und alles in der Umgebung hinweggefegt. Es ist, als hätte jemand die gesamte Welt... gereinigt.</target>
+      </segment>
+    </unit>
+    <unit id="TI4f6dK">
+      <notes>
+        <note category="german">Vereinzelte Bürger berichten von einem merkwürdigen Phänomen am Himmel... Ihr solltet die Alkoholvorräte in der Bank pürfen.</note>
+        <note category="from">php:///src/Structures/Hook.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Vereinzelte Bürger berichten von einem merkwürdigen Phänomen am Himmel... Ihr solltet die Alkoholvorräte in der Bank pürfen.</source>
+        <target>Vereinzelte Bürger berichten von einem merkwürdigen Phänomen am Himmel... Ihr solltet die Alkoholvorräte in der Bank pürfen.</target>
+      </segment>
+    </unit>
+    <unit id="J1ZyqLO">
+      <notes>
+        <note category="german">Einige Bürger haben berichtet, während ihrer Abschätzung ein rotes Blitzen am Horizont gesehen zu haben.</note>
+        <note category="from">php:///src/Structures/Hook.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Einige Bürger haben berichtet, während ihrer Abschätzung ein rotes Blitzen am Horizont gesehen zu haben.</source>
+        <target>Einige Bürger haben berichtet, während ihrer Abschätzung ein rotes Blitzen am Horizont gesehen zu haben.</target>
+      </segment>
+    </unit>
+    <unit id="kXaqluQ">
+      <notes>
+        <note category="german">Ein Großteil der Bürger, die heute auf dem Wachturm waren, haben ein lautes Grollen in der Ferne vernommen.</note>
+        <note category="from">php:///src/Structures/Hook.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Ein Großteil der Bürger, die heute auf dem Wachturm waren, haben ein lautes Grollen in der Ferne vernommen.</source>
+        <target>Ein Großteil der Bürger, die heute auf dem Wachturm waren, haben ein lautes Grollen in der Ferne vernommen.</target>
+      </segment>
+    </unit>
+    <unit id=".8QsYID">
+      <notes>
+        <note category="german">Zusatzbemerkung zur heutigen Abschätzung: Der Himmel hat sich blutrot gefärbt. Das sieht nicht gut aus, Leute...</note>
+        <note category="from">php:///src/Structures/Hook.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Zusatzbemerkung zur heutigen Abschätzung: Der Himmel hat sich blutrot gefärbt. Das sieht nicht gut aus, Leute...</source>
+        <target>Zusatzbemerkung zur heutigen Abschätzung: Der Himmel hat sich blutrot gefärbt. Das sieht nicht gut aus, Leute...</target>
+      </segment>
+    </unit>
+    <unit id="2soUcg3">
+      <notes>
+        <note category="german">Das sieht nicht gut aus... Die Zombies werden heute Nacht nicht unser größtes Problem sein.</note>
+        <note category="from">php:///src/Structures/Hook.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Das sieht nicht gut aus... Die Zombies werden heute Nacht nicht unser größtes Problem sein.</source>
+        <target>Das sieht nicht gut aus... Die Zombies werden heute Nacht nicht unser größtes Problem sein.</target>
+      </segment>
+    </unit>
+    <unit id="SnHKJah" name="Beten">
+      <notes>
+        <note category="german">Beten</note>
+        <note category="from">php:///src/Structures/Hook.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Beten</source>
+        <target>Beten</target>
+      </segment>
+    </unit>
+    <unit id="yOOoIBM" name="Es gibt keine Hoffnung!">
+      <notes>
+        <note category="german">Es gibt keine Hoffnung!</note>
+        <note category="from">php:///src/Structures/Hook.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Es gibt keine Hoffnung!</source>
+        <target>Es gibt keine Hoffnung!</target>
       </segment>
     </unit>
   </file>

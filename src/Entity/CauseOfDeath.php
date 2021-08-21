@@ -58,6 +58,7 @@ class CauseOfDeath
     const ExplosiveDoormat = 17;  // Old : 18;
     const Haunted          = 18;  // Old : 17;
     const Radiations       = 19;  // Old : 16;
+    const Apocalypse       = 20;  // Old : --
 
     /**
      * @ORM\Id()

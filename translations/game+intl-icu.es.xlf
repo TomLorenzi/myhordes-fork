@@ -2399,7 +2399,7 @@
     <unit id="72h0.SN" name="Ghul">
       <notes>
         <note category="german">Ghul</note>
-        <note category="from">db://CitizenRole;db://CitizenStatus;twig:///templates/ajax/game/town/town.html.twig</note>
+        <note category="from">db://CitizenRole;twig:///templates/ajax/game/town/town.html.twig</note>
       </notes>
       <segment>
         <source>Ghul</source>
@@ -7651,7 +7651,7 @@
     <unit id="396xkzr" name="...der Mörder .. ist.. IST.. AAARGHhh..">
       <notes>
         <note category="german">...der Mörder .. ist.. IST.. AAARGHhh..</note>
-        <note category="from">php:///src/Controller/Soul/SoulController.php</note>
+        <note category="from">php:///src/Controller/ExternalXML2Controller.php;twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/soul/season.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
       </notes>
       <segment>
         <source>...der Mörder .. ist.. IST.. AAARGHhh..</source>
@@ -19063,7 +19063,6 @@
     <unit id="cNyto3M" name="Du wurdest zum Schamanen gewählt!">
       <notes>
         <note category="german">Du wurdest zum Schamanen gewählt!</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/notifications/shaman.html.twig</note>
       </notes>
       <segment>
@@ -19074,7 +19073,6 @@
     <unit id="TCisbbN">
       <notes>
         <note category="german">Du wachst heute Morgen mit einer schrecklichen Migräne auf und hast Schwierigkeiten, zu sehen... Du beschließt, aus deinem Zelt zu gehen. Die Nachbarn an denen du vorbeiläufst, neigen ihr Haupt vor dir.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/notifications/shaman.html.twig</note>
       </notes>
       <segment>
@@ -19085,7 +19083,6 @@
     <unit id="c2baI8U">
       <notes>
         <note category="german">Was ist letzte Nacht nur passiert? Du hast wohl zu heftig gefeiert. Als du die Stadtmauer erreichst, kannst du ein kleines blaues Leuchten sehen... Ja, ja, du bist in der Tat der Ausgewählte. Der Zweifel verschwindet, als du dir die Hand an den Kopf hälst: eine lächerliche Maske klebt an deinem Gesicht und reduziert dein Sehvermögen erheblich.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/notifications/shaman.html.twig</note>
       </notes>
       <segment>
@@ -19096,7 +19093,6 @@
     <unit id="x09E3UL" name="Du bist nun der Schamane.">
       <notes>
         <note category="german">Du bist nun der Schamane.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/notifications/shaman.html.twig</note>
       </notes>
       <segment>
@@ -19107,7 +19103,6 @@
     <unit id="RjuBA.9">
       <notes>
         <note category="german">Ein neuer Horizont öffnet sich für dich: Du bist nicht länger ein gewöhnlicher Bürger, sondern ein geistiger Führer!</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/notifications/shaman.html.twig</note>
       </notes>
       <segment>
@@ -19118,7 +19113,6 @@
     <unit id="bJt7KIt" name="Mit deinen {mp} kannst du:">
       <notes>
         <note category="german">Mit deinen {mp} kannst du:</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/notifications/shaman.html.twig</note>
       </notes>
       <segment>
@@ -19129,7 +19123,6 @@
     <unit id="LjWDhmt" name="Die Seelen deiner verstorbenen Mitbürger lokalisieren.">
       <notes>
         <note category="german">Die Seelen deiner verstorbenen Mitbürger lokalisieren.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/notifications/shaman.html.twig</note>
       </notes>
       <segment>
@@ -19140,7 +19133,6 @@
     <unit id="J7D2vc9" name="Schamanische Tränke für deine Nachbarn herstellen.">
       <notes>
         <note category="german">Schamanische Tränke für deine Nachbarn herstellen.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/notifications/shaman.html.twig</note>
       </notes>
       <segment>
@@ -19151,7 +19143,6 @@
     <unit id="LBdBsIv" name="An den Toren der Stadt oder in der Außenwelt Regen herbeirufen!">
       <notes>
         <note category="german">An den Toren der Stadt oder in der Außenwelt Regen herbeirufen!</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/notifications/shaman.html.twig</note>
       </notes>
       <segment>
@@ -19162,7 +19153,6 @@
     <unit id="ZWHqNbl" name="Deine Nachbarn heilen, möglichst ohne sie dabei umzubringen...">
       <notes>
         <note category="german">Deine Nachbarn heilen, möglichst ohne sie dabei umzubringen...</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/notifications/shaman.html.twig</note>
       </notes>
       <segment>
@@ -19173,7 +19163,6 @@
     <unit id="JHQ01cl" name="Schau dir am besten gleich den {shaman_help} an.">
       <notes>
         <note category="german">Schau dir am besten gleich den {shaman_help} an.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/notifications/shaman.html.twig</note>
       </notes>
       <segment>
@@ -19184,7 +19173,6 @@
     <unit id="L8UIHsM" name="Schamanen-Ratgeber">
       <notes>
         <note category="german">Schamanen-Ratgeber</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/notifications/shaman.html.twig</note>
       </notes>
       <segment>
@@ -19195,7 +19183,6 @@
     <unit id="KqTfNKI">
       <notes>
         <note category="german">Er enthält alle wesentlichen Informationen, um endlich deinen überlegenen Status in den Augen aller anerkennen zu lassen...</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/notifications/guide.html.twig;twig:///templates/ajax/game/notifications/shaman.html.twig</note>
       </notes>
       <segment>
@@ -19206,7 +19193,6 @@
     <unit id="ZzQ7bDT" name="Du wurdest zum Reiseleiter in der Außenwelt gewählt!">
       <notes>
         <note category="german">Du wurdest zum Reiseleiter in der Außenwelt gewählt!</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/notifications/guide.html.twig</note>
       </notes>
       <segment>
@@ -19217,7 +19203,6 @@
     <unit id="lMjxZHr">
       <notes>
         <note category="german">Du wachst heute Morgen mit einem Lächeln in deinem Gesicht auf... Ein komisches Gefühl... Du verlässt dein Zelt und... die Leute salutieren dir?</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/notifications/guide.html.twig</note>
       </notes>
       <segment>
@@ -19228,7 +19213,6 @@
     <unit id="pwrn2jS">
       <notes>
         <note category="german">Was ist letzte Nacht nur passiert? Du hast wohl zu heftig gefeiert. Als du die Stadtmauer erreichst, spürst du... Ja, ja, du bist in der Tat der Ausgewählte. Der Zweifel verschwindet, als du den Blick in Richtung des Stadttors lenkst: Ein wahnsinniges Verlangen nach Abenteuer und Entdeckungen überkommt dich, was eigentlich eher untypisch ist...</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/notifications/guide.html.twig</note>
       </notes>
       <segment>
@@ -19239,7 +19223,6 @@
     <unit id="M_Sa.96" name="Du bist nun der Reiseleiter in der Außenwelt.">
       <notes>
         <note category="german">Du bist nun der Reiseleiter in der Außenwelt.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/notifications/guide.html.twig</note>
       </notes>
       <segment>
@@ -19250,7 +19233,6 @@
     <unit id="fytWhzm">
       <notes>
         <note category="german">Ein neuer Horizont öffnet sich für dich: Du bist nicht länger ein gewöhnlicher Bürger, sondern ein Anführer!</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/notifications/guide.html.twig</note>
       </notes>
       <segment>
@@ -19261,7 +19243,6 @@
     <unit id="nuZmjs1" name="Schau dir am besten gleich den {guide_help} an.">
       <notes>
         <note category="german">Schau dir am besten gleich den {guide_help} an.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/notifications/guide.html.twig</note>
       </notes>
       <segment>
@@ -19272,7 +19253,6 @@
     <unit id="xElNBrl" name="Reiseleiter-Ratgeber">
       <notes>
         <note category="german">Reiseleiter-Ratgeber</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/notifications/guide.html.twig</note>
       </notes>
       <segment>
@@ -19333,7 +19313,6 @@
     <unit id="uK7igyD">
       <notes>
         <note category="german">Mindestens ein Bürger in deiner Eskorte kann dir nicht folgen. Du musst die Situation in den Griff bekommen... oder die Schwachen zurücklassen.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/scripts/errors/beyond.txt.twig</note>
       </notes>
       <segment>
@@ -19354,7 +19333,6 @@
     <unit id="K56ofiL">
       <notes>
         <note category="german">Es weiß zwar keiner wie unser Held {citizen} das angestellt hat, aber es ist ihm gelungen aus dieser Zone direkt in die Stadt zurückzukehren... Ein Wunder!</note>
-        <note category="state">new</note>
         <note category="from">db://LogEntryTemplate</note>
       </notes>
       <segment>
@@ -20097,7 +20075,6 @@
     <unit id="vScXMoh">
       <notes>
         <note category="german">Du kannst versuchen, diesen Bürger zu heilen, aber nichts ist garantiert... und hüte dich vor Nebenwirkungen!</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
@@ -22423,6 +22400,105 @@
       <segment>
         <source>In der (&lt;strong&gt;leeren&lt;/strong&gt;) Zone graben</source>
         <target><![CDATA[Escarbar (<strong>zona agotada</strong>)]]></target>
+      </segment>
+    </unit>
+    <unit id="Szio5gY" name="Tod durch die Apokalypse">
+      <notes>
+        <note category="german">Tod durch die Apokalypse</note>
+        <note category="from">db://CauseOfDeath</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Tod durch die Apokalypse</source>
+        <target>Tod durch die Apokalypse</target>
+      </segment>
+    </unit>
+    <unit id="EhRWrg3">
+      <notes>
+        <note category="german">Eine Katastrophe apokalyptischen Ausmaßes hat dich, deine Stadt und alles in der Umgebung hinweggefegt. Es ist, als hätte jemand die gesamte Welt... gereinigt.</note>
+        <note category="from">db://CauseOfDeath</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Eine Katastrophe apokalyptischen Ausmaßes hat dich, deine Stadt und alles in der Umgebung hinweggefegt. Es ist, als hätte jemand die gesamte Welt... gereinigt.</source>
+        <target>Eine Katastrophe apokalyptischen Ausmaßes hat dich, deine Stadt und alles in der Umgebung hinweggefegt. Es ist, als hätte jemand die gesamte Welt... gereinigt.</target>
+      </segment>
+    </unit>
+    <unit id="TI4f6dK">
+      <notes>
+        <note category="german">Vereinzelte Bürger berichten von einem merkwürdigen Phänomen am Himmel... Ihr solltet die Alkoholvorräte in der Bank pürfen.</note>
+        <note category="from">php:///src/Structures/Hook.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Vereinzelte Bürger berichten von einem merkwürdigen Phänomen am Himmel... Ihr solltet die Alkoholvorräte in der Bank pürfen.</source>
+        <target>Vereinzelte Bürger berichten von einem merkwürdigen Phänomen am Himmel... Ihr solltet die Alkoholvorräte in der Bank pürfen.</target>
+      </segment>
+    </unit>
+    <unit id="J1ZyqLO">
+      <notes>
+        <note category="german">Einige Bürger haben berichtet, während ihrer Abschätzung ein rotes Blitzen am Horizont gesehen zu haben.</note>
+        <note category="from">php:///src/Structures/Hook.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Einige Bürger haben berichtet, während ihrer Abschätzung ein rotes Blitzen am Horizont gesehen zu haben.</source>
+        <target>Einige Bürger haben berichtet, während ihrer Abschätzung ein rotes Blitzen am Horizont gesehen zu haben.</target>
+      </segment>
+    </unit>
+    <unit id="kXaqluQ">
+      <notes>
+        <note category="german">Ein Großteil der Bürger, die heute auf dem Wachturm waren, haben ein lautes Grollen in der Ferne vernommen.</note>
+        <note category="from">php:///src/Structures/Hook.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Ein Großteil der Bürger, die heute auf dem Wachturm waren, haben ein lautes Grollen in der Ferne vernommen.</source>
+        <target>Ein Großteil der Bürger, die heute auf dem Wachturm waren, haben ein lautes Grollen in der Ferne vernommen.</target>
+      </segment>
+    </unit>
+    <unit id=".8QsYID">
+      <notes>
+        <note category="german">Zusatzbemerkung zur heutigen Abschätzung: Der Himmel hat sich blutrot gefärbt. Das sieht nicht gut aus, Leute...</note>
+        <note category="from">php:///src/Structures/Hook.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Zusatzbemerkung zur heutigen Abschätzung: Der Himmel hat sich blutrot gefärbt. Das sieht nicht gut aus, Leute...</source>
+        <target>Zusatzbemerkung zur heutigen Abschätzung: Der Himmel hat sich blutrot gefärbt. Das sieht nicht gut aus, Leute...</target>
+      </segment>
+    </unit>
+    <unit id="2soUcg3">
+      <notes>
+        <note category="german">Das sieht nicht gut aus... Die Zombies werden heute Nacht nicht unser größtes Problem sein.</note>
+        <note category="from">php:///src/Structures/Hook.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Das sieht nicht gut aus... Die Zombies werden heute Nacht nicht unser größtes Problem sein.</source>
+        <target>Das sieht nicht gut aus... Die Zombies werden heute Nacht nicht unser größtes Problem sein.</target>
+      </segment>
+    </unit>
+    <unit id="SnHKJah" name="Beten">
+      <notes>
+        <note category="german">Beten</note>
+        <note category="from">php:///src/Structures/Hook.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Beten</source>
+        <target>Beten</target>
+      </segment>
+    </unit>
+    <unit id="yOOoIBM" name="Es gibt keine Hoffnung!">
+      <notes>
+        <note category="german">Es gibt keine Hoffnung!</note>
+        <note category="from">php:///src/Structures/Hook.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Es gibt keine Hoffnung!</source>
+        <target>Es gibt keine Hoffnung!</target>
       </segment>
     </unit>
   </file>

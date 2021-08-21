@@ -557,14 +557,16 @@ class TownHandler
         $max = round($max * $soulFactor);
 
         $quality = min(($cc_offset + $est->getCitizens()->count()*$ratio) / 24, 1);
+        $message = null;
         foreach ($this->conf->getCurrentEvents($town) as $e)
-            $e->hook_watchtower_estimations($min,$max, $town);
+            $e->hook_watchtower_estimations($min,$max, $town, 0, $quality, $message);
 
         $estim = new WatchtowerEstimation();
         $estim->setMin($min);
         $estim->setMax($max);
         $estim->setEstimation($quality);
         $estim->setFuture(0);
+        $estim->setMessage($message);
 
         $result = [$estim];
 
@@ -604,14 +606,16 @@ class TownHandler
 
             $quality2 = min($calculateUntil / 24, 1);
 
+            $message2 = null;
             foreach ($this->conf->getCurrentEvents($town) as $e)
-                $e->hook_watchtower_estimations($min2,$max2, $town);
+                $e->hook_watchtower_estimations($min2,$max2, $town, 1, $quality2, $message2);
 
             $estim2 = new WatchtowerEstimation();
             $estim2->setMin($min2);
             $estim2->setMax($max2);
             $estim2->setEstimation($quality2);
             $estim2->setFuture(1);
+            $estim2->setMessage($message2);
             $result[] = $estim2;
         }
 
