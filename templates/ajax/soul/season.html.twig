@@ -106,7 +106,7 @@
                                                 <a class="link username" href="{{ path('soul_visit', {id: denizen.user.id}) }}">{{ denizen.user.name }}</a>
                                             </div>
                                             <div class="cell padded rw-1" style="color:#f8eacb">{{ denizen.day }}</div>
-                                            <div class="cell padded rw-4"><em>{{ denizen.lastWords|trans({}, 'game') }}</em></div>
+                                            <div class="cell padded rw-4"><em>{{ denizen.lastWords|replace({'{gotKilled}': '...der Mörder .. ist.. IST.. AAARGHhh..'|trans({},'game')}) }}</em></div>
                                         </li>
                                     {% endfor %}
                                 </ul>

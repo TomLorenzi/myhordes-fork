@@ -1212,8 +1212,8 @@ class SoulController extends CustomAbstractController
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         if ($nextDeath->getCod()->getRef() != CauseOfDeath::Poison && $nextDeath->getCod()->getRef() != CauseOfDeath::GhulEaten)
-            $last_words = $parser->get('lastwords');
-        else $last_words = T::__("...der Mörder .. ist.. IST.. AAARGHhh..", "game");
+            $last_words = str_replace(['{','}'], ['(',')'], $parser->get('lastwords'));
+        else $last_words = '{gotKilled}';
 
         // Here, we delete picto with persisted = 0,
         // and definitively validate picto with persisted = 1
