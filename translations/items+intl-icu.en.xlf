@@ -7619,7 +7619,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Die Medizin gibt dir Kraft: Du bist jetzt immun gegen Infektionen und kannst nicht in einen Ghul verwandelt werden. Diese Wirkung lässt nach dem Angriff nach.</source>
-        <target>Medicine gives you strength: You are now immune to infections and cannot be turned into a ghoul. This effect wears off after the attack.</target>
+        <target><![CDATA[The medicine has given you strength: you are now immune to infections, and cannot be transformed into a Ghoul. <strong>This effect will wear off following the attack</strong>.]]></target>
       </segment>
     </unit>
     <unit id="hkUU8xN">
@@ -7749,7 +7749,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Das {item} beginnt rasch zu wirken. Das Fieber klingt ab, dein Herz beginnt wieder in einem halbwegs normalen Takt zu schlagen... Du warst nicht weit von einem schrecklichen Tod entfernt.</source>
-        <target>The {item} rapidly takes effect. The fever subsides, your heart starts beating at a a semi-normal rate again... You weren't far away from a horrible death.</target>
+        <target><![CDATA[The {item} rapidly takes effect. <strong>The fever subsides</strong>, your heart starts beating at a a semi-normal rate again... You weren't far away from a horrible death.]]></target>
       </segment>
     </unit>
     <unit id="xWENNfP" name="Gequälte Seele">
