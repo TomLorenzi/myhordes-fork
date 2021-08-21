@@ -16409,7 +16409,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Einen Bürger heimbringen:</source>
-        <target>Einen Bürger heimbringen:</target>
+        <target>Escort a citizen:</target>
       </segment>
     </unit>
     <unit id="k9pQbZw" name="inmitten eines unentwirrbaren Trümmerhaufens">
@@ -16483,7 +16483,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du hast {num} anonyme Anzeige(n) erhalten.</source>
-        <target>You have received {num} anonyous complaints.</target>
+        <target>You have received {num} anonymous complaints.</target>
       </segment>
     </unit>
     <unit id="khbCWBV" name="Sollte diese Zahl auf 8 ansteigen, wirst du verbannt!">
@@ -16503,7 +16503,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Grund:</source>
-        <target>Reason :</target>
+        <target>Reason:</target>
       </segment>
     </unit>
     <unit id="7aCcCH1" name="Wählen">
