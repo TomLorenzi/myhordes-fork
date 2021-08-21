@@ -68,7 +68,7 @@
       </notes>
       <segment>
         <source>Du ziehst eine Karte... und stellst fest, dass dein Name darauf mit Blut geschrieben steht! Du erstarrst vor Schreck!</source>
-        <target>Vous tirez une carte... Vous poussez un hurlement en découvrant votre nom écrit en lettre de sang sur celle-ci ! Vous ignorez qui est à l'origine de cette blague de très mauvais goût... Vous êtes maintenant terrorisé(e) !</target>
+        <target><![CDATA[Vous tirez une carte... Vous poussez un hurlement en découvrant <strong>votre nom écrit en lettre de sang</strong> sur celle-ci ! Vous ignorez qui est à l'origine de cette blague de très mauvais goût...{hr}Vous êtes maintenant <strong>terrorisé(e)</strong> !]]></target>
       </segment>
     </unit>
     <unit id="NcJ93EV">
