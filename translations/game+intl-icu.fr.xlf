@@ -8663,7 +8663,7 @@
       </notes>
       <segment>
         <source>{attacker} ist {defender} an die Gurgel gesprungen und hat ihn ohne mit der Wimper zu zucken verspeist!</source>
-        <target>{attacker} a sauté à la gorge de {defender} et l'a mangé sans battre une paupière !</target>
+        <target>{attacker} s'est jeté à la gorge de {defender} et l'a dévoré(e) !!</target>
       </segment>
     </unit>
     <unit id="Qlh.l61">
