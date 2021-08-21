@@ -97,7 +97,7 @@
     </div>
 
     {% if not owner.alive and owner.hasRole('ghoul') %}
-        <div class="note note-critical note-critical-big">
+        <div class="note note-critical">
             {% trans with {'{user}': owner.name} from 'game' %}
                 Die offensichtlichen Spuren zeigen, dass {user} die Grenzen zum Wahnsinn überschritten haben muss: abgenagte Knochen, zerfetzte menschliche Gliedmaßen, halb aufgegessene Tierreste... Sein ehemaliges Zuhause ist ein veritables stinkendes Massengrab, das keinen Zweifel zulässt: <strong>{user} war ein Ghoul</strong>!
             {% endtrans %}
