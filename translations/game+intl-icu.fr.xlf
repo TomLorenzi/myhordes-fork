@@ -16359,7 +16359,7 @@
       </notes>
       <segment>
         <source>Einen Bürger heimbringen:</source>
-        <target>Ramener un citoyen:</target>
+        <target>Ramener un citoyen :</target>
       </segment>
     </unit>
     <unit id="Whw_2bO" name="Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) {home} verwandelt.">
@@ -21391,7 +21391,7 @@
       </notes>
       <segment>
         <source>&lt;strong&gt;Verlust der Zonenkontrolle&lt;/strong&gt;: Die Suchen von {citizen} wurden unterbrochen!</source>
-        <target><![CDATA[<strong>Perte de contrôle</strong> : les fouilles de {citizen} ont été interrompues !]]></target>
+        <target><![CDATA[<span>Perte de contrôle :</span> les fouilles de {citizen} ont été interrompues !]]></target>
       </segment>
     </unit>
     <unit id="2L4fAWv">
@@ -21401,7 +21401,7 @@
       </notes>
       <segment>
         <source>{citizen} hat die Zone verlassen, &lt;strong&gt;die Zombies werden in wenigen Minuten die Kontrolle erlangen wenn wir nichts unternehmen.&lt;/strong&gt;</source>
-        <target><![CDATA[{citizen} est parti(e), <strong>la zone va repasser sous le contrôle des zombies dans quelques minutes si rien n'est fait</strong>.]]></target>
+        <target><![CDATA[{citizen} est parti(e), <span>la zone va repasser sous le contrôle des zombies dans quelques minutes si rien n'est fait</span>.]]></target>
       </segment>
     </unit>
     <unit id="QZHPoCR" name="&lt;span&gt;Es ist soweit: Der Schmaus kann beginnen!&lt;/span&gt;">
@@ -21411,7 +21411,7 @@
       </notes>
       <segment>
         <source>&lt;span&gt;Es ist soweit: Der Schmaus kann beginnen!&lt;/span&gt;</source>
-        <target><![CDATA[<span>PLUS DE TEMPS : LE FESTIN COMMENCE !</span>]]></target>
+        <target><![CDATA[<span>Plus de temps : le festin commence !</span>]]></target>
       </segment>
     </unit>
     <unit id="XvH9iDl">
