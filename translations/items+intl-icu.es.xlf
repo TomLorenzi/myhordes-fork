@@ -9041,7 +9041,7 @@
       </notes>
       <segment>
         <source>&lt;nt-stat-up-infection&gt;&lt;nt-role-up-ghoul&gt;Nach ein paar Sekunden spürst du den furchtbaren Nachgeschmack...&lt;/nt-role-up-ghoul&gt;&lt;/nt-stat-up-infection&gt;</source>
-        <target><![CDATA[<nt-stat-up-infection><nt-role-up-ghoul>Nach ein paar Sekunden spürst du den furchtbaren Nachgeschmack...</nt-role-up-ghoul></nt-stat-up-infection>]]></target>
+        <target><![CDATA[<nt-stat-up-infection><nt-role-up-ghoul>Unos segundos después notas que esa cosa tiene un sabor horrible...</nt-role-up-ghoul></nt-stat-up-infection>]]></target>
       </segment>
     </unit>
     <unit id="w9a_4Rx">
