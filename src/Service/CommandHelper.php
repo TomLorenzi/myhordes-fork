@@ -47,15 +47,12 @@ class CommandHelper
         while ($tc_chunk < $tc) {
             $entities = $this->entity_manager->getRepository($repository)->findBy($filter,['id' => 'ASC'], $chunkSize, $manualChain ? $tc_chunk : 0);
             foreach ($entities as $entity) {
-                if ($alwaysPersist) {
-                    $handler($entity);
-                    $this->entity_manager->persist($entity);
-                } else if ($handler($entity)) $this->entity_manager->persist($entity);
+                if ($handler($entity) or $alwaysPersist) $this->entity_manager->persist($entity);
                 $tc_chunk++;
             }
             $this->entity_manager->flush();
             if ($clearEM) $this->entity_manager->clear();
-            $progress->setProgress($tc_chunk);
+            $progress->setProgress(min($tc,$tc_chunk));
         }
 
         $output->writeln('OK!');

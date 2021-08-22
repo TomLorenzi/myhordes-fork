@@ -427,17 +427,17 @@ class MigrateCommand extends Command
                 $output->writeln("<info>$new</info> patches have been newly discovered.");
             } else $output->writeln("<info>No</info> patches have been newly discovered.");
 
-            /** @var GitVersions[] $uninstalled */
-            $uninstalled = $git_repo->findBy(['installed' => false], ['id' => 'ASC']);
+            /** @var string[] $uninstalled */
+            $uninstalled = array_map(fn(GitVersions $g) => $g->getVersion(), $git_repo->findBy(['installed' => false], ['id' => 'ASC']));
 
             if (count($uninstalled) > 0) $output->writeln('Completing database setup for <info>' . count($uninstalled) . '</info> patches.');
             else $output->writeln('No patches marked for installation.');
 
             foreach ($uninstalled as $version) {
-                if (isset(static::$git_script_repository[$version->getVersion()])) {
+                if (isset(static::$git_script_repository[$version])) {
                     $this->entity_manager->flush();
-                    $output->writeln("\tInstalling <comment>{$version->getVersion()}</comment>...");
-                    foreach (static::$git_script_repository[$version->getVersion()] as $script) {
+                    $output->writeln("\tInstalling <comment>{$version}</comment>...");
+                    foreach (static::$git_script_repository[$version] as $script) {
 
                         $input = new ArrayInput($script[1]);
                         $input->setInteractive(false);
@@ -451,11 +451,11 @@ class MigrateCommand extends Command
                     }
 
                     $output->writeln("\t<info>OK!</info>");
-                    $this->entity_manager->persist( $version->setInstalled(true) );
-                    $this->entity_manager->flush();
-                } else {
-                    $this->entity_manager->persist( $version->setInstalled(true) );
                 }
+
+                $version_object = $this->entity_manager->getRepository(GitVersions::class)->findOneBy(['version' => $version]);
+                $this->entity_manager->persist( $version_object->setInstalled(true) );
+                $this->entity_manager->flush();
             }
 
             $this->entity_manager->flush();
@@ -638,7 +638,7 @@ class MigrateCommand extends Command
                     $user->setSoulPoints( $calculated_sp_mh )->setImportedSoulPoints( $calculated_sp_im );
                     return true;
                 } else return false;
-            });
+            }, true);
         }
 
         if ($input->getOption('fix-forum-posts')) {
@@ -654,8 +654,6 @@ class MigrateCommand extends Command
                 $post->setText($text);
                 $this->entity_manager->persist($post);
             }
-
-            $this->entity_manager->flush();
 
             return 0;
         }
@@ -887,7 +885,7 @@ class MigrateCommand extends Command
         }
 
         if ($input->getOption('set-old-flag')) {
-            $this->helper->leChunk($output, Picto::class, 1000, ['imported' => false], false, true, function(Picto $picto) {
+            $this->helper->leChunk($output, Picto::class, 1000, ['imported' => false], true, true, function(Picto $picto) {
                 $picto->setOld($picto->getTownEntry() && !$picto->getTownEntry()->getImported() && $picto->getTownEntry()->getSeason() === null);
             }, true);
 

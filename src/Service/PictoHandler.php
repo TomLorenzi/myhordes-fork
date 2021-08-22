@@ -50,6 +50,7 @@ class PictoHandler
             ->setPersisted($persistance)
             ->setTown($citizen->getTown())
             ->setUser($citizen->getUser())
+            ->setOld( $citizen->getTown()->getSeason() === null )
             ->setCount($picto->getCount()+$count);
         
         if($is_new)
@@ -79,6 +80,7 @@ class PictoHandler
             ->setPersisted(1)
             ->setTown($citizen->getTown())
             ->setUser($citizen->getUser())
+            ->setOld( $citizen->getTown()->getSeason() === null )
             ->setCount($picto->getCount()+$count);
         
         if($is_new)
