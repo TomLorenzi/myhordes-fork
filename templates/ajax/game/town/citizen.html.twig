@@ -187,7 +187,7 @@
                         {% elseif citizen.lastWords is empty %}
                             <span>{{ 'Dieser Bürger hat keine letzten Worte hinterlassen ...'|trans({}, 'game') }}</span>
                         {% else %}
-                            <b>{{"Letzte Worte:"|trans({}, 'game')}}</b> {{ citizen.lastWords }}
+                            <b>{{"Letzte Worte:"|trans({}, 'game')}}</b> {{ citizen.lastWords|replace({'{gotKilled}': '...der Mörder .. ist.. IST.. AAARGHhh..'|trans({},'game')}) }}
                         {% endif %}
                     </div>
                     <div class="padded cell factor-0 small citizen-box hide-desktop" x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}" style="flex-basis: 80px;">
@@ -196,7 +196,7 @@
                         {% elseif citizen.lastWords is empty %}
                             <span>{{ 'Dieser Bürger hat keine letzten Worte hinterlassen ...'|trans({}, 'game') }}</span>
                         {% else %}
-                            <b>{{"Letzte Worte:"|trans({}, 'game')}}</b> {{ citizen.lastWords }}
+                            <b>{{"Letzte Worte:"|trans({}, 'game')}}</b> {{ citizen.lastWords|replace({'{gotKilled}': '...der Mörder .. ist.. IST.. AAARGHhh..'|trans({},'game')}) }}
                         {% endif %}
                     </div>
                 {% endif %}

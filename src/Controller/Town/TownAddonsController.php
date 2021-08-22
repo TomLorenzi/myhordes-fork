@@ -123,14 +123,16 @@ class TownAddonsController extends TownController
             true,  // Is available
             $estims[0]->getMin(), // Min
             $estims[0]->getMax(),  // Max
-            round($estims[0]->getEstimation()*100) // Progress
+            round($estims[0]->getEstimation()*100), // Progress
+            $estims[0]->getMessage()
         ];
         $z1 = [
             $has_zombie_est_tomorrow,
             $estims[0]->getEstimation() >= 1,
             isset($estims[1]) ? $estims[1]->getMin() : 0,
             isset($estims[1]) ? $estims[1]->getMax() : 0,
-            isset($estims[1]) ? round($estims[1]->getEstimation()*100) : 0
+            isset($estims[1]) ? round($estims[1]->getEstimation()*100) : 0,
+            isset($estims[1]) ? $estims[1]->getMessage() : null
         ];
 
         /** @var ZombieEstimation $est0 */

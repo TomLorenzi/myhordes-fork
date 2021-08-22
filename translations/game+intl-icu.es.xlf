@@ -2399,7 +2399,7 @@
     <unit id="72h0.SN" name="Ghul">
       <notes>
         <note category="german">Ghul</note>
-        <note category="from">db://CitizenRole;db://CitizenStatus;twig:///templates/ajax/game/town/town.html.twig</note>
+        <note category="from">db://CitizenRole;twig:///templates/ajax/game/town/town.html.twig</note>
       </notes>
       <segment>
         <source>Ghul</source>
@@ -3363,7 +3363,7 @@
       </notes>
       <segment>
         <source>Leiche aus der Stadt ziehen</source>
-        <target>Arrastrar a las afueras del pueblo</target>
+        <target>Arrastrar fuera del pueblo</target>
       </segment>
     </unit>
     <unit id="hXIZAOO" name="Leiche mit Wasser übergießen">
@@ -3373,7 +3373,7 @@
       </notes>
       <segment>
         <source>Leiche mit Wasser übergießen</source>
-        <target>Verter agua sobre el cádaver</target>
+        <target>Rociar el cádaver</target>
       </segment>
     </unit>
     <unit id="4hCJabi" name="Leiche grillen">
@@ -5110,7 +5110,7 @@
       </notes>
       <segment>
         <source>Einen Blick ins Forum werfen.</source>
-        <target>Echa un vistazo al foro.</target>
+        <target>Coordina con tus vecinos en el Foro.</target>
       </segment>
     </unit>
     <unit id=".vMt2eO" name="Meine Ration Wasser im Brunnen entnehmen (optional).">
@@ -5120,7 +5120,7 @@
       </notes>
       <segment>
         <source>Meine Ration Wasser im Brunnen entnehmen (optional).</source>
-        <target>Toma tu ración de agua del pozo (opcional).</target>
+        <target>Toma tu ración de agua en el pozo (opcional).</target>
       </segment>
     </unit>
     <unit id="UgqaO9M" name="An der Angriffsabschätzung teilnehmen">
@@ -5440,7 +5440,7 @@
       </notes>
       <segment>
         <source>Du hast die Leiche von {disposed} außerhalb der Stadt entsorgt. Eine gute Sache, die Sie getan haben!</source>
-        <target>Has arrojado el cadáver de {disposed} en las afueras del pueblo. ¡De las pocas buenas cosas que has hecho!</target>
+        <target>Has tirado el cuerpo de † {disposed} fuera del pueblo. ¡Hiciste lo correcto!</target>
       </segment>
     </unit>
     <unit id="eZQzCp7">
@@ -5450,7 +5450,7 @@
       </notes>
       <segment>
         <source>Der Körper verflüssigte sich zu einer ekelerregenden, übel riechenden Pfütze. Deine Schuhe haben ganz schön was abgekriegt, das steht fest...</source>
-        <target>El cadáver se reduce a un charco pútrido y malholiente gracias al agua. Sientes un escalofrío recorrer tu cuerpo, podrías ser el siguiente...</target>
+        <target>El cuerpo se ha convertido en un charco nauseabundo. Tus zapatos llevan algo de eso seguramente.</target>
       </segment>
     </unit>
     <unit id="zpZa.52" name="Ein nicht freigeschaufeltes Gebäude.">
@@ -7035,7 +7035,7 @@
     </unit>
     <unit id="9YXdyqO" name="Dieser Bürger wurde noch nie gesehen...">
       <notes>
-        <note category="german">Dieser Bürger wurde noch nie gesehen...</note>
+        <note category="german">noch nie gesehen worden sein...</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
@@ -7045,27 +7045,27 @@
     </unit>
     <unit id="4OynnJl" name="Der Bürger wurde zuletzt {time} gesehen.">
       <notes>
-        <note category="german">Der Bürger wurde zuletzt {time} gesehen.</note>
+        <note category="german">zuletzt {time} gesehen worden sein.</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Der Bürger wurde zuletzt {time} gesehen.</source>
-        <target>Ha sido visto por última vez {time}.</target>
+        <target><![CDATA[ha sido visto por última vez <strong>{time}</strong>.]]></target>
       </segment>
     </unit>
     <unit id="SNTneh6" name="Dieser Bürger hat {ration} Wasserration(en) aus dem Brunnen genommen.">
       <notes>
-        <note category="german">Dieser Bürger hat {ration} Wasserration(en) aus dem Brunnen genommen.</note>
+        <note category="german">{ration__copy} Wasserration(en) aus dem Brunnen genommen haben.</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Dieser Bürger hat {ration} Wasserration(en) aus dem Brunnen genommen.</source>
-        <target>ha sido visto en el pozo cogiendo {ration} racion(es) de agua hoy.</target>
+        <target><![CDATA[ha sido visto en el pozo cogiendo <strong>{ration} racion(es) de agua</strong> hoy.]]></target>
       </segment>
     </unit>
     <unit id="VNIM3Mp" name="Dieser Bürger ist ernsthaft verletzt.">
       <notes>
-        <note category="german">Dieser Bürger ist ernsthaft verletzt.</note>
+        <note category="german">ernsthaft verletzt sein.</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
@@ -7075,17 +7075,17 @@
     </unit>
     <unit id="w5JoDMX">
       <notes>
-        <note category="german">Dieser Bürger hat eventuell schon seit einer Weile Blut gehustet... Einige reden von einer Infektion.</note>
+        <note category="german">schon seit einer Weile Blut gehustet haben... Einige reden von einer Infektion.</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Dieser Bürger hat eventuell schon seit einer Weile Blut gehustet... Einige reden von einer Infektion.</source>
-        <target><![CDATA[Este habitante ha estado tosiendo sangre últimamente... Algunos hablan de una <strong>Infección</strong>.]]></target>
+        <target><![CDATA[ha estado tosiendo sangre últimamente... Algunos hablan de una <strong>Infección</strong>.]]></target>
       </segment>
     </unit>
     <unit id="0LaQbDJ">
       <notes>
-        <note category="german">Dieser Bürger soll eventuell heute Morgen überall nach Wasser gebettelt haben... Ob er durstig ist?</note>
+        <note category="german">heute Morgen überall nach Wasser gebettelt haben... Ob er durstig ist?</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
@@ -7095,7 +7095,7 @@
     </unit>
     <unit id="IhkIaY6">
       <notes>
-        <note category="german">Dieser Bürger ist eventuell süchtig... Wir nennen sein Verhalten aggressiv, manchmal sogar assozial...</note>
+        <note category="german">süchtig sein... Wir nennen sein Verhalten aggressiv, manchmal sogar assozial...</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
@@ -7105,7 +7105,7 @@
     </unit>
     <unit id="QHYoGw6">
       <notes>
-        <note category="german">Dieser Bürger konnte nicht schlafen und redete wirres Zeug, von Tod, sprechenden Schatten und Stimmen in seinem Kopf...</note>
+        <note category="german">nicht schlafen können und wirres Zeug reden, von Tod, sprechenden Schatten und Stimmen in seinem Kopf...</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
@@ -7115,7 +7115,7 @@
     </unit>
     <unit id="Kx1swjd">
       <notes>
-        <note category="german">Dieser Bürger ist nicht in der Lage, einen Beruf zu wählen. Wir sind noch lange nicht über den Berg, das kann ich euch sagen!</note>
+        <note category="german">nicht in der Lage sein, einen Beruf zu wählen. Wir sind noch lange nicht über den Berg, das kann ich euch sagen!</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
@@ -7125,12 +7125,12 @@
     </unit>
     <unit id="dvSfZK0">
       <notes>
-        <note category="german">Dieser Bürger könnte jemand sehr Wichtiges sein. Vielleicht einer der Erschaffer?</note>
+        <note category="german">jemand sehr Wichtiges sein. Vielleicht einer der Erschaffer?</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Dieser Bürger könnte jemand sehr Wichtiges sein. Vielleicht einer der Erschaffer?</source>
-        <target>Este Habitante parece ser alguien importante. ¿Tal vez uno de los creadores?</target>
+        <target>parece ser alguien importante. ¿Tal vez uno de los creadores?</target>
       </segment>
     </unit>
     <unit id="q2ChVJX" name="Gereinigte Seelen">
@@ -7651,7 +7651,7 @@
     <unit id="396xkzr" name="...der Mörder .. ist.. IST.. AAARGHhh..">
       <notes>
         <note category="german">...der Mörder .. ist.. IST.. AAARGHhh..</note>
-        <note category="from">php:///src/Controller/Soul/SoulController.php</note>
+        <note category="from">php:///src/Controller/ExternalXML2Controller.php;twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/soul/season.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
       </notes>
       <segment>
         <source>...der Mörder .. ist.. IST.. AAARGHhh..</source>
@@ -8015,7 +8015,7 @@
       </notes>
       <segment>
         <source>Was geschieht mit dieser Leiche?</source>
-        <target>¿Qué le ha pasado?</target>
+        <target>¿Qué pasará con su cadáver?</target>
       </segment>
     </unit>
     <unit id="TauIpAZ">
@@ -8238,7 +8238,7 @@
       </notes>
       <segment>
         <source>Mystic-Punkte</source>
-        <target>Puntos místicos</target>
+        <target>Puntos chamánicos</target>
       </segment>
     </unit>
     <unit id="P4J9Y4E" name="Diese Punkte sind exklusiv für den Schamanen reserviert.">
@@ -8248,7 +8248,7 @@
       </notes>
       <segment>
         <source>Diese Punkte sind exklusiv für den Schamanen reserviert.</source>
-        <target>Estos puntos están reservados exclusivamente para los chamanes.</target>
+        <target>Estos puntos están reservados exclusivamente para el Chamán</target>
       </segment>
     </unit>
     <unit id="63sz5vi" name="Akteneinsicht wird beantragt...">
@@ -9822,7 +9822,7 @@
       </notes>
       <segment>
         <source>Und wieder 'ne Leiche weniger! {citizen} wurde von † {disposed} entsorgt!</source>
-        <target>{citizen} ha tirado el cuerpo de † {disposed} fuera del pueblo. ¡Hiciste lo correcto!</target>
+        <target>¡Uno menos! El cadáver de † {disposed} ha sido echado fuera por {citizen}.</target>
       </segment>
     </unit>
     <unit id="cAwULnv" name="{citizen} hat mit etwas Wasser † {disposed} &quot;verbrannt&quot;.">
@@ -15370,7 +15370,7 @@
     </unit>
     <unit id="2ZzcscP" name="Verlorenes Brunnenwasser: {count} Einhet(en)">
       <notes>
-        <note category="german">Verlorenes Brunnenwasser: {count} Einhet(en)</note>
+        <note category="german">Verlorenes Brunnenwasser: {count__copy} Einhet(en)</note>
         <note category="from">twig:///templates/ajax/game/newspaper.html.twig</note>
       </notes>
       <segment>
@@ -19063,221 +19063,201 @@
     <unit id="cNyto3M" name="Du wurdest zum Schamanen gewählt!">
       <notes>
         <note category="german">Du wurdest zum Schamanen gewählt!</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/notifications/shaman.html.twig</note>
       </notes>
       <segment>
         <source>Du wurdest zum Schamanen gewählt!</source>
-        <target>Du wurdest zum Schamanen gewählt!</target>
+        <target>¡Has sido elegido chamán!</target>
       </segment>
     </unit>
     <unit id="TCisbbN">
       <notes>
         <note category="german">Du wachst heute Morgen mit einer schrecklichen Migräne auf und hast Schwierigkeiten, zu sehen... Du beschließt, aus deinem Zelt zu gehen. Die Nachbarn an denen du vorbeiläufst, neigen ihr Haupt vor dir.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/notifications/shaman.html.twig</note>
       </notes>
       <segment>
         <source>Du wachst heute Morgen mit einer schrecklichen Migräne auf und hast Schwierigkeiten, zu sehen... Du beschließt, aus deinem Zelt zu gehen. Die Nachbarn an denen du vorbeiläufst, neigen ihr Haupt vor dir.</source>
-        <target>Du wachst heute Morgen mit einer schrecklichen Migräne auf und hast Schwierigkeiten, zu sehen... Du beschließt, aus deinem Zelt zu gehen. Die Nachbarn an denen du vorbeiläufst, neigen ihr Haupt vor dir.</target>
+        <target>Te despiertas esta mañana con una migraña terrible y tienes problemas para ver... Decides salir de tu tienda. Los vecinos con los que pasas inclinan la cabeza frente a ti.</target>
       </segment>
     </unit>
     <unit id="c2baI8U">
       <notes>
         <note category="german">Was ist letzte Nacht nur passiert? Du hast wohl zu heftig gefeiert. Als du die Stadtmauer erreichst, kannst du ein kleines blaues Leuchten sehen... Ja, ja, du bist in der Tat der Ausgewählte. Der Zweifel verschwindet, als du dir die Hand an den Kopf hälst: eine lächerliche Maske klebt an deinem Gesicht und reduziert dein Sehvermögen erheblich.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/notifications/shaman.html.twig</note>
       </notes>
       <segment>
         <source>Was ist letzte Nacht nur passiert? Du hast wohl zu heftig gefeiert. Als du die Stadtmauer erreichst, kannst du ein kleines blaues Leuchten sehen... Ja, ja, du bist in der Tat der Ausgewählte. Der Zweifel verschwindet, als du dir die Hand an den Kopf hälst: eine lächerliche Maske klebt an deinem Gesicht und reduziert dein Sehvermögen erheblich.</source>
-        <target>Was ist letzte Nacht nur passiert? Du hast wohl zu heftig gefeiert. Als du die Stadtmauer erreichst, kannst du ein kleines blaues Leuchten sehen... Ja, ja, du bist in der Tat der Ausgewählte. Der Zweifel verschwindet, als du dir die Hand an den Kopf hälst: eine lächerliche Maske klebt an deinem Gesicht und reduziert dein Sehvermögen erheblich.</target>
+        <target>¿Qué pasó anoche? Probablemente festejaste demasiado. Cuando llegas a la muralla del pueblo puedes ver un pequeño resplandor azul... Sí, sí, de hecho eres el elegido. La duda desaparece cuando te llevas la mano a la cabeza: una ridícula máscara se pega a tu rostro y reduce significativamente tu vista.</target>
       </segment>
     </unit>
     <unit id="x09E3UL" name="Du bist nun der Schamane.">
       <notes>
         <note category="german">Du bist nun der Schamane.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/notifications/shaman.html.twig</note>
       </notes>
       <segment>
         <source>Du bist nun der Schamane.</source>
-        <target>Du bist nun der Schamane.</target>
+        <target>Ahora eres el chamán.</target>
       </segment>
     </unit>
     <unit id="RjuBA.9">
       <notes>
         <note category="german">Ein neuer Horizont öffnet sich für dich: Du bist nicht länger ein gewöhnlicher Bürger, sondern ein geistiger Führer!</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/notifications/shaman.html.twig</note>
       </notes>
       <segment>
         <source>Ein neuer Horizont öffnet sich für dich: Du bist nicht länger ein gewöhnlicher Bürger, sondern ein geistiger Führer!</source>
-        <target>Ein neuer Horizont öffnet sich für dich: Du bist nicht länger ein gewöhnlicher Bürger, sondern ein geistiger Führer!</target>
+        <target>Se abre un nuevo horizonte para ti: ¡ya no eres un ciudadano común, sino un líder espiritual!</target>
       </segment>
     </unit>
     <unit id="bJt7KIt" name="Mit deinen {mp} kannst du:">
       <notes>
         <note category="german">Mit deinen {mp} kannst du:</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/notifications/shaman.html.twig</note>
       </notes>
       <segment>
         <source>Mit deinen {mp} kannst du:</source>
-        <target>Mit deinen {mp} kannst du:</target>
+        <target>Con tu {mp} puedes:</target>
       </segment>
     </unit>
     <unit id="LjWDhmt" name="Die Seelen deiner verstorbenen Mitbürger lokalisieren.">
       <notes>
         <note category="german">Die Seelen deiner verstorbenen Mitbürger lokalisieren.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/notifications/shaman.html.twig</note>
       </notes>
       <segment>
         <source>Die Seelen deiner verstorbenen Mitbürger lokalisieren.</source>
-        <target>Die Seelen deiner verstorbenen Mitbürger lokalisieren.</target>
+        <target>Localizar las almas de tus conciudadanos fallecidos.</target>
       </segment>
     </unit>
     <unit id="J7D2vc9" name="Schamanische Tränke für deine Nachbarn herstellen.">
       <notes>
         <note category="german">Schamanische Tränke für deine Nachbarn herstellen.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/notifications/shaman.html.twig</note>
       </notes>
       <segment>
         <source>Schamanische Tränke für deine Nachbarn herstellen.</source>
-        <target>Schamanische Tränke für deine Nachbarn herstellen.</target>
+        <target>Preparar pociones chamánicas para tus vecinos.</target>
       </segment>
     </unit>
     <unit id="LBdBsIv" name="An den Toren der Stadt oder in der Außenwelt Regen herbeirufen!">
       <notes>
         <note category="german">An den Toren der Stadt oder in der Außenwelt Regen herbeirufen!</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/notifications/shaman.html.twig</note>
       </notes>
       <segment>
         <source>An den Toren der Stadt oder in der Außenwelt Regen herbeirufen!</source>
-        <target>An den Toren der Stadt oder in der Außenwelt Regen herbeirufen!</target>
+        <target>¡Invocar lluvia a las puertas del pueblo o en el ultramundo!</target>
       </segment>
     </unit>
     <unit id="ZWHqNbl" name="Deine Nachbarn heilen, möglichst ohne sie dabei umzubringen...">
       <notes>
         <note category="german">Deine Nachbarn heilen, möglichst ohne sie dabei umzubringen...</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/notifications/shaman.html.twig</note>
       </notes>
       <segment>
         <source>Deine Nachbarn heilen, möglichst ohne sie dabei umzubringen...</source>
-        <target>Deine Nachbarn heilen, möglichst ohne sie dabei umzubringen...</target>
+        <target>Curar a tus vecinos sin matarlos si es posible...</target>
       </segment>
     </unit>
     <unit id="JHQ01cl" name="Schau dir am besten gleich den {shaman_help} an.">
       <notes>
         <note category="german">Schau dir am besten gleich den {shaman_help} an.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/notifications/shaman.html.twig</note>
       </notes>
       <segment>
         <source>Schau dir am besten gleich den {shaman_help} an.</source>
-        <target>Schau dir am besten gleich den {shaman_help} an.</target>
+        <target>Lo mejor que puede hacer es echar un vistazo a la {shaman_help}.</target>
       </segment>
     </unit>
     <unit id="L8UIHsM" name="Schamanen-Ratgeber">
       <notes>
         <note category="german">Schamanen-Ratgeber</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/notifications/shaman.html.twig</note>
       </notes>
       <segment>
         <source>Schamanen-Ratgeber</source>
-        <target>Schamanen-Ratgeber</target>
+        <target>Guía del Chamán</target>
       </segment>
     </unit>
     <unit id="KqTfNKI">
       <notes>
         <note category="german">Er enthält alle wesentlichen Informationen, um endlich deinen überlegenen Status in den Augen aller anerkennen zu lassen...</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/notifications/guide.html.twig;twig:///templates/ajax/game/notifications/shaman.html.twig</note>
       </notes>
       <segment>
         <source>Es enthält alle wesentlichen Informationen, um endlich deinen überlegenen Status in den Augen aller anerkennen zu lassen...</source>
-        <target>Es enthält alle wesentlichen Informationen, um endlich deinen überlegenen Status in den Augen aller anerkennen zu lassen...</target>
+        <target>Contiene toda la información esencial para que finalmente tu estatus superior sea reconocido a los ojos de todos...</target>
       </segment>
     </unit>
     <unit id="ZzQ7bDT" name="Du wurdest zum Reiseleiter in der Außenwelt gewählt!">
       <notes>
         <note category="german">Du wurdest zum Reiseleiter in der Außenwelt gewählt!</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/notifications/guide.html.twig</note>
       </notes>
       <segment>
         <source>Du wurdest zum Reiseleiter in der Außenwelt gewählt!</source>
-        <target>Du wurdest zum Reiseleiter in der Außenwelt gewählt!</target>
+        <target>¡Has sido elegido para ser el guía del ultramundo!</target>
       </segment>
     </unit>
     <unit id="lMjxZHr">
       <notes>
         <note category="german">Du wachst heute Morgen mit einem Lächeln in deinem Gesicht auf... Ein komisches Gefühl... Du verlässt dein Zelt und... die Leute salutieren dir?</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/notifications/guide.html.twig</note>
       </notes>
       <segment>
         <source>Du wachst heute Morgen mit einem Lächeln in deinem Gesicht auf... Ein komisches Gefühl... Du verlässt dein Zelt und... die Leute salutieren dir?</source>
-        <target>Du wachst heute Morgen mit einem Lächeln in deinem Gesicht auf... Ein komisches Gefühl... Du verlässt dein Zelt und... die Leute salutieren dir?</target>
+        <target>Te despiertas esta mañana con una sonrisa en tu rostro... una sensación extraña... sales de tu tienda y... ¿la gente te saluda?</target>
       </segment>
     </unit>
     <unit id="pwrn2jS">
       <notes>
         <note category="german">Was ist letzte Nacht nur passiert? Du hast wohl zu heftig gefeiert. Als du die Stadtmauer erreichst, spürst du... Ja, ja, du bist in der Tat der Ausgewählte. Der Zweifel verschwindet, als du den Blick in Richtung des Stadttors lenkst: Ein wahnsinniges Verlangen nach Abenteuer und Entdeckungen überkommt dich, was eigentlich eher untypisch ist...</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/notifications/guide.html.twig</note>
       </notes>
       <segment>
         <source>Was ist letzte Nacht nur passiert? Du hast wohl zu heftig gefeiert. Als du die Stadtmauer erreichst, spürst du... Ja, ja, du bist in der Tat der Ausgewählte. Der Zweifel verschwindet, als du den Blick in Richtung des Stadttors lenkst: Ein wahnsinniges Verlangen nach Abenteuer und Entdeckungen überkommt dich, was eigentlich eher untypisch ist...</source>
-        <target>Was ist letzte Nacht nur passiert? Du hast wohl zu heftig gefeiert. Als du die Stadtmauer erreichst, spürst du... Ja, ja, du bist in der Tat der Ausgewählte. Der Zweifel verschwindet, als du den Blick in Richtung des Stadttors lenkst: Ein wahnsinniges Verlangen nach Abenteuer und Entdeckungen überkommt dich, was eigentlich eher untypisch ist...</target>
+        <target>¿Qué pasó anoche? Probablemente festejaste demasiado. Cuando llegas a la muralla del pueblo, sientes... Sí, sí, de hecho eres el elegido. La duda desaparece cuando diriges tu mirada hacia la puerta del pueblo: estás abrumado por un loco deseo de aventura y descubrimiento, que en realidad es bastante atípico...</target>
       </segment>
     </unit>
     <unit id="M_Sa.96" name="Du bist nun der Reiseleiter in der Außenwelt.">
       <notes>
         <note category="german">Du bist nun der Reiseleiter in der Außenwelt.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/notifications/guide.html.twig</note>
       </notes>
       <segment>
         <source>Du bist nun der Reiseleiter in der Außenwelt.</source>
-        <target>Du bist nun der Reiseleiter in der Außenwelt.</target>
+        <target>Ahora eres el guía del ultramundo.</target>
       </segment>
     </unit>
     <unit id="fytWhzm">
       <notes>
         <note category="german">Ein neuer Horizont öffnet sich für dich: Du bist nicht länger ein gewöhnlicher Bürger, sondern ein Anführer!</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/notifications/guide.html.twig</note>
       </notes>
       <segment>
         <source>Ein neuer Horizont öffnet sich für dich: Du bist nicht länger ein gewöhnlicher Bürger, sondern ein Anführer!</source>
-        <target>Ein neuer Horizont öffnet sich für dich: Du bist nicht länger ein gewöhnlicher Bürger, sondern ein Anführer!</target>
+        <target>Se abre un nuevo horizonte para ti: ¡ya no eres un ciudadano común, sino un líder!</target>
       </segment>
     </unit>
     <unit id="nuZmjs1" name="Schau dir am besten gleich den {guide_help} an.">
       <notes>
         <note category="german">Schau dir am besten gleich den {guide_help} an.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/notifications/guide.html.twig</note>
       </notes>
       <segment>
         <source>Schau dir am besten gleich den {guide_help} an.</source>
-        <target>Schau dir am besten gleich den {guide_help} an.</target>
+        <target>Lo mejor que puede hacer es echar un vistazo a la {guide_help}.</target>
       </segment>
     </unit>
     <unit id="xElNBrl" name="Reiseleiter-Ratgeber">
       <notes>
         <note category="german">Reiseleiter-Ratgeber</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/notifications/guide.html.twig</note>
       </notes>
       <segment>
         <source>Reiseleiter-Ratgeber</source>
-        <target>Reiseleiter-Ratgeber</target>
+        <target>Guía del Guía del Ultramundo</target>
       </segment>
     </unit>
     <unit id="9ahpfaF" name="Alle als gelesen markieren">
@@ -19333,12 +19313,11 @@
     <unit id="uK7igyD">
       <notes>
         <note category="german">Mindestens ein Bürger in deiner Eskorte kann dir nicht folgen. Du musst die Situation in den Griff bekommen... oder die Schwachen zurücklassen.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/scripts/errors/beyond.txt.twig</note>
       </notes>
       <segment>
         <source>Mindestens ein Bürger in deiner Eskorte kann dir nicht folgen. Du musst die Situation in den Griff bekommen... oder die Schwachen zurücklassen.</source>
-        <target>Mindestens ein Bürger in deiner Eskorte kann dir nicht folgen. Du musst die Situation in den Griff bekommen... oder die Schwachen zurücklassen.</target>
+        <target>Al menos un ciudadano de su escolta no puede seguirlo. Tienes que controlar la situación... o dejar atrás a los débiles.</target>
       </segment>
     </unit>
     <unit id="5U6vNQX" name="Du hast aktuell keine Themen abonniert.">
@@ -19354,12 +19333,11 @@
     <unit id="K56ofiL">
       <notes>
         <note category="german">Es weiß zwar keiner wie unser Held {citizen} das angestellt hat, aber es ist ihm gelungen aus dieser Zone direkt in die Stadt zurückzukehren... Ein Wunder!</note>
-        <note category="state">new</note>
         <note category="from">db://LogEntryTemplate</note>
       </notes>
       <segment>
         <source>Es weiß zwar keiner wie unser Held {citizen} das angestellt hat, aber es ist ihm gelungen aus dieser Zone direkt in die Stadt zurückzukehren... Ein Wunder!</source>
-        <target>Es weiß zwar keiner wie unser Held {citizen} das angestellt hat, aber es ist ihm gelungen aus dieser Zone direkt in die Stadt zurückzukehren... Ein Wunder!</target>
+        <target>Nadie sabe cómo {ciudadano} lo hizo, pero logró regresar de esta zona directamente a la ciudad... ¡Un milagro!</target>
       </segment>
     </unit>
     <unit id="RqmtAaX">
@@ -19369,7 +19347,7 @@
       </notes>
       <segment>
         <source>Das ist die bestmögliche Schätzung, die wir für diesen Angriff abgeben konnten.</source>
-        <target>Esta es la mejor estimación posible que hemos podido obtener para este ataque.</target>
+        <target>Es el mejor cálculo que podemos hacer para este ataque.</target>
       </segment>
     </unit>
     <unit id="rNe.VcD">
@@ -19549,12 +19527,11 @@
     <unit id="X28KXsi" name="Das Haus">
       <notes>
         <note category="german">Das Haus</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Das Haus</source>
-        <target>Das Haus</target>
+        <target>Su vivienda</target>
       </segment>
     </unit>
     <unit id="EU49gfo">
@@ -19564,7 +19541,7 @@
       </notes>
       <segment>
         <source>Der Ort (kann man überhaupt von Zuhause reden?), an dem {citizen} lebte, ist keinen Blick wert. Da gibt es nichts zu holen, selbst wenn man alles auseinandernimmt.</source>
-        <target>No vale la pena mirar el lugar (¿se puede llamar siquiera hogar?) Donde vivía {citizen}. No hay nada que valga la pena allí, incluso si se lo desarma todo.</target>
+        <target>Su... ¿se le puede llamar casa?, en fin, el lugar donde vivía {citizen} no merece ni ser visitado. No hay nada que recuperar, ni como chatarra.</target>
       </segment>
     </unit>
     <unit id="T0WfRL2" name="Inventar: {citizen}">
@@ -19580,23 +19557,21 @@
     <unit id="BfQb8sh">
       <notes>
         <note category="german">Jetzt, da {citizen} tot ist, kannst du ihm einen &lt;strong&gt;Gegenstand klauen&lt;/strong&gt;, wenn du möchtest...</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Jetzt, da {citizen} tot ist, kannst du ihm einen &lt;strong&gt;Gegenstand klauen&lt;/strong&gt;, wenn du möchtest...</source>
-        <target><![CDATA[Jetzt, da {citizen} tot ist, kannst du ihm einen <strong>Gegenstand klauen</strong>, wenn du möchtest...]]></target>
+        <target><![CDATA[Ahora que {citizen} está muerto, puedes <strong>robarle un objeto</strong>, solo si lo deseas... claro está.]]></target>
       </segment>
     </unit>
     <unit id="ymlTLkS" name="Beim Durchwühlen seines Hauses entdeckst du folgende Dinge:">
       <notes>
         <note category="german">Beim Durchwühlen seines Hauses entdeckst du folgende Dinge:</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Beim Durchwühlen seines Hauses entdeckst du folgende Dinge:</source>
-        <target>Beim Durchwühlen seines Hauses entdeckst du folgende Dinge:</target>
+        <target>Hurgando en las pertenencias del difunto, encuentras:</target>
       </segment>
     </unit>
     <unit id="ETllwNr">
@@ -19827,12 +19802,11 @@
     <unit id="M1zQceL">
       <notes>
         <note category="german">Da {citizen} tot ist, besteht ein hohes Risiko, dass sein Körper mit ansteckenden Keimen von &lt;em&gt;{townname}&lt;/em&gt; kontaminiert ist. Wenn wir nicht wollen, dass er wieder aufersteht und uns angreift, muss er entweder mit Wasser übergossen oder weggeworfen werden.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Da {citizen} tot ist, besteht ein hohes Risiko, dass sein Körper mit ansteckenden Keimen von &lt;em&gt;{townname}&lt;/em&gt; kontaminiert ist. Wenn wir nicht wollen, dass er wieder aufersteht und uns angreift, muss er entweder mit Wasser übergossen oder weggeworfen werden.</source>
-        <target><![CDATA[Da {citizen} tot ist, besteht ein hohes Risiko, dass sein Körper mit ansteckenden Keimen von <em>{townname}</em> kontaminiert ist. Wenn wir nicht wollen, dass er wieder aufersteht und uns angreift, muss er entweder mit Wasser übergossen oder weggeworfen werden.]]></target>
+        <target><![CDATA[Al estar muerto, es muy probable que el cuerpo de {citizen} haya sido contaminado con bacterias infecciosas de <em>{townname}</em>. Hay que empaparlo o arrojarlo lejos, esperando que no vuelva a ponerse de pie para atacar a sus antiguos compañeros...]]></target>
       </segment>
     </unit>
     <unit id="fY8p2vV" name="Dein Diebstahlversuch ist gescheitert! Du bist entdeckt worden!">
@@ -20101,12 +20075,11 @@
     <unit id="vScXMoh">
       <notes>
         <note category="german">Du kannst versuchen, diesen Bürger zu heilen, aber nichts ist garantiert... und hüte dich vor Nebenwirkungen!</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Du kannst versuchen, diesen Bürger zu heilen, aber nichts ist garantiert... und hüte dich vor Nebenwirkungen!</source>
-        <target>Du kannst versuchen, diesen Bürger zu heilen, aber nichts ist garantiert... und hüte dich vor Nebenwirkungen!</target>
+        <target>Puedes intentar curar a este habitante, no te aseguramos nada.. ¡pero ten cuidado con los efectos secundarios!</target>
       </segment>
     </unit>
     <unit id="u4QY2vJ">
@@ -21189,23 +21162,21 @@
     <unit id="uLW8jwG" name="Diese Aktion verbraucht 1x Ration Wasser. Bestätigen?">
       <notes>
         <note category="german">Diese Aktion verbraucht 1x Ration Wasser. Bestätigen?</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Diese Aktion verbraucht 1x Ration Wasser. Bestätigen?</source>
-        <target>Diese Aktion verbraucht 1x Ration Wasser. Bestätigen?</target>
+        <target>Esto consumirá 1x Ración de agua. ¿Confirmas?</target>
       </segment>
     </unit>
     <unit id="dk0TbNl" name="Diese Aktion verbraucht 2 Aktionspunkte. Bestatigen ?">
       <notes>
         <note category="german">Diese Aktion verbraucht 2 Aktionspunkte. Bestatigen ?</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Diese Aktion verbraucht 2 Aktionspunkte. Bestatigen ?</source>
-        <target>Diese Aktion verbraucht 2 Aktionspunkte. Bestatigen ?</target>
+        <target>Esto requiere 2 puntos de acción. ¿Confirmas?</target>
       </segment>
     </unit>
     <unit id="if9Rvma">
@@ -22384,6 +22355,150 @@
       <segment>
         <source>Durch die Lüftungsschächte klettern (out)</source>
         <target>Trepar por la aeración</target>
+      </segment>
+    </unit>
+    <unit id="dx8bzcp" name="Höchstens {nw_defense}">
+      <notes>
+        <note category="german">{nw_defense}</note>
+        <note category="from">twig:///templates/ajax/game/town/nightwatch.html.twig</note>
+      </notes>
+      <segment>
+        <source>Höchstens {nw_defense}</source>
+        <target>
+              {nw_defense, plural,
+                =0 {¡Ninguno!}
+                other {Por lo menos #}
+              }
+          </target>
+      </segment>
+    </unit>
+    <unit id="VAttJzW" name="Dieser Bürger">
+      <notes>
+        <note category="german">Gerüchten zufolge ist dieser Bürger</note>
+        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger</source>
+        <target>Según las malas lenguas, el habitante {citizen}:</target>
+      </segment>
+    </unit>
+    <unit id="Z0MirrQ">
+      <notes>
+        <note category="german">ist eventuell nicht in der Stadt und &lt;strong&gt;hätte ihr Haus nicht gegen Einbrecher geschützt&lt;/strong&gt;...</note>
+        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger ist nicht in der Stadt sei und hat &lt;strong&gt;sein Haus nicht gegen Einbrecher geschützt&lt;/strong&gt;...</source>
+        <target><![CDATA[no está en el pueblo y <strong>no ha protegido su vivienda contra los ladrones</strong>...]]></target>
+      </segment>
+    </unit>
+    <unit id="7oOTMUP" name="In der (&lt;strong&gt;leeren&lt;/strong&gt;) Zone graben">
+      <notes>
+        <note category="german">In der (&lt;strong&gt;leeren&lt;/strong&gt;) Zone graben</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+      </notes>
+      <segment>
+        <source>In der (&lt;strong&gt;leeren&lt;/strong&gt;) Zone graben</source>
+        <target><![CDATA[Escarbar (<strong>zona agotada</strong>)]]></target>
+      </segment>
+    </unit>
+    <unit id="Szio5gY" name="Tod durch die Apokalypse">
+      <notes>
+        <note category="german">Tod durch die Apokalypse</note>
+        <note category="from">db://CauseOfDeath</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Tod durch die Apokalypse</source>
+        <target>Tod durch die Apokalypse</target>
+      </segment>
+    </unit>
+    <unit id="EhRWrg3">
+      <notes>
+        <note category="german">Eine Katastrophe apokalyptischen Ausmaßes hat dich, deine Stadt und alles in der Umgebung hinweggefegt. Es ist, als hätte jemand die gesamte Welt... gereinigt.</note>
+        <note category="from">db://CauseOfDeath</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Eine Katastrophe apokalyptischen Ausmaßes hat dich, deine Stadt und alles in der Umgebung hinweggefegt. Es ist, als hätte jemand die gesamte Welt... gereinigt.</source>
+        <target>Eine Katastrophe apokalyptischen Ausmaßes hat dich, deine Stadt und alles in der Umgebung hinweggefegt. Es ist, als hätte jemand die gesamte Welt... gereinigt.</target>
+      </segment>
+    </unit>
+    <unit id="TI4f6dK">
+      <notes>
+        <note category="german">Vereinzelte Bürger berichten von einem merkwürdigen Phänomen am Himmel... Ihr solltet die Alkoholvorräte in der Bank pürfen.</note>
+        <note category="from">php:///src/Structures/Hook.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Vereinzelte Bürger berichten von einem merkwürdigen Phänomen am Himmel... Ihr solltet die Alkoholvorräte in der Bank pürfen.</source>
+        <target>Vereinzelte Bürger berichten von einem merkwürdigen Phänomen am Himmel... Ihr solltet die Alkoholvorräte in der Bank pürfen.</target>
+      </segment>
+    </unit>
+    <unit id="J1ZyqLO">
+      <notes>
+        <note category="german">Einige Bürger haben berichtet, während ihrer Abschätzung ein rotes Blitzen am Horizont gesehen zu haben.</note>
+        <note category="from">php:///src/Structures/Hook.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Einige Bürger haben berichtet, während ihrer Abschätzung ein rotes Blitzen am Horizont gesehen zu haben.</source>
+        <target>Einige Bürger haben berichtet, während ihrer Abschätzung ein rotes Blitzen am Horizont gesehen zu haben.</target>
+      </segment>
+    </unit>
+    <unit id="kXaqluQ">
+      <notes>
+        <note category="german">Ein Großteil der Bürger, die heute auf dem Wachturm waren, haben ein lautes Grollen in der Ferne vernommen.</note>
+        <note category="from">php:///src/Structures/Hook.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Ein Großteil der Bürger, die heute auf dem Wachturm waren, haben ein lautes Grollen in der Ferne vernommen.</source>
+        <target>Ein Großteil der Bürger, die heute auf dem Wachturm waren, haben ein lautes Grollen in der Ferne vernommen.</target>
+      </segment>
+    </unit>
+    <unit id=".8QsYID">
+      <notes>
+        <note category="german">Zusatzbemerkung zur heutigen Abschätzung: Der Himmel hat sich blutrot gefärbt. Das sieht nicht gut aus, Leute...</note>
+        <note category="from">php:///src/Structures/Hook.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Zusatzbemerkung zur heutigen Abschätzung: Der Himmel hat sich blutrot gefärbt. Das sieht nicht gut aus, Leute...</source>
+        <target>Zusatzbemerkung zur heutigen Abschätzung: Der Himmel hat sich blutrot gefärbt. Das sieht nicht gut aus, Leute...</target>
+      </segment>
+    </unit>
+    <unit id="2soUcg3">
+      <notes>
+        <note category="german">Das sieht nicht gut aus... Die Zombies werden heute Nacht nicht unser größtes Problem sein.</note>
+        <note category="from">php:///src/Structures/Hook.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Das sieht nicht gut aus... Die Zombies werden heute Nacht nicht unser größtes Problem sein.</source>
+        <target>Das sieht nicht gut aus... Die Zombies werden heute Nacht nicht unser größtes Problem sein.</target>
+      </segment>
+    </unit>
+    <unit id="SnHKJah" name="Beten">
+      <notes>
+        <note category="german">Beten</note>
+        <note category="from">php:///src/Structures/Hook.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Beten</source>
+        <target>Beten</target>
+      </segment>
+    </unit>
+    <unit id="yOOoIBM" name="Es gibt keine Hoffnung!">
+      <notes>
+        <note category="german">Es gibt keine Hoffnung!</note>
+        <note category="from">php:///src/Structures/Hook.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Es gibt keine Hoffnung!</source>
+        <target>Es gibt keine Hoffnung!</target>
       </segment>
     </unit>
   </file>

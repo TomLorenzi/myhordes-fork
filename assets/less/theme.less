@@ -560,6 +560,10 @@ div.note {
     .box( #820000 ); color: white; position: relative; padding: 5px 5px 5px 26px;
     &:before { content: " "; position: absolute; display: block; top: 5px; left: 5px; width: 16px; height: 16px; background: url('../img/icons/small_warning.gif') no-repeat; }
   }
+  &.note-important {
+    .box(#6f3f3c);
+    color: #efdba8
+  }
   &.note-critical {
     .box( #5c2b20 );
     color: #f86;
@@ -814,6 +818,7 @@ ul.actions, ul.special_actions, ul.heroic_actions {
     }
     &+li { border-top: 1px solid fade(@myhordes-smalltext,20%) }
   }
+  &.heroic_actions>li:not(.already)[disabled]>span { text-decoration: none !important; }
 }
 
 ul.heroic_actions {

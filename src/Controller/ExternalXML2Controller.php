@@ -162,6 +162,7 @@ class ExternalXML2Controller extends ExternalController {
         $language = $this->getRequestLanguage($request,$user);
         if($language !== 'all')
             $this->translator->setLocale($language);
+        else $this->translator->setLocale('en');
 
         // Base data.
         $data = $this->getHeaders($user, $language);
@@ -279,7 +280,7 @@ class ExternalXML2Controller extends ExternalController {
                         ? strtolower($pastLife->getTown()->getLanguage())
                         : '',
                 ],
-                'cdata_value' => html_entity_decode($pastLife->getLastWords())
+                'cdata_value' => html_entity_decode(str_replace('{gotKilled}', $this->translator->trans('...der Mörder .. ist.. IST.. AAARGHhh..', [], 'game'), $pastLife->getLastWords()))
             ];
         }
 
@@ -683,7 +684,7 @@ class ExternalXML2Controller extends ExternalController {
                     }
                     if($citizen->getLastWords() !== null) {
                         $cadaver['msg'] = [
-                            'cdata_value' => $citizen->getLastWords()
+                            'cdata_value' => str_replace('{gotKilled}', $this->translator->trans('...der Mörder .. ist.. IST.. AAARGHhh..', [], 'game'), $citizen->getLastWords())
                         ];
                     }
                     $data['data']['cadavers']['list']['items'][] = $cadaver;

@@ -1,5 +1,39 @@
 {% extends "ajax/ajax_plain.html.twig" %}
 {% block ajax_base %}
+    {% macro icon_master(user) %}
+        {% if user|is_granted('ROLE_SUPER') %}
+            <div class="inline-block mh-icon">
+                <img alt="MHA" src="{{ asset('build/images/icons/icon_mh_admin.gif') }}" />
+                <div class="tooltip">{{ 'Dieser Spieler ist ein Administrator auf diesem Server.'|trans({},'global') }}</div>
+            </div>
+        {% elseif user|is_granted('ROLE_ADMIN') %}
+            <div class="inline-block mh-icon">
+                <img alt="MHA" src="{{ asset('build/images/icons/icon_mh_admin.gif') }}" />
+                <div class="tooltip">{{ 'Dieser Spieler ist ein Entwickler von MyHordes.'|trans({},'global') }}</div>
+            </div>
+        {% elseif user|is_granted('ROLE_CROW') %}
+            <div class="inline-block mh-icon">
+                <img alt="MHA" src="{{ asset('build/images/icons/icon_mh_mod.gif') }}" />
+                <div class="tooltip">{{ 'Dieser Spieler ist ein Moderator auf MyHordes.'|trans({},'global') }}</div>
+            </div>
+        {% elseif user|is_granted('ROLE_ANIMAC') %}
+            <div class="inline-block mh-icon">
+                <img alt="MHA" src="{{ asset('build/images/icons/icon_mh_anim.gif') }}" />
+                <div class="tooltip">{{ 'Dieser Spieler ist ein Animateur auf MyHordes.'|trans({},'global') }}</div>
+            </div>
+        {% elseif user|is_granted('ROLE_ORACLE') %}
+            <div class="inline-block mh-icon">
+                <img alt="MHA" src="{{ asset('build/images/icons/icon_mh_orac.gif') }}" />
+                <div class="tooltip">{{ 'Dieser Spieler ist ein Orakel auf MyHordes.'|trans({},'global') }}</div>
+            </div>
+        {% elseif user|is_granted('ROLE_TEAM') %}
+            <div class="inline-block mh-icon">
+                <img alt="MHA" src="{{ asset('build/images/icons/icon_mh_team.gif') }}" />
+                <div class="tooltip">{{ 'Dieser Spieler ist Mitglied des Entwickler-Teams von MyHordes.'|trans({},'global') }}</div>
+            </div>
+        {% endif %}
+    {% endmacro %}
+
     {# @var posts \App\Entity\Post[] #}
     {# @var permission \App\Structures\ForumPermissionAccessor #}
     {% set first_buttons = true %}
@@ -176,7 +210,7 @@
                         {% else %}
                             <div class="avatar small"><img alt="" src="{{ asset('build/images/forum/empty_avatar.gif') }}"></div>
                         {% endif %}
-                        <a class="link" href="{{ path('soul_visit', {id: post.owner.id}) }}"><b>{{ author_name }}</b></a><br />
+                        <a class="link" href="{{ path('soul_visit', {id: post.owner.id}) }}"><b>{{ author_name }}</b></a> {{ _self.icon_master(post.owner) }}<br />
                         {% if post.owner.name == 'Der Rabe' %}
                             <span class="small"><i>{{ 'Ich beobachte euch...'|trans({},'game') }}</i></span>
                         {% elseif post.owner.activeTitle or post.owner.activeIcon %}

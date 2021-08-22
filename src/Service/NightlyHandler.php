@@ -729,7 +729,7 @@ class NightlyHandler
             while ($damageInflicted > 0 && !empty($targets)) {
                 $target = array_pop($targets);
 
-                $damages = min($damageInflicted, min($target->getHp(), mt_rand(0, ceil($target->getPrototype()->getHp() * 0.7))));
+                $damages = min($damageInflicted, $target->getHp(), mt_rand(ceil($target->getPrototype()->getHp() * 0.1), ceil($target->getPrototype()->getHp() * 0.7)));
 
                 if ($damages <= 0) continue;
 

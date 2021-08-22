@@ -18,6 +18,7 @@ class EventConf extends Conf
     const EVENT_DIG_RUINS         = 'event_dig.ruins';
 
     const EVENT_HOOK_WATCHTOWER   = 'hooks.watchtower';
+    const EVENT_HOOK_DASHBOARD    = 'hooks.dashboard';
     const EVENT_HOOK_DOOR         = 'hooks.door';
     const EVENT_HOOK_NIGHTLY_PRE  = 'hooks.night_before';
     const EVENT_HOOK_NIGHTLY_POST = 'hooks.night_after';
@@ -67,9 +68,16 @@ class EventConf extends Conf
         return call_user_func( $this->get(self::EVENT_HOOK_DOOR, 'App\Structures\EventConf::Void') , $action);
     }
 
-    public function hook_watchtower_estimations(int &$min, int &$max, Town $town): void {
-        call_user_func( $this->get(self::EVENT_HOOK_WATCHTOWER, 'App\Structures\EventConf::Void') , array(&$min, &$max, $town));
+    public function hook_watchtower_estimations(int &$min, int &$max, Town $town, int $dayOffset, float $quality, ?string &$message = null ): void {
+        call_user_func( $this->get(self::EVENT_HOOK_WATCHTOWER, 'App\Structures\EventConf::Void') , array(&$min, &$max, $town, $dayOffset, $quality, &$message));
     }
+
+    public function hook_dashboard(Town $town, ?array &$additional_bullets = null, ?array &$additional_situation = null ): void {
+        if ($additional_bullets === null) $additional_bullets = [];
+        if ($additional_situation === null) $additional_situation = [];
+        call_user_func( $this->get(self::EVENT_HOOK_DASHBOARD, 'App\Structures\EventConf::Void') , array($town, &$additional_bullets, &$additional_situation));
+    }
+
 
     public function hook_enable_town(Town $town): bool {
         return call_user_func( $this->get(self::EVENT_HOOK_ENABLE_TOWN, 'App\Structures\EventConf::True'), $town);

@@ -2366,7 +2366,7 @@
     <unit id="72h0.SN" name="Ghul">
       <notes>
         <note category="german">Ghul</note>
-        <note category="from">db://CitizenRole;db://CitizenStatus;twig:///templates/ajax/game/town/town.html.twig</note>
+        <note category="from">db://CitizenRole;twig:///templates/ajax/game/town/town.html.twig</note>
       </notes>
       <segment>
         <source>Ghul</source>
@@ -3380,7 +3380,7 @@
       </notes>
       <segment>
         <source>Nordosten</source>
-        <target>le Nord-Est</target>
+        <target>le nord-est</target>
       </segment>
     </unit>
     <unit id="R9OI7Nm" name="Nordwesten">
@@ -3390,7 +3390,7 @@
       </notes>
       <segment>
         <source>Nordwesten</source>
-        <target>le Nord-Ouest</target>
+        <target>le nord-ouest</target>
       </segment>
     </unit>
     <unit id="dOCvO1b" name="Norden">
@@ -3400,7 +3400,7 @@
       </notes>
       <segment>
         <source>Norden</source>
-        <target>le Nord</target>
+        <target>le nord</target>
       </segment>
     </unit>
     <unit id="ac.6Rc5" name="Südosten">
@@ -3410,7 +3410,7 @@
       </notes>
       <segment>
         <source>Südosten</source>
-        <target>le Sud-Est</target>
+        <target>le sud-est</target>
       </segment>
     </unit>
     <unit id="YE0v6eT" name="Südwesten">
@@ -3420,7 +3420,7 @@
       </notes>
       <segment>
         <source>Südwesten</source>
-        <target>le Sud-Ouest</target>
+        <target>le sud-ouest</target>
       </segment>
     </unit>
     <unit id="qxvJIc." name="Süden">
@@ -3430,7 +3430,7 @@
       </notes>
       <segment>
         <source>Süden</source>
-        <target>le Sud</target>
+        <target>le sud</target>
       </segment>
     </unit>
     <unit id="xMKWHhf" name="Osten">
@@ -3440,7 +3440,7 @@
       </notes>
       <segment>
         <source>Osten</source>
-        <target>l'Est</target>
+        <target>l'est</target>
       </segment>
     </unit>
     <unit id="jdRT5Z5" name="Westen">
@@ -3450,7 +3450,7 @@
       </notes>
       <segment>
         <source>Westen</source>
-        <target>l'Ouest</target>
+        <target>l'ouest</target>
       </segment>
     </unit>
     <unit id="MJMhV5L" name="Kleine Stadt">
@@ -6988,17 +6988,17 @@
       </notes>
       <segment>
         <source>Sekunde(n)</source>
-        <target>Seconde(s)</target>
+        <target>seconde(s)</target>
       </segment>
     </unit>
     <unit id="4OynnJl" name="Der Bürger wurde zuletzt {time} gesehen.">
       <notes>
-        <note category="german">Der Bürger wurde zuletzt {time} gesehen.</note>
+        <note category="german">zuletzt {time} gesehen worden sein.</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Der Bürger wurde zuletzt {time} gesehen.</source>
-        <target>Ce citoyen a été aperçu pour la dernière fois {time}.</target>
+        <target><![CDATA[a été aperçu pour la dernière fois <strong>{time}</strong>.]]></target>
       </segment>
     </unit>
     <unit id="KsxoZXu" name="vor {time}">
@@ -7013,92 +7013,92 @@
     </unit>
     <unit id="9YXdyqO" name="Dieser Bürger wurde noch nie gesehen...">
       <notes>
-        <note category="german">Dieser Bürger wurde noch nie gesehen...</note>
+        <note category="german">noch nie gesehen worden sein...</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Dieser Bürger wurde noch nie gesehen...</source>
-        <target>Ce citoyen n'a jamais été vu...</target>
+        <target>n'a jamais été vu...</target>
       </segment>
     </unit>
     <unit id="SNTneh6" name="Dieser Bürger hat {ration} Wasserration(en) aus dem Brunnen genommen.">
       <notes>
-        <note category="german">Dieser Bürger hat {ration} Wasserration(en) aus dem Brunnen genommen.</note>
+        <note category="german">{ration__copy} Wasserration(en) aus dem Brunnen genommen haben.</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Dieser Bürger hat {ration} Wasserration(en) aus dem Brunnen genommen.</source>
-        <target>Ce citoyen a pris {ration} ration(s) au puits aujourd'hui</target>
+        <target><![CDATA[a été vu au puits prenant <strong>{ration} ration(s) d'eau</strong> aujourd'hui.]]></target>
       </segment>
     </unit>
     <unit id="VNIM3Mp" name="Dieser Bürger ist ernsthaft verletzt.">
       <notes>
-        <note category="german">Dieser Bürger ist ernsthaft verletzt.</note>
+        <note category="german">ernsthaft verletzt sein.</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Dieser Bürger ist ernsthaft verletzt.</source>
-        <target>Ce citoyen a été gravement blessé.</target>
+        <target>a été gravement blessé.</target>
       </segment>
     </unit>
     <unit id="w5JoDMX">
       <notes>
-        <note category="german">Dieser Bürger hat eventuell schon seit einer Weile Blut gehustet... Einige reden von einer Infektion.</note>
+        <note category="german">schon seit einer Weile Blut gehustet haben... Einige reden von einer Infektion.</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Dieser Bürger hat eventuell schon seit einer Weile Blut gehustet... Einige reden von einer Infektion.</source>
-        <target>Ce citoyen cracherait du sang depuis un petit moment déjà… Certains parlent d'une infection.</target>
+        <target>cracherait du sang depuis un petit moment déjà… Certains parlent d'une infection.</target>
       </segment>
     </unit>
     <unit id="0LaQbDJ">
       <notes>
-        <note category="german">Dieser Bürger soll eventuell heute Morgen überall nach Wasser gebettelt haben... Ob er durstig ist?</note>
+        <note category="german">heute Morgen überall nach Wasser gebettelt haben... Ob er durstig ist?</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Dieser Bürger hat eventuell heute Morgen überall nach Wasser gebettelt haben... Ob er durstig ist?</source>
-        <target>Ce citoyen aurait mendié pour de l'eau dans tout le village ce matin… Une petite soif ?</target>
+        <target>aurait mendié pour de l'eau dans tout le village ce matin… Une petite soif ?</target>
       </segment>
     </unit>
     <unit id="IhkIaY6">
       <notes>
-        <note category="german">Dieser Bürger ist eventuell süchtig... Wir nennen sein Verhalten aggressiv, manchmal sogar assozial...</note>
+        <note category="german">süchtig sein... Wir nennen sein Verhalten aggressiv, manchmal sogar assozial...</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Dieser Bürger is eventuell süchtig... Wir nennen sein Verhalten aggressiv, manchmal sogar assozial...</source>
-        <target>Ce citoyen serait dans un grave état de dépendance… On dit même que son comportement deviendrait violent voire “anti-citoyen” par moment...</target>
+        <target>serait dans un grave état de dépendance… On dit même que son comportement deviendrait violent voire “anti-citoyen” par moment.</target>
       </segment>
     </unit>
     <unit id="QHYoGw6">
       <notes>
-        <note category="german">Dieser Bürger konnte nicht schlafen und redete wirres Zeug, von Tod, sprechenden Schatten und Stimmen in seinem Kopf...</note>
+        <note category="german">nicht schlafen können und wirres Zeug reden, von Tod, sprechenden Schatten und Stimmen in seinem Kopf...</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Dieser Bürger konnte nicht schlafen und redete wirres Zeug, von Tod, sprechenden Schatten und Stimmen in seinem Kopf...</source>
-        <target>Ce citoyen n'arriverait plus à dormir et tiendrait des propos incohérents, parlant de mort, d'ombres qui parlent, de voix dans sa tête...</target>
+        <target>n'arriverait plus à dormir et tiendrait des propos incohérents, parlant de mort, d'ombres qui parlent, de voix dans sa tête...</target>
       </segment>
     </unit>
     <unit id="Kx1swjd">
       <notes>
-        <note category="german">Dieser Bürger ist nicht in der Lage, einen Beruf zu wählen. Wir sind noch lange nicht über den Berg, das kann ich euch sagen!</note>
+        <note category="german">nicht in der Lage sein, einen Beruf zu wählen. Wir sind noch lange nicht über den Berg, das kann ich euch sagen!</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Dieser Bürger ist nicht in der Lage, einen Beruf zu wählen. Wir sind noch lange nicht über den Berg, das kann ich euch sagen!</source>
-        <target>Ce citoyen ne serait même pas capable de choisir son occupation ! On est pas sorti, moi j'vous l'dis.</target>
+        <target>ne serait même pas capable de choisir son occupation ! On est pas sorti, moi j'vous l'dis.</target>
       </segment>
     </unit>
     <unit id="dvSfZK0">
       <notes>
-        <note category="german">Dieser Bürger könnte jemand sehr Wichtiges sein. Vielleicht einer der Erschaffer?</note>
+        <note category="german">jemand sehr Wichtiges sein. Vielleicht einer der Erschaffer?</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Dieser Bürger könnte jemand sehr Wichtiges sein. Vielleicht einer der Erschaffer?</source>
-        <target>Ce citoyen serait quelqu'un de haut-placé… Un fondateur peut-être ?</target>
+        <target>serait quelqu'un de haut-placé… Un fondateur peut-être ?</target>
       </segment>
     </unit>
     <unit id="jeBATzG">
@@ -7675,7 +7675,7 @@
     <unit id="396xkzr" name="...der Mörder .. ist.. IST.. AAARGHhh..">
       <notes>
         <note category="german">...der Mörder .. ist.. IST.. AAARGHhh..</note>
-        <note category="from">php:///src/Controller/Soul/SoulController.php</note>
+        <note category="from">php:///src/Controller/ExternalXML2Controller.php;twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/soul/season.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
       </notes>
       <segment>
         <source>...der Mörder .. ist.. IST.. AAARGHhh..</source>
@@ -8513,7 +8513,7 @@
       </notes>
       <segment>
         <source>{citizen} hat {target_citizen} aus der Eskorte entlassen.</source>
-        <target>Finalement, {citizen} a décidé de planter {target_citizen} là.</target>
+        <target>Finalement, {citizen} a décidé de planter {target_citizen} là...</target>
       </segment>
     </unit>
     <unit id="wvs954U" name="Niemand!">
@@ -8663,7 +8663,7 @@
       </notes>
       <segment>
         <source>{attacker} ist {defender} an die Gurgel gesprungen und hat ihn ohne mit der Wimper zu zucken verspeist!</source>
-        <target>{attacker} a sauté à la gorge de {defender} et l'a mangé sans battre une paupière !</target>
+        <target>{attacker} s'est jeté à la gorge de {defender} et l'a dévoré(e) !!</target>
       </segment>
     </unit>
     <unit id="Qlh.l61">
@@ -15318,7 +15318,7 @@
     </unit>
     <unit id="2ZzcscP" name="Verlorenes Brunnenwasser: {count} Einhet(en)">
       <notes>
-        <note category="german">Verlorenes Brunnenwasser: {count} Einhet(en)</note>
+        <note category="german">Verlorenes Brunnenwasser: {count__copy} Einhet(en)</note>
         <note category="from">twig:///templates/ajax/game/newspaper.html.twig</note>
       </notes>
       <segment>
@@ -16359,7 +16359,7 @@
       </notes>
       <segment>
         <source>Einen Bürger heimbringen:</source>
-        <target>Ramener un citoyen:</target>
+        <target>Ramener un citoyen :</target>
       </segment>
     </unit>
     <unit id="Whw_2bO" name="Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) {home} verwandelt.">
@@ -19208,7 +19208,7 @@
       </notes>
       <segment>
         <source>Es weiß zwar keiner wie unser Held {citizen} das angestellt hat, aber es ist ihm gelungen aus dieser Zone direkt in die Stadt zurückzukehren... Ein Wunder!</source>
-        <target>Personne ne sait comment, mais le héros {citizen} a réussi à quitter cette zone pour retourner directement en ville... C'est un miracle !</target>
+        <target><![CDATA[Personne ne sait comment, mais le <span>héros</span> {citizen} a réussi à quitter cette zone pour <span>retourner directement en ville</span>... C'est un miracle !]]></target>
       </segment>
     </unit>
     <unit id="SwbKwjj" name="Der Leichnam von {citizen} wurde nicht zerstört.">
@@ -21391,7 +21391,7 @@
       </notes>
       <segment>
         <source>&lt;strong&gt;Verlust der Zonenkontrolle&lt;/strong&gt;: Die Suchen von {citizen} wurden unterbrochen!</source>
-        <target><![CDATA[<strong>Perte de contrôle</strong> : les fouilles de {citizen} ont été interrompues !]]></target>
+        <target><![CDATA[<span>Perte de contrôle :</span> les fouilles de {citizen} ont été interrompues !]]></target>
       </segment>
     </unit>
     <unit id="2L4fAWv">
@@ -21401,7 +21401,7 @@
       </notes>
       <segment>
         <source>{citizen} hat die Zone verlassen, &lt;strong&gt;die Zombies werden in wenigen Minuten die Kontrolle erlangen wenn wir nichts unternehmen.&lt;/strong&gt;</source>
-        <target><![CDATA[{citizen} est parti(e), <strong>la zone va repasser sous le contrôle des zombies dans quelques minutes si rien n'est fait</strong>.]]></target>
+        <target><![CDATA[{citizen} est parti(e), <span>la zone va repasser sous le contrôle des zombies dans quelques minutes si rien n'est fait</span>.]]></target>
       </segment>
     </unit>
     <unit id="QZHPoCR" name="&lt;span&gt;Es ist soweit: Der Schmaus kann beginnen!&lt;/span&gt;">
@@ -21411,7 +21411,7 @@
       </notes>
       <segment>
         <source>&lt;span&gt;Es ist soweit: Der Schmaus kann beginnen!&lt;/span&gt;</source>
-        <target><![CDATA[<span>PLUS DE TEMPS : LE FESTIN COMMENCE !</span>]]></target>
+        <target><![CDATA[<span>Plus de temps : le festin commence !</span>]]></target>
       </segment>
     </unit>
     <unit id="XvH9iDl">
@@ -22083,22 +22083,21 @@
       <notes>
         <note category="german">Dieser Aussätzige wurde kurzerhand &lt;strong&gt;gekreuzigt&lt;/strong&gt;.</note>
         <note category="from">php:///src/Controller/Town/TownController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Dieser Aussätzige wurde kurzerhand &lt;strong&gt;gekreuzigt&lt;/strong&gt;.</source>
-        <target><![CDATA[Dieser Aussätzige wurde kurzerhand <strong>gekreuzigt</strong>.]]></target>
+        <target><![CDATA[Ce paria a été <strong>crucifié</strong> sur votre croix en chocolat à titre d'exemple.]]></target>
       </segment>
     </unit>
     <unit id="xBnA_I0">
       <notes>
         <note category="german">Das Schokoladenkreuz wurde von den Bürgern im Rahmen dieses tragischen Ereignisses &lt;strong&gt;gegessen&lt;/strong&gt;!</note>
         <note category="from">php:///src/Controller/Town/TownController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Das Schokoladenkreuz wurde von den Bürgern im Rahmen dieses tragischen Ereignisses &lt;strong&gt;gegessen&lt;/strong&gt;!</source>
-        <target><![CDATA[Das Schokoladenkreuz wurde von den Bürgern im Rahmen dieses tragischen Ereignisses <strong>gegessen</strong>!]]></target>
+        <target><![CDATA[<strong>La croix en chocolat a été dégustée</strong> au cours de
+cette violente opération...]]></target>
       </segment>
     </unit>
     <unit id="IOhU3iU">
@@ -22139,6 +22138,150 @@
       <segment>
         <source>Durch die Lüftungsschächte klettern (out)</source>
         <target>Sortir par l'aération</target>
+      </segment>
+    </unit>
+    <unit id="dx8bzcp" name="Höchstens {nw_defense}">
+      <notes>
+        <note category="german">{nw_defense}</note>
+        <note category="from">twig:///templates/ajax/game/town/nightwatch.html.twig</note>
+      </notes>
+      <segment>
+        <source>Höchstens {nw_defense}</source>
+        <target>
+              {nw_defense, plural,
+                =0 {Aucun !!}
+                other {Au maximum #}
+              }
+          </target>
+      </segment>
+    </unit>
+    <unit id="VAttJzW" name="Dieser Bürger">
+      <notes>
+        <note category="german">Gerüchten zufolge ist dieser Bürger</note>
+        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger</source>
+        <target>Selon les rumeurs, le citoyen {citizen} :</target>
+      </segment>
+    </unit>
+    <unit id="Z0MirrQ">
+      <notes>
+        <note category="german">ist eventuell nicht in der Stadt und &lt;strong&gt;hätte ihr Haus nicht gegen Einbrecher geschützt&lt;/strong&gt;...</note>
+        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger ist nicht in der Stadt sei und hat &lt;strong&gt;sein Haus nicht gegen Einbrecher geschützt&lt;/strong&gt;...</source>
+        <target><![CDATA[n'est pas en ville et <strong>n'a pas protégé sa maison contre les voleurs</strong>...]]></target>
+      </segment>
+    </unit>
+    <unit id="7oOTMUP" name="In der (&lt;strong&gt;leeren&lt;/strong&gt;) Zone graben">
+      <notes>
+        <note category="german">In der (&lt;strong&gt;leeren&lt;/strong&gt;) Zone graben</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+      </notes>
+      <segment>
+        <source>In der (&lt;strong&gt;leeren&lt;/strong&gt;) Zone graben</source>
+        <target><![CDATA[Fouiller (<strong>zone épuisée</strong>)]]></target>
+      </segment>
+    </unit>
+    <unit id="Szio5gY" name="Tod durch die Apokalypse">
+      <notes>
+        <note category="german">Tod durch die Apokalypse</note>
+        <note category="from">db://CauseOfDeath</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Tod durch die Apokalypse</source>
+        <target>Tod durch die Apokalypse</target>
+      </segment>
+    </unit>
+    <unit id="EhRWrg3">
+      <notes>
+        <note category="german">Eine Katastrophe apokalyptischen Ausmaßes hat dich, deine Stadt und alles in der Umgebung hinweggefegt. Es ist, als hätte jemand die gesamte Welt... gereinigt.</note>
+        <note category="from">db://CauseOfDeath</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Eine Katastrophe apokalyptischen Ausmaßes hat dich, deine Stadt und alles in der Umgebung hinweggefegt. Es ist, als hätte jemand die gesamte Welt... gereinigt.</source>
+        <target>Eine Katastrophe apokalyptischen Ausmaßes hat dich, deine Stadt und alles in der Umgebung hinweggefegt. Es ist, als hätte jemand die gesamte Welt... gereinigt.</target>
+      </segment>
+    </unit>
+    <unit id="TI4f6dK">
+      <notes>
+        <note category="german">Vereinzelte Bürger berichten von einem merkwürdigen Phänomen am Himmel... Ihr solltet die Alkoholvorräte in der Bank pürfen.</note>
+        <note category="from">php:///src/Structures/Hook.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Vereinzelte Bürger berichten von einem merkwürdigen Phänomen am Himmel... Ihr solltet die Alkoholvorräte in der Bank pürfen.</source>
+        <target>Vereinzelte Bürger berichten von einem merkwürdigen Phänomen am Himmel... Ihr solltet die Alkoholvorräte in der Bank pürfen.</target>
+      </segment>
+    </unit>
+    <unit id="J1ZyqLO">
+      <notes>
+        <note category="german">Einige Bürger haben berichtet, während ihrer Abschätzung ein rotes Blitzen am Horizont gesehen zu haben.</note>
+        <note category="from">php:///src/Structures/Hook.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Einige Bürger haben berichtet, während ihrer Abschätzung ein rotes Blitzen am Horizont gesehen zu haben.</source>
+        <target>Einige Bürger haben berichtet, während ihrer Abschätzung ein rotes Blitzen am Horizont gesehen zu haben.</target>
+      </segment>
+    </unit>
+    <unit id="kXaqluQ">
+      <notes>
+        <note category="german">Ein Großteil der Bürger, die heute auf dem Wachturm waren, haben ein lautes Grollen in der Ferne vernommen.</note>
+        <note category="from">php:///src/Structures/Hook.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Ein Großteil der Bürger, die heute auf dem Wachturm waren, haben ein lautes Grollen in der Ferne vernommen.</source>
+        <target>Ein Großteil der Bürger, die heute auf dem Wachturm waren, haben ein lautes Grollen in der Ferne vernommen.</target>
+      </segment>
+    </unit>
+    <unit id=".8QsYID">
+      <notes>
+        <note category="german">Zusatzbemerkung zur heutigen Abschätzung: Der Himmel hat sich blutrot gefärbt. Das sieht nicht gut aus, Leute...</note>
+        <note category="from">php:///src/Structures/Hook.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Zusatzbemerkung zur heutigen Abschätzung: Der Himmel hat sich blutrot gefärbt. Das sieht nicht gut aus, Leute...</source>
+        <target>Zusatzbemerkung zur heutigen Abschätzung: Der Himmel hat sich blutrot gefärbt. Das sieht nicht gut aus, Leute...</target>
+      </segment>
+    </unit>
+    <unit id="2soUcg3">
+      <notes>
+        <note category="german">Das sieht nicht gut aus... Die Zombies werden heute Nacht nicht unser größtes Problem sein.</note>
+        <note category="from">php:///src/Structures/Hook.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Das sieht nicht gut aus... Die Zombies werden heute Nacht nicht unser größtes Problem sein.</source>
+        <target>Das sieht nicht gut aus... Die Zombies werden heute Nacht nicht unser größtes Problem sein.</target>
+      </segment>
+    </unit>
+    <unit id="SnHKJah" name="Beten">
+      <notes>
+        <note category="german">Beten</note>
+        <note category="from">php:///src/Structures/Hook.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Beten</source>
+        <target>Beten</target>
+      </segment>
+    </unit>
+    <unit id="yOOoIBM" name="Es gibt keine Hoffnung!">
+      <notes>
+        <note category="german">Es gibt keine Hoffnung!</note>
+        <note category="from">php:///src/Structures/Hook.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Es gibt keine Hoffnung!</source>
+        <target>Es gibt keine Hoffnung!</target>
       </segment>
     </unit>
   </file>

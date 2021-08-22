@@ -1,19 +1,25 @@
-let heroics = document.querySelectorAll('.heroic_actions');
-let heroics_hide = document.querySelectorAll('[x-heroic-toggle="0"]');
-let heroics_show = document.querySelectorAll('[x-heroic-toggle="1"]');
-let camping = document.querySelectorAll('.camping_actions');
+const item_action_collapse = function( boxClass,toggleClass ) {
+    let box = document.querySelectorAll('.' + boxClass);
+    let box_hide = document.querySelectorAll('[' + toggleClass + '="0"]');
+    let box_show = document.querySelectorAll('[' + toggleClass + '="1"]');
 
-if (heroics_show.length > 0) for (let i = 0; i < heroics.length; i++) heroics[i].style.display = 'none';
-for (let i = 0; i < heroics_hide.length; i++) heroics_hide[i].addEventListener('click', function() {
-    for (let j = 0; j < heroics.length; j++) heroics[j].style.display = 'none';
-    for (let j = 0; j < heroics_hide.length; j++) heroics_hide[j].style.display = 'none';
-    for (let j = 0; j < heroics_show.length; j++) heroics_show[j].style.display = null;
-})
-for (let i = 0; i < heroics_show.length; i++) heroics_show[i].addEventListener('click', function() {
-    for (let j = 0; j < heroics.length; j++) heroics[j].style.display = null;
-    for (let j = 0; j < heroics_hide.length; j++) heroics_hide[j].style.display = null;
-    for (let j = 0; j < heroics_show.length; j++) heroics_show[j].style.display = 'none';
-})
+    if (box_show.length > 0) for (let i = 0; i < box.length; i++) box[i].style.display = 'none';
+    for (let i = 0; i < box_hide.length; i++) box_hide[i].addEventListener('click', function() {
+        for (let j = 0; j < box.length; j++) box[j].style.display = 'none';
+        for (let j = 0; j < box_hide.length; j++) box_hide[j].style.display = 'none';
+        for (let j = 0; j < box_show.length; j++) box_show[j].style.display = null;
+    })
+    for (let i = 0; i < box_show.length; i++) box_show[i].addEventListener('click', function() {
+        for (let j = 0; j < box.length; j++) box[j].style.display = null;
+        for (let j = 0; j < box_hide.length; j++) box_hide[j].style.display = null;
+        for (let j = 0; j < box_show.length; j++) box_show[j].style.display = 'none';
+    })
+}
+
+item_action_collapse('actions','x-item-action-toggle');
+item_action_collapse('heroic_actions','x-heroic-toggle');
+
+let camping = document.querySelectorAll('.camping_actions');
 
 const handleSpecialActions = function( actions, api_path, return_path ) {
     for (let i = 0; i < actions.length; i++) {

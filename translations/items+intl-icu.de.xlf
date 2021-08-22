@@ -5701,5 +5701,17 @@
         <target>Du hast bereits volle AP.</target>
       </segment>
     </unit>
+    <unit id="KdxLS.M">
+      <segment>
+        <source>Du zündest eine Zigarette an. Der Rauch lässt dich kräftig Husten, vermutlich weil du daran nicht gewöhnt bist... Nach ein paar Minuten &lt;strong&gt;gelingt es dir dich zu beruhigen&lt;/strong&gt;. Dieser Kurze Moment des Friedens ermöglicht lässt dich deinen Kummer vergessen und bringt dich zurück in die Wirklichkeit.&lt;hr /&gt;Du drückst den Stummel auf dem Boden aus und bist bereit für einen weiteren Tag des Überlebens.!&lt;t-consumed&gt;&lt;hr /&gt;Dir fällt auf dass &lt;strong&gt;die Packung leer ist&lt;/strong&gt;!&lt;/t-consumed&gt;</source>
+        <target><![CDATA[Du zündest eine Zigarette an. Der Rauch lässt dich kräftig Husten, vermutlich weil du daran nicht gewöhnt bist... Nach ein paar Minuten <strong>gelingt es dir dich zu beruhigen</strong>. Dieser Kurze Moment des Friedens ermöglicht lässt dich deinen Kummer vergessen und bringt dich zurück in die Wirklichkeit.<hr />Du drückst den Stummel auf dem Boden aus und bist bereit für einen weiteren Tag des Überlebens!<t-consumed><hr />Dir fällt auf dass <strong>die Packung leer ist</strong>!</t-consumed>]]></target>
+      </segment>
+    </unit>
+    <unit id="5MlxE2I" name="Gegenstand verwenden">
+      <segment>
+        <source>Gegenstand verwenden</source>
+        <target>Gegenstand verwenden</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

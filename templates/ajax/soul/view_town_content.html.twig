@@ -112,7 +112,7 @@
                     {% if citizen.lastWords is empty %}
                         <span>{{ 'Dieser Bürger hat keine letzten Worte hinterlassen ...'|trans({}, 'game') }}</span>
                     {% else %}
-                        <b>{{"Letzte Worte:"|trans({}, 'game')}}</b> {{ citizen.lastWords }}
+                        <b>{{"Letzte Worte:"|trans({}, 'game')}}</b> {{ citizen.lastWords|replace({'{gotKilled}': '...der Mörder .. ist.. IST.. AAARGHhh..'|trans({},'game')}) }}
                     {% endif %}
                 </div>
             </div>
@@ -136,7 +136,7 @@
                     <i>{{'Unbekannte Todesursache'|trans({}, 'game')}}</i>
                 {% endif %}
                 {% if not citizen.lastWords is empty %}
-                    : <span class="small">"{{ citizen.lastWords }}"</span>
+                    : <span class="small">"{{ citizen.lastWords|replace({'{gotKilled}': '...der Mörder .. ist.. IST.. AAARGHhh..'|trans({},'game')}) }}"</span>
                 {% endif %}
                 {% if citizen.comment is not empty %}
                     <br />{{citizen.comment}}

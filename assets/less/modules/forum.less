@@ -293,6 +293,9 @@ ul.subscriptions {
     display: block;
     padding: 4px;
     min-height: 48px;
+
+    .mh-icon > img { margin-bottom: 3px; }
+
     &>b { padding: 5px; &>img { vertical-align: revert; } }
     &>i { float: right; font-size: 0.7em; opacity: 0.5; }
     &>div.post-note { font-size: 0.8em; span { opacity: 1.0; } }
@@ -617,6 +620,8 @@ ul.subscriptions {
     background: url("../../img/background/bg_content2.jpg") repeat-y top left/900px 263px, url("../../img/background/bg_content2.jpg") repeat-y top right/900px 263px;
     top: 10px; bottom: 10px; border-radius: 8px; box-shadow: 0 0 10px black;
     transition: transform 0.5s ease; transform: scale(1) translateY(0);
+
+    ul.tabs.plain { margin-top: 4px; margin-bottom: 0; }
 
     #post-office-button-overlay {
       position: absolute; top: 12px; right: 12px;

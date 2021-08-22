@@ -18,7 +18,7 @@
       </notes>
       <segment>
         <source>Wow, du hast einen Trippel geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</source>
-        <target>Bravo, vous obtenez un triplet ! Qu'est-ce qu'on s'amuse ! Ça vous fait tellement plaisir que vous gagnez 1 PA.</target>
+        <target><![CDATA[Bravo, vous obtenez un <strong>triplet</strong> ! Qu'est-ce qu'on s'amuse !{hr}Ça vous fait tellement plaisir que vous gagnez <strong>1 PA</strong>.]]></target>
       </segment>
     </unit>
     <unit id="rmGP8Al">
@@ -68,7 +68,7 @@
       </notes>
       <segment>
         <source>Du ziehst eine Karte... und stellst fest, dass dein Name darauf mit Blut geschrieben steht! Du erstarrst vor Schreck!</source>
-        <target>Vous tirez une carte... Vous poussez un hurlement en découvrant votre nom écrit en lettre de sang sur celle-ci ! Vous ignorez qui est à l'origine de cette blague de très mauvais goût... Vous êtes maintenant terrorisé(e) !</target>
+        <target><![CDATA[Vous tirez une carte... Vous poussez un hurlement en découvrant <strong>votre nom écrit en lettre de sang</strong> sur celle-ci ! Vous ignorez qui est à l'origine de cette blague de très mauvais goût...{hr}Vous êtes maintenant <strong>terrorisé(e)</strong> !]]></target>
       </segment>
     </unit>
     <unit id="NcJ93EV">
@@ -3596,7 +3596,7 @@
     <unit id="4BPa55x">
       <notes>
         <note category="german">Du machst es dir daheim gemütlich und entspannst dich... doch dann erlebst du ein böse Überraschung: Dieses Ding ist unglaublich schmerzhaft! Du versuchst es weiter bis du Stück für Stück Gefallen daran findest. Die nach wenige Minuten einsetzende Wirkung ist berauschend! Du schwitzt und zitterst und ein wohlig-warmes Gefühl breitet sich in dir aus...Die Batterie ist komplett leer.</note>
-        <note category="from">db://ItemAction;db://ItemPrototype</note>
+        <note category="from">db://ItemAction</note>
       </notes>
       <segment>
         <source>Du machst es dir daheim gemütlich und entspannst dich... doch dann erlebst du ein böse Überraschung: Dieses Ding ist unglaublich schmerzhaft! Du versuchst es weiter bis du Stück für Stück Gefallen daran findest. Die nach wenige Minuten einsetzende Wirkung ist berauschend! Du schwitzt und zitterst und ein wohlig-warmes Gefühl breitet sich in dir aus...Die Batterie ist komplett leer.</source>
@@ -9165,6 +9165,27 @@
       <segment>
         <source>Angriff und Verteidigung</source>
         <target>Angriff und Verteidigung</target>
+      </segment>
+    </unit>
+    <unit id="KdxLS.M">
+      <notes>
+        <note category="german">Du zündest eine Zigarette an. Der Rauch lässt dich kräftig Husten, vermutlich weil du daran nicht gewöhnt bist... Nach ein paar Minuten &lt;strong&gt;gelingt es dir dich zu beruhigen&lt;/strong&gt;. Dieser Kurze Moment des Friedens ermöglicht lässt dich deinen Kummer vergessen und bringt dich zurück in die Wirklichkeit.&lt;hr /&gt;Du drückst den Stummel auf dem Boden aus und bist bereit für einen weiteren Tag des Überlebens!&lt;t-consumed&gt;&lt;hr /&gt;Dir fällt auf dass &lt;strong&gt;die Packung leer ist&lt;/strong&gt;!&lt;/t-consumed&gt;</note>
+        <note category="from">db://ItemAction</note>
+        <note category="state">incomplete</note>
+      </notes>
+      <segment>
+        <source>Du zündest eine Zigarette an. Der Rauch lässt dich kräftig Husten, vermutlich weil du daran nicht gewöhnt bist... Nach ein paar Minuten &lt;strong&gt;gelingt es dir dich zu beruhigen&lt;/strong&gt;. Dieser Kurze Moment des Friedens ermöglicht lässt dich deinen Kummer vergessen und bringt dich zurück in die Wirklichkeit.&lt;hr /&gt;Du drückst den Stummel auf dem Boden aus und bist bereit für einen weiteren Tag des Überlebens.!&lt;t-consumed&gt;&lt;hr /&gt;Dir fällt auf dass &lt;strong&gt;die Packung leer ist&lt;/strong&gt;!&lt;/t-consumed&gt;</source>
+        <target><![CDATA[Vous allumez une cigarette. La fumée vous fait violemment tousser, le manque d'habitude sans doute... Après quelques minutes, <strong>vous finissez par vous calmer</strong>. Ce petit moment de répit vous aide à faire le vide et à relativiser un peu sur votre sort.<hr />Vous écrasez le mégot au sol, de nouveau prêt(e) à en découdre !<t-consumed><hr />Dir fällt auf dass <strong>die Packung leer ist</strong>!</t-consumed>]]></target>
+      </segment>
+    </unit>
+    <unit id="5MlxE2I" name="Gegenstand verwenden">
+      <notes>
+        <note category="german">Gegenstand verwenden</note>
+        <note category="from">twig:///templates/ajax/game/actions.html.twig</note>
+      </notes>
+      <segment>
+        <source>Gegenstand verwenden</source>
+        <target>Utiliser un objet de mon sac</target>
       </segment>
     </unit>
   </file>

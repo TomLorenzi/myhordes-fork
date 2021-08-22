@@ -374,6 +374,7 @@ export default class HTML {
                 const id = buttons[b].getAttribute('x-tab-id');
                 buttons[b].addEventListener('click', function () {
                     hide_group( group );
+                    const was_selected = buttons[b].classList.contains('selected');
                     for (let bi = 0; bi < buttons.length; bi++) buttons[bi].classList.remove('selected');
                     buttons[b].classList.add('selected');
                     let selector = '*[x-tab-target][x-tab-group=' + group + ']';
@@ -383,6 +384,7 @@ export default class HTML {
                     for (let t = 0; t < targets.length; t++)
                         (<HTMLElement>targets[t]).style.display = null;
                     $.client.set( group, 'tabState', id, true );
+                    if (!was_selected) controllers[i].dispatchEvent(new CustomEvent('tab-switch', { bubbles: false, cancelable: true, detail: {group: group, tab: id, initial: false} }))
                 })
             }
 

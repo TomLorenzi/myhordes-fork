@@ -3600,7 +3600,7 @@
     <unit id="4BPa55x">
       <notes>
         <note category="german">Du machst es dir daheim gemütlich und entspannst dich... doch dann erlebst du ein böse Überraschung: Dieses Ding ist unglaublich schmerzhaft! Du versuchst es weiter bis du Stück für Stück Gefallen daran findest. Die nach wenige Minuten einsetzende Wirkung ist berauschend! Du schwitzt und zitterst und ein wohlig-warmes Gefühl breitet sich in dir aus...Die Batterie ist komplett leer.</note>
-        <note category="from">db://ItemAction;db://ItemPrototype</note>
+        <note category="from">db://ItemAction</note>
       </notes>
       <segment>
         <source>Du machst es dir daheim gemütlich und entspannst dich... doch dann erlebst du ein böse Überraschung: Dieses Ding ist unglaublich schmerzhaft! Du versuchst es weiter bis du Stück für Stück Gefallen daran findest. Die nach wenige Minuten einsetzende Wirkung ist berauschend! Du schwitzt und zitterst und ein wohlig-warmes Gefühl breitet sich in dir aus...Die Batterie ist komplett leer.</source>
@@ -7379,7 +7379,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Herstellung eines Mystischern Trank</source>
-        <target>Brew a Mystic Potion</target>
+        <target>Brew up a shamanic potion!</target>
       </segment>
     </unit>
     <unit id="rQB150u" name="Nickerchen machen">
@@ -7409,7 +7409,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Du hast soeben den mystischen Trank getrunken. Hoffen wir, dass dieser Schamane weiß, was er tut...</source>
-        <target>You just drank a Mystic potion. Now there's nothing for it, but to cross your fingers and hope this witch doctor isn't just some crazy drunk who doesn't like to wash...</target>
+        <target>You just drank a shamanic potion. Now there's nothing for it, but to cross your fingers and hope this witch doctor isn't just some crazy drunk who doesn't like to wash...</target>
       </segment>
     </unit>
     <unit id="qpQMEHf">
@@ -7619,7 +7619,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Die Medizin gibt dir Kraft: Du bist jetzt immun gegen Infektionen und kannst nicht in einen Ghul verwandelt werden. Diese Wirkung lässt nach dem Angriff nach.</source>
-        <target>Medicine gives you strength: You are now immune to infections and cannot be turned into a ghoul. This effect wears off after the attack.</target>
+        <target><![CDATA[The medicine has given you strength: you are now immune to infections, and cannot be transformed into a Ghoul. <strong>This effect will wear off following the attack</strong>.]]></target>
       </segment>
     </unit>
     <unit id="hkUU8xN">
@@ -7749,7 +7749,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Das {item} beginnt rasch zu wirken. Das Fieber klingt ab, dein Herz beginnt wieder in einem halbwegs normalen Takt zu schlagen... Du warst nicht weit von einem schrecklichen Tod entfernt.</source>
-        <target>The {item} rapidly takes effect. The fever subsides, your heart starts beating at a a semi-normal rate again... You weren't far away from a horrible death.</target>
+        <target><![CDATA[The {item} rapidly takes effect. <strong>The fever subsides</strong>, your heart starts beating at a a semi-normal rate again... You weren't far away from a horrible death.]]></target>
       </segment>
     </unit>
     <unit id="xWENNfP" name="Gequälte Seele">
@@ -9179,6 +9179,26 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       <segment>
         <source>Angriff und Verteidigung</source>
         <target>Angriff und Verteidigung</target>
+      </segment>
+    </unit>
+    <unit id="KdxLS.M">
+      <notes>
+        <note category="german">Du zündest eine Zigarette an. Der Rauch lässt dich kräftig Husten, vermutlich weil du daran nicht gewöhnt bist... Nach ein paar Minuten &lt;strong&gt;gelingt es dir dich zu beruhigen&lt;/strong&gt;. Dieser Kurze Moment des Friedens ermöglicht lässt dich deinen Kummer vergessen und bringt dich zurück in die Wirklichkeit.&lt;hr /&gt;Du drückst den Stummel auf dem Boden aus und bist bereit für einen weiteren Tag des Überlebens!&lt;t-consumed&gt;&lt;hr /&gt;Dir fällt auf dass &lt;strong&gt;die Packung leer ist&lt;/strong&gt;!&lt;/t-consumed&gt;</note>
+        <note category="from">db://ItemAction</note>
+      </notes>
+      <segment>
+        <source>Du zündest eine Zigarette an. Der Rauch lässt dich kräftig Husten, vermutlich weil du daran nicht gewöhnt bist... Nach ein paar Minuten &lt;strong&gt;gelingt es dir dich zu beruhigen&lt;/strong&gt;. Dieser Kurze Moment des Friedens ermöglicht lässt dich deinen Kummer vergessen und bringt dich zurück in die Wirklichkeit.&lt;hr /&gt;Du drückst den Stummel auf dem Boden aus und bist bereit für einen weiteren Tag des Überlebens.!&lt;t-consumed&gt;&lt;hr /&gt;Dir fällt auf dass &lt;strong&gt;die Packung leer ist&lt;/strong&gt;!&lt;/t-consumed&gt;</source>
+        <target><![CDATA[You light a cigarette. The smoke makes you cough violently, no doubt because you're not used to it... After a few minutes, <strong>you manage to calm down</strong>. This brief moment of respite allows you to clear your mind a little and take stock of the situation.<hr />You crush the stub on the ground ready to fight for survival once more!<t-consumed><hr />You notice that <strong>the packet is empty</strong>!</t-consumed>]]></target>
+      </segment>
+    </unit>
+    <unit id="5MlxE2I" name="Gegenstand verwenden">
+      <notes>
+        <note category="german">Gegenstand verwenden</note>
+        <note category="from">twig:///templates/ajax/game/actions.html.twig</note>
+      </notes>
+      <segment>
+        <source>Gegenstand verwenden</source>
+        <target>Use an object from my rucksack</target>
       </segment>
     </unit>
   </file>

@@ -3590,7 +3590,7 @@
     <unit id="4BPa55x">
       <notes>
         <note category="german">Du machst es dir daheim gemütlich und entspannst dich... doch dann erlebst du ein böse Überraschung: Dieses Ding ist unglaublich schmerzhaft! Du versuchst es weiter bis du Stück für Stück Gefallen daran findest. Die nach wenige Minuten einsetzende Wirkung ist berauschend! Du schwitzt und zitterst und ein wohlig-warmes Gefühl breitet sich in dir aus...Die Batterie ist komplett leer.</note>
-        <note category="from">db://ItemAction;db://ItemPrototype</note>
+        <note category="from">db://ItemAction</note>
       </notes>
       <segment>
         <source>Du machst es dir daheim gemütlich und entspannst dich... doch dann erlebst du ein böse Überraschung: Dieses Ding ist unglaublich schmerzhaft! Du versuchst es weiter bis du Stück für Stück Gefallen daran findest. Die nach wenige Minuten einsetzende Wirkung ist berauschend! Du schwitzt und zitterst und ein wohlig-warmes Gefühl breitet sich in dir aus...Die Batterie ist komplett leer.</source>
@@ -8423,7 +8423,7 @@
       </notes>
       <segment>
         <source>Die Droge zeigt sofort Wirkung: Du bist auf einmal ganz &lt;strong&gt;ruhig&lt;/strong&gt; geworden, so ausgeglichen... Die schrecklichen Ereignisse der letzten Tage erscheinen dir plötzlich bedeutungslos und ganz weit weg... Es geht dir schon viel besser.</source>
-        <target><![CDATA[La sustancia hace efecto rápidamente... De pronto todo te parece más <strong>sereno</strong>... Hasta los atroces hechos que presenciaste parecen sin importancia... Te sientes mejor]]></target>
+        <target><![CDATA[La sustancia hace efecto rápidamente... De pronto todo te parece más <strong>sereno</strong>... Hasta los atroces hechos que presenciaste parecen sin importancia... Te sientes mejor.]]></target>
       </segment>
     </unit>
     <unit id="EetudYS">
@@ -9036,12 +9036,11 @@
     <unit id="3YKCcgW">
       <notes>
         <note category="german">&lt;nt-stat-up-infection&gt;&lt;nt-role-up-ghoul&gt;Nach ein paar Sekunden spürst du den furchtbaren Nachgeschmack...&lt;/nt-role-up-ghoul&gt;&lt;/nt-stat-up-infection&gt;</note>
-        <note category="state">new</note>
         <note category="from">db://ItemAction</note>
       </notes>
       <segment>
         <source>&lt;nt-stat-up-infection&gt;&lt;nt-role-up-ghoul&gt;Nach ein paar Sekunden spürst du den furchtbaren Nachgeschmack...&lt;/nt-role-up-ghoul&gt;&lt;/nt-stat-up-infection&gt;</source>
-        <target><![CDATA[<nt-stat-up-infection><nt-role-up-ghoul>Nach ein paar Sekunden spürst du den furchtbaren Nachgeschmack...</nt-role-up-ghoul></nt-stat-up-infection>]]></target>
+        <target><![CDATA[<nt-stat-up-infection><nt-role-up-ghoul>Unos segundos después notas que esa cosa tiene un sabor horrible...</nt-role-up-ghoul></nt-stat-up-infection>]]></target>
       </segment>
     </unit>
     <unit id="w9a_4Rx">
@@ -9070,11 +9069,10 @@
       <notes>
         <note category="german">Vorsicht, zu viel Musik ist schädlich, und einer deiner Mitbürger hat dieses Instrument heute bereits benutzt. Deine Ohren würden das nicht überleben.</note>
         <note category="from">db://Requirement</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Vorsicht, zu viel Musik ist schädlich, und einer deiner Mitbürger hat dieses Instrument heute bereits benutzt. Deine Ohren würden das nicht überleben.</source>
-        <target>Vorsicht, zu viel Musik ist schädlich, und einer deiner Mitbürger hat dieses Instrument heute bereits benutzt. Deine Ohren würden das nicht überleben.</target>
+        <target>Cuidado, la idea tampoco es de hacer una parranda. Otro habitante ya tocó la guitarra hoy. Nadie quiere oír tantos chillidos el mismo día.</target>
       </segment>
     </unit>
     <unit id="VXFJxzy">
@@ -9160,6 +9158,26 @@
       <segment>
         <source>Angriff und Verteidigung</source>
         <target>Angriff und Verteidigung</target>
+      </segment>
+    </unit>
+    <unit id="KdxLS.M">
+      <notes>
+        <note category="german">Du zündest eine Zigarette an. Der Rauch lässt dich kräftig Husten, vermutlich weil du daran nicht gewöhnt bist... Nach ein paar Minuten &lt;strong&gt;gelingt es dir dich zu beruhigen&lt;/strong&gt;. Dieser Kurze Moment des Friedens ermöglicht lässt dich deinen Kummer vergessen und bringt dich zurück in die Wirklichkeit.&lt;hr /&gt;Du drückst den Stummel auf dem Boden aus und bist bereit für einen weiteren Tag des Überlebens!&lt;t-consumed&gt;&lt;hr /&gt;Dir fällt auf dass &lt;strong&gt;die Packung leer ist&lt;/strong&gt;!&lt;/t-consumed&gt;</note>
+        <note category="from">db://ItemAction</note>
+      </notes>
+      <segment>
+        <source>Du zündest eine Zigarette an. Der Rauch lässt dich kräftig Husten, vermutlich weil du daran nicht gewöhnt bist... Nach ein paar Minuten &lt;strong&gt;gelingt es dir dich zu beruhigen&lt;/strong&gt;. Dieser Kurze Moment des Friedens ermöglicht lässt dich deinen Kummer vergessen und bringt dich zurück in die Wirklichkeit.&lt;hr /&gt;Du drückst den Stummel auf dem Boden aus und bist bereit für einen weiteren Tag des Überlebens.!&lt;t-consumed&gt;&lt;hr /&gt;Dir fällt auf dass &lt;strong&gt;die Packung leer ist&lt;/strong&gt;!&lt;/t-consumed&gt;</source>
+        <target><![CDATA[Enciendes un cigarrillo. El humo te hace toser intensamente, la falta de costumbre sin duda... Después de algunos minutos, <strong>logras respirar</strong>. Ese momento de alivio te da una visión diferente de tu suerte.<hr />Tiras la colilla al suelo, ¡y te armas de determinación!<t-consumed><hr />Era tu <strong>última cerilla</strong>... Ahora será difícil encontrar otra.</t-consumed>]]></target>
+      </segment>
+    </unit>
+    <unit id="5MlxE2I" name="Gegenstand verwenden">
+      <notes>
+        <note category="german">Gegenstand verwenden</note>
+        <note category="from">twig:///templates/ajax/game/actions.html.twig</note>
+      </notes>
+      <segment>
+        <source>Gegenstand verwenden</source>
+        <target>Usar un objeto de mi mochila</target>
       </segment>
     </unit>
   </file>

@@ -1,7 +1,40 @@
 {% extends "ajax/ajax_plain.html.twig" %}
 {% block ajax_base %}
-    {# @var posts \App\Entity\Post[] #}
+    {% macro icon_master(user) %}
+        {% if user|is_granted('ROLE_SUPER') %}
+            <div class="inline-block mh-icon">
+                <img alt="MHA" src="{{ asset('build/images/icons/icon_mh_admin.gif') }}" />
+                <div class="tooltip">{{ 'Dieser Spieler ist ein Administrator auf diesem Server.'|trans({},'global') }}</div>
+            </div>
+        {% elseif user|is_granted('ROLE_ADMIN') %}
+            <div class="inline-block mh-icon">
+                <img alt="MHA" src="{{ asset('build/images/icons/icon_mh_admin.gif') }}" />
+                <div class="tooltip">{{ 'Dieser Spieler ist ein Entwickler von MyHordes.'|trans({},'global') }}</div>
+            </div>
+        {% elseif user|is_granted('ROLE_CROW') %}
+            <div class="inline-block mh-icon">
+                <img alt="MHA" src="{{ asset('build/images/icons/icon_mh_mod.gif') }}" />
+                <div class="tooltip">{{ 'Dieser Spieler ist ein Moderator auf MyHordes.'|trans({},'global') }}</div>
+            </div>
+        {% elseif user|is_granted('ROLE_ANIMAC') %}
+            <div class="inline-block mh-icon">
+                <img alt="MHA" src="{{ asset('build/images/icons/icon_mh_anim.gif') }}" />
+                <div class="tooltip">{{ 'Dieser Spieler ist ein Animateur auf MyHordes.'|trans({},'global') }}</div>
+            </div>
+        {% elseif user|is_granted('ROLE_ORACLE') %}
+            <div class="inline-block mh-icon">
+                <img alt="MHA" src="{{ asset('build/images/icons/icon_mh_orac.gif') }}" />
+                <div class="tooltip">{{ 'Dieser Spieler ist ein Orakel auf MyHordes.'|trans({},'global') }}</div>
+            </div>
+        {% elseif user|is_granted('ROLE_TEAM') %}
+            <div class="inline-block mh-icon">
+                <img alt="MHA" src="{{ asset('build/images/icons/icon_mh_team.gif') }}" />
+                <div class="tooltip">{{ 'Dieser Spieler ist Mitglied des Entwickler-Teams von MyHordes.'|trans({},'global') }}</div>
+            </div>
+        {% endif %}
+    {% endmacro %}
 
+    {# @var posts \App\Entity\Post[] #}
     <div class="forum-posts">
         {% for post in posts %}
             {% if not post.hidden or is_granted("ROLE_CROW") %}
@@ -22,7 +55,7 @@
                         {% else %}
                             <div class="avatar small ua-{{ random(0,9) }}"><img alt="" src="{{ asset('build/images/forum/empty_avatar.gif') }}"></div>
                         {% endif %}
-                        <b><a class="link" href="{{ path('soul_visit', {id: post.owner.id}) }}">{{ author_name }}:</a></b>
+                        <b><a class="link" href="{{ path('soul_visit', {id: post.owner.id}) }}">{{ author_name }} {{ _self.icon_master(post.owner) }}:</a></b>
                         {{ post.translate ? (post.text|trans({},'game')|raw) : (post.text|raw) }}
                         {% if not post.translate and paranoid and post.owner.name != 'Der Rabe' %}
                             {% set mode = (app.user.id + post.id + post.owner.id) % 12 %}

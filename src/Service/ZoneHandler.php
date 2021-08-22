@@ -114,19 +114,22 @@ class ZoneHandler
         if ($longest_timer !== null && empty($valid_timers) && !$this->check_cp($zone) && !empty($zone->getCitizens()))
             $this->entity_manager->persist( $this->log->zoneEscapeTimerExpired($zone, $longest_timer) );
 
-        /** @var DigTimer[] $dig_timers */
-        $dig_timers = [];
+        /** @var DigTimer[] $all_dig_timers */
+        $all_dig_timers = [];
         $cp = 0;
 
         foreach ($zone->getCitizens() as $citizen) {
             $timer = $citizen->getCurrentDigTimer();
-            if ($timer && !$timer->getPassive() && $timer->getTimestamp() < $up_to)
-                $dig_timers[] = $timer;
+            if ($timer && !$timer->getPassive())
+                $all_dig_timers[] = $timer;
             $cp += $this->citizen_handler->getCP( $citizen );
         }
 
+        $dig_timers_due      = array_filter($all_dig_timers, fn(DigTimer $timer) => $timer->getTimestamp() < $up_to);
+        $dig_timers_relevant = array_filter($all_dig_timers, fn(DigTimer $timer) => (($timer->getTimestamp() < $up_to) || !empty($timer->getDigCache())));
+
         if ($cp < $zone->getZombies()) {
-            foreach ($dig_timers as $timer) {
+            foreach ($all_dig_timers as $timer) {
                 $timer->setPassive(true);
                 $this->entity_manager->persist($timer);
             }
@@ -170,28 +173,19 @@ class ZoneHandler
 
         $zone_update = false;
 
-        $active_dig_timers = $active ? array_filter($dig_timers, function(DigTimer $t) use ($active) {
-            return $active === $t->getCitizen() || ($t->getCitizen()->getEscortSettings() && $t->getCitizen()->getEscortSettings()->getLeader() === $active);
-        }) : $dig_timers;
+        $not_up_to_date = !empty($dig_timers_due);
 
-        $not_up_to_date = !empty($active_dig_timers);
         while ($not_up_to_date) {
-
-            usort( $active_dig_timers, $sort_func );
-            foreach ($active_dig_timers as &$timer)
-                if ($timer->getTimestamp() <= $up_to) {
-
-                    $current_citizen = $timer->getCitizen();
-
-                    if ($active && $active !== $current_citizen && $current_citizen->getEscortSettings() && $current_citizen->getEscortSettings()->getLeader() !== $active)
-                        continue;
+            usort( $dig_timers_due, $sort_func );
+            foreach ($dig_timers_due as &$timer)
+                if ($timer->getTimestamp() < $up_to) {
 
                     $factor = 1.0;
                     if ($timer->getCitizen()->getProfession()->getName() === 'collec') $factor += 0.3;
                     if ($this->citizen_handler->hasStatusEffect( $timer->getCitizen(), 'camper' )) $factor += 0.1;
                     if ($this->citizen_handler->hasStatusEffect( $timer->getCitizen(), 'wound5' )) $factor -= 0.3; // Totally arbitrary
                     if ($this->citizen_handler->hasStatusEffect( $timer->getCitizen(), 'drunk'  )) $factor -= 0.3; // Totally arbitrary
-                    if ($conf->isNightMode($timer->getTimestamp()) && $this->inventory_handler->countSpecificItems($zone->getFloor(), 'prevent_night', true) == 0) $factor -= 0.2;
+                    // if ($conf->isNightMode($timer->getTimestamp()) && $this->inventory_handler->countSpecificItems($zone->getFloor(), 'prevent_night', true) == 0) $factor -= 0.2;
 
                     if ($conf->isNightMode($timer->getTimestamp())) {
 
@@ -219,81 +213,127 @@ class ZoneHandler
 
                     $total_dig_chance = min(max(0.1, $factor * ($zone->getDigs() > 0 ? 0.6 : 0.3 )), 0.9);
 
-                    $item_prototype = $this->random_generator->chance($total_dig_chance)
-                        ? $this->random_generator->pickItemPrototypeFromGroup( $zone->getDigs() > 0 ? $base_group : $empty_group )
-                        : ($event_group && $zone->getDigs() > 0 && $this->random_generator->chance($total_dig_chance * $event_chance)
-                            ? $this->random_generator->pickItemPrototypeFromGroup( $event_group )
-                            : null);
+                    $found_item = $this->random_generator->chance($total_dig_chance);
+                    $found_event_item = (!$found_item && $event_group && $zone->getDigs() > 0 && $this->random_generator->chance($total_dig_chance * $event_chance) );
 
-                    if ($active && $current_citizen->getId() === $active->getId()) {
-                        $chances_by_player++;
-                        if ($item_prototype)
-                            $found_by_player[] = $item_prototype;
-                    }
+                    $cache = $timer->getDigCache() ?? [];
+                    if ($found_item || $found_event_item) {
 
-                    if ($active && $current_citizen->getEscortSettings() && $current_citizen->getEscortSettings()->getLeader() && $current_citizen->getEscortSettings()->getLeader()->getId() === $active->getId()) {
-                        $chances_by_escorts++;
-                        if ($item_prototype)
-                            $found_by_escorts[] = $item_prototype;
-                    }
+                        $cache[$timer->getTimestamp()->getTimestamp()] = $found_event_item ? 2 : ( ($zone->getDigs() > 0) ? 1 : 0 );
 
-                    if ($item_prototype) {
-                        // If we get a Chest XL, we earn a picto
-                        if ($item_prototype->getName() == 'chest_xl_#00') {
-                            $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => "r_chstxl_#00"]);
-                            $this->picto_handler->give_picto($current_citizen, $pictoPrototype);
-                        }
+                        $zone->setDigs(max(0, $zone->getDigs() - 1));
+                        $zone_update = true;
 
-                        $item = $this->item_factory->createItem($item_prototype);
-                        if ($inventoryDest = $this->inventory_handler->placeItem( $current_citizen, $item, [ $current_citizen->getInventory(), $timer->getZone()->getFloor() ] )) {
-                            if($inventoryDest->getId() === $timer->getZone()->getFloor()->getId()){
-                                $this->entity_manager->persist($this->log->beyondItemLog($current_citizen, $item->getPrototype(), true));
-                                if ($active && $current_citizen->getEscortSettings() && $current_citizen->getEscortSettings()->getLeader() && $current_citizen->getEscortSettings()->getLeader() === $active)
-                                    $ret_str[] = $this->trans->trans('Er kann den Gegenstand momentan nicht aufnehmen und hat ihn auf dem Boden abgelegt.', [], 'game');
-                                elseif ($active && $current_citizen === $active)
-                                    $ret_str[] = $this->trans->trans('Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...', [], 'game');
-                            }
-                            $this->entity_manager->persist( $item );
-                            $this->entity_manager->persist( $current_citizen->getInventory() );
-                            $this->entity_manager->persist( $timer->getZone()->getFloor() );
-                        }
-                    } else {
-                        //TODO: Persist log only if it is an automatic search
-                        $this->entity_manager->persist( $this->log->outsideDig( $current_citizen, $item_prototype, $timer->getTimestamp() ) ); 
-                    }
-                    if ($item_prototype) $zone->setDigs( max(0, $zone->getDigs() - 1) );
-                    $zone_update = true;
+                    } else $cache[$timer->getTimestamp()->getTimestamp()] = -1;
+
+                    $timer->setDigCache($cache);
 
                     try {
                         $timer->setTimestamp(
                             (new DateTime())->setTimestamp(
                                 $timer->getTimestamp()->getTimestamp()
                             )->modify($conf->get( $timer->getCitizen()->getProfession()->getName() === 'collec' ?
-                                TownConf::CONF_TIMES_DIG_COLLEC :
-                                TownConf::CONF_TIMES_DIG_NORMAL, '+2hour')) );
+                                                      TownConf::CONF_TIMES_DIG_COLLEC :
+                                                      TownConf::CONF_TIMES_DIG_NORMAL, '+2hour')) );
 
                     } catch (Exception $e) {
                         $timer->setTimestamp( new DateTime('+1min') );
                     }
+                }
+            usort( $dig_timers_due, $sort_func );
+            $not_up_to_date = $dig_timers_due[0]->getTimestamp() < $up_to;
+        }
 
-                    // Banished citizen's stach check
-                    if(!$timer->getCitizen()->getBanished() && $this->hasHiddenItem($timer->getZone()) && $this->random_generator->chance(0.05)){
-                        $items = $timer->getZone()->getFloor()->getItems();
-                        $itemsproto = array_map( function($e) {return $e->getPrototype(); }, $items->toArray() );
-                        $ret_str[] = $this->trans->trans('Beim Graben bist du auf eine Art... geheimes Versteck mit {items} gestoßen! Es wurde vermutlich von einem verbannten Mitbürger angelegt...', ['{items}' => $wrap($itemsproto) ], 'game');
-                        foreach ($items as $item) {
-                            if($item->getHidden()){
-                                $item->setHidden(false);
-                                $this->entity_manager->persist($item);
-                            }
+        $active_dig_timers = $active ? array_filter($dig_timers_relevant, function(DigTimer $t) use ($active) {
+            return $active === $t->getCitizen() || ($t->getCitizen()->getEscortSettings() && $t->getCitizen()->getEscortSettings()->getLeader() === $active);
+        }) : $dig_timers_relevant;
+
+        foreach ($active_dig_timers as &$executable_timer ) {
+
+            $current_citizen = $executable_timer->getCitizen();
+            if ($active && $active !== $current_citizen && $current_citizen->getEscortSettings() && $current_citizen->getEscortSettings()->getLeader() !== $active)
+                continue;
+
+            if (empty($executable_timer->getDigCache()) || !is_array($executable_timer->getDigCache()))
+                $executable_timer->setDigCache(null);
+            else foreach ($executable_timer->getDigCache() as $time => $mode) {
+
+                switch ($mode) {
+                    case -1:
+                        $item_prototype = null;
+                        break;
+                    case 0:
+                        $item_prototype = $this->random_generator->pickItemPrototypeFromGroup( $empty_group );
+                        break;
+                    case 1:
+                        $item_prototype = $this->random_generator->pickItemPrototypeFromGroup( $base_group );
+                        break;
+                    case 2:
+                        $item_prototype = $this->random_generator->pickItemPrototypeFromGroup( $event_group ?? $base_group );
+                        break;
+                    default:
+                        $item_prototype = null;
+                }
+
+                $zone_update = true;
+
+                if ($active && $current_citizen->getId() === $active->getId()) {
+                    $chances_by_player++;
+                    if ($item_prototype)
+                        $found_by_player[] = $item_prototype;
+                }
+
+                if ($active && $current_citizen->getEscortSettings() && $current_citizen->getEscortSettings()->getLeader() && $current_citizen->getEscortSettings()->getLeader()->getId() === $active->getId()) {
+                    $chances_by_escorts++;
+                    if ($item_prototype)
+                        $found_by_escorts[] = $item_prototype;
+                }
+
+                if ($item_prototype) {
+                    // If we get a Chest XL, we earn a picto
+                    if ($item_prototype->getName() == 'chest_xl_#00') {
+                        $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => "r_chstxl_#00"]);
+                        $this->picto_handler->give_picto($current_citizen, $pictoPrototype);
+                    }
+
+                    $item = $this->item_factory->createItem($item_prototype);
+                    if ($inventoryDest = $this->inventory_handler->placeItem( $current_citizen, $item, [ $current_citizen->getInventory(), $executable_timer->getZone()->getFloor() ] )) {
+                        if($inventoryDest->getId() === $executable_timer->getZone()->getFloor()->getId()){
+                            $this->entity_manager->persist($this->log->beyondItemLog($current_citizen, $item->getPrototype(), true));
+                            if ($active && $current_citizen->getEscortSettings() && $current_citizen->getEscortSettings()->getLeader() && $current_citizen->getEscortSettings()->getLeader() === $active)
+                                $ret_str[] = $this->trans->trans('Er kann den Gegenstand momentan nicht aufnehmen und hat ihn auf dem Boden abgelegt.', [], 'game');
+                            elseif ($active && $current_citizen === $active)
+                                $ret_str[] = $this->trans->trans('Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...', [], 'game');
+                        }
+                        $this->entity_manager->persist( $item );
+                        $this->entity_manager->persist( $current_citizen->getInventory() );
+                        $this->entity_manager->persist( $executable_timer->getZone()->getFloor() );
+                    }
+                } else {
+                    //TODO: Persist log only if it is an automatic search
+                    $this->entity_manager->persist( $this->log->outsideDig( $current_citizen, $item_prototype, (new DateTime())->setTimestamp($time) ) );
+                }
+
+                // Banished citizen's stach check
+                if(!$executable_timer->getCitizen()->getBanished() && $this->hasHiddenItem($executable_timer->getZone()) && $this->random_generator->chance(0.05)){
+                    $items = $timer->getZone()->getFloor()->getItems();
+                    $itemsproto = array_map( function($e) {return $e->getPrototype(); }, $items->toArray() );
+                    $ret_str[] = $this->trans->trans('Beim Graben bist du auf eine Art... geheimes Versteck mit {items} gestoßen! Es wurde vermutlich von einem verbannten Mitbürger angelegt...', ['{items}' => $wrap($itemsproto) ], 'game');
+                    foreach ($items as $item) {
+                        if ($item->getHidden()){
+                            $item->setHidden(false);
+                            $this->entity_manager->persist($item);
                         }
                     }
                 }
-            $not_up_to_date = $active_dig_timers[0]->getTimestamp() < $up_to;
+
+            }
+
+            $executable_timer->setDigCache(null);
         }
 
         if ($zone_update) $this->entity_manager->persist($zone);
-        foreach ($dig_timers as $timer) $this->entity_manager->persist( $timer );
+        foreach ($all_dig_timers as $timer) $this->entity_manager->persist( $timer );
 
         if ($chances_by_player > 0) {
             if (empty($found_by_player)){

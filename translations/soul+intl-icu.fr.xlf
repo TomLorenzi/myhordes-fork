@@ -3800,5 +3800,18 @@
         <target>Ce badge appartient à un animacteur. Les animacteurs organisent et coordonnent des événements communautaires.</target>
       </segment>
     </unit>
+    <unit id="x58.kZm">
+      <notes>
+        <note category="german">Öffne MyHordes in einem größeren Fenster oder auf einem Gerät mit einem größeren Bildschirm,
+                                                um den Bildausschnitt für die komprimierte Anzeige einzustellen.</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>Öffne MyHordes in einem größeren Fenster oder auf einem Gerät mit einem größeren Bildschirm,
+                                                um den Bildausschnitt für die komprimierte Anzeige einzustellen.</source>
+        <target>Ouvrez MyHordes dans une fenêtre plus grande ou sur un périphérique avec un écran plus grand
+                                                pour régler la zone d'affichage compressée.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

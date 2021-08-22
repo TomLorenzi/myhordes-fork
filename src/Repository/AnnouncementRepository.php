@@ -22,11 +22,17 @@ class AnnouncementRepository extends ServiceEntityRepository
         parent::__construct($registry, Announcement::class);
     }
 
-    public function findByLang(string $lang, array $skip = [], int $limit = 0)
+    public function findByLang(string $lang, array $skip = [], int $limit = 0, ?bool $archive = null, ?string $filter = null)
     {
         $qb = $this->createQueryBuilder('a')
             ->andWhere('a.lang = :lang')->setParameter('lang', $lang)
             ->orderBy('a.timestamp', 'DESC');
+
+        if ($archive !== null)
+            $qb->andWhere($archive ? 'a.timestamp < :cutoff' : 'a.timestamp >= :cutoff')->setParameter(':cutoff', new DateTime('-120days'));
+
+        if ($filter !== null)
+            $qb->andWhere('a.title LIKE :filter')->setParameter(':filter', "%{$filter}%");
 
         if (!empty($skip)) $qb->andWhere('a.id NOT IN (:skip)')->setParameter('skip', $skip);
         if ($limit > 0) $qb->setMaxResults( $limit );

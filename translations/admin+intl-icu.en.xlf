@@ -3910,5 +3910,16 @@
         <target>Community Dashboard</target>
       </segment>
     </unit>
+    <unit id="WYUDnxB" name="Team">
+      <notes>
+        <note category="german">Team</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Team</source>
+        <target>Team</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

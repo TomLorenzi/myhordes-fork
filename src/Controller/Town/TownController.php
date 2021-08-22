@@ -231,6 +231,11 @@ class TownController extends InventoryAwareController
         $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$town->getDay());
         $has_estimated = ($est && ($est->getCitizens()->contains($this->getActiveCitizen()))) || (!$has_zombie_est_tomorrow && $zeds_today[3] >= 100) || ($has_zombie_est_tomorrow && $zeds_tomorrow[3] >= 100);
 
+        $additional_bullets = [];
+        $additional_situation = [];
+        foreach ($this->conf->getCurrentEvents($town) as $e)
+            $e->hook_dashboard($town, $additional_bullets, $additional_situation);
+
         return $this->render( 'ajax/game/town/dashboard.html.twig', $this->addDefaultTwigArgs(null, [
             'town' => $town,
             'def' => $this->town_handler->calculate_town_def($town, $defSummary),
@@ -253,7 +258,9 @@ class TownController extends InventoryAwareController
             'has_upgraded_house' => $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_home_upgrade'),
             'can_edit_blackboard' => $can_edit_blackboard,
             'has_dictator' => $has_dictator,
-            'new_coa_message' => $messages
+            'new_coa_message' => $messages,
+            'additional_bullet_points' => $additional_bullets,
+            'additional_situation_points' => $additional_situation
         ]) );
     }
 
@@ -361,6 +368,7 @@ class TownController extends InventoryAwareController
         $criteria->andWhere($criteria->expr()->eq('culprit', $c));
 
         $can_recycle = !$c->getAlive() && $c->getHome()->getPrototype()->getLevel() > 1 && $c->getHome()->getRecycling() < 15;
+        $protected = $this->citizen_handler->houseIsProtected($c, true);
 
         return $this->render( 'ajax/game/town/home_foreign.html.twig', $this->addDefaultTwigArgs('citizens', [
             'owner' => $c,
@@ -387,13 +395,14 @@ class TownController extends InventoryAwareController
             'is_thirsty' => $is_thirsty,
             'is_addicted' => $is_addicted,
             'is_terrorised' => $is_terrorised,
+            'is_outside_unprotected' => $c->getZone() !== null && !$protected,
             'has_job' => $has_job,
             'is_admin' => $is_admin,
             'log' =>  $c->getAlive() ? $this->renderLog( -1, $c, false, null, 10 )->getContent() : '',
             'day' => $c->getTown()->getDay(),
             'already_stolen' => $already_stolen,
             'hidden' => $hidden,
-            'protect' => $this->citizen_handler->houseIsProtected($c, true),
+            'protect' => $protected,
             'hasClairvoyance' => $hasClairvoyance,
             'clairvoyanceLevel' => $clairvoyanceLevel,
             'attackAP' => $this->getTownConf()->get( TownConf::CONF_MODIFIER_ATTACK_AP, 5 ),

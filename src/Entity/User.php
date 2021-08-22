@@ -36,6 +36,7 @@ class User implements UserInterface, EquatableInterface
 
     const USER_ROLE_ORACLE = 1 << 0;
     const USER_ROLE_ANIMAC = 1 << 1;
+    const USER_ROLE_TEAM   = 1 << 2;
 
     const PRONOUN_NONE = 0;
     const PRONOUN_MALE = 1;
@@ -410,6 +411,7 @@ class User implements UserInterface, EquatableInterface
 
         if ($this->hasRoleFlag( self::USER_ROLE_ORACLE )) $roles[] = 'ROLE_ORACLE';
         if ($this->hasRoleFlag( self::USER_ROLE_ANIMAC )) $roles[] = 'ROLE_ANIMAC';
+        if ($this->hasRoleFlag( self::USER_ROLE_TEAM ))   $roles[] = 'ROLE_TEAM';
 
         if (strstr($this->email, "@localhost") === "@localhost") $roles[] = 'ROLE_DUMMY';
         if ($this->email === 'crow') $roles[] = 'ROLE_CROW';

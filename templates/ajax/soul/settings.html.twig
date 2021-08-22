@@ -203,9 +203,17 @@
                                 <button id="avatar_del">{{ 'Profilbild löschen'|trans({},'soul') }}</button>
 
                                 {% if not app.user.avatar.classic %}
-                                    <button {% if app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionProfileAvatar')) %}disabled{% endif %} class="hide-mobile" id="avatar_com" x-avatar-com-toggle>{{ 'Komprimierte Anzeige bearbeiten'|trans({},'soul') }}</button>
-                                    <div id="avatar_com_edit" class="row hidden hide-mobile">
-                                        <div class="padded cell rw-6">
+                                    <button {% if app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionProfileAvatar')) %}disabled{% endif %} class="hide-sm hide-md" id="avatar_com" x-avatar-com-toggle>{{ 'Komprimierte Anzeige bearbeiten'|trans({},'soul') }}</button>
+                                    <div class="row hide-lg hide-desktop">
+                                        <div class="help">
+                                            {% trans from 'soul' %}
+                                                Öffne MyHordes in einem größeren Fenster oder auf einem Gerät mit einem größeren Bildschirm,
+                                                um den Bildausschnitt für die komprimierte Anzeige einzustellen.
+                                            {% endtrans %}
+                                        </div>
+                                    </div>
+                                    <div id="avatar_com_edit" class="row hidden hide-sm hide-md">
+                                        <div class="padded cell rw-6 rw-lg-12">
                                             <div class="help">
                                                 {% trans from 'soul' %}
                                                     Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
@@ -213,7 +221,7 @@
                                                 {% endtrans %}
                                             </div>
                                         </div>
-                                        <div class="padded cell rw-6 center">
+                                        <div class="padded cell rw-6 rw-lg-12 center">
                                             <div class="avatar no-arma full">
                                                 <div class="crop" id="crop_bar"><div id="crop-bar-inner"></div></div>
                                                 <img alt="" src="{{ path('app_web_avatar', {'uid': app.user.id, 'name': app.user.avatar.filename, 'ext': app.user.avatar.format}) }}">

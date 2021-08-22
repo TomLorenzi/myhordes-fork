@@ -498,6 +498,8 @@ class BeyondController extends InventoryAwareController
             if(!$fellow_citizen->getBanished() && !$town->getChaos()) // If there's a non-banished citizen on the zone during a non-chaos town, the items are not hidden
                 $hide_success = false;
 
+        if (!$this->zone_handler->check_cp( $this->getActiveCitizen()->getZone() ) && $this->get_escape_timeout( $this->getActiveCitizen() ) < 0 && $this->uncoverHunter($this->getActiveCitizen()))
+            $this->addFlash( 'notice', $this->translator->trans('Deine <strong>Tarnung ist aufgeflogen</strong>!',[], 'game') );
         $r = $this->generic_item_api( $up_inv, $down_inv, true, $parser, $handler, $citizen, $hide_items, $processed);
         if ($r->isSuccessResponse() && $hide_items && $processed > 0) {
             if (!$hide_success)
@@ -620,9 +622,9 @@ class BeyondController extends InventoryAwareController
                 $this->entity_manager->persist( $dig_timer );
             }
 
-            if(($special === 'normal' || $special === 'normal-escort') && ($zone->getX() > 0 || $zone->getY() > 0)) {
+            if(($special === 'normal' || $special === 'normal-escort') && ($zone->getX() !== 0 || $zone->getY() !== 0)
+                && $others_are_here)
                 $this->entity_manager->persist($this->log->citizenTeleport($mover, $zone));
-            }
 
             // Remove zone from citizen
             $mover->setZone( null );
@@ -1353,8 +1355,10 @@ class BeyondController extends InventoryAwareController
 
         if($zone->getBuryCount() > 0)
             $str[] = $this->translator->trans('Du hast einen Teil des Sektors freigelegt, aber es gibt immer noch eine beträchtliche Menge an Trümmern, die den Weg versperren...',[], 'game');
-        else
+        else {
             $str[] = $this->translator->trans('Herzlichen Glückwunsch, die Zone ist vollständig freigelegt worden! Du kannst nun mit der Suche nach Gegenständen im: {ruin} beginnen!',["{ruin}" => "<span>" . $this->translator->trans($zone->getPrototype()->getLabel(), [], 'game') . "</span>"], 'game');
+            $this->entity_manager->persist( $this->log->outsideUncoverComplete( $citizen ) );
+        }
 
         $str[] = $this->translator->trans("Du hast {count} Aktionspunkt(e) benutzt.", ['{count}' => "<strong>1</strong>", '{raw_count}' => 1], 'game');
 

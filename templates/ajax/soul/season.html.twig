@@ -80,7 +80,7 @@
                             <div class="row-flex stretch season_entry_container" x-town-latest="">
                                 <div class="cell rw-1 center" style="border-right: 1px solid #7e4d2a;"></div>
                                 <div class="cell rw-7 ro-1">
-                                {% for denizen in town.citizens|sort((a,b) => b.day <=> a.day) %}
+                                {% for denizen in town.citizens|sort((a,b) => b.day <=> a.day ?: b.end <=> a.end) %}
                                 {% if denizen.day == town.days %}
                                     <a href="{{ path('soul_visit', {id: denizen.user.id}) }}"><b>{{ denizen.user.name }}</b></a> <span style="color: #f0d79e">({{ denizen.day }})</span>
                                 {% endif %}
@@ -94,7 +94,7 @@
                             <div class="cell rw-1"></div>
                             <div x-town-details="{{ town.id }}" class="cell rw-8">
                                 <ul class="citizen-list">
-                                    {% for denizen in town.citizens|sort((a,b) => b.day <=> a.day) %}
+                                    {% for denizen in town.citizens|sort((a,b) => b.day <=> a.day ?: b.end <=> a.end) %}
                                         {# @var denizen \App\Entity\CitizenRankingProxy #}
                                         <li class="row" style="border-bottom: 1px dashed #ddab76;{% if denizen.user.id == user.id %}background-color: #3b3249;{% endif %}">
                                             <div class="cell padded rw-4">
@@ -106,7 +106,7 @@
                                                 <a class="link username" href="{{ path('soul_visit', {id: denizen.user.id}) }}">{{ denizen.user.name }}</a>
                                             </div>
                                             <div class="cell padded rw-1" style="color:#f8eacb">{{ denizen.day }}</div>
-                                            <div class="cell padded rw-4"><em>{{ denizen.lastWords }}</em></div>
+                                            <div class="cell padded rw-4"><em>{{ denizen.lastWords|replace({'{gotKilled}': '...der Mörder .. ist.. IST.. AAARGHhh..'|trans({},'game')}) }}</em></div>
                                         </li>
                                     {% endfor %}
                                 </ul>

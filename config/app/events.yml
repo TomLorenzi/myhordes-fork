@@ -81,3 +81,14 @@ parameters:
           desert:
             group: 'halloween_dig'
             chance: 0.4
+    purge:
+      trigger:
+        type: datetime
+        begin: 2021-08-25 00:00
+        end: 2021-09-01 00:00
+      conf:
+        priority: 10
+        hooks:
+          watchtower: 'App\Structures\Hook::watchtower_purge'
+          dashboard: 'App\Structures\Hook::dashboard_purge'
+          disable_citizen: 'App\Structures\Hook::citizen_purge'

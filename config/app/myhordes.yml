@@ -42,8 +42,9 @@ parameters:
         return_small: 500
         custom: 1000
     towns:
+      autolangs: ['de','en','fr','es']
       openmin:
         remote: 1
-        panda: 0
+        panda: 1
         small: 1
         custom: 0

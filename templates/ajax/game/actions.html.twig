@@ -1,6 +1,9 @@
 {% if scout is not defined %}
     {% set scout = false %}
 {% endif %}
+{% if active_scout_mode is not defined %}
+    {% set active_scout_mode = false %}
+{% endif %}
 {% if hidden is not defined %}
     {% set hidden = false %}
 {% endif %}
@@ -35,12 +38,22 @@
     {% endmacro %}
 
     {% if (item_action_list is defined and item_action_list|length > 0) or (recipe_list is defined and recipe_list.recipes|length > 0)  %}
+        {% if iec is defined and iec %}
+            <button x-item-action-toggle="1" class="mb-1">
+                <img src="{{ asset('build/images/item/item_bag.gif') }}" alt="">
+                {{ 'Gegenstand verwenden'|trans({},'items')  }}
+                {% if (active_scout_mode) %}
+                    <img class="icon right" alt="" src="{{ asset('build/images/icons/small_stealthy.gif') }}" />
+                {% endif %}
+            </button>
+            <button x-item-action-toggle="0" class="mb-1" style="display:none;">{{'Abbrechen'|trans({}, 'global')  }}</button>
+        {% endif %}
         <ul class="actions">
             {% if (item_action_list is defined) %}
                 {% for entry in item_action_list %}
                     <li class="action" {% if entry.crossed %}disabled{% elseif entry.targets is null %}x-action-id="{{ entry.id }}" {% if entry.action.confirm %}x-action-confirm="1"{% endif %} x-provoking-id="{{ entry.item.id }}"{% else %}x-target-definition="{{ entry.id }}--{{ entry.item.id }}"{% endif %}>
                         <img src="{{ asset('build/images/item/item_' ~ entry.item.prototype.icon ~ '.gif') }}" alt="{{ entry.item.prototype.label|trans({},'items') }}">
-                        {% if scout and entry.action.keepsCover %}
+                        {% if active_scout_mode and entry.action.keepsCover %}
                             <img class="float-right" src="{{ asset('build/images/icons/small_stealthy.gif') }}" alt="">
                         {% endif %}
                         <span>{{ '{action}: {item}'|trans({'{action}': entry.action.label|trans({},'items')|e('html'), '{item}': '<b>' ~ entry.item.prototype.label|trans({},'items')|e('html') ~ '</b>'},'items')|raw }}</span>
@@ -168,16 +181,21 @@
     {% endif %}
 
     {% if heroic_action_list is defined and heroic_action_list|length > 0 %}
-        <button x-heroic-toggle="1" class="mb-1"><img src="{{ asset('build/images/icons/star.gif') }}" alt="">{{ 'Heldentaten'|trans({},'items')  }}</button>
+        <button x-heroic-toggle="1" class="mb-1"><img src="{{ asset('build/images/icons/star.gif') }}" alt="">
+            {{ 'Heldentaten'|trans({},'items') }}
+            {% if (active_scout_mode) %}
+                <img class="icon right" alt="" src="{{ asset('build/images/icons/small_stealthy.gif') }}" />
+            {% endif %}
+        </button>
         <ul class="heroic_actions">
             <li class="heroic_action help">
                 <img src="{{ asset('build/images/icons/star.gif') }}" alt="">
                 <span>{{'Du kannst <strong>pro Tag eine Heldentat</strong> vollbringen und jede dieser Aktionen kann nur <strong>einmal</strong> pro Partie ausgeführt werden:'|trans({}, 'game')|raw}}</span>
             </li>
             {% for entry in heroic_action_list %}
-                <li class="heroic_action" {% if entry.crossed %}disabled{% elseif entry.targets is null %}x-action-id="{{ entry.id }}" x-action-confirm="1" {% else %}x-target-definition="{{ entry.id }}--hero"{% endif %}>
+                <li class="heroic_action {% if entry.used is defined and entry.used %}already{% endif %}"  {% if entry.crossed %}disabled{% elseif entry.targets is null %}x-action-id="{{ entry.id }}" x-action-confirm="1" {% else %}x-target-definition="{{ entry.id }}--hero"{% endif %}>
                     <img src="{{ asset('build/images/icons/tickOff.gif') }}" alt="">
-                    {% if scout and entry.action.keepsCover %}
+                    {% if active_scout_mode and entry.action.keepsCover %}
                         <img class="float-right" src="{{ asset('build/images/icons/small_stealthy.gif') }}" alt="">
                     {% endif %}
                     <span class="label"><b>{{ entry.action.label|trans({},'items') }}</b></span>

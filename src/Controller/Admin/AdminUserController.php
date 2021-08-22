@@ -421,6 +421,14 @@ class AdminUserController extends AdminActionController
                         $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultAdminGroup ) );
                         break;
 
+                    case 'FLAG_TEAM':
+                        $user->addRoleFlag( User::USER_ROLE_TEAM );
+                        break;
+
+                    case '!FLAG_TEAM':
+                        $user->removeRoleFlag( User::USER_ROLE_TEAM );
+                        break;
+
                     case 'FLAG_ORACLE':
                         if ( $user->getRightsElevation() === User::USER_LEVEL_CROW )
                             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );

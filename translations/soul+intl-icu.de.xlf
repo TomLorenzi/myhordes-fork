@@ -2340,5 +2340,13 @@
         <target>Diese Karteikarte gehört einem Animateur. Animateure organisieren und koordinieren Community-Events.</target>
       </segment>
     </unit>
+    <unit id="x58.kZm">
+      <segment>
+        <source>Öffne MyHordes in einem größeren Fenster oder auf einem Gerät mit einem größeren Bildschirm,
+                                                um den Bildausschnitt für die komprimierte Anzeige einzustellen.</source>
+        <target>Öffne MyHordes in einem größeren Fenster oder auf einem Gerät mit einem größeren Bildschirm,
+                                                um den Bildausschnitt für die komprimierte Anzeige einzustellen.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

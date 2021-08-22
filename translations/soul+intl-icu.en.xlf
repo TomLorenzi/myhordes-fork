@@ -3825,5 +3825,18 @@
         <target>This badge belongs to an animactor. The animcators organize and coordinate community events.</target>
       </segment>
     </unit>
+    <unit id="x58.kZm">
+      <notes>
+        <note category="german">Öffne MyHordes in einem größeren Fenster oder auf einem Gerät mit einem größeren Bildschirm,
+                                                um den Bildausschnitt für die komprimierte Anzeige einzustellen.</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>Öffne MyHordes in einem größeren Fenster oder auf einem Gerät mit einem größeren Bildschirm,
+                                                um den Bildausschnitt für die komprimierte Anzeige einzustellen.</source>
+        <target>Open MyHordes in a larger window or on a device with a larger screen
+                                                to edit the compressed display area.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

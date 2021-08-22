@@ -212,6 +212,12 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
             'pictos' => ['r_dnucl_#00', 'r_dinfec_#00']
         ],
         [
+            'ref' => CauseOfDeath::Apocalypse,
+            'label' => 'Tod durch die Apokalypse',
+            'icon' => 'apocalypse',
+            'desc' => 'Eine Katastrophe apokalyptischen Ausmaßes hat dich, deine Stadt und alles in der Umgebung hinweggefegt. Es ist, als hätte jemand die gesamte Welt... gereinigt.',
+        ],
+        [
             'ref' => CauseOfDeath::Haunted,
             'label' => 'Besessen von einer gequälten Seele',
             'icon' => 'haunted',

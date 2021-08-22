@@ -265,28 +265,25 @@
         {% endif %}
         <div class="row">
             <div class="padded cell rw-6 rw-md-12">
-                {% if zone.x != 0 or zone.y != 0 %}<h5>{% trans from 'game' %}Diese Zone{% endtrans %}</h5>{% endif %}
-
-                {% if zone.digs <= 0 %}
-                    <div class="note note-light">
-                        <img alt="" src="{{ asset('build/images/icons/Small_broken.gif') }}" />
-                        {% trans from 'game' %}
-                            Diese Zone ist leergesucht. Du wirst hier keine wertvollen Gegenstände mehr finden können.
-                        {% endtrans %}
-                        <a class="help-button">
-                            <div class="tooltip help">
-                                {% trans from 'global' %}
-                                    Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
-                                    <p><em>Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..</em></p>
-                                {% endtrans %}
-                            </div>
-                            {{ 'Hilfe'|trans({},'global') }}
-                        </a>
-                    </div>
-                {% endif %}
-
-                <h5>{% trans from 'game' %}Meine Aktionen{% endtrans %}</h5>
-                {% if zone.x != 0 or zone.y != 0 %}
+                {% if not zone.townZone %}
+                    <h5>{% trans from 'game' %}Meine Aktionen{% endtrans %}</h5>
+                    {% if zone.digs <= 0 %}
+                        <div class="note note-important">
+                            <img alt="" src="{{ asset('build/images/icons/Small_broken.gif') }}" />
+                            {% trans from 'game' %}
+                                Diese Zone ist leergesucht. Du wirst hier keine wertvollen Gegenstände mehr finden können.
+                            {% endtrans %}
+                            <a class="help-button">
+                                <div class="tooltip help">
+                                    {% trans from 'global' %}
+                                        Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
+                                        <p><em>Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..</em></p>
+                                    {% endtrans %}
+                                </div>
+                                {{ 'Hilfe'|trans({},'global') }}
+                            </a>
+                        </div>
+                    {% endif %}
                     {% if not citizen_hidden %}
                         {% if not digging %}
                             {% if zone_blocked %}
@@ -304,8 +301,13 @@
                             {% endif %}
                             <div style="margin-bottom: 5px;">
                                 <button id="dig_button" {% if zone_blocked or citizen.digTimeout > 0 or ( citizen.passiveDigTimer and not conf.get(constant('App\\Structures\\TownConf::CONF_MODIFIER_ALLOW_REDIGS'),false) ) %}disabled{% endif %}>
-                                    <img class="icon left" alt="" src="{{ asset('build/images/icons/small_gather.gif') }}" />
-                                    {% trans from 'game' %}In dieser Zone graben{% endtrans %}
+                                    {% if zone.digs <= 0 %}
+                                        <img class="icon left" alt="" src="{{ asset('build/images/icons/Small_broken.gif') }}" />
+                                        {% trans from 'game' %}In der (<strong>leeren</strong>) Zone graben{% endtrans %}
+                                    {% else %}
+                                        <img class="icon left" alt="" src="{{ asset('build/images/icons/small_gather.gif') }}" />
+                                        {% trans from 'game' %}In dieser Zone graben{% endtrans %}
+                                    {% endif %}
                                 </button>
                                 {% if zone_blocked %}
                                     <div class="tooltip">{{ 'In einer von den Zombies kontrollierten Zone ist das nicht möglich!'|trans({},'game') }}</div>
@@ -323,19 +325,27 @@
                                 </div>
                             </div>
                         {% endif %}
+
+                        {% if allow_enter_town %}
+                            <button id="town-enter">
+                                <img class="icon left" alt="" src="{{ asset('build/images/building/small_door_closed.gif') }}" />{% trans from 'game' %}In die Stadt zurückkehren{% endtrans %}
+                                <div class="tooltip help">{{ 'Unser verbesserter Wachturm ermöglicht die ungehinderte Rückkehr eines jeden Bürgers, der sich in der Nähe der Stadt befindet!'|trans({},'game') }}</div>
+                            </button>
+                        {% endif %}
+
                         {% if zone.prototype %}
                             {% if zone.prototype.explorable %}
                                 <button {% if exploration_blocked_blocked %}disabled{% endif%} id="enter_ruin_button"  >
                                     <img class="icon left" alt="" src="{{ asset('build/images/icons/planner.gif') }}" />
                                     {% trans with {'{ruin}': zone.prototype.label|trans({},'game')} from 'game'  %}{ruin} betreten{% endtrans %}
-                                    {% if (zone_blocked and active_scout_mode) %}
+                                    {% if (active_scout_mode) %}
                                         <img class="icon right" alt="" src="{{ asset('build/images/icons/small_stealthy.gif') }}" />
                                     {% endif %}
                                     <div class="tooltip help">{{ 'Diese Aktion ermöglicht es dir, die Tiefen dieses Gebäude zu erkunden und wertvolle Ressourcen zu bergen. Sei aber nicht zu gierig, denn deine Zeit ist begrenzt!'|trans({},'game') }}</div>
                                 </button>
                             {% elseif zone.buryCount == 0%}
                                 <button id="dig_ruin_button" {% if not dig_ruin or zone.buryCount > 0 %}disabled{% endif %} >
-                                    {% if (zone_blocked and active_scout_mode) %}
+                                    {% if (zone_blocked and active_scout_mode and zone_escape <= 0) %}
                                         <img class="icon right" alt="" src="{{ asset('build/images/icons/uncloak.gif') }}" />
                                     {% endif %}
                                     <img class="icon left" alt="" src="{{ asset('build/images/icons/small_view.gif') }}" />
@@ -345,7 +355,7 @@
                                 </button>
                             {% else %}
                                 <button id="uncover_ruin_button">
-                                    {% if (zone_blocked and active_scout_mode) %}
+                                    {% if (zone_blocked and active_scout_mode and zone_escape <= 0) %}
                                         <img class="icon right" alt="" src="{{ asset('build/images/icons/uncloak.gif') }}" />
                                     {% endif %}
                                     <img class="icon left" alt="" src="{{ asset('build/images/icons/uncover.gif') }}" />
@@ -356,21 +366,64 @@
                                 </button>
                             {% endif %}
                         {% endif %}
-                    {% endif %}
 
-
-                    {% embed "ajax/game/actions.html.twig" with {'heroic_action_list': heroics, 'special_action_list': specials, 'item_action_list': actions, 'recipe_list': recipes, 'scout': active_scout_mode, 'hidden': citizen_hidden} %}
-                    {% endembed %}
-
-                    {% if (banished or town_chaos) and not citizen_hidden %}
-                        <button id="bury_rucksack_button">
-                            <img alt="" src="{{ asset('build/images/icons/small_ban.gif') }}" />
-                            {{ 'Rucksack verstecken'|trans({},'game') }} (<div class="ap">2</div>)
-                            <div class="tooltip help">{{ 'Mit dieser Aktion kannst du alle Gegenstände in deinem Rucksack in der Zone verstecken. <strong>Sie werden nur für andere verbannte Bürger sichtbar sein.</strong> Eine nicht verbannte Person hat jedoch eine kleine Chance, sie beim Graben zu finden.'|trans({},'game')|raw }}</div>
-                        </button>
+                        {% if (banished or town_chaos) %}
+                            <button id="bury_rucksack_button">
+                                <img alt="" src="{{ asset('build/images/icons/small_ban.gif') }}" />
+                                {{ 'Rucksack verstecken'|trans({},'game') }} (<div class="ap">2</div>)
+                                {% if (zone_blocked and active_scout_mode and zone_escape <= 0) %}
+                                    <img class="icon right" alt="" src="{{ asset('build/images/icons/uncloak.gif') }}" />
+                                {% endif %}
+                                <div class="tooltip help">{{ 'Mit dieser Aktion kannst du alle Gegenstände in deinem Rucksack in der Zone verstecken. <strong>Sie werden nur für andere verbannte Bürger sichtbar sein.</strong> Eine nicht verbannte Person hat jedoch eine kleine Chance, sie beim Graben zu finden.'|trans({},'game')|raw }}</div>
+                            </button>
+                        {% endif %}
                     {% endif %}
 
                 {% else %}
+                    {% if allow_enter_town %}
+                        {% if enter_costs_ap %}
+                            <div class="note note-critical">
+                                {% trans from 'game' %}
+                                    <strong>Achtung!</strong> Das Betreten der Stadt erfordert <div class="ap">1</div> (die Kosten sind auf den Bau des <strong>Labyrinths</strong> zurückzuführen)!
+                                {% endtrans %}
+                            </div>
+                        {% endif %}
+                        <div style="margin-bottom: 5px;">
+                            <button id="town-enter" {% if not doors_open %}disabled{% endif %}>
+                                <img alt="" src="{{ asset('build/images/emotes/arrowright.gif') }}"> {% trans from 'game' %}Stadt betreten{% endtrans %} {% if conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_ESCORT'),true) and citizen.validLeadingEscorts|length > 0 %}{{ '(Allein)'|trans({}, 'game') }}{% endif %}
+                                {% if enter_costs_ap %}
+                                    (<div class="ap">1</div>)
+                                {% endif %}
+                            </button>
+                            {% if not doors_open %}
+                                <div class="tooltip">{{ 'Das Stadttor ist <strong>geschlossen</strong>! Vielleicht kannst du im Forum nach Hilfe fragen...'|trans({},'game')|raw }}</div>
+                            {% endif %}
+                        </div>
+                        {% if conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_ESCORT'),true) and citizen.validLeadingEscorts|length > 0 %}
+                            <button id="town-enter-escort" {% if not doors_open %}disabled{% endif %}>
+                                <img alt="" src="{{ asset('build/images/emotes/arrowright.gif') }}">
+                                {% trans from 'game' %}Stadt betreten{% endtrans %} {% trans from 'game' %}(Mit Eskorte){% endtrans %}
+                                {% if enter_costs_ap %}
+                                    (<div class="ap">1</div>)
+                                {% endif %}
+                            </button>
+                        {% endif %}
+                    {% endif %}
+                    {% if show_ventilation %}
+                        <button id="town-enter-hero" {% if not allow_ventilation %}disabled{% endif %}>
+                            <img alt="" src="{{ asset('build/images/icons/star.gif') }}">{% trans from 'game' %}Durch die Lüftungsschächte klettern (in){% endtrans %}
+                            <div class="tooltip help">{{ 'Diese Aktion wird durch ein Gebäude in der Stadt ermöglicht (nur Helden können sie verwenden).'|trans({},'game') }}</div>
+                        </button>
+                    {% endif %}
+                    {% if show_sneaky %}
+                        <button id="town-enter-sneak">
+                            <img alt="" src="{{ asset('build/images/roles/ghoul.gif') }}">{% trans from 'game' %}In die Stadt schleichen{% endtrans %}
+                            {% if enter_costs_ap %}
+                                (<div class="ap">1</div>)
+                            {% endif %}
+                        </button>
+                    {% endif %}
+                    <h5>{% trans from 'game' %}Meine Aktionen{% endtrans %}</h5>
                     {% if banished or town_chaos %}
                         <button {% if lock_trash %}disabled{% endif%} id="trash_button">
                             <img alt="" src="{{ asset('build/images/icons/small_ban.gif') }}" />
@@ -380,94 +433,54 @@
                     {% endif %}
                 {% endif %}
 
-                {% if allow_enter_town %}
-                    {% if enter_costs_ap %}
-                    <div class="note note-critical">
-                        {% trans from 'game' %}
-                            <strong>Achtung!</strong> Das Betreten der Stadt erfordert <div class="ap">1</div> (die Kosten sind auf den Bau des <strong>Labyrinths</strong> zurückzuführen)!
-                        {% endtrans %}
-                    </div>
-                    {% endif %}
-                    <div style="margin-bottom: 5px;">
-                        <button id="town-enter" {% if not doors_open and zone.townZone %}disabled{% endif %}>
-                            {% if zone.townZone %}
-                                <img alt="" src="{{ asset('build/images/emotes/arrowright.gif') }}"> {% trans from 'game' %}Stadt betreten{% endtrans %} {% if conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_ESCORT'),true) and citizen.validLeadingEscorts|length > 0 %}{{ '(Allein)'|trans({}, 'game') }}{% endif %}
-                            {% else %}
-                                <img class="icon left" alt="" src="{{ asset('build/images/building/small_door_closed.gif') }}" />{% trans from 'game' %}In die Stadt zurückkehren{% endtrans %}
-                                <div class="tooltip help">{{ 'Unser verbesserter Wachturm ermöglicht die ungehinderte Rückkehr eines jeden Bürgers, der sich in der Nähe der Stadt befindet!'|trans({},'game') }}</div>
-                            {% endif %}
-                        </button>
-                        {% if not doors_open and zone.townZone %}
-                            <div class="tooltip">{{ 'Das Stadttor ist <strong>geschlossen</strong>! Vielleicht kannst du im Forum nach Hilfe fragen...'|trans({},'game')|raw }}</div>
-                        {% endif %}
-                    </div>
-                    {% if conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_ESCORT'),true) and citizen.validLeadingEscorts|length > 0 and zone.townZone %}
-                        <button id="town-enter-escort" {% if not doors_open %}disabled{% endif %}>
-                            <img alt="" src="{{ asset('build/images/emotes/arrowright.gif') }}">
-                            {% trans from 'game' %}Stadt betreten{% endtrans %} {% trans from 'game' %}(Mit Eskorte){% endtrans %}
-                        </button>
-                    {% endif %}
-                {% endif %}
-                {% if show_ventilation %}
-                    <button id="town-enter-hero" {% if not allow_ventilation %}disabled{% endif %}>
-                        <img alt="" src="{{ asset('build/images/icons/star.gif') }}">{% trans from 'game' %}Durch die Lüftungsschächte klettern (in){% endtrans %}
-                        <div class="tooltip help">{{ 'Diese Aktion wird durch ein Gebäude in der Stadt ermöglicht (nur Helden können sie verwenden).'|trans({},'game') }}</div>
-                    </button>
-                {% endif %}
-                {% if show_sneaky %}
-                    <button id="town-enter-sneak">
-                        <img alt="" src="{{ asset('build/images/roles/ghoul.gif') }}">{% trans from 'game' %}In die Stadt schleichen{% endtrans %}
-                        {% if enter_costs_ap %}
-                            (<div class="ap">1</div>)
-                        {% endif %}
-                    </button>
-                {% endif %}
-
-                {% if zone.x != 0 or zone.y != 0 %}
-                {% else %}
-                    {% embed "ajax/game/actions.html.twig" with {'heroic_action_list': heroics, 'item_action_list': actions, 'recipe_list': recipes} %}
-                    {% endembed %}
-                {% endif %}
+                {% embed "ajax/game/actions.html.twig" with {'item_action_list': actions, 'recipe_list': recipes, 'iec': true} %}
+                {% endembed %}
 
                 {% if is_shaman %}
                     <button id="fall_rain">
-                        {% if zone.x != 0 or zone.y != 0 %}
+                        {% if not zone.townZone %}
                             <img alt="" src="{{ asset('build/images/icons/water.gif') }}">{{'Zone reinigen'|trans({}, 'game')}} ({% if is_shaman_role %}3 <div class="pm"></div>{% else %}1 <div class="ap"></div> + 1 <img style="float: none;vertical-align: baseline;" src="{{ asset('build/images/item/item_soul_blue.gif') }}" alt="" />{% endif %})
                         {% else %}
                             <img alt="" src="{{ asset('build/images/icons/water.gif') }}">{{'Regentanz ausführen'|trans({}, 'game')}} ({% if is_shaman_role %}3 <div class="pm"></div>{% else %}1 <div class="ap"></div> + 1 <img style="float: none;vertical-align: baseline;" src="{{ asset('build/images/item/item_soul_blue.gif') }}" alt="" />{% endif %})
+                        {% endif %}
+                        {% if (active_scout_mode) %}
+                            <img class="icon right" alt="" src="{{ asset('build/images/icons/small_stealthy.gif') }}" />
                         {% endif %}
                         <div class="tooltip">{{ 'Diese Aktion ermöglicht die Reinigung der Zone durch herabfallenden Regen. Dieser kann den Brunnen in der Stadt füllen oder eine vernichtende Wirkung auf die umliegenden Zombies entfalten.'|trans({},'game') }}</div>
                     </button>
                 {% endif %}
 
-            </div>
-
-            <div class="padded cell rw-6 rw-md-12">
-                <h5><span class="float-right link" x-ajax-sticky x-ajax-href='{{ path('beyond_dashboard') }}'>{{'Aktualisierung'|trans({}, 'game')}}</span>{% trans from 'game' %}Meine objekte{% endtrans %}</h5>
-                {% embed "ajax/game/inventory.html.twig" with {'size': rucksack_size, 'items': rucksack.items, 'hidden': citizen_hidden, 'sort': true} %}
-                    {% block class %}rucksack{% endblock %}
-                    {% block title %}{% trans from 'game' %}Rucksack{% endtrans %}{% endblock %}
+                {% embed "ajax/game/actions.html.twig" with {'heroic_action_list': heroics} %}
                 {% endembed %}
 
-                {% if allow_floor_access %}
-                    {% if (zone_blocked and active_scout_mode) %}
-                        <div class="note">
-                            <b>{{ 'Achtung'|trans({},'global') }}</b>: {% trans from 'game' %}
-                                Wenn du einen Gegenstand aufnimmst oder ablegst, verlierst du deine Tarnung!
-                            {% endtrans %}
-                        </div>
-                    {% endif %}
+            </div>
 
-                    {% if not citizen_hidden %}
-                        <button id="drop-all-button" {% if rucksack.items|length == 0 %}disabled{% endif %}>{% trans from 'game' %}Rucksack auf dem Boden ausleeren{% endtrans %}</button>
-                    {% endif %}
-                    {% embed "ajax/game/inventory.html.twig" with {'size': 0, 'items': floor.items, 'hidden': citizen_hidden, show_banished_hidden: (banished or town_chaos)} %}
-                        {% block class %}desert{% endblock %}
-                        {% block title %}{% trans from 'game' %}Am Boden{% endtrans %}{% endblock %}
+            {% if not zone.townZone %}
+                <div class="padded cell rw-6 rw-md-12">
+                    <h5><span class="float-right link" x-ajax-sticky x-ajax-href='{{ path('beyond_dashboard') }}'>{{'Aktualisierung'|trans({}, 'game')}}</span>{% trans from 'game' %}Meine objekte{% endtrans %}</h5>
+                    {% embed "ajax/game/inventory.html.twig" with {'size': rucksack_size, 'items': rucksack.items, 'hidden': citizen_hidden, 'sort': true} %}
+                        {% block class %}rucksack{% endblock %}
+                        {% block title %}{% trans from 'game' %}Rucksack{% endtrans %}{% endblock %}
                     {% endembed %}
-                {% endif %}
 
-                {% if zone.x != 0 or zone.y != 0 %}
+                    {% if allow_floor_access %}
+                        {% if (zone_blocked and active_scout_mode and zone_escape <= 0) %}
+                            <div class="note">
+                                <b>{{ 'Achtung'|trans({},'global') }}</b>: {% trans from 'game' %}
+                                    Wenn du einen Gegenstand aufnimmst oder ablegst, verlierst du deine Tarnung!
+                                {% endtrans %}
+                            </div>
+                        {% endif %}
+
+                        {% if not citizen_hidden %}
+                            <button id="drop-all-button" {% if rucksack.items|length == 0 %}disabled{% endif %}>{% trans from 'game' %}Rucksack auf dem Boden ausleeren{% endtrans %}</button>
+                        {% endif %}
+                        {% embed "ajax/game/inventory.html.twig" with {'size': 0, 'items': floor.items, 'hidden': citizen_hidden, show_banished_hidden: (banished or town_chaos)} %}
+                            {% block class %}desert{% endblock %}
+                            {% block title %}{% trans from 'game' %}Am Boden{% endtrans %}{% endblock %}
+                        {% endembed %}
+                    {% endif %}
+
                     <h5>{{"Zonenmarkierer"|trans({}, 'game')}} <a class="help-button"><div class="tooltip help">{{ 'Der Markierer ist auf der Karte für ALLE Bürger sichtbar. Benutze ihn, um der Gemeinschaft Informationen über eine bestimmte Zone mitzuteilen.'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></h5>
                     {% if not zone.tag is null and zone.tag.ref > 0 %}
                         <img src="{{ asset("build/images/tags/" ~ zone.tag.icon ~ ".gif") }}" />
@@ -477,8 +490,8 @@
                             <option value="{{tag.ref}}" {% if tag == zone.tag %}selected{% endif %}>{{tag.label|trans({}, 'game')}}</option>
                         {% endfor %}
                     </select>
-                {% endif %}
-            </div>
+                </div>
+            {% endif %}
         </div>
     {% endif %}
 
@@ -991,7 +1004,7 @@
         {% if allow_enter_town %}
         let townEnterBtn = document.getElementById('town-enter');
         if(townEnterBtn) townEnterBtn.addEventListener('click', function() {
-            {% if not zone.townZone %}
+            {% if not zone.townZone or enter_costs_ap %}
                 if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
                     return;
             {% endif %}
@@ -1003,6 +1016,8 @@
 
         let townEnterEscortBtn = document.getElementById('town-enter-escort');
         if(townEnterEscortBtn) townEnterEscortBtn.addEventListener('click', function() {
+            if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
+                return;
             $.ajax.easySend( '{{ path('beyond_desert_exit_controller', {'special': 'normal-escort'}) }}', {},
                 function () {
                     $.ajax.load(null, '{{ path('game_landing') }}', true);
@@ -1012,8 +1027,6 @@
         {% if show_ventilation and allow_ventilation %}
         let townEnterVentBtn = document.getElementById('town-enter-hero');
         if(townEnterVentBtn) townEnterVentBtn.addEventListener('click', function() {
-            if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
-                return;
             $.ajax.easySend( '{{ path('beyond_desert_exit_controller', {'special': 'hero'}) }}', {},
                 function () {
                     $.ajax.load(null, '{{ path('game_landing') }}', true);
@@ -1023,6 +1036,8 @@
         {% if show_sneaky %}
         let townEnterSneakBtn = document.getElementById('town-enter-sneak');
         if(townEnterSneakBtn) townEnterSneakBtn.addEventListener('click', function() {
+            if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
+                return;
             $.ajax.easySend( '{{ path('beyond_desert_exit_controller', {'special': 'sneak'}) }}', {},
                 function () {
                     $.ajax.load(null, '{{ path('game_landing') }}', true);

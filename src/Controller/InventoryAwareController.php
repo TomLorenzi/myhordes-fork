@@ -574,7 +574,7 @@ class InventoryAwareController extends CustomAbstractController
         $carrier_items = ['bag_#00','bagxl_#00','cart_#00','pocket_belt_#00'];
 
         $drop_carriers = false;
-        if ($direction === 'down' && $allow_down_all && in_array($item->getPrototype()->getName(), $carrier_items)) {
+        if ($direction === 'down' && $allow_down_all && $item && in_array($item->getPrototype()->getName(), $carrier_items)) {
             $direction = 'down-all';
             $drop_carriers = true;
         }

@@ -3793,5 +3793,18 @@
         <target>Esta ficha pertenece a un animador. Los animadores organizan y coordinan eventos comunitarios.</target>
       </segment>
     </unit>
+    <unit id="x58.kZm">
+      <notes>
+        <note category="german">Öffne MyHordes in einem größeren Fenster oder auf einem Gerät mit einem größeren Bildschirm,
+                                                um den Bildausschnitt für die komprimierte Anzeige einzustellen.</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>Öffne MyHordes in einem größeren Fenster oder auf einem Gerät mit einem größeren Bildschirm,
+                                                um den Bildausschnitt für die komprimierte Anzeige einzustellen.</source>
+        <target>Abra MyHordes en una ventana más grande o en un dispositivo con una pantalla más grande,
+                                                para configurar la sección de imagen para la pantalla comprimida.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
