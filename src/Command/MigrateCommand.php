@@ -886,7 +886,7 @@ class MigrateCommand extends Command
         }
 
         if ($input->getOption('set-old-flag')) {
-            $this->helper->leChunk($output, Picto::class, 1000, ['imported' => false], false, true, function(Picto $picto) {
+            $this->helper->leChunk($output, Picto::class, 1000, ['imported' => false], true, true, function(Picto $picto) {
                 $picto->setOld($picto->getTownEntry() && !$picto->getTownEntry()->getImported() && $picto->getTownEntry()->getSeason() === null);
             }, true);
 
