@@ -509,73 +509,6 @@ class GhostController extends CustomAbstractController
                 }
             }
         }
-
-        // Let's check if there is enough opened town
-        $openTowns = $this->entity_manager->getRepository(Town::class)->findOpenTown();
-        $count = array(
-            "fr" => array(
-                "remote" => 0,
-                "panda" => 0,
-                "small" => 0,
-                'custom' => 0
-            ),
-            "de" => array(
-                "remote" => 0,
-                "panda" => 0,
-                "small" => 0,
-                'custom' => 0
-            ),
-            "en" => array(
-                "remote" => 0,
-                "panda" => 0,
-                "small" => 0,
-                'custom' => 0
-            ),
-            "es" => array(
-                "remote" => 0,
-                "panda" => 0,
-                "small" => 0,
-                'custom' => 0
-            ),
-            "multi" => array(
-                "remote" => 100,
-                "panda" => 100,
-                "small" => 100,
-                'custom' => 100
-            ),
-        );
-        foreach ($openTowns as $openTown) {
-            $count[$openTown->getLanguage()][$openTown->getType()->getName()]++;
-        }
-
-        $minOpenTown = $this->getMinOpenTownClass($conf->getGlobalConf());
-
-        foreach ($count as $townLang => $array) {
-            foreach ($array as $townClass => $openCount) {
-                if($openCount < $minOpenTown[$townClass]){
-
-                    // Create the count we need
-                    for($i = 0 ; $i < $minOpenTown[$townClass] - $openCount ; $i++){
-                        $newTown = $factory->createTown(null, $townLang, null, $townClass);
-                        $this->entity_manager->persist($newTown);
-                        $this->entity_manager->flush();
-
-                        $current_events = $this->conf->getCurrentEvents();
-                        if (!empty(array_filter($current_town_events,fn(EventConf $e) => $e->active()))) {
-                            if (!$townHandler->updateCurrentEvents($newTown, $current_events))
-                                $this->entity_manager->clear();
-                            else {
-                                $this->entity_manager->persist($newTown);
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        $this->entity_manager->flush();
-
-        return AjaxResponse::success();
     }
 
     public function getUserTownClassAccess(MyHordesConf $conf): array {
@@ -590,14 +523,4 @@ class GhostController extends CustomAbstractController
             'custom' => ($sp >= $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_CUSTOM, 1000 )),
         ];
     }
-
-    public function getMinOpenTownClass(MyHordesConf $conf): array {
-        return [
-            'small' => $conf->get( MyHordesConf::CONF_TOWNS_OPENMIN_SMALL, 1 ),
-            'remote' => $conf->get( MyHordesConf::CONF_TOWNS_OPENMIN_REMOTE, 1 ),
-            'panda' => $conf->get( MyHordesConf::CONF_TOWNS_OPENMIN_PANDA, 1 ),
-            'custom' => $conf->get( MyHordesConf::CONF_TOWNS_OPENMIN_CUSTOM, 0 ),
-        ];
-    }
-
 }
