@@ -1131,12 +1131,14 @@ class NightlyHandler
                         $citizen_eligible[] = $citizen;
                     }
 
-                    $last_stand_picto = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_FEATURE_LAST_DEATH, 'r_surlst_#00');
-                    if($last_stand_picto && count($citizen_eligible) > 0) {
+                    $last_stand_pictos = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_FEATURE_LAST_DEATH, ['r_surlst_#00']);
+                    if (!empty($last_stand_pictos) && count($citizen_eligible) > 0) {
                         /** @var Citizen $winner */
                         $winner = $this->random->pick($citizen_eligible);
-                        $this->log->debug("We give the picto <info>$last_stand_picto</info> to the lucky citizen {$winner->getUser()->getUsername()}");
-                        $this->picto_handler->give_validated_picto($winner, $last_stand_picto);
+                        foreach ($last_stand_pictos as $last_stand_picto) {
+                            $this->log->debug("We give the picto <info>$last_stand_picto</info> to the lucky citizen {$winner->getUser()->getUsername()}");
+                            $this->picto_handler->give_validated_picto($winner, $last_stand_picto);
+                        }
                     }
 
                     foreach ($citizen_eligible as $citizen)

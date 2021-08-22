@@ -3887,5 +3887,38 @@
         <target>Team</target>
       </segment>
     </unit>
+    <unit id="hxktPAk" name="Regelsatz">
+      <notes>
+        <note category="german">Regelsatz</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Regelsatz</source>
+        <target>Regelsatz</target>
+      </segment>
+    </unit>
+    <unit id="SwnNAc0" name="Regel">
+      <notes>
+        <note category="german">Regel</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Regel</source>
+        <target>Regel</target>
+      </segment>
+    </unit>
+    <unit id="g60Wnmu" name="Aktiver Wert">
+      <notes>
+        <note category="german">Aktiver Wert</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Aktiver Wert</source>
+        <target>Aktiver Wert</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -40,6 +40,7 @@
                 {% if is_granted("ROLE_ADMIN") %}
                     <li class="tab" x-tab-id="buildings"><div class="tab-link"><img src="{{ asset('build/images/icons/title/r_buildr.gif') }}" alt="" /><span class="hide-md hide-sm hide-lg">{{ 'Konstruktionen'|trans({},'admin') }}</span></div></li>
                     <li class="tab" x-tab-id="explorer"><div class="tab-link"><img src="{{ asset('build/images/icons/title/r_explo2.gif') }}" alt="" /><span class="hide-md hide-sm hide-lg">{{ 'Ruinenscanner'|trans({},'admin') }}</span></div></li>
+                    <li class="tab" x-tab-id="config"><div class="tab-link"><img src="{{ asset('build/images/icons/title/r_rp.gif') }}" alt="" /><span class="hide-md hide-sm hide-lg">{{ 'Regelsatz'|trans({},'admin') }}</span></div></li>
                 {% endif %}
                 </ul>
             </div>
@@ -576,6 +577,78 @@
                             </div>
                         </div>
                     {% endfor %}
+                </div>
+
+                <div x-tab-group="admin-town" x-tab-id="config" x-tab-target>
+                    <div class="row-table">
+                        <div class="row header">
+                            <div class="cell rw-4 padded">{{ 'Regel'|trans({},'admin') }}</div>
+                            <div class="cell rw-8 padded">{{ 'Aktiver Wert'|trans({},'admin') }}</div>
+                        </div>
+
+                        <div class="row">
+                            <div class="cell rw-4 padded"><i>root</i></div>
+                        </div>
+
+                        {% set setting_keys_prev = [] %}
+                        {% for setting in conf.raw|keys|sort %}
+
+                            {% set setting_keys = setting|split('.') %}
+
+                            {% set shown_keys = [] %}
+                            {% set found_breakpoint = false %}
+                            {% set tab_count = 0 %}
+                            {% for num, setting_key in setting_keys %}
+                                {% if not found_breakpoint and setting_keys_prev|length > num and setting_key == setting_keys_prev[num] %}
+                                    {% set tab_count = tab_count + 1 %}
+                                {% else %}
+                                    {% set found_breakpoint = true %}
+                                    {% set shown_keys = shown_keys|merge([setting_key]) %}
+                                {% endif %}
+                            {% endfor %}
+
+                            {% set value = conf.raw[setting] %}
+                            {% if value is same as(true) %}
+                                {% set value = 'true' %}
+                            {% elseif value is same as(false)  %}
+                                {% set value = 'false' %}
+                            {% elseif value is iterable %}
+                                {% set value = value|json_encode(constant('JSON_PRETTY_PRINT')) %}
+                            {% endif %}
+
+                            {% for n,key in shown_keys %}
+                                {% if not loop.last %}
+                                    <div class="row">
+                                        <div class="cell rw-4 padded">
+                                            <code class="small">
+                                                {% for t in 0..(n+tab_count) %}
+                                                    ―
+                                                {% endfor %}
+                                            </code>
+                                            <i>{{ key }}</i>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+
+                            <div class="row">
+                                <div class="cell rw-4 padded">
+                                    <code class="small">
+                                        {% for t in 0..(shown_keys|length+tab_count-1) %}
+                                            ―
+                                        {% endfor %}
+                                    </code>
+                                    {{ shown_keys|last }}
+                                    <div class="tooltip">{{ setting }}</div>
+                                </div>
+                                <div class="cell rw-8 padded">
+                                    <pre style="margin: 0">{{ value }}</pre>
+                                </div>
+                            </div>
+
+                            {% set setting_keys_prev = setting_keys %}
+                        {% endfor %}
+                    </div>
                 </div>
             {% endif %}
 
