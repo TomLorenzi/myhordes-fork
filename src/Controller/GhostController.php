@@ -25,6 +25,7 @@ use App\Service\TownHandler;
 use App\Service\UserHandler;
 use App\Structures\EventConf;
 use App\Structures\MyHordesConf;
+use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\HttpFoundation\Response;
@@ -74,7 +75,7 @@ class GhostController extends CustomAbstractController
             'cdm_level'          => $cdm_lock ? 2 : ( $cdm_warn ? 1 : 0 ),
             'townClasses' => $em->getRepository(TownClass::class)->findAll(),
             'userCanJoin' => $this->getUserTownClassAccess($this->conf->getGlobalConf()),
-            'canCreateTown' => $this->user_handler->hasSkill($user, 'mayor') || $user->getRightsElevation() >= User::ROLE_CROW,
+            'canCreateTown' => $this->user_handler->hasSkill($user, 'mayor') || $user->getRightsElevation() >= User::USER_LEVEL_CROW,
         ] ));
     }
 
@@ -93,7 +94,21 @@ class GhostController extends CustomAbstractController
      */
     public function postgame_screen(): Response
     {
-        return $this->render( 'ajax/ghost/donate.html.twig' );
+        $last_game_sp = $this->entity_manager->getRepository( CitizenRankingProxy::class )->matching(
+            (new Criteria())
+                ->andWhere( Criteria::expr()->gt('points', 0) )
+                ->andWhere( Criteria::expr()->neq('points', null) )
+                ->andWhere( Criteria::expr()->eq('disabled', false) )
+                ->andWhere( Criteria::expr()->eq('confirmed', true) )
+                ->andWhere( Criteria::expr()->eq('user', $this->getUser()) )
+                ->orderBy(['end' => Criteria::DESC])
+                ->setMaxResults(1)
+        );
+        $last_game_sp = $last_game_sp->isEmpty() ? 0 : $last_game_sp->first()->getPoints();
+        $all_sp = $this->user_handler->fetchSoulPoints($this->getUser(), true);
+        $town_limit = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_SOULPOINT_LIMIT_REMOTE);
+
+        return $this->render( 'ajax/ghost/donate.html.twig', ['exp' => $all_sp >= $town_limit && ($all_sp - $last_game_sp) < $town_limit] );
     }
 
     /**
@@ -110,7 +125,7 @@ class GhostController extends CustomAbstractController
         if ($em->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
             return $this->redirect($this->generateUrl( 'soul_death' ));
 
-        if(!$this->user_handler->hasSkill($user, 'mayor') && $user->getRightsElevation() < User::ROLE_CROW){
+        if(!$this->user_handler->hasSkill($user, 'mayor') && $user->getRightsElevation() < User::USER_LEVEL_CROW){
             return $this->redirect($this->generateUrl( 'initial_landing' ));
         }
 
@@ -138,7 +153,7 @@ class GhostController extends CustomAbstractController
         if ($em->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
             return AjaxResponse::success( true, ['url' => $this->generateUrl('soul_death')] );
 
-        if(!$this->user_handler->hasSkill($user, 'mayor') && $user->getRightsElevation() < User::ROLE_CROW){
+        if(!$this->user_handler->hasSkill($user, 'mayor') && $user->getRightsElevation() < User::USER_LEVEL_CROW){
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable, ['url' => $this->generateUrl('initial_landing')] );
         }
 
@@ -381,6 +396,11 @@ class GhostController extends CustomAbstractController
 
         }
 
+        if ($parser->get('rk-event-tag', false) && $crow_permissions) {
+            $em->persist($town->getRankingEntry()->setEvent(true));
+            $em->flush();
+        }
+
         if ($incarnated) {
             $citizen = $gf->createCitizen($town, $user, $error);
             if (!$citizen) return AjaxResponse::error($error);
@@ -391,7 +411,6 @@ class GhostController extends CustomAbstractController
               return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
             }
 
-            // $em->persist( $log->citizenJoin( $citizen ) );
             try {
                 $em->flush();
             } catch (Exception $e) {
@@ -490,94 +509,18 @@ class GhostController extends CustomAbstractController
                 }
             }
         }
-
-        // Let's check if there is enough opened town
-        $openTowns = $this->entity_manager->getRepository(Town::class)->findOpenTown();
-        $count = array(
-            "fr" => array(
-                "remote" => 0,
-                "panda" => 0,
-                "small" => 0,
-                'custom' => 0
-            ),
-            "de" => array(
-                "remote" => 0,
-                "panda" => 0,
-                "small" => 0,
-                'custom' => 0
-            ),
-            "en" => array(
-                "remote" => 0,
-                "panda" => 0,
-                "small" => 0,
-                'custom' => 0
-            ),
-            "es" => array(
-                "remote" => 0,
-                "panda" => 0,
-                "small" => 0,
-                'custom' => 0
-            ),
-            "multi" => array(
-                "remote" => 100,
-                "panda" => 100,
-                "small" => 100,
-                'custom' => 100
-            ),
-        );
-        foreach ($openTowns as $openTown) {
-            $count[$openTown->getLanguage()][$openTown->getType()->getName()]++;
-        }
-
-        $minOpenTown = $this->getMinOpenTownClass($conf->getGlobalConf());
-
-        foreach ($count as $townLang => $array) {
-            foreach ($array as $townClass => $openCount) {
-                if($openCount < $minOpenTown[$townClass]){
-
-                    // Create the count we need
-                    for($i = 0 ; $i < $minOpenTown[$townClass] - $openCount ; $i++){
-                        $newTown = $factory->createTown(null, $townLang, null, $townClass);
-                        $this->entity_manager->persist($newTown);
-                        $this->entity_manager->flush();
-
-                        $current_events = $this->conf->getCurrentEvents();
-                        if (!empty(array_filter($current_town_events,fn(EventConf $e) => $e->active()))) {
-                            if (!$townHandler->updateCurrentEvents($newTown, $current_events))
-                                $this->entity_manager->clear();
-                            else {
-                                $this->entity_manager->persist($newTown);
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        $this->entity_manager->flush();
-
-        return AjaxResponse::success();
     }
 
     public function getUserTownClassAccess(MyHordesConf $conf): array {
         $user = $this->getUser();
+        $sp = $this->user_handler->fetchSoulPoints($user);
         return [
             'small' =>
-                ($user->getAllSoulPoints() < $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_REMOTE, 100 )
-                || $user->getAllSoulPoints() >= $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_BACK_TO_SMALL, 500 )),
-            'remote' => ($user->getAllSoulPoints() >= $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_REMOTE, 100 )),
-            'panda' => ($user->getAllSoulPoints() >= $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_PANDA, 500 )),
-            'custom' => ($user->getAllSoulPoints() >= $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_CUSTOM, 1000 )),
+                ($sp < $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_REMOTE, 100 )
+                || $sp >= $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_BACK_TO_SMALL, 500 )),
+            'remote' => ($sp >= $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_REMOTE, 100 )),
+            'panda' => ($sp >= $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_PANDA, 500 )),
+            'custom' => ($sp >= $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_CUSTOM, 1000 )),
         ];
     }
-
-    public function getMinOpenTownClass(MyHordesConf $conf): array {
-        return [
-            'small' => $conf->get( MyHordesConf::CONF_TOWNS_OPENMIN_SMALL, 1 ),
-            'remote' => $conf->get( MyHordesConf::CONF_TOWNS_OPENMIN_REMOTE, 1 ),
-            'panda' => $conf->get( MyHordesConf::CONF_TOWNS_OPENMIN_PANDA, 1 ),
-            'custom' => $conf->get( MyHordesConf::CONF_TOWNS_OPENMIN_CUSTOM, 0 ),
-        ];
-    }
-
 }

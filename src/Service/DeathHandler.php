@@ -87,6 +87,13 @@ class DeathHandler
         if ($this->citizen_handler->hasStatusEffect($citizen, 'tg_air_infected') || $this->citizen_handler->hasStatusEffect($citizen, 'tg_air_ghoul'))
             $this->citizen_handler->pass_airborne_ghoul_infection($citizen);
 
+        $survivedDays = max(0, $citizen->getTown()->getDay() - 1);
+        if($citizen->getTown()->getDevastated() && ($this->citizen_handler->hasStatusEffect($citizen, 'tg_hide') || $this->citizen_handler->hasStatusEffect($citizen, 'tg_tomb')))
+            $survivedDays += 1;
+
+        $citizen->setSurvivedDays($survivedDays);
+        $citizen->setDayOfDeath($citizen->getTown()->getDay());
+
         $citizen->getStatus()->clear();
 
         foreach ($citizen->getCitizenWatch() as $cw) {
@@ -135,14 +142,6 @@ class DeathHandler
         $citizen->setCauseOfDeath($cod);
         $citizen->setAlive(false);
 
-        $survivedDays = max(0, $citizen->getTown()->getDay() - 1);
-
-        if($citizen->getTown()->getDevastated() && ($this->citizen_handler->hasStatusEffect($citizen, 'tg_hide') || $this->citizen_handler->hasStatusEffect($citizen, 'tg_tomb')))
-            $survivedDays += 1;
-
-        $citizen->setSurvivedDays($survivedDays);
-        $citizen->setDayOfDeath($citizen->getTown()->getDay());
-
         if ($citizen->getTown()->getDay() <= 3) {
             $cdm = $this->entity_manager->getRepository(ConsecutiveDeathMarker::class)->findOneBy( ['user' => $citizen->getUser()] )
                 ?? (new ConsecutiveDeathMarker)->setUser($citizen->getUser())->setDeath( $cod )->setNumber(0);
@@ -165,13 +164,12 @@ class DeathHandler
             $this->entity_manager->persist($gazette);
         }
 
-        // Give soul point
-        if($this->conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_FEATURE_GIVE_SOULPOINTS, true)) {
-            $days = $citizen->getSurvivedDays();
-            $nbSoulPoints = $days * ( $days + 1 ) / 2;
+        CitizenRankingProxy::fromCitizen( $citizen, true );
+        TownRankingProxy::fromTown( $citizen->getTown(), true );
 
-            $citizen->getUser()->addSoulPoints($nbSoulPoints);
-        }
+        // Give soul point
+        if (!$this->conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_FEATURE_GIVE_SOULPOINTS, true))
+            $citizen->getRankingEntry()->setPoints(0);
 
         // Give special picto
         if(($picto = $this->conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_FEATURE_SURVIVAL_PICTO, null))) {
@@ -246,9 +244,6 @@ class DeathHandler
 
         if ($cod->getRef() === CauseOfDeath::Vanished && $died_outside) $this->entity_manager->persist( $this->log->citizenDeath( $citizen, 0, $zone, $citizen->getTown()->getDay() + 1 ) );
         elseif ($died_outside) $this->entity_manager->persist( $this->log->citizenDeath( $citizen, 0, $zone ) );
-
-        CitizenRankingProxy::fromCitizen( $citizen, true );
-        TownRankingProxy::fromTown( $citizen->getTown(), true );
 
         $town_group = $this->entity_manager->getRepository(UserGroup::class)->findOneBy( ['type' => UserGroup::GroupTownInhabitants, 'ref1' => $citizen->getTown()->getId()] );
         if ($town_group) $this->perm->disassociate( $citizen->getUser(), $town_group );

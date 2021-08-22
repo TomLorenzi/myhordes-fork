@@ -61,6 +61,13 @@ class AdminActionController extends CustomAbstractController
         ];
     }
 
+    public static function getCommunityActions(): array {
+        return [
+            ['name' => T::__('Dashboard', 'admin'),   'id' => 0, 'route' => 'admin_dashboard'],
+            ['name' => T::__('Zukunft', 'admin'),     'id' => 1, 'route' => 'admin_changelogs'],
+        ];
+    }
+
     public function __construct(EntityManagerInterface $em, ConfMaster $conf, LogTemplateHandler $lth, TranslatorInterface $translator, ZoneHandler $zh, TimeKeeperService $tk, CitizenHandler $ch, InventoryHandler $ih, UserHandler $uh, CrowService $crow)
     {
         parent::__construct($conf, $em, $tk, $ch, $ih, $translator);
@@ -112,32 +119,36 @@ class AdminActionController extends CustomAbstractController
     }
 
     /**
-     * @Route("jx/admin/dash", name="admin_dashboard")
+     * @Route("jx/admin/com/dash", name="admin_dashboard")
      * @param ParameterBagInterface $params
      * @return Response
      */
     public function dash(ParameterBagInterface $params): Response
     {
         $log_files = [];
-        $base_dir = "{$params->get('kernel.project_dir')}/var/log";
-        $log_paths = [$base_dir];
 
-        while (!empty($log_paths)) {
-            $path = array_pop($log_paths);
-            foreach (new DirectoryIterator($path) as $fileInfo) {
-                /** @var SplFileInfo $fileInfo */
-                if ($fileInfo->isDot() || $fileInfo->isLink()) continue;
-                elseif ($fileInfo->isFile() && strtolower($fileInfo->getExtension()) === 'log')
-                    $log_files[] = str_replace(['/','\\'],'::', str_replace("$base_dir/",'', $fileInfo->getRealPath()));
-                elseif ($fileInfo->isDir()) $log_paths[] = $fileInfo->getRealPath();
+        if ($this->isGranted('ROLE_ADMIN')) {
+            $base_dir = "{$params->get('kernel.project_dir')}/var/log";
+            $log_paths = [$base_dir];
+
+            while (!empty($log_paths)) {
+                $path = array_pop($log_paths);
+                foreach (new DirectoryIterator($path) as $fileInfo) {
+                    /** @var SplFileInfo $fileInfo */
+                    if ($fileInfo->isDot() || $fileInfo->isLink()) continue;
+                    elseif ($fileInfo->isFile() && strtolower($fileInfo->getExtension()) === 'log')
+                        $log_files[] = str_replace(['/','\\'],'::', str_replace("$base_dir/",'', $fileInfo->getRealPath()));
+                    elseif ($fileInfo->isDir()) $log_paths[] = $fileInfo->getRealPath();
+                }
             }
+
+            sort($log_files);
         }
 
-        sort($log_files);
 
         return $this->render( 'ajax/admin/dash.html.twig', $this->addDefaultTwigArgs(null, [
             'logs' => $log_files,
-            'actions' => self::getAdminActions(),
+            'actions' => $this->isGranted('ROLE_CROW') ? self::getAdminActions() : self::getCommunityActions(),
             'now' => time(),
             'schedules' => $this->isGranted('ROLE_ADMIN') ? $this->entity_manager->getRepository(AttackSchedule::class)->findByCompletion( false ) : [],
         ]));
@@ -203,7 +214,7 @@ class AdminActionController extends CustomAbstractController
     {
         /** @var User $user */
         $user = $this->getUser();
-        if (!$user || !$user->getValidated() || $user->getRightsElevation() < User::ROLE_CROW) {
+        if (!$user || !$user->getValidated() || $user->getRightsElevation() < User::USER_LEVEL_CROW) {
             $ts->setToken();
             return new AjaxResponse( ['success' => false ] );
         }
@@ -212,13 +223,13 @@ class AdminActionController extends CustomAbstractController
     }
 
     /**
-     * @Route("jx/admin/action/{id}", name="admin_action", requirements={"id"="\d+"})
+     * @Route("jx/admin/com/action/{id}", name="admin_action", requirements={"id"="\d+"})
      * @param int $id
      * @return Response
      */
     public function index(int $id): Response
     {
-        $actions = self::getAdminActions();
+        $actions = $this->isGranted('ROLE_CROW') ? self::getAdminActions() : self::getCommunityActions();
         if (isset($actions[$id]) && isset($actions[$id]['route'])) {
             return $this->redirect($this->generateUrl($actions[$id]['route']));
         }

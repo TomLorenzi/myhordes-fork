@@ -11,9 +11,11 @@ use App\Entity\Town;
 use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use DOMDocument;
+use DOMElement;
 use DOMNode;
 use DOMXPath;
 use Symfony\Component\Asset\Packages;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 class HTMLService {
@@ -24,6 +26,7 @@ class HTMLService {
     private RandomGenerator $rand;
     private Packages $asset;
     private UserHandler $userHandler;
+    private UrlGeneratorInterface $router;
 
     const ModulationNone    = 0;
     const ModulationDrunk   = 1 << 1;
@@ -31,7 +34,8 @@ class HTMLService {
     const ModulationHead    = 1 << 3;
 
 
-    public function __construct(EntityManagerInterface $em, PermissionHandler $perm, TranslatorInterface $trans, RandomGenerator $rand, Packages $a, UserHandler $uh)
+    public function __construct(EntityManagerInterface $em, PermissionHandler $perm, TranslatorInterface $trans,
+                                RandomGenerator $rand, Packages $a, UserHandler $uh, UrlGeneratorInterface $router)
     {
         $this->entity_manager = $em;
         $this->perm = $perm;
@@ -39,6 +43,7 @@ class HTMLService {
         $this->rand = $rand;
         $this->asset = $a;
         $this->userHandler = $uh;
+        $this->router = $router;
     }
 
     protected const HTML_LIB = [
@@ -57,7 +62,7 @@ class HTMLService {
                 'p'  => [],
             ],
             'core_rp' => [
-                'div' => [ 'class' ],
+                'div' => [ 'class', 'x-a', 'x-b' ],
             ],
             'extended' => [
                 'blockquote' => [],
@@ -71,7 +76,10 @@ class HTMLService {
                 'a' => [ 'href', 'title' ],
                 'figure' => [ 'style' ],
             ],
-            'oracle' => [],
+            'oracle' => [
+                'ul' => ['class'],
+                'li' => ['class'],
+            ],
             'crow' => [],
             'admin' => [
                 'img' => [ 'alt', 'src', 'title']
@@ -83,7 +91,7 @@ class HTMLService {
                 'div.class' => [
                     'dice-4', 'dice-6', 'dice-8', 'dice-10', 'dice-12', 'dice-20', 'dice-100',
                     'letter-a', 'letter-v', 'letter-c',
-                    'rps', 'coin', 'card'
+                    'rps', 'coin', 'card', 'citizen'
                 ],
             ],
             'glory' => [ 'div.class' => [ 'glory' ] ],
@@ -94,13 +102,19 @@ class HTMLService {
                     'dice-4', 'dice-6', 'dice-8', 'dice-10', 'dice-12', 'dice-20', 'dice-100',
                     'letter-a', 'letter-v', 'letter-c',
                     'rps', 'coin', 'card',
-                    'citizen', 'rpText',
+                    'citizen', 'rpText', 'cref'
                 ],
                 'span.class' => [
                     'quoteauthor','bad','big','rpauthor','inline-code',
                 ]
             ],
             'oracle' => [
+                'ul.class' => [
+                    'poll'
+                ],
+                'li.class' => [
+                    'desc','q'
+                ],
                 'div.class' => [
                     'oracleAnnounce'
                 ]
@@ -120,10 +134,11 @@ class HTMLService {
 
     protected const HTML_IMMUTABLE = [
         'img.*' => true,
+        'ul.class' => ['poll'],
         '*.class' => [
             'clear', 'dice-4', 'dice-6', 'dice-8', 'dice-10', 'dice-12', 'dice-20', 'dice-100',
             'letter-a', 'letter-v', 'letter-c', 'rps', 'coin', 'card', 'citizen', 'html',
-            'oracleAnnounce', 'modAnnounce', 'adminAnnounce'
+            'oracleAnnounce', 'modAnnounce', 'adminAnnounce', 'cref'
         ]
     ];
 
@@ -214,14 +229,16 @@ class HTMLService {
      * @param Town|null $town
      * @param int|null $tx_len
      * @param bool|null $editable
+     * @param array|null $polls
      * @return bool
      */
-    public function htmlPrepare(User $user, int $permissions, $extended, string &$text, ?Town $town = null, ?int &$tx_len = null, ?bool &$editable = null): bool {
+    public function htmlPrepare(User $user, int $permissions, $extended, string &$text, ?Town $town = null, ?int &$tx_len = null, ?bool &$editable = null, ?array &$polls = []): bool {
 
         $editable = true;
 
         $dom = new DOMDocument();
         libxml_use_internal_errors(true);
+        $text = str_replace('@​::','@::',$text);
         $dom->loadHTML( "<html lang=''><head><title></title><meta charset='UTF-8' /></head><body>$text</body></html>", LIBXML_COMPACT | LIBXML_NONET | LIBXML_HTML_NOIMPLIED);
         $body = $dom->getElementsByTagName('body');
         if (!$body || $body->length > 1) return false;
@@ -232,6 +249,8 @@ class HTMLService {
         $emotes = array_keys($this->get_emotes());
 
         $cache = [ 'citizen' => [] ];
+
+        $poll_cache = $polls = [];
 
         $handlers = [
             // This invalidates emote tags within code blocks to prevent them from being replaced when rendering the
@@ -302,6 +321,79 @@ class HTMLService {
                 $cc = $this->rand->pick($valid);
                 if ($group !== null) $cache['citizen'][$group] = $cc->getId();
                 $d->nodeValue = $cc->getName();
+            },
+            // A citizen ref node
+            '//div[@class=\'cref\']'   => function (DOMElement $user_ref) {
+                $id = $user_ref->attributes->getNamedItem('x-a') ? $user_ref->attributes->getNamedItem('x-a')->nodeValue : null;
+                $user_ref->removeAttribute('x-a');
+
+                $target_user = null;
+                if ($id === 'auto') {
+                    $name = $user_ref->textContent;
+                    $target_user = !empty(trim($name)) ? $this->entity_manager->getRepository(User::class)->findOneByNameOrDisplayName($name,true,true) : null;
+                } elseif (is_numeric($id))
+                    $target_user = $this->entity_manager->getRepository(User::class)->find($id);
+
+                if ($target_user === null)
+                    $user_ref->textContent = '???';
+                else {
+                    $user_ref->textContent = "@​::un:{$target_user->getId()}";
+                    $user_ref->setAttribute('x-id', $target_user->getId());
+                    $user_ref->setAttribute('x-ajax-href', "@​::up:{$target_user->getId()}");
+                    $user_ref->setAttribute('x-ajax-target', "default");
+                }
+            },
+
+            // A poll node
+            '//ul[@class=\'poll\']'   => function (DOMElement $poll) use(&$editable, &$poll_cache, &$polls) {
+                $editable = false;
+                $remove = [];
+
+                $answer_count = 0;
+
+                $first = true;
+                foreach ($poll->childNodes as $child) {
+                    /** @var DOMNode|DOMElement $child */
+                    if ($child->nodeType !== XML_ELEMENT_NODE || $child->nodeName !== 'li' || empty(trim($child->textContent))) {
+                        $remove[] = $child;
+                        continue;
+                    }
+
+                    if ($child->getAttribute('class') === 'q' && !$first ) {
+                        $remove[] = $child;
+                        continue;
+                    }
+
+                    $first = false;
+                    if (!in_array($child->getAttribute('class'), ['q','desc','']))
+                        $remove[] = $child;
+                    elseif ($child->getAttribute('class') === '') $answer_count++;
+                }
+
+                foreach ($remove as $remove_child)
+                    $poll->removeChild($remove_child);
+
+                if ($answer_count === 0) {
+                    $poll->parentNode->removeChild($poll);
+                    return;
+                }
+
+                $gen = function () use (&$poll_cache): string {
+                    do $s = bin2hex(random_bytes(64));
+                    while (in_array($s,$poll_cache));
+                    return $poll_cache[] = $s;
+                };
+
+                $poll_parent = $gen();
+                $polls[$poll_parent] = [];
+                $poll->setAttribute( 'x-poll-id', $poll_parent );
+
+                foreach ($poll->childNodes as $answer) {
+                    /** @var DOMElement $answer */
+                    if ($answer->getAttribute('class') !== '') continue;
+                    $answer->setAttribute('x-poll-id', $poll_parent);
+                    $answer->setAttribute('x-answer-id', $polls[$poll_parent][] = $gen());
+                }
             },
 
             // This MUST be the last element!
@@ -529,7 +621,16 @@ class HTMLService {
 
     public function prepareEmotes(string $str): string {
         $emotes = $this->get_emotes();
-        return str_replace( array_keys( $emotes ), array_values( $emotes ), $str );
+        return preg_replace_callback('/@​::(\w+):(\d+)/i', function(array $m) {
+            [, $type, $id] = $m;
+            switch ($type) {
+                case 'un':case 'up':
+                    $target_user = $this->entity_manager->getRepository(User::class)->find((int)$id);
+                    if ($target_user === null) return '';
+                    return $type === 'un' ? $target_user->getName() : $this->router->generate('soul_visit', ['id' => $target_user->getId()]);
+                default: return '';
+            }
+        }, str_replace( array_keys( $emotes ), array_values( $emotes ), $str ));
     }
 
     protected function filterLockedEmotes(User $user, string $text): string {

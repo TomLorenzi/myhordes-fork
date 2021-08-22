@@ -90,7 +90,19 @@ class MigrateCommand extends Command
         'd2e74544059a70b72cb89784544555663e4f0f9e' => [ ['app:migrate', ['--assign-features' => true] ] ],
         '982adb8ebb6f71be8acd2550fc42a8594264ece3' => [ ['app:migrate', ['--count-admin-reports' => true] ] ],
         '1a5f0dbc64f5c185e023d3c655014f59f8c8059d' => [ ['app:migrate', ['--repair-restrictions' => true] ] ],
-        'af5ba720e3656e5d6603a43074c3e131ee3debb7' => [ ['app:migrate', ['--set-icu-pref' => true] ] ]
+        'af5ba720e3656e5d6603a43074c3e131ee3debb7' => [ ['app:migrate', ['--set-icu-pref' => true] ] ],
+        '513ee3a0646478cf5d9bf363a47f2da56fa0cdca' => [
+            ['app:migrate', ['--repair-proxies' => true] ],
+            ['app:migrate', ['--update-all-sp' => true] ],
+        ],
+        '4cf8df846bc5bb6391660cf77401a93c171226f2' => [ ['app:migrate', ['--migrate-oracles' => true] ] ],
+        '2ce7f8222a95468ce4bf7b74cda62ef2c026307d' => [
+            ['app:debug', ['--add-animactor' => true] ],
+            ['app:migrate', ['--repair-permissions' => true] ],
+        ],
+        'e01e6dea153f67d9a1d7f9f7f7d3c8b2eec5d5ed' => [ ['app:migrate', ['--repair-permissions' => true] ] ],
+        'fae118acfc0041183dac9622c142cab01fb10d44' => [ ['app:migrate', ['--fix-forum-posts' => true] ] ],
+        'bf6a46f2dc1451658809f55578debd83aca095d3' => [ ['app:migrate', ['--set-old-flag' => true] ] ],
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
@@ -113,7 +125,7 @@ class MigrateCommand extends Command
         $this->user_factory = $uf;
 
         $this->conf_trans = $conf_trans;
-        
+
         $this->helper = $helper;
 
         parent::__construct();
@@ -149,25 +161,24 @@ class MigrateCommand extends Command
             ->addOption('trans-disable-db', null, InputOption::VALUE_NONE, 'Disables translation of database content')
             ->addOption('trans-disable-twig', null, InputOption::VALUE_NONE, 'Disables translation of twig files')
 
-            ->addOption('assign-heroic-actions-all', null, InputOption::VALUE_NONE, 'Resets the heroic actions for all citizens in all towns.')
-            ->addOption('assign-special-actions-all', null, InputOption::VALUE_NONE, 'Resets the special actions for all citizens in all towns.')
-            ->addOption('assign-town-season', null, InputOption::VALUE_NONE, 'Assigns the towns with no season to the latest available.')
-            ->addOption('init-item-stacks', null, InputOption::VALUE_NONE, 'Sets item count for items without a counter to 1')
             ->addOption('calculate-score', null, InputOption::VALUE_NONE, 'Recalculate the score for each ended town')
             ->addOption('build-forum-search-index', null, InputOption::VALUE_NONE, 'Initializes search structures for the forum')
             ->addOption('migrate-account-bans', null, InputOption::VALUE_NONE, 'Migrates old account bans to the new system')
 
-            ->addOption('update-ranking-entries', null, InputOption::VALUE_NONE, 'Update ranking values')
-            ->addOption('fix-ruin-inventories', null, InputOption::VALUE_NONE, 'Move each items belonging to a RuinRoom to its corresponding RuinZone')
-            ->addOption('update-shaman-immune', null, InputOption::VALUE_NONE, 'Changes status tg_immune to tg_shaman_immune')
+            ->addOption('repair-proxies', null, InputOption::VALUE_NONE, 'Repairs incomplete CitizenRankingProxie entities.')
             ->addOption('place-explorables', null, InputOption::VALUE_NONE, 'Adds explorable ruins to all towns')
-            ->addOption('assign-awards', null, InputOption::VALUE_NONE, '')
-            ->addOption('assign-features', null, InputOption::VALUE_NONE, '')
+            ->addOption('assign-awards', null, InputOption::VALUE_NONE, 'Assign awards to users')
+            ->addOption('assign-features', null, InputOption::VALUE_NONE, 'Assign features')
+            ->addOption('update-all-sp', null, InputOption::VALUE_NONE, 'Update all soul points')
+            ->addOption('fix-forum-posts', null, InputOption::VALUE_NONE, 'Fix forum post content')
 
             ->addOption('repair-permissions', null, InputOption::VALUE_NONE, 'Makes sure forum permissions and user groups are set up properly')
+            ->addOption('migrate-oracles', null, InputOption::VALUE_NONE, 'Moves the Oracle role from account elevation to the special permissions flag')
             ->addOption('repair-restrictions', null, InputOption::VALUE_NONE, '')
             ->addOption('count-admin-reports', null, InputOption::VALUE_NONE, '')
             ->addOption('set-icu-pref', null, InputOption::VALUE_NONE, '')
+
+            ->addOption('set-old-flag', null, InputOption::VALUE_NONE, 'Sets the MH-OLD flag on Pictos')
         ;
     }
 
@@ -188,7 +199,7 @@ class MigrateCommand extends Command
             return 0;
 
         }
-        
+
         if ($input->getOption('from-git')) {
 
             $remote = $input->getOption('remote');
@@ -274,6 +285,11 @@ class MigrateCommand extends Command
                 return 4;
             }
 
+            if (!$this->helper->capsule( 'app:debug --add-animactor', $output )) {
+                $output->writeln("<error>Unable to create animactor.</error>");
+                return 4;
+            }
+
             $output->writeln("\n\n=== <info>Optional setup steps</info> ===\n");
 
             $result = $this->getHelper('question')->ask($input, $output, new ConfirmationQuestion(
@@ -332,7 +348,7 @@ class MigrateCommand extends Command
 
                 $new_user = $this->user_factory->createUser( $name, $mail, $password1, true, $error );
                 if ($error !== UserFactory::ErrorNone) return -$error;
-                $new_user->setRightsElevation(User::ROLE_SUPER);
+                $new_user->setRightsElevation(User::USER_LEVEL_SUPER);
                 $this->entity_manager->persist($new_user);
                 $this->entity_manager->flush();
 
@@ -410,17 +426,17 @@ class MigrateCommand extends Command
                 $output->writeln("<info>$new</info> patches have been newly discovered.");
             } else $output->writeln("<info>No</info> patches have been newly discovered.");
 
-            /** @var GitVersions[] $uninstalled */
-            $uninstalled = $git_repo->findBy(['installed' => false], ['id' => 'ASC']);
+            /** @var string[] $uninstalled */
+            $uninstalled = array_map(fn(GitVersions $g) => $g->getVersion(), $git_repo->findBy(['installed' => false], ['id' => 'ASC']));
 
             if (count($uninstalled) > 0) $output->writeln('Completing database setup for <info>' . count($uninstalled) . '</info> patches.');
             else $output->writeln('No patches marked for installation.');
 
             foreach ($uninstalled as $version) {
-                if (isset(static::$git_script_repository[$version->getVersion()])) {
+                if (isset(static::$git_script_repository[$version])) {
                     $this->entity_manager->flush();
-                    $output->writeln("\tInstalling <comment>{$version->getVersion()}</comment>...");
-                    foreach (static::$git_script_repository[$version->getVersion()] as $script) {
+                    $output->writeln("\tInstalling <comment>{$version}</comment>...");
+                    foreach (static::$git_script_repository[$version] as $script) {
 
                         $input = new ArrayInput($script[1]);
                         $input->setInteractive(false);
@@ -434,11 +450,11 @@ class MigrateCommand extends Command
                     }
 
                     $output->writeln("\t<info>OK!</info>");
-                    $this->entity_manager->persist( $version->setInstalled(true) );
-                    $this->entity_manager->flush();
-                } else {
-                    $this->entity_manager->persist( $version->setInstalled(true) );
                 }
+
+                $version_object = $this->entity_manager->getRepository(GitVersions::class)->findOneBy(['version' => $version]);
+                $this->entity_manager->persist( $version_object->setInstalled(true) );
+                $this->entity_manager->flush();
             }
 
             $this->entity_manager->flush();
@@ -513,81 +529,6 @@ class MigrateCommand extends Command
             return 0;
         }
 
-        if ($input->getOption('assign-heroic-actions-all')) {
-            $heroic_actions = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findAll();
-            foreach ($this->entity_manager->getRepository(Citizen::class)->findAll() as $citizen) {
-                foreach ($heroic_actions as $heroic_action)
-                    /** @var $heroic_action HeroicActionPrototype */
-                    $citizen->addHeroicAction( $heroic_action );
-                $this->entity_manager->persist( $citizen );
-            }
-            $this->entity_manager->flush();
-            $output->writeln('OK!');
-
-            return 0;
-        }
-
-        if ($input->getOption('assign-special-actions-all')) {
-            $special_actions = $this->entity_manager->getRepository(SpecialActionPrototype::class)->findAll();
-            foreach ($this->entity_manager->getRepository(Citizen::class)->findAll() as $citizen) {
-                /** @var Citizen $citizen */
-                foreach ($special_actions as $special_action)
-                    /** @var SpecialActionPrototype $special_action */
-                    $citizen->addSpecialAction( $special_action );
-                $this->entity_manager->persist( $citizen );
-            }
-            $this->entity_manager->flush();
-            $output->writeln('OK!');
-
-            return 0;
-        }
-
-        if ($input->getOption("assign-town-season")) {
-            $towns = $this->entity_manager->getRepository(TownRankingProxy::class)->findBy(['season' => null]);
-            /* @var Season $latestSeason */
-            $latestSeason = $this->entity_manager->getRepository(Season::class)->findLatest();
-            foreach ($towns as $town) {
-                /*  @var TownRankingProxy $town */
-                $town->setSeason($latestSeason);
-                $latestSeason->addRankedTown($town);
-                $this->entity_manager->persist($town);
-            }
-
-            $this->entity_manager->flush();
-            $output->writeln('OK!');
-
-            return 0;
-        }
-
-        if ($input->getOption('init-item-stacks')) {
-            foreach ($this->entity_manager->getRepository(Item::class)->findAll() as $item) {
-                /** @var $item Item */
-                if ($item->getCount() == 0) {
-                    $item->setCount( 1 );
-                    $this->entity_manager->persist( $item );
-                }
-            }
-            $this->entity_manager->flush();
-
-            foreach ($this->entity_manager->getRepository(Town::class)->findAll() as $town) {
-                /** @var $town Town*/
-                foreach ($town->getBank()->getItems() as $item)
-                    if ($item->getCount() <= 1) {
-                        $target = $this->inventory_handler->findStackPrototype( $town->getBank(), $item );
-                        if ($target) {
-                            $target->setCount( $target->getCount() + 1);
-                            $this->inventory_handler->forceRemoveItem( $item );
-                            $this->entity_manager->persist($target);
-                        }
-
-                    }
-            }
-
-            $this->entity_manager->flush();
-            $output->writeln('OK!');
-
-            return 0;
-        }
 
         if ($input->getOption('calculate-score')) {
             $this->helper->leChunk($output, TownRankingProxy::class, 5000, ['imported' => false], true, true, function(TownRankingProxy $town) {
@@ -684,6 +625,38 @@ class MigrateCommand extends Command
             return 0;
         }
 
+        if ($input->getOption('update-all-sp')) {
+            $this->helper->leChunk($output, User::class, 100, [], true, false, function(User $user) use ( $output ): bool {
+                $calculated_sp_mh = $this->user_handler->fetchSoulPoints($user,false);
+                $calculated_sp_im = $this->user_handler->fetchImportedSoulPoints($user);
+
+                $stored_sp_mh  = $user->getSoulPoints() ?? 0;
+                $stored_sp_im  = $user->getImportedSoulPoints() ?? 0;
+
+                if ($calculated_sp_mh !== $stored_sp_mh || $calculated_sp_im !== $stored_sp_im) {
+                    $user->setSoulPoints( $calculated_sp_mh )->setImportedSoulPoints( $calculated_sp_im );
+                    return true;
+                } else return false;
+            }, true);
+        }
+
+        if ($input->getOption('fix-forum-posts')) {
+            $posts = $this->entity_manager->getRepository(Post::class)->findAll();
+            foreach ($posts as $post) {
+                if (!preg_match('/<div class="cref" x-id="([0-9]+)" x-ajax-href="(@[a-z0-9: ​]+)">/', $post->getText()))
+                    continue;
+
+                $text = $post->getText();
+                while (preg_match('/<div class="cref" x-id="([0-9]+)" x-ajax-href="(@[a-z0-9: ​]+)">/', $text))
+                    $text = preg_replace('/<div class="cref" x-id="([0-9]+)" x-ajax-href="(@[a-z0-9: ​]+)">/', "<div class=\"cref\" x-id=\"$1\" x-ajax-href=\"$2\" x-ajax-target=\"default\">", $text);
+
+                $post->setText($text);
+                $this->entity_manager->persist($post);
+            }
+
+            return 0;
+        }
+
         if ($input->getOption('migrate-account-bans')) {
             $this->helper->leChunk($output, AdminBan::class, 100, [], false, false, function(AdminBan $ban): bool {
                 $this->entity_manager->remove($ban);
@@ -728,103 +701,21 @@ class MigrateCommand extends Command
             return 0;
         }
 
-        if ($input->getOption('update-ranking-entries')) {
-            /** @var Town[] $towns */
-            $towns = $this->entity_manager->getRepository(Town::class)->findAll();
-            foreach ($towns as $town)
-                $this->entity_manager->persist( TownRankingProxy::fromTown( $town, true ));
-            $this->entity_manager->flush();
-            $output->writeln('Towns updated!');
-
-            /** @var Citizen[] $citizens */
-            $citizens = $this->entity_manager->getRepository(Citizen::class)->findAll();
-            foreach ($citizens as $citizen)
-                $this->entity_manager->persist( CitizenRankingProxy::fromCitizen( $citizen, true ));
-            $this->entity_manager->flush();
-            $output->writeln('Citizens updated!');
-
-            /** @var Picto[] $pictos */
-            $pictos = $this->entity_manager->getRepository(Picto::class)->findAll();
-            foreach ($pictos as $picto)
-                if ($picto->getTownEntry() === null && $picto->getTown() && $picto->getTown()->getRankingEntry())
-                    $this->entity_manager->persist( $picto->setTownEntry( $picto->getTown()->getRankingEntry() ) );
-            $this->entity_manager->flush();
-            $output->writeln('Pictos updated!');
-
-            return 0;
-        }
-
-        if ($input->getOption('fix-ruin-inventories')) {
-            $ruinZones = $this->entity_manager->getRepository(RuinZone::class)->findAll();
-            foreach ($ruinZones as $ruinZone) {
-                /** @var RuinZone $ruinZone */
-                if ($ruinZone->getRoomFloor() === null) continue;
-
-                foreach ($ruinZone->getRoomFloor()->getItems() as $item) {
-                    for ($i = 0 ; $i < $item->getCount() ; $i++) {
-                        $output->writeln("Moving item {$item->getPrototype()->getName()} into the Ruin's Floor");
-                        $this->inventory_handler->forceMoveItem($ruinZone->getFloor(), $item);
-                        $this->entity_manager->persist($ruinZone);
-                        $this->entity_manager->persist($ruinZone->getFloor());
-                        $this->entity_manager->persist($item);
-                    }
+        if ($input->getOption('repair-proxies')) {
+            $this->helper->leChunk($output, CitizenRankingProxy::class, 1000, [], true, false, function(CitizenRankingProxy $cp): bool {
+                $b = false;
+                if ($cp->getTown()->getImported() && ($cp->getImportID() !== $cp->getTown()->getBaseID() || $cp->getImportLang() !== $cp->getTown()->getLanguage()) ) {
+                    $cp->setImportLang($cp->getTown()->getLanguage())->setImportID( $cp->getTown()->getBaseID() );
+                    $b = true;
                 }
-            }
-            $this->entity_manager->flush();
-            $output->writeln('OK!');
 
-            return 0;
-        }
+                if ($cp->getTown()->getType() && $cp->getTown()->getType()->getName() === 'custom' && $cp->getPoints() > 0) {
+                    $cp->setPoints(0);
+                    $b = true;
+                }
 
-        if ($input->getOption('update-shaman-immune')) {
-            /** @var Town[] $towns */
-            $old_immune_status = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName('tg_immune');
-            $new_immune_status = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName("tg_shaman_immune");
-
-            if($old_immune_status === null){
-                $output->writeln("Old tg_immune status has been already migrated !");
-                return 0;
-            }
-
-            $citizens = $this->entity_manager->getRepository(Citizen::class)->findCitizensWithStatus($old_immune_status);
-
-            $output->writeln(count($citizens) . " citizens to update");
-
-            foreach ($citizens as $citizen) {
-                $citizen->removeStatus($old_immune_status);
-                $citizen->addStatus($new_immune_status);
-                $this->entity_manager->persist($citizen);
-            }
-
-            $output->writeln('Citizens status updated!');
-
-            $affectStatuses = $this->entity_manager->getRepository(AffectStatus::class)->findByResult($old_immune_status);
-
-            $output->writeln(count($affectStatuses) . " AffectStatuses' results to update");
-
-            foreach ($affectStatuses as $affectStatus) {
-                $affectStatus->setResult($new_immune_status);
-                $this->entity_manager->persist($affectStatus);
-            }
-
-            $output->writeln('AffectStatuses\' results updated!');
-
-            $affectStatuses = $this->entity_manager->getRepository(AffectStatus::class)->findByInitial($old_immune_status);
-
-            $output->writeln(count($affectStatuses) . " AffectStatuses' initial to update");
-
-            foreach ($affectStatuses as $affectStatus) {
-                $affectStatus->setInitial($new_immune_status);
-                $this->entity_manager->persist($affectStatus);
-            }
-
-            $output->writeln('AffectStatuses\' initial updated!');
-
-            $this->entity_manager->remove($old_immune_status);
-
-            $output->writeln('Old tg_immune status removed!');
-
-            $this->entity_manager->flush();
+                return $b;
+            });
 
             return 0;
         }
@@ -916,16 +807,18 @@ class MigrateCommand extends Command
             $g_oracle = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultOracleGroup]);
             $g_mods   = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultModeratorGroup]);
             $g_admin  = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultAdminGroup]);
+            $g_anim   = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultAnimactorGroup]);
 
             // Fix group associations
             $all_users = $this->entity_manager->getRepository(User::class)->findAll();
             foreach ($all_users as $current_user) {
 
                 if ($current_user->getValidated()) $fun_assoc($current_user, $g_users); else $fun_dis_assoc($current_user, $g_users);
-                if ($current_user->getRightsElevation() > User::ROLE_USER) $fun_assoc($current_user, $g_elev); else $fun_dis_assoc($current_user, $g_elev);
+                if ($current_user->getRightsElevation() > User::USER_LEVEL_BASIC) $fun_assoc($current_user, $g_elev); else $fun_dis_assoc($current_user, $g_elev);
                 if ($this->user_handler->hasRole($current_user, "ROLE_ORACLE")) $fun_assoc($current_user, $g_oracle); else $fun_dis_assoc($current_user, $g_oracle);
                 if ($this->user_handler->hasRole($current_user, "ROLE_CROW"))   $fun_assoc($current_user, $g_mods); else $fun_dis_assoc($current_user, $g_mods);
                 if ($this->user_handler->hasRole($current_user, "ROLE_ADMIN"))  $fun_assoc($current_user, $g_admin); else $fun_dis_assoc($current_user, $g_admin);
+                if ($this->user_handler->hasRole($current_user, "ROLE_ANIMAC"))  $fun_assoc($current_user, $g_anim); else $fun_dis_assoc($current_user, $g_anim);
 
             }
 
@@ -938,9 +831,15 @@ class MigrateCommand extends Command
                 }
 
                 foreach ($all_users as $current_user) {
-                    if ($current_user->getAliveCitizen() && $current_user->getAliveCitizen()->getTown() === $current_town)
-                        $fun_assoc($current_user, $town_group);
-                    else $fun_dis_assoc($current_user, $town_group);
+                    $assoc = false; $allow = false;
+
+                    if ($this->user_handler->hasRole( $current_user, 'ROLE_ANIMAC' )) $allow = true;
+                    foreach ( $current_user->getCitizens()->filter(fn(Citizen $c) => $c->getAlive() ) as $alive_citizen )
+                            if ($alive_citizen->getTown() === $current_town)
+                                $assoc = true;
+
+                    if ($assoc) $fun_assoc($current_user, $town_group);
+                    elseif (!$allow) $fun_dis_assoc($current_user, $town_group);
                 }
             }
 
@@ -954,6 +853,7 @@ class MigrateCommand extends Command
 
             // Fix permissions
             $fun_permissions(null, $g_oracle,  ForumUsagePermissions::PermissionFormattingOracle);
+            $fun_permissions(null, $g_anim,  ForumUsagePermissions::PermissionPostAsAnim | ForumUsagePermissions::PermissionFormattingOracle);
             $fun_permissions(null, $g_mods,  ForumUsagePermissions::PermissionModerate | ForumUsagePermissions::PermissionFormattingModerator | ForumUsagePermissions::PermissionPostAsCrow);
             $fun_permissions(null, $g_admin, ForumUsagePermissions::PermissionOwn);
 
@@ -966,12 +866,29 @@ class MigrateCommand extends Command
                 elseif ($forum->getType() === Forum::ForumTypeElevated) $fun_permissions($forum, $g_elev);
                 elseif ($forum->getType() === Forum::ForumTypeMods) $fun_permissions($forum, $g_mods);
                 elseif ($forum->getType() === Forum::ForumTypeAdmins) $fun_permissions($forum, $g_admin);
+                elseif ($forum->getType() === Forum::ForumTypeAnimac) $fun_permissions($forum, $g_anim);
 
             }
 
             $this->entity_manager->flush();
             return 0;
 
+        }
+
+        if ($input->getOption('migrate-oracles')) {
+            $this->helper->leChunk($output, User::class, 5000, ['rightsElevation' => 2], false, true, function(User $user) {
+                $user->setRightsElevation(0)->addRoleFlag(User::USER_ROLE_ORACLE);
+            });
+
+            return 0;
+        }
+
+        if ($input->getOption('set-old-flag')) {
+            $this->helper->leChunk($output, Picto::class, 1000, ['imported' => false], true, true, function(Picto $picto) {
+                $picto->setOld($picto->getTownEntry() && !$picto->getTownEntry()->getImported() && $picto->getTownEntry()->getSeason() === null);
+            }, true);
+
+            return 0;
         }
 
         return 99;

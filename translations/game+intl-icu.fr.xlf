@@ -104,7 +104,7 @@
     <unit id="7F6V04y" name="geöffnet">
       <notes>
         <note category="german">geöffnet</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>geöffnet</source>
@@ -114,7 +114,7 @@
     <unit id="2nMdNJ8" name="geschlossen">
       <notes>
         <note category="german">geschlossen</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>geschlossen</source>
@@ -144,7 +144,7 @@
     <unit id="RvCIvJN" name="betreten">
       <notes>
         <note category="german">ist in die Stadt zurückgekehrt</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>betreten</source>
@@ -154,7 +154,7 @@
     <unit id="N0kS6xp" name="verlassen">
       <notes>
         <note category="german">hat die Stadt verlassen..</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>verlassen</source>
@@ -181,26 +181,6 @@
         <target>{citizen} a choisi le métier {profession}.</target>
       </segment>
     </unit>
-    <unit id="tflCZQU" name="{zombies} haben vergeblich versucht, in das Haus von {citizen} einzudringen.">
-      <notes>
-        <note category="german">{zombies} haben vergeblich versucht, in das Haus von {citizen} einzudringen.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>{zombies} haben vergeblich versucht, in das Haus von {citizen} einzudringen.</source>
-        <target>{zombies} ont tenté en vain d'entrer dans la maison de {citizen}.</target>
-      </segment>
-    </unit>
-    <unit id=".Zilgxy" name="{num} Zombies">
-      <notes>
-        <note category="german">{num} Zombies</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>{num} Zombies</source>
-        <target>{num} zombies</target>
-      </segment>
-    </unit>
     <unit id="5hg7k.0" name="{citizen} hat seine Behausung in ein(e,n) {home} verwandelt...">
       <notes>
         <note category="german">{citizen} hat seine Behausung in ein(e,n) {home} verwandelt...</note>
@@ -209,26 +189,6 @@
       <segment>
         <source>{citizen} hat seine Behausung in ein(e,n) {home} verwandelt...</source>
         <target>{citizen} a décidé d'améliorer sa maison en {home}...</target>
-      </segment>
-    </unit>
-    <unit id="5tMkNnc">
-      <notes>
-        <note category="german">{citizen} folgendes hergestellt: {list2}; dabei wurden folgende Gegenstände verbraucht: {list1}.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>{citizen} folgendes hergestellt: {list2}; dabei wurden folgende Gegenstände verbraucht: {list1}.</source>
-        <target>{citizen} a produit : {list2} à partir de : {list1}.</target>
-      </segment>
-    </unit>
-    <unit id="jb1iSAe" name="{zombie} ist von den Toten auferstanden und hat {victim} zerfleischt!">
-      <notes>
-        <note category="german">{zombie} ist von den Toten auferstanden und hat {victim} zerfleischt!</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>{zombie} ist von den Toten auferstanden und hat {victim} zerfleischt!</source>
-        <target>{zombie} s'est relevé et a dévoré {victim} !</target>
       </segment>
     </unit>
     <unit id="5a5L3xz">
@@ -288,7 +248,7 @@
       </notes>
       <segment>
         <source>Was für ein Glück! Kurz nach dem Angriff wurde ein Bauplan in die Stadt geweht. Ihr erhaltet: {item}</source>
-        <target>Quelle chance ! Un plan est apparu dans la banque après l'attaque. Vous avez reçu : {item}</target>
+        <target><![CDATA[{item} a été découvert grâce à {building}. Cet objet a été déposé <span>à la banque</span>.]]></target>
       </segment>
     </unit>
     <unit id="v96.wPX" name="Heute Nacht wurden von {building} folgende Gegenstände produziert: {items}">
@@ -369,16 +329,6 @@
       <segment>
         <source>Du kannst auf dieser Zone nicht graben.</source>
         <target>Vous ne pouvez pas creuser dans cette zone.</target>
-      </segment>
-    </unit>
-    <unit id="MPn9B5E" name="Das Stadttor ist geschlossen!">
-      <notes>
-        <note category="german">Das Stadttor ist geschlossen!</note>
-        <note category="from">twig:///templates/scripts/errors/beyond.txt.twig</note>
-      </notes>
-      <segment>
-        <source>Das Stadttor ist geschlossen!</source>
-        <target>La porte de la ville est fermée !</target>
       </segment>
     </unit>
     <unit id="Wevnltm" name="Deine Nachricht muss zwischen 2 und 256 Zeichen haben.">
@@ -518,7 +468,7 @@
       </notes>
       <segment>
         <source>Du kannst keinen weiteren schweren Gegenstand tragen!</source>
-        <target>Vous ne pouvez pas porter plus d'un encombrant !</target>
+        <target><![CDATA[Vous ne pouvez <strong>pas</strong> prendre cet objet.<hr />Vous êtes limité(e) à un objet encombrant à la fois sur vous.]]></target>
       </segment>
     </unit>
     <unit id="QRxC8ol" name="Du kannst für eine Weile keine weiteren Gegenstände aus der Bank entnehmen.">
@@ -548,7 +498,7 @@
       </notes>
       <segment>
         <source>Du siehst keine Möglichkeit, hier einzubrechen ...</source>
-        <target>Cette maison est protégée (verrou ou autre...) et ne peut être cambriolée. </target>
+        <target>Cette maison est protégée (verrou ou autre...) et ne peut être cambriolée.</target>
       </segment>
     </unit>
     <unit id="zGsgAe0" name="Als Verbannter darfst du keine Gegenstände aus der Bank entnehmen.">
@@ -913,16 +863,6 @@
         <target>Coffre et Actions</target>
       </segment>
     </unit>
-    <unit id="wMh6wqD" name="Mein(e) {type}">
-      <notes>
-        <note category="german">Mein(e) {type}</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Mein(e) {type}</source>
-        <target>Aménagements</target>
-      </segment>
-    </unit>
     <unit id="lQhjNcE" name="Bauarbeiten">
       <notes>
         <note category="german">Bauarbeiten</note>
@@ -1003,16 +943,6 @@
         <target>Mon registre</target>
       </segment>
     </unit>
-    <unit id="HbM7uO9" name="Verteidigung und Dekoration">
-      <notes>
-        <note category="german">Verteidigung und Dekoration</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Verteidigung und Dekoration</source>
-        <target>Défense et Décoration</target>
-      </segment>
-    </unit>
     <unit id="77.Cp5H" name="Verteidigung">
       <notes>
         <note category="german">Verteidigung</note>
@@ -1021,46 +951,6 @@
       <segment>
         <source>Verteidigung</source>
         <target>Défenses</target>
-      </segment>
-    </unit>
-    <unit id="ESh2aNj" name="durch Haus">
-      <notes>
-        <note category="german">durch Haus</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>durch Haus</source>
-        <target>Habitations</target>
-      </segment>
-    </unit>
-    <unit id="bhU20pv" name="durch Beruf">
-      <notes>
-        <note category="german">durch Beruf</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>durch Beruf</source>
-        <target>Bonus Héros</target>
-      </segment>
-    </unit>
-    <unit id="d5El4_h" name="durch Ausbauten">
-      <notes>
-        <note category="german">durch Ausbauten</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>durch Ausbauten</source>
-        <target>Travaux</target>
-      </segment>
-    </unit>
-    <unit id="0Rphz24" name="durch Gegenstände">
-      <notes>
-        <note category="german">durch Gegenstände</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>durch Gegenstände</source>
-        <target>Objets</target>
       </segment>
     </unit>
     <unit id=".k1cQGO" name="Dekoration">
@@ -1081,38 +971,6 @@
       <segment>
         <source>Gegenstände</source>
         <target>Objets</target>
-      </segment>
-    </unit>
-    <unit id="UfaHlFI" name="Ausbauten">
-      <notes>
-        <note category="german">Ausbauten</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Ausbauten</source>
-        <target>Travaux</target>
-      </segment>
-    </unit>
-    <unit id="v5ztcQj">
-      <notes>
-        <note category="german">Ausbauten stehen nur Helden zur Verfügung. Solange du nur ein normaler Einwohner bist, sind deine
-            Ausbauten funktionslos.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Ausbauten stehen nur Helden zur Verfügung. Solange du nur ein normaler Einwohner bist, sind deine
-            Ausbauten funktionslos.</source>
-        <target>Seul les héros peuvent effectuer des améliorations. En tant qu'habitant, vous ne bénéficiez pas des avantages de celles-ci.</target>
-      </segment>
-    </unit>
-    <unit id="vmzgnNz" name="Stufe {level}">
-      <notes>
-        <note category="german">Stufe {level}</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Stufe {level}</source>
-        <target>Niveau {level}</target>
       </segment>
     </unit>
     <unit id="RmaV9PR" name="Mein Haus ausbauen">
@@ -1315,18 +1173,6 @@
         <target>Nom de l'expédition</target>
       </segment>
     </unit>
-    <unit id="Xfcjipo">
-      <notes>
-        <note category="german">Hier kannst du Routen für einen Trip in die Außenwelt planen. Einfache Routen beginnen und enden immer
-                in der Stadt. Komplexe Routen können an beliebigen Punkten beginnen und enden.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Hier kannst du Routen für einen Trip in die Außenwelt planen. Einfache Routen beginnen und enden immer
-                in der Stadt. Komplexe Routen können an beliebigen Punkten beginnen und enden.</source>
-        <target>Cette section vous permet d'indiquer à vos concitoyens des "chemins" dans l'Outre-Monde, et ainsi d'organiser des expéditions passant par les zones qui vous intéressent. Les itinéraires simples commencent et arrivent en ville. Les itinéraires complexes commencent et terminent où vous voulez.</target>
-      </segment>
-    </unit>
     <unit id="dLIxjrY" name="Nur Helden können komplexe Routen planen.">
       <notes>
         <note category="german">Nur Helden können komplexe Routen planen.</note>
@@ -1360,7 +1206,7 @@
     <unit id="ygfGVvY" name="Tot">
       <notes>
         <note category="german">Tot</note>
-        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Tot</source>
@@ -1385,16 +1231,6 @@
       <segment>
         <source>Todesursache</source>
         <target>Cause du décès</target>
-      </segment>
-    </unit>
-    <unit id="rD2ZHAN" name="Letzte Worte">
-      <notes>
-        <note category="german">Letzte Worte</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Letzte Worte</source>
-        <target>Dernières paroles</target>
       </segment>
     </unit>
     <unit id="tTFjSe8" name="Gemeinschaft">
@@ -1717,19 +1553,6 @@
         <target>Banque</target>
       </segment>
     </unit>
-    <unit id="dUenX0C">
-      <notes>
-        <note category="german">Die Stadt hat Sklaverei legalisiert. Ab sofort kannst du trotz deiner Verbannung auf einer Baustelle
-                      arbeiten und erhälst sogar einen Bonus von 50% auf alle investierten &lt;div class="ap"&gt;&lt;/div&gt;.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Die Stadt hat Sklaverei legalisiert. Ab sofort kannst du trotz deiner Verbannung auf einer Baustelle
-                      arbeiten und erhälst sogar einen Bonus von 50% auf alle investierten &lt;div class="ap"&gt;&lt;/div&gt;.</source>
-        <target><![CDATA[La ville a légalisé l'esclavage. Désormais vous pouvez vous rendre sur un chantier malgré votre bannissement
-                        travaillez et obtenez un bonus de 50% sur tout investissement de <div class="ap"></div>.]]></target>
-      </segment>
-    </unit>
     <unit id="ryRHkfD" name="Du wurdest verbannt und kannst daher nicht länger auf einer Baustelle arbeiten.">
       <notes>
         <note category="german">Du wurdest verbannt und kannst daher nicht länger auf einer Baustelle arbeiten.</note>
@@ -1748,16 +1571,6 @@
       <segment>
         <source>Baustellenregister</source>
         <target>Constructions</target>
-      </segment>
-    </unit>
-    <unit id="0m1lFXV" name="Wie viele Aktionspunkte möchtest du in den Bau investieren?">
-      <notes>
-        <note category="german">Wie viele Aktionspunkte möchtest du in den Bau investieren?</note>
-        <note category="from">twig:///templates/ajax/game/town/construction.html.twig</note>
-      </notes>
-      <segment>
-        <source>Wie viele Aktionspunkte möchtest du in den Bau investieren?</source>
-        <target>Combien de points d'action souhaitez-vous investir dans la construction ?</target>
       </segment>
     </unit>
     <unit id="WZRacPK" name="{rations} Rationen Wasser übrig">
@@ -1873,7 +1686,7 @@
     <unit id="Z2xHG8j" name="Bank">
       <notes>
         <note category="german">Bank</note>
-        <note category="from">twig:///templates/ajax/game/newspaper.html.twig;twig:///templates/ajax/game/town/town.html.twig</note>
+        <note category="from">php:///src/Service/GameFactory.php;twig:///templates/ajax/game/newspaper.html.twig;twig:///templates/ajax/game/town/town.html.twig</note>
       </notes>
       <segment>
         <source>Bank</source>
@@ -1893,7 +1706,7 @@
     <unit id="OlFB1V6" name="Konstruktionen">
       <notes>
         <note category="german">Konstruktionen</note>
-        <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/town.html.twig</note>
+        <note category="from">php:///src/Service/GameFactory.php;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/town.html.twig</note>
       </notes>
       <segment>
         <source>Konstruktionen</source>
@@ -1950,16 +1763,6 @@
         <target>points</target>
       </segment>
     </unit>
-    <unit id="yuTuMOR" name="Stadt in {km} Entfernung">
-      <notes>
-        <note category="german">Stadt in {km} Entfernung</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Stadt in {km} Entfernung</source>
-        <target>Ville à {km}</target>
-      </segment>
-    </unit>
     <unit id="AW6aLpM" name="Am Boden">
       <notes>
         <note category="german">Am Boden</note>
@@ -1988,36 +1791,6 @@
       <segment>
         <source>{z} Zombies kontrollieren diese Zone!</source>
         <target>{z} zombies contrôlent cette zone !</target>
-      </segment>
-    </unit>
-    <unit id="5GwqUxA">
-      <notes>
-        <note category="german">Das ist deine Chance - ergreife sie und fliehe! In Kürze werden die Zombies die Kontrolle über die Zone zurückerlangen. Dir verbleiben:</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Das ist deine Chance - ergreife sie und fliehe! In Kürze werden die Zombies die Kontrolle über die Zone zurückerlangen. Dir verbleiden:</source>
-        <target>Vous avez réussi à vous extirper de ce danger, mais les zombies vous regardent maintenant avec envie et s'approchent dangereusement en grognant... FUYEZ ! Il vous reste :</target>
-      </segment>
-    </unit>
-    <unit id="1lHHd11">
-      <notes>
-        <note category="german">Dank deiner Tarnung kannst du dich dennoch bewegen - werde nur nicht zu übermütig...</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Dank deiner Tarnung kannst du dich dennoch bewegen - werde nur nicht zu übermütig...</source>
-        <target>Votre Tenue de camouflage vous permet de vous déplacer sans être vu(e).</target>
-      </segment>
-    </unit>
-    <unit id="DJhmFr9" name="Bestimmte Aktionen können deine Tarnung auffliegen lassen!">
-      <notes>
-        <note category="german">Bestimmte Aktionen können deine Tarnung auffliegen lassen!</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Bestimmte Aktionen können deine Tarnung auffliegen lassen!</source>
-        <target>Toute action sur la zone vous fera perdre votre camouflage (les actions marquées d'une icône indiquent celles faisant perdre le camouflage) !</target>
       </segment>
     </unit>
     <unit id="Zkh813p">
@@ -2200,16 +1973,6 @@
         <target>Discussions</target>
       </segment>
     </unit>
-    <unit id="T478uEB" name="Zonenchat">
-      <notes>
-        <note category="german">Zonenchat</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Zonenchat</source>
-        <target>Zone Chat</target>
-      </segment>
-    </unit>
     <unit id="nq1XXly" name="Stadtregister">
       <notes>
         <note category="german">Stadtregister</note>
@@ -2287,7 +2050,7 @@
       </notes>
       <segment>
         <source>Du kannst in einer neuen Stadt wiedergeboren werden und das so oft wie du möchtest. Sei erfinderisch, probiere verschiedene Optionen aus und finde deinen eigenen Spielstil!</source>
-        <target>Vous pouvez renaître dans une nouvelle ville aussi souvent que vous le souhaitez. Soyez inventif, essayez différentes options et trouvez votre propre style de jeu !</target>
+        <target>Vous pouvez vous incarner dans une nouvelle ville aussi souvent que vous le désirez. Jouez selon votre style, expérimentez, soyez imaginatif !</target>
       </segment>
     </unit>
     <unit id="em6PCOi" name="Wiedergeboren werden">
@@ -2320,22 +2083,6 @@
         <target>Points d'action</target>
       </segment>
     </unit>
-    <unit id="5MeFkca">
-      <notes>
-        <note category="german">Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
-                            benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
-                            kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
-                            auffüllen.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
-                            benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
-                            kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
-                            auffüllen.</source>
-        <target>Ces points sont notamment utilisés pour vos déplacements dans l'Outre-Monde, le désert entourant la ville...</target>
-      </segment>
-    </unit>
     <unit id="bfXTcH6" name="Baupunkte">
       <notes>
         <note category="german">Baupunkte</note>
@@ -2344,23 +2091,6 @@
       <segment>
         <source>Baupunkte</source>
         <target>Points de Chantiers</target>
-      </segment>
-    </unit>
-    <unit id="lm6ClbX">
-      <notes>
-        <note category="german">Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
-                                  zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
-                                  werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
-                                  zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
-                                  werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</source>
-        <target>Les Points de Chantiers peuvent être utilisés à l'Atelier et pour la construction des Chantiers, 
-                                  où ils comptent comme des points d'action. Si possible, les points de chantiers sont toujours 
-                                  utilisés à la place des points d'action. Gardez à l'esprit que les points de 
-                                  chantiers ne peuvent pas être utilisés lorsque vous êtes épuisé !</target>
       </segment>
     </unit>
     <unit id="6UFJBEW" name="Verbannt">
@@ -2373,43 +2103,6 @@
         <target>Banni</target>
       </segment>
     </unit>
-    <unit id="lLxJBVD">
-      <notes>
-        <note category="german">Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur
-                                        Verfügung.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur
-                                        Verfügung.</source>
-        <target>Les citoyens ont décidé de vous exclure de la communauté. Certains actions net sont désormais plus disponibles pour vous.</target>
-      </segment>
-    </unit>
-    <unit id="4CHbxJb">
-      <notes>
-        <note category="german">Je nachdem, welchen Beruf du auswählst, stehen dir unterschiedliche Aktionen und Spielweisen in
-                                            dieser Stadt zur Verfügung.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Je nachdem, welchen Beruf du auswählst, stehen dir unterschiedliche Aktionen und Spielweisen in
-                                            dieser Stadt zur Verfügung.</source>
-        <target>Selon la profession que vous choisissez, vous aurez différentes actions et manières de jouer disponibles lors de cette ville.</target>
-      </segment>
-    </unit>
-    <unit id="L3eKr.7">
-      <notes>
-        <note category="german">Spielst du als {hero}, wird dir täglich ein Heldentag abgezogen. Gehen dir die Heldentage in der
-                                                Stadt aus, musst du als einfacher Einwohner weiterspielen.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Spielst du als {hero}, wird dir täglich ein Heldentag abgezogen. Gehen dir die Heldentage in der
-                                                Stadt aus, musst du als einfacher Einwohner weiterspielen.</source>
-        <target>En tant que {hero}, un jour héros vous sera déduit chaque jour.
-                                                  Si vous êtes toujours en ville et n'en avez plus, vous continuerez la partie en tant qu'habitant.</target>
-      </segment>
-    </unit>
     <unit id="hc1h_MP" name="Held">
       <notes>
         <note category="german">Held</note>
@@ -2418,19 +2111,6 @@
       <segment>
         <source>Held</source>
         <target>Héros</target>
-      </segment>
-    </unit>
-    <unit id="Vy73Bmq">
-      <notes>
-        <note category="german">Spielst du als {citizen}, verbrauchst du keine Heldentage. Wenn du jedoch über Heldentage
-                                                      verfügst, kannst du einmal pro Stadt auf einen Heldenberuf wechseln.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Spielst du als {citizen}, verbrauchst du keine Heldentage. Wenn du jedoch über Heldentage
-                                                      verfügst, kannst du einmal pro Stadt auf einen Heldenberuf wechseln.</source>
-        <target>En tant que {citizen}, vous n'utiliserez pas de jours héros.
-                                                        Cependant, vous pourrez toujours changer d'avis et choisir un métier en cours de ville.</target>
       </segment>
     </unit>
     <unit id="hlH9eeR" name="Einwohner">
@@ -2686,7 +2366,7 @@
     <unit id="72h0.SN" name="Ghul">
       <notes>
         <note category="german">Ghul</note>
-        <note category="from">db://CitizenRole;db://CitizenStatus;twig:///templates/ajax/game/town/town.html.twig</note>
+        <note category="from">db://CitizenRole;twig:///templates/ajax/game/town/town.html.twig</note>
       </notes>
       <segment>
         <source>Ghul</source>
@@ -3383,16 +3063,6 @@
         <target>Un nouveau bâtiment a été construit : {plan}.</target>
       </segment>
     </unit>
-    <unit id="x8EBgJi" name="{citizen} wurde von {zombies} zerfleischt!">
-      <notes>
-        <note category="german">{citizen} wurde von {zombies} zerfleischt!</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>{citizen} wurde von {zombies} zerfleischt!</source>
-        <target>{citizen} a été tué par {zombies} !</target>
-      </segment>
-    </unit>
     <unit id="954uB9J">
       <notes>
         <note category="german">Hat jemand in letzter Zeit von {citizen} gehört? Er scheint verschwunden zu sein ...</note>
@@ -3593,26 +3263,6 @@
         <target>Aucun zombie n'a pu rentrer en ville !</target>
       </segment>
     </unit>
-    <unit id="NIymd5x" name="{citizen} hat die Leiche von {disposed} aus der Stadt gezerrt.">
-      <notes>
-        <note category="german">{citizen} hat die Leiche von {disposed} aus der Stadt gezerrt.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>{citizen} hat die Leiche von {disposed} aus der Stadt gezerrt.</source>
-        <target>Et un cadavre de moins ! {disposed} a été jeté dehors par {citizen} !</target>
-      </segment>
-    </unit>
-    <unit id="twDmRwR">
-      <notes>
-        <note category="german">{citizen} hat die Leiche von {disposed} vernichtet, indem er sie mit Wasser übergossen hat.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>{citizen} hat die Leiche von {disposed} vernichtet, indem er sie mit Wasser übergossen hat.</source>
-        <target>{citizen} a utilisé de l'eau pour brûler le corps de {disposed}.</target>
-      </segment>
-    </unit>
     <unit id="TNs0DHS">
       <notes>
         <note category="german">{citizen} hat aus der Leiche von {disposed} eine leckere Mahlzeit gegrillt. Die Stadt hat {items} erhalten.</note>
@@ -3653,16 +3303,6 @@
         <target>DAMNED ! Quelqu'un a volé {item} à {victim} !</target>
       </segment>
     </unit>
-    <unit id="Fn2.PoP" name="{actor} ist bei {victim} eingebrochen und hat {item} hinterlassen...">
-      <notes>
-        <note category="german">{actor} ist bei {victim} eingebrochen und hat {item} hinterlassen...</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>{actor} ist bei {victim} eingebrochen und hat {item} hinterlassen...</source>
-        <target>{actor} a tenté de déposer {item} chez {victim}... Malheureusement pour ce citoyen, il a été remarqué ! Mais que manigançait-il ?</target>
-      </segment>
-    </unit>
     <unit id="TYXZ3N7" name="Es scheint, jemand ist bei {victim} eingebrochen und hat {item} hinterlassen...">
       <notes>
         <note category="german">Es scheint, jemand ist bei {victim} eingebrochen und hat {item} hinterlassen...</note>
@@ -3681,16 +3321,6 @@
       <segment>
         <source>{citizen} hat mit dem Gegenstand {item} {kills} Zombie(s) getötet.</source>
         <target>{citizen} a tué {kills} zombie(s) avec {item}.</target>
-      </segment>
-    </unit>
-    <unit id="JLXNnq_" name="{citizen} hat {kills} Zombies getötet.">
-      <notes>
-        <note category="german">{citizen} hat {kills} Zombies getötet.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>{citizen} hat {kills} Zombies getötet.</source>
-        <target>{citizen} a tué {kills} zombies.</target>
       </segment>
     </unit>
     <unit id="TxkwDJh" name="Leiche aus der Stadt ziehen">
@@ -3750,7 +3380,7 @@
       </notes>
       <segment>
         <source>Nordosten</source>
-        <target>le Nord-Est</target>
+        <target>le nord-est</target>
       </segment>
     </unit>
     <unit id="R9OI7Nm" name="Nordwesten">
@@ -3760,7 +3390,7 @@
       </notes>
       <segment>
         <source>Nordwesten</source>
-        <target>le Nord-Ouest</target>
+        <target>le nord-ouest</target>
       </segment>
     </unit>
     <unit id="dOCvO1b" name="Norden">
@@ -3770,7 +3400,7 @@
       </notes>
       <segment>
         <source>Norden</source>
-        <target>le Nord</target>
+        <target>le nord</target>
       </segment>
     </unit>
     <unit id="ac.6Rc5" name="Südosten">
@@ -3780,7 +3410,7 @@
       </notes>
       <segment>
         <source>Südosten</source>
-        <target>le Sud-Est</target>
+        <target>le sud-est</target>
       </segment>
     </unit>
     <unit id="YE0v6eT" name="Südwesten">
@@ -3790,7 +3420,7 @@
       </notes>
       <segment>
         <source>Südwesten</source>
-        <target>le Sud-Ouest</target>
+        <target>le sud-ouest</target>
       </segment>
     </unit>
     <unit id="qxvJIc." name="Süden">
@@ -3800,7 +3430,7 @@
       </notes>
       <segment>
         <source>Süden</source>
-        <target>le Sud</target>
+        <target>le sud</target>
       </segment>
     </unit>
     <unit id="xMKWHhf" name="Osten">
@@ -3810,7 +3440,7 @@
       </notes>
       <segment>
         <source>Osten</source>
-        <target>l'Est</target>
+        <target>l'est</target>
       </segment>
     </unit>
     <unit id="jdRT5Z5" name="Westen">
@@ -3820,17 +3450,7 @@
       </notes>
       <segment>
         <source>Westen</source>
-        <target>l'Ouest</target>
-      </segment>
-    </unit>
-    <unit id="25G93ga" name="Durch die Lüftungsschächte klettern">
-      <notes>
-        <note category="german">Durch die Lüftungsschächte klettern</note>
-        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/town/door.html.twig</note>
-      </notes>
-      <segment>
-        <source>Durch die Lüftungsschächte klettern</source>
-        <target>Passer par la conduite d'aération</target>
+        <target>l'ouest</target>
       </segment>
     </unit>
     <unit id="MJMhV5L" name="Kleine Stadt">
@@ -3996,7 +3616,7 @@
     <unit id="IbZvvYE" name="Wachturm">
       <notes>
         <note category="german">Wachturm</note>
-        <note category="from">php:///src/Controller/Town/TownController.php;twig:///templates/ajax/game/town/watchtower.html.twig</note>
+        <note category="from">php:///src/Controller/Town/TownController.php;twig:///templates/ajax/admin/widget/controls.twig;twig:///templates/ajax/game/town/watchtower.html.twig</note>
       </notes>
       <segment>
         <source>Wachturm</source>
@@ -4006,7 +3626,7 @@
     <unit id="266wx0d" name="Verbesserung des Tages">
       <notes>
         <note category="german">Verbesserung des Tages</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/GameFactory.php</note>
       </notes>
       <segment>
         <source>Verbesserung des Tages</source>
@@ -4016,7 +3636,7 @@
     <unit id="gd8sEx3" name="Werkstatt">
       <notes>
         <note category="german">Werkstatt</note>
-        <note category="from">twig:///templates/ajax/game/newspaper.html.twig;twig:///templates/ajax/game/town/workshop.html.twig</note>
+        <note category="from">php:///src/Service/GameFactory.php;twig:///templates/ajax/game/newspaper.html.twig;twig:///templates/ajax/game/town/workshop.html.twig</note>
       </notes>
       <segment>
         <source>Werkstatt</source>
@@ -4130,7 +3750,7 @@
       </notes>
       <segment>
         <source>Du schaust dir die Gegend etwas genauer an...</source>
-        <target> Vous inspectez les environs...</target>
+        <target>Vous inspectez les environs...</target>
       </segment>
     </unit>
     <unit id="BsmmJg2">
@@ -4151,16 +3771,6 @@
       <segment>
         <source>Du schätzt, dass deine Überlebenschancen hier quasi Null sind... Besser gleich 'ne Zyanidkapsel schlucken.</source>
         <target>Vous estimez que vos chances de survie ici sont quasi nulles… Autant gober du cyanure tout de suite.</target>
-      </segment>
-    </unit>
-    <unit id="cePRD7K" name="In der Stadt wohnen @citizens Bürger.">
-      <notes>
-        <note category="german">In der Stadt wohnen @citizens Bürger.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>In der Stadt wohnen @citizens Bürger.</source>
-        <target>il y a @citizens citoyen(s) en ville.</target>
       </segment>
     </unit>
     <unit id="vv.mZRz" name="Wir haben noch nicht die Technologie, um den morgigen Angriff zu beurteilen.">
@@ -4366,7 +3976,7 @@
     <unit id="J2.6H7T" name="Unbekannt">
       <notes>
         <note category="german">Unbekannt</note>
-        <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/game/town/watchtower.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Unbekannt</source>
@@ -4530,17 +4140,7 @@
       </notes>
       <segment>
         <source>Ermordung durch Gift</source>
-        <target>Meurtre par empoisonnement </target>
-      </segment>
-    </unit>
-    <unit id="b15cXr8" name="Mord">
-      <notes>
-        <note category="german">Mord</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Mord</source>
-        <target>Dévoré(e) par une goule</target>
+        <target>Meurtre par empoisonnement</target>
       </segment>
     </unit>
     <unit id="7AlBdeZ" name="Aggression">
@@ -4592,16 +4192,6 @@
       <segment>
         <source>Kopfschuss</source>
         <target>Balle dans la tête</target>
-      </segment>
-    </unit>
-    <unit id="._4eMx4">
-      <notes>
-        <note category="german">Das hast du wohl nicht erwartet... Wie wäre es, wenn du dich das nächste mal an die Regeln hälst?</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Das hast du wohl nicht erwartet... Wie wäre es, wenn du dich das nächste mal an die Regeln hälst?</source>
-        <target>Je suppose que vous ne vous attendiez pas à ça... Et si la prochaine fois vous respectiez les règles ?</target>
       </segment>
     </unit>
     <unit id="e1Jo93z">
@@ -4754,16 +4344,6 @@
         <target>Catapulte</target>
       </segment>
     </unit>
-    <unit id="Lm_z2Dh" name="Deine Tarnung ist aufgeflogen!">
-      <notes>
-        <note category="german">Deine Tarnung ist aufgeflogen!</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Deine Tarnung ist aufgeflogen!</source>
-        <target>Votre camouflage a été repéré !</target>
-      </segment>
-    </unit>
     <unit id="K6Bt5zV" name="Müllhalde">
       <notes>
         <note category="german">Müllhalde</note>
@@ -4791,7 +4371,7 @@
       </notes>
       <segment>
         <source>Du kannst nur einen Behälter auf einmal tragen.</source>
-        <target>Vous ne pouvez porter qu'un conteneur à la fois.</target>
+        <target><![CDATA[Vous ne pouvez <strong>pas</strong> prendre cet objet.<hr />Vous êtes limité(e) à un conteneur à la fois sur vous.]]></target>
       </segment>
     </unit>
     <unit id="Pq_GOUr">
@@ -4801,7 +4381,7 @@
       </notes>
       <segment>
         <source>Hier wohnte ein Bürger, der  sich außerhalb der Stadt niedergelassen hat, weil er den Streitigkeiten und dem Verrat, die das Stadtleben mit sich bringt, entfliehen wollte. Die Hälfte seiner Leiche liegt immer noch im Wohnzimmer.</source>
-        <target>Ici vivait un Citoyen qui avait décidé de s'installer hors de la ville, pensant survivre plus longtemps, loin des querelles et des trahisons. La moitié de son corps est toujours dans le salon.</target>
+        <target><![CDATA[Ici vivait un Citoyen qui avait décidé de s'installer hors de la ville, pensant survivre plus longtemps, loin des querelles et des trahisons. <strong>La moitié de son corps est toujours dans le salon</strong>.]]></target>
       </segment>
     </unit>
     <unit id="I0Djxyu">
@@ -4831,7 +4411,7 @@
       </notes>
       <segment>
         <source>Eine alte Pumpe, die zwar vor sich hin rostet, aber dennoch in der Lage ist, in der Wüste Wasser zu schöpfen... Das einzige Problem ist, dass das Wasser, selbst wenn Sie es zum Funktionieren bringen, im Grunde genommen ungenießbar ist und in der Stadt mit den entsprechenden Geräten gereinigt werden muss.</source>
-        <target>Une antique pompe rongée par la rouille, capable de puiser de l'eau dans le désert... Le seul problème c'est que même si vous arrivez à la faire fonctionner, cette eau sera généralement non-potable et devra être purifiée en ville avec les produits adéquats.</target>
+        <target><![CDATA[Une antique pompe rongée par la rouille, capable de puiser de l'eau dans le désert... Le seul problème c'est que même si vous arrivez à la faire fonctionner, cette eau sera généralement <strong>non-potable</strong> et devra être <strong>purifiée en ville</strong> avec les produits adéquats.]]></target>
       </segment>
     </unit>
     <unit id="7y4PXTQ">
@@ -4881,7 +4461,7 @@
       </notes>
       <segment>
         <source>Dieses beeindruckende Gebäude erstreckt sich auf mehrere Hundert Meter. Es enthält zahlreiche Räume, die größtenteils eingestürzt sind. Die große Anzahl an Einschusslöchern in den Wänden und die improvisierten Barrikaden lassen vermuten, dass das Gebäude vor einiger Zeit Schauplatz heftiger Gefechte gewesen ist.</source>
-        <target>L'imposant bâtiment s'étend sur plusieurs centaines de mètres. Il est divisé en nombreuses salles mais beaucoup se sont effondrées il y a bien longtemps. Si on en croit les nombreux impacts de balles et les barricades improvisées, ce commissariat a été le théâtre d'affrontements particulièrement violents.</target>
+        <target><![CDATA[L'imposant bâtiment s'étend sur plusieurs centaines de mètres. Il est divisé en nombreuses salles mais beaucoup se sont effondrées il y a bien longtemps. Si on en croit les nombreux impacts de balles et les barricades improvisées, <strong>ce commissariat a été le théâtre d'affrontements particulièrement violents</strong>.]]></target>
       </segment>
     </unit>
     <unit id="ETLKMEi">
@@ -4891,7 +4471,7 @@
       </notes>
       <segment>
         <source>Die Farbe der am Bunkereingang gepinselten Zahl ist fast vollständig abgeblättert, aber es handelt sich wahrscheinlich um den Bunker 14. Im Inneren liegen überall verweste Leichen herum. Scheint so, als ob der Schließmechanismus versagt hätte. Das kommt vor.</source>
-        <target>Le numéro est à moitié effacé, mais il s'agissait vraisemblablement de l'abri 14. Si on en juge par les corps décrépis à l'intérieur, le système de fermeture du sas n'a pas dû fonctionner comme prévu. Ca arrive.</target>
+        <target><![CDATA[Le numéro est à moitié effacé, mais il s'agissait vraisemblablement de l'<strong>abri 14</strong>. Si on en juge par les corps décrépis à l'intérieur, le système de fermeture du sas <strong>n'a pas dû fonctionner comme prévu</strong>. Ça arrive.]]></target>
       </segment>
     </unit>
     <unit id="Jv.wD7x">
@@ -4911,7 +4491,7 @@
       </notes>
       <segment>
         <source>Früher wäre dies sicherlich einer der trendigsten Joints auf der M25 gewesen, mit verwässerten Getränken, dem Aroma von abgestandener Pisse und toten Ratten auf der Bar. Sie müssen seit Jahren der erste Mensch sein, der hier einen Fuß hinein gesetzt hat.</source>
-        <target>A une certaine époque, c'était sûrement le coin le plus branché de toute l'autoroute A217, avec ses bières frelatées, son odeur d'urine et ses rats morts sur le comptoir. Personne avant vous ne semble s'y être arrêté depuis des lustres.</target>
+        <target>À une certaine époque, c'était sûrement le coin le plus branché de toute l'autoroute A217, avec ses bières frelatées, son odeur d'urine et ses rats morts sur le comptoir. Personne avant vous ne semble s'y être arrêté depuis des lustres.</target>
       </segment>
     </unit>
     <unit id="Q4yDNyf">
@@ -4921,7 +4501,7 @@
       </notes>
       <segment>
         <source>Ein Kombi, der sich in einen Kleintransporter verkeilt hat. Der großen Anzahl an verkohlten Leichen nach zu urteilen, hat hier ein Unfall eine richtig große Karambolage verursacht.</source>
-        <target>Un modèle plutôt commun de break familial encastré dans un modèle tout aussi commun de fourgonnette… Ce petit accident semble avoir provoqué un carambolage de grande envergure si on en juge par l'amas de carcasses calcinées tout autour.</target>
+        <target><![CDATA[Un modèle plutôt commun de <strong>break familial</strong> encastré dans un modèle tout aussi commun de <strong>fourgonnette</strong>... Ce petit accident semble avoir provoqué un <strong>carambolage</strong> de grande envergure si on en juge par l'amas de carcasses calcinées tout autour.]]></target>
       </segment>
     </unit>
     <unit id="6pUg5Hf">
@@ -4941,7 +4521,7 @@
       </notes>
       <segment>
         <source>Der Baumarkt ist das zweite Zuhause eines jeden Handwerkers. In dieser Welt avanciert er jedoch zu einem wahren Paradies! Gegenstände von unschätzbarem Wert warten nur darauf von dir entdeckt zu werden... Der Werbespruch auf dem Dach hat zudem nichts von seiner Aktualität eingebüßt: 'Plündern Sie uns bevor es andere tun!'</source>
-        <target>Le relais des bricoleurs. Véritable petit paradis rempli de trésors inestimables pour un monde comme le nôtre... Leur slogan est tout à fait d'actualité : « Pillez-nous avant que d'autres ne s'en chargent pour vous ! »</target>
+        <target><![CDATA[Le relais des <strong>bricoleurs</strong>. Véritable petit paradis rempli de trésors inestimables pour un monde comme le nôtre... Leur slogan est tout à fait d'actualité : « Pillez-nous avant que d'autres ne s'en chargent pour vous ! »]]></target>
       </segment>
     </unit>
     <unit id="k6GmYdG">
@@ -4951,7 +4531,7 @@
       </notes>
       <segment>
         <source>Dieser riesige gelbe Metallcontainer macht einen verlorenen Eindruck. Weit und breit keine Baustelle. Der Gemeinschaftsraum im Inneren ist mit leeren Bierflaschen übersät</source>
-        <target>Un très grand container métallique posé au milieu de nulle part. Il devait se trouver à côté d'un chantier, à une époque, mais il n'en reste rien aujourd'hui. A part cette 'cabane'.</target>
+        <target>Un très grand container métallique posé au milieu de nulle part. Il devait se trouver à côté d'un chantier, à une époque, mais il n'en reste rien aujourd'hui. À part cette 'cabane'.</target>
       </segment>
     </unit>
     <unit id="8C9iaLK">
@@ -4971,7 +4551,7 @@
       </notes>
       <segment>
         <source>Das Heim eines gewissen Duke R. Cooke, und wenn man der Gedenktafel an der Tür glauben darf... ein Heim für Helden... dieser Ort ist viel größer als eine Villa, es ist eine voll ausgestattete Festung !</source>
-        <target>La maison d'un certain « Duke » si on en croit la plaque d'entrée calcinée, ancien « Héros Pour Toujours »... Plus qu'une villa, l'endroit semble être une vaste forteresse aménagée.</target>
+        <target><![CDATA[La maison d'un certain « Duke » si on en croit la plaque d'entrée calcinée, ancien « Héros Pour Toujours » ... Plus qu'une villa, l'endroit semble être une vaste <strong>forteresse aménagée</strong>.]]></target>
       </segment>
     </unit>
     <unit id="q5V8SgZ">
@@ -4981,7 +4561,7 @@
       </notes>
       <segment>
         <source>Die verbrannten Überreste eines kleinen Waldes. Es war wahrscheinlich vorher eine schöne Gegend... Jetzt hoffen Sie nur noch, dass Sie hier nicht übernachten müssen.</source>
-        <target>Les restes calcinés d'une forêt. C'était probablement un endroit agréable avant... Aujourd'hui, on prie juste pour ne jamais s'y perdre la nuit.</target>
+        <target><![CDATA[Les restes <strong>calcinés</strong> d'une forêt. C'était probablement un endroit agréable avant... Aujourd'hui, on prie juste pour ne jamais s'y perdre la nuit.]]></target>
       </segment>
     </unit>
     <unit id="U.L0F7x">
@@ -5001,7 +4581,7 @@
       </notes>
       <segment>
         <source>Diese Mineralienabbauzone trägt alle Merkmale eines schrecklichen Unglücks : der Hang scheint auf die Arbeiter, Maschinen und Gebäude darunter eingestürzt zu sein.</source>
-        <target>Une zone d'extraction de minéraux qui porte les stigmates d'un terrible accident : tout un flanc semble s'être effondré sur les hommes, les machines et les bâtiments.</target>
+        <target><![CDATA[Une <strong>zone d'extraction de minéraux</strong> qui porte les stigmates d'un <strong>terrible accident</strong> : tout un flanc semble s'être <strong>effondré</strong> sur les hommes, les machines et les bâtiments.]]></target>
       </segment>
     </unit>
     <unit id=".cft5Zt">
@@ -5031,7 +4611,7 @@
       </notes>
       <segment>
         <source>Eine verfallene Familiengruft. Man kann den Eingang gerade noch erkennen, da er fast vollständig von verrottender Vegetation verdeckt ist. Anscheinend sind die Leichen vor einiger Zeit aufgestanden und gegangen...</source>
-        <target>Un caveau familial décrépi. C'est à peine si on distingue encore l'entrée, presque entièrement dissimulée sous la végétation pourrissante. Les cadavres, quant à eux, se sont levés et sont sortis depuis bien longtemps...</target>
+        <target><![CDATA[Un <strong>caveau familial</strong> décrépi. C'est à peine si on distingue encore l'entrée, presque entièrement dissimulée sous la <strong>végétation pourrissante</strong>. Les <strong>cadavres</strong>, quant à eux, se sont levés et sont sortis depuis bien longtemps...]]></target>
       </segment>
     </unit>
     <unit id="jfKgTEc">
@@ -5041,7 +4621,7 @@
       </notes>
       <segment>
         <source>Aus diesem Gebäude strömt ein entsetzlicher Gestank von verwesenden Leichen : Die Fleischvorräte haben sich in ekelerregende Hügel aus schimmeligem, weißem Fleisch verwandelt, aus denen eine dicke, scharfe Flüssigkeit austritt, die nun den Boden bedeckt und sogar begonnen hat, aus der Tür zu laufen...</source>
-        <target>Une odeur atroce de cadavre faisandé émane de ce bâtiment : les réserves de viande se sont transformées en répugnants monticules de moisissure blanche qui ont commencé à "s'écouler" par les portes...</target>
+        <target><![CDATA[Une odeur atroce de cadavre faisandé émane de ce bâtiment : les réserves de viande se sont transformées en répugnants <strong>monticules de moisissure blanche</strong> qui ont commencé à "s'écouler" par les portes...]]></target>
       </segment>
     </unit>
     <unit id="TkIE5Fb">
@@ -5051,7 +4631,7 @@
       </notes>
       <segment>
         <source>Dieser Langstreckenflieger ist mitten im nirgendwo abgestürzt... Da der Wüstensand das Wrack fast vollkommen eingegraben hat und sich der Zahn der Zeit in das Material gefressen hat, lässt sich nicht mehr sagen, was das Flugzeug transportierte. Du lässt deinen Blick schweifen, es sind jedoch weit und breit keine Leichen erkennbar...</source>
-        <target>Un long courrier s'est écrasé au milieu de nulle part... Difficile de savoir ce qu'il transportait, le sable du désert l'a presque totalement rongé. La présence de quelques sièges suggère toutefois qu'il avait à son bord des passagers, entre autres. Aucune trace des corps...</target>
+        <target><![CDATA[Un <strong>long courrier</strong> s'est écrasé au milieu de nulle part... Difficile de savoir ce qu'il transportait, le sable du désert l'a presque totalement rongé. La présence de quelques sièges suggère toutefois qu'il avait à son bord des passagers, entre autres. Aucune trace des corps...]]></target>
       </segment>
     </unit>
     <unit id="DOlr_bI">
@@ -5081,7 +4661,7 @@
       </notes>
       <segment>
         <source>Eine Art Steinhöhle, die früher als Grabstätte oder Unterschlupf gedient haben muss... Schauen Sie sich das an. Im Inneren ist es absolut stockfinster, die Luft ist eisig und es riecht stark nach verfaulendem Fleisch...</source>
-        <target>Une sorte de tumulus qui devait autrefois servir de sépulture ou d'abri... Allez-savoir. L'intérieur est plongé dans le noir le plus total, l'air y est glacial et une odeur insupportable de charogne en émane...</target>
+        <target><![CDATA[Une sorte de <strong>tumulus</strong> qui devait autrefois servir de sépulture ou d'abri... Allez savoir. L'intérieur est plongé dans <strong>le noir le plus total</strong>, l'air y est <strong>glacial</strong> et une odeur insupportable de <strong>charogne</strong> en émane...]]></target>
       </segment>
     </unit>
     <unit id="igWQAKU">
@@ -5111,7 +4691,7 @@
       </notes>
       <segment>
         <source>Eine alte Hütte, die seit Jahren unbewohnt ist. Fast vollständig im Sand begraben, aber man hört immer noch einige beunruhigende Stöhngeräusche aus dem, was der Keller sein muss...</source>
-        <target>Une vieille bicoque laissée à l'abandon depuis des années. Presque entièrement ensevelie sous le sable. Parfois, vous pouvez entendre des grattements inquiétants venant de ce qui doit être la cave...</target>
+        <target><![CDATA[Une vieille bicoque laissée à l'abandon depuis des années. Presque entièrement ensevelie sous le sable. Parfois, vous pouvez entendre des <strong>grattements inquiétants</strong> venant de ce qui doit être la cave...]]></target>
       </segment>
     </unit>
     <unit id="jCOLohr">
@@ -5121,7 +4701,7 @@
       </notes>
       <segment>
         <source>Das Kraftwerk sammelt das benachbarte Grundwasser in einem Stauraum. Die Energie der Bewegung des fließenden Wassers wird auf eine Turbine übertragen, wodurch dieses in Drehbewegung mit hohem Drehmoment versetzt wird. Das Filtersystem scheint kaputt zu sein, aber das schmutzige Wasser kann trotzdem eingesammelt werden.</source>
-        <target>Cette centrale capte les eaux des nappes phréatiques environnantes et les transvase dans de gigantesques réservoirs en béton. Le système de filtrage semble en panne, mais on doit pouvoir récupérer l'eau contaminée stockée ici.</target>
+        <target><![CDATA[Cette centrale capte les eaux des nappes phréatiques environnantes et les transvase dans de gigantesques réservoirs en béton. Le <strong>système de filtrage semble en panne</strong>, mais on doit pouvoir récupérer l'eau contaminée stockée ici.]]></target>
       </segment>
     </unit>
     <unit id="I8_.QXa">
@@ -5131,7 +4711,7 @@
       </notes>
       <segment>
         <source>Dieses bedrückende Gebäude diente einst als Einrichtung für Tierversuche (Kaninchen in Zwischenprüfungen etc...). Es riecht nach Kampfer, Äther und verrottenden Kadavern. Und Sie sind noch nicht einmal hineingegangen...</source>
-        <target>Ce bâtiment lugubre a servi autrefois pour divers tests de produits sur des animaux. Ca sent le camphre, l'ether et la charogne. Et ce n'est que l'entrée...</target>
+        <target>Ce bâtiment lugubre a servi autrefois pour divers tests de produits sur des animaux. Ça sent le camphre, l'ether et la charogne. Et ce n'est que l'entrée...</target>
       </segment>
     </unit>
     <unit id="O2YPsmI">
@@ -5161,7 +4741,7 @@
       </notes>
       <segment>
         <source>Ein unterirdisches Parkhaus, das fast vollständig vom Sand begraben wurde - der ideale Ort, um alleine zu sterben. Niemand wird dich hören...</source>
-        <target>Un parking souterrain presque entièrement enseveli. Idéal pour mourir dans le noir, sans que personne ne vous entende...</target>
+        <target><![CDATA[Un parking souterrain presque entièrement enseveli. Idéal pour <strong>mourir dans le noir</strong>, sans que personne ne vous entende...]]></target>
       </segment>
     </unit>
     <unit id="x6pd97C">
@@ -5171,7 +4751,7 @@
       </notes>
       <segment>
         <source>Dieses militärische Vehikel ist wie die metaphorische Konservendose. Der Soldat ist drinnen und spielt die Rolle einer Sardine, und hundert Zombies draußen spielen den hungrigen Bürger. Der Bürger gewinnt...</source>
-        <target>Ce char militaire est un peu une métaphore de la boîte de conserve, avec le soldat dans le rôle de la sardine et la centaine de zombies dans le rôle du citoyen affamé. C'est le citoyen qui a gagné.</target>
+        <target><![CDATA[Ce char militaire est un peu une métaphore de la <strong>boîte de conserve</strong>, avec le soldat dans le rôle de la sardine et la centaine de zombies dans le rôle du citoyen affamé. C'est le citoyen qui a gagné.]]></target>
       </segment>
     </unit>
     <unit id="42b1Trj">
@@ -5211,7 +4791,7 @@
       </notes>
       <segment>
         <source>Der Zugang zu dieser Höhle ist ein notdürftig abgedecktes Loch in der Erde. Er führt in eine übergroße feuchte Grotte, die mit allerlei Trümmern und Gerümpel gefüllt ist. Höchstwahrscheinlich handelt es sich um Beutegut, das bei der Plünderung einer benachbarten Stadt eingesackt wurde. Vielleicht wurde deine Stadt mit diesem Raubgut errichtet? Und wer weiß: Womöglich haben die ersten Einwohner deiner Stadt an diesen Raubzügen teilgenommen...</source>
-        <target>Un trou dans le sol vaguement dissimulé par quelques planches et du sable. Il débouche sur une large caverne humide remplie de débris en tous genres, résultats de pillages dans une ville voisine, probablement. Qui sait si votre ville ne s'est pas construite sur ces pillages ? Peut-être que les premiers citoyens ont participé à ces attaques...</target>
+        <target><![CDATA[Un trou dans le sol vaguement <strong>dissimulé</strong> par quelques planches et du sable. Il débouche sur une large caverne humide remplie de <strong>débris en tous genres</strong>, résultats de <strong>pillages dans une ville voisine</strong>, probablement. Qui sait si <strong>votre ville</strong> ne s'est pas construite sur ces pillages ? Peut-être que les <strong>premiers citoyens</strong> ont participé à ces attaques...]]></target>
       </segment>
     </unit>
     <unit id="alVUMDw">
@@ -5221,7 +4801,7 @@
       </notes>
       <segment>
         <source>Dieser von Einschusskratern und schwarzen getrockneten Blutlachen übersäte Schützengraben lässt erahnen, was sich hier abgespielt hat. Der größte Teil des Grabens ist in sich zusammengestürzt, doch hier und dort erblickst du noch ein paar begehbare Stellen, die sich nach nutzbaren Gegenständen absuchen lassen.</source>
-        <target>Les nombreux cratères et autres taches de sang séché laissent à penser qu'une bataille de grande envergure s'est déroulée ici. La plupart des tranchées se sont effondrées, mais il reste quelques trous à fouiller.</target>
+        <target><![CDATA[Les nombreux <strong>cratères</strong> et autres <strong>taches de sang séché</strong> laissent à penser qu'une <strong>bataille de grande envergure</strong> s'est déroulée ici. La plupart des tranchées se sont effondrées, mais il reste <strong>quelques trous à fouiller</strong>.]]></target>
       </segment>
     </unit>
     <unit id="odvB3Fd">
@@ -5261,7 +4841,7 @@
       </notes>
       <segment>
         <source>Es handelt sich um einen Transportlaster der sowjetischen Firma Transtwinï. Die Fahrerkabine hat sich komplett in einem Baum verkeilt. Der aufgeschlitzte Fahrersitz, sowie die großflächigen Blutspuren an den Wänden, lassen darauf schließen, dass der Unfall nicht die Todesursache war...</source>
-        <target>Un camion de transport du groupe soviétique Transtwinä. La cabine du conducteur est totalement encastrée dans un arbre, mais les entailles profondes dans le siège et le sang qui tapisse toutes les parois laissent supposer que l'accident n'est pas la cause de la mort...</target>
+        <target><![CDATA[Un camion de transport du groupe soviétique <strong>Transtwinä</strong>. La cabine du conducteur est totalement <strong>encastrée dans un arbre</strong>, mais les <strong>entailles</strong> profondes dans le siège et le <strong>sang</strong> qui tapisse toutes les parois laissent supposer que l'accident n'est pas la cause de la mort...]]></target>
       </segment>
     </unit>
     <unit id="k6o0Mpp">
@@ -5271,7 +4851,7 @@
       </notes>
       <segment>
         <source>Die fröhlichen Kinderzeichnungen an den Wänden stehen im starken Kontrast zu den nicht identifizierbaren menschlichen Überresten am Boden. Du hast das Gefühl, ein dunkles Kichern aus dem Bauschutt zu hören.</source>
-        <target>Les dessins enfantins peints sur les parois calcinées contrastent effroyablement avec les restes vaguement humains dispersés çà et là. Par moment, on croirait même entendre des rires lugubres sous les décombres.</target>
+        <target><![CDATA[Les dessins enfantins peints sur les parois calcinées contrastent effroyablement avec les restes vaguement humains dispersés çà et là. Par moment, on croirait même entendre des <strong>rires lugubres</strong> sous les décombres.]]></target>
       </segment>
     </unit>
     <unit id="Ct60IzG">
@@ -5301,7 +4881,7 @@
       </notes>
       <segment>
         <source>Soll das eine Schule, ein Parkhaus oder vielleicht ein Kaufhaus sein? Du kannst es nicht erkennen... Das einzige, was von diesem geheimnisvollen Projekt noch übrig ist, sind ein paar verrostete Metallstrukturen.</source>
-        <target>Il est impossible de déterminer ce qu'ils voulaient bâtir ici. Une école, un parking, un grand magasin... Seules les structures métalliques rouillées témoignent encore du mystérieux projet qui se tramait ici.</target>
+        <target><![CDATA[Il est impossible de déterminer ce qu'ils voulaient bâtir ici. Une école, un parking, un grand magasin... Seules les structures métalliques rouillées témoignent encore du <strong>mystérieux projet</strong> qui se tramait ici.]]></target>
       </segment>
     </unit>
     <unit id="bVAo.cx">
@@ -5311,7 +4891,7 @@
       </notes>
       <segment>
         <source>Wow - das ist ein verdammtes Geschenk des Himmels! Ein Brunnen, der immer noch funktioniert ! Völlig verloren in der Mitte von Nirgendwo gibt es hier niemanden mit seinem Regelwerk, der Ihnen sagt: 'Tun Sie dies nicht, tun Sie das nicht, nehmen Sie nicht zu viel Wasser, bla bla bla bla...'. Na los, nimm einen Drink, es wird unser kleines Geheimnis sein...</source>
-        <target>En voilà, une sacré aubaine ! Un puits encore en état de marche, complètement perdu au milieu de nulle part. Et personne avec son Registre à la main pour vous dire « fais pas ci, fais pas ça, prends pas trop d'eau, gnagnagna... ». Allez, une petite rasade, ça sera notre petit secret.</target>
+        <target><![CDATA[En voilà, une sacré aubaine ! <strong>Un puits encore en état de marche</strong>, complètement perdu au milieu de nulle part. Et personne avec son Registre à la main pour vous dire « fais pas ci, fais pas ça, prends pas trop d'eau, gnagnagna... ». Allez, une petite rasade, ça sera notre petit secret.]]></target>
       </segment>
     </unit>
     <unit id="nIZoj0r">
@@ -5331,7 +4911,7 @@
       </notes>
       <segment>
         <source>Was hier passiert ist erschließt sich dir nicht so ganz... Ein riesiger Felsen ist mit voller Wucht auf die Straße geschleudert worden - doch woher kam er? Rings um dich ist nichts als Wüste...</source>
-        <target>Ce qui s'est déroulé ici est assez incompréhensible : un énorme rocher semble s'être écrasé en plein milieu d'une route, comme tombé de nulle part...</target>
+        <target><![CDATA[Ce qui s'est déroulé ici est assez <strong>incompréhensible</strong> : un énorme <strong>rocher</strong> semble s'être écrasé en plein milieu d'une route, comme <strong>tombé de nulle part</strong>...]]></target>
       </segment>
     </unit>
     <unit id="yFJW.aK">
@@ -5341,7 +4921,7 @@
       </notes>
       <segment>
         <source>Ein Ort des Friedens und der Gelassenheit... Wenn Sie bewaffnet und bereit sind, um Ihr Leben zu kämpfen. Die umgebende Vegetation ist unheimlich und riecht stark nach Tod, unidentifizierte Kreaturen lauern im Schatten... Sie haben das überwältigende Gefühl, dass eine Kreatur aus einer Hecke ausbrechen und Sie angreifen wird.</source>
-        <target>Un lieu de recueillement et de sérénité... Pour peu que vous soyez armé(e) et prêt(e) à lutter pour votre survie. La végétation locale est sinistre et sent la mort à plein nez, des créatures indéfinissables se déplacent dans les ombres... Vous avez constamment la sensation qu'une saleté va vous bondir dessus depuis un fourré.</target>
+        <target><![CDATA[Un lieu de recueillement et de sérénité... Pour peu que vous soyez armé(e) et prêt(e) à lutter pour votre survie. La végétation locale est <strong>sinistre</strong> et <strong>sent la mort</strong> à plein nez, des <strong>créatures</strong> indéfinissables se déplacent dans les ombres... Vous avez constamment la sensation qu'une saleté va vous <strong>bondir</strong> dessus depuis un fourré.]]></target>
       </segment>
     </unit>
     <unit id="XXTLDoG">
@@ -5351,7 +4931,7 @@
       </notes>
       <segment>
         <source>Wenn Sie drohen, verstümmeln oder morden wollen, haben Sie hier die Hauptader getroffen... Die in den Wänden steckenden Schrapnelle, Einschusslöcher und Trümmer ringsum geben Ihnen eine gute Vorstellung davon, welche Art von 'Ereignissen' sich hier abgespielt haben...</source>
-        <target>Un filon d'armes pour qui aime bien tuer ou menacer. Les crevasses, impacts de balles et décombres en disent long sur les évènements qui sont survenus ici...</target>
+        <target><![CDATA[Un filon d'armes pour qui aime bien tuer ou menacer. Les crevasses, impacts de balles et décombres en disent long sur les <strong>évènements</strong> qui sont survenus ici...]]></target>
       </segment>
     </unit>
     <unit id="DYD9pRM">
@@ -5361,7 +4941,7 @@
       </notes>
       <segment>
         <source>Das Schiebetor dieses Supermarktlagers hat allen Plünderungsversuchen erfolgreich getrotzt. Durch einen etwas versteckten Seiteneingang gelangst du ins Innere und machst dich sofort auf die Suche nach Dingen, die du noch gebrauchen kannst...</source>
-        <target>L'entrepôt de stockage d'un ancien supermarché dont la porte a résisté aux tentatives de pillages. Il doit sûrement contenir diverses babioles intéressantes...</target>
+        <target><![CDATA[L'entrepôt de stockage d'un ancien supermarché dont la <strong>porte a résisté aux tentatives de pillages</strong>. Il doit sûrement contenir <strong>diverses babioles</strong> intéressantes...]]></target>
       </segment>
     </unit>
     <unit id="qSSpkKa">
@@ -5381,7 +4961,7 @@
       </notes>
       <segment>
         <source>Mitten in der Wüste entdeckst du eine kleine Stadtviertelapotheke – grotesk! Ein unbeschreibbarer Gestank liegt in der Luft und es riecht nach allem möglichen, außer nach Gesundheit.</source>
-        <target>Une petite pharmacie de quartier... perdue au milieu du désert. Les odeurs innommables font penser à tout sauf à des médicaments.</target>
+        <target><![CDATA[Une petite pharmacie de quartier... perdue au milieu du désert. Les <strong>odeurs innommables</strong> font penser à tout sauf à des médicaments.]]></target>
       </segment>
     </unit>
     <unit id="rcbYTzS">
@@ -5391,7 +4971,7 @@
       </notes>
       <segment>
         <source>Es sieht eigentlich nicht mehr wie eine Bar aus, aber das halb im Sand vergrabene Schild und das Vorhandensein einiger zerbrochener Optiken lassen keinen großen Zweifel aufkommen. Die meisten Flaschen sind zerbrochen, aber Sie können hier mit ziemlicher Sicherheit etwas Nützliches finden...</source>
-        <target>Ca ne ressemble plus vraiment à un bar, mais la présence d'une enseigne à demi enfouie dans le sable et d'un comptoir ne laisse pas trop planer le doute. La plupart des bouteilles sont cassées, mais on doit pouvoir y trouver des choses utiles...</target>
+        <target><![CDATA[Ça ne ressemble plus vraiment à un bar, mais la présence d'une enseigne à demi enfouie dans le sable et d'un comptoir ne laisse pas trop planer le doute. La plupart des bouteilles sont <strong>cassées</strong>, mais on doit pouvoir y trouver des choses utiles...]]></target>
       </segment>
     </unit>
     <unit id="GrndoXV">
@@ -5454,16 +5034,6 @@
         <target>Après de longues recherches, vous finissez par trouver {item} par terre...</target>
       </segment>
     </unit>
-    <unit id="1GkRZwk" name="Du gräbst schon seit einiger Zeit und hast mehrere Gegenstände gefunden.">
-      <notes>
-        <note category="german">Du gräbst schon seit einiger Zeit und hast mehrere Gegenstände gefunden.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Du gräbst schon seit einiger Zeit und hast mehrere Gegenstände gefunden.</source>
-        <target>Vous creusez depuis un certain temps et avez trouvé plusieurs objets.</target>
-      </segment>
-    </unit>
     <unit id="UzZ7xlJ" name="Nachricht">
       <notes>
         <note category="german">Nachricht</note>
@@ -5501,7 +5071,7 @@
       </notes>
       <segment>
         <source>Als du zum Fenster blickst, stellst du fest, dass ein großer Vorhang dir die Sicht versperrt. Du kannst deshalb nicht sehen, was {citizen} bei sich aufbewahrt...</source>
-        <target>En regardant par la fenêtre, vous constatez qu'un gros rideau cache la vue et qu'il n'est pas possible de voir ce que {citizen} a stocké chez lui... </target>
+        <target>En regardant par la fenêtre, vous constatez qu'un gros rideau cache la vue et qu'il n'est pas possible de voir ce que {citizen} a stocké chez lui...</target>
       </segment>
     </unit>
     <unit id="p7WJjEO">
@@ -5711,7 +5281,7 @@
       </notes>
       <segment>
         <source>Du schätzt, dass deine Überlebenschancen hier optimal sind. Niemand wird dich sehen - selbst wenn man mit dem Finger auf dich zeigt.</source>
-        <target>Vous estimez que vos chances de survie ici sont optimales : Personne ne vous verrait même en vous pointant du doigt.</target>
+        <target>Vous estimez que vos chances de survie ici sont optimales : personne ne vous verrait même en vous pointant du doigt.</target>
       </segment>
     </unit>
     <unit id="rSInXr8" name="Du kannst dich nicht fortbewegen während du versteckt bist.">
@@ -7254,34 +6824,6 @@
         <target>Total de créatures mort-vivantes que vous avez renvoyées sous terre par n'importe quel moyen.</target>
       </segment>
     </unit>
-    <unit id="dWg5UEc">
-      <notes>
-        <note category="german">Du brauchst diese Punkte, um dich in der Außenwelt zu bewegen oder um an Bauprojekten mitzuarbeiten.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
-                    benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
-                    kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
-                    auffüllen.</source>
-        <target>Ces points sont notamment utilisés pour vos déplacements dans l'Outre-Monde, le désert entourant la ville...</target>
-      </segment>
-    </unit>
-    <unit id="cycrpjD">
-      <notes>
-        <note category="german">Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
-                    zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
-                    werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</source>
-        <target>Les points de construction peuvent être utilisés dans l'atelier et sur les chantiers de construction,
-                    où ils comptent comme des points d'action. Si possible, les points de construction sont toujours
-                    utilisés en premier avant l'utilisation des points d'action. Gardez à l'esprit que les points de
-                    construction ne peuvent pas être utilisés lorsque vous êtes épuisé !</target>
-      </segment>
-    </unit>
     <unit id="IV3fj_Y">
       <notes>
         <note category="german">Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur Verfügung.</note>
@@ -7303,29 +6845,6 @@
                 dieser Stadt zur Verfügung.</source>
         <target>Selon la profession que vous choisissez, différentes actions et styles de jeu sont disponibles
                 dans cette ville.</target>
-      </segment>
-    </unit>
-    <unit id="00tQ4_W">
-      <notes>
-        <note category="german">Spielst du als {hero}, wird dir täglich ein Heldentag abgezogen. Gehen dir die Heldentage in der Stadt aus, musst du als einfacher Einwohner weiterspielen.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Spielst du als {hero}, wird dir täglich ein Heldentag abgezogen. Gehen dir die Heldentage in der
-                Stadt aus, musst du als einfacher Einwohner weiterspielen.</source>
-        <target>Si vous jouez en tant que {hero}, un Jour Héro vous sera déduit quotidiennement. Si vous tombez à court de Jours Héro pendant une incarnation, vous continuerez à jouer en tant que simple citoyen.</target>
-      </segment>
-    </unit>
-    <unit id="_W.HOtd">
-      <notes>
-        <note category="german">Spielst du als {citizen}, verbrauchst du keine Heldentage. Wenn du jedoch über Heldentage verfügst, kannst du einmal pro Stadt auf einen Heldenberuf wechseln.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Spielst du als {citizen}, verbrauchst du keine Heldentage. Wenn du jedoch über Heldentage
-                verfügst, kannst du einmal pro Stadt auf einen Heldenberuf wechseln.</source>
-        <target>Si vous jouez en tant que {citizen}, vous ne consommez pas de jours de héros. Cependant,
-                si vous avez des jours de héros, vous pouvez passer à une profession de héros une fois par ville.</target>
       </segment>
     </unit>
     <unit id="yrqg0t2">
@@ -7350,18 +6869,6 @@
         <target>Ici, vous pouvez planifier des itinéraires pour un voyage vers le monde extérieur.
                     Des itinéraires simples commencent et finissent toujours dans la ville.
                     Les itinéraires complexes peuvent commencer et se terminer à tout moment.</target>
-      </segment>
-    </unit>
-    <unit id="32LY7bW">
-      <notes>
-        <note category="german">Ausbauten stehen nur Helden zur Verfügung. Solange du nur ein normaler Einwohner bist, sind deine Ausbauten funktionslos.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Ausbauten stehen nur Helden zur Verfügung. Solange du nur ein normaler Einwohner bist, sind deine
-                        Ausbauten funktionslos.</source>
-        <target>Les mises à niveau ne sont disponibles que pour les héros. Tant que vous n'êtes qu'un résident normal, vos extensions
-                        ne fonctionneront pas.</target>
       </segment>
     </unit>
     <unit id="lc.POOW">
@@ -7454,16 +6961,6 @@
         <target>Mon sac à dos</target>
       </segment>
     </unit>
-    <unit id="q221mSN" name="am">
-      <notes>
-        <note category="german">am</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>am</source>
-        <target>le</target>
-      </segment>
-    </unit>
     <unit id="xHllIMc" name="Stunde(n)">
       <notes>
         <note category="german">Stunde(n)</note>
@@ -7491,17 +6988,17 @@
       </notes>
       <segment>
         <source>Sekunde(n)</source>
-        <target>Seconde(s)</target>
+        <target>seconde(s)</target>
       </segment>
     </unit>
     <unit id="4OynnJl" name="Der Bürger wurde zuletzt {time} gesehen.">
       <notes>
-        <note category="german">Der Bürger wurde zuletzt {time} gesehen.</note>
+        <note category="german">zuletzt {time} gesehen worden sein.</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Der Bürger wurde zuletzt {time} gesehen.</source>
-        <target>Ce citoyen a été aperçu pour la dernière fois {time}.</target>
+        <target><![CDATA[a été aperçu pour la dernière fois <strong>{time}</strong>.]]></target>
       </segment>
     </unit>
     <unit id="KsxoZXu" name="vor {time}">
@@ -7516,92 +7013,92 @@
     </unit>
     <unit id="9YXdyqO" name="Dieser Bürger wurde noch nie gesehen...">
       <notes>
-        <note category="german">Dieser Bürger wurde noch nie gesehen...</note>
+        <note category="german">noch nie gesehen worden sein...</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Dieser Bürger wurde noch nie gesehen...</source>
-        <target>Ce citoyen n'a jamais été vu...</target>
+        <target>n'a jamais été vu...</target>
       </segment>
     </unit>
     <unit id="SNTneh6" name="Dieser Bürger hat {ration} Wasserration(en) aus dem Brunnen genommen.">
       <notes>
-        <note category="german">Dieser Bürger hat {ration} Wasserration(en) aus dem Brunnen genommen.</note>
+        <note category="german">{ration__copy} Wasserration(en) aus dem Brunnen genommen haben.</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Dieser Bürger hat {ration} Wasserration(en) aus dem Brunnen genommen.</source>
-        <target>Ce citoyen a pris {ration} ration(s) au puits aujourd'hui</target>
+        <target><![CDATA[a été vu au puits prenant <strong>{ration} ration(s) d'eau</strong> aujourd'hui.]]></target>
       </segment>
     </unit>
     <unit id="VNIM3Mp" name="Dieser Bürger ist ernsthaft verletzt.">
       <notes>
-        <note category="german">Dieser Bürger ist ernsthaft verletzt.</note>
+        <note category="german">ernsthaft verletzt sein.</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Dieser Bürger ist ernsthaft verletzt.</source>
-        <target>Ce citoyen a été gravement blessé.</target>
+        <target>a été gravement blessé.</target>
       </segment>
     </unit>
     <unit id="w5JoDMX">
       <notes>
-        <note category="german">Dieser Bürger hat eventuell schon seit einer Weile Blut gehustet... Einige reden von einer Infektion.</note>
+        <note category="german">schon seit einer Weile Blut gehustet haben... Einige reden von einer Infektion.</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Dieser Bürger hat eventuell schon seit einer Weile Blut gehustet... Einige reden von einer Infektion.</source>
-        <target>Ce citoyen cracherait du sang depuis un petit moment déjà… Certains parlent d'une infection.</target>
+        <target>cracherait du sang depuis un petit moment déjà… Certains parlent d'une infection.</target>
       </segment>
     </unit>
     <unit id="0LaQbDJ">
       <notes>
-        <note category="german">Dieser Bürger soll eventuell heute Morgen überall nach Wasser gebettelt haben... Ob er durstig ist?</note>
+        <note category="german">heute Morgen überall nach Wasser gebettelt haben... Ob er durstig ist?</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Dieser Bürger hat eventuell heute Morgen überall nach Wasser gebettelt haben... Ob er durstig ist?</source>
-        <target>Ce citoyen aurait mendié pour de l'eau dans tout le village ce matin… Une petite soif ?</target>
+        <target>aurait mendié pour de l'eau dans tout le village ce matin… Une petite soif ?</target>
       </segment>
     </unit>
     <unit id="IhkIaY6">
       <notes>
-        <note category="german">Dieser Bürger ist eventuell süchtig... Wir nennen sein Verhalten aggressiv, manchmal sogar assozial...</note>
+        <note category="german">süchtig sein... Wir nennen sein Verhalten aggressiv, manchmal sogar assozial...</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Dieser Bürger is eventuell süchtig... Wir nennen sein Verhalten aggressiv, manchmal sogar assozial...</source>
-        <target>Ce citoyen serait dans un grave état de dépendance… On dit même que son comportement deviendrait violent voire “anti-citoyen” par moment...</target>
+        <target>serait dans un grave état de dépendance… On dit même que son comportement deviendrait violent voire “anti-citoyen” par moment.</target>
       </segment>
     </unit>
     <unit id="QHYoGw6">
       <notes>
-        <note category="german">Dieser Bürger konnte nicht schlafen und redete wirres Zeug, von Tod, sprechenden Schatten und Stimmen in seinem Kopf...</note>
+        <note category="german">nicht schlafen können und wirres Zeug reden, von Tod, sprechenden Schatten und Stimmen in seinem Kopf...</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Dieser Bürger konnte nicht schlafen und redete wirres Zeug, von Tod, sprechenden Schatten und Stimmen in seinem Kopf...</source>
-        <target>Ce citoyen n'arriverait plus à dormir et tiendrait des propos incohérents, parlant de mort, d'ombres qui parlent, de voix dans sa tête...</target>
+        <target>n'arriverait plus à dormir et tiendrait des propos incohérents, parlant de mort, d'ombres qui parlent, de voix dans sa tête...</target>
       </segment>
     </unit>
     <unit id="Kx1swjd">
       <notes>
-        <note category="german">Dieser Bürger ist nicht in der Lage, einen Beruf zu wählen. Wir sind noch lange nicht über den Berg, das kann ich euch sagen!</note>
+        <note category="german">nicht in der Lage sein, einen Beruf zu wählen. Wir sind noch lange nicht über den Berg, das kann ich euch sagen!</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Dieser Bürger ist nicht in der Lage, einen Beruf zu wählen. Wir sind noch lange nicht über den Berg, das kann ich euch sagen!</source>
-        <target>Ce citoyen ne serait même pas capable de choisir son occupation ! On est pas sorti, moi j'vous l'dis.</target>
+        <target>ne serait même pas capable de choisir son occupation ! On est pas sorti, moi j'vous l'dis.</target>
       </segment>
     </unit>
     <unit id="dvSfZK0">
       <notes>
-        <note category="german">Dieser Bürger könnte jemand sehr Wichtiges sein. Vielleicht einer der Erschaffer?</note>
+        <note category="german">jemand sehr Wichtiges sein. Vielleicht einer der Erschaffer?</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Dieser Bürger könnte jemand sehr Wichtiges sein. Vielleicht einer der Erschaffer?</source>
-        <target>Ce citoyen serait quelqu'un de haut-placé… Un fondateur peut-être ?</target>
+        <target>serait quelqu'un de haut-placé… Un fondateur peut-être ?</target>
       </segment>
     </unit>
     <unit id="jeBATzG">
@@ -7641,17 +7138,7 @@
       </notes>
       <segment>
         <source>"Einen Schritt weiter..." stand auf {victim}s Fußmatte. Ihre Explosion hat einen bleibenden Eindruck bei dir hinterlassen. Wenn du noch laufen kannst, such dir besser einen Arzt.</source>
-        <target>"Un pas de plus ...", disait le paillasson de {victim}. L'explosion vous a laissé une impression durable. Si vous pouvez encore marcher, mieux vaut trouver un médecin.</target>
-      </segment>
-    </unit>
-    <unit id="Eg1H7Qy" name="Während Zombies die Zone kontrollieren, kannst du nicht graben.">
-      <notes>
-        <note category="german">Während Zombies die Zone kontrollieren, kannst du nicht graben.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Während Zombies die Zone kontrollieren, kannst du nicht graben.</source>
-        <target>Impossible de creuser dans une zone sous contrôle des zombies !</target>
+        <target>Oulàlà, un de vos concitoyens ne veut visiblement pas que l'on fouille dans ses affaires. Un petit gadget explosif vient de se déclencher sous vos pieds et vous voilà projeté contre un mur... blessé !</target>
       </segment>
     </unit>
     <unit id="EZeEFMF" name="Du kannst diesen Gegenstand nicht stehlen.">
@@ -7682,16 +7169,6 @@
       <segment>
         <source>Du bist durstig... Das passiert immer dann wenn du am Vortag nichts getrunken hast oder wenn du in der Wüste lange Strecken gelaufen bist...</source>
         <target>Vous avez soif... Cela arrive chaque matin si vous n'avez pas bu la veille, ou si vous marchez longtemps dans le désert...</target>
-      </segment>
-    </unit>
-    <unit id="4.0b7Pm">
-      <notes>
-        <note category="german">Alles oder Nichts! Jeder einzelne Gegenstand in der Bank wurde zerstört. Die Stadt erhält {def} Verteidigung dafür.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Alles oder Nichts! Jeder einzelne Gegenstand in der Bank wurde zerstört. Die Stadt erhält {def} Verteidigung dafür.</source>
-        <target>Dernière chance! Tout les objets de la ville on été détruits. La ville reçoit {def} de défense grace à cela.</target>
       </segment>
     </unit>
     <unit id="4W0mT8f" name="Reiseleiter in der Außenwelt">
@@ -7814,16 +7291,6 @@
         <target>Vous avez mal au crâne… Impossible d'avaler une goutte d'alcool jusqu'à demain.</target>
       </segment>
     </unit>
-    <unit id="IYIMtxo">
-      <notes>
-        <note category="german">Du wurdest ernsthaft verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Du wurdest ernsthaft verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</source>
-        <target>Vous avez été gravement blessé(e) ! Vous récupérez 1 PA en moins lorsque vous buvez, mangez et vous vous reposez.</target>
-      </segment>
-    </unit>
     <unit id="E6vRFnM" name="Endlich kannst du deine Schwiegermutter loswerden!">
       <notes>
         <note category="german">Endlich kannst du deine Schwiegermutter loswerden!</note>
@@ -7854,16 +7321,6 @@
         <target>Voter pour le {rolename}</target>
       </segment>
     </unit>
-    <unit id="gfklKsJ" name="Du bist der {rolename} dieser Stadt.">
-      <notes>
-        <note category="german">Du bist der {rolename} dieser Stadt.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Du bist der {rolename} dieser Stadt.</source>
-        <target>Vous êtes le {rolename} de cette ville.</target>
-      </segment>
-    </unit>
     <unit id="xbvLcF5" name="Mystic-Punkte">
       <notes>
         <note category="german">Mystic-Punkte</note>
@@ -7887,7 +7344,7 @@
     <unit id="0i49zPL" name="In diesem Thread dreht sich alles um die Bank.">
       <notes>
         <note category="german">In diesem Thread dreht sich alles um die Bank.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/GameFactory.php</note>
       </notes>
       <segment>
         <source>In diesem Thread dreht sich alles um die Bank.</source>
@@ -7897,7 +7354,7 @@
     <unit id="I8m37R7" name="In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.">
       <notes>
         <note category="german">In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/GameFactory.php</note>
       </notes>
       <segment>
         <source>In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.</source>
@@ -7907,7 +7364,7 @@
     <unit id="1moRVN8" name="In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.">
       <notes>
         <note category="german">In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/GameFactory.php</note>
       </notes>
       <segment>
         <source>In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.</source>
@@ -7917,7 +7374,7 @@
     <unit id="R.vbGQY" name="In diesem Thread dreht sich alles um zukünftige Bauprojekte.">
       <notes>
         <note category="german">In diesem Thread dreht sich alles um zukünftige Bauprojekte.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/GameFactory.php</note>
       </notes>
       <segment>
         <source>In diesem Thread dreht sich alles um zukünftige Bauprojekte.</source>
@@ -8218,7 +7675,7 @@
     <unit id="396xkzr" name="...der Mörder .. ist.. IST.. AAARGHhh..">
       <notes>
         <note category="german">...der Mörder .. ist.. IST.. AAARGHhh..</note>
-        <note category="from">php:///src/Controller/Soul/SoulController.php</note>
+        <note category="from">php:///src/Controller/ExternalXML2Controller.php;twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/soul/season.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
       </notes>
       <segment>
         <source>...der Mörder .. ist.. IST.. AAARGHhh..</source>
@@ -8333,26 +7790,6 @@
       <segment>
         <source>Das hast du wohl nicht erwartet... Wie wäre es, wenn du dich das nächste mal an die Regeln hältst?</source>
         <target>Vous ne vous attendiez probablement pas à ça... Et la prochaine fois, vous respecterez les règles ?</target>
-      </segment>
-    </unit>
-    <unit id="0K7g_bM" name="{citizen} wurde standrechtlich erschossen. Lang lebe das Diktat!: {cod}.">
-      <notes>
-        <note category="german">{citizen} wurde standrechtlich erschossen. Lang lebe das Diktat!: {cod}.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>{citizen} wurde standrechtlich erschossen. Lang lebe das Diktat!: {cod}.</source>
-        <target>{citizen} a été abattu. Vive la dictature ! ({cod}).</target>
-      </segment>
-    </unit>
-    <unit id="PzrQbvb" name="Schreiend und fuchtelnd hat {citizen} {kills} Zombies getötet.">
-      <notes>
-        <note category="german">Schreiend und fuchtelnd hat {citizen} {kills} Zombies getötet.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Schreiend und fuchtelnd hat {citizen} {kills} Zombies getötet.</source>
-        <target>Hurlant comme un forcené, {citizen} a tué {kills} zombies.</target>
       </segment>
     </unit>
     <unit id="AmYoBz1" name="Du folgst aktuell {citizen}.">
@@ -8509,26 +7946,6 @@
         <target>{citizen} a finalement décidé de reprendre son indépendance.</target>
       </segment>
     </unit>
-    <unit id="Gzrp9ny" name="{citizen} hat {target_citizen} überzeugt ihm zu folgen.">
-      <notes>
-        <note category="german">{citizen} hat {target_citizen} überzeugt ihm zu folgen.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>{citizen} hat {target_citizen} überzeugt ihm zu folgen.</source>
-        <target>{citizen} a convaincu {target_citizen} de le suivre.</target>
-      </segment>
-    </unit>
-    <unit id="epZZMc5" name="{citizen} hat beschlossen {target_citizen} hier zurückzulassen...">
-      <notes>
-        <note category="german">{citizen} hat beschlossen {target_citizen} hier zurückzulassen...</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>{citizen} hat beschlossen {target_citizen} hier zurückzulassen...</source>
-        <target>{citizen} a décidé de laisser {target_citizen} ici...</target>
-      </segment>
-    </unit>
     <unit id="2MBbf8L">
       <notes>
         <note category="german">Du hast einen Teil der Zone &lt;strong&gt;freigeräumt&lt;/strong&gt;, allerdings versperren noch &lt;strong&gt;allerlei Trümmer&lt;/strong&gt; den Zugang...</note>
@@ -8536,7 +7953,7 @@
       </notes>
       <segment>
         <source>Du hast einen Teil des Sektors freigelegt, aber es gibt immer noch eine beträchtliche Menge an Trümmern, die den Weg versperren...</source>
-        <target>Vous déblayez une partie du secteur, mais de nombreux débris obstruent encore le passage...</target>
+        <target><![CDATA[Vous <strong>déblayez</strong> une partie du secteur, mais de <strong>nombreux débris</strong> obstruent encore le passage...]]></target>
       </segment>
     </unit>
     <unit id="3FCXH.5">
@@ -8549,28 +7966,6 @@
         <target>Félicitations, la zone a été entièrement déblayée ! Vous pouvez commencer à fouiller ce qui s'y cachait : {ruin}  !</target>
       </segment>
     </unit>
-    <unit id="avaGnHb" name="{citizen} a convaincu {target_citizen} de le suivre.">
-      <notes>
-        <note category="german">{citizen} a convaincu {target_citizen} de le suivre.</note>
-        <note category="state">new</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>{citizen} a convaincu {target_citizen} de le suivre.</source>
-        <target>{citizen} a convaincu {target_citizen} de le suivre.</target>
-      </segment>
-    </unit>
-    <unit id="0iI5ANu" name="Finalement, {citizen} a décidé de planter {target_citizen} là...">
-      <notes>
-        <note category="german">Finalement, {citizen} a décidé de planter {target_citizen} là...</note>
-        <note category="state">new</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Finalement, {citizen} a décidé de planter {target_citizen} là...</source>
-        <target>Finalement, {citizen} a décidé de planter {target_citizen} là...</target>
-      </segment>
-    </unit>
     <unit id="dpgWUqk" name="Du hast {count} Aktionspunkt(e) benutzt.">
       <notes>
         <note category="german">Du hast dafür &lt;strong&gt;{count} Aktionspunkt(e)&lt;/strong&gt; verbraucht.</note>
@@ -8578,7 +7973,7 @@
       </notes>
       <segment>
         <source>Du hast {count} Aktionspunkt(e) benutzt.</source>
-        <target>{raw_count, plural,  one {Vous avez utilisé {count} point d'action} other {Vous avez utilisé {count} points d'action}}</target>
+        <target>{raw_count, plural,  one {Vous avez utilisé {count} point d'action.} other {Vous avez utilisé {count} points d'action.}}</target>
       </segment>
     </unit>
     <unit id="KYKuCCa">
@@ -8609,16 +8004,6 @@
       <segment>
         <source>Diese Bürger hat hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist möglich in:</source>
         <target>Ce citoyen a déjà creusé dans cette zone. La prochaine fouille est possible dans :</target>
-      </segment>
-    </unit>
-    <unit id="v2VHWkl" name="Dieser Bürger hat kein AP mehr.">
-      <notes>
-        <note category="german">Dieser Bürger hat kein AP mehr.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Dieser Bürger hat kein AP mehr.</source>
-        <target>Ce citoyen n'a plus de PA.</target>
       </segment>
     </unit>
     <unit id="bWnfo2a" name="Das ist keine gute Idee, das ist dir doch wohl klar!">
@@ -8659,26 +8044,6 @@
       <segment>
         <source>{citizen} ist in der Wüste gestorben und hat seinen Mitbürgern nichts hinterlassen.</source>
         <target>Mort à l'extérieur, {citizen} n'aura offert aucun reste à ses concitoyens.</target>
-      </segment>
-    </unit>
-    <unit id="rFh36Gr" name="Klassischer Editor">
-      <notes>
-        <note category="german">Klassischer Editor</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Klassischer Editor</source>
-        <target>Éditeur classique</target>
-      </segment>
-    </unit>
-    <unit id="wkidHer" name="Grafischer Editor">
-      <notes>
-        <note category="german">Grafischer Editor</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Grafischer Editor</source>
-        <target>Éditeur graphique</target>
       </segment>
     </unit>
     <unit id="BpkKJfs" name="Zusammenbauen">
@@ -8889,26 +8254,6 @@
       <segment>
         <source>Während du die Worte des Schamanen vernommen hast, dachtest du nie, dass er es ernst meinte. Nichts ist 100%ig sicher in dieser Wüste und der Trank, den er dir gegeben hat... Nun, er hat nicht funktioniert. Die gequälte Seele, der du zu helfen versuchtest, hat sich an dich geklammert und deine ungeschützte Seele mit Leichtigkeit überwältigt. Ihre Gewalt und Wut hinterließen nichts von dir als eine leere Hülle, dazu verdammt, von der Horde verschlungen zu werden.</source>
         <target>Votre Chaman vous l'avait pourtant précisé, rien n'est 100% sûr dans la vie... Et sa potion n'a pas su contrer la violence de cette âme torturée. Elle s'est emparée de vous, esprit faible, et à aisément terrassé le peu de volonté restante, vous laissant mourrir a l'agonie dans le désert.</target>
-      </segment>
-    </unit>
-    <unit id="yr4_Nez" name="Du bist der Schamane dieser Stadt.">
-      <notes>
-        <note category="german">Du bist der Schamane dieser Stadt.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Du bist der Schamane dieser Stadt.</source>
-        <target>Tu es le Chaman de cette ville.</target>
-      </segment>
-    </unit>
-    <unit id="YfnhC9h" name="Du bist der Reiseleiter in der Außenwelt dieser Stadt.">
-      <notes>
-        <note category="german">Du bist der Reiseleiter in der Außenwelt dieser Stadt.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Du bist der Reiseleiter in der Außenwelt dieser Stadt.</source>
-        <target>Vous êtes le Guide de l'Outre-Monde de cette ville.</target>
       </segment>
     </unit>
     <unit id="GulZlLD" name="Nutze deine heilenden Hände">
@@ -9168,17 +8513,7 @@
       </notes>
       <segment>
         <source>{citizen} hat {target_citizen} aus der Eskorte entlassen.</source>
-        <target>Finalement, {citizen} a décidé de planter {target_citizen} là.</target>
-      </segment>
-    </unit>
-    <unit id="bkMZ85E" name="Horizont">
-      <notes>
-        <note category="german">Horizont</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Horizont</source>
-        <target>Horizon</target>
+        <target>Finalement, {citizen} a décidé de planter {target_citizen} là...</target>
       </segment>
     </unit>
     <unit id="wvs954U" name="Niemand!">
@@ -9288,7 +8623,7 @@
       </notes>
       <segment>
         <source>{attacker} hat {defender} gewalttätig angegriffen und verwundet!</source>
-        <target>{attacker} a violemment attaqué et blessé {defender} !</target>
+        <target>{attacker} a violemment agressé le citoyen {defender} et l'a blessé(e) !</target>
       </segment>
     </unit>
     <unit id="YMkR4mp" name="{attacker} hat {defender} gewalttätig angegriffen!">
@@ -9298,7 +8633,7 @@
       </notes>
       <segment>
         <source>{attacker} hat {defender} gewalttätig angegriffen!</source>
-        <target>{attacker} a violemment attaqué {defender} !</target>
+        <target>{attacker} a violemment agressé le citoyen {defender} !</target>
       </segment>
     </unit>
     <unit id="sxFSQdD">
@@ -9328,7 +8663,7 @@
       </notes>
       <segment>
         <source>{attacker} ist {defender} an die Gurgel gesprungen und hat ihn ohne mit der Wimper zu zucken verspeist!</source>
-        <target>{attacker} a sauté à la gorge de {defender} et l'a mangé sans battre une paupière !</target>
+        <target>{attacker} s'est jeté à la gorge de {defender} et l'a dévoré(e) !!</target>
       </segment>
     </unit>
     <unit id="Qlh.l61">
@@ -9338,7 +8673,7 @@
       </notes>
       <segment>
         <source>Was ist mit der Leiche passiert? Der leblose Körper ist spurlos verschwunden... Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?</source>
-        <target>Qu'est-il arrivé au corps? Le corps sans vie a disparu sans laisser de trace ... Il se trouve probablement quelque part devant la ville et pourrit ... Peut-être qu'il viendra vous rendre visite la nuit ?</target>
+        <target>Qu'est-il arrivé au corps? Le corps sans vie a disparu sans laisser de trace... Il se trouve probablement quelque part devant la ville et pourrit... Peut-être qu'il viendra vous rendre visite la nuit ?</target>
       </segment>
     </unit>
     <unit id="67_vaXM">
@@ -9368,7 +8703,7 @@
       </notes>
       <segment>
         <source>Eine großartige Nacht für einige wohlverdiente Feierlichkeiten. Keine Todesopfer in der Stadt infolge des Angriffs! Eine beträchtliche Horde griff von Osten aus an.</source>
-        <target>Une super soirée pour des célébrations bien méritées. Aucun décès dans la ville à la suite de l'attaque! Une horde considérable attaquait de l'Est.</target>
+        <target>Une super soirée pour des célébrations bien méritées. Aucun décès dans la ville à la suite de l'attaque ! Une horde considérable attaquait de l'Est.</target>
       </segment>
     </unit>
     <unit id="4DXnNoc">
@@ -9541,86 +8876,6 @@
         <target>Comme il y avait environ {attack} zombies aux portes la nuit dernière, nous aurions pu craindre le pire, mais pas un seul n'est arrivé : c'est très bien ! Mais ne vous cassez pas le bras en vous tapotant l'épaule !</target>
       </segment>
     </unit>
-    <unit id="RiEm2s6">
-      <notes>
-        <note category="german">{cadaver1} hatte gestern Abend kein Glück. Abgesehen davon war es eine ruhige Nacht in der Stadt...</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>{cadaver1} hatte gestern Abend kein Glück. Abgesehen davon war es eine ruhige Nacht in der Stadt...</source>
-        <target>{cadaver1} n'a pas eu de chance la nuit dernière. A part ça, c'était une nuit tranquille en ville ...</target>
-      </segment>
-    </unit>
-    <unit id="X7mffuU">
-      <notes>
-        <note category="german">Alle scheinen sich still und leise über den Tod von {cadaver1} gestern Abend zu freuen... Allerdings hat niemand erklärt, warum. {citizen1} kommentierte: "Seine Mutter war ein Hamster, und sein Vater roch nach Holunderbeeren".</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Alle scheinen sich still und leise über den Tod von {cadaver1} gestern Abend zu freuen... Allerdings hat niemand erklärt, warum. {citizen1} kommentierte: "Seine Mutter war ein Hamster, und sein Vater roch nach Holunderbeeren".</source>
-        <target><![CDATA[Tout le monde semble se <strong>réjouir</strong> en silence de la mort de {cadaver1} cette nuit... Seulement, personne n'explique pourquoi. {citizen1} aurait tout de même commenté : "ouais, l'aura eu ce qu'il méritait !".]]></target>
-      </segment>
-    </unit>
-    <unit id="WWLQc3o">
-      <notes>
-        <note category="german">Jeder hörte {cadaver1} schreien, als er von den Zombies auseinander gerissen wurde. Offensichtlich versuchte niemand zu helfen. Überlebensinstinkt. Wirst du jetzt nachts schlafen können?</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Jeder hörte {cadaver1} schreien, als er von den Zombies auseinander gerissen wurde. Offensichtlich versuchte niemand zu helfen. Überlebensinstinkt. Wirst du jetzt nachts schlafen können?</source>
-        <target>Tout le monde a entendu {cadaver1} hurler tandis que les zombies démembraient son corps. Personne n'a rien fait évidemment. Instinct de survie. Vous arriverez encore à dormir avec ça ?</target>
-      </segment>
-    </unit>
-    <unit id="IEPC99r">
-      <notes>
-        <note category="german">Ich bin sicher, dass nicht nur ich der Meinung bin, dass wir eine Rechnung mit {cadaver1} zu begleichen hatten. Letztendlich scheint es also Karma gewesen zu sein, dass ausgerechnet er heute Nacht ums Leben kam.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Ich bin sicher, dass nicht nur ich der Meinung bin, dass wir eine Rechnung mit {cadaver1} zu begleichen hatten. Letztendlich scheint es also Karma gewesen zu sein, dass ausgerechnet er heute Nacht ums Leben kam.</source>
-        <target>Je suis sûr que je ne suis pas le seul à être d'avis que nous avions un compte à régler avec {cadaver1}. Donc, à la fin, il semble que ce soit du karma qu'il soit mort ce soir.</target>
-      </segment>
-    </unit>
-    <unit id="EvcUHEC">
-      <notes>
-        <note category="german">Einige Bürger wurden Zeugen eines seltsamen Vorfalls... Man könnte sagen, dass die Zombies gestern Abend ausschließlich für {cadaver1} gekommen sind. Sie trugen die Leiche den ganzen Weg zur Baustelle, bevor die Zerstückelung begann!</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Einige Bürger wurden Zeugen eines seltsamen Vorfalls... Man könnte sagen, dass die Zombies gestern Abend ausschließlich für {cadaver1} gekommen sind. Sie trugen die Leiche den ganzen Weg zur Baustelle, bevor die Zerstückelung begann!</source>
-        <target><![CDATA[On a assisté à un truc étrange... On aurait dit que les zombies ne venaient que pour {cadaver1} cette nuit. Ils ont emporté son corps près des chantiers avant de le démembrer <strong>entièrement</strong> !]]></target>
-      </segment>
-    </unit>
-    <unit id="ZuQMNC6">
-      <notes>
-        <note category="german">Einige sagen, daß der Tod von {cadaver1} nicht dem Glück zu verdanken ist... das einzige Opfer gestern Abend... Könnte jemand unter uns seinen Tod provoziert haben?</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Einige sagen, daß der Tod von {cadaver1} nicht dem Glück zu verdanken ist... das einzige Opfer gestern Abend... Könnte jemand unter uns seinen Tod provoziert haben?</source>
-        <target><![CDATA[Certains racontent que la mort de {cadaver1} ne serait pas le fruit du hasard... C'est la <strong>seule</strong> victime cette nuit. Quelqu'un parmi nous aurait-il <strong>provoqué</strong> cette mort ?]]></target>
-      </segment>
-    </unit>
-    <unit id="MHTYtp1">
-      <notes>
-        <note category="german">Ausgangssperre gilt für alle. Auch für {cadaver1} und {cadaver2} – das haben sie nun davon.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Ausgangssperre gilt für alle. Auch für {cadaver1} und {cadaver2} – das haben sie nun davon.</source>
-        <target>Le couvre-feu s'applique à tout le monde. Aussi pour {cadaver1} et {cadaver2} - c'est ce que vous obtenez.</target>
-      </segment>
-    </unit>
-    <unit id="Phxyt4a">
-      <notes>
-        <note category="german">So richtig scheint keiner über den Tod von {cadaver1} und {cadaver2} zu trauern. Sie waren wohl nicht die beliebtesten in der Stadt.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>So richtig scheint keiner über den Tod von {cadaver1} und {cadaver2} zu trauern. Sie waren wohl nicht die beliebtesten in der Stadt.</source>
-        <target>Personne ne semble vraiment pleurer la mort de {cadaver1} et {cadaver2}. Ils n'étaient probablement pas les plus populaires de la ville.</target>
-      </segment>
-    </unit>
     <unit id="HjXCgon">
       <notes>
         <note category="german">Eine schreckliche Nacht für die Stadt. Die lebenden Toten massakrierten {deaths} unserer Gemeinde während des Angriffs. Vielleicht möchtet ihr vor heute Abend noch einmal einen Blick auf unsere Verteidigung werfen...</note>
@@ -9718,7 +8973,7 @@
       </notes>
       <segment>
         <source>Du kannst diesen Bürger nicht angreifen... er riecht nicht wie die anderen. Moment... Dieser Bürger ist ein Ghul, genau wie du!</source>
-        <target>Vous ne pouvez pas attaquer ce citoyen ... il ne sent pas comme les autres. Attendez ... ce citoyen est une goule, tout comme vous !</target>
+        <target>Vous ne pouvez pas attaquer ce citoyen... il ne sent pas comme les autres. Attendez... ce citoyen est une goule, tout comme vous !</target>
       </segment>
     </unit>
     <unit id="yp9bvQd">
@@ -9778,18 +9033,17 @@
       </notes>
       <segment>
         <source>Mit aller Gewalt greifst du {citizen} an! Du hast den Überraschungsmoment auf deiner Seite und am Ende trägt {citizen} eine schwere Verletzung davon.</source>
-        <target>De toutes vos forces, vous attaquez {citizen} ! Vous avez l'élément de surprise de votre côté et à la fin {citizen} est gravement blessé.</target>
+        <target><![CDATA[Vous avez violemment attaqué <strong>{citizen}</strong> ! La bagarre a rapidement dégénéré et vous avez fini par <strong>blesser gravement ce citoyen</strong> !]]></target>
       </segment>
     </unit>
     <unit id="1HduKoA">
       <notes>
         <note category="german">Plötzlich sackt {citizen} in sich zusammen, seine Augen drehen sich nach hinten, und mit einem schauerhaften Gurgeln löst sich sein ganzer Körper vor deinen Augen auf und hinterlässt nur den üblen Geruch von Tod und Verwesung! Es gibt keinen Zweifel mehr: {citizen} war ein Ghul!!</note>
-        <note category="state">new</note>
         <note category="from">php:///src/Controller/InventoryAwareController.php</note>
       </notes>
       <segment>
         <source>Plötzlich sackt {citizen} in sich zusammen, seine Augen drehen sich nach hinten, und mit einem schauerhaften Gurgeln löst sich sein ganzer Körper vor deinen Augen auf und hinterlässt nur den üblen Geruch von Tod und Verwesung! Es gibt keinen Zweifel mehr: {citizen} war ein Ghul!!</source>
-        <target>Plötzlich sackt {citizen} in sich zusammen, seine Augen drehen sich nach hinten, und mit einem schauerhaften Gurgeln löst sich sein ganzer Körper vor deinen Augen auf und hinterlässt nur den üblen Geruch von Tod und Verwesung! Es gibt keinen Zweifel mehr: {citizen} war ein Ghul!!</target>
+        <target><![CDATA[Contre toute attente, {citizen} s'effondre dans un gargouillis immonde, les yeux révulsés... <strong>Son corps se décompose littéralement par endroits et une odeur de putréfaction emplit l'air !</strong> L'horrible vérité vous saute alors au visage : <strong>{citizen} était une goule</strong> !!<hr />Toute la ville a été mise au courant.]]></target>
       </segment>
     </unit>
     <unit id="9goEXWW">
@@ -9910,16 +9164,6 @@
       <segment>
         <source>Zombies sind eingedrungen.</source>
         <target>zombies sont entrés.</target>
-      </segment>
-    </unit>
-    <unit id="MUX.0UN" name="terrorisiert">
-      <notes>
-        <note category="german">terrorisiert</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>terrorisiert</source>
-        <target>terrorisé</target>
       </segment>
     </unit>
     <unit id="MBMsiX2" name="Du wirst heute Nacht sterben!">
@@ -10119,7 +9363,7 @@
       </notes>
       <segment>
         <source>&lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} hatte gestern Abend kein Glück. Abgesehen davon war es eine ruhige Nacht in der Stadt...</source>
-        <target><![CDATA[<i class="dagger">†</i> {cadaver1} n'a pas eu de chance la nuit dernière. A part ça, c'était une nuit tranquille en ville...]]></target>
+        <target><![CDATA[<i class="dagger">†</i> {cadaver1} n'a pas eu de chance la nuit dernière. À part ça, c'était une nuit tranquille en ville...]]></target>
       </segment>
     </unit>
     <unit id="pWR1tho">
@@ -10129,7 +9373,7 @@
       </notes>
       <segment>
         <source>Alle scheinen sich still und leise über den Tod von &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} gestern Abend zu freuen... Allerdings hat niemand erklärt, warum. {citizen1} kommentierte: "Seine Mutter war ein Hamster, und sein Vater roch nach Holunderbeeren".</source>
-        <target><![CDATA[Tout le monde semble tranquillement heureux de la mort de <i class="dagger">†</i> {cadaver1} hier soir ... Cependant, personne n'a expliqué pourquoi. {citizen1} a commenté : "Sa mère était un hamster et son père sentait le sureau".]]></target>
+        <target><![CDATA[Tout le monde semble tranquillement heureux de la mort de <i class="dagger">†</i> {cadaver1} hier soir... Cependant, personne n'a expliqué pourquoi. {citizen1} a commenté : "Sa mère était un hamster et son père sentait le sureau".]]></target>
       </segment>
     </unit>
     <unit id="Kgy9ILj">
@@ -10159,7 +9403,7 @@
       </notes>
       <segment>
         <source>Einige Bürger wurden Zeugen eines seltsamen Vorfalls... Man könnte sagen, dass die Zombies gestern Abend ausschließlich für &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} gekommen sind. Sie trugen die Leiche den ganzen Weg zur Baustelle, bevor die Zerstückelung begann!</source>
-        <target><![CDATA[Certains citoyens ont été témoins d'un étrange incident ... On pourrait dire que les zombies sont venus hier soir uniquement pour <i class="dagger">†</i> {cadaver1}. Ils ont transporté le corps jusqu'au chantier de construction avant le début du démembrement !]]></target>
+        <target><![CDATA[Certains citoyens ont été témoins d'un étrange incident... On pourrait dire que les zombies sont venus hier soir uniquement pour <i class="dagger">†</i> {cadaver1}. Ils ont transporté le corps jusqu'au chantier de construction avant le début du démembrement !]]></target>
       </segment>
     </unit>
     <unit id="8kYPugs">
@@ -10169,7 +9413,7 @@
       </notes>
       <segment>
         <source>Einige sagen, daß der Tod von &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} nicht dem Glück zu verdanken ist... das einzige Opfer gestern Abend... Könnte jemand unter uns seinen Tod provoziert haben?</source>
-        <target><![CDATA[Certains disent que la mort de <i class="dagger">†</i> {cadaver1} n'est pas due à la chance ... la seule victime hier soir ... Quelqu'un parmi nous aurait-il pu provoquer sa mort ?]]></target>
+        <target><![CDATA[Certains disent que la mort de <i class="dagger">†</i> {cadaver1} n'est pas due à la chance... la seule victime hier soir... Quelqu'un parmi nous aurait-il pu provoquer sa mort ?]]></target>
       </segment>
     </unit>
     <unit id="6ZXVgiP">
@@ -10389,7 +9633,7 @@
       </notes>
       <segment>
         <source>Keine Nachricht gespeichert.</source>
-        <target> Aucun message archivé.</target>
+        <target>Aucun message archivé.</target>
       </segment>
     </unit>
     <unit id="6KKKVfb" name="Neue Nachricht">
@@ -10440,16 +9684,6 @@
       <segment>
         <source>Betreff:</source>
         <target>Sujet :</target>
-      </segment>
-    </unit>
-    <unit id="cvWytR6" name="Ich BESTÄTIGE meine Nachricht">
-      <notes>
-        <note category="german">Ich BESTÄTIGE meine Nachricht</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Ich BESTÄTIGE meine Nachricht</source>
-        <target>J'ai RELU mon message et je VALIDE</target>
       </segment>
     </unit>
     <unit id="iZeG0XJ" name="Neue globale Nachricht">
@@ -10645,7 +9879,7 @@
     <unit id="9NwZjWy" name="Teilnehmen">
       <notes>
         <note category="german">Teilnehmen</note>
-        <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/construction.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig</note>
       </notes>
       <segment>
         <source>Teilnehmen</source>
@@ -11642,36 +10876,6 @@
         <target>La construction du chantier suivant a été recommandée :</target>
       </segment>
     </unit>
-    <unit id="iita2xJ">
-      <notes>
-        <note category="german">Private towns allow groups of friends to play easily together, or to create "theme" towns.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>In Privatstädten kannst du gemeinsam mit Freunden oder in Städten zu bestimmten "Theen" zu spielen.</source>
-        <target>Les villes privées vous permettent de jouer facilement entre amis, ou dans le cadre de villes "à thèmes".</target>
-      </segment>
-    </unit>
-    <unit id="CVyYW8Q" name="Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.">
-      <notes>
-        <note category="german">The ghoul functions normally and will appear as defined by the rules of the town chosen.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.</source>
-        <target>La goule a un fonctionnement normal et apparaîtra selon les règles propres au type de ville choisie.</target>
-      </segment>
-    </unit>
-    <unit id="1zFAtcT" name="Wasservorrat">
-      <notes>
-        <note category="german">Water supply</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Wasservorrat</source>
-        <target>Réserve d'eau</target>
-      </segment>
-    </unit>
     <unit id="N1KK_ks" name="Die Liste der eingeschriebenen Spieler ansehen.">
       <notes>
         <note category="german">Die Liste der eingeschriebenen Spieler ansehen.</note>
@@ -11970,19 +11174,6 @@
       <segment>
         <source>Zufälliger Bürger</source>
         <target>Citoyen aléatoire</target>
-      </segment>
-    </unit>
-    <unit id="dTDcH8R">
-      <notes>
-        <note category="german">Hiermit kannst du den Namen eines zufälligen Bürgers in deinen Post anfügen.
-                                                Bei Bedarf kannst du die Auswahl auf bestimmte Berufe, Helden oder bereits gestorbene Bürger eingrenzen.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Hiermit kannst du den Namen eines zufälligen Bürgers in deinen Post anfügen.
-                                                Bei Bedarf kannst du die Auswahl auf bestimmte Berufe, Helden oder bereits gestorbene Bürger eingrenzen.</source>
-        <target>Vous pouvez l'utiliser pour ajouter le nom d'un citoyen aléatoire à votre message.
-                                                Si nécessaire, vous pouvez limiter la sélection à certaines professions, héros ou citoyens déjà décédés.</target>
       </segment>
     </unit>
     <unit id="lpSEXvf">
@@ -12636,7 +11827,7 @@
       </notes>
       <segment>
         <source>Nach einem zähen Kampf gelingt es dir endlich &lt;strong&gt;einen Zombie&lt;/strong&gt; gegen einen Felsen zu werfen... Sein Kopf ist &lt;strong&gt;explodiert&lt;/strong&gt; und die ganze Soße klebt jetzt an deinen Füßen! Du torkelst ein paar Meter vom Ort des Geschehens weg und keuchst leise vor dich hin: Einer weniger.. Ha... ha...</source>
-        <target><![CDATA[Au terme d'un effroyable affrontement, vous avez finalement réussi à faire chuter <strong>un zombie</strong> contre un rocher... Sa tête a littéralement <strong>explosé</strong> et son contenu s'est répandu sur vos chaussures ! Vous reculez en titubant, essouflé(e) : un de moins... Han ... han ...]]></target>
+        <target><![CDATA[Au terme d'un effroyable affrontement, vous avez finalement réussi à faire chuter <strong>un zombie</strong> contre un rocher... Sa tête a littéralement <strong>explosé</strong> et son contenu s'est répandu sur vos chaussures ! Vous reculez en titubant, essouflé(e) : un de moins... Han... han...]]></target>
       </segment>
     </unit>
     <unit id=".gJvXXq">
@@ -12908,16 +12099,6 @@
       <segment>
         <source>Regentanz ausführen</source>
         <target>Faire tomber la pluie</target>
-      </segment>
-    </unit>
-    <unit id="K65v2LS">
-      <notes>
-        <note category="german">Wenn du in der Wüste von Zombies umzingelst wirst, erstarrst du vor Angst und kannst nichts mehr unternehmen... Du musst Drogen oder etwas anderes finden, um &lt;strong&gt;deine Nerven zu beruhigen&lt;/strong&gt; und aus dieser Hölle zu entkommen... Wenigstens ist es dir immer noch möglich, im Forum nach Hilfe zu suchen...</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Wenn du in der Wüste von Zombies umzingelst wirst, erstarrst du vor Angst und kannst nichts mehr unternehmen... Du musst Drogen oder etwas anderes finden, um &lt;strong&gt;deine Nerven zu beruhigen&lt;/strong&gt; und aus dieser Hölle zu entkommen... Wenigstens ist es dir immer noch möglich, im Forum nach Hilfe zu suchen...</source>
-        <target><![CDATA[Lorsque vous êtes terrorisé et que vous n'avez pas le contrôle de la zone, vous ne pouvez rien faire... Vous devez trouver une drogue ou quelque chose pour <strong>calmer vos nerfs</strong> et sortir de ce pétrin... Au moins, il est possible d'appeler à l'aide sur le forum...]]></target>
       </segment>
     </unit>
     <unit id="G7YX22v" name="Deine privaten Nachrichten">
@@ -13920,39 +13101,6 @@
         <target>Spécialité : steak de chaton</target>
       </segment>
     </unit>
-    <unit id="kux2P8d" name="Nervensäge">
-      <notes>
-        <note category="german">Nervensäge</note>
-        <note category="state">new</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Nervensäge</source>
-        <target>Nervensäge</target>
-      </segment>
-    </unit>
-    <unit id="EmKmq5r" name="Sozialschmarotzer">
-      <notes>
-        <note category="german">Sozialschmarotzer</note>
-        <note category="state">new</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Sozialschmarotzer</source>
-        <target>Sozialschmarotzer</target>
-      </segment>
-    </unit>
-    <unit id="fReXfmp" name="Die Wüste ist mein Zuhause">
-      <notes>
-        <note category="german">Die Wüste ist mein Zuhause</note>
-        <note category="state">new</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Die Wüste ist mein Zuhause</source>
-        <target>Die Wüste ist mein Zuhause</target>
-      </segment>
-    </unit>
     <unit id="HYrdx8z" name="Immer ein Auge offen">
       <notes>
         <note category="german">Immer ein Auge offen</note>
@@ -14911,17 +14059,6 @@
       <segment>
         <source>Jeffrey Dahmer</source>
         <target>Croque morts</target>
-      </segment>
-    </unit>
-    <unit id="rtCWNuh" name="Fido">
-      <notes>
-        <note category="german">Fido</note>
-        <note category="state">new</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Fido</source>
-        <target>Fido</target>
       </segment>
     </unit>
     <unit id="O.WFVAT" name="Fast schon ein Zombie...">
@@ -16181,7 +15318,7 @@
     </unit>
     <unit id="2ZzcscP" name="Verlorenes Brunnenwasser: {count} Einhet(en)">
       <notes>
-        <note category="german">Verlorenes Brunnenwasser: {count} Einhet(en)</note>
+        <note category="german">Verlorenes Brunnenwasser: {count__copy} Einhet(en)</note>
         <note category="from">twig:///templates/ajax/game/newspaper.html.twig</note>
       </notes>
       <segment>
@@ -16348,7 +15485,7 @@
       </notes>
       <segment>
         <source>Die &lt;strong&gt;Explosion des {plan}&lt;/strong&gt; hat den ganzen Sektor in Mitleidenschaft gezogen! Das wird sicher Spuren hinterlassen ...</source>
-        <target><![CDATA[Toute la région a été touchée par la <strong>destruction de {plan}</strong> ! Il est à parier que cela va laisser des traces ...]]></target>
+        <target><![CDATA[Toute la région a été touchée par la <strong>destruction de {plan}</strong> ! Il est à parier que cela va laisser des traces...]]></target>
       </segment>
     </unit>
     <unit id="ViEKCFv" name="Die Zukunft">
@@ -16761,17 +15898,6 @@
         <target>Ce citoyen est le {role} de la ville</target>
       </segment>
     </unit>
-    <unit id="FgE68_." name="inmitten eines unentwirrbaren Trümmerhaufens...">
-      <notes>
-        <note category="german">inmitten eines unentwirrbaren Trümmerhaufens...</note>
-        <note category="state">new</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>inmitten eines unentwirrbaren Trümmerhaufens...</source>
-        <target>inmitten eines unentwirrbaren Trümmerhaufens...</target>
-      </segment>
-    </unit>
     <unit id=".Qv4CCd" name="in einer unheimlichen Ruine {location}">
       <notes>
         <note category="german">in einer unheimlichen Ruine {location}</note>
@@ -16821,16 +15947,6 @@
       <segment>
         <source>Denke daran, dass das Katapult manchmal sein Ziel verfehlt und den Gegenstand in eine angrenzende Zone befördert...</source>
         <target>Notez qu'il arrive parfois que la catapulte manque sa cible et envoie l'objet dans une zone voisine...</target>
-      </segment>
-    </unit>
-    <unit id="xDLABuz">
-      <notes>
-        <note category="german">Du wurdest als Verantwortlicher für das Katapult bestimmt! Wähle einen Gegenstand aus deinem Inventar und gib die Zielkoordinaten ein.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Du wurdest als Verantwortlicher für das Katapult bestimmt! Wähle einen Gegenstand aus deinem Inventar und gib die Zielkoordinaten ein.</source>
-        <target>Vous avez été désigné(e) responsable de la catapulte ! Vous pouvez choisir un objet (parmi ceux présents dans votre inventaire) et une coordonnée.</target>
       </segment>
     </unit>
     <unit id="fXqavJn" name="Die Aktivierung des Katapults kostet {ap}.">
@@ -17243,7 +16359,7 @@
       </notes>
       <segment>
         <source>Einen Bürger heimbringen:</source>
-        <target>Ramener un citoyen:</target>
+        <target>Ramener un citoyen :</target>
       </segment>
     </unit>
     <unit id="Whw_2bO" name="Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) {home} verwandelt.">
@@ -17356,16 +16472,6 @@
         <target><![CDATA[Impossible de voler quoique ce soit à {citizen} tant <strong>qu'il(elle) est en ville</strong>...]]></target>
       </segment>
     </unit>
-    <unit id="O4DTjBm" name="{citizen} ist ausgegangen...">
-      <notes>
-        <note category="german">{citizen} ist ausgegangen...</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>{citizen} ist ausgegangen...</source>
-        <target>{citizen} est sorti(e)...</target>
-      </segment>
-    </unit>
     <unit id="GZZJnSZ" name="Beta-Tester der neuen Zeit">
       <notes>
         <note category="german">Beta-Tester der neuen Zeit</note>
@@ -17463,7 +16569,7 @@
       </notes>
       <segment>
         <source>Du hast dafür {count} Aktionspunkt(e) verbraucht.</source>
-        <target>{raw_count, plural, one {Vous avez utilisé {count} point d'action} other {Vous avez utilisé {count} points d'action}}</target>
+        <target>{raw_count, plural, one {Vous avez utilisé {count} point d'action.} other {Vous avez utilisé {count} points d'action.}}</target>
       </segment>
     </unit>
     <unit id="tTMCru5">
@@ -17487,7 +16593,7 @@
       </notes>
       <segment>
         <source>Was für eine schreckliche Nacht!</source>
-        <target>Quelle nuit terrible !</target>
+        <target>Une nuit effroyable !</target>
       </segment>
     </unit>
     <unit id="pPZiySm">
@@ -18302,16 +17408,6 @@
         <target>Maître-architecte</target>
       </segment>
     </unit>
-    <unit id="0oUM0cs" name="Bürger! Seid auf inoffiziellen Webseiten wachsam!">
-      <notes>
-        <note category="german">Bürger! Seid auf inoffiziellen Webseiten wachsam!</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Bürger! Seid auf inoffiziellen Webseiten wachsam!</source>
-        <target>Citoyens ! Hors du site officiel, prudence !</target>
-      </segment>
-    </unit>
     <unit id="0Kqpu1t" name="gering">
       <notes>
         <note category="german">gering</note>
@@ -18420,38 +17516,6 @@
       <segment>
         <source>(Mit Eskorte)</source>
         <target>(Avec escorte)</target>
-      </segment>
-    </unit>
-    <unit id="HHrNFas">
-      <notes>
-        <note category="german">{citizen1} verbrachten die ganze Nacht heulend in ihrem Haus, bis zu dem Punkt, dass jeder dachte, die Zombies würden Bürger-Steaks aus ihm machen. Es stellte sich heraus, dass sie gerade einen massiven Zusammenbruch hatten. Letzte Nacht gab es keine Toten in der Stadt.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>{citizen1} verbrachten die ganze Nacht heulend in ihrem Haus, bis zu dem Punkt, dass jeder dachte, die Zombies würden Bürger-Steaks aus ihm machen. Es stellte sich heraus, dass sie gerade einen massiven Zusammenbruch hatten. Letzte Nacht gab es keine Toten in der Stadt.</source>
-        <target><![CDATA[{citizen1} a passé toute la nuit à hurler dans sa maison, au point que tout le monde pensait que les zombies se taillaient un steak dessus. Ben non, en fait c'était juste une <strong>grosse crise de nerfs</strong> : aucun mort en ville hier soir.]]></target>
-      </segment>
-    </unit>
-    <unit id="4xQZLpn">
-      <notes>
-        <note category="german">{citizen1} und {citizen2} wurden in letzter Minute gerettet, als sie sich gestern Abend bereit machten, sich in ihren Häusern zu erhängen. Kommentar: "Ich dachte, sie würden mich bei lebendigem Leib auffressen, und das wollte ich nicht mehr erleben". Im Nachhinein betrachtet war es eine schlechte Entscheidung, da es gestern Abend keine Zombies in die Stadt geschafft haben.</note>
-        <note category="state">new</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>{citizen1} und {citizen2} wurden in letzter Minute gerettet, als sie sich gestern Abend bereit machten, sich in ihren Häusern zu erhängen. Kommentar: "Ich dachte, sie würden mich bei lebendigem Leib auffressen, und das wollte ich nicht mehr erleben". Im Nachhinein betrachtet war es eine schlechte Entscheidung, da es gestern Abend keine Zombies in die Stadt geschafft haben.</source>
-        <target>{citizen1} und {citizen2} wurden in letzter Minute gerettet, als sie sich gestern Abend bereit machten, sich in ihren Häusern zu erhängen. Kommentar: "Ich dachte, sie würden mich bei lebendigem Leib auffressen, und das wollte ich nicht mehr erleben". Im Nachhinein betrachtet war es eine schlechte Entscheidung, da es gestern Abend keine Zombies in die Stadt geschafft haben.</target>
-      </segment>
-    </unit>
-    <unit id="9OEwJJM">
-      <notes>
-        <note category="german">Heute Morgen feierte {citizen1} das Vereiteln der Zombiehorden von gestern Abend, indem er splitternackt durch die Straßen rannte. "Ich wollte den Anbruch dieses neuen Tages auf angemessene Weise feiern", erklärte der Bürger.</note>
-        <note category="state">new</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Heute Morgen feierte {citizen1} das Vereiteln der Zombiehorden von gestern Abend, indem er splitternackt durch die Straßen rannte. "Ich wollte den Anbruch dieses neuen Tages auf angemessene Weise feiern", erklärte der Bürger.</source>
-        <target>Heute Morgen feierte {citizen1} das Vereiteln der Zombiehorden von gestern Abend, indem er splitternackt durch die Straßen rannte. "Ich wollte den Anbruch dieses neuen Tages auf angemessene Weise feiern", erklärte der Bürger.</target>
       </segment>
     </unit>
     <unit id="HDssmyH" name="Fleisch-Schuldner">
@@ -18855,7 +17919,7 @@
       </notes>
       <segment>
         <source>Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.</source>
-        <target>Malheureusement, le sable du désert a déjà recouvert jusqu'à l'existence de votre ville... La communauté s'est éteinte..</target>
+        <target>Malheureusement, le sable du désert a déjà recouvert jusqu'à l'existence de votre ville... La communauté s'est éteinte.</target>
       </segment>
     </unit>
     <unit id="eunLp3W" name="Ich habe Magenschmerzen...">
@@ -19318,24 +18382,10 @@
         <target>Vous avez bien reçu votre part quotidienne : {item}</target>
       </segment>
     </unit>
-    <unit id="70ClwHa">
-      <notes>
-        <note category="german">Als du durch das Fenster blickst, stellst du fest, dass das Haus von {citizen} keinerlei interessante
-                Gegenstände enthält. Ein paar Tonscherben, viel Staub und eine tote Ratte ist alles, was du erkennen kannst.
-                Nichts, was der Mühe wert wäre.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Als du durch das Fenster blickst, stellst du fest, dass das Haus von {citizen} keinerlei interessante
-                Gegenstände enthält. Ein paar Tonscherben, viel Staub und eine tote Ratte ist alles, was du erkennen kannst.
-                Nichts, was der Mühe wert wäre.</source>
-        <target>En regardant par la fenêtre, vous constatez que la maison de {citizen} semble être vide de tout objet intéressant. Des bouts de poterie, de la poussière et un rat crevé. Rien qui ne vaille la peine. .</target>
-      </segment>
-    </unit>
     <unit id="9zkVg8p" name="Der Inhalt dieses Hauses wird durch Vorhänge an den Fenstern verdeckt...">
       <notes>
         <note category="german">Der Inhalt dieses Hauses wird durch Vorhänge an den Fenstern verdeckt...</note>
-        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_omniscience.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig</note>
       </notes>
       <segment>
         <source>Der Inhalt dieses Hauses wird durch Vorhänge an den Fenstern verdeckt...</source>
@@ -19743,16 +18793,6 @@
         <target>Un modérateur a retiré le bannissement de jouer sur votre compte.</target>
       </segment>
     </unit>
-    <unit id="DXGanAJ" name="Wie soll ich spielen?">
-      <notes>
-        <note category="german">Wie soll ich spielen?</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Wie soll ich spielen?</source>
-        <target>Comment jouer ?</target>
-      </segment>
-    </unit>
     <unit id="7ufilHx" name="Den Lernmodus ausschalten">
       <notes>
         <note category="german">Den Lernmodus ausschalten</note>
@@ -20011,26 +19051,6 @@
         <target>Il contient toutes les informations essentielles pour faire enfin reconnaître aux yeux de tous la supériorité de votre statut...</target>
       </segment>
     </unit>
-    <unit id="bhwk0Sz">
-      <notes>
-        <note category="german">Dieser riesige gelbe Metallcontainer macht einen verlorenen Eindruck. Weit und breit keine Baustelle. Der Gemeinschaftsraum im Inneren ist mit leeren Bierflaschen übersät</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Dieser riesige gelbe Metallcontainer macht einen verlorenen Eindruck. Weit und breit keine Baustelle. Der Gemeinschaftsraum im Inneren ist mit leeren Bierflaschen übersät </source>
-        <target>Un très grand container métallique posé au milieu de nulle part. Il devait se trouver à côté d'un chantier, à  une époque, mais il n'en reste rien aujourd'hui. A part cette 'cabane'.</target>
-      </segment>
-    </unit>
-    <unit id="UezITiX">
-      <notes>
-        <note category="german">Von wegen Döner macht schöner. Scheint so als hätte der Besitzer dieser Bude das mit den Dönern und den Spießen missverstanden. Wer hier reingeht kommt garantiert nicht mehr raus.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Von wegen Döner macht schöner. Scheint so als hätte der Besitzer dieser Bude das mit den Dönern und den Spießen missverstanden. Wer hier reingeht kommt garantiert nicht mehr raus. </source>
-        <target>Si vous avez un petit creux, ne vous arrêtez surtout pas ici ! Ou c'est le cuistot lui même qui viendra vous dévorer, après vous avoir découpé à la scie circulaire.</target>
-      </segment>
-    </unit>
     <unit id="5U6vNQX" name="Du hast aktuell keine Themen abonniert.">
       <notes>
         <note category="german">Du hast aktuell keine Themen abonniert.</note>
@@ -20108,7 +19128,7 @@
       </notes>
       <segment>
         <source>Reiseleiter-Ratgeber</source>
-        <target>guide du jeu pour les Duides de l'Outre-Monde</target>
+        <target>guide du jeu pour les Guides de l'Outre-Monde</target>
       </segment>
     </unit>
     <unit id="9ahpfaF" name="Alle als gelesen markieren">
@@ -20188,7 +19208,7 @@
       </notes>
       <segment>
         <source>Es weiß zwar keiner wie unser Held {citizen} das angestellt hat, aber es ist ihm gelungen aus dieser Zone direkt in die Stadt zurückzukehren... Ein Wunder!</source>
-        <target>Personne ne sait comment, mais le héros {citizen} a réussi à quitter cette zone pour retourner directement en ville... C'est un miracle !</target>
+        <target><![CDATA[Personne ne sait comment, mais le <span>héros</span> {citizen} a réussi à quitter cette zone pour <span>retourner directement en ville</span>... C'est un miracle !]]></target>
       </segment>
     </unit>
     <unit id="SwbKwjj" name="Der Leichnam von {citizen} wurde nicht zerstört.">
@@ -20238,7 +19258,7 @@
       </notes>
       <segment>
         <source>Da {citizen} tot ist, besteht ein hohes Risiko, dass sein Körper mit ansteckenden Keimen von &lt;em&gt;{townname}&lt;/em&gt; kontaminiert ist. Wenn wir nicht wollen, dass er wieder aufersteht und uns angreift, muss er entweder mit Wasser übergossen oder weggeworfen werden.</source>
-        <target><![CDATA[{citizen} étant mort(e), il y a des fortes chances que son corps puisse être contaminé par les agents infectieux de <em>{townname}</em>. Il faut donc soit l'arroser, soit le jeter, sous peine de le voir se lever pour attaquer ses ex-concitoyens le soir même ...]]></target>
+        <target><![CDATA[{citizen} étant mort(e), il y a des fortes chances que son corps puisse être contaminé par les agents infectieux de <em>{townname}</em>. Il faut donc soit l'arroser, soit le jeter, sous peine de le voir se lever pour attaquer ses ex-concitoyens le soir même...]]></target>
       </segment>
     </unit>
     <unit id="X28KXsi" name="Das Haus">
@@ -20308,7 +19328,7 @@
       </notes>
       <segment>
         <source>Als du ins Fenster schaust, bemerkst du, dass {citizen}s Haus keine wertvollen Gegenständen mehr enthält. Wahrscheinlich haben andere Bürger schon alles, was nicht niet- und nagelfest war, mitgenommen...</source>
-        <target>En regardant par la fenêtre, vous constatez que la maison de {citizen} semble être vide de tout objet intéressant. Sans doute d'autres citoyens ont-ils déjà tout récupéré ? </target>
+        <target>En regardant par la fenêtre, vous constatez que la maison de {citizen} semble être vide de tout objet intéressant. Sans doute d'autres citoyens ont-ils déjà tout récupéré ?</target>
       </segment>
     </unit>
     <unit id="MIyP62V" name="Dieser Bürger möchte in die Stadt gebracht werden.">
@@ -20319,16 +19339,6 @@
       <segment>
         <source>Dieser Bürger möchte in die Stadt gebracht werden.</source>
         <target>Ce citoyen souhaite retourner en ville.</target>
-      </segment>
-    </unit>
-    <unit id="nNEPxIA" name="{citizen} hat einen Zombie mit seinen bloßen Händen niedergestreckt!">
-      <notes>
-        <note category="german">{citizen} hat einen Zombie mit seinen bloßen Händen niedergestreckt!</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>{citizen} hat einen Zombie mit seinen bloßen Händen niedergestreckt!</source>
-        <target><![CDATA[<span>{citizen} a foncé à mains nues contre un zombie et l'a mis au tapis !</span>]]></target>
       </segment>
     </unit>
     <unit id="CIxCi9h">
@@ -20438,7 +19448,7 @@
       </notes>
       <segment>
         <source>&lt;em&gt;Du kannst dein Haus ausbauen und so für eine bessere Verteidigung sorgen. &lt;strong&gt;Wichtige Anmerkung:&lt;/strong&gt; Vielleicht wäre es sinnvoller, die dafür benötigten Ressourcen (falls erforderlich) der Stadt zu spenden?&lt;/em&gt;</source>
-        <target><![CDATA[<em>Vous pouvez améliorer votre habitation et ainsi bénéficier d'une meilleure défense. <strong>Note importante :</strong> peut être serait-il judicieux également d'utiliser vos ressources pour l'amélioration de la ville ?</em>]]></target>
+        <target><![CDATA[<em>Vous pouvez améliorer votre habitation et ainsi bénéficier d'une meilleure défense. <strong>Note importante :</strong> peut-être serait-il judicieux également d'utiliser vos ressources pour l'amélioration de la ville ?</em>]]></target>
       </segment>
     </unit>
     <unit id="h.30SZi">
@@ -20852,7 +19862,7 @@
       </notes>
       <segment>
         <source>Achtung: Jede Aktion in der Zone sorgt dafür, dass deine &lt;strong&gt;Tarnung auffliegt&lt;/strong&gt;. (Es können nur Aktionen ausgeführt werden, die mit einem Icon {img_scout_ok} gekennzeichnet sind)!</source>
-        <target><![CDATA[Attention: toute action sur la zone vous fera <strong>perdre votre camouflage</strong>. (seules les actions marquées d'une icône {img_scout_ok} peuvent être utilisées) !]]></target>
+        <target><![CDATA[Attention : toute action sur la zone vous fera <strong>perdre votre camouflage</strong> (seules les actions marquées d'une icône {img_scout_ok} peuvent être utilisées) !]]></target>
       </segment>
     </unit>
     <unit id="SKPkihB">
@@ -20862,7 +19872,7 @@
       </notes>
       <segment>
         <source>Mit deinem {img_scout} &lt;strong&gt;Tarnanzug&lt;/strong&gt; kannst du dich bewegen ohne dabei entdeckt zu werden.</source>
-        <target><![CDATA[Votre {img_scout} <strong>Tenue de camouflage</strong> vous permet de vous déplacer sans être vu(e)]]></target>
+        <target><![CDATA[Votre {img_scout} <strong>Tenue de camouflage</strong> vous permet de vous déplacer sans être vu(e).]]></target>
       </segment>
     </unit>
     <unit id="Y3.7xA8" name="{building} hat {num} Batterien verbraucht.">
@@ -20882,7 +19892,7 @@
       </notes>
       <segment>
         <source>&lt;strong&gt;Herzlichen Glückwunsch&lt;/strong&gt;, du hast folgende Titel freigeschaltet: {list_i} {list_t}</source>
-        <target><![CDATA[<strong>Félicitations</strong>, vous avez déverrouillé les titres suivants: {list_i} {list_t}]]></target>
+        <target><![CDATA[<strong>Félicitations</strong>, vous avez déverrouillé les titres suivants : {list_i} {list_t}]]></target>
       </segment>
     </unit>
     <unit id="jIKh96s">
@@ -21384,12 +20394,11 @@
     <unit id="sG6LFYJ" name="Die Bank enthält zur Zeit keine Gegenstände, die bearbeitet werden können...">
       <notes>
         <note category="german">Die Bank enthält zur Zeit keine Gegenstände, die bearbeitet werden können...</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/workshop.html.twig</note>
       </notes>
       <segment>
         <source>Die Bank enthält zur Zeit keine Gegenstände, die bearbeitet werden können...</source>
-        <target>Die Bank enthält zur Zeit keine Gegenstände, die bearbeitet werden können...</target>
+        <target>Il n'y a rien à transformer dans la Banque de la ville pour le moment...</target>
       </segment>
     </unit>
     <unit id="gLXdI1z" name="Diskussionen im Werkstatt-Forum">
@@ -21992,7 +21001,7 @@
       </notes>
       <segment>
         <source>Dank des von der Stadt gebauten Kremato-Cue kannst du diese Leiche &lt;strong&gt;in Verpflegung umwandeln&lt;/strong&gt;. Aber willst du das wirklich tun?</source>
-        <target><![CDATA[Grace au Crémato-Cue construit par la ville, vous pouvez <strong>transformer ce corps en rations</strong>.. Mais voulez-vous vraiment faire cela ?]]></target>
+        <target><![CDATA[Grâce au Crémato-Cue construit par la ville, vous pouvez <strong>transformer ce corps en rations</strong>... Mais voulez-vous vraiment faire cela ?]]></target>
       </segment>
     </unit>
     <unit id="JQAKEqq">
@@ -22042,7 +21051,7 @@
       </notes>
       <segment>
         <source>Wenn der Name auf der Rückseite dieses kleinen Briefs korrekt ist, war diese Nachricht in Wirklichkeit für {citizen}! Durch einen seltsamen Zufall ist sie irgendwie bei dir gelanded ...</source>
-        <target>A en juger par ce qui est marqué au dos de ce papier, le message ci-dessous était en réalité destiné à {citizen} ! Par un hasard mystérieux, il a atterri dans votre boîte aux lettres…</target>
+        <target>À en juger par ce qui est marqué au dos de ce papier, le message ci-dessous était en réalité destiné à {citizen} ! Par un hasard mystérieux, il a atterri dans votre boîte aux lettres…</target>
       </segment>
     </unit>
     <unit id="H790t1y">
@@ -22332,7 +21341,7 @@
       </notes>
       <segment>
         <source>Du kannst diesen Raum betreten, vielleicht findest du einige interessante Gegenstände.</source>
-        <target>Vous pouvez entrer dans cette pièce, peut être y trouverez vous des choses intéressantes.</target>
+        <target>Vous pouvez entrer dans cette pièce, peut-être y trouverez vous des choses intéressantes.</target>
       </segment>
     </unit>
     <unit id="SHnNJFY" name="Diese Aktion kostet dich Sauerstoff, trotzdem flüchten?">
@@ -22382,7 +21391,7 @@
       </notes>
       <segment>
         <source>&lt;strong&gt;Verlust der Zonenkontrolle&lt;/strong&gt;: Die Suchen von {citizen} wurden unterbrochen!</source>
-        <target><![CDATA[<strong>Perte de contrôle</strong> : les fouilles de {citizen} ont été interrompues !]]></target>
+        <target><![CDATA[<span>Perte de contrôle :</span> les fouilles de {citizen} ont été interrompues !]]></target>
       </segment>
     </unit>
     <unit id="2L4fAWv">
@@ -22392,7 +21401,7 @@
       </notes>
       <segment>
         <source>{citizen} hat die Zone verlassen, &lt;strong&gt;die Zombies werden in wenigen Minuten die Kontrolle erlangen wenn wir nichts unternehmen.&lt;/strong&gt;</source>
-        <target><![CDATA[{citizen} est parti(e), <strong>la zone va repasser sous le contrôle des zombies dans quelques minutes si rien n'est fait</strong>.]]></target>
+        <target><![CDATA[{citizen} est parti(e), <span>la zone va repasser sous le contrôle des zombies dans quelques minutes si rien n'est fait</span>.]]></target>
       </segment>
     </unit>
     <unit id="QZHPoCR" name="&lt;span&gt;Es ist soweit: Der Schmaus kann beginnen!&lt;/span&gt;">
@@ -22402,7 +21411,7 @@
       </notes>
       <segment>
         <source>&lt;span&gt;Es ist soweit: Der Schmaus kann beginnen!&lt;/span&gt;</source>
-        <target><![CDATA[<span>PLUS DE TEMPS : LE FESTIN COMMENCE !</span>]]></target>
+        <target><![CDATA[<span>Plus de temps : le festin commence !</span>]]></target>
       </segment>
     </unit>
     <unit id="XvH9iDl">
@@ -22543,7 +21552,10 @@
       </notes>
       <segment>
         <source>{points} Punkt(e)</source>
-        <target>{points, plural, one {1 point} other {# points}}</target>
+        <target>{ref__icu, select,
+            on { {points, select, one {# point} other {{points} points}} }
+            other {{points} point(s)}
+            }</target>
       </segment>
     </unit>
     <unit id="uAj26XB" name="Schließen">
@@ -22845,6 +21857,431 @@
       <segment>
         <source>Klick hier, wenn du mit deiner Heldenfähigkeit &lt;strong&gt;diesen Registereintrag fälschen&lt;/strong&gt; möchtest...</source>
         <target><![CDATA[Cliquez pour utiliser votre capacité de héros et <strong>falsifier cette entrée du registre</strong>...]]></target>
+      </segment>
+    </unit>
+    <unit id="AspdF7m" name="Ranking-Ausschluss">
+      <notes>
+        <note category="german">Ranking-Ausschluss</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/towns/list.html.twig;twig:///templates/ajax/soul/death.html.twig</note>
+      </notes>
+      <segment>
+        <source>Ranking-Ausschluss</source>
+        <target>Exclusion du classement</target>
+      </segment>
+    </unit>
+    <unit id="XEwyP0J">
+      <notes>
+        <note category="german">Dieses Leben wird aus den Annalen der Geschichte getilgt. Du erhälst weder Seelenpunkte noch Auszeichnungen.</note>
+        <note category="from">twig:///templates/ajax/soul/death.html.twig</note>
+      </notes>
+      <segment>
+        <source>Dieses Leben wird aus den Annalen der Geschichte getilgt. Du erhälst weder Seelenpunkte noch Auszeichnungen.</source>
+        <target>Cette existance est effacée des annales de l’histoire. Vous n’avez pas obtenu de points d’âme ou de récompenses pour celle-ci.</target>
+      </segment>
+    </unit>
+    <unit id="gLhMShO" name="Das wird dir in Zukunft schlaflose Nächte bereiten!">
+      <notes>
+        <note category="german">Das wird dir in Zukunft schlaflose Nächte bereiten!</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Das wird dir in Zukunft schlaflose Nächte bereiten!</source>
+        <target>Voilà ce qui s'offre maintenant à vous !</target>
+      </segment>
+    </unit>
+    <unit id="k8ELM3Z" name="Erkunde die Außenwelt:">
+      <notes>
+        <note category="german">Erkunde die Außenwelt:</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Erkunde die Außenwelt:</source>
+        <target>Explorez l’outre-monde :</target>
+      </segment>
+    </unit>
+    <unit id="99xLniA" name="Die Weltkarte ist nun größer. Viel größer!">
+      <notes>
+        <note category="german">Die Weltkarte ist nun größer. Viel größer!</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Die Weltkarte ist nun größer. Viel größer!</source>
+        <target>La carte est désormais plus grande</target>
+      </segment>
+    </unit>
+    <unit id="a8O8WQf" name="Du kannst nun Ruinen durch ein Minispiel erkunden.">
+      <notes>
+        <note category="german">Du kannst nun Ruinen durch ein Minispiel erkunden.</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du kannst nun Ruinen durch ein Minispiel erkunden.</source>
+        <target>Rentrez dans les ruines labyrinthiques</target>
+      </segment>
+    </unit>
+    <unit id="nuFU1XW" name="Du kannst nun Nachts in der Außenwelt campen (auf eigene Gefahr natürlich)">
+      <notes>
+        <note category="german">Du kannst nun Nachts in der Außenwelt campen (auf eigene Gefahr natürlich)</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du kannst nun Nachts in der Außenwelt campen (auf eigene Gefahr natürlich)</source>
+        <target>Survivez la nuit dehors en campant (à vos risques et périls)</target>
+      </segment>
+    </unit>
+    <unit id="kI9jzjA" name="Von nun an ist die Nacht sowohl Freund als auch Feind...">
+      <notes>
+        <note category="german">Von nun an ist die Nacht sowohl Freund als auch Feind...</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Von nun an ist die Nacht sowohl Freund als auch Feind...</source>
+        <target>Désormais la nuit est à la fois votre ennemi et votre allié</target>
+      </segment>
+    </unit>
+    <unit id="t7TzeHz">
+      <notes>
+        <note category="german">Du könntest als der Schamane der Stadt enden! Koste die Macht dieses mystischen Voodoo-Mannes, aber denk an deine Verantwortung für die Seelen der Verdammten...</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du könntest als der Schamane der Stadt enden! Koste die Macht dieses mystischen Voodoo-Mannes, aber denk an deine Verantwortung für die Seelen der Verdammten...</source>
+        <target>Attention, vous pourrez endosser le rôle de chaman, tester ses pouvoirs mais sa responsabilité est princpalement dans la chasse aux âmes errantes</target>
+      </segment>
+    </unit>
+    <unit id="YZ9vmmI" name="Es gibt keine &quot;vorbereiteten&quot; Gebäude. Du bist auf dich allein gestellt.">
+      <notes>
+        <note category="german">Es gibt keine "vorbereiteten" Gebäude. Du bist auf dich allein gestellt.</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Es gibt keine "vorbereiteten" Gebäude. Du bist auf dich allein gestellt.</source>
+        <target>Les villes n’ont plus de chantiers préconstruits, à vos truelles</target>
+      </segment>
+    </unit>
+    <unit id="C1Uk2nl" name="Versuch dich an einer Pandämonium-Stadt, wenn du dich traust...">
+      <notes>
+        <note category="german">Versuch dich an einer Pandämonium-Stadt, wenn du dich traust...</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Versuch dich an einer Pandämonium-Stadt, wenn du dich traust...</source>
+        <target>Tentez le Pandémonium, mode difficile pour une expérience encore plus mortelle</target>
+      </segment>
+    </unit>
+    <unit id="qDTyCV1" name="Städte werden nun basierend auf ihrem Überlebensfaktor bewertet.">
+      <notes>
+        <note category="german">Städte werden nun basierend auf ihrem Überlebensfaktor bewertet.</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Städte werden nun basierend auf ihrem Überlebensfaktor bewertet.</source>
+        <target>Les villes sont désormais classées en fonction de leur survie globale</target>
+      </segment>
+    </unit>
+    <unit id="wtNGNwN" name="Du kannst nun angreifen wen immer du willst, selbst wenn du kein Ghul bist.">
+      <notes>
+        <note category="german">Du kannst nun angreifen wen immer du willst, selbst wenn du kein Ghul bist.</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du kannst nun angreifen wen immer du willst, selbst wenn du kein Ghul bist.</source>
+        <target>L’agression est possible sans Goule, gare à vos voisins</target>
+      </segment>
+    </unit>
+    <unit id="cs1EKvG" name="Um Baupläne zu finden musst du nun in Gebäuden in der Außenwelt campen.">
+      <notes>
+        <note category="german">Um Baupläne zu finden musst du nun in Gebäuden in der Außenwelt campen.</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Um Baupläne zu finden musst du nun in Gebäuden in der Außenwelt campen.</source>
+        <target>Les bâtiments du désert nécessitent d’être campés pour que le plan associé soit disponible</target>
+      </segment>
+    </unit>
+    <unit id="ejSpLIg">
+      <notes>
+        <note category="german">Diese letzten Nächte des Überlebens haben deiner verlorenen Seele zugesetzt, aber du bist daraus gestärkt hervorgegangen. Nun bist du bereit für die wirklichen Herausforderungen, die jetzt beginnen.</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Diese letzten Nächte des Überlebens haben deiner verlorenen Seele zugesetzt, aber du bist daraus gestärkt hervorgegangen. Nun bist du bereit für die wirklichen Herausforderungen, die jetzt beginnen.</source>
+        <target>Ces dernières nuits de survie ont renforcé votre âme de damné. Vous voilà plus fort, plus résistant et il est grand temps de découvrir la vraie vie.</target>
+      </segment>
+    </unit>
+    <unit id="25LN4T2">
+      <notes>
+        <note category="german">Der Diebstahl, den du gerade begangen hast, wurde bemerkt! Die Bürger werden gewarnt, dass du den(die,das) {item} bei {victim} gestohlen hast.</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php</note>
+      </notes>
+      <segment>
+        <source>Der Diebstahl, den du gerade begangen hast, wurde bemerkt! Die Bürger werden gewarnt, dass du den(die,das) {item} bei {victim} gestohlen hast.</source>
+        <target>Le larcin que vous venez de commettre a été repéré ! Les citoyens sont avertis que vous avez volé {item} à {victim}.</target>
+      </segment>
+    </unit>
+    <unit id="ljh7pXv">
+      <notes>
+        <note category="german">&lt;strong&gt;Das Stadttor ist geschlossen&lt;/strong&gt;, eine Rückkehr ist nicht möglich!</note>
+        <note category="from">twig:///templates/scripts/errors/beyond.txt.twig</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Das Stadttor ist geschlossen&lt;/strong&gt;, eine Rückkehr ist nicht möglich!</source>
+        <target><![CDATA[<strong>Les portes de la ville sont fermées</strong>, impossible d'être rapatrié(e) !]]></target>
+      </segment>
+    </unit>
+    <unit id="im0eaJb">
+      <notes>
+        <note category="german">Das Stadttor ist &lt;strong&gt;geschlossen&lt;/strong&gt;! Vielleicht kannst du im Forum nach Hilfe fragen...</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+      </notes>
+      <segment>
+        <source>Das Stadttor ist &lt;strong&gt;geschlossen&lt;/strong&gt;! Vielleicht kannst du im Forum nach Hilfe fragen...</source>
+        <target><![CDATA[Les portes sont <strong>fermées</strong> ! Peut-être qu'en allant supplier sur le forum...]]></target>
+      </segment>
+    </unit>
+    <unit id="YaVLRXG">
+      <notes>
+        <note category="german">Deine Beschwerde ist der Tropfen, der das Fass zum Überlaufen brachte... Die Bürger haben sich in Scharen gegen &lt;strong&gt;{citizen}&lt;/strong&gt; ausgesprochen.</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
+      </notes>
+      <segment>
+        <source>Deine Beschwerde ist der Tropfen, der das Fass zum Überlaufen brachte... Die Bürger haben sich in Scharen gegen &lt;strong&gt;{citizen}&lt;/strong&gt; ausgesprochen.</source>
+        <target><![CDATA[Votre plainte est celle qui a fait déborder le vase... Les citoyens ont été nombreux à voter contre <strong>{citizen}</strong> !]]></target>
+      </segment>
+    </unit>
+    <unit id="9QvAvnX">
+      <notes>
+        <note category="german">Dieser Aussätzige wurde zum Fleischkäfig geschleppt und dort unter dem Beifall des Publikums gesteinigt. Welch ein Schauspiel!</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
+      </notes>
+      <segment>
+        <source>Dieser Aussätzige wurde zum Fleischkäfig geschleppt und dort unter dem Beifall des Publikums gesteinigt. Welch ein Schauspiel!</source>
+        <target>Ce paria a été traîné à la Cage à Viande puis lapidé sous les applaudissements du public. Bonne ambiance !</target>
+      </segment>
+    </unit>
+    <unit id="789mf5P" name="Dieser Aussätzige wurde kurzerhand &lt;strong&gt;gehängt&lt;/strong&gt;.">
+      <notes>
+        <note category="german">Dieser Aussätzige wurde kurzerhand &lt;strong&gt;gehängt&lt;/strong&gt;.</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
+      </notes>
+      <segment>
+        <source>Dieser Aussätzige wurde kurzerhand &lt;strong&gt;gehängt&lt;/strong&gt;.</source>
+        <target><![CDATA[Ce paria a été <strong>pendu</strong> haut et court.]]></target>
+      </segment>
+    </unit>
+    <unit id="P6iIEO.">
+      <notes>
+        <note category="german">Der Galgen wurde im Zuge dieser gewalttätigen Aktion &lt;strong&gt;zerstört&lt;/strong&gt;...</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
+      </notes>
+      <segment>
+        <source>Der Galgen wurde im Zuge dieser gewalttätigen Aktion &lt;strong&gt;zerstört&lt;/strong&gt;...</source>
+        <target><![CDATA[La potence a été détruite</strong> au cours de cette violente opération...]]></target>
+      </segment>
+    </unit>
+    <unit id="WlruCS0" name="Dieser Aussätzige wurde kurzerhand &lt;strong&gt;gekreuzigt&lt;/strong&gt;.">
+      <notes>
+        <note category="german">Dieser Aussätzige wurde kurzerhand &lt;strong&gt;gekreuzigt&lt;/strong&gt;.</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
+      </notes>
+      <segment>
+        <source>Dieser Aussätzige wurde kurzerhand &lt;strong&gt;gekreuzigt&lt;/strong&gt;.</source>
+        <target><![CDATA[Ce paria a été <strong>crucifié</strong> sur votre croix en chocolat à titre d'exemple.]]></target>
+      </segment>
+    </unit>
+    <unit id="xBnA_I0">
+      <notes>
+        <note category="german">Das Schokoladenkreuz wurde von den Bürgern im Rahmen dieses tragischen Ereignisses &lt;strong&gt;gegessen&lt;/strong&gt;!</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
+      </notes>
+      <segment>
+        <source>Das Schokoladenkreuz wurde von den Bürgern im Rahmen dieses tragischen Ereignisses &lt;strong&gt;gegessen&lt;/strong&gt;!</source>
+        <target><![CDATA[<strong>La croix en chocolat a été dégustée</strong> au cours de
+cette violente opération...]]></target>
+      </segment>
+    </unit>
+    <unit id="IOhU3iU">
+      <notes>
+        <note category="german">{citizen} hat &lt;strong&gt;{count} Haufen Schutt&lt;/strong&gt; mithilfe von {item} bereinigt.</note>
+        <note category="from">db://LogEntryTemplate</note>
+      </notes>
+      <segment>
+        <source>{citizen} hat &lt;strong&gt;{count} Haufen Schutt&lt;/strong&gt; mithilfe von {item} bereinigt.</source>
+        <target><![CDATA[{citizen} a déblayé la zone pour <strong>{count} points</strong> avec  {item} .]]></target>
+      </segment>
+    </unit>
+    <unit id="b0OOd25">
+      <notes>
+        <note category="german">Diese Aktion wird durch ein Gebäude in der Stadt ermöglicht (nur Helden können sie verwenden).</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/town/door.html.twig</note>
+      </notes>
+      <segment>
+        <source>Diese Aktion wird durch ein Gebäude in der Stadt ermöglicht (nur Helden können sie verwenden).</source>
+        <target>Cette action est permise par un bâtiment de votre ville (seuls les héros peuvent en profiter).</target>
+      </segment>
+    </unit>
+    <unit id="Su8QIYk" name="Durch die Lüftungsschächte klettern (in)">
+      <notes>
+        <note category="german">Durch die Lüftungsschächte klettern</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+      </notes>
+      <segment>
+        <source>Durch die Lüftungsschächte klettern (in)</source>
+        <target>Entrer par l'aération</target>
+      </segment>
+    </unit>
+    <unit id="SNSC5Kg" name="Durch die Lüftungsschächte klettern (out)">
+      <notes>
+        <note category="german">Durch die Lüftungsschächte klettern</note>
+        <note category="from">twig:///templates/ajax/game/town/door.html.twig</note>
+      </notes>
+      <segment>
+        <source>Durch die Lüftungsschächte klettern (out)</source>
+        <target>Sortir par l'aération</target>
+      </segment>
+    </unit>
+    <unit id="dx8bzcp" name="Höchstens {nw_defense}">
+      <notes>
+        <note category="german">{nw_defense}</note>
+        <note category="from">twig:///templates/ajax/game/town/nightwatch.html.twig</note>
+      </notes>
+      <segment>
+        <source>Höchstens {nw_defense}</source>
+        <target>
+              {nw_defense, plural,
+                =0 {Aucun !!}
+                other {Au maximum #}
+              }
+          </target>
+      </segment>
+    </unit>
+    <unit id="VAttJzW" name="Dieser Bürger">
+      <notes>
+        <note category="german">Gerüchten zufolge ist dieser Bürger</note>
+        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger</source>
+        <target>Selon les rumeurs, le citoyen {citizen} :</target>
+      </segment>
+    </unit>
+    <unit id="Z0MirrQ">
+      <notes>
+        <note category="german">ist eventuell nicht in der Stadt und &lt;strong&gt;hätte ihr Haus nicht gegen Einbrecher geschützt&lt;/strong&gt;...</note>
+        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger ist nicht in der Stadt sei und hat &lt;strong&gt;sein Haus nicht gegen Einbrecher geschützt&lt;/strong&gt;...</source>
+        <target><![CDATA[n'est pas en ville et <strong>n'a pas protégé sa maison contre les voleurs</strong>...]]></target>
+      </segment>
+    </unit>
+    <unit id="7oOTMUP" name="In der (&lt;strong&gt;leeren&lt;/strong&gt;) Zone graben">
+      <notes>
+        <note category="german">In der (&lt;strong&gt;leeren&lt;/strong&gt;) Zone graben</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+      </notes>
+      <segment>
+        <source>In der (&lt;strong&gt;leeren&lt;/strong&gt;) Zone graben</source>
+        <target><![CDATA[Fouiller (<strong>zone épuisée</strong>)]]></target>
+      </segment>
+    </unit>
+    <unit id="Szio5gY" name="Tod durch die Apokalypse">
+      <notes>
+        <note category="german">Tod durch die Apokalypse</note>
+        <note category="from">db://CauseOfDeath</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Tod durch die Apokalypse</source>
+        <target>Tod durch die Apokalypse</target>
+      </segment>
+    </unit>
+    <unit id="EhRWrg3">
+      <notes>
+        <note category="german">Eine Katastrophe apokalyptischen Ausmaßes hat dich, deine Stadt und alles in der Umgebung hinweggefegt. Es ist, als hätte jemand die gesamte Welt... gereinigt.</note>
+        <note category="from">db://CauseOfDeath</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Eine Katastrophe apokalyptischen Ausmaßes hat dich, deine Stadt und alles in der Umgebung hinweggefegt. Es ist, als hätte jemand die gesamte Welt... gereinigt.</source>
+        <target>Eine Katastrophe apokalyptischen Ausmaßes hat dich, deine Stadt und alles in der Umgebung hinweggefegt. Es ist, als hätte jemand die gesamte Welt... gereinigt.</target>
+      </segment>
+    </unit>
+    <unit id="TI4f6dK">
+      <notes>
+        <note category="german">Vereinzelte Bürger berichten von einem merkwürdigen Phänomen am Himmel... Ihr solltet die Alkoholvorräte in der Bank pürfen.</note>
+        <note category="from">php:///src/Structures/Hook.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Vereinzelte Bürger berichten von einem merkwürdigen Phänomen am Himmel... Ihr solltet die Alkoholvorräte in der Bank pürfen.</source>
+        <target>Vereinzelte Bürger berichten von einem merkwürdigen Phänomen am Himmel... Ihr solltet die Alkoholvorräte in der Bank pürfen.</target>
+      </segment>
+    </unit>
+    <unit id="J1ZyqLO">
+      <notes>
+        <note category="german">Einige Bürger haben berichtet, während ihrer Abschätzung ein rotes Blitzen am Horizont gesehen zu haben.</note>
+        <note category="from">php:///src/Structures/Hook.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Einige Bürger haben berichtet, während ihrer Abschätzung ein rotes Blitzen am Horizont gesehen zu haben.</source>
+        <target>Einige Bürger haben berichtet, während ihrer Abschätzung ein rotes Blitzen am Horizont gesehen zu haben.</target>
+      </segment>
+    </unit>
+    <unit id="kXaqluQ">
+      <notes>
+        <note category="german">Ein Großteil der Bürger, die heute auf dem Wachturm waren, haben ein lautes Grollen in der Ferne vernommen.</note>
+        <note category="from">php:///src/Structures/Hook.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Ein Großteil der Bürger, die heute auf dem Wachturm waren, haben ein lautes Grollen in der Ferne vernommen.</source>
+        <target>Ein Großteil der Bürger, die heute auf dem Wachturm waren, haben ein lautes Grollen in der Ferne vernommen.</target>
+      </segment>
+    </unit>
+    <unit id=".8QsYID">
+      <notes>
+        <note category="german">Zusatzbemerkung zur heutigen Abschätzung: Der Himmel hat sich blutrot gefärbt. Das sieht nicht gut aus, Leute...</note>
+        <note category="from">php:///src/Structures/Hook.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Zusatzbemerkung zur heutigen Abschätzung: Der Himmel hat sich blutrot gefärbt. Das sieht nicht gut aus, Leute...</source>
+        <target>Zusatzbemerkung zur heutigen Abschätzung: Der Himmel hat sich blutrot gefärbt. Das sieht nicht gut aus, Leute...</target>
+      </segment>
+    </unit>
+    <unit id="2soUcg3">
+      <notes>
+        <note category="german">Das sieht nicht gut aus... Die Zombies werden heute Nacht nicht unser größtes Problem sein.</note>
+        <note category="from">php:///src/Structures/Hook.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Das sieht nicht gut aus... Die Zombies werden heute Nacht nicht unser größtes Problem sein.</source>
+        <target>Das sieht nicht gut aus... Die Zombies werden heute Nacht nicht unser größtes Problem sein.</target>
+      </segment>
+    </unit>
+    <unit id="SnHKJah" name="Beten">
+      <notes>
+        <note category="german">Beten</note>
+        <note category="from">php:///src/Structures/Hook.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Beten</source>
+        <target>Beten</target>
+      </segment>
+    </unit>
+    <unit id="yOOoIBM" name="Es gibt keine Hoffnung!">
+      <notes>
+        <note category="german">Es gibt keine Hoffnung!</note>
+        <note category="from">php:///src/Structures/Hook.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Es gibt keine Hoffnung!</source>
+        <target>Es gibt keine Hoffnung!</target>
       </segment>
     </unit>
   </file>

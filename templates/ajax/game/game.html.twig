@@ -4,7 +4,7 @@
 
     {% if clock is defined %}
         <ul class="clock">
-            <li>{{ clock.desc }}</li>
+            <li class="town-name">{{ clock.desc }}</li>
             <li>{% if clock.towntype == 'panda' %}<span class="hardcore">{{'Pandämonium'|trans({}, 'game')}}</span> {% endif %}{% if clock.day != "" %}{{ 'Tag {day}'|trans({'{day}': clock.day}, 'game') }}{% endif %}</li>
             <li x-current-time="{{ clock.offset }}" x-no-seconds="1" x-force-hours="1"><div class="tooltip help">{{ 'Spielzeit'|trans({},'game') }}</div>{{ clock.timestamp.format('G:i') }}</li>
             <li x-countdown="{{ clock.attack }}" x-countdown-no-seconds="1" x-countdown-force-hours="1"><div class="tooltip help">{{ 'Zeit bis zum nächsten Zombieangriff'|trans({},'game') }}</div></li>

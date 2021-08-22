@@ -641,16 +641,6 @@
         <target>Pompe</target>
       </segment>
     </unit>
-    <unit id="soE_FyU" name="Der Brunnen der Stadt wird einmalig um 5 Rationen Wasser aufgefüllt">
-      <notes>
-        <note category="german">Der Brunnen der Stadt wird einmalig um 5 Rationen Wasser aufgefüllt</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Der Brunnen der Stadt wird einmalig um 5 Rationen Wasser aufgefüllt</source>
-        <target>Ajoute 5 Rations d'eau dans le puits (une seule fois).</target>
-      </segment>
-    </unit>
     <unit id="1gviUPR" name="Der Brunnen der Stadt wird einmalig um 20 Rationen Wasser aufgefüllt">
       <notes>
         <note category="german">Der Brunnen der Stadt wird einmalig um 20 Rationen Wasser aufgefüllt</note>
@@ -2541,7 +2531,7 @@
       </notes>
       <segment>
         <source>Nach der Pumpe könnt ihr mit dem Wasserleitungsnetz die auf Wasser basierenden Verteidigungsmechanismen angehen! Zusätzlich vergrößert das Netz auch die Wasserreserven des Brunnens.</source>
-        <target>Grace à ce réseau de tuyaux, vous pourrez bâtir de puissantes défenses à base d'eau en ville ! De plus, ce système apporte un petit surplus d'eau au puits.</target>
+        <target>Grâce à ce réseau de tuyaux, vous pourrez bâtir de puissantes défenses à base d'eau en ville ! De plus, ce système apporte un petit surplus d'eau au puits.</target>
       </segment>
     </unit>
     <unit id="9bvD0a1">
@@ -2944,16 +2934,6 @@
         <target>Chaque jour, le Scrutateur permet de trouver à nouveau des objets dans certaines zones auparavant considérées comme “épuisées”. En effet, il détecte les phénomènes météorologiques anormaux qui surviennent dehors, pendant la nuit, et indique dans la gazette quelle région du désert a été affectée.</target>
       </segment>
     </unit>
-    <unit id="v3.4yJS">
-      <notes>
-        <note category="german">En cas d'alerte, il est souvent crucial de penser à fixer quelques morceaux de bois un peu partout pour tenir une nuit de plus.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>En cas d'alerte, il est souvent crucial de penser à fixer quelques morceaux de bois un peu partout pour tenir une nuit de plus.</source>
-        <target>Wenn es brenzlig wird, ist es oft überlebenswichtig, hier und dort mit ein paar Holzplanken nachzuhelfen und alles nochmal dicht zu machen. Das bringt dir oft noch eine weitere Nacht.</target>
-      </segment>
-    </unit>
     <unit id="CSPllWH">
       <notes>
         <note category="german">Der gesamte Außenbereich der Stadt wird mit angespitzten Holzpfählen gespickt. Diese kostengünstige Verteidigungsmaßnahme verwandelt die Stadt in eine wahre Trutzburg und kann an manchen Abenden den Unterschied zwischen Leben und Tod ausmachen.</note>
@@ -3001,7 +2981,7 @@
       </notes>
       <segment>
         <source>Das wird den Zombies Beine machen - oder besser: ausreißen!</source>
-        <target>Ca ne tuera pas les zombies, mais ça les stoppera dans leur avancée !</target>
+        <target>Ça ne tuera pas les zombies, mais ça les stoppera dans leur avancée !</target>
       </segment>
     </unit>
     <unit id="CQJhZS8" name="Dynamit, Zombies, Blut.">
@@ -3091,7 +3071,7 @@
       </notes>
       <segment>
         <source>Ein Schießstand mit Wasserpistolen, der wohl aus den Überresten eines Rummels geborgen wurde. Er zaubert eurer Nachtwache ein Lächeln ins Gesicht - damit schickt ihr sicher einen netten Schauer die Mauer runter! Verleiht jeder Wasserwaffe, die auf der Wacht genutzt wird, einen 20% Bonus.</source>
-        <target>Une tourelle de tir au ballon d'eau, peu maniable, elle aura un succès fou sur un rempart, ce sont les veilleurs qui vont être content. Elle apporte +20% de défense aux armes à eau équipées lors d'une veille.</target>
+        <target>Une tourelle de tir au ballon d'eau, peu maniable, elle aura un succès fou sur un rempart, ce sont les veilleurs qui vont être contents. Elle apporte +20% de défense aux armes à eau équipées lors d'une veille.</target>
       </segment>
     </unit>
     <unit id="xm64u3P">
@@ -3201,7 +3181,7 @@
       </notes>
       <segment>
         <source>Dank dieses kleinen, am Brunnen angebrachten Wasserhahns, kannst Du nun die Wassermengen abschöpfen, die ansonten durch das Filtersystem verschwendet werden (es braucht kein zusätzliches Brunnen-Wasser). Du kannst mit diesem Wasser alle auf Wasser basierenden Waffen KOSTENLOS auffüllen (Wasserbombe, Wasserkanone,...)!</source>
-        <target>Grace à ce petit robinet relié au puits, vous pouvez récupérer les eaux gaspillées par le système de filtrage (donc sans prélever l'eau potable, si précieuse). Vous pourrez alors l'utiliser pour remplir GRATUITEMENT toutes vos armes à eau (ballon, pistolets…) !</target>
+        <target>Grâce à ce petit robinet relié au puits, vous pouvez récupérer les eaux gaspillées par le système de filtrage (donc sans prélever l'eau potable, si précieuse). Vous pourrez alors l'utiliser pour remplir GRATUITEMENT toutes vos armes à eau (ballon, pistolets…) !</target>
       </segment>
     </unit>
     <unit id="m0pInPT">

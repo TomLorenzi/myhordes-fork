@@ -22,6 +22,7 @@ class ExpandedPhpExtractor extends PhpExtractor
      * @var string
      */
     private $prefix = '';
+    private $first_run = true;
 
     protected $sequences = [
         [
@@ -71,6 +72,27 @@ class ExpandedPhpExtractor extends PhpExtractor
     {
         $this->config = $config;
         $this->kernel = $kernel;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function extract($resource, MessageCatalogue $catalog)
+    {
+        $files = $this->extractFiles($resource);
+        foreach ($files as $file) {
+            $this->parseTokens(token_get_all(file_get_contents($file)), $catalog, $file);
+
+            gc_mem_caches();
+        }
+
+        if ($this->first_run) {
+            $this->first_run = false;
+            $file = $this->kernel->getProjectDir() . '/src/Structures/Hook.php';
+            $this->parseTokens(token_get_all(file_get_contents($file)), $catalog, $file);
+
+            gc_mem_caches();
+        }
     }
 
     /**

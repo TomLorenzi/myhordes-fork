@@ -125,7 +125,7 @@
                         <div class="cell padded rw-3 rw-md-6 rw-sm-12">
                             <select name="type" id="type" x-payload="townType">
                                 {% for townClass in townClasses %}
-                                    <option value="{{townClass.name}}">{{townClass.label|trans({}, 'game')}}</option>
+                                    <option {% if townClass.name == 'remote' %}selected{% endif %} value="{{townClass.name}}">{{townClass.label|trans({}, 'game')}}</option>
                                 {% endfor %}
                             </select>
                             {% if is_granted('ROLE_CROW') %}
@@ -442,6 +442,7 @@
                             </div>
 
                             <div class="cell padded rw-9 rw-md-6 rw-sm-12 mod">
+                                <div><input type="checkbox" name="rk-event-tag" id="rk-event-tag" x-payload="rk-event-tag" /> <label for="rk-event-tag"><strong>{{'Als Event-Stadt markieren'|trans({}, 'ghost')}}</strong> {{'Event-Städte werden nicht ins Ranking aufgenommen und erhalten eine spezielle Markierung in der Stadtliste.'|trans({}, 'ghost')}}</label></div>
                                 <div><input type="checkbox" x-payload="event-management" name="event-management" id="event-management"/> <label for="event-management"><strong>{{'Manuelles Event-Management:'|trans({}, 'game')}}</strong> {{'Deaktiviert die normale Event-Verwaltung der Stadt und legt stattdessen manuell fest, welche Event-Inhalte für die Dauer der Stadt verfügbar sind.'|trans({}, 'game')}}</label></div>
                                 <div id="event-list" style="display: none">
                                     <div><input type="radio" value="none" x-payload="event-name" name="event-name" id="event-none" checked/> <label for="event-none"><strong>{{'Kein Event:'|trans({}, 'game')}}</strong> {{ 'Startet die Stadt ohne Event-Inhalte'|trans({}, 'game') }}</label></div>
@@ -452,7 +453,6 @@
                                     <div><input type="radio" value="arma" x-payload="event-name" name="event-name" id="event-arma" /> <label for="event-arma"><strong>{{'Armageddon'|trans({}, 'game')}}</strong></label></div>
                                     <div><input type="radio" value="christmas" x-payload="event-name" name="event-name" id="event-christmas" /> <label for="event-christmas"><strong>{{'Weihnachten'|trans({}, 'game')}}</strong></label></div>
                                 </div>
-
                             </div>
                         </div>
                     {% endif %}

@@ -334,16 +334,6 @@
         <target>Login failed. Please check your input.</target>
       </segment>
     </unit>
-    <unit id="DMKAJPg" name="Dein Name kann keine Leerzeichen sowie &quot;$&quot;, &quot;&lt;&quot; und &quot;&gt;&quot; enthalten.">
-      <notes>
-        <note category="german">Dein Name kann keine Leerzeichen sowie "$", "&lt;" und "&gt;" enthalten.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Dein Name kann keine Leerzeichen sowie "$", "&lt;" und "&gt;" enthalten.</source>
-        <target><![CDATA[Your name cannot contain spaces, "$", "<" und ">".]]></target>
-      </segment>
-    </unit>
     <unit id="ZJtAei3">
       <notes>
         <note category="german">Dein Passwort wurde erfolgreich geändert. Bitte logge dich mit deinem neuen Passwort ein.</note>
@@ -562,16 +552,6 @@
       <segment>
         <source>Gleich kanns losgehen!</source>
         <target>Almost ready!</target>
-      </segment>
-    </unit>
-    <unit id="NYi.sD7">
-      <notes>
-        <note category="german">Dank deines EternalTwin-Account kannst du ohne vorherige Registrierung MyHordes spielen!</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Dank deines EternalTwin-Account kannst du ohne vorherige Registrierung MyHordes spielen!</source>
-        <target>Thanks to your EternalTwin account you can play MyHordes without prior registration!</target>
       </segment>
     </unit>
     <unit id="zK1Sfzm">

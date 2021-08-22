@@ -492,26 +492,6 @@
         <target>Support</target>
       </segment>
     </unit>
-    <unit id="BKRwO03" name="1- Überprüfe deinen Browser">
-      <notes>
-        <note category="german">1- Überprüfe deinen Browser</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>1- Überprüfe deinen Browser</source>
-        <target>1- Check my browser</target>
-      </segment>
-    </unit>
-    <unit id="cm9u5KI" name="2- Überprüfe sonstige installierte Programme">
-      <notes>
-        <note category="german">2- Überprüfe sonstige installierte Programme</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>2- Überprüfe sonstige installierte Programme</source>
-        <target>2- Check third-party applications</target>
-      </segment>
-    </unit>
     <unit id="vm9r3tz" name="Hier erhältst du Hilfe">
       <notes>
         <note category="german">Hier erhältst du Hilfe</note>
@@ -1052,16 +1032,6 @@ Im Schnelldurchlauf lässt du die schönen und unschönen Momente deines kurzen 
       <segment>
         <source>Der Mark.-Knopf &lt;strong&gt;[3]&lt;/strong&gt; zeigt alle von dir oder von anderen Spieler gesetzten Wegmarken an. Diese können zum Markieren von gefährlichen Zonen gesetzt werden, oder aber, um auf wichtige Gegenstände hinzuweisen.</source>
         <target><![CDATA[The Mark. button <strong>[3]</strong> allows you to view the markers which have been placed on the map by other players (or yourself). This allows players to highlight dangerous zones, or zones containing important objects etc.]]></target>
-      </segment>
-    </unit>
-    <unit id="px25T6e">
-      <notes>
-        <note category="german">Der Globale Knopf &lt;strong&gt;[4]&lt;/strong&gt; zeigt alle Zonen an, die der &lt;strong&gt;Stadt als Ganzes&lt;/strong&gt; bekannt sind.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Der Globale Knopf &lt;strong&gt;[4]&lt;/strong&gt; zeigt alle Zonen an, die der &lt;strong&gt;Stadt als Ganzes&lt;/strong&gt; bekannt sind.</source>
-        <target><![CDATA[The Global button <strong>[4]</strong> allows you to see as much of the world as has been explored by <strong>the citizens of the town</strong> (and not just what you have discovered on your expeditions).]]></target>
       </segment>
     </unit>
     <unit id="Czm2yVn" name="Der Expeditionsknopf &lt;strong&gt;[4]&lt;/strong&gt; zeigt alle geplanten Expeditionen an.">
@@ -2336,7 +2306,7 @@ sind &lt;strong&gt;nicht auf 90%&lt;/strong&gt; beschränkt.</source>
     <unit id="27FD0EG" name="Die Auszeichnungen">
       <notes>
         <note category="german">Die Auszeichnungen</note>
-        <note category="from">twig:///templates/ajax/help/your_soul.html.twig</note>
+        <note category="from">twig:///templates/ajax/help/your_soul.html.twig;twig:///templates/ajax/soul/death.html.twig</note>
       </notes>
       <segment>
         <source>Die Auszeichnungen</source>
@@ -4028,17 +3998,6 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
         <target>eating human flesh, whether alive or dead, will restore your {img_ap} and reduce your Voracity,</target>
       </segment>
     </unit>
-    <unit id="h_gD9Uq">
-      <notes>
-        <note category="german">Pro gefressenem Mitbürger gewinnst du &lt;strong&gt;1 Heldentag&lt;/strong&gt; (Du erhältst sie nach deinem Tod).</note>
-        <note category="state">new</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Pro gefressenem Mitbürger gewinnst du &lt;strong&gt;1 Heldentag&lt;/strong&gt; (Du erhältst sie nach deinem Tod).</source>
-        <target><![CDATA[Pro gefressenem Mitbürger gewinnst du <strong>1 Heldentag</strong> (Du erhältst sie nach deinem Tod).]]></target>
-      </segment>
-    </unit>
     <unit id="v4LpsCZ">
       <notes>
         <note category="german">Du bist gegen die Wirkungen einer &lt;strong&gt;Infektion&lt;/strong&gt; immun und verspürst keinen &lt;strong&gt;Durst&lt;/strong&gt;.</note>
@@ -5390,50 +5349,6 @@ müssen durchdacht geplant werden.</source>
         <target>Every night at midnight (server time, UTC+1), the hordes of living dead attack the town. Each attack consists of a certain number of zombies.</target>
       </segment>
     </unit>
-    <unit id="D4X9Djo" name="España: 01h00">
-      <notes>
-        <note category="german">España: 01h00</note>
-        <note category="state">new</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>España: 01h00</source>
-        <target>España: 01h00</target>
-      </segment>
-    </unit>
-    <unit id="cf00bvp" name="México: 18h00">
-      <notes>
-        <note category="german">México: 18h00</note>
-        <note category="state">new</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>México: 18h00</source>
-        <target>México: 18h00</target>
-      </segment>
-    </unit>
-    <unit id="GBtY4go" name="Argentina, Chile y Uruguay: 20h00">
-      <notes>
-        <note category="german">Argentina, Chile y Uruguay: 20h00</note>
-        <note category="state">new</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Argentina, Chile y Uruguay: 20h00</source>
-        <target>Argentina, Chile y Uruguay: 20h00</target>
-      </segment>
-    </unit>
-    <unit id="EQq8xCY" name="Colombia y Perú: 18h00">
-      <notes>
-        <note category="german">Colombia y Perú: 18h00</note>
-        <note category="state">new</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Colombia y Perú: 18h00</source>
-        <target>Colombia y Perú: 18h00</target>
-      </segment>
-    </unit>
     <unit id="xMTq99h" name="Phase 1: Die Rückkehr der lebenden Toten">
       <notes>
         <note category="german">Phase 1: Die Rückkehr der lebenden Toten</note>
@@ -5790,16 +5705,6 @@ Eine davon ist es der &lt;strong&gt;Nachtwache&lt;/strong&gt; beizutreten.</sour
       <segment>
         <source>Das heißt allerdings nicht, dass deine stadtloyalen Mitbürger dein Handeln auch gutheißen würden...</source>
         <target>That doesn't mean to say that your fellow townspeople will appreciate the gesture...</target>
-      </segment>
-    </unit>
-    <unit id="_bckoqm">
-      <notes>
-        <note category="german">Achtung! Wenn die Anzahl der Angreifer höher ist als die Stadtverteidigung sinken die Überlebenschancen der Nachtwächter! In solchen Situationen wird sich zeigen, wer die wahren Helden der Stadt sind.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Achtung! Wenn die Anzahl der Angreifer höher ist als die Stadtverteidigung sinken die Überlebenschancen der Nachtwächter! In solchen Situationen wird sich zeigen, wer die wahren Helden der Stadt sind.</source>
-        <target>Warning, if the number of attacking zombies is greater than the town's defences, the watchmen's chances of surviving are drastically reduced! This is the moment at which you'll see the true defenders of the town.</target>
       </segment>
     </unit>
     <unit id="SVBBTil">
@@ -6472,16 +6377,6 @@ Die Punkte für den Titel "Spiritueller Führer" kumulieren sich mit jedem Tag. 
       <segment>
         <source>&lt;strong&gt;Das Stadttor ist irreparabel zerstört&lt;/strong&gt;: Die Stadt kann von den Überlebenden nicht mehr  als sicherer Rückzugsort genutzt werden.</source>
         <target><![CDATA[<strong>the gates are irreparably damaged</strong>: the town will no longer be able to serve as a refuge for the survivors,]]></target>
-      </segment>
-    </unit>
-    <unit id="MBxcEi9" name="Alle Gebäude, die sich im Bau befanden, wurden zerstört.">
-      <notes>
-        <note category="german">Alle Gebäude, die sich im Bau befanden, wurden zerstört.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Alle Gebäude, die sich im Bau befanden, wurden zerstört.</source>
-        <target>buildings under construction will have to be started again from scratch,</target>
       </segment>
     </unit>
     <unit id="4FoyWoL" name="Die Wasserreserven des Stadtbrunnens sind stark gesunken.">
@@ -7167,28 +7062,6 @@ in die Rangliste aufgenommen. Kleine Städte oder Privatstädte werden nicht ins
         <target>Consult the official technical support site for MyHordes by clicking below :</target>
       </segment>
     </unit>
-    <unit id="qjGA5u0">
-      <notes>
-        <note category="german">&lt;strong&gt;HÄUFIG GESTELLTE FRAGEN:&lt;/strong&gt;
-Lies dir bitte die offizielle &lt;span x-ajax-href={url_support}&gt;Technische Supportseite von MyHordes&lt;/span&gt; durch!</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>&lt;strong&gt;HÄUFIG GESTELLTE FRAGEN:&lt;/strong&gt;
-Lies dir bitte die offizielle &lt;span x-ajax-href={url_support}&gt;Technische Supportseite von MyHordes&lt;/span&gt; durch!</source>
-        <target><![CDATA[<strong>FAQ:</strong> consult the official <span x-ajax-href={url_support}>MyHordes technical support site</span> !]]></target>
-      </segment>
-    </unit>
-    <unit id="u6CHRLa">
-      <notes>
-        <note category="german">&lt;strong&gt;MIT ANDEREN SPIELERN REDEN:&lt;/strong&gt; Die meisten Spielfragen werden oder wurden meistens schon in den &lt;span x-ajax-href={url_forums}&gt;Foren&lt;/span&gt; beantwortet. Du kannst darauf zugreifen, wenn du im Spiel eingeloggt bist.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>&lt;strong&gt;MIT ANDEREN SPIELERN REDEN:&lt;/strong&gt; Die meisten Spielfragen werden oder wurden meistens schon in den &lt;span x-ajax-href={url_forums}&gt;Foren&lt;/span&gt; beantwortet. Du kannst darauf zugreifen, wenn du im Spiel eingeloggt bist.</source>
-        <target><![CDATA[<strong>DISCUSS WITH OTHER PLAYERS:</strong> you will often find the answers to your questions directly on the <span x-ajax-href={url_forums}>site forums</span>, which are available as long as you are signed in.]]></target>
-      </segment>
-    </unit>
     <unit id="4oAKxr3">
       <notes>
         <note category="german">&lt;strong&gt;EINEN REGELVERSTOSS MELDEN:&lt;/strong&gt;
@@ -7211,16 +7084,6 @@ Nutze bitte folgenden Link, wenn du uns einen Bug (technischen Fehler) melden m�
         <source>&lt;strong&gt;EINEN BUG MELDEN:&lt;/strong&gt;
 Nutze bitte folgenden Link, wenn du uns einen Bug (technischen Fehler) melden möchtest: &lt;a href={url_git}&gt;Buglisten&lt;/a&gt;.</source>
         <target><![CDATA[<strong>REPORT A BUG:</strong> o report a bug, use the following discussion area: <a href={url_git}>Bug reports into Gitlab</a>.]]></target>
-      </segment>
-    </unit>
-    <unit id="XkmnbTG">
-      <notes>
-        <note category="german">Zu guter Letzt: Für sämtliche Anregungen und Fragen, die die &lt;strong&gt;MyHordes-Community&lt;/strong&gt; betreffen, kannst dem &lt;span x-ajax-href={url_oracle}&gt;Orakels&lt;/span&gt; anschreiben.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Zu guter Letzt: Für sämtliche Anregungen und Fragen, die die &lt;strong&gt;MyHordes-Community&lt;/strong&gt; betreffen, kannst dem &lt;span x-ajax-href={url_oracle}&gt;Orakels&lt;/span&gt; anschreiben.</source>
-        <target><![CDATA[finally, for all questions relating to the <strong>MyHordes Community</strong>, you can contact <span x-ajax-href={url_oracle}>the Oracles</span>.]]></target>
       </segment>
     </unit>
     <unit id="jcxOFSe">
@@ -7342,16 +7205,6 @@ Nutze bitte folgenden Link, wenn du uns einen Bug (technischen Fehler) melden m�
       <segment>
         <source>Der nicht stattgefundene Angriff findet in diesem Fall wieder regulär um Mitternacht des folgenden Tags statt.</source>
         <target>The attack which didn't occur at 00h00 (server time) will take place the following night.</target>
-      </segment>
-    </unit>
-    <unit id="Y9Uk1gC">
-      <notes>
-        <note category="german">Beachte: Das Stadttor wird vor diesem verschobenen Zombieangriff ausnahmsweise automatisch geschlossen.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Beachte: Das Stadttor wird vor diesem verschobenen Zombieangriff ausnahmsweise automatisch geschlossen.</source>
-        <target>Note: the town gates will be closed automatically before the delayed attack.</target>
       </segment>
     </unit>
     <unit id="GE.0HDW">

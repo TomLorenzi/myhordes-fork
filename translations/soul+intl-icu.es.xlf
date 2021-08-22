@@ -1,16 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="de" trgLang="es">
   <file id="soul.es">
-    <unit id="BNcLxkK" name="Deine Seele">
-      <notes>
-        <note category="german">Deine Seele</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Deine Seele</source>
-        <target>Tu Alma</target>
-      </segment>
-    </unit>
     <unit id="wvl2WtX" name="E-Mail-Adresse">
       <notes>
         <note category="german">E-Mail-Adresse</note>
@@ -251,19 +241,6 @@
         <target>Editar vista de avatar reducido</target>
       </segment>
     </unit>
-    <unit id="Af7eIx8">
-      <notes>
-        <note category="german">Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
-                                    Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
-                                    Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</source>
-        <target>Elige qué parte de tu avatar se usa para el avatar reducido.
-                                    Mueve la sección con el ratón y amplíala o redúcela con la rueda del ratón</target>
-      </segment>
-    </unit>
     <unit id="37GuQ5_" name="Profilbild hochladen">
       <notes>
         <note category="german">Profilbild hochladen</note>
@@ -364,16 +341,6 @@
         <target>Contraseña actual</target>
       </segment>
     </unit>
-    <unit id="wIQ05bj" name="Passwort aktualisieren">
-      <notes>
-        <note category="german">Passwort aktualisieren</note>
-        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-      </notes>
-      <segment>
-        <source>Passwort aktualisieren</source>
-        <target>Actualizar contraseña</target>
-      </segment>
-    </unit>
     <unit id="YDybxz8" name="Standardsprache">
       <notes>
         <note category="german">Standardsprache</note>
@@ -382,46 +349,6 @@
       <segment>
         <source>Standardsprache</source>
         <target>Idioma por defecto</target>
-      </segment>
-    </unit>
-    <unit id="gBz_D6E" name="Deutsch">
-      <notes>
-        <note category="german">Deutsch</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Deutsch</source>
-        <target>Alemán</target>
-      </segment>
-    </unit>
-    <unit id="vp_4VdN" name="Französisch">
-      <notes>
-        <note category="german">Französisch</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Französisch</source>
-        <target>Francés</target>
-      </segment>
-    </unit>
-    <unit id="mD6lfyI" name="Englisch">
-      <notes>
-        <note category="german">Englisch</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Englisch</source>
-        <target>Inglés</target>
-      </segment>
-    </unit>
-    <unit id="bjgV6Xr" name="Spanisch">
-      <notes>
-        <note category="german">Spanisch</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Spanisch</source>
-        <target>Español</target>
       </segment>
     </unit>
     <unit id="fuUze6t" name="Externe Anwendungen">
@@ -654,19 +581,6 @@
         <target>Acceda a actualizaciones importantes anteriores:</target>
       </segment>
     </unit>
-    <unit id="EHTi.hN">
-      <notes>
-        <note category="german">Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
-                                            Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
-                                            Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</source>
-        <target>Elija qué parte de tu foto de perfil se debe utilizar para la pantalla comprimida.
-                                             Mueva la sección con el ratón y amplíela o redúzcala con la rueda del ratón.</target>
-      </segment>
-    </unit>
     <unit id="XqSrbwp" name="Browser-Einstellungen">
       <notes>
         <note category="german">Browser-Einstellungen</note>
@@ -828,16 +742,6 @@
         <target>Tus almas importadas</target>
       </segment>
     </unit>
-    <unit id="aTN.bek" name="Vorschau">
-      <notes>
-        <note category="german">Vorschau</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Vorschau</source>
-        <target>Avance</target>
-      </segment>
-    </unit>
     <unit id="pGqYh1Z" name="Hurra, wir haben dein Profil heruntergeladen!">
       <notes>
         <note category="german">Hurra, wir haben dein Profil heruntergeladen!</note>
@@ -918,16 +822,6 @@
         <target>Nombre del pueblo</target>
       </segment>
     </unit>
-    <unit id="H9ZffoW" name="Nachrichten">
-      <notes>
-        <note category="german">Nachrichten</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Nachrichten</source>
-        <target>Noticias</target>
-      </segment>
-    </unit>
     <unit id="hn7LsRJ" name="Punkte">
       <notes>
         <note category="german">Punkte</note>
@@ -936,16 +830,6 @@
       <segment>
         <source>Punkte</source>
         <target>Puntos</target>
-      </segment>
-    </unit>
-    <unit id="HcPQCBJ" name="{d} überlebt">
-      <notes>
-        <note category="german">{d} überlebt</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>{d} überlebt</source>
-        <target>{d} sobrevivió</target>
       </segment>
     </unit>
     <unit id="rD2ZHAN" name="Letzte Worte">
@@ -1842,11 +1726,11 @@
     <unit id="XRr8eU." name="Gib den Pseudo des Bürgers ein.">
       <notes>
         <note category="german">Gib den Namen des Bürgers ein.</note>
-        <note category="from">twig:///templates/ajax/admin/snippets/user_search.html.twig;twig:///templates/ajax/forum/search.html.twig;twig:///templates/ajax/ghost/create_town.html.twig;twig:///templates/ajax/pm/user_list.html.twig;twig:///templates/ajax/pm/view.html.twig;twig:///templates/ajax/soul/coalitions.html.twig;twig:///templates/ajax/soul/me.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/snippets/user_search.html.twig;twig:///templates/ajax/forum/editor.html.twig;twig:///templates/ajax/forum/search.html.twig;twig:///templates/ajax/ghost/create_town.html.twig;twig:///templates/ajax/pm/user_list.html.twig;twig:///templates/ajax/pm/view.html.twig;twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Gib den Pseudo des Bürgers ein.</source>
-        <target>Ingresa el nick del habitante.</target>
+        <target>Ingresa el nick del jugador.</target>
       </segment>
     </unit>
     <unit id="CMpbuf0">
@@ -3192,16 +3076,6 @@
         <target>No tienes una alianza.</target>
       </segment>
     </unit>
-    <unit id="ljPPYyM" name="Du bist nicht Anführer deiner Koalition.">
-      <notes>
-        <note category="german">Du bist nicht Anführer deiner Koalition.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Du bist nicht Anführer deiner Koalition.</source>
-        <target>No eres el líder de tu alianza.</target>
-      </segment>
-    </unit>
     <unit id="nnaWQyL" name="Kein freier Platz">
       <notes>
         <note category="german">Kein freier Platz</note>
@@ -3676,14 +3550,14 @@
         <target>Ya no puedes cambiar tu nombre de jugador.</target>
       </segment>
     </unit>
-    <unit id="yF2vVL5" name="%user% war in der Vergangenheit unter folgenden Namen bekannt:">
+    <unit id="m65CDx_" name="{user} war in der Vergangenheit unter folgenden Namen bekannt:">
       <notes>
-        <note category="german">%user% war in der Vergangenheit unter folgenden Namen bekannt:</note>
+        <note category="german">{user} war in der Vergangenheit unter folgenden Namen bekannt:</note>
         <note category="from">twig:///templates/ajax/soul/badges.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
       </notes>
       <segment>
-        <source>%user% war in der Vergangenheit unter folgenden Namen bekannt:</source>
-        <target>%user% era conocido con los siguientes nombres en el pasado:</target>
+        <source>{user} war in der Vergangenheit unter folgenden Namen bekannt:</source>
+        <target>{user} era conocido con los siguientes nombres en el pasado:</target>
       </segment>
     </unit>
     <unit id="tT1wWcP" name="Du hattest in der Vergangenheit folgende Spielernamen:">
@@ -3857,6 +3731,79 @@
       <segment>
         <source>Änderung der E-Mail Adresse abbrechen</source>
         <target>Cancelar el cambio de la dirección de correo electrónico</target>
+      </segment>
+    </unit>
+    <unit id="0_cdRLf" name="Diese Stadt wurde aus dem Ranking ausgeschlossen.">
+      <notes>
+        <note category="german">Diese Stadt wurde aus dem Ranking ausgeschlossen.</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Diese Stadt wurde aus dem Ranking ausgeschlossen.</source>
+        <target>Esta ciudad fue excluida del ranking.</target>
+      </segment>
+    </unit>
+    <unit id="7kH99Rl" name="Dieser Eintrag wurde aus dem Ranking gestrichen.">
+      <notes>
+        <note category="german">Dieser Eintrag wurde aus dem Ranking gestrichen.</note>
+        <note category="from">twig:///templates/ajax/soul/town_list.html.twig</note>
+      </notes>
+      <segment>
+        <source>Dieser Eintrag wurde aus dem Ranking gestrichen.</source>
+        <target>Esta entrada ha sido eliminada del ranking.</target>
+      </segment>
+    </unit>
+    <unit id="vv_dKqx" name="Bürger, Willkommen in der Hölle!">
+      <notes>
+        <note category="german">Bürger, Willkommen in der Hölle!</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Bürger, Willkommen in der Hölle!</source>
+        <target>Ciudadanos, ¡bienvenidos al infierno!</target>
+      </segment>
+    </unit>
+    <unit id="i6X57vg" name="Dies ist eine Event-Stadt.">
+      <notes>
+        <note category="german">Dies ist eine Event-Stadt.</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Dies ist eine Event-Stadt.</source>
+        <target>Este es un pueblo de eventos.</target>
+      </segment>
+    </unit>
+    <unit id="mupnQII" name="Animateur">
+      <notes>
+        <note category="german">Animateur</note>
+        <note category="from">twig:///templates/ajax/soul/badges.html.twig</note>
+      </notes>
+      <segment>
+        <source>Animateur</source>
+        <target>Animador</target>
+      </segment>
+    </unit>
+    <unit id="9S5p0sP">
+      <notes>
+        <note category="german">Diese Karteikarte gehört einem Animateur. Animateure organisieren und koordinieren Community-Events.</note>
+        <note category="from">twig:///templates/ajax/soul/badges.html.twig</note>
+      </notes>
+      <segment>
+        <source>Diese Karteikarte gehört einem Animateur. Animateure organisieren und koordinieren Community-Events.</source>
+        <target>Esta ficha pertenece a un animador. Los animadores organizan y coordinan eventos comunitarios.</target>
+      </segment>
+    </unit>
+    <unit id="x58.kZm">
+      <notes>
+        <note category="german">Öffne MyHordes in einem größeren Fenster oder auf einem Gerät mit einem größeren Bildschirm,
+                                                um den Bildausschnitt für die komprimierte Anzeige einzustellen.</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>Öffne MyHordes in einem größeren Fenster oder auf einem Gerät mit einem größeren Bildschirm,
+                                                um den Bildausschnitt für die komprimierte Anzeige einzustellen.</source>
+        <target>Abra MyHordes en una ventana más grande o en un dispositivo con una pantalla más grande,
+                                                para configurar la sección de imagen para la pantalla comprimida.</target>
       </segment>
     </unit>
   </file>

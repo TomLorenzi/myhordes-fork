@@ -231,6 +231,11 @@ class TownController extends InventoryAwareController
         $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$town->getDay());
         $has_estimated = ($est && ($est->getCitizens()->contains($this->getActiveCitizen()))) || (!$has_zombie_est_tomorrow && $zeds_today[3] >= 100) || ($has_zombie_est_tomorrow && $zeds_tomorrow[3] >= 100);
 
+        $additional_bullets = [];
+        $additional_situation = [];
+        foreach ($this->conf->getCurrentEvents($town) as $e)
+            $e->hook_dashboard($town, $additional_bullets, $additional_situation);
+
         return $this->render( 'ajax/game/town/dashboard.html.twig', $this->addDefaultTwigArgs(null, [
             'town' => $town,
             'def' => $this->town_handler->calculate_town_def($town, $defSummary),
@@ -248,12 +253,14 @@ class TownController extends InventoryAwareController
             'active_citizen' => $this->getActiveCitizen(),
             'has_estimated' => $has_estimated,
             'has_visited_forum' => $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_chk_forum'),
-            'has_been_active' => $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_chk_active'),
+            'has_been_active' => $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), ['tg_chk_workshop', 'tg_chk_movewb', 'tg_chk_build']),
             'display_home_upgrade' => $display_home_upgrade,
             'has_upgraded_house' => $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_home_upgrade'),
             'can_edit_blackboard' => $can_edit_blackboard,
             'has_dictator' => $has_dictator,
-            'new_coa_message' => $messages
+            'new_coa_message' => $messages,
+            'additional_bullet_points' => $additional_bullets,
+            'additional_situation_points' => $additional_situation
         ]) );
     }
 
@@ -345,7 +352,7 @@ class TownController extends InventoryAwareController
         $is_addicted   = $this->citizen_handler->hasStatusEffect($c, 'addict');
         $is_terrorised = $this->citizen_handler->hasStatusEffect($c, 'terror');
         $has_job       = $c->getProfession()->getName() != 'none';
-        $is_admin      = $c->getUser()->getRightsElevation() >= User::ROLE_ADMIN;
+        $is_admin      = $c->getUser()->getRightsElevation() >= User::USER_LEVEL_ADMIN;
         $already_stolen = $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_steal') && !$this->getActiveCitizen()->getTown()->getChaos();
 
         $hasClairvoyance = false;
@@ -361,6 +368,7 @@ class TownController extends InventoryAwareController
         $criteria->andWhere($criteria->expr()->eq('culprit', $c));
 
         $can_recycle = !$c->getAlive() && $c->getHome()->getPrototype()->getLevel() > 1 && $c->getHome()->getRecycling() < 15;
+        $protected = $this->citizen_handler->houseIsProtected($c, true);
 
         return $this->render( 'ajax/game/town/home_foreign.html.twig', $this->addDefaultTwigArgs('citizens', [
             'owner' => $c,
@@ -387,13 +395,14 @@ class TownController extends InventoryAwareController
             'is_thirsty' => $is_thirsty,
             'is_addicted' => $is_addicted,
             'is_terrorised' => $is_terrorised,
+            'is_outside_unprotected' => $c->getZone() !== null && !$protected,
             'has_job' => $has_job,
             'is_admin' => $is_admin,
             'log' =>  $c->getAlive() ? $this->renderLog( -1, $c, false, null, 10 )->getContent() : '',
             'day' => $c->getTown()->getDay(),
             'already_stolen' => $already_stolen,
             'hidden' => $hidden,
-            'protect' => $this->citizen_handler->houseIsProtected($c, true),
+            'protect' => $protected,
             'hasClairvoyance' => $hasClairvoyance,
             'clairvoyanceLevel' => $clairvoyanceLevel,
             'attackAP' => $this->getTownConf()->get( TownConf::CONF_MODIFIER_ATTACK_AP, 5 ),
@@ -640,21 +649,13 @@ class TownController extends InventoryAwareController
                 $em->flush();
             }
 
-            if($severity > 0) {
-                if($town->getChaos()) {
-                    $this->addFlash('notice', $this->translator->trans('Ihre Reklamation wurde gut aufgenommen, wird aber in der aktuellen Situation <strong>nicht sehr hilfreich</strong> sein.<hr>Die Stadt ist im totalen <strong>Chaos</strong> versunken... Bei so wenigen Überlebenden sind <strong>die Gesetze des Landes gebrochen worden</strong>.', [], 'game'));
-                } else {
-                    $this->addFlash('notice', $this->translator->trans('Sie haben eine Beschwerde gegen <strong>{citizen}</strong> eingereicht. Wenn sich genug Beschwerden ansammeln, <strong>wird {citizen} aus der Gemeinschaft verbannt oder gehängt</strong>, falls ein Galgen vorhanden ist.', ['{citizen}' => $culprit->getName()], 'game'));
-                }
-            } else {
-                $this->addFlash('notice', $this->translator->trans('Ihre Beschwerde wurde zurückgezogen... Denken Sie das nächste Mal besser nach...', ['{citizen}' => $culprit->getName()], 'game'));
-            }
-
         } catch (Exception $e) {
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
 
-        if ($this->citizen_handler->updateBanishment( $culprit, $has_gallows, $has_cage ))
+        /** @var Building $a */
+
+        if ($this->citizen_handler->updateBanishment( $culprit, $has_gallows, $has_cage, $a ))
             try {
                 $em->persist($town);
                 $em->persist($culprit);
@@ -662,6 +663,36 @@ class TownController extends InventoryAwareController
             } catch (Exception $e) {
                 return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
             }
+
+        if ($a !== null) {
+            $m = [];
+            $m[] = $this->translator->trans('Deine Beschwerde ist der Tropfen, der das Fass zum Überlaufen brachte... Die Bürger haben sich in Scharen gegen <strong>{citizen}</strong> ausgesprochen.', ['citizen' => $culprit], 'game');
+
+            switch ($a->getPrototype()->getName()) {
+                case 'small_fleshcage_#00':
+                    $m[] = $this->translator->trans('Dieser Aussätzige wurde zum Fleischkäfig geschleppt und dort unter dem Beifall des Publikums gesteinigt. Welch ein Schauspiel!', [], 'game');
+                    break;
+                case 'r_dhang_#00':
+                    $m[] = $this->translator->trans('Dieser Aussätzige wurde kurzerhand <strong>gehängt</strong>.', [], 'game');
+                    $m[] = $this->translator->trans('Der Galgen wurde im Zuge dieser gewalttätigen Aktion <strong>zerstört</strong>...', [], 'game');
+                    break;
+                case 'small_eastercross_#00':
+                    $m[] = $this->translator->trans('Dieser Aussätzige wurde kurzerhand <strong>gekreuzigt</strong>.', [], 'game');
+                    $m[] = $this->translator->trans('Das Schokoladenkreuz wurde von den Bürgern im Rahmen dieses tragischen Ereignisses <strong>gegessen</strong>!', [], 'game');
+                    break;
+                default: break;
+            }
+            $this->addFlash( 'notice', implode('<hr/>', $m) );
+
+        } elseif ($severity > 0) {
+            if($town->getChaos()) {
+                $this->addFlash('notice', $this->translator->trans('Ihre Reklamation wurde gut aufgenommen, wird aber in der aktuellen Situation <strong>nicht sehr hilfreich</strong> sein.<hr>Die Stadt ist im totalen <strong>Chaos</strong> versunken... Bei so wenigen Überlebenden sind <strong>die Gesetze des Landes gebrochen worden</strong>.', [], 'game'));
+            } else {
+                $this->addFlash('notice', $this->translator->trans('Sie haben eine Beschwerde gegen <strong>{citizen}</strong> eingereicht. Wenn sich genug Beschwerden ansammeln, <strong>wird {citizen} aus der Gemeinschaft verbannt oder gehängt</strong>, falls ein Galgen vorhanden ist.', ['citizen' => $culprit], 'game'));
+            }
+        } else {
+            $this->addFlash('notice', $this->translator->trans('Ihre Beschwerde wurde zurückgezogen... Denken Sie das nächste Mal besser nach...', ['{citizen}' => $culprit->getName()], 'game'));
+        }
 
         return AjaxResponse::success();
     }
@@ -728,7 +759,7 @@ class TownController extends InventoryAwareController
         $pump = $th->getBuilding( $town, 'small_water_#00', true );
 
         $allow_take = 1;
-        if($pump) {
+        if ($pump && !$this->getActiveCitizen()->getBanished()) {
             if($town->getChaos()) {
                 $allow_take = 3;
             } else if  (!$this->getActiveCitizen()->getBanished()) {
@@ -774,7 +805,7 @@ class TownController extends InventoryAwareController
 
             $pump = $this->town_handler->getBuilding($town, 'small_water_#00', true);
 
-            $limit = $pump ? ($town->getChaos() ? 3 : 2) : 1;
+            $limit = ($pump && !$this->getActiveCitizen()->getBanished()) ? ($town->getChaos() ? 3 : 2) : 1;
             if ($direction == 'up') {
                 if ($town->getWell() <= 0) return AjaxResponse::error(self::ErrorWellEmpty);
 

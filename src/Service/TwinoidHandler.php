@@ -218,7 +218,7 @@ class TwinoidHandler
             if ($past->getTown()->getImported() && $past->getTown()->getLanguage() === $lang ) {
 
                 // The town is not in the list of imported towns; remove citizen
-                if (!isset($tid_list[$past->getTown()->getBaseID()])) {
+                if (!isset($tid_list[$past->getImportID()])) {
                     $user->removePastLife($past);
                     $this->em->remove( $past );
                 } else
@@ -229,7 +229,7 @@ class TwinoidHandler
         $default_town_type = $this->em->getRepository(TownClass::class)->findOneBy(['name' => TownClass::DEFAULT]);
 
         $seasons = [];
-        foreach ($data->getPastTowns() as $town) if ($tid_list[$town->getID()] == false) {
+        foreach ($data->getPastTowns() as $town) if ($tid_list[$town->getID()] === false) {
 
             if (!isset($seasons[$town->getSeason()])) {
 
@@ -338,7 +338,7 @@ class TwinoidHandler
             //</editor-fold>
 
             $f_cam = $this->em->getRepository(FeatureUnlockPrototype::class)->findOneBy(['name' => 'f_cam']);
-            if ($this->em->getRepository(Season::class)->findLatest() === null && $this->userHandler->checkFeatureUnlock($user, $f_cam, false))
+            if ($this->em->getRepository(Season::class)->findLatest() === null && !$this->userHandler->checkFeatureUnlock($user, $f_cam, false))
                 $this->em->persist( (new FeatureUnlock())->setPrototype( $f_cam )->setUser( $user )->setExpirationMode( FeatureUnlock::FeatureExpirationSeason)->setSeason( null ) );
 
             $existing_rps    = $this->em->getRepository(FoundRolePlayText::class)->findBy(['imported' => true,  'user' => $user]);
@@ -368,7 +368,6 @@ class TwinoidHandler
                 }
             }
 
-            $user->setImportedSoulPoints( $data->getSummarySoulPoints() );
             $user->setImportedHeroDaysSpent( $data->getSummaryHeroDays() );
             $this->em->persist($user);
 

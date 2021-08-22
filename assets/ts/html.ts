@@ -151,6 +151,7 @@ export default class HTML {
 
             if (css) elem_modal.classList.add(css);
 
+            let first = true;
             for (const button of buttons) {
                 let elem_button = document.createElement('div');
                 elem_button.classList.add('modal-button', 'small', 'inline')
@@ -159,6 +160,9 @@ export default class HTML {
                 let c = 0;
                 for (const listener of button[1])
                     elem_button.addEventListener( listener[0], e => listener[1]( e, elem_button, c++ )  );
+
+                if (!first) elem_actions.appendChild( document.createTextNode(' ') );
+                first = false;
 
                 elem_actions.appendChild(elem_button);
             }
@@ -370,6 +374,7 @@ export default class HTML {
                 const id = buttons[b].getAttribute('x-tab-id');
                 buttons[b].addEventListener('click', function () {
                     hide_group( group );
+                    const was_selected = buttons[b].classList.contains('selected');
                     for (let bi = 0; bi < buttons.length; bi++) buttons[bi].classList.remove('selected');
                     buttons[b].classList.add('selected');
                     let selector = '*[x-tab-target][x-tab-group=' + group + ']';
@@ -379,6 +384,7 @@ export default class HTML {
                     for (let t = 0; t < targets.length; t++)
                         (<HTMLElement>targets[t]).style.display = null;
                     $.client.set( group, 'tabState', id, true );
+                    if (!was_selected) controllers[i].dispatchEvent(new CustomEvent('tab-switch', { bubbles: false, cancelable: true, detail: {group: group, tab: id, initial: false} }))
                 })
             }
 

@@ -31,16 +31,6 @@
         <target>You have already joined this town.</target>
       </segment>
     </unit>
-    <unit id="xkZqSVc" name="Wähle eine Stadt">
-      <notes>
-        <note category="german">Wähle eine Stadt</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Wähle eine Stadt</source>
-        <target>Choose where you will live and die next:</target>
-      </segment>
-    </unit>
     <unit id="Bfb7kn4" name="Stadtname">
       <notes>
         <note category="german">Stadtname</note>
@@ -71,36 +61,6 @@
         <target>There are no towns of this type currently.</target>
       </segment>
     </unit>
-    <unit id="Enh.KhP" name="Nächtlicher Angriff">
-      <notes>
-        <note category="german">Nächtlicher Angriff</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Nächtlicher Angriff</source>
-        <target>Night attack</target>
-      </segment>
-    </unit>
-    <unit id="xOWTZkZ">
-      <notes>
-        <note category="german">Der Server wird aktuell von Zombies überrannt. Bitte hab einen Moment Geduld, während wir die angreifenden Horden abwehren.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Der Server wird aktuell von Zombies überrannt. Bitte hab einen Moment Geduld, während wir die angreifenden Horden abwehren.</source>
-        <target>The server is being overrun by zombies. Please be patient while we fight off the attacking hordes.</target>
-      </segment>
-    </unit>
-    <unit id="e6r4m6r">
-      <notes>
-        <note category="german">Der nächtliche Angriff findet jeden Tag um Mitternacht statt und dauert ungefähr 20 Minuten. Während dieser Zeit ist MyHordes nicht erreichbar.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Der nächtliche Angriff findet jeden Tag um Mitternacht statt und dauert ungefähr 20 Minuten. Während dieser Zeit ist MyHordes nicht erreichbar.</source>
-        <target>Night attacks take place every day at midnight and take about 20 minutes. MyHordes cannot be reached during this time.</target>
-      </segment>
-    </unit>
     <unit id="gqk_gdE" name="Beitreten">
       <notes>
         <note category="german">Beitreten</note>
@@ -129,26 +89,6 @@
       <segment>
         <source>Kommunikation ist wichtig in MyHordes. Bitte betritt keine Stadt, deren Sprache du nicht beherrscht. Möchtest du fortfahren?</source>
         <target>Communication is important in MyHordes. Please don't enter a town whose language you don't speak. Do you wish to continue?</target>
-      </segment>
-    </unit>
-    <unit id="FbY7TeM" name="Bestätigen">
-      <notes>
-        <note category="german">Bestätigen</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Bestätigen</source>
-        <target>Confirm</target>
-      </segment>
-    </unit>
-    <unit id="SKEG8Ho">
-      <notes>
-        <note category="german">Do you wish to enter the terrible world of MyHordes as an inhabitant of the town {town_name}?</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Möchtest du die schreckliche Welt der Verdammten als Bürge der Stadt {town_name} betreten?</source>
-        <target>Do you wish to enter the terrible world of MyHordes as an inhabitant of the town {town_name}?</target>
       </segment>
     </unit>
     <unit id="uwIFRKe" name="Deine Seele genügt den Anforderungen für diesen Stadttypen.">
@@ -430,7 +370,7 @@
     <unit id="QI93AMS" name="Event-Stadt">
       <notes>
         <note category="german">Event-Stadt</note>
-        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/towns/list.html.twig;twig:///templates/ajax/ghost/create_town.html.twig;twig:///templates/ajax/ghost/intro.html.twig;twig:///templates/ajax/soul/town_list.html.twig</note>
       </notes>
       <segment>
         <source>Event-Stadt</source>
@@ -548,16 +488,6 @@
         <target><![CDATA[Souls & Shamans:]]></target>
       </segment>
     </unit>
-    <unit id="k2SkMiM" name="Verlorene Seelen und Schamanen aktivieren">
-      <notes>
-        <note category="german">Verlorene Seelen und Schamanen aktivieren</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Verlorene Seelen und Schamanen aktivieren</source>
-        <target>Activate Lost Souls and Shamans</target>
-      </segment>
-    </unit>
     <unit id="KwchNgg" name="Eskorte:">
       <notes>
         <note category="german">Eskorte:</note>
@@ -608,16 +538,6 @@
         <target>Night Mode:</target>
       </segment>
     </unit>
-    <unit id="3lbcc06" name="Nachtmodus aktivieren (schwerer)">
-      <notes>
-        <note category="german">Nachtmodus aktivieren (schwerer)</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Nachtmodus aktivieren (schwerer)</source>
-        <target>Activate Night Mode (harder)</target>
-      </segment>
-    </unit>
     <unit id="Ip2o27i" name="Camping:">
       <notes>
         <note category="german">Camping:</note>
@@ -637,26 +557,6 @@
       <segment>
         <source>Camping in der Wildnis aktivieren</source>
         <target>Activate camping in the wild</target>
-      </segment>
-    </unit>
-    <unit id="8h7b0Dd" name="Ghule:">
-      <notes>
-        <note category="german">Ghule:</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Ghule:</source>
-        <target>Ghoul:</target>
-      </segment>
-    </unit>
-    <unit id="Rsw_o_o" name="Ghule aktivieren">
-      <notes>
-        <note category="german">Ghule aktivieren</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Ghule aktivieren</source>
-        <target>Activate Ghouls</target>
       </segment>
     </unit>
     <unit id="rBxUVmT" name="Gebäudeschaden:">
@@ -687,16 +587,6 @@
       <segment>
         <source>Nachtwache:</source>
         <target>Night Watch:</target>
-      </segment>
-    </unit>
-    <unit id="85ixbKa" name="Nachtwache aktivieren">
-      <notes>
-        <note category="german">Nachtwache aktivieren</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Nachtwache aktivieren</source>
-        <target>Activate Watchmen</target>
       </segment>
     </unit>
     <unit id="aOW2H78" name="Verbesserte Müllhalde:">
@@ -781,7 +671,7 @@
     </unit>
     <unit id="7L3ndtf" name="Abstimmung aller Piktogramme:">
       <notes>
-        <note category="german">Abstimmung aller Piktogramme:</note>
+        <note category="german">Alle Auszeichnungen vergeben</note>
         <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
@@ -857,22 +747,6 @@
       <segment>
         <source>Karten-Seed</source>
         <target>Map Seed</target>
-      </segment>
-    </unit>
-    <unit id="_SibAUY">
-      <notes>
-        <note category="german">Seed, das eine kontrollierte Kartenerstellung ermöglicht. Erlaubt im Falle von Ereignissen, ähnliche Karten zu generieren.
-                                Gib eine positive ganze Zahl ein, um es zu aktivieren.
-                                DENKT DARÜBER NACH, DIESE GANZE ZAHL VON EINEM EREIGNIS ZUM ANDEREN ZU ÄNDERN !</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Seed, das eine kontrollierte Kartenerstellung ermöglicht. Erlaubt im Falle von Ereignissen, ähnliche Karten zu generieren.
-                                Gib eine positive ganze Zahl ein, um es zu aktivieren.
-                                DENKT DARÜBER NACH, DIESE GANZE ZAHL VON EINEM EREIGNIS ZUM ANDEREN ZU ÄNDERN !</source>
-        <target>Seed that enables controlled map creation. Allows similar maps to be generated in case of events.
-                                 Enter a positive integer to activate it.
-                                 THINK ABOUT CHANGING THIS WHOLE NUMBER FROM ONE EVENT TO ANOTHER!</target>
       </segment>
     </unit>
     <unit id="EYBH.W." name="Der Schamane wird gewählt und die Seelen werden gequält.">
@@ -1772,6 +1646,56 @@
       <segment>
         <source>Die folgenden Koalitionsmitglieder können dir nicht in die ausgewählte Stadt folgen. Fortfahren?</source>
         <target>The following members of your coalition are unable to follow you into this town. Continue?</target>
+      </segment>
+    </unit>
+    <unit id="8X5XTC5" name="Spielhilfe ansehen">
+      <notes>
+        <note category="german">Spielhilfe ansehen</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Spielhilfe ansehen</source>
+        <target>Read the Guide!</target>
+      </segment>
+    </unit>
+    <unit id="9RpTHEU" name="Spielen, Lernen und STERBEN!">
+      <notes>
+        <note category="german">Spielen, Lernen und STERBEN!</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Spielen, Lernen und STERBEN!</source>
+        <target>Play, Learn and DIE!</target>
+      </segment>
+    </unit>
+    <unit id="RSDaSun" name="Als Event-Stadt markieren">
+      <notes>
+        <note category="german">Als Event-Stadt markieren</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+      </notes>
+      <segment>
+        <source>Als Event-Stadt markieren</source>
+        <target>Create as an event town</target>
+      </segment>
+    </unit>
+    <unit id="3EdNfST">
+      <notes>
+        <note category="german">Event-Städte werden nicht ins Ranking aufgenommen und erhalten eine spezielle Markierung in der Stadtliste.</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+      </notes>
+      <segment>
+        <source>Event-Städte werden nicht ins Ranking aufgenommen und erhalten eine spezielle Markierung in der Stadtliste.</source>
+        <target>Event towns will not be included in the season ranking and are specially marked in the town list.</target>
+      </segment>
+    </unit>
+    <unit id="yP7t0FZ">
+      <notes>
+        <note category="german">Dies ist eine Event-Stadt, sie wird nach ihrem Ende nicht im Ranking erscheinen. Möglicherweise gelten unübliche Regeln für diese Stadt.</note>
+        <note category="from">twig:///templates/ajax/ghost/intro.html.twig</note>
+      </notes>
+      <segment>
+        <source>Dies ist eine Event-Stadt, sie wird nach ihrem Ende nicht im Ranking erscheinen. Möglicherweise gelten unübliche Regeln für diese Stadt.</source>
+        <target>This is an event town, it will not appear in the ranking after it finished. This town may use unusual rules.</target>
       </segment>
     </unit>
   </file>

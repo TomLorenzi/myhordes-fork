@@ -185,8 +185,9 @@ class CitizenHandler
 
     }
 
-    public function updateBanishment( Citizen &$citizen, ?Building $gallows, ?Building $cage ): bool {
+    public function updateBanishment( Citizen &$citizen, ?Building $gallows, ?Building $cage, ?Building &$active = null ): bool {
 
+        $active = null;
         if (!$citizen->getAlive() || $citizen->getTown()->getChaos()) return false;
 
         $action = false; $kill = false;
@@ -277,16 +278,19 @@ class CitizenHandler
 
                 // The chocolate cross gets destroyed
                 $gallows->setComplete(false)->setAp(0)->setDefense(0)->setHp(0);
+                $active = $gallows;
             } elseif ($gallows) {
                 $this->container->get(DeathHandler::class)->kill( $citizen, CauseOfDeath::Hanging, $rem );
 
-                // The gallow gets destroyed
+                // The gallows gets destroyed
                 $gallows->setComplete(false)->setAp(0)->setDefense(0)->setHp(0);
+                $active = $gallows;
             } elseif ($cage) {
                 $this->container->get(DeathHandler::class)->kill( $citizen, CauseOfDeath::FleshCage, $rem );
                 $cage->setTempDefenseBonus( $cage->getTempDefenseBonus() + ( $citizen->getProfession()->getHeroic() ? 60 : 40 ) );
                 $this->entity_manager->persist( $cage );
                 $citizen->getHome()->setHoldsBody(false);
+                $active = $cage;
             }
             $this->entity_manager->persist( $this->log->citizenDeath( $citizen, 0, null ) );
             foreach ($rem as $r) $this->entity_manager->remove( $r );
@@ -647,15 +651,12 @@ class CitizenHandler
             ],
         ];
 
-        $camping_values['campings'] = $campings_map[$config->get(TownConf::CONF_MODIFIER_CAMPING_CHANCE_MAP, 'normal')][$has_pro_camper ? 'pro' : 'nonpro'][$citizen->getCampingCounter()];
+        $camping_values['campings'] = $campings_map[$config->get(TownConf::CONF_MODIFIER_CAMPING_CHANCE_MAP, 'normal')][$has_pro_camper ? 'pro' : 'nonpro'][min(8,$citizen->getCampingCounter())];
 
         $camping_values['campings'] = -0.835 * pow($citizen->getCampingCounter(), 2) - 1.269 * $citizen->getCampingCounter();
 
         if ($config->get(TownConf::CONF_MODIFIER_CAMPING_CHANCE_MAP, 'normal') == "hard")
-            $camping_values['campings'] *= 2;
-
-        if ($has_pro_camper)
-            $camping_values['campings'] /= 2;
+            $camping_values['campings'] -= 14;
 
         // Campers that are already hidden.
         $campers_map = [

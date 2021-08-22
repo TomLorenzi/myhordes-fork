@@ -130,6 +130,9 @@
                                                             </span>
                                                         {% endif %}
                                                         {{ town.getName }}
+                                                        {% if town.rankingEntry.event %}
+                                                            <div class="small"><i>{{ 'Event-Stadt'|trans({},'ghost') }}</i> {{ help_btn('Dies ist eine Event-Stadt, sie wird nach ihrem Ende nicht im Ranking erscheinen. Möglicherweise gelten unübliche Regeln für diese Stadt.'|trans({}, 'ghost')) }}</div>
+                                                        {% endif %}
                                                     </div>
                                                     <div class="padded cell rw-2 rw-sm-3">{{ town.citizens|length }}/{{ town.population }}</div>
                                                     <div class="padded cell rw-1 rw-sm-2 center"><img x-town-details="{{ town.id }}" x-town-toggle="{{ town.id }}" class="pointer" alt="+" src="{{ asset('build/images/icons/small_more.gif') }}" /><div class="tooltip help">{{ 'Die Liste der eingeschriebenen Spieler ansehen.'|trans({},'game') }}</div></div>

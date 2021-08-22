@@ -2191,10 +2191,10 @@
         <target>Du kannst deinen Spielernamen nicht mehr ändern.</target>
       </segment>
     </unit>
-    <unit id="yF2vVL5" name="%user% war in der Vergangenheit unter folgenden Namen bekannt:">
+    <unit id="m65CDx_" name="{user} war in der Vergangenheit unter folgenden Namen bekannt:">
       <segment>
-        <source>%user% war in der Vergangenheit unter folgenden Namen bekannt:</source>
-        <target>%user% war in der Vergangenheit unter folgenden Namen bekannt:</target>
+        <source>{user} war in der Vergangenheit unter folgenden Namen bekannt:</source>
+        <target>{user} war in der Vergangenheit unter folgenden Namen bekannt:</target>
       </segment>
     </unit>
     <unit id="tT1wWcP" name="Du hattest in der Vergangenheit folgende Spielernamen:">
@@ -2302,6 +2302,50 @@
       <segment>
         <source>Änderung der E-Mail Adresse abbrechen</source>
         <target>Änderung der E-Mail Adresse abbrechen</target>
+      </segment>
+    </unit>
+    <unit id="0_cdRLf" name="Diese Stadt wurde aus dem Ranking ausgeschlossen.">
+      <segment>
+        <source>Diese Stadt wurde aus dem Ranking ausgeschlossen.</source>
+        <target>Diese Stadt wurde aus dem Ranking ausgeschlossen.</target>
+      </segment>
+    </unit>
+    <unit id="7kH99Rl" name="Dieser Eintrag wurde aus dem Ranking gestrichen.">
+      <segment>
+        <source>Dieser Eintrag wurde aus dem Ranking gestrichen.</source>
+        <target>Dieser Eintrag wurde aus dem Ranking gestrichen.</target>
+      </segment>
+    </unit>
+    <unit id="vv_dKqx" name="Bürger, Willkommen in der Hölle!">
+      <segment>
+        <source>Bürger, Willkommen in der Hölle!</source>
+        <target>Bürger, Willkommen in der Hölle!</target>
+      </segment>
+    </unit>
+    <unit id="i6X57vg" name="Dies ist eine Event-Stadt.">
+      <segment>
+        <source>Dies ist eine Event-Stadt.</source>
+        <target>Dies ist eine Event-Stadt.</target>
+      </segment>
+    </unit>
+    <unit id="mupnQII" name="Animateur">
+      <segment>
+        <source>Animateur</source>
+        <target>Animateur</target>
+      </segment>
+    </unit>
+    <unit id="9S5p0sP">
+      <segment>
+        <source>Diese Karteikarte gehört einem Animateur. Animateure organisieren und koordinieren Community-Events.</source>
+        <target>Diese Karteikarte gehört einem Animateur. Animateure organisieren und koordinieren Community-Events.</target>
+      </segment>
+    </unit>
+    <unit id="x58.kZm">
+      <segment>
+        <source>Öffne MyHordes in einem größeren Fenster oder auf einem Gerät mit einem größeren Bildschirm,
+                                                um den Bildausschnitt für die komprimierte Anzeige einzustellen.</source>
+        <target>Öffne MyHordes in einem größeren Fenster oder auf einem Gerät mit einem größeren Bildschirm,
+                                                um den Bildausschnitt für die komprimierte Anzeige einzustellen.</target>
       </segment>
     </unit>
   </file>

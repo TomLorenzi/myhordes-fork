@@ -63,7 +63,7 @@ class JSONRequestParser
         $v = $this->get($key, $default);
         if (!is_numeric($v)) return $default;
         $v = intval($v);
-        return (($min !== null && $v < $min) || ($max !== null && $v > $min)) ? $default : $v;
+        return (($min !== null && $v < $min) || ($max !== null && $v > $max)) ? $default : $v;
     }
 
     public function get_base64( string $key, $default = null ) {

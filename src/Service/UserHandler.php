@@ -9,6 +9,7 @@ use App\Entity\Award;
 use App\Entity\AwardPrototype;
 use App\Entity\CauseOfDeath;
 use App\Entity\Changelog;
+use App\Entity\CitizenRankingProxy;
 use App\Entity\ConsecutiveDeathMarker;
 use App\Entity\FeatureUnlock;
 use App\Entity\HeroSkillPrototype;
@@ -17,6 +18,7 @@ use App\Entity\Season;
 use App\Entity\Shoutbox;
 use App\Entity\ShoutboxEntry;
 use App\Entity\SocialRelation;
+use App\Entity\TwinoidImport;
 use App\Entity\User;
 use App\Entity\UserGroup;
 use App\Entity\UserGroupAssociation;
@@ -64,25 +66,36 @@ class UserHandler
         $this->translator = $translator;
     }
 
+    public function fetchSoulPoints(User $user, bool $all = true, bool $useCached = false): int {
+        if ($useCached) return $all ? $user->getAllSoulPoints() : $user->getSoulPoints();
+        $p_soul = $all ? $this->entity_manager->getRepository(TwinoidImport::class)->findOneBy(['user' => $user, 'main' => true]) : null;
+        if ($p_soul) $p_soul =['www.hordes.fr' => 'fr', 'www.die2nite.com' => 'en', 'www.dieverdammten.de' => 'de', 'www.zombinoia.com' => 'es'][$p_soul->getScope()] ?? 'none';
+        return array_reduce( array_filter(
+            $this->entity_manager->getRepository(CitizenRankingProxy::class)->findBy(['disabled' => false, 'user' => $user, 'confirmed' => true]),
+            function(CitizenRankingProxy $c) use ($all,$p_soul) { return $c->getTown() && !$c->getTown()->getDisabled() && ($c->getImportLang() === null || ($all && $c->getImportLang() === $p_soul) ); }
+        ), fn(int $carry, CitizenRankingProxy $next) => $carry + ($next->getPoints() ?? 0), 0 );
+    }
+
+    public function fetchImportedSoulPoints(User $user): int {
+        $p_soul = $this->entity_manager->getRepository(TwinoidImport::class)->findOneBy(['user' => $user, 'main' => true]);
+        if ($p_soul === null) return 0;
+        $p_soul = ['www.hordes.fr' => 'fr', 'www.die2nite.com' => 'en', 'www.dieverdammten.de' => 'de', 'www.zombinoia.com' => 'es'][$p_soul->getScope()] ?? 'none';
+        return array_reduce( array_filter(
+            $this->entity_manager->getRepository(CitizenRankingProxy::class)->findBy(['disabled' => false, 'user' => $user, 'confirmed' => true]),
+            function(CitizenRankingProxy $c) use ($p_soul) { return $c->getTown() && !$c->getTown()->getDisabled() && $c->getImportLang() === $p_soul; }
+        ), fn(int $carry, CitizenRankingProxy $next) => $carry + ($next->getPoints() ?? 0), 0 );
+    }
+
     public function getPoints(User $user){
+        $sp = $this->fetchSoulPoints($user);
         $pictos = $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($user);
         $points = 0;
 
-        if($user->getAllSoulPoints() >= 100) {
-            $points += 13;
-        }
-        if($user->getAllSoulPoints() >= 500) {
-            $points += 33;
-        }
-        if($user->getAllSoulPoints() >= 1000) {
-            $points += 66;
-        }
-        if($user->getAllSoulPoints() >= 2000) {
-            $points += 132;
-        }
-        if($user->getAllSoulPoints() >= 3000) {
-            $points += 198;
-        }
+        if($sp >= 100)  $points += 13;
+        if($sp >= 500)  $points += 33;
+        if($sp >= 1000) $points += 66;
+        if($sp >= 2000) $points += 132;
+        if($sp >= 3000) $points += 198;
 
         foreach ($pictos as $picto) {
             switch($picto["name"]){
@@ -405,7 +418,15 @@ class UserHandler
      * @return string[]
      */
     public function admin_validRoles(): array {
-        return ['ROLE_ORACLE', 'ROLE_CROW', 'ROLE_ADMIN', 'ROLE_SUPER'];
+        return ['ROLE_CROW', 'ROLE_ADMIN', 'ROLE_SUPER'];
+    }
+
+    /**
+     * Returns a list of grant-able flags
+     * @return string[]
+     */
+    public function admin_validFlags(): array {
+        return ['FLAG_ORACLE', 'FLAG_ANIMAC', 'FLAG_TEAM'];
     }
 
     /**
@@ -443,15 +464,21 @@ class UserHandler
         // Only admins can grant roles
         if (!$this->hasRole( $principal, 'ROLE_ADMIN' )) return false;
 
+
         // Make sure only valid roles can be granted
-        if (!in_array($role, $this->admin_validRoles())) return false;
+        if (str_starts_with($role, 'ROLE_') && !in_array($role, $this->admin_validRoles()))                      return false;
+        elseif (str_starts_with($role, 'FLAG_') && !in_array($role, $this->admin_validFlags()))                  return false;
+        elseif (str_starts_with($role, '!FLAG_') && !in_array(substr($role,1), $this->admin_validFlags())) return false;
+
+        if (!str_starts_with($role, 'ROLE_') && !str_starts_with($role, 'FLAG_') && !str_starts_with($role, '!FLAG_'))
+            return false;
 
         // Only super admins can grant admin role
         if ($role === 'ROLE_ADMIN' && !$this->hasRole( $principal, 'ROLE_SUPER' )) return false;
 
         // Super admin role can be granted by admins only if no super admin exists yet
         if ($role === 'ROLE_SUPER' &&  !$this->hasRole( $principal, 'ROLE_SUPER' ) &&
-            $this->entity_manager->getRepository(User::class)->findByLeastElevationLevel(User::ROLE_SUPER)
+            $this->entity_manager->getRepository(User::class)->findByLeastElevationLevel(User::USER_LEVEL_SUPER)
         ) return false;
 
         return true;

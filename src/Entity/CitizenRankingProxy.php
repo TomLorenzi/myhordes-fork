@@ -110,6 +110,11 @@ class CitizenRankingProxy
      */
     private $alias;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $disabled = false;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -252,13 +257,16 @@ class CitizenRankingProxy
             ->setCitizen( $citizen )
             ->setComment( $citizen->getComment() )
             ->setLastWords( $citizen->getLastWords() )
-            // ->setConfirmed( !$citizen->getActive() )
-            ->setPoints( $citizen->getSurvivedDays() * ( $citizen->getSurvivedDays() + 1 ) / 2 )
             ->setAlias($citizen->getAlias());
+
+        if ($obj->getEnd() === null)
+            $obj->setPoints( $citizen->getSurvivedDays() * ( $citizen->getSurvivedDays() + 1 ) / 2 );
 
         if ($obj->getBegin() === null) $obj->setBegin( new \DateTime('now') );
         if (!$citizen->getAlive() && $obj->getEnd() === null) $obj->setEnd( new \DateTime('now') );
         if (!$citizen->getAlive() && $obj->getCod() === null) $obj->setCod( $citizen->getCauseOfDeath() );
+
+
 
         return $obj;
     }
@@ -350,5 +358,17 @@ class CitizenRankingProxy
     public function getName(): string
     {
         return $this->getAlias() ?? $this->getUser()->getName();
+    }
+
+    public function getDisabled(): ?bool
+    {
+        return $this->disabled;
+    }
+
+    public function setDisabled(bool $disabled): self
+    {
+        $this->disabled = $disabled;
+
+        return $this;
     }
 }

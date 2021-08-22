@@ -104,7 +104,7 @@
     <unit id="7F6V04y" name="geöffnet">
       <notes>
         <note category="german">geöffnet</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>geöffnet</source>
@@ -114,7 +114,7 @@
     <unit id="2nMdNJ8" name="geschlossen">
       <notes>
         <note category="german">geschlossen</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>geschlossen</source>
@@ -144,7 +144,7 @@
     <unit id="RvCIvJN" name="betreten">
       <notes>
         <note category="german">ist in die Stadt zurückgekehrt</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>betreten</source>
@@ -154,7 +154,7 @@
     <unit id="N0kS6xp" name="verlassen">
       <notes>
         <note category="german">hat die Stadt verlassen..</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>verlassen</source>
@@ -178,28 +178,7 @@
       </notes>
       <segment>
         <source>{citizen} hat seine neue Berufung als {profession} gefunden.</source>
-        <target>{citizen} has found thier new calling as a {profession}.</target>
-      </segment>
-    </unit>
-    <unit id="tflCZQU" name="{zombies} haben vergeblich versucht, in das Haus von {citizen} einzudringen.">
-      <notes>
-        <note category="german">{zombies} haben vergeblich versucht, in das Haus von {citizen} einzudringen.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>{zombies} haben vergeblich versucht, in das Haus von {citizen} einzudringen.</source>
-        <target>{zombies} tried in vain to break into {citizen}'s house.</target>
-      </segment>
-    </unit>
-    <unit id=".Zilgxy" name="{num} Zombies">
-      <notes>
-        <note category="german">{num} Zombies</note>
-        <note category="state">new</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>{num} Zombies</source>
-        <target>{num} Zombies</target>
+        <target>{citizen} has found their new calling as a {profession}.</target>
       </segment>
     </unit>
     <unit id="5hg7k.0" name="{citizen} hat seine Behausung in ein(e,n) {home} verwandelt...">
@@ -212,26 +191,6 @@
         <target>{citizen} decided to upgrade their house to a {home}...</target>
       </segment>
     </unit>
-    <unit id="5tMkNnc">
-      <notes>
-        <note category="german">{citizen} folgendes hergestellt: {list2}; dabei wurden folgende Gegenstände verbraucht: {list1}.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>{citizen} folgendes hergestellt: {list2}; dabei wurden folgende Gegenstände verbraucht: {list1}.</source>
-        <target>{citizen} produced one {list2} from a {list1}.</target>
-      </segment>
-    </unit>
-    <unit id="jb1iSAe" name="{zombie} ist von den Toten auferstanden und hat {victim} zerfleischt!">
-      <notes>
-        <note category="german">{zombie} ist von den Toten auferstanden und hat {victim} zerfleischt!</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>{zombie} ist von den Toten auferstanden und hat {victim} zerfleischt!</source>
-        <target>{zombie} came back from the dead and mauled {victim}!</target>
-      </segment>
-    </unit>
     <unit id="5a5L3xz">
       <notes>
         <note category="german">{zombie} ist von den Toten auferstanden und hat die Baustelle für {building} verwüstet!</note>
@@ -240,26 +199,6 @@
       <segment>
         <source>{zombie} ist von den Toten auferstanden und hat die Baustelle für {building} verwüstet!</source>
         <target>{zombie} came back from the dead and and devastated the construction site for the {building}!</target>
-      </segment>
-    </unit>
-    <unit id="oRvYJE9">
-      <notes>
-        <note category="german">{zombie} ist von den Toten auferstanden und hat den Brunnen kontaminiert! Das kostet uns {num} Rationen Wasser!</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>{zombie} ist von den Toten auferstanden und hat den Brunnen kontaminiert! Das kostet uns {num} Rationen Wasser!</source>
-        <target>{zombie} came back from the dead and contaminated the well! This cost us {num} water ration(s)!</target>
-      </segment>
-    </unit>
-    <unit id="jC4taXw">
-      <notes>
-        <note category="german">Resigniert und untröstlich sahen die Bürger wie eine Horde von {num} Zombies sich in Richtung Stadt bewegte... Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Resigniert und untröstlich sahen die Bürger wie eine Horde von {num} Zombies sich in Richtung Stadt bewegte... Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...</source>
-        <target>The now visibly agitated citizens watched a horde of {num} zombies heading for the town... All of a sudden, the source of our nightmares began to gather in front of the town gates...</target>
       </segment>
     </unit>
     <unit id="YOzcl2Y" name="{num} Zombies attackieren die Stadtbewohner!">
@@ -319,7 +258,7 @@
       </notes>
       <segment>
         <source>Heute Nacht wurden von {building} folgende Gegenstände produziert: {items}</source>
-        <target>The construction {building} produced: {items}</target>
+        <target>{building} has produced: {items}. They have been deposited in the bank.</target>
       </segment>
     </unit>
     <unit id="vB3wgZU">
@@ -390,16 +329,6 @@
       <segment>
         <source>Du kannst auf dieser Zone nicht graben.</source>
         <target>You cannot search this zone.</target>
-      </segment>
-    </unit>
-    <unit id="MPn9B5E" name="Das Stadttor ist geschlossen!">
-      <notes>
-        <note category="german">Das Stadttor ist geschlossen!</note>
-        <note category="from">twig:///templates/scripts/errors/beyond.txt.twig</note>
-      </notes>
-      <segment>
-        <source>Das Stadttor ist geschlossen!</source>
-        <target>The gates are closed!</target>
       </segment>
     </unit>
     <unit id="Wevnltm" name="Deine Nachricht muss zwischen 2 und 256 Zeichen haben.">
@@ -935,16 +864,6 @@
         <target>Inventory + Actions</target>
       </segment>
     </unit>
-    <unit id="wMh6wqD" name="Mein(e) {type}">
-      <notes>
-        <note category="german">Mein(e) {type}</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Mein(e) {type}</source>
-        <target>Home Improvements</target>
-      </segment>
-    </unit>
     <unit id="lQhjNcE" name="Bauarbeiten">
       <notes>
         <note category="german">Bauarbeiten</note>
@@ -1025,16 +944,6 @@
         <target>My Register</target>
       </segment>
     </unit>
-    <unit id="HbM7uO9" name="Verteidigung und Dekoration">
-      <notes>
-        <note category="german">Verteidigung und Dekoration</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Verteidigung und Dekoration</source>
-        <target>Defences and Decoration</target>
-      </segment>
-    </unit>
     <unit id="77.Cp5H" name="Verteidigung">
       <notes>
         <note category="german">Verteidigung</note>
@@ -1043,46 +952,6 @@
       <segment>
         <source>Verteidigung</source>
         <target>Defences</target>
-      </segment>
-    </unit>
-    <unit id="ESh2aNj" name="durch Haus">
-      <notes>
-        <note category="german">durch Haus</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>durch Haus</source>
-        <target>House</target>
-      </segment>
-    </unit>
-    <unit id="bhU20pv" name="durch Beruf">
-      <notes>
-        <note category="german">durch Beruf</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>durch Beruf</source>
-        <target>Hero Bonus</target>
-      </segment>
-    </unit>
-    <unit id="d5El4_h" name="durch Ausbauten">
-      <notes>
-        <note category="german">durch Ausbauten</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>durch Ausbauten</source>
-        <target>Improvements</target>
-      </segment>
-    </unit>
-    <unit id="0Rphz24" name="durch Gegenstände">
-      <notes>
-        <note category="german">durch Gegenstände</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>durch Gegenstände</source>
-        <target>Objects</target>
       </segment>
     </unit>
     <unit id=".k1cQGO" name="Dekoration">
@@ -1103,37 +972,6 @@
       <segment>
         <source>Gegenstände</source>
         <target>Objects</target>
-      </segment>
-    </unit>
-    <unit id="UfaHlFI" name="Ausbauten">
-      <notes>
-        <note category="german">Ausbauten</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Ausbauten</source>
-        <target>Home Improvements</target>
-      </segment>
-    </unit>
-    <unit id="32LY7bW">
-      <notes>
-        <note category="german">Ausbauten stehen nur Helden zur Verfügung. Solange du nur ein normaler Einwohner bist, sind deine Ausbauten funktionslos.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Ausbauten stehen nur Helden zur Verfügung. Solange du nur ein normaler Einwohner bist, sind deine
-                        Ausbauten funktionslos.</source>
-        <target>Only Heroes can improve their homes with upgrades. As a citizen, you do not benefit of these.</target>
-      </segment>
-    </unit>
-    <unit id="vmzgnNz" name="Stufe {level}">
-      <notes>
-        <note category="german">Stufe {level}</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Stufe {level}</source>
-        <target>Level {level}</target>
       </segment>
     </unit>
     <unit id="RmaV9PR" name="Mein Haus ausbauen">
@@ -1183,7 +1021,7 @@
       </notes>
       <segment>
         <source>Um dein Haus weiter auszubauen, muss die Stadt über folgendes Gebäude verfügen:</source>
-        <target>To upgarde your home, the Town need the following construction:</target>
+        <target>To upgrade your home, the Town need the following construction:</target>
       </segment>
     </unit>
     <unit id="N6UlT0G" name="Für diesen Ausbau benötigst du folgende Gegenstände:">
@@ -1380,7 +1218,7 @@
     <unit id="ygfGVvY" name="Tot">
       <notes>
         <note category="german">Tot</note>
-        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Tot</source>
@@ -1405,16 +1243,6 @@
       <segment>
         <source>Todesursache</source>
         <target>Cause of death</target>
-      </segment>
-    </unit>
-    <unit id="rD2ZHAN" name="Letzte Worte">
-      <notes>
-        <note category="german">Letzte Worte</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Letzte Worte</source>
-        <target>Last words</target>
       </segment>
     </unit>
     <unit id="tTFjSe8" name="Gemeinschaft">
@@ -1772,16 +1600,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>Constructions</target>
       </segment>
     </unit>
-    <unit id="0m1lFXV" name="Wie viele Aktionspunkte möchtest du in den Bau investieren?">
-      <notes>
-        <note category="german">Wie viele Aktionspunkte möchtest du in den Bau investieren?</note>
-        <note category="from">twig:///templates/ajax/game/town/construction.html.twig</note>
-      </notes>
-      <segment>
-        <source>Wie viele Aktionspunkte möchtest du in den Bau investieren?</source>
-        <target>How many action points do you want to invest in this construction?</target>
-      </segment>
-    </unit>
     <unit id="WZRacPK" name="{rations} Rationen Wasser übrig">
       <notes>
         <note category="german">{rations} Rationen Wasser übrig</note>
@@ -1849,7 +1667,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Wasser ist unersetzbar. Es ermöglicht dir einmal pro Tag deine Aktionspunkte durch Trinken wieder aufzufüllen. Des weiteren kann man es auch gegen Zombies einsetzen (reines Wasser zerstört sie).</source>
-        <target> Water is used to restore Action Points (by drinking it), and for use as a weapon against the zombies (pure water destroys the living dead).</target>
+        <target>Water is used to restore Action Points (by drinking it), and for use as a weapon against the zombies (pure water destroys the living dead).</target>
       </segment>
     </unit>
     <unit id="96udPgY" name="Brunnenregister">
@@ -1895,7 +1713,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="Z2xHG8j" name="Bank">
       <notes>
         <note category="german">Bank</note>
-        <note category="from">twig:///templates/ajax/game/newspaper.html.twig;twig:///templates/ajax/game/town/town.html.twig</note>
+        <note category="from">php:///src/Service/GameFactory.php;twig:///templates/ajax/game/newspaper.html.twig;twig:///templates/ajax/game/town/town.html.twig</note>
       </notes>
       <segment>
         <source>Bank</source>
@@ -1915,7 +1733,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="OlFB1V6" name="Konstruktionen">
       <notes>
         <note category="german">Konstruktionen</note>
-        <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/town.html.twig</note>
+        <note category="from">php:///src/Service/GameFactory.php;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/town.html.twig</note>
       </notes>
       <segment>
         <source>Konstruktionen</source>
@@ -1972,16 +1790,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>point(s)</target>
       </segment>
     </unit>
-    <unit id="yuTuMOR" name="Stadt in {km} Entfernung">
-      <notes>
-        <note category="german">Stadt in {km} Entfernung</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Stadt in {km} Entfernung</source>
-        <target>Town is at {km}</target>
-      </segment>
-    </unit>
     <unit id="AW6aLpM" name="Am Boden">
       <notes>
         <note category="german">Am Boden</note>
@@ -2010,36 +1818,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>{z} Zombies kontrollieren diese Zone!</source>
         <target>{z} zombies control the zone!</target>
-      </segment>
-    </unit>
-    <unit id="5GwqUxA">
-      <notes>
-        <note category="german">Das ist deine Chance - ergreife sie und fliehe! In Kürze werden die Zombies die Kontrolle über die Zone zurückerlangen. Dir verbleiben:</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Das ist deine Chance - ergreife sie und fliehe! In Kürze werden die Zombies die Kontrolle über die Zone zurückerlangen. Dir verbleiden:</source>
-        <target>You have lost control of the zone (perhaps because another citizen left the zone without you) ! To escape before you get trapped, you have to leave before the timer runs out :</target>
-      </segment>
-    </unit>
-    <unit id="1lHHd11">
-      <notes>
-        <note category="german">Dank deiner Tarnung kannst du dich dennoch bewegen - werde nur nicht zu übermütig...</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Dank deiner Tarnung kannst du dich dennoch bewegen - werde nur nicht zu übermütig...</source>
-        <target>Your  Camouflage Suit allows you to move around undetected.</target>
-      </segment>
-    </unit>
-    <unit id="DJhmFr9" name="Bestimmte Aktionen können deine Tarnung auffliegen lassen!">
-      <notes>
-        <note category="german">Bestimmte Aktionen können deine Tarnung auffliegen lassen!</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Bestimmte Aktionen können deine Tarnung auffliegen lassen!</source>
-        <target>Many actions, if carried out in this zone will make you lose your camouflage (only actions marked with the  icon can be used)!</target>
       </segment>
     </unit>
     <unit id="Zkh813p">
@@ -2222,16 +2000,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>Discussions</target>
       </segment>
     </unit>
-    <unit id="T478uEB" name="Zonenchat">
-      <notes>
-        <note category="german">Zonenchat</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Zonenchat</source>
-        <target>Zone Chat</target>
-      </segment>
-    </unit>
     <unit id="nq1XXly" name="Stadtregister">
       <notes>
         <note category="german">Stadtregister</note>
@@ -2342,22 +2110,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>Action Points remaining</target>
       </segment>
     </unit>
-    <unit id="dWg5UEc">
-      <notes>
-        <note category="german">Du brauchst diese Punkte, um dich in der Außenwelt zu bewegen oder um an Bauprojekten mitzuarbeiten.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
-                    benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
-                    kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
-                    auffüllen.</source>
-        <target>For many actions, such as exploring the outside world or working on a construction site, 
-                    you need action points. Your action points are replenished every night after the attack. 
-                    You can also refill them by using certain items and once a day by 
-                    eating and drinking</target>
-      </segment>
-    </unit>
     <unit id="bfXTcH6" name="Baupunkte">
       <notes>
         <note category="german">Baupunkte</note>
@@ -2366,20 +2118,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Baupunkte</source>
         <target>Construction points</target>
-      </segment>
-    </unit>
-    <unit id="cycrpjD">
-      <notes>
-        <note category="german">Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
-                    zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
-                    werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</source>
-        <target>These Construction Points can be used in the Workshop and on Construction sites.
-        	 	If possible, Construction Points are always used first before Action Points.
-        	 	 Keep in mind that Construction Points cannot be used when you are exhausted!</target>
       </segment>
     </unit>
     <unit id="6UFJBEW" name="Verbannt">
@@ -2400,7 +2138,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur
                         Verfügung.</source>
-        <target>Citizens dicided to shun you from the community. Some actions aren't available for you anymore.</target>
+        <target>Citizens decided to shun you from the community. Some actions aren't available for you anymore.</target>
       </segment>
     </unit>
     <unit id="Qc.QL70">
@@ -2414,18 +2152,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>According to your chosen profession, you will have different actions and gameplays available during this town.</target>
       </segment>
     </unit>
-    <unit id="00tQ4_W">
-      <notes>
-        <note category="german">Spielst du als {hero}, wird dir täglich ein Heldentag abgezogen. Gehen dir die Heldentage in der Stadt aus, musst du als einfacher Einwohner weiterspielen.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Spielst du als {hero}, wird dir täglich ein Heldentag abgezogen. Gehen dir die Heldentage in der
-                Stadt aus, musst du als einfacher Einwohner weiterspielen.</source>
-        <target>If you choose to be a {hero}, a Hero day will be deducted for each played day.
-                If you are still alive when you have no more Hero days, you will continue the town as a citizen.</target>
-      </segment>
-    </unit>
     <unit id="hc1h_MP" name="Held">
       <notes>
         <note category="german">Held</note>
@@ -2434,18 +2160,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Held</source>
         <target>Hero</target>
-      </segment>
-    </unit>
-    <unit id="_W.HOtd">
-      <notes>
-        <note category="german">Spielst du als {citizen}, verbrauchst du keine Heldentage. Wenn du jedoch über Heldentage verfügst, kannst du einmal pro Stadt auf einen Heldenberuf wechseln.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Spielst du als {citizen}, verbrauchst du keine Heldentage. Wenn du jedoch über Heldentage
-                verfügst, kannst du einmal pro Stadt auf einen Heldenberuf wechseln.</source>
-        <target>As a {citizen}, no Hero days will be deducted.
-                However, you can always change your mind and choose a profession while in town.</target>
       </segment>
     </unit>
     <unit id="hlH9eeR" name="Einwohner">
@@ -2702,7 +2416,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="72h0.SN" name="Ghul">
       <notes>
         <note category="german">Ghul</note>
-        <note category="from">db://CitizenRole;db://CitizenStatus;twig:///templates/ajax/game/town/town.html.twig</note>
+        <note category="from">db://CitizenRole;twig:///templates/ajax/game/town/town.html.twig</note>
       </notes>
       <segment>
         <source>Ghul</source>
@@ -3400,16 +3114,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>A new building has been constructed: {plan}.</target>
       </segment>
     </unit>
-    <unit id="x8EBgJi" name="{citizen} wurde von {zombies} zerfleischt!">
-      <notes>
-        <note category="german">{citizen} wurde von {zombies} zerfleischt!</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>{citizen} wurde von {zombies} zerfleischt!</source>
-        <target>{citizen} was devoured by {zombies} zombie(s)!</target>
-      </segment>
-    </unit>
     <unit id="954uB9J">
       <notes>
         <note category="german">Hat jemand in letzter Zeit von {citizen} gehört? Er scheint verschwunden zu sein ...</note>
@@ -3588,7 +3292,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>... das OFFEN stand! {num} Zombies sind in die Stadt eingedrungen!</source>
-        <target>... which were LEFT OPEN !! The zombie horde swept mercilessly over the citizens. The town's defences were completely useless!</target>
+        <target>... which were LEFT OPEN!! The zombie horde swept mercilessly over the citizens. The town's defences were completely useless!</target>
       </segment>
     </unit>
     <unit id="EOdUfnx" name="{num} Zombies sind durch unsere Verteidigung gebrochen!">
@@ -3609,26 +3313,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Nicht ein Zombie hat die Stadt betreten!</source>
         <target>No zombies managed to make it into town!</target>
-      </segment>
-    </unit>
-    <unit id="NIymd5x" name="{citizen} hat die Leiche von {disposed} aus der Stadt gezerrt.">
-      <notes>
-        <note category="german">{citizen} hat die Leiche von {disposed} aus der Stadt gezerrt.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>{citizen} hat die Leiche von {disposed} aus der Stadt gezerrt.</source>
-        <target>{citizen} s'est débarrasé du corps de {disposed}.</target>
-      </segment>
-    </unit>
-    <unit id="twDmRwR">
-      <notes>
-        <note category="german">{citizen} hat die Leiche von {disposed} vernichtet, indem er sie mit Wasser übergossen hat.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>{citizen} hat die Leiche von {disposed} vernichtet, indem er sie mit Wasser übergossen hat.</source>
-        <target>{citizen} s'est débarrassé du corps de {disposed} en l'arrosant d'eau.</target>
       </segment>
     </unit>
     <unit id="TNs0DHS">
@@ -3672,17 +3356,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>It seems someone broke into {victim} and stole {item}...</target>
       </segment>
     </unit>
-    <unit id="Fn2.PoP" name="{actor} ist bei {victim} eingebrochen und hat {item} hinterlassen...">
-      <notes>
-        <note category="german">{actor} ist bei {victim} eingebrochen und hat {item} hinterlassen...</note>
-        <note category="state">new</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>{actor} ist bei {victim} eingebrochen und hat {item} hinterlassen...</source>
-        <target>{actor} ist bei {victim} eingebrochen und hat {item} hinterlassen...</target>
-      </segment>
-    </unit>
     <unit id="TYXZ3N7" name="Es scheint, jemand ist bei {victim} eingebrochen und hat {item} hinterlassen...">
       <notes>
         <note category="german">Es scheint, jemand ist bei {victim} eingebrochen und hat {item} hinterlassen...</note>
@@ -3702,16 +3375,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>{citizen} hat mit dem Gegenstand {item} {kills} Zombie(s) getötet.</source>
         <target>{citizen} has annihilated {kills} zombie(s) with their {item}.</target>
-      </segment>
-    </unit>
-    <unit id="JLXNnq_" name="{citizen} hat {kills} Zombies getötet.">
-      <notes>
-        <note category="german">{citizen} hat {kills} Zombies getötet.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>{citizen} hat {kills} Zombies getötet.</source>
-        <target>{citizen} has annihilated {kills} zombies.</target>
       </segment>
     </unit>
     <unit id="TxkwDJh" name="Leiche aus der Stadt ziehen">
@@ -3741,7 +3404,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Leiche grillen</source>
-        <target>Faire griller au Crémato-Cue</target>
+        <target>BBQ the corpse</target>
       </segment>
     </unit>
     <unit id="yFVdfG6" name="Rucksack in der Bank ausleeren">
@@ -3915,16 +3578,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>There is no citizen nearby ...</target>
       </segment>
     </unit>
-    <unit id="25G93ga" name="Durch die Lüftungsschächte klettern">
-      <notes>
-        <note category="german">Durch die Lüftungsschächte klettern</note>
-        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/town/door.html.twig</note>
-      </notes>
-      <segment>
-        <source>Durch die Lüftungsschächte klettern</source>
-        <target>Climb through the Ventilation</target>
-      </segment>
-    </unit>
     <unit id="f1TzhOn" name="Gammler">
       <notes>
         <note category="german">Gammler</note>
@@ -4008,7 +3661,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="266wx0d" name="Verbesserung des Tages">
       <notes>
         <note category="german">Verbesserung des Tages</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/GameFactory.php</note>
       </notes>
       <segment>
         <source>Verbesserung des Tages</source>
@@ -4018,7 +3671,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="IbZvvYE" name="Wachturm">
       <notes>
         <note category="german">Wachturm</note>
-        <note category="from">php:///src/Controller/Town/TownController.php;twig:///templates/ajax/game/town/watchtower.html.twig</note>
+        <note category="from">php:///src/Controller/Town/TownController.php;twig:///templates/ajax/admin/widget/controls.twig;twig:///templates/ajax/game/town/watchtower.html.twig</note>
       </notes>
       <segment>
         <source>Wachturm</source>
@@ -4028,7 +3681,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="gd8sEx3" name="Werkstatt">
       <notes>
         <note category="german">Werkstatt</note>
-        <note category="from">twig:///templates/ajax/game/newspaper.html.twig;twig:///templates/ajax/game/town/workshop.html.twig</note>
+        <note category="from">php:///src/Service/GameFactory.php;twig:///templates/ajax/game/newspaper.html.twig;twig:///templates/ajax/game/town/workshop.html.twig</note>
       </notes>
       <segment>
         <source>Werkstatt</source>
@@ -4073,16 +3726,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Den morgigen Angriff berechnen</source>
         <target>Calculate tomorrow's attack</target>
-      </segment>
-    </unit>
-    <unit id="cePRD7K" name="In der Stadt wohnen @citizens Bürger.">
-      <notes>
-        <note category="german">In der Stadt wohnen @citizens Bürger.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>In der Stadt wohnen @citizens Bürger.</source>
-        <target>@Citizens citizens live in the Town.</target>
       </segment>
     </unit>
     <unit id="fUbvGiO" name="Leere Truhe">
@@ -4387,16 +4030,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>You swallow the product without a second thought... It only took a few seconds for the poison contained within to hit your bloodstream, causing your blood vessels to dilate almost instantly. First, you collapse, then your whole body begins to spasm. Then your heart stops. You have been murdered!!</target>
       </segment>
     </unit>
-    <unit id="b15cXr8" name="Mord">
-      <notes>
-        <note category="german">Mord</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Mord</source>
-        <target>Devoured by a ghoul!</target>
-      </segment>
-    </unit>
     <unit id="THDibIm">
       <notes>
         <note category="german">Argh!! Es scheint, als ob sich ein Ghul unter die Einwohner gemischt hätte! Völlig ahnungs- und wehrlos wurdest du von etwas oder jemandem angefallen und übel vermöbelt. Als er dann seine fauligen Zähne in deinen Hals schlug warst du noch bei Bewusstsein... Doch du hattest nur noch einen Gedanken: Wer war das?</note>
@@ -4498,16 +4131,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Kopfschuss</source>
         <target>Shot in the head</target>
-      </segment>
-    </unit>
-    <unit id="._4eMx4">
-      <notes>
-        <note category="german">Das hast du wohl nicht erwartet... Wie wäre es, wenn du dich das nächste mal an die Regeln hälst?</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Das hast du wohl nicht erwartet... Wie wäre es, wenn du dich das nächste mal an die Regeln hälst?</source>
-        <target>You didn't expect that... Will you follow the rules next time?</target>
       </segment>
     </unit>
     <unit id="Pq_GOUr">
@@ -5132,16 +4755,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>The large number of zombies roaming around is definitely not an advantage ...</target>
       </segment>
     </unit>
-    <unit id="Lm_z2Dh" name="Deine Tarnung ist aufgeflogen!">
-      <notes>
-        <note category="german">Deine Tarnung ist aufgeflogen!</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Deine Tarnung ist aufgeflogen!</source>
-        <target>You are no longer camouflaged!</target>
-      </segment>
-    </unit>
     <unit id="RPns7ug" name="Wächt">
       <notes>
         <note category="german">Wächt</note>
@@ -5190,16 +4803,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Nach einigen Anstrengungen hast du folgendes gefunden: {item}!</source>
         <target>Scavengin in the rubbish lying around near the town, you manage to find: {item}!</target>
-      </segment>
-    </unit>
-    <unit id="1GkRZwk" name="Du gräbst schon seit einiger Zeit und hast mehrere Gegenstände gefunden.">
-      <notes>
-        <note category="german">Du gräbst schon seit einiger Zeit und hast mehrere Gegenstände gefunden.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Du gräbst schon seit einiger Zeit und hast mehrere Gegenstände gefunden.</source>
-        <target>You have been digging for some time and have found several items.</target>
       </segment>
     </unit>
     <unit id="7Xw94D3" name="Du kannst nur einen Behälter auf einmal tragen.">
@@ -5295,7 +4898,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="J2.6H7T" name="Unbekannt">
       <notes>
         <note category="german">Unbekannt</note>
-        <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/game/town/watchtower.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Unbekannt</source>
@@ -5500,16 +5103,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Verteidigungsgegenstände</source>
         <target>Defensive Objects</target>
-      </segment>
-    </unit>
-    <unit id="FAUZkS8" name="Häuser">
-      <notes>
-        <note category="german">Häuser</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Häuser</source>
-        <target>Citizens' Homes</target>
       </segment>
     </unit>
     <unit id="fTFJ5hh" name="Nachtwächter">
@@ -5800,16 +5393,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>{citizens} Bürger</source>
         <target>{citizens} Citizens</target>
-      </segment>
-    </unit>
-    <unit id="qDUSf43">
-      <notes>
-        <note category="german">Hättest du mehr als {day} Tage überlebt, würdest du zusätzlich noch folgendes erhalten:</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Hättest du mehr als {day} Tage überlebt, würdest du zusätzlich noch folgendes erhalten:</source>
-        <target>If you had survived {day} more days, you would also receive the following:</target>
       </segment>
     </unit>
     <unit id="lc.POOW">
@@ -7317,7 +6900,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <notes>
         <note category="german">Tagelang wurde an den Seelen der Toten herumgepfuscht.</note>
         <note category="state">new</note>
-        <note category="from">db://PictoPrototype</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Tagelang wurde an den Seelen der Toten herumgepfuscht.</source>
@@ -7351,7 +6934,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Stunde(n)</source>
-        <target>Hour(s)</target>
+        <target>hour(s)</target>
       </segment>
     </unit>
     <unit id="zV6ExPR" name="Minute(n)">
@@ -7361,7 +6944,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Minute(n)</source>
-        <target>Minute(s)</target>
+        <target>minute(s)</target>
       </segment>
     </unit>
     <unit id="pJqC6wz" name="Sekunde(n)">
@@ -7371,17 +6954,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Sekunde(n)</source>
-        <target>Second(s)</target>
-      </segment>
-    </unit>
-    <unit id="q221mSN" name="am">
-      <notes>
-        <note category="german">am</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>am</source>
-        <target>the</target>
+        <target>second(s)</target>
       </segment>
     </unit>
     <unit id="KsxoZXu" name="vor {time}">
@@ -7426,37 +6999,37 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="9YXdyqO" name="Dieser Bürger wurde noch nie gesehen...">
       <notes>
-        <note category="german">Dieser Bürger wurde noch nie gesehen...</note>
+        <note category="german">noch nie gesehen worden sein...</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Dieser Bürger wurde noch nie gesehen...</source>
-        <target>this citizen has never been seen ...</target>
+        <target>has never been seen...</target>
       </segment>
     </unit>
     <unit id="4OynnJl" name="Der Bürger wurde zuletzt {time} gesehen.">
       <notes>
-        <note category="german">Der Bürger wurde zuletzt {time} gesehen.</note>
+        <note category="german">zuletzt {time} gesehen worden sein.</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Der Bürger wurde zuletzt {time} gesehen.</source>
-        <target>Was seen last {time}.</target>
+        <target>was seen last {time}.</target>
       </segment>
     </unit>
     <unit id="SNTneh6" name="Dieser Bürger hat {ration} Wasserration(en) aus dem Brunnen genommen.">
       <notes>
-        <note category="german">Dieser Bürger hat {ration} Wasserration(en) aus dem Brunnen genommen.</note>
+        <note category="german">{ration__copy} Wasserration(en) aus dem Brunnen genommen haben.</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Dieser Bürger hat {ration} Wasserration(en) aus dem Brunnen genommen.</source>
-        <target>was seen at the well taking {ration} water ration(s) today.</target>
+        <target><![CDATA[was seen at the well taking <strong>{ration} water ration(s)</strong> today.]]></target>
       </segment>
     </unit>
     <unit id="VNIM3Mp" name="Dieser Bürger ist ernsthaft verletzt.">
       <notes>
-        <note category="german">Dieser Bürger ist ernsthaft verletzt.</note>
+        <note category="german">ernsthaft verletzt sein.</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
@@ -7466,7 +7039,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="w5JoDMX">
       <notes>
-        <note category="german">Dieser Bürger hat eventuell schon seit einer Weile Blut gehustet... Einige reden von einer Infektion.</note>
+        <note category="german">schon seit einer Weile Blut gehustet haben... Einige reden von einer Infektion.</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
@@ -7476,7 +7049,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="0LaQbDJ">
       <notes>
-        <note category="german">Dieser Bürger soll eventuell heute Morgen überall nach Wasser gebettelt haben... Ob er durstig ist?</note>
+        <note category="german">heute Morgen überall nach Wasser gebettelt haben... Ob er durstig ist?</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
@@ -7486,17 +7059,17 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="IhkIaY6">
       <notes>
-        <note category="german">Dieser Bürger ist eventuell süchtig... Wir nennen sein Verhalten aggressiv, manchmal sogar assozial...</note>
+        <note category="german">süchtig sein... Wir nennen sein Verhalten aggressiv, manchmal sogar assozial...</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Dieser Bürger is eventuell süchtig... Wir nennen sein Verhalten aggressiv, manchmal sogar assozial...</source>
-        <target>is heavilty dependant... and violent... you could even say their behaviour is becoming 'anti-citizen'.</target>
+        <target>is heavily dependant... and violent... you could even say their behaviour is becoming 'anti-citizen'.</target>
       </segment>
     </unit>
     <unit id="QHYoGw6">
       <notes>
-        <note category="german">Dieser Bürger konnte nicht schlafen und redete wirres Zeug, von Tod, sprechenden Schatten und Stimmen in seinem Kopf...</note>
+        <note category="german">nicht schlafen können und wirres Zeug reden, von Tod, sprechenden Schatten und Stimmen in seinem Kopf...</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
@@ -7506,22 +7079,22 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="Kx1swjd">
       <notes>
-        <note category="german">Dieser Bürger ist nicht in der Lage, einen Beruf zu wählen. Wir sind noch lange nicht über den Berg, das kann ich euch sagen!</note>
+        <note category="german">nicht in der Lage sein, einen Beruf zu wählen. Wir sind noch lange nicht über den Berg, das kann ich euch sagen!</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Dieser Bürger ist nicht in der Lage, einen Beruf zu wählen. Wir sind noch lange nicht über den Berg, das kann ich euch sagen!</source>
-        <target>wasn't even capable of choosing a profession! We're not through this yet, I promise you</target>
+        <target>wasn't even capable of choosing a profession! We're not through this yet, I promise you!</target>
       </segment>
     </unit>
     <unit id="dvSfZK0">
       <notes>
-        <note category="german">Dieser Bürger könnte jemand sehr Wichtiges sein. Vielleicht einer der Erschaffer?</note>
+        <note category="german">jemand sehr Wichtiges sein. Vielleicht einer der Erschaffer?</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Dieser Bürger könnte jemand sehr Wichtiges sein. Vielleicht einer der Erschaffer?</source>
-        <target>this citizen could be someone very important. Maybe one of the creators?</target>
+        <target>could be someone very important. Maybe one of the creators?</target>
       </segment>
     </unit>
     <unit id="q2ChVJX" name="Gereinigte Seelen">
@@ -7542,16 +7115,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>"Einen Schritt weiter..." stand auf {victim}s Fußmatte. Ihre Explosion hat einen bleibenden Eindruck bei dir hinterlassen. Wenn du noch laufen kannst, such dir besser einen Arzt.</source>
         <target>"One step further ..." it said on {victim} s doormat. Their explosion left a lasting impression on you. If you can still walk, you'd better see a doctor.</target>
-      </segment>
-    </unit>
-    <unit id="Eg1H7Qy" name="Während Zombies die Zone kontrollieren, kannst du nicht graben.">
-      <notes>
-        <note category="german">Während Zombies die Zone kontrollieren, kannst du nicht graben.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Während Zombies die Zone kontrollieren, kannst du nicht graben.</source>
-        <target>You cannot dig while zombies control the zone.</target>
       </segment>
     </unit>
     <unit id="EZeEFMF" name="Du kannst diesen Gegenstand nicht stehlen.">
@@ -7592,16 +7155,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>{citizen} wurde standrechtlich erschossen. Lang lebe das Diktat!</source>
         <target>{citizen} was shot under civil law. Long live the Dictatorship!</target>
-      </segment>
-    </unit>
-    <unit id="4.0b7Pm">
-      <notes>
-        <note category="german">Alles oder Nichts! Jeder einzelne Gegenstand in der Bank wurde zerstört. Die Stadt erhält {def} Verteidigung dafür.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Alles oder Nichts! Jeder einzelne Gegenstand in der Bank wurde zerstört. Die Stadt erhält {def} Verteidigung dafür.</source>
-        <target>Building the All or Nothing has brought {def} temporary defence points to your town, but everything in the bank was destroyed. Here's hoping that it's enough...</target>
       </segment>
     </unit>
     <unit id="pEq8Vut" name="Headshot">
@@ -7765,20 +7318,10 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>You have a monster headache... There's no way you can stomach another drop of booze until tomorrow.</target>
       </segment>
     </unit>
-    <unit id="IYIMtxo">
-      <notes>
-        <note category="german">Du wurdest ernsthaft verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Du wurdest ernsthaft verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</source>
-        <target>You have been seriously injured ! You will restore 1AP less whenever you drink, eat or rest.</target>
-      </segment>
-    </unit>
     <unit id="E6vRFnM" name="Endlich kannst du deine Schwiegermutter loswerden!">
       <notes>
         <note category="german">Endlich kannst du deine Schwiegermutter loswerden!</note>
-        <note category="from">db://CitizenStatus</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Endlich kannst du deine Schwiegermutter loswerden!</source>
@@ -7805,16 +7348,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>Guide to the World Beyond</target>
       </segment>
     </unit>
-    <unit id="ti26S85" name="Dazu hast Du nicht das Recht.">
-      <notes>
-        <note category="german">Dazu hast Du nicht das Recht.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Dazu hast Du nicht das Recht.</source>
-        <target>You don't have the right to do that.</target>
-      </segment>
-    </unit>
     <unit id="wxLqZEY" name="Den {rolename} wählen">
       <notes>
         <note category="german">Wählen: {rolename}</note>
@@ -7838,31 +7371,11 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="0i49zPL" name="In diesem Thread dreht sich alles um die Bank.">
       <notes>
         <note category="german">In diesem Thread dreht sich alles um die Bank.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/GameFactory.php</note>
       </notes>
       <segment>
         <source>In diesem Thread dreht sich alles um die Bank.</source>
         <target>Use this subject for discussions involving the town Bank...</target>
-      </segment>
-    </unit>
-    <unit id="rFh36Gr" name="Klassischer Editor">
-      <notes>
-        <note category="german">Klassischer Editor</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Klassischer Editor</source>
-        <target>Classic Editor</target>
-      </segment>
-    </unit>
-    <unit id="wkidHer" name="Grafischer Editor">
-      <notes>
-        <note category="german">Grafischer Editor</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Grafischer Editor</source>
-        <target>Graphic Editor</target>
       </segment>
     </unit>
     <unit id="MaPiRBm">
@@ -8005,26 +7518,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>You are injured on your Foot! You will restore 1AP less whenever you drink, eat or rest.</target>
       </segment>
     </unit>
-    <unit id="yr4_Nez" name="Du bist der Schamane dieser Stadt.">
-      <notes>
-        <note category="german">Du bist der Schamane dieser Stadt.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Du bist der Schamane dieser Stadt.</source>
-        <target>You are the Shaman of this Town.</target>
-      </segment>
-    </unit>
-    <unit id="YfnhC9h" name="Du bist der Reiseleiter in der Außenwelt dieser Stadt.">
-      <notes>
-        <note category="german">Du bist der Reiseleiter in der Außenwelt dieser Stadt.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Du bist der Reiseleiter in der Außenwelt dieser Stadt.</source>
-        <target>You are the Guide of the World Beyond of this town.</target>
-      </segment>
-    </unit>
     <unit id="AaXbNC4">
       <notes>
         <note category="german">Das hast du wohl nicht erwartet... Wie wäre es, wenn du dich das nächste mal an die Regeln hältst?</note>
@@ -8072,7 +7565,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.</source>
-        <target>You will receive a blueprint if you camp this building.</target>
+        <target>You will earn a construction blueprint if you camp in this building.</target>
       </segment>
     </unit>
     <unit id="XZI.RVp" name="Hier wurde bereits ein Bauplan gefunden.">
@@ -8152,7 +7645,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du vollführst einen Schamanentanz und betest zum Himmel, dass er Regen bringen und diese unselige Zone reinigen möge.</source>
-        <target>You perform a mystical dance and ask the sky for rain that will clear this zone of evil spirits.</target>
+        <target>You perform a shamanic dance and plead to the sky to bring rain to cleanse this zone of evil spirits.</target>
       </segment>
     </unit>
     <unit id="jveYh8O">
@@ -8162,7 +7655,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Doch nichts passiert... Soviel steht fest, du stehst nun wie ein lausiger Amateur da. Außer Blasen an den Füßen hat das alles nichts eingebracht...</source>
-        <target>Nothing happens. If someone had seen you, he would surely consider you the worst amateur ever. And now you have blisters on your feet ...</target>
+        <target>But nothing happens. Admittedly, for anyone watching, you looked like the worst kind of amateur. To add insult to injury, you've given yourself blisters on your feet...</target>
       </segment>
     </unit>
     <unit id="ROlGH4i">
@@ -8198,7 +7691,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="396xkzr" name="...der Mörder .. ist.. IST.. AAARGHhh..">
       <notes>
         <note category="german">...der Mörder .. ist.. IST.. AAARGHhh..</note>
-        <note category="from">php:///src/Controller/Soul/SoulController.php</note>
+        <note category="from">php:///src/Controller/ExternalXML2Controller.php;twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/soul/season.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
       </notes>
       <segment>
         <source>...der Mörder .. ist.. IST.. AAARGHhh..</source>
@@ -8218,7 +7711,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="I8m37R7" name="In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.">
       <notes>
         <note category="german">In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/GameFactory.php</note>
       </notes>
       <segment>
         <source>In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.</source>
@@ -8228,7 +7721,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="1moRVN8" name="In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.">
       <notes>
         <note category="german">In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/GameFactory.php</note>
       </notes>
       <segment>
         <source>In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.</source>
@@ -8238,7 +7731,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="R.vbGQY" name="In diesem Thread dreht sich alles um zukünftige Bauprojekte.">
       <notes>
         <note category="german">In diesem Thread dreht sich alles um zukünftige Bauprojekte.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/GameFactory.php</note>
       </notes>
       <segment>
         <source>In diesem Thread dreht sich alles um zukünftige Bauprojekte.</source>
@@ -8263,16 +7756,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Tapfere Bürger haben auf den Stadtmauern Stellung bezogen : {citizens}</source>
         <target>Last night, these watchmen showed incredible courage: {citizens}</target>
-      </segment>
-    </unit>
-    <unit id="PzrQbvb" name="Schreiend und fuchtelnd hat {citizen} {kills} Zombies getötet.">
-      <notes>
-        <note category="german">Schreiend und fuchtelnd hat {citizen} {kills} Zombies getötet.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Schreiend und fuchtelnd hat {citizen} {kills} Zombies getötet.</source>
-        <target>Using their Heroic powers, {citizen} has exterminated {kills} with their bare hands, screaming like a banshee!</target>
       </segment>
     </unit>
     <unit id="GuvA6wB">
@@ -8345,26 +7828,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>{citizen} has finally decided to take back their independance.</target>
       </segment>
     </unit>
-    <unit id="avaGnHb" name="{citizen} a convaincu {target_citizen} de le suivre.">
-      <notes>
-        <note category="german">{citizen} a convaincu {target_citizen} de le suivre.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>{citizen} a convaincu {target_citizen} de le suivre.</source>
-        <target>{citizen} has convinced {target_citizen} to follow them.</target>
-      </segment>
-    </unit>
-    <unit id="0iI5ANu" name="Finalement, {citizen} a décidé de planter {target_citizen} là...">
-      <notes>
-        <note category="german">Finalement, {citizen} a décidé de planter {target_citizen} là...</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Finalement, {citizen} a décidé de planter {target_citizen} là...</source>
-        <target>Finally, {citizen} decided to leave {target_citizen} there...</target>
-      </segment>
-    </unit>
     <unit id="KYKuCCa">
       <notes>
         <note category="german">Er kann den Gegenstand momentan nicht aufnehmen und hat ihn auf dem Boden abgelegt.</note>
@@ -8435,16 +7898,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>You cannot escort another citizen.</target>
       </segment>
     </unit>
-    <unit id="v2VHWkl" name="Dieser Bürger hat kein AP mehr.">
-      <notes>
-        <note category="german">Dieser Bürger hat kein AP mehr.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Dieser Bürger hat kein AP mehr.</source>
-        <target>This citizen no longer has AP.</target>
-      </segment>
-    </unit>
     <unit id="ZLNo.4B" name="Position:">
       <notes>
         <note category="german">Position:</note>
@@ -8476,16 +7929,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>Our defences won’t stand up to tonight’s attack!</target>
       </segment>
     </unit>
-    <unit id="dGfxw4F">
-      <notes>
-        <note category="german">Unsere Verteidigung ist möglicherweise nicht stark genug, um dem Angriff heute Nacht standzuhalten...</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Unsere Verteidigung ist möglicherweise nicht stark genug, um dem Angriff heute Nacht standzuhalten...</source>
-        <target>Our defences may be able to withstand the coming attack.</target>
-      </segment>
-    </unit>
     <unit id="u_UqXok" name="Hast du schließlich doch Angst Wächter zu sein? Was zögerst du noch:">
       <notes>
         <note category="german">Hast du schließlich doch Angst Wächter zu sein? Was zögerst du noch:</note>
@@ -8513,7 +7956,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Auch du musst diese Stadt heute Nacht verteidigen! Tritt in die Wächtergruppe ein! Du möchtest Mitglied der selbstmörd... tapfersten Bürger werden? Was zögerst du noch:</source>
-        <target>You, too, can defend the town tonight! Join the Watchmen! Do you want to join the the most suicid... erm... brave citizens? Well then, don't wait any longer:</target>
+        <target><![CDATA[You, too, can defend the town tonight! Join <strong>the Watchmen!</strong><br /><br />Do you want to join the the most suicid... erm... <strong>brave citizens</strong>? Well then, don't wait any longer:]]></target>
       </segment>
     </unit>
     <unit id="UPuSUuC" name="Ich möchte Wächter werden!">
@@ -8616,26 +8059,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>By dying outside the town, {citizen} has not left their fellow citizens in peace... yet.</target>
       </segment>
     </unit>
-    <unit id="nF6hvp2">
-      <notes>
-        <note category="german">Es ist nicht ohne Abscheu, dass {disposing_citizen} den leblosen Körper von {citizen} losgeworden ist.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Es ist nicht ohne Abscheu, dass {disposing_citizen} den leblosen Körper von {citizen} losgeworden ist.</source>
-        <target>The way {disposing_citizen} got rid of the lifeless body of {citizen} was pretty disgusting.</target>
-      </segment>
-    </unit>
-    <unit id="Z78uiOP">
-      <notes>
-        <note category="german">Dank der Bemühungen von {disposing_citizen} konnte der Körper von {citizen} auf faule Flüssigkeit reduziert werden.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Dank der Bemühungen von {disposing_citizen} konnte der Körper von {citizen} auf faule Flüssigkeit reduziert werden.</source>
-        <target>Thanks to the bests efforts of {disposing_citizen}, {citizen}'s corpse has been reduced to putrid liquid.</target>
-      </segment>
-    </unit>
     <unit id="nyOAas." name="Klicke hier, um für diesen Bürger zu stimmen.">
       <notes>
         <note category="german">Klicke hier, um für diesen Bürger zu stimmen.</note>
@@ -8685,7 +8108,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Zone reinigen</source>
-        <target>Make it rain</target>
+        <target>Make it rain!</target>
       </segment>
     </unit>
     <unit id="i5FChQj" name="Deine Eskorte">
@@ -8788,16 +8211,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Diese Punkte sind exklusiv für den Schamanen reserviert.</source>
         <target>These points are reserved exclusively for the shaman.</target>
-      </segment>
-    </unit>
-    <unit id="gfklKsJ" name="Du bist der {rolename} dieser Stadt.">
-      <notes>
-        <note category="german">Du bist der {rolename} dieser Stadt.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Du bist der {rolename} dieser Stadt.</source>
-        <target>You are the {rolename} of this Town.</target>
       </segment>
     </unit>
     <unit id="63sz5vi" name="Akteneinsicht wird beantragt...">
@@ -9041,26 +8454,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target><![CDATA[This morning, {citizen1} wanted to celebrate with dignity the night passed without a dead <strong>by running naked like a worm</strong> in our alleys. "The view was not bad." {citizen2} would have explained.]]></target>
       </segment>
     </unit>
-    <unit id="HHrNFas">
-      <notes>
-        <note category="german">{citizen1} verbrachten die ganze Nacht heulend in ihrem Haus, bis zu dem Punkt, dass jeder dachte, die Zombies würden Bürger-Steaks aus ihm machen. Es stellte sich heraus, dass sie gerade einen massiven Zusammenbruch hatten. Letzte Nacht gab es keine Toten in der Stadt.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>{citizen1} verbrachten die ganze Nacht heulend in ihrem Haus, bis zu dem Punkt, dass jeder dachte, die Zombies würden Bürger-Steaks aus ihm machen. Es stellte sich heraus, dass sie gerade einen massiven Zusammenbruch hatten. Letzte Nacht gab es keine Toten in der Stadt.</source>
-        <target>{citizen1} spent the whole night howling in their house, to the point that everyone thought that the zombies were making citizen steaks out of him. It turns out that they were just having a massive breakdown. No deaths in town last night.</target>
-      </segment>
-    </unit>
-    <unit id="4xQZLpn">
-      <notes>
-        <note category="german">{citizen1} und {citizen2} wurden in letzter Minute gerettet, als sie sich gestern Abend bereit machten, sich in ihren Häusern zu erhängen. Kommentar: "Ich dachte, sie würden mich bei lebendigem Leib auffressen, und das wollte ich nicht mehr erleben". Im Nachhinein betrachtet war es eine schlechte Entscheidung, da es gestern Abend keine Zombies in die Stadt geschafft haben.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>{citizen1} und {citizen2} wurden in letzter Minute gerettet, als sie sich gestern Abend bereit machten, sich in ihren Häusern zu erhängen. Kommentar: "Ich dachte, sie würden mich bei lebendigem Leib auffressen, und das wollte ich nicht mehr erleben". Im Nachhinein betrachtet war es eine schlechte Entscheidung, da es gestern Abend keine Zombies in die Stadt geschafft haben.</source>
-        <target>{citizen1} and {citizen2} were saved in the nick of time when getting ready to hang themselves in their home last night. They explained, "I thought they were going to eat me alive, and I didn't want to live to see that". In hindsight, it was a poor decision, as no zombies made it into town last night.</target>
-      </segment>
-    </unit>
     <unit id="6iAHRm0">
       <notes>
         <note category="german">Eine großartige Nacht für einige wohlverdiente Feierlichkeiten. Keine Todesopfer in der Stadt infolge des Angriffs! Eine beträchtliche Horde griff von Osten aus an.</note>
@@ -9191,16 +8584,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target><![CDATA[The zombies came at us <strong>hard</strong> for some time, but none got through... However, don't doubt for a second that they'll be back tonight, even hungrier and certainly greater in number...]]></target>
       </segment>
     </unit>
-    <unit id="9OEwJJM">
-      <notes>
-        <note category="german">Heute Morgen feierte {citizen1} das Vereiteln der Zombiehorden von gestern Abend, indem er splitternackt durch die Straßen rannte. "Ich wollte den Anbruch dieses neuen Tages auf angemessene Weise feiern", erklärte der Bürger.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Heute Morgen feierte {citizen1} das Vereiteln der Zombiehorden von gestern Abend, indem er splitternackt durch die Straßen rannte. "Ich wollte den Anbruch dieses neuen Tages auf angemessene Weise feiern", erklärte der Bürger.</source>
-        <target><![CDATA[This morning, {citizen1} celebrated last night's thwarting of the zombie hordes <strong>by running buck naked</strong> through the streets. "I wanted to celebrate the dawning of this new day in an appropriate fashion", the citizen explained.]]></target>
-      </segment>
-    </unit>
     <unit id=".ArUqcq">
       <notes>
         <note category="german">Wir verabschiedeten uns liebevoll von dem alten Hund, der im Dorf lebte... Das unaufhörliche Bellen, das alle in der Nachbarschaft verärgerte, ist seit dem Angriff von gestern Abend für immer verstummt. Das arme Ding... Die gute Nachricht ist, dass es in der Stadt keine nennenswerten Verluste an Menschenleben gab.</note>
@@ -9239,86 +8622,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Da gestern Abend rund {attack} Zombies vor den Toren standen, hätten wir das Schlimmste befürchten können, aber kein einziger ist reingekommen: gute Zeiten! Brecht Euch sich aber nicht den Arm, wenn Ihr Euch gegenseitig auf die Schulter klopft!</source>
         <target>With around {attack} zombies at the gates last night, we could have feared the worst, but not a single one got in : good times ! Don't break your arm patting yourself on the back just yet !</target>
-      </segment>
-    </unit>
-    <unit id="RiEm2s6">
-      <notes>
-        <note category="german">{cadaver1} hatte gestern Abend kein Glück. Abgesehen davon war es eine ruhige Nacht in der Stadt...</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>{cadaver1} hatte gestern Abend kein Glück. Abgesehen davon war es eine ruhige Nacht in der Stadt...</source>
-        <target>{cadaver1} was unlucky last night. Other than that, it was a quiet night in town...</target>
-      </segment>
-    </unit>
-    <unit id="X7mffuU">
-      <notes>
-        <note category="german">Alle scheinen sich still und leise über den Tod von {cadaver1} gestern Abend zu freuen... Allerdings hat niemand erklärt, warum. {citizen1} kommentierte: "Seine Mutter war ein Hamster, und sein Vater roch nach Holunderbeeren".</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Alle scheinen sich still und leise über den Tod von {cadaver1} gestern Abend zu freuen... Allerdings hat niemand erklärt, warum. {citizen1} kommentierte: "Seine Mutter war ein Hamster, und sein Vater roch nach Holunderbeeren".</source>
-        <target><![CDATA[Everyone seems to be <strong>delighted</strong> in silence at the death of {cadaver1} that night... However, no one explains why. {citizen1} would still have commented: "yeah, he got what he deserved!".]]></target>
-      </segment>
-    </unit>
-    <unit id="WWLQc3o">
-      <notes>
-        <note category="german">Jeder hörte {cadaver1} schreien, als er von den Zombies auseinander gerissen wurde. Offensichtlich versuchte niemand zu helfen. Überlebensinstinkt. Wirst du jetzt nachts schlafen können?</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Jeder hörte {cadaver1} schreien, als er von den Zombies auseinander gerissen wurde. Offensichtlich versuchte niemand zu helfen. Überlebensinstinkt. Wirst du jetzt nachts schlafen können?</source>
-        <target>Everyone heard {cadaver1} scream as the zombies dismember his body. Nobody did anything, of course. Survival instinct. Will you still be able to sleep with this?</target>
-      </segment>
-    </unit>
-    <unit id="IEPC99r">
-      <notes>
-        <note category="german">Ich bin sicher, dass nicht nur ich der Meinung bin, dass wir eine Rechnung mit {cadaver1} zu begleichen hatten. Letztendlich scheint es also Karma gewesen zu sein, dass ausgerechnet er heute Nacht ums Leben kam.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Ich bin sicher, dass nicht nur ich der Meinung bin, dass wir eine Rechnung mit {cadaver1} zu begleichen hatten. Letztendlich scheint es also Karma gewesen zu sein, dass ausgerechnet er heute Nacht ums Leben kam.</source>
-        <target>I'm sure I'm not the only one who thinks we had a score to settle with {cadaver1}. So in the end it seems like it was karma that he died tonight.</target>
-      </segment>
-    </unit>
-    <unit id="EvcUHEC">
-      <notes>
-        <note category="german">Einige Bürger wurden Zeugen eines seltsamen Vorfalls... Man könnte sagen, dass die Zombies gestern Abend ausschließlich für {cadaver1} gekommen sind. Sie trugen die Leiche den ganzen Weg zur Baustelle, bevor die Zerstückelung begann!</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Einige Bürger wurden Zeugen eines seltsamen Vorfalls... Man könnte sagen, dass die Zombies gestern Abend ausschließlich für {cadaver1} gekommen sind. Sie trugen die Leiche den ganzen Weg zur Baustelle, bevor die Zerstückelung begann!</source>
-        <target><![CDATA[We saw something strange... It looked like the zombies were only coming to {cadaver1} last night. They took his body to the construction sites before dismembering it <strong>entirely</strong>!]]></target>
-      </segment>
-    </unit>
-    <unit id="ZuQMNC6">
-      <notes>
-        <note category="german">Einige sagen, daß der Tod von {cadaver1} nicht dem Glück zu verdanken ist... das einzige Opfer gestern Abend... Könnte jemand unter uns seinen Tod provoziert haben?</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Einige sagen, daß der Tod von {cadaver1} nicht dem Glück zu verdanken ist... das einzige Opfer gestern Abend... Könnte jemand unter uns seinen Tod provoziert haben?</source>
-        <target><![CDATA[Some say that the death of {cadaver1} would not be the result of chance... She is the <strong>only</strong> victim last night. Did anyone among us <strong>cause</strong> this death?]]></target>
-      </segment>
-    </unit>
-    <unit id="MHTYtp1">
-      <notes>
-        <note category="german">Ausgangssperre gilt für alle. Auch für {cadaver1} und {cadaver2} – das haben sie nun davon.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Ausgangssperre gilt für alle. Auch für {cadaver1} und {cadaver2} – das haben sie nun davon.</source>
-        <target>The curfew applies to everyone. Also for {cadaver1} and {cadaver2} - this is what you get.</target>
-      </segment>
-    </unit>
-    <unit id="Phxyt4a">
-      <notes>
-        <note category="german">So richtig scheint keiner über den Tod von {cadaver1} und {cadaver2} zu trauern. Sie waren wohl nicht die beliebtesten in der Stadt.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>So richtig scheint keiner über den Tod von {cadaver1} und {cadaver2} zu trauern. Sie waren wohl nicht die beliebtesten in der Stadt.</source>
-        <target>No one really seems to mourn the death of {cadaver1} and {cadaver2}. They probably weren't the most popular in town.</target>
       </segment>
     </unit>
     <unit id="HjXCgon">
@@ -9409,16 +8712,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Was für ein Riesenschlamassel: {deaths} starben letzte Nacht in der Stadt! Ein Massaker, zu dem noch der zertrümmerter Schädel eines Haustiers zu zählen ist, der in den Toren verkeilt gefunden wurde. Vermisst jemand einen Hund?</source>
         <target><![CDATA[a big fiasco : <strong>{deaths} dead</strong> at our place last night! A massacre to which must be added the broken skull of a pet found stuck in the Gate.]]></target>
-      </segment>
-    </unit>
-    <unit id="bkMZ85E" name="Horizont">
-      <notes>
-        <note category="german">Horizont</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Horizont</source>
-        <target>Horizon</target>
       </segment>
     </unit>
     <unit id="fbPbjvi">
@@ -9679,7 +8972,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Nutze deine heilenden Hände</source>
-        <target>Use your healing hands</target>
+        <target>Use your healing hands!</target>
       </segment>
     </unit>
     <unit id="22n2wdo" name="Diesen Bürger angreifen!">
@@ -9699,7 +8992,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Diesen Bürger verspeisen!</source>
-        <target>Eat this citizen!</target>
+        <target>Devour this citizen!</target>
       </segment>
     </unit>
     <unit id="6IAuVw5" name="Die Leiche verspeisen!">
@@ -10135,16 +9428,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target><![CDATA[We don't know anything specific, in any case no one has seen <i class="dagger">†</i> {cadaver1} for some time.]]></target>
       </segment>
     </unit>
-    <unit id="DZRfvZb" name="Aufgrund deiner Verletzung bist du gestolpert. So ein Ärger...">
-      <notes>
-        <note category="german">Aufgrund deiner Verletzung bist du gestolpert. So ein Ärger...</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Aufgrund deiner Verletzung bist du gestolpert. So ein Ärger...</source>
-        <target>You stumbled because of your injury. Such trouble ...</target>
-      </segment>
-    </unit>
     <unit id="o2TNGvz" name="Deine Nachricht wurde korrekt übermittelt!">
       <notes>
         <note category="german">Deine Nachricht wurde korrekt übermittelt!</note>
@@ -10323,16 +9606,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Betreff:</source>
         <target>Subject:</target>
-      </segment>
-    </unit>
-    <unit id="cvWytR6" name="Ich BESTÄTIGE meine Nachricht">
-      <notes>
-        <note category="german">Ich BESTÄTIGE meine Nachricht</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Ich BESTÄTIGE meine Nachricht</source>
-        <target>I have CHECKED this message. CONTINUE</target>
       </segment>
     </unit>
     <unit id="iZeG0XJ" name="Neue globale Nachricht">
@@ -10568,7 +9841,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="9NwZjWy" name="Teilnehmen">
       <notes>
         <note category="german">Teilnehmen</note>
-        <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/construction.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig</note>
       </notes>
       <segment>
         <source>Teilnehmen</source>
@@ -11585,36 +10858,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>All</target>
       </segment>
     </unit>
-    <unit id="iita2xJ">
-      <notes>
-        <note category="german">Private towns allow groups of friends to play easily together, or to create "theme" towns.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>In Privatstädten kannst du gemeinsam mit Freunden oder in Städten zu bestimmten "Theen" zu spielen.</source>
-        <target>Private towns allow groups of friends to play easily together, or to create "theme" towns.</target>
-      </segment>
-    </unit>
-    <unit id="CVyYW8Q" name="Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.">
-      <notes>
-        <note category="german">The ghoul functions normally and will appear as defined by the rules of the town chosen.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.</source>
-        <target>The ghoul functions normally and will appear as defined by the rules of the town chosen.</target>
-      </segment>
-    </unit>
-    <unit id="1zFAtcT" name="Wasservorrat">
-      <notes>
-        <note category="german">Water supply</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Wasservorrat</source>
-        <target>Water supply</target>
-      </segment>
-    </unit>
     <unit id="97Bucqq" name="Einrichtung">
       <notes>
         <note category="german">Einrichtung</note>
@@ -11743,16 +10986,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Haltet den Dieb!</source>
         <target>Robbery!</target>
-      </segment>
-    </unit>
-    <unit id="N1iUWVV" name="Du bist {status}">
-      <notes>
-        <note category="german">Du bist {status}</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Du bist {status}</source>
-        <target>You are {status}</target>
       </segment>
     </unit>
     <unit id="Pzhs1Mo" name="Ratschlag:">
@@ -11906,19 +11139,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>Random Citizen</target>
       </segment>
     </unit>
-    <unit id="dTDcH8R">
-      <notes>
-        <note category="german">Hiermit kannst du den Namen eines zufälligen Bürgers in deinen Post anfügen.
-                                                Bei Bedarf kannst du die Auswahl auf bestimmte Berufe, Helden oder bereits gestorbene Bürger eingrenzen.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Hiermit kannst du den Namen eines zufälligen Bürgers in deinen Post anfügen.
-                                                Bei Bedarf kannst du die Auswahl auf bestimmte Berufe, Helden oder bereits gestorbene Bürger eingrenzen.</source>
-        <target>You can use this to add the name of a random citizen to your post.
-                                                If necessary, you can limit the selection to certain professions, heroes or citizens who have already died.</target>
-      </segment>
-    </unit>
     <unit id="lpSEXvf">
       <notes>
         <note category="german">Wenn zu den gleichen zufällig gewählten Bürger mehrfach in deinem Text verwenden willst, kannst du ihm eine Nummer zuweisen, beispielsweise:</note>
@@ -12031,22 +11251,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Auch der Verzehr von kaltem Menschenfleisch senkt deinen Hunger, allerdings nicht so stark wie Frischfleisch...</source>
         <target>eat human flesh to reduce your Hunger slightly.</target>
-      </segment>
-    </unit>
-    <unit id="5MeFkca">
-      <notes>
-        <note category="german">Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
-                            benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
-                            kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
-                            auffüllen.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
-                            benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
-                            kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
-                            auffüllen.</source>
-        <target>These are used for many actions, such as exploring the outside world or working on a construction site. Your action points are replenished every night after the attack. You can also refill them by using certain items and once a day by eating and drinking.</target>
       </segment>
     </unit>
     <unit id="NAC.Ln5">
@@ -12408,16 +11612,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>Distinction of the greatest hero having survived the longest during the Shock of heroes, you are now part of the legend of the World Beyond !</target>
       </segment>
     </unit>
-    <unit id="74NqrNr" name="Triumphator">
-      <notes>
-        <note category="german">Triumphator</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Triumphator</source>
-        <target>Clash Champion</target>
-      </segment>
-    </unit>
     <unit id="Ycwc7kf">
       <notes>
         <note category="german">Diese seltene Auszeichnung wurde den Einsiedlern verliehen, die mit ihrer Stadt die Schlacht der Berufe gewonnen haben. Respekt!</note>
@@ -12446,17 +11640,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Sieg für die Aufklärer beim Shock of Heroes Event!</source>
         <target>Victory as a Scavenger during the Shock of Heroes !</target>
-      </segment>
-    </unit>
-    <unit id="z03nP6t" name="Shock of Heroes Champion">
-      <notes>
-        <note category="german">Shock of Heroes Champion</note>
-        <note category="state">new</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Shock of Heroes Champion</source>
-        <target>Shock of Heroes Champion</target>
       </segment>
     </unit>
     <unit id="GGz46PZ" name="Sieg für die Wächter beim Shock of Heroes Event!">
@@ -12536,7 +11719,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>{dogname}, der stinkende Köter von {citizen}, hat folgendes in die Bank gebracht: {item}</source>
-        <target>{dogname}, the stinking dog from {citizen} has brought the following to the bank: {item}</target>
+        <target>{dogname}, {citizen}'s foul-smelling dog has brought their owner's {item} to the town!</target>
       </segment>
     </unit>
     <unit id="OoZr7Sk" name="{citizen} hat seinen Hund mit {count} Gegenständen in die Stadt geschickt.">
@@ -12808,16 +11991,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Wenn diese Option aktiviert ist, kann dir ein anderer Spieler befehlen, Gegenstände einzusammeln oder abzulegen. BEACHTE: Einige "persönliche" Gegenstände können unter keinen Umständen abgelegt werden (Texte, Waffen u.a.)</source>
         <target>If this option is checked, a citizen who accepts to control you can instruct you to pick up or drop an object. NOTE: certain "personal" objects cannot be taken from you, regardless of what happens(RP texts, weapons, ...)</target>
-      </segment>
-    </unit>
-    <unit id="K65v2LS">
-      <notes>
-        <note category="german">Wenn du in der Wüste von Zombies umzingelst wirst, erstarrst du vor Angst und kannst nichts mehr unternehmen... Du musst Drogen oder etwas anderes finden, um &lt;strong&gt;deine Nerven zu beruhigen&lt;/strong&gt; und aus dieser Hölle zu entkommen... Wenigstens ist es dir immer noch möglich, im Forum nach Hilfe zu suchen...</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Wenn du in der Wüste von Zombies umzingelst wirst, erstarrst du vor Angst und kannst nichts mehr unternehmen... Du musst Drogen oder etwas anderes finden, um &lt;strong&gt;deine Nerven zu beruhigen&lt;/strong&gt; und aus dieser Hölle zu entkommen... Wenigstens ist es dir immer noch möglich, im Forum nach Hilfe zu suchen...</source>
-        <target><![CDATA[If you are gripped by terror, in the desert and surrounded by zombies you can't do anything... You need to find a drug or something else to <strong>calm your nerves</strong> and get out of this hellhole... At least it is still possible to call for help on the forum...]]></target>
       </segment>
     </unit>
     <unit id="0S63eNq" name="Regentanz ausführen">
@@ -13901,36 +13074,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>If we're meant to eat vegetables, why are animals so tasty?</target>
       </segment>
     </unit>
-    <unit id="kux2P8d" name="Nervensäge">
-      <notes>
-        <note category="german">Nervensäge</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Nervensäge</source>
-        <target>Nuisance</target>
-      </segment>
-    </unit>
-    <unit id="EmKmq5r" name="Sozialschmarotzer">
-      <notes>
-        <note category="german">Sozialschmarotzer</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Sozialschmarotzer</source>
-        <target>Undesirable Type</target>
-      </segment>
-    </unit>
-    <unit id="fReXfmp" name="Die Wüste ist mein Zuhause">
-      <notes>
-        <note category="german">Die Wüste ist mein Zuhause</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Die Wüste ist mein Zuhause</source>
-        <target>Social Parasite</target>
-      </segment>
-    </unit>
     <unit id="HYrdx8z" name="Immer ein Auge offen">
       <notes>
         <note category="german">Immer ein Auge offen</note>
@@ -14891,17 +14034,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Jeffrey Dahmer</source>
         <target>Lunches like Lecter</target>
-      </segment>
-    </unit>
-    <unit id="rtCWNuh" name="Fido">
-      <notes>
-        <note category="german">Fido</note>
-        <note category="state">new</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Fido</source>
-        <target>Fido</target>
       </segment>
     </unit>
     <unit id="O.WFVAT" name="Fast schon ein Zombie...">
@@ -16085,12 +15217,11 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="qFmcCUx">
       <notes>
         <note category="german">&lt;i class="dagger"&gt;†&lt;/i&gt; {zombie} wurde schreiend und sabbernd am Brunnen angetroffen. Er hielt einen großen Felsen in seinen Händen und schickte  sich an, diesen in den Brunnen zu werfen. Leider konnte ihn keiner mehr rechtzeitig hindern, sodass uns jetzt {num} Wasserrationnen fehlen! Was für eine Katastrophe!</note>
-        <note category="state">new</note>
         <note category="from">db://LogEntryTemplate</note>
       </notes>
       <segment>
         <source>&lt;i class="dagger"&gt;†&lt;/i&gt; {zombie} wurde schreiend und sabbernd am Brunnen angetroffen. Er hielt einen großen Felsen in seinen Händen und schickte  sich an, diesen in den Brunnen zu werfen. Leider konnte ihn keiner mehr rechtzeitig hindern, sodass uns jetzt {num} Wasserrationnen fehlen! Was für eine Katastrophe!</source>
-        <target><![CDATA[<i class="dagger">†</i> {zombie} wurde schreiend und sabbernd am Brunnen angetroffen. Er hielt einen großen Felsen in seinen Händen und schickte  sich an, diesen in den Brunnen zu werfen. Leider konnte ihn keiner mehr rechtzeitig hindern, sodass uns jetzt {num} Wasserrationnen fehlen! Was für eine Katastrophe!]]></target>
+        <target><![CDATA[<i class="dagger">†</i> {zombie} was seen foaming at the mouth, screaming and brandishing a large stone. Upon arriving at the well, they threw it in, causing the loss of {num} rations of water! Disaster!]]></target>
       </segment>
     </unit>
     <unit id="qX1gDpX" name="Die Stadt ist zerstört! Flieht, irh Narren!">
@@ -16470,28 +15601,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>irgendwo {location} der Stadt...</target>
       </segment>
     </unit>
-    <unit id="3NwI9Wy" name="allein inmitten eines Labyrinths aus Schutt...">
-      <notes>
-        <note category="german">allein inmitten eines Labyrinths aus Schutt...</note>
-        <note category="state">new</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>allein inmitten eines Labyrinths aus Schutt...</source>
-        <target>allein inmitten eines Labyrinths aus Schutt...</target>
-      </segment>
-    </unit>
-    <unit id="T4hlQSQ" name="Am Eingang einer beängstigenden Ruine {location}">
-      <notes>
-        <note category="german">Am Eingang einer beängstigenden Ruine {location}</note>
-        <note category="state">new</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Am Eingang einer beängstigenden Ruine {location}</source>
-        <target>Am Eingang einer beängstigenden Ruine {location}</target>
-      </segment>
-    </unit>
     <unit id="LV5ZZVt" name="an den Toren der Stadt">
       <notes>
         <note category="german">an den Toren der Stadt</note>
@@ -16501,17 +15610,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>an den Toren der Stadt</source>
         <target>an den Toren der Stadt</target>
-      </segment>
-    </unit>
-    <unit id="yI_KLzz" name="eingeschlossen und auf den Tod wartend...">
-      <notes>
-        <note category="german">eingeschlossen und auf den Tod wartend...</note>
-        <note category="state">new</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>eingeschlossen und auf den Tod wartend...</source>
-        <target>eingeschlossen und auf den Tod wartend...</target>
       </segment>
     </unit>
     <unit id="YqRBccv" name="Das Leichsblatt, Ausgabe vom {day}. Tag">
@@ -16536,7 +15634,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="2ZzcscP" name="Verlorenes Brunnenwasser: {count} Einhet(en)">
       <notes>
-        <note category="german">Verlorenes Brunnenwasser: {count} Einhet(en)</note>
+        <note category="german">Verlorenes Brunnenwasser: {count__copy} Einhet(en)</note>
         <note category="from">twig:///templates/ajax/game/newspaper.html.twig</note>
       </notes>
       <segment>
@@ -17311,7 +16409,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Einen Bürger heimbringen:</source>
-        <target>Einen Bürger heimbringen:</target>
+        <target>Escort a citizen:</target>
       </segment>
     </unit>
     <unit id="k9pQbZw" name="inmitten eines unentwirrbaren Trümmerhaufens">
@@ -17385,7 +16483,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du hast {num} anonyme Anzeige(n) erhalten.</source>
-        <target>You have received {num} anonyous complaints.</target>
+        <target>You have received {num} anonymous complaints.</target>
       </segment>
     </unit>
     <unit id="khbCWBV" name="Sollte diese Zahl auf 8 ansteigen, wirst du verbannt!">
@@ -17405,7 +16503,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Grund:</source>
-        <target>Reason :</target>
+        <target>Reason:</target>
       </segment>
     </unit>
     <unit id="7aCcCH1" name="Wählen">
@@ -17426,16 +16524,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>{disposing_citizen} hat {citizen} ordentlich Feuer gegeben. Du hättest Marshmallows vorbereiten können, wenn man dir Bescheid gegeben hätte.</source>
         <target>{disposing_citizen} put {citizen} on fire. You weren't aware a party was about to start ! Smokin' !</target>
-      </segment>
-    </unit>
-    <unit id="O4DTjBm" name="{citizen} ist ausgegangen...">
-      <notes>
-        <note category="german">{citizen} ist ausgegangen...</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>{citizen} ist ausgegangen...</source>
-        <target>{citizen} went out of town...</target>
       </segment>
     </unit>
     <unit id="NLrfO4J">
@@ -18335,16 +17423,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>Master Architect</target>
       </segment>
     </unit>
-    <unit id="0oUM0cs" name="Bürger! Seid auf inoffiziellen Webseiten wachsam!">
-      <notes>
-        <note category="german">Bürger! Seid auf inoffiziellen Webseiten wachsam!</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Bürger! Seid auf inoffiziellen Webseiten wachsam!</source>
-        <target>Citizens! If you're going off-site, be careful out there!</target>
-      </segment>
-    </unit>
     <unit id="0Kqpu1t" name="gering">
       <notes>
         <note category="german">gering</note>
@@ -18793,12 +17871,11 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="jq7dkW2">
       <notes>
         <note category="german">{citizen1} und {citizen2} wurden in letzter Minute gerettet, als sie sich gestern Abend bereit machten, sich in ihren Häusern &lt;strong&gt;zu erhängen&lt;/strong&gt;. Kommentar: "Ich dachte, sie würden mich bei lebendigem Leib auffressen, und das wollte ich nicht mehr erleben". Im Nachhinein betrachtet war es eine schlechte Entscheidung, da es gestern Abend &lt;strong&gt;keine Zombies&lt;/strong&gt; in die Stadt geschafft haben.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
         <source>{citizen1} und {citizen2} wurden in letzter Minute gerettet, als sie sich gestern Abend bereit machten, sich in ihren Häusern &lt;strong&gt;zu erhängen&lt;/strong&gt;. Kommentar: "Ich dachte, sie würden mich bei lebendigem Leib auffressen, und das wollte ich nicht mehr erleben". Im Nachhinein betrachtet war es eine schlechte Entscheidung, da es gestern Abend &lt;strong&gt;keine Zombies&lt;/strong&gt; in die Stadt geschafft haben.</source>
-        <target><![CDATA[{citizen1} und {citizen2} wurden in letzter Minute gerettet, als sie sich gestern Abend bereit machten, sich in ihren Häusern <strong>zu erhängen</strong>. Kommentar: "Ich dachte, sie würden mich bei lebendigem Leib auffressen, und das wollte ich nicht mehr erleben". Im Nachhinein betrachtet war es eine schlechte Entscheidung, da es gestern Abend <strong>keine Zombies</strong> in die Stadt geschafft haben.]]></target>
+        <target>{citizen1} and {citizen2} were saved in the nick of time when getting ready to hang themselves in their home last night. They explained, "I thought they were going to eat me alive, and I didn't want to live to see that". In hindsight, it was a poor decision, as no zombies made it into town last night.</target>
       </segment>
     </unit>
     <unit id="tzTZCkX">
@@ -19669,28 +18746,11 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="9zkVg8p" name="Der Inhalt dieses Hauses wird durch Vorhänge an den Fenstern verdeckt...">
       <notes>
         <note category="german">Der Inhalt dieses Hauses wird durch Vorhänge an den Fenstern verdeckt...</note>
-        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_omniscience.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig</note>
       </notes>
       <segment>
         <source>Der Inhalt dieses Hauses wird durch Vorhänge an den Fenstern verdeckt...</source>
         <target>The contents of this house are hidden by the curtains over the windows... How rude!</target>
-      </segment>
-    </unit>
-    <unit id="70ClwHa">
-      <notes>
-        <note category="german">Als du durch das Fenster blickst, stellst du fest, dass das Haus von {citizen} keinerlei interessante
-                Gegenstände enthält. Ein paar Tonscherben, viel Staub und eine tote Ratte ist alles, was du erkennen kannst.
-                Nichts, was der Mühe wert wäre.</note>
-        <note category="state">new</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Als du durch das Fenster blickst, stellst du fest, dass das Haus von {citizen} keinerlei interessante
-                Gegenstände enthält. Ein paar Tonscherben, viel Staub und eine tote Ratte ist alles, was du erkennen kannst.
-                Nichts, was der Mühe wert wäre.</source>
-        <target>Als du durch das Fenster blickst, stellst du fest, dass das Haus von {citizen} keinerlei interessante
-                Gegenstände enthält. Ein paar Tonscherben, viel Staub und eine tote Ratte ist alles, was du erkennen kannst.
-                Nichts, was der Mühe wert wäre.</target>
       </segment>
     </unit>
     <unit id="DqKvoHz">
@@ -19791,28 +18851,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Zombieangriff (newspaper)</source>
         <target>The Attack of the Horde</target>
-      </segment>
-    </unit>
-    <unit id="9tYl8RU" name="Zum Schlafen Reichts Motel">
-      <notes>
-        <note category="german">Zum Schlafen Reichts Motel</note>
-        <note category="state">new</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Zum Schlafen Reichts Motel</source>
-        <target>Zum Schlafen Reichts Motel</target>
-      </segment>
-    </unit>
-    <unit id="DXGanAJ" name="Wie soll ich spielen?">
-      <notes>
-        <note category="german">Wie soll ich spielen?</note>
-        <note category="state">new</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Wie soll ich spielen?</source>
-        <target>Wie soll ich spielen?</target>
       </segment>
     </unit>
     <unit id="7ufilHx" name="Den Lernmodus ausschalten">
@@ -19950,7 +18988,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du wurdest zum Schamanen gewählt!</source>
-        <target>YOU HAVE BEEN ELECTED SHAMAN!</target>
+        <target>YOU HAVE BEEN ELECTED AS SHAMAN!</target>
       </segment>
     </unit>
     <unit id="TCisbbN">
@@ -19960,7 +18998,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du wachst heute Morgen mit einer schrecklichen Migräne auf und hast Schwierigkeiten, zu sehen... Du beschließt, aus deinem Zelt zu gehen. Die Nachbarn an denen du vorbeiläufst, neigen ihr Haupt vor dir.</source>
-        <target>You wake up this morning with a horrible migraine and you have difficulty seeing... You decide to get out of your tent. Neighbors that you pass you curtsy.</target>
+        <target>You wake up with a horrible migraine and you can't really see straight... You decide to take a steap outside your tent. All of the other people you meet are in awe of you.</target>
       </segment>
     </unit>
     <unit id="c2baI8U">
@@ -19970,7 +19008,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Was ist letzte Nacht nur passiert? Du hast wohl zu heftig gefeiert. Als du die Stadtmauer erreichst, kannst du ein kleines blaues Leuchten sehen... Ja, ja, du bist in der Tat der Ausgewählte. Der Zweifel verschwindet, als du dir die Hand an den Kopf hälst: eine lächerliche Maske klebt an deinem Gesicht und reduziert dein Sehvermögen erheblich.</source>
-        <target>What happened last night? You party too much. Arrived at ramparts you can make out little blue lights... Yes yes, it's you who have been designated. Doubt disappears when you reach out to your head: a ridiculous mask sticks to your face and reduces considerably your eyesight.</target>
+        <target>Oh dear... What did I do last night? It seems you might have partied a little too hard last night. Upon arriving at the walls you see some little blue lights... Yeeeerrrrp it's you who's been named. All vestigaes of doubt disappear as you lift your hand to scratch your head: You've got a ridiculous mask stuck to your face. At least you know why you can't see straight now...</target>
       </segment>
     </unit>
     <unit id="x09E3UL" name="Du bist nun der Schamane.">
@@ -19980,7 +19018,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du bist nun der Schamane.</source>
-        <target>You are now a Shaman.</target>
+        <target>You are now the Shaman.</target>
       </segment>
     </unit>
     <unit id="RjuBA.9">
@@ -19990,7 +19028,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Ein neuer Horizont öffnet sich für dich: Du bist nicht länger ein gewöhnlicher Bürger, sondern ein geistiger Führer!</source>
-        <target>A new horizon awaits you: You no longer an ordinary citizen, but a spiritual guide!</target>
+        <target>A new world has opened up before you! You're no longer just an average citizen, but a spiritual guide for the town!</target>
       </segment>
     </unit>
     <unit id="bJt7KIt" name="Mit deinen {mp} kannst du:">
@@ -20010,7 +19048,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Die Seelen deiner verstorbenen Mitbürger lokalisieren.</source>
-        <target>Locate the souls of your deceased fellow citizens.</target>
+        <target>Find the souls of lost citizens</target>
       </segment>
     </unit>
     <unit id="J7D2vc9" name="Schamanische Tränke für deine Nachbarn herstellen.">
@@ -20020,7 +19058,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Schamanische Tränke für deine Nachbarn herstellen.</source>
-        <target>Make shamanic potions for your neighbors.</target>
+        <target>Make some Shamanic potions for your comrades</target>
       </segment>
     </unit>
     <unit id="LBdBsIv" name="An den Toren der Stadt oder in der Außenwelt Regen herbeirufen!">
@@ -20040,7 +19078,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Deine Nachbarn heilen, möglichst ohne sie dabei umzubringen...</source>
-        <target>Provide curative care to your neighbors without killing them...</target>
+        <target>Provide medical attention to your friends, without killing them...</target>
       </segment>
     </unit>
     <unit id="JHQ01cl" name="Schau dir am besten gleich den {shaman_help} an.">
@@ -20070,27 +19108,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Es enthält alle wesentlichen Informationen, um endlich deinen überlegenen Status in den Augen aller anerkennen zu lassen...</source>
-        <target>They provide all the essential information to finally recognize, in the eyes of all, the superiority of your status...</target>
-      </segment>
-    </unit>
-    <unit id="bhwk0Sz">
-      <notes>
-        <note category="german">Dieser riesige gelbe Metallcontainer macht einen verlorenen Eindruck. Weit und breit keine Baustelle. Der Gemeinschaftsraum im Inneren ist mit leeren Bierflaschen übersät</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Dieser riesige gelbe Metallcontainer macht einen verlorenen Eindruck. Weit und breit keine Baustelle. Der Gemeinschaftsraum im Inneren ist mit leeren Bierflaschen übersät </source>
-        <target>A huge metal box-like creation stuck in the middle of nowhere. It would usually be found beside a building site, and once upon a time it probably was, but there is no sign of it today. Well, except this 'cabin'...</target>
-      </segment>
-    </unit>
-    <unit id="UezITiX">
-      <notes>
-        <note category="german">Von wegen Döner macht schöner. Scheint so als hätte der Besitzer dieser Bude das mit den Dönern und den Spießen missverstanden. Wer hier reingeht kommt garantiert nicht mehr raus.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Von wegen Döner macht schöner. Scheint so als hätte der Besitzer dieser Bude das mit den Dönern und den Spießen missverstanden. Wer hier reingeht kommt garantiert nicht mehr raus. </source>
-        <target>If you're a bit peckish, esurient or just plain hungry, whatever you do, don't stop here ! Here it's the chef that wants to eat... you... after he cuts off your head with a circular saw.</target>
+        <target>It contains all of the necessary information essential to your success in convincing your friends that you are not just a nut in a mask...</target>
       </segment>
     </unit>
     <unit id="5U6vNQX" name="Du hast aktuell keine Themen abonniert.">
@@ -20236,7 +19254,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="K56ofiL">
       <notes>
         <note category="german">Es weiß zwar keiner wie unser Held {citizen} das angestellt hat, aber es ist ihm gelungen aus dieser Zone direkt in die Stadt zurückzukehren... Ein Wunder!</note>
-        <note category="state">new</note>
         <note category="from">db://LogEntryTemplate</note>
       </notes>
       <segment>
@@ -20956,23 +19973,21 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="wX7RkO4">
       <notes>
         <note category="german">Diese Aktion ermöglicht die Reinigung der Zone durch herabfallenden Regen. Dieser kann den Brunnen in der Stadt füllen oder eine vernichtende Wirkung auf die umliegenden Zombies entfalten.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
         <source>Diese Aktion ermöglicht die Reinigung der Zone durch herabfallenden Regen. Dieser kann den Brunnen in der Stadt füllen oder eine vernichtende Wirkung auf die umliegenden Zombies entfalten.</source>
-        <target>Diese Aktion ermöglicht die Reinigung der Zone durch herabfallenden Regen. Dieser kann den Brunnen in der Stadt füllen oder eine vernichtende Wirkung auf die umliegenden Zombies entfalten.</target>
+        <target>This action allows you to purify a zone by making it rain. This rain can help to refill the well or have a devastating effect on surrounding zombies.</target>
       </segment>
     </unit>
     <unit id="vScXMoh">
       <notes>
         <note category="german">Du kannst versuchen, diesen Bürger zu heilen, aber nichts ist garantiert... und hüte dich vor Nebenwirkungen!</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Du kannst versuchen, diesen Bürger zu heilen, aber nichts ist garantiert... und hüte dich vor Nebenwirkungen!</source>
-        <target>Du kannst versuchen, diesen Bürger zu heilen, aber nichts ist garantiert... und hüte dich vor Nebenwirkungen!</target>
+        <target>You can try to heal this citizen, but there are no guarantees... and watch out for side effects!</target>
       </segment>
     </unit>
     <unit id="u4QY2vJ">
@@ -21814,7 +20829,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="6spO8K_" name="Dieser Bürger hat sich für heute Nacht hier versteckt.">
       <notes>
         <note category="german">Dieser Bürger hat sich für heute Nacht hier versteckt.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
@@ -22014,12 +21028,11 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="WvVANsU">
       <notes>
         <note category="german">Als du folgendes Gebäude: {building} erkundest hast, lief es eiskalt den Rücken runter... Aber es war nicht umsonst! Du hast folgenden Gegenstand gefunden: {item}.</note>
-        <note category="state">new</note>
         <note category="from">php:///src/Controller/BeyondController.php</note>
       </notes>
       <segment>
         <source>Als du folgendes Gebäude: {building} erkundest hast, lief es eiskalt den Rücken runter... Aber es war nicht umsonst! Du hast folgenden Gegenstand gefunden: {item}.</source>
-        <target>Als du folgendes Gebäude: {building} erkundest hast, lief es eiskalt den Rücken runter... Aber es war nicht umsonst! Du hast folgenden Gegenstand gefunden: {item}.</target>
+        <target>Gut-wrenching fear grips you as you search the {building}... However, it wasn't a waste of time, because you manage to find the {item}.</target>
       </segment>
     </unit>
     <unit id="ijrzep1">
@@ -22086,12 +21099,11 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="Fu0IcEb">
       <notes>
         <note category="german">WARNUNG: Es besteht eine große Chance, dass du von anderen Bürgern entdeckt wirst, wenn du jemanden in der Stadt verschlingst! Mach das besser in der Aussenwelt...</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>WARNUNG: Es besteht eine große Chance, dass du von anderen Bürgern entdeckt wirst, wenn du jemanden in der Stadt verschlingst! Mach das besser in der Aussenwelt...</source>
-        <target>WARNUNG: Es besteht eine große Chance, dass du von anderen Bürgern entdeckt wirst, wenn du jemanden in der Stadt verschlingst! Mach das besser in der Aussenwelt...</target>
+        <target>WARNING : there is a significant chance of being discovered by the other citizens if you devour someone in town! Maybe you should do your murdering in the World Beyond...</target>
       </segment>
     </unit>
     <unit id="lN02s2b">
@@ -22101,29 +21113,27 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Die offensichtlichen Spuren zeigen, dass {user} die Grenzen zum Wahnsinn überschritten haben muss: abgenagte Knochen, zerfetzte menschliche Gliedmaßen, halb aufgegessene Tierreste... Sein ehemaliges Zuhause ist ein veritables stinkendes Massengrab, das keinen Zweifel zulässt: &lt;strong&gt;{user} war ein Ghoul&lt;/strong&gt;!</source>
-        <target>More obvious clues could not be left. {user} had definitely crossed the boundaries of crazy: gnawed bones, shredded human entrails, half-eaten animal remains... Their old house is a rancid mass grave that leaves us in no doubt: {user} was a ghoul!</target>
+        <target><![CDATA[More obvious clues could not be left. {user} had definitely crossed the boundaries of crazy: gnawed bones, shredded human entrails, half-eaten animal remains... Their old house is a rancid mass grave that leaves us in no doubt: <strong>{user} was a ghoul</strong>!]]></target>
       </segment>
     </unit>
     <unit id="rUnZoOv">
       <notes>
         <note category="german">Diese Aktion ermöglicht es dir, diesen Bürger zu verschlingen, um deinen unersättlichen Heißhunger zu stillen!</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Diese Aktion ermöglicht es dir, diesen Bürger zu verschlingen, um deinen unersättlichen Heißhunger zu stillen!</source>
-        <target>Diese Aktion ermöglicht es dir, diesen Bürger zu verschlingen, um deinen unersättlichen Heißhunger zu stillen!</target>
+        <target>This action allows you to devour another citizen to calm your voracious appetite!</target>
       </segment>
     </unit>
     <unit id="rfxQCmg">
       <notes>
         <note category="german">Wenn der Name auf der Rückseite dieses kleinen Briefs korrekt ist, war diese Nachricht in Wirklichkeit für {citizen}! Durch einen seltsamen Zufall ist sie irgendwie bei dir gelanded ...</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/posts.html.twig</note>
       </notes>
       <segment>
         <source>Wenn der Name auf der Rückseite dieses kleinen Briefs korrekt ist, war diese Nachricht in Wirklichkeit für {citizen}! Durch einen seltsamen Zufall ist sie irgendwie bei dir gelanded ...</source>
-        <target>Wenn der Name auf der Rückseite dieses kleinen Briefs korrekt ist, war diese Nachricht in Wirklichkeit für {citizen}! Durch einen seltsamen Zufall ist sie irgendwie bei dir gelanded ...</target>
+        <target>Judging by the writing on the back of this paper, the message below was intended for {citizen}! By some mysterious turn of events, it has landed in your mailbox...</target>
       </segment>
     </unit>
     <unit id="H790t1y">
@@ -22607,7 +21617,10 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>{points} Punkt(e)</source>
-        <target>{points} Point(s)</target>
+        <target>{ref__icu, select,
+            on { {points, select, one {# point} other {{points} points}} }
+            other {{points} point(s)}
+            }</target>
       </segment>
     </unit>
     <unit id="uAj26XB" name="Schließen">
@@ -22935,6 +21948,431 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Klick hier, wenn du mit deiner Heldenfähigkeit &lt;strong&gt;diesen Registereintrag fälschen&lt;/strong&gt; möchtest...</source>
         <target><![CDATA[Click here to use your hero skill to <strong>tamper with the registry entry</strong>...]]></target>
+      </segment>
+    </unit>
+    <unit id="AspdF7m" name="Ranking-Ausschluss">
+      <notes>
+        <note category="german">Ranking-Ausschluss</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/towns/list.html.twig;twig:///templates/ajax/soul/death.html.twig</note>
+      </notes>
+      <segment>
+        <source>Ranking-Ausschluss</source>
+        <target>Ranking Exclusion</target>
+      </segment>
+    </unit>
+    <unit id="XEwyP0J">
+      <notes>
+        <note category="german">Dieses Leben wird aus den Annalen der Geschichte getilgt. Du erhälst weder Seelenpunkte noch Auszeichnungen.</note>
+        <note category="from">twig:///templates/ajax/soul/death.html.twig</note>
+      </notes>
+      <segment>
+        <source>Dieses Leben wird aus den Annalen der Geschichte getilgt. Du erhälst weder Seelenpunkte noch Auszeichnungen.</source>
+        <target>Your life will be purged from the annals of history. You will not receive soul points or distinctions.</target>
+      </segment>
+    </unit>
+    <unit id="gLhMShO" name="Das wird dir in Zukunft schlaflose Nächte bereiten!">
+      <notes>
+        <note category="german">Das wird dir in Zukunft schlaflose Nächte bereiten!</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Das wird dir in Zukunft schlaflose Nächte bereiten!</source>
+        <target>Now check out the new torments!</target>
+      </segment>
+    </unit>
+    <unit id="k8ELM3Z" name="Erkunde die Außenwelt:">
+      <notes>
+        <note category="german">Erkunde die Außenwelt:</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Erkunde die Außenwelt:</source>
+        <target>Explore the World Beyond:</target>
+      </segment>
+    </unit>
+    <unit id="99xLniA" name="Die Weltkarte ist nun größer. Viel größer!">
+      <notes>
+        <note category="german">Die Weltkarte ist nun größer. Viel größer!</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Die Weltkarte ist nun größer. Viel größer!</source>
+        <target>The world map is now bigger. Much bigger!</target>
+      </segment>
+    </unit>
+    <unit id="a8O8WQf" name="Du kannst nun Ruinen durch ein Minispiel erkunden.">
+      <notes>
+        <note category="german">Du kannst nun Ruinen durch ein Minispiel erkunden.</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du kannst nun Ruinen durch ein Minispiel erkunden.</source>
+        <target>You can now explore ruins in person through a minigame.</target>
+      </segment>
+    </unit>
+    <unit id="nuFU1XW" name="Du kannst nun Nachts in der Außenwelt campen (auf eigene Gefahr natürlich)">
+      <notes>
+        <note category="german">Du kannst nun Nachts in der Außenwelt campen (auf eigene Gefahr natürlich)</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du kannst nun Nachts in der Außenwelt campen (auf eigene Gefahr natürlich)</source>
+        <target>You can now camp outside overnight (at your own risk of course).</target>
+      </segment>
+    </unit>
+    <unit id="kI9jzjA" name="Von nun an ist die Nacht sowohl Freund als auch Feind...">
+      <notes>
+        <note category="german">Von nun an ist die Nacht sowohl Freund als auch Feind...</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Von nun an ist die Nacht sowohl Freund als auch Feind...</source>
+        <target>From now on the night is your ally and your enemy...</target>
+      </segment>
+    </unit>
+    <unit id="t7TzeHz">
+      <notes>
+        <note category="german">Du könntest als der Schamane der Stadt enden! Koste die Macht dieses mystischen Voodoo-Mannes, aber denk an deine Verantwortung für die Seelen der Verdammten...</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du könntest als der Schamane der Stadt enden! Koste die Macht dieses mystischen Voodoo-Mannes, aber denk an deine Verantwortung für die Seelen der Verdammten...</source>
+        <target>You might end up as the town Shaman! Taste the power of this mystical voodoo man, but don't forget your responsibilities to the souls of the lost...</target>
+      </segment>
+    </unit>
+    <unit id="YZ9vmmI" name="Es gibt keine &quot;vorbereiteten&quot; Gebäude. Du bist auf dich allein gestellt.">
+      <notes>
+        <note category="german">Es gibt keine "vorbereiteten" Gebäude. Du bist auf dich allein gestellt.</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Es gibt keine "vorbereiteten" Gebäude. Du bist auf dich allein gestellt.</source>
+        <target>There are no 'preconstructed' buildings. You're on your own.</target>
+      </segment>
+    </unit>
+    <unit id="C1Uk2nl" name="Versuch dich an einer Pandämonium-Stadt, wenn du dich traust...">
+      <notes>
+        <note category="german">Versuch dich an einer Pandämonium-Stadt, wenn du dich traust...</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Versuch dich an einer Pandämonium-Stadt, wenn du dich traust...</source>
+        <target>Try out a Hardcore Town. If you think you're up to it...</target>
+      </segment>
+    </unit>
+    <unit id="qDTyCV1" name="Städte werden nun basierend auf ihrem Überlebensfaktor bewertet.">
+      <notes>
+        <note category="german">Städte werden nun basierend auf ihrem Überlebensfaktor bewertet.</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Städte werden nun basierend auf ihrem Überlebensfaktor bewertet.</source>
+        <target>Towns are now classed in terms of their overall survival ranking.</target>
+      </segment>
+    </unit>
+    <unit id="wtNGNwN" name="Du kannst nun angreifen wen immer du willst, selbst wenn du kein Ghul bist.">
+      <notes>
+        <note category="german">Du kannst nun angreifen wen immer du willst, selbst wenn du kein Ghul bist.</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du kannst nun angreifen wen immer du willst, selbst wenn du kein Ghul bist.</source>
+        <target>You can now attack whoever you want even if you're not a Ghoul.</target>
+      </segment>
+    </unit>
+    <unit id="cs1EKvG" name="Um Baupläne zu finden musst du nun in Gebäuden in der Außenwelt campen.">
+      <notes>
+        <note category="german">Um Baupläne zu finden musst du nun in Gebäuden in der Außenwelt campen.</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Um Baupläne zu finden musst du nun in Gebäuden in der Außenwelt campen.</source>
+        <target>Now you need to camp in the buildings in the desert in order to unlock the associated blueprint.</target>
+      </segment>
+    </unit>
+    <unit id="ejSpLIg">
+      <notes>
+        <note category="german">Diese letzten Nächte des Überlebens haben deiner verlorenen Seele zugesetzt, aber du bist daraus gestärkt hervorgegangen. Nun bist du bereit für die wirklichen Herausforderungen, die jetzt beginnen.</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Diese letzten Nächte des Überlebens haben deiner verlorenen Seele zugesetzt, aber du bist daraus gestärkt hervorgegangen. Nun bist du bereit für die wirklichen Herausforderungen, die jetzt beginnen.</source>
+        <target>These last few nights of survival have left your lost soul battered but reinforced. You are ready for the real challenges to begin.</target>
+      </segment>
+    </unit>
+    <unit id="25LN4T2">
+      <notes>
+        <note category="german">Der Diebstahl, den du gerade begangen hast, wurde bemerkt! Die Bürger werden gewarnt, dass du den(die,das) {item} bei {victim} gestohlen hast.</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Der Diebstahl, den du gerade begangen hast, wurde bemerkt! Die Bürger werden gewarnt, dass du den(die,das) {item} bei {victim} gestohlen hast.</source>
+        <target>Der Diebstahl, den du gerade begangen hast, wurde bemerkt! Die Bürger werden gewarnt, dass du den(die,das) {item} bei {victim} gestohlen hast.</target>
+      </segment>
+    </unit>
+    <unit id="ljh7pXv">
+      <notes>
+        <note category="german">&lt;strong&gt;Das Stadttor ist geschlossen&lt;/strong&gt;, eine Rückkehr ist nicht möglich!</note>
+        <note category="from">twig:///templates/scripts/errors/beyond.txt.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Das Stadttor ist geschlossen&lt;/strong&gt;, eine Rückkehr ist nicht möglich!</source>
+        <target><![CDATA[<strong>Das Stadttor ist geschlossen</strong>, eine Rückkehr ist nicht möglich!]]></target>
+      </segment>
+    </unit>
+    <unit id="im0eaJb">
+      <notes>
+        <note category="german">Das Stadttor ist &lt;strong&gt;geschlossen&lt;/strong&gt;! Vielleicht kannst du im Forum nach Hilfe fragen...</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Das Stadttor ist &lt;strong&gt;geschlossen&lt;/strong&gt;! Vielleicht kannst du im Forum nach Hilfe fragen...</source>
+        <target><![CDATA[Das Stadttor ist <strong>geschlossen</strong>! Vielleicht kannst du im Forum nach Hilfe fragen...]]></target>
+      </segment>
+    </unit>
+    <unit id="YaVLRXG">
+      <notes>
+        <note category="german">Deine Beschwerde ist der Tropfen, der das Fass zum Überlaufen brachte... Die Bürger haben sich in Scharen gegen &lt;strong&gt;{citizen}&lt;/strong&gt; ausgesprochen.</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Deine Beschwerde ist der Tropfen, der das Fass zum Überlaufen brachte... Die Bürger haben sich in Scharen gegen &lt;strong&gt;{citizen}&lt;/strong&gt; ausgesprochen.</source>
+        <target><![CDATA[Deine Beschwerde ist der Tropfen, der das Fass zum Überlaufen brachte... Die Bürger haben sich in Scharen gegen <strong>{citizen}</strong> ausgesprochen.]]></target>
+      </segment>
+    </unit>
+    <unit id="9QvAvnX">
+      <notes>
+        <note category="german">Dieser Aussätzige wurde zum Fleischkäfig geschleppt und dort unter dem Beifall des Publikums gesteinigt. Welch ein Schauspiel!</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Dieser Aussätzige wurde zum Fleischkäfig geschleppt und dort unter dem Beifall des Publikums gesteinigt. Welch ein Schauspiel!</source>
+        <target>Dieser Aussätzige wurde zum Fleischkäfig geschleppt und dort unter dem Beifall des Publikums gesteinigt. Welch ein Schauspiel!</target>
+      </segment>
+    </unit>
+    <unit id="789mf5P" name="Dieser Aussätzige wurde kurzerhand &lt;strong&gt;gehängt&lt;/strong&gt;.">
+      <notes>
+        <note category="german">Dieser Aussätzige wurde kurzerhand &lt;strong&gt;gehängt&lt;/strong&gt;.</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Dieser Aussätzige wurde kurzerhand &lt;strong&gt;gehängt&lt;/strong&gt;.</source>
+        <target><![CDATA[Dieser Aussätzige wurde kurzerhand <strong>gehängt</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="P6iIEO.">
+      <notes>
+        <note category="german">Der Galgen wurde im Zuge dieser gewalttätigen Aktion &lt;strong&gt;zerstört&lt;/strong&gt;...</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Der Galgen wurde im Zuge dieser gewalttätigen Aktion &lt;strong&gt;zerstört&lt;/strong&gt;...</source>
+        <target><![CDATA[Der Galgen wurde im Zuge dieser gewalttätigen Aktion <strong>zerstört</strong>...]]></target>
+      </segment>
+    </unit>
+    <unit id="WlruCS0" name="Dieser Aussätzige wurde kurzerhand &lt;strong&gt;gekreuzigt&lt;/strong&gt;.">
+      <notes>
+        <note category="german">Dieser Aussätzige wurde kurzerhand &lt;strong&gt;gekreuzigt&lt;/strong&gt;.</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Dieser Aussätzige wurde kurzerhand &lt;strong&gt;gekreuzigt&lt;/strong&gt;.</source>
+        <target><![CDATA[Dieser Aussätzige wurde kurzerhand <strong>gekreuzigt</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="xBnA_I0">
+      <notes>
+        <note category="german">Das Schokoladenkreuz wurde von den Bürgern im Rahmen dieses tragischen Ereignisses &lt;strong&gt;gegessen&lt;/strong&gt;!</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Das Schokoladenkreuz wurde von den Bürgern im Rahmen dieses tragischen Ereignisses &lt;strong&gt;gegessen&lt;/strong&gt;!</source>
+        <target><![CDATA[Das Schokoladenkreuz wurde von den Bürgern im Rahmen dieses tragischen Ereignisses <strong>gegessen</strong>!]]></target>
+      </segment>
+    </unit>
+    <unit id="IOhU3iU">
+      <notes>
+        <note category="german">{citizen} hat &lt;strong&gt;{count} Haufen Schutt&lt;/strong&gt; mithilfe von {item} bereinigt.</note>
+        <note category="from">db://LogEntryTemplate</note>
+      </notes>
+      <segment>
+        <source>{citizen} hat &lt;strong&gt;{count} Haufen Schutt&lt;/strong&gt; mithilfe von {item} bereinigt.</source>
+        <target><![CDATA[{citizen} cleared <strong>{count} parts</strong> of the zone with their {item}.]]></target>
+      </segment>
+    </unit>
+    <unit id="b0OOd25">
+      <notes>
+        <note category="german">Diese Aktion wird durch ein Gebäude in der Stadt ermöglicht (nur Helden können sie verwenden).</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/town/door.html.twig</note>
+      </notes>
+      <segment>
+        <source>Diese Aktion wird durch ein Gebäude in der Stadt ermöglicht (nur Helden können sie verwenden).</source>
+        <target>This action is made possible by a building in your town (only Heroes can do this).</target>
+      </segment>
+    </unit>
+    <unit id="Su8QIYk" name="Durch die Lüftungsschächte klettern (in)">
+      <notes>
+        <note category="german">Durch die Lüftungsschächte klettern</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+      </notes>
+      <segment>
+        <source>Durch die Lüftungsschächte klettern (in)</source>
+        <target>Enter via the air-vent</target>
+      </segment>
+    </unit>
+    <unit id="SNSC5Kg" name="Durch die Lüftungsschächte klettern (out)">
+      <notes>
+        <note category="german">Durch die Lüftungsschächte klettern</note>
+        <note category="from">twig:///templates/ajax/game/town/door.html.twig</note>
+      </notes>
+      <segment>
+        <source>Durch die Lüftungsschächte klettern (out)</source>
+        <target>Climb out the air-vent</target>
+      </segment>
+    </unit>
+    <unit id="dx8bzcp" name="Höchstens {nw_defense}">
+      <notes>
+        <note category="german">{nw_defense}</note>
+        <note category="from">twig:///templates/ajax/game/town/nightwatch.html.twig</note>
+      </notes>
+      <segment>
+        <source>Höchstens {nw_defense}</source>
+        <target>
+              {nw_defense, plural,
+                =0 {None!}
+                other {At most #}
+              }
+          </target>
+      </segment>
+    </unit>
+    <unit id="VAttJzW" name="Dieser Bürger">
+      <notes>
+        <note category="german">Gerüchten zufolge ist dieser Bürger</note>
+        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger</source>
+        <target>If you believe the rumors, {citizen}:</target>
+      </segment>
+    </unit>
+    <unit id="Z0MirrQ">
+      <notes>
+        <note category="german">ist eventuell nicht in der Stadt und &lt;strong&gt;hätte ihr Haus nicht gegen Einbrecher geschützt&lt;/strong&gt;...</note>
+        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger ist nicht in der Stadt sei und hat &lt;strong&gt;sein Haus nicht gegen Einbrecher geschützt&lt;/strong&gt;...</source>
+        <target><![CDATA[is not in town and <strong>hasn't protected their house against thievery</strong>...]]></target>
+      </segment>
+    </unit>
+    <unit id="7oOTMUP" name="In der (&lt;strong&gt;leeren&lt;/strong&gt;) Zone graben">
+      <notes>
+        <note category="german">In der (&lt;strong&gt;leeren&lt;/strong&gt;) Zone graben</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+      </notes>
+      <segment>
+        <source>In der (&lt;strong&gt;leeren&lt;/strong&gt;) Zone graben</source>
+        <target><![CDATA[Search (<strong>depleted zone</strong>)]]></target>
+      </segment>
+    </unit>
+    <unit id="Szio5gY" name="Tod durch die Apokalypse">
+      <notes>
+        <note category="german">Tod durch die Apokalypse</note>
+        <note category="from">db://CauseOfDeath</note>
+      </notes>
+      <segment>
+        <source>Tod durch die Apokalypse</source>
+        <target>Death by Apocalypse</target>
+      </segment>
+    </unit>
+    <unit id="EhRWrg3">
+      <notes>
+        <note category="german">Eine Katastrophe apokalyptischen Ausmaßes hat dich, deine Stadt und alles in der Umgebung hinweggefegt. Es ist, als hätte jemand die gesamte Welt... gereinigt.</note>
+        <note category="from">db://CauseOfDeath</note>
+      </notes>
+      <segment>
+        <source>Eine Katastrophe apokalyptischen Ausmaßes hat dich, deine Stadt und alles in der Umgebung hinweggefegt. Es ist, als hätte jemand die gesamte Welt... gereinigt.</source>
+        <target>A disaster of apocalyptic proportions has obliterated you, your city, and everything in the surrounding area. It is as if this world has been... purged.</target>
+      </segment>
+    </unit>
+    <unit id="TI4f6dK">
+      <notes>
+        <note category="german">Vereinzelte Bürger berichten von einem merkwürdigen Phänomen am Himmel... Ihr solltet die Alkoholvorräte in der Bank pürfen.</note>
+        <note category="from">php:///src/Structures/Hook.php</note>
+      </notes>
+      <segment>
+        <source>Vereinzelte Bürger berichten von einem merkwürdigen Phänomen am Himmel... Ihr solltet die Alkoholvorräte in der Bank pürfen.</source>
+        <target>Some citizens report a strange phenomenon in the sky... You should check the alcohol supplies in the bank.</target>
+      </segment>
+    </unit>
+    <unit id="J1ZyqLO">
+      <notes>
+        <note category="german">Einige Bürger haben berichtet, während ihrer Abschätzung ein rotes Blitzen am Horizont gesehen zu haben.</note>
+        <note category="from">php:///src/Structures/Hook.php</note>
+      </notes>
+      <segment>
+        <source>Einige Bürger haben berichtet, während ihrer Abschätzung ein rotes Blitzen am Horizont gesehen zu haben.</source>
+        <target>Some citizens have reported seeing a flash of red on the horizon during their estimation.</target>
+      </segment>
+    </unit>
+    <unit id="kXaqluQ">
+      <notes>
+        <note category="german">Ein Großteil der Bürger, die heute auf dem Wachturm waren, haben ein lautes Grollen in der Ferne vernommen.</note>
+        <note category="from">php:///src/Structures/Hook.php</note>
+      </notes>
+      <segment>
+        <source>Ein Großteil der Bürger, die heute auf dem Wachturm waren, haben ein lautes Grollen in der Ferne vernommen.</source>
+        <target>A large number of the citizens who were at the watchtower today heard a loud rumbling in the distance.</target>
+      </segment>
+    </unit>
+    <unit id=".8QsYID">
+      <notes>
+        <note category="german">Zusatzbemerkung zur heutigen Abschätzung: Der Himmel hat sich blutrot gefärbt. Das sieht nicht gut aus, Leute...</note>
+        <note category="from">php:///src/Structures/Hook.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Zusatzbemerkung zur heutigen Abschätzung: Der Himmel hat sich blutrot gefärbt. Das sieht nicht gut aus, Leute...</source>
+        <target>Additional note to today's estimate: The sky has turned blood red. This doesn't look good, folks....</target>
+      </segment>
+    </unit>
+    <unit id="2soUcg3">
+      <notes>
+        <note category="german">Das sieht nicht gut aus... Die Zombies werden heute Nacht nicht unser größtes Problem sein.</note>
+        <note category="from">php:///src/Structures/Hook.php</note>
+      </notes>
+      <segment>
+        <source>Das sieht nicht gut aus... Die Zombies werden heute Nacht nicht unser größtes Problem sein.</source>
+        <target>This doesn't look good... The zombies won't be our biggest problem tonight.</target>
+      </segment>
+    </unit>
+    <unit id="SnHKJah" name="Beten">
+      <notes>
+        <note category="german">Beten</note>
+        <note category="from">php:///src/Structures/Hook.php</note>
+      </notes>
+      <segment>
+        <source>Beten</source>
+        <target>Pray</target>
+      </segment>
+    </unit>
+    <unit id="yOOoIBM" name="Es gibt keine Hoffnung!">
+      <notes>
+        <note category="german">Es gibt keine Hoffnung!</note>
+        <note category="from">php:///src/Structures/Hook.php</note>
+      </notes>
+      <segment>
+        <source>Es gibt keine Hoffnung!</source>
+        <target>There is no hope!</target>
       </segment>
     </unit>
   </file>

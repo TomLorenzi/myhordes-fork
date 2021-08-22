@@ -7,6 +7,7 @@ class WatchtowerEstimation {
     private int $max;
     private int $future;
     private float $estimation;
+    private ?string $message = null;
 
     /**
      * @return float
@@ -70,6 +71,14 @@ class WatchtowerEstimation {
     public function setFuture(int $future): void
     {
         $this->future = $future;
+    }
+
+    public function setMessage(?string $message) {
+        $this->message = $message;
+    }
+
+    public function getMessage(): ?string {
+        return $this->message;
     }
 
 

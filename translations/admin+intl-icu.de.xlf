@@ -2395,5 +2395,83 @@
         <target>Versteckte Statuseffekte</target>
       </segment>
     </unit>
+    <unit id="Sn2_Qth" name="Ranking-Ausschluss zurücknehmen">
+      <segment>
+        <source>Ranking-Ausschluss zurücknehmen</source>
+        <target>Ranking-Ausschluss zurücknehmen</target>
+      </segment>
+    </unit>
+    <unit id="F9LAKy6" name="Diese Stadt aus dem Ranking ausschließen">
+      <segment>
+        <source>Diese Stadt aus dem Ranking ausschließen</source>
+        <target>Diese Stadt aus dem Ranking ausschließen</target>
+      </segment>
+    </unit>
+    <unit id="VVx9Eja" name="Ranking-Eintrag">
+      <segment>
+        <source>Ranking-Eintrag</source>
+        <target>Ranking-Eintrag</target>
+      </segment>
+    </unit>
+    <unit id="gk_4TAg" name="Event-Markierung entfernen">
+      <segment>
+        <source>Event-Markierung entfernen</source>
+        <target>Event-Markierung entfernen</target>
+      </segment>
+    </unit>
+    <unit id="RSDaSun" name="Als Event-Stadt markieren">
+      <segment>
+        <source>Als Event-Stadt markieren</source>
+        <target>Als Event-Stadt markieren</target>
+      </segment>
+    </unit>
+    <unit id="7npTNxR" name="Funktionen für Spezialrollen">
+      <segment>
+        <source>Funktionen für Spezialrollen</source>
+        <target>Funktionen für Spezialrollen</target>
+      </segment>
+    </unit>
+    <unit id="nG1VP4R" name="Stadt-ID eingeben.">
+      <segment>
+        <source>Stadt-ID eingeben.</source>
+        <target>Stadt-ID eingeben.</target>
+      </segment>
+    </unit>
+    <unit id="NIAMEKG" name="Zugang zu Stadtforum gewähren">
+      <segment>
+        <source>Zugang zu Stadtforum gewähren</source>
+        <target>Zugang zu Stadtforum gewähren</target>
+      </segment>
+    </unit>
+    <unit id="3PvUorI" name="Zugang zu Stadtforum entziehen">
+      <segment>
+        <source>Zugang zu Stadtforum entziehen</source>
+        <target>Zugang zu Stadtforum entziehen</target>
+      </segment>
+    </unit>
+    <unit id="K8iqUB2" name="Spezialrollen">
+      <segment>
+        <source>Spezialrollen</source>
+        <target>Spezialrollen</target>
+      </segment>
+    </unit>
+    <unit id="mupnQII" name="Animateur">
+      <segment>
+        <source>Animateur</source>
+        <target>Animateur</target>
+      </segment>
+    </unit>
+    <unit id="A.he6Md" name="Community Dashboard">
+      <segment>
+        <source>Community Dashboard</source>
+        <target>Community Dashboard</target>
+      </segment>
+    </unit>
+    <unit id="WYUDnxB" name="Team">
+      <segment>
+        <source>Team</source>
+        <target>Team</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

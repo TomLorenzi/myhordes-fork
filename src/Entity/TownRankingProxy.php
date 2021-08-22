@@ -101,6 +101,16 @@ class TownRankingProxy
      */
     private $v1 = false;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $disabled = false;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $event = false;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -354,6 +364,30 @@ class TownRankingProxy
     public function setV1(bool $v1): self
     {
         $this->v1 = $v1;
+
+        return $this;
+    }
+
+    public function getDisabled(): ?bool
+    {
+        return $this->disabled;
+    }
+
+    public function setDisabled(bool $disabled): self
+    {
+        $this->disabled = $disabled;
+
+        return $this;
+    }
+
+    public function getEvent(): ?bool
+    {
+        return $this->event;
+    }
+
+    public function setEvent(bool $event): self
+    {
+        $this->event = $event;
 
         return $this;
     }

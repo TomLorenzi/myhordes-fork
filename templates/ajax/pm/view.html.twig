@@ -12,25 +12,42 @@
                         <div class="forum-header-bar">
                             <b><i class="fa fa-caret-right"></i> {{ 'Aktionen'|trans({},'global') }}</b>
                         </div>
-                        <div class="forum-button-bar">
+                        <div class="forum-button-bar row-flex stretch">
                             {% if not app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionGlobalCommunication')) %}
-                                <div x-pm-action="new-single" class="pm-button" id="new-thread-single-button">
-                                    <i class="fa fa-pen-alt"></i> {{ 'Schreiben'|trans({},'global') }}
+                                <div class="cell grow-1">
+                                    <div x-pm-action="new-single" class="pm-button" id="new-thread-single-button">
+                                        <i class="fa fa-pen-alt"></i> {{ 'Schreiben'|trans({},'global') }}
+                                    </div>
                                 </div>
                             {% endif %}
+                            <div class="cell grow-1">
+                                <div x-pm-action="search" class="pm-button" id="search-button">
+                                    <i class="fa fa-search"></i> {{ 'Suchen'|trans({},'global') }}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="cell grow-0">
+                    <ul class="tabs plain" x-tab-group="gpm-inbox" x-tab-control id="gpm-inbox-control">
+                        <li class="tab" x-tab-id="inbox"><div class="tab-link"><img  src="{{ asset("build/images/icons/small_mail.gif") }}" alt="" /> {{ 'Posteingang'|trans({},'global') }}</div></li>
+                        <li class="tab" x-tab-id="archive"><div class="tab-link"><img src="{{ asset("build/images/icons/small_archive.gif") }}" alt="" /> {{ 'Archiv'|trans({},'global') }}</div></li>
+                    </ul>
+                    <div class="row-flex hidden" id="conv_search_bar">
+                        <div class="padded cell"><label for="conv_list_filter"><i class="fa fa-search"></i></label></div>
+                        <div class="padded cell grow-1"><input type="text" id="conv_list_filter" placeholder="{{ 'Nachricht suchen...'|trans({},'global') }}" /></div>
+                        <div class="tooltip help">
+                            {{ 'Gib hier den Titel einer Nachricht ein, um danach zu suchen.'|trans({},'global') }}<br />
+                            <b>{{ 'Beachte: Die Suchfunktion durchsucht nur den aktuell gewählten Tab (Posteingang oder Archiv).'|trans({},'global') }}</b>
+                        </div>
+                    </div>
                     <div class="forum-note" style="border-bottom: none;"><b><i class="fa fa-comments"></i> {{ 'Konversationen'|trans({},'global') }}</b></div>
                 </div>
 
                 <div class="cell grow-1 relative">
                     <div class="forum-note max-height stretcher" style="border-top: none">
-                        <div class="scroll-area" id="pm-conversation-list">
-                            <div class="center small"><i class="fa fa-spin fa-circle-notch"></i> {{ 'Lade Unterhaltungen ...'|trans({},'global') }}</div>
-                        </div>
+                        <div class="scroll-area" id="pm-conversation-list"></div>
                     </div>
                 </div>
 
@@ -57,6 +74,16 @@
                                         </div>
                                     </div>
                                 {% endif %}
+                                <div class="cell">
+                                    <div x-pm-action="archive-single" class="pm-button" id="archive-single-button">
+                                        <i class="fa fa-archive"></i> {{ 'Archivieren'|trans({},'global') }}
+                                    </div>
+                                </div>
+                                <div class="cell">
+                                    <div x-pm-action="restore-single" class="pm-button" id="restore-single-button">
+                                        <i class="fa fa-file-export"></i> {{ 'Wiederherstellen'|trans({},'global') }}
+                                    </div>
+                                </div>
                                 <div class="cell">
                                     <div x-pm-action="trash-single" class="pm-button" id="trash-single-button">
                                         <i class="fa fa-times"></i> {{ 'Löschen'|trans({},'global') }}
@@ -130,7 +157,7 @@
 
                 <div id="gpm-forum-content-container" class="cell">
                     <div class="forum-note">
-                        <b id="gpm-forum-content-header">{{ 'Bitte wähle eine Konversation auf der linken Seite.'|trans({},'global') }}</b>
+                        <b id="gpm-forum-content-header"></b>
 
                         <div id="gpm-forum-content">
                             <!-- CONVERSATION CONTAINER HERE -->
@@ -173,6 +200,63 @@
             let loading_msg_list = false;
             let msg_list_more = null;
 
+            let core_list_path = '{{ path('pm_list') }}';
+
+            const filter_entry = document.getElementById('conv_list_filter');
+            const init_conv_list = function() {
+                const list = document.getElementById('pm-conversation-list');
+                list.innerHTML = '<div class="center small"><i class="fa fa-spin fa-circle-notch"></i> {{ 'Lade Unterhaltungen ...'|trans({},'global') }}</div>';
+
+                let filter = filter_entry.value;
+                if (filter.length <= 3) filter = null;
+
+                let target = document.getElementById('gpm-forum-content');
+                target.innerText = '';
+                document.getElementById('gpm-forum-content-header').innerText = '{{ 'Bitte wähle eine Konversation auf der linken Seite.'|trans({},'global')|e('js') }}';
+
+                document.getElementById('pm-forum-actions-container').classList.add('hidden');
+                document.getElementById('pm-forum-editor-container').classList.add('hidden');
+                document.getElementById('pm-user-list-container').classList.add('hidden');
+
+                $.ajax.background().load( list, core_list_path, false, {num: 30, filter: filter}, function() {
+                    let conv_list_content = document.querySelector('#pm-conversation-list>ul');
+                    conv_list_more = document.querySelector('#pm-conversation-list>.pm-endless-more');
+                    fun_conv_events();
+                    fun_conv_loader_control();
+
+                    if (conv_list_content && conv_list_content.childElementCount === 0)
+                        list.innerHTML = filter === null
+                            ? '<div class="center small">{{ 'Dieser Ordner ist leer.'|trans({},'global') }}</div>'
+                            : '<div class="center small">{{ 'Es wurden keine passenden Nachrichten gefunden.'|trans({},'global') }}</div>';
+
+                    $.html.setTitleSegmentCount( document.querySelector('ul.pm-conversation-list>li[x-title][x-endpoint].new') ? 99 : 0 );
+                } );
+            };
+
+            document.getElementById('gpm-inbox-control').addEventListener('tab-switch', (e) => {
+                switch (e.detail.tab) {
+                    case 'inbox'  : core_list_path = '{{ path('pm_list', {set: 'inbox'}) }}'; break;
+                    case 'archive': core_list_path = '{{ path('pm_list', {set: 'archive'}) }}'; break;
+                }
+                init_conv_list();
+            });
+
+
+            let filter_timeout = null;
+            let filter_prev = '';
+            const filter_function = function() {
+                if (filter_timeout !== null) window.clearTimeout(filter_timeout);
+                filter_timeout = null;
+
+                if (filter_entry.value === filter_prev) return;
+                filter_prev = filter_entry.value;
+
+                if (filter_entry.value === '') init_conv_list();
+                else if (filter_entry.value.length > 3) filter_timeout = window.setTimeout( init_conv_list, 1000 );
+            }
+            filter_entry.addEventListener('input', filter_function);
+            filter_entry.addEventListener('blur', filter_function);
+
             const fun_conv_events = function() {
                 $.html.addEventListenerAll('ul.pm-conversation-list>li[x-title][x-endpoint]', 'click', function(e,elem) {
                     let target = document.getElementById('gpm-forum-content');
@@ -187,21 +271,20 @@
                     document.getElementById('pm-forum-editor-container').classList.add('hidden');
                     document.getElementById('pm-user-list-container').classList.add('hidden');
 
-                    if (elem.getAttribute('x-editor')) $.html.forEach('[x-pm-action="answer-single"]', e => e.classList.remove('hidden'));
-                    else $.html.forEach('[x-pm-action="answer-single"]', e => e.classList.add('hidden'));
+                    const button_conf = [
+                        ['x-editor'  , 'answer-single'],
+                        ['x-trash'   , 'trash-single'],
+                        ['x-unread'  , 'unread-single'],
+                        ['x-userlist', 'show-single'],
+                        ['x-block'   , 'block-sender'],
+                        ['x-archive' , 'archive-single'],
+                        ['x-restore' , 'restore-single'],
+                    ];
 
-                    if (elem.getAttribute('x-trash')) $.html.forEach('[x-pm-action="trash-single"]', e => e.classList.remove('hidden'));
-                    else $.html.forEach('[x-pm-action="trash-single"]', e => e.classList.add('hidden'));
-
-                    if (elem.getAttribute('x-unread')) $.html.forEach('[x-pm-action="unread-single"]', e => e.classList.remove('hidden'));
-                    else $.html.forEach('[x-pm-action="unread-single"]', e => e.classList.add('hidden'));
-
-                    if (elem.getAttribute('x-userlist')) $.html.forEach('[x-pm-action="show-users"]', e => e.classList.remove('hidden'));
-                    else $.html.forEach('[x-pm-action="show-users"]', e => e.classList.add('hidden'));
-
-                    if (elem.getAttribute('x-block'))
-                        $.html.forEach('[x-pm-action="block-sender"]', e => e.classList.remove('hidden'));
-                    else $.html.forEach('[x-pm-action="block-sender"]', e => e.classList.add('hidden'));
+                    button_conf.forEach((conf) => {
+                        if (elem.getAttribute(conf[0])) $.html.forEach('[x-pm-action="' + conf[1] + '"]', e => e.classList.remove('hidden'));
+                        else $.html.forEach('[x-pm-action="' + conf[1] + '"]', e => e.classList.add('hidden'));
+                    })
 
                     let editor = document.getElementById('global-pm-forum-editor');
                     if (editor) editor.innerText = '';
@@ -241,7 +324,7 @@
                 });
 
                 let container = document.createElement( 'div' );
-                $.ajax.background().load( container, '{{ path('pm_list') }}', false, {num: 10, skip: skip}, function() {
+                $.ajax.background().load( container, core_list_path, false, {num: 10, skip: skip}, function() {
                     let messages = container.querySelector('ul.pm-conversation-list');
                     let more = container.querySelector('.pm-endless-more');
 
@@ -328,13 +411,6 @@
             }
             $.msg.registerFetchCallback(fun_conv_updater_control);
 
-            $.ajax.background().load( document.getElementById('pm-conversation-list'), '{{ path('pm_list') }}', false, {num: 30}, function() {
-                conv_list_more = document.querySelector('#pm-conversation-list>.pm-endless-more');
-                fun_conv_events();
-                fun_conv_loader_control();
-
-                $.html.setTitleSegmentCount( document.querySelector('ul.pm-conversation-list>li[x-title][x-endpoint].new') ? 99 : 0 );
-            } );
             document.getElementById('pm-conversation-list').addEventListener('scroll', fun_conv_loader_control);
 
             const fun_msg_events = function() {
@@ -342,8 +418,31 @@
                     document.querySelector('[x-domain="m-d"][x-identifier="' + elem.getAttribute('x-unveil') + '"]').classList.remove('collapsed');
                 });
                 $.html.addEventListenerAll('ul.group-conversation>li .pm-button[x-report-url]', 'click', function(e,elem) {
-                    if (confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
-                        $.ajax.easySend( elem.getAttribute('x-report-url'), {}, (data)=>{ if (data.msg) $.html.notice(data.msg); });
+                    let form = $.html.createElement('<div class="modal-form" id="modal-form" />');
+                    form.append($.html.createElement( '<p class="small bold"></p>', '{{ 'Bist du sicher, dass du diesen Post an die Moderatoren melden willst?'|trans({},'global')|e('js') }}' ));
+
+                    let sec_p = $.html.createElement('<p class="small"/>', '{{ 'Wenn möglich gib bitte einen Grund für deine Meldung an:'|trans({},'global')|e('js') }}');
+                    sec_p.append( $.html.createElement('<div><label><input checked type="radio" name="report_reason" value="0" />' + '{{ 'Keinen Grund angeben'|trans({},'global')|e('js') }}' + '</label></div>') )
+                    sec_p.append( $.html.createElement('<div><label><input type="radio" name="report_reason" value="1" />' + '{{ 'Cheating'|trans({},'global')|e('js') }}' + '</label></div>') )
+                    sec_p.append( $.html.createElement('<div><label><input type="radio" name="report_reason" value="2" />' + '{{ 'Flooding oder Spam'|trans({},'global')|e('js') }}' + '</label></div>') )
+                    sec_p.append( $.html.createElement('<div><label><input type="radio" name="report_reason" value="4" />' + '{{ 'Beleidigungen / Unangemessener Ausdruck'|trans({},'global')|e('js') }}' + '</label></div>') )
+                    sec_p.append( $.html.createElement('<div><label><input type="radio" name="report_reason" value="5" />' + '{{ 'Pornographie'|trans({},'global')|e('js') }}' + '</label></div>') )
+                    sec_p.append( $.html.createElement('<div><label><input type="radio" name="report_reason" value="6" />' + '{{ 'Hassrede'|trans({},'global')|e('js') }}' + '</label></div>') )
+                    sec_p.append( $.html.createElement('<div><label><input type="radio" name="report_reason" value="7" />' + '{{ 'Verbreitung persönlicher Informationen'|trans({},'global')|e('js') }}' + '</label></div>') )
+                    sec_p.append( $.html.createElement('<div><label><input type="radio" name="report_reason" value="8" />' + '{{ 'Verletzung von Copyright'|trans({},'global')|e('js') }}' + '</label></div>') )
+                    sec_p.append( $.html.createElement('<div><label><input type="radio" name="report_reason" value="9" />' + '{{ 'Aufruf zu Gesetzesverstößen'|trans({},'global')|e('js') }}' + '</label></div>') )
+                    sec_p.append( $.html.createElement('<div><label><input type="radio" name="report_reason" value="10" />' + '{{ 'Ermutigung von Selbstmord oder Selbstverletzung'|trans({},'global')|e('js') }}' + '</label></div>') )
+
+                    form.append(sec_p)
+
+                    $.html.popup('{{ 'Unangemessenen Inhalt melden'|trans({},'global')|e('js') }}', form, null, [
+                        [ '{{ 'Inhalt melden'|trans({},'global')|e('js') }}',  [ ['click', (e_sub,elem_sub) => {
+                            const reason = document.querySelector('[name="report_reason"]:checked') ? parseInt(document.querySelector('[name="report_reason"]:checked').value) : 0;
+                            $.html.triggerPopupPop(elem_sub);
+                            $.ajax.easySend( elem.getAttribute('x-report-url'), {reason: reason}, (data)=>{ if (data.msg) $.html.notice(data.msg); });
+                        }] ] ],
+                        [ '{{ 'Abbrechen'|trans({},'global')|e('js') }}', [ ['click', (e_sub,elem_sub) => $.html.triggerPopupPop(elem_sub)] ] ]
+                    ] );
                 });
                 $.html.addEventListenerAll('ul.group-conversation>li .pm-button[x-pin-url]', 'click', function(e,elem) {
                     if (confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
@@ -449,6 +548,12 @@
                 searchBox.addEventListener('focus', () => userSearchHandler());
                 searchBox.addEventListener('blur', () => setTimeout( () => document.getElementById('pm-users-list').innerHTML = '', 500));
             }
+
+            $.html.addEventListenerAll('[x-pm-action="search"]', 'click', function () {
+                document.getElementById('conv_search_bar').classList.toggle('hidden');
+                document.getElementById('conv_list_filter').value = '';
+                filter_function();
+            });
 
             $.html.addEventListenerAll('[x-pm-action="new-single"]', 'click', function () {
 
@@ -564,6 +669,26 @@
 
                 $.ajax.easySend(selected_thread.getAttribute('x-unread'), {}, function() {
                     $.html.forEach('#gpm-forum-content>ul>li', e => e.classList.add('new'));
+                });
+            });
+
+            $.html.addEventListenerAll('[x-pm-action="archive-single"]', 'click', function () {
+
+                const selected_thread = document.querySelector('ul.pm-conversation-list>li[x-unread].selected');
+                if (!selected_thread) return;
+
+                $.ajax.easySend(selected_thread.getAttribute('x-archive'), {}, function() {
+                    $.ajax.load( document.getElementById('post-office-content'), '{{ path('pm_view')|e('js') }}' );
+                });
+            });
+
+            $.html.addEventListenerAll('[x-pm-action="restore-single"]', 'click', function () {
+
+                const selected_thread = document.querySelector('ul.pm-conversation-list>li[x-unread].selected');
+                if (!selected_thread) return;
+
+                $.ajax.easySend(selected_thread.getAttribute('x-restore'), {}, function() {
+                    $.ajax.load( document.getElementById('post-office-content'), '{{ path('pm_view')|e('js') }}' );
                 });
             });
 

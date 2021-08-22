@@ -43,6 +43,11 @@ class DigTimer
      */
     private $passive = false;
 
+    /**
+     * @ORM\Column(type="array", nullable=true)
+     */
+    private $digCache = [];
+
     public function getId(): ?int
     {
         return $this->id;
@@ -92,6 +97,18 @@ class DigTimer
     public function setPassive(bool $passive): self
     {
         $this->passive = $passive;
+
+        return $this;
+    }
+
+    public function getDigCache(): ?array
+    {
+        return $this->digCache;
+    }
+
+    public function setDigCache(?array $digCache): self
+    {
+        $this->digCache = $digCache;
 
         return $this;
     }

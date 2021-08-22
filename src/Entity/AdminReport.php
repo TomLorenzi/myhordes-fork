@@ -50,6 +50,11 @@ class AdminReport
      */
     private $gpm;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $reason = 0;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -123,6 +128,18 @@ class AdminReport
     public function setGpm(?GlobalPrivateMessage $gpm): self
     {
         $this->gpm = $gpm;
+
+        return $this;
+    }
+
+    public function getReason(): ?int
+    {
+        return $this->reason;
+    }
+
+    public function setReason(int $reason): self
+    {
+        $this->reason = $reason;
 
         return $this;
     }

@@ -4,7 +4,7 @@
 # https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/PHP.gitlab-ci.yml
 
 # Select image from https://hub.docker.com/_/php/
-image: php:7.4-cli
+image: chialab/php-dev:7.4
 
 # Bring in any services we need http://docs.gitlab.com/ee/ci/docker/using_docker_images.html#what-is-a-service
 # See http://docs.gitlab.com/ee/ci/services/README.html for examples.
@@ -37,16 +37,8 @@ build:
     - curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash -
     - sudo apt-get install -y nodejs
     - npm install --global yarn
-    # Install PHP extensions
-    - curl -L https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions -o /usr/local/bin/install-php-extensions
-    - chmod +x /usr/local/bin/install-php-extensions
-    - install-php-extensions intl gd zip opcache pdo_mysql
-    # Install & enable Xdebug for code coverage reports
-    - pecl install xdebug
-    - docker-php-ext-enable xdebug
-    # Install and run Composer
-    - curl -sS https://getcomposer.org/installer | php
-    - php composer.phar install
+    # Run Composer
+    - composer install
     # Install assets
     - yarn install
     - yarn encore dev

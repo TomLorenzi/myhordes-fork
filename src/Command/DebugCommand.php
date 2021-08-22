@@ -95,6 +95,7 @@ class DebugCommand extends Command
             
             ->addOption('everyone-drink', null, InputOption::VALUE_REQUIRED, 'Unset thirst status of all citizen.')
             ->addOption('add-crow', null, InputOption::VALUE_NONE, 'Creates the crow account. Also creates 80 validated users in case there are less than 66 users.')
+            ->addOption('add-animactor', null, InputOption::VALUE_NONE, 'Creates the animactor account. Also creates 80 validated users in case there are less than 66 users.')
             ->addOption('add-debug-users', null, InputOption::VALUE_NONE, 'Creates 80 validated users.')
             ->addOption('fill-town', null, InputOption::VALUE_REQUIRED, 'Sends as much users as possible to a town.')
             ->addOption('no-default', null, InputOption::VALUE_NONE, 'When used with --fill-town, disable joining the town without a job')
@@ -119,7 +120,7 @@ class DebugCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        if ($input->getOption('add-debug-users') | $input->getOption('add-crow')) {
+        if ($input->getOption('add-debug-users') | $input->getOption('add-crow') | $input->getOption('add-animactor')) {
 
             if ($input->getOption('add-crow')) {
                 /** @var User $crow */
@@ -139,14 +140,14 @@ class DebugCommand extends Command
                     $crow = $this->entity_manager->getRepository(User::class)->find(66);
                 }
 
-                if ($crow->getRightsElevation() > User::ROLE_USER || !strstr($crow->getEmail(), "@localhost") === "@localhost") {
+                if ($crow->getRightsElevation() > User::USER_LEVEL_BASIC || !strstr($crow->getEmail(), "@localhost") === "@localhost") {
                     $output->writeln('<error>User 66 is not a debug user. Will not proceed.</error>');
                     return -1;
                 }
                 $crow
                     ->setName("Der Rabe")
                     ->setEmail("crow")
-                    ->setRightsElevation(User::ROLE_CROW);
+                    ->setRightsElevation(User::USER_LEVEL_CROW);
 
                 $this->user_handler->setUserBaseAvatar($crow, file_get_contents("{$this->kernel->getProjectDir()}/assets/img/forum/crow/crow.png"), UserHandler::ImageProcessingPreferImagick, 'png', 100, 100);
                 $this->user_handler->setUserSmallAvatar($crow, file_get_contents("{$this->kernel->getProjectDir()}/assets/img/forum/crow/crow.small.png"));
@@ -160,6 +161,48 @@ class DebugCommand extends Command
                 $this->entity_manager->persist($crow);
                 $this->entity_manager->flush();               
                 
+                return 0;
+            }
+
+            if ($input->getOption('add-animactor')) {
+                /** @var User $animacteur */
+                $animacteur = $this->entity_manager->getRepository(User::class)->find(67);
+                if (!isset($animacteur)) {
+                    $command = $this->getApplication()->find('app:user:create');
+                    for ($i = 1; $i <= 80; $i++) {
+                        $user_name = 'user_' . str_pad($i, 3, '0', STR_PAD_LEFT);
+                        $nested_input = new ArrayInput([
+                                                           'name' => $user_name,
+                                                           'email' => $user_name . '@localhost',
+                                                           'password' => $user_name,
+                                                           '--validated' => true,
+                                                       ]);
+                        $command->run($nested_input, $output);
+                    }
+                    $animacteur = $this->entity_manager->getRepository(User::class)->find(67);
+                }
+
+                if ($animacteur->getRightsElevation() > User::USER_LEVEL_BASIC || !strstr($animacteur->getEmail(), "@localhost") === "@localhost") {
+                    $output->writeln('<error>User 67 is not a debug user. Will not proceed.</error>');
+                    return -1;
+                }
+                $animacteur
+                    ->setName("Animateur-Team")
+                    ->setEmail("anim")
+                    ->addRoleFlag( User::USER_ROLE_ANIMAC );
+
+                $this->user_handler->setUserBaseAvatar($animacteur, file_get_contents("{$this->kernel->getProjectDir()}/assets/img/forum/crow/anim.gif"), UserHandler::ImageProcessingPreferImagick, 'gif', 100, 100);
+                $this->user_handler->setUserSmallAvatar($animacteur, file_get_contents("{$this->kernel->getProjectDir()}/assets/img/forum/crow/anim.small.gif"));
+
+                try {
+                    $animacteur->setPassword($this->encoder->encodePassword($animacteur, bin2hex(random_bytes(16))));
+                } catch (\Exception $e) {
+                    $output->writeln('<error>Unable to generate a random password.</error>');
+                    return -1;
+                }
+                $this->entity_manager->persist($animacteur);
+                $this->entity_manager->flush();
+
                 return 0;
             }
 

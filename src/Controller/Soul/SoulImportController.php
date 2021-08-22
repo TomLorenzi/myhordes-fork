@@ -258,6 +258,9 @@ class SoulImportController extends SoulController
 
             try {
                 $this->entity_manager->flush();
+                $user->setImportedSoulPoints( $this->user_handler->fetchImportedSoulPoints( $user ) );
+                $this->entity_manager->persist($user);
+                $this->entity_manager->flush();
             } catch (Exception $e) {
                 return AjaxResponse::error(ErrorHelper::ErrorDatabaseException, ['msg' => $e->getMessage()]);
             }

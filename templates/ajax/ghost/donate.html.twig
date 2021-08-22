@@ -2,36 +2,81 @@
 {% block ajax_base %}
     <div class="row">
         <div class="cell ro-2 rw-8 ro-lg-1 rw-lg-10 ro-md-0 rw-md-12">
-            <div class="row-flex v-center wrap-sm">
-                <div class="cell padded rw-5 center rw-sm-12">
-                    <img alt="" src="{{ asset('build/images/professions/select/metier.gif') }}">
+            {% if not exp %}
+                <div class="row-flex v-center wrap-sm">
+                    <div class="cell padded rw-5 center rw-sm-12">
+                        <img alt="" src="{{ asset('build/images/professions/select/metier.gif') }}">
+                    </div>
+                    <div class="cell padded rw-7 rw-sm-12 justify">
+                    <h5 style="margin-top: 0;">
+                        {% trans from 'ghost' %}
+                            Das Leben nach dem Tod
+                        {% endtrans %}
+                    </h5>
+
+                    <p><span class="small">
+                        <b>{{ 'Der Tod in "MyHordes" ist nicht weiter schlimm!'|trans({},'game') }}</b>
+                        {{ 'Du kannst in einer neuen Stadt wiedergeboren werden und das so oft wie du möchtest. Sei erfinderisch, probiere verschiedene Optionen aus und finde deinen eigenen Spielstil!'|trans({},'game') }}
+                    </span></p>
+
+                    <button x-ajax-href="{{ path('ghost_welcome') }}">
+                        <img alt="" src='{{ asset('build/images/icons/death.gif') }}'/>
+                        {% trans from 'ghost' %}
+                            Ein neues Leben beginnen
+                        {% endtrans %}
+                    </button>
+                    <button x-ajax-href="{{ path('soul_me') }}">
+                        <img alt="" src='{{ asset('build/images/icons/small_ghost_blue.gif') }}'/>
+                        {% trans from 'ghost' %}
+                            Meine Seele ansehen
+                        {% endtrans %}
+                    </button>
+            </div>
                 </div>
-                <div class="cell padded rw-7 rw-sm-12 justify">
-                        <h5 style="margin-top: 0;">
+            {% else %}
+                <div class="row-flex v-center wrap">
+                    <div class="cell padded rw-12">
+                        <img class="boxed fit" alt="" src="{{ asset('build/images/background/town/agora.jpg') }}">
+                        <h5>{{ 'Bürger, Willkommen in der Hölle!'|trans({},'soul') }}</h5>
+                        <p class="justify small">
+                            <strong>{{ 'Diese letzten Nächte des Überlebens haben deiner verlorenen Seele zugesetzt, aber du bist daraus gestärkt hervorgegangen. Nun bist du bereit für die wirklichen Herausforderungen, die jetzt beginnen.'|trans({}, 'game') }}</strong>
+                        </p>
+                    </div>
+                    <div class="cell padded rw-12">
+                        <h1 class="page-head">{{'Das wird dir in Zukunft schlaflose Nächte bereiten!'|trans({}, 'game')}}</h1>
+                        <ul class="feature-list">
+                            <li><strong>{{'Erkunde die Außenwelt:'|trans({}, 'game')}}</strong></li>
+                            <ul>
+                                <li>{{'Die Weltkarte ist nun größer. Viel größer!'|trans({}, 'game')}}</li>
+                                <li>{{'Du kannst nun Ruinen durch ein Minispiel erkunden.'|trans({}, 'game')}}</li>
+                                <li>{{'Du kannst nun Nachts in der Außenwelt campen (auf eigene Gefahr natürlich)'|trans({}, 'game')}}</li>
+                                <li>{{'Von nun an ist die Nacht sowohl Freund als auch Feind...'|trans({}, 'game')}}</li>
+                            </ul>
+                            <li>{{'Du könntest als der Schamane der Stadt enden! Koste die Macht dieses mystischen Voodoo-Mannes, aber denk an deine Verantwortung für die Seelen der Verdammten...'|trans({}, 'game')}}</li>
+                            <li>{{'Es gibt keine "vorbereiteten" Gebäude. Du bist auf dich allein gestellt.'|trans({}, 'game')}}</li>
+                            <li>{{'Versuch dich an einer Pandämonium-Stadt, wenn du dich traust...'|trans({}, 'game')}}</li>
+                            <li>{{'Städte werden nun basierend auf ihrem Überlebensfaktor bewertet.'|trans({}, 'game')}}</li>
+                            <li>{{'Du kannst nun angreifen wen immer du willst, selbst wenn du kein Ghul bist.'|trans({}, 'game')}}</li>
+                            <li>{{'Um Baupläne zu finden musst du nun in Gebäuden in der Außenwelt campen.'|trans({}, 'game')}}</li>
+                        </ul>
+                    </div>
+                    <div class="cell padded rw-6 rw-md-8 rw-sm-12">
+                        <button x-ajax-href="{{ path('help_me') }}">
+                            <img alt="" src='{{ asset('build/images/icons/small_help.gif') }}'/>
                             {% trans from 'ghost' %}
-                                Das Leben nach dem Tod
+                                Spielhilfe ansehen
                             {% endtrans %}
-                        </h5>
-
-                        <p><span class="small">
-                            <b>{{ 'Der Tod in "MyHordes" ist nicht weiter schlimm!'|trans({},'game') }}</b>
-                            {{ 'Du kannst in einer neuen Stadt wiedergeboren werden und das so oft wie du möchtest. Sei erfinderisch, probiere verschiedene Optionen aus und finde deinen eigenen Spielstil!'|trans({},'game') }}
-                        </span></p>
-
+                        </button>
                         <button x-ajax-href="{{ path('ghost_welcome') }}">
                             <img alt="" src='{{ asset('build/images/icons/death.gif') }}'/>
                             {% trans from 'ghost' %}
-                                Ein neues Leben beginnen
+                                Spielen, Lernen und STERBEN!
                             {% endtrans %}
                         </button>
-                        <button x-ajax-href="{{ path('soul_me') }}">
-                            <img alt="" src='{{ asset('build/images/icons/small_ghost_blue.gif') }}'/>
-                            {% trans from 'ghost' %}
-                                Meine Seele ansehen
-                            {% endtrans %}
-                        </button>
+                    </div>
+
                 </div>
-            </div>
+            {% endif %}
         </div>
         <div class="cell ro-2 rw-8 ro-lg-1 rw-lg-10 ro-md-0 rw-md-12" style="margin-top: 25px;">
             <div class="row">

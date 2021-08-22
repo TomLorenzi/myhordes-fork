@@ -60,8 +60,20 @@ class ConfMaster
                 list($beginDate, $beginTime) = explode(' ', $trigger['begin']);
                 list($endDate, $endTime) = explode(' ', $trigger['end']);
 
-                $begin = (new DateTime())->setDate((int)$curDate->format('Y'), explode('-', $beginDate)[0], explode('-', $beginDate)[1])->setTime(explode(':', $beginTime)[0], explode(':', $beginTime)[1], 0);
-                $end = (new DateTime())->setDate((int)$curDate->format('Y'), explode('-', $endDate)[0], explode('-', $endDate)[1])->setTime(explode(':', $endTime)[0], explode(':', $endTime)[1], 0);
+                $beginDate = explode('-', $beginDate);
+                $endDate = explode('-', $endDate);
+
+                $beginTime = explode(':', $beginTime);
+                $endTime = explode(':', $endTime);
+
+                if (count($beginDate) !== count($endDate) || count($beginDate) < 2 || count($beginDate) > 3) return false;
+                if (count($beginDate) === 2) {
+                    array_unshift($beginDate,(int)$curDate->format('Y'));
+                    array_unshift($endDate,(int)$curDate->format('Y'));
+                }
+
+                $begin = (new DateTime())->setDate($beginDate[0], $beginDate[1], $beginDate[2])->setTime($beginTime[0], $beginTime[1], 0);
+                $end = (new DateTime())->setDate($endDate[0], $endDate[1], $endDate[2])->setTime($endTime[0], $endTime[1], 0);
 
                 break;
             case 'easter':

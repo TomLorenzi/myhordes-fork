@@ -1,13 +1,50 @@
 {% extends "ajax/ajax_plain.html.twig" %}
 {% block ajax_base %}
-    {# @var posts \App\Entity\Post[] #}
+    {% macro icon_master(user) %}
+        {% if user|is_granted('ROLE_SUPER') %}
+            <div class="inline-block mh-icon">
+                <img alt="MHA" src="{{ asset('build/images/icons/icon_mh_admin.gif') }}" />
+                <div class="tooltip">{{ 'Dieser Spieler ist ein Administrator auf diesem Server.'|trans({},'global') }}</div>
+            </div>
+        {% elseif user|is_granted('ROLE_ADMIN') %}
+            <div class="inline-block mh-icon">
+                <img alt="MHA" src="{{ asset('build/images/icons/icon_mh_admin.gif') }}" />
+                <div class="tooltip">{{ 'Dieser Spieler ist ein Entwickler von MyHordes.'|trans({},'global') }}</div>
+            </div>
+        {% elseif user|is_granted('ROLE_CROW') %}
+            <div class="inline-block mh-icon">
+                <img alt="MHA" src="{{ asset('build/images/icons/icon_mh_mod.gif') }}" />
+                <div class="tooltip">{{ 'Dieser Spieler ist ein Moderator auf MyHordes.'|trans({},'global') }}</div>
+            </div>
+        {% elseif user|is_granted('ROLE_ANIMAC') %}
+            <div class="inline-block mh-icon">
+                <img alt="MHA" src="{{ asset('build/images/icons/icon_mh_anim.gif') }}" />
+                <div class="tooltip">{{ 'Dieser Spieler ist ein Animateur auf MyHordes.'|trans({},'global') }}</div>
+            </div>
+        {% elseif user|is_granted('ROLE_ORACLE') %}
+            <div class="inline-block mh-icon">
+                <img alt="MHA" src="{{ asset('build/images/icons/icon_mh_orac.gif') }}" />
+                <div class="tooltip">{{ 'Dieser Spieler ist ein Orakel auf MyHordes.'|trans({},'global') }}</div>
+            </div>
+        {% elseif user|is_granted('ROLE_TEAM') %}
+            <div class="inline-block mh-icon">
+                <img alt="MHA" src="{{ asset('build/images/icons/icon_mh_team.gif') }}" />
+                <div class="tooltip">{{ 'Dieser Spieler ist Mitglied des Entwickler-Teams von MyHordes.'|trans({},'global') }}</div>
+            </div>
+        {% endif %}
+    {% endmacro %}
 
+    {# @var posts \App\Entity\Post[] #}
     <div class="forum-posts">
         {% for post in posts %}
             {% if not post.hidden or is_granted("ROLE_CROW") %}
                 {% set variant = null %}
-                {% if post.owner.name == 'Der Rabe' or post.type == "CROW" %}{% set variant = 'crow' %}{% endif %}
-                {% if post.type == "DEV" %}{% set variant = 'dev' %}{% endif %}
+                {% if post.owner.name == 'Der Rabe' %}{% set variant = 'crow' %}
+                {% elseif post.type != "USER" and post.type is not null %}{% set variant = post.type|lower %}{% endif %}
+
+                {% set author_name = town and post.owner.citizenFor(town) ? post.owner.citizenFor(town).name : post.owner.name %}
+                {% if post.owner.name == 'Der Rabe' %}{% set author_name = 'Der Rabe'|trans({},'global') %}
+                {% elseif post.owner.name == 'Animateur-Team' %}{% set author_name = 'Animateur-Team'|trans({},'global') %}{% endif %}
 
                 <div class="forum-post forum-post-small {% if variant is not null %}forum-post-variant-{{ variant }}{% endif %} {% if not post.hidden %}{% else %}forum-post-hidden{% endif %} {% if post.new %}forum-post-new{% endif %} {% if markedPost is defined and post.id == markedPost %}forum-post-marked{% endif %}" id="{{post.id}}">
                     <div class="forum-post-content">
@@ -18,20 +55,7 @@
                         {% else %}
                             <div class="avatar small ua-{{ random(0,9) }}"><img alt="" src="{{ asset('build/images/forum/empty_avatar.gif') }}"></div>
                         {% endif %}
-                        <b>
-                            {% if post.owner.name == 'Der Rabe' %}
-                                {% set displayName = 'Der Rabe'|trans({},'global') %}
-                            {% elseif post.type == "DEV" %}
-                                {% set displayName = post.owner.name %}
-                            {% else %}
-                                {% if town and post.owner.citizenFor(town) %}
-                                    {% set displayName = post.owner.citizenFor(town).name %}
-                                {% else %}
-                                    {% set displayName = post.owner.name %}
-                                {% endif %}
-                            {% endif %}
-                            <a class="link" href="{{ path('soul_visit', {id: post.owner.id}) }}">{{ displayName }}:</a>
-                        </b>
+                        <b><a class="link" href="{{ path('soul_visit', {id: post.owner.id}) }}">{{ author_name }} {{ _self.icon_master(post.owner) }}:</a></b>
                         {{ post.translate ? (post.text|trans({},'game')|raw) : (post.text|raw) }}
                         {% if not post.translate and paranoid and post.owner.name != 'Der Rabe' %}
                             {% set mode = (app.user.id + post.id + post.owner.id) % 12 %}
@@ -57,4 +81,14 @@
         {% endfor %}
         <div class="right"><span class="small button" x-ajax-target="default" x-ajax-href="{{ url('forum_thread_view', {fid: fid, tid: tid}) }}" style="width: 12rem;"><img alt="" src="{{ asset('build/images/forum/r_forum.gif') }}"> {{ 'Zum Forum'|trans({},'game') }}</span></div>
     </div>
+{% endblock %}
+{% block js %}
+    {{ parent() }}
+    <script>
+        $.html.forEach('.forum-post-content ul.poll', element => {
+            element.parentElement.insertBefore($.html.createElement('<div class="clear" />'),element);
+            element.parentElement.insertBefore($.html.createElement('<div class="note note-warning" />', '{{ 'Umfragen können an dieser Stelle nicht angezeigt werden. Bitte besuche das Forum.'|trans({},'global') }}'),element);
+            element.remove();
+        });
+    </script>
 {% endblock %}

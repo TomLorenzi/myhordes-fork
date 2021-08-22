@@ -162,6 +162,7 @@ class ExternalXML2Controller extends ExternalController {
         $language = $this->getRequestLanguage($request,$user);
         if($language !== 'all')
             $this->translator->setLocale($language);
+        else $this->translator->setLocale('en');
 
         // Base data.
         $data = $this->getHeaders($user, $language);
@@ -279,7 +280,7 @@ class ExternalXML2Controller extends ExternalController {
                         ? strtolower($pastLife->getTown()->getLanguage())
                         : '',
                 ],
-                'cdata_value' => html_entity_decode($pastLife->getLastWords())
+                'cdata_value' => html_entity_decode(str_replace('{gotKilled}', $this->translator->trans('...der Mörder .. ist.. IST.. AAARGHhh..', [], 'game'), $pastLife->getLastWords()))
             ];
         }
 
@@ -319,7 +320,7 @@ class ExternalXML2Controller extends ExternalController {
             $data['error']['attributes'] = ['code' => "not_in_game"];
             $data['status']['attributes'] = ['open' => "1", "msg" => ""];
         } else {
-            if ($user->getRightsElevation() >= User::ROLE_ADMIN && $request->query->has('town')) {
+            if ($user->getRightsElevation() >= User::USER_LEVEL_ADMIN && $request->query->has('town')) {
                 $town = $this->entity_manager->getRepository(Town::class)->find($request->query->get('town'));
                 if ($town === null) {
                     $data['error']['attributes'] = ['code' => "town_not_found"];
@@ -683,7 +684,7 @@ class ExternalXML2Controller extends ExternalController {
                     }
                     if($citizen->getLastWords() !== null) {
                         $cadaver['msg'] = [
-                            'cdata_value' => $citizen->getLastWords()
+                            'cdata_value' => str_replace('{gotKilled}', $this->translator->trans('...der Mörder .. ist.. IST.. AAARGHhh..', [], 'game'), $citizen->getLastWords())
                         ];
                     }
                     $data['data']['cadavers']['list']['items'][] = $cadaver;

@@ -491,26 +491,6 @@
         <target>Soporte</target>
       </segment>
     </unit>
-    <unit id="BKRwO03" name="1- Überprüfe deinen Browser">
-      <notes>
-        <note category="german">1- Überprüfe deinen Browser</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>1- Überprüfe deinen Browser</source>
-        <target>1- Verifica tu navegador</target>
-      </segment>
-    </unit>
-    <unit id="cm9u5KI" name="2- Überprüfe sonstige installierte Programme">
-      <notes>
-        <note category="german">2- Überprüfe sonstige installierte Programme</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>2- Überprüfe sonstige installierte Programme</source>
-        <target>2- Verificar otros programas</target>
-      </segment>
-    </unit>
     <unit id="vm9r3tz" name="Hier erhältst du Hilfe">
       <notes>
         <note category="german">Hier erhältst du Hilfe</note>
@@ -1052,16 +1032,6 @@ Im Schnelldurchlauf lässt du die schönen und unschönen Momente deines kurzen 
       <segment>
         <source>Der Mark.-Knopf &lt;strong&gt;[3]&lt;/strong&gt; zeigt alle von dir oder von anderen Spieler gesetzten Wegmarken an. Diese können zum Markieren von gefährlichen Zonen gesetzt werden, oder aber, um auf wichtige Gegenstände hinzuweisen.</source>
         <target><![CDATA[El botón Marca <strong>[3]</strong> te muestra las marcas colocadas por otros jugadores o por ti mismo en el mapa. Estas informaciones te indicarán las zonas peligrosas, las zonas donde se encuentran objetos interesantes, etc.]]></target>
-      </segment>
-    </unit>
-    <unit id="px25T6e">
-      <notes>
-        <note category="german">Der Globale Knopf &lt;strong&gt;[4]&lt;/strong&gt; zeigt alle Zonen an, die der &lt;strong&gt;Stadt als Ganzes&lt;/strong&gt; bekannt sind.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Der Globale Knopf &lt;strong&gt;[4]&lt;/strong&gt; zeigt alle Zonen an, die der &lt;strong&gt;Stadt als Ganzes&lt;/strong&gt; bekannt sind.</source>
-        <target><![CDATA[El botón Global <strong>[4]</strong> te muestra el mundo como es visto por <strong>todos de habitantes del pueblo</strong> (y no solo por ti en tus expediciones).]]></target>
       </segment>
     </unit>
     <unit id="Czm2yVn" name="Der Expeditionsknopf &lt;strong&gt;[4]&lt;/strong&gt; zeigt alle geplanten Expeditionen an.">
@@ -2974,7 +2944,7 @@ Leider ist es unmöglich, Karten von diesen Gebäuden aufzustöbern. Aber es bes
     <unit id="27FD0EG" name="Die Auszeichnungen">
       <notes>
         <note category="german">Die Auszeichnungen</note>
-        <note category="from">twig:///templates/ajax/help/your_soul.html.twig</note>
+        <note category="from">twig:///templates/ajax/help/your_soul.html.twig;twig:///templates/ajax/soul/death.html.twig</note>
       </notes>
       <segment>
         <source>Die Auszeichnungen</source>
@@ -4028,16 +3998,6 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       <segment>
         <source>Der Verzehr von kalten oder warmen Menschenfleisch gibt dir {img_ap} zurück und senkt deinen Heißhunger.</source>
         <target>Consumir carne humana viva o muerta regenera tus {img_ap} y reduce tu Voracidad.</target>
-      </segment>
-    </unit>
-    <unit id="h_gD9Uq">
-      <notes>
-        <note category="german">Pro gefressenem Mitbürger gewinnst du &lt;strong&gt;1 Heldentag&lt;/strong&gt; (Du erhältst sie nach deinem Tod).</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Pro gefressenem Mitbürger gewinnst du &lt;strong&gt;1 Heldentag&lt;/strong&gt; (Du erhältst sie nach deinem Tod).</source>
-        <target><![CDATA[Ganarás <strong>1 día de Modo Héroe por habitante devorado</strong> (entregados cuando mueres).]]></target>
       </segment>
     </unit>
     <unit id="v4LpsCZ">
@@ -5393,50 +5353,6 @@ müssen durchdacht geplant werden.</source>
         <target>Cada noche (0:00, UTC+1), a la misma hora, las turbas de muertos vivientes embisten contra el pueblo.</target>
       </segment>
     </unit>
-    <unit id="D4X9Djo" name="España: 01h00">
-      <notes>
-        <note category="german">España: 01h00</note>
-        <note category="state">new</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>España: 01h00</source>
-        <target>España: 01h00</target>
-      </segment>
-    </unit>
-    <unit id="cf00bvp" name="México: 18h00">
-      <notes>
-        <note category="german">México: 18h00</note>
-        <note category="state">new</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>México: 18h00</source>
-        <target>México: 18h00</target>
-      </segment>
-    </unit>
-    <unit id="GBtY4go" name="Argentina, Chile y Uruguay: 20h00">
-      <notes>
-        <note category="german">Argentina, Chile y Uruguay: 20h00</note>
-        <note category="state">new</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Argentina, Chile y Uruguay: 20h00</source>
-        <target>Argentina, Chile y Uruguay: 20h00</target>
-      </segment>
-    </unit>
-    <unit id="EQq8xCY" name="Colombia y Perú: 18h00">
-      <notes>
-        <note category="german">Colombia y Perú: 18h00</note>
-        <note category="state">new</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Colombia y Perú: 18h00</source>
-        <target>Colombia y Perú: 18h00</target>
-      </segment>
-    </unit>
     <unit id="xMTq99h" name="Phase 1: Die Rückkehr der lebenden Toten">
       <notes>
         <note category="german">Phase 1: Die Rückkehr der lebenden Toten</note>
@@ -5793,16 +5709,6 @@ Eine davon ist es der &lt;strong&gt;Nachtwache&lt;/strong&gt; beizutreten.</sour
       <segment>
         <source>Das heißt allerdings nicht, dass deine stadtloyalen Mitbürger dein Handeln auch gutheißen würden...</source>
         <target>Y eso puede no gustarle al resto de habitantes en el pueblo...</target>
-      </segment>
-    </unit>
-    <unit id="_bckoqm">
-      <notes>
-        <note category="german">Achtung! Wenn die Anzahl der Angreifer höher ist als die Stadtverteidigung sinken die Überlebenschancen der Nachtwächter! In solchen Situationen wird sich zeigen, wer die wahren Helden der Stadt sind.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Achtung! Wenn die Anzahl der Angreifer höher ist als die Stadtverteidigung sinken die Überlebenschancen der Nachtwächter! In solchen Situationen wird sich zeigen, wer die wahren Helden der Stadt sind.</source>
-        <target>Cuidado, si la cantidad de zombies atacantes es superior a las defensas del pueblo, ¡las probabilidades que los centinelas sobrevivan serán reducidas! ¡Ahí sabrás quiénes son los verdaderos defensores!</target>
       </segment>
     </unit>
     <unit id="SVBBTil">
@@ -6475,16 +6381,6 @@ Die Punkte für den Titel "Spiritueller Führer" kumulieren sich mit jedem Tag. 
       <segment>
         <source>&lt;strong&gt;Das Stadttor ist irreparabel zerstört&lt;/strong&gt;: Die Stadt kann von den Überlebenden nicht mehr  als sicherer Rückzugsort genutzt werden.</source>
         <target><![CDATA[<strong>Sus puertas serán destruidas irremediablemente</strong>: El pueblo no servirá de refugio para los habitantes supervivientes.]]></target>
-      </segment>
-    </unit>
-    <unit id="MBxcEi9" name="Alle Gebäude, die sich im Bau befanden, wurden zerstört.">
-      <notes>
-        <note category="german">Alle Gebäude, die sich im Bau befanden, wurden zerstört.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Alle Gebäude, die sich im Bau befanden, wurden zerstört.</source>
-        <target>Las construcciones en curso se reducen a polvo.</target>
       </segment>
     </unit>
     <unit id="4FoyWoL" name="Die Wasserreserven des Stadtbrunnens sind stark gesunken.">
@@ -7170,28 +7066,6 @@ in die Rangliste aufgenommen. Kleine Städte oder Privatstädte werden nicht ins
         <target>Encontrarás ayuda en el sitio oficial de Soporte Técnico:</target>
       </segment>
     </unit>
-    <unit id="qjGA5u0">
-      <notes>
-        <note category="german">&lt;strong&gt;HÄUFIG GESTELLTE FRAGEN:&lt;/strong&gt;
-Lies dir bitte die offizielle &lt;span x-ajax-href={url_support}&gt;Technische Supportseite von MyHordes&lt;/span&gt; durch!</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>&lt;strong&gt;HÄUFIG GESTELLTE FRAGEN:&lt;/strong&gt;
-Lies dir bitte die offizielle &lt;span x-ajax-href={url_support}&gt;Technische Supportseite von MyHordes&lt;/span&gt; durch!</source>
-        <target><![CDATA[<strong>PREGUNTAS FRECUENTES:</strong> Consulta la FAQ oficial del <span x-ajax-href={url_support}>Soporte Técnico de MyHordes</span> !]]></target>
-      </segment>
-    </unit>
-    <unit id="u6CHRLa">
-      <notes>
-        <note category="german">&lt;strong&gt;MIT ANDEREN SPIELERN REDEN:&lt;/strong&gt; Die meisten Spielfragen werden oder wurden meistens schon in den &lt;span x-ajax-href={url_forums}&gt;Foren&lt;/span&gt; beantwortet. Du kannst darauf zugreifen, wenn du im Spiel eingeloggt bist.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>&lt;strong&gt;MIT ANDEREN SPIELERN REDEN:&lt;/strong&gt; Die meisten Spielfragen werden oder wurden meistens schon in den &lt;span x-ajax-href={url_forums}&gt;Foren&lt;/span&gt; beantwortet. Du kannst darauf zugreifen, wenn du im Spiel eingeloggt bist.</source>
-        <target><![CDATA[<strong>CHARLA CON LOS JUGADORES:</strong> Encontrarás muchas respuestas y soluciones en los <span x-ajax-href={url_forums}>foros del sitio</span>, disponibles al interior del juego.]]></target>
-      </segment>
-    </unit>
     <unit id="4oAKxr3">
       <notes>
         <note category="german">&lt;strong&gt;EINEN REGELVERSTOSS MELDEN:&lt;/strong&gt;
@@ -7214,16 +7088,6 @@ Nutze bitte folgenden Link, wenn du uns einen Bug (technischen Fehler) melden m�
         <source>&lt;strong&gt;EINEN BUG MELDEN:&lt;/strong&gt;
 Nutze bitte folgenden Link, wenn du uns einen Bug (technischen Fehler) melden möchtest: &lt;a href={url_git}&gt;Buglisten&lt;/a&gt;.</source>
         <target><![CDATA[<strong>EÑALAR UN PROBLEMA TÉCNICO:</strong> Para reportar un bug, ingresa a: <a href={url_git}>Listas de errores en Gitlab</a>.]]></target>
-      </segment>
-    </unit>
-    <unit id="XkmnbTG">
-      <notes>
-        <note category="german">Zu guter Letzt: Für sämtliche Anregungen und Fragen, die die &lt;strong&gt;MyHordes-Community&lt;/strong&gt; betreffen, kannst dem &lt;span x-ajax-href={url_oracle}&gt;Orakels&lt;/span&gt; anschreiben.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Zu guter Letzt: Für sämtliche Anregungen und Fragen, die die &lt;strong&gt;MyHordes-Community&lt;/strong&gt; betreffen, kannst dem &lt;span x-ajax-href={url_oracle}&gt;Orakels&lt;/span&gt; anschreiben.</source>
-        <target><![CDATA[finalmente, para todas las preguntas relacionadas con la <strong>comunidad de MyHordes</strong>, puede comunicarse con <span x-ajax-href={url_oracle}>los Oráculos</span>.]]></target>
       </segment>
     </unit>
     <unit id="jcxOFSe">
@@ -7345,16 +7209,6 @@ Nutze bitte folgenden Link, wenn du uns einen Bug (technischen Fehler) melden m�
       <segment>
         <source>Der nicht stattgefundene Angriff findet in diesem Fall wieder regulär um Mitternacht des folgenden Tags statt.</source>
         <target>El ataque que no se realizó tendrá lugar la noche siguiente.</target>
-      </segment>
-    </unit>
-    <unit id="Y9Uk1gC">
-      <notes>
-        <note category="german">Beachte: Das Stadttor wird vor diesem verschobenen Zombieangriff ausnahmsweise automatisch geschlossen.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Beachte: Das Stadttor wird vor diesem verschobenen Zombieangriff ausnahmsweise automatisch geschlossen.</source>
-        <target>Nota: El Portal del pueblo será excepcional y automáticamente cerrado antes de este ataque retrasado y será reabierto cuando el ataque haya terminado.</target>
       </segment>
     </unit>
     <unit id="GE.0HDW">
@@ -7691,7 +7545,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>MyHordes bietet Entwicklern zusätzliche Informationen in Form von JSON- und XML-Feeds, die für die Erstellung zusätzlicher Anwendungen und anderer neuartiger Funktionen auf Basis des Spiels verwendet werden können.</source>
-        <target>MyHordes ofrece a los desarrolladores información adicional en forma de feeds JSON y XML que se pueden utilizar para la creación de aplicaciones adicionales y otros nuevos usos basados ​​en el juego.</target>
+        <target>MyHordes ofrece a los desarrolladores información adicional en forma de feeds JSON y XML que se pueden utilizar para la creación de aplicaciones adicionales y otros nuevos usos basados en el juego.</target>
       </segment>
     </unit>
     <unit id="ncia324">

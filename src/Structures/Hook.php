@@ -3,16 +3,17 @@
 
 namespace App\Structures;
 
-use App\Entity\BuildingPrototype;
+use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
 use App\Entity\Town;
 use App\Response\AjaxResponse;
 use App\Service\CitizenHandler;
+use App\Service\DeathHandler;
 use App\Service\ErrorHelper;
 use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
 use App\Service\TownHandler;
-use Doctrine\ORM\EntityManagerInterface;
+use App\Translation\T;
 
 class Hook
 {
@@ -138,6 +139,61 @@ class Hook
         $cross = $town_handler->getBuilding($town,'small_eastercross_#00', false);
         if ($cross) $cross->setPrototype( $gallows );
 
+        return true;
+    }
+
+    public static function purge_daysUntil(?\DateTimeInterface $dateTime = null): int {
+        if ($dateTime === null) $dateTime = new \DateTime();
+        return $dateTime->diff( (new \DateTime('today'))->setDate(2021,9,1) )->d;
+    }
+
+    /**
+     * Preparation for THE PURGE
+     *
+     * @param array $est
+     */
+    public static function watchtower_purge(array $est): void{
+        if ($est[3] !== 0) return;
+        $dayDiff = self::purge_daysUntil();
+
+        if ($dayDiff > 7 || $dayDiff < 0) return;
+        elseif ( $est[4] >= (1.0 - ((7-$dayDiff) / 7) * 0.7) )
+            switch ($dayDiff) {
+                case 7:case 6:
+                    $est[5] = T::__('Vereinzelte Bürger berichten von einem merkwürdigen Phänomen am Himmel... Ihr solltet die Alkoholvorräte in der Bank pürfen.', 'game');
+                    break;
+                case 5:case 4:
+                    $est[5] = T::__('Einige Bürger haben berichtet, während ihrer Abschätzung ein rotes Blitzen am Horizont gesehen zu haben.', 'game');
+                    break;
+                case 3:case 2:
+                    $est[5] = T::__('Ein Großteil der Bürger, die heute auf dem Wachturm waren, haben ein lautes Grollen in der Ferne vernommen.', 'game');
+                    break;
+                case 1:
+                    $est[5] = T::__('Zusatzbemerkung zur heutigen Abschätzung: Der Himmel hat sich blutrot gefärbt. Das sieht nicht gut aus, Leute...', 'game');
+                    break;
+                case 0:
+                    $est[5] = T::__('Das sieht nicht gut aus... Die Zombies werden heute Nacht nicht unser größtes Problem sein.', 'game');
+                    break;
+            }
+    }
+
+    public static function dashboard_purge(array $info) {
+        if (self::purge_daysUntil() === 0) {
+            $info[1] = array_merge($info[1], [
+                T::__('Beten', 'game') => false,
+            ]);
+            $info[2] = array_merge($info[2], [
+                T::__('Es gibt keine Hoffnung!', 'game') => true,
+            ]);
+        }
+    }
+
+    public static function citizen_purge(Citizen $citizen): bool {
+        if (!$citizen->getAlive()) return true;
+
+        global $kernel;
+        $death_handler = $kernel->getContainer()->get(DeathHandler::class);
+        $death_handler->kill($citizen, CauseOfDeath::Apocalypse);
         return true;
     }
 }

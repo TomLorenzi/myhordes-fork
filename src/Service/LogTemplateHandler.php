@@ -529,9 +529,9 @@ class LogTemplateHandler
 
     public function doorControl( Citizen $citizen, bool $open ): TownLogEntry {
         if ($open)
-            $action = "geöffnet";
+            $action = T::__("geöffnet", 'game');
         else 
-            $action = "geschlossen";
+            $action = T::__("geschlossen", 'game');
         $variables = array('citizen' => $citizen->getId(), 'action' => $action);
         $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'doorControl']);
 
@@ -546,9 +546,9 @@ class LogTemplateHandler
 
     public function doorControlAuto( Town $town, bool $open, ?DateTimeInterface $time ): TownLogEntry {
         if ($open)
-            $action = "geöffnet";
+            $action = T::__("geöffnet", 'game');
         else 
-            $action = "geschlossen";
+            $action = T::__("geschlossen", 'game');
         $variables = array('action' => $action);
         $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'doorControlAuto']);
 
@@ -562,9 +562,9 @@ class LogTemplateHandler
 
     public function doorPass( Citizen $citizen, bool $in ): TownLogEntry {
         if ($in)
-            $action = "betreten";
+            $action = T::__("betreten", 'game');
         else 
-            $action = "verlassen";
+            $action = T::__("verlassen", 'game');
         $variables = array('citizen' => $citizen->getId(), 'action' => $action);
         $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'doorPass']);
 
@@ -817,16 +817,28 @@ class LogTemplateHandler
             ->setZone( $citizen->getZone() );
     }
 
-    public function outsideUncover( Citizen $citizen ): TownLogEntry {
-        $bc = $citizen->getZone()->getBuryCount() > 0;
-        if ($bc) {
+    public function outsideUncover( Citizen $citizen, int $count = 1, ?ItemPrototype $proto = null): TownLogEntry {
+        if ($proto) {
+            $variables = array('citizen' => $citizen->getId(), 'count' => $count, 'item' => $proto->getId());
+            $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'outsideUncoverItem']);
+        } else {
             $variables = array('citizen' => $citizen->getId());
             $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'outsideUncover']);
         }
-        else {
-            $variables = array('citizen' => $citizen->getId(), 'type' => $citizen->getZone()->getPrototype()->getLabel());
-            $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'outsideUncoverComplete']);
-        }
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $citizen->getTown() )
+            ->setDay( $citizen->getTown()->getDay() )
+            ->setTimestamp( $time ?? new DateTime('now') )
+            ->setCitizen( $citizen )
+            ->setZone( $citizen->getZone() );
+    }
+
+    public function outsideUncoverComplete( Citizen $citizen ): TownLogEntry {
+        $variables = array('citizen' => $citizen->getId(), 'type' => $citizen->getZone()->getPrototype()->getLabel());
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'outsideUncoverComplete']);
 
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
@@ -1197,8 +1209,8 @@ class LogTemplateHandler
      * @param Item|ItemPrototype $item
      * @return TownLogEntry
      */
-    public function nightlyAttackProductionBlueprint( Town $town, ItemPrototype $item ): TownLogEntry {
-        $variables = array('item' => $item->getId());
+    public function nightlyAttackProductionBlueprint( Town $town, ItemPrototype $item, BuildingPrototype $building): TownLogEntry {
+        $variables = array('item' => $item->getId(), 'building' => $building->getId());
         $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'nightlyAttackProductionBlueprint']);
 
         return (new TownLogEntry())

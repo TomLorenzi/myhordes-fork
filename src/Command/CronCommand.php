@@ -227,6 +227,52 @@ class CronCommand extends Command
         return true;
     }
 
+    protected function module_ensure_towns(): bool {
+        // Let's check if there is enough opened town
+        $openTowns = $this->entityManager->getRepository(Town::class)->findOpenTown();
+
+        $count = [];
+        $langs = $this->conf->get( MyHordesConf::CONF_TOWNS_AUTO_LANG, [] );
+        foreach ($langs as $lang) $count[$lang] = [];
+        foreach ($openTowns as $openTown) {
+            if (!isset($count[$openTown->getLanguage()])) continue;
+            if (!isset($count[$openTown->getLanguage()][$openTown->getType()->getName()])) $count[$openTown->getLanguage()][$openTown->getType()->getName()] = 0;
+            $count[$openTown->getLanguage()][$openTown->getType()->getName()]++;
+        }
+
+        $minOpenTown = [
+            'small'  => $this->conf->get( MyHordesConf::CONF_TOWNS_OPENMIN_SMALL, 1 ),
+            'remote' => $this->conf->get( MyHordesConf::CONF_TOWNS_OPENMIN_REMOTE, 1 ),
+            'panda'  => $this->conf->get( MyHordesConf::CONF_TOWNS_OPENMIN_PANDA, 1 ),
+            'custom' => $this->conf->get( MyHordesConf::CONF_TOWNS_OPENMIN_CUSTOM, 0 ),
+        ];
+
+        $created_towns = false;
+        foreach ($langs as $lang)
+            foreach ($minOpenTown as $type => $min) {
+                $current = $count[$lang][$type] ?? 0;
+                while ($current < $min) {
+                    $this->entityManager->persist($newTown = $this->gameFactory->createTown(null, $lang, null, $type));
+                    $this->entityManager->flush();
+
+                    $current_events = $this->conf_master->getCurrentEvents();
+                    if (!empty(array_filter($current_events,fn(EventConf $e) => $e->active()))) {
+                        if (!$this->townHandler->updateCurrentEvents($newTown, $current_events))
+                            $this->entityManager->clear();
+                        else {
+                            $this->entityManager->persist($newTown);
+                            $this->entityManager->flush();
+                        }
+                    }
+
+                    $created_towns = true;
+                    $current++;
+                }
+            }
+
+        return $created_towns;
+    }
+
     protected function task_host(InputInterface $input, OutputInterface $output): int {
         // Host task
         $output->writeln( "MyHordes CronJob Interface", OutputInterface::VERBOSITY_VERBOSE );
@@ -239,6 +285,9 @@ class CronCommand extends Command
 
         $clear_ran = $this->module_run_clear();
         $output->writeln( "Cleanup Crew: <info>" . ($clear_ran ? 'Complete' : 'Not scheduled') . "</info>", OutputInterface::VERBOSITY_VERBOSE );
+
+        $town_maker_ran = $this->module_ensure_towns();
+        $output->writeln( "Town creator: <info>" . ($town_maker_ran ? 'Complete' : 'Not scheduled') . "</info>", OutputInterface::VERBOSITY_VERBOSE );
 
         return 0;
     }
@@ -296,15 +345,17 @@ class CronCommand extends Command
                 $limit = (int)$town_conf->get( TownConf::CONF_CLOSE_TOWN_AFTER, -1 );
                 $grace = (int)$town_conf->get( TownConf::CONF_CLOSE_TOWN_GRACE, 40 );
 
-                if ($town->isOpen() && $limit >= 0 && $town->getDayWithoutAttack() > $limit && $town->getCitizenCount() < $grace) {
+                if ($town->isOpen() && !$town->getCitizens()->isEmpty() && $limit >= 0 && $town->getDayWithoutAttack() > $limit && $town->getCitizenCount() < $grace) {
                     $last_op = 'del';
                     foreach ($town->getCitizens() as $citizen)
                         $this->entityManager->persist(
                             $this->crowService->createPM_townNegated( $citizen->getUser(), $town->getName(), true )
                         );
                     $this->gameFactory->nullifyTown($town, true);
-
-                } elseif (!$town->isOpen() && $town->getAliveCitizenCount() == 0) {
+                } elseif ($town->isOpen() && $town->getCitizenCount() > 0 && $town->getAliveCitizenCount() == 0) {
+                    $last_op = 'delc';
+                    $this->gameFactory->nullifyTown($town, true);
+                } elseif ((!$town->isOpen()) && $town->getAliveCitizenCount() == 0) {
                     $last_op = 'com';
                     $town->setAttackFails(0);
                     if (!$this->gameFactory->compactTown($town))
