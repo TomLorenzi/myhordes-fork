@@ -115,6 +115,7 @@ class PictoRepository extends ServiceEntityRepository
             ->andWhere('i.user = :val')->setParameter('val', $user)
             ->andWhere('i.persisted = 2')
             ->andWhere('i.disabled = false')
+            ->andWhere('i.old = false')
             ->orderBy('pp.rare', 'DESC')
             ->addOrderBy('c', 'DESC')
             ->addOrderBy('pp.id', 'DESC')
