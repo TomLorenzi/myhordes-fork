@@ -160,18 +160,11 @@ class MigrateCommand extends Command
             ->addOption('trans-disable-db', null, InputOption::VALUE_NONE, 'Disables translation of database content')
             ->addOption('trans-disable-twig', null, InputOption::VALUE_NONE, 'Disables translation of twig files')
 
-            ->addOption('assign-heroic-actions-all', null, InputOption::VALUE_NONE, 'Resets the heroic actions for all citizens in all towns.')
-            ->addOption('assign-special-actions-all', null, InputOption::VALUE_NONE, 'Resets the special actions for all citizens in all towns.')
-            ->addOption('assign-town-season', null, InputOption::VALUE_NONE, 'Assigns the towns with no season to the latest available.')
-            ->addOption('init-item-stacks', null, InputOption::VALUE_NONE, 'Sets item count for items without a counter to 1')
             ->addOption('calculate-score', null, InputOption::VALUE_NONE, 'Recalculate the score for each ended town')
             ->addOption('build-forum-search-index', null, InputOption::VALUE_NONE, 'Initializes search structures for the forum')
             ->addOption('migrate-account-bans', null, InputOption::VALUE_NONE, 'Migrates old account bans to the new system')
 
-            ->addOption('update-ranking-entries', null, InputOption::VALUE_NONE, 'Update ranking values')
-            ->addOption('fix-ruin-inventories', null, InputOption::VALUE_NONE, 'Move each items belonging to a RuinRoom to its corresponding RuinZone')
             ->addOption('repair-proxies', null, InputOption::VALUE_NONE, 'Repairs incomplete CitizenRankingProxie entities.')
-            ->addOption('update-shaman-immune', null, InputOption::VALUE_NONE, 'Changes status tg_immune to tg_shaman_immune')
             ->addOption('place-explorables', null, InputOption::VALUE_NONE, 'Adds explorable ruins to all towns')
             ->addOption('assign-awards', null, InputOption::VALUE_NONE, 'Assign awards to users')
             ->addOption('assign-features', null, InputOption::VALUE_NONE, 'Assign features')
@@ -183,6 +176,8 @@ class MigrateCommand extends Command
             ->addOption('repair-restrictions', null, InputOption::VALUE_NONE, '')
             ->addOption('count-admin-reports', null, InputOption::VALUE_NONE, '')
             ->addOption('set-icu-pref', null, InputOption::VALUE_NONE, '')
+
+            ->addOption('set-old-flag', null, InputOption::VALUE_NONE, 'Sets the MH-OLD flag on Pictos')
         ;
     }
 
@@ -533,81 +528,6 @@ class MigrateCommand extends Command
             return 0;
         }
 
-        if ($input->getOption('assign-heroic-actions-all')) {
-            $heroic_actions = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findAll();
-            foreach ($this->entity_manager->getRepository(Citizen::class)->findAll() as $citizen) {
-                foreach ($heroic_actions as $heroic_action)
-                    /** @var $heroic_action HeroicActionPrototype */
-                    $citizen->addHeroicAction( $heroic_action );
-                $this->entity_manager->persist( $citizen );
-            }
-            $this->entity_manager->flush();
-            $output->writeln('OK!');
-
-            return 0;
-        }
-
-        if ($input->getOption('assign-special-actions-all')) {
-            $special_actions = $this->entity_manager->getRepository(SpecialActionPrototype::class)->findAll();
-            foreach ($this->entity_manager->getRepository(Citizen::class)->findAll() as $citizen) {
-                /** @var Citizen $citizen */
-                foreach ($special_actions as $special_action)
-                    /** @var SpecialActionPrototype $special_action */
-                    $citizen->addSpecialAction( $special_action );
-                $this->entity_manager->persist( $citizen );
-            }
-            $this->entity_manager->flush();
-            $output->writeln('OK!');
-
-            return 0;
-        }
-
-        if ($input->getOption("assign-town-season")) {
-            $towns = $this->entity_manager->getRepository(TownRankingProxy::class)->findBy(['season' => null]);
-            /* @var Season $latestSeason */
-            $latestSeason = $this->entity_manager->getRepository(Season::class)->findLatest();
-            foreach ($towns as $town) {
-                /*  @var TownRankingProxy $town */
-                $town->setSeason($latestSeason);
-                $latestSeason->addRankedTown($town);
-                $this->entity_manager->persist($town);
-            }
-
-            $this->entity_manager->flush();
-            $output->writeln('OK!');
-
-            return 0;
-        }
-
-        if ($input->getOption('init-item-stacks')) {
-            foreach ($this->entity_manager->getRepository(Item::class)->findAll() as $item) {
-                /** @var $item Item */
-                if ($item->getCount() == 0) {
-                    $item->setCount( 1 );
-                    $this->entity_manager->persist( $item );
-                }
-            }
-            $this->entity_manager->flush();
-
-            foreach ($this->entity_manager->getRepository(Town::class)->findAll() as $town) {
-                /** @var $town Town*/
-                foreach ($town->getBank()->getItems() as $item)
-                    if ($item->getCount() <= 1) {
-                        $target = $this->inventory_handler->findStackPrototype( $town->getBank(), $item );
-                        if ($target) {
-                            $target->setCount( $target->getCount() + 1);
-                            $this->inventory_handler->forceRemoveItem( $item );
-                            $this->entity_manager->persist($target);
-                        }
-
-                    }
-            }
-
-            $this->entity_manager->flush();
-            $output->writeln('OK!');
-
-            return 0;
-        }
 
         if ($input->getOption('calculate-score')) {
             $this->helper->leChunk($output, TownRankingProxy::class, 5000, ['imported' => false], true, true, function(TownRankingProxy $town) {
@@ -782,32 +702,6 @@ class MigrateCommand extends Command
             return 0;
         }
 
-        if ($input->getOption('update-ranking-entries')) {
-            /** @var Town[] $towns */
-            $towns = $this->entity_manager->getRepository(Town::class)->findAll();
-            foreach ($towns as $town)
-                $this->entity_manager->persist( TownRankingProxy::fromTown( $town, true ));
-            $this->entity_manager->flush();
-            $output->writeln('Towns updated!');
-
-            /** @var Citizen[] $citizens */
-            $citizens = $this->entity_manager->getRepository(Citizen::class)->findAll();
-            foreach ($citizens as $citizen)
-                $this->entity_manager->persist( CitizenRankingProxy::fromCitizen( $citizen, true ));
-            $this->entity_manager->flush();
-            $output->writeln('Citizens updated!');
-
-            /** @var Picto[] $pictos */
-            $pictos = $this->entity_manager->getRepository(Picto::class)->findAll();
-            foreach ($pictos as $picto)
-                if ($picto->getTownEntry() === null && $picto->getTown() && $picto->getTown()->getRankingEntry())
-                    $this->entity_manager->persist( $picto->setTownEntry( $picto->getTown()->getRankingEntry() ) );
-            $this->entity_manager->flush();
-            $output->writeln('Pictos updated!');
-
-            return 0;
-        }
-
         if ($input->getOption('repair-proxies')) {
             $this->helper->leChunk($output, CitizenRankingProxy::class, 1000, [], true, false, function(CitizenRankingProxy $cp): bool {
                 $b = false;
@@ -823,81 +717,6 @@ class MigrateCommand extends Command
 
                 return $b;
             });
-
-            return 0;
-        }
-
-        if ($input->getOption('fix-ruin-inventories')) {
-            $ruinZones = $this->entity_manager->getRepository(RuinZone::class)->findAll();
-            foreach ($ruinZones as $ruinZone) {
-                /** @var RuinZone $ruinZone */
-                if ($ruinZone->getRoomFloor() === null) continue;
-
-                foreach ($ruinZone->getRoomFloor()->getItems() as $item) {
-                    for ($i = 0 ; $i < $item->getCount() ; $i++) {
-                        $output->writeln("Moving item {$item->getPrototype()->getName()} into the Ruin's Floor");
-                        $this->inventory_handler->forceMoveItem($ruinZone->getFloor(), $item);
-                        $this->entity_manager->persist($ruinZone);
-                        $this->entity_manager->persist($ruinZone->getFloor());
-                        $this->entity_manager->persist($item);
-                    }
-                }
-            }
-            $this->entity_manager->flush();
-            $output->writeln('OK!');
-
-            return 0;
-        }
-
-        if ($input->getOption('update-shaman-immune')) {
-            /** @var Town[] $towns */
-            $old_immune_status = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName('tg_immune');
-            $new_immune_status = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName("tg_shaman_immune");
-
-            if($old_immune_status === null){
-                $output->writeln("Old tg_immune status has been already migrated !");
-                return 0;
-            }
-
-            $citizens = $this->entity_manager->getRepository(Citizen::class)->findCitizensWithStatus($old_immune_status);
-
-            $output->writeln(count($citizens) . " citizens to update");
-
-            foreach ($citizens as $citizen) {
-                $citizen->removeStatus($old_immune_status);
-                $citizen->addStatus($new_immune_status);
-                $this->entity_manager->persist($citizen);
-            }
-
-            $output->writeln('Citizens status updated!');
-
-            $affectStatuses = $this->entity_manager->getRepository(AffectStatus::class)->findByResult($old_immune_status);
-
-            $output->writeln(count($affectStatuses) . " AffectStatuses' results to update");
-
-            foreach ($affectStatuses as $affectStatus) {
-                $affectStatus->setResult($new_immune_status);
-                $this->entity_manager->persist($affectStatus);
-            }
-
-            $output->writeln('AffectStatuses\' results updated!');
-
-            $affectStatuses = $this->entity_manager->getRepository(AffectStatus::class)->findByInitial($old_immune_status);
-
-            $output->writeln(count($affectStatuses) . " AffectStatuses' initial to update");
-
-            foreach ($affectStatuses as $affectStatus) {
-                $affectStatus->setInitial($new_immune_status);
-                $this->entity_manager->persist($affectStatus);
-            }
-
-            $output->writeln('AffectStatuses\' initial updated!');
-
-            $this->entity_manager->remove($old_immune_status);
-
-            $output->writeln('Old tg_immune status removed!');
-
-            $this->entity_manager->flush();
 
             return 0;
         }
@@ -1061,6 +880,14 @@ class MigrateCommand extends Command
             $this->helper->leChunk($output, User::class, 5000, ['rightsElevation' => 2], false, true, function(User $user) {
                 $user->setRightsElevation(0)->addRoleFlag(User::USER_ROLE_ORACLE);
             });
+
+            return 0;
+        }
+
+        if ($input->getOption('set-old-flag')) {
+            $this->helper->leChunk($output, Picto::class, 1000, ['imported' => false], false, true, function(Picto $picto) {
+                $picto->setOld($picto->getTownEntry() && !$picto->getTownEntry()->getImported() && $picto->getTownEntry()->getSeason() === null);
+            }, true);
 
             return 0;
         }
