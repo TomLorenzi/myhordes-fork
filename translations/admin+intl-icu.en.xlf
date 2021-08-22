@@ -3921,5 +3921,35 @@
         <target>Team</target>
       </segment>
     </unit>
+    <unit id="hxktPAk" name="Regelsatz">
+      <notes>
+        <note category="german">Regelsatz</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Regelsatz</source>
+        <target>Ruleset</target>
+      </segment>
+    </unit>
+    <unit id="SwnNAc0" name="Regel">
+      <notes>
+        <note category="german">Regel</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Regel</source>
+        <target>Rule</target>
+      </segment>
+    </unit>
+    <unit id="g60Wnmu" name="Aktiver Wert">
+      <notes>
+        <note category="german">Aktiver Wert</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Aktiver Wert</source>
+        <target>Current value</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
