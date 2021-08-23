@@ -126,6 +126,7 @@ class UserInfoCommand extends Command
                         $picto->setPrototype($pictoPrototype)
                             ->setPersisted(2)
                             ->setTown($town)
+                            ->setOld($town !== null && $town->getSeason() === null)
                             ->setTownEntry(null !== $town ? $town->getRankingEntry() : null)
                             ->setDisabled(null !== $town && $town->getRankingEntry()->getDisabled())
                             ->setUser($user);
@@ -168,6 +169,7 @@ class UserInfoCommand extends Command
                     $picto->setPrototype($pictoPrototype)
                         ->setPersisted(2)
                         ->setTown($town)
+                        ->setOld($town !== null && $town->getSeason() === null)
                         ->setTownEntry(null !== $town ? $town->getRankingEntry() : null)
                         ->setDisabled(null !== $town && $town->getRankingEntry()->getDisabled())
                         ->setUser($user);

@@ -71,6 +71,11 @@ class Picto
      */
     private $disabled = false;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $old = false;
+
     public function __construct() {}
 
     public function getId(): ?int
@@ -171,6 +176,18 @@ class Picto
     public function setDisabled(bool $disabled): self
     {
         $this->disabled = $disabled;
+
+        return $this;
+    }
+
+    public function getOld(): ?bool
+    {
+        return $this->old;
+    }
+
+    public function setOld(bool $old): self
+    {
+        $this->old = $old;
 
         return $this;
     }

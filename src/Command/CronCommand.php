@@ -352,7 +352,7 @@ class CronCommand extends Command
                             $this->crowService->createPM_townNegated( $citizen->getUser(), $town->getName(), true )
                         );
                     $this->gameFactory->nullifyTown($town, true);
-                } elseif ($town->isOpen() && $town->getAliveCitizenCount() == 0) {
+                } elseif ($town->isOpen() && $town->getCitizenCount() > 0 && $town->getAliveCitizenCount() == 0) {
                     $last_op = 'delc';
                     $this->gameFactory->nullifyTown($town, true);
                 } elseif ((!$town->isOpen()) && $town->getAliveCitizenCount() == 0) {
