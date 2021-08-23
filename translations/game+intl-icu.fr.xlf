@@ -3140,7 +3140,7 @@
       </notes>
       <segment>
         <source>{citizen} ({profession}) ist Richtung {direction} aufgebrochen.</source>
-        <target>{citizen} ({profession}) est parti vers {direction}.</target>
+        <target>{citizen} ({profession}) est parti vers {direction}...</target>
       </segment>
     </unit>
     <unit id="F8XEQUj" name="{citizen} ({profession}) ist aus dem {direction} angekommen.">
@@ -9703,7 +9703,7 @@
       </notes>
       <segment>
         <source>Einige gesundheitliche Askekte deines Opfers sind auf dich übergegangen ...</source>
-        <target>Vous avez hérité de certains traits de santé de votre victime !</target>
+        <target><![CDATA[Certains <strong>états de santé</strong> de votre victime vous ont été transmis !]]></target>
       </segment>
     </unit>
     <unit id="SKbA9D2">
@@ -21021,7 +21021,7 @@
       </notes>
       <segment>
         <source>WARNUNG: Es besteht eine große Chance, dass du von anderen Bürgern entdeckt wirst, wenn du jemanden in der Stadt verschlingst! Mach das besser in der Aussenwelt...</source>
-        <target>ATTENTION: vous avez une chance importante d'être repéré(e) par les autres citoyens si vous dévorez quelqu'un en ville ! Préférez un meurtre dans l'outre-monde...</target>
+        <target>ATTENTION : vous avez une chance importante d'être repéré(e) par les autres citoyens si vous dévorez quelqu'un en ville ! Préférez un meurtre dans l'outre-monde...</target>
       </segment>
     </unit>
     <unit id="lN02s2b">

@@ -11789,7 +11789,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Niemand weiß, wie ein solches Wunder möglich ist, aber {hero} hat {citizen} (der sich auf {pos} befand), auf seinen Schultern heim getragen. Lang leben unsere Helden!</source>
-        <target>Nobody knows how such a miracle is possible, but {hero} has returned with {citizen} (who was at {pos}) on their shoulders ! Long live our Heroes !</target>
+        <target>Nobody knows how such a miracle is possible, but {hero} has returned with {citizen} (who was at {pos}) on their shoulders! Long live our Heroes!</target>
       </segment>
     </unit>
     <unit id="G92tvVe">
