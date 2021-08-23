@@ -3680,5 +3680,16 @@
         <target><![CDATA[The number of mounds of earth and debris show that there is doubtless not much left here to find. <p><em>You can continue searching for poor quality resources for construction sites though...</em></p>]]></target>
       </segment>
     </unit>
+    <unit id="MNOavAj" name="Das Zombie Survival Game!">
+      <notes>
+        <note category="german">Das Zombie Survival Game!</note>
+        <note category="from">twig:///templates/web/framework.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Das Zombie Survival Game!</source>
+        <target>THE Zombie Survival Game!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
