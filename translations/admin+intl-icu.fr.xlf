@@ -3873,7 +3873,7 @@
       </notes>
       <segment>
         <source>Community Dashboard</source>
-        <target>Community Dashboard</target>
+        <target>Tableau de bord communautaire</target>
       </segment>
     </unit>
     <unit id="WYUDnxB" name="Team">
@@ -3884,7 +3884,7 @@
       </notes>
       <segment>
         <source>Team</source>
-        <target>Team</target>
+        <target>Equipe</target>
       </segment>
     </unit>
     <unit id="hxktPAk" name="Regelsatz">
@@ -3895,7 +3895,7 @@
       </notes>
       <segment>
         <source>Regelsatz</source>
-        <target>Regelsatz</target>
+        <target>Règles de la ville</target>
       </segment>
     </unit>
     <unit id="SwnNAc0" name="Regel">
@@ -3906,7 +3906,7 @@
       </notes>
       <segment>
         <source>Regel</source>
-        <target>Regel</target>
+        <target>Règle</target>
       </segment>
     </unit>
     <unit id="g60Wnmu" name="Aktiver Wert">
@@ -3917,7 +3917,7 @@
       </notes>
       <segment>
         <source>Aktiver Wert</source>
-        <target>Aktiver Wert</target>
+        <target>Valeur actuelle</target>
       </segment>
     </unit>
   </file>
