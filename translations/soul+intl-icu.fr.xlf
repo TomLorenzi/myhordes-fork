@@ -626,7 +626,7 @@
     <unit id="1vjIGbE" name="Kartei schließen">
       <notes>
         <note category="german">Kartei schließen</note>
-        <note category="from">twig:///templates/ajax/soul/visit.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/pictos.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
       </notes>
       <segment>
         <source>Kartei schließen</source>
@@ -3811,6 +3811,39 @@
                                                 um den Bildausschnitt für die komprimierte Anzeige einzustellen.</source>
         <target>Ouvrez MyHordes dans une fenêtre plus grande ou sur un périphérique avec un écran plus grand
                                                 pour régler la zone d'affichage compressée.</target>
+      </segment>
+    </unit>
+    <unit id="RZid5J_" name="Details">
+      <notes>
+        <note category="german">Details</note>
+        <note category="from">twig:///templates/ajax/soul/me.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Details</source>
+        <target>Details</target>
+      </segment>
+    </unit>
+    <unit id="2Qh0PhD" name="Auf MyHordes erworbene Auszeichnungen">
+      <notes>
+        <note category="german">Auf MyHordes erworbene Auszeichnungen</note>
+        <note category="from">twig:///templates/ajax/soul/pictos.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Auf MyHordes erworbene Auszeichnungen</source>
+        <target>Auf MyHordes erworbene Auszeichnungen</target>
+      </segment>
+    </unit>
+    <unit id="hohD1vV" name="Importierte Auszeichnungen">
+      <notes>
+        <note category="german">Importierte Auszeichnungen</note>
+        <note category="from">twig:///templates/ajax/soul/pictos.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Importierte Auszeichnungen</source>
+        <target>Importierte Auszeichnungen</target>
       </segment>
     </unit>
   </file>

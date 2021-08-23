@@ -2281,5 +2281,11 @@
                                         <p><em>Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..</em></p>]]></target>
       </segment>
     </unit>
+    <unit id="MNOavAj" name="Das Zombie Survival Game!">
+      <segment>
+        <source>Das Zombie Survival Game!</source>
+        <target>Das Zombie Survival Game!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

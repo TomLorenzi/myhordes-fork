@@ -2155,7 +2155,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="hc1h_MP" name="Held">
       <notes>
         <note category="german">Held</note>
-        <note category="from">twig:///templates/ajax/soul/shell.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/pictos.html.twig;twig:///templates/ajax/soul/shell.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
       </notes>
       <segment>
         <source>Held</source>
@@ -22371,6 +22371,17 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Es gibt keine Hoffnung!</source>
         <target>There is no hope!</target>
+      </segment>
+    </unit>
+    <unit id="j8xLoaM" name="Auszeichnungsdetails">
+      <notes>
+        <note category="german">Auszeichnungsdetails</note>
+        <note category="from">twig:///templates/ajax/soul/pictos.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Auszeichnungsdetails</source>
+        <target>Auszeichnungsdetails</target>
       </segment>
     </unit>
   </file>

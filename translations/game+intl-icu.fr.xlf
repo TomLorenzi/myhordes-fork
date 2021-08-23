@@ -2106,7 +2106,7 @@
     <unit id="hc1h_MP" name="Held">
       <notes>
         <note category="german">Held</note>
-        <note category="from">twig:///templates/ajax/soul/shell.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/pictos.html.twig;twig:///templates/ajax/soul/shell.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
       </notes>
       <segment>
         <source>Held</source>
@@ -22189,7 +22189,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Tod durch die Apokalypse</note>
         <note category="from">db://CauseOfDeath</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Tod durch die Apokalypse</source>
@@ -22200,7 +22199,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Eine Katastrophe apokalyptischen Ausmaßes hat dich, deine Stadt und alles in der Umgebung hinweggefegt. Es ist, als hätte jemand die gesamte Welt... gereinigt.</note>
         <note category="from">db://CauseOfDeath</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Eine Katastrophe apokalyptischen Ausmaßes hat dich, deine Stadt und alles in der Umgebung hinweggefegt. Es ist, als hätte jemand die gesamte Welt... gereinigt.</source>
@@ -22211,7 +22209,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Vereinzelte Bürger berichten von einem merkwürdigen Phänomen am Himmel... Ihr solltet die Alkoholvorräte in der Bank prüfen.</note>
         <note category="from">php:///src/Structures/Hook.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Vereinzelte Bürger berichten von einem merkwürdigen Phänomen am Himmel... Ihr solltet die Alkoholvorräte in der Bank pürfen.</source>
@@ -22222,7 +22219,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Einige Bürger haben berichtet, während ihrer Abschätzung ein rotes Blitzen am Horizont gesehen zu haben.</note>
         <note category="from">php:///src/Structures/Hook.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Einige Bürger haben berichtet, während ihrer Abschätzung ein rotes Blitzen am Horizont gesehen zu haben.</source>
@@ -22233,7 +22229,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Ein Großteil der Bürger, die heute auf dem Wachturm waren, haben ein lautes Grollen in der Ferne vernommen.</note>
         <note category="from">php:///src/Structures/Hook.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ein Großteil der Bürger, die heute auf dem Wachturm waren, haben ein lautes Grollen in der Ferne vernommen.</source>
@@ -22244,7 +22239,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Zusatzbemerkung zur heutigen Abschätzung: Der Himmel hat sich blutrot gefärbt. Das sieht nicht gut aus, Leute...</note>
         <note category="from">php:///src/Structures/Hook.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Zusatzbemerkung zur heutigen Abschätzung: Der Himmel hat sich blutrot gefärbt. Das sieht nicht gut aus, Leute...</source>
@@ -22255,7 +22249,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Das sieht nicht gut aus... Die Zombies werden heute Nacht nicht unser größtes Problem sein.</note>
         <note category="from">php:///src/Structures/Hook.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Das sieht nicht gut aus... Die Zombies werden heute Nacht nicht unser größtes Problem sein.</source>
@@ -22266,7 +22259,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Beten</note>
         <note category="from">php:///src/Structures/Hook.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Beten</source>
@@ -22277,11 +22269,21 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Es gibt keine Hoffnung!</note>
         <note category="from">php:///src/Structures/Hook.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Es gibt keine Hoffnung!</source>
         <target>Il n'y a pas d'espoir !</target>
+      </segment>
+    </unit>
+    <unit id="j8xLoaM" name="Auszeichnungsdetails">
+      <notes>
+        <note category="german">Auszeichnungsdetails</note>
+        <note category="from">twig:///templates/ajax/soul/pictos.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Auszeichnungsdetails</source>
+        <target>Auszeichnungsdetails</target>
       </segment>
     </unit>
   </file>

@@ -194,7 +194,7 @@
     <unit id="Oxu558J" name="Der Rabe">
       <notes>
         <note category="german">Der Rabe</note>
-        <note category="from">twig:///templates/ajax/forum/editor.html.twig;twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/forum/posts_small.html.twig;twig:///templates/ajax/forum/search_result.html.twig;twig:///templates/ajax/forum/view.html.twig;twig:///templates/ajax/game/newspaper.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/bubbles.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
+        <note category="from">twig:///templates/ajax/forum/editor.html.twig;twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/forum/posts_small.html.twig;twig:///templates/ajax/forum/search_result.html.twig;twig:///templates/ajax/forum/view.html.twig;twig:///templates/ajax/game/newspaper.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/bubbles.html.twig;twig:///templates/ajax/soul/pictos.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
       </notes>
       <segment>
         <source>Der Rabe</source>
@@ -3511,7 +3511,7 @@
     <unit id="BNvQVoN" name="Animateur-Team">
       <notes>
         <note category="german">Animateur-Team</note>
-        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/forum/posts_small.html.twig;twig:///templates/ajax/forum/search_result.html.twig;twig:///templates/ajax/forum/view.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/forum/posts_small.html.twig;twig:///templates/ajax/forum/search_result.html.twig;twig:///templates/ajax/forum/view.html.twig;twig:///templates/ajax/soul/pictos.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
       </notes>
       <segment>
         <source>Animateur-Team</source>
@@ -3682,9 +3682,8 @@
     </unit>
     <unit id="MNOavAj" name="Das Zombie Survival Game!">
       <notes>
-        <note category="german">Das Zombie Survival Game!</note>
+        <note category="german">THE Zombie Survival Game!</note>
         <note category="from">twig:///templates/web/framework.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Das Zombie Survival Game!</source>
