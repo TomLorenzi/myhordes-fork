@@ -1,28 +1,29 @@
 {% extends "ajax/soul/shell.html.twig" %}
-{% block title %}{{'Meine Seele'|trans({}, 'game')}}{% endblock %}
+{% block title %}{{ 'Meine Seele'|trans({}, 'game') }}{% endblock %}
 {% block soul_content %}
     <div class="row me">
         {% include 'ajax/soul/badges.html.twig' with {badger: app.user} %}
         <div class="cell rw-12 center skills">
             <div class="bar">
-                <div class="progresstext"><span class="text">{{progress}}%</span></div>
+                <div class="progresstext"><span class="text">{{ progress }}%</span></div>
                 <div class="progressbar left">
-                    <img alt="" src="{{ asset('build/images/soul/heroUp_bar.gif') }}" style="width : {{progress}}%;" />
-            </div>
+                    <img alt="" src="{{ asset('build/images/soul/heroUp_bar.gif') }}" style="width : {{ progress }}%;"/>
+                </div>
 
             </div>
             <div class="rp-context">
-                {{'Letzter freigeschalteter Heldenvorteil:'|trans({}, 'game')}}
+                {{ 'Letzter freigeschalteter Heldenvorteil:'|trans({}, 'game') }}
                 <strong>{% if latestSkill is not null %}
                         {# @var latestSkill \App\Entity\HeroSkillPrototype #}
-                    <img src="{{asset('build/images/heroskill/' ~ latestSkill.icon ~ '.gif')}}" alt="">
-                    {{latestSkill.title|trans({}, 'game')}} {{ help_btn(latestSkill.description|trans({}, 'game')) }}
-                {% else %}
-                    {{'Niemand'|trans({}, 'game')}}
-                {% endif %}</strong>
+                        <img src="{{ asset('build/images/heroskill/' ~ latestSkill.icon ~ '.gif') }}" alt="">
+                        {{ latestSkill.title|trans({}, 'game') }} {{ help_btn(latestSkill.description|trans({}, 'game')) }}
+                    {% else %}
+                        {{ 'Niemand'|trans({}, 'game') }}
+                    {% endif %}</strong>
             </div>
             <div>
-                <span class="small link" x-ajax-href="{{ path('soul_heroskill') }}">{{'Alle freigeschalteten Vorteile anzeigen'|trans({}, 'game')}}</span>
+                <span class="small link"
+                      x-ajax-href="{{ path('soul_heroskill') }}">{{ 'Alle freigeschalteten Vorteile anzeigen'|trans({}, 'game') }}</span>
             </div>
         </div>
         <div class="cell rw-5 rw-sm-12 center">
@@ -44,7 +45,7 @@
                 {% endmacro %}
 
                 <div class="note note-warning">
-                    <b>{{ 'Dein Account ist eingeschränkt!'|trans({},'soul') }}</b><br />
+                    <b>{{ 'Dein Account ist eingeschränkt!'|trans({},'soul') }}</b><br/>
                     {{ 'Einschränkungen werden von Moderatoren aufgrund von Fehlverhalten auferlegt. Im Folgenden siehst du eine Liste mit Funktionen, die dir aktuell nicht zur Verfügung stehen.'|trans({},'soul') }}
                     <ul>
                         {{ _self.restriction_info(constant('App\\Entity\\AccountRestriction::RestrictionForum'), 'In Foren posten'|trans({},'soul'), 'Du verlierst die Schreibrechte im Stadtforum sowie allen Weltforen.'|trans({},'soul')) }}
@@ -68,16 +69,26 @@
 
             {% endif %}
 
-            <div class="score"><img src="{{ asset('build/images/soul/small_score.gif') }}" alt="" /> {{ 'Seelenpunktzahl'|trans({}, 'global') }} : <strong>{{ '{points} Punkte'|trans({'{points}': app.user.allSoulPoints}, 'global') }}</strong> <a class="help-button"><div class="tooltip help">{{ 'Diese Punkte werden für die Seelenrangliste verwendet.'|trans({},'global') }}<p style="color: #f0d79e;"><i>{{ 'Abhängig von der Anzahl der Tage, die du überlebt hast, erhältst du nach jeder Partie eine bestimmte Anzahl an Punkten.'|trans({},'global') }}</i></p></div>{{ 'Hilfe'|trans({},'global') }}</a></div>
+            <div class="score"><img src="{{ asset('build/images/soul/small_score.gif') }}"
+                                    alt=""/> {{ 'Seelenpunktzahl'|trans({}, 'global') }} :
+                <strong>{{ '{points} Punkte'|trans({'{points}': app.user.allSoulPoints}, 'global') }}</strong> <a
+                        class="help-button">
+                    <div class="tooltip help">{{ 'Diese Punkte werden für die Seelenrangliste verwendet.'|trans({},'global') }}
+                        <p style="color: #f0d79e;">
+                            <i>{{ 'Abhängig von der Anzahl der Tage, die du überlebt hast, erhältst du nach jeder Partie eine bestimmte Anzahl an Punkten.'|trans({},'global') }}</i>
+                        </p></div>{{ 'Hilfe'|trans({},'global') }}</a></div>
 
             {% if features is not empty %}
                 <ul class="inventory soul">
                     <li class="title">{{ 'Spiritueller Rucksack'|trans({},'game') }}</li>
                     {% for feature in features %}
                         <li class="item">
-                            <span class="item-icon"><img alt="" src="{{ asset('build/images/pictos/' ~ feature.prototype.icon ~ '.gif') }}" /></span>
+                            <span class="item-icon"><img alt=""
+                                                         src="{{ asset('build/images/pictos/' ~ feature.prototype.icon ~ '.gif') }}"/></span>
                             <div class="tooltip normal">
-                                <h1>{{ feature.prototype.label|trans({},'items') }} <img alt="" src="{{ asset('build/images/pictos/' ~ feature.prototype.icon ~ '.gif') }}" /></h1>
+                                <h1>{{ feature.prototype.label|trans({},'items') }} <img alt=""
+                                                                                         src="{{ asset('build/images/pictos/' ~ feature.prototype.icon ~ '.gif') }}"/>
+                                </h1>
                                 {{ feature.prototype.description|trans({},'items') }}
                                 <hr>
                                 <span class="small">
@@ -87,7 +98,7 @@
                                         {% elseif (feature.expirationMode == constant('App\\Entity\\FeatureUnlock::FeatureExpirationSeason')) %}{{ 'Für diese Saison'|trans({},'game') }}
                                         {% elseif (feature.expirationMode == constant('App\\Entity\\FeatureUnlock::FeatureExpirationTimestamp')) %}{{ 'Bis {date}'|trans({'{date}': feature.timestamp|format_datetime('short', 'none')},'game') }}
                                         {% elseif (feature.expirationMode == constant('App\\Entity\\FeatureUnlock::FeatureExpirationTownCount')) %}{{ 'Für {num} weitere Städte'|trans({'{num}': feature.townCount},'game') }}
-                                        {% else  %}???{% endif %}
+                                        {% else %}???{% endif %}
                                     </b>
                                 </span>
                             </div>
@@ -98,11 +109,17 @@
 
             {% if app.user.activeCitizen is not null and app.user.activeCitizen.alive %}
                 <div class="current">
-                    <em>{{'Aktuelles Leben'|trans({}, 'global')}} : </em><br /><strong><img src="{{ asset('build/images/soul/r_explor.gif') }}" alt="" /> {{ app.user.activeCitizen.town.name }}</strong> ({{ 'Tag {day}'|trans({ '{day}':app.user.activeCitizen.town.day }, 'game') }})
+                    <em>{{ 'Aktuelles Leben'|trans({}, 'global') }} : </em><br/><strong><img
+                                src="{{ asset('build/images/soul/r_explor.gif') }}"
+                                alt=""/> {{ app.user.activeCitizen.town.name }}</strong>
+                    ({{ 'Tag {day}'|trans({ '{day}':app.user.activeCitizen.town.day }, 'game') }})
                 </div>
             {% endif %}
             {% if user_desc %}
-                <div class="personal_desc"><div>{{ 'Persönliche Beschreibung'|trans({},'game') }}</div><div>« {{ user_desc|raw }} »</div></div>
+                <div class="personal_desc">
+                    <div>{{ 'Persönliche Beschreibung'|trans({},'game') }}</div>
+                    <div>« {{ user_desc|raw }} »</div>
+                </div>
             {% endif %}
 
             <div class="town-history">
@@ -112,15 +129,16 @@
                         <select name="season" id="season">
                             {% for season in seasons %}
                                 {% if season.number > 0 %}
-                                    <option value="{{season.id}}">
-                                        {{ 'Saison {n}'|trans({'{n}': season.number},'soul') }} - {{ ('Saison ' ~ season.number ~ '.' ~ season.subNumber)|trans({}, "season")}}
+                                    <option value="{{ season.id }}">
+                                        {{ 'Saison {n}'|trans({'{n}': season.number},'soul') }}
+                                        - {{ ('Saison ' ~ season.number ~ '.' ~ season.subNumber)|trans({}, "season") }}
                                     </option>
                                 {% endif %}
                             {% endfor %}
-                            <option value="-1">{{'Alte Städte'|trans({}, "soul")}}</option>
+                            <option value="-1">{{ 'Alte Städte'|trans({}, "soul") }}</option>
                             {% for season in seasons %}
                                 {% if season.number == 0 %}
-                                    <option value="{{season.id}}">
+                                    <option value="{{ season.id }}">
                                         {{ 'Gute Alte Zeit'|trans({},'soul') }} -
                                         {{ 'Saison {n}'|trans({'{n}': season.subNumber},'soul') }}
                                     </option>
@@ -129,8 +147,10 @@
                         </select>
                     </div>
                     <div class="cell padded rw-6 right">
-                        <input type="checkbox" name="limit-10" id="limit-10" checked /> <label for="limit-10" class="small">{{'Nur 10 Städte anzeigen'|trans({}, 'soul')}}</label><br />
-                        <span class="link small" x-ajax-href="{{ path('soul_game_history') }}">{{ 'Verlauf meiner Städte'|trans({}, 'soul') }}</span>
+                        <input type="checkbox" name="limit-10" id="limit-10" checked/> <label for="limit-10"
+                                                                                              class="small">{{ 'Nur 10 Städte anzeigen'|trans({}, 'soul') }}</label><br/>
+                        <span class="link small"
+                              x-ajax-href="{{ path('soul_game_history') }}">{{ 'Verlauf meiner Städte'|trans({}, 'soul') }}</span>
                     </div>
                 </div>
             </div>
@@ -138,8 +158,10 @@
         <div class="row">
             <div class="cell padded rw-12 rw-sm-12">
                 <div id="users-list-soul">
-                    <h5>{{'Seele suchen'|trans({}, "soul")}}</h5>
-                    <div><label><input type="text" id="users-search" style="margin-top: 5px" /></label><div class="tooltip help">{{ 'Gib den Pseudo des Bürgers ein.'|trans({},'soul') }}</div></div>
+                    <h5>{{ 'Seele suchen'|trans({}, "soul") }}</h5>
+                    <div><label><input type="text" id="users-search" style="margin-top: 5px"/></label>
+                        <div class="tooltip help">{{ 'Gib den Pseudo des Bürgers ein.'|trans({},'soul') }}</div>
+                    </div>
                     <div id="users-list"></div>
                 </div>
             </div>
@@ -147,51 +169,64 @@
     </div>
 {% endblock %}
 {% block js %}
-    {{parent()}}
+    {{ parent() }}
     <script>
         let season_select = document.getElementById('season');
-        $.ajax.no_history().load( document.getElementById('town-list'), '{{ path('soul_get_towns', {user_id: app.user.id}) }}', false, {season: season_select.value, limit10: document.getElementById("limit-10").checked } );
+        $.ajax.no_history().load(document.getElementById('town-list'), '{{ path('soul_get_towns', {user_id: app.user.id}) }}', false, {
+            season: season_select.value,
+            limit10: document.getElementById("limit-10").checked
+        });
         if (season_select)
-            season_select.addEventListener('change', function(e) { $.ajax.no_history().load( document.getElementById('town-list'), '{{ path('soul_get_towns', {user_id: app.user.id}) }}', false, {season: this.value, limit10: document.getElementById("limit-10").checked } ) } );
+            season_select.addEventListener('change', function (e) {
+                $.ajax.no_history().load(document.getElementById('town-list'), '{{ path('soul_get_towns', {user_id: app.user.id}) }}', false, {
+                    season: this.value,
+                    limit10: document.getElementById("limit-10").checked
+                })
+            });
 
-    let limit_checkbox = document.getElementById('limit-10');
-    if (season_select)
-        limit_checkbox.addEventListener('change', function(e) { $.ajax.no_history().load( document.getElementById('town-list'), '{{ path('soul_get_towns', {user_id: app.user.id}) }}', false, {season: document.getElementById('season').value, limit10: this.checked } ) } );
+        let limit_checkbox = document.getElementById('limit-10');
+        if (season_select)
+            limit_checkbox.addEventListener('change', function (e) {
+                $.ajax.no_history().load(document.getElementById('town-list'), '{{ path('soul_get_towns', {user_id: app.user.id}) }}', false, {
+                    season: document.getElementById('season').value,
+                    limit10: this.checked
+                })
+            });
 
-    let typingTimer, doneTypingInterval = 500;
-    let searchBox = document.getElementById('users-search');
+        let typingTimer, doneTypingInterval = 500;
+        let searchBox = document.getElementById('users-search');
 
-    const userSearchHandler = function() {
-        if (searchBox.value.length >= 3)
-            $.ajax.background().load(
-                document.getElementById('users-list'),
-                '{{ path('users_fuzzyfind') }}',
-                false,
-                {'name': searchBox.value},
-                function() {
-                    $.html.addEventListenerAll('#users-list>.users-list-entry>div', 'click', function (e,elem) {
-                        $.ajax.load(document.getElementById('content'), elem.getAttribute('x-soul-url'));
-                    })
-                }
-            );
-        else document.getElementById('users-list').innerHTML = '';
-    };
+        const userSearchHandler = function () {
+            if (searchBox.value.length >= 3)
+                $.ajax.background().load(
+                    document.getElementById('users-list'),
+                    '{{ path('users_fuzzyfind') }}',
+                    false,
+                    {'name': searchBox.value},
+                    function () {
+                        $.html.addEventListenerAll('#users-list>.users-list-entry>div', 'click', function (e, elem) {
+                            $.ajax.load(document.getElementById('content'), elem.getAttribute('x-soul-url'));
+                        })
+                    }
+                );
+            else document.getElementById('users-list').innerHTML = '';
+        };
 
-    const userSearchHandlerUp = function () {
-        clearTimeout(typingTimer);
-        typingTimer = setTimeout(userSearchHandler, doneTypingInterval);
-    };
+        const userSearchHandlerUp = function () {
+            clearTimeout(typingTimer);
+            typingTimer = setTimeout(userSearchHandler, doneTypingInterval);
+        };
 
-    const userSearchHandlerDown = function () {
-        clearTimeout(typingTimer);
-    };
+        const userSearchHandlerDown = function () {
+            clearTimeout(typingTimer);
+        };
 
-    if (searchBox) {
-        searchBox.addEventListener('keyup', userSearchHandlerUp);
-        searchBox.addEventListener('keydown', userSearchHandlerDown);
-        searchBox.addEventListener('focus', () => userSearchHandler());
-        searchBox.addEventListener('blur', () => setTimeout( () => document.getElementById('users-list').innerHTML = '', 500));
-    }
+        if (searchBox) {
+            searchBox.addEventListener('keyup', userSearchHandlerUp);
+            searchBox.addEventListener('keydown', userSearchHandlerDown);
+            searchBox.addEventListener('focus', () => userSearchHandler());
+            searchBox.addEventListener('blur', () => setTimeout(() => document.getElementById('users-list').innerHTML = '', 500));
+        }
 
     </script>
 {% endblock %}
