@@ -7,6 +7,7 @@ namespace App\Command\Format;
 use App\Entity\PictoPrototype;
 use App\Entity\TwinoidImport;
 use App\Entity\TwinoidImportPreview;
+use App\Service\CommandHelper;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\ProgressBar;
@@ -22,12 +23,14 @@ class TwinoidCommand extends Command
 
     private KernelInterface $kernel;
     private EntityManagerInterface $entityManager;
+    private CommandHelper $commandHelper;
 
 
-    public function __construct(KernelInterface $kernel, EntityManagerInterface $em)
+    public function __construct(KernelInterface $kernel, EntityManagerInterface $em, CommandHelper $commandHelper)
     {
         $this->kernel = $kernel;
         $this->entityManager = $em;
+        $this->commandHelper = $commandHelper;
 
         parent::__construct();
     }
@@ -43,30 +46,6 @@ class TwinoidCommand extends Command
             ->addOption('known-titles', null, InputOption::VALUE_NONE, 'Lists all titles from imported twinoid souls')
             ->addOption('known-icons', null, InputOption::VALUE_NONE, 'Lists all titles from imported twinoid souls')
         ;
-    }
-
-    protected function leChunk( OutputInterface $output, string $repository, int $chunkSize, array $filter, bool $manualChain, bool $alwaysPersist, callable $handler) {
-        $tc = $this->entityManager->getRepository($repository)->count($filter);
-        $tc_chunk = 0;
-
-        $output->writeln("Processing <info>$tc</info> <comment>$repository</comment> entities...");
-        $progress = new ProgressBar( $output->section() );
-        $progress->start($tc);
-
-        while ($tc_chunk < $tc) {
-            $entities = $this->entityManager->getRepository($repository)->findBy($filter,['id' => 'ASC'], $chunkSize, $manualChain ? $tc_chunk : 0);
-            foreach ($entities as $entity) {
-                if ($alwaysPersist) {
-                    $handler($entity);
-                    $this->entityManager->persist($entity);
-                } else if ($handler($entity)) $this->entityManager->persist($entity);
-                $tc_chunk++;
-            }
-            $this->entityManager->flush();
-            $progress->setProgress($tc_chunk);
-        }
-
-        $output->writeln('OK!');
     }
 
     protected function get_data(OutputInterface $output, string $type, ?array &$collector = null): array {
@@ -99,8 +78,8 @@ class TwinoidCommand extends Command
             return false;
         };
 
-        $this->leChunk( $output, TwinoidImport::class, 50, [], true, false, $f);
-        $this->leChunk( $output, TwinoidImportPreview::class, 50, [], true, false, $f);
+        $this->commandHelper->leChunk( $output, TwinoidImport::class, 50, [], true, false, $f);
+        $this->commandHelper->leChunk( $output, TwinoidImportPreview::class, 50, [], true, false, $f);
         return $collector;
     }
 

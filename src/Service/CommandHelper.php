@@ -36,7 +36,7 @@ class CommandHelper
         $this->app = $kernel;
     }
 
-    public function leChunk( OutputInterface $output, string $repository, int $chunkSize, array $filter, bool $manualChain, bool $alwaysPersist, callable $handler) {
+    public function leChunk( OutputInterface $output, string $repository, int $chunkSize, array $filter, bool $manualChain, bool $alwaysPersist, callable $handler, bool $clearEM = false) {
         $tc = $this->entity_manager->getRepository($repository)->count($filter);
         $tc_chunk = 0;
 
@@ -47,14 +47,12 @@ class CommandHelper
         while ($tc_chunk < $tc) {
             $entities = $this->entity_manager->getRepository($repository)->findBy($filter,['id' => 'ASC'], $chunkSize, $manualChain ? $tc_chunk : 0);
             foreach ($entities as $entity) {
-                if ($alwaysPersist) {
-                    $handler($entity);
-                    $this->entity_manager->persist($entity);
-                } else if ($handler($entity)) $this->entity_manager->persist($entity);
+                if ($handler($entity) or $alwaysPersist) $this->entity_manager->persist($entity);
                 $tc_chunk++;
             }
             $this->entity_manager->flush();
-            $progress->setProgress($tc_chunk);
+            if ($clearEM) $this->entity_manager->clear();
+            $progress->setProgress(min($tc,$tc_chunk));
         }
 
         $output->writeln('OK!');

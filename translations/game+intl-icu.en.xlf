@@ -2416,7 +2416,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="72h0.SN" name="Ghul">
       <notes>
         <note category="german">Ghul</note>
-        <note category="from">db://CitizenRole;twig:///templates/ajax/game/town/town.html.twig</note>
+        <note category="from">db://CitizenRole;db://CitizenStatus;twig:///templates/ajax/game/town/town.html.twig</note>
       </notes>
       <segment>
         <source>Ghul</source>
@@ -6900,7 +6900,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <notes>
         <note category="german">Tagelang wurde an den Seelen der Toten herumgepfuscht.</note>
         <note category="state">new</note>
-        <note category="from">[unused]</note>
+        <note category="from">db://PictoPrototype</note>
       </notes>
       <segment>
         <source>Tagelang wurde an den Seelen der Toten herumgepfuscht.</source>
@@ -7321,7 +7321,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="E6vRFnM" name="Endlich kannst du deine Schwiegermutter loswerden!">
       <notes>
         <note category="german">Endlich kannst du deine Schwiegermutter loswerden!</note>
-        <note category="from">[unused]</note>
+        <note category="from">db://CitizenStatus</note>
       </notes>
       <segment>
         <source>Endlich kannst du deine Schwiegermutter loswerden!</source>
@@ -16404,7 +16404,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="X.vNUqq" name="Einen Bürger heimbringen:">
       <notes>
         <note category="german">Einen Bürger heimbringen:</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/actions.html.twig</note>
       </notes>
       <segment>
@@ -22306,7 +22305,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="TI4f6dK">
       <notes>
-        <note category="german">Vereinzelte Bürger berichten von einem merkwürdigen Phänomen am Himmel... Ihr solltet die Alkoholvorräte in der Bank pürfen.</note>
+        <note category="german">Vereinzelte Bürger berichten von einem merkwürdigen Phänomen am Himmel... Ihr solltet die Alkoholvorräte in der Bank prüfen.</note>
         <note category="from">php:///src/Structures/Hook.php</note>
       </notes>
       <segment>
@@ -22338,7 +22337,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <notes>
         <note category="german">Zusatzbemerkung zur heutigen Abschätzung: Der Himmel hat sich blutrot gefärbt. Das sieht nicht gut aus, Leute...</note>
         <note category="from">php:///src/Structures/Hook.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Zusatzbemerkung zur heutigen Abschätzung: Der Himmel hat sich blutrot gefärbt. Das sieht nicht gut aus, Leute...</source>

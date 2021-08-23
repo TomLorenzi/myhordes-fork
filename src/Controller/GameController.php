@@ -645,9 +645,13 @@ class GameController extends CustomAbstractController
                         break;
                     case 'luckyfind':
                         $oldfind = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneBy(['name' => "hero_generic_find"]);
+                        $already_used = $citizen->getUsedHeroicActions()->contains($oldfind);
                         $citizen->removeHeroicAction($oldfind);
+                        $citizen->removeUsedHeroicAction($oldfind);
                         $newfind = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneBy(['name' => "hero_generic_find_lucky"]);
-                        $citizen->addHeroicAction($newfind);
+                        if ($already_used)
+                            $citizen->addUsedHeroicAction($newfind);
+                        else $citizen->addHeroicAction($newfind);
                         break;
                 }
             }
