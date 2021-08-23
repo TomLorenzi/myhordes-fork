@@ -77,16 +77,16 @@ class ItemFixtures extends Fixture
         ['label' => 'Ektorp-Gluten Stuhl', 'icon' => 'chair_basic', 'category' => 'Furniture', 'deco' =>2, 'heavy' =>true, 'watchpoint' => 8],                             // -- Out
         ['label' => 'Revolver (entladen)', 'icon' => 'gun', 'category' => 'Furniture', 'deco' =>5, 'heavy' =>false, 'watchpoint' => 0],                                    // -- ---
         ['label' => 'Sturmgewehr (entladen)', 'icon' => 'machine_gun', 'category' => 'Furniture', 'deco' =>15, 'heavy' =>false, 'watchpoint' => 0],                        // -- ---
-        ['label' => 'Teddybär', 'icon' => 'teddy', 'category' => 'Furniture', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                             // In Out
+        ['label' => 'Teddybär', 'icon' => 'teddy', 'category' => 'Furniture', 'deco' =>8, 'heavy' =>false, 'watchpoint' => 0],                                             // In Out
         ['label' => 'Geldbündel', 'icon' => 'money', 'category' => 'Furniture', 'deco' =>7, 'heavy' =>false, 'watchpoint' => 0],                                           // -- ---
         ['label' => 'Schrankkoffer', 'icon' => 'home_box_xl', 'category' => 'Furniture', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 8],                                   // In ---
         ['label' => 'Kartons', 'icon' => 'home_box', 'category' => 'Furniture', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 4],                                           // In ---
         ['label' => 'Nagelbare Barrikade', 'icon' => 'home_def', 'category' => 'Furniture', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                                // In ---
         ['label' => 'Maschendrahtzaunstück', 'icon' => 'fence', 'category' => 'Furniture', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                      // -- ---
-        ['label' => 'Verfluchter Teddybär', 'icon' => 'teddy', 'category' => 'Furniture', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                 // In Out
-        ['label' => 'Schnellgebauter Tisch', 'icon' => 'bureau', 'category' => 'Furniture', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 23],                                // -- ---
-        ['label' => 'Leerer Automat', 'icon' => 'distri', 'category' => 'Furniture', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 30],                                       // -- ---
-        ['label' => 'Unpersönliche Explodierende Fußmatte', 'icon' => 'trapma', 'category' => 'Furniture', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0, 'hideInForeignChest' => true],                // -- ---
+        ['label' => 'Verfluchter Teddybär', 'icon' => 'teddy', 'category' => 'Furniture', 'deco' =>1, 'heavy' =>false, 'watchpoint' => 0],                                 // In Out
+        ['label' => 'Schnellgebauter Tisch', 'icon' => 'bureau', 'category' => 'Furniture', 'deco' =>2, 'heavy' =>true, 'watchpoint' => 23],                                // -- ---
+        ['label' => 'Leerer Automat', 'icon' => 'distri', 'category' => 'Furniture', 'deco' =>4, 'heavy' =>true, 'watchpoint' => 30],                                       // -- ---
+        ['label' => 'Unpersönliche Explodierende Fußmatte', 'icon' => 'trapma', 'category' => 'Furniture', 'deco' =>5, 'heavy' =>false, 'watchpoint' => 0, 'hideInForeignChest' => true],                // -- ---
         ['label' => 'Chuck-Figur', 'icon' => 'chudol', 'category' => 'Furniture', 'deco' =>15, 'heavy' =>false, 'watchpoint' => 0],                                        // -- ---
         ['label' => 'Verfluchte HiFi', 'icon' => 'hifiev', 'category' => 'Furniture', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                                      // -- ---
         ['label' => 'Phil Collins CD', 'icon' => 'cdphil', 'category' => 'Furniture', 'deco' =>1, 'heavy' =>false, 'watchpoint' => 0],                                     // -- ---
