@@ -32,7 +32,7 @@
         {{ encore_entry_script_tags('app') }}
 
         <!-- Set Favicon -->
-        <link rel="shortcut icon" href="{{ asset('build/images/favicon.ico') }}" sizes="310x310">
+        <link rel="shortcut icon" href="{{ absolute_url(asset('build/images/favicon.ico')) }}" sizes="310x310">
 
         <!-- Set page title -->
         {% if block('title') is defined %}
