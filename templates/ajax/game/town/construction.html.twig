@@ -205,7 +205,7 @@
             let ap = null, valid = false;
             ap = document.getElementById("ap_amount").value;
             ap = parseInt(ap);
-            valid = !isNaN(ap) && ap >= 0 && ap <= {{ app.user.activeCitizen.ap }};
+            valid = !isNaN(ap) && ap >= 0 && ap <= {{ app.user.activeCitizen.ap + app.user.activeCitizen.bp }};
 
             if (!ap || !valid) return;
 
@@ -235,7 +235,7 @@
                     input_id.setAttribute("type", "hidden");
                     input_id.id = "prompt_id";
                     input.setAttribute('min', 1);
-                    input.setAttribute('max', {{ app.user.activeCitizen.ap }});
+                    input.setAttribute('max', {{ app.user.activeCitizen.ap + app.user.activeCitizen.bp }});
                     input_id.value = this.getAttribute('x-building-id');
                     input.addEventListener("keyup", function(event) { if(event.key === "Enter") send_build_request()});
                     prompt.append(input_id);
@@ -256,7 +256,7 @@
                 }
                 document.getElementById("prompt_id").value = this.getAttribute('x-building-id');
                 document.getElementById("ap_amount").value = "1";
-                document.getElementById("ap_amount").setAttribute('max', {{ app.user.activeCitizen.ap }});
+                document.getElementById("ap_amount").setAttribute('max', {{ app.user.activeCitizen.ap + app.user.activeCitizen.bp }});
                 prompt.style.display = "block";
                 prompt.style.top = (this.getBoundingClientRect().top + document.documentElement.scrollTop) + "px";
                 prompt.style.left = this.getBoundingClientRect().left - prompt.clientWidth + this.clientWidth + "px";
