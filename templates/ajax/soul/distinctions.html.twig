@@ -1,7 +1,11 @@
 <div class="distinctions">
+
     <div class="distinctions-head center">
-        {{ 'Statistiken'|trans({}, 'global') }}
+        {% if plain is not defined or not plain %}
+            {{ 'Statistiken'|trans({}, 'global') }}
+        {% endif %}
     </div>
+
     {% if points is defined %}
             <div class="distinctions-points">
                 {{ '{points} Punkte'|trans({'{points}':points}, 'global') }}
@@ -9,10 +13,12 @@
         {% endif %}
     <div class="distinctions-list center">
         {% if user.awards|length != 0 %}
-       <ul class="tabs plain" x-tab-group="awards" x-tab-control x-tab-default="dinstinctions">
-            <li class="tab-soul-distinctions" x-tab-id="dinstinctions"><div class="tab-link">{{ 'Statistiken'|trans({}, 'soul') }}</div></li>
-            <li class="tab-soul-distinctions" x-tab-id="titles"><div class="tab-link">{{ 'Errungenschaften'|trans({}, 'soul') }} ({{user.awards|length}})</div></li>
-        </ul>
+            {% if plain is not defined or not plain %}
+                <ul class="tabs plain" x-tab-group="awards" x-tab-control x-tab-default="dinstinctions">
+                    <li class="tab-soul-distinctions" x-tab-id="dinstinctions"><div class="tab-link">{{ 'Statistiken'|trans({}, 'soul') }}</div></li>
+                    <li class="tab-soul-distinctions" x-tab-id="titles"><div class="tab-link">{{ 'Errungenschaften'|trans({}, 'soul') }} ({{user.awards|length}})</div></li>
+                </ul>
+            {% endif %}
         {% endif %}
         <div x-tab-group="awards" x-tab-id="dinstinctions" x-tab-target>
         {% if pictos|length == 0 %}
@@ -40,7 +46,8 @@
             </div>
         {% endif %}
         </div>
-        <div x-tab-group="awards" x-tab-id="titles" x-tab-target>
+        {% if plain is not defined or not plain %}
+            <div x-tab-group="awards" x-tab-id="titles" x-tab-target>
             <div class="title-list">
 
                 {% for id,list in user.awards.values|group_titles %}
@@ -81,6 +88,7 @@
                 {% endfor %}
             </div>
         </div>
+        {% endif %}
     </div>
     <div class="distinctions-foot">
         &nbsp;
