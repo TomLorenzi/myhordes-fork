@@ -2366,7 +2366,7 @@
     <unit id="72h0.SN" name="Ghul">
       <notes>
         <note category="german">Ghul</note>
-        <note category="from">db://CitizenRole;twig:///templates/ajax/game/town/town.html.twig</note>
+        <note category="from">db://CitizenRole;db://CitizenStatus;twig:///templates/ajax/game/town/town.html.twig</note>
       </notes>
       <segment>
         <source>Ghul</source>
@@ -22193,7 +22193,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Tod durch die Apokalypse</source>
-        <target>Tod durch die Apokalypse</target>
+        <target>Mort de l'Apocalypse</target>
       </segment>
     </unit>
     <unit id="EhRWrg3">
@@ -22204,18 +22204,18 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Eine Katastrophe apokalyptischen Ausmaßes hat dich, deine Stadt und alles in der Umgebung hinweggefegt. Es ist, als hätte jemand die gesamte Welt... gereinigt.</source>
-        <target>Eine Katastrophe apokalyptischen Ausmaßes hat dich, deine Stadt und alles in der Umgebung hinweggefegt. Es ist, als hätte jemand die gesamte Welt... gereinigt.</target>
+        <target>Un désastre de proportions Apocalyptiques vous a emporté, ainsi que votre ville et tout ce qui se trouve aux alentours. C'est comme si quelqu'un avait purgé le monde entier...</target>
       </segment>
     </unit>
     <unit id="TI4f6dK">
       <notes>
-        <note category="german">Vereinzelte Bürger berichten von einem merkwürdigen Phänomen am Himmel... Ihr solltet die Alkoholvorräte in der Bank pürfen.</note>
+        <note category="german">Vereinzelte Bürger berichten von einem merkwürdigen Phänomen am Himmel... Ihr solltet die Alkoholvorräte in der Bank prüfen.</note>
         <note category="from">php:///src/Structures/Hook.php</note>
         <note category="state">new</note>
       </notes>
       <segment>
         <source>Vereinzelte Bürger berichten von einem merkwürdigen Phänomen am Himmel... Ihr solltet die Alkoholvorräte in der Bank pürfen.</source>
-        <target>Vereinzelte Bürger berichten von einem merkwürdigen Phänomen am Himmel... Ihr solltet die Alkoholvorräte in der Bank pürfen.</target>
+        <target>Quelques citoyens signalent des phénomènes étranges dans le ciel... Vous devriez contrôler le stock d'alcools dans la banque.</target>
       </segment>
     </unit>
     <unit id="J1ZyqLO">
@@ -22226,7 +22226,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Einige Bürger haben berichtet, während ihrer Abschätzung ein rotes Blitzen am Horizont gesehen zu haben.</source>
-        <target>Einige Bürger haben berichtet, während ihrer Abschätzung ein rotes Blitzen am Horizont gesehen zu haben.</target>
+        <target>Quelques citoyens signalent avoir vu un flash rouge à l'horizon pendant leur estimation.</target>
       </segment>
     </unit>
     <unit id="kXaqluQ">
@@ -22237,7 +22237,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Ein Großteil der Bürger, die heute auf dem Wachturm waren, haben ein lautes Grollen in der Ferne vernommen.</source>
-        <target>Ein Großteil der Bürger, die heute auf dem Wachturm waren, haben ein lautes Grollen in der Ferne vernommen.</target>
+        <target>Un grand nombre de citoyens qui sont passés à la tour de guet aujourd'hui ont signalé avoir entendu un fort grondement au loin..</target>
       </segment>
     </unit>
     <unit id=".8QsYID">
@@ -22248,7 +22248,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Zusatzbemerkung zur heutigen Abschätzung: Der Himmel hat sich blutrot gefärbt. Das sieht nicht gut aus, Leute...</source>
-        <target>Zusatzbemerkung zur heutigen Abschätzung: Der Himmel hat sich blutrot gefärbt. Das sieht nicht gut aus, Leute...</target>
+        <target>Note supplémentaire sur l'estimation d'aujourd'hui : le ciel est devenu rouge sang... Cela ne sent pas bon les gars...</target>
       </segment>
     </unit>
     <unit id="2soUcg3">
@@ -22259,7 +22259,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Das sieht nicht gut aus... Die Zombies werden heute Nacht nicht unser größtes Problem sein.</source>
-        <target>Das sieht nicht gut aus... Die Zombies werden heute Nacht nicht unser größtes Problem sein.</target>
+        <target>Ça ne sent pas bon... Les zombies ne seront pas le plus gros problème ce soir.</target>
       </segment>
     </unit>
     <unit id="SnHKJah" name="Beten">
@@ -22270,7 +22270,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Beten</source>
-        <target>Beten</target>
+        <target>Prier</target>
       </segment>
     </unit>
     <unit id="yOOoIBM" name="Es gibt keine Hoffnung!">
@@ -22281,7 +22281,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Es gibt keine Hoffnung!</source>
-        <target>Es gibt keine Hoffnung!</target>
+        <target>C'est sans espoir !</target>
       </segment>
     </unit>
   </file>
