@@ -3656,7 +3656,7 @@
     </unit>
     <unit id="MNOavAj" name="Das Zombie Survival Game!">
       <notes>
-        <note category="german">THE Zombie Survival Game!</note>
+        <note category="german">Das Zombie Survival Game!</note>
         <note category="from">twig:///templates/web/framework.html.twig</note>
       </notes>
       <segment>

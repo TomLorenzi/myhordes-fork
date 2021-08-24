@@ -8813,7 +8813,6 @@
     <unit id="kXs8w7H" name="Du kannst diesen Gegenstand nur &lt;strong&gt;einmal am Tag&lt;/strong&gt; verwenden...">
       <notes>
         <note category="german">Du kannst diesen Gegenstand nur &lt;strong&gt;einmal am Tag&lt;/strong&gt; verwenden...</note>
-        <note category="state">new</note>
         <note category="from">db://Requirement</note>
       </notes>
       <segment>
@@ -8844,7 +8843,6 @@
     <unit id="S3AHAPf" name="Hierfür brauchst du mindestens 5 AP.">
       <notes>
         <note category="german">Hierfür brauchst du mindestens 5 AP.</note>
-        <note category="state">new</note>
         <note category="from">db://Requirement</note>
       </notes>
       <segment>
@@ -8855,7 +8853,6 @@
     <unit id="793QxjT" name="Hierfür brauchst du mindestens 1 PM.">
       <notes>
         <note category="german">Hierfür brauchst du mindestens 1 MP.</note>
-        <note category="state">new</note>
         <note category="from">db://Requirement</note>
       </notes>
       <segment>

@@ -22377,7 +22377,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <notes>
         <note category="german">Auszeichnungsdetails</note>
         <note category="from">twig:///templates/ajax/soul/pictos.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Auszeichnungsdetails</source>

@@ -7587,7 +7587,6 @@
     <unit id="7Tv2eKD">
       <notes>
         <note category="german">Du vollführst einen Schamanentanz und betest zum Himmel, dass er Regen bringen und diese unselige Zone reinigen möge.</note>
-        <note category="state">new</note>
         <note category="from">php:///src/Controller/BeyondController.php</note>
       </notes>
       <segment>
@@ -7598,7 +7597,6 @@
     <unit id="jveYh8O">
       <notes>
         <note category="german">Doch nichts passiert... Soviel steht fest, du stehst nun wie ein lausiger Amateur da. Außer Blasen an den Füßen hat das alles nichts eingebracht...</note>
-        <note category="state">new</note>
         <note category="from">php:///src/Controller/BeyondController.php</note>
       </notes>
       <segment>
@@ -7609,7 +7607,6 @@
     <unit id="ROlGH4i">
       <notes>
         <note category="german">Schließlich zahlen sich deine Bemühungen aus. Die ersten Tropfen regnen auf die Zombies herab. Du genießt diesen Moment, als ihr Fleisch wie Schnee in der Sonne schmilzt und wartest geduldig ab, bis sich ihre Körper komplett aufgelöst haben.</note>
-        <note category="state">new</note>
         <note category="from">php:///src/Controller/BeyondController.php</note>
       </notes>
       <segment>
@@ -7620,7 +7617,6 @@
     <unit id="rLM.vNL">
       <notes>
         <note category="german">Ob durch deine Kräfte oder unverschämtes Wetterglück, dicke Regentropfen fallen auf die Stadt herab und füllen ein wenig den Brunnen auf.</note>
-        <note category="state">new</note>
         <note category="from">php:///src/Controller/BeyondController.php</note>
       </notes>
       <segment>
@@ -20059,7 +20055,6 @@
     <unit id="wX7RkO4">
       <notes>
         <note category="german">Diese Aktion ermöglicht die Reinigung der Zone durch herabfallenden Regen. Dieser kann den Brunnen in der Stadt füllen oder eine vernichtende Wirkung auf die umliegenden Zombies entfalten.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
@@ -22259,7 +22254,6 @@
       <notes>
         <note category="german">{citizen} hat &lt;strong&gt;{count} Haufen Schutt&lt;/strong&gt; mithilfe von {item} bereinigt.</note>
         <note category="from">db://LogEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>{citizen} hat &lt;strong&gt;{count} Haufen Schutt&lt;/strong&gt; mithilfe von {item} bereinigt.</source>
@@ -22270,7 +22264,6 @@
       <notes>
         <note category="german">Diese Aktion wird durch ein Gebäude in der Stadt ermöglicht (nur Helden können sie verwenden).</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/town/door.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Diese Aktion wird durch ein Gebäude in der Stadt ermöglicht (nur Helden können sie verwenden).</source>
@@ -22436,7 +22429,6 @@
       <notes>
         <note category="german">Auszeichnungsdetails</note>
         <note category="from">twig:///templates/ajax/soul/pictos.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Auszeichnungsdetails</source>

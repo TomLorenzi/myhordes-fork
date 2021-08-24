@@ -3810,7 +3810,6 @@
       <notes>
         <note category="german">Details</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Details</source>
@@ -3821,7 +3820,6 @@
       <notes>
         <note category="german">Auf MyHordes erworbene Auszeichnungen</note>
         <note category="from">twig:///templates/ajax/soul/pictos.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Auf MyHordes erworbene Auszeichnungen</source>
@@ -3832,7 +3830,6 @@
       <notes>
         <note category="german">Importierte Auszeichnungen</note>
         <note category="from">twig:///templates/ajax/soul/pictos.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Importierte Auszeichnungen</source>
