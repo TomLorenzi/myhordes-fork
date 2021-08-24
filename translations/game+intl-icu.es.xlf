@@ -7592,7 +7592,7 @@
       </notes>
       <segment>
         <source>Du vollführst einen Schamanentanz und betest zum Himmel, dass er Regen bringen und diese unselige Zone reinigen möge.</source>
-        <target>Du vollführst einen Schamanentanz und betest zum Himmel, dass er Regen bringen und diese unselige Zone reinigen möge.</target>
+        <target>Realizas una danza chamánica y rezas a los cielos para que traiga la lluvia y limpie esta desafortunada zona.</target>
       </segment>
     </unit>
     <unit id="jveYh8O">
@@ -7603,7 +7603,7 @@
       </notes>
       <segment>
         <source>Doch nichts passiert... Soviel steht fest, du stehst nun wie ein lausiger Amateur da. Außer Blasen an den Füßen hat das alles nichts eingebracht...</source>
-        <target>Doch nichts passiert... Soviel steht fest, du stehst nun wie ein lausiger Amateur da. Außer Blasen an den Füßen hat das alles nichts eingebracht...</target>
+        <target>Pero no pasa nada... Eso es cierto, ahora estás parado allí como un pésimo aficionado. A excepción de las ampollas en los pies, nada de esto trajo nada...</target>
       </segment>
     </unit>
     <unit id="ROlGH4i">
@@ -7614,7 +7614,7 @@
       </notes>
       <segment>
         <source>Und die Energie, die in diesen Tanz gesteckt wurde, zahlt sich schließlich aus, die ersten Tropfen fallen auf die Zombies und du genießt diesen delikaten Moment, in dem ihr Fleisch wie Schnee in der Sonne schmilzt und du geduldig wartest, bis sich ihre Körper verflüssigen.</source>
-        <target>Und die Energie, die in diesen Tanz gesteckt wurde, zahlt sich schließlich aus, die ersten Tropfen fallen auf die Zombies und du genießt diesen delikaten Moment, in dem ihr Fleisch wie Schnee in der Sonne schmilzt und du geduldig wartest, bis sich ihre Körper verflüssigen.</target>
+        <target>Y la energía que se puso en este baile finalmente da sus frutos, las primeras gotas caen sobre los zombies y disfrutas de este delicado momento en el que su carne se derrite como nieve al sol y esperas pacientemente a que sus cuerpos se licúen.</target>
       </segment>
     </unit>
     <unit id="rLM.vNL">
@@ -7625,7 +7625,7 @@
       </notes>
       <segment>
         <source>Ob durch deine Kräfte oder unverschämtes Wetterglück, dicke Regentropfen fallen auf die Stadt herab und füllen ein wenig den Brunnen auf.</source>
-        <target>Ob durch deine Kräfte oder unverschämtes Wetterglück, dicke Regentropfen fallen auf die Stadt herab und füllen ein wenig den Brunnen auf.</target>
+        <target>Ya sea por tu fuerza o por tu escandalosa suerte con el clima, espesas gotas de lluvia caen sobre la ciudad y llenan un poco el pozo.</target>
       </segment>
     </unit>
     <unit id="bWnfo2a" name="Das ist keine gute Idee, das ist dir doch wohl klar!">
@@ -20064,7 +20064,7 @@
       </notes>
       <segment>
         <source>Diese Aktion ermöglicht die Reinigung der Zone durch herabfallenden Regen. Dieser kann den Brunnen in der Stadt füllen oder eine vernichtende Wirkung auf die umliegenden Zombies entfalten.</source>
-        <target>Diese Aktion ermöglicht die Reinigung der Zone durch herabfallenden Regen. Dieser kann den Brunnen in der Stadt füllen oder eine vernichtende Wirkung auf die umliegenden Zombies entfalten.</target>
+        <target>Esta acción permite que la zona se limpie con la lluvia que cae. Esto puede llenar el pozo de la ciudad o tener un efecto devastador en los zombis circundantes.</target>
       </segment>
     </unit>
     <unit id="vScXMoh">
@@ -22263,7 +22263,7 @@
       </notes>
       <segment>
         <source>{citizen} hat &lt;strong&gt;{count} Haufen Schutt&lt;/strong&gt; mithilfe von {item} bereinigt.</source>
-        <target><![CDATA[{citizen} hat <strong>{count} Haufen Schutt</strong> mithilfe von {item} bereinigt.]]></target>
+        <target><![CDATA[{citizen} limpió <strong>{count} montones de escombros</strong> usando {item}.]]></target>
       </segment>
     </unit>
     <unit id="b0OOd25">
@@ -22274,7 +22274,7 @@
       </notes>
       <segment>
         <source>Diese Aktion wird durch ein Gebäude in der Stadt ermöglicht (nur Helden können sie verwenden).</source>
-        <target>Diese Aktion wird durch ein Gebäude in der Stadt ermöglicht (nur Helden können sie verwenden).</target>
+        <target>Esta acción es posible gracias a un edificio en la ciudad (solo los héroes pueden usarlo).</target>
       </segment>
     </unit>
     <unit id="Su8QIYk" name="Durch die Lüftungsschächte klettern (in)">
@@ -22440,7 +22440,7 @@
       </notes>
       <segment>
         <source>Auszeichnungsdetails</source>
-        <target>Auszeichnungsdetails</target>
+        <target>Detalles del premio</target>
       </segment>
     </unit>
   </file>
