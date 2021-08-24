@@ -229,38 +229,7 @@ class CitizenHandler
                 $this->picto_handler->give_picto($citizen, $pictoPrototype);
             }
 
-            /** @var Item[] $items */
-            $items = [];
-            $impound_prop = $this->entity_manager->getRepository(ItemProperty::class)->findOneBy(['name' => 'impoundable' ]);
-            if ($citizen->getZone() === null) // Only citizen banned in town gets their rucksack emptied
-                foreach ( $citizen->getInventory()->getItems() as $item )
-                    if ($item->getPrototype()->getProperties()->contains( $impound_prop ))
-                        $items[] = $item;
-
-            foreach ( $citizen->getHome()->getChest()->getItems() as $item )
-                if ($item->getPrototype()->getProperties()->contains( $impound_prop ))
-                    $items[] = $item;
-
-            $bank = $citizen->getTown()->getBank();
-            foreach ($items as $item) {
-                if (!$item->getEssential()) {
-                    $this->inventory_handler->forceMoveItem( $bank, $item );
-                }
-            }
-
-            $itemsForLog = [];
-            foreach ($items as $item){
-                if(isset($itemsForLog[$item->getPrototype()->getId()])) {
-                    $itemsForLog[$item->getPrototype()->getId()]['count']++;
-                } else {
-                    $itemsForLog[$item->getPrototype()->getId()] = [
-                        'item' => $item->getPrototype(),
-                        'count' => 1
-                    ];
-                }
-            }
-
-            if (!empty($itemsForLog)) $this->entity_manager->persist($this->log->bankBanRecovery($citizen, $itemsForLog));
+            $itemsForLog = $this->recoverBanItems($citizen, $kill);
 
             // As he is shunned, we remove all the complaints
             $complaints = $this->entity_manager->getRepository(Complaint::class)->findByCulprit($citizen);
@@ -290,6 +259,7 @@ class CitizenHandler
                 $cage->setTempDefenseBonus( $cage->getTempDefenseBonus() + ( $citizen->getProfession()->getHeroic() ? 60 : 40 ) );
                 $this->entity_manager->persist( $cage );
                 $citizen->getHome()->setHoldsBody(false);
+                $citizen->setDisposed(Citizen::Ghoul);
                 $active = $cage;
             }
             $this->entity_manager->persist( $this->log->citizenDeath( $citizen, 0, null ) );
@@ -300,7 +270,42 @@ class CitizenHandler
             $this->inventory_handler->forceMoveItem( $citizen->getInventory(), $this->item_factory->createItem( 'poison_#00' ));
         }
 
+        if (!empty($itemsForLog)) $this->entity_manager->persist($this->log->bankBanRecovery($citizen, $itemsForLog, $kill));
+
         return $action;
+    }
+
+    private function recoverBanItems(Citizen $citizen, bool $kill): array {
+        /** @var Item[] $items */
+        $items = [];
+        $impound_prop = $this->entity_manager->getRepository(ItemProperty::class)->findOneBy(['name' => 'impoundable' ]);
+        if ($citizen->getZone() === null) // Only citizen banned in town gets their rucksack emptied
+            foreach ( $citizen->getInventory()->getItems() as $item )
+                if (!$item->getEssential() && ($kill || $item->getPrototype()->getProperties()->contains( $impound_prop )))
+                    $items[] = $item;
+
+        foreach ( $citizen->getHome()->getChest()->getItems() as $item )
+            if (!$item->getEssential() && ($kill || $item->getPrototype()->getProperties()->contains( $impound_prop )))
+                $items[] = $item;
+
+        $bank = $citizen->getTown()->getBank();
+        foreach ($items as $item) {
+            $this->inventory_handler->forceMoveItem( $bank, $item );
+        }
+
+        $itemsForLog = [];
+        foreach ($items as $item){
+            if(isset($itemsForLog[$item->getPrototype()->getId()])) {
+                $itemsForLog[$item->getPrototype()->getId()]['count']++;
+            } else {
+                $itemsForLog[$item->getPrototype()->getId()] = [
+                    'item' => $item->getPrototype(),
+                    'count' => 1
+                ];
+            }
+        }
+
+        return $itemsForLog;
     }
 
     public function pass_airborne_ghoul_infection(?Citizen $citizen, ?Town $town = null) {
