@@ -243,7 +243,7 @@ class AdminTownController extends AdminActionController
             'rootBuildings' => $root,
             'availBuldings' => $inTown,
             'votes' => $votes,
-            'blackboards' => $this->entity_manager->getRepository(BlackboardEdit::class)->findBy([ 'town' => $town ], ['time' => 'DESC'], 100)
+            'blackboards' => $this->entity_manager->getRepository(BlackboardEdit::class)->findBy([ 'town' => $town ], ['time' => 'DESC'], 100),
         ], $this->get_map_blob($town))));
     }
 

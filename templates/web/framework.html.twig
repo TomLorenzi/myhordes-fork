@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ app.request.locale|e('html_attr') }}" class="lang-base-{{ (app.request.locale|e('html_attr')|split('_', 2))[0] }}" x-ajax-landing="{{ ajax_landing }}">
+<html prefix="og: http://ogp.me/ns#" lang="{{ app.request.locale|e('html_attr') }}" class="lang-base-{{ (app.request.locale|e('html_attr')|split('_', 2))[0] }}" x-ajax-landing="{{ ajax_landing }}">
 <head>
     {% block html_head %}
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -16,9 +16,10 @@
 
         <!-- Set OG tags for Social Network Ads :] -->
         <meta property="og:title" content="MyHordes">
-        <meta property="og:description" content="Das Zombie Survival Game!">
-        <meta property="og:image" content="{{ asset('build/images/favicon.ico') }}">
+        <meta property="og:description" content="{{ 'Das Zombie Survival Game!'|trans({}, 'global')}}">
+        <meta property="og:image" content="{{ absolute_url(asset('build/images/favicon.ico')) }}">
         <meta property="og:url" content="{{ app.request.uri }}">
+        <meta property="og:type" content="website">
         <meta property="og:locale" content="de_DE" />
         <meta property="og:locale:alternate" content="fr_FR" />
         <meta property="og:locale:alternate" content="es_ES" />
@@ -31,7 +32,7 @@
         {{ encore_entry_script_tags('app') }}
 
         <!-- Set Favicon -->
-        <link rel="shortcut icon" href="{{ asset('build/images/favicon.ico') }}" sizes="310x310">
+        <link rel="shortcut icon" href="{{ absolute_url(asset('build/images/favicon.ico')) }}" sizes="310x310">
 
         <!-- Set page title -->
         {% if block('title') is defined %}

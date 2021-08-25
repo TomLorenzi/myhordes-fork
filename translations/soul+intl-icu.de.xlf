@@ -2348,5 +2348,23 @@
                                                 um den Bildausschnitt für die komprimierte Anzeige einzustellen.</target>
       </segment>
     </unit>
+    <unit id="RZid5J_" name="Details">
+      <segment>
+        <source>Details</source>
+        <target>Details</target>
+      </segment>
+    </unit>
+    <unit id="2Qh0PhD" name="Auf MyHordes erworbene Auszeichnungen">
+      <segment>
+        <source>Auf MyHordes erworbene Auszeichnungen</source>
+        <target>Auf MyHordes erworbene Auszeichnungen</target>
+      </segment>
+    </unit>
+    <unit id="hohD1vV" name="Importierte Auszeichnungen">
+      <segment>
+        <source>Importierte Auszeichnungen</source>
+        <target>Importierte Auszeichnungen</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

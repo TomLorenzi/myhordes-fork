@@ -8813,12 +8813,11 @@
     <unit id="kXs8w7H" name="Du kannst diesen Gegenstand nur &lt;strong&gt;einmal am Tag&lt;/strong&gt; verwenden...">
       <notes>
         <note category="german">Du kannst diesen Gegenstand nur &lt;strong&gt;einmal am Tag&lt;/strong&gt; verwenden...</note>
-        <note category="state">new</note>
         <note category="from">db://Requirement</note>
       </notes>
       <segment>
         <source>Du kannst diesen Gegenstand nur &lt;strong&gt;einmal am Tag&lt;/strong&gt; verwenden...</source>
-        <target><![CDATA[Du kannst diesen Gegenstand nur <strong>einmal am Tag</strong> verwenden...]]></target>
+        <target><![CDATA[Solo puedes usar este artículo <strong>una vez al día</strong>...]]></target>
       </segment>
     </unit>
     <unit id="et83IYx" name="So, zur Desinfektion nur noch draufspucken und hopp: Sieht wie neu aus!">
@@ -8844,23 +8843,21 @@
     <unit id="S3AHAPf" name="Hierfür brauchst du mindestens 5 AP.">
       <notes>
         <note category="german">Hierfür brauchst du mindestens 5 AP.</note>
-        <note category="state">new</note>
         <note category="from">db://Requirement</note>
       </notes>
       <segment>
         <source>Hierfür brauchst du mindestens 5 AP.</source>
-        <target>Hierfür brauchst du mindestens 5 AP.</target>
+        <target>Para esto necesitas al menos 5 PA.</target>
       </segment>
     </unit>
     <unit id="793QxjT" name="Hierfür brauchst du mindestens 1 PM.">
       <notes>
         <note category="german">Hierfür brauchst du mindestens 1 MP.</note>
-        <note category="state">new</note>
         <note category="from">db://Requirement</note>
       </notes>
       <segment>
         <source>Hierfür brauchst du mindestens 1 PM.</source>
-        <target>Hierfür brauchst du mindestens 1 PM.</target>
+        <target>Necesita al menos 1 PM para esto.</target>
       </segment>
     </unit>
     <unit id="42uqd50">

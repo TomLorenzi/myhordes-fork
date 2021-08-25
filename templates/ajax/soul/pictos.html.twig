@@ -1,0 +1,45 @@
+{% extends "ajax/game/game.html.twig" %}
+{% block title %}{{'Auszeichnungsdetails'|trans({}, 'game')}}{% endblock %}
+{% block ajax %}
+    <div class="row soul">
+        <div class="cell padded header rw-10 ro-1 rw-md-12 ro-md-0 edge-top-left">
+            <div class="tabs">
+                <div class="tab-floater">
+                    <div class="tab left inline">
+                        {% if user.avatar %}
+                            <div class="avatar small ua-{{ user.id % 10 }}"><img alt="" src="{{ path('app_web_avatar', {'uid': user.id, 'name': user.avatar.smallName, 'ext': user.avatar.format}) }}"></div>
+                        {% endif %}
+                        <h4 class="soul-name">
+                            <img src="{{ asset('build/images/icons/small_ghost_red.gif') }}" alt="{{'Held'|trans({}, 'game')}}" />
+                            <a class="username">
+                                {% if user.name == 'Der Rabe' %}{{ 'Der Rabe'|trans({},'global') }}
+                                {% elseif user.name == 'Animateur-Team' %}{{ 'Animateur-Team'|trans({},'global') }}
+                                {% else %}{{ user.name }}{% endif %}
+                            </a>
+                        </h4>
+                    </div>
+                    <div class="tab tab-floater">
+                        <button x-ajax-href='{{path('soul_visit', {id: user.id})}}' style="margin-top: 4px;padding: 0 8px;" class="inline"><span class="hide-sm">{{ "Kartei schließen"|trans({}, 'soul') }}</span><span class="hide-lg hide-md hide-desktop"><img style="margin-right: 0;" src="{{ asset('build/images/icons/small_remove.gif') }}" alt="[X]" /></span></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="padded cell rw-6 rw-sm-12 center">
+                    <h5>{{ 'Auf MyHordes erworbene Auszeichnungen'|trans({},'soul') }}</h5>
+                    {% include 'ajax/soul/distinctions.html.twig' with {pictos: pictos_mh, points: points_mh, user: user, plain: true} %}
+                </div>
+
+                <div class="padded cell rw-6 rw-sm-12 center">
+                    <h5>{{ 'Importierte Auszeichnungen'|trans({},'soul') }}</h5>
+                    {% include 'ajax/soul/distinctions.html.twig' with {pictos: pictos_import, points: points_import, user: user, plain: true} %}
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+{% endblock %}
+{% block js %}
+    {{parent()}}
+{% endblock %}

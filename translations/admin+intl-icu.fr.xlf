@@ -3869,22 +3869,50 @@
       <notes>
         <note category="german">Community Dashboard</note>
         <note category="from">twig:///templates/ajax/admin/dash.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Community Dashboard</source>
-        <target>Community Dashboard</target>
+        <target>Tableau de bord communautaire</target>
       </segment>
     </unit>
     <unit id="WYUDnxB" name="Team">
       <notes>
         <note category="german">Team</note>
         <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Team</source>
-        <target>Team</target>
+        <target>Equipe</target>
+      </segment>
+    </unit>
+    <unit id="hxktPAk" name="Regelsatz">
+      <notes>
+        <note category="german">Regelsatz</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Regelsatz</source>
+        <target>Règles de la ville</target>
+      </segment>
+    </unit>
+    <unit id="SwnNAc0" name="Regel">
+      <notes>
+        <note category="german">Regel</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Regel</source>
+        <target>Règle</target>
+      </segment>
+    </unit>
+    <unit id="g60Wnmu" name="Aktiver Wert">
+      <notes>
+        <note category="german">Aktiver Wert</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Aktiver Wert</source>
+        <target>Valeur actuelle</target>
       </segment>
     </unit>
   </file>
