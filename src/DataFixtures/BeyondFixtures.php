@@ -284,7 +284,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
             array('item' => 'chest_#00','count' => 4),
             array('item' => 'hmeat_#00','count' => 3),
         ], 'desc' => 'Diese Mineralienabbauzone trägt alle Merkmale eines schrecklichen Unglücks : der Hang scheint auf die Arbeiter, Maschinen und Gebäude darunter eingestürzt zu sein.'],
-        ["label" => "Ein seltsames kreisförmiges Gerät",'icon' => 'ufo',"camping" => 15,"min_dist" => 21, "max_dist" => 28, "chance" => 15, "drops" => [
+        ["label" => "Ein seltsames kreisförmiges Gerät",'icon' => 'ufo',"camping" => 7,"min_dist" => 21, "max_dist" => 28, "chance" => 15, "drops" => [
             array('item' => 'metal_bad_#00','count' => 6),
             array('item' => 'plate_raw_#00','count' => 2),
             array('item' => 'iphone_#00','count' => 1),
