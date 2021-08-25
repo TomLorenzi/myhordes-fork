@@ -433,10 +433,10 @@
                     {% endif %}
                 {% endif %}
 
-                {% embed "ajax/game/actions.html.twig" with {'item_action_list': actions, 'recipe_list': recipes, 'iec': true} %}
+                {% embed "ajax/game/actions.html.twig" with {'special_action_list': specials, 'item_action_list': actions, 'recipe_list': recipes, 'scout': active_scout_mode, 'hidden': citizen_hidden, 'iec': true} %}
                 {% endembed %}
 
-                {% if is_shaman %}
+                {% if not citizen_hidden and is_shaman %}
                     <button id="fall_rain">
                         {% if not zone.townZone %}
                             <img alt="" src="{{ asset('build/images/icons/water.gif') }}">{{'Zone reinigen'|trans({}, 'game')}} ({% if is_shaman_role %}3 <div class="pm"></div>{% else %}1 <div class="ap"></div> + 1 <img style="float: none;vertical-align: baseline;" src="{{ asset('build/images/item/item_soul_blue.gif') }}" alt="" />{% endif %})
@@ -450,8 +450,10 @@
                     </button>
                 {% endif %}
 
-                {% embed "ajax/game/actions.html.twig" with {'heroic_action_list': heroics} %}
-                {% endembed %}
+                {% if not citizen_hidden %}
+                    {% embed "ajax/game/actions.html.twig" with { 'heroic_action_list': heroics, 'scout': active_scout_mode } %}
+                    {% endembed %}
+                {% endif %}
 
             </div>
 
