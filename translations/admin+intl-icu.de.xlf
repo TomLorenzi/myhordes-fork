@@ -2473,5 +2473,23 @@
         <target>Team</target>
       </segment>
     </unit>
+    <unit id="hxktPAk" name="Regelsatz">
+      <segment>
+        <source>Regelsatz</source>
+        <target>Regelsatz</target>
+      </segment>
+    </unit>
+    <unit id="SwnNAc0" name="Regel">
+      <segment>
+        <source>Regel</source>
+        <target>Regel</target>
+      </segment>
+    </unit>
+    <unit id="g60Wnmu" name="Aktiver Wert">
+      <segment>
+        <source>Aktiver Wert</source>
+        <target>Aktiver Wert</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

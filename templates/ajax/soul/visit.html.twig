@@ -27,6 +27,8 @@
                 {% include 'ajax/soul/badges.html.twig' with {badger: user} %}
                 <div class="cell rw-5 rw-sm-12 center">
                     {% include 'ajax/soul/distinctions.html.twig' with {pictos: pictos, points: points, user: user} %}
+                    <br />
+                    <a href="#" class="small" x-ajax-href="{{ path('soul_pictos_all', {id: user.id}) }}" >{{ 'Details'|trans({},'soul') }}</a>
                 </div>
                 <div class="cell padded rw-7 rw-sm-12">
                     <div class="score"><img src="{{ asset('build/images/soul/small_score.gif') }}" alt="" /> {{ 'Seelenpunktzahl'|trans({}, 'global') }} : <strong>{{ '{points} Punkte'|trans({'{points}': user.allSoulPoints}, 'global') }}</strong></div>

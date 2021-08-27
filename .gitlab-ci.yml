@@ -59,6 +59,9 @@ test:
   dependencies:
     - build
   script:
+    # Install a DB
+    - php bin/console app:migrate -i
+    # Run tests
     - vendor/bin/phpunit # --coverage-text --colors=never
   cache:
     key: "$CI_COMMIT_REF_NAME"

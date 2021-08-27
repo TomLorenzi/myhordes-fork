@@ -626,7 +626,7 @@
     <unit id="1vjIGbE" name="Kartei schließen">
       <notes>
         <note category="german">Kartei schließen</note>
-        <note category="from">twig:///templates/ajax/soul/visit.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/pictos.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
       </notes>
       <segment>
         <source>Kartei schließen</source>
@@ -3836,6 +3836,37 @@
                                                 um den Bildausschnitt für die komprimierte Anzeige einzustellen.</source>
         <target>Open MyHordes in a larger window or on a device with a larger screen
                                                 to edit the compressed display area.</target>
+      </segment>
+    </unit>
+    <unit id="RZid5J_" name="Details">
+      <notes>
+        <note category="german">Details</note>
+        <note category="from">twig:///templates/ajax/soul/me.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Details</source>
+        <target>Details</target>
+      </segment>
+    </unit>
+    <unit id="2Qh0PhD" name="Auf MyHordes erworbene Auszeichnungen">
+      <notes>
+        <note category="german">Auf MyHordes erworbene Auszeichnungen</note>
+        <note category="from">twig:///templates/ajax/soul/pictos.html.twig</note>
+      </notes>
+      <segment>
+        <source>Auf MyHordes erworbene Auszeichnungen</source>
+        <target>Distinctions earned on MyHordes</target>
+      </segment>
+    </unit>
+    <unit id="hohD1vV" name="Importierte Auszeichnungen">
+      <notes>
+        <note category="german">Importierte Auszeichnungen</note>
+        <note category="from">twig:///templates/ajax/soul/pictos.html.twig</note>
+      </notes>
+      <segment>
+        <source>Importierte Auszeichnungen</source>
+        <target>Imported Distinctions</target>
       </segment>
     </unit>
   </file>

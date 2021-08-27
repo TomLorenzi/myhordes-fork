@@ -509,6 +509,8 @@ class GhostController extends CustomAbstractController
                 }
             }
         }
+
+        return AjaxResponse::success();
     }
 
     public function getUserTownClassAccess(MyHordesConf $conf): array {

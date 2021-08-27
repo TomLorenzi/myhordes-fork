@@ -108,9 +108,9 @@ class PictoRepository extends ServiceEntityRepository
      * @param User $user
      * @return Picto[]
      */
-    public function findNotPendingByUser(User $user): array
+    public function findNotPendingByUser(User $user, ?bool $imported = null): array
     {
-        return $this->createQueryBuilder('i')
+        $qb = $this->createQueryBuilder('i')
             ->select('SUM(i.count) as c', 'pp.id', 'pp.rare', 'pp.icon', 'pp.label', 'pp.description', 'pp.name')
             ->andWhere('i.user = :val')->setParameter('val', $user)
             ->andWhere('i.persisted = 2')
@@ -120,7 +120,12 @@ class PictoRepository extends ServiceEntityRepository
             ->addOrderBy('c', 'DESC')
             ->addOrderBy('pp.id', 'DESC')
             ->leftJoin('i.prototype', 'pp')
-            ->groupBy("i.prototype")
+            ->groupBy("i.prototype");
+
+        if ($imported !== null)
+            $qb->andWhere('i.imported = :imported')->setParameter('imported', $imported);
+
+        return $qb
             ->getQuery()->getResult();
     }
 

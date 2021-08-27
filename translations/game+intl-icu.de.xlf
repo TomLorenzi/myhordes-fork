@@ -14238,5 +14238,11 @@
         <target>Es gibt keine Hoffnung!</target>
       </segment>
     </unit>
+    <unit id="j8xLoaM" name="Auszeichnungsdetails">
+      <segment>
+        <source>Auszeichnungsdetails</source>
+        <target>Auszeichnungsdetails</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

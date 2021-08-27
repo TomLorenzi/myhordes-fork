@@ -2155,7 +2155,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="hc1h_MP" name="Held">
       <notes>
         <note category="german">Held</note>
-        <note category="from">twig:///templates/ajax/soul/shell.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/pictos.html.twig;twig:///templates/ajax/soul/shell.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
       </notes>
       <segment>
         <source>Held</source>
@@ -2416,7 +2416,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="72h0.SN" name="Ghul">
       <notes>
         <note category="german">Ghul</note>
-        <note category="from">db://CitizenRole;twig:///templates/ajax/game/town/town.html.twig</note>
+        <note category="from">db://CitizenRole;db://CitizenStatus;twig:///templates/ajax/game/town/town.html.twig</note>
       </notes>
       <segment>
         <source>Ghul</source>
@@ -4160,7 +4160,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Manche Fehler enden zwangsläufig tödlich. Nehmt als Beispiel diese Höhle. Stellt euch vor, ihr werdet von einer Zombiemeute verfolgt und eilt überstürzt in eine Höhle, um Schutz zu suchen. Ihr werdet dann folgendes Problem haben: Wie kommt ihr heil wieder raus, wenn die Biester euch gefolgt sind? Der zerfledderte Typ an der Wand dort hinten scheint dies nicht bedacht zu haben...</source>
-        <target>Some actions cannot be forgiven. Take, for example, the case of the cavern: your group are being followed and you stupidly rush into a cave to hide. For how long can you cry while you wait for your pursuers to catch up ? The guy lagging behind, who is half-blind, didn't have to cry for long....</target>
+        <target>Some actions cannot be forgiven. Take, for example, the case of the cavern: your group are being followed and you stupidly rush into a cave to hide. For how long can you cry while you wait for your pursuers to catch up ? The guy lagging behind, who is half-blind, didn't have to cry for long...</target>
       </segment>
     </unit>
     <unit id="bnTVKZv">
@@ -6900,7 +6900,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <notes>
         <note category="german">Tagelang wurde an den Seelen der Toten herumgepfuscht.</note>
         <note category="state">new</note>
-        <note category="from">[unused]</note>
+        <note category="from">db://PictoPrototype</note>
       </notes>
       <segment>
         <source>Tagelang wurde an den Seelen der Toten herumgepfuscht.</source>
@@ -7321,7 +7321,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="E6vRFnM" name="Endlich kannst du deine Schwiegermutter loswerden!">
       <notes>
         <note category="german">Endlich kannst du deine Schwiegermutter loswerden!</note>
-        <note category="from">[unused]</note>
+        <note category="from">db://CitizenStatus</note>
       </notes>
       <segment>
         <source>Endlich kannst du deine Schwiegermutter loswerden!</source>
@@ -11789,7 +11789,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Niemand weiß, wie ein solches Wunder möglich ist, aber {hero} hat {citizen} (der sich auf {pos} befand), auf seinen Schultern heim getragen. Lang leben unsere Helden!</source>
-        <target>Nobody knows how such a miracle is possible, but {hero} has returned with {citizen} (who was at {pos}) on their shoulders ! Long live our Heroes !</target>
+        <target>Nobody knows how such a miracle is possible, but {hero} has returned with {citizen} (who was at {pos}) on their shoulders! Long live our Heroes!</target>
       </segment>
     </unit>
     <unit id="G92tvVe">
@@ -16404,7 +16404,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="X.vNUqq" name="Einen Bürger heimbringen:">
       <notes>
         <note category="german">Einen Bürger heimbringen:</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/actions.html.twig</note>
       </notes>
       <segment>
@@ -22306,7 +22305,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="TI4f6dK">
       <notes>
-        <note category="german">Vereinzelte Bürger berichten von einem merkwürdigen Phänomen am Himmel... Ihr solltet die Alkoholvorräte in der Bank pürfen.</note>
+        <note category="german">Vereinzelte Bürger berichten von einem merkwürdigen Phänomen am Himmel... Ihr solltet die Alkoholvorräte in der Bank prüfen.</note>
         <note category="from">php:///src/Structures/Hook.php</note>
       </notes>
       <segment>
@@ -22338,11 +22337,10 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <notes>
         <note category="german">Zusatzbemerkung zur heutigen Abschätzung: Der Himmel hat sich blutrot gefärbt. Das sieht nicht gut aus, Leute...</note>
         <note category="from">php:///src/Structures/Hook.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Zusatzbemerkung zur heutigen Abschätzung: Der Himmel hat sich blutrot gefärbt. Das sieht nicht gut aus, Leute...</source>
-        <target>Additional note to today's estimate: The sky has turned blood red. This doesn't look good, folks....</target>
+        <target>Additional note to today's estimate: The sky has turned blood red. This doesn't look good, folks...</target>
       </segment>
     </unit>
     <unit id="2soUcg3">
@@ -22373,6 +22371,16 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Es gibt keine Hoffnung!</source>
         <target>There is no hope!</target>
+      </segment>
+    </unit>
+    <unit id="j8xLoaM" name="Auszeichnungsdetails">
+      <notes>
+        <note category="german">Auszeichnungsdetails</note>
+        <note category="from">twig:///templates/ajax/soul/pictos.html.twig</note>
+      </notes>
+      <segment>
+        <source>Auszeichnungsdetails</source>
+        <target>Distinctions details</target>
       </segment>
     </unit>
   </file>

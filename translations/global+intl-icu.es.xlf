@@ -184,7 +184,7 @@
     <unit id="Oxu558J" name="Der Rabe">
       <notes>
         <note category="german">Der Rabe</note>
-        <note category="from">twig:///templates/ajax/forum/editor.html.twig;twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/forum/posts_small.html.twig;twig:///templates/ajax/forum/search_result.html.twig;twig:///templates/ajax/forum/view.html.twig;twig:///templates/ajax/game/newspaper.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/bubbles.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
+        <note category="from">twig:///templates/ajax/forum/editor.html.twig;twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/forum/posts_small.html.twig;twig:///templates/ajax/forum/search_result.html.twig;twig:///templates/ajax/forum/view.html.twig;twig:///templates/ajax/game/newspaper.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/bubbles.html.twig;twig:///templates/ajax/soul/pictos.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
       </notes>
       <segment>
         <source>Der Rabe</source>
@@ -3484,7 +3484,7 @@
     <unit id="BNvQVoN" name="Animateur-Team">
       <notes>
         <note category="german">Animateur-Team</note>
-        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/forum/posts_small.html.twig;twig:///templates/ajax/forum/search_result.html.twig;twig:///templates/ajax/forum/view.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/forum/posts_small.html.twig;twig:///templates/ajax/forum/search_result.html.twig;twig:///templates/ajax/forum/view.html.twig;twig:///templates/ajax/soul/pictos.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
       </notes>
       <segment>
         <source>Animateur-Team</source>
@@ -3652,6 +3652,17 @@
                                         &lt;p&gt;&lt;em&gt;Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..&lt;/em&gt;&lt;/p&gt;</source>
         <target><![CDATA[La gran cantidad de montones de tierra y basura que hay por ahí son un indicio de que probablemente no quede nada por encontrar aquí.
                                                     <p><em>Sin embargo, si lo desea, puede seguir cavando y desenterrando algunos materiales inferiores para los distintos sitios de construcción del pueblo.</em></p>]]></target>
+      </segment>
+    </unit>
+    <unit id="MNOavAj" name="Das Zombie Survival Game!">
+      <notes>
+        <note category="german">Das Zombie Survival Game!</note>
+        <note category="from">twig:///templates/web/framework.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Das Zombie Survival Game!</source>
+        <target>Das Zombie Survival Game!</target>
       </segment>
     </unit>
   </file>

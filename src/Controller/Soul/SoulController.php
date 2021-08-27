@@ -207,6 +207,40 @@ class SoulController extends CustomAbstractController
     }
 
     /**
+     * @Route("jx/soul/pictos/{id}", name="soul_pictos_all", requirements={"id"="\d+"})
+     * @param int $id
+     * @return Response
+     */
+    public function soul_pictos_all(int $id): Response
+    {
+        $current_user = $this->getUser();
+
+        /** @var CitizenRankingProxy $nextDeath */
+        if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($current_user))
+            return $this->redirect($this->generateUrl( 'soul_death' ));
+
+        /** @var User $user */
+        $user = $this->entity_manager->getRepository(User::class)->find($id);
+        if($user === null)
+            return $this->redirect($this->generateUrl('soul_me'));
+
+        // Get all the picto & count points
+        $pictos_mh = $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($user, false);
+        $pictos_im = $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($user, true);
+
+        $points_mh = $this->user_handler->getPoints($user, false);
+        $points_im = $this->user_handler->getPoints($user, true);
+
+        return $this->render( 'ajax/soul/pictos.html.twig', $this->addDefaultTwigArgs(null, [
+            'user' => $user,
+            'pictos_mh' => $pictos_mh,
+            'pictos_import' => $pictos_im,
+            'points_mh' => round($points_mh),
+            'points_import' => round($points_im),
+        ]));
+    }
+
+    /**
      * @Route("jx/soul/refer", name="soul_refer")
      * @return Response
      */
