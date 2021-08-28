@@ -22285,5 +22285,16 @@ cette violente opération...]]></target>
         <target>Détail des distinctions</target>
       </segment>
     </unit>
+    <unit id="N.42Sjo" name="Trinken (Oder du stirbst heute Nacht)">
+      <notes>
+        <note category="german">Trinken (Oder du stirbst heute Nacht)</note>
+        <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Trinken (Oder du stirbst heute Nacht)</source>
+        <target>Trinken (Oder du stirbst heute Nacht)</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

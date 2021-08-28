@@ -1698,5 +1698,25 @@
         <target>This is an event town, it will not appear in the ranking after it finished. This town may use unusual rules.</target>
       </segment>
     </unit>
+    <unit id="m9yaaGL" name="Jeder Spieler erhält 1x Betapropin beim Start der Stadt.">
+      <notes>
+        <note category="german">Jeder Spieler erhält 1x Betapropin beim Start der Stadt.</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+      </notes>
+      <segment>
+        <source>Jeder Spieler erhält 1x Betapropin beim Start der Stadt.</source>
+        <target>Each player receives 1x Betaprophine when joining the town.</target>
+      </segment>
+    </unit>
+    <unit id="w8l8AIW" name="Beta-Funktionen aktivieren">
+      <notes>
+        <note category="german">Beta-Funktionen aktivieren</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+      </notes>
+      <segment>
+        <source>Beta-Funktionen aktivieren</source>
+        <target>Enable Beta functions</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

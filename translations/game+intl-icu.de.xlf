@@ -14244,5 +14244,11 @@
         <target>Auszeichnungsdetails</target>
       </segment>
     </unit>
+    <unit id="N.42Sjo" name="Trinken (Oder du stirbst heute Nacht)">
+      <segment>
+        <source>Trinken (Oder du stirbst heute Nacht)</source>
+        <target>Trinken (Oder du stirbst heute Nacht)</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

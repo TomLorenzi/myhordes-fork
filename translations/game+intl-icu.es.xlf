@@ -4004,7 +4004,6 @@
     <unit id="q6r0JuY">
       <notes>
         <note category="german">Sorglos hast du dieses Produkt runtergeschluckt... Das darin enthaltene Gift hat nur wenige Sekunden gebraucht, um über dein Blutkreislaufsystem zum Herzen zu gelangen. Du hast dein Bewusstsein verloren. Atemstillstand und Herzversagen haben dir dann den Rest gegeben. Du wurdest vergifet!! Wie hinterhältig!</note>
-        <note category="state">new</note>
         <note category="from">db://CauseOfDeath</note>
       </notes>
       <segment>
@@ -4015,7 +4014,6 @@
     <unit id="THDibIm">
       <notes>
         <note category="german">Argh!! Es scheint, als ob sich ein Ghul unter die Einwohner gemischt hätte! Völlig ahnungs- und wehrlos wurdest du von etwas oder jemandem angefallen und übel vermöbelt. Als er dann seine fauligen Zähne in deinen Hals schlug warst du noch bei Bewusstsein... Doch du hattest nur noch einen Gedanken: Wer war das?</note>
-        <note category="state">new</note>
         <note category="from">db://CauseOfDeath</note>
       </notes>
       <segment>
@@ -4036,7 +4034,6 @@
     <unit id="MC.0S7d">
       <notes>
         <note category="german">Du wurdest übel zusammengeschlagen und bist an deinen inneren Verletzungen gestorben... Dir gings eh nicht mehr so gut, dein Immunsystem war bereits geschwächt, da steckt man Schläge nicht mehr so einfach weg. So ein Mist aber auch, mit deiner besonderen Fähigkeit hättest du in deiner Stadt noch ein Weilchen Furcht und Schrecken verbreiten können...</note>
-        <note category="state">new</note>
         <note category="from">db://CauseOfDeath</note>
       </notes>
       <segment>
@@ -4057,7 +4054,6 @@
     <unit id="FfD0H9b">
       <notes>
         <note category="german">Ein paar Leute in der Stadt mochten dich ganz offensichtlich nicht, darunter befanden sich mehrere Mitbürger, deine Nachbarn - ja sogar ein paar von deinen Freunden! Aus diesem Grund haben sie dich zu einer Baustelle geschleppt und dir einen Strick um den Hals gelegt. Das Ganze ging ruck zuck. Innerhalb weniger Sekunden bist du einen Meter über den Boden geschwebt. Nach einem kurzen Applaus löste sich die Gruppe auf und jeder kehrte zu seiner Arbeit zurück.</note>
-        <note category="state">new</note>
         <note category="from">db://CauseOfDeath</note>
       </notes>
       <segment>
@@ -4068,7 +4064,6 @@
     <unit id="7ewCiaI" name="Im Fleischkäfig geendet">
       <notes>
         <note category="german">Im Fleischkäfig geendet</note>
-        <note category="state">new</note>
         <note category="from">db://CauseOfDeath</note>
       </notes>
       <segment>
@@ -4079,7 +4074,6 @@
     <unit id="QnFjBo6">
       <notes>
         <note category="german">Ein paar Leute in der Stadt mochten dich ganz offensichtlich nicht, darunter befanden sich mehrere Mitbürger, deine Nachbarn - ja sogar ein paar von deinen Freunden! Aus diesem Grund haben sie dich zur Stadtmauer geschleppt, dich in einen Käfig gesteckt und diesen über den Rand gestoßen. Das Ganze ging ruck zuck. Jetzt bist du wohl Zombiefutter... Nach einem kurzen Applaus löste sich die Gruppe auf und jeder kehrte zu seiner Arbeit zurück.</note>
-        <note category="state">new</note>
         <note category="from">db://CauseOfDeath</note>
       </notes>
       <segment>
@@ -4100,7 +4094,6 @@
     <unit id="GlL3R9k">
       <notes>
         <note category="german">Grüße von Brainbox aus der Vergangenheit, der am 22.02.2020 vor seinem PC sitzt und diesen Text schreibt.</note>
-        <note category="state">new</note>
         <note category="from">db://CauseOfDeath</note>
       </notes>
       <segment>
@@ -8481,7 +8474,6 @@
     <unit id="1RIoi6Z">
       <notes>
         <note category="german">Was für ein denkwürdiger Tag! Die Zombies spielten keine Rolle mehr, nachdem {citizen1} zur Mittagszeit nackt auf der Mauer einmal um die Stadt rannte. Kommentar von {citizen2} dazu: "Der Anblick war nicht von schlechten Eltern."</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -18515,7 +18507,6 @@
     <unit id="kPJRUv1">
       <notes>
         <note category="german">Als du es dir gerade gemütlich machen wolltest, wurdest du von {username} übel angegangen. Du hast einiges abbekommen, aber auch ordentlich ausgeteilt! Zum Glück hast du dir nichts gebrochen.</note>
-        <note category="state">new</note>
         <note category="from">php:///src/Controller/Messages/MessageTownMessageController.php</note>
       </notes>
       <segment>
@@ -18536,7 +18527,6 @@
     <unit id="WGi7LUy">
       <notes>
         <note category="german">Als du es dir gerade gemütlich machen wolltest, wurdest du von {username} übel angegangen. Du hast einiges abbekommen, aber auch ordentlich ausgeteilt! Leider wurdest du bei dem Angriff verletzt!</note>
-        <note category="state">new</note>
         <note category="from">php:///src/Controller/Messages/MessageTownMessageController.php</note>
       </notes>
       <segment>
@@ -20759,7 +20749,6 @@
     <unit id="wZJl7Bp" name="Deine Identität">
       <notes>
         <note category="german">Deine Identität</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/jobs.html.twig</note>
       </notes>
       <segment>
@@ -20770,7 +20759,6 @@
     <unit id="0DPxQPn" name="Diese Stadt erlaubt es, einen Spitznamen zu tragen.">
       <notes>
         <note category="german">Diese Stadt erlaubt es, einen Spitznamen zu tragen.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/jobs.html.twig</note>
       </notes>
       <segment>
@@ -20781,7 +20769,6 @@
     <unit id="qYsZ1.g" name="Freilassen, um normalen Spielernamen zu verwenden.">
       <notes>
         <note category="german">Freilassen, um normalen Spielernamen zu verwenden.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/jobs.html.twig</note>
       </notes>
       <segment>
@@ -20792,7 +20779,6 @@
     <unit id="G2mvpQw" name="Wir denken, der morgige Angriff wird ungefähr folgendermaßen aussehen:">
       <notes>
         <note category="german">Wir denken, der morgige Angriff wird ungefähr folgendermaßen aussehen:</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/watchtower.html.twig</note>
       </notes>
       <segment>
@@ -22210,7 +22196,6 @@
       <notes>
         <note category="german">Dieser Aussätzige wurde kurzerhand &lt;strong&gt;gehängt&lt;/strong&gt;.</note>
         <note category="from">php:///src/Controller/Town/TownController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Dieser Aussätzige wurde kurzerhand &lt;strong&gt;gehängt&lt;/strong&gt;.</source>
@@ -22221,7 +22206,6 @@
       <notes>
         <note category="german">Der Galgen wurde im Zuge dieser gewalttätigen Aktion &lt;strong&gt;zerstört&lt;/strong&gt;...</note>
         <note category="from">php:///src/Controller/Town/TownController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Der Galgen wurde im Zuge dieser gewalttätigen Aktion &lt;strong&gt;zerstört&lt;/strong&gt;...</source>
@@ -22232,7 +22216,6 @@
       <notes>
         <note category="german">Dieser Aussätzige wurde kurzerhand &lt;strong&gt;gekreuzigt&lt;/strong&gt;.</note>
         <note category="from">php:///src/Controller/Town/TownController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Dieser Aussätzige wurde kurzerhand &lt;strong&gt;gekreuzigt&lt;/strong&gt;.</source>
@@ -22243,7 +22226,6 @@
       <notes>
         <note category="german">Das Schokoladenkreuz wurde von den Bürgern im Rahmen dieses tragischen Ereignisses &lt;strong&gt;gegessen&lt;/strong&gt;!</note>
         <note category="from">php:///src/Controller/Town/TownController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Das Schokoladenkreuz wurde von den Bürgern im Rahmen dieses tragischen Ereignisses &lt;strong&gt;gegessen&lt;/strong&gt;!</source>
@@ -22433,6 +22415,17 @@
       <segment>
         <source>Auszeichnungsdetails</source>
         <target>Detalles del premio</target>
+      </segment>
+    </unit>
+    <unit id="N.42Sjo" name="Trinken (Oder du stirbst heute Nacht)">
+      <notes>
+        <note category="german">Trinken (Oder du stirbst heute Nacht)</note>
+        <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Trinken (Oder du stirbst heute Nacht)</source>
+        <target>Trinken (Oder du stirbst heute Nacht)</target>
       </segment>
     </unit>
   </file>
