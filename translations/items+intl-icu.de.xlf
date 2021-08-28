@@ -64,7 +64,7 @@
     <unit id="9tVy8rd">
       <segment>
         <source>Mit deiner Gitarre hast du die Stadt gerockt! Die Bürger haben {ap} AP erhalten.</source>
-        <target>Mit deiner Gitarre hast du die Stadt gerockt! Die Bürger haben {ap} AP erhalten.</target>
+        <target>Ein bisschen Live-Musik begeistert die Damen und hebt die Motivation... aber dir muss der Nebeneffekt genügen. Dein Spiel hat {ap} Aktionspunkte generiert, die unter den Bürgern aufgeteilt werden.</target>
       </segment>
     </unit>
     <unit id="6MESOb8" name="Trotz intensiver Suche hast du nichts verwertbares gefunden...">
