@@ -22203,7 +22203,7 @@
       </notes>
       <segment>
         <source>Dieser Aussätzige wurde zum Fleischkäfig geschleppt und dort unter dem Beifall des Publikums gesteinigt. Welch ein Schauspiel!</source>
-        <target>Este leproso fue arrastrado a la cajita feliz y apedreado entre los aplausos del público. ¡Qué espectáculo!</target>
+        <target>Este desdichado habitante fue arrastrado a la cajita feliz y apedreado entre los aplausos del público. ¡Qué espectáculo!</target>
       </segment>
     </unit>
     <unit id="789mf5P" name="Dieser Aussätzige wurde kurzerhand &lt;strong&gt;gehängt&lt;/strong&gt;.">
@@ -22214,7 +22214,7 @@
       </notes>
       <segment>
         <source>Dieser Aussätzige wurde kurzerhand &lt;strong&gt;gehängt&lt;/strong&gt;.</source>
-        <target><![CDATA[Dieser Aussätzige wurde kurzerhand <strong>gehängt</strong>.]]></target>
+        <target><![CDATA[Este malaventurado habitante fue <strong>ahorcado</strong> sin más preámbulos.]]></target>
       </segment>
     </unit>
     <unit id="P6iIEO.">
@@ -22225,7 +22225,7 @@
       </notes>
       <segment>
         <source>Der Galgen wurde im Zuge dieser gewalttätigen Aktion &lt;strong&gt;zerstört&lt;/strong&gt;...</source>
-        <target><![CDATA[Der Galgen wurde im Zuge dieser gewalttätigen Aktion <strong>zerstört</strong>...]]></target>
+        <target><![CDATA[La horca fue <strong>destruida</strong> en el curso de esta acción violenta...]]></target>
       </segment>
     </unit>
     <unit id="WlruCS0" name="Dieser Aussätzige wurde kurzerhand &lt;strong&gt;gekreuzigt&lt;/strong&gt;.">
@@ -22236,7 +22236,7 @@
       </notes>
       <segment>
         <source>Dieser Aussätzige wurde kurzerhand &lt;strong&gt;gekreuzigt&lt;/strong&gt;.</source>
-        <target><![CDATA[Dieser Aussätzige wurde kurzerhand <strong>gekreuzigt</strong>.]]></target>
+        <target><![CDATA[Este desafortunado habitante fue <strong>crucificado</strong> sin ceremonias.]]></target>
       </segment>
     </unit>
     <unit id="xBnA_I0">
@@ -22247,7 +22247,7 @@
       </notes>
       <segment>
         <source>Das Schokoladenkreuz wurde von den Bürgern im Rahmen dieses tragischen Ereignisses &lt;strong&gt;gegessen&lt;/strong&gt;!</source>
-        <target><![CDATA[Das Schokoladenkreuz wurde von den Bürgern im Rahmen dieses tragischen Ereignisses <strong>gegessen</strong>!]]></target>
+        <target><![CDATA[La cruz de chocolate fue <strong>devorada</strong> por los habitantes como parte de este trágico evento, que sinvergüenzas!]]></target>
       </segment>
     </unit>
     <unit id="IOhU3iU">
