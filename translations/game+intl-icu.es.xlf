@@ -8415,7 +8415,7 @@
       </notes>
       <segment>
         <source>{attacker} hat {defender} gewalttätig angegriffen und verwundet!</source>
-        <target>¡{attacker} ha hatacado salvajemente a {defender} y ha logrado herirlo!</target>
+        <target>¡{attacker} ha atacado salvajemente a {defender} y ha logrado herirlo!</target>
       </segment>
     </unit>
     <unit id="YMkR4mp" name="{attacker} hat {defender} gewalttätig angegriffen!">
@@ -8425,7 +8425,7 @@
       </notes>
       <segment>
         <source>{attacker} hat {defender} gewalttätig angegriffen!</source>
-        <target>¡{attacker} ha hatacado salvajemente a {defender}!</target>
+        <target>¡{attacker} ha atacado salvajemente a {defender}, pero fue en vano!</target>
       </segment>
     </unit>
     <unit id="sxFSQdD">
