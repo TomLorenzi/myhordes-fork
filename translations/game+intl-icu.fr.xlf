@@ -22296,5 +22296,15 @@ cette violente opération...]]></target>
         <target>Trinken (Oder du stirbst heute Nacht)</target>
       </segment>
     </unit>
+    <unit id="016qyFO">
+      <notes>
+        <note category="german">Du hast es geschafft, dich aus dieser Gefahr zu befreien, aber die Zombies schauen dich jetzt hungrig an und kommen gefährlich knurrend auf dich zu... FLIEHE!</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du hast es geschafft, dich aus dieser Gefahr zu befreien, aber die Zombies schauen dich jetzt hungrig an und kommen gefährlich knurrend auf dich zu... FLIEHE!</source>
+        <target>Vous avez réussi à vous extirper de ce danger, mais les zombies vous regardent maintenant avec envie et s'approchent dangereusement en grognant... FUYEZ !</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

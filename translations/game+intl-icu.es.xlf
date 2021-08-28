@@ -22428,5 +22428,16 @@
         <target>Trinken (Oder du stirbst heute Nacht)</target>
       </segment>
     </unit>
+    <unit id="016qyFO">
+      <notes>
+        <note category="german">Du hast es geschafft, dich aus dieser Gefahr zu befreien, aber die Zombies schauen dich jetzt hungrig an und kommen gefährlich knurrend auf dich zu... FLIEHE!</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Du hast es geschafft, dich aus dieser Gefahr zu befreien, aber die Zombies schauen dich jetzt hungrig an und kommen gefährlich knurrend auf dich zu... FLIEHE!</source>
+        <target>Du hast es geschafft, dich aus dieser Gefahr zu befreien, aber die Zombies schauen dich jetzt hungrig an und kommen gefährlich knurrend auf dich zu... FLIEHE!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

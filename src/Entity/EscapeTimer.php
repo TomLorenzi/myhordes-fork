@@ -32,6 +32,11 @@ class EscapeTimer
      */
     private $time;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $desperate = false;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -69,6 +74,18 @@ class EscapeTimer
     public function setTime(\DateTimeInterface $time): self
     {
         $this->time = $time;
+
+        return $this;
+    }
+
+    public function getDesperate(): ?bool
+    {
+        return $this->desperate;
+    }
+
+    public function setDesperate(bool $desperate): self
+    {
+        $this->desperate = $desperate;
 
         return $this;
     }
