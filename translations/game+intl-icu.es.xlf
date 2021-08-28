@@ -18520,7 +18520,7 @@
       </notes>
       <segment>
         <source>Als du es dir gerade gemütlich machen wolltest, wurdest du von {username} übel angegangen. Du hast einiges abbekommen, aber auch ordentlich ausgeteilt! Zum Glück hast du dir nichts gebrochen.</source>
-        <target>Als du es dir gerade gemütlich machen wolltest, wurdest du von {username} übel angegangen. Du hast einiges abbekommen, aber auch ordentlich ausgeteilt! Zum Glück hast du dir nichts gebrochen.</target>
+        <target>Justo cuando estabas a punto de ponerte cómodo, fuiste atacado por {username}. Has recibido una paliza, pero también le has dado lo suyo. Por suerte no has roto nada.</target>
       </segment>
     </unit>
     <unit id="0XjfB3Z" name="{username} hat dich angegriffen und verletzt!">
@@ -18541,7 +18541,7 @@
       </notes>
       <segment>
         <source>Als du es dir gerade gemütlich machen wolltest, wurdest du von {username} übel angegangen. Du hast einiges abbekommen, aber auch ordentlich ausgeteilt! Leider wurdest du bei dem Angriff verletzt!</source>
-        <target>Als du es dir gerade gemütlich machen wolltest, wurdest du von {username} übel angegangen. Du hast einiges abbekommen, aber auch ordentlich ausgeteilt! Leider wurdest du bei dem Angriff verletzt!</target>
+        <target>Justo cuando estabas a punto de ponerte cómodo, fuiste atacado por {username}. Has recibido una paliza, pero también le has dado lo suyo. Desgraciadamente, ¡has resultado herido en el ataque!</target>
       </segment>
     </unit>
     <unit id="cyaNyje" name="Verletzt">
