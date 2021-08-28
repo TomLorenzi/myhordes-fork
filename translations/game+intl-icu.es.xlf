@@ -4009,7 +4009,7 @@
       </notes>
       <segment>
         <source>Sorglos hast du dieses Produkt runtergeschluckt... Das darin enthaltene Gift hat nur wenige Sekunden gebraucht, um über dein Blutkreislaufsystem zum Herzen zu gelangen. Du hast dein Bewusstsein verloren. Atemstillstand und Herzversagen haben dir dann den Rest gegeben. Du wurdest vergifet!! Wie hinterhältig!</source>
-        <target>Sorglos hast du dieses Produkt runtergeschluckt... Das darin enthaltene Gift hat nur wenige Sekunden gebraucht, um über dein Blutkreislaufsystem zum Herzen zu gelangen. Du hast dein Bewusstsein verloren. Atemstillstand und Herzversagen haben dir dann den Rest gegeben. Du wurdest vergifet!! Wie hinterhältig!</target>
+        <target>Tragaste este producto sin cuidado... El veneno que contenía solo tardó unos segundos en llegar al corazón a través de su sistema circulatorio. Has perdido la conciencia. El paro respiratorio y la insuficiencia cardíaca hicieron el resto. ¡¡Has sido envenenado!! ¡Qué astuto!</target>
       </segment>
     </unit>
     <unit id="THDibIm">
@@ -4020,7 +4020,7 @@
       </notes>
       <segment>
         <source>Argh!! Es scheint, als ob sich ein Ghul unter die Einwohner gemischt hätte! Völlig ahnungs- und wehrlos wurdest du von etwas oder jemandem angefallen und übel vermöbelt. Als er dann seine fauligen Zähne in deinen Hals schlug warst du noch bei Bewusstsein... Doch du hattest nur noch einen Gedanken: Wer war das?</source>
-        <target>Argh!! Es scheint, als ob sich ein Ghul unter die Einwohner gemischt hätte! Völlig ahnungs- und wehrlos wurdest du von etwas oder jemandem angefallen und übel vermöbelt. Als er dann seine fauligen Zähne in deinen Hals schlug warst du noch bei Bewusstsein... Doch du hattest nur noch einen Gedanken: Wer war das?</target>
+        <target>¡¡Argh!! ¡Parece que un mutante se ha mezclado con los habitantes! Completamente desprevenido e indefenso, fuiste atacado por algo o alguien y te golpeó brutalmente. Cuando te mordió la garganta con sus dientes podridos aún estabas consciente... Pero solo tenías un pensamiento: ¿Quién era ese?</target>
       </segment>
     </unit>
     <unit id="7AlBdeZ" name="Aggression">
@@ -4041,7 +4041,7 @@
       </notes>
       <segment>
         <source>Du wurdest übel zusammengeschlagen und bist an deinen inneren Verletzungen gestorben... Dir gings eh nicht mehr so gut, dein Immunsystem war bereits geschwächt, da steckt man Schläge nicht mehr so einfach weg. So ein Mist aber auch, mit deiner besonderen Fähigkeit hättest du in deiner Stadt noch ein Weilchen Furcht und Schrecken verbreiten können...</source>
-        <target>Du wurdest übel zusammengeschlagen und bist an deinen inneren Verletzungen gestorben... Dir gings eh nicht mehr so gut, dein Immunsystem war bereits geschwächt, da steckt man Schläge nicht mehr so einfach weg. So ein Mist aber auch, mit deiner besonderen Fähigkeit hättest du in deiner Stadt noch ein Weilchen Furcht und Schrecken verbreiten können...</target>
+        <target>Recibiste una fuerte paliza y moriste a causa de tus heridas internas... De todos modos, no te sentías tan bien, tu sistema inmunológico ya estaba debilitado, por lo que ya no puedes aguantar un golpe. Qué fastidio, con tu habilidad especial podrías haber esparcido el miedo y el horror en tu pueblo por un tiempo...</target>
       </segment>
     </unit>
     <unit id="jujqjyy" name="Erhängt">
@@ -4062,7 +4062,7 @@
       </notes>
       <segment>
         <source>Ein paar Leute in der Stadt mochten dich ganz offensichtlich nicht, darunter befanden sich mehrere Mitbürger, deine Nachbarn - ja sogar ein paar von deinen Freunden! Aus diesem Grund haben sie dich zu einer Baustelle geschleppt und dir einen Strick um den Hals gelegt. Das ganze ging ruck zuck. Innerhalb weniger Sekunden bist du einen Meter über den Boden geschwebt. Nach einem kurzen Applaus löste sich die Gruppe auf und jeder kehrte zu seiner Arbeit zurück.</source>
-        <target>Ein paar Leute in der Stadt mochten dich ganz offensichtlich nicht, darunter befanden sich mehrere Mitbürger, deine Nachbarn - ja sogar ein paar von deinen Freunden! Aus diesem Grund haben sie dich zu einer Baustelle geschleppt und dir einen Strick um den Hals gelegt. Das ganze ging ruck zuck. Innerhalb weniger Sekunden bist du einen Meter über den Boden geschwebt. Nach einem kurzen Applaus löste sich die Gruppe auf und jeder kehrte zu seiner Arbeit zurück.</target>
+        <target>Obviamente, a algunas personas del pueblo no les agradaste, incluidos varios de tus vecinos, ¡incluso algunos de tus amigos! Debido a esto, te arrastraron a un sitio de construcción y te pusieron una cuerda alrededor del cuello. Todo fue rápido. En unos segundos flotabas a un metro del suelo. Después de un breve aplauso, el grupo se disolvió y todos volvieron a su trabajo.</target>
       </segment>
     </unit>
     <unit id="7ewCiaI" name="Im Fleischkäfig geendet">
@@ -4073,7 +4073,7 @@
       </notes>
       <segment>
         <source>Im Fleischkäfig geendet</source>
-        <target>Im Fleischkäfig geendet</target>
+        <target>Terminó en la Cajita Feliz</target>
       </segment>
     </unit>
     <unit id="QnFjBo6">
@@ -4084,7 +4084,7 @@
       </notes>
       <segment>
         <source>Ein paar Leute in der Stadt mochten dich ganz offensichtlich nicht, darunter befanden sich mehrere Mitbürger, deine Nachbarn - ja sogar ein paar von deinen Freunden! Aus diesem Grund haben sie dich zur Stadtmauer geschleppt, dich in einen Käfig gesteckt und diesen über den Rand gestoßen. Das ganze ging ruck zuck. Jetzt bist du wohl Zombiefutter... Nach einem kurzen Applaus löste sich die Gruppe auf und jeder kehrte zu seiner Arbeit zurück.</source>
-        <target>Ein paar Leute in der Stadt mochten dich ganz offensichtlich nicht, darunter befanden sich mehrere Mitbürger, deine Nachbarn - ja sogar ein paar von deinen Freunden! Aus diesem Grund haben sie dich zur Stadtmauer geschleppt, dich in einen Käfig gesteckt und diesen über den Rand gestoßen. Das ganze ging ruck zuck. Jetzt bist du wohl Zombiefutter... Nach einem kurzen Applaus löste sich die Gruppe auf und jeder kehrte zu seiner Arbeit zurück.</target>
+        <target>Obviamente, a algunas personas del pueblo no les agradaste, incluidos varios de tus vecinos, ¡incluso algunos de tus amigos! Debido a esto, te arrastraron hasta la muralla del pueblo, te metieron en una jaula y la empujaron por el borde. Todo fue rápido. Ahora probablemente seas comida de zombies... Después de un breve aplauso, el grupo se disolvió y todos volvieron a su trabajo.</target>
       </segment>
     </unit>
     <unit id="CT0T_bH" name="Strangulation">
@@ -4105,7 +4105,7 @@
       </notes>
       <segment>
         <source>Grüße von Brainbox aus der Vergangenheit, der am 22.02.2020 vor seinem PC sitzt und diesen Text schreibt.</source>
-        <target>Grüße von Brainbox aus der Vergangenheit, der am 22.02.2020 vor seinem PC sitzt und diesen Text schreibt.</target>
+        <target>Saludos de Brainbox del pasado, que está sentado frente a su PC el 22 de febrero de 2020 y está escribiendo este texto.</target>
       </segment>
     </unit>
     <unit id="Cp7etpd" name="Kopfschuss">
