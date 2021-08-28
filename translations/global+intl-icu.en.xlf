@@ -2688,7 +2688,7 @@
       </notes>
       <segment>
         <source>Wenn du deine Flucht erzwingst, wirst du zwangsläufig verletzt!</source>
-        <target>Wenn du deine Flucht erzwingst, wirst du zwangsläufig verletzt!</target>
+        <target>You will be wounded if you try to force your way past the zombies!</target>
       </segment>
     </unit>
     <unit id="TvN2VX9" name="Diese Aktion kostet dich 1 AP!">
