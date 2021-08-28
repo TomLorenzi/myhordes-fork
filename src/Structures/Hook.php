@@ -143,8 +143,8 @@ class Hook
     }
 
     public static function purge_daysUntil(?\DateTimeInterface $dateTime = null): int {
-        if ($dateTime === null) $dateTime = new \DateTime();
-        return $dateTime->diff( (new \DateTime('today'))->setDate(2021,9,1) )->d;
+        if ($dateTime === null) $dateTime = (new \DateTime())->setTime(0, 0, 0);
+        return $dateTime->diff( (new \DateTime('today'))->setDate(2021,8,28)->setTime(0, 0, 0) )->d;
     }
 
     /**

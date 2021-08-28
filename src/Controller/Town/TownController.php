@@ -260,7 +260,8 @@ class TownController extends InventoryAwareController
             'has_dictator' => $has_dictator,
             'new_coa_message' => $messages,
             'additional_bullet_points' => $additional_bullets,
-            'additional_situation_points' => $additional_situation
+            'additional_situation_points' => $additional_situation,
+            'is_dehydrated' => $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'thirst2')
         ]) );
     }
 

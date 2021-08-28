@@ -558,6 +558,7 @@ class TownHandler
 
         $quality = min(($cc_offset + $est->getCitizens()->count()*$ratio) / 24, 1);
         $message = null;
+
         foreach ($this->conf->getCurrentEvents($town) as $e)
             $e->hook_watchtower_estimations($min,$max, $town, 0, $quality, $message);
 
