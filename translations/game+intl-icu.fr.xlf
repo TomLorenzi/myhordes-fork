@@ -22306,5 +22306,27 @@ cette violente opération...]]></target>
         <target>Vous avez réussi à vous extirper de ce danger, mais les zombies vous regardent maintenant avec envie et s'approchent dangereusement en grognant... FUYEZ !</target>
       </segment>
     </unit>
+    <unit id="tMIHtgS" name="Profi-Fotograph">
+      <notes>
+        <note category="german">Profi-Fotograph</note>
+        <note category="from">db://HeroSkillPrototype</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Profi-Fotograph</source>
+        <target>Profi-Fotograph</target>
+      </segment>
+    </unit>
+    <unit id="Uy1Rmg9" name="Du beginst jede neue Stadt mit einer Kamera aus Vorkriegstagen.">
+      <notes>
+        <note category="german">Du beginst jede neue Stadt mit einer Kamera aus Vorkriegstagen.</note>
+        <note category="from">db://HeroSkillPrototype</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Du beginst jede neue Stadt mit einer Kamera aus Vorkriegstagen.</source>
+        <target>Du beginst jede neue Stadt mit einer Kamera aus Vorkriegstagen.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

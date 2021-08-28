@@ -653,6 +653,13 @@ class GameController extends CustomAbstractController
                             $citizen->addUsedHeroicAction($newfind);
                         else $citizen->addHeroicAction($newfind);
                         break;
+                    case 'apag':
+                        // Only give the APAG via Hero XP if it is not unlocked via Soul Inventory
+                        if (!$this->user_handler->checkFeatureUnlock( $citizen->getUser(), 'f_cam', false ) ) {
+                            $item = ($if->createItem( "photo_3_#00" ))->setEssential(true);
+                            $this->inventory_handler->transferItem($citizen,$item,$null,$inventory);
+                        }
+                        break;
                 }
             }
         }

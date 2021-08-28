@@ -103,7 +103,7 @@
     </unit>
     <unit id="9tVy8rd">
       <notes>
-        <note category="german">Mit deiner Gitarre hast du die Stadt gerockt! Die Bürger haben {ap} AP erhalten.</note>
+        <note category="german">Ein bisschen Live-Musik begeistert die Damen und hebt die Motivation... aber dir muss der Nebeneffekt genügen. Dein Spiel hat {ap} Aktionspunkte generiert, die unter den Bürgern aufgeteilt werden.</note>
         <note category="from">php:///src/Service/ActionHandler.php</note>
       </notes>
       <segment>

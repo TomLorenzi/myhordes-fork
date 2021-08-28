@@ -14256,5 +14256,17 @@
         <target>Du hast es geschafft, dich aus dieser Gefahr zu befreien, aber die Zombies schauen dich jetzt hungrig an und kommen gefährlich knurrend auf dich zu... FLIEHE!</target>
       </segment>
     </unit>
+    <unit id="tMIHtgS" name="Profi-Fotograph">
+      <segment>
+        <source>Profi-Fotograph</source>
+        <target>Profi-Fotograph</target>
+      </segment>
+    </unit>
+    <unit id="Uy1Rmg9" name="Du beginst jede neue Stadt mit einer Kamera aus Vorkriegstagen.">
+      <segment>
+        <source>Du beginst jede neue Stadt mit einer Kamera aus Vorkriegstagen.</source>
+        <target>Du beginst jede neue Stadt mit einer Kamera aus Vorkriegstagen.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -32,7 +32,7 @@
             <div class="row skillRow {% if heroSkill == latestSkill %}currentSkill{% endif %}">
                 <div class="cell padded rw-4 center skill">
                     {% if heroSkill.daysNeeded <= app.user.allHeroDaysSpent %}
-                        <img src="{{ asset('build/images/heroskill/'~heroSkill.icon~".gif") }}" /> <strong>{{heroSkill.title|trans({}, 'game')}}</strong>
+                        <img alt="" src="{{ asset('build/images/heroskill/'~heroSkill.icon~".gif") }}" /> <strong>{{heroSkill.title|trans({}, 'game')}}</strong>
                     {% elseif heroSkill == nextSkill %}
                         <span class="small">{{'Nächste:'|trans({}, 'game')}}<br /><strong>{{heroSkill.title|trans({}, 'game')}}</strong></span>
                     {% else %}

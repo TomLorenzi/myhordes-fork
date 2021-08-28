@@ -22405,5 +22405,25 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>Du hast es geschafft, dich aus dieser Gefahr zu befreien, aber die Zombies schauen dich jetzt hungrig an und kommen gefährlich knurrend auf dich zu... FLIEHE!</target>
       </segment>
     </unit>
+    <unit id="tMIHtgS" name="Profi-Fotograph">
+      <notes>
+        <note category="german">Profi-Fotograph</note>
+        <note category="from">db://HeroSkillPrototype</note>
+      </notes>
+      <segment>
+        <source>Profi-Fotograph</source>
+        <target>Professional Photographer</target>
+      </segment>
+    </unit>
+    <unit id="Uy1Rmg9" name="Du beginst jede neue Stadt mit einer Kamera aus Vorkriegstagen.">
+      <notes>
+        <note category="german">Du beginst jede neue Stadt mit einer Kamera aus Vorkriegstagen.</note>
+        <note category="from">db://HeroSkillPrototype</note>
+      </notes>
+      <segment>
+        <source>Du beginst jede neue Stadt mit einer Kamera aus Vorkriegstagen.</source>
+        <target>You start each new town with a pre-war camera.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
