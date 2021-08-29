@@ -83,8 +83,8 @@ parameters:
             chance: 0.4
     purge:
       trigger:
-        # type: datetime
-        type: off
+        type: datetime
+        # type: off
         begin: 2021-08-25 00:00
         end: 2021-09-01 00:00
       conf:
