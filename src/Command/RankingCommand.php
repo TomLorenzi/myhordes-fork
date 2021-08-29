@@ -11,11 +11,13 @@ use App\Entity\CitizenStatus;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
 use App\Entity\Season;
+use App\Entity\Town;
 use App\Entity\TownClass;
 use App\Entity\TownRankingProxy;
 use App\Entity\User;
 use App\Service\CitizenHandler;
 use App\Service\CommandHelper;
+use App\Service\GameFactory;
 use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
 use App\Service\StatusFactory;
@@ -35,23 +37,17 @@ class RankingCommand extends Command
 {
     protected static $defaultName = 'app:ranking';
 
-    private $entityManager;
-    private $statusFactory;
-    private $itemFactory;
-    private $inventoryHandler;
-    private $citizenHandler;
-    private $userHandler;
-    private $helper;
+    private EntityManagerInterface $entityManager;
+    private CommandHelper $commandHelper;
+    private UserHandler $userHandler;
+    private GameFactory $gameFactory;
 
-    public function __construct(EntityManagerInterface $em, StatusFactory $sf, ItemFactory $if, InventoryHandler $ih, CitizenHandler $ch, CommandHelper $comh, UserHandler $uh)
+    public function __construct(EntityManagerInterface $em, CommandHelper $com, UserHandler $uh, GameFactory $gf)
     {
         $this->entityManager = $em;
-        $this->statusFactory = $sf;
-        $this->inventoryHandler = $ih;
-        $this->itemFactory = $if;
-        $this->citizenHandler = $ch;
-        $this->helper = $comh;
+        $this->commandHelper = $com;
         $this->userHandler = $uh;
+        $this->gameFactory = $gf;
         parent::__construct();
     }
 
@@ -63,7 +59,39 @@ class RankingCommand extends Command
             ->addArgument('SeasonSubNumber', InputArgument::OPTIONAL, 'The season sub number. Enter numeric value or c for current, l for latest.', '')
 
             ->addOption('clear', null,InputOption::VALUE_NONE, 'Removes the ranking pictos for the selected season.')
+            ->addOption('alpha', null,InputOption::VALUE_NONE, 'Instead of calculating a season ranking, disperse ranking pictos')
         ;
+    }
+
+    protected function execute_alpha(InputInterface $input, OutputInterface $output): int {
+
+        $alpha_picto = $this->entityManager->getRepository(PictoPrototype::class)->findOneByName('r_ripflash_#00');
+        if (!$alpha_picto) return -1;
+
+        $this->commandHelper->leChunk($output, User::class, 100, [], true, true, function (User $u) use (&$alpha_picto) {
+            if ($this->userHandler->hasRole($u,'ROLE_USER') && !$this->userHandler->hasRole($u,'ROLE_DUMMY') && $u->getPastLifes()->count() >= 1) {
+                if (empty(array_filter( $this->entityManager->getRepository(Picto::class)->findPictoByUserAndTown($u, null), fn(Picto $p) => $p->getPersisted() === 2 ))) {
+                    $u->addPicto($p = (new Picto())
+                        ->setCount(1)
+                        ->setPrototype($alpha_picto)
+                        ->setPersisted(2)
+                        ->setDisabled(false)
+                    );
+                    $this->entityManager->persist($p);
+                }
+            }
+        }, true, function() use (&$alpha_picto) { $alpha_picto = $this->entityManager->getRepository(PictoPrototype::class)->findOneByName('r_ripflash_#00'); } );
+
+        $this->commandHelper->leChunk($output, User::class, 100, [], true, true, function (User $u) {
+            $this->userHandler->computePictoUnlocks($u);
+        }, true );
+
+        $this->commandHelper->leChunk($output, Town::class, 1, [], false, false, function(Town $t) {
+            if (!$this->gameFactory->compactTown($t))
+                $this->gameFactory->nullifyTown($t,true);
+        }, true);
+
+        return 0;
     }
 
     /**
@@ -71,6 +99,7 @@ class RankingCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
+        if ($input->getOption('alpha')) return $this->execute_alpha($input,$output);
 
         if (
             (!is_numeric($input->getArgument('SeasonNumber')) && !in_array($input->getArgument('SeasonNumber'), ['c','l'])) ||

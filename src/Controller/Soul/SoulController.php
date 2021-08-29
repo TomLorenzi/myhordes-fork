@@ -547,7 +547,10 @@ class SoulController extends CustomAbstractController
         if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
             return $this->redirect($this->generateUrl( 'soul_death' ));
 
-        $seasons = $this->entity_manager->getRepository(Season::class)->findBy(['subNumber' => null]);
+        $seasons = $this->entity_manager->getRepository(Season::class)->matching((Criteria::create())
+            ->orWhere(Criteria::expr()->gt('number', 0))
+            ->orWhere(Criteria::expr()->gt('subNumber', 14))
+        );
         if ($seasonId === null) {
             $currentSeason = $this->entity_manager->getRepository(Season::class)->findOneBy(['current' => true]);
         } else {
@@ -614,7 +617,10 @@ class SoulController extends CustomAbstractController
         if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
             return $this->redirect($this->generateUrl( 'soul_death' ));
 
-        $seasons = $this->entity_manager->getRepository(Season::class)->findBy(['subNumber' => null]);
+        $seasons = $this->entity_manager->getRepository(Season::class)->matching((Criteria::create())
+            ->orWhere(Criteria::expr()->gt('number', 0))
+            ->orWhere(Criteria::expr()->gt('subNumber', 14))
+        );
         if ($seasonId === null) {
             $currentSeason = "all";
         } else {
@@ -637,7 +643,7 @@ class SoulController extends CustomAbstractController
             'ranking' => $ranking,
             'currentType' => 0,
             'soloType' => $type,
-            'townTypes' => $this->entity_manager->getRepository(TownClass::class)->findBy(['ranked' => true]),
+            'townTypes' => $this->entity_manager->getRepository(TownClass::class)->findBy(['ranked' => true], ['orderBy' => 'ASC']),
             'offset' => $offset,
             'user' => $user
         ]) );

@@ -283,6 +283,7 @@ class UserHandler
                 $remove_awards[] = $award;
         }
 
+        //echo "####################################################\n";
         foreach ($this->entity_manager->getRepository(AwardPrototype::class)->findAll() as $prototype)
             if (!in_array($prototype,$skip_proto) &&
                 (isset($cache[$prototype->getAssociatedPicto()->getId()]) && $cache[$prototype->getAssociatedPicto()->getId()] >= $prototype->getUnlockQuantity())
@@ -294,7 +295,10 @@ class UserHandler
         if (!empty($award_awards))
             $this->entity_manager->persist($this->crow->createPM_titleUnlock($user, $award_awards));
 
+
         foreach ($remove_awards as $r) {
+            if ($user->getActiveIcon() === $r) $user->setActiveIcon(null);
+            if ($user->getActiveTitle() === $r) $user->setActiveTitle(null);
             $user->removeAward($r);
             $this->entity_manager->remove($r);
         }

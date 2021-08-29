@@ -100,7 +100,7 @@ class User implements UserInterface, EquatableInterface
     private $pictos;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Award", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="App\Entity\Award", mappedBy="user", cascade={"persist", "remove"}, fetch="EXTRA_LAZY")
      */
     private $awards;
 
@@ -189,11 +189,6 @@ class User implements UserInterface, EquatableInterface
      * @ORM\OneToMany(targetEntity=ConnectionIdentifier::class, mappedBy="user", orphanRemoval=true, fetch="EXTRA_LAZY")
      */
     private $connectionIdentifiers;
-
-    /**
-     * @ORM\OneToOne(targetEntity=ShadowBan::class, mappedBy="user", cascade={"persist", "remove"})
-     */
-    private $shadowBan;
 
     /**
      * @ORM\ManyToMany(targetEntity=ConnectionWhitelist::class, mappedBy="users", cascade={"persist", "remove"}, fetch="EXTRA_LAZY")
@@ -878,27 +873,6 @@ class User implements UserInterface, EquatableInterface
             if ($connectionIdentifier->getUser() === $this) {
                 $connectionIdentifier->setUser(null);
             }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @deprecated
-     * @return ShadowBan|null
-     */
-    public function getShadowBan(): ?ShadowBan
-    {
-        return $this->shadowBan;
-    }
-
-    public function setShadowBan(?ShadowBan $shadowBan): self
-    {
-        $this->shadowBan = $shadowBan;
-
-        // set the owning side of the relation if necessary
-        if ($shadowBan && $shadowBan->getUser() !== $this) {
-            $shadowBan->setUser($this);
         }
 
         return $this;
