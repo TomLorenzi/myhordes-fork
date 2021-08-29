@@ -2366,5 +2366,17 @@
         <target>Importierte Auszeichnungen</target>
       </segment>
     </unit>
+    <unit id="YHwfxav" name="Beta-Saison">
+      <segment>
+        <source>Beta-Saison</source>
+        <target>Beta-Saison</target>
+      </segment>
+    </unit>
+    <unit id="ykRbs.i" name="&lt;span class=&quot;number&quot;&gt;Beta&lt;/span&gt; Saison">
+      <segment>
+        <source>&lt;span class="number"&gt;Beta&lt;/span&gt; Saison</source>
+        <target><![CDATA[<span class="number">Beta</span> Saison]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>
