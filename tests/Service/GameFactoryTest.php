@@ -20,13 +20,22 @@ class GameFactoryTest extends KernelTestCase
         $gameFactory = $container->get(GameFactory::class);
         /** @var GameFactory $gameFactory */
 
-        // Let's try to create a french remote town with a generated name and 40 citizens in ut
-        $town = $gameFactory->createTown(null, "fr", 40, "remote");
+        // We try to create a 100 towns
+        for ($i = 0; $i < 100 ; $i++) {
+            // Let's try to create a french remote town with a generated name and 40 citizens in it
+            $town = $gameFactory->createTown(null, "fr", 40, "remote");
 
-        $this->assertNotNull($town);
+            $this->assertNotNull($town);
 
-        self::assertEquals(40, $town->getPopulation());
-        self::assertEquals("fr", $town->getLanguage());
+            self::assertEquals(40, $town->getPopulation());
+            self::assertEquals("fr", $town->getLanguage());
 
+            foreach ($town->getZones() as $zone) {
+                if ($zone->getPrototype() === null) continue;
+
+                self::assertLessThanOrEqual($zone->getPrototype()->getMaxDistance(), $zone->getDistance(), "Town $i/100 : Zone at [{$zone->getX()}, {$zone->getY()}] has ruin {$zone->getPrototype()->getLabel()}, is at {$zone->getDistance()}km of town but the ruin must be between {$zone->getPrototype()->getMinDistance()}km and {$zone->getPrototype()->getMaxDistance()}km");
+                self::assertGreaterThanOrEqual($zone->getPrototype()->getMinDistance(), $zone->getDistance(), "Town $i/100 : Zone at [{$zone->getX()}, {$zone->getY()}] has ruin {$zone->getPrototype()->getLabel()}, is at {$zone->getDistance()}km of town but the ruin must be between {$zone->getPrototype()->getMinDistance()}km and {$zone->getPrototype()->getMaxDistance()}km");
+            }
+        }
     }
 }

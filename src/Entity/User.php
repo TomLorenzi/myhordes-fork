@@ -282,6 +282,11 @@ class User implements UserInterface, EquatableInterface
      */
     private $roleFlag = 0;
 
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\ShadowBan", mappedBy="user", cascade={"persist"})
+     */
+    private $shadowBan;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -1140,5 +1145,21 @@ class User implements UserInterface, EquatableInterface
 
     public function hasRoleFlag(int $roleFlag): bool {
         return ($this->getRoleFlag() & $roleFlag) === $roleFlag;
+    }
+
+    /**
+     * @return ShadowBan
+     */
+    public function getShadowBan()
+    {
+        return $this->shadowBan;
+    }
+
+    /**
+     * @param ShadowBan $shadowBan
+     */
+    public function setShadowBan($shadowBan): void
+    {
+        $this->shadowBan = $shadowBan;
     }
 }

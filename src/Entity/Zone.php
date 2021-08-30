@@ -220,8 +220,8 @@ class Zone
         return $this->x === 0 && $this->y === 0;
     }
 
-    public function getDistance(): float {
-        return sqrt( pow($this->getX(),2) + pow($this->getY(),2) );
+    public function getDistance(): int {
+        return round(sqrt( pow($this->getX(),2) + pow($this->getY(),2) ));
     }
 
     public function getZombies(): ?int
