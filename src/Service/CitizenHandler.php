@@ -587,7 +587,7 @@ class CitizenHandler
             15 => -6,
         ];
 
-        $zone_distance = round(sqrt( pow($zone->getX(),2) + pow($zone->getY(),2) ));
+        $zone_distance = $zone->getDistance();
         if ($zone_distance >= 16) {
             $camping_values['distance'] = -5;
         }
@@ -599,8 +599,7 @@ class CitizenHandler
         $camping_values['ruin'] = $zone->getPrototype() ? $zone->getPrototype()->getCampingLevel() : 0;
 
         // Zombies in zone. Factor -1.4, for hidden scouts it is -0.6.
-        $factor = $has_scout_protection ? -0.6 : -1.4;
-        $camping_values['zombies'] = $factor * $zone->getZombies();
+        $camping_values['zombies'] = ($has_scout_protection ? -0.6 : -1.4) * $zone->getZombies();
 
         // Zone improvement level.
         $camping_values['improvement'] = $zone->getImprovementLevel();
@@ -660,9 +659,6 @@ class CitizenHandler
         $camping_values['campings'] = $campings_map[$config->get(TownConf::CONF_MODIFIER_CAMPING_CHANCE_MAP, 'normal')][$has_pro_camper ? 'pro' : 'nonpro'][min(8,$citizen->getCampingCounter())];
 
         $camping_values['campings'] = -0.835 * pow($citizen->getCampingCounter(), 2) - 1.269 * $citizen->getCampingCounter();
-
-        if ($config->get(TownConf::CONF_MODIFIER_CAMPING_CHANCE_MAP, 'normal') == "hard")
-            $camping_values['campings'] -= 14;
 
         // Campers that are already hidden.
         $campers_map = [
