@@ -743,7 +743,6 @@ class InventoryAwareController extends CustomAbstractController
                                         $this->addFlash( 'notice', $this->translator->trans('Du hast dir folgenden Gegenstand unter den Nagel gerissen: {item}. Dein kleiner Hausbesuch bei † {victim} ist allerdings aufgeflogen...<hr /><strong>Dieser Gegenstand wurde in deiner Truhe abgelegt.</strong>', ['{item}' => $this->log->wrap($this->log->iconize($current_item)), '{victim}' => $victim_home->getCitizen()->getName()], 'game') );
                                     }
                                 } else {
-                                    $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), null, $current_item->getPrototype(), $steal_up, false, $current_item->getBroken() ) );
                                     $this->addFlash( 'notice', $this->translator->trans('Sehr gut, niemand hat dich bei deinem Einbruch bei {victim} beobachtet.', ['{victim}' => $victim_home->getCitizen()->getName()], 'game') );
                                 }
     
