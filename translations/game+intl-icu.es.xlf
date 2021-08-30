@@ -12153,7 +12153,7 @@
       </notes>
       <segment>
         <source>Wenn du in der Wüste von Zombies umzingelst wirst, erstarrst du vor Angst und kannst nichts mehr unternehmen... Du musst Drogen oder etwas anderes finden, um &lt;strong&gt;deine Nerven zu beruhigen&lt;/strong&gt; und aus dieser Hölle auszubrechen... Wenigstens ist es dir immer noch möglich, im Forum nach Hilfe zu suchen...</source>
-        <target><![CDATA[Wenn du in der Wüste von Zombies umzingelst wirst, erstarrst du vor Angst und kannst nichts mehr unternehmen... Du musst Drogen oder etwas anderes finden, um <strong>deine Nerven zu beruhigen</strong> und aus dieser Hölle auszubrechen... Wenigstens ist es dir immer noch möglich, im Forum nach Hilfe zu suchen...]]></target>
+        <target><![CDATA[Cuando estás rodeado de zombis en el desierto, te congelas de miedo y no puedes hacer nada... Tienes que encontrar drogas o algo más para <strong>calmar tus nervios</strong> y escapar de este infierno... al menos todavía puedes buscar ayuda en el foro...]]></target>
       </segment>
     </unit>
     <unit id="G0BraVl" name="Das Passwort ist falsch.">
@@ -15972,7 +15972,7 @@
       </notes>
       <segment>
         <source>Das Katapult ist ein wirklich mächtiges Instrument, um jeden beliebigen Gegenstand zu einer Zone in der Wüste zu schicken.</source>
-        <target>Das Katapult ist ein wirklich mächtiges Instrument, um jeden beliebigen Gegenstand zu einer Zone in der Wüste zu schicken.</target>
+        <target>La catapulta es una herramienta realmente poderosa para enviar cualquier objeto a una zona en el desierto.</target>
       </segment>
     </unit>
     <unit id="qavmsbg" name="Praktisch zur Versorgung aus der Ferne.">
@@ -15983,7 +15983,7 @@
       </notes>
       <segment>
         <source>Praktisch zur Versorgung aus der Ferne.</source>
-        <target>Praktisch zur Versorgung aus der Ferne.</target>
+        <target>Práctico para suministros a distancia.</target>
       </segment>
     </unit>
     <unit id="L.iYdPu">
@@ -15994,7 +15994,7 @@
       </notes>
       <segment>
         <source>Denke daran, dass das Katapult manchmal sein Ziel verfehlt und den Gegenstand in eine angrenzende Zone befördert...</source>
-        <target>Denke daran, dass das Katapult manchmal sein Ziel verfehlt und den Gegenstand in eine angrenzende Zone befördert...</target>
+        <target>Tenga en cuenta que a veces la catapulta fallará su objetivo y enviará el objeto a una zona adyacente...</target>
       </segment>
     </unit>
     <unit id="fXqavJn" name="Die Aktivierung des Katapults kostet {ap}.">
@@ -16005,7 +16005,7 @@
       </notes>
       <segment>
         <source>Die Aktivierung des Katapults kostet {ap}.</source>
-        <target>Die Aktivierung des Katapults kostet {ap}.</target>
+        <target>La activación de la catapulta cuesta {ap}.</target>
       </segment>
     </unit>
     <unit id="9Wu5PZ8">
@@ -16016,7 +16016,7 @@
       </notes>
       <segment>
         <source>Die Aktivierung des Katapults kostet {ap} (diese Kosten können durch den Bau eines besseren Katapults gesenkt werden).</source>
-        <target>Die Aktivierung des Katapults kostet {ap} (diese Kosten können durch den Bau eines besseren Katapults gesenkt werden).</target>
+        <target>Activar la catapulta cuesta {ap} (este costo se puede reducir construyendo una catapulta mejor).</target>
       </segment>
     </unit>
     <unit id="vGJYt6I" name="Du wurdest als Verantwortlicher für das Katapult bestimmt!">
@@ -16027,7 +16027,7 @@
       </notes>
       <segment>
         <source>Du wurdest als Verantwortlicher für das Katapult bestimmt!</source>
-        <target>Du wurdest als Verantwortlicher für das Katapult bestimmt!</target>
+        <target>¡Has sido elegido para estar a cargo de la catapulta!</target>
       </segment>
     </unit>
     <unit id="F85kERo" name="Wähle einen Gegenstand aus deinem Inventar und gib die Zielkoordinaten ein.">
@@ -16038,7 +16038,7 @@
       </notes>
       <segment>
         <source>Wähle einen Gegenstand aus deinem Inventar und gib die Zielkoordinaten ein.</source>
-        <target>Wähle einen Gegenstand aus deinem Inventar und gib die Zielkoordinaten ein.</target>
+        <target>Seleccione un artículo de su inventario e ingrese las coordenadas de destino.</target>
       </segment>
     </unit>
     <unit id="BcAGh_j">
@@ -16049,7 +16049,7 @@
       </notes>
       <segment>
         <source>Unser Katapult wird von dem vom Schicksal auserwählten Bürger {citizen} gesteuert. Sollte ihm etwas Schreckliches zustoßen, könnte dann ein neuer Bürger gewählt werden.</source>
-        <target>Unser Katapult wird von dem vom Schicksal auserwählten Bürger {citizen} gesteuert. Sollte ihm etwas Schreckliches zustoßen, könnte dann ein neuer Bürger gewählt werden.</target>
+        <target>Nuestra catapulta está controlada por el ciudadano {ciudadano} elegido por el destino. Si le ocurriera algo terrible, se podría elegir un nuevo encargado.</target>
       </segment>
     </unit>
     <unit id="qX1gDpX" name="Die Stadt ist zerstört! Flieht, irh Narren!">
@@ -16060,7 +16060,7 @@
       </notes>
       <segment>
         <source>Die Stadt ist zerstört! Flieht, irh Narren!</source>
-        <target>Die Stadt ist zerstört! Flieht, irh Narren!</target>
+        <target>¡El pueblo está destruido! ¡Huyan, tontos!</target>
       </segment>
     </unit>
     <unit id="Klvgn7w">
@@ -16071,7 +16071,7 @@
       </notes>
       <segment>
         <source>{master} hat {item} nach &lt;strong&gt;[{x}/{y}]&lt;/strong&gt; &lt;strong&gt;katapultiert&lt;/strong&gt;!</source>
-        <target><![CDATA[{master} hat {item} nach <strong>[{x}/{y}]</strong> <strong>katapultiert</strong>!]]></target>
+        <target><![CDATA[¡{master} ha catapultado {item} a <strong>[{x}/{y}]!]]></target>
       </segment>
     </unit>
     <unit id="wYsH8yz" name="Das Katapult der Stadt hat {item} auf diese Zone geschleudert.">
@@ -16082,7 +16082,7 @@
       </notes>
       <segment>
         <source>Das Katapult der Stadt hat {item} auf diese Zone geschleudert.</source>
-        <target>Das Katapult der Stadt hat {item} auf diese Zone geschleudert.</target>
+        <target>La catapulta del pueblo arrojó {item} a esta zona.</target>
       </segment>
     </unit>
     <unit id="c8o8Cvb" name="Zu verschickender Gegenstand:">
@@ -16093,7 +16093,7 @@
       </notes>
       <segment>
         <source>Zu verschickender Gegenstand:</source>
-        <target>Zu verschickender Gegenstand:</target>
+        <target>Objeto a enviar:</target>
       </segment>
     </unit>
     <unit id="HseCFgo" name="Gegenstand auswählen">
@@ -16104,7 +16104,7 @@
       </notes>
       <segment>
         <source>Gegenstand auswählen</source>
-        <target>Gegenstand auswählen</target>
+        <target>Seleccione un objeto</target>
       </segment>
     </unit>
     <unit id="3LNO13M" name="Gegenstand katapultieren">
@@ -16115,7 +16115,7 @@
       </notes>
       <segment>
         <source>Gegenstand katapultieren</source>
-        <target>Gegenstand katapultieren</target>
+        <target>Catapultar el objeto</target>
       </segment>
     </unit>
     <unit id="vKTmXMp" name="Katapultregister">
@@ -16126,7 +16126,7 @@
       </notes>
       <segment>
         <source>Katapultregister</source>
-        <target>Katapultregister</target>
+        <target>Registro de catapulta</target>
       </segment>
     </unit>
     <unit id="XhfFUUF" name="Bitte wähle einen Gegenstand.">
@@ -16207,7 +16207,7 @@
       </notes>
       <segment>
         <source>inmitten eines unentwirrbaren Trümmerhaufens</source>
-        <target>inmitten eines unentwirrbaren Trümmerhaufens</target>
+        <target>En medio de un inextricable montón de escombros</target>
       </segment>
     </unit>
     <unit id="b3wvOG3">
@@ -16218,7 +16218,7 @@
       </notes>
       <segment>
         <source>&lt;i class="dagger"&gt;†&lt;/i&gt; {zombie} ist gestern hungrig zum Haus von {victim} gestapft. Nachdem er die Tür mit voller Wucht eingetreten hatte, packte er sein Opfer am Haar und schleuderte es mit voller Wucht gegen die Wand... Einige Schädelsplitter wurden sogar im Schlafzimmer gefunden. Vergesst nie die Leichen zu recyclen. Nie!!</source>
-        <target><![CDATA[<i class="dagger">†</i> {zombie} ist gestern hungrig zum Haus von {victim} gestapft. Nachdem er die Tür mit voller Wucht eingetreten hatte, packte er sein Opfer am Haar und schleuderte es mit voller Wucht gegen die Wand... Einige Schädelsplitter wurden sogar im Schlafzimmer gefunden. Vergesst nie die Leichen zu recyclen. Nie!!]]></target>
+        <target><![CDATA[<i class="dagger">†</i> {zombie} caminó hambriento hasta la casa de {victim} ayer. Después de patear la puerta con toda su fuerza, agarró a su víctima por el cabello y lo arrojó contra la pared con toda su fuerza... Incluso se encontraron algunos fragmentos de cráneo en el dormitorio. Nunca olvides sacar los cadáveres. ¡¡Nunca!!]]></target>
       </segment>
     </unit>
     <unit id="HABjCVJ">
@@ -16229,7 +16229,7 @@
       </notes>
       <segment>
         <source>Die in der Stadt liegengebliebenen Körper der ehemaligen Einwohner erwachten in der Zwischenzeit wieder zu Leben...</source>
-        <target>Die in der Stadt liegengebliebenen Körper der ehemaligen Einwohner erwachten in der Zwischenzeit wieder zu Leben...</target>
+        <target>Mientras tanto, los cuerpos de los antiguos habitantes que quedaron tirados en el pueblo han vuelto a la vida...</target>
       </segment>
     </unit>
     <unit id="oCHBS.y">
@@ -16240,7 +16240,7 @@
       </notes>
       <segment>
         <source>Die Stadt ist nichts weiter als ein widerwärtiger Friedhof. Es war niemand hier, der den letzten Angriff der Zombies hätte aufhalten können: &lt;strong&gt;das Stadttor wurde aufgebrochen&lt;/strong&gt; und &lt;strong&gt;liegt nun in Trümmern&lt;/strong&gt;. {town} existiert nicht mehr...</source>
-        <target><![CDATA[Die Stadt ist nichts weiter als ein widerwärtiger Friedhof. Es war niemand hier, der den letzten Angriff der Zombies hätte aufhalten können: <strong>das Stadttor wurde aufgebrochen</strong> und <strong>liegt nun in Trümmern</strong>. {town} existiert nicht mehr...]]></target>
+        <target><![CDATA[El pueblo no es más que un cementerio repugnante. No había nadie aquí que pudiera haber detenido el último ataque de los zombis: <strong>la puerta del pueblo se abrió de golpe</strong> y <strong>ahora está en ruinas</strong>. {town} ya no existe...]]></target>
       </segment>
     </unit>
     <unit id="V.GaRUl" name="Sind wir noch in der Alpha?">
@@ -16271,7 +16271,7 @@
       </notes>
       <segment>
         <source>{count} Zombies wurden in der Stadt gesichtet, aber sie haben niemanden angegriffen: Was für ein Glücksfall...</source>
-        <target>{count} Zombies wurden in der Stadt gesichtet, aber sie haben niemanden angegriffen: Was für ein Glücksfall...</target>
+        <target>Se vieron {count} zombis en el pueblo pero no atacaron a nadie: qué bendición...</target>
       </segment>
     </unit>
     <unit id="b5TnxTe" name="[ Es riecht nach Tannenzapfen... ]">
@@ -18281,7 +18281,7 @@
       </notes>
       <segment>
         <source>Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.</source>
-        <target>Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.</target>
+        <target>Desafortunadamente, tu pueblo está completamente sumergida en las arenas del desierto... La comunidad ha sido aniquilada.</target>
       </segment>
     </unit>
     <unit id="Goz9BWd" name="(Allein)">
