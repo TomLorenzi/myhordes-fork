@@ -3,6 +3,7 @@ namespace App\Tests\Service;
 
 use App\Service\GameFactory;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
+use Symfony\Component\Translation\Translator;
 
 class GameFactoryTest extends KernelTestCase
 {
@@ -17,8 +18,8 @@ class GameFactoryTest extends KernelTestCase
         $container = self::$container;
 
         // (3) run some service & test the result
-        $gameFactory = $container->get(GameFactory::class);
         /** @var GameFactory $gameFactory */
+        $gameFactory = $container->get(GameFactory::class);
 
         // We try to create a 100 towns
         for ($i = 0; $i < 100 ; $i++) {
