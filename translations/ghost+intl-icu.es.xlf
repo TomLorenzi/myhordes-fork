@@ -1716,7 +1716,7 @@
       </notes>
       <segment>
         <source>Jeder Spieler erhält 1x Betapropin beim Start der Stadt.</source>
-        <target>Jeder Spieler erhält 1x Betapropin beim Start der Stadt.</target>
+        <target>Cada jugador recibe 1x Betapropin al comienzo dl pueblo.</target>
       </segment>
     </unit>
     <unit id="w8l8AIW" name="Beta-Funktionen aktivieren">
@@ -1727,7 +1727,7 @@
       </notes>
       <segment>
         <source>Beta-Funktionen aktivieren</source>
-        <target>Beta-Funktionen aktivieren</target>
+        <target>Activar funciones beta</target>
       </segment>
     </unit>
   </file>
