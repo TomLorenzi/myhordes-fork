@@ -22333,7 +22333,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Kopf</source>
-        <target>Kopf</target>
+        <target>Tête</target>
       </segment>
     </unit>
     <unit id="_hjAZzP" name="Hand">
@@ -22344,7 +22344,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Hand</source>
-        <target>Hand</target>
+        <target>Main</target>
       </segment>
     </unit>
     <unit id="fweEsGL" name="Arme">
@@ -22355,7 +22355,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Arme</source>
-        <target>Arme</target>
+        <target>Bras</target>
       </segment>
     </unit>
     <unit id="xXqHDly" name="Bein">
@@ -22366,7 +22366,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Bein</source>
-        <target>Bein</target>
+        <target>Jambe</target>
       </segment>
     </unit>
     <unit id="oFtlo8T" name="Auge">
@@ -22377,7 +22377,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Auge</source>
-        <target>Auge</target>
+        <target>Oeil</target>
       </segment>
     </unit>
     <unit id="4CY2vtO" name="Fuß">
@@ -22388,7 +22388,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Fuß</source>
-        <target>Fuß</target>
+        <target>Pied</target>
       </segment>
     </unit>
     <unit id="WrHBbx9">
@@ -22399,7 +22399,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Bei deinem Fluchtversuch ist es einem Zombie gelungen dir eine Verletzung zuzufügen: {injury}! Du solltest hier besser schnell verschwinden!</source>
-        <target>Bei deinem Fluchtversuch ist es einem Zombie gelungen dir eine Verletzung zuzufügen: {injury}! Du solltest hier besser schnell verschwinden!</target>
+        <target>Pendant votre fuite, un zombie vous a lacéré la partie du corps suivante : {injury} ! Il faut quitter cet enfer et vite !</target>
       </segment>
     </unit>
     <unit id="5M1q6BC">
@@ -22410,7 +22410,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Du erhälst einen Bauplan wenn Du in diesem Gebäude campst, aber du musst zunächst die Zone aufräumen.</source>
-        <target>Du erhälst einen Bauplan wenn Du in diesem Gebäude campst, aber du musst zunächst die Zone aufräumen.</target>
+        <target>Vous pourriez obtenir un plan en campant ici, mais il faudrait déblayer la zone auparavant.</target>
       </segment>
     </unit>
     <unit id="O_a3lwS" name="(seit {num} Stunden herrscht völlige Flaute)">
