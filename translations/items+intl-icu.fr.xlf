@@ -9090,7 +9090,7 @@
       </notes>
       <segment>
         <source>&lt;nt-morphed&gt;Gute Nachrichten: Es ist noch Wasser im Kanister!&lt;/nt-morphed&gt;&lt;t-morphed&gt;&lt;strong&gt;Der Kanister ist LEER&lt;/strong&gt;!&lt;/t-morphed&gt;</source>
-        <target><![CDATA[<nt-morphed>Gute Nachrichten: Es ist noch Wasser im Kanister!</nt-morphed><t-morphed><strong>Der Kanister ist LEER</strong>!</t-morphed>]]></target>
+        <target><![CDATA[<nt-morphed>Bonne nouvelle, le jerrycan contient encore de l'eau...</nt-morphed><t-morphed><strong>Le jerrycan est VIDE !</strong>!</t-morphed>]]></target>
       </segment>
     </unit>
     <unit id="x2hIMFw">
