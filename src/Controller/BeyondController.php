@@ -1096,7 +1096,7 @@ class BeyondController extends InventoryAwareController
             case 'wound3': $wound = $this->translator->trans('Arme', [], 'game'); break;
             case 'wound4': $wound = $this->translator->trans('Bein', [], 'game'); break;
             case 'wound5': $wound = $this->translator->trans('Auge', [], 'game'); break;
-            case 'wound6': $wound = $this->translator->trans('Fuß',  [], 'game'); break;
+            case 'wound6': $wound = $this->translator->trans('Fuß', [], 'game'); break;
             default: $wound = null;
         }
 
