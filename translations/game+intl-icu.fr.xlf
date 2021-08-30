@@ -2550,7 +2550,7 @@
       </notes>
       <segment>
         <source>Dönerbude Utsel-Brutzel</source>
-        <target>Kebab "Chez Coluche"</target>
+        <target>Kebab « Chez Coluche »</target>
       </segment>
     </unit>
     <unit id="JNOFU3C" name="Dukes Villa">
@@ -2770,7 +2770,7 @@
       </notes>
       <segment>
         <source>Motel 'Dusk'</source>
-        <target>Motel "Dusk"</target>
+        <target>Motel « Dusk »</target>
       </segment>
     </unit>
     <unit id="aXgXOJr" name="Militärischer Wachposten">
@@ -2840,7 +2840,7 @@
       </notes>
       <segment>
         <source>Truck 'Rathaus auf Rädern'</source>
-        <target>Camion "Mairie-mobile"</target>
+        <target>Camion « Mairie-mobile »</target>
       </segment>
     </unit>
     <unit id="OHLvvVZ" name="Umgekippter Laster">
