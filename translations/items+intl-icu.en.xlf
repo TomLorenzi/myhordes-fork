@@ -904,7 +904,7 @@
       </notes>
       <segment>
         <source>'Wake The Dead'</source>
-        <target>'Wake The Dead'</target>
+        <target>“Wake The Dead”</target>
       </segment>
     </unit>
     <unit id="wiaY28_" name="Heißer Kaffee">

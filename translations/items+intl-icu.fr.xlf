@@ -898,7 +898,7 @@
       </notes>
       <segment>
         <source>'Wake The Dead'</source>
-        <target>"Debout-les-morts"</target>
+        <target>« Debout-les-morts »</target>
       </segment>
     </unit>
     <unit id="wiaY28_" name="Heißer Kaffee">
@@ -9186,6 +9186,28 @@
       <segment>
         <source>Gegenstand verwenden</source>
         <target>Utiliser un objet de mon sac</target>
+      </segment>
+    </unit>
+    <unit id="WgEgCbq" name="Die Batterie wurde beim Aufprall vollständig zerstört.">
+      <notes>
+        <note category="german">Die Batterie wurde beim Aufprall vollständig zerstört.</note>
+        <note category="from">db://AffectMessage</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Die Batterie wurde beim Aufprall vollständig zerstört.</source>
+        <target>La pile semble avoir mal supporté ce tir... Elle est inutilisable !</target>
+      </segment>
+    </unit>
+    <unit id="nPvnmuP" name="Die Batterie fällt ein paar Meter entfernt auf den Boden.">
+      <notes>
+        <note category="german">Die Batterie fällt ein paar Meter entfernt auf den Boden.</note>
+        <note category="from">db://AffectMessage</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Die Batterie fällt ein paar Meter entfernt auf den Boden.</source>
+        <target>La pile est tombée un peu plus loin.</target>
       </segment>
     </unit>
   </file>

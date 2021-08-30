@@ -259,7 +259,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
         'meta_results' => [
             'do_nothing' => [],
             'do_nothing_attack' => ['message' => ['text' => 'Mit aller Kraft schlägst du mehrmals auf einen Zombie ein, aber <strong>es scheint ihm nichts anzuhaben</strong>!']],
-            'do_nothing_taser' => ['message' => ['text' => 'Sie greifen einen Zombie mit Ihrem {item} an, aber <strong>er reagiert nicht einmal</strong> und macht weiter!']],
+            'do_nothing_attack2' => ['message' => ['text' => 'Sie greifen einen Zombie mit Ihrem {item} an, aber <strong>er reagiert nicht einmal</strong> und macht weiter!']],
 
             'contaminated_zone_infect'  => [ 'collection' => [ 'custom' => [22] ] ],
 
@@ -505,8 +505,10 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 'g_kill_1z_80' => [[['do_nothing_attack'], 20], [['kill_1_zombie'], 80]],
                 'g_kill_1z_85' => [[['do_nothing_attack'], 15], [['kill_1_zombie'], 85]],
                 'g_kill_1z_95' => [[['do_nothing_attack'],  5], [['kill_1_zombie'], 95]],
+                'g_kill_1z_99' => [[['do_nothing_attack'],  1], [['kill_1_zombie'], 99]],
+                'g_kill_1z_99_msg2' => [[['do_nothing_attack2'],  1], [['kill_1_zombie'], 99]],
 
-                'g_kill_1z_50_taser' => [[['do_nothing_taser'], 50], [['kill_1_zombie'], 50]],
+                'g_kill_1z_50_taser' => [[['do_nothing_attack2'], 50], [['kill_1_zombie'], 50]],
 
                 'g_kill_2z_80' => [[['do_nothing_attack'], 20], [['kill_2_zombie'], 80]],
                 'g_immune_90' => [[['do_nothing'], 10], [['give_shaman_immune'], 90]],
@@ -709,12 +711,12 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'fill_watercan1' => [ 'label' => 'Befüllen', 'at00' => true, 'poison' => ItemAction::PoisonHandlerTransgress, 'meta' => [ 'have_water' ], 'result' => [ 'consume_water', 'produce_watercan2' ], 'message_key' => 'item_fill' ],
             'fill_watercan2' => [ 'label' => 'Befüllen', 'at00' => true, 'poison' => ItemAction::PoisonHandlerTransgress, 'meta' => [ 'have_water' ], 'result' => [ 'consume_water', 'produce_watercan3' ], 'message_key' => 'item_fill' ],
 
-            'fire_pilegun'   => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'spawn' => 'empty_battery', 'item' => ['morph' => 'pilegun_empty_#00',    'consume' => false], 'group' => 'g_kill_1z_95', 'message' => [ 'text_key' => 'battery_use', 'ordering' => 1000]  ] ] ],
-            'fire_pilegun2'  => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'group' => [ [[ ['spawn' => 'battery',       'item' => ['morph' => 'pilegun_up_empty_#00', 'consume' => false]] ], 8],  [[ ['spawn' => 'empty_battery', 'item' => ['morph' => 'pilegun_up_empty_#00', 'consume' => false]] ], 2 ] ] ], 'kill_1_zombie' ] ],
-            'fire_pilegun3'  => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'group' => [ [[ ['spawn' => 'empty_battery', 'item' => ['morph' => 'big_pgun_empty_#00',   'consume' => false]] ], 51], [[ ['spawn' => 'battery',       'item' => ['morph' => 'big_pgun_empty_#00',   'consume' => false]] ], 49] ] ], 'kill_2_zombie' ] ],
+            'fire_pilegun'   => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'spawn' => 'empty_battery', 'item' => ['morph' => 'pilegun_empty_#00',    'consume' => false], 'group' => 'g_kill_1z_99_msg2', 'message' => [ 'text_key' => 'battery_destroyed', 'ordering' => 1000]  ] ] ],
+            'fire_pilegun2'  => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'group' => [ [[ ['spawn' => 'battery',       'item' => ['morph' => 'pilegun_up_empty_#00', 'consume' => false], 'message' => [ 'text_key' => 'battery_dropped', 'ordering' => 1000]] ], 8],  [[ ['spawn' => 'empty_battery', 'item' => ['morph' => 'pilegun_up_empty_#00', 'consume' => false], 'message' => [ 'text_key' => 'battery_destroyed', 'ordering' => 1000]] ], 2 ] ] ], 'kill_1_zombie' ] ],
+            'fire_pilegun3'  => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'group' => [ [[ ['spawn' => 'empty_battery', 'item' => ['morph' => 'big_pgun_empty_#00',   'consume' => false], 'message' => [ 'text_key' => 'battery_destroyed', 'ordering' => 1000]] ], 51], [[ ['spawn' => 'battery',     'item' => ['morph' => 'big_pgun_empty_#00',   'consume' => false], 'message' => [ 'text_key' => 'battery_dropped', 'ordering' => 1000]] ], 49] ] ], 'kill_2_zombie' ] ],
             'fire_mixergun'  => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'group' => [ [['do_nothing'],  6], [[ [ 'item' => ['morph' => 'mixergun_empty_#00', 'consume' => false], 'message' => [ 'text_key' => 'battery_use', 'ordering' => 1000] ] ], 4] ] ], 'kill_1_zombie' ] ],
             'fire_chainsaw'  => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'group' => [ [['do_nothing'],  7], [[ [ 'item' => ['morph' => 'chainsaw_empty_#00', 'consume' => false], 'message' => [ 'text_key' => 'battery_use', 'ordering' => 1000] ] ], 3] ] ], 'kill_3_zombie' ] ],
-            'fire_taser'     => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'group' => 'g_kill_1z_50_taser' ], [ 'group' => [ [['do_nothing'],  2], [[ [ 'item' => ['morph' => 'taser_empty_#00', 'consume' => false], 'message' => [ 'text_key' => 'battery_use'] ]], 8] ] ] ] ],
+            'fire_taser'     => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'group' => 'g_kill_1z_50_taser' ], [ 'group' => [ [['do_nothing' ],  2], [[ [ 'item' => ['morph' => 'taser_empty_#00', 'consume' => false], 'message' => [ 'text_key' => 'battery_use'] ]], 8] ] ] ] ],
             'fire_lpointer4' => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'item' => ['morph' => 'lpoint3_#00', 'consume' => false] ], 'kill_2_zombie' ] ],
             'fire_lpointer3' => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'item' => ['morph' => 'lpoint2_#00', 'consume' => false] ], 'kill_2_zombie' ] ],
             'fire_lpointer2' => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'item' => ['morph' => 'lpoint1_#00', 'consume' => false] ], 'kill_2_zombie' ] ],
@@ -1382,6 +1384,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
         'weapon_use'                => '<t-kill-latest>Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?</t-kill-latest><nt-kill-latest>Du hast mit dieser Waffe: {item} {kills} Zombie getötet. Ha! Ha! Ha! Das tut wirklich gut, ab und zu mal ein paar Zombies fertig zu machen...</nt-kill-latest>',
         'battery_use'               => 'Die Waffe hat <strong>keine Batterie mehr</strong>.',
+        'battery_dropped'           => 'Die Batterie fällt ein paar Meter entfernt auf den Boden.',
+        'battery_destroyed'         => 'Die Batterie wurde beim Aufprall vollständig zerstört.',
         'throw_animal'              => '<t-consumed>Du hetzt das/den/die {item} auf einen Zombie. Der Untote greift sich deinen tierischen Begleiter, zerquetscht es mit seinen Griffen und würgt es ganz langsam herunter... Dumm gelaufen.. aber wenigstens hast ihn damit eine Zeit lang beschäftigt...</t-consumed><nt-consumed>Dein Tier <strong>geht einem Zombie sofort an die Gurgel</strong> und reißt sich ein paar schöne Happen! Bravo!</nt-consumed>',
 
         'read_blueprint'            => '<t-bp_ok>Du liest den {item} und stellst fest, dass es sich um einen Plan für {bp_spawn} handelt.</t-bp_ok><t-bp_parent>{hr}Dafür ist das Bauprojekt {bp_parent} nötig.</t-bp_parent><t-bp_fail>Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...</t-bp_fail>',

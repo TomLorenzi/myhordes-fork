@@ -49,6 +49,7 @@
         "brainbox-et/etwin-api-client": "@dev"
     },
     "require-dev": {
+        "dama/doctrine-test-bundle": "^6.6",
         "symfony/debug-pack": "*",
         "symfony/maker-bundle": "^1.14",
         "symfony/profiler-pack": "^1.0",

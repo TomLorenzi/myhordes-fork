@@ -59,6 +59,9 @@ test:
   dependencies:
     - build
   script:
+    # Changing php's maximum memory to 256M
+    - mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
+    - sed -Ei 's/memory_limit = (.*)/memory_limit = 256M/' "$PHP_INI_DIR/php.ini"
     # Install a DB
     - php bin/console app:migrate -i
     # Run tests

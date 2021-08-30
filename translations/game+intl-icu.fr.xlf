@@ -2550,7 +2550,7 @@
       </notes>
       <segment>
         <source>Dönerbude Utsel-Brutzel</source>
-        <target>Kebab "Chez Coluche"</target>
+        <target>Kebab « Chez Coluche »</target>
       </segment>
     </unit>
     <unit id="JNOFU3C" name="Dukes Villa">
@@ -2770,7 +2770,7 @@
       </notes>
       <segment>
         <source>Motel 'Dusk'</source>
-        <target>Motel "Dusk"</target>
+        <target>Motel « Dusk »</target>
       </segment>
     </unit>
     <unit id="aXgXOJr" name="Militärischer Wachposten">
@@ -2840,7 +2840,7 @@
       </notes>
       <segment>
         <source>Truck 'Rathaus auf Rädern'</source>
-        <target>Camion "Mairie-mobile"</target>
+        <target>Camion « Mairie-mobile »</target>
       </segment>
     </unit>
     <unit id="OHLvvVZ" name="Umgekippter Laster">
@@ -22310,7 +22310,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Profi-Fotograph</note>
         <note category="from">db://HeroSkillPrototype</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Profi-Fotograph</source>
@@ -22321,7 +22320,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Du beginst jede neue Stadt mit einer Kamera aus Vorkriegstagen.</note>
         <note category="from">db://HeroSkillPrototype</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Du beginst jede neue Stadt mit einer Kamera aus Vorkriegstagen.</source>

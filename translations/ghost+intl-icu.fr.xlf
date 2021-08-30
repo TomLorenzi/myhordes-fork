@@ -1663,7 +1663,6 @@
       <notes>
         <note category="german">Als Event-Stadt markieren</note>
         <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Als Event-Stadt markieren</source>
@@ -1674,7 +1673,6 @@
       <notes>
         <note category="german">Event-Städte werden nicht ins Ranking aufgenommen und erhalten eine spezielle Markierung in der Stadtliste.</note>
         <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Event-Städte werden nicht ins Ranking aufgenommen und erhalten eine spezielle Markierung in der Stadtliste.</source>
@@ -1685,7 +1683,6 @@
       <notes>
         <note category="german">Dies ist eine Event-Stadt, sie wird nach ihrem Ende nicht im Ranking erscheinen. Möglicherweise gelten unübliche Regeln für diese Stadt.</note>
         <note category="from">twig:///templates/ajax/ghost/intro.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Dies ist eine Event-Stadt, sie wird nach ihrem Ende nicht im Ranking erscheinen. Möglicherweise gelten unübliche Regeln für diese Stadt.</source>
@@ -1696,7 +1693,6 @@
       <notes>
         <note category="german">Jeder Spieler erhält 1x Betapropin beim Start der Stadt.</note>
         <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Jeder Spieler erhält 1x Betapropin beim Start der Stadt.</source>
@@ -1707,7 +1703,6 @@
       <notes>
         <note category="german">Beta-Funktionen aktivieren</note>
         <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Beta-Funktionen aktivieren</source>
