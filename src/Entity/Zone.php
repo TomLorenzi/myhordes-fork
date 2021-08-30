@@ -224,6 +224,10 @@ class Zone
         return round(sqrt( pow($this->getX(),2) + pow($this->getY(),2) ));
     }
 
+    public function getApDistance(): int {
+        return $this->getX() + $this->getY();
+    }
+
     public function getZombies(): ?int
     {
         return $this->zombies;
