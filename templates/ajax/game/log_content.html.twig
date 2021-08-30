@@ -1,12 +1,23 @@
+{# @var entries \App\Entity\TownLogEntry[] #}
 {% if entries|length == 0 %}
     <i>{{ 'Heute ist nichts Erwähnenswertes passiert...'|trans({},'game') }}</i>
 {% else %}
+    {% set last_entry = null %}
     {% for entry in entries %}
+        {% set time_diff_seconds = (last_entry is not null) ? (last_entry.timestamp.timestamp - entry.timestamp.timestamp) : 0 %}
+        {% if time_diff_seconds >= 7200 %}
+            <div class="log-silence">{{ '(seit {num} Stunden herrscht völlige Flaute)'|trans({num: (time_diff_seconds/3600)|round(0,'floor')},'game') }}</div>
+        {% elseif time_diff_seconds >= 3600 %}
+            <div class="log-silence">{{ '(über eine Stunde ohne besondere Vorkommnisse)'|trans({num: (time_diff_seconds/3600)|round(0,'floor')},'game') }}</div>
+        {% elseif time_diff_seconds >= 600 %}
+            <div class="log-silence">{{ '({num} Minuten Stille)'|trans({num: (time_diff_seconds/60)|round(0,'floor')},'game') }}</div>
+        {% endif %}
         <div class="log-entry log-entry-type-{{ entry.type }} log-entry-class-{{ entry.class }}">
             <span class="log-part-time">{{ entry.timestamp.format('G:i') }}</span>
             {% if canHideEntry and not entry.hidden %}<span class="link undecorated remove-entry" x-entry-id="{{ entry.id }}"><img src="{{ asset('build/images/heroskill/small_falsify.gif') }}" alt="[X]" /> <div class="tooltip help">{{ 'Klick hier, wenn du mit deiner Heldenfähigkeit <strong>diesen Registereintrag fälschen</strong> möchtest...'|trans({}, 'game')|raw }}</div></span>{% endif %}
             <span class="log-part-content {% if entry.hidden %}log-part-entry-hidden{% endif %}">{% if entry.hidden %}<img src="{{ asset('build/images/icons/small_warning.gif') }}" />{{'Dieser Registereintrag wurde durchgestrichen und ist nicht mehr lesbar! Wer wollte damit etwas verbergen?'|trans({}, 'game')}}{% else %}{{ entry.text|raw }}{% endif %}</span>
         </div>
+        {% set last_entry = entry %}
     {% endfor %}
 
     <script>

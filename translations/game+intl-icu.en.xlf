@@ -22496,5 +22496,35 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>You can obtain a blueprint if you camp here, but the zone must be cleared first of all.</target>
       </segment>
     </unit>
+    <unit id="O_a3lwS" name="(seit {num} Stunden herrscht völlige Flaute)">
+      <notes>
+        <note category="german">(seit {num} Stunden herrscht völlige Flaute)</note>
+        <note category="from">twig:///templates/ajax/admin/towns/log_content.html.twig;twig:///templates/ajax/game/log_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>(seit {num} Stunden herrscht völlige Flaute)</source>
+        <target>(more than {num} hours of peace and quiet)</target>
+      </segment>
+    </unit>
+    <unit id="GCKCg7_" name="(über eine Stunde ohne besondere Vorkommnisse)">
+      <notes>
+        <note category="german">(über eine Stunde ohne besondere Vorkommnisse)</note>
+        <note category="from">twig:///templates/ajax/admin/towns/log_content.html.twig;twig:///templates/ajax/game/log_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>(über eine Stunde ohne besondere Vorkommnisse)</source>
+        <target>(more than one hour of inactivity)</target>
+      </segment>
+    </unit>
+    <unit id="gJumdci" name="({num} Minuten Stille)">
+      <notes>
+        <note category="german">({num} Minuten Stille)</note>
+        <note category="from">twig:///templates/ajax/admin/towns/log_content.html.twig;twig:///templates/ajax/game/log_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>({num} Minuten Stille)</source>
+        <target>({num} minutes of silence)</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
