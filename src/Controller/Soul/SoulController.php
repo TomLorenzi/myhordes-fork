@@ -1362,7 +1362,6 @@ class SoulController extends CustomAbstractController
         if(empty($season_id)) return new Response("");
 
         $season = $this->entity_manager->getRepository(Season::class)->findOneBy(['id' => $season_id]);
-        if ($season === null) return new Response("");
 
         $limit = (bool)$parser->get('limit10', true);
 
