@@ -9086,7 +9086,6 @@
       <notes>
         <note category="german">&lt;nt-morphed&gt;Gute Nachrichten: Es ist noch Wasser im Kanister!&lt;/nt-morphed&gt;&lt;t-morphed&gt;&lt;strong&gt;Der Kanister ist LEER&lt;/strong&gt;!&lt;/t-morphed&gt;</note>
         <note category="from">db://AffectMessage</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>&lt;nt-morphed&gt;Gute Nachrichten: Es ist noch Wasser im Kanister!&lt;/nt-morphed&gt;&lt;t-morphed&gt;&lt;strong&gt;Der Kanister ist LEER&lt;/strong&gt;!&lt;/t-morphed&gt;</source>
@@ -9192,7 +9191,6 @@
       <notes>
         <note category="german">Die Batterie wurde beim Aufprall vollständig zerstört.</note>
         <note category="from">db://AffectMessage</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Die Batterie wurde beim Aufprall vollständig zerstört.</source>
@@ -9203,7 +9201,6 @@
       <notes>
         <note category="german">Die Batterie fällt ein paar Meter entfernt auf den Boden.</note>
         <note category="from">db://AffectMessage</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Die Batterie fällt ein paar Meter entfernt auf den Boden.</source>

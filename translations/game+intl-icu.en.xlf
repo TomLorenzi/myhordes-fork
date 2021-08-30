@@ -21350,7 +21350,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="Tf8a568">
       <notes>
         <note category="german">Du kannst einen Teil deines Sauerstoffs zur Flucht verwenden, indem du in die gewünschte Richtung sprintest.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/beyond/ruin.html.twig</note>
       </notes>
       <segment>
@@ -21361,7 +21360,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="ywafrVf" name="Du kannst dieses Gebäude mit allen gefundenen Ressourcen verlassen.">
       <notes>
         <note category="german">Du kannst dieses Gebäude mit allen gefundenen Ressourcen verlassen.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/beyond/ruin.html.twig</note>
       </notes>
       <segment>
@@ -21372,7 +21370,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="Tg_wgai">
       <notes>
         <note category="german">Verzweifelt suchst du in diesem Raum nach etwas, aber wie lange wirst du an diesem unheilvollen Ort durchhalten?</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/beyond/ruin.html.twig</note>
       </notes>
       <segment>
@@ -21383,7 +21380,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="jDpq7iy">
       <notes>
         <note category="german">Du kannst die üblen Gerüche und den Anblick dieses Raumes nicht länger ertragen.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/beyond/ruin.html.twig</note>
       </notes>
       <segment>
@@ -21394,7 +21390,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="2Zr9t8H">
       <notes>
         <note category="german">Du kannst diesen Raum betreten, vielleicht findest du einige interessante Gegenstände.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/beyond/ruin.html.twig</note>
       </notes>
       <segment>
@@ -21405,7 +21400,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="SHnNJFY" name="Diese Aktion kostet dich Sauerstoff, trotzdem flüchten?">
       <notes>
         <note category="german">Diese Aktion kostet dich Sauerstoff, trotzdem flüchten?</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/beyond/ruin.html.twig</note>
       </notes>
       <segment>
@@ -21416,7 +21410,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="RlEfb.v">
       <notes>
         <note category="german">Diese Aktion ermöglicht es dir, die Tiefen dieses Gebäude zu erkunden und wertvolle Ressourcen zu bergen. Sei aber nicht zu gierig, denn deine Zeit ist begrenzt!</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
@@ -21427,7 +21420,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="AGQV69U" name="Das Gebäude betreten? (Diese Aktion kostet 1AP)">
       <notes>
         <note category="german">Das Gebäude betreten? (Diese Aktion kostet 1AP)</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
@@ -21438,7 +21430,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="LkEJIMQ" name="Kein Wasser mehr!">
       <notes>
         <note category="german">Kein Wasser mehr!</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/well.html.twig</note>
       </notes>
       <segment>
@@ -22398,7 +22389,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <notes>
         <note category="german">Du hast es geschafft, dich aus dieser Gefahr zu befreien, aber die Zombies schauen dich jetzt hungrig an und kommen gefährlich knurrend auf dich zu... FLIEHE!</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Du hast es geschafft, dich aus dieser Gefahr zu befreien, aber die Zombies schauen dich jetzt hungrig an und kommen gefährlich knurrend auf dich zu... FLIEHE!</source>
@@ -22423,6 +22413,77 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Du beginst jede neue Stadt mit einer Kamera aus Vorkriegstagen.</source>
         <target>You start each new town with a pre-war camera.</target>
+      </segment>
+    </unit>
+    <unit id="l2sp7PJ" name="Kopf">
+      <notes>
+        <note category="german">Kopf</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
+      </notes>
+      <segment>
+        <source>Kopf</source>
+        <target>Head</target>
+      </segment>
+    </unit>
+    <unit id="_hjAZzP" name="Hand">
+      <notes>
+        <note category="german">Hand</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Hand</source>
+        <target>Hand</target>
+      </segment>
+    </unit>
+    <unit id="fweEsGL" name="Arme">
+      <notes>
+        <note category="german">Arme</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
+      </notes>
+      <segment>
+        <source>Arme</source>
+        <target>Arms</target>
+      </segment>
+    </unit>
+    <unit id="xXqHDly" name="Bein">
+      <notes>
+        <note category="german">Bein</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
+      </notes>
+      <segment>
+        <source>Bein</source>
+        <target>Leg</target>
+      </segment>
+    </unit>
+    <unit id="oFtlo8T" name="Auge">
+      <notes>
+        <note category="german">Auge</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
+      </notes>
+      <segment>
+        <source>Auge</source>
+        <target>Eye</target>
+      </segment>
+    </unit>
+    <unit id="4CY2vtO" name="Fuß">
+      <notes>
+        <note category="german">Fuß</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
+      </notes>
+      <segment>
+        <source>Fuß</source>
+        <target>Foot</target>
+      </segment>
+    </unit>
+    <unit id="WrHBbx9">
+      <notes>
+        <note category="german">Bei deinem Fluchtversuch ist es einem Zombie gelungen dir eine Verletzung zuzufügen: {injury}! Du solltest hier besser schnell verschwinden!</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
+      </notes>
+      <segment>
+        <source>Bei deinem Fluchtversuch ist es einem Zombie gelungen dir eine Verletzung zuzufügen: {injury}! Du solltest hier besser schnell verschwinden!</source>
+        <target>Whilst trying to flee, a zombie managed to your: {injury}! We've got to get out of this place, and quick!</target>
       </segment>
     </unit>
   </file>

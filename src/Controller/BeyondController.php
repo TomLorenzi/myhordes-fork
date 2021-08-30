@@ -1089,7 +1089,19 @@ class BeyondController extends InventoryAwareController
         if ($this->citizen_handler->isWounded( $citizen ))
             return AjaxResponse::error( self::ErrorAlreadyWounded );
 
-        $this->citizen_handler->inflictWound( $citizen );
+        $wound = $this->citizen_handler->inflictWound( $citizen );
+        if ($wound !== null) switch ($wound->getName()) {
+            case 'wound1': $wound = $this->translator->trans('Kopf', [], 'game'); break;
+            case 'wound2': $wound = $this->translator->trans('Hand', [], 'game'); break;
+            case 'wound3': $wound = $this->translator->trans('Arme', [], 'game'); break;
+            case 'wound4': $wound = $this->translator->trans('Bein', [], 'game'); break;
+            case 'wound5': $wound = $this->translator->trans('Auge', [], 'game'); break;
+            case 'wound6': $wound = $this->translator->trans('Fuß',  [], 'game'); break;
+            default: $wound = null;
+        }
+
+        if ($wound !== null)
+            $this->addFlash('notice', $this->translator->trans('Bei deinem Fluchtversuch ist es einem Zombie gelungen dir eine Verletzung zuzufügen: {injury}! Du solltest hier besser schnell verschwinden!', ['injury' => "<strong>$wound</strong>"], 'game'));
 
         try {
             $escape = (new EscapeTimer())

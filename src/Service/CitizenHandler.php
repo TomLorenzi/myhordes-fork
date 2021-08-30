@@ -88,10 +88,10 @@ class CitizenHandler
         return $this->hasStatusEffect( $citizen, ['tg_meta_wound','wound1','wound2','wound3','wound4','wound5','wound6'], false );
     }
 
-    public function inflictWound( Citizen &$citizen ) {
-        if ($this->isWounded($citizen)) return;
+    public function inflictWound( Citizen &$citizen ): ?CitizenStatus {
+        if ($this->isWounded($citizen)) return null;
         $ap_above_6 = $citizen->getAp() - $this->getMaxAP( $citizen );
-        $citizen->addStatus( $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName(
+        $citizen->addStatus( $status = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName(
             $this->random_generator->pick( ['wound1','wound2','wound3','wound4','wound5','wound6'] )
         ) );
         $citizen->addStatus($this->entity_manager->getRepository(CitizenStatus::class)->findOneByName('tg_meta_wound'));
@@ -100,6 +100,7 @@ class CitizenHandler
 
         $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName('r_wound_#00');
         $this->picto_handler->give_picto($citizen, $pictoPrototype);
+        return $status;
     }
 
     public function healWound( Citizen &$citizen ) {

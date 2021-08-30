@@ -899,7 +899,6 @@
     <unit id="ueb3oVd" name="'Wake The Dead'">
       <notes>
         <note category="german">'Wake The Dead'</note>
-        <note category="state">new</note>
         <note category="from">db://ItemPrototype</note>
       </notes>
       <segment>

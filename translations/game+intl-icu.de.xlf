@@ -14268,5 +14268,47 @@
         <target>Du beginst jede neue Stadt mit einer Kamera aus Vorkriegstagen.</target>
       </segment>
     </unit>
+    <unit id="l2sp7PJ" name="Kopf">
+      <segment>
+        <source>Kopf</source>
+        <target>Kopf</target>
+      </segment>
+    </unit>
+    <unit id="_hjAZzP" name="Hand">
+      <segment>
+        <source>Hand</source>
+        <target>Hand</target>
+      </segment>
+    </unit>
+    <unit id="fweEsGL" name="Arme">
+      <segment>
+        <source>Arme</source>
+        <target>Arme</target>
+      </segment>
+    </unit>
+    <unit id="xXqHDly" name="Bein">
+      <segment>
+        <source>Bein</source>
+        <target>Bein</target>
+      </segment>
+    </unit>
+    <unit id="oFtlo8T" name="Auge">
+      <segment>
+        <source>Auge</source>
+        <target>Auge</target>
+      </segment>
+    </unit>
+    <unit id="4CY2vtO" name="Fuß">
+      <segment>
+        <source>Fuß</source>
+        <target>Fuß</target>
+      </segment>
+    </unit>
+    <unit id="WrHBbx9">
+      <segment>
+        <source>Bei deinem Fluchtversuch ist es einem Zombie gelungen dir eine Verletzung zuzufügen: {injury}! Du solltest hier besser schnell verschwinden!</source>
+        <target>Bei deinem Fluchtversuch ist es einem Zombie gelungen dir eine Verletzung zuzufügen: {injury}! Du solltest hier besser schnell verschwinden!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

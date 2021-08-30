@@ -2683,7 +2683,6 @@
     <unit id="6QgTFsD" name="Wenn du deine Flucht erzwingst, wirst du zwangsläufig verletzt!">
       <notes>
         <note category="german">Wenn du deine Flucht erzwingst, wirst du zwangsläufig verletzt!</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
