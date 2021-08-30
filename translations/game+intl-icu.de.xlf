@@ -14310,5 +14310,11 @@
         <target>Bei deinem Fluchtversuch ist es einem Zombie gelungen dir eine Verletzung zuzufügen: {injury}! Du solltest hier besser schnell verschwinden!</target>
       </segment>
     </unit>
+    <unit id="5M1q6BC">
+      <segment>
+        <source>Du erhälst einen Bauplan wenn Du in diesem Gebäude campst, aber du musst zunächst die Zone aufräumen.</source>
+        <target>Du erhälst einen Bauplan wenn Du in diesem Gebäude campst, aber du musst zunächst die Zone aufräumen.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
