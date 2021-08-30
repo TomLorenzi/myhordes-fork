@@ -21443,7 +21443,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Kein Wasser mehr!</source>
-        <target>Kein Wasser mehr!</target>
+        <target>There is no more water!</target>
       </segment>
     </unit>
     <unit id=".4llLEr">
