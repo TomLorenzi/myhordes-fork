@@ -8083,7 +8083,7 @@
       </notes>
       <segment>
         <source>Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem &lt;strong&gt;starken psychoaktiven Gift!&lt;/strong&gt;&lt;t-stat-up-addict&gt;{hr}Du bist jetzt ein Süchtiger!&lt;/t-stat-up-addict&gt;</source>
-        <target><![CDATA[DTe tragas el caramelo con una gran sonrisa en tu rostro... ¡Pero esta se desaparece rápidamente! ¡El caramelo estaba relleno con un <strong>fuerte veneno psicoactivo</strong>!<t-stat-up-addict>{hr}¡Ahora eres un <strong>adicto</strong>!</t-stat-up-addict>]]></target>
+        <target><![CDATA[Te tragas el caramelo con una gran sonrisa en tu rostro... ¡Pero esta se desaparece rápidamente! ¡El caramelo estaba relleno con un <strong>fuerte veneno psicoactivo</strong>!<t-stat-up-addict>{hr}¡Ahora eres un <strong>adicto</strong>!</t-stat-up-addict>]]></target>
       </segment>
     </unit>
     <unit id="xLE.Yyk">
@@ -8744,7 +8744,7 @@
       </notes>
       <segment>
         <source>Deine Wunde wurde geheilt, zumindest oberflächlich...</source>
-        <target>Deine Wunde wurde geheilt, zumindest oberflächlich...</target>
+        <target>Tu herida ha sanado, al menos superficialmente...</target>
       </segment>
     </unit>
     <unit id="ndUWcPR" name="Deine unselige Infektion wurde kuriert!">
@@ -8755,7 +8755,7 @@
       </notes>
       <segment>
         <source>Deine unselige Infektion wurde kuriert!</source>
-        <target>Deine unselige Infektion wurde kuriert!</target>
+        <target>¡Tu desafortunada infección ha sido curada!</target>
       </segment>
     </unit>
     <unit id="JAgvnnn" name="Du benötigst {items_required}.">
@@ -8776,7 +8776,7 @@
       </notes>
       <segment>
         <source>Kaum hast du deine Pille geschluckt, da verschwindet auch schon dein Durst. Hoffen wir mal, das alles gut geht...</source>
-        <target>Kaum hast du deine Pille geschluckt, da verschwindet auch schon dein Durst. Hoffen wir mal, das alles gut geht...</target>
+        <target>Tan pronto como haya tragado la pastilla, su sed desaparecerá. Esperemos que todo salga bien...</target>
       </segment>
     </unit>
     <unit id="izlHb1B">
@@ -8797,7 +8797,7 @@
       </notes>
       <segment>
         <source>Hierfür brauchst du mindestens 1 CP.</source>
-        <target>Hierfür brauchst du mindestens 1 CP.</target>
+        <target>Necesitas al menos 1 PC para esto.</target>
       </segment>
     </unit>
     <unit id="dydc.v9">
@@ -8868,7 +8868,7 @@
       </notes>
       <segment>
         <source>Du schluckst das {item}... Nur ein paar Sekunden später ergreift dich die Panik... Kalte Schweißausbrüche, Paranoia... Du rollst dich zu einem Ball zusammen, außer Atem, und wartest darauf, dass die Wirkung nachlässt... aber das passiert nicht.&lt;hr /&gt;Du bist &lt;strong&gt;vor Angst erstarrt&lt;/strong&gt;.</source>
-        <target><![CDATA[Du schluckst das {item}... Nur ein paar Sekunden später ergreift dich die Panik... Kalte Schweißausbrüche, Paranoia... Du rollst dich zu einem Ball zusammen, außer Atem, und wartest darauf, dass die Wirkung nachlässt... aber das passiert nicht.<hr />Du bist <strong>vor Angst erstarrt</strong>.]]></target>
+        <target><![CDATA[Te tragas el {item}... Solo unos segundos después entras en pánico... Sudores fríos, paranoia... Te acurrucas en una esquina, te quedas sin aliento y esperas a que los efectos desaparezcan... pero eso no sucede.<hr/> Estás <strong>congelado de miedo</strong>.]]></target>
       </segment>
     </unit>
     <unit id="3B3bDO.">
@@ -8879,7 +8879,7 @@
       </notes>
       <segment>
         <source>Sofort bereust du, dieses {item} heruntergeschluckt zu haben... Das Produkt entpuppt sich als ein starkes Steroid für Tiere (die Art, die üblicherweise Pferden verabreicht wird). Deine APs wurden wiederhergestellt, aber du bist ab sofort &lt;strong&gt;drogenabhängig&lt;/strong&gt;!</source>
-        <target><![CDATA[Sofort bereust du, dieses {item} heruntergeschluckt zu haben... Das Produkt entpuppt sich als ein starkes Steroid für Tiere (die Art, die üblicherweise Pferden verabreicht wird). Deine APs wurden wiederhergestellt, aber du bist ab sofort <strong>drogenabhängig</strong>!]]></target>
+        <target><![CDATA[Inmediatamente te arrepientes de haber tragado este {item}... El producto resulta ser un esteroide poderoso para animales (el tipo que comúnmente se administra a los caballos). Se han restaurado tus puntos de acceso, ¡pero ahora eres <strong>adicto</strong>!]]></target>
       </segment>
     </unit>
     <unit id="hh6kdGK">
@@ -8900,7 +8900,7 @@
       </notes>
       <segment>
         <source>Um dieses Wasser trinkbar zu machen, brauchst du &lt;strong&gt;irgendein Reinigungsmittel&lt;/strong&gt; oder deine Stadt muss über einen &lt;strong&gt;Wasserreiniger&lt;/strong&gt; verfügen. Die zweite Variante ist nicht verfügbar, wenn Du verbannt bist.</source>
-        <target><![CDATA[Um dieses Wasser trinkbar zu machen, brauchst du <strong>irgendein Reinigungsmittel</strong> oder deine Stadt muss über einen <strong>Wasserreiniger</strong> verfügen. Die zweite Variante ist nicht verfügbar, wenn Du verbannt bist.]]></target>
+        <target><![CDATA[Para que esta agua sea potable, necesitas <strong>algún producto de limpieza</strong> o tu pueblo necesita tener un <strong>purificador de agua</strong>. La segunda opcion no está disponible si estás desterrado.]]></target>
       </segment>
     </unit>
     <unit id="LB_nTi3">
@@ -8911,7 +8911,7 @@
       </notes>
       <segment>
         <source>Du hast {target} mit {item} kombiniert und {target} erzeugt.{hr}Achtung: Du hast {target} vergiftet. Es ist &lt;strong&gt;nahezu unmöglich, es vom Original zu unterscheiden&lt;/strong&gt;, sei also vorsichtig... Es liegt ganz an dir, was du damit jetzt tun möchtest.</source>
-        <target><![CDATA[Du hast {target} mit {item} kombiniert und {target} erzeugt.{hr}Achtung: Du hast {target} vergiftet. Es ist <strong>nahezu unmöglich, es vom Original zu unterscheiden</strong>, sei also vorsichtig... Es liegt ganz an dir, was du damit jetzt tun möchtest.]]></target>
+        <target><![CDATA[Combinó {target} con {item} y creó {target}. {Hr} Advertencia: envenenó {target}. Es <strong>casi imposible diferenciarlo del original</strong>, así que tenga cuidado... depende de usted lo que quiera hacer con él ahora.]]></target>
       </segment>
     </unit>
     <unit id="i.fN8wb" name="Zeuge der großen Verseuchung">
@@ -8932,7 +8932,7 @@
       </notes>
       <segment>
         <source>Als Opfer der Großen Seuche hast du durch dein gestähltes Immunsystem eine Chance, Infektionen abzuwehren.</source>
-        <target>Als Opfer der Großen Seuche hast du durch dein gestähltes Immunsystem eine Chance, Infektionen abzuwehren.</target>
+        <target>Como víctima de la Gran Contaminación, su sistema inmunológico endurecido le brinda la oportunidad de combatir las infecciones.</target>
       </segment>
     </unit>
     <unit id="EOq8v7z" name="Zeuge des Armageddon">
@@ -8953,7 +8953,7 @@
       </notes>
       <segment>
         <source>Als Zeuge des Armagedon kannst du selbst aus ausweglosen Situationen fliehen.</source>
-        <target>Als Zeuge des Armagedon kannst du selbst aus ausweglosen Situationen fliehen.</target>
+        <target>Como testigo del Armagedón, usted mismo puede escapar de situaciones desesperadas.</target>
       </segment>
     </unit>
     <unit id="Fxoqglo" name="Ruhm">
@@ -8964,7 +8964,7 @@
       </notes>
       <segment>
         <source>Ruhm</source>
-        <target>Ruhm</target>
+        <target>Fama</target>
       </segment>
     </unit>
     <unit id="FQo0T3F">
@@ -8975,7 +8975,7 @@
       </notes>
       <segment>
         <source>Als Champion kannst du deinen Nachrichten im Forum zusätzliche Authorität verleihen.</source>
-        <target>Als Champion kannst du deinen Nachrichten im Forum zusätzliche Authorität verleihen.</target>
+        <target>Como campeón, puede otorgar autoridad adicional a sus mensajes en el foro.</target>
       </segment>
     </unit>
     <unit id="VDcKkt9" name="Kreischender Wecker">
@@ -8996,7 +8996,7 @@
       </notes>
       <segment>
         <source>Unglaublich! Die ganze Gier, die dich innerlich aufgefressen hat, verschwindet langsam. Ist es wirklich möglich, dass du wieder ein Mensch geworden bist?</source>
-        <target>Unglaublich! Die ganze Gier, die dich innerlich aufgefressen hat, verschwindet langsam. Ist es wirklich möglich, dass du wieder ein Mensch geworden bist?</target>
+        <target>¡Increíble! Toda la codicia que te ha estado comiendo por dentro está desapareciendo lentamente. ¿Es realmente posible que te hayas vuelto humano de nuevo?</target>
       </segment>
     </unit>
     <unit id="s9W2MOB">
@@ -9007,7 +9007,7 @@
       </notes>
       <segment>
         <source>Du hast {items_consume_1} verwendet, um das Wasser in {item_from} zu reinigen. Du hast {items_spawn} erhalten...</source>
-        <target>Du hast {items_consume_1} verwendet, um das Wasser in {item_from} zu reinigen. Du hast {items_spawn} erhalten...</target>
+        <target>Usó {items_consume_1} para purificar el agua en {item_from}. Recibiste {items_spawn}...</target>
       </segment>
     </unit>
     <unit id="FZmpHwV">
@@ -9048,7 +9048,7 @@
       </notes>
       <segment>
         <source>Dieses Gefühl des Wohlbefindens, das dieser kleine Kaffee hervorruft, bringt dich sofort wieder auf die Beine. Aah!</source>
-        <target>Dieses Gefühl des Wohlbefindens, das dieser kleine Kaffee hervorruft, bringt dich sofort wieder auf die Beine. Aah!</target>
+        <target>Esa sensación de bienestar que evoca este pequeño café te ayudará a recuperarte de inmediato. ¡Aah!</target>
       </segment>
     </unit>
     <unit id="O4qYqLB" name="{watchpoint} pkt attacke">
@@ -9059,7 +9059,7 @@
       </notes>
       <segment>
         <source>{watchpoint} pkt attacke</source>
-        <target>{watchpoint} pkt attacke</target>
+        <target>{watchpoint} pts ataque</target>
       </segment>
     </unit>
     <unit id="nVu0Gxq">
@@ -9080,7 +9080,7 @@
       </notes>
       <segment>
         <source>&lt;t-fail&gt;Du hast &lt;strong&gt;keine Wasserwaffen zum Befüllen&lt;/strong&gt; in deinem Rucksack oder deiner Truhe.&lt;/t-fail&gt;&lt;nt-fail&gt;Du hast {items_spawn} dank des Wasserhahns kostenlos auffüllen können.&lt;/nt-fail&gt;</source>
-        <target><![CDATA[<t-fail>Du hast <strong>keine Wasserwaffen zum Befüllen</strong> in deinem Rucksack oder deiner Truhe.</t-fail><nt-fail>Du hast {items_spawn} dank des Wasserhahns kostenlos auffüllen können.</nt-fail>]]></target>
+        <target><![CDATA[<t-fail><strong>No tienes armas de agua para llenar</strong> en tu mochila o baul.</t-fail> <nt-fail>Pudiste recargar {items_spawn} gratis gracias a la griferia.</nt-fail>]]></target>
       </segment>
     </unit>
     <unit id="smFT0Hh" name="Diese Aktion wurde in dieser Partie schon ausgeführt.">
@@ -9121,7 +9121,7 @@
       </notes>
       <segment>
         <source>Sorgfältig befestigst du bei dir daheim ein(e) {item}. So und das hält jetzt, so viel steht schon mal fest.{hr}Dieser Gegenstand gibt deinem Haus permament &lt;strong&gt;{home_defense} zusätzliche Verteidigungspunkt(e).&lt;/strong&gt;</source>
-        <target><![CDATA[Sorgfältig befestigst du bei dir daheim ein(e) {item}. So und das hält jetzt, so viel steht schon mal fest.{hr}Dieser Gegenstand gibt deinem Haus permament <strong>{home_defense} zusätzliche Verteidigungspunkt(e).</strong>]]></target>
+        <target><![CDATA[Coloca con cuidado un {item} en tu casa. Este objeto da permanentemente a tu casa <strong>{home_defense} puntos de defensa adicionales.</strong>]]></target>
       </segment>
     </unit>
     <unit id="H.4hGj8" name="Du hast bereits volle AP.">
@@ -9132,7 +9132,7 @@
       </notes>
       <segment>
         <source>Du hast bereits volle AP.</source>
-        <target>Du hast bereits volle AP.</target>
+        <target>Tus PA estan llenos</target>
       </segment>
     </unit>
     <unit id="bj.MFsK" name="Expedition">
@@ -9143,7 +9143,7 @@
       </notes>
       <segment>
         <source>Expedition</source>
-        <target>Expedition</target>
+        <target>Expedición</target>
       </segment>
     </unit>
     <unit id="TWuwK4M" name="Angriff und Verteidigung">
@@ -9154,7 +9154,7 @@
       </notes>
       <segment>
         <source>Angriff und Verteidigung</source>
-        <target>Angriff und Verteidigung</target>
+        <target>Ataque y defensa</target>
       </segment>
     </unit>
     <unit id="KdxLS.M">
