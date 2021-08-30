@@ -21355,7 +21355,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du kannst einen Teil deines Sauerstoffs zur Flucht verwenden, indem du in die gewünschte Richtung sprintest.</source>
-        <target>Du kannst einen Teil deines Sauerstoffs zur Flucht verwenden, indem du in die gewünschte Richtung sprintest.</target>
+        <target>You can use some of your oxygen to escape by sprinting in whichever direction you choose.</target>
       </segment>
     </unit>
     <unit id="ywafrVf" name="Du kannst dieses Gebäude mit allen gefundenen Ressourcen verlassen.">
@@ -21366,7 +21366,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du kannst dieses Gebäude mit allen gefundenen Ressourcen verlassen.</source>
-        <target>Du kannst dieses Gebäude mit allen gefundenen Ressourcen verlassen.</target>
+        <target>You can leave the building, taking with you all the resources you have found.</target>
       </segment>
     </unit>
     <unit id="Tg_wgai">
@@ -21377,7 +21377,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Verzweifelt suchst du in diesem Raum nach etwas, aber wie lange wirst du an diesem unheilvollen Ort durchhalten?</source>
-        <target>Verzweifelt suchst du in diesem Raum nach etwas, aber wie lange wirst du an diesem unheilvollen Ort durchhalten?</target>
+        <target>You try desperately to find an object of use in the room, but how long will you last in this revolting place?</target>
       </segment>
     </unit>
     <unit id="jDpq7iy">
@@ -21388,7 +21388,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du kannst die üblen Gerüche und den Anblick dieses Raumes nicht länger ertragen.</source>
-        <target>Du kannst die üblen Gerüche und den Anblick dieses Raumes nicht länger ertragen.</target>
+        <target>You can't deal with the disgusting smell or horrific look of this room any more.</target>
       </segment>
     </unit>
     <unit id="2Zr9t8H">
@@ -21399,7 +21399,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du kannst diesen Raum betreten, vielleicht findest du einige interessante Gegenstände.</source>
-        <target>Du kannst diesen Raum betreten, vielleicht findest du einige interessante Gegenstände.</target>
+        <target>You can enter this room, maybe you'll find something interesting inside.</target>
       </segment>
     </unit>
     <unit id="SHnNJFY" name="Diese Aktion kostet dich Sauerstoff, trotzdem flüchten?">
@@ -21410,7 +21410,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Diese Aktion kostet dich Sauerstoff, trotzdem flüchten?</source>
-        <target>Diese Aktion kostet dich Sauerstoff, trotzdem flüchten?</target>
+        <target>This action will use up some Oxygene, will you flee anyway?</target>
       </segment>
     </unit>
     <unit id="RlEfb.v">
@@ -21421,7 +21421,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Diese Aktion ermöglicht es dir, die Tiefen dieses Gebäude zu erkunden und wertvolle Ressourcen zu bergen. Sei aber nicht zu gierig, denn deine Zeit ist begrenzt!</source>
-        <target>Diese Aktion ermöglicht es dir, die Tiefen dieses Gebäude zu erkunden und wertvolle Ressourcen zu bergen. Sei aber nicht zu gierig, denn deine Zeit ist begrenzt!</target>
+        <target>This action allows you to venture deep inside this building in order to bring back lots of resources, You can't afford for your eyes to get bigger than your belly though, your time is limited!</target>
       </segment>
     </unit>
     <unit id="AGQV69U" name="Das Gebäude betreten? (Diese Aktion kostet 1AP)">
@@ -21432,7 +21432,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Das Gebäude betreten? (Diese Aktion kostet 1AP)</source>
-        <target>Das Gebäude betreten? (Diese Aktion kostet 1AP)</target>
+        <target>Enter the building? (this action costs 1 AP)</target>
       </segment>
     </unit>
     <unit id="LkEJIMQ" name="Kein Wasser mehr!">
