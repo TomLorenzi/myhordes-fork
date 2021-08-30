@@ -22402,7 +22402,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du hast es geschafft, dich aus dieser Gefahr zu befreien, aber die Zombies schauen dich jetzt hungrig an und kommen gefährlich knurrend auf dich zu... FLIEHE!</source>
-        <target>Du hast es geschafft, dich aus dieser Gefahr zu befreien, aber die Zombies schauen dich jetzt hungrig an und kommen gefährlich knurrend auf dich zu... FLIEHE!</target>
+        <target>You have managed to extricate yourself from danger this time, but the zombies are looking at you hungrily and shuffling towards you threateningly and groaning... FLEEEEEE!</target>
       </segment>
     </unit>
     <unit id="tMIHtgS" name="Profi-Fotograph">
