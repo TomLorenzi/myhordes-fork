@@ -1667,7 +1667,7 @@
       </notes>
       <segment>
         <source>Als Event-Stadt markieren</source>
-        <target>Als Event-Stadt markieren</target>
+        <target>Marquer la ville comme événement</target>
       </segment>
     </unit>
     <unit id="3EdNfST">
@@ -1678,7 +1678,7 @@
       </notes>
       <segment>
         <source>Event-Städte werden nicht ins Ranking aufgenommen und erhalten eine spezielle Markierung in der Stadtliste.</source>
-        <target>Event-Städte werden nicht ins Ranking aufgenommen und erhalten eine spezielle Markierung in der Stadtliste.</target>
+        <target>Les villes événementielles ne sont pas incluses dans le classement et ont un badge spécial dans la liste des villes.</target>
       </segment>
     </unit>
     <unit id="yP7t0FZ">
@@ -1689,7 +1689,7 @@
       </notes>
       <segment>
         <source>Dies ist eine Event-Stadt, sie wird nach ihrem Ende nicht im Ranking erscheinen. Möglicherweise gelten unübliche Regeln für diese Stadt.</source>
-        <target>Dies ist eine Event-Stadt, sie wird nach ihrem Ende nicht im Ranking erscheinen. Möglicherweise gelten unübliche Regeln für diese Stadt.</target>
+        <target>Cette ville est une ville événementielle, elle n’apparaîtra pas dans le classement après sa fin. Il se peut que des règles inhabituelles s’appliquent à cette ville.</target>
       </segment>
     </unit>
     <unit id="m9yaaGL" name="Jeder Spieler erhält 1x Betapropin beim Start der Stadt.">
@@ -1700,7 +1700,7 @@
       </notes>
       <segment>
         <source>Jeder Spieler erhält 1x Betapropin beim Start der Stadt.</source>
-        <target>Jeder Spieler erhält 1x Betapropin beim Start der Stadt.</target>
+        <target>Chaque joueur reçoit 1x Betapropine au démarrage de la ville.</target>
       </segment>
     </unit>
     <unit id="w8l8AIW" name="Beta-Funktionen aktivieren">
@@ -1711,7 +1711,7 @@
       </notes>
       <segment>
         <source>Beta-Funktionen aktivieren</source>
-        <target>Beta-Funktionen aktivieren</target>
+        <target>Activer les fonctionnalités beta</target>
       </segment>
     </unit>
   </file>
