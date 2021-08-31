@@ -642,10 +642,14 @@
                                             </div>
                                         {% endif %}
                                     </div>
+                                {% else %}
+                                    <div class="padded cell rw-12 escort-infos">
+                                        <span class="small">{{ 'Dieser Bürger gestattet dir nicht auf seine Gegenstände zuzugreifen.'|trans({}, 'game') }}</span>
+                                    </div>
                                 {% endif %}
 
                                 {% if other_citizen.escortSettings.forceDirectReturn %}
-                                    <div class="padded cell rw-12 force-town">
+                                    <div class="padded cell rw-12 escort-infos force-town">
                                         <span class="small">{{'Dieser Bürger möchte in die Stadt gebracht werden.'|trans({}, 'game')}}</span>
                                     </div>
                                 {% endif %}

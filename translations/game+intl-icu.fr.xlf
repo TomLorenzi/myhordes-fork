@@ -22329,7 +22329,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Kopf</note>
         <note category="from">php:///src/Controller/BeyondController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Kopf</source>
@@ -22340,7 +22339,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Hand</note>
         <note category="from">php:///src/Controller/BeyondController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Hand</source>
@@ -22351,7 +22349,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Arme</note>
         <note category="from">php:///src/Controller/BeyondController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Arme</source>
@@ -22362,7 +22359,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Bein</note>
         <note category="from">php:///src/Controller/BeyondController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Bein</source>
@@ -22373,7 +22369,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Auge</note>
         <note category="from">php:///src/Controller/BeyondController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Auge</source>
@@ -22384,7 +22379,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Fuß</note>
         <note category="from">php:///src/Controller/BeyondController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Fuß</source>
@@ -22395,7 +22389,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Bei deinem Fluchtversuch ist es einem Zombie gelungen dir eine Verletzung zuzufügen: {injury}! Du solltest hier besser schnell verschwinden!</note>
         <note category="from">php:///src/Controller/BeyondController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Bei deinem Fluchtversuch ist es einem Zombie gelungen dir eine Verletzung zuzufügen: {injury}! Du solltest hier besser schnell verschwinden!</source>
@@ -22406,7 +22399,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Du erhälst einen Bauplan wenn Du in diesem Gebäude campst, aber du musst zunächst die Zone aufräumen.</note>
         <note category="from">php:///src/Controller/BeyondController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Du erhälst einen Bauplan wenn Du in diesem Gebäude campst, aber du musst zunächst die Zone aufräumen.</source>
@@ -22441,6 +22433,17 @@ cette violente opération...]]></target>
       <segment>
         <source>({num} Minuten Stille)</source>
         <target>({num} minutes de silence)</target>
+      </segment>
+    </unit>
+    <unit id="2UGxP6g" name="Dieser Bürger gestattet dir nicht auf seine Gegenstände zuzugreifen.">
+      <notes>
+        <note category="german">Dieser Bürger gestattet dir nicht auf seine Gegenstände zuzugreifen.</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger gestattet dir nicht auf seine Gegenstände zuzugreifen.</source>
+        <target>Ce citoyen ne veut pas que vous touchiez à son sac.</target>
       </segment>
     </unit>
   </file>
