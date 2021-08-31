@@ -22469,7 +22469,7 @@
       </notes>
       <segment>
         <source>Kopf</source>
-        <target>Kopf</target>
+        <target>Cabeza</target>
       </segment>
     </unit>
     <unit id="_hjAZzP" name="Hand">
@@ -22480,7 +22480,7 @@
       </notes>
       <segment>
         <source>Hand</source>
-        <target>Hand</target>
+        <target>Mano</target>
       </segment>
     </unit>
     <unit id="fweEsGL" name="Arme">
@@ -22491,7 +22491,7 @@
       </notes>
       <segment>
         <source>Arme</source>
-        <target>Arme</target>
+        <target>Brazo</target>
       </segment>
     </unit>
     <unit id="xXqHDly" name="Bein">
@@ -22502,7 +22502,7 @@
       </notes>
       <segment>
         <source>Bein</source>
-        <target>Bein</target>
+        <target>Pierna</target>
       </segment>
     </unit>
     <unit id="oFtlo8T" name="Auge">
@@ -22513,7 +22513,7 @@
       </notes>
       <segment>
         <source>Auge</source>
-        <target>Auge</target>
+        <target>Ojo</target>
       </segment>
     </unit>
     <unit id="4CY2vtO" name="Fuß">
@@ -22524,7 +22524,7 @@
       </notes>
       <segment>
         <source>Fuß</source>
-        <target>Fuß</target>
+        <target>Pie</target>
       </segment>
     </unit>
     <unit id="WrHBbx9">
