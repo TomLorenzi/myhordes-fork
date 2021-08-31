@@ -4,15 +4,13 @@
 {% else %}
     {% set last_entry = null %}
     {% for entry in entries %}
-        {% set time_diff_seconds = (last_entry is not null) ? (last_entry.timestamp.timestamp - entry.timestamp.timestamp) : 0 %}
+        {% set time_diff_seconds = (last_entry is not null) ? (last_entry.timestamp.timestamp - entry.timestamp.timestamp) : ('now'|date('U') - entry.timestamp.timestamp) %}
         {% if time_diff_seconds >= 7200 %}
             <div class="log-silence">{{ '(seit {num} Stunden herrscht völlige Flaute)'|trans({num: (time_diff_seconds/3600)|round(0,'floor')},'game') }}</div>
         {% elseif time_diff_seconds >= 3600 %}
             <div class="log-silence">{{ '(über eine Stunde ohne besondere Vorkommnisse)'|trans({num: (time_diff_seconds/3600)|round(0,'floor')},'game') }}</div>
         {% elseif time_diff_seconds >= 600 %}
             <div class="log-silence">{{ '({num} Minuten Stille)'|trans({num: (time_diff_seconds/60)|round(0,'floor')},'game') }}</div>
-        {% else %}
-            <div>BLA</div>
         {% endif %}
         <div class="log-entry log-entry-type-{{ entry.type }} log-entry-class-{{ entry.class }}">
             <span class="log-part-time">{{ entry.timestamp.format('G:i') }}</span>
