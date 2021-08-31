@@ -8739,7 +8739,6 @@
     <unit id="35qZHee" name="Deine Wunde wurde geheilt, zumindest oberflächlich...">
       <notes>
         <note category="german">Deine Wunde wurde geheilt, zumindest oberflächlich...</note>
-        <note category="state">new</note>
         <note category="from">db://ItemAction</note>
       </notes>
       <segment>
@@ -8750,7 +8749,6 @@
     <unit id="ndUWcPR" name="Deine unselige Infektion wurde kuriert!">
       <notes>
         <note category="german">Deine unselige Infektion wurde kuriert!</note>
-        <note category="state">new</note>
         <note category="from">db://ItemAction</note>
       </notes>
       <segment>
@@ -8771,7 +8769,6 @@
     <unit id="1LmNcmz">
       <notes>
         <note category="german">Kaum hast du deine Pille geschluckt, da verschwindet auch schon dein Durst. Hoffen wir mal, das alles gut geht...</note>
-        <note category="state">new</note>
         <note category="from">db://ItemAction</note>
       </notes>
       <segment>
@@ -8792,7 +8789,6 @@
     <unit id="f1JKU7Q" name="Hierfür brauchst du mindestens 1 CP.">
       <notes>
         <note category="german">Hierfür brauchst du mindestens 1 CP.</note>
-        <note category="state">new</note>
         <note category="from">db://Requirement</note>
       </notes>
       <segment>
@@ -8863,7 +8859,6 @@
     <unit id="42uqd50">
       <notes>
         <note category="german">Du schluckst das {item}... Nur ein paar Sekunden später ergreift dich die Panik... Kalte Schweißausbrüche, Paranoia... Du rollst dich zu einem Ball zusammen, außer Atem, und wartest darauf, dass die Wirkung nachlässt... aber das passiert nicht.&lt;hr /&gt;Du bist &lt;strong&gt;vor Angst erstarrt&lt;/strong&gt;.</note>
-        <note category="state">new</note>
         <note category="from">db://AffectMessage</note>
       </notes>
       <segment>
@@ -8874,7 +8869,6 @@
     <unit id="3B3bDO.">
       <notes>
         <note category="german">Sofort bereust du, dieses {item} heruntergeschluckt zu haben... Das Produkt entpuppt sich als ein starkes Steroid für Tiere (die Art, die üblicherweise Pferden verabreicht wird). Deine APs wurden wiederhergestellt, aber du bist ab sofort &lt;strong&gt;drogenabhängig&lt;/strong&gt;!</note>
-        <note category="state">new</note>
         <note category="from">db://AffectMessage</note>
       </notes>
       <segment>
@@ -8895,7 +8889,6 @@
     <unit id="poSLxEf">
       <notes>
         <note category="german">Um dieses Wasser trinkbar zu machen, brauchst du &lt;strong&gt;irgendein Reinigungsmittel&lt;/strong&gt; oder deine Stadt muss über einen &lt;strong&gt;Wasserreiniger&lt;/strong&gt; verfügen. Die zweite Variante ist nicht verfügbar, wenn Du verbannt bist.</note>
-        <note category="state">new</note>
         <note category="from">db://Requirement</note>
       </notes>
       <segment>
@@ -8906,7 +8899,6 @@
     <unit id="LB_nTi3">
       <notes>
         <note category="german">Du hast {target} mit {item} kombiniert und {target} erzeugt.{hr}Achtung: Du hast {target} vergiftet. Es ist &lt;strong&gt;nahezu unmöglich, es vom Original zu unterscheiden&lt;/strong&gt;, sei also vorsichtig... Es liegt ganz an dir, was du damit jetzt tun möchtest.</note>
-        <note category="state">new</note>
         <note category="from">db://ItemAction</note>
       </notes>
       <segment>
@@ -8927,7 +8919,6 @@
     <unit id="_4bq2jQ">
       <notes>
         <note category="german">Als Opfer der Großen Seuche hast du durch dein gestähltes Immunsystem eine Chance, Infektionen abzuwehren.</note>
-        <note category="state">new</note>
         <note category="from">db://FeatureUnlockPrototype</note>
       </notes>
       <segment>
@@ -8948,7 +8939,6 @@
     <unit id="N_DpPbR" name="Als Zeuge des Armagedon kannst du selbst aus ausweglosen Situationen fliehen.">
       <notes>
         <note category="german">Als Zeuge des Armageddon kannst du selbst aus ausweglosen Situationen fliehen.</note>
-        <note category="state">new</note>
         <note category="from">db://FeatureUnlockPrototype</note>
       </notes>
       <segment>
@@ -8959,7 +8949,6 @@
     <unit id="Fxoqglo" name="Ruhm">
       <notes>
         <note category="german">Ruhm</note>
-        <note category="state">new</note>
         <note category="from">db://FeatureUnlockPrototype</note>
       </notes>
       <segment>
@@ -8970,7 +8959,6 @@
     <unit id="FQo0T3F">
       <notes>
         <note category="german">Als Champion kannst du deinen Nachrichten im Forum zusätzliche Authorität verleihen.</note>
-        <note category="state">new</note>
         <note category="from">db://FeatureUnlockPrototype</note>
       </notes>
       <segment>
@@ -8991,7 +8979,6 @@
     <unit id="1sicavE">
       <notes>
         <note category="german">Unglaublich! Die ganze Gier, die dich innerlich aufgefressen hat, verschwindet langsam. Ist es wirklich möglich, dass du wieder ein Mensch geworden bist?</note>
-        <note category="state">new</note>
         <note category="from">db://ItemAction</note>
       </notes>
       <segment>
@@ -9002,7 +8989,6 @@
     <unit id="s9W2MOB">
       <notes>
         <note category="german">Du hast {items_consume_1} verwendet, um das Wasser in {item_from} zu reinigen. Du hast {items_spawn} erhalten...</note>
-        <note category="state">new</note>
         <note category="from">db://ItemAction</note>
       </notes>
       <segment>
@@ -9043,7 +9029,6 @@
     <unit id="w9a_4Rx">
       <notes>
         <note category="german">Dieses Gefühl des Wohlbefindens, das dieser kleine Kaffee hervorruft, bringt dich sofort wieder auf die Beine. Aah!</note>
-        <note category="state">new</note>
         <note category="from">db://ItemAction</note>
       </notes>
       <segment>
@@ -9055,7 +9040,6 @@
       <notes>
         <note category="german">{watchpoint__copy} pkt attacke</note>
         <note category="from">twig:///templates/ajax/game/item_tooltip.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>{watchpoint} pkt attacke</source>
@@ -9076,7 +9060,6 @@
       <notes>
         <note category="german">&lt;t-fail&gt;Du hast &lt;strong&gt;keine Wasserwaffen zum Befüllen&lt;/strong&gt; in deinem Rucksack oder deiner Truhe.&lt;/t-fail&gt;&lt;nt-fail&gt;Du hast {items_spawn} dank des Wasserhahns kostenlos auffüllen können.&lt;/nt-fail&gt;</note>
         <note category="from">db://ItemAction</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>&lt;t-fail&gt;Du hast &lt;strong&gt;keine Wasserwaffen zum Befüllen&lt;/strong&gt; in deinem Rucksack oder deiner Truhe.&lt;/t-fail&gt;&lt;nt-fail&gt;Du hast {items_spawn} dank des Wasserhahns kostenlos auffüllen können.&lt;/nt-fail&gt;</source>
@@ -9117,7 +9100,6 @@
       <notes>
         <note category="german">Sorgfältig befestigst du bei dir daheim ein(e) {item}. So und das hält jetzt, so viel steht schon mal fest.{hr}Dieser Gegenstand gibt deinem Haus permament &lt;strong&gt;{home_defense} zusätzliche Verteidigungspunkt(e).&lt;/strong&gt;</note>
         <note category="from">db://AffectMessage</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Sorgfältig befestigst du bei dir daheim ein(e) {item}. So und das hält jetzt, so viel steht schon mal fest.{hr}Dieser Gegenstand gibt deinem Haus permament &lt;strong&gt;{home_defense} zusätzliche Verteidigungspunkt(e).&lt;/strong&gt;</source>
@@ -9128,7 +9110,6 @@
       <notes>
         <note category="german">Du hast bereits volle AP.</note>
         <note category="from">db://Requirement</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Du hast bereits volle AP.</source>
@@ -9139,7 +9120,6 @@
       <notes>
         <note category="german">Expedition</note>
         <note category="from">db://ItemCategory</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Expedition</source>
@@ -9150,7 +9130,6 @@
       <notes>
         <note category="german">Angriff und Verteidigung</note>
         <note category="from">db://ItemCategory</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Angriff und Verteidigung</source>
@@ -9175,6 +9154,28 @@
       <segment>
         <source>Gegenstand verwenden</source>
         <target>Usar un objeto de mi mochila</target>
+      </segment>
+    </unit>
+    <unit id="nPvnmuP" name="Die Batterie fällt ein paar Meter entfernt auf den Boden.">
+      <notes>
+        <note category="german">Die Batterie fällt ein paar Meter entfernt auf den Boden.</note>
+        <note category="from">db://AffectMessage</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Die Batterie fällt ein paar Meter entfernt auf den Boden.</source>
+        <target>Die Batterie fällt ein paar Meter entfernt auf den Boden.</target>
+      </segment>
+    </unit>
+    <unit id="WgEgCbq" name="Die Batterie wurde beim Aufprall vollständig zerstört.">
+      <notes>
+        <note category="german">Die Batterie wurde beim Aufprall vollständig zerstört.</note>
+        <note category="from">db://AffectMessage</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Die Batterie wurde beim Aufprall vollständig zerstört.</source>
+        <target>Die Batterie wurde beim Aufprall vollständig zerstört.</target>
       </segment>
     </unit>
   </file>

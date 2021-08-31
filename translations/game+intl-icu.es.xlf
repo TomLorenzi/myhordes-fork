@@ -12148,7 +12148,6 @@
     <unit id="e_umQ0L">
       <notes>
         <note category="german">Wenn du in der Wüste von Zombies umzingelst wirst, erstarrst du vor Angst und kannst nichts mehr unternehmen... Du musst Drogen oder etwas anderes finden, um &lt;strong&gt;deine Nerven zu beruhigen&lt;/strong&gt; und aus dieser Hölle auszubrechen... Wenigstens ist es dir immer noch möglich, im Forum nach Hilfe zu suchen...</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/scripts/errors/beyond.txt.twig</note>
       </notes>
       <segment>
@@ -15967,7 +15966,6 @@
     <unit id="mfY9mWB">
       <notes>
         <note category="german">Das Katapult ist ein wirklich mächtiges Instrument, um jeden beliebigen Gegenstand zu einer Zone in der Wüste zu schicken.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/catapult.html.twig</note>
       </notes>
       <segment>
@@ -15978,7 +15976,6 @@
     <unit id="qavmsbg" name="Praktisch zur Versorgung aus der Ferne.">
       <notes>
         <note category="german">Praktisch zur Versorgung aus der Ferne.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/catapult.html.twig</note>
       </notes>
       <segment>
@@ -15989,7 +15986,6 @@
     <unit id="L.iYdPu">
       <notes>
         <note category="german">Denke daran, dass das Katapult manchmal sein Ziel verfehlt und den Gegenstand in eine angrenzende Zone befördert...</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/catapult.html.twig</note>
       </notes>
       <segment>
@@ -16000,7 +15996,6 @@
     <unit id="fXqavJn" name="Die Aktivierung des Katapults kostet {ap}.">
       <notes>
         <note category="german">Die Aktivierung des Katapults kostet {ap}.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/catapult.html.twig</note>
       </notes>
       <segment>
@@ -16011,7 +16006,6 @@
     <unit id="9Wu5PZ8">
       <notes>
         <note category="german">Die Aktivierung des Katapults kostet {ap} (diese Kosten können durch den Bau eines besseren Katapults gesenkt werden).</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/catapult.html.twig</note>
       </notes>
       <segment>
@@ -16022,7 +16016,6 @@
     <unit id="vGJYt6I" name="Du wurdest als Verantwortlicher für das Katapult bestimmt!">
       <notes>
         <note category="german">Du wurdest als Verantwortlicher für das Katapult bestimmt!</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/catapult.html.twig</note>
       </notes>
       <segment>
@@ -16033,7 +16026,6 @@
     <unit id="F85kERo" name="Wähle einen Gegenstand aus deinem Inventar und gib die Zielkoordinaten ein.">
       <notes>
         <note category="german">Wähle einen Gegenstand aus deinem Inventar und gib die Zielkoordinaten ein.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/catapult.html.twig</note>
       </notes>
       <segment>
@@ -16044,7 +16036,6 @@
     <unit id="BcAGh_j">
       <notes>
         <note category="german">Unser Katapult wird von dem vom Schicksal auserwählten Bürger {citizen} gesteuert. Sollte ihm etwas Schreckliches zustoßen, könnte dann ein neuer Bürger gewählt werden.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/catapult.html.twig</note>
       </notes>
       <segment>
@@ -16055,7 +16046,6 @@
     <unit id="qX1gDpX" name="Die Stadt ist zerstört! Flieht, irh Narren!">
       <notes>
         <note category="german">Die Stadt ist zerstört! Flieht, ihr Narren!</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -16066,7 +16056,6 @@
     <unit id="Klvgn7w">
       <notes>
         <note category="german">{master} hat {item} nach &lt;strong&gt;[{x}/{y}]&lt;/strong&gt; &lt;strong&gt;katapultiert&lt;/strong&gt;!</note>
-        <note category="state">new</note>
         <note category="from">db://LogEntryTemplate</note>
       </notes>
       <segment>
@@ -16077,7 +16066,6 @@
     <unit id="wYsH8yz" name="Das Katapult der Stadt hat {item} auf diese Zone geschleudert.">
       <notes>
         <note category="german">Das Katapult der Stadt hat {item} auf diese Zone geschleudert.</note>
-        <note category="state">new</note>
         <note category="from">db://LogEntryTemplate</note>
       </notes>
       <segment>
@@ -16088,7 +16076,6 @@
     <unit id="c8o8Cvb" name="Zu verschickender Gegenstand:">
       <notes>
         <note category="german">Zu verschickender Gegenstand:</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/catapult.html.twig</note>
       </notes>
       <segment>
@@ -16099,7 +16086,6 @@
     <unit id="HseCFgo" name="Gegenstand auswählen">
       <notes>
         <note category="german">Gegenstand auswählen</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/catapult.html.twig</note>
       </notes>
       <segment>
@@ -16110,7 +16096,6 @@
     <unit id="3LNO13M" name="Gegenstand katapultieren">
       <notes>
         <note category="german">Gegenstand katapultieren</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/catapult.html.twig</note>
       </notes>
       <segment>
@@ -16121,7 +16106,6 @@
     <unit id="vKTmXMp" name="Katapultregister">
       <notes>
         <note category="german">Katapultregister</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/catapult.html.twig</note>
       </notes>
       <segment>
@@ -16202,7 +16186,6 @@
     <unit id="k9pQbZw" name="inmitten eines unentwirrbaren Trümmerhaufens">
       <notes>
         <note category="german">inmitten eines unentwirrbaren Trümmerhaufens</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
@@ -16213,7 +16196,6 @@
     <unit id="b3wvOG3">
       <notes>
         <note category="german">&lt;i class="dagger"&gt;†&lt;/i&gt; {zombie} ist gestern hungrig zum Haus von {victim} gestapft. Nachdem er die Tür mit voller Wucht eingetreten hatte, packte er sein Opfer am Haar und schleuderte es mit voller Wucht gegen die Wand... Einige Schädelsplitter wurden sogar im Schlafzimmer gefunden. Vergesst nie die Leichen zu recyclen. Nie!!</note>
-        <note category="state">new</note>
         <note category="from">db://LogEntryTemplate</note>
       </notes>
       <segment>
@@ -16224,7 +16206,6 @@
     <unit id="HABjCVJ">
       <notes>
         <note category="german">Die in der Stadt liegengebliebenen Körper der ehemaligen Einwohner erwachten in der Zwischenzeit wieder zu Leben...</note>
-        <note category="state">new</note>
         <note category="from">db://LogEntryTemplate</note>
       </notes>
       <segment>
@@ -16235,7 +16216,6 @@
     <unit id="oCHBS.y">
       <notes>
         <note category="german">Die Stadt ist nichts weiter als ein widerwärtiger Friedhof. Es war niemand hier, der den letzten Angriff der Zombies hätte aufhalten können: &lt;strong&gt;das Stadttor wurde aufgebrochen&lt;/strong&gt; und &lt;strong&gt;liegt nun in Trümmern&lt;/strong&gt;. {town} existiert nicht mehr...</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -16266,7 +16246,6 @@
     <unit id="d5d0_u_">
       <notes>
         <note category="german">{count} Zombies wurden in der Stadt gesichtet, aber sie haben niemanden angegriffen: Was für ein Glücksfall...</note>
-        <note category="state">new</note>
         <note category="from">db://LogEntryTemplate</note>
       </notes>
       <segment>
@@ -18276,7 +18255,6 @@
     <unit id="uh49WWx">
       <notes>
         <note category="german">Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/death.html.twig</note>
       </notes>
       <segment>
@@ -22465,7 +22443,6 @@
       <notes>
         <note category="german">Kopf</note>
         <note category="from">php:///src/Controller/BeyondController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Kopf</source>
@@ -22476,7 +22453,6 @@
       <notes>
         <note category="german">Hand</note>
         <note category="from">php:///src/Controller/BeyondController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Hand</source>
@@ -22487,7 +22463,6 @@
       <notes>
         <note category="german">Arme</note>
         <note category="from">php:///src/Controller/BeyondController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Arme</source>
@@ -22498,7 +22473,6 @@
       <notes>
         <note category="german">Bein</note>
         <note category="from">php:///src/Controller/BeyondController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Bein</source>
@@ -22509,7 +22483,6 @@
       <notes>
         <note category="german">Auge</note>
         <note category="from">php:///src/Controller/BeyondController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Auge</source>
@@ -22520,7 +22493,6 @@
       <notes>
         <note category="german">Fuß</note>
         <note category="from">php:///src/Controller/BeyondController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Fuß</source>
@@ -22577,6 +22549,17 @@
       <segment>
         <source>({num} Minuten Stille)</source>
         <target>({num} minutos de silencio)</target>
+      </segment>
+    </unit>
+    <unit id="2UGxP6g" name="Dieser Bürger gestattet dir nicht auf seine Gegenstände zuzugreifen.">
+      <notes>
+        <note category="german">Dieser Bürger gestattet dir nicht auf seine Gegenstände zuzugreifen.</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger gestattet dir nicht auf seine Gegenstände zuzugreifen.</source>
+        <target>Dieser Bürger gestattet dir nicht auf seine Gegenstände zuzugreifen.</target>
       </segment>
     </unit>
   </file>

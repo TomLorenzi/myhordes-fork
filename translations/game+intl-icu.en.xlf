@@ -22526,5 +22526,16 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>({num} minutes of silence)</target>
       </segment>
     </unit>
+    <unit id="2UGxP6g" name="Dieser Bürger gestattet dir nicht auf seine Gegenstände zuzugreifen.">
+      <notes>
+        <note category="german">Dieser Bürger gestattet dir nicht auf seine Gegenstände zuzugreifen.</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger gestattet dir nicht auf seine Gegenstände zuzugreifen.</source>
+        <target>Dieser Bürger gestattet dir nicht auf seine Gegenstände zuzugreifen.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

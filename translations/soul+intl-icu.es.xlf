@@ -3840,7 +3840,6 @@
       <notes>
         <note category="german">Beta-Saison</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig;twig:///templates/ajax/soul/season.html.twig;twig:///templates/ajax/soul/shell.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Beta-Saison</source>
@@ -3851,7 +3850,6 @@
       <notes>
         <note category="german">&lt;span class="number"&gt;Beta&lt;/span&gt; Saison</note>
         <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>&lt;span class="number"&gt;Beta&lt;/span&gt; Saison</source>

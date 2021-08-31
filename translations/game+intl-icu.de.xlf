@@ -14334,5 +14334,11 @@
         <target>({num} Minuten Stille)</target>
       </segment>
     </unit>
+    <unit id="2UGxP6g" name="Dieser Bürger gestattet dir nicht auf seine Gegenstände zuzugreifen.">
+      <segment>
+        <source>Dieser Bürger gestattet dir nicht auf seine Gegenstände zuzugreifen.</source>
+        <target>Dieser Bürger gestattet dir nicht auf seine Gegenstände zuzugreifen.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

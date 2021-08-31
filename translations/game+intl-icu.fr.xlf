@@ -22439,7 +22439,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Dieser Bürger gestattet dir nicht auf seine Gegenstände zuzugreifen.</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Dieser Bürger gestattet dir nicht auf seine Gegenstände zuzugreifen.</source>

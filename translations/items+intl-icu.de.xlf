@@ -5713,5 +5713,17 @@
         <target>Gegenstand verwenden</target>
       </segment>
     </unit>
+    <unit id="nPvnmuP" name="Die Batterie fällt ein paar Meter entfernt auf den Boden.">
+      <segment>
+        <source>Die Batterie fällt ein paar Meter entfernt auf den Boden.</source>
+        <target>Die Batterie fällt ein paar Meter entfernt auf den Boden.</target>
+      </segment>
+    </unit>
+    <unit id="WgEgCbq" name="Die Batterie wurde beim Aufprall vollständig zerstört.">
+      <segment>
+        <source>Die Batterie wurde beim Aufprall vollständig zerstört.</source>
+        <target>Die Batterie wurde beim Aufprall vollständig zerstört.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
