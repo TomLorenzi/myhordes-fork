@@ -8812,7 +8812,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>{citizen} ist bereits verletzt; ihn erneut anzugreifen wird dir nichts bringen.</source>
-        <target>{citizen} ist bereits verletzt; ihn erneut anzugreifen wird dir nichts bringen.</target>
+        <target>You can't seriously want to attack someone who is already injured... can you?</target>
       </segment>
     </unit>
     <unit id="1BFjb1b">
