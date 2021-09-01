@@ -180,9 +180,9 @@
     {% if heroic_action_list is defined and heroic_action_list|length > 0 %}
         <button x-heroic-toggle="1" class="mb-1"><img src="{{ asset('build/images/icons/star.gif') }}" alt="">
             {{ 'Heldentaten'|trans({},'items') }}
-            {% if scout %}
+            {# {% if scout %}
                 <img class="icon right" alt="" src="{{ asset('build/images/icons/small_stealthy.gif') }}" />
-            {% endif %}
+            {% endif %} #}
         </button>
         <ul class="heroic_actions">
             <li class="heroic_action help">
@@ -192,9 +192,9 @@
             {% for entry in heroic_action_list %}
                 <li class="heroic_action {% if entry.used is defined and entry.used %}already{% endif %}"  {% if entry.crossed %}disabled{% elseif entry.targets is null %}x-action-id="{{ entry.id }}" x-action-confirm="1" {% else %}x-target-definition="{{ entry.id }}--hero"{% endif %}>
                     <img src="{{ asset('build/images/icons/tickOff.gif') }}" alt="">
-                    {% if scout and entry.action.keepsCover %}
+                    {# {% if scout and entry.action.keepsCover %}
                         <img class="float-right" src="{{ asset('build/images/icons/small_stealthy.gif') }}" alt="">
-                    {% endif %}
+                    {% endif %} #}
                     <span class="label"><b>{{ entry.action.label|trans({},'items') }}</b></span>
                     {% if entry.targets is not null and not entry.crossed %}
                         {% if entry.target_mode == 2 %}
