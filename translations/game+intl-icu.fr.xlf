@@ -9063,7 +9063,7 @@
       </notes>
       <segment>
         <source>{citizen} ist bereits verletzt; ihn erneut anzugreifen wird dir nichts bringen.</source>
-        <target>{citizen} est déjà blessé; l'attaquer à nouveau ne vous fera aucun bien.</target>
+        <target>Vous ne pouvez pas sérieusement vouloir agresser une personne déjà blessée... n'est-ce pas?</target>
       </segment>
     </unit>
     <unit id="1BFjb1b">
