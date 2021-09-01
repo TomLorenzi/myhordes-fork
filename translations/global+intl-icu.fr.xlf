@@ -2686,7 +2686,7 @@
       </notes>
       <segment>
         <source>Es wurde noch keine Stadt in die Rangliste aufgenommen!</source>
-        <target>Aucune ville n'est encore dans le classement!</target>
+        <target>Aucune ville n'est encore dans le classement !</target>
       </segment>
     </unit>
     <unit id="sXEtGH4" name="Diese Diskussion ist beendet.">
