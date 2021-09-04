@@ -131,6 +131,29 @@ class PictoRepository extends ServiceEntityRepository
 
     /**
      * @param User $user
+     * @return Picto[]
+     */
+    public function findOldByUser(User $user): array
+    {
+        $qb = $this->createQueryBuilder('i')
+            ->select('SUM(i.count) as c', 'pp.id', 'pp.rare', 'pp.icon', 'pp.label', 'pp.description', 'pp.name')
+            ->andWhere('i.user = :val')->setParameter('val', $user)
+            ->andWhere('i.persisted = 2')
+            ->andWhere('i.disabled = false')
+            ->andWhere('i.old = true')
+            ->andWhere('i.imported = false')
+            ->orderBy('pp.rare', 'DESC')
+            ->addOrderBy('c', 'DESC')
+            ->addOrderBy('pp.id', 'DESC')
+            ->leftJoin('i.prototype', 'pp')
+            ->groupBy("i.prototype");
+
+        return $qb
+            ->getQuery()->getResult();
+    }
+
+    /**
+     * @param User $user
      * @param Town|TownRankingProxy|null $town
      * @return Picto[]
      */

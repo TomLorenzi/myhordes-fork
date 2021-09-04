@@ -3899,5 +3899,15 @@
         <target>This town is from the alpha phase of MyHordes. Therefore, the information displayed may be incomplete or may not look as you would otherwise expect.</target>
       </segment>
     </unit>
+    <unit id="vgT9Zpn" name="Alte Auszeichnungen">
+      <notes>
+        <note category="german">Alte Auszeichnungen</note>
+        <note category="from">twig:///templates/ajax/soul/pictos.html.twig</note>
+      </notes>
+      <segment>
+        <source>Alte Auszeichnungen</source>
+        <target>Old Distinctions</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

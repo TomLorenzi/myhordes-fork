@@ -3874,5 +3874,16 @@
         <target>Diese Stadt stammt aus der Alpha-Phase von MyHordes. Die angezeigten Informationen sind daher möglicherweise unvollständig oder sehen nicht so aus, wie du es sonst erwarten würdest.</target>
       </segment>
     </unit>
+    <unit id="vgT9Zpn" name="Alte Auszeichnungen">
+      <notes>
+        <note category="german">Alte Auszeichnungen</note>
+        <note category="from">twig:///templates/ajax/soul/pictos.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Alte Auszeichnungen</source>
+        <target>Alte Auszeichnungen</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

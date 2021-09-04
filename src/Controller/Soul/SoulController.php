@@ -227,16 +227,20 @@ class SoulController extends CustomAbstractController
         // Get all the picto & count points
         $pictos_mh = $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($user, false);
         $pictos_im = $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($user, true);
+        $pictos_old = $this->entity_manager->getRepository(Picto::class)->findOldByUser($user);
 
         $points_mh = $this->user_handler->getPoints($user, false);
         $points_im = $this->user_handler->getPoints($user, true);
+        $points_old = $this->user_handler->getPoints($user, null, true);
 
         return $this->render( 'ajax/soul/pictos.html.twig', $this->addDefaultTwigArgs(null, [
             'user' => $user,
             'pictos_mh' => $pictos_mh,
             'pictos_import' => $pictos_im,
+            'pictos_old' => $pictos_old,
             'points_mh' => round($points_mh),
             'points_import' => round($points_im),
+            'points_old' => round($points_old),
         ]));
     }
 

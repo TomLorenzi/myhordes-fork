@@ -86,9 +86,12 @@ class UserHandler
         ), fn(int $carry, CitizenRankingProxy $next) => $carry + ($next->getPoints() ?? 0), 0 );
     }
 
-    public function getPoints(User $user, ?bool $imported = null){
-        $sp = $this->fetchSoulPoints($user);
-        $pictos = $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($user, $imported);
+    public function getPoints(User $user, ?bool $imported = null, ?bool $old = false){
+        $sp = $imported === null ? $user->getAllSoulPoints() : ( $imported ? $user->getImportedSoulPoints() : $user->getSoulPoints() );
+        if ($old) $sp = 0;
+        $pictos = $old
+            ? $this->entity_manager->getRepository(Picto::class)->findOldByUser($user)
+            : $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($user, $imported);
         $points = 0;
 
         if($sp >= 100)  $points += 13;

@@ -2497,5 +2497,29 @@
         <target>Eskortierte Bürger teleportieren</target>
       </segment>
     </unit>
+    <unit id="2.gcbi0" name="Seele">
+      <segment>
+        <source>Seele</source>
+        <target>Seele</target>
+      </segment>
+    </unit>
+    <unit id="OAGjXFG" name="Alle">
+      <segment>
+        <source>Alle</source>
+        <target>Alle</target>
+      </segment>
+    </unit>
+    <unit id="FhSRo_H" name="MyHordes">
+      <segment>
+        <source>MyHordes</source>
+        <target>MyHordes</target>
+      </segment>
+    </unit>
+    <unit id="yR2i4CA" name="Alt">
+      <segment>
+        <source>Alt</source>
+        <target>Alt</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

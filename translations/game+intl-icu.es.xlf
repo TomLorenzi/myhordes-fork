@@ -8001,6 +8001,7 @@
       <notes>
         <note category="german">Was geschieht mit dieser Leiche?</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+        <note category="state">new</note>
       </notes>
       <segment>
         <source>Was geschieht mit dieser Leiche?</source>

@@ -2024,7 +2024,7 @@
     <unit id="zFOkrfz" name="Importiert">
       <notes>
         <note category="german">Importiert</note>
-        <note category="from">twig:///templates/ajax/admin/towns/old_town_explorer.html.twig;twig:///templates/ajax/admin/towns/old_towns_list.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/towns/old_town_explorer.html.twig;twig:///templates/ajax/admin/towns/old_towns_list.html.twig;twig:///templates/ajax/admin/users/pictos.html.twig</note>
       </notes>
       <segment>
         <source>Importiert</source>
@@ -3959,6 +3959,47 @@
       <segment>
         <source>Eskortierte Bürger teleportieren</source>
         <target>Teleport escorted citizens</target>
+      </segment>
+    </unit>
+    <unit id="2.gcbi0" name="Seele">
+      <notes>
+        <note category="german">Seele</note>
+        <note category="from">twig:///templates/ajax/admin/users/pictos.html.twig</note>
+      </notes>
+      <segment>
+        <source>Seele</source>
+        <target>Soul</target>
+      </segment>
+    </unit>
+    <unit id="OAGjXFG" name="Alle">
+      <notes>
+        <note category="german">Alle</note>
+        <note category="from">twig:///templates/ajax/admin/users/pictos.html.twig</note>
+      </notes>
+      <segment>
+        <source>Alle</source>
+        <target>All</target>
+      </segment>
+    </unit>
+    <unit id="FhSRo_H" name="MyHordes">
+      <notes>
+        <note category="german">MyHordes</note>
+        <note category="from">twig:///templates/ajax/admin/users/pictos.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>MyHordes</source>
+        <target>MyHordes</target>
+      </segment>
+    </unit>
+    <unit id="yR2i4CA" name="Alt">
+      <notes>
+        <note category="german">Alt</note>
+        <note category="from">twig:///templates/ajax/admin/users/pictos.html.twig</note>
+      </notes>
+      <segment>
+        <source>Alt</source>
+        <target>Old</target>
       </segment>
     </unit>
   </file>
