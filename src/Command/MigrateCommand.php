@@ -103,6 +103,7 @@ class MigrateCommand extends Command
         'fae118acfc0041183dac9622c142cab01fb10d44' => [ ['app:migrate', ['--fix-forum-posts' => true] ] ],
         'bf6a46f2dc1451658809f55578debd83aca095d3' => [ ['app:migrate', ['--set-old-flag' => true] ] ],
         'f413fb8e0bf8b4f9733b4e00705625e000ff4bf6' => [ ['app:migrate', ['--update-all-sp' => true] ] ],
+        'a7fa0be81f35415ca3c2fc5810bdc53acd6331cc' => [ ['app:migrate', ['--prune-rp-texts' => true] ] ],
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
@@ -888,6 +889,8 @@ class MigrateCommand extends Command
             }, true, function () use (&$target_picto) {
                 $target_picto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName('r_rp_#00');
             });
+
+            return 0;
         }
 
         return 99;
