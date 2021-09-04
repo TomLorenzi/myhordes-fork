@@ -1809,7 +1809,7 @@
       </notes>
       <segment>
         <source>Diese Nachricht wurde dir vom Raben persönlich überbracht. Er schwebt über der Stadt und wirft immer ein wachsames Auge auf dich...</source>
-        <target>Diese Nachricht wurde dir vom Raben persönlich überbracht. Er schwebt über der Stadt und wirft immer ein wachsames Auge auf dich...</target>
+        <target>This message was personally delivered to you by the Crow. He hovers over your town and always keeps a watchful eye on you...</target>
       </segment>
     </unit>
     <unit id="i4kWNY_">
@@ -2748,7 +2748,7 @@
       </notes>
       <segment>
         <source>Es wurde noch keine Stadt in die Rangliste aufgenommen!</source>
-        <target>Es wurde noch keine Stadt in die Rangliste aufgenommen!</target>
+        <target>No town is in the ranking yet !</target>
       </segment>
     </unit>
     <unit id="qplNLmy" name="Bitte wähle die Art der Beschränkung.">
