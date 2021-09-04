@@ -15,6 +15,7 @@ use App\Entity\FeatureUnlock;
 use App\Entity\FeatureUnlockPrototype;
 use App\Entity\Forum;
 use App\Entity\ForumUsagePermissions;
+use App\Entity\FoundRolePlayText;
 use App\Entity\GitVersions;
 use App\Entity\HeroicActionPrototype;
 use App\Entity\Item;
@@ -84,8 +85,6 @@ class MigrateCommand extends Command
         'ce5c1810ee2bde2c10cc694e80955b110bbed010' => [ ['app:migrate', ['--calculate-score' => true] ] ],
         'e3a28a35e8ade5c767480bb3d8b7fa6daaf69f4e' => [ ['app:migrate', ['--build-forum-search-index' => true] ] ],
         //'d9960996e6d39ecc6431ef576470a048e4b43774' => [ ['app:migrate', ['--migrate-account-bans' => true] ] ],
-        '2fd50ce43146b72886d94077a044bc22b94f3ef6' => [ ['app:migrate', ['--assign-awards' => true] ] ],
-        '3007ba47a8815cf2b7ab36c34852196149016137' => [ ['app:migrate', ['--assign-awards' => true] ] ],
         'e8fcdebaee7f62d2a74dfdaa1f352d7cbbdeb848' => [ ['app:migrate', ['--assign-awards' => true] ] ],
         'd2e74544059a70b72cb89784544555663e4f0f9e' => [ ['app:migrate', ['--assign-features' => true] ] ],
         '982adb8ebb6f71be8acd2550fc42a8594264ece3' => [ ['app:migrate', ['--count-admin-reports' => true] ] ],
@@ -179,6 +178,8 @@ class MigrateCommand extends Command
             ->addOption('set-icu-pref', null, InputOption::VALUE_NONE, '')
 
             ->addOption('set-old-flag', null, InputOption::VALUE_NONE, 'Sets the MH-OLD flag on Pictos')
+
+            ->addOption('prune-rp-texts', null, InputOption::VALUE_NONE, 'Makes sure the amount of unlocked RP texts matches the picto count')
         ;
     }
 
@@ -845,6 +846,48 @@ class MigrateCommand extends Command
             }, true);
 
             return 0;
+        }
+
+        if ($input->getOption('prune-rp-texts')) {
+            $target_picto = null;
+            $this->helper->leChunk($output, User::class, 100, [], true, false, function(User $user) use (&$target_picto) {
+                $imported = $this->entity_manager->getRepository(Picto::class)->createQueryBuilder('i')
+                    ->select('SUM(i.count)')
+                    ->andWhere('i.user = :user')->setParameter('user', $user)->andWhere('i.prototype = :rp')->setParameter('rp', $target_picto)
+                    ->andWhere('i.persisted = 2')->andWhere('i.imported = true')->andWhere('i.disabled = false')->andWhere('i.old = false')
+                    ->getQuery()->getSingleScalarResult() ?? 0;
+
+                $earned = $this->entity_manager->getRepository(Picto::class)->createQueryBuilder('i')
+                    ->select('SUM(i.count)')
+                    ->andWhere('i.user = :user')->setParameter('user', $user)->andWhere('i.prototype = :rp')->setParameter('rp', $target_picto)
+                    ->andWhere('i.persisted = 2')->andWhere('i.imported = false')->andWhere('i.disabled = false')->andWhere('i.old = false')
+                    ->getQuery()->getSingleScalarResult() ?? 0;
+
+                $imported_texts = $this->entity_manager->getRepository(FoundRolePlayText::class)->createQueryBuilder('r')
+                    ->select('COUNT(r.id)')
+                    ->andWhere('r.text IS NOT NULL')
+                    ->andWhere('r.user = :user')->setParameter('user', $user)->andWhere('r.imported = true')
+                    ->getQuery()->getSingleScalarResult() ?? 0;
+
+                $earned_texts = $this->entity_manager->getRepository(FoundRolePlayText::class)->createQueryBuilder('r')
+                    ->select('COUNT(r.id)')
+                    ->andWhere('r.text IS NOT NULL')
+                    ->andWhere('r.user = :user')->setParameter('user', $user)->andWhere('r.imported = false')
+                    ->getQuery()->getSingleScalarResult() ?? 0;
+
+                if (($imported < $imported_texts) || ($earned < $earned_texts)) {
+
+                    if ($imported < $imported_texts) foreach ($this->entity_manager->getRepository(FoundRolePlayText::class)->findBy(['user' => $user, 'imported' => true], ['datefound' => 'DESC'], $imported_texts - $imported) as $to_remove)
+                        $this->entity_manager->remove( $to_remove );
+
+                    if ($earned < $earned_texts) foreach ($this->entity_manager->getRepository(FoundRolePlayText::class)->findBy(['user' => $user, 'imported' => false], ['datefound' => 'DESC'], $earned_texts - $earned) as $to_remove)
+                        $this->entity_manager->remove( $to_remove );
+
+                    return true;
+                } else return false;
+            }, true, function () use (&$target_picto) {
+                $target_picto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName('r_rp_#00');
+            });
         }
 
         return 99;
