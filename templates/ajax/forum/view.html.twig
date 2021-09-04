@@ -9,7 +9,7 @@
 {# @var permission \App\Structures\ForumPermissionAccessor #}
 
 {% macro display_thread_list( list, fid, icon, title, select, jump, permission, town = false, add_seperators = false, paranoid = false ) %}
-    <div class="forum-note">
+    <div class="forum-note thread-list-{{ icon }}">
         <b><i class="fa {{ icon }}"></i> {{ title }}</b>
         {% set last_day = 'today'|to_date %}
         {% for thread in list %}
@@ -30,16 +30,16 @@
                 </div></div>
             {% endif %}
 
-            <div class="row forum-thread {% if thread.new %}forum-thread-unread{% endif%}" x-public-route="{{ path('forum_thread_view', {fid: fid, tid: thread.id }) }}" {% if postUrl != postUrlFg %}x-post-source-next="{{ postUrlFg }}"{% endif%} x-post-source="{{ postUrl }}" x-thread-id="{{ thread.id }}">
+            <div class="row-flex stretch forum-thread {% if thread.new %}forum-thread-unread{% endif%}" x-public-route="{{ path('forum_thread_view', {fid: fid, tid: thread.id }) }}" {% if postUrl != postUrlFg %}x-post-source-next="{{ postUrlFg }}"{% endif%} x-post-source="{{ postUrl }}" x-thread-id="{{ thread.id }}">
                 {# @var thread \App\Entity\Thread #}
-                <div class="cell rw-1 status" style="padding: 5px;">
+                <div class="padded cell factor-0 rw-1 status">
                     {% if thread.locked %}
                         <img alt="" src="{{ asset('build/images/icons/lock.gif') }}" />
                     {% else %}
                         &nbsp;
                     {% endif %}
                 </div>
-                <div class="cell rw-8 title"  style="padding: 5px;">
+                <div class="padded cell factor-0 rw-8 title">
                     <div {% if thread.hidden %}style="color: red"{% endif %}>
                         {% if thread.translatable %}
                             {{ thread.title|trans({},'game') }}
@@ -82,7 +82,7 @@
                         {% endif %}
                     </div>
                 </div>
-                <div class="cell rw-3 right count" style="background:#593223; padding: 5px;">
+                <div class="padded cell factor-0 rw-3 right count">
                     <div class='nbPost'>
                     {% if thread.visiblePosts|length > 1 %}
                         {{ thread.visiblePosts|length - 1 }}

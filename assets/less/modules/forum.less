@@ -274,6 +274,10 @@ ul.subscriptions {
   }
   font-size: 1.1rem; background: #8a5432; box-shadow: 0 0 5px rgba(0,0,0,0.2);
   border: 1px solid #704328;
+
+  &.thread-list-fa-thumbtack {
+    font-size: 1.2rem; color: white;
+  }
 }
 
 .forum-post {
@@ -517,39 +521,57 @@ ul.subscriptions {
   cursor: default; font-size: 0.9em; font-weight: bold; padding-left: 10px;
 }
 
-.forum-thread {
-  cursor: pointer;
-  position: relative;
-  background: #4e291f;
-  opacity: .75;
-  color: #eba475;
-  font-style: italic;
-  &.selected { 
-   background: #46241b; opacity: 1; box-shadow: inset 0 0 2px black !important;
-    &:before {
-      display: block; content: " "; width: 16px; height: 16px; top: 9px; left: -7px;
-      background-image: url("../../img/forum/selected.png"); position: absolute;
+.forum-note {
+  .forum-thread {
+    cursor: pointer;
+    position: relative;
+    background: #4e291f;
+    opacity: .75;
+    color: #eba475;
+    font-style: italic;
+    &.selected {
+      background: #46241b; opacity: 1; box-shadow: inset 0 0 2px black !important;
+      &:before {
+        display: block; content: " "; width: 16px; height: 16px; top: 9px; left: -7px;
+        background-image: url("../../img/forum/selected.png"); position: absolute;
+      }
     }
-  }
-  img {
-    vertical-align: middle;
-    margin-right: 1em;
-  }
-  &.forum-thread-unread {
-    font-weight: bold;
-    font-style: normal;
-    background: #4d281f;
-    opacity: .9;
-    &:before {
-      display: block; content: " "; width: 16px; height: 16px; top: 9px; left: -7px;
-      background-image: url("../../img/forum/recent.png"); position: absolute;
+    img {
+      vertical-align: middle;
     }
+    &.forum-thread-unread {
+      font-weight: bold;
+      font-style: normal;
+      background: #4d281f;
+      opacity: .9;
+      &:before {
+        display: block; content: " "; width: 16px; height: 16px; top: 9px; left: -7px;
+        background-image: url("../../img/forum/recent.png"); position: absolute;
+      }
+    }
+
+    .count {
+      background:#593223;
+      .nbPost { font-size: 1.3em; font-weight: bold; line-height: 0.9em; }
+      .author { word-wrap: break-word; font-size: 0.75em; }
+    }
+
+
   }
 
-  .author {
-    word-wrap: break-word;
+  &.thread-list-fa-thumbtack .forum-thread {
+    background: #8a5432;
+    color: white;
+
+    &.selected {
+      background: #965c36;
+    }
+
+    .count { background: #804d2f; }
   }
 }
+
+
 
 .announces {
   font-size: 1rem;
