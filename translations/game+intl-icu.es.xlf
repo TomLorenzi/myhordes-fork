@@ -22403,7 +22403,7 @@
       </notes>
       <segment>
         <source>Trinken (Oder du stirbst heute Nacht)</source>
-        <target>Trinken (Oder du stirbst heute Nacht)</target>
+        <target>Bebe (o muere esta noche)</target>
       </segment>
     </unit>
     <unit id="016qyFO">
@@ -22414,7 +22414,7 @@
       </notes>
       <segment>
         <source>Du hast es geschafft, dich aus dieser Gefahr zu befreien, aber die Zombies schauen dich jetzt hungrig an und kommen gefährlich knurrend auf dich zu... FLIEHE!</source>
-        <target>Du hast es geschafft, dich aus dieser Gefahr zu befreien, aber die Zombies schauen dich jetzt hungrig an und kommen gefährlich knurrend auf dich zu... FLIEHE!</target>
+        <target>Lograste salir de este peligro, pero los zombies ahora te miran hambrientos y te gruñen peligrosamente... ¡HUYE!</target>
       </segment>
     </unit>
     <unit id="tMIHtgS" name="Profi-Fotograph">
@@ -22425,7 +22425,7 @@
       </notes>
       <segment>
         <source>Profi-Fotograph</source>
-        <target>Profi-Fotograph</target>
+        <target>Fotógrafo profesional</target>
       </segment>
     </unit>
     <unit id="Uy1Rmg9" name="Du beginst jede neue Stadt mit einer Kamera aus Vorkriegstagen.">
@@ -22436,7 +22436,7 @@
       </notes>
       <segment>
         <source>Du beginst jede neue Stadt mit einer Kamera aus Vorkriegstagen.</source>
-        <target>Du beginst jede neue Stadt mit einer Kamera aus Vorkriegstagen.</target>
+        <target>Empiezas cada pueblo nuevo con una cámara de la post-guerra (3 cargas).</target>
       </segment>
     </unit>
     <unit id="l2sp7PJ" name="Kopf">
@@ -22507,7 +22507,7 @@
       </notes>
       <segment>
         <source>Bei deinem Fluchtversuch ist es einem Zombie gelungen dir eine Verletzung zuzufügen: {injury}! Du solltest hier besser schnell verschwinden!</source>
-        <target>Bei deinem Fluchtversuch ist es einem Zombie gelungen dir eine Verletzung zuzufügen: {injury}! Du solltest hier besser schnell verschwinden!</target>
+        <target>Cuando trataste de escapar, un zombi logró infligirte una herida: ¡{injury}!¡Será mejor que salgas de aquí rápido!</target>
       </segment>
     </unit>
     <unit id="5M1q6BC">
@@ -22518,7 +22518,7 @@
       </notes>
       <segment>
         <source>Du erhälst einen Bauplan wenn Du in diesem Gebäude campst, aber du musst zunächst die Zone aufräumen.</source>
-        <target>Du erhälst einen Bauplan wenn Du in diesem Gebäude campst, aber du musst zunächst die Zone aufräumen.</target>
+        <target>Se le dará un plano cuando acampe en este edificio, pero primero debe despejar la zona.</target>
       </segment>
     </unit>
     <unit id="O_a3lwS" name="(seit {num} Stunden herrscht völlige Flaute)">
@@ -22559,7 +22559,7 @@
       </notes>
       <segment>
         <source>Dieser Bürger gestattet dir nicht auf seine Gegenstände zuzugreifen.</source>
-        <target>Dieser Bürger gestattet dir nicht auf seine Gegenstände zuzugreifen.</target>
+        <target>Este habitante no te permite acceder a sus artículos.</target>
       </segment>
     </unit>
   </file>
