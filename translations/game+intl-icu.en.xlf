@@ -8807,7 +8807,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="kToIsx8" name="{citizen} ist bereits verletzt; ihn erneut anzugreifen wird dir nichts bringen.">
       <notes>
         <note category="german">{citizen} ist bereits verletzt; ihn erneut anzugreifen wird dir nichts bringen.</note>
-        <note category="state">new</note>
         <note category="from">php:///src/Controller/InventoryAwareController.php</note>
       </notes>
       <segment>
@@ -16118,7 +16117,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="GZZJnSZ" name="Beta-Tester der neuen Zeit">
       <notes>
         <note category="german">Beta-Tester der neuen Zeit</note>
-        <note category="state">new</note>
         <note category="from">db://PictoPrototype</note>
       </notes>
       <segment>
@@ -16129,7 +16127,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="V.GaRUl" name="Sind wir noch in der Alpha?">
       <notes>
         <note category="german">Sind wir noch in der Alpha?</note>
-        <note category="state">new</note>
         <note category="from">db://PictoPrototype</note>
       </notes>
       <segment>
@@ -16140,7 +16137,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="OA64trN">
       <notes>
         <note category="german">Dies ist eine äußerst seltene Belohnung, die den ersten MyHordes-Spielern vorbehalten ist, die das Finale mit großem F erlebt haben.</note>
-        <note category="state">new</note>
         <note category="from">db://PictoPrototype</note>
       </notes>
       <segment>
@@ -22535,6 +22531,17 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Dieser Bürger gestattet dir nicht auf seine Gegenstände zuzugreifen.</source>
         <target>Dieser Bürger gestattet dir nicht auf seine Gegenstände zuzugreifen.</target>
+      </segment>
+    </unit>
+    <unit id="sxHlIDp">
+      <notes>
+        <note category="german">{attacker} hat {defender} gewalttätig angegriffen! Der Kampf ist eskaliert und {attacker} verletzte {defender} schlussendlich schwer!</note>
+        <note category="from">db://LogEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>{attacker} hat {defender} gewalttätig angegriffen! Der Kampf ist eskaliert und {attacker} verletzte {defender} schlussendlich schwer!</source>
+        <target>{attacker} hat {defender} gewalttätig angegriffen! Der Kampf ist eskaliert und {attacker} verletzte {defender} schlussendlich schwer!</target>
       </segment>
     </unit>
   </file>

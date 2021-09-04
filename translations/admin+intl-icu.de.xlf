@@ -2491,5 +2491,11 @@
         <target>Aktiver Wert</target>
       </segment>
     </unit>
+    <unit id="PhzdczW" name="Eskortierte Bürger teleportieren">
+      <segment>
+        <source>Eskortierte Bürger teleportieren</source>
+        <target>Eskortierte Bürger teleportieren</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

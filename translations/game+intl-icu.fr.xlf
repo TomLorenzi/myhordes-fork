@@ -22445,5 +22445,15 @@ cette violente opération...]]></target>
         <target>Ce citoyen ne veut pas que vous touchiez à son sac.</target>
       </segment>
     </unit>
+    <unit id="sxHlIDp">
+      <notes>
+        <note category="german">{attacker} hat {defender} gewalttätig angegriffen! Der Kampf ist eskaliert und {attacker} verletzte {defender} schlussendlich schwer!</note>
+        <note category="from">db://LogEntryTemplate</note>
+      </notes>
+      <segment>
+        <source>{attacker} hat {defender} gewalttätig angegriffen! Der Kampf ist eskaliert und {attacker} verletzte {defender} schlussendlich schwer!</source>
+        <target><![CDATA[{attacker} a violemment agressé {defender} ! La bagarre a rapidement dégénéré et {attacker} a fini par <strong>blesser gravement</strong> {defender} !]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

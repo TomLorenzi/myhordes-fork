@@ -22399,7 +22399,6 @@
       <notes>
         <note category="german">Trinken (Oder du stirbst heute Nacht)</note>
         <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Trinken (Oder du stirbst heute Nacht)</source>
@@ -22410,7 +22409,6 @@
       <notes>
         <note category="german">Du hast es geschafft, dich aus dieser Gefahr zu befreien, aber die Zombies schauen dich jetzt hungrig an und kommen gefährlich knurrend auf dich zu... FLIEHE!</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Du hast es geschafft, dich aus dieser Gefahr zu befreien, aber die Zombies schauen dich jetzt hungrig an und kommen gefährlich knurrend auf dich zu... FLIEHE!</source>
@@ -22421,7 +22419,6 @@
       <notes>
         <note category="german">Profi-Fotograph</note>
         <note category="from">db://HeroSkillPrototype</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Profi-Fotograph</source>
@@ -22432,7 +22429,6 @@
       <notes>
         <note category="german">Du beginst jede neue Stadt mit einer Kamera aus Vorkriegstagen.</note>
         <note category="from">db://HeroSkillPrototype</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Du beginst jede neue Stadt mit einer Kamera aus Vorkriegstagen.</source>
@@ -22503,7 +22499,6 @@
       <notes>
         <note category="german">Bei deinem Fluchtversuch ist es einem Zombie gelungen dir eine Verletzung zuzufügen: {injury}! Du solltest hier besser schnell verschwinden!</note>
         <note category="from">php:///src/Controller/BeyondController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Bei deinem Fluchtversuch ist es einem Zombie gelungen dir eine Verletzung zuzufügen: {injury}! Du solltest hier besser schnell verschwinden!</source>
@@ -22514,7 +22509,6 @@
       <notes>
         <note category="german">Du erhälst einen Bauplan wenn Du in diesem Gebäude campst, aber du musst zunächst die Zone aufräumen.</note>
         <note category="from">php:///src/Controller/BeyondController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Du erhälst einen Bauplan wenn Du in diesem Gebäude campst, aber du musst zunächst die Zone aufräumen.</source>
@@ -22555,11 +22549,21 @@
       <notes>
         <note category="german">Dieser Bürger gestattet dir nicht auf seine Gegenstände zuzugreifen.</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Dieser Bürger gestattet dir nicht auf seine Gegenstände zuzugreifen.</source>
         <target>Este habitante no te permite acceder a sus artículos.</target>
+      </segment>
+    </unit>
+    <unit id="sxHlIDp">
+      <notes>
+        <note category="german">{attacker} hat {defender} gewalttätig angegriffen! Der Kampf ist eskaliert und {attacker} verletzte {defender} schlussendlich schwer!</note>
+        <note category="from">db://LogEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>{attacker} hat {defender} gewalttätig angegriffen! Der Kampf ist eskaliert und {attacker} verletzte {defender} schlussendlich schwer!</source>
+        <target>{attacker} hat {defender} gewalttätig angegriffen! Der Kampf ist eskaliert und {attacker} verletzte {defender} schlussendlich schwer!</target>
       </segment>
     </unit>
   </file>

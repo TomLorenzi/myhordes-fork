@@ -1603,7 +1603,9 @@ class LogTemplateHandler
 
     public function citizenAttack( Citizen $attacker, Citizen $defender, bool $wounded ): TownLogEntry {
         $variables = array('attacker' => $attacker->getId(), 'defender' => $defender->getId());
-        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => $wounded ? 'citizenAttackWounded' : 'citizenAttack']);
+        $template = $attacker->getZone()
+            ? $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => $wounded ? 'citizenAttackWoundedOutside' : 'citizenAttackOutside'])
+            : $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => $wounded ? 'citizenAttackWounded' : 'citizenAttack']);
 
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)

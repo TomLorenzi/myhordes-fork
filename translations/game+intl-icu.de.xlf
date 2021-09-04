@@ -14340,5 +14340,11 @@
         <target>Dieser Bürger gestattet dir nicht auf seine Gegenstände zuzugreifen.</target>
       </segment>
     </unit>
+    <unit id="sxHlIDp">
+      <segment>
+        <source>{attacker} hat {defender} gewalttätig angegriffen! Der Kampf ist eskaliert und {attacker} verletzte {defender} schlussendlich schwer!</source>
+        <target>{attacker} hat {defender} gewalttätig angegriffen! Der Kampf ist eskaliert und {attacker} verletzte {defender} schlussendlich schwer!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

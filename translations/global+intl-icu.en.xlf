@@ -1804,7 +1804,6 @@
     <unit id="Yx7n3Xy">
       <notes>
         <note category="german">Diese Nachricht wurde dir vom Raben persönlich überbracht. Er schwebt über der Stadt und wirft immer ein wachsames Auge auf dich...</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/bubbles.html.twig</note>
       </notes>
       <segment>
@@ -2743,7 +2742,6 @@
     <unit id="C6zNngv" name="Es wurde noch keine Stadt in die Rangliste aufgenommen!">
       <notes>
         <note category="german">Es wurde noch keine Stadt in die Rangliste aufgenommen!</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
       </notes>
       <segment>

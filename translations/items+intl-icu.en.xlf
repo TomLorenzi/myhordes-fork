@@ -7934,7 +7934,6 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     <unit id="KXx_GUV" name="Den Shamane wählen">
       <notes>
         <note category="german">Den Shamane wählen</note>
-        <note category="state">new</note>
         <note category="from">db://ItemAction</note>
       </notes>
       <segment>
@@ -7945,7 +7944,6 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     <unit id="Rrvjw6U" name="Den Reiseleiter in der Außenwelt wählen">
       <notes>
         <note category="german">Den Reiseleiter in der Außenwelt wählen</note>
-        <note category="state">new</note>
         <note category="from">db://ItemAction</note>
       </notes>
       <segment>
