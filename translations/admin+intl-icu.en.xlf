@@ -3951,5 +3951,15 @@
         <target>Current value</target>
       </segment>
     </unit>
+    <unit id="PhzdczW" name="Eskortierte Bürger teleportieren">
+      <notes>
+        <note category="german">Eskortierte Bürger teleportieren</note>
+        <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
+      </notes>
+      <segment>
+        <source>Eskortierte Bürger teleportieren</source>
+        <target>Teleport escorted citizens</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

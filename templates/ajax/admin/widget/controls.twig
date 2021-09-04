@@ -368,6 +368,9 @@
             <div class="padded cell grow-0 shrink-0">]</div>
         </div>
         <div class="row-flex">
+            <div class="cell"><input type="checkbox" name="{{ _self.gen_id(prefix, 'movewidget', 'escort') }}" id="{{ _self.gen_id(prefix, 'movewidget', 'escort') }}" /><label for="{{ _self.gen_id(prefix, 'movewidget', 'escort') }}">{{ 'Eskortierte Bürger teleportieren'|trans({}, 'admin') }}</label></div>
+        </div>
+        <div class="row-flex">
             <div class="padded cell grow-0 shrink-0"><button id="{{ _self.gen_id(prefix,'movewidget','set')}}"><i class="fa fa-hand-point-down"></i><div class="tooltip">{{'Setzen'|trans({}, 'admin')}}</div></button></div>
         </div>
     </div>
@@ -390,7 +393,8 @@
 
             $.ajax.easySend('{{ api_url }}', {
                 to: document.getElementById('{{ _self.gen_id(prefix,'movewidget','zone')}}').checked ? [parseInt(document.getElementById('{{ _self.gen_id(prefix,'movewidget','zx')}}').value),parseInt(document.getElementById('{{ _self.gen_id(prefix,'movewidget','zy')}}').value)] : 'town',
-                targets: targets
+                targets: targets,
+                escort: document.getElementById('{{ _self.gen_id(prefix, 'movewidget', 'escort') }}').checked
             }, () => $.ajax.load(null, '{{ load_url }}', true)
             );
         });
