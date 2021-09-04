@@ -597,12 +597,16 @@ class NightlyHandler
         $watchers = array_filter( $watchers, fn(CitizenWatch $w) => $w->getCitizen()->getZone() === null && $w->getCitizen()->getAlive() );
 
         $count_zombified_citizens = 0;
+        $last_zombified_citizen = null;
         foreach ($town->getCitizens() as $citizen)
-            if (!$citizen->getAlive() && $citizen->getCauseOfDeath()->getRef() === CauseOfDeath::Vanished)
+            if (!$citizen->getAlive() && $citizen->getCauseOfDeath()->getRef() === CauseOfDeath::Vanished) {
                 $count_zombified_citizens++;
+                $last_zombified_citizen = $citizen;
+            }
+
 
         if ($count_zombified_citizens > 0)
-            $this->entity_manager->persist( $this->logTemplates->nightlyAttackBegin($town, $count_zombified_citizens, true) );
+            $this->entity_manager->persist( $this->logTemplates->nightlyAttackBegin($town, $count_zombified_citizens, true, $count_zombified_citizens === 1 ? $last_zombified_citizen : null) );
 
         $this->entity_manager->persist( $this->logTemplates->nightlyAttackSummary($town, $town->getDoor(), $overflow, count($watchers) > 0 && $has_nightwatch));
 
@@ -616,7 +620,7 @@ class NightlyHandler
         }
 
         if ($overflow <= 0 && $count_zombified_citizens > 0)
-            $this->entity_manager->persist( $this->logTemplates->nightlyAttackDisappointed($town) );
+            $this->entity_manager->persist( $this->logTemplates->nightlyAttackDisappointed($town, $count_zombified_citizens === 1 ? $last_zombified_citizen : null) );
 
         $def_scale = $def_summary ? $def_summary->overall_scale : 1.0;
         $total_watch_def = floor($this->town_handler->calculate_watch_def($town, $town->getDay() - 1) * $def_scale);
