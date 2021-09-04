@@ -33,12 +33,12 @@ class HeroSkillFixtures extends Fixture {
         ['name' => 'brick', 'title' => 'Panzerschrank', 'description' => 'Dank deiner zahlreichen Zombiekontakte verfügst du in der Außenwelt ab sofort über einen zusätzlichen Zonenkontrollpunkt.', 'icon' => 'item_shield', 'daysNeeded' => 195],
         ['name' => 'treachery', 'title' => 'Hinterhältigkeit', 'description' => 'Die "Tipp-Ex" Fähigkeit wird noch besser! Ab sofort kannst du pro Partie (Stadt) noch mehr Registereinträge fälschen! Du kannst ab sofort 4 Mal pro Partie einen Registereintrag unkenntlich machen.', 'icon' => 'small_falsify', 'daysNeeded' => 211],
         ['name' => 'cheatdeath', 'title' => 'Den Tod besiegen', 'description' => 'Sobald diese neue Heldenfähigkeit aktiviert wurde, spürst du beim nächsten Zombieangriff keinen Durst, keine Drogenabhängigkeit und keine Infektion (nur eine Nacht lang gültig). Verhindert auch Ghulverhungern (Hungerbalken steigt trotzdem).', 'icon' => 'small_wrestle', 'daysNeeded' => 226],
-        ['name' => 'revenge', 'title' => 'Süße Rache', 'description' => 'Solltest du am dritten Tag oder an einem späteren Zeitpunkt verbannt werden, bekommst du automatisch etwas Gift geschenkt, das du nach Belieben einsetzen kannst... Tja, man hätte dich besser nicht ärgern sollen!', 'icon' => 'item_april_drug', 'daysNeeded' => 301],
-        ['name' => 'procamp', 'title' => 'Proficamper', 'description' => 'Die Nachteile, die bei wiederholtem Campen auftreten, fallen bei dir nicht mehr so stark aus: Somit kannst du in einer Stadt öfter campen.', 'icon' => 'small_camp', 'daysNeeded' => 391],
-        ['name' => 'medicine1', 'title' => 'Erfahrener Junkie', 'description' => 'Du beginnst jede neue Stadt mit einer Ration Paracetoid 7g in deinem Rucksack.', 'icon' => 'item_disinfect', 'daysNeeded' => 481],
-        ['name' => 'mayor', 'title' => 'Bürgermeister', 'description' => 'Du kannst Privatstädte gründen (nach deinem nächsten Tod, auf der Seite "Spielen").', 'icon' => 'item_map', 'daysNeeded' => 631],
-        ['name' => 'architect', 'title' => 'Architekt', 'description' => 'Du beginnst jede Stadt mit einem Gebäudeplan.', 'icon' => 'item_bplan_c', 'daysNeeded' => 800],
-        ['name' => 'prowatch', 'title' => 'Profiwächter', 'description' => 'Du hast permanent um 5% bessere Chancen auf der Nachtwache.', 'icon' => 'r_guard', 'daysNeeded' => 1001],
+        ['name' => 'revenge', 'title' => 'Süße Rache', 'description' => 'Solltest du am dritten Tag oder an einem späteren Zeitpunkt verbannt werden, bekommst du automatisch etwas Gift geschenkt, das du nach Belieben einsetzen kannst... Tja, man hätte dich besser nicht ärgern sollen!', 'icon' => 'item_april_drug', 'daysNeeded' => 241],
+        ['name' => 'procamp', 'title' => 'Proficamper', 'description' => 'Die Nachteile, die bei wiederholtem Campen auftreten, fallen bei dir nicht mehr so stark aus: Somit kannst du in einer Stadt öfter campen.', 'icon' => 'small_camp', 'daysNeeded' => 301],
+        ['name' => 'medicine1', 'title' => 'Erfahrener Junkie', 'description' => 'Du beginnst jede neue Stadt mit einer Ration Paracetoid 7g in deinem Rucksack.', 'icon' => 'item_disinfect', 'daysNeeded' => 361],
+        ['name' => 'mayor', 'title' => 'Bürgermeister', 'description' => 'Du kannst Privatstädte gründen (nach deinem nächsten Tod, auf der Seite "Spielen").', 'icon' => 'item_map', 'daysNeeded' => 541],
+        ['name' => 'architect', 'title' => 'Architekt', 'description' => 'Du beginnst jede Stadt mit einem Gebäudeplan.', 'icon' => 'item_bplan_c', 'daysNeeded' => 721],
+        ['name' => 'prowatch', 'title' => 'Profiwächter', 'description' => 'Du hast permanent um 5% bessere Chancen auf der Nachtwache.', 'icon' => 'r_guard', 'daysNeeded' => 1000],
     ];
 
     private $entityManager;
