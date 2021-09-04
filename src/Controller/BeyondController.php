@@ -373,7 +373,7 @@ class BeyondController extends InventoryAwareController
             'actions' => $this->getItemActions(),
             'floor' => $zone->getFloor(),
             'other_citizens' => $zone->getCitizens(),
-            'log' => ($zone->getX() === 0 && $zone->getY() === 0) ? '' : $this->renderLog( -1, null, $zone, null, 10 )->getContent(),
+            'log' => ($zone->getX() === 0 && $zone->getY() === 0) ? '' : $this->renderLog( -1, null, $zone, null, 10, true )->getContent(),
             'day' => $this->getActiveCitizen()->getTown()->getDay(),
             'camping_zone' => $camping_zone ?? '',
             'camping_zombies' => $camping_zombies ?? '',
@@ -395,8 +395,8 @@ class BeyondController extends InventoryAwareController
     public function log_desert_api(JSONRequestParser $parser): Response {
         $zone = $this->getActiveCitizen()->getZone();
         if (!$zone || ($zone->getX() === 0 && $zone->getY() === 0))
-            return $this->renderLog((int)$parser->get('day', -1), null, null, null, 0);
-        return $this->renderLog((int)$parser->get('day', -1), null, $zone, null, null);
+            return $this->renderLog((int)$parser->get('day', -1), null, null, null, 0, true);
+        return $this->renderLog((int)$parser->get('day', -1), null, $zone, null, null, true);
     }
 
     protected function activeCitizenIsNotEscorted() {

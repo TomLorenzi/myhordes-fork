@@ -117,7 +117,7 @@ class InventoryAwareController extends CustomAbstractController
         return true;
     }
 
-    protected function renderLog( ?int $day, $citizen = null, $zone = null, ?int $type = null, ?int $max = null ): Response {
+    protected function renderLog( ?int $day, $citizen = null, $zone = null, ?int $type = null, ?int $max = null, $silence_indicators = false ): Response {
         $entries = [];
 
         /** @var TownLogEntry $entity */
@@ -132,11 +132,13 @@ class InventoryAwareController extends CustomAbstractController
                 $entityVariables = $entity->getVariables();
                 if($citizen !== null && $entity->getHidden())
                     continue;
-                $entries[$idx]['timestamp'] = $entity->getTimestamp();
-                $entries[$idx]['class'] = $template->getClass();
-                $entries[$idx]['type'] = $template->getType();
-                $entries[$idx]['id'] = $entity->getId();
-                $entries[$idx]['hidden'] = $entity->getHidden();
+                $entries[$idx] = [
+                    'timestamp' => $entity->getTimestamp(),
+                    'class'     => $template->getClass(),
+                    'type'      => $template->getType(),
+                    'id'        => $entity->getId(),
+                    'hidden'    => $entity->getHidden(),
+                ];
 
                 $variableTypes = $template->getVariableTypes();
                 $transParams = $this->logTemplateHandler->parseTransParams($variableTypes, $entityVariables);
@@ -156,6 +158,7 @@ class InventoryAwareController extends CustomAbstractController
             $limit = 4;
 
         return $this->render( 'ajax/game/log_content.html.twig', [
+            'show_silence' => $silence_indicators,
             'entries' => $entries,
             'canHideEntry' => $this->getActiveCitizen()->getAlive() && $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($this->getUser(), 'manipulator') && $this->getActiveCitizen()->getZone() === null && $this->getActiveCitizen()->getSpecificActionCounterValue(ActionCounter::ActionTypeRemoveLog) < $limit,
         ] );
