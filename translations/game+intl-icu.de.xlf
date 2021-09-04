@@ -14370,5 +14370,17 @@
         <target>Die Ratten haben das Schiff schon vor Tagen verlassen... Diese Stadt ist nur noch ein Schatten ihrer selbst.</target>
       </segment>
     </unit>
+    <unit id="UOD7ZoJ">
+      <segment>
+        <source>Ermordet zu werden ist äußerst ärgerlich (ja, wirklich!). Aber wir bitten dich dringend, &lt;u&gt;die Identität deines Mörders gegenüber deinen ehemaligen Mitbürgern nicht aufzudecken&lt;/u&gt;... Lass ihnen das Vergnügen, selbst ermitteln zu müssen!</source>
+        <target><![CDATA[Ermordet zu werden ist äußerst ärgerlich (ja, wirklich!). Aber wir bitten dich dringend, <u>die Identität deines Mörders gegenüber deinen ehemaligen Mitbürgern nicht aufzudecken</u>... Lass ihnen das Vergnügen, selbst ermitteln zu müssen!]]></target>
+      </segment>
+    </unit>
+    <unit id="2GAQ12V" name="Fortfahren...">
+      <segment>
+        <source>Fortfahren...</source>
+        <target>Fortfahren...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

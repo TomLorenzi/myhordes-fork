@@ -22495,5 +22495,25 @@ cette violente opération...]]></target>
         <target>De toute manière, tous les rats ont déjà abandonné le navire depuis des jours... Cette vile n'est plus que l'ombre d'elle-même.</target>
       </segment>
     </unit>
+    <unit id="UOD7ZoJ">
+      <notes>
+        <note category="german">Ermordet zu werden ist äußerst ärgerlich (ja, wirklich!). Aber wir bitten dich dringend, &lt;u&gt;die Identität deines Mörders gegenüber deinen ehemaligen Mitbürgern nicht aufzudecken&lt;/u&gt;... Lass ihnen das Vergnügen, selbst ermitteln zu müssen!</note>
+        <note category="from">twig:///templates/ajax/soul/death.html.twig</note>
+      </notes>
+      <segment>
+        <source>Ermordet zu werden ist äußerst ärgerlich (ja, wirklich!). Aber wir bitten dich dringend, &lt;u&gt;die Identität deines Mörders gegenüber deinen ehemaligen Mitbürgern nicht aufzudecken&lt;/u&gt;... Lass ihnen das Vergnügen, selbst ermitteln zu müssen!</source>
+        <target><![CDATA[Mourir assassiné(e) est un moment dur à passer (si, si). Mais nous vous recommandons très fortement <u>de ne pas divulguer l'identité de votre meurtrier à vos anciens concitoyens</u>... Laissez-leur le plaisir de mener l'enquête !]]></target>
+      </segment>
+    </unit>
+    <unit id="2GAQ12V" name="Fortfahren...">
+      <notes>
+        <note category="german">Fortfahren...</note>
+        <note category="from">twig:///templates/ajax/soul/death.html.twig</note>
+      </notes>
+      <segment>
+        <source>Fortfahren...</source>
+        <target>Continuer...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -83,17 +83,22 @@
                     </div>
                 </div>
                 <div class="rebirth padded rw-12 cell row">
-                    {% if citizen.cod.ref != constant('App\\Entity\\CauseOfDeath::Poison') and citizen.cod.ref != constant('App\\Entity\\CauseOfDeath::GhulEaten')  %}
-                    <div class="cell rw-4 rebirth_label">
-                        <label for="last_words">{{'Deine letzten Worte:'|trans({}, 'game')}}</label>
-                    </div>
-                    <div class="cell rw-8">
-                        <input type="text" name="last_words" id="last_words" placeholder="{{ '' }}" />
-                    </div>
+                    {% if citizen.cod.ref != constant('App\\Entity\\CauseOfDeath::Poison') and citizen.cod.ref != constant('App\\Entity\\CauseOfDeath::GhulEaten') and citizen.cod.ref != constant('App\\Entity\\CauseOfDeath::Strangulation') %}
+                        <div class="cell rw-4 rebirth_label">
+                            <label for="last_words">{{'Deine letzten Worte:'|trans({}, 'game')}}</label>
+                        </div>
+                        <div class="cell rw-8">
+                            <input type="text" name="last_words" id="last_words" placeholder="{{ '' }}" />
+                        </div>
+                        <div class="cell rw-12 rebirth_btn">
+                            <button id="rebirth_btn">{{ 'Wiedergeboren werden'|trans({},'game') }}</button>
+                        </div>
+                    {% else %}
+                        <div class="note note-critical" style="font-variant: small-caps">{{ 'Ermordet zu werden ist äußerst ärgerlich (ja, wirklich!). Aber wir bitten dich dringend, <u>die Identität deines Mörders gegenüber deinen ehemaligen Mitbürgern nicht aufzudecken</u>... Lass ihnen das Vergnügen, selbst ermitteln zu müssen!'|trans({}, 'game')|raw }}</div>
+                        <div class="cell rw-12 rebirth_btn">
+                            <button id="rebirth_btn">{{ 'Fortfahren...'|trans({},'game') }}</button>
+                        </div>
                     {% endif %}
-                    <div class="cell rw-12 rebirth_btn">
-                        <button id="rebirth_btn">{{ 'Wiedergeboren werden'|trans({},'game') }}</button>
-                    </div>
                 </div>
             </div>
         </div>
