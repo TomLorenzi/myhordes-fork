@@ -202,8 +202,8 @@
                     {% if is_admin %}<li>{{'Dieser Bürger könnte jemand sehr Wichtiges sein. Vielleicht einer der Erschaffer?'|trans({ref: owner}, 'game')|raw}}</li>{% endif %}
                 </ul>
             {% else %}
-                <h5>{% trans from 'game' %}Was geschieht mit dieser Leiche?{% endtrans %}</h5>
                 {% if owner.home.holdsBody %}
+                    <h5>{% trans from 'game' %}Was geschieht mit dieser Leiche?{% endtrans %}</h5>
                     <span class="disposal">{{'Da {citizen} tot ist, besteht ein hohes Risiko, dass sein Körper mit ansteckenden Keimen von <em>{townname}</em> kontaminiert ist. Wenn wir nicht wollen, dass er wieder aufersteht und uns angreift, muss er entweder mit Wasser übergossen oder weggeworfen werden.'|trans({'{citizen}': owner, '{townname}': owner.town.name}, 'game')|raw}}</span>
                     {% if has_cremato %}
                         <button x-disposal-id="{{ constant('App\\Entity\\Citizen::Cooked') }}">
@@ -229,6 +229,11 @@
                         <button x-devour-citizen {% if not allow_devour_corpse %}disabled{% endif %}><img alt="" src="{{ asset('build/images/roles/ghoul.gif') }}" />{{ 'Die Leiche verspeisen!'|trans({},'game') }}</button>
                     {% endif %}
                 {% else %}
+                    {% if owner.disposed is null %}
+                        <h5>{% trans from 'game' %}Was ist mit ihm passiert?{% endtrans %}</h5>
+                    {% else %}
+                        <h5>{% trans from 'game' %}Was ist mit dem Körper geschehen?{% endtrans %}</h5>
+                    {% endif %}
                     <span class="disposal">
                     {% if owner.disposed is null %}
                         {{'{citizen} ist in der Wüste gestorben und hat seinen Mitbürgern nichts hinterlassen.'|trans({'{citizen}': "<strong>" ~ owner.name ~ "</strong>"}, 'game')|raw}}

@@ -8004,7 +8004,7 @@
       </notes>
       <segment>
         <source>Was geschieht mit dieser Leiche?</source>
-        <target>¿Qué pasará con su cadáver?</target>
+        <target>Was geschieht mit dieser Leiche?</target>
       </segment>
     </unit>
     <unit id="TauIpAZ">
@@ -22628,6 +22628,26 @@
       <segment>
         <source>Fortfahren...</source>
         <target>Fortfahren...</target>
+      </segment>
+    </unit>
+    <unit id="7jb2vlU" name="Was ist mit ihm passiert?">
+      <notes>
+        <note category="german">Was ist mit ihm passiert?</note>
+        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+      </notes>
+      <segment>
+        <source>Was ist mit ihm passiert?</source>
+        <target>¿Qué le sucedió?</target>
+      </segment>
+    </unit>
+    <unit id="RqSAT8A" name="Was ist mit dem Körper geschehen?">
+      <notes>
+        <note category="german">Was ist mit dem Körper geschehen?</note>
+        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+      </notes>
+      <segment>
+        <source>Was ist mit dem Körper geschehen?</source>
+        <target>¿Qué sucedió con su cadáver?</target>
       </segment>
     </unit>
   </file>

@@ -8033,7 +8033,7 @@
       </notes>
       <segment>
         <source>Was geschieht mit dieser Leiche?</source>
-        <target>Qu'est devenu son corps ?</target>
+        <target>Que deviendra ce cadavre ?</target>
       </segment>
     </unit>
     <unit id="TauIpAZ">
@@ -22513,6 +22513,26 @@ cette violente opération...]]></target>
       <segment>
         <source>Fortfahren...</source>
         <target>Continuer...</target>
+      </segment>
+    </unit>
+    <unit id="7jb2vlU" name="Was ist mit ihm passiert?">
+      <notes>
+        <note category="german">Was ist mit ihm passiert?</note>
+        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+      </notes>
+      <segment>
+        <source>Was ist mit ihm passiert?</source>
+        <target>Qu'est-il devenu ?</target>
+      </segment>
+    </unit>
+    <unit id="RqSAT8A" name="Was ist mit dem Körper geschehen?">
+      <notes>
+        <note category="german">Was ist mit dem Körper geschehen?</note>
+        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+      </notes>
+      <segment>
+        <source>Was ist mit dem Körper geschehen?</source>
+        <target>Qu'est devenu son corps ?</target>
       </segment>
     </unit>
   </file>

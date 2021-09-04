@@ -14382,5 +14382,17 @@
         <target>Fortfahren...</target>
       </segment>
     </unit>
+    <unit id="7jb2vlU" name="Was ist mit ihm passiert?">
+      <segment>
+        <source>Was ist mit ihm passiert?</source>
+        <target>Was ist mit ihm passiert?</target>
+      </segment>
+    </unit>
+    <unit id="RqSAT8A" name="Was ist mit dem Körper geschehen?">
+      <segment>
+        <source>Was ist mit dem Körper geschehen?</source>
+        <target>Was ist mit dem Körper geschehen?</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
