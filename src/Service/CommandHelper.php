@@ -83,10 +83,10 @@ class CommandHelper
         return $lines;
     }
 
-    public function capsule( string $command, OutputInterface $output, ?string $note = null, bool $bin_console = true, ?string &$ret_str = null, $php_bin = "php" ): bool {
+    public function capsule( string $command, OutputInterface $output, ?string $note = null, bool $bin_console = true, ?string &$ret_str = null, $php_bin = "php", bool $enforce_verbosity = false, int $retry = 0 ): bool {
         $run_command = $bin_console ? "$php_bin bin/console $command 2>&1" : "$command 2>&1";
 
-        $verbose = $output->getVerbosity() >= OutputInterface::VERBOSITY_VERY_VERBOSE;
+        $verbose = $enforce_verbosity || $output->getVerbosity() >= OutputInterface::VERBOSITY_VERY_VERBOSE;
 
         $output->write($note !== null ? $note : ("<info>Executing " . ($bin_console ? 'encapsulated' : '') . " command \"<comment>$command</comment>\"... </info>"));
         $lines = $this->bin( $run_command, $ret, false, $verbose ? $output : null );
@@ -95,11 +95,15 @@ class CommandHelper
             $output->writeln('');
             if ($note !== null) $output->writeln("<info>Command was \"<comment>{$run_command}</comment>\"</info>");
             if (!$verbose) foreach ($lines as $line) $output->write( "> {$line}" );
-            $ret_str = implode("\r\n", $lines);
+            if ($retry <= 0) $ret_str = implode("\r\n", $lines);
             $output->writeln("<error>Command exited with error code {$ret}</error>");
+            if ($retry > 0)
+                $output->writeln("\n<info>Retrying ($retry attempts left).</info>\n");
         } else $output->writeln("<info>Ok.</info>");
 
-        return $ret === 0;
+        if ($ret !== 0 && $retry > 0)
+            return $this->capsule($command, $output, $note, $bin_console, $ret_str, $php_bin, $enforce_verbosity, $retry - 1 );
+        else return $ret === 0;
     }
 
     public function printObject(object $e): string {

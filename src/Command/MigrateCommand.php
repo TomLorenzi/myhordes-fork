@@ -233,7 +233,7 @@ class MigrateCommand extends Command
             } else $output->writeln("Skipping <info>dependency updates</info>.");
 
             if (!$input->getOption('fast')) {
-                if (!$this->helper->capsule( "yarn encore {$env}", $output, 'Building web assets... ', false )) return 6;
+                if (!$this->helper->capsule( "yarn encore {$env}", $output, 'Building web assets... ', false, $null, $php, false, 3 )) return 6;
             } else $output->writeln("Skipping <info>web asset updates</info>.");
 
             $version_lines = $this->helper->bin( 'git describe --tags' . ($input->getOption('release') ? ' --abbrev=0' : ''), $ret );
@@ -241,7 +241,7 @@ class MigrateCommand extends Command
 
             if (!$this->helper->capsule( "cache:clear", $output, 'Clearing cache... ', true, $null, $php )) return 7;
             if (!$this->helper->capsule( "app:migrate -u -r", $output, 'Updating database... ', true, $null, $php )) return 8;
-            if (!$this->helper->capsule( "app:migrate -p", $output, 'Running post-installation scripts... ', true, $null, $php )) return 9;
+            if (!$this->helper->capsule( "app:migrate -p -v", $output, 'Running post-installation scripts... ', true, $null, $php, true )) return 9;
 
             if (count($version_lines) >= 1) $output->writeln("Updated MyHordes to version <info>{$version_lines[0]}</info>");
 
