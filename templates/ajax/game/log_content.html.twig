@@ -1,4 +1,7 @@
 {# @var entries \App\Entity\TownLogEntry[] #}
+{% if day is defined and day is not null %}
+    <div class="log-day-header">{{ 'Tag {d} {today}'|trans({d: day, today: (today ? '(' ~ 'heute'|trans({},'game') ~ ')' : '')}, 'game') }}</div>
+{% endif %}
 {% if entries|length == 0 %}
     <i>{{ 'Heute ist nichts Erwähnenswertes passiert...'|trans({},'game') }}</i>
 {% else %}

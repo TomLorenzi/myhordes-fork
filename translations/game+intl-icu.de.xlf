@@ -14346,5 +14346,17 @@
         <target>{attacker} hat {defender} gewalttätig angegriffen! Der Kampf ist eskaliert und {attacker} verletzte {defender} schlussendlich schwer!</target>
       </segment>
     </unit>
+    <unit id="o0S7jOB" name="Tag {d} {today}">
+      <segment>
+        <source>Tag {d} {today}</source>
+        <target>Tag {d} {today}</target>
+      </segment>
+    </unit>
+    <unit id="t0ipGa0" name="heute">
+      <segment>
+        <source>heute</source>
+        <target>heute</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

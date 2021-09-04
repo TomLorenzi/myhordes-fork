@@ -22566,5 +22566,25 @@
         <target>{attacker} hat {defender} gewalttätig angegriffen! Der Kampf ist eskaliert und {attacker} verletzte {defender} schlussendlich schwer!</target>
       </segment>
     </unit>
+    <unit id="o0S7jOB" name="Tag {d} {today}">
+      <notes>
+        <note category="german">Tag {d} {today}</note>
+        <note category="from">twig:///templates/ajax/game/log_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Tag {d} {today}</source>
+        <target>Día {d} {today}</target>
+      </segment>
+    </unit>
+    <unit id="t0ipGa0" name="heute">
+      <notes>
+        <note category="german">heute</note>
+        <note category="from">twig:///templates/ajax/game/log_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>heute</source>
+        <target>hoy</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

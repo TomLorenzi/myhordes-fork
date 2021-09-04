@@ -97,14 +97,11 @@ class GameController extends CustomAbstractController
             }             
         }
 
-        $limit = 0;
-        if($this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'manipulator'))
-            $limit = 2;
-
-        if($this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'treachery'))
-            $limit = 4;
+        if ($day < 0) $day = $this->getActiveCitizen()->getTown()->getDay();
 
         return $this->render( 'ajax/game/log_content.html.twig', [
+            'day' => $day,
+            'today' => $day === $this->getActiveCitizen()->getTown()->getDay(),
             'entries' => $entries,
             'canHideEntry' => $this->getActiveCitizen()->getAlive() && $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($this->getUser(), 'manipulator') && $this->getActiveCitizen()->getSpecificActionCounterValue(ActionCounter::ActionTypeRemoveLog) < $limit,
         ] );

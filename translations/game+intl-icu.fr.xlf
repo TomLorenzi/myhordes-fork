@@ -22455,5 +22455,25 @@ cette violente opération...]]></target>
         <target><![CDATA[{attacker} a violemment agressé {defender} ! La bagarre a rapidement dégénéré et {attacker} a fini par <strong>blesser gravement</strong> {defender} !]]></target>
       </segment>
     </unit>
+    <unit id="o0S7jOB" name="Tag {d} {today}">
+      <notes>
+        <note category="german">Tag {d} {today}</note>
+        <note category="from">twig:///templates/ajax/game/log_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Tag {d} {today}</source>
+        <target>Jour {d} {today}</target>
+      </segment>
+    </unit>
+    <unit id="t0ipGa0" name="heute">
+      <notes>
+        <note category="german">heute</note>
+        <note category="from">twig:///templates/ajax/game/log_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>heute</source>
+        <target>aujourd'hui</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

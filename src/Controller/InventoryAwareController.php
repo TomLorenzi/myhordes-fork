@@ -157,8 +157,12 @@ class InventoryAwareController extends CustomAbstractController
         if($this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'treachery'))
             $limit = 4;
 
+        if ($day < 0) $day = $this->getActiveCitizen()->getTown()->getDay();
+
         return $this->render( 'ajax/game/log_content.html.twig', [
             'show_silence' => $silence_indicators,
+            'day' => $day,
+            'today' => $day === $this->getActiveCitizen()->getTown()->getDay(),
             'entries' => $entries,
             'canHideEntry' => $this->getActiveCitizen()->getAlive() && $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($this->getUser(), 'manipulator') && $this->getActiveCitizen()->getZone() === null && $this->getActiveCitizen()->getSpecificActionCounterValue(ActionCounter::ActionTypeRemoveLog) < $limit,
         ] );
