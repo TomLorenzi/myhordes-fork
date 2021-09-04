@@ -150,12 +150,34 @@ div.map_area {
         background-image: url("../../img/map/blood.png");
       }
       &>.scout-sense,&>.scavenger-sense,&>.marker-direction { cursor: default; pointer-events: none; }
-      &>.scout-sense-west , &>.scavenger-sense-west  { top: 43%; bottom: 43%; left: 8%; right: 87% }
-      &>.scout-sense-east , &>.scavenger-sense-east  { top: 43%; bottom: 43%; left: 87%; right: 8% }
-      &>.scout-sense-north, &>.scavenger-sense-north { top: 8%; bottom: 87%; left: 43%; right: 43% }
-      &>.scout-sense-south, &>.scavenger-sense-south { top: 87%; bottom: 8%; left: 43%; right: 43% }
-      &>.scavenger-sense-0 { background: url("../../img/icons/Small_broken.gif") center no-repeat }
-      &>.scavenger-sense-1 { background: url("../../img/icons/small_gather.gif") center no-repeat }
+
+      &>.scout-sense,&>.scavenger-sense {
+        overflow: visible; height: 0; width: 0;
+      }
+
+      &>.scout-sense {
+        &.scout-sense-west, &.scout-sense-east  { top: 50%;  svg { width: 24px; height: 64px; margin-top: -32px; margin-left: -12px; } }
+        &.scout-sense-north,&.scout-sense-south { left: 50%; svg { width: 64px; height: 24px; margin-top: -12px; margin-left: -32px; } }
+
+        &.scout-sense-west { left: 32px; }
+        &.scout-sense-east { right: 32px; }
+        &.scout-sense-north { top: 32px; }
+        &.scout-sense-south { bottom: 27px; }
+      }
+
+      &>.scavenger-sense {
+        div.img { width: 16px; height: 16px; margin-top: -8px; margin-left: -8px; }
+        &.scavenger-sense-west, &.scavenger-sense-east  { top: 50%; }
+        &.scavenger-sense-north,&.scavenger-sense-south { left: 50%; }
+
+        &.scavenger-sense-west { left: 32px; }
+        &.scavenger-sense-east { right: 32px; }
+        &.scavenger-sense-north { top: 32px; }
+        &.scavenger-sense-south { bottom: 27px; }
+
+        &.scavenger-sense-0 div.img { background: url("../../img/icons/Small_broken.gif") center no-repeat }
+        &.scavenger-sense-1 div.img { background: url("../../img/icons/small_gather.gif") center no-repeat }
+      }
 
       &>.action-move {
         background: url(../../img/icons/map/227.svg) 50% / contain no-repeat, url(../../img/icons/map/226.svg) 50% / contain no-repeat;
@@ -166,10 +188,10 @@ div.map_area {
         &:hover {
           background: url(../../img/icons/map/228.svg) 50% no-repeat;
         }
-        &.action-move-north { top: 2%; left: 50%; transform: translateX(-50%); }
-        &.action-move-east { top: 50%; right: -5%; transform: translateY(-50%) rotate(90deg); }
-        &.action-move-south { left: 50%; bottom: 2%; transform: translateX(-50%) rotate(180deg); }
-        &.action-move-west { top: 50%; left: -5%; transform: translateY(-50%) rotate(270deg); }
+        &.action-move-north { top: 10px; left: 50%; transform: translateX(-50%); }
+        &.action-move-east { top: 50%; right: -10px; transform: translateY(-50%) rotate(90deg); }
+        &.action-move-south { left: 50%; bottom: 5px; transform: translateX(-50%) rotate(180deg); }
+        &.action-move-west { top: 50%; left: -10px; transform: translateY(-50%) rotate(270deg); }
       }
       &>.marker-direction  { top: 0; bottom: 0; left:  0; right: 0; background: url("../../img/icons/map/map_move_marker.svg") center/contain no-repeat; }
       &>.current-location  { position: absolute;bottom: 5px;top: auto;right: 5px;left: auto;display: block;z-index: 10;color: #d7ff5b;font-size: 1.25rem;text-shadow: 0 0 5px #d7ff5b;font-family: "visitor2";letter-spacing: 0.1rem; }
