@@ -14364,5 +14364,11 @@
         <target>Dieser Bürger wurde aus der Gemeinschaft verbannt; er hat nicht länger Zugang zu den Gebäuden der Stadt, mit Ausnahme des Brunnens (wobei er auf eine Ration pro Tag eingeschränkt ist).</target>
       </segment>
     </unit>
+    <unit id="Xrx5c_.">
+      <segment>
+        <source>Die Ratten haben das Schiff schon vor Tagen verlassen... Diese Stadt ist nur noch ein Schatten ihrer selbst.</source>
+        <target>Die Ratten haben das Schiff schon vor Tagen verlassen... Diese Stadt ist nur noch ein Schatten ihrer selbst.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

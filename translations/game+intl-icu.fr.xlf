@@ -22485,5 +22485,15 @@ cette violente opération...]]></target>
         <target>Ce citoyen a été banni de la communauté : il ne pourra plus avoir accès aux dispositifs de la vile, à rexception du puits (limité toutefois à la ration quotidienne, sans supplémentaire).</target>
       </segment>
     </unit>
+    <unit id="Xrx5c_.">
+      <notes>
+        <note category="german">Die Ratten haben das Schiff schon vor Tagen verlassen... Diese Stadt ist nur noch ein Schatten ihrer selbst.</note>
+        <note category="from">db://LogEntryTemplate</note>
+      </notes>
+      <segment>
+        <source>Die Ratten haben das Schiff schon vor Tagen verlassen... Diese Stadt ist nur noch ein Schatten ihrer selbst.</source>
+        <target>De toute manière, tous les rats ont déjà abandonné le navire depuis des jours... Cette vile n'est plus que l'ombre d'elle-même.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

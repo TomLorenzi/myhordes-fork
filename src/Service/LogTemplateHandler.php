@@ -1144,7 +1144,7 @@ class LogTemplateHandler
 
     public function nightlyAttackLazy( Town $town, int $num_attacking_zombies ): TownLogEntry {
         $variables = array('num' => $num_attacking_zombies);
-        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'nightlyAttackLazy']);
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => $town->getDevastated() ? 'nightlyAttackLazyDevast' : 'nightlyAttackLazy' ]);
 
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
