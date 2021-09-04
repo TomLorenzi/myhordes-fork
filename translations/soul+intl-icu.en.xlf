@@ -3889,5 +3889,15 @@
         <target><![CDATA[<span class="number">Beta</span> Season]]></target>
       </segment>
     </unit>
+    <unit id="Tum7Im1">
+      <notes>
+        <note category="german">Diese Stadt stammt aus der Alpha-Phase von MyHordes. Die angezeigten Informationen sind daher möglicherweise unvollständig oder sehen nicht so aus, wie du es sonst erwarten würdest.</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Diese Stadt stammt aus der Alpha-Phase von MyHordes. Die angezeigten Informationen sind daher möglicherweise unvollständig oder sehen nicht so aus, wie du es sonst erwarten würdest.</source>
+        <target>This town is from the alpha phase of MyHordes. Therefore, the information displayed may be incomplete or may not look as you would otherwise expect.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -2378,5 +2378,11 @@
         <target><![CDATA[<span class="number">Beta</span> Saison]]></target>
       </segment>
     </unit>
+    <unit id="Tum7Im1">
+      <segment>
+        <source>Diese Stadt stammt aus der Alpha-Phase von MyHordes. Die angezeigten Informationen sind daher möglicherweise unvollständig oder sehen nicht so aus, wie du es sonst erwarten würdest.</source>
+        <target>Diese Stadt stammt aus der Alpha-Phase von MyHordes. Die angezeigten Informationen sind daher möglicherweise unvollständig oder sehen nicht so aus, wie du es sonst erwarten würdest.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -31,8 +31,10 @@
                         <div class="cell padded rw-1 center season bold">
                             {% if incarnation.town.season is null %}
                                 --
-                            {% elseif incarnation.town.season.number == 0 %}
+                            {% elseif incarnation.town.season.number == 0 and incarnation.town.season.subnumber <= 14 %}
                                 {{ incarnation.town.language|upper }}-{{ incarnation.town.season.subNumber }}
+                            {% elseif incarnation.town.season.number == 0 and incarnation.town.season.subnumber > 14 %}
+                                BETA
                             {% else %}
                                 {{ incarnation.town.season.number }}
                             {% endif %}

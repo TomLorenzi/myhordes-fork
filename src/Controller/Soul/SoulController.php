@@ -749,7 +749,7 @@ class SoulController extends CustomAbstractController
         if($target_user === null && $id !== -1)  return $this->redirect($this->generateUrl('soul_me'));
 
         $town = $this->entity_manager->getRepository(TownRankingProxy::class)->find($idtown);
-        if($town === null || $town->getSeason() === null)
+        if($town === null)
             return $target_user === null ? $this->redirect($this->generateUrl('soul_me')) : $this->redirect($this->generateUrl('soul_visit', ['id' => $id]));
 
         if ($target_user === null) $target_user = $user;

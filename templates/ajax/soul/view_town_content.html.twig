@@ -21,6 +21,14 @@
                 </div>
             </div>
         </div>
+    {% elseif town.season is null %}
+        <div class="row">
+            <div class="cell rw-12 padded">
+                <div class="note note-warning">
+                    {{ 'Diese Stadt stammt aus der Alpha-Phase von MyHordes. Die angezeigten Informationen sind daher möglicherweise unvollständig oder sehen nicht so aus, wie du es sonst erwarten würdest.'|trans({},'soul')|raw }}
+                </div>
+            </div>
+        </div>
     {% endif %}
 
     {% if town.disabled %}
