@@ -22475,5 +22475,15 @@ cette violente opération...]]></target>
         <target>aujourd'hui</target>
       </segment>
     </unit>
+    <unit id="WVOQ6JP">
+      <notes>
+        <note category="german">Dieser Bürger wurde aus der Gemeinschaft verbannt; er hat nicht länger Zugang zu den Gebäuden der Stadt, mit Ausnahme des Brunnens (wobei er auf eine Ration pro Tag eingeschränkt ist).</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger wurde aus der Gemeinschaft verbannt; er hat nicht länger Zugang zu den Gebäuden der Stadt, mit Ausnahme des Brunnens (wobei er auf eine Ration pro Tag eingeschränkt ist).</source>
+        <target>Ce citoyen a été banni de la communauté : il ne pourra plus avoir accès aux dispositifs de la vile, à rexception du puits (limité toutefois à la ration quotidienne, sans supplémentaire).</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

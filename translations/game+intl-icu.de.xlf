@@ -14358,5 +14358,11 @@
         <target>heute</target>
       </segment>
     </unit>
+    <unit id="WVOQ6JP">
+      <segment>
+        <source>Dieser Bürger wurde aus der Gemeinschaft verbannt; er hat nicht länger Zugang zu den Gebäuden der Stadt, mit Ausnahme des Brunnens (wobei er auf eine Ration pro Tag eingeschränkt ist).</source>
+        <target>Dieser Bürger wurde aus der Gemeinschaft verbannt; er hat nicht länger Zugang zu den Gebäuden der Stadt, mit Ausnahme des Brunnens (wobei er auf eine Ration pro Tag eingeschränkt ist).</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
