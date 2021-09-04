@@ -181,28 +181,36 @@ class HTMLService {
 
         if ($node->nodeType === XML_ELEMENT_NODE) {
 
-            // Element not allowed.
-            if (!in_array($node->nodeName, array_keys($allowedNodes['nodes'])) && !($depth === 0 && $node->nodeName === 'body')) {
-                $node->parentNode->removeChild( $node );
-                return true;
-            }
+            $truncate_node = false;
 
-            // Attributes not allowed.
+            // Element not allowed.
+            if (!in_array($node->nodeName, array_keys($allowedNodes['nodes'])) && !($depth === 0 && $node->nodeName === 'body'))
+                $truncate_node = true;
+
+            // Attributes not allowed - we only need to remove attribs if the node is not truncated
             $remove_attribs = [];
-            for ($i = 0; $i < $node->attributes->length; $i++) {
-                if (!in_array($node->attributes->item($i)->nodeName, $allowedNodes['nodes'][$node->nodeName]))
-                    $remove_attribs[] = $node->attributes->item($i)->nodeName;
-                elseif (isset($allowedNodes['attribs']["{$node->nodeName}.{$node->attributes->item($i)->nodeName}"])) {
-                    // Attribute values not allowed
-                    $allowed_entries = $allowedNodes['attribs']["{$node->nodeName}.{$node->attributes->item($i)->nodeName}"];
-                    $node->attributes->item($i)->nodeValue = implode( ' ', array_filter( explode(' ', $node->attributes->item($i)->nodeValue), function (string $s) use ($allowed_entries) {
-                        return in_array( $s, $allowed_entries );
-                    }));
+            if (!$truncate_node)
+                for ($i = 0; $i < $node->attributes->length; $i++) {
+                    if (!in_array($node->attributes->item($i)->nodeName, $allowedNodes['nodes'][$node->nodeName]))
+                        $remove_attribs[] = $node->attributes->item($i)->nodeName;
+                    elseif (isset($allowedNodes['attribs']["{$node->nodeName}.{$node->attributes->item($i)->nodeName}"])) {
+                        // Attribute values not allowed
+                        $allowed_entries = $allowedNodes['attribs']["{$node->nodeName}.{$node->attributes->item($i)->nodeName}"];
+                        $node->attributes->item($i)->nodeValue = implode( ' ', array_filter( explode(' ', $node->attributes->item($i)->nodeValue), function (string $s) use ($allowed_entries) {
+                            return in_array( $s, $allowed_entries );
+                        }));
+
+                        if (empty($node->attributes->item($i)->nodeValue))
+                            $remove_attribs[] = $node->attributes->item($i)->nodeName;
+                    }
                 }
-            }
 
             foreach ($remove_attribs as $attrib)
                 $node->removeAttribute($attrib);
+
+            //DIV and SPAN are not allowed without any attributes
+            if (!$truncate_node && in_array($node->nodeName, ['div','span']) && $node->attributes->length === 0)
+                $truncate_node = true;
 
             $children = [];
             foreach ( $node->childNodes as $child )
@@ -211,6 +219,16 @@ class HTMLService {
             foreach ( $children as $child )
                 if (!$this->htmlValidator( $allowedNodes, $child, $text_length, $depth+1 ))
                     return false;
+
+            if ($truncate_node && !$node->parentNode) return false;
+            elseif ($truncate_node) {
+                $children = [];
+                foreach ( $node->childNodes as $child )
+                    $children[] = $child;
+                foreach ( $children as $child )
+                    $node->parentNode->insertBefore( $child, $node );
+                $node->parentNode->removeChild($node);
+            }
 
             return true;
 
