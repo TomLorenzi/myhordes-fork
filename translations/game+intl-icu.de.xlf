@@ -14406,5 +14406,11 @@
         <target><![CDATA[Von der Stadtverteidigung aufgehalten, kehrte <i class="dagger">†</i> {citizen} grunzend und torkelnd zu seinen neuen verschimmelten Freunden zurück...]]></target>
       </segment>
     </unit>
+    <unit id="h8TXDGN">
+      <segment>
+        <source>Der Angriff traf auch unsere Verteidigungsgegenstände! Wir haben insgesamt {num} verloren: {list}</source>
+        <target>Der Angriff traf auch unsere Verteidigungsgegenstände! Wir haben insgesamt {num} verloren: {list}</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

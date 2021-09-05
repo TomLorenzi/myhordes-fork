@@ -22555,5 +22555,15 @@ cette violente opération...]]></target>
         <target><![CDATA[Arrêté par les défenses de la ville, <i class="dagger">†</i> {citizen} est reparti grognant et titubant rejoindre ses nouveaux amis moisis...]]></target>
       </segment>
     </unit>
+    <unit id="h8TXDGN">
+      <notes>
+        <note category="german">Der Angriff traf auch unsere Verteidigungsgegenstände! Wir haben insgesamt {num} verloren: {list}</note>
+        <note category="from">db://LogEntryTemplate</note>
+      </notes>
+      <segment>
+        <source>Der Angriff traf auch unsere Verteidigungsgegenstände! Wir haben insgesamt {num} verloren: {list}</source>
+        <target>L'assaut a également touché nos objets de défense ! Nous en avons perdu {num} au total : {list}</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
