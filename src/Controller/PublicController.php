@@ -121,7 +121,7 @@ class PublicController extends CustomAbstractController
      */
     public function validate(): Response
     {
-        if ($this->isGranted( 'ROLE_USER' ))
+        if ($this->getUser()->getValidated())
             return $this->redirect($this->generateUrl('initial_landing'));
         return $this->render( 'ajax/public/validate.html.twig' );
     }
@@ -143,6 +143,34 @@ class PublicController extends CustomAbstractController
         return $pending
             ? $this->render( 'ajax/public/passreset.html.twig', ['mail' => $pending->getUser()->getEmail(), 'pkey' => $pkey] )
             : $this->render( 'ajax/public/passreset.html.twig', ['mail' => ''] );
+    }
+
+    /**
+     * @Route("api/public/revalidate", name="api_resend_validation")
+     * @param UserFactory $factory
+     * @return Response
+     */
+    public function revalidate_api(UserFactory $factory): Response
+    {
+        if (!$this->isGranted( 'ROLE_REGISTERED' ))
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
+
+        $pending = $this->entity_manager->getRepository(UserPendingValidation::class)->findOneByUserAndType($this->getUser(), UserPendingValidation::EMailValidation);
+        if (!$pending)
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
+
+        if (($pending->getTime()->getTimestamp() + 300) > time() )
+            return AjaxResponse::error(UserFactory::ErrorTooManyMails);
+
+        $this->entity_manager->persist($pending->setTime(new \DateTime()));
+        try {
+            $factory->announceValidationToken( $pending );
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorInternalError);
+        }
+
+        return AjaxResponse::success();
     }
 
     /**
@@ -227,10 +255,14 @@ class PublicController extends CustomAbstractController
 
     /**
      * @Route("api/public/register", name="api_register")
+     * @param Request $request
+     * @param ConfMaster $conf
      * @param JSONRequestParser $parser
      * @param TranslatorInterface $translator
      * @param UserFactory $factory
      * @param EntityManagerInterface $entityManager
+     * @param EternalTwinHandler $etwin
+     * @param UserHandler $userHandler
      * @return Response
      */
     public function register_api(

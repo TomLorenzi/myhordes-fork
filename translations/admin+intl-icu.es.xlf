@@ -3908,7 +3908,6 @@
       <notes>
         <note category="german">Eskortierte Bürger teleportieren</note>
         <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Eskortierte Bürger teleportieren</source>

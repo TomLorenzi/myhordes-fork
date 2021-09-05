@@ -40,6 +40,7 @@ class UserFactory
     const ErrorDatabaseException = ErrorHelper::BaseUserErrors + 4;
     const ErrorValidationExists  = ErrorHelper::BaseUserErrors + 5;
     const ErrorTooManyRegistrations = ErrorHelper::BaseUserErrors + 6;
+    const ErrorTooManyMails      = ErrorHelper::BaseUserErrors + 7;
 
     public function __construct( EntityManagerInterface $em, UserPasswordEncoderInterface $passwordEncoder,
                                  Locksmith $l, UrlGeneratorInterface $url, Environment $e, TranslatorInterface $t,
