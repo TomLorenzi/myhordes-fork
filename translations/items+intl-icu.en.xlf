@@ -9241,5 +9241,15 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
         <target><![CDATA[The citizen greedily gulps down their ration of water, without tasting it in the least... Their throat still burns as much, but at least they aren't dehydrated anymore...{hr}<strong>Their APs have not been restored because they were dehydrated.</strong>]]></target>
       </segment>
     </unit>
+    <unit id="1mv8jxQ">
+      <notes>
+        <note category="german">Dieser Gegenstand ist &lt;strong class="red"&gt;kaputt&lt;/strong&gt;. Du kannst ihn zur Zeit nicht gebrauchen. Vielleicht findest du in der Stadt eine gütige Seele, der ihn reparieren kann?</note>
+        <note category="from">twig:///templates/ajax/game/actions.html.twig</note>
+      </notes>
+      <segment>
+        <source>Dieser Gegenstand ist &lt;strong class="red"&gt;kaputt&lt;/strong&gt;. Du kannst ihn zur Zeit nicht gebrauchen. Vielleicht findest du in der Stadt eine gütige Seele, der ihn reparieren kann?</source>
+        <target><![CDATA[This object is <strong class="red">broken</strong>, you cannot use it any more for the time being! Perhaps some generous soul in town will repair it for you?]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

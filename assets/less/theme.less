@@ -767,8 +767,13 @@ ul.actions, ul.special_actions, ul.heroic_actions {
   padding: 5px 2px; .box();
   &>li {
     list-style: none; padding: 2px 2px 2px 10px; font-size: 1.2rem; font-variant: small-caps;
-    color: @myhordes-smalltext; position: relative;
-    &:not(.open):not([disabled]):not(.help) {
+    color: @myhordes-smalltext; position: relative; cursor: default;
+    &.broken-item {
+      color: #c04822;
+      b { color: #ea6d45 }
+      img { outline: 1px solid #c04822 }
+    }
+    &:not(.open):not([disabled]):not(.help):not(.broken-item) {
       cursor: pointer;
       &:hover { color: white; background: lighten(@myhordes-cell-header-background-color, 10%) }
     }
@@ -1318,6 +1323,10 @@ div.tooltip {
   outline: 1px solid darken(@myhordes-smalltext, 50%);
   font-weight: normal;
   font-variant: normal;
+
+  strong.red {
+    color :#cf7058;
+  }
 
   ul {
     padding: 0 3px;

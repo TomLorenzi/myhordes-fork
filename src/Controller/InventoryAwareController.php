@@ -302,13 +302,13 @@ class InventoryAwareController extends CustomAbstractController
         foreach ($this->getActiveCitizen()->getInventory()->getItems() as $item) $items[] = $item;
         if ($this->getActiveCitizen()->getZone() === null) foreach ($this->getActiveCitizen()->getHome()->getChest()->getItems() as $item) $items[] = $item;
 
-        foreach ($items as $item) if (!$item->getBroken()) {
+        foreach ($items as $item) if (!$item->getBroken() || $this->getActiveCitizen()->getZone()) {
 
-            $this->action_handler->getAvailableItemActions( $this->getActiveCitizen(), $item, $available, $crossed, $messages );
+            $this->action_handler->getAvailableItemActions( $this->getActiveCitizen(), $item, $available, $crossed, $messages, $this->getActiveCitizen()->getZone() !== null );
             if (empty($available) && empty($crossed)) continue;
 
-            foreach ($available as $a) $ret[] = [ 'id' => $a->getId(), 'item' => $item, 'action' => $a, 'targets' => $a->getTarget() ? $this->decodeActionItemTargets( $av_inv, $a->getTarget() ) : null, 'target_mode' => $a->getTarget() ? $a->getTarget()->getSpawner() : 0, 'crossed' => false, 'message' => null ];
-            foreach ($crossed as $c)   $ret[] = [ 'id' => $c->getId(), 'item' => $item, 'action' => $c, 'targets' => null, 'target_mode' => 0, 'crossed' => true, 'message' => $messages[$c->getId()] ?? null ];
+            foreach ($available as $a) $ret[] = [ 'id' => $a->getId(), 'item' => $item, 'broken' => $item->getBroken(), 'action' => $a, 'targets' => $item->getBroken() ? null : ($a->getTarget() ? $this->decodeActionItemTargets( $av_inv, $a->getTarget() ) : null), 'target_mode' => $item->getBroken() ? 0 : ($a->getTarget() ? $a->getTarget()->getSpawner() : 0), 'crossed' => false, 'message' => null ];
+            foreach ($crossed as $c)   $ret[] = [ 'id' => $c->getId(), 'item' => $item, 'broken' => $item->getBroken(), 'action' => $c, 'targets' => null, 'target_mode' => 0, 'crossed' => true, 'message' => $item->getBroken() ? null : ($messages[$c->getId()] ?? null) ];
         }
 
         return $ret;

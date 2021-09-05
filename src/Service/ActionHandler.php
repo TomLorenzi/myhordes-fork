@@ -382,10 +382,10 @@ class ActionHandler
      * @param ItemAction[] $crossed
      * @param array|null $messages
      */
-    public function getAvailableItemActions(Citizen $citizen, Item $item, ?array &$available, ?array &$crossed, ?array &$messages = null ) {
+    public function getAvailableItemActions(Citizen $citizen, Item $item, ?array &$available, ?array &$crossed, ?array &$messages = null, bool $ignore_broken_flag = false ) {
 
         $available = $crossed = $messages = [];
-        if ($item->getBroken()) return;
+        if ($item->getBroken() && !$ignore_broken_flag) return;
 
         $is_at_00 = $citizen->getZone() && $citizen->getZone()->isTownZone();
         foreach ($item->getPrototype()->getActions() as $action) {
