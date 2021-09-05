@@ -3668,7 +3668,6 @@
       <notes>
         <note category="german">Details</note>
         <note category="from">twig:///templates/ajax/admin/reports/gpn-viewer.html.twig;twig:///templates/ajax/admin/reports/pn-viewer.html.twig;twig:///templates/ajax/forum/posts.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Details</source>
@@ -3679,7 +3678,6 @@
       <notes>
         <note category="german">Zusätzliche Informationen zu deiner Meldung (optional):</note>
         <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Zusätzliche Informationen zu deiner Meldung (optional):</source>

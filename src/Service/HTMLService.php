@@ -470,7 +470,7 @@ class HTMLService {
         self::ModulationHead => [
             'de' => ["..Gr..","...argh..","...ggh..","hust...","RAAH! ..",".. nein...","..der...","... Ich...","..raah..",".n...","stöhn...","..nng.."],
             'en' => ["..Gr..","...argh..","...ggh..","cough...","RAAH! ..",".. no...","..the...","... I...","..raah..",".n...","groan...","..nng.."],
-            'es' => ["..raah..","...argh..","..gnn..","grogne...","..Gn..","....","tousse...","RAAH !..","...ggh..","..le...","qu.. non...","... je...",".g..."], // ToDo: This is just a copy of the French one
+            'es' => ["..raah..","...argh..","..gnn..","..Gn..","....","RAAH !..","...ggh..",".g..."], // ToDo: This is just a copy of the French one, without the specifically french words
             'fr' => ["..raah..","...argh..","..gnn..","grogne...","..Gn..","....","tousse...","RAAH !..","...ggh..","..le...","qu.. non...","... je...",".g..."],
         ],
     ];

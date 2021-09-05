@@ -3929,7 +3929,6 @@
       <notes>
         <note category="german">Seele</note>
         <note category="from">twig:///templates/ajax/admin/users/pictos.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Seele</source>
@@ -3940,7 +3939,6 @@
       <notes>
         <note category="german">Alle</note>
         <note category="from">twig:///templates/ajax/admin/users/pictos.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Alle</source>
@@ -3962,7 +3960,6 @@
       <notes>
         <note category="german">Alt</note>
         <note category="from">twig:///templates/ajax/admin/users/pictos.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Alt</source>
