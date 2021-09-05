@@ -14412,5 +14412,29 @@
         <target>Der Angriff traf auch unsere Verteidigungsgegenstände! Wir haben insgesamt {num} verloren: {list}</target>
       </segment>
     </unit>
+    <unit id="zYCe3Qk" name="vor wenigen Augenblicken">
+      <segment>
+        <source>vor wenigen Augenblicken</source>
+        <target>vor wenigen Augenblicken</target>
+      </segment>
+    </unit>
+    <unit id="_VLdCGZ" name="heute morgen um {H}:{i}">
+      <segment>
+        <source>heute morgen um {H}:{i}</source>
+        <target>heute morgen um {H}:{i}</target>
+      </segment>
+    </unit>
+    <unit id="9GBymDW" name="heute nachmittag um {H}:{i}">
+      <segment>
+        <source>heute nachmittag um {H}:{i}</source>
+        <target>heute nachmittag um {H}:{i}</target>
+      </segment>
+    </unit>
+    <unit id="nw_7pSY" name="gestern um {H}:{i}">
+      <segment>
+        <source>gestern um {H}:{i}</source>
+        <target>gestern um {H}:{i}</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

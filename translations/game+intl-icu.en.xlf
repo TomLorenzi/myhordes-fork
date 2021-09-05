@@ -22660,5 +22660,45 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>Der Angriff traf auch unsere Verteidigungsgegenstände! Wir haben insgesamt {num} verloren: {list}</target>
       </segment>
     </unit>
+    <unit id="zYCe3Qk" name="vor wenigen Augenblicken">
+      <notes>
+        <note category="german">vor wenigen Augenblicken</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
+      </notes>
+      <segment>
+        <source>vor wenigen Augenblicken</source>
+        <target>a moment ago</target>
+      </segment>
+    </unit>
+    <unit id="_VLdCGZ" name="heute morgen um {H}:{i}">
+      <notes>
+        <note category="german">heute morgen um {H}:{i}</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
+      </notes>
+      <segment>
+        <source>heute morgen um {H}:{i}</source>
+        <target>at {H}:{i} this morning</target>
+      </segment>
+    </unit>
+    <unit id="9GBymDW" name="heute nachmittag um {H}:{i}">
+      <notes>
+        <note category="german">heute nachmittag um {H}:{i}</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
+      </notes>
+      <segment>
+        <source>heute nachmittag um {H}:{i}</source>
+        <target>at {H}:{i} this afternoon</target>
+      </segment>
+    </unit>
+    <unit id="nw_7pSY" name="gestern um {H}:{i}">
+      <notes>
+        <note category="german">gestern um {H}:{i}</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
+      </notes>
+      <segment>
+        <source>gestern um {H}:{i}</source>
+        <target>yesterday at {H}:{i}</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
