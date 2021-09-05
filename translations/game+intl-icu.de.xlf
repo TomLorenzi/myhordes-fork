@@ -14436,5 +14436,11 @@
         <target>gestern um {H}:{i}</target>
       </segment>
     </unit>
+    <unit id="7CsDwaN" name="Du kannst das Gebäude heute nicht erneut betreten, du bist zu verängstigt!">
+      <segment>
+        <source>Du kannst das Gebäude heute nicht erneut betreten, du bist zu verängstigt!</source>
+        <target>Du kannst das Gebäude heute nicht erneut betreten, du bist zu verängstigt!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

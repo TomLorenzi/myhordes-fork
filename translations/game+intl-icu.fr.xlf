@@ -22605,5 +22605,15 @@ cette violente opération...]]></target>
         <target>hier à {H}:{i}</target>
       </segment>
     </unit>
+    <unit id="7CsDwaN" name="Du kannst das Gebäude heute nicht erneut betreten, du bist zu verängstigt!">
+      <notes>
+        <note category="german">Du kannst das Gebäude heute nicht erneut betreten, du bist zu verängstigt!</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du kannst das Gebäude heute nicht erneut betreten, du bist zu verängstigt!</source>
+        <target>Vous ne pouvez pas rentrer dans ce bâtiment, vous êtes assez terrorisé comme ça !</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

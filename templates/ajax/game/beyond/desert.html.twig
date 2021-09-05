@@ -861,6 +861,7 @@
                             $.ajax.load(null, '{{ path('exploration_dashboard') }}', true);
                         } );
             {% elseif exploration_blocked_wound %}$.html.error('{{ 'Du kannst das Gebäude nicht betreten, deine offene Wunde würde sich sofort entzünden!'|trans({},'game')|e('js') }}');
+            {% elseif exploration_blocked_terror %}$.html.error('{{ 'Du kannst das Gebäude heute nicht erneut betreten, du bist zu verängstigt!'|trans({},'game')|e('js') }}');
             {% elseif exploration_blocked_in_use %}$.html.error('{{ 'Du kannst das Gebäude nicht betreten, es gibt dort nicht genug Sauerstoff für mehr als eine Person!'|trans({},'game')|e('js') }}');
             {% elseif exploration_blocked_already %}$.html.error('{{ 'Du kannst das Gebäude heute nicht erneut betreten, dein Körper würde das nicht aushalten!'|trans({},'game')|e('js') }}');
             {% else %}$.html.error('{{'Diese Aktion steht dir aktuell nicht zur Verfügung.'|trans({},'global')|e('js')}}');

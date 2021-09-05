@@ -22700,5 +22700,16 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>yesterday at {H}:{i}</target>
       </segment>
     </unit>
+    <unit id="7CsDwaN" name="Du kannst das Gebäude heute nicht erneut betreten, du bist zu verängstigt!">
+      <notes>
+        <note category="german">Du kannst das Gebäude heute nicht erneut betreten, du bist zu verängstigt!</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Du kannst das Gebäude heute nicht erneut betreten, du bist zu verängstigt!</source>
+        <target>Du kannst das Gebäude heute nicht erneut betreten, du bist zu verängstigt!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
