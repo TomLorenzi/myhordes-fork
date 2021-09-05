@@ -416,10 +416,12 @@ class MessageTownMessageController extends MessageController
             if ($report->getSourceUser()->getId() == $user->getId())
                 return AjaxResponse::success();
 
+        $details = $parser->trimmed('details');
         $newReport = (new AdminReport())
             ->setSourceUser($user)
             ->setTs(new DateTime('now'))
             ->setReason( $parser->get_int('reason', 0, 0, 10) )
+            ->setDetails( $details ?: null )
             ->setPm($post);
 
         $em->persist($newReport);

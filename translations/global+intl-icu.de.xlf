@@ -2271,5 +2271,17 @@
         <target>Das Zombie Survival Game!</target>
       </segment>
     </unit>
+    <unit id="RZid5J_" name="Details">
+      <segment>
+        <source>Details</source>
+        <target>Details</target>
+      </segment>
+    </unit>
+    <unit id="yqSnrUg" name="Zusätzliche Informationen zu deiner Meldung (optional):">
+      <segment>
+        <source>Zusätzliche Informationen zu deiner Meldung (optional):</source>
+        <target>Zusätzliche Informationen zu deiner Meldung (optional):</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

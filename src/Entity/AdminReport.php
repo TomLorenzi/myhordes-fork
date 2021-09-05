@@ -55,6 +55,11 @@ class AdminReport
      */
     private $reason = 0;
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $details = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -140,6 +145,18 @@ class AdminReport
     public function setReason(int $reason): self
     {
         $this->reason = $reason;
+
+        return $this;
+    }
+
+    public function getDetails(): ?string
+    {
+        return $this->details;
+    }
+
+    public function setDetails(?string $details): self
+    {
+        $this->details = $details;
 
         return $this;
     }
