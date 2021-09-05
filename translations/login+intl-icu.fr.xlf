@@ -787,7 +787,7 @@
       </notes>
       <segment>
         <source>Die E-Mail ist nicht angekommen?</source>
-        <target>Die E-Mail ist nicht angekommen?</target>
+        <target>Vous n'avez pas reçu l'email ?</target>
       </segment>
     </unit>
     <unit id="Tfm3hV." name="Erneut senden!">
@@ -798,7 +798,7 @@
       </notes>
       <segment>
         <source>Erneut senden!</source>
-        <target>Erneut senden!</target>
+        <target>Le renvoyer !</target>
       </segment>
     </unit>
     <unit id="ioXUEhL" name="Die Validierungs-Mail wurde erfolgreich gesendet.">
@@ -809,7 +809,7 @@
       </notes>
       <segment>
         <source>Die Validierungs-Mail wurde erfolgreich gesendet.</source>
-        <target>Die Validierungs-Mail wurde erfolgreich gesendet.</target>
+        <target>L’email de validation a été envoyé avec succès.</target>
       </segment>
     </unit>
     <unit id="I6yQ0Zq">
@@ -820,7 +820,7 @@
       </notes>
       <segment>
         <source>Du musst 5 Minuten warten, bevor du eine erneute E-Mail versenden kannst. Bitte prüfe in der Zwischenzeit, ob die Mail möglicherweise in deinem Spam-Ordner gelandet ist.</source>
-        <target>Du musst 5 Minuten warten, bevor du eine erneute E-Mail versenden kannst. Bitte prüfe in der Zwischenzeit, ob die Mail möglicherweise in deinem Spam-Ordner gelandet ist.</target>
+        <target>Vous devez attendre au moins 5 minutes avant de renvoyer l'email de validation. Veuillez vérifier votre dans le dossier spam en attendant.</target>
       </segment>
     </unit>
   </file>
