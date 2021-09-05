@@ -747,7 +747,7 @@ class TownController extends InventoryAwareController
 
         $direction = $parser->get('direction', '');
 
-        $up_inv   = $direction === 'down' ? $ac->getInventory() : $ac->getHome()->getChest();
+        $up_inv   = ($direction === 'down' || $c->getAlive()) ? $ac->getInventory() : $ac->getHome()->getChest();
         $down_inv = $c->getHome()->getChest();
         return $this->generic_item_api( $up_inv, $down_inv, false, $parser, $handler);
     }
