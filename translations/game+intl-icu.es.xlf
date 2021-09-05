@@ -22737,5 +22737,27 @@
         <target>Du kannst das Gebäude heute nicht erneut betreten, du bist zu verängstigt!</target>
       </segment>
     </unit>
+    <unit id="q5pHoRc">
+      <notes>
+        <note category="german">Ein oder mehrere Gegenstände wurden in dieser Zone von einem verbannten Bürger versteckt.</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Ein oder mehrere Gegenstände wurden in dieser Zone von einem verbannten Bürger versteckt.</source>
+        <target>Ein oder mehrere Gegenstände wurden in dieser Zone von einem verbannten Bürger versteckt.</target>
+      </segment>
+    </unit>
+    <unit id="6WlIVqN">
+      <notes>
+        <note category="german">Nur verbannte Bürger können Gegenstände sehen und aufheben, wenn diese von anderen verbannten Bürgern versteckt wurden.</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Nur verbannte Bürger können Gegenstände sehen und aufheben, wenn diese von anderen verbannten Bürgern versteckt wurden.</source>
+        <target>Nur verbannte Bürger können Gegenstände sehen und aufheben, wenn diese von anderen verbannten Bürgern versteckt wurden.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

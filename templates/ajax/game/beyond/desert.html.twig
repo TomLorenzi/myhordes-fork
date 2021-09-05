@@ -487,6 +487,12 @@
                             {% block class %}desert{% endblock %}
                             {% block title %}{% trans from 'game' %}Am Boden{% endtrans %}{% endblock %}
                         {% endembed %}
+                        {% if hidden_items %}
+                            <div class="help">
+                                {{ 'Ein oder mehrere Gegenstände wurden in dieser Zone von einem verbannten Bürger versteckt.'|trans({},'game') }}
+                                {{ help_btn('Nur verbannte Bürger können Gegenstände sehen und aufheben, wenn diese von anderen verbannten Bürgern versteckt wurden.'|trans({},'game')) }}
+                            </div>
+                        {% endif %}
                     {% endif %}
 
                     <h5>{{"Zonenmarkierer"|trans({}, 'game')}} <a class="help-button"><div class="tooltip help">{{ 'Der Markierer ist auf der Karte für ALLE Bürger sichtbar. Benutze ihn, um der Gemeinschaft Informationen über eine bestimmte Zone mitzuteilen.'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></h5>

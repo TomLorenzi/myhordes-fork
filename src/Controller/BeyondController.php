@@ -224,6 +224,7 @@ class BeyondController extends InventoryAwareController
     /**
      * @Route("jx/beyond/desert/{sect}", name="beyond_dashboard")
      * @param TownHandler $th
+     * @param string|null $sect
      * @return Response
      */
     public function desert(TownHandler $th, string $sect = null): Response
@@ -352,7 +353,12 @@ class BeyondController extends InventoryAwareController
             $zone_tags = $this->entity_manager->getRepository(ZoneTag::class)->findAll();
         }
 
+        $has_hidden_items =
+            $this->getActiveCitizen()->getBanished() &&
+            !$this->getActiveCitizen()->getZone()->getFloor()->getItems()->filter(function(Item $i) { return $i->getHidden(); })->isEmpty();
+
         return $this->render( 'ajax/game/beyond/desert.html.twig', $this->addDefaultTwigArgs(null, [
+            'hidden_items' => $has_hidden_items,
             'scout' => $this->getActiveCitizen()->getProfession()->getName() === 'hunter',
             'allow_enter_town' => $can_enter,
             'doors_open' => $town->getDoor(),

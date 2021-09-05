@@ -14442,5 +14442,17 @@
         <target>Du kannst das Gebäude heute nicht erneut betreten, du bist zu verängstigt!</target>
       </segment>
     </unit>
+    <unit id="q5pHoRc">
+      <segment>
+        <source>Ein oder mehrere Gegenstände wurden in dieser Zone von einem verbannten Bürger versteckt.</source>
+        <target>Ein oder mehrere Gegenstände wurden in dieser Zone von einem verbannten Bürger versteckt.</target>
+      </segment>
+    </unit>
+    <unit id="6WlIVqN">
+      <segment>
+        <source>Nur verbannte Bürger können Gegenstände sehen und aufheben, wenn diese von anderen verbannten Bürgern versteckt wurden.</source>
+        <target>Nur verbannte Bürger können Gegenstände sehen und aufheben, wenn diese von anderen verbannten Bürgern versteckt wurden.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
