@@ -229,15 +229,17 @@
                     input.id = "ap_amount";
                     input.style.marginBottom = "3px";
                     input.value = "1";
+                    input.setAttribute('min', 1);
+                    input.setAttribute('max', {{ app.user.activeCitizen.ap + app.user.activeCitizen.bp }});
+                    input.addEventListener("keyup", function(event) { if(event.key === "Enter") send_build_request()});
+
                     prompt.append(input);
 
                     let input_id = document.createElement("input");
                     input_id.setAttribute("type", "hidden");
                     input_id.id = "prompt_id";
-                    input.setAttribute('min', 1);
-                    input.setAttribute('max', {{ app.user.activeCitizen.ap + app.user.activeCitizen.bp }});
                     input_id.value = this.getAttribute('x-building-id');
-                    input.addEventListener("keyup", function(event) { if(event.key === "Enter") send_build_request()});
+
                     prompt.append(input_id);
 
                     let button = document.createElement("button");
