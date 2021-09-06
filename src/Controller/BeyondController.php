@@ -169,6 +169,7 @@ class BeyondController extends InventoryAwareController
         return parent::addDefaultTwigArgs( $section, array_merge( [
             'zone_players' => $zone_players,
             'zone_zombies' => max(0,$zone->getZombies()),
+            'zone_splatter' => max(0, $zone->getInitialZombies() - $zone->getZombies()),
             'can_attack_citizen' => !$this->citizen_handler->isTired($this->getActiveCitizen()) && $this->getActiveCitizen()->getAp() >= $this->getTownConf()->get(TownConf::CONF_MODIFIER_ATTACK_AP, 5) && !$this->citizen_handler->isWounded($this->getActiveCitizen()) && !$zone->isTownZone(),
             'can_devour_citizen' => $this->getActiveCitizen()->hasRole('ghoul') && !$zone->isTownZone(),
             'allow_devour_citizen' => !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_ghoul_eat'),

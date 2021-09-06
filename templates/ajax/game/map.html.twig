@@ -159,6 +159,11 @@
                                                 <div class="actor zombie" style="left: {{ random([random(15,95)]) }}%; top: {{ random([random(15,95)]) }}%"></div>
                                             {% endfor %}
                                         {% endif %}
+                                        {% if zone_splatter > 0 %}
+                                            {% for n in 1..zone_splatter %}
+                                                <div class="actor splatter" style="left: {{ random([random(15,95)]) }}%; top: {{ random([random(15,95)]) }}%"></div>
+                                            {% endfor %}
+                                        {% endif %}
                                     {% endif %}
 
                                     {% if current_surrounding.discoveryStatus != constant('App\\Entity\\Zone::DiscoveryStateNone') and current_surrounding.prototype %}
