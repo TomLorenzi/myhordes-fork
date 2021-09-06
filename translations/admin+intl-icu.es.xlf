@@ -3922,7 +3922,7 @@
       </notes>
       <segment>
         <source>Seele</source>
-        <target>Seele</target>
+        <target>Alma</target>
       </segment>
     </unit>
     <unit id="OAGjXFG" name="Alle">
@@ -3933,7 +3933,7 @@
       </notes>
       <segment>
         <source>Alle</source>
-        <target>Alle</target>
+        <target>Todos</target>
       </segment>
     </unit>
     <unit id="FhSRo_H" name="MyHordes">
@@ -3955,7 +3955,7 @@
       </notes>
       <segment>
         <source>Alt</source>
-        <target>Alt</target>
+        <target>Viejo</target>
       </segment>
     </unit>
   </file>
