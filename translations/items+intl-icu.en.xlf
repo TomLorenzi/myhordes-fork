@@ -8660,7 +8660,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Der Bürger hat das Wasser in einem Zug ausgetrunken. Das tut gut!</source>
-        <target>Der Bürger hat das Wasser in einem Zug ausgetrunken. Das tut gut!</target>
+        <target>The citizen gulps down your water ration... that's much better!</target>
       </segment>
     </unit>
     <unit id="sRDEqVL">
