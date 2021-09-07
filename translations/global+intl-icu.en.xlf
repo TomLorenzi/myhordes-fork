@@ -3612,7 +3612,7 @@
       </notes>
       <segment>
         <source>Dieser Spieler ist ein Administrator auf diesem Server.</source>
-        <target>This player is an administrator on this server.</target>
+        <target>This player is an administrator of MyHordes.</target>
       </segment>
     </unit>
     <unit id="TyNTK6_" name="Dieser Spieler ist ein Entwickler von MyHordes.">
