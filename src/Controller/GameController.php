@@ -103,7 +103,7 @@ class GameController extends CustomAbstractController
             'day' => $day,
             'today' => $day === $this->getActiveCitizen()->getTown()->getDay(),
             'entries' => $entries,
-            'canHideEntry' => $this->getActiveCitizen()->getAlive() && $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($this->getUser(), 'manipulator') && $this->getActiveCitizen()->getSpecificActionCounterValue(ActionCounter::ActionTypeRemoveLog) < $limit,
+            'canHideEntry' => $this->getActiveCitizen()->getAlive() && $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($this->getUser(), 'manipulator') && $this->getActiveCitizen()->getSpecificActionCounterValue(ActionCounter::ActionTypeRemoveLog) < $this->user_handler->getMaximumEntryHidden($this->getUser()),
         ] );
     }
 
