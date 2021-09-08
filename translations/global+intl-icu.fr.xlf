@@ -3589,7 +3589,7 @@
       </notes>
       <segment>
         <source>Dieser Spieler ist ein Administrator auf diesem Server.</source>
-        <target>Ce joueur est un administrateur sur ce serveur.</target>
+        <target>Ce joueur est un administrateur de MyHordes.</target>
       </segment>
     </unit>
     <unit id="TyNTK6_" name="Dieser Spieler ist ein Entwickler von MyHordes.">
