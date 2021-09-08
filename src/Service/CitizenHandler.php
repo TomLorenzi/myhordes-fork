@@ -562,6 +562,7 @@ class CitizenHandler
         $has_scout_protection = $this->inventory_handler->countSpecificItems(
                 $citizen->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'vest_on_#00'])
             ) > 0;
+        $is_panda = $town->getType()->getName() === 'panda';
 
         $config = $this->conf->getTownConfiguration($citizen->getTown());
 
@@ -656,9 +657,47 @@ class CitizenHandler
             ],
         ];
 
-        $camping_values['campings'] = $campings_map[$config->get(TownConf::CONF_MODIFIER_CAMPING_CHANCE_MAP, 'normal')][$has_pro_camper ? 'pro' : 'nonpro'][min(8,$citizen->getCampingCounter())];
+        //$camping_values['campings'] = $campings_map[$config->get(TownConf::CONF_MODIFIER_CAMPING_CHANCE_MAP, 'normal')][$has_pro_camper ? 'pro' : 'nonpro'][min(8,$citizen->getCampingCounter())];
+        // $camping_values['campings'] = -0.835 * pow($citizen->getCampingCounter(), 2) - 1.269 * $citizen->getCampingCounter();
 
-        $camping_values['campings'] = -0.835 * pow($citizen->getCampingCounter(), 2) - 1.269 * $citizen->getCampingCounter();
+        // Formula created & given by Ned/Arendil#1539
+        // https://cdn.discordapp.com/attachments/885080655975837719/885081809136795658/Camping_regression_1.xlsx
+        $camping_values['campings'] = 0;
+        if ($citizen->getCampingCounter() > 0) {
+            $z = (!$has_pro_camper && !$is_panda ? -0.00406746 : 0);
+            $a = $b = $c = $d = $e = $f = $g = $h = 0;
+
+            if($is_panda) {
+                $a = ($has_pro_camper ? 27.1 : -59.6);
+                $b = ($has_pro_camper ? -68.01 : 133);
+                $c = ($has_pro_camper ? 61.087 : -118.49);
+                $d = ($has_pro_camper ? -27.405 : 50.629);
+                $e = ($has_pro_camper ? 6.5818 : -11.431);
+                $f = ($has_pro_camper ? -0.85764 : 1.3667);
+                $g = ($has_pro_camper ? 0.056713 : -0.08055);
+                $h = ($has_pro_camper ? -0.001488 : 0.0017857);
+            } else {
+                $a = ($has_pro_camper ? 16.5 : -335);
+                $b = ($has_pro_camper ? -49.862 : 869.6);
+                $c = ($has_pro_camper ? 52.001 : -887.6);
+                $d = ($has_pro_camper ? -27.776 : 468.225);
+                $e = ($has_pro_camper ? 7.864 : -142.5951);
+                $f = ($has_pro_camper ? -1.2007 : 26.0125);
+                $g = ($has_pro_camper ? 0.093102 : -2.805556);
+                $h = ($has_pro_camper ? -0.002877 : 0.164881);
+            }
+            $camping_values['campings'] = round(
+                $z * pow($citizen->getCampingCounter(), 8) +
+                $h * pow($citizen->getCampingCounter(), 7) +
+                $g * pow($citizen->getCampingCounter(), 6) +
+                $f * pow($citizen->getCampingCounter(), 5) +
+                $e * pow($citizen->getCampingCounter(), 4) +
+                $d * pow($citizen->getCampingCounter(), 3) +
+                $c * pow($citizen->getCampingCounter(), 2) +
+                $b * pow($citizen->getCampingCounter(), 1) +
+                $a
+            );
+        }
 
         // Campers that are already hidden.
         $campers_map = [
