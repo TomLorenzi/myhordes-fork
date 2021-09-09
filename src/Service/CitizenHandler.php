@@ -686,7 +686,7 @@ class CitizenHandler
                 $g = ($has_pro_camper ? 0.093102 : -2.805556);
                 $h = ($has_pro_camper ? -0.002877 : 0.164881);
             }
-            $camping_values['campings'] = floor(
+            $camping_values['campings'] = intval(
                 $z * pow($citizen->getCampingCounter(), 8) +
                 $h * pow($citizen->getCampingCounter(), 7) +
                 $g * pow($citizen->getCampingCounter(), 6) +
