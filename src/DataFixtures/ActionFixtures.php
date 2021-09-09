@@ -369,8 +369,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'camp_unhide' => [ 'status' => [ 'from' => 'tg_hide', 'to' => null ] ],
             'camp_untomb' => [ 'status' => [ 'from' => 'tg_tomb', 'to' => null ] ],
 
-            'home_lab_success' => [ 'spawn' => 'lab_success_drugs', 'picto' => ['r_drgmkr_#00'] ],
-            'home_lab_failure' => [ 'spawn' => 'lab_fail_drugs' ],
+            'home_lab_success' => [ 'spawn' => 'lab_success_drugs', 'picto' => ['r_drgmkr_#00'], 'message' =>  ['text_key' => 'use_lab_success'] ],
+            'home_lab_failure' => [ 'spawn' => 'lab_fail_drugs', 'message' =>  ['text_key' => 'use_lab_fail'] ],
 
             'home_kitchen_success' => [ 'spawn' => 'kitchen_success_food', 'picto' => ['r_cookr_#00'] ],
             'home_kitchen_failure' => [ 'spawn' => 'kitchen_fail_food' ],
@@ -1415,7 +1415,9 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
         'read_blueprint'            => '<t-bp_ok>Du liest den {item} und stellst fest, dass es sich um einen Plan für {bp_spawn} handelt.</t-bp_ok><t-bp_parent>{hr}Dafür ist das Bauprojekt {bp_parent} nötig.</t-bp_parent><t-bp_fail>Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...</t-bp_fail>',
     
-        'use_lab'                   => 'In deinem Labor hast du {items_consume} in {items_spawn} umgewandelt.',
+        'use_lab'                   => 'Du zermahlst den Inhalt von {items_consume} auf dem Tisch und mischst ihn mit allem, was dir in die Hände fällt... und lässt ihn dann ziehen.',
+        'use_lab_fail'              => 'Der verdächtige Rauch, der aus der Mischung austritt, deutet darauf hin, dass <strong>nicht alles so gelaufen ist wie geplant</strong>. Du hast eine zufällige Droge erhalten: {items_spawn}',
+        'use_lab_success'           => 'Ein überragender Erfolg: Du hast {items_spawn} erhalten!',
         'use_kitchen'               => 'In deiner Küche hast du {items_consume} in {items_spawn} umgewandelt.',
         'use_butcher'               => 'Der Metzger hat sich gut um {item} gekümmert... Dafür hast du nun {items_spawn} erhalten. Auf wiedersehen, mein Freund!',
         'use_bed'                   => 'Du versuchst dich ein paar Minuten auszuruhen.<t-ap-up>Nach einer kurzen Pause fühlst du dich nun viel besser. Du hast 2 AP erhalten !</t-ap-up><nt-ap-up>Leider bekommst du kein Auge zu: Der Gedanke an heute Abend, deinen Tod, sowie deine geringen Überlebenschancen lassen dir keine Ruhe...</nt-ap-up>',
