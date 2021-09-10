@@ -32,7 +32,8 @@ parameters:
       auth: ~
       api: ~
       sk: ~
-      app: myhordes
+      return: ~
+      app: myhordes@clients
       dual-stack: true
     allow_raw_avatars: false
     soulpoints:

@@ -27,6 +27,7 @@ class MyHordesConf extends Conf
     const CONF_ETWIN_AUTH       = 'etwin.auth';
     const CONF_ETWIN_API        = 'etwin.api';
     const CONF_ETWIN_DUAL_STACK = 'etwin.dual-stack';
+    const CONF_ETWIN_RETURN_URI = 'etwin.return';
 
     const CONF_SOULPOINT_LIMIT_REMOTE        = 'soulpoints.limits.remote';
     const CONF_SOULPOINT_LIMIT_PANDA         = 'soulpoints.limits.panda';
