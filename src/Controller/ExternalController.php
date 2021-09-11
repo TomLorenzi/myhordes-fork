@@ -1117,8 +1117,28 @@ class ExternalController extends InventoryAwareController {
                         $data[$field] = $this->town->getDay();
                         break;
                     case "season":
-                        $data[$field] = (!is_null($this->town->getSeason())) ? $this->town->getSeason()->getNumber() : 0;
+                        $data[$field] = (!is_null($this->town->getSeason())) ? ($this->town->getSeason()->getNumber() ?: $this->town->getSeason()->getSubNumber()) : 0;
                         break;
+                    case "phase":
+                        if ($this->town->getSeason() === null)
+                            $data[$field] = 'alpha';
+                        elseif ($this->town->getSeason()->getNumber() === 0 && $this->town->getSeason()->getSubNumber() <= 14)
+                            $data[$field] = 'import';
+                        elseif ($this->town->getSeason()->getNumber() === 0 && $this->town->getSeason()->getSubNumber() >= 14)
+                            $data[$field] = 'beta';
+                        else
+                            $data[$field] = 'native';
+                        break;
+                    case "source":
+                        if ($this->town->getSeason()->getNumber() === 0 && $this->town->getSeason()->getSubNumber() <= 14)
+                            switch ($this->town->getLanguage()) {
+                                case 'de': $data[$field] = 'www.dieverdammten.de'; break;
+                                case 'en': $data[$field] = 'www.die2nite.com'; break;
+                                case 'es': $data[$field] = 'www.zombinoia.com'; break;
+                                case 'fr': $data[$field] = 'www.hordes.fr'; break;
+                                default: $data[$field] = ''; break;
+                            }
+                        else $data[$field] = 'www.myhordes.eu'; break;
                     case "bonusPts":
                         $data[$field] = 0;
                         break;
