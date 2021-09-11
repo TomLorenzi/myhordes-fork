@@ -3671,7 +3671,7 @@
       </notes>
       <segment>
         <source>Details</source>
-        <target>Details</target>
+        <target>Detalles</target>
       </segment>
     </unit>
     <unit id="yqSnrUg" name="Zusätzliche Informationen zu deiner Meldung (optional):">
@@ -3682,7 +3682,7 @@
       </notes>
       <segment>
         <source>Zusätzliche Informationen zu deiner Meldung (optional):</source>
-        <target>Zusätzliche Informationen zu deiner Meldung (optional):</target>
+        <target>Información adicional sobre su informe (opcional):</target>
       </segment>
     </unit>
   </file>

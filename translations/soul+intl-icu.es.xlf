@@ -3833,7 +3833,7 @@
       </notes>
       <segment>
         <source>Importierte Auszeichnungen</source>
-        <target>Premios importados</target>
+        <target>Logros Importados</target>
       </segment>
     </unit>
     <unit id="YHwfxav" name="Beta-Saison">
@@ -3874,7 +3874,7 @@
       </notes>
       <segment>
         <source>Alte Auszeichnungen</source>
-        <target>Alte Auszeichnungen</target>
+        <target>Logros Antiguos</target>
       </segment>
     </unit>
   </file>
