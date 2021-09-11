@@ -5737,5 +5737,23 @@
         <target><![CDATA[Dieser Gegenstand ist <strong class="red">kaputt</strong>. Du kannst ihn zur Zeit nicht gebrauchen. Vielleicht findest du in der Stadt eine gütige Seele, der ihn reparieren kann?]]></target>
       </segment>
     </unit>
+    <unit id="nPNoAvx">
+      <segment>
+        <source>Du zermahlst den Inhalt von {items_consume} auf dem Tisch und mischst ihn mit allem, was dir in die Hände fällt... und lässt ihn dann ziehen.</source>
+        <target>Du zermahlst den Inhalt von {items_consume} auf dem Tisch und mischst ihn mit allem, was dir in die Hände fällt... und lässt ihn dann ziehen.</target>
+      </segment>
+    </unit>
+    <unit id="qeC3d4b" name="Ein überragender Erfolg: Du hast {items_spawn} erhalten!">
+      <segment>
+        <source>Ein überragender Erfolg: Du hast {items_spawn} erhalten!</source>
+        <target>Ein überragender Erfolg: Du hast {items_spawn} erhalten!</target>
+      </segment>
+    </unit>
+    <unit id="RvnC1X2">
+      <segment>
+        <source>Der verdächtige Rauch, der aus der Mischung austritt, deutet darauf hin, dass &lt;strong&gt;nicht alles so gelaufen ist wie geplant&lt;/strong&gt;. Du hast eine zufällige Droge erhalten: {items_spawn}</source>
+        <target><![CDATA[Der verdächtige Rauch, der aus der Mischung austritt, deutet darauf hin, dass <strong>nicht alles so gelaufen ist wie geplant</strong>. Du hast eine zufällige Droge erhalten: {items_spawn}]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

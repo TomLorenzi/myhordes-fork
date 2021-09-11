@@ -3909,5 +3909,105 @@
         <target>Old Distinctions</target>
       </segment>
     </unit>
+    <unit id="lc.3X.C">
+      <notes>
+        <note category="german">In der Vergangenheit importierte Seelenpunkte, Auszeichnungen und Heldenerfahrung von dieser Seele sind deinem MyHordes-Profil gutgeschrieben worden. Neu hinzu gekommene Seelenpunkte, Auszeichnungen und Heldenerfahrung werden jedoch nur in einem gesonderten Bereich deiner Seele angezeigt.</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
+      </notes>
+      <segment>
+        <source>In der Vergangenheit importierte Seelenpunkte, Auszeichnungen und Heldenerfahrung von dieser Seele sind deinem MyHordes-Profil gutgeschrieben worden. Neu hinzu gekommene Seelenpunkte, Auszeichnungen und Heldenerfahrung werden jedoch nur in einem gesonderten Bereich deiner Seele angezeigt.</source>
+        <target>Previously imported soul points, distinctions, and hero experience from that soul have been credited to your MyHordes profile. However, newly added soul points, awards, and hero experience will only be displayed in a separate section of your soul.</target>
+      </segment>
+    </unit>
+    <unit id="l.Sx3SK">
+      <notes>
+        <note category="german">Hiermit markierst du die Seele, mit der du dich am meisten identifizierst. Es kann nur eine importierte Seele zur Hauptseele erklärt werden. Überlege dir deine Entscheidung gut, denn du kannst die Wahl deiner Hauptseele später nicht mehr ändern!</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
+      </notes>
+      <segment>
+        <source>Hiermit markierst du die Seele, mit der du dich am meisten identifizierst. Es kann nur eine importierte Seele zur Hauptseele erklärt werden. Überlege dir deine Entscheidung gut, denn du kannst die Wahl deiner Hauptseele später nicht mehr ändern!</source>
+        <target>With this, you can mark the soul with which you identify most. Only one imported soul can be declared the main soul. Think about your decision carefully, because you cannot change the choice of your main soul later!</target>
+      </segment>
+    </unit>
+    <unit id="9htmE0T">
+      <notes>
+        <note category="german">Da du bereits Punkte auf MyHordes gesammelt hast, kannst du nicht länger Seelenpunkte, Auszeichnungen und Heldenerfahrung von einer importierten Seele übernehmen.</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
+      </notes>
+      <segment>
+        <source>Da du bereits Punkte auf MyHordes gesammelt hast, kannst du nicht länger Seelenpunkte, Auszeichnungen und Heldenerfahrung von einer importierten Seele übernehmen.</source>
+        <target>Since you have already earned points on MyHordes, you can no longer transfer soul points, distinctions, and hero experience from an imported soul.</target>
+      </segment>
+    </unit>
+    <unit id="qDPKzOI" name="Achtung, der Seelenimport unterliegt aktuell zusätzlichen Einschränkungen.">
+      <notes>
+        <note category="german">Achtung, der Seelenimport unterliegt aktuell zusätzlichen Einschränkungen.</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
+      </notes>
+      <segment>
+        <source>Achtung, der Seelenimport unterliegt aktuell zusätzlichen Einschränkungen.</source>
+        <target>Attention, the soul import is currently subject to additional restrictions.</target>
+      </segment>
+    </unit>
+    <unit id="UfAt_R8">
+      <notes>
+        <note category="german">Um zu verhindern, dass Spieler Auszeichnungen, Seelenpunkte oder Heldenerfahrung farmen, indem sie gleichzeitig auf MyHordes und Hordes (oder einer lokalen Variante von Hordes) spielen, werden &lt;b&gt;neu gesammelte Auszeichnungen, SP oder Heldenerfahrung&lt;/b&gt; nicht länger zu deiner MH-Seele hinzugerechnet.</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
+      </notes>
+      <segment>
+        <source>Um zu verhindern, dass Spieler Auszeichnungen, Seelenpunkte oder Heldenerfahrung farmen, indem sie gleichzeitig auf MyHordes und Hordes (oder einer lokalen Variante von Hordes) spielen, werden &lt;b&gt;neu gesammelte Auszeichnungen, SP oder Heldenerfahrung&lt;/b&gt; nicht länger zu deiner MH-Seele hinzugerechnet.</source>
+        <target><![CDATA[To prevent players from farming distinctions, soul points, or hero experience by playing on MyHordes and Hordes (or a local variant of Hordes) at the same time, <b>newly collected distinctions, SP, or hero experience</b> will no longer be added to your MH soul.]]></target>
+      </segment>
+    </unit>
+    <unit id="33LWSL0">
+      <notes>
+        <note category="german">Diese Einschränkung betrifft alle Spieler, die auf MyHordes bereits &lt;b&gt;mehr als {threshold} Seelenpunkte&lt;/b&gt; gesammelt haben.</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
+      </notes>
+      <segment>
+        <source>Diese Einschränkung betrifft alle Spieler, die auf MyHordes bereits &lt;b&gt;mehr als {threshold} Seelenpunkte&lt;/b&gt; gesammelt haben.</source>
+        <target><![CDATA[This restriction affects all players who have already accumulated <b>more than {threshold} soul points</b> on MyHordes.]]></target>
+      </segment>
+    </unit>
+    <unit id="YKpGK6P">
+      <notes>
+        <note category="german">Es werden nach wie vor alle Informationen aus deiner importierten Seele auf MyHordes gespeichert. Durch den Import &lt;b&gt;neu&lt;/b&gt; gewonnene Auszeichnungen, SP oder Heldenerfahrung wird jedoch &lt;b&gt;nur noch in einem gesonderten Bereich&lt;/b&gt; auf deiner MH-Seele angezeigt.</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
+      </notes>
+      <segment>
+        <source>Es werden nach wie vor alle Informationen aus deiner importierten Seele auf MyHordes gespeichert. Durch den Import &lt;b&gt;neu&lt;/b&gt; gewonnene Auszeichnungen, SP oder Heldenerfahrung wird jedoch &lt;b&gt;nur noch in einem gesonderten Bereich&lt;/b&gt; auf deiner MH-Seele angezeigt.</source>
+        <target><![CDATA[All information from your imported soul will still be stored on MyHordes. However, <b>new</b> distinctions, SP or hero experience gained through the import will <b>only be displayed in a separate area</b> on your MH soul.]]></target>
+      </segment>
+    </unit>
+    <unit id="FgytNDj" name="Du kannst deine Seele aktuell &lt;b&gt;ohne Einschränkungen&lt;/b&gt; importieren.">
+      <notes>
+        <note category="german">Du kannst deine Seele aktuell &lt;b&gt;ohne Einschränkungen&lt;/b&gt; importieren.</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du kannst deine Seele aktuell &lt;b&gt;ohne Einschränkungen&lt;/b&gt; importieren.</source>
+        <target><![CDATA[You can currently import your soul <b>without restrictions</b>.]]></target>
+      </segment>
+    </unit>
+    <unit id="UeSGb7T" name="Importierte Seelen">
+      <notes>
+        <note category="german">Importierte Seelen</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>Importierte Seelen</source>
+        <target>Imported souls</target>
+      </segment>
+    </unit>
+    <unit id="7fBaUak">
+      <notes>
+        <note category="german">&lt;b&gt;Wenn du sie in der Vergangenheit importiert hast&lt;/b&gt;, kannst du sie dir hier ansehen!</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>&lt;b&gt;Wenn du sie in der Vergangenheit importiert hast&lt;/b&gt;, kannst du sie dir hier ansehen!</source>
+        <target><![CDATA[<b>If you've imported them in the past</b>, you can view them here!]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -3584,7 +3584,7 @@
     </unit>
     <unit id="cEUwQw8" name="Dieser Spieler ist ein Administrator auf diesem Server.">
       <notes>
-        <note category="german">Dieser Spieler ist ein Administrator auf diesem Server.</note>
+        <note category="german">Dieser Spieler ist ein Administrator von MyHordes.</note>
         <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/forum/posts_small.html.twig</note>
       </notes>
       <segment>

@@ -792,7 +792,6 @@
       <notes>
         <note category="german">Die E-Mail ist nicht angekommen?</note>
         <note category="from">twig:///templates/ajax/public/validate.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Die E-Mail ist nicht angekommen?</source>
@@ -803,7 +802,6 @@
       <notes>
         <note category="german">Erneut senden!</note>
         <note category="from">twig:///templates/ajax/public/validate.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Erneut senden!</source>
@@ -814,7 +812,6 @@
       <notes>
         <note category="german">Die Validierungs-Mail wurde erfolgreich gesendet.</note>
         <note category="from">twig:///templates/ajax/public/validate.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Die Validierungs-Mail wurde erfolgreich gesendet.</source>
@@ -825,7 +822,6 @@
       <notes>
         <note category="german">Du musst 5 Minuten warten, bevor du eine erneute E-Mail versenden kannst. Bitte prüfe in der Zwischenzeit, ob die Mail möglicherweise in deinem Spam-Ordner gelandet ist.</note>
         <note category="from">twig:///templates/scripts/errors/profile.txt.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Du musst 5 Minuten warten, bevor du eine erneute E-Mail versenden kannst. Bitte prüfe in der Zwischenzeit, ob die Mail möglicherweise in deinem Spam-Ordner gelandet ist.</source>

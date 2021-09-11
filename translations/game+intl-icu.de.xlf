@@ -14454,5 +14454,11 @@
         <target>Nur verbannte Bürger können Gegenstände sehen und aufheben, wenn diese von anderen verbannten Bürgern versteckt wurden.</target>
       </segment>
     </unit>
+    <unit id="kVCmkiM" name="Barhändiger Stripper">
+      <segment>
+        <source>Barhändiger Stripper</source>
+        <target>Barhändiger Stripper</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

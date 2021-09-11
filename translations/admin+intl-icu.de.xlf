@@ -2521,5 +2521,17 @@
         <target>Alt</target>
       </segment>
     </unit>
+    <unit id="lOtZ4.p" name="Eingeschränkter Import">
+      <segment>
+        <source>Eingeschränkter Import</source>
+        <target>Eingeschränkter Import</target>
+      </segment>
+    </unit>
+    <unit id="mBqJlZa" name="Hauptseele ohne Einschränkungen importieren">
+      <segment>
+        <source>Hauptseele ohne Einschränkungen importieren</source>
+        <target>Hauptseele ohne Einschränkungen importieren</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

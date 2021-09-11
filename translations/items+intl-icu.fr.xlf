@@ -9253,7 +9253,6 @@
       <notes>
         <note category="german">Ein überragender Erfolg: Du hast {items_spawn} erhalten!</note>
         <note category="from">db://AffectMessage</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ein überragender Erfolg: Du hast {items_spawn} erhalten!</source>

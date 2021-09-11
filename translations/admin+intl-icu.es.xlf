@@ -3918,7 +3918,6 @@
       <notes>
         <note category="german">Seele</note>
         <note category="from">twig:///templates/ajax/admin/users/pictos.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Seele</source>
@@ -3929,7 +3928,6 @@
       <notes>
         <note category="german">Alle</note>
         <note category="from">twig:///templates/ajax/admin/users/pictos.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Alle</source>
@@ -3951,11 +3949,32 @@
       <notes>
         <note category="german">Alt</note>
         <note category="from">twig:///templates/ajax/admin/users/pictos.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Alt</source>
         <target>Viejo</target>
+      </segment>
+    </unit>
+    <unit id="lOtZ4.p" name="Eingeschränkter Import">
+      <notes>
+        <note category="german">Eingeschränkter Import</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Eingeschränkter Import</source>
+        <target>Eingeschränkter Import</target>
+      </segment>
+    </unit>
+    <unit id="mBqJlZa" name="Hauptseele ohne Einschränkungen importieren">
+      <notes>
+        <note category="german">Hauptseele ohne Einschränkungen importieren</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Hauptseele ohne Einschränkungen importieren</source>
+        <target>Hauptseele ohne Einschränkungen importieren</target>
       </segment>
     </unit>
   </file>

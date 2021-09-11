@@ -22591,7 +22591,6 @@
       <notes>
         <note category="german">Dieser Bürger wurde aus der Gemeinschaft verbannt; er hat nicht länger Zugang zu den Gebäuden der Stadt, mit Ausnahme des Brunnens (wobei er auf eine Ration pro Tag eingeschränkt ist).</note>
         <note category="from">php:///src/Controller/Town/TownController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Dieser Bürger wurde aus der Gemeinschaft verbannt; er hat nicht länger Zugang zu den Gebäuden der Stadt, mit Ausnahme des Brunnens (wobei er auf eine Ration pro Tag eingeschränkt ist).</source>
@@ -22602,7 +22601,6 @@
       <notes>
         <note category="german">Die Ratten haben das Schiff schon vor Tagen verlassen... Diese Stadt ist nur noch ein Schatten ihrer selbst.</note>
         <note category="from">db://LogEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Die Ratten haben das Schiff schon vor Tagen verlassen... Diese Stadt ist nur noch ein Schatten ihrer selbst.</source>
@@ -22613,7 +22611,6 @@
       <notes>
         <note category="german">Ermordet zu werden ist äußerst ärgerlich (ja, wirklich!). Aber wir bitten dich dringend, &lt;u&gt;die Identität deines Mörders gegenüber deinen ehemaligen Mitbürgern nicht aufzudecken&lt;/u&gt;... Lass ihnen das Vergnügen, selbst ermitteln zu müssen!</note>
         <note category="from">twig:///templates/ajax/soul/death.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ermordet zu werden ist äußerst ärgerlich (ja, wirklich!). Aber wir bitten dich dringend, &lt;u&gt;die Identität deines Mörders gegenüber deinen ehemaligen Mitbürgern nicht aufzudecken&lt;/u&gt;... Lass ihnen das Vergnügen, selbst ermitteln zu müssen!</source>
@@ -22624,7 +22621,6 @@
       <notes>
         <note category="german">Fortfahren...</note>
         <note category="from">twig:///templates/ajax/soul/death.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Fortfahren...</source>
@@ -22655,7 +22651,6 @@
       <notes>
         <note category="german">Inmitten dieser Zombiehorde konnten wir &lt;i class="dagger"&gt;†&lt;/i&gt; {citizen} entdecken! Nach seinem Tod in der Aussenwelt hat dieser frisch in einen Zombie verwandelte Mitbürger wohl neue Freunde gefunden!</note>
         <note category="from">db://LogEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Inmitten dieser Zombiehorde konnten wir &lt;i class="dagger"&gt;†&lt;/i&gt; {citizen} entdecken! Nach seinem Tod in der Aussenwelt hat dieser frisch in einen Zombie verwandelte Mitbürger wohl neue Freunde gefunden!</source>
@@ -22666,7 +22661,6 @@
       <notes>
         <note category="german">Von der Stadtverteidigung aufgehalten, kehrte &lt;i class="dagger"&gt;†&lt;/i&gt; {citizen} grunzend und torkelnd zu seinen neuen verschimmelten Freunden zurück...</note>
         <note category="from">db://LogEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Von der Stadtverteidigung aufgehalten, kehrte &lt;i class="dagger"&gt;†&lt;/i&gt; {citizen} grunzend und torkelnd zu seinen neuen verschimmelten Freunden zurück...</source>
@@ -22677,7 +22671,6 @@
       <notes>
         <note category="german">Der Angriff traf auch unsere Verteidigungsgegenstände! Wir haben insgesamt {num} verloren: {list}</note>
         <note category="from">db://LogEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Der Angriff traf auch unsere Verteidigungsgegenstände! Wir haben insgesamt {num} verloren: {list}</source>
@@ -22688,7 +22681,6 @@
       <notes>
         <note category="german">vor wenigen Augenblicken</note>
         <note category="from">php:///src/Controller/Town/TownController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>vor wenigen Augenblicken</source>
@@ -22709,7 +22701,6 @@
       <notes>
         <note category="german">heute nachmittag um {H}:{i}</note>
         <note category="from">php:///src/Controller/Town/TownController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>heute nachmittag um {H}:{i}</source>
@@ -22730,7 +22721,6 @@
       <notes>
         <note category="german">Du kannst das Gebäude heute nicht erneut betreten, du bist zu verängstigt!</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Du kannst das Gebäude heute nicht erneut betreten, du bist zu verängstigt!</source>
@@ -22741,7 +22731,6 @@
       <notes>
         <note category="german">Ein oder mehrere Gegenstände wurden in dieser Zone von einem verbannten Bürger versteckt.</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ein oder mehrere Gegenstände wurden in dieser Zone von einem verbannten Bürger versteckt.</source>
@@ -22752,11 +22741,21 @@
       <notes>
         <note category="german">Nur verbannte Bürger können Gegenstände sehen und aufheben, wenn diese von anderen verbannten Bürgern versteckt wurden.</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Nur verbannte Bürger können Gegenstände sehen und aufheben, wenn diese von anderen verbannten Bürgern versteckt wurden.</source>
         <target>Solo los habitantes desterrados pueden ver y recoger artículos si han sido ocultos por otros habitante desterrados.</target>
+      </segment>
+    </unit>
+    <unit id="kVCmkiM" name="Barhändiger Stripper">
+      <notes>
+        <note category="german">Barhändiger Stripper</note>
+        <note category="from">db://AwardPrototype</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Barhändiger Stripper</source>
+        <target>Barhändiger Stripper</target>
       </segment>
     </unit>
   </file>
