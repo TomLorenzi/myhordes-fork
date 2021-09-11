@@ -181,10 +181,10 @@ class InventoryAwareController extends CustomAbstractController
                 if ($definition->getTag())
                     foreach ($this->inventory_handler->resolveItemProperties($definition->getTag()) as &$prop)
                         /** @var $prop ItemPrototype */
-                        $targets[] = [ $prop->getId(), $this->translator->trans( $prop->getLabel(), [], 'items' ), "build/images/item/item_{$prop->getIcon()}.gif" ];
+                        $targets[] = [ $prop->getId(), $this->translator->trans( $prop->getLabel(), [], 'items' ), "build/images/item/item_{$prop->getIcon()}.gif", $prop ];
 
                 if ($definition->getPrototype())
-                    $targets[] = [ $definition->getPrototype()->getId(), $this->translator->trans( $definition->getPrototype()->getLabel(), [], 'items' ), "build/images/item/item_{$definition->getPrototype()->getIcon()}.gif" ];
+                    $targets[] = [ $definition->getPrototype()->getId(), $this->translator->trans( $definition->getPrototype()->getLabel(), [], 'items' ), "build/images/item/item_{$definition->getPrototype()->getIcon()}.gif", $definition->getPrototype() ];
 
                 break;
             case ItemTargetDefinition::ItemHeroicRescueType:

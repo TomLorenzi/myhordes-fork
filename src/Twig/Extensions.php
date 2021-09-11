@@ -199,7 +199,13 @@ class Extensions extends AbstractExtension  implements GlobalsInterface
         return $g;
     }
 
-    public function fetch_watch_points(Item $item): int {
+    /**
+     * @param Item|ItemPrototype $item
+     * @return int
+     */
+    public function fetch_watch_points($item): int {
+
+        if ($this->instance_of($item, ItemPrototype::class)) return $item->getWatchpoint();
         if ($item->getInventory() === null) return $item->getPrototype()->getWatchpoint();
 
         $town = null;
