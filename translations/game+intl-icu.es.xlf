@@ -22158,7 +22158,7 @@
       </notes>
       <segment>
         <source>Deine Beschwerde ist der Tropfen, der das Fass zum Überlaufen brachte... Die Bürger haben sich in Scharen gegen &lt;strong&gt;{citizen}&lt;/strong&gt; ausgesprochen.</source>
-        <target><![CDATA[Su denuncia es la gota que derramo el vaso.... Los habitantes se han pronunciado en masa contra <strong>{citizen}</strong>.]]></target>
+        <target><![CDATA[Tu denuncia es la gota que hizo derramar el vaso... ¡Muchos otros habitantes habían denunciado a <strong>{citizen}</strong>!]]></target>
       </segment>
     </unit>
     <unit id="9QvAvnX">
@@ -22595,7 +22595,7 @@
       </notes>
       <segment>
         <source>Dieser Bürger wurde aus der Gemeinschaft verbannt; er hat nicht länger Zugang zu den Gebäuden der Stadt, mit Ausnahme des Brunnens (wobei er auf eine Ration pro Tag eingeschränkt ist).</source>
-        <target>Este habitante fue desterrado de la comunidad; ya no tiene acceso a ninguno de los edificios del pueblo, a excepción del pozo (está restringido a una ración por día).</target>
+        <target>Ese habitante ha sido desterrado de la comunidad: ya no tendrá acceso a los recursos del pueblo, con excepción del pozo (limitado a la ración diaria y nada más).</target>
       </segment>
     </unit>
     <unit id="Xrx5c_.">
