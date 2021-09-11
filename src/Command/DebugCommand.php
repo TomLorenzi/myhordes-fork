@@ -27,6 +27,7 @@ use App\Service\TownHandler;
 use App\Service\TwinoidHandler;
 use App\Service\UserHandler;
 use App\Structures\EventConf;
+use App\Structures\MyHordesConf;
 use DateTime;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
@@ -410,27 +411,14 @@ class DebugCommand extends Command
         if ($input->getOption('reapply-twinoid-data')) {
             /** @var TwinoidImport[] $all_imports */
 
-            $tc = $this->entity_manager->getRepository(TwinoidImport::class)->count([]);
-            $tc_chunk = 0;
+            $limited = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_LIMITED, false);
+            $threshold = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_SP_THRESHOLD, -1);
 
-            $output->writeln("Processing <info>$tc</info> entries...");
-            $progress = new ProgressBar( $output->section() );
-            $progress->start( $tc );
+            $this->helper->leChunk($output, TwinoidImport::class, 50, [], true, true, function(TwinoidImport $import) use ($limited,$threshold) {
+                $limit = $limited && $import->getUser()->getSoulPoints() > $threshold;
+                $this->twin->importData($import->getUser(), $import->getScope(), $import->getData($this->entity_manager), $import->getMain(), $limit);
+            }, true);
 
-            while ($tc_chunk < $tc) {
-
-                $all_imports = $this->entity_manager->getRepository(TwinoidImport::class)->findBy([], ['id' => 'ASC'], 50, $tc_chunk);
-                foreach ($all_imports as $import)
-                    if ($this->twin->importData($import->getUser(), $import->getScope(), $import->getData($this->entity_manager), $import->getMain())) {
-                        $this->entity_manager->persist($import->getUser());
-                        $tc_chunk++;
-                    }
-                $this->entity_manager->flush();
-                $progress->setProgress($tc_chunk);
-            }
-
-
-            $progress->finish();
             $output->writeln("OK.");
         }
 

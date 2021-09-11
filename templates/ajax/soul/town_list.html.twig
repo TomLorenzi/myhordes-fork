@@ -61,7 +61,7 @@
                 {% endif %}
             </div>
             <div class="cell padded rw-2 center town-points bold">
-                {% if not incarnation.disabled and not incarnation.town.disabled %}
+                {% if not (incarnation.disabled and not incarnation.limitedImport) and not incarnation.town.disabled %}
                     +{{incarnation.points}}
                 {% else %}
                     <div>

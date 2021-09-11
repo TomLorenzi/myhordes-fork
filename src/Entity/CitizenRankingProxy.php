@@ -115,6 +115,11 @@ class CitizenRankingProxy
      */
     private $disabled = false;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $limitedImport = false;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -368,6 +373,18 @@ class CitizenRankingProxy
     public function setDisabled(bool $disabled): self
     {
         $this->disabled = $disabled;
+
+        return $this;
+    }
+
+    public function getLimitedImport(): ?bool
+    {
+        return $this->limitedImport;
+    }
+
+    public function setLimitedImport(bool $limitedImport): self
+    {
+        $this->limitedImport = $limitedImport;
 
         return $this;
     }

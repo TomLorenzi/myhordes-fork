@@ -46,4 +46,9 @@ class MyHordesConf extends Conf
 
     const CONF_ANTI_GRIEF_SP  = 'anti-grief.min-sp';
     const CONF_ANTI_GRIEF_REG = 'anti-grief.reg-limit';
+
+    const CONF_IMPORT_ENABLED = 'soul_import.enabled';
+    const CONF_IMPORT_READONLY = 'soul_import.readonly';
+    const CONF_IMPORT_LIMITED = 'soul_import.limited';
+    const CONF_IMPORT_SP_THRESHOLD = 'soul_import.sp_threshold';
 }
