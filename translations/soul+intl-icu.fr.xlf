@@ -3892,7 +3892,7 @@
       </notes>
       <segment>
         <source>In der Vergangenheit importierte Seelenpunkte, Auszeichnungen und Heldenerfahrung von dieser Seele sind deinem MyHordes-Profil gutgeschrieben worden. Neu hinzu gekommene Seelenpunkte, Auszeichnungen und Heldenerfahrung werden jedoch nur in einem gesonderten Bereich deiner Seele angezeigt.</source>
-        <target>In der Vergangenheit importierte Seelenpunkte, Auszeichnungen und Heldenerfahrung von dieser Seele sind deinem MyHordes-Profil gutgeschrieben worden. Neu hinzu gekommene Seelenpunkte, Auszeichnungen und Heldenerfahrung werden jedoch nur in einem gesonderten Bereich deiner Seele angezeigt.</target>
+        <target>Les points d’âme précédemment importés, les distinctions et l’expérience héroïque de cette âme ont été ajoutés sur votre profil MyHordes. Cependant, les points d’âme, les récompenses et l’expérience de héros nouvellement ajoutés ne seront affichés que dans une section distincte de votre âme.</target>
       </segment>
     </unit>
     <unit id="l.Sx3SK">
@@ -3903,7 +3903,7 @@
       </notes>
       <segment>
         <source>Hiermit markierst du die Seele, mit der du dich am meisten identifizierst. Es kann nur eine importierte Seele zur Hauptseele erklärt werden. Überlege dir deine Entscheidung gut, denn du kannst die Wahl deiner Hauptseele später nicht mehr ändern!</source>
-        <target>Hiermit markierst du die Seele, mit der du dich am meisten identifizierst. Es kann nur eine importierte Seele zur Hauptseele erklärt werden. Überlege dir deine Entscheidung gut, denn du kannst die Wahl deiner Hauptseele später nicht mehr ändern!</target>
+        <target>Avec cela, vous pouvez définir comme âme principale celle à laquelle vous vous identifiez le plus. Une seule âme importée peut être déclarée âme principale. Réfléchissez bien à votre décision, car vous ne pourrez plus changer votre âme principale !</target>
       </segment>
     </unit>
     <unit id="9htmE0T">
@@ -3914,7 +3914,7 @@
       </notes>
       <segment>
         <source>Da du bereits Punkte auf MyHordes gesammelt hast, kannst du nicht länger Seelenpunkte, Auszeichnungen und Heldenerfahrung von einer importierten Seele übernehmen.</source>
-        <target>Da du bereits Punkte auf MyHordes gesammelt hast, kannst du nicht länger Seelenpunkte, Auszeichnungen und Heldenerfahrung von einer importierten Seele übernehmen.</target>
+        <target>Puisque vous avez déjà gagné des points sur MyHordes, vous ne pouvez plus transférer de points d’âme, de distinctions et d’expérience héroïque à partir d’une âme importée.</target>
       </segment>
     </unit>
     <unit id="qDPKzOI" name="Achtung, der Seelenimport unterliegt aktuell zusätzlichen Einschränkungen.">
@@ -3925,7 +3925,7 @@
       </notes>
       <segment>
         <source>Achtung, der Seelenimport unterliegt aktuell zusätzlichen Einschränkungen.</source>
-        <target>Achtung, der Seelenimport unterliegt aktuell zusätzlichen Einschränkungen.</target>
+        <target>Attention, l’importation d'âme est actuellement soumise à des restrictions supplémentaires.</target>
       </segment>
     </unit>
     <unit id="UfAt_R8">
@@ -3936,7 +3936,7 @@
       </notes>
       <segment>
         <source>Um zu verhindern, dass Spieler Auszeichnungen, Seelenpunkte oder Heldenerfahrung farmen, indem sie gleichzeitig auf MyHordes und Hordes (oder einer lokalen Variante von Hordes) spielen, werden &lt;b&gt;neu gesammelte Auszeichnungen, SP oder Heldenerfahrung&lt;/b&gt; nicht länger zu deiner MH-Seele hinzugerechnet.</source>
-        <target><![CDATA[Um zu verhindern, dass Spieler Auszeichnungen, Seelenpunkte oder Heldenerfahrung farmen, indem sie gleichzeitig auf MyHordes und Hordes (oder einer lokalen Variante von Hordes) spielen, werden <b>neu gesammelte Auszeichnungen, SP oder Heldenerfahrung</b> nicht länger zu deiner MH-Seele hinzugerechnet.]]></target>
+        <target><![CDATA[Pour empêcher les joueurs de farmer des distinctions, des points d’âme ou de l’expérience héroïque en jouant sur MyHordes et Hordes (ou une variante de Hordes) en même temps, les <b>distinctions nouvellement collectées, points d'âme ou expérience héroïque</b> ne seront plus ajoutés à votre âme MH.]]></target>
       </segment>
     </unit>
     <unit id="33LWSL0">
@@ -3947,7 +3947,7 @@
       </notes>
       <segment>
         <source>Diese Einschränkung betrifft alle Spieler, die auf MyHordes bereits &lt;b&gt;mehr als {threshold} Seelenpunkte&lt;/b&gt; gesammelt haben.</source>
-        <target><![CDATA[Diese Einschränkung betrifft alle Spieler, die auf MyHordes bereits <b>mehr als {threshold} Seelenpunkte</b> gesammelt haben.]]></target>
+        <target><![CDATA[Cette restriction affecte tous les joueurs qui ont déjà accumulé <b>plus de {threshold} points d'âme</b> sur MyHordes.]]></target>
       </segment>
     </unit>
     <unit id="YKpGK6P">
@@ -3958,7 +3958,7 @@
       </notes>
       <segment>
         <source>Es werden nach wie vor alle Informationen aus deiner importierten Seele auf MyHordes gespeichert. Durch den Import &lt;b&gt;neu&lt;/b&gt; gewonnene Auszeichnungen, SP oder Heldenerfahrung wird jedoch &lt;b&gt;nur noch in einem gesonderten Bereich&lt;/b&gt; auf deiner MH-Seele angezeigt.</source>
-        <target><![CDATA[Es werden nach wie vor alle Informationen aus deiner importierten Seele auf MyHordes gespeichert. Durch den Import <b>neu</b> gewonnene Auszeichnungen, SP oder Heldenerfahrung wird jedoch <b>nur noch in einem gesonderten Bereich</b> auf deiner MH-Seele angezeigt.]]></target>
+        <target><![CDATA[Toutes les informations de votre âme importée seront toujours stockées sur MyHordes. Cependant, les <b>nouvelles distinctions</b>, points d'âme ou expérience héroïque acquis grâce à l’importation seront <b>affichés dans une zone séparée</b> sur votre âme MH.]]></target>
       </segment>
     </unit>
     <unit id="FgytNDj" name="Du kannst deine Seele aktuell &lt;b&gt;ohne Einschränkungen&lt;/b&gt; importieren.">
@@ -3969,7 +3969,7 @@
       </notes>
       <segment>
         <source>Du kannst deine Seele aktuell &lt;b&gt;ohne Einschränkungen&lt;/b&gt; importieren.</source>
-        <target><![CDATA[Du kannst deine Seele aktuell <b>ohne Einschränkungen</b> importieren.]]></target>
+        <target><![CDATA[Vous pouvez actuellement importer votre âme <b>sans restrictions</b>.]]></target>
       </segment>
     </unit>
     <unit id="UeSGb7T" name="Importierte Seelen">
@@ -3980,7 +3980,7 @@
       </notes>
       <segment>
         <source>Importierte Seelen</source>
-        <target>Importierte Seelen</target>
+        <target>Âmes importées</target>
       </segment>
     </unit>
     <unit id="7fBaUak">
@@ -3991,7 +3991,7 @@
       </notes>
       <segment>
         <source>&lt;b&gt;Wenn du sie in der Vergangenheit importiert hast&lt;/b&gt;, kannst du sie dir hier ansehen!</source>
-        <target><![CDATA[<b>Wenn du sie in der Vergangenheit importiert hast</b>, kannst du sie dir hier ansehen!]]></target>
+        <target><![CDATA[<b>Si vous les avez importées dans le passé</b>, vous pouvez les consulter ici !]]></target>
       </segment>
     </unit>
   </file>
