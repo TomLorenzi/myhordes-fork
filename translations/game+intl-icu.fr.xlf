@@ -22648,5 +22648,15 @@ cette violente opération...]]></target>
         <target>Barhändiger Stripper</target>
       </segment>
     </unit>
+    <unit id="RCyh4IV">
+      <notes>
+        <note category="german">Für die vollständige Instandsetzung dieses Gebäudes sind noch {remaining} AP erforderlich.</note>
+        <note category="from">twig:///templates/ajax/game/town/construction.html.twig</note>
+      </notes>
+      <segment>
+        <source>Für die vollständige Instandsetzung dieses Gebäudes sind noch {remaining} AP erforderlich.</source>
+        <target>La réparation complète de ce chantier nécessite encore {remaining} PA.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

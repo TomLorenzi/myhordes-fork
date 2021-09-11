@@ -14460,5 +14460,11 @@
         <target>Barhändiger Stripper</target>
       </segment>
     </unit>
+    <unit id="RCyh4IV">
+      <segment>
+        <source>Für die vollständige Instandsetzung dieses Gebäudes sind noch {remaining} AP erforderlich.</source>
+        <target>Für die vollständige Instandsetzung dieses Gebäudes sind noch {remaining} AP erforderlich.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

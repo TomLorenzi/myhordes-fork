@@ -1389,7 +1389,6 @@
       <notes>
         <note category="german">Herkunfts-Server der Stadt</note>
         <note category="from">twig:///templates/ajax/public/apidocs.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Herkunfts-Server der Stadt</source>
