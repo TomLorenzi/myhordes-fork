@@ -162,7 +162,6 @@
             </p>
         </div>
         <div class="float-right link" x-ajax-sticky x-ajax-href='{{ path('beyond_dashboard') }}'>{{'Aktualisierung'|trans({}, 'game')}}</div>
-
     {% else %}
         {% if (zone.x != 0 or zone.y != 0) and conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_CAMPING'),false) %}
             <div class="row">
@@ -510,6 +509,7 @@
     {% endif %}
 
     <div class="other_citizens">
+        {% if zone.townZone %}<div class="float-right link small" x-ajax-sticky x-ajax-href='{{ path('beyond_dashboard') }}'>{{'Aktualisierung'|trans({}, 'game')}}</div>{% endif %}
         {% if other_citizens|length == 1 %}
             <em>{{"Sie sind allein in dieser Gegend..."|trans({}, 'game')}}</em>
         {% elseif citizen.escortSettings is null or citizen.escortSettings.leader is null %}

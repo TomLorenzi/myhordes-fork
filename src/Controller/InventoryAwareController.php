@@ -150,13 +150,6 @@ class InventoryAwareController extends CustomAbstractController
                 }
             }
 
-        $limit = 0;
-        if($this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'manipulator'))
-            $limit = 2;
-
-        if($this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'treachery'))
-            $limit = 4;
-
         if ($day < 0) $day = $this->getActiveCitizen()->getTown()->getDay();
 
         return $this->render( 'ajax/game/log_content.html.twig', [
@@ -164,7 +157,7 @@ class InventoryAwareController extends CustomAbstractController
             'day' => $day,
             'today' => $day === $this->getActiveCitizen()->getTown()->getDay(),
             'entries' => $entries,
-            'canHideEntry' => $this->getActiveCitizen()->getAlive() && $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($this->getUser(), 'manipulator') && $this->getActiveCitizen()->getZone() === null && $this->getActiveCitizen()->getSpecificActionCounterValue(ActionCounter::ActionTypeRemoveLog) < $limit,
+            'canHideEntry' => $this->getActiveCitizen()->getAlive() && $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($this->getUser(), 'manipulator') && $this->getActiveCitizen()->getZone() === null && $this->getActiveCitizen()->getSpecificActionCounterValue(ActionCounter::ActionTypeRemoveLog) < $this->user_handler->getMaximumEntryHidden($this->getUser()),
         ] );
     }
 

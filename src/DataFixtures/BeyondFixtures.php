@@ -284,7 +284,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
             array('item' => 'chest_#00','count' => 4),
             array('item' => 'hmeat_#00','count' => 3),
         ], 'desc' => 'Diese Mineralienabbauzone trägt alle Merkmale eines schrecklichen Unglücks : der Hang scheint auf die Arbeiter, Maschinen und Gebäude darunter eingestürzt zu sein.'],
-        ["label" => "Ein seltsames kreisförmiges Gerät",'icon' => 'ufo',"camping" => 7,"min_dist" => 21, "max_dist" => 28, "chance" => 15, "drops" => [
+        ["label" => "Ein seltsames kreisförmiges Gerät",'icon' => 'ufo',"camping" => 7,"min_dist" => 21, "max_dist" => 27, "chance" => 15, "drops" => [
             array('item' => 'metal_bad_#00','count' => 6),
             array('item' => 'plate_raw_#00','count' => 2),
             array('item' => 'iphone_#00','count' => 1),
@@ -303,7 +303,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
             array('item' => 'wood2_#00','count' => 2),
             array('item' => 'saw_tool_part_#00','count' => 1),
         ], 'desc' => 'E-KEA : Diese riesigen Geschäfte gab es früher in jeder Stadt (immer ziemlich ärgerlich am Stadtrand gelegen). Sie spezialisierten sich auf die Herstellung und den Verkauf von Billigmöbeln, denen meist ein Bolzen / Schraube / Verbindungselement fehlte. Es wird gesagt, dass die schlechte Qualität ihrer Produkte einer der Gründe für den Niedergang der Gesellschaft war...'],
-        ["label" => "Familiengrab",'icon' => 'tomb',"camping" => 0,"min_dist" => 3, "max_dist" => 6, "chance" => 68, "drops" => [
+        ["label" => "Familiengrab",'icon' => 'tomb',"camping" => 2,"min_dist" => 3, "max_dist" => 6, "chance" => 68, "drops" => [
             array('item' => 'hmeat_#00','count' => 24),
             array('item' => 'gun_#00','count' => 17),
             array('item' => 'machine_gun_#00','count' => 5),
@@ -322,7 +322,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
             array('item' => 'chest_food_#00','count' => 6),
             array('item' => 'coffee_machine_part_#00','count' => 2),
         ], 'desc' => 'Aus diesem Gebäude strömt ein entsetzlicher Gestank von verwesenden Leichen : Die Fleischvorräte haben sich in ekelerregende Hügel aus schimmeligem, weißem Fleisch verwandelt, aus denen eine dicke, scharfe Flüssigkeit austritt, die nun den Boden bedeckt und sogar begonnen hat, aus der Tür zu laufen...'],
-        ["label" => "Flugzeugwrack",'icon' => 'plane',"camping" => 9,"min_dist" => 4, "max_dist" => 7, "chance" => 155, "drops" => [
+        ["label" => "Flugzeugwrack",'icon' => 'plane',"camping" => 7,"min_dist" => 4, "max_dist" => 7, "chance" => 155, "drops" => [
             array('item' => 'tube_#00','count' => 13),
             array('item' => 'chest_#00','count' => 13),
             array('item' => 'metal_beam_#00','count' => 10),
@@ -437,7 +437,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
             array('item' => 'jerrygun_part_#00','count' => 15),
             array('item' => 'plate_raw_#00','count' => 13),
         ], 'desc' => 'Das Kraftwerk sammelt das benachbarte Grundwasser in einem Stauraum. Die Energie der Bewegung des fließenden Wassers wird auf eine Turbine übertragen, wodurch dieses in Drehbewegung mit hohem Drehmoment versetzt wird. Das Filtersystem scheint kaputt zu sein, aber das schmutzige Wasser kann trotzdem eingesammelt werden.'],
-        ["label" => "Kosmetiklabor",'icon' => 'lab',"camping" => 9,"min_dist" => 2, "max_dist" => 5, "chance" => 180, "drops" => [
+        ["label" => "Kosmetiklabor",'icon' => 'lab',"camping" => 7,"min_dist" => 2, "max_dist" => 5, "chance" => 180, "drops" => [
             array('item' => 'pharma_#00','count' => 30),
             array('item' => 'pet_rat_#00','count' => 27),
             array('item' => 'meat_#00','count' => 17),
@@ -485,7 +485,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
             array('item' => 'jerrycan_#00','count' => 6),
             array('item' => 'engine_part_#00','count' => 5),
         ], 'desc' => 'Ein unterirdisches Parkhaus, das fast vollständig vom Sand begraben wurde - der ideale Ort, um alleine zu sterben. Niemand wird dich hören...'],
-        ["label" => "Liegengebliebener Kampfpanzer",'icon' => 'tank',"camping" => 9,"min_dist" => 21, "max_dist" => 28, "chance" => 83, "drops" => [
+        ["label" => "Liegengebliebener Kampfpanzer",'icon' => 'tank',"camping" => 9,"min_dist" => 21, "max_dist" => 27, "chance" => 83, "drops" => [
             array('item' => 'chain_#00','count' => 20),
             array('item' => 'home_def_#00','count' => 16),
             array('item' => 'mecanism_#00','count' => 14),
@@ -528,7 +528,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
             array('item' => 'table_#00','count' => 2),
             array('item' => 'cards_#00','count' => 2),
         ], 'desc' => 'Dieses Gebäude scheint von den turbulenten Ereignissen der Vergangenheit verschont worden zu sein. Es ist noch vollkommen intakt und erinnert an ein klassisches Postbüro mit doppelten Schalterfenstern und durchsiebtem Sprechfenster. Hier wirst du kaum etwas Nützliches finden außer etwas zum Lesen...'],
-        ["label" => "Räuberhöhle",'icon' => 'cave3',"camping" => 7,"min_dist" => 2, "max_dist" => 5, "chance" => 196, "drops" => [
+        ["label" => "Räuberhöhle",'icon' => 'cave3',"camping" => 8,"min_dist" => 2, "max_dist" => 5, "chance" => 196, "drops" => [
             array('item' => 'chest_citizen_#00','count' => 52),
             array('item' => 'chest_tools_#00','count' => 33),
             array('item' => 'chest_#00','count' => 19),
@@ -591,7 +591,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
             array('item' => 'mecanism_#00','count' => 2),
             array('item' => 'wire_#00','count' => 2),
         ], 'desc' => 'Es handelt sich um einen Transportlaster der sowjetischen Firma Transtwinï. Die Fahrerkabine hat sich komplett in einem Baum verkeilt. Der aufgeschlitzte Fahrersitz, sowie die großflächigen Blutspuren an den Wänden, lassen darauf schließen, dass der Unfall nicht die Todesursache war...'],
-        ["label" => "Verbrannte Grundschule",'icon' => 'school',"camping" => 9,"min_dist" => 3, "max_dist" => 6, "chance" => 165, "drops" => [
+        ["label" => "Verbrannte Grundschule",'icon' => 'school',"camping" => 7,"min_dist" => 3, "max_dist" => 6, "chance" => 165, "drops" => [
             array('item' => 'hmeat_#00','count' => 42),
             array('item' => 'watergun_empty_#00','count' => 21),
             array('item' => 'pile_#00','count' => 13),
@@ -617,7 +617,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
             array('item' => 'food_armag_#00','count' => 4),
             array('item' => 'cigs_#00','count' => 1),
         ], 'desc' => 'In dieses schöne Gebäude gingen die Menschen früher zur Arbeit. Pünktlichkeit und Dresscode waren Pflicht. Die tägliche Routine bestand darin, mit einer Gruppe unbekannter Kollegen Zielvorgaben zu erreichen und um sein eigenes Überleben zu kämpfen... Hhmmm, wenn du so drüber nachdenkst: So viel hat sich gar nicht geändert - bis auf den Dresscode vielleicht.'],
-        ["label" => "Verfallene Villa",'icon' => 'villa',"camping" => 7,"min_dist" => 3, "max_dist" => 6, "chance" => 338, "drops" => [
+        ["label" => "Verfallene Villa",'icon' => 'villa',"camping" => 7,"min_dist" => 12, "max_dist" => 15, "chance" => 338, "drops" => [
             array('item' => 'can_#00','count' => 63),
             array('item' => 'pile_#00','count' => 32),
             array('item' => 'chest_citizen_#00','count' => 23),
@@ -654,7 +654,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
             array('item' => 'pocket_belt_#00','count' => 2),
             array('item' => 'chest_xl_#00','count' => 2),
         ], 'desc' => 'Soll das eine Schule, ein Parkhaus oder vielleicht ein Kaufhaus sein? Du kannst es nicht erkennen... Das einzige, was von diesem geheimnisvollen Projekt noch übrig ist, sind ein paar verrostete Metallstrukturen.'],
-        ["label" => "Verlassener Brunnen",'icon' => 'well',"camping" => 0,"min_dist" => 17, "max_dist" => 20, "chance" => 221, "drops" => [
+        ["label" => "Verlassener Brunnen",'icon' => 'well',"camping" => 1,"min_dist" => 17, "max_dist" => 20, "chance" => 221, "drops" => [
             array('item' => 'water_#00','count' => 121),
             array('item' => 'water_cup_part_#00','count' => 38),
             array('item' => 'jerrycan_#00','count' => 11),
@@ -662,7 +662,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
         ["label" => "Verlassene Silos",'icon' => 'silo',"camping" => 7,"min_dist" => 8, "max_dist" => 11, "chance" => 482, "drops" => [
             array('item' => 'jerrycan_#00','count' => 321),
         ], 'desc' => 'Ursprünglich zur Lagerung von Getreide konstruiert, aber als die Zeit verging und das Getreide knapp wurde, füllten sich die Tanks mit Regenwasser (und einer toten Ratte). Sie brauchen allerdings den richtigen Bausatz, um sie zu benutzen...'],
-        ["label" => "Versperrte Straße",'icon' => 'street',"camping" => 13,"min_dist" => 4, "max_dist" => 7, "chance" => 42, "drops" => [
+        ["label" => "Versperrte Straße",'icon' => 'street',"camping" => 7,"min_dist" => 4, "max_dist" => 7, "chance" => 42, "drops" => [
             array('item' => 'concrete_wall_#00','count' => 18),
             array('item' => 'plate_raw_#00','count' => 9),
             array('item' => 'tube_#00','count' => 5),
