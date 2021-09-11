@@ -2450,5 +2450,35 @@
         <target><![CDATA[<b>Wenn du sie in der Vergangenheit importiert hast</b>, kannst du sie dir hier ansehen!]]></target>
       </segment>
     </unit>
+    <unit id="d1k9Xlg">
+      <segment>
+        <source>Die maximale Größe der Bilddatei, die du für deinen Avatar hochladen kannst, beträgt &lt;b&gt;{size}&lt;/b&gt;.</source>
+        <target><![CDATA[Die maximale Größe der Bilddatei, die du für deinen Avatar hochladen kannst, beträgt <b>{size}</b>.]]></target>
+      </segment>
+    </unit>
+    <unit id="U8MXhPw">
+      <segment>
+        <source>Nach dem Upload wird der Server dein Bild möglicherweise komprimieren (z.B. indem die Größe reduziert oder Animationsframe optimiert werden).</source>
+        <target>Nach dem Upload wird der Server dein Bild möglicherweise komprimieren (z.B. indem die Auflösung reduziert oder Animationsframes optimiert werden).</target>
+      </segment>
+    </unit>
+    <unit id="iExo5YI">
+      <segment>
+        <source>Der Server muss in der Lage sein, dein Bild auf höchstens &lt;b&gt;{size}&lt;/b&gt; zu komprimieren - andernfalls kann es nicht gespeichert werden.</source>
+        <target><![CDATA[Der Server muss in der Lage sein, dein Bild auf höchstens <b>{size}</b> zu komprimieren - andernfalls kann es nicht gespeichert werden.]]></target>
+      </segment>
+    </unit>
+    <unit id="LCJ4eBk" name="Die folgenden Bildformate werden unterstützt:">
+      <segment>
+        <source>Die folgenden Bildformate werden unterstützt:</source>
+        <target>Die folgenden Bildformate werden unterstützt:</target>
+      </segment>
+    </unit>
+    <unit id="KDrgSO8" name="nur Baseline-Format">
+      <segment>
+        <source>nur Baseline-Format</source>
+        <target>nur Baseline-Format</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -435,11 +435,23 @@ class SoulController extends CustomAbstractController
 
         $user_desc = $this->entity_manager->getRepository(UserDescription::class)->findOneBy(['user' => $user]);
 
+        $a_max_size = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_UPLOAD, 3145728);
+        $b_max_size = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_STORAGE, 1048576);
+
+        if     ($a_max_size >= 1048576) $a_max_size = round($a_max_size/1048576, 2) . ' MB';
+        elseif ($a_max_size >= 1024)    $a_max_size = round($a_max_size/1024, 0) . ' KB';
+        else                            $a_max_size = $a_max_size . ' B';
+
+        if     ($b_max_size >= 1048576) $b_max_size = round($b_max_size/1048576, 2) . ' MB';
+        elseif ($b_max_size >= 1024)    $b_max_size = round($b_max_size/1024, 0) . ' KB';
+        else                            $b_max_size = $b_max_size . ' B';
+
         return $this->render( 'ajax/soul/settings.html.twig', $this->addDefaultTwigArgs("soul_settings", [
             'et_ready' => $etwin->isReady(),
             'user_desc' => $user_desc ? $user_desc->getText() : null,
             'show_importer'     => $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_ENABLED, true),
-            'importer_readonly' => $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_READONLY, false)
+            'importer_readonly' => $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_READONLY, false),
+            'avatar_max_size' => [$a_max_size, $b_max_size]
         ]) );
     }
 

@@ -35,7 +35,6 @@ parameters:
       return: ~
       app: myhordes@clients
       dual-stack: true
-    allow_raw_avatars: false
     soulpoints:
       limits:
         remote: 100
@@ -54,3 +53,7 @@ parameters:
       readonly: false
       limited: false
       sp_threshold: 15
+    avatars:
+      allow_raw: false
+      max_processing_size: 3145728 # 3MB
+      max_storage_size: 1048576 # 1MB

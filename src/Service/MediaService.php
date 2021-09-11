@@ -55,9 +55,15 @@ class MediaService {
                 return self::ErrorInputUnsupported;
 
             if ($im_image->getImageFormat() === 'GIF') {
-                $im_image->coalesceImages();
+                $im_image = $im_image->coalesceImages();
                 $im_image->resetImagePage('0x0');
                 $im_image->setFirstIterator();
+
+                // RGB is not widely supported in GIF images; when the image may claim it is RGB this is most likely an
+                // error, so we disregard the RGB definition and overwrite it as sRGB
+                if ($im_image->getImageColorspace() === Imagick::COLORSPACE_RGB)
+                    foreach ($im_image as $frame)
+                        $frame->setImageColorspace(Imagick::COLORSPACE_SRGB);
             }
 
             $width = $w = $im_image->getImageWidth();
@@ -67,9 +73,11 @@ class MediaService {
             if (!$determine_dimensions($width, $height, $fit)) return self::ErrorDimensionMismatch;
 
             if ($width !== $w || $height !== $h)
-                foreach ($im_image as $frame)
+                foreach ($im_image as $frame) {
                     if (!$frame->resizeImage($width, $height, imagick::FILTER_SINC, 1, $fit))
                         return self:: ErrorProcessingFailed;
+                }
+
 
             if ($im_image->getImageFormat() === 'GIF')
                 $im_image->setFirstIterator();
@@ -95,6 +103,7 @@ class MediaService {
             $data = !is_a($data, Imagick::class) ? $im_image->getImagesBlob() : $im_image;
             $format = strtolower($im_image->getImageFormat());
         } catch (Exception $e) {
+            throw $e;
             return self::ErrorProcessingFailed;
         }
 

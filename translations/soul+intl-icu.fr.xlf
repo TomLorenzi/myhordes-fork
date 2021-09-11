@@ -3984,5 +3984,60 @@
         <target><![CDATA[<b>Si vous les avez importées dans le passé</b>, vous pouvez les consulter ici !]]></target>
       </segment>
     </unit>
+    <unit id="d1k9Xlg">
+      <notes>
+        <note category="german">Die maximale Größe der Bilddatei, die du für deinen Avatar hochladen kannst, beträgt &lt;b&gt;{size}&lt;/b&gt;.</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Die maximale Größe der Bilddatei, die du für deinen Avatar hochladen kannst, beträgt &lt;b&gt;{size}&lt;/b&gt;.</source>
+        <target><![CDATA[Die maximale Größe der Bilddatei, die du für deinen Avatar hochladen kannst, beträgt <b>{size}</b>.]]></target>
+      </segment>
+    </unit>
+    <unit id="U8MXhPw">
+      <notes>
+        <note category="german">Nach dem Upload wird der Server dein Bild möglicherweise komprimieren (z.B. indem die Auflösung reduziert oder Animationsframes optimiert werden).</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Nach dem Upload wird der Server dein Bild möglicherweise komprimieren (z.B. indem die Größe reduziert oder Animationsframe optimiert werden).</source>
+        <target>Nach dem Upload wird der Server dein Bild möglicherweise komprimieren (z.B. indem die Größe reduziert oder Animationsframe optimiert werden).</target>
+      </segment>
+    </unit>
+    <unit id="iExo5YI">
+      <notes>
+        <note category="german">Der Server muss in der Lage sein, dein Bild auf höchstens &lt;b&gt;{size}&lt;/b&gt; zu komprimieren - andernfalls kann es nicht gespeichert werden.</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Der Server muss in der Lage sein, dein Bild auf höchstens &lt;b&gt;{size}&lt;/b&gt; zu komprimieren - andernfalls kann es nicht gespeichert werden.</source>
+        <target><![CDATA[Der Server muss in der Lage sein, dein Bild auf höchstens <b>{size}</b> zu komprimieren - andernfalls kann es nicht gespeichert werden.]]></target>
+      </segment>
+    </unit>
+    <unit id="LCJ4eBk" name="Die folgenden Bildformate werden unterstützt:">
+      <notes>
+        <note category="german">Die folgenden Bildformate werden unterstützt:</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Die folgenden Bildformate werden unterstützt:</source>
+        <target>Die folgenden Bildformate werden unterstützt:</target>
+      </segment>
+    </unit>
+    <unit id="KDrgSO8" name="nur Baseline-Format">
+      <notes>
+        <note category="german">nur Baseline-Format</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>nur Baseline-Format</source>
+        <target>nur Baseline-Format</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -22,6 +22,7 @@ use App\Entity\TwinoidImport;
 use App\Entity\User;
 use App\Entity\UserGroup;
 use App\Entity\UserGroupAssociation;
+use App\Structures\MyHordesConf;
 use Doctrine\ORM\QueryBuilder;
 use Imagick;
 use DateTime;
@@ -55,8 +56,9 @@ class UserHandler
     private CrowService $crow;
     private MediaService $media;
     private TranslatorInterface $translator;
+    private ConfMaster $conf;
 
-    public function __construct( EntityManagerInterface $em, RoleHierarchyInterface $roles,ContainerInterface $c, CrowService $crow, MediaService $media, TranslatorInterface  $translator)
+    public function __construct( EntityManagerInterface $em, RoleHierarchyInterface $roles,ContainerInterface $c, CrowService $crow, MediaService $media, TranslatorInterface  $translator, ConfMaster $conf)
     {
         $this->entity_manager = $em;
         $this->container = $c;
@@ -64,6 +66,7 @@ class UserHandler
         $this->crow = $crow;
         $this->media = $media;
         $this->translator = $translator;
+        $this->conf = $conf;
     }
 
     public function fetchSoulPoints(User $user, bool $all = true, bool $useCached = false): int {
@@ -493,8 +496,7 @@ class UserHandler
 
     public function setUserBaseAvatar( User $user, $payload, int $imagick_setting = self::ImageProcessingForceImagick, string $ext = null, int $x = 100, int $y = 100 ): int {
 
-        // Processing limit: 3MB
-        if (strlen( $payload ) > 3145728) return self::ErrorAvatarTooLarge;
+        if (strlen( $payload ) > $this->conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_UPLOAD, 3145728)) return self::ErrorAvatarTooLarge;
 
         $e = $imagick_setting === self::ImageProcessingDisableImagick
             ? MediaService::ErrorBackendMissing
@@ -526,7 +528,8 @@ class UserHandler
         }
 
         // Storage limit: 1MB
-        if (strlen($payload) > 1048576) return self::ErrorAvatarInsufficientCompression;
+        if (strlen($payload) > $this->conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_STORAGE, 1048576))
+            return self::ErrorAvatarInsufficientCompression;
 
         $name = md5( $payload );
         if (!($avatar = $user->getAvatar())) {
