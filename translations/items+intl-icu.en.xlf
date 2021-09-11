@@ -9279,5 +9279,16 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
         <target><![CDATA[The dodgy smoke pouring out of the mixture hints that <strong>everything may not have gone exactly as planned</strong>. You have obtained a random drug: {items_spawn}]]></target>
       </segment>
     </unit>
+    <unit id="ysZzyH_">
+      <notes>
+        <note category="german">Solange du &lt;strong&gt;erschöpft bist&lt;/strong&gt;, kannst du diese Aktion nicht ausführen (da du keine Aktionspunkte mehr hast)... Trink oder iss etwas, oder nimm eine Droge, ansonsten musst du bis &lt;strong&gt;morgen&lt;/strong&gt; warten.</note>
+        <note category="from">db://Requirement</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Solange du &lt;strong&gt;erschöpft bist&lt;/strong&gt;, kannst du diese Aktion nicht ausführen (da du keine Aktionspunkte mehr hast)... Trink oder iss etwas, oder nimm eine Droge, ansonsten musst du bis &lt;strong&gt;morgen&lt;/strong&gt; warten.</source>
+        <target><![CDATA[Solange du <strong>erschöpft bist</strong>, kannst du diese Aktion nicht ausführen (da du keine Aktionspunkte mehr hast)... Trink oder iss etwas, oder nimm eine Droge, ansonsten musst du bis <strong>morgen</strong> warten.]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

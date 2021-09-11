@@ -9201,7 +9201,7 @@
     </unit>
     <unit id="nPNoAvx">
       <notes>
-        <note category="german">You grind the contents of {items_consume} on the table and mix it with anything and everything that comes to hand... then let it infuse.</note>
+        <note category="german">Du zermahlst den Inhalt von {items_consume} auf dem Tisch und mischst ihn mit allem, was dir in die Hände fällt... und lässt ihn dann ziehen.</note>
         <note category="from">db://ItemAction</note>
         <note category="state">new</note>
       </notes>
@@ -9212,7 +9212,7 @@
     </unit>
     <unit id="qeC3d4b" name="Ein überragender Erfolg: Du hast {items_spawn} erhalten!">
       <notes>
-        <note category="german">It's a roaring success : you have obtained {items_spawn} !</note>
+        <note category="german">Ein überragender Erfolg: Du hast {items_spawn} erhalten!</note>
         <note category="from">db://AffectMessage</note>
         <note category="state">new</note>
       </notes>
@@ -9223,13 +9223,24 @@
     </unit>
     <unit id="RvnC1X2">
       <notes>
-        <note category="german">The dodgy smoke pouring out of the mixture hints that &lt;strong&gt;everything may not have gone exactly as planned&lt;/strong&gt;. You have obtained a random drug: {items_spawn}</note>
+        <note category="german">Der verdächtige Rauch, der aus der Mischung austritt, deutet darauf hin, dass &lt;strong&gt;nicht alles so gelaufen ist wie geplant&lt;/strong&gt;. Du hast eine zufällige Droge erhalten: {items_spawn}</note>
         <note category="from">db://AffectMessage</note>
         <note category="state">new</note>
       </notes>
       <segment>
         <source>Der verdächtige Rauch, der aus der Mischung austritt, deutet darauf hin, dass &lt;strong&gt;nicht alles so gelaufen ist wie geplant&lt;/strong&gt;. Du hast eine zufällige Droge erhalten: {items_spawn}</source>
         <target><![CDATA[Der verdächtige Rauch, der aus der Mischung austritt, deutet darauf hin, dass <strong>nicht alles so gelaufen ist wie geplant</strong>. Du hast eine zufällige Droge erhalten: {items_spawn}]]></target>
+      </segment>
+    </unit>
+    <unit id="ysZzyH_">
+      <notes>
+        <note category="german">Solange du &lt;strong&gt;erschöpft bist&lt;/strong&gt;, kannst du diese Aktion nicht ausführen (da du keine Aktionspunkte mehr hast)... Trink oder iss etwas, oder nimm eine Droge, ansonsten musst du bis &lt;strong&gt;morgen&lt;/strong&gt; warten.</note>
+        <note category="from">db://Requirement</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Solange du &lt;strong&gt;erschöpft bist&lt;/strong&gt;, kannst du diese Aktion nicht ausführen (da du keine Aktionspunkte mehr hast)... Trink oder iss etwas, oder nimm eine Droge, ansonsten musst du bis &lt;strong&gt;morgen&lt;/strong&gt; warten.</source>
+        <target><![CDATA[Solange du <strong>erschöpft bist</strong>, kannst du diese Aktion nicht ausführen (da du keine Aktionspunkte mehr hast)... Trink oder iss etwas, oder nimm eine Droge, ansonsten musst du bis <strong>morgen</strong> warten.]]></target>
       </segment>
     </unit>
   </file>

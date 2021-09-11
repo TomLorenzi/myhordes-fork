@@ -751,5 +751,17 @@
         <target>Wenn aus Twinoid importiert, Ländercode + Season (zb "fr-12"); sonst leer.</target>
       </segment>
     </unit>
+    <unit id="_fLqtmV" name="Phase der Stadt; entweder &quot;alpha&quot;, &quot;beta&quot;, &quot;import&quot; oder &quot;native&quot;">
+      <segment>
+        <source>Phase der Stadt; entweder "alpha", "beta", "import" oder "native"</source>
+        <target>Phase der Stadt; entweder "alpha", "beta", "import" oder "native"</target>
+      </segment>
+    </unit>
+    <unit id="5F7mt2z" name="Herkunfts-Server der Stadt">
+      <segment>
+        <source>Herkunfts-Server der Stadt</source>
+        <target>Herkunfts-Server der Stadt</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

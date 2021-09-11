@@ -5755,5 +5755,11 @@
         <target><![CDATA[Der verdächtige Rauch, der aus der Mischung austritt, deutet darauf hin, dass <strong>nicht alles so gelaufen ist wie geplant</strong>. Du hast eine zufällige Droge erhalten: {items_spawn}]]></target>
       </segment>
     </unit>
+    <unit id="ysZzyH_">
+      <segment>
+        <source>Solange du &lt;strong&gt;erschöpft bist&lt;/strong&gt;, kannst du diese Aktion nicht ausführen (da du keine Aktionspunkte mehr hast)... Trink oder iss etwas, oder nimm eine Droge, ansonsten musst du bis &lt;strong&gt;morgen&lt;/strong&gt; warten.</source>
+        <target><![CDATA[Solange du <strong>erschöpft bist</strong>, kannst du diese Aktion nicht ausführen (da du keine Aktionspunkte mehr hast)... Trink oder iss etwas, oder nimm eine Droge, ansonsten musst du bis <strong>morgen</strong> warten.]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

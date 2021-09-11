@@ -9269,5 +9269,15 @@
         <target><![CDATA[La fumée suspecte qui s'échappe laisse à penser que <strong>ça ne se passe pas comme vous l'aviez prévu</strong> ! Vous obtenez une drogue aléatoire : {items_spawn}]]></target>
       </segment>
     </unit>
+    <unit id="ysZzyH_">
+      <notes>
+        <note category="german">Solange du &lt;strong&gt;erschöpft bist&lt;/strong&gt;, kannst du diese Aktion nicht ausführen (da du keine Aktionspunkte mehr hast)... Trink oder iss etwas, oder nimm eine Droge, ansonsten musst du bis &lt;strong&gt;morgen&lt;/strong&gt; warten.</note>
+        <note category="from">db://Requirement</note>
+      </notes>
+      <segment>
+        <source>Solange du &lt;strong&gt;erschöpft bist&lt;/strong&gt;, kannst du diese Aktion nicht ausführen (da du keine Aktionspunkte mehr hast)... Trink oder iss etwas, oder nimm eine Droge, ansonsten musst du bis &lt;strong&gt;morgen&lt;/strong&gt; warten.</source>
+        <target><![CDATA[Vous ne pouvez pas faire cela lorsque <strong>vous êtes fatigué(e)</strong> (vous n'avez plus de point d'action)... Buvez, mangez ou droguez-vous pour récupérer, ou attendez <strong>demain</strong>.]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>
