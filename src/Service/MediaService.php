@@ -103,7 +103,7 @@ class MediaService {
             $data = !is_a($data, Imagick::class) ? $im_image->getImagesBlob() : $im_image;
             $format = strtolower($im_image->getImageFormat());
         } catch (Exception $e) {
-            throw $e;
+            //throw $e;
             return self::ErrorProcessingFailed;
         }
 
