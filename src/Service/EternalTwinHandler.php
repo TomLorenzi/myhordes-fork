@@ -18,7 +18,7 @@ class EternalTwinHandler extends API
         parent::__construct(
             $conf->get(MyHordesConf::CONF_ETWIN_SK, null),
             $conf->get(MyHordesConf::CONF_ETWIN_CLIENT, null),
-            $generator->generate('twinoid_auth_endpoint', [], UrlGeneratorInterface::NETWORK_PATH),
+            $conf->get(MyHordesConf::CONF_ETWIN_RETURN_URI) ?? $generator->generate('twinoid_auth_endpoint', [], UrlGeneratorInterface::ABSOLUTE_URL),
             $api_url,
             "$oauth_url/authorize",
             "$oauth_url/token",

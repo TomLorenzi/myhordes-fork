@@ -61,8 +61,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/eternal-twin%2Fetwin-php-api-client/repository/archive.zip?sha=a58f79a8b7170e89626d94e3f98ae7fa0d1aa7db",
-                "reference": "a58f79a8b7170e89626d94e3f98ae7fa0d1aa7db",
+                "url": "https://gitlab.com/api/v4/projects/eternal-twin%2Fetwin-php-api-client/repository/archive.zip?sha=328852bbac603e8f59faf92e09d8fcd43145b816",
+                "reference": "328852bbac603e8f59faf92e09d8fcd43145b816",
                 "shasum": ""
             },
             "require": {
