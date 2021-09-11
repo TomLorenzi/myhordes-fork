@@ -754,4 +754,15 @@ class UserHandler
 
         return !preg_match('/[^\w]/', $name) && strlen($name) >= 3 && strlen($name) <= 16 && $closestDistance > 2;
     }
+
+    public function getMaximumEntryHidden(User $user): int {
+        $limit = 0;
+        if($this->hasSkill($user, 'manipulator'))
+            $limit = 2;
+
+        if($this->hasSkill($user, 'treachery'))
+            $limit = 4;
+
+        return $limit;
+    }
 }

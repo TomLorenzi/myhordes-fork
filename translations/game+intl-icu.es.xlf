@@ -22591,7 +22591,6 @@
       <notes>
         <note category="german">Dieser Bürger wurde aus der Gemeinschaft verbannt; er hat nicht länger Zugang zu den Gebäuden der Stadt, mit Ausnahme des Brunnens (wobei er auf eine Ration pro Tag eingeschränkt ist).</note>
         <note category="from">php:///src/Controller/Town/TownController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Dieser Bürger wurde aus der Gemeinschaft verbannt; er hat nicht länger Zugang zu den Gebäuden der Stadt, mit Ausnahme des Brunnens (wobei er auf eine Ration pro Tag eingeschränkt ist).</source>
@@ -22602,33 +22601,30 @@
       <notes>
         <note category="german">Die Ratten haben das Schiff schon vor Tagen verlassen... Diese Stadt ist nur noch ein Schatten ihrer selbst.</note>
         <note category="from">db://LogEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Die Ratten haben das Schiff schon vor Tagen verlassen... Diese Stadt ist nur noch ein Schatten ihrer selbst.</source>
-        <target>Die Ratten haben das Schiff schon vor Tagen verlassen... Diese Stadt ist nur noch ein Schatten ihrer selbst.</target>
+        <target>Las ratas dejaron el barco hace días... Este pueblo es solo una sombra de sí misma.</target>
       </segment>
     </unit>
     <unit id="UOD7ZoJ">
       <notes>
         <note category="german">Ermordet zu werden ist äußerst ärgerlich (ja, wirklich!). Aber wir bitten dich dringend, &lt;u&gt;die Identität deines Mörders gegenüber deinen ehemaligen Mitbürgern nicht aufzudecken&lt;/u&gt;... Lass ihnen das Vergnügen, selbst ermitteln zu müssen!</note>
         <note category="from">twig:///templates/ajax/soul/death.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ermordet zu werden ist äußerst ärgerlich (ja, wirklich!). Aber wir bitten dich dringend, &lt;u&gt;die Identität deines Mörders gegenüber deinen ehemaligen Mitbürgern nicht aufzudecken&lt;/u&gt;... Lass ihnen das Vergnügen, selbst ermitteln zu müssen!</source>
-        <target><![CDATA[Ermordet zu werden ist äußerst ärgerlich (ja, wirklich!). Aber wir bitten dich dringend, <u>die Identität deines Mörders gegenüber deinen ehemaligen Mitbürgern nicht aufzudecken</u>... Lass ihnen das Vergnügen, selbst ermitteln zu müssen!]]></target>
+        <target><![CDATA[Ser asesinado es extremadamente molesto (¡sí, de verdad!). Pero le instamos a que no <u>revele la identidad de su asesino a sus antiguos cohabitantes</u>... ¡Deje que tengan el placer de tener que investigar por sí mismos!]]></target>
       </segment>
     </unit>
     <unit id="2GAQ12V" name="Fortfahren...">
       <notes>
         <note category="german">Fortfahren...</note>
         <note category="from">twig:///templates/ajax/soul/death.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Fortfahren...</source>
-        <target>Fortfahren...</target>
+        <target>Continuar...</target>
       </segment>
     </unit>
     <unit id="7jb2vlU" name="Was ist mit ihm passiert?">
@@ -22655,44 +22651,40 @@
       <notes>
         <note category="german">Inmitten dieser Zombiehorde konnten wir &lt;i class="dagger"&gt;†&lt;/i&gt; {citizen} entdecken! Nach seinem Tod in der Aussenwelt hat dieser frisch in einen Zombie verwandelte Mitbürger wohl neue Freunde gefunden!</note>
         <note category="from">db://LogEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Inmitten dieser Zombiehorde konnten wir &lt;i class="dagger"&gt;†&lt;/i&gt; {citizen} entdecken! Nach seinem Tod in der Aussenwelt hat dieser frisch in einen Zombie verwandelte Mitbürger wohl neue Freunde gefunden!</source>
-        <target><![CDATA[Inmitten dieser Zombiehorde konnten wir <i class="dagger">†</i> {citizen} entdecken! Nach seinem Tod in der Aussenwelt hat dieser frisch in einen Zombie verwandelte Mitbürger wohl neue Freunde gefunden!]]></target>
+        <target><![CDATA[¡En medio de esta horda de zombis pudimos descubrir a <i class="dagger">†</i> {citizen}! Después de su muerte en el mundo exterior, este habitante, recién convertido en zombi, ¡debe haber hecho nuevos amigos!]]></target>
       </segment>
     </unit>
     <unit id="t8qkZPk">
       <notes>
         <note category="german">Von der Stadtverteidigung aufgehalten, kehrte &lt;i class="dagger"&gt;†&lt;/i&gt; {citizen} grunzend und torkelnd zu seinen neuen verschimmelten Freunden zurück...</note>
         <note category="from">db://LogEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Von der Stadtverteidigung aufgehalten, kehrte &lt;i class="dagger"&gt;†&lt;/i&gt; {citizen} grunzend und torkelnd zu seinen neuen verschimmelten Freunden zurück...</source>
-        <target><![CDATA[Von der Stadtverteidigung aufgehalten, kehrte <i class="dagger">†</i> {citizen} grunzend und torkelnd zu seinen neuen verschimmelten Freunden zurück...]]></target>
+        <target><![CDATA[Sostenido por las defensas del pueblo, <i class="dagger">†</i> {citizen} gruñó y se tambaleó hacia sus nuevos amigos mohosos...]]></target>
       </segment>
     </unit>
     <unit id="h8TXDGN">
       <notes>
         <note category="german">Der Angriff traf auch unsere Verteidigungsgegenstände! Wir haben insgesamt {num} verloren: {list}</note>
         <note category="from">db://LogEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Der Angriff traf auch unsere Verteidigungsgegenstände! Wir haben insgesamt {num} verloren: {list}</source>
-        <target>Der Angriff traf auch unsere Verteidigungsgegenstände! Wir haben insgesamt {num} verloren: {list}</target>
+        <target>¡El ataque también golpeó nuestras defensas! Perdimos un total de {num}: {list}</target>
       </segment>
     </unit>
     <unit id="zYCe3Qk" name="vor wenigen Augenblicken">
       <notes>
         <note category="german">vor wenigen Augenblicken</note>
         <note category="from">php:///src/Controller/Town/TownController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>vor wenigen Augenblicken</source>
-        <target>vor wenigen Augenblicken</target>
+        <target>hace unos momentos</target>
       </segment>
     </unit>
     <unit id="_VLdCGZ" name="heute morgen um {H}:{i}">
@@ -22709,11 +22701,10 @@
       <notes>
         <note category="german">heute nachmittag um {H}:{i}</note>
         <note category="from">php:///src/Controller/Town/TownController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>heute nachmittag um {H}:{i}</source>
-        <target>heute nachmittag um {H}:{i}</target>
+        <target>esta tarde a las {H}:{i}</target>
       </segment>
     </unit>
     <unit id="nw_7pSY" name="gestern um {H}:{i}">
@@ -22730,33 +22721,41 @@
       <notes>
         <note category="german">Du kannst das Gebäude heute nicht erneut betreten, du bist zu verängstigt!</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Du kannst das Gebäude heute nicht erneut betreten, du bist zu verängstigt!</source>
-        <target>Du kannst das Gebäude heute nicht erneut betreten, du bist zu verängstigt!</target>
+        <target>¡No puedes volver a entrar al edificio hoy, estás demasiado asustado!</target>
       </segment>
     </unit>
     <unit id="q5pHoRc">
       <notes>
         <note category="german">Ein oder mehrere Gegenstände wurden in dieser Zone von einem verbannten Bürger versteckt.</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ein oder mehrere Gegenstände wurden in dieser Zone von einem verbannten Bürger versteckt.</source>
-        <target>Ein oder mehrere Gegenstände wurden in dieser Zone von einem verbannten Bürger versteckt.</target>
+        <target>Un habitante desterrado ha ocultado uno o más elementos en esta zona.</target>
       </segment>
     </unit>
     <unit id="6WlIVqN">
       <notes>
         <note category="german">Nur verbannte Bürger können Gegenstände sehen und aufheben, wenn diese von anderen verbannten Bürgern versteckt wurden.</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Nur verbannte Bürger können Gegenstände sehen und aufheben, wenn diese von anderen verbannten Bürgern versteckt wurden.</source>
-        <target>Nur verbannte Bürger können Gegenstände sehen und aufheben, wenn diese von anderen verbannten Bürgern versteckt wurden.</target>
+        <target>Solo los habitantes desterrados pueden ver y recoger artículos si han sido ocultos por otros habitante desterrados.</target>
+      </segment>
+    </unit>
+    <unit id="kVCmkiM" name="Barhändiger Stripper">
+      <notes>
+        <note category="german">Barhändiger Stripper</note>
+        <note category="from">db://AwardPrototype</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Barhändiger Stripper</source>
+        <target>Barhändiger Stripper</target>
       </segment>
     </unit>
   </file>

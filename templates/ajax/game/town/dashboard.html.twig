@@ -91,7 +91,9 @@
                     <li>{{ 'Trinken (Oder du stirbst heute Nacht)'|trans({}, 'game') }}</li>
                 {% endif %}
                 <li x-ajax-href="{{ url('forum_town_redirect') }}" {% if has_visited_forum %} class="checked"{% endif %}>{{ 'Einen Blick ins Forum werfen.'|trans({}, 'game') }}</li>
+                {% if town.well > 0 %}
                 <li x-ajax-href="{{ path('town_well') }}" {% if active_citizen.specificActionCounterValue(constant('App\\Entity\\ActionCounter::ActionTypeWell')) > 0 %} class="checked"{% endif %}>{{ 'Meine Ration Wasser im Brunnen entnehmen (optional).'|trans({}, 'game') }}</li>
+                {% endif %}
                 {% if new_message %}
                     <li x-ajax-href="{{ path('town_house', {tab: 'messages', subtab: 'received'}) }}">{{ 'Meine Nachrichten lesen.'|trans({}, 'game') }} <img src="{{ asset("build/images/icons/anim_icon_mail.gif") }}" alt="" /> </li>
                 {% endif %}

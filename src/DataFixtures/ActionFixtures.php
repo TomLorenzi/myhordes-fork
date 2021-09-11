@@ -369,8 +369,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'camp_unhide' => [ 'status' => [ 'from' => 'tg_hide', 'to' => null ] ],
             'camp_untomb' => [ 'status' => [ 'from' => 'tg_tomb', 'to' => null ] ],
 
-            'home_lab_success' => [ 'spawn' => 'lab_success_drugs', 'picto' => ['r_drgmkr_#00'] ],
-            'home_lab_failure' => [ 'spawn' => 'lab_fail_drugs' ],
+            'home_lab_success' => [ 'spawn' => 'lab_success_drugs', 'picto' => ['r_drgmkr_#00'], 'message' =>  ['text_key' => 'use_lab_success'] ],
+            'home_lab_failure' => [ 'spawn' => 'lab_fail_drugs', 'message' =>  ['text_key' => 'use_lab_fail'] ],
 
             'home_kitchen_success' => [ 'spawn' => 'kitchen_success_food', 'picto' => ['r_cookr_#00'] ],
             'home_kitchen_failure' => [ 'spawn' => 'kitchen_fail_food' ],
@@ -573,8 +573,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
             'coffee' => [ 'label' => 'Trinken', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ ], 'result' => [ 'contaminated_zone_infect', 'plus_4ap', 'consume_item' ], 'message' => 'Dieses Gefühl des Wohlbefindens, das dieser kleine Kaffee hervorruft, bringt dich sofort wieder auf die Beine. Aah!' ],
 
-            'special_dice'   => [ 'label' => 'Werfen',       'cover' => true, 'at00' => true, 'meta' => [ 'not_yet_dice', 'no_bonus_ap' ],      'result' => [ 'casino_dice'   ], 'message' => '{casino}' ],
-            'special_card'   => [ 'label' => 'Karte ziehen', 'cover' => true, 'at00' => true, 'meta' => [ 'not_yet_card', 'no_bonus_ap' ],      'result' => [ 'casino_card'   ], 'message' => '{casino}' ],
+            'special_dice'   => [ 'label' => 'Werfen',       'at00' => true, 'meta' => [ 'not_yet_dice', 'no_bonus_ap' ],      'result' => [ 'casino_dice'   ], 'message' => '{casino}' ],
+            'special_card'   => [ 'label' => 'Karte ziehen', 'at00' => true, 'meta' => [ 'not_yet_card', 'no_bonus_ap' ],      'result' => [ 'casino_card'   ], 'message' => '{casino}' ],
             'special_guitar' => [ 'label' => 'Spielen',      'meta' => [ 'not_yet_guitar', 'must_be_inside' ], 'result' => [ 'casino_guitar' ], 'message' => '{casino}' ],
 
             'can'       => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => [ 'not_profession_tech', 'have_can_opener', 'is_not_wounded_hands' ], 'result' => [ [ 'item' => [ 'consume' => false, 'morph' => 'can_open_#00' ] ] ], 'message_key' => 'container_open_tool' ],
@@ -616,16 +616,40 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'emt'     => [ 'label' => 'Einsetzen', 'cover' => true, 'at00' => true, 'meta' => [ 'is_not_wounded' ], 'result' => [ 'just_ap6', 'inflict_wound', ['item' => [ 'consume' => false, 'morph' => 'sport_elec_empty_#00' ]], ['picto' => ['r_maso_#00']] ], 'message' => 'Es geht doch nichts über einen schönen Stromstoß in die Wirbelsäule, um so richtig wach zu werden! Aber irgendwie riecht es jetzt hier nach verbranntem Fleisch...' ],
 
             'drug_rand_1'  => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1' ], 'result' => [ 'contaminated_zone_infect', 'consume_item', ['picto' => ['r_cobaye_#00']], ['group' => [
-                [ ['drug_any', 'just_ap6', ['message' => [ 'text_key' => 'drug_normal_ap' ]]], 5 ],
-                [ ['drug_any', 'terrorize', ['message' => [ 'text_key' => 'drug_terror' ]]], 2 ],
-                [ ['drug_any', 'drug_addict', 'just_ap7', ['message' => [ 'text_key' => 'drug_addict_ap' ]]], 2 ],
-                [ ['do_nothing', ['message' => [ 'text_key' => 'drug_no_effect' ]]], 1 ],
+                [ ['drug_any', 'just_ap6', ['message' => [ 'text_key' => 'drug_normal_ap' ]]], 119 ],
+                [ ['drug_any', 'terrorize', ['message' => [ 'text_key' => 'drug_terror' ]]], 66 ],
+                [ ['drug_any', 'drug_addict', 'just_ap7', ['message' => [ 'text_key' => 'drug_addict_ap' ]]], 65 ],
+                [ ['do_nothing', ['message' => [ 'text_key' => 'drug_no_effect' ]]], 58 ],
             ]] ] ] ,
             'drug_rand_2'  => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_2' ], 'result' => [ 'contaminated_zone_infect', 'consume_item', ['picto' => ['r_cobaye_#00']], ['group' => [
-                [ ['drug_addict', 'just_ap6', ['message' => [ 'text_key' => 'drug_normal_ap' ]]], 5 ],
-                [ ['drug_addict', 'terrorize', ['message' => [ 'text_key' => 'drug_terror' ]]], 2 ],
-                [ ['drug_addict', 'just_ap7', ['message' => [ 'text_key' => 'drug_addict_ap' ]]], 2 ],
-                [ ['do_nothing', ['message' => [ 'text_key' => 'drug_no_effect' ]]], 1 ],
+                [ ['drug_addict', 'just_ap6', ['message' => [ 'text_key' => 'drug_normal_ap' ]]], 119 ],
+                [ ['drug_addict', 'terrorize', ['message' => [ 'text_key' => 'drug_terror' ]]], 66 ],
+                [ ['drug_addict', 'just_ap7', ['message' => [ 'text_key' => 'drug_addict_ap' ]]], 65 ],
+                [ ['do_nothing', ['message' => [ 'text_key' => 'drug_no_effect' ]]], 58 ],
+            ]] ] ] ,
+            'drug_lsd_1'  => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1' ], 'result' => [ 'contaminated_zone_infect', 'consume_item', ['picto' => ['r_cobaye_#00']], ['group' => [
+                [ ['drug_any', 'just_ap6', ['message' => [ 'text_key' => 'drug_normal_ap' ]]], 1 ],
+                [ ['drug_any', 'terrorize', ['message' => [ 'text_key' => 'drug_terror' ]]], 1 ],
+                [ ['drug_any', 'drug_addict', 'just_ap7', ['message' => [ 'text_key' => 'drug_addict_ap' ]]], 3 ],
+                [ ['do_nothing', ['message' => [ 'text_key' => 'drug_no_effect' ]]], 2 ],
+            ]] ] ] ,
+            'drug_lsd_2'  => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_2' ], 'result' => [ 'contaminated_zone_infect', 'consume_item', ['picto' => ['r_cobaye_#00']], ['group' => [
+                [ ['drug_addict', 'just_ap6', ['message' => [ 'text_key' => 'drug_normal_ap' ]]], 1 ],
+                [ ['drug_addict', 'terrorize', ['message' => [ 'text_key' => 'drug_terror' ]]], 1 ],
+                [ ['drug_addict', 'just_ap7', ['message' => [ 'text_key' => 'drug_addict_ap' ]]], 3 ],
+                [ ['do_nothing', ['message' => [ 'text_key' => 'drug_no_effect' ]]], 2 ],
+            ]] ] ] ,
+            'drug_beta_bad_1'  => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1' ], 'result' => [ 'contaminated_zone_infect', 'consume_item', ['picto' => ['r_cobaye_#00']], ['group' => [
+                [ ['drug_any', 'just_ap6', ['message' => [ 'text_key' => 'drug_normal_ap' ]]], 11 ],
+                [ ['drug_any', 'terrorize', ['message' => [ 'text_key' => 'drug_terror' ]]], 6 ],
+                [ ['drug_any', 'drug_addict', 'just_ap7', ['message' => [ 'text_key' => 'drug_addict_ap' ]]], 5 ],
+                [ ['do_nothing', ['message' => [ 'text_key' => 'drug_no_effect' ]]], 4 ],
+            ]] ] ] ,
+            'drug_beta_bad_2'  => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_2' ], 'result' => [ 'contaminated_zone_infect', 'consume_item', ['picto' => ['r_cobaye_#00']], ['group' => [
+                [ ['drug_addict', 'just_ap6', ['message' => [ 'text_key' => 'drug_normal_ap' ]]], 11 ],
+                [ ['drug_addict', 'terrorize', ['message' => [ 'text_key' => 'drug_terror' ]]], 6 ],
+                [ ['drug_addict', 'just_ap7', ['message' => [ 'text_key' => 'drug_addict_ap' ]]], 5 ],
+                [ ['do_nothing', ['message' => [ 'text_key' => 'drug_no_effect' ]]], 4 ],
             ]] ] ] ,
             'drug_rand_xmas'  => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap' ], 'result' => [ 'contaminated_zone_infect', 'consume_item', ['picto' => ['r_cobaye_#00']], ['group' => [
                 [ ['plus_ap8_30', ['message' => ['text' => 'Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter.']]], 22 ],
@@ -1038,8 +1062,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'drug_#00'            => [ 'drug_6ap_1', 'drug_6ap_2' ],
             'drug_hero_#00'       => [ 'drug_8ap_1', 'drug_8ap_2' ],
             'drug_random_#00'     => [ 'drug_rand_1', 'drug_rand_2' ],
-            'lsd_#00'             => [ 'drug_rand_1', 'drug_rand_2' ],
-            'beta_drug_bad_#00'   => [ 'drug_rand_1', 'drug_rand_2' ],
+            'lsd_#00'             => [ 'drug_lsd_1', 'drug_lsd_2' ],
+            'beta_drug_bad_#00'   => [ 'drug_beta_bad_1', 'drug_beta_bad_2' ],
             'beta_drug_#00'       => [ 'drug_beta' ],
             'xanax_#00'           => [ 'drug_xana1', 'drug_xana2', 'drug_xana3', 'drug_xana4' ],
             'drug_water_#00'      => [ 'drug_hyd_1', 'drug_hyd_2', 'drug_hyd_3', 'drug_hyd_4', 'drug_hyd_5', 'drug_hyd_6' ],
@@ -1391,7 +1415,9 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
         'read_blueprint'            => '<t-bp_ok>Du liest den {item} und stellst fest, dass es sich um einen Plan für {bp_spawn} handelt.</t-bp_ok><t-bp_parent>{hr}Dafür ist das Bauprojekt {bp_parent} nötig.</t-bp_parent><t-bp_fail>Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...</t-bp_fail>',
     
-        'use_lab'                   => 'In deinem Labor hast du {items_consume} in {items_spawn} umgewandelt.',
+        'use_lab'                   => 'Du zermahlst den Inhalt von {items_consume} auf dem Tisch und mischst ihn mit allem, was dir in die Hände fällt... und lässt ihn dann ziehen.',
+        'use_lab_fail'              => 'Der verdächtige Rauch, der aus der Mischung austritt, deutet darauf hin, dass <strong>nicht alles so gelaufen ist wie geplant</strong>. Du hast eine zufällige Droge erhalten: {items_spawn}',
+        'use_lab_success'           => 'Ein überragender Erfolg: Du hast {items_spawn} erhalten!',
         'use_kitchen'               => 'In deiner Küche hast du {items_consume} in {items_spawn} umgewandelt.',
         'use_butcher'               => 'Der Metzger hat sich gut um {item} gekümmert... Dafür hast du nun {items_spawn} erhalten. Auf wiedersehen, mein Freund!',
         'use_bed'                   => 'Du versuchst dich ein paar Minuten auszuruhen.<t-ap-up>Nach einer kurzen Pause fühlst du dich nun viel besser. Du hast 2 AP erhalten !</t-ap-up><nt-ap-up>Leider bekommst du kein Auge zu: Der Gedanke an heute Abend, deinen Tod, sowie deine geringen Überlebenschancen lassen dir keine Ruhe...</nt-ap-up>',

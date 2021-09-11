@@ -8644,18 +8644,16 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     <unit id="WZjQ7F6">
       <notes>
         <note category="german">Du befielst diesem Bürger sich zu &lt;strong&gt;stärken&lt;/strong&gt;, damit ihr gemeinsam weiterziehen könnt. Er ist einverstanden und holt eine(e,n) {item} aus seinem Sack... Ihr macht ne kleine Brotzeit...{hr}{user} hat seine AP aufgefüllt!</note>
-        <note category="state">new</note>
         <note category="from">db://ItemAction</note>
       </notes>
       <segment>
         <source>Du befielst diesem Bürger sich zu &lt;strong&gt;stärken&lt;/strong&gt;, damit ihr gemeinsam weiterziehen könnt. Er ist einverstanden und holt eine(e,n) {item} aus seinem Sack... Ihr macht ne kleine Brotzeit...{hr}{user} hat seine AP aufgefüllt!</source>
-        <target><![CDATA[You tell the citizen to eat something before continuing. They agree and whip out their {item}... After a brief lunch stop...{hr}{user}  has regained all their APs!]]></target>
+        <target>You tell the citizen to eat something before continuing. They agree and whip out their {item}... After a brief lunch stop...{hr}{user}  has regained all their APs!</target>
       </segment>
     </unit>
     <unit id="gVu_1LO" name="Der Bürger hat das Wasser in einem Zug ausgetrunken. Das tut gut!">
       <notes>
         <note category="german">Der Bürger hat das Wasser in einem Zug ausgetrunken. Das tut gut!</note>
-        <note category="state">new</note>
         <note category="from">db://ItemAction</note>
       </notes>
       <segment>
@@ -9249,6 +9247,36 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       <segment>
         <source>Dieser Gegenstand ist &lt;strong class="red"&gt;kaputt&lt;/strong&gt;. Du kannst ihn zur Zeit nicht gebrauchen. Vielleicht findest du in der Stadt eine gütige Seele, der ihn reparieren kann?</source>
         <target><![CDATA[This object is <strong class="red">broken</strong>, you cannot use it any more for the time being! Perhaps some generous soul in town will repair it for you?]]></target>
+      </segment>
+    </unit>
+    <unit id="nPNoAvx">
+      <notes>
+        <note category="german">Du zermahlst den Inhalt von {items_consume} auf dem Tisch und mischst ihn mit allem, was dir in die Hände fällt... und lässt ihn dann ziehen.</note>
+        <note category="from">db://ItemAction</note>
+      </notes>
+      <segment>
+        <source>Du zermahlst den Inhalt von {items_consume} auf dem Tisch und mischst ihn mit allem, was dir in die Hände fällt... und lässt ihn dann ziehen.</source>
+        <target>You grind the contents of {items_consume} on the table and mix it with anything and everything that comes to hand... then let it infuse.</target>
+      </segment>
+    </unit>
+    <unit id="qeC3d4b" name="Ein überragender Erfolg: Du hast {items_spawn} erhalten!">
+      <notes>
+        <note category="german">Ein überragender Erfolg: Du hast {items_spawn} erhalten!</note>
+        <note category="from">db://AffectMessage</note>
+      </notes>
+      <segment>
+        <source>Ein überragender Erfolg: Du hast {items_spawn} erhalten!</source>
+        <target>It's a roaring success : you have obtained {items_spawn} !</target>
+      </segment>
+    </unit>
+    <unit id="RvnC1X2">
+      <notes>
+        <note category="german">Der verdächtige Rauch, der aus der Mischung austritt, deutet darauf hin, dass &lt;strong&gt;nicht alles so gelaufen ist wie geplant&lt;/strong&gt;. Du hast eine zufällige Droge erhalten: {items_spawn}</note>
+        <note category="from">db://AffectMessage</note>
+      </notes>
+      <segment>
+        <source>Der verdächtige Rauch, der aus der Mischung austritt, deutet darauf hin, dass &lt;strong&gt;nicht alles so gelaufen ist wie geplant&lt;/strong&gt;. Du hast eine zufällige Droge erhalten: {items_spawn}</source>
+        <target><![CDATA[The dodgy smoke pouring out of the mixture hints that <strong>everything may not have gone exactly as planned</strong>. You have obtained a random drug: {items_spawn}]]></target>
       </segment>
     </unit>
   </file>

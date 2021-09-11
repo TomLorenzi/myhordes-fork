@@ -22637,5 +22637,16 @@ cette violente opération...]]></target>
         <target>Nur verbannte Bürger können Gegenstände sehen und aufheben, wenn diese von anderen verbannten Bürgern versteckt wurden.</target>
       </segment>
     </unit>
+    <unit id="kVCmkiM" name="Barhändiger Stripper">
+      <notes>
+        <note category="german">Barhändiger Stripper</note>
+        <note category="from">db://AwardPrototype</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Barhändiger Stripper</source>
+        <target>Barhändiger Stripper</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

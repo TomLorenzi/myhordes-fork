@@ -3582,7 +3582,7 @@
     </unit>
     <unit id="cEUwQw8" name="Dieser Spieler ist ein Administrator auf diesem Server.">
       <notes>
-        <note category="german">Dieser Spieler ist ein Administrator auf diesem Server.</note>
+        <note category="german">Dieser Spieler ist ein Administrator von MyHordes.</note>
         <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/forum/posts_small.html.twig</note>
       </notes>
       <segment>
@@ -3667,22 +3667,20 @@
       <notes>
         <note category="german">Details</note>
         <note category="from">twig:///templates/ajax/admin/reports/gpn-viewer.html.twig;twig:///templates/ajax/admin/reports/pn-viewer.html.twig;twig:///templates/ajax/forum/posts.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Details</source>
-        <target>Details</target>
+        <target>Detalles</target>
       </segment>
     </unit>
     <unit id="yqSnrUg" name="Zusätzliche Informationen zu deiner Meldung (optional):">
       <notes>
         <note category="german">Zusätzliche Informationen zu deiner Meldung (optional):</note>
         <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Zusätzliche Informationen zu deiner Meldung (optional):</source>
-        <target>Zusätzliche Informationen zu deiner Meldung (optional):</target>
+        <target>Información adicional sobre su informe (opcional):</target>
       </segment>
     </unit>
   </file>

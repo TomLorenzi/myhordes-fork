@@ -22731,5 +22731,16 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>Only shunned citizens can see and collect objects hidden by another shunned citizen.</target>
       </segment>
     </unit>
+    <unit id="kVCmkiM" name="Barhändiger Stripper">
+      <notes>
+        <note category="german">Barhändiger Stripper</note>
+        <note category="from">db://AwardPrototype</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Barhändiger Stripper</source>
+        <target>Barhändiger Stripper</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

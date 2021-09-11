@@ -115,6 +115,7 @@
                                                 <option value="{{ url('admin_users_account_manage', {action: 'twin_full_reset', id: user.id}) }}">{{ 'Integrationen löschen'|trans({},'admin') }}</option>
                                                 {% if has_main_soul %}
                                                     <option value="{{ url('admin_users_account_manage', {action: 'twin_main_reset', id: user.id}) }}">{{ 'Hauptseele zurücksetzen'|trans({},'admin') }}</option>
+                                                    <option value="{{ url('admin_users_account_manage', {action: 'twin_main_full_import', id: user.id}) }}">{{ 'Hauptseele ohne Einschränkungen importieren'|trans({},'admin') }}</option>
                                                 {% endif %}
                                             </optgroup>
                                         {% endif %}
