@@ -363,6 +363,7 @@ class BeyondController extends InventoryAwareController
             'scout' => $this->getActiveCitizen()->getProfession()->getName() === 'hunter',
             'allow_enter_town' => $can_enter,
             'doors_open' => $town->getDoor(),
+            'town' => $town,
             'show_ventilation'  => $is_on_zero && $th->getBuilding($town, 'small_ventilation_#00',  true) !== null,
             'allow_ventilation' => $this->getActiveCitizen()->getProfession()->getHeroic(),
             'show_sneaky' => $is_on_zero && $this->getActiveCitizen()->hasRole('ghoul'),
