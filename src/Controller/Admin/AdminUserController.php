@@ -124,7 +124,7 @@ class AdminUserController extends AdminActionController
         if (empty($param)) $param = $parser->get('param', '');
 
         if (in_array($action, [
-            'delete_token', 'invalidate', 'validate', 'twin_full_reset', 'twin_main_reset', 'delete', 'rename',
+            'delete_token', 'invalidate', 'validate', 'twin_full_reset', 'twin_main_reset', 'twin_main_full_import', 'delete', 'rename',
             'shadow', 'whitelist', 'unwhitelist', 'etwin_reset', 'overwrite_pw', 'initiate_pw_reset',
             'enforce_pw_reset', 'change_mail', 'ref_rename', 'ref_disable', 'ref_enable', 'set_sponsor'
         ]) && !$this->isGranted('ROLE_ADMIN'))
@@ -245,6 +245,21 @@ class AdminUserController extends AdminActionController
                     $twin->clearPrimaryImportedData( $user );
                     $main->setMain( false );
                     $this->entity_manager->persist($main);
+                }
+                break;
+
+            case 'twin_main_full_import':
+
+                $main = $this->entity_manager->getRepository(TwinoidImport::class)->findOneBy(['user' => $user, 'main' => true]);
+                if ($main) {
+                    $twin->importData($main->getUser(), $main->getScope(), $main->getData($this->entity_manager), true, false);
+                    $this->entity_manager->persist($user);
+                    foreach ($user->getPastLifes() as $pastLife)
+                        if ($pastLife->getLimitedImport())
+                            $this->entity_manager->persist($pastLife->setLimitedImport(false)->setDisabled(false));
+                    $this->entity_manager->flush();
+                    $user->setImportedSoulPoints($this->user_handler->fetchImportedSoulPoints($user));
+                    $this->entity_manager->persist($user);
                 }
                 break;
 
@@ -844,7 +859,11 @@ class AdminUserController extends AdminActionController
 
         return $this->render( 'ajax/admin/users/pictos.html.twig', $this->addDefaultTwigArgs("admin_users_pictos", [
             'user' => $user,
-            'pictos' => $this->entity_manager->getRepository(Picto::class)->findByUser($user),
+            'pictos' => $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($user),
+            'pictos_all' => $this->entity_manager->getRepository(Picto::class)->findByUser($user),
+            'pictos_mh' => $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($user, false),
+            'pictos_im' => $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($user, true),
+            'pictos_old' => $this->entity_manager->getRepository(Picto::class)->findOldByUser($user),
             'pictoPrototypes' => $protos,
             'features' => $features,
             'featurePrototypes' => $this->entity_manager->getRepository(FeatureUnlockPrototype::class)->findAll()

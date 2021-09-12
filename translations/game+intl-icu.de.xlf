@@ -14244,5 +14244,263 @@
         <target>Auszeichnungsdetails</target>
       </segment>
     </unit>
+    <unit id="N.42Sjo" name="Trinken (Oder du stirbst heute Nacht)">
+      <segment>
+        <source>Trinken (Oder du stirbst heute Nacht)</source>
+        <target>Trinken (Oder du stirbst heute Nacht)</target>
+      </segment>
+    </unit>
+    <unit id="016qyFO">
+      <segment>
+        <source>Du hast es geschafft, dich aus dieser Gefahr zu befreien, aber die Zombies schauen dich jetzt hungrig an und kommen gefährlich knurrend auf dich zu... FLIEHE!</source>
+        <target>Du hast es geschafft, dich aus dieser Gefahr zu befreien, aber die Zombies schauen dich jetzt hungrig an und kommen gefährlich knurrend auf dich zu... FLIEHE!</target>
+      </segment>
+    </unit>
+    <unit id="tMIHtgS" name="Profi-Fotograph">
+      <segment>
+        <source>Profi-Fotograph</source>
+        <target>Profi-Fotograph</target>
+      </segment>
+    </unit>
+    <unit id="Uy1Rmg9" name="Du beginst jede neue Stadt mit einer Kamera aus Vorkriegstagen.">
+      <segment>
+        <source>Du beginst jede neue Stadt mit einer Kamera aus Vorkriegstagen.</source>
+        <target>Du beginst jede neue Stadt mit einer Kamera aus Vorkriegstagen.</target>
+      </segment>
+    </unit>
+    <unit id="l2sp7PJ" name="Kopf">
+      <segment>
+        <source>Kopf</source>
+        <target>Kopf</target>
+      </segment>
+    </unit>
+    <unit id="_hjAZzP" name="Hand">
+      <segment>
+        <source>Hand</source>
+        <target>Hand</target>
+      </segment>
+    </unit>
+    <unit id="fweEsGL" name="Arme">
+      <segment>
+        <source>Arme</source>
+        <target>Arme</target>
+      </segment>
+    </unit>
+    <unit id="xXqHDly" name="Bein">
+      <segment>
+        <source>Bein</source>
+        <target>Bein</target>
+      </segment>
+    </unit>
+    <unit id="oFtlo8T" name="Auge">
+      <segment>
+        <source>Auge</source>
+        <target>Auge</target>
+      </segment>
+    </unit>
+    <unit id="4CY2vtO" name="Fuß">
+      <segment>
+        <source>Fuß</source>
+        <target>Fuß</target>
+      </segment>
+    </unit>
+    <unit id="WrHBbx9">
+      <segment>
+        <source>Bei deinem Fluchtversuch ist es einem Zombie gelungen dir eine Verletzung zuzufügen: {injury}! Du solltest hier besser schnell verschwinden!</source>
+        <target>Bei deinem Fluchtversuch ist es einem Zombie gelungen dir eine Verletzung zuzufügen: {injury}! Du solltest hier besser schnell verschwinden!</target>
+      </segment>
+    </unit>
+    <unit id="5M1q6BC">
+      <segment>
+        <source>Du erhälst einen Bauplan wenn Du in diesem Gebäude campst, aber du musst zunächst die Zone aufräumen.</source>
+        <target>Du erhälst einen Bauplan wenn Du in diesem Gebäude campst, aber du musst zunächst die Zone aufräumen.</target>
+      </segment>
+    </unit>
+    <unit id="O_a3lwS" name="(seit {num} Stunden herrscht völlige Flaute)">
+      <segment>
+        <source>(seit {num} Stunden herrscht völlige Flaute)</source>
+        <target>(seit {num} Stunden herrscht völlige Flaute)</target>
+      </segment>
+    </unit>
+    <unit id="GCKCg7_" name="(über eine Stunde ohne besondere Vorkommnisse)">
+      <segment>
+        <source>(über eine Stunde ohne besondere Vorkommnisse)</source>
+        <target>(über eine Stunde ohne besondere Vorkommnisse)</target>
+      </segment>
+    </unit>
+    <unit id="gJumdci" name="({num} Minuten Stille)">
+      <segment>
+        <source>({num} Minuten Stille)</source>
+        <target>({num} Minuten Stille)</target>
+      </segment>
+    </unit>
+    <unit id="2UGxP6g" name="Dieser Bürger gestattet dir nicht auf seine Gegenstände zuzugreifen.">
+      <segment>
+        <source>Dieser Bürger gestattet dir nicht auf seine Gegenstände zuzugreifen.</source>
+        <target>Dieser Bürger gestattet dir nicht auf seine Gegenstände zuzugreifen.</target>
+      </segment>
+    </unit>
+    <unit id="sxHlIDp">
+      <segment>
+        <source>{attacker} hat {defender} gewalttätig angegriffen! Der Kampf ist eskaliert und {attacker} verletzte {defender} schlussendlich schwer!</source>
+        <target>{attacker} hat {defender} gewalttätig angegriffen! Der Kampf ist eskaliert und {attacker} verletzte {defender} schlussendlich schwer!</target>
+      </segment>
+    </unit>
+    <unit id="o0S7jOB" name="Tag {d} {today}">
+      <segment>
+        <source>Tag {d} {today}</source>
+        <target>Tag {d} {today}</target>
+      </segment>
+    </unit>
+    <unit id="t0ipGa0" name="heute">
+      <segment>
+        <source>heute</source>
+        <target>heute</target>
+      </segment>
+    </unit>
+    <unit id="WVOQ6JP">
+      <segment>
+        <source>Dieser Bürger wurde aus der Gemeinschaft verbannt; er hat nicht länger Zugang zu den Gebäuden der Stadt, mit Ausnahme des Brunnens (wobei er auf eine Ration pro Tag eingeschränkt ist).</source>
+        <target>Dieser Bürger wurde aus der Gemeinschaft verbannt; er hat nicht länger Zugang zu den Gebäuden der Stadt, mit Ausnahme des Brunnens (wobei er auf eine Ration pro Tag eingeschränkt ist).</target>
+      </segment>
+    </unit>
+    <unit id="Xrx5c_.">
+      <segment>
+        <source>Die Ratten haben das Schiff schon vor Tagen verlassen... Diese Stadt ist nur noch ein Schatten ihrer selbst.</source>
+        <target>Die Ratten haben das Schiff schon vor Tagen verlassen... Diese Stadt ist nur noch ein Schatten ihrer selbst.</target>
+      </segment>
+    </unit>
+    <unit id="UOD7ZoJ">
+      <segment>
+        <source>Ermordet zu werden ist äußerst ärgerlich (ja, wirklich!). Aber wir bitten dich dringend, &lt;u&gt;die Identität deines Mörders gegenüber deinen ehemaligen Mitbürgern nicht aufzudecken&lt;/u&gt;... Lass ihnen das Vergnügen, selbst ermitteln zu müssen!</source>
+        <target><![CDATA[Ermordet zu werden ist äußerst ärgerlich (ja, wirklich!). Aber wir bitten dich dringend, <u>die Identität deines Mörders gegenüber deinen ehemaligen Mitbürgern nicht aufzudecken</u>... Lass ihnen das Vergnügen, selbst ermitteln zu müssen!]]></target>
+      </segment>
+    </unit>
+    <unit id="2GAQ12V" name="Fortfahren...">
+      <segment>
+        <source>Fortfahren...</source>
+        <target>Fortfahren...</target>
+      </segment>
+    </unit>
+    <unit id="7jb2vlU" name="Was ist mit ihm passiert?">
+      <segment>
+        <source>Was ist mit ihm passiert?</source>
+        <target>Was ist mit ihm passiert?</target>
+      </segment>
+    </unit>
+    <unit id="RqSAT8A" name="Was ist mit dem Körper geschehen?">
+      <segment>
+        <source>Was ist mit dem Körper geschehen?</source>
+        <target>Was ist mit dem Körper geschehen?</target>
+      </segment>
+    </unit>
+    <unit id="X_VpKo9">
+      <segment>
+        <source>Inmitten dieser Zombiehorde konnten wir &lt;i class="dagger"&gt;†&lt;/i&gt; {citizen} entdecken! Nach seinem Tod in der Aussenwelt hat dieser frisch in einen Zombie verwandelte Mitbürger wohl neue Freunde gefunden!</source>
+        <target><![CDATA[Inmitten dieser Zombiehorde konnten wir <i class="dagger">†</i> {citizen} entdecken! Nach seinem Tod in der Aussenwelt hat dieser frisch in einen Zombie verwandelte Mitbürger wohl neue Freunde gefunden!]]></target>
+      </segment>
+    </unit>
+    <unit id="t8qkZPk">
+      <segment>
+        <source>Von der Stadtverteidigung aufgehalten, kehrte &lt;i class="dagger"&gt;†&lt;/i&gt; {citizen} grunzend und torkelnd zu seinen neuen verschimmelten Freunden zurück...</source>
+        <target><![CDATA[Von der Stadtverteidigung aufgehalten, kehrte <i class="dagger">†</i> {citizen} grunzend und torkelnd zu seinen neuen verschimmelten Freunden zurück...]]></target>
+      </segment>
+    </unit>
+    <unit id="h8TXDGN">
+      <segment>
+        <source>Der Angriff traf auch unsere Verteidigungsgegenstände! Wir haben insgesamt {num} verloren: {list}</source>
+        <target>Der Angriff traf auch unsere Verteidigungsgegenstände! Wir haben insgesamt {num} verloren: {list}</target>
+      </segment>
+    </unit>
+    <unit id="zYCe3Qk" name="vor wenigen Augenblicken">
+      <segment>
+        <source>vor wenigen Augenblicken</source>
+        <target>vor wenigen Augenblicken</target>
+      </segment>
+    </unit>
+    <unit id="_VLdCGZ" name="heute morgen um {H}:{i}">
+      <segment>
+        <source>heute morgen um {H}:{i}</source>
+        <target>heute morgen um {H}:{i}</target>
+      </segment>
+    </unit>
+    <unit id="9GBymDW" name="heute nachmittag um {H}:{i}">
+      <segment>
+        <source>heute nachmittag um {H}:{i}</source>
+        <target>heute nachmittag um {H}:{i}</target>
+      </segment>
+    </unit>
+    <unit id="nw_7pSY" name="gestern um {H}:{i}">
+      <segment>
+        <source>gestern um {H}:{i}</source>
+        <target>gestern um {H}:{i}</target>
+      </segment>
+    </unit>
+    <unit id="7CsDwaN" name="Du kannst das Gebäude heute nicht erneut betreten, du bist zu verängstigt!">
+      <segment>
+        <source>Du kannst das Gebäude heute nicht erneut betreten, du bist zu verängstigt!</source>
+        <target>Du kannst das Gebäude heute nicht erneut betreten, du bist zu verängstigt!</target>
+      </segment>
+    </unit>
+    <unit id="q5pHoRc">
+      <segment>
+        <source>Ein oder mehrere Gegenstände wurden in dieser Zone von einem verbannten Bürger versteckt.</source>
+        <target>Ein oder mehrere Gegenstände wurden in dieser Zone von einem verbannten Bürger versteckt.</target>
+      </segment>
+    </unit>
+    <unit id="6WlIVqN">
+      <segment>
+        <source>Nur verbannte Bürger können Gegenstände sehen und aufheben, wenn diese von anderen verbannten Bürgern versteckt wurden.</source>
+        <target>Nur verbannte Bürger können Gegenstände sehen und aufheben, wenn diese von anderen verbannten Bürgern versteckt wurden.</target>
+      </segment>
+    </unit>
+    <unit id="kVCmkiM" name="Barhändiger Stripper">
+      <segment>
+        <source>Barhändiger Stripper</source>
+        <target>Barhändiger Stripper</target>
+      </segment>
+    </unit>
+    <unit id="RCyh4IV">
+      <segment>
+        <source>Für die vollständige Instandsetzung dieses Gebäudes sind noch {remaining} AP erforderlich.</source>
+        <target>Für die vollständige Instandsetzung dieses Gebäudes sind noch {remaining} AP erforderlich.</target>
+      </segment>
+    </unit>
+    <unit id="Plqho0r" name="Niemand ist in der Nähe der Stadt (maximal 2 Felder).">
+      <segment>
+        <source>Niemand ist in der Nähe der Stadt (maximal 2 Felder).</source>
+        <target>Niemand ist in der Nähe der Stadt (maximal 2 Felder).</target>
+      </segment>
+    </unit>
+    <unit id=".le_YgA">
+      <segment>
+        <source>Einige Bürger wurden beim Versuch, sich der Zombiehorde entgegenzustellen, verletzt.</source>
+        <target>Einige Bürger wurden beim Versuch, sich der Zombiehorde entgegenzustellen, verletzt.</target>
+      </segment>
+    </unit>
+    <unit id="bAZ.uzF">
+      <segment>
+        <source>Einige Bürger sind beim Versuch, sich der Zombiehorde entgegenzustellen, vor Angst erstarrt.</source>
+        <target>Einige Bürger sind beim Versuch, sich der Zombiehorde entgegenzustellen, vor Angst erstarrt.</target>
+      </segment>
+    </unit>
+    <unit id="fYLDfxe">
+      <segment>
+        <source>Beim Graben ist {citizen} auf eine Art... geheimes Versteck mit {items} gestoßen! Es wurde vermutlich von einem verbannten Mitbürger angelegt...</source>
+        <target>Beim Graben ist {citizen} auf eine Art... geheimes Versteck mit {items} gestoßen! Es wurde vermutlich von einem verbannten Mitbürger angelegt...</target>
+      </segment>
+    </unit>
+    <unit id="7yCOjAd">
+      <segment>
+        <source>Beim Durchwühlen des Mülls, der am Stadtrand herumliegt, findest du schließlich folgendes: {item}.&lt;hr /&gt;Du hast &lt;strong&gt;1 Aktionspunkt(e)&lt;/strong&gt; verbraucht.</source>
+        <target><![CDATA[Beim Durchwühlen des Mülls, der am Stadtrand herumliegt, findest du schließlich folgendes: {item}.<hr />Du hast <strong>1 Aktionspunkt(e)</strong> verbraucht.]]></target>
+      </segment>
+    </unit>
+    <unit id="6IxRpiz">
+      <segment>
+        <source>Es ist dir gelungen, {item} von {victim} zu stehlen &lt;strong&gt;ohne entdeckt zu werden&lt;/strong&gt;. Nicht schlecht!</source>
+        <target><![CDATA[Es ist dir gelungen, {item} von {victim} zu stehlen <strong>ohne entdeckt zu werden</strong>. Nicht schlecht!]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

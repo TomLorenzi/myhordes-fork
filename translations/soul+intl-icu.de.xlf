@@ -2366,5 +2366,119 @@
         <target>Importierte Auszeichnungen</target>
       </segment>
     </unit>
+    <unit id="YHwfxav" name="Beta-Saison">
+      <segment>
+        <source>Beta-Saison</source>
+        <target>Beta-Saison</target>
+      </segment>
+    </unit>
+    <unit id="ykRbs.i" name="&lt;span class=&quot;number&quot;&gt;Beta&lt;/span&gt; Saison">
+      <segment>
+        <source>&lt;span class="number"&gt;Beta&lt;/span&gt; Saison</source>
+        <target><![CDATA[<span class="number">Beta</span> Saison]]></target>
+      </segment>
+    </unit>
+    <unit id="Tum7Im1">
+      <segment>
+        <source>Diese Stadt stammt aus der Alpha-Phase von MyHordes. Die angezeigten Informationen sind daher möglicherweise unvollständig oder sehen nicht so aus, wie du es sonst erwarten würdest.</source>
+        <target>Diese Stadt stammt aus der Alpha-Phase von MyHordes. Die angezeigten Informationen sind daher möglicherweise unvollständig oder sehen nicht so aus, wie du es sonst erwarten würdest.</target>
+      </segment>
+    </unit>
+    <unit id="vgT9Zpn" name="Alte Auszeichnungen">
+      <segment>
+        <source>Alte Auszeichnungen</source>
+        <target>Alte Auszeichnungen</target>
+      </segment>
+    </unit>
+    <unit id="lc.3X.C">
+      <segment>
+        <source>In der Vergangenheit importierte Seelenpunkte, Auszeichnungen und Heldenerfahrung von dieser Seele sind deinem MyHordes-Profil gutgeschrieben worden. Neu hinzu gekommene Seelenpunkte, Auszeichnungen und Heldenerfahrung werden jedoch nur in einem gesonderten Bereich deiner Seele angezeigt.</source>
+        <target>In der Vergangenheit importierte Seelenpunkte, Auszeichnungen und Heldenerfahrung von dieser Seele sind deinem MyHordes-Profil gutgeschrieben worden. Neu hinzu gekommene Seelenpunkte, Auszeichnungen und Heldenerfahrung werden jedoch nur in einem gesonderten Bereich deiner Seele angezeigt.</target>
+      </segment>
+    </unit>
+    <unit id="l.Sx3SK">
+      <segment>
+        <source>Hiermit markierst du die Seele, mit der du dich am meisten identifizierst. Es kann nur eine importierte Seele zur Hauptseele erklärt werden. Überlege dir deine Entscheidung gut, denn du kannst die Wahl deiner Hauptseele später nicht mehr ändern!</source>
+        <target>Hiermit markierst du die Seele, mit der du dich am meisten identifizierst. Es kann nur eine importierte Seele zur Hauptseele erklärt werden. Überlege dir deine Entscheidung gut, denn du kannst die Wahl deiner Hauptseele später nicht mehr ändern!</target>
+      </segment>
+    </unit>
+    <unit id="9htmE0T">
+      <segment>
+        <source>Da du bereits Punkte auf MyHordes gesammelt hast, kannst du nicht länger Seelenpunkte, Auszeichnungen und Heldenerfahrung von einer importierten Seele übernehmen.</source>
+        <target>Da du bereits Punkte auf MyHordes gesammelt hast, kannst du nicht länger Seelenpunkte, Auszeichnungen und Heldenerfahrung von einer importierten Seele übernehmen.</target>
+      </segment>
+    </unit>
+    <unit id="qDPKzOI" name="Achtung, der Seelenimport unterliegt aktuell zusätzlichen Einschränkungen.">
+      <segment>
+        <source>Achtung, der Seelenimport unterliegt aktuell zusätzlichen Einschränkungen.</source>
+        <target>Achtung, der Seelenimport unterliegt aktuell zusätzlichen Einschränkungen.</target>
+      </segment>
+    </unit>
+    <unit id="UfAt_R8">
+      <segment>
+        <source>Um zu verhindern, dass Spieler Auszeichnungen, Seelenpunkte oder Heldenerfahrung farmen, indem sie gleichzeitig auf MyHordes und Hordes (oder einer lokalen Variante von Hordes) spielen, werden &lt;b&gt;neu gesammelte Auszeichnungen, SP oder Heldenerfahrung&lt;/b&gt; nicht länger zu deiner MH-Seele hinzugerechnet.</source>
+        <target><![CDATA[Um zu verhindern, dass Spieler Auszeichnungen, Seelenpunkte oder Heldenerfahrung farmen, indem sie gleichzeitig auf MyHordes und Hordes (oder einer lokalen Variante von Hordes) spielen, werden <b>neu gesammelte Auszeichnungen, SP oder Heldenerfahrung</b> nicht länger zu deiner MH-Seele hinzugerechnet.]]></target>
+      </segment>
+    </unit>
+    <unit id="33LWSL0">
+      <segment>
+        <source>Diese Einschränkung betrifft alle Spieler, die auf MyHordes bereits &lt;b&gt;mehr als {threshold} Seelenpunkte&lt;/b&gt; gesammelt haben.</source>
+        <target><![CDATA[Diese Einschränkung betrifft alle Spieler, die auf MyHordes bereits <b>mehr als {threshold} Seelenpunkte</b> gesammelt haben.]]></target>
+      </segment>
+    </unit>
+    <unit id="YKpGK6P">
+      <segment>
+        <source>Es werden nach wie vor alle Informationen aus deiner importierten Seele auf MyHordes gespeichert. Durch den Import &lt;b&gt;neu&lt;/b&gt; gewonnene Auszeichnungen, SP oder Heldenerfahrung wird jedoch &lt;b&gt;nur noch in einem gesonderten Bereich&lt;/b&gt; auf deiner MH-Seele angezeigt.</source>
+        <target><![CDATA[Es werden nach wie vor alle Informationen aus deiner importierten Seele auf MyHordes gespeichert. Durch den Import <b>neu</b> gewonnene Auszeichnungen, SP oder Heldenerfahrung wird jedoch <b>nur noch in einem gesonderten Bereich</b> auf deiner MH-Seele angezeigt.]]></target>
+      </segment>
+    </unit>
+    <unit id="FgytNDj" name="Du kannst deine Seele aktuell &lt;b&gt;ohne Einschränkungen&lt;/b&gt; importieren.">
+      <segment>
+        <source>Du kannst deine Seele aktuell &lt;b&gt;ohne Einschränkungen&lt;/b&gt; importieren.</source>
+        <target><![CDATA[Du kannst deine Seele aktuell <b>ohne Einschränkungen</b> importieren.]]></target>
+      </segment>
+    </unit>
+    <unit id="UeSGb7T" name="Importierte Seelen">
+      <segment>
+        <source>Importierte Seelen</source>
+        <target>Importierte Seelen</target>
+      </segment>
+    </unit>
+    <unit id="7fBaUak">
+      <segment>
+        <source>&lt;b&gt;Wenn du sie in der Vergangenheit importiert hast&lt;/b&gt;, kannst du sie dir hier ansehen!</source>
+        <target><![CDATA[<b>Wenn du sie in der Vergangenheit importiert hast</b>, kannst du sie dir hier ansehen!]]></target>
+      </segment>
+    </unit>
+    <unit id="d1k9Xlg">
+      <segment>
+        <source>Die maximale Größe der Bilddatei, die du für deinen Avatar hochladen kannst, beträgt &lt;b&gt;{size}&lt;/b&gt;.</source>
+        <target><![CDATA[Die maximale Größe der Bilddatei, die du für deinen Avatar hochladen kannst, beträgt <b>{size}</b>.]]></target>
+      </segment>
+    </unit>
+    <unit id="U8MXhPw">
+      <segment>
+        <source>Nach dem Upload wird der Server dein Bild möglicherweise komprimieren (z.B. indem die Größe reduziert oder Animationsframe optimiert werden).</source>
+        <target>Nach dem Upload wird der Server dein Bild möglicherweise komprimieren (z.B. indem die Auflösung reduziert oder Animationsframes optimiert werden).</target>
+      </segment>
+    </unit>
+    <unit id="iExo5YI">
+      <segment>
+        <source>Der Server muss in der Lage sein, dein Bild auf höchstens &lt;b&gt;{size}&lt;/b&gt; zu komprimieren - andernfalls kann es nicht gespeichert werden.</source>
+        <target><![CDATA[Der Server muss in der Lage sein, dein Bild auf höchstens <b>{size}</b> zu komprimieren - andernfalls kann es nicht gespeichert werden.]]></target>
+      </segment>
+    </unit>
+    <unit id="LCJ4eBk" name="Die folgenden Bildformate werden unterstützt:">
+      <segment>
+        <source>Die folgenden Bildformate werden unterstützt:</source>
+        <target>Die folgenden Bildformate werden unterstützt:</target>
+      </segment>
+    </unit>
+    <unit id="KDrgSO8" name="nur Baseline-Format">
+      <segment>
+        <source>nur Baseline-Format</source>
+        <target>nur Baseline-Format</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

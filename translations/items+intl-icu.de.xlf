@@ -64,7 +64,7 @@
     <unit id="9tVy8rd">
       <segment>
         <source>Mit deiner Gitarre hast du die Stadt gerockt! Die Bürger haben {ap} AP erhalten.</source>
-        <target>Mit deiner Gitarre hast du die Stadt gerockt! Die Bürger haben {ap} AP erhalten.</target>
+        <target>Ein bisschen Live-Musik begeistert die Damen und hebt die Motivation... aber dir muss der Nebeneffekt genügen. Dein Spiel hat {ap} Aktionspunkte generiert, die unter den Bürgern aufgeteilt werden.</target>
       </segment>
     </unit>
     <unit id="6MESOb8" name="Trotz intensiver Suche hast du nichts verwertbares gefunden...">
@@ -5711,6 +5711,60 @@
       <segment>
         <source>Gegenstand verwenden</source>
         <target>Gegenstand verwenden</target>
+      </segment>
+    </unit>
+    <unit id="nPvnmuP" name="Die Batterie fällt ein paar Meter entfernt auf den Boden.">
+      <segment>
+        <source>Die Batterie fällt ein paar Meter entfernt auf den Boden.</source>
+        <target>Die Batterie fällt ein paar Meter entfernt auf den Boden.</target>
+      </segment>
+    </unit>
+    <unit id="WgEgCbq" name="Die Batterie wurde beim Aufprall vollständig zerstört.">
+      <segment>
+        <source>Die Batterie wurde beim Aufprall vollständig zerstört.</source>
+        <target>Die Batterie wurde beim Aufprall vollständig zerstört.</target>
+      </segment>
+    </unit>
+    <unit id="TNGA5Rl">
+      <segment>
+        <source>Gierig schluckt dieser Bürger seine Wasserration runter, ohne auch nur einen Tropfen zu verschwenden... Seine Zunge klebt ihm noch immer am Gaumen und sein Hals ist noch genauso trocken wie vorher.{hr}&lt;strong&gt;Da er davor schon dehydriert warst, hat er keine neuen APs erhalten.&lt;/strong&gt;</source>
+        <target><![CDATA[Gierig schluckt dieser Bürger seine Wasserration runter, ohne auch nur einen Tropfen zu verschwenden... Seine Zunge klebt ihm noch immer am Gaumen und sein Hals ist noch genauso trocken wie vorher.{hr}<strong>Da er davor schon dehydriert warst, hat er keine neuen APs erhalten.</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="1mv8jxQ">
+      <segment>
+        <source>Dieser Gegenstand ist &lt;strong class="red"&gt;kaputt&lt;/strong&gt;. Du kannst ihn zur Zeit nicht gebrauchen. Vielleicht findest du in der Stadt eine gütige Seele, der ihn reparieren kann?</source>
+        <target><![CDATA[Dieser Gegenstand ist <strong class="red">kaputt</strong>. Du kannst ihn zur Zeit nicht gebrauchen. Vielleicht findest du in der Stadt eine gütige Seele, der ihn reparieren kann?]]></target>
+      </segment>
+    </unit>
+    <unit id="nPNoAvx">
+      <segment>
+        <source>Du zermahlst den Inhalt von {items_consume} auf dem Tisch und mischst ihn mit allem, was dir in die Hände fällt... und lässt ihn dann ziehen.</source>
+        <target>Du zermahlst den Inhalt von {items_consume} auf dem Tisch und mischst ihn mit allem, was dir in die Hände fällt... und lässt ihn dann ziehen.</target>
+      </segment>
+    </unit>
+    <unit id="qeC3d4b" name="Ein überragender Erfolg: Du hast {items_spawn} erhalten!">
+      <segment>
+        <source>Ein überragender Erfolg: Du hast {items_spawn} erhalten!</source>
+        <target>Ein überragender Erfolg: Du hast {items_spawn} erhalten!</target>
+      </segment>
+    </unit>
+    <unit id="RvnC1X2">
+      <segment>
+        <source>Der verdächtige Rauch, der aus der Mischung austritt, deutet darauf hin, dass &lt;strong&gt;nicht alles so gelaufen ist wie geplant&lt;/strong&gt;. Du hast eine zufällige Droge erhalten: {items_spawn}</source>
+        <target><![CDATA[Der verdächtige Rauch, der aus der Mischung austritt, deutet darauf hin, dass <strong>nicht alles so gelaufen ist wie geplant</strong>. Du hast eine zufällige Droge erhalten: {items_spawn}]]></target>
+      </segment>
+    </unit>
+    <unit id="ysZzyH_">
+      <segment>
+        <source>Solange du &lt;strong&gt;erschöpft bist&lt;/strong&gt;, kannst du diese Aktion nicht ausführen (da du keine Aktionspunkte mehr hast)... Trink oder iss etwas, oder nimm eine Droge, ansonsten musst du bis &lt;strong&gt;morgen&lt;/strong&gt; warten.</source>
+        <target><![CDATA[Solange du <strong>erschöpft bist</strong>, kannst du diese Aktion nicht ausführen (da du keine Aktionspunkte mehr hast)... Trink oder iss etwas, oder nimm eine Droge, ansonsten musst du bis <strong>morgen</strong> warten.]]></target>
+      </segment>
+    </unit>
+    <unit id="bCsZ2JO">
+      <segment>
+        <source>Ja, klar... Du hast ihn schon hunderte Male gesehen, das Thema ändert sich auch nicht allzu sehr, aber trotzdem: Es geht nichts über einen guten Zombie-Film zur Entspannung.&lt;t-stat-down-terror&gt;&lt;hr /&gt;Diese seltsam fernen Schreie des Schreckens haben dir den Kopf gerade gerückt: &lt;strong&gt;Du hast deine Angst abgeschüttelt&lt;/strong&gt;.&lt;/t-stat-down-terror&gt;</source>
+        <target><![CDATA[Ja, klar... Du hast ihn schon hunderte Male gesehen, das Thema ändert sich auch nicht allzu sehr, aber trotzdem: Es geht nichts über einen guten Zombie-Film zur Entspannung.<t-stat-down-terror><hr />Diese seltsam fernen Schreie des Schreckens haben dir den Kopf gerade gerückt: <strong>Du hast deine Angst abgeschüttelt</strong>.</t-stat-down-terror>]]></target>
       </segment>
     </unit>
   </file>

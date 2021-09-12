@@ -52,7 +52,7 @@ class EscapeTimerRepository extends ServiceEntityRepository
             ->getResult();
     }
 
-    public function findActiveByCitizen(Citizen $c, $only_personal = false): ?EscapeTimer
+    public function findActiveByCitizen(Citizen $c, $only_personal = false, $allow_desperate = false): ?EscapeTimer
     {
         if (!$c->getZone()) return null;
 
@@ -63,6 +63,8 @@ class EscapeTimerRepository extends ServiceEntityRepository
             ->andWhere('e.time > :now')->setParameter('now', new DateTime());
         if ($only_personal)
             $q->andWhere('e.citizen = :ctz')->setParameter('ctz', $c);
+        if (!$allow_desperate)
+            $q->andWhere('e.desperate = :desp')->setParameter('desp', false);
         else
             $q->andWhere('e.citizen = :ctz OR e.citizen IS NULL')->setParameter('ctz', $c);
         $timers = $q

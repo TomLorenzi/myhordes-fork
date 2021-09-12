@@ -268,6 +268,16 @@ class ExternalXML2Controller extends ExternalController {
             if ($pastLife->getTown()->getImported() && $pastLife->getTown()->getLanguage() != $mainAccount){
                 $node = "imported-maps";
             }
+
+            if ($pastLife->getTown()->getSeason() === null)
+                $phase = 'alpha';
+            elseif ($pastLife->getTown()->getSeason()->getNumber() === 0 && $pastLife->getTown()->getSeason()->getSubNumber() <= 14)
+                $phase = 'import';
+            elseif ($pastLife->getTown()->getSeason()->getNumber() === 0 && $pastLife->getTown()->getSeason()->getSubNumber() >= 14)
+                $phase = 'beta';
+            else
+                $phase = 'native';
+
             $data['data'][$node]['list']['items'][] = [
                 'attributes' => [
                     'name' => $pastLife->getTown()->getName(),
@@ -276,9 +286,10 @@ class ExternalXML2Controller extends ExternalController {
                     'd' => $pastLife->getDay(),
                     'id' => $pastLife->getTown()->getBaseID() !== null ? $pastLife->getTown()->getBaseID() : $pastLife->getTown()->getId(),
                     'v1' => 0,
-                    'origin' => ($pastLife->getTown()->getSeason() && $pastLife->getTown()->getSeason()->getNumber() === 0)
+                    'origin' => ($pastLife->getTown()->getSeason() && $pastLife->getTown()->getSeason()->getNumber() === 0 && $pastLife->getTown()->getSeason()->getSubNumber() <= 14)
                         ? strtolower($pastLife->getTown()->getLanguage())
                         : '',
+                    'phase' => $phase
                 ],
                 'cdata_value' => html_entity_decode(str_replace('{gotKilled}', $this->translator->trans('...der Mörder .. ist.. IST.. AAARGHhh..', [], 'game'), $pastLife->getLastWords()))
             ];

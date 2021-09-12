@@ -3030,7 +3030,7 @@
       </notes>
       <segment>
         <source>Dieser Zauber des Schamanen erschafft ein Trugbild der Stadt. Als Folge verliert sich eine beträchtliche Anzahl Zombies heillos in der Wüste.</source>
-        <target>El Chamán crea una ilusión de la ciudad. Como resultado, un gran número de zombis irán hacia allá.</target>
+        <target>El Chamán crea una ilusión del pueblo. Como resultado, un gran número de zombis irán hacia allá.</target>
       </segment>
     </unit>
     <unit id="e1g.XXY">
@@ -3660,7 +3660,7 @@
       </notes>
       <segment>
         <source>Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 6km um die Stadt negiert, pro Tag wird 1 Batterie verbraucht.</source>
-        <target>La reducción de las posibilidades de búsqueda nocturna se anula en un radio de 6 km alrededor de la ciudad, se consume 1 batería por día.</target>
+        <target>La reducción de las posibilidades de búsqueda nocturna se anula en un radio de 6 km alrededor del pueblo, se consume 1 batería por día.</target>
       </segment>
     </unit>
     <unit id="sLA35Ek">
@@ -3670,7 +3670,7 @@
       </notes>
       <segment>
         <source>Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 10km um die Stadt negiert, pro Tag wird 1 Batterie verbraucht.</source>
-        <target>La reducción de las posibilidades de búsqueda nocturna se anula en un radio de 10 km alrededor de la ciudad, se consume 1 batería por día.</target>
+        <target>La reducción de las posibilidades de búsqueda nocturna se anula en un radio de 10 km alrededor del pueblo, se consume 1 batería por día.</target>
       </segment>
     </unit>
     <unit id="9Yp1S0O">
@@ -3690,7 +3690,7 @@
       </notes>
       <segment>
         <source>Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 2km um die Stadt negiert.</source>
-        <target>La reducción de las posibilidades de búsqueda nocturna se anula en un radio de 2 km alrededor de la ciudad</target>
+        <target>La reducción de las posibilidades de búsqueda nocturna se anula en un radio de 2 km alrededor del pueblo</target>
       </segment>
     </unit>
     <unit id="i9EymZs" name="Kein besonderer Bonus">

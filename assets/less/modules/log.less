@@ -7,6 +7,29 @@
     font-size: 1.2rem; color: @myhordes-cell-header-text-color; max-height: 300px; overflow-y: auto;
     &>.log-spinner, &>.log-complete-link { padding: 5px; }
     &>.log-complete-link { cursor: pointer; text-decoration: underline; display: inline-block; }
+
+    &>.log-silence {
+      padding: 5px 0 8px 4px;
+      margin: 2px 0 0;
+      font-size: 8pt;
+      font-weight: bold;
+      color: #98a675;
+      text-transform: uppercase;
+      border: 0;
+      border-top: 1px dashed #b37c4a;
+    }
+
+    &>.log-day-header {
+      margin-top: 5px;
+      margin-bottom: 2px;
+      padding-left: 0;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 8pt;
+      border-bottom: 1px dashed #b37c4a;
+      &+.log-silence { border-top: 0 }
+    }
+
     &>.log-entry {
       &:before { content: " "; height: 16px; width: 16px; top: 2px; left: 2px; position: absolute; }
       padding: 2px 2px 2px 20px; position: relative; cursor: default; margin: 1px 0;

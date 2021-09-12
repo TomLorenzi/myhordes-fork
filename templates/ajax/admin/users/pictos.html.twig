@@ -9,8 +9,29 @@
             {% embed "ajax/admin/users/tabs.html.twig" %}{% endembed %}
             <div class="row">
 
-                <div class="cell rw-5 rw-sm-12 center">
-                    {% include 'ajax/soul/distinctions.html.twig' with {pictos: pictos, user: user} %}
+                <div class="padded cell rw-5 rw-sm-12 center">
+                    <ul class="tabs plain" x-tab-group="picto-listing" x-tab-control x-tab-default="native">
+                        <li class="tab" x-tab-id="native"><div class="tab-link">{% trans from 'admin' %}Seele{% endtrans %}</div></li>
+                        <li class="tab" x-tab-id="cumulative"><div class="tab-link">{% trans from 'admin' %}Alle{% endtrans %}</div></li>
+                        <li class="tab" x-tab-id="mh"><div class="tab-link">{% trans from 'admin' %}MyHordes{% endtrans %}</div></li>
+                        <li class="tab" x-tab-id="import"><div class="tab-link">{% trans from 'admin' %}Importiert{% endtrans %}</div></li>
+                        <li class="tab" x-tab-id="old"><div class="tab-link">{% trans from 'admin' %}Alt{% endtrans %}</div></li>
+                    </ul>
+                    <div x-tab-group="picto-listing" x-tab-id="native" x-tab-target>
+                        {% include 'ajax/soul/distinctions.html.twig' with {pictos: pictos, user: user} %}
+                    </div>
+                    <div x-tab-group="picto-listing" x-tab-id="cumulative" x-tab-target>
+                        {% include 'ajax/soul/distinctions.html.twig' with {pictos: pictos_all, user: user, plain: true} %}
+                    </div>
+                    <div x-tab-group="picto-listing" x-tab-id="mh" x-tab-target>
+                        {% include 'ajax/soul/distinctions.html.twig' with {pictos: pictos_mh, user: user, plain: true} %}
+                    </div>
+                    <div x-tab-group="picto-listing" x-tab-id="import" x-tab-target>
+                        {% include 'ajax/soul/distinctions.html.twig' with {pictos: pictos_im, user: user, plain: true} %}
+                    </div>
+                    <div x-tab-group="picto-listing" x-tab-id="old" x-tab-target>
+                        {% include 'ajax/soul/distinctions.html.twig' with {pictos: pictos_old, user: user, plain: true} %}
+                    </div>
                 </div>
                 <div class="cell rw-5 rw-lg-7 rw-sm-12">
                     {% if is_granted("ROLE_ADMIN") %}

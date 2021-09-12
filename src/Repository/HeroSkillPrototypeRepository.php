@@ -9,7 +9,6 @@ use Doctrine\Persistence\ManagerRegistry;
 /**
  * @method HeroSkillPrototype|null find($id, $lockMode = null, $lockVersion = null)
  * @method HeroSkillPrototype|null findOneBy(array $criteria, array $orderBy = null)
- * @method HeroSkillPrototype[]    findAll()
  * @method HeroSkillPrototype[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
 class HeroSkillPrototypeRepository extends ServiceEntityRepository
@@ -19,11 +18,19 @@ class HeroSkillPrototypeRepository extends ServiceEntityRepository
         parent::__construct($registry, HeroSkillPrototype::class);
     }
 
+    public function findAll() {
+        return $this->createQueryBuilder('h')
+            ->orderBy('h.daysNeeded', 'ASC')
+            ->addOrderBy('h.id', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
+
     public function getNextUnlockable(int $currentDays) {
         return $this->createQueryBuilder('h')
             ->andWhere('h.daysNeeded > :days')
             ->orderBy('h.daysNeeded', 'ASC')
-            ->orderBy('h.id', 'ASC')
+            ->addOrderBy('h.id', 'ASC')
             ->setParameter('days', $currentDays)
             ->setMaxResults(1)
             ->getQuery()
@@ -34,7 +41,7 @@ class HeroSkillPrototypeRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('h')
             ->andWhere('h.daysNeeded <= :days')
             ->orderBy('h.daysNeeded', 'ASC')
-            ->orderBy('h.id', 'ASC')
+            ->addOrderBy('h.id', 'ASC')
             ->setParameter('days', $currentDays)
             ->getQuery()
             ->getResult();
@@ -44,7 +51,7 @@ class HeroSkillPrototypeRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('h')
             ->andWhere('h.daysNeeded <= :days')
             ->orderBy('h.daysNeeded', 'DESC')
-            ->orderBy('h.id', 'DESC')
+            ->addOrderBy('h.id', 'DESC')
             ->setParameter('days', $currentDays)
             ->setMaxResults(1)
             ->getQuery()

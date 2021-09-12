@@ -1304,10 +1304,12 @@ class MessageForumController extends MessageController
             if ($report->getSourceUser()->getId() == $user->getId())
                 return AjaxResponse::success();
 
+        $details = $parser->trimmed('details');
         $post->addAdminReport(
             $newReport = (new AdminReport())
                 ->setSourceUser($user)
                 ->setReason( $parser->get_int('reason', 0, 0, 10) )
+                ->setDetails( $details ?: null )
                 ->setTs(new DateTime('now'))
         );
 

@@ -174,5 +174,16 @@
         <target>Saison 1.</target>
       </segment>
     </unit>
+    <unit id="PicVFb9" name="Saison 0.15">
+      <notes>
+        <note category="german">Beta</note>
+        <note category="from">db://Season</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Saison 0.15</source>
+        <target>Saison 0.15</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -3843,5 +3843,201 @@
         <target>Distinctions importées</target>
       </segment>
     </unit>
+    <unit id="YHwfxav" name="Beta-Saison">
+      <notes>
+        <note category="german">Beta-Saison</note>
+        <note category="from">twig:///templates/ajax/soul/me.html.twig;twig:///templates/ajax/soul/season.html.twig;twig:///templates/ajax/soul/shell.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
+      </notes>
+      <segment>
+        <source>Beta-Saison</source>
+        <target>Saison Beta</target>
+      </segment>
+    </unit>
+    <unit id="ykRbs.i" name="&lt;span class=&quot;number&quot;&gt;Beta&lt;/span&gt; Saison">
+      <notes>
+        <note category="german">&lt;span class="number"&gt;Beta&lt;/span&gt; Saison</note>
+        <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
+      </notes>
+      <segment>
+        <source>&lt;span class="number"&gt;Beta&lt;/span&gt; Saison</source>
+        <target><![CDATA[Saison <span class="number">Beta</span>]]></target>
+      </segment>
+    </unit>
+    <unit id="Tum7Im1">
+      <notes>
+        <note category="german">Diese Stadt stammt aus der Alpha-Phase von MyHordes. Die angezeigten Informationen sind daher möglicherweise unvollständig oder sehen nicht so aus, wie du es sonst erwarten würdest.</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Diese Stadt stammt aus der Alpha-Phase von MyHordes. Die angezeigten Informationen sind daher möglicherweise unvollständig oder sehen nicht so aus, wie du es sonst erwarten würdest.</source>
+        <target>Diese Stadt stammt aus der Alpha-Phase von MyHordes. Die angezeigten Informationen sind daher möglicherweise unvollständig oder sehen nicht so aus, wie du es sonst erwarten würdest.</target>
+      </segment>
+    </unit>
+    <unit id="vgT9Zpn" name="Alte Auszeichnungen">
+      <notes>
+        <note category="german">Alte Auszeichnungen</note>
+        <note category="from">twig:///templates/ajax/soul/pictos.html.twig</note>
+      </notes>
+      <segment>
+        <source>Alte Auszeichnungen</source>
+        <target>Anciennes distinctions</target>
+      </segment>
+    </unit>
+    <unit id="lc.3X.C">
+      <notes>
+        <note category="german">In der Vergangenheit importierte Seelenpunkte, Auszeichnungen und Heldenerfahrung von dieser Seele sind deinem MyHordes-Profil gutgeschrieben worden. Neu hinzu gekommene Seelenpunkte, Auszeichnungen und Heldenerfahrung werden jedoch nur in einem gesonderten Bereich deiner Seele angezeigt.</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
+      </notes>
+      <segment>
+        <source>In der Vergangenheit importierte Seelenpunkte, Auszeichnungen und Heldenerfahrung von dieser Seele sind deinem MyHordes-Profil gutgeschrieben worden. Neu hinzu gekommene Seelenpunkte, Auszeichnungen und Heldenerfahrung werden jedoch nur in einem gesonderten Bereich deiner Seele angezeigt.</source>
+        <target>Les points d’âme précédemment importés, les distinctions et l’expérience héroïque de cette âme ont été ajoutés sur votre profil MyHordes. Cependant, les points d’âme, les récompenses et l’expérience de héros nouvellement ajoutés ne seront affichés que dans une section distincte de votre âme.</target>
+      </segment>
+    </unit>
+    <unit id="l.Sx3SK">
+      <notes>
+        <note category="german">Hiermit markierst du die Seele, mit der du dich am meisten identifizierst. Es kann nur eine importierte Seele zur Hauptseele erklärt werden. Überlege dir deine Entscheidung gut, denn du kannst die Wahl deiner Hauptseele später nicht mehr ändern!</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
+      </notes>
+      <segment>
+        <source>Hiermit markierst du die Seele, mit der du dich am meisten identifizierst. Es kann nur eine importierte Seele zur Hauptseele erklärt werden. Überlege dir deine Entscheidung gut, denn du kannst die Wahl deiner Hauptseele später nicht mehr ändern!</source>
+        <target>Avec cela, vous pouvez définir comme âme principale celle à laquelle vous vous identifiez le plus. Une seule âme importée peut être déclarée âme principale. Réfléchissez bien à votre décision, car vous ne pourrez plus changer votre âme principale !</target>
+      </segment>
+    </unit>
+    <unit id="9htmE0T">
+      <notes>
+        <note category="german">Da du bereits Punkte auf MyHordes gesammelt hast, kannst du nicht länger Seelenpunkte, Auszeichnungen und Heldenerfahrung von einer importierten Seele übernehmen.</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
+      </notes>
+      <segment>
+        <source>Da du bereits Punkte auf MyHordes gesammelt hast, kannst du nicht länger Seelenpunkte, Auszeichnungen und Heldenerfahrung von einer importierten Seele übernehmen.</source>
+        <target>Puisque vous avez déjà gagné des points sur MyHordes, vous ne pouvez plus transférer de points d’âme, de distinctions et d’expérience héroïque à partir d’une âme importée.</target>
+      </segment>
+    </unit>
+    <unit id="qDPKzOI" name="Achtung, der Seelenimport unterliegt aktuell zusätzlichen Einschränkungen.">
+      <notes>
+        <note category="german">Achtung, der Seelenimport unterliegt aktuell zusätzlichen Einschränkungen.</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
+      </notes>
+      <segment>
+        <source>Achtung, der Seelenimport unterliegt aktuell zusätzlichen Einschränkungen.</source>
+        <target>Attention, l’importation d'âme est actuellement soumise à des restrictions supplémentaires.</target>
+      </segment>
+    </unit>
+    <unit id="UfAt_R8">
+      <notes>
+        <note category="german">Um zu verhindern, dass Spieler Auszeichnungen, Seelenpunkte oder Heldenerfahrung farmen, indem sie gleichzeitig auf MyHordes und Hordes (oder einer lokalen Variante von Hordes) spielen, werden &lt;b&gt;neu gesammelte Auszeichnungen, SP oder Heldenerfahrung&lt;/b&gt; nicht länger zu deiner MH-Seele hinzugerechnet.</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
+      </notes>
+      <segment>
+        <source>Um zu verhindern, dass Spieler Auszeichnungen, Seelenpunkte oder Heldenerfahrung farmen, indem sie gleichzeitig auf MyHordes und Hordes (oder einer lokalen Variante von Hordes) spielen, werden &lt;b&gt;neu gesammelte Auszeichnungen, SP oder Heldenerfahrung&lt;/b&gt; nicht länger zu deiner MH-Seele hinzugerechnet.</source>
+        <target><![CDATA[Pour empêcher les joueurs de farmer des distinctions, des points d’âme ou de l’expérience héroïque en jouant sur MyHordes et Hordes (ou une variante de Hordes) en même temps, les <b>distinctions nouvellement collectées, points d'âme ou expérience héroïque</b> ne seront plus ajoutés à votre âme MH.]]></target>
+      </segment>
+    </unit>
+    <unit id="33LWSL0">
+      <notes>
+        <note category="german">Diese Einschränkung betrifft alle Spieler, die auf MyHordes bereits &lt;b&gt;mehr als {threshold} Seelenpunkte&lt;/b&gt; gesammelt haben.</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
+      </notes>
+      <segment>
+        <source>Diese Einschränkung betrifft alle Spieler, die auf MyHordes bereits &lt;b&gt;mehr als {threshold} Seelenpunkte&lt;/b&gt; gesammelt haben.</source>
+        <target><![CDATA[Cette restriction affecte tous les joueurs qui ont déjà accumulé <b>plus de {threshold} points d'âme</b> sur MyHordes.]]></target>
+      </segment>
+    </unit>
+    <unit id="YKpGK6P">
+      <notes>
+        <note category="german">Es werden nach wie vor alle Informationen aus deiner importierten Seele auf MyHordes gespeichert. Durch den Import &lt;b&gt;neu&lt;/b&gt; gewonnene Auszeichnungen, SP oder Heldenerfahrung wird jedoch &lt;b&gt;nur noch in einem gesonderten Bereich&lt;/b&gt; auf deiner MH-Seele angezeigt.</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
+      </notes>
+      <segment>
+        <source>Es werden nach wie vor alle Informationen aus deiner importierten Seele auf MyHordes gespeichert. Durch den Import &lt;b&gt;neu&lt;/b&gt; gewonnene Auszeichnungen, SP oder Heldenerfahrung wird jedoch &lt;b&gt;nur noch in einem gesonderten Bereich&lt;/b&gt; auf deiner MH-Seele angezeigt.</source>
+        <target><![CDATA[Toutes les informations de votre âme importée seront toujours stockées sur MyHordes. Cependant, les <b>nouvelles distinctions</b>, points d'âme ou expérience héroïque acquis grâce à l’importation seront <b>affichés dans une zone séparée</b> sur votre âme MH.]]></target>
+      </segment>
+    </unit>
+    <unit id="FgytNDj" name="Du kannst deine Seele aktuell &lt;b&gt;ohne Einschränkungen&lt;/b&gt; importieren.">
+      <notes>
+        <note category="german">Du kannst deine Seele aktuell &lt;b&gt;ohne Einschränkungen&lt;/b&gt; importieren.</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du kannst deine Seele aktuell &lt;b&gt;ohne Einschränkungen&lt;/b&gt; importieren.</source>
+        <target><![CDATA[Vous pouvez actuellement importer votre âme <b>sans restrictions</b>.]]></target>
+      </segment>
+    </unit>
+    <unit id="UeSGb7T" name="Importierte Seelen">
+      <notes>
+        <note category="german">Importierte Seelen</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>Importierte Seelen</source>
+        <target>Âmes importées</target>
+      </segment>
+    </unit>
+    <unit id="7fBaUak">
+      <notes>
+        <note category="german">&lt;b&gt;Wenn du sie in der Vergangenheit importiert hast&lt;/b&gt;, kannst du sie dir hier ansehen!</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>&lt;b&gt;Wenn du sie in der Vergangenheit importiert hast&lt;/b&gt;, kannst du sie dir hier ansehen!</source>
+        <target><![CDATA[<b>Si vous les avez importées dans le passé</b>, vous pouvez les consulter ici !]]></target>
+      </segment>
+    </unit>
+    <unit id="d1k9Xlg">
+      <notes>
+        <note category="german">Die maximale Größe der Bilddatei, die du für deinen Avatar hochladen kannst, beträgt &lt;b&gt;{size}&lt;/b&gt;.</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Die maximale Größe der Bilddatei, die du für deinen Avatar hochladen kannst, beträgt &lt;b&gt;{size}&lt;/b&gt;.</source>
+        <target><![CDATA[Die maximale Größe der Bilddatei, die du für deinen Avatar hochladen kannst, beträgt <b>{size}</b>.]]></target>
+      </segment>
+    </unit>
+    <unit id="U8MXhPw">
+      <notes>
+        <note category="german">Nach dem Upload wird der Server dein Bild möglicherweise komprimieren (z.B. indem die Auflösung reduziert oder Animationsframes optimiert werden).</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Nach dem Upload wird der Server dein Bild möglicherweise komprimieren (z.B. indem die Größe reduziert oder Animationsframe optimiert werden).</source>
+        <target>Nach dem Upload wird der Server dein Bild möglicherweise komprimieren (z.B. indem die Größe reduziert oder Animationsframe optimiert werden).</target>
+      </segment>
+    </unit>
+    <unit id="iExo5YI">
+      <notes>
+        <note category="german">Der Server muss in der Lage sein, dein Bild auf höchstens &lt;b&gt;{size}&lt;/b&gt; zu komprimieren - andernfalls kann es nicht gespeichert werden.</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Der Server muss in der Lage sein, dein Bild auf höchstens &lt;b&gt;{size}&lt;/b&gt; zu komprimieren - andernfalls kann es nicht gespeichert werden.</source>
+        <target><![CDATA[Der Server muss in der Lage sein, dein Bild auf höchstens <b>{size}</b> zu komprimieren - andernfalls kann es nicht gespeichert werden.]]></target>
+      </segment>
+    </unit>
+    <unit id="LCJ4eBk" name="Die folgenden Bildformate werden unterstützt:">
+      <notes>
+        <note category="german">Die folgenden Bildformate werden unterstützt:</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Die folgenden Bildformate werden unterstützt:</source>
+        <target>Die folgenden Bildformate werden unterstützt:</target>
+      </segment>
+    </unit>
+    <unit id="KDrgSO8" name="nur Baseline-Format">
+      <notes>
+        <note category="german">nur Baseline-Format</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>nur Baseline-Format</source>
+        <target>nur Baseline-Format</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

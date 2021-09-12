@@ -788,5 +788,45 @@
         <target>Su dirección de correo electrónico ha sido modificada. Valide la nueva dirección para poder utilizarla.</target>
       </segment>
     </unit>
+    <unit id="9S9gbqW" name="Die E-Mail ist nicht angekommen?">
+      <notes>
+        <note category="german">Die E-Mail ist nicht angekommen?</note>
+        <note category="from">twig:///templates/ajax/public/validate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Die E-Mail ist nicht angekommen?</source>
+        <target>¿No recibiste el correo electrónico?</target>
+      </segment>
+    </unit>
+    <unit id="Tfm3hV." name="Erneut senden!">
+      <notes>
+        <note category="german">Erneut senden!</note>
+        <note category="from">twig:///templates/ajax/public/validate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Erneut senden!</source>
+        <target>¡Enviar de nuevo!</target>
+      </segment>
+    </unit>
+    <unit id="ioXUEhL" name="Die Validierungs-Mail wurde erfolgreich gesendet.">
+      <notes>
+        <note category="german">Die Validierungs-Mail wurde erfolgreich gesendet.</note>
+        <note category="from">twig:///templates/ajax/public/validate.html.twig</note>
+      </notes>
+      <segment>
+        <source>Die Validierungs-Mail wurde erfolgreich gesendet.</source>
+        <target>El correo electrónico de validación se envió correctamente.</target>
+      </segment>
+    </unit>
+    <unit id="I6yQ0Zq">
+      <notes>
+        <note category="german">Du musst 5 Minuten warten, bevor du eine erneute E-Mail versenden kannst. Bitte prüfe in der Zwischenzeit, ob die Mail möglicherweise in deinem Spam-Ordner gelandet ist.</note>
+        <note category="from">twig:///templates/scripts/errors/profile.txt.twig</note>
+      </notes>
+      <segment>
+        <source>Du musst 5 Minuten warten, bevor du eine erneute E-Mail versenden kannst. Bitte prüfe in der Zwischenzeit, ob die Mail möglicherweise in deinem Spam-Ordner gelandet ist.</source>
+        <target>Tienes que esperar 5 minutos antes de poder enviar otro correo electrónico. Mientras tanto, compruebe si es posible que el correo haya terminado en su carpeta de correo no deseado.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

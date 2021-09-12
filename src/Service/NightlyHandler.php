@@ -31,6 +31,7 @@ use App\Entity\Zone;
 use App\Entity\ZoneTag;
 use App\Structures\EventConf;
 use App\Structures\ItemRequest;
+use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
 use App\Structures\TownDefenseSummary;
 use Doctrine\ORM\EntityManagerInterface;
@@ -41,6 +42,7 @@ class NightlyHandler
     private array $cleanup = [];
     private array $skip_reanimation = [];
     private array $skip_infection = [];
+    private bool $exec_firework = false;
 
     private EntityManagerInterface $entity_manager;
     private LoggerInterface $log;
@@ -57,11 +59,12 @@ class NightlyHandler
     private ActionHandler $action_handler;
     private MazeMaker $maze;
     private CrowService $crow;
+    private UserHandler $user_handler;
 
     public function __construct(EntityManagerInterface $em, LoggerInterface $log, CitizenHandler $ch, InventoryHandler $ih,
                               RandomGenerator $rg, DeathHandler $dh, TownHandler $th, ZoneHandler $zh, PictoHandler $ph,
                               ItemFactory $if, LogTemplateHandler $lh, ConfMaster $conf, ActionHandler $ah, MazeMaker $maze,
-                              CrowService $crow)
+                              CrowService $crow, UserHandler $uh)
     {
         $this->entity_manager = $em;
         $this->citizen_handler = $ch;
@@ -78,6 +81,7 @@ class NightlyHandler
         $this->action_handler = $ah;
         $this->maze = $maze;
         $this->crow = $crow;
+        $this->user_handler = $uh;
     }
 
     private function check_town(Town $town): bool {
@@ -114,16 +118,28 @@ class NightlyHandler
     }
 
     private function stage1_prepare(Town $town) {
-        /*$this->log->info('<info>Checking insurrection status</info> ...');
+        // Initialize spiritual guide on D1
+        $town_conf = $this->conf->getTownConfiguration($town);
+        if ($town->getDay() === 1 && $town_conf->get(TownConf::CONF_GUIDE_ENABLED, false)) {
 
-        if ($town->getInsurrectionProgress() > 0)
-            foreach ($town->getCitizens() as $citizen)
-                if ($citizen->getAlive() && $citizen->getBanished() && !$this->citizen_handler->hasStatusEffect($citizen, 'tg_insurrection')) {
-                    $this->log->info("Shunned citizen <info>{$citizen->getName()}</info> did not contribute to the insurrection. Resetting.");
-                    $town->setInsurrectionProgress(0);
-                    break;
+            $this->log->debug( "This town is eligible for the <info>spiritual guide</info> picto, checking citizens..." );
+
+            // When the guide is enabled and enough citizens are below the SP threshold...
+            $th = $town_conf->get(TownConf::CONF_GUIDE_SP_LIMIT, 100);
+            if ($town->getCitizens()->filter(function (Citizen $c) use ($th) {
+                return $this->user_handler->fetchSoulPoints( $c->getUser(), true, true ) < $th;
+            })->count() >= $town_conf->get(TownConf::CONF_GUIDE_CTC_LIMIT, 20))
+
+                // Each citizen above the threshold gets assigned the potential guide status
+                foreach ($town->getCitizens()->filter(function (Citizen $c) use ($th) {
+                    return $this->user_handler->fetchSoulPoints( $c->getUser(), true, true ) >= $th;
+                }) as $spiritual_guide) {
+                    $this->citizen_handler->inflictStatus( $spiritual_guide, 'tg_spirit_guide' );
+                    $this->log->debug( "Registered <info>{$spiritual_guide->getName()}</info> as potential spiritual leader." );
                 }
-        */
+            else $this->log->debug( "Not enough citizen are below <info>$th SP</info>." );
+
+        }
     }
 
     private function stage1_vanish(Town $town) {
@@ -597,12 +613,16 @@ class NightlyHandler
         $watchers = array_filter( $watchers, fn(CitizenWatch $w) => $w->getCitizen()->getZone() === null && $w->getCitizen()->getAlive() );
 
         $count_zombified_citizens = 0;
+        $last_zombified_citizen = null;
         foreach ($town->getCitizens() as $citizen)
-            if (!$citizen->getAlive() && $citizen->getCauseOfDeath()->getRef() === CauseOfDeath::Vanished)
+            if (!$citizen->getAlive() && $citizen->getCauseOfDeath()->getRef() === CauseOfDeath::Vanished) {
                 $count_zombified_citizens++;
+                $last_zombified_citizen = $citizen;
+            }
+
 
         if ($count_zombified_citizens > 0)
-            $this->entity_manager->persist( $this->logTemplates->nightlyAttackBegin($town, $count_zombified_citizens, true) );
+            $this->entity_manager->persist( $this->logTemplates->nightlyAttackBegin($town, $count_zombified_citizens, true, $count_zombified_citizens === 1 ? $last_zombified_citizen : null) );
 
         $this->entity_manager->persist( $this->logTemplates->nightlyAttackSummary($town, $town->getDoor(), $overflow, count($watchers) > 0 && $has_nightwatch));
 
@@ -616,7 +636,7 @@ class NightlyHandler
         }
 
         if ($overflow <= 0 && $count_zombified_citizens > 0)
-            $this->entity_manager->persist( $this->logTemplates->nightlyAttackDisappointed($town) );
+            $this->entity_manager->persist( $this->logTemplates->nightlyAttackDisappointed($town, $count_zombified_citizens === 1 ? $last_zombified_citizen : null) );
 
         $def_scale = $def_summary ? $def_summary->overall_scale : 1.0;
         $total_watch_def = floor($this->town_handler->calculate_watch_def($town, $town->getDay() - 1) * $def_scale);
@@ -636,6 +656,9 @@ class NightlyHandler
 
             $this->log->debug("Watcher {$watcher->getCitizen()->getUser()->getName()} chances are <info>{$deathChances}</info> for death and <info>{$woundOrTerrorChances}</info> for wound or terror.");
 
+            $wounded_citizens = [];
+            $terrorized_citizens = [];
+
             if ($this->random->chance($deathChances)) {
                 $this->log->debug("Watcher <info>{$watcher->getCitizen()->getUser()->getUsername()}</info> is now <info>dead</info> because of the watch");
                 $skip = false;
@@ -652,21 +675,26 @@ class NightlyHandler
 
                 $this->kill_wrap($ctz, $cod, false, ceil($overflow / count($watchers)), $skip);
 
-            } else if($overflow > 0 && $this->random->chance($woundOrTerrorChances)){
+            } else if($overflow > 0 && $this->random->chance($woundOrTerrorChances)) {
+
                 if($this->random->chance(0.5)){
                     // Wound
                     if (!$this->citizen_handler->isWounded($ctz)) {
                         $this->citizen_handler->inflictWound($ctz);
                         $this->log->debug("Watcher <info>{$ctz->getUser()->getUsername()}</info> is now <info>wounded</info>");
                         $this->skip_infection[] = $ctz->getId();
+                        $wounded_citizens[] = $ctz;
+                        $this->crow->postAsPM($ctz, '', '', PrivateMessage::TEMPLATE_CROW_NIGHTWATCH_WOUND, $defBonus);
                     }
-                    $this->crow->postAsPM($ctz, '', '', PrivateMessage::TEMPLATE_CROW_NIGHTWATCH_WOUND, $defBonus);
                 } elseif(!$this->town_handler->getBuilding($town, "small_catapult3_#00", true)) {
                     // Terror
-                    $this->citizen_handler->inflictStatus($ctz, $status_terror);
-                    $this->log->debug("Watcher <info>{$ctz->getUser()->getUsername()}</info> now suffers from <info>{$status_terror->getLabel()}</info>");
-                    $gazette->setTerror($gazette->getTerror() + 1);
-                    $this->crow->postAsPM($ctz, '', '', PrivateMessage::TEMPLATE_CROW_NIGHTWATCH_TERROR, $defBonus);
+                    if (!$this->citizen_handler->hasStatusEffect($ctz, $status_terror)) {
+                        $this->citizen_handler->inflictStatus($ctz, $status_terror);
+                        $this->log->debug("Watcher <info>{$ctz->getUser()->getUsername()}</info> now suffers from <info>{$status_terror->getLabel()}</info>");
+                        $gazette->setTerror($gazette->getTerror() + 1);
+                        $terrorized_citizens[] = $ctz;
+                        $this->crow->postAsPM($ctz, '', '', PrivateMessage::TEMPLATE_CROW_NIGHTWATCH_TERROR, $defBonus);
+                    }
                 }
             }
 
@@ -695,6 +723,16 @@ class NightlyHandler
 
         if ($total_watch_def > 0 && $overflow > 0) {
             $this->entity_manager->persist($this->logTemplates->nightlyAttackWatchersZombieStopped($town, min($overflow, $total_watch_def)));
+        }
+
+        if (!empty($wounded_citizens)) {
+            foreach ($wounded_citizens as $wctx) $this->entity_manager->persist($this->logTemplates->nightlyAttackWatcherWound($town, $wctx));
+            $this->entity_manager->persist($this->logTemplates->nightlyAttackWatcherWound($town, null));
+        }
+
+        if (!empty($terrorized_citizens)) {
+            foreach ($terrorized_citizens as $tctx) $this->entity_manager->persist($this->logTemplates->nightlyAttackWatcherTerror($town, $tctx));
+            $this->entity_manager->persist($this->logTemplates->nightlyAttackWatcherTerror($town, null));
         }
 
         $initial_overflow = $overflow;
@@ -931,14 +969,7 @@ class NightlyHandler
                 for ($i=0; $i < count($toInfect) / 2; $i++)
                     $this->citizen_handler->inflictStatus($toInfect[$i], "tg_meta_ginfect");
 
-                // Kill zombies around the town (all at 1km, none beyond 10km)
-                foreach ($town->getZones() as $zone) {
-                	$km = $this->zone_handler->getZoneKm($zone);
-                	if($km >= 10) continue;
-
-                    $factor = 1 - 0.1 * (10 - $km);
-                    $zone->setZombies(max(0, round($zone->getZombies() * $factor, 0)));
-                }
+                $this->exec_firework = true;
                 
                 $ratio = 1 - mt_rand(13, 16) / 100;
 
@@ -1172,6 +1203,16 @@ class NightlyHandler
 
         $this->log->debug('Spreading zombies ...');
         $this->zone_handler->dailyZombieSpawn($town);
+
+        if ($this->exec_firework)
+            // Kill zombies around the town (all at 1km, none beyond 10km)
+            foreach ($town->getZones() as $zone) {
+                $km = $this->zone_handler->getZoneKm($zone);
+                if($km >= 10) continue;
+
+                $factor = 1 - 0.1 * (10 - $km);
+                $zone->setZombies(max(0, round($zone->getZombies() * $factor, 0)));
+            }
 
         $research_tower = $this->town_handler->getBuilding($town, 'small_gather_#02', true);
         $watchtower     = $this->town_handler->getBuilding($town, 'item_tagger_#00',  true);

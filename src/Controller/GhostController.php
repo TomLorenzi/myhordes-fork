@@ -264,8 +264,6 @@ class GhostController extends CustomAbstractController
             $customConf['open_town_grace'] = $population;
         }
 
-        $remove_chest_items = [];
-
         $rules = $parser->get('rules', []);
         if (is_array($rules)) foreach ($rules as $rule) switch($rule) {
             case 'nobuilding':
@@ -274,12 +272,10 @@ class GhostController extends CustomAbstractController
             case 'poison':
                 $customConf['features']['all_poison'] = true;
                 break;
-            case 'nobeta':
-                $remove_chest_items[] = 'beta_drug_#00';
+            case 'beta':
+                $customConf['initial_chest'][] = 'beta_drug_#00';
                 break;
         }
-
-        $customConf['initial_chest']['remove'] = $remove_chest_items;
 
         if (!(bool)$parser->get('ruins', '')) $customConf['explorable_ruins'] = 0;
 

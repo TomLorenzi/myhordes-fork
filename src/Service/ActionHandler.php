@@ -382,10 +382,10 @@ class ActionHandler
      * @param ItemAction[] $crossed
      * @param array|null $messages
      */
-    public function getAvailableItemActions(Citizen $citizen, Item $item, ?array &$available, ?array &$crossed, ?array &$messages = null ) {
+    public function getAvailableItemActions(Citizen $citizen, Item $item, ?array &$available, ?array &$crossed, ?array &$messages = null, bool $ignore_broken_flag = false ) {
 
         $available = $crossed = $messages = [];
-        if ($item->getBroken()) return;
+        if ($item->getBroken() && !$ignore_broken_flag) return;
 
         $is_at_00 = $citizen->getZone() && $citizen->getZone()->isTownZone();
         foreach ($item->getPrototype()->getActions() as $action) {
@@ -847,7 +847,7 @@ class ActionHandler
                         if ($target_result->getPoison() !== null) $target->setPoison( $target_result->getPoison() );
                     }
                 } elseif (is_a($target, ItemPrototype::class)) {
-                    if ($target->getHeavy() && $this->inventory_handler->countHeavyItems( $citizen->getInventory() ) > 0)
+                    if ( ($target->getHeavy() && $this->inventory_handler->countHeavyItems( $citizen->getInventory() ) > 0) || $this->inventory_handler->getFreeSize($citizen->getInventory()) <= 0 )
                         $execute_info_cache['message'][] = $this->translator->trans('Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...', [], 'game');
                     if ($this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $target ), [ $citizen->getInventory(), $floor_inventory, $citizen->getZone() ? null : $citizen->getTown()->getBank() ])) {
                         $execute_info_cache['items_spawn'][] = $target;

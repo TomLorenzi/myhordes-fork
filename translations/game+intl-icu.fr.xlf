@@ -2550,7 +2550,7 @@
       </notes>
       <segment>
         <source>Dönerbude Utsel-Brutzel</source>
-        <target>Kebab "Chez Coluche"</target>
+        <target>Kebab « Chez Coluche »</target>
       </segment>
     </unit>
     <unit id="JNOFU3C" name="Dukes Villa">
@@ -2770,7 +2770,7 @@
       </notes>
       <segment>
         <source>Motel 'Dusk'</source>
-        <target>Motel "Dusk"</target>
+        <target>Motel « Dusk »</target>
       </segment>
     </unit>
     <unit id="aXgXOJr" name="Militärischer Wachposten">
@@ -2840,7 +2840,7 @@
       </notes>
       <segment>
         <source>Truck 'Rathaus auf Rädern'</source>
-        <target>Camion "Mairie-mobile"</target>
+        <target>Camion « Mairie-mobile »</target>
       </segment>
     </unit>
     <unit id="OHLvvVZ" name="Umgekippter Laster">
@@ -8033,7 +8033,7 @@
       </notes>
       <segment>
         <source>Was geschieht mit dieser Leiche?</source>
-        <target>Qu'est devenu son corps ?</target>
+        <target>Que deviendra ce cadavre ?</target>
       </segment>
     </unit>
     <unit id="TauIpAZ">
@@ -9063,7 +9063,7 @@
       </notes>
       <segment>
         <source>{citizen} ist bereits verletzt; ihn erneut anzugreifen wird dir nichts bringen.</source>
-        <target>{citizen} est déjà blessé; l'attaquer à nouveau ne vous fera aucun bien.</target>
+        <target>Vous ne pouvez pas sérieusement vouloir agresser une personne déjà blessée... n'est-ce pas?</target>
       </segment>
     </unit>
     <unit id="1BFjb1b">
@@ -19584,12 +19584,11 @@
     <unit id="glz6Ktw" name="Dafür solltest du dein Labor verwenden...">
       <notes>
         <note category="german">Dafür solltest du dein Labor verwenden...</note>
-        <note category="state">new</note>
         <note category="from">php:///src/Controller/InventoryAwareController.php</note>
       </notes>
       <segment>
         <source>Dafür solltest du dein Labor verwenden...</source>
-        <target>Dafür solltest du dein Labor verwenden...</target>
+        <target>Vous devriez plutôt utiliser votre Laboratoire personnel pour faire ça...</target>
       </segment>
     </unit>
     <unit id="34H3lrM" name="{citizen} bitten etwas aufzuheben.">
@@ -22283,6 +22282,440 @@ cette violente opération...]]></target>
       <segment>
         <source>Auszeichnungsdetails</source>
         <target>Détail des distinctions</target>
+      </segment>
+    </unit>
+    <unit id="N.42Sjo" name="Trinken (Oder du stirbst heute Nacht)">
+      <notes>
+        <note category="german">Trinken (Oder du stirbst heute Nacht)</note>
+        <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Trinken (Oder du stirbst heute Nacht)</source>
+        <target>Trinken (Oder du stirbst heute Nacht)</target>
+      </segment>
+    </unit>
+    <unit id="016qyFO">
+      <notes>
+        <note category="german">Du hast es geschafft, dich aus dieser Gefahr zu befreien, aber die Zombies schauen dich jetzt hungrig an und kommen gefährlich knurrend auf dich zu... FLIEHE!</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du hast es geschafft, dich aus dieser Gefahr zu befreien, aber die Zombies schauen dich jetzt hungrig an und kommen gefährlich knurrend auf dich zu... FLIEHE!</source>
+        <target>Vous avez réussi à vous extirper de ce danger, mais les zombies vous regardent maintenant avec envie et s'approchent dangereusement en grognant... FUYEZ !</target>
+      </segment>
+    </unit>
+    <unit id="tMIHtgS" name="Profi-Fotograph">
+      <notes>
+        <note category="german">Profi-Fotograph</note>
+        <note category="from">db://HeroSkillPrototype</note>
+      </notes>
+      <segment>
+        <source>Profi-Fotograph</source>
+        <target>Photographe professionnel</target>
+      </segment>
+    </unit>
+    <unit id="Uy1Rmg9" name="Du beginst jede neue Stadt mit einer Kamera aus Vorkriegstagen.">
+      <notes>
+        <note category="german">Du beginst jede neue Stadt mit einer Kamera aus Vorkriegstagen.</note>
+        <note category="from">db://HeroSkillPrototype</note>
+      </notes>
+      <segment>
+        <source>Du beginst jede neue Stadt mit einer Kamera aus Vorkriegstagen.</source>
+        <target>Vous commencez toutes vos villes avec un appareil photo d'avant-guerre.</target>
+      </segment>
+    </unit>
+    <unit id="l2sp7PJ" name="Kopf">
+      <notes>
+        <note category="german">Kopf</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
+      </notes>
+      <segment>
+        <source>Kopf</source>
+        <target>Tête</target>
+      </segment>
+    </unit>
+    <unit id="_hjAZzP" name="Hand">
+      <notes>
+        <note category="german">Hand</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
+      </notes>
+      <segment>
+        <source>Hand</source>
+        <target>Main</target>
+      </segment>
+    </unit>
+    <unit id="fweEsGL" name="Arme">
+      <notes>
+        <note category="german">Arme</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
+      </notes>
+      <segment>
+        <source>Arme</source>
+        <target>Bras</target>
+      </segment>
+    </unit>
+    <unit id="xXqHDly" name="Bein">
+      <notes>
+        <note category="german">Bein</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
+      </notes>
+      <segment>
+        <source>Bein</source>
+        <target>Jambe</target>
+      </segment>
+    </unit>
+    <unit id="oFtlo8T" name="Auge">
+      <notes>
+        <note category="german">Auge</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
+      </notes>
+      <segment>
+        <source>Auge</source>
+        <target>Oeil</target>
+      </segment>
+    </unit>
+    <unit id="4CY2vtO" name="Fuß">
+      <notes>
+        <note category="german">Fuß</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
+      </notes>
+      <segment>
+        <source>Fuß</source>
+        <target>Pied</target>
+      </segment>
+    </unit>
+    <unit id="WrHBbx9">
+      <notes>
+        <note category="german">Bei deinem Fluchtversuch ist es einem Zombie gelungen dir eine Verletzung zuzufügen: {injury}! Du solltest hier besser schnell verschwinden!</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
+      </notes>
+      <segment>
+        <source>Bei deinem Fluchtversuch ist es einem Zombie gelungen dir eine Verletzung zuzufügen: {injury}! Du solltest hier besser schnell verschwinden!</source>
+        <target>Pendant votre fuite, un zombie vous a lacéré la partie du corps suivante : {injury} ! Il faut quitter cet enfer et vite !</target>
+      </segment>
+    </unit>
+    <unit id="5M1q6BC">
+      <notes>
+        <note category="german">Du erhälst einen Bauplan wenn Du in diesem Gebäude campst, aber du musst zunächst die Zone aufräumen.</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
+      </notes>
+      <segment>
+        <source>Du erhälst einen Bauplan wenn Du in diesem Gebäude campst, aber du musst zunächst die Zone aufräumen.</source>
+        <target>Vous pourriez obtenir un plan en campant ici, mais il faudrait déblayer la zone auparavant.</target>
+      </segment>
+    </unit>
+    <unit id="O_a3lwS" name="(seit {num} Stunden herrscht völlige Flaute)">
+      <notes>
+        <note category="german">(seit {num} Stunden herrscht völlige Flaute)</note>
+        <note category="from">twig:///templates/ajax/admin/towns/log_content.html.twig;twig:///templates/ajax/game/log_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>(seit {num} Stunden herrscht völlige Flaute)</source>
+        <target>(plus de {num} heures de calme plat)</target>
+      </segment>
+    </unit>
+    <unit id="GCKCg7_" name="(über eine Stunde ohne besondere Vorkommnisse)">
+      <notes>
+        <note category="german">(über eine Stunde ohne besondere Vorkommnisse)</note>
+        <note category="from">twig:///templates/ajax/admin/towns/log_content.html.twig;twig:///templates/ajax/game/log_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>(über eine Stunde ohne besondere Vorkommnisse)</source>
+        <target>(plus d'une heure sans activité notable)</target>
+      </segment>
+    </unit>
+    <unit id="gJumdci" name="({num} Minuten Stille)">
+      <notes>
+        <note category="german">({num} Minuten Stille)</note>
+        <note category="from">twig:///templates/ajax/admin/towns/log_content.html.twig;twig:///templates/ajax/game/log_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>({num} Minuten Stille)</source>
+        <target>({num} minutes de silence)</target>
+      </segment>
+    </unit>
+    <unit id="2UGxP6g" name="Dieser Bürger gestattet dir nicht auf seine Gegenstände zuzugreifen.">
+      <notes>
+        <note category="german">Dieser Bürger gestattet dir nicht auf seine Gegenstände zuzugreifen.</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger gestattet dir nicht auf seine Gegenstände zuzugreifen.</source>
+        <target>Ce citoyen ne veut pas que vous touchiez à son sac.</target>
+      </segment>
+    </unit>
+    <unit id="sxHlIDp">
+      <notes>
+        <note category="german">{attacker} hat {defender} gewalttätig angegriffen! Der Kampf ist eskaliert und {attacker} verletzte {defender} schlussendlich schwer!</note>
+        <note category="from">db://LogEntryTemplate</note>
+      </notes>
+      <segment>
+        <source>{attacker} hat {defender} gewalttätig angegriffen! Der Kampf ist eskaliert und {attacker} verletzte {defender} schlussendlich schwer!</source>
+        <target><![CDATA[{attacker} a violemment agressé {defender} ! La bagarre a rapidement dégénéré et {attacker} a fini par <strong>blesser gravement</strong> {defender} !]]></target>
+      </segment>
+    </unit>
+    <unit id="o0S7jOB" name="Tag {d} {today}">
+      <notes>
+        <note category="german">Tag {d} {today}</note>
+        <note category="from">twig:///templates/ajax/game/log_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Tag {d} {today}</source>
+        <target>Jour {d} {today}</target>
+      </segment>
+    </unit>
+    <unit id="t0ipGa0" name="heute">
+      <notes>
+        <note category="german">heute</note>
+        <note category="from">twig:///templates/ajax/game/log_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>heute</source>
+        <target>aujourd'hui</target>
+      </segment>
+    </unit>
+    <unit id="WVOQ6JP">
+      <notes>
+        <note category="german">Dieser Bürger wurde aus der Gemeinschaft verbannt; er hat nicht länger Zugang zu den Gebäuden der Stadt, mit Ausnahme des Brunnens (wobei er auf eine Ration pro Tag eingeschränkt ist).</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger wurde aus der Gemeinschaft verbannt; er hat nicht länger Zugang zu den Gebäuden der Stadt, mit Ausnahme des Brunnens (wobei er auf eine Ration pro Tag eingeschränkt ist).</source>
+        <target>Ce citoyen a été banni de la communauté : il ne pourra plus avoir accès aux dispositifs de la vile, à rexception du puits (limité toutefois à la ration quotidienne, sans supplémentaire).</target>
+      </segment>
+    </unit>
+    <unit id="Xrx5c_.">
+      <notes>
+        <note category="german">Die Ratten haben das Schiff schon vor Tagen verlassen... Diese Stadt ist nur noch ein Schatten ihrer selbst.</note>
+        <note category="from">db://LogEntryTemplate</note>
+      </notes>
+      <segment>
+        <source>Die Ratten haben das Schiff schon vor Tagen verlassen... Diese Stadt ist nur noch ein Schatten ihrer selbst.</source>
+        <target>De toute manière, tous les rats ont déjà abandonné le navire depuis des jours... Cette vile n'est plus que l'ombre d'elle-même.</target>
+      </segment>
+    </unit>
+    <unit id="UOD7ZoJ">
+      <notes>
+        <note category="german">Ermordet zu werden ist äußerst ärgerlich (ja, wirklich!). Aber wir bitten dich dringend, &lt;u&gt;die Identität deines Mörders gegenüber deinen ehemaligen Mitbürgern nicht aufzudecken&lt;/u&gt;... Lass ihnen das Vergnügen, selbst ermitteln zu müssen!</note>
+        <note category="from">twig:///templates/ajax/soul/death.html.twig</note>
+      </notes>
+      <segment>
+        <source>Ermordet zu werden ist äußerst ärgerlich (ja, wirklich!). Aber wir bitten dich dringend, &lt;u&gt;die Identität deines Mörders gegenüber deinen ehemaligen Mitbürgern nicht aufzudecken&lt;/u&gt;... Lass ihnen das Vergnügen, selbst ermitteln zu müssen!</source>
+        <target><![CDATA[Mourir assassiné(e) est un moment dur à passer (si, si). Mais nous vous recommandons très fortement <u>de ne pas divulguer l'identité de votre meurtrier à vos anciens concitoyens</u>... Laissez-leur le plaisir de mener l'enquête !]]></target>
+      </segment>
+    </unit>
+    <unit id="2GAQ12V" name="Fortfahren...">
+      <notes>
+        <note category="german">Fortfahren...</note>
+        <note category="from">twig:///templates/ajax/soul/death.html.twig</note>
+      </notes>
+      <segment>
+        <source>Fortfahren...</source>
+        <target>Continuer...</target>
+      </segment>
+    </unit>
+    <unit id="7jb2vlU" name="Was ist mit ihm passiert?">
+      <notes>
+        <note category="german">Was ist mit ihm passiert?</note>
+        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+      </notes>
+      <segment>
+        <source>Was ist mit ihm passiert?</source>
+        <target>Qu'est-il devenu ?</target>
+      </segment>
+    </unit>
+    <unit id="RqSAT8A" name="Was ist mit dem Körper geschehen?">
+      <notes>
+        <note category="german">Was ist mit dem Körper geschehen?</note>
+        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+      </notes>
+      <segment>
+        <source>Was ist mit dem Körper geschehen?</source>
+        <target>Qu'est devenu son corps ?</target>
+      </segment>
+    </unit>
+    <unit id="X_VpKo9">
+      <notes>
+        <note category="german">Inmitten dieser Zombiehorde konnten wir &lt;i class="dagger"&gt;†&lt;/i&gt; {citizen} entdecken! Nach seinem Tod in der Aussenwelt hat dieser frisch in einen Zombie verwandelte Mitbürger wohl neue Freunde gefunden!</note>
+        <note category="from">db://LogEntryTemplate</note>
+      </notes>
+      <segment>
+        <source>Inmitten dieser Zombiehorde konnten wir &lt;i class="dagger"&gt;†&lt;/i&gt; {citizen} entdecken! Nach seinem Tod in der Aussenwelt hat dieser frisch in einen Zombie verwandelte Mitbürger wohl neue Freunde gefunden!</source>
+        <target><![CDATA[En plus de cette horde, on a pu noter la présence de <i class="dagger">†</i> {citizen} ! Mort dans l'Outre-Monde, ce nouveau Zombie s'est trouvé de nouveaux copains en lambeaux !]]></target>
+      </segment>
+    </unit>
+    <unit id="t8qkZPk">
+      <notes>
+        <note category="german">Von der Stadtverteidigung aufgehalten, kehrte &lt;i class="dagger"&gt;†&lt;/i&gt; {citizen} grunzend und torkelnd zu seinen neuen verschimmelten Freunden zurück...</note>
+        <note category="from">db://LogEntryTemplate</note>
+      </notes>
+      <segment>
+        <source>Von der Stadtverteidigung aufgehalten, kehrte &lt;i class="dagger"&gt;†&lt;/i&gt; {citizen} grunzend und torkelnd zu seinen neuen verschimmelten Freunden zurück...</source>
+        <target><![CDATA[Arrêté par les défenses de la ville, <i class="dagger">†</i> {citizen} est reparti grognant et titubant rejoindre ses nouveaux amis moisis...]]></target>
+      </segment>
+    </unit>
+    <unit id="h8TXDGN">
+      <notes>
+        <note category="german">Der Angriff traf auch unsere Verteidigungsgegenstände! Wir haben insgesamt {num} verloren: {list}</note>
+        <note category="from">db://LogEntryTemplate</note>
+      </notes>
+      <segment>
+        <source>Der Angriff traf auch unsere Verteidigungsgegenstände! Wir haben insgesamt {num} verloren: {list}</source>
+        <target>L'assaut a également touché nos objets de défense ! Nous en avons perdu {num} au total : {list}</target>
+      </segment>
+    </unit>
+    <unit id="zYCe3Qk" name="vor wenigen Augenblicken">
+      <notes>
+        <note category="german">vor wenigen Augenblicken</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
+      </notes>
+      <segment>
+        <source>vor wenigen Augenblicken</source>
+        <target>il y a un instant</target>
+      </segment>
+    </unit>
+    <unit id="_VLdCGZ" name="heute morgen um {H}:{i}">
+      <notes>
+        <note category="german">heute morgen um {H}:{i}</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
+      </notes>
+      <segment>
+        <source>heute morgen um {H}:{i}</source>
+        <target>ce matin, à {H}:{i}</target>
+      </segment>
+    </unit>
+    <unit id="9GBymDW" name="heute nachmittag um {H}:{i}">
+      <notes>
+        <note category="german">heute nachmittag um {H}:{i}</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
+      </notes>
+      <segment>
+        <source>heute nachmittag um {H}:{i}</source>
+        <target>cet après-midi, à {H}:{i}</target>
+      </segment>
+    </unit>
+    <unit id="nw_7pSY" name="gestern um {H}:{i}">
+      <notes>
+        <note category="german">gestern um {H}:{i}</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
+      </notes>
+      <segment>
+        <source>gestern um {H}:{i}</source>
+        <target>hier à {H}:{i}</target>
+      </segment>
+    </unit>
+    <unit id="7CsDwaN" name="Du kannst das Gebäude heute nicht erneut betreten, du bist zu verängstigt!">
+      <notes>
+        <note category="german">Du kannst das Gebäude heute nicht erneut betreten, du bist zu verängstigt!</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du kannst das Gebäude heute nicht erneut betreten, du bist zu verängstigt!</source>
+        <target>Vous ne pouvez pas rentrer dans ce bâtiment, vous êtes assez terrorisé comme ça !</target>
+      </segment>
+    </unit>
+    <unit id="q5pHoRc">
+      <notes>
+        <note category="german">Ein oder mehrere Gegenstände wurden in dieser Zone von einem verbannten Bürger versteckt.</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Ein oder mehrere Gegenstände wurden in dieser Zone von einem verbannten Bürger versteckt.</source>
+        <target>Ein oder mehrere Gegenstände wurden in dieser Zone von einem verbannten Bürger versteckt.</target>
+      </segment>
+    </unit>
+    <unit id="6WlIVqN">
+      <notes>
+        <note category="german">Nur verbannte Bürger können Gegenstände sehen und aufheben, wenn diese von anderen verbannten Bürgern versteckt wurden.</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Nur verbannte Bürger können Gegenstände sehen und aufheben, wenn diese von anderen verbannten Bürgern versteckt wurden.</source>
+        <target>Nur verbannte Bürger können Gegenstände sehen und aufheben, wenn diese von anderen verbannten Bürgern versteckt wurden.</target>
+      </segment>
+    </unit>
+    <unit id="kVCmkiM" name="Barhändiger Stripper">
+      <notes>
+        <note category="german">Barhändiger Stripper</note>
+        <note category="from">db://AwardPrototype</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Barhändiger Stripper</source>
+        <target>Barhändiger Stripper</target>
+      </segment>
+    </unit>
+    <unit id="RCyh4IV">
+      <notes>
+        <note category="german">Für die vollständige Instandsetzung dieses Gebäudes sind noch {remaining} AP erforderlich.</note>
+        <note category="from">twig:///templates/ajax/game/town/construction.html.twig</note>
+      </notes>
+      <segment>
+        <source>Für die vollständige Instandsetzung dieses Gebäudes sind noch {remaining} AP erforderlich.</source>
+        <target>La réparation complète de ce chantier nécessite encore {remaining} PA.</target>
+      </segment>
+    </unit>
+    <unit id="Plqho0r" name="Niemand ist in der Nähe der Stadt (maximal 2 Felder).">
+      <notes>
+        <note category="german">Niemand ist in der Nähe der Stadt (maximal 2 Felder).</note>
+        <note category="from">twig:///templates/ajax/game/actions.html.twig</note>
+      </notes>
+      <segment>
+        <source>Niemand ist in der Nähe der Stadt (maximal 2 Felder).</source>
+        <target>Il n'y a personne près de la ville (2 cases de distance maximum).</target>
+      </segment>
+    </unit>
+    <unit id=".le_YgA">
+      <notes>
+        <note category="german">Einige Bürger wurden beim Versuch, sich der Zombiehorde entgegenzustellen, verletzt.</note>
+        <note category="from">db://LogEntryTemplate</note>
+      </notes>
+      <segment>
+        <source>Einige Bürger wurden beim Versuch, sich der Zombiehorde entgegenzustellen, verletzt.</source>
+        <target>Certains ont été blessés durant leur tentative de résistance contre la Horde !</target>
+      </segment>
+    </unit>
+    <unit id="bAZ.uzF">
+      <notes>
+        <note category="german">Einige Bürger sind beim Versuch, sich der Zombiehorde entgegenzustellen, vor Angst erstarrt.</note>
+        <note category="from">db://LogEntryTemplate</note>
+      </notes>
+      <segment>
+        <source>Einige Bürger sind beim Versuch, sich der Zombiehorde entgegenzustellen, vor Angst erstarrt.</source>
+        <target>Certains sont encore terrorisés de leur tentative de résistance contre la Horde !</target>
+      </segment>
+    </unit>
+    <unit id="fYLDfxe">
+      <notes>
+        <note category="german">Beim Graben ist {citizen} auf eine Art... geheimes Versteck mit {items} gestoßen! Es wurde vermutlich von einem verbannten Mitbürger angelegt...</note>
+        <note category="from">php:///src/Service/ZoneHandler.php</note>
+      </notes>
+      <segment>
+        <source>Beim Graben ist {citizen} auf eine Art... geheimes Versteck mit {items} gestoßen! Es wurde vermutlich von einem verbannten Mitbürger angelegt...</source>
+        <target><![CDATA[Alors que le citoyen {citizen} commence ses fouilles, il remarque une sorte de... <strong>cache</strong> contenant :  {items}<hr/>Hmmm... Ça a probablement été dissimulé là par un <strong>citoyen banni</strong>...]]></target>
+      </segment>
+    </unit>
+    <unit id="7yCOjAd">
+      <notes>
+        <note category="german">Beim Durchwühlen des Mülls, der am Stadtrand herumliegt, findest du schließlich folgendes: {item}.&lt;hr /&gt;Du hast &lt;strong&gt;1 Aktionspunkt(e)&lt;/strong&gt; verbraucht.</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
+      </notes>
+      <segment>
+        <source>Beim Durchwühlen des Mülls, der am Stadtrand herumliegt, findest du schließlich folgendes: {item}.&lt;hr /&gt;Du hast &lt;strong&gt;1 Aktionspunkt(e)&lt;/strong&gt; verbraucht.</source>
+        <target><![CDATA[En fouinant dans les ordures qui traînent aux abords de la ville, vous finissez par trouver {item}.<hr />Vous avez utilisé <strong>1 point(s) d'action</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="6IxRpiz">
+      <notes>
+        <note category="german">Es ist dir gelungen, {item} von {victim} zu stehlen &lt;strong&gt;ohne entdeckt zu werden&lt;/strong&gt;. Nicht schlecht!</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php</note>
+      </notes>
+      <segment>
+        <source>Es ist dir gelungen, {item} von {victim} zu stehlen &lt;strong&gt;ohne entdeckt zu werden&lt;/strong&gt;. Nicht schlecht!</source>
+        <target><![CDATA[Vous avez volé {item} à {victim} <strong>sans que quiconque s'en aperçoive</strong>. Vous êtes vraiment habile..]]></target>
       </segment>
     </unit>
   </file>

@@ -298,6 +298,7 @@ class AwardFixtures extends Fixture implements DependentFixtureInterface {
         ['title'=>'Wilde Bestie', 'unlockquantity'=>100, 'associatedtag'=>':fight:', 'associatedpicto'=>'r_wrestl_#00'],
         ['title'=>'Rambos Großvater', 'unlockquantity'=>200, 'associatedtag'=>':fight:', 'associatedpicto'=>'r_wrestl_#00'],
         ['title'=>'Absolut keine Angst!', 'unlockquantity'=>400, 'associatedtag'=>':fight:', 'associatedpicto'=>'r_wrestl_#00'],
+        ['title'=>'Barhändiger Stripper', 'unlockquantity'=>600, 'associatedtag'=>':fight:', 'associatedpicto'=>'r_wrestl_#00'],
         ['title'=>'Stürmischer Kundschafter', 'unlockquantity'=>15, 'associatedtag'=>':explo:', 'associatedpicto'=>'r_explor_#00'],
         ['title'=>'Furchtloser Abenteurer', 'unlockquantity'=>30, 'associatedtag'=>':explo:', 'associatedpicto'=>'r_explor_#00'],
         ['title'=>'Wagemutiger Trapper', 'unlockquantity'=>70, 'associatedtag'=>':explo:', 'associatedpicto'=>'r_explor_#00'],

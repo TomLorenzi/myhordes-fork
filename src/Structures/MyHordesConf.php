@@ -6,6 +6,7 @@ namespace App\Structures;
 class MyHordesConf extends Conf
 {
     const CONF_DOMAINS = 'domains';
+    const CONF_URLS = 'urls';
 
     const CONF_NIGHTLY_RETRIES = 'nightly.retries';
     const CONF_NIGHTLY_DATEMOD = 'nightly.date_modifier';
@@ -27,6 +28,7 @@ class MyHordesConf extends Conf
     const CONF_ETWIN_AUTH       = 'etwin.auth';
     const CONF_ETWIN_API        = 'etwin.api';
     const CONF_ETWIN_DUAL_STACK = 'etwin.dual-stack';
+    const CONF_ETWIN_RETURN_URI = 'etwin.return';
 
     const CONF_SOULPOINT_LIMIT_REMOTE        = 'soulpoints.limits.remote';
     const CONF_SOULPOINT_LIMIT_PANDA         = 'soulpoints.limits.panda';
@@ -39,10 +41,17 @@ class MyHordesConf extends Conf
     const CONF_TOWNS_OPENMIN_SMALL  = 'towns.openmin.small';
     const CONF_TOWNS_OPENMIN_CUSTOM = 'towns.openmin.custom';
 
-    const CONF_RAW_AVATARS = 'allow_raw_avatars';
+    const CONF_RAW_AVATARS = 'avatars.allow_raw';
+    const CONF_AVATAR_SIZE_UPLOAD  = 'avatars.max_processing_size';
+    const CONF_AVATAR_SIZE_STORAGE = 'avatars.max_storage_size';
 
     const CONF_COA_MAX_NUM = 'coalitions.size';
 
     const CONF_ANTI_GRIEF_SP  = 'anti-grief.min-sp';
     const CONF_ANTI_GRIEF_REG = 'anti-grief.reg-limit';
+
+    const CONF_IMPORT_ENABLED = 'soul_import.enabled';
+    const CONF_IMPORT_READONLY = 'soul_import.readonly';
+    const CONF_IMPORT_LIMITED = 'soul_import.limited';
+    const CONF_IMPORT_SP_THRESHOLD = 'soul_import.sp_threshold';
 }

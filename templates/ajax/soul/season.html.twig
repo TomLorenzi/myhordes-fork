@@ -9,7 +9,9 @@
         <div class="cell rw-12 seasonHeader">
             <span class="seasonName">
                 {% if currentSeason is not null and currentSeason != "all" %}
-                    {{ ('Saison ' ~ currentSeason.number ~ '.' ~ currentSeason.subNumber)|trans({}, "season")}}
+                    {% if currentSeason.number > 0 %}
+                        {{ ('Saison ' ~ currentSeason.number ~ '.' ~ currentSeason.subNumber)|trans({}, "season")}}
+                    {% endif %}
                 {% else %}
                     {% if soloType is defined %}
                     {% else %}
@@ -22,15 +24,19 @@
                     {{'ALLE SAISONS'|trans({}, "soul")}}
                 {% else %}
                     {% if currentSeason is not null %}
-                        {% if currentSeason.subNumber > 0 %}
-                            {% set curNumber = currentSeason.number ~ '.' ~ currentSeason.subNumber %}
+                        {% if currentSeason.number > 0 %}
+                            {% if currentSeason.subNumber > 0 %}
+                                {% set curNumber = currentSeason.number ~ '.' ~ currentSeason.subNumber %}
+                            {% else %}
+                                {% set curNumber = currentSeason.number %}
+                            {% endif %}
+                            {{ 'Saison {number}'|trans({"{number}": '<span class="number">' ~ curNumber ~ '</span>'}, "soul")|raw}}
                         {% else %}
-                            {% set curNumber = currentSeason.number %}
+                            {{ '<span class="number">Beta</span> Saison'|trans({},'soul')|raw }}
                         {% endif %}
                     {% else %}
-                        {% set curNumber = 0 %}
+                        {{ 'Saison {number}'|trans({"{number}": '<span class="number">' ~ 0 ~ '</span>'}, "soul")|raw}}
                     {% endif %}
-                        {{ 'Saison {number}'|trans({"{number}": '<span class="number">' ~ curNumber ~ '</span>'}, "soul")|raw}}
                 {% endif %}
             </span>
         </div>
@@ -176,20 +182,28 @@
         {% endif %}
     </div>
     {% if seasons|length > 0 %}
-    <div class="row">
-        <div class="cell rw-12 note">
-            <label for="season">
-                {{ 'Vorangegangene Saisons:'|trans({}, 'soul') }}
-            </label>
-            <select name="season" id="season">
-                <option value="-1" {% if currentSeason is null %}selected{% endif %}>{{'Alte Städte'|trans({}, "soul")}}</option>
-                {% for season in seasons %}
-                    <option value="{{season.id}}" {% if currentSeason is not null and currentSeason.id == season.id %}selected{% endif %}>
-                        {% if season.number == 0 %}{{ 'Gute Alte Zeit'|trans({},'soul') }} -{% endif %}
-                        {{ 'Saison {n}'|trans({'{n}': season.number > 0 ? season.number : season.subNumber},'soul') }}{% if season.number > 0 %} - {{ ('Saison ' ~ season.number ~ '.' ~ season.subNumber)|trans({}, "season")}}{% endif %}
-                    </option>
-                {% endfor %}
-            </select>
+     <div class="row">
+        <div class="padded cell rw-12">
+            <div class="note">
+                <label for="season">
+                    {{ 'Vorangegangene Saisons:'|trans({}, 'soul') }}
+                </label>
+                <select name="season" id="season">
+                    {% for season in seasons %}
+                        <option value="{{season.id}}" {% if currentSeason is not null and currentSeason != season %}selected{% endif %}>
+                            {% set got  = season.number == 0 and season.subnumber <= 14 %}
+                            {% set beta = season.number == 0 and not got %}
+                            {% if got %}{{ 'Gute Alte Zeit'|trans({},'soul') }} -{% endif %}
+                            {% if beta %}
+                                {{ 'Beta-Saison'|trans({},'soul') }}
+                            {% else %}
+                                {{ 'Saison {n}'|trans({'{n}': season.number > 0 ? season.number : season.subNumber},'soul') }} - {{ ('Saison ' ~ season.number ~ '.' ~ season.subNumber)|trans({}, "season")}}
+                            {% endif %}
+                        </option>
+                    {% endfor %}
+                    <option value="-1" {% if currentSeason is null %}selected{% endif %}>{{'Alte Städte'|trans({}, "soul")}}</option>
+                </select>
+            </div>
         </div>
     </div>
     {% endif %}

@@ -856,7 +856,7 @@
     <unit id="ZtFgVEb" name="Admin Dashboard">
       <notes>
         <note category="german">Admin Dashboard</note>
-        <note category="from">twig:///templates/ajax/admin/dash.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/public/maintenance_attack.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/dash.html.twig;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/public/maintenance_attack.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
       </notes>
       <segment>
         <source>Admin Dashboard</source>
@@ -2024,7 +2024,7 @@
     <unit id="zFOkrfz" name="Importiert">
       <notes>
         <note category="german">Importiert</note>
-        <note category="from">twig:///templates/ajax/admin/towns/old_town_explorer.html.twig;twig:///templates/ajax/admin/towns/old_towns_list.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/towns/old_town_explorer.html.twig;twig:///templates/ajax/admin/towns/old_towns_list.html.twig;twig:///templates/ajax/admin/users/pictos.html.twig</note>
       </notes>
       <segment>
         <source>Importiert</source>
@@ -3949,6 +3949,77 @@
       <segment>
         <source>Aktiver Wert</source>
         <target>Current value</target>
+      </segment>
+    </unit>
+    <unit id="PhzdczW" name="Eskortierte Bürger teleportieren">
+      <notes>
+        <note category="german">Eskortierte Bürger teleportieren</note>
+        <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
+      </notes>
+      <segment>
+        <source>Eskortierte Bürger teleportieren</source>
+        <target>Teleport escorted citizens</target>
+      </segment>
+    </unit>
+    <unit id="2.gcbi0" name="Seele">
+      <notes>
+        <note category="german">Seele</note>
+        <note category="from">twig:///templates/ajax/admin/users/pictos.html.twig</note>
+      </notes>
+      <segment>
+        <source>Seele</source>
+        <target>Soul</target>
+      </segment>
+    </unit>
+    <unit id="OAGjXFG" name="Alle">
+      <notes>
+        <note category="german">Alle</note>
+        <note category="from">twig:///templates/ajax/admin/users/pictos.html.twig</note>
+      </notes>
+      <segment>
+        <source>Alle</source>
+        <target>All</target>
+      </segment>
+    </unit>
+    <unit id="FhSRo_H" name="MyHordes">
+      <notes>
+        <note category="german">MyHordes</note>
+        <note category="from">twig:///templates/ajax/admin/users/pictos.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>MyHordes</source>
+        <target>MyHordes</target>
+      </segment>
+    </unit>
+    <unit id="yR2i4CA" name="Alt">
+      <notes>
+        <note category="german">Alt</note>
+        <note category="from">twig:///templates/ajax/admin/users/pictos.html.twig</note>
+      </notes>
+      <segment>
+        <source>Alt</source>
+        <target>Old</target>
+      </segment>
+    </unit>
+    <unit id="lOtZ4.p" name="Eingeschränkter Import">
+      <notes>
+        <note category="german">Eingeschränkter Import</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Eingeschränkter Import</source>
+        <target>Restricted Import</target>
+      </segment>
+    </unit>
+    <unit id="mBqJlZa" name="Hauptseele ohne Einschränkungen importieren">
+      <notes>
+        <note category="german">Hauptseele ohne Einschränkungen importieren</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
+      </notes>
+      <segment>
+        <source>Hauptseele ohne Einschränkungen importieren</source>
+        <target>Import main soul without restrictions</target>
       </segment>
     </unit>
   </file>

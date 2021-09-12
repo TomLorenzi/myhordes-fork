@@ -757,6 +757,8 @@ class AdminTownController extends AdminActionController
         $old_zones = [];
         $cp_target_zone = !$target_zone || $handler->check_cp($target_zone);
 
+        $escort = $parser->get('escort', false);
+
         foreach (array_unique($targets) as $target) {
             /** @var Citizen $citizen */
             $citizen = $this->entity_manager->getRepository(Citizen::class)->find($target);
@@ -766,20 +768,34 @@ class AdminTownController extends AdminActionController
 
             if ($citizen->getZone() === $target_zone) continue;
 
-            if ($citizen->getZone()) {
-                if (!isset($old_zones[$citizen->getZone()->getId()]))
-                    $old_zones[$citizen->getZone()->getId()] = [$citizen->getZone(),$handler->check_cp( $citizen->getZone() )];
+            $movers = [$citizen];
 
-                if ($dig_timer = $citizen->getCurrentDigTimer()) {
-                    $dig_timer->setPassive(true);
-                    $this->entity_manager->persist( $dig_timer );
+            if($escort) {
+                foreach ($citizen->getValidLeadingEscorts() as $escort)
+                    $movers[] = $escort->getCitizen();
+            } else {
+                foreach ($citizen->getValidLeadingEscorts() as $escort) {
+                    $escort->getCitizen()->getEscortSettings()->setLeader(null);
+                    $this->entity_manager->persist($escort->getCitizen());
                 }
-
-                $citizen->getZone()->removeCitizen( $citizen );
             }
 
-            if ($target_zone) $target_zone->addCitizen( $citizen );
-            $this->entity_manager->persist($citizen);
+            foreach ($movers as $mover){
+                if ($mover->getZone()) {
+                    if (!isset($old_zones[$mover->getZone()->getId()]))
+                        $old_zones[$mover->getZone()->getId()] = [$mover->getZone(), $handler->check_cp( $mover->getZone() )];
+
+                    if ($dig_timer = $mover->getCurrentDigTimer()) {
+                        $dig_timer->setPassive(true);
+                        $this->entity_manager->persist( $dig_timer );
+                    }
+
+                    $mover->getZone()->removeCitizen( $mover );
+                }
+
+                if ($target_zone) $target_zone->addCitizen( $mover );
+                $this->entity_manager->persist($mover);
+            }
         }
 
         foreach ($old_zones as $old_zone_data) {

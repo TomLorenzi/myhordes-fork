@@ -118,6 +118,13 @@ const handleActionPopups = function( actions ) {
         let popup = document.querySelector('[x-target-selection-for="' + id + '"]');
         popup.addEventListener('click', function(e) { e.stopPropagation(); });
         actions[i].addEventListener('click', function() {
+            document.querySelectorAll('[x-target-definition]').forEach(e => {
+                e.classList.remove('open');
+            });
+            document.querySelectorAll('[x-target-selection-for]').forEach(e => {
+                e.style.display = "none";
+            });
+
             popup.style.display = 'block';
             actions[i].classList.add('open');
         })

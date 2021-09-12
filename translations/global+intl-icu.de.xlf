@@ -1729,14 +1729,6 @@
         <target>Namen eingeben</target>
       </segment>
     </unit>
-    <unit id="HAtmchb">
-      <segment>
-        <source>Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
-                                    &lt;p&gt;&lt;em&gt;Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..&lt;/em&gt;&lt;/p&gt;</source>
-        <target><![CDATA[Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
-                                    <p><em>Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..</em></p>]]></target>
-      </segment>
-    </unit>
     <unit id="mU.wJHS" name="Dein Icon">
       <segment>
         <source>Dein Icon</source>
@@ -2187,14 +2179,6 @@
         <target>Community-Tools</target>
       </segment>
     </unit>
-    <unit id="kOI7gR8">
-      <segment>
-        <source>Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
-                                                    &lt;p&gt;&lt;em&gt;Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..&lt;/em&gt;&lt;/p&gt;</source>
-        <target><![CDATA[Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
-                                                    <p><em>Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..</em></p>]]></target>
-      </segment>
-    </unit>
     <unit id="aD.KBg0" name="Posteingang">
       <segment>
         <source>Posteingang</source>
@@ -2240,7 +2224,7 @@
     <unit id="cEUwQw8" name="Dieser Spieler ist ein Administrator auf diesem Server.">
       <segment>
         <source>Dieser Spieler ist ein Administrator auf diesem Server.</source>
-        <target>Dieser Spieler ist ein Administrator auf diesem Server.</target>
+        <target>Dieser Spieler ist ein Administrator von MyHordes.</target>
       </segment>
     </unit>
     <unit id="TyNTK6_" name="Dieser Spieler ist ein Entwickler von MyHordes.">
@@ -2285,6 +2269,18 @@
       <segment>
         <source>Das Zombie Survival Game!</source>
         <target>Das Zombie Survival Game!</target>
+      </segment>
+    </unit>
+    <unit id="RZid5J_" name="Details">
+      <segment>
+        <source>Details</source>
+        <target>Details</target>
+      </segment>
+    </unit>
+    <unit id="yqSnrUg" name="Zusätzliche Informationen zu deiner Meldung (optional):">
+      <segment>
+        <source>Zusätzliche Informationen zu deiner Meldung (optional):</source>
+        <target>Zusätzliche Informationen zu deiner Meldung (optional):</target>
       </segment>
     </unit>
   </file>

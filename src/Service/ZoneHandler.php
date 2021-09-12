@@ -199,13 +199,13 @@ class ZoneHandler
                             // Novelty Lamps are not built; apply malus
                             if (!$novelty_lamps) $factor -= $night_mode_malue;
                             // Novelty Lamps are at lv0 and the zone distance is above 2km; apply malus
-                            elseif ($novelty_lamps->getLevel() === 0 && $zone->getDistance() > 2.0) $factor -= $night_mode_malue;
+                            elseif ($novelty_lamps->getLevel() === 0 && $zone->getDistance() > 2) $factor -= $night_mode_malue;
                             // Novelty Lamps are at lv1 and the zone distance is above 6km; apply malus
-                            elseif ($novelty_lamps->getLevel() === 1 && $zone->getDistance() > 6.0) $factor -= $night_mode_malue;
+                            elseif ($novelty_lamps->getLevel() === 1 && $zone->getDistance() > 6) $factor -= $night_mode_malue;
                             // Novelty Lamps are at lv2 and the zone distance is above 10km; apply malus
-                            elseif ($novelty_lamps->getLevel() === 2 && $zone->getDistance() > 10.0) $factor -= $night_mode_malue;
+                            elseif ($novelty_lamps->getLevel() === 2 && $zone->getDistance() > 10) $factor -= $night_mode_malue;
                             // Novelty Lamps are at lv4 and the zone distance is within 10km; apply bonus
-                            // elseif ($novelty_lamps->getLevel() === 4 && $zone->getDistance() <= 10.0) $factor += 0.2;
+                            // elseif ($novelty_lamps->getLevel() === 4 && $zone->getDistance() <= 10) $factor += 0.2;
 
                         } else $factor -= $night_mode_malue; // Night mode is active; apply malus
 
@@ -310,7 +310,6 @@ class ZoneHandler
                         $this->entity_manager->persist( $executable_timer->getZone()->getFloor() );
                     }
                 } else {
-                    //TODO: Persist log only if it is an automatic search
                     $this->entity_manager->persist( $this->log->outsideDig( $current_citizen, $item_prototype, (new DateTime())->setTimestamp($time) ) );
                 }
 
@@ -318,7 +317,10 @@ class ZoneHandler
                 if(!$executable_timer->getCitizen()->getBanished() && $this->hasHiddenItem($executable_timer->getZone()) && $this->random_generator->chance(0.05)){
                     $items = $timer->getZone()->getFloor()->getItems();
                     $itemsproto = array_map( function($e) {return $e->getPrototype(); }, $items->toArray() );
-                    $ret_str[] = $this->trans->trans('Beim Graben bist du auf eine Art... geheimes Versteck mit {items} gestoßen! Es wurde vermutlich von einem verbannten Mitbürger angelegt...', ['{items}' => $wrap($itemsproto) ], 'game');
+                    if ($active && $current_citizen->getEscortSettings() && $current_citizen->getEscortSettings()->getLeader() && $current_citizen->getEscortSettings()->getLeader() === $active)
+                        $ret_str[] = $this->trans->trans('Beim Graben ist {citizen} auf eine Art... geheimes Versteck mit {items} gestoßen! Es wurde vermutlich von einem verbannten Mitbürger angelegt...', ['{items}' => $wrap($itemsproto), '{citizen}' => $current_citizen ], 'game');
+                    elseif ($active && $current_citizen === $active)
+                        $ret_str[] = $this->trans->trans('Beim Graben bist du auf eine Art... geheimes Versteck mit {items} gestoßen! Es wurde vermutlich von einem verbannten Mitbürger angelegt...', ['{items}' => $wrap($itemsproto) ], 'game');
                     foreach ($items as $item) {
                         if ($item->getHidden()){
                             $item->setHidden(false);

@@ -184,7 +184,7 @@ class LogTemplateHandler
                         $transParams['{'.$typeEntry['name'].'}'] = "null";
                 }
                 elseif ($typeEntry['type'] === 'num' || $typeEntry['type'] === 'string') {
-                    $transParams['{'.$typeEntry['name'].'}'] = $wrap_fun($variables[$typeEntry['name']]);
+                    $transParams['{'.$typeEntry['name'].'}'] = $wrap_fun($variables[$typeEntry['name']] ?? 0);
                 }
                 elseif ($typeEntry['type'] === 'transString') {
                     $transParams['{'.$typeEntry['name'].'}'] = $wrap_fun( $this->trans->trans($variables[$typeEntry['name']], [], 'game') );
@@ -994,9 +994,9 @@ class LogTemplateHandler
             ->setTimestamp( new DateTime('now') );
     }
 
-    public function nightlyAttackBegin( Town $town, int $num_zombies, bool $former_citizens = false ): TownLogEntry {
-        $variables = array('num' => $num_zombies);
-        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => $former_citizens ? 'nightlyAttackBeginWithCitizens' : 'nightlyAttackBegin']);
+    public function nightlyAttackBegin( Town $town, int $num_zombies, bool $former_citizens = false, ?Citizen $specific = null ): TownLogEntry {
+        $variables = array('num' => $num_zombies, 'citizen' => $specific ? $specific->getId() : null);
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => $former_citizens ? ($specific ? 'nightlyAttackBeginOneCitizen' : 'nightlyAttackBeginWithCitizens') : 'nightlyAttackBegin']);
 
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
@@ -1006,12 +1006,13 @@ class LogTemplateHandler
             ->setTimestamp( new DateTime('now') );
     }
 
-    public function nightlyAttackDisappointed( Town $town ): TownLogEntry {
-        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'nightlyAttackDisappointed']);
+    public function nightlyAttackDisappointed( Town $town, ?Citizen $specific = null ): TownLogEntry {
+        $variables = array('citizen' => $specific ? $specific->getId() : null);
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => $specific ? 'nightlyAttackDisappointedCitizen' : 'nightlyAttackDisappointed']);
 
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
-            ->setVariables([])
+            ->setVariables($variables)
             ->setTown( $town )
             ->setDay( $town->getDay() )
             ->setTimestamp( new DateTime('now') );
@@ -1118,9 +1119,9 @@ class LogTemplateHandler
             ->setTimestamp( new DateTime('now') );
     }
 
-    public function nightlyAttackWatcherWound( Town $town, Citizen $citizen ): TownLogEntry {
-        $variables = array('citizen' => $citizen);
-        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'nightlyAttackWatcherWound']);
+    public function nightlyAttackWatcherWound( Town $town, ?Citizen $citizen ): TownLogEntry {
+        $variables = $citizen ? array('citizen' => $citizen) : [];
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => $citizen ? 'nightlyAttackWatcherWound' : 'nightlyAttackWatchersWound']);
 
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
@@ -1130,9 +1131,9 @@ class LogTemplateHandler
             ->setTimestamp( new DateTime('now') );
     }
 
-    public function nightlyAttackWatcherTerror( Town $town, Citizen $citizen ): TownLogEntry {
-        $variables = array('citizen' => $citizen);
-        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'nightlyAttackWatcherTerror']);
+    public function nightlyAttackWatcherTerror( Town $town, ?Citizen $citizen ): TownLogEntry {
+        $variables = $citizen ? array('citizen' => $citizen) : [];
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => $citizen ? 'nightlyAttackWatcherTerror' : 'nightlyAttackWatchersTerror']);
 
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
@@ -1144,7 +1145,7 @@ class LogTemplateHandler
 
     public function nightlyAttackLazy( Town $town, int $num_attacking_zombies ): TownLogEntry {
         $variables = array('num' => $num_attacking_zombies);
-        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'nightlyAttackLazy']);
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => $town->getDevastated() ? 'nightlyAttackLazyDevast' : 'nightlyAttackLazy' ]);
 
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
@@ -1603,7 +1604,9 @@ class LogTemplateHandler
 
     public function citizenAttack( Citizen $attacker, Citizen $defender, bool $wounded ): TownLogEntry {
         $variables = array('attacker' => $attacker->getId(), 'defender' => $defender->getId());
-        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => $wounded ? 'citizenAttackWounded' : 'citizenAttack']);
+        $template = $attacker->getZone()
+            ? $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => $wounded ? 'citizenAttackWoundedOutside' : 'citizenAttackOutside'])
+            : $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => $wounded ? 'citizenAttackWounded' : 'citizenAttack']);
 
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)

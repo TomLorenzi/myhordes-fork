@@ -9,6 +9,7 @@ use App\Entity\ForumUsagePermissions;
 use App\Entity\Post;
 use App\Entity\Town;
 use App\Entity\User;
+use App\Structures\MyHordesConf;
 use Doctrine\ORM\EntityManagerInterface;
 use DOMDocument;
 use DOMElement;
@@ -27,15 +28,16 @@ class HTMLService {
     private Packages $asset;
     private UserHandler $userHandler;
     private UrlGeneratorInterface $router;
+    private ConfMaster $conf;
 
     const ModulationNone    = 0;
     const ModulationDrunk   = 1 << 1;
     const ModulationTerror  = 1 << 2;
     const ModulationHead    = 1 << 3;
 
-
     public function __construct(EntityManagerInterface $em, PermissionHandler $perm, TranslatorInterface $trans,
-                                RandomGenerator $rand, Packages $a, UserHandler $uh, UrlGeneratorInterface $router)
+                                RandomGenerator $rand, Packages $a, UserHandler $uh, UrlGeneratorInterface $router,
+                                ConfMaster $conf)
     {
         $this->entity_manager = $em;
         $this->perm = $perm;
@@ -44,6 +46,7 @@ class HTMLService {
         $this->asset = $a;
         $this->userHandler = $uh;
         $this->router = $router;
+        $this->conf = $conf;
     }
 
     protected const HTML_LIB = [
@@ -181,28 +184,36 @@ class HTMLService {
 
         if ($node->nodeType === XML_ELEMENT_NODE) {
 
-            // Element not allowed.
-            if (!in_array($node->nodeName, array_keys($allowedNodes['nodes'])) && !($depth === 0 && $node->nodeName === 'body')) {
-                $node->parentNode->removeChild( $node );
-                return true;
-            }
+            $truncate_node = false;
 
-            // Attributes not allowed.
+            // Element not allowed.
+            if (!in_array($node->nodeName, array_keys($allowedNodes['nodes'])) && !($depth === 0 && $node->nodeName === 'body'))
+                $truncate_node = true;
+
+            // Attributes not allowed - we only need to remove attribs if the node is not truncated
             $remove_attribs = [];
-            for ($i = 0; $i < $node->attributes->length; $i++) {
-                if (!in_array($node->attributes->item($i)->nodeName, $allowedNodes['nodes'][$node->nodeName]))
-                    $remove_attribs[] = $node->attributes->item($i)->nodeName;
-                elseif (isset($allowedNodes['attribs']["{$node->nodeName}.{$node->attributes->item($i)->nodeName}"])) {
-                    // Attribute values not allowed
-                    $allowed_entries = $allowedNodes['attribs']["{$node->nodeName}.{$node->attributes->item($i)->nodeName}"];
-                    $node->attributes->item($i)->nodeValue = implode( ' ', array_filter( explode(' ', $node->attributes->item($i)->nodeValue), function (string $s) use ($allowed_entries) {
-                        return in_array( $s, $allowed_entries );
-                    }));
+            if (!$truncate_node)
+                for ($i = 0; $i < $node->attributes->length; $i++) {
+                    if (!in_array($node->attributes->item($i)->nodeName, $allowedNodes['nodes'][$node->nodeName]))
+                        $remove_attribs[] = $node->attributes->item($i)->nodeName;
+                    elseif (isset($allowedNodes['attribs']["{$node->nodeName}.{$node->attributes->item($i)->nodeName}"])) {
+                        // Attribute values not allowed
+                        $allowed_entries = $allowedNodes['attribs']["{$node->nodeName}.{$node->attributes->item($i)->nodeName}"];
+                        $node->attributes->item($i)->nodeValue = implode( ' ', array_filter( explode(' ', $node->attributes->item($i)->nodeValue), function (string $s) use ($allowed_entries) {
+                            return in_array( $s, $allowed_entries );
+                        }));
+
+                        if (empty($node->attributes->item($i)->nodeValue))
+                            $remove_attribs[] = $node->attributes->item($i)->nodeName;
+                    }
                 }
-            }
 
             foreach ($remove_attribs as $attrib)
                 $node->removeAttribute($attrib);
+
+            //DIV and SPAN are not allowed without any attributes
+            if (!$truncate_node && in_array($node->nodeName, ['div','span']) && $node->attributes->length === 0)
+                $truncate_node = true;
 
             $children = [];
             foreach ( $node->childNodes as $child )
@@ -211,6 +222,16 @@ class HTMLService {
             foreach ( $children as $child )
                 if (!$this->htmlValidator( $allowedNodes, $child, $text_length, $depth+1 ))
                     return false;
+
+            if ($truncate_node && !$node->parentNode) return false;
+            elseif ($truncate_node) {
+                $children = [];
+                foreach ( $node->childNodes as $child )
+                    $children[] = $child;
+                foreach ( $children as $child )
+                    $node->parentNode->insertBefore( $child, $node );
+                $node->parentNode->removeChild($node);
+            }
 
             return true;
 
@@ -238,7 +259,7 @@ class HTMLService {
 
         $dom = new DOMDocument();
         libxml_use_internal_errors(true);
-        $text = str_replace('@​::','@::',$text);
+        $text = str_replace(['@​::','@%E2%80%8B::'],'@::',$text);
         $dom->loadHTML( "<html lang=''><head><title></title><meta charset='UTF-8' /></head><body>$text</body></html>", LIBXML_COMPACT | LIBXML_NONET | LIBXML_HTML_NOIMPLIED);
         $body = $dom->getElementsByTagName('body');
         if (!$body || $body->length > 1) return false;
@@ -250,6 +271,12 @@ class HTMLService {
 
         $cache = [ 'citizen' => [] ];
 
+        $sys_urls = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_URLS, []);
+        $replace_urls = [];
+        foreach ($sys_urls as $url) {
+            $replace_urls[] = 'http://' . $url;
+            $replace_urls[] = 'https://' . $url;
+        }
         $poll_cache = $polls = [];
 
         $handlers = [
@@ -260,6 +287,23 @@ class HTMLService {
                     foreach ($emotes as $emote)
                         $d->nodeValue = str_replace( $emote, str_replace(':', ':​', $emote),  $d->nodeValue);
                 },
+
+            // Replace URLs
+            '//a[@href]'   => function (DOMNode $d) use ($replace_urls) {
+                $url = $d->attributes->getNamedItem('href')->nodeValue;
+                $replace_nw = $d->nodeValue === $url;
+
+                $new_url = str_replace( $replace_urls, '@​::dom:0', $url );
+                if ($url !== $new_url) {
+                    $d->attributes->getNamedItem('href')->nodeValue = $new_url;
+                    if ($replace_nw) $d->nodeValue = $new_url;
+                }
+            },
+            '//img[@src]'   => function (DOMNode $d) use ($replace_urls) {
+                $url = $d->attributes->getNamedItem('src')->nodeValue;
+                $new_url = str_replace( $replace_urls, '@​::dom:0', $url );
+                if ($url !== $new_url) $d->attributes->getNamedItem('src')->nodeValue = $new_url;
+            },
 
             '//div[@class=\'dice-4\']'   => function (DOMNode $d) use(&$editable) { $editable = false; $d->nodeValue = mt_rand(1,4); },
             '//div[@class=\'dice-6\']'   => function (DOMNode $d) use(&$editable) { $editable = false; $d->nodeValue = mt_rand(1,6); },
@@ -444,7 +488,7 @@ class HTMLService {
             'fr' => ["mais... euh..","...","... truc..","et euuh..",".. ouais les gars...","..hin hin...","voilà quoi...","... comment déjà...","..hein ?",".. un euh...","..Hi hi hi ! ...",".. bordel..","non ?.. Oui ?","..ou bien...",".. pis alors...","... HIPS...","... j'crois...",".. Hé hé...",",pfff...","genre..","... parce que tu vois...","... j'crois...",".t.. T.. Truc...",".. et euh... j'disais quoi...","arf.","euh...","... ou pas quoi...",".. non attend...","... ouais...",".. Qu'est-ce que...","... parceque..","... le...","euh... j'disais quoi...","huh...","..le bazar quoi...","style...",".gghhh...",".. mais... euh..","... machin..","truc","... et euuh..","..tu vois..","style...","... j'crois...",".. voilà quoi...",".. bidule...","... comment déjà..","..hein ?..",".. bordel..","... pis alors...","HIPS","huh...","... le bazar, là..","...genre...",".. le truc, là..",".. un euh ..."],
         ],
         self::ModulationTerror => [
-            'de' => [],
+            'de' => [[".. AH AH AH! ...",".. ist da wer?..","... wirklich, Zwiebeln? aargh! ....","... Meine Helige Hose!","... oooh! schau! es glitzert!!! ...","..sagte der Bischof zu der Nonne, was?","..Hehehehehe! ...","..unterschätzt meine Schleichkunst..","..Lasst mich! ..,","..ach herrje..","..aua! scharf...","..die.. Stimmen...","..sie sind überall...",".gghhh...","explosive Unterhose ..","Beim Barte des Propheten! Ah!","bzzz, bzzzz, hört doch","NEEEiin!","so viel mehr Raum für Aktivität!","das hat sie auch gesagt..","die Spinnen...","aufhören, Ohren auf und mitmachen...","die große Leere…","zick zack Huckepack",".. Uuuhh.. was?","....Überraschung","... ha .."],["Grausamkeit","verrückt","dandleban","Zerfall","Weihnachtsmann","schmutzig","fistlebars","Blume","Riesenmöhre","stöhn...","furchtbar","unhöflich","jabberwocky","stammel...","Flugzeug","Giftaffen","Kartoffel","redrum...","Schaufel","süffisant","Tisch","Tomate","Ultrabanane","yingiebert","Zinglebert Wangledack","Zombie","Banane"]],
             'en' => [[".. AH AH AH! ...",".. who's there?..","... but seriously, onions? wheeeee! ....","... My sainted trousers!","... oooh! look! shiny!!! ...","..as the bishop said to the nun, what?","..Hehehehehe! ...","..is underestimating the sneakiness..","..Leave me! ..,","..my giddy aunt..","..ouch! pointy...","..the.. voices...","..they are everywhere...",".gghhh...","exploding trousers ..","By the beard of Zeus! Ah!","bzzz, bzzzz, listen","NOOOoo!","so much more room for activities!","that's what she said..","the spiders...","alright stop, collaborate and listen...","the great unknown…","tiddly bang bang",".. Meuuuhh.. What?","....Surprise","... laugh .."],["atrocity","crazy","dandleban","decay","Father Christmas","filthy","fistlebars","flower","giant carrot","groan...","horrible","how rude","jabberwocky","mumble...","plane","poisonous monkeys","potato","redrum...","shovel","smugly","table","tomato","ultra-banana","yingiebert","Zinglebert Wangledack","zombie","banana"]],
             'es' => [['... ¡Dejadme!...', '... ¡JA JA JA!...', '... rrRRR... ¡RrAAAAaah!....', '.. voces...', '¡looca looca looca! ¡ah-ah!', '... frío.., ¡silencio!...follón', '¡NoOoOo!...', '... ¿quién está ahi?...', '...¡jiii jiji!...', 'Mounstro'],['patito', 'avión', 'abuela', 'vecino', 'pirulos', 'inmundo']],
             'fr' => [["… ou bien…",".gghhh...","..hin hin...","non ?.. Oui ?",",mon ami Pierroooot","... toujours un beau temps au nord ...","grogne...",".. Ah... Ah ah..","..rrRRR... RAAAAaah !","..froid..",".. qui est là ?..",". Pas du tout..",".. Alouetteuuh gentiiil.. Hein ?..","...ricane..",",.r.tuer...","... Mon beau sapiiin ! ....","..les.. voix...","pirouette cacahuètes ...","ainsi font font FONT !! Ah !...","..ils sont partout...","..vais tous vous...",".. roule petit patapon ...",".. AH AH AH !…",".. Laissez moi !","NOOOoon !...","..Lachez moi !..",",..hein ?","..Hi hi hi ! ...","car il y a longtemps que je t'aime...",". Pas du tout...","des araignées..."],["biloute","souffrances","fleur","dévorer","schtroumpfer","sapine","pépin","galinacée","horrible","patate","pourriture","polompolom","pelle","pomme","monstre","rigolo","poire","infection","tulipe","peur","carotte","avion","youpi-banane","immonde","papa Noël","tomate","folie"]],
@@ -452,7 +496,7 @@ class HTMLService {
         self::ModulationHead => [
             'de' => ["..Gr..","...argh..","...ggh..","hust...","RAAH! ..",".. nein...","..der...","... Ich...","..raah..",".n...","stöhn...","..nng.."],
             'en' => ["..Gr..","...argh..","...ggh..","cough...","RAAH! ..",".. no...","..the...","... I...","..raah..",".n...","groan...","..nng.."],
-            'es' => [],
+            'es' => ["..raah..","...argh..","..gnn..","..Gn..","....","RAAH !..","...ggh..",".g..."], // ToDo: This is just a copy of the French one, without the specifically french words
             'fr' => ["..raah..","...argh..","..gnn..","grogne...","..Gn..","....","tousse...","RAAH !..","...ggh..","..le...","qu.. non...","... je...",".g..."],
         ],
     ];
@@ -621,13 +665,15 @@ class HTMLService {
 
     public function prepareEmotes(string $str): string {
         $emotes = $this->get_emotes();
-        return preg_replace_callback('/@​::(\w+):(\d+)/i', function(array $m) {
+        return preg_replace_callback('/@(?:​|%E2%80%8B)::(\w+):(\d+)/i', function(array $m) {
             [, $type, $id] = $m;
             switch ($type) {
                 case 'un':case 'up':
                     $target_user = $this->entity_manager->getRepository(User::class)->find((int)$id);
                     if ($target_user === null) return '';
                     return $type === 'un' ? $target_user->getName() : $this->router->generate('soul_visit', ['id' => $target_user->getId()]);
+                case 'dom':
+                    return (int)$id === 0 ? mb_substr($this->router->generate('home', [], UrlGeneratorInterface::ABSOLUTE_URL), 0,-1) : '';
                 default: return '';
             }
         }, str_replace( array_keys( $emotes ), array_values( $emotes ), $str ));

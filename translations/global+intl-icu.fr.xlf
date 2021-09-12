@@ -2686,7 +2686,7 @@
       </notes>
       <segment>
         <source>Es wurde noch keine Stadt in die Rangliste aufgenommen!</source>
-        <target>Aucune ville n'est encore dans le classement!</target>
+        <target>Aucune ville n'est encore dans le classement !</target>
       </segment>
     </unit>
     <unit id="sXEtGH4" name="Diese Diskussion ist beendet.">
@@ -3584,12 +3584,12 @@
     </unit>
     <unit id="cEUwQw8" name="Dieser Spieler ist ein Administrator auf diesem Server.">
       <notes>
-        <note category="german">Dieser Spieler ist ein Administrator auf diesem Server.</note>
+        <note category="german">Dieser Spieler ist ein Administrator von MyHordes.</note>
         <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/forum/posts_small.html.twig</note>
       </notes>
       <segment>
         <source>Dieser Spieler ist ein Administrator auf diesem Server.</source>
-        <target>Ce joueur est un administrateur sur ce serveur.</target>
+        <target>Ce joueur est un administrateur de MyHordes.</target>
       </segment>
     </unit>
     <unit id="TyNTK6_" name="Dieser Spieler ist ein Entwickler von MyHordes.">
@@ -3661,7 +3661,27 @@
       </notes>
       <segment>
         <source>Das Zombie Survival Game!</source>
-        <target>le jeu de survie dans un monde peuplé de zombies !</target>
+        <target>Le jeu de survie dans un monde peuplé de zombies !</target>
+      </segment>
+    </unit>
+    <unit id="RZid5J_" name="Details">
+      <notes>
+        <note category="german">Details</note>
+        <note category="from">twig:///templates/ajax/admin/reports/gpn-viewer.html.twig;twig:///templates/ajax/admin/reports/pn-viewer.html.twig;twig:///templates/ajax/forum/posts.html.twig</note>
+      </notes>
+      <segment>
+        <source>Details</source>
+        <target>Détails</target>
+      </segment>
+    </unit>
+    <unit id="yqSnrUg" name="Zusätzliche Informationen zu deiner Meldung (optional):">
+      <notes>
+        <note category="german">Zusätzliche Informationen zu deiner Meldung (optional):</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+      </notes>
+      <segment>
+        <source>Zusätzliche Informationen zu deiner Meldung (optional):</source>
+        <target>Informations supplémentaires sur le signalement (facultatif):</target>
       </segment>
     </unit>
   </file>

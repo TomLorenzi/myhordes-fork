@@ -147,7 +147,14 @@
             </div>
             <div class="padded cell rw-1 rw-lg-2 rw-sm-12 right">
                 {% if buildable and (building.ap < ((building.prototype.ap * workshopBonus)|round) or not building.complete) or (building.complete and building.hp < building.prototype.hp) %}
-                    <button class="inline build-btn" {% if (not res_ok) or disable_all %}disabled{% else %}x-building-id="{{ building.id }}"{% endif %}>{% if not building.complete %}<i class="fa fa-plus"></i>{% else %}<img src="{{ asset('build/images/icons/small_refine.gif') }}" alt="" style="margin-right: 0px;" />{% endif %}</button>
+                    <button class="inline build-btn" {% if (not res_ok) or disable_all %}disabled{% else %}x-building-id="{{ building.id }}"{% endif %}>
+                        {% if not building.complete %}
+                            <i class="fa fa-plus"></i>
+                        {% else %}
+                            <img src="{{ asset('build/images/icons/small_refine.gif') }}" alt="" style="margin-right: 0px;" />
+                            <div class="tooltip help">{{ 'Für die vollständige Instandsetzung dieses Gebäudes sind noch {remaining} AP erforderlich.'|trans({remaining: ((building.prototype.hp - building.hp)/hpToAp)|round(0, 'ceil')}, 'game') }}</div>
+                        {% endif %}
+                    </button>
                 {% endif %}
             </div>
         </div>
@@ -229,15 +236,17 @@
                     input.id = "ap_amount";
                     input.style.marginBottom = "3px";
                     input.value = "1";
+                    input.setAttribute('min', 1);
+                    input.setAttribute('max', {{ app.user.activeCitizen.ap + app.user.activeCitizen.bp }});
+                    input.addEventListener("keyup", function(event) { if(event.key === "Enter") send_build_request()});
+
                     prompt.append(input);
 
                     let input_id = document.createElement("input");
                     input_id.setAttribute("type", "hidden");
                     input_id.id = "prompt_id";
-                    input.setAttribute('min', 1);
-                    input.setAttribute('max', {{ app.user.activeCitizen.ap + app.user.activeCitizen.bp }});
                     input_id.value = this.getAttribute('x-building-id');
-                    input.addEventListener("keyup", function(event) { if(event.key === "Enter") send_build_request()});
+
                     prompt.append(input_id);
 
                     let button = document.createElement("button");

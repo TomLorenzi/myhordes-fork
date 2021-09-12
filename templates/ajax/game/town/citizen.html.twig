@@ -129,7 +129,7 @@
                         <img alt="{{ citizen.home.prototype.level }}" src="{{ asset('build/images/home/' ~ citizen.home.prototype.icon ~ '.gif') }}" />
                         <span class="citizen-defense">{% if citizenInfo.defense > 0 %} {{ citizenInfo.defense }} pts {% else %} -- {% endif %}</span>
                     </div>
-                    <div class="padded cell factor-0 small right citizen-box" x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}" style="flex-basis: 80px;">
+                    <div class="padded cell factor-0 small right citizen-box location" x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}" style="flex-basis: 80px;">
                         <div class="tooltip normal">
                             {% if not hidden[citizen.id] %}
                                 {% if citizen.home.chest.items|length == 0 %}

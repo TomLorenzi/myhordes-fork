@@ -134,7 +134,7 @@ class BeyondController extends InventoryAwareController
     protected function addDefaultTwigArgs( ?string $section = null, ?array $data = null ): array {
         $zone = $this->getActiveCitizen()->getZone();
         $blocked = !$this->zone_handler->check_cp($zone, $cp);
-        $escape = $this->get_escape_timeout( $this->getActiveCitizen() );
+        $escape = $this->get_escape_timeout( $this->getActiveCitizen(), true );
         $citizen_tired = $this->getActiveCitizen()->getAp() <= 0 || $this->citizen_handler->isTired( $this->getActiveCitizen());
         $citizen_hidden = !$this->activeCitizenIsNotCamping();
 
@@ -169,6 +169,7 @@ class BeyondController extends InventoryAwareController
         return parent::addDefaultTwigArgs( $section, array_merge( [
             'zone_players' => $zone_players,
             'zone_zombies' => max(0,$zone->getZombies()),
+            'zone_splatter' => max(0, $zone->getInitialZombies() - $zone->getZombies()),
             'can_attack_citizen' => !$this->citizen_handler->isTired($this->getActiveCitizen()) && $this->getActiveCitizen()->getAp() >= $this->getTownConf()->get(TownConf::CONF_MODIFIER_ATTACK_AP, 5) && !$this->citizen_handler->isWounded($this->getActiveCitizen()) && !$zone->isTownZone(),
             'can_devour_citizen' => $this->getActiveCitizen()->hasRole('ghoul') && !$zone->isTownZone(),
             'allow_devour_citizen' => !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_ghoul_eat'),
@@ -208,9 +209,9 @@ class BeyondController extends InventoryAwareController
         ], $data, $this->get_map_blob()) );
     }
 
-    public function get_escape_timeout(Citizen $c): int {
-        $active_timer = $this->entity_manager->getRepository(EscapeTimer::class)->findActiveByCitizen( $c );
-        return $active_timer ? ($active_timer->getTime()->getTimestamp() - (new DateTime())->getTimestamp()) : -1;
+    public function get_escape_timeout(Citizen $c, bool $allow_desperate = false): int {
+        $active_timer = $this->entity_manager->getRepository(EscapeTimer::class)->findActiveByCitizen( $c, false, $allow_desperate );
+        return ($active_timer && (!$active_timer->getDesperate() || $allow_desperate)) ? ($active_timer->getTime()->getTimestamp() - (new DateTime())->getTimestamp()) : -1;
     }
 
     public function uncoverHunter(Citizen $c): bool {
@@ -224,6 +225,7 @@ class BeyondController extends InventoryAwareController
     /**
      * @Route("jx/beyond/desert/{sect}", name="beyond_dashboard")
      * @param TownHandler $th
+     * @param string|null $sect
      * @return Response
      */
     public function desert(TownHandler $th, string $sect = null): Response
@@ -249,6 +251,7 @@ class BeyondController extends InventoryAwareController
 
         $blocked = !$this->zone_handler->check_cp($zone, $cp);
         $escape = $this->get_escape_timeout( $this->getActiveCitizen() );
+        $escape_desperate = ($escape < 0) ? $this->get_escape_timeout( $this->getActiveCitizen(), true ) : -1;
 
         $require_ap = ($is_on_zero && $th->getBuilding($town, 'small_labyrinth_#00',  true));
 
@@ -340,7 +343,7 @@ class BeyondController extends InventoryAwareController
                     $camping_blueprint = T::__("Hier wurde bereits ein Bauplan gefunden.", 'game');
                     $blueprintFound = true;
                 }
-            }
+            } else $camping_blueprint = T::__("Du erhälst einen Bauplan wenn Du in diesem Gebäude campst, aber du musst zunächst die Zone aufräumen.", 'game');
 
             // Uncomment next line to show camping values in game interface.
             #$camping_debug = "DEBUG CampingChances\nSurvivalChance for Comparison: " . $survival_chance . "\nCitizenCampingChance: " . $this->getActiveCitizen()->getCampingChance() . "\nCitizenHandlerCalculatedChance: " . $this->citizen_handler->getCampingChance($this->getActiveCitizen()) . "\nCalculationValues:\n" . str_replace( ',', "\n", str_replace( ['{', '}'], '', json_encode($this->citizen_handler->getCampingValues($this->getActiveCitizen()), 8) ) );
@@ -351,10 +354,16 @@ class BeyondController extends InventoryAwareController
             $zone_tags = $this->entity_manager->getRepository(ZoneTag::class)->findAll();
         }
 
+        $has_hidden_items =
+            $this->getActiveCitizen()->getBanished() &&
+            !$this->getActiveCitizen()->getZone()->getFloor()->getItems()->filter(function(Item $i) { return $i->getHidden(); })->isEmpty();
+
         return $this->render( 'ajax/game/beyond/desert.html.twig', $this->addDefaultTwigArgs(null, [
+            'hidden_items' => $has_hidden_items,
             'scout' => $this->getActiveCitizen()->getProfession()->getName() === 'hunter',
             'allow_enter_town' => $can_enter,
             'doors_open' => $town->getDoor(),
+            'town' => $town,
             'show_ventilation'  => $is_on_zero && $th->getBuilding($town, 'small_ventilation_#00',  true) !== null,
             'allow_ventilation' => $this->getActiveCitizen()->getProfession()->getHeroic(),
             'show_sneaky' => $is_on_zero && $this->getActiveCitizen()->hasRole('ghoul'),
@@ -366,12 +375,13 @@ class BeyondController extends InventoryAwareController
             'can_escape_nr' => $citizen_tired ? 'tired' : ( $this->citizen_handler->isWounded($this->getActiveCitizen()) ? 'wounded' : false ),
             'zone_blocked' => $blocked,
             'zone_escape' => $escape,
+            'zone_escape_desperate' => $escape_desperate,
             'digging' => $this->getActiveCitizen()->isDigging(),
             'dig_ruin' => empty($this->entity_manager->getRepository(DigRuinMarker::class)->findByCitizen( $this->getActiveCitizen() )),
             'actions' => $this->getItemActions(),
             'floor' => $zone->getFloor(),
             'other_citizens' => $zone->getCitizens(),
-            'log' => ($zone->getX() === 0 && $zone->getY() === 0) ? '' : $this->renderLog( -1, null, $zone, null, 10 )->getContent(),
+            'log' => ($zone->getX() === 0 && $zone->getY() === 0) ? '' : $this->renderLog( -1, null, $zone, null, 10, true )->getContent(),
             'day' => $this->getActiveCitizen()->getTown()->getDay(),
             'camping_zone' => $camping_zone ?? '',
             'camping_zombies' => $camping_zombies ?? '',
@@ -393,8 +403,8 @@ class BeyondController extends InventoryAwareController
     public function log_desert_api(JSONRequestParser $parser): Response {
         $zone = $this->getActiveCitizen()->getZone();
         if (!$zone || ($zone->getX() === 0 && $zone->getY() === 0))
-            return $this->renderLog((int)$parser->get('day', -1), null, null, null, 0);
-        return $this->renderLog((int)$parser->get('day', -1), null, $zone, null, null);
+            return $this->renderLog((int)$parser->get('day', -1), null, null, null, 0, true);
+        return $this->renderLog((int)$parser->get('day', -1), null, $zone, null, null, true);
     }
 
     protected function activeCitizenIsNotEscorted() {
@@ -457,7 +467,7 @@ class BeyondController extends InventoryAwareController
 
             $trashlock->increment();
             $this->citizen_handler->setAP($citizen, true, -1);
-            $this->addFlash( 'notice', $this->translator->trans( 'Nach einigen Anstrengungen hast du folgendes gefunden: {item}!', [
+            $this->addFlash( 'notice', $this->translator->trans( 'Beim Durchwühlen des Mülls, der am Stadtrand herumliegt, findest du schließlich folgendes: {item}.<hr />Du hast <strong>1 Aktionspunkt(e)</strong> verbraucht.', [
                 '{item}' => "<span class='tool'> <img alt='' src='{$this->asset->getUrl( "build/images/item/item_{$item->getPrototype()->getIcon()}.gif" )}'> {$this->translator->trans($item->getPrototype()->getLabel(), [], 'items')}</span>"
             ], 'game' ));
 
@@ -732,7 +742,7 @@ class BeyondController extends InventoryAwareController
         ) > 0;
 
         if (abs($px - $zone->getX()) + abs($py - $zone->getY()) !== 1) return AjaxResponse::error( self::ErrorNotReachableFromHere );
-        if (!$cp_ok && $this->get_escape_timeout( $citizen ) < 0 && !$scout_movement) return AjaxResponse::error( self::ErrorZoneBlocked );
+        if (!$cp_ok && $this->get_escape_timeout( $citizen, true ) < 0 && !$scout_movement) return AjaxResponse::error( self::ErrorZoneBlocked );
 
         /** @var Zone $new_zone */
         $new_zone = $this->entity_manager->getRepository(Zone::class)->findOneByPosition( $citizen->getTown(), $px, $py );
@@ -766,7 +776,7 @@ class BeyondController extends InventoryAwareController
                 ) > 0;
 
             // Check if citizen can move (zone not blocked and enough AP)
-            if (!$cp_ok && $this->get_escape_timeout( $mover ) < 0 && !$scouts[$mover->getId()]) return AjaxResponse::error( self::ErrorZoneBlocked );
+            if (!$cp_ok && $this->get_escape_timeout( $mover, true ) < 0 && !$scouts[$mover->getId()]) return AjaxResponse::error( self::ErrorZoneBlocked );
             if ($mover->getAp() < 1 || $this->citizen_handler->isTired( $mover ))
                 return AjaxResponse::error( $citizen->getId() === $mover->getId() ? ErrorHelper::ErrorNoAP : BeyondController::ErrorEscortFailure );
 
@@ -1073,7 +1083,7 @@ class BeyondController extends InventoryAwareController
         if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         $citizen = $this->getActiveCitizen();
-        if ($this->zone_handler->check_cp( $citizen->getZone() ) || $this->get_escape_timeout( $citizen ) > 0)
+        if ($this->zone_handler->check_cp( $citizen->getZone() ) || $this->get_escape_timeout( $citizen, true ) > 0)
             return AjaxResponse::error( self::ErrorZoneUnderControl );
 
         if ($this->inventory_handler->countSpecificItems(
@@ -1087,13 +1097,26 @@ class BeyondController extends InventoryAwareController
         if ($this->citizen_handler->isWounded( $citizen ))
             return AjaxResponse::error( self::ErrorAlreadyWounded );
 
-        $this->citizen_handler->inflictWound( $citizen );
+        $wound = $this->citizen_handler->inflictWound( $citizen );
+        if ($wound !== null) switch ($wound->getName()) {
+            case 'wound1': $wound = $this->translator->trans('Kopf', [], 'game'); break;
+            case 'wound2': $wound = $this->translator->trans('Hand', [], 'game'); break;
+            case 'wound3': $wound = $this->translator->trans('Arme', [], 'game'); break;
+            case 'wound4': $wound = $this->translator->trans('Bein', [], 'game'); break;
+            case 'wound5': $wound = $this->translator->trans('Auge', [], 'game'); break;
+            case 'wound6': $wound = $this->translator->trans('Fuß', [], 'game'); break;
+            default: $wound = null;
+        }
+
+        if ($wound !== null)
+            $this->addFlash('notice', $this->translator->trans('Bei deinem Fluchtversuch ist es einem Zombie gelungen dir eine Verletzung zuzufügen: {injury}! Du solltest hier besser schnell verschwinden!', ['injury' => "<strong>$wound</strong>"], 'game'));
 
         try {
             $escape = (new EscapeTimer())
             ->setZone( $citizen->getZone() )
             ->setCitizen( $citizen )
-            ->setTime( new DateTime('+1min') );
+            ->setDesperate( true )
+            ->setTime( new DateTime('+5min') );
             $this->entity_manager->persist( $citizen );
             $this->entity_manager->persist( $escape );
             $this->entity_manager->flush();
@@ -1118,7 +1141,7 @@ class BeyondController extends InventoryAwareController
         if ($this->citizen_handler->hasStatusEffect( $citizen, 'terror' ))
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailableTerror );
 
-        if ($this->zone_handler->check_cp( $zone ) || $this->get_escape_timeout( $citizen ) > 0)
+        if ($this->zone_handler->check_cp( $zone ) || $this->get_escape_timeout( $citizen, true ) > 0)
             return AjaxResponse::error( self::ErrorZoneUnderControl );
 
         if ($this->inventory_handler->countSpecificItems($this->getActiveCitizen()->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'vest_on_#00'])) > 0)

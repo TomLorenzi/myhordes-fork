@@ -87,8 +87,13 @@
         <div class="padded cell {% if conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_WORDS_OF_HEROS'),false) %}rw-6{% else %}rw-12{% endif%} rw-lg-12">
             <h5>{{ 'Meine täglichen Aufgaben'|trans({}, 'game')}} {{ help_btn(('Du weißt nicht, was du tun sollst? Folge den Empfehlungen hier unten :)'|trans({},'global'))) }}</h5>
             <ul class="overview-checklist">
+                {% if is_dehydrated %}
+                    <li>{{ 'Trinken (Oder du stirbst heute Nacht)'|trans({}, 'game') }}</li>
+                {% endif %}
                 <li x-ajax-href="{{ url('forum_town_redirect') }}" {% if has_visited_forum %} class="checked"{% endif %}>{{ 'Einen Blick ins Forum werfen.'|trans({}, 'game') }}</li>
+                {% if town.well > 0 %}
                 <li x-ajax-href="{{ path('town_well') }}" {% if active_citizen.specificActionCounterValue(constant('App\\Entity\\ActionCounter::ActionTypeWell')) > 0 %} class="checked"{% endif %}>{{ 'Meine Ration Wasser im Brunnen entnehmen (optional).'|trans({}, 'game') }}</li>
+                {% endif %}
                 {% if new_message %}
                     <li x-ajax-href="{{ path('town_house', {tab: 'messages', subtab: 'received'}) }}">{{ 'Meine Nachrichten lesen.'|trans({}, 'game') }} <img src="{{ asset("build/images/icons/anim_icon_mail.gif") }}" alt="" /> </li>
                 {% endif %}

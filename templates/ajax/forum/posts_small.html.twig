@@ -55,7 +55,7 @@
                         {% else %}
                             <div class="avatar small ua-{{ random(0,9) }}"><img alt="" src="{{ asset('build/images/forum/empty_avatar.gif') }}"></div>
                         {% endif %}
-                        <b><a class="link" href="{{ path('soul_visit', {id: post.owner.id}) }}">{{ author_name }} {{ _self.icon_master(post.owner) }}:</a></b>
+                        <b><a class="link" href="{{ path('soul_visit', {id: post.owner.id}) }}">{{ author_name }} {{ post.translate ? ('') : (_self.icon_master(post.owner))}}:</a></b>
                         {{ post.translate ? (post.text|trans({},'game')|raw) : (post.text|raw) }}
                         {% if not post.translate and paranoid and post.owner.name != 'Der Rabe' %}
                             {% set mode = (app.user.id + post.id + post.owner.id) % 12 %}

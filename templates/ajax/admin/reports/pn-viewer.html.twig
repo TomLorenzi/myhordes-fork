@@ -40,6 +40,9 @@
                                 {% if report.reason > 0 and report.reason < complaint_list|length %}
                                     <i>{{ complaint_list[report.reason]|trans({},'global') }}</i>
                                 {% endif %}
+                                {% if report.details is not null %}
+                                    <div class="tooltip"><div class="bold">{{ 'Details'|trans({},'global') }}</div><p>{{ report.details }}</p></div>
+                                {% endif %}
                             </div>
                         {% endfor %}
                     </div>

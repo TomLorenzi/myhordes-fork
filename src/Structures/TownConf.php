@@ -107,6 +107,10 @@ class TownConf extends Conf
     const CONF_FEATURE_LAST_DEATH      = 'features.last_death';
     const CONF_FEATURE_SURVIVAL_PICTO  = 'features.survival_picto';
 
+    const CONF_GUIDE_ENABLED    = 'spiritual_guide.enabled';
+    const CONF_GUIDE_SP_LIMIT   = 'spiritual_guide.sp_limit';
+    const CONF_GUIDE_CTC_LIMIT  = 'spiritual_guide.citizen';
+
     const CONF_DISABLED_JOBS = 'disabled_jobs';
     const CONF_DISABLED_ROLES = 'disabled_roles';
     const CONF_DISABLED_BUILDINGS = 'disabled_buildings';

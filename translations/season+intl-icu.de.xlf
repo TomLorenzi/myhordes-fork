@@ -91,5 +91,11 @@
         <target>Saison 0.0</target>
       </segment>
     </unit>
+    <unit id="PicVFb9" name="Saison 0.15">
+      <segment>
+        <source>Saison 0.15</source>
+        <target>Beta</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

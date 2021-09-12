@@ -47,9 +47,8 @@
         {% endif %}
         </div>
         {% if plain is not defined or not plain %}
-            <div x-tab-group="awards" x-tab-id="titles" x-tab-target>
+        <div x-tab-group="awards" x-tab-id="titles" x-tab-target>
             <div class="title-list">
-
                 {% for id,list in user.awards.values|group_titles %}
 
                     {% if id == 'custom' %}
@@ -58,10 +57,10 @@
                         <li class="chapter"><b>{{ 'Besondere Errungenschaften'|trans({},'game') }}</b></li>
                     {% else %}
                         <li class="chapter">
-                            <img alt="" src="{{  asset('build/images/pictos/' ~ list[0].prototype.associatedPicto.icon ~ '.gif') }}" /> {{ list[0].prototype.associatedPicto.label|trans({}, 'game') }}
+                            <img alt="" src="{{  asset('build/images/pictos/' ~ list[0].prototype.associatedPicto.icon ~ '.gif') }}" /> {{ list[0].prototype.associatedPicto.label|trans({}, 'game')|raw }}
                             <div class="tooltip forum-tooltip">
-                                <h1>{{ list[0].prototype.associatedPicto.label|trans({}, 'game') }}</h1>
-                                <em>{{ list[0].prototype.associatedPicto.description|trans({}, 'game')}}</em>
+                                <h1>{{ list[0].prototype.associatedPicto.label|trans({}, 'game')|raw }}</h1>
+                                <em>{{ list[0].prototype.associatedPicto.description|trans({}, 'game')|raw}}</em>
                             </div>
                         </li>
                     {% endif %}
@@ -69,11 +68,11 @@
                     {% for award in list %}
                         {% if award.prototype is not null and award.prototype.title is not null %}
                             <li>
-                                "{{ award.prototype.title|trans({},'game') }}"
+                                "{{ award.prototype.title|trans({},'game')|raw }}"
                                 <div class="tooltip forum-tooltip">
                                     {% if award.prototype is not null %}
                                         {% if award.prototype.associatedPicto %}
-                                            <em>{{ award.prototype.associatedPicto.label|trans({}, 'game')}} x {{ award.prototype.unlockQuantity }}</em>
+                                            <em>{{ award.prototype.associatedPicto.label|trans({}, 'game')|raw}} x {{ award.prototype.unlockQuantity }}</em>
                                         {% else %}
                                             <em>{{ 'Dies ist eine besondere Errungenschaft, die im Rahmen eines Events verliehen wurde.'|trans({},'game') }}</em>
                                         {% endif %}

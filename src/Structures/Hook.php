@@ -188,12 +188,15 @@ class Hook
         }
     }
 
-    public static function citizen_purge(Citizen $citizen): bool {
-        if (!$citizen->getAlive()) return true;
-
+    public static function citizen_purge(Town $town): bool {
         global $kernel;
         $death_handler = $kernel->getContainer()->get(DeathHandler::class);
-        $death_handler->kill($citizen, CauseOfDeath::Apocalypse);
+
+        foreach ($town->getCitizens() as $citizen) {
+            if (!$citizen->getAlive()) continue;
+            $death_handler->kill($citizen, CauseOfDeath::Apocalypse);
+        }
+
         return true;
     }
 }

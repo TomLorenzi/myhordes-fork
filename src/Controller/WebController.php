@@ -91,7 +91,7 @@ class WebController extends CustomAbstractController
     }
 
     /**
-     * @Route("/")
+     * @Route("/", name="home")
      * @return Response
      */
     public function framework(): Response

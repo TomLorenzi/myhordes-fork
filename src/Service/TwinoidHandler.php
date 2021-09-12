@@ -206,7 +206,7 @@ class TwinoidHandler
         $user->setImportedHeroDaysSpent( 0 );
     }
 
-    function importData( User $user, string $scope, TwinoidPayload $data, bool $isPrimary ): bool {
+    function importData( User $user, string $scope, TwinoidPayload $data, bool $isPrimary, bool $isLimited ): bool {
         if (($lang = $this->getScopeLanguage($scope)) === null) return false;
 
         //<editor-fold desc="Town Import">
@@ -268,6 +268,8 @@ class TwinoidHandler
                     ->setDay( $town->getSurvivedDays() )
                     ->setConfirmed( true )
                     ->setPoints( $town->getScore() )
+                    ->setLimitedImport( $isPrimary && $isLimited )
+                    ->setDisabled( $isPrimary && $isLimited )
             );
 
             $this->em->persist( $entry );
@@ -275,14 +277,15 @@ class TwinoidHandler
             /** @var CitizenRankingProxy $entry */
             $entry = $this->em->getRepository(CitizenRankingProxy::class)->findOneBy( ['user' => $user, 'importID' => $town->getID(), 'importLang' => $lang] );
             if ($entry) {
-                $entry->setComment( $town->getComment() )->setLastWords( $town->getMessage() )->setDay( $town->getSurvivedDays() )->setPoints( $town->getScore() )->setCod( $town->convertDeath() );
-                $entry->getTown()->setV1($town->isOld());
+                $entry
+                    ->setComment( $town->getComment() )->setLastWords( $town->getMessage() )->setDay( $town->getSurvivedDays() )->setPoints( $town->getScore() )->setCod( $town->convertDeath() )
+                    ->getTown()->setV1($town->isOld());
                 $this->em->persist( $entry );
             }
         }
         //</editor-fold>
 
-        if ($isPrimary) {
+        if ($isPrimary && !$isLimited) {
             //<editor-fold desc="Picto Import">
 
             $rps = 0;

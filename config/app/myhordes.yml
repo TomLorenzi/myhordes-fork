@@ -23,6 +23,7 @@ parameters:
       target: ~
       source: ~
     domains: []
+    urls: []
     twinoid:
       sk: ~
       id: ~
@@ -32,15 +33,15 @@ parameters:
       auth: ~
       api: ~
       sk: ~
-      app: myhordes
+      return: ~
+      app: myhordes@clients
       dual-stack: true
-    allow_raw_avatars: false
     soulpoints:
       limits:
-        remote: 0 # 100
-        panda: 0 # 500
-        return_small: 0 # 500
-        custom: 0 # 1000
+        remote: 100
+        panda: 500
+        return_small: 500
+        custom: 1000
     towns:
       autolangs: ['de','en','fr','es']
       openmin:
@@ -48,3 +49,12 @@ parameters:
         panda: 1
         small: 1
         custom: 0
+    soul_import:
+      enabled: true
+      readonly: false
+      limited: false
+      sp_threshold: 15
+    avatars:
+      allow_raw: false
+      max_processing_size: 3145728 # 3MB
+      max_storage_size: 1048576 # 1MB

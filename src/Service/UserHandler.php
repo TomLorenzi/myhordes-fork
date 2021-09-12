@@ -22,6 +22,7 @@ use App\Entity\TwinoidImport;
 use App\Entity\User;
 use App\Entity\UserGroup;
 use App\Entity\UserGroupAssociation;
+use App\Structures\MyHordesConf;
 use Doctrine\ORM\QueryBuilder;
 use Imagick;
 use DateTime;
@@ -55,8 +56,9 @@ class UserHandler
     private CrowService $crow;
     private MediaService $media;
     private TranslatorInterface $translator;
+    private ConfMaster $conf;
 
-    public function __construct( EntityManagerInterface $em, RoleHierarchyInterface $roles,ContainerInterface $c, CrowService $crow, MediaService $media, TranslatorInterface  $translator)
+    public function __construct( EntityManagerInterface $em, RoleHierarchyInterface $roles,ContainerInterface $c, CrowService $crow, MediaService $media, TranslatorInterface  $translator, ConfMaster $conf)
     {
         $this->entity_manager = $em;
         $this->container = $c;
@@ -64,6 +66,7 @@ class UserHandler
         $this->crow = $crow;
         $this->media = $media;
         $this->translator = $translator;
+        $this->conf = $conf;
     }
 
     public function fetchSoulPoints(User $user, bool $all = true, bool $useCached = false): int {
@@ -72,7 +75,7 @@ class UserHandler
         if ($p_soul) $p_soul =['www.hordes.fr' => 'fr', 'www.die2nite.com' => 'en', 'www.dieverdammten.de' => 'de', 'www.zombinoia.com' => 'es'][$p_soul->getScope()] ?? 'none';
         return array_reduce( array_filter(
             $this->entity_manager->getRepository(CitizenRankingProxy::class)->findBy(['disabled' => false, 'user' => $user, 'confirmed' => true]),
-            function(CitizenRankingProxy $c) use ($all,$p_soul) { return $c->getTown() && !$c->getTown()->getDisabled() && ($c->getImportLang() === null || ($all && $c->getImportLang() === $p_soul) ); }
+            function(CitizenRankingProxy $c) use ($all,$p_soul) { return $c->getTown() && !$c->getTown()->getDisabled() && $c->getTown()->getSeason() !== null && ($c->getImportLang() === null || ($all && $c->getImportLang() === $p_soul) ); }
         ), fn(int $carry, CitizenRankingProxy $next) => $carry + ($next->getPoints() ?? 0), 0 );
     }
 
@@ -86,9 +89,12 @@ class UserHandler
         ), fn(int $carry, CitizenRankingProxy $next) => $carry + ($next->getPoints() ?? 0), 0 );
     }
 
-    public function getPoints(User $user, ?bool $imported = null){
-        $sp = $this->fetchSoulPoints($user);
-        $pictos = $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($user, $imported);
+    public function getPoints(User $user, ?bool $imported = null, ?bool $old = false){
+        $sp = $imported === null ? $user->getAllSoulPoints() : ( $imported ? $user->getImportedSoulPoints() : $user->getSoulPoints() );
+        if ($old) $sp = 0;
+        $pictos = $old
+            ? $this->entity_manager->getRepository(Picto::class)->findOldByUser($user)
+            : $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($user, $imported);
         $points = 0;
 
         if($sp >= 100)  $points += 13;
@@ -283,6 +289,7 @@ class UserHandler
                 $remove_awards[] = $award;
         }
 
+        //echo "####################################################\n";
         foreach ($this->entity_manager->getRepository(AwardPrototype::class)->findAll() as $prototype)
             if (!in_array($prototype,$skip_proto) &&
                 (isset($cache[$prototype->getAssociatedPicto()->getId()]) && $cache[$prototype->getAssociatedPicto()->getId()] >= $prototype->getUnlockQuantity())
@@ -294,7 +301,10 @@ class UserHandler
         if (!empty($award_awards))
             $this->entity_manager->persist($this->crow->createPM_titleUnlock($user, $award_awards));
 
+
         foreach ($remove_awards as $r) {
+            if ($user->getActiveIcon() === $r) $user->setActiveIcon(null);
+            if ($user->getActiveTitle() === $r) $user->setActiveTitle(null);
             $user->removeAward($r);
             $this->entity_manager->remove($r);
         }
@@ -486,8 +496,7 @@ class UserHandler
 
     public function setUserBaseAvatar( User $user, $payload, int $imagick_setting = self::ImageProcessingForceImagick, string $ext = null, int $x = 100, int $y = 100 ): int {
 
-        // Processing limit: 3MB
-        if (strlen( $payload ) > 3145728) return self::ErrorAvatarTooLarge;
+        if (strlen( $payload ) > $this->conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_UPLOAD, 3145728)) return self::ErrorAvatarTooLarge;
 
         $e = $imagick_setting === self::ImageProcessingDisableImagick
             ? MediaService::ErrorBackendMissing
@@ -519,7 +528,8 @@ class UserHandler
         }
 
         // Storage limit: 1MB
-        if (strlen($payload) > 1048576) return self::ErrorAvatarInsufficientCompression;
+        if (strlen($payload) > $this->conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_STORAGE, 1048576))
+            return self::ErrorAvatarInsufficientCompression;
 
         $name = md5( $payload );
         if (!($avatar = $user->getAvatar())) {
@@ -746,5 +756,16 @@ class UserHandler
         }
 
         return !preg_match('/[^\w]/', $name) && strlen($name) >= 3 && strlen($name) <= 16 && $closestDistance > 2;
+    }
+
+    public function getMaximumEntryHidden(User $user): int {
+        $limit = 0;
+        if($this->hasSkill($user, 'manipulator'))
+            $limit = 2;
+
+        if($this->hasSkill($user, 'treachery'))
+            $limit = 4;
+
+        return $limit;
     }
 }

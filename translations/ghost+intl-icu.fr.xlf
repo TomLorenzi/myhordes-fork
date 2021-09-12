@@ -1663,33 +1663,50 @@
       <notes>
         <note category="german">Als Event-Stadt markieren</note>
         <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Als Event-Stadt markieren</source>
-        <target>Als Event-Stadt markieren</target>
+        <target>Marquer la ville comme événement</target>
       </segment>
     </unit>
     <unit id="3EdNfST">
       <notes>
         <note category="german">Event-Städte werden nicht ins Ranking aufgenommen und erhalten eine spezielle Markierung in der Stadtliste.</note>
         <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Event-Städte werden nicht ins Ranking aufgenommen und erhalten eine spezielle Markierung in der Stadtliste.</source>
-        <target>Event-Städte werden nicht ins Ranking aufgenommen und erhalten eine spezielle Markierung in der Stadtliste.</target>
+        <target>Les villes événementielles ne sont pas incluses dans le classement et ont un badge spécial dans la liste des villes.</target>
       </segment>
     </unit>
     <unit id="yP7t0FZ">
       <notes>
         <note category="german">Dies ist eine Event-Stadt, sie wird nach ihrem Ende nicht im Ranking erscheinen. Möglicherweise gelten unübliche Regeln für diese Stadt.</note>
         <note category="from">twig:///templates/ajax/ghost/intro.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Dies ist eine Event-Stadt, sie wird nach ihrem Ende nicht im Ranking erscheinen. Möglicherweise gelten unübliche Regeln für diese Stadt.</source>
-        <target>Dies ist eine Event-Stadt, sie wird nach ihrem Ende nicht im Ranking erscheinen. Möglicherweise gelten unübliche Regeln für diese Stadt.</target>
+        <target>Cette ville est une ville événementielle, elle n’apparaîtra pas dans le classement après sa fin. Il se peut que des règles inhabituelles s’appliquent à cette ville.</target>
+      </segment>
+    </unit>
+    <unit id="m9yaaGL" name="Jeder Spieler erhält 1x Betapropin beim Start der Stadt.">
+      <notes>
+        <note category="german">Jeder Spieler erhält 1x Betapropin beim Start der Stadt.</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+      </notes>
+      <segment>
+        <source>Jeder Spieler erhält 1x Betapropin beim Start der Stadt.</source>
+        <target>Chaque joueur reçoit 1x Betapropine au démarrage de la ville.</target>
+      </segment>
+    </unit>
+    <unit id="w8l8AIW" name="Beta-Funktionen aktivieren">
+      <notes>
+        <note category="german">Beta-Funktionen aktivieren</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+      </notes>
+      <segment>
+        <source>Beta-Funktionen aktivieren</source>
+        <target>Activer les fonctionnalités beta</target>
       </segment>
     </unit>
   </file>

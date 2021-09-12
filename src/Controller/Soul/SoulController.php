@@ -227,16 +227,20 @@ class SoulController extends CustomAbstractController
         // Get all the picto & count points
         $pictos_mh = $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($user, false);
         $pictos_im = $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($user, true);
+        $pictos_old = $this->entity_manager->getRepository(Picto::class)->findOldByUser($user);
 
         $points_mh = $this->user_handler->getPoints($user, false);
         $points_im = $this->user_handler->getPoints($user, true);
+        $points_old = $this->user_handler->getPoints($user, null, true);
 
         return $this->render( 'ajax/soul/pictos.html.twig', $this->addDefaultTwigArgs(null, [
             'user' => $user,
             'pictos_mh' => $pictos_mh,
             'pictos_import' => $pictos_im,
+            'pictos_old' => $pictos_old,
             'points_mh' => round($points_mh),
             'points_import' => round($points_im),
+            'points_old' => round($points_old),
         ]));
     }
 
@@ -316,7 +320,7 @@ class SoulController extends CustomAbstractController
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         $searchName = $parser->get('name', '');
         $searchSkip = $parser->get_array('exclude', []);
-        if ($url !== 'pm_manage_users' && $url !== 'plain') $searchSkip[] = $user->getId();
+        // if ($url !== 'pm_manage_users' && $url !== 'plain') $searchSkip[] = $user->getId();
 
         $selected_group = false;
         if ($url === 'town_add_users' && str_contains($searchName,',')) {
@@ -431,9 +435,23 @@ class SoulController extends CustomAbstractController
 
         $user_desc = $this->entity_manager->getRepository(UserDescription::class)->findOneBy(['user' => $user]);
 
+        $a_max_size = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_UPLOAD, 3145728);
+        $b_max_size = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_STORAGE, 1048576);
+
+        if     ($a_max_size >= 1048576) $a_max_size = round($a_max_size/1048576, 2) . ' MB';
+        elseif ($a_max_size >= 1024)    $a_max_size = round($a_max_size/1024, 0) . ' KB';
+        else                            $a_max_size = $a_max_size . ' B';
+
+        if     ($b_max_size >= 1048576) $b_max_size = round($b_max_size/1048576, 2) . ' MB';
+        elseif ($b_max_size >= 1024)    $b_max_size = round($b_max_size/1024, 0) . ' KB';
+        else                            $b_max_size = $b_max_size . ' B';
+
         return $this->render( 'ajax/soul/settings.html.twig', $this->addDefaultTwigArgs("soul_settings", [
             'et_ready' => $etwin->isReady(),
             'user_desc' => $user_desc ? $user_desc->getText() : null,
+            'show_importer'     => $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_ENABLED, true),
+            'importer_readonly' => $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_READONLY, false),
+            'avatar_max_size' => [$a_max_size, $b_max_size]
         ]) );
     }
 
@@ -547,7 +565,10 @@ class SoulController extends CustomAbstractController
         if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
             return $this->redirect($this->generateUrl( 'soul_death' ));
 
-        $seasons = $this->entity_manager->getRepository(Season::class)->findBy(['subNumber' => null]);
+        $seasons = $this->entity_manager->getRepository(Season::class)->matching((Criteria::create())
+            ->orWhere(Criteria::expr()->gt('number', 0))
+            ->orWhere(Criteria::expr()->gt('subNumber', 14))
+        );
         if ($seasonId === null) {
             $currentSeason = $this->entity_manager->getRepository(Season::class)->findOneBy(['current' => true]);
         } else {
@@ -614,7 +635,10 @@ class SoulController extends CustomAbstractController
         if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
             return $this->redirect($this->generateUrl( 'soul_death' ));
 
-        $seasons = $this->entity_manager->getRepository(Season::class)->findBy(['subNumber' => null]);
+        $seasons = $this->entity_manager->getRepository(Season::class)->matching((Criteria::create())
+            ->orWhere(Criteria::expr()->gt('number', 0))
+            ->orWhere(Criteria::expr()->gt('subNumber', 14))
+        );
         if ($seasonId === null) {
             $currentSeason = "all";
         } else {
@@ -637,7 +661,7 @@ class SoulController extends CustomAbstractController
             'ranking' => $ranking,
             'currentType' => 0,
             'soloType' => $type,
-            'townTypes' => $this->entity_manager->getRepository(TownClass::class)->findBy(['ranked' => true]),
+            'townTypes' => $this->entity_manager->getRepository(TownClass::class)->findBy(['ranked' => true], ['orderBy' => 'ASC']),
             'offset' => $offset,
             'user' => $user
         ]) );

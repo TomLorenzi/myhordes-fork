@@ -21,6 +21,14 @@
                 </div>
             </div>
         </div>
+    {% elseif town.season is null %}
+        <div class="row">
+            <div class="cell rw-12 padded">
+                <div class="note note-warning">
+                    {{ 'Diese Stadt stammt aus der Alpha-Phase von MyHordes. Die angezeigten Informationen sind daher möglicherweise unvollständig oder sehen nicht so aus, wie du es sonst erwarten würdest.'|trans({},'soul')|raw }}
+                </div>
+            </div>
+        </div>
     {% endif %}
 
     {% if town.disabled %}
@@ -72,7 +80,9 @@
                 {% if not citizen.disabled and not town.disabled %}
                     +{{sp}}
                 {% elseif is_granted('ROLE_CROW') %}
-                    <div style="{% if citizen.disabled %}color: red;{% endif %} {% if town.disabled %}opacity: 0.5;{% endif %}">+{{sp}}</div>
+                    <div style="{% if citizen.disabled %}color: {% if citizen.limitedImport %}rosybrown{% else %}red{% endif %};{% endif %} {% if town.disabled %}opacity: 0.5;{% endif %}">+{{sp}}</div>
+                {% elseif not (citizen.disabled and not citizen.limitedImport) and not town.disabled %}
+                    +{{sp}}
                 {% endif %}
                 {% if is_granted('ROLE_CROW') %}
                     {% if not citizen.disabled %}
@@ -95,6 +105,9 @@
                 <span class="link" x-ajax-href="{{ path('soul_visit', {id: citizen.user.id}) }}">{{citizen.user.name}}</span>
             </div>
             <div class="padded cell rw-4 rw-lg-3 hide-sm">
+                {% if is_granted("ROLE_CROW") and citizen.limitedImport %}
+                    <div><b style="color: rosybrown">{{ 'Eingeschränkter Import'|trans({},'admin') }}</b></div>
+                {% endif %}
                 {% if citizen.cod is not null %}
                     {{citizen.cod.label|trans({}, 'game')}}
                 {% else %}

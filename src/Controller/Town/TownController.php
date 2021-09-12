@@ -260,7 +260,8 @@ class TownController extends InventoryAwareController
             'has_dictator' => $has_dictator,
             'new_coa_message' => $messages,
             'additional_bullet_points' => $additional_bullets,
-            'additional_situation_points' => $additional_situation
+            'additional_situation_points' => $additional_situation,
+            'is_dehydrated' => $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'thirst2')
         ]) );
     }
 
@@ -311,23 +312,30 @@ class TownController extends InventoryAwareController
         $time = time() - $lastActionTimestamp; 
         $time = abs($time); 
 
-        if ($time > 10800 || $date->format('d') !== (new DateTime())->format('d')) {
-            // If it was more than 3 hours, or if the day changed, let's get the full date/time format
-            $lastActionText = $this->translator->trans('am {d}.{m}.{Y}, um {H}:{i}', [
-                '{d}' => date('d', $lastActionTimestamp),
-                '{m}' => date('m', $lastActionTimestamp),
-                '{Y}' => date('Y', $lastActionTimestamp),
+        // Less than 1min ago
+        if ($time <= 60)
+            $lastActionText = $this->translator->trans('vor wenigen Augenblicken', [], 'game');
+        // At least 5 hours ago, same day in the morning
+        elseif ($time > 18000 && $date->format('d') === (new DateTime())->format('d') && (int)date('H', $lastActionTimestamp) < 12)
+            $lastActionText = $this->translator->trans('heute morgen um {H}:{i}', [
                 '{H}' => date('H', $lastActionTimestamp),
                 '{i}' => date('i', $lastActionTimestamp),
             ], 'game');
-        } else {
+        // At least 5 hours ago, same day in the afternoon
+        elseif ($time > 18000 && $date->format('d') === (new DateTime())->format('d') && (int)date('H', $lastActionTimestamp) < 19)
+            $lastActionText = $this->translator->trans('heute nachmittag um {H}:{i}', [
+                '{H}' => date('H', $lastActionTimestamp),
+                '{i}' => date('i', $lastActionTimestamp),
+            ], 'game');
+        // Same day, use relative format if no other notation applies
+        elseif ($date->format('d') === (new DateTime())->format('d')) {
             // Tableau des unités et de leurs valeurs en secondes
             $times = array( 3600     =>  T::__('Stunde(n)', 'game'),
-                            60       =>  T::__('Minute(n)', 'game'),
-                            1        =>  T::__('Sekunde(n)', 'game'));  
+                60       =>  T::__('Minute(n)', 'game'),
+                1        =>  T::__('Sekunde(n)', 'game'));
 
             foreach ($times as $seconds => $unit) {
-                $delta = round($time / $seconds); 
+                $delta = round($time / $seconds);
 
                 if ($delta >= 1) {
                     $unit = $this->translator->trans($unit, [], 'game');
@@ -336,6 +344,22 @@ class TownController extends InventoryAwareController
                 }
             }
         }
+        // Yesterday
+        elseif ((int)$date->format('d') === ((int)(new DateTime())->format('d') - 1))
+            $lastActionText = $this->translator->trans('gestern um {H}:{i}', [
+                '{H}' => date('H', $lastActionTimestamp),
+                '{i}' => date('i', $lastActionTimestamp),
+            ], 'game');
+        // Default, full notation
+        else
+            // If it was more than 3 hours, or if the day changed, let's get the full date/time format
+            $lastActionText = $this->translator->trans('am {d}.{m}.{Y}, um {H}:{i}', [
+                '{d}' => date('d', $lastActionTimestamp),
+                '{m}' => date('m', $lastActionTimestamp),
+                '{Y}' => date('Y', $lastActionTimestamp),
+                '{H}' => date('H', $lastActionTimestamp),
+                '{i}' => date('i', $lastActionTimestamp),
+            ], 'game');
 
         $cc = 0;
         foreach ($c->getTown()->getCitizens() as $citizen)
@@ -655,7 +679,7 @@ class TownController extends InventoryAwareController
 
         /** @var Building $a */
 
-        if ($this->citizen_handler->updateBanishment( $culprit, $has_gallows, $has_cage, $a ))
+        if ($banished = $this->citizen_handler->updateBanishment( $culprit, $has_gallows, $has_cage, $a ))
             try {
                 $em->persist($town);
                 $em->persist($culprit);
@@ -688,7 +712,12 @@ class TownController extends InventoryAwareController
             if($town->getChaos()) {
                 $this->addFlash('notice', $this->translator->trans('Ihre Reklamation wurde gut aufgenommen, wird aber in der aktuellen Situation <strong>nicht sehr hilfreich</strong> sein.<hr>Die Stadt ist im totalen <strong>Chaos</strong> versunken... Bei so wenigen Überlebenden sind <strong>die Gesetze des Landes gebrochen worden</strong>.', [], 'game'));
             } else {
-                $this->addFlash('notice', $this->translator->trans('Sie haben eine Beschwerde gegen <strong>{citizen}</strong> eingereicht. Wenn sich genug Beschwerden ansammeln, <strong>wird {citizen} aus der Gemeinschaft verbannt oder gehängt</strong>, falls ein Galgen vorhanden ist.', ['citizen' => $culprit], 'game'));
+                if ($banished)
+                    $this->addFlash('notice',
+                                    $this->translator->trans('Deine Beschwerde ist der Tropfen, der das Fass zum Überlaufen brachte... Die Bürger haben sich in Scharen gegen <strong>{citizen}</strong> ausgesprochen.', ['citizen' => $culprit], 'game') . '<hr/>' .
+                                            $this->translator->trans('Dieser Bürger wurde aus der Gemeinschaft verbannt; er hat nicht länger Zugang zu den Gebäuden der Stadt, mit Ausnahme des Brunnens (wobei er auf eine Ration pro Tag eingeschränkt ist).', [], 'game'));
+                else
+                    $this->addFlash('notice', $this->translator->trans('Sie haben eine Beschwerde gegen <strong>{citizen}</strong> eingereicht. Wenn sich genug Beschwerden ansammeln, <strong>wird {citizen} aus der Gemeinschaft verbannt oder gehängt</strong>, falls ein Galgen vorhanden ist.', ['citizen' => $culprit], 'game'));
             }
         } else {
             $this->addFlash('notice', $this->translator->trans('Ihre Beschwerde wurde zurückgezogen... Denken Sie das nächste Mal besser nach...', ['{citizen}' => $culprit->getName()], 'game'));
@@ -718,7 +747,7 @@ class TownController extends InventoryAwareController
 
         $direction = $parser->get('direction', '');
 
-        $up_inv   = $direction === 'down' ? $ac->getInventory() : $ac->getHome()->getChest();
+        $up_inv   = ($direction === 'down' || $c->getAlive()) ? $ac->getInventory() : $ac->getHome()->getChest();
         $down_inv = $c->getHome()->getChest();
         return $this->generic_item_api( $up_inv, $down_inv, false, $parser, $handler);
     }

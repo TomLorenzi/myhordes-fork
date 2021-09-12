@@ -73,9 +73,16 @@
                                             </option>
                                         {% endif %}
                                     {% endfor %}
+                                    {% for season in seasons %}
+                                        {% if season.number == 0 and season.subnumber > 14 %}
+                                            <option value="{{ season.id }}">
+                                                {{ 'Beta-Saison'|trans({},'soul') }}
+                                            </option>
+                                        {% endif %}
+                                    {% endfor %}
                                     <option value="-1">{{'Alte Städte'|trans({}, "soul")}}</option>
                                     {% for season in seasons %}
-                                        {% if season.number == 0 %}
+                                        {% if season.number == 0 and season.subnumber <= 14 %}
                                             <option value="{{season.id}}">
                                                 {{ 'Gute Alte Zeit'|trans({},'soul') }} -
                                                 {{ 'Saison {n}'|trans({'{n}': season.subNumber},'soul') }}

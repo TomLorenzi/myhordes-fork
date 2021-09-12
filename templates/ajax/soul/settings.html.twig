@@ -123,12 +123,12 @@
                                         {% elseif id == 'single' %}
                                             label="{{ 'Besondere Errungenschaften'|trans({},'game') }}"
                                         {% else %}
-                                            label="{{ list[0].prototype.associatedPicto.label|trans({}, 'game') }}"
+                                            label="{{ list[0].prototype.associatedPicto.label|trans({}, 'game')|raw }}"
                                         {% endif %}
                                 >
                                     {% for award in list %}
                                         {% if award.prototype is not null and award.prototype.title is not null %}
-                                            <option {% if app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionProfileTitle')) and app.user.activeTitle != award %}disabled{% endif %} {% if app.user.activeTitle == award %}selected{% endif %} value="{{ award.id }}">{{ award.prototype.title|trans({},'game') }}</option>
+                                            <option {% if app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionProfileTitle')) and app.user.activeTitle != award %}disabled{% endif %} {% if app.user.activeTitle == award %}selected{% endif %} value="{{ award.id }}">{{ award.prototype.title|trans({},'game')|raw }}</option>
                                         {% endif %}
                                     {% endfor %}
                                 </optgroup>
@@ -154,7 +154,15 @@
                 </div>
             </div>
 
-            <h5>{{ 'Dein Avatar'|trans({},'soul') }}</h5>
+            <h5>
+                {{ 'Dein Avatar'|trans({},'soul') }}
+                {{ help_btn(
+                    'Die maximale Größe der Bilddatei, die du für deinen Avatar hochladen kannst, beträgt <b>{size}</b>.'|trans({size: avatar_max_size[0]},'soul') ~ '<br />' ~
+                    'Nach dem Upload wird der Server dein Bild möglicherweise komprimieren (z.B. indem die Größe reduziert oder Animationsframe optimiert werden).'|trans({},'soul') ~ '<br />' ~
+                    'Der Server muss in der Lage sein, dein Bild auf höchstens <b>{size}</b> zu komprimieren - andernfalls kann es nicht gespeichert werden.'|trans({size: avatar_max_size[1]},'soul')  ~ '<br /><br />' ~
+                    'Die folgenden Bildformate werden unterstützt:'|trans({},'soul') ~ ' <b>JPEG</b>, <b>GIF</b>, <b>BMP</b>, <b>PNG</b>, ' ~ '<b>WEBP (' ~ 'nur Baseline-Format'|trans({},'soul') ~ ')</b>'
+                ) }}
+            </h5>
             <div class="row">
                 <div class="padded cell rw-3 rw-md-4 rw-sm-12">
                     <div class="note note-lightest">
@@ -269,7 +277,7 @@
             </div>
 
             <div class="row">
-                <div class="cell rw-6 rw-lg-12">
+                <div class="cell {% if show_importer %}rw-6 rw-lg-12{% else %}rw-12{% endif%}">
                     <h5>{{ 'Darstellung'|trans({},'soul') }}</h5>
                     <div class="row">
                         <div class="padded cell rw-12">
@@ -308,22 +316,37 @@
                         </div>
                     </div>
                 </div>
-                <div class="cell rw-6 rw-lg-12">
-                    <div class="importSoulBanner">
-                        <h4>{{ 'Willkommen bei MyHordes!'|trans({},'welcome') }}</h4>
-                        <p>
-                            {{ 'Hast du ein Seele bei {hordes}, {dv}, {d2n} oder {zn}?'|trans({
-                                '{hordes}': '<i>Hordes</i>', '{dv}': '<i>Die Verdammten</i>', '{d2n}': '<i>Die2Nite</i>', '{zn}': '<i>Zombinoia</i>'
-                            },'soul')|raw }}
-                            <b>{{ 'Dann musst du nicht von Vorne beginnen!'|trans({},'soul') }}</b> {{ 'Importiere deine Seele und mache dort weiter, wo du aufgehört hast.'|trans({},'soul') }}
-                        </p>
-                        <button class="bigbutton" x-ajax-href="{{ url('soul_import') }}">
-                            <img class="float-left" alt="" src="{{ asset('build/images/icons/small_ghost_blue.gif') }}">
-                            <span>{{ 'Seele importieren'|trans({},'soul') }}</span>
-                            <img class="right" alt="" src="{{ asset('build/images/icons/small_ghost_blue.gif') }}">
-                        </button>
+                {% if show_importer %}
+                    <div class="cell rw-6 rw-lg-12">
+                        {% if importer_readonly %}
+                            <h5>{{ 'Importierte Seelen'|trans({},'soul') }}</h5>
+                        {% else %}
+                            <h5>{{ 'Seele importieren'|trans({},'soul') }}</h5>
+                        {% endif %}
+                        <div class="importSoulBanner">
+                            <h4>{{ 'Willkommen bei MyHordes!'|trans({},'welcome') }}</h4>
+                            <p>
+                                {{ 'Hast du ein Seele bei {hordes}, {dv}, {d2n} oder {zn}?'|trans({
+                                    '{hordes}': '<i>Hordes</i>', '{dv}': '<i>Die Verdammten</i>', '{d2n}': '<i>Die2Nite</i>', '{zn}': '<i>Zombinoia</i>'
+                                },'soul')|raw }}
+                                {% if importer_readonly %}
+                                    {{ '<b>Wenn du sie in der Vergangenheit importiert hast</b>, kannst du sie dir hier ansehen!'|trans({},'soul')|raw }}
+                                {% else %}
+                                    <b>{{ 'Dann musst du nicht von Vorne beginnen!'|trans({},'soul') }}</b> {{ 'Importiere deine Seele und mache dort weiter, wo du aufgehört hast.'|trans({},'soul') }}
+                                {% endif %}
+                            </p>
+                            <button class="bigbutton" x-ajax-href="{{ url('soul_import') }}">
+                                <img class="float-left" alt="" src="{{ asset('build/images/icons/small_ghost_blue.gif') }}">
+                                {% if importer_readonly %}
+                                    <span>{{ 'Importierte Seelen'|trans({},'soul') }}</span>
+                                {% else %}
+                                    <span>{{ 'Seele importieren'|trans({},'soul') }}</span>
+                                {% endif %}
+                                <img class="right" alt="" src="{{ asset('build/images/icons/small_ghost_blue.gif') }}">
+                            </button>
+                        </div>
                     </div>
-                </div>
+                {% endif %}
             </div>
 
             {% if is_granted("ROLE_ADMIN") %}

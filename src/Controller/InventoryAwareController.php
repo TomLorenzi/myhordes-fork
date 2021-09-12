@@ -117,7 +117,7 @@ class InventoryAwareController extends CustomAbstractController
         return true;
     }
 
-    protected function renderLog( ?int $day, $citizen = null, $zone = null, ?int $type = null, ?int $max = null ): Response {
+    protected function renderLog( ?int $day, $citizen = null, $zone = null, ?int $type = null, ?int $max = null, $silence_indicators = false ): Response {
         $entries = [];
 
         /** @var TownLogEntry $entity */
@@ -132,11 +132,13 @@ class InventoryAwareController extends CustomAbstractController
                 $entityVariables = $entity->getVariables();
                 if($citizen !== null && $entity->getHidden())
                     continue;
-                $entries[$idx]['timestamp'] = $entity->getTimestamp();
-                $entries[$idx]['class'] = $template->getClass();
-                $entries[$idx]['type'] = $template->getType();
-                $entries[$idx]['id'] = $entity->getId();
-                $entries[$idx]['hidden'] = $entity->getHidden();
+                $entries[$idx] = [
+                    'timestamp' => $entity->getTimestamp(),
+                    'class'     => $template->getClass(),
+                    'type'      => $template->getType(),
+                    'id'        => $entity->getId(),
+                    'hidden'    => $entity->getHidden(),
+                ];
 
                 $variableTypes = $template->getVariableTypes();
                 $transParams = $this->logTemplateHandler->parseTransParams($variableTypes, $entityVariables);
@@ -148,16 +150,14 @@ class InventoryAwareController extends CustomAbstractController
                 }
             }
 
-        $limit = 0;
-        if($this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'manipulator'))
-            $limit = 2;
-
-        if($this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'treachery'))
-            $limit = 4;
+        if ($day < 0) $day = $this->getActiveCitizen()->getTown()->getDay();
 
         return $this->render( 'ajax/game/log_content.html.twig', [
+            'show_silence' => $silence_indicators,
+            'day' => $day,
+            'today' => $day === $this->getActiveCitizen()->getTown()->getDay(),
             'entries' => $entries,
-            'canHideEntry' => $this->getActiveCitizen()->getAlive() && $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($this->getUser(), 'manipulator') && $this->getActiveCitizen()->getZone() === null && $this->getActiveCitizen()->getSpecificActionCounterValue(ActionCounter::ActionTypeRemoveLog) < $limit,
+            'canHideEntry' => $this->getActiveCitizen()->getAlive() && $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($this->getUser(), 'manipulator') && $this->getActiveCitizen()->getZone() === null && $this->getActiveCitizen()->getSpecificActionCounterValue(ActionCounter::ActionTypeRemoveLog) < $this->user_handler->getMaximumEntryHidden($this->getUser()),
         ] );
     }
 
@@ -181,17 +181,17 @@ class InventoryAwareController extends CustomAbstractController
                 if ($definition->getTag())
                     foreach ($this->inventory_handler->resolveItemProperties($definition->getTag()) as &$prop)
                         /** @var $prop ItemPrototype */
-                        $targets[] = [ $prop->getId(), $this->translator->trans( $prop->getLabel(), [], 'items' ), "build/images/item/item_{$prop->getIcon()}.gif" ];
+                        $targets[] = [ $prop->getId(), $this->translator->trans( $prop->getLabel(), [], 'items' ), "build/images/item/item_{$prop->getIcon()}.gif", $prop ];
 
                 if ($definition->getPrototype())
-                    $targets[] = [ $definition->getPrototype()->getId(), $this->translator->trans( $definition->getPrototype()->getLabel(), [], 'items' ), "build/images/item/item_{$definition->getPrototype()->getIcon()}.gif" ];
+                    $targets[] = [ $definition->getPrototype()->getId(), $this->translator->trans( $definition->getPrototype()->getLabel(), [], 'items' ), "build/images/item/item_{$definition->getPrototype()->getIcon()}.gif", $definition->getPrototype() ];
 
                 break;
             case ItemTargetDefinition::ItemHeroicRescueType:
 
                 foreach ($this->getActiveCitizen()->getTown()->getCitizens() as $citizen)
                     if ($citizen->getAlive() && $citizen->getZone() && round( sqrt(pow($citizen->getZone()->getX(),2 ) + pow($citizen->getZone()->getY(),2 )) ) <= 2)
-                        $targets[] = [ $citizen->getId(), $citizen->getName(), "build/images/professions/{$citizen->getProfession()->getIcon()}.gif" ];
+                        $targets[] = [ $citizen->getId(), $citizen->getName(), "build/images/item/item_cart.gif" ];
 
                 break;
             case ItemTargetDefinition::ItemCitizenType: case ItemTargetDefinition::ItemCitizenVoteType:
@@ -295,13 +295,13 @@ class InventoryAwareController extends CustomAbstractController
         foreach ($this->getActiveCitizen()->getInventory()->getItems() as $item) $items[] = $item;
         if ($this->getActiveCitizen()->getZone() === null) foreach ($this->getActiveCitizen()->getHome()->getChest()->getItems() as $item) $items[] = $item;
 
-        foreach ($items as $item) if (!$item->getBroken()) {
+        foreach ($items as $item) if (!$item->getBroken() || $this->getActiveCitizen()->getZone()) {
 
-            $this->action_handler->getAvailableItemActions( $this->getActiveCitizen(), $item, $available, $crossed, $messages );
+            $this->action_handler->getAvailableItemActions( $this->getActiveCitizen(), $item, $available, $crossed, $messages, $this->getActiveCitizen()->getZone() !== null );
             if (empty($available) && empty($crossed)) continue;
 
-            foreach ($available as $a) $ret[] = [ 'id' => $a->getId(), 'item' => $item, 'action' => $a, 'targets' => $a->getTarget() ? $this->decodeActionItemTargets( $av_inv, $a->getTarget() ) : null, 'target_mode' => $a->getTarget() ? $a->getTarget()->getSpawner() : 0, 'crossed' => false, 'message' => null ];
-            foreach ($crossed as $c)   $ret[] = [ 'id' => $c->getId(), 'item' => $item, 'action' => $c, 'targets' => null, 'target_mode' => 0, 'crossed' => true, 'message' => $messages[$c->getId()] ?? null ];
+            foreach ($available as $a) $ret[] = [ 'id' => $a->getId(), 'item' => $item, 'broken' => $item->getBroken(), 'action' => $a, 'targets' => $item->getBroken() ? null : ($a->getTarget() ? $this->decodeActionItemTargets( $av_inv, $a->getTarget() ) : null), 'target_mode' => $item->getBroken() ? 0 : ($a->getTarget() ? $a->getTarget()->getSpawner() : 0), 'crossed' => false, 'message' => null ];
+            foreach ($crossed as $c)   $ret[] = [ 'id' => $c->getId(), 'item' => $item, 'broken' => $item->getBroken(), 'action' => $c, 'targets' => null, 'target_mode' => 0, 'crossed' => true, 'message' => $item->getBroken() ? null : ($messages[$c->getId()] ?? null) ];
         }
 
         return $ret;
@@ -743,8 +743,10 @@ class InventoryAwareController extends CustomAbstractController
                                         $this->addFlash( 'notice', $this->translator->trans('Du hast dir folgenden Gegenstand unter den Nagel gerissen: {item}. Dein kleiner Hausbesuch bei † {victim} ist allerdings aufgeflogen...<hr /><strong>Dieser Gegenstand wurde in deiner Truhe abgelegt.</strong>', ['{item}' => $this->log->wrap($this->log->iconize($current_item)), '{victim}' => $victim_home->getCitizen()->getName()], 'game') );
                                     }
                                 } else {
-                                    $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), null, $current_item->getPrototype(), $steal_up, false, $current_item->getBroken() ) );
-                                    $this->addFlash( 'notice', $this->translator->trans('Sehr gut, niemand hat dich bei deinem Einbruch bei {victim} beobachtet.', ['{victim}' => $victim_home->getCitizen()->getName()], 'game') );
+                                    $this->addFlash( 'notice', $this->translator->trans('Es ist dir gelungen, {item} von {victim} zu stehlen <strong>ohne entdeckt zu werden</strong>. Nicht schlecht!', [
+                                        '{victim}' => $victim_home->getCitizen(),
+                                        '{item}' => $this->log->wrap($this->log->iconize($current_item))
+                                    ], 'game') );
                                 }
     
                                 $this->crow->postAsPM( $victim_home->getCitizen(), '', '', PrivateMessage::TEMPLATE_CROW_THEFT, $current_item->getPrototype()->getId() );

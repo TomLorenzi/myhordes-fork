@@ -23,6 +23,8 @@
             </form>
             <p class="right small">
                 {% if is_granted('ROLE_REGISTERED') %}
+                    {% trans from 'login' %}Die E-Mail ist nicht angekommen?{% endtrans %}
+                    <a href="#" id="resend_mail">{% trans from 'login' %}Erneut senden!{% endtrans %}</a><br /><br/>
                     <a target="_self" href="{{ path('auto_logout') }}">{% trans from 'login' %}Ausloggen{% endtrans %}</a><br />
                 {% else %}
                     {% trans from 'login' %}Du hast noch keinen Account?{% endtrans %}
@@ -37,6 +39,13 @@
 
 {% block js %}
     <script>
+        $.html.addEventListenerAll('#resend_mail', 'click', e => {
+            e.preventDefault();
+            $.ajax.easySend('{{ path('api_resend_validation') }}', {}, () => {
+                $.html.message('notice', '{{ 'Die Validierungs-Mail wurde erfolgreich gesendet.'|trans({},'login') }}')
+            });
+        })
+
         document.getElementById('validate_button').addEventListener('click', function(e) {
             e.preventDefault();
             $.ajax.easySend( '{{ path('api_validate') }}', $.html.serializeForm(document.getElementById('validate-form')),

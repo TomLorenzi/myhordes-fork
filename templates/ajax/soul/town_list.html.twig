@@ -19,8 +19,10 @@
             <div class="cell padded rw-2 center season bold">
                 {% if incarnation.town.season is null %}
                     --
-                {% elseif incarnation.town.season.number == 0 %}
+                {% elseif incarnation.town.season.number == 0 and incarnation.town.season.subnumber <= 14 %}
                     {{ incarnation.town.language|upper }}-{{ incarnation.town.season.subNumber }}
+                {% elseif incarnation.town.season.number == 0 and incarnation.town.season.subnumber > 14 %}
+                    BETA
                 {% else %}
                     {{ incarnation.town.season.number }}
                 {% endif %}
@@ -59,7 +61,7 @@
                 {% endif %}
             </div>
             <div class="cell padded rw-2 center town-points bold">
-                {% if not incarnation.disabled and not incarnation.town.disabled %}
+                {% if not (incarnation.disabled and not incarnation.limitedImport) and not incarnation.town.disabled %}
                     +{{incarnation.points}}
                 {% else %}
                     <div>

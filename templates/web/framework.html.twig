@@ -24,6 +24,7 @@
         <meta property="og:locale:alternate" content="fr_FR" />
         <meta property="og:locale:alternate" content="es_ES" />
         <meta property="og:locale:alternate" content="en_US" />
+        <meta property="og:image" content="{{ absolute_url(asset('build/images/myhordes-og.png')) }}" />
 
         <!-- Load CSS -->
         {{ encore_entry_link_tags('app') }}
@@ -63,13 +64,6 @@
         {% block header %}{% endblock %}
     </div>
 
-    {% if debug %}
-        <div class="debug_info">
-            <div><b>Warning: </b>This is a test build! Please report any issues <a href="https://gitlab.com/eternal-twin/myhordes/myhordes/-/issues">here</a>!</div>
-            <div>v {{ version }} [{{ env }}]</div>
-        </div>
-    {% endif %}
-
     <div id="content">
         <noscript>
             <div class="row">
@@ -100,8 +94,33 @@
 </body>
 <footer>
     {% block footer %}
+        {% if debug %}
+            <div class="row">
+                <div class="cell rw-5 ro-7 rw-md-6 ro-md-6 rw-sm-12 ro-sm-0">
+                    <div class="debug_info row-flex content-center-vertical">
+                        <div class="padded-small cell grow-1">
+                            <i class="fa fa-exclamation-triangle"></i> <b>BETA VERSION</b>
+                            <br />Please report issues on <a href="https://gitlab.com/eternal-twin/myhordes/myhordes/-/issues">GitLab</a> or the <a href="{{ url('forum_list') }}">World Forum</a>!
+                        </div>
+                        <div class="padded-small cell version shrink-0">
+                            <div class="version-badge-global"><i class="fas fa-globe-europe"></i> <b>{{ version.major }}.{{ version.minor}}.{{ version.patch}}</b></div>
+                            {% if version.isPreRelease %}
+                                {% set prerelease = version.preRelease|split('.') %}
+                                {% if prerelease|length > 0 %}
+                                    <div class="version-badge-pre"><i class="fa fa-flask"></i> <i>{{ prerelease[0] }}</i> {{ prerelease[1] ?? '' }}</div>
+                                    {% if prerelease|length > 3 %}
+                                        <div class="version-badge-build"><i class="fas fa-code-branch"></i> [ {{ prerelease[3] }} ]</div>
+                                    {% endif %}
+                                {% endif %}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        {% endif %}
         <div class="row">
-            <div class="padded cell rw-5 rw-sm-12 justify">
+            <div class="padded cell footer rw-5 rw-sm-12 justify">
                 <div>
                     <strong>MyHordes</strong>
                     <div class="content">
@@ -114,7 +133,7 @@
                     </div>
                 </div>
             </div>
-            <div class="padded cell-small rw-7 rw-sm-24 center">
+            <div class="padded cell-small footer rw-7 rw-sm-24 center">
                 <div>
                     <strong>Programming</strong>
                     <div class="content">
@@ -124,7 +143,7 @@
                     </div>
                 </div>
             </div>
-            <div class="padded cell-small rw-7 rw-sm-24 center">
+            <div class="padded cell-small footer rw-7 rw-sm-24 center">
                 <div>
                     <strong>Thanks to</strong>
                     <div class="content">

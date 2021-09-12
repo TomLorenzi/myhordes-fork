@@ -2491,5 +2491,47 @@
         <target>Aktiver Wert</target>
       </segment>
     </unit>
+    <unit id="PhzdczW" name="Eskortierte Bürger teleportieren">
+      <segment>
+        <source>Eskortierte Bürger teleportieren</source>
+        <target>Eskortierte Bürger teleportieren</target>
+      </segment>
+    </unit>
+    <unit id="2.gcbi0" name="Seele">
+      <segment>
+        <source>Seele</source>
+        <target>Seele</target>
+      </segment>
+    </unit>
+    <unit id="OAGjXFG" name="Alle">
+      <segment>
+        <source>Alle</source>
+        <target>Alle</target>
+      </segment>
+    </unit>
+    <unit id="FhSRo_H" name="MyHordes">
+      <segment>
+        <source>MyHordes</source>
+        <target>MyHordes</target>
+      </segment>
+    </unit>
+    <unit id="yR2i4CA" name="Alt">
+      <segment>
+        <source>Alt</source>
+        <target>Alt</target>
+      </segment>
+    </unit>
+    <unit id="lOtZ4.p" name="Eingeschränkter Import">
+      <segment>
+        <source>Eingeschränkter Import</source>
+        <target>Eingeschränkter Import</target>
+      </segment>
+    </unit>
+    <unit id="mBqJlZa" name="Hauptseele ohne Einschränkungen importieren">
+      <segment>
+        <source>Hauptseele ohne Einschränkungen importieren</source>
+        <target>Hauptseele ohne Einschränkungen importieren</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -216,7 +216,7 @@
                         {% elseif post.owner.activeTitle or post.owner.activeIcon %}
                             <span class="small">
                                 {% if post.owner.activeIcon %}<img alt="" src="{{ asset('build/images/icons/title/' ~ post.owner.activeIcon.prototype.icon ~ '.gif') }}" />{% endif %}
-                                {% if post.owner.activeTitle %}<i>{{ post.owner.activeTitle.prototype.title|trans({},'game') }}</i>{% endif %}
+                                {% if post.owner.activeTitle %}<i>{{ post.owner.activeTitle.prototype.title|trans({},'game')|raw }}</i>{% endif %}
                             </span>
                         {% endif %}
                         {% if post.note is not null %}<div class="float-right post-note">{{ post.note|replace({'{at_00}': 'in der Stadt oder am Stadttor'|trans({},'game')})|raw }}</div>{% endif %}
@@ -236,6 +236,9 @@
                                             <a target="_blank" href="{{ path('soul_visit', {id: report.sourceUser.id}) }}">{{ report.sourceUser.name }}</a>:
                                             {% if report.reason > 0 and report.reason < complaint_list|length %}
                                                 <i>{{ complaint_list[report.reason]|trans({},'global') }}</i>
+                                            {% endif %}
+                                            {% if report.details is not null %}
+                                                <div class="tooltip"><div class="bold">{{ 'Details'|trans({},'global') }}</div><p>{{ report.details }}</p></div>
                                             {% endif %}
                                         </div>
                                     {% endfor %}
@@ -372,14 +375,17 @@
             sec_p.append( $.html.createElement('<div><label><input type="radio" name="report_reason" value="8" />' + '{{ 'Verletzung von Copyright'|trans({},'global')|e('js') }}' + '</label></div>') )
             sec_p.append( $.html.createElement('<div><label><input type="radio" name="report_reason" value="9" />' + '{{ 'Aufruf zu Gesetzesverstößen'|trans({},'global')|e('js') }}' + '</label></div>') )
             sec_p.append( $.html.createElement('<div><label><input type="radio" name="report_reason" value="10" />' + '{{ 'Ermutigung von Selbstmord oder Selbstverletzung'|trans({},'global')|e('js') }}' + '</label></div>') )
+            sec_p.append( $.html.createElement('<p class="small"/>', '{{ 'Zusätzliche Informationen zu deiner Meldung (optional):'|trans({},'global')|e('js') }}') )
+            sec_p.append( $.html.createElement('<div><textarea maxlength="255" style="min-height: 70px; max-height: 120px; height: 70px;" name="report_details"></textarea></div>') )
 
             form.append(sec_p)
 
             $.html.popup('{{ 'Unangemessenen Inhalt melden'|trans({},'global')|e('js') }}', form, null, [
                 [ '{{ 'Inhalt melden'|trans({},'global')|e('js') }}',  [ ['click', (e_sub,elem_sub) => {
                     const reason = document.querySelector('[name="report_reason"]:checked') ? parseInt(document.querySelector('[name="report_reason"]:checked').value) : 0;
+                    const detail = document.querySelector('[name="report_details"]') ? document.querySelector('[name="report_details"]').value : '';
                     $.html.triggerPopupPop(elem_sub);
-                    $.ajax.easySend( '{{ url('forum_report_post_controller', { 'fid': fid, 'tid': tid}) }}', {postId: parseInt( elem.getAttribute('x-post-id')), page: parseInt( elem.getAttribute('x-to-page')), reason: reason }, reloadPage );
+                    $.ajax.easySend( '{{ url('forum_report_post_controller', { 'fid': fid, 'tid': tid}) }}', {postId: parseInt( elem.getAttribute('x-post-id')), page: parseInt( elem.getAttribute('x-to-page')), reason: reason, details: detail }, reloadPage );
                 }] ] ],
                 [ '{{ 'Abbrechen'|trans({},'global')|e('js') }}', [ ['click', (e_sub,elem_sub) => $.html.triggerPopupPop(elem_sub)] ] ]
             ] );

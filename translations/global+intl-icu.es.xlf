@@ -834,12 +834,11 @@
     <unit id="MCyZNHk">
       <notes>
         <note category="german">Wenn es an der Zeit ist, etwas zu unternehmen, lässt deine Verletzung dich schreien und hält dich auf der Stelle still. Du musst dich erst selbst heilen, bevor du das tun kannst...</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/scripts/errors/generic.txt.twig</note>
       </notes>
       <segment>
         <source>Wenn es an der Zeit ist, etwas zu unternehmen, lässt deine Verletzung dich schreien und hält dich auf der Stelle still. Du musst dich erst selbst heilen, bevor du das tun kannst...</source>
-        <target>Wenn es an der Zeit ist, etwas zu unternehmen, lässt deine Verletzung dich schreien und hält dich auf der Stelle still. Du musst dich erst selbst heilen, bevor du das tun kannst...</target>
+        <target>Cuando llega el momento de hacerlo, tu dolor te hace gritar y te detiene en tu camino. Tienes que curarte antes de poder hacerlo...</target>
       </segment>
     </unit>
     <unit id="BygLauq" name="Autor">
@@ -3583,12 +3582,12 @@
     </unit>
     <unit id="cEUwQw8" name="Dieser Spieler ist ein Administrator auf diesem Server.">
       <notes>
-        <note category="german">Dieser Spieler ist ein Administrator auf diesem Server.</note>
+        <note category="german">Dieser Spieler ist ein Administrator von MyHordes.</note>
         <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/forum/posts_small.html.twig</note>
       </notes>
       <segment>
         <source>Dieser Spieler ist ein Administrator auf diesem Server.</source>
-        <target>Este jugador es un administrador en este servidor.</target>
+        <target>Este jugador es un administrador de MyHordes.</target>
       </segment>
     </unit>
     <unit id="TyNTK6_" name="Dieser Spieler ist ein Entwickler von MyHordes.">
@@ -3658,11 +3657,30 @@
       <notes>
         <note category="german">Das Zombie Survival Game!</note>
         <note category="from">twig:///templates/web/framework.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Das Zombie Survival Game!</source>
-        <target>Das Zombie Survival Game!</target>
+        <target>¡El juego de supervivencia de zombies!</target>
+      </segment>
+    </unit>
+    <unit id="RZid5J_" name="Details">
+      <notes>
+        <note category="german">Details</note>
+        <note category="from">twig:///templates/ajax/admin/reports/gpn-viewer.html.twig;twig:///templates/ajax/admin/reports/pn-viewer.html.twig;twig:///templates/ajax/forum/posts.html.twig</note>
+      </notes>
+      <segment>
+        <source>Details</source>
+        <target>Detalles</target>
+      </segment>
+    </unit>
+    <unit id="yqSnrUg" name="Zusätzliche Informationen zu deiner Meldung (optional):">
+      <notes>
+        <note category="german">Zusätzliche Informationen zu deiner Meldung (optional):</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+      </notes>
+      <segment>
+        <source>Zusätzliche Informationen zu deiner Meldung (optional):</source>
+        <target>Información adicional sobre su informe (opcional):</target>
       </segment>
     </unit>
   </file>
