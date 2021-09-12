@@ -22823,5 +22823,15 @@
         <target><![CDATA[Beim Durchwühlen des Mülls, der am Stadtrand herumliegt, findest du schließlich folgendes: {item}.<hr />Du hast <strong>1 Aktionspunkt(e)</strong> verbraucht.]]></target>
       </segment>
     </unit>
+    <unit id="6IxRpiz">
+      <notes>
+        <note category="german">Es ist dir gelungen, {item} von {victim} zu stehlen &lt;strong&gt;ohne entdeckt zu werden&lt;/strong&gt;. Nicht schlecht!</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php</note>
+      </notes>
+      <segment>
+        <source>Es ist dir gelungen, {item} von {victim} zu stehlen &lt;strong&gt;ohne entdeckt zu werden&lt;/strong&gt;. Nicht schlecht!</source>
+        <target><![CDATA[Has robado {item} cancerígeno roto(a) a {victim} <strong>sin que nadie se dé cuenta</strong>. ¡Qué hábil eres, eh!]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

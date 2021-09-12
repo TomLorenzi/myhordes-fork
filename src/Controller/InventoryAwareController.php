@@ -743,7 +743,10 @@ class InventoryAwareController extends CustomAbstractController
                                         $this->addFlash( 'notice', $this->translator->trans('Du hast dir folgenden Gegenstand unter den Nagel gerissen: {item}. Dein kleiner Hausbesuch bei † {victim} ist allerdings aufgeflogen...<hr /><strong>Dieser Gegenstand wurde in deiner Truhe abgelegt.</strong>', ['{item}' => $this->log->wrap($this->log->iconize($current_item)), '{victim}' => $victim_home->getCitizen()->getName()], 'game') );
                                     }
                                 } else {
-                                    $this->addFlash( 'notice', $this->translator->trans('Sehr gut, niemand hat dich bei deinem Einbruch bei {victim} beobachtet.', ['{victim}' => $victim_home->getCitizen()->getName()], 'game') );
+                                    $this->addFlash( 'notice', $this->translator->trans('Es ist dir gelungen, {item} von {victim} zu stehlen <strong>ohne entdeckt zu werden</strong>. Nicht schlecht!', [
+                                        '{victim}' => $victim_home->getCitizen(),
+                                        '{item}' => $this->log->wrap($this->log->iconize($current_item))
+                                    ], 'game') );
                                 }
     
                                 $this->crow->postAsPM( $victim_home->getCitizen(), '', '', PrivateMessage::TEMPLATE_CROW_THEFT, $current_item->getPrototype()->getId() );

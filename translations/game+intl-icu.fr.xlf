@@ -22708,5 +22708,15 @@ cette violente opération...]]></target>
         <target><![CDATA[En fouinant dans les ordures qui traînent aux abords de la ville, vous finissez par trouver {item}.<hr />Vous avez utilisé <strong>1 point(s) d'action</strong>.]]></target>
       </segment>
     </unit>
+    <unit id="6IxRpiz">
+      <notes>
+        <note category="german">Es ist dir gelungen, {item} von {victim} zu stehlen &lt;strong&gt;ohne entdeckt zu werden&lt;/strong&gt;. Nicht schlecht!</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php</note>
+      </notes>
+      <segment>
+        <source>Es ist dir gelungen, {item} von {victim} zu stehlen &lt;strong&gt;ohne entdeckt zu werden&lt;/strong&gt;. Nicht schlecht!</source>
+        <target><![CDATA[Vous avez volé {item} à {victim} <strong>sans que quiconque s'en aperçoive</strong>. Vous êtes vraiment habile..]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

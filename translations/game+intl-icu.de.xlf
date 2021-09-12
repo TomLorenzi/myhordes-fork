@@ -14496,5 +14496,11 @@
         <target><![CDATA[Beim Durchwühlen des Mülls, der am Stadtrand herumliegt, findest du schließlich folgendes: {item}.<hr />Du hast <strong>1 Aktionspunkt(e)</strong> verbraucht.]]></target>
       </segment>
     </unit>
+    <unit id="6IxRpiz">
+      <segment>
+        <source>Es ist dir gelungen, {item} von {victim} zu stehlen &lt;strong&gt;ohne entdeckt zu werden&lt;/strong&gt;. Nicht schlecht!</source>
+        <target><![CDATA[Es ist dir gelungen, {item} von {victim} zu stehlen <strong>ohne entdeckt zu werden</strong>. Nicht schlecht!]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>
