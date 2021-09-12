@@ -467,7 +467,7 @@ class BeyondController extends InventoryAwareController
 
             $trashlock->increment();
             $this->citizen_handler->setAP($citizen, true, -1);
-            $this->addFlash( 'notice', $this->translator->trans( 'Nach einigen Anstrengungen hast du folgendes gefunden: {item}!', [
+            $this->addFlash( 'notice', $this->translator->trans( 'Beim Durchwühlen des Mülls, der am Stadtrand herumliegt, findest du schließlich folgendes: {item}.<hr />Du hast <strong>1 Aktionspunkt(e)</strong> verbraucht.', [
                 '{item}' => "<span class='tool'> <img alt='' src='{$this->asset->getUrl( "build/images/item/item_{$item->getPrototype()->getIcon()}.gif" )}'> {$this->translator->trans($item->getPrototype()->getLabel(), [], 'items')}</span>"
             ], 'game' ));
 

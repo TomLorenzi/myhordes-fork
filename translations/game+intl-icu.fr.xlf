@@ -22698,5 +22698,15 @@ cette violente opération...]]></target>
         <target><![CDATA[Alors que le citoyen {citizen} commence ses fouilles, il remarque une sorte de... <strong>cache</strong> contenant :  {items}<hr/>Hmmm... Ça a probablement été dissimulé là par un <strong>citoyen banni</strong>...]]></target>
       </segment>
     </unit>
+    <unit id="7yCOjAd">
+      <notes>
+        <note category="german">Beim Durchwühlen des Mülls, der am Stadtrand herumliegt, findest du schließlich folgendes: {item}.&lt;hr /&gt;Du hast &lt;strong&gt;1 Aktionspunkt(e)&lt;/strong&gt; verbraucht.</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
+      </notes>
+      <segment>
+        <source>Beim Durchwühlen des Mülls, der am Stadtrand herumliegt, findest du schließlich folgendes: {item}.&lt;hr /&gt;Du hast &lt;strong&gt;1 Aktionspunkt(e)&lt;/strong&gt; verbraucht.</source>
+        <target><![CDATA[En fouinant dans les ordures qui traînent aux abords de la ville, vous finissez par trouver {item}.<hr />Vous avez utilisé <strong>1 point(s) d'action</strong>.]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

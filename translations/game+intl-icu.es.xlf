@@ -22812,5 +22812,16 @@
         <target>Beim Graben ist {citizen} auf eine Art... geheimes Versteck mit {items} gestoßen! Es wurde vermutlich von einem verbannten Mitbürger angelegt...</target>
       </segment>
     </unit>
+    <unit id="7yCOjAd">
+      <notes>
+        <note category="german">Beim Durchwühlen des Mülls, der am Stadtrand herumliegt, findest du schließlich folgendes: {item}.&lt;hr /&gt;Du hast &lt;strong&gt;1 Aktionspunkt(e)&lt;/strong&gt; verbraucht.</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Beim Durchwühlen des Mülls, der am Stadtrand herumliegt, findest du schließlich folgendes: {item}.&lt;hr /&gt;Du hast &lt;strong&gt;1 Aktionspunkt(e)&lt;/strong&gt; verbraucht.</source>
+        <target><![CDATA[Beim Durchwühlen des Mülls, der am Stadtrand herumliegt, findest du schließlich folgendes: {item}.<hr />Du hast <strong>1 Aktionspunkt(e)</strong> verbraucht.]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>
