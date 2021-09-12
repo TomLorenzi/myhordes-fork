@@ -9,6 +9,7 @@ use App\Entity\ForumUsagePermissions;
 use App\Entity\Post;
 use App\Entity\Town;
 use App\Entity\User;
+use App\Structures\MyHordesConf;
 use Doctrine\ORM\EntityManagerInterface;
 use DOMDocument;
 use DOMElement;
@@ -27,15 +28,16 @@ class HTMLService {
     private Packages $asset;
     private UserHandler $userHandler;
     private UrlGeneratorInterface $router;
+    private ConfMaster $conf;
 
     const ModulationNone    = 0;
     const ModulationDrunk   = 1 << 1;
     const ModulationTerror  = 1 << 2;
     const ModulationHead    = 1 << 3;
 
-
     public function __construct(EntityManagerInterface $em, PermissionHandler $perm, TranslatorInterface $trans,
-                                RandomGenerator $rand, Packages $a, UserHandler $uh, UrlGeneratorInterface $router)
+                                RandomGenerator $rand, Packages $a, UserHandler $uh, UrlGeneratorInterface $router,
+                                ConfMaster $conf)
     {
         $this->entity_manager = $em;
         $this->perm = $perm;
@@ -44,6 +46,7 @@ class HTMLService {
         $this->asset = $a;
         $this->userHandler = $uh;
         $this->router = $router;
+        $this->conf = $conf;
     }
 
     protected const HTML_LIB = [
@@ -256,7 +259,7 @@ class HTMLService {
 
         $dom = new DOMDocument();
         libxml_use_internal_errors(true);
-        $text = str_replace('@​::','@::',$text);
+        $text = str_replace(['@​::','@%E2%80%8B::'],'@::',$text);
         $dom->loadHTML( "<html lang=''><head><title></title><meta charset='UTF-8' /></head><body>$text</body></html>", LIBXML_COMPACT | LIBXML_NONET | LIBXML_HTML_NOIMPLIED);
         $body = $dom->getElementsByTagName('body');
         if (!$body || $body->length > 1) return false;
@@ -268,6 +271,12 @@ class HTMLService {
 
         $cache = [ 'citizen' => [] ];
 
+        $sys_urls = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_URLS, []);
+        $replace_urls = [];
+        foreach ($sys_urls as $url) {
+            $replace_urls[] = 'http://' . $url;
+            $replace_urls[] = 'https://' . $url;
+        }
         $poll_cache = $polls = [];
 
         $handlers = [
@@ -278,6 +287,23 @@ class HTMLService {
                     foreach ($emotes as $emote)
                         $d->nodeValue = str_replace( $emote, str_replace(':', ':​', $emote),  $d->nodeValue);
                 },
+
+            // Replace URLs
+            '//a[@href]'   => function (DOMNode $d) use ($replace_urls) {
+                $url = $d->attributes->getNamedItem('href')->nodeValue;
+                $replace_nw = $d->nodeValue === $url;
+
+                $new_url = str_replace( $replace_urls, '@​::dom:0', $url );
+                if ($url !== $new_url) {
+                    $d->attributes->getNamedItem('href')->nodeValue = $new_url;
+                    if ($replace_nw) $d->nodeValue = $new_url;
+                }
+            },
+            '//img[@src]'   => function (DOMNode $d) use ($replace_urls) {
+                $url = $d->attributes->getNamedItem('src')->nodeValue;
+                $new_url = str_replace( $replace_urls, '@​::dom:0', $url );
+                if ($url !== $new_url) $d->attributes->getNamedItem('src')->nodeValue = $new_url;
+            },
 
             '//div[@class=\'dice-4\']'   => function (DOMNode $d) use(&$editable) { $editable = false; $d->nodeValue = mt_rand(1,4); },
             '//div[@class=\'dice-6\']'   => function (DOMNode $d) use(&$editable) { $editable = false; $d->nodeValue = mt_rand(1,6); },
@@ -639,13 +665,15 @@ class HTMLService {
 
     public function prepareEmotes(string $str): string {
         $emotes = $this->get_emotes();
-        return preg_replace_callback('/@​::(\w+):(\d+)/i', function(array $m) {
+        return preg_replace_callback('/@(?:​|%E2%80%8B)::(\w+):(\d+)/i', function(array $m) {
             [, $type, $id] = $m;
             switch ($type) {
                 case 'un':case 'up':
                     $target_user = $this->entity_manager->getRepository(User::class)->find((int)$id);
                     if ($target_user === null) return '';
                     return $type === 'un' ? $target_user->getName() : $this->router->generate('soul_visit', ['id' => $target_user->getId()]);
+                case 'dom':
+                    return (int)$id === 0 ? mb_substr($this->router->generate('home', [], UrlGeneratorInterface::ABSOLUTE_URL), 0,-1) : '';
                 default: return '';
             }
         }, str_replace( array_keys( $emotes ), array_values( $emotes ), $str ));

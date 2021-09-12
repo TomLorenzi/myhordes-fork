@@ -12,7 +12,7 @@
             {% if post.owner.name == 'Der Rabe' %}{% set variant = 'crow' %}
             {% elseif post.type != "USER" and post.type is not null %}{% set variant = post.type|lower %}{% endif %}
 
-            {% set author_name = town and post.owner.citizenFor(town) ? post.owner.citizenFor(town).name : post.owner.name %}
+            {% set author_name = town is defined and post.owner.citizenFor(town) ? post.owner.citizenFor(town).name : post.owner.name %}
             {% if post.owner.name == 'Der Rabe' %}{% set author_name = 'Der Rabe'|trans({},'global') %}
             {% elseif post.owner.name == 'Animateur-Team' %}{% set author_name = 'Animateur-Team'|trans({},'global') %}{% endif %}
 

@@ -107,7 +107,7 @@ class ExternalController extends InventoryAwareController {
     }
 
     /**
-     * @Route("/api/x/json/{type}", methods={"GET", "POST"})
+     * @Route("/api/x/json/{type}", name="ext_json", methods={"GET", "POST"})
      * @param string $type
      * @return Response
      */

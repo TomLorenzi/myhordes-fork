@@ -7,11 +7,11 @@
                     <tr><th>{{ 'URL anfordern'|trans({},'docs') }}</th><th>{{ 'Rückgabetyp'|trans({},'docs') }}</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>https://zombvival.de/myhordes/api/x/json/status</td><td><a>Status</a></td></tr>
-                    <tr><td>https://zombvival.de/myhordes/api/x/json/items</td><td><a>Array&lt;Item&gt;</a></td></tr>
-                    <tr><td>https://zombvival.de/myhordes/api/x/json/me</td><td><a>User</a></td></tr>
-                    <tr><td>https://zombvival.de/myhordes/api/x/json/user?id=$user_id</td><td><a>User</a></td></tr>
-                    <tr><td>https://zombvival.de/myhordes/api/x/json/map?mapId=$map_id</td><td><a>Map</a></td></tr>
+                    <tr><td>{{ url('ext_json', {type: 'status'}) }}</td><td><a>Status</a></td></tr>
+                    <tr><td>{{ url('ext_json', {type: 'items'})  }}</td><td><a>Array&lt;Item&gt;</a></td></tr>
+                    <tr><td>{{ url('ext_json', {type: 'me'})     }}</td><td><a>User</a></td></tr>
+                    <tr><td>{{ url('ext_json', {type: 'user'})   }}?id=$user_id</td><td><a>User</a></td></tr>
+                    <tr><td>{{ url('ext_json', {type: 'map'})    }}?mapId=$map_id</td><td><a>Map</a></td></tr>
                 </tbody>
             </table>
 <pre><a class="entity">&lt;Status&gt;</a> {
