@@ -31,6 +31,7 @@ use App\Entity\Zone;
 use App\Entity\ZoneTag;
 use App\Structures\EventConf;
 use App\Structures\ItemRequest;
+use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
 use App\Structures\TownDefenseSummary;
 use Doctrine\ORM\EntityManagerInterface;
@@ -57,11 +58,12 @@ class NightlyHandler
     private ActionHandler $action_handler;
     private MazeMaker $maze;
     private CrowService $crow;
+    private UserHandler $user_handler;
 
     public function __construct(EntityManagerInterface $em, LoggerInterface $log, CitizenHandler $ch, InventoryHandler $ih,
                               RandomGenerator $rg, DeathHandler $dh, TownHandler $th, ZoneHandler $zh, PictoHandler $ph,
                               ItemFactory $if, LogTemplateHandler $lh, ConfMaster $conf, ActionHandler $ah, MazeMaker $maze,
-                              CrowService $crow)
+                              CrowService $crow, UserHandler $uh)
     {
         $this->entity_manager = $em;
         $this->citizen_handler = $ch;
@@ -78,6 +80,7 @@ class NightlyHandler
         $this->action_handler = $ah;
         $this->maze = $maze;
         $this->crow = $crow;
+        $this->user_handler = $uh;
     }
 
     private function check_town(Town $town): bool {
@@ -114,16 +117,28 @@ class NightlyHandler
     }
 
     private function stage1_prepare(Town $town) {
-        /*$this->log->info('<info>Checking insurrection status</info> ...');
+        // Initialize spiritual guide on D1
+        $town_conf = $this->conf->getTownConfiguration($town);
+        if ($town->getDay() === 1 && $town_conf->get(TownConf::CONF_GUIDE_ENABLED, false)) {
 
-        if ($town->getInsurrectionProgress() > 0)
-            foreach ($town->getCitizens() as $citizen)
-                if ($citizen->getAlive() && $citizen->getBanished() && !$this->citizen_handler->hasStatusEffect($citizen, 'tg_insurrection')) {
-                    $this->log->info("Shunned citizen <info>{$citizen->getName()}</info> did not contribute to the insurrection. Resetting.");
-                    $town->setInsurrectionProgress(0);
-                    break;
+            $this->log->debug( "This town is eligible for the <info>spiritual guide</info> picto, checking citizens..." );
+
+            // When the guide is enabled and enough citizens are below the SP threshold...
+            $th = $town_conf->get(TownConf::CONF_GUIDE_SP_LIMIT, 100);
+            if ($town->getCitizens()->filter(function (Citizen $c) use ($th) {
+                return $this->user_handler->fetchSoulPoints( $c->getUser(), true, true ) < $th;
+            })->count() >= $town_conf->get(TownConf::CONF_GUIDE_CTC_LIMIT, 20))
+
+                // Each citizen above the threshold gets assigned the potential guide status
+                foreach ($town->getCitizens()->filter(function (Citizen $c) use ($th) {
+                    return $this->user_handler->fetchSoulPoints( $c->getUser(), true, true ) >= $th;
+                }) as $spiritual_guide) {
+                    $this->citizen_handler->inflictStatus( $spiritual_guide, 'tg_spirit_guide' );
+                    $this->log->debug( "Registered <info>{$spiritual_guide->getName()}</info> as potential spiritual leader." );
                 }
-        */
+            else $this->log->debug( "Not enough citizen are below <info>$th SP</info>." );
+
+        }
     }
 
     private function stage1_vanish(Town $town) {

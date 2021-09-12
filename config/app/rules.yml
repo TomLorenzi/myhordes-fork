@@ -36,6 +36,11 @@ parameters:
       initial_buildings:  []
       unlocked_buildings: []
 
+      spiritual_guide:
+        enabled: false
+        sp_limit: 0
+        citizen: 0
+
       bank_abuse:
         limit: 5
         chaos_limit: 10
@@ -142,6 +147,11 @@ parameters:
 
       distribute_items:
         replace: ['bplan_box_e_#00', 'bplan_box_#00', 'bplan_box_#00', 'bplan_box_#00', 'firework_powder_#00','firework_tube_#00','firework_box_#00']
+
+      spiritual_guide:
+        enabled: true
+        sp_limit: 100
+        citizen: 20
 
       distribution_distance:
         replace:

@@ -94,8 +94,6 @@ class DeathHandler
         $citizen->setSurvivedDays($survivedDays);
         $citizen->setDayOfDeath($citizen->getTown()->getDay());
 
-        $citizen->getStatus()->clear();
-
         foreach ($citizen->getCitizenWatch() as $cw) {
             $citizen->getTown()->removeCitizenWatch($cw);
             $citizen->removeCitizenWatch($cw);
@@ -220,6 +218,13 @@ class DeathHandler
                 $this->picto_handler->give_picto($citizen, $pictoPrototype, round(pow($citizen->getSurvivedDays(), 1.5), 0) - round(pow($citizen->getSurvivedDays() - 1, 1.5), 0));
             }
 
+            // Spiritual leader
+            if ($this->citizen_handler->hasStatusEffect($citizen, 'tg_spirit_guide')) {
+                $p = 0;
+                for ($i = 1; $i <= $citizen->getSurvivedDays(); $i++) $p += $i;
+                $this->picto_handler->give_picto($citizen, 'r_guide_#00', $p);
+            }
+
             // Decoration picto
             // Calculate decoration
 	        $deco = $this->citizen_handler->getDecoPoints($citizen);
@@ -243,6 +248,8 @@ class DeathHandler
 
         if ($cod->getRef() === CauseOfDeath::Vanished && $died_outside) $this->entity_manager->persist( $this->log->citizenDeath( $citizen, 0, $zone, $citizen->getTown()->getDay() + 1 ) );
         elseif ($died_outside) $this->entity_manager->persist( $this->log->citizenDeath( $citizen, 0, $zone ) );
+
+        $citizen->getStatus()->clear();
 
         $town_group = $this->entity_manager->getRepository(UserGroup::class)->findOneBy( ['type' => UserGroup::GroupTownInhabitants, 'ref1' => $citizen->getTown()->getId()] );
         if ($town_group) $this->perm->disassociate( $citizen->getUser(), $town_group );
