@@ -22779,5 +22779,27 @@
         <target>No hay nadie cerca del pueblo (2 casillas de distancia máxima).</target>
       </segment>
     </unit>
+    <unit id=".le_YgA">
+      <notes>
+        <note category="german">Einige Bürger wurden beim Versuch, sich der Zombiehorde entgegenzustellen, verletzt.</note>
+        <note category="from">db://LogEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Einige Bürger wurden beim Versuch, sich der Zombiehorde entgegenzustellen, verletzt.</source>
+        <target>Einige Bürger wurden beim Versuch, sich der Zombiehorde entgegenzustellen, verletzt.</target>
+      </segment>
+    </unit>
+    <unit id="bAZ.uzF">
+      <notes>
+        <note category="german">Einige Bürger sind beim Versuch, sich der Zombiehorde entgegenzustellen, vor Angst erstarrt.</note>
+        <note category="from">db://LogEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Einige Bürger sind beim Versuch, sich der Zombiehorde entgegenzustellen, vor Angst erstarrt.</source>
+        <target>Einige Bürger sind beim Versuch, sich der Zombiehorde entgegenzustellen, vor Angst erstarrt.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

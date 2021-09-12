@@ -14472,5 +14472,17 @@
         <target>Niemand ist in der Nähe der Stadt (maximal 2 Felder).</target>
       </segment>
     </unit>
+    <unit id=".le_YgA">
+      <segment>
+        <source>Einige Bürger wurden beim Versuch, sich der Zombiehorde entgegenzustellen, verletzt.</source>
+        <target>Einige Bürger wurden beim Versuch, sich der Zombiehorde entgegenzustellen, verletzt.</target>
+      </segment>
+    </unit>
+    <unit id="bAZ.uzF">
+      <segment>
+        <source>Einige Bürger sind beim Versuch, sich der Zombiehorde entgegenzustellen, vor Angst erstarrt.</source>
+        <target>Einige Bürger sind beim Versuch, sich der Zombiehorde entgegenzustellen, vor Angst erstarrt.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

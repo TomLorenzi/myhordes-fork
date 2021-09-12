@@ -22763,5 +22763,25 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>There is nobody near the town (2 squares maximum).</target>
       </segment>
     </unit>
+    <unit id=".le_YgA">
+      <notes>
+        <note category="german">Einige Bürger wurden beim Versuch, sich der Zombiehorde entgegenzustellen, verletzt.</note>
+        <note category="from">db://LogEntryTemplate</note>
+      </notes>
+      <segment>
+        <source>Einige Bürger wurden beim Versuch, sich der Zombiehorde entgegenzustellen, verletzt.</source>
+        <target>Some citizens were terrorized during their attempt to resist the attack of the Horde!</target>
+      </segment>
+    </unit>
+    <unit id="bAZ.uzF">
+      <notes>
+        <note category="german">Einige Bürger sind beim Versuch, sich der Zombiehorde entgegenzustellen, vor Angst erstarrt.</note>
+        <note category="from">db://LogEntryTemplate</note>
+      </notes>
+      <segment>
+        <source>Einige Bürger sind beim Versuch, sich der Zombiehorde entgegenzustellen, vor Angst erstarrt.</source>
+        <target>Some citizens were injured during their attempt to resist the Horde's onslaught!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

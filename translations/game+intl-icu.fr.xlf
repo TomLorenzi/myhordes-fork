@@ -22668,5 +22668,25 @@ cette violente opération...]]></target>
         <target>Il n'y a personne près de la ville (2 cases de distance maximum).</target>
       </segment>
     </unit>
+    <unit id=".le_YgA">
+      <notes>
+        <note category="german">Einige Bürger wurden beim Versuch, sich der Zombiehorde entgegenzustellen, verletzt.</note>
+        <note category="from">db://LogEntryTemplate</note>
+      </notes>
+      <segment>
+        <source>Einige Bürger wurden beim Versuch, sich der Zombiehorde entgegenzustellen, verletzt.</source>
+        <target>Certains ont été blessés durant leur tentative de résistance contre la Horde !</target>
+      </segment>
+    </unit>
+    <unit id="bAZ.uzF">
+      <notes>
+        <note category="german">Einige Bürger sind beim Versuch, sich der Zombiehorde entgegenzustellen, vor Angst erstarrt.</note>
+        <note category="from">db://LogEntryTemplate</note>
+      </notes>
+      <segment>
+        <source>Einige Bürger sind beim Versuch, sich der Zombiehorde entgegenzustellen, vor Angst erstarrt.</source>
+        <target>Certains sont encore terrorisés de leur tentative de résistance contre la Horde !</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

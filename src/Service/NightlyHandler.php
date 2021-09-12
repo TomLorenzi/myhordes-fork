@@ -655,6 +655,9 @@ class NightlyHandler
 
             $this->log->debug("Watcher {$watcher->getCitizen()->getUser()->getName()} chances are <info>{$deathChances}</info> for death and <info>{$woundOrTerrorChances}</info> for wound or terror.");
 
+            $wounded_citizens = [];
+            $terrorized_citizens = [];
+
             if ($this->random->chance($deathChances)) {
                 $this->log->debug("Watcher <info>{$watcher->getCitizen()->getUser()->getUsername()}</info> is now <info>dead</info> because of the watch");
                 $skip = false;
@@ -671,21 +674,26 @@ class NightlyHandler
 
                 $this->kill_wrap($ctz, $cod, false, ceil($overflow / count($watchers)), $skip);
 
-            } else if($overflow > 0 && $this->random->chance($woundOrTerrorChances)){
+            } else if($overflow > 0 && $this->random->chance($woundOrTerrorChances)) {
+
                 if($this->random->chance(0.5)){
                     // Wound
                     if (!$this->citizen_handler->isWounded($ctz)) {
                         $this->citizen_handler->inflictWound($ctz);
                         $this->log->debug("Watcher <info>{$ctz->getUser()->getUsername()}</info> is now <info>wounded</info>");
                         $this->skip_infection[] = $ctz->getId();
+                        $wounded_citizens[] = $ctz;
+                        $this->crow->postAsPM($ctz, '', '', PrivateMessage::TEMPLATE_CROW_NIGHTWATCH_WOUND, $defBonus);
                     }
-                    $this->crow->postAsPM($ctz, '', '', PrivateMessage::TEMPLATE_CROW_NIGHTWATCH_WOUND, $defBonus);
                 } elseif(!$this->town_handler->getBuilding($town, "small_catapult3_#00", true)) {
                     // Terror
-                    $this->citizen_handler->inflictStatus($ctz, $status_terror);
-                    $this->log->debug("Watcher <info>{$ctz->getUser()->getUsername()}</info> now suffers from <info>{$status_terror->getLabel()}</info>");
-                    $gazette->setTerror($gazette->getTerror() + 1);
-                    $this->crow->postAsPM($ctz, '', '', PrivateMessage::TEMPLATE_CROW_NIGHTWATCH_TERROR, $defBonus);
+                    if (!$this->citizen_handler->hasStatusEffect($ctz, $status_terror)) {
+                        $this->citizen_handler->inflictStatus($ctz, $status_terror);
+                        $this->log->debug("Watcher <info>{$ctz->getUser()->getUsername()}</info> now suffers from <info>{$status_terror->getLabel()}</info>");
+                        $gazette->setTerror($gazette->getTerror() + 1);
+                        $terrorized_citizens[] = $ctz;
+                        $this->crow->postAsPM($ctz, '', '', PrivateMessage::TEMPLATE_CROW_NIGHTWATCH_TERROR, $defBonus);
+                    }
                 }
             }
 
@@ -714,6 +722,16 @@ class NightlyHandler
 
         if ($total_watch_def > 0 && $overflow > 0) {
             $this->entity_manager->persist($this->logTemplates->nightlyAttackWatchersZombieStopped($town, min($overflow, $total_watch_def)));
+        }
+
+        if (!empty($wounded_citizens)) {
+            foreach ($wounded_citizens as $wctx) $this->entity_manager->persist($this->logTemplates->nightlyAttackWatcherWound($town, $wctx));
+            $this->entity_manager->persist($this->logTemplates->nightlyAttackWatcherWound($town, null));
+        }
+
+        if (!empty($terrorized_citizens)) {
+            foreach ($terrorized_citizens as $tctx) $this->entity_manager->persist($this->logTemplates->nightlyAttackWatcherTerror($town, $tctx));
+            $this->entity_manager->persist($this->logTemplates->nightlyAttackWatcherTerror($town, null));
         }
 
         $initial_overflow = $overflow;
