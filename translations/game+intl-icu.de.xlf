@@ -14484,5 +14484,11 @@
         <target>Einige Bürger sind beim Versuch, sich der Zombiehorde entgegenzustellen, vor Angst erstarrt.</target>
       </segment>
     </unit>
+    <unit id="fYLDfxe">
+      <segment>
+        <source>Beim Graben ist {citizen} auf eine Art... geheimes Versteck mit {items} gestoßen! Es wurde vermutlich von einem verbannten Mitbürger angelegt...</source>
+        <target>Beim Graben ist {citizen} auf eine Art... geheimes Versteck mit {items} gestoßen! Es wurde vermutlich von einem verbannten Mitbürger angelegt...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

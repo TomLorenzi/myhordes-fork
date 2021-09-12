@@ -22783,5 +22783,16 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>Some citizens were injured during their attempt to resist the Horde's onslaught!</target>
       </segment>
     </unit>
+    <unit id="fYLDfxe">
+      <notes>
+        <note category="german">Beim Graben ist {citizen} auf eine Art... geheimes Versteck mit {items} gestoßen! Es wurde vermutlich von einem verbannten Mitbürger angelegt...</note>
+        <note category="from">php:///src/Service/ZoneHandler.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Beim Graben ist {citizen} auf eine Art... geheimes Versteck mit {items} gestoßen! Es wurde vermutlich von einem verbannten Mitbürger angelegt...</source>
+        <target>Beim Graben ist {citizen} auf eine Art... geheimes Versteck mit {items} gestoßen! Es wurde vermutlich von einem verbannten Mitbürger angelegt...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

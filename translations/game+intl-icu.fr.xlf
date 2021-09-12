@@ -22688,5 +22688,15 @@ cette violente opération...]]></target>
         <target>Certains sont encore terrorisés de leur tentative de résistance contre la Horde !</target>
       </segment>
     </unit>
+    <unit id="fYLDfxe">
+      <notes>
+        <note category="german">Beim Graben ist {citizen} auf eine Art... geheimes Versteck mit {items} gestoßen! Es wurde vermutlich von einem verbannten Mitbürger angelegt...</note>
+        <note category="from">php:///src/Service/ZoneHandler.php</note>
+      </notes>
+      <segment>
+        <source>Beim Graben ist {citizen} auf eine Art... geheimes Versteck mit {items} gestoßen! Es wurde vermutlich von einem verbannten Mitbürger angelegt...</source>
+        <target><![CDATA[Alors que le citoyen {citizen} commence ses fouilles, il remarque une sorte de... <strong>cache</strong> contenant :  {items}<hr/>Hmmm... Ça a probablement été dissimulé là par un <strong>citoyen banni</strong>...]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

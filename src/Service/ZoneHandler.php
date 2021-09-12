@@ -310,7 +310,6 @@ class ZoneHandler
                         $this->entity_manager->persist( $executable_timer->getZone()->getFloor() );
                     }
                 } else {
-                    //TODO: Persist log only if it is an automatic search
                     $this->entity_manager->persist( $this->log->outsideDig( $current_citizen, $item_prototype, (new DateTime())->setTimestamp($time) ) );
                 }
 
@@ -318,7 +317,10 @@ class ZoneHandler
                 if(!$executable_timer->getCitizen()->getBanished() && $this->hasHiddenItem($executable_timer->getZone()) && $this->random_generator->chance(0.05)){
                     $items = $timer->getZone()->getFloor()->getItems();
                     $itemsproto = array_map( function($e) {return $e->getPrototype(); }, $items->toArray() );
-                    $ret_str[] = $this->trans->trans('Beim Graben bist du auf eine Art... geheimes Versteck mit {items} gestoßen! Es wurde vermutlich von einem verbannten Mitbürger angelegt...', ['{items}' => $wrap($itemsproto) ], 'game');
+                    if ($active && $current_citizen->getEscortSettings() && $current_citizen->getEscortSettings()->getLeader() && $current_citizen->getEscortSettings()->getLeader() === $active)
+                        $ret_str[] = $this->trans->trans('Beim Graben ist {citizen} auf eine Art... geheimes Versteck mit {items} gestoßen! Es wurde vermutlich von einem verbannten Mitbürger angelegt...', ['{items}' => $wrap($itemsproto), '{citizen}' => $current_citizen ], 'game');
+                    elseif ($active && $current_citizen === $active)
+                        $ret_str[] = $this->trans->trans('Beim Graben bist du auf eine Art... geheimes Versteck mit {items} gestoßen! Es wurde vermutlich von einem verbannten Mitbürger angelegt...', ['{items}' => $wrap($itemsproto) ], 'game');
                     foreach ($items as $item) {
                         if ($item->getHidden()){
                             $item->setHidden(false);
