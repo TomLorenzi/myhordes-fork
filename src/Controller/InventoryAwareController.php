@@ -191,7 +191,7 @@ class InventoryAwareController extends CustomAbstractController
 
                 foreach ($this->getActiveCitizen()->getTown()->getCitizens() as $citizen)
                     if ($citizen->getAlive() && $citizen->getZone() && round( sqrt(pow($citizen->getZone()->getX(),2 ) + pow($citizen->getZone()->getY(),2 )) ) <= 2)
-                        $targets[] = [ $citizen->getId(), $citizen->getName(), "build/images/professions/{$citizen->getProfession()->getIcon()}.gif" ];
+                        $targets[] = [ $citizen->getId(), $citizen->getName(), "build/images/item/item_cart.gif" ];
 
                 break;
             case ItemTargetDefinition::ItemCitizenType: case ItemTargetDefinition::ItemCitizenVoteType:

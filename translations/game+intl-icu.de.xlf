@@ -14466,5 +14466,11 @@
         <target>Für die vollständige Instandsetzung dieses Gebäudes sind noch {remaining} AP erforderlich.</target>
       </segment>
     </unit>
+    <unit id="Plqho0r" name="Niemand ist in der Nähe der Stadt (maximal 2 Felder).">
+      <segment>
+        <source>Niemand ist in der Nähe der Stadt (maximal 2 Felder).</source>
+        <target>Niemand ist in der Nähe der Stadt (maximal 2 Felder).</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

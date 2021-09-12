@@ -22753,5 +22753,15 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>Für die vollständige Instandsetzung dieses Gebäudes sind noch {remaining} AP erforderlich.</target>
       </segment>
     </unit>
+    <unit id="Plqho0r" name="Niemand ist in der Nähe der Stadt (maximal 2 Felder).">
+      <notes>
+        <note category="german">Niemand ist in der Nähe der Stadt (maximal 2 Felder).</note>
+        <note category="from">twig:///templates/ajax/game/actions.html.twig</note>
+      </notes>
+      <segment>
+        <source>Niemand ist in der Nähe der Stadt (maximal 2 Felder).</source>
+        <target>There is nobody near the town (2 squares maximum).</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

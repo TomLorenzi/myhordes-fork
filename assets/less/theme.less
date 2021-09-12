@@ -794,10 +794,12 @@ ul.actions, ul.special_actions, ul.heroic_actions {
       span.highlight { padding-left: 3px; padding-right: 3px; white-space: nowrap; background-color: rgba(255,255,255,0.2);
         img { vertical-align: middle; margin-right: 3px; }
       }
+      &>span:first-child { display: block; background: #696486; padding: 0 3px; }
       &>ul {
         margin: 0; padding: 0; font-size: 0; max-height: 300px; overflow-y: auto;
         &>li {
-          &:not(.line) { display: inline-block; cursor: pointer; }
+          &:not(.line) { cursor: pointer; }
+          &:not(.line):not(.expanded) { display: inline-block;}
           &>div:not(.tooltip) { font-size: 1.2rem; display: inline-block }
           list-style: none; padding: 2px; margin: 2px; border: 1px solid transparent;
           &:not(.line):hover { background: saturate( @myhordes-smalltext, 30% ); border-color: darken(@myhordes-smalltext, 20%) }

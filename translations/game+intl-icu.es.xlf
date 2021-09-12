@@ -22769,5 +22769,15 @@
         <target>Für die vollständige Instandsetzung dieses Gebäudes sind noch {remaining} AP erforderlich.</target>
       </segment>
     </unit>
+    <unit id="Plqho0r" name="Niemand ist in der Nähe der Stadt (maximal 2 Felder).">
+      <notes>
+        <note category="german">Niemand ist in der Nähe der Stadt (maximal 2 Felder).</note>
+        <note category="from">twig:///templates/ajax/game/actions.html.twig</note>
+      </notes>
+      <segment>
+        <source>Niemand ist in der Nähe der Stadt (maximal 2 Felder).</source>
+        <target>No hay nadie cerca del pueblo (2 casillas de distancia máxima).</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

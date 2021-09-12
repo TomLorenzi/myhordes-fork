@@ -22658,5 +22658,15 @@ cette violente opération...]]></target>
         <target>La réparation complète de ce chantier nécessite encore {remaining} PA.</target>
       </segment>
     </unit>
+    <unit id="Plqho0r" name="Niemand ist in der Nähe der Stadt (maximal 2 Felder).">
+      <notes>
+        <note category="german">Niemand ist in der Nähe der Stadt (maximal 2 Felder).</note>
+        <note category="from">twig:///templates/ajax/game/actions.html.twig</note>
+      </notes>
+      <segment>
+        <source>Niemand ist in der Nähe der Stadt (maximal 2 Felder).</source>
+        <target>Il n'y a personne près de la ville (2 cases de distance maximum).</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
