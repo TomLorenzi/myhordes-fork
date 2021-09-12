@@ -9243,5 +9243,16 @@
         <target><![CDATA[Solange du <strong>erschöpft bist</strong>, kannst du diese Aktion nicht ausführen (da du keine Aktionspunkte mehr hast)... Trink oder iss etwas, oder nimm eine Droge, ansonsten musst du bis <strong>morgen</strong> warten.]]></target>
       </segment>
     </unit>
+    <unit id="bCsZ2JO">
+      <notes>
+        <note category="german">Ja, klar... Du hast ihn schon hunderte Male gesehen, das Thema ändert sich auch nicht allzu sehr, aber trotzdem: Es geht nichts über einen guten Zombie-Film zur Entspannung.&lt;t-stat-down-terror&gt;&lt;hr /&gt;Diese seltsam fernen Schreie des Schreckens haben dir den Kopf gerade gerückt: &lt;strong&gt;Du hast deine Angst abgeschüttelt&lt;/strong&gt;.&lt;/t-stat-down-terror&gt;</note>
+        <note category="from">db://ItemAction</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Ja, klar... Du hast ihn schon hunderte Male gesehen, das Thema ändert sich auch nicht allzu sehr, aber trotzdem: Es geht nichts über einen guten Zombie-Film zur Entspannung.&lt;t-stat-down-terror&gt;&lt;hr /&gt;Diese seltsam fernen Schreie des Schreckens haben dir den Kopf gerade gerückt: &lt;strong&gt;Du hast deine Angst abgeschüttelt&lt;/strong&gt;.&lt;/t-stat-down-terror&gt;</source>
+        <target><![CDATA[Ja, klar... Du hast ihn schon hunderte Male gesehen, das Thema ändert sich auch nicht allzu sehr, aber trotzdem: Es geht nichts über einen guten Zombie-Film zur Entspannung.<t-stat-down-terror><hr />Diese seltsam fernen Schreie des Schreckens haben dir den Kopf gerade gerückt: <strong>Du hast deine Angst abgeschüttelt</strong>.</t-stat-down-terror>]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

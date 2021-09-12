@@ -9279,5 +9279,15 @@
         <target><![CDATA[Vous ne pouvez pas faire cela lorsque <strong>vous êtes fatigué(e)</strong> (vous n'avez plus de point d'action)... Buvez, mangez ou droguez-vous pour récupérer, ou attendez <strong>demain</strong>.]]></target>
       </segment>
     </unit>
+    <unit id="bCsZ2JO">
+      <notes>
+        <note category="german">Ja, klar... Du hast ihn schon hunderte Male gesehen, das Thema ändert sich auch nicht allzu sehr, aber trotzdem: Es geht nichts über einen guten Zombie-Film zur Entspannung.&lt;t-stat-down-terror&gt;&lt;hr /&gt;Diese seltsam fernen Schreie des Schreckens haben dir den Kopf gerade gerückt: &lt;strong&gt;Du hast deine Angst abgeschüttelt&lt;/strong&gt;.&lt;/t-stat-down-terror&gt;</note>
+        <note category="from">db://ItemAction</note>
+      </notes>
+      <segment>
+        <source>Ja, klar... Du hast ihn schon hunderte Male gesehen, das Thema ändert sich auch nicht allzu sehr, aber trotzdem: Es geht nichts über einen guten Zombie-Film zur Entspannung.&lt;t-stat-down-terror&gt;&lt;hr /&gt;Diese seltsam fernen Schreie des Schreckens haben dir den Kopf gerade gerückt: &lt;strong&gt;Du hast deine Angst abgeschüttelt&lt;/strong&gt;.&lt;/t-stat-down-terror&gt;</source>
+        <target><![CDATA[Oui, d'accord... Vous l'avez déjà vu et revu des centaines de fois, le thème ne vous change pas trop du quotidien, mais quand même : rien de tel qu'un bon film de Zombies pour se détendre.<t-stat-down-terror><hr />Ces cris de terreur étrangement lointains vous ont permis de relativiser : <strong>vous sortez de votre terreur</strong>.</t-stat-down-terror>]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>
