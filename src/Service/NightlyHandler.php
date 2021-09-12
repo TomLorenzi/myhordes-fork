@@ -42,6 +42,7 @@ class NightlyHandler
     private array $cleanup = [];
     private array $skip_reanimation = [];
     private array $skip_infection = [];
+    private bool $exec_firework = false;
 
     private EntityManagerInterface $entity_manager;
     private LoggerInterface $log;
@@ -968,14 +969,7 @@ class NightlyHandler
                 for ($i=0; $i < count($toInfect) / 2; $i++)
                     $this->citizen_handler->inflictStatus($toInfect[$i], "tg_meta_ginfect");
 
-                // Kill zombies around the town (all at 1km, none beyond 10km)
-                foreach ($town->getZones() as $zone) {
-                	$km = $this->zone_handler->getZoneKm($zone);
-                	if($km >= 10) continue;
-
-                    $factor = 1 - 0.1 * (10 - $km);
-                    $zone->setZombies(max(0, round($zone->getZombies() * $factor, 0)));
-                }
+                $this->exec_firework = true;
                 
                 $ratio = 1 - mt_rand(13, 16) / 100;
 
@@ -1209,6 +1203,16 @@ class NightlyHandler
 
         $this->log->debug('Spreading zombies ...');
         $this->zone_handler->dailyZombieSpawn($town);
+
+        if ($this->exec_firework)
+            // Kill zombies around the town (all at 1km, none beyond 10km)
+            foreach ($town->getZones() as $zone) {
+                $km = $this->zone_handler->getZoneKm($zone);
+                if($km >= 10) continue;
+
+                $factor = 1 - 0.1 * (10 - $km);
+                $zone->setZombies(max(0, round($zone->getZombies() * $factor, 0)));
+            }
 
         $research_tower = $this->town_handler->getBuilding($town, 'small_gather_#02', true);
         $watchtower     = $this->town_handler->getBuilding($town, 'item_tagger_#00',  true);
