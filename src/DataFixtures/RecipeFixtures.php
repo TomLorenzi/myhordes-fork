@@ -284,14 +284,14 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
         'ws008' => ['type' => Recipe::WorkshopType, 'in' => 'metal_bad_#00',       'out' => 'metal_#00', 'action' => 'Wandeln'],
         'ws009' => ['type' => Recipe::WorkshopType, 'in' => 'metal_#00',           'out' => 'metal_beam_#00', 'action' => 'Wandeln'],
         'ws010' => ['type' => Recipe::WorkshopType, 'in' => 'metal_beam_#00',      'out' => 'metal_#00', 'action' => 'Wandeln'],
-        'ws011' => ['type' => Recipe::WorkshopType, 'in' => 'electro_box_#00',     'out' => [ 'pile_#00', 'pilegun_empty_#00', 'electro_#00', 'meca_parts_#00', 'tagger_#00', 'deto_#00' ], 'action' => 'Zerlegen' ],
-        'ws012' => ['type' => Recipe::WorkshopType, 'in' => 'mecanism_#00',        'out' => [ 'metal_#00', 'tube_#00', 'metal_bad_#00', 'meca_parts_#00' ], 'action' => 'Zerlegen' ],
-        'ws013' => ['type' => Recipe::WorkshopType, 'in' => 'chest_#00',           'out' => [ 'drug_#00', 'bandage_#00', 'pile_#00', 'pilegun_empty_#00', /*'vodka_de_#00',*/ 'vodka_#00', 'pharma_#00', 'explo_#00', 'lights_#00', 'drug_hero_#00', 'rhum_#00' ], 'action' => 'Öffnen' ],
-        'ws014' => ['type' => Recipe::WorkshopType, 'in' => 'chest_xl_#00',        'out' => [ 'watergun_opt_part_#00', 'pilegun_upkit_#00', 'pocket_belt_#00', 'cutcut_#00', 'chainsaw_part_#00', 'mixergun_part_#00', 'big_pgun_part_#00', 'lawn_part_#00' ], 'action' => 'Öffnen' ],
-        'ws015' => ['type' => Recipe::WorkshopType, 'in' => 'chest_tools_#00',     'out' => [ 'pile_#00', 'meca_parts_#00', 'rustine_#00', 'tube_#00', 'pharma_#00', 'explo_#00', 'lights_#00' ], 'action' => 'Öffnen' ],
-        'ws016' => ['type' => Recipe::WorkshopType, 'in' => 'chest_food_#00',      'out' => [ 'food_bag_#00', 'can_#00', 'meat_#00', 'hmeat_#00', 'vegetable_#00' ], 'action' => 'Öffnen' ],
-        'ws017' => ['type' => Recipe::WorkshopType, 'in' => 'deco_box_#00',        'out' => [ 'door_#00', 'chair_basic_#00', 'trestle_#00', 'table_#00', 'chair_#00' ], 'action' => 'Wandeln' ],
-        'ws018' => ['type' => Recipe::WorkshopType, 'in' => 'catbox_#00',          'out' => [ 'poison_part_#00', 'pet_cat_#00', 'angryc_#00' ], 'action' => 'Öffnen' ],
+        'ws011' => ['type' => Recipe::WorkshopType, 'in' => 'electro_box_#00',     'out' => [ ['pile_#00', 15], ['pilegun_empty_#00', 16], ['electro_#00', 23], ['meca_parts_#00', 18], ['tagger_#00', 14], ['deto_#00', 14] ], 'action' => 'Zerlegen' ],
+        'ws012' => ['type' => Recipe::WorkshopType, 'in' => 'mecanism_#00',        'out' => [ ['metal_#00', 51], ['tube_#00', 9], ['metal_bad_#00', 8], ['meca_parts_#00', 32] ], 'action' => 'Zerlegen' ],
+        'ws013' => ['type' => Recipe::WorkshopType, 'in' => 'chest_#00',           'out' => [ ['drug_#00', 16], ['bandage_#00', 28], /*'vodka_de_#00',*/ ['vodka_#00', 20], ['explo_#00', 8], ['lights_#00', 4], ['drug_hero_#00', 16], ['rhum_#00', 8] ], 'action' => 'Öffnen' ],
+        'ws014' => ['type' => Recipe::WorkshopType, 'in' => 'chest_xl_#00',        'out' => [ ['watergun_opt_part_#00', 19], ['pilegun_upkit_#00', 10], ['pocket_belt_#00', 12], ['cutcut_#00', 10], ['chainsaw_part_#00', 12], ['mixergun_part_#00', 19], ['big_pgun_part_#00', 7], ['lawn_part_#00', 12] ], 'action' => 'Öffnen' ],
+        'ws015' => ['type' => Recipe::WorkshopType, 'in' => 'chest_tools_#00',     'out' => [ ['pile_#00', 12], ['meca_parts_#00', 17], ['rustine_#00', 13], ['tube_#00', 13], ['pharma_#00', 25], ['explo_#00', 19] ], 'action' => 'Öffnen' ],
+        'ws016' => ['type' => Recipe::WorkshopType, 'in' => 'chest_food_#00',      'out' => [ ['food_bag_#00', 8], ['can_#00', 11], ['meat_#00', 7], ['hmeat_#00', 13], ['vegetable_#00', 8] ], 'action' => 'Öffnen' ],
+        'ws017' => ['type' => Recipe::WorkshopType, 'in' => 'deco_box_#00',        'out' => [ ['door_#00', 44], ['chair_basic_#00', 60], ['trestle_#00', 35], ['table_#00', 35], ['chair_#00', 46] ], 'action' => 'Wandeln' ],
+        'ws018' => ['type' => Recipe::WorkshopType, 'in' => 'catbox_#00',          'out' => [ ['poison_part_#00', 2], ['pet_cat_#00', 4], ['angryc_#00', 4] ], 'action' => 'Öffnen' ],
         'ws019' => ['type' => Recipe::WorkshopType, 'in' => 'prints_#00',          'out' => 'magneticKey_#00', 'action' => 'Wandeln' ],   // Magnetic key
         'ws020' => ['type' => Recipe::WorkshopType, 'in' => 'prints_#01',          'out' => 'bumpKey_#00', 'action' => 'Wandeln' ],       // Bump key
         'ws021' => ['type' => Recipe::WorkshopType, 'in' => 'prints_#02',          'out' => 'classicKey_#00', 'action' => 'Wandeln' ],    // Bottle Opener key
@@ -330,8 +330,8 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
         'com026' => ['type' => Recipe::ManualAnywhere, 'out' => 'fruit_part_#00',         'provoking' => 'fruit_sub_part_#00',     'in' => ['fruit_sub_part_#00', 'fruit_sub_part_#00' ], "picto"=> "r_solban_#00" ],
 
         /** Do not change the name of com27! */
-        'com027' => ['type' => Recipe::ManualAnywhere, 'out' => ['drug_#00', 'xanax_#00', 'drug_random_#00', 'drug_water_#00', 'water_cleaner_#00', 'drug_hero_#00'], 'provoking' => 'pharma_#00', 'in' => ['pharma_#00', 'pharma_#00' ] ],
-        'com028' => ['type' => Recipe::ManualAnywhere, 'out' => ['drug_#00', 'drug_random_#00', 'drug_water_#00', 'water_cleaner_#00', 'pharma_#00'], 'provoking' => 'pharma_part_#00', 'in' => ['pharma_part_#00', 'pharma_part_#00' ], "picto"=> "r_solban_#00" ],
+        'com027' => ['type' => Recipe::ManualAnywhere, 'out' => [ ['drug_#00', 42], ['xanax_#00', 40], ['drug_random_#00', 46], ['drug_water_#00', 46], ['water_cleaner_#00', 43], ['drug_hero_#00', 49] ], 'provoking' => 'pharma_#00', 'in' => ['pharma_#00', 'pharma_#00' ] ],
+        'com028' => ['type' => Recipe::ManualAnywhere, 'out' => [ ['drug_#00', 1], ['xanax_#00', 1], ['drug_random_#00', 2], ['drug_water_#00', 2], ['water_cleaner_#00', 1], ['pharma_#00', 7] ], 'provoking' => 'pharma_part_#00', 'in' => ['pharma_part_#00', 'pharma_part_#00' ], "picto"=> "r_solban_#00" ],
 
         'com029' => ['type' => Recipe::ManualAnywhere, 'out' => 'trapma_#00',               'provoking' => 'claymo_#00',            'in' => ['claymo_#00','door_carpet_#00'] ],
         'com030' => ['type' => Recipe::ManualAnywhere, 'out' => 'claymo_#00',               'provoking' => 'wire_#00',              'in' => ['wire_#00','explo_#00', 'meca_parts_#00', 'rustine_#00'] ],
