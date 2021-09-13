@@ -22766,7 +22766,7 @@
       </notes>
       <segment>
         <source>Für die vollständige Instandsetzung dieses Gebäudes sind noch {remaining} AP erforderlich.</source>
-        <target>Für die vollständige Instandsetzung dieses Gebäudes sind noch {remaining} AP erforderlich.</target>
+        <target>Para la reparación completa de este edificio, se requieren {remaining} AP.</target>
       </segment>
     </unit>
     <unit id="Plqho0r" name="Niemand ist in der Nähe der Stadt (maximal 2 Felder).">
@@ -22787,7 +22787,7 @@
       </notes>
       <segment>
         <source>Einige Bürger wurden beim Versuch, sich der Zombiehorde entgegenzustellen, verletzt.</source>
-        <target>Einige Bürger wurden beim Versuch, sich der Zombiehorde entgegenzustellen, verletzt.</target>
+        <target>Algunos habitantes resultaron heridos al intentar oponerse a la horda de zombis.</target>
       </segment>
     </unit>
     <unit id="bAZ.uzF">
@@ -22798,7 +22798,7 @@
       </notes>
       <segment>
         <source>Einige Bürger sind beim Versuch, sich der Zombiehorde entgegenzustellen, vor Angst erstarrt.</source>
-        <target>Einige Bürger sind beim Versuch, sich der Zombiehorde entgegenzustellen, vor Angst erstarrt.</target>
+        <target>Algunos habitantes se congelan de miedo mientras intentan enfrentarse a la horda de zombis.</target>
       </segment>
     </unit>
     <unit id="fYLDfxe">
@@ -22809,7 +22809,7 @@
       </notes>
       <segment>
         <source>Beim Graben ist {citizen} auf eine Art... geheimes Versteck mit {items} gestoßen! Es wurde vermutlich von einem verbannten Mitbürger angelegt...</source>
-        <target>Beim Graben ist {citizen} auf eine Art... geheimes Versteck mit {items} gestoßen! Es wurde vermutlich von einem verbannten Mitbürger angelegt...</target>
+        <target>Mientras excavaba, {citizen} se encontró con una especie de... ¡escondite secreto con {items}! Probablemente fue creado por un conhabitante desterrado...</target>
       </segment>
     </unit>
     <unit id="7yCOjAd">
@@ -22820,7 +22820,7 @@
       </notes>
       <segment>
         <source>Beim Durchwühlen des Mülls, der am Stadtrand herumliegt, findest du schließlich folgendes: {item}.&lt;hr /&gt;Du hast &lt;strong&gt;1 Aktionspunkt(e)&lt;/strong&gt; verbraucht.</source>
-        <target><![CDATA[Beim Durchwühlen des Mülls, der am Stadtrand herumliegt, findest du schließlich folgendes: {item}.<hr />Du hast <strong>1 Aktionspunkt(e)</strong> verbraucht.]]></target>
+        <target><![CDATA[Al hurgar en la basura que hay en las afueras, encontraste lo siguiente: {item}.<hr /> Ha utilizado <strong> 1 punto de acción</strong>.]]></target>
       </segment>
     </unit>
     <unit id="6IxRpiz">
