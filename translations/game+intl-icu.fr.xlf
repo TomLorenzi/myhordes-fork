@@ -22718,5 +22718,15 @@ cette violente opération...]]></target>
         <target><![CDATA[Vous avez volé {item} à {victim} <strong>sans que quiconque s'en aperçoive</strong>. Vous êtes vraiment habile..]]></target>
       </segment>
     </unit>
+    <unit id="3gqgsBC" name="Du hast keine Seelenpunkte gewonnen (am ersten Tag gestorben).">
+      <notes>
+        <note category="german">Du hast keine Seelenpunkte gewonnen (am ersten Tag gestorben).</note>
+        <note category="from">twig:///templates/ajax/soul/death.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du hast keine Seelenpunkte gewonnen (am ersten Tag gestorben).</source>
+        <target>Vous n'avez gagné aucun point d'âme (mort le premier jour).</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

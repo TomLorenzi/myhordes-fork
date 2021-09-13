@@ -10,7 +10,11 @@
             </div>
             <div class="death_footer">
                 {% if not citizen.disabled and not citizen.town.disabled %}
+                    {% if sp > 0 %}
                     {{ 'Du hast {sp} Seelenpunkte gewonnen!'|trans({'{sp}':sp},'game') }}
+                    {% else %}
+                        {{ 'Du hast keine Seelenpunkte gewonnen (am ersten Tag gestorben).'|trans({},'game') }}
+                    {% endif %}
                 {% endif %}
             </div>
 
@@ -33,6 +37,7 @@
                                 {{ 'Dieses Leben wird aus den Annalen der Geschichte getilgt. Du erhälst weder Seelenpunkte noch Auszeichnungen.'|trans({},'game') }}
                             </div>
                         {% else %}
+                            {% if pictos|length > 0 %}
                             <b>{{ 'Du hast folgende Auszeichnungen verliehen bekommen:'|trans({},'game')  }}</b>
                             <ul>
                             {% for picto in pictos %}
@@ -48,6 +53,7 @@
                                 </li>
                             {% endfor %}
                             </ul>
+                            {% endif %}
                             {% if denied_pictos|length > 0 %}
                                 <b>{{ 'Wenn du eine zusätzliche Nacht geblieben wärst, hättest du auch die folgenden Preise gewinnen können:'|trans({},'game')  }}</b>
                                 <ul>
