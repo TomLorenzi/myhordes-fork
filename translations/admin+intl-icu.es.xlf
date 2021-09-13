@@ -3963,7 +3963,7 @@
       </notes>
       <segment>
         <source>Eingeschränkter Import</source>
-        <target>Eingeschränkter Import</target>
+        <target>Importación restringida</target>
       </segment>
     </unit>
     <unit id="mBqJlZa" name="Hauptseele ohne Einschränkungen importieren">
@@ -3974,7 +3974,7 @@
       </notes>
       <segment>
         <source>Hauptseele ohne Einschränkungen importieren</source>
-        <target>Hauptseele ohne Einschränkungen importieren</target>
+        <target>Importar alma principal sin restricciones</target>
       </segment>
     </unit>
   </file>
