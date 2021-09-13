@@ -1346,7 +1346,6 @@
     <unit id="vXeei1Z">
       <notes>
         <note category="german">Beispiel, um nur die Informationen des Objekts „Wasserration“ wiederherzustellen:</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/public/apidocs.html.twig</note>
       </notes>
       <segment>
@@ -1357,7 +1356,6 @@
     <unit id="stieGyi" name="Es wird angezeigt :">
       <notes>
         <note category="german">Es wird angezeigt :</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/public/apidocs.html.twig</note>
       </notes>
       <segment>
@@ -1368,7 +1366,6 @@
     <unit id="iNaLkw8" name="Wenn aus Twinoid importiert, Ländercode + Season (zb &quot;fr-12&quot;); sonst leer.">
       <notes>
         <note category="german">Wenn aus Twinoid importiert, Ländercode + Season (zb "fr-12"); sonst leer.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/public/apidocs.html.twig</note>
       </notes>
       <segment>
@@ -1380,7 +1377,6 @@
       <notes>
         <note category="german">Phase der Stadt; entweder "alpha", "beta", "import" oder "native"</note>
         <note category="from">twig:///templates/ajax/public/apidocs.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Phase der Stadt; entweder "alpha", "beta", "import" oder "native"</source>
@@ -1391,7 +1387,6 @@
       <notes>
         <note category="german">Herkunfts-Server der Stadt</note>
         <note category="from">twig:///templates/ajax/public/apidocs.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Herkunfts-Server der Stadt</source>

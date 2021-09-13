@@ -15538,7 +15538,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="FvwX8Vo" name="Die Außenwelt">
       <notes>
         <note category="german">Die Außenwelt</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
@@ -15549,7 +15548,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="hZyt4RO" name="Ein beunruhigender Sonnenuntergang">
       <notes>
         <note category="german">Ein beunruhigender Sonnenuntergang</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
@@ -15592,7 +15590,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="Jaioypa" name="irgendwo {location} der Stadt...">
       <notes>
         <note category="german">irgendwo {location} der Stadt...</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
@@ -22735,7 +22732,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <notes>
         <note category="german">Barhändiger Stripper</note>
         <note category="from">db://AwardPrototype</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Barhändiger Stripper</source>
@@ -22809,11 +22805,21 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <notes>
         <note category="german">Es ist dir gelungen, {item} von {victim} zu stehlen &lt;strong&gt;ohne entdeckt zu werden&lt;/strong&gt;. Nicht schlecht!</note>
         <note category="from">php:///src/Controller/InventoryAwareController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Es ist dir gelungen, {item} von {victim} zu stehlen &lt;strong&gt;ohne entdeckt zu werden&lt;/strong&gt;. Nicht schlecht!</source>
         <target><![CDATA[You have stolen the {item} from {victim} <strong>without anyone noticing</strong>. Damn! You've got skills...]]></target>
+      </segment>
+    </unit>
+    <unit id="3gqgsBC" name="Du hast keine Seelenpunkte gewonnen (am ersten Tag gestorben).">
+      <notes>
+        <note category="german">Du hast keine Seelenpunkte gewonnen (am ersten Tag gestorben).</note>
+        <note category="from">twig:///templates/ajax/soul/death.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Du hast keine Seelenpunkte gewonnen (am ersten Tag gestorben).</source>
+        <target>Du hast keine Seelenpunkte gewonnen (am ersten Tag gestorben).</target>
       </segment>
     </unit>
   </file>

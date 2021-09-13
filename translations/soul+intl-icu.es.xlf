@@ -3880,7 +3880,6 @@
       <notes>
         <note category="german">In der Vergangenheit importierte Seelenpunkte, Auszeichnungen und Heldenerfahrung von dieser Seele sind deinem MyHordes-Profil gutgeschrieben worden. Neu hinzu gekommene Seelenpunkte, Auszeichnungen und Heldenerfahrung werden jedoch nur in einem gesonderten Bereich deiner Seele angezeigt.</note>
         <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>In der Vergangenheit importierte Seelenpunkte, Auszeichnungen und Heldenerfahrung von dieser Seele sind deinem MyHordes-Profil gutgeschrieben worden. Neu hinzu gekommene Seelenpunkte, Auszeichnungen und Heldenerfahrung werden jedoch nur in einem gesonderten Bereich deiner Seele angezeigt.</source>
@@ -3891,7 +3890,6 @@
       <notes>
         <note category="german">Hiermit markierst du die Seele, mit der du dich am meisten identifizierst. Es kann nur eine importierte Seele zur Hauptseele erklärt werden. Überlege dir deine Entscheidung gut, denn du kannst die Wahl deiner Hauptseele später nicht mehr ändern!</note>
         <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Hiermit markierst du die Seele, mit der du dich am meisten identifizierst. Es kann nur eine importierte Seele zur Hauptseele erklärt werden. Überlege dir deine Entscheidung gut, denn du kannst die Wahl deiner Hauptseele später nicht mehr ändern!</source>
@@ -3902,7 +3900,6 @@
       <notes>
         <note category="german">Da du bereits Punkte auf MyHordes gesammelt hast, kannst du nicht länger Seelenpunkte, Auszeichnungen und Heldenerfahrung von einer importierten Seele übernehmen.</note>
         <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Da du bereits Punkte auf MyHordes gesammelt hast, kannst du nicht länger Seelenpunkte, Auszeichnungen und Heldenerfahrung von einer importierten Seele übernehmen.</source>
@@ -3913,7 +3910,6 @@
       <notes>
         <note category="german">Achtung, der Seelenimport unterliegt aktuell zusätzlichen Einschränkungen.</note>
         <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Achtung, der Seelenimport unterliegt aktuell zusätzlichen Einschränkungen.</source>
@@ -3924,7 +3920,6 @@
       <notes>
         <note category="german">Um zu verhindern, dass Spieler Auszeichnungen, Seelenpunkte oder Heldenerfahrung farmen, indem sie gleichzeitig auf MyHordes und Hordes (oder einer lokalen Variante von Hordes) spielen, werden &lt;b&gt;neu gesammelte Auszeichnungen, SP oder Heldenerfahrung&lt;/b&gt; nicht länger zu deiner MH-Seele hinzugerechnet.</note>
         <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Um zu verhindern, dass Spieler Auszeichnungen, Seelenpunkte oder Heldenerfahrung farmen, indem sie gleichzeitig auf MyHordes und Hordes (oder einer lokalen Variante von Hordes) spielen, werden &lt;b&gt;neu gesammelte Auszeichnungen, SP oder Heldenerfahrung&lt;/b&gt; nicht länger zu deiner MH-Seele hinzugerechnet.</source>
@@ -3935,7 +3930,6 @@
       <notes>
         <note category="german">Diese Einschränkung betrifft alle Spieler, die auf MyHordes bereits &lt;b&gt;mehr als {threshold} Seelenpunkte&lt;/b&gt; gesammelt haben.</note>
         <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Diese Einschränkung betrifft alle Spieler, die auf MyHordes bereits &lt;b&gt;mehr als {threshold} Seelenpunkte&lt;/b&gt; gesammelt haben.</source>
@@ -3946,7 +3940,6 @@
       <notes>
         <note category="german">Es werden nach wie vor alle Informationen aus deiner importierten Seele auf MyHordes gespeichert. Durch den Import &lt;b&gt;neu&lt;/b&gt; gewonnene Auszeichnungen, SP oder Heldenerfahrung wird jedoch &lt;b&gt;nur noch in einem gesonderten Bereich&lt;/b&gt; auf deiner MH-Seele angezeigt.</note>
         <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Es werden nach wie vor alle Informationen aus deiner importierten Seele auf MyHordes gespeichert. Durch den Import &lt;b&gt;neu&lt;/b&gt; gewonnene Auszeichnungen, SP oder Heldenerfahrung wird jedoch &lt;b&gt;nur noch in einem gesonderten Bereich&lt;/b&gt; auf deiner MH-Seele angezeigt.</source>
@@ -3957,7 +3950,6 @@
       <notes>
         <note category="german">Du kannst deine Seele aktuell &lt;b&gt;ohne Einschränkungen&lt;/b&gt; importieren.</note>
         <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Du kannst deine Seele aktuell &lt;b&gt;ohne Einschränkungen&lt;/b&gt; importieren.</source>
@@ -3968,7 +3960,6 @@
       <notes>
         <note category="german">Importierte Seelen</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Importierte Seelen</source>
@@ -3979,7 +3970,6 @@
       <notes>
         <note category="german">&lt;b&gt;Wenn du sie in der Vergangenheit importiert hast&lt;/b&gt;, kannst du sie dir hier ansehen!</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>&lt;b&gt;Wenn du sie in der Vergangenheit importiert hast&lt;/b&gt;, kannst du sie dir hier ansehen!</source>
@@ -3990,7 +3980,6 @@
       <notes>
         <note category="german">Die maximale Größe der Bilddatei, die du für deinen Avatar hochladen kannst, beträgt &lt;b&gt;{size}&lt;/b&gt;.</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Die maximale Größe der Bilddatei, die du für deinen Avatar hochladen kannst, beträgt &lt;b&gt;{size}&lt;/b&gt;.</source>
@@ -4001,7 +3990,6 @@
       <notes>
         <note category="german">Nach dem Upload wird der Server dein Bild möglicherweise komprimieren (z.B. indem die Auflösung reduziert oder Animationsframes optimiert werden).</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Nach dem Upload wird der Server dein Bild möglicherweise komprimieren (z.B. indem die Größe reduziert oder Animationsframe optimiert werden).</source>
@@ -4012,7 +4000,6 @@
       <notes>
         <note category="german">Der Server muss in der Lage sein, dein Bild auf höchstens &lt;b&gt;{size}&lt;/b&gt; zu komprimieren - andernfalls kann es nicht gespeichert werden.</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Der Server muss in der Lage sein, dein Bild auf höchstens &lt;b&gt;{size}&lt;/b&gt; zu komprimieren - andernfalls kann es nicht gespeichert werden.</source>
@@ -4023,7 +4010,6 @@
       <notes>
         <note category="german">Die folgenden Bildformate werden unterstützt:</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Die folgenden Bildformate werden unterstützt:</source>
@@ -4034,7 +4020,6 @@
       <notes>
         <note category="german">nur Baseline-Format</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>nur Baseline-Format</source>

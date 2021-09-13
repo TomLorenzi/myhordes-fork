@@ -3959,7 +3959,6 @@
       <notes>
         <note category="german">Eingeschränkter Import</note>
         <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Eingeschränkter Import</source>
@@ -3970,7 +3969,6 @@
       <notes>
         <note category="german">Hauptseele ohne Einschränkungen importieren</note>
         <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Hauptseele ohne Einschränkungen importieren</source>

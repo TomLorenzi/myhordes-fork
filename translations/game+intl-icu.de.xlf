@@ -14502,5 +14502,11 @@
         <target><![CDATA[Es ist dir gelungen, {item} von {victim} zu stehlen <strong>ohne entdeckt zu werden</strong>. Nicht schlecht!]]></target>
       </segment>
     </unit>
+    <unit id="3gqgsBC" name="Du hast keine Seelenpunkte gewonnen (am ersten Tag gestorben).">
+      <segment>
+        <source>Du hast keine Seelenpunkte gewonnen (am ersten Tag gestorben).</source>
+        <target>Du hast keine Seelenpunkte gewonnen (am ersten Tag gestorben).</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

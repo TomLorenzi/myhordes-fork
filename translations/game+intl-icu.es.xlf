@@ -22751,7 +22751,6 @@
       <notes>
         <note category="german">Barhändiger Stripper</note>
         <note category="from">db://AwardPrototype</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Barhändiger Stripper</source>
@@ -22762,7 +22761,6 @@
       <notes>
         <note category="german">Für die vollständige Instandsetzung dieses Gebäudes sind noch {remaining} AP erforderlich.</note>
         <note category="from">twig:///templates/ajax/game/town/construction.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Für die vollständige Instandsetzung dieses Gebäudes sind noch {remaining} AP erforderlich.</source>
@@ -22783,7 +22781,6 @@
       <notes>
         <note category="german">Einige Bürger wurden beim Versuch, sich der Zombiehorde entgegenzustellen, verletzt.</note>
         <note category="from">db://LogEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Einige Bürger wurden beim Versuch, sich der Zombiehorde entgegenzustellen, verletzt.</source>
@@ -22794,7 +22791,6 @@
       <notes>
         <note category="german">Einige Bürger sind beim Versuch, sich der Zombiehorde entgegenzustellen, vor Angst erstarrt.</note>
         <note category="from">db://LogEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Einige Bürger sind beim Versuch, sich der Zombiehorde entgegenzustellen, vor Angst erstarrt.</source>
@@ -22805,7 +22801,6 @@
       <notes>
         <note category="german">Beim Graben ist {citizen} auf eine Art... geheimes Versteck mit {items} gestoßen! Es wurde vermutlich von einem verbannten Mitbürger angelegt...</note>
         <note category="from">php:///src/Service/ZoneHandler.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Beim Graben ist {citizen} auf eine Art... geheimes Versteck mit {items} gestoßen! Es wurde vermutlich von einem verbannten Mitbürger angelegt...</source>
@@ -22816,7 +22811,6 @@
       <notes>
         <note category="german">Beim Durchwühlen des Mülls, der am Stadtrand herumliegt, findest du schließlich folgendes: {item}.&lt;hr /&gt;Du hast &lt;strong&gt;1 Aktionspunkt(e)&lt;/strong&gt; verbraucht.</note>
         <note category="from">php:///src/Controller/BeyondController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Beim Durchwühlen des Mülls, der am Stadtrand herumliegt, findest du schließlich folgendes: {item}.&lt;hr /&gt;Du hast &lt;strong&gt;1 Aktionspunkt(e)&lt;/strong&gt; verbraucht.</source>
@@ -22831,6 +22825,17 @@
       <segment>
         <source>Es ist dir gelungen, {item} von {victim} zu stehlen &lt;strong&gt;ohne entdeckt zu werden&lt;/strong&gt;. Nicht schlecht!</source>
         <target><![CDATA[Has robado {item} cancerígeno roto(a) a {victim} <strong>sin que nadie se dé cuenta</strong>. ¡Qué hábil eres, eh!]]></target>
+      </segment>
+    </unit>
+    <unit id="3gqgsBC" name="Du hast keine Seelenpunkte gewonnen (am ersten Tag gestorben).">
+      <notes>
+        <note category="german">Du hast keine Seelenpunkte gewonnen (am ersten Tag gestorben).</note>
+        <note category="from">twig:///templates/ajax/soul/death.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Du hast keine Seelenpunkte gewonnen (am ersten Tag gestorben).</source>
+        <target>Du hast keine Seelenpunkte gewonnen (am ersten Tag gestorben).</target>
       </segment>
     </unit>
   </file>
