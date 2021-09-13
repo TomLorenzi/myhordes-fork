@@ -15543,7 +15543,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Die Außenwelt</source>
-        <target>Die Außenwelt</target>
+        <target>The World Beyond</target>
       </segment>
     </unit>
     <unit id="hZyt4RO" name="Ein beunruhigender Sonnenuntergang">
@@ -15554,7 +15554,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Ein beunruhigender Sonnenuntergang</source>
-        <target>Ein beunruhigender Sonnenuntergang</target>
+        <target>An ominous twilight</target>
       </segment>
     </unit>
     <unit id="XRqPUn0" name="Eine eisige Nacht">
@@ -15597,7 +15597,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>irgendwo {location} der Stadt...</source>
-        <target>irgendwo {location} der Stadt...</target>
+        <target>somewhere {location} of the town...</target>
       </segment>
     </unit>
     <unit id="LV5ZZVt" name="an den Toren der Stadt">
@@ -18785,7 +18785,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Bürger:</source>
-        <target>Citizen :</target>
+        <target>Citizen:</target>
       </segment>
     </unit>
     <unit id="veFPW3j" name="Alles sehen">
@@ -18865,7 +18865,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Wie gebraucht man diese Karte?</source>
-        <target>How does the map work ?</target>
+        <target>How does the map work?</target>
       </segment>
     </unit>
     <unit id="7cJ1Xdv" name="Brauchst du Hilfe? Benutze den {modelink}!">
@@ -18937,7 +18937,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Zum Anfängermodus zurückkehren</source>
-        <target>Return to the Rookie Interface </target>
+        <target>Return to the Rookie Interface</target>
       </segment>
     </unit>
     <unit id="qq349uP" name="(Du bist gerade im &lt;strong&gt;Expertenmodus&lt;/strong&gt;)">
