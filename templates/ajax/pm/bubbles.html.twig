@@ -152,7 +152,7 @@
         <div class="pm-announce">
             <div class="pm-message-content">
                 <h1>{{ announcement.title }}</h1>
-                {{ announcement.text|raw }}
+                {{ announcement.text|replace({'{lang}': (app.request.locale|e('html_attr')|split('_', 2))[0] })|raw }}
             </div>
             <div class="pm-message-footer">
                 {% if (announcement.sender.avatar) %}
@@ -186,7 +186,7 @@
             <div class="pm-message-header"><img src="{{ asset('build/images/icons/small_user.gif') }}" alt=""> <a class="link" href="{{ path('soul_visit', {id: message.sender.id}) }}">{% if (message.sender.id == 66) %}{{'Der Rabe'|trans({}, 'global')}}{% else %}{{ message.sender.name }}{% endif %}</a></div>
             <div class="pm-message-content">
                 <div class="crowmsg">{{ 'Dies ist eine offizielle Nachricht.'|trans({},'game') }} <a class="help-button"><div class="tooltip help">{{ 'Diese Nachricht wurde dir vom Raben persönlich überbracht. Er schwebt über der Stadt und wirft immer ein wachsames Auge auf dich...'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></div>
-                {{ message.text|raw }}
+                {{ message.text|replace({'{lang}': (app.request.locale|e('html_attr')|split('_', 2))[0] })|raw }}
             </div>
             <div class="pm-message-footer">
                 {% if message.timestamp >= "today"|to_date %}
@@ -205,7 +205,7 @@
     <li x-domain="m-d" x-pinned x-identifier="{{ message.id }}">
         <div class="pm-announce">
             <div class="pm-message-content">
-                {{ message.text|raw }}
+                {{ message.text|replace({'{lang}': (app.request.locale|e('html_attr')|split('_', 2))[0] })|raw }}
                 {% if message.modMessage %}
                     <div class="modAnnounce">{{ message.modMessage }}</div>
                 {% endif %}
@@ -275,7 +275,7 @@
                 {% if message.hidden %}
                     <div class="crowmsg">{{ 'Der Rabe hat diese Nachricht zerrissen.'|trans({},'game') }}</div>
                 {% else %}
-                    {{ message.text|raw }}
+                    {{ message.text|replace({'{lang}': (app.request.locale|e('html_attr')|split('_', 2))[0] })|raw }}
                 {% endif %}
                 {% if message.modMessage %}
                     <div class="modAnnounce">{{ message.modMessage }}</div>

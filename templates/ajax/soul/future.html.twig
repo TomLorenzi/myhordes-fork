@@ -28,7 +28,7 @@
         {% endif %}
         <div class="row forum-post">
             <div class="forum-post-content content" style="min-height: 155px;">
-                {{selected.text|raw}}
+                {{selected.text|replace({'{lang}': (app.request.locale|e('html_attr')|split('_', 2))[0] })|raw}}
             </div>
         </div>
     </div>
