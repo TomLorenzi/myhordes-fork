@@ -70,9 +70,9 @@ class EmoteFixtures extends Fixture {
         ['tag'=>':sham:', 'path'=>'build/images/emotes/sham.gif', 'isactive'=> true, 'requiresunlock'=> false, 'index'=> 46],
         ['tag'=>':guide:', 'path'=>'build/images/emotes/guide.gif', 'isactive'=> true, 'requiresunlock'=> false, 'index'=> 47],
         ['tag'=>':ghoul:', 'path'=>'build/images/emotes/ghoul.gif', 'isactive'=> true, 'requiresunlock'=> false, 'index'=> 48],
-        ['tag'=>':ap:', 'path'=>'build/images/emotes/ap.gif', 'isactive'=> true, 'requiresunlock'=> false, 'index'=> 49],
-        ['tag'=>':pc:', 'path'=>'build/images/emotes/pc.gif', 'isactive'=> true, 'requiresunlock'=> false, 'index'=> 50],
-        ['tag'=>':pm:', 'path'=>'build/images/emotes/pm.gif', 'isactive'=> true, 'requiresunlock'=> false, 'index'=> 51],
+        ['tag'=>':ap:', 'path'=>'build/images/emotes/ap.{lang}.gif', 'isactive'=> true, 'requiresunlock'=> false, 'index'=> 49, 'i18n' => true],
+        ['tag'=>':pc:', 'path'=>'build/images/emotes/pc.{lang}.gif', 'isactive'=> true, 'requiresunlock'=> false, 'index'=> 50, 'i18n' => true],
+        ['tag'=>':pm:', 'path'=>'build/images/emotes/pm.{lang}.gif', 'isactive'=> true, 'requiresunlock'=> false, 'index'=> 51, 'i18n' => true],
         ['tag'=>':iloveu:', 'path'=>'build/images/emotes/iloveu.gif', 'isactive'=> true, 'requiresunlock'=> false, 'index'=> 52],
         ['tag'=>':sock:', 'path'=>'build/images/emotes/socks.gif', 'isactive'=> true, 'requiresunlock'=> false, 'index'=> 53],
         ['tag'=>':build:', 'path'=>'build/images/emotes/build.gif', 'isactive'=> true, 'requiresunlock'=> true, 'index'=> 54],
@@ -169,11 +169,12 @@ class EmoteFixtures extends Fixture {
                 $entity = new Emotes();
             }
 
-            $entity->setTag($entry['tag']);
-            $entity->setPath($entry['path']);
-            $entity->setIsActive($entry['isactive']);
-            $entity->setRequiresUnlock($entry['requiresunlock']);
-            $entity->setOrderIndex($entry['index']);
+            $entity->setTag($entry['tag'])
+                ->setPath($entry['path'])
+                ->setIsActive($entry['isactive'])
+                ->setRequiresUnlock($entry['requiresunlock'])
+                ->setOrderIndex($entry['index'])
+                ->setI18n($entry['i18n'] ?? false);
 
             $manager->persist($entity);
             $progress->advance();
