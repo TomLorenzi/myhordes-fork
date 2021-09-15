@@ -14373,7 +14373,7 @@
     <unit id="UOD7ZoJ">
       <segment>
         <source>Ermordet zu werden ist äußerst ärgerlich (ja, wirklich!). Aber wir bitten dich dringend, &lt;u&gt;die Identität deines Mörders gegenüber deinen ehemaligen Mitbürgern nicht aufzudecken&lt;/u&gt;... Lass ihnen das Vergnügen, selbst ermitteln zu müssen!</source>
-        <target><![CDATA[Ermordet zu werden ist äußerst ärgerlich (ja, wirklich!). Aber wir bitten dich dringend, <u>die Identität deines Mörders gegenüber deinen ehemaligen Mitbürgern nicht aufzudecken</u>... Lass ihnen das Vergnügen, selbst ermitteln zu müssen!]]></target>
+        <target><![CDATA[Auf eine derart hinterhältige Art umgebracht zu werden ist schwer zu verdauen (doch, doch!). Dennoch möchten wir dich bitten, <u>deinen Mitbürgern die Identität deines Mörders nicht zu verraten</u>... Lass ihnen den Spaß, deinen mysteriösen Todesfall selbst zu untersuchen!]]></target>
       </segment>
     </unit>
     <unit id="2GAQ12V" name="Fortfahren...">
