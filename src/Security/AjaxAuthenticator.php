@@ -48,7 +48,7 @@ class AjaxAuthenticator extends AbstractGuardAuthenticator
     public function start(Request $request, AuthenticationException $authException = null)
     {
         if (!$request->isXmlHttpRequest())
-            return new RedirectResponse($this->url_generator->generate('app_web_framework'));
+            return new RedirectResponse($this->url_generator->generate('initial_landing'));
 
         $intent = $request->headers->get('X-Request-Intent', 'UndefinedIntent');
         switch ($intent) {
