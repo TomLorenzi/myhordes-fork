@@ -678,7 +678,7 @@
       </notes>
       <segment>
         <source>Du wurdest erfolgreich von allen Geräten abgemeldet.</source>
-        <target>Du wurdest erfolgreich von allen Geräten abgemeldet.</target>
+        <target>Se ha cerrado correctamente la sesión de todos los dispositivos.</target>
       </segment>
     </unit>
     <unit id="iGunNf8" name="Dein Name kann nur alphanumerische Zeichen enthalten.">
@@ -689,7 +689,7 @@
       </notes>
       <segment>
         <source>Dein Name kann nur alphanumerische Zeichen enthalten.</source>
-        <target>Dein Name kann nur alphanumerische Zeichen enthalten.</target>
+        <target>Su nombre solo puede contener caracteres alfanuméricos.</target>
       </segment>
     </unit>
     <unit id="6zAO87a">
@@ -700,7 +700,7 @@
       </notes>
       <segment>
         <source>Der eingegebene Pate ist ungültig. Um dich ohne einen Paten anzumelden, lasse das Feld frei.</source>
-        <target>Der eingegebene Pate ist ungültig. Um dich ohne einen Paten anzumelden, lasse das Feld frei.</target>
+        <target>El patrocinador ingresado no es válido. Para registrarse sin un patrocinador, deje el campo en blanco.</target>
       </segment>
     </unit>
     <unit id="e_EqP86" name="Pate">
@@ -711,7 +711,7 @@
       </notes>
       <segment>
         <source>Pate</source>
-        <target>Pate</target>
+        <target>Patrocinador</target>
       </segment>
     </unit>
     <unit id="X.GbWI5">
@@ -722,7 +722,7 @@
       </notes>
       <segment>
         <source>Wenn du von einem anderen Spieler für MyHordes geworben wurdest, gib hier seinen Namen ein. Er oder sie wird dir sehr dankbar sein...</source>
-        <target>Wenn du von einem anderen Spieler für MyHordes geworben wurdest, gib hier seinen Namen ein. Er oder sie wird dir sehr dankbar sein...</target>
+        <target>Si otro jugador te ha invitado a MyHordes, ingresa su nombre aquí. Te estará muy agradecido...</target>
       </segment>
     </unit>
     <unit id="zPzPmd5">
