@@ -396,6 +396,8 @@ class SoulController extends CustomAbstractController
         if ($selected === null)
             $selected = $news[0] ?? null;
 
+
+
         try {
             $userHandler->setSeenLatestChangelog( $user, $lang );
             $this->entity_manager->flush();

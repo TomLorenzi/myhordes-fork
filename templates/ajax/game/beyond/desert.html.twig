@@ -521,7 +521,7 @@
                 <h5>{% trans from 'game' %}Deine Eskorte{% endtrans %}</h5>
                 <div class="row-table">
                     {% set can_escort_dig = 0 %}
-                    {% for other_citizen in other_citizens %}
+                    {% for other_citizen in other_citizens|sort((a,b) => a.name|lower <=> b.name|lower) %}
                         {# @var other_citizen \App\Entity\Citizen #}
                         {% if other_citizen.escortSettings is not null and other_citizen.escortSettings.leader == citizen %}
                             <div class="row beyond-escort-on">
@@ -689,7 +689,7 @@
             {% if other_citizens|length - citizen.validLeadingEscorts|length > 0 %}
                 <h5>{% trans from 'game' %}Bürger in dieser Zone{% endtrans %}</h5>
                 <div class="row-table">
-                    {% for other_citizen in other_citizens %}
+                    {% for other_citizen in other_citizens|sort((a,b) => a.name|lower <=> b.name|lower) %}
                         {# @var other_citizen \App\Entity\Citizen #}
                         {% if other_citizen.escortSettings is null or other_citizen.escortSettings.leader != citizen %}
                             <div class="row beyond-escort-off">
