@@ -10301,7 +10301,7 @@
       </notes>
       <segment>
         <source>Du brauchst eine Weile, bis du alle Gegenstände versteckt hast, die du bei dir trägst... Ha Ha... Du hast 2 Aktionspunkte verbraucht.</source>
-        <target>Dedicas un buen rato a esconder todos los objetos que tienes contigo... Jejeje... La acción te ha costado 2PA</target>
+        <target>Dedicas un buen rato a esconder todos los objetos que tienes contigo... Jejeje. Has utilizado 2 Puntos de Acción.</target>
       </segment>
     </unit>
     <unit id="Bjzw2iI" name="Du nimmst einen Abdruck vom Schloss dieser Tür und erhälst {item}!">
