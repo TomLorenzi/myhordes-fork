@@ -22734,7 +22734,7 @@
       </notes>
       <segment>
         <source>Ein oder mehrere Gegenstände wurden in dieser Zone von einem verbannten Bürger versteckt.</source>
-        <target>Un habitante desterrado ha ocultado uno o más elementos en esta zona.</target>
+        <target>Uno o varios objetos han sido escondidos en esta zona por un jugador desterrado.</target>
       </segment>
     </unit>
     <unit id="6WlIVqN">
@@ -22744,7 +22744,7 @@
       </notes>
       <segment>
         <source>Nur verbannte Bürger können Gegenstände sehen und aufheben, wenn diese von anderen verbannten Bürgern versteckt wurden.</source>
-        <target>Solo los habitantes desterrados pueden ver y recoger artículos si han sido ocultos por otros habitante desterrados.</target>
+        <target>Solo los desterrados pueden ver o recoger objetos escondidos por otro jugador desterrado.</target>
       </segment>
     </unit>
     <unit id="kVCmkiM" name="Barhändiger Stripper">
