@@ -20028,7 +20028,7 @@
       </notes>
       <segment>
         <source>Diese Aktion ermöglicht die Reinigung der Zone durch herabfallenden Regen. Dieser kann den Brunnen in der Stadt füllen oder eine vernichtende Wirkung auf die umliegenden Zombies entfalten.</source>
-        <target>Esta acción permite que la zona se limpie con la lluvia que cae. Esto puede llenar el pozo del pueblo o tener un efecto devastador en los zombis circundantes.</target>
+        <target>Purifica la zona regándola con lluvia. Esta lluvia puede llenar un poco el pozo del pueblo o hasta tener un efecto devastador en los zombies que se encuentren cerca.</target>
       </segment>
     </unit>
     <unit id="vScXMoh">
@@ -21032,7 +21032,7 @@
       </notes>
       <segment>
         <source>Mit dieser Aktion kannst du alle Gegenstände in deinem Rucksack in der Zone verstecken. &lt;strong&gt;Sie werden nur für andere verbannte Bürger sichtbar sein.&lt;/strong&gt; Eine nicht verbannte Person hat jedoch eine kleine Chance, sie beim Graben zu finden.</source>
-        <target><![CDATA[Con esta acción puedes ocultar todos los objetos de tu mochila en la zona. <strong>Solo serán visibles para otros habitantes desterrados.</strong> Sin embargo, un habitante no desterrado tiene una pequeña posibilidad de encontrarlos excavando.]]></target>
+        <target><![CDATA[Esconde todos los objetos de tu mochila en esta zona. <strong>Solo los demás jugadores desterrados podrán verlos.</strong><hr />Sin embargo, un habitante normal podría encontrarlos con un poco de suerte.]]></target>
       </segment>
     </unit>
     <unit id="_.uzAIq">
@@ -21042,7 +21042,8 @@
       </notes>
       <segment>
         <source>Bürger, die aus einer Stadt verbannt wurden, haben das Recht, den weggeworfenen Müll der Stadt nach Gegenständen zu durchsuchen, die für sie nützlich sein könnten...</source>
-        <target>Los habitantes que han sido desterrados ​​de un pueblo tienen derecho a revisar la basura desechada del pueblo en busca de artículos que puedan serles útiles...</target>
+        <target>Los jugadores desterrados de un pueblo pueden hurgar en la basura tirada por los habitantes del pueblo en busca de objetos que les puedan ser útiles.
+</target>
       </segment>
     </unit>
     <unit id="b1ihlan">
