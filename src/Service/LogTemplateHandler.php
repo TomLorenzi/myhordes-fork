@@ -642,6 +642,17 @@ class LogTemplateHandler
             ->setCitizen( $citizen );
     }
 
+    public function citizenDeathsDuringAttack( Town $town, int $deaths ): TownLogEntry {
+        $variables = array('deaths' => $deaths);
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'citizenDeathsDuringAttack']);
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $town )
+            ->setDay( $town->getDay() )
+            ->setTimestamp( new DateTime('now') );
+    }
+
     public function citizenDeath( Citizen $citizen, int $zombies = 0, ?Zone $zone = null, ?int $day = null ): TownLogEntry {
         switch ($citizen->getCauseOfDeath()->getRef()) {
             case CauseOfDeath::NightlyAttack:
@@ -970,9 +981,9 @@ class LogTemplateHandler
             ->setCitizen( $zombie );
     }
 
-    public function nightlyInternalAttackNothingSummary( Town $town, $useless ): TownLogEntry {
-        $variables = array('count' => $useless);
-        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'nightlyInternalAttackNothingSummary']);
+    public function nightlyInternalAttackNothingSummary( Town $town, int $useless, bool $devastated = false ): TownLogEntry {
+        $variables = $devastated ? [] : array('count' => $useless);
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => $devastated ? 'nightlyInternalAttackDevastSummary' : 'nightlyInternalAttackNothingSummary']);
 
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
