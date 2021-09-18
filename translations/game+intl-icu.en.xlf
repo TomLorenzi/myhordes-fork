@@ -15563,7 +15563,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Eine eisige Nacht</source>
-        <target>Eine eisige Nacht</target>
+        <target>A bitterly cold night</target>
       </segment>
     </unit>
     <unit id="E2tLR1n" name="... allein">
@@ -16423,7 +16423,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>in einer unheimlichen Ruine {location}</source>
-        <target>in einer unheimlichen Ruine {location}</target>
+        <target>just outside a disturbing ruin {location}</target>
       </segment>
     </unit>
     <unit id="TP3m8zB" name="sitzt in der Falle und wartet auf den Tod...">
@@ -16434,7 +16434,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>sitzt in der Falle und wartet auf den Tod...</source>
-        <target>sitzt in der Falle und wartet auf den Tod...</target>
+        <target>trapped and waiting for death...</target>
       </segment>
     </unit>
     <unit id="WA0.uhs">
