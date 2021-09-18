@@ -5,6 +5,7 @@ namespace App\Translation;
 
 use App\Service\Globals\TranslationConfigGlobal;
 use Iterator;
+use Symfony\Component\Finder\Finder;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Translation\Extractor\PhpExtractor;
 use Symfony\Component\Translation\Extractor\PhpStringTokenParser;
@@ -192,6 +193,17 @@ class CorePhpExtractor extends PhpExtractor
                 break;
             }
         }
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function extractFromDirectory($directory)
+    {
+        $files = parent::extractFromDirectory($directory);
+        return $files->filter(function(\SplFileInfo $file) {
+            return $this->canBeExtracted($file->getRealPath());
+        });
     }
 
 }

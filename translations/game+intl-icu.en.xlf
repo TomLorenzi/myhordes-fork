@@ -15558,7 +15558,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="XRqPUn0" name="Eine eisige Nacht">
       <notes>
         <note category="german">Eine eisige Nacht</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
@@ -16418,7 +16417,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id=".Qv4CCd" name="in einer unheimlichen Ruine {location}">
       <notes>
         <note category="german">in einer unheimlichen Ruine {location}</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
@@ -16429,7 +16427,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="TP3m8zB" name="sitzt in der Falle und wartet auf den Tod...">
       <notes>
         <note category="german">sitzt in der Falle und wartet auf den Tod...</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
@@ -22864,6 +22861,26 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Die Bürger haben entschieden, {citizen} in den &lt;strong&gt;Fleischkäfig&lt;/strong&gt; zu zerren und dort zum Vergnügen aller zu steinigen... Die Stadt hat &lt;strong&gt;+{def} temporäre Stadtverteidigung&lt;/strong&gt; erhalten!</source>
         <target><![CDATA[Die Bürger haben entschieden, {citizen} in den <strong>Fleischkäfig</strong> zu zerren und dort zum Vergnügen aller zu steinigen... Die Stadt hat <strong>+{def} temporäre Stadtverteidigung</strong> erhalten!]]></target>
+      </segment>
+    </unit>
+    <unit id="YSYYhvU" name="Anonyme Beschwerde ({num} insgesamt)">
+      <notes>
+        <note category="german">Anonyme Beschwerde ({num} insgesamt)</note>
+        <note category="from">php:///src/Controller/Messages/MessageTownMessageController.php;php:///src/Controller/Town/TownHomeController.php</note>
+      </notes>
+      <segment>
+        <source>Anonyme Beschwerde ({num} insgesamt)</source>
+        <target>Anonymous complaint ({num} in total)</target>
+      </segment>
+    </unit>
+    <unit id="_IO1rgo" name="Beschwerde zurückgezogen (es bleiben noch {num} Stück)">
+      <notes>
+        <note category="german">Beschwerde zurückgezogen (es bleiben noch {num} Stück)</note>
+        <note category="from">php:///src/Controller/Messages/MessageTownMessageController.php;php:///src/Controller/Town/TownHomeController.php</note>
+      </notes>
+      <segment>
+        <source>Beschwerde zurückgezogen (es bleiben noch {num} Stück)</source>
+        <target>Complaint Withdrawn ({num} remaining)</target>
       </segment>
     </unit>
   </file>

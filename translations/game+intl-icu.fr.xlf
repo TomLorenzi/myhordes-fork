@@ -22768,5 +22768,25 @@ cette violente opération...]]></target>
         <target><![CDATA[Les citoyens ont décidé de traîner {citizen} à la <strong>Cage à Viande</strong>, puis de le lapider pour le spectacle... La ville a reçu <strong>+{def} pts de défense temporaire</strong> !]]></target>
       </segment>
     </unit>
+    <unit id="YSYYhvU" name="Anonyme Beschwerde ({num} insgesamt)">
+      <notes>
+        <note category="german">Anonyme Beschwerde ({num} insgesamt)</note>
+        <note category="from">php:///src/Controller/Messages/MessageTownMessageController.php;php:///src/Controller/Town/TownHomeController.php</note>
+      </notes>
+      <segment>
+        <source>Anonyme Beschwerde ({num} insgesamt)</source>
+        <target>Plainte anonyme ({num} au total)</target>
+      </segment>
+    </unit>
+    <unit id="_IO1rgo" name="Beschwerde zurückgezogen (es bleiben noch {num} Stück)">
+      <notes>
+        <note category="german">Beschwerde zurückgezogen (es bleiben noch {num} Stück)</note>
+        <note category="from">php:///src/Controller/Messages/MessageTownMessageController.php;php:///src/Controller/Town/TownHomeController.php</note>
+      </notes>
+      <segment>
+        <source>Beschwerde zurückgezogen (es bleiben noch {num} Stück)</source>
+        <target>Plainte retirée (reste {num})</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

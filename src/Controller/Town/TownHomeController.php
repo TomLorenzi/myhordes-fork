@@ -124,10 +124,10 @@ class TownHomeController extends TownController
                 switch ($message->getTemplate()) {
 
                     case PrivateMessage::TEMPLATE_CROW_COMPLAINT_ON:
-                        $thread->setTitle( $trans->trans('Anonyme Beschwerde', [], 'game') );
+                        $thread->setTitle( $trans->trans('Anonyme Beschwerde ({num} insgesamt)', ['num' => $message->getAdditionalData() ? $message->getAdditionalData()['num'] ?? 0 : 0], 'game') );
                         break;
                     case PrivateMessage::TEMPLATE_CROW_COMPLAINT_OFF:
-                        $thread->setTitle( $trans->trans('Beschwerde zurückgezogen', [], 'game') );
+                        $thread->setTitle( $trans->trans('Beschwerde zurückgezogen (es bleiben noch {num} Stück)', ['num' => $message->getAdditionalData() ? $message->getAdditionalData()['num'] ?? 0 : 0], 'game') );
                         break;
                     case PrivateMessage::TEMPLATE_CROW_TERROR:
                     case PrivateMessage::TEMPLATE_CROW_NIGHTWATCH_TERROR:

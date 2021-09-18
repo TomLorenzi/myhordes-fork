@@ -301,13 +301,13 @@ class MessageTownMessageController extends MessageController
                 case PrivateMessage::TEMPLATE_CROW_COMPLAINT_ON:
                     /** @var Complaint $complaint */
                     $reason = $this->entity_manager->getRepository(ComplaintReason::class)->find( $post->getForeignID() );
-                    $thread->setTitle( $this->translator->trans('Anonyme Beschwerde', [], 'game') );
+                    $thread->setTitle( $this->translator->trans('Anonyme Beschwerde ({num} insgesamt)', ['num' => $post->getAdditionalData() ? $post->getAdditionalData()['num'] ?? 0 : 0], 'game') );
                     $post->setText( $this->html->prepareEmotes($post->getText()) . $this->translator->trans( 'Es wurde eine neue anonyme Beschwerde gegen dich eingelegt: "{reason}"', ['{reason}' => $reason ? $this->translator->trans( $reason->getText(), [], 'game' ) : '???'], 'game' ) );
                     break;
                 case PrivateMessage::TEMPLATE_CROW_COMPLAINT_OFF:
                     /** @var Complaint $complaint */
                     $reason = $this->entity_manager->getRepository(ComplaintReason::class)->find( $post->getForeignID() );
-                    $thread->setTitle( $this->translator->trans('Beschwerde zurückgezogen', [], 'game') );
+                    $thread->setTitle( $this->translator->trans('Beschwerde zurückgezogen (es bleiben noch {num} Stück)', ['num' => $post->getAdditionalData() ? $post->getAdditionalData()['num'] ?? 0 : 0], 'game') );
                     $post->setText( $this->html->prepareEmotes($post->getText()) . $this->translator->trans( 'Es gibt gute Nachrichten! Folgende Beschwerde wurde zurückgezogen: "{reason}"', ['{reason}' => $reason ? $this->translator->trans( $reason->getText(), [], 'game' ) : '???'], 'game' ) );
                     break;
                 case PrivateMessage::TEMPLATE_CROW_TERROR:

@@ -14532,5 +14532,17 @@
         <target><![CDATA[Die Bürger haben entschieden, {citizen} in den <strong>Fleischkäfig</strong> zu zerren und dort zum Vergnügen aller zu steinigen... Die Stadt hat <strong>+{def} temporäre Stadtverteidigung</strong> erhalten!]]></target>
       </segment>
     </unit>
+    <unit id="YSYYhvU" name="Anonyme Beschwerde ({num} insgesamt)">
+      <segment>
+        <source>Anonyme Beschwerde ({num} insgesamt)</source>
+        <target>Anonyme Beschwerde ({num} insgesamt)</target>
+      </segment>
+    </unit>
+    <unit id="_IO1rgo" name="Beschwerde zurückgezogen (es bleiben noch {num} Stück)">
+      <segment>
+        <source>Beschwerde zurückgezogen (es bleiben noch {num} Stück)</source>
+        <target>Beschwerde zurückgezogen (es bleiben noch {num} Stück)</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

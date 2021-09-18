@@ -91,7 +91,7 @@ class CrowService {
     }
 
 
-    public function postAsPM( Citizen $receiver, string $title, string $text, int $template = 0, ?int $foreign = null ) {
+    public function postAsPM( Citizen $receiver, string $title, string $text, int $template = 0, ?int $foreign = null, $data = null ) {
 
         $thread = new PrivateMessageThread();
 
@@ -108,7 +108,8 @@ class CrowService {
             ->setNew(true)
             ->setRecipient($receiver)
             ->setTemplate( $template )
-            ->setForeignID( $foreign );
+            ->setForeignID( $foreign )
+            ->setAdditionalData( $data );
 
         $thread
             ->setLastMessage($post->getDate())
