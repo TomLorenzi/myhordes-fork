@@ -10,6 +10,7 @@ use Doctrine\ORM\Mapping\Table;
 use Doctrine\ORM\Mapping\UniqueConstraint;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\EquatableInterface;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
@@ -26,7 +27,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  *     }
  * )
  */
-class User implements UserInterface, EquatableInterface
+class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUserInterface
 {
 
     const USER_LEVEL_BASIC  =  0;
@@ -428,7 +429,7 @@ class User implements UserInterface, EquatableInterface
     /**
      * @inheritDoc
      */
-    public function getPassword()
+    public function getPassword(): ?string
     {
         return $this->pass;
     }

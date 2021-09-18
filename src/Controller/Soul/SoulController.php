@@ -54,16 +54,13 @@ use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\Asset\Packages;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Exception\RouteNotFoundException;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
-use Symfony\Component\Validator\ConstraintViolationInterface;
-use Symfony\Component\Validator\Context\ExecutionContextInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Component\Validator\Constraints;
 use Symfony\Component\Validator\Validation;
@@ -1016,12 +1013,12 @@ class SoulController extends CustomAbstractController
 
     /**
      * @Route("api/soul/settings/change_account_details", name="api_soul_change_account_details")
-     * @param UserPasswordEncoderInterface $passwordEncoder
+     * @param UserPasswordHasherInterface $passwordEncoder
      * @param JSONRequestParser $parser
      * @param TokenStorageInterface $token
      * @return Response
      */
-    public function soul_settings_change_account_details(UserPasswordEncoderInterface $passwordEncoder, JSONRequestParser $parser, TokenStorageInterface $token): Response
+    public function soul_settings_change_account_details(UserPasswordHasherInterface $passwordEncoder, JSONRequestParser $parser, TokenStorageInterface $token): Response
     {
         $user = $this->getUser();
         $new_pw = $parser->trimmed('pw_new', '');
@@ -1043,7 +1040,7 @@ class SoulController extends CustomAbstractController
                 return AjaxResponse::error(self::ErrorUserEditPasswordIncorrect );
 
             $user
-                ->setPassword( $passwordEncoder->encodePassword($user, $parser->trimmed('pw_new')) )
+                ->setPassword( $passwordEncoder->hashPassword($user, $parser->trimmed('pw_new')) )
                 ->setCheckInt($user->getCheckInt() + 1);
 
             if ($rm_token = $this->entity_manager->getRepository(RememberMeTokens::class)->findOneBy(['user' => $user]))
@@ -1155,13 +1152,12 @@ class SoulController extends CustomAbstractController
 
     /**
      * @Route("api/soul/settings/delete_account", name="api_soul_delete_account")
-     * @param UserPasswordEncoderInterface $passwordEncoder
+     * @param UserPasswordHasherInterface $passwordEncoder
      * @param JSONRequestParser $parser
-     * @param UserHandler $userhandler
      * @param TokenStorageInterface $token
      * @return Response
      */
-    public function soul_settings_delete_account(UserPasswordEncoderInterface $passwordEncoder, JSONRequestParser $parser, UserHandler $userhandler, TokenStorageInterface $token): Response
+    public function soul_settings_delete_account(UserPasswordHasherInterface $passwordEncoder, JSONRequestParser $parser, TokenStorageInterface $token): Response
     {
         $user = $this->getUser();
 
@@ -1172,7 +1168,6 @@ class SoulController extends CustomAbstractController
             return AjaxResponse::error(self::ErrorUserEditPasswordIncorrect );
 
         $name = $user->getUsername();
-        //$userhandler->deleteUser($user);
         $user->setDeleteAfter( new DateTime('+24hour') );
         $this->entity_manager->flush();
 

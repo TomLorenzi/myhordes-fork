@@ -21,7 +21,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\Question;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class UserInfoCommand extends Command
 {
@@ -32,7 +32,7 @@ class UserInfoCommand extends Command
     private $pwenc;
     private $helper;
 
-    public function __construct(EntityManagerInterface $em, UserPasswordEncoderInterface $passwordEncoder, UserHandler $uh, CommandHelper $ch)
+    public function __construct(EntityManagerInterface $em, UserPasswordHasherInterface $passwordEncoder, UserHandler $uh, CommandHelper $ch)
     {
         $this->entityManager = $em;
         $this->pwenc = $passwordEncoder;
@@ -277,7 +277,7 @@ class UserInfoCommand extends Command
                     }
                 }
 
-                $user->setPassword($this->pwenc->encodePassword($user, $newpw));
+                $user->setPassword($this->pwenc->hashPassword($user, $newpw));
                 $output->writeln("New password set: <info>{$newpw}</info>");
                 $this->entityManager->persist($user);
                 $this->entityManager->flush();

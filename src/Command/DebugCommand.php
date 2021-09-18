@@ -40,7 +40,7 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Bundle\FrameworkBundle\Translation\Translator;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Validator\Constraints\Date;
 
 
@@ -57,7 +57,7 @@ class DebugCommand extends Command
     private Translator $trans;
     private InventoryHandler $inventory_handler;
     private ItemFactory $item_factory;
-    private UserPasswordEncoderInterface $encoder;
+    private UserPasswordHasherInterface $encoder;
     private ConfMaster $conf;
     private TownHandler $townHandler;
     private CommandHelper $helper;
@@ -66,7 +66,7 @@ class DebugCommand extends Command
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
                                 RandomGenerator $rg, CitizenHandler $ch, Translator $translator, InventoryHandler $ih,
-                                ItemFactory $if, UserPasswordEncoderInterface $passwordEncoder, ConfMaster $c,
+                                ItemFactory $if, UserPasswordHasherInterface $passwordEncoder, ConfMaster $c,
                                 TownHandler $th, CommandHelper $h, TwinoidHandler $t, UserHandler $uh)
     {
         $this->kernel = $kernel;
@@ -154,7 +154,7 @@ class DebugCommand extends Command
                 $this->user_handler->setUserSmallAvatar($crow, file_get_contents("{$this->kernel->getProjectDir()}/assets/img/forum/crow/crow.small.png"));
 
                 try {
-                    $crow->setPassword($this->encoder->encodePassword($crow, bin2hex(random_bytes(16))));
+                    $crow->setPassword($this->encoder->hashPassword($crow, bin2hex(random_bytes(16))));
                 } catch (\Exception $e) {
                     $output->writeln('<error>Unable to generate a random password.</error>');
                     return -1;
@@ -196,7 +196,7 @@ class DebugCommand extends Command
                 $this->user_handler->setUserSmallAvatar($animacteur, file_get_contents("{$this->kernel->getProjectDir()}/assets/img/forum/crow/anim.small.gif"));
 
                 try {
-                    $animacteur->setPassword($this->encoder->encodePassword($animacteur, bin2hex(random_bytes(16))));
+                    $animacteur->setPassword($this->encoder->hashPassword($animacteur, bin2hex(random_bytes(16))));
                 } catch (\Exception $e) {
                     $output->writeln('<error>Unable to generate a random password.</error>');
                     return -1;

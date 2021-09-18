@@ -3,7 +3,6 @@
 namespace App\Service;
 
 use App\Entity\AccountRestriction;
-use App\Entity\AntiSpamDomains;
 use App\Entity\Avatar;
 use App\Entity\Award;
 use App\Entity\AwardPrototype;
@@ -24,14 +23,10 @@ use App\Entity\UserGroup;
 use App\Entity\UserGroupAssociation;
 use App\Structures\MyHordesConf;
 use Doctrine\ORM\QueryBuilder;
-use Imagick;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
-use Exception;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Security\Core\Role\RoleHierarchyInterface;
-use Symfony\Component\Validator\Context\ExecutionContextInterface;
-use Symfony\Component\Validator\Validation;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 class UserHandler

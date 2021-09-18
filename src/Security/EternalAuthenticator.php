@@ -8,14 +8,17 @@ use EternalTwinClient\Object\User as ETwinUser;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
-use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Component\Security\Core\User\UserProviderInterface;
-use Symfony\Component\Security\Guard\AbstractGuardAuthenticator;
+use Symfony\Component\Security\Http\Authenticator\AbstractAuthenticator;
+use Symfony\Component\Security\Http\Authenticator\Passport\Badge\UserBadge;
+use Symfony\Component\Security\Http\Authenticator\Passport\Credentials\CustomCredentials;
+use Symfony\Component\Security\Http\Authenticator\Passport\Passport;
+use Symfony\Component\Security\Http\Authenticator\Passport\PassportInterface;
 
-class EternalAuthenticator extends AbstractGuardAuthenticator
+class EternalAuthenticator extends AbstractAuthenticator
 {
     private UrlGeneratorInterface $url_generator;
 
@@ -29,24 +32,7 @@ class EternalAuthenticator extends AbstractGuardAuthenticator
     /**
      * @inheritDoc
      */
-    public function start(Request $request, AuthenticationException $authException = null)
-    {
-        if (!$request->isXmlHttpRequest())
-            return new RedirectResponse($this->url_generator->generate('app_web_framework'));
-
-        $intent = $request->headers->get('X-Request-Intent', 'UndefinedIntent');
-        switch ($intent) {
-            case 'WebNavigation':
-                return new RedirectResponse($this->url_generator->generate('public_login'));
-            default:
-                return new JsonResponse( ['error' => 'not_authorized'] );
-        }
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function supports(Request $request)
+    public function supports(Request $request): bool
     {
         if (!$request->isXmlHttpRequest() ||
             !$request->getSession()->has('_etwin_user') ||
@@ -65,38 +51,7 @@ class EternalAuthenticator extends AbstractGuardAuthenticator
     /**
      * @inheritDoc
      */
-    public function getCredentials(Request $request)
-    {
-        /** @var ETwinUser $etwin_user_object */
-        $etwin_user_object = $request->getSession()->get('_etwin_user');
-
-        return [
-            'etwin_id' => $etwin_user_object->getID(),
-            'etwin_on' => $request->getSession()->has('_etwin_login')
-        ];
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function getUser($credentials, UserProviderInterface $userProvider)
-    {
-        return $credentials['etwin_on'] ? $userProvider->loadUserByUsername( "etwin::{$credentials['etwin_id']}" ) : null;
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function checkCredentials($credentials, UserInterface $user)
-    {
-        /** @var User $user */
-        return $credentials['etwin_on'] && $user->getEternalID() === $credentials['etwin_id'];
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function onAuthenticationFailure(Request $request, AuthenticationException $exception)
+    public function onAuthenticationFailure(Request $request, AuthenticationException $exception): ?Response
     {
         $intent = $request->headers->get('X-Request-Intent', 'UndefinedIntent');
         switch ($intent) {
@@ -110,7 +65,7 @@ class EternalAuthenticator extends AbstractGuardAuthenticator
     /**
      * @inheritDoc
      */
-    public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $providerKey)
+    public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
     {
         $request->getSession()->remove('_etwin_user');
         $request->getSession()->remove('_etwin_login');
@@ -118,11 +73,16 @@ class EternalAuthenticator extends AbstractGuardAuthenticator
         return null;
     }
 
-    /**
-     * @inheritDoc
-     */
-    public function supportsRememberMe()
+    public function authenticate(Request $request): PassportInterface
     {
-        return false;
+        /** @var ETwinUser $etwin_user_object */
+        $etwin_user_object = $request->getSession()->get('_etwin_user');
+
+        return new Passport(
+            new UserBadge( "etwin::{$etwin_user_object->getID()}" ),
+            new CustomCredentials( function($credentials, User $user) {
+                return $user->getEternalID() === $credentials;
+            }, $etwin_user_object->getID() )
+        );
     }
 }

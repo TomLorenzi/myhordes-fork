@@ -15,29 +15,28 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
-use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Component\Security\Core\User\UserProviderInterface;
-use Symfony\Component\Security\Guard\AbstractGuardAuthenticator;
+use Symfony\Component\Security\Http\Authenticator\AbstractAuthenticator;
+use Symfony\Component\Security\Http\Authenticator\Passport\Badge\UserBadge;
+use Symfony\Component\Security\Http\Authenticator\Passport\Credentials\PasswordCredentials;
+use Symfony\Component\Security\Http\Authenticator\Passport\Passport;
+use Symfony\Component\Security\Http\Authenticator\Passport\PassportInterface;
+use Symfony\Component\Security\Http\EntryPoint\AuthenticationEntryPointInterface;
 
-class AjaxAuthenticator extends AbstractGuardAuthenticator
+class AjaxAuthenticator extends AbstractAuthenticator implements AuthenticationEntryPointInterface
 {
 
     private JSONRequestParser $request_parser;
-    private UserPasswordEncoderInterface $password_generator;
     private UrlGeneratorInterface $url_generator;
     private EntityManagerInterface $em;
 
     public function __construct(
         JSONRequestParser $parser,
-        UserPasswordEncoderInterface $passwordEncoder,
         UrlGeneratorInterface $router,
         EntityManagerInterface $em
     )
     {
         $this->request_parser = $parser;
-        $this->password_generator = $passwordEncoder;
         $this->url_generator = $router;
         $this->em = $em;
     }
@@ -62,7 +61,7 @@ class AjaxAuthenticator extends AbstractGuardAuthenticator
     /**
      * @inheritDoc
      */
-    public function supports(Request $request)
+    public function supports(Request $request): bool
     {
         return
             $request->isXmlHttpRequest() &&
@@ -72,34 +71,7 @@ class AjaxAuthenticator extends AbstractGuardAuthenticator
     /**
      * @inheritDoc
      */
-    public function getCredentials(Request $request)
-    {
-        return [
-            'username' => $this->request_parser->trimmed('login_user', null),
-            'password' => $this->request_parser->trimmed('login_pass', null)
-        ];
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function getUser($credentials, UserProviderInterface $userProvider)
-    {
-        return $userProvider->loadUserByUsername( "myh::{$credentials['username']}" );
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function checkCredentials($credentials, UserInterface $user)
-    {
-        return $this->password_generator->isPasswordValid( $user, $credentials['password'] );
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function onAuthenticationFailure(Request $request, AuthenticationException $exception)
+    public function onAuthenticationFailure(Request $request, AuthenticationException $exception): ?Response
     {
         $intent = $request->headers->get('X-Request-Intent', 'UndefinedIntent');
         switch ($intent) {
@@ -113,7 +85,7 @@ class AjaxAuthenticator extends AbstractGuardAuthenticator
     /**
      * @inheritDoc
      */
-    public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $providerKey)
+    public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
     {
         if ($this->request_parser->get('remember_me', false)) {
 
@@ -143,11 +115,12 @@ class AjaxAuthenticator extends AbstractGuardAuthenticator
         return null;
     }
 
-    /**
-     * @inheritDoc
-     */
-    public function supportsRememberMe()
+
+    public function authenticate(Request $request): PassportInterface
     {
-        return false;
+        return new Passport(
+            new UserBadge( "myh::{$this->request_parser->trimmed('login_user', null)}" ),
+            new PasswordCredentials( $this->request_parser->trimmed('login_pass', null) )
+        );
     }
 }

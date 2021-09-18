@@ -3,22 +3,14 @@
 namespace App\Controller\Admin;
 
 use App\Annotations\GateKeeperProfile;
-use App\Entity\AntiSpamDomains;
-use App\Entity\Changelog;
 use App\Entity\ExternalApp;
 use App\Entity\User;
-use App\Entity\UserPendingValidation;
 use App\Response\AjaxResponse;
-use App\Service\AdminActionHandler;
 use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
 use App\Service\MediaService;
 use App\Service\RandomGenerator;
-use App\Service\UserFactory;
 use App\Translation\T;
-use Doctrine\ORM\EntityManagerInterface;
-use Imagick;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 

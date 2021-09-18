@@ -1,10 +1,10 @@
 security:
-    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    enable_authenticator_manager: true
     providers:
         users:
             entity:
                 class: 'App\Entity\User'
-    encoders:
+    password_hashers:
         App\Entity\User:
             algorithm: auto
     firewalls:
@@ -12,17 +12,17 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
-            anonymous: true
+            entry_point: App\Security\AjaxAuthenticator
             lazy: true
             logout:
                 path: auto_logout
                 target: initial_landing
-            guard:
-                authenticators:
-                    - App\Security\RememberMeAuthenticator
-                    - App\Security\EternalAuthenticator
-                    - App\Security\AjaxAuthenticator
-                entry_point: App\Security\AjaxAuthenticator
+
+            custom_authenticators:
+              - App\Security\AjaxAuthenticator
+              - App\Security\EternalAuthenticator
+              - App\Security\RememberMeAuthenticator
+
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
 
@@ -43,15 +43,15 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         # Web Access
-        - { path: ^/$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/$, roles: PUBLIC_ACCESS }
 
         # AJAX Access
-        - { path: ^/jx/landing,     roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/jx/public/,     roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/jx/landing,     roles: PUBLIC_ACCESS }
+        - { path: ^/jx/public/,     roles: PUBLIC_ACCESS }
         - { path: ^/jx/ghost/,      roles: ROLE_USER }
         - { path: ^/jx/soul/,       roles: ROLE_USER }
         - { path: ^/jx/pm/,         roles: ROLE_USER }
-        - { path: ^/jx/admin/dash,  roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/jx/admin/dash,  roles: PUBLIC_ACCESS }
         - { path: ^/jx/admin/com/,  roles: ROLE_ELEVATED }
         - { path: ^/jx/admin/,      roles: ROLE_CROW }
         - { path: ^/admin/,         roles: ROLE_CROW }
@@ -60,10 +60,10 @@ security:
         - { path: ^/api/public/login,  roles: ROLE_REGISTERED }
         - { path: ^/api/public/logout, roles: ROLE_REGISTERED }
         - { path: ^/api/soul/,         roles: ROLE_USER }
-        - { path: ^/api/pm/ping,       roles: [ROLE_REGISTERED, IS_AUTHENTICATED_ANONYMOUSLY]}
+        - { path: ^/api/pm/ping,       roles: [ROLE_REGISTERED, PUBLIC_ACCESS]}
         - { path: ^/api/pm/,           roles: ROLE_USER}
-        - { path: ^/api/public/,       roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/api/admin/login,   roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/public/,       roles: PUBLIC_ACCESS }
+        - { path: ^/api/admin/login,   roles: PUBLIC_ACCESS }
         - { path: ^/api/admin/com/,    roles: ROLE_ELEVATED }
         - { path: ^/api/admin/,        roles: ROLE_CROW }
         # - { path: ^/admin, roles: ROLE_ADMIN }

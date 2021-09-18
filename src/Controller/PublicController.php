@@ -30,11 +30,9 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
-use Symfony\Component\Security\Core\Encoder\PasswordEncoderInterface;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
-use Symfony\Component\Security\Http\Authenticator\Passport\UserPassportInterface;
 use Symfony\Component\Validator\Constraints;
 use Symfony\Component\Validator\ConstraintViolationInterface;
 use Symfony\Component\Validator\Context\ExecutionContextInterface;
@@ -445,13 +443,14 @@ class PublicController extends CustomAbstractController
      * @param JSONRequestParser $parser
      * @param SessionInterface $session
      * @param UserFactory $userFactory
-     * @param UserPasswordEncoderInterface $pass
+     * @param UserPasswordHasherInterface $pass
      * @param TranslatorInterface $trans
      * @param ConfMaster $conf
+     * @param TranslatorInterface $translator
      * @return Response
      */
     public function etwin_confirm_api(Request $request, JSONRequestParser $parser, SessionInterface $session, UserFactory $userFactory,
-                                      UserPasswordEncoderInterface $pass, TranslatorInterface $trans, ConfMaster $conf, TranslatorInterface $translator): Response {
+                                      UserPasswordHasherInterface $pass, TranslatorInterface $trans, ConfMaster $conf, TranslatorInterface $translator): Response {
 
         $myhordes_user = $this->getUser();
         $password = $parser->get('pass', null);

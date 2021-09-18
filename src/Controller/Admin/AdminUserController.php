@@ -17,9 +17,7 @@ use App\Entity\ItemPrototype;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
 use App\Entity\Season;
-use App\Entity\ShadowBan;
 use App\Entity\Town;
-use App\Entity\TownRankingProxy;
 use App\Entity\TwinoidImport;
 use App\Entity\TwinoidImportPreview;
 use App\Entity\User;
@@ -46,9 +44,9 @@ use Exception;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\KernelInterface;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
@@ -107,14 +105,15 @@ class AdminUserController extends AdminActionController
      * @param TwinoidHandler $twin
      * @param UserHandler $userHandler
      * @param PermissionHandler $perm
-     * @param UserPasswordEncoderInterface $passwordEncoder
+     * @param UserPasswordHasherInterface $passwordEncoder
      * @param CrowService $crow
+     * @param KernelInterface $kernel
      * @param string $param
      * @return Response
      */
     public function user_account_manager(int $id, string $action, JSONRequestParser $parser, UserFactory $uf,
                                          TwinoidHandler $twin, UserHandler $userHandler, PermissionHandler $perm,
-                                         UserPasswordEncoderInterface $passwordEncoder, CrowService $crow, KernelInterface $kernel,
+                                         UserPasswordHasherInterface $passwordEncoder, CrowService $crow, KernelInterface $kernel,
                                          string $param = ''): Response
     {
         /** @var User $user */
@@ -202,7 +201,7 @@ class AdminUserController extends AdminActionController
 
             case 'overwrite_pw':
                 if (empty($param)) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-                $user->setPassword( $passwordEncoder->encodePassword( $user, $param ) );
+                $user->setPassword( $passwordEncoder->hashPassword( $user, $param ) );
                 $this->entity_manager->persist($user);
                 break;
 
