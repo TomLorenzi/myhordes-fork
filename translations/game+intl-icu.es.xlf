@@ -22814,7 +22814,7 @@
       </notes>
       <segment>
         <source>Beim Durchwühlen des Mülls, der am Stadtrand herumliegt, findest du schließlich folgendes: {item}.&lt;hr /&gt;Du hast &lt;strong&gt;1 Aktionspunkt(e)&lt;/strong&gt; verbraucht.</source>
-        <target><![CDATA[Al hurgar en la basura que hay en las afueras, encontraste lo siguiente: {item}.<hr /> Ha utilizado <strong> 1 punto de acción</strong>.]]></target>
+        <target><![CDATA[Hurgando en la basura que abunda alrededor del pueblo, lograste encontrar {item}.<hr />Has utilizado <strong>1 Punto de Acción</strong>.]]></target>
       </segment>
     </unit>
     <unit id="6IxRpiz">
