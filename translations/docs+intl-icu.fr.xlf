@@ -1255,7 +1255,6 @@
       <notes>
         <note category="german">Phase der Stadt; entweder "alpha", "beta", "import" oder "native"</note>
         <note category="from">twig:///templates/ajax/public/apidocs.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Phase der Stadt; entweder "alpha", "beta", "import" oder "native"</source>
@@ -1266,7 +1265,6 @@
       <notes>
         <note category="german">Herkunfts-Server der Stadt</note>
         <note category="from">twig:///templates/ajax/public/apidocs.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Herkunfts-Server der Stadt</source>

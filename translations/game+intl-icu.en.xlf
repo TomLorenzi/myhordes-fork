@@ -22585,7 +22585,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="UOD7ZoJ">
       <notes>
-        <note category="german">Ermordet zu werden ist äußerst ärgerlich (ja, wirklich!). Aber wir bitten dich dringend, &lt;u&gt;die Identität deines Mörders gegenüber deinen ehemaligen Mitbürgern nicht aufzudecken&lt;/u&gt;... Lass ihnen das Vergnügen, selbst ermitteln zu müssen!</note>
+        <note category="german">Auf eine derart hinterhältige Art umgebracht zu werden ist schwer zu verdauen (doch, doch!). Dennoch möchten wir dich bitten, &lt;u&gt;deinen Mitbürgern die Identität deines Mörders nicht zu verraten&lt;/u&gt;... Lass ihnen den Spaß, deinen mysteriösen Todesfall selbst zu untersuchen!</note>
         <note category="from">twig:///templates/ajax/soul/death.html.twig</note>
         <note category="state">new</note>
       </notes>
@@ -22820,6 +22820,17 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Du hast keine Seelenpunkte gewonnen (am ersten Tag gestorben).</source>
         <target>Du hast keine Seelenpunkte gewonnen (am ersten Tag gestorben).</target>
+      </segment>
+    </unit>
+    <unit id="5kMswLn">
+      <notes>
+        <note category="german">Die Stadt hat folgende Gegenstände in Folge der Hinrichtung von {shunned} zurückerhalten: {list}</note>
+        <note category="from">db://LogEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Die Stadt hat folgende Gegenstände in Folge der Hinrichtung von {shunned} zurückerhalten: {list}</source>
+        <target>Die Stadt hat folgende Gegenstände in Folge der Hinrichtung von {shunned} zurückerhalten: {list}</target>
       </segment>
     </unit>
   </file>

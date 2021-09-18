@@ -673,7 +673,6 @@
     <unit id="jUZA576" name="Du wurdest erfolgreich von allen Geräten abgemeldet.">
       <notes>
         <note category="german">Du wurdest erfolgreich von allen Geräten abgemeldet.</note>
-        <note category="state">new</note>
         <note category="from">php:///src/Controller/Soul/SoulController.php</note>
       </notes>
       <segment>
@@ -684,7 +683,6 @@
     <unit id="iGunNf8" name="Dein Name kann nur alphanumerische Zeichen enthalten.">
       <notes>
         <note category="german">Dein Name kann nur alphanumerische Zeichen enthalten.</note>
-        <note category="state">new</note>
         <note category="from">php:///src/Controller/PublicController.php;twig:///templates/ajax/game/jobs.html.twig</note>
       </notes>
       <segment>
@@ -695,7 +693,6 @@
     <unit id="6zAO87a">
       <notes>
         <note category="german">Der eingegebene Pate ist ungültig. Um dich ohne einen Paten anzumelden, lasse das Feld frei.</note>
-        <note category="state">new</note>
         <note category="from">php:///src/Controller/PublicController.php</note>
       </notes>
       <segment>
@@ -706,7 +703,6 @@
     <unit id="e_EqP86" name="Pate">
       <notes>
         <note category="german">Pate</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/public/et_welcome.html.twig;twig:///templates/ajax/public/register.html.twig</note>
       </notes>
       <segment>
@@ -717,7 +713,6 @@
     <unit id="X.GbWI5">
       <notes>
         <note category="german">Wenn du von einem anderen Spieler für MyHordes geworben wurdest, gib hier seinen Namen ein. Er oder sie wird dir sehr dankbar sein...</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/public/et_welcome.html.twig;twig:///templates/ajax/public/register.html.twig</note>
       </notes>
       <segment>

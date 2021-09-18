@@ -14508,5 +14508,11 @@
         <target>Du hast keine Seelenpunkte gewonnen (am ersten Tag gestorben).</target>
       </segment>
     </unit>
+    <unit id="5kMswLn">
+      <segment>
+        <source>Die Stadt hat folgende Gegenstände in Folge der Hinrichtung von {shunned} zurückerhalten: {list}</source>
+        <target>Die Stadt hat folgende Gegenstände in Folge der Hinrichtung von {shunned} zurückerhalten: {list}</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

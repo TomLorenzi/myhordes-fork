@@ -3929,7 +3929,6 @@
     <unit id="qyPgKPu">
       <notes>
         <note category="german">Von Hungerschmerzen geplagt bist du den ganzen Tag durch die Stadt getorkelt... immer auf der Suche nach einem Bissen Fleisch...doch vergebens. Am Ende des Tages haben dich deine Kräfte dann schließlich verlassen. Langsam, ganz langsam, bist du zu Boden gesunken. Selbst deine letzten Atemzüge waren eine Pein... Das Letzte was die Welt noch von dir vernahm war ein unmenschlicher, gellender Schrei gen Himmel und das warst du tot.</note>
-        <note category="state">new</note>
         <note category="from">db://CauseOfDeath</note>
       </notes>
       <segment>
@@ -3940,7 +3939,6 @@
     <unit id="4u_gRGL" name="Drogenabhängigkeit">
       <notes>
         <note category="german">Drogenabhängigkeit</note>
-        <note category="state">new</note>
         <note category="from">db://CauseOfDeath</note>
       </notes>
       <segment>
@@ -3951,7 +3949,6 @@
     <unit id="Ms3Esea">
       <notes>
         <note category="german">Drogen sind echt was Tolles, solange du genügend hast. Wenn sie dir aber ausgehen, sieht's schon anders aus... Schweißausbrüche, Panikattacken, Zittern... du rennst alle zehn Minuten aufs Klo, um dich zu übergeben. Am Ende, wenn du deinen Verstand bereits verloren hast, schluckst du dann Steine, weil du sie mit Steroiden verwechselst.</note>
-        <note category="state">new</note>
         <note category="from">db://CauseOfDeath</note>
       </notes>
       <segment>
@@ -3962,7 +3959,6 @@
     <unit id="Ds74xh4">
       <notes>
         <note category="german">Stück für Stück hat dich die Krankheit von innen her aufgefressen... Die Infektionssymptome waren auch nicht mehr zu übersehen: eiternde Wunden, Hematome, faulendes Fleisch... Nach mehreren Stunden Leiden hast du den Tod schließlich als Erleichterung empfunden.</note>
-        <note category="state">new</note>
         <note category="from">db://CauseOfDeath</note>
       </notes>
       <segment>
@@ -3993,7 +3989,6 @@
     <unit id="n7kmZ_p" name="Ermordung durch Gift">
       <notes>
         <note category="german">Ermordung durch Gift</note>
-        <note category="state">new</note>
         <note category="from">db://CauseOfDeath</note>
       </notes>
       <segment>
@@ -8525,7 +8520,6 @@
     <unit id="ra16zgk">
       <notes>
         <note category="german">Es sieht so aus, als hätten wir alles richtig gemacht, da letzte Nacht keine Zombies die Mauern durchbrochen haben.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -8576,7 +8570,6 @@
     <unit id="i8FSlBg">
       <notes>
         <note category="german">Unsere Verteidigung an der Ostmauer scheint zufriedenstellend zu sein. Die furchterregenden Kreaturen der Horde wurden in Schach gehalten... dieses Mal!</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -8657,7 +8650,6 @@
     <unit id="HjXCgon">
       <notes>
         <note category="german">Eine schreckliche Nacht für die Stadt. Die lebenden Toten massakrierten {deaths} unserer Gemeinde während des Angriffs. Vielleicht möchtet ihr vor heute Abend noch einmal einen Blick auf unsere Verteidigung werfen...</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -8668,7 +8660,6 @@
     <unit id="tWF6qem">
       <notes>
         <note category="german">Die Zombies fanden gestern Abend an der Nordwand eine Schwäche in unserer Verteidigung... Einige Häuser hielten dem Angriff stand. Andere nicht... ... {deaths} tot. Ende der Geschichte.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -8679,7 +8670,6 @@
     <unit id="xVDXz8v">
       <notes>
         <note category="german">Einige Bewohner brachen heute Morgen ob der Opfer in Tränen aus. Tränen der Freude mit Sicherheit, nicht eines der {deaths} Opfer des letzten Angriffs zu sein.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -8690,7 +8680,6 @@
     <unit id="FgoMd0R">
       <notes>
         <note category="german">Eine Handvoll Zombies durchbrach unsere Verteidigungsanlagen in der Nähe des nördlichen Viertels, wir haben keine Ahnung, wie... Wie es das "Glück" wollte, sind {deaths} Bürger tot, aber ihr habt seltsamerweise überlebt. ... Klingt das nicht ein wenig verdächtig?</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -8701,7 +8690,6 @@
     <unit id="MwOt2NN">
       <notes>
         <note category="german">Eine Flutwelle von Zombies stürzte letzte Nacht gegen unsere Stadt! Bürger wurden in ihren eigenen Häusern verschlungen oder in die Wüste geschleift... Noch so eine Nacht, und wir werden nicht mehr hier sein, um darüber zu reden.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -8712,7 +8700,6 @@
     <unit id="aHDkQ88">
       <notes>
         <note category="german">Wir müssen uns beeilen; unsere Unfähigkeit, zufriedenstellende Verteidigungsanlagen zu errichten, kostete letzte Nacht {deaths} Bürgern das Leben. Zu eurer Information: Gestern Abend wurde die Stadt von {attack} Zombies angegriffen.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -8723,7 +8710,6 @@
     <unit id="TI38FCg">
       <notes>
         <note category="german">Die Verteidigungsanlagen waren gestern Abend unzureichend. {deaths} Bürger bezahlten für eure mangelnde Organisation mit ihrem Leben.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -8734,7 +8720,6 @@
     <unit id="j6M_Tqs">
       <notes>
         <note category="german">Letzte Nacht haben es {deaths} Bürger nicht rechtzeitig nach Hause geschafft. Einige Teile von ihnen wurden in der Nähe des westlichen Viertels gefunden. Augenzeugen berichten, dass die Anwohner riefen: "Lauf, Forrest, lauf!", bevor sie vor Lachen ausbrachen und in ihr Haus rannten.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -8745,7 +8730,6 @@
     <unit id="FRBVY_U">
       <notes>
         <note category="german">Was für ein Riesenschlamassel: {deaths} starben letzte Nacht in der Stadt! Ein Massaker, zu dem noch der zertrümmerter Schädel eines Haustiers zu zählen ist, der in den Toren verkeilt gefunden wurde. Vermisst jemand einen Hund?</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -22560,7 +22544,6 @@
       <notes>
         <note category="german">{attacker} hat {defender} gewalttätig angegriffen! Der Kampf ist eskaliert und {attacker} verletzte {defender} schlussendlich schwer!</note>
         <note category="from">db://LogEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>{attacker} hat {defender} gewalttätig angegriffen! Der Kampf ist eskaliert und {attacker} verletzte {defender} schlussendlich schwer!</source>
@@ -22609,7 +22592,7 @@
     </unit>
     <unit id="UOD7ZoJ">
       <notes>
-        <note category="german">Ermordet zu werden ist äußerst ärgerlich (ja, wirklich!). Aber wir bitten dich dringend, &lt;u&gt;die Identität deines Mörders gegenüber deinen ehemaligen Mitbürgern nicht aufzudecken&lt;/u&gt;... Lass ihnen das Vergnügen, selbst ermitteln zu müssen!</note>
+        <note category="german">Auf eine derart hinterhältige Art umgebracht zu werden ist schwer zu verdauen (doch, doch!). Dennoch möchten wir dich bitten, &lt;u&gt;deinen Mitbürgern die Identität deines Mörders nicht zu verraten&lt;/u&gt;... Lass ihnen den Spaß, deinen mysteriösen Todesfall selbst zu untersuchen!</note>
         <note category="from">twig:///templates/ajax/soul/death.html.twig</note>
       </notes>
       <segment>
@@ -22836,6 +22819,17 @@
       <segment>
         <source>Du hast keine Seelenpunkte gewonnen (am ersten Tag gestorben).</source>
         <target>Du hast keine Seelenpunkte gewonnen (am ersten Tag gestorben).</target>
+      </segment>
+    </unit>
+    <unit id="5kMswLn">
+      <notes>
+        <note category="german">Die Stadt hat folgende Gegenstände in Folge der Hinrichtung von {shunned} zurückerhalten: {list}</note>
+        <note category="from">db://LogEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Die Stadt hat folgende Gegenstände in Folge der Hinrichtung von {shunned} zurückerhalten: {list}</source>
+        <target>Die Stadt hat folgende Gegenstände in Folge der Hinrichtung von {shunned} zurückerhalten: {list}</target>
       </segment>
     </unit>
   </file>

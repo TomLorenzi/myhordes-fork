@@ -9160,7 +9160,6 @@
       <notes>
         <note category="german">Die Batterie fällt ein paar Meter entfernt auf den Boden.</note>
         <note category="from">db://AffectMessage</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Die Batterie fällt ein paar Meter entfernt auf den Boden.</source>
@@ -9171,7 +9170,6 @@
       <notes>
         <note category="german">Die Batterie wurde beim Aufprall vollständig zerstört.</note>
         <note category="from">db://AffectMessage</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Die Batterie wurde beim Aufprall vollständig zerstört.</source>
@@ -9182,7 +9180,6 @@
       <notes>
         <note category="german">Gierig schluckt dieser Bürger seine Wasserration runter, ohne auch nur einen Tropfen zu verschwenden... Seine Zunge klebt ihm noch immer am Gaumen und sein Hals ist noch genauso trocken wie vorher.{hr}&lt;strong&gt;Da er davor schon dehydriert warst, hat er keine neuen APs erhalten.&lt;/strong&gt;</note>
         <note category="from">db://ItemAction</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Gierig schluckt dieser Bürger seine Wasserration runter, ohne auch nur einen Tropfen zu verschwenden... Seine Zunge klebt ihm noch immer am Gaumen und sein Hals ist noch genauso trocken wie vorher.{hr}&lt;strong&gt;Da er davor schon dehydriert warst, hat er keine neuen APs erhalten.&lt;/strong&gt;</source>
@@ -9203,7 +9200,6 @@
       <notes>
         <note category="german">Du zermahlst den Inhalt von {items_consume} auf dem Tisch und mischst ihn mit allem, was dir in die Hände fällt... und lässt ihn dann ziehen.</note>
         <note category="from">db://ItemAction</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Du zermahlst den Inhalt von {items_consume} auf dem Tisch und mischst ihn mit allem, was dir in die Hände fällt... und lässt ihn dann ziehen.</source>
@@ -9214,7 +9210,6 @@
       <notes>
         <note category="german">Ein überragender Erfolg: Du hast {items_spawn} erhalten!</note>
         <note category="from">db://AffectMessage</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ein überragender Erfolg: Du hast {items_spawn} erhalten!</source>
@@ -9225,7 +9220,6 @@
       <notes>
         <note category="german">Der verdächtige Rauch, der aus der Mischung austritt, deutet darauf hin, dass &lt;strong&gt;nicht alles so gelaufen ist wie geplant&lt;/strong&gt;. Du hast eine zufällige Droge erhalten: {items_spawn}</note>
         <note category="from">db://AffectMessage</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Der verdächtige Rauch, der aus der Mischung austritt, deutet darauf hin, dass &lt;strong&gt;nicht alles so gelaufen ist wie geplant&lt;/strong&gt;. Du hast eine zufällige Droge erhalten: {items_spawn}</source>
@@ -9236,7 +9230,6 @@
       <notes>
         <note category="german">Solange du &lt;strong&gt;erschöpft bist&lt;/strong&gt;, kannst du diese Aktion nicht ausführen (da du keine Aktionspunkte mehr hast)... Trink oder iss etwas, oder nimm eine Droge, ansonsten musst du bis &lt;strong&gt;morgen&lt;/strong&gt; warten.</note>
         <note category="from">db://Requirement</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Solange du &lt;strong&gt;erschöpft bist&lt;/strong&gt;, kannst du diese Aktion nicht ausführen (da du keine Aktionspunkte mehr hast)... Trink oder iss etwas, oder nimm eine Droge, ansonsten musst du bis &lt;strong&gt;morgen&lt;/strong&gt; warten.</source>
@@ -9247,7 +9240,6 @@
       <notes>
         <note category="german">Ja, klar... Du hast ihn schon hunderte Male gesehen, das Thema ändert sich auch nicht allzu sehr, aber trotzdem: Es geht nichts über einen guten Zombie-Film zur Entspannung.&lt;t-stat-down-terror&gt;&lt;hr /&gt;Diese seltsam fernen Schreie des Schreckens haben dir den Kopf gerade gerückt: &lt;strong&gt;Du hast deine Angst abgeschüttelt&lt;/strong&gt;.&lt;/t-stat-down-terror&gt;</note>
         <note category="from">db://ItemAction</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ja, klar... Du hast ihn schon hunderte Male gesehen, das Thema ändert sich auch nicht allzu sehr, aber trotzdem: Es geht nichts über einen guten Zombie-Film zur Entspannung.&lt;t-stat-down-terror&gt;&lt;hr /&gt;Diese seltsam fernen Schreie des Schreckens haben dir den Kopf gerade gerückt: &lt;strong&gt;Du hast deine Angst abgeschüttelt&lt;/strong&gt;.&lt;/t-stat-down-terror&gt;</source>
