@@ -506,7 +506,7 @@ class TownController extends InventoryAwareController
                 break;
             case Citizen::Watered:
                 // Watered
-                $items = $this->inventory_handler->fetchSpecificItems( $ac->getInventory(), [new ItemRequest('water_#00', 1, null, false)] );
+                $items = $this->inventory_handler->fetchSpecificItems( [$ac->getInventory(),$ac->getHome()->getChest()], [new ItemRequest('water_#00', 1, null, false)] );
                 if (!$items) return AjaxResponse::error(ErrorHelper::ErrorItemsMissing );
                 $this->inventory_handler->forceRemoveItem( $items[0] );
                 $pictoName = "r_cwater_#00";
