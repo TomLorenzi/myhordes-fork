@@ -83,10 +83,10 @@ class MessageTownMessageController extends MessageController
                 $valid = false;
                 $item = $em->getRepository(Item::class)->find($item_id);
 
-                if (in_array($item->getPrototype()->getName(), ['bagxl_#00', 'bag_#00', 'cart_#00', 'pocket_belt_#00'])) {
+                if (in_array($item->getPrototype()->getName(), ['bagxl_#00', 'bag_#00', 'cart_#00', 'pocket_belt_#00']))
                     // We cannot send bag expansion
-                    return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
-                }
+                    return AjaxResponse::errorMessage( $this->translator->trans('Du kannst kein(en) {item} per Post versenden.',
+                        ['item' => "<span class='tool'><img alt='' src='{$this->asset->getUrl( "build/images/item/item_{$item->getPrototype()->getIcon()}.gif" )}'> {$this->translator->trans($item->getPrototype()->getLabel(), [], 'items')}</span>"], 'game') );
 
                 if($item->getInventory()->getHome() !== null && $item->getInventory()->getHome()->getCitizen() === $sender){
                     // This is an item from a chest

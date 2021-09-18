@@ -14514,5 +14514,11 @@
         <target>Die Stadt hat folgende Gegenstände in Folge der Hinrichtung von {shunned} zurückerhalten: {list}</target>
       </segment>
     </unit>
+    <unit id="SwF.EK1" name="Du kannst kein(en) {item} per Post versenden.">
+      <segment>
+        <source>Du kannst kein(en) {item} per Post versenden.</source>
+        <target>Du kannst kein(en) {item} per Post versenden.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
