@@ -3934,7 +3934,7 @@
       </notes>
       <segment>
         <source>Von Hungerschmerzen geplagt bist du den ganzen Tag durch die Stadt getorkelt... immer auf der Suche nach einem Bissen Fleisch...doch vergebens. Am Ende des Tages haben dich deine Kräfte dann schließlich verlassen. Langsam, ganz langsam, bist du zu Boden gesunken. Selbst deine letzten Atemzüge waren eine Pein... Das Letzte was die Welt noch von dir vernahm war ein unmenschlicher, gellender Schrei gen Himmel und das warst du tot.</source>
-        <target>Von Hungerschmerzen geplagt bist du den ganzen Tag durch die Stadt getorkelt... immer auf der Suche nach einem Bissen Fleisch...doch vergebens. Am Ende des Tages haben dich deine Kräfte dann schließlich verlassen. Langsam, ganz langsam, bist du zu Boden gesunken. Selbst deine letzten Atemzüge waren eine Pein... Das Letzte was die Welt noch von dir vernahm war ein unmenschlicher, gellender Schrei gen Himmel und das warst du tot.</target>
+        <target>Acosado por los dolores del hambre, anduviste a trompicones por el pueblo todo el día... siempre buscando un bocado de carne... pero en vano. Al final del día, finalmente se te acabaron las fuerzas. Lentamente, muy lentamente, te hundiste en el suelo. Incluso tus últimos alientos fueron un dolor... Lo último que el mundo escuchó de ti fue un grito inhumano y penetrante en el cielo y estabas muerto.</target>
       </segment>
     </unit>
     <unit id="4u_gRGL" name="Drogenabhängigkeit">
@@ -3945,7 +3945,7 @@
       </notes>
       <segment>
         <source>Drogenabhängigkeit</source>
-        <target>Drogenabhängigkeit</target>
+        <target>Drogadicción</target>
       </segment>
     </unit>
     <unit id="Ms3Esea">
@@ -3956,7 +3956,7 @@
       </notes>
       <segment>
         <source>Drogen sind echt was Tolles, solange du genügend hast. Wenn sie dir aber ausgehen, sieht's schon anders aus... Schweißausbrüche, Panikattacken, Zittern... du rennst alle zehn Minuten aufs Klo, um dich zu übergeben. Am Ende, wenn du deinen Verstand bereits verloren hast, schluckst du dann Steine, weil du sie mit Steroiden verwechselst.</source>
-        <target>Drogen sind echt was Tolles, solange du genügend hast. Wenn sie dir aber ausgehen, sieht's schon anders aus... Schweißausbrüche, Panikattacken, Zittern... du rennst alle zehn Minuten aufs Klo, um dich zu übergeben. Am Ende, wenn du deinen Verstand bereits verloren hast, schluckst du dann Steine, weil du sie mit Steroiden verwechselst.</target>
+        <target>Las drogas son excelentes siempre que tenga suficiente. Pero si te quedas sin ellos, las cosas se verán diferentes... sudores, ataques de pánico, temblores... corres al baño cada diez minutos a vomitar. Al final, cuando ya te has vuelto loco, terminas tragando piedras por confundirlas con esteroides.</target>
       </segment>
     </unit>
     <unit id="Ds74xh4">
@@ -3967,7 +3967,7 @@
       </notes>
       <segment>
         <source>Stück für Stück hat dich die Krankheit von innen her aufgefressen... Die Infektionssymptome waren auch nicht mehr zu übersehen: eiternde Wunden, Hematome, faulendes Fleisch... Nach mehreren Stunden Leiden hast du den Tod schließlich als Erleichterung empfunden.</source>
-        <target>Stück für Stück hat dich die Krankheit von innen her aufgefressen... Die Infektionssymptome waren auch nicht mehr zu übersehen: eiternde Wunden, Hematome, faulendes Fleisch... Nach mehreren Stunden Leiden hast du den Tod schließlich als Erleichterung empfunden.</target>
+        <target>Poco a poco la enfermedad te devoraba por dentro... Los síntomas de la infección ya no podían pasarse por alto: heridas supurantes, hematomas, carne podrida... Después de varias horas de sufrimiento, finalmente sentiste la muerte como un alivio.</target>
       </segment>
     </unit>
     <unit id="pVtld9L" name="Zyanid">
@@ -3998,7 +3998,7 @@
       </notes>
       <segment>
         <source>Ermordung durch Gift</source>
-        <target>Ermordung durch Gift</target>
+        <target>Asesinato por veneno</target>
       </segment>
     </unit>
     <unit id="q6r0JuY">
@@ -8530,7 +8530,7 @@
       </notes>
       <segment>
         <source>Es sieht so aus, als hätten wir alles richtig gemacht, da letzte Nacht keine Zombies die Mauern durchbrochen haben.</source>
-        <target>Es sieht so aus, als hätten wir alles richtig gemacht, da letzte Nacht keine Zombies die Mauern durchbrochen haben.</target>
+        <target>Parece que hicimos todo bien ya que ningún zombi rompió las paredes anoche.</target>
       </segment>
     </unit>
     <unit id="iTuXPS6">
@@ -8581,7 +8581,7 @@
       </notes>
       <segment>
         <source>Unsere Verteidigung an der Ostmauer scheint zufriedenstellend zu sein. Die furchterregenden Kreaturen der Horde wurden in Schach gehalten... dieses Mal!</source>
-        <target>Unsere Verteidigung an der Ostmauer scheint zufriedenstellend zu sein. Die furchterregenden Kreaturen der Horde wurden in Schach gehalten... dieses Mal!</target>
+        <target>Nuestra defensa en el muro este parece ser satisfactoria. Las temibles criaturas de la Horda se mantuvieron bajo control... ¡esta vez!</target>
       </segment>
     </unit>
     <unit id="V.H.RZw">
@@ -8662,7 +8662,7 @@
       </notes>
       <segment>
         <source>Eine schreckliche Nacht für die Stadt. Die lebenden Toten massakrierten {deaths} unserer Gemeinde während des Angriffs. Vielleicht möchtet ihr vor heute Abend noch einmal einen Blick auf unsere Verteidigung werfen...</source>
-        <target>Eine schreckliche Nacht für die Stadt. Die lebenden Toten massakrierten {deaths} unserer Gemeinde während des Angriffs. Vielleicht möchtet ihr vor heute Abend noch einmal einen Blick auf unsere Verteidigung werfen...</target>
+        <target>Una noche terrible para el pueblo. Los muertos vivientes masacraron a nuestra comunidad durante el ataque. Quizás quieras echar otro vistazo a nuestras defensas antes de esta noche...</target>
       </segment>
     </unit>
     <unit id="tWF6qem">
@@ -8673,7 +8673,7 @@
       </notes>
       <segment>
         <source>Die Zombies fanden gestern Abend an der Nordwand eine Schwäche in unserer Verteidigung... Einige Häuser hielten dem Angriff stand. Andere nicht... ... {deaths} tot. Ende der Geschichte.</source>
-        <target>Die Zombies fanden gestern Abend an der Nordwand eine Schwäche in unserer Verteidigung... Einige Häuser hielten dem Angriff stand. Andere nicht... ... {deaths} tot. Ende der Geschichte.</target>
+        <target>Los zombis encontraron una debilidad en nuestra defensa en el muro norte anoche... Algunas casas resistieron el ataque. No otros... ... {deaths} muertos. Fin de la historia.</target>
       </segment>
     </unit>
     <unit id="xVDXz8v">
@@ -8684,7 +8684,7 @@
       </notes>
       <segment>
         <source>Einige Bewohner brachen heute Morgen ob der Opfer in Tränen aus. Tränen der Freude mit Sicherheit, nicht eines der {deaths} Opfer des letzten Angriffs zu sein.</source>
-        <target>Einige Bewohner brachen heute Morgen ob der Opfer in Tränen aus. Tränen der Freude mit Sicherheit, nicht eines der {deaths} Opfer des letzten Angriffs zu sein.</target>
+        <target>Algunos habitantes se echaron a llorar esta mañana por la víctima. Lágrimas de alegría por no ser una de las {deaths} víctimas del último ataque.</target>
       </segment>
     </unit>
     <unit id="FgoMd0R">
@@ -8695,7 +8695,7 @@
       </notes>
       <segment>
         <source>Eine Handvoll Zombies durchbrach unsere Verteidigungsanlagen in der Nähe des nördlichen Viertels, wir haben keine Ahnung, wie... Wie es das "Glück" wollte, sind {deaths} Bürger tot, aber ihr habt seltsamerweise überlebt. ... Klingt das nicht ein wenig verdächtig?</source>
-        <target>Eine Handvoll Zombies durchbrach unsere Verteidigungsanlagen in der Nähe des nördlichen Viertels, wir haben keine Ahnung, wie... Wie es das "Glück" wollte, sind {deaths} Bürger tot, aber ihr habt seltsamerweise überlebt. ... Klingt das nicht ein wenig verdächtig?</target>
+        <target>Un puñado de zombis rompió nuestras defensas cerca del barrio norte, no tenemos idea de cómo.... La "suerte" ha querido que los {deaths} habitantes estén muertos, pero tú, extrañamente, has sobrevivido. ... ¿No te parece un poco sospechoso?</target>
       </segment>
     </unit>
     <unit id="MwOt2NN">
@@ -8706,7 +8706,7 @@
       </notes>
       <segment>
         <source>Eine Flutwelle von Zombies stürzte letzte Nacht gegen unsere Stadt! Bürger wurden in ihren eigenen Häusern verschlungen oder in die Wüste geschleift... Noch so eine Nacht, und wir werden nicht mehr hier sein, um darüber zu reden.</source>
-        <target>Eine Flutwelle von Zombies stürzte letzte Nacht gegen unsere Stadt! Bürger wurden in ihren eigenen Häusern verschlungen oder in die Wüste geschleift... Noch so eine Nacht, und wir werden nicht mehr hier sein, um darüber zu reden.</target>
+        <target>¡Una oleada de zombis se estrelló contra nuestro pueblo anoche! Los habitantes fueron devorados en sus propias casas o arrastrados al desierto... Una noche más y no estaremos aquí para hablar de eso.</target>
       </segment>
     </unit>
     <unit id="aHDkQ88">
@@ -8717,7 +8717,7 @@
       </notes>
       <segment>
         <source>Wir müssen uns beeilen; unsere Unfähigkeit, zufriedenstellende Verteidigungsanlagen zu errichten, kostete letzte Nacht {deaths} Bürgern das Leben. Zu eurer Information: Gestern Abend wurde die Stadt von {attack} Zombies angegriffen.</source>
-        <target>Wir müssen uns beeilen; unsere Unfähigkeit, zufriedenstellende Verteidigungsanlagen zu errichten, kostete letzte Nacht {deaths} Bürgern das Leben. Zu eurer Information: Gestern Abend wurde die Stadt von {attack} Zombies angegriffen.</target>
+        <target>Tenemos prisa; nuestra incapacidad para construir defensas satisfactorias costó {deaths} vidas a los habitantes anoche. Para tu información, anoche el pueblo fue atacada por {attack} zombies.</target>
       </segment>
     </unit>
     <unit id="TI38FCg">
@@ -8728,7 +8728,7 @@
       </notes>
       <segment>
         <source>Die Verteidigungsanlagen waren gestern Abend unzureichend. {deaths} Bürger bezahlten für eure mangelnde Organisation mit ihrem Leben.</source>
-        <target>Die Verteidigungsanlagen waren gestern Abend unzureichend. {deaths} Bürger bezahlten für eure mangelnde Organisation mit ihrem Leben.</target>
+        <target>Las defensas fueron ineficientes anoche.Los {deaths} habitantes pagaron con sus vidas tu falta de organización.</target>
       </segment>
     </unit>
     <unit id="j6M_Tqs">
@@ -8739,7 +8739,7 @@
       </notes>
       <segment>
         <source>Letzte Nacht haben es {deaths} Bürger nicht rechtzeitig nach Hause geschafft. Einige Teile von ihnen wurden in der Nähe des westlichen Viertels gefunden. Augenzeugen berichten, dass die Anwohner riefen: "Lauf, Forrest, lauf!", bevor sie vor Lachen ausbrachen und in ihr Haus rannten.</source>
-        <target>Letzte Nacht haben es {deaths} Bürger nicht rechtzeitig nach Hause geschafft. Einige Teile von ihnen wurden in der Nähe des westlichen Viertels gefunden. Augenzeugen berichten, dass die Anwohner riefen: "Lauf, Forrest, lauf!", bevor sie vor Lachen ausbrachen und in ihr Haus rannten.</target>
+        <target>Anoche, {deaths} habitantes no llegaron a tiempo a casa. Algunas partes de ellos se encontraron cerca del barrio occidental. Testigos presenciales informan que los residentes locales gritaron: "¡Corre, Forrest, corre!", Antes de estallar en carcajadas y entrar corriendo a su casa.</target>
       </segment>
     </unit>
     <unit id="FRBVY_U">
@@ -8750,7 +8750,7 @@
       </notes>
       <segment>
         <source>Was für ein Riesenschlamassel: {deaths} starben letzte Nacht in der Stadt! Ein Massaker, zu dem noch der zertrümmerter Schädel eines Haustiers zu zählen ist, der in den Toren verkeilt gefunden wurde. Vermisst jemand einen Hund?</source>
-        <target>Was für ein Riesenschlamassel: {deaths} starben letzte Nacht in der Stadt! Ein Massaker, zu dem noch der zertrümmerter Schädel eines Haustiers zu zählen ist, der in den Toren verkeilt gefunden wurde. Vermisst jemand einen Hund?</target>
+        <target>¡Qué lío: {deaths} murieron en el pueblo anoche! Una masacre que incluye el cráneo destrozado de una mascota que se encuentra encajada en las puertas. ¿Alguien extraña a un perro?</target>
       </segment>
     </unit>
     <unit id="fbPbjvi">
@@ -22564,7 +22564,7 @@
       </notes>
       <segment>
         <source>{attacker} hat {defender} gewalttätig angegriffen! Der Kampf ist eskaliert und {attacker} verletzte {defender} schlussendlich schwer!</source>
-        <target>{attacker} hat {defender} gewalttätig angegriffen! Der Kampf ist eskaliert und {attacker} verletzte {defender} schlussendlich schwer!</target>
+        <target>¡{attacker} atacó violentamente a {defender}! ¡La pelea se ha intensificado y {attacker} hirió gravemente a {defender}!</target>
       </segment>
     </unit>
     <unit id="o0S7jOB" name="Tag {d} {today}">
