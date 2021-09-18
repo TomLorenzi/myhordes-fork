@@ -1709,6 +1709,22 @@ class LogTemplateHandler
             ->setCitizen( $citizen );
     }
 
+    public function publicJustice( Citizen $citizen, int $def = 0 ): TownLogEntry {
+        $variables = array('citizen' => $citizen->getId(), 'def' => $def);
+
+        $template = ($def > 0)
+            ? $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'banishmentKillHanging'])
+            : $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'banishmentKillCage']);
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $citizen->getTown() )
+            ->setDay( $citizen->getTown()->getDay() )
+            ->setTimestamp( new DateTime('now') )
+            ->setCitizen( $citizen );
+    }
+
     public function houseRecycled( Citizen $citizen, $items ): TownLogEntry {
         $variables = array('citizen' => $citizen->getId(),
             'list' => array_map( function($e) { if(array_key_exists('count', $e)) {return array('id' => $e['item']->getId(),'count' => $e['count']);}

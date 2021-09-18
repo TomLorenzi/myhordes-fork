@@ -251,13 +251,16 @@ class CitizenHandler
                 $active = $gallows;
             } elseif ($gallows) {
                 $this->container->get(DeathHandler::class)->kill( $citizen, CauseOfDeath::Hanging, $rem );
+                $this->entity_manager->persist($this->log->publicJustice($citizen));
 
                 // The gallows gets destroyed
                 $gallows->setComplete(false)->setAp(0)->setDefense(0)->setHp(0);
                 $active = $gallows;
             } elseif ($cage) {
                 $this->container->get(DeathHandler::class)->kill( $citizen, CauseOfDeath::FleshCage, $rem );
-                $cage->setTempDefenseBonus( $cage->getTempDefenseBonus() + ( $citizen->getProfession()->getHeroic() ? 60 : 40 ) );
+                $cage->setTempDefenseBonus( $cage->getTempDefenseBonus() + ($def = $citizen->getProfession()->getHeroic() ? 60 : 40 ) );
+                $this->entity_manager->persist($this->log->publicJustice($citizen, $def));
+
                 $this->entity_manager->persist( $cage );
                 $citizen->getHome()->setHoldsBody(false);
                 $citizen->setDisposed(Citizen::Ghoul);
