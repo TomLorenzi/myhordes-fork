@@ -294,7 +294,8 @@
             }
 
             node_transfer_source.addEventListener('input', function() {
-                $.client.config.scopedEditorCache.set(['{{ type|e('js') }}',node_transfer_source.value]);
+                if ($.client.config.usePostBackup.get())
+                    $.client.config.scopedEditorCache.set(['{{ type ~ (town_controls ? 'TC' : '')|e('js') }}',node_transfer_source.value]);
                 transfer_to_preview();
             });
 
@@ -308,10 +309,10 @@
             let cache = $.client.config.editorCache.get();
             if (!cache) {
                 const s_cache = $.client.config.scopedEditorCache.get();
-                if (s_cache[0] === '{{ type|e('js') }}') cache = s_cache[1];
+                if (s_cache[0] === '{{ (type ~ (town_controls ? 'TC' : ''))|e('js') }}') cache = s_cache[1];
             }
 
-            if ( cache ) {
+            if ( cache && $.client.config.usePostBackup.get() ) {
                 node_transfer_source.value = cache;
                 transfer_to_preview();
             }
