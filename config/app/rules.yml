@@ -13,8 +13,8 @@ parameters:
       zone_items:
         min: 4
         max: 10
-        refresh_min: 2
-        refresh_max: 5
+        refresh_min: 1
+        refresh_max: 8
         fill_max: 12
 
       ruins: 20
