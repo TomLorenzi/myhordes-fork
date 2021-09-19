@@ -3992,7 +3992,7 @@
       </notes>
       <segment>
         <source>Die maximale Größe der Bilddatei, die du für deinen Avatar hochladen kannst, beträgt &lt;b&gt;{size}&lt;/b&gt;.</source>
-        <target><![CDATA[Die maximale Größe der Bilddatei, die du für deinen Avatar hochladen kannst, beträgt <b>{size}</b>.]]></target>
+        <target><![CDATA[La taille maximale de l'image que vous pouvez télécharger pour votre avatar est de <b>{size}</b>..]]></target>
       </segment>
     </unit>
     <unit id="U8MXhPw">
@@ -4003,7 +4003,7 @@
       </notes>
       <segment>
         <source>Nach dem Upload wird der Server dein Bild möglicherweise komprimieren (z.B. indem die Größe reduziert oder Animationsframe optimiert werden).</source>
-        <target>Nach dem Upload wird der Server dein Bild möglicherweise komprimieren (z.B. indem die Größe reduziert oder Animationsframe optimiert werden).</target>
+        <target>Après le téléchargement, le serveur peut compresser votre image (par exemple en réduisant sa taille ou en optimisant les images d’animation).</target>
       </segment>
     </unit>
     <unit id="iExo5YI">
@@ -4014,7 +4014,7 @@
       </notes>
       <segment>
         <source>Der Server muss in der Lage sein, dein Bild auf höchstens &lt;b&gt;{size}&lt;/b&gt; zu komprimieren - andernfalls kann es nicht gespeichert werden.</source>
-        <target><![CDATA[Der Server muss in der Lage sein, dein Bild auf höchstens <b>{size}</b> zu komprimieren - andernfalls kann es nicht gespeichert werden.]]></target>
+        <target><![CDATA[Le serveur doit être en mesure de compresser votre image à <b>{size}</b> ou moins - sinon elle ne peut pas être enregistrée.]]></target>
       </segment>
     </unit>
     <unit id="LCJ4eBk" name="Die folgenden Bildformate werden unterstützt:">
@@ -4025,7 +4025,7 @@
       </notes>
       <segment>
         <source>Die folgenden Bildformate werden unterstützt:</source>
-        <target>Die folgenden Bildformate werden unterstützt:</target>
+        <target>Les formats d’image suivants sont pris en charge :</target>
       </segment>
     </unit>
     <unit id="KDrgSO8" name="nur Baseline-Format">
@@ -4036,7 +4036,7 @@
       </notes>
       <segment>
         <source>nur Baseline-Format</source>
-        <target>nur Baseline-Format</target>
+        <target>format de référence uniquement</target>
       </segment>
     </unit>
   </file>
