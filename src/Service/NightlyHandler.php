@@ -1306,7 +1306,9 @@ class NightlyHandler
                 $reco_counter[1]++;
                 if ($this->random->chance( $recovery_chance )) {
                     $digs = mt_rand( $this->conf->getTownConfiguration($town)->get(TownConf::CONF_ZONE_ITEMS_RE_MIN, 2) , $this->conf->getTownConfiguration($town)->get(TownConf::CONF_ZONE_ITEMS_RE_MAX, 5));
-                    $zone->setDigs( min( $zone->getDigs() + $digs, $this->conf->getTownConfiguration($town)->get(TownConf::CONF_ZONE_ITEMS_TOTAL_MAX, 12) ) );
+                    if ($zone->getDigs() >= $this->conf->getTownConfiguration($town)->get(TownConf::CONF_ZONE_ITEMS_THROTTLE_AT, 12))
+                        $digs = ceil(($digs-1) / 2);
+                    $zone->setDigs( min( $zone->getDigs() + $digs, $this->conf->getTownConfiguration($town)->get(TownConf::CONF_ZONE_ITEMS_TOTAL_MAX, 30) ) );
                     $this->log->debug( "Zone <info>{$zone->getX()}/{$zone->getY()}</info>: Recovering by <info>{$digs}</info> to <info>{$zone->getDigs()}</info>." );
                     $reco_counter[0]++;
                 }

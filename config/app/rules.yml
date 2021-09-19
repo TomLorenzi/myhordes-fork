@@ -15,7 +15,8 @@ parameters:
         max: 10
         refresh_min: 1
         refresh_max: 8
-        fill_max: 12
+        fill_max: 30
+        throttle_at: 12
 
       ruins: 20
       explorable_ruins: 1
