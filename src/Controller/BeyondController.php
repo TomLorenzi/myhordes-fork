@@ -1477,7 +1477,7 @@ class BeyondController extends InventoryAwareController
         }
 
         if ($on)
-            $citizen->getEscortSettings()->setAllowInventoryAccess($cf_ruc)->setForceDirectReturn($cf_ret);
+            $citizen->getEscortSettings()->setAllowInventoryAccess($cf_ruc)->setForceDirectReturn($cf_ret && !$citizen->getZone()->isTownZone());
 
         try {
             $this->entity_manager->persist( $citizen );
