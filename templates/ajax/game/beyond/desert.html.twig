@@ -269,7 +269,7 @@
 
         {% endif %}
         <div class="row">
-            <div class="padded cell rw-6 rw-md-12">
+            <div class="padded cell rw-6 rw-md-12 actions-box">
                 {% if not zone.townZone %}
                     <h5>{% trans from 'game' %}Meine Aktionen{% endtrans %}</h5>
                     {% if zone.digs <= 0 %}
@@ -383,7 +383,6 @@
                             </button>
                         {% endif %}
                     {% endif %}
-
                 {% else %}
                     {% if allow_enter_town %}
                         {% if enter_costs_ap %}
