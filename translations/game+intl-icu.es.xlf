@@ -478,7 +478,7 @@
       </notes>
       <segment>
         <source>Du kannst für eine Weile keine weiteren Gegenstände aus der Bank entnehmen.</source>
-        <target>Esta acción está bloqueada durante un tiempo.</target>
+        <target><![CDATA[Esta acción está bloqueada durante <strong>15 minutos aproximadamente</strong> (protección anti-abusos).<hr /><strong>Atención: Si intentas repetir esta acción al final del plazo, ¡la duración del bloqueo será prolongada!</strong>]]></target>
       </segment>
     </unit>
     <unit id="bqrEaC9" name="Du hast heute schon &lt;strong&gt;einen Diebstahl&lt;/strong&gt; begangen.">

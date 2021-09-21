@@ -478,7 +478,7 @@
       </notes>
       <segment>
         <source>Du kannst für eine Weile keine weiteren Gegenstände aus der Bank entnehmen.</source>
-        <target>Cette action est bloquée pendant 15 minutes environ (protection anti-abus). Attention : si vous tentez de répéter cette action avant la fin du délai, la durée de ce blocage sera prolongée !</target>
+        <target><![CDATA[Cette action est bloquée pendant <strong>15 minutes environ</strong> (protection anti-abus).<hr /><strong>Attention : si vous tentez de répéter cette action avant la fin du délai, la durée de ce blocage sera prolongée !</strong>]]></target>
       </segment>
     </unit>
     <unit id="bqrEaC9" name="Du hast heute schon &lt;strong&gt;einen Diebstahl&lt;/strong&gt; begangen.">

@@ -478,7 +478,7 @@
       </notes>
       <segment>
         <source>Du kannst für eine Weile keine weiteren Gegenstände aus der Bank entnehmen.</source>
-        <target>This action is blocked for approximately 15 minutes (anti-abuse system).</target>
+        <target><![CDATA[This action is blocked for <strong>approximately 15 minutes</strong> (anti-abuse system).<hr /><strong>Warning: if you try to repeat this action before this time, the duration of the restriction will be extended!</strong>]]></target>
       </segment>
     </unit>
     <unit id="bqrEaC9" name="Du hast heute schon &lt;strong&gt;einen Diebstahl&lt;/strong&gt; begangen.">
