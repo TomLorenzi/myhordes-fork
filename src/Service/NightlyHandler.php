@@ -402,8 +402,8 @@ class NightlyHandler
                             $tx[] = "<info>{$plan['item']->getLabel()} x{$plan['count']}</info>";
                         }
 
-                        $this->entity_manager->persist( $this->logTemplates->nightlyAttackUpgradeBuildingItems( $target_building, $plans ));
-                        $this->log->debug("Leveling up <info>{$target_building->getPrototype()->getLabel()}</info>: Placing " . implode(', ', $tx) . " in the bank.");
+                        $this->entity_manager->persist( $this->logTemplates->nightlyAttackUpgradeBuildingItems( $this->upgraded_building, $plans ));
+                        $this->log->debug("Leveling up <info>{$this->upgraded_building->getPrototype()->getLabel()}</info>: Placing " . implode(', ', $tx) . " in the bank.");
                         break;
                 }
             }
