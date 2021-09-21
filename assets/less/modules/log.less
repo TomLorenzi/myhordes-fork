@@ -122,17 +122,16 @@
     &>div {
       overflow: visible; display: inline-block; position: relative;
       &>div {
-        display: inline-block; font-size: 0.7em;  background: @myhordes-cell-header-background-color; width: 120px;
+        display: inline-block; font-size: 0.7em;  background: @myhordes-cell-header-background-color; width: 60px;
         text-align: center;
         border-bottom: 1px solid @myhordes-input-border; border-left: 1px solid @myhordes-input-border;
         border-right: 1px solid @myhordes-input-border; position: relative; padding: 3px; top: -3px; left: 5px;
-        &>span { font-weight: bold; font-variant: small-caps; }
-        &>*:not(span) {
-          color: @myhordes-smalltext; cursor: pointer; display: inline-block;
-          &:first-child { margin: 0 10px 0 0; }
-          &:last-child  { margin: 0 0 0 10px; }
+        color: @myhordes-smalltext; cursor: pointer;
+        &.current {
+          color: white;
+          font-weight: bold;
         }
-
+        &>span { font-weight: bold; font-variant: small-caps; }
       }
     }
 
