@@ -527,6 +527,13 @@ class CitizenHandler
     public function getCampingChance(Citizen $citizen): float {
         $total_value = array_sum($this->getCampingValues($citizen));
 
+        //if      ($total_value >= -4  ) $survival_chance = 1 +    $total_value * 0.025;
+        //else if ($total_value >= -10 ) $survival_chance = 0.9 + ($total_value+ 4) * 0.05;
+        //else if ($total_value >= -18 ) $survival_chance = 0.6 + ($total_value+10) * 0.0375;
+        //else                           $survival_chance = 0.3 + ($total_value+18) * 0.1;
+
+        //$survival_chance = max( 0.05, min ( $survival_chance, $citizen->getProfession()->getName() == 'survivalist' ? 1 : 0.9 ) );
+
         if ($total_value >= 0 && $citizen->getProfession()->getName() == 'survivalist') {
             $survival_chance = 1;
         }
