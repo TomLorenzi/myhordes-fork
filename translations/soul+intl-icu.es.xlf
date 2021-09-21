@@ -4026,5 +4026,16 @@
         <target>Solo formato de línea de base</target>
       </segment>
     </unit>
+    <unit id="qRIZ_Eb" name="Texteditor-Inhalte zur Sicherheit zwischenspeichern">
+      <notes>
+        <note category="german">Texteditor-Inhalte zur Sicherheit zwischenspeichern</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Texteditor-Inhalte zur Sicherheit zwischenspeichern</source>
+        <target>Texteditor-Inhalte zur Sicherheit zwischenspeichern</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

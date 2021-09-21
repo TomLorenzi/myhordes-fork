@@ -22883,5 +22883,27 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>Complaint Withdrawn ({num} remaining)</target>
       </segment>
     </unit>
+    <unit id="HHYz9.Q" name="{deaths} Bürger sind beim heutigen Angriff gestorben!">
+      <notes>
+        <note category="german">{deaths} Bürger sind beim heutigen Angriff gestorben!</note>
+        <note category="from">db://LogEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>{deaths} Bürger sind beim heutigen Angriff gestorben!</source>
+        <target>{deaths} Bürger sind beim heutigen Angriff gestorben!</target>
+      </segment>
+    </unit>
+    <unit id="iLdX6jg">
+      <notes>
+        <note category="german">Doch leider ist der letzte Bürger tot, bevor die Horde die Stadttore erreicht... Seine Zunge hängt zwischen den Zähnen seines ehemaligen Freundes...</note>
+        <note category="from">db://LogEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Doch leider ist der letzte Bürger tot, bevor die Horde die Stadttore erreicht... Seine Zunge hängt zwischen den Zähnen seines ehemaligen Freundes...</source>
+        <target>Doch leider ist der letzte Bürger tot, bevor die Horde die Stadttore erreicht... Seine Zunge hängt zwischen den Zähnen seines ehemaligen Freundes...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

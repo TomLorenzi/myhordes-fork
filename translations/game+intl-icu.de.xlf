@@ -14544,5 +14544,17 @@
         <target>Beschwerde zurückgezogen (es bleiben noch {num} Stück)</target>
       </segment>
     </unit>
+    <unit id="HHYz9.Q" name="{deaths} Bürger sind beim heutigen Angriff gestorben!">
+      <segment>
+        <source>{deaths} Bürger sind beim heutigen Angriff gestorben!</source>
+        <target>{deaths} Bürger sind beim heutigen Angriff gestorben!</target>
+      </segment>
+    </unit>
+    <unit id="iLdX6jg">
+      <segment>
+        <source>Doch leider ist der letzte Bürger tot, bevor die Horde die Stadttore erreicht... Seine Zunge hängt zwischen den Zähnen seines ehemaligen Freundes...</source>
+        <target>Doch leider ist der letzte Bürger tot, bevor die Horde die Stadttore erreicht... Seine Zunge hängt zwischen den Zähnen seines ehemaligen Freundes...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

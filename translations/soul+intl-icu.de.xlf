@@ -2480,5 +2480,11 @@
         <target>nur Baseline-Format</target>
       </segment>
     </unit>
+    <unit id="qRIZ_Eb" name="Texteditor-Inhalte zur Sicherheit zwischenspeichern">
+      <segment>
+        <source>Texteditor-Inhalte zur Sicherheit zwischenspeichern</source>
+        <target>Texteditor-Inhalte zur Sicherheit zwischenspeichern</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
