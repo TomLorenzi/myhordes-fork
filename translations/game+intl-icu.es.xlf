@@ -7139,7 +7139,7 @@
       </notes>
       <segment>
         <source>"Einen Schritt weiter..." stand auf {victim}s Fußmatte. Ihre Explosion hat einen bleibenden Eindruck bei dir hinterlassen. Wenn du noch laufen kannst, such dir besser einen Arzt.</source>
-        <target>"Einen Schritt weiter..." stand auf {victim}s Fußmatte. Ihre Explosion hat einen bleibenden Eindruck bei dir hinterlassen. Wenn du noch laufen kannst, such dir besser einen Arzt.</target>
+        <target>"Un paso más..." se paró en el felpudo de {víctima}. Su explosión te dejó una impresión duradera. Si aún puede caminar, será mejor que busque un médico.</target>
       </segment>
     </unit>
     <unit id="EZeEFMF" name="Du kannst diesen Gegenstand nicht stehlen.">
@@ -19407,7 +19407,7 @@
       </notes>
       <segment>
         <source>Der Leichnam von {citizen} wurde nicht zerstört.</source>
-        <target>Der Leichnam von {citizen} wurde nicht zerstört.</target>
+        <target>El cuerpo de {citizen} no fue destruido.</target>
       </segment>
     </unit>
     <unit id=".67v4pV">
@@ -19418,7 +19418,7 @@
       </notes>
       <segment>
         <source>Es ist gut möglich, dass er diese Nacht aufersteht und versuchen wird, uns anzugreifen.</source>
-        <target>Es ist gut möglich, dass er diese Nacht aufersteht und versuchen wird, uns anzugreifen.</target>
+        <target>Hay muchas posibilidades de que resucite esta noche y trate de atacarnos.</target>
       </segment>
     </unit>
     <unit id=".eKZbiD">
@@ -19459,7 +19459,7 @@
       </notes>
       <segment>
         <source>Haus von {citizen}</source>
-        <target>Haus von {citizen}</target>
+        <target>Casa de {citizen}</target>
       </segment>
     </unit>
     <unit id="VDBWagl" name="Das Grab von {citizen}">
@@ -19470,7 +19470,7 @@
       </notes>
       <segment>
         <source>Das Grab von {citizen}</source>
-        <target>Das Grab von {citizen}</target>
+        <target>La tumba de {citizen}</target>
       </segment>
     </unit>
     <unit id="X28KXsi" name="Das Haus">
@@ -19781,7 +19781,7 @@
       </notes>
       <segment>
         <source>Hängt {user}!</source>
-        <target>Hängt {user}!</target>
+        <target>¡Cuelga a {user}!</target>
       </segment>
     </unit>
     <unit id="pYRP3ZN" name="{user} wir kriegen dich!">
@@ -19792,7 +19792,7 @@
       </notes>
       <segment>
         <source>{user} wir kriegen dich!</source>
-        <target>{user} wir kriegen dich!</target>
+        <target>¡{user} te atraparemos!</target>
       </segment>
     </unit>
     <unit id="jjVCRmk" name="am {d}.{m}.{Y}, um {H}:{i}">
@@ -19833,7 +19833,7 @@
       </notes>
       <segment>
         <source>Manuelles Event-Management:</source>
-        <target>Manuelles Event-Management:</target>
+        <target>Gestión manual de eventos:</target>
       </segment>
     </unit>
     <unit id="lYRernR">
@@ -19844,7 +19844,7 @@
       </notes>
       <segment>
         <source>Deaktiviert die normale Event-Verwaltung der Stadt und legt stattdessen manuell fest, welche Event-Inhalte für die Dauer der Stadt verfügbar sind.</source>
-        <target>Deaktiviert die normale Event-Verwaltung der Stadt und legt stattdessen manuell fest, welche Event-Inhalte für die Dauer der Stadt verfügbar sind.</target>
+        <target>Desactiva la gestión normal de eventos del pueblo y, en su lugar, determina manualmente qué contenido del evento está disponible durante la duración del pueblo.</target>
       </segment>
     </unit>
     <unit id="cznvzLK" name="Kein Event:">
@@ -19855,7 +19855,7 @@
       </notes>
       <segment>
         <source>Kein Event:</source>
-        <target>Kein Event:</target>
+        <target>No evento:</target>
       </segment>
     </unit>
     <unit id="nHRZ69P" name="Startet die Stadt ohne Event-Inhalte">
@@ -19866,7 +19866,7 @@
       </notes>
       <segment>
         <source>Startet die Stadt ohne Event-Inhalte</source>
-        <target>Startet die Stadt ohne Event-Inhalte</target>
+        <target>Empieza el pueblo sin contenido de evento</target>
       </segment>
     </unit>
     <unit id="jQ18AzU" name="1. April">
@@ -19888,7 +19888,7 @@
       </notes>
       <segment>
         <source>St. Patrick</source>
-        <target>St. Patrick</target>
+        <target>San Patricio</target>
       </segment>
     </unit>
     <unit id="r3k99Bz" name="Ostern">
@@ -19899,7 +19899,7 @@
       </notes>
       <segment>
         <source>Ostern</source>
-        <target>Ostern</target>
+        <target>Pascua</target>
       </segment>
     </unit>
     <unit id="BJVmtrE" name="Halloween">
@@ -19921,7 +19921,7 @@
       </notes>
       <segment>
         <source>Armageddon</source>
-        <target>Armageddon</target>
+        <target>Armagedón</target>
       </segment>
     </unit>
     <unit id="mbCP3jI" name="Weihnachten">
@@ -19932,7 +19932,7 @@
       </notes>
       <segment>
         <source>Weihnachten</source>
-        <target>Weihnachten</target>
+        <target>Navidad</target>
       </segment>
     </unit>
     <unit id="iiUUud.">
@@ -20364,7 +20364,7 @@
       </notes>
       <segment>
         <source>Einzigartige Errungenschaften</source>
-        <target>Einzigartige Errungenschaften</target>
+        <target>Logros únicos</target>
       </segment>
     </unit>
     <unit id="IdcXWbV" name="Besondere Errungenschaften">
@@ -20375,7 +20375,7 @@
       </notes>
       <segment>
         <source>Besondere Errungenschaften</source>
-        <target>Besondere Errungenschaften</target>
+        <target>Logros especiales</target>
       </segment>
     </unit>
     <unit id="FTqbUsX">
@@ -20386,7 +20386,7 @@
       </notes>
       <segment>
         <source>Dies ist eine besondere Errungenschaft, die im Rahmen eines Events verliehen wurde.</source>
-        <target>Dies ist eine besondere Errungenschaft, die im Rahmen eines Events verliehen wurde.</target>
+        <target>Este es un logro especial otorgado durante un evento.</target>
       </segment>
     </unit>
     <unit id="uB8frFP">
@@ -20397,7 +20397,7 @@
       </notes>
       <segment>
         <source>Dies ist eine einzigartige Errungenschaft, die im Rahmen eines Events verliehen wurde.</source>
-        <target>Dies ist eine einzigartige Errungenschaft, die im Rahmen eines Events verliehen wurde.</target>
+        <target>Este es un logro único otorgado durante un evento.</target>
       </segment>
     </unit>
     <unit id="QOeiiDo">
@@ -20458,7 +20458,7 @@
       </notes>
       <segment>
         <source>Das wird aber nicht lange so bleiben...</source>
-        <target>Das wird aber nicht lange so bleiben...</target>
+        <target>Pero no durará mucho...</target>
       </segment>
     </unit>
     <unit id="fJDK8V7" name="Das macht dann... {day} Tage">
@@ -20469,7 +20469,7 @@
       </notes>
       <segment>
         <source>Das macht dann... {day} Tage</source>
-        <target>Das macht dann... {day} Tage</target>
+        <target>Eso hace... {day} días</target>
       </segment>
     </unit>
     <unit id="BVQgW5g" name="Diskussionen rund um die Verbesserung des Tages">
@@ -20600,7 +20600,7 @@
       </notes>
       <segment>
         <source>Du hast das Haus von &lt;strong&gt;✝ {citizen}&lt;/strong&gt; vollständig zerlegt. Alle Gegenstände aus dessen Truhe wurden in der Bank deponiert.</source>
-        <target><![CDATA[Du hast das Haus von <strong>✝ {citizen}</strong> vollständig zerlegt. Alle Gegenstände aus dessen Truhe wurden in der Bank deponiert.]]></target>
+        <target><![CDATA[Has desmantelado por completo la casa de <strong>✝ {citizen}</strong>. Todos los artículos de su baul fueron depositados en el almacen.]]></target>
       </segment>
     </unit>
     <unit id="rB2kHf5" name="Die Stadt hat zudem folgende Resourcen zurückgewinnen können: {item_list}">
@@ -20611,7 +20611,7 @@
       </notes>
       <segment>
         <source>Die Stadt hat zudem folgende Resourcen zurückgewinnen können: {item_list}</source>
-        <target>Die Stadt hat zudem folgende Resourcen zurückgewinnen können: {item_list}</target>
+        <target>El pueblo también ha podido recuperar los siguientes recursos: {item_list}</target>
       </segment>
     </unit>
     <unit id="QDOrNez">
@@ -20622,7 +20622,7 @@
       </notes>
       <segment>
         <source>Die Stadt hat nichts Nützliches aus dem Haus herausbekommen, da war wirklich nichts zu holen...</source>
-        <target>Die Stadt hat nichts Nützliches aus dem Haus herausbekommen, da war wirklich nichts zu holen...</target>
+        <target>El pueblo no sacó nada útil de la casa, realmente no había nada que ganar...</target>
       </segment>
     </unit>
     <unit id="cmDQRlA">
@@ -20633,7 +20633,7 @@
       </notes>
       <segment>
         <source>Du hast &lt;strong&gt;1AP&lt;/strong&gt; aufgewendet, um das Haus von &lt;strong&gt;✝ {citizen}&lt;/strong&gt; zu recyclen. Die Arbeiten sind noch nicht abgeschlossen...</source>
-        <target><![CDATA[Du hast <strong>1AP</strong> aufgewendet, um das Haus von <strong>✝ {citizen}</strong> zu recyclen. Die Arbeiten sind noch nicht abgeschlossen...]]></target>
+        <target><![CDATA[Gastaste <strong>1PA</strong> reciclando la casa de <strong>✝ {citizen}</strong>. El trabajo sigue en curso...]]></target>
       </segment>
     </unit>
     <unit id="zWIGzsD">
@@ -20654,7 +20654,7 @@
       </notes>
       <segment>
         <source>Deine Nachricht wurde gespeichert.</source>
-        <target>Deine Nachricht wurde gespeichert.</target>
+        <target>Tu mensaje ha sido guardado.</target>
       </segment>
     </unit>
     <unit id="X21IBNl" name="Meine Partien">
@@ -20665,7 +20665,7 @@
       </notes>
       <segment>
         <source>Meine Partien</source>
-        <target>Meine Partien</target>
+        <target>Mis juegos</target>
       </segment>
     </unit>
     <unit id="KAAmbDC" name="Name der Stadt">
@@ -20676,7 +20676,7 @@
       </notes>
       <segment>
         <source>Name der Stadt</source>
-        <target>Name der Stadt</target>
+        <target>Nombre del pueblo</target>
       </segment>
     </unit>
     <unit id="9in0QXU">
