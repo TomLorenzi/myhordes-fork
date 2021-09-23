@@ -22909,5 +22909,25 @@
         <target>Doch leider ist der letzte Bürger tot, bevor die Horde die Stadttore erreicht... Seine Zunge hängt zwischen den Zähnen seines ehemaligen Freundes...</target>
       </segment>
     </unit>
+    <unit id="wprx15y" name="Jeder Mensch zählt 2 Punkte, Zombies zählen je 1 Punkt.">
+      <notes>
+        <note category="german">Each Human is worth 2 points, each zombie is worth 1 point.</note>
+        <note category="from">twig:///templates/ajax/game/beyond/beyond.html.twig</note>
+      </notes>
+      <segment>
+        <source>Jeder Mensch zählt 2 Punkte, Zombies zählen je 1 Punkt.</source>
+        <target>Cada humano vale 2 puntos, cada zombie vale 1 punto.</target>
+      </segment>
+    </unit>
+    <unit id="3yKx05X">
+      <notes>
+        <note category="german">If the number of Human points is &lt;strong&gt;equal to or more than&lt;/strong&gt; the total number of Zombie points, you are in no danger.. for now...</note>
+        <note category="from">twig:///templates/ajax/game/beyond/beyond.html.twig</note>
+      </notes>
+      <segment>
+        <source>Wenn die Gesamtpunktzahl aller Menschen in einer Zone &lt;strong&gt;mindestens so groß&lt;/strong&gt; wie die der Zombies ist, kann dir nichts geschehen... vorerst zumindest.</source>
+        <target><![CDATA[Mientras los puntos humanos sean <strong>superiores o iguales</strong> a los puntos zombies, no correrás peligro.]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

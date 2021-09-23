@@ -4038,7 +4038,6 @@
       <notes>
         <note category="german">Texteditor-Inhalte zur Sicherheit zwischenspeichern</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Texteditor-Inhalte zur Sicherheit zwischenspeichern</source>

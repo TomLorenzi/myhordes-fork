@@ -14556,5 +14556,17 @@
         <target>Doch leider ist der letzte Bürger tot, bevor die Horde die Stadttore erreicht... Seine Zunge hängt zwischen den Zähnen seines ehemaligen Freundes...</target>
       </segment>
     </unit>
+    <unit id="wprx15y" name="Jeder Mensch zählt 2 Punkte, Zombies zählen je 1 Punkt.">
+      <segment>
+        <source>Jeder Mensch zählt 2 Punkte, Zombies zählen je 1 Punkt.</source>
+        <target>Jeder Mensch zählt 2 Punkte, Zombies zählen je 1 Punkt.</target>
+      </segment>
+    </unit>
+    <unit id="3yKx05X">
+      <segment>
+        <source>Wenn die Gesamtpunktzahl aller Menschen in einer Zone &lt;strong&gt;mindestens so groß&lt;/strong&gt; wie die der Zombies ist, kann dir nichts geschehen... vorerst zumindest.</source>
+        <target><![CDATA[Wenn die Gesamtpunktzahl aller Menschen in einer Zone <strong>mindestens so groß</strong> wie die der Zombies ist, kann dir nichts geschehen... vorerst zumindest.]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>
