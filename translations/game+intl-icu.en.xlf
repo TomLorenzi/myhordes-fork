@@ -18287,7 +18287,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Die Stadt hat folgende Gegenstände in Folge der Verbannung von {shunned} zurückerhalten: {list}</source>
-        <target>The town received following item(s) after shunning {shunned} : {list}</target>
+        <target>The town received following item(s) after shunning {shunned}: {list}</target>
       </segment>
     </unit>
     <unit id="JZByFlC">
@@ -22827,7 +22827,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Die Stadt hat folgende Gegenstände in Folge der Hinrichtung von {shunned} zurückerhalten: {list}</source>
-        <target>Die Stadt hat folgende Gegenstände in Folge der Hinrichtung von {shunned} zurückerhalten: {list}</target>
+        <target>The town received following item(s) after hanging {shunned}: {list}</target>
       </segment>
     </unit>
     <unit id="SwF.EK1" name="Du kannst kein(en) {item} per Post versenden.">
