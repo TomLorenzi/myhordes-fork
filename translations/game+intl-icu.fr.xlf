@@ -22735,7 +22735,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Die Stadt hat folgende Gegenstände in Folge der Hinrichtung von {shunned} zurückerhalten: {list}</source>
-        <target>Die Stadt hat folgende Gegenstände in Folge der Hinrichtung von {shunned} zurückerhalten: {list}</target>
+        <target>La ville a récupéré {list} (pendaison de {shunned})</target>
       </segment>
     </unit>
     <unit id="SwF.EK1" name="Du kannst kein(en) {item} per Post versenden.">
