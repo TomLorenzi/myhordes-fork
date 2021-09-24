@@ -73,7 +73,7 @@
                             } %}{% endembed %}
                             <div class="zone-info link" x-ajax-href="{{ path('help', {'name': 'control_points'}) }}">
                                 <div class="row zone-cp note note-light">
-                                    <div class="cell rw-5 left"><img src="{{ asset('build/images/icons/small_human.gif') }}" alt="CP" /> <span>{% if zone.x != 0 or zone.y != 0 %}{% trans with {'{points}': zone_cp} from 'game' %}{points} Punkt(e){% endtrans %}{% else %}--{% endif %}</span></div>
+                                    <div class="cell rw-5 left"><img src="{{ asset('build/images/icons/small_human.gif') }}" alt="CP" /> <span class="humans-cp">{% if zone.x != 0 or zone.y != 0 %}{% trans with {'{points}': zone_cp} from 'game' %}{points} Punkt(e){% endtrans %}{% else %}--{% endif %}</span></div>
                                     <div class="cell rw-2 center">
                                         {% if zone.x != 0 or zone.y != 0 %}
                                             {% if zone_cp < zone_zombies %}
@@ -88,7 +88,7 @@
                                         {% endif %}
                                     
                                     </div>
-                                    <div class="cell rw-5 right"><span>{% if zone.x != 0 or zone.y != 0 %}{% trans with {'{points}': zone_zombies} from 'game' %}{points} Punkt(e){% endtrans %}{% else %}--{% endif %}</span> <img src="{{ asset('build/images/icons/small_zombie.gif') }}" alt="ZP" /></div>
+                                    <div class="cell rw-5 right"><span class="zombies-cp">{% if zone.x != 0 or zone.y != 0 %}{% trans with {'{points}': zone_zombies} from 'game' %}{points} Punkt(e){% endtrans %}{% else %}--{% endif %}</span> <img src="{{ asset('build/images/icons/small_zombie.gif') }}" alt="ZP" /></div>
                                     <div class="tooltip help">
                                         {{ 'Jeder Mensch zählt 2 Punkte, Zombies zählen je 1 Punkt.'|trans({}, 'game') }}<br />
                                         <em>{{ 'Wenn die Gesamtpunktzahl aller Menschen in einer Zone <strong>mindestens so groß</strong> wie die der Zombies ist, kann dir nichts geschehen... vorerst zumindest.'|trans({}, 'game')|raw }}</em>
