@@ -939,7 +939,6 @@ class ItemFixtures extends Fixture
         'maglite_1_#00'              => [ 'prevent_night' ],
         'maglite_2_#00'              => [ 'prevent_night' ],
         'wood_xmas_#00'              => [ 'food' ],
-        'vagoul_#00'                 => [ 'impoundable' ],
     ];
 
     public static $item_groups = [
