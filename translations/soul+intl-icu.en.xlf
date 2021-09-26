@@ -4067,7 +4067,7 @@
       </notes>
       <segment>
         <source>Texteditor-Inhalte zur Sicherheit zwischenspeichern</source>
-        <target>Texteditor-Inhalte zur Sicherheit zwischenspeichern</target>
+        <target>Automatic save of the forum text editor content</target>
       </segment>
     </unit>
   </file>
