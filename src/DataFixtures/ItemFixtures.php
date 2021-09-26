@@ -846,7 +846,7 @@ class ItemFixtures extends Fixture
         'disinfect_#00'              => [ 'impoundable', 'drug' ],
         'drug_#00'                   => [ 'can_poison', 'impoundable', 'drug' ],
         'drug_hero_#00'              => [ 'impoundable', 'drug', 'esc_fixed' ],
-        'drug_random_#00'            => [ 'impoundable', 'drug' ],
+        'drug_random_#00'            => [ 'drug' ],
         'beta_drug_bad_#00'          => [ 'impoundable', 'drug' ],
         'beta_drug_#00'              => [ 'impoundable', 'drug' ],
         'xanax_#00'                  => [ 'impoundable', 'drug', 'hero_find_lucky' ],
@@ -939,6 +939,7 @@ class ItemFixtures extends Fixture
         'maglite_1_#00'              => [ 'prevent_night' ],
         'maglite_2_#00'              => [ 'prevent_night' ],
         'wood_xmas_#00'              => [ 'food' ],
+        'vagoul_#00'                 => [ 'impoundable' ],
     ];
 
     public static $item_groups = [
