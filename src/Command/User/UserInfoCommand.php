@@ -15,6 +15,7 @@ use App\Entity\User;
 use App\Service\CommandHelper;
 use App\Service\UserHandler;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Asset\Package;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\InputArgument;
@@ -23,6 +24,7 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\Question;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+use Symfony\Component\Routing\Router;
 
 class UserInfoCommand extends Command
 {
@@ -32,13 +34,16 @@ class UserInfoCommand extends Command
     private $user_handler;
     private $pwenc;
     private $helper;
+    private Router $router;
 
-    public function __construct(EntityManagerInterface $em, UserPasswordHasherInterface $passwordEncoder, UserHandler $uh, CommandHelper $ch)
+    public function __construct(EntityManagerInterface $em, UserPasswordHasherInterface $passwordEncoder,
+                                UserHandler $uh, CommandHelper $ch, Router $router)
     {
         $this->entityManager = $em;
         $this->pwenc = $passwordEncoder;
         $this->user_handler = $uh;
         $this->helper = $ch;
+        $this->router = $router;
         parent::__construct();
     }
 
@@ -360,14 +365,21 @@ class UserInfoCommand extends Command
 
             if ($input->getOption('custom-awards') || $input->getOption('add-custom-award') || $input->getOption('remove-custom-award')) {
                 $table = new Table($output);
-                $table->setHeaders(['ID', 'Title']);
+                $table->setHeaders(['ID', 'Content']);
 
-                foreach ($user->getAwards() as $award)
+                foreach ($user->getAwards() as $award) {
                     if ($award->getCustomTitle() !== null)
                         $table->addRow([
                                            $award->getId(),
                                            $award->getCustomTitle()
                                        ]);
+                    if ($award->getCustomIcon() !== null)
+                        $table->addRow([
+                                           $award->getId(),
+                                           $this->router->generate('app_web_customicon', ['uid' => $user->getId(), 'aid' => $award->getId(), 'name' => $award->getCustomIconName(), 'ext' => $award->getCustomIconFormat()])
+                                       ]);
+                }
+
 
                 $table->render();
 

@@ -511,7 +511,7 @@ class SoulController extends CustomAbstractController
             $user->setActiveIcon(null);
         else {
             $award = $this->entity_manager->getRepository(Award::class)->find( $icon );
-            if ($award === null || $award->getUser() !== $user || $award->getPrototype() === null || $award->getPrototype()->getIcon() === null)
+            if ($award === null || $award->getUser() !== $user || ($award->getPrototype() === null && $award->getCustomIcon() === null) || ($award->getPrototype() !== null && $award->getPrototype()->getIcon() === null))
                 return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
             if ($this->user_handler->isRestricted($user, AccountRestriction::RestrictionProfileTitle) && $user->getActiveIcon() !== $award)

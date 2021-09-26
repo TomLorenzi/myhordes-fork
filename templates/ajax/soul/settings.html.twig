@@ -89,7 +89,11 @@
                             {% if award.prototype is not null and award.prototype.icon is not null %}
                                 {% set has_icon = true %}
                                 <img {% if app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionProfileTitle')) and app.user.activeIcon != award %}disabled{% endif %} class="pointer" x-title-icon="{{ award.id }}" alt="" src="{{ asset('build/images/icons/title/' ~ award.prototype.icon ~ '.gif') }}" />
+                            {% elseif award.customIcon is not null %}
+                                {% set has_icon = true %}
+                                <img {% if app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionProfileTitle')) and app.user.activeIcon != award %}disabled{% endif %} class="pointer" x-title-icon="{{ award.id }}" alt="" src="{{ url('app_web_customicon', {uid: app.user.id, aid: award.id, name: award.customIconName, ext: customIconFormat}) }}" />
                             {% endif %}
+
                         {% endfor %}
                         {% if has_icon %}
                             <span x-title-icon="-1" class="small pointer">[{{ 'Kein Icon'|trans({},'soul') }}]</span>
