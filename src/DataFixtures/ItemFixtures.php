@@ -781,7 +781,7 @@ class ItemFixtures extends Fixture
         'cutcut_#00'                 => [ 'impoundable', 'weapon', 'box_opener', 'esc_fixed', 'nw_armory' ],
         'hurling_stick_#00'          => [ 'weapon', 'box_opener', 'nw_armory' ],
         'chair_basic_#00'            => [ 'box_opener', 'nw_ikea', 'nw_armory' ],
-        'chair_#00'                  => [ 'nw_ikea', 'nw_armory' ],
+        'chair_#00'                  => [ 'nw_ikea' ],
         'staff_#00'                  => [ 'impoundable', 'weapon', 'box_opener', 'nw_armory' ],
         'chain_#00'                  => [ 'impoundable', 'weapon', 'box_opener', 'esc_fixed', 'nw_armory' ],
         'pc_#00'                     => [ 'box_opener', 'nw_ikea', 'nw_armory' ],
