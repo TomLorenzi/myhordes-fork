@@ -1611,7 +1611,7 @@
       </notes>
       <segment>
         <source>Manche deiner Gegenstände sind &lt;strong&gt;benutzbar&lt;/strong&gt;. Klick einfach auf einen Link hier unten, um den jeweiligen Gegenstand zu gebrauchen. Andere Gegenstände wiederum, wie zum Beispiel Waffen, können nur &lt;strong&gt;außerhalb der Stadt&lt;/strong&gt; verwendet werden..</source>
-        <target><![CDATA[Manche deiner Gegenstände sind <strong>benutzbar</strong>. Klick einfach auf einen Link hier unten, um den jeweiligen Gegenstand zu gebrauchen. Andere Gegenstände wiederum, wie zum Beispiel Waffen, können nur <strong>außerhalb der Stadt</strong> verwendet werden..]]></target>
+        <target><![CDATA[Algunos de sus artículos son <strong>utilizables</strong>. Simplemente haga clic en un enlace a continuación para usar el artículo en cuestión. Otros elementos, como armas, solo se pueden usar <strong>fuera del pueblo</strong>.]]></target>
       </segment>
     </unit>
     <unit id="H1CIx1I" name="Stadtforum">
@@ -1621,7 +1621,7 @@
       </notes>
       <segment>
         <source>Stadtforum</source>
-        <target>Foro de la ciudad</target>
+        <target>Foro del pueblo</target>
       </segment>
     </unit>
     <unit id="78Bg7UU" name="Weltforen">
