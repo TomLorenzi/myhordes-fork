@@ -9325,7 +9325,7 @@
       </notes>
       <segment>
         <source>Alle scheinen sich still und leise über den Tod von &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} gestern Abend zu freuen... Allerdings hat niemand erklärt, warum. {citizen1} kommentierte: "Seine Mutter war ein Hamster, und sein Vater roch nach Holunderbeeren".</source>
-        <target><![CDATA[Alle scheinen sich still und leise über den Tod von <i class="dagger">†</i> {cadaver1} gestern Abend zu freuen... Allerdings hat niemand erklärt, warum. {citizen1} kommentierte: "Seine Mutter war ein Hamster, und sein Vater roch nach Holunderbeeren".]]></target>
+        <target><![CDATA[Todo el mundo parece estar tranquilamente feliz por la muerte de <i class="dagger">†</i> {cadaver1} anoche... Pero nadie explicó por qué. {citizen1} comentó: "Su madre era un hámster y su padre olía a bayas de saúco".]]></target>
       </segment>
     </unit>
     <unit id="Kgy9ILj">
@@ -9336,7 +9336,7 @@
       </notes>
       <segment>
         <source>Jeder hörte &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} schreien, als er von den Zombies auseinander gerissen wurde. Offensichtlich versuchte niemand zu helfen. Überlebensinstinkt. Wirst du jetzt nachts schlafen können?</source>
-        <target><![CDATA[Jeder hörte <i class="dagger">†</i> {cadaver1} schreien, als er von den Zombies auseinander gerissen wurde. Offensichtlich versuchte niemand zu helfen. Überlebensinstinkt. Wirst du jetzt nachts schlafen können?]]></target>
+        <target><![CDATA[Todos escucharon a <i class="dagger">†</i> {cadaver1} gritar mientras los zombies lo despedazaban. Evidentemente, nadie intentó ayudar. Instinto de supervivencia. ¿Podrás dormir por la noche ahora?]]></target>
       </segment>
     </unit>
     <unit id="OwGPSHu">
@@ -9347,7 +9347,7 @@
       </notes>
       <segment>
         <source>Ich bin sicher, dass nicht nur ich der Meinung bin, dass wir eine Rechnung mit &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} zu begleichen hatten. Letztendlich scheint es also Karma gewesen zu sein, dass ausgerechnet er heute Nacht ums Leben kam.</source>
-        <target><![CDATA[Ich bin sicher, dass nicht nur ich der Meinung bin, dass wir eine Rechnung mit <i class="dagger">†</i> {cadaver1} zu begleichen hatten. Letztendlich scheint es also Karma gewesen zu sein, dass ausgerechnet er heute Nacht ums Leben kam.]]></target>
+        <target><![CDATA[Estoy seguro de que no soy el único que opina que teníamos que saldar una cuenta con <i class="dagger">†</i> {cadaver1}. Así que al final parece haber sido karma que él de todas las personas muriera esta noche.]]></target>
       </segment>
     </unit>
     <unit id="LlC.RVG">
@@ -9358,7 +9358,7 @@
       </notes>
       <segment>
         <source>Einige Bürger wurden Zeugen eines seltsamen Vorfalls... Man könnte sagen, dass die Zombies gestern Abend ausschließlich für &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} gekommen sind. Sie trugen die Leiche den ganzen Weg zur Baustelle, bevor die Zerstückelung begann!</source>
-        <target><![CDATA[Einige Bürger wurden Zeugen eines seltsamen Vorfalls... Man könnte sagen, dass die Zombies gestern Abend ausschließlich für <i class="dagger">†</i> {cadaver1} gekommen sind. Sie trugen die Leiche den ganzen Weg zur Baustelle, bevor die Zerstückelung begann!]]></target>
+        <target><![CDATA[Algunos habitantes presenciaron un extraño incidente... Se podría decir que los zombis vinieron anoche solo por <i class="dagger">†</i> {cadaver1}. ¡Llevaron el cuerpo hasta el sitio de construcción antes de que comenzara el desmembramiento!]]></target>
       </segment>
     </unit>
     <unit id="8kYPugs">
@@ -9369,7 +9369,7 @@
       </notes>
       <segment>
         <source>Einige sagen, daß der Tod von &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} nicht dem Glück zu verdanken ist... das einzige Opfer gestern Abend... Könnte jemand unter uns seinen Tod provoziert haben?</source>
-        <target><![CDATA[Einige sagen, daß der Tod von <i class="dagger">†</i> {cadaver1} nicht dem Glück zu verdanken ist... das einzige Opfer gestern Abend... Könnte jemand unter uns seinen Tod provoziert haben?]]></target>
+        <target><![CDATA[Algunos dicen que la muerte de <i class="dagger">†</i> {cadaver1} no se debió a la suerte... la única víctima anoche... ¿Alguno de nosotros podría haber provocado su muerte?]]></target>
       </segment>
     </unit>
     <unit id="6ZXVgiP">
@@ -9380,7 +9380,7 @@
       </notes>
       <segment>
         <source>Ausgangssperre gilt für alle. Auch für &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} und &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver2} – das haben sie nun davon.</source>
-        <target><![CDATA[Ausgangssperre gilt für alle. Auch für <i class="dagger">†</i> {cadaver1} und <i class="dagger">†</i> {cadaver2} – das haben sie nun davon.]]></target>
+        <target><![CDATA[El toque de queda se aplica a todos. También para <i class="dagger">†</i> {cadaver1} y <i class="dagger">†</i> {cadaver2}, eso es lo que obtienes.]]></target>
       </segment>
     </unit>
     <unit id="ync5VnT">
@@ -9391,7 +9391,7 @@
       </notes>
       <segment>
         <source>So richtig scheint keiner über den Tod von &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} und &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver2} zu trauern. Sie waren wohl nicht die beliebtesten in der Stadt.</source>
-        <target><![CDATA[So richtig scheint keiner über den Tod von <i class="dagger">†</i> {cadaver1} und <i class="dagger">†</i> {cadaver2} zu trauern. Sie waren wohl nicht die beliebtesten in der Stadt.]]></target>
+        <target><![CDATA[Nadie parece realmente lamentar la muerte de <i class="dagger">†</i> {cadaver1} y <i class="dagger">†</i> {cadaver2}. No eran los más populares del pueblo.]]></target>
       </segment>
     </unit>
     <unit id="kaJx_.U" name="{citizen} hat das Gebäude {plan} repariert und dabei {ap} ausgegeben.">
@@ -9412,7 +9412,7 @@
       </notes>
       <segment>
         <source>"Auf wiedersehen, du schnöde Welt...", dachte sich wohl &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1}. Jedenfalls hat er den Zombies Arbeit abgenommen und sich selbst umgebracht.</source>
-        <target><![CDATA["Auf wiedersehen, du schnöde Welt...", dachte sich wohl <i class="dagger">†</i> {cadaver1}. Jedenfalls hat er den Zombies Arbeit abgenommen und sich selbst umgebracht.]]></target>
+        <target><![CDATA["Adiós, miserable mundo...", pensó <i class="dagger">†</i> {cadaver1}. De todos modos, hizo el trabajo de los zombies y se suicidó.]]></target>
       </segment>
     </unit>
     <unit id="Hb1CJc.">
@@ -9423,7 +9423,7 @@
       </notes>
       <segment>
         <source>Ohne großes Bedauern starb &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} heute Nacht in Folge seiner Abhängigkeit. "Ganz ehrlich, das ist kein großer Verlust", kommentierte {citizen1}.</source>
-        <target><![CDATA[Ohne großes Bedauern starb <i class="dagger">†</i> {cadaver1} heute Nacht in Folge seiner Abhängigkeit. "Ganz ehrlich, das ist kein großer Verlust", kommentierte {citizen1}.]]></target>
+        <target><![CDATA[Sin mucho pesar, <i class="dagger">†</i> {cadaver1} murió esta noche como resultado de su adicción. "Con toda honestidad, no es una gran pérdida", comentó {citizen1}.]]></target>
       </segment>
     </unit>
     <unit id="dmfUc6J">
@@ -9444,7 +9444,7 @@
       </notes>
       <segment>
         <source>Eindeutig! &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} starb an einer Vergiftung. Wie genau das passieren konnte, weiß niemand so recht, aber {citizen1} verhielt sich sehr verdächtig.</source>
-        <target><![CDATA[Eindeutig! <i class="dagger">†</i> {cadaver1} starb an einer Vergiftung. Wie genau das passieren konnte, weiß niemand so recht, aber {citizen1} verhielt sich sehr verdächtig.]]></target>
+        <target><![CDATA[¡Claramente! <i class="dagger">†</i> {cadaver1} murió de envenenamiento. Cómo sucedió exactamente esto, nadie lo sabe realmente, pero {citizen1} se comportó de manera muy sospechosa.]]></target>
       </segment>
     </unit>
     <unit id="jC0g8aF">
@@ -9455,7 +9455,7 @@
       </notes>
       <segment>
         <source>Nichts genaues weiß man nicht, auf jeden Fall hat seit geraumer Zeit niemand mehr &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} gesehen.</source>
-        <target><![CDATA[Nichts genaues weiß man nicht, auf jeden Fall hat seit geraumer Zeit niemand mehr <i class="dagger">†</i> {cadaver1} gesehen.]]></target>
+        <target><![CDATA[No se sabe nada exactamente, en cualquier caso nadie ha visto a <i class="dagger">†</i> {cadaver1} durante mucho tiempo.]]></target>
       </segment>
     </unit>
     <unit id="o2TNGvz" name="Deine Nachricht wurde korrekt übermittelt!">
