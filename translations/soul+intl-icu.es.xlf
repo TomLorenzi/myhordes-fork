@@ -4003,7 +4003,7 @@
       </notes>
       <segment>
         <source>Der Server muss in der Lage sein, dein Bild auf höchstens &lt;b&gt;{size}&lt;/b&gt; zu komprimieren - andernfalls kann es nicht gespeichert werden.</source>
-        <target><![CDATA[El servidor debe poder comprimir su imagen a un máximo de <b>{tamaño}</b>; de lo contrario, no se puede guardar.]]></target>
+        <target><![CDATA[El servidor debe poder comprimir su imagen a un máximo de <b>{size}</b>; de lo contrario, no se puede guardar.]]></target>
       </segment>
     </unit>
     <unit id="LCJ4eBk" name="Die folgenden Bildformate werden unterstützt:">
