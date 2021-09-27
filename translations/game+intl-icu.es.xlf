@@ -22818,7 +22818,7 @@
       </notes>
       <segment>
         <source>Du hast keine Seelenpunkte gewonnen (am ersten Tag gestorben).</source>
-        <target>Du hast keine Seelenpunkte gewonnen (am ersten Tag gestorben).</target>
+        <target>No ha ganado ningún punto de alma (murió el primer día).</target>
       </segment>
     </unit>
     <unit id="5kMswLn">
@@ -22829,7 +22829,7 @@
       </notes>
       <segment>
         <source>Die Stadt hat folgende Gegenstände in Folge der Hinrichtung von {shunned} zurückerhalten: {list}</source>
-        <target>Die Stadt hat folgende Gegenstände in Folge der Hinrichtung von {shunned} zurückerhalten: {list}</target>
+        <target>Los siguientes artículos fueron devueltos al pueblo luego de la ejecución de {shunned}: {list}</target>
       </segment>
     </unit>
     <unit id="SwF.EK1" name="Du kannst kein(en) {item} per Post versenden.">
@@ -22840,7 +22840,7 @@
       </notes>
       <segment>
         <source>Du kannst kein(en) {item} per Post versenden.</source>
-        <target>Du kannst kein(en) {item} per Post versenden.</target>
+        <target>No puede enviar un/una {artículo} por correo.</target>
       </segment>
     </unit>
     <unit id="FWgGHVi">
@@ -22851,7 +22851,7 @@
       </notes>
       <segment>
         <source>Die Bürger haben entschieden, {citizen} zu &lt;strong&gt;erhängen&lt;/strong&gt;!! Der Galgen wurde im Zuge dieser gewalttätigen Aktion &lt;strong&gt;zerstört&lt;/strong&gt;!</source>
-        <target><![CDATA[Die Bürger haben entschieden, {citizen} zu <strong>erhängen</strong>!! Der Galgen wurde im Zuge dieser gewalttätigen Aktion <strong>zerstört</strong>!]]></target>
+        <target><![CDATA[¡¡Los habitantes han decidido <strong>colgar</strong> a {citizen}!! ¡La horca fue <strong>destruida</strong> en el curso de esta acción violenta!]]></target>
       </segment>
     </unit>
     <unit id="xQMsReM">
@@ -22862,7 +22862,7 @@
       </notes>
       <segment>
         <source>Die Bürger haben entschieden, {citizen} in den &lt;strong&gt;Fleischkäfig&lt;/strong&gt; zu zerren und dort zum Vergnügen aller zu steinigen... Die Stadt hat &lt;strong&gt;+{def} temporäre Stadtverteidigung&lt;/strong&gt; erhalten!</source>
-        <target><![CDATA[Die Bürger haben entschieden, {citizen} in den <strong>Fleischkäfig</strong> zu zerren und dort zum Vergnügen aller zu steinigen... Die Stadt hat <strong>+{def} temporäre Stadtverteidigung</strong> erhalten!]]></target>
+        <target><![CDATA[Los habitantes han decidido arrastrar a {citizen} a la <strong>cajita feliz</strong> y apedrearlos allí para el placer de todos... ¡El pueblo ha recibido <strong> +{def} defensa temporal para el pueblo</strong>!]]></target>
       </segment>
     </unit>
     <unit id="YSYYhvU" name="Anonyme Beschwerde ({num} insgesamt)">
@@ -22873,7 +22873,7 @@
       </notes>
       <segment>
         <source>Anonyme Beschwerde ({num} insgesamt)</source>
-        <target>Anonyme Beschwerde ({num} insgesamt)</target>
+        <target>Denuncia anónima ({num} total)</target>
       </segment>
     </unit>
     <unit id="_IO1rgo" name="Beschwerde zurückgezogen (es bleiben noch {num} Stück)">
@@ -22884,7 +22884,7 @@
       </notes>
       <segment>
         <source>Beschwerde zurückgezogen (es bleiben noch {num} Stück)</source>
-        <target>Beschwerde zurückgezogen (es bleiben noch {num} Stück)</target>
+        <target>Denuncia retirada (quedan {num})</target>
       </segment>
     </unit>
     <unit id="HHYz9.Q" name="{deaths} Bürger sind beim heutigen Angriff gestorben!">
@@ -22895,7 +22895,7 @@
       </notes>
       <segment>
         <source>{deaths} Bürger sind beim heutigen Angriff gestorben!</source>
-        <target>{deaths} Bürger sind beim heutigen Angriff gestorben!</target>
+        <target>¡Los {deaths} habitantes murieron en el ataque de hoy!</target>
       </segment>
     </unit>
     <unit id="iLdX6jg">
@@ -22906,7 +22906,7 @@
       </notes>
       <segment>
         <source>Doch leider ist der letzte Bürger tot, bevor die Horde die Stadttore erreicht... Seine Zunge hängt zwischen den Zähnen seines ehemaligen Freundes...</source>
-        <target>Doch leider ist der letzte Bürger tot, bevor die Horde die Stadttore erreicht... Seine Zunge hängt zwischen den Zähnen seines ehemaligen Freundes...</target>
+        <target>Pero, lamentablemente, el último habitante ha muerto antes de que la horda llegue a las puertas del pueblo... Su lengua cuelga entre los dientes de su antiguo amigo...</target>
       </segment>
     </unit>
   </file>
