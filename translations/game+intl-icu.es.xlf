@@ -11756,7 +11756,7 @@
       </notes>
       <segment>
         <source>{citizen} hat seinen Hund mit {count} Gegenständen in die Stadt geschickt.</source>
-        <target>{citizen} ha enviado a su mascota al pueblo con {count} en su lomo.</target>
+        <target>{citizen} ha enviado a su mascota al pueblo con {count} objetos en su lomo.</target>
       </segment>
     </unit>
     <unit id="b5pBvHw">
