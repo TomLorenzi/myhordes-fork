@@ -12138,7 +12138,7 @@
       </notes>
       <segment>
         <source>Wenn du in der Wüste von Zombies umzingelst wirst, erstarrst du vor Angst und kannst nichts mehr unternehmen... Du musst Drogen oder etwas anderes finden, um &lt;strong&gt;deine Nerven zu beruhigen&lt;/strong&gt; und aus dieser Hölle auszubrechen... Wenigstens ist es dir immer noch möglich, im Forum nach Hilfe zu suchen...</source>
-        <target><![CDATA[Si vous êtes en proie à la terreur, dans le désert et entouré de zombies, vous ne pouvez rien faire... Vous devez trouver une drogue ou autre chose pour <strong>calmer vos nerfs</strong> et sortir de cet enfer... Au moins il est encore possible d'appeler à l'aide sur le forum...]]></target>
+        <target><![CDATA[Il est impossible d'agir dans le désert sous l'état de terreur au milieu des zombies... Il va falloir trouver une drogue ou autre pour se <strong>calmer les nerfs</strong> et quitter cet enfer... Au pire, il est encore possible d'appeler à l'aide sur le forum...]]></target>
       </segment>
     </unit>
     <unit id=".DPY78g">
@@ -15815,7 +15815,7 @@
       </notes>
       <segment>
         <source>Buddler können eine Zone im Vergleich zu den normalen Einwohnern schneller absuchen. Darüber hinaus haben sie eine höhere Chance, wertvolle Gegenstände zu finden.</source>
-        <target>Les Fouineurs sont plus rapides que n'importe quel citoyen pour fouiller une zone dans le désert. De plus, leurs chances de trouver un objet sont sensiblement plus élevées.</target>
+        <target>Les fouineurs sont plus rapides que n'importe quel citoyen pour fouiller une zone dans le désert. De plus, leurs chances de trouver un objet sont sensiblement plus élevées.</target>
       </segment>
     </unit>
     <unit id="BusTGgv">
@@ -15825,7 +15825,7 @@
       </notes>
       <segment>
         <source>Der Wächter ist der geborener Kämpfer. In der Wüste kann er es mit weitaus mehr Zombies aufnehmen als jeder andere durchschnittliche Einwohner.</source>
-        <target>Dans le désert, le Gardien est capable de tenir face à beaucoup plus de zombies qu'un citoyen moyen. Il apporte aussi des défenses supplémentaires à la ville.</target>
+        <target>Dans le désert, le gardien est capable de tenir face à beaucoup plus de zombies qu'un citoyen moyen. Il apporte aussi des défenses supplémentaires à la ville.</target>
       </segment>
     </unit>
     <unit id="7hINRyx">
@@ -15916,7 +15916,7 @@
       </notes>
       <segment>
         <source>sitzt in der Falle und wartet auf den Tod...</source>
-        <target>sitzt in der Falle und wartet auf den Tod...</target>
+        <target>pris(e) au piège et attendant la mort...</target>
       </segment>
     </unit>
     <unit id="mfY9mWB">
@@ -16139,7 +16139,7 @@
       </notes>
       <segment>
         <source>inmitten eines unentwirrbaren Trümmerhaufens</source>
-        <target>inmitten eines unentwirrbaren Trümmerhaufens</target>
+        <target>au milieu d'une forêt de débris inextricables</target>
       </segment>
     </unit>
     <unit id="b3wvOG3">
