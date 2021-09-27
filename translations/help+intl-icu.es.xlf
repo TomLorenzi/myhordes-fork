@@ -3635,7 +3635,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>&lt;strong&gt; Nein,&lt;/strong&gt; es werden nur die übrigen Plätze aufgefüllt. Wenn noch 4 Plätze frei sind, werden nur 4 Spieler aus einer Koalition aufgenommen. Um sicher zu stellen, dass alle Koalitionsmitglieder in der gleichen Stadt spielen können, ist es ratsam das Programm eine Stadt nach dem Zufallsprinzip auswählen zu lassen.</source>
-        <target><![CDATA[<strong>No,</strong> aparecerá un candado en los pueblos que la alianza.]]></target>
+        <target><![CDATA[<strong>No,</strong> aparecerá un candado en los pueblos a los que la alianza no pueda ingresar.]]></target>
       </segment>
     </unit>
     <unit id="K3mRnjG" name="Für wie lange wird eine Koalition gebildet?">
