@@ -4,6 +4,7 @@ namespace App\Command\User;
 
 
 use App\Entity\Avatar;
+use App\Entity\Award;
 use App\Entity\Citizen;
 use App\Entity\FoundRolePlayText;
 use App\Entity\Picto;
@@ -71,7 +72,10 @@ class UserInfoCommand extends Command
             ->addOption('avatar-small', null,  InputOption::VALUE_NONE,     'If used with --set-avatar, the given avatar will be used as small avatar if a normal avatar is already set. If used with --remove-avatar, only the small avatar will be deleted.')
             ->addOption('avatar-x',     null,  InputOption::VALUE_REQUIRED, 'Sets the image width. Should be set when Imagick is not available. Has no effect when uploading a small avatar.')
             ->addOption('avatar-y',     null,  InputOption::VALUE_REQUIRED, 'Sets the image height. Should be set when Imagick is not available. Has no effect when uploading a small avatar.')
-            ->addOption('avatar-magick', null,  InputOption::VALUE_REQUIRED, 'When setting an avatar, "auto" will attempt to use Imagick (default), "force" will enforce Imagick and "raw" will disable Imagick.');
+            ->addOption('avatar-magick', null,  InputOption::VALUE_REQUIRED, 'When setting an avatar, "auto" will attempt to use Imagick (default), "force" will enforce Imagick and "raw" will disable Imagick.')
+            ->addOption('custom-awards', null,  InputOption::VALUE_NONE, 'Lists all custom award titles for a user.')
+            ->addOption('add-custom-award', null,  InputOption::VALUE_REQUIRED, 'Adds a new custom award title to a user.')
+            ->addOption('remove-custom-award', null,  InputOption::VALUE_REQUIRED, 'Removes a new custom award title from a user.');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -331,6 +335,42 @@ class UserInfoCommand extends Command
                 $output->writeln("Avatar updated.");
                 $this->entityManager->persist($user);
                 $this->entityManager->flush();
+            }
+
+            if ($title = $input->getOption('add-custom-award')) {
+                $this->entityManager->persist( (new Award())
+                    ->setUser($user)
+                    ->setCustomTitle($title)
+                );
+                $this->entityManager->flush();
+            }
+
+            if ($aid = $input->getOption('remove-custom-award')) {
+                $award = $this->entityManager->getRepository(Award::class)->find($aid);
+                if ($award->getUser() === $user && $award->getPrototype() === null) {
+                    if ($user->getActiveTitle() === $award) $user->setActiveTitle(null);
+                    if ($user->getActiveIcon() === $award) $user->setActiveIcon(null);
+                    $user->getAwards()->remove($award);
+                    $this->entityManager->remove($award);
+                    $this->entityManager->persist($user);
+                    $this->entityManager->flush();
+                }
+
+            }
+
+            if ($input->getOption('custom-awards') || $input->getOption('add-custom-award') || $input->getOption('remove-custom-award')) {
+                $table = new Table($output);
+                $table->setHeaders(['ID', 'Title']);
+
+                foreach ($user->getAwards() as $award)
+                    if ($award->getCustomTitle() !== null)
+                        $table->addRow([
+                                           $award->getId(),
+                                           $award->getCustomTitle()
+                                       ]);
+
+                $table->render();
+
             }
         } else {
             /** @var User[] $users */

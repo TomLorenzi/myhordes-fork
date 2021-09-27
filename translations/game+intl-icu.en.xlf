@@ -15532,7 +15532,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>An einem kalten Morgen</source>
-        <target>An einem kalten Morgen</target>
+        <target>A fresh morning</target>
       </segment>
     </unit>
     <unit id="FvwX8Vo" name="Die Außenwelt">
@@ -15583,7 +15583,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>an der Seite von {citizen}</source>
-        <target>an der Seite von {citizen}</target>
+        <target>beside {citizen}</target>
       </segment>
     </unit>
     <unit id="Jaioypa" name="irgendwo {location} der Stadt...">
@@ -15604,7 +15604,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>an den Toren der Stadt</source>
-        <target>an den Toren der Stadt</target>
+        <target>at the gates of the town</target>
       </segment>
     </unit>
     <unit id="YqRBccv" name="Das Leichsblatt, Ausgabe vom {day}. Tag">

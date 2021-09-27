@@ -1723,7 +1723,7 @@ class LogTemplateHandler
     public function publicJustice( Citizen $citizen, int $def = 0 ): TownLogEntry {
         $variables = array('citizen' => $citizen->getId(), 'def' => $def);
 
-        $template = ($def > 0)
+        $template = ($def === 0)
             ? $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'banishmentKillHanging'])
             : $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'banishmentKillCage']);
 

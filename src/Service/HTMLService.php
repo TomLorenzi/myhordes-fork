@@ -699,6 +699,7 @@ class HTMLService {
 
         foreach($unlocks as $entry) {
             /** @var $entry Award */
+            if (!$entry->getPrototype()) continue;
             if ($entry->getPrototype()->getAssociatedTag() && in_array($entry->getPrototype()->getAssociatedTag(), $results)) {
                 unset($results[array_search($entry->getPrototype()->getAssociatedTag(), $results)]);
             }
