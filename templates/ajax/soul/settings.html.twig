@@ -111,7 +111,7 @@
 
                             {% set has_title = false %}
                             {% for award in list %}
-                                {% if award.prototype is not null and award.prototype.title is not null %}
+                                {% if award.customTitle is not null or (award.prototype is not null and award.prototype.title is not null) %}
                                     {% set has_title = true %}
                                 {% endif %}
                             {% endfor %}
@@ -127,7 +127,9 @@
                                         {% endif %}
                                 >
                                     {% for award in list %}
-                                        {% if award.prototype is not null and award.prototype.title is not null %}
+                                        {% if award.customTitle is not null %}
+                                            <option {% if app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionProfileTitle')) and app.user.activeTitle != award %}disabled{% endif %} {% if app.user.activeTitle == award %}selected{% endif %} value="{{ award.id }}">{{ award.customTitle }}</option>
+                                        {% elseif award.prototype is not null and award.prototype.title is not null %}
                                             <option {% if app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionProfileTitle')) and app.user.activeTitle != award %}disabled{% endif %} {% if app.user.activeTitle == award %}selected{% endif %} value="{{ award.id }}">{{ award.prototype.title|trans({},'game')|raw }}</option>
                                         {% endif %}
                                     {% endfor %}

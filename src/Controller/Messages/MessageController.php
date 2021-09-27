@@ -123,7 +123,7 @@ class MessageController extends CustomAbstractController
 
         foreach($awards as $entry) {
             /** @var $entry Award */
-            if ($entry->getPrototype()->getAssociatedTag() === null) continue;
+            if (!$entry->getPrototype() || $entry->getPrototype()->getAssociatedTag() === null) continue;
             $emote = $repo->findByTag($entry->getPrototype()->getAssociatedTag());
             if(!in_array($emote, $emotes)) {
                 $emotes[] = $emote;
