@@ -334,24 +334,24 @@ class TwinoConverterToBlocks {
         switch ( match.nodeType() ) {
             case 'hr': blocks.push( new TwinoInterimBlock( '', match.nodeType()) ); break;
             case 'br': blocks.push( listspace ? new TwinoInterimBlock() : new TwinoInterimBlock( '', match.nodeType()) ); break;
-            case 'dice': case 'dc': case 'de': case 'des': case 'd': case 'w':
+            case 'dice': case 'dc': case 'de': case 'des': case 'd': case 'w': case 'dado':
                 if (match.nodeInfo() && ["4","6","8","10","12","20","100"].indexOf( match.nodeInfo() ) !== -1)
                     blocks.push( new TwinoInterimBlock( '???', 'div', 'dice-' + match.nodeInfo()) );
                 else blocks.push( new TwinoInterimBlock(match.raw()) );
                 break;
-            case 'letter': case 'lettre':
+            case 'letter': case 'lettre': case 'letra':
                 blocks.push( new TwinoInterimBlock( '???', 'div', 'letter-a') ); break;
-            case 'consonant': case 'consonne':
+            case 'consonant': case 'consonne': case 'consonante':
                 blocks.push( new TwinoInterimBlock( '???', 'div', 'letter-c') ); break;
-            case 'vowel': case 'voyelle':
+            case 'vowel': case 'voyelle': case 'vocal':
                 blocks.push( new TwinoInterimBlock( '???', 'div', 'letter-v') ); break;
-            case 'pfc': case 'rps': case 'ssp':
+            case 'pfc': case 'rps': case 'ssp': case 'ppt':
                 blocks.push( new TwinoInterimBlock( '???', 'div', 'rps') ); break;
-            case 'flip': case 'coin': case 'ht': case 'pf': case 'mw':
+            case 'flip': case 'coin': case 'ht': case 'pf': case 'mw': case 'moneda':
                 blocks.push( new TwinoInterimBlock( '???', 'div', 'coin') ); break;
-            case 'carte': case 'card': case 'skat': case 'blatt':
+            case 'carte': case 'card': case 'skat': case 'blatt': case 'carta':
                 blocks.push( new TwinoInterimBlock( '???', 'div', 'card') ); break;
-            case 'citizen': case 'rnduser': case 'user': case 'spieler': case 'habitant':
+            case 'citizen': case 'rnduser': case 'user': case 'spieler': case 'habitant': case 'habitante':
                 let attribs = match.nodeInfo() ? match.nodeInfo().split(',') : [];
                 if (!attribs[0]) attribs[0] = 'any';
                 if (!attribs[1]) attribs[1] = '0';
