@@ -249,11 +249,13 @@
                     <div class='current-location'>{{'Position:'|trans({}, 'game')}} {{ zone.x }} / {{ zone.y }}</div>
             </div>
         {% endif %}
-        {# <div class="retro-effect"></div>
+        {% if not app.user.disableFx %}
         <div class="retro-effect"></div>
         <div class="retro-effect"></div>
         <div class="retro-effect"></div>
-        <div class="retro-effect"></div> #}
+        <div class="retro-effect"></div>
+        <div class="retro-effect"></div>
+        {% endif %}
     </div>
     <div class="controls">
         <div class="tilemap_controls">
