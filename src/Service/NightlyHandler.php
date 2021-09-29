@@ -837,8 +837,13 @@ class NightlyHandler
                 }
             }
 
+            $total = 0;
+            foreach ($itemsForLog as $item) {
+                $total += $item["count"];
+            }
+
             if (!empty($itemsForLog)) {
-                $this->entity_manager->persist($this->logTemplates->nightlyAttackBankItemsDestroy($town, $itemsForLog));
+                $this->entity_manager->persist($this->logTemplates->nightlyAttackBankItemsDestroy($town, $itemsForLog, $total));
             }
         }
 
