@@ -86,7 +86,7 @@ class AdminUserController extends AdminActionController
 
         return $this->render( 'ajax/admin/users/account.html.twig', $this->addDefaultTwigArgs("admin_users_account", [
             'user' => $user,
-            'user_desc' => $desc ? $html->prepareEmotes($desc->getText()) : null,
+            'user_desc' => $desc ? $html->prepareEmotes($desc->getText(), $this->getUser()) : null,
             'validations' => $validations,
 
             'ref' => $this->entity_manager->getRepository(UserReferLink::class)->findOneBy(['user' => $user]),

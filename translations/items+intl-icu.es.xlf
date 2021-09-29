@@ -9246,5 +9246,16 @@
         <target><![CDATA[Sí, por supuesto... lo has visto cientos de veces, el tema no cambia demasiado, pero aún así: no hay nada como una buena película de zombis para relajarse. <t-stat-down-terror><hr />Esos gritos de horror extrañamente distantes te han enderezado la cabeza: <strong>Te has quitado el miedo</strong>.</t-stat-down-terror>]]></target>
       </segment>
     </unit>
+    <unit id="zBL2Qmm">
+      <notes>
+        <note category="german">Du greifst einen Zombie mit {item} an, aber er &lt;strong&gt;geht einfach nicht zu Boden&lt;/strong&gt; und kommt weiter auf dich zu.</note>
+        <note category="from">db://AffectMessage</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Du greifst einen Zombie mit {item} an, aber er &lt;strong&gt;geht einfach nicht zu Boden&lt;/strong&gt; und kommt weiter auf dich zu.</source>
+        <target><![CDATA[Du greifst einen Zombie mit {item} an, aber er <strong>geht einfach nicht zu Boden</strong> und kommt weiter auf dich zu.]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

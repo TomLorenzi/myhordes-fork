@@ -1131,7 +1131,7 @@ class LogTemplateHandler
     }
 
     public function nightlyAttackWatcherWound( Town $town, ?Citizen $citizen ): TownLogEntry {
-        $variables = $citizen ? array('citizen' => $citizen) : [];
+        $variables = $citizen ? array('citizen' => $citizen->getId()) : [];
         $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => $citizen ? 'nightlyAttackWatcherWound' : 'nightlyAttackWatchersWound']);
 
         return (new TownLogEntry())
@@ -1143,7 +1143,7 @@ class LogTemplateHandler
     }
 
     public function nightlyAttackWatcherTerror( Town $town, ?Citizen $citizen ): TownLogEntry {
-        $variables = $citizen ? array('citizen' => $citizen) : [];
+        $variables = $citizen ? array('citizen' => $citizen->getId()) : [];
         $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => $citizen ? 'nightlyAttackWatcherTerror' : 'nightlyAttackWatchersTerror']);
 
         return (new TownLogEntry())
@@ -1259,9 +1259,12 @@ class LogTemplateHandler
             ->setTimestamp( new DateTime('now') );
     }
 
-    public function nightlyAttackBankItemsDestroy( Town $town, $items ): TownLogEntry {
-        $variables = array('list' => array_map( function($e) { if(array_key_exists('count', $e)) {return array('id' => $e['item']->getId(),'count' => $e['count']);}
-            else { return array('id' => $e[0]->getId()); } }, $items ));
+    public function nightlyAttackBankItemsDestroy( Town $town, $items, $count): TownLogEntry {
+        $variables = array(
+            'list' => array_map( function($e) { if(array_key_exists('count', $e)) {return array('id' => $e['item']->getId(),'count' => $e['count']);}
+            else { return array('id' => $e[0]->getId()); } }, $items ),
+            'num' => $count
+        );
         $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'nightlyAttackBankItemsDestroy']);
 
         return (new TownLogEntry())

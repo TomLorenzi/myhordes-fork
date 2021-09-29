@@ -199,7 +199,7 @@ class SoulController extends CustomAbstractController
             'latestSkill' => $latestSkill,
             'progress' => floor($progress),
             'seasons' => $this->entity_manager->getRepository(Season::class)->findAll(),
-            'user_desc' => $desc ? $html->prepareEmotes($desc->getText()) : null
+            'user_desc' => $desc ? $html->prepareEmotes($desc->getText(), $this->getUser()) : null
         ]));
     }
 
@@ -1215,7 +1215,7 @@ class SoulController extends CustomAbstractController
             'seasons' => $this->entity_manager->getRepository(Season::class)->findAll(),
             'returnUrl' => $returnUrl,
             'citizen_id' => $citizen_id,
-            'user_desc' => $desc ? $html->prepareEmotes($desc->getText()) : null
+            'user_desc' => $desc ? $html->prepareEmotes($desc->getText(), $this->getUser()) : null
         ]));
     }
 

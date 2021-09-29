@@ -419,7 +419,7 @@ class TownHomeController extends TownController
         if (!$costs) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         // Make sure the citizen is not tired and has enough AP
-        if ($ch->isTired( $citizen ) || ($citizen->getAp() + $citizen->getBp()) < $costs->getAp()) return AjaxResponse::error( ErrorHelper::ErrorNoAP );
+        if (/*$ch->isTired( $citizen ) || */($citizen->getAp() + $citizen->getBp()) < $costs->getAp()) return AjaxResponse::error( ErrorHelper::ErrorNoAP );
 
         // Fetch upgrade resources; fail if they are missing
         $items = [];
