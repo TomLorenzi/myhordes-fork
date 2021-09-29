@@ -98,7 +98,7 @@
       </notes>
       <segment>
         <source>Möchtest du die schreckliche Welt der Verdammten als Bürge der Stadt {town_name} betreten</source>
-        <target>¿Listo para ingresar a {town_name}? ¡Buena suerte!</target>
+        <target>¡Buena suerte! ¿Listo para ingresar a {town_name}</target>
       </segment>
     </unit>
     <unit id="uwIFRKe" name="Deine Seele genügt den Anforderungen für diesen Stadttypen.">
