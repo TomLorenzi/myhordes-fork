@@ -3298,7 +3298,7 @@
       </notes>
       <segment>
         <source>Das andere Geschlecht wird dir nicht widerstehen können.</source>
-        <target>L'autre sexe ne pourra pas vous résister</target>
+        <target>L'autre sexe ne pourra pas vous résister.</target>
       </segment>
     </unit>
     <unit id="Sz2KR6B" name="Verleiht deinem Haar einen seidigen Glanz und stärkt deine Kopfhaut.">
@@ -3871,7 +3871,7 @@
       </notes>
       <segment>
         <source>Diese Stadt stammt aus der Alpha-Phase von MyHordes. Die angezeigten Informationen sind daher möglicherweise unvollständig oder sehen nicht so aus, wie du es sonst erwarten würdest.</source>
-        <target>Diese Stadt stammt aus der Alpha-Phase von MyHordes. Die angezeigten Informationen sind daher möglicherweise unvollständig oder sehen nicht so aus, wie du es sonst erwarten würdest.</target>
+        <target>Cette ville est issue de la phase alpha de MyHordes. Les informations affichées peuvent donc être incomplètes ou ne pas ressembler à ce que vous vous attendez.</target>
       </segment>
     </unit>
     <unit id="vgT9Zpn" name="Alte Auszeichnungen">

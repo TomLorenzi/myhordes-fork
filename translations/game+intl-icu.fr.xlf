@@ -19508,7 +19508,7 @@
       </notes>
       <segment>
         <source>{citizen} hat versucht {item} aus der Bank zu stehlen, dabei aber KEINERLEI DISKRETION gezeigt.</source>
-        <target><![CDATA[{citizen} a tenté de voler <strong>voler</strong> {item} dans la Banque mais a été <strong>PARFAITEMENT INCAPABLE DE FAIRE PREUVE DE DISCRÉTION</strong> !!]]></target>
+        <target><![CDATA[{citizen} a tenté de voler {item} dans la Banque mais a été <strong>PARFAITEMENT INCAPABLE DE FAIRE PREUVE DE DISCRÉTION</strong> !!]]></target>
       </segment>
     </unit>
     <unit id="K9BlavM">
@@ -22735,7 +22735,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Die Stadt hat folgende Gegenstände in Folge der Hinrichtung von {shunned} zurückerhalten: {list}</source>
-        <target>Die Stadt hat folgende Gegenstände in Folge der Hinrichtung von {shunned} zurückerhalten: {list}</target>
+        <target>La ville a récupéré {list} (pendaison de {shunned})</target>
       </segment>
     </unit>
     <unit id="SwF.EK1" name="Du kannst kein(en) {item} per Post versenden.">
