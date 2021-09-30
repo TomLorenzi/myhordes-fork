@@ -806,7 +806,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'bp_hospital_3' => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside' ], 'result' => [ 'consume_item', ['bp' => ['item_digger_#00', 'item_jerrycan_#01', 'item_shield_#00', 'small_appletree_#00', 'small_chicken_#00', 'small_infirmary_#00', 'small_trashclean_#00', 'small_lighthouse_#00', 'small_rocketperf_#00'] ] ], 'message_key' => 'read_blueprint' ],
             'bp_hospital_4' => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside' ], 'result' => [ 'consume_item', ['bp' => ['small_strategy_#01', 'small_balloon_#00', 'small_crow_#00', 'small_derrick_#01', 'small_pmvbig_#00'] ] ],                                                                                               'message_key' => 'read_blueprint' ],
 
-            'read_rp' => [ 'label' => 'Lesen', 'cover' => true, 'at00' => true, 'meta' => [], 'result' => [ 'consume_item', 'find_rp' ], 'message' => 'Der Text ist überschrieben mit {rp_text}. Du beginnst, ihn zu lesen<t-rp_ok>! Der Text wurde deinem Archiv hinzugefügt.</t-rp_ok><t-rp_fail>... Leider stellst du fest, dass du diesen Text bereits kennst.</t-rp_fail>' ],
+            'read_rp' => [ 'label' => 'Lesen', 'cover' => false, 'at00' => true, 'meta' => [], 'result' => [ 'consume_item', 'find_rp' ], 'message' => 'Der Text ist überschrieben mit {rp_text}. Du beginnst, ihn zu lesen<t-rp_ok>! Der Text wurde deinem Archiv hinzugefügt.</t-rp_ok><t-rp_fail>... Leider stellst du fest, dass du diesen Text bereits kennst.</t-rp_fail>' ],
+            'read_rp_cover' => [ 'label' => 'Lesen', 'cover' => true, 'at00' => true, 'meta' => [], 'result' => [ 'consume_item', 'find_rp' ], 'message' => 'Der Text ist überschrieben mit {rp_text}. Du beginnst, ihn zu lesen<t-rp_ok>! Der Text wurde deinem Archiv hinzugefügt.</t-rp_ok><t-rp_fail>... Leider stellst du fest, dass du diesen Text bereits kennst.</t-rp_fail>' ],
 
             'read_banned_note' => [ 'label' => 'Lesen', 'cover' => true, 'at00' => true, 'meta' => [], 'result' => [ 'consume_item', 'casino_banned_note' ], 'message' => 'Der Text ist überschrieben mit {item}. Du beginnst, ihn zu lesen.<t-bannote_ok>Diese gekritzelte Notiz gehörte früher einem verbanntem Bürger... Das einzige, was du lesen kannst, ist "{zone}"... Seltsam. Du zerstörst die Seite, nur um sicherzugehen, dass niemand die Nachricht liest...</t-bannote_ok><t-bannote_fail>Leider ist der Inhalt dieses Manuskripts völlig unleserlich.</t-bannote_fail>' ],
 
@@ -1201,7 +1202,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'rp_sheets_#00' => ['read_rp'],
             'rp_letter_#00' => ['read_rp'],
             'rp_manual_#00' => ['read_rp'],
-            'lilboo_#00'    => ['read_rp'],
+            'lilboo_#00'    => ['read_rp_cover'],
             'rp_twin_#00'   => ['read_rp'],
 
             'banned_note_#00' => ['read_banned_note'],
