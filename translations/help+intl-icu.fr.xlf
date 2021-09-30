@@ -2793,7 +2793,7 @@ Jedesmal, wenn ein Bürger stirbt (gleichgültig woran und wo), erscheint eine b
       </notes>
       <segment>
         <source>Wenn Sie einmal in der Stadt sind, können Sie diese Seele reinigen und in Frieden ruhen lassen, weit weg von Ihrer Stadt und ihren bösen Geistern. &lt;strong&gt;Seien Sie vorsichtig, ungereinigte Seelen werden um Mitternacht weiterhin Unglück bringen, selbst wenn sie in der Stadt bleiben!&lt;/strong&gt;</source>
-        <target><![CDATA[Une fois en ville, si le chantier est construit, vous pourrez purifier cette âme et la laisser reposer en paix, loin de votre ville et de ses mauvais esprits. <strong>Attention, les âmes non purifiées continueront à apporter le malheur à minuit, même si elles restent en ville !</strong>]]></target>
+        <target><![CDATA[Une fois en ville, si le chantier <strong>Hamâme</strong> est construit, vous pourrez purifier cette âme et la laisser reposer en paix, loin de votre ville et de ses mauvais esprits. <strong>Attention, les âmes non purifiées continueront à apporter le malheur à minuit, même si elles restent en ville !</strong>]]></target>
       </segment>
     </unit>
     <unit id="uepLpvU">
