@@ -530,12 +530,25 @@
                                     {% else %}
                                         <img src="{{ asset('build/images/icons/player_offline.gif') }}" alt="{{ 'Offline'|trans({},'global') }}">
                                     {% endif %}
-                                    <img alt="{{ other_citizen.profession.label|trans({}, 'game') }}" src="{{ asset('build/images/professions/' ~ other_citizen.profession.icon ~ '.gif') }}">
+                                    <!-- <img alt="{{ other_citizen.profession.label|trans({}, 'game') }}" src="{{ asset('build/images/professions/' ~ other_citizen.profession.icon ~ '.gif') }}"> -->
+                                    <span class="username">
                                     {% if other_citizen != citizen %}
                                         <a target="_blank" href="{{ path('soul_visit', {id: other_citizen.user.id}) }}"><b>{{ other_citizen.name }}</b></a>
                                     {% else %}
                                         <b>{{ other_citizen.name }}</b>
                                     {% endif %}
+                                        <div class="tooltip normal">
+                                            <span class="warning">{{ other_citizen.name }} : </span><br />
+                                            <span class="jobName"><img alt="{{ other_citizen.profession.label|trans({}, 'game') }}" src="{{ asset('build/images/professions/' ~ other_citizen.profession.icon ~ '.gif') }}" /> {{ other_citizen.profession.label|trans({}, 'game') }}</span>  <br />
+                                            <em>
+                                                {% if other_citizen != citizen %}
+                                                    {{ 'Klicke hier, um seine Informationen anzuzeigen'|trans({}, 'game') }}
+                                                {% else %}
+                                                    {{ 'Ganz genau, das bist du!'|trans({}, 'game') }}
+                                                {% endif %}
+                                            </em>
+                                        </div>
+                                    </span>
                                 </div>
                                 <div class="padded cell rw-3">
                                     <ul class="status">
@@ -692,18 +705,31 @@
                         {# @var other_citizen \App\Entity\Citizen #}
                         {% if other_citizen.escortSettings is null or other_citizen.escortSettings.leader != citizen %}
                             <div class="row beyond-escort-off">
-                                <div class="padded cell rw-4">
+                                <div class="padded cell rw-4 citizen-box">
                                     {% if other_citizen.online %}
                                         <img src="{{ asset('build/images/icons/player_online.gif') }}" alt="{{ 'Online'|trans({},'global') }}">
                                     {% else %}
                                         <img src="{{ asset('build/images/icons/player_offline.gif') }}" alt="{{ 'Offline'|trans({},'global') }}">
                                     {% endif %}
-                                    <img alt="{{ other_citizen.profession.label|trans({}, 'game') }}" src="{{ asset('build/images/professions/' ~ other_citizen.profession.icon ~ '.gif') }}">
+                                    <!-- <img alt="{{ other_citizen.profession.label|trans({}, 'game') }}" src="{{ asset('build/images/professions/' ~ other_citizen.profession.icon ~ '.gif') }}"> -->
+                                    <span class="username">
                                     {% if other_citizen != citizen %}
                                         <a target="_blank" href="{{ path('soul_visit', {id: other_citizen.user.id}) }}"><b>{{ other_citizen.name }}</b></a>
                                     {% else %}
                                         <b>{{ other_citizen.name }}</b>
                                     {% endif %}
+                                        <div class="tooltip normal">
+                                            <span class="warning">{{ other_citizen.name }} : </span><br />
+                                            <span class="jobName"><img alt="{{ other_citizen.profession.label|trans({}, 'game') }}" src="{{ asset('build/images/professions/' ~ other_citizen.profession.icon ~ '.gif') }}" /> {{ other_citizen.profession.label|trans({}, 'game') }}</span>  <br />
+                                            <em>
+                                                {% if other_citizen != citizen %}
+                                                    {{ 'Klicke hier, um seine Informationen anzuzeigen'|trans({}, 'game') }}
+                                                    {% else %}
+                                                    {{ 'Ganz genau, das bist du!'|trans({}, 'game') }}
+                                                {% endif %}
+                                            </em>
+                                        </div>
+                                    </span>
                                 </div>
                                 <div class="padded cell rw-4">
                                     <ul class="status">
