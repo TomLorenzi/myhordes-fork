@@ -524,7 +524,7 @@
                         {# @var other_citizen \App\Entity\Citizen #}
                         {% if other_citizen.escortSettings is not null and other_citizen.escortSettings.leader == citizen %}
                             <div class="row beyond-escort-on">
-                                <div class="padded cell rw-4">
+                                <div class="padded cell rw-4 citizen-box">
                                     {% if other_citizen.online %}
                                         <img src="{{ asset('build/images/icons/player_online.gif') }}" alt="{{ 'Online'|trans({},'global') }}">
                                     {% else %}
