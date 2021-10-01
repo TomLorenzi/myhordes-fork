@@ -530,12 +530,13 @@ class SoulController extends CustomAbstractController
         } elseif ($desc_obj) $this->entity_manager->remove($desc_obj);
 
         if(!empty($displayName) && $displayName !== $user->getName() && $user->getEternalID() === null) {
+            $history = $user->getNameHistory() ?? [];
+            if(!in_array($user->getName(), $history))
+                $history[] = $user->getName();
+            $user->setNameHistory(array_filter(array_unique($history)));
             if ($displayName === $user->getUsername())
                 $user->setDisplayName(null);
             else {
-                $history = $user->getNameHistory() ?? [];
-                $history[] = $displayName;
-                $user->setNameHistory(array_unique($history));
                 $user->setDisplayName($displayName);
             }
 

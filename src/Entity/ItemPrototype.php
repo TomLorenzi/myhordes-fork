@@ -97,6 +97,11 @@ class ItemPrototype implements NamedEntity
      */
     private $sort;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $deco_text;
+
     public function __construct()
     {
         $this->properties = new ArrayCollection();
@@ -306,6 +311,18 @@ class ItemPrototype implements NamedEntity
     public function setSort(?int $sort): self
     {
         $this->sort = $sort;
+
+        return $this;
+    }
+
+    public function getDecoText(): ?string
+    {
+        return $this->deco_text;
+    }
+
+    public function setDecoText(?string $deco_text): self
+    {
+        $this->deco_text = $deco_text;
 
         return $this;
     }

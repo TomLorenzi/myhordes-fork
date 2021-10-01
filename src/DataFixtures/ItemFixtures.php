@@ -1251,6 +1251,7 @@ class ItemFixtures extends Fixture
                 ->setSort( $entry['sort'] ?? 0 )
                 ->setDescription( static::$item_desc_data[ $entry_unique_id ] ?? "" )
                 ->setHideInForeignChest( $entry['hideInForeignChest'] ?? false )
+                ->setDecoText($entry['deco_text'] ?? null)
                 ->getProperties()->clear();
 
             $entity
