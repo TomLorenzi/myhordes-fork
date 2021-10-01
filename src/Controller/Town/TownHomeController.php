@@ -94,7 +94,6 @@ class TownHomeController extends TownController
         $th->calculate_home_def($home, $summary);
 
         // Calculate decoration
-        $deco = 0;
         $decoItems = [];
         $deco = $this->citizen_handler->getDecoPoints($citizen, $decoItems);
 
@@ -199,6 +198,7 @@ class TownHomeController extends TownController
             'def' => $summary,
             'deco' => $deco,
             'decoItems' => $decoItems,
+            'protected' => $this->citizen_handler->houseIsProtected($this->getActiveCitizen(), true),
 
             'log' => $this->renderLog( -1, $citizen, false, null, 10 )->getContent(),
             'day' => $town->getDay(),

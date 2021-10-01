@@ -110,7 +110,7 @@ class ItemFixtures extends Fixture
         ['label' => 'Solide Holzplatte', 'icon' => 'wood_plate', 'category' => 'Armor', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                                    // -- ---
         ['label' => 'Autotür', 'icon' => 'car_door', 'category' => 'Armor', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 40],                                                // -- ---
         ['label' => 'Fackel', 'icon' => 'torch', 'category' => 'Armor', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 15],                                                   // -- Out
-		    ['label' => 'Dackel', 'icon' => 'tekel', 'category' => 'Armor', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                                  // -- Out
+        ['label' => 'Dackel', 'icon' => 'tekel', 'category' => 'Armor', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0, 'deco_text' => 'Verbessert die Verteidigung und verhindert Diebstähle'],                                                  // -- Out
 		
 		
         ['label' => 'Aqua-Splash (leer)', 'icon' => 'watergun_opt_empty', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                          // In Out

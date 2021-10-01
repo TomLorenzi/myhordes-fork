@@ -907,7 +907,7 @@ class CitizenHandler
             /** @var Item $item */
             if ($item->getBroken()) continue;
             $deco += $item->getPrototype()->getDeco();
-            if ($item->getPrototype()->getDeco())
+            if ($item->getPrototype()->getDeco() || !empty($item->getPrototype()->getDecoText()))
                 $decoItems[] = $item;
         }
 
