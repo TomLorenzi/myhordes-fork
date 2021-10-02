@@ -267,7 +267,7 @@ class HTMLService {
         if (!$this->htmlValidator($this->getAllowedHTML($user, $permissions,is_bool($extended) ? $extended : false, is_array($extended) ? $extended : []), $body->item(0),$tx_len))
             return false;
 
-        $emotes = array_keys($this->get_emotes());
+        $emotes = array_keys($this->get_emotes(false, $user));
 
         $cache = [ 'citizen' => [] ];
 
@@ -660,9 +660,8 @@ class HTMLService {
         foreach($repo->findAll() as $value){
             /** @var $value Emotes */
             $path = $value->getPath();
-            if($value->getI18n()) {
+            if($value->getI18n())
                 $path = str_replace("{lang}", ($user !== null ? $user->getLanguage() : "de"), $path);
-            }
             $this->emote_cache[$value->getTag()] = $url_only ? $path : "<img alt='{$value->getTag()}' src='{$this->asset->getUrl( $path )}'/>";
         }
         return $this->emote_cache;

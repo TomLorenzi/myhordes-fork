@@ -21,7 +21,7 @@ Encore
         from: 'assets/img',
         to: (typeof(local.hash_filenames) !== 'undefined' && !local.hash_filenames)
             ? 'images/[path][name].[ext]'
-            : 'images/[path][name].[hash:8].[ext]' ,
+            : 'images/[path][name].[contenthash:8].[ext]' ,
     })
     .copyFiles({
         from: 'assets/ext',
@@ -31,16 +31,19 @@ Encore
     .configureFilenames({
         js: (typeof(local.hash_filenames) !== 'undefined' && !local.hash_filenames)
         ? '[name].js'
-        : '[name].[hash:8].js',
+        : '[name].[contenthash:8].js',
         css: (typeof(local.hash_filenames) !== 'undefined' && !local.hash_filenames)
         ? '[name].css'
-        : '[name].[hash:8].css',
-        images: (typeof(local.hash_filenames) !== 'undefined' && !local.hash_filenames)
+        : '[name].[contenthash:8].css',
+    })
+    .configureImageRule({
+        filename: (typeof(local.hash_filenames) !== 'undefined' && !local.hash_filenames)
             ? 'images/[path][name].[ext]'
-            : 'images/[path][name].[hash:8].[ext]',
-        fonts: (typeof(local.hash_filenames) !== 'undefined' && !local.hash_filenames)
+            : 'images/[path][name].[contenthash:8].[ext]',
+    }).configureFontRule({
+        filename: (typeof(local.hash_filenames) !== 'undefined' && !local.hash_filenames)
             ? 'fonts/[path][name].[ext]'
-            : 'fonts/[path][name].[hash:8].[ext]'
+            : 'fonts/[path][name].[contenthash:8].[ext]'
     })
 
     /*

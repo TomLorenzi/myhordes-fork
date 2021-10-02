@@ -759,7 +759,7 @@ class MessageForumController extends MessageController
 
         if ($flush) try { $em->flush(); } catch (Exception $e) {}
 
-        foreach ($posts as &$post) $post->setText( $this->html->prepareEmotes( $post->getText() ) );
+        foreach ($posts as &$post) $post->setText( $this->html->prepareEmotes( $post->getText(), $user ) );
 
         // Check for paranoia
         if ($forum->getTown() && $user->getActiveCitizen() && $user->getActiveCitizen()->getTown() === $forum->getTown())
