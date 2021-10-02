@@ -450,7 +450,7 @@ class SoulController extends CustomAbstractController
             'user_desc' => $user_desc ? $user_desc->getText() : null,
             'show_importer'     => $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_ENABLED, true),
             'importer_readonly' => $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_READONLY, false),
-            'avatar_max_size' => [$a_max_size, $b_max_size]
+            'avatar_max_size' => [$a_max_size, $b_max_size,$this->conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_UPLOAD, 3145728)]
         ]) );
     }
 

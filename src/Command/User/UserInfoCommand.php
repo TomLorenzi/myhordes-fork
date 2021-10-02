@@ -24,7 +24,7 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\Question;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
-use Symfony\Component\Routing\Router;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class UserInfoCommand extends Command
 {
@@ -34,10 +34,10 @@ class UserInfoCommand extends Command
     private $user_handler;
     private $pwenc;
     private $helper;
-    private Router $router;
+    private UrlGeneratorInterface $router;
 
     public function __construct(EntityManagerInterface $em, UserPasswordHasherInterface $passwordEncoder,
-                                UserHandler $uh, CommandHelper $ch, Router $router)
+                                UserHandler $uh, CommandHelper $ch, UrlGeneratorInterface $router)
     {
         $this->entityManager = $em;
         $this->pwenc = $passwordEncoder;
@@ -355,7 +355,7 @@ class UserInfoCommand extends Command
                 if ($award->getUser() === $user && $award->getPrototype() === null) {
                     if ($user->getActiveTitle() === $award) $user->setActiveTitle(null);
                     if ($user->getActiveIcon() === $award) $user->setActiveIcon(null);
-                    $user->getAwards()->remove($award);
+                    $user->getAwards()->removeElement($award);
                     $this->entityManager->remove($award);
                     $this->entityManager->persist($user);
                     $this->entityManager->flush();

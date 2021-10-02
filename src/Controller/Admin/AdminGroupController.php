@@ -16,6 +16,7 @@ use App\Service\JSONRequestParser;
 use App\Service\MediaService;
 use App\Service\PermissionHandler;
 use App\Service\RandomGenerator;
+use App\Structures\MyHordesConf;
 use App\Translation\T;
 use Exception;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
@@ -57,7 +58,11 @@ class AdminGroupController extends CustomAbstractController
     public function group_new(): Response
     {
         if (!$this->isGranted('ROLE_ADMIN')) $this->redirect($this->generateUrl('admin_group_view'));
-        return $this->render( 'ajax/admin/groups/edit.html.twig', $this->addDefaultTwigArgs(null, ['current_group' => null, 'members' => []]));
+        return $this->render( 'ajax/admin/groups/edit.html.twig', $this->addDefaultTwigArgs(null, [
+            'current_group' => null,
+            'members' => [],
+            'icon_max_size' => $this->conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_UPLOAD, 3145728)
+        ]));
     }
 
     /**
@@ -70,7 +75,11 @@ class AdminGroupController extends CustomAbstractController
         $group_meta = $this->entity_manager->getRepository(OfficialGroup::class)->find($id);
         if (!$group_meta)  $this->redirect($this->generateUrl('admin_group_view'));
 
-        return $this->render( 'ajax/admin/groups/edit.html.twig', $this->addDefaultTwigArgs(null, ['current_group' => $group_meta, 'members' => $perm->usersInGroup($group_meta->getUsergroup())]));
+        return $this->render( 'ajax/admin/groups/edit.html.twig', $this->addDefaultTwigArgs(null, [
+            'current_group' => $group_meta,
+            'members' => $perm->usersInGroup($group_meta->getUsergroup()),
+            'icon_max_size' => $this->conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_UPLOAD, 3145728)
+        ]));
     }
 
     /**
@@ -139,7 +148,8 @@ class AdminGroupController extends CustomAbstractController
 
         if ($parser->has('icon') && $parser->get('icon') !== false) {
             $payload = $parser->get_base64('icon');
-            if (strlen( $payload ) > 3145728) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+            if (strlen( $payload ) > $this->conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_UPLOAD))
+                return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
             if ($media->resizeImage( $payload, function(int &$w, int &$h, bool &$fit): bool {
                     if ($w / $h < 0.1 || $h / $w < 0.1 || $h < 16 || $w < 16)
