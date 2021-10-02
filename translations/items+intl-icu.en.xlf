@@ -8255,7 +8255,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Du atmest tief durch und drückst den Rücken durch. Auf geht's! Ich werde nicht hier sterben!{hr}Du hast soeben Kraft getankt und &lt;strong&gt;6 neue AP erhalten&lt;/strong&gt;.</source>
-        <target><![CDATA[Du atmest tief durch und drückst den Rücken durch. Auf geht's! Ich werde nicht hier sterben!{hr}Du hast soeben Kraft getankt und <strong>6 neue AP erhalten</strong>.]]></target>
+        <target><![CDATA[You take a deep breath and shake your head. Come on! This is no time to give up!{hr}Your 6 AP <strong>have been restored</strong>.]]></target>
       </segment>
     </unit>
     <unit id="wMM0fB9">
