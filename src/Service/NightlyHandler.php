@@ -571,9 +571,9 @@ class NightlyHandler
             }
         }
 
-        if ($useless === count($houses) && !$town->getDevastated() )
+        if ($useless > 0 && $useless === count($houses) && !$town->getDevastated() )
             $this->entity_manager->persist( $this->logTemplates->nightlyInternalAttackNothingSummary( $town, $useless ) );
-        else if ($town->getDevastated())
+        else if ($useless > 0 && $town->getDevastated())
             $this->entity_manager->persist( $this->logTemplates->nightlyInternalAttackNothingSummary( $town, $useless, true ) );
 
         $this->entity_manager->persist($gazette);
