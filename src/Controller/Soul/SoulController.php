@@ -450,7 +450,7 @@ class SoulController extends CustomAbstractController
             'user_desc' => $user_desc ? $user_desc->getText() : null,
             'show_importer'     => $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_ENABLED, true),
             'importer_readonly' => $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_READONLY, false),
-            'avatar_max_size' => [$a_max_size, $b_max_size]
+            'avatar_max_size' => [$a_max_size, $b_max_size,$this->conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_UPLOAD, 3145728)]
         ]) );
     }
 
@@ -511,7 +511,7 @@ class SoulController extends CustomAbstractController
             $user->setActiveIcon(null);
         else {
             $award = $this->entity_manager->getRepository(Award::class)->find( $icon );
-            if ($award === null || $award->getUser() !== $user || $award->getPrototype() === null || $award->getPrototype()->getIcon() === null)
+            if ($award === null || $award->getUser() !== $user || ($award->getPrototype() === null && $award->getCustomIcon() === null) || ($award->getPrototype() !== null && $award->getPrototype()->getIcon() === null))
                 return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
             if ($this->user_handler->isRestricted($user, AccountRestriction::RestrictionProfileTitle) && $user->getActiveIcon() !== $award)

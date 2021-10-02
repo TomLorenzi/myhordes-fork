@@ -189,15 +189,20 @@ class Extensions extends AbstractExtension  implements GlobalsInterface
 
         uksort($g, function($a,$b) use (&$p) {
             if ($a === 'custom' && $b === 'custom') return 0;
-            if ($a === 'custom') return 1;
-            if ($b === 'custom') return -1;
+            if ($a === 'custom') return -1;
+            if ($b === 'custom') return 1;
             if ($a === 'single' && $b === 'single') return 0;
-            if ($a === 'single') return 1;
-            if ($b === 'single') return -1;
+            if ($a === 'single') return -1;
+            if ($b === 'single') return 1;
             return $p[$b]->getRare() <=> $p[$a]->getRare() ?: $p[$a]->getId() <=> $p[$b]->getId();
         });
 
-        foreach ($g as &$list) usort( $list, fn( Award $a, Award $b ) => $a->getPrototype()->getUnlockQuantity() <=> $b->getPrototype()->getUnlockQuantity() );
+        foreach ($g as &$list) usort( $list, function( Award $a, Award $b ) {
+            if (!$a->getPrototype() && !$b->getPrototype()) return $a->getId() <=> $b->getId();
+            else if (!$a->getPrototype()) return -1;
+            else if (!$b->getPrototype()) return  1;
+            else return $a->getPrototype()->getUnlockQuantity() <=> $b->getPrototype()->getUnlockQuantity();
+        } );
         return $g;
     }
 

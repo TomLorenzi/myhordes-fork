@@ -104,7 +104,7 @@
     <unit id="3UXNMEe" name="Dieses Dateiformat wird nicht unterstützt.">
       <notes>
         <note category="german">Dieses Dateiformat wird nicht unterstützt.</note>
-        <note category="from">twig:///templates/ajax/admin/apps/edit.html.twig;twig:///templates/ajax/admin/groups/edit.html.twig;twig:///templates/ajax/soul/settings.html.twig;twig:///templates/scripts/errors/profile.txt.twig</note>
+        <note category="from">twig:///templates/ajax/admin/apps/edit.html.twig;twig:///templates/ajax/admin/groups/edit.html.twig;twig:///templates/ajax/admin/widget/controls.twig;twig:///templates/ajax/soul/settings.html.twig;twig:///templates/scripts/errors/profile.txt.twig</note>
       </notes>
       <segment>
         <source>Dieses Dateiformat wird nicht unterstützt.</source>
@@ -144,7 +144,7 @@
     <unit id="TzbDcP2" name="Die Datei ist zu groß.">
       <notes>
         <note category="german">Die Datei ist zu groß.</note>
-        <note category="from">twig:///templates/ajax/admin/apps/edit.html.twig;twig:///templates/ajax/admin/groups/edit.html.twig;twig:///templates/ajax/soul/settings.html.twig;twig:///templates/scripts/errors/profile.txt.twig</note>
+        <note category="from">twig:///templates/ajax/admin/apps/edit.html.twig;twig:///templates/ajax/admin/groups/edit.html.twig;twig:///templates/ajax/admin/widget/controls.twig;twig:///templates/ajax/soul/settings.html.twig;twig:///templates/scripts/errors/profile.txt.twig</note>
       </notes>
       <segment>
         <source>Die Datei ist zu groß.</source>
@@ -394,7 +394,7 @@
     <unit id="rJfU7R2" name="Bitte wähle nur eine einzige Datei aus.">
       <notes>
         <note category="german">Bitte wähle nur eine einzige Datei aus.</note>
-        <note category="from">twig:///templates/ajax/admin/apps/edit.html.twig;twig:///templates/ajax/admin/groups/edit.html.twig;twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/apps/edit.html.twig;twig:///templates/ajax/admin/groups/edit.html.twig;twig:///templates/ajax/admin/widget/controls.twig;twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Bitte wähle nur eine einzige Datei aus.</source>

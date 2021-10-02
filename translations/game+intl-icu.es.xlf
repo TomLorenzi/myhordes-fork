@@ -19985,16 +19985,6 @@
         <target>{building} ha usado {num} batería.</target>
       </segment>
     </unit>
-    <unit id="T14z5t.">
-      <notes>
-        <note category="german">&lt;strong&gt;Herzlichen Glückwunsch&lt;/strong&gt;, du hast folgende Titel freigeschaltet: {list_i} {list_t}</note>
-        <note category="from">db://LogEntryTemplate</note>
-      </notes>
-      <segment>
-        <source>&lt;strong&gt;Herzlichen Glückwunsch&lt;/strong&gt;, du hast folgende Titel freigeschaltet: {list_i} {list_t}</source>
-        <target><![CDATA[<strong>Enhorabuena</strong>, ha desbloqueado los siguientes títulos: {list_i} {list_t}]]></target>
-      </segment>
-    </unit>
     <unit id="jIKh96s">
       <notes>
         <note category="german">{watchers} Nachtwächter haben am Stadtrand Stellung bezogen. Wild entschlossen haben sie sich vorgenommen, die Stadt gegen die Zombies zu verteidigen.</note>
@@ -22927,6 +22917,16 @@
       <segment>
         <source>Wenn die Gesamtpunktzahl aller Menschen in einer Zone &lt;strong&gt;mindestens so groß&lt;/strong&gt; wie die der Zombies ist, kann dir nichts geschehen... vorerst zumindest.</source>
         <target><![CDATA[Mientras los puntos humanos sean <strong>superiores o iguales</strong> a los puntos zombies, no correrás peligro.]]></target>
+      </segment>
+    </unit>
+    <unit id="wey0ykd">
+      <notes>
+        <note category="german">&lt;strong&gt;Herzlichen Glückwunsch&lt;/strong&gt;, du hast folgende Titel freigeschaltet: {list_c} {list_i} {list_t}</note>
+        <note category="from">db://LogEntryTemplate</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Herzlichen Glückwunsch&lt;/strong&gt;, du hast folgende Titel freigeschaltet: {list_c} {list_i} {list_t}</source>
+        <target><![CDATA[<strong>Enhorabuena</strong>, ha desbloqueado los siguientes títulos: {list_c} {list_i} {list_t}]]></target>
       </segment>
     </unit>
   </file>

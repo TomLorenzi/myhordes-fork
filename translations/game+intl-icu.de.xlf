@@ -12752,12 +12752,6 @@
         <target>{building} hat {num} Batterien verbraucht.</target>
       </segment>
     </unit>
-    <unit id="T14z5t.">
-      <segment>
-        <source>&lt;strong&gt;Herzlichen Glückwunsch&lt;/strong&gt;, du hast folgende Titel freigeschaltet: {list_i} {list_t}</source>
-        <target><![CDATA[<strong>Herzlichen Glückwunsch</strong>, du hast folgende Titel freigeschaltet: {list_i} {list_t}]]></target>
-      </segment>
-    </unit>
     <unit id="jIKh96s">
       <segment>
         <source>{watchers} Nachtwächter haben am Stadtrand Stellung bezogen. Wild entschlossen haben sie sich vorgenommen, die Stadt gegen die Zombies zu verteidigen.</source>
@@ -14554,6 +14548,12 @@
       <segment>
         <source>Doch leider ist der letzte Bürger tot, bevor die Horde die Stadttore erreicht... Seine Zunge hängt zwischen den Zähnen seines ehemaligen Freundes...</source>
         <target>Doch leider ist der letzte Bürger tot, bevor die Horde die Stadttore erreicht... Seine Zunge hängt zwischen den Zähnen seines ehemaligen Freundes...</target>
+      </segment>
+    </unit>
+    <unit id="wey0ykd">
+      <segment>
+        <source>&lt;strong&gt;Herzlichen Glückwunsch&lt;/strong&gt;, du hast folgende Titel freigeschaltet: {list_c} {list_i} {list_t}</source>
+        <target><![CDATA[<strong>Herzlichen Glückwunsch</strong>, du hast folgende Titel freigeschaltet: {list_c} {list_i} {list_t}]]></target>
       </segment>
     </unit>
     <unit id="wprx15y" name="Jeder Mensch zählt 2 Punkte, Zombies zählen je 1 Punkt.">

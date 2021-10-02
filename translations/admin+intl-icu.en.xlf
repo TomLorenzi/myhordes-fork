@@ -694,7 +694,7 @@
     <unit id="q8r8gtq" name="Titel">
       <notes>
         <note category="german">Titel</note>
-        <note category="from">twig:///templates/ajax/admin/changelogs/changelogs.html.twig;twig:///templates/ajax/admin/reports/reports.html.twig;twig:///templates/ajax/admin/users/account.html.twig;twig:///templates/ajax/admin/users/ban.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/changelogs/changelogs.html.twig;twig:///templates/ajax/admin/reports/reports.html.twig;twig:///templates/ajax/admin/users/account.html.twig;twig:///templates/ajax/admin/users/ban.html.twig;twig:///templates/ajax/admin/widget/controls.twig</note>
       </notes>
       <segment>
         <source>Titel</source>
@@ -1196,7 +1196,7 @@
     <unit id="bC01IWH" name="Löschen">
       <notes>
         <note category="german">Löschen</note>
-        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/users/account.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/users/account.html.twig;twig:///templates/ajax/admin/widget/controls.twig</note>
       </notes>
       <segment>
         <source>Löschen</source>
@@ -2641,7 +2641,7 @@
       <notes>
         <note category="german">Bestätigen</note>
         <note category="state">new</note>
-        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig;twig:///templates/ajax/admin/widget/controls.twig</note>
       </notes>
       <segment>
         <source>Bestätigen</source>
@@ -4020,6 +4020,36 @@
       <segment>
         <source>Hauptseele ohne Einschränkungen importieren</source>
         <target>Import main soul without restrictions</target>
+      </segment>
+    </unit>
+    <unit id="QCEckGJ" name="Einzigartige Titel oder Icons bearbeiten:">
+      <notes>
+        <note category="german">Einzigartige Titel oder Icons bearbeiten:</note>
+        <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
+      </notes>
+      <segment>
+        <source>Einzigartige Titel oder Icons bearbeiten:</source>
+        <target>Edit unique titles or icons</target>
+      </segment>
+    </unit>
+    <unit id="YQy28ox" name="Neuer Titel">
+      <notes>
+        <note category="german">Neuer Titel</note>
+        <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
+      </notes>
+      <segment>
+        <source>Neuer Titel</source>
+        <target>New title</target>
+      </segment>
+    </unit>
+    <unit id="LBcldQ8" name="Neues Icon">
+      <notes>
+        <note category="german">Neues Icon</note>
+        <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
+      </notes>
+      <segment>
+        <source>Neues Icon</source>
+        <target>New icon</target>
       </segment>
     </unit>
   </file>
