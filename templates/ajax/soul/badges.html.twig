@@ -87,9 +87,6 @@
                 {% for name in badger.nameHistory|filter(n => n != badger.name) %}
                     {{ name }}{% if not loop.last %}, {% endif %}
                 {% endfor %}
-                {% if badger.name != badger.username %}
-                    {% if badger.nameHistory|filter(n => n != badger.name)|length > 0 %}, {% endif %}{{ badger.username }}
-                {% endif %}
             </div>
         </div>
     {% endif %}
