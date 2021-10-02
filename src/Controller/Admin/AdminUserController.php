@@ -929,9 +929,10 @@ class AdminUserController extends AdminActionController
      * @param int $id User ID
      * @param JSONRequestParser $parser The Request Parser
      * @param MediaService $media
+     * @param CrowService $crow
      * @return Response
      */
-    public function user_manage_unique_award(int $id, JSONRequestParser $parser, MediaService $media): Response {
+    public function user_manage_unique_award(int $id, JSONRequestParser $parser, MediaService $media, CrowService $crow): Response {
         $user = $this->entity_manager->getRepository(User::class)->find($id);
         if (!$user) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
@@ -981,10 +982,16 @@ class AdminUserController extends AdminActionController
                                                 ->setCustomIconName(md5($payload))
                                                 ->setCustomIconFormat(strtolower( $processed_format ))
             );
+
+
         }
 
         try {
             $this->entity_manager->flush();
+            if (!$parser->has('id', true)) {
+                $this->entity_manager->persist($crow->createPM_titleUnlock($user, [$award]));
+                $this->entity_manager->flush();
+            }
         } catch (Exception $e) {
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }

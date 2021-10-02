@@ -210,7 +210,7 @@ class LogEntryTemplateFixtures extends Fixture
         ['text'=>'Ein Moderator hat die Forensperre deines Accounts aufgehoben.', 'name'=>'gpm_mod_forumBanOff', 'type'=>LogEntryTemplate::TypeGPMNotification, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array()],
         ['text'=>'Ein Moderator hat die Spielsperre deines Accounts aufgehoben.', 'name'=>'gpm_mod_gameBanOff', 'type'=>LogEntryTemplate::TypeGPMNotification, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array()],
 
-        ['text'=>'<strong>Herzlichen Glückwunsch</strong>, du hast folgende Titel freigeschaltet: {list_i} {list_t}', 'name'=>'gpm_unlock_titles', 'type'=>LogEntryTemplate::TypeGPMNotification, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"title-list",'name'=>'list_t'],['type'=>"title-icon-list",'name'=>'list_i'])],
+        ['text'=>'<strong>Herzlichen Glückwunsch</strong>, du hast folgende Titel freigeschaltet: {list_c} {list_i} {list_t}', 'name'=>'gpm_unlock_titles', 'type'=>LogEntryTemplate::TypeGPMNotification, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"title-list",'name'=>'list_t'],['type'=>"title-icon-list",'name'=>'list_i'],['type'=>"title-custom-list",'name'=>'list_c'])],
     ];
 
     private $entityManager;

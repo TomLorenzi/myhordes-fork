@@ -2533,5 +2533,23 @@
         <target>Hauptseele ohne Einschränkungen importieren</target>
       </segment>
     </unit>
+    <unit id="QCEckGJ" name="Einzigartige Titel oder Icons bearbeiten:">
+      <segment>
+        <source>Einzigartige Titel oder Icons bearbeiten:</source>
+        <target>Einzigartige Titel oder Icons bearbeiten:</target>
+      </segment>
+    </unit>
+    <unit id="YQy28ox" name="Neuer Titel">
+      <segment>
+        <source>Neuer Titel</source>
+        <target>Neuer Titel</target>
+      </segment>
+    </unit>
+    <unit id="LBcldQ8" name="Neues Icon">
+      <segment>
+        <source>Neues Icon</source>
+        <target>Neues Icon</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

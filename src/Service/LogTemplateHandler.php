@@ -3,6 +3,7 @@
 
 namespace App\Service;
 
+use App\Entity\Award;
 use App\Entity\Building;
 use App\Entity\BuildingPrototype;
 use App\Entity\CauseOfDeath;
@@ -215,6 +216,17 @@ class LogTemplateHandler
                 elseif ($typeEntry['type'] === 'title-icon-list') {
                     $transParams['{'.$typeEntry['name'].'}'] = "<div class='list'>";
                     $transParams['{'.$typeEntry['name'].'}'] .= implode('', array_map( fn($e) => "<img alt='$e' src='{$this->asset->getUrl( "build/images/icons/title/$e.gif" )}' />", $variables[$typeEntry['name']] ));
+                    $transParams['{'.$typeEntry['name'].'}'] .= "</div>";
+                }
+                elseif ($typeEntry['type'] === 'title-custom-list') {
+                    $transParams['{'.$typeEntry['name'].'}'] = "<div class='list'>";
+                    $transParams['{'.$typeEntry['name'].'}'] .= implode('', array_map( function($e) {
+                        $a = $e ? $this->entity_manager->getRepository(Award::class)->find($e) : null;
+                        if (!$a) return '???';
+                        elseif ($a->getCustomTitle()) return $this->wrap( $a->getCustomTitle() );
+                        elseif ($a->getCustomIcon()) return "<img alt='$e' src='{$this->url->generate('app_web_customicon', ['uid' => $a->getUser()->getId(), 'aid' => $a->getId(), 'name' => $a->getCustomIconName(), 'ext' => $a->getCustomIconFormat()])}' />";
+                        else return '????';
+                    }, $variables[$typeEntry['name']] ?? [] ));
                     $transParams['{'.$typeEntry['name'].'}'] .= "</div>";
                 }
                 elseif ($typeEntry['type'] === 'duration') {
