@@ -115,6 +115,7 @@ class AdminActionController extends CustomAbstractController
         return $this->render( 'ajax/admin/towns/log_content.html.twig', [
             'entries' => $entries,
             'canHideEntry' => false,
+            'day' => $day
         ] );
     }
 

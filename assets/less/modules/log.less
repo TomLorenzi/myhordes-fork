@@ -1,8 +1,12 @@
 @import (once) "../theme";
 
+.log-container {
+  position: relative;
+}
+
 .log {
   background: @myhordes-cell-header-background-color; border: 1px solid @myhordes-input-border;
-  padding: 4px;
+  padding: 4px; position: relative; z-index: 1;
   &>.log-content {
     font-size: 1.2rem; color: @myhordes-cell-header-text-color; max-height: 300px; overflow-y: auto;
     &>.log-spinner, &>.log-complete-link { padding: 5px; }
@@ -118,19 +122,20 @@
     }
   }
   &+.log-day-select {
-    position: relative; z-index: 1;
+    position: relative; width: 100%; overflow-x: auto; top: -3px; white-space: nowrap;
     &>div {
       overflow: visible; display: inline-block; position: relative;
       &>div {
         display: inline-block; font-size: 0.7em;  background: @myhordes-cell-header-background-color; width: 60px;
-        text-align: center;
-        border-bottom: 1px solid @myhordes-input-border; border-left: 1px solid @myhordes-input-border;
-        border-right: 1px solid @myhordes-input-border; position: relative; padding: 3px; top: -3px; left: 5px;
+        text-align: center; border: 1px solid @myhordes-input-border; position: relative; padding: 3px;
         color: @myhordes-smalltext; cursor: pointer;
         &.current {
           color: white;
           font-weight: bold;
+          border-top: none;
+          z-index: 2
         }
+        &:not(.current) { top: -1px; }
         &>span { font-weight: bold; font-variant: small-caps; }
       }
     }
