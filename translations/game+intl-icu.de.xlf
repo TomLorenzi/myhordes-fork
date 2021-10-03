@@ -14604,5 +14604,11 @@
         <target>Das Stadttor wurde bereits von einem anderen pflichtbewussten Bürger geschlossen.</target>
       </segment>
     </unit>
+    <unit id="ejlTArB">
+      <segment>
+        <source>Du nimmst diese wandernde Seele und betest, dass der Schamane weiß, wie man diesen Trank zubereitet! Und du überlebst! Was für ein Glück, du hätten keine müde Mark auf den Scharlatan gewettet.</source>
+        <target>Du nimmst diese wandernde Seele und betest, dass der Schamane weiß, wie man diesen Trank zubereitet! Und du überlebst! Was für ein Glück, du hätten keine müde Mark auf den Scharlatan gewettet.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

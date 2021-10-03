@@ -22890,5 +22890,16 @@ cette violente opération...]]></target>
         <target>Les portes de la ville ont été refermées par un autre citoyen consciencieux.</target>
       </segment>
     </unit>
+    <unit id="ejlTArB">
+      <notes>
+        <note category="german">Du nimmst diese wandernde Seele und betest, dass der Schamane weiß, wie man diesen Trank zubereitet! Und du überlebst! Was für ein Glück, du hätten keine müde Mark auf den Scharlatan gewettet.</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Du nimmst diese wandernde Seele und betest, dass der Schamane weiß, wie man diesen Trank zubereitet! Und du überlebst! Was für ein Glück, du hätten keine müde Mark auf den Scharlatan gewettet.</source>
+        <target>Vous vous emparez de cette âme errante et priez que le chaman sache préparer cette potion ! Et vous survivez ! Quelle chance, vous n'auriez pourtant pas parié un kopec sur ce charlatan.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
