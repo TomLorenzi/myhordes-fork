@@ -11808,7 +11808,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du stürzt dich auf eine dieser Kreaturen und &lt;strong&gt;umklammerst sie mit beiden Armen&lt;/strong&gt;, um sie zu Fall zu bringen. Der Kontakt mit seiner &lt;strong&gt;verrotteten Haut&lt;/strong&gt; bringt dich fast zum Kotzen... Du kämpfst und versuchst ihn irgendwie umzustoßen, doch ohne Erfolg. &lt;strong&gt;Das Biest hat dich mehrere Male um ein Haar gebissen!&lt;/strong&gt; Erschöpft und demoralisiert lässt du von ihm ab, um dich zurückzuziehen...</source>
-        <target>You grab one of the wretched automatons with both hands, touching the sticky, putrefied flesh... it's unbearable... You wrestle with it, trying to force it back, but it's not happening... It tries unsuccessfully to bite you several times ! You retreat, out of breath and demoralised...</target>
+        <target><![CDATA[You grab one of the wretched automatons with both hands, touching the <strong>sticky, putrefied flesh</strong>... it's unbearable... You wrestle with it, trying to force it back, but it's not happening... <strong>It tries unsuccessfully to bite you several times!</strong> You retreat, out of breath and demoralised...]]></target>
       </segment>
     </unit>
     <unit id="rJtk9d5" name="Die Abschätzung wird durch den Scanner verbessert.">
@@ -19267,7 +19267,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>&lt;span&gt;{citizen} hat einen Zombie mit seinen bloßen Händen niedergestreckt!&lt;/span&gt;</source>
-        <target><![CDATA[<span>{citizen} took down a zombie with their bare hands!</span>]]></target>
+        <target><![CDATA[<span>{citizen} went toe to toe with a zombie and managed to finish him!</span>]]></target>
       </segment>
     </unit>
     <unit id="CIxCi9h">
@@ -19278,7 +19278,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>{citizen} hat versucht einen Zombie niederzustrecken und ist dabei fast draufgegangen...</source>
-        <target>{citizen} hat versucht einen Zombie niederzustrecken und ist dabei fast draufgegangen...</target>
+        <target>{citizen} managed to get punched square in the crotch by attacking a zombie with their bare hands...<target>
       </segment>
     </unit>
     <unit id="L4sBLhc" name="&lt;span&gt;Wir kontrollieren die Zone ab sofort.&lt;/span&gt;">
@@ -19309,7 +19309,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>als Gruppe</source>
-        <target>als Gruppe</target>
+        <target>on a group expedition</target>
       </segment>
     </unit>
     <unit id="KP2BLp3" name="Du kannst in den Foren um Hilfe bitten!">
@@ -19662,7 +19662,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>{citizen} wartet auf eine Eskorte. Klick ihn an, damit er dir folgt.</source>
-        <target>{citizen} is waiting for an escort : click to ask them to follow you.</target>
+        <target>{citizen} is waiting for an escort: click to ask them to follow you.</target>
       </segment>
     </unit>
     <unit id="lpKOzLM">
@@ -19916,7 +19916,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Achtung: Jede Aktion in der Zone sorgt dafür, dass deine &lt;strong&gt;Tarnung auffliegt&lt;/strong&gt;. (Es können nur Aktionen ausgeführt werden, die mit einem Icon {img_scout_ok} gekennzeichnet sind)!</source>
-        <target><![CDATA[Warning : many actions, if carried out in this zone will make you <strong>lose your camouflage</strong> (only actions marked with the icon {img_scout_ok} can be used)!]]></target>
+        <target><![CDATA[Warning: many actions, if carried out in this zone will make you <strong>lose your camouflage</strong> (only actions marked with the icon {img_scout_ok} can be used)!]]></target>
       </segment>
     </unit>
     <unit id="SKPkihB">

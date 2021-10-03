@@ -9204,7 +9204,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Die Batterie fällt ein paar Meter entfernt auf den Boden.</source>
-        <target>Die Batterie fällt ein paar Meter entfernt auf den Boden.</target>
+        <target>The battery landed a bit further away.</target>
       </segment>
     </unit>
     <unit id="WgEgCbq" name="Die Batterie wurde beim Aufprall vollständig zerstört.">
@@ -9215,7 +9215,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Die Batterie wurde beim Aufprall vollständig zerstört.</source>
-        <target>Die Batterie wurde beim Aufprall vollständig zerstört.</target>
+        <target><![CDATA[The battery seems to have been ill-suited for firing... It is now <strong>useless</strong>!]]></target>
       </segment>
     </unit>
     <unit id="zBL2Qmm">
@@ -9287,7 +9287,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Solange du &lt;strong&gt;erschöpft bist&lt;/strong&gt;, kannst du diese Aktion nicht ausführen (da du keine Aktionspunkte mehr hast)... Trink oder iss etwas, oder nimm eine Droge, ansonsten musst du bis &lt;strong&gt;morgen&lt;/strong&gt; warten.</source>
-        <target><![CDATA[Solange du <strong>erschöpft bist</strong>, kannst du diese Aktion nicht ausführen (da du keine Aktionspunkte mehr hast)... Trink oder iss etwas, oder nimm eine Droge, ansonsten musst du bis <strong>morgen</strong> warten.]]></target>
+        <target><![CDATA[You cannot carry out this action <strong>when you are tired</strong> (you have no action points remaining)... Drink, eat or drug yourself to restore points, or wait until tomorrow.]]></target>
       </segment>
     </unit>
     <unit id="bCsZ2JO">
