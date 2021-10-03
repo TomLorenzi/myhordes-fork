@@ -8250,7 +8250,6 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     <unit id="Pd1i68n">
       <notes>
         <note category="german">Du atmest tief durch und drückst den Rücken durch. Auf geht's! Ich werde nicht hier sterben!{hr}Du hast soeben Kraft getankt und &lt;strong&gt;6 neue AP erhalten&lt;/strong&gt;.</note>
-        <note category="state">new</note>
         <note category="from">db://AffectMessage</note>
       </notes>
       <segment>

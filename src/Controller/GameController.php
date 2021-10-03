@@ -726,8 +726,8 @@ class GameController extends CustomAbstractController
         if($log->getTown() !== $citizen->getTown())
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
 
-        if($log->getLogEntryTemplate()->getType() == LogEntryTemplate::TypeNightly)
-            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
+        if ($log->getLogEntryTemplate()->getType() == LogEntryTemplate::TypeNightly)
+            return AjaxResponse::errorMessage( $this->translator->trans('Dieser Registereintrag kann <strong>nicht</strong> gefälscht werden.', [], 'game') );
 
         $limit = 0;
         if($this->user_handler->hasSkill($citizen->getUser(), 'manipulator'))

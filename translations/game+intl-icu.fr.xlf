@@ -15911,7 +15911,6 @@
     <unit id="TP3m8zB" name="sitzt in der Falle und wartet auf den Tod...">
       <notes>
         <note category="german">sitzt in der Falle und wartet auf den Tod...</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
@@ -16134,7 +16133,6 @@
     <unit id="k9pQbZw" name="inmitten eines unentwirrbaren Trümmerhaufens">
       <notes>
         <note category="german">inmitten eines unentwirrbaren Trümmerhaufens</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
@@ -22721,7 +22719,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Die Stadt hat folgende Gegenstände in Folge der Hinrichtung von {shunned} zurückerhalten: {list}</note>
         <note category="from">db://LogEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Die Stadt hat folgende Gegenstände in Folge der Hinrichtung von {shunned} zurückerhalten: {list}</source>
@@ -22812,7 +22809,7 @@ cette violente opération...]]></target>
     </unit>
     <unit id="wprx15y" name="Jeder Mensch zählt 2 Punkte, Zombies zählen je 1 Punkt.">
       <notes>
-        <note category="german">Each Human is worth 2 points, each zombie is worth 1 point.</note>
+        <note category="german">Jeder Mensch zählt 2 Punkte, Zombies zählen je 1 Punkt.</note>
         <note category="from">twig:///templates/ajax/game/beyond/beyond.html.twig</note>
       </notes>
       <segment>
@@ -22822,12 +22819,66 @@ cette violente opération...]]></target>
     </unit>
     <unit id="3yKx05X">
       <notes>
-        <note category="german">If the number of Human points is &lt;strong&gt;equal to or more than&lt;/strong&gt; the total number of Zombie points, you are in no danger.. for now...</note>
+        <note category="german">Wenn die Gesamtpunktzahl aller Menschen in einer Zone &lt;strong&gt;mindestens so groß&lt;/strong&gt; wie die der Zombies ist, kann dir nichts geschehen... vorerst zumindest.</note>
         <note category="from">twig:///templates/ajax/game/beyond/beyond.html.twig</note>
       </notes>
       <segment>
         <source>Wenn die Gesamtpunktzahl aller Menschen in einer Zone &lt;strong&gt;mindestens so groß&lt;/strong&gt; wie die der Zombies ist, kann dir nichts geschehen... vorerst zumindest.</source>
         <target><![CDATA[Si les points Humains sont <strong>supérieurs ou égaux</strong> aux points Zombies, vous ne courez aucun danger.. pour le moment.]]></target>
+      </segment>
+    </unit>
+    <unit id="29qg.oG" name="Dieser Registereintrag kann &lt;strong&gt;nicht&lt;/strong&gt; gefälscht werden.">
+      <notes>
+        <note category="german">Dieser Registereintrag kann &lt;strong&gt;nicht&lt;/strong&gt; gefälscht werden.</note>
+        <note category="from">php:///src/Controller/GameController.php</note>
+      </notes>
+      <segment>
+        <source>Dieser Registereintrag kann &lt;strong&gt;nicht&lt;/strong&gt; gefälscht werden.</source>
+        <target><![CDATA[Il est <strong>impossible</strong> de falsifier ce type d'entrée dans le registre.]]></target>
+      </segment>
+    </unit>
+    <unit id="sTNvpIH" name="Klicke hier, um seine Informationen anzuzeigen">
+      <notes>
+        <note category="german">Klicke hier, um seine Informationen anzuzeigen</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Klicke hier, um seine Informationen anzuzeigen</source>
+        <target>Klicke hier, um seine Informationen anzuzeigen</target>
+      </segment>
+    </unit>
+    <unit id="vuquyit" name="Ganz genau, das bist du!">
+      <notes>
+        <note category="german">Ganz genau, das bist du!</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Ganz genau, das bist du!</source>
+        <target>Ganz genau, das bist du!</target>
+      </segment>
+    </unit>
+    <unit id="OjUho9K" name="gesichertes Haus">
+      <notes>
+        <note category="german">gesichertes Haus</note>
+        <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>gesichertes Haus</source>
+        <target>gesichertes Haus</target>
+      </segment>
+    </unit>
+    <unit id="OpG5aGF">
+      <notes>
+        <note category="german">In dieses Haus kann &lt;strong&gt;nicht eingebrochen&lt;/strong&gt; werden. Es ist durch ein Schloss oder etwas anderes gesichert...</note>
+        <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>In dieses Haus kann &lt;strong&gt;nicht eingebrochen&lt;/strong&gt; werden. Es ist durch ein Schloss oder etwas anderes gesichert...</source>
+        <target><![CDATA[In dieses Haus kann <strong>nicht eingebrochen</strong> werden. Es ist durch ein Schloss oder etwas anderes gesichert...]]></target>
       </segment>
     </unit>
   </file>

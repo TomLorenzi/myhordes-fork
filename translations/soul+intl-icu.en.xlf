@@ -3178,7 +3178,6 @@
     <unit id="phHRy7R" name="Du bekommst einen frischen jugendlichen Teint und einen Babypopo.">
       <notes>
         <note category="german">Du bekommst einen frischen jugendlichen Teint und einen Babypopo.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
@@ -3189,7 +3188,6 @@
     <unit id="yR7_2mq" name="Du bekommst straffere Brüste.">
       <notes>
         <note category="german">Du bekommst straffere Brüste.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
@@ -3200,7 +3198,6 @@
     <unit id="DmEId2H" name="Bekämpft wirksam deinen Körpergeruch. Deine Mitbürger werden es dir danken!">
       <notes>
         <note category="german">Bekämpft wirksam deinen Körpergeruch. Deine Mitbürger werden es dir danken!</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
@@ -3211,7 +3208,6 @@
     <unit id="0vm9fA_" name="Du wirst angenehm nach Orangenblüten duften.">
       <notes>
         <note category="german">Du wirst angenehm nach Orangenblüten duften.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
@@ -3222,7 +3218,6 @@
     <unit id="9dCZIYd" name="Du wirst ein respektierter und angesehener Bürger deiner Gemeinschaft.">
       <notes>
         <note category="german">Du wirst ein respektierter und angesehener Bürger deiner Gemeinschaft.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
@@ -3233,7 +3228,6 @@
     <unit id="lmPRBJ0" name="Deine natürlichen Abwehrkräfte werden gestärkt.">
       <notes>
         <note category="german">Deine natürlichen Abwehrkräfte werden gestärkt.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
@@ -3244,7 +3238,6 @@
     <unit id="sPSRoTg" name="Du bekommst stahlharte Waschbrettbauchmuskeln.">
       <notes>
         <note category="german">Du bekommst stahlharte Waschbrettbauchmuskeln.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
@@ -3255,7 +3248,6 @@
     <unit id="23cz.bn" name="Du hast eine gute Tat vollbracht.">
       <notes>
         <note category="german">Du hast eine gute Tat vollbracht.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
@@ -3266,7 +3258,6 @@
     <unit id="nlq39Ht" name="Die Leute auf der Straße werden sich nach dir umdrehen.">
       <notes>
         <note category="german">Die Leute auf der Straße werden sich nach dir umdrehen.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
@@ -3277,7 +3268,6 @@
     <unit id="bRBEaOX" name="Stärkt dein Zahnfleisch und deine Zähne.">
       <notes>
         <note category="german">Stärkt dein Zahnfleisch und deine Zähne.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
@@ -3288,7 +3278,6 @@
     <unit id="ekcviFN" name="Gib dir das beruhigende Gefühl etwas Gutes getan zu haben.">
       <notes>
         <note category="german">Gib dir das beruhigende Gefühl etwas Gutes getan zu haben.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
@@ -3299,7 +3288,6 @@
     <unit id="rrVNfDl" name="Du bekommst einen frischen Atem - schnell und effektiv.">
       <notes>
         <note category="german">Du bekommst einen frischen Atem - schnell und effektiv.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
@@ -3310,7 +3298,6 @@
     <unit id="2rVePUl" name="Die Zombies werden dich lieben, dass du für Nachschub sorgst. ;)">
       <notes>
         <note category="german">Die Zombies werden dich lieben, dass du für Nachschub sorgst. ;)</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
@@ -3321,7 +3308,6 @@
     <unit id="mkKr7.Y" name="Das andere Geschlecht wird dir nicht widerstehen können.">
       <notes>
         <note category="german">Das andere Geschlecht wird dir nicht widerstehen können.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
@@ -3332,7 +3318,6 @@
     <unit id="Sz2KR6B" name="Verleiht deinem Haar einen seidigen Glanz und stärkt deine Kopfhaut.">
       <notes>
         <note category="german">Verleiht deinem Haar einen seidigen Glanz und stärkt deine Kopfhaut.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
@@ -4063,7 +4048,6 @@
       <notes>
         <note category="german">Texteditor-Inhalte zur Sicherheit zwischenspeichern</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Texteditor-Inhalte zur Sicherheit zwischenspeichern</source>
