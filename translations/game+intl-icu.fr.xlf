@@ -22276,7 +22276,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Trinken (Oder du stirbst heute Nacht)</note>
         <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Trinken (Oder du stirbst heute Nacht)</source>

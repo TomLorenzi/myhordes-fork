@@ -9199,7 +9199,6 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       <notes>
         <note category="german">Die Batterie fällt ein paar Meter entfernt auf den Boden.</note>
         <note category="from">db://AffectMessage</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Die Batterie fällt ein paar Meter entfernt auf den Boden.</source>
@@ -9210,7 +9209,6 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       <notes>
         <note category="german">Die Batterie wurde beim Aufprall vollständig zerstört.</note>
         <note category="from">db://AffectMessage</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Die Batterie wurde beim Aufprall vollständig zerstört.</source>
@@ -9282,7 +9280,6 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       <notes>
         <note category="german">Solange du &lt;strong&gt;erschöpft bist&lt;/strong&gt;, kannst du diese Aktion nicht ausführen (da du keine Aktionspunkte mehr hast)... Trink oder iss etwas, oder nimm eine Droge, ansonsten musst du bis &lt;strong&gt;morgen&lt;/strong&gt; warten.</note>
         <note category="from">db://Requirement</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Solange du &lt;strong&gt;erschöpft bist&lt;/strong&gt;, kannst du diese Aktion nicht ausführen (da du keine Aktionspunkte mehr hast)... Trink oder iss etwas, oder nimm eine Droge, ansonsten musst du bis &lt;strong&gt;morgen&lt;/strong&gt; warten.</source>

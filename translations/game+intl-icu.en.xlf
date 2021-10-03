@@ -19270,12 +19270,11 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="CIxCi9h">
       <notes>
         <note category="german">{citizen} hat versucht einen Zombie niederzustrecken und ist dabei fast draufgegangen...</note>
-        <note category="state">new</note>
         <note category="from">db://LogEntryTemplate</note>
       </notes>
       <segment>
         <source>{citizen} hat versucht einen Zombie niederzustrecken und ist dabei fast draufgegangen...</source>
-        <target>{citizen} managed to get punched square in the crotch by attacking a zombie with their bare hands...<target>
+        <target>{citizen} managed to get punched square in the crotch by attacking a zombie with their bare hands...</target>
       </segment>
     </unit>
     <unit id="L4sBLhc" name="&lt;span&gt;Wir kontrollieren die Zone ab sofort.&lt;/span&gt;">
@@ -19301,7 +19300,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="HSAEnDG" name="als Gruppe">
       <notes>
         <note category="german">als Gruppe</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>

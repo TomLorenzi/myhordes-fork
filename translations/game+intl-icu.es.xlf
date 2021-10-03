@@ -15087,7 +15087,6 @@
     <unit id="qFmcCUx">
       <notes>
         <note category="german">&lt;i class="dagger"&gt;†&lt;/i&gt; {zombie} wurde schreiend und sabbernd am Brunnen angetroffen. Er hielt einen großen Felsen in seinen Händen und schickte  sich an, diesen in den Brunnen zu werfen. Leider konnte ihn keiner mehr rechtzeitig hindern, sodass uns jetzt {num} Wasserrationnen fehlen! Was für eine Katastrophe!</note>
-        <note category="state">new</note>
         <note category="from">db://LogEntryTemplate</note>
       </notes>
       <segment>
@@ -15098,7 +15097,6 @@
     <unit id="WOgQABU" name="Letzte Nacht wurde der {sector} von starken Winden heimgesucht.">
       <notes>
         <note category="german">Letzte Nacht wurde der {sector} von starken Winden heimgesucht.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -15109,7 +15107,6 @@
     <unit id="vMWPnXd" name="Gestern Abend gab es starke Windböen im {sector}.">
       <notes>
         <note category="german">Gestern Abend gab es starke Windböen im {sector}.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -15120,7 +15117,6 @@
     <unit id="b1WS2ti" name="{sector2} haben gestern ein paar heftige Sandstrürme gewütet.">
       <notes>
         <note category="german">{sector2} haben gestern ein paar heftige Sandstrürme gewütet.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -15131,7 +15127,6 @@
     <unit id="8SlXCl0" name="{sector2} wurden gestern ein paar meteorologische Anomalien gesichtet.">
       <notes>
         <note category="german">{sector2} wurden gestern ein paar meteorologische Anomalien gesichtet.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -15142,7 +15137,6 @@
     <unit id="IQK3nfT" name="Ein paar Sandstürme wurden im {sector} beobachtet.">
       <notes>
         <note category="german">Ein paar Sandstürme wurden im {sector} beobachtet.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -15153,7 +15147,6 @@
     <unit id=".HHbbOe" name="Ungewöhnlich starke Winde haben gestern den Sand {sector} aufgewirbelt.">
       <notes>
         <note category="german">Ungewöhnlich starke Winde haben gestern den Sand {sector} aufgewirbelt.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -15164,7 +15157,6 @@
     <unit id="ceJmauc" name="Verschiedene Aufzeichnungen zeigen Wetteranomalien {sector2}.">
       <notes>
         <note category="german">Verschiedene Aufzeichnungen zeigen Wetteranomalien {sector2}.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -15175,7 +15167,6 @@
     <unit id="BJcjHpt" name="Gestern Abend war der gesamte {sector} Schauplatz mehrerer Wetteranomalien.">
       <notes>
         <note category="german">Gestern Abend war der gesamte {sector} Schauplatz mehrerer Wetteranomalien.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -15186,7 +15177,6 @@
     <unit id="BwUnqIG">
       <notes>
         <note category="german">Unsere Messungen deuten darauf hin, dass im {sector} Wetteranomalien aufgetreten sind.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -15197,7 +15187,6 @@
     <unit id="MxiRuQv" name="Einige vereinzelte Phänomene wurden {sector2} entdeckt.">
       <notes>
         <note category="german">Einige vereinzelte Phänomene wurden {sector2} entdeckt.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -15208,7 +15197,6 @@
     <unit id="u1QojJk" name="In der vergangenen Nacht brach im {sector2} ein heftiger Sturm aus...">
       <notes>
         <note category="german">In der vergangenen Nacht brach im {sector2} ein heftiger Sturm aus...</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -15219,7 +15207,6 @@
     <unit id="0AnA3pq" name="{sector2} wurden gestern heftige Sturmwinde beobachtet.">
       <notes>
         <note category="german">{sector2} wurden gestern heftige Sturmwinde beobachtet.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -15230,7 +15217,6 @@
     <unit id="uoXdth9" name="Gestern Natch wurden im {sector} mehrere Sandstürme beobachtet.">
       <notes>
         <note category="german">Gestern Natch wurden im {sector} mehrere Sandstürme beobachtet.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
