@@ -201,13 +201,13 @@
                 {% if move %}
                     {% if scout_sense  %}
                         {% set arrow_danger_sense_e = zone.x < map.map_x1 ? map.zones[zone.x+1][zone.y].getPersonalScoutEstimation(citizen) : 0 %}
-                        {% set arrow_danger_level_e = arrow_danger_sense_e > 5 ? 2 : ( arrow_danger_sense_e > 2 ? 1 : 0 ) %}
+                        {% set arrow_danger_level_e = arrow_danger_sense_e >= 9 ? 2 : ( arrow_danger_sense_e >= 5 ? 1 : 0 ) %}
                         {% set arrow_danger_sense_w = zone.x > map.map_x0 ? map.zones[zone.x-1][zone.y].getPersonalScoutEstimation(citizen) : 0 %}
-                        {% set arrow_danger_level_w = arrow_danger_sense_w > 5 ? 2 : ( arrow_danger_sense_w > 2 ? 1 : 0 ) %}
+                        {% set arrow_danger_level_w = arrow_danger_sense_w >= 9 ? 2 : ( arrow_danger_sense_w >= 5 ? 1 : 0 ) %}
                         {% set arrow_danger_sense_s = zone.y > map.map_y0 ? map.zones[zone.x][zone.y-1].getPersonalScoutEstimation(citizen) : 0 %}
-                        {% set arrow_danger_level_s = arrow_danger_sense_s > 5 ? 2 : ( arrow_danger_sense_s > 2 ? 1 : 0 ) %}
+                        {% set arrow_danger_level_s = arrow_danger_sense_s >= 9 ? 2 : ( arrow_danger_sense_s >= 5 ? 1 : 0 ) %}
                         {% set arrow_danger_sense_n = zone.y < map.map_y1 ? map.zones[zone.x][zone.y+1].getPersonalScoutEstimation(citizen) : 0 %}
-                        {% set arrow_danger_level_n = arrow_danger_sense_n > 5 ? 2 : ( arrow_danger_sense_n > 2 ? 1 : 0 ) %}
+                        {% set arrow_danger_level_n = arrow_danger_sense_n >= 9 ? 2 : ( arrow_danger_sense_n >= 5 ? 1 : 0 ) %}
                     {% else %}
                         {% set arrow_danger_sense_e = 0 %}
                         {% set arrow_danger_level_e = 0 %}
