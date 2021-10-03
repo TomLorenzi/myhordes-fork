@@ -1024,46 +1024,6 @@
         <target>No hay lugar para ti y tu alianza en este pueblo.</target>
       </segment>
     </unit>
-    <unit id="hMJko2L">
-      <notes>
-        <note category="german">Achtung: Du stehst deiner Koalition NICHT ZUR VERFÜGUNG! Das bedeutet, dass du diese Partie allein spielen wirst.</note>
-        <note category="from">twig:///templates/ajax/ghost/intro.html.twig</note>
-      </notes>
-      <segment>
-        <source>Achtung: Du stehst deiner Koalition NICHT ZUR VERFÜGUNG! Das bedeutet, dass du diese Partie allein spielen wirst.</source>
-        <target>Advertencia: ¡Tú NO ESTÁS DISPONIBLE para tu alianza! Eso significa que entrarás a este pueblo solo.</target>
-      </segment>
-    </unit>
-    <unit id="cglpSDE">
-      <notes>
-        <note category="german">Achtung: Im Moment steht kein Mitglied deiner Koalition zur Verfügung, um dir in eine Stadt zu folgen.</note>
-        <note category="from">twig:///templates/ajax/ghost/intro.html.twig</note>
-      </notes>
-      <segment>
-        <source>Achtung: Im Moment steht kein Mitglied deiner Koalition zur Verfügung, um dir in eine Stadt zu folgen.</source>
-        <target>Advertencia: Tu alianza no aparece como "disponible"; ¡si entras a un pueblo, lo harás solo!</target>
-      </segment>
-    </unit>
-    <unit id="UtrdfFQ">
-      <notes>
-        <note category="german">Achtung: Im Moment stehen nicht alle Mitglieder deiner Koalition zur Verfügung, um dir in eine Stadt zu folgen.</note>
-        <note category="from">twig:///templates/ajax/ghost/intro.html.twig</note>
-      </notes>
-      <segment>
-        <source>Achtung: Im Moment stehen nicht alle Mitglieder deiner Koalition zur Verfügung, um dir in eine Stadt zu folgen.</source>
-        <target>Advertencia: No todos los miembros de tu alianza están disponibles para seguirte a un pueblo.</target>
-      </segment>
-    </unit>
-    <unit id="EwLUGr9">
-      <notes>
-        <note category="german">Wenn du eine Stadt betrittst, werden folgende Mitglieder deiner Koalition dir folgen:</note>
-        <note category="from">twig:///templates/ajax/ghost/intro.html.twig</note>
-      </notes>
-      <segment>
-        <source>Wenn du eine Stadt betrittst, werden folgende Mitglieder deiner Koalition dir folgen:</source>
-        <target>Cuando entras a un pueblo, los siguientes miembros de tu alianza reencarnarán contigo:</target>
-      </segment>
-    </unit>
     <unit id="U6CJxvc">
       <notes>
         <note category="german">Da du in mehreren deiner letzten Städte frühzeitig durch Verdursten gestorben bist, bist du für einige Zeit vom Spiel ausgeschlossen. Du kannst aktuell keine neue Stadt betreten.</note>
@@ -1736,6 +1696,46 @@
       <segment>
         <source>Eine Stadt aussuchen</source>
         <target>Elegir un pueblo</target>
+      </segment>
+    </unit>
+    <unit id="mL3EW4Y">
+      <notes>
+        <note category="german">Achtung: Du stehst deiner {coalition} NICHT ZUR VERFÜGUNG! Das bedeutet, dass du diese Partie allein spielen wirst.</note>
+        <note category="from">twig:///templates/ajax/ghost/intro.html.twig</note>
+      </notes>
+      <segment>
+        <source>Achtung: Du stehst deiner {coalition} NICHT ZUR VERFÜGUNG! Das bedeutet, dass du diese Partie allein spielen wirst.</source>
+        <target>Advertencia: ¡Tú NO ESTÁS DISPONIBLE para tu {coalition}! Eso significa que entrarás a este pueblo solo.</target>
+      </segment>
+    </unit>
+    <unit id="aEPG2aa">
+      <notes>
+        <note category="german">Achtung: Im Moment steht kein Mitglied deiner {coalition} zur Verfügung, um dir in eine Stadt zu folgen.</note>
+        <note category="from">twig:///templates/ajax/ghost/intro.html.twig</note>
+      </notes>
+      <segment>
+        <source>Achtung: Im Moment steht kein Mitglied deiner {coalition} zur Verfügung, um dir in eine Stadt zu folgen.</source>
+        <target>Advertencia: Tu {coalition} no aparece como "disponible"; ¡si entras a un pueblo, lo harás solo!</target>
+      </segment>
+    </unit>
+    <unit id="BWMOKUf">
+      <notes>
+        <note category="german">Achtung: Im Moment stehen nicht alle Mitglieder deiner {coalition} zur Verfügung, um dir in eine Stadt zu folgen.</note>
+        <note category="from">twig:///templates/ajax/ghost/intro.html.twig</note>
+      </notes>
+      <segment>
+        <source>Achtung: Im Moment stehen nicht alle Mitglieder deiner {coalition} zur Verfügung, um dir in eine Stadt zu folgen.</source>
+        <target>Advertencia: No todos los miembros de tu {coalition} están disponibles para seguirte a un pueblo.</target>
+      </segment>
+    </unit>
+    <unit id="vg.P1MD">
+      <notes>
+        <note category="german">Wenn du eine Stadt betrittst, werden folgende Mitglieder deiner {coalition} dir folgen:</note>
+        <note category="from">twig:///templates/ajax/ghost/intro.html.twig</note>
+      </notes>
+      <segment>
+        <source>Wenn du eine Stadt betrittst, werden folgende Mitglieder deiner {coalition} dir folgen:</source>
+        <target>Cuando entras a un pueblo, los siguientes miembros de tu {coalition} reencarnarán contigo:</target>
       </segment>
     </unit>
   </file>

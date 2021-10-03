@@ -685,30 +685,6 @@
         <target>In dieser Stadt ist kein Platz mehr für dich und deine Koalition.</target>
       </segment>
     </unit>
-    <unit id="hMJko2L">
-      <segment>
-        <source>Achtung: Du stehst deiner Koalition NICHT ZUR VERFÜGUNG! Das bedeutet, dass du diese Partie allein spielen wirst.</source>
-        <target>Achtung: Du stehst deiner Koalition NICHT ZUR VERFÜGUNG! Das bedeutet, dass du diese Partie allein spielen wirst.</target>
-      </segment>
-    </unit>
-    <unit id="cglpSDE">
-      <segment>
-        <source>Achtung: Im Moment steht kein Mitglied deiner Koalition zur Verfügung, um dir in eine Stadt zu folgen.</source>
-        <target>Achtung: Im Moment steht kein Mitglied deiner Koalition zur Verfügung, um dir in eine Stadt zu folgen.</target>
-      </segment>
-    </unit>
-    <unit id="UtrdfFQ">
-      <segment>
-        <source>Achtung: Im Moment stehen nicht alle Mitglieder deiner Koalition zur Verfügung, um dir in eine Stadt zu folgen.</source>
-        <target>Achtung: Im Moment stehen nicht alle Mitglieder deiner Koalition zur Verfügung, um dir in eine Stadt zu folgen.</target>
-      </segment>
-    </unit>
-    <unit id="EwLUGr9">
-      <segment>
-        <source>Wenn du eine Stadt betrittst, werden folgende Mitglieder deiner Koalition dir folgen:</source>
-        <target>Wenn du eine Stadt betrittst, werden folgende Mitglieder deiner Koalition dir folgen:</target>
-      </segment>
-    </unit>
     <unit id="U6CJxvc">
       <segment>
         <source>Da du in mehreren deiner letzten Städte frühzeitig durch Verdursten gestorben bist, bist du für einige Zeit vom Spiel ausgeschlossen. Du kannst aktuell keine neue Stadt betreten.</source>
@@ -1103,6 +1079,30 @@
       <segment>
         <source>Eine Stadt aussuchen</source>
         <target>Eine Stadt aussuchen</target>
+      </segment>
+    </unit>
+    <unit id="mL3EW4Y">
+      <segment>
+        <source>Achtung: Du stehst deiner {coalition} NICHT ZUR VERFÜGUNG! Das bedeutet, dass du diese Partie allein spielen wirst.</source>
+        <target>Achtung: Du stehst deiner {coalition} NICHT ZUR VERFÜGUNG! Das bedeutet, dass du diese Partie allein spielen wirst.</target>
+      </segment>
+    </unit>
+    <unit id="aEPG2aa">
+      <segment>
+        <source>Achtung: Im Moment steht kein Mitglied deiner {coalition} zur Verfügung, um dir in eine Stadt zu folgen.</source>
+        <target>Achtung: Im Moment steht kein Mitglied deiner {coalition} zur Verfügung, um dir in eine Stadt zu folgen.</target>
+      </segment>
+    </unit>
+    <unit id="BWMOKUf">
+      <segment>
+        <source>Achtung: Im Moment stehen nicht alle Mitglieder deiner {coalition} zur Verfügung, um dir in eine Stadt zu folgen.</source>
+        <target>Achtung: Im Moment stehen nicht alle Mitglieder deiner {coalition} zur Verfügung, um dir in eine Stadt zu folgen.</target>
+      </segment>
+    </unit>
+    <unit id="vg.P1MD">
+      <segment>
+        <source>Wenn du eine Stadt betrittst, werden folgende Mitglieder deiner {coalition} dir folgen:</source>
+        <target>Wenn du eine Stadt betrittst, werden folgende Mitglieder deiner {coalition} dir folgen:</target>
       </segment>
     </unit>
   </file>
