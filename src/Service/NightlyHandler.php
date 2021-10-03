@@ -275,7 +275,7 @@ class NightlyHandler
                 // It is destroyed, let's kill everyone with the good cause of death
                 foreach ($this->town_handler->get_alive_citizens($town) as $citizen) {
                     $gazette->setDeaths($gazette->getDeaths() + 1);
-                    $this->kill_wrap($citizen, $cod, true, 0, false, $town->getDay());
+                    $this->kill_wrap($citizen, $cod, true, 0, true, $town->getDay());
                 }
 
                 $gazette->setReactorExplosion(true);
