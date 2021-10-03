@@ -123,7 +123,7 @@ class NightlyHandler
     private function stage1_prepare(Town $town) {
         // Initialize spiritual guide on D1
         $town_conf = $this->conf->getTownConfiguration($town);
-        if ($town->getDay() === 1 && $town_conf->get(TownConf::CONF_GUIDE_ENABLED, false)) {
+        if ($town_conf->get(TownConf::CONF_GUIDE_ENABLED, false)) {
 
             $this->log->debug( "This town is eligible for the <info>spiritual guide</info> picto, checking citizens..." );
 
@@ -140,8 +140,12 @@ class NightlyHandler
                     $this->citizen_handler->inflictStatus( $spiritual_guide, 'tg_spirit_guide' );
                     $this->log->debug( "Registered <info>{$spiritual_guide->getName()}</info> as potential spiritual leader." );
                 }
-            else $this->log->debug( "Not enough citizen are below <info>$th SP</info>." );
-
+            else {
+                // Remove guide status from all citizens
+                foreach ($town->getCitizens() as $citizen)
+                    $this->citizen_handler->removeStatus( $citizen, 'tg_spirit_guide' );
+                $this->log->debug("Not enough citizen are below <info>$th SP</info>.");
+            }
         }
     }
 
@@ -453,6 +457,10 @@ class NightlyHandler
         $this->log->info('<info>Updating survival information</info> ...');
         foreach ($town->getCitizens() as $citizen) {
             if (!$citizen->getAlive()) continue;
+
+            // Spiritual leader
+            if ($this->citizen_handler->hasStatusEffect($citizen, 'tg_spirit_guide'))
+                $this->picto_handler->give_picto($citizen, 'r_guide_#00', $town->getDay() - 1);
 
             if (!$citizen->getProfession()->getHeroic())
                 continue;
