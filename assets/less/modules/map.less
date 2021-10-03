@@ -186,9 +186,10 @@ div.map_area {
         transform-origin: center;
         top: auto; bottom: auto; left: auto; right: auto;
 
-        &:hover {
-          background: url(../../img/icons/map/228.svg) 50% no-repeat;
-        }
+        &:not(.on-route):not(:hover).action-move-danger-1 { background: url(../../img/icons/map/227.svg) 50% / contain no-repeat, url(../../img/icons/map/229.svg) 50% / contain no-repeat; }
+        &:not(.on-route):not(:hover).action-move-danger-2 { background: url(../../img/icons/map/227.svg) 50% / contain no-repeat, url(../../img/icons/map/230.svg) 50% / contain no-repeat; }
+
+        &:hover { background: url(../../img/icons/map/228.svg) 50% no-repeat; }
         &.action-move-north { top: 10px; left: 50%; transform: translateX(-50%); }
         &.action-move-east { top: 50%; right: -10px; transform: translateY(-50%) rotate(90deg); }
         &.action-move-south { left: 50%; bottom: 5px; transform: translateX(-50%) rotate(180deg); }
