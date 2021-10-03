@@ -550,16 +550,17 @@ class SoulController extends CustomAbstractController
     }
 
     /**
-     * @Route("jx/soul/ranking/{type<\d+>}", name="soul_season")
-     * @param null $type Type of town we're looking the ranking for
+     * @Route("jx/soul/ranking/{type<\d+>}/{season<\d+|c|all|a>}", name="soul_season")
      * @param JSONRequestParser $parser
+     * @param null $type Type of town we're looking the ranking for
+     * @param null $season
      * @return Response
      */
-    public function soul_season(JSONRequestParser $parser, $type = null): Response
+    public function soul_season(JSONRequestParser $parser, $type = null, $season = null): Response
     {
         $user = $this->getUser();
 
-        $seasonId = $parser->get('season', null);
+        $seasonId = $season ?? $parser->get('season', 'c');
 
         /** @var CitizenRankingProxy $nextDeath */
         if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
@@ -569,16 +570,19 @@ class SoulController extends CustomAbstractController
             ->orWhere(Criteria::expr()->gt('number', 0))
             ->orWhere(Criteria::expr()->gt('subNumber', 14))
         );
-        if ($seasonId === null) {
+        if ($seasonId === null || $seasonId === 'c')
             $currentSeason = $this->entity_manager->getRepository(Season::class)->findOneBy(['current' => true]);
-        } else {
+        elseif ($seasonId === 'a')
+            $currentSeason = null;
+        else {
             $currentSeason = $this->entity_manager->getRepository(Season::class)->find($seasonId);
+            if ($currentSeason === null) return $this->redirect($this->generateUrl( 'soul_season', ['type' => $type, 'season' => 'c'] ));
         }
-        if ($type === null) {
+
+        if ($type === null)
             $currentType = $this->entity_manager->getRepository(TownClass::class)->findBy(['ranked' => true], ['orderBy' => 'ASC'])[0];
-        } else {
+        else
             $currentType = $this->entity_manager->getRepository(TownClass::class)->find($type);
-        }
 
         if ($currentType === null)
             return $this->redirect($this->generateUrl('soul_season'));
@@ -609,6 +613,7 @@ class SoulController extends CustomAbstractController
         return $this->render( 'ajax/soul/season.html.twig', $this->addDefaultTwigArgs("soul_season", [
             'seasons' => $seasons,
             'currentSeason' => $currentSeason,
+            'virtualSeason' => false,
             'towns' => $towns,
             'townTypes' => $this->entity_manager->getRepository(TownClass::class)->findBy(['ranked' => true], ['orderBy' => 'ASC']),
             'currentType' => $currentType,
@@ -618,18 +623,17 @@ class SoulController extends CustomAbstractController
     }
 
     /**
-     * @Route("jx/soul/ranking/{type}/{page}", name="soul_season_solo")
-     * @param null $type Type of ranking to display
+     * @Route("jx/soul/ranking/soul/{page}/{season<\d+|c|all|myh|a>}", name="soul_season_solo")
      * @return Response
      */
-    public function soul_season_solo(JSONRequestParser $parser, $type = null, $page = 1): Response
+    public function soul_season_solo(JSONRequestParser $parser, $page = 1, $season = null): Response
     {
         $resultsPerPage = 30;
         $offset = $resultsPerPage * ($page - 1);
 
         $user = $this->getUser();
 
-        $seasonId = $parser->get('season', null);
+        $seasonId = $season ?? $parser->get('season', 'all');
 
         /** @var CitizenRankingProxy $nextDeath */
         if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
@@ -639,28 +643,37 @@ class SoulController extends CustomAbstractController
             ->orWhere(Criteria::expr()->gt('number', 0))
             ->orWhere(Criteria::expr()->gt('subNumber', 14))
         );
-        if ($seasonId === null) {
-            $currentSeason = "all";
-        } else {
+        if ($seasonId === 'all' || $seasonId === 'myh')
+            $currentSeason = $seasonId;
+        elseif ($seasonId === null || $seasonId === 'c')
+            $currentSeason = $this->entity_manager->getRepository(Season::class)->findOneBy(['current' => true]);
+        elseif ($seasonId === 'a')
+            $currentSeason = null;
+        else {
             $currentSeason = $this->entity_manager->getRepository(Season::class)->find($seasonId);
+            if ($currentSeason === null) return $this->redirect($this->generateUrl( 'soul_season_solo', ['season' => 'c'] ));
         }
 
-        $ranking = null;
-        if ($type === "soul") {
-            $ranking = $this->entity_manager->getRepository(User::class)->getGlobalSoulRankingPage($offset, $resultsPerPage);
+        if ($currentSeason === 'all' || $currentSeason === 'myh') {
+            $ranking = $this->entity_manager->getRepository(User::class)->getGlobalSoulRankingPage($offset, $resultsPerPage, $currentSeason === 'myh');
+            $pages = $this->entity_manager->getRepository(User::class)->countGlobalSoulRankings($currentSeason === 'myh');
         } else {
-            return $this->redirect($this->generateUrl( 'soul_season' ));
+            $ranking = $this->entity_manager->getRepository(User::class)->getSeasonSoulRankingPage($offset, $resultsPerPage, $currentSeason);
+            $pages = $this->entity_manager->getRepository(User::class)->countSeasonSoulRankings($currentSeason);
         }
-        if(!$ranking) {
-            return $this->redirect($this->generateUrl( 'soul_season' ));
-        }
+
+        //if (!$ranking || !$pages)
+        //    return $this->redirect($this->generateUrl( 'soul_season' ));
 
         return $this->render( 'ajax/soul/season.html.twig', $this->addDefaultTwigArgs("soul_season", [
             'seasons' => $seasons,
             'currentSeason' => $currentSeason,
+            'virtualSeason' => is_string($currentSeason),
             'ranking' => $ranking,
             'currentType' => 0,
-            'soloType' => $type,
+            'soloType' => 'soul',
+            'page' => $page,
+            'pages' => ceil($pages / $resultsPerPage),
             'townTypes' => $this->entity_manager->getRepository(TownClass::class)->findBy(['ranked' => true], ['orderBy' => 'ASC']),
             'offset' => $offset,
             'user' => $user

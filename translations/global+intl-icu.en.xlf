@@ -3708,5 +3708,55 @@
         <target>Additional notes regarding your report (optional):</target>
       </segment>
     </unit>
+    <unit id="_CaOPLf" name="Anfang">
+      <notes>
+        <note category="german">Anfang</note>
+        <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
+      </notes>
+      <segment>
+        <source>Anfang</source>
+        <target>Start</target>
+      </segment>
+    </unit>
+    <unit id="vZx83Ox" name="Vorh.">
+      <notes>
+        <note category="german">Vorh.</note>
+        <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
+      </notes>
+      <segment>
+        <source>Vorh.</source>
+        <target>Prev.</target>
+      </segment>
+    </unit>
+    <unit id="nNymR4f" name="Seite {page}">
+      <notes>
+        <note category="german">Seite {page}</note>
+        <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
+      </notes>
+      <segment>
+        <source>Seite {page}</source>
+        <target>Page {page}</target>
+      </segment>
+    </unit>
+    <unit id="FyfDvhf" name="Folg.">
+      <notes>
+        <note category="german">Folg.</note>
+        <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
+      </notes>
+      <segment>
+        <source>Folg.</source>
+        <target>Next</target>
+      </segment>
+    </unit>
+    <unit id="LdzWBsh" name="Ende">
+      <notes>
+        <note category="german">Ende</note>
+        <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
+      </notes>
+      <segment>
+        <source>Ende</source>
+        <target>End</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

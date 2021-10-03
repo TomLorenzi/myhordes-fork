@@ -2283,5 +2283,35 @@
         <target>Zusätzliche Informationen zu deiner Meldung (optional):</target>
       </segment>
     </unit>
+    <unit id="_CaOPLf" name="Anfang">
+      <segment>
+        <source>Anfang</source>
+        <target>Anfang</target>
+      </segment>
+    </unit>
+    <unit id="vZx83Ox" name="Vorh.">
+      <segment>
+        <source>Vorh.</source>
+        <target>Vorh.</target>
+      </segment>
+    </unit>
+    <unit id="nNymR4f" name="Seite {page}">
+      <segment>
+        <source>Seite {page}</source>
+        <target>Seite {page}</target>
+      </segment>
+    </unit>
+    <unit id="FyfDvhf" name="Folg.">
+      <segment>
+        <source>Folg.</source>
+        <target>Folg.</target>
+      </segment>
+    </unit>
+    <unit id="LdzWBsh" name="Ende">
+      <segment>
+        <source>Ende</source>
+        <target>Ende</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
