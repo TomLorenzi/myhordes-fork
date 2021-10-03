@@ -14598,5 +14598,11 @@
         <target><![CDATA[In dieses Haus kann <strong>nicht eingebrochen</strong> werden. Es ist durch ein Schloss oder etwas anderes gesichert...]]></target>
       </segment>
     </unit>
+    <unit id="y9.hV9G">
+      <segment>
+        <source>Das Stadttor wurde bereits von einem anderen pflichtbewussten Bürger geschlossen.</source>
+        <target>Das Stadttor wurde bereits von einem anderen pflichtbewussten Bürger geschlossen.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
