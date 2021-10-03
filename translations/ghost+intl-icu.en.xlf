@@ -1718,5 +1718,15 @@
         <target>Enable Beta functions</target>
       </segment>
     </unit>
+    <unit id="HIJTNeO" name="Eine Stadt aussuchen">
+      <notes>
+        <note category="german">Eine Stadt aussuchen</note>
+        <note category="from">twig:///templates/ajax/soul/coalitions.html.twig</note>
+      </notes>
+      <segment>
+        <source>Eine Stadt aussuchen</source>
+        <target>Choose a town</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

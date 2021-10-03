@@ -1099,5 +1099,11 @@
         <target>Beta-Funktionen aktivieren</target>
       </segment>
     </unit>
+    <unit id="HIJTNeO" name="Eine Stadt aussuchen">
+      <segment>
+        <source>Eine Stadt aussuchen</source>
+        <target>Eine Stadt aussuchen</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
