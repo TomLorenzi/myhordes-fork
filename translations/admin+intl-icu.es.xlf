@@ -3983,7 +3983,7 @@
       </notes>
       <segment>
         <source>Einzigartige Titel oder Icons bearbeiten:</source>
-        <target>Einzigartige Titel oder Icons bearbeiten:</target>
+        <target>Edite títulos o íconos únicos:</target>
       </segment>
     </unit>
     <unit id="YQy28ox" name="Neuer Titel">
@@ -3994,7 +3994,7 @@
       </notes>
       <segment>
         <source>Neuer Titel</source>
-        <target>Neuer Titel</target>
+        <target>Nuevo título</target>
       </segment>
     </unit>
     <unit id="LBcldQ8" name="Neues Icon">
@@ -4005,7 +4005,7 @@
       </notes>
       <segment>
         <source>Neues Icon</source>
-        <target>Neues Icon</target>
+        <target>Nuevo icono</target>
       </segment>
     </unit>
   </file>

@@ -15092,7 +15092,7 @@
       </notes>
       <segment>
         <source>&lt;i class="dagger"&gt;†&lt;/i&gt; {zombie} wurde schreiend und sabbernd am Brunnen angetroffen. Er hielt einen großen Felsen in seinen Händen und schickte  sich an, diesen in den Brunnen zu werfen. Leider konnte ihn keiner mehr rechtzeitig hindern, sodass uns jetzt {num} Wasserrationnen fehlen! Was für eine Katastrophe!</source>
-        <target><![CDATA[<i class="dagger">†</i> {zombie} wurde schreiend und sabbernd am Brunnen angetroffen. Er hielt einen großen Felsen in seinen Händen und schickte  sich an, diesen in den Brunnen zu werfen. Leider konnte ihn keiner mehr rechtzeitig hindern, sodass uns jetzt {num} Wasserrationnen fehlen! Was für eine Katastrophe!]]></target>
+        <target><![CDATA[<i class="dagger">†</i> {zombie} fue encontrado gritando y babeando en el pozo. Sostenía una gran piedra en sus manos y se estaba preparando para arrojarla al pozo. Desafortunadamente, nadie pudo detenerlo a tiempo, ¡así que ahora nos faltan {num} raciones de agua! ¡Qué desastre!]]></target>
       </segment>
     </unit>
     <unit id="WOgQABU" name="Letzte Nacht wurde der {sector} von starken Winden heimgesucht.">
@@ -15103,7 +15103,7 @@
       </notes>
       <segment>
         <source>Letzte Nacht wurde der {sector} von starken Winden heimgesucht.</source>
-        <target>Letzte Nacht wurde der {sector} von starken Winden heimgesucht.</target>
+        <target>Anoche {sector} fue azotado por fuertes vientos.</target>
       </segment>
     </unit>
     <unit id="vMWPnXd" name="Gestern Abend gab es starke Windböen im {sector}.">
@@ -15114,7 +15114,7 @@
       </notes>
       <segment>
         <source>Gestern Abend gab es starke Windböen im {sector}.</source>
-        <target>Gestern Abend gab es starke Windböen im {sector}.</target>
+        <target>Anoche hubo fuertes ráfagas de viento{sector}.</target>
       </segment>
     </unit>
     <unit id="b1WS2ti" name="{sector2} haben gestern ein paar heftige Sandstrürme gewütet.">
@@ -15125,7 +15125,7 @@
       </notes>
       <segment>
         <source>{sector2} haben gestern ein paar heftige Sandstrürme gewütet.</source>
-        <target>{sector2} haben gestern ein paar heftige Sandstrürme gewütet.</target>
+        <target>{sector2} tuvo un par de fuertes tormentas de arena ayer.</target>
       </segment>
     </unit>
     <unit id="8SlXCl0" name="{sector2} wurden gestern ein paar meteorologische Anomalien gesichtet.">
@@ -15136,7 +15136,7 @@
       </notes>
       <segment>
         <source>{sector2} wurden gestern ein paar meteorologische Anomalien gesichtet.</source>
-        <target>{sector2} wurden gestern ein paar meteorologische Anomalien gesichtet.</target>
+        <target>{sector2} ayer se vieron un par de anomalías meteorológicas.</target>
       </segment>
     </unit>
     <unit id="IQK3nfT" name="Ein paar Sandstürme wurden im {sector} beobachtet.">
@@ -15147,7 +15147,7 @@
       </notes>
       <segment>
         <source>Ein paar Sandstürme wurden im {sector} beobachtet.</source>
-        <target>Ein paar Sandstürme wurden im {sector} beobachtet.</target>
+        <target>Se han observado un par de tormentas de arena {sector}.</target>
       </segment>
     </unit>
     <unit id=".HHbbOe" name="Ungewöhnlich starke Winde haben gestern den Sand {sector} aufgewirbelt.">
@@ -15158,7 +15158,7 @@
       </notes>
       <segment>
         <source>Ungewöhnlich starke Winde haben gestern den Sand {sector} aufgewirbelt.</source>
-        <target>Ungewöhnlich starke Winde haben gestern den Sand {sector} aufgewirbelt.</target>
+        <target>Vientos inusualmente fuertes levantaron {sector} de arena ayer.</target>
       </segment>
     </unit>
     <unit id="ceJmauc" name="Verschiedene Aufzeichnungen zeigen Wetteranomalien {sector2}.">
@@ -15169,7 +15169,7 @@
       </notes>
       <segment>
         <source>Verschiedene Aufzeichnungen zeigen Wetteranomalien {sector2}.</source>
-        <target>Verschiedene Aufzeichnungen zeigen Wetteranomalien {sector2}.</target>
+        <target>Varios registros muestran anomalías meteorológicas {sector2}.</target>
       </segment>
     </unit>
     <unit id="BJcjHpt" name="Gestern Abend war der gesamte {sector} Schauplatz mehrerer Wetteranomalien.">
@@ -15180,7 +15180,7 @@
       </notes>
       <segment>
         <source>Gestern Abend war der gesamte {sector} Schauplatz mehrerer Wetteranomalien.</source>
-        <target>Gestern Abend war der gesamte {sector} Schauplatz mehrerer Wetteranomalien.</target>
+        <target>Anoche todo {sector} fue escenario de varias anomalías meteorológicas.</target>
       </segment>
     </unit>
     <unit id="BwUnqIG">
@@ -15191,7 +15191,7 @@
       </notes>
       <segment>
         <source>Unsere Messungen deuten darauf hin, dass im {sector} Wetteranomalien aufgetreten sind.</source>
-        <target>Unsere Messungen deuten darauf hin, dass im {sector} Wetteranomalien aufgetreten sind.</target>
+        <target>Nuestras mediciones indican que se han producido anomalías meteorológicas {sector}.</target>
       </segment>
     </unit>
     <unit id="MxiRuQv" name="Einige vereinzelte Phänomene wurden {sector2} entdeckt.">
@@ -15202,7 +15202,7 @@
       </notes>
       <segment>
         <source>Einige vereinzelte Phänomene wurden {sector2} entdeckt.</source>
-        <target>Einige vereinzelte Phänomene wurden {sector2} entdeckt.</target>
+        <target>Se descubrieron algunos fenómenos aislados {sector2}.</target>
       </segment>
     </unit>
     <unit id="u1QojJk" name="In der vergangenen Nacht brach im {sector2} ein heftiger Sturm aus...">
@@ -15213,7 +15213,7 @@
       </notes>
       <segment>
         <source>In der vergangenen Nacht brach im {sector2} ein heftiger Sturm aus...</source>
-        <target>In der vergangenen Nacht brach im {sector2} ein heftiger Sturm aus...</target>
+        <target>Anoche se desató una violenta tormenta {sector2}...</target>
       </segment>
     </unit>
     <unit id="0AnA3pq" name="{sector2} wurden gestern heftige Sturmwinde beobachtet.">
@@ -15224,7 +15224,7 @@
       </notes>
       <segment>
         <source>{sector2} wurden gestern heftige Sturmwinde beobachtet.</source>
-        <target>{sector2} wurden gestern heftige Sturmwinde beobachtet.</target>
+        <target>Ayer se observaron vientos de tormenta violentos {sector2}.</target>
       </segment>
     </unit>
     <unit id="uoXdth9" name="Gestern Natch wurden im {sector} mehrere Sandstürme beobachtet.">
@@ -15235,7 +15235,7 @@
       </notes>
       <segment>
         <source>Gestern Natch wurden im {sector} mehrere Sandstürme beobachtet.</source>
-        <target>Gestern Natch wurden im {sector} mehrere Sandstürme beobachtet.</target>
+        <target>Anoche se observaron varias tormentas de arena {sector}.</target>
       </segment>
     </unit>
     <unit id="OhpvQec" name="im Nordwesten">
@@ -21388,7 +21388,7 @@
       </notes>
       <segment>
         <source>Diese Aktion ermöglicht es dir, die Tiefen dieses Gebäude zu erkunden und wertvolle Ressourcen zu bergen. Sei aber nicht zu gierig, denn deine Zeit ist begrenzt!</source>
-        <target>Explora bien el edificio, podríás encontrar recursos importantes, pero se prudente, ¡el tiempo es limitado!</target>
+        <target>Explora bien el edificio, podrías encontrar recursos importantes, pero se prudente, ¡el tiempo es limitado!</target>
       </segment>
     </unit>
     <unit id="AGQV69U" name="Das Gebäude betreten? (Diese Aktion kostet 1AP)">
