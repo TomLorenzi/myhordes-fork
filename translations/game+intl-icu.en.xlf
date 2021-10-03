@@ -16185,7 +16185,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>{count} Zombies wurden in der Stadt gesichtet, aber sie haben niemanden angegriffen: Was für ein Glücksfall...</source>
-        <target>{count} Zombies wurden in der Stadt gesichtet, aber sie haben niemanden angegriffen: Was für ein Glücksfall...</target>
+        <target>{count} zombies were seen in the town, but they didn't attack anyone: Result!</target>
       </segment>
     </unit>
     <unit id="b5TnxTe" name="[ Es riecht nach Tannenzapfen... ]">
