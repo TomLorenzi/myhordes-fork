@@ -4044,7 +4044,7 @@
       </notes>
       <segment>
         <source>Alle Saisons auf MyHordes</source>
-        <target>Alle Saisons auf MyHordes</target>
+        <target>Todas las temporadas en MyHordes</target>
       </segment>
     </unit>
     <unit id="xrovccF" name="Alpha-Seelen">
@@ -4055,7 +4055,7 @@
       </notes>
       <segment>
         <source>Alpha-Seelen</source>
-        <target>Alpha-Seelen</target>
+        <target>Almas alfa</target>
       </segment>
     </unit>
     <unit id="hTdNGcU" name="Es sind keine Spieler aufgelistet!">
@@ -4066,7 +4066,7 @@
       </notes>
       <segment>
         <source>Es sind keine Spieler aufgelistet!</source>
-        <target>Es sind keine Spieler aufgelistet!</target>
+        <target>¡No hay jugadores en la lista!</target>
       </segment>
     </unit>
     <unit id="QE5H6hD" name="Alte Seelen">
@@ -4077,7 +4077,7 @@
       </notes>
       <segment>
         <source>Alte Seelen</source>
-        <target>Alte Seelen</target>
+        <target>Almas viejas</target>
       </segment>
     </unit>
   </file>
