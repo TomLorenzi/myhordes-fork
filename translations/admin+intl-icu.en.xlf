@@ -2640,7 +2640,6 @@
     <unit id="FbY7TeM" name="Bestätigen">
       <notes>
         <note category="german">Bestätigen</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/admin/users/ban.html.twig;twig:///templates/ajax/admin/widget/controls.twig</note>
       </notes>
       <segment>

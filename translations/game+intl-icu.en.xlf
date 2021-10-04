@@ -16180,7 +16180,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="d5d0_u_">
       <notes>
         <note category="german">{count} Zombies wurden in der Stadt gesichtet, aber sie haben niemanden angegriffen: Was für ein Glücksfall...</note>
-        <note category="state">new</note>
         <note category="from">db://LogEntryTemplate</note>
       </notes>
       <segment>
