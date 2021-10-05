@@ -168,7 +168,7 @@
                             {% if user.activeTitle or user.activeIcon %}
                                 <div>
                                     {% if user.activeIcon %}<img alt="" src="{{ asset('build/images/icons/title/' ~ user.activeIcon.prototype.icon ~ '.gif') }}" />{% endif %}
-                                    {% if user.activeTitle %} {{ user.activeTitle.prototype.title|trans({},'game') }}{% endif %}
+                                    {% if user.activeTitle %} {{ user.activeTitle.customTitle ?? user.activeTitle.prototype.title|trans({},'game') }}{% endif %}
                                 </div>
                             {% else %}
                                 <div>---</div>

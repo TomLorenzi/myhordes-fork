@@ -160,7 +160,7 @@ class CrowService {
         return (new GlobalPrivateMessage())
             ->setTemplate( $template )
             ->setData( [
-                           'list_t' => array_map(fn(Award $a) => $a->getPrototype()->getTitle(), array_filter($awards, fn(Award $a) => $a->getPrototype() && $a->getPrototype()->getTitle() !== null)),
+                           'list_t' => array_map(fn(Award $a) => $a->getCustomTitle() ?? $a->getPrototype()->getTitle(), array_filter($awards, fn(Award $a) => $a->getCustomTitle() || ($a->getPrototype() && $a->getPrototype()->getTitle() !== null))),
                            'list_i' => array_map(fn(Award $a) => $a->getPrototype()->getIcon(), array_filter($awards, fn(Award $a) => $a->getPrototype() && $a->getPrototype()->getIcon() !== null))
                        ] )
             ->setTimestamp( new DateTime('now') )
