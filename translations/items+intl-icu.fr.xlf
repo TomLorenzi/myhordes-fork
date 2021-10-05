@@ -9289,5 +9289,16 @@
         <target><![CDATA[Oui, d'accord... Vous l'avez déjà vu et revu des centaines de fois, le thème ne vous change pas trop du quotidien, mais quand même : rien de tel qu'un bon film de Zombies pour se détendre.<t-stat-down-terror><hr />Ces cris de terreur étrangement lointains vous ont permis de relativiser : <strong>vous sortez de votre terreur</strong>.</t-stat-down-terror>]]></target>
       </segment>
     </unit>
+    <unit id="Loi4Bfp" name="Verbessert die Verteidigung und verhindert Diebstähle">
+      <notes>
+        <note category="german">Verbessert die Verteidigung und verhindert Diebstähle</note>
+        <note category="from">db://ItemPrototype</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Verbessert die Verteidigung und verhindert Diebstähle</source>
+        <target>Verbessert die Verteidigung und verhindert Diebstähle</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

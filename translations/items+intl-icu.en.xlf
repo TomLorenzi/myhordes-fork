@@ -9297,5 +9297,16 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
         <target><![CDATA[Ja, klar... Du hast ihn schon hunderte Male gesehen, das Thema ändert sich auch nicht allzu sehr, aber trotzdem: Es geht nichts über einen guten Zombie-Film zur Entspannung.<t-stat-down-terror><hr />Diese seltsam fernen Schreie des Schreckens haben dir den Kopf gerade gerückt: <strong>Du hast deine Angst abgeschüttelt</strong>.</t-stat-down-terror>]]></target>
       </segment>
     </unit>
+    <unit id="Loi4Bfp" name="Verbessert die Verteidigung und verhindert Diebstähle">
+      <notes>
+        <note category="german">Verbessert die Verteidigung und verhindert Diebstähle</note>
+        <note category="from">db://ItemPrototype</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Verbessert die Verteidigung und verhindert Diebstähle</source>
+        <target>Verbessert die Verteidigung und verhindert Diebstähle</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

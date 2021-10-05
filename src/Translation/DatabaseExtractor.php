@@ -70,6 +70,7 @@ class DatabaseExtractor implements ExtractorInterface
             /** @var ItemPrototype $item */
             $this->insert($c, $item->getLabel(), 'items', ItemPrototype::class);
             $this->insert($c, $item->getDescription(), 'items', ItemPrototype::class);
+            if ($item->getDecoText()) $this->insert($c, $item->getDecoText(), 'items', ItemPrototype::class);
         }
 
         // Get Action labels and messages as well as requirement messages
