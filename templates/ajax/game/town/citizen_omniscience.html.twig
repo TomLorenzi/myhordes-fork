@@ -44,12 +44,13 @@
                 </div>
                 <div class="padded cell rw-3 rw-md-3 small">
                     <span>
-                        {% if citizen.infos.banished %}
-                            <img alt="" src="{{ asset('build/images/icons/banished.gif') }}" />
-                        {% elseif citizen.infos.profession.heroic %}
+                        {% if citizen.infos.profession.heroic %}
                             <img alt="" src="{{ asset('build/images/professions/hero.gif') }}" />
                         {% else %}
                             <img alt="" src="{{ asset('build/images/professions/void.gif') }}" />
+                        {% endif %}
+                        {% if citizen.infos.banished %}
+                            <img alt="" src="{{ asset('build/images/icons/banished.gif') }}" />
                         {% endif %}
                         <img alt="{{ citizen.infos.profession.label|trans({},'game') }}" src="{{ asset('build/images/professions/' ~ citizen.infos.profession.icon ~ '.gif') }}" />
                         <b>{{ citizen.infos.name }}</b>
