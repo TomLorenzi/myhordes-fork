@@ -30,7 +30,7 @@ class TownLogEntryRepository extends ServiceEntityRepository
      * @param Zone|boolean|null $zone The concerned zone
      * @param int|int[]|null $type The specific type
      * @param int|null $max Maximum entries
-     * @param bool|null $admin_only If we want to show admin_only logs
+     * @param bool|null $adminOnly If we want to show admin_only logs
      * @return TownLogEntry[] Returns an array of TownLogEntry objects
      */
     public function findByFilter(Town $town, ?int $day = null, $citizen = null, $zone = null, $type = null, ?int $max = null, ?bool $adminOnly = false)

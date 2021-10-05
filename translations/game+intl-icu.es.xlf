@@ -7134,12 +7134,11 @@
     <unit id="Ec1zwiD">
       <notes>
         <note category="german">"Einen Schritt weiter..." stand auf {victim}s Fußmatte. Ihre Explosion hat einen bleibenden Eindruck bei dir hinterlassen. Wenn du noch laufen kannst, such dir besser einen Arzt.</note>
-        <note category="state">new</note>
         <note category="from">php:///src/Controller/InventoryAwareController.php</note>
       </notes>
       <segment>
         <source>"Einen Schritt weiter..." stand auf {victim}s Fußmatte. Ihre Explosion hat einen bleibenden Eindruck bei dir hinterlassen. Wenn du noch laufen kannst, such dir besser einen Arzt.</source>
-        <target>"Einen Schritt weiter..." stand auf {victim}s Fußmatte. Ihre Explosion hat einen bleibenden Eindruck bei dir hinterlassen. Wenn du noch laufen kannst, such dir besser einen Arzt.</target>
+        <target>"Un paso más..." se paró en el felpudo de {víctima}. Su explosión te dejó una impresión duradera. Si aún puede caminar, será mejor que busque un médico.</target>
       </segment>
     </unit>
     <unit id="EZeEFMF" name="Du kannst diesen Gegenstand nicht stehlen.">
@@ -9320,78 +9319,71 @@
     <unit id="pWR1tho">
       <notes>
         <note category="german">Alle scheinen sich still und leise über den Tod von &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} gestern Abend zu freuen... Allerdings hat niemand erklärt, warum. {citizen1} kommentierte: "Seine Mutter war ein Hamster, und sein Vater roch nach Holunderbeeren".</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
         <source>Alle scheinen sich still und leise über den Tod von &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} gestern Abend zu freuen... Allerdings hat niemand erklärt, warum. {citizen1} kommentierte: "Seine Mutter war ein Hamster, und sein Vater roch nach Holunderbeeren".</source>
-        <target><![CDATA[Alle scheinen sich still und leise über den Tod von <i class="dagger">†</i> {cadaver1} gestern Abend zu freuen... Allerdings hat niemand erklärt, warum. {citizen1} kommentierte: "Seine Mutter war ein Hamster, und sein Vater roch nach Holunderbeeren".]]></target>
+        <target><![CDATA[Todo el mundo parece estar tranquilamente feliz por la muerte de <i class="dagger">†</i> {cadaver1} anoche... Pero nadie explicó por qué. {citizen1} comentó: "Su madre era un hámster y su padre olía a bayas de saúco".]]></target>
       </segment>
     </unit>
     <unit id="Kgy9ILj">
       <notes>
         <note category="german">Jeder hörte &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} schreien, als er von den Zombies auseinander gerissen wurde. Offensichtlich versuchte niemand zu helfen. Überlebensinstinkt. Wirst du jetzt nachts schlafen können?</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
         <source>Jeder hörte &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} schreien, als er von den Zombies auseinander gerissen wurde. Offensichtlich versuchte niemand zu helfen. Überlebensinstinkt. Wirst du jetzt nachts schlafen können?</source>
-        <target><![CDATA[Jeder hörte <i class="dagger">†</i> {cadaver1} schreien, als er von den Zombies auseinander gerissen wurde. Offensichtlich versuchte niemand zu helfen. Überlebensinstinkt. Wirst du jetzt nachts schlafen können?]]></target>
+        <target><![CDATA[Todos escucharon a <i class="dagger">†</i> {cadaver1} gritar mientras los zombies lo despedazaban. Evidentemente, nadie intentó ayudar. Instinto de supervivencia. ¿Podrás dormir por la noche ahora?]]></target>
       </segment>
     </unit>
     <unit id="OwGPSHu">
       <notes>
         <note category="german">Ich bin sicher, dass nicht nur ich der Meinung bin, dass wir eine Rechnung mit &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} zu begleichen hatten. Letztendlich scheint es also Karma gewesen zu sein, dass ausgerechnet er heute Nacht ums Leben kam.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
         <source>Ich bin sicher, dass nicht nur ich der Meinung bin, dass wir eine Rechnung mit &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} zu begleichen hatten. Letztendlich scheint es also Karma gewesen zu sein, dass ausgerechnet er heute Nacht ums Leben kam.</source>
-        <target><![CDATA[Ich bin sicher, dass nicht nur ich der Meinung bin, dass wir eine Rechnung mit <i class="dagger">†</i> {cadaver1} zu begleichen hatten. Letztendlich scheint es also Karma gewesen zu sein, dass ausgerechnet er heute Nacht ums Leben kam.]]></target>
+        <target><![CDATA[Estoy seguro de que no soy el único que opina que teníamos que saldar una cuenta con <i class="dagger">†</i> {cadaver1}. Así que al final parece haber sido karma que él de todas las personas muriera esta noche.]]></target>
       </segment>
     </unit>
     <unit id="LlC.RVG">
       <notes>
         <note category="german">Einige Bürger wurden Zeugen eines seltsamen Vorfalls... Man könnte sagen, dass die Zombies gestern Abend ausschließlich für &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} gekommen sind. Sie trugen die Leiche den ganzen Weg zur Baustelle, bevor die Zerstückelung begann!</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
         <source>Einige Bürger wurden Zeugen eines seltsamen Vorfalls... Man könnte sagen, dass die Zombies gestern Abend ausschließlich für &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} gekommen sind. Sie trugen die Leiche den ganzen Weg zur Baustelle, bevor die Zerstückelung begann!</source>
-        <target><![CDATA[Einige Bürger wurden Zeugen eines seltsamen Vorfalls... Man könnte sagen, dass die Zombies gestern Abend ausschließlich für <i class="dagger">†</i> {cadaver1} gekommen sind. Sie trugen die Leiche den ganzen Weg zur Baustelle, bevor die Zerstückelung begann!]]></target>
+        <target><![CDATA[Algunos habitantes presenciaron un extraño incidente... Se podría decir que los zombis vinieron anoche solo por <i class="dagger">†</i> {cadaver1}. ¡Llevaron el cuerpo hasta el sitio de construcción antes de que comenzara el desmembramiento!]]></target>
       </segment>
     </unit>
     <unit id="8kYPugs">
       <notes>
         <note category="german">Einige sagen, daß der Tod von &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} nicht dem Glück zu verdanken ist... das einzige Opfer gestern Abend... Könnte jemand unter uns seinen Tod provoziert haben?</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
         <source>Einige sagen, daß der Tod von &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} nicht dem Glück zu verdanken ist... das einzige Opfer gestern Abend... Könnte jemand unter uns seinen Tod provoziert haben?</source>
-        <target><![CDATA[Einige sagen, daß der Tod von <i class="dagger">†</i> {cadaver1} nicht dem Glück zu verdanken ist... das einzige Opfer gestern Abend... Könnte jemand unter uns seinen Tod provoziert haben?]]></target>
+        <target><![CDATA[Algunos dicen que la muerte de <i class="dagger">†</i> {cadaver1} no se debió a la suerte... la única víctima anoche... ¿Alguno de nosotros podría haber provocado su muerte?]]></target>
       </segment>
     </unit>
     <unit id="6ZXVgiP">
       <notes>
         <note category="german">Ausgangssperre gilt für alle. Auch für &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} und &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver2} – das haben sie nun davon.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
         <source>Ausgangssperre gilt für alle. Auch für &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} und &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver2} – das haben sie nun davon.</source>
-        <target><![CDATA[Ausgangssperre gilt für alle. Auch für <i class="dagger">†</i> {cadaver1} und <i class="dagger">†</i> {cadaver2} – das haben sie nun davon.]]></target>
+        <target><![CDATA[El toque de queda se aplica a todos. También para <i class="dagger">†</i> {cadaver1} y <i class="dagger">†</i> {cadaver2}, eso es lo que obtienes.]]></target>
       </segment>
     </unit>
     <unit id="ync5VnT">
       <notes>
         <note category="german">So richtig scheint keiner über den Tod von &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} und &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver2} zu trauern. Sie waren wohl nicht die beliebtesten in der Stadt.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
         <source>So richtig scheint keiner über den Tod von &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} und &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver2} zu trauern. Sie waren wohl nicht die beliebtesten in der Stadt.</source>
-        <target><![CDATA[So richtig scheint keiner über den Tod von <i class="dagger">†</i> {cadaver1} und <i class="dagger">†</i> {cadaver2} zu trauern. Sie waren wohl nicht die beliebtesten in der Stadt.]]></target>
+        <target><![CDATA[Nadie parece realmente lamentar la muerte de <i class="dagger">†</i> {cadaver1} y <i class="dagger">†</i> {cadaver2}. No eran los más populares del pueblo.]]></target>
       </segment>
     </unit>
     <unit id="kaJx_.U" name="{citizen} hat das Gebäude {plan} repariert und dabei {ap} ausgegeben.">
@@ -9407,23 +9399,21 @@
     <unit id="WGjdoHe">
       <notes>
         <note category="german">"Auf wiedersehen, du schnöde Welt...", dachte sich wohl &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1}. Jedenfalls hat er den Zombies Arbeit abgenommen und sich selbst umgebracht.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
         <source>"Auf wiedersehen, du schnöde Welt...", dachte sich wohl &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1}. Jedenfalls hat er den Zombies Arbeit abgenommen und sich selbst umgebracht.</source>
-        <target><![CDATA["Auf wiedersehen, du schnöde Welt...", dachte sich wohl <i class="dagger">†</i> {cadaver1}. Jedenfalls hat er den Zombies Arbeit abgenommen und sich selbst umgebracht.]]></target>
+        <target><![CDATA["Adiós, miserable mundo...", pensó <i class="dagger">†</i> {cadaver1}. De todos modos, hizo el trabajo de los zombies y se suicidó.]]></target>
       </segment>
     </unit>
     <unit id="Hb1CJc.">
       <notes>
         <note category="german">Ohne großes Bedauern starb &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} heute Nacht in Folge seiner Abhängigkeit. "Ganz ehrlich, das ist kein großer Verlust", kommentierte {citizen1}.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
         <source>Ohne großes Bedauern starb &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} heute Nacht in Folge seiner Abhängigkeit. "Ganz ehrlich, das ist kein großer Verlust", kommentierte {citizen1}.</source>
-        <target><![CDATA[Ohne großes Bedauern starb <i class="dagger">†</i> {cadaver1} heute Nacht in Folge seiner Abhängigkeit. "Ganz ehrlich, das ist kein großer Verlust", kommentierte {citizen1}.]]></target>
+        <target><![CDATA[Sin mucho pesar, <i class="dagger">†</i> {cadaver1} murió esta noche como resultado de su adicción. "Con toda honestidad, no es una gran pérdida", comentó {citizen1}.]]></target>
       </segment>
     </unit>
     <unit id="dmfUc6J">
@@ -9439,23 +9429,21 @@
     <unit id=".5W7nuy">
       <notes>
         <note category="german">Eindeutig! &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} starb an einer Vergiftung. Wie genau das passieren konnte, weiß niemand so recht, aber {citizen1} verhielt sich sehr verdächtig.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
         <source>Eindeutig! &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} starb an einer Vergiftung. Wie genau das passieren konnte, weiß niemand so recht, aber {citizen1} verhielt sich sehr verdächtig.</source>
-        <target><![CDATA[Eindeutig! <i class="dagger">†</i> {cadaver1} starb an einer Vergiftung. Wie genau das passieren konnte, weiß niemand so recht, aber {citizen1} verhielt sich sehr verdächtig.]]></target>
+        <target><![CDATA[¡Claramente! <i class="dagger">†</i> {cadaver1} murió de envenenamiento. Cómo sucedió exactamente esto, nadie lo sabe realmente, pero {citizen1} se comportó de manera muy sospechosa.]]></target>
       </segment>
     </unit>
     <unit id="jC0g8aF">
       <notes>
         <note category="german">Nichts genaues weiß man nicht, auf jeden Fall hat seit geraumer Zeit niemand mehr &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} gesehen.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
         <source>Nichts genaues weiß man nicht, auf jeden Fall hat seit geraumer Zeit niemand mehr &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} gesehen.</source>
-        <target><![CDATA[Nichts genaues weiß man nicht, auf jeden Fall hat seit geraumer Zeit niemand mehr <i class="dagger">†</i> {cadaver1} gesehen.]]></target>
+        <target><![CDATA[No se sabe nada exactamente, en cualquier caso nadie ha visto a <i class="dagger">†</i> {cadaver1} durante mucho tiempo.]]></target>
       </segment>
     </unit>
     <unit id="o2TNGvz" name="Deine Nachricht wurde korrekt übermittelt!">
@@ -11756,7 +11744,7 @@
       </notes>
       <segment>
         <source>{citizen} hat seinen Hund mit {count} Gegenständen in die Stadt geschickt.</source>
-        <target>{citizen} ha enviado a su mascota al pueblo con {count} en su lomo.</target>
+        <target>{citizen} ha enviado a su mascota al pueblo con {count} objetos en su lomo.</target>
       </segment>
     </unit>
     <unit id="b5pBvHw">
@@ -15099,155 +15087,141 @@
     <unit id="qFmcCUx">
       <notes>
         <note category="german">&lt;i class="dagger"&gt;†&lt;/i&gt; {zombie} wurde schreiend und sabbernd am Brunnen angetroffen. Er hielt einen großen Felsen in seinen Händen und schickte  sich an, diesen in den Brunnen zu werfen. Leider konnte ihn keiner mehr rechtzeitig hindern, sodass uns jetzt {num} Wasserrationnen fehlen! Was für eine Katastrophe!</note>
-        <note category="state">new</note>
         <note category="from">db://LogEntryTemplate</note>
       </notes>
       <segment>
         <source>&lt;i class="dagger"&gt;†&lt;/i&gt; {zombie} wurde schreiend und sabbernd am Brunnen angetroffen. Er hielt einen großen Felsen in seinen Händen und schickte  sich an, diesen in den Brunnen zu werfen. Leider konnte ihn keiner mehr rechtzeitig hindern, sodass uns jetzt {num} Wasserrationnen fehlen! Was für eine Katastrophe!</source>
-        <target><![CDATA[<i class="dagger">†</i> {zombie} wurde schreiend und sabbernd am Brunnen angetroffen. Er hielt einen großen Felsen in seinen Händen und schickte  sich an, diesen in den Brunnen zu werfen. Leider konnte ihn keiner mehr rechtzeitig hindern, sodass uns jetzt {num} Wasserrationnen fehlen! Was für eine Katastrophe!]]></target>
+        <target><![CDATA[<i class="dagger">†</i> {zombie} fue encontrado gritando y babeando en el pozo. Sostenía una gran piedra en sus manos y se estaba preparando para arrojarla al pozo. Desafortunadamente, nadie pudo detenerlo a tiempo, ¡así que ahora nos faltan {num} raciones de agua! ¡Qué desastre!]]></target>
       </segment>
     </unit>
     <unit id="WOgQABU" name="Letzte Nacht wurde der {sector} von starken Winden heimgesucht.">
       <notes>
         <note category="german">Letzte Nacht wurde der {sector} von starken Winden heimgesucht.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
         <source>Letzte Nacht wurde der {sector} von starken Winden heimgesucht.</source>
-        <target>Letzte Nacht wurde der {sector} von starken Winden heimgesucht.</target>
+        <target>Anoche {sector} fue azotado por fuertes vientos.</target>
       </segment>
     </unit>
     <unit id="vMWPnXd" name="Gestern Abend gab es starke Windböen im {sector}.">
       <notes>
         <note category="german">Gestern Abend gab es starke Windböen im {sector}.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
         <source>Gestern Abend gab es starke Windböen im {sector}.</source>
-        <target>Gestern Abend gab es starke Windböen im {sector}.</target>
+        <target>Anoche hubo fuertes ráfagas de viento{sector}.</target>
       </segment>
     </unit>
     <unit id="b1WS2ti" name="{sector2} haben gestern ein paar heftige Sandstrürme gewütet.">
       <notes>
         <note category="german">{sector2} haben gestern ein paar heftige Sandstrürme gewütet.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
         <source>{sector2} haben gestern ein paar heftige Sandstrürme gewütet.</source>
-        <target>{sector2} haben gestern ein paar heftige Sandstrürme gewütet.</target>
+        <target>{sector2} tuvo un par de fuertes tormentas de arena ayer.</target>
       </segment>
     </unit>
     <unit id="8SlXCl0" name="{sector2} wurden gestern ein paar meteorologische Anomalien gesichtet.">
       <notes>
         <note category="german">{sector2} wurden gestern ein paar meteorologische Anomalien gesichtet.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
         <source>{sector2} wurden gestern ein paar meteorologische Anomalien gesichtet.</source>
-        <target>{sector2} wurden gestern ein paar meteorologische Anomalien gesichtet.</target>
+        <target>{sector2} ayer se vieron un par de anomalías meteorológicas.</target>
       </segment>
     </unit>
     <unit id="IQK3nfT" name="Ein paar Sandstürme wurden im {sector} beobachtet.">
       <notes>
         <note category="german">Ein paar Sandstürme wurden im {sector} beobachtet.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
         <source>Ein paar Sandstürme wurden im {sector} beobachtet.</source>
-        <target>Ein paar Sandstürme wurden im {sector} beobachtet.</target>
+        <target>Se han observado un par de tormentas de arena {sector}.</target>
       </segment>
     </unit>
     <unit id=".HHbbOe" name="Ungewöhnlich starke Winde haben gestern den Sand {sector} aufgewirbelt.">
       <notes>
         <note category="german">Ungewöhnlich starke Winde haben gestern den Sand {sector} aufgewirbelt.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
         <source>Ungewöhnlich starke Winde haben gestern den Sand {sector} aufgewirbelt.</source>
-        <target>Ungewöhnlich starke Winde haben gestern den Sand {sector} aufgewirbelt.</target>
+        <target>Vientos inusualmente fuertes levantaron {sector} de arena ayer.</target>
       </segment>
     </unit>
     <unit id="ceJmauc" name="Verschiedene Aufzeichnungen zeigen Wetteranomalien {sector2}.">
       <notes>
         <note category="german">Verschiedene Aufzeichnungen zeigen Wetteranomalien {sector2}.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
         <source>Verschiedene Aufzeichnungen zeigen Wetteranomalien {sector2}.</source>
-        <target>Verschiedene Aufzeichnungen zeigen Wetteranomalien {sector2}.</target>
+        <target>Varios registros muestran anomalías meteorológicas {sector2}.</target>
       </segment>
     </unit>
     <unit id="BJcjHpt" name="Gestern Abend war der gesamte {sector} Schauplatz mehrerer Wetteranomalien.">
       <notes>
         <note category="german">Gestern Abend war der gesamte {sector} Schauplatz mehrerer Wetteranomalien.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
         <source>Gestern Abend war der gesamte {sector} Schauplatz mehrerer Wetteranomalien.</source>
-        <target>Gestern Abend war der gesamte {sector} Schauplatz mehrerer Wetteranomalien.</target>
+        <target>Anoche todo {sector} fue escenario de varias anomalías meteorológicas.</target>
       </segment>
     </unit>
     <unit id="BwUnqIG">
       <notes>
         <note category="german">Unsere Messungen deuten darauf hin, dass im {sector} Wetteranomalien aufgetreten sind.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
         <source>Unsere Messungen deuten darauf hin, dass im {sector} Wetteranomalien aufgetreten sind.</source>
-        <target>Unsere Messungen deuten darauf hin, dass im {sector} Wetteranomalien aufgetreten sind.</target>
+        <target>Nuestras mediciones indican que se han producido anomalías meteorológicas {sector}.</target>
       </segment>
     </unit>
     <unit id="MxiRuQv" name="Einige vereinzelte Phänomene wurden {sector2} entdeckt.">
       <notes>
         <note category="german">Einige vereinzelte Phänomene wurden {sector2} entdeckt.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
         <source>Einige vereinzelte Phänomene wurden {sector2} entdeckt.</source>
-        <target>Einige vereinzelte Phänomene wurden {sector2} entdeckt.</target>
+        <target>Se descubrieron algunos fenómenos aislados {sector2}.</target>
       </segment>
     </unit>
     <unit id="u1QojJk" name="In der vergangenen Nacht brach im {sector2} ein heftiger Sturm aus...">
       <notes>
         <note category="german">In der vergangenen Nacht brach im {sector2} ein heftiger Sturm aus...</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
         <source>In der vergangenen Nacht brach im {sector2} ein heftiger Sturm aus...</source>
-        <target>In der vergangenen Nacht brach im {sector2} ein heftiger Sturm aus...</target>
+        <target>Anoche se desató una violenta tormenta {sector2}...</target>
       </segment>
     </unit>
     <unit id="0AnA3pq" name="{sector2} wurden gestern heftige Sturmwinde beobachtet.">
       <notes>
         <note category="german">{sector2} wurden gestern heftige Sturmwinde beobachtet.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
         <source>{sector2} wurden gestern heftige Sturmwinde beobachtet.</source>
-        <target>{sector2} wurden gestern heftige Sturmwinde beobachtet.</target>
+        <target>Ayer se observaron vientos de tormenta violentos {sector2}.</target>
       </segment>
     </unit>
     <unit id="uoXdth9" name="Gestern Natch wurden im {sector} mehrere Sandstürme beobachtet.">
       <notes>
         <note category="german">Gestern Natch wurden im {sector} mehrere Sandstürme beobachtet.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
         <source>Gestern Natch wurden im {sector} mehrere Sandstürme beobachtet.</source>
-        <target>Gestern Natch wurden im {sector} mehrere Sandstürme beobachtet.</target>
+        <target>Anoche se observaron varias tormentas de arena {sector}.</target>
       </segment>
     </unit>
     <unit id="OhpvQec" name="im Nordwesten">
@@ -19402,23 +19376,21 @@
     <unit id="SwbKwjj" name="Der Leichnam von {citizen} wurde nicht zerstört.">
       <notes>
         <note category="german">Der Leichnam von {citizen} wurde nicht zerstört.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/citizen.html.twig</note>
       </notes>
       <segment>
         <source>Der Leichnam von {citizen} wurde nicht zerstört.</source>
-        <target>Der Leichnam von {citizen} wurde nicht zerstört.</target>
+        <target>El cuerpo de {citizen} no fue destruido.</target>
       </segment>
     </unit>
     <unit id=".67v4pV">
       <notes>
         <note category="german">Es ist gut möglich, dass er diese Nacht aufersteht und versuchen wird, uns anzugreifen.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/citizen.html.twig</note>
       </notes>
       <segment>
         <source>Es ist gut möglich, dass er diese Nacht aufersteht und versuchen wird, uns anzugreifen.</source>
-        <target>Es ist gut möglich, dass er diese Nacht aufersteht und versuchen wird, uns anzugreifen.</target>
+        <target>Hay muchas posibilidades de que resucite esta noche y trate de atacarnos.</target>
       </segment>
     </unit>
     <unit id=".eKZbiD">
@@ -19454,23 +19426,21 @@
     <unit id="vSjpknb" name="Haus von {citizen}">
       <notes>
         <note category="german">Haus von {citizen}</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Haus von {citizen}</source>
-        <target>Haus von {citizen}</target>
+        <target>Casa de {citizen}</target>
       </segment>
     </unit>
     <unit id="VDBWagl" name="Das Grab von {citizen}">
       <notes>
         <note category="german">Das Grab von {citizen}</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Das Grab von {citizen}</source>
-        <target>Das Grab von {citizen}</target>
+        <target>La tumba de {citizen}</target>
       </segment>
     </unit>
     <unit id="X28KXsi" name="Das Haus">
@@ -19776,23 +19746,21 @@
     <unit id="RlBECy2" name="Hängt {user}!">
       <notes>
         <note category="german">Hängt {user}!</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/forum/posts_small.html.twig;twig:///templates/ajax/forum/view.html.twig</note>
       </notes>
       <segment>
         <source>Hängt {user}!</source>
-        <target>Hängt {user}!</target>
+        <target>¡Cuelga a {user}!</target>
       </segment>
     </unit>
     <unit id="pYRP3ZN" name="{user} wir kriegen dich!">
       <notes>
         <note category="german">{user} wir kriegen dich!</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/forum/posts_small.html.twig;twig:///templates/ajax/forum/view.html.twig</note>
       </notes>
       <segment>
         <source>{user} wir kriegen dich!</source>
-        <target>{user} wir kriegen dich!</target>
+        <target>¡{user} te atraparemos!</target>
       </segment>
     </unit>
     <unit id="jjVCRmk" name="am {d}.{m}.{Y}, um {H}:{i}">
@@ -19828,45 +19796,41 @@
     <unit id="HXDfH_p" name="Manuelles Event-Management:">
       <notes>
         <note category="german">Manuelles Event-Management:</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Manuelles Event-Management:</source>
-        <target>Manuelles Event-Management:</target>
+        <target>Gestión manual de eventos:</target>
       </segment>
     </unit>
     <unit id="lYRernR">
       <notes>
         <note category="german">Deaktiviert die normale Event-Verwaltung der Stadt und legt stattdessen manuell fest, welche Event-Inhalte für die Dauer der Stadt verfügbar sind.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Deaktiviert die normale Event-Verwaltung der Stadt und legt stattdessen manuell fest, welche Event-Inhalte für die Dauer der Stadt verfügbar sind.</source>
-        <target>Deaktiviert die normale Event-Verwaltung der Stadt und legt stattdessen manuell fest, welche Event-Inhalte für die Dauer der Stadt verfügbar sind.</target>
+        <target>Desactiva la gestión normal de eventos del pueblo y, en su lugar, determina manualmente qué contenido del evento está disponible durante la duración del pueblo.</target>
       </segment>
     </unit>
     <unit id="cznvzLK" name="Kein Event:">
       <notes>
         <note category="german">Kein Event:</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Kein Event:</source>
-        <target>Kein Event:</target>
+        <target>No evento:</target>
       </segment>
     </unit>
     <unit id="nHRZ69P" name="Startet die Stadt ohne Event-Inhalte">
       <notes>
         <note category="german">Startet die Stadt ohne Event-Inhalte</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Startet die Stadt ohne Event-Inhalte</source>
-        <target>Startet die Stadt ohne Event-Inhalte</target>
+        <target>Empieza el pueblo sin contenido de evento</target>
       </segment>
     </unit>
     <unit id="jQ18AzU" name="1. April">
@@ -19883,23 +19847,21 @@
     <unit id="5kvPhGt" name="St. Patrick">
       <notes>
         <note category="german">St. Patrick</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>St. Patrick</source>
-        <target>St. Patrick</target>
+        <target>San Patricio</target>
       </segment>
     </unit>
     <unit id="r3k99Bz" name="Ostern">
       <notes>
         <note category="german">Ostern</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Ostern</source>
-        <target>Ostern</target>
+        <target>Pascua</target>
       </segment>
     </unit>
     <unit id="BJVmtrE" name="Halloween">
@@ -19916,23 +19878,21 @@
     <unit id="9mZMqtI" name="Armageddon">
       <notes>
         <note category="german">Armageddon</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Armageddon</source>
-        <target>Armageddon</target>
+        <target>Armagedón</target>
       </segment>
     </unit>
     <unit id="mbCP3jI" name="Weihnachten">
       <notes>
         <note category="german">Weihnachten</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Weihnachten</source>
-        <target>Weihnachten</target>
+        <target>Navidad</target>
       </segment>
     </unit>
     <unit id="iiUUud.">
@@ -19983,16 +19943,6 @@
       <segment>
         <source>{building} hat {num} Batterien verbraucht.</source>
         <target>{building} ha usado {num} batería.</target>
-      </segment>
-    </unit>
-    <unit id="T14z5t.">
-      <notes>
-        <note category="german">&lt;strong&gt;Herzlichen Glückwunsch&lt;/strong&gt;, du hast folgende Titel freigeschaltet: {list_i} {list_t}</note>
-        <note category="from">db://LogEntryTemplate</note>
-      </notes>
-      <segment>
-        <source>&lt;strong&gt;Herzlichen Glückwunsch&lt;/strong&gt;, du hast folgende Titel freigeschaltet: {list_i} {list_t}</source>
-        <target><![CDATA[<strong>Enhorabuena</strong>, ha desbloqueado los siguientes títulos: {list_i} {list_t}]]></target>
       </segment>
     </unit>
     <unit id="jIKh96s">
@@ -20359,45 +20309,41 @@
     <unit id="GBprgS1" name="Einzigartige Errungenschaften">
       <notes>
         <note category="german">Einzigartige Errungenschaften</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/distinctions.html.twig;twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Einzigartige Errungenschaften</source>
-        <target>Einzigartige Errungenschaften</target>
+        <target>Logros únicos</target>
       </segment>
     </unit>
     <unit id="IdcXWbV" name="Besondere Errungenschaften">
       <notes>
         <note category="german">Besondere Errungenschaften</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/distinctions.html.twig;twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Besondere Errungenschaften</source>
-        <target>Besondere Errungenschaften</target>
+        <target>Logros especiales</target>
       </segment>
     </unit>
     <unit id="FTqbUsX">
       <notes>
         <note category="german">Dies ist eine besondere Errungenschaft, die im Rahmen eines Events verliehen wurde.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/distinctions.html.twig</note>
       </notes>
       <segment>
         <source>Dies ist eine besondere Errungenschaft, die im Rahmen eines Events verliehen wurde.</source>
-        <target>Dies ist eine besondere Errungenschaft, die im Rahmen eines Events verliehen wurde.</target>
+        <target>Este es un logro especial otorgado durante un evento.</target>
       </segment>
     </unit>
     <unit id="uB8frFP">
       <notes>
         <note category="german">Dies ist eine einzigartige Errungenschaft, die im Rahmen eines Events verliehen wurde.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/distinctions.html.twig</note>
       </notes>
       <segment>
         <source>Dies ist eine einzigartige Errungenschaft, die im Rahmen eines Events verliehen wurde.</source>
-        <target>Dies ist eine einzigartige Errungenschaft, die im Rahmen eines Events verliehen wurde.</target>
+        <target>Este es un logro único otorgado durante un evento.</target>
       </segment>
     </unit>
     <unit id="QOeiiDo">
@@ -20453,23 +20399,21 @@
     <unit id="oZCdnHO" name="Das wird aber nicht lange so bleiben...">
       <notes>
         <note category="german">Das wird aber nicht lange so bleiben...</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/newspaper.html.twig</note>
       </notes>
       <segment>
         <source>Das wird aber nicht lange so bleiben...</source>
-        <target>Das wird aber nicht lange so bleiben...</target>
+        <target>Pero no durará mucho...</target>
       </segment>
     </unit>
     <unit id="fJDK8V7" name="Das macht dann... {day} Tage">
       <notes>
         <note category="german">Das macht dann... {day} Tage</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/newspaper.html.twig</note>
       </notes>
       <segment>
         <source>Das macht dann... {day} Tage</source>
-        <target>Das macht dann... {day} Tage</target>
+        <target>Eso hace... {day} días</target>
       </segment>
     </unit>
     <unit id="BVQgW5g" name="Diskussionen rund um die Verbesserung des Tages">
@@ -20595,45 +20539,41 @@
     <unit id="kkxXgbR">
       <notes>
         <note category="german">Du hast das Haus von &lt;strong&gt;✝ {citizen}&lt;/strong&gt; vollständig zerlegt. Alle Gegenstände aus dessen Truhe wurden in der Bank deponiert.</note>
-        <note category="state">new</note>
         <note category="from">php:///src/Controller/Town/TownController.php</note>
       </notes>
       <segment>
         <source>Du hast das Haus von &lt;strong&gt;✝ {citizen}&lt;/strong&gt; vollständig zerlegt. Alle Gegenstände aus dessen Truhe wurden in der Bank deponiert.</source>
-        <target><![CDATA[Du hast das Haus von <strong>✝ {citizen}</strong> vollständig zerlegt. Alle Gegenstände aus dessen Truhe wurden in der Bank deponiert.]]></target>
+        <target><![CDATA[Has desmantelado por completo la casa de <strong>✝ {citizen}</strong>. Todos los artículos de su baul fueron depositados en el almacen.]]></target>
       </segment>
     </unit>
     <unit id="rB2kHf5" name="Die Stadt hat zudem folgende Resourcen zurückgewinnen können: {item_list}">
       <notes>
         <note category="german">Die Stadt hat zudem folgende Resourcen zurückgewinnen können: {item_list}</note>
-        <note category="state">new</note>
         <note category="from">php:///src/Controller/Town/TownController.php</note>
       </notes>
       <segment>
         <source>Die Stadt hat zudem folgende Resourcen zurückgewinnen können: {item_list}</source>
-        <target>Die Stadt hat zudem folgende Resourcen zurückgewinnen können: {item_list}</target>
+        <target>El pueblo también ha podido recuperar los siguientes recursos: {item_list}</target>
       </segment>
     </unit>
     <unit id="QDOrNez">
       <notes>
         <note category="german">Die Stadt hat nichts Nützliches aus dem Haus herausbekommen, da war wirklich nichts zu holen...</note>
-        <note category="state">new</note>
         <note category="from">php:///src/Controller/Town/TownController.php</note>
       </notes>
       <segment>
         <source>Die Stadt hat nichts Nützliches aus dem Haus herausbekommen, da war wirklich nichts zu holen...</source>
-        <target>Die Stadt hat nichts Nützliches aus dem Haus herausbekommen, da war wirklich nichts zu holen...</target>
+        <target>El pueblo no sacó nada útil de la casa, realmente no había nada que ganar...</target>
       </segment>
     </unit>
     <unit id="cmDQRlA">
       <notes>
         <note category="german">Du hast &lt;strong&gt;1AP&lt;/strong&gt; aufgewendet, um das Haus von &lt;strong&gt;✝ {citizen}&lt;/strong&gt; zu recyclen. Die Arbeiten sind noch nicht abgeschlossen...</note>
-        <note category="state">new</note>
         <note category="from">php:///src/Controller/Town/TownController.php</note>
       </notes>
       <segment>
         <source>Du hast &lt;strong&gt;1AP&lt;/strong&gt; aufgewendet, um das Haus von &lt;strong&gt;✝ {citizen}&lt;/strong&gt; zu recyclen. Die Arbeiten sind noch nicht abgeschlossen...</source>
-        <target><![CDATA[Du hast <strong>1AP</strong> aufgewendet, um das Haus von <strong>✝ {citizen}</strong> zu recyclen. Die Arbeiten sind noch nicht abgeschlossen...]]></target>
+        <target><![CDATA[Gastaste <strong>1PA</strong> reciclando la casa de <strong>✝ {citizen}</strong>. El trabajo sigue en curso...]]></target>
       </segment>
     </unit>
     <unit id="zWIGzsD">
@@ -20649,34 +20589,31 @@
     <unit id="jB1RN29" name="Deine Nachricht wurde gespeichert.">
       <notes>
         <note category="german">Deine Nachricht wurde gespeichert.</note>
-        <note category="state">new</note>
         <note category="from">php:///src/Controller/Soul/SoulController.php</note>
       </notes>
       <segment>
         <source>Deine Nachricht wurde gespeichert.</source>
-        <target>Deine Nachricht wurde gespeichert.</target>
+        <target>Tu mensaje ha sido guardado.</target>
       </segment>
     </unit>
     <unit id="X21IBNl" name="Meine Partien">
       <notes>
         <note category="german">Meine Partien</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/game_history.html.twig</note>
       </notes>
       <segment>
         <source>Meine Partien</source>
-        <target>Meine Partien</target>
+        <target>Mis juegos</target>
       </segment>
     </unit>
     <unit id="KAAmbDC" name="Name der Stadt">
       <notes>
         <note category="german">Name der Stadt</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/game_history.html.twig</note>
       </notes>
       <segment>
         <source>Name der Stadt</source>
-        <target>Name der Stadt</target>
+        <target>Nombre del pueblo</target>
       </segment>
     </unit>
     <unit id="9in0QXU">
@@ -21437,7 +21374,7 @@
       </notes>
       <segment>
         <source>Diese Aktion ermöglicht es dir, die Tiefen dieses Gebäude zu erkunden und wertvolle Ressourcen zu bergen. Sei aber nicht zu gierig, denn deine Zeit ist begrenzt!</source>
-        <target>Explora bien el edificio, podríás encontrar recursos importantes, pero se prudente, ¡el tiempo es limitado!</target>
+        <target>Explora bien el edificio, podrías encontrar recursos importantes, pero se prudente, ¡el tiempo es limitado!</target>
       </segment>
     </unit>
     <unit id="AGQV69U" name="Das Gebäude betreten? (Diese Aktion kostet 1AP)">
@@ -22814,99 +22751,197 @@
       <notes>
         <note category="german">Du hast keine Seelenpunkte gewonnen (am ersten Tag gestorben).</note>
         <note category="from">twig:///templates/ajax/soul/death.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Du hast keine Seelenpunkte gewonnen (am ersten Tag gestorben).</source>
-        <target>Du hast keine Seelenpunkte gewonnen (am ersten Tag gestorben).</target>
+        <target>No ha ganado ningún punto de alma (murió el primer día).</target>
       </segment>
     </unit>
     <unit id="5kMswLn">
       <notes>
         <note category="german">Die Stadt hat folgende Gegenstände in Folge der Hinrichtung von {shunned} zurückerhalten: {list}</note>
         <note category="from">db://LogEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Die Stadt hat folgende Gegenstände in Folge der Hinrichtung von {shunned} zurückerhalten: {list}</source>
-        <target>El pueblo ha recibido los siguientes elementos como resultado del ahorcamiento de {shunned}: {list}</target>
+        <target>Los siguientes artículos fueron devueltos al pueblo luego de la ejecución de {shunned}: {list}</target>
       </segment>
     </unit>
     <unit id="SwF.EK1" name="Du kannst kein(en) {item} per Post versenden.">
       <notes>
         <note category="german">Du kannst kein(en) {item} per Post versenden.</note>
         <note category="from">php:///src/Controller/Messages/MessageTownMessageController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Du kannst kein(en) {item} per Post versenden.</source>
-        <target>Du kannst kein(en) {item} per Post versenden.</target>
+        <target>No puede enviar un/una {artículo} por correo.</target>
       </segment>
     </unit>
     <unit id="FWgGHVi">
       <notes>
         <note category="german">Die Bürger haben entschieden, {citizen} zu &lt;strong&gt;erhängen&lt;/strong&gt;!! Der Galgen wurde im Zuge dieser gewalttätigen Aktion &lt;strong&gt;zerstört&lt;/strong&gt;!</note>
         <note category="from">db://LogEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Die Bürger haben entschieden, {citizen} zu &lt;strong&gt;erhängen&lt;/strong&gt;!! Der Galgen wurde im Zuge dieser gewalttätigen Aktion &lt;strong&gt;zerstört&lt;/strong&gt;!</source>
-        <target><![CDATA[Die Bürger haben entschieden, {citizen} zu <strong>erhängen</strong>!! Der Galgen wurde im Zuge dieser gewalttätigen Aktion <strong>zerstört</strong>!]]></target>
+        <target><![CDATA[¡¡Los habitantes han decidido <strong>colgar</strong> a {citizen}!! ¡La horca fue <strong>destruida</strong> en el curso de esta acción violenta!]]></target>
       </segment>
     </unit>
     <unit id="xQMsReM">
       <notes>
         <note category="german">Die Bürger haben entschieden, {citizen} in den &lt;strong&gt;Fleischkäfig&lt;/strong&gt; zu zerren und dort zum Vergnügen aller zu steinigen... Die Stadt hat &lt;strong&gt;+{def} temporäre Stadtverteidigung&lt;/strong&gt; erhalten!</note>
         <note category="from">db://LogEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Die Bürger haben entschieden, {citizen} in den &lt;strong&gt;Fleischkäfig&lt;/strong&gt; zu zerren und dort zum Vergnügen aller zu steinigen... Die Stadt hat &lt;strong&gt;+{def} temporäre Stadtverteidigung&lt;/strong&gt; erhalten!</source>
-        <target><![CDATA[Die Bürger haben entschieden, {citizen} in den <strong>Fleischkäfig</strong> zu zerren und dort zum Vergnügen aller zu steinigen... Die Stadt hat <strong>+{def} temporäre Stadtverteidigung</strong> erhalten!]]></target>
+        <target><![CDATA[Los habitantes han decidido arrastrar a {citizen} a la <strong>cajita feliz</strong> y apedrearlos allí para el placer de todos... ¡El pueblo ha recibido <strong> +{def} defensa temporal para el pueblo</strong>!]]></target>
       </segment>
     </unit>
     <unit id="YSYYhvU" name="Anonyme Beschwerde ({num} insgesamt)">
       <notes>
         <note category="german">Anonyme Beschwerde ({num} insgesamt)</note>
         <note category="from">php:///src/Controller/Messages/MessageTownMessageController.php;php:///src/Controller/Town/TownHomeController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Anonyme Beschwerde ({num} insgesamt)</source>
-        <target>Anonyme Beschwerde ({num} insgesamt)</target>
+        <target>Denuncia anónima ({num} total)</target>
       </segment>
     </unit>
     <unit id="_IO1rgo" name="Beschwerde zurückgezogen (es bleiben noch {num} Stück)">
       <notes>
         <note category="german">Beschwerde zurückgezogen (es bleiben noch {num} Stück)</note>
         <note category="from">php:///src/Controller/Messages/MessageTownMessageController.php;php:///src/Controller/Town/TownHomeController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Beschwerde zurückgezogen (es bleiben noch {num} Stück)</source>
-        <target>Beschwerde zurückgezogen (es bleiben noch {num} Stück)</target>
+        <target>Denuncia retirada (quedan {num})</target>
       </segment>
     </unit>
     <unit id="HHYz9.Q" name="{deaths} Bürger sind beim heutigen Angriff gestorben!">
       <notes>
         <note category="german">{deaths} Bürger sind beim heutigen Angriff gestorben!</note>
         <note category="from">db://LogEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>{deaths} Bürger sind beim heutigen Angriff gestorben!</source>
-        <target>{deaths} Bürger sind beim heutigen Angriff gestorben!</target>
+        <target>¡Los {deaths} habitantes murieron en el ataque de hoy!</target>
       </segment>
     </unit>
     <unit id="iLdX6jg">
       <notes>
         <note category="german">Doch leider ist der letzte Bürger tot, bevor die Horde die Stadttore erreicht... Seine Zunge hängt zwischen den Zähnen seines ehemaligen Freundes...</note>
         <note category="from">db://LogEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Doch leider ist der letzte Bürger tot, bevor die Horde die Stadttore erreicht... Seine Zunge hängt zwischen den Zähnen seines ehemaligen Freundes...</source>
-        <target>Doch leider ist der letzte Bürger tot, bevor die Horde die Stadttore erreicht... Seine Zunge hängt zwischen den Zähnen seines ehemaligen Freundes...</target>
+        <target>Pero, lamentablemente, el último habitante ha muerto antes de que la horda llegue a las puertas del pueblo... Su lengua cuelga entre los dientes de su antiguo amigo...</target>
+      </segment>
+    </unit>
+    <unit id="wprx15y" name="Jeder Mensch zählt 2 Punkte, Zombies zählen je 1 Punkt.">
+      <notes>
+        <note category="german">Jeder Mensch zählt 2 Punkte, Zombies zählen je 1 Punkt.</note>
+        <note category="from">twig:///templates/ajax/game/beyond/beyond.html.twig</note>
+      </notes>
+      <segment>
+        <source>Jeder Mensch zählt 2 Punkte, Zombies zählen je 1 Punkt.</source>
+        <target>Cada humano vale 2 puntos, cada zombie vale 1 punto.</target>
+      </segment>
+    </unit>
+    <unit id="3yKx05X">
+      <notes>
+        <note category="german">Wenn die Gesamtpunktzahl aller Menschen in einer Zone &lt;strong&gt;mindestens so groß&lt;/strong&gt; wie die der Zombies ist, kann dir nichts geschehen... vorerst zumindest.</note>
+        <note category="from">twig:///templates/ajax/game/beyond/beyond.html.twig</note>
+      </notes>
+      <segment>
+        <source>Wenn die Gesamtpunktzahl aller Menschen in einer Zone &lt;strong&gt;mindestens so groß&lt;/strong&gt; wie die der Zombies ist, kann dir nichts geschehen... vorerst zumindest.</source>
+        <target><![CDATA[Mientras los puntos humanos sean <strong>superiores o iguales</strong> a los puntos zombies, no correrás peligro.]]></target>
+      </segment>
+    </unit>
+    <unit id="wey0ykd">
+      <notes>
+        <note category="german">&lt;strong&gt;Herzlichen Glückwunsch&lt;/strong&gt;, du hast folgende Titel freigeschaltet: {list_c} {list_i} {list_t}</note>
+        <note category="from">db://LogEntryTemplate</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Herzlichen Glückwunsch&lt;/strong&gt;, du hast folgende Titel freigeschaltet: {list_c} {list_i} {list_t}</source>
+        <target><![CDATA[<strong>Enhorabuena</strong>, ha desbloqueado los siguientes títulos: {list_c} {list_i} {list_t}]]></target>
+      </segment>
+    </unit>
+    <unit id="29qg.oG" name="Dieser Registereintrag kann &lt;strong&gt;nicht&lt;/strong&gt; gefälscht werden.">
+      <notes>
+        <note category="german">Dieser Registereintrag kann &lt;strong&gt;nicht&lt;/strong&gt; gefälscht werden.</note>
+        <note category="from">php:///src/Controller/GameController.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Dieser Registereintrag kann &lt;strong&gt;nicht&lt;/strong&gt; gefälscht werden.</source>
+        <target><![CDATA[Dieser Registereintrag kann <strong>nicht</strong> gefälscht werden.]]></target>
+      </segment>
+    </unit>
+    <unit id="sTNvpIH" name="Klicke hier, um seine Informationen anzuzeigen">
+      <notes>
+        <note category="german">Klicke hier, um seine Informationen anzuzeigen</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Klicke hier, um seine Informationen anzuzeigen</source>
+        <target>Klicke hier, um seine Informationen anzuzeigen</target>
+      </segment>
+    </unit>
+    <unit id="vuquyit" name="Ganz genau, das bist du!">
+      <notes>
+        <note category="german">Ganz genau, das bist du!</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Ganz genau, das bist du!</source>
+        <target>Ganz genau, das bist du!</target>
+      </segment>
+    </unit>
+    <unit id="OjUho9K" name="gesichertes Haus">
+      <notes>
+        <note category="german">gesichertes Haus</note>
+        <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>gesichertes Haus</source>
+        <target>gesichertes Haus</target>
+      </segment>
+    </unit>
+    <unit id="OpG5aGF">
+      <notes>
+        <note category="german">In dieses Haus kann &lt;strong&gt;nicht eingebrochen&lt;/strong&gt; werden. Es ist durch ein Schloss oder etwas anderes gesichert...</note>
+        <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>In dieses Haus kann &lt;strong&gt;nicht eingebrochen&lt;/strong&gt; werden. Es ist durch ein Schloss oder etwas anderes gesichert...</source>
+        <target><![CDATA[In dieses Haus kann <strong>nicht eingebrochen</strong> werden. Es ist durch ein Schloss oder etwas anderes gesichert...]]></target>
+      </segment>
+    </unit>
+    <unit id="y9.hV9G">
+      <notes>
+        <note category="german">Das Stadttor wurde bereits von einem anderen pflichtbewussten Bürger geschlossen.</note>
+        <note category="from">twig:///templates/scripts/errors/town.txt.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Das Stadttor wurde bereits von einem anderen pflichtbewussten Bürger geschlossen.</source>
+        <target>Das Stadttor wurde bereits von einem anderen pflichtbewussten Bürger geschlossen.</target>
+      </segment>
+    </unit>
+    <unit id="ejlTArB">
+      <notes>
+        <note category="german">Du nimmst diese wandernde Seele und betest, dass der Schamane weiß, wie man diesen Trank zubereitet! Und du überlebst! Was für ein Glück, du hätten keine müde Mark auf den Scharlatan gewettet.</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Du nimmst diese wandernde Seele und betest, dass der Schamane weiß, wie man diesen Trank zubereitet! Und du überlebst! Was für ein Glück, du hätten keine müde Mark auf den Scharlatan gewettet.</source>
+        <target>Du nimmst diese wandernde Seele und betest, dass der Schamane weiß, wie man diesen Trank zubereitet! Und du überlebst! Was für ein Glück, du hätten keine müde Mark auf den Scharlatan gewettet.</target>
       </segment>
     </unit>
   </file>

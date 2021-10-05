@@ -2132,7 +2132,6 @@ require("latest-createjs");
 		function resizeCanvas() {			
 			let w = lib.properties.width, h = lib.properties.height;
 			let iw = domReference.clientWidth, ih=domReference.clientHeight;
-			console.log(iw,ih);
             let pRatio = window.devicePixelRatio || 1, xRatio=iw/w, yRatio=ih/h, sRatio=1;
 			if(isResp) {                
 				if((respDim==='width'&&lastW===iw) || (respDim==='height'&&lastH===ih)) {

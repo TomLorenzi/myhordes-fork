@@ -1,6 +1,6 @@
 {% extends "ajax/ajax.html.twig" %}
 
-{% from "ajax/admin/widget/controls.twig" import widget_picto_creator as picto_creator, widget_picto_creator_js as picto_creator_js, widget_feature_creator as feature_creator, widget_feature_creator_js as feature_creator_js %}
+{% from "ajax/admin/widget/controls.twig" import widget_picto_creator as picto_creator, widget_picto_creator_js as picto_creator_js, widget_feature_creator as feature_creator, widget_feature_creator_js as feature_creator_js, widget_title_creator as title_creator, widget_title_creator_js as title_creator_js %}
 
 {% block title %}{% trans from 'admin' %}Auszeichnungen{% endtrans %}{%  endblock %}
 {% block ajax %}
@@ -36,6 +36,9 @@
                 <div class="cell rw-5 rw-lg-7 rw-sm-12">
                     {% if is_granted("ROLE_ADMIN") %}
                         {{ picto_creator(pictoPrototypes) }}
+                    {% endif %}
+                    {% if is_granted("ROLE_ADMIN") %}
+                        {{ title_creator(user.awards) }}
                     {% endif %}
                     <ul class="inventory soul">
                         <li class="title">{{ 'Spiritueller Rucksack'|trans({},'game') }}</li>
@@ -74,6 +77,7 @@
     {{ parent() }}
     {% if is_granted("ROLE_ADMIN") %}
         {{ picto_creator_js(path('admin_user_give_picto', {id: user.id}), path('admin_users_pictos_view', {id: user.id})) }}
+        {{ title_creator_js(icon_max_size, path('admin_user_manage_unique_award', {id: user.id}), path('admin_users_pictos_view', {id: user.id})) }}
         {{ feature_creator_js(path('admin_user_give_feature', {id: user.id}), path('admin_users_pictos_view', {id: user.id})) }}
     {% endif %}
 {% endblock %}

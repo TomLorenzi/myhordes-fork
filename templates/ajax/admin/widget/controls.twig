@@ -179,6 +179,145 @@
 {% endmacro %}
 <!-- </editor-fold> -->
 
+<!-- <editor-fold desc="Title and Icon Generator Widget"> -->
+{% macro widget_title_creator(awards = [], prefix = '') %}
+    <div class="lightbox">
+        <div class="row">
+            <div class="padded cell rw-12">
+                <label for="{{ _self.gen_id(prefix,'titlemakerwidget','select')}}">{{'Einzigartige Titel oder Icons bearbeiten:'|trans({}, 'admin')}}</label>
+            </div>
+        </div>
+        <div class="row-flex wrap">
+            <div class="padded cell"><label><input type="radio" name="{{ _self.gen_id(prefix,'titlemakerwidget','what')}}" x-type="title" id="{{ _self.gen_id(prefix,'titlemakerwidget','make_title')}}" />{{ 'Neuer Titel'|trans({},'admin') }}</label></div>
+            <div class="padded cell"><label><input type="radio" name="{{ _self.gen_id(prefix,'titlemakerwidget','what')}}" x-type="icon" id="{{ _self.gen_id(prefix,'titlemakerwidget','make_icon')}}" />{{ 'Neues Icon'|trans({},'admin') }}</label></div>
+        </div>
+        <div class="row">
+            {% for award in awards %}
+                {% if award.prototype is null %}
+                    {% if award.customTitle %}
+                        <div class="padded cell rw-12"><label><input type="radio" name="{{ _self.gen_id(prefix,'titlemakerwidget','what')}}" x-default="{{ award.customTitle }}" x-id="{{ award.id }}" x-type="title" id="{{ _self.gen_id(prefix,'titlemakerwidget','edit_title_' ~ award.id)}}" />{{ award.customTitle }}</label></div>
+                    {% endif %}
+                    {% if award.customIcon %}
+                        <div class="padded cell rw-12"><label><input type="radio" name="{{ _self.gen_id(prefix,'titlemakerwidget','what')}}" x-id="{{ award.id }}" x-type="icon" id="{{ _self.gen_id(prefix,'titlemakerwidget','edit_icon_' ~ award.id)}}" />
+                            <img alt="" src="{{ url('app_web_customicon', {uid: award.user.id, aid: award.id, name: award.customIconName, ext: award.customIconFormat}) }}" />
+                        </label></div>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="row hidden" id="{{ _self.gen_id(prefix,'titlemakerwidget','make_title_form')}}">
+            <div class="padded cell rw-12">
+                <hr/>
+                <label><input type="text" maxlength="190" placeholder="{{ 'Titel'|trans({},'admin') }}" id="{{ _self.gen_id(prefix,'titlemakerwidget','upload_title')}}" /></label>
+            </div>
+        </div>
+        <div class="row hidden" id="{{ _self.gen_id(prefix,'titlemakerwidget','make_icon_form')}}">
+            <div class="padded cell rw-12">
+                <hr/>
+                <label>
+                    <img id="{{ _self.gen_id(prefix,'titlemakerwidget','upload_icon_preview')}}" src="" alt="?" class="hidden" height="16" width="16" />
+                    <input type="file" placeholder="{{ 'Titel'|trans({},'admin') }}" id="{{ _self.gen_id(prefix,'titlemakerwidget','upload_icon')}}" />
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="padded cell rw-6 rw-sm-12">
+                <button disabled id="{{ _self.gen_id(prefix,'titlemakerwidget','give')}}">{{'Bestätigen'|trans({}, 'admin')}}</button>
+            </div>
+            <div class="padded cell rw-6 rw-sm-12">
+                <button disabled id="{{ _self.gen_id(prefix,'titlemakerwidget','take')}}">{{'Löschen'|trans({}, 'admin')}}</button>
+            </div>
+        </div>
+    </div>
+{% endmacro %}
+{% macro widget_title_creator_js(max_icon_size, api_url, load_url, prefix = '') %}
+    <script>
+        $.html.addEventListenerAll("[name='{{ _self.gen_id(prefix,'titlemakerwidget','what')}}']", 'click', function(){
+            const selected = document.querySelector('[name="{{ _self.gen_id(prefix,'titlemakerwidget','what')}}"]:checked');
+            if (!selected) return;
+            document.getElementById('{{ _self.gen_id(prefix,'titlemakerwidget','make_title_form')}}').classList.toggle('hidden', selected.getAttribute('x-type') !== 'title');
+            document.getElementById('{{ _self.gen_id(prefix,'titlemakerwidget','make_icon_form')}}' ).classList.toggle('hidden', selected.getAttribute('x-type') !== 'icon');
+
+            if (selected.getAttribute('x-type') === 'title')
+                document.getElementById('{{ _self.gen_id(prefix,'titlemakerwidget','upload_title')}}').value = selected.getAttribute('x-default');
+
+            document.getElementById('{{ _self.gen_id(prefix,'titlemakerwidget','give')}}' ).toggleAttribute('disabled', false )
+            document.getElementById('{{ _self.gen_id(prefix,'titlemakerwidget','take')}}' ).toggleAttribute('disabled', !selected.hasAttribute('x-id') )
+
+
+        });
+
+        let image_upload = null;
+        let image_mime = '';
+
+        $.html.addEventListenerAll('#{{ _self.gen_id(prefix,'titlemakerwidget','upload_icon')}}','change', (e) => {
+
+            if (e.target.files.length !== 1) {
+                $.html.error('{{ 'Bitte wähle nur eine einzige Datei aus.'|trans({},'soul')|e('js') }}');
+                return;
+            }
+            /** @var file File */
+            const file = e.target.files[0];
+            if (file.size >= {{ max_icon_size }}) {
+                $.html.error('{{ 'Die Datei ist zu groß.'|trans({},'soul')|e('js') }}');
+                return;
+            }
+
+            const type_info = file.type.split('/',2);
+            if (type_info.length < 2 || type_info[0] !== 'image') {
+                $.html.error('{{ 'Dieses Dateiformat wird nicht unterstützt.'|trans({},'soul')|e('js') }}');
+                return;
+            }
+
+            let reader = new FileReader();
+            reader.onload = function(e) {
+                image_upload = btoa(e.target.result);
+                image_mime = type_info[1];
+                document.getElementById('{{ _self.gen_id(prefix,'titlemakerwidget','upload_icon_preview')}}').setAttribute('src','data:' + type_info[0] + '/' + type_info[1] + ';base64,' + image_upload);
+                document.getElementById('{{ _self.gen_id(prefix,'titlemakerwidget','upload_icon_preview')}}').classList.remove('hidden')
+            };
+            reader.readAsBinaryString(file);
+
+        });
+
+        $.html.addEventListenerAll('#{{ _self.gen_id(prefix,'titlemakerwidget','give')}}', 'click', function(){
+            if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
+                return;
+
+            const selected = document.querySelector('[name="{{ _self.gen_id(prefix,'titlemakerwidget','what')}}"]:checked');
+            if (!selected) return;
+
+            let payload = {};
+            if (selected.getAttribute('x-type') === 'title')
+                payload.title = document.getElementById('{{ _self.gen_id(prefix,'titlemakerwidget','upload_title')}}').value;
+            else if (selected.getAttribute('x-type') === 'icon')
+                payload.icon = image_upload
+
+            if (selected.getAttribute('x-id'))
+                payload.id = parseInt(selected.getAttribute('x-id'))
+
+            $.ajax.easySend( '{{ api_url }}', payload,
+                function () {
+                    $.ajax.load(null, '{{ load_url }}', true);
+                } );
+        });
+
+        $.html.addEventListenerAll('#{{ _self.gen_id(prefix,'titlemakerwidget','take')}}', 'click', function(){
+            if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
+                return;
+
+            const selected = document.querySelector('[name="{{ _self.gen_id(prefix,'titlemakerwidget','what')}}"]:checked');
+            if (!selected || !selected.getAttribute('x-id')) return;
+
+            $.ajax.easySend( '{{ api_url }}', {id: parseInt(selected.getAttribute('x-id')), 'delete': 1},
+                function () {
+                    $.ajax.load(null, '{{ load_url }}', true);
+                } );
+        });
+    </script>
+{% endmacro %}
+<!-- </editor-fold> -->
+
 <!-- <editor-fold desc="Status Manager Widget"> -->
 {% macro widget_status_control(citizenStati, prefix = '') %}
     <div class="lightbox">

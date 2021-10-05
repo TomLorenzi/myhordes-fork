@@ -406,7 +406,7 @@ x-message {
     & #modeCommand {
       position: absolute;
       top: 10px;
-      margin-left: 50px;
+      margin-left: 60px;
       font-size: 8pt;
       line-height: 10pt;
       width: 110px;
@@ -1346,6 +1346,10 @@ div.tooltip {
     }
   }
 
+  em {
+    color: @myhordes-button-color;
+  }
+
   &>h1:first-child {
     font-size: 1.2rem; font-weight: bold; margin: 4px; padding: 0; text-align: center;
     border-bottom: 1px solid darken(@myhordes-smalltext, 20%); font-variant: small-caps;
@@ -1568,7 +1572,7 @@ select {
   border: 1px solid #ddab76;
   outline: 1px solid black;
   cursor: pointer;
-  width: 100%;
+  &:not(.small) {width: 100%;}
 }
 
 i.dagger {

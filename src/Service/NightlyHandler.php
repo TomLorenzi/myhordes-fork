@@ -90,7 +90,7 @@ class NightlyHandler
     private function check_town(Town $town): bool {
         if ($town->isOpen()) {
             $this->log->debug('The town lobby is <comment>open</comment>!');
-            $this->entity_manager->persist($this->logTemplates->nightlyAttackCancelled($town));
+            if ($town->getCitizenCount() > 0) $this->entity_manager->persist($this->logTemplates->nightlyAttackCancelled($town));
             return false;
         }
 
@@ -123,7 +123,7 @@ class NightlyHandler
     private function stage1_prepare(Town $town) {
         // Initialize spiritual guide on D1
         $town_conf = $this->conf->getTownConfiguration($town);
-        if ($town->getDay() === 1 && $town_conf->get(TownConf::CONF_GUIDE_ENABLED, false)) {
+        if ($town_conf->get(TownConf::CONF_GUIDE_ENABLED, false)) {
 
             $this->log->debug( "This town is eligible for the <info>spiritual guide</info> picto, checking citizens..." );
 
@@ -140,8 +140,12 @@ class NightlyHandler
                     $this->citizen_handler->inflictStatus( $spiritual_guide, 'tg_spirit_guide' );
                     $this->log->debug( "Registered <info>{$spiritual_guide->getName()}</info> as potential spiritual leader." );
                 }
-            else $this->log->debug( "Not enough citizen are below <info>$th SP</info>." );
-
+            else {
+                // Remove guide status from all citizens
+                foreach ($town->getCitizens() as $citizen)
+                    $this->citizen_handler->removeStatus( $citizen, 'tg_spirit_guide' );
+                $this->log->debug("Not enough citizen are below <info>$th SP</info>.");
+            }
         }
     }
 
@@ -275,7 +279,7 @@ class NightlyHandler
                 // It is destroyed, let's kill everyone with the good cause of death
                 foreach ($this->town_handler->get_alive_citizens($town) as $citizen) {
                     $gazette->setDeaths($gazette->getDeaths() + 1);
-                    $this->kill_wrap($citizen, $cod, true, 0, false, $town->getDay());
+                    $this->kill_wrap($citizen, $cod, true, 0, true, $town->getDay());
                 }
 
                 $gazette->setReactorExplosion(true);
@@ -454,6 +458,10 @@ class NightlyHandler
         foreach ($town->getCitizens() as $citizen) {
             if (!$citizen->getAlive()) continue;
 
+            // Spiritual leader
+            if ($this->citizen_handler->hasStatusEffect($citizen, 'tg_spirit_guide'))
+                $this->picto_handler->give_picto($citizen, 'r_guide_#00', $town->getDay() - 1);
+
             if (!$citizen->getProfession()->getHeroic())
                 continue;
 
@@ -571,9 +579,9 @@ class NightlyHandler
             }
         }
 
-        if ($useless === count($houses) && !$town->getDevastated() )
+        if ($useless > 0 && $useless === count($houses) && !$town->getDevastated() )
             $this->entity_manager->persist( $this->logTemplates->nightlyInternalAttackNothingSummary( $town, $useless ) );
-        else if ($town->getDevastated())
+        else if ($useless > 0 && $town->getDevastated())
             $this->entity_manager->persist( $this->logTemplates->nightlyInternalAttackNothingSummary( $town, $useless, true ) );
 
         $this->entity_manager->persist($gazette);
@@ -837,8 +845,13 @@ class NightlyHandler
                 }
             }
 
+            $total = 0;
+            foreach ($itemsForLog as $item) {
+                $total += $item["count"];
+            }
+
             if (!empty($itemsForLog)) {
-                $this->entity_manager->persist($this->logTemplates->nightlyAttackBankItemsDestroy($town, $itemsForLog));
+                $this->entity_manager->persist($this->logTemplates->nightlyAttackBankItemsDestroy($town, $itemsForLog, $total));
             }
         }
 

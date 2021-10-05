@@ -651,7 +651,7 @@ class MessageForumController extends MessageController
             $paranoid = $ch->hasStatusEffect($user->getActiveCitizen(),'tg_paranoid');
         else $paranoid = false;
 
-        foreach ($posts as $post) $post->setText( $this->html->prepareEmotes( $post->getText() ) );
+        foreach ($posts as $post) $post->setText( $this->html->prepareEmotes( $post->getText(), $this->getUser() ) );
         return $this->render( 'ajax/forum/posts_small.html.twig', [
             'posts' => $posts,
             'town' => $forum->getTown() ? $forum->getTown() : false,
@@ -759,7 +759,7 @@ class MessageForumController extends MessageController
 
         if ($flush) try { $em->flush(); } catch (Exception $e) {}
 
-        foreach ($posts as &$post) $post->setText( $this->html->prepareEmotes( $post->getText() ) );
+        foreach ($posts as &$post) $post->setText( $this->html->prepareEmotes( $post->getText(), $user ) );
 
         // Check for paranoia
         if ($forum->getTown() && $user->getActiveCitizen() && $user->getActiveCitizen()->getTown() === $forum->getTown())

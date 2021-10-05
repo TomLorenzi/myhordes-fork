@@ -376,7 +376,8 @@
                     {% if loop.index0 > 0  %}, {% endif %}<b>{{ upgrade.prototype.label|trans({}, 'buildings') }} {{ upgrade.level }}</b>
                 {% endfor %}{% endif %}</div>
             <div class="padded cell rw-4 ellipsis row-header"><img src="{{ asset('build/images/icons/small_deco.gif') }}" /> {{'Einrichtung'|trans({}, 'game')}}</div>
-            <div class="padded cell rw-8 ellipsis row-detail">{{ deco }} {{ 'Punkt(e)'|trans({}, 'game') }}</div>
+            <div class="padded cell rw-8 ellipsis row-detail">{{ deco }} {{ 'Punkt(e)'|trans({}, 'game') }} {% if protected %}<div class="inline-block"><em>(<img src="{{ asset('build/images/assets/img/icons/lock.gif') }}" alt="" /> {{ 'gesichertes Haus'|trans({}, 'game') }})</em><div class="tooltip normal">
+                {{ 'In dieses Haus kann <strong>nicht eingebrochen</strong> werden. Es ist durch ein Schloss oder etwas anderes gesichert...'|trans({}, 'game')|raw }}</div></div>{% endif %}</div>
             <div class="padded cell rw-4 ellipsis row-header"><img src="{{ asset('build/images/item/item_plate.gif') }}" /> {{'Hausverteidigung'|trans({}, 'game')}}</div>
             <div class="padded cell rw-8 ellipsis row-detail">{{ def.sum }} <img src="{{ asset('build/images/icons/small_def.gif') }}" />
                 <a class='help-button'>
@@ -394,12 +395,18 @@
             </div>
         </div>
         <div class="note">
-        {% if deco == 0 %}
+        {% if decoItems|length == 0 %}
                 {{'Was soll denn das heißen, du hast noch keine Deko für dein bescheidenes Zuhause gefunden?! Worauf wartest du noch? In der Wüste findest du bestimmt ein wunderbares Sofa aus Zombiehaut! Oder darf es vielleicht eines dieser warmen, weichen Talismänner sein: Eine abgerissene Hand oder ein frisch abgetrennter Fuß?'|trans({}, 'game')}}
         {% else %}
             <ul class="list">
                 {% for item in decoItems %}
-                    <li><img src="{{ asset('build/images/item/item_' ~ item.prototype.icon ~ ".gif") }}" alt="[]"/> {{ item.prototype.label|trans({}, 'items') }} <em>(+{{ item.prototype.deco }} {{ 'Deko-Punkte'|trans({}, 'game') }})</em> </li>
+                    <li>
+                        <img src="{{ asset('build/images/item/item_' ~ item.prototype.icon ~ ".gif") }}" alt="[]"/> {{ item.prototype.label|trans({}, 'items') }} {% if item.prototype.deco > 0 %}<em>(+{{ item.prototype.deco }} {{ 'Deko-Punkte'|trans({}, 'game') }})</em>{% endif %}<br />
+                        {% if item.prototype.decoText != '' %}
+                        <span class="small">{{ item.prototype.decoText|trans({}, 'items') }}</span>
+                        {% endif %}
+                        {% embed "ajax/game/item_tooltip.html.twig" with {"item": item} %}{% endembed %}
+                    </li>
                 {% endfor %}
                 <li class="separator">{{ 'Komiteenote:'|trans({}, 'game') }} <strong>{{ deco }}  {{ 'Punkt(e)'|trans({}, 'game') }}</strong> {{ help_btn(('Diese Note wird vom <strong>Komitee des guten Geschmacks der Stadt {townname}</strong> vergeben.'|trans({"{townname}": home.citizen.town.name}, 'game'))) }}</li>
             </ul>

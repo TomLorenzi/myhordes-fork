@@ -3,6 +3,7 @@
 
 namespace App\Service;
 
+use App\Entity\Award;
 use App\Entity\Building;
 use App\Entity\BuildingPrototype;
 use App\Entity\CauseOfDeath;
@@ -215,6 +216,17 @@ class LogTemplateHandler
                 elseif ($typeEntry['type'] === 'title-icon-list') {
                     $transParams['{'.$typeEntry['name'].'}'] = "<div class='list'>";
                     $transParams['{'.$typeEntry['name'].'}'] .= implode('', array_map( fn($e) => "<img alt='$e' src='{$this->asset->getUrl( "build/images/icons/title/$e.gif" )}' />", $variables[$typeEntry['name']] ));
+                    $transParams['{'.$typeEntry['name'].'}'] .= "</div>";
+                }
+                elseif ($typeEntry['type'] === 'title-custom-list') {
+                    $transParams['{'.$typeEntry['name'].'}'] = "<div class='list'>";
+                    $transParams['{'.$typeEntry['name'].'}'] .= implode('', array_map( function($e) {
+                        $a = $e ? $this->entity_manager->getRepository(Award::class)->find($e) : null;
+                        if (!$a) return '???';
+                        elseif ($a->getCustomTitle()) return $this->wrap( $a->getCustomTitle() );
+                        elseif ($a->getCustomIcon()) return "<img alt='$e' src='{$this->url->generate('app_web_customicon', ['uid' => $a->getUser()->getId(), 'aid' => $a->getId(), 'name' => $a->getCustomIconName(), 'ext' => $a->getCustomIconFormat()])}' />";
+                        else return '????';
+                    }, $variables[$typeEntry['name']] ?? [] ));
                     $transParams['{'.$typeEntry['name'].'}'] .= "</div>";
                 }
                 elseif ($typeEntry['type'] === 'duration') {
@@ -1131,7 +1143,7 @@ class LogTemplateHandler
     }
 
     public function nightlyAttackWatcherWound( Town $town, ?Citizen $citizen ): TownLogEntry {
-        $variables = $citizen ? array('citizen' => $citizen) : [];
+        $variables = $citizen ? array('citizen' => $citizen->getId()) : [];
         $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => $citizen ? 'nightlyAttackWatcherWound' : 'nightlyAttackWatchersWound']);
 
         return (new TownLogEntry())
@@ -1143,7 +1155,7 @@ class LogTemplateHandler
     }
 
     public function nightlyAttackWatcherTerror( Town $town, ?Citizen $citizen ): TownLogEntry {
-        $variables = $citizen ? array('citizen' => $citizen) : [];
+        $variables = $citizen ? array('citizen' => $citizen->getId()) : [];
         $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => $citizen ? 'nightlyAttackWatcherTerror' : 'nightlyAttackWatchersTerror']);
 
         return (new TownLogEntry())
@@ -1259,9 +1271,12 @@ class LogTemplateHandler
             ->setTimestamp( new DateTime('now') );
     }
 
-    public function nightlyAttackBankItemsDestroy( Town $town, $items ): TownLogEntry {
-        $variables = array('list' => array_map( function($e) { if(array_key_exists('count', $e)) {return array('id' => $e['item']->getId(),'count' => $e['count']);}
-            else { return array('id' => $e[0]->getId()); } }, $items ));
+    public function nightlyAttackBankItemsDestroy( Town $town, $items, $count): TownLogEntry {
+        $variables = array(
+            'list' => array_map( function($e) { if(array_key_exists('count', $e)) {return array('id' => $e['item']->getId(),'count' => $e['count']);}
+            else { return array('id' => $e[0]->getId()); } }, $items ),
+            'num' => $count
+        );
         $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'nightlyAttackBankItemsDestroy']);
 
         return (new TownLogEntry())
@@ -1723,7 +1738,7 @@ class LogTemplateHandler
     public function publicJustice( Citizen $citizen, int $def = 0 ): TownLogEntry {
         $variables = array('citizen' => $citizen->getId(), 'def' => $def);
 
-        $template = ($def > 0)
+        $template = ($def === 0)
             ? $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'banishmentKillHanging'])
             : $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'banishmentKillCage']);
 

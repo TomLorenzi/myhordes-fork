@@ -218,13 +218,6 @@ class DeathHandler
                 $this->picto_handler->give_picto($citizen, $pictoPrototype, round(pow($citizen->getSurvivedDays(), 1.5), 0) - round(pow($citizen->getSurvivedDays() - 1, 1.5), 0));
             }
 
-            // Spiritual leader
-            if ($this->citizen_handler->hasStatusEffect($citizen, 'tg_spirit_guide')) {
-                $p = 0;
-                for ($i = 1; $i <= $citizen->getSurvivedDays(); $i++) $p += $i;
-                $this->picto_handler->give_picto($citizen, 'r_guide_#00', $p);
-            }
-
             // Decoration picto
             // Calculate decoration
 	        $deco = $this->citizen_handler->getDecoPoints($citizen);

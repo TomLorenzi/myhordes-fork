@@ -6986,7 +6986,7 @@
       </notes>
       <segment>
         <source>Du hast Dir Dein eigenes Grab geschaufelt. Oh welche Ironie!</source>
-        <target>You have dug your own tomb. Oh what irony!</target>
+        <target>You have dug your own tomb. Oh the irony!</target>
       </segment>
     </unit>
     <unit id="nv.FYHK" name="Versteck verlassen">
@@ -8250,12 +8250,11 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     <unit id="Pd1i68n">
       <notes>
         <note category="german">Du atmest tief durch und drückst den Rücken durch. Auf geht's! Ich werde nicht hier sterben!{hr}Du hast soeben Kraft getankt und &lt;strong&gt;6 neue AP erhalten&lt;/strong&gt;.</note>
-        <note category="state">new</note>
         <note category="from">db://AffectMessage</note>
       </notes>
       <segment>
         <source>Du atmest tief durch und drückst den Rücken durch. Auf geht's! Ich werde nicht hier sterben!{hr}Du hast soeben Kraft getankt und &lt;strong&gt;6 neue AP erhalten&lt;/strong&gt;.</source>
-        <target><![CDATA[Du atmest tief durch und drückst den Rücken durch. Auf geht's! Ich werde nicht hier sterben!{hr}Du hast soeben Kraft getankt und <strong>6 neue AP erhalten</strong>.]]></target>
+        <target><![CDATA[You take a deep breath and shake your head. Come on! This is no time to give up!{hr}Your 6 AP <strong>have been restored</strong>.]]></target>
       </segment>
     </unit>
     <unit id="wMM0fB9">
@@ -9200,22 +9199,20 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       <notes>
         <note category="german">Die Batterie fällt ein paar Meter entfernt auf den Boden.</note>
         <note category="from">db://AffectMessage</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Die Batterie fällt ein paar Meter entfernt auf den Boden.</source>
-        <target>Die Batterie fällt ein paar Meter entfernt auf den Boden.</target>
+        <target>The battery landed a bit further away.</target>
       </segment>
     </unit>
     <unit id="WgEgCbq" name="Die Batterie wurde beim Aufprall vollständig zerstört.">
       <notes>
         <note category="german">Die Batterie wurde beim Aufprall vollständig zerstört.</note>
         <note category="from">db://AffectMessage</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Die Batterie wurde beim Aufprall vollständig zerstört.</source>
-        <target>Die Batterie wurde beim Aufprall vollständig zerstört.</target>
+        <target><![CDATA[The battery seems to have been ill-suited for firing... It is now <strong>useless</strong>!]]></target>
       </segment>
     </unit>
     <unit id="zBL2Qmm">
@@ -9283,11 +9280,10 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       <notes>
         <note category="german">Solange du &lt;strong&gt;erschöpft bist&lt;/strong&gt;, kannst du diese Aktion nicht ausführen (da du keine Aktionspunkte mehr hast)... Trink oder iss etwas, oder nimm eine Droge, ansonsten musst du bis &lt;strong&gt;morgen&lt;/strong&gt; warten.</note>
         <note category="from">db://Requirement</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Solange du &lt;strong&gt;erschöpft bist&lt;/strong&gt;, kannst du diese Aktion nicht ausführen (da du keine Aktionspunkte mehr hast)... Trink oder iss etwas, oder nimm eine Droge, ansonsten musst du bis &lt;strong&gt;morgen&lt;/strong&gt; warten.</source>
-        <target><![CDATA[Solange du <strong>erschöpft bist</strong>, kannst du diese Aktion nicht ausführen (da du keine Aktionspunkte mehr hast)... Trink oder iss etwas, oder nimm eine Droge, ansonsten musst du bis <strong>morgen</strong> warten.]]></target>
+        <target><![CDATA[You cannot carry out this action <strong>when you are tired</strong> (you have no action points remaining)... Drink, eat or drug yourself to restore points, or wait until tomorrow.]]></target>
       </segment>
     </unit>
     <unit id="bCsZ2JO">

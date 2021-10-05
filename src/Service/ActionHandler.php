@@ -355,7 +355,7 @@ class ActionHandler
 
         }
 
-        if (!empty($messages)) $message = implode('<hr />', $messages);
+        $message = !empty($messages) ? implode('<hr />', $messages) : null;
 
         return $current_state;
 

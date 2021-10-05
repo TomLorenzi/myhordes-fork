@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Annotations\GateKeeperProfile;
 use App\Entity\AccountRestriction;
+use App\Entity\Award;
 use App\Entity\Citizen;
 use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\CitizenProfession;
@@ -34,10 +35,12 @@ use App\Service\CrowService;
 use App\Service\ErrorHelper;
 use App\Service\HTMLService;
 use App\Service\JSONRequestParser;
+use App\Service\MediaService;
 use App\Service\PermissionHandler;
 use App\Service\TwinoidHandler;
 use App\Service\UserFactory;
 use App\Service\UserHandler;
+use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
@@ -86,7 +89,7 @@ class AdminUserController extends AdminActionController
 
         return $this->render( 'ajax/admin/users/account.html.twig', $this->addDefaultTwigArgs("admin_users_account", [
             'user' => $user,
-            'user_desc' => $desc ? $html->prepareEmotes($desc->getText()) : null,
+            'user_desc' => $desc ? $html->prepareEmotes($desc->getText(), $this->getUser()) : null,
             'validations' => $validations,
 
             'ref' => $this->entity_manager->getRepository(UserReferLink::class)->findOneBy(['user' => $user]),
@@ -865,7 +868,8 @@ class AdminUserController extends AdminActionController
             'pictos_old' => $this->entity_manager->getRepository(Picto::class)->findOldByUser($user),
             'pictoPrototypes' => $protos,
             'features' => $features,
-            'featurePrototypes' => $this->entity_manager->getRepository(FeatureUnlockPrototype::class)->findAll()
+            'featurePrototypes' => $this->entity_manager->getRepository(FeatureUnlockPrototype::class)->findAll(),
+            'icon_max_size' => $this->conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_UPLOAD, 3145728)
         ]));
     }
 
@@ -915,6 +919,82 @@ class AdminUserController extends AdminActionController
 
         $this->user_handler->computePictoUnlocks($user);
         $this->entity_manager->flush();
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("/api/admin/users/{id}/unique_award/manage", name="admin_user_manage_unique_award", requirements={"id"="\d+"})
+     * @Security("is_granted('ROLE_ADMIN')")
+     * @param int $id User ID
+     * @param JSONRequestParser $parser The Request Parser
+     * @param MediaService $media
+     * @param CrowService $crow
+     * @return Response
+     */
+    public function user_manage_unique_award(int $id, JSONRequestParser $parser, MediaService $media, CrowService $crow): Response {
+        $user = $this->entity_manager->getRepository(User::class)->find($id);
+        if (!$user) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        if (!$parser->has('id') && $parser->get_int('delete', 0))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        if ($parser->has('id', true)) {
+            $award = $this->entity_manager->getRepository(Award::class)->find( $parser->get_int('id') );
+            if (!$award || $award->getUser() !== $user || $award->getPrototype())
+                return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        } else $award = new Award();
+
+        if ($parser->get_int('delete', 0)) {
+
+            if ($user->getActiveTitle() === $award) $user->setActiveTitle(null);
+            if ($user->getActiveIcon() === $award) $user->setActiveIcon(null);
+            $user->getAwards()->removeElement($award);
+            $this->entity_manager->remove($award);
+            $this->entity_manager->persist($user);
+            try {
+                $this->entity_manager->flush();
+            } catch (Exception $e) {
+                return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+            }
+            return AjaxResponse::success();
+        }
+
+        if ($parser->has('title', true) === $parser->has('icon', true))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        if ($parser->has('title', true)) {
+            if ($award->getCustomIcon() !== null) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+            $this->entity_manager->persist($award->setUser($user)->setCustomTitle($parser->get('title')));
+        } else {
+            if ($award->getCustomTitle() !== null) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+            $payload = $parser->get_base64('icon');
+
+            if (strlen( $payload ) > $this->conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_UPLOAD))
+                return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+            if ($media->resizeImageSimple( $payload, 16, 16, $processed_format, false ) !== MediaService::ErrorNone)
+                return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+            $this->entity_manager->persist( $award
+                                                ->setUser($user)
+                                                ->setCustomIcon($payload)
+                                                ->setCustomIconName(md5($payload))
+                                                ->setCustomIconFormat(strtolower( $processed_format ))
+            );
+
+
+        }
+
+        try {
+            $this->entity_manager->flush();
+            if (!$parser->has('id', true)) {
+                $this->entity_manager->persist($crow->createPM_titleUnlock($user, [$award]));
+                $this->entity_manager->flush();
+            }
+        } catch (Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
 
         return AjaxResponse::success();
     }

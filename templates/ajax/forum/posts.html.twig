@@ -215,7 +215,7 @@
                             <span class="small"><i>{{ 'Ich beobachte euch...'|trans({},'game') }}</i></span>
                         {% elseif post.owner.activeTitle or post.owner.activeIcon %}
                             <span class="small">
-                                {% if post.owner.activeIcon %}<img alt="" src="{{ asset('build/images/icons/title/' ~ post.owner.activeIcon.prototype.icon ~ '.gif') }}" />{% endif %}
+                                {% if post.owner.activeIcon %}<img alt="" src="{{ post.owner.activeIcon.customIcon ? url('app_web_customicon', {uid: post.owner.id, aid: post.owner.activeIcon.id, name: post.owner.activeIcon.customIconName, ext: post.owner.activeIcon.customIconFormat}) : asset('build/images/icons/title/' ~ post.owner.activeIcon.prototype.icon ~ '.gif') }}" />{% endif %}
                                 {% if post.owner.activeTitle %}<i>{{ post.owner.activeTitle.customTitle ?? post.owner.activeTitle.prototype.title|trans({},'game')|raw }}</i>{% endif %}
                             </span>
                         {% endif %}
@@ -264,7 +264,7 @@
 
 
                     <div class="forum-post-content" x-post-content-id="{{ post.id }}" x-post-content-author="{{ author_name }}">
-                        {{ post.translate ? (post.text|trans({},'game')|replace({'{lang}': (app.request.locale|e('html_attr')|split('_', 2))[0] })|raw) : (post.text|replace({'{lang}': (app.request.locale|e('html_attr')|split('_', 2))[0] })|raw) }}
+                        {{ post.translate ? (post.text|trans({},'game')|raw) : (post.text|raw) }}
                         {% if not post.translate and paranoid and post.owner.name != 'Der Rabe' %}
                             {% set mode = (app.user.id + post.id + post.owner.id) % 12 %}
                             {% if mode == 0 %}

@@ -52,7 +52,10 @@
                 {% for id,list in user.awards.values|group_titles %}
 
                     {% if id == 'custom' %}
-                        <li class="chapter"><b>{{ 'Einzigartige Errungenschaften'|trans({},'game') }}</b></li>
+                        <li class="chapter">
+                            <img alt="" src="{{  asset('build/images/icons/icon_mh_team.gif') }}" />
+                            {{ 'Einzigartige Errungenschaften'|trans({},'game') }}
+                        </li>
                     {% elseif id == 'single' %}
                         <li class="chapter"><b>{{ 'Besondere Errungenschaften'|trans({},'game') }}</b></li>
                     {% else %}
@@ -66,9 +69,9 @@
                     {% endif %}
 
                     {% for award in list %}
-                        {% if award.prototype is not null and award.prototype.title is not null %}
+                        {% if award.customTitle is not null or (award.prototype is not null and award.prototype.title is not null) %}
                             <li>
-                                "{{ award.prototype.title|trans({},'game')|raw }}"
+                                "{{ award.customTitle ?? award.prototype.title|trans({},'game')|raw }}"
                                 <div class="tooltip forum-tooltip">
                                     {% if award.prototype is not null %}
                                         {% if award.prototype.associatedPicto %}

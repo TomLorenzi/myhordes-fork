@@ -11808,7 +11808,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du stürzt dich auf eine dieser Kreaturen und &lt;strong&gt;umklammerst sie mit beiden Armen&lt;/strong&gt;, um sie zu Fall zu bringen. Der Kontakt mit seiner &lt;strong&gt;verrotteten Haut&lt;/strong&gt; bringt dich fast zum Kotzen... Du kämpfst und versuchst ihn irgendwie umzustoßen, doch ohne Erfolg. &lt;strong&gt;Das Biest hat dich mehrere Male um ein Haar gebissen!&lt;/strong&gt; Erschöpft und demoralisiert lässt du von ihm ab, um dich zurückzuziehen...</source>
-        <target>You grab one of the wretched automatons with both hands, touching the sticky, putrefied flesh... it's unbearable... You wrestle with it, trying to force it back, but it's not happening... It tries unsuccessfully to bite you several times ! You retreat, out of breath and demoralised...</target>
+        <target><![CDATA[You grab one of the wretched automatons with both hands, touching the <strong>sticky, putrefied flesh</strong>... it's unbearable... You wrestle with it, trying to force it back, but it's not happening... <strong>It tries unsuccessfully to bite you several times!</strong> You retreat, out of breath and demoralised...]]></target>
       </segment>
     </unit>
     <unit id="rJtk9d5" name="Die Abschätzung wird durch den Scanner verbessert.">
@@ -15527,12 +15527,11 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="QA25eiQ" name="An einem kalten Morgen">
       <notes>
         <note category="german">An einem kalten Morgen</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
         <source>An einem kalten Morgen</source>
-        <target>An einem kalten Morgen</target>
+        <target>A fresh morning</target>
       </segment>
     </unit>
     <unit id="FvwX8Vo" name="Die Außenwelt">
@@ -15578,12 +15577,11 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="9UrAchd" name="an der Seite von {citizen}">
       <notes>
         <note category="german">an der Seite von {citizen}</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
         <source>an der Seite von {citizen}</source>
-        <target>an der Seite von {citizen}</target>
+        <target>beside {citizen}</target>
       </segment>
     </unit>
     <unit id="Jaioypa" name="irgendwo {location} der Stadt...">
@@ -15599,12 +15597,11 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="LV5ZZVt" name="an den Toren der Stadt">
       <notes>
         <note category="german">an den Toren der Stadt</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
         <source>an den Toren der Stadt</source>
-        <target>an den Toren der Stadt</target>
+        <target>at the gates of the town</target>
       </segment>
     </unit>
     <unit id="YqRBccv" name="Das Leichsblatt, Ausgabe vom {day}. Tag">
@@ -16188,7 +16185,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>{count} Zombies wurden in der Stadt gesichtet, aber sie haben niemanden angegriffen: Was für ein Glücksfall...</source>
-        <target>{count} Zombies wurden in der Stadt gesichtet, aber sie haben niemanden angegriffen: Was für ein Glücksfall...</target>
+        <target>{count} zombies were seen in the town, but they didn't attack anyone: Result!</target>
       </segment>
     </unit>
     <unit id="b5TnxTe" name="[ Es riecht nach Tannenzapfen... ]">
@@ -19267,18 +19264,17 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>&lt;span&gt;{citizen} hat einen Zombie mit seinen bloßen Händen niedergestreckt!&lt;/span&gt;</source>
-        <target><![CDATA[<span>{citizen} took down a zombie with their bare hands!</span>]]></target>
+        <target><![CDATA[<span>{citizen} went toe to toe with a zombie and managed to finish him!</span>]]></target>
       </segment>
     </unit>
     <unit id="CIxCi9h">
       <notes>
         <note category="german">{citizen} hat versucht einen Zombie niederzustrecken und ist dabei fast draufgegangen...</note>
-        <note category="state">new</note>
         <note category="from">db://LogEntryTemplate</note>
       </notes>
       <segment>
         <source>{citizen} hat versucht einen Zombie niederzustrecken und ist dabei fast draufgegangen...</source>
-        <target>{citizen} hat versucht einen Zombie niederzustrecken und ist dabei fast draufgegangen...</target>
+        <target>{citizen} managed to get punched square in the crotch by attacking a zombie with their bare hands...</target>
       </segment>
     </unit>
     <unit id="L4sBLhc" name="&lt;span&gt;Wir kontrollieren die Zone ab sofort.&lt;/span&gt;">
@@ -19304,12 +19300,11 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="HSAEnDG" name="als Gruppe">
       <notes>
         <note category="german">als Gruppe</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
         <source>als Gruppe</source>
-        <target>als Gruppe</target>
+        <target>on a group expedition</target>
       </segment>
     </unit>
     <unit id="KP2BLp3" name="Du kannst in den Foren um Hilfe bitten!">
@@ -19662,7 +19657,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>{citizen} wartet auf eine Eskorte. Klick ihn an, damit er dir folgt.</source>
-        <target>{citizen} is waiting for an escort : click to ask them to follow you.</target>
+        <target>{citizen} is waiting for an escort: click to ask them to follow you.</target>
       </segment>
     </unit>
     <unit id="lpKOzLM">
@@ -19916,7 +19911,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Achtung: Jede Aktion in der Zone sorgt dafür, dass deine &lt;strong&gt;Tarnung auffliegt&lt;/strong&gt;. (Es können nur Aktionen ausgeführt werden, die mit einem Icon {img_scout_ok} gekennzeichnet sind)!</source>
-        <target><![CDATA[Warning : many actions, if carried out in this zone will make you <strong>lose your camouflage</strong> (only actions marked with the icon {img_scout_ok} can be used)!]]></target>
+        <target><![CDATA[Warning: many actions, if carried out in this zone will make you <strong>lose your camouflage</strong> (only actions marked with the icon {img_scout_ok} can be used)!]]></target>
       </segment>
     </unit>
     <unit id="SKPkihB">
@@ -19937,16 +19932,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>{building} hat {num} Batterien verbraucht.</source>
         <target>{building} has used {num} Battery.</target>
-      </segment>
-    </unit>
-    <unit id="T14z5t.">
-      <notes>
-        <note category="german">&lt;strong&gt;Herzlichen Glückwunsch&lt;/strong&gt;, du hast folgende Titel freigeschaltet: {list_i} {list_t}</note>
-        <note category="from">db://LogEntryTemplate</note>
-      </notes>
-      <segment>
-        <source>&lt;strong&gt;Herzlichen Glückwunsch&lt;/strong&gt;, du hast folgende Titel freigeschaltet: {list_i} {list_t}</source>
-        <target><![CDATA[<strong>Congratulations</strong>, you have unlocked the following titles: {list_i} {list_t}]]></target>
       </segment>
     </unit>
     <unit id="jIKh96s">
@@ -20898,7 +20883,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id=".Qkxxst" name="Stadttor zerstört!">
       <notes>
         <note category="german">Stadttor zerstört!</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/door.html.twig</note>
       </notes>
       <segment>
@@ -20909,7 +20893,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="i02hvai">
       <notes>
         <note category="german">Das Stadttor wurde bei einem besonders furchtbaren Angriff aus den Angeln gerissen und in die Aussenwelt geschleudert. Du solltest dich heute Nacht besser nicht hier aufhalten, sonst wird diese Stadt dein Grab.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/door.html.twig</note>
       </notes>
       <segment>
@@ -20920,7 +20903,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="omwkh4e">
       <notes>
         <note category="german">Das passiert eben, wenn man eine Stadt ohne einen einzigen Einwohner zurücklässt.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/door.html.twig</note>
       </notes>
       <segment>
@@ -22823,7 +22805,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <notes>
         <note category="german">Die Stadt hat folgende Gegenstände in Folge der Hinrichtung von {shunned} zurückerhalten: {list}</note>
         <note category="from">db://LogEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Die Stadt hat folgende Gegenstände in Folge der Hinrichtung von {shunned} zurückerhalten: {list}</source>
@@ -22903,6 +22884,112 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Doch leider ist der letzte Bürger tot, bevor die Horde die Stadttore erreicht... Seine Zunge hängt zwischen den Zähnen seines ehemaligen Freundes...</source>
         <target>Doch leider ist der letzte Bürger tot, bevor die Horde die Stadttore erreicht... Seine Zunge hängt zwischen den Zähnen seines ehemaligen Freundes...</target>
+      </segment>
+    </unit>
+    <unit id="wey0ykd">
+      <notes>
+        <note category="german">&lt;strong&gt;Herzlichen Glückwunsch&lt;/strong&gt;, du hast folgende Titel freigeschaltet: {list_c} {list_i} {list_t}</note>
+        <note category="from">db://LogEntryTemplate</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Herzlichen Glückwunsch&lt;/strong&gt;, du hast folgende Titel freigeschaltet: {list_c} {list_i} {list_t}</source>
+        <target><![CDATA[<strong>Congratulations</strong>, you have unlocked the following titles: {list_c} {list_i} {list_t}]]></target>
+      </segment>
+    </unit>
+    <unit id="wprx15y" name="Jeder Mensch zählt 2 Punkte, Zombies zählen je 1 Punkt.">
+      <notes>
+        <note category="german">Jeder Mensch zählt 2 Punkte, Zombies zählen je 1 Punkt.</note>
+        <note category="from">twig:///templates/ajax/game/beyond/beyond.html.twig</note>
+      </notes>
+      <segment>
+        <source>Jeder Mensch zählt 2 Punkte, Zombies zählen je 1 Punkt.</source>
+        <target>Each Human is worth 2 points, each zombie is worth 1 point.</target>
+      </segment>
+    </unit>
+    <unit id="3yKx05X">
+      <notes>
+        <note category="german">Wenn die Gesamtpunktzahl aller Menschen in einer Zone &lt;strong&gt;mindestens so groß&lt;/strong&gt; wie die der Zombies ist, kann dir nichts geschehen... vorerst zumindest.</note>
+        <note category="from">twig:///templates/ajax/game/beyond/beyond.html.twig</note>
+      </notes>
+      <segment>
+        <source>Wenn die Gesamtpunktzahl aller Menschen in einer Zone &lt;strong&gt;mindestens so groß&lt;/strong&gt; wie die der Zombies ist, kann dir nichts geschehen... vorerst zumindest.</source>
+        <target><![CDATA[If the number of Human points is <strong>equal to or more than</strong> the total number of Zombie points, you are in no danger.. for now...]]></target>
+      </segment>
+    </unit>
+    <unit id="29qg.oG" name="Dieser Registereintrag kann &lt;strong&gt;nicht&lt;/strong&gt; gefälscht werden.">
+      <notes>
+        <note category="german">Dieser Registereintrag kann &lt;strong&gt;nicht&lt;/strong&gt; gefälscht werden.</note>
+        <note category="from">php:///src/Controller/GameController.php</note>
+      </notes>
+      <segment>
+        <source>Dieser Registereintrag kann &lt;strong&gt;nicht&lt;/strong&gt; gefälscht werden.</source>
+        <target><![CDATA[It is <strong>impossible</strong> to tamper with this kind of entry in the register.]]></target>
+      </segment>
+    </unit>
+    <unit id="sTNvpIH" name="Klicke hier, um seine Informationen anzuzeigen">
+      <notes>
+        <note category="german">Klicke hier, um seine Informationen anzuzeigen</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Klicke hier, um seine Informationen anzuzeigen</source>
+        <target>Klicke hier, um seine Informationen anzuzeigen</target>
+      </segment>
+    </unit>
+    <unit id="vuquyit" name="Ganz genau, das bist du!">
+      <notes>
+        <note category="german">Ganz genau, das bist du!</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Ganz genau, das bist du!</source>
+        <target>Ganz genau, das bist du!</target>
+      </segment>
+    </unit>
+    <unit id="OjUho9K" name="gesichertes Haus">
+      <notes>
+        <note category="german">gesichertes Haus</note>
+        <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>gesichertes Haus</source>
+        <target>gesichertes Haus</target>
+      </segment>
+    </unit>
+    <unit id="OpG5aGF">
+      <notes>
+        <note category="german">In dieses Haus kann &lt;strong&gt;nicht eingebrochen&lt;/strong&gt; werden. Es ist durch ein Schloss oder etwas anderes gesichert...</note>
+        <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>In dieses Haus kann &lt;strong&gt;nicht eingebrochen&lt;/strong&gt; werden. Es ist durch ein Schloss oder etwas anderes gesichert...</source>
+        <target><![CDATA[In dieses Haus kann <strong>nicht eingebrochen</strong> werden. Es ist durch ein Schloss oder etwas anderes gesichert...]]></target>
+      </segment>
+    </unit>
+    <unit id="y9.hV9G">
+      <notes>
+        <note category="german">Das Stadttor wurde bereits von einem anderen pflichtbewussten Bürger geschlossen.</note>
+        <note category="from">twig:///templates/scripts/errors/town.txt.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Das Stadttor wurde bereits von einem anderen pflichtbewussten Bürger geschlossen.</source>
+        <target>Das Stadttor wurde bereits von einem anderen pflichtbewussten Bürger geschlossen.</target>
+      </segment>
+    </unit>
+    <unit id="ejlTArB">
+      <notes>
+        <note category="german">Du nimmst diese wandernde Seele und betest, dass der Schamane weiß, wie man diesen Trank zubereitet! Und du überlebst! Was für ein Glück, du hätten keine müde Mark auf den Scharlatan gewettet.</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Du nimmst diese wandernde Seele und betest, dass der Schamane weiß, wie man diesen Trank zubereitet! Und du überlebst! Was für ein Glück, du hätten keine müde Mark auf den Scharlatan gewettet.</source>
+        <target>Du nimmst diese wandernde Seele und betest, dass der Schamane weiß, wie man diesen Trank zubereitet! Und du überlebst! Was für ein Glück, du hätten keine müde Mark auf den Scharlatan gewettet.</target>
       </segment>
     </unit>
   </file>

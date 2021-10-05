@@ -245,6 +245,7 @@ class CitizenHandler
             // Since the gallow building can also be a chocolate cross, we need to check the type
             if ($gallows && $gallows->getPrototype()->getName() === 'small_eastercross_#00') {
                 $this->container->get(DeathHandler::class)->kill( $citizen, CauseOfDeath::ChocolateCross, $rem );
+                // TODO: Add the log entry template
 
                 // The chocolate cross gets destroyed
                 $gallows->setComplete(false)->setAp(0)->setDefense(0)->setHp(0);
@@ -907,7 +908,7 @@ class CitizenHandler
             /** @var Item $item */
             if ($item->getBroken()) continue;
             $deco += $item->getPrototype()->getDeco();
-            if ($item->getPrototype()->getDeco())
+            if ($item->getPrototype()->getDeco() || !empty($item->getPrototype()->getDecoText()))
                 $decoItems[] = $item;
         }
 
