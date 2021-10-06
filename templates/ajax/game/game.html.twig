@@ -67,7 +67,7 @@
     <div class="ulcont">
         {% if ap is defined and max_ap is defined %}
             <div>
-                <div>
+                <div x-ajax-href="{{ path('help', {'name': 'getting_around'}) }}" class="link">
                     <ul class="ap">
                         <li><b class="{{ ap == 0 ? 'red' : '' }}">{{ ap }}</b><em {% if has_wound is defined and has_wound %}class="warning"{% endif %}>/{{ max_ap }}</em></li>
                     </ul>
