@@ -30,7 +30,7 @@
     {% endif %}
 
     {% if status is defined %}
-        <ul class="status">
+        <ul class="status link" x-ajax-href="{{ path('help', {'name': 'health'}) }}">
             <li class="text">{{'Status'|trans({}, 'game')}}</li>
             {% for stat in status %}
                 {# @var stat \App\Entity\CitizenStatus #}
