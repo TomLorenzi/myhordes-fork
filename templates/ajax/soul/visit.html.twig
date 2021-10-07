@@ -50,7 +50,6 @@
                         <div class="personal_desc"><div>{{ 'Persönliche Beschreibung'|trans({},'game') }}</div><div>"{{ user_desc|raw }}"</div></div>
                     {% endif %}
 
-                    {{ dump(user.nameHistory) }}
                     {#
                     {% if user.nameHistory|filter(n => n != user.name)|length > 0 %}
                         <div class="personal_desc mt-1">
@@ -124,8 +123,13 @@
                     </div>
                 </div>
             {% endif %}
-        </div>
 
+            <div class="row">
+                <div class="cell padded rw-12 rw-sm-12">
+                    {{ help_lnk('Die Seele in MyHordes'|trans({}, 'game'), 'help', {'name': 'your_soul'}) }}
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}
 {% block js %}

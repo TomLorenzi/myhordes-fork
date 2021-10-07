@@ -22900,5 +22900,15 @@ cette violente opération...]]></target>
         <target>Vous vous emparez de cette âme errante et priez que le chaman sache préparer cette potion ! Et vous survivez ! Quelle chance, vous n'auriez pourtant pas parié un kopec sur ce charlatan.</target>
       </segment>
     </unit>
+    <unit id="qAzHNHe" name="Die Seele in MyHordes">
+      <notes>
+        <note category="german">Die Seele in MyHordes</note>
+        <note category="from">twig:///templates/ajax/soul/me.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
+      </notes>
+      <segment>
+        <source>Die Seele in MyHordes</source>
+        <target>L'Âme dans MyHordes</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

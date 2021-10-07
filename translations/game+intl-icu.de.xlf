@@ -14610,5 +14610,11 @@
         <target>Du nimmst diese wandernde Seele und betest, dass der Schamane weiß, wie man diesen Trank zubereitet! Und du überlebst! Was für ein Glück, du hätten keine müde Mark auf den Scharlatan gewettet.</target>
       </segment>
     </unit>
+    <unit id="qAzHNHe" name="Die Seele in MyHordes">
+      <segment>
+        <source>Die Seele in MyHordes</source>
+        <target>Die Seele in MyHordes</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

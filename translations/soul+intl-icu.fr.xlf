@@ -4047,7 +4047,6 @@
       <notes>
         <note category="german">Alle Saisons auf MyHordes</note>
         <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Alle Saisons auf MyHordes</source>
@@ -4058,7 +4057,6 @@
       <notes>
         <note category="german">Alpha-Seelen</note>
         <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Alpha-Seelen</source>
@@ -4079,7 +4077,6 @@
       <notes>
         <note category="german">Alte Seelen</note>
         <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Alte Seelen</source>
