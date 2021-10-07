@@ -617,7 +617,7 @@ class DebugCommand extends Command
                     $estim,
                     $old_way[0]->getMin(),
                     $old_way[0]->getMax(),
-                    $new_way[0]->getMax(),
+                    $new_way[0]->getMin(),
                     $new_way[0]->getMax()
                 ]);
                 if($old_way[0]->getEstimation() >= 1) break;
