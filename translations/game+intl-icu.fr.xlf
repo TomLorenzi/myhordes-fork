@@ -22910,5 +22910,15 @@ cette violente opération...]]></target>
         <target>L'Âme dans MyHordes</target>
       </segment>
     </unit>
+    <unit id="NRlmARU" name="Gerechtigkeit in MyHordes">
+      <notes>
+        <note category="german">Justice in MyHordes</note>
+        <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
+      </notes>
+      <segment>
+        <source>Gerechtigkeit in MyHordes</source>
+        <target>La justice dans MyHordes</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

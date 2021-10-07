@@ -14616,5 +14616,11 @@
         <target>Die Seele in MyHordes</target>
       </segment>
     </unit>
+    <unit id="NRlmARU" name="Gerechtigkeit in MyHordes">
+      <segment>
+        <source>Gerechtigkeit in MyHordes</source>
+        <target>Gerechtigkeit in MyHordes</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -23001,5 +23001,15 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>The Soul in MyHordes</target>
       </segment>
     </unit>
+    <unit id="NRlmARU" name="Gerechtigkeit in MyHordes">
+      <notes>
+        <note category="german">Gerechtigkeit in MyHordes</note>
+        <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
+      </notes>
+      <segment>
+        <source>Gerechtigkeit in MyHordes</source>
+        <target>Justice in MyHordes</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
