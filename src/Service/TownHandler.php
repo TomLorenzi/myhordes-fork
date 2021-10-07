@@ -521,7 +521,7 @@ class TownHandler
         return $total_def;
     }
 
-    public function get_zombie_estimation(Town &$town, int $day = null): array {
+    public function get_zombie_estimation(Town &$town, int $day = null, bool $new_formula = false): array {
         $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town, $day ?? $town->getDay());
         /** @var ZombieEstimation $est */
         if (!$est) return [];
@@ -543,8 +543,10 @@ class TownHandler
         for ($i = 0; $i < $est->getCitizens()->count() * $ratio + $cc_offset; $i++) {
             if ($offsetMin + $offsetMax > 10) {
                 $increase_min = $this->random->chance( $offsetMin / ($offsetMin + $offsetMax) );
-                if ($increase_min) $offsetMin -= 1;
-                else $offsetMax -= 1;
+                $minAlter = $new_formula ? mt_rand(5, 20) / 10.0 : 1;
+                $maxAlter = $new_formula ? mt_rand(5, 20) / 10.0 : 1;
+                if ($increase_min) $offsetMin -= $minAlter;
+                else $offsetMax -= $maxAlter;
             }
         }
 
@@ -588,23 +590,21 @@ class TownHandler
             for ($i = 0; $i < $calculateUntil; $i++) {
                 if ($offsetMin + $offsetMax > 10) {
                     $increase_min = $this->random->chance( $offsetMin / ($offsetMin + $offsetMax) );
-                    if ($increase_min) $offsetMin -= 1;
-                    else $offsetMax -= 1;
+                    $minAlter = $new_formula ? mt_rand(5, 20) / 10.0 : 1;
+                    $maxAlter = $new_formula ? mt_rand(5, 20) / 10.0 : 1;
+                    if ($increase_min) $offsetMin -= $minAlter;
+                    else $offsetMax -= $maxAlter;
                 }
             }
 
             $min2 = round($est->getZombies() - ($est->getZombies() * $offsetMin / 100));
             $max2 = round($est->getZombies() + ($est->getZombies() * $offsetMax / 100));
 
-            file_put_contents("/tmp/dump.txt", "$min2 && $max2\n");
-
             /*$min2 = round($min2, 2 - strlen(strval($min2)));
             $max2 = round($max2, 2 - strlen(strval($max2)));*/
 
             $min2 = round($min2 / 25) * 25;
             $max2 = round($max2 / 25) * 25;
-
-            file_put_contents("/tmp/dump.txt", "$min2 && $max2\n", FILE_APPEND);
 
             $soulFactor = min(1 + (0.04 * $this->get_red_soul_count($town)), (float)$this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_RED_SOUL_FACTOR, 1.2));
 
