@@ -17875,7 +17875,7 @@
       </notes>
       <segment>
         <source>{citizen1} verbrachten die ganze Nacht heulend in ihrem Haus, bis zu dem Punkt, dass jeder dachte, die Zombies würden Bürger-Steaks aus ihm machen. Es stellte sich heraus, dass sie gerade einen &lt;strong&gt;massiven Zusammenbruch&lt;/strong&gt; hatten. Letzte Nacht gab es keine Toten in der Stadt.</source>
-        <target><![CDATA[{citizen1} verbrachten die ganze Nacht heulend in ihrem Haus, bis zu dem Punkt, dass jeder dachte, die Zombies würden Bürger-Steaks aus ihm machen. Es stellte sich heraus, dass sie gerade einen <strong>massiven Zusammenbruch</strong> hatten. Letzte Nacht gab es keine Toten in der Stadt.]]></target>
+        <target><![CDATA[{citizen1} pasó toda la noche llorando en su casa hasta el punto de que todos pensaron que los zombies estaban haciendo filetes de habitante con él. Resultó que solo estaban teniendo una <strong>colapso masivo</strong>. No hubo muertes en el pueblo anoche.]]></target>
       </segment>
     </unit>
     <unit id="jq7dkW2">
@@ -17886,7 +17886,7 @@
       </notes>
       <segment>
         <source>{citizen1} und {citizen2} wurden in letzter Minute gerettet, als sie sich gestern Abend bereit machten, sich in ihren Häusern &lt;strong&gt;zu erhängen&lt;/strong&gt;. Kommentar: "Ich dachte, sie würden mich bei lebendigem Leib auffressen, und das wollte ich nicht mehr erleben". Im Nachhinein betrachtet war es eine schlechte Entscheidung, da es gestern Abend &lt;strong&gt;keine Zombies&lt;/strong&gt; in die Stadt geschafft haben.</source>
-        <target><![CDATA[{citizen1} und {citizen2} wurden in letzter Minute gerettet, als sie sich gestern Abend bereit machten, sich in ihren Häusern <strong>zu erhängen</strong>. Kommentar: "Ich dachte, sie würden mich bei lebendigem Leib auffressen, und das wollte ich nicht mehr erleben". Im Nachhinein betrachtet war es eine schlechte Entscheidung, da es gestern Abend <strong>keine Zombies</strong> in die Stadt geschafft haben.]]></target>
+        <target><![CDATA[{citizen1} y {citizen2} se salvaron en el último minuto cuando se dispusieron a <strong>ahorcarse</strong> en sus casas anoche. Comentario: "Pensé que me comerían vivo y no quería volver a ver eso". En retrospectiva, fue una mala decisión ya que <strong>ningún zombi</strong> llegó al pueblo anoche.]]></target>
       </segment>
     </unit>
     <unit id="tzTZCkX">
@@ -17897,7 +17897,7 @@
       </notes>
       <segment>
         <source>Heute Morgen feierte {citizen1} das Vereiteln der Zombiehorden von gestern Abend, indem &lt;strong&gt;er splitternackt durch die Straßen rannte&lt;/strong&gt;. "Ich wollte den Anbruch dieses neuen Tages auf angemessene Weise feiern", erklärte der Bürger.</source>
-        <target><![CDATA[Heute Morgen feierte {citizen1} das Vereiteln der Zombiehorden von gestern Abend, indem <strong>er splitternackt durch die Straßen rannte</strong>. "Ich wollte den Anbruch dieses neuen Tages auf angemessene Weise feiern", erklärte der Bürger.]]></target>
+        <target><![CDATA[Esta mañana, {citizen1} celebró la derrota de las hordas de zombis de anoche <strong>corriendo por las calles completamente desnudo</strong>. "Quería celebrar el amanecer de este nuevo día de manera adecuada", dijo el habitante.]]></target>
       </segment>
     </unit>
     <unit id="eunLp3W" name="Ich habe Magenschmerzen...">
