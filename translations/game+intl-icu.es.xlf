@@ -22744,7 +22744,7 @@
       </notes>
       <segment>
         <source>Es ist dir gelungen, {item} von {victim} zu stehlen &lt;strong&gt;ohne entdeckt zu werden&lt;/strong&gt;. Nicht schlecht!</source>
-        <target><![CDATA[Has robado {item} cancerígeno roto(a) a {victim} <strong>sin que nadie se dé cuenta</strong>. ¡Qué hábil eres, eh!]]></target>
+        <target><![CDATA[Has robado {item} a {victim} <strong>sin que nadie se dé cuenta</strong>. ¡Qué hábil eres, eh!]]></target>
       </segment>
     </unit>
     <unit id="3gqgsBC" name="Du hast keine Seelenpunkte gewonnen (am ersten Tag gestorben).">
