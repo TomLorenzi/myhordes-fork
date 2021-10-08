@@ -656,8 +656,8 @@ class TownHandler
                 $value = mt_rand($min,$max);
                 if ($value > ($min + 0.5 * ($max-$min))) $value = mt_rand($min,$max);
 
-                $off_min = mt_rand( 10, 24 );
-                $off_max = 34 - $off_min;
+                $off_min = mt_rand( 15, 36 );
+                $off_max = 48 - $off_min;
 
                 $town->addZombieEstimation(
                     (new ZombieEstimation())
