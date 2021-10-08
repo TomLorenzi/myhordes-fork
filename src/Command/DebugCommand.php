@@ -592,7 +592,7 @@ class DebugCommand extends Command
                 return 1;
             }
 
-            $output->writeln("ATTACK PROGRAMMED : <info>{$est->getZombies()}</info>");
+            $output->writeln("Attack for day {$town->getDay()} : <info>{$est->getZombies()}</info>");
 
             $table = new Table( $output );
             $table->setHeaders( ['Précision', 'Min1', 'Max1', 'Min2', 'Max2'] );
