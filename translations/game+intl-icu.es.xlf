@@ -22875,7 +22875,7 @@
       </notes>
       <segment>
         <source>Dieser Registereintrag kann &lt;strong&gt;nicht&lt;/strong&gt; gefälscht werden.</source>
-        <target><![CDATA[Dieser Registereintrag kann <strong>nicht</strong> gefälscht werden.]]></target>
+        <target><![CDATA[Esta entrada de registro <strong>no</strong> se puede tachar.]]></target>
       </segment>
     </unit>
     <unit id="sTNvpIH" name="Klicke hier, um seine Informationen anzuzeigen">
@@ -22886,7 +22886,7 @@
       </notes>
       <segment>
         <source>Klicke hier, um seine Informationen anzuzeigen</source>
-        <target>Klicke hier, um seine Informationen anzuzeigen</target>
+        <target>Haga clic aquí para ver su información</target>
       </segment>
     </unit>
     <unit id="vuquyit" name="Ganz genau, das bist du!">
@@ -22897,7 +22897,7 @@
       </notes>
       <segment>
         <source>Ganz genau, das bist du!</source>
-        <target>Ganz genau, das bist du!</target>
+        <target>Sí, este eres tú...</target>
       </segment>
     </unit>
     <unit id="OjUho9K" name="gesichertes Haus">
@@ -22908,7 +22908,7 @@
       </notes>
       <segment>
         <source>gesichertes Haus</source>
-        <target>gesichertes Haus</target>
+        <target>casa protegida</target>
       </segment>
     </unit>
     <unit id="OpG5aGF">
@@ -22919,7 +22919,7 @@
       </notes>
       <segment>
         <source>In dieses Haus kann &lt;strong&gt;nicht eingebrochen&lt;/strong&gt; werden. Es ist durch ein Schloss oder etwas anderes gesichert...</source>
-        <target><![CDATA[In dieses Haus kann <strong>nicht eingebrochen</strong> werden. Es ist durch ein Schloss oder etwas anderes gesichert...]]></target>
+        <target><![CDATA[<strong>No se puede entrar en esta casa</strong> Está protegida por un candado o algo más...]]></target>
       </segment>
     </unit>
     <unit id="y9.hV9G">
@@ -22930,7 +22930,7 @@
       </notes>
       <segment>
         <source>Das Stadttor wurde bereits von einem anderen pflichtbewussten Bürger geschlossen.</source>
-        <target>Das Stadttor wurde bereits von einem anderen pflichtbewussten Bürger geschlossen.</target>
+        <target>La puerta del pueblo ya ha sido cerrada por otro habitante obediente.</target>
       </segment>
     </unit>
     <unit id="ejlTArB">
@@ -22941,7 +22941,7 @@
       </notes>
       <segment>
         <source>Du nimmst diese wandernde Seele und betest, dass der Schamane weiß, wie man diesen Trank zubereitet! Und du überlebst! Was für ein Glück, du hätten keine müde Mark auf den Scharlatan gewettet.</source>
-        <target>Du nimmst diese wandernde Seele und betest, dass der Schamane weiß, wie man diesen Trank zubereitet! Und du überlebst! Was für ein Glück, du hätten keine müde Mark auf den Scharlatan gewettet.</target>
+        <target>¡Tomas esa alma torturada y rezas para que el chamán sepa preparar esa poción!¡Y sobrevives! Qué suerte, no habrías apostado ni un céntimo por ese charlatán.</target>
       </segment>
     </unit>
   </file>
