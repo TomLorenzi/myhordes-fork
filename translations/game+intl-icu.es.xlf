@@ -22956,7 +22956,7 @@
     </unit>
     <unit id="NRlmARU" name="Gerechtigkeit in MyHordes">
       <notes>
-        <note category="german">Justice in MyHordes</note>
+        <note category="german">Gerechtigkeit in MyHordes</note>
         <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
       </notes>
       <segment>
