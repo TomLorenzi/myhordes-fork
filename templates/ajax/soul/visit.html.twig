@@ -51,11 +51,11 @@
                     {% endif %}
 
                     {#
-                    {% if user.nameHistory|filter(n => n != user.name)|length > 0 %}
+                    {% if (user.nameHistory ?? [])|filter(n => n != user.name)|length > 0 %}
                         <div class="personal_desc mt-1">
                             <div>{{'{user} war in der Vergangenheit unter folgenden Namen bekannt:'|trans({'user': user}, 'soul')}}</div>
                             <div>
-                                {% for name in user.nameHistory|filter(n => n != user.name) %}
+                                {% for name in (user.nameHistory ?? [])|filter(n => n != user.name) %}
                                     {{ name }}{% if not loop.last %}, {% endif %}
                                 {% endfor %}
                             </div>

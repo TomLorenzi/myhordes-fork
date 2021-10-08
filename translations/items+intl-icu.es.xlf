@@ -9257,5 +9257,16 @@
         <target><![CDATA[Du greifst einen Zombie mit {item} an, aber er <strong>geht einfach nicht zu Boden</strong> und kommt weiter auf dich zu.]]></target>
       </segment>
     </unit>
+    <unit id="Loi4Bfp" name="Verbessert die Verteidigung und verhindert Diebstähle">
+      <notes>
+        <note category="german">Verbessert die Verteidigung und verhindert Diebstähle</note>
+        <note category="from">db://ItemPrototype</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Verbessert die Verteidigung und verhindert Diebstähle</source>
+        <target>Verbessert die Verteidigung und verhindert Diebstähle</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
