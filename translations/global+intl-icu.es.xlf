@@ -1700,7 +1700,7 @@
       </notes>
       <segment>
         <source>Wiederherstellen</source>
-        <target>Reparar</target>
+        <target>Restaurar</target>
       </segment>
     </unit>
     <unit id="p47NfhB">
@@ -2322,7 +2322,7 @@
       </notes>
       <segment>
         <source>Nicht gelesen</source>
-        <target>No leer</target>
+        <target>Marcar como no leído</target>
       </segment>
     </unit>
     <unit id="QVc9ywt" name="Teilnehmer">
@@ -3066,7 +3066,7 @@
       </notes>
       <segment>
         <source>Absender blockieren</source>
-        <target>Bloquear remitentes</target>
+        <target>Bloquear remitente</target>
       </segment>
     </unit>
     <unit id="aN1frHt">
