@@ -18758,7 +18758,7 @@
       </notes>
       <segment>
         <source>Cette maison est &lt;strong&gt;protégée&lt;/strong&gt; (verrou ou autre...) et ne peut être cambriolée.</source>
-        <target><![CDATA[Esta casa está <strong>protegida</strong> (con cerradura u otro...) y no se puede ingresar.>]]></target>
+        <target><![CDATA[Esta casa está <strong>protegida</strong> (con cerradura u otro...) y no se puede ingresar.]]></target>
       </segment>
     </unit>
     <unit id="Hre92RP" name="Zeit bis zum nächsten Zombieangriff">
