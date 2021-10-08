@@ -9254,7 +9254,7 @@
       </notes>
       <segment>
         <source>Du greifst einen Zombie mit {item} an, aber er &lt;strong&gt;geht einfach nicht zu Boden&lt;/strong&gt; und kommt weiter auf dich zu.</source>
-        <target><![CDATA[Du greifst einen Zombie mit {item} an, aber er <strong>geht einfach nicht zu Boden</strong> und kommt weiter auf dich zu.]]></target>
+        <target><![CDATA[Atacas a un zombi con {item}, pero <strong>simplemente no cae</strong> y sigue viniendo hacia ti.]]></target>
       </segment>
     </unit>
     <unit id="Loi4Bfp" name="Verbessert die Verteidigung und verhindert Diebstähle">
@@ -9265,7 +9265,7 @@
       </notes>
       <segment>
         <source>Verbessert die Verteidigung und verhindert Diebstähle</source>
-        <target>Verbessert die Verteidigung und verhindert Diebstähle</target>
+        <target>Mejora la defensa y previene robos.</target>
       </segment>
     </unit>
   </file>
