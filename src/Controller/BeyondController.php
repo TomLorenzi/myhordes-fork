@@ -542,6 +542,12 @@ class BeyondController extends InventoryAwareController
         if (!$message || mb_strlen($message) < 2 || !$html->htmlPrepare($this->getActiveCitizen()->getUser(), 0, ['core_rp'], $message, $this->getActiveCitizen()->getTown(), $len) || $len < 2 || $len > 256 )
             return AjaxResponse::error(self::ErrorChatMessageInvalid);
 
+        $message = $html->htmlDistort( $message,
+            ($this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'drunk') ? HTMLService::ModulationDrunk : HTMLService::ModulationNone) |
+            ($this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'terror') ? HTMLService::ModulationTerror : HTMLService::ModulationNone) |
+            ($this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'wound1') ? HTMLService::ModulationHead : HTMLService::ModulationNone)
+            , $this->getUserLanguage(), $d );
+
         try {
             $this->entity_manager->persist( $this->log->beyondChat( $this->getActiveCitizen(), $message ) );
             $this->entity_manager->flush(  );

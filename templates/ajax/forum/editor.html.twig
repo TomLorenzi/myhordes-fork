@@ -153,12 +153,12 @@
                             <div x-forum-action="edit" x-text-insert-node="d12" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice12.png') }}"></div>
                             <div x-forum-action="edit" x-text-insert-node="d20" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice20.png') }}"></div>
                             <div x-forum-action="edit" x-text-insert-node="d100" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice100.png') }}"></div>
-                            <div x-forum-action="edit" x-text-insert-node="letter" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/lta.png') }}"></div>
-                            <div x-forum-action="edit" x-text-insert-node="consonant" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/ltc.png') }}"></div>
-                            <div x-forum-action="edit" x-text-insert-node="vowel" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/ltv.png') }}"></div>
-                            <div x-forum-action="edit" x-text-insert-node="rps" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/rps.png') }}"></div>
-                            <div x-forum-action="edit" x-text-insert-node="coin" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/coin.png') }}"></div>
-                            <div x-forum-action="edit" x-text-insert-node="card" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/card.png') }}"></div>
+                            <div x-forum-action="edit" x-text-insert-node="{{ 'letter'|trans({}, 'forum') }}" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/lta.png') }}"></div>
+                            <div x-forum-action="edit" x-text-insert-node="{{ 'consonant'|trans({}, 'forum') }}" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/ltc.png') }}"></div>
+                            <div x-forum-action="edit" x-text-insert-node="{{ 'vowel'|trans({}, 'forum') }}" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/ltv.png') }}"></div>
+                            <div x-forum-action="edit" x-text-insert-node="{{ 'rps'|trans({}, 'forum') }}" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/rps.png') }}"></div>
+                            <div x-forum-action="edit" x-text-insert-node="{{ 'coin'|trans({}, 'forum') }}" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/coin.png') }}"></div>
+                            <div x-forum-action="edit" x-text-insert-node="{{ 'card'|trans({}, 'forum') }}" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/card.png') }}"></div>
                         </div>
                     </div>
                     {% if town_controls %}
@@ -166,18 +166,18 @@
                             <div class="row">
                                 <div class="cell rw-11 rw-lg-10 rw-sm-8">
                                     <div class="forum-button-bar">
-                                        <div x-forum-action="edit" x-text-insert-node="rnduser,any" class="forum-button-inline"><img alt="" src="{{ asset('build/images/icons/small_human.gif') }}"></div>
-                                        <div x-forum-action="edit" x-text-insert-node="rnduser,hero" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/hero.gif') }}"></div>
-                                        <div x-forum-action="edit" x-text-insert-node="rnduser,dead" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/death.gif') }}"></div>
-                                        <div x-forum-action="edit" x-text-insert-node="rnduser,basic" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/basic.gif') }}"></div>
-                                        <div x-forum-action="edit" x-text-insert-node="rnduser,hunter" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/vest.gif') }}"></div>
-                                        <div x-forum-action="edit" x-text-insert-node="rnduser,collec" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/dig.gif') }}"></div>
-                                        <div x-forum-action="edit" x-text-insert-node="rnduser,guardian" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/shield.gif') }}"></div>
-                                        <div x-forum-action="edit" x-text-insert-node="rnduser,survivalist" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/book.gif') }}"></div>
-                                        <div x-forum-action="edit" x-text-insert-node="rnduser,tamer" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/tamer.gif') }}"></div>
-                                        <div x-forum-action="edit" x-text-insert-node="rnduser,tech" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/tech.gif') }}"></div>
-                                        <div x-forum-action="edit" x-text-insert-node="rnduser,shaman" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/shaman.gif') }}"></div>
-                                        <div x-forum-action="edit" x-text-insert-node="rnduser,none" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/looser.gif') }}"></div>
+                                        <div x-forum-action="edit" x-text-insert-node="{{ 'rnduser'|trans({}, 'forum') }},any" class="forum-button-inline"><img alt="" src="{{ asset('build/images/icons/small_human.gif') }}"></div>
+                                        <div x-forum-action="edit" x-text-insert-node="{{ 'rnduser'|trans({}, 'forum') }},hero" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/hero.gif') }}"></div>
+                                        <div x-forum-action="edit" x-text-insert-node="{{ 'rnduser'|trans({}, 'forum') }},dead" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/death.gif') }}"></div>
+                                        <div x-forum-action="edit" x-text-insert-node="{{ 'rnduser'|trans({}, 'forum') }},basic" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/basic.gif') }}"></div>
+                                        <div x-forum-action="edit" x-text-insert-node="{{ 'rnduser'|trans({}, 'forum') }},hunter" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/vest.gif') }}"></div>
+                                        <div x-forum-action="edit" x-text-insert-node="{{ 'rnduser'|trans({}, 'forum') }},collec" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/dig.gif') }}"></div>
+                                        <div x-forum-action="edit" x-text-insert-node="{{ 'rnduser'|trans({}, 'forum') }},guardian" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/shield.gif') }}"></div>
+                                        <div x-forum-action="edit" x-text-insert-node="{{ 'rnduser'|trans({}, 'forum') }},survivalist" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/book.gif') }}"></div>
+                                        <div x-forum-action="edit" x-text-insert-node="{{ 'rnduser'|trans({}, 'forum') }},tamer" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/tamer.gif') }}"></div>
+                                        <div x-forum-action="edit" x-text-insert-node="{{ 'rnduser'|trans({}, 'forum') }},tech" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/tech.gif') }}"></div>
+                                        <div x-forum-action="edit" x-text-insert-node="{{ 'rnduser'|trans({}, 'forum') }},shaman" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/shaman.gif') }}"></div>
+                                        <div x-forum-action="edit" x-text-insert-node="{{ 'rnduser'|trans({}, 'forum') }},none" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/looser.gif') }}"></div>
                                     </div>
                                 </div>
                                 <div class="cell rw-1 rw-lg-2 rw-sm-4">

@@ -22991,5 +22991,25 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>Du nimmst diese wandernde Seele und betest, dass der Schamane weiß, wie man diesen Trank zubereitet! Und du überlebst! Was für ein Glück, du hätten keine müde Mark auf den Scharlatan gewettet.</target>
       </segment>
     </unit>
+    <unit id="qAzHNHe" name="Die Seele in MyHordes">
+      <notes>
+        <note category="german">Die Seele in MyHordes</note>
+        <note category="from">twig:///templates/ajax/soul/me.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
+      </notes>
+      <segment>
+        <source>Die Seele in MyHordes</source>
+        <target>The Soul in MyHordes</target>
+      </segment>
+    </unit>
+    <unit id="NRlmARU" name="Gerechtigkeit in MyHordes">
+      <notes>
+        <note category="german">Gerechtigkeit in MyHordes</note>
+        <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
+      </notes>
+      <segment>
+        <source>Gerechtigkeit in MyHordes</source>
+        <target>Justice in MyHordes</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

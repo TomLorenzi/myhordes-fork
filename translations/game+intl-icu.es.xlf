@@ -22944,5 +22944,25 @@
         <target>¡Tomas esa alma torturada y rezas para que el chamán sepa preparar esa poción!¡Y sobrevives! Qué suerte, no habrías apostado ni un céntimo por ese charlatán.</target>
       </segment>
     </unit>
+    <unit id="qAzHNHe" name="Die Seele in MyHordes">
+      <notes>
+        <note category="german">Die Seele in MyHordes</note>
+        <note category="from">twig:///templates/ajax/soul/me.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
+      </notes>
+      <segment>
+        <source>Die Seele in MyHordes</source>
+        <target>El Alma en MyHordes</target>
+      </segment>
+    </unit>
+    <unit id="NRlmARU" name="Gerechtigkeit in MyHordes">
+      <notes>
+        <note category="german">Gerechtigkeit in MyHordes</note>
+        <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
+      </notes>
+      <segment>
+        <source>Gerechtigkeit in MyHordes</source>
+        <target>La justicia en MyHordes</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
