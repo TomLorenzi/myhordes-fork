@@ -15362,7 +15362,7 @@
       </notes>
       <segment>
         <source>Leprechaun wurde gesehen, wie er den {item} von {victim} stahl!</source>
-        <target>Leprechaun wurde gesehen, wie er den {item} von {victim} stahl!</target>
+        <target>¡Se vio a un Duendecillo robando {item} de {victim}!</target>
       </segment>
     </unit>
     <unit id="RvCNf5O" name="Aktivität">
@@ -15465,7 +15465,7 @@
       </notes>
       <segment>
         <source>Der Rabe hat diese Nachricht zerrissen.</source>
-        <target>Der Rabe hat diese Nachricht zerrissen.</target>
+        <target>El cuervo desgarro este mensaje.</target>
       </segment>
     </unit>
     <unit id="6PPO5fH" name="Dieser Abwehrbonus verschwindet um Mitternacht, nach dem Angriff.">
@@ -15476,7 +15476,7 @@
       </notes>
       <segment>
         <source>Dieser Abwehrbonus verschwindet um Mitternacht, nach dem Angriff.</source>
-        <target>Dieser Abwehrbonus verschwindet um Mitternacht, nach dem Angriff.</target>
+        <target>Este bono de defensa desaparece a la medianoche después del ataque.</target>
       </segment>
     </unit>
     <unit id="gkceIWw">
@@ -15547,7 +15547,7 @@
       </notes>
       <segment>
         <source>Der Schamane verfügt über mystische Fähigkeiten. Er kann die Seelen kürzlich verstorbener Bürger orten, die in der Außenwelt umher irren.</source>
-        <target>Der Schamane verfügt über mystische Fähigkeiten. Er kann die Seelen kürzlich verstorbener Bürger orten, die in der Außenwelt umher irren.</target>
+        <target>El chamán tiene habilidades místicas. Puede localizar las almas de habitantes recientemente fallecidos que deambulan por el ultramundo.</target>
       </segment>
     </unit>
     <unit id="W8fp4NH">
@@ -15649,7 +15649,7 @@
       </notes>
       <segment>
         <source>Verbessrung des Tages</source>
-        <target>Verbessrung des Tages</target>
+        <target>Mejora del día</target>
       </segment>
     </unit>
     <unit id="fh_ltq7" name="Die Bank">
@@ -15690,7 +15690,7 @@
       </notes>
       <segment>
         <source>Ein neuer Tag bricht an</source>
-        <target>Ein neuer Tag bricht an</target>
+        <target>Un nuevo dia esta amaneciendo</target>
       </segment>
     </unit>
     <unit id="QA25eiQ" name="An einem kalten Morgen">
@@ -15701,7 +15701,7 @@
       </notes>
       <segment>
         <source>An einem kalten Morgen</source>
-        <target>An einem kalten Morgen</target>
+        <target>En una mañana fría</target>
       </segment>
     </unit>
     <unit id="FvwX8Vo" name="Die Außenwelt">
@@ -15722,7 +15722,7 @@
       </notes>
       <segment>
         <source>Ein beunruhigender Sonnenuntergang</source>
-        <target>Ein beunruhigender Sonnenuntergang</target>
+        <target>Una puesta de sol inquietante</target>
       </segment>
     </unit>
     <unit id="XRqPUn0" name="Eine eisige Nacht">
@@ -15733,7 +15733,7 @@
       </notes>
       <segment>
         <source>Eine eisige Nacht</source>
-        <target>Eine eisige Nacht</target>
+        <target>Una noche helada</target>
       </segment>
     </unit>
     <unit id="E2tLR1n" name="... allein">
@@ -15754,7 +15754,7 @@
       </notes>
       <segment>
         <source>an der Seite von {citizen}</source>
-        <target>an der Seite von {citizen}</target>
+        <target>al lado de {citizen}</target>
       </segment>
     </unit>
     <unit id="Jaioypa" name="irgendwo {location} der Stadt...">
@@ -15775,7 +15775,7 @@
       </notes>
       <segment>
         <source>in einer unheimlichen Ruine {location}</source>
-        <target>in einer unheimlichen Ruine {location}</target>
+        <target>en una ruina espeluznante {location}</target>
       </segment>
     </unit>
     <unit id="LV5ZZVt" name="an den Toren der Stadt">
@@ -15786,7 +15786,7 @@
       </notes>
       <segment>
         <source>an den Toren der Stadt</source>
-        <target>an den Toren der Stadt</target>
+        <target>a las puertas del pueblo</target>
       </segment>
     </unit>
     <unit id="TP3m8zB" name="sitzt in der Falle und wartet auf den Tod...">
@@ -15797,7 +15797,7 @@
       </notes>
       <segment>
         <source>sitzt in der Falle und wartet auf den Tod...</source>
-        <target>sitzt in der Falle und wartet auf den Tod...</target>
+        <target>atrapado esperando la muerte ...</target>
       </segment>
     </unit>
     <unit id="YqRBccv" name="Das Leichsblatt, Ausgabe vom {day}. Tag">
@@ -15818,7 +15818,7 @@
       </notes>
       <segment>
         <source>Wiedergeburt: Wähle einen Beruf</source>
-        <target>Wiedergeburt: Wähle einen Beruf</target>
+        <target>Renacimiento: elige una profesión</target>
       </segment>
     </unit>
     <unit id="JPF0EfZ" name="Klick hier, um mehr über diesen Beruf zu erfahren...">
@@ -15849,7 +15849,7 @@
       </notes>
       <segment>
         <source>Die Bürger dieser Stadt haben die unten aufgeführten Berufe gewählt.</source>
-        <target>Die Bürger dieser Stadt haben die unten aufgeführten Berufe gewählt.</target>
+        <target>Los habitantes de este pueblo han elegido las profesiones que se enumeran a continuación.</target>
       </segment>
     </unit>
     <unit id="lUcvZQo" name="Hilfe">
@@ -16489,7 +16489,7 @@
       </notes>
       <segment>
         <source>Auf den Aufstand hinarbeiten</source>
-        <target>Organizar una revuelta</target>
+        <target>Organizar una insurrección</target>
       </segment>
     </unit>
     <unit id="NLrfO4J">
