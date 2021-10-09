@@ -150,6 +150,9 @@ class MigrateCommand extends Command
             ->addOption('skip-backup', null,InputOption::VALUE_NONE, 'If set, no database backup will be created')
             ->addOption('stay-offline', null,InputOption::VALUE_NONE, 'If set, maintenance mode will be kept active after the update')
             ->addOption('release', null,InputOption::VALUE_NONE, 'If set, suppresses commit info from the version string')
+            ->addOption('as', null,InputOption::VALUE_REQUIRED, 'If the update is started by the root user, this option specifies the web server user (defaults to www-data)')
+            ->addOption('in', null,InputOption::VALUE_REQUIRED, 'If the update is started by the root user, this option specifies the web server group (defaults to www-data)')
+            ->addOption('dbservice', null,InputOption::VALUE_REQUIRED, 'If the update is started by the root user, this option specifies the database service name (defaults to mysql)')
 
             ->addOption('install-db', 'i', InputOption::VALUE_NONE, 'Creates and performs the creation of the database and fixtures.')
             ->addOption('update-db', 'u', InputOption::VALUE_NONE, 'Creates and performs a doctrine migration, updates fixtures.')
@@ -207,10 +210,20 @@ class MigrateCommand extends Command
             $remote = $input->getOption('remote');
             $branch = $input->getOption('branch');
             $env    = $input->getOption('environment');
-            $php    = $input->getOption("php-bin");
-            if(empty($php)) $php = "php";
+            $php    = $input->getOption("php-bin") ?? 'php';
+            $dbservice = $input->getOption("dbservice") ?? 'mysql';
 
-            if (!$this->helper->capsule( "app:migrate --maintenance on", $output, 'Enable maintenance mode... ', true, $null, $php )) return -1;
+            $running_as = $this->helper->bin( 'whoami', $ret )[0];
+            $running_as_root = $running_as === 'root';
+
+            $as = null;
+            if ($running_as_root) {
+                $output->writeln("<info>We have root permissions, <comment>running in advanced mode</comment>!</info>");
+                $as[0] = $input->getOption('as') ?? 'www-data';
+                $as[1] = $input->getOption('in') ?? 'www-data';
+            }
+
+            if (!$this->helper->capsule( "app:migrate --maintenance on", $output, 'Enable maintenance mode... ', true, $null, $php, false, 0, $as )) return -1;
 
             for ($i = 3; $i > 0; --$i) {
                 $output->writeln("Beginning update in <info>{$i}</info> seconds....");
@@ -218,30 +231,36 @@ class MigrateCommand extends Command
             }
 
             if (!$input->getOption('skip-backup')) {
-                if (!$this->helper->capsule('app:cron backup update', $output, 'Creating database backup before upgrading... ', true))
+                if (!$this->helper->capsule('app:cron backup update', $output, 'Creating database backup before upgrading... ', true, $null, $php, false, 0, $as))
                     return 100;
             } else $output->writeln("Skipping <info>database backup</info>.");
 
-            if (!$this->helper->capsule( "git fetch --tags {$remote} {$branch}", $output, 'Retrieving updates from repository... ', false )) return 1;
-            if (!$this->helper->capsule( "git reset --hard {$remote}/{$branch}", $output, 'Applying changes to filesystem... ', false )) return 2;
+            if (!$this->helper->capsule( "git fetch --tags {$remote} {$branch}", $output, 'Retrieving updates from repository... ', false, $null, $php, false, 0, $as )) return 1;
+            if (!$this->helper->capsule( "git reset --hard {$remote}/{$branch}", $output, 'Applying changes to filesystem... ', false, $null, $php, false, 0, $as )) return 2;
 
             if (!$input->getOption('fast')) {
                 if ($env === 'dev') {
-                    if (!$this->helper->capsule( ($input->getOption('phar') ? "$php composer.phar" : 'composer') . " install", $output, 'Updating composer dependencies...', false )) return 3;
-                } else if (!$this->helper->capsule( ($input->getOption('phar') ? "$php composer.phar" : 'composer') . " install --no-dev --optimize-autoloader", $output, 'Updating composer production dependencies... ', false )) return 4;
-                if (!$this->helper->capsule( "yarn install", $output, 'Updating yarn dependencies... ', false )) return 5;
+                    if (!$this->helper->capsule( ($input->getOption('phar') ? "$php composer.phar" : 'composer') . " install", $output, 'Updating composer dependencies...', false, $null, $php, false, 0, $as )) return 3;
+                } else if (!$this->helper->capsule( ($input->getOption('phar') ? "$php composer.phar" : 'composer') . " install --no-dev --optimize-autoloader", $output, 'Updating composer production dependencies... ', false, $null, $php, false, 0, $as )) return 4;
+                if (!$this->helper->capsule( "yarn install", $output, 'Updating yarn dependencies... ', false, $null, $php, false, 0, $as )) return 5;
             } else $output->writeln("Skipping <info>dependency updates</info>.");
 
             if (!$input->getOption('fast')) {
-                if (!$this->helper->capsule( "yarn encore {$env}", $output, 'Building web assets... ', false, $null, $php, false, 3 )) return 6;
+                if ($running_as_root) {
+                    if (!$this->helper->capsule( "service $dbservice stop", $output, 'Stopping database service... ', false, $null, $php, true, 0 )) return 6;
+                }
+                if (!$this->helper->capsule( "yarn encore {$env}", $output, 'Building web assets... ', false, $null, $php, false, 3, $as )) return 6;
+                if ($running_as_root) {
+                    if (!$this->helper->capsule( "service $dbservice start", $output, 'Building web assets... ', false, $null, $php, true, 3 )) return 6;
+                }
             } else $output->writeln("Skipping <info>web asset updates</info>.");
 
             $version_lines = $this->helper->bin( 'git describe --tags' . ($input->getOption('release') ? ' --abbrev=0' : ''), $ret );
             if (count($version_lines) >= 1) file_put_contents( 'VERSION', $version_lines[0] );
 
-            if (!$this->helper->capsule( "cache:clear", $output, 'Clearing cache... ', true, $null, $php )) return 7;
-            if (!$this->helper->capsule( "app:migrate -u -r", $output, 'Updating database... ', true, $null, $php )) return 8;
-            if (!$this->helper->capsule( "app:migrate -p -v", $output, 'Running post-installation scripts... ', true, $null, $php, true )) return 9;
+            if (!$this->helper->capsule( "cache:clear", $output, 'Clearing cache... ', true, $null, $php, false, 0, $as )) return 7;
+            if (!$this->helper->capsule( "app:migrate -u -r", $output, 'Updating database... ', true, $null, $php, false, 0, $as )) return 8;
+            if (!$this->helper->capsule( "app:migrate -p -v", $output, 'Running post-installation scripts... ', true, $null, $php, true, 0, $as )) return 9;
 
             if (count($version_lines) >= 1) $output->writeln("Updated MyHordes to version <info>{$version_lines[0]}</info>");
 
@@ -250,7 +269,7 @@ class MigrateCommand extends Command
                     $output->writeln("Disabling maintenance mode in <info>{$i}</info> seconds....");
                     sleep(1);
                 }
-                if (!$this->helper->capsule( "app:migrate --maintenance off", $output, 'Disable maintenance mode... ', true, $null, $php )) return -1;
+                if (!$this->helper->capsule( "app:migrate --maintenance off", $output, 'Disable maintenance mode... ', true, $null, $php, false, 0, $as )) return -1;
             } else $output->writeln("Maintenance is kept active. Disable with '<info>app:migrate --maintenance off</info>'");
 
             return 0;
