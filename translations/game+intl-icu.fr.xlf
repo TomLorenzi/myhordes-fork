@@ -22782,7 +22782,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>{deaths} Bürger sind beim heutigen Angriff gestorben!</source>
-        <target>{deaths} Bürger sind beim heutigen Angriff gestorben!</target>
+        <target>{deaths} citoyens sont morts pendant cette attaque !</target>
       </segment>
     </unit>
     <unit id="iLdX6jg">
