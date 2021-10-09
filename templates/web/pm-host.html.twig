@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="{{ app.request.locale|e('html_attr') }}" class="lang-base-{{ (app.request.locale|e('html_attr')|split('_', 2))[0] }}">
+<head>
+    {% block html_head %}
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta charset="UTF-8" />
+
+        <!-- Keep the robots out -->
+        <meta name="robots" content="noindex, nofollow">
+
+        <!-- Tell mobile devices not to perform desktop scaling -->
+        <meta name="viewport" content="width=device-width, user-scalable=no">
+
+        <!-- Set the base URL to account for virtual mod_rewrite URLs -->
+        <base target="_blank" href="{{ app.request.getBaseURL() }}">
+
+        <!-- Set OG tags for Social Network Ads :] -->
+        <meta property="og:title" content="MyHordes">
+        <meta property="og:description" content="{{ 'Das Zombie Survival Game!'|trans({}, 'global')}}">
+        <meta property="og:image" content="{{ absolute_url(asset('build/images/favicon.ico')) }}">
+        <meta property="og:url" content="{{ app.request.uri }}">
+        <meta property="og:type" content="website">
+        <meta property="og:locale" content="de_DE" />
+        <meta property="og:locale:alternate" content="fr_FR" />
+        <meta property="og:locale:alternate" content="es_ES" />
+        <meta property="og:locale:alternate" content="en_US" />
+        <meta property="og:image" content="{{ absolute_url(asset('build/images/myhordes-og.png')) }}" />
+
+        <!-- Load CSS -->
+        {{ encore_entry_link_tags('app') }}
+
+        <!-- Load JS -->
+        {{ encore_entry_script_tags('app') }}
+
+        <!-- Set Favicon -->
+        <link rel="shortcut icon" href="{{ absolute_url(asset('build/images/favicon.ico')) }}" sizes="310x310">
+
+        <!-- Set page title -->
+        {% if block('title') is defined %}
+            <title>MyHordes - {{ block('title') }}</title>
+        {% else %}
+            <title>MyHordes</title>
+        {% endif %}
+    {% endblock %}
+</head>
+<body>
+<div id="notifications"></div>
+<div id="post-office-content" class="master"></div>
+<div id="tooltip_container"></div>
+<div id="loadzone" x-stack="0">
+    <div><img src="{{ asset('build/images/anims/loading.gif') }}" alt=""></div>
+    <div><img src="{{ asset('build/images/anims/loading.gif') }}" alt=""></div>
+</div>
+<div id="modal-backdrop">
+    <div id="modal">
+        <div id="modal-title"></div>
+        <div id="modal-content"></div>
+        <div id="modal-actions"></div>
+    </div>
+</div>
+
+</body>
+<footer>
+    {% block footer %}
+    {% endblock %}
+</footer>
+<script>
+    (function() {
+        window.c = {
+            'errors': {
+                'default': '{% trans from 'global' %}Allgemeiner Fehler.{% endtrans %}',
+                {{ include('scripts/errors/generic.txt.twig') }}
+                {{ include('scripts/errors/profile.txt.twig') }}
+                {{ include('scripts/errors/town.txt.twig') }}
+                {{ include('scripts/errors/beyond.txt.twig') }}
+                {{ include('scripts/errors/inventory.txt.twig') }}
+                {{ include('scripts/errors/actions.txt.twig') }}
+                {{ include('scripts/errors/forum.txt.twig') }}
+                {{ include('scripts/errors/ghost.txt.twig') }}
+            },
+            'langs': {
+                'de': '{{ 'Deutsch'|trans({},'global') }}',
+                'en': '{{ 'Englisch'|trans({},'global') }}',
+                'fr': '{{ 'Französisch'|trans({},'global') }}',
+                'es': '{{ 'Spanisch'|trans({},'global') }}',
+            },
+            'label': {
+                'confirm': '{{ 'Bestätigen'|trans({},'global') }}'
+            }
+        };
+
+        $.msg.registerFetchEndpoint( '{{ path('api_pm_spring') }}' );
+        $.msg.toggleFetch(true);
+        $.ajax.background().load( document.getElementById('post-office-content'),'{{ url('pm_view')|e('js') }}', false, {});
+    })();
+</script>
+</html>

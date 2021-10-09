@@ -102,12 +102,25 @@ class WebController extends CustomAbstractController
 
     /**
      * @Route("/ref/{name}")
+     * @param string $name
+     * @param SessionInterface $s
      * @return Response
      */
     public function refer_incoming(string $name, SessionInterface $s): Response
     {
         $s->set('refer', $name);
         return $this->render_web_framework($this->generateUrl('public_register'));
+    }
+
+    /**
+     * @Route("/pm", name="home_pm")
+     * @return Response
+     */
+    public function standalone_pm(): Response
+    {
+        if (!$this->isGranted('ROLE_USER'))
+            return $this->redirect($this->generateUrl('home'));
+        return $this->render( 'web/pm-host.html.twig', [] );
     }
 
     /**
