@@ -212,8 +212,10 @@ class MigrateCommand extends Command
             $env    = $input->getOption('environment');
             $php    = $input->getOption("php-bin") ?? 'php';
             $dbservice = $input->getOption("dbservice") ?? 'mysql';
+            $dbprocess = $dbservice === 'mysql' ? 'mysqld' : $dbservice;
 
-            $running_as = $this->helper->bin( 'whoami', $ret )[0];
+
+            $running_as = trim($this->helper->bin( 'whoami', $ret )[0]);
             $running_as_root = $running_as === 'root';
 
             $as = null;
@@ -221,7 +223,7 @@ class MigrateCommand extends Command
                 $output->writeln("<info>We have root permissions, <comment>running in advanced mode</comment>!</info>");
                 $as[0] = $input->getOption('as') ?? 'www-data';
                 $as[1] = $input->getOption('in') ?? 'www-data';
-            }
+            } else $output->writeln("<info>Hello $running_as!</info>");
 
             if (!$this->helper->capsule( "app:migrate --maintenance on", $output, 'Enable maintenance mode... ', true, $null, $php, false, 0, $as )) return -1;
 
@@ -235,8 +237,8 @@ class MigrateCommand extends Command
                     return 100;
             } else $output->writeln("Skipping <info>database backup</info>.");
 
-            if (!$this->helper->capsule( "git fetch --tags {$remote} {$branch}", $output, 'Retrieving updates from repository... ', false, $null, $php, false, 0, $as )) return 1;
-            if (!$this->helper->capsule( "git reset --hard {$remote}/{$branch}", $output, 'Applying changes to filesystem... ', false, $null, $php, false, 0, $as )) return 2;
+            //if (!$this->helper->capsule( "git fetch --tags {$remote} {$branch}", $output, 'Retrieving updates from repository... ', false, $null, $php, false, 0, $as )) return 1;
+            //if (!$this->helper->capsule( "git reset --hard {$remote}/{$branch}", $output, 'Applying changes to filesystem... ', false, $null, $php, false, 0, $as )) return 2;
 
             if (!$input->getOption('fast')) {
                 if ($env === 'dev') {
@@ -246,11 +248,19 @@ class MigrateCommand extends Command
             } else $output->writeln("Skipping <info>dependency updates</info>.");
 
             if (!$input->getOption('fast')) {
+                $killed = false;
                 if ($running_as_root) {
-                    if (!$this->helper->capsule( "service $dbservice stop", $output, 'Stopping database service... ', false, $null, $php, true, 0 )) return 6;
+                    $this->entity_manager->close();
+
+                    $mysqlpid =  (int)trim($this->helper->bin( "pidof $dbprocess", $ret )[0]);
+                    if ($mysqlpid > 0) {
+                        if (!$this->helper->capsule( "sudo kill -15 $mysqlpid", $output, "Stopping database service (<info>$mysqlpid</info>)... ", false, $null, $php, true, 3 )) return 6;
+                        sleep(5);
+                        $killed = true;
+                    }
                 }
                 if (!$this->helper->capsule( "yarn encore {$env}", $output, 'Building web assets... ', false, $null, $php, false, 3, $as )) return 6;
-                if ($running_as_root) {
+                if ($running_as_root && $killed) {
                     if (!$this->helper->capsule( "service $dbservice start", $output, 'Building web assets... ', false, $null, $php, true, 3 )) return 6;
                 }
             } else $output->writeln("Skipping <info>web asset updates</info>.");

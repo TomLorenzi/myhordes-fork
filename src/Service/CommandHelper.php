@@ -108,8 +108,10 @@ class CommandHelper
                 $output->writeln("\n<info>Retrying ($retry attempts left).</info>\n");
         } else $output->writeln("<info>Ok.</info>");
 
-        if ($ret !== 0 && $retry > 0)
-            return $this->capsule($command, $output, $note, $bin_console, $ret_str, $php_bin, $enforce_verbosity, $retry - 1, $as );
+        if ($ret !== 0 && $retry > 0) {
+            sleep(5);
+            return $this->capsule($command, $output, $note, $bin_console, $ret_str, $php_bin, $enforce_verbosity, $retry - 1, $as);
+        }
         else return $ret === 0;
     }
 
