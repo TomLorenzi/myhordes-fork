@@ -5228,7 +5228,7 @@
       </notes>
       <segment>
         <source>Lesen Sie das Mitteilungsblatt</source>
-        <target>Leer El Caváder Matutino</target>
+        <target>Leer El Cadáver Matutino</target>
       </segment>
     </unit>
     <unit id="3MPDTZN" name="Unsere Verteidigungen">
@@ -15362,7 +15362,7 @@
       </notes>
       <segment>
         <source>Leprechaun wurde gesehen, wie er den {item} von {victim} stahl!</source>
-        <target>Leprechaun wurde gesehen, wie er den {item} von {victim} stahl!</target>
+        <target>¡Se vio a un Duendecillo robando {item} de {victim}!</target>
       </segment>
     </unit>
     <unit id="RvCNf5O" name="Aktivität">
@@ -15465,7 +15465,7 @@
       </notes>
       <segment>
         <source>Der Rabe hat diese Nachricht zerrissen.</source>
-        <target>Der Rabe hat diese Nachricht zerrissen.</target>
+        <target>El cuervo desgarro este mensaje.</target>
       </segment>
     </unit>
     <unit id="6PPO5fH" name="Dieser Abwehrbonus verschwindet um Mitternacht, nach dem Angriff.">
@@ -15476,7 +15476,7 @@
       </notes>
       <segment>
         <source>Dieser Abwehrbonus verschwindet um Mitternacht, nach dem Angriff.</source>
-        <target>Dieser Abwehrbonus verschwindet um Mitternacht, nach dem Angriff.</target>
+        <target>Este bono de defensa desaparece a la medianoche después del ataque.</target>
       </segment>
     </unit>
     <unit id="gkceIWw">
@@ -15547,7 +15547,7 @@
       </notes>
       <segment>
         <source>Der Schamane verfügt über mystische Fähigkeiten. Er kann die Seelen kürzlich verstorbener Bürger orten, die in der Außenwelt umher irren.</source>
-        <target>Der Schamane verfügt über mystische Fähigkeiten. Er kann die Seelen kürzlich verstorbener Bürger orten, die in der Außenwelt umher irren.</target>
+        <target>El chamán tiene habilidades místicas. Puede localizar las almas de habitantes recientemente fallecidos que deambulan por el ultramundo.</target>
       </segment>
     </unit>
     <unit id="W8fp4NH">
@@ -15649,7 +15649,7 @@
       </notes>
       <segment>
         <source>Verbessrung des Tages</source>
-        <target>Verbessrung des Tages</target>
+        <target>Mejora del día</target>
       </segment>
     </unit>
     <unit id="fh_ltq7" name="Die Bank">
@@ -15690,7 +15690,7 @@
       </notes>
       <segment>
         <source>Ein neuer Tag bricht an</source>
-        <target>Ein neuer Tag bricht an</target>
+        <target>Un nuevo dia esta amaneciendo</target>
       </segment>
     </unit>
     <unit id="QA25eiQ" name="An einem kalten Morgen">
@@ -15701,7 +15701,7 @@
       </notes>
       <segment>
         <source>An einem kalten Morgen</source>
-        <target>An einem kalten Morgen</target>
+        <target>En una mañana fría</target>
       </segment>
     </unit>
     <unit id="FvwX8Vo" name="Die Außenwelt">
@@ -15722,7 +15722,7 @@
       </notes>
       <segment>
         <source>Ein beunruhigender Sonnenuntergang</source>
-        <target>Ein beunruhigender Sonnenuntergang</target>
+        <target>Una puesta de sol inquietante</target>
       </segment>
     </unit>
     <unit id="XRqPUn0" name="Eine eisige Nacht">
@@ -15733,7 +15733,7 @@
       </notes>
       <segment>
         <source>Eine eisige Nacht</source>
-        <target>Eine eisige Nacht</target>
+        <target>Una noche helada</target>
       </segment>
     </unit>
     <unit id="E2tLR1n" name="... allein">
@@ -15754,7 +15754,7 @@
       </notes>
       <segment>
         <source>an der Seite von {citizen}</source>
-        <target>an der Seite von {citizen}</target>
+        <target>al lado de {citizen}</target>
       </segment>
     </unit>
     <unit id="Jaioypa" name="irgendwo {location} der Stadt...">
@@ -15775,7 +15775,7 @@
       </notes>
       <segment>
         <source>in einer unheimlichen Ruine {location}</source>
-        <target>in einer unheimlichen Ruine {location}</target>
+        <target>en una ruina espeluznante {location}</target>
       </segment>
     </unit>
     <unit id="LV5ZZVt" name="an den Toren der Stadt">
@@ -15786,7 +15786,7 @@
       </notes>
       <segment>
         <source>an den Toren der Stadt</source>
-        <target>an den Toren der Stadt</target>
+        <target>a las puertas del pueblo</target>
       </segment>
     </unit>
     <unit id="TP3m8zB" name="sitzt in der Falle und wartet auf den Tod...">
@@ -15797,7 +15797,7 @@
       </notes>
       <segment>
         <source>sitzt in der Falle und wartet auf den Tod...</source>
-        <target>sitzt in der Falle und wartet auf den Tod...</target>
+        <target>atrapado esperando la muerte ...</target>
       </segment>
     </unit>
     <unit id="YqRBccv" name="Das Leichsblatt, Ausgabe vom {day}. Tag">
@@ -15818,7 +15818,7 @@
       </notes>
       <segment>
         <source>Wiedergeburt: Wähle einen Beruf</source>
-        <target>Wiedergeburt: Wähle einen Beruf</target>
+        <target>Renacimiento: elige una profesión</target>
       </segment>
     </unit>
     <unit id="JPF0EfZ" name="Klick hier, um mehr über diesen Beruf zu erfahren...">
@@ -15849,7 +15849,7 @@
       </notes>
       <segment>
         <source>Die Bürger dieser Stadt haben die unten aufgeführten Berufe gewählt.</source>
-        <target>Die Bürger dieser Stadt haben die unten aufgeführten Berufe gewählt.</target>
+        <target>Los habitantes de este pueblo han elegido las profesiones que se enumeran a continuación.</target>
       </segment>
     </unit>
     <unit id="lUcvZQo" name="Hilfe">
@@ -16189,7 +16189,7 @@
       </notes>
       <segment>
         <source>Sind wir noch in der Alpha?</source>
-        <target>¿Ya salimos de la verisón Alfa?</target>
+        <target>¿Ya salimos de la versión Alfa?</target>
       </segment>
     </unit>
     <unit id="OA64trN">
@@ -16489,7 +16489,7 @@
       </notes>
       <segment>
         <source>Auf den Aufstand hinarbeiten</source>
-        <target>Organizar una revuelta</target>
+        <target>Organizar una insurrección</target>
       </segment>
     </unit>
     <unit id="NLrfO4J">
@@ -17875,7 +17875,7 @@
       </notes>
       <segment>
         <source>{citizen1} verbrachten die ganze Nacht heulend in ihrem Haus, bis zu dem Punkt, dass jeder dachte, die Zombies würden Bürger-Steaks aus ihm machen. Es stellte sich heraus, dass sie gerade einen &lt;strong&gt;massiven Zusammenbruch&lt;/strong&gt; hatten. Letzte Nacht gab es keine Toten in der Stadt.</source>
-        <target><![CDATA[{citizen1} verbrachten die ganze Nacht heulend in ihrem Haus, bis zu dem Punkt, dass jeder dachte, die Zombies würden Bürger-Steaks aus ihm machen. Es stellte sich heraus, dass sie gerade einen <strong>massiven Zusammenbruch</strong> hatten. Letzte Nacht gab es keine Toten in der Stadt.]]></target>
+        <target><![CDATA[{citizen1} pasó toda la noche llorando en su casa hasta el punto de que todos pensaron que los zombies estaban haciendo filetes de habitante con él. Resultó que solo estaban teniendo una <strong>colapso masivo</strong>. No hubo muertes en el pueblo anoche.]]></target>
       </segment>
     </unit>
     <unit id="jq7dkW2">
@@ -17886,7 +17886,7 @@
       </notes>
       <segment>
         <source>{citizen1} und {citizen2} wurden in letzter Minute gerettet, als sie sich gestern Abend bereit machten, sich in ihren Häusern &lt;strong&gt;zu erhängen&lt;/strong&gt;. Kommentar: "Ich dachte, sie würden mich bei lebendigem Leib auffressen, und das wollte ich nicht mehr erleben". Im Nachhinein betrachtet war es eine schlechte Entscheidung, da es gestern Abend &lt;strong&gt;keine Zombies&lt;/strong&gt; in die Stadt geschafft haben.</source>
-        <target><![CDATA[{citizen1} und {citizen2} wurden in letzter Minute gerettet, als sie sich gestern Abend bereit machten, sich in ihren Häusern <strong>zu erhängen</strong>. Kommentar: "Ich dachte, sie würden mich bei lebendigem Leib auffressen, und das wollte ich nicht mehr erleben". Im Nachhinein betrachtet war es eine schlechte Entscheidung, da es gestern Abend <strong>keine Zombies</strong> in die Stadt geschafft haben.]]></target>
+        <target><![CDATA[{citizen1} y {citizen2} se salvaron en el último minuto cuando se dispusieron a <strong>ahorcarse</strong> en sus casas anoche. Comentario: "Pensé que me comerían vivo y no quería volver a ver eso". En retrospectiva, fue una mala decisión ya que <strong>ningún zombi</strong> llegó al pueblo anoche.]]></target>
       </segment>
     </unit>
     <unit id="tzTZCkX">
@@ -17897,7 +17897,7 @@
       </notes>
       <segment>
         <source>Heute Morgen feierte {citizen1} das Vereiteln der Zombiehorden von gestern Abend, indem &lt;strong&gt;er splitternackt durch die Straßen rannte&lt;/strong&gt;. "Ich wollte den Anbruch dieses neuen Tages auf angemessene Weise feiern", erklärte der Bürger.</source>
-        <target><![CDATA[Heute Morgen feierte {citizen1} das Vereiteln der Zombiehorden von gestern Abend, indem <strong>er splitternackt durch die Straßen rannte</strong>. "Ich wollte den Anbruch dieses neuen Tages auf angemessene Weise feiern", erklärte der Bürger.]]></target>
+        <target><![CDATA[Esta mañana, {citizen1} celebró la derrota de las hordas de zombis de anoche <strong>corriendo por las calles completamente desnudo</strong>. "Quería celebrar el amanecer de este nuevo día de manera adecuada", dijo el habitante.]]></target>
       </segment>
     </unit>
     <unit id="eunLp3W" name="Ich habe Magenschmerzen...">
@@ -18758,7 +18758,7 @@
       </notes>
       <segment>
         <source>Cette maison est &lt;strong&gt;protégée&lt;/strong&gt; (verrou ou autre...) et ne peut être cambriolée.</source>
-        <target><![CDATA[Esta casa está <strong>protegida</strong> (con cerradura u otro...) y no se puede ingresar.>]]></target>
+        <target><![CDATA[Esta casa está <strong>protegida</strong> (con cerradura u otro...) y no se puede ingresar.]]></target>
       </segment>
     </unit>
     <unit id="Hre92RP" name="Zeit bis zum nächsten Zombieangriff">
@@ -21638,7 +21638,7 @@
       </notes>
       <segment>
         <source>Diese Option steht dir ab sofort zur Verfügung, da du auf deiner Seelenseite den Diktatorbonus freigeschaltet hast.</source>
-        <target>La ves porque has desbloqueado la ventaja llamda Dictador en tu sección de Alma.</target>
+        <target>La ves porque has desbloqueado la ventaja llamada Dictador en tu sección de Alma.</target>
       </segment>
     </unit>
     <unit id="4Uzw2JG" name="Mehr darüber erfahren...">
@@ -22744,7 +22744,7 @@
       </notes>
       <segment>
         <source>Es ist dir gelungen, {item} von {victim} zu stehlen &lt;strong&gt;ohne entdeckt zu werden&lt;/strong&gt;. Nicht schlecht!</source>
-        <target><![CDATA[Has robado {item} cancerígeno roto(a) a {victim} <strong>sin que nadie se dé cuenta</strong>. ¡Qué hábil eres, eh!]]></target>
+        <target><![CDATA[Has robado {item} a {victim} <strong>sin que nadie se dé cuenta</strong>. ¡Qué hábil eres, eh!]]></target>
       </segment>
     </unit>
     <unit id="3gqgsBC" name="Du hast keine Seelenpunkte gewonnen (am ersten Tag gestorben).">
@@ -22875,7 +22875,7 @@
       </notes>
       <segment>
         <source>Dieser Registereintrag kann &lt;strong&gt;nicht&lt;/strong&gt; gefälscht werden.</source>
-        <target><![CDATA[Dieser Registereintrag kann <strong>nicht</strong> gefälscht werden.]]></target>
+        <target><![CDATA[Esta entrada de registro <strong>no</strong> se puede tachar.]]></target>
       </segment>
     </unit>
     <unit id="sTNvpIH" name="Klicke hier, um seine Informationen anzuzeigen">
@@ -22886,7 +22886,7 @@
       </notes>
       <segment>
         <source>Klicke hier, um seine Informationen anzuzeigen</source>
-        <target>Klicke hier, um seine Informationen anzuzeigen</target>
+        <target>Haga clic aquí para ver su información</target>
       </segment>
     </unit>
     <unit id="vuquyit" name="Ganz genau, das bist du!">
@@ -22897,7 +22897,7 @@
       </notes>
       <segment>
         <source>Ganz genau, das bist du!</source>
-        <target>Ganz genau, das bist du!</target>
+        <target>Sí, este eres tú...</target>
       </segment>
     </unit>
     <unit id="OjUho9K" name="gesichertes Haus">
@@ -22908,7 +22908,7 @@
       </notes>
       <segment>
         <source>gesichertes Haus</source>
-        <target>gesichertes Haus</target>
+        <target>casa protegida</target>
       </segment>
     </unit>
     <unit id="OpG5aGF">
@@ -22919,7 +22919,7 @@
       </notes>
       <segment>
         <source>In dieses Haus kann &lt;strong&gt;nicht eingebrochen&lt;/strong&gt; werden. Es ist durch ein Schloss oder etwas anderes gesichert...</source>
-        <target><![CDATA[In dieses Haus kann <strong>nicht eingebrochen</strong> werden. Es ist durch ein Schloss oder etwas anderes gesichert...]]></target>
+        <target><![CDATA[<strong>No se puede entrar en esta casa</strong> Está protegida por un candado o algo más...]]></target>
       </segment>
     </unit>
     <unit id="y9.hV9G">
@@ -22930,7 +22930,7 @@
       </notes>
       <segment>
         <source>Das Stadttor wurde bereits von einem anderen pflichtbewussten Bürger geschlossen.</source>
-        <target>Das Stadttor wurde bereits von einem anderen pflichtbewussten Bürger geschlossen.</target>
+        <target>La puerta del pueblo ya ha sido cerrada por otro habitante obediente.</target>
       </segment>
     </unit>
     <unit id="ejlTArB">
@@ -22941,7 +22941,7 @@
       </notes>
       <segment>
         <source>Du nimmst diese wandernde Seele und betest, dass der Schamane weiß, wie man diesen Trank zubereitet! Und du überlebst! Was für ein Glück, du hätten keine müde Mark auf den Scharlatan gewettet.</source>
-        <target>Du nimmst diese wandernde Seele und betest, dass der Schamane weiß, wie man diesen Trank zubereitet! Und du überlebst! Was für ein Glück, du hätten keine müde Mark auf den Scharlatan gewettet.</target>
+        <target>¡Tomas esa alma torturada y rezas para que el chamán sepa preparar esa poción!¡Y sobrevives! Qué suerte, no habrías apostado ni un céntimo por ese charlatán.</target>
       </segment>
     </unit>
   </file>
