@@ -22980,5 +22980,15 @@
         <target>Borrar</target>
       </segment>
     </unit>
+    <unit id="5JJ5qLV" name="Meine persönliche Nachricht ändern">
+      <notes>
+        <note category="german">Meine persönliche Nachricht ändern</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig</note>
+      </notes>
+      <segment>
+        <source>Meine persönliche Nachricht ändern</source>
+        <target>Cambiar mi anuncio personal</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

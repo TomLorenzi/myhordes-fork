@@ -23053,5 +23053,16 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>Delete</target>
       </segment>
     </unit>
+    <unit id="5JJ5qLV" name="Meine persönliche Nachricht ändern">
+      <notes>
+        <note category="german">Meine persönliche Nachricht ändern</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Meine persönliche Nachricht ändern</source>
+        <target>Meine persönliche Nachricht ändern</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
