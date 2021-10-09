@@ -23043,5 +23043,15 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>Dieser Wert spiegelt die Anwesenheit und Aktivität eines jeden Bürgers wider.</target>
       </segment>
     </unit>
+    <unit id="bC01IWH" name="Löschen">
+      <notes>
+        <note category="german">Löschen</note>
+        <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
+      </notes>
+      <segment>
+        <source>Löschen</source>
+        <target>Delete</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -22970,5 +22970,15 @@
         <target>Este valor refleja la presencia y la actividad de cada habitante.</target>
       </segment>
     </unit>
+    <unit id="bC01IWH" name="Löschen">
+      <notes>
+        <note category="german">Löschen</note>
+        <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
+      </notes>
+      <segment>
+        <source>Löschen</source>
+        <target>Borrar</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
