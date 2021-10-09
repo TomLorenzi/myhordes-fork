@@ -2438,7 +2438,6 @@
     <unit id="56Kf42Z">
       <notes>
         <note category="german">Als &lt;strong&gt;Ausgestoßener&lt;/strong&gt; stehen dir die Gemeinschaftsaktionen der Stadt nicht länger zur Verfügung: Bank, Baustelle, Tor, etc...</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/town.html.twig</note>
       </notes>
       <segment>

@@ -22778,7 +22778,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">{deaths} Bürger sind beim heutigen Angriff gestorben!</note>
         <note category="from">db://LogEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>{deaths} Bürger sind beim heutigen Angriff gestorben!</source>
@@ -22918,6 +22917,39 @@ cette violente opération...]]></target>
       <segment>
         <source>Gerechtigkeit in MyHordes</source>
         <target>La justice dans MyHordes</target>
+      </segment>
+    </unit>
+    <unit id="ahBv_BV" name="Def.">
+      <notes>
+        <note category="german">Def.</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Def.</source>
+        <target>Def.</target>
+      </segment>
+    </unit>
+    <unit id="1czlTIt" name="Zeigt die Hausverteidigung an.">
+      <notes>
+        <note category="german">Zeigt die Hausverteidigung an.</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Zeigt die Hausverteidigung an.</source>
+        <target>Zeigt die Hausverteidigung an.</target>
+      </segment>
+    </unit>
+    <unit id="2wFXnDs" name="Dieser Wert spiegelt die Anwesenheit und Aktivität eines jeden Bürgers wider.">
+      <notes>
+        <note category="german">Dieser Wert spiegelt die Anwesenheit und Aktivität eines jeden Bürgers wider.</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen_omniscience.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Dieser Wert spiegelt die Anwesenheit und Aktivität eines jeden Bürgers wider.</source>
+        <target>Dieser Wert spiegelt die Anwesenheit und Aktivität eines jeden Bürgers wider.</target>
       </segment>
     </unit>
   </file>

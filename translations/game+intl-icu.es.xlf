@@ -15357,7 +15357,6 @@
     <unit id="3GHNz5u" name="Leprechaun wurde gesehen, wie er den {item} von {victim} stahl!">
       <notes>
         <note category="german">Leprechaun wurde gesehen, wie er den {item} von {victim} stahl!</note>
-        <note category="state">new</note>
         <note category="from">db://LogEntryTemplate</note>
       </notes>
       <segment>
@@ -15460,7 +15459,6 @@
     <unit id="WlT3ppX" name="Der Rabe hat diese Nachricht zerrissen.">
       <notes>
         <note category="german">Der Rabe hat diese Nachricht zerrissen.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/bubbles.html.twig</note>
       </notes>
       <segment>
@@ -15471,7 +15469,6 @@
     <unit id="6PPO5fH" name="Dieser Abwehrbonus verschwindet um Mitternacht, nach dem Angriff.">
       <notes>
         <note category="german">Dieser Abwehrbonus verschwindet um Mitternacht, nach dem Angriff.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/dump.html.twig</note>
       </notes>
       <segment>
@@ -15542,7 +15539,6 @@
     <unit id="2Cxepy1">
       <notes>
         <note category="german">Der Schamane verfügt über mystische Fähigkeiten. Er kann die Seelen kürzlich verstorbener Bürger orten, die in der Außenwelt umher irren.</note>
-        <note category="state">new</note>
         <note category="from">db://CitizenProfession</note>
       </notes>
       <segment>
@@ -15644,7 +15640,6 @@
     <unit id="VP5Pzpa" name="Verbessrung des Tages">
       <notes>
         <note category="german">Verbessrung des Tages</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/upgrades.html.twig</note>
       </notes>
       <segment>
@@ -15685,7 +15680,6 @@
     <unit id="8l_i1Ah" name="Ein neuer Tag bricht an">
       <notes>
         <note category="german">Ein neuer Tag bricht an</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
@@ -15696,7 +15690,6 @@
     <unit id="QA25eiQ" name="An einem kalten Morgen">
       <notes>
         <note category="german">An einem kalten Morgen</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
@@ -15717,7 +15710,6 @@
     <unit id="hZyt4RO" name="Ein beunruhigender Sonnenuntergang">
       <notes>
         <note category="german">Ein beunruhigender Sonnenuntergang</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
@@ -15728,7 +15720,6 @@
     <unit id="XRqPUn0" name="Eine eisige Nacht">
       <notes>
         <note category="german">Eine eisige Nacht</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
@@ -15749,7 +15740,6 @@
     <unit id="9UrAchd" name="an der Seite von {citizen}">
       <notes>
         <note category="german">an der Seite von {citizen}</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
@@ -15770,7 +15760,6 @@
     <unit id=".Qv4CCd" name="in einer unheimlichen Ruine {location}">
       <notes>
         <note category="german">in einer unheimlichen Ruine {location}</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
@@ -15781,7 +15770,6 @@
     <unit id="LV5ZZVt" name="an den Toren der Stadt">
       <notes>
         <note category="german">an den Toren der Stadt</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
@@ -15792,7 +15780,6 @@
     <unit id="TP3m8zB" name="sitzt in der Falle und wartet auf den Tod...">
       <notes>
         <note category="german">sitzt in der Falle und wartet auf den Tod...</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
@@ -15813,7 +15800,6 @@
     <unit id="iqRYPYk" name="Wiedergeburt: Wähle einen Beruf">
       <notes>
         <note category="german">Wiedergeburt: Wähle einen Beruf</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/jobs.html.twig</note>
       </notes>
       <segment>
@@ -15844,7 +15830,6 @@
     <unit id="dC.LILA" name="Die Bürger dieser Stadt haben die unten aufgeführten Berufe gewählt.">
       <notes>
         <note category="german">Die Bürger dieser Stadt haben die unten aufgeführten Berufe gewählt.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/jobs.html.twig</note>
       </notes>
       <segment>
@@ -17870,7 +17855,6 @@
     <unit id="67_vaXM">
       <notes>
         <note category="german">{citizen1} verbrachten die ganze Nacht heulend in ihrem Haus, bis zu dem Punkt, dass jeder dachte, die Zombies würden Bürger-Steaks aus ihm machen. Es stellte sich heraus, dass sie gerade einen &lt;strong&gt;massiven Zusammenbruch&lt;/strong&gt; hatten. Letzte Nacht gab es keine Toten in der Stadt.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -17881,7 +17865,6 @@
     <unit id="jq7dkW2">
       <notes>
         <note category="german">{citizen1} und {citizen2} wurden in letzter Minute gerettet, als sie sich gestern Abend bereit machten, sich in ihren Häusern &lt;strong&gt;zu erhängen&lt;/strong&gt;. Kommentar: "Ich dachte, sie würden mich bei lebendigem Leib auffressen, und das wollte ich nicht mehr erleben". Im Nachhinein betrachtet war es eine schlechte Entscheidung, da es gestern Abend &lt;strong&gt;keine Zombies&lt;/strong&gt; in die Stadt geschafft haben.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -17892,7 +17875,6 @@
     <unit id="tzTZCkX">
       <notes>
         <note category="german">Heute Morgen feierte {citizen1} das Vereiteln der Zombiehorden von gestern Abend, indem &lt;strong&gt;er splitternackt durch die Straßen rannte&lt;/strong&gt;. "Ich wollte den Anbruch dieses neuen Tages auf angemessene Weise feiern", erklärte der Bürger.</note>
-        <note category="state">new</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
@@ -22871,7 +22853,6 @@
       <notes>
         <note category="german">Dieser Registereintrag kann &lt;strong&gt;nicht&lt;/strong&gt; gefälscht werden.</note>
         <note category="from">php:///src/Controller/GameController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Dieser Registereintrag kann &lt;strong&gt;nicht&lt;/strong&gt; gefälscht werden.</source>
@@ -22882,7 +22863,6 @@
       <notes>
         <note category="german">Klicke hier, um seine Informationen anzuzeigen</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Klicke hier, um seine Informationen anzuzeigen</source>
@@ -22893,7 +22873,6 @@
       <notes>
         <note category="german">Ganz genau, das bist du!</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ganz genau, das bist du!</source>
@@ -22904,7 +22883,6 @@
       <notes>
         <note category="german">gesichertes Haus</note>
         <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>gesichertes Haus</source>
@@ -22915,7 +22893,6 @@
       <notes>
         <note category="german">In dieses Haus kann &lt;strong&gt;nicht eingebrochen&lt;/strong&gt; werden. Es ist durch ein Schloss oder etwas anderes gesichert...</note>
         <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>In dieses Haus kann &lt;strong&gt;nicht eingebrochen&lt;/strong&gt; werden. Es ist durch ein Schloss oder etwas anderes gesichert...</source>
@@ -22926,7 +22903,6 @@
       <notes>
         <note category="german">Das Stadttor wurde bereits von einem anderen pflichtbewussten Bürger geschlossen.</note>
         <note category="from">twig:///templates/scripts/errors/town.txt.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Das Stadttor wurde bereits von einem anderen pflichtbewussten Bürger geschlossen.</source>
@@ -22937,7 +22913,6 @@
       <notes>
         <note category="german">Du nimmst diese wandernde Seele und betest, dass der Schamane weiß, wie man diesen Trank zubereitet! Und du überlebst! Was für ein Glück, du hätten keine müde Mark auf den Scharlatan gewettet.</note>
         <note category="from">php:///src/Controller/InventoryAwareController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Du nimmst diese wandernde Seele und betest, dass der Schamane weiß, wie man diesen Trank zubereitet! Und du überlebst! Was für ein Glück, du hätten keine müde Mark auf den Scharlatan gewettet.</source>
@@ -22962,6 +22937,37 @@
       <segment>
         <source>Gerechtigkeit in MyHordes</source>
         <target>La justicia en MyHordes</target>
+      </segment>
+    </unit>
+    <unit id="ahBv_BV" name="Def.">
+      <notes>
+        <note category="german">Def.</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Def.</source>
+        <target>Def.</target>
+      </segment>
+    </unit>
+    <unit id="1czlTIt" name="Zeigt die Hausverteidigung an.">
+      <notes>
+        <note category="german">Zeigt die Hausverteidigung an.</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig</note>
+      </notes>
+      <segment>
+        <source>Zeigt die Hausverteidigung an.</source>
+        <target>Indica el nivel de defensa de una vivienda.</target>
+      </segment>
+    </unit>
+    <unit id="2wFXnDs" name="Dieser Wert spiegelt die Anwesenheit und Aktivität eines jeden Bürgers wider.">
+      <notes>
+        <note category="german">Dieser Wert spiegelt die Anwesenheit und Aktivität eines jeden Bürgers wider.</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen_omniscience.html.twig</note>
+      </notes>
+      <segment>
+        <source>Dieser Wert spiegelt die Anwesenheit und Aktivität eines jeden Bürgers wider.</source>
+        <target>Este valor refleja la presencia y la actividad de cada habitante.</target>
       </segment>
     </unit>
   </file>

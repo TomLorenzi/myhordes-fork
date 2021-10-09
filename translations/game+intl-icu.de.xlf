@@ -14622,5 +14622,23 @@
         <target>Gerechtigkeit in MyHordes</target>
       </segment>
     </unit>
+    <unit id="ahBv_BV" name="Def.">
+      <segment>
+        <source>Def.</source>
+        <target>Def.</target>
+      </segment>
+    </unit>
+    <unit id="1czlTIt" name="Zeigt die Hausverteidigung an.">
+      <segment>
+        <source>Zeigt die Hausverteidigung an.</source>
+        <target>Zeigt die Hausverteidigung an.</target>
+      </segment>
+    </unit>
+    <unit id="2wFXnDs" name="Dieser Wert spiegelt die Anwesenheit und Aktivität eines jeden Bürgers wider.">
+      <segment>
+        <source>Dieser Wert spiegelt die Anwesenheit und Aktivität eines jeden Bürgers wider.</source>
+        <target>Dieser Wert spiegelt die Anwesenheit und Aktivität eines jeden Bürgers wider.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

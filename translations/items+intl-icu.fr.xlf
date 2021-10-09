@@ -9293,7 +9293,6 @@
       <notes>
         <note category="german">Verbessert die Verteidigung und verhindert Diebstähle</note>
         <note category="from">db://ItemPrototype</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Verbessert die Verteidigung und verhindert Diebstähle</source>

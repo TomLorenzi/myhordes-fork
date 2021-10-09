@@ -3432,7 +3432,6 @@
     <unit id="LzzllLx" name="Empfänger">
       <notes>
         <note category="german">Empfänger</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/pm/view.html.twig</note>
       </notes>
       <segment>

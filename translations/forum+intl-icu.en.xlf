@@ -36,7 +36,7 @@
     </unit>
     <unit id="WdY9GGc" name="rps">
       <notes>
-        <note category="german">rps</note>
+        <note category="german">ssp</note>
         <note category="from">twig:///templates/ajax/forum/editor.html.twig;twig:///templates/ajax/help/roleplay_options.html.twig</note>
         <note category="state">new</note>
       </notes>
@@ -47,8 +47,8 @@
     </unit>
     <unit id="s6GYS6C" name="coin">
       <notes>
-        <note category="german">coin</note>
-        <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
+        <note category="german">mw</note>
+        <note category="from">twig:///templates/ajax/forum/editor.html.twig;twig:///templates/ajax/help/roleplay_options.html.twig</note>
         <note category="state">new</note>
       </notes>
       <segment>
@@ -58,7 +58,7 @@
     </unit>
     <unit id="g2fNZv3" name="card">
       <notes>
-        <note category="german">card</note>
+        <note category="german">skat</note>
         <note category="from">twig:///templates/ajax/forum/editor.html.twig;twig:///templates/ajax/help/roleplay_options.html.twig</note>
         <note category="state">new</note>
       </notes>
@@ -69,7 +69,7 @@
     </unit>
     <unit id="nl5DrDJ" name="rnduser">
       <notes>
-        <note category="german">rnduser</note>
+        <note category="german">spieler</note>
         <note category="from">twig:///templates/ajax/forum/editor.html.twig;twig:///templates/ajax/help/roleplay_options.html.twig</note>
         <note category="state">new</note>
       </notes>
