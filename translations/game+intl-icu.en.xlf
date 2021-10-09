@@ -22871,7 +22871,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>{deaths} Bürger sind beim heutigen Angriff gestorben!</source>
-        <target>{deaths} Bürger sind beim heutigen Angriff gestorben!</target>
+        <target>{deaths} citizens died during the attack!</target>
       </segment>
     </unit>
     <unit id="iLdX6jg">
