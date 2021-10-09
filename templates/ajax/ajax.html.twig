@@ -35,9 +35,9 @@
             <h1><span>{{ is_granted('ROLE_CROW') ? 'Moderation'|trans({},'global') : 'Community-Tools'|trans({},'global') }}</span></h1>
             <div id="scrollMenu">
                 <ul>
-                    {% for adminAction in (is_granted('ROLE_CROW') ? adminActions : comActions) %}
+                    {% for adminId, adminAction in (is_granted('ROLE_CROW') ? adminActions : comActions) %}
                         {# @var adminAction \App\Entity\AdminAction #}
-                        <a class="link" {% if app.user.openModToolsSameWindow %}x-ajax-{% endif %}href="{{ path('admin_action', { 'id': adminAction.id }) }}"><span>{{ adminAction.name|trans({},'admin') }}</span></a><br>
+                        <a class="link" {% if app.user.openModToolsSameWindow %}x-ajax-{% endif %}href="{{ path('admin_action', { 'id': adminId }) }}"><span>{{ adminAction.name|trans({},'admin') }}</span></a><br>
                     {% endfor %}
                 </ul>
             </div>

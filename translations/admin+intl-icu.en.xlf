@@ -561,7 +561,7 @@
     <unit id="DNyzXO8" name="Angriff">
       <notes>
         <note category="german">Angriff</note>
-        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+        <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php;twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Angriff</source>
@@ -622,7 +622,7 @@
     <unit id="Vlb5Lbe" name="Aktionen">
       <notes>
         <note category="german">Aktionen</note>
-        <note category="from">twig:///templates/ajax/admin/dash.html.twig;twig:///templates/ajax/admin/reports/reports.html.twig;twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/towns/list.html.twig;twig:///templates/ajax/admin/towns/old_towns_list.html.twig;twig:///templates/ajax/admin/users/account.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/dash.html.twig;twig:///templates/ajax/admin/files/list.html.twig;twig:///templates/ajax/admin/reports/reports.html.twig;twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/towns/list.html.twig;twig:///templates/ajax/admin/towns/old_towns_list.html.twig;twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Aktionen</source>
@@ -2499,7 +2499,7 @@
       <notes>
         <note category="german">Datum</note>
         <note category="state">new</note>
-        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/files/list.html.twig;twig:///templates/ajax/admin/users/ban.html.twig</note>
       </notes>
       <segment>
         <source>Datum</source>
@@ -4049,6 +4049,139 @@
       <segment>
         <source>Neues Icon</source>
         <target>New icon</target>
+      </segment>
+    </unit>
+    <unit id="inFhWaa" name="Kernel">
+      <notes>
+        <note category="german">Kernel</note>
+        <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Kernel</source>
+        <target>Kernel</target>
+      </segment>
+    </unit>
+    <unit id="wcEAnT8" name="Update">
+      <notes>
+        <note category="german">Update</note>
+        <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Update</source>
+        <target>Update</target>
+      </segment>
+    </unit>
+    <unit id="J2.6H7T" name="Unbekannt">
+      <notes>
+        <note category="german">Unbekannt</note>
+        <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php</note>
+      </notes>
+      <segment>
+        <source>Unbekannt</source>
+        <target>Unknown</target>
+      </segment>
+    </unit>
+    <unit id="OdO2n.0" name="Täglich">
+      <notes>
+        <note category="german">Täglich</note>
+        <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php</note>
+      </notes>
+      <segment>
+        <source>Täglich</source>
+        <target>Daily</target>
+      </segment>
+    </unit>
+    <unit id="1LsNnOC" name="Wöchentlich">
+      <notes>
+        <note category="german">Wöchentlich</note>
+        <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php</note>
+      </notes>
+      <segment>
+        <source>Wöchentlich</source>
+        <target>Weekly</target>
+      </segment>
+    </unit>
+    <unit id=".QA57M1" name="Monatlich">
+      <notes>
+        <note category="german">Monatlich</note>
+        <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php</note>
+      </notes>
+      <segment>
+        <source>Monatlich</source>
+        <target>Monthly</target>
+      </segment>
+    </unit>
+    <unit id="lhysqm5" name="Manuell">
+      <notes>
+        <note category="german">Manuell</note>
+        <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php</note>
+      </notes>
+      <segment>
+        <source>Manuell</source>
+        <target>Manual</target>
+      </segment>
+    </unit>
+    <unit id="Iv9Lj0S" name="Nicht komprimiert">
+      <notes>
+        <note category="german">Nicht komprimiert</note>
+        <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php</note>
+      </notes>
+      <segment>
+        <source>Nicht komprimiert</source>
+        <target>Uncompressed</target>
+      </segment>
+    </unit>
+    <unit id="fW.TFsL" name="Systemlogs">
+      <notes>
+        <note category="german">Systemlogs</note>
+        <note category="from">twig:///templates/ajax/admin/files/list.html.twig</note>
+      </notes>
+      <segment>
+        <source>Systemlogs</source>
+        <target>System logs</target>
+      </segment>
+    </unit>
+    <unit id="mD79rvJ" name="Datenbank-Backups">
+      <notes>
+        <note category="german">Datenbank-Backups</note>
+        <note category="from">twig:///templates/ajax/admin/files/list.html.twig</note>
+      </notes>
+      <segment>
+        <source>Datenbank-Backups</source>
+        <target>Database backups</target>
+      </segment>
+    </unit>
+    <unit id="EzEnW8U" name="Tags">
+      <notes>
+        <note category="german">Tags</note>
+        <note category="from">twig:///templates/ajax/admin/files/list.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Tags</source>
+        <target>Tags</target>
+      </segment>
+    </unit>
+    <unit id="6QKKVpK" name="Datei">
+      <notes>
+        <note category="german">Datei</note>
+        <note category="from">twig:///templates/ajax/admin/files/list.html.twig</note>
+      </notes>
+      <segment>
+        <source>Datei</source>
+        <target>File</target>
+      </segment>
+    </unit>
+    <unit id="VwKZlwh" name="Dateigröße: {s}">
+      <notes>
+        <note category="german">Dateigröße: {s}</note>
+        <note category="from">twig:///templates/ajax/admin/files/list.html.twig</note>
+      </notes>
+      <segment>
+        <source>Dateigröße: {s}</source>
+        <target>File size: {s}</target>
       </segment>
     </unit>
   </file>

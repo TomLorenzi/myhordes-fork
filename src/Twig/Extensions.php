@@ -62,6 +62,7 @@ class Extensions extends AbstractExtension  implements GlobalsInterface
             new TwigFilter('group_titles',  [$this, 'group_titles']),
             new TwigFilter('watchpoint',  [$this, 'fetch_watch_points']),
             new TwigFilter('related',  [$this, 'user_relation']),
+            new TwigFilter('filesize',  [$this, 'format_filesize']),
         ];
     }
 
@@ -139,6 +140,14 @@ class Extensions extends AbstractExtension  implements GlobalsInterface
 
     public function user_relation(User $user, User $other, int $relation): bool {
         return $this->userHandler->checkRelation($user,$other,$relation);
+    }
+
+    public function format_filesize(int $size): string {
+        if     ($size >= 1099511627776) return round($size/1099511627776, 0) . ' TB';
+        elseif ($size >= 1073741824)    return round($size/1073741824, 1) . ' GB';
+        elseif ($size >= 1048576)       return round($size/1048576, 2) . ' MB';
+        elseif ($size >= 1024)          return round($size/1024, 0) . ' KB';
+        else                            return $size . ' B';
     }
 
     public function town_whitelisted(Town $town, ?User $user = null): bool {

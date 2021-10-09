@@ -49,22 +49,23 @@ class AdminActionController extends CustomAbstractController
 
     public static function getAdminActions(): array {
         return [
-            ['name' => T::__('Dashboard', 'admin'),   'id' => 0, 'route' => 'admin_dashboard'],
-            ['name' => T::__('Users', 'admin'),       'id' => 1, 'route' => 'admin_users'],
-            ['name' => T::__('Foren-Mod.', 'admin'),  'id' => 2, 'route' => 'admin_reports'],
-            ['name' => T::__('Städte', 'admin'),      'id' => 3, 'route' => 'admin_town_list'],
-            ['name' => T::__('Zukunft', 'admin'),     'id' => 4, 'route' => 'admin_changelogs'],
-            ['name' => T::__('AntiSpam', 'admin'),    'id' => 5, 'route' => 'admin_spam_domain_view'],
-            ['name' => T::__('Apps', 'admin'),        'id' => 6, 'route' => 'admin_app_view'],
-            ['name' => T::__('Saisons', 'admin'),     'id' => 7, 'route' => 'admin_seasons_view'],
-            ['name' => T::__('Gruppen', 'admin'),     'id' => 8, 'route' => 'admin_group_view'],
+            ['name' => T::__('Dashboard', 'admin'),   'route' => 'admin_dashboard'],
+            ['name' => T::__('Users', 'admin'),       'route' => 'admin_users'],
+            ['name' => T::__('Foren-Mod.', 'admin'),  'route' => 'admin_reports'],
+            ['name' => T::__('Städte', 'admin'),      'route' => 'admin_town_list'],
+            ['name' => T::__('Zukunft', 'admin'),     'route' => 'admin_changelogs'],
+            ['name' => T::__('AntiSpam', 'admin'),    'route' => 'admin_spam_domain_view'],
+            ['name' => T::__('Apps', 'admin'),        'route' => 'admin_app_view'],
+            ['name' => T::__('Saisons', 'admin'),     'route' => 'admin_seasons_view'],
+            ['name' => T::__('Gruppen', 'admin'),     'route' => 'admin_group_view'],
+            ['name' => T::__('Dateisystem', 'admin'), 'route' => 'admin_file_system_dash'],
         ];
     }
 
     public static function getCommunityActions(): array {
         return [
-            ['name' => T::__('Dashboard', 'admin'),   'id' => 0, 'route' => 'admin_dashboard'],
-            ['name' => T::__('Zukunft', 'admin'),     'id' => 1, 'route' => 'admin_changelogs'],
+            ['name' => T::__('Dashboard', 'admin'),  'route' => 'admin_dashboard'],
+            ['name' => T::__('Zukunft', 'admin'),    'route' => 'admin_changelogs'],
         ];
     }
 
@@ -126,85 +127,13 @@ class AdminActionController extends CustomAbstractController
      */
     public function dash(ParameterBagInterface $params): Response
     {
-        $log_files = [];
-
-        if ($this->isGranted('ROLE_ADMIN')) {
-            $base_dir = "{$params->get('kernel.project_dir')}/var/log";
-            $log_paths = [$base_dir];
-
-            while (!empty($log_paths)) {
-                $path = array_pop($log_paths);
-                foreach (new DirectoryIterator($path) as $fileInfo) {
-                    /** @var SplFileInfo $fileInfo */
-                    if ($fileInfo->isDot() || $fileInfo->isLink()) continue;
-                    elseif ($fileInfo->isFile() && strtolower($fileInfo->getExtension()) === 'log')
-                        $log_files[] = str_replace(['/','\\'],'::', str_replace("$base_dir/",'', $fileInfo->getRealPath()));
-                    elseif ($fileInfo->isDir()) $log_paths[] = $fileInfo->getRealPath();
-                }
-            }
-
-            sort($log_files);
-        }
-
-
         return $this->render( 'ajax/admin/dash.html.twig', $this->addDefaultTwigArgs(null, [
-            'logs' => $log_files,
             'actions' => $this->isGranted('ROLE_CROW') ? self::getAdminActions() : self::getCommunityActions(),
             'now' => time(),
             'schedules' => $this->isGranted('ROLE_ADMIN') ? $this->entity_manager->getRepository(AttackSchedule::class)->findByCompletion( false ) : [],
         ]));
     }
 
-    /**
-     * @Route("admin/log/{a}/{f}", name="admin_log", condition="!request.isXmlHttpRequest()")
-     * @param ParameterBagInterface $params
-     * @param string $a
-     * @param string $f
-     * @return Response
-     */
-    public function log(ParameterBagInterface $params, string $a = '', string $f = ''): Response
-    {
-        if (!$this->isGranted('ROLE_ADMIN')) return new Response('', 403);
-
-        if (empty($f)) $f = $params->get('kernel.environment');
-        $f = str_replace(['..','::'],['','/'],$f);
-
-        $path = new SplFileInfo("{$params->get('kernel.project_dir')}/var/log/{$f}");
-        if (!$path->isFile() || !strtolower($path->getExtension()) === 'log') return new Response('', 404);
-
-        if ($path->getSize() > 67108864)        $a = 'download';
-        else if ($path->getSize() > 16777216 && $a === 'view') $a = 'print';
-
-        switch ($a) {
-            case 'view': return $this->render( 'web/logviewer.html.twig', [
-                'filename' => $path->getRealPath(),
-                'log' => file_get_contents($path->getRealPath()),
-            ] );
-            case 'print': return $this->file($path->getRealPath(), $path->getFilename(), 'inline');
-            case 'download': return $this->file($path->getRealPath(), $path->getFilename(), 'attachment');
-            default: return new Response('', 403);
-        }
-    }
-
-    /**
-     * @Route("api/admin/clearlog/{f}", name="api_admin_clear_log")
-     * @param ParameterBagInterface $params
-     * @param string $f
-     * @return Response
-     */
-    public function clear_log_api(ParameterBagInterface $params, string $f = ''): Response
-    {
-        if (!$this->isGranted('ROLE_ADMIN')) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
-
-        if (empty($f)) $f = $params->get('kernel.environment');
-        $f = str_replace(['..','::'],['','/'],$f);
-
-        $path = new SplFileInfo("{$params->get('kernel.project_dir')}/var/log/{$f}");
-        if ($path->isFile() && strtolower($path->getExtension()) === 'log')
-            unlink($path->getRealPath());
-
-        return AjaxResponse::success();
-    }
 
     /**
      * @Route("api/admin/login", name="api_admin_login")
@@ -231,54 +160,9 @@ class AdminActionController extends CustomAbstractController
     public function index(int $id): Response
     {
         $actions = $this->isGranted('ROLE_CROW') ? self::getAdminActions() : self::getCommunityActions();
-        if (isset($actions[$id]) && isset($actions[$id]['route'])) {
+        if (isset($actions[$id]) && isset($actions[$id]['route']))
             return $this->redirect($this->generateUrl($actions[$id]['route']));
-        }
 
         return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
-    }
-
-    /**
-     * @Route("api/admin/raventimes/log", name="admin_newspaper_log_controller")
-     * @param JSONRequestParser $parser
-     * @return Response
-     */
-    public function log_newspaper_api(JSONRequestParser $parser): Response {
-        $town_id = $parser->get('town', -1);
-        $town = $this->entity_manager->getRepository(Town::class)->find($town_id);
-        return $this->renderLog((int)$parser->get('day', -1), $town, false, null, null);
-    }
-
-    protected function renderInventoryAsBank( Inventory $inventory ) {
-        $qb = $this->entity_manager->createQueryBuilder();
-        $qb
-            ->select('i.id', 'c.label as l1', 'cr.label as l2', 'SUM(i.count) as n')->from('App:Item','i')
-            ->where('i.inventory = :inv')->setParameter('inv', $inventory);
-        $qb->groupBy('i.prototype', 'i.broken');
-        $qb
-            ->leftJoin('App:ItemPrototype', 'p', Join::WITH, 'i.prototype = p.id')
-            ->leftJoin('App:ItemCategory', 'c', Join::WITH, 'p.category = c.id')
-            ->leftJoin('App:ItemCategory', 'cr', Join::WITH, 'c.parent = cr.id')
-            ->addOrderBy('c.ordering','ASC')
-            ->addOrderBy('p.id', 'ASC')
-            ->addOrderBy('i.id', 'ASC');
-
-        $data = $qb->getQuery()->getResult(AbstractQuery::HYDRATE_ARRAY);
-
-        $final = [];
-        $cache = [];
-
-        foreach ($data as $entry) {
-            $label = $entry['l2'] ?? $entry['l1'] ?? 'Sonstiges';
-            if (!isset($final[$label])) $final[$label] = [];
-            $final[$label][] = [ $entry['id'], $entry['n'] ];
-            $cache[] = $entry['id'];
-        }
-
-        $item_list = $this->entity_manager->getRepository(Item::class)->findAllByIds($cache);
-        foreach ( $final as $label => &$entries )
-            $entries = array_map(function( array $entry ) use (&$item_list): BankItem { return new BankItem( $item_list[$entry[0]], $entry[1] ); }, $entries);
-
-        return $final;
     }
 }
