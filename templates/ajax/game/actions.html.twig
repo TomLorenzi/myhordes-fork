@@ -82,11 +82,11 @@
                     <li class="action" x-recipe-id="{{ recipe.id }}">
                         {# @var recipe \App\Entity\Recipe #}
                         {% if recipe.result.entries.count == 1 %}
-                            {#{% if scout %}
-                                <img class="float-right" src="{{ asset('build/images/icons/uncloak.gif') }}" alt="">
-                            {% endif %}#}
                             {% if recipe.source and not conf.get(constant('App\\Structures\\TownConf::CONF_MODIFIER_PRE_ASSEMBLY'),false) %}
                                 <img src="{{ asset('build/images/item/item_' ~ recipe.provoking[0].icon ~ '.gif') }}" alt="{{ recipe.provoking[0].label|trans({},'items') }}">
+                                {% if scout and recipe.stealthy %}
+                                    <img class="float-right" src="{{ asset('build/images/icons/small_stealthy.gif') }}" alt="">
+                                {% endif %}
                                 <span>{{ 'Zusammenbauen'|trans({},'game') }}:
                                     {{ recipe.provoking[0].label|trans({}, 'items') }}
                                     {% if not app.user.expert %}
@@ -100,6 +100,9 @@
                                 </span>
                             {% else %}
                                 <img src="{{ asset('build/images/item/item_' ~ recipe.result.entries[0].prototype.icon ~ '.gif') }}" alt="{{ recipe.result.entries[0].prototype.label|trans({},'items') }}">
+                                {% if scout and recipe.stealthy %}
+                                    <img class="float-right" src="{{ asset('build/images/icons/small_stealthy.gif') }}" alt="">
+                                {% endif %}
                                 <span>{{ 'Herstellen'|trans({},'game') }}: <b>{{ recipe.result.entries[0].prototype.label|trans({},'items') }}</b></span>
                                 {% if recipe.source %}
                                     <span>
@@ -116,8 +119,10 @@
 
                         {% else %}
                             {% if recipe.source %}
-                                {% if scout %}
+                                {% if scout and not recipe.stealthy %}
                                     <img class="float-right" src="{{ asset('build/images/icons/uncloak.gif') }}" alt="">
+                                {% endif %}
+
                                 {% endif %}
                                 <span>
                                     {{ 'Kombinieren'|trans({},'game') }}:
