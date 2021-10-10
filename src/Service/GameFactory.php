@@ -611,24 +611,24 @@ class GameFactory
         return $main_citizen;
     }
 
-    public function compactTown(Town $town): bool {
-
-        foreach ($town->getCitizens() as $citizen) if ($citizen->getAlive()) return false;
-        if ($town->isOpen() && !$town->getCitizens()->isEmpty()) return false;
-
+    public function updateTownScore(Town $town): void {
         $score = 0;
         $lastDay = 0;
         foreach ($town->getRankingEntry()->getCitizens() as $r_citizen) {
             /* @var CitizenRankingProxy $citizen */
             $score += $r_citizen->getDay();
-            if($lastDay < $r_citizen->getDay())
-                $lastDay = $r_citizen->getDay();
+            $lastDay = max( $lastDay, $r_citizen->getDay());
         }
-        if($lastDay > 0)
-            $town->getRankingEntry()->setDays($lastDay);
 
-        $town->getRankingEntry()->setScore($score);
+        $town->getRankingEntry()->setDays($lastDay)->setScore($score);
+    }
 
+    public function compactTown(Town $town): bool {
+
+        foreach ($town->getCitizens() as $citizen) if ($citizen->getAlive()) return false;
+        if ($town->isOpen() && !$town->getCitizens()->isEmpty()) return false;
+
+        $this->updateTownScore($town);
         $this->entity_manager->remove($town);
         return true;
     }
