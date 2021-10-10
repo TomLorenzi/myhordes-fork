@@ -7765,7 +7765,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>{citizen} hat es regnen lassen! Ihm habt ihr {num} Rationen reinen Wassers im Brunnen zu verdanken!</source>
-        <target>{citizen} made it rain baby! made it rain baby! Thanks to them the well has gained {num} rations of clean water!</target>
+        <target>{citizen} made it rain baby! Thanks to them the well has gained {num} rations of clean water!</target>
       </segment>
     </unit>
     <unit id="yNMrKcz">
