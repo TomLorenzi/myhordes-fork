@@ -328,7 +328,7 @@ class SoulController extends CustomAbstractController
                 if ($r && !in_array($r->getId(), $searchSkip)) $users[] = $r;
             }
             $selected_group = true;
-        } else $users = mb_strlen($searchName) >= 3 ? $em->getRepository(User::class)->findBySoulSearchQuery($searchName, 10, $searchSkip) : [];
+        } else $users = mb_strlen($searchName) >= 3 ? $em->getRepository(User::class)->findBySoulSearchQuery($searchName, -1, $searchSkip) : [];
 
         $data = [
             'var' => $url,
