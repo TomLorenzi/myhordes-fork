@@ -23,6 +23,7 @@ use App\Service\UserFactory;
 use App\Response\AjaxResponse;
 use App\Service\UserHandler;
 use App\Structures\MyHordesConf;
+use DateTime;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
@@ -396,7 +397,7 @@ class PublicController extends CustomAbstractController
      * @param SessionInterface $session
      * @return Response
      */
-    public function login_via_etwin(string $code, TranslatorInterface $translator, EternalTwinHandler $etwin, SessionInterface $session): Response {
+    public function login_via_etwin(string $code, TranslatorInterface $translator, EternalTwinHandler $etwin, SessionInterface $session, UserHandler $userHandler): Response {
 
         $myhordes_user = $this->getUser();
         if ($myhordes_user && $myhordes_user->getEternalID())
@@ -422,6 +423,24 @@ class PublicController extends CustomAbstractController
             $session->set('_etwin_user', $user);
             $session->set('_etwin_login', $potential_user !== null && $myhordes_user === null);
             $session->set('_etwin_local', $myhordes_user ? $myhordes_user->getId() : null);
+
+            // Update user name
+            if ($potential_user !== null && $myhordes_user === null) {
+                $etu = substr($user->getDisplayName(),0,32);
+
+                if ($etu !== $potential_user->getName() && $userHandler->isNameValid($etu)) {
+                    $history = $potential_user->getNameHistory() ?? [];
+                    if(!in_array($etu, $history))
+                        $history[] = $etu;
+                    $potential_user->setNameHistory(array_filter(array_unique($history)));
+                    $this->entity_manager->persist( $potential_user->setDisplayName( $potential_user->getUsername() === $etu ? null : $etu )->setLastNameChange(new DateTime()) );
+
+                    try {
+                        $this->entity_manager->flush();
+                        $this->addFlash('notice', $translator->trans('Du hast deinen Anzeigenamen auf EternalTwin geändert. Wir haben diese Änderung soeben für dich übernommen!', [], 'login'));
+                    } catch (Exception $e) {}
+                }
+            }
 
             return $this->render( 'ajax/public/et_welcome.html.twig', [
                 'refer' => $session->get('refer'),
@@ -450,7 +469,7 @@ class PublicController extends CustomAbstractController
      * @return Response
      */
     public function etwin_confirm_api(Request $request, JSONRequestParser $parser, SessionInterface $session, UserFactory $userFactory,
-                                      UserPasswordHasherInterface $pass, TranslatorInterface $trans, ConfMaster $conf, TranslatorInterface $translator): Response {
+                                      UserPasswordHasherInterface $pass, TranslatorInterface $trans, ConfMaster $conf, TranslatorInterface $translator, UserHandler $userHandler): Response {
 
         $myhordes_user = $this->getUser();
         $password = $parser->get('pass', null);
@@ -466,21 +485,9 @@ class PublicController extends CustomAbstractController
             /** @var User $myhordes_user */
             $myhordes_user = $this->entity_manager->getRepository(User::class)->findOneByEternalID( $etwin_user->getID() );
 
-            // Update display name
-            if ($myhordes_user) {
-                $etu = substr($etwin_user->getDisplayName(),0,32);
-                $this->entity_manager->persist( $myhordes_user->setDisplayName( $myhordes_user->getUsername() === $etu ? null : $etu ) );
-
-                try {
-                    $this->entity_manager->flush();
-                } catch (Exception $e) {
-                    return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
-                }
-
+            if ($myhordes_user)
                 return new RedirectResponse($this->generateUrl( 'api_login' ));
-
-            } else return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-
+            else return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
         }
 
         // Case B - Account Creation
@@ -540,6 +547,9 @@ class PublicController extends CustomAbstractController
                 if ($refer) $referred_player = $refer->getUser();
                 else return AjaxResponse::error( 'invalid_fields', ['fields' => [$translator->trans('Der eingegebene Pate ist ungültig. Um dich ohne einen Paten anzumelden, lasse das Feld frei.', [], 'login')]] );
             }
+
+            if ( !$userHandler->isNameValid( preg_replace('/[^\w]/', '', trim($etwin_user->getDisplayName())) ) )
+                return AjaxResponse::errorMessage($this->translator->trans('Dein EternalTwin-Benutzername enthält Elemente, die auf MyHordes nicht gestattet sind. Bitte ändere deinen Namen auf EternalTwin, um dich auf MyHordes anmelden zu können.', [], 'login') );
 
             $new_user = $userFactory->importUser( $etwin_user, $parser->get('mail1'), false, $error );
 

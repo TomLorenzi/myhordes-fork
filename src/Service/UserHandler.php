@@ -741,14 +741,24 @@ class UserHandler
      * @return bool The validity of the username
      */
     public function isNameValid(string $name): bool {
-        $invalidNames = ['Der Rabe', 'Le Corbeau', 'The Crow', 'El Cuervo'];
-        $closestDistance = 99999;
-        foreach ($invalidNames as $invalidName) {
-            $dist = levenshtein($name,$invalidName);
-            if ($dist < $closestDistance) {
-                $closestDistance = $dist;
-            }
-        }
+        $invalidNames = [
+            // The Crow
+            'Der Rabe', 'Rabe', 'Le Corbeau', 'Corbeau', 'The Crow', 'Crow', 'El Cuervo', 'Cuervo',
+
+            // Admin & Mod
+            'Moderator', 'Admin', 'Administrator', 'Administrateur', 'Administrador', 'Moderador'
+        ];
+
+        $invalidNameStarters = [
+            'Corvus', 'Corbilla', '_'
+        ];
+
+        $closestDistance = PHP_INT_MAX;
+        foreach ($invalidNames as $invalidName)
+            $closestDistance = min( $closestDistance, levenshtein($name,$invalidName));
+
+        foreach ($invalidNameStarters as $starter)
+            if (str_starts_with($name, $starter)) return false;
 
         return !preg_match('/[^\w]/', $name) && strlen($name) >= 3 && strlen($name) <= 16 && $closestDistance > 2;
     }

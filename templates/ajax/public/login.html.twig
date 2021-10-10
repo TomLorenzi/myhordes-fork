@@ -29,7 +29,14 @@
                 </div>
                 <div class="row">
                     <div class="padded cell ro-3 rw-6 ro-md-0 rw-md-12">
-                        <a href="{{ url('gateway-etwin') }}" target="_self"><button><img style="width: 16px;" alt="" src="{{ asset('build/images/eternal-twin/icon_small.png') }}">{{ 'Über EternalTwin einloggen'|trans({},'login') }}</button></a>
+                        <button id="et_login_button"><img style="width: 16px;" alt="" src="{{ asset('build/images/eternal-twin/icon_small.png') }}">{{ 'Über EternalTwin einloggen'|trans({},'login') }}</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="padded cell ro-3 rw-6 ro-md-0 rw-md-12">
+                        <label for="et_remember_me"><input type="checkbox" id="et_remember_me" name="et_remember_me"/>
+                            {% trans from 'login' %}Angemeldet bleiben{% endtrans %}
+                        </label>
                     </div>
                 </div>
                 <div class="row">
@@ -132,6 +139,12 @@
                         else $.ajax.load(null, '{{ path('initial_landing') }}', true, {}, () => $.msg.execute());
                     }, {'default': '{% trans from 'login' %}Login fehlgeschlagen. Bitte prüfe deine Eingaben.{% endtrans %}'} )
             });
+        {% endif %}
+
+        {% if etwin is not null %}
+            document.getElementById('et_login_button').addEventListener('click', () => {
+                location.href = document.getElementById('et_remember_me').checked ? '{{ path('gateway-remember-etwin') }}' : '{{ path('gateway-etwin') }}'
+            })
         {% endif %}
 
         {% if etwin is not null and myh %}
