@@ -344,6 +344,8 @@ class HTMLService {
                     if ($profession !== null && $profession !== 'dead') {
                         if ($profession === 'hero') {
                             if (!$c->getProfession()->getHeroic()) return false;
+                        } elseif ($profession === 'shunned') {
+                            if (!$c->getBanished()) return false;
                         } elseif ($c->getProfession()->getName() !== $profession) return false;
                     }
 
