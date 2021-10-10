@@ -122,8 +122,6 @@
                                 {% if scout and not recipe.stealthy %}
                                     <img class="float-right" src="{{ asset('build/images/icons/uncloak.gif') }}" alt="">
                                 {% endif %}
-
-                                {% endif %}
                                 <span>
                                     {{ 'Kombinieren'|trans({},'game') }}:
                                     {% for entry in recipe.source.entries %}
