@@ -34,6 +34,7 @@ class AdminFileSystemController extends CustomAbstractController
         $paths = [$base_path];
         while (!empty($paths)) {
             $path = array_pop($paths);
+            if (!is_dir($path)) continue;
             foreach (new DirectoryIterator($path) as $fileInfo) {
                 /** @var SplFileInfo $fileInfo */
                 if ($fileInfo->isDot() || $fileInfo->isLink()) continue;
