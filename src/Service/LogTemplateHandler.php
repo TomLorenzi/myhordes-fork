@@ -146,12 +146,12 @@ class LogTemplateHandler
         return "{$this->trans->trans($dog_names_prefix[abs($preID % count($dog_names_prefix))],[],'names')}{$this->trans->trans($dog_names_suffix[abs($sufID % count($dog_names_suffix))],[],'names')}";
     }
     
-    public function parseTransParams (array $variableTypes, array $variables): ?array {
+    public function parseTransParams(array $variableTypes, array $variables): ?array {
         $transParams = [];
 
         $reference_citizen = null;
         foreach ($variableTypes as $typeEntry)
-            if ($typeEntry['type'] === 'citizen' && $reference_citizen === null)
+            if (isset($typeEntry['type']) && $typeEntry['type'] === 'citizen' && $reference_citizen === null)
                 $reference_citizen = $this->fetchVariableObject( $typeEntry['type'], $variables[$typeEntry['name']] );
 
         foreach ($variableTypes as $typeEntry) {
@@ -1151,6 +1151,7 @@ class LogTemplateHandler
             ->setVariables($variables)
             ->setTown( $town )
             ->setDay( $town->getDay() )
+            ->setCitizen( $citizen )
             ->setTimestamp( new DateTime('now') );
     }
 
@@ -1163,6 +1164,7 @@ class LogTemplateHandler
             ->setVariables($variables)
             ->setTown( $town )
             ->setDay( $town->getDay() )
+            ->setCitizen( $citizen )
             ->setTimestamp( new DateTime('now') );
     }
 
