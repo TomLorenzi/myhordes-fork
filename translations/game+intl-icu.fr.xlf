@@ -22974,5 +22974,16 @@ cette violente opération...]]></target>
         <target>Meine persönliche Nachricht ändern</target>
       </segment>
     </unit>
+    <unit id="sVxXfQu" name="Einen Aufstand der Verbannten vorbereiten (optional).">
+      <notes>
+        <note category="german">Einen Aufstand der Verbannten vorbereiten (optional).</note>
+        <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Einen Aufstand der Verbannten vorbereiten (optional).</source>
+        <target>préparer une insurrection de bannis (optionnel)</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

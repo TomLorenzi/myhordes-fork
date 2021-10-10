@@ -14652,5 +14652,11 @@
         <target>Meine persönliche Nachricht ändern</target>
       </segment>
     </unit>
+    <unit id="sVxXfQu" name="Einen Aufstand der Verbannten vorbereiten (optional).">
+      <segment>
+        <source>Einen Aufstand der Verbannten vorbereiten (optional).</source>
+        <target>Einen Aufstand der Verbannten vorbereiten (optional).</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
