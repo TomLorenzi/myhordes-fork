@@ -23072,5 +23072,16 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>Einen Aufstand der Verbannten vorbereiten (optional).</target>
       </segment>
     </unit>
+    <unit id="gfklKsJ" name="Du bist der {rolename} dieser Stadt.">
+      <notes>
+        <note category="german">Du bist der {rolename} dieser Stadt.</note>
+        <note category="from">php:///src/DataFixtures/CitizenFixtures.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Du bist der {rolename} dieser Stadt.</source>
+        <target>You are the {rolename} of the town.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -22977,5 +22977,16 @@ cette violente opération...]]></target>
         <target>préparer une insurrection de bannis (optionnel)</target>
       </segment>
     </unit>
+    <unit id="gfklKsJ" name="Du bist der {rolename} dieser Stadt.">
+      <notes>
+        <note category="german">Du bist der {rolename} dieser Stadt.</note>
+        <note category="from">php:///src/DataFixtures/CitizenFixtures.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Du bist der {rolename} dieser Stadt.</source>
+        <target>Vous êtes le {rolename} de la ville.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

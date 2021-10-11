@@ -64,6 +64,11 @@ class CitizenRole implements NamedEntity
      */
     private $message;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $help_section;
+
     public function __construct()
     {
     }
@@ -153,6 +158,18 @@ class CitizenRole implements NamedEntity
     public function setMessage(?string $message): self
     {
         $this->message = $message;
+
+        return $this;
+    }
+
+    public function getHelpSection(): ?string
+    {
+        return $this->help_section;
+    }
+
+    public function setHelpSection(?string $help_section): self
+    {
+        $this->help_section = $help_section;
 
         return $this;
     }
