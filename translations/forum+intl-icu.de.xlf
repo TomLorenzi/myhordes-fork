@@ -28,19 +28,19 @@
     <unit id="s6GYS6C" name="coin">
       <segment>
         <source>coin</source>
-        <target>mw</target>
+        <target>zk</target>
       </segment>
     </unit>
     <unit id="g2fNZv3" name="card">
       <segment>
         <source>card</source>
-        <target>skat</target>
+        <target>karte</target>
       </segment>
     </unit>
     <unit id="nl5DrDJ" name="rnduser">
       <segment>
         <source>rnduser</source>
-        <target>spieler</target>
+        <target>einwohner</target>
       </segment>
     </unit>
   </file>
