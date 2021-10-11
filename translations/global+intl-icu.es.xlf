@@ -3739,7 +3739,7 @@
       </notes>
       <segment>
         <source>Programming</source>
-        <target>Programming</target>
+        <target>Programadores</target>
       </segment>
     </unit>
     <unit id="MRosxv3" name="Thanks to">
@@ -3750,7 +3750,7 @@
       </notes>
       <segment>
         <source>Thanks to</source>
-        <target>Thanks to</target>
+        <target>Agradecimientos especiales</target>
       </segment>
     </unit>
   </file>
