@@ -114,7 +114,6 @@
     <unit id="6MESOb8" name="Trotz intensiver Suche hast du nichts verwertbares gefunden...">
       <notes>
         <note category="german">Trotz intensiver Suche hast du nichts verwertbares gefunden...</note>
-        <note category="state">new</note>
         <note category="from">php:///src/Service/ActionHandler.php</note>
       </notes>
       <segment>
@@ -7292,7 +7291,7 @@
     <unit id="0V2NUu6" name="In deinem Labor hast du {items_consume} in {items_spawn} umgewandelt.">
       <notes>
         <note category="german">In deinem Labor hast du {items_consume} in {items_spawn} umgewandelt.</note>
-        <note category="from">db://ItemAction</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>In deinem Labor hast du {items_consume} in {items_spawn} umgewandelt.</source>
@@ -9217,7 +9216,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     <unit id="zBL2Qmm">
       <notes>
         <note category="german">Du greifst einen Zombie mit {item} an, aber er &lt;strong&gt;geht einfach nicht zu Boden&lt;/strong&gt; und kommt weiter auf dich zu.</note>
-        <note category="from">db://AffectMessage</note>
+        <note category="from">[unused]</note>
         <note category="state">new</note>
       </notes>
       <segment>

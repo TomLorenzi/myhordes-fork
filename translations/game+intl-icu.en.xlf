@@ -24,7 +24,7 @@
     <unit id="ITvthhv" name="Sehr gut, niemand hat dich bei deinem Einbruch bei {victim} beobachtet.">
       <notes>
         <note category="german">Sehr gut, niemand hat dich bei deinem Einbruch bei {victim} beobachtet.</note>
-        <note category="from">php:///src/Controller/InventoryAwareController.php</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Sehr gut, niemand hat dich bei deinem Einbruch bei {victim} beobachtet.</source>
@@ -404,7 +404,7 @@
     <unit id="TEo9cyt" name="Das Tor ist bereits geschlossen.">
       <notes>
         <note category="german">Das Tor ist bereits geschlossen.</note>
-        <note category="from">twig:///templates/scripts/errors/town.txt.twig</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Das Tor ist bereits geschlossen.</source>
@@ -1863,7 +1863,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="seBLTh9" name="Diese Zone">
       <notes>
         <note category="german">Diese Zone</note>
-        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Diese Zone</source>
@@ -4798,7 +4798,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="Q9LWBP_" name="Nach einigen Anstrengungen hast du folgendes gefunden: {item}!">
       <notes>
         <note category="german">Nach einigen Anstrengungen hast du folgendes gefunden: {item}!</note>
-        <note category="from">php:///src/Controller/BeyondController.php;php:///src/Controller/ExplorationController.php;php:///src/Service/ZoneHandler.php</note>
+        <note category="from">php:///src/Controller/ExplorationController.php;php:///src/Service/ZoneHandler.php</note>
       </notes>
       <segment>
         <source>Nach einigen Anstrengungen hast du folgendes gefunden: {item}!</source>
@@ -10920,7 +10920,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="z3Y3jVt" name="Anonyme Beschwerde">
       <notes>
         <note category="german">Anonyme Beschwerde</note>
-        <note category="from">php:///src/Controller/Messages/MessageTownMessageController.php;php:///src/Controller/Town/TownHomeController.php</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Anonyme Beschwerde</source>
@@ -10940,7 +10940,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="1VFuVbv" name="Beschwerde zurückgezogen">
       <notes>
         <note category="german">Beschwerde zurückgezogen</note>
-        <note category="from">php:///src/Controller/Messages/MessageTownMessageController.php;php:///src/Controller/Town/TownHomeController.php</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Beschwerde zurückgezogen</source>
@@ -18546,7 +18546,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <notes>
         <note category="german">Die Zombies haben beim Angriff {list} zerstört.</note>
         <note category="state">new</note>
-        <note category="from">db://LogEntryTemplate</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Die Zombies haben beim Angriff {list} zerstört.</source>
@@ -23025,7 +23025,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <notes>
         <note category="german">Zeigt die Hausverteidigung an.</note>
         <note category="from">twig:///templates/ajax/game/town/citizen.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Zeigt die Hausverteidigung an.</source>
@@ -23036,7 +23035,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <notes>
         <note category="german">Dieser Wert spiegelt die Anwesenheit und Aktivität eines jeden Bürgers wider.</note>
         <note category="from">twig:///templates/ajax/game/town/citizen_omniscience.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Dieser Wert spiegelt die Anwesenheit und Aktivität eines jeden Bürgers wider.</source>
@@ -23055,9 +23053,8 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="5JJ5qLV" name="Meine persönliche Nachricht ändern">
       <notes>
-        <note category="german">Meine persönliche Nachricht ändern</note>
+        <note category="german">Meine persönliche Mitteilung ändern</note>
         <note category="from">twig:///templates/ajax/game/town/citizen.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Meine persönliche Nachricht ändern</source>

@@ -2629,5 +2629,11 @@
         <target>Dateigröße: {s}</target>
       </segment>
     </unit>
+    <unit id="NSeveUs" name="Dateisystem">
+      <segment>
+        <source>Dateisystem</source>
+        <target>Dateisystem</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
