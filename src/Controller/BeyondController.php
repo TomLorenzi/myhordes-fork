@@ -312,19 +312,19 @@ class BeyondController extends InventoryAwareController
             $survival_chance = $this->getActiveCitizen()->getCampingChance() > 0
             ? $this->getActiveCitizen()->getCampingChance()
             : $this->citizen_handler->getCampingChance($this->getActiveCitizen());
-            if ($survival_chance <= .15) {
+            if ($survival_chance <= .10) {
                 $camping_chance = $camping_chance_texts[0];
             } else if ($survival_chance <= .3) {
                 $camping_chance = $camping_chance_texts[1];
-            } else if ($survival_chance <= .45) {
+            } else if ($survival_chance <= .50) {
                 $camping_chance = $camping_chance_texts[2];
-            } else if ($survival_chance <= .6) {
+            } else if ($survival_chance <= .65) {
                 $camping_chance = $camping_chance_texts[3];
-            } else if ($survival_chance <= .75) {
+            } else if ($survival_chance <= .80) {
                 $camping_chance = $camping_chance_texts[4];
             } else if ($survival_chance <= .9) {
                 $camping_chance = $camping_chance_texts[5];
-            } else if ($survival_chance <= .99) {
+            } else if ($survival_chance < 1) {
                 $camping_chance = $camping_chance_texts[6];
             } else if ($survival_chance == 1) {
                 $camping_chance = $camping_chance_texts[7];
