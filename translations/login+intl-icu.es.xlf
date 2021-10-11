@@ -28,7 +28,7 @@
       </notes>
       <segment>
         <source>Die eingegebene E-Mail Adresse ist nicht gültig.</source>
-        <target>El e-mail ingresado no es válido.</target>
+        <target>La dirección de correo electrónico ingresada no es válida.</target>
       </segment>
     </unit>
     <unit id="6UV8ek7" name="Die eingegebenen E-Mail Adressen stimmen nicht überein.">
@@ -38,7 +38,7 @@
       </notes>
       <segment>
         <source>Die eingegebenen E-Mail Adressen stimmen nicht überein.</source>
-        <target>Los e-mails ingresados no coinciden.</target>
+        <target>Las direcciones de correo electrónico ingresadas no coinciden.</target>
       </segment>
     </unit>
     <unit id="jz03..f" name="Dein Passwort muss mindestens { limit } Zeichen umfassen.">
@@ -98,7 +98,7 @@
       </notes>
       <segment>
         <source>Die angegebene E-Mail Adresse wird bereits von einem anderen Profil verwendet.</source>
-        <target>El e-mail ingresado ya está siendo utilizado por otro jugador.</target>
+        <target>La dirección de correo electrónico ingresada ya está siendo utilizada por otro jugador.</target>
       </segment>
     </unit>
     <unit id="Qu4FAIf" name="E-Mail Adresse validieren">
@@ -108,7 +108,7 @@
       </notes>
       <segment>
         <source>E-Mail Adresse validieren</source>
-        <target>Validar dirección de e-mail</target>
+        <target>Validar dirección de correo electrónico</target>
       </segment>
     </unit>
     <unit id="mGW7q29" name="Hallo {name}!">
@@ -128,7 +128,7 @@
       </notes>
       <segment>
         <source>Bevor du loslegen kannst, musst du noch deine E-Mail Adresse validieren.</source>
-        <target>Antes de continuar, debes validar tu dirección de e-mail.</target>
+        <target>Antes de continuar, debes verificar tu dirección de correo electrónico .</target>
       </segment>
     </unit>
     <unit id="JeRbwqT" name="Bitte gib den Validierungscode ein, den du via E-Mail erhalten hast.">
@@ -138,7 +138,7 @@
       </notes>
       <segment>
         <source>Bitte gib den Validierungscode ein, den du via E-Mail erhalten hast.</source>
-        <target>Por favor ingresa el código de verificación que ha sido enviado a tu dirección de e-mail.</target>
+        <target>Por favor ingresa el código de verificación que ha sido enviado a tu dirección de correo electrónico.</target>
       </segment>
     </unit>
     <unit id="ANnpnHZ" name="Validierungscode">
@@ -148,7 +148,7 @@
       </notes>
       <segment>
         <source>Validierungscode</source>
-        <target>Código de validación</target>
+        <target>Código de verificación</target>
       </segment>
     </unit>
     <unit id="ocoTV1m" name="Prüfen">
@@ -158,7 +158,7 @@
       </notes>
       <segment>
         <source>Prüfen</source>
-        <target>Validar</target>
+        <target>Comprobar</target>
       </segment>
     </unit>
     <unit id="tkZocIU" name="Ausloggen">
@@ -198,7 +198,7 @@
       </notes>
       <segment>
         <source>Du hast deine E-Mail Adresse schon validiert?</source>
-        <target>¿Ya has validado tu dirección de e-mail?</target>
+        <target>¿Ya has verificado tu dirección de correo electrónico?</target>
       </segment>
     </unit>
     <unit id="cLGN4MZ" name="Einloggen!">
@@ -208,7 +208,7 @@
       </notes>
       <segment>
         <source>Einloggen!</source>
-        <target>¡Ingresa!</target>
+        <target>¡Inicia sesión!</target>
       </segment>
     </unit>
     <unit id="m8bXbyH" name="Validierung fehlgeschlagen. Bitte prüfe deine Eingaben.">
@@ -218,7 +218,7 @@
       </notes>
       <segment>
         <source>Validierung fehlgeschlagen. Bitte prüfe deine Eingaben.</source>
-        <target>La validación falló, por favor verifica lo ingresado.</target>
+        <target>La verificación falló. Por favor comprueba lo ingresado.</target>
       </segment>
     </unit>
     <unit id="Bw.Ze07" name="Einige Felder sind nicht korrekt ausgefüllt. Bitte prüfe eine Eingaben.">
@@ -228,7 +228,7 @@
       </notes>
       <segment>
         <source>Einige Felder sind nicht korrekt ausgefüllt. Bitte prüfe eine Eingaben.</source>
-        <target>Algunos campos no fueron completados correctamente. Por favor revisa lo ingresado.</target>
+        <target>Algunos campos no fueron completados correctamente. Por favor comprueba lo ingresado.</target>
       </segment>
     </unit>
     <unit id="O63JhDQ" name="Registrieren">
@@ -258,7 +258,7 @@
       </notes>
       <segment>
         <source>E-Mail Adresse</source>
-        <target>Dirección e-mail</target>
+        <target>Dirección de correo electrónico</target>
       </segment>
     </unit>
     <unit id="QNpwRBL" name="wiederholen">
@@ -291,7 +291,7 @@
         <source>Um die Registrierung abzuschließen und deinen Account zu aktivieren, musst du auf einen
                         Aktivierungslink klicken, der dir an die angegebene E-Mail Adresse geschickt wird.</source>
         <target>Para completar el registro y activar tu cuenta, 
-						debes hacer clic en el enlace de activación que se enviará a la dirección e-mail especificada.</target>
+						debes hacer clic en el enlace de activación que se enviará a la dirección de correo electrónico especificada.</target>
       </segment>
     </unit>
     <unit id="._jFtS_" name="Du hast schon einen Account?">
@@ -311,7 +311,7 @@
       </notes>
       <segment>
         <source>Einloggen</source>
-        <target>Ingresar</target>
+        <target>Iniciar sesión</target>
       </segment>
     </unit>
     <unit id="k.cRHPZ" name="Bitte gib deinen Spielernamen und dein Passwort ein.">
@@ -351,7 +351,7 @@
       </notes>
       <segment>
         <source>Auf wiedersehen, {name}. Wir werden dich vermissen und hoffen, dass du vielleicht doch noch einmal zurück kommst.</source>
-        <target>Adiós, {name}. Te echaremos de menos y esperamos que vuelvas de nuevo.</target>
+        <target>Adiós, {name}. Te echaremos de menos y esperamos que vuelvas pronto.</target>
       </segment>
     </unit>
     <unit id="e99uiXA" name="Aktuelles Passwort">
@@ -391,7 +391,7 @@
       </notes>
       <segment>
         <source>Passwort zurücksetzen</source>
-        <target>Restablecer contraseña</target>
+        <target>Restablecer mi contraseña</target>
       </segment>
     </unit>
     <unit id=".Mffux1" name="Bitte gib ein neues Passwort ein.">
@@ -411,7 +411,7 @@
       </notes>
       <segment>
         <source>Bitte gib deine E-Mail Adresse ein.</source>
-        <target>Introduce tu dirección e-mail.</target>
+        <target>Introduce tu dirección de correo electrónico.</target>
       </segment>
     </unit>
     <unit id="9.8ReK8" name="Abbrechen">
@@ -431,7 +431,7 @@
       </notes>
       <segment>
         <source>Dieses Konto wartet bereits auf eine Passwortzurücksetzung.</source>
-        <target>Esta cuenta ya está esperando por un restablecimiento de la contraseña.</target>
+        <target>Esta cuenta ya está esperando por un restablecimiento de contraseña.</target>
       </segment>
     </unit>
     <unit id="axBQZ1o">
@@ -441,7 +441,7 @@
       </notes>
       <segment>
         <source>Wenn deine eingegebene E-Mail Adresse korrekt war, wurde dir soeben ein Link zum Zurücksetzen deines Passwortes geschickt.</source>
-        <target>Si la dirección e-mail que has introducido era correcta, recibirás un enlace para restablecer tu contraseña.</target>
+        <target>Si la dirección de correo electrónico que has introducido era correcta, recibirás un enlace para restablecer tu contraseña.</target>
       </segment>
     </unit>
     <unit id="w6NXTHc">
@@ -451,7 +451,7 @@
       </notes>
       <segment>
         <source>Dein Passwort wurde geändert. Du kannst dich nun mit deinem neuen Passwort einloggen.</source>
-        <target>Tu contraseña fue cambiada. Ahora puedes iniciar sesión con tu nueva contraseña.</target>
+        <target>Tu contraseña ha sido cambiada. Ahora puedes iniciar sesión con tu nueva contraseña.</target>
       </segment>
     </unit>
     <unit id="LRrjhiE" name="Angemeldet bleiben">
@@ -481,7 +481,7 @@
       </notes>
       <segment>
         <source>MyHordes ist ein Teil des EternalTwin-Netzwerks. Wenn du einen EternalTwin-Account hast, kannst du MyHordes ohne zusätzliche Registrierung spielen!</source>
-        <target>MyHordes forma parte de la red EternalTwin. Si tienes una cuenta de EternalTwin, ¡puedes jugar sin necesidad de registrarte!</target>
+        <target>MyHordes forma parte de la red EternalTwin. ¡Si tienes una cuenta de EternalTwin, puedes jugar sin necesidad de registrarte!</target>
       </segment>
     </unit>
     <unit id="qo4M11k" name="Über EternalTwin einloggen">
@@ -511,7 +511,7 @@
       </notes>
       <segment>
         <source>Dies wird nicht für immer möglich sein. Wir raten dir, deinen alten MyHordes-Account so bald wie möglich mit EternalTwin zu verknüpfen.</source>
-        <target>Esto no será posible para siempre. Te aconsejamos que vincules tu antigua cuenta de MyHordes a EternalTwin lo antes posible.</target>
+        <target>Esto no será posible para siempre. Te recomendamos que vincules tu antigua cuenta de MyHordes a EternalTwin lo antes posible.</target>
       </segment>
     </unit>
     <unit id="uT6i9yH">
@@ -521,7 +521,7 @@
       </notes>
       <segment>
         <source>Deine Seele bleibt bei der Verknüpfung mit EternalTwin selbstverständlich vollständig erhalten.</source>
-        <target>Por supuesto, tu alma permanece intacta si vinculas tu cuenta con EternalTwin.</target>
+        <target>Por supuesto, tu alma permanece intacta al vincular tu cuenta con EternalTwin.</target>
       </segment>
     </unit>
     <unit id="RG1kp2m" name="Über MyHordes einloggen">
@@ -541,7 +541,7 @@
       </notes>
       <segment>
         <source>Verknüpfung mit EternalTwin</source>
-        <target>Enlace con EternalTwin</target>
+        <target>Vincular con EternalTwin</target>
       </segment>
     </unit>
     <unit id="sndALWW" name="Gleich kanns losgehen!">
@@ -597,7 +597,7 @@
       </notes>
       <segment>
         <source>Dein Account wurde erfolgreich verknüpft!</source>
-        <target>¡Tu cuenta ha sido enlazada con éxito!</target>
+        <target>¡Tu cuenta ha sido vinculada con éxito!</target>
       </segment>
     </unit>
     <unit id="Oi3QrV3" name="Du wirst eingeloggt. Bitte warte eine Sekunde ...">
@@ -607,7 +607,7 @@
       </notes>
       <segment>
         <source>Du wirst eingeloggt. Bitte warte eine Sekunde ...</source>
-        <target>Serás ingresado. Por favor, espera un segundo...</target>
+        <target>Serás ingresado. Por favor, espera un momento...</target>
       </segment>
     </unit>
     <unit id="p_2G6pv">
@@ -627,7 +627,7 @@
       </notes>
       <segment>
         <source>Nach der Verknüpfung kannst du dich nur noch über EternalTwin in MyHordes anmelden. Deine alten Zugangsdaten werden ungültig.</source>
-        <target>Después de vincular tu cuenta sólo podrás entrar a MyHordes a través de EternalTwin. Sus antiguos datos de acceso se volverán inválidos.</target>
+        <target>Después de vincular tu cuenta sólo podrás iniciar sesión en MyHordes a través de EternalTwin. Tus antiguos datos de acceso se volverán inválidos.</target>
       </segment>
     </unit>
     <unit id="r.jGoXw">
@@ -637,7 +637,7 @@
       </notes>
       <segment>
         <source>Wenn du fortfahren möchtest, gib bitte ein letztes Mal dein MyHordes-Passwort ein und klicke auf "Verknüpfen".</source>
-        <target>Si desea continuar, por favor, introduce tu contraseña de MyHordes por última vez y haz click en "Vincular"</target>
+        <target>Si deseas continuar, por favor, introduce tu contraseña de MyHordes por última vez y haz click en "Vincular"</target>
       </segment>
     </unit>
     <unit id="jKP5PMR" name="Verknüpfen">
@@ -677,7 +677,7 @@
       </notes>
       <segment>
         <source>Du wurdest erfolgreich von allen Geräten abgemeldet.</source>
-        <target>Se ha cerrado correctamente la sesión de todos los dispositivos.</target>
+        <target>Se ha cerrado correctamente la sesión de todos los demás dispositivos.</target>
       </segment>
     </unit>
     <unit id="iGunNf8" name="Dein Name kann nur alphanumerische Zeichen enthalten.">
@@ -687,7 +687,7 @@
       </notes>
       <segment>
         <source>Dein Name kann nur alphanumerische Zeichen enthalten.</source>
-        <target>Su nombre solo puede contener caracteres alfanuméricos.</target>
+        <target>Tu nombre solo puede contener caracteres alfanuméricos.</target>
       </segment>
     </unit>
     <unit id="6zAO87a">
@@ -697,7 +697,7 @@
       </notes>
       <segment>
         <source>Der eingegebene Pate ist ungültig. Um dich ohne einen Paten anzumelden, lasse das Feld frei.</source>
-        <target>El patrocinador ingresado no es válido. Para registrarse sin un patrocinador, deje el campo en blanco.</target>
+        <target>El patrocinador ingresado no es válido. Para registrarse sin un patrocinador, deja el campo en blanco.</target>
       </segment>
     </unit>
     <unit id="e_EqP86" name="Pate">
@@ -717,7 +717,7 @@
       </notes>
       <segment>
         <source>Wenn du von einem anderen Spieler für MyHordes geworben wurdest, gib hier seinen Namen ein. Er oder sie wird dir sehr dankbar sein...</source>
-        <target>Si otro jugador te ha invitado a MyHordes, ingresa su nombre aquí. Te estará muy agradecido...</target>
+        <target>Si otro jugador te ha invitado a MyHordes, ingresa su nombre aquí. Estará muy agradecido...</target>
       </segment>
     </unit>
     <unit id="zPzPmd5">
@@ -737,7 +737,7 @@
       </notes>
       <segment>
         <source>Bevor du mit deinem EternalTwin-Account spielen kannst, brauchen wir noch ein paar zusätzliche Informationen von dir.</source>
-        <target>Antes de que puedas jugar con tu cuenta EternalTwin, necesitamos información adicional tuya.</target>
+        <target>Antes de que puedas jugar con tu cuenta de EternalTwin, necesitamos información adicional tuya.</target>
       </segment>
     </unit>
     <unit id="wmjJuDK">
@@ -749,8 +749,8 @@
       <segment>
         <source>Um die Registrierung abzuschließen und deinen Account zu aktivieren, musst du auf einen
                                             Aktivierungslink klicken, der dir an die angegebene E-Mail Adresse geschickt wird.</source>
-        <target>Para completar el registro y activar su cuenta, debe ir a un
-                                            Haga clic en el enlace de activación que se enviará a la dirección de correo electrónico especificada.</target>
+        <target>Para completar el registro y activar tu cuenta, debes ir a un
+                                            Enlace de activación que se enviará a la dirección de correo electrónico especificada.</target>
       </segment>
     </unit>
     <unit id="Nm0UxBL">
@@ -760,7 +760,7 @@
       </notes>
       <segment>
         <source>Um dich einzuloggen, musst du nach wie vor deinen &lt;b&gt;ursprünglichen Namen&lt;/b&gt; verwenden: &lt;i&gt;{name}&lt;/i&gt;.</source>
-        <target><![CDATA[Para iniciar sesión, aún debe usar su <b>nombre original</b>: <i>{name}</i>.]]></target>
+        <target><![CDATA[Para iniciar sesión, aún debes usar tu <b>nombre original</b>: <i>{name}</i>.]]></target>
       </segment>
     </unit>
     <unit id="tW3qs0M" name="Die eingegebene E-Mail Adresse ist nicht korrekt.">
@@ -780,7 +780,7 @@
       </notes>
       <segment>
         <source>Deine E-Mail Adresse wurde geändert. Bitte validiere die neue Adresse, damit du sie verwenden kannst.</source>
-        <target>Su dirección de correo electrónico ha sido modificada. Valide la nueva dirección para poder utilizarla.</target>
+        <target>Tu dirección de correo electrónico ha sido modificada. Valide la nueva dirección para poder utilizarla.</target>
       </segment>
     </unit>
     <unit id="9S9gbqW" name="Die E-Mail ist nicht angekommen?">
@@ -790,7 +790,7 @@
       </notes>
       <segment>
         <source>Die E-Mail ist nicht angekommen?</source>
-        <target>¿No recibiste el correo electrónico?</target>
+        <target>¿No has recibido el correo electrónico?</target>
       </segment>
     </unit>
     <unit id="Tfm3hV." name="Erneut senden!">
@@ -810,7 +810,7 @@
       </notes>
       <segment>
         <source>Die Validierungs-Mail wurde erfolgreich gesendet.</source>
-        <target>El correo electrónico de validación se envió correctamente.</target>
+        <target>El correo electrónico de verificación se envió correctamente.</target>
       </segment>
     </unit>
     <unit id="I6yQ0Zq">
@@ -820,7 +820,7 @@
       </notes>
       <segment>
         <source>Du musst 5 Minuten warten, bevor du eine erneute E-Mail versenden kannst. Bitte prüfe in der Zwischenzeit, ob die Mail möglicherweise in deinem Spam-Ordner gelandet ist.</source>
-        <target>Tienes que esperar 5 minutos antes de poder enviar otro correo electrónico. Mientras tanto, compruebe si es posible que el correo haya terminado en su carpeta de correo no deseado.</target>
+        <target>Tienes que esperar 5 minutos antes de poder enviar otro correo electrónico. Mientras tanto, comprueba si es posible que el correo haya terminado en tu carpeta de correo no deseado o spam.</target>
       </segment>
     </unit>
     <unit id="1zpAcv.">
@@ -831,7 +831,7 @@
       </notes>
       <segment>
         <source>Du hast deinen Anzeigenamen auf EternalTwin geändert. Wir haben diese Änderung soeben für dich übernommen!</source>
-        <target>Du hast deinen Anzeigenamen auf EternalTwin geändert. Wir haben diese Änderung soeben für dich übernommen!</target>
+        <target>¡Has cambiado tu nombre visible de EternalTwin, así que lo hemos actualizado por ti!<target>
       </segment>
     </unit>
     <unit id="OUS.MDw">
@@ -842,7 +842,7 @@
       </notes>
       <segment>
         <source>Dein EternalTwin-Benutzername enthält Elemente, die auf MyHordes nicht gestattet sind. Bitte ändere deinen Namen auf EternalTwin, um dich auf MyHordes anmelden zu können.</source>
-        <target>Dein EternalTwin-Benutzername enthält Elemente, die auf MyHordes nicht gestattet sind. Bitte ändere deinen Namen auf EternalTwin, um dich auf MyHordes anmelden zu können.</target>
+        <target>Tu nombre de usuario de EternalTwin contiene elementos que no están permitidos en MyHordes. Debes cambiar tu nombre de EternalTwin para poder ingresar en MyHordes.</target>
       </segment>
     </unit>
   </file>
