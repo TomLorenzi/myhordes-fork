@@ -2510,5 +2510,11 @@
         <target>Alte Seelen</target>
       </segment>
     </unit>
+    <unit id="o1q81tr" name="Icon">
+      <segment>
+        <source>Icon</source>
+        <target>Icon</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

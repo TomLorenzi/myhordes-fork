@@ -3734,5 +3734,27 @@
         <target>Fin</target>
       </segment>
     </unit>
+    <unit id="5quivVp" name="Programming">
+      <notes>
+        <note category="german">Programming</note>
+        <note category="from">twig:///templates/web/framework.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Programming</source>
+        <target>Développement</target>
+      </segment>
+    </unit>
+    <unit id="MRosxv3" name="Thanks to">
+      <notes>
+        <note category="german">Thanks to</note>
+        <note category="from">twig:///templates/web/framework.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Thanks to</source>
+        <target>Merci à</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

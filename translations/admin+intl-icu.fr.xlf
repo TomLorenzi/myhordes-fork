@@ -875,7 +875,7 @@
     <unit id="aZibx3x" name="Server-Log herunterladen">
       <notes>
         <note category="german">Server-Log herunterladen</note>
-        <note category="from">twig:///templates/ajax/admin/dash.html.twig</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Server-Log herunterladen</source>
@@ -885,7 +885,7 @@
     <unit id="yvg6S11" name="Server-Log ansehen">
       <notes>
         <note category="german">Server-Log ansehen</note>
-        <note category="from">twig:///templates/ajax/admin/dash.html.twig</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Server-Log ansehen</source>
@@ -895,7 +895,7 @@
     <unit id="UYFKH.u" name="Server-Log löschen">
       <notes>
         <note category="german">Server-Log löschen</note>
-        <note category="from">twig:///templates/ajax/admin/dash.html.twig</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Server-Log löschen</source>
@@ -2110,7 +2110,7 @@
       <notes>
         <note category="german">Log</note>
         <note category="state">new</note>
-        <note category="from">twig:///templates/ajax/admin/dash.html.twig</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Log</source>
@@ -4108,22 +4108,20 @@
       <notes>
         <note category="german">Systemlogs</note>
         <note category="from">twig:///templates/ajax/admin/files/list.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Systemlogs</source>
-        <target>Systemlogs</target>
+        <target>Journaux</target>
       </segment>
     </unit>
     <unit id="mD79rvJ" name="Datenbank-Backups">
       <notes>
         <note category="german">Datenbank-Backups</note>
         <note category="from">twig:///templates/ajax/admin/files/list.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Datenbank-Backups</source>
-        <target>Datenbank-Backups</target>
+        <target>Sauvegardes BDD</target>
       </segment>
     </unit>
     <unit id="EzEnW8U" name="Tags">
@@ -4141,22 +4139,30 @@
       <notes>
         <note category="german">Datei</note>
         <note category="from">twig:///templates/ajax/admin/files/list.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Datei</source>
-        <target>Datei</target>
+        <target>Fichier</target>
       </segment>
     </unit>
     <unit id="VwKZlwh" name="Dateigröße: {s}">
       <notes>
         <note category="german">Dateigröße: {s}</note>
         <note category="from">twig:///templates/ajax/admin/files/list.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Dateigröße: {s}</source>
-        <target>Dateigröße: {s}</target>
+        <target>Taille du fichier : {s}</target>
+      </segment>
+    </unit>
+    <unit id="NSeveUs" name="Dateisystem">
+      <notes>
+        <note category="german">Dateisystem</note>
+        <note category="from">php:///src/Controller/Admin/AdminActionController.php</note>
+      </notes>
+      <segment>
+        <source>Dateisystem</source>
+        <target>Fichiers système</target>
       </segment>
     </unit>
   </file>

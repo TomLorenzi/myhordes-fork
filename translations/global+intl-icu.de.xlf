@@ -2313,5 +2313,17 @@
         <target>Ende</target>
       </segment>
     </unit>
+    <unit id="5quivVp" name="Programming">
+      <segment>
+        <source>Programming</source>
+        <target>Programming</target>
+      </segment>
+    </unit>
+    <unit id="MRosxv3" name="Thanks to">
+      <segment>
+        <source>Thanks to</source>
+        <target>Thanks to</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

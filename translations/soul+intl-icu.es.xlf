@@ -464,7 +464,7 @@
     <unit id="q8r8gtq" name="Titel">
       <notes>
         <note category="german">Titel</note>
-        <note category="from">twig:///templates/ajax/soul/rps.html.twig</note>
+        <note category="from">php:///src/Structures/TwinoidPayload.php;twig:///templates/ajax/soul/rps.html.twig</note>
       </notes>
       <segment>
         <source>Titel</source>
@@ -3552,7 +3552,7 @@
     <unit id="m65CDx_" name="{user} war in der Vergangenheit unter folgenden Namen bekannt:">
       <notes>
         <note category="german">{user} war in der Vergangenheit unter folgenden Namen bekannt:</note>
-        <note category="from">twig:///templates/ajax/soul/badges.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/badges.html.twig</note>
       </notes>
       <segment>
         <source>{user} war in der Vergangenheit unter folgenden Namen bekannt:</source>
@@ -4073,6 +4073,17 @@
       <segment>
         <source>Alte Seelen</source>
         <target>Almas viejas</target>
+      </segment>
+    </unit>
+    <unit id="o1q81tr" name="Icon">
+      <notes>
+        <note category="german">Icon</note>
+        <note category="from">php:///src/Structures/TwinoidPayload.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Icon</source>
+        <target>Icon</target>
       </segment>
     </unit>
   </file>

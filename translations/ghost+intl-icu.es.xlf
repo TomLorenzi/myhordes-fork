@@ -987,7 +987,7 @@
     <unit id="8UBVWFJ" name="Betapropin steht nicht zur Verfügung.">
       <notes>
         <note category="german">Betapropin steht nicht zur Verfügung.</note>
-        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Betapropin steht nicht zur Verfügung.</source>
@@ -997,7 +997,7 @@
     <unit id="QjQvnlj" name="Beta-Funktionen deaktivieren">
       <notes>
         <note category="german">Beta-Funktionen deaktivieren</note>
-        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Beta-Funktionen deaktivieren</source>

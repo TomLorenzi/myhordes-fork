@@ -347,11 +347,11 @@ class TwinoConverterToBlocks {
                 blocks.push( new TwinoInterimBlock( '???', 'div', 'letter-v') ); break;
             case 'pfc': case 'rps': case 'ssp': case 'ppt':
                 blocks.push( new TwinoInterimBlock( '???', 'div', 'rps') ); break;
-            case 'flip': case 'coin': case 'ht': case 'pf': case 'mw': case 'moneda':
+            case 'flip': case 'coin': case 'ht': case 'pf': case 'mw': case 'moneda': case 'zk':
                 blocks.push( new TwinoInterimBlock( '???', 'div', 'coin') ); break;
-            case 'carte': case 'card': case 'skat': case 'blatt': case 'carta':
+            case 'carte': case 'card': case 'skat': case 'blatt': case 'carta': case 'karte':
                 blocks.push( new TwinoInterimBlock( '???', 'div', 'card') ); break;
-            case 'citizen': case 'rnduser': case 'user': case 'spieler': case 'habitant': case 'habitante':
+            case 'citizen': case 'rnduser': case 'user': case 'spieler': case 'habitant': case 'habitante': case'einwohner':
                 let attribs = match.nodeInfo() ? match.nodeInfo().split(',') : [];
                 if (!attribs[0]) attribs[0] = 'any';
                 if (!attribs[1]) attribs[1] = '0';
