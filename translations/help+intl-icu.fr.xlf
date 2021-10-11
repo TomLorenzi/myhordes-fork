@@ -2487,7 +2487,7 @@ Der Schutz endet nach dem Angriff um Mitternacht.</source>
       </notes>
       <segment>
         <source>Du wurdest von einer unheilbaren Krankheit infiziert und hast dich jetzt in einen &lt;span x-ajax-href={url_ghoul}&gt;Ghul&lt;/span&gt; verwandelt.</source>
-        <target><![CDATA[Vous avez été infecté par une maladie incurable et vous êtes maintenant transformé en <span x-ajax-href={url_ghoul}>Goule</span>.]]></target>
+        <target><![CDATA[Vous avez été infecté par une maladie et vous êtes maintenant transformé en <span x-ajax-href={url_ghoul}>Goule</span>.]]></target>
       </segment>
     </unit>
     <unit id="gPbg.WJ" name="Die Drogenabhängigkeit">
@@ -4097,7 +4097,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>Man kann sich mit bestimmten Produkten gegen die Verwandlung in einen Ghul schützen!</source>
-        <target>Il est possible de se guérir de cet état grâce au vaccin anti-goule !</target>
+        <target>Il est possible de se guérir de cet état grâce au sérum anti-goule !</target>
       </segment>
     </unit>
     <unit id="m270tVB" name="Wie tötet man einen Ghul?">
