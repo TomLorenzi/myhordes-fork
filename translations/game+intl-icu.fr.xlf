@@ -22843,7 +22843,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Klicke hier, um seine Informationen anzuzeigen</source>
-        <target>Klicke hier, um seine Informationen anzuzeigen</target>
+        <target>Cliquez pour afficher ses informations</target>
       </segment>
     </unit>
     <unit id="vuquyit" name="Ganz genau, das bist du!">
@@ -22854,7 +22854,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Ganz genau, das bist du!</source>
-        <target>Ganz genau, das bist du!</target>
+        <target>Oui, c'est bien vous...</target>
       </segment>
     </unit>
     <unit id="OjUho9K" name="gesichertes Haus">
@@ -22927,7 +22927,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Def.</source>
-        <target>Def.</target>
+        <target>Déf.</target>
       </segment>
     </unit>
     <unit id="1czlTIt" name="Zeigt die Hausverteidigung an.">
@@ -22938,7 +22938,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Zeigt die Hausverteidigung an.</source>
-        <target>Zeigt die Hausverteidigung an.</target>
+        <target>Indique le niveau de défense d'une maison.</target>
       </segment>
     </unit>
     <unit id="2wFXnDs" name="Dieser Wert spiegelt die Anwesenheit und Aktivität eines jeden Bürgers wider.">
@@ -22949,7 +22949,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Dieser Wert spiegelt die Anwesenheit und Aktivität eines jeden Bürgers wider.</source>
-        <target>Dieser Wert spiegelt die Anwesenheit und Aktivität eines jeden Bürgers wider.</target>
+        <target>Cette note reflète la présence et l'activité de chaque citoyen.</target>
       </segment>
     </unit>
     <unit id="bC01IWH" name="Löschen">
@@ -22960,7 +22960,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Löschen</source>
-        <target>Löschen</target>
+        <target>Effacer</target>
       </segment>
     </unit>
     <unit id="5JJ5qLV" name="Meine persönliche Nachricht ändern">
@@ -22971,7 +22971,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Meine persönliche Nachricht ändern</source>
-        <target>Meine persönliche Nachricht ändern</target>
+        <target>Changer mon annonce personnelle</target>
       </segment>
     </unit>
     <unit id="sVxXfQu" name="Einen Aufstand der Verbannten vorbereiten (optional).">

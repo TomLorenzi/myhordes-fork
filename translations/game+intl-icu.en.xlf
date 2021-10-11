@@ -23029,7 +23029,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Zeigt die Hausverteidigung an.</source>
-        <target>Zeigt die Hausverteidigung an.</target>
+        <target>Indicates the defensive rating of a house.</target>
       </segment>
     </unit>
     <unit id="2wFXnDs" name="Dieser Wert spiegelt die Anwesenheit und Aktivität eines jeden Bürgers wider.">
@@ -23040,7 +23040,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Dieser Wert spiegelt die Anwesenheit und Aktivität eines jeden Bürgers wider.</source>
-        <target>Dieser Wert spiegelt die Anwesenheit und Aktivität eines jeden Bürgers wider.</target>
+        <target>This score reflects how active a player is and whether they connect regularly.</target>
       </segment>
     </unit>
     <unit id="bC01IWH" name="Löschen">
@@ -23061,7 +23061,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Meine persönliche Nachricht ändern</source>
-        <target>Meine persönliche Nachricht ändern</target>
+        <target>Change my personal message</target>
       </segment>
     </unit>
     <unit id="sVxXfQu" name="Einen Aufstand der Verbannten vorbereiten (optional).">
