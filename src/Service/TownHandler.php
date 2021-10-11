@@ -540,14 +540,7 @@ class TownHandler
         $rand_backup = mt_rand(PHP_INT_MIN, PHP_INT_MAX);
         mt_srand($town->getDay() + $town->getId());
         $cc_offset = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_WT_OFFSET, 0);
-        for ($i = 0; $i < $est->getCitizens()->count() * $ratio + $cc_offset; $i++) {
-            if ($offsetMin + $offsetMax > 10) {
-                $increase_min = $this->random->chance( $offsetMin / ($offsetMin + $offsetMax) );
-                $alter = $new_formula ? mt_rand(5, 20) / 10.0 : 1;
-                if ($increase_min) $offsetMin -= $alter;
-                else $offsetMax -= $alter;
-            }
-        }
+        $this->calculate_offsets($offsetMin, $offsetMax, $est->getCitizens()->count() * $ratio + $cc_offset, $new_formula);
 
         $min = round($est->getZombies() - ($est->getZombies() * $offsetMin / 100));
         $max = round($est->getZombies() + ($est->getZombies() * $offsetMax / 100));
@@ -586,15 +579,7 @@ class TownHandler
             $offsetMin = $est->getOffsetMin();
             $offsetMax = $est->getOffsetMax();
 
-            for ($i = 0; $i < $calculateUntil; $i++) {
-                if ($offsetMin + $offsetMax > 10) {
-                    $increase_min = $this->random->chance( $offsetMin / ($offsetMin + $offsetMax) );
-                    $alter = $new_formula ? mt_rand(5, 20) / 10.0 : 1;
-                    if ($increase_min) $offsetMin -= $alter;
-                    else $offsetMax -= $alter;
-                }
-            }
-
+            $this->calculate_offsets($offsetMin, $offsetMax, $calculateUntil, $new_formula);
 
             $min2 = round($est->getZombies() - ($est->getZombies() * $offsetMin / 100));
             $max2 = round($est->getZombies() + ($est->getZombies() * $offsetMax / 100));
@@ -635,6 +620,17 @@ class TownHandler
 
 
         return $result;
+    }
+
+    public function calculate_offsets(&$offsetMin, &$offsetMax, $nbRound, $new_formula){
+        for ($i = 0; $i < $nbRound; $i++) {
+            if ($offsetMin + $offsetMax > 10) {
+                $increase_min = $this->random->chance( $offsetMin / ($offsetMin + $offsetMax) );
+                $alter = $new_formula ? mt_rand(500, 2000) / 1000.0 : 1;
+                if ($increase_min) $offsetMin -= $alter;
+                else $offsetMax -= $alter;
+            }
+        }
     }
 
     public function calculate_zombie_attacks(Town &$town, int $future = 2) {
