@@ -22843,7 +22843,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Klicke hier, um seine Informationen anzuzeigen</source>
-        <target>Klicke hier, um seine Informationen anzuzeigen</target>
+        <target>Cliquez pour afficher ses informations</target>
       </segment>
     </unit>
     <unit id="vuquyit" name="Ganz genau, das bist du!">
@@ -22854,7 +22854,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Ganz genau, das bist du!</source>
-        <target>Ganz genau, das bist du!</target>
+        <target>Oui, c'est bien vous...</target>
       </segment>
     </unit>
     <unit id="OjUho9K" name="gesichertes Haus">
