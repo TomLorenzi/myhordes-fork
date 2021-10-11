@@ -3432,12 +3432,11 @@
     <unit id="LzzllLx" name="Empfänger">
       <notes>
         <note category="german">Empfänger</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/pm/view.html.twig</note>
       </notes>
       <segment>
         <source>Empfänger</source>
-        <target>Empfänger</target>
+        <target>Destinatario</target>
       </segment>
     </unit>
     <unit id="YC8wBlS" name="In diesem Abschnitt findest du alle bisher von dir gespielten Partien.">

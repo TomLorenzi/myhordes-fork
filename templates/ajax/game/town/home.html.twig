@@ -109,7 +109,10 @@
                 </div>
                 <div class="padded cell rw-6 rw-lg-12 left medium">
                     <input id="desc_edit" type="text" maxlength="64" placeholder="{{ 'Dein Beschreibungstext'|trans({},'game') }}" value="{{ home.description }}">
-                    <div class="small right"><a id="desc_edit_button" href="">{{ 'Speichern'|trans({},'game') }}</a></div>
+                    <div class="small">
+                        <button style="margin-top: 3px;" class="inline small" id="desc_edit_button">{{ 'Speichern'|trans({},'game') }}</button>
+                        <a id="desc_remove_button" href="">{{ 'Löschen'|trans({},'game') }}</a>
+                    </div>
                     <div class="tooltip help">
                     {{ 'Diese Mitteilung wird auf <strong>der Bürgerseite bei deinem Namen angezeigt und ist für jeden lesbar</strong>. Nutze diese Mitteilungsmöglichkeit, um dich vorzustellen, dich zu rechtfertigen oder einen Gruß an deine Mitspieler zu hinterlassen...'|trans({}, 'game')|raw }}
                     </div>
@@ -703,14 +706,17 @@
                 });
         {% endif %}
 
-        let desc_chg_button = document.getElementById('desc_edit_button');
-        if (desc_chg_button) desc_chg_button.addEventListener('click', function(e) {
+        $.html.addEventListenerAll('#desc_edit_button', 'click', e => {
             e.preventDefault();
             $.ajax.easySend( '{{ path('town_house_describe_controller') }}', {desc: document.getElementById('desc_edit').value},
-                function () {
-                    $.ajax.load(null, '{{ path('town_house') }}', true);
-                } );
-        });
+               () => $.ajax.load(null, '{{ path('town_house') }}', true));
+        })
+
+        $.html.addEventListenerAll('#desc_remove_button', 'click', e => {
+            e.preventDefault();
+            $.ajax.easySend( '{{ path('town_house_describe_controller') }}', {desc: null},
+                () => $.ajax.load(null, '{{ path('town_house') }}', true));
+        })
 
         let listbtn = document.getElementById("show_list");
         if(listbtn) listbtn.addEventListener("click", function(e){

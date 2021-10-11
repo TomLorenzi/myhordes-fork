@@ -83,12 +83,19 @@ class CommandHelper
         return $lines;
     }
 
-    public function capsule( string $command, OutputInterface $output, ?string $note = null, bool $bin_console = true, ?string &$ret_str = null, $php_bin = "php", bool $enforce_verbosity = false, int $retry = 0 ): bool {
-        $run_command = $bin_console ? "$php_bin bin/console $command 2>&1" : "$command 2>&1";
+    public function capsule( string $command, OutputInterface $output, ?string $note = null, bool $bin_console = true, ?string &$ret_str = null, $php_bin = "php", bool $enforce_verbosity = false, int $retry = 0, ?array $as = null ): bool {
+        $su = '';
+        if ($as !== null) {
+            if ($as[0] !== null && $as[1] !== null) $su = "sudo -u {$as[0]} -g {$as[1]} ";
+            elseif ($as[0] !== null) $su = "sudo -u {$as[0]} ";
+            elseif ($as[1] !== null) $su = "sudo -g {$as[1]} ";
+        }
+
+        $run_command = $bin_console ? "$su $php_bin bin/console $command 2>&1" : "$su $command 2>&1";
 
         $verbose = $enforce_verbosity || $output->getVerbosity() >= OutputInterface::VERBOSITY_VERY_VERBOSE;
 
-        $output->write($note !== null ? $note : ("<info>Executing " . ($bin_console ? 'encapsulated' : '') . " command \"<comment>$command</comment>\"... </info>"));
+        $output->write($note !== null ? $note : ("<info>Executing " . ($bin_console ? 'encapsulated' : '') . " command \"<comment>$command</comment>\"" . ($as ? (' as <comment>' . implode( ':', $as ) . '</comment>') : '') . "... </info>"));
         $lines = $this->bin( $run_command, $ret, false, $verbose ? $output : null );
 
         if ($ret !== 0) {
@@ -101,8 +108,10 @@ class CommandHelper
                 $output->writeln("\n<info>Retrying ($retry attempts left).</info>\n");
         } else $output->writeln("<info>Ok.</info>");
 
-        if ($ret !== 0 && $retry > 0)
-            return $this->capsule($command, $output, $note, $bin_console, $ret_str, $php_bin, $enforce_verbosity, $retry - 1 );
+        if ($ret !== 0 && $retry > 0) {
+            sleep(5);
+            return $this->capsule($command, $output, $note, $bin_console, $ret_str, $php_bin, $enforce_verbosity, $retry - 1, $as);
+        }
         else return $ret === 0;
     }
 

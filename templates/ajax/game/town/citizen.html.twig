@@ -35,10 +35,14 @@
     </div>
     {% endif %}
     <div class="row-table citizens-list">
-        <div class="row header">
+        <div class="row-flex header">
             <div class="padded cell rw-5 left rw-md-7">{{ 'Bürger'|trans({},'game') }}</div>
             <div class="padded cell rw-4 hide-md hide-sm center">{{ 'Nachricht'|trans({},'game') }}</div>
-            <div class="padded cell rw-3 rw-md-5 right">{{ 'Draußen?'|trans({},'game') }}</div>
+            <div class="padded cell rw-1 hide-lg hide-md hide-sm center">
+                {{ 'Def.'|trans({},'game') }}<br />
+                {{ help_btn('Zeigt die Hausverteidigung an.'|trans({},'game')) }}
+            </div>
+            <div class="padded cell rw-2 rw-lg-3 rw-md-5 right">{{ 'Draußen?'|trans({},'game') }}</div>
         </div>
         {% for citizenInfo in citizens|sort((a,b) => (a.citizen.alive == b.citizen.alive) ? ((a.citizen.alive) ? a.citizen.name|lower <=> b.citizen.name|lower : b.citizen.survivedDays <=> a.citizen.survivedDays) : b.citizen.alive <=> a.citizen.alive) %}
             {% set citizen = citizenInfo.citizen %}
@@ -206,7 +210,7 @@
     </div>
 
     <div class="row">
-        
+        <div class="padded cell rw-12 right"><a class="small" href="#" x-ajax-href="{{ path('town_house') }}">{{ 'Meine persönliche Nachricht ändern'|trans({},'game') }}</a></div>
     </div>
 
     <div class="cell padded center prof-list">

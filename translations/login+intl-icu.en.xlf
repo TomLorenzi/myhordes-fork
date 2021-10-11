@@ -823,5 +823,25 @@
         <target>You have to wait at least 5 minutes before re-sending the validation mail. Please double-check your spam folder in the meantime.</target>
       </segment>
     </unit>
+    <unit id="1zpAcv.">
+      <notes>
+        <note category="german">Du hast deinen Anzeigenamen auf EternalTwin geändert. Wir haben diese Änderung soeben für dich übernommen!</note>
+        <note category="from">php:///src/Controller/PublicController.php</note>
+      </notes>
+      <segment>
+        <source>Du hast deinen Anzeigenamen auf EternalTwin geändert. Wir haben diese Änderung soeben für dich übernommen!</source>
+        <target>You've changed your display name on EternalTwin. We've updated your profile to reflect this change.</target>
+      </segment>
+    </unit>
+    <unit id="OUS.MDw">
+      <notes>
+        <note category="german">Dein EternalTwin-Benutzername enthält Elemente, die auf MyHordes nicht gestattet sind. Bitte ändere deinen Namen auf EternalTwin, um dich auf MyHordes anmelden zu können.</note>
+        <note category="from">php:///src/Controller/PublicController.php</note>
+      </notes>
+      <segment>
+        <source>Dein EternalTwin-Benutzername enthält Elemente, die auf MyHordes nicht gestattet sind. Bitte ändere deinen Namen auf EternalTwin, um dich auf MyHordes anmelden zu können.</source>
+        <target>Your EternalTwin display name contains elements that are not allowed on MyHordes. To log in with your EternalTwin account, you must change its display name.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

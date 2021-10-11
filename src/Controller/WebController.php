@@ -102,6 +102,8 @@ class WebController extends CustomAbstractController
 
     /**
      * @Route("/ref/{name}")
+     * @param string $name
+     * @param SessionInterface $s
      * @return Response
      */
     public function refer_incoming(string $name, SessionInterface $s): Response
@@ -111,12 +113,37 @@ class WebController extends CustomAbstractController
     }
 
     /**
+     * @Route("/pm", name="home_pm")
+     * @return Response
+     */
+    public function standalone_pm(): Response
+    {
+        if (!$this->isGranted('ROLE_USER'))
+            return $this->redirect($this->generateUrl('home'));
+        return $this->render( 'web/pm-host.html.twig', [] );
+    }
+
+    /**
      * @Route("gateway/eternal-twin", name="gateway-etwin")
      * @param EternalTwinHandler $etwin
      * @return Response
      */
-    public function gateway_etwin(EternalTwinHandler $etwin): Response {
+    public function gateway_etwin(EternalTwinHandler $etwin, SessionInterface $session): Response {
         if (!$etwin->isReady()) return new Response('Error: No gateway to EternalTwin is configured.');
+        $session->set('_etwin_rm', false);
+        $request = Request::createFromGlobals();
+        return new RedirectResponse($etwin->createAuthorizationRequest('etwin-login#' . $request->getHost() . $request->getBaseUrl()));
+    }
+
+    /**
+     * @Route("gateway/rm/eternal-twin", name="gateway-remember-etwin")
+     * @param EternalTwinHandler $etwin
+     * @param SessionInterface $session
+     * @return Response
+     */
+    public function gateway_rm_etwin(EternalTwinHandler $etwin, SessionInterface $session): Response {
+        if (!$etwin->isReady()) return new Response('Error: No gateway to EternalTwin is configured.');
+        $session->set('_etwin_rm', true);
         $request = Request::createFromGlobals();
         return new RedirectResponse($etwin->createAuthorizationRequest('etwin-login#' . $request->getHost() . $request->getBaseUrl()));
     }

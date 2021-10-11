@@ -3,8 +3,11 @@
 
 namespace App\Security;
 
+use App\Entity\RememberMeTokens;
 use App\Entity\User;
+use Doctrine\ORM\EntityManagerInterface;
 use EternalTwinClient\Object\User as ETwinUser;
+use Symfony\Component\HttpFoundation\Cookie;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -18,14 +21,16 @@ use Symfony\Component\Security\Http\Authenticator\Passport\Credentials\CustomCre
 use Symfony\Component\Security\Http\Authenticator\Passport\Passport;
 use Symfony\Component\Security\Http\Authenticator\Passport\PassportInterface;
 
-class EternalAuthenticator extends AbstractAuthenticator
+class EternalAuthenticator extends RememberMeSupportingAuthenticator
 {
     private UrlGeneratorInterface $url_generator;
 
     public function __construct(
-        UrlGeneratorInterface $router
+        UrlGeneratorInterface $router,
+        EntityManagerInterface $em
     )
     {
+        parent::__construct($em);
         $this->url_generator = $router;
     }
 
@@ -67,9 +72,16 @@ class EternalAuthenticator extends AbstractAuthenticator
      */
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
     {
+        $rm_enabled = $request->getSession()->get('_etwin_rm', false);
         $request->getSession()->remove('_etwin_user');
         $request->getSession()->remove('_etwin_login');
         $request->getSession()->remove('_etwin_local');
+        $request->getSession()->remove('_etwin_rm');
+
+        if ($rm_enabled)
+            return $this->enableRememberMe($request, $token);
+
+
         return null;
     }
 

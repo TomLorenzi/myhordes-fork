@@ -754,6 +754,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'fire_splash3'    => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'item' => ['morph' => 'watergun_2_#00',         'consume' => false] ], 'kill_1_zombie' ] ],
             'fire_splash2'    => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'item' => ['morph' => 'watergun_1_#00',         'consume' => false] ], 'kill_1_zombie' ] ],
             'fire_splash1'    => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'item' => ['morph' => 'watergun_empty_#00',     'consume' => false] ], 'kill_1_zombie' ] ],
+            'fire_ksplash'    => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'item' => ['morph' => 'kalach_#01',             'consume' => false] ], 'kill_3_zombie' ] ],
 
             'throw_animal'        => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ 'consume_item', 'kill_1_zombie_s', ['picto' => ['r_animal_#00']] ], 'message_key' => 'throw_animal' ],
             'throw_animal_cat'    => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'group' => [ [['do_nothing'], 88], [['consume_item', ['picto' => ['r_animal_#00']]], 12] ] ], 'kill_1_zombie_s' ], 'message_key' => 'throw_animal' ],
@@ -1146,6 +1147,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'watergun_3_#00'     => [ 'fire_splash3' ],
             'watergun_2_#00'     => [ 'fire_splash2' ],
             'watergun_1_#00'     => [ 'fire_splash1' ],
+            'kalach_#00'         => [ 'fire_ksplash' ],
 
             'pet_chick_#00' => [ 'slaughter_2x' , 'throw_animal'     ],
             'pet_rat_#00'   => [ 'slaughter_2x' , 'throw_animal'     ],

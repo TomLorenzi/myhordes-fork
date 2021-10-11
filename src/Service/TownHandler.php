@@ -521,7 +521,7 @@ class TownHandler
         return $total_def;
     }
 
-    public function get_zombie_estimation(Town &$town, int $day = null, bool $new_formula = false): array {
+    public function get_zombie_estimation(Town &$town, int $day = null, bool $new_formula = true): array {
         $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town, $day ?? $town->getDay());
         /** @var ZombieEstimation $est */
         if (!$est) return [];
@@ -537,6 +537,7 @@ class TownHandler
         $offsetMin = $est->getOffsetMin();
         $offsetMax = $est->getOffsetMax();
 
+        $rand_backup = mt_rand(PHP_INT_MIN, PHP_INT_MAX);
         mt_srand($town->getDay() + $town->getId());
         $cc_offset = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_WT_OFFSET, 0);
 
@@ -625,6 +626,15 @@ class TownHandler
             $estim2->setMessage($message2);
             $result[] = $estim2;
         }
+
+        // We've set a pre-defined seed before, which will impact randomness of all mt_rand calls after this function
+        // We're trying to set a new random seed to combat side effects
+        try {
+            mt_srand( random_int(PHP_INT_MIN, PHP_INT_MAX) );
+        } catch (\Exception $e) {
+            mt_srand($rand_backup);
+        }
+
 
         return $result;
     }

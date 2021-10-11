@@ -25,6 +25,14 @@
                                     <i class="fa fa-search"></i> {{ 'Suchen'|trans({},'global') }}
                                 </div>
                             </div>
+                            <div class="cell shrink-1">
+                                <div class="pm-button" id="new-tab-button">
+                                    <i class="fa fa-external-link-alt"></i>
+                                </div>
+                                <div class="pm-button" id="return-tab-button">
+                                    <i class="fa fa-window-close"></i>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -194,6 +202,17 @@
     <script>
         (function() {
 
+            document.getElementById('new-tab-button').classList.toggle( 'hidden', document.getElementById('post-office-content').classList.contains('master') );
+            document.getElementById('return-tab-button').classList.toggle( 'hidden', !document.getElementById('post-office-content').classList.contains('master') );
+
+            document.getElementById('new-tab-button').addEventListener('click', () => {
+                document.querySelector('#post-office-button-overlay>ul>li:last-child').click();
+                window.open('{{ path('home_pm') }}', '_blank');
+            })
+            document.getElementById('return-tab-button').addEventListener('click', () => {
+                window.location.href = '{{ path('home') }}';
+            })
+
             let loading_conv_list = false;
             let conv_list_more = null;
 
@@ -306,8 +325,10 @@
                 });
 
                 $.html.addEventListenerAll('ul.pm-conversation-list>li[x-title][x-hardlink]', 'click', function(e,elem) {
-                    document.getElementById('post-office').click();
-                    $.ajax.load(null,elem.getAttribute('x-hardlink'), false, {}, () => $.msg.execute());
+                    if (!document.getElementById('post-office-content').classList.contains('master')) {
+                        document.getElementById('post-office').click();
+                        $.ajax.load(null,elem.getAttribute('x-hardlink'), false, {}, () => $.msg.execute());
+                    } else window.open( elem.getAttribute('x-hardlink'), '_blank' );
                 });
             }
 

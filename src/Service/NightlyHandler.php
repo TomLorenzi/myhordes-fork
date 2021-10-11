@@ -63,11 +63,12 @@ class NightlyHandler
     private MazeMaker $maze;
     private CrowService $crow;
     private UserHandler $user_handler;
+    private GameFactory $game_factory;
 
     public function __construct(EntityManagerInterface $em, LoggerInterface $log, CitizenHandler $ch, InventoryHandler $ih,
                               RandomGenerator $rg, DeathHandler $dh, TownHandler $th, ZoneHandler $zh, PictoHandler $ph,
                               ItemFactory $if, LogTemplateHandler $lh, ConfMaster $conf, ActionHandler $ah, MazeMaker $maze,
-                              CrowService $crow, UserHandler $uh)
+                              CrowService $crow, UserHandler $uh, GameFactory $gf)
     {
         $this->entity_manager = $em;
         $this->citizen_handler = $ch;
@@ -85,6 +86,7 @@ class NightlyHandler
         $this->maze = $maze;
         $this->crow = $crow;
         $this->user_handler = $uh;
+        $this->game_factory = $gf;
     }
 
     private function check_town(Town $town): bool {
@@ -1603,6 +1605,7 @@ class NightlyHandler
 
         foreach ($events as $event) $event->hook_nightly_post($town);
 
+        $this->game_factory->updateTownScore( $town );
         TownRankingProxy::fromTown( $town, true );
         foreach ($town->getCitizens() as $citizen) CitizenRankingProxy::fromCitizen( $citizen, true );
 

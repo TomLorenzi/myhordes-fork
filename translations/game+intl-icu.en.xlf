@@ -7765,7 +7765,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>{citizen} hat es regnen lassen! Ihm habt ihr {num} Rationen reinen Wassers im Brunnen zu verdanken!</source>
-        <target>{citizen} made it rain baby! made it rain baby! Thanks to them the well has gained {num} rations of clean water!</target>
+        <target>{citizen} made it rain baby! Thanks to them the well has gained {num} rations of clean water!</target>
       </segment>
     </unit>
     <unit id="yNMrKcz">
@@ -22867,11 +22867,10 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <notes>
         <note category="german">{deaths} Bürger sind beim heutigen Angriff gestorben!</note>
         <note category="from">db://LogEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>{deaths} Bürger sind beim heutigen Angriff gestorben!</source>
-        <target>{deaths} Bürger sind beim heutigen Angriff gestorben!</target>
+        <target>{deaths} citizens died during the attack!</target>
       </segment>
     </unit>
     <unit id="iLdX6jg">
@@ -23009,6 +23008,71 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Gerechtigkeit in MyHordes</source>
         <target>Justice in MyHordes</target>
+      </segment>
+    </unit>
+    <unit id="ahBv_BV" name="Def.">
+      <notes>
+        <note category="german">Def.</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Def.</source>
+        <target>Def.</target>
+      </segment>
+    </unit>
+    <unit id="1czlTIt" name="Zeigt die Hausverteidigung an.">
+      <notes>
+        <note category="german">Zeigt die Hausverteidigung an.</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Zeigt die Hausverteidigung an.</source>
+        <target>Zeigt die Hausverteidigung an.</target>
+      </segment>
+    </unit>
+    <unit id="2wFXnDs" name="Dieser Wert spiegelt die Anwesenheit und Aktivität eines jeden Bürgers wider.">
+      <notes>
+        <note category="german">Dieser Wert spiegelt die Anwesenheit und Aktivität eines jeden Bürgers wider.</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen_omniscience.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Dieser Wert spiegelt die Anwesenheit und Aktivität eines jeden Bürgers wider.</source>
+        <target>Dieser Wert spiegelt die Anwesenheit und Aktivität eines jeden Bürgers wider.</target>
+      </segment>
+    </unit>
+    <unit id="bC01IWH" name="Löschen">
+      <notes>
+        <note category="german">Löschen</note>
+        <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
+      </notes>
+      <segment>
+        <source>Löschen</source>
+        <target>Delete</target>
+      </segment>
+    </unit>
+    <unit id="5JJ5qLV" name="Meine persönliche Nachricht ändern">
+      <notes>
+        <note category="german">Meine persönliche Nachricht ändern</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Meine persönliche Nachricht ändern</source>
+        <target>Meine persönliche Nachricht ändern</target>
+      </segment>
+    </unit>
+    <unit id="sVxXfQu" name="Einen Aufstand der Verbannten vorbereiten (optional).">
+      <notes>
+        <note category="german">Einen Aufstand der Verbannten vorbereiten (optional).</note>
+        <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Einen Aufstand der Verbannten vorbereiten (optional).</source>
+        <target>Einen Aufstand der Verbannten vorbereiten (optional).</target>
       </segment>
     </unit>
   </file>

@@ -48,9 +48,12 @@ use App\Service\NightlyHandler;
 use App\Service\RandomGenerator;
 use App\Service\TownHandler;
 use App\Service\ZoneHandler;
+use App\Structures\BankItem;
 use App\Structures\EventConf;
 use App\Structures\TownConf;
+use Doctrine\ORM\AbstractQuery;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\Query\Expr\Join;
 use Doctrine\ORM\Tools\Pagination\Paginator;
 use Exception;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
@@ -109,6 +112,50 @@ class AdminTownController extends AdminActionController
             'currentPage' => $page,
             'pagesCount' => $pagesCount
         ]));
+    }
+
+    /**
+     * @Route("api/admin/raventimes/log", name="admin_newspaper_log_controller")
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function log_newspaper_api(JSONRequestParser $parser): Response {
+        $town_id = $parser->get('town', -1);
+        $town = $this->entity_manager->getRepository(Town::class)->find($town_id);
+        return $this->renderLog((int)$parser->get('day', -1), $town, false, null, null);
+    }
+
+    protected function renderInventoryAsBank( Inventory $inventory ) {
+        $qb = $this->entity_manager->createQueryBuilder();
+        $qb
+            ->select('i.id', 'c.label as l1', 'cr.label as l2', 'SUM(i.count) as n')->from('App:Item','i')
+            ->where('i.inventory = :inv')->setParameter('inv', $inventory);
+        $qb->groupBy('i.prototype', 'i.broken');
+        $qb
+            ->leftJoin('App:ItemPrototype', 'p', Join::WITH, 'i.prototype = p.id')
+            ->leftJoin('App:ItemCategory', 'c', Join::WITH, 'p.category = c.id')
+            ->leftJoin('App:ItemCategory', 'cr', Join::WITH, 'c.parent = cr.id')
+            ->addOrderBy('c.ordering','ASC')
+            ->addOrderBy('p.id', 'ASC')
+            ->addOrderBy('i.id', 'ASC');
+
+        $data = $qb->getQuery()->getResult(AbstractQuery::HYDRATE_ARRAY);
+
+        $final = [];
+        $cache = [];
+
+        foreach ($data as $entry) {
+            $label = $entry['l2'] ?? $entry['l1'] ?? 'Sonstiges';
+            if (!isset($final[$label])) $final[$label] = [];
+            $final[$label][] = [ $entry['id'], $entry['n'] ];
+            $cache[] = $entry['id'];
+        }
+
+        $item_list = $this->entity_manager->getRepository(Item::class)->findAllByIds($cache);
+        foreach ( $final as $label => &$entries )
+            $entries = array_map(function( array $entry ) use (&$item_list): BankItem { return new BankItem( $item_list[$entry[0]], $entry[1] ); }, $entries);
+
+        return $final;
     }
 
     /**

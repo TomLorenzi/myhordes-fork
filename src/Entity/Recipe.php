@@ -77,6 +77,11 @@ class Recipe
      */
     private $keep;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $stealthy = false;
+
     public function __construct()
     {
         $this->provoking = new ArrayCollection();
@@ -208,6 +213,18 @@ class Recipe
         if ($this->keep->contains($keep)) {
             $this->keep->removeElement($keep);
         }
+
+        return $this;
+    }
+
+    public function getStealthy(): ?bool
+    {
+        return $this->stealthy;
+    }
+
+    public function setStealthy(bool $stealthy): self
+    {
+        $this->stealthy = $stealthy;
 
         return $this;
     }

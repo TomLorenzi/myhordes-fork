@@ -4,7 +4,7 @@
     <unit id="een_etf" name="Allgemeiner Fehler.">
       <notes>
         <note category="german">Allgemeiner Fehler.</note>
-        <note category="from">twig:///templates/ajax/soul/import.html.twig;twig:///templates/web/framework.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig;twig:///templates/web/framework.html.twig;twig:///templates/web/pm-host.html.twig</note>
       </notes>
       <segment>
         <source>Allgemeiner Fehler.</source>
@@ -294,7 +294,7 @@
     <unit id="SOVZNkR" name="Bestätigen?">
       <notes>
         <note category="german">Bestätigen?</note>
-        <note category="from">twig:///templates/ajax/admin/changelogs/changelogs.html.twig;twig:///templates/ajax/admin/reports/gpn-viewer.html.twig;twig:///templates/ajax/admin/reports/pn-viewer.html.twig;twig:///templates/ajax/admin/users/ban.html.twig;twig:///templates/ajax/admin/users/index.html.twig;twig:///templates/ajax/admin/widget/controls.twig;twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/town/citizen_vote.html.twig;twig:///templates/ajax/game/town/construction.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/door.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/game/town/routes.html.twig;twig:///templates/ajax/game/town/town.html.twig;twig:///templates/ajax/game/town/well.html.twig;twig:///templates/ajax/ghost/create_town.html.twig;twig:///templates/ajax/pm/user_list.html.twig;twig:///templates/ajax/pm/view.html.twig;twig:///templates/ajax/soul/settings.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig;twig:///templates/ajax/soul/visit.html.twig;twig:///templates/scripts/actions.js.twig</note>
+        <note category="from">twig:///templates/ajax/admin/changelogs/changelogs.html.twig;twig:///templates/ajax/admin/files/list.html.twig;twig:///templates/ajax/admin/reports/gpn-viewer.html.twig;twig:///templates/ajax/admin/reports/pn-viewer.html.twig;twig:///templates/ajax/admin/users/ban.html.twig;twig:///templates/ajax/admin/users/index.html.twig;twig:///templates/ajax/admin/widget/controls.twig;twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/town/citizen_vote.html.twig;twig:///templates/ajax/game/town/construction.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/door.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/game/town/routes.html.twig;twig:///templates/ajax/game/town/town.html.twig;twig:///templates/ajax/game/town/well.html.twig;twig:///templates/ajax/ghost/create_town.html.twig;twig:///templates/ajax/pm/user_list.html.twig;twig:///templates/ajax/pm/view.html.twig;twig:///templates/ajax/soul/settings.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig;twig:///templates/ajax/soul/visit.html.twig;twig:///templates/scripts/actions.js.twig</note>
       </notes>
       <segment>
         <source>Bestätigen?</source>
@@ -404,7 +404,7 @@
     <unit id="gBz_D6E" name="Deutsch">
       <notes>
         <note category="german">Deutsch</note>
-        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig;twig:///templates/ajax/soul/settings.html.twig;twig:///templates/web/framework.html.twig</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig;twig:///templates/ajax/soul/settings.html.twig;twig:///templates/web/framework.html.twig;twig:///templates/web/pm-host.html.twig</note>
       </notes>
       <segment>
         <source>Deutsch</source>
@@ -414,7 +414,7 @@
     <unit id="mD6lfyI" name="Englisch">
       <notes>
         <note category="german">Englisch</note>
-        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig;twig:///templates/ajax/soul/settings.html.twig;twig:///templates/web/framework.html.twig</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig;twig:///templates/ajax/soul/settings.html.twig;twig:///templates/web/framework.html.twig;twig:///templates/web/pm-host.html.twig</note>
       </notes>
       <segment>
         <source>Englisch</source>
@@ -424,7 +424,7 @@
     <unit id="vp_4VdN" name="Französisch">
       <notes>
         <note category="german">Französisch</note>
-        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig;twig:///templates/ajax/soul/settings.html.twig;twig:///templates/web/framework.html.twig</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig;twig:///templates/ajax/soul/settings.html.twig;twig:///templates/web/framework.html.twig;twig:///templates/web/pm-host.html.twig</note>
       </notes>
       <segment>
         <source>Französisch</source>
@@ -434,7 +434,7 @@
     <unit id="bjgV6Xr" name="Spanisch">
       <notes>
         <note category="german">Spanisch</note>
-        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig;twig:///templates/ajax/soul/settings.html.twig;twig:///templates/web/framework.html.twig</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig;twig:///templates/ajax/soul/settings.html.twig;twig:///templates/web/framework.html.twig;twig:///templates/web/pm-host.html.twig</note>
       </notes>
       <segment>
         <source>Spanisch</source>
@@ -1251,7 +1251,7 @@
     <unit id="FbY7TeM" name="Bestätigen">
       <notes>
         <note category="german">Bestätigen</note>
-        <note category="from">twig:///templates/ajax/soul/game_history.html.twig;twig:///templates/web/framework.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/game_history.html.twig;twig:///templates/web/framework.html.twig;twig:///templates/web/pm-host.html.twig</note>
       </notes>
       <segment>
         <source>Bestätigen</source>
@@ -3680,7 +3680,7 @@
     <unit id="MNOavAj" name="Das Zombie Survival Game!">
       <notes>
         <note category="german">Das Zombie Survival Game!</note>
-        <note category="from">twig:///templates/web/framework.html.twig</note>
+        <note category="from">twig:///templates/web/framework.html.twig;twig:///templates/web/pm-host.html.twig</note>
       </notes>
       <segment>
         <source>Das Zombie Survival Game!</source>
