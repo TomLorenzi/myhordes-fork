@@ -22981,7 +22981,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Du bist der {rolename} dieser Stadt.</note>
         <note category="from">php:///src/DataFixtures/CitizenFixtures.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Du bist der {rolename} dieser Stadt.</source>

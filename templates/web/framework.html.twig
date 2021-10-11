@@ -135,7 +135,7 @@
             </div>
             <div class="padded cell-small footer rw-7 rw-sm-24 center">
                 <div>
-                    <strong>Programming</strong>
+                    <strong>{{ 'Programming'|trans({}, 'global') }}</strong>
                     <div class="content">
                         {% for dev in devs %}
                             <div>{{ dev|raw }}</div>
@@ -145,7 +145,7 @@
             </div>
             <div class="padded cell-small footer rw-7 rw-sm-24 center">
                 <div>
-                    <strong>Thanks to</strong>
+                    <strong>{{ 'Thanks to'|trans({}, 'global') }}</strong>
                     <div class="content">
                         {% for supporter in supporters %}
                             <i>{{ supporter }}</i>{% if not loop.last %},{% endif %}
