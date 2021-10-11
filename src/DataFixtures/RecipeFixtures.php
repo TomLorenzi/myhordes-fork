@@ -327,11 +327,11 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
         'com023' => ['type' => Recipe::ManualAnywhere, 'out' => 'saw_tool_#00',           'provoking' => 'saw_tool_part_#00',      'in' => ['saw_tool_part_#00', 'rustine_#00', 'meca_parts_#00' ] ],
         'com024' => ['type' => Recipe::ManualAnywhere, 'out' => 'engine_#00',             'provoking' => 'engine_part_#00',        'in' => ['engine_part_#00', 'rustine_#00', 'meca_parts_#00', 'metal_#00', 'deto_#00', 'bone_#00' ] ],
         'com025' => ['type' => Recipe::ManualAnywhere, 'out' => 'repair_kit_#00',         'provoking' => 'repair_kit_part_raw_#00','in' => ['repair_kit_part_raw_#00', 'rustine_#00', 'meca_parts_#00', 'wood2_#00' ] ],
-        'com026' => ['type' => Recipe::ManualAnywhere, 'out' => 'fruit_part_#00',         'provoking' => 'fruit_sub_part_#00',     'in' => ['fruit_sub_part_#00', 'fruit_sub_part_#00' ], "picto"=> "r_solban_#00" ],
+        'com026' => ['type' => Recipe::ManualAnywhere, 'out' => 'fruit_part_#00',         'provoking' => 'fruit_sub_part_#00',     'in' => ['fruit_sub_part_#00', 'fruit_sub_part_#00' ], "picto"=> "r_solban_#00", "stealthy" => true ],
 
         /** Do not change the name of com27! */
         'com027' => ['type' => Recipe::ManualAnywhere, 'out' => [ ['drug_#00', 42], ['xanax_#00', 40], ['drug_random_#00', 46], ['drug_water_#00', 46], ['water_cleaner_#00', 43], ['drug_hero_#00', 49] ], 'provoking' => 'pharma_#00', 'in' => ['pharma_#00', 'pharma_#00' ] ],
-        'com028' => ['type' => Recipe::ManualAnywhere, 'out' => [ ['drug_#00', 1], ['xanax_#00', 1], ['drug_random_#00', 2], ['drug_water_#00', 2], ['water_cleaner_#00', 1], ['pharma_#00', 7] ], 'provoking' => 'pharma_part_#00', 'in' => ['pharma_part_#00', 'pharma_part_#00' ], "picto"=> "r_solban_#00" ],
+        'com028' => ['type' => Recipe::ManualAnywhere, 'out' => [ ['drug_#00', 1], ['xanax_#00', 1], ['drug_random_#00', 2], ['drug_water_#00', 2], ['water_cleaner_#00', 1], ['pharma_#00', 7] ], 'provoking' => 'pharma_part_#00', 'in' => ['pharma_part_#00', 'pharma_part_#00' ], "picto"=> "r_solban_#00", "stealthy" => true ],
 
         'com029' => ['type' => Recipe::ManualAnywhere, 'out' => 'trapma_#00',               'provoking' => 'claymo_#00',            'in' => ['claymo_#00','door_carpet_#00'] ],
         'com030' => ['type' => Recipe::ManualAnywhere, 'out' => 'claymo_#00',               'provoking' => 'wire_#00',              'in' => ['wire_#00','explo_#00', 'meca_parts_#00', 'rustine_#00'] ],
@@ -339,7 +339,7 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
         'com032' => ['type' => Recipe::ManualAnywhere, 'out' => 'fungus_#00',               'provoking' => 'ryebag_#00',            'in' => ['ryebag_#00', 'lens_#00'] ],
         'com033' => ['type' => Recipe::ManualAnywhere, 'out' => 'lsd_#00',                  'provoking' => 'fungus_#00',            'in' => ['fungus_#00', 'poison_part_#00'] ],
         'com034' => ['type' => Recipe::ManualAnywhere, 'out' => 'chkspk_#00',               'provoking' => 'chudol_#00',            'in' => ['chudol_#00', 'lsd_#00'] ],
-        'com035' => ['type' => Recipe::ManualAnywhere, 'out' => 'fruit_#00',                'provoking' => 'fruit_part_#00',        'in' => ['fruit_sub_part_#00', 'fruit_part_#00'], "picto"=> "r_solban_#00" ],
+        'com035' => ['type' => Recipe::ManualAnywhere, 'out' => 'fruit_#00',                'provoking' => 'fruit_part_#00',        'in' => ['fruit_sub_part_#00', 'fruit_part_#00'], "picto"=> "r_solban_#00", "stealthy" => true ],
         'com036' => ['type' => Recipe::ManualAnywhere, 'out' => 'dfhifi_#00',               'provoking' => 'cdelvi_#00',            'in' => ['cdelvi_#00', 'music_#00'] ],
         'com037' => ['type' => Recipe::ManualAnywhere, 'out' => 'hifiev_#00',               'provoking' => 'cdphil_#00',            'in' => ['cdphil_#00', 'music_#00'] ],
         'com038' => ['type' => Recipe::ManualAnywhere, 'out' => 'hifiev_#00',               'provoking' => 'cdbrit_#00',            'in' => ['cdbrit_#00', 'music_#00'] ],
