@@ -31,6 +31,7 @@ use App\Service\TwinoidHandler;
 use App\Service\UserHandler;
 use App\Structures\EventConf;
 use App\Structures\MyHordesConf;
+use App\Structures\TownConf;
 use DateTime;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
@@ -592,7 +593,9 @@ class DebugCommand extends Command
                 return 1;
             }
 
-            $output->writeln("Attack for day {$town->getDay()} : <info>{$est->getZombies()}</info>");
+            $soulFactor = min(1 + (0.04 * $this->townHandler->get_red_soul_count($town)), (float)$this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_RED_SOUL_FACTOR, 1.2));
+
+            $output->writeln("Attack for day {$town->getDay()} : <info>{$est->getZombies()}</info>, soul factor is <info>$soulFactor</info>, real attack will be <info>" . ($est->getZombies() * $soulFactor) . "</info>");
 
             $table = new Table( $output );
             $table->setHeaders( ['Précision', 'Min1', 'Max1', 'Min2', 'Max2'] );
