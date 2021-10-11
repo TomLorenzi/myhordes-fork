@@ -627,6 +627,43 @@ class DebugCommand extends Command
             }
 
             $table->render();
+
+            $est2 = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town, $town->getDay() + 1);
+            $output->writeln("Attack for day {$est2->getDay()} : <info>{$est2->getZombies()}</info>, soul factor is <info>$soulFactor</info>, real attack will be <info>" . ($est2->getZombies() * $soulFactor) . "</info>");
+
+            $table = new Table( $output );
+            $table->setHeaders( ['Précision', 'Min1', 'Max1', 'Min2', 'Max2'] );
+
+            if(!empty($this->townHandler->getBuilding($town, 'item_tagger_#02'))) {
+                foreach ($citizens as $citizen) {
+                    if ($est->getCitizens()->contains($citizen)) continue;
+                    $est->addCitizen($citizen);
+
+                    try {
+                        $this->entity_manager->persist($est);
+                        $this->entity_manager->flush();
+                    } catch (Exception $e) {
+                        $output->writeln("<error>A DB exception occured ! {$e->getMessage()}</error>");
+                        return 3;
+                    }
+
+                    $old_way = $this->townHandler->get_zombie_estimation($town, null, false);
+                    $new_way = $this->townHandler->get_zombie_estimation($town, null, true);
+                    $estim = round($old_way[1]->getEstimation() * 100);
+
+                    $table->addRow([
+                        $estim,
+                        $old_way[1]->getMin(),
+                        $old_way[1]->getMax(),
+                        $new_way[1]->getMin(),
+                        $new_way[1]->getMax()
+                    ]);
+                    if($old_way[1]->getEstimation() >= 1) break;
+                }
+            }
+
+            $table->render();
+
             $est->getCitizens()->clear();
 
             $this->entity_manager->persist($est);
