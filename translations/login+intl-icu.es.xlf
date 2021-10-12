@@ -827,18 +827,16 @@
       <notes>
         <note category="german">Du hast deinen Anzeigenamen auf EternalTwin geändert. Wir haben diese Änderung soeben für dich übernommen!</note>
         <note category="from">php:///src/Controller/PublicController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Du hast deinen Anzeigenamen auf EternalTwin geändert. Wir haben diese Änderung soeben für dich übernommen!</source>
-        <target>¡Has cambiado tu nombre visible de EternalTwin, así que lo hemos actualizado por ti!<target>
+        <target>¡Has cambiado tu nombre visible de EternalTwin, así que lo hemos actualizado por ti!</target>
       </segment>
     </unit>
     <unit id="OUS.MDw">
       <notes>
         <note category="german">Dein EternalTwin-Benutzername enthält Elemente, die auf MyHordes nicht gestattet sind. Bitte ändere deinen Namen auf EternalTwin, um dich auf MyHordes anmelden zu können.</note>
         <note category="from">php:///src/Controller/PublicController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Dein EternalTwin-Benutzername enthält Elemente, die auf MyHordes nicht gestattet sind. Bitte ändere deinen Namen auf EternalTwin, um dich auf MyHordes anmelden zu können.</source>
