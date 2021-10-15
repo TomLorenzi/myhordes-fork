@@ -668,9 +668,11 @@ class PublicController extends CustomAbstractController
             $this->entity_manager->flush();
         } catch(Exception $e) {}
 
+        // return new Response('', 200, ['X-AJAX-Control' => 'reload']);
+
         if (!$user->getValidated())
-            return new AjaxResponse( ['success' => true, 'require_validation' => true ] );
-        else return new AjaxResponse( ['success' => true, 'require_validation' => false ] );
+            return (new AjaxResponse( ['success' => true, 'require_validation' => true ] ))->setAjaxControl(AjaxResponse::AJAX_CONTROL_RESET);
+        else return (new AjaxResponse( ['success' => true, 'require_validation' => false ] ))->setAjaxControl(AjaxResponse::AJAX_CONTROL_RESET);
     }
 
     /**
