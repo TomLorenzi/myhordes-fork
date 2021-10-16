@@ -104,12 +104,17 @@ class ExplorationController extends InventoryAwareController implements HookedIn
         $ex = $citizen->activeExplorerStats();
         $ruinZone = $this->getCurrentRuinZone();
 
+        $floorItems = $ruinZone->getFloor()->getItems()->toArray();
+        usort($floorItems, function ($a, $b) {
+            return strcmp($this->translator->trans($a->getPrototype()->getLabel(), [], 'items'), $this->translator->trans($b->getPrototype()->getLabel(), [], 'items'));
+        });
+
         return $this->render( 'ajax/game/beyond/ruin.html.twig', $this->addDefaultTwigArgs(null, [
             'prototype' => $citizen->getZone()->getPrototype(),
             'exploration' => $ex,
             'zone' => $ruinZone,
             // 'floor' => $ex->getInRoom() ? $ruinZone->getRoomFloor() : $ruinZone->getFloor(),
-            'floor' => $ruinZone->getFloor(),
+            'floorItems' => $floorItems,
             'heroics' => $this->getHeroicActions(),
             'actions' => $this->getItemActions(),
             'recipes' => $this->getItemCombinations(false),
