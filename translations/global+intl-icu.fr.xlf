@@ -3742,7 +3742,7 @@
       </notes>
       <segment>
         <source>Dies ist ein Fan-Projekt für die Spiele {dv}, {d2n}, {hordes} und {zn} von &lt;b&gt;MotionTwin&lt;/b&gt;.</source>
-        <target><![CDATA[Dies ist ein Fan-Projekt für die Spiele {dv}, {d2n}, {hordes} und {zn} von <b>MotionTwin</b>.]]></target>
+        <target><![CDATA[Ce jeu est un fan-project des jeux {dv}, {d2n}, {hordes} et {zn} de <b>MotionTwin</b>.]]></target>
       </segment>
     </unit>
     <unit id="XQQqX1B">
@@ -3753,7 +3753,7 @@
       </notes>
       <segment>
         <source>All Grafiken stammen aus diesen Spielen, wenn nicht explizit anders angegeben, und sind damit Eigentum von &lt;b&gt;MotionTwin&lt;/b&gt;</source>
-        <target><![CDATA[All Grafiken stammen aus diesen Spielen, wenn nicht explizit anders angegeben, und sind damit Eigentum von <b>MotionTwin</b>]]></target>
+        <target><![CDATA[Sauf indication contraire, tous les éléments graphiques de MyHordes sont tirés de ces jeux et sont donc la propriété de <b>MotionTwin</b>]]></target>
       </segment>
     </unit>
     <unit id="3DaiPcH">
@@ -3764,7 +3764,7 @@
       </notes>
       <segment>
         <source>MyHordes ist &lt;i&gt;Open Source&lt;/i&gt; und jeder ist zur &lt;b&gt;Mitwirkung&lt;/b&gt; eingeladen. Du findest den Quellcode bei {gitlab}.</source>
-        <target><![CDATA[MyHordes ist <i>Open Source</i> und jeder ist zur <b>Mitwirkung</b> eingeladen. Du findest den Quellcode bei {gitlab}.]]></target>
+        <target><![CDATA[MyHordes est <i>Open Source</i> et tout le monde est le bienvenu pour y <b>participer</b>. Vous pouvez consulter le code source sur {gitlab}.]]></target>
       </segment>
     </unit>
     <unit id="nWYafS5">
@@ -3775,7 +3775,7 @@
       </notes>
       <segment>
         <source>MyHordes ist ein Teil des {etwin} Projekts, du kannst uns auf {opencollective} mit einer Spende unterstützen.</source>
-        <target>MyHordes ist ein Teil des {etwin} Projekts, du kannst uns auf {opencollective} mit einer Spende unterstützen.</target>
+        <target>MyHordes fait partie du projet {etwin}, si vous le souhaitez, vous pouvez faire une donation sur la page {opencollective}.</target>
       </segment>
     </unit>
     <unit id="yyNYNPS" name="Programmierung">
