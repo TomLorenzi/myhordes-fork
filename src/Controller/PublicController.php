@@ -331,12 +331,17 @@ class PublicController extends CustomAbstractController
             $referred_player = null;
             if ($parser->has('refer', true)) {
 
-                $refer = $parser->get('refer', true);
-
-                $refer = $this->entity_manager->getRepository(UserReferLink::class)->findOneBy(['name' => $refer, 'active' => true]);
+                $refer_name = $parser->get('refer', null);
+                $refer = $refer_name ? $this->entity_manager->getRepository(UserReferLink::class)->findOneBy(['name' => $refer_name, 'active' => true]) : null;
 
                 if ($refer) $referred_player = $refer->getUser();
-                else return AjaxResponse::error( 'invalid_fields', ['fields' => [$translator->trans('Der eingegebene Pate ist ungültig. Um dich ohne einen Paten anzumelden, lasse das Feld frei.', [], 'login')]] );
+                else {
+
+                    $potential_player = $this->entity_manager->getRepository(User::class)->findOneByNameOrDisplayName($refer_name);
+                    if ($potential_player)
+                        return AjaxResponse::error('invalid_fields', ['fields' => [$translator->trans('Der eingegebene Spieler ist nicht für das Patenschafts-Programm registriert. Bitte ihn, die "Freundschaft"-Seite in seiner Seele aufzurufen; er wird dann automatisch registriert. Erst dann kannst du ihn als Sponsor auswählen.', [], 'login')]]);
+                    else return AjaxResponse::error('invalid_fields', ['fields' => [$translator->trans('Der eingegebene Pate ist ungültig. Um dich ohne einen Paten anzumelden, lasse das Feld frei.', [], 'login')]]);
+                }
             }
 
             $user = $factory->createUser(
@@ -540,12 +545,17 @@ class PublicController extends CustomAbstractController
             $referred_player = null;
             if ($parser->has('refer', true)) {
 
-                $refer = $parser->get('refer', true);
-
-                $refer = $this->entity_manager->getRepository(UserReferLink::class)->findOneBy(['name' => $refer, 'active' => true]);
+                $refer_name = $parser->get('refer', null);
+                $refer = $refer_name ? $this->entity_manager->getRepository(UserReferLink::class)->findOneBy(['name' => $refer_name, 'active' => true]) : null;
 
                 if ($refer) $referred_player = $refer->getUser();
-                else return AjaxResponse::error( 'invalid_fields', ['fields' => [$translator->trans('Der eingegebene Pate ist ungültig. Um dich ohne einen Paten anzumelden, lasse das Feld frei.', [], 'login')]] );
+                else {
+
+                    $potential_player = $this->entity_manager->getRepository(User::class)->findOneByNameOrDisplayName($refer_name);
+                    if ($potential_player)
+                        return AjaxResponse::error('invalid_fields', ['fields' => [$translator->trans('Der eingegebene Spieler ist nicht für das Patenschafts-Programm registriert. Bitte ihn, die "Freundschaft"-Seite in seiner Seele aufzurufen; er wird dann automatisch registriert. Erst dann kannst du ihn als Sponsor auswählen.', [], 'login')]]);
+                    else return AjaxResponse::error('invalid_fields', ['fields' => [$translator->trans('Der eingegebene Pate ist ungültig. Um dich ohne einen Paten anzumelden, lasse das Feld frei.', [], 'login')]]);
+                }
             }
 
             if ( !$userHandler->isNameValid( preg_replace('/[^\w]/', '', trim($etwin_user->getDisplayName())) ) )
