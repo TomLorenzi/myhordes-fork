@@ -528,19 +528,10 @@ class CitizenHandler
     public function getCampingChance(Citizen $citizen): float {
         // In order to don't overflow 100%, we take the min between 0 and the camping value.
         // Camping value is going more and more negative when your camping chances are dropping.
-        $total_value = min(array_sum($this->getCampingValues($citizen)), 0);
-
         // The survivalist job can reach 100% of camping survival chances. Others are stuck at 90%.
         // We found out that there seems to be a minimum of survival chances of 10%. We should confirm
         // this with more tests on the original game. But for now, let's take 10%.
-        if ($citizen->getProfession()->getName() == 'survivalist') {
-            $survival_chance = max((100.0 - (abs($total_value) * 5)) / 100.0, .1);
-        }
-        else {
-            $survival_chance = min(max((100.0 - (abs($total_value) * 5)) / 100.0, .1), .9);
-        }
-
-        return $survival_chance;
+        return min(max((100.0 - (abs(min(0, array_sum($this->getCampingValues($citizen)))) * 5)) / 100.0, .1), $citizen->getProfession()->getName() === 'survivalist' ? 1.0 : 0.9);
     }
 
     public function getCampingValues(Citizen $citizen): array {
@@ -596,63 +587,44 @@ class CitizenHandler
         // Zone improvement level.
         $camping_values['improvement'] = $zone->getImprovementLevel();
 
-        // Camping count. No need to have complex things (polynomial calculation). This array is doing the same thing.
-        $campings_map = [
-            'normal' => [
-                'nonpro' => [
-                    0 => 0,
-                    1 => -4,
-                    2 => -9,
-                    3 => -13,
-                    4 => -16,
-                    5 => -26,
-                    6 => -36,
-                    7 => -50, // Totally arbitrary
-                    8 => -65, // Totally arbitrary
-                    9 => -80 // Totally arbitrary
-                ],
-                'pro' => [
-                    0 => 0,
-                    1 => -2,
-                    2 => -4,
-                    3 => -8,
-                    4 => -10,
-                    5 => -12,
-                    6 => -16,
-                    7 => -26,
-                    8 => -36,
-                    9 => -50 // Totally arbitrary
-                ]
-            ],
-            'hard' => [
-                'nonpro' => [
-                    0 => 0,
-                    1 => -4,
-                    2 => -6,
-                    3 => -8,
-                    4 => -10,
-                    5 => -20,
-                    6 => -36,
-                    7 => -50, // Totally arbitrary
-                    8 => -65, // Totally arbitrary
-                    9 => -80 // Totally arbitrary
-                ],
-                'pro' => [
-                    0 => 0,
-                    1 => -1,
-                    2 => -2,
-                    3 => -4,
-                    4 => -6,
-                    5 => -8,
-                    6 => -10,
-                    7 => -20,
-                    8 => -36, // Totally arbitrary
-                    9 => -50 // Totally arbitrary
-                ]
-            ],
-        ];
+        // Formula created & given by Ned/Arendil#1539
+        // https://cdn.discordapp.com/attachments/885080655975837719/885081809136795658/Camping_regression_1.xlsx
+        $camping_values['campings'] = 0;
+        if ($citizen->getCampingCounter() > 0) {
+            $z = (!$has_pro_camper && !$is_panda ? -0.00406746 : 0);
+            $a = $b = $c = $d = $e = $f = $g = $h = 0;
 
-        $camping_values['campings'] = $campings_map[$config->get(TownConf::CONF_MODIFIER_CAMPING_CHANCE_MAP, 'normal')][$has_pro_camper ? 'pro' : 'nonpro'][min(9,$citizen->getCampingCounter())];
+            if($is_panda) {
+                $a = ($has_pro_camper ? 27.1 : -59.6);
+                $b = ($has_pro_camper ? -68.01 : 133);
+                $c = ($has_pro_camper ? 61.087 : -118.49);
+                $d = ($has_pro_camper ? -27.405 : 50.629);
+                $e = ($has_pro_camper ? 6.5818 : -11.431);
+                $f = ($has_pro_camper ? -0.85764 : 1.3667);
+                $g = ($has_pro_camper ? 0.056713 : -0.08055);
+                $h = ($has_pro_camper ? -0.001488 : 0.0017857);
+            } else {
+                $a = ($has_pro_camper ? 16.5 : -335);
+                $b = ($has_pro_camper ? -49.862 : 869.6);
+                $c = ($has_pro_camper ? 52.001 : -887.6);
+                $d = ($has_pro_camper ? -27.776 : 468.225);
+                $e = ($has_pro_camper ? 7.864 : -142.5951);
+                $f = ($has_pro_camper ? -1.2007 : 26.0125);
+                $g = ($has_pro_camper ? 0.093102 : -2.805556);
+                $h = ($has_pro_camper ? -0.002877 : 0.164881);
+            }
+            $camping_values['campings'] = intval(
+                $z * pow($citizen->getCampingCounter(), 8) +
+                $h * pow($citizen->getCampingCounter(), 7) +
+                $g * pow($citizen->getCampingCounter(), 6) +
+                $f * pow($citizen->getCampingCounter(), 5) +
+                $e * pow($citizen->getCampingCounter(), 4) +
+                $d * pow($citizen->getCampingCounter(), 3) +
+                $c * pow($citizen->getCampingCounter(), 2) +
+                $b * pow($citizen->getCampingCounter(), 1) +
+                $a
+            );
+        }
 
         // Campers that are already hidden.
         $campers_map = [

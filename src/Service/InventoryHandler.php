@@ -366,8 +366,8 @@ class InventoryHandler
     const ModalityBankTheft        = 4;
 
     public function transferItem( ?Citizen &$actor, Item &$item, ?Inventory &$from, ?Inventory &$to, $modality = self::ModalityNone, $allow_extra_bag = false): int {
-        // Block Transfer if citizen is hiding but do not block if actor is dying during camping.
-        if ($actor->getZone() && $modality !== self::ModalityImpound && ($actor->getDayOfDeath() === 0 && ($actor->getStatus()->contains($this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'tg_hide' )) || $actor->getStatus()->contains($this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'tg_tomb' ))))) {
+        // Block Transfer if citizen is hiding
+        if ($actor->getZone() && $modality !== self::ModalityImpound && $modality !== self::ModalityEnforcePlacement && ($actor->getStatus()->contains($this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'tg_hide' )) || $actor->getStatus()->contains($this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'tg_tomb' )))) {
             return self::ErrorTransferBlocked;
         }
 

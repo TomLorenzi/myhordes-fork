@@ -124,7 +124,7 @@ class DeathHandler
                         $this->item_factory->createItem('bone_meat_#00')
                     );
                 else
-                    $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem('bone_meat_#00'), [$zone->getFloor()]);
+                    $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem('bone_meat_#00'), [$zone->getFloor()], true);
             }
 
             $citizen->setZone(null);
