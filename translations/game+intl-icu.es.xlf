@@ -1707,7 +1707,7 @@
     <unit id="FlZntyi" name="Bürger">
       <notes>
         <note category="german">Bürger</note>
-        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/towns/old_town_explorer.html.twig;twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_omniscience.html.twig;twig:///templates/ajax/game/town/citizen_vote.html.twig;twig:///templates/ajax/game/town/town.html.twig;twig:///templates/ajax/ghost/intro.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/towns/old_town_explorer.html.twig;twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_list_headers.html.twig;twig:///templates/ajax/game/town/citizen_omniscience.html.twig;twig:///templates/ajax/game/town/citizen_vote.html.twig;twig:///templates/ajax/game/town/town.html.twig;twig:///templates/ajax/ghost/intro.html.twig</note>
       </notes>
       <segment>
         <source>Bürger</source>
@@ -5254,7 +5254,7 @@
     <unit id="8UxoSSm" name="Verteidigungsgegenstände">
       <notes>
         <note category="german">Verteidigungsgegenstände</note>
-        <note category="from">twig:///templates/ajax/game/town/bank.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/home.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/bank.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Verteidigungsgegenstände</source>
@@ -8438,7 +8438,7 @@
     </unit>
     <unit id="2xvpkUu">
       <notes>
-        <note category="german">{attacker} ist {defender} an die Gurgel gesprungen und hat ihn ohne mit der Wimper zu zucken verspeist!</note>
+        <note category="german">{attacker} ist {defender} an die Gurgel gesprungen und hat ihn ohne mit der Wimper zu zucken &lt;strong&gt;verspeist&lt;/strong&gt;!!</note>
         <note category="from">db://LogEntryTemplate</note>
       </notes>
       <segment>
@@ -8758,7 +8758,7 @@
     </unit>
     <unit id="bGpi8xS">
       <notes>
-        <note category="german">Mit ein paar unschönen Tritten gegen seinen Kopf vergewisserst du dich, dass er garantiert nicht mehr aufstehen wird. Na los! Bring deinen Job zuende und verspeise ihn!</note>
+        <note category="german">Mit ein paar unschönen Tritten gegen seinen Kopf vergewisserst du dich, dass er garantiert nicht mehr aufstehen wird. &lt;strong&gt;Na los! Bring deinen Job zuende und verspeise ihn!&lt;/strong&gt;</note>
         <note category="from">php:///src/Controller/InventoryAwareController.php</note>
       </notes>
       <segment>
@@ -8978,7 +8978,7 @@
     </unit>
     <unit id="dyUt3up" name="Aus der Stadt schleichen">
       <notes>
-        <note category="german">Aus der Stadt schleichen</note>
+        <note category="german">Unauffällig rausgehen</note>
         <note category="from">twig:///templates/ajax/game/town/door.html.twig</note>
       </notes>
       <segment>
@@ -9008,7 +9008,7 @@
     </unit>
     <unit id="sVhAGjc" name="Diesen Bürger verspeisen!">
       <notes>
-        <note category="german">Diesen Bürger verspeisen!</note>
+        <note category="german">Diesen Bürger verschlingen!</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
@@ -9028,7 +9028,7 @@
     </unit>
     <unit id="isIvO1g" name="In die Stadt schleichen">
       <notes>
-        <note category="german">In die Stadt schleichen</note>
+        <note category="german">Die Stadt heimlich betreten</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
@@ -9959,7 +9959,7 @@
     <unit id="D31zha8" name="Allwissenheit">
       <notes>
         <note category="german">Allwissenheit</note>
-        <note category="from">db://HeroSkillPrototype;twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_omniscience.html.twig;twig:///templates/ajax/game/town/citizen_vote.html.twig</note>
+        <note category="from">db://HeroSkillPrototype;twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_list_headers.html.twig;twig:///templates/ajax/game/town/citizen_omniscience.html.twig;twig:///templates/ajax/game/town/citizen_vote.html.twig</note>
       </notes>
       <segment>
         <source>Allwissenheit</source>
@@ -17439,7 +17439,7 @@
     </unit>
     <unit id="M80SaEv">
       <notes>
-        <note category="german">Die Chance, beim Verschlingen eines Bürgers entdeckt zu werden, ist {chances}...</note>
+        <note category="german">Deine Wahrscheinlichkeit, beim Verzehr eines Mitbürgers entdeckt zu werden, ist {chances}.</note>
         <note category="from">twig:///templates/ajax/game/town/citizen.html.twig</note>
       </notes>
       <segment>
@@ -17449,7 +17449,7 @@
     </unit>
     <unit id="qD3lUP9">
       <notes>
-        <note category="german">Das Risiko basiert auf der Anzahl der Bürger in der Aussenwelt. Je mehr Bürger sich außerhalb der Stadt aufhalten, desto geringer sind die Chancen, entdeckt zu werden.</note>
+        <note category="german">Die Risikowahrscheinlichkeit hängt von der Anzahl der Bürger ab, die sich in der Außenwelt aufhalten. Je weniger Leute sich in der Stadt aufhalten, desto geringer die Chance, erwischt zu werden.</note>
         <note category="from">twig:///templates/ajax/game/town/citizen.html.twig</note>
       </notes>
       <segment>
@@ -19408,7 +19408,7 @@
     <unit id="vSjpknb" name="Haus von {citizen}">
       <notes>
         <note category="german">Haus von {citizen}</note>
-        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen_list_headers.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Haus von {citizen}</source>
@@ -20030,7 +20030,7 @@
     <unit id="gmanddb" name="Persönliche Beschreibung">
       <notes>
         <note category="german">Persönliche Beschreibung</note>
-        <note category="from">twig:///templates/ajax/admin/users/account.html.twig;twig:///templates/ajax/soul/me.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/soul/me.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
       </notes>
       <segment>
         <source>Persönliche Beschreibung</source>
@@ -20230,7 +20230,7 @@
     <unit id="QseufEj" name="Behausung">
       <notes>
         <note category="german">Behausung</note>
-        <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Behausung</source>
@@ -20240,7 +20240,7 @@
     <unit id="aLlzxLt" name="+{def} Punkt(e)">
       <notes>
         <note category="german">+{def} Punkt(e)</note>
-        <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>+{def} Punkt(e)</source>
@@ -20250,7 +20250,7 @@
     <unit id="3whc17K" name="Heldenbonus">
       <notes>
         <note category="german">Heldenbonus</note>
-        <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Heldenbonus</source>
@@ -20261,7 +20261,7 @@
       <notes>
         <note category="german">Total</note>
         <note category="state">new</note>
-        <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Total</source>
@@ -20271,7 +20271,7 @@
     <unit id="uFrUwJs">
       <notes>
         <note category="german">Verteidigungsgegenstände (Blechplatten etc...) müssen in der Truhe abgelegt werden.</note>
-        <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Verteidigungsgegenstände (Blechplatten etc...) müssen in der Truhe abgelegt werden.</source>
@@ -20281,7 +20281,7 @@
     <unit id="A9mtMsb" name="Wächterbonus">
       <notes>
         <note category="german">Wächterbonus</note>
-        <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Wächterbonus</source>
@@ -21040,7 +21040,7 @@
     </unit>
     <unit id="Fu0IcEb">
       <notes>
-        <note category="german">WARNUNG: Es besteht eine große Chance, dass du von anderen Bürgern entdeckt wirst, wenn du jemanden in der Stadt verschlingst! Mach das besser in der Aussenwelt...</note>
+        <note category="german">ACHTUNG: Die Wahrscheinlichkeit entdeckt zu werden ist in der Stadt wesentlich höher. Warum nicht ein kleiner Mord in der Außenwelt? Das wird kaum einer merken...</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
@@ -23021,6 +23021,70 @@
       <segment>
         <source>Solange dieser Bürger &lt;strong&gt;vor Angst erstarrt&lt;/strong&gt; ist, wird es für ihn unmöglich sein, inmitten von Zombies zu handeln...</source>
         <target><![CDATA[Solange dieser Bürger <strong>vor Angst erstarrt</strong> ist, wird es für ihn unmöglich sein, inmitten von Zombies zu handeln...]]></target>
+      </segment>
+    </unit>
+    <unit id="gROS3fP">
+      <notes>
+        <note category="german">Mit dieser Aktion kannst du die Stadt betreten, ohne dass es ins Stadtregister eingetragen wird. Wenn du ein paar Spieler eskortierst, werden diese am Stadttor zurückgelassen.</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Mit dieser Aktion kannst du die Stadt betreten, ohne dass es ins Stadtregister eingetragen wird. Wenn du ein paar Spieler eskortierst, werden diese am Stadttor zurückgelassen.</source>
+        <target>Mit dieser Aktion kannst du die Stadt betreten, ohne dass es ins Stadtregister eingetragen wird. Wenn du ein paar Spieler eskortierst, werden diese am Stadttor zurückgelassen.</target>
+      </segment>
+    </unit>
+    <unit id="PanD2KO">
+      <notes>
+        <note category="german">Mit dieser Aktion kannst du deinen unersättlichen Hunger nach Menschenfleisch stillen!</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Mit dieser Aktion kannst du deinen unersättlichen Hunger nach Menschenfleisch stillen!</source>
+        <target>Mit dieser Aktion kannst du deinen unersättlichen Hunger nach Menschenfleisch stillen!</target>
+      </segment>
+    </unit>
+    <unit id="lt7mbY8">
+      <notes>
+        <note category="german">Mit dieser Aktion kannst du die Stadt verlassen, ohne dass es ins Stadtregister eingetragen wird.</note>
+        <note category="from">twig:///templates/ajax/game/town/door.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Mit dieser Aktion kannst du die Stadt verlassen, ohne dass es ins Stadtregister eingetragen wird.</source>
+        <target>Mit dieser Aktion kannst du die Stadt verlassen, ohne dass es ins Stadtregister eingetragen wird.</target>
+      </segment>
+    </unit>
+    <unit id="EnGH19o" name="in der Außenwelt">
+      <notes>
+        <note category="german">in der Außenwelt</note>
+        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+      </notes>
+      <segment>
+        <source>in der Außenwelt</source>
+        <target>en el ultramundo</target>
+      </segment>
+    </unit>
+    <unit id="aeVr7d_" name="in der Stadt">
+      <notes>
+        <note category="german">in der Stadt</note>
+        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+      </notes>
+      <segment>
+        <source>in der Stadt</source>
+        <target>en el pueblo</target>
+      </segment>
+    </unit>
+    <unit id="BdS7W9e">
+      <notes>
+        <note category="german">Die Anzahl der Sterne gibt dir eine Vorstellung von der heutigen Aktivität des Einwohners {citizen}: Anwesenheit, Besuche im Forum, Arbeit im Dorf, etc.</note>
+        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Die Anzahl der Sterne gibt dir eine Vorstellung von der heutigen Aktivität des Einwohners {citizen}: Anwesenheit, Besuche im Forum, Arbeit im Dorf, etc.</source>
+        <target>Esta cantidad de estrellas te da una idea de la actividad del habitante {citizen}: hoy: presencia, visitas al foro, trabajo en el pueblo, etc.</target>
       </segment>
     </unit>
   </file>

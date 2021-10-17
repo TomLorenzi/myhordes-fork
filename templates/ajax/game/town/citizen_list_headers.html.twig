@@ -1,0 +1,27 @@
+<ul class="tabs plain">
+    <li class="tab {% if active_tab is defined and active_tab == 'list' %}selected{% endif %}">
+        <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('town_citizens') }}">{% trans from 'game' %}Bürger{% endtrans %}</div>
+    </li>
+
+    {% if not town.chaos %}
+        {% for name,role in votesNeeded %}
+            {% if role %}
+                <li class="tab {% if active_tab is defined and active_tab == ('role_' ~ role.id) %}selected{% endif %}">
+                    <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('town_citizen_vote', {roleId: role.id}) }}"><img alt="" src="{{ asset('build/images/item/item_bureau.gif') }}" /> {{ role.label|trans({}, 'game') }}</div>
+                </li>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+
+    {% if has_omniscience %}
+        <li class="tab {% if active_tab is defined and active_tab == 'omniscience' %}selected{% endif %}">
+            <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('town_citizens_omniscience') }}"> <img src="{{ asset('build/images/icons/small_view.gif') }}" alt="" />{{'Allwissenheit'|trans({}, 'game')}}</div>
+        </li>
+    {% endif %}
+
+    {% if owner_tab is defined %}
+        <li class="tab {% if active_tab is defined and active_tab == 'owner' %}selected{% endif %}">
+            <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('town_visit', {id: owner.id}) }}"> <img alt="" src="{{ asset('build/images/home/' ~ owner.home.prototype.icon ~ '.gif') }}" /> {{ 'Haus von {citizen}'|trans({'{citizen}': owner_tab}, 'game') }}</div>
+        </li>
+    {% endif %}
+</ul>

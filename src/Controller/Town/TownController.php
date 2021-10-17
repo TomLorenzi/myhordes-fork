@@ -431,6 +431,8 @@ class TownController extends InventoryAwareController
             'clairvoyanceLevel' => $clairvoyanceLevel,
             'attackAP' => $this->getTownConf()->get( TownConf::CONF_MODIFIER_ATTACK_AP, 5 ),
             'can_recycle' => $can_recycle,
+            'has_omniscience' => $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'omniscience'),
+
         ]) );
     }
 

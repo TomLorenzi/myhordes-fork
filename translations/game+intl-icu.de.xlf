@@ -14664,5 +14664,41 @@
         <target><![CDATA[Solange dieser Bürger <strong>vor Angst erstarrt</strong> ist, wird es für ihn unmöglich sein, inmitten von Zombies zu handeln...]]></target>
       </segment>
     </unit>
+    <unit id="gROS3fP">
+      <segment>
+        <source>Mit dieser Aktion kannst du die Stadt betreten, ohne dass es ins Stadtregister eingetragen wird. Wenn du ein paar Spieler eskortierst, werden diese am Stadttor zurückgelassen.</source>
+        <target>Mit dieser Aktion kannst du die Stadt betreten, ohne dass es ins Stadtregister eingetragen wird. Wenn du ein paar Spieler eskortierst, werden diese am Stadttor zurückgelassen.</target>
+      </segment>
+    </unit>
+    <unit id="PanD2KO">
+      <segment>
+        <source>Mit dieser Aktion kannst du deinen unersättlichen Hunger nach Menschenfleisch stillen!</source>
+        <target>Mit dieser Aktion kannst du deinen unersättlichen Hunger nach Menschenfleisch stillen!</target>
+      </segment>
+    </unit>
+    <unit id="lt7mbY8">
+      <segment>
+        <source>Mit dieser Aktion kannst du die Stadt verlassen, ohne dass es ins Stadtregister eingetragen wird.</source>
+        <target>Mit dieser Aktion kannst du die Stadt verlassen, ohne dass es ins Stadtregister eingetragen wird.</target>
+      </segment>
+    </unit>
+    <unit id="EnGH19o" name="in der Außenwelt">
+      <segment>
+        <source>in der Außenwelt</source>
+        <target>in der Außenwelt</target>
+      </segment>
+    </unit>
+    <unit id="aeVr7d_" name="in der Stadt">
+      <segment>
+        <source>in der Stadt</source>
+        <target>in der Stadt</target>
+      </segment>
+    </unit>
+    <unit id="BdS7W9e">
+      <segment>
+        <source>Die Anzahl der Sterne gibt dir eine Vorstellung von der heutigen Aktivität des Einwohners {citizen}: Anwesenheit, Besuche im Forum, Arbeit im Dorf, etc.</source>
+        <target>Die Anzahl der Sterne gibt dir eine Vorstellung von der heutigen Aktivität des Einwohners {citizen}: Anwesenheit, Besuche im Forum, Arbeit im Dorf, etc.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

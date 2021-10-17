@@ -6,28 +6,7 @@
         <div class="cell rw-12 town-banner town-banner-houses time-{{ hour }} {% if conf.isNightTime %}night{% endif %}"></div>
     </div>
 
-    <ul class="tabs plain">
-        <li class="tab">
-            <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('town_citizens') }}">
-                {% trans from 'game' %}Bürger{% endtrans %}
-            </div>
-        </li>
-        {% for name,role in votesNeeded %}
-            {% if role %}
-            <li class="tab">
-                <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('town_citizen_vote', {roleId: role.id}) }}">
-                    <img alt="" src="{{ asset('build/images/item/item_bureau.gif') }}" /> {{ role.label|trans({}, 'game') }}
-                </div>
-            </li>
-            {% endif %}
-        {% endfor %}
-
-        {% if has_omniscience %}
-        <li class="tab selected">
-            <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('town_citizens_omniscience') }}"> <img src="{{ asset('build/images/icons/small_view.gif') }}" alt="" />{{'Allwissenheit'|trans({}, 'game')}}</div>
-        </li>
-        {% endif %}
-    </ul>
+    {% include 'ajax/game/town/citizen_list_headers.html.twig' with {active_tab: 'omniscience'} %}
 
     <div class="row-table citizens-list">
         <div class="row-flex header">

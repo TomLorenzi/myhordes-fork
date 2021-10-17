@@ -1,9 +1,9 @@
 {% extends "ajax/game/town/town.html.twig" %}
 {% block title %}
     {% if owner.alive %}
-        {{ 'Haus von {citizen}'|trans({'{citizen}': owner.name}, 'game') }}
+        {{ 'Haus von {citizen}'|trans({'{citizen}': owner}, 'game') }}
     {% else %}
-        {{ 'Das Grab von {citizen}'|trans({'{citizen}': owner.name}, 'game') }}
+        {{ 'Das Grab von {citizen}'|trans({'{citizen}': owner}, 'game') }}
     {% endif %}
 {% endblock %}
 {% block content %}
@@ -12,22 +12,31 @@
         <div class="cell rw-12 town-banner town-banner-visit time-{{ hour }} {% if conf.isNightTime %}night{% endif %}"></div>
     </div>
 
+    {% include 'ajax/game/town/citizen_list_headers.html.twig' with {owner_tab: owner, active_tab: 'owner'} %}
+
     {# @var \App\Entity\Citizen owner #}
     {# @var \App\Structures\HomeDefenseSummary def #}
-    <h5>
-        <b>{{ owner.name }}</b>
-        ({% if owner.alive %}
-            <img alt="{{ owner.profession.label|trans({},'game') }}" src="{{ asset('build/images/professions/' ~ owner.profession.icon ~ '.gif') }}" />
+    <h1 class="page-head">
+        <b>{{ 'Haus von {citizen}'|trans({citizen: owner}, 'game') }}</b>
+        {% if owner.alive %}
+            {% if owner.zone %}
+                ({{ 'in der Außenwelt'|trans({},'game') }})
+            {% else %}
+                (<img alt="" src="{{ asset('build/images/icons/home.gif') }}" /> {{ 'in der Stadt'|trans({},'game') }})
+            {% endif %}
         {% else %}
-            <img alt="{{ 'Tot'|trans({},'game') }}" src="{{ asset('build/images/professions/death.gif') }}" />
-        {% endif %})
-    </h5>
+            (<img alt="{{ 'Tot'|trans({},'game') }}" src="{{ asset('build/images/professions/death.gif') }}" />)
+        {% endif %}
+    </h1>
 
     {% if hasClairvoyance and owner.alive %}
         <div class="clairvoyance">
-            <img alt="" src="{{ asset('build/images/heroskill/small_view.gif') }}" /> <strong>{{'Hellseherei'|trans({},'game')}} : </strong>
+            <img alt="" src="{{ asset('build/images/heroskill/small_view.gif') }}" />
+            <strong>{{'Hellseherei'|trans({},'game')}}</strong>
+            {{ help_btn('Die Anzahl der Sterne gibt dir eine Vorstellung von der heutigen Aktivität des Einwohners {citizen}: Anwesenheit, Besuche im Forum, Arbeit im Dorf, etc.'|trans({citizen: owner}, 'game')) }}
+            <strong>:</strong>
             {% if clairvoyanceLevel > 0 %}
-            {% for i in range(1, clairvoyanceLevel) %}<img src="{{ asset('build/images/icons/small_new.gif') }}" alt="*" />{% endfor %}
+                {% for i in range(1, clairvoyanceLevel) %}<img src="{{ asset('build/images/icons/small_new.gif') }}" alt="*" />{% endfor %}
             {% endif %}
         </div>
     {% endif %}
@@ -51,7 +60,7 @@
             <div class="cell {% if owner.user.avatar %}rw-9 rw-lg-8 rw-md-12{% else %}rw-12{% endif %}">
                 <div class="row">
                     <div class="cell rw-5 rw-lg-6"><span class="highlight">{{ 'Haus'|trans({},'game') }} :</span></div>
-                    <div class="cell rw-7 rw-lg-6"><img alt="" src="{{ asset('build/images/home/' ~ owner.home.prototype.icon ~ '.gif') }}"> {{ owner.home.prototype.label|trans({},'buildings') }} {% if owner.alive %} [ + {{ owner.home.prototype.defense }} <img alt="" src="{{ asset('build/images/icons/def.gif') }}"> ]{% endif %}</div>
+                    <div class="cell rw-7 rw-lg-6"><img alt="" src="{{ asset('build/images/home/' ~ owner.home.prototype.icon ~ '.gif') }}" /> {{ owner.home.prototype.label|trans({},'buildings') }} {% if owner.alive %} [ + {{ owner.home.prototype.defense }} <img alt="" src="{{ asset('build/images/icons/def.gif') }}" /> ]{% endif %}</div>
                 </div>
                 {% if owner.alive %}
                     <div class="row">
@@ -80,7 +89,19 @@
                     </div>
                     <div class="row">
                         <div class="cell rw-5 rw-lg-6"><span class="highlight">{{ 'Verteidigung'|trans({},'game') }} :</span></div>
-                        <div class="cell rw-7 rw-lg-6"><img alt="" src="{{ asset('build/images/icons/def.gif') }}"> {{ def.sum }}</div>
+                        <div class="cell rw-7 rw-lg-6"><img alt="" src="{{ asset('build/images/icons/def.gif') }}">
+                            {{ def.sum }}
+                            {{ help_btn(
+                                'Behausung'|trans({},'game') ~ ': <strong>' ~ '+{def} Punkt(e)'|trans({'{def}': def.house_defense},'game') ~ '</strong><br />' ~
+                                'Bauarbeiten'|trans({},'game') ~ ': <strong>' ~ '+{def} Punkt(e)'|trans({'{def}': def.upgrades_defense},'game') ~ '</strong><br />' ~
+                                'Verteidigungsgegenstände'|trans({},'game') ~ ': <strong>' ~ '+{def} Punkt(e)'|trans({'{def}': def.item_defense},'game') ~ '</strong><br />' ~
+                                'Heldenbonus'|trans({},'game') ~ ': <strong>' ~ '+{def} Punkt(e)'|trans({'{def}': def.job_defense},'game') ~ '</strong><br />' ~
+                                (def.job_guard_defense > 0 ? ('Wächterbonus'|trans({},'game') ~ ': <strong>' ~ '+{def} Punkt(e)'|trans({'{def}': def.job_guard_defense},'game') ~ '</strong><br />') : '') ~
+                            '<hr />' ~
+                            'Total'|trans({},'game') ~ ': <strong>' ~ '+{def} Punkt(e)'|trans({'{def}': def.sum},'game') ~ '</strong>' ~
+                            '<p class="small">' ~ 'Verteidigungsgegenstände (Blechplatten etc...) müssen in der Truhe abgelegt werden.'|trans({},'game') ~ '</p>'
+                            ) }}
+                        </div>
                     </div>
                 {% else %}
                     <div class="row">
@@ -95,6 +116,15 @@
             </div>
         </div>
     </div>
+
+    {% if owner.alive and owner.home.description %}
+        <div class="lightbox">
+            <div class="row">
+                <div class="cell rw-5 rw-lg-6"><span class="highlight">{{ 'Persönliche Beschreibung'|trans({},'game') }} :</span></div>
+                <div class="cell rw-7 rw-lg-6">« {{ owner.home.description }} »</div>
+            </div>
+        </div>
+    {% endif %}
 
     {% if not owner.alive and owner.hasRole('ghoul') %}
         <div class="note note-critical">
