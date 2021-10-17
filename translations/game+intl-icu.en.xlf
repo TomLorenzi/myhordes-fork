@@ -23157,5 +23157,15 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>Die Anzahl der Sterne gibt dir eine Vorstellung von der heutigen Aktivität des Einwohners {citizen}: Anwesenheit, Besuche im Forum, Arbeit im Dorf, etc.</target>
       </segment>
     </unit>
+    <unit id="Cjw8Lfc">
+      <notes>
+        <note category="german">Du kannst diese Aktion im Lernmodus nicht ausführen. &lt;strong&gt;Zuerst musst du noch etwas Spielerfahrung sammeln&lt;/strong&gt;.&lt;hr/&gt;Klicke auf den Link bei Lernmodus, um diesen Modus zu deaktivieren.</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
+      </notes>
+      <segment>
+        <source>Du kannst diese Aktion im Lernmodus nicht ausführen. &lt;strong&gt;Zuerst musst du noch etwas Spielerfahrung sammeln&lt;/strong&gt;.&lt;hr/&gt;Klicke auf den Link bei Lernmodus, um diesen Modus zu deaktivieren.</source>
+        <target><![CDATA[You cannot do this in rookie mode. Basically, <strong>this action requires you to have greater experience of the game</strong>.<hr/>You can deactivate rookie mode by clicking the link in the info box.]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

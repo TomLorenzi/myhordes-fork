@@ -23086,5 +23086,15 @@
         <target>Esta cantidad de estrellas te da una idea de la actividad del habitante {citizen}: hoy: presencia, visitas al foro, trabajo en el pueblo, etc.</target>
       </segment>
     </unit>
+    <unit id="Cjw8Lfc">
+      <notes>
+        <note category="german">Du kannst diese Aktion im Lernmodus nicht ausführen. &lt;strong&gt;Zuerst musst du noch etwas Spielerfahrung sammeln&lt;/strong&gt;.&lt;hr/&gt;Klicke auf den Link bei Lernmodus, um diesen Modus zu deaktivieren.</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
+      </notes>
+      <segment>
+        <source>Du kannst diese Aktion im Lernmodus nicht ausführen. &lt;strong&gt;Zuerst musst du noch etwas Spielerfahrung sammeln&lt;/strong&gt;.&lt;hr/&gt;Klicke auf den Link bei Lernmodus, um diesen Modus zu deaktivieren.</source>
+        <target><![CDATA[No puedes hacer eso en Modo Aprendizaje. <strong>Esta acción requiere una experiencia elevada en el juego</strong>.<hr/>Puedes desactivar el Modo Aprendizaje con el botón del mismo nombre.]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

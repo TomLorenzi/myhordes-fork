@@ -23063,5 +23063,15 @@ cette violente opération...]]></target>
         <target>Die Anzahl der Sterne gibt dir eine Vorstellung von der heutigen Aktivität des Einwohners {citizen}: Anwesenheit, Besuche im Forum, Arbeit im Dorf, etc.</target>
       </segment>
     </unit>
+    <unit id="Cjw8Lfc">
+      <notes>
+        <note category="german">Du kannst diese Aktion im Lernmodus nicht ausführen. &lt;strong&gt;Zuerst musst du noch etwas Spielerfahrung sammeln&lt;/strong&gt;.&lt;hr/&gt;Klicke auf den Link bei Lernmodus, um diesen Modus zu deaktivieren.</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
+      </notes>
+      <segment>
+        <source>Du kannst diese Aktion im Lernmodus nicht ausführen. &lt;strong&gt;Zuerst musst du noch etwas Spielerfahrung sammeln&lt;/strong&gt;.&lt;hr/&gt;Klicke auf den Link bei Lernmodus, um diesen Modus zu deaktivieren.</source>
+        <target><![CDATA[Vous ne pouvez pas faire cela en mode apprentissage. En effet, <strong>cette action requiert une plus grande expérience du jeu</strong>.<hr/>Vous pouvez désactiver le mode apprentissage en cliquant sur lien du même nom.]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

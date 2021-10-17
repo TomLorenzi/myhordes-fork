@@ -3792,7 +3792,6 @@
       <notes>
         <note category="german">MyHordes ist ein Teil des {etwin} Projekts, du kannst uns auf {opencollective} mit einer Spende unterstützen.</note>
         <note category="from">twig:///templates/web/framework.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>MyHordes ist ein Teil des {etwin} Projekts, du kannst uns auf {opencollective} mit einer Spende unterstützen.</source>

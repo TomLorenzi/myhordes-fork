@@ -1532,6 +1532,9 @@ class BeyondController extends InventoryAwareController
         if ($citizen->getBanished())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
+        if ($on && !$citizen->getUser()->getExpert())
+            return AjaxResponse::errorMessage( $this->translator->trans( 'Du kannst diese Aktion im Lernmodus nicht ausführen. <strong>Zuerst musst du noch etwas Spielerfahrung sammeln</strong>.<hr/>Klicke auf den Link bei Lernmodus, um diesen Modus zu deaktivieren.', [], 'game' ) );
+
         $max_escort_size = $conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_FEATURE_ESCORT_SIZE, 4);
 
         if ($on && $citizen->getLeadingEscorts()->count() >= $max_escort_size)
