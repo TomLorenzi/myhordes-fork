@@ -23012,5 +23012,16 @@
         <target>Du bist der {rolename} dieser Stadt.</target>
       </segment>
     </unit>
+    <unit id="0lP3VYZ">
+      <notes>
+        <note category="german">Solange dieser Bürger &lt;strong&gt;vor Angst erstarrt&lt;/strong&gt; ist, wird es für ihn unmöglich sein, inmitten von Zombies zu handeln...</note>
+        <note category="from">twig:///templates/scripts/errors/beyond.txt.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Solange dieser Bürger &lt;strong&gt;vor Angst erstarrt&lt;/strong&gt; ist, wird es für ihn unmöglich sein, inmitten von Zombies zu handeln...</source>
+        <target><![CDATA[Tant que ce citoyen sera <strong>terrorisé</strong>, il lui sera impossible d'agir au milieu des zombies...]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

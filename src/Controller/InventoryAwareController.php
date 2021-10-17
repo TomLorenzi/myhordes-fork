@@ -1168,7 +1168,7 @@ class InventoryAwareController extends CustomAbstractController
 
         $zone = $citizen->getZone();
         if ($zone && !$this->zone_handler->check_cp($zone) && !$action->getAllowWhenTerrorized() && $this->citizen_handler->hasStatusEffect($citizen, 'terror') && !$this->zone_handler->check_cp($this->getActiveCitizen()->getZone()))
-            return AjaxResponse::error( BeyondController::ErrorTerrorized );
+            return AjaxResponse::error( $citizen === $this->getActiveCitizen() ? BeyondController::ErrorTerrorized : BeyondController::ErrorEscortTerrorized );
 
         if (!$action->getAllowedAtGate() && $zone && $zone->isTownZone())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );

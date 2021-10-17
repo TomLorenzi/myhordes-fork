@@ -14658,5 +14658,11 @@
         <target>Einen Aufstand der Verbannten vorbereiten (optional).</target>
       </segment>
     </unit>
+    <unit id="0lP3VYZ">
+      <segment>
+        <source>Solange dieser Bürger &lt;strong&gt;vor Angst erstarrt&lt;/strong&gt; ist, wird es für ihn unmöglich sein, inmitten von Zombies zu handeln...</source>
+        <target><![CDATA[Solange dieser Bürger <strong>vor Angst erstarrt</strong> ist, wird es für ihn unmöglich sein, inmitten von Zombies zu handeln...]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

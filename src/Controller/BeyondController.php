@@ -76,6 +76,7 @@ class BeyondController extends InventoryAwareController
     const ErrorTerrorized           = ErrorHelper::BaseBeyondErrors + 13;
     const ErrorEscortActionRefused  = ErrorHelper::BaseBeyondErrors + 14;
     const ErrorEscortFailureRuin    = ErrorHelper::BaseBeyondErrors + 15;
+    const ErrorEscortTerrorized     = ErrorHelper::BaseBeyondErrors + 16;
 
     protected $game_factory;
     protected ZoneHandler $zone_handler;
