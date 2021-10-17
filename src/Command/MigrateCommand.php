@@ -237,8 +237,8 @@ class MigrateCommand extends Command
                     return 100;
             } else $output->writeln("Skipping <info>database backup</info>.");
 
-            //if (!$this->helper->capsule( "git fetch --tags {$remote} {$branch}", $output, 'Retrieving updates from repository... ', false, $null, $php, false, 0, $as )) return 1;
-            //if (!$this->helper->capsule( "git reset --hard {$remote}/{$branch}", $output, 'Applying changes to filesystem... ', false, $null, $php, false, 0, $as )) return 2;
+            if (!$this->helper->capsule( "git fetch --tags {$remote} {$branch}", $output, 'Retrieving updates from repository... ', false, $null, $php, false, 0, $as )) return 1;
+            if (!$this->helper->capsule( "git reset --hard {$remote}/{$branch}", $output, 'Applying changes to filesystem... ', false, $null, $php, false, 0, $as )) return 2;
 
             if (!$input->getOption('fast')) {
                 if ($env === 'dev') {
