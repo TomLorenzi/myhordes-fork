@@ -461,8 +461,11 @@ class NightlyHandler
             if (!$citizen->getAlive()) continue;
 
             // Spiritual leader
-            if ($this->citizen_handler->hasStatusEffect($citizen, 'tg_spirit_guide'))
-                $this->picto_handler->give_picto($citizen, 'r_guide_#00', $town->getDay() - 1);
+            if ($this->citizen_handler->hasStatusEffect($citizen, 'tg_spirit_guide')) {
+                $c = 0;
+                for ($d = 1; $d < $town->getDay(); $d++) $c += $d;
+                $this->picto_handler->give_picto($citizen, 'r_guide_#00', $c);
+            }
 
             if (!$citizen->getProfession()->getHeroic())
                 continue;
