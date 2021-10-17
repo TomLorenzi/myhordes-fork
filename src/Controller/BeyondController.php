@@ -166,6 +166,7 @@ class BeyondController extends InventoryAwareController
         if ($zone->isTownZone()) {
             $zone_players += $this->entity_manager->getRepository(Citizen::class)->count(['town' => $this->getActiveCitizen()->getTown(), 'zone' => null, 'alive' => true]);
         }
+
         return parent::addDefaultTwigArgs( $section, array_merge( [
             'zone_players' => $zone_players,
             'zone_zombies' => max(0,$zone->getZombies()),
@@ -358,6 +359,11 @@ class BeyondController extends InventoryAwareController
             $this->getActiveCitizen()->getBanished() &&
             !$this->getActiveCitizen()->getZone()->getFloor()->getItems()->filter(function(Item $i) { return $i->getHidden(); })->isEmpty();
 
+        $floorItems = $zone->getFloor()->getItems()->toArray();
+        usort($floorItems, function ($a, $b) {
+            return strcmp($this->translator->trans($a->getPrototype()->getLabel(), [], 'items'), $this->translator->trans($b->getPrototype()->getLabel(), [], 'items'));
+        });
+
         return $this->render( 'ajax/game/beyond/desert.html.twig', $this->addDefaultTwigArgs(null, [
             'hidden_items' => $has_hidden_items,
             'scout' => $this->getActiveCitizen()->getProfession()->getName() === 'hunter',
@@ -379,7 +385,7 @@ class BeyondController extends InventoryAwareController
             'digging' => $this->getActiveCitizen()->isDigging(),
             'dig_ruin' => empty($this->entity_manager->getRepository(DigRuinMarker::class)->findByCitizen( $this->getActiveCitizen() )),
             'actions' => $this->getItemActions(),
-            'floor' => $zone->getFloor(),
+            'floorItems' => $floorItems,
             'other_citizens' => $zone->getCitizens(),
             'log' => ($zone->getX() === 0 && $zone->getY() === 0) ? '' : $this->renderLog( -1, null, $zone, null, 10, true )->getContent(),
             'day' => $this->getActiveCitizen()->getTown()->getDay(),

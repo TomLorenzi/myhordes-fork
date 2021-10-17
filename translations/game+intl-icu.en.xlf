@@ -4038,7 +4038,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Argh!! Es scheint, als ob sich ein Ghul unter die Einwohner gemischt hätte! Völlig ahnungs- und wehrlos wurdest du von etwas oder jemandem angefallen und übel vermöbelt. Als er dann seine fauligen Zähne in deinen Hals schlug warst du noch bei Bewusstsein... Doch du hattest nur noch einen Gedanken: Wer war das?</source>
-        <target>Argh!! Es scheint, als ob sich ein Ghul unter die Einwohner gemischt hätte! Völlig ahnungs- und wehrlos wurdest du von etwas oder jemandem angefallen und übel vermöbelt. Als er dann seine fauligen Zähne in deinen Hals schlug warst du noch bei Bewusstsein... Doch du hattest nur noch einen Gedanken: Wer war das?</target>
+        <target>Argh! It would appear that a ghoul moves among us! With no time to react, someone, or something jumped on you, and rained blows on you before devouring you whilst you were still semi-conscious. Before slipping into the darkness, one question plagues you: what do I taste like?</target>
       </segment>
     </unit>
     <unit id="7AlBdeZ" name="Aggression">
@@ -22569,7 +22569,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Ermordet zu werden ist äußerst ärgerlich (ja, wirklich!). Aber wir bitten dich dringend, &lt;u&gt;die Identität deines Mörders gegenüber deinen ehemaligen Mitbürgern nicht aufzudecken&lt;/u&gt;... Lass ihnen das Vergnügen, selbst ermitteln zu müssen!</source>
-        <target><![CDATA[Ermordet zu werden ist äußerst ärgerlich (ja, wirklich!). Aber wir bitten dich dringend, <u>die Identität deines Mörders gegenüber deinen ehemaligen Mitbürgern nicht aufzudecken</u>... Lass ihnen das Vergnügen, selbst ermitteln zu müssen!]]></target>
+        <target><![CDATA[Being murdered is a bitter pill to swallow (really, it is). But we strongly recommend you to <u>not reveal the name of your murderer to your former fellow citizens</u>... Leave them to enjoy the thrill of the hunt!]]></target>
       </segment>
     </unit>
     <unit id="2GAQ12V" name="Fortfahren...">
