@@ -79,7 +79,7 @@ class WebController extends CustomAbstractController
         $supporters = [
             'MisterD', 'Mondi', 'Schrödinger', 'Kitsune',
             'MOTZI', 'devwwm', 'tchekof', 'alonsopor', 'Termineitron',
-            'Nayr', 'Rikrdo', 'Valedres', 'Yaken'
+            'Nayr', 'Rikrdo', 'Valedres', 'Yaken', 'Finne'
         ];
         shuffle($supporters);
 

@@ -3731,23 +3731,67 @@
         <target>Fin</target>
       </segment>
     </unit>
-    <unit id="5quivVp" name="Programming">
+    <unit id="rtPvko.">
       <notes>
-        <note category="german">Programming</note>
+        <note category="german">Dies ist ein Fan-Projekt für die Spiele {dv}, {d2n}, {hordes} und {zn} von &lt;b&gt;MotionTwin&lt;/b&gt;.</note>
+        <note category="from">twig:///templates/web/framework.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Dies ist ein Fan-Projekt für die Spiele {dv}, {d2n}, {hordes} und {zn} von &lt;b&gt;MotionTwin&lt;/b&gt;.</source>
+        <target><![CDATA[Dies ist ein Fan-Projekt für die Spiele {dv}, {d2n}, {hordes} und {zn} von <b>MotionTwin</b>.]]></target>
+      </segment>
+    </unit>
+    <unit id="XQQqX1B">
+      <notes>
+        <note category="german">All Grafiken stammen aus diesen Spielen, wenn nicht explizit anders angegeben, und sind damit Eigentum von &lt;b&gt;MotionTwin&lt;/b&gt;</note>
+        <note category="from">twig:///templates/web/framework.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>All Grafiken stammen aus diesen Spielen, wenn nicht explizit anders angegeben, und sind damit Eigentum von &lt;b&gt;MotionTwin&lt;/b&gt;</source>
+        <target><![CDATA[All Grafiken stammen aus diesen Spielen, wenn nicht explizit anders angegeben, und sind damit Eigentum von <b>MotionTwin</b>]]></target>
+      </segment>
+    </unit>
+    <unit id="3DaiPcH">
+      <notes>
+        <note category="german">MyHordes ist &lt;i&gt;Open Source&lt;/i&gt; und jeder ist zur &lt;b&gt;Mitwirkung&lt;/b&gt; eingeladen. Du findest den Quellcode bei {gitlab}.</note>
+        <note category="from">twig:///templates/web/framework.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>MyHordes ist &lt;i&gt;Open Source&lt;/i&gt; und jeder ist zur &lt;b&gt;Mitwirkung&lt;/b&gt; eingeladen. Du findest den Quellcode bei {gitlab}.</source>
+        <target><![CDATA[MyHordes ist <i>Open Source</i> und jeder ist zur <b>Mitwirkung</b> eingeladen. Du findest den Quellcode bei {gitlab}.]]></target>
+      </segment>
+    </unit>
+    <unit id="nWYafS5">
+      <notes>
+        <note category="german">MyHordes ist ein Teil des {etwin} Projekts, du kannst uns auf {opencollective} mit einer Spende unterstützen.</note>
+        <note category="from">twig:///templates/web/framework.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>MyHordes ist ein Teil des {etwin} Projekts, du kannst uns auf {opencollective} mit einer Spende unterstützen.</source>
+        <target>MyHordes ist ein Teil des {etwin} Projekts, du kannst uns auf {opencollective} mit einer Spende unterstützen.</target>
+      </segment>
+    </unit>
+    <unit id="yyNYNPS" name="Programmierung">
+      <notes>
+        <note category="german">Programmierung</note>
         <note category="from">twig:///templates/web/framework.html.twig</note>
       </notes>
       <segment>
-        <source>Programming</source>
+        <source>Programmierung</source>
         <target>Programadores</target>
       </segment>
     </unit>
-    <unit id="MRosxv3" name="Thanks to">
+    <unit id="q_Mqx8l" name="Danke an">
       <notes>
-        <note category="german">Thanks to</note>
+        <note category="german">Danke an</note>
         <note category="from">twig:///templates/web/framework.html.twig</note>
       </notes>
       <segment>
-        <source>Thanks to</source>
+        <source>Danke an</source>
         <target>Agradecimientos especiales</target>
       </segment>
     </unit>
