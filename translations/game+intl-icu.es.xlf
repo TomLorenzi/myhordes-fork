@@ -23020,7 +23020,7 @@
       </notes>
       <segment>
         <source>Solange dieser Bürger &lt;strong&gt;vor Angst erstarrt&lt;/strong&gt; ist, wird es für ihn unmöglich sein, inmitten von Zombies zu handeln...</source>
-        <target><![CDATA[Tant que ce citoyen sera <strong>terrorisé</strong>, il lui sera impossible d'agir au milieu des zombies...]]></target>
+        <target><![CDATA[Solange dieser Bürger <strong>vor Angst erstarrt</strong> ist, wird es für ihn unmöglich sein, inmitten von Zombies zu handeln...]]></target>
       </segment>
     </unit>
   </file>
