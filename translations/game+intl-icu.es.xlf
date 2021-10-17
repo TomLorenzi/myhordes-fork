@@ -22806,7 +22806,7 @@
       </notes>
       <segment>
         <source>{deaths} Bürger sind beim heutigen Angriff gestorben!</source>
-        <target>¡Los {deaths} habitantes murieron en el ataque de hoy!</target>
+        <target>¡{deaths} habitantes han muerto en el ataque!</target>
       </segment>
     </unit>
     <unit id="iLdX6jg">
