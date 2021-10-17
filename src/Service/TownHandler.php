@@ -521,7 +521,7 @@ class TownHandler
         return $total_def;
     }
 
-    public function get_zombie_estimation(Town &$town, int $day = null, bool $new_formula = false): array {
+    public function get_zombie_estimation(Town &$town, int $day = null, bool $new_formula = true): array {
         $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town, $day ?? $town->getDay());
         /** @var ZombieEstimation $est */
         if (!$est) return [];
