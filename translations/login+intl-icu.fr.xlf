@@ -823,7 +823,6 @@
       <notes>
         <note category="german">Du hast deinen Anzeigenamen auf EternalTwin geändert. Wir haben diese Änderung soeben für dich übernommen!</note>
         <note category="from">php:///src/Controller/PublicController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Du hast deinen Anzeigenamen auf EternalTwin geändert. Wir haben diese Änderung soeben für dich übernommen!</source>
@@ -834,7 +833,6 @@
       <notes>
         <note category="german">Dein EternalTwin-Benutzername enthält Elemente, die auf MyHordes nicht gestattet sind. Bitte ändere deinen Namen auf EternalTwin, um dich auf MyHordes anmelden zu können.</note>
         <note category="from">php:///src/Controller/PublicController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Dein EternalTwin-Benutzername enthält Elemente, die auf MyHordes nicht gestattet sind. Bitte ändere deinen Namen auf EternalTwin, um dich auf MyHordes anmelden zu können.</source>
@@ -845,7 +843,6 @@
       <notes>
         <note category="german">Der eingegebene Spieler ist nicht für das Patenschafts-Programm registriert. Bitte ihn, die "Freundschaft"-Seite in seiner Seele aufzurufen; er wird dann automatisch registriert. Erst dann kannst du ihn als Sponsor auswählen.</note>
         <note category="from">php:///src/Controller/PublicController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Der eingegebene Spieler ist nicht für das Patenschafts-Programm registriert. Bitte ihn, die "Freundschaft"-Seite in seiner Seele aufzurufen; er wird dann automatisch registriert. Erst dann kannst du ihn als Sponsor auswählen.</source>

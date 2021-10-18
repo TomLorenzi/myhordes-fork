@@ -23001,7 +23001,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Mit dieser Aktion kannst du die Stadt betreten, ohne dass es ins Stadtregister eingetragen wird. Wenn du ein paar Spieler eskortierst, werden diese am Stadttor zurückgelassen.</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Mit dieser Aktion kannst du die Stadt betreten, ohne dass es ins Stadtregister eingetragen wird. Wenn du ein paar Spieler eskortierst, werden diese am Stadttor zurückgelassen.</source>
@@ -23012,7 +23011,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Mit dieser Aktion kannst du deinen unersättlichen Hunger nach Menschenfleisch stillen!</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Mit dieser Aktion kannst du deinen unersättlichen Hunger nach Menschenfleisch stillen!</source>
@@ -23023,7 +23021,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Mit dieser Aktion kannst du die Stadt verlassen, ohne dass es ins Stadtregister eingetragen wird.</note>
         <note category="from">twig:///templates/ajax/game/town/door.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Mit dieser Aktion kannst du die Stadt verlassen, ohne dass es ins Stadtregister eingetragen wird.</source>
@@ -23034,7 +23031,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">in der Außenwelt</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>in der Außenwelt</source>
@@ -23045,7 +23041,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">in der Stadt</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>in der Stadt</source>
@@ -23056,7 +23051,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Die Anzahl der Sterne gibt dir eine Vorstellung von der heutigen Aktivität des Einwohners {citizen}: Anwesenheit, Besuche im Forum, Arbeit im Dorf, etc.</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Die Anzahl der Sterne gibt dir eine Vorstellung von der heutigen Aktivität des Einwohners {citizen}: Anwesenheit, Besuche im Forum, Arbeit im Dorf, etc.</source>

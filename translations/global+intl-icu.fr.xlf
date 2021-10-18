@@ -3738,7 +3738,6 @@
       <notes>
         <note category="german">Dies ist ein Fan-Projekt für die Spiele {dv}, {d2n}, {hordes} und {zn} von &lt;b&gt;MotionTwin&lt;/b&gt;.</note>
         <note category="from">twig:///templates/web/framework.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Dies ist ein Fan-Projekt für die Spiele {dv}, {d2n}, {hordes} und {zn} von &lt;b&gt;MotionTwin&lt;/b&gt;.</source>
@@ -3749,7 +3748,6 @@
       <notes>
         <note category="german">All Grafiken stammen aus diesen Spielen, wenn nicht explizit anders angegeben, und sind damit Eigentum von &lt;b&gt;MotionTwin&lt;/b&gt;</note>
         <note category="from">twig:///templates/web/framework.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>All Grafiken stammen aus diesen Spielen, wenn nicht explizit anders angegeben, und sind damit Eigentum von &lt;b&gt;MotionTwin&lt;/b&gt;</source>
@@ -3760,7 +3758,6 @@
       <notes>
         <note category="german">MyHordes ist &lt;i&gt;Open Source&lt;/i&gt; und jeder ist zur &lt;b&gt;Mitwirkung&lt;/b&gt; eingeladen. Du findest den Quellcode bei {gitlab}.</note>
         <note category="from">twig:///templates/web/framework.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>MyHordes ist &lt;i&gt;Open Source&lt;/i&gt; und jeder ist zur &lt;b&gt;Mitwirkung&lt;/b&gt; eingeladen. Du findest den Quellcode bei {gitlab}.</source>
@@ -3771,7 +3768,6 @@
       <notes>
         <note category="german">MyHordes ist ein Teil des {etwin} Projekts, du kannst uns auf {opencollective} mit einer Spende unterstützen.</note>
         <note category="from">twig:///templates/web/framework.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>MyHordes ist ein Teil des {etwin} Projekts, du kannst uns auf {opencollective} mit einer Spende unterstützen.</source>
