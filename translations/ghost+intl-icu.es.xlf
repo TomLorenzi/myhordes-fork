@@ -765,7 +765,7 @@
       </notes>
       <segment>
         <source>Der Schamane ist ein Beruf, die Seelen werden in der Werkstatt verwandelt.</source>
-        <target>El chamán es un oficio, las almas son transformadas en el taller.</target>
+        <target>El chamán es un rol, las almas son transformadas en el taller.</target>
       </segment>
     </unit>
     <unit id="rWF6D91" name="Job">
