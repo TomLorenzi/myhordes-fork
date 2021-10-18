@@ -23005,7 +23005,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Mit dieser Aktion kannst du die Stadt betreten, ohne dass es ins Stadtregister eingetragen wird. Wenn du ein paar Spieler eskortierst, werden diese am Stadttor zurückgelassen.</source>
-        <target>Mit dieser Aktion kannst du die Stadt betreten, ohne dass es ins Stadtregister eingetragen wird. Wenn du ein paar Spieler eskortierst, werden diese am Stadttor zurückgelassen.</target>
+        <target>Cette action permet de franchir les portes de la ville sans etre enregistré(e) au Registre. Si vous ecortez des joueurs, ils seront laissés aux portes de la ville.</target>
       </segment>
     </unit>
     <unit id="PanD2KO">
@@ -23016,7 +23016,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Mit dieser Aktion kannst du deinen unersättlichen Hunger nach Menschenfleisch stillen!</source>
-        <target>Mit dieser Aktion kannst du deinen unersättlichen Hunger nach Menschenfleisch stillen!</target>
+        <target>Cette action vous permettra de dévorer ce citoyen pour calmer votre appétit... vorace !</target>
       </segment>
     </unit>
     <unit id="lt7mbY8">
@@ -23027,7 +23027,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Mit dieser Aktion kannst du die Stadt verlassen, ohne dass es ins Stadtregister eingetragen wird.</source>
-        <target>Mit dieser Aktion kannst du die Stadt verlassen, ohne dass es ins Stadtregister eingetragen wird.</target>
+        <target>Cette action permet de franchir les portes de la ville sans etre enregistré(e) au Registre.</target>
       </segment>
     </unit>
     <unit id="EnGH19o" name="in der Außenwelt">
@@ -23038,7 +23038,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>in der Außenwelt</source>
-        <target>in der Außenwelt</target>
+        <target>dans l'Outre-Monde</target>
       </segment>
     </unit>
     <unit id="aeVr7d_" name="in der Stadt">
@@ -23049,7 +23049,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>in der Stadt</source>
-        <target>in der Stadt</target>
+        <target>en ville</target>
       </segment>
     </unit>
     <unit id="BdS7W9e">
@@ -23060,7 +23060,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Die Anzahl der Sterne gibt dir eine Vorstellung von der heutigen Aktivität des Einwohners {citizen}: Anwesenheit, Besuche im Forum, Arbeit im Dorf, etc.</source>
-        <target>Die Anzahl der Sterne gibt dir eine Vorstellung von der heutigen Aktivität des Einwohners {citizen}: Anwesenheit, Besuche im Forum, Arbeit im Dorf, etc.</target>
+        <target>Le nombre d'étoiles ci-contre vous donne une idée de l'activité du citoyen {citizen} aujourd'hui : présence, visite du forum, travail en ville etc.</target>
       </segment>
     </unit>
     <unit id="Cjw8Lfc">

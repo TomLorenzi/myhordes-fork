@@ -3764,7 +3764,7 @@
       </notes>
       <segment>
         <source>MyHordes ist &lt;i&gt;Open Source&lt;/i&gt; und jeder ist zur &lt;b&gt;Mitwirkung&lt;/b&gt; eingeladen. Du findest den Quellcode bei {gitlab}.</source>
-        <target><![CDATA[MyHordes est <i>Open Source</i> et tout le monde est le bienvenu pour <b>nous aider</b>. Vous trouverez le code source sur {gitlab}.]]></target>
+        <target><![CDATA[MyHordes est <i>Open Source</i> et tout le monde est le bienvenu pour y <b>participer</b>. Vous pouvez consulter le code source sur {gitlab}.]]></target>
       </segment>
     </unit>
     <unit id="nWYafS5">
@@ -3775,7 +3775,7 @@
       </notes>
       <segment>
         <source>MyHordes ist ein Teil des {etwin} Projekts, du kannst uns auf {opencollective} mit einer Spende unterstützen.</source>
-        <target>MyHordes est membre du projet {etwin}, vous pouvez faire un don sur {opencollective} pour nous aider.</target>
+        <target>MyHordes fait partie du projet {etwin}, si vous le souhaitez, vous pouvez faire une donation sur la page {opencollective}.</target>
       </segment>
     </unit>
     <unit id="yyNYNPS" name="Programmierung">
