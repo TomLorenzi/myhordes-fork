@@ -8,7 +8,7 @@
       </notes>
       <segment>
         <source>E-Mail-Adresse</source>
-        <target>Dirección de e-mail</target>
+        <target>Dirección de correo electrónico</target>
       </segment>
     </unit>
     <unit id="1fRghxK" name="Externe ID für Apps">
@@ -268,7 +268,7 @@
       </notes>
       <segment>
         <source>Bevorzugt komprimierte Profilbilder anzeigen</source>
-        <target>Mostrar avatar reducido</target>
+        <target>Mostrar avatares reducidos</target>
       </segment>
     </unit>
     <unit id="isnXPfR" name="Standardrolle im Forum">
@@ -3395,7 +3395,7 @@
       </notes>
       <segment>
         <source>Verwende einen der hier unten angezeigten Banner für deine E-Mail Signatur, auf Facebook oder in deinem Lieblingsforum (Wenn sich jemand über deinen Banner anmeldet, wirst du automatisch als Pate eingetragen!).</source>
-        <target>utiliza uno de los banners como firma de tu e-mail, en Facebook, en tu blog o en un foro ¡(quienes hagan clic en él quedarán registrados autiomáticamente cuando se inscriban!).</target>
+        <target>utiliza uno de los banners como firma de tu correo electrónico, en Facebook, en tu blog o en un foro ¡(quienes hagan clic en él quedarán registrados autiomáticamente cuando se inscriban!).</target>
       </segment>
     </unit>
     <unit id="fUGf6MZ" name="HTML Code">
