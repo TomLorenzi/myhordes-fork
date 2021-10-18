@@ -1831,7 +1831,7 @@
       </notes>
       <segment>
         <source>Diese Kosten können durch den Aufbau der &lt;strong&gt;Müll für Alle&lt;/strong&gt;.</source>
-        <target><![CDATA[Diese Kosten können durch den Aufbau der <strong>Müll für Alle</strong>.]]></target>
+        <target><![CDATA[Este costo puede reducirse con la construcción <strong>Vertedero libre</strong>.]]></target>
       </segment>
     </unit>
     <unit id="BC_uip5" name="Ausblenden">
@@ -1862,7 +1862,7 @@
       </notes>
       <segment>
         <source>Ausb.+Nachr.</source>
-        <target>Ausb.+Nachr.</target>
+        <target>Remplazar</target>
       </segment>
     </unit>
     <unit id="k30IQ7V">
@@ -1902,7 +1902,7 @@
       </notes>
       <segment>
         <source>Diese E-Mail Adresse wird als Kontakt-Adresse angezeigt.</source>
-        <target>Este correo se mostrará como correo de contacto.</target>
+        <target>Esta dirección de correo electrónico se mostrará como correo electrónico de contacto.</target>
       </segment>
     </unit>
     <unit id="1iip6iA">
