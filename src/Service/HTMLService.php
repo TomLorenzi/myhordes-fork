@@ -267,7 +267,7 @@ class HTMLService {
         if (!$this->htmlValidator($this->getAllowedHTML($user, $permissions,is_bool($extended) ? $extended : false, is_array($extended) ? $extended : []), $body->item(0),$tx_len))
             return false;
 
-        $emotes = array_keys($this->get_emotes());
+        $emotes = array_keys($this->get_emotes(false, $user));
 
         $cache = [ 'citizen' => [] ];
 
@@ -344,6 +344,8 @@ class HTMLService {
                     if ($profession !== null && $profession !== 'dead') {
                         if ($profession === 'hero') {
                             if (!$c->getProfession()->getHeroic()) return false;
+                        } elseif ($profession === 'shunned') {
+                            if (!$c->getBanished()) return false;
                         } elseif ($c->getProfession()->getName() !== $profession) return false;
                     }
 
@@ -652,19 +654,23 @@ class HTMLService {
     }
 
     protected $emote_cache = null;
-    public function get_emotes(bool $url_only = false): array {
+    public function get_emotes(bool $url_only = false, User $user = null): array {
         if ($this->emote_cache !== null) return $this->emote_cache;
 
         $this->emote_cache = [];
         $repo = $this->entity_manager->getRepository(Emotes::class);
-        foreach($repo->findAll() as $value)
+        foreach($repo->findAll() as $value){
             /** @var $value Emotes */
-            $this->emote_cache[$value->getTag()] = $url_only ? $value->getPath() : "<img alt='{$value->getTag()}' src='{$this->asset->getUrl( $value->getPath() )}'/>";
+            $path = $value->getPath();
+            if($value->getI18n())
+                $path = str_replace("{lang}", ($user !== null ? $user->getLanguage() : "de"), $path);
+            $this->emote_cache[$value->getTag()] = $url_only ? $path : "<img alt='{$value->getTag()}' src='{$this->asset->getUrl( $path )}'/>";
+        }
         return $this->emote_cache;
     }
 
-    public function prepareEmotes(string $str): string {
-        $emotes = $this->get_emotes();
+    public function prepareEmotes(string $str, User $user = null): string {
+        $emotes = $this->get_emotes(false, $user);
         return preg_replace_callback('/@(?:​|%E2%80%8B)::(\w+):(\d+)/i', function(array $m) {
             [, $type, $id] = $m;
             switch ($type) {
@@ -699,6 +705,7 @@ class HTMLService {
 
         foreach($unlocks as $entry) {
             /** @var $entry Award */
+            if (!$entry->getPrototype()) continue;
             if ($entry->getPrototype()->getAssociatedTag() && in_array($entry->getPrototype()->getAssociatedTag(), $results)) {
                 unset($results[array_search($entry->getPrototype()->getAssociatedTag(), $results)]);
             }

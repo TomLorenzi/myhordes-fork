@@ -76,6 +76,7 @@ class BeyondController extends InventoryAwareController
     const ErrorTerrorized           = ErrorHelper::BaseBeyondErrors + 13;
     const ErrorEscortActionRefused  = ErrorHelper::BaseBeyondErrors + 14;
     const ErrorEscortFailureRuin    = ErrorHelper::BaseBeyondErrors + 15;
+    const ErrorEscortTerrorized     = ErrorHelper::BaseBeyondErrors + 16;
 
     protected $game_factory;
     protected ZoneHandler $zone_handler;
@@ -166,6 +167,7 @@ class BeyondController extends InventoryAwareController
         if ($zone->isTownZone()) {
             $zone_players += $this->entity_manager->getRepository(Citizen::class)->count(['town' => $this->getActiveCitizen()->getTown(), 'zone' => null, 'alive' => true]);
         }
+
         return parent::addDefaultTwigArgs( $section, array_merge( [
             'zone_players' => $zone_players,
             'zone_zombies' => max(0,$zone->getZombies()),
@@ -312,19 +314,19 @@ class BeyondController extends InventoryAwareController
             $survival_chance = $this->getActiveCitizen()->getCampingChance() > 0
             ? $this->getActiveCitizen()->getCampingChance()
             : $this->citizen_handler->getCampingChance($this->getActiveCitizen());
-            if ($survival_chance <= .15) {
+            if ($survival_chance <= .10) {
                 $camping_chance = $camping_chance_texts[0];
             } else if ($survival_chance <= .3) {
                 $camping_chance = $camping_chance_texts[1];
-            } else if ($survival_chance <= .45) {
+            } else if ($survival_chance <= .50) {
                 $camping_chance = $camping_chance_texts[2];
-            } else if ($survival_chance <= .6) {
+            } else if ($survival_chance <= .65) {
                 $camping_chance = $camping_chance_texts[3];
-            } else if ($survival_chance <= .75) {
+            } else if ($survival_chance <= .80) {
                 $camping_chance = $camping_chance_texts[4];
             } else if ($survival_chance <= .9) {
                 $camping_chance = $camping_chance_texts[5];
-            } else if ($survival_chance <= .99) {
+            } else if ($survival_chance < 1) {
                 $camping_chance = $camping_chance_texts[6];
             } else if ($survival_chance == 1) {
                 $camping_chance = $camping_chance_texts[7];
@@ -358,6 +360,11 @@ class BeyondController extends InventoryAwareController
             $this->getActiveCitizen()->getBanished() &&
             !$this->getActiveCitizen()->getZone()->getFloor()->getItems()->filter(function(Item $i) { return $i->getHidden(); })->isEmpty();
 
+        $floorItems = $zone->getFloor()->getItems()->toArray();
+        usort($floorItems, function ($a, $b) {
+            return strcmp($this->translator->trans($a->getPrototype()->getLabel(), [], 'items'), $this->translator->trans($b->getPrototype()->getLabel(), [], 'items'));
+        });
+
         return $this->render( 'ajax/game/beyond/desert.html.twig', $this->addDefaultTwigArgs(null, [
             'hidden_items' => $has_hidden_items,
             'scout' => $this->getActiveCitizen()->getProfession()->getName() === 'hunter',
@@ -379,7 +386,7 @@ class BeyondController extends InventoryAwareController
             'digging' => $this->getActiveCitizen()->isDigging(),
             'dig_ruin' => empty($this->entity_manager->getRepository(DigRuinMarker::class)->findByCitizen( $this->getActiveCitizen() )),
             'actions' => $this->getItemActions(),
-            'floor' => $zone->getFloor(),
+            'floorItems' => $floorItems,
             'other_citizens' => $zone->getCitizens(),
             'log' => ($zone->getX() === 0 && $zone->getY() === 0) ? '' : $this->renderLog( -1, null, $zone, null, 10, true )->getContent(),
             'day' => $this->getActiveCitizen()->getTown()->getDay(),
@@ -541,6 +548,12 @@ class BeyondController extends InventoryAwareController
         $message = $parser->get('msg', null);
         if (!$message || mb_strlen($message) < 2 || !$html->htmlPrepare($this->getActiveCitizen()->getUser(), 0, ['core_rp'], $message, $this->getActiveCitizen()->getTown(), $len) || $len < 2 || $len > 256 )
             return AjaxResponse::error(self::ErrorChatMessageInvalid);
+
+        $message = $html->htmlDistort( $message,
+            ($this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'drunk') ? HTMLService::ModulationDrunk : HTMLService::ModulationNone) |
+            ($this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'terror') ? HTMLService::ModulationTerror : HTMLService::ModulationNone) |
+            ($this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'wound1') ? HTMLService::ModulationHead : HTMLService::ModulationNone)
+            , $this->getUserLanguage(), $d );
 
         try {
             $this->entity_manager->persist( $this->log->beyondChat( $this->getActiveCitizen(), $message ) );
@@ -1041,7 +1054,7 @@ class BeyondController extends InventoryAwareController
         if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         $uncover_fun = function(Recipe &$r) {
-            if (!$this->zone_handler->check_cp( $this->getActiveCitizen()->getZone() ) && $this->get_escape_timeout( $this->getActiveCitizen() ) < 0 && $this->uncoverHunter($this->getActiveCitizen()))
+            if (!$r->getStealthy() && !$this->zone_handler->check_cp( $this->getActiveCitizen()->getZone() ) && $this->get_escape_timeout( $this->getActiveCitizen() ) < 0 && $this->uncoverHunter($this->getActiveCitizen()))
                 $this->addFlash( 'notice', $this->translator->trans('Deine <strong>Tarnung ist aufgeflogen</strong>!',[], 'game') );
         };
 
@@ -1477,7 +1490,7 @@ class BeyondController extends InventoryAwareController
         }
 
         if ($on)
-            $citizen->getEscortSettings()->setAllowInventoryAccess($cf_ruc)->setForceDirectReturn($cf_ret);
+            $citizen->getEscortSettings()->setAllowInventoryAccess($cf_ruc)->setForceDirectReturn($cf_ret && !$citizen->getZone()->isTownZone());
 
         try {
             $this->entity_manager->persist( $citizen );
@@ -1518,6 +1531,9 @@ class BeyondController extends InventoryAwareController
 
         if ($citizen->getBanished())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        if ($on && !$citizen->getUser()->getExpert())
+            return AjaxResponse::errorMessage( $this->translator->trans( 'Du kannst diese Aktion im Lernmodus nicht ausführen. <strong>Zuerst musst du noch etwas Spielerfahrung sammeln</strong>.<hr/>Klicke auf den Link bei Lernmodus, um diesen Modus zu deaktivieren.', [], 'game' ) );
 
         $max_escort_size = $conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_FEATURE_ESCORT_SIZE, 4);
 

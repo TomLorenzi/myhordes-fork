@@ -507,5 +507,23 @@
         <target>Du musst 5 Minuten warten, bevor du eine erneute E-Mail versenden kannst. Bitte prüfe in der Zwischenzeit, ob die Mail möglicherweise in deinem Spam-Ordner gelandet ist.</target>
       </segment>
     </unit>
+    <unit id="1zpAcv.">
+      <segment>
+        <source>Du hast deinen Anzeigenamen auf EternalTwin geändert. Wir haben diese Änderung soeben für dich übernommen!</source>
+        <target>Du hast deinen Anzeigenamen auf EternalTwin geändert. Wir haben diese Änderung soeben für dich übernommen!</target>
+      </segment>
+    </unit>
+    <unit id="OUS.MDw">
+      <segment>
+        <source>Dein EternalTwin-Benutzername enthält Elemente, die auf MyHordes nicht gestattet sind. Bitte ändere deinen Namen auf EternalTwin, um dich auf MyHordes anmelden zu können.</source>
+        <target>Dein EternalTwin-Benutzername enthält Elemente, die auf MyHordes nicht gestattet sind. Bitte ändere deinen Namen auf EternalTwin, um dich auf MyHordes anmelden zu können.</target>
+      </segment>
+    </unit>
+    <unit id=".gp.m4T">
+      <segment>
+        <source>Der eingegebene Spieler ist nicht für das Patenschafts-Programm registriert. Bitte ihn, die "Freundschaft"-Seite in seiner Seele aufzurufen; er wird dann automatisch registriert. Erst dann kannst du ihn als Sponsor auswählen.</source>
+        <target>Der eingegebene Spieler ist nicht für das Patenschafts-Programm registriert. Bitte ihn, die "Freundschaft"-Seite in seiner Seele aufzurufen; er wird dann automatisch registriert. Erst dann kannst du ihn als Sponsor auswählen.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

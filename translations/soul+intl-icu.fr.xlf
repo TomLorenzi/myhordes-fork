@@ -125,7 +125,7 @@
     <unit id="q8r8gtq" name="Titel">
       <notes>
         <note category="german">Titel</note>
-        <note category="from">twig:///templates/ajax/soul/rps.html.twig</note>
+        <note category="from">php:///src/Structures/TwinoidPayload.php;twig:///templates/ajax/soul/rps.html.twig</note>
       </notes>
       <segment>
         <source>Titel</source>
@@ -195,7 +195,7 @@
     <unit id="3UXNMEe" name="Dieses Dateiformat wird nicht unterstützt.">
       <notes>
         <note category="german">Dieses Dateiformat wird nicht unterstützt.</note>
-        <note category="from">twig:///templates/ajax/admin/apps/edit.html.twig;twig:///templates/ajax/admin/groups/edit.html.twig;twig:///templates/ajax/soul/settings.html.twig;twig:///templates/scripts/errors/profile.txt.twig</note>
+        <note category="from">twig:///templates/ajax/admin/apps/edit.html.twig;twig:///templates/ajax/admin/groups/edit.html.twig;twig:///templates/ajax/admin/widget/controls.twig;twig:///templates/ajax/soul/settings.html.twig;twig:///templates/scripts/errors/profile.txt.twig</note>
       </notes>
       <segment>
         <source>Dieses Dateiformat wird nicht unterstützt.</source>
@@ -235,7 +235,7 @@
     <unit id="TzbDcP2" name="Die Datei ist zu groß.">
       <notes>
         <note category="german">Die Datei ist zu groß.</note>
-        <note category="from">twig:///templates/ajax/admin/apps/edit.html.twig;twig:///templates/ajax/admin/groups/edit.html.twig;twig:///templates/ajax/soul/settings.html.twig;twig:///templates/scripts/errors/profile.txt.twig</note>
+        <note category="from">twig:///templates/ajax/admin/apps/edit.html.twig;twig:///templates/ajax/admin/groups/edit.html.twig;twig:///templates/ajax/admin/widget/controls.twig;twig:///templates/ajax/soul/settings.html.twig;twig:///templates/scripts/errors/profile.txt.twig</note>
       </notes>
       <segment>
         <source>Die Datei ist zu groß.</source>
@@ -365,7 +365,7 @@
     <unit id="rJfU7R2" name="Bitte wähle nur eine einzige Datei aus.">
       <notes>
         <note category="german">Bitte wähle nur eine einzige Datei aus.</note>
-        <note category="from">twig:///templates/ajax/admin/apps/edit.html.twig;twig:///templates/ajax/admin/groups/edit.html.twig;twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/apps/edit.html.twig;twig:///templates/ajax/admin/groups/edit.html.twig;twig:///templates/ajax/admin/widget/controls.twig;twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Bitte wähle nur eine einzige Datei aus.</source>
@@ -585,7 +585,7 @@
     <unit id="lJGEo3w" name="Koalition">
       <notes>
         <note category="german">Koalition</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/shell.html.twig</note>
+        <note category="from">twig:///templates/ajax/ghost/intro.html.twig;twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/shell.html.twig</note>
       </notes>
       <segment>
         <source>Koalition</source>
@@ -3298,7 +3298,7 @@
       </notes>
       <segment>
         <source>Das andere Geschlecht wird dir nicht widerstehen können.</source>
-        <target>L'autre sexe ne pourra pas vous résister</target>
+        <target>L'autre sexe ne pourra pas vous résister.</target>
       </segment>
     </unit>
     <unit id="Sz2KR6B" name="Verleiht deinem Haar einen seidigen Glanz und stärkt deine Kopfhaut.">
@@ -3557,7 +3557,7 @@
     <unit id="m65CDx_" name="{user} war in der Vergangenheit unter folgenden Namen bekannt:">
       <notes>
         <note category="german">{user} war in der Vergangenheit unter folgenden Namen bekannt:</note>
-        <note category="from">twig:///templates/ajax/soul/badges.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/badges.html.twig</note>
       </notes>
       <segment>
         <source>{user} war in der Vergangenheit unter folgenden Namen bekannt:</source>
@@ -3867,11 +3867,10 @@
       <notes>
         <note category="german">Diese Stadt stammt aus der Alpha-Phase von MyHordes. Die angezeigten Informationen sind daher möglicherweise unvollständig oder sehen nicht so aus, wie du es sonst erwarten würdest.</note>
         <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Diese Stadt stammt aus der Alpha-Phase von MyHordes. Die angezeigten Informationen sind daher möglicherweise unvollständig oder sehen nicht so aus, wie du es sonst erwarten würdest.</source>
-        <target>Diese Stadt stammt aus der Alpha-Phase von MyHordes. Die angezeigten Informationen sind daher möglicherweise unvollständig oder sehen nicht so aus, wie du es sonst erwarten würdest.</target>
+        <target>Cette ville est issue de la phase alpha de MyHordes. Les informations affichées peuvent donc être incomplètes ou ne pas ressembler à ce que vous vous attendez.</target>
       </segment>
     </unit>
     <unit id="vgT9Zpn" name="Alte Auszeichnungen">
@@ -3988,55 +3987,111 @@
       <notes>
         <note category="german">Die maximale Größe der Bilddatei, die du für deinen Avatar hochladen kannst, beträgt &lt;b&gt;{size}&lt;/b&gt;.</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Die maximale Größe der Bilddatei, die du für deinen Avatar hochladen kannst, beträgt &lt;b&gt;{size}&lt;/b&gt;.</source>
-        <target><![CDATA[Die maximale Größe der Bilddatei, die du für deinen Avatar hochladen kannst, beträgt <b>{size}</b>.]]></target>
+        <target><![CDATA[La taille maximale de l'image que vous pouvez télécharger pour votre avatar est de <b>{size}</b>..]]></target>
       </segment>
     </unit>
     <unit id="U8MXhPw">
       <notes>
         <note category="german">Nach dem Upload wird der Server dein Bild möglicherweise komprimieren (z.B. indem die Auflösung reduziert oder Animationsframes optimiert werden).</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Nach dem Upload wird der Server dein Bild möglicherweise komprimieren (z.B. indem die Größe reduziert oder Animationsframe optimiert werden).</source>
-        <target>Nach dem Upload wird der Server dein Bild möglicherweise komprimieren (z.B. indem die Größe reduziert oder Animationsframe optimiert werden).</target>
+        <target>Après le téléchargement, le serveur peut compresser votre image (par exemple en réduisant sa taille ou en optimisant les images d’animation).</target>
       </segment>
     </unit>
     <unit id="iExo5YI">
       <notes>
         <note category="german">Der Server muss in der Lage sein, dein Bild auf höchstens &lt;b&gt;{size}&lt;/b&gt; zu komprimieren - andernfalls kann es nicht gespeichert werden.</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Der Server muss in der Lage sein, dein Bild auf höchstens &lt;b&gt;{size}&lt;/b&gt; zu komprimieren - andernfalls kann es nicht gespeichert werden.</source>
-        <target><![CDATA[Der Server muss in der Lage sein, dein Bild auf höchstens <b>{size}</b> zu komprimieren - andernfalls kann es nicht gespeichert werden.]]></target>
+        <target><![CDATA[Le serveur doit être en mesure de compresser votre image à <b>{size}</b> ou moins - sinon elle ne peut pas être enregistrée.]]></target>
       </segment>
     </unit>
     <unit id="LCJ4eBk" name="Die folgenden Bildformate werden unterstützt:">
       <notes>
         <note category="german">Die folgenden Bildformate werden unterstützt:</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Die folgenden Bildformate werden unterstützt:</source>
-        <target>Die folgenden Bildformate werden unterstützt:</target>
+        <target>Les formats d’image suivants sont pris en charge :</target>
       </segment>
     </unit>
     <unit id="KDrgSO8" name="nur Baseline-Format">
       <notes>
         <note category="german">nur Baseline-Format</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>nur Baseline-Format</source>
-        <target>nur Baseline-Format</target>
+        <target>format de référence uniquement</target>
+      </segment>
+    </unit>
+    <unit id="qRIZ_Eb" name="Texteditor-Inhalte zur Sicherheit zwischenspeichern">
+      <notes>
+        <note category="german">Texteditor-Inhalte zur Sicherheit zwischenspeichern</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>Texteditor-Inhalte zur Sicherheit zwischenspeichern</source>
+        <target>Sauvegarde automatique du contenu de l'éditeur de texte du forum</target>
+      </segment>
+    </unit>
+    <unit id="xu7yW0t" name="Alle Saisons auf MyHordes">
+      <notes>
+        <note category="german">Alle Saisons auf MyHordes</note>
+        <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
+      </notes>
+      <segment>
+        <source>Alle Saisons auf MyHordes</source>
+        <target>Toutes les saisons de MyHordes</target>
+      </segment>
+    </unit>
+    <unit id="xrovccF" name="Alpha-Seelen">
+      <notes>
+        <note category="german">Alpha-Seelen</note>
+        <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
+      </notes>
+      <segment>
+        <source>Alpha-Seelen</source>
+        <target>Ames Alpha</target>
+      </segment>
+    </unit>
+    <unit id="hTdNGcU" name="Es sind keine Spieler aufgelistet!">
+      <notes>
+        <note category="german">Es sind keine Spieler aufgelistet!</note>
+        <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
+      </notes>
+      <segment>
+        <source>Es sind keine Spieler aufgelistet!</source>
+        <target>Aucun joueur ne figure au classement!</target>
+      </segment>
+    </unit>
+    <unit id="QE5H6hD" name="Alte Seelen">
+      <notes>
+        <note category="german">Alte Seelen</note>
+        <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
+      </notes>
+      <segment>
+        <source>Alte Seelen</source>
+        <target>Anciennes âmes</target>
+      </segment>
+    </unit>
+    <unit id="o1q81tr" name="Icon">
+      <notes>
+        <note category="german">Icon</note>
+        <note category="from">php:///src/Structures/TwinoidPayload.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Icon</source>
+        <target>Icon</target>
       </segment>
     </unit>
   </file>

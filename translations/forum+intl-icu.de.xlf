@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="de" trgLang="de">
+  <file id="forum.de">
+    <unit id="_AEF76t" name="letter">
+      <segment>
+        <source>letter</source>
+        <target>letter</target>
+      </segment>
+    </unit>
+    <unit id="sFqFsyz" name="consonant">
+      <segment>
+        <source>consonant</source>
+        <target>consonant</target>
+      </segment>
+    </unit>
+    <unit id="WZgQacV" name="vowel">
+      <segment>
+        <source>vowel</source>
+        <target>vowel</target>
+      </segment>
+    </unit>
+    <unit id="WdY9GGc" name="rps">
+      <segment>
+        <source>rps</source>
+        <target>ssp</target>
+      </segment>
+    </unit>
+    <unit id="s6GYS6C" name="coin">
+      <segment>
+        <source>coin</source>
+        <target>zk</target>
+      </segment>
+    </unit>
+    <unit id="g2fNZv3" name="card">
+      <segment>
+        <source>card</source>
+        <target>karte</target>
+      </segment>
+    </unit>
+    <unit id="nl5DrDJ" name="rnduser">
+      <segment>
+        <source>rnduser</source>
+        <target>einwohner</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

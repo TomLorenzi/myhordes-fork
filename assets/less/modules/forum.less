@@ -237,6 +237,8 @@
     &[x-a=survivalist] { background: url("../../img/icons/small_human.gif") left center no-repeat, url("../../img/professions/book.gif") left 16px center no-repeat #3B3249; padding-left: 35px }
     &[x-a=hero]        { background: url("../../img/icons/small_human.gif") left center no-repeat, url("../../img/professions/hero.gif") left 16px center no-repeat #3B3249; padding-left: 35px }
     &[x-a=dead]        { background: url("../../img/icons/small_human.gif") left center no-repeat, url("../../img/professions/death.gif") left 16px center no-repeat #3B3249; padding-left: 35px }
+    &[x-a=shunned]     { background: url("../../img/icons/small_human.gif") left center no-repeat, url("../../img/icons/banished.gif") left 16px center no-repeat #3B3249; padding-left: 35px }
+
   }
 }
 
@@ -637,13 +639,16 @@ ul.subscriptions {
   backdrop-filter: blur(2px); padding: 15px 0;
   transition: opacity 1s ease; opacity: 1;
 
+  &:not(.visible) {
+    pointer-events: none; opacity: 0;
+    #post-office-box { transform: scale(0) translateY(1000px) }
+  }
+
   #post-office-box {
     position: absolute; width: 1500px; left: calc(50% - 750px);
     background: url("../../img/background/bg_content2.jpg") repeat-y top left/900px 263px, url("../../img/background/bg_content2.jpg") repeat-y top right/900px 263px;
     top: 10px; bottom: 10px; border-radius: 8px; box-shadow: 0 0 10px black;
     transition: transform 0.5s ease; transform: scale(1) translateY(0);
-
-    ul.tabs.plain { margin-top: 4px; margin-bottom: 0; }
 
     #post-office-button-overlay {
       position: absolute; top: 12px; right: 12px;
@@ -656,32 +661,33 @@ ul.subscriptions {
         }
       }
     }
+  }
+}
 
-    #post-office-content {
-      background: @myhordes-panel-border, @myhordes-panel-bg; position: absolute; overflow-x: hidden; overflow-y: auto;
-      left: 18px; top: 0; right: 5px; bottom: 0; border-radius: 12px; padding: 8px; color: white;
+#post-office-content {
+  position: absolute; overflow-x: hidden; overflow-y: auto;
+  top: 0; bottom: 0; left: 0; right: 0; color: white; padding: 2px; background: @myhordes-panel-bg;
 
-      &>.row-flex.stretch { height: 100% };
-      .forum-note.stretcher {
-        position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-        div.scroll-area { position: absolute; top: 0; left: 0; right: 0; bottom: 0; overflow: auto }
-      }
-
-      #pm-selected-users {
-        margin: 0; padding: 0;
-        &>li {
-          margin: 2px; padding: 2px; display: inline-block; list-style: none;
-          background: #3b3249; border: 1px solid #25202f; border-radius: 3px;
-          &>b { text-shadow: 0 0 1px black; }
-          &>span { color: @myhordes-smalltext; cursor: pointer; margin-left: 6px; font-size: 0.8em; vertical-align: super; }
-        }
-      }
-    }
+  &:not(.master) {
+    left: 18px; right: 5px; border-radius: 12px; background: @myhordes-panel-border, @myhordes-panel-bg; padding: 8px;
   }
 
-  &:not(.visible) {
-    pointer-events: none; opacity: 0;
-    #post-office-box { transform: scale(0) translateY(1000px) }
+  ul.tabs.plain { margin-top: 4px; margin-bottom: 0; }
+
+  &>.row-flex.stretch { height: 100% };
+  .forum-note.stretcher {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    div.scroll-area { position: absolute; top: 0; left: 0; right: 0; bottom: 0; overflow: auto }
+  }
+
+  #pm-selected-users {
+    margin: 0; padding: 0;
+    &>li {
+      margin: 2px; padding: 2px; display: inline-block; list-style: none;
+      background: #3b3249; border: 1px solid #25202f; border-radius: 3px;
+      &>b { text-shadow: 0 0 1px black; }
+      &>span { color: @myhordes-smalltext; cursor: pointer; margin-left: 6px; font-size: 0.8em; vertical-align: super; }
+    }
   }
 
   .pm-userbox {
@@ -826,8 +832,8 @@ ul.subscriptions {
 
           padding: 6px; margin: 5px 0 5px 10px; background-color: #4a261e; position: relative; overflow: visible;
           min-height: 30px; filter: drop-shadow(0 0 3px rgba(0,0,0,0.35));
-          &>div.pm-message-header { 
-            color: @myhordes-smalltext; font-size: 0.9em; 
+          &>div.pm-message-header {
+            color: @myhordes-smalltext; font-size: 0.9em;
             .img { vertical-align: text-bottom; }
           }
           &>div.pm-message-content {

@@ -1,15 +1,16 @@
 {
     "devDependencies": {
-        "@eternal-twin/cli": "^0.8.3",
+        "@eternal-twin/cli": ">=0.9.1",
         "@fortawesome/fontawesome-free": "^5.14.0",
-        "@symfony/webpack-encore": "^0.28.3",
-        "core-js": "^3.6.5",
-        "less": "^3.12.2",
-        "less-loader": "^6.2.0",
-        "regenerator-runtime": "^0.13.7",
-        "ts-loader": "^8.0.1",
-        "typescript": "^3.9.7",
-        "webpack-notifier": "^1.8.0"
+        "@symfony/webpack-encore": "^1.6.1",
+        "core-js": ">=3.6.5",
+        "file-loader": "^6.0.0",
+        "less": ">=3.12.2",
+        "less-loader": ">=6.2.0",
+        "regenerator-runtime": ">=0.13.7",
+        "ts-loader": ">=8.0.1",
+        "typescript": ">=3.9.7",
+        "webpack-notifier": ">=1.8.0"
     },
     "license": "UNLICENSED",
     "private": true,

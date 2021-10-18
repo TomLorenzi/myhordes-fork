@@ -42,19 +42,18 @@
 
     .newspage {
       width: 90%; height: 0; margin: 0; display: block; vertical-align: top; position: absolute; padding-bottom: 75%;
-      background-size: cover; transform-style: preserve-3d; transition: all 1.0s linear; backface-visibility: hidden;
-      -webkit-backface-visibility: hidden;
-      left: 5%; z-index: 0;
+      background-size: cover; transform-style: preserve-3d; transition: transform 1.0s ease-in-out, opacity 0s 0.5s;
+      backface-visibility: visible; left: 5%; z-index: 0;
 
       &#newspage-front {
-        margin-left: 0;
-        div#gazette-content { font-size: 2.5vw; }
+        margin-left: 0; opacity: 1;
+        div#gazette-content { font-size: 2.5vw; max-height: 35.5%; }
         div#gazette-headline { font-size: 3.2vw; top: 13%; }
         div#gazette-signature { font-size: 2.5vw; }
         div#gazette-deaths { font-size: 3vw; }
       }
       &#newspage-back {
-        width: 90%; margin-left: 0; transform: rotateY(-180deg); z-index: 1;
+        width: 90%; margin-left: 0; transform: rotateY(-180deg); z-index: 1; opacity: 0; pointer-events: none;
         .nightstat { font-size: 3vw; }
         #buildingdetails { top: 55%; }
       }
@@ -64,7 +63,8 @@
   #gazette-switch:checked + #gazette {
     .newspage {
       transform: rotateY(-180deg);
-      &#newspage-back { transform: rotateY(-360deg); }
+      &#newspage-front { opacity: 0; pointer-events: none }
+      &#newspage-back { transform: rotateY(-360deg); opacity: 1 }
     }
   }
 }

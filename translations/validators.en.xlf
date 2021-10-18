@@ -1056,6 +1056,17 @@
         <target>This value is not a valid International Securities Identification Number (ISIN).</target>
       </segment>
     </unit>
+    <unit id="6akW5mb" name="This value should be a valid expression.">
+      <notes>
+        <note category="german">Dieser Wert sollte eine gültige Expression sein.</note>
+        <note category="from">[unused]</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>This value should be a valid expression.</source>
+        <target>This value should be a valid expression.</target>
+      </segment>
+    </unit>
     <unit id=".SEaaBa" name="This form should not contain extra fields.">
       <notes>
         <note category="german">Dieses Formular sollte keine zusätzlichen Felder enthalten.</note>

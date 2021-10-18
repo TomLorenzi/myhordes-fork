@@ -32,27 +32,39 @@
 
         if (!has_preloaded_content) fun_refresh(-1,true);
 
-        let control_tab = log_boxes[i].querySelector( '.log-day-select .tab' );
-        if (control_tab) {
-            const min = parseInt(control_tab.getAttribute( 'x-page-min' ));
-            const max = parseInt(control_tab.getAttribute( 'x-page-max' ));
-            let   cur = parseInt(control_tab.getAttribute( 'x-page-current' ));
+        let control_tabs = log_boxes[i].querySelectorAll( '.log-day-select .tab' );
 
-            let control_fwd = control_tab.querySelector( 'div.control:first-child' );
-            let control_bwd = control_tab.querySelector( 'div.control:last-child' );
-            let label       = control_tab.querySelector( 'span' );
+        if (control_tabs.length > 0) {
+            for(var itab = 0 ; itab < control_tabs.length ; itab++)  {
+                let control_tab = control_tabs[itab];
+                const min = parseInt(control_tab.getAttribute( 'x-page-min' ));
+                const max = parseInt(control_tab.getAttribute( 'x-page-max' ));
+                let   cur = parseInt(control_tab.getAttribute( 'x-page-current' ));
 
-            const fun_adjust = function(dif) {
-                if ((dif > 0 && cur <= (max-dif)) || (dif < 0 && cur >= (min-dif))) {
-                    cur += dif;
-                    label.innerText = ('' + cur);
-                    control_tab.setAttribute( 'x-page-current', cur )
-                    fun_refresh(cur,false);
-                }
-            };
+                /*let control_fwd = control_tab.querySelector( 'div.control:first-child' );
+                let control_bwd = control_tab.querySelector( 'div.control:last-child' );
+                let label       = control_tab.querySelector( 'span' );*/
 
-            control_fwd.addEventListener('click', function() { fun_adjust( 1) });
-            control_bwd.addEventListener('click', function() { fun_adjust(-1) });
+                const fun_adjust = function(dif) {
+                    if ((dif > 0 && cur <= (max-dif)) || (dif < 0 && cur >= (min-dif))) {
+                        cur += dif;
+                        label.innerText = ('' + cur);
+                        control_tab.setAttribute( 'x-page-current', cur )
+                        fun_refresh(cur,false);
+                    }
+                };
+
+                control_tab.addEventListener('click', function() {
+                    let olds = document.querySelectorAll(".log-day-select .tab.current");
+                    for(var iold = 0 ; iold < olds.length ; iold++)
+                        olds[iold].classList.remove("current");
+                    this.classList.add("current");
+                    fun_refresh(this.getAttribute('x-day'), false);
+                });
+
+                /*control_fwd.addEventListener('click', function() { fun_adjust(+1) });
+                control_bwd.addEventListener('click', function() { fun_adjust(-1) });*/
+            }
         }
     }
 })();

@@ -7,6 +7,7 @@ class Config {
     private client: Client;
 
     public notificationAsPopup:   conf<boolean>;
+    public usePostBackup:         conf<boolean>;
     public twinoidImport:         conf<[number,string,string]>;
     public editorCache:           conf<string>;
     public scopedEditorCache:     conf<[string,string]>;
@@ -18,6 +19,7 @@ class Config {
         this.client = c;
 
         this.notificationAsPopup   = this.makeConf<boolean>('notifAsPopup', false);
+        this.usePostBackup         = this.makeConf<boolean>('useEditorCache', true);
         this.twinoidImport         = this.makeConf<[number,string,string]>('twinImport', [0,'',''], true);
         this.editorCache           = this.makeConf<string>('editorCache', '', true);
         this.scopedEditorCache     = this.makeConf<[string,string]>('scopedEditorCache', ['',''], true);

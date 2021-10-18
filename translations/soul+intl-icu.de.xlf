@@ -2480,5 +2480,41 @@
         <target>nur Baseline-Format</target>
       </segment>
     </unit>
+    <unit id="qRIZ_Eb" name="Texteditor-Inhalte zur Sicherheit zwischenspeichern">
+      <segment>
+        <source>Texteditor-Inhalte zur Sicherheit zwischenspeichern</source>
+        <target>Texteditor-Inhalte zur Sicherheit zwischenspeichern</target>
+      </segment>
+    </unit>
+    <unit id="xu7yW0t" name="Alle Saisons auf MyHordes">
+      <segment>
+        <source>Alle Saisons auf MyHordes</source>
+        <target>Alle Saisons auf MyHordes</target>
+      </segment>
+    </unit>
+    <unit id="xrovccF" name="Alpha-Seelen">
+      <segment>
+        <source>Alpha-Seelen</source>
+        <target>Alpha-Seelen</target>
+      </segment>
+    </unit>
+    <unit id="hTdNGcU" name="Es sind keine Spieler aufgelistet!">
+      <segment>
+        <source>Es sind keine Spieler aufgelistet!</source>
+        <target>Es sind keine Spieler aufgelistet!</target>
+      </segment>
+    </unit>
+    <unit id="QE5H6hD" name="Alte Seelen">
+      <segment>
+        <source>Alte Seelen</source>
+        <target>Alte Seelen</target>
+      </segment>
+    </unit>
+    <unit id="o1q81tr" name="Icon">
+      <segment>
+        <source>Icon</source>
+        <target>Icon</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

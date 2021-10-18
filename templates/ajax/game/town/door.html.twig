@@ -73,7 +73,6 @@
                     <p>
                         {{'Trinke oder nimm einen Happen zu dir, aber unternimm etwas, um wieder in Schuss zu kommen!'|trans({}, 'game')}}
                     </p>
-
                 </div>
             {% else %}
             {% if not town.devastated %}
@@ -102,6 +101,7 @@
                 </div>
             {% endif %}
             <h5>{% trans from 'game' %}Meine Aktionen{% endtrans %}</h5>
+                <div class="actions-box">
             {% if not banished %}
                 {% if town.door %}
                     <div style="margin-bottom: 5px;">
@@ -123,10 +123,14 @@
                 </button>
             {% endif %}
             {% if show_sneaky %}
-                <button id="door_exit_sneak" {% if not town.door or not can_go_out %}disabled{% endif %}><img alt="" src="{{ asset('build/images/roles/ghoul.gif') }}">{% trans from 'game' %}Aus der Stadt schleichen{% endtrans %}</button>
+                <button id="door_exit_sneak" {% if not town.door or not can_go_out %}disabled{% endif %}><img alt="" src="{{ asset('build/images/roles/ghoul.gif') }}">
+                    {% trans from 'game' %}Aus der Stadt schleichen{% endtrans %}
+                    <div class="tooltip help">{{ 'Mit dieser Aktion kannst du die Stadt verlassen, ohne dass es ins Stadtregister eingetragen wird.'|trans({},'game') }}</div>
+                </button>
             {% endif %}
             <button id="door_exit" {% if not town.door or not can_go_out %}disabled{% endif %}><img alt="" src="{{ asset('build/images/icons/small_move.gif') }}" />{% trans from 'game' %}Stadt verlassen{% endtrans %}</button>
             <button x-ajax-href="{{ path('town_routes') }}"><img alt="" src="{{ asset('build/images/item/item_bagxl.gif') }}" />{{ 'Route planen...'|trans({},'game') }}</button>
+                </div>
             {% if town.door %}
                 <div style="font-size: 1.2rem;">{{ 'Das Stadttor ist <span class="critical">geöffnet</span>! Achtung: Wenn das Tor geschlossen wird, können alle Spieler, die sich außerhalb der Stadt befinden, nicht mehr rein.'|trans({}, 'game')|raw }}</div>
             {% endif %}

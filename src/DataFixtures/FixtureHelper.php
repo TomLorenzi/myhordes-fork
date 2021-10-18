@@ -6,7 +6,7 @@ use App\Entity\ItemGroup;
 use App\Entity\ItemGroupEntry;
 use App\Entity\ItemPrototype;
 use Doctrine\Bundle\FixturesBundle\Fixture;
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Persistence\ObjectManager;
 
 class FixtureHelper extends Fixture
 {

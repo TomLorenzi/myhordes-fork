@@ -245,19 +245,23 @@ class CitizenHandler
             // Since the gallow building can also be a chocolate cross, we need to check the type
             if ($gallows && $gallows->getPrototype()->getName() === 'small_eastercross_#00') {
                 $this->container->get(DeathHandler::class)->kill( $citizen, CauseOfDeath::ChocolateCross, $rem );
+                // TODO: Add the log entry template
 
                 // The chocolate cross gets destroyed
                 $gallows->setComplete(false)->setAp(0)->setDefense(0)->setHp(0);
                 $active = $gallows;
             } elseif ($gallows) {
                 $this->container->get(DeathHandler::class)->kill( $citizen, CauseOfDeath::Hanging, $rem );
+                $this->entity_manager->persist($this->log->publicJustice($citizen));
 
                 // The gallows gets destroyed
                 $gallows->setComplete(false)->setAp(0)->setDefense(0)->setHp(0);
                 $active = $gallows;
             } elseif ($cage) {
                 $this->container->get(DeathHandler::class)->kill( $citizen, CauseOfDeath::FleshCage, $rem );
-                $cage->setTempDefenseBonus( $cage->getTempDefenseBonus() + ( $citizen->getProfession()->getHeroic() ? 60 : 40 ) );
+                $cage->setTempDefenseBonus( $cage->getTempDefenseBonus() + ($def = $citizen->getProfession()->getHeroic() ? 60 : 40 ) );
+                $this->entity_manager->persist($this->log->publicJustice($citizen, $def));
+
                 $this->entity_manager->persist( $cage );
                 $citizen->getHome()->setHoldsBody(false);
                 $citizen->setDisposed(Citizen::Ghoul);
@@ -522,34 +526,12 @@ class CitizenHandler
     }
 
     public function getCampingChance(Citizen $citizen): float {
-        $total_value = array_sum($this->getCampingValues($citizen));
-
-        if ($total_value >= 0 && $citizen->getProfession()->getName() == 'survivalist') {
-            $survival_chance = 1;
-        }
-        else if ($total_value > -2 && $citizen->getProfession()->getName() == 'survivalist') {
-            $survival_chance = .95;
-        }
-        else if ($total_value > -4) {
-            $survival_chance = .9;
-        }
-        else if ($total_value > -7) {
-            $survival_chance = .75;
-        }
-        else if ($total_value > -10) {
-            $survival_chance = .6;
-        }
-        else if ($total_value > -14) {
-            $survival_chance = .45;
-        }
-        else if ($total_value > -18) {
-            $survival_chance = .3;
-        }
-        else {
-            $survival_chance = .15;
-        }
-
-        return $survival_chance;
+        // In order to don't overflow 100%, we take the min between 0 and the camping value.
+        // Camping value is going more and more negative when your camping chances are dropping.
+        // The survivalist job can reach 100% of camping survival chances. Others are stuck at 90%.
+        // We found out that there seems to be a minimum of survival chances of 10%. We should confirm
+        // this with more tests on the original game. But for now, let's take 10%.
+        return min(max((100.0 - (abs(min(0, array_sum($this->getCampingValues($citizen)))) * 5)) / 100.0, .1), $citizen->getProfession()->getName() === 'survivalist' ? 1.0 : 0.9);
     }
 
     public function getCampingValues(Citizen $citizen): array {
@@ -604,61 +586,6 @@ class CitizenHandler
 
         // Zone improvement level.
         $camping_values['improvement'] = $zone->getImprovementLevel();
-
-        // Previous camping count.
-        $campings_map = [
-            'normal' => [
-                'nonpro' => [
-                    0 => 0,
-                    1 => -4,
-                    2 => -9,
-                    3 => -13,
-                    4 => -16,
-                    5 => -26,
-                    6 => -36,
-                    7 => -50,
-                    8 => -65, // Totally arbitrary
-                ],
-                'pro' => [
-                    0 => 0,
-                    1 => -2,
-                    2 => -4,
-                    3 => -8,
-                    4 => -10,
-                    5 => -12,
-                    6 => -16,
-                    7 => -26,
-                    8 => -36,
-                ]
-            ],
-            'hard' => [
-                'nonpro' => [
-                    0 => 0,
-                    1 => -4,
-                    2 => -6,
-                    3 => -8,
-                    4 => -10,
-                    5 => -20,
-                    6 => -36,
-                    7 => -50, // Totally arbitrary
-                    8 => -70, // Totally arbitrary
-                ],
-                'pro' => [
-                    0 => 0,
-                    1 => -1,
-                    2 => -2,
-                    3 => -4,
-                    4 => -6,
-                    5 => -8,
-                    6 => -10,
-                    7 => -20,
-                    8 => -36,
-                ]
-            ],
-        ];
-
-        //$camping_values['campings'] = $campings_map[$config->get(TownConf::CONF_MODIFIER_CAMPING_CHANCE_MAP, 'normal')][$has_pro_camper ? 'pro' : 'nonpro'][min(8,$citizen->getCampingCounter())];
-        // $camping_values['campings'] = -0.835 * pow($citizen->getCampingCounter(), 2) - 1.269 * $citizen->getCampingCounter();
 
         // Formula created & given by Ned/Arendil#1539
         // https://cdn.discordapp.com/attachments/885080655975837719/885081809136795658/Camping_regression_1.xlsx
@@ -897,7 +824,7 @@ class CitizenHandler
             /** @var Item $item */
             if ($item->getBroken()) continue;
             $deco += $item->getPrototype()->getDeco();
-            if ($item->getPrototype()->getDeco())
+            if ($item->getPrototype()->getDeco() || !empty($item->getPrototype()->getDecoText()))
                 $decoItems[] = $item;
         }
 

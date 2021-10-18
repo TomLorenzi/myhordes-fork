@@ -1255,22 +1255,20 @@
       <notes>
         <note category="german">Phase der Stadt; entweder "alpha", "beta", "import" oder "native"</note>
         <note category="from">twig:///templates/ajax/public/apidocs.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Phase der Stadt; entweder "alpha", "beta", "import" oder "native"</source>
-        <target>Phase der Stadt; entweder "alpha", "beta", "import" oder "native"</target>
+        <target>Phase de ville; soit "alpha", "beta", "import" ou "native"</target>
       </segment>
     </unit>
     <unit id="5F7mt2z" name="Herkunfts-Server der Stadt">
       <notes>
         <note category="german">Herkunfts-Server der Stadt</note>
         <note category="from">twig:///templates/ajax/public/apidocs.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Herkunfts-Server der Stadt</source>
-        <target>Herkunfts-Server der Stadt</target>
+        <target>Serveur source de la ville</target>
       </segment>
     </unit>
   </file>

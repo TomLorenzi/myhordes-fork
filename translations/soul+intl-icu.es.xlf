@@ -104,7 +104,7 @@
     <unit id="3UXNMEe" name="Dieses Dateiformat wird nicht unterstützt.">
       <notes>
         <note category="german">Dieses Dateiformat wird nicht unterstützt.</note>
-        <note category="from">twig:///templates/ajax/admin/apps/edit.html.twig;twig:///templates/ajax/admin/groups/edit.html.twig;twig:///templates/ajax/soul/settings.html.twig;twig:///templates/scripts/errors/profile.txt.twig</note>
+        <note category="from">twig:///templates/ajax/admin/apps/edit.html.twig;twig:///templates/ajax/admin/groups/edit.html.twig;twig:///templates/ajax/admin/widget/controls.twig;twig:///templates/ajax/soul/settings.html.twig;twig:///templates/scripts/errors/profile.txt.twig</note>
       </notes>
       <segment>
         <source>Dieses Dateiformat wird nicht unterstützt.</source>
@@ -144,7 +144,7 @@
     <unit id="TzbDcP2" name="Die Datei ist zu groß.">
       <notes>
         <note category="german">Die Datei ist zu groß.</note>
-        <note category="from">twig:///templates/ajax/admin/apps/edit.html.twig;twig:///templates/ajax/admin/groups/edit.html.twig;twig:///templates/ajax/soul/settings.html.twig;twig:///templates/scripts/errors/profile.txt.twig</note>
+        <note category="from">twig:///templates/ajax/admin/apps/edit.html.twig;twig:///templates/ajax/admin/groups/edit.html.twig;twig:///templates/ajax/admin/widget/controls.twig;twig:///templates/ajax/soul/settings.html.twig;twig:///templates/scripts/errors/profile.txt.twig</note>
       </notes>
       <segment>
         <source>Die Datei ist zu groß.</source>
@@ -394,7 +394,7 @@
     <unit id="rJfU7R2" name="Bitte wähle nur eine einzige Datei aus.">
       <notes>
         <note category="german">Bitte wähle nur eine einzige Datei aus.</note>
-        <note category="from">twig:///templates/ajax/admin/apps/edit.html.twig;twig:///templates/ajax/admin/groups/edit.html.twig;twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/apps/edit.html.twig;twig:///templates/ajax/admin/groups/edit.html.twig;twig:///templates/ajax/admin/widget/controls.twig;twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Bitte wähle nur eine einzige Datei aus.</source>
@@ -464,7 +464,7 @@
     <unit id="q8r8gtq" name="Titel">
       <notes>
         <note category="german">Titel</note>
-        <note category="from">twig:///templates/ajax/soul/rps.html.twig</note>
+        <note category="from">php:///src/Structures/TwinoidPayload.php;twig:///templates/ajax/soul/rps.html.twig</note>
       </notes>
       <segment>
         <source>Titel</source>
@@ -624,7 +624,7 @@
     <unit id="lJGEo3w" name="Koalition">
       <notes>
         <note category="german">Koalition</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/shell.html.twig</note>
+        <note category="from">twig:///templates/ajax/ghost/intro.html.twig;twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/shell.html.twig</note>
       </notes>
       <segment>
         <source>Koalition</source>
@@ -3432,12 +3432,11 @@
     <unit id="LzzllLx" name="Empfänger">
       <notes>
         <note category="german">Empfänger</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/pm/view.html.twig</note>
       </notes>
       <segment>
         <source>Empfänger</source>
-        <target>Empfänger</target>
+        <target>Destinatario</target>
       </segment>
     </unit>
     <unit id="YC8wBlS" name="In diesem Abschnitt findest du alle bisher von dir gespielten Partien.">
@@ -3553,7 +3552,7 @@
     <unit id="m65CDx_" name="{user} war in der Vergangenheit unter folgenden Namen bekannt:">
       <notes>
         <note category="german">{user} war in der Vergangenheit unter folgenden Namen bekannt:</note>
-        <note category="from">twig:///templates/ajax/soul/badges.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/badges.html.twig</note>
       </notes>
       <segment>
         <source>{user} war in der Vergangenheit unter folgenden Namen bekannt:</source>
@@ -3880,165 +3879,211 @@
       <notes>
         <note category="german">In der Vergangenheit importierte Seelenpunkte, Auszeichnungen und Heldenerfahrung von dieser Seele sind deinem MyHordes-Profil gutgeschrieben worden. Neu hinzu gekommene Seelenpunkte, Auszeichnungen und Heldenerfahrung werden jedoch nur in einem gesonderten Bereich deiner Seele angezeigt.</note>
         <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>In der Vergangenheit importierte Seelenpunkte, Auszeichnungen und Heldenerfahrung von dieser Seele sind deinem MyHordes-Profil gutgeschrieben worden. Neu hinzu gekommene Seelenpunkte, Auszeichnungen und Heldenerfahrung werden jedoch nur in einem gesonderten Bereich deiner Seele angezeigt.</source>
-        <target>In der Vergangenheit importierte Seelenpunkte, Auszeichnungen und Heldenerfahrung von dieser Seele sind deinem MyHordes-Profil gutgeschrieben worden. Neu hinzu gekommene Seelenpunkte, Auszeichnungen und Heldenerfahrung werden jedoch nur in einem gesonderten Bereich deiner Seele angezeigt.</target>
+        <target>Los puntos de alma, los premios y los dias de héroe importados de esta alma en el pasado se han acreditado en su perfil de MyHordes. Sin embargo, los puntos de alma, los premios y los dias de héroe recién agregados solo se muestran en un área separada de su alma.</target>
       </segment>
     </unit>
     <unit id="l.Sx3SK">
       <notes>
         <note category="german">Hiermit markierst du die Seele, mit der du dich am meisten identifizierst. Es kann nur eine importierte Seele zur Hauptseele erklärt werden. Überlege dir deine Entscheidung gut, denn du kannst die Wahl deiner Hauptseele später nicht mehr ändern!</note>
         <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Hiermit markierst du die Seele, mit der du dich am meisten identifizierst. Es kann nur eine importierte Seele zur Hauptseele erklärt werden. Überlege dir deine Entscheidung gut, denn du kannst die Wahl deiner Hauptseele später nicht mehr ändern!</source>
-        <target>Hiermit markierst du die Seele, mit der du dich am meisten identifizierst. Es kann nur eine importierte Seele zur Hauptseele erklärt werden. Überlege dir deine Entscheidung gut, denn du kannst die Wahl deiner Hauptseele später nicht mehr ändern!</target>
+        <target>Con esto marcas el alma con la que más te identificas. Solo un alma importada puede declararse el alma principal. Piense cuidadosamente en su decisión, ¡porque no podrá cambiar la elección de su alma principal más adelante!</target>
       </segment>
     </unit>
     <unit id="9htmE0T">
       <notes>
         <note category="german">Da du bereits Punkte auf MyHordes gesammelt hast, kannst du nicht länger Seelenpunkte, Auszeichnungen und Heldenerfahrung von einer importierten Seele übernehmen.</note>
         <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Da du bereits Punkte auf MyHordes gesammelt hast, kannst du nicht länger Seelenpunkte, Auszeichnungen und Heldenerfahrung von einer importierten Seele übernehmen.</source>
-        <target>Da du bereits Punkte auf MyHordes gesammelt hast, kannst du nicht länger Seelenpunkte, Auszeichnungen und Heldenerfahrung von einer importierten Seele übernehmen.</target>
+        <target>Como ya ha ganado puntos en MyHordes, ya no puede obtener puntos de alma, premios y experiencia de héroe de un alma importada.</target>
       </segment>
     </unit>
     <unit id="qDPKzOI" name="Achtung, der Seelenimport unterliegt aktuell zusätzlichen Einschränkungen.">
       <notes>
         <note category="german">Achtung, der Seelenimport unterliegt aktuell zusätzlichen Einschränkungen.</note>
         <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Achtung, der Seelenimport unterliegt aktuell zusätzlichen Einschränkungen.</source>
-        <target>Achtung, der Seelenimport unterliegt aktuell zusätzlichen Einschränkungen.</target>
+        <target>Atención, la importación de almas está sujeta actualmente a restricciones adicionales.</target>
       </segment>
     </unit>
     <unit id="UfAt_R8">
       <notes>
         <note category="german">Um zu verhindern, dass Spieler Auszeichnungen, Seelenpunkte oder Heldenerfahrung farmen, indem sie gleichzeitig auf MyHordes und Hordes (oder einer lokalen Variante von Hordes) spielen, werden &lt;b&gt;neu gesammelte Auszeichnungen, SP oder Heldenerfahrung&lt;/b&gt; nicht länger zu deiner MH-Seele hinzugerechnet.</note>
         <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Um zu verhindern, dass Spieler Auszeichnungen, Seelenpunkte oder Heldenerfahrung farmen, indem sie gleichzeitig auf MyHordes und Hordes (oder einer lokalen Variante von Hordes) spielen, werden &lt;b&gt;neu gesammelte Auszeichnungen, SP oder Heldenerfahrung&lt;/b&gt; nicht länger zu deiner MH-Seele hinzugerechnet.</source>
-        <target><![CDATA[Um zu verhindern, dass Spieler Auszeichnungen, Seelenpunkte oder Heldenerfahrung farmen, indem sie gleichzeitig auf MyHordes und Hordes (oder einer lokalen Variante von Hordes) spielen, werden <b>neu gesammelte Auszeichnungen, SP oder Heldenerfahrung</b> nicht länger zu deiner MH-Seele hinzugerechnet.]]></target>
+        <target><![CDATA[Para evitar que los jugadores acumulen logros, puntos de alma o dias de héroe jugando en MyHordes y Hordes (o una variante local de Hordes) al mismo tiempo, los <b>logros, puntos de alma o dias de héroe recién recolectados</b> ya no cuenta para tu alma MH.]]></target>
       </segment>
     </unit>
     <unit id="33LWSL0">
       <notes>
         <note category="german">Diese Einschränkung betrifft alle Spieler, die auf MyHordes bereits &lt;b&gt;mehr als {threshold} Seelenpunkte&lt;/b&gt; gesammelt haben.</note>
         <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Diese Einschränkung betrifft alle Spieler, die auf MyHordes bereits &lt;b&gt;mehr als {threshold} Seelenpunkte&lt;/b&gt; gesammelt haben.</source>
-        <target><![CDATA[Diese Einschränkung betrifft alle Spieler, die auf MyHordes bereits <b>mehr als {threshold} Seelenpunkte</b> gesammelt haben.]]></target>
+        <target><![CDATA[Esta restricción afecta a todos los jugadores que ya han acumulado <b>más de {threshold} puntos de alma</b> en MyHordes.]]></target>
       </segment>
     </unit>
     <unit id="YKpGK6P">
       <notes>
         <note category="german">Es werden nach wie vor alle Informationen aus deiner importierten Seele auf MyHordes gespeichert. Durch den Import &lt;b&gt;neu&lt;/b&gt; gewonnene Auszeichnungen, SP oder Heldenerfahrung wird jedoch &lt;b&gt;nur noch in einem gesonderten Bereich&lt;/b&gt; auf deiner MH-Seele angezeigt.</note>
         <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Es werden nach wie vor alle Informationen aus deiner importierten Seele auf MyHordes gespeichert. Durch den Import &lt;b&gt;neu&lt;/b&gt; gewonnene Auszeichnungen, SP oder Heldenerfahrung wird jedoch &lt;b&gt;nur noch in einem gesonderten Bereich&lt;/b&gt; auf deiner MH-Seele angezeigt.</source>
-        <target><![CDATA[Es werden nach wie vor alle Informationen aus deiner importierten Seele auf MyHordes gespeichert. Durch den Import <b>neu</b> gewonnene Auszeichnungen, SP oder Heldenerfahrung wird jedoch <b>nur noch in einem gesonderten Bereich</b> auf deiner MH-Seele angezeigt.]]></target>
+        <target><![CDATA[Toda la información de su alma importada todavía se guarda en MyHordes. Sin embargo, los premios, puntos de alma o dias de héroe obtenidos a través de la importación <b>nuevo</b>, <b>solo se mostrarán en un área separada</b> de su alma MH.]]></target>
       </segment>
     </unit>
     <unit id="FgytNDj" name="Du kannst deine Seele aktuell &lt;b&gt;ohne Einschränkungen&lt;/b&gt; importieren.">
       <notes>
         <note category="german">Du kannst deine Seele aktuell &lt;b&gt;ohne Einschränkungen&lt;/b&gt; importieren.</note>
         <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Du kannst deine Seele aktuell &lt;b&gt;ohne Einschränkungen&lt;/b&gt; importieren.</source>
-        <target><![CDATA[Du kannst deine Seele aktuell <b>ohne Einschränkungen</b> importieren.]]></target>
+        <target><![CDATA[Actualmente puedes importar tu alma <b>sin restricciones</b>.]]></target>
       </segment>
     </unit>
     <unit id="UeSGb7T" name="Importierte Seelen">
       <notes>
         <note category="german">Importierte Seelen</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Importierte Seelen</source>
-        <target>Importierte Seelen</target>
+        <target>Almas importadas</target>
       </segment>
     </unit>
     <unit id="7fBaUak">
       <notes>
         <note category="german">&lt;b&gt;Wenn du sie in der Vergangenheit importiert hast&lt;/b&gt;, kannst du sie dir hier ansehen!</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>&lt;b&gt;Wenn du sie in der Vergangenheit importiert hast&lt;/b&gt;, kannst du sie dir hier ansehen!</source>
-        <target><![CDATA[<b>Wenn du sie in der Vergangenheit importiert hast</b>, kannst du sie dir hier ansehen!]]></target>
+        <target><![CDATA[<b>Si los ha importado en el pasado</b>, ¡compruébelos aquí!]]></target>
       </segment>
     </unit>
     <unit id="d1k9Xlg">
       <notes>
         <note category="german">Die maximale Größe der Bilddatei, die du für deinen Avatar hochladen kannst, beträgt &lt;b&gt;{size}&lt;/b&gt;.</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Die maximale Größe der Bilddatei, die du für deinen Avatar hochladen kannst, beträgt &lt;b&gt;{size}&lt;/b&gt;.</source>
-        <target><![CDATA[Die maximale Größe der Bilddatei, die du für deinen Avatar hochladen kannst, beträgt <b>{size}</b>.]]></target>
+        <target><![CDATA[El tamaño máximo del archivo de imagen que puede cargar para su avatar es <b>{size}</b>.]]></target>
       </segment>
     </unit>
     <unit id="U8MXhPw">
       <notes>
         <note category="german">Nach dem Upload wird der Server dein Bild möglicherweise komprimieren (z.B. indem die Auflösung reduziert oder Animationsframes optimiert werden).</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Nach dem Upload wird der Server dein Bild möglicherweise komprimieren (z.B. indem die Größe reduziert oder Animationsframe optimiert werden).</source>
-        <target>Nach dem Upload wird der Server dein Bild möglicherweise komprimieren (z.B. indem die Größe reduziert oder Animationsframe optimiert werden).</target>
+        <target>Después de la carga, el servidor puede comprimir su imagen (por ejemplo, reduciendo el tamaño u optimizando los cuadros de animación).</target>
       </segment>
     </unit>
     <unit id="iExo5YI">
       <notes>
         <note category="german">Der Server muss in der Lage sein, dein Bild auf höchstens &lt;b&gt;{size}&lt;/b&gt; zu komprimieren - andernfalls kann es nicht gespeichert werden.</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Der Server muss in der Lage sein, dein Bild auf höchstens &lt;b&gt;{size}&lt;/b&gt; zu komprimieren - andernfalls kann es nicht gespeichert werden.</source>
-        <target><![CDATA[Der Server muss in der Lage sein, dein Bild auf höchstens <b>{size}</b> zu komprimieren - andernfalls kann es nicht gespeichert werden.]]></target>
+        <target><![CDATA[El servidor debe poder comprimir su imagen a un máximo de <b>{size}</b>; de lo contrario, no se puede guardar.]]></target>
       </segment>
     </unit>
     <unit id="LCJ4eBk" name="Die folgenden Bildformate werden unterstützt:">
       <notes>
         <note category="german">Die folgenden Bildformate werden unterstützt:</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Die folgenden Bildformate werden unterstützt:</source>
-        <target>Die folgenden Bildformate werden unterstützt:</target>
+        <target>Se admiten los siguientes formatos de imagen:</target>
       </segment>
     </unit>
     <unit id="KDrgSO8" name="nur Baseline-Format">
       <notes>
         <note category="german">nur Baseline-Format</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>nur Baseline-Format</source>
-        <target>nur Baseline-Format</target>
+        <target>Solo formato de línea de base</target>
+      </segment>
+    </unit>
+    <unit id="qRIZ_Eb" name="Texteditor-Inhalte zur Sicherheit zwischenspeichern">
+      <notes>
+        <note category="german">Texteditor-Inhalte zur Sicherheit zwischenspeichern</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>Texteditor-Inhalte zur Sicherheit zwischenspeichern</source>
+        <target>Almacene en caché el contenido del editor de texto para mayor seguridad</target>
+      </segment>
+    </unit>
+    <unit id="xu7yW0t" name="Alle Saisons auf MyHordes">
+      <notes>
+        <note category="german">Alle Saisons auf MyHordes</note>
+        <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
+      </notes>
+      <segment>
+        <source>Alle Saisons auf MyHordes</source>
+        <target>Todas las temporadas en MyHordes</target>
+      </segment>
+    </unit>
+    <unit id="xrovccF" name="Alpha-Seelen">
+      <notes>
+        <note category="german">Alpha-Seelen</note>
+        <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
+      </notes>
+      <segment>
+        <source>Alpha-Seelen</source>
+        <target>Almas alfa</target>
+      </segment>
+    </unit>
+    <unit id="hTdNGcU" name="Es sind keine Spieler aufgelistet!">
+      <notes>
+        <note category="german">Es sind keine Spieler aufgelistet!</note>
+        <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
+      </notes>
+      <segment>
+        <source>Es sind keine Spieler aufgelistet!</source>
+        <target>¡No hay jugadores en la lista!</target>
+      </segment>
+    </unit>
+    <unit id="QE5H6hD" name="Alte Seelen">
+      <notes>
+        <note category="german">Alte Seelen</note>
+        <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
+      </notes>
+      <segment>
+        <source>Alte Seelen</source>
+        <target>Almas viejas</target>
+      </segment>
+    </unit>
+    <unit id="o1q81tr" name="Icon">
+      <notes>
+        <note category="german">Icon</note>
+        <note category="from">php:///src/Structures/TwinoidPayload.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Icon</source>
+        <target>Icon</target>
       </segment>
     </unit>
   </file>

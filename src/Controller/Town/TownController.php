@@ -431,6 +431,8 @@ class TownController extends InventoryAwareController
             'clairvoyanceLevel' => $clairvoyanceLevel,
             'attackAP' => $this->getTownConf()->get( TownConf::CONF_MODIFIER_ATTACK_AP, 5 ),
             'can_recycle' => $can_recycle,
+            'has_omniscience' => $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'omniscience'),
+
         ]) );
     }
 
@@ -506,7 +508,7 @@ class TownController extends InventoryAwareController
                 break;
             case Citizen::Watered:
                 // Watered
-                $items = $this->inventory_handler->fetchSpecificItems( $ac->getInventory(), [new ItemRequest('water_#00', 1, null, false)] );
+                $items = $this->inventory_handler->fetchSpecificItems( [$ac->getInventory(),$ac->getHome()->getChest()], [new ItemRequest('water_#00', 1, null, false)] );
                 if (!$items) return AjaxResponse::error(ErrorHelper::ErrorItemsMissing );
                 $this->inventory_handler->forceRemoveItem( $items[0] );
                 $pictoName = "r_cwater_#00";
@@ -663,13 +665,15 @@ class TownController extends InventoryAwareController
         }
 
         try {
+            $num_of_complaints = $this->entity_manager->getRepository(Complaint::class)->countComplaintsFor($culprit, Complaint::SeverityBanish) + $complaint_level;
+
             $em->persist( $this->log->citizenComplaint( $existing_complaint ) );
             $em->persist($culprit);
             $em->persist($existing_complaint);
             $em->flush();
 
             if ($complaint_level != 0) {
-                $this->crow->postAsPM( $culprit, '', '', $complaint_level > 0 ? PrivateMessage::TEMPLATE_CROW_COMPLAINT_ON : PrivateMessage::TEMPLATE_CROW_COMPLAINT_OFF, $complaintReason ? $complaintReason->getId() : 0 );
+                $this->crow->postAsPM( $culprit, '', '', $complaint_level > 0 ? PrivateMessage::TEMPLATE_CROW_COMPLAINT_ON : PrivateMessage::TEMPLATE_CROW_COMPLAINT_OFF, $complaintReason ? $complaintReason->getId() : 0, ['num' => $num_of_complaints] );
                 $em->flush();
             }
 

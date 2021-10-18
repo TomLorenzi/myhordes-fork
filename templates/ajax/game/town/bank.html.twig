@@ -26,7 +26,7 @@
                 {% block title %}{% trans from 'game' %}Rucksack{% endtrans %}{% endblock %}
             {% endembed %}
 
-            <div>
+            <div class="actions-box">
                 <button id="drop-all-button" {% if rucksack.items|length == 0 %}disabled{% endif %}>
                     <img alt="" src="{{ asset('build/images/item/item_bag.gif') }}"> {{ 'Rucksack in der Bank ausleeren'|trans({},'game') }}
                     <div class="tooltip help">{{ 'Beachte: Behälter wie Rucksack, Einkaufswagen etc. werden nicht in der Bank abgelegt.'|trans({},'game') }}</div>

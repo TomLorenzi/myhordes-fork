@@ -488,6 +488,8 @@ class Zone
             if (abs($this->getX()) < abs($this->getY()) && $this->getY() < 0) return self::DirectionSouth;
             if (abs($this->getX()) < abs($this->getY()) && $this->getY() > 0) return self::DirectionNorth;
         }
+
+        return self::DirectionCenter;
     }
 
     public function getBuryCount(): ?int

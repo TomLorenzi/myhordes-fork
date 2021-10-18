@@ -2533,5 +2533,107 @@
         <target>Hauptseele ohne Einschränkungen importieren</target>
       </segment>
     </unit>
+    <unit id="QCEckGJ" name="Einzigartige Titel oder Icons bearbeiten:">
+      <segment>
+        <source>Einzigartige Titel oder Icons bearbeiten:</source>
+        <target>Einzigartige Titel oder Icons bearbeiten:</target>
+      </segment>
+    </unit>
+    <unit id="YQy28ox" name="Neuer Titel">
+      <segment>
+        <source>Neuer Titel</source>
+        <target>Neuer Titel</target>
+      </segment>
+    </unit>
+    <unit id="LBcldQ8" name="Neues Icon">
+      <segment>
+        <source>Neues Icon</source>
+        <target>Neues Icon</target>
+      </segment>
+    </unit>
+    <unit id="inFhWaa" name="Kernel">
+      <segment>
+        <source>Kernel</source>
+        <target>Kernel</target>
+      </segment>
+    </unit>
+    <unit id="wcEAnT8" name="Update">
+      <segment>
+        <source>Update</source>
+        <target>Update</target>
+      </segment>
+    </unit>
+    <unit id="J2.6H7T" name="Unbekannt">
+      <segment>
+        <source>Unbekannt</source>
+        <target>Unbekannt</target>
+      </segment>
+    </unit>
+    <unit id="OdO2n.0" name="Täglich">
+      <segment>
+        <source>Täglich</source>
+        <target>Täglich</target>
+      </segment>
+    </unit>
+    <unit id="1LsNnOC" name="Wöchentlich">
+      <segment>
+        <source>Wöchentlich</source>
+        <target>Wöchentlich</target>
+      </segment>
+    </unit>
+    <unit id=".QA57M1" name="Monatlich">
+      <segment>
+        <source>Monatlich</source>
+        <target>Monatlich</target>
+      </segment>
+    </unit>
+    <unit id="lhysqm5" name="Manuell">
+      <segment>
+        <source>Manuell</source>
+        <target>Manuell</target>
+      </segment>
+    </unit>
+    <unit id="Iv9Lj0S" name="Nicht komprimiert">
+      <segment>
+        <source>Nicht komprimiert</source>
+        <target>Nicht komprimiert</target>
+      </segment>
+    </unit>
+    <unit id="fW.TFsL" name="Systemlogs">
+      <segment>
+        <source>Systemlogs</source>
+        <target>Systemlogs</target>
+      </segment>
+    </unit>
+    <unit id="mD79rvJ" name="Datenbank-Backups">
+      <segment>
+        <source>Datenbank-Backups</source>
+        <target>Datenbank-Backups</target>
+      </segment>
+    </unit>
+    <unit id="EzEnW8U" name="Tags">
+      <segment>
+        <source>Tags</source>
+        <target>Tags</target>
+      </segment>
+    </unit>
+    <unit id="6QKKVpK" name="Datei">
+      <segment>
+        <source>Datei</source>
+        <target>Datei</target>
+      </segment>
+    </unit>
+    <unit id="VwKZlwh" name="Dateigröße: {s}">
+      <segment>
+        <source>Dateigröße: {s}</source>
+        <target>Dateigröße: {s}</target>
+      </segment>
+    </unit>
+    <unit id="NSeveUs" name="Dateisystem">
+      <segment>
+        <source>Dateisystem</source>
+        <target>Dateisystem</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

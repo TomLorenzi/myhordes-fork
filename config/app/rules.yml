@@ -13,9 +13,10 @@ parameters:
       zone_items:
         min: 4
         max: 10
-        refresh_min: 2
-        refresh_max: 5
-        fill_max: 12
+        refresh_min: 1
+        refresh_max: 8
+        fill_max: 30
+        throttle_at: 12
 
       ruins: 20
       explorable_ruins: 1

@@ -123,7 +123,7 @@ class MessageController extends CustomAbstractController
 
         foreach($awards as $entry) {
             /** @var $entry Award */
-            if ($entry->getPrototype()->getAssociatedTag() === null) continue;
+            if (!$entry->getPrototype() || $entry->getPrototype()->getAssociatedTag() === null) continue;
             $emote = $repo->findByTag($entry->getPrototype()->getAssociatedTag());
             if(!in_array($emote, $emotes)) {
                 $emotes[] = $emote;
@@ -133,7 +133,10 @@ class MessageController extends CustomAbstractController
         foreach($emotes as $entry) {
             /** @var $entry Emotes */
             if ($entry === null) continue;
-            $results[$entry->getTag()] = $url_only ? $entry->getPath() : "<img alt='{$entry->getTag()}' src='{$this->asset->getUrl( $entry->getPath() )}'/>";
+            $results[$entry->getTag()] = [
+                'display' => $url_only ? $entry->getPath() : "<img alt='{$entry->getTag()}' src='{$this->asset->getUrl( $entry->getPath() )}'/>",
+                'i18n' => $entry->getI18n(),
+            ];
         }
         return $results;
     }

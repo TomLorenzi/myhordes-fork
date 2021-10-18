@@ -91,7 +91,7 @@ class CrowService {
     }
 
 
-    public function postAsPM( Citizen $receiver, string $title, string $text, int $template = 0, ?int $foreign = null ) {
+    public function postAsPM( Citizen $receiver, string $title, string $text, int $template = 0, ?int $foreign = null, $data = null ) {
 
         $thread = new PrivateMessageThread();
 
@@ -108,7 +108,8 @@ class CrowService {
             ->setNew(true)
             ->setRecipient($receiver)
             ->setTemplate( $template )
-            ->setForeignID( $foreign );
+            ->setForeignID( $foreign )
+            ->setAdditionalData( $data );
 
         $thread
             ->setLastMessage($post->getDate())
@@ -159,8 +160,9 @@ class CrowService {
         return (new GlobalPrivateMessage())
             ->setTemplate( $template )
             ->setData( [
-                           'list_t' => array_map(fn(Award $a) => $a->getPrototype()->getTitle(), array_filter($awards, fn(Award $a) => $a->getPrototype() && $a->getPrototype()->getTitle() !== null)),
-                           'list_i' => array_map(fn(Award $a) => $a->getPrototype()->getIcon(), array_filter($awards, fn(Award $a) => $a->getPrototype() && $a->getPrototype()->getIcon() !== null))
+                           'list_t'  => array_map(fn(Award $a) => $a->getPrototype()->getTitle(), array_filter($awards, fn(Award $a) => $a->getPrototype() && $a->getPrototype()->getTitle() !== null)),
+                           'list_i'  => array_map(fn(Award $a) => $a->getPrototype()->getIcon(),  array_filter($awards, fn(Award $a) => $a->getPrototype() && $a->getPrototype()->getIcon() !== null)),
+                           'list_c' => array_map(fn(Award $a) => $a->getId(), array_filter($awards, fn(Award $a) => !$a->getPrototype())),
                        ] )
             ->setTimestamp( new DateTime('now') )
             ->setReceiverUser( $receiver )

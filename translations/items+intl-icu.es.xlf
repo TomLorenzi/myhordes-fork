@@ -68,7 +68,7 @@
       </notes>
       <segment>
         <source>Du ziehst eine Karte... und stellst fest, dass dein Name darauf mit Blut geschrieben steht! Du erstarrst vor Schreck!</source>
-        <target><![CDATA[Lanzas una carta... ¡Y pegas un grito al descubrir que <strong>lleva tu nombre escrito con sangre</strong>! ¿Quién pudo hacerte esta broma de mal gusto?{hr}¡La impresión te deja <strong>aterrorizado</strong>]]></target>
+        <target><![CDATA[Lanzas una carta... ¡Y pegas un grito al descubrir que <strong>lleva tu nombre escrito con sangre</strong>! ¿Quién pudo hacerte esta broma de mal gusto?¡La impresión te deja <strong>aterrorizado</strong>]]></target>
       </segment>
     </unit>
     <unit id="NcJ93EV">
@@ -5387,7 +5387,7 @@
       </notes>
       <segment>
         <source>Ein bedrucktes Bündel Papierscheine und ein paar Kupferstücke. Beides diente früher mal als Währung, doch hier ist es wertlos. Alles, was du nicht essen oder dir ins Blut spritzen kannst ist uninteressant...</source>
-        <target>Un montón de papelitos con números y dibujos impresos, que alguna vez sirvieron como salario. Hy, todo lo que no se come o no te protege no vale nada...</target>
+        <target>Un montón de papelitos con números y dibujos impresos, que alguna vez sirvieron como salario. Hoy, todo lo que no se come o no te protege no vale nada...</target>
       </segment>
     </unit>
     <unit id="DcBZypf">
@@ -7293,7 +7293,7 @@
     <unit id="0V2NUu6" name="In deinem Labor hast du {items_consume} in {items_spawn} umgewandelt.">
       <notes>
         <note category="german">In deinem Labor hast du {items_consume} in {items_spawn} umgewandelt.</note>
-        <note category="from">db://ItemAction</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>In deinem Labor hast du {items_consume} in {items_spawn} umgewandelt.</source>
@@ -8603,7 +8603,7 @@
       </notes>
       <segment>
         <source>Das ist ein Musterbeispiel eines schamanischen Tranks! Nun liegt es an die, der Stadt dessen Wirksamkeit zu vermitteln und sie von deinen schamanischen Fähigkeiten zu überzeugen.</source>
-        <target>Has fabricado un excelente ejemplar de la Poción Chamánica! Ahora depende de ti transmitir su efectividad con el pueblo y convencerlos de tus habilidades chamánicas.</target>
+        <target>¡Ha funcionado! Una perfecta poción chamánica. Ahora es momento de compartirla con el pueblo y ver sus místicos poderes.</target>
       </segment>
     </unit>
     <unit id="1VR4tvz" name="Du musst etwas Wasser zum Umwandeln haben, um den Trank vorzubereiten.">
@@ -9160,33 +9160,30 @@
       <notes>
         <note category="german">Die Batterie fällt ein paar Meter entfernt auf den Boden.</note>
         <note category="from">db://AffectMessage</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Die Batterie fällt ein paar Meter entfernt auf den Boden.</source>
-        <target>Die Batterie fällt ein paar Meter entfernt auf den Boden.</target>
+        <target>La batería cae al suelo a unos metros de distancia.</target>
       </segment>
     </unit>
     <unit id="WgEgCbq" name="Die Batterie wurde beim Aufprall vollständig zerstört.">
       <notes>
         <note category="german">Die Batterie wurde beim Aufprall vollständig zerstört.</note>
         <note category="from">db://AffectMessage</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Die Batterie wurde beim Aufprall vollständig zerstört.</source>
-        <target>Die Batterie wurde beim Aufprall vollständig zerstört.</target>
+        <target>La batería quedó completamente destruida en el impacto.</target>
       </segment>
     </unit>
     <unit id="TNGA5Rl">
       <notes>
         <note category="german">Gierig schluckt dieser Bürger seine Wasserration runter, ohne auch nur einen Tropfen zu verschwenden... Seine Zunge klebt ihm noch immer am Gaumen und sein Hals ist noch genauso trocken wie vorher.{hr}&lt;strong&gt;Da er davor schon dehydriert warst, hat er keine neuen APs erhalten.&lt;/strong&gt;</note>
         <note category="from">db://ItemAction</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Gierig schluckt dieser Bürger seine Wasserration runter, ohne auch nur einen Tropfen zu verschwenden... Seine Zunge klebt ihm noch immer am Gaumen und sein Hals ist noch genauso trocken wie vorher.{hr}&lt;strong&gt;Da er davor schon dehydriert warst, hat er keine neuen APs erhalten.&lt;/strong&gt;</source>
-        <target><![CDATA[Gierig schluckt dieser Bürger seine Wasserration runter, ohne auch nur einen Tropfen zu verschwenden... Seine Zunge klebt ihm noch immer am Gaumen und sein Hals ist noch genauso trocken wie vorher.{hr}<strong>Da er davor schon dehydriert warst, hat er keine neuen APs erhalten.</strong>]]></target>
+        <target><![CDATA[Este habitante traga con avidez su ración de agua sin desperdiciar una gota... Su lengua todavía está pegada al paladar y su garganta sigue tan seca como antes. {Hr}<strong>Como estaba deshidratado, no recibió ningún PA.</strong>]]></target>
       </segment>
     </unit>
     <unit id="1mv8jxQ">
@@ -9203,55 +9200,70 @@
       <notes>
         <note category="german">Du zermahlst den Inhalt von {items_consume} auf dem Tisch und mischst ihn mit allem, was dir in die Hände fällt... und lässt ihn dann ziehen.</note>
         <note category="from">db://ItemAction</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Du zermahlst den Inhalt von {items_consume} auf dem Tisch und mischst ihn mit allem, was dir in die Hände fällt... und lässt ihn dann ziehen.</source>
-        <target>Du zermahlst den Inhalt von {items_consume} auf dem Tisch und mischst ihn mit allem, was dir in die Hände fällt... und lässt ihn dann ziehen.</target>
+        <target>Muele el contenido de {items_consume} en la mesa y lo mezcla con cualquier cosa que tenga en sus manos... luego déjelo ir.</target>
       </segment>
     </unit>
     <unit id="qeC3d4b" name="Ein überragender Erfolg: Du hast {items_spawn} erhalten!">
       <notes>
         <note category="german">Ein überragender Erfolg: Du hast {items_spawn} erhalten!</note>
         <note category="from">db://AffectMessage</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ein überragender Erfolg: Du hast {items_spawn} erhalten!</source>
-        <target>Ein überragender Erfolg: Du hast {items_spawn} erhalten!</target>
+        <target>Un éxito abrumador: ¡has recibido {items_spawn}!</target>
       </segment>
     </unit>
     <unit id="RvnC1X2">
       <notes>
         <note category="german">Der verdächtige Rauch, der aus der Mischung austritt, deutet darauf hin, dass &lt;strong&gt;nicht alles so gelaufen ist wie geplant&lt;/strong&gt;. Du hast eine zufällige Droge erhalten: {items_spawn}</note>
         <note category="from">db://AffectMessage</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Der verdächtige Rauch, der aus der Mischung austritt, deutet darauf hin, dass &lt;strong&gt;nicht alles so gelaufen ist wie geplant&lt;/strong&gt;. Du hast eine zufällige Droge erhalten: {items_spawn}</source>
-        <target><![CDATA[Der verdächtige Rauch, der aus der Mischung austritt, deutet darauf hin, dass <strong>nicht alles so gelaufen ist wie geplant</strong>. Du hast eine zufällige Droge erhalten: {items_spawn}]]></target>
+        <target><![CDATA[El humo sospechoso que emana de la mezcla sugiere que <strong>no todo salió según lo planeado</strong>. Recibió un medicamento al azar: {items_spawn}]]></target>
       </segment>
     </unit>
     <unit id="ysZzyH_">
       <notes>
         <note category="german">Solange du &lt;strong&gt;erschöpft bist&lt;/strong&gt;, kannst du diese Aktion nicht ausführen (da du keine Aktionspunkte mehr hast)... Trink oder iss etwas, oder nimm eine Droge, ansonsten musst du bis &lt;strong&gt;morgen&lt;/strong&gt; warten.</note>
         <note category="from">db://Requirement</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Solange du &lt;strong&gt;erschöpft bist&lt;/strong&gt;, kannst du diese Aktion nicht ausführen (da du keine Aktionspunkte mehr hast)... Trink oder iss etwas, oder nimm eine Droge, ansonsten musst du bis &lt;strong&gt;morgen&lt;/strong&gt; warten.</source>
-        <target><![CDATA[Solange du <strong>erschöpft bist</strong>, kannst du diese Aktion nicht ausführen (da du keine Aktionspunkte mehr hast)... Trink oder iss etwas, oder nimm eine Droge, ansonsten musst du bis <strong>morgen</strong> warten.]]></target>
+        <target><![CDATA[Mientras estés <strong>agotado</strong>, no puedes realizar esta acción (ya que no tienes más puntos de acción)... Bebe, come o toma una droga, de lo contrario tienes que esperar a <strong>mañana</strong>.]]></target>
       </segment>
     </unit>
     <unit id="bCsZ2JO">
       <notes>
         <note category="german">Ja, klar... Du hast ihn schon hunderte Male gesehen, das Thema ändert sich auch nicht allzu sehr, aber trotzdem: Es geht nichts über einen guten Zombie-Film zur Entspannung.&lt;t-stat-down-terror&gt;&lt;hr /&gt;Diese seltsam fernen Schreie des Schreckens haben dir den Kopf gerade gerückt: &lt;strong&gt;Du hast deine Angst abgeschüttelt&lt;/strong&gt;.&lt;/t-stat-down-terror&gt;</note>
         <note category="from">db://ItemAction</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ja, klar... Du hast ihn schon hunderte Male gesehen, das Thema ändert sich auch nicht allzu sehr, aber trotzdem: Es geht nichts über einen guten Zombie-Film zur Entspannung.&lt;t-stat-down-terror&gt;&lt;hr /&gt;Diese seltsam fernen Schreie des Schreckens haben dir den Kopf gerade gerückt: &lt;strong&gt;Du hast deine Angst abgeschüttelt&lt;/strong&gt;.&lt;/t-stat-down-terror&gt;</source>
-        <target><![CDATA[Ja, klar... Du hast ihn schon hunderte Male gesehen, das Thema ändert sich auch nicht allzu sehr, aber trotzdem: Es geht nichts über einen guten Zombie-Film zur Entspannung.<t-stat-down-terror><hr />Diese seltsam fernen Schreie des Schreckens haben dir den Kopf gerade gerückt: <strong>Du hast deine Angst abgeschüttelt</strong>.</t-stat-down-terror>]]></target>
+        <target><![CDATA[Sí, por supuesto... lo has visto cientos de veces, el tema no cambia demasiado, pero aún así: no hay nada como una buena película de zombis para relajarse. <t-stat-down-terror><hr />Esos gritos de horror extrañamente distantes te han enderezado la cabeza: <strong>Te has quitado el miedo</strong>.</t-stat-down-terror>]]></target>
+      </segment>
+    </unit>
+    <unit id="zBL2Qmm">
+      <notes>
+        <note category="german">Du greifst einen Zombie mit {item} an, aber er &lt;strong&gt;geht einfach nicht zu Boden&lt;/strong&gt; und kommt weiter auf dich zu.</note>
+        <note category="from">[unused]</note>
+      </notes>
+      <segment>
+        <source>Du greifst einen Zombie mit {item} an, aber er &lt;strong&gt;geht einfach nicht zu Boden&lt;/strong&gt; und kommt weiter auf dich zu.</source>
+        <target><![CDATA[Atacas a un zombi con {item}, pero <strong>simplemente no cae</strong> y sigue viniendo hacia ti.]]></target>
+      </segment>
+    </unit>
+    <unit id="Loi4Bfp" name="Verbessert die Verteidigung und verhindert Diebstähle">
+      <notes>
+        <note category="german">Verbessert die Verteidigung und verhindert Diebstähle</note>
+        <note category="from">db://ItemPrototype</note>
+      </notes>
+      <segment>
+        <source>Verbessert die Verteidigung und verhindert Diebstähle</source>
+        <target>Mejora la defensa y previene robos.</target>
       </segment>
     </unit>
   </file>

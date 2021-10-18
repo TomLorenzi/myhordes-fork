@@ -5550,7 +5550,7 @@
     <unit id="2xvpkUu">
       <segment>
         <source>{attacker} ist {defender} an die Gurgel gesprungen und hat ihn ohne mit der Wimper zu zucken verspeist!</source>
-        <target>{attacker} ist {defender} an die Gurgel gesprungen und hat ihn ohne mit der Wimper zu zucken verspeist!</target>
+        <target><![CDATA[{attacker} ist {defender} an die Gurgel gesprungen und hat ihn ohne mit der Wimper zu zucken <strong>verspeist</strong>!!]]></target>
       </segment>
     </unit>
     <unit id="Qlh.l61">
@@ -5814,7 +5814,7 @@
     <unit id="bGpi8xS">
       <segment>
         <source>Mit ein paar unschönen Tritten gegen seinen Kopf vergewisserst du dich, dass er garantiert nicht mehr aufstehen wird. Na los! Bring deinen Job zuende und verspeise ihn!</source>
-        <target>Mit ein paar unschönen Tritten gegen seinen Kopf vergewisserst du dich, dass er garantiert nicht mehr aufstehen wird. Na los! Bring deinen Job zuende und verspeise ihn!</target>
+        <target><![CDATA[Mit ein paar unschönen Tritten gegen seinen Kopf vergewisserst du dich, dass er garantiert nicht mehr aufstehen wird. <strong>Na los! Bring deinen Job zuende und verspeise ihn!</strong>]]></target>
       </segment>
     </unit>
     <unit id="wzmYlE_" name="Gut gemacht!">
@@ -5946,7 +5946,7 @@
     <unit id="dyUt3up" name="Aus der Stadt schleichen">
       <segment>
         <source>Aus der Stadt schleichen</source>
-        <target>Aus der Stadt schleichen</target>
+        <target>Unauffällig rausgehen</target>
       </segment>
     </unit>
     <unit id="GulZlLD" name="Nutze deine heilenden Hände">
@@ -5974,7 +5974,7 @@
     <unit id="sVhAGjc" name="Diesen Bürger verspeisen!">
       <segment>
         <source>Diesen Bürger verspeisen!</source>
-        <target>Diesen Bürger verspeisen!</target>
+        <target>Diesen Bürger verschlingen!</target>
       </segment>
     </unit>
     <unit id="6IAuVw5" name="Die Leiche verspeisen!">
@@ -5986,7 +5986,7 @@
     <unit id="isIvO1g" name="In die Stadt schleichen">
       <segment>
         <source>In die Stadt schleichen</source>
-        <target>In die Stadt schleichen</target>
+        <target>Die Stadt heimlich betreten</target>
       </segment>
     </unit>
     <unit id="Ztj0B29">
@@ -11201,13 +11201,13 @@
     <unit id="M80SaEv">
       <segment>
         <source>Die Chance, beim Verschlingen eines Bürgers entdeckt zu werden, ist {chances}...</source>
-        <target>Die Chance, beim Verschlingen eines Bürgers entdeckt zu werden, ist {chances}...</target>
+        <target>Deine Wahrscheinlichkeit, beim Verzehr eines Mitbürgers entdeckt zu werden, ist {chances}.</target>
       </segment>
     </unit>
     <unit id="qD3lUP9">
       <segment>
         <source>Das Risiko basiert auf der Anzahl der Bürger in der Aussenwelt. Je mehr Bürger sich außerhalb der Stadt aufhalten, desto geringer sind die Chancen, entdeckt zu werden.</source>
-        <target>Das Risiko basiert auf der Anzahl der Bürger in der Aussenwelt. Je mehr Bürger sich außerhalb der Stadt aufhalten, desto geringer sind die Chancen, entdeckt zu werden.</target>
+        <target>Die Risikowahrscheinlichkeit hängt von der Anzahl der Bürger ab, die sich in der Außenwelt aufhalten. Je weniger Leute sich in der Stadt aufhalten, desto geringer die Chance, erwischt zu werden.</target>
       </segment>
     </unit>
     <unit id="8yLsMnc">
@@ -12752,12 +12752,6 @@
         <target>{building} hat {num} Batterien verbraucht.</target>
       </segment>
     </unit>
-    <unit id="T14z5t.">
-      <segment>
-        <source>&lt;strong&gt;Herzlichen Glückwunsch&lt;/strong&gt;, du hast folgende Titel freigeschaltet: {list_i} {list_t}</source>
-        <target><![CDATA[<strong>Herzlichen Glückwunsch</strong>, du hast folgende Titel freigeschaltet: {list_i} {list_t}]]></target>
-      </segment>
-    </unit>
     <unit id="jIKh96s">
       <segment>
         <source>{watchers} Nachtwächter haben am Stadtrand Stellung bezogen. Wild entschlossen haben sie sich vorgenommen, die Stadt gegen die Zombies zu verteidigen.</source>
@@ -13443,7 +13437,7 @@
     <unit id="Fu0IcEb">
       <segment>
         <source>WARNUNG: Es besteht eine große Chance, dass du von anderen Bürgern entdeckt wirst, wenn du jemanden in der Stadt verschlingst! Mach das besser in der Aussenwelt...</source>
-        <target>WARNUNG: Es besteht eine große Chance, dass du von anderen Bürgern entdeckt wirst, wenn du jemanden in der Stadt verschlingst! Mach das besser in der Aussenwelt...</target>
+        <target>ACHTUNG: Die Wahrscheinlichkeit entdeckt zu werden ist in der Stadt wesentlich höher. Warum nicht ein kleiner Mord in der Außenwelt? Das wird kaum einer merken...</target>
       </segment>
     </unit>
     <unit id="lN02s2b">
@@ -14373,7 +14367,7 @@
     <unit id="UOD7ZoJ">
       <segment>
         <source>Ermordet zu werden ist äußerst ärgerlich (ja, wirklich!). Aber wir bitten dich dringend, &lt;u&gt;die Identität deines Mörders gegenüber deinen ehemaligen Mitbürgern nicht aufzudecken&lt;/u&gt;... Lass ihnen das Vergnügen, selbst ermitteln zu müssen!</source>
-        <target><![CDATA[Ermordet zu werden ist äußerst ärgerlich (ja, wirklich!). Aber wir bitten dich dringend, <u>die Identität deines Mörders gegenüber deinen ehemaligen Mitbürgern nicht aufzudecken</u>... Lass ihnen das Vergnügen, selbst ermitteln zu müssen!]]></target>
+        <target><![CDATA[Auf eine derart hinterhältige Art umgebracht zu werden ist schwer zu verdauen (doch, doch!). Dennoch möchten wir dich bitten, <u>deinen Mitbürgern die Identität deines Mörders nicht zu verraten</u>... Lass ihnen den Spaß, deinen mysteriösen Todesfall selbst zu untersuchen!]]></target>
       </segment>
     </unit>
     <unit id="2GAQ12V" name="Fortfahren...">
@@ -14500,6 +14494,216 @@
       <segment>
         <source>Es ist dir gelungen, {item} von {victim} zu stehlen &lt;strong&gt;ohne entdeckt zu werden&lt;/strong&gt;. Nicht schlecht!</source>
         <target><![CDATA[Es ist dir gelungen, {item} von {victim} zu stehlen <strong>ohne entdeckt zu werden</strong>. Nicht schlecht!]]></target>
+      </segment>
+    </unit>
+    <unit id="3gqgsBC" name="Du hast keine Seelenpunkte gewonnen (am ersten Tag gestorben).">
+      <segment>
+        <source>Du hast keine Seelenpunkte gewonnen (am ersten Tag gestorben).</source>
+        <target>Du hast keine Seelenpunkte gewonnen (am ersten Tag gestorben).</target>
+      </segment>
+    </unit>
+    <unit id="5kMswLn">
+      <segment>
+        <source>Die Stadt hat folgende Gegenstände in Folge der Hinrichtung von {shunned} zurückerhalten: {list}</source>
+        <target>Die Stadt hat folgende Gegenstände in Folge der Hinrichtung von {shunned} zurückerhalten: {list}</target>
+      </segment>
+    </unit>
+    <unit id="SwF.EK1" name="Du kannst kein(en) {item} per Post versenden.">
+      <segment>
+        <source>Du kannst kein(en) {item} per Post versenden.</source>
+        <target>Du kannst kein(en) {item} per Post versenden.</target>
+      </segment>
+    </unit>
+    <unit id="FWgGHVi">
+      <segment>
+        <source>Die Bürger haben entschieden, {citizen} zu &lt;strong&gt;erhängen&lt;/strong&gt;!! Der Galgen wurde im Zuge dieser gewalttätigen Aktion &lt;strong&gt;zerstört&lt;/strong&gt;!</source>
+        <target><![CDATA[Die Bürger haben entschieden, {citizen} zu <strong>erhängen</strong>!! Der Galgen wurde im Zuge dieser gewalttätigen Aktion <strong>zerstört</strong>!]]></target>
+      </segment>
+    </unit>
+    <unit id="xQMsReM">
+      <segment>
+        <source>Die Bürger haben entschieden, {citizen} in den &lt;strong&gt;Fleischkäfig&lt;/strong&gt; zu zerren und dort zum Vergnügen aller zu steinigen... Die Stadt hat &lt;strong&gt;+{def} temporäre Stadtverteidigung&lt;/strong&gt; erhalten!</source>
+        <target><![CDATA[Die Bürger haben entschieden, {citizen} in den <strong>Fleischkäfig</strong> zu zerren und dort zum Vergnügen aller zu steinigen... Die Stadt hat <strong>+{def} temporäre Stadtverteidigung</strong> erhalten!]]></target>
+      </segment>
+    </unit>
+    <unit id="YSYYhvU" name="Anonyme Beschwerde ({num} insgesamt)">
+      <segment>
+        <source>Anonyme Beschwerde ({num} insgesamt)</source>
+        <target>Anonyme Beschwerde ({num} insgesamt)</target>
+      </segment>
+    </unit>
+    <unit id="_IO1rgo" name="Beschwerde zurückgezogen (es bleiben noch {num} Stück)">
+      <segment>
+        <source>Beschwerde zurückgezogen (es bleiben noch {num} Stück)</source>
+        <target>Beschwerde zurückgezogen (es bleiben noch {num} Stück)</target>
+      </segment>
+    </unit>
+    <unit id="HHYz9.Q" name="{deaths} Bürger sind beim heutigen Angriff gestorben!">
+      <segment>
+        <source>{deaths} Bürger sind beim heutigen Angriff gestorben!</source>
+        <target>{deaths} Bürger sind beim heutigen Angriff gestorben!</target>
+      </segment>
+    </unit>
+    <unit id="iLdX6jg">
+      <segment>
+        <source>Doch leider ist der letzte Bürger tot, bevor die Horde die Stadttore erreicht... Seine Zunge hängt zwischen den Zähnen seines ehemaligen Freundes...</source>
+        <target>Doch leider ist der letzte Bürger tot, bevor die Horde die Stadttore erreicht... Seine Zunge hängt zwischen den Zähnen seines ehemaligen Freundes...</target>
+      </segment>
+    </unit>
+    <unit id="wey0ykd">
+      <segment>
+        <source>&lt;strong&gt;Herzlichen Glückwunsch&lt;/strong&gt;, du hast folgende Titel freigeschaltet: {list_c} {list_i} {list_t}</source>
+        <target><![CDATA[<strong>Herzlichen Glückwunsch</strong>, du hast folgende Titel freigeschaltet: {list_c} {list_i} {list_t}]]></target>
+      </segment>
+    </unit>
+    <unit id="wprx15y" name="Jeder Mensch zählt 2 Punkte, Zombies zählen je 1 Punkt.">
+      <segment>
+        <source>Jeder Mensch zählt 2 Punkte, Zombies zählen je 1 Punkt.</source>
+        <target>Jeder Mensch zählt 2 Punkte, Zombies zählen je 1 Punkt.</target>
+      </segment>
+    </unit>
+    <unit id="3yKx05X">
+      <segment>
+        <source>Wenn die Gesamtpunktzahl aller Menschen in einer Zone &lt;strong&gt;mindestens so groß&lt;/strong&gt; wie die der Zombies ist, kann dir nichts geschehen... vorerst zumindest.</source>
+        <target><![CDATA[Wenn die Gesamtpunktzahl aller Menschen in einer Zone <strong>mindestens so groß</strong> wie die der Zombies ist, kann dir nichts geschehen... vorerst zumindest.]]></target>
+      </segment>
+    </unit>
+    <unit id="29qg.oG" name="Dieser Registereintrag kann &lt;strong&gt;nicht&lt;/strong&gt; gefälscht werden.">
+      <segment>
+        <source>Dieser Registereintrag kann &lt;strong&gt;nicht&lt;/strong&gt; gefälscht werden.</source>
+        <target><![CDATA[Dieser Registereintrag kann <strong>nicht</strong> gefälscht werden.]]></target>
+      </segment>
+    </unit>
+    <unit id="sTNvpIH" name="Klicke hier, um seine Informationen anzuzeigen">
+      <segment>
+        <source>Klicke hier, um seine Informationen anzuzeigen</source>
+        <target>Klicke hier, um seine Informationen anzuzeigen</target>
+      </segment>
+    </unit>
+    <unit id="vuquyit" name="Ganz genau, das bist du!">
+      <segment>
+        <source>Ganz genau, das bist du!</source>
+        <target>Ganz genau, das bist du!</target>
+      </segment>
+    </unit>
+    <unit id="OjUho9K" name="gesichertes Haus">
+      <segment>
+        <source>gesichertes Haus</source>
+        <target>gesichertes Haus</target>
+      </segment>
+    </unit>
+    <unit id="OpG5aGF">
+      <segment>
+        <source>In dieses Haus kann &lt;strong&gt;nicht eingebrochen&lt;/strong&gt; werden. Es ist durch ein Schloss oder etwas anderes gesichert...</source>
+        <target><![CDATA[In dieses Haus kann <strong>nicht eingebrochen</strong> werden. Es ist durch ein Schloss oder etwas anderes gesichert...]]></target>
+      </segment>
+    </unit>
+    <unit id="y9.hV9G">
+      <segment>
+        <source>Das Stadttor wurde bereits von einem anderen pflichtbewussten Bürger geschlossen.</source>
+        <target>Das Stadttor wurde bereits von einem anderen pflichtbewussten Bürger geschlossen.</target>
+      </segment>
+    </unit>
+    <unit id="ejlTArB">
+      <segment>
+        <source>Du nimmst diese wandernde Seele und betest, dass der Schamane weiß, wie man diesen Trank zubereitet! Und du überlebst! Was für ein Glück, du hätten keine müde Mark auf den Scharlatan gewettet.</source>
+        <target>Du nimmst diese wandernde Seele und betest, dass der Schamane weiß, wie man diesen Trank zubereitet! Und du überlebst! Was für ein Glück, du hätten keine müde Mark auf den Scharlatan gewettet.</target>
+      </segment>
+    </unit>
+    <unit id="qAzHNHe" name="Die Seele in MyHordes">
+      <segment>
+        <source>Die Seele in MyHordes</source>
+        <target>Die Seele in MyHordes</target>
+      </segment>
+    </unit>
+    <unit id="NRlmARU" name="Gerechtigkeit in MyHordes">
+      <segment>
+        <source>Gerechtigkeit in MyHordes</source>
+        <target>Gerechtigkeit in MyHordes</target>
+      </segment>
+    </unit>
+    <unit id="ahBv_BV" name="Def.">
+      <segment>
+        <source>Def.</source>
+        <target>Def.</target>
+      </segment>
+    </unit>
+    <unit id="1czlTIt" name="Zeigt die Hausverteidigung an.">
+      <segment>
+        <source>Zeigt die Hausverteidigung an.</source>
+        <target>Zeigt die Hausverteidigung an.</target>
+      </segment>
+    </unit>
+    <unit id="2wFXnDs" name="Dieser Wert spiegelt die Anwesenheit und Aktivität eines jeden Bürgers wider.">
+      <segment>
+        <source>Dieser Wert spiegelt die Anwesenheit und Aktivität eines jeden Bürgers wider.</source>
+        <target>Dieser Wert spiegelt die Anwesenheit und Aktivität eines jeden Bürgers wider.</target>
+      </segment>
+    </unit>
+    <unit id="bC01IWH" name="Löschen">
+      <segment>
+        <source>Löschen</source>
+        <target>Löschen</target>
+      </segment>
+    </unit>
+    <unit id="5JJ5qLV" name="Meine persönliche Nachricht ändern">
+      <segment>
+        <source>Meine persönliche Nachricht ändern</source>
+        <target>Meine persönliche Mitteilung ändern</target>
+      </segment>
+    </unit>
+    <unit id="sVxXfQu" name="Einen Aufstand der Verbannten vorbereiten (optional).">
+      <segment>
+        <source>Einen Aufstand der Verbannten vorbereiten (optional).</source>
+        <target>Einen Aufstand der Verbannten vorbereiten (optional).</target>
+      </segment>
+    </unit>
+    <unit id="0lP3VYZ">
+      <segment>
+        <source>Solange dieser Bürger &lt;strong&gt;vor Angst erstarrt&lt;/strong&gt; ist, wird es für ihn unmöglich sein, inmitten von Zombies zu handeln...</source>
+        <target><![CDATA[Solange dieser Bürger <strong>vor Angst erstarrt</strong> ist, wird es für ihn unmöglich sein, inmitten von Zombies zu handeln...]]></target>
+      </segment>
+    </unit>
+    <unit id="gROS3fP">
+      <segment>
+        <source>Mit dieser Aktion kannst du die Stadt betreten, ohne dass es ins Stadtregister eingetragen wird. Wenn du ein paar Spieler eskortierst, werden diese am Stadttor zurückgelassen.</source>
+        <target>Mit dieser Aktion kannst du die Stadt betreten, ohne dass es ins Stadtregister eingetragen wird. Wenn du ein paar Spieler eskortierst, werden diese am Stadttor zurückgelassen.</target>
+      </segment>
+    </unit>
+    <unit id="PanD2KO">
+      <segment>
+        <source>Mit dieser Aktion kannst du deinen unersättlichen Hunger nach Menschenfleisch stillen!</source>
+        <target>Mit dieser Aktion kannst du deinen unersättlichen Hunger nach Menschenfleisch stillen!</target>
+      </segment>
+    </unit>
+    <unit id="lt7mbY8">
+      <segment>
+        <source>Mit dieser Aktion kannst du die Stadt verlassen, ohne dass es ins Stadtregister eingetragen wird.</source>
+        <target>Mit dieser Aktion kannst du die Stadt verlassen, ohne dass es ins Stadtregister eingetragen wird.</target>
+      </segment>
+    </unit>
+    <unit id="EnGH19o" name="in der Außenwelt">
+      <segment>
+        <source>in der Außenwelt</source>
+        <target>in der Außenwelt</target>
+      </segment>
+    </unit>
+    <unit id="aeVr7d_" name="in der Stadt">
+      <segment>
+        <source>in der Stadt</source>
+        <target>in der Stadt</target>
+      </segment>
+    </unit>
+    <unit id="BdS7W9e">
+      <segment>
+        <source>Die Anzahl der Sterne gibt dir eine Vorstellung von der heutigen Aktivität des Einwohners {citizen}: Anwesenheit, Besuche im Forum, Arbeit im Dorf, etc.</source>
+        <target>Die Anzahl der Sterne gibt dir eine Vorstellung von der heutigen Aktivität des Einwohners {citizen}: Anwesenheit, Besuche im Forum, Arbeit im Dorf, etc.</target>
+      </segment>
+    </unit>
+    <unit id="Cjw8Lfc">
+      <segment>
+        <source>Du kannst diese Aktion im Lernmodus nicht ausführen. &lt;strong&gt;Zuerst musst du noch etwas Spielerfahrung sammeln&lt;/strong&gt;.&lt;hr/&gt;Klicke auf den Link bei Lernmodus, um diesen Modus zu deaktivieren.</source>
+        <target><![CDATA[Du kannst diese Aktion im Lernmodus nicht ausführen. <strong>Zuerst musst du noch etwas Spielerfahrung sammeln</strong>.<hr/>Klicke auf den Link bei Lernmodus, um diesen Modus zu deaktivieren.]]></target>
       </segment>
     </unit>
   </file>

@@ -62,6 +62,7 @@ class Extensions extends AbstractExtension  implements GlobalsInterface
             new TwigFilter('group_titles',  [$this, 'group_titles']),
             new TwigFilter('watchpoint',  [$this, 'fetch_watch_points']),
             new TwigFilter('related',  [$this, 'user_relation']),
+            new TwigFilter('filesize',  [$this, 'format_filesize']),
         ];
     }
 
@@ -141,6 +142,14 @@ class Extensions extends AbstractExtension  implements GlobalsInterface
         return $this->userHandler->checkRelation($user,$other,$relation);
     }
 
+    public function format_filesize(int $size): string {
+        if     ($size >= 1099511627776) return round($size/1099511627776, 0) . ' TB';
+        elseif ($size >= 1073741824)    return round($size/1073741824, 1) . ' GB';
+        elseif ($size >= 1048576)       return round($size/1048576, 2) . ' MB';
+        elseif ($size >= 1024)          return round($size/1024, 0) . ' KB';
+        else                            return $size . ' B';
+    }
+
     public function town_whitelisted(Town $town, ?User $user = null): bool {
         return $user
             ? ($this->entityManager->getRepository(TownSlotReservation::class)->count(['town' => $town, 'user' => $user]) === 1)
@@ -188,14 +197,21 @@ class Extensions extends AbstractExtension  implements GlobalsInterface
         }
 
         uksort($g, function($a,$b) use (&$p) {
-            if ($a === 'custom') return 1;
-            if ($b === 'custom') return -1;
-            if ($a === 'single') return 1;
-            if ($b === 'single') return -1;
+            if ($a === 'custom' && $b === 'custom') return 0;
+            if ($a === 'custom') return -1;
+            if ($b === 'custom') return 1;
+            if ($a === 'single' && $b === 'single') return 0;
+            if ($a === 'single') return -1;
+            if ($b === 'single') return 1;
             return $p[$b]->getRare() <=> $p[$a]->getRare() ?: $p[$a]->getId() <=> $p[$b]->getId();
         });
 
-        foreach ($g as &$list) usort( $list, fn( Award $a, Award $b ) => $a->getPrototype()->getUnlockQuantity() <=> $b->getPrototype()->getUnlockQuantity() );
+        foreach ($g as &$list) usort( $list, function( Award $a, Award $b ) {
+            if (!$a->getPrototype() && !$b->getPrototype()) return $a->getId() <=> $b->getId();
+            else if (!$a->getPrototype()) return -1;
+            else if (!$b->getPrototype()) return  1;
+            else return $a->getPrototype()->getUnlockQuantity() <=> $b->getPrototype()->getUnlockQuantity();
+        } );
         return $g;
     }
 

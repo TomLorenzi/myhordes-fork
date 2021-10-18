@@ -90,6 +90,8 @@
                 ) %}
                 {% set all_members  = all_users|filter(ac => ac.associationType == constant('App\\Entity\\UserGroupAssociation::GroupAssociationTypeCoalitionMember') and ac not in all_sleepers ) %}
 
+                {% set ready_me = all_users|filter(ac => ac.associationType == constant('App\\Entity\\UserGroupAssociation::GroupAssociationTypeCoalitionMember') and ac not in all_sleepers and ac.user == app.user ) %}
+
                 {% macro display_assoc(assocs,allow_to_fire,show_town) %}
                     {# @var assocs \App\Entity\UserGroupAssociation[] #}
                     <ul class="coa-users">
@@ -134,6 +136,9 @@
                 {% if all_members is not empty %}
                     <h5>{{ 'Verfügbare Mitglieder'|trans({},'soul') }}</h5>
                     {{ _self.display_assoc(all_members,membership.associationLevel == constant('App\\Entity\\UserGroupAssociation::GroupAssociationLevelFounder'),true) }}
+                    {% if ready_me is not empty %}
+                        <button x-ajax-href="{{ path('ghost_welcome') }}"><img alt="->" src="{{ asset('build/images/icons/small_move.gif') }}" /> {{ 'Eine Stadt aussuchen'|trans({},'ghost') }}</button>
+                    {% endif %}
                 {% endif %}
                 {% if all_sleepers is not empty %}
                     <h5>{{ 'Nicht verfügbar'|trans({},'soul') }} <a class="help-button"><div class="tooltip help">{% trans from "global" %}Folgende Bürger sind wahlweise: <ul><li>auf ihrer Todesanzeigeseite (sie haben ihren Tod noch nicht bestätigt),</li><li>bereits im Spiel,</li><li>sie haben sich entschieden, nicht automatisch einer Stadt und ihrer Koalition anzugehören.</li><li>oder, sie haben sich seit über 5 Tagen nicht mehr angemeldet.</li></ul>{% endtrans %}</div>{{ 'Hilfe'|trans({},'global')|raw }}</a></h5> 

@@ -163,7 +163,7 @@
             }
             /** @var file File */
             const file = e.target.files[0];
-            if (file.size >= 3145728) {
+            if (file.size >= {{ icon_max_size }}) {
                 $.html.error('{{ 'Die Datei ist zu groß.'|trans({},'soul')|e('js') }}');
                 return;
             }

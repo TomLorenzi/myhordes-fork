@@ -3,22 +3,15 @@
 namespace App\Controller\Admin;
 
 use App\Annotations\GateKeeperProfile;
-use App\Entity\AntiSpamDomains;
-use App\Entity\Changelog;
 use App\Entity\ExternalApp;
 use App\Entity\User;
-use App\Entity\UserPendingValidation;
 use App\Response\AjaxResponse;
-use App\Service\AdminActionHandler;
 use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
 use App\Service\MediaService;
 use App\Service\RandomGenerator;
-use App\Service\UserFactory;
+use App\Structures\MyHordesConf;
 use App\Translation\T;
-use Doctrine\ORM\EntityManagerInterface;
-use Imagick;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -50,7 +43,10 @@ class AdminAppController extends AdminActionController
         if (!$this->isGranted('ROLE_ADMIN')) $this->redirect($this->generateUrl('admin_app_view'));
         $app = $this->entity_manager->getRepository(ExternalApp::class)->find($id);
         if ($app === null) return $this->redirect($this->generateUrl('admin_app_view'));
-        return $this->render( 'ajax/admin/apps/edit.html.twig', $this->addDefaultTwigArgs(null, ['current_app' => $app]));
+        return $this->render( 'ajax/admin/apps/edit.html.twig', $this->addDefaultTwigArgs(null, [
+            'current_app' => $app,
+            'icon_max_size' => $this->conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_UPLOAD, 3145728)
+        ]));
     }
 
     /**
@@ -60,7 +56,10 @@ class AdminAppController extends AdminActionController
     public function ext_app_new(): Response
     {
         if (!$this->isGranted('ROLE_ADMIN')) $this->redirect($this->generateUrl('admin_app_view'));
-        return $this->render( 'ajax/admin/apps/edit.html.twig', $this->addDefaultTwigArgs(null, ['current_app' => null]));
+        return $this->render( 'ajax/admin/apps/edit.html.twig', $this->addDefaultTwigArgs(null, [
+            'current_app' => null,
+            'icon_max_size' => $this->conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_UPLOAD, 3145728)
+        ]));
     }
 
     /**
@@ -92,6 +91,7 @@ class AdminAppController extends AdminActionController
      * @param int $id
      * @param JSONRequestParser $parser
      * @param RandomGenerator $rand
+     * @param MediaService $media
      * @return Response
      */
     public function ext_app_update(int $id, JSONRequestParser $parser, RandomGenerator $rand, MediaService $media): Response
@@ -124,7 +124,8 @@ class AdminAppController extends AdminActionController
             else {
                 $payload = $parser->get_base64('icon');
 
-                if (strlen( $payload ) > 3145728) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+                if (strlen( $payload ) > $this->conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_UPLOAD))
+                    return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
                 if ($media->resizeImageSimple( $payload, 16, 16, $processed_format, false ) !== MediaService::ErrorNone)
                     return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );

@@ -6,39 +6,25 @@
     <div class="row">
         <div class="cell rw-12 town-banner town-banner-houses time-{{ hour }} {% if conf.isNightTime %}night{% endif %}"></div>
     </div>
-    <ul class="tabs plain">
-        <li class="tab selected">
-            <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('town_citizens') }}">{% trans from 'game' %}Bürger{% endtrans %}</div>
-        </li>
 
-        {% if not town.chaos %}
-            {% for name,role in votesNeeded %}
-                {% if role %}
-                <li class="tab">
-                    <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('town_citizen_vote', {roleId: role.id}) }}"><img alt="" src="{{ asset('build/images/item/item_bureau.gif') }}" /> {{ role.label|trans({}, 'game') }}</div>
-                </li>
-                {% endif %}
-            {% endfor %}
-        {% endif %}
+    {% include 'ajax/game/town/citizen_list_headers.html.twig'  with {active_tab: 'list'} %}
 
-        {% if has_omniscience %}
-        <li class="tab">
-            <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('town_citizens_omniscience') }}"> <img src="{{ asset('build/images/icons/small_view.gif') }}" alt="" />{{'Allwissenheit'|trans({}, 'game')}}</div>
-        </li>
-        {% endif %}
-    </ul>
     {% if is_ghoul %}
         {% if caught_chance < 0.5 %}{% set chances = 'gering'|trans({}, 'game') %}{% else %}{% set chances = 'hoch'|trans({}, 'game') %}{% endif %}
-    <div class="note warning">
-        <strong><img src="{{ asset('build/images/status/status_ghoul.gif') }}" alt="" />{{'Die Chance, beim Verschlingen eines Bürgers entdeckt zu werden, ist {chances}...'|trans({'{chances}': chances}, 'game')|raw }}</strong><br />
-        {{'Das Risiko basiert auf der Anzahl der Bürger in der Aussenwelt. Je mehr Bürger sich außerhalb der Stadt aufhalten, desto geringer sind die Chancen, entdeckt zu werden.'|trans({}, 'game')|raw }}
-    </div>
+        <div class="note warning">
+            <strong><img src="{{ asset('build/images/status/status_ghoul.gif') }}" alt="" />{{'Die Chance, beim Verschlingen eines Bürgers entdeckt zu werden, ist {chances}...'|trans({'{chances}': chances}, 'game')|raw }}</strong><br />
+            {{'Das Risiko basiert auf der Anzahl der Bürger in der Aussenwelt. Je mehr Bürger sich außerhalb der Stadt aufhalten, desto geringer sind die Chancen, entdeckt zu werden.'|trans({}, 'game')|raw }}
+        </div>
     {% endif %}
     <div class="row-table citizens-list">
-        <div class="row header">
+        <div class="row-flex header">
             <div class="padded cell rw-5 left rw-md-7">{{ 'Bürger'|trans({},'game') }}</div>
             <div class="padded cell rw-4 hide-md hide-sm center">{{ 'Nachricht'|trans({},'game') }}</div>
-            <div class="padded cell rw-3 rw-md-5 right">{{ 'Draußen?'|trans({},'game') }}</div>
+            <div class="padded cell rw-1 hide-lg hide-md hide-sm center">
+                {{ 'Def.'|trans({},'game') }}<br />
+                {{ help_btn('Zeigt die Hausverteidigung an.'|trans({},'game')) }}
+            </div>
+            <div class="padded cell rw-2 rw-lg-3 rw-md-5 right">{{ 'Draußen?'|trans({},'game') }}</div>
         </div>
         {% for citizenInfo in citizens|sort((a,b) => (a.citizen.alive == b.citizen.alive) ? ((a.citizen.alive) ? a.citizen.name|lower <=> b.citizen.name|lower : b.citizen.survivedDays <=> a.citizen.survivedDays) : b.citizen.alive <=> a.citizen.alive) %}
             {% set citizen = citizenInfo.citizen %}
@@ -51,12 +37,13 @@
                     <div>
                         <div>
                             {% if citizen.alive %}
-                                {% if citizen.banished %}
-                                    <img alt="" src="{{ asset('build/images/icons/banished.gif') }}" />
-                                {% elseif citizen.profession.heroic %}
+                                {% if citizen.profession.heroic %}
                                     <img alt="" src="{{ asset('build/images/professions/hero.gif') }}" />
                                 {% else %}
                                     <img alt="" src="{{ asset('build/images/professions/void.gif') }}" />
+                                {% endif %}
+                                {% if citizen.banished %}
+                                    <img alt="" src="{{ asset('build/images/icons/banished.gif') }}" />
                                 {% endif %}
                                 <img alt="{{ citizen.profession.label|trans({},'game') }}" src="{{ asset('build/images/professions/' ~ citizen.profession.icon ~ '.gif') }}" />
                             {% else %}
@@ -205,7 +192,7 @@
     </div>
 
     <div class="row">
-        
+        <div class="padded cell rw-12 right"><a class="small" href="#" x-ajax-href="{{ path('town_house') }}">{{ 'Meine persönliche Nachricht ändern'|trans({},'game') }}</a></div>
     </div>
 
     <div class="cell padded center prof-list">

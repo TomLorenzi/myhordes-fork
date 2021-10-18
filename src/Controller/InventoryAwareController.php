@@ -620,18 +620,18 @@ class InventoryAwareController extends CustomAbstractController
 
             $has_hidden = false;
             foreach ($items as $current_item){
-                if($current_item->getPrototype()->getName() == 'soul_red_#00' && $floor_up) {
+                if ($current_item->getPrototype()->getName() == 'soul_red_#00' && $floor_up) {
                     // We pick a read soul in the World Beyond
-                    if($target_citizen && !$this->citizen_handler->hasStatusEffect($target_citizen, "tg_shaman_immune")) {
+                    if ( $target_citizen && !$this->citizen_handler->hasStatusEffect($target_citizen, "tg_shaman_immune") ) {
                         $dead = true;
                         // He is not immune, he dies.
-                        $null = null;
-                        $this->death_handler->kill( $target_citizen, CauseOfDeath::Haunted, $null );
+                        $this->death_handler->kill( $target_citizen, CauseOfDeath::Haunted );
                         $this->entity_manager->persist( $this->log->citizenDeath( $target_citizen ) );
 
                         // The red soul vanishes too
                         $this->inventory_handler->forceRemoveItem($current_item);
-                    }
+                    } elseif ($this->citizen_handler->hasStatusEffect($target_citizen, "tg_shaman_immune"))
+                        $this->addFlash('notice', $this->translator->trans('Du nimmst diese wandernde Seele und betest, dass der Schamane weiß, wie man diesen Trank zubereitet! Und du überlebst! Was für ein Glück, du hätten keine müde Mark auf den Scharlatan gewettet.', [], "game"));
                 }
 
                 if(!$dead){
@@ -1168,7 +1168,7 @@ class InventoryAwareController extends CustomAbstractController
 
         $zone = $citizen->getZone();
         if ($zone && !$this->zone_handler->check_cp($zone) && !$action->getAllowWhenTerrorized() && $this->citizen_handler->hasStatusEffect($citizen, 'terror') && !$this->zone_handler->check_cp($this->getActiveCitizen()->getZone()))
-            return AjaxResponse::error( BeyondController::ErrorTerrorized );
+            return AjaxResponse::error( $citizen === $this->getActiveCitizen() ? BeyondController::ErrorTerrorized : BeyondController::ErrorEscortTerrorized );
 
         if (!$action->getAllowedAtGate() && $zone && $zone->isTownZone())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );

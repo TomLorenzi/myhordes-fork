@@ -124,7 +124,7 @@ class DeathHandler
                         $this->item_factory->createItem('bone_meat_#00')
                     );
                 else
-                    $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem('bone_meat_#00'), [$zone->getFloor()]);
+                    $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem('bone_meat_#00'), [$zone->getFloor()], true);
             }
 
             $citizen->setZone(null);
@@ -216,13 +216,6 @@ class DeathHandler
 
                 // We need to do the day 5 / day 8 rule calculation for the last day
                 $this->picto_handler->give_picto($citizen, $pictoPrototype, round(pow($citizen->getSurvivedDays(), 1.5), 0) - round(pow($citizen->getSurvivedDays() - 1, 1.5), 0));
-            }
-
-            // Spiritual leader
-            if ($this->citizen_handler->hasStatusEffect($citizen, 'tg_spirit_guide')) {
-                $p = 0;
-                for ($i = 1; $i <= $citizen->getSurvivedDays(); $i++) $p += $i;
-                $this->picto_handler->give_picto($citizen, 'r_guide_#00', $p);
             }
 
             // Decoration picto

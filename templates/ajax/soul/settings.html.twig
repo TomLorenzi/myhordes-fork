@@ -78,7 +78,11 @@
                 <div class="padded cell rw-9 rw-md-8 rw-sm-12">
                     <input  id="user_icon" type="hidden" value="{% if app.user.activeIcon is null %}-1{% else %}{{ app.user.activeIcon.id }}{% endif %}">
                     {% if app.user.activeIcon is not null %}
-                        <img id="user_current_icon" alt="" src="{{ asset('build/images/icons/title/' ~ app.user.activeIcon.prototype.icon ~ '.gif') }}" />
+                        {% if app.user.activeIcon.prototype %}
+                            <img id="user_current_icon" alt="" src="{{ asset('build/images/icons/title/' ~ app.user.activeIcon.prototype.icon ~ '.gif') }}" />
+                        {% elseif app.user.activeIcon.customIcon is not null %}
+                            <img id="user_current_icon" alt="" src="{{ url('app_web_customicon', {uid: app.user.id, aid: app.user.activeIcon.id, name: app.user.activeIcon.customIconName, ext: app.user.activeIcon.customIconFormat}) }}" />
+                        {% endif %}
                     {% else %}
                         <img id="user_current_icon" alt="" src="" style="display: none" />
                     {% endif %}
@@ -89,7 +93,11 @@
                             {% if award.prototype is not null and award.prototype.icon is not null %}
                                 {% set has_icon = true %}
                                 <img {% if app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionProfileTitle')) and app.user.activeIcon != award %}disabled{% endif %} class="pointer" x-title-icon="{{ award.id }}" alt="" src="{{ asset('build/images/icons/title/' ~ award.prototype.icon ~ '.gif') }}" />
+                            {% elseif award.customIcon is not null %}
+                                {% set has_icon = true %}
+                                <img {% if app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionProfileTitle')) and app.user.activeIcon != award %}disabled{% endif %} class="pointer" x-title-icon="{{ award.id }}" alt="" src="{{ url('app_web_customicon', {uid: app.user.id, aid: award.id, name: award.customIconName, ext: award.customIconFormat}) }}" />
                             {% endif %}
+
                         {% endfor %}
                         {% if has_icon %}
                             <span x-title-icon="-1" class="small pointer">[{{ 'Kein Icon'|trans({},'soul') }}]</span>
@@ -111,7 +119,7 @@
 
                             {% set has_title = false %}
                             {% for award in list %}
-                                {% if award.prototype is not null and award.prototype.title is not null %}
+                                {% if award.customTitle is not null or (award.prototype is not null and award.prototype.title is not null) %}
                                     {% set has_title = true %}
                                 {% endif %}
                             {% endfor %}
@@ -123,11 +131,13 @@
                                         {% elseif id == 'single' %}
                                             label="{{ 'Besondere Errungenschaften'|trans({},'game') }}"
                                         {% else %}
-                                            label="{{ list[0].prototype.associatedPicto.label|trans({}, 'game')|raw }}"
+                                            label="{{ list[0].prototype.associatedPicto.label|trans({}, 'game')|raw|trim }}"
                                         {% endif %}
                                 >
                                     {% for award in list %}
-                                        {% if award.prototype is not null and award.prototype.title is not null %}
+                                        {% if award.customTitle is not null %}
+                                            <option {% if app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionProfileTitle')) and app.user.activeTitle != award %}disabled{% endif %} {% if app.user.activeTitle == award %}selected{% endif %} value="{{ award.id }}">{{ award.customTitle }}</option>
+                                        {% elseif award.prototype is not null and award.prototype.title is not null %}
                                             <option {% if app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionProfileTitle')) and app.user.activeTitle != award %}disabled{% endif %} {% if app.user.activeTitle == award %}selected{% endif %} value="{{ award.id }}">{{ award.prototype.title|trans({},'game')|raw }}</option>
                                         {% endif %}
                                     {% endfor %}
@@ -312,6 +322,11 @@
                         <div class="padded cell rw-12">
                             <div class="note note-lightest">
                                 <input x-browser-setting="notificationAsPopup" type="checkbox" id="setting_browser_notificationStyle">&nbsp;<label for="setting_browser_notificationStyle">{{ 'Benachrichtigungen als Popups anzeigen'|trans({}, 'soul') }}</label>
+                            </div>
+                        </div>
+                        <div class="padded cell rw-12">
+                            <div class="note note-lightest">
+                                <input x-browser-setting="usePostBackup" type="checkbox" id="setting_browser_postBackup">&nbsp;<label for="setting_browser_postBackup">{{ 'Texteditor-Inhalte zur Sicherheit zwischenspeichern'|trans({}, 'soul') }}</label>
                             </div>
                         </div>
                     </div>
@@ -642,7 +657,7 @@
             }
             /** @var file File */
             const file = e.target.files[0];
-            if (file.size >= 3145728) {
+            if (file.size >= {{ avatar_max_size[2] }}) {
                 $.html.error('{{ 'Die Datei ist zu groß.'|trans({},'soul')|e('js') }}');
                 return;
             }

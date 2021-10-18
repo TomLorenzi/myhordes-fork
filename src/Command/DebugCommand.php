@@ -16,9 +16,12 @@ use App\Entity\Town;
 use App\Entity\TownRankingProxy;
 use App\Entity\TwinoidImport;
 use App\Entity\User;
+use App\Entity\ZombieEstimation;
+use App\Response\AjaxResponse;
 use App\Service\CitizenHandler;
 use App\Service\CommandHelper;
 use App\Service\ConfMaster;
+use App\Service\ErrorHelper;
 use App\Service\GameFactory;
 use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
@@ -28,19 +31,21 @@ use App\Service\TwinoidHandler;
 use App\Service\UserHandler;
 use App\Structures\EventConf;
 use App\Structures\MyHordesConf;
+use App\Structures\TownConf;
 use DateTime;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\ProgressBar;
+use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Bundle\FrameworkBundle\Translation\Translator;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Validator\Constraints\Date;
 
 
@@ -57,7 +62,7 @@ class DebugCommand extends Command
     private Translator $trans;
     private InventoryHandler $inventory_handler;
     private ItemFactory $item_factory;
-    private UserPasswordEncoderInterface $encoder;
+    private UserPasswordHasherInterface $encoder;
     private ConfMaster $conf;
     private TownHandler $townHandler;
     private CommandHelper $helper;
@@ -66,7 +71,7 @@ class DebugCommand extends Command
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
                                 RandomGenerator $rg, CitizenHandler $ch, Translator $translator, InventoryHandler $ih,
-                                ItemFactory $if, UserPasswordEncoderInterface $passwordEncoder, ConfMaster $c,
+                                ItemFactory $if, UserPasswordHasherInterface $passwordEncoder, ConfMaster $c,
                                 TownHandler $th, CommandHelper $h, TwinoidHandler $t, UserHandler $uh)
     {
         $this->kernel = $kernel;
@@ -116,6 +121,8 @@ class DebugCommand extends Command
 
             ->addOption('current-event', null, InputOption::VALUE_OPTIONAL, 'Shows the current event.', false)
             ->addOption('all-events', null, InputOption::VALUE_OPTIONAL, 'Shows the current event. Can take a year value.', false)
+
+            ->addOption('test-estim', null, InputOption::VALUE_REQUIRED, 'Takes all the citizens in the town and make them go into the watchtower', false)
         ;
     }
 
@@ -154,7 +161,7 @@ class DebugCommand extends Command
                 $this->user_handler->setUserSmallAvatar($crow, file_get_contents("{$this->kernel->getProjectDir()}/assets/img/forum/crow/crow.small.png"));
 
                 try {
-                    $crow->setPassword($this->encoder->encodePassword($crow, bin2hex(random_bytes(16))));
+                    $crow->setPassword($this->encoder->hashPassword($crow, bin2hex(random_bytes(16))));
                 } catch (\Exception $e) {
                     $output->writeln('<error>Unable to generate a random password.</error>');
                     return -1;
@@ -196,7 +203,7 @@ class DebugCommand extends Command
                 $this->user_handler->setUserSmallAvatar($animacteur, file_get_contents("{$this->kernel->getProjectDir()}/assets/img/forum/crow/anim.small.gif"));
 
                 try {
-                    $animacteur->setPassword($this->encoder->encodePassword($animacteur, bin2hex(random_bytes(16))));
+                    $animacteur->setPassword($this->encoder->hashPassword($animacteur, bin2hex(random_bytes(16))));
                 } catch (\Exception $e) {
                     $output->writeln('<error>Unable to generate a random password.</error>');
                     return -1;
@@ -299,7 +306,7 @@ class DebugCommand extends Command
                     $this->entity_manager->flush();
 
                     $ii = $i + $town->getCitizenCount() + 1;
-                    $output->writeln("<comment>{$user->getName()}</comment> joins <comment>{$town->getName()}</comment> and fills slot {$ii}/{$town->getPopulation()} as a <comment>{$pro->getLabel()}</comment>.");
+                    $output->writeln("<comment>{$user->getName()}</comment> joins <comment>{$town->getName()}</comment> and fills slot {$ii}/{$town->getPopulation()} as a <comment>{$this->trans->trans($pro->getLabel(), [], 'game')}</comment>.");
                     break;
                 }
             }
@@ -568,6 +575,99 @@ class DebugCommand extends Command
             if (!empty($schedule) && $now > end($schedule)[1])
                 $output->writeln( "<comment>{$now->format('c')} <-- We are here</comment>" );
 
+        }
+
+        if($tid = $input->getOption('test-estim')) {
+            /** @var Town $town */
+            $town = $this->helper->resolve_string($tid, Town::class, 'Town', $this->getHelper('question'), $input, $output);
+            if (!$town) {
+                $output->writeln('<error>Town not found!</error>');
+                return 2;
+            }
+
+            $citizens = $town->getCitizens();
+
+            $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneBy(['town' => $town, 'day' => $town->getDay()]);
+            if (!$est){
+                $output->writeln("<error>There's no estimation for the current town's day !</error>");
+                return 1;
+            }
+
+            $soulFactor = min(1 + (0.04 * $this->townHandler->get_red_soul_count($town)), (float)$this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_RED_SOUL_FACTOR, 1.2));
+
+            $output->writeln("Attack for day {$town->getDay()} : <info>{$est->getZombies()}</info>, soul factor is <info>$soulFactor</info>, real attack will be <info>" . ($est->getZombies() * $soulFactor) . "</info>");
+
+            $table = new Table( $output );
+            $table->setHeaders( ['Précision', 'Min1', 'Max1', 'Min2', 'Max2'] );
+
+            foreach ($citizens as $citizen) {
+                if ($est->getCitizens()->contains($citizen)) continue;
+                $est->addCitizen($citizen);
+
+                try {
+                    $this->entity_manager->persist($est);
+                    $this->entity_manager->flush();
+                } catch (Exception $e) {
+                    $output->writeln("<error>A DB exception occured ! {$e->getMessage()}</error>");
+                    return 3;
+                }
+
+                $old_way = $this->townHandler->get_zombie_estimation($town, null, false);
+                $new_way = $this->townHandler->get_zombie_estimation($town, null, true);
+                $estim = round($old_way[0]->getEstimation() * 100);
+
+                $table->addRow([
+                    $estim,
+                    $old_way[0]->getMin(),
+                    $old_way[0]->getMax(),
+                    $new_way[0]->getMin(),
+                    $new_way[0]->getMax()
+                ]);
+                if($old_way[0]->getEstimation() >= 1) break;
+            }
+
+            $table->render();
+
+            $est2 = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town, $town->getDay() + 1);
+            $output->writeln("Attack for day {$est2->getDay()} : <info>{$est2->getZombies()}</info>, soul factor is <info>$soulFactor</info>, real attack will be <info>" . ($est2->getZombies() * $soulFactor) . "</info>");
+
+            $table = new Table( $output );
+            $table->setHeaders( ['Précision', 'Min1', 'Max1', 'Min2', 'Max2'] );
+
+            if(!empty($this->townHandler->getBuilding($town, 'item_tagger_#02'))) {
+                foreach ($citizens as $citizen) {
+                    if ($est->getCitizens()->contains($citizen)) continue;
+                    $est->addCitizen($citizen);
+
+                    try {
+                        $this->entity_manager->persist($est);
+                        $this->entity_manager->flush();
+                    } catch (Exception $e) {
+                        $output->writeln("<error>A DB exception occured ! {$e->getMessage()}</error>");
+                        return 3;
+                    }
+
+                    $old_way = $this->townHandler->get_zombie_estimation($town, null, false);
+                    $new_way = $this->townHandler->get_zombie_estimation($town, null, true);
+                    $estim = round($old_way[1]->getEstimation() * 100);
+
+                    $table->addRow([
+                        $estim,
+                        $old_way[1]->getMin(),
+                        $old_way[1]->getMax(),
+                        $new_way[1]->getMin(),
+                        $new_way[1]->getMax()
+                    ]);
+                    if($old_way[1]->getEstimation() >= 1) break;
+                }
+            }
+
+            $table->render();
+
+            $est->getCitizens()->clear();
+
+            $this->entity_manager->persist($est);
+            $this->entity_manager->flush();
         }
 
         return 0;

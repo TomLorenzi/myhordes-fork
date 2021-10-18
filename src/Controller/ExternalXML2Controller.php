@@ -615,7 +615,7 @@ class ExternalXML2Controller extends ExternalController {
                 $expe = [
                     'attributes' => [
                         'name' => str_replace('"', "'", $expedition->getLabel()),
-                        'author' => $expedition->getOwner()->getUser()->getUsername(),
+                        'author' => $expedition->getOwner()->getUser()->getName(),
                         'length' => $expedition->getLength(),
                         'authorId' => $expedition->getOwner()->getUser()->getId()
                     ],
@@ -644,7 +644,7 @@ class ExternalXML2Controller extends ExternalController {
                         'attributes' => [
                             'dead' => '0',
                             'hero' => intval($citizen->getProfession()->getHeroic()),
-                            'name' => $citizen->getUser()->getUsername(),
+                            'name' => $citizen->getUser()->getName(),
                             'avatar' => $citizen->getUser()->getAvatar() !== null ? $citizen->getUser()->getId() . "/" . $citizen->getUser()->getAvatar()->getFilename() . "." . $citizen->getUser()->getAvatar()->getFormat() : '',
                             'id' => $citizen->getUser()->getId(),
                             'ban' => intval($citizen->getBanished()),
@@ -662,7 +662,7 @@ class ExternalXML2Controller extends ExternalController {
                 } else {
                     $cadaver = [
                         'attributes' => [
-                            'name' => $citizen->getUser()->getUsername(),
+                            'name' => $citizen->getUser()->getName(),
                             'dtype' => $citizen->getCauseOfDeath()->getRef(),
                             'id' => $citizen->getUser()->getId(),
                             'day' => $citizen->getDayOfDeath() <= 0 ? '1' : $citizen->getDayOfDeath(),
@@ -1267,7 +1267,7 @@ class ExternalXML2Controller extends ExternalController {
                         "attributes" => [
                             'dead' => intval(!$citizen->getAlive()),
                             'hero' => $citizen->getProfession()->getHeroic(),
-                            'name' => $user->getUsername(),
+                            'name' => $user->getName(),
                             'avatar' => $user->getAvatar() !== null ? $user->getId() . "/" . $user->getAvatar()->getFilename() . "." . $user->getAvatar()->getFormat() : "",
                             'id' => $user->getId(),
                             'ban' => intval($citizen->getBanished()),
@@ -1346,7 +1346,7 @@ class ExternalXML2Controller extends ExternalController {
                         "attributes" => [
                             'dead' => 1,
                             'hero' => 1,
-                            'name' => $user->getUsername(),
+                            'name' => $user->getName(),
                             'avatar' => $user->getAvatar() !== null ? $user->getId() . "/" . $user->getAvatar()->getFilename() . "." . $user->getAvatar()->getFormat() : "",
                             'id' => $user->getId(),
                         ],

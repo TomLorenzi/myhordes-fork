@@ -4,6 +4,7 @@ namespace App\Command\User;
 
 
 use App\Entity\Avatar;
+use App\Entity\Award;
 use App\Entity\Citizen;
 use App\Entity\FoundRolePlayText;
 use App\Entity\Picto;
@@ -14,6 +15,7 @@ use App\Entity\User;
 use App\Service\CommandHelper;
 use App\Service\UserHandler;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Asset\Package;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\InputArgument;
@@ -21,7 +23,8 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\Question;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class UserInfoCommand extends Command
 {
@@ -31,13 +34,16 @@ class UserInfoCommand extends Command
     private $user_handler;
     private $pwenc;
     private $helper;
+    private UrlGeneratorInterface $router;
 
-    public function __construct(EntityManagerInterface $em, UserPasswordEncoderInterface $passwordEncoder, UserHandler $uh, CommandHelper $ch)
+    public function __construct(EntityManagerInterface $em, UserPasswordHasherInterface $passwordEncoder,
+                                UserHandler $uh, CommandHelper $ch, UrlGeneratorInterface $router)
     {
         $this->entityManager = $em;
         $this->pwenc = $passwordEncoder;
         $this->user_handler = $uh;
         $this->helper = $ch;
+        $this->router = $router;
         parent::__construct();
     }
 
@@ -71,7 +77,10 @@ class UserInfoCommand extends Command
             ->addOption('avatar-small', null,  InputOption::VALUE_NONE,     'If used with --set-avatar, the given avatar will be used as small avatar if a normal avatar is already set. If used with --remove-avatar, only the small avatar will be deleted.')
             ->addOption('avatar-x',     null,  InputOption::VALUE_REQUIRED, 'Sets the image width. Should be set when Imagick is not available. Has no effect when uploading a small avatar.')
             ->addOption('avatar-y',     null,  InputOption::VALUE_REQUIRED, 'Sets the image height. Should be set when Imagick is not available. Has no effect when uploading a small avatar.')
-            ->addOption('avatar-magick', null,  InputOption::VALUE_REQUIRED, 'When setting an avatar, "auto" will attempt to use Imagick (default), "force" will enforce Imagick and "raw" will disable Imagick.');
+            ->addOption('avatar-magick', null,  InputOption::VALUE_REQUIRED, 'When setting an avatar, "auto" will attempt to use Imagick (default), "force" will enforce Imagick and "raw" will disable Imagick.')
+            ->addOption('custom-awards', null,  InputOption::VALUE_NONE, 'Lists all custom award titles for a user.')
+            ->addOption('add-custom-award', null,  InputOption::VALUE_REQUIRED, 'Adds a new custom award title to a user.')
+            ->addOption('remove-custom-award', null,  InputOption::VALUE_REQUIRED, 'Removes a new custom award title from a user.');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -277,7 +286,7 @@ class UserInfoCommand extends Command
                     }
                 }
 
-                $user->setPassword($this->pwenc->encodePassword($user, $newpw));
+                $user->setPassword($this->pwenc->hashPassword($user, $newpw));
                 $output->writeln("New password set: <info>{$newpw}</info>");
                 $this->entityManager->persist($user);
                 $this->entityManager->flush();
@@ -331,6 +340,49 @@ class UserInfoCommand extends Command
                 $output->writeln("Avatar updated.");
                 $this->entityManager->persist($user);
                 $this->entityManager->flush();
+            }
+
+            if ($title = $input->getOption('add-custom-award')) {
+                $this->entityManager->persist( (new Award())
+                    ->setUser($user)
+                    ->setCustomTitle($title)
+                );
+                $this->entityManager->flush();
+            }
+
+            if ($aid = $input->getOption('remove-custom-award')) {
+                $award = $this->entityManager->getRepository(Award::class)->find($aid);
+                if ($award->getUser() === $user && $award->getPrototype() === null) {
+                    if ($user->getActiveTitle() === $award) $user->setActiveTitle(null);
+                    if ($user->getActiveIcon() === $award) $user->setActiveIcon(null);
+                    $user->getAwards()->removeElement($award);
+                    $this->entityManager->remove($award);
+                    $this->entityManager->persist($user);
+                    $this->entityManager->flush();
+                }
+
+            }
+
+            if ($input->getOption('custom-awards') || $input->getOption('add-custom-award') || $input->getOption('remove-custom-award')) {
+                $table = new Table($output);
+                $table->setHeaders(['ID', 'Content']);
+
+                foreach ($user->getAwards() as $award) {
+                    if ($award->getCustomTitle() !== null)
+                        $table->addRow([
+                                           $award->getId(),
+                                           $award->getCustomTitle()
+                                       ]);
+                    if ($award->getCustomIcon() !== null)
+                        $table->addRow([
+                                           $award->getId(),
+                                           $this->router->generate('app_web_customicon', ['uid' => $user->getId(), 'aid' => $award->getId(), 'name' => $award->getCustomIconName(), 'ext' => $award->getCustomIconFormat()])
+                                       ]);
+                }
+
+
+                $table->render();
+
             }
         } else {
             /** @var User[] $users */

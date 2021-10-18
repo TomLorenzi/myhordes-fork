@@ -521,7 +521,7 @@ class TownHandler
         return $total_def;
     }
 
-    public function get_zombie_estimation(Town &$town, int $day = null): array {
+    public function get_zombie_estimation(Town &$town, int $day = null, bool $new_formula = true): array {
         $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town, $day ?? $town->getDay());
         /** @var ZombieEstimation $est */
         if (!$est) return [];
@@ -537,16 +537,10 @@ class TownHandler
         $offsetMin = $est->getOffsetMin();
         $offsetMax = $est->getOffsetMax();
 
+        $rand_backup = mt_rand(PHP_INT_MIN, PHP_INT_MAX);
         mt_srand($town->getDay() + $town->getId());
         $cc_offset = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_WT_OFFSET, 0);
-
-        for ($i = 0; $i < $est->getCitizens()->count() * $ratio + $cc_offset; $i++) {
-            if ($offsetMin + $offsetMax > 10) {
-                $increase_min = $this->random->chance( $offsetMin / ($offsetMin + $offsetMax) );
-                if ($increase_min) $offsetMin -= 1;
-                else $offsetMax -= 1;
-            }
-        }
+        $this->calculate_offsets($offsetMin, $offsetMax, $est->getCitizens()->count() * $ratio + $cc_offset, $new_formula);
 
         $min = round($est->getZombies() - ($est->getZombies() * $offsetMin / 100));
         $max = round($est->getZombies() + ($est->getZombies() * $offsetMax / 100));
@@ -585,19 +579,16 @@ class TownHandler
             $offsetMin = $est->getOffsetMin();
             $offsetMax = $est->getOffsetMax();
 
-            for ($i = 0; $i < $calculateUntil; $i++) {
-                if ($offsetMin + $offsetMax > 10) {
-                    $increase_min = $this->random->chance( $offsetMin / ($offsetMin + $offsetMax) );
-                    if ($increase_min) $offsetMin -= 1;
-                    else $offsetMax -= 1;
-                }
-            }
+            $this->calculate_offsets($offsetMin, $offsetMax, $calculateUntil, $new_formula);
 
             $min2 = round($est->getZombies() - ($est->getZombies() * $offsetMin / 100));
             $max2 = round($est->getZombies() + ($est->getZombies() * $offsetMax / 100));
 
-            $min2 = round($min2, 2 - strlen(strval($min2)));
-            $max2 = round($max2, 2 - strlen(strval($max2)));
+            /*$min2 = round($min2, 2 - strlen(strval($min2)));
+            $max2 = round($max2, 2 - strlen(strval($max2)));*/
+
+            $min2 = round($min2 / 25) * 25;
+            $max2 = round($max2 / 25) * 25;
 
             $soulFactor = min(1 + (0.04 * $this->get_red_soul_count($town)), (float)$this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_RED_SOUL_FACTOR, 1.2));
 
@@ -619,7 +610,27 @@ class TownHandler
             $result[] = $estim2;
         }
 
+        // We've set a pre-defined seed before, which will impact randomness of all mt_rand calls after this function
+        // We're trying to set a new random seed to combat side effects
+        try {
+            mt_srand( random_int(PHP_INT_MIN, PHP_INT_MAX) );
+        } catch (\Exception $e) {
+            mt_srand($rand_backup);
+        }
+
+
         return $result;
+    }
+
+    public function calculate_offsets(&$offsetMin, &$offsetMax, $nbRound, $new_formula){
+        for ($i = 0; $i < $nbRound; $i++) {
+            if ($offsetMin + $offsetMax > 10) {
+                $increase_min = $this->random->chance( $offsetMin / ($offsetMin + $offsetMax) );
+                $alter = $new_formula ? mt_rand(500, 2000) / 1000.0 : 1;
+                if ($increase_min) $offsetMin -= $alter;
+                else $offsetMax -= $alter;
+            }
+        }
     }
 
     public function calculate_zombie_attacks(Town &$town, int $future = 2) {
@@ -649,8 +660,8 @@ class TownHandler
                 $value = mt_rand($min,$max);
                 if ($value > ($min + 0.5 * ($max-$min))) $value = mt_rand($min,$max);
 
-                $off_min = mt_rand( 10, 24 );
-                $off_max = 34 - $off_min;
+                $off_min = mt_rand( 15, 36 );
+                $off_max = 48 - $off_min;
 
                 $town->addZombieEstimation(
                     (new ZombieEstimation())

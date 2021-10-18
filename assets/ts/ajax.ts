@@ -3,6 +3,7 @@ import {Const, Global} from "./defaults";
 interface ajaxResponse { error: string, success: any }
 interface ajaxCallback { (data: ajaxResponse, code: number): void }
 interface ajaxStack    { (): void }
+interface navigationPromiseCallback { (any): void }
 
 declare var c: Const;
 declare var $: Global;
@@ -17,6 +18,7 @@ export default class Ajax {
 
     private render_queue: Array<ajaxStack> = [];
     private render_block_stack: number = 0;
+    private render_block_promises: Array<navigationPromiseCallback> = []
 
     constructor(baseUrl: string) {
         if (baseUrl.length == 0 || baseUrl.slice(-1) != '/')
@@ -63,6 +65,8 @@ export default class Ajax {
         if (this.render_block_stack < 0) this.render_block_stack = 0;
         while ( this.render_queue.length > 0 && this.render_block_stack == 0 )
             this.render_queue.shift()();
+        while ( this.render_block_promises.length > 0 && this.render_block_stack == 0 )
+            this.render_block_promises.shift()(true);
         return this;
     }
 
@@ -261,7 +265,10 @@ export default class Ajax {
         const no_error  = this.fetch_soft_fail();
 
         if (push_history) this.push_history(url);
-        document.dispatchEvent( new CustomEvent('mh-navigation-begin', {detail: {url: url, post: data, node: target}}) );
+        let this_promise;
+        document.dispatchEvent( new CustomEvent('mh-navigation-begin', {detail: {url: url, post: data, node: target, complete: new Promise((resolve,reject) => {
+            this_promise = [resolve,reject]
+        })}}) );
 
         if (!no_loader) $.html.addLoadStack();
         let request = new XMLHttpRequest();
@@ -281,7 +288,7 @@ export default class Ajax {
             }
 
             if (this.status >= 400) {
-
+                this_promise[1]();
                 switch (this.status) {
                     case 403:
                         if (target === ajax_instance.defaultNode)
@@ -309,7 +316,12 @@ export default class Ajax {
 
             if (callback) callback();
 
-            document.dispatchEvent( new CustomEvent('mh-navigation-complete', {detail: {url: url, post: data, node: target}}) );
+            let event = {url: url, post: data, node: target, render: new Promise(resolve => {
+                if (ajax_instance.render_block_stack === 0) resolve(true);
+                else ajax_instance.render_block_promises.push( resolve )
+            })}
+            this_promise[0](event);
+            document.dispatchEvent( new CustomEvent('mh-navigation-complete', {detail: event}) );
 
             if (!no_loader) $.html.removeLoadStack();
         });

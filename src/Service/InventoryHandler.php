@@ -367,7 +367,7 @@ class InventoryHandler
 
     public function transferItem( ?Citizen &$actor, Item &$item, ?Inventory &$from, ?Inventory &$to, $modality = self::ModalityNone, $allow_extra_bag = false): int {
         // Block Transfer if citizen is hiding
-        if ($actor->getZone() && $modality !== self::ModalityImpound && ($actor->getStatus()->contains($this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'tg_hide' )) || $actor->getStatus()->contains($this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'tg_tomb' )))) {
+        if ($actor->getZone() && $modality !== self::ModalityImpound && $modality !== self::ModalityEnforcePlacement && ($actor->getStatus()->contains($this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'tg_hide' )) || $actor->getStatus()->contains($this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'tg_tomb' )))) {
             return self::ErrorTransferBlocked;
         }
 

@@ -105,6 +105,11 @@ class PrivateMessage
      */
     private $originalRecipient;
 
+    /**
+     * @ORM\Column(type="json", nullable=true)
+     */
+    private $additionalData = [];
+
     public function __construct()
     {
         $this->adminReports = new ArrayCollection();
@@ -298,6 +303,18 @@ class PrivateMessage
     public function setOriginalRecipient(?Citizen $originalRecipient): self
     {
         $this->originalRecipient = $originalRecipient;
+
+        return $this;
+    }
+
+    public function getAdditionalData(): ?array
+    {
+        return $this->additionalData;
+    }
+
+    public function setAdditionalData(?array $additionalData): self
+    {
+        $this->additionalData = $additionalData;
 
         return $this;
     }

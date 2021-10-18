@@ -981,7 +981,7 @@
     <unit id="8UBVWFJ" name="Betapropin steht nicht zur Verfügung.">
       <notes>
         <note category="german">Betapropin steht nicht zur Verfügung.</note>
-        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Betapropin steht nicht zur Verfügung.</source>
@@ -991,7 +991,7 @@
     <unit id="QjQvnlj" name="Beta-Funktionen deaktivieren">
       <notes>
         <note category="german">Beta-Funktionen deaktivieren</note>
-        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Beta-Funktionen deaktivieren</source>
@@ -1016,46 +1016,6 @@
       <segment>
         <source>In dieser Stadt ist kein Platz mehr für dich und deine Koalition.</source>
         <target>Il n'y a plus de place pour vous et votre coalition dans cette ville.</target>
-      </segment>
-    </unit>
-    <unit id="hMJko2L">
-      <notes>
-        <note category="german">Achtung: Du stehst deiner Koalition NICHT ZUR VERFÜGUNG! Das bedeutet, dass du diese Partie allein spielen wirst.</note>
-        <note category="from">twig:///templates/ajax/ghost/intro.html.twig</note>
-      </notes>
-      <segment>
-        <source>Achtung: Du stehst deiner Koalition NICHT ZUR VERFÜGUNG! Das bedeutet, dass du diese Partie allein spielen wirst.</source>
-        <target>Vous n'êtes pas en mode "DISPONIBLE" dans votre coalition : Si vous rejoignez une ville maintenant, vous le ferez seul(e) !</target>
-      </segment>
-    </unit>
-    <unit id="cglpSDE">
-      <notes>
-        <note category="german">Achtung: Im Moment steht kein Mitglied deiner Koalition zur Verfügung, um dir in eine Stadt zu folgen.</note>
-        <note category="from">twig:///templates/ajax/ghost/intro.html.twig</note>
-      </notes>
-      <segment>
-        <source>Achtung: Im Moment steht kein Mitglied deiner Koalition zur Verfügung, um dir in eine Stadt zu folgen.</source>
-        <target>Attention: aucun membre de votre coalition n'est disponible pour vous suivre si vous rejoignez une ville maintenant !</target>
-      </segment>
-    </unit>
-    <unit id="UtrdfFQ">
-      <notes>
-        <note category="german">Achtung: Im Moment stehen nicht alle Mitglieder deiner Koalition zur Verfügung, um dir in eine Stadt zu folgen.</note>
-        <note category="from">twig:///templates/ajax/ghost/intro.html.twig</note>
-      </notes>
-      <segment>
-        <source>Achtung: Im Moment stehen nicht alle Mitglieder deiner Koalition zur Verfügung, um dir in eine Stadt zu folgen.</source>
-        <target>Attention: pour le moment, tous les membres de votre coalition ne sont pas disponibles pour vous suivre dans une ville.</target>
-      </segment>
-    </unit>
-    <unit id="EwLUGr9">
-      <notes>
-        <note category="german">Wenn du eine Stadt betrittst, werden folgende Mitglieder deiner Koalition dir folgen:</note>
-        <note category="from">twig:///templates/ajax/ghost/intro.html.twig</note>
-      </notes>
-      <segment>
-        <source>Wenn du eine Stadt betrittst, werden folgende Mitglieder deiner Koalition dir folgen:</source>
-        <target>Lorsque vous rejoignez une ville, le ou les membres de votre coalitions suivants vous accompagneront :</target>
       </segment>
     </unit>
     <unit id="U6CJxvc">
@@ -1707,6 +1667,56 @@
       <segment>
         <source>Beta-Funktionen aktivieren</source>
         <target>Activer les fonctionnalités beta</target>
+      </segment>
+    </unit>
+    <unit id="HIJTNeO" name="Eine Stadt aussuchen">
+      <notes>
+        <note category="german">Eine Stadt aussuchen</note>
+        <note category="from">twig:///templates/ajax/soul/coalitions.html.twig</note>
+      </notes>
+      <segment>
+        <source>Eine Stadt aussuchen</source>
+        <target>Choisir une ville</target>
+      </segment>
+    </unit>
+    <unit id="mL3EW4Y">
+      <notes>
+        <note category="german">Achtung: Du stehst deiner {coalition} NICHT ZUR VERFÜGUNG! Das bedeutet, dass du diese Partie allein spielen wirst.</note>
+        <note category="from">twig:///templates/ajax/ghost/intro.html.twig</note>
+      </notes>
+      <segment>
+        <source>Achtung: Du stehst deiner {coalition} NICHT ZUR VERFÜGUNG! Das bedeutet, dass du diese Partie allein spielen wirst.</source>
+        <target>Vous n'êtes pas en mode "DISPONIBLE" dans votre {coalition} : Si vous rejoignez une ville maintenant, vous le ferez seul(e) !</target>
+      </segment>
+    </unit>
+    <unit id="aEPG2aa">
+      <notes>
+        <note category="german">Achtung: Im Moment steht kein Mitglied deiner {coalition} zur Verfügung, um dir in eine Stadt zu folgen.</note>
+        <note category="from">twig:///templates/ajax/ghost/intro.html.twig</note>
+      </notes>
+      <segment>
+        <source>Achtung: Im Moment steht kein Mitglied deiner {coalition} zur Verfügung, um dir in eine Stadt zu folgen.</source>
+        <target>Attention: aucun membre de votre {coalition} n'est disponible pour vous suivre si vous rejoignez une ville maintenant !</target>
+      </segment>
+    </unit>
+    <unit id="BWMOKUf">
+      <notes>
+        <note category="german">Achtung: Im Moment stehen nicht alle Mitglieder deiner {coalition} zur Verfügung, um dir in eine Stadt zu folgen.</note>
+        <note category="from">twig:///templates/ajax/ghost/intro.html.twig</note>
+      </notes>
+      <segment>
+        <source>Achtung: Im Moment stehen nicht alle Mitglieder deiner {coalition} zur Verfügung, um dir in eine Stadt zu folgen.</source>
+        <target>Attention: pour le moment, tous les membres de votre {coalition} ne sont pas disponibles pour vous suivre dans une ville.</target>
+      </segment>
+    </unit>
+    <unit id="vg.P1MD">
+      <notes>
+        <note category="german">Wenn du eine Stadt betrittst, werden folgende Mitglieder deiner {coalition} dir folgen:</note>
+        <note category="from">twig:///templates/ajax/ghost/intro.html.twig</note>
+      </notes>
+      <segment>
+        <source>Wenn du eine Stadt betrittst, werden folgende Mitglieder deiner {coalition} dir folgen:</source>
+        <target>Lorsque vous rejoignez une ville, le ou les membres de votre {coalition} suivants vous accompagneront :</target>
       </segment>
     </unit>
   </file>

@@ -24,7 +24,7 @@
     <unit id="ITvthhv" name="Sehr gut, niemand hat dich bei deinem Einbruch bei {victim} beobachtet.">
       <notes>
         <note category="german">Sehr gut, niemand hat dich bei deinem Einbruch bei {victim} beobachtet.</note>
-        <note category="from">php:///src/Controller/InventoryAwareController.php</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Sehr gut, niemand hat dich bei deinem Einbruch bei {victim} beobachtet.</source>
@@ -404,7 +404,7 @@
     <unit id="TEo9cyt" name="Das Tor ist bereits geschlossen.">
       <notes>
         <note category="german">Das Tor ist bereits geschlossen.</note>
-        <note category="from">twig:///templates/scripts/errors/town.txt.twig</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Das Tor ist bereits geschlossen.</source>
@@ -478,7 +478,7 @@
       </notes>
       <segment>
         <source>Du kannst für eine Weile keine weiteren Gegenstände aus der Bank entnehmen.</source>
-        <target>This action is blocked for approximately 15 minutes (anti-abuse system).</target>
+        <target><![CDATA[This action is blocked for <strong>approximately 15 minutes</strong> (anti-abuse system).<hr /><strong>Warning: if you try to repeat this action before this time, the duration of the restriction will be extended!</strong>]]></target>
       </segment>
     </unit>
     <unit id="bqrEaC9" name="Du hast heute schon &lt;strong&gt;einen Diebstahl&lt;/strong&gt; begangen.">
@@ -1723,7 +1723,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="FlZntyi" name="Bürger">
       <notes>
         <note category="german">Bürger</note>
-        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/towns/old_town_explorer.html.twig;twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_omniscience.html.twig;twig:///templates/ajax/game/town/citizen_vote.html.twig;twig:///templates/ajax/game/town/town.html.twig;twig:///templates/ajax/ghost/intro.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/towns/old_town_explorer.html.twig;twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_list_headers.html.twig;twig:///templates/ajax/game/town/citizen_omniscience.html.twig;twig:///templates/ajax/game/town/citizen_vote.html.twig;twig:///templates/ajax/game/town/town.html.twig;twig:///templates/ajax/ghost/intro.html.twig</note>
       </notes>
       <segment>
         <source>Bürger</source>
@@ -1863,7 +1863,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="seBLTh9" name="Diese Zone">
       <notes>
         <note category="german">Diese Zone</note>
-        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Diese Zone</source>
@@ -4033,12 +4033,11 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="THDibIm">
       <notes>
         <note category="german">Argh!! Es scheint, als ob sich ein Ghul unter die Einwohner gemischt hätte! Völlig ahnungs- und wehrlos wurdest du von etwas oder jemandem angefallen und übel vermöbelt. Als er dann seine fauligen Zähne in deinen Hals schlug warst du noch bei Bewusstsein... Doch du hattest nur noch einen Gedanken: Wer war das?</note>
-        <note category="state">new</note>
         <note category="from">db://CauseOfDeath</note>
       </notes>
       <segment>
         <source>Argh!! Es scheint, als ob sich ein Ghul unter die Einwohner gemischt hätte! Völlig ahnungs- und wehrlos wurdest du von etwas oder jemandem angefallen und übel vermöbelt. Als er dann seine fauligen Zähne in deinen Hals schlug warst du noch bei Bewusstsein... Doch du hattest nur noch einen Gedanken: Wer war das?</source>
-        <target>Argh!! Es scheint, als ob sich ein Ghul unter die Einwohner gemischt hätte! Völlig ahnungs- und wehrlos wurdest du von etwas oder jemandem angefallen und übel vermöbelt. Als er dann seine fauligen Zähne in deinen Hals schlug warst du noch bei Bewusstsein... Doch du hattest nur noch einen Gedanken: Wer war das?</target>
+        <target>Argh! It would appear that a ghoul moves among us! With no time to react, someone, or something jumped on you, and rained blows on you before devouring you whilst you were still semi-conscious. Before slipping into the darkness, one question plagues you: what do I taste like?</target>
       </segment>
     </unit>
     <unit id="7AlBdeZ" name="Aggression">
@@ -4798,7 +4797,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="Q9LWBP_" name="Nach einigen Anstrengungen hast du folgendes gefunden: {item}!">
       <notes>
         <note category="german">Nach einigen Anstrengungen hast du folgendes gefunden: {item}!</note>
-        <note category="from">php:///src/Controller/BeyondController.php;php:///src/Controller/ExplorationController.php;php:///src/Service/ZoneHandler.php</note>
+        <note category="from">php:///src/Controller/ExplorationController.php;php:///src/Service/ZoneHandler.php</note>
       </notes>
       <segment>
         <source>Nach einigen Anstrengungen hast du folgendes gefunden: {item}!</source>
@@ -5098,7 +5097,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="8UxoSSm" name="Verteidigungsgegenstände">
       <notes>
         <note category="german">Verteidigungsgegenstände</note>
-        <note category="from">twig:///templates/ajax/game/town/bank.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/home.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/bank.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Verteidigungsgegenstände</source>
@@ -7765,7 +7764,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>{citizen} hat es regnen lassen! Ihm habt ihr {num} Rationen reinen Wassers im Brunnen zu verdanken!</source>
-        <target>{citizen} made it rain baby! made it rain baby! Thanks to them the well has gained {num} rations of clean water!</target>
+        <target>{citizen} made it rain baby! Thanks to them the well has gained {num} rations of clean water!</target>
       </segment>
     </unit>
     <unit id="yNMrKcz">
@@ -8416,7 +8415,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="2xvpkUu">
       <notes>
-        <note category="german">{attacker} ist {defender} an die Gurgel gesprungen und hat ihn ohne mit der Wimper zu zucken verspeist!</note>
+        <note category="german">{attacker} ist {defender} an die Gurgel gesprungen und hat ihn ohne mit der Wimper zu zucken &lt;strong&gt;verspeist&lt;/strong&gt;!!</note>
         <note category="from">db://LogEntryTemplate</note>
       </notes>
       <segment>
@@ -8736,7 +8735,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="bGpi8xS">
       <notes>
-        <note category="german">Mit ein paar unschönen Tritten gegen seinen Kopf vergewisserst du dich, dass er garantiert nicht mehr aufstehen wird. Na los! Bring deinen Job zuende und verspeise ihn!</note>
+        <note category="german">Mit ein paar unschönen Tritten gegen seinen Kopf vergewisserst du dich, dass er garantiert nicht mehr aufstehen wird. &lt;strong&gt;Na los! Bring deinen Job zuende und verspeise ihn!&lt;/strong&gt;</note>
         <note category="from">php:///src/Controller/InventoryAwareController.php</note>
       </notes>
       <segment>
@@ -8956,7 +8955,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="dyUt3up" name="Aus der Stadt schleichen">
       <notes>
-        <note category="german">Aus der Stadt schleichen</note>
+        <note category="german">Unauffällig rausgehen</note>
         <note category="from">twig:///templates/ajax/game/town/door.html.twig</note>
       </notes>
       <segment>
@@ -8986,7 +8985,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="sVhAGjc" name="Diesen Bürger verspeisen!">
       <notes>
-        <note category="german">Diesen Bürger verspeisen!</note>
+        <note category="german">Diesen Bürger verschlingen!</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
@@ -9006,7 +9005,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="isIvO1g" name="In die Stadt schleichen">
       <notes>
-        <note category="german">In die Stadt schleichen</note>
+        <note category="german">Die Stadt heimlich betreten</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
@@ -10220,7 +10219,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="D31zha8" name="Allwissenheit">
       <notes>
         <note category="german">Allwissenheit</note>
-        <note category="from">db://HeroSkillPrototype;twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_omniscience.html.twig;twig:///templates/ajax/game/town/citizen_vote.html.twig</note>
+        <note category="from">db://HeroSkillPrototype;twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_list_headers.html.twig;twig:///templates/ajax/game/town/citizen_omniscience.html.twig;twig:///templates/ajax/game/town/citizen_vote.html.twig</note>
       </notes>
       <segment>
         <source>Allwissenheit</source>
@@ -10920,7 +10919,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="z3Y3jVt" name="Anonyme Beschwerde">
       <notes>
         <note category="german">Anonyme Beschwerde</note>
-        <note category="from">php:///src/Controller/Messages/MessageTownMessageController.php;php:///src/Controller/Town/TownHomeController.php</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Anonyme Beschwerde</source>
@@ -10940,7 +10939,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="1VFuVbv" name="Beschwerde zurückgezogen">
       <notes>
         <note category="german">Beschwerde zurückgezogen</note>
-        <note category="from">php:///src/Controller/Messages/MessageTownMessageController.php;php:///src/Controller/Town/TownHomeController.php</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Beschwerde zurückgezogen</source>
@@ -11808,7 +11807,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du stürzt dich auf eine dieser Kreaturen und &lt;strong&gt;umklammerst sie mit beiden Armen&lt;/strong&gt;, um sie zu Fall zu bringen. Der Kontakt mit seiner &lt;strong&gt;verrotteten Haut&lt;/strong&gt; bringt dich fast zum Kotzen... Du kämpfst und versuchst ihn irgendwie umzustoßen, doch ohne Erfolg. &lt;strong&gt;Das Biest hat dich mehrere Male um ein Haar gebissen!&lt;/strong&gt; Erschöpft und demoralisiert lässt du von ihm ab, um dich zurückzuziehen...</source>
-        <target>You grab one of the wretched automatons with both hands, touching the sticky, putrefied flesh... it's unbearable... You wrestle with it, trying to force it back, but it's not happening... It tries unsuccessfully to bite you several times ! You retreat, out of breath and demoralised...</target>
+        <target><![CDATA[You grab one of the wretched automatons with both hands, touching the <strong>sticky, putrefied flesh</strong>... it's unbearable... You wrestle with it, trying to force it back, but it's not happening... <strong>It tries unsuccessfully to bite you several times!</strong> You retreat, out of breath and demoralised...]]></target>
       </segment>
     </unit>
     <unit id="rJtk9d5" name="Die Abschätzung wird durch den Scanner verbessert.">
@@ -15527,45 +15526,41 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="QA25eiQ" name="An einem kalten Morgen">
       <notes>
         <note category="german">An einem kalten Morgen</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
         <source>An einem kalten Morgen</source>
-        <target>An einem kalten Morgen</target>
+        <target>A fresh morning</target>
       </segment>
     </unit>
     <unit id="FvwX8Vo" name="Die Außenwelt">
       <notes>
         <note category="german">Die Außenwelt</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
         <source>Die Außenwelt</source>
-        <target>Die Außenwelt</target>
+        <target>The World Beyond</target>
       </segment>
     </unit>
     <unit id="hZyt4RO" name="Ein beunruhigender Sonnenuntergang">
       <notes>
         <note category="german">Ein beunruhigender Sonnenuntergang</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
         <source>Ein beunruhigender Sonnenuntergang</source>
-        <target>Ein beunruhigender Sonnenuntergang</target>
+        <target>An ominous twilight</target>
       </segment>
     </unit>
     <unit id="XRqPUn0" name="Eine eisige Nacht">
       <notes>
         <note category="german">Eine eisige Nacht</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
         <source>Eine eisige Nacht</source>
-        <target>Eine eisige Nacht</target>
+        <target>A bitterly cold night</target>
       </segment>
     </unit>
     <unit id="E2tLR1n" name="... allein">
@@ -15581,34 +15576,31 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="9UrAchd" name="an der Seite von {citizen}">
       <notes>
         <note category="german">an der Seite von {citizen}</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
         <source>an der Seite von {citizen}</source>
-        <target>an der Seite von {citizen}</target>
+        <target>beside {citizen}</target>
       </segment>
     </unit>
     <unit id="Jaioypa" name="irgendwo {location} der Stadt...">
       <notes>
         <note category="german">irgendwo {location} der Stadt...</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
         <source>irgendwo {location} der Stadt...</source>
-        <target>irgendwo {location} der Stadt...</target>
+        <target>somewhere {location} of the town...</target>
       </segment>
     </unit>
     <unit id="LV5ZZVt" name="an den Toren der Stadt">
       <notes>
         <note category="german">an den Toren der Stadt</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
         <source>an den Toren der Stadt</source>
-        <target>an den Toren der Stadt</target>
+        <target>at the gates of the town</target>
       </segment>
     </unit>
     <unit id="YqRBccv" name="Das Leichsblatt, Ausgabe vom {day}. Tag">
@@ -16187,12 +16179,11 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="d5d0_u_">
       <notes>
         <note category="german">{count} Zombies wurden in der Stadt gesichtet, aber sie haben niemanden angegriffen: Was für ein Glücksfall...</note>
-        <note category="state">new</note>
         <note category="from">db://LogEntryTemplate</note>
       </notes>
       <segment>
         <source>{count} Zombies wurden in der Stadt gesichtet, aber sie haben niemanden angegriffen: Was für ein Glücksfall...</source>
-        <target>{count} Zombies wurden in der Stadt gesichtet, aber sie haben niemanden angegriffen: Was für ein Glücksfall...</target>
+        <target>{count} zombies were seen in the town, but they didn't attack anyone: Result!</target>
       </segment>
     </unit>
     <unit id="b5TnxTe" name="[ Es riecht nach Tannenzapfen... ]">
@@ -16421,23 +16412,21 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id=".Qv4CCd" name="in einer unheimlichen Ruine {location}">
       <notes>
         <note category="german">in einer unheimlichen Ruine {location}</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
         <source>in einer unheimlichen Ruine {location}</source>
-        <target>in einer unheimlichen Ruine {location}</target>
+        <target>just outside a disturbing ruin {location}</target>
       </segment>
     </unit>
     <unit id="TP3m8zB" name="sitzt in der Falle und wartet auf den Tod...">
       <notes>
         <note category="german">sitzt in der Falle und wartet auf den Tod...</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
         <source>sitzt in der Falle und wartet auf den Tod...</source>
-        <target>sitzt in der Falle und wartet auf den Tod...</target>
+        <target>trapped and waiting for death...</target>
       </segment>
     </unit>
     <unit id="WA0.uhs">
@@ -17440,7 +17429,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="M80SaEv">
       <notes>
-        <note category="german">Die Chance, beim Verschlingen eines Bürgers entdeckt zu werden, ist {chances}...</note>
+        <note category="german">Deine Wahrscheinlichkeit, beim Verzehr eines Mitbürgers entdeckt zu werden, ist {chances}.</note>
         <note category="from">twig:///templates/ajax/game/town/citizen.html.twig</note>
       </notes>
       <segment>
@@ -17450,7 +17439,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="qD3lUP9">
       <notes>
-        <note category="german">Das Risiko basiert auf der Anzahl der Bürger in der Aussenwelt. Je mehr Bürger sich außerhalb der Stadt aufhalten, desto geringer sind die Chancen, entdeckt zu werden.</note>
+        <note category="german">Die Risikowahrscheinlichkeit hängt von der Anzahl der Bürger ab, die sich in der Außenwelt aufhalten. Je weniger Leute sich in der Stadt aufhalten, desto geringer die Chance, erwischt zu werden.</note>
         <note category="from">twig:///templates/ajax/game/town/citizen.html.twig</note>
       </notes>
       <segment>
@@ -18293,7 +18282,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Die Stadt hat folgende Gegenstände in Folge der Verbannung von {shunned} zurückerhalten: {list}</source>
-        <target>The town received following item(s) after shunning {shunned} : {list}</target>
+        <target>The town received following item(s) after shunning {shunned}: {list}</target>
       </segment>
     </unit>
     <unit id="JZByFlC">
@@ -18556,7 +18545,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <notes>
         <note category="german">Die Zombies haben beim Angriff {list} zerstört.</note>
         <note category="state">new</note>
-        <note category="from">db://LogEntryTemplate</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Die Zombies haben beim Angriff {list} zerstört.</source>
@@ -18785,7 +18774,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Bürger:</source>
-        <target>Citizen :</target>
+        <target>Citizen:</target>
       </segment>
     </unit>
     <unit id="veFPW3j" name="Alles sehen">
@@ -18865,7 +18854,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Wie gebraucht man diese Karte?</source>
-        <target>How does the map work ?</target>
+        <target>How does the map work?</target>
       </segment>
     </unit>
     <unit id="7cJ1Xdv" name="Brauchst du Hilfe? Benutze den {modelink}!">
@@ -18937,7 +18926,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Zum Anfängermodus zurückkehren</source>
-        <target>Return to the Rookie Interface </target>
+        <target>Return to the Rookie Interface</target>
       </segment>
     </unit>
     <unit id="qq349uP" name="(Du bist gerade im &lt;strong&gt;Expertenmodus&lt;/strong&gt;)">
@@ -19273,18 +19262,17 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>&lt;span&gt;{citizen} hat einen Zombie mit seinen bloßen Händen niedergestreckt!&lt;/span&gt;</source>
-        <target><![CDATA[<span>{citizen} took down a zombie with their bare hands!</span>]]></target>
+        <target><![CDATA[<span>{citizen} went toe to toe with a zombie and managed to finish him!</span>]]></target>
       </segment>
     </unit>
     <unit id="CIxCi9h">
       <notes>
         <note category="german">{citizen} hat versucht einen Zombie niederzustrecken und ist dabei fast draufgegangen...</note>
-        <note category="state">new</note>
         <note category="from">db://LogEntryTemplate</note>
       </notes>
       <segment>
         <source>{citizen} hat versucht einen Zombie niederzustrecken und ist dabei fast draufgegangen...</source>
-        <target>{citizen} hat versucht einen Zombie niederzustrecken und ist dabei fast draufgegangen...</target>
+        <target>{citizen} managed to get punched square in the crotch by attacking a zombie with their bare hands...</target>
       </segment>
     </unit>
     <unit id="L4sBLhc" name="&lt;span&gt;Wir kontrollieren die Zone ab sofort.&lt;/span&gt;">
@@ -19310,12 +19298,11 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="HSAEnDG" name="als Gruppe">
       <notes>
         <note category="german">als Gruppe</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
         <source>als Gruppe</source>
-        <target>als Gruppe</target>
+        <target>on a group expedition</target>
       </segment>
     </unit>
     <unit id="KP2BLp3" name="Du kannst in den Foren um Hilfe bitten!">
@@ -19422,7 +19409,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="vSjpknb" name="Haus von {citizen}">
       <notes>
         <note category="german">Haus von {citizen}</note>
-        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen_list_headers.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Haus von {citizen}</source>
@@ -19668,7 +19655,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>{citizen} wartet auf eine Eskorte. Klick ihn an, damit er dir folgt.</source>
-        <target>{citizen} is waiting for an escort : click to ask them to follow you.</target>
+        <target>{citizen} is waiting for an escort: click to ask them to follow you.</target>
       </segment>
     </unit>
     <unit id="lpKOzLM">
@@ -19922,7 +19909,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Achtung: Jede Aktion in der Zone sorgt dafür, dass deine &lt;strong&gt;Tarnung auffliegt&lt;/strong&gt;. (Es können nur Aktionen ausgeführt werden, die mit einem Icon {img_scout_ok} gekennzeichnet sind)!</source>
-        <target><![CDATA[Warning : many actions, if carried out in this zone will make you <strong>lose your camouflage</strong> (only actions marked with the icon {img_scout_ok} can be used)!]]></target>
+        <target><![CDATA[Warning: many actions, if carried out in this zone will make you <strong>lose your camouflage</strong> (only actions marked with the icon {img_scout_ok} can be used)!]]></target>
       </segment>
     </unit>
     <unit id="SKPkihB">
@@ -19943,16 +19930,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>{building} hat {num} Batterien verbraucht.</source>
         <target>{building} has used {num} Battery.</target>
-      </segment>
-    </unit>
-    <unit id="T14z5t.">
-      <notes>
-        <note category="german">&lt;strong&gt;Herzlichen Glückwunsch&lt;/strong&gt;, du hast folgende Titel freigeschaltet: {list_i} {list_t}</note>
-        <note category="from">db://LogEntryTemplate</note>
-      </notes>
-      <segment>
-        <source>&lt;strong&gt;Herzlichen Glückwunsch&lt;/strong&gt;, du hast folgende Titel freigeschaltet: {list_i} {list_t}</source>
-        <target><![CDATA[<strong>Congratulations</strong>, you have unlocked the following titles: {list_i} {list_t}]]></target>
       </segment>
     </unit>
     <unit id="jIKh96s">
@@ -20060,7 +20037,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="gmanddb" name="Persönliche Beschreibung">
       <notes>
         <note category="german">Persönliche Beschreibung</note>
-        <note category="from">twig:///templates/ajax/admin/users/account.html.twig;twig:///templates/ajax/soul/me.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/soul/me.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
       </notes>
       <segment>
         <source>Persönliche Beschreibung</source>
@@ -20261,7 +20238,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="QseufEj" name="Behausung">
       <notes>
         <note category="german">Behausung</note>
-        <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Behausung</source>
@@ -20271,7 +20248,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="aLlzxLt" name="+{def} Punkt(e)">
       <notes>
         <note category="german">+{def} Punkt(e)</note>
-        <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>+{def} Punkt(e)</source>
@@ -20281,7 +20258,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="3whc17K" name="Heldenbonus">
       <notes>
         <note category="german">Heldenbonus</note>
-        <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Heldenbonus</source>
@@ -20292,7 +20269,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <notes>
         <note category="german">Total</note>
         <note category="state">new</note>
-        <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Total</source>
@@ -20302,7 +20279,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="uFrUwJs">
       <notes>
         <note category="german">Verteidigungsgegenstände (Blechplatten etc...) müssen in der Truhe abgelegt werden.</note>
-        <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Verteidigungsgegenstände (Blechplatten etc...) müssen in der Truhe abgelegt werden.</source>
@@ -20312,7 +20289,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="A9mtMsb" name="Wächterbonus">
       <notes>
         <note category="german">Wächterbonus</note>
-        <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Wächterbonus</source>
@@ -20904,34 +20881,31 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id=".Qkxxst" name="Stadttor zerstört!">
       <notes>
         <note category="german">Stadttor zerstört!</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/door.html.twig</note>
       </notes>
       <segment>
         <source>Stadttor zerstört!</source>
-        <target>Stadttor zerstört!</target>
+        <target>Gates destroyed!</target>
       </segment>
     </unit>
     <unit id="i02hvai">
       <notes>
         <note category="german">Das Stadttor wurde bei einem besonders furchtbaren Angriff aus den Angeln gerissen und in die Aussenwelt geschleudert. Du solltest dich heute Nacht besser nicht hier aufhalten, sonst wird diese Stadt dein Grab.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/door.html.twig</note>
       </notes>
       <segment>
         <source>Das Stadttor wurde bei einem besonders furchtbaren Angriff aus den Angeln gerissen und in die Aussenwelt geschleudert. Du solltest dich heute Nacht besser nicht hier aufhalten, sonst wird diese Stadt dein Grab.</source>
-        <target>Das Stadttor wurde bei einem besonders furchtbaren Angriff aus den Angeln gerissen und in die Aussenwelt geschleudert. Du solltest dich heute Nacht besser nicht hier aufhalten, sonst wird diese Stadt dein Grab.</target>
+        <target>During a particularly terrifying assault, the town gates were smashed then carried off into the World beyond. You would be well advised not to hang around here tonight or your town will be your tomb.</target>
       </segment>
     </unit>
     <unit id="omwkh4e">
       <notes>
         <note category="german">Das passiert eben, wenn man eine Stadt ohne einen einzigen Einwohner zurücklässt.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/door.html.twig</note>
       </notes>
       <segment>
         <source>Das passiert eben, wenn man eine Stadt ohne einen einzigen Einwohner zurücklässt.</source>
-        <target>Das passiert eben, wenn man eine Stadt ohne einen einzigen Einwohner zurücklässt.</target>
+        <target>That's what happens when you leave a town without anyone to defend it.</target>
       </segment>
     </unit>
     <unit id="WUioDKI" name="Das Stadttor ist zerstört!">
@@ -21093,7 +21067,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="Fu0IcEb">
       <notes>
-        <note category="german">WARNUNG: Es besteht eine große Chance, dass du von anderen Bürgern entdeckt wirst, wenn du jemanden in der Stadt verschlingst! Mach das besser in der Aussenwelt...</note>
+        <note category="german">ACHTUNG: Die Wahrscheinlichkeit entdeckt zu werden ist in der Stadt wesentlich höher. Warum nicht ein kleiner Mord in der Außenwelt? Das wird kaum einer merken...</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
@@ -22588,13 +22562,12 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="UOD7ZoJ">
       <notes>
-        <note category="german">Ermordet zu werden ist äußerst ärgerlich (ja, wirklich!). Aber wir bitten dich dringend, &lt;u&gt;die Identität deines Mörders gegenüber deinen ehemaligen Mitbürgern nicht aufzudecken&lt;/u&gt;... Lass ihnen das Vergnügen, selbst ermitteln zu müssen!</note>
+        <note category="german">Auf eine derart hinterhältige Art umgebracht zu werden ist schwer zu verdauen (doch, doch!). Dennoch möchten wir dich bitten, &lt;u&gt;deinen Mitbürgern die Identität deines Mörders nicht zu verraten&lt;/u&gt;... Lass ihnen den Spaß, deinen mysteriösen Todesfall selbst zu untersuchen!</note>
         <note category="from">twig:///templates/ajax/soul/death.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ermordet zu werden ist äußerst ärgerlich (ja, wirklich!). Aber wir bitten dich dringend, &lt;u&gt;die Identität deines Mörders gegenüber deinen ehemaligen Mitbürgern nicht aufzudecken&lt;/u&gt;... Lass ihnen das Vergnügen, selbst ermitteln zu müssen!</source>
-        <target><![CDATA[Ermordet zu werden ist äußerst ärgerlich (ja, wirklich!). Aber wir bitten dich dringend, <u>die Identität deines Mörders gegenüber deinen ehemaligen Mitbürgern nicht aufzudecken</u>... Lass ihnen das Vergnügen, selbst ermitteln zu müssen!]]></target>
+        <target><![CDATA[Being murdered is a bitter pill to swallow (really, it is). But we strongly recommend you to <u>not reveal the name of your murderer to your former fellow citizens</u>... Leave them to enjoy the thrill of the hunt!]]></target>
       </segment>
     </unit>
     <unit id="2GAQ12V" name="Fortfahren...">
@@ -22735,7 +22708,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <notes>
         <note category="german">Barhändiger Stripper</note>
         <note category="from">db://AwardPrototype</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Barhändiger Stripper</source>
@@ -22809,11 +22781,390 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <notes>
         <note category="german">Es ist dir gelungen, {item} von {victim} zu stehlen &lt;strong&gt;ohne entdeckt zu werden&lt;/strong&gt;. Nicht schlecht!</note>
         <note category="from">php:///src/Controller/InventoryAwareController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Es ist dir gelungen, {item} von {victim} zu stehlen &lt;strong&gt;ohne entdeckt zu werden&lt;/strong&gt;. Nicht schlecht!</source>
         <target><![CDATA[You have stolen the {item} from {victim} <strong>without anyone noticing</strong>. Damn! You've got skills...]]></target>
+      </segment>
+    </unit>
+    <unit id="3gqgsBC" name="Du hast keine Seelenpunkte gewonnen (am ersten Tag gestorben).">
+      <notes>
+        <note category="german">Du hast keine Seelenpunkte gewonnen (am ersten Tag gestorben).</note>
+        <note category="from">twig:///templates/ajax/soul/death.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Du hast keine Seelenpunkte gewonnen (am ersten Tag gestorben).</source>
+        <target>Du hast keine Seelenpunkte gewonnen (am ersten Tag gestorben).</target>
+      </segment>
+    </unit>
+    <unit id="5kMswLn">
+      <notes>
+        <note category="german">Die Stadt hat folgende Gegenstände in Folge der Hinrichtung von {shunned} zurückerhalten: {list}</note>
+        <note category="from">db://LogEntryTemplate</note>
+      </notes>
+      <segment>
+        <source>Die Stadt hat folgende Gegenstände in Folge der Hinrichtung von {shunned} zurückerhalten: {list}</source>
+        <target>The town received following item(s) after hanging {shunned}: {list}</target>
+      </segment>
+    </unit>
+    <unit id="SwF.EK1" name="Du kannst kein(en) {item} per Post versenden.">
+      <notes>
+        <note category="german">Du kannst kein(en) {item} per Post versenden.</note>
+        <note category="from">php:///src/Controller/Messages/MessageTownMessageController.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Du kannst kein(en) {item} per Post versenden.</source>
+        <target>Du kannst kein(en) {item} per Post versenden.</target>
+      </segment>
+    </unit>
+    <unit id="FWgGHVi">
+      <notes>
+        <note category="german">Die Bürger haben entschieden, {citizen} zu &lt;strong&gt;erhängen&lt;/strong&gt;!! Der Galgen wurde im Zuge dieser gewalttätigen Aktion &lt;strong&gt;zerstört&lt;/strong&gt;!</note>
+        <note category="from">db://LogEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Die Bürger haben entschieden, {citizen} zu &lt;strong&gt;erhängen&lt;/strong&gt;!! Der Galgen wurde im Zuge dieser gewalttätigen Aktion &lt;strong&gt;zerstört&lt;/strong&gt;!</source>
+        <target><![CDATA[Die Bürger haben entschieden, {citizen} zu <strong>erhängen</strong>!! Der Galgen wurde im Zuge dieser gewalttätigen Aktion <strong>zerstört</strong>!]]></target>
+      </segment>
+    </unit>
+    <unit id="xQMsReM">
+      <notes>
+        <note category="german">Die Bürger haben entschieden, {citizen} in den &lt;strong&gt;Fleischkäfig&lt;/strong&gt; zu zerren und dort zum Vergnügen aller zu steinigen... Die Stadt hat &lt;strong&gt;+{def} temporäre Stadtverteidigung&lt;/strong&gt; erhalten!</note>
+        <note category="from">db://LogEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Die Bürger haben entschieden, {citizen} in den &lt;strong&gt;Fleischkäfig&lt;/strong&gt; zu zerren und dort zum Vergnügen aller zu steinigen... Die Stadt hat &lt;strong&gt;+{def} temporäre Stadtverteidigung&lt;/strong&gt; erhalten!</source>
+        <target><![CDATA[Die Bürger haben entschieden, {citizen} in den <strong>Fleischkäfig</strong> zu zerren und dort zum Vergnügen aller zu steinigen... Die Stadt hat <strong>+{def} temporäre Stadtverteidigung</strong> erhalten!]]></target>
+      </segment>
+    </unit>
+    <unit id="YSYYhvU" name="Anonyme Beschwerde ({num} insgesamt)">
+      <notes>
+        <note category="german">Anonyme Beschwerde ({num} insgesamt)</note>
+        <note category="from">php:///src/Controller/Messages/MessageTownMessageController.php;php:///src/Controller/Town/TownHomeController.php</note>
+      </notes>
+      <segment>
+        <source>Anonyme Beschwerde ({num} insgesamt)</source>
+        <target>Anonymous complaint ({num} in total)</target>
+      </segment>
+    </unit>
+    <unit id="_IO1rgo" name="Beschwerde zurückgezogen (es bleiben noch {num} Stück)">
+      <notes>
+        <note category="german">Beschwerde zurückgezogen (es bleiben noch {num} Stück)</note>
+        <note category="from">php:///src/Controller/Messages/MessageTownMessageController.php;php:///src/Controller/Town/TownHomeController.php</note>
+      </notes>
+      <segment>
+        <source>Beschwerde zurückgezogen (es bleiben noch {num} Stück)</source>
+        <target>Complaint Withdrawn ({num} remaining)</target>
+      </segment>
+    </unit>
+    <unit id="HHYz9.Q" name="{deaths} Bürger sind beim heutigen Angriff gestorben!">
+      <notes>
+        <note category="german">{deaths} Bürger sind beim heutigen Angriff gestorben!</note>
+        <note category="from">db://LogEntryTemplate</note>
+      </notes>
+      <segment>
+        <source>{deaths} Bürger sind beim heutigen Angriff gestorben!</source>
+        <target>{deaths} citizens died during the attack!</target>
+      </segment>
+    </unit>
+    <unit id="iLdX6jg">
+      <notes>
+        <note category="german">Doch leider ist der letzte Bürger tot, bevor die Horde die Stadttore erreicht... Seine Zunge hängt zwischen den Zähnen seines ehemaligen Freundes...</note>
+        <note category="from">db://LogEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Doch leider ist der letzte Bürger tot, bevor die Horde die Stadttore erreicht... Seine Zunge hängt zwischen den Zähnen seines ehemaligen Freundes...</source>
+        <target>Doch leider ist der letzte Bürger tot, bevor die Horde die Stadttore erreicht... Seine Zunge hängt zwischen den Zähnen seines ehemaligen Freundes...</target>
+      </segment>
+    </unit>
+    <unit id="wey0ykd">
+      <notes>
+        <note category="german">&lt;strong&gt;Herzlichen Glückwunsch&lt;/strong&gt;, du hast folgende Titel freigeschaltet: {list_c} {list_i} {list_t}</note>
+        <note category="from">db://LogEntryTemplate</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Herzlichen Glückwunsch&lt;/strong&gt;, du hast folgende Titel freigeschaltet: {list_c} {list_i} {list_t}</source>
+        <target><![CDATA[<strong>Congratulations</strong>, you have unlocked the following titles: {list_c} {list_i} {list_t}]]></target>
+      </segment>
+    </unit>
+    <unit id="wprx15y" name="Jeder Mensch zählt 2 Punkte, Zombies zählen je 1 Punkt.">
+      <notes>
+        <note category="german">Jeder Mensch zählt 2 Punkte, Zombies zählen je 1 Punkt.</note>
+        <note category="from">twig:///templates/ajax/game/beyond/beyond.html.twig</note>
+      </notes>
+      <segment>
+        <source>Jeder Mensch zählt 2 Punkte, Zombies zählen je 1 Punkt.</source>
+        <target>Each Human is worth 2 points, each zombie is worth 1 point.</target>
+      </segment>
+    </unit>
+    <unit id="3yKx05X">
+      <notes>
+        <note category="german">Wenn die Gesamtpunktzahl aller Menschen in einer Zone &lt;strong&gt;mindestens so groß&lt;/strong&gt; wie die der Zombies ist, kann dir nichts geschehen... vorerst zumindest.</note>
+        <note category="from">twig:///templates/ajax/game/beyond/beyond.html.twig</note>
+      </notes>
+      <segment>
+        <source>Wenn die Gesamtpunktzahl aller Menschen in einer Zone &lt;strong&gt;mindestens so groß&lt;/strong&gt; wie die der Zombies ist, kann dir nichts geschehen... vorerst zumindest.</source>
+        <target><![CDATA[If the number of Human points is <strong>equal to or more than</strong> the total number of Zombie points, you are in no danger.. for now...]]></target>
+      </segment>
+    </unit>
+    <unit id="29qg.oG" name="Dieser Registereintrag kann &lt;strong&gt;nicht&lt;/strong&gt; gefälscht werden.">
+      <notes>
+        <note category="german">Dieser Registereintrag kann &lt;strong&gt;nicht&lt;/strong&gt; gefälscht werden.</note>
+        <note category="from">php:///src/Controller/GameController.php</note>
+      </notes>
+      <segment>
+        <source>Dieser Registereintrag kann &lt;strong&gt;nicht&lt;/strong&gt; gefälscht werden.</source>
+        <target><![CDATA[It is <strong>impossible</strong> to tamper with this kind of entry in the register.]]></target>
+      </segment>
+    </unit>
+    <unit id="sTNvpIH" name="Klicke hier, um seine Informationen anzuzeigen">
+      <notes>
+        <note category="german">Klicke hier, um seine Informationen anzuzeigen</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Klicke hier, um seine Informationen anzuzeigen</source>
+        <target>Klicke hier, um seine Informationen anzuzeigen</target>
+      </segment>
+    </unit>
+    <unit id="vuquyit" name="Ganz genau, das bist du!">
+      <notes>
+        <note category="german">Ganz genau, das bist du!</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Ganz genau, das bist du!</source>
+        <target>Ganz genau, das bist du!</target>
+      </segment>
+    </unit>
+    <unit id="OjUho9K" name="gesichertes Haus">
+      <notes>
+        <note category="german">gesichertes Haus</note>
+        <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>gesichertes Haus</source>
+        <target>gesichertes Haus</target>
+      </segment>
+    </unit>
+    <unit id="OpG5aGF">
+      <notes>
+        <note category="german">In dieses Haus kann &lt;strong&gt;nicht eingebrochen&lt;/strong&gt; werden. Es ist durch ein Schloss oder etwas anderes gesichert...</note>
+        <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>In dieses Haus kann &lt;strong&gt;nicht eingebrochen&lt;/strong&gt; werden. Es ist durch ein Schloss oder etwas anderes gesichert...</source>
+        <target><![CDATA[In dieses Haus kann <strong>nicht eingebrochen</strong> werden. Es ist durch ein Schloss oder etwas anderes gesichert...]]></target>
+      </segment>
+    </unit>
+    <unit id="y9.hV9G">
+      <notes>
+        <note category="german">Das Stadttor wurde bereits von einem anderen pflichtbewussten Bürger geschlossen.</note>
+        <note category="from">twig:///templates/scripts/errors/town.txt.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Das Stadttor wurde bereits von einem anderen pflichtbewussten Bürger geschlossen.</source>
+        <target>Das Stadttor wurde bereits von einem anderen pflichtbewussten Bürger geschlossen.</target>
+      </segment>
+    </unit>
+    <unit id="ejlTArB">
+      <notes>
+        <note category="german">Du nimmst diese wandernde Seele und betest, dass der Schamane weiß, wie man diesen Trank zubereitet! Und du überlebst! Was für ein Glück, du hätten keine müde Mark auf den Scharlatan gewettet.</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Du nimmst diese wandernde Seele und betest, dass der Schamane weiß, wie man diesen Trank zubereitet! Und du überlebst! Was für ein Glück, du hätten keine müde Mark auf den Scharlatan gewettet.</source>
+        <target>Du nimmst diese wandernde Seele und betest, dass der Schamane weiß, wie man diesen Trank zubereitet! Und du überlebst! Was für ein Glück, du hätten keine müde Mark auf den Scharlatan gewettet.</target>
+      </segment>
+    </unit>
+    <unit id="qAzHNHe" name="Die Seele in MyHordes">
+      <notes>
+        <note category="german">Die Seele in MyHordes</note>
+        <note category="from">twig:///templates/ajax/soul/me.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
+      </notes>
+      <segment>
+        <source>Die Seele in MyHordes</source>
+        <target>The Soul in MyHordes</target>
+      </segment>
+    </unit>
+    <unit id="NRlmARU" name="Gerechtigkeit in MyHordes">
+      <notes>
+        <note category="german">Gerechtigkeit in MyHordes</note>
+        <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
+      </notes>
+      <segment>
+        <source>Gerechtigkeit in MyHordes</source>
+        <target>Justice in MyHordes</target>
+      </segment>
+    </unit>
+    <unit id="ahBv_BV" name="Def.">
+      <notes>
+        <note category="german">Def.</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Def.</source>
+        <target>Def.</target>
+      </segment>
+    </unit>
+    <unit id="1czlTIt" name="Zeigt die Hausverteidigung an.">
+      <notes>
+        <note category="german">Zeigt die Hausverteidigung an.</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig</note>
+      </notes>
+      <segment>
+        <source>Zeigt die Hausverteidigung an.</source>
+        <target>Indicates the defensive rating of a house.</target>
+      </segment>
+    </unit>
+    <unit id="2wFXnDs" name="Dieser Wert spiegelt die Anwesenheit und Aktivität eines jeden Bürgers wider.">
+      <notes>
+        <note category="german">Dieser Wert spiegelt die Anwesenheit und Aktivität eines jeden Bürgers wider.</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen_omniscience.html.twig</note>
+      </notes>
+      <segment>
+        <source>Dieser Wert spiegelt die Anwesenheit und Aktivität eines jeden Bürgers wider.</source>
+        <target>This score reflects how active a player is and whether they connect regularly.</target>
+      </segment>
+    </unit>
+    <unit id="bC01IWH" name="Löschen">
+      <notes>
+        <note category="german">Löschen</note>
+        <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
+      </notes>
+      <segment>
+        <source>Löschen</source>
+        <target>Delete</target>
+      </segment>
+    </unit>
+    <unit id="5JJ5qLV" name="Meine persönliche Nachricht ändern">
+      <notes>
+        <note category="german">Meine persönliche Mitteilung ändern</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig</note>
+      </notes>
+      <segment>
+        <source>Meine persönliche Nachricht ändern</source>
+        <target>Change my personal message</target>
+      </segment>
+    </unit>
+    <unit id="sVxXfQu" name="Einen Aufstand der Verbannten vorbereiten (optional).">
+      <notes>
+        <note category="german">Einen Aufstand der Verbannten vorbereiten (optional).</note>
+        <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Einen Aufstand der Verbannten vorbereiten (optional).</source>
+        <target>Einen Aufstand der Verbannten vorbereiten (optional).</target>
+      </segment>
+    </unit>
+    <unit id="gfklKsJ" name="Du bist der {rolename} dieser Stadt.">
+      <notes>
+        <note category="german">Du bist der {rolename} dieser Stadt.</note>
+        <note category="from">php:///src/DataFixtures/CitizenFixtures.php</note>
+      </notes>
+      <segment>
+        <source>Du bist der {rolename} dieser Stadt.</source>
+        <target>You are the {rolename} of the town.</target>
+      </segment>
+    </unit>
+    <unit id="0lP3VYZ">
+      <notes>
+        <note category="german">Solange dieser Bürger &lt;strong&gt;vor Angst erstarrt&lt;/strong&gt; ist, wird es für ihn unmöglich sein, inmitten von Zombies zu handeln...</note>
+        <note category="from">twig:///templates/scripts/errors/beyond.txt.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Solange dieser Bürger &lt;strong&gt;vor Angst erstarrt&lt;/strong&gt; ist, wird es für ihn unmöglich sein, inmitten von Zombies zu handeln...</source>
+        <target><![CDATA[Solange dieser Bürger <strong>vor Angst erstarrt</strong> ist, wird es für ihn unmöglich sein, inmitten von Zombies zu handeln...]]></target>
+      </segment>
+    </unit>
+    <unit id="gROS3fP">
+      <notes>
+        <note category="german">Mit dieser Aktion kannst du die Stadt betreten, ohne dass es ins Stadtregister eingetragen wird. Wenn du ein paar Spieler eskortierst, werden diese am Stadttor zurückgelassen.</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Mit dieser Aktion kannst du die Stadt betreten, ohne dass es ins Stadtregister eingetragen wird. Wenn du ein paar Spieler eskortierst, werden diese am Stadttor zurückgelassen.</source>
+        <target>Mit dieser Aktion kannst du die Stadt betreten, ohne dass es ins Stadtregister eingetragen wird. Wenn du ein paar Spieler eskortierst, werden diese am Stadttor zurückgelassen.</target>
+      </segment>
+    </unit>
+    <unit id="PanD2KO">
+      <notes>
+        <note category="german">Mit dieser Aktion kannst du deinen unersättlichen Hunger nach Menschenfleisch stillen!</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Mit dieser Aktion kannst du deinen unersättlichen Hunger nach Menschenfleisch stillen!</source>
+        <target>Mit dieser Aktion kannst du deinen unersättlichen Hunger nach Menschenfleisch stillen!</target>
+      </segment>
+    </unit>
+    <unit id="lt7mbY8">
+      <notes>
+        <note category="german">Mit dieser Aktion kannst du die Stadt verlassen, ohne dass es ins Stadtregister eingetragen wird.</note>
+        <note category="from">twig:///templates/ajax/game/town/door.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Mit dieser Aktion kannst du die Stadt verlassen, ohne dass es ins Stadtregister eingetragen wird.</source>
+        <target>Mit dieser Aktion kannst du die Stadt verlassen, ohne dass es ins Stadtregister eingetragen wird.</target>
+      </segment>
+    </unit>
+    <unit id="EnGH19o" name="in der Außenwelt">
+      <notes>
+        <note category="german">in der Außenwelt</note>
+        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>in der Außenwelt</source>
+        <target>in der Außenwelt</target>
+      </segment>
+    </unit>
+    <unit id="aeVr7d_" name="in der Stadt">
+      <notes>
+        <note category="german">in der Stadt</note>
+        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>in der Stadt</source>
+        <target>in der Stadt</target>
+      </segment>
+    </unit>
+    <unit id="BdS7W9e">
+      <notes>
+        <note category="german">Die Anzahl der Sterne gibt dir eine Vorstellung von der heutigen Aktivität des Einwohners {citizen}: Anwesenheit, Besuche im Forum, Arbeit im Dorf, etc.</note>
+        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Die Anzahl der Sterne gibt dir eine Vorstellung von der heutigen Aktivität des Einwohners {citizen}: Anwesenheit, Besuche im Forum, Arbeit im Dorf, etc.</source>
+        <target>Die Anzahl der Sterne gibt dir eine Vorstellung von der heutigen Aktivität des Einwohners {citizen}: Anwesenheit, Besuche im Forum, Arbeit im Dorf, etc.</target>
+      </segment>
+    </unit>
+    <unit id="Cjw8Lfc">
+      <notes>
+        <note category="german">Du kannst diese Aktion im Lernmodus nicht ausführen. &lt;strong&gt;Zuerst musst du noch etwas Spielerfahrung sammeln&lt;/strong&gt;.&lt;hr/&gt;Klicke auf den Link bei Lernmodus, um diesen Modus zu deaktivieren.</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
+      </notes>
+      <segment>
+        <source>Du kannst diese Aktion im Lernmodus nicht ausführen. &lt;strong&gt;Zuerst musst du noch etwas Spielerfahrung sammeln&lt;/strong&gt;.&lt;hr/&gt;Klicke auf den Link bei Lernmodus, um diesen Modus zu deaktivieren.</source>
+        <target><![CDATA[You cannot do this in rookie mode. Basically, <strong>this action requires you to have greater experience of the game</strong>.<hr/>You can deactivate rookie mode by clicking the link in the info box.]]></target>
       </segment>
     </unit>
   </file>

@@ -8338,12 +8338,11 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
     <unit id="Otkd6Tw" name="Allgemeine Regeln">
       <notes>
         <note category="german">Allgemeine Regeln</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/help/use_of_external_scripts.html.twig</note>
       </notes>
       <segment>
         <source>Allgemeine Regeln</source>
-        <target>Allgemeine Regeln</target>
+        <target>General Rules</target>
       </segment>
     </unit>
     <unit id="7b2MzR_">

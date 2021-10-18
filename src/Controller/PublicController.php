@@ -23,6 +23,7 @@ use App\Service\UserFactory;
 use App\Response\AjaxResponse;
 use App\Service\UserHandler;
 use App\Structures\MyHordesConf;
+use DateTime;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
@@ -30,11 +31,9 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
-use Symfony\Component\Security\Core\Encoder\PasswordEncoderInterface;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
-use Symfony\Component\Security\Http\Authenticator\Passport\UserPassportInterface;
 use Symfony\Component\Validator\Constraints;
 use Symfony\Component\Validator\ConstraintViolationInterface;
 use Symfony\Component\Validator\Context\ExecutionContextInterface;
@@ -332,12 +331,17 @@ class PublicController extends CustomAbstractController
             $referred_player = null;
             if ($parser->has('refer', true)) {
 
-                $refer = $parser->get('refer', true);
-
-                $refer = $this->entity_manager->getRepository(UserReferLink::class)->findOneBy(['name' => $refer, 'active' => true]);
+                $refer_name = $parser->get('refer', null);
+                $refer = $refer_name ? $this->entity_manager->getRepository(UserReferLink::class)->findOneBy(['name' => $refer_name, 'active' => true]) : null;
 
                 if ($refer) $referred_player = $refer->getUser();
-                else return AjaxResponse::error( 'invalid_fields', ['fields' => [$translator->trans('Der eingegebene Pate ist ungültig. Um dich ohne einen Paten anzumelden, lasse das Feld frei.', [], 'login')]] );
+                else {
+
+                    $potential_player = $this->entity_manager->getRepository(User::class)->findOneByNameOrDisplayName($refer_name);
+                    if ($potential_player)
+                        return AjaxResponse::error('invalid_fields', ['fields' => [$translator->trans('Der eingegebene Spieler ist nicht für das Patenschafts-Programm registriert. Bitte ihn, die "Freundschaft"-Seite in seiner Seele aufzurufen; er wird dann automatisch registriert. Erst dann kannst du ihn als Sponsor auswählen.', [], 'login')]]);
+                    else return AjaxResponse::error('invalid_fields', ['fields' => [$translator->trans('Der eingegebene Pate ist ungültig. Um dich ohne einen Paten anzumelden, lasse das Feld frei.', [], 'login')]]);
+                }
             }
 
             $user = $factory->createUser(
@@ -398,7 +402,7 @@ class PublicController extends CustomAbstractController
      * @param SessionInterface $session
      * @return Response
      */
-    public function login_via_etwin(string $code, TranslatorInterface $translator, EternalTwinHandler $etwin, SessionInterface $session): Response {
+    public function login_via_etwin(string $code, TranslatorInterface $translator, EternalTwinHandler $etwin, SessionInterface $session, UserHandler $userHandler): Response {
 
         $myhordes_user = $this->getUser();
         if ($myhordes_user && $myhordes_user->getEternalID())
@@ -425,6 +429,24 @@ class PublicController extends CustomAbstractController
             $session->set('_etwin_login', $potential_user !== null && $myhordes_user === null);
             $session->set('_etwin_local', $myhordes_user ? $myhordes_user->getId() : null);
 
+            // Update user name
+            if ($potential_user !== null && $myhordes_user === null) {
+                $etu = substr($user->getDisplayName(),0,32);
+
+                if ($etu !== $potential_user->getName() && $userHandler->isNameValid($etu)) {
+                    $history = $potential_user->getNameHistory() ?? [];
+                    if(!in_array($etu, $history))
+                        $history[] = $etu;
+                    $potential_user->setNameHistory(array_filter(array_unique($history)));
+                    $this->entity_manager->persist( $potential_user->setDisplayName( $potential_user->getUsername() === $etu ? null : $etu )->setLastNameChange(new DateTime()) );
+
+                    try {
+                        $this->entity_manager->flush();
+                        $this->addFlash('notice', $translator->trans('Du hast deinen Anzeigenamen auf EternalTwin geändert. Wir haben diese Änderung soeben für dich übernommen!', [], 'login'));
+                    } catch (Exception $e) {}
+                }
+            }
+
             return $this->render( 'ajax/public/et_welcome.html.twig', [
                 'refer' => $session->get('refer'),
                 'etwin_user' => $user,
@@ -445,13 +467,14 @@ class PublicController extends CustomAbstractController
      * @param JSONRequestParser $parser
      * @param SessionInterface $session
      * @param UserFactory $userFactory
-     * @param UserPasswordEncoderInterface $pass
+     * @param UserPasswordHasherInterface $pass
      * @param TranslatorInterface $trans
      * @param ConfMaster $conf
+     * @param TranslatorInterface $translator
      * @return Response
      */
     public function etwin_confirm_api(Request $request, JSONRequestParser $parser, SessionInterface $session, UserFactory $userFactory,
-                                      UserPasswordEncoderInterface $pass, TranslatorInterface $trans, ConfMaster $conf, TranslatorInterface $translator): Response {
+                                      UserPasswordHasherInterface $pass, TranslatorInterface $trans, ConfMaster $conf, TranslatorInterface $translator, UserHandler $userHandler): Response {
 
         $myhordes_user = $this->getUser();
         $password = $parser->get('pass', null);
@@ -467,21 +490,9 @@ class PublicController extends CustomAbstractController
             /** @var User $myhordes_user */
             $myhordes_user = $this->entity_manager->getRepository(User::class)->findOneByEternalID( $etwin_user->getID() );
 
-            // Update display name
-            if ($myhordes_user) {
-                $etu = substr($etwin_user->getDisplayName(),0,32);
-                $this->entity_manager->persist( $myhordes_user->setDisplayName( $myhordes_user->getUsername() === $etu ? null : $etu ) );
-
-                try {
-                    $this->entity_manager->flush();
-                } catch (Exception $e) {
-                    return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
-                }
-
+            if ($myhordes_user)
                 return new RedirectResponse($this->generateUrl( 'api_login' ));
-
-            } else return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-
+            else return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
         }
 
         // Case B - Account Creation
@@ -534,13 +545,21 @@ class PublicController extends CustomAbstractController
             $referred_player = null;
             if ($parser->has('refer', true)) {
 
-                $refer = $parser->get('refer', true);
-
-                $refer = $this->entity_manager->getRepository(UserReferLink::class)->findOneBy(['name' => $refer, 'active' => true]);
+                $refer_name = $parser->get('refer', null);
+                $refer = $refer_name ? $this->entity_manager->getRepository(UserReferLink::class)->findOneBy(['name' => $refer_name, 'active' => true]) : null;
 
                 if ($refer) $referred_player = $refer->getUser();
-                else return AjaxResponse::error( 'invalid_fields', ['fields' => [$translator->trans('Der eingegebene Pate ist ungültig. Um dich ohne einen Paten anzumelden, lasse das Feld frei.', [], 'login')]] );
+                else {
+
+                    $potential_player = $this->entity_manager->getRepository(User::class)->findOneByNameOrDisplayName($refer_name);
+                    if ($potential_player)
+                        return AjaxResponse::error('invalid_fields', ['fields' => [$translator->trans('Der eingegebene Spieler ist nicht für das Patenschafts-Programm registriert. Bitte ihn, die "Freundschaft"-Seite in seiner Seele aufzurufen; er wird dann automatisch registriert. Erst dann kannst du ihn als Sponsor auswählen.', [], 'login')]]);
+                    else return AjaxResponse::error('invalid_fields', ['fields' => [$translator->trans('Der eingegebene Pate ist ungültig. Um dich ohne einen Paten anzumelden, lasse das Feld frei.', [], 'login')]]);
+                }
             }
+
+            if ( !$userHandler->isNameValid( preg_replace('/[^\w]/', '', trim($etwin_user->getDisplayName())) ) )
+                return AjaxResponse::errorMessage($this->translator->trans('Dein EternalTwin-Benutzername enthält Elemente, die auf MyHordes nicht gestattet sind. Bitte ändere deinen Namen auf EternalTwin, um dich auf MyHordes anmelden zu können.', [], 'login') );
 
             $new_user = $userFactory->importUser( $etwin_user, $parser->get('mail1'), false, $error );
 
@@ -659,9 +678,11 @@ class PublicController extends CustomAbstractController
             $this->entity_manager->flush();
         } catch(Exception $e) {}
 
+        // return new Response('', 200, ['X-AJAX-Control' => 'reload']);
+
         if (!$user->getValidated())
-            return new AjaxResponse( ['success' => true, 'require_validation' => true ] );
-        else return new AjaxResponse( ['success' => true, 'require_validation' => false ] );
+            return (new AjaxResponse( ['success' => true, 'require_validation' => true ] ))->setAjaxControl(AjaxResponse::AJAX_CONTROL_RESET);
+        else return (new AjaxResponse( ['success' => true, 'require_validation' => false ] ))->setAjaxControl(AjaxResponse::AJAX_CONTROL_RESET);
     }
 
     /**

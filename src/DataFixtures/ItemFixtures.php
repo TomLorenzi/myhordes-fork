@@ -6,7 +6,7 @@ use App\Entity\ItemCategory;
 use App\Entity\ItemProperty;
 use App\Entity\ItemPrototype;
 use Doctrine\Bundle\FixturesBundle\Fixture;
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Helper\Table;
@@ -110,7 +110,7 @@ class ItemFixtures extends Fixture
         ['label' => 'Solide Holzplatte', 'icon' => 'wood_plate', 'category' => 'Armor', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                                    // -- ---
         ['label' => 'Autotür', 'icon' => 'car_door', 'category' => 'Armor', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 40],                                                // -- ---
         ['label' => 'Fackel', 'icon' => 'torch', 'category' => 'Armor', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 15],                                                   // -- Out
-		    ['label' => 'Dackel', 'icon' => 'tekel', 'category' => 'Armor', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                                  // -- Out
+        ['label' => 'Dackel', 'icon' => 'tekel', 'category' => 'Armor', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0, 'deco_text' => 'Verbessert die Verteidigung und verhindert Diebstähle'],                                                  // -- Out
 		
 		
         ['label' => 'Aqua-Splash (leer)', 'icon' => 'watergun_opt_empty', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                          // In Out
@@ -787,7 +787,7 @@ class ItemFixtures extends Fixture
         'pc_#00'                     => [ 'box_opener', 'nw_ikea', 'nw_armory' ],
         'door_#00'                   => [ 'impoundable', 'defence' ],
         'car_door_#00'               => [ 'impoundable', 'defence' ],
-        'pet_dog_#00'                => [ 'impoundable', 'defence', 'pet', 'esc_fixed' ],
+        'pet_dog_#00'                => [ 'impoundable', 'defence', 'pet', 'esc_fixed', 'lock' ],
         'plate_#00'                  => [ 'impoundable', 'defence' ],
         'torch_#00'                  => [ 'impoundable', 'defence', 'weapon', 'nw_ikea', 'nw_armory', 'prevent_night' ],
         'tekel_#00'                  => [ 'impoundable', 'defence', 'lock', 'pet' ],
@@ -846,7 +846,7 @@ class ItemFixtures extends Fixture
         'disinfect_#00'              => [ 'impoundable', 'drug' ],
         'drug_#00'                   => [ 'can_poison', 'impoundable', 'drug' ],
         'drug_hero_#00'              => [ 'impoundable', 'drug', 'esc_fixed' ],
-        'drug_random_#00'            => [ 'impoundable', 'drug' ],
+        'drug_random_#00'            => [ 'drug' ],
         'beta_drug_bad_#00'          => [ 'impoundable', 'drug' ],
         'beta_drug_#00'              => [ 'impoundable', 'drug' ],
         'xanax_#00'                  => [ 'impoundable', 'drug', 'hero_find_lucky' ],
@@ -1251,6 +1251,7 @@ class ItemFixtures extends Fixture
                 ->setSort( $entry['sort'] ?? 0 )
                 ->setDescription( static::$item_desc_data[ $entry_unique_id ] ?? "" )
                 ->setHideInForeignChest( $entry['hideInForeignChest'] ?? false )
+                ->setDecoText($entry['deco_text'] ?? null)
                 ->getProperties()->clear();
 
             $entity

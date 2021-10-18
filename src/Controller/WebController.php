@@ -6,6 +6,7 @@ use App\Annotations\GateKeeperProfile;
 use App\Controller\Admin\AdminActionController;
 use App\Controller\CustomAbstractController;
 use App\Entity\AdminAction;
+use App\Entity\Award;
 use App\Entity\ExternalApp;
 use App\Entity\OfficialGroup;
 use App\Entity\User;
@@ -41,8 +42,8 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  */
 class WebController extends CustomAbstractController
 {
-    private $version_manager;
-    private $kernel;
+    private VersionManager $version_manager;
+    private KernelInterface $kernel;
 
     public function __construct(VersionManager $v, KernelInterface $k, EntityManagerInterface $e, TranslatorInterface $translator, ConfMaster $conf, TimeKeeperService $tk, CitizenHandler $ch, InventoryHandler $ih)
     {
@@ -78,7 +79,7 @@ class WebController extends CustomAbstractController
         $supporters = [
             'MisterD', 'Mondi', 'Schrödinger', 'Kitsune',
             'MOTZI', 'devwwm', 'tchekof', 'alonsopor', 'Termineitron',
-            'Nayr', 'Rikrdo', 'Valedres', 'Yaken'
+            'Nayr', 'Rikrdo', 'Valedres', 'Yaken', 'Finne'
         ];
         shuffle($supporters);
 
@@ -101,6 +102,8 @@ class WebController extends CustomAbstractController
 
     /**
      * @Route("/ref/{name}")
+     * @param string $name
+     * @param SessionInterface $s
      * @return Response
      */
     public function refer_incoming(string $name, SessionInterface $s): Response
@@ -110,12 +113,37 @@ class WebController extends CustomAbstractController
     }
 
     /**
+     * @Route("/pm", name="home_pm")
+     * @return Response
+     */
+    public function standalone_pm(): Response
+    {
+        if (!$this->isGranted('ROLE_USER'))
+            return $this->redirect($this->generateUrl('home'));
+        return $this->render( 'web/pm-host.html.twig', [] );
+    }
+
+    /**
      * @Route("gateway/eternal-twin", name="gateway-etwin")
      * @param EternalTwinHandler $etwin
      * @return Response
      */
-    public function gateway_etwin(EternalTwinHandler $etwin): Response {
+    public function gateway_etwin(EternalTwinHandler $etwin, SessionInterface $session): Response {
         if (!$etwin->isReady()) return new Response('Error: No gateway to EternalTwin is configured.');
+        $session->set('_etwin_rm', false);
+        $request = Request::createFromGlobals();
+        return new RedirectResponse($etwin->createAuthorizationRequest('etwin-login#' . $request->getHost() . $request->getBaseUrl()));
+    }
+
+    /**
+     * @Route("gateway/rm/eternal-twin", name="gateway-remember-etwin")
+     * @param EternalTwinHandler $etwin
+     * @param SessionInterface $session
+     * @return Response
+     */
+    public function gateway_rm_etwin(EternalTwinHandler $etwin, SessionInterface $session): Response {
+        if (!$etwin->isReady()) return new Response('Error: No gateway to EternalTwin is configured.');
+        $session->set('_etwin_rm', true);
         $request = Request::createFromGlobals();
         return new RedirectResponse($etwin->createAuthorizationRequest('etwin-login#' . $request->getHost() . $request->getBaseUrl()));
     }
@@ -205,12 +233,35 @@ class WebController extends CustomAbstractController
 
         /** @var User $user */
         $user = $this->entity_manager->getRepository(User::class)->find( $uid );
-        if (!$user || !$user->getAvatar()) return $this->cdn_fallback( "avatar/{$uid}/{$name}/{$ext}" );
+        if (!$user || !$user->getAvatar()) return $this->cdn_fallback( "avatar/{$uid}/{$name}.{$ext}" );
         if (($user->getAvatar()->getFilename() !== $name && $user->getAvatar()->getSmallName() !== $name) || $user->getAvatar()->getFormat() !== $ext)
-            return $this->cdn_fallback( "avatar/{$uid}/{$name}/{$ext}" );
+            return $this->cdn_fallback( "avatar/{$uid}/{$name}.{$ext}" );
 
         $target = ($user->getAvatar()->getFilename() === $name || !$user->getAvatar()->getSmallImage()) ? $user->getAvatar()->getImage() : $user->getAvatar()->getSmallImage();
         return $this->image_output($target, $name, $ext);
+    }
+
+    /**
+     * @Route("/cdn/icon/{uid<\d+>}/{aid<\d+>}/{name}.{ext<[\w\d]+>}",requirements={"name"="[0123456789abcdef]{32}"},condition="!request.isXmlHttpRequest()")
+     * @param int $uid
+     * @param int $aid
+     * @param string $name
+     * @param string $ext
+     * @return Response
+     */
+    public function customIcon(int $uid, int $aid, string $name, string $ext): Response
+    {
+        if ($r = $this->check_cache($name)) return $r;
+
+        /** @var Award $award */
+        $user  = $this->entity_manager->getRepository(User::class)->find( $uid );
+        $award = $this->entity_manager->getRepository(Award::class)->find( $aid );
+        if (!$user || !$award || $award->getUser() !== $user || !$award->getCustomIcon())
+            return $this->cdn_fallback( "icon/{$uid}/{$aid}/{$name}.{$ext}" );
+        if ($award->getCustomIconName() !== $name || $award->getCustomIconFormat() !== $ext)
+            return $this->cdn_fallback( "icon/{$uid}/{$aid}/{$name}.{$ext}" );
+
+        return $this->image_output($award->getCustomIcon(), $name, $ext);
     }
 
     /**
@@ -226,9 +277,9 @@ class WebController extends CustomAbstractController
 
         /** @var ExternalApp $app */
         $app = $this->entity_manager->getRepository(ExternalApp::class)->find( $aid );
-        if (!$app || !$app->getImage()) return $this->cdn_fallback( "app/{$aid}/{$name}/{$ext}" );
+        if (!$app || !$app->getImage()) return $this->cdn_fallback( "app/{$aid}/{$name}.{$ext}" );
         if ($app->getImageName() !== $name || $app->getImageFormat() !== $ext)
-            return $this->cdn_fallback( "app/{$aid}/{$name}/{$ext}" );
+            return $this->cdn_fallback( "app/{$aid}/{$name}.{$ext}" );
 
         return $this->image_output($app->getImage(), $name, $ext);
     }
@@ -246,13 +297,13 @@ class WebController extends CustomAbstractController
 
         /** @var UserGroup $group */
         $group = $this->entity_manager->getRepository(UserGroup::class)->find( $gid );
-        if (!$group) return $this->cdn_fallback( "group/{$gid}/{$name}/{$ext}" );
+        if (!$group) return $this->cdn_fallback( "group/{$gid}/{$name}.{$ext}" );
 
         $meta = $this->entity_manager->getRepository(OfficialGroup::class)->findOneBy(['usergroup' => $group]);
-        if (!$meta) return $this->cdn_fallback( "group/{$gid}/{$name}/{$ext}" );
+        if (!$meta) return $this->cdn_fallback( "group/{$gid}/{$name}.{$ext}" );
 
         if ($meta->getAvatarName() !== $name || $meta->getAvatarExt() !== $ext)
-            return $this->cdn_fallback( "group/{$gid}/{$name}/{$ext}" );
+            return $this->cdn_fallback( "group/{$gid}/{$name}.{$ext}" );
 
         return $this->image_output($meta->getIcon(), $name, $ext);
     }

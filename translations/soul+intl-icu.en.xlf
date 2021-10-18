@@ -125,7 +125,7 @@
     <unit id="q8r8gtq" name="Titel">
       <notes>
         <note category="german">Titel</note>
-        <note category="from">twig:///templates/ajax/soul/rps.html.twig</note>
+        <note category="from">php:///src/Structures/TwinoidPayload.php;twig:///templates/ajax/soul/rps.html.twig</note>
       </notes>
       <segment>
         <source>Titel</source>
@@ -195,7 +195,7 @@
     <unit id="3UXNMEe" name="Dieses Dateiformat wird nicht unterstützt.">
       <notes>
         <note category="german">Dieses Dateiformat wird nicht unterstützt.</note>
-        <note category="from">twig:///templates/ajax/admin/apps/edit.html.twig;twig:///templates/ajax/admin/groups/edit.html.twig;twig:///templates/ajax/soul/settings.html.twig;twig:///templates/scripts/errors/profile.txt.twig</note>
+        <note category="from">twig:///templates/ajax/admin/apps/edit.html.twig;twig:///templates/ajax/admin/groups/edit.html.twig;twig:///templates/ajax/admin/widget/controls.twig;twig:///templates/ajax/soul/settings.html.twig;twig:///templates/scripts/errors/profile.txt.twig</note>
       </notes>
       <segment>
         <source>Dieses Dateiformat wird nicht unterstützt.</source>
@@ -235,7 +235,7 @@
     <unit id="TzbDcP2" name="Die Datei ist zu groß.">
       <notes>
         <note category="german">Die Datei ist zu groß.</note>
-        <note category="from">twig:///templates/ajax/admin/apps/edit.html.twig;twig:///templates/ajax/admin/groups/edit.html.twig;twig:///templates/ajax/soul/settings.html.twig;twig:///templates/scripts/errors/profile.txt.twig</note>
+        <note category="from">twig:///templates/ajax/admin/apps/edit.html.twig;twig:///templates/ajax/admin/groups/edit.html.twig;twig:///templates/ajax/admin/widget/controls.twig;twig:///templates/ajax/soul/settings.html.twig;twig:///templates/scripts/errors/profile.txt.twig</note>
       </notes>
       <segment>
         <source>Die Datei ist zu groß.</source>
@@ -365,7 +365,7 @@
     <unit id="rJfU7R2" name="Bitte wähle nur eine einzige Datei aus.">
       <notes>
         <note category="german">Bitte wähle nur eine einzige Datei aus.</note>
-        <note category="from">twig:///templates/ajax/admin/apps/edit.html.twig;twig:///templates/ajax/admin/groups/edit.html.twig;twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/apps/edit.html.twig;twig:///templates/ajax/admin/groups/edit.html.twig;twig:///templates/ajax/admin/widget/controls.twig;twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Bitte wähle nur eine einzige Datei aus.</source>
@@ -586,7 +586,7 @@
     <unit id="lJGEo3w" name="Koalition">
       <notes>
         <note category="german">Koalition</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/shell.html.twig</note>
+        <note category="from">twig:///templates/ajax/ghost/intro.html.twig;twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/shell.html.twig</note>
       </notes>
       <segment>
         <source>Koalition</source>
@@ -3178,166 +3178,151 @@
     <unit id="phHRy7R" name="Du bekommst einen frischen jugendlichen Teint und einen Babypopo.">
       <notes>
         <note category="german">Du bekommst einen frischen jugendlichen Teint und einen Babypopo.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Du bekommst einen frischen jugendlichen Teint und einen Babypopo.</source>
-        <target>Du bekommst einen frischen jugendlichen Teint und einen Babypopo.</target>
+        <target>you will become an influential and respected leader.</target>
       </segment>
     </unit>
     <unit id="yR7_2mq" name="Du bekommst straffere Brüste.">
       <notes>
         <note category="german">Du bekommst straffere Brüste.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Du bekommst straffere Brüste.</source>
-        <target>Du bekommst straffere Brüste.</target>
+        <target>it will really please us.</target>
       </segment>
     </unit>
     <unit id="DmEId2H" name="Bekämpft wirksam deinen Körpergeruch. Deine Mitbürger werden es dir danken!">
       <notes>
         <note category="german">Bekämpft wirksam deinen Körpergeruch. Deine Mitbürger werden es dir danken!</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Bekämpft wirksam deinen Körpergeruch. Deine Mitbürger werden es dir danken!</source>
-        <target>Bekämpft wirksam deinen Körpergeruch. Deine Mitbürger werden es dir danken!</target>
+        <target>you will become the cake.</target>
       </segment>
     </unit>
     <unit id="0vm9fA_" name="Du wirst angenehm nach Orangenblüten duften.">
       <notes>
         <note category="german">Du wirst angenehm nach Orangenblüten duften.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Du wirst angenehm nach Orangenblüten duften.</source>
-        <target>Du wirst angenehm nach Orangenblüten duften.</target>
+        <target>you will feel all squishy inside.</target>
       </segment>
     </unit>
     <unit id="9dCZIYd" name="Du wirst ein respektierter und angesehener Bürger deiner Gemeinschaft.">
       <notes>
         <note category="german">Du wirst ein respektierter und angesehener Bürger deiner Gemeinschaft.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Du wirst ein respektierter und angesehener Bürger deiner Gemeinschaft.</source>
-        <target>Du wirst ein respektierter und angesehener Bürger deiner Gemeinschaft.</target>
+        <target>you will have bright eyes and a shiny coat.</target>
       </segment>
     </unit>
     <unit id="lmPRBJ0" name="Deine natürlichen Abwehrkräfte werden gestärkt.">
       <notes>
         <note category="german">Deine natürlichen Abwehrkräfte werden gestärkt.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Deine natürlichen Abwehrkräfte werden gestärkt.</source>
-        <target>Deine natürlichen Abwehrkräfte werden gestärkt.</target>
+        <target>your natural defenses will be strenghened.</target>
       </segment>
     </unit>
     <unit id="sPSRoTg" name="Du bekommst stahlharte Waschbrettbauchmuskeln.">
       <notes>
         <note category="german">Du bekommst stahlharte Waschbrettbauchmuskeln.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Du bekommst stahlharte Waschbrettbauchmuskeln.</source>
-        <target>Du bekommst stahlharte Waschbrettbauchmuskeln.</target>
+        <target>you will feel more at ease than an average citizen destined to die horribly.</target>
       </segment>
     </unit>
     <unit id="23cz.bn" name="Du hast eine gute Tat vollbracht.">
       <notes>
         <note category="german">Du hast eine gute Tat vollbracht.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Du hast eine gute Tat vollbracht.</source>
-        <target>Du hast eine gute Tat vollbracht.</target>
+        <target>you will have made a good action.</target>
       </segment>
     </unit>
     <unit id="nlq39Ht" name="Die Leute auf der Straße werden sich nach dir umdrehen.">
       <notes>
         <note category="german">Die Leute auf der Straße werden sich nach dir umdrehen.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Die Leute auf der Straße werden sich nach dir umdrehen.</source>
-        <target>Die Leute auf der Straße werden sich nach dir umdrehen.</target>
+        <target>when people see you in the street, they will be captivated by your presence.</target>
       </segment>
     </unit>
     <unit id="bRBEaOX" name="Stärkt dein Zahnfleisch und deine Zähne.">
       <notes>
         <note category="german">Stärkt dein Zahnfleisch und deine Zähne.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Stärkt dein Zahnfleisch und deine Zähne.</source>
-        <target>Stärkt dein Zahnfleisch und deine Zähne.</target>
+        <target>your gums and teeth will be strengthened.</target>
       </segment>
     </unit>
     <unit id="ekcviFN" name="Gib dir das beruhigende Gefühl etwas Gutes getan zu haben.">
       <notes>
         <note category="german">Gib dir das beruhigende Gefühl etwas Gutes getan zu haben.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Gib dir das beruhigende Gefühl etwas Gutes getan zu haben.</source>
-        <target>Gib dir das beruhigende Gefühl etwas Gutes getan zu haben.</target>
+        <target>you will feel that you have done something right.</target>
       </segment>
     </unit>
     <unit id="rrVNfDl" name="Du bekommst einen frischen Atem - schnell und effektiv.">
       <notes>
         <note category="german">Du bekommst einen frischen Atem - schnell und effektiv.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Du bekommst einen frischen Atem - schnell und effektiv.</source>
-        <target>Du bekommst einen frischen Atem - schnell und effektiv.</target>
+        <target>you will get fresh breath - fast and effective.</target>
       </segment>
     </unit>
     <unit id="2rVePUl" name="Die Zombies werden dich lieben, dass du für Nachschub sorgst. ;)">
       <notes>
         <note category="german">Die Zombies werden dich lieben, dass du für Nachschub sorgst. ;)</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Die Zombies werden dich lieben, dass du für Nachschub sorgst. ;)</source>
-        <target>Die Zombies werden dich lieben, dass du für Nachschub sorgst. ;)</target>
+        <target>zombies will love that you take care of the supply ;))</target>
       </segment>
     </unit>
     <unit id="mkKr7.Y" name="Das andere Geschlecht wird dir nicht widerstehen können.">
       <notes>
         <note category="german">Das andere Geschlecht wird dir nicht widerstehen können.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Das andere Geschlecht wird dir nicht widerstehen können.</source>
-        <target>Das andere Geschlecht wird dir nicht widerstehen können.</target>
+        <target>the other sex will not be able to resist you.</target>
       </segment>
     </unit>
     <unit id="Sz2KR6B" name="Verleiht deinem Haar einen seidigen Glanz und stärkt deine Kopfhaut.">
       <notes>
         <note category="german">Verleiht deinem Haar einen seidigen Glanz und stärkt deine Kopfhaut.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Verleiht deinem Haar einen seidigen Glanz und stärkt deine Kopfhaut.</source>
-        <target>Verleiht deinem Haar einen seidigen Glanz und stärkt deine Kopfhaut.</target>
+        <target>your nose hair will grow so long you can stand on it and strum it like a harp.</target>
       </segment>
     </unit>
     <unit id=".BIUTzQ" name="Dieser Vorteil ist von Mal zu Mal verschieden.">
@@ -3585,7 +3570,7 @@
     <unit id="m65CDx_" name="{user} war in der Vergangenheit unter folgenden Namen bekannt:">
       <notes>
         <note category="german">{user} war in der Vergangenheit unter folgenden Namen bekannt:</note>
-        <note category="from">twig:///templates/ajax/soul/badges.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/badges.html.twig</note>
       </notes>
       <segment>
         <source>{user} war in der Vergangenheit unter folgenden Namen bekannt:</source>
@@ -4057,6 +4042,67 @@
       <segment>
         <source>nur Baseline-Format</source>
         <target>baseline format only</target>
+      </segment>
+    </unit>
+    <unit id="qRIZ_Eb" name="Texteditor-Inhalte zur Sicherheit zwischenspeichern">
+      <notes>
+        <note category="german">Texteditor-Inhalte zur Sicherheit zwischenspeichern</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>Texteditor-Inhalte zur Sicherheit zwischenspeichern</source>
+        <target>Automatic save of the forum text editor content</target>
+      </segment>
+    </unit>
+    <unit id="xu7yW0t" name="Alle Saisons auf MyHordes">
+      <notes>
+        <note category="german">Alle Saisons auf MyHordes</note>
+        <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
+      </notes>
+      <segment>
+        <source>Alle Saisons auf MyHordes</source>
+        <target>All MyHordes Seasons</target>
+      </segment>
+    </unit>
+    <unit id="xrovccF" name="Alpha-Seelen">
+      <notes>
+        <note category="german">Alpha-Seelen</note>
+        <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
+      </notes>
+      <segment>
+        <source>Alpha-Seelen</source>
+        <target>Alpha Souls</target>
+      </segment>
+    </unit>
+    <unit id="hTdNGcU" name="Es sind keine Spieler aufgelistet!">
+      <notes>
+        <note category="german">Es sind keine Spieler aufgelistet!</note>
+        <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
+      </notes>
+      <segment>
+        <source>Es sind keine Spieler aufgelistet!</source>
+        <target>No players are listed yet.</target>
+      </segment>
+    </unit>
+    <unit id="QE5H6hD" name="Alte Seelen">
+      <notes>
+        <note category="german">Alte Seelen</note>
+        <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
+      </notes>
+      <segment>
+        <source>Alte Seelen</source>
+        <target>Old Souls</target>
+      </segment>
+    </unit>
+    <unit id="o1q81tr" name="Icon">
+      <notes>
+        <note category="german">Icon</note>
+        <note category="from">php:///src/Structures/TwinoidPayload.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Icon</source>
+        <target>Icon</target>
       </segment>
     </unit>
   </file>

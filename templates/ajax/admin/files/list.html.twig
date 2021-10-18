@@ -1,0 +1,116 @@
+{% extends "ajax/ajax.html.twig" %}
+{% block ajax %}
+    <div class="row">
+            <div class="cell padded header rw-12">
+
+                <ul class="tabs plain" x-tab-group="admin-filesystem" x-tab-control>
+                    <li class="tab" x-tab-id="logs">
+                        <div class="tab-link">{{ 'Systemlogs'|trans({},'admin') }}</div>
+                    </li>
+                    <li class="tab" x-tab-id="backups">
+                        <div class="tab-link">{{ 'Datenbank-Backups'|trans({},'admin') }}</div>
+                    </li>
+                </ul>
+
+                <div x-tab-group="admin-filesystem" x-tab-id="logs" x-tab-target>
+                    <div class="row-table">
+                        <div class="row header">
+                            <div class="padded cell rw-2">{{ 'Datum'|trans({},'admin') }}</div>
+                            <div class="padded cell rw-3">{{ 'Tags'|trans({},'admin') }}</div>
+                            <div class="padded cell rw-5">{{ 'Datei'|trans({},'admin') }}</div>
+                            <div class="padded cell rw-2">{{ 'Aktionen'|trans({},'admin') }}</div>
+                        </div>
+                        {% for log in logs %}
+                            <div class="row">
+                                <div class="padded cell rw-2">
+                                    <b>{{ log.time|format_datetime('short', 'none') }}</b><br />
+                                    <i class="small">{{ log.time|format_datetime('none', 'short') }}</i>
+                                </div>
+                                <div class="padded cell rw-3">
+                                    {% for tag in log.tags %}
+                                        <span class="tag" style="background-color: {{ tag.color }}">{{ tag.tag }}</span>
+                                    {% endfor %}
+                                </div>
+                                <div class="padded cell rw-5">
+                                    <code class="small" style="font-size: 0.7em">{{ log.rel }}</code><br/>
+                                    <i class="small">{{ 'Dateigröße: {s}'|trans({s: '<b>' ~ log.info.size|filesize ~ '</b>' }, 'admin')|raw }}</i>
+                                </div>
+                                <div class="padded cell rw-2 right">
+                                    {% if is_granted("ROLE_ADMIN") %}
+                                        <button class="inline small" x-file-log x-clear="{{ path('api_admin_clear_log', {'f': log.access}) }}"><i class="fa fa-trash"></i></button>
+                                        <button class="inline small" x-file-log x-view="{{ path('admin_log', {'a': 'view', 'f': log.access}) }}"><i class="fa fa-eye"></i></button>
+                                        <button class="inline small" x-file-log x-download="{{ path('admin_log', {'a': 'download', 'f': log.access}) }}"><i class="fa fa-download"></i></button>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div x-tab-group="admin-filesystem" x-tab-id="backups" x-tab-target>
+                    <div class="row-table">
+                        <div class="row header">
+                            <div class="padded cell rw-2">{{ 'Datum'|trans({},'admin') }}</div>
+                            <div class="padded cell rw-3">{{ 'Tags'|trans({},'admin') }}</div>
+                            <div class="padded cell rw-5">{{ 'Datei'|trans({},'admin') }}</div>
+                            <div class="padded cell rw-2">{{ 'Aktionen'|trans({},'admin') }}</div>
+                        </div>
+                        {% for backup in backups %}
+                            <div class="row">
+                                <div class="padded cell rw-2">
+                                    <b>{{ backup.time|format_datetime('short', 'none') }}</b><br />
+                                    <i class="small">{{ backup.time|format_datetime('none', 'short') }}</i>
+                                </div>
+                                <div class="padded cell rw-3">
+                                    {% for tag in backup.tags %}
+                                        <span class="tag" style="background-color: {{ tag.color }}">{{ tag.tag }}</span>
+                                    {% endfor %}
+                                </div>
+                                <div class="padded cell rw-5">
+                                    <code class="small" style="font-size: 0.7em">{{ backup.rel }}</code><br/>
+                                    <i class="small">{{ 'Dateigröße: {s}'|trans({s: '<b>' ~ backup.info.size|filesize ~ '</b>' }, 'admin')|raw }}</i>
+                                </div>
+                                <div class="padded cell rw-2 right">
+                                    {% if is_granted("ROLE_ADMIN") %}
+                                        <button class="inline small" x-file-backup x-clear="{{ path('api_admin_clear_backup', {'f': backup.access}) }}"><i class="fa fa-trash"></i></button>
+                                        <button class="inline small" x-file-backup x-download="{{ path('admin_backup', {'f': backup.access}) }}"><i class="fa fa-download"></i></button>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}
+
+{% block js %}
+    {{ parent() }}
+    <script>
+        {% if is_granted("ROLE_ADMIN") %}
+            $.html.addEventListenerAll('[x-file-log][x-download]', 'click', (e,elem) => {
+                window.open( elem.getAttribute('x-download') );
+            });
+            $.html.addEventListenerAll('[x-file-log][x-view]', 'click', (e,elem) => {
+                window.open( elem.getAttribute('x-view') );
+            });
+            $.html.addEventListenerAll('[x-file-log][x-clear]', 'click', (e,elem) => {
+                if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}')) return;
+                $.ajax.easySend( elem.getAttribute('x-clear'), {}, () => {
+                    $.html.message('notice', 'OK.');
+                    $.ajax.load(null,'{{ path('admin_file_system_dash') }}');
+                } );
+            })
+            $.html.addEventListenerAll('[x-file-backup][x-download]', 'click', (e,elem) => {
+                window.open( elem.getAttribute('x-download') );
+            });
+            $.html.addEventListenerAll('[x-file-backup][x-clear]', 'click', (e,elem) => {
+                if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}')) return;
+                $.ajax.easySend( elem.getAttribute('x-clear'), {}, () => {
+                    $.html.message('notice', 'OK.');
+                    $.ajax.load(null,'{{ path('admin_file_system_dash') }}');
+                } );
+            })
+        {% endif %}
+    </script>
+{% endblock %}

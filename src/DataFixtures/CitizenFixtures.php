@@ -16,9 +16,10 @@ use App\Entity\ItemGroup;
 use App\Entity\ItemGroupEntry;
 use App\Entity\ItemPrototype;
 use App\Entity\PictoPrototype;
+use App\Translation\T;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\Console\Helper\ProgressBar;
@@ -283,8 +284,8 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
     ];
 
     public static $role_data = [
-        ['label' => 'Schamane'                    , 'vote' => true,  'icon' => 'shaman', 'name'=>'shaman', 'hidden' => false, 'secret' => false ],
-        ['label' => 'Reiseleiter in der Außenwelt', 'vote' => true,  'icon' => 'guide',  'name'=>'guide' , 'hidden' => false, 'secret' => false ],
+        ['label' => 'Schamane'                    , 'vote' => true,  'icon' => 'shaman', 'name'=>'shaman', 'hidden' => false, 'secret' => false, 'help_section' => 'shaman' ],
+        ['label' => 'Reiseleiter in der Außenwelt', 'vote' => true,  'icon' => 'guide',  'name'=>'guide' , 'hidden' => false, 'secret' => false, 'help_section' => 'guide_to_the_world_beyond' ],
         ['label' => 'Ghul',                         'vote' => false, 'icon' => 'ghoul',  'name'=>'ghoul' , 'hidden' => false, 'secret' => true, 'message' => 'Du hast dich in einen Ghul verwandelt!' ],
         ['label' => 'Katapult-Bediener',            'vote' => false, 'icon' => 'cata',   'name'=>'cata'  , 'hidden' => true,  'secret' => false ],
     ];
@@ -588,7 +589,10 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
                 ->setVotable( $entry['vote'] )
                 ->setHidden( $entry['hidden'] )
                 ->setSecret( $entry['secret'] )
-                ->setMessage( $entry['message'] ?? null);
+                ->setMessage( $entry['message'] ?? null)
+                ->setHelpSection($entry['help_section'] ?? null);
+
+            T::__("Du bist der {rolename} dieser Stadt.", "game");
 
             $manager->persist( $entity );
 

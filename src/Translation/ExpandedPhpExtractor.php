@@ -272,4 +272,15 @@ class ExpandedPhpExtractor extends PhpExtractor
         return !$this->config->useFileNameMatching();
     }
 
+    /**
+     * {@inheritdoc}
+     */
+    protected function extractFromDirectory($directory)
+    {
+        $files = parent::extractFromDirectory($directory);
+        return $files->filter(function(\SplFileInfo $file) {
+            return $this->canBeExtracted($file->getRealPath());
+        });
+    }
+
 }

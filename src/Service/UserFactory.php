@@ -17,8 +17,8 @@ use App\Entity\UserPendingValidation;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Validator\Validation;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Twig\Environment;
@@ -42,7 +42,7 @@ class UserFactory
     const ErrorTooManyRegistrations = ErrorHelper::BaseUserErrors + 6;
     const ErrorTooManyMails      = ErrorHelper::BaseUserErrors + 7;
 
-    public function __construct( EntityManagerInterface $em, UserPasswordEncoderInterface $passwordEncoder,
+    public function __construct( EntityManagerInterface $em, UserPasswordHasherInterface $passwordEncoder,
                                  Locksmith $l, UrlGeneratorInterface $url, Environment $e, TranslatorInterface $t,
                                  PermissionHandler $p)
     {
@@ -79,7 +79,7 @@ class UserFactory
         }
 
         try {
-            $user->setPassword( $this->encoder->encodePassword($user, $password) );
+            $user->setPassword( $this->encoder->hashPassword($user, $password) );
             $user->setPendingValidation(null);
             $this->entity_manager->persist( $user );
             $this->entity_manager->remove( $pending );
@@ -145,7 +145,7 @@ class UserFactory
         $validator = Validation::createValidator();
 
         $new_user = new User();
-        $new_user->setName( $name )->setEmail( $email )->setPassword( $this->encoder->encodePassword($new_user, $password) )->setValidated( $validated )->setSoulPoints(0);
+        $new_user->setName( $name )->setEmail( $email )->setPassword( $this->encoder->hashPassword($new_user, $password) )->setValidated( $validated )->setSoulPoints(0);
 
         if ($validator->validate($new_user)->count() > 0) {
             $error = self::ErrorInvalidParams;
