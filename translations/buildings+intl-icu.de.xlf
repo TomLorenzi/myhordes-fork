@@ -1288,13 +1288,13 @@
     <unit id="hwqD281">
       <segment>
         <source>Diese Konstruktion kann nur einmal verwendet werden. Sie wird nach dem Angriff der Zombiehorde wieder abgerissen.</source>
-        <target>Diese Konstruktion kann nur einmal verwendet werden. Sie wird nach dem Angriff der Zombiehorde wieder abgerissen.</target>
+        <target><![CDATA[Diese Konstruktion kann nur <strong>einmal</strong> verwendet werden. Sie wird <strong>nach</strong> dem Angriff der Zombiehorde wieder abgerissen.]]></target>
       </segment>
     </unit>
     <unit id="ssWP4ro" name="Wenn ihr wollt, könnt irh sie morgen nochmal bauen.">
       <segment>
         <source>Wenn ihr wollt, könnt irh sie morgen nochmal bauen.</source>
-        <target>Wenn ihr wollt, könnt irh sie morgen nochmal bauen.</target>
+        <target>Wenn ihr wollt, könnt ihr sie morgen nochmal bauen.</target>
       </segment>
     </unit>
     <unit id="ucYQb6D" name="Verbessert die Stadtverteidigung erheblich.">
