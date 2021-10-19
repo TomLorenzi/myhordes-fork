@@ -819,7 +819,7 @@
       </notes>
       <segment>
         <source>Anzahl der angegriffenen Zombies</source>
-        <target>Número de zombis atacantes</target>
+        <target>Cantidad de zombies atacantes</target>
       </segment>
     </unit>
     <unit id="62emNze" name="Anzahl der Verteidigungspunkte">
@@ -829,7 +829,7 @@
       </notes>
       <segment>
         <source>Anzahl der Verteidigungspunkte</source>
-        <target>Número de puntos de defensa del pueblo</target>
+        <target>Cantidad de puntos de defensa del pueblo</target>
       </segment>
     </unit>
     <unit id="v3BuslK" name="Gazette-Text">
@@ -879,7 +879,7 @@
       </notes>
       <segment>
         <source>Anzahl der für den Bau benötigten AP</source>
-        <target>Número de PA necesarios para la construcción</target>
+        <target>Cantidad de PA necesarios para la construcción</target>
       </segment>
     </unit>
     <unit id="biYb4QK" name="aktuelle Lebenspunkte der Site (falls nicht gebaut = 0)">
@@ -1019,7 +1019,7 @@
       </notes>
       <segment>
         <source>Anzahl der Tage überlebt</source>
-        <target>Número de días sobrevividos</target>
+        <target>Cantidad de días sobrevividos</target>
       </segment>
     </unit>
     <unit id="dps99iA" name="Kartentag">
