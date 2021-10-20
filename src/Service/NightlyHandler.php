@@ -505,13 +505,6 @@ class NightlyHandler
                             $citizen->addHeroicAction($newfind);
                         }
                         break;
-                    case 'apag':
-                        // Only give the APAG via Hero XP if it is not unlocked via Soul Inventory
-                        if (!$this->user_handler->checkFeatureUnlock( $citizen->getUser(), 'f_cam', false ) ) {
-                            $item = ($this->item_factory->createItem( "photo_3_#00" ))->setEssential(true);
-                            $this->inventory_handler->transferItem($citizen,$item,$null,$inventory);
-                        }
-                        break;
                 }
                 $this->entity_manager->persist($citizen);
                 $this->entity_manager->persist($citizen->getHome());
