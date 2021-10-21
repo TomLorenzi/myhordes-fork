@@ -369,14 +369,18 @@ class GameFactory
         $spawn_explorable_ruins = $conf->get(TownConf::CONF_NUM_EXPLORABLE_RUINS, 0);
 
         if ($spawn_explorable_ruins > 0)
+            $explorable_ruins = $this->entity_manager->getRepository(ZonePrototype::class)->findBy( ['explorable' => true] );
+            // We can't spawn more than the number we have in database because they all must be different on a map.
+            // We do that here to avoid a useless database call in case there's no explorable ruin to spawn.
+            $spawn_explorable_ruins = min($spawn_explorable_ruins, count($explorable_ruins));
+
             $zone_list = array_filter($town->getZones()->getValues(), function(Zone $z) {return $z->getPrototype() === null && ($z->getX() !== 0 || $z->getY() !== 0);});
 
         for ($i = 0; $i < $spawn_explorable_ruins; $i++) {
-            $explorable_ruins = $this->entity_manager->getRepository(ZonePrototype::class)->findBy( ['explorable' => true] );
             shuffle($explorable_ruins);
 
             /** @var ZonePrototype $spawning_ruin */
-            $spawning_ruin = array_shift($explorable_ruins);
+            $spawning_ruin = array_pop($explorable_ruins);
 
             $maxDistance = $conf->get(TownConf::CONF_EXPLORABLES_MAX_DISTANCE, 100);
             $spawn_zone = $this->random_generator->pickLocationBetweenFromList($zone_list, $spawning_ruin->getMinDistance(), $maxDistance, ['prototype_id' => null]);
