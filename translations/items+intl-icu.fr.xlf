@@ -9256,7 +9256,7 @@
       </notes>
       <segment>
         <source>Ein überragender Erfolg: Du hast {items_spawn} erhalten!</source>
-        <target>C'est un immense succès : Vous avez obtenu {items_spawn} !</target>
+        <target>C'est une belle réussite : vous obtenez {items_spawn} !</target>
       </segment>
     </unit>
     <unit id="RvnC1X2">
