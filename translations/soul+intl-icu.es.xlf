@@ -3193,7 +3193,7 @@
       </notes>
       <segment>
         <source>Du wirst angenehm nach Orangenblüten duften.</source>
-        <target>Olerá agradablemente a flor de naranjo.</target>
+        <target>Escaparás de latinoamérica.</target>
       </segment>
     </unit>
     <unit id="9dCZIYd" name="Du wirst ein respektierter und angesehener Bürger deiner Gemeinschaft.">
@@ -3203,7 +3203,7 @@
       </notes>
       <segment>
         <source>Du wirst ein respektierter und angesehener Bürger deiner Gemeinschaft.</source>
-        <target>Se convertirá en un ciudadano respetado y respetado de su comunidad.</target>
+        <target>Te convertirás en un habitante respetado y venerado por su comunidad.</target>
       </segment>
     </unit>
     <unit id="lmPRBJ0" name="Deine natürlichen Abwehrkräfte werden gestärkt.">
@@ -3223,7 +3223,7 @@
       </notes>
       <segment>
         <source>Du bekommst stahlharte Waschbrettbauchmuskeln.</source>
-        <target>Obtienes abdominales duros como el acero</target>
+        <target>Obtienes abdominales duros como el acero.</target>
       </segment>
     </unit>
     <unit id="23cz.bn" name="Du hast eine gute Tat vollbracht.">
@@ -3243,7 +3243,7 @@
       </notes>
       <segment>
         <source>Die Leute auf der Straße werden sich nach dir umdrehen.</source>
-        <target>La gente en la calle se volteara para mirarte</target>
+        <target>La gente en la calle se volteará para mirarte.</target>
       </segment>
     </unit>
     <unit id="bRBEaOX" name="Stärkt dein Zahnfleisch und deine Zähne.">
@@ -3324,7 +3324,7 @@
       </notes>
       <segment>
         <source>Die Freundschaftswerbung kann für deinen Account nicht aktiviert werden. Bitte kontaktiere einen Administrator für weitere Informationen.</source>
-        <target>Die Freundschaftswerbung kann für deinen Account nicht aktiviert werden. Bitte kontaktiere einen Administrator für weitere Informationen.</target>
+        <target>No pudimos activar el Patrocinio para tu cuenta. Por favor contacta a un administrador para más información.</target>
       </segment>
     </unit>
     <unit id="t7p0F21" name="Die Freundschaftswerbung ist für deinen Account gesperrt.">
@@ -3335,7 +3335,7 @@
       </notes>
       <segment>
         <source>Die Freundschaftswerbung ist für deinen Account gesperrt.</source>
-        <target>Die Freundschaftswerbung ist für deinen Account gesperrt.</target>
+        <target>El Patrocinio está bloqueado para tu cuenta.</target>
       </segment>
     </unit>
     <unit id="d3BbIrK" name="Wie funktioniert das genau?">
@@ -3385,7 +3385,7 @@
       </notes>
       <segment>
         <source>Sag dem geworbenen Spieler, dass er bei der Anmeldung im Feld "Pate" deinen Namen eintragen soll:</source>
-        <target>dile de ingresar tu nick en el espacio "Patrocinio" del formulario de inscripción:</target>
+        <target>Pídele que ingrese tu nick en el espacio "Patrocinador" del formulario de inscripción:</target>
       </segment>
     </unit>
     <unit id="meMyGfH">
@@ -3395,7 +3395,7 @@
       </notes>
       <segment>
         <source>Verwende einen der hier unten angezeigten Banner für deine E-Mail Signatur, auf Facebook oder in deinem Lieblingsforum (Wenn sich jemand über deinen Banner anmeldet, wirst du automatisch als Pate eingetragen!).</source>
-        <target>utiliza uno de los banners como firma de tu correo electrónico, en Facebook, en tu blog o en un foro ¡(quienes hagan clic en él quedarán registrados autiomáticamente cuando se inscriban!).</target>
+        <target>Utiliza uno de los banners como firma de tu correo electrónico, en Facebook, en tu blog o en un foro (¡quienes hagan clic en él quedarán registrados autiomáticamente cuando se inscriban!).</target>
       </segment>
     </unit>
     <unit id="fUGf6MZ" name="HTML Code">
