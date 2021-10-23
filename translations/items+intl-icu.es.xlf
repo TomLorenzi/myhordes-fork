@@ -8243,7 +8243,7 @@
       </notes>
       <segment>
         <source>Du versucht nochmal alle deine Kräfte für heute Abend zu mobilisieren. Die Anspannung steht dir ins Gesicht geschrieben. Du schwitzt und deine Hände zittern.{hr}Beim heutigen Angriff wirst du weder weder Durst, noch Krankheitssymptome (Infektion), noch Entzugserscheinungen verspüren.</source>
-        <target>Intenta guardar fuerzas para el ataque de esta noche. En tu rostro se ve el temor, transpiras, tiemblas...{hr}Esta noche no sufrirás les effectos de la Sed, de la Infección, ni de la Adicción durante el ataque.</target>
+        <target>Intentas guardar fuerzas para el ataque de esta noche. En tu rostro se ve el temor, transpiras, tiemblas...{hr}Esta noche no sufrirás los efectos de la Sed, de la Infección, ni de la Adicción durante el ataque.</target>
       </segment>
     </unit>
     <unit id="ClZU0Ua">
