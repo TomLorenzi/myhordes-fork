@@ -63,13 +63,13 @@ class ItemFixtures extends Fixture
         ['label' => 'MagLite Kinderlampe (2 Ladungen)', 'icon' => 'maglite_2', 'category' => 'Furniture', 'deco' =>5, 'heavy' =>false, 'watchpoint' => 0],                     // -- ---
 		['label' => 'Krebserregender Ofen', 'icon' => 'machine_2', 'category' => 'Furniture', 'deco' =>2, 'heavy' =>true, 'watchpoint' => 15],                                    // -- Out
 		['label' => 'Alte Waschmaschine', 'icon' => 'machine_1', 'category' => 'Furniture', 'deco' =>2, 'heavy' =>true, 'watchpoint' => 19],                                      // -- Out
-		['label' => 'Wütende Mieze (halb verdaut)', 'icon' => 'angryc', 'category' => 'Furniture', 'deco' =>1, 'heavy' =>false, 'watchpoint' => 0, 'fragile' => true],                           // --
+		['label' => 'Wütende Mieze (halb verdaut)', 'icon' => 'angryc', 'category' => 'Furniture', 'deco' =>1, 'heavy' =>false, 'watchpoint' => 0, 'fragile' => true, 'deco_text' => 'Sie ist beängstigend.'],                           // --
 		['label' => 'Kassettenradio', 'icon' => 'radio_on', 'category' => 'Furniture', 'deco' =>2, 'heavy' =>false, 'watchpoint' => -8],                                    // -- ---
         ['label' => 'Schaukelstuhl', 'icon' => 'chair', 'category' => 'Furniture', 'deco' =>5, 'heavy' =>true, 'watchpoint' => 15],                                         // -- ---
         ['label' => 'Ausgeschaltete Nachttischlampe', 'icon' => 'lamp', 'category' => 'Furniture', 'deco' =>1, 'heavy' =>false, 'watchpoint' => 4],                        // In Out
         ['label' => 'Perser', 'icon' => 'carpet', 'category' => 'Furniture', 'deco' =>10, 'heavy' =>true, 'watchpoint' => 8],                                             // -- ---
         ['label' => 'Mini Hi-Fi Anlage (defekt)', 'icon' => 'music_part', 'category' => 'Furniture', 'deco' =>1, 'heavy' =>true, 'watchpoint' => 0],                       // -- ---
-        ['label' => 'Kette + Vorhängeschloss', 'icon' => 'lock', 'category' => 'Furniture', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                               // -- ---
+        ['label' => 'Kette + Vorhängeschloss', 'icon' => 'lock', 'category' => 'Furniture', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0, 'deco_text' => 'Verhindert Diebstähle'],                               // -- ---
         ['label' => 'Fußabstreifer', 'icon' => 'door_carpet', 'category' => 'Furniture', 'deco' =>5, 'heavy' =>false, 'watchpoint' => 0],                                  // -- ---
         ['label' => 'Videoprojektor', 'icon' => 'cinema', 'category' => 'Furniture', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                                       // -- ---
         ['label' => 'Nachttischlampe (an)', 'icon' => 'lamp_on', 'category' => 'Furniture', 'deco' =>3, 'heavy' =>false, 'watchpoint' => 10],                               // -- ---
@@ -78,7 +78,7 @@ class ItemFixtures extends Fixture
         ['label' => 'Revolver (entladen)', 'icon' => 'gun', 'category' => 'Furniture', 'deco' =>5, 'heavy' =>false, 'watchpoint' => 0],                                    // -- ---
         ['label' => 'Sturmgewehr (entladen)', 'icon' => 'machine_gun', 'category' => 'Furniture', 'deco' =>15, 'heavy' =>false, 'watchpoint' => 0],                        // -- ---
         ['label' => 'Teddybär', 'icon' => 'teddy', 'category' => 'Furniture', 'deco' =>8, 'heavy' =>false, 'watchpoint' => 0],                                             // In Out
-        ['label' => 'Geldbündel', 'icon' => 'money', 'category' => 'Furniture', 'deco' =>7, 'heavy' =>false, 'watchpoint' => 0],                                           // -- ---
+        ['label' => 'Geldbündel', 'icon' => 'money', 'category' => 'Furniture', 'deco' =>7, 'heavy' =>false, 'watchpoint' => 0, 'deco_text' => 'Sieht schön aus, wenn es zu einer Girlande gebunden wird.'],                                           // -- ---
         ['label' => 'Schrankkoffer', 'icon' => 'home_box_xl', 'category' => 'Furniture', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 8],                                   // In ---
         ['label' => 'Kartons', 'icon' => 'home_box', 'category' => 'Furniture', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 4],                                           // In ---
         ['label' => 'Nagelbare Barrikade', 'icon' => 'home_def', 'category' => 'Furniture', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                                // In ---
@@ -94,22 +94,22 @@ class ItemFixtures extends Fixture
         ['label' => 'Best of The King CD', 'icon' => 'cdelvi', 'category' => 'Furniture', 'deco' =>7, 'heavy' =>false, 'watchpoint' => 0],                                 // -- ---
         ['label' => 'Rock n Roll HiFi', 'icon' => 'dfhifi', 'category' => 'Furniture', 'deco' =>10, 'heavy' =>true, 'watchpoint' => 0],                                     // -- ---
         ['label' => 'Verteidigende HiFi', 'icon' => 'dfhifi', 'category' => 'Furniture', 'deco' =>10, 'heavy' =>true, 'watchpoint' => 0],                                   // -- ---
-		['label' => 'Großer knuddeliger Kater', 'icon' => 'pet_cat', 'category' => 'Furniture', 'deco' =>5, 'heavy' =>false, 'watchpoint' => 8, 'fragile' => true],                              // -- Out
+		['label' => 'Großer knuddeliger Kater', 'icon' => 'pet_cat', 'category' => 'Furniture', 'deco' =>5, 'heavy' =>false, 'watchpoint' => 8, 'fragile' => true, 'deco_text' => 'Macht Miau'],                              // -- Out
 		['label' => 'Kaffeekocher', 'icon' => 'coffee_machine', 'category' => 'Furniture', 'deco' =>5, 'heavy' =>true, 'watchpoint' => 0],                                       // -- ---
 		['label' => 'PC-Gehäuse', 'icon' => 'pc', 'category' => 'Furniture', 'deco' =>3, 'heavy' =>true, 'watchpoint' => 11],                                                  // -- Out
 		['label' => 'Selbstgebaute Gitarre', 'icon' => 'guitar', 'category' => 'Furniture', 'deco' =>6, 'heavy' =>false, 'watchpoint' => 19],                                     // In ---
 		
 	
-        ['label' => 'Matratze', 'icon' => 'bed', 'category' => 'Armor', 'deco' =>3, 'heavy' =>true, 'watchpoint' => 25],                                                    // -- ---
-        ['label' => 'Bissiger Hund', 'icon' => 'pet_dog', 'category' => 'Armor', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0, 'fragile' => true],                                          // -- Out
-        ['label' => 'Blechplatte', 'icon' => 'plate', 'category' => 'Armor', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                                               // -- ---
-        ['label' => 'Alte Tür', 'icon' => 'door', 'category' => 'Armor', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 10],                                                   // -- ---
-        ['label' => 'Unförmige Zementblöcke', 'icon' => 'concrete_wall', 'category' => 'Armor', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                            // -- Out
-        ['label' => 'Holzbock', 'icon' => 'trestle', 'category' => 'Armor', 'deco' =>1, 'heavy' =>true, 'watchpoint' => 4],                                                // -- ---
-        ['label' => 'Järpen-Tisch', 'icon' => 'table', 'category' => 'Armor', 'deco' =>3, 'heavy' =>true, 'watchpoint' => 8],                                              // -- ---
-        ['label' => 'Solide Holzplatte', 'icon' => 'wood_plate', 'category' => 'Armor', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                                    // -- ---
-        ['label' => 'Autotür', 'icon' => 'car_door', 'category' => 'Armor', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 40],                                                // -- ---
-        ['label' => 'Fackel', 'icon' => 'torch', 'category' => 'Armor', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 15],                                                   // -- Out
+        ['label' => 'Matratze', 'icon' => 'bed', 'category' => 'Armor', 'deco' =>3, 'heavy' =>true, 'watchpoint' => 25, 'deco_text' => 'Verbessert die Verteidigung'],                                                    // -- ---
+        ['label' => 'Bissiger Hund', 'icon' => 'pet_dog', 'category' => 'Armor', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0, 'fragile' => true, 'deco_text' => 'Verbessert die Verteidigung und verhindert Diebstähle'],                                          // -- Out
+        ['label' => 'Blechplatte', 'icon' => 'plate', 'category' => 'Armor', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0, 'deco_text' => 'Verbessert die Verteidigung'],                                               // -- ---
+        ['label' => 'Alte Tür', 'icon' => 'door', 'category' => 'Armor', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 10, 'deco_text' => 'Verbessert die Verteidigung'],                                                   // -- ---
+        ['label' => 'Unförmige Zementblöcke', 'icon' => 'concrete_wall', 'category' => 'Armor', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0, 'deco_text' => 'Verbessert die Verteidigung'],                            // -- Out
+        ['label' => 'Holzbock', 'icon' => 'trestle', 'category' => 'Armor', 'deco' =>1, 'heavy' =>true, 'watchpoint' => 4, 'deco_text' => 'Verbessert die Verteidigung'],                                                // -- ---
+        ['label' => 'Järpen-Tisch', 'icon' => 'table', 'category' => 'Armor', 'deco' =>3, 'heavy' =>true, 'watchpoint' => 8, 'deco_text' => 'Verbessert die Verteidigung'],                                              // -- ---
+        ['label' => 'Solide Holzplatte', 'icon' => 'wood_plate', 'category' => 'Armor', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0, 'deco_text' => 'Verbessert die Verteidigung'],                                    // -- ---
+        ['label' => 'Autotür', 'icon' => 'car_door', 'category' => 'Armor', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 40, 'deco_text' => 'Verbessert die Verteidigung'],                                                // -- ---
+        ['label' => 'Fackel', 'icon' => 'torch', 'category' => 'Armor', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 15, 'deco_text' => 'Verbessert die Verteidigung'],                                                   // -- Out
         ['label' => 'Dackel', 'icon' => 'tekel', 'category' => 'Armor', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0, 'deco_text' => 'Verbessert die Verteidigung und verhindert Diebstähle'],                                                  // -- Out
 		
 		
