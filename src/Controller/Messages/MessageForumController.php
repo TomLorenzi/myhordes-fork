@@ -1279,6 +1279,8 @@ class MessageForumController extends MessageController
                     return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
                 $thread->setForum( $new_forum );
+                foreach ($thread->getPosts() as $post)
+                    $this->entity_manager->persist( $post->setSearchForum($new_forum) );
                 $notification = $crow->createPM_moderation( $thread->getOwner(),
                                                             CrowService::ModerationActionDomainForum, CrowService::ModerationActionTargetThread, CrowService::ModerationActionMove,
                                                             $thread->firstPost(true)
