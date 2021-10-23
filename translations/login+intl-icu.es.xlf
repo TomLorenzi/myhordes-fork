@@ -461,7 +461,7 @@
       </notes>
       <segment>
         <source>Angemeldet bleiben</source>
-        <target>No cerrar sesión</target>
+        <target>Permanecer conectado</target>
       </segment>
     </unit>
     <unit id="B0ZNAR." name="Fehler bei der Datenübertragung.">
@@ -780,7 +780,7 @@
       </notes>
       <segment>
         <source>Deine E-Mail Adresse wurde geändert. Bitte validiere die neue Adresse, damit du sie verwenden kannst.</source>
-        <target>Tu dirección de correo electrónico ha sido modificada. Valide la nueva dirección para poder utilizarla.</target>
+        <target>Tu dirección de correo electrónico ha sido modificada. Valida la nueva dirección para poder utilizarla.</target>
       </segment>
     </unit>
     <unit id="9S9gbqW" name="Die E-Mail ist nicht angekommen?">
@@ -851,7 +851,7 @@
       </notes>
       <segment>
         <source>Der eingegebene Spieler ist nicht für das Patenschafts-Programm registriert. Bitte ihn, die "Freundschaft"-Seite in seiner Seele aufzurufen; er wird dann automatisch registriert. Erst dann kannst du ihn als Sponsor auswählen.</source>
-        <target>Der eingegebene Spieler ist nicht für das Patenschafts-Programm registriert. Bitte ihn, die "Freundschaft"-Seite in seiner Seele aufzurufen; er wird dann automatisch registriert. Erst dann kannst du ihn als Sponsor auswählen.</target>
+        <target>El jugador que indicaste actualmente no está registrado en el programa de Patrocinio. Pídele que vaya a la pestaña "Patrocinio" en su alma; esto lo registrará automáticamente. Solo entonces podrás elegirlo como tu Patrocinador.</target>
       </segment>
     </unit>
   </file>
