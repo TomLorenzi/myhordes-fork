@@ -9166,17 +9166,6 @@
         <target>Angriff und Verteidigung</target>
       </segment>
     </unit>
-    <unit id="KdxLS.M">
-      <notes>
-        <note category="german">Du zündest eine Zigarette an. Der Rauch lässt dich kräftig Husten, vermutlich weil du daran nicht gewöhnt bist... Nach ein paar Minuten &lt;strong&gt;gelingt es dir dich zu beruhigen&lt;/strong&gt;. Dieser Kurze Moment des Friedens ermöglicht lässt dich deinen Kummer vergessen und bringt dich zurück in die Wirklichkeit.&lt;hr /&gt;Du drückst den Stummel auf dem Boden aus und bist bereit für einen weiteren Tag des Überlebens!&lt;t-consumed&gt;&lt;hr /&gt;Dir fällt auf dass &lt;strong&gt;die Packung leer ist&lt;/strong&gt;!&lt;/t-consumed&gt;</note>
-        <note category="from">db://ItemAction</note>
-        <note category="state">incomplete</note>
-      </notes>
-      <segment>
-        <source>Du zündest eine Zigarette an. Der Rauch lässt dich kräftig Husten, vermutlich weil du daran nicht gewöhnt bist... Nach ein paar Minuten &lt;strong&gt;gelingt es dir dich zu beruhigen&lt;/strong&gt;. Dieser Kurze Moment des Friedens ermöglicht lässt dich deinen Kummer vergessen und bringt dich zurück in die Wirklichkeit.&lt;hr /&gt;Du drückst den Stummel auf dem Boden aus und bist bereit für einen weiteren Tag des Überlebens.!&lt;t-consumed&gt;&lt;hr /&gt;Dir fällt auf dass &lt;strong&gt;die Packung leer ist&lt;/strong&gt;!&lt;/t-consumed&gt;</source>
-        <target><![CDATA[Vous allumez une cigarette. La fumée vous fait violemment tousser, le manque d'habitude sans doute... Après quelques minutes, <strong>vous finissez par vous calmer</strong>. Ce petit moment de répit vous aide à faire le vide et à relativiser un peu sur votre sort.<hr />Vous écrasez le mégot au sol, de nouveau prêt(e) à en découdre !<t-consumed><hr />Dir fällt auf dass <strong>die Packung leer ist</strong>!</t-consumed>]]></target>
-      </segment>
-    </unit>
     <unit id="5MlxE2I" name="Gegenstand verwenden">
       <notes>
         <note category="german">Gegenstand verwenden</note>
@@ -9297,6 +9286,16 @@
       <segment>
         <source>Verbessert die Verteidigung und verhindert Diebstähle</source>
         <target>Améliore la défense et empêche les vols</target>
+      </segment>
+    </unit>
+    <unit id="0bR.3rp">
+      <notes>
+        <note category="german">Du zündest eine Zigarette an. Der Rauch lässt dich kräftig Husten, vermutlich weil du daran nicht gewöhnt bist... Nach ein paar Minuten &lt;strong&gt;gelingt es dir dich zu beruhigen&lt;/strong&gt;. Dieser Kurze Moment des Friedens ermöglicht lässt dich deinen Kummer vergessen und bringt dich zurück in die Wirklichkeit.&lt;hr /&gt;Du drückst den Stummel auf dem Boden aus und bist bereit für einen weiteren Tag des Überlebens.!&lt;t-consumed&gt;&lt;hr /&gt;Dir fällt auf dass &lt;strong&gt;die Packung leer ist&lt;/strong&gt;!&lt;/t-consumed&gt;&lt;t-item-consumed&gt;&lt;hr/&gt;Das war dein &lt;strong&gt;letztes Streichholz&lt;/strong&gt;... Es wird schwer sein, jetzt noch eine Zigarette anzuzünden.&lt;/t-item-consumed&gt;</note>
+        <note category="from">db://ItemAction</note>
+      </notes>
+      <segment>
+        <source>Du zündest eine Zigarette an. Der Rauch lässt dich kräftig Husten, vermutlich weil du daran nicht gewöhnt bist... Nach ein paar Minuten &lt;strong&gt;gelingt es dir dich zu beruhigen&lt;/strong&gt;. Dieser Kurze Moment des Friedens ermöglicht lässt dich deinen Kummer vergessen und bringt dich zurück in die Wirklichkeit.&lt;hr /&gt;Du drückst den Stummel auf dem Boden aus und bist bereit für einen weiteren Tag des Überlebens.!&lt;t-consumed&gt;&lt;hr /&gt;Dir fällt auf dass &lt;strong&gt;die Packung leer ist&lt;/strong&gt;!&lt;/t-consumed&gt;&lt;t-item-consumed&gt;Das war dein &lt;strong&gt;letztes Streichholz&lt;/strong&gt;... Es wird schwer sein, jetzt noch eine Zigarette anzuzünden.&lt;/t-item-consumed&gt;</source>
+        <target><![CDATA[Vous allumez une cigarette. La fumée vous fait violemment tousser, le manque d'habitude sans doute... Après quelques minutes, <strong>vous finissez par vous calmer</strong>. Ce petit moment de répit vous aide à faire le vide et à relativiser un peu sur votre sort.<hr />Vous écrasez le mégot au sol, de nouveau prêt(e) à en découdre !<t-consumed><hr />Dir fällt auf dass <strong>die Packung leer ist</strong>!</t-consumed><t-item-consumed><hr/>C'était votre <strong>dernière allumette</strong>... Ça va être coton de se griller une autre cigarette maintenant.</t-item-consumed>]]></target>
       </segment>
     </unit>
   </file>

@@ -913,6 +913,7 @@ class ActionHandler
 
                     $this->inventory_handler->forceRemoveItem( $consume_item );
                     $execute_info_cache['items_consume'][] = $consume_item->getPrototype();
+                    $tags[] = "item-consumed";
                 }
             }
 
