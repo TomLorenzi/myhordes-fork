@@ -2,7 +2,7 @@
 
 namespace App\Controller\Messages;
 
-use App\Command\ResolveCommand;
+use App\Command\Info\ResolveCommand;
 use App\Entity\AccountRestriction;
 use App\Entity\AdminDeletion;
 use App\Entity\AdminReport;
