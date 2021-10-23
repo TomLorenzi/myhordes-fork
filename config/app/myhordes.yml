@@ -52,8 +52,9 @@ parameters:
     soul_import:
       enabled: true
       readonly: false
-      limited: false
+      limited: true
       sp_threshold: 15
+      tw_threshold: 5
     avatars:
       allow_raw: false
       max_processing_size: 3145728 # 3MB

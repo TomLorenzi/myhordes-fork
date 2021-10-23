@@ -2,6 +2,7 @@
 
 namespace App\Controller\Soul;
 
+use App\Entity\CitizenRankingProxy;
 use App\Entity\TwinoidImport;
 use App\Entity\TwinoidImportPreview;
 use App\Entity\User;
@@ -41,7 +42,10 @@ class SoulImportController extends SoulController
 
         if ($cache = $this->entity_manager->getRepository(TwinoidImportPreview::class)->findOneBy(['user' => $user])) {
 
-            $limited = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_LIMITED, false) && $user->getSoulPoints() > $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_SP_THRESHOLD, -1);
+            $limited = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_LIMITED, false) && (
+                $user->getSoulPoints() > $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_SP_THRESHOLD, -1) ||
+                $this->entity_manager->getRepository(CitizenRankingProxy::class)->countNonAlphaTowns($user) > $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_TW_THRESHOLD, -1)
+            );
 
             return $this->render( 'ajax/soul/import_preview.html.twig', $this->addDefaultTwigArgs("soul_settings", [
                 'payload' => $cache->getData($this->entity_manager), 'preview' => true,
@@ -49,16 +53,21 @@ class SoulImportController extends SoulController
                 'main_soul' => $main !== null && $main->getScope() === $cache->getScope(), 'select_main_soul' => $main === null,
             ]) );
 
-        } else return $this->render( 'ajax/soul/import.html.twig', $this->addDefaultTwigArgs("soul_settings", [
-            'services' => ['www.hordes.fr' => 'Hordes','www.die2nite.com' => 'Die2Nite','www.dieverdammten.de' => 'Die Verdammten','www.zombinoia.com' => 'Zombinoia'],
-            'code' => $code, 'need_sk' => !$twin->hasBuiltInTwinoidAccess(),
-            'souls' => $this->entity_manager->getRepository(TwinoidImport::class)->findBy(['user' => $user], ['created' => 'DESC']),
-            'select_main_soul' => $main === null,
-            'read_only' => $conf->get(MyHordesConf::CONF_IMPORT_READONLY, false ),
-            'limited_import' => $conf->get(MyHordesConf::CONF_IMPORT_LIMITED, false ),
-            'limited_import_threshold' => $conf->get(MyHordesConf::CONF_IMPORT_SP_THRESHOLD, -1 ),
-            'is_limited' => $conf->get(MyHordesConf::CONF_IMPORT_LIMITED, false ) && $user->getSoulPoints() > $conf->get(MyHordesConf::CONF_IMPORT_SP_THRESHOLD, -1 )
-        ]) );
+        } else
+            return $this->render('ajax/soul/import.html.twig', $this->addDefaultTwigArgs("soul_settings", [
+                'services' => ['www.hordes.fr' => 'Hordes', 'www.die2nite.com' => 'Die2Nite', 'www.dieverdammten.de' => 'Die Verdammten', 'www.zombinoia.com' => 'Zombinoia'],
+                'code' => $code, 'need_sk' => !$twin->hasBuiltInTwinoidAccess(),
+                'souls' => $this->entity_manager->getRepository(TwinoidImport::class)->findBy(['user' => $user], ['created' => 'DESC']),
+                'select_main_soul' => $main === null,
+                'read_only' => $conf->get(MyHordesConf::CONF_IMPORT_READONLY, false),
+                'limited_import' => $conf->get(MyHordesConf::CONF_IMPORT_LIMITED, false),
+                'limited_import_threshold' => $conf->get(MyHordesConf::CONF_IMPORT_SP_THRESHOLD, -1),
+                'limited_import_town_threshold' => $conf->get(MyHordesConf::CONF_IMPORT_TW_THRESHOLD, -1),
+                'is_limited' => $conf->get(MyHordesConf::CONF_IMPORT_LIMITED, false) && (
+                        $user->getSoulPoints() > $conf->get(MyHordesConf::CONF_IMPORT_SP_THRESHOLD, -1) ||
+                        $this->entity_manager->getRepository(CitizenRankingProxy::class)->countNonAlphaTowns($user) > $conf->get(MyHordesConf::CONF_IMPORT_TW_THRESHOLD, -1)
+                    )
+            ]));
     }
 
     /**
@@ -80,7 +89,10 @@ class SoulImportController extends SoulController
 
         $main = $this->entity_manager->getRepository(TwinoidImport::class)->findOneBy(['user' => $user, 'main' => true]);
 
-        $limited = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_LIMITED, false) && $user->getSoulPoints() > $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_SP_THRESHOLD, -1);
+        $limited = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_LIMITED, false) && (
+            $user->getSoulPoints() > $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_SP_THRESHOLD, -1) ||
+            $this->entity_manager->getRepository(CitizenRankingProxy::class)->countNonAlphaTowns($user) > $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_TW_THRESHOLD, -1)
+        );
 
         return $this->render( 'ajax/soul/import_preview.html.twig', $this->addDefaultTwigArgs("soul_settings", [
             'payload' => $import->getData($this->entity_manager), 'preview' => false,
@@ -275,7 +287,10 @@ class SoulImportController extends SoulController
         }
 
         $limit = $conf->get(MyHordesConf::CONF_IMPORT_LIMITED, false);
-        if ($limit && $user->getSoulPoints() <= $conf->get(MyHordesConf::CONF_IMPORT_SP_THRESHOLD, -1))
+        if ($limit &&
+            $user->getSoulPoints() <= $conf->get(MyHordesConf::CONF_IMPORT_SP_THRESHOLD, -1) &&
+            $this->entity_manager->getRepository(CitizenRankingProxy::class)->countNonAlphaTowns($user) <= $conf->get(MyHordesConf::CONF_IMPORT_TW_THRESHOLD, -1)
+        )
             $limit = false;
 
         if ($twin->importData( $user, $scope, $data, $to_main, $limit )) {

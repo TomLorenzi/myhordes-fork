@@ -12,8 +12,12 @@
                                 <p>
                                     {{ 'Um zu verhindern, dass Spieler Auszeichnungen, Seelenpunkte oder Heldenerfahrung farmen, indem sie gleichzeitig auf MyHordes und Hordes (oder einer lokalen Variante von Hordes) spielen, werden <b>neu gesammelte Auszeichnungen, SP oder Heldenerfahrung</b> nicht länger zu deiner MH-Seele hinzugerechnet.'|trans({},'soul')|raw }}
                                 </p>
-                                {% if limited_import_threshold >= 0 %}
+                                {% if limited_import_threshold >= 0 and limited_import_town_threshold < 0 %}
                                     <p>{{ 'Diese Einschränkung betrifft alle Spieler, die auf MyHordes bereits <b>mehr als {threshold} Seelenpunkte</b> gesammelt haben.'|trans({threshold: limited_import_threshold},'soul')|raw }}</p>
+                                {% elseif limited_import_threshold < 0 and limited_import_town_threshold >= 0 %}
+                                    <p>{{ 'Diese Einschränkung betrifft alle Spieler, die auf MyHordes bereits <b>mehr als {threshold} Städte</b> nach dem Ende der Alpha-Phase gespielt haben.'|trans({threshold: limited_import_town_threshold},'soul')|raw }}</p>
+                                {% else %}
+                                    <p>{{ 'Diese Einschränkung betrifft alle Spieler, die auf MyHordes bereits <b>mehr als {thresholdS} Seelenpunkte</b> gesammelt oder <b>mehr als {thresholdT} Städte</b> nach dem Ende der Alpha-Phase gespielt haben.'|trans({thresholdS: limited_import_threshold, thresholdT: limited_import_town_threshold},'soul')|raw }}</p>
                                 {% endif %}
 
                                 {% if is_limited %}
