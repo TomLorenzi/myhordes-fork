@@ -340,13 +340,17 @@
 
                         {% if zone.prototype %}
                             {% if zone.prototype.explorable %}
-                                <button {% if exploration_blocked_blocked %}disabled{% endif%} id="enter_ruin_button"  >
+                                <button id="enter_ruin_button"  >
                                     <img class="icon left" alt="" src="{{ asset('build/images/icons/planner.gif') }}" />
                                     {% trans with {'{ruin}': zone.prototype.label|trans({},'game')} from 'game'  %}{ruin} betreten{% endtrans %}
                                     {% if (active_scout_mode) %}
                                         <img class="icon right" alt="" src="{{ asset('build/images/icons/small_stealthy.gif') }}" />
                                     {% endif %}
-                                    <div class="tooltip help">{{ 'Diese Aktion ermöglicht es dir, die Tiefen dieses Gebäude zu erkunden und wertvolle Ressourcen zu bergen. Sei aber nicht zu gierig, denn deine Zeit ist begrenzt!'|trans({},'game') }}</div>
+                                    {% if exploration_blocked_blocked %}
+                                        <div class="tooltip help">{{ 'Deine aktuelle Situation erlaubt nicht, dass du diese Aktion durchführst.'|trans({},'game') }}</div>
+                                    {% else %}
+                                        <div class="tooltip help">{{ 'Diese Aktion ermöglicht es dir, die Tiefen dieses Gebäude zu erkunden und wertvolle Ressourcen zu bergen. Sei aber nicht zu gierig, denn deine Zeit ist begrenzt!'|trans({},'game') }}</div>
+                                    {% endif%}
                                 </button>
                             {% elseif zone.buryCount == 0%}
                                 <button id="dig_ruin_button" {% if not dig_ruin or zone.buryCount > 0 %}disabled{% endif %} >

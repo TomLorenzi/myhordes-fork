@@ -23108,5 +23108,15 @@ cette violente opération...]]></target>
         <target>Ein Moderator hat deinen Thread "{threadname}" in das Forum "{forumname}" verschoben. {link_post}</target>
       </segment>
     </unit>
+    <unit id="d2ZHuaw" name="Deine aktuelle Situation erlaubt nicht, dass du diese Aktion durchführst.">
+      <notes>
+        <note category="german">Deine aktuelle Situation erlaubt nicht, dass du diese Aktion durchführst.</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+      </notes>
+      <segment>
+        <source>Deine aktuelle Situation erlaubt nicht, dass du diese Aktion durchführst.</source>
+        <target>Vous n'êtes pas en situation de réaliser cette action !</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

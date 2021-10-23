@@ -23207,5 +23207,16 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>A moderator has moved your thread "{threadname}" to the forum "{forumname}". {link_post}</target>
       </segment>
     </unit>
+    <unit id="d2ZHuaw" name="Deine aktuelle Situation erlaubt nicht, dass du diese Aktion durchführst.">
+      <notes>
+        <note category="german">Deine aktuelle Situation erlaubt nicht, dass du diese Aktion durchführst.</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Deine aktuelle Situation erlaubt nicht, dass du diese Aktion durchführst.</source>
+        <target>Deine aktuelle Situation erlaubt nicht, dass du diese Aktion durchführst.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
