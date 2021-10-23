@@ -4084,5 +4084,57 @@
         <target>Icon</target>
       </segment>
     </unit>
+    <unit id="2LtMDJ7">
+      <notes>
+        <note category="german">Diese Einschränkung betrifft alle Spieler, die auf MyHordes bereits &lt;b&gt;mehr als {threshold} Städte&lt;/b&gt; nach dem Ende der Alpha-Phase gespielt haben.</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Diese Einschränkung betrifft alle Spieler, die auf MyHordes bereits &lt;b&gt;mehr als {threshold} Städte&lt;/b&gt; nach dem Ende der Alpha-Phase gespielt haben.</source>
+        <target><![CDATA[Diese Einschränkung betrifft alle Spieler, die auf MyHordes bereits <b>mehr als {threshold} Städte</b> nach dem Ende der Alpha-Phase gespielt haben.]]></target>
+      </segment>
+    </unit>
+    <unit id="VmJxB06">
+      <notes>
+        <note category="german">Diese Einschränkung betrifft alle Spieler, die auf MyHordes bereits &lt;b&gt;mehr als {thresholdS} Seelenpunkte&lt;/b&gt; gesammelt oder &lt;b&gt;mehr als {thresholdT} Städte&lt;/b&gt; nach dem Ende der Alpha-Phase gespielt haben.</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Diese Einschränkung betrifft alle Spieler, die auf MyHordes bereits &lt;b&gt;mehr als {thresholdS} Seelenpunkte&lt;/b&gt; gesammelt oder &lt;b&gt;mehr als {thresholdT} Städte&lt;/b&gt; nach dem Ende der Alpha-Phase gespielt haben.</source>
+        <target><![CDATA[Diese Einschränkung betrifft alle Spieler, die auf MyHordes bereits <b>mehr als {thresholdS} Seelenpunkte</b> gesammelt oder <b>mehr als {thresholdT} Städte</b> nach dem Ende der Alpha-Phase gespielt haben.]]></target>
+      </segment>
+    </unit>
+    <unit id=".RTSS25" name="Zurück zur Kartei von {player}">
+      <notes>
+        <note category="german">Zurück zur Kartei von {player}</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Zurück zur Kartei von {player}</source>
+        <target>Volver a la ficha de {player}</target>
+      </segment>
+    </unit>
+    <unit id="F1vivLG" name="Übersicht meiner Partien">
+      <notes>
+        <note category="german">Übersicht meiner Partien</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Übersicht meiner Partien</source>
+        <target>Historial de mis partidas</target>
+      </segment>
+    </unit>
+    <unit id="GpDq4Nj">
+      <notes>
+        <note category="german">In dieser Spalte werden die Anzahl der vollen Tage angezeigt, die jeder Bürger überlebt hat. Ein Tag gilt immer dann als "vollkommen überlebt", &lt;strong&gt;wenn du beim Zombieangriff um 23:59 stirbst&lt;/strong&gt;. Solltest du vorher, im Laufe des Tages, sterben gilt der Tag nicht als überlebt...</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>In dieser Spalte werden die Anzahl der vollen Tage angezeigt, die jeder Bürger überlebt hat. Ein Tag gilt immer dann als "vollkommen überlebt", &lt;strong&gt;wenn du beim Zombieangriff um 23:59 stirbst&lt;/strong&gt;. Solltest du vorher, im Laufe des Tages, sterben gilt der Tag nicht als überlebt...</source>
+        <target><![CDATA[La cantidad de días que cada jugador ha sobrevivido íntegramente. Un día no es considerado como sobrevivido "íntegramente" <strong>si el habitante muere por OTRA causa que no sea el ataque de los zombies antes del ataque</strong>.]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

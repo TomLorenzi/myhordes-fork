@@ -4105,5 +4105,55 @@
         <target>Icon</target>
       </segment>
     </unit>
+    <unit id="2LtMDJ7">
+      <notes>
+        <note category="german">Diese Einschränkung betrifft alle Spieler, die auf MyHordes bereits &lt;b&gt;mehr als {threshold} Städte&lt;/b&gt; nach dem Ende der Alpha-Phase gespielt haben.</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
+      </notes>
+      <segment>
+        <source>Diese Einschränkung betrifft alle Spieler, die auf MyHordes bereits &lt;b&gt;mehr als {threshold} Städte&lt;/b&gt; nach dem Ende der Alpha-Phase gespielt haben.</source>
+        <target><![CDATA[This restriction affects all players who have already played <b>more than {threshold} towns</b> on MyHordes after the end of the alpha phase.]]></target>
+      </segment>
+    </unit>
+    <unit id="VmJxB06">
+      <notes>
+        <note category="german">Diese Einschränkung betrifft alle Spieler, die auf MyHordes bereits &lt;b&gt;mehr als {thresholdS} Seelenpunkte&lt;/b&gt; gesammelt oder &lt;b&gt;mehr als {thresholdT} Städte&lt;/b&gt; nach dem Ende der Alpha-Phase gespielt haben.</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
+      </notes>
+      <segment>
+        <source>Diese Einschränkung betrifft alle Spieler, die auf MyHordes bereits &lt;b&gt;mehr als {thresholdS} Seelenpunkte&lt;/b&gt; gesammelt oder &lt;b&gt;mehr als {thresholdT} Städte&lt;/b&gt; nach dem Ende der Alpha-Phase gespielt haben.</source>
+        <target><![CDATA[This restriction affects all players who have already accumulated <b>more than {thresholdS} soul points</b> or played <b>more than {thresholdT} towns</b> on MyHordes after the end of the alpha phase.]]></target>
+      </segment>
+    </unit>
+    <unit id=".RTSS25" name="Zurück zur Kartei von {player}">
+      <notes>
+        <note category="german">Zurück zur Kartei von {player}</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Zurück zur Kartei von {player}</source>
+        <target>Back to {player}'s page</target>
+      </segment>
+    </unit>
+    <unit id="F1vivLG" name="Übersicht meiner Partien">
+      <notes>
+        <note category="german">Übersicht meiner Partien</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Übersicht meiner Partien</source>
+        <target>My Game History</target>
+      </segment>
+    </unit>
+    <unit id="GpDq4Nj">
+      <notes>
+        <note category="german">In dieser Spalte werden die Anzahl der vollen Tage angezeigt, die jeder Bürger überlebt hat. Ein Tag gilt immer dann als "vollkommen überlebt", &lt;strong&gt;wenn du beim Zombieangriff um 23:59 stirbst&lt;/strong&gt;. Solltest du vorher, im Laufe des Tages, sterben gilt der Tag nicht als überlebt...</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>In dieser Spalte werden die Anzahl der vollen Tage angezeigt, die jeder Bürger überlebt hat. Ein Tag gilt immer dann als "vollkommen überlebt", &lt;strong&gt;wenn du beim Zombieangriff um 23:59 stirbst&lt;/strong&gt;. Solltest du vorher, im Laufe des Tages, sterben gilt der Tag nicht als überlebt...</source>
+        <target><![CDATA[This column indicates the number of full days each citizen has survived. A day is not counted as "complete" if a citizen dies <strong>for any reason OTHER than the attack of the Horde at 23:59</strong>.]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

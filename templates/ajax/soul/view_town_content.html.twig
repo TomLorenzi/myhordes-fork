@@ -1,11 +1,24 @@
 {# @var town \App\Entity\TownRankingProxy #}
 <div class="view-town">
-    <h5>
+    <h5 class="relative">
         {% if town.language is not null %}
             <img src="{{ asset("build/images/lang/" ~ town.language ~".png") }}" alt="{{ town.language }}" />
         {% endif %}
         {{town.name}}
     </h5>
+
+    {{ help_lnk('Der Tod und die Berechnung der Seelepunkte'|trans({}, 'help'), 'help', {'name': 'death_and_soul_points'}) }}
+    <div class="row">
+        <div class="padded cell ro-3 rw-6 ro-md-1 rw-md-10 ro-sm-0 rw-sm-12">
+            {% if user_name is defined %}
+                <button class="center" x-ajax-href="{{ base_path }}">{{ 'Zurück zur Kartei von {player}'|trans({ player: '<strong>'~user_name~'</strong>' },'soul')|raw }}</button>
+            {% else %}
+                <button class="center" x-ajax-href="{{ path('soul_game_history') }}">{{ 'Übersicht meiner Partien'|trans({},'soul') }}</button>
+            {% endif %}
+
+        </div>
+    </div>
+
     {% if town.imported %}
         <div class="row">
             <div class="cell rw-12 padded">
@@ -64,8 +77,11 @@
     {% endif %}
 
     <div class="row-table citizens-list">
-        <div class="row header">
-            <div class="padded cell rw-1 rw-lg-2 rw-md-3 rw-sm-4">{{'Tage'|trans({}, 'soul')}}</div>
+        <div class="row-flex header">
+            <div class="padded cell rw-1 rw-lg-2 rw-md-3 rw-sm-4">
+                {{'Tage'|trans({}, 'soul')}}
+                {{ help_btn('In dieser Spalte werden die Anzahl der vollen Tage angezeigt, die jeder Bürger überlebt hat. Ein Tag gilt immer dann als "vollkommen überlebt", <strong>wenn du beim Zombieangriff um 23:59 stirbst</strong>. Solltest du vorher, im Laufe des Tages, sterben gilt der Tag nicht als überlebt...'|trans({},'soul')) }}
+            </div>
             <div class="padded cell rw-1 rw-lg-2 rw-md-3 rw-sm-4">{{'Ergebnis'|trans({}, 'soul')}}</div>
             <div class="padded cell rw-2 rw-md-3 rw-sm-4">{{'Bürger'|trans({}, 'soul')}}</div>
             <div class="padded cell rw-4 rw-lg-3 hide-sm">{{'Todesursache'|trans({}, 'soul')}}</div>
@@ -74,88 +90,88 @@
         {% for citizen in town.citizens|filter(c => c.end is not null or c.confirmed == true)|sort((a,b) => b.day <=> a.day) %}
             {% set days = citizen.day %}
             {% set sp = days * ( days + 1 ) / 2 %}
-        <div class="row {% if citizen.user.id == app.user.id %}me{% endif %}">
-            <div class="padded cell rw-1 rw-lg-2 rw-md-3 rw-sm-4">{{citizen.day}}</div>
-            <div class="padded cell rw-1 rw-lg-2 rw-md-3 rw-sm-4 town-points bold">
-                {% if not citizen.disabled and not town.disabled %}
-                    +{{sp}}
-                {% elseif is_granted('ROLE_CROW') %}
-                    <div style="{% if citizen.disabled %}color: {% if citizen.limitedImport %}rosybrown{% else %}red{% endif %};{% endif %} {% if town.disabled %}opacity: 0.5;{% endif %}">+{{sp}}</div>
-                {% elseif not (citizen.disabled and not citizen.limitedImport) and not town.disabled %}
-                    +{{sp}}
-                {% endif %}
-                {% if is_granted('ROLE_CROW') %}
-                    {% if not citizen.disabled %}
-                        <img x-action="unrank" x-endpoint="{{ path('admin_town_citizen_ranking_control', {tid: town.id, cid: citizen.id, act: 1}) }}" class="pointer" src="{{ asset('build/images/icons/small_remove.gif') }}" alt="del" />
-                    {% else %}
-                        <img x-action="unrank" x-endpoint="{{ path('admin_town_citizen_ranking_control', {tid: town.id, cid: citizen.id, act: 0}) }}" class="pointer" src="{{ asset('build/images/icons/small_back.gif') }}" alt="re" />
+            <div class="row {% if citizen.user.id == app.user.id %}me{% endif %}">
+                <div class="padded cell rw-1 rw-lg-2 rw-md-3 rw-sm-4">{{citizen.day}}</div>
+                <div class="padded cell rw-1 rw-lg-2 rw-md-3 rw-sm-4 town-points bold">
+                    {% if not citizen.disabled and not town.disabled %}
+                        +{{sp}}
+                    {% elseif is_granted('ROLE_CROW') %}
+                        <div style="{% if citizen.disabled %}color: {% if citizen.limitedImport %}rosybrown{% else %}red{% endif %};{% endif %} {% if town.disabled %}opacity: 0.5;{% endif %}">+{{sp}}</div>
+                    {% elseif not (citizen.disabled and not citizen.limitedImport) and not town.disabled %}
+                        +{{sp}}
                     {% endif %}
-                {% endif %}
-            </div>
-            <div class="padded cell rw-2 rw-md-3 rw-sm-4">
-                {% if not last_user_standing is null and last_user_standing == citizen.user %}
-                <span>
+                    {% if is_granted('ROLE_CROW') %}
+                        {% if not citizen.disabled %}
+                            <img x-action="unrank" x-endpoint="{{ path('admin_town_citizen_ranking_control', {tid: town.id, cid: citizen.id, act: 1}) }}" class="pointer" src="{{ asset('build/images/icons/small_remove.gif') }}" alt="del" />
+                        {% else %}
+                            <img x-action="unrank" x-endpoint="{{ path('admin_town_citizen_ranking_control', {tid: town.id, cid: citizen.id, act: 0}) }}" class="pointer" src="{{ asset('build/images/icons/small_back.gif') }}" alt="re" />
+                        {% endif %}
+                    {% endif %}
+                </div>
+                <div class="padded cell rw-2 rw-md-3 rw-sm-4">
+                    {% if not last_user_standing is null and last_user_standing == citizen.user %}
+                        <span>
                     <img src="{{ asset('build/images/pictos/r_surlst.gif') }}" />
                     <div class="tooltip help">
                         {{'Der letzte Tote in dieser Stadt!'|trans({}, 'game')}}
                         <p>{{'Achtung!'|trans({}, 'ghost')}} <strong>{{'Der letzte Tote erhält nur dann eine Belohnung, wenn er 5 volle Tage überlebt hat.'|trans({}, 'game')}}</strong></p>
                     </div>
                 </span>
-                {% endif %}
-                <span class="link" x-ajax-href="{{ path('soul_visit', {id: citizen.user.id}) }}">{{citizen.user.name}}</span>
-            </div>
-            <div class="padded cell rw-4 rw-lg-3 hide-sm">
-                {% if is_granted("ROLE_CROW") and citizen.limitedImport %}
-                    <div><b style="color: rosybrown">{{ 'Eingeschränkter Import'|trans({},'admin') }}</b></div>
-                {% endif %}
-                {% if citizen.cod is not null %}
-                    {{citizen.cod.label|trans({}, 'game')}}
-                {% else %}
-                    {{'Unbekannte Todesursache'|trans({}, 'game')}}
-                {% endif %}
-                {% if not citizen.lastWords is empty %}
-                    <img src="{{asset('build/images/log/chat.gif')}}"  alt=""/>
-                    {% if is_granted('ROLE_CROW') %}
-                        <br/>
-                        <img x-model="last" x-action="edit" x-original="{{ citizen.lastWords }}" x-endpoint="{{ path('admin_user_edit_comment', {id: citizen.user.id, cid: citizen.id}) }}" class="pointer" src="{{ asset('build/images/forum/edit.png') }}" alt="edit" />
-                        <img x-model="last" x-action="del" x-endpoint="{{ path('admin_user_edit_comment', {id: citizen.user.id, cid: citizen.id}) }}" class="pointer" src="{{ asset('build/images/icons/small_remove.gif') }}" alt="del" />
                     {% endif %}
-                {% endif %}
-                <div class="tooltip">
-                    {% if citizen.lastWords is empty %}
-                        <span>{{ 'Dieser Bürger hat keine letzten Worte hinterlassen ...'|trans({}, 'game') }}</span>
+                    <span class="link" x-ajax-href="{{ path('soul_visit', {id: citizen.user.id}) }}">{{citizen.user.name}}</span>
+                </div>
+                <div class="padded cell rw-4 rw-lg-3 hide-sm">
+                    {% if is_granted("ROLE_CROW") and citizen.limitedImport %}
+                        <div><b style="color: rosybrown">{{ 'Eingeschränkter Import'|trans({},'admin') }}</b></div>
+                    {% endif %}
+                    {% if citizen.cod is not null %}
+                        {{citizen.cod.label|trans({}, 'game')}}
                     {% else %}
-                        <b>{{"Letzte Worte:"|trans({}, 'game')}}</b> {{ citizen.lastWords|replace({'{gotKilled}': '...der Mörder .. ist.. IST.. AAARGHhh..'|trans({},'game')}) }}
+                        {{'Unbekannte Todesursache'|trans({}, 'game')}}
+                    {% endif %}
+                    {% if not citizen.lastWords is empty %}
+                        <img src="{{asset('build/images/log/chat.gif')}}"  alt=""/>
+                        {% if is_granted('ROLE_CROW') %}
+                            <br/>
+                            <img x-model="last" x-action="edit" x-original="{{ citizen.lastWords }}" x-endpoint="{{ path('admin_user_edit_comment', {id: citizen.user.id, cid: citizen.id}) }}" class="pointer" src="{{ asset('build/images/forum/edit.png') }}" alt="edit" />
+                            <img x-model="last" x-action="del" x-endpoint="{{ path('admin_user_edit_comment', {id: citizen.user.id, cid: citizen.id}) }}" class="pointer" src="{{ asset('build/images/icons/small_remove.gif') }}" alt="del" />
+                        {% endif %}
+                    {% endif %}
+                    <div class="tooltip">
+                        {% if citizen.lastWords is empty %}
+                            <span>{{ 'Dieser Bürger hat keine letzten Worte hinterlassen ...'|trans({}, 'game') }}</span>
+                        {% else %}
+                            <b>{{"Letzte Worte:"|trans({}, 'game')}}</b> {{ citizen.lastWords|replace({'{gotKilled}': '...der Mörder .. ist.. IST.. AAARGHhh..'|trans({},'game')}) }}
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="padded cell rw-4 rw-lg-3 rw-md-12 hide-sm hidden-empty comment">
+                    {% if is_granted('ROLE_CROW') and citizen.commentLocked %}<span style="color: red">{{citizen.comment}}</span>
+                    {% else %}{{citizen.comment}}{% endif %}
+                    {% if is_granted('ROLE_CROW') and citizen.comment is not empty %}
+                        <br/>
+                        <img x-model="com" x-original="{{ citizen.comment }}" x-action="edit" x-endpoint="{{ path('admin_user_edit_comment', {id: citizen.user.id, cid: citizen.id}) }}" class="pointer" src="{{ asset('build/images/forum/edit.png') }}" alt="edit" />
+                        <img x-model="com" x-action="del" x-endpoint="{{ path('admin_user_edit_comment', {id: citizen.user.id, cid: citizen.id}) }}" class="pointer" src="{{ asset('build/images/icons/small_remove.gif') }}" alt="del" />
+                    {% elseif is_granted('ROLE_CROW') and not citizen.commentLocked %}
+                        <img x-model="com" x-action="del" x-endpoint="{{ path('admin_user_edit_comment', {id: citizen.user.id, cid: citizen.id}) }}" class="pointer" src="{{ asset('build/images/icons/lock.gif') }}" alt="lock" />
+                    {% elseif is_granted('ROLE_CROW') %}
+                        <span style="color: red">[ ... ]</span>
+                    {% endif %}
+                </div>
+                <div class="padded cell rw-12 hide-desktop hide-lg hide-md comment">
+                    {% if citizen.cod is not null %}
+                        <i>{{citizen.cod.label|trans({}, 'game')}}</i>
+                    {% else %}
+                        <i>{{'Unbekannte Todesursache'|trans({}, 'game')}}</i>
+                    {% endif %}
+                    {% if not citizen.lastWords is empty %}
+                        : <span class="small">"{{ citizen.lastWords|replace({'{gotKilled}': '...der Mörder .. ist.. IST.. AAARGHhh..'|trans({},'game')}) }}"</span>
+                    {% endif %}
+                    {% if citizen.comment is not empty %}
+                        <br />{{citizen.comment}}
                     {% endif %}
                 </div>
             </div>
-            <div class="padded cell rw-4 rw-lg-3 rw-md-12 hide-sm hidden-empty comment">
-                {% if is_granted('ROLE_CROW') and citizen.commentLocked %}<span style="color: red">{{citizen.comment}}</span>
-                {% else %}{{citizen.comment}}{% endif %}
-                {% if is_granted('ROLE_CROW') and citizen.comment is not empty %}
-                    <br/>
-                    <img x-model="com" x-original="{{ citizen.comment }}" x-action="edit" x-endpoint="{{ path('admin_user_edit_comment', {id: citizen.user.id, cid: citizen.id}) }}" class="pointer" src="{{ asset('build/images/forum/edit.png') }}" alt="edit" />
-                    <img x-model="com" x-action="del" x-endpoint="{{ path('admin_user_edit_comment', {id: citizen.user.id, cid: citizen.id}) }}" class="pointer" src="{{ asset('build/images/icons/small_remove.gif') }}" alt="del" />
-                {% elseif is_granted('ROLE_CROW') and not citizen.commentLocked %}
-                    <img x-model="com" x-action="del" x-endpoint="{{ path('admin_user_edit_comment', {id: citizen.user.id, cid: citizen.id}) }}" class="pointer" src="{{ asset('build/images/icons/lock.gif') }}" alt="lock" />
-                {% elseif is_granted('ROLE_CROW') %}
-                    <span style="color: red">[ ... ]</span>
-                {% endif %}
-            </div>
-            <div class="padded cell rw-12 hide-desktop hide-lg hide-md comment">
-                {% if citizen.cod is not null %}
-                    <i>{{citizen.cod.label|trans({}, 'game')}}</i>
-                {% else %}
-                    <i>{{'Unbekannte Todesursache'|trans({}, 'game')}}</i>
-                {% endif %}
-                {% if not citizen.lastWords is empty %}
-                    : <span class="small">"{{ citizen.lastWords|replace({'{gotKilled}': '...der Mörder .. ist.. IST.. AAARGHhh..'|trans({},'game')}) }}"</span>
-                {% endif %}
-                {% if citizen.comment is not empty %}
-                    <br />{{citizen.comment}}
-                {% endif %}
-            </div>
-        </div>
         {% endfor %}
     </div>
 </div>
