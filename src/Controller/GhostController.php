@@ -75,6 +75,7 @@ class GhostController extends CustomAbstractController
             'cdm_level'          => $cdm_lock ? 2 : ( $cdm_warn ? 1 : 0 ),
             'townClasses' => $em->getRepository(TownClass::class)->findAll(),
             'userCanJoin' => $this->getUserTownClassAccess($this->conf->getGlobalConf()),
+            'sp_limits' => $this->getTownClassAccessLimits($this->conf->getGlobalConf()),
             'canCreateTown' => $this->user_handler->hasSkill($user, 'mayor') || $user->getRightsElevation() >= User::USER_LEVEL_CROW,
         ] ));
     }
@@ -519,6 +520,14 @@ class GhostController extends CustomAbstractController
             'remote' => ($sp >= $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_REMOTE, 100 )),
             'panda' => ($sp >= $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_PANDA, 500 )),
             'custom' => ($sp >= $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_CUSTOM, 1000 )),
+        ];
+    }
+
+    public function getTownClassAccessLimits(MyHordesConf $conf): array {
+        return [
+            'remote' => $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_REMOTE, 100 ),
+            'panda'  => $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_PANDA, 500 ),
+            'custom' => $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_CUSTOM, 1000 ),
         ];
     }
 }
