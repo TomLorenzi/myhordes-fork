@@ -3741,7 +3741,7 @@
       </notes>
       <segment>
         <source>Dies ist ein Fan-Projekt für die Spiele {dv}, {d2n}, {hordes} und {zn} von &lt;b&gt;MotionTwin&lt;/b&gt;.</source>
-        <target><![CDATA[Ceci est un projet de fan pour les jeux {dv}, {d2n}, {hordes} et {zn} de <b>MotionTwin</b>.]]></target>
+        <target><![CDATA[Ce jeu est un fan-project pour {dv}, {d2n}, {hordes} et {zn} de <b>MotionTwin</b>.]]></target>
       </segment>
     </unit>
     <unit id="XQQqX1B">
@@ -3751,7 +3751,7 @@
       </notes>
       <segment>
         <source>All Grafiken stammen aus diesen Spielen, wenn nicht explizit anders angegeben, und sind damit Eigentum von &lt;b&gt;MotionTwin&lt;/b&gt;</source>
-        <target><![CDATA[Sauf indication contraire, tous les éléments graphiques sont tiré de ces jeux et sont donc la propriété de <b>MotionTwin</b>]]></target>
+        <target><![CDATA[Sauf indication contraire, tous les éléments graphiques sont tirés de ces jeux et sont donc la propriété de <b>MotionTwin</b>]]></target>
       </segment>
     </unit>
     <unit id="3DaiPcH">
