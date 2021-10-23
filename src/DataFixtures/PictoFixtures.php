@@ -227,7 +227,8 @@ class PictoFixtures extends Fixture
             'label' => 'Event-Auszeichnungen',
             'description' => 'Auszeichnung für die Teilnahme an Events bei \'Die Verdammten\'.',
             'icon' => 'r_bgum',
-            'rare' => true
+            'rare' => true,
+            'community' => true
         ],
         [
             'label' => 'Wunderwerk: Sandschloss',
@@ -510,91 +511,91 @@ class PictoFixtures extends Fixture
             'description' => 'Teilnehmer beim Community-Treffen in Saarbrücken am 6. November 2011',
             'icon' => 'r_fjvani',
             'rare' => true,
-            'community' => true
+            'community' => false
         ],
         [
             'label' => 'Video Game Festival 2010',
             'description' => 'Du warst beim Video Game Festival 2010 in Paris dabei: Danke!',
             'icon' => 'r_fjv2',
             'rare' => true,
-            'community' => true
+            'community' => false
         ],
         [
             'label' => 'FJV\'08 Kanonenfutter',
             'description' => 'Der Besitzer dieses Abzeichens hat an der Schnitzeljagt beim Video Game Festival 2008 teilgenommen.',
             'icon' => 'r_fjv',
             'rare' => true,
-            'community' => true
+            'community' => false
         ],
         [
             'label' => 'Community-Auszeichnung',
             'description' => 'Auszeichnung für außergewöhnliche Verdienste um die Community von Die Verdammten.',
             'icon' => 'r_comu',
             'rare' => true,
-            'community' => true
+            'community' => false
         ],
         [
             'label' => 'Clash CEO',
             'description' => 'Für die Community-Organisatoren und Entwickler des Clash of the Titans Events. Die Gemeinschaft sagt Danke!',
             'icon' => 'r_comu2',
             'rare' => true,
-            'community' => true
+            'community' => false
         ],
         [
             'label' => 'Schlachtenbummler',
             'description' => 'Diese seltene Auszeichnung haben nur jene Verdammten erhalten, die an der Schlacht der Berufe teilgenommen haben.',
             'icon' => 'r_cott',
             'rare' => true,
-            'community' => true
+            'community' => false
         ],
         [
             'label' => 'Shock of heroes',
             'description' => 'Ehrenpreis für die Teilname am Shock of Heroes Event!',
             'icon' => 'r_cdh',
             'rare' => false,
-            'community' => true
+            'community' => false
         ],
         [
             'label' => 'Ultimativer Tod des SoH',
             'description' => 'Auszeichnung für den größten Helden, der während des Shock of Heroes Events am längsten überlebt hat. Du bist nun eine Legende der Außenwelt!',
             'icon' => 'r_derwin',
             'rare' => true,
-            'community' => true
+            'community' => false
         ],
         [
             'label' => 'Einsiedler - Gewinner des SoH',
             'description' => 'Diese seltene Auszeichnung wurde den Einsiedlern verliehen, die mit ihrer Stadt die Schlacht der Berufe gewonnen haben. Respekt!',
             'icon' => 'r_ermwin',
             'rare' => true,
-            'community' => true
+            'community' => false
         ],
         [
             'label' => 'Buddler - Gewinner des SoH',
             'description' => 'Sieg für die Buddler beim Shock of Heroes Event!',
             'icon' => 'r_cdhwin',
             'rare' => true,
-            'community' => true
+            'community' => false
         ],
         [
             'label' => 'Wächter - Gewinner des SoH',
             'description' => 'Sieg für die Wächter beim Shock of Heroes Event!',
             'icon' => 'r_defwin',
             'rare' => true,
-            'community' => true
+            'community' => false
         ],
         [
             'label' => 'Aufklärer - Gewinner des SoH',
             'description' => 'Sieg für die Aufklärer beim Shock of Heroes Event!',
             'icon' => 'r_rangwin',
             'rare' => true,
-            'community' => true
+            'community' => false
         ],
         [
             'label' => 'Bewohner Koh-Lambdas',
             'description' => 'Dieser Bürger war bei der Wiedervereinigung (letzte Runde) von Koh-Lambda dabei!',
             'icon' => 'r_kohlmb',
             'rare' => false,
-            'community' => true
+            'community' => false
         ],
         [
             'label' => 'Der Kobold hat dich erwischt',
