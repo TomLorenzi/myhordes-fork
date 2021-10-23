@@ -36,7 +36,7 @@ class Forum
     private $title;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Thread", mappedBy="forum", orphanRemoval=true, cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity="App\Entity\Thread", mappedBy="forum", cascade={"persist", "remove"})
      */
     private $threads;
 

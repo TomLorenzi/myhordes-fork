@@ -23126,5 +23126,16 @@
         <target><![CDATA[¡Los pueblos de Pandemonio son famosos por ser <strong>mucho más difíciles que los demás</strong>!<br /><strong>Necesitas {splimit} Puntos de Alma</strong> como mínimo para entrar.]]></target>
       </segment>
     </unit>
+    <unit id="4rTfBdh">
+      <notes>
+        <note category="german">Ein Moderator hat deinen Thread "{threadname}" in das Forum "{forumname}" verschoben. {link_post}</note>
+        <note category="from">db://LogEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Ein Moderator hat deinen Thread "{threadname}" in das Forum "{forumname}" verschoben. {link_post}</source>
+        <target>Ein Moderator hat deinen Thread "{threadname}" in das Forum "{forumname}" verschoben. {link_post}</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

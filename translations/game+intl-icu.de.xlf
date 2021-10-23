@@ -14724,5 +14724,11 @@
         <target><![CDATA[Pandämoniumstädte sind <strong>weitaus schwieriger</strong> als normale Städte! Dementsprechend sind auch die Belohnungen und Gewinnmöglichkeiten besser.<br /><strong>Du benötigst mindestens {splimit} Seelenpunkte</strong>, um in diesen Städten spielen zu dürfen.]]></target>
       </segment>
     </unit>
+    <unit id="4rTfBdh">
+      <segment>
+        <source>Ein Moderator hat deinen Thread "{threadname}" in das Forum "{forumname}" verschoben. {link_post}</source>
+        <target>Ein Moderator hat deinen Thread "{threadname}" in das Forum "{forumname}" verschoben. {link_post}</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
