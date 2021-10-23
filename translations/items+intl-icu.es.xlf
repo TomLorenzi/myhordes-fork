@@ -9266,5 +9266,59 @@
         <target><![CDATA[Enciendes un cigarrillo. El humo te hace toser intensamente, la falta de costumbre sin duda... Después de algunos minutos, <strong>logras respirar</strong>. Ese momento de alivio te da una visión diferente de tu suerte.<hr />Tiras la colilla al suelo, ¡y te armas de determinación!<t-consumed><hr />Era tu <strong>última cerilla</strong>... Ahora será difícil encontrar otra.</t-consumed><t-item-consumed><hr/>Era tu <strong>última cerilla</strong>... Ahora será difícil encontrar otra.</t-item-consumed>]]></target>
       </segment>
     </unit>
+    <unit id="X33MW_7" name="Verbessert die Verteidigung">
+      <notes>
+        <note category="german">Verbessert die Verteidigung</note>
+        <note category="from">db://ItemPrototype</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Verbessert die Verteidigung</source>
+        <target>Verbessert die Verteidigung</target>
+      </segment>
+    </unit>
+    <unit id="xyibZX0" name="Verhindert Diebstähle">
+      <notes>
+        <note category="german">Verhindert Diebstähle</note>
+        <note category="from">db://ItemPrototype</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Verhindert Diebstähle</source>
+        <target>Verhindert Diebstähle</target>
+      </segment>
+    </unit>
+    <unit id="wgXNSFv" name="Sieht schön aus, wenn es zu einer Girlande gebunden wird.">
+      <notes>
+        <note category="german">Sieht schön aus, wenn es zu einer Girlande gebunden wird.</note>
+        <note category="from">db://ItemPrototype</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Sieht schön aus, wenn es zu einer Girlande gebunden wird.</source>
+        <target>Sieht schön aus, wenn es zu einer Girlande gebunden wird.</target>
+      </segment>
+    </unit>
+    <unit id="eRtgtP5" name="Sie ist beängstigend.">
+      <notes>
+        <note category="german">Macht mir Angst</note>
+        <note category="from">db://ItemPrototype</note>
+      </notes>
+      <segment>
+        <source>Sie ist beängstigend.</source>
+        <target>Da miedo.</target>
+      </segment>
+    </unit>
+    <unit id="K1aCREa" name="Macht Miau">
+      <notes>
+        <note category="german">Macht Miau</note>
+        <note category="from">db://ItemPrototype</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Macht Miau</source>
+        <target>Macht Miau</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

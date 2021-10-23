@@ -56,6 +56,11 @@ class PictoPrototype implements NamedEntity
      */
     private $awards;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $community = false;
+
     public function __construct()
     {
         $this->awards = new ArrayCollection();
@@ -153,6 +158,18 @@ class PictoPrototype implements NamedEntity
                 $award->setAssociatedPicto(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCommunity(): ?bool
+    {
+        return $this->community;
+    }
+
+    public function setCommunity(bool $community): self
+    {
+        $this->community = $community;
 
         return $this;
     }
