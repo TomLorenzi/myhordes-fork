@@ -3771,7 +3771,7 @@
       </notes>
       <segment>
         <source>MyHordes ist ein Teil des {etwin} Projekts, du kannst uns auf {opencollective} mit einer Spende unterstützen.</source>
-        <target>MyHordes fait partie du projet {etwin}, si vous le souhaitez, vous pouvez faire une donation sur la page {opencollective}.</target>
+        <target>MyHordes fait partie du projet {etwin}, si vous le souhaitez, vous pouvez faire une donation sur {opencollective}.</target>
       </segment>
     </unit>
     <unit id="yyNYNPS" name="Programmierung">
