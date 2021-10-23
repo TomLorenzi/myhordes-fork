@@ -2110,7 +2110,7 @@
       </notes>
       <segment>
         <source>Diese Konstruktion kann nur einmal verwendet werden. Sie wird nach dem Angriff der Zombiehorde wieder abgerissen.</source>
-        <target>Esta construcción es de un solo uso. Será destruida esta noche, después del ataque de los zombies.</target>
+        <target><![CDATA[Esta construcción es de <strong>un solo uso</strong>. Será destruida esta noche, <strong>después</strong> del ataque de los zombies.]]></target>
       </segment>
     </unit>
     <unit id="ssWP4ro" name="Wenn ihr wollt, könnt irh sie morgen nochmal bauen.">
