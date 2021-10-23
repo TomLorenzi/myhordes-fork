@@ -8233,7 +8233,7 @@
       </notes>
       <segment>
         <source>Die Anwesenheit des Geistigen Beistands unter den Nachtwächtern gibt ihnen jeweils einen Boost von 20 Verteidigung.</source>
-        <target>La présence du Discours Rassurant Multicoloré apporte 20 points de défense supplémentaire par veilleur.</target>
+        <target>La présence de l'objet Discours Rassurant Multicoloré parmi les veilleurs actuels permet d'apporter un gain de 20 points de défense.</target>
       </segment>
     </unit>
     <unit id="5mCmMZu" name="Besessen von einer gequälten Seele">
