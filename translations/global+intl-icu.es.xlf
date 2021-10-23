@@ -1831,7 +1831,7 @@
       </notes>
       <segment>
         <source>Diese Kosten können durch den Aufbau der &lt;strong&gt;Müll für Alle&lt;/strong&gt;.</source>
-        <target><![CDATA[Diese Kosten können durch den Aufbau der <strong>Müll für Alle</strong>.]]></target>
+        <target><![CDATA[Este costo puede reducirse con la construcción <strong>Vertedero libre</strong>.]]></target>
       </segment>
     </unit>
     <unit id="BC_uip5" name="Ausblenden">
@@ -1862,7 +1862,7 @@
       </notes>
       <segment>
         <source>Ausb.+Nachr.</source>
-        <target>Ausb.+Nachr.</target>
+        <target>Remplazar</target>
       </segment>
     </unit>
     <unit id="k30IQ7V">
@@ -1902,7 +1902,7 @@
       </notes>
       <segment>
         <source>Diese E-Mail Adresse wird als Kontakt-Adresse angezeigt.</source>
-        <target>Este correo se mostrará como correo de contacto.</target>
+        <target>Esta dirección de correo electrónico se mostrará como correo electrónico de contacto.</target>
       </segment>
     </unit>
     <unit id="1iip6iA">
@@ -3739,7 +3739,7 @@
       </notes>
       <segment>
         <source>Dies ist ein Fan-Projekt für die Spiele {dv}, {d2n}, {hordes} und {zn} von &lt;b&gt;MotionTwin&lt;/b&gt;.</source>
-        <target><![CDATA[Dies ist ein Fan-Projekt für die Spiele {dv}, {d2n}, {hordes} und {zn} von <b>MotionTwin</b>.]]></target>
+        <target><![CDATA[Este es un proyecto de fans a los juegos {dv}, {d2n}, {hordes} y {zn} de <b>MotionTwin</b>.]]></target>
       </segment>
     </unit>
     <unit id="XQQqX1B">
@@ -3750,7 +3750,7 @@
       </notes>
       <segment>
         <source>All Grafiken stammen aus diesen Spielen, wenn nicht explizit anders angegeben, und sind damit Eigentum von &lt;b&gt;MotionTwin&lt;/b&gt;</source>
-        <target><![CDATA[All Grafiken stammen aus diesen Spielen, wenn nicht explizit anders angegeben, und sind damit Eigentum von <b>MotionTwin</b>]]></target>
+        <target><![CDATA[A menos que se exprese lo contrario, todos los elementos gráficos utilizados son tomados de estos juegos y por lo tanto son propiedad de <b>MotionTwin</b>]]></target>
       </segment>
     </unit>
     <unit id="3DaiPcH">
@@ -3761,7 +3761,7 @@
       </notes>
       <segment>
         <source>MyHordes ist &lt;i&gt;Open Source&lt;/i&gt; und jeder ist zur &lt;b&gt;Mitwirkung&lt;/b&gt; eingeladen. Du findest den Quellcode bei {gitlab}.</source>
-        <target><![CDATA[MyHordes ist <i>Open Source</i> und jeder ist zur <b>Mitwirkung</b> eingeladen. Du findest den Quellcode bei {gitlab}.]]></target>
+        <target><![CDATA[MyHordes es de <i>Código Abierto</i> y todos estáis invitados a <b>participar</b>. Podéis encontrar el código en {gitlab}.]]></target>
       </segment>
     </unit>
     <unit id="nWYafS5">
@@ -3772,7 +3772,7 @@
       </notes>
       <segment>
         <source>MyHordes ist ein Teil des {etwin} Projekts, du kannst uns auf {opencollective} mit einer Spende unterstützen.</source>
-        <target>MyHordes ist ein Teil des {etwin} Projekts, du kannst uns auf {opencollective} mit einer Spende unterstützen.</target>
+        <target>MyHordes forma parte del proyecto {etwin}, si lo deseáis, podéis aportar vuestra donación en la página {opencollective}.</target>
       </segment>
     </unit>
     <unit id="yyNYNPS" name="Programmierung">

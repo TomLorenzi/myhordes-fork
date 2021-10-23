@@ -58,7 +58,7 @@
       </notes>
       <segment>
         <source>Serverzeit</source>
-        <target>Tiempo de Servidor</target>
+        <target>Hora del Servidor</target>
       </segment>
     </unit>
     <unit id="jb3MjHh" name="Kartenbreite">
@@ -68,7 +68,7 @@
       </notes>
       <segment>
         <source>Kartenbreite</source>
-        <target>Ancho del mapa</target>
+        <target>Anchura del mapa</target>
       </segment>
     </unit>
     <unit id="VWs0Y67" name="Kartenhöhe">
@@ -88,7 +88,7 @@
       </notes>
       <segment>
         <source>Wenn es einen Aufstand gibt</source>
-        <target>Cuando hay un motín</target>
+        <target>Valor booleano que indica si hubo una insurrección (true) o no (false)</target>
       </segment>
     </unit>
     <unit id="XhYRokz" name="Bonuspunkte">
@@ -118,7 +118,7 @@
       </notes>
       <segment>
         <source>Boolescher Wert, der angibt, ob die Stadt privat ist oder nicht</source>
-        <target>Valor booleano que indica si el pueblo es privado o no</target>
+        <target>Valor booleano que indica si el pueblo es privado(true) o no(false)</target>
       </segment>
     </unit>
     <unit id="IIyH1_p" name="Liste bekannter Zonen">
@@ -328,7 +328,7 @@
       </notes>
       <segment>
         <source>Wenn das Gebäude gelagert wurde</source>
-        <target>Cuando el edificio ha sido almacenado</target>
+        <target>Indica si la ruina ya otorgó un plano (true) o no (false)</target>
       </segment>
     </unit>
     <unit id="IujjIrH" name="Das Gebäude trocknen">
@@ -338,7 +338,7 @@
       </notes>
       <segment>
         <source>Das Gebäude trocknen</source>
-        <target>Secar el edificio</target>
+        <target>Indica si la ruina está vacía (true) o no (false)</target>
       </segment>
     </unit>
     <unit id="BAdMxDp" name="Die Anzahl der Zombies">
@@ -358,7 +358,7 @@
       </notes>
       <segment>
         <source>Die Anzahl der Menschen</source>
-        <target>El número de habitantes</target>
+        <target>La cantidad de habitantes</target>
       </segment>
     </unit>
     <unit id="ksG4XYO" name="Den Bereich austrocknen">
@@ -368,7 +368,7 @@
       </notes>
       <segment>
         <source>Den Bereich austrocknen</source>
-        <target>Seque la zona</target>
+        <target>Indica si la zona está agotada (true) o no (false)</target>
       </segment>
     </unit>
     <unit id="VR0KmfL" name="Spielername">
@@ -388,7 +388,7 @@
       </notes>
       <segment>
         <source>ob der Spieler verkörpert ist (false) oder nicht (true)</source>
-        <target>si el jugador está incorporado (false) o no (true)</target>
+        <target>si el jugador está vivo (false) o no (true)</target>
       </segment>
     </unit>
     <unit id="YVtCp6_" name="Die Twinoid-ID, wenn er sein Konto verknüpft hat">
@@ -428,7 +428,7 @@
       </notes>
       <segment>
         <source>Persönlicher Text (über die Seele)</source>
-        <target>Texto personal (sobre el alma)</target>
+        <target>Anuncio personal (sobre el alma)</target>
       </segment>
     </unit>
     <unit id="UX5dXh2" name="Spieler-Avatar-URL">
@@ -479,7 +479,7 @@
       </notes>
       <segment>
         <source>Der Name des Berufs</source>
-        <target>El nombre de la profesión</target>
+        <target>El nombre del oficio</target>
       </segment>
     </unit>
     <unit id="1lXS_T7" name="Die Beschreibung">
@@ -509,7 +509,7 @@
       </notes>
       <segment>
         <source>Anzahl der verfügbaren Wasserrationen</source>
-        <target>Número de raciones de agua disponibles</target>
+        <target>Cantidad de raciones de agua disponibles</target>
       </segment>
     </unit>
     <unit id="usrpxmF" name="Stadtposition">
@@ -529,7 +529,7 @@
       </notes>
       <segment>
         <source>Boolescher Wert, der angibt, ob das Stadttor geöffnet ist</source>
-        <target>Valor booleano que indica si la puerta del pueblo está abierta</target>
+        <target>Valor booleano que indica si el portal del pueblo está abierto (true) o cerrado (false)</target>
       </segment>
     </unit>
     <unit id="YXbjKvx" name="Boolescher Wert, der angibt, dass sich die Stadt im Chaos befindet">
@@ -539,7 +539,7 @@
       </notes>
       <segment>
         <source>Boolescher Wert, der angibt, dass sich die Stadt im Chaos befindet</source>
-        <target>Valor booleano que indica que el pueblo está sumido en el caos.</target>
+        <target>Valor booleano que indica que el pueblo está sumido en el caos (true) o no (false).</target>
       </segment>
     </unit>
     <unit id="JHeixLc" name="Boolescher Wert, der besagt, ob die Stadt ein Pandemonium ist">
@@ -549,7 +549,7 @@
       </notes>
       <segment>
         <source>Boolescher Wert, der besagt, ob die Stadt ein Pandemonium ist</source>
-        <target>Valor booleano que indica si el pueblo es un pandemonio</target>
+        <target>Valor booleano que indica si el pueblo es un pandemonio (true) o no (false)</target>
       </segment>
     </unit>
     <unit id="2KmVjTR" name="Boolescher Wert, der angibt, ob die Stadt am Boden zerstört ist">
@@ -559,7 +559,7 @@
       </notes>
       <segment>
         <source>Boolescher Wert, der angibt, ob die Stadt am Boden zerstört ist</source>
-        <target>Valor booleano que indica si el pueblo está devastado</target>
+        <target>Valor booleano que indica si el pueblo está devastado (true) o no (false)</target>
       </segment>
     </unit>
     <unit id="CD19.Dq" name="Vollständige Liste der verfügbaren Websites">
@@ -569,7 +569,7 @@
       </notes>
       <segment>
         <source>Vollständige Liste der verfügbaren Websites</source>
-        <target>Lista completa de sitios web disponibles</target>
+        <target>Lista completa de construcciones disponibles</target>
       </segment>
     </unit>
     <unit id="NABXV7b" name="Liste der Baustellen">
@@ -589,7 +589,7 @@
       </notes>
       <segment>
         <source>Neueste Zeitschrift mit Informationen zu Angriff und Verteidigung</source>
-        <target>Revista de información de defensa y ofensiva más reciente</target>
+        <target>Boletín de información de defensas y ataque nocturno más reciente</target>
       </segment>
     </unit>
     <unit id="8lOIXsk" name="Informationen zur Verteidigung der Stadt">
@@ -599,7 +599,7 @@
       </notes>
       <segment>
         <source>Informationen zur Verteidigung der Stadt</source>
-        <target>Información sobre la defensa del pueblo</target>
+        <target>Información detallada sobre la defensa del pueblo</target>
       </segment>
     </unit>
     <unit id="Yj_2XP7" name="Liste der verfügbaren Verbesserungen (Pumpe usw.)">
@@ -609,7 +609,7 @@
       </notes>
       <segment>
         <source>Liste der verfügbaren Verbesserungen (Pumpe usw.)</source>
-        <target>Lista de mejoras disponibles (bomba, etc.)</target>
+        <target>Lista de mejoras diarias (bomba, etc.)</target>
       </segment>
     </unit>
     <unit id="kloFsgB" name="Schätzung für den Abendangriff">
@@ -619,7 +619,7 @@
       </notes>
       <segment>
         <source>Schätzung für den Abendangriff</source>
-        <target>Estimación del ataque vespertino</target>
+        <target>Pronóstico del ataque nocturno</target>
       </segment>
     </unit>
     <unit id="O1v3iVT">
@@ -629,7 +629,7 @@
       </notes>
       <segment>
         <source>Schätzen Sie für den Angriff am nächsten Tag oder nichts, wenn nicht der Planer</source>
-        <target>Estimación del ataque al día siguiente o nada si no hay planificador</target>
+        <target>Estimación del ataque del día siguiente (o nada si no se ha construido el Pronisticador)</target>
       </segment>
     </unit>
     <unit id="fM9i_xk" name="Objekte in der Bank">
@@ -639,7 +639,7 @@
       </notes>
       <segment>
         <source>Objekte in der Bank</source>
-        <target>Objetos en el almacen</target>
+        <target>Lista de objetos en el almacen</target>
       </segment>
     </unit>
     <unit id="L_ynkvZ" name="Die Tage der Schätzung">
@@ -659,7 +659,7 @@
       </notes>
       <segment>
         <source>Der minimale Angriff</source>
-        <target>El ataque mínimo</target>
+        <target>Ataque mínimo</target>
       </segment>
     </unit>
     <unit id="6ZRLBbX" name="Maximaler Angriff">
@@ -679,7 +679,7 @@
       </notes>
       <segment>
         <source>totale Verteidigung</source>
-        <target>defensa total</target>
+        <target>Defensa total</target>
       </segment>
     </unit>
     <unit id="rMw81SZ" name="Grundverteidigung (10)">
@@ -689,7 +689,7 @@
       </notes>
       <segment>
         <source>Grundverteidigung (10)</source>
-        <target>Defensa basica (10)</target>
+        <target>Muralla de Base (10)</target>
       </segment>
     </unit>
     <unit id="IRSXjEH" name="Verteidigung durch Konstruktionen">
@@ -699,7 +699,7 @@
       </notes>
       <segment>
         <source>Verteidigung durch Konstruktionen</source>
-        <target>Defensa mediante construcciones</target>
+        <target>Defensa otorgada por las construcciones</target>
       </segment>
     </unit>
     <unit id="9dwicyP" name="Verteidigung durch Entwicklungen">
@@ -709,7 +709,7 @@
       </notes>
       <segment>
         <source>Verteidigung durch Entwicklungen</source>
-        <target>Defensa a través de desarrollos</target>
+        <target>Defensa otorgada por las mejoras diarias</target>
       </segment>
     </unit>
     <unit id="zmUAact" name="Anzahl der Verteidigungsobjekte">
@@ -719,7 +719,7 @@
       </notes>
       <segment>
         <source>Anzahl der Verteidigungsobjekte</source>
-        <target>Número de objetos de defensa</target>
+        <target>Cantidad de objetos de defensa</target>
       </segment>
     </unit>
     <unit id="quvGx89" name="Verteidigung durch Verteidigungsobjekte">
@@ -729,7 +729,7 @@
       </notes>
       <segment>
         <source>Verteidigung durch Verteidigungsobjekte</source>
-        <target>Defensa mediante objetos defensivos</target>
+        <target>Defensa otorgada por los objetos de defensa</target>
       </segment>
     </unit>
     <unit id="DDD3O8h" name="Verteidigung durch Häuser gebracht">
@@ -739,7 +739,7 @@
       </notes>
       <segment>
         <source>Verteidigung durch Häuser gebracht</source>
-        <target>Defensa traída a través de las casas</target>
+        <target>Defensa otorgada por las casas de los habitantes</target>
       </segment>
     </unit>
     <unit id="Pb940Cc" name="Verteidigung durch die Wachen (oder Anzahl der Wachen)">
@@ -749,7 +749,7 @@
       </notes>
       <segment>
         <source>Verteidigung durch die Wachen (oder Anzahl der Wachen)</source>
-        <target>Defensa de los guardianes (o número de guardianes)</target>
+        <target>Defensa otorgada por los guardianes (o la cantidad de guardianes)</target>
       </segment>
     </unit>
     <unit id="m37G302" name="Verteidigung von den Wächtern gebracht">
@@ -759,7 +759,7 @@
       </notes>
       <segment>
         <source>Verteidigung von den Wächtern gebracht</source>
-        <target>Defensa traída por los guardianes</target>
+        <target>Defensa otorgada por los centinelas</target>
       </segment>
     </unit>
     <unit id="FnNHWg4" name="Verteidigung durch Seelen gebracht">
@@ -769,7 +769,7 @@
       </notes>
       <segment>
         <source>Verteidigung durch Seelen gebracht</source>
-        <target>Defensa traída por las almas</target>
+        <target>Defensa otorgada por las almas purificadas</target>
       </segment>
     </unit>
     <unit id="LnV0bki" name="Vorübergehende Verteidigung">
@@ -789,7 +789,7 @@
       </notes>
       <segment>
         <source>Verteidigung durch Leichen gebracht</source>
-        <target>Defensa traída por cadáveres</target>
+        <target>Defensa otrogada por Defensa Post-Mortem (O Lanza-muertos)</target>
       </segment>
     </unit>
     <unit id="vRe51_F" name="Anzahl der Wachen">
@@ -799,7 +799,7 @@
       </notes>
       <segment>
         <source>Anzahl der Wachen</source>
-        <target>Numero de centinelas</target>
+        <target>Cantidad de guardianes</target>
       </segment>
     </unit>
     <unit id="PRCDOWU" name="Verteidigung durch die Wächter">
@@ -809,7 +809,7 @@
       </notes>
       <segment>
         <source>Verteidigung durch die Wächter</source>
-        <target>Defensa de los centinelas</target>
+        <target>Defensa de los guardianes</target>
       </segment>
     </unit>
     <unit id="pJFT5TL" name="Anzahl der angegriffenen Zombies">
@@ -819,7 +819,7 @@
       </notes>
       <segment>
         <source>Anzahl der angegriffenen Zombies</source>
-        <target>Número de zombis atacados</target>
+        <target>Cantidad de zombies atacantes</target>
       </segment>
     </unit>
     <unit id="62emNze" name="Anzahl der Verteidigungspunkte">
@@ -829,7 +829,7 @@
       </notes>
       <segment>
         <source>Anzahl der Verteidigungspunkte</source>
-        <target>Número de puntos de defensa</target>
+        <target>Cantidad de puntos de defensa del pueblo</target>
       </segment>
     </unit>
     <unit id="v3BuslK" name="Gazette-Text">
@@ -849,7 +849,7 @@
       </notes>
       <segment>
         <source>Richtung der Regeneration des stellvertretenden Rückkehrers?</source>
-        <target>¿Dirección de la regeneración de los diputados retornados?</target>
+        <target>Dirección de las zonas regeneradas (Barómetro)</target>
       </segment>
     </unit>
     <unit id="0MMAnFB" name="Anzahl der im Brunnen verbleibenden Rationen?">
@@ -859,7 +859,7 @@
       </notes>
       <segment>
         <source>Anzahl der im Brunnen verbleibenden Rationen?</source>
-        <target>¿Número de raciones que quedan en el pozo?</target>
+        <target>Cantidad de raciones restantes del pozo</target>
       </segment>
     </unit>
     <unit id="0K2pZFf" name="ID der Site">
@@ -869,7 +869,7 @@
       </notes>
       <segment>
         <source>ID der Site</source>
-        <target>ID del sitio</target>
+        <target>ID de la construcción</target>
       </segment>
     </unit>
     <unit id="EVve8Kz" name="Anzahl der für den Bau benötigten AP">
@@ -879,7 +879,7 @@
       </notes>
       <segment>
         <source>Anzahl der für den Bau benötigten AP</source>
-        <target>Número de PA necesarios para la construcción</target>
+        <target>Cantidad de PA necesarios para la construcción</target>
       </segment>
     </unit>
     <unit id="biYb4QK" name="aktuelle Lebenspunkte der Site (falls nicht gebaut = 0)">
@@ -889,7 +889,7 @@
       </notes>
       <segment>
         <source>aktuelle Lebenspunkte der Site (falls nicht gebaut = 0)</source>
-        <target>puntos de vida actuales del sitio (si no se construyó = 0)</target>
+        <target>puntos de vida actuales de la construcción (si no se ha construido el valor es = 0)</target>
       </segment>
     </unit>
     <unit id="slJHrsA" name="Stimmen für diese Seite gesammelt">
@@ -899,7 +899,7 @@
       </notes>
       <segment>
         <source>Stimmen für diese Seite gesammelt</source>
-        <target>Votos obtenidos para este sitio</target>
+        <target>Votos obtenidos para la mejora de esta construcción</target>
       </segment>
     </unit>
     <unit id=".7yFBGU" name="ob dieses Gebäude nach dem Angriff zerstört werden kann">
@@ -909,7 +909,7 @@
       </notes>
       <segment>
         <source>ob dieses Gebäude nach dem Angriff zerstört werden kann</source>
-        <target>si este edificio puede ser destruido después del ataque</target>
+        <target>Indica si esta construcción puede ser dañada después del ataque (true) o no (false)</target>
       </segment>
     </unit>
     <unit id="iQPe1o4" name="Verteidigung dieses Gebäudes">
@@ -919,7 +919,7 @@
       </notes>
       <segment>
         <source>Verteidigung dieses Gebäudes</source>
-        <target>Defensa de este edificio</target>
+        <target>Defensa que otorga la construcción</target>
       </segment>
     </unit>
     <unit id="aSXJac0" name="Wenn sich dieses Gebäude weiterentwickeln kann">
@@ -929,7 +929,7 @@
       </notes>
       <segment>
         <source>Wenn sich dieses Gebäude weiterentwickeln kann</source>
-        <target>Si este edificio puede mejorar</target>
+        <target>Indica si esta construcción se puede mejorar por votación (true) o no (false)</target>
       </segment>
     </unit>
     <unit id="G3Ku2Xx" name="Seltenheit des Plans">
@@ -939,7 +939,7 @@
       </notes>
       <segment>
         <source>Seltenheit des Plans</source>
-        <target>Rareza del plano</target>
+        <target>Rareza del plano de construcción</target>
       </segment>
     </unit>
     <unit id="5X22qFB" name="Temporäres Gebäude">
@@ -949,7 +949,7 @@
       </notes>
       <segment>
         <source>Temporäres Gebäude</source>
-        <target>Edificio temporal</target>
+        <target>Indica si la construcción se destruirá después del ataque (true) o no (false)</target>
       </segment>
     </unit>
     <unit id="mLc1q40" name="Gebäude-ID des vorherigen Zweigs">
@@ -959,7 +959,7 @@
       </notes>
       <segment>
         <source>Gebäude-ID des vorherigen Zweigs</source>
-        <target>ID de edificio de la rama anterior</target>
+        <target>ID de la construcción de la rama anterior(O construcción "padre")</target>
       </segment>
     </unit>
     <unit id="nvQbiRt" name="Anzahl der benötigten Ressourcen">
@@ -979,7 +979,7 @@
       </notes>
       <segment>
         <source>Objekte benötigt</source>
-        <target>Objetos necesarios</target>
+        <target>Recursos necesarios</target>
       </segment>
     </unit>
     <unit id="1aS4pN3" name="Spieler ID">
@@ -1009,7 +1009,7 @@
       </notes>
       <segment>
         <source>Karten-ID</source>
-        <target>Tarjeta de identificacion</target>
+        <target>ID del mapa</target>
       </segment>
     </unit>
     <unit id="xTzYk7X" name="Anzahl der Tage überlebt">
@@ -1019,7 +1019,7 @@
       </notes>
       <segment>
         <source>Anzahl der Tage überlebt</source>
-        <target>Número de días sobrevividos</target>
+        <target>Cantidad de días sobrevividos</target>
       </segment>
     </unit>
     <unit id="dps99iA" name="Kartentag">
@@ -1029,7 +1029,7 @@
       </notes>
       <segment>
         <source>Kartentag</source>
-        <target>Día de la tarjeta</target>
+        <target>Día del pueblo</target>
       </segment>
     </unit>
     <unit id="Z9JTs1j" name="Spieler Avatar">
@@ -1049,7 +1049,7 @@
       </notes>
       <segment>
         <source>Name der Karte</source>
-        <target>Nombre de la tarjeta</target>
+        <target>Nombre del pueblo</target>
       </segment>
     </unit>
     <unit id="VniN2pJ" name="Saisonnummer">
@@ -1079,7 +1079,7 @@
       </notes>
       <segment>
         <source>Ergebnis</source>
-        <target>Resultado</target>
+        <target>Puntos de alma obtenidos</target>
       </segment>
     </unit>
     <unit id="BKUxNcG" name="relevante Spielzeit">
@@ -1089,7 +1089,7 @@
       </notes>
       <segment>
         <source>relevante Spielzeit</source>
-        <target>tiempo de juego relevante</target>
+        <target>Temporada de juego</target>
       </segment>
     </unit>
     <unit id="eFl1Az2" name="Kennung des Todestyps">
@@ -1099,7 +1099,7 @@
       </notes>
       <segment>
         <source>Kennung des Todestyps</source>
-        <target>ID del tipo de muertes</target>
+        <target>ID del tipo de muerte</target>
       </segment>
     </unit>
     <unit id="L1GKCXN" name="Todesnachricht">
@@ -1109,7 +1109,7 @@
       </notes>
       <segment>
         <source>Todesnachricht</source>
-        <target>Mensaje de muerte</target>
+        <target>Últimas palabras</target>
       </segment>
     </unit>
     <unit id="coQifWg" name="Kommentar">
@@ -1139,7 +1139,7 @@
       </notes>
       <segment>
         <source>Methode : garbage, water, cook order ghoul</source>
-        <target>Método: basura, agua, cocinar o mutante</target>
+        <target>Método: garbage (arrojado fuera), water (rociado con agua), cook (Cremato-bar) o ghoul (devorado por un mutante)</target>
       </segment>
     </unit>
     <unit id="fpFPzjl" name="Expeditionsname">
@@ -1159,7 +1159,7 @@
       </notes>
       <segment>
         <source>der Autor</source>
-        <target>el autor</target>
+        <target>Autor de la expedición</target>
       </segment>
     </unit>
     <unit id="Andj.R3" name="Versandlänge">
@@ -1169,7 +1169,7 @@
       </notes>
       <segment>
         <source>Versandlänge</source>
-        <target>Longitud de envío</target>
+        <target>Longitud de la expedición</target>
       </segment>
     </unit>
     <unit id="AK5FGCL" name="Punkte, die den Kurs definieren">
@@ -1189,7 +1189,7 @@
       </notes>
       <segment>
         <source>Alle ISO 3166-1 alpha-2 Ländercodes werden in das Feld "langues" eingetragen</source>
-        <target>Todos los códigos de país ISO 3166-1 alpha-2 se ingresan en el campo "langues".</target>
+        <target>Todos los códigos de idioma ISO 3166-1 alpha-2 se ingresan en el campo "langues".</target>
       </segment>
     </unit>
     <unit id="MLDUlQN" name="zB :">
@@ -1220,7 +1220,7 @@
       </notes>
       <segment>
         <source>Für api/x/json/items akzeptieren Filter nur UIDs. Derzeit ist die UID identisch mit img. Aber in Zukunft wird die UID durch eine echte Horden-ID ersetzt.</source>
-        <target>Para api/x/json/items, los filtros solo aceptan UIDs. Actualmente, el UID es idéntico a img. Pero en el futuro, el UID será reemplazado por un ID de horda real.</target>
+        <target>Para api/x/json/items, los filtros solo aceptan UIDs. Actualmente, el UID es idéntico a img. Pero en el futuro, el UID será reemplazado por un ID de Zombinoia.</target>
       </segment>
     </unit>
     <unit id="vXeei1Z">
@@ -1250,7 +1250,7 @@
       </notes>
       <segment>
         <source>Wenn aus Twinoid importiert, Ländercode + Season (zb "fr-12"); sonst leer.</source>
-        <target>Si se importa de Twinoid, código de país + temporada (por ejemplo, "es-10"); de lo contrario, vacío.</target>
+        <target>Si se importa de Twinoid, código de idioma + temporada (por ejemplo, "es-10"); de lo contrario, vacío.</target>
       </segment>
     </unit>
     <unit id="_fLqtmV" name="Phase der Stadt; entweder &quot;alpha&quot;, &quot;beta&quot;, &quot;import&quot; oder &quot;native&quot;">
@@ -1260,7 +1260,7 @@
       </notes>
       <segment>
         <source>Phase der Stadt; entweder "alpha", "beta", "import" oder "native"</source>
-        <target>Fase del pueblo; ya sea "alfa", "beta", "importación" o "nativa"</target>
+        <target>Origen del pueblo; ya sea "alpha", "beta", "native" (Temporadas de MyHordes) o "import" (del juego original)</target>
       </segment>
     </unit>
     <unit id="5F7mt2z" name="Herkunfts-Server der Stadt">
