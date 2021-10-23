@@ -3319,7 +3319,6 @@
     <unit id="BkMtMYQ">
       <notes>
         <note category="german">Die Freundschaftswerbung kann für deinen Account nicht aktiviert werden. Bitte kontaktiere einen Administrator für weitere Informationen.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
@@ -3330,7 +3329,6 @@
     <unit id="t7p0F21" name="Die Freundschaftswerbung ist für deinen Account gesperrt.">
       <notes>
         <note category="german">Die Freundschaftswerbung ist für deinen Account gesperrt.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
