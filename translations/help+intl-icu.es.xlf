@@ -4087,7 +4087,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>Dieser Zustand kann nicht gewählt werden. Vielmehr handelt es sich um einen Fluch, von dem jeder Spieler, egal ob in der Stadt oder in der Außenwelt, getroffen werden kann.</source>
-        <target>Un habitante podría convertirse en mutante al comer alimentos sospechosos: Cadáver de viajero, raros bichos y cosas así. Las posibilidades son remotas, ¿pero realmente quieres correr el riesgo de convertirte en uno de esos monstruos?</target>
+        <target>Un habitante podría convertirse en mutante al comer alimentos sospechosos: Cadáver de viajero, Carne humana y cosas así. Las posibilidades son remotas, ¿pero realmente quieres correr el riesgo de convertirte en uno de esos monstruos?</target>
       </segment>
     </unit>
     <unit id="5JpviwY">
@@ -4117,7 +4117,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>Ein Ghul ist noch kein Zombie. Sein Körper kann sich nur schlecht gegen Angriffe wehren. Sowohl der Galgen, als auch Drogenabhängigkeit können einen Ghul umbringen. Allerdings kann ein Ghul weder verdursten, noch an einer Infektion sterben.</source>
-        <target>Un mutante no un es totalmente un zombie y puede morir por ciertas causas "normales": ahorcamiento y adicción a los estimulantes. Sin embargo, es inmune a la sed y a la infección.</target>
+        <target>Un mutante no es totalmente un zombie y puede morir por ciertas causas "normales": ahorcamiento y adicción a los estimulantes. Sin embargo, es inmune a la sed y a la infección.</target>
       </segment>
     </unit>
     <unit id="eIb_zgt">
