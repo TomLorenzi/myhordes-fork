@@ -373,7 +373,7 @@ class CommandHelper
             }
 
             if(count($l) === 1) {
-                $out->writeln("Your query '$id' has been resolved to : <comment>{$l[array_keys($l)[0]]->getName()}</comment>");
+                $out->writeln("Your query '$id' has been resolved to : <comment>{$this->printObject($l[array_keys($l)[0]])}</comment>");
                 return $l[array_keys($l)[0]];
             }
 

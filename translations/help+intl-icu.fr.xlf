@@ -8590,7 +8590,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
     <unit id="FIL0rIm" name="Der Tod und die Berechnung der Seelepunkte">
       <notes>
         <note category="german">Der Tod und die Berechnung der Seelepunkte</note>
-        <note category="from">twig:///templates/ajax/soul/game_history.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/game_history.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
       </notes>
       <segment>
         <source>Der Tod und die Berechnung der Seelepunkte</source>

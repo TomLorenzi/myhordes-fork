@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Command;
+namespace App\Command\Info;
 
 
 use App\Entity\BuildingPrototype;
@@ -21,7 +21,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class ResolveCommand extends Command
 {
-    protected static $defaultName = 'app:resolve';
+    protected static $defaultName = 'app:info:resolve';
 
     private $helper;
 

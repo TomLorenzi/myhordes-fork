@@ -8703,7 +8703,7 @@
       </notes>
       <segment>
         <source>&lt;t-consumed&gt;Du hetzt das/den/die {item} auf einen Zombie. Der Untote greift sich deinen tierischen Begleiter, zerquetscht es mit seinen Griffen und würgt es ganz langsam herunter... Dumm gelaufen.. aber wenigstens hast ihn damit eine Zeit lang beschäftigt...&lt;/t-consumed&gt;&lt;nt-consumed&gt;Dein Tier &lt;strong&gt;geht einem Zombie sofort an die Gurgel&lt;/strong&gt; und reißt sich ein paar schöne Happen! Bravo!&lt;/nt-consumed&gt;</source>
-        <target><![CDATA[<t-consumed>Lanzas {item} sobre el zombie. Empieza entre ellos un sangriennto combate de mordidas y golpes... "Adiós mi fiel mascota, tu muerte no fue en vano". Ese zombie no molestará más.</t-consumed><nt-consumed>¡Tu {item} <strong>se lanza al cuello de un zombie</strong> y logra arrancarle la cabeza! ¡Esa es mi mascota!</nt-consumed>]]></target>
+        <target><![CDATA[<t-consumed>Lanzas a tu {item} sobre el zombie. Empieza entre ellos un sangriento combate de mordidas y golpes... "Adiós mi fiel mascota, tu muerte no fue en vano". Ese zombie no molestará más.</t-consumed><nt-consumed>¡<strong>Tu</strong> {item} <strong>se lanza al cuello de un zombie</strong> y logra arrancarle la cabeza! "¡Esa es mi mascota!"</nt-consumed>]]></target>
       </segment>
     </unit>
     <unit id="WvhcAeX">
@@ -9136,16 +9136,6 @@
         <target>Ataque y defensa</target>
       </segment>
     </unit>
-    <unit id="KdxLS.M">
-      <notes>
-        <note category="german">Du zündest eine Zigarette an. Der Rauch lässt dich kräftig Husten, vermutlich weil du daran nicht gewöhnt bist... Nach ein paar Minuten &lt;strong&gt;gelingt es dir dich zu beruhigen&lt;/strong&gt;. Dieser Kurze Moment des Friedens ermöglicht lässt dich deinen Kummer vergessen und bringt dich zurück in die Wirklichkeit.&lt;hr /&gt;Du drückst den Stummel auf dem Boden aus und bist bereit für einen weiteren Tag des Überlebens!&lt;t-consumed&gt;&lt;hr /&gt;Dir fällt auf dass &lt;strong&gt;die Packung leer ist&lt;/strong&gt;!&lt;/t-consumed&gt;</note>
-        <note category="from">db://ItemAction</note>
-      </notes>
-      <segment>
-        <source>Du zündest eine Zigarette an. Der Rauch lässt dich kräftig Husten, vermutlich weil du daran nicht gewöhnt bist... Nach ein paar Minuten &lt;strong&gt;gelingt es dir dich zu beruhigen&lt;/strong&gt;. Dieser Kurze Moment des Friedens ermöglicht lässt dich deinen Kummer vergessen und bringt dich zurück in die Wirklichkeit.&lt;hr /&gt;Du drückst den Stummel auf dem Boden aus und bist bereit für einen weiteren Tag des Überlebens.!&lt;t-consumed&gt;&lt;hr /&gt;Dir fällt auf dass &lt;strong&gt;die Packung leer ist&lt;/strong&gt;!&lt;/t-consumed&gt;</source>
-        <target><![CDATA[Enciendes un cigarrillo. El humo te hace toser intensamente, la falta de costumbre sin duda... Después de algunos minutos, <strong>logras respirar</strong>. Ese momento de alivio te da una visión diferente de tu suerte.<hr />Tiras la colilla al suelo, ¡y te armas de determinación!<t-consumed><hr />Era tu <strong>última cerilla</strong>... Ahora será difícil encontrar otra.</t-consumed>]]></target>
-      </segment>
-    </unit>
     <unit id="5MlxE2I" name="Gegenstand verwenden">
       <notes>
         <note category="german">Gegenstand verwenden</note>
@@ -9264,6 +9254,70 @@
       <segment>
         <source>Verbessert die Verteidigung und verhindert Diebstähle</source>
         <target>Mejora la defensa y previene robos.</target>
+      </segment>
+    </unit>
+    <unit id="0bR.3rp">
+      <notes>
+        <note category="german">Du zündest eine Zigarette an. Der Rauch lässt dich kräftig Husten, vermutlich weil du daran nicht gewöhnt bist... Nach ein paar Minuten &lt;strong&gt;gelingt es dir dich zu beruhigen&lt;/strong&gt;. Dieser Kurze Moment des Friedens ermöglicht lässt dich deinen Kummer vergessen und bringt dich zurück in die Wirklichkeit.&lt;hr /&gt;Du drückst den Stummel auf dem Boden aus und bist bereit für einen weiteren Tag des Überlebens.!&lt;t-consumed&gt;&lt;hr /&gt;Dir fällt auf dass &lt;strong&gt;die Packung leer ist&lt;/strong&gt;!&lt;/t-consumed&gt;&lt;t-item-consumed&gt;&lt;hr/&gt;Das war dein &lt;strong&gt;letztes Streichholz&lt;/strong&gt;... Es wird schwer sein, jetzt noch eine Zigarette anzuzünden.&lt;/t-item-consumed&gt;</note>
+        <note category="from">db://ItemAction</note>
+      </notes>
+      <segment>
+        <source>Du zündest eine Zigarette an. Der Rauch lässt dich kräftig Husten, vermutlich weil du daran nicht gewöhnt bist... Nach ein paar Minuten &lt;strong&gt;gelingt es dir dich zu beruhigen&lt;/strong&gt;. Dieser Kurze Moment des Friedens ermöglicht lässt dich deinen Kummer vergessen und bringt dich zurück in die Wirklichkeit.&lt;hr /&gt;Du drückst den Stummel auf dem Boden aus und bist bereit für einen weiteren Tag des Überlebens.!&lt;t-consumed&gt;&lt;hr /&gt;Dir fällt auf dass &lt;strong&gt;die Packung leer ist&lt;/strong&gt;!&lt;/t-consumed&gt;&lt;t-item-consumed&gt;Das war dein &lt;strong&gt;letztes Streichholz&lt;/strong&gt;... Es wird schwer sein, jetzt noch eine Zigarette anzuzünden.&lt;/t-item-consumed&gt;</source>
+        <target><![CDATA[Enciendes un cigarrillo. El humo te hace toser intensamente, la falta de costumbre sin duda... Después de algunos minutos, <strong>logras respirar</strong>. Ese momento de alivio te da una visión diferente de tu suerte.<hr />Tiras la colilla al suelo, ¡y te armas de determinación!<t-consumed><hr />Era tu <strong>última cerilla</strong>... Ahora será difícil encontrar otra.</t-consumed><t-item-consumed><hr/>Era tu <strong>última cerilla</strong>... Ahora será difícil encontrar otra.</t-item-consumed>]]></target>
+      </segment>
+    </unit>
+    <unit id="X33MW_7" name="Verbessert die Verteidigung">
+      <notes>
+        <note category="german">Verbessert die Verteidigung</note>
+        <note category="from">db://ItemPrototype</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Verbessert die Verteidigung</source>
+        <target>Verbessert die Verteidigung</target>
+      </segment>
+    </unit>
+    <unit id="xyibZX0" name="Verhindert Diebstähle">
+      <notes>
+        <note category="german">Verhindert Diebstähle</note>
+        <note category="from">db://ItemPrototype</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Verhindert Diebstähle</source>
+        <target>Verhindert Diebstähle</target>
+      </segment>
+    </unit>
+    <unit id="wgXNSFv" name="Sieht schön aus, wenn es zu einer Girlande gebunden wird.">
+      <notes>
+        <note category="german">Sieht schön aus, wenn es zu einer Girlande gebunden wird.</note>
+        <note category="from">db://ItemPrototype</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Sieht schön aus, wenn es zu einer Girlande gebunden wird.</source>
+        <target>Sieht schön aus, wenn es zu einer Girlande gebunden wird.</target>
+      </segment>
+    </unit>
+    <unit id="eRtgtP5" name="Sie ist beängstigend.">
+      <notes>
+        <note category="german">Macht mir Angst</note>
+        <note category="from">db://ItemPrototype</note>
+      </notes>
+      <segment>
+        <source>Sie ist beängstigend.</source>
+        <target>Da miedo.</target>
+      </segment>
+    </unit>
+    <unit id="K1aCREa" name="Macht Miau">
+      <notes>
+        <note category="german">Macht Miau</note>
+        <note category="from">db://ItemPrototype</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Macht Miau</source>
+        <target>Macht Miau</target>
       </segment>
     </unit>
   </file>

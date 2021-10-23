@@ -42,29 +42,38 @@
             {% if first_buttons %}<div class="forum-header-bar"><i class="fa fa-comments"></i> {{ title }}</div>{% endif %}
             <div class="row-flex wrap stretch">
                 <div class="cell padded grow-1 left">
-                    {% if permission.moderate() or owned %}
-                        {% if not locked %}
-                            <div x-forum-moderator-action="lock" class="forum-button">
-                                {% if not owned %}
-                                    <img alt="" src="{{ asset('build/images/icons/mod.png') }}" />
-                                {% else %}
-                                    <img alt="" src="{{ asset('build/images/icons/lock.gif') }}" />
-                                {% endif %}
-                                <span>{{ 'Schließen'|trans({},'global') }}</span></div>
-                        {% endif %}
-                        {% if permission.moderate() %}
-                            {% if locked %}
-                                <div x-forum-moderator-action="unlock" x-forum-api-endpoint="{{ url('forum_thread_mod_controller', {fid: fid, tid: tid, mod: 'unlock'}) }}" class="forum-button"><img alt="" src="{{ asset('build/images/icons/mod.png') }}" /><span>{{ 'Öffnen'|trans({},'global') }}</span></div>
-                            {% endif %}
-                        {% endif %}
+                    {% if owned and not locked %}
+                        <div x-forum-moderator-action="lock" class="forum-button">
+                            <img alt="" src="{{ asset('build/images/icons/lock.gif') }}" />
+                            <span>{{ 'Schließen'|trans({},'global') }}</span>
+                        </div>
                     {% endif %}
-
                     {% if permission.moderate() %}
-                        {% if not pinned %}
-                            <div x-forum-moderator-action="pin" x-forum-api-endpoint="{{ url('forum_thread_mod_controller', {fid: fid, tid: tid, mod: 'pin'}) }}" class="forum-button"><img alt="" src="{{ asset('build/images/icons/mod.png') }}" /><span>{{ 'Anpinnen'|trans({},'global') }}</span></div>
-                        {% else %}
-                            <div x-forum-moderator-action="unpin" x-forum-api-endpoint="{{ url('forum_thread_mod_controller', {fid: fid, tid: tid, mod: 'unpin'}) }}" class="forum-button"><img alt="" src="{{ asset('build/images/icons/mod.png') }}" /><span>{{ 'Loslösen'|trans({},'global') }}</span></div>
-                        {% endif %}
+                        <div tabindex="0" class="forum-button button-dropdown-button" style="padding: 4px;">
+                            <img alt="" src="{{ asset('build/images/icons/mod.png') }}" />
+                            <div class="button-dropdown">
+                                {% if not locked and not owned %}
+                                    <div tabindex="0" x-forum-moderator-action="lock" class="forum-button">
+                                        <img alt="" src="{{ asset('build/images/icons/mod.png') }}" />
+                                        <span>{{ 'Schließen'|trans({},'global') }}</span>
+                                    </div>
+                                {% endif %}
+                                {% if locked %}
+                                    <div tabindex="0" x-forum-moderator-action="unlock" x-forum-api-endpoint="{{ url('forum_thread_mod_controller', {fid: fid, tid: tid, mod: 'unlock'}) }}" class="forum-button">
+                                        <img alt="" src="{{ asset('build/images/icons/mod.png') }}" />
+                                        <span>{{ 'Öffnen'|trans({},'global') }}</span>
+                                    </div>
+                                {% endif %}
+                                {% if not pinned %}
+                                    <div tabindex="0" x-forum-moderator-action="pin" x-forum-api-endpoint="{{ url('forum_thread_mod_controller', {fid: fid, tid: tid, mod: 'pin'}) }}" class="forum-button"><img alt="" src="{{ asset('build/images/icons/mod.png') }}" /><span>{{ 'Anpinnen'|trans({},'global') }}</span></div>
+                                {% else %}
+                                    <div tabindex="0" x-forum-moderator-action="unpin" x-forum-api-endpoint="{{ url('forum_thread_mod_controller', {fid: fid, tid: tid, mod: 'unpin'}) }}" class="forum-button"><img alt="" src="{{ asset('build/images/icons/mod.png') }}" /><span>{{ 'Loslösen'|trans({},'global') }}</span></div>
+                                {% endif %}
+                                {% if thread_moveable_forums is not empty and not thread.translatable %}
+                                    <div tabindex="0" x-forum-moderator-action="move" class="forum-button"><img alt="" src="{{ asset('build/images/icons/mod.png') }}" /><span>{{ 'Thread verschieben'|trans({},'global') }}</span></div>
+                                {% endif %}
+                            </div>
+                        </div>
                     {% endif %}
 
                 </div>
@@ -344,6 +353,7 @@
             $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('forum_viewer_controller', {fid: fid, tid: tid}) }}', false, {page: page } );
         };
         const reloadPage = function() { loadPage( {{ current_page }} ); };
+        const reloadForum = function() { $.ajax.no_history().load( null, '{{ url('forum_view', {id: fid}) }}', false ); }
 
         {% if owned or permission.moderate %}
             $.html.addEventListenerAll('[x-forum-moderator-action="lock"]', 'click', function(e,elem) {
@@ -390,6 +400,29 @@
                 [ '{{ 'Abbrechen'|trans({},'global')|e('js') }}', [ ['click', (e_sub,elem_sub) => $.html.triggerPopupPop(elem_sub)] ] ]
             ] );
         });
+
+        {% if permission.moderate %}
+            $.html.addEventListenerAll('[x-forum-moderator-action="move"]', 'click', function(e,elem) {
+                elem.blur();
+                let form = $.html.createElement('<div class="modal-form" id="modal-form" />');
+                form.append($.html.createElement( '<p class="small bold"></p>', '{{ 'Verschiebe den aktuellen Thread in ein anderes Forum:'|trans({},'global')|e('js') }}' ));
+
+                let select = $.html.createElement('<select/>');
+                {% for move_forum in thread_moveable_forums %}
+                    select.append($.html.createElement( '<option value="{{ move_forum.id }}">{{ move_forum.title }}</option>' ) );
+                {% endfor %}
+
+                form.append(select)
+
+                $.html.popup('{{ 'Thread verschieben'|trans({},'global')|e('js') }}', form, null, [
+                    [ '{{ 'Verschieben'|trans({},'global')|e('js') }}',  [ ['click', (e_sub,elem_sub) => {
+                        $.html.triggerPopupPop(elem_sub);
+                        $.ajax.easySend( '{{ url('forum_thread_mod_controller', { 'fid': fid, 'tid': tid, 'mod': 'move'}) }}', {to: parseInt( select.value)}, reloadForum );
+                    }] ] ],
+                    [ '{{ 'Abbrechen'|trans({},'global')|e('js') }}', [ ['click', (e_sub,elem_sub) => $.html.triggerPopupPop(elem_sub)] ] ]
+                ] );
+            });
+        {% endif %}
 
         function get_forum_editor() {
             let editor = document.getElementById('forum-forum-editor');

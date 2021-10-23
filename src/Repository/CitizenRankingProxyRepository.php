@@ -50,6 +50,20 @@ class CitizenRankingProxyRepository extends ServiceEntityRepository
         }
     }
 
+    public function countNonAlphaTowns(User $user): int {
+        try {
+            return $this->createQueryBuilder('c')
+                ->select('COUNT(c.id)')
+                ->join('c.town', 't')
+                ->andWhere('c.user = :user')->setParameter('user', $user)
+                ->andWhere('t.season IS NOT NULL')
+                ->andWhere('t.imported = false')
+                ->getQuery()->getSingleScalarResult();
+        } catch (Exception $e) {
+            return 0;
+        }
+    }
+
     public function findAllByUserAndSeason(User $user, ?Season $season, $limit10) {
         $query = $this->createQueryBuilder('c')
             ->join('c.town', 't')

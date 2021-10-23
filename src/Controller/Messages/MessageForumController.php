@@ -2,7 +2,7 @@
 
 namespace App\Controller\Messages;
 
-use App\Command\ResolveCommand;
+use App\Command\Info\ResolveCommand;
 use App\Entity\AccountRestriction;
 use App\Entity\AdminDeletion;
 use App\Entity\AdminReport;
@@ -785,7 +785,9 @@ class MessageForumController extends MessageController
             'markedPost' => $pid,
             'subscribed' => $em->getRepository(ForumThreadSubscription::class)->count( ['user' => $user, 'thread' => $thread] ),
 
-            'paranoid' => $paranoid
+            'paranoid' => $paranoid,
+
+            'thread_moveable_forums' => $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate ) ? array_filter($this->perm->getForumsWithPermission($this->getUser(), ForumUsagePermissions::PermissionModerate), fn(Forum $f) => $f !== $forum ) : [],
         ] );
     }
 
@@ -1263,6 +1265,38 @@ class MessageForumController extends MessageController
                 catch (Exception $e) {
                     return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
                 }
+
+            case 'move':
+                if (!$this->perm->checkEffectivePermissions($this->getUser(), $forum, ForumUsagePermissions::PermissionModerate))
+                    return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+
+                if ($thread->getTranslatable()) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+
+                $new_forum = $this->entity_manager->getRepository(Forum::class)->find( $parser->get_int('to', -1) );
+                if (!$new_forum || $forum === $new_forum) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+                if (!$this->perm->checkEffectivePermissions($this->getUser(), $new_forum, ForumUsagePermissions::PermissionModerate))
+                    return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+
+                $thread->setForum( $new_forum );
+                foreach ($thread->getPosts() as $post)
+                    $this->entity_manager->persist( $post->setSearchForum($new_forum) );
+                $notification = $crow->createPM_moderation( $thread->getOwner(),
+                                                            CrowService::ModerationActionDomainForum, CrowService::ModerationActionTargetThread, CrowService::ModerationActionMove,
+                                                            $thread->firstPost(true)
+                );
+                if ($notification) $this->entity_manager->persist($notification);
+
+                try {
+                    $this->entity_manager->persist($forum);
+                    $this->entity_manager->persist($new_forum);
+                    $this->entity_manager->persist($thread);
+                    $this->entity_manager->flush();
+                    return AjaxResponse::success();
+                } catch (Exception $e) {
+                    return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+                }
+
             default: break;
         }
 

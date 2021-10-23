@@ -2106,17 +2106,17 @@
     </unit>
     <unit id="hwqD281">
       <notes>
-        <note category="german">Diese Konstruktion kann nur einmal verwendet werden. Sie wird nach dem Angriff der Zombiehorde wieder abgerissen.</note>
+        <note category="german">Diese Konstruktion kann nur &lt;strong&gt;einmal&lt;/strong&gt; verwendet werden. Sie wird &lt;strong&gt;nach&lt;/strong&gt; dem Angriff der Zombiehorde wieder abgerissen.</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/game/town/construction.html.twig</note>
       </notes>
       <segment>
         <source>Diese Konstruktion kann nur einmal verwendet werden. Sie wird nach dem Angriff der Zombiehorde wieder abgerissen.</source>
-        <target>Cette construction est à usage unique. Elle sera détruite ce soir, après l'attaque de la Horde.</target>
+        <target><![CDATA[Cette construction est <strong>à usage unique</strong>. Elle sera détruite ce soir, après l'attaque de la Horde.]]></target>
       </segment>
     </unit>
     <unit id="ssWP4ro" name="Wenn ihr wollt, könnt irh sie morgen nochmal bauen.">
       <notes>
-        <note category="german">Wenn ihr wollt, könnt irh sie morgen nochmal bauen.</note>
+        <note category="german">Wenn ihr wollt, könnt ihr sie morgen nochmal bauen.</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/game/town/construction.html.twig</note>
       </notes>
       <segment>

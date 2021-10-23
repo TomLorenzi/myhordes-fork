@@ -89,6 +89,27 @@ class RandomGenerator
         return $result ? $result->getPrototype() : null;
     }
 
+    function resolveChance( $group, $principal ): float {
+        $chance = -1.0; $sum = 0.0;
+
+        if (!$group) return 0.0;
+
+        if (is_object($group) && is_a( $group, RandomGroup::class )) $group = $group->getEntries()->getValues();
+        if (is_array($group)) {
+            foreach ( $group as $entry ) {
+                $sum += abs($entry->getChance());
+                if ( is_a( $principal, ItemPrototype::class ) && is_a( $entry, ItemGroupEntry::class ) && $entry->getPrototype() === $principal )
+                    $chance = $entry->getChance();
+                if ( is_a( $principal, ZonePrototype::class ) && $entry === $principal )
+                    $chance = $entry->getChance();
+            }
+        } else return 0;
+
+        if ($chance < 0) return 0;
+        if ($sum === 0) return 1.0/(float)count($group);
+        else return $chance/$sum;
+    }
+
     /**
      * @param AffectResultGroup $g
      * @return Result[]

@@ -367,16 +367,20 @@ class GameFactory
         }
 
         $spawn_explorable_ruins = $conf->get(TownConf::CONF_NUM_EXPLORABLE_RUINS, 0);
-
+        $all_explorable_ruins = $explorable_ruins = [];
         if ($spawn_explorable_ruins > 0)
+            $all_explorable_ruins = $this->entity_manager->getRepository(ZonePrototype::class)->findBy( ['explorable' => true] );
             $zone_list = array_filter($town->getZones()->getValues(), function(Zone $z) {return $z->getPrototype() === null && ($z->getX() !== 0 || $z->getY() !== 0);});
 
         for ($i = 0; $i < $spawn_explorable_ruins; $i++) {
-            $explorable_ruins = $this->entity_manager->getRepository(ZonePrototype::class)->findBy( ['explorable' => true] );
-            shuffle($explorable_ruins);
+            if (empty($explorable_ruins)) {
+                $explorable_ruins = $all_explorable_ruins;
+                shuffle($explorable_ruins);
+            }
 
             /** @var ZonePrototype $spawning_ruin */
-            $spawning_ruin = array_shift($explorable_ruins);
+            $spawning_ruin = array_pop($explorable_ruins);
+            if (!$spawning_ruin) continue;
 
             $maxDistance = $conf->get(TownConf::CONF_EXPLORABLES_MAX_DISTANCE, 100);
             $spawn_zone = $this->random_generator->pickLocationBetweenFromList($zone_list, $spawning_ruin->getMinDistance(), $maxDistance, ['prototype_id' => null]);

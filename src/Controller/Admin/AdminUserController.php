@@ -866,7 +866,7 @@ class AdminUserController extends AdminActionController
             'pictos_mh' => $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($user, false),
             'pictos_im' => $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($user, true),
             'pictos_old' => $this->entity_manager->getRepository(Picto::class)->findOldByUser($user),
-            'pictoPrototypes' => $protos,
+            'pictoPrototypes' => $this->isGranted("ROLE_ADMIN", $user) ? $protos : array_filter($protos, fn(PictoPrototype $p) => $p->getCommunity()),
             'features' => $features,
             'featurePrototypes' => $this->entity_manager->getRepository(FeatureUnlockPrototype::class)->findAll(),
             'icon_max_size' => $this->conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_UPLOAD, 3145728)
@@ -875,7 +875,7 @@ class AdminUserController extends AdminActionController
 
     /**
      * @Route("/api/admin/users/{id}/picto/give", name="admin_user_give_picto", requirements={"id"="\d+"})
-     * @Security("is_granted('ROLE_ADMIN')")
+     * @Security("is_granted('ROLE_CROW')")
      * @param int $id User ID
      * @param JSONRequestParser $parser The Request Parser
      * @param KernelInterface $kernel
@@ -889,12 +889,14 @@ class AdminUserController extends AdminActionController
         $prototype_id = $parser->get('prototype');
         $number = $parser->get('number', 1);
 
-        if ($prototype_id === -42 && $kernel->getEnvironment() === 'dev')
+        if ($prototype_id === -42 && $kernel->getEnvironment() === 'dev' && $this->isGranted('ROLE_ADMIN', $user))
             $prototypes = $this->entity_manager->getRepository(PictoPrototype::class)->findAll();
         else {
             /** @var PictoPrototype $prototype */
             $prototype = $this->entity_manager->getRepository(PictoPrototype::class)->find($prototype_id);
             if ($prototype === null) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+            if (!$prototype->getCommunity() && !$this->isGranted('ROLE_ADMIN', $user))
+                return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
             $prototypes = [$prototype];
         }

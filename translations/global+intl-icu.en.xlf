@@ -3818,5 +3818,35 @@
         <target>Thanks to</target>
       </segment>
     </unit>
+    <unit id="0inaYdi" name="Thread verschieben">
+      <notes>
+        <note category="german">Thread verschieben</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig</note>
+      </notes>
+      <segment>
+        <source>Thread verschieben</source>
+        <target>Move Thread</target>
+      </segment>
+    </unit>
+    <unit id="RDurDOj" name="Verschiebe den aktuellen Thread in ein anderes Forum:">
+      <notes>
+        <note category="german">Verschiebe den aktuellen Thread in ein anderes Forum:</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig</note>
+      </notes>
+      <segment>
+        <source>Verschiebe den aktuellen Thread in ein anderes Forum:</source>
+        <target>Move this thread to a different forum:</target>
+      </segment>
+    </unit>
+    <unit id="IvUMWo7" name="Verschieben">
+      <notes>
+        <note category="german">Verschieben</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig</note>
+      </notes>
+      <segment>
+        <source>Verschieben</source>
+        <target>Move</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

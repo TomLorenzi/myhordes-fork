@@ -2361,5 +2361,23 @@
         <target>Danke an</target>
       </segment>
     </unit>
+    <unit id="0inaYdi" name="Thread verschieben">
+      <segment>
+        <source>Thread verschieben</source>
+        <target>Thread verschieben</target>
+      </segment>
+    </unit>
+    <unit id="RDurDOj" name="Verschiebe den aktuellen Thread in ein anderes Forum:">
+      <segment>
+        <source>Verschiebe den aktuellen Thread in ein anderes Forum:</source>
+        <target>Verschiebe den aktuellen Thread in ein anderes Forum:</target>
+      </segment>
+    </unit>
+    <unit id="IvUMWo7" name="Verschieben">
+      <segment>
+        <source>Verschieben</source>
+        <target>Verschieben</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

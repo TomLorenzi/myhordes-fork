@@ -478,6 +478,8 @@ class NightlyHandler
             if($nextSkill !== null && $citizen->getUser()->getAllHeroDaysSpent() >= $nextSkill->getDaysNeeded()){
                 $this->log->info("Citizen <info>{$citizen->getUser()->getUsername()}</info> has unlocked a new skill : <info>{$nextSkill->getTitle()}</info>");
 
+                $null = null;
+
                 switch($nextSkill->getName()){
                     case "brothers":
                         //TODO: add the heroic power
@@ -502,6 +504,7 @@ class NightlyHandler
                             $newfind = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneBy(['name' => "hero_generic_find_lucky"]);
                             $citizen->addHeroicAction($newfind);
                         }
+                        break;
                 }
                 $this->entity_manager->persist($citizen);
                 $this->entity_manager->persist($citizen->getHome());

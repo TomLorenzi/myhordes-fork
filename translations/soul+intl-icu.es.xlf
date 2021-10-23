@@ -8,7 +8,7 @@
       </notes>
       <segment>
         <source>E-Mail-Adresse</source>
-        <target>Dirección de e-mail</target>
+        <target>Dirección de correo electrónico</target>
       </segment>
     </unit>
     <unit id="1fRghxK" name="Externe ID für Apps">
@@ -268,7 +268,7 @@
       </notes>
       <segment>
         <source>Bevorzugt komprimierte Profilbilder anzeigen</source>
-        <target>Mostrar avatar reducido</target>
+        <target>Mostrar avatares reducidos</target>
       </segment>
     </unit>
     <unit id="isnXPfR" name="Standardrolle im Forum">
@@ -3193,7 +3193,7 @@
       </notes>
       <segment>
         <source>Du wirst angenehm nach Orangenblüten duften.</source>
-        <target>Olerá agradablemente a flor de naranjo.</target>
+        <target>Escaparás de latinoamérica.</target>
       </segment>
     </unit>
     <unit id="9dCZIYd" name="Du wirst ein respektierter und angesehener Bürger deiner Gemeinschaft.">
@@ -3203,7 +3203,7 @@
       </notes>
       <segment>
         <source>Du wirst ein respektierter und angesehener Bürger deiner Gemeinschaft.</source>
-        <target>Se convertirá en un ciudadano respetado y respetado de su comunidad.</target>
+        <target>Te convertirás en un habitante respetado y venerado por su comunidad.</target>
       </segment>
     </unit>
     <unit id="lmPRBJ0" name="Deine natürlichen Abwehrkräfte werden gestärkt.">
@@ -3223,7 +3223,7 @@
       </notes>
       <segment>
         <source>Du bekommst stahlharte Waschbrettbauchmuskeln.</source>
-        <target>Obtienes abdominales duros como el acero</target>
+        <target>Obtienes abdominales duros como el acero.</target>
       </segment>
     </unit>
     <unit id="23cz.bn" name="Du hast eine gute Tat vollbracht.">
@@ -3243,7 +3243,7 @@
       </notes>
       <segment>
         <source>Die Leute auf der Straße werden sich nach dir umdrehen.</source>
-        <target>La gente en la calle se volteara para mirarte</target>
+        <target>La gente en la calle se volteará para mirarte.</target>
       </segment>
     </unit>
     <unit id="bRBEaOX" name="Stärkt dein Zahnfleisch und deine Zähne.">
@@ -3319,23 +3319,21 @@
     <unit id="BkMtMYQ">
       <notes>
         <note category="german">Die Freundschaftswerbung kann für deinen Account nicht aktiviert werden. Bitte kontaktiere einen Administrator für weitere Informationen.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Die Freundschaftswerbung kann für deinen Account nicht aktiviert werden. Bitte kontaktiere einen Administrator für weitere Informationen.</source>
-        <target>Die Freundschaftswerbung kann für deinen Account nicht aktiviert werden. Bitte kontaktiere einen Administrator für weitere Informationen.</target>
+        <target>No pudimos activar el Patrocinio para tu cuenta. Por favor contacta a un administrador para más información.</target>
       </segment>
     </unit>
     <unit id="t7p0F21" name="Die Freundschaftswerbung ist für deinen Account gesperrt.">
       <notes>
         <note category="german">Die Freundschaftswerbung ist für deinen Account gesperrt.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Die Freundschaftswerbung ist für deinen Account gesperrt.</source>
-        <target>Die Freundschaftswerbung ist für deinen Account gesperrt.</target>
+        <target>El Patrocinio está bloqueado para tu cuenta.</target>
       </segment>
     </unit>
     <unit id="d3BbIrK" name="Wie funktioniert das genau?">
@@ -3385,7 +3383,7 @@
       </notes>
       <segment>
         <source>Sag dem geworbenen Spieler, dass er bei der Anmeldung im Feld "Pate" deinen Namen eintragen soll:</source>
-        <target>dile de ingresar tu nick en el espacio "Patrocinio" del formulario de inscripción:</target>
+        <target>Pídele que ingrese tu nick en el espacio "Patrocinador" del formulario de inscripción:</target>
       </segment>
     </unit>
     <unit id="meMyGfH">
@@ -3395,7 +3393,7 @@
       </notes>
       <segment>
         <source>Verwende einen der hier unten angezeigten Banner für deine E-Mail Signatur, auf Facebook oder in deinem Lieblingsforum (Wenn sich jemand über deinen Banner anmeldet, wirst du automatisch als Pate eingetragen!).</source>
-        <target>utiliza uno de los banners como firma de tu e-mail, en Facebook, en tu blog o en un foro ¡(quienes hagan clic en él quedarán registrados autiomáticamente cuando se inscriban!).</target>
+        <target>Utiliza uno de los banners como firma de tu correo electrónico, en Facebook, en tu blog o en un foro (¡quienes hagan clic en él quedarán registrados autiomáticamente cuando se inscriban!).</target>
       </segment>
     </unit>
     <unit id="fUGf6MZ" name="HTML Code">
@@ -3586,7 +3584,7 @@
       </notes>
       <segment>
         <source>Bitte ändere deinen Anzeigenamen auf EternalTwin.</source>
-        <target>Cambie su nombre para mostrar a EternalTwin.</target>
+        <target>Cambia tu nombre visible en EternalTwin.</target>
       </segment>
     </unit>
     <unit id="4DFz5Xa">
@@ -4084,6 +4082,58 @@
       <segment>
         <source>Icon</source>
         <target>Icon</target>
+      </segment>
+    </unit>
+    <unit id="2LtMDJ7">
+      <notes>
+        <note category="german">Diese Einschränkung betrifft alle Spieler, die auf MyHordes bereits &lt;b&gt;mehr als {threshold} Städte&lt;/b&gt; nach dem Ende der Alpha-Phase gespielt haben.</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Diese Einschränkung betrifft alle Spieler, die auf MyHordes bereits &lt;b&gt;mehr als {threshold} Städte&lt;/b&gt; nach dem Ende der Alpha-Phase gespielt haben.</source>
+        <target><![CDATA[Diese Einschränkung betrifft alle Spieler, die auf MyHordes bereits <b>mehr als {threshold} Städte</b> nach dem Ende der Alpha-Phase gespielt haben.]]></target>
+      </segment>
+    </unit>
+    <unit id="VmJxB06">
+      <notes>
+        <note category="german">Diese Einschränkung betrifft alle Spieler, die auf MyHordes bereits &lt;b&gt;mehr als {thresholdS} Seelenpunkte&lt;/b&gt; gesammelt oder &lt;b&gt;mehr als {thresholdT} Städte&lt;/b&gt; nach dem Ende der Alpha-Phase gespielt haben.</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Diese Einschränkung betrifft alle Spieler, die auf MyHordes bereits &lt;b&gt;mehr als {thresholdS} Seelenpunkte&lt;/b&gt; gesammelt oder &lt;b&gt;mehr als {thresholdT} Städte&lt;/b&gt; nach dem Ende der Alpha-Phase gespielt haben.</source>
+        <target><![CDATA[Diese Einschränkung betrifft alle Spieler, die auf MyHordes bereits <b>mehr als {thresholdS} Seelenpunkte</b> gesammelt oder <b>mehr als {thresholdT} Städte</b> nach dem Ende der Alpha-Phase gespielt haben.]]></target>
+      </segment>
+    </unit>
+    <unit id=".RTSS25" name="Zurück zur Kartei von {player}">
+      <notes>
+        <note category="german">Zurück zur Kartei von {player}</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Zurück zur Kartei von {player}</source>
+        <target>Volver a la ficha de {player}</target>
+      </segment>
+    </unit>
+    <unit id="F1vivLG" name="Übersicht meiner Partien">
+      <notes>
+        <note category="german">Übersicht meiner Partien</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Übersicht meiner Partien</source>
+        <target>Historial de mis partidas</target>
+      </segment>
+    </unit>
+    <unit id="GpDq4Nj">
+      <notes>
+        <note category="german">In dieser Spalte werden die Anzahl der vollen Tage angezeigt, die jeder Bürger überlebt hat. Ein Tag gilt immer dann als "vollkommen überlebt", &lt;strong&gt;wenn du beim Zombieangriff um 23:59 stirbst&lt;/strong&gt;. Solltest du vorher, im Laufe des Tages, sterben gilt der Tag nicht als überlebt...</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>In dieser Spalte werden die Anzahl der vollen Tage angezeigt, die jeder Bürger überlebt hat. Ein Tag gilt immer dann als "vollkommen überlebt", &lt;strong&gt;wenn du beim Zombieangriff um 23:59 stirbst&lt;/strong&gt;. Solltest du vorher, im Laufe des Tages, sterben gilt der Tag nicht als überlebt...</source>
+        <target><![CDATA[La cantidad de días que cada jugador ha sobrevivido íntegramente. Un día no es considerado como sobrevivido "íntegramente" <strong>si el habitante muere por OTRA causa que no sea el ataque de los zombies antes del ataque</strong>.]]></target>
       </segment>
     </unit>
   </file>

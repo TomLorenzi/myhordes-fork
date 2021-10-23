@@ -23167,5 +23167,67 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target><![CDATA[You cannot do this in rookie mode. Basically, <strong>this action requires you to have greater experience of the game</strong>.<hr/>You can deactivate rookie mode by clicking the link in the info box.]]></target>
       </segment>
     </unit>
+    <unit id="PBjVCl0">
+      <notes>
+        <note category="german">Der Schwierigkeitsgrad ist in dieser Stadt geringer. Deswegen gilt sie nicht für das Saison-Ranking. Die Außenwelt ist durchschnittlich 13x13 Felder groß.</note>
+        <note category="from">db://TownClass</note>
+      </notes>
+      <segment>
+        <source>Der Schwierigkeitsgrad ist in dieser Stadt geringer. Deswegen gilt sie nicht für das Saison-Ranking. Die Außenwelt ist durchschnittlich 13x13 Felder groß.</source>
+        <target>Game difficulty is reduced for this town, and therefore will not feature in the season rankings. The average size of the map of the World Beyond is 13x13.</target>
+      </segment>
+    </unit>
+    <unit id="nwh92tP">
+      <notes>
+        <note category="german">Bei den entfernten Regionen handelt es sich um Städte, die nur von sehr erfahrenen Spielern gespielt werden dürfen (&lt;strong&gt;{splimit} Seelenpunkte&lt;/strong&gt;). &lt;p&gt;Diese Städte sind den Veteranen vorbehalten.&lt;/p&gt;&lt;p&gt;Die entsprechenden Karten der entfernten Regionen sind &lt;strong&gt;weitaus größer&lt;/strong&gt; und es gibt mehr zu erforschen.&lt;/p&gt;</note>
+        <note category="from">db://TownClass</note>
+      </notes>
+      <segment>
+        <source>Bei den entfernten Regionen handelt es sich um Städte, die nur von sehr erfahrenen Spielern gespielt werden dürfen (&lt;strong&gt;{splimit} Seelenpunkte&lt;/strong&gt;). &lt;p&gt;Diese Städte sind den Veteranen vorbehalten.&lt;/p&gt;&lt;p&gt;Die entsprechenden Karten der entfernten Regionen sind &lt;strong&gt;weitaus größer&lt;/strong&gt; und es gibt mehr zu erforschen.&lt;/p&gt;</source>
+        <target><![CDATA[Distant regions can only be joined by players with a significant amount of game experience (a minimum of <strong>{splimit} soul points</strong>). <p>These towns are full of veterans.</p><p>Furthermore, maps of distant region towns are <strong>much larger than others</strong> and allow for more exploration.</p>]]></target>
+      </segment>
+    </unit>
+    <unit id="N56WYSk">
+      <notes>
+        <note category="german">Pandämoniumstädte sind &lt;strong&gt;weitaus schwieriger&lt;/strong&gt; als normale Städte! Dementsprechend sind auch die Belohnungen und Gewinnmöglichkeiten besser.&lt;br /&gt;&lt;strong&gt;Du benötigst mindestens {splimit} Seelenpunkte&lt;/strong&gt;, um in diesen Städten spielen zu dürfen.</note>
+        <note category="from">db://TownClass</note>
+      </notes>
+      <segment>
+        <source>Pandämoniumstädte sind &lt;strong&gt;weitaus schwieriger&lt;/strong&gt; als normale Städte! Dementsprechend sind auch die Belohnungen und Gewinnmöglichkeiten besser.&lt;br /&gt;&lt;strong&gt;Du benötigst mindestens {splimit} Seelenpunkte&lt;/strong&gt;, um in diesen Städten spielen zu dürfen.</source>
+        <target><![CDATA[Hardcore towns are reputed to be <strong>much more difficult than others</strong>!<br /><strong>You need  at least {splimit} soul points</strong> to join these towns.]]></target>
+      </segment>
+    </unit>
+    <unit id="4rTfBdh">
+      <notes>
+        <note category="german">Ein Moderator hat deinen Thread "{threadname}" in das Forum "{forumname}" verschoben. {link_post}</note>
+        <note category="from">db://LogEntryTemplate</note>
+      </notes>
+      <segment>
+        <source>Ein Moderator hat deinen Thread "{threadname}" in das Forum "{forumname}" verschoben. {link_post}</source>
+        <target>A moderator has moved your thread "{threadname}" to the forum "{forumname}". {link_post}</target>
+      </segment>
+    </unit>
+    <unit id="d2ZHuaw" name="Deine aktuelle Situation erlaubt nicht, dass du diese Aktion durchführst.">
+      <notes>
+        <note category="german">Deine aktuelle Situation erlaubt nicht, dass du diese Aktion durchführst.</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Deine aktuelle Situation erlaubt nicht, dass du diese Aktion durchführst.</source>
+        <target>Deine aktuelle Situation erlaubt nicht, dass du diese Aktion durchführst.</target>
+      </segment>
+    </unit>
+    <unit id="jlgyITW">
+      <notes>
+        <note category="german">Dieser Bürger scheint völlig verängstigt zu sein! Er bringt keinen Kontrollpunkt in dieser Zone.</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger scheint völlig verängstigt zu sein! Er bringt keinen Kontrollpunkt in dieser Zone.</source>
+        <target>Dieser Bürger scheint völlig verängstigt zu sein! Er bringt keinen Kontrollpunkt in dieser Zone.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -420,9 +420,10 @@ class DebugCommand extends Command
 
             $limited = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_LIMITED, false);
             $threshold = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_SP_THRESHOLD, -1);
+            $town_threshold = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_TW_THRESHOLD, -1);
 
-            $this->helper->leChunk($output, TwinoidImport::class, 50, [], true, true, function(TwinoidImport $import) use ($limited,$threshold) {
-                $limit = $limited && $import->getUser()->getSoulPoints() > $threshold;
+            $this->helper->leChunk($output, TwinoidImport::class, 50, [], true, true, function(TwinoidImport $import) use ($limited,$threshold,$town_threshold) {
+                $limit = $limited && ($import->getUser()->getSoulPoints() > $threshold || $this->entity_manager->getRepository(CitizenRankingProxy::class)->countNonAlphaTowns($import->getUser()) > $town_threshold);
                 $this->twin->importData($import->getUser(), $import->getScope(), $import->getData($this->entity_manager), $import->getMain(), $limit);
             }, true);
 

@@ -54,4 +54,5 @@ class MyHordesConf extends Conf
     const CONF_IMPORT_READONLY = 'soul_import.readonly';
     const CONF_IMPORT_LIMITED = 'soul_import.limited';
     const CONF_IMPORT_SP_THRESHOLD = 'soul_import.sp_threshold';
+    const CONF_IMPORT_TW_THRESHOLD = 'soul_import.tw_threshold';
 }

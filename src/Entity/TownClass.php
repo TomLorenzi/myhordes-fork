@@ -66,6 +66,11 @@ class TownClass implements NamedEntity
      */
     private $orderBy;
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $help;
+
     public function __construct()
     {
         $this->towns = new ArrayCollection();
@@ -195,6 +200,18 @@ class TownClass implements NamedEntity
     public function setOrderBy(int $orderBy): self
     {
         $this->orderBy = $orderBy;
+
+        return $this;
+    }
+
+    public function getHelp(): ?string
+    {
+        return $this->help;
+    }
+
+    public function setHelp(?string $help): self
+    {
+        $this->help = $help;
 
         return $this;
     }

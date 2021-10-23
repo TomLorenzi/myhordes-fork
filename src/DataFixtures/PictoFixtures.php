@@ -509,79 +509,92 @@ class PictoFixtures extends Fixture
             'label' => 'Verdammt in Saarbrücken',
             'description' => 'Teilnehmer beim Community-Treffen in Saarbrücken am 6. November 2011',
             'icon' => 'r_fjvani',
-            'rare' => true
+            'rare' => true,
+            'community' => true
         ],
         [
             'label' => 'Video Game Festival 2010',
             'description' => 'Du warst beim Video Game Festival 2010 in Paris dabei: Danke!',
             'icon' => 'r_fjv2',
-            'rare' => true
+            'rare' => true,
+            'community' => true
         ],
         [
             'label' => 'FJV\'08 Kanonenfutter',
             'description' => 'Der Besitzer dieses Abzeichens hat an der Schnitzeljagt beim Video Game Festival 2008 teilgenommen.',
             'icon' => 'r_fjv',
-            'rare' => true
+            'rare' => true,
+            'community' => true
         ],
         [
             'label' => 'Community-Auszeichnung',
             'description' => 'Auszeichnung für außergewöhnliche Verdienste um die Community von Die Verdammten.',
             'icon' => 'r_comu',
-            'rare' => true
+            'rare' => true,
+            'community' => true
         ],
         [
             'label' => 'Clash CEO',
             'description' => 'Für die Community-Organisatoren und Entwickler des Clash of the Titans Events. Die Gemeinschaft sagt Danke!',
             'icon' => 'r_comu2',
-            'rare' => true
+            'rare' => true,
+            'community' => true
         ],
         [
             'label' => 'Schlachtenbummler',
             'description' => 'Diese seltene Auszeichnung haben nur jene Verdammten erhalten, die an der Schlacht der Berufe teilgenommen haben.',
             'icon' => 'r_cott',
-            'rare' => true
+            'rare' => true,
+            'community' => true
         ],
         [
             'label' => 'Shock of heroes',
             'description' => 'Ehrenpreis für die Teilname am Shock of Heroes Event!',
             'icon' => 'r_cdh',
-            'rare' => false
+            'rare' => false,
+            'community' => true
         ],
         [
             'label' => 'Ultimativer Tod des SoH',
             'description' => 'Auszeichnung für den größten Helden, der während des Shock of Heroes Events am längsten überlebt hat. Du bist nun eine Legende der Außenwelt!',
             'icon' => 'r_derwin',
-            'rare' => true
+            'rare' => true,
+            'community' => true
         ],
         [
             'label' => 'Einsiedler - Gewinner des SoH',
             'description' => 'Diese seltene Auszeichnung wurde den Einsiedlern verliehen, die mit ihrer Stadt die Schlacht der Berufe gewonnen haben. Respekt!',
             'icon' => 'r_ermwin',
-            'rare' => true
+            'rare' => true,
+            'community' => true
         ],
         [
             'label' => 'Buddler - Gewinner des SoH',
             'description' => 'Sieg für die Buddler beim Shock of Heroes Event!',
             'icon' => 'r_cdhwin',
-            'rare' => true
+            'rare' => true,
+            'community' => true
         ],
         [
             'label' => 'Wächter - Gewinner des SoH',
             'description' => 'Sieg für die Wächter beim Shock of Heroes Event!',
             'icon' => 'r_defwin',
-            'rare' => true
+            'rare' => true,
+            'community' => true
         ],
         [
             'label' => 'Aufklärer - Gewinner des SoH',
             'description' => 'Sieg für die Aufklärer beim Shock of Heroes Event!',
             'icon' => 'r_rangwin',
-            'rare' => true
+            'rare' => true,
+            'community' => true
         ],
         [
             'label' => 'Bewohner Koh-Lambdas',
             'description' => 'Dieser Bürger war bei der Wiedervereinigung (letzte Runde) von Koh-Lambda dabei!',
             'icon' => 'r_kohlmb',
-            'rare' => false
+            'rare' => false,
+            'community' => true
         ],
         [
             'label' => 'Der Kobold hat dich erwischt',
@@ -593,7 +606,8 @@ class PictoFixtures extends Fixture
             'label' => 'Netter Kerl',
             'description' => 'Du bist einer der am besten integrierten Spieler in Die Verdammten und verhälst dich immer fair, nicht nur aus Prinzip, sondern aus Überzeugung.',
             'icon' => 'r_goodg',
-            'rare' => true
+            'rare' => true,
+            'community' => true
         ],
         [
             'label' => 'Beta-Tester der neuen Zeit',
@@ -605,7 +619,8 @@ class PictoFixtures extends Fixture
             'label' => 'HAZ-Gewinner',
             'description' => 'Ehrenauszeichnung für den Gewinner der Heilung für die Auszeichnungssucht.',
             'icon' => 'r_gsp',
-            'rare' => false
+            'rare' => false,
+            'community' => true
         ],
         [
             'label' => 'Kernsammler (job)',
@@ -623,7 +638,8 @@ class PictoFixtures extends Fixture
             'label' => 'UFC',
             'description' => 'Ehrenpreis für die Teilnahme am UFC!',
             'icon' => 'r_ufc',
-            'rare' => false
+            'rare' => false,
+            'community' => true
         ],
         [
             'label' => 'Sind wir noch in der Alpha?',
@@ -674,6 +690,7 @@ class PictoFixtures extends Fixture
                 ->setDescription($entry['description'])
                 ->setIcon($entry['icon'])
                 ->setRare($entry['rare'])
+                ->setCommunity($entry['community'] ?? false)
             ;
 
             $manager->persist($entity);
