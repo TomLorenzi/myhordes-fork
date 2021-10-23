@@ -34,7 +34,7 @@
                     </div>
                 </div>
                 <div class="cell rw-5 rw-lg-7 rw-sm-12">
-                    {% if is_granted("ROLE_ADMIN") %}
+                    {% if is_granted("ROLE_CROW") %}
                         {{ picto_creator(pictoPrototypes) }}
                     {% endif %}
                     {% if is_granted("ROLE_ADMIN") %}
@@ -75,8 +75,10 @@
 {% endblock %}
 {% block js %}
     {{ parent() }}
-    {% if is_granted("ROLE_ADMIN") %}
+    {% if is_granted("ROLE_CROW") %}
         {{ picto_creator_js(path('admin_user_give_picto', {id: user.id}), path('admin_users_pictos_view', {id: user.id})) }}
+    {% endif %}
+    {% if is_granted("ROLE_ADMIN") %}
         {{ title_creator_js(icon_max_size, path('admin_user_manage_unique_award', {id: user.id}), path('admin_users_pictos_view', {id: user.id})) }}
         {{ feature_creator_js(path('admin_user_give_feature', {id: user.id}), path('admin_users_pictos_view', {id: user.id})) }}
     {% endif %}
