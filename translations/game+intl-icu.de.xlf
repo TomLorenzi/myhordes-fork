@@ -14736,5 +14736,11 @@
         <target>Deine aktuelle Situation erlaubt nicht, dass du diese Aktion durchführst.</target>
       </segment>
     </unit>
+    <unit id="jlgyITW">
+      <segment>
+        <source>Dieser Bürger scheint völlig verängstigt zu sein! Er bringt keinen Kontrollpunkt in dieser Zone.</source>
+        <target>Dieser Bürger scheint völlig verängstigt zu sein! Er bringt keinen Kontrollpunkt in dieser Zone.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

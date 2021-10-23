@@ -23118,5 +23118,15 @@ cette violente opération...]]></target>
         <target>Vous n'êtes pas en situation de réaliser cette action !</target>
       </segment>
     </unit>
+    <unit id="jlgyITW">
+      <notes>
+        <note category="german">Dieser Bürger scheint völlig verängstigt zu sein! Er bringt keinen Kontrollpunkt in dieser Zone.</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger scheint völlig verängstigt zu sein! Er bringt keinen Kontrollpunkt in dieser Zone.</source>
+        <target>Ce citoyen semble complètement terrorisé ! Il n'apporte aucun point de contrôle dans cette zone.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
