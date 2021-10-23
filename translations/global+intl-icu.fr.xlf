@@ -3802,7 +3802,7 @@
       </notes>
       <segment>
         <source>Thread verschieben</source>
-        <target>Thread verschieben</target>
+        <target>Déplacer le sujet</target>
       </segment>
     </unit>
     <unit id="RDurDOj" name="Verschiebe den aktuellen Thread in ein anderes Forum:">
@@ -3813,7 +3813,7 @@
       </notes>
       <segment>
         <source>Verschiebe den aktuellen Thread in ein anderes Forum:</source>
-        <target>Verschiebe den aktuellen Thread in ein anderes Forum:</target>
+        <target>Déplacez ce sujet vers un autre forum :</target>
       </segment>
     </unit>
     <unit id="IvUMWo7" name="Verschieben">
@@ -3824,7 +3824,7 @@
       </notes>
       <segment>
         <source>Verschieben</source>
-        <target>Verschieben</target>
+        <target>Déplacer</target>
       </segment>
     </unit>
   </file>
