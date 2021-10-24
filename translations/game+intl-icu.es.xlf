@@ -23152,11 +23152,21 @@
       <notes>
         <note category="german">Die Anwesenheit des Geistigen Beistands unter den Nachtwächtern gibt ihnen jeweils einen Boost von {counsel} Verteidigung.</note>
         <note category="from">twig:///templates/ajax/game/town/nightwatch.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Die Anwesenheit des Geistigen Beistands unter den Nachtwächtern gibt ihnen jeweils einen Boost von {counsel} Verteidigung.</source>
         <target>La presencia de Discurso motivador entre los centinelas otorga {counsel} defensas a cada uno.</target>
+      </segment>
+    </unit>
+    <unit id="vhwzs0L">
+      <notes>
+        <note category="german">&lt;strong&gt;Herzlichen Glückwunsch&lt;/strong&gt;, du hast Folgendes freigeschaltet: {list}</note>
+        <note category="from">db://LogEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Herzlichen Glückwunsch&lt;/strong&gt;, du hast Folgendes freigeschaltet: {list}</source>
+        <target><![CDATA[<strong>Herzlichen Glückwunsch</strong>, du hast Folgendes freigeschaltet: {list}]]></target>
       </segment>
     </unit>
   </file>

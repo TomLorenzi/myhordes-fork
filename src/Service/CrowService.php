@@ -156,15 +156,11 @@ class CrowService {
      */
     public function createPM_titleUnlock(User $receiver, array $awards): GlobalPrivateMessage
     {
-        $template = $this->em->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'gpm_unlock_titles']);
+        $template = $this->em->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'gpm_unlock_titles2']);
 
         return (new GlobalPrivateMessage())
             ->setTemplate( $template )
-            ->setData( [
-                           'list_t'  => array_map(fn(Award $a) => $a->getPrototype()->getTitle(), array_filter($awards, fn(Award $a) => $a->getPrototype() && $a->getPrototype()->getTitle() !== null)),
-                           'list_i'  => array_map(fn(Award $a) => $a->getPrototype()->getIcon(),  array_filter($awards, fn(Award $a) => $a->getPrototype() && $a->getPrototype()->getIcon() !== null)),
-                           'list_c' => array_map(fn(Award $a) => $a->getId(), array_filter($awards, fn(Award $a) => !$a->getPrototype())),
-                       ] )
+            ->setData( ['list' => array_map(fn(Award $a) => $a->getPrototype() ? $a->getPrototype()->getId() : -$a->getId(), $awards) ] )
             ->setTimestamp( new DateTime('now') )
             ->setReceiverUser( $receiver )
             ->setSender( $this->getCrowAccount() )

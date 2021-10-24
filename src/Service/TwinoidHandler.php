@@ -373,9 +373,6 @@ class TwinoidHandler
 
             $user->setImportedHeroDaysSpent( $data->getSummaryHeroDays() );
             $this->em->persist($user);
-
-            $this->userHandler->computePictoUnlocks($user);
-            $this->em->persist($user);
         }
 
         return true;

@@ -247,6 +247,11 @@ class AdminUserController extends AdminActionController
                     $twin->clearPrimaryImportedData( $user );
                     $main->setMain( false );
                     $this->entity_manager->persist($main);
+                    $this->entity_manager->flush();
+
+                    $this->user_handler->computePictoUnlocks($user);
+                    $this->entity_manager->persist($user);
+                    $this->entity_manager->flush();
                 }
                 break;
 
@@ -260,8 +265,14 @@ class AdminUserController extends AdminActionController
                         if ($pastLife->getLimitedImport())
                             $this->entity_manager->persist($pastLife->setLimitedImport(false)->setDisabled(false));
                     $this->entity_manager->flush();
+
                     $user->setImportedSoulPoints($this->user_handler->fetchImportedSoulPoints($user));
                     $this->entity_manager->persist($user);
+                    $this->entity_manager->flush();
+
+                    $this->user_handler->computePictoUnlocks($user);
+                    $this->entity_manager->persist($user);
+                    $this->entity_manager->flush();
                 }
                 break;
 

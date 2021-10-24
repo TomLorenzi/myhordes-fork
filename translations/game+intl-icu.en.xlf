@@ -23222,11 +23222,21 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <notes>
         <note category="german">Die Anwesenheit des Geistigen Beistands unter den Nachtwächtern gibt ihnen jeweils einen Boost von {counsel} Verteidigung.</note>
         <note category="from">twig:///templates/ajax/game/town/nightwatch.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Die Anwesenheit des Geistigen Beistands unter den Nachtwächtern gibt ihnen jeweils einen Boost von {counsel} Verteidigung.</source>
         <target>The presence of Psychadelic Spiritual Counsel among the Watchmen gives them a {counsel} defense boost each.</target>
+      </segment>
+    </unit>
+    <unit id="vhwzs0L">
+      <notes>
+        <note category="german">&lt;strong&gt;Herzlichen Glückwunsch&lt;/strong&gt;, du hast Folgendes freigeschaltet: {list}</note>
+        <note category="from">db://LogEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Herzlichen Glückwunsch&lt;/strong&gt;, du hast Folgendes freigeschaltet: {list}</source>
+        <target><![CDATA[<strong>Congratulations</strong>, you have unlocked: {list}]]></target>
       </segment>
     </unit>
   </file>

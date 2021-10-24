@@ -134,7 +134,7 @@
     <unit id="q8r8gtq" name="Titel">
       <notes>
         <note category="german">Titel</note>
-        <note category="from">twig:///templates/ajax/forum/editor.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php;twig:///templates/ajax/forum/editor.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
       </notes>
       <segment>
         <source>Titel</source>
@@ -3817,6 +3817,39 @@
       <segment>
         <source>Verschieben</source>
         <target>Mover</target>
+      </segment>
+    </unit>
+    <unit id="6uluArv" name="Icons">
+      <notes>
+        <note category="german">Icons</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Icons</source>
+        <target>Icons</target>
+      </segment>
+    </unit>
+    <unit id="PkaUwqL" name="Einzigartige Titel">
+      <notes>
+        <note category="german">Einzigartige Titel</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Einzigartige Titel</source>
+        <target>Einzigartige Titel</target>
+      </segment>
+    </unit>
+    <unit id="WzoxwcK" name="Einzigartige Icons">
+      <notes>
+        <note category="german">Einzigartige Icons</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Einzigartige Icons</source>
+        <target>Einzigartige Icons</target>
       </segment>
     </unit>
   </file>

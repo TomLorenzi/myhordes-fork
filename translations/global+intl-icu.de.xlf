@@ -2379,5 +2379,23 @@
         <target>Verschieben</target>
       </segment>
     </unit>
+    <unit id="6uluArv" name="Icons">
+      <segment>
+        <source>Icons</source>
+        <target>Icons</target>
+      </segment>
+    </unit>
+    <unit id="PkaUwqL" name="Einzigartige Titel">
+      <segment>
+        <source>Einzigartige Titel</source>
+        <target>Einzigartige Titel</target>
+      </segment>
+    </unit>
+    <unit id="WzoxwcK" name="Einzigartige Icons">
+      <segment>
+        <source>Einzigartige Icons</source>
+        <target>Einzigartige Icons</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
