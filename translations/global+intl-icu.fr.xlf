@@ -3832,7 +3832,7 @@
       </notes>
       <segment>
         <source>Icons</source>
-        <target>Icons</target>
+        <target>Icônes</target>
       </segment>
     </unit>
     <unit id="PkaUwqL" name="Einzigartige Titel">
@@ -3843,7 +3843,7 @@
       </notes>
       <segment>
         <source>Einzigartige Titel</source>
-        <target>Einzigartige Titel</target>
+        <target>Titres uniques</target>
       </segment>
     </unit>
     <unit id="WzoxwcK" name="Einzigartige Icons">
@@ -3854,7 +3854,7 @@
       </notes>
       <segment>
         <source>Einzigartige Icons</source>
-        <target>Einzigartige Icons</target>
+        <target>Icônes uniques</target>
       </segment>
     </unit>
   </file>
