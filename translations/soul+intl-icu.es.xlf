@@ -3920,7 +3920,7 @@
       </notes>
       <segment>
         <source>Um zu verhindern, dass Spieler Auszeichnungen, Seelenpunkte oder Heldenerfahrung farmen, indem sie gleichzeitig auf MyHordes und Hordes (oder einer lokalen Variante von Hordes) spielen, werden &lt;b&gt;neu gesammelte Auszeichnungen, SP oder Heldenerfahrung&lt;/b&gt; nicht länger zu deiner MH-Seele hinzugerechnet.</source>
-        <target><![CDATA[Para evitar que los jugadores acumulen logros, puntos de alma o dias de héroe jugando en MyHordes y Hordes (o una variante local de Hordes) al mismo tiempo, los <b>logros, puntos de alma o dias de héroe recién recolectados</b> ya no cuenta para tu alma MH.]]></target>
+        <target><![CDATA[Para evitar que los jugadores acumulen logros, puntos de alma o dias de héroe jugando en MyHordes y Hordes (o una variante regional de Hordes) al mismo tiempo, los <b>logros, puntos de alma o dias de héroe recién recolectados</b> ya no contarán para su alma de MH.]]></target>
       </segment>
     </unit>
     <unit id="33LWSL0">
@@ -4092,7 +4092,7 @@
       </notes>
       <segment>
         <source>Diese Einschränkung betrifft alle Spieler, die auf MyHordes bereits &lt;b&gt;mehr als {threshold} Städte&lt;/b&gt; nach dem Ende der Alpha-Phase gespielt haben.</source>
-        <target><![CDATA[Diese Einschränkung betrifft alle Spieler, die auf MyHordes bereits <b>mehr als {threshold} Städte</b> nach dem Ende der Alpha-Phase gespielt haben.]]></target>
+        <target><![CDATA[Esta restricción afecta a todos los jugadores que ya han jugado <b>más de {threshold} Pueblos</b> después del final de la fase Alfa.]]></target>
       </segment>
     </unit>
     <unit id="VmJxB06">
@@ -4103,7 +4103,7 @@
       </notes>
       <segment>
         <source>Diese Einschränkung betrifft alle Spieler, die auf MyHordes bereits &lt;b&gt;mehr als {thresholdS} Seelenpunkte&lt;/b&gt; gesammelt oder &lt;b&gt;mehr als {thresholdT} Städte&lt;/b&gt; nach dem Ende der Alpha-Phase gespielt haben.</source>
-        <target><![CDATA[Diese Einschränkung betrifft alle Spieler, die auf MyHordes bereits <b>mehr als {thresholdS} Seelenpunkte</b> gesammelt oder <b>mehr als {thresholdT} Städte</b> nach dem Ende der Alpha-Phase gespielt haben.]]></target>
+        <target><![CDATA[Esta restricción afecta a todos los jugadores que ya han obtenido <b>más de {thresholdS} Puntos de alma</b> o hayan jugado b>más de {threshold} Pueblos</b> después del final de la fase Alfa.]]></target>
       </segment>
     </unit>
     <unit id=".RTSS25" name="Zurück zur Kartei von {player}">
