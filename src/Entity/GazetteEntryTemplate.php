@@ -41,6 +41,8 @@ class GazetteEntryTemplate
     const RequiresInvasion      = 43;
     const RequiresAttackDeaths  = 44;
 
+    const RequiresTwoCitizensInTown = 52;
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue

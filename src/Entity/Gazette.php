@@ -197,6 +197,10 @@ class Gazette
         return $this->victims;
     }
 
+    public function getVictimBasedOnLocation(bool $inside): array {
+        return $this->victims->filter(fn(Citizen $c) => !$c->getAlive() && $inside === ($c->getCauseOfDeath()->getRef() === CauseOfDeath::NightlyAttack))->getValues();
+    }
+
     public function addVictim(Citizen $victim): self
     {
         if (!$this->victims->contains($victim)) {

@@ -462,6 +462,19 @@
             </div>
 
             <div x-tab-group="admin-town" x-tab-id="register" x-tab-target>
+                <div class="row">
+                    <div class="padded cell rw-4 ro-4 rw-md-8 ro-md-2 rw-sm-12 ro-sm-0">
+                        <label><select id="gazetteSelector">
+                            {% for d in 1..town.day %}
+                                <option {% if d == town.day %}selected{% endif %} value="{{ path('admin_town_explorer_gazette', {day: d, id: town.id}) }}">{{ 'Tag {d} {today}'|trans({d: d, today: ''}, 'game') }}</option>
+                            {% endfor %}
+                        </select></label>
+                    </div>
+                </div>
+
+                {% embed "ajax/game/gazette_widget.html.twig" with { gazette: gazette } %}
+                {% endembed %}
+
                 {% embed "ajax/admin/towns/log.html.twig" with {'log_content': log, 'log_source': path('admin_newspaper_log_controller') } %}
                 {% endembed %}
             </div>
@@ -858,6 +871,10 @@
         $.html.addEventListenerAll('[x-blackboard-preview]','click', (e,elem) => {
             elem.style.display = 'none';
             document.querySelector('[x-blackboard-short="' + elem.getAttribute('x-blackboard-preview') + '"]').style.display = null;
+        })
+
+        $.html.addEventListenerAll('#gazetteSelector', 'change', (e,elem) => {
+            $.ajax.no_history().load( document.getElementById('gazette'), elem.value, false )
         })
 
     </script>

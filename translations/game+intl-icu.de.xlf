@@ -9879,7 +9879,7 @@
         <target>
           {ref__icu, select,
             on {
-              {ration, plural,
+              {count, plural,
                 =1 {Verlorenes Brunnenwasser: Eine Einheit}
                 other {Verlorenes Brunnenwasser: # Einheiten}
               }

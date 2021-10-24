@@ -324,6 +324,15 @@ class CronCommand extends Command
                 $last_op = 'adv';
                 $this->entityManager->persist($town);
                 $this->entityManager->flush();
+                $this->entityManager->clear();
+
+                $town = $this->entityManager->getRepository(Town::class)->find($town_id);
+                //try {
+                    $this->entityManager->persist( $this->townHandler->ensureGazette($town) );
+                    $this->entityManager->flush();
+                    $this->entityManager->clear();
+                    $town = $this->entityManager->getRepository(Town::class)->find($town_id);
+                //} catch (Exception $e) {}
 
                 // Enable or disable events
                 if (!$this->conf_master->checkEventActivation($town)) {

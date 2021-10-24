@@ -1,0 +1,136 @@
+<div id="gazette">
+    <div id="newspage-front" class="newspage">
+        <div id="gazette-headline">
+            {{ gazette.name }} ({{ gazette.day }})
+        </div>
+        <div id="gazette-content" class="{{gazette.textClass}}">
+            {{gazette.text|raw}}
+            <div id="gazette-signature">
+                - {{'Der Rabe'|trans({}, 'global')}}
+            </div>
+        </div>
+        {% if gazette.day > 1 %}
+            <div id="gazette-deaths">
+                <div id="gazette-death-inside" class="death">
+                    <div class="death-category">
+                        {{'Tote in der Stadt'|trans({}, 'game')}} {% if gazette.death_inside|length > 0 %}({{ gazette.death_inside|length }}){% endif %}:
+                    </div>
+                    {% if gazette.death_inside|length == 0 %}
+                        <div class="tooltip normal">
+                            {% if gazette.reactorExplosion %}
+                                {{'Immerhin wurden alle Bürger aus der Stadt geschleudert...'|trans({}, 'game')}}
+                            {% else %}
+                                {{'Das wird aber nicht lange so bleiben...'|trans({}, 'game')}}
+                            {% endif %}
+                        </div>
+                        {{'Niemand!'|trans({}, 'game')}}
+                    {% else %}
+                        {% for citizen in gazette.death_inside %}
+                            <span>
+                                        <span x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}" style="cursor: pointer; text-decoration: underline;">{{citizen.name}}</span>{% if not loop.last  %}, {% endif %}
+                                        <div class="tooltip normal">
+                                            <h1>{{'Todesursache'|trans({}, 'game')}}</h1>
+                                            {{citizen.causeOfDeath.label|trans({}, 'game')}}
+                                        </div>
+                                    </span>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                {% if gazette.death_outside|length > 0 %}
+                    <div id="gazette-death-outside" class="death">
+                        <div class="death-category">
+                            {{'Sonstige Opfer'|trans({}, 'game')}} ({{ gazette.death_outside|length }}):
+                        </div>
+                        {% for citizen in gazette.death_outside %}
+                            <span>
+                                        <span x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}" style="cursor: pointer; text-decoration: underline;">{{citizen.name}}</span>{% if not loop.last  %}, {% endif %}
+                                        <div class="tooltip normal">
+                                            <h1>{{'Todesursache'|trans({}, 'game')}}</h1>
+                                            {{citizen.causeOfDeath.label|trans({}, 'game')}}
+                                        </div>
+                                    </span>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+            <div id="gazette-tally">
+                {% if gazette.days.repeat > 0 %}
+                    {% for i in 1..gazette.days.repeat %}
+                        {% set v = (i % 3) + 1 %}
+                        <div class="tally tally-5-{{ v }}"></div>
+                    {% endfor %}
+                {% endif %}
+                {% if gazette.days.final > 0 %}
+                    <div class="tally tally-{{ gazette.days.final }}"></div>
+                {% endif %}
+                <div class="tooltip normal">
+                    {{'Das macht dann... {day} Tage'|trans({'{day}': gazette.day }, 'game')}}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+    <div id="newspage-back" class="newspage">
+        {% if gazette.day > 1 %}
+            <div id="gazette-attack" class="row {% if gazette.devast %}devast{% endif %} {% if gazette.door %}opened{% else %}closed{% endif %}">
+                <div class="nightstat nightstat-attack"><span class="count">{{ gazette.attack }}</span>
+                    {{ 'Zombies'|trans({},'game') }}</div>
+                <div class="nightstat nightstat-defense">
+                    {% if not gazette.door %}
+                        <span class="count">{{ gazette.defense }}</span>
+                        {{ 'Verteidigung'|trans({},'game') }}
+                    {% else %}
+                        <span class="invasion">{{ 'Tor ist offen!'|trans({},'game') }}</span>
+                    {% endif %}
+                    {% if gazette.invasion > 0 %}
+                        <br><span class="invasion hide-sm">{{ gazette.invasion }} {{ 'Zombies sind eingedrungen.'|trans({},'game') }}</span>
+                    {% endif %}
+                </div>
+                <div class="nightstat nightstat-deaths">
+                    {% if gazette.deaths > 0 %}
+                        <span class="count">{{ gazette.deaths }}</span> {{ 'Opfer'|trans({}, 'game') }}
+                    {% else %}
+                        <span class="count">{{ 'Keine Opfer'|trans({},'game') }}</span>
+                    {% endif %}
+                    {% if gazette.terror > 0 %}
+                        <br><span class="terror hide-sm">{{ gazette.terror }} {{ 'vor Angst erstarrt'|trans({},'game') }}</span>
+                    {% endif %}
+                </div>
+            </div>
+            {% if gazette.windDirection != 0 or gazette.waterlost > 0 %}
+                <div id="buildingdetails" class="row">
+                    {% if gazette.windDirection != 0 %}
+                        {% if gazette.windDirection == constant('App\\Entity\\Zone::DirectionNorthWest') %}
+                            {% set dir = 'im Nordwesten'|trans({},'game') %}
+                        {% elseif gazette.windDirection == constant('App\\Entity\\Zone::DirectionNorth') %}
+                            {% set dir = "im Norden"|trans({},'game') %}
+                        {% elseif gazette.windDirection == constant('App\\Entity\\Zone::DirectionNorthEast') %}
+                            {% set dir = "im Nordosten"|trans({},'game') %}
+                        {% elseif gazette.windDirection == constant('App\\Entity\\Zone::DirectionWest') %}
+                            {% set dir = "im Westen"|trans({},'game') %}
+                        {% elseif gazette.windDirection == constant('App\\Entity\\Zone::DirectionEast') %}
+                            {% set dir = "im Osten"|trans({},'game') %}
+                        {% elseif gazette.windDirection == constant('App\\Entity\\Zone::DirectionSouthWest') %}
+                            {% set dir = "im Südwesten"|trans({},'game') %}
+                        {% elseif gazette.windDirection == constant('App\\Entity\\Zone::DirectionSouth') %}
+                            {% set dir = "im Süden"|trans({},'game') %}
+                        {% elseif gazette.windDirection == constant('App\\Entity\\Zone::DirectionSouthEast') %}
+                            {% set dir = "im Südosten"|trans({},'game') %}
+                        {% endif %}
+                        <div id="wind">
+                            <a class="help-button"><div class="tooltip help">{{ 'Mysteriöse metereologische Phänomene haben gestern Nacht dafür gesorgt, dass sich bestimmte Zonen <strong>{sector} der Stadt</strong> regeneriert haben.<p><em>Es können dort durch Graben wieder Gegenstände gefunden werden, auch wenn die Zone zuvor leergesucht wurde!</em></p>'|trans({'{sector}': dir|trans({}, 'game')},'game')|raw }}</div>{{ 'Hilfe'|trans({},'global') }}</a> {{ gazette.wind|raw }}
+                        </div>
+                    {% endif %}
+                    {% if gazette.waterlost > 0 %}
+                        <div id="waterlost">
+                            {{'Verlorenes Brunnenwasser: {count} Einhet(en)'|trans({'{count}': gazette.waterlost}, 'game')}}
+                        </div>
+                    {% endif %}
+
+                </div>
+            {% endif %}
+
+        {% else %}
+            <div id="gazette-empty"></div>
+        {% endif %}
+    </div>
+</div>

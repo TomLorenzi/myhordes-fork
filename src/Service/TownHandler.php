@@ -6,6 +6,7 @@ namespace App\Service;
 
 use App\Entity\Building;
 use App\Entity\BuildingPrototype;
+use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
 use App\Entity\CitizenHome;
 use App\Entity\CitizenHomePrototype;
@@ -17,6 +18,8 @@ use App\Entity\CitizenWatch;
 use App\Entity\Complaint;
 use App\Entity\EventActivationMarker;
 use App\Entity\Gazette;
+use App\Entity\GazetteEntryTemplate;
+use App\Entity\GazetteLogEntry;
 use App\Entity\Item;
 use App\Entity\ItemPrototype;
 use App\Entity\Inventory;
@@ -30,7 +33,10 @@ use App\Structures\HomeDefenseSummary;
 use App\Structures\TownDefenseSummary;
 use App\Structures\TownConf;
 use App\Structures\WatchtowerEstimation;
+use App\Translation\T;
 use Doctrine\ORM\EntityManagerInterface;
+use Exception;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class TownHandler
 {
@@ -44,11 +50,12 @@ class TownHandler
     private RandomGenerator $random;
     private ConfMaster $conf;
     private CrowService $crowService;
+    private TranslatorInterface $translator;
 
     public function __construct(
         EntityManagerInterface $em, InventoryHandler $ih, ItemFactory $if, LogTemplateHandler $lh,
         TimeKeeperService $tk, CitizenHandler $ch, PictoHandler $ph, ConfMaster $conf, RandomGenerator $rand,
-        CrowService $armbrust)
+        CrowService $armbrust, TranslatorInterface $translator)
     {
         $this->entity_manager = $em;
         $this->inventory_handler = $ih;
@@ -60,6 +67,7 @@ class TownHandler
         $this->conf = $conf;
         $this->random = $rand;
         $this->crowService = $armbrust;
+        $this->translator = $translator;
     }
 
     private function internalAddBuilding( Town &$town, BuildingPrototype $prototype ): ?Building {
@@ -885,5 +893,328 @@ class TownHandler
         foreach ($town->getCitizens() as $c)
             if ($c->getHome()->getPrototype()->getLevel() > 0)
                 $this->entity_manager->persist( $c->getHome()->setPrototype($lv0_home) );
+    }
+
+    protected function parseLog( $template, array $variables ): String {
+        $variableTypes = $template->getVariableTypes();
+        $transParams = $this->log->parseTransParams($variableTypes, $variables);
+
+        try {
+            $text = $this->translator->trans($template->getText(), $transParams, 'game');
+        }
+        catch (Exception $e) {
+            $text = "null";
+        }
+
+        return $text;
+    }
+
+    public function parseGazetteLog(GazetteLogEntry $gazetteLogEntry): string
+    {
+        return $this->parseLog($gazetteLogEntry->getTemplate() !== null ? $gazetteLogEntry->getTemplate() : $gazetteLogEntry->getLogEntryTemplate(), $gazetteLogEntry->getVariables());
+    }
+
+    public function ensureGazette(Town $town, ?int $day = null, ?bool &$created = null): ?Gazette {
+        $day = min( $town->getDay(), $day ?? $town->getDay() );
+        $gazette = $town->findGazette( $day, true );
+
+        $fun_make_wind = function(Gazette $gazette, int $day) {
+            if ($gazette->getWindDirection() === 0) return "";
+            $applicableEntryTemplates = $this->entity_manager->getRepository(GazetteEntryTemplate::class)->findBy(['type' => GazetteEntryTemplate::TypeGazetteWind]);
+            shuffle($applicableEntryTemplates);
+            /** @var GazetteEntryTemplate $townTemplate */
+            $townTemplate = $applicableEntryTemplates[array_key_first($applicableEntryTemplates)];
+
+            $variables = [];
+
+            switch ($gazette->getWindDirection()) {
+                case Zone::DirectionNorthWest:
+                    $variables['sector'] = T::__('Nordwesten', 'game');
+                    $variables['sector2'] = T::__('im Nordwesten', 'game');
+                    break;
+                case Zone::DirectionNorth:
+                    $variables['sector'] = T::__('Norden', 'game');
+                    $variables['sector2'] = T::__('im Norden', 'game');
+                    break;
+                case Zone::DirectionNorthEast:
+                    $variables['sector'] = T::__('Nordosten', 'game');
+                    $variables['sector2'] = T::__('im Nordosten', 'game');
+                    break;
+                case Zone::DirectionWest:
+                    $variables['sector'] = T::__('Westen', 'game');
+                    $variables['sector2'] = T::__('im Westen', 'game');
+                    break;
+                case Zone::DirectionEast:
+                    $variables['sector'] = T::__('Osten', 'game');
+                    $variables['sector2'] = T::__('im Osten', 'game');
+                    break;
+                case Zone::DirectionSouthWest:
+                    $variables['sector'] = T::__('Südwesten', 'game');
+                    $variables['sector2'] = T::__('im Südwesten', 'game');
+                    break;
+                case Zone::DirectionSouth:
+                    $variables['sector'] = T::__('Süden', 'game');
+                    $variables['sector2'] = T::__('im Süden', 'game');
+                    break;
+                case Zone::DirectionSouthEast:
+                    $variables['sector'] = T::__('Südosten', 'game');
+                    $variables['sector2'] = T::__('im Südosten', 'game');
+                    break;
+            }
+            $news = new GazetteLogEntry();
+            $news->setDay($day)->setGazette($gazette)->setTemplate($townTemplate)->setVariables($variables);
+            $this->entity_manager->persist($news);
+            return $this->parseGazetteLog($news);
+        };
+
+        $fun_get_template = function($criteria, $survivors, $death_inside): ?GazetteEntryTemplate {
+            $templates = array_filter( $this->entity_manager->getRepository(GazetteEntryTemplate::class)->findBy($criteria), function(GazetteEntryTemplate $g) use ($survivors,$death_inside) {
+                if     (intval(floor($g->getRequirement() / 10)) === 1) return count( $survivors ) >= $g->getRequirement() - 10;
+                elseif (intval(floor($g->getRequirement() / 10)) === 2) return count( $death_inside ) >= $g->getRequirement() - 20;
+                elseif (intval(floor($g->getRequirement() / 10)) === 3) return count( $survivors ) >= ($g->getRequirement() - 30) && count( $death_inside ) >= ($g->getRequirement() - 30);
+                elseif (intval(floor($g->getRequirement() / 10)) === 5) return count( array_filter( $survivors, fn(Citizen $c) => $c->getZone() === null ) ) >= $g->getRequirement() - 50;
+                else return true;
+            });
+
+            if (empty($templates)) return null;
+
+            shuffle($templates);
+            /** @var GazetteEntryTemplate $townTemplate */
+            return $templates[array_key_first($templates)];
+        };
+
+        $fun_fill_requirements = function( Gazette $gazette, int $requirements, array $survivors, array $death_inside, ?Citizen $featured = null ): array {
+            $variables = [];
+            if (intval(floor($requirements / 10)) === 1) {
+                $citizens = array_filter( $survivors, fn(Citizen $c) => $c !== $featured );
+                shuffle($citizens);
+                if ($featured !== null && $featured->getAlive()) array_unshift( $citizens, $featured );
+
+                for ($i = 1; $i <= $requirements - 10; $i++)
+                    $variables['citizen' . $i] = (array_shift($citizens))->getId();
+            }
+            // Requires * cadavers
+            elseif (intval(floor($requirements / 10)) === 2) {
+                $cadavers = array_filter( $death_inside, fn(Citizen $c) => $c !== $featured );
+                shuffle($cadavers);
+                if ($featured !== null && !$featured->getAlive()) array_unshift( $cadavers, $featured );
+
+                for ($i = 1; $i <= $requirements - 20; $i++)
+                    $variables['cadaver' . $i] = (array_shift($cadavers))->getId();
+            }
+            // Requires * cadaver and * citizen, respectively
+            elseif (intval(floor($requirements / 10)) === 3) {
+                $citizens = array_filter( $survivors, fn(Citizen $c) => $c !== $featured );
+                shuffle($citizens);
+                if ($featured !== null && $featured->getAlive()) array_unshift( $citizens, $featured );
+
+                $cadavers = array_filter( $death_inside, fn(Citizen $c) => $c !== $featured );
+                shuffle($cadavers);
+                if ($featured !== null && !$featured->getAlive()) array_unshift( $cadavers, $featured );
+
+                for ($i = 1; $i <= $requirements - 30; $i++)
+                    $variables['citizen' . $i] = (array_shift($citizens))->getId();
+                for ($i = 1; $i <= $requirements - 30; $i++)
+                    $variables['cadaver' . $i] = (array_shift($cadavers))->getId();
+            }
+            elseif ($requirements == GazetteEntryTemplate::RequiresAttack) {
+                $attack = $gazette->getAttack();
+                $variables['attack'] = $attack < 2000 ? 10 * (round($attack / 10)) : 100 * (round($attack / 100));
+            }
+            elseif ($requirements == GazetteEntryTemplate::RequiresDefense) {
+                $defense = $gazette->getDefense();
+                $variables['defense'] = $defense < 2000 ? 10 * (round($defense / 10)) : 100 * (round($defense / 100));
+            }
+            elseif ($requirements == GazetteEntryTemplate::RequiresDeaths) {
+                $variables['deaths'] = $gazette->getDeaths();
+            }
+            // Requires * citizens in town
+            elseif (intval(floor($requirements / 10)) === 5) {
+                $citizens = array_filter( $survivors, fn(Citizen $c) => $c->getZone() === null && $c !== $featured );
+                shuffle($citizens);
+                if ($featured !== null && $featured->getAlive() && $featured->getZone() === null) array_unshift( $citizens, $featured );
+
+                for ($i = 1; $i <= $requirements - 10; $i++)
+                    $variables['citizen' . $i] = (array_shift($citizens))->getId();
+            }
+
+            return $variables;
+        };
+
+        /** @var GazetteLogEntry[] $gazette_logs */
+        $gazette_logs = $this->entity_manager->getRepository(GazetteLogEntry::class)->findBy(['gazette' => $gazette]);
+        $wind = "";
+
+        $created = false;
+        if (count($gazette_logs) == 0) {
+            $created = true;
+            $death_inside = $gazette->getVictimBasedOnLocation(true);
+            $death_outside = $gazette->getVictimBasedOnLocation(false);
+
+            if (count($death_inside) > $gazette->getDeaths()) {
+                $gazette->setDeaths(count($death_inside));
+            }
+
+            if ($day > 1)  {
+                $survivors = [];
+                foreach ($town->getCitizens() as $citizen) {
+                    if(!$citizen->getAlive()) continue;
+                    $survivors[] = $citizen;
+                }
+
+                // 1. TOWN
+                if ( $gazette->getReactorExplosion() ) $criteria = [ 'type' => GazetteEntryTemplate::TypeGazetteReactor ];
+                elseif ( $town->getDevastated() ) $criteria = [ 'name' => 'gazetteTownDevastated' ];
+                else $criteria = [
+                    'type' => GazetteEntryTemplate::TypeGazetteNoDeaths + (min(count($death_inside), 3)),
+                ];
+
+                if ($townTemplate = $fun_get_template($criteria, $survivors, $death_inside)) {
+                    $variables = $fun_fill_requirements($gazette, $townTemplate->getRequirement(), $survivors, $death_inside);
+                    $attack = $gazette->getAttack();
+
+                    $variables['attack'] = $attack < 2000 ? 10 * (round($attack / 10)) : 100 * (round($attack / 100));
+                    $variables['deaths'] = $gazette->getDeaths();
+
+                    $defense = $gazette->getDefense();
+                    $variables['defense'] = $defense < 2000 ? 10 * (round($defense / 10)) : 100 * (round($defense / 100));
+
+                    $news = new GazetteLogEntry();
+                    $news->setDay($day)->setGazette($gazette)->setTemplate($townTemplate)->setVariables($variables);
+                    $this->entity_manager->persist($news);
+                }
+
+                // 2. INDIVIDUAL DEATHS
+                if (!$town->getDevastated() && !$gazette->getReactorExplosion() && count($death_outside) > 0) {
+                    $other_deaths = $death_outside;
+                    shuffle($other_deaths);
+                    /** @var Citizen $featured_cadaver */
+                    $featured_cadaver = $other_deaths[array_key_first($other_deaths)];
+
+                    switch ($featured_cadaver->getCauseOfDeath()->getId()) {
+                        case CauseOfDeath::Cyanide:
+                        case CauseOfDeath::Strangulation:
+                            $type = GazetteEntryTemplate::TypeGazetteSuicide;
+                            break;
+
+                        case CauseOfDeath::Addiction:
+                            $type = GazetteEntryTemplate::TypeGazetteAddiction;
+                            break;
+
+                        case CauseOfDeath::Dehydration:
+                            $type = GazetteEntryTemplate::TypeGazetteDehydration;
+                            break;
+
+                        case CauseOfDeath::Poison:
+                            $type = GazetteEntryTemplate::TypeGazettePoison;
+                            break;
+
+                        case CauseOfDeath::Vanished:
+                        default:
+                            $type = GazetteEntryTemplate::TypeGazetteVanished;
+                            break;
+
+                    }
+
+                    $criteria = [
+                        'type' => $type
+                    ];
+
+                    if ($townTemplate = $fun_get_template($criteria, $survivors, $death_outside)) {
+                        $variables = $fun_fill_requirements($gazette, $townTemplate->getRequirement(), $survivors, $death_outside, $featured_cadaver);
+
+                        $news = new GazetteLogEntry();
+                        $news->setDay($day)->setGazette($gazette)->setTemplate($townTemplate)->setVariables($variables);
+                        $this->entity_manager->persist($news);
+                    }
+                }
+
+                // 3. FLAVOURS
+                // 4. ELECTION
+                // 5. SEARCH TOWER
+                $wind = $fun_make_wind($gazette,$day);
+            }
+        }
+
+        // Ensure the town has a wind direction log if applicable
+        if (empty($wind) && $gazette->getWindDirection() !== 0)
+            $fun_make_wind($gazette,$day);
+
+        return $gazette;
+    }
+
+    public function renderGazette( Town $town, ?int $day = null, bool $allow_dynamic_creation = false ): array {
+        $day = min( $town->getDay(), $day ?? $town->getDay() );
+        $death_outside = $death_inside = [];
+
+        /** @var Gazette $gazette */
+        $gazette = $this->ensureGazette($town, $day, $created);
+
+        if ($created && $allow_dynamic_creation)
+            $this->entity_manager->flush();
+
+        foreach ($gazette->getVictims() as $citizen) {
+            if ($citizen->getAlive()) continue;
+            if ($citizen->getCauseOfDeath()->getRef() == CauseOfDeath::NightlyAttack)
+                $death_inside[] = $citizen;
+            else
+                $death_outside[] = $citizen;
+        }
+
+        $text = '';
+        $wind = '';
+
+        if ($day === 1) {
+            $text = "<p>" . $this->translator->trans('Heute Morgen ist kein Artikel erschienen...', [], 'game') . "</p>";
+            if ($town->isOpen()){
+                $text .= "<p>" . $this->translator->trans('Die Stadt wird erst starten, wenn sie <strong>{population} Bürger hat</strong>.', ['{population}' => $town->getPopulation()], 'game') . "</p>" . "<a class='help-button'>" . "<div class='tooltip help'>" . $this->translator->trans("Falls sich dieser Zustand auch um Mitternacht noch nicht geändert hat, findet kein Zombieangriff statt. Der Tag wird dann künstlich verlängert.", [], 'global') . "</div>" . $this->translator->trans("Hilfe", [], 'global') . "</a>";
+            } else {
+                $text .= $this->translator->trans('Fangt schon mal an zu beten, Bürger - die Zombies werden um Mitternacht angreifen!', [], 'game');
+            }
+        } else {
+            $gazette_logs = $this->entity_manager->getRepository(GazetteLogEntry::class)->findBy(['gazette' => $gazette]);
+            while (count($gazette_logs) > 0) {
+                /** @var GazetteLogEntry $log */
+                $log = array_shift($gazette_logs);
+                if ($log->getTemplate() === null && $log->getLogEntryTemplate() === null)
+                    continue;
+                $type = $log->getTemplate() !== null ? $log->getTemplate()->getType() : $log->getLogEntryTemplate()->getType();
+                if($type !== GazetteEntryTemplate::TypeGazetteWind)
+                    $text .= '<p>' . $this->parseGazetteLog($log) . '</p>';
+                else
+                    $wind = $this->parseGazetteLog($log);
+            }
+        }
+
+
+        $textClass = "day$day";
+
+        $days = [
+            'final' => $day % 5,
+            'repeat' => floor($day / 5),
+        ];
+
+        return [
+            'name' => $town->getName(),
+            'open' => $town->isOpen(),
+            'day' => $day,
+            'days' => $days,
+            'devast' => $town->getDevastated(),
+            'chaos' => $town->getChaos(),
+            'door' => $gazette->getDoor(),
+            'reactorExplosion' => $gazette->getReactorExplosion(),
+            'death_outside' => $death_outside,
+            'death_inside' => $death_inside,
+            'attack' => $gazette->getAttack(),
+            'defense' => $gazette->getDefense(),
+            'invasion' => $gazette->getInvasion(),
+            'deaths' => count($death_inside),
+            'terror' => $gazette->getTerror(),
+            'text' => $text,
+            'textClass' => $textClass,
+            'wind' => $wind,
+            'windDirection' => intval($gazette->getWindDirection()),
+            'waterlost' => intval($gazette->getWaterlost()),
+        ];
     }
 }
