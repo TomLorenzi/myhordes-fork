@@ -23095,7 +23095,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Ein Moderator hat deinen Thread "{threadname}" in das Forum "{forumname}" verschoben. {link_post}</source>
-        <target>Ein Moderator hat deinen Thread "{threadname}" in das Forum "{forumname}" verschoben. {link_post}</target>
+        <target>Un modérateur a déplacé votre sujet "{threadname}" vers le forum "{forumname}". {link_post}</target>
       </segment>
     </unit>
     <unit id="d2ZHuaw" name="Deine aktuelle Situation erlaubt nicht, dass du diese Aktion durchführst.">
@@ -23136,7 +23136,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>&lt;strong&gt;Herzlichen Glückwunsch&lt;/strong&gt;, du hast Folgendes freigeschaltet: {list}</source>
-        <target><![CDATA[<strong>Herzlichen Glückwunsch</strong>, du hast Folgendes freigeschaltet: {list}]]></target>
+        <target><![CDATA[<strong>Félicitations</strong>, vous avez déverrouillé : {list}]]></target>
       </segment>
     </unit>
   </file>
