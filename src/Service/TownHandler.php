@@ -160,7 +160,7 @@ class TownHandler
             case 'small_rocket_#00':
                 foreach ($town->getZones() as &$zone)
                     if ($zone->getX() === 0 || $zone->getY() === 0) {
-                        $zone->setZombies(0);
+                        $zone->setZombies(0)->setInitialZombies(0);
                         $zone->getEscapeTimers()->clear();
                     }
                 $this->entity_manager->persist( $this->log->constructionsBuildingCompleteZombieKill( $building ) );
