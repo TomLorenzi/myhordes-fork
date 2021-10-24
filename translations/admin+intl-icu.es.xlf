@@ -4024,7 +4024,7 @@
       </notes>
       <segment>
         <source>Update</source>
-        <target>Update</target>
+        <target>Actualizar</target>
       </segment>
     </unit>
     <unit id="J2.6H7T" name="Unbekannt">
@@ -4035,7 +4035,7 @@
       </notes>
       <segment>
         <source>Unbekannt</source>
-        <target>Unbekannt</target>
+        <target>Desconocida</target>
       </segment>
     </unit>
     <unit id="OdO2n.0" name="Täglich">
@@ -4046,7 +4046,7 @@
       </notes>
       <segment>
         <source>Täglich</source>
-        <target>Täglich</target>
+        <target>Diariamente</target>
       </segment>
     </unit>
     <unit id="1LsNnOC" name="Wöchentlich">
@@ -4057,7 +4057,7 @@
       </notes>
       <segment>
         <source>Wöchentlich</source>
-        <target>Wöchentlich</target>
+        <target>Semanalmente</target>
       </segment>
     </unit>
     <unit id=".QA57M1" name="Monatlich">
@@ -4068,7 +4068,7 @@
       </notes>
       <segment>
         <source>Monatlich</source>
-        <target>Monatlich</target>
+        <target>Mensualmente</target>
       </segment>
     </unit>
     <unit id="lhysqm5" name="Manuell">
@@ -4079,7 +4079,7 @@
       </notes>
       <segment>
         <source>Manuell</source>
-        <target>Manuell</target>
+        <target>Manualmente</target>
       </segment>
     </unit>
     <unit id="Iv9Lj0S" name="Nicht komprimiert">
@@ -4090,7 +4090,7 @@
       </notes>
       <segment>
         <source>Nicht komprimiert</source>
-        <target>Nicht komprimiert</target>
+        <target>No comprimido</target>
       </segment>
     </unit>
     <unit id="fW.TFsL" name="Systemlogs">
@@ -4101,7 +4101,7 @@
       </notes>
       <segment>
         <source>Systemlogs</source>
-        <target>Systemlogs</target>
+        <target>Registros de sistema</target>
       </segment>
     </unit>
     <unit id="mD79rvJ" name="Datenbank-Backups">
@@ -4112,7 +4112,7 @@
       </notes>
       <segment>
         <source>Datenbank-Backups</source>
-        <target>Datenbank-Backups</target>
+        <target>Respaldos de la base de datos</target>
       </segment>
     </unit>
     <unit id="EzEnW8U" name="Tags">
@@ -4123,7 +4123,7 @@
       </notes>
       <segment>
         <source>Tags</source>
-        <target>Tags</target>
+        <target>Etiquetas</target>
       </segment>
     </unit>
     <unit id="6QKKVpK" name="Datei">
@@ -4134,7 +4134,7 @@
       </notes>
       <segment>
         <source>Datei</source>
-        <target>Datei</target>
+        <target>Archivo</target>
       </segment>
     </unit>
     <unit id="VwKZlwh" name="Dateigröße: {s}">
@@ -4145,7 +4145,7 @@
       </notes>
       <segment>
         <source>Dateigröße: {s}</source>
-        <target>Dateigröße: {s}</target>
+        <target>Tamaño del archivo: {s}</target>
       </segment>
     </unit>
     <unit id="NSeveUs" name="Dateisystem">
@@ -4156,7 +4156,7 @@
       </notes>
       <segment>
         <source>Dateisystem</source>
-        <target>Dateisystem</target>
+        <target>Sistema de archivos</target>
       </segment>
     </unit>
   </file>
