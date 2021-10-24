@@ -71,7 +71,7 @@ class TwinoRegexResult {
 
         switch (type) {
             case TwinoRegexResult.TypeShortBB: return /(?:([^\w\s]){2})([\s\S]*?)\1{2}/gm;
-            case TwinoRegexResult.TypeInset:   return /{([a-zA-Z]+)}|{([a-zA-Z]+),([\w,]*)}|{([a-zA-Z]+)(\d+)}|\B@([\w_]*)(?::(\d+))?\b/g;
+            case TwinoRegexResult.TypeInset:   return /{([a-zA-Z]+)}|{([a-zA-Z]+),([\w,]*)}|{([a-zA-Z]+)(\d+)}|\B@([\w_-]*)(?::(\d+))?\b/g;
             case TwinoRegexResult.TypeEmote:   return /(?::(\w+?):)|([:;].)/g;
             default: throw Error( 'No regex defined for this type of TRR!' )
         }
