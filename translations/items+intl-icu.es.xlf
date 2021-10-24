@@ -3734,7 +3734,7 @@
       </notes>
       <segment>
         <source>Du drückst den {item} eng an deine Brust... &lt;t-stat-down-terror&gt;Tränen laufen über deine Wange, als du an die Hölle denkst, in der du lebst. Nach ein paar Minuten fühlst du dich besser!&lt;/t-stat-down-terror&gt;&lt;nt-stat-down-terror&gt;Aber nichts geschieht!&lt;/nt-stat-down-terror&gt;</source>
-        <target><![CDATA[Coges {item} fuertemente contra ti... <t-stat-down-terror>Tränen laufen über deine Wange, als du an die Hölle denkst, in der du lebst. Nach ein paar Minuten fühlst du dich besser!</t-stat-down-terror><nt-stat-down-terror>Aber nichts geschieht!</nt-stat-down-terror>]]></target>
+        <target><![CDATA[Coges {item} fuertemente contra ti... <t-stat-down-terror>Tränen laufen über deine Wange, als du an die Hölle denkst, in der du lebst. Nach ein paar Minuten fühlst du dich besser!</t-stat-down-terror><nt-stat-down-terror><strong>pero nada cambia</strong>. Te sientes aún más triste que antes. ¿Y para qué sirve "vivir" después de todo?</nt-stat-down-terror>]]></target>
       </segment>
     </unit>
     <unit id="4TKj72Z">
@@ -3745,7 +3745,7 @@
       </notes>
       <segment>
         <source>Du drückst den {item} eng an deine Brust... &lt;t-stat-up-terror&gt;Panik steigt in dir auf!&lt;/t-stat-up-terror&gt;&lt;nt-stat-up-terror&gt;Aber nichts geschieht!&lt;/nt-stat-up-terror&gt;</source>
-        <target><![CDATA[Du drückst den {item} eng an deine Brust... <t-stat-up-terror>Panik steigt in dir auf!</t-stat-up-terror><nt-stat-up-terror>Aber nichts geschieht!</nt-stat-up-terror>]]></target>
+        <target><![CDATA[Coger {item} fuertemente contra ti... <t-stat-up-terror>Panik steigt in dir auf!</t-stat-up-terror><nt-stat-up-terror>Aber nichts geschieht!</nt-stat-up-terror>]]></target>
       </segment>
     </unit>
     <unit id="kp6Ik3m" name="Rauchen">
