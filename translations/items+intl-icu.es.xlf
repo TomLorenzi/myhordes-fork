@@ -9274,7 +9274,7 @@
       </notes>
       <segment>
         <source>Verbessert die Verteidigung</source>
-        <target>Verbessert die Verteidigung</target>
+        <target>Aumenta la defensa</target>
       </segment>
     </unit>
     <unit id="xyibZX0" name="Verhindert Diebstähle">
@@ -9285,7 +9285,7 @@
       </notes>
       <segment>
         <source>Verhindert Diebstähle</source>
-        <target>Verhindert Diebstähle</target>
+        <target>Evita robos</target>
       </segment>
     </unit>
     <unit id="wgXNSFv" name="Sieht schön aus, wenn es zu einer Girlande gebunden wird.">
@@ -9317,7 +9317,7 @@
       </notes>
       <segment>
         <source>Macht Miau</source>
-        <target>Macht Miau</target>
+        <target>Hace Miau</target>
       </segment>
     </unit>
   </file>
