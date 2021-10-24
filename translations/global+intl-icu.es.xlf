@@ -118,7 +118,7 @@
       </notes>
       <segment>
         <source>Neuer Thread</source>
-        <target>Nuevo hilo</target>
+        <target>Nuevo tema</target>
       </segment>
     </unit>
     <unit id="2Jf.Bop" name="Neuer Post">
@@ -3797,7 +3797,7 @@
       </notes>
       <segment>
         <source>Thread verschieben</source>
-        <target>Thread verschieben</target>
+        <target>Mover tema</target>
       </segment>
     </unit>
     <unit id="RDurDOj" name="Verschiebe den aktuellen Thread in ein anderes Forum:">
@@ -3808,7 +3808,7 @@
       </notes>
       <segment>
         <source>Verschiebe den aktuellen Thread in ein anderes Forum:</source>
-        <target>Verschiebe den aktuellen Thread in ein anderes Forum:</target>
+        <target>Mover este tema a un foro diferente:</target>
       </segment>
     </unit>
     <unit id="IvUMWo7" name="Verschieben">
@@ -3819,7 +3819,7 @@
       </notes>
       <segment>
         <source>Verschieben</source>
-        <target>Verschieben</target>
+        <target>Mover</target>
       </segment>
     </unit>
   </file>
