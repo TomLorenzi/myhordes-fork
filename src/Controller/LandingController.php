@@ -26,6 +26,8 @@ class LandingController extends CustomAbstractController
      * @Route("jx/landing", name="initial_landing",condition="request.isXmlHttpRequest()")
      * @param EntityManagerInterface $em
      * @param TimeKeeperService $tk
+     * @param Request $request
+     * @param UserHandler $userHandler
      * @return Response
      */
     public function main_landing(EntityManagerInterface $em, TimeKeeperService $tk, Request $request, UserHandler $userHandler): Response
@@ -58,6 +60,7 @@ class LandingController extends CustomAbstractController
      * @Route("jx/offline/attack_processing", name="maintenance_attack",condition="request.isXmlHttpRequest()")
      * @param EntityManagerInterface $em
      * @param TimeKeeperService $tk
+     * @param RandomGenerator $rand
      * @return Response
      */
     public function maintenance_attack(EntityManagerInterface $em, TimeKeeperService $tk, RandomGenerator $rand): Response

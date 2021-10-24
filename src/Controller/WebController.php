@@ -52,6 +52,18 @@ class WebController extends CustomAbstractController
         $this->kernel = $k;
     }
 
+    private function handleDomainRedirection(): ?Response {
+        $redirect = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_DOMAIN_REDIRECTION, []);
+        $request = Request::createFromGlobals();
+
+        $current_host = "{$request->getHttpHost()}{$request->getBasePath()}";
+        foreach ($redirect as $entry)
+            if ($entry['principal'] === $current_host && ($url = $entry[$this->getUserLanguage()] ?? $entry['*'] ?? null))
+                return new RedirectResponse( "{$url}{$request->getPathInfo()}", 308 );
+
+        return null;
+    }
+
     private function render_web_framework(string $ajax_landing): Response {
         try {
             $version = $this->version_manager->getVersion();
@@ -97,7 +109,7 @@ class WebController extends CustomAbstractController
      */
     public function framework(): Response
     {
-        return $this->render_web_framework($this->generateUrl('initial_landing'));
+        return $this->handleDomainRedirection() ?? $this->render_web_framework($this->generateUrl('initial_landing'));
     }
 
     /**
@@ -108,6 +120,7 @@ class WebController extends CustomAbstractController
      */
     public function refer_incoming(string $name, SessionInterface $s): Response
     {
+        if ($r = $this->handleDomainRedirection()) return $r;
         $s->set('refer', $name);
         return $this->render_web_framework($this->generateUrl('public_register'));
     }
@@ -118,6 +131,7 @@ class WebController extends CustomAbstractController
      */
     public function standalone_pm(): Response
     {
+        if ($r = $this->handleDomainRedirection()) return $r;
         if (!$this->isGranted('ROLE_USER'))
             return $this->redirect($this->generateUrl('home'));
         return $this->render( 'web/pm-host.html.twig', [] );
@@ -197,7 +211,7 @@ class WebController extends CustomAbstractController
      */
     public function loader(string $ajax): Response
     {
-        return $this->render_web_framework(Request::createFromGlobals()->getBasePath() . '/jx/' . $ajax);
+        return $this->handleDomainRedirection() ?? $this->render_web_framework(Request::createFromGlobals()->getBasePath() . '/jx/' . $ajax);
     }
 
     private function check_cache(string $name): ?Response {
