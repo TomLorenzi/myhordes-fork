@@ -833,7 +833,6 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
                 array('item' => 'magneticKey_#00','count' => 9),
                 array('item' => 'pc_#00','count' => 2),
                 array('item' => 'drug_water_#00','count' => 3),
-                array('item' => 'vagoul_#00','count' => 2),
                 array('item' => 'distri_#00','count' => 2),
                 array('item' => 'disinfect_#00','count' => 6),
                 array('item' => 'pharma_#00','count' => 3),
@@ -846,7 +845,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
                 array('item' => 'water_can_1_#00','count' => 3),
                 array('item' => 'bed_#00','count' => 2),
                 array('item' => 'bumpKey_#00','count' => 3),
-                array('item' => 'vagoul_#00','count' => 1),
+                array('item' => 'vagoul_#00','count' => 3),
         ], 'desc' => 'Diese heruntergekommene Gebäude scheint einmal ein Hospital gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...'],
     ];
 
