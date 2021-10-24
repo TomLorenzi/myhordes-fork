@@ -4113,7 +4113,7 @@
       </notes>
       <segment>
         <source>Diese Einschränkung betrifft alle Spieler, die auf MyHordes bereits &lt;b&gt;mehr als {thresholdS} Seelenpunkte&lt;/b&gt; gesammelt oder &lt;b&gt;mehr als {thresholdT} Städte&lt;/b&gt; nach dem Ende der Alpha-Phase gespielt haben.</source>
-        <target><![CDATA[Diese Einschränkung betrifft alle Spieler, die auf MyHordes bereits <b>mehr als {thresholdS} Seelenpunkte</b> gesammelt oder <b>mehr als {thresholdT} Städte</b> nach dem Ende der Alpha-Phase gespielt haben.]]></target>
+        <target><![CDATA[Cette restriction affecte tous les joueurs qui ont déjà accumulé <b>plus de {thresholdS} points d'âme</b> ou joué dans <b>plus de {thresholdT} villes</b> sur MyHordes après la fin de la phase alpha.]]></target>
       </segment>
     </unit>
     <unit id=".RTSS25" name="Zurück zur Kartei von {player}">
