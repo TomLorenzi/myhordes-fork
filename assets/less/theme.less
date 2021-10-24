@@ -758,7 +758,7 @@ ul.inventory {
     &.theft { background: #7e3f39; }
     .item {
       .item-icon { display: inline-block; width: 16px; height: 16px; text-align: center; }
-      &.defense { border: 1px dotted @myhordes-smalltext; }
+      &.defense:not(.broken) { border: 1px dotted @myhordes-smalltext; }
     }
   }
 }
