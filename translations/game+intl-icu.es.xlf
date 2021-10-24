@@ -7931,16 +7931,6 @@
         <target>¡Ah!, tal vez sea bueno que sepas que tienes {deathChance}% de probabilidades de morir esta noche y {woundAndTerrorChance}% de quedar herido durante esta vigilia.</target>
       </segment>
     </unit>
-    <unit id="vuWaICz">
-      <notes>
-        <note category="german">Die Anwesenheit des Geistigen Beistands unter den Nachtwächtern gibt ihnen jeweils einen Boost von 20 Verteidigung.</note>
-        <note category="from">twig:///templates/ajax/game/town/nightwatch.html.twig</note>
-      </notes>
-      <segment>
-        <source>Die Anwesenheit des Geistigen Beistands unter den Nachtwächtern gibt ihnen jeweils einen Boost von 20 Verteidigung.</source>
-        <target>La presencia de Discurso motivador entre los centinelas otorga 20 defensas a cada uno.</target>
-      </segment>
-    </unit>
     <unit id="nusxEDS" name="Benutzte Waffe">
       <notes>
         <note category="german">Benutzte Waffe</note>
@@ -23156,6 +23146,17 @@
       <segment>
         <source>Dieser Bürger scheint völlig verängstigt zu sein! Er bringt keinen Kontrollpunkt in dieser Zone.</source>
         <target>¡Este habitante parece estar totalmente aterrorizado! No ha reportado ningún punto de control.</target>
+      </segment>
+    </unit>
+    <unit id="pobUoYj">
+      <notes>
+        <note category="german">Die Anwesenheit des Geistigen Beistands unter den Nachtwächtern gibt ihnen jeweils einen Boost von {counsel} Verteidigung.</note>
+        <note category="from">twig:///templates/ajax/game/town/nightwatch.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Die Anwesenheit des Geistigen Beistands unter den Nachtwächtern gibt ihnen jeweils einen Boost von {counsel} Verteidigung.</source>
+        <target>La presencia de Discurso motivador entre los centinelas otorga {counsel} defensas a cada uno.</target>
       </segment>
     </unit>
   </file>

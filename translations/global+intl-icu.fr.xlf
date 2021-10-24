@@ -3798,7 +3798,6 @@
       <notes>
         <note category="german">Thread verschieben</note>
         <note category="from">twig:///templates/ajax/forum/posts.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Thread verschieben</source>
@@ -3809,7 +3808,6 @@
       <notes>
         <note category="german">Verschiebe den aktuellen Thread in ein anderes Forum:</note>
         <note category="from">twig:///templates/ajax/forum/posts.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Verschiebe den aktuellen Thread in ein anderes Forum:</source>
@@ -3820,7 +3818,6 @@
       <notes>
         <note category="german">Verschieben</note>
         <note category="from">twig:///templates/ajax/forum/posts.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Verschieben</source>

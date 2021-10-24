@@ -461,6 +461,7 @@ class TownAddonsController extends TownController
         $watchers = [];
         $is_watcher = false;
         $has_counsel = false;
+        $counsel_def = 0;
         $total_def = 0;
 
         $has_shooting_gallery = (bool)$th->getBuilding($town, 'small_tourello_#00', true);
@@ -521,9 +522,8 @@ class TownAddonsController extends TownController
         // total def cannot be negative
         $total_def = max(0, $total_def);
 
-        if($has_counsel){
-            $total_def += 20 * count($watchers);
-        }
+        if($has_counsel)
+            $total_def += ($counsel_def = 20 * count($watchers));
 
         $deathChance = $this->citizen_handler->getDeathChances($this->getActiveCitizen());
         return $this->render( 'ajax/game/town/nightwatch.html.twig', $this->addDefaultTwigArgs('battlement', [
@@ -534,6 +534,7 @@ class TownAddonsController extends TownController
             'me' => $this->getActiveCitizen(),
             'total_def' => $total_def,
             'has_counsel' => $has_counsel,
+            'counsel_def' => $counsel_def,
             'door_section' => 'nightwatch'
         ]) );
     }

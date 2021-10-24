@@ -7978,16 +7978,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>Oh and by the way, it seemed like a good idea to us to let you know that you have {deathChance}% chance of dying tonight and {woundAndTerrorChance}% of being wounded during this watch.</target>
       </segment>
     </unit>
-    <unit id="vuWaICz">
-      <notes>
-        <note category="german">Die Anwesenheit des Geistigen Beistands unter den Nachtwächtern gibt ihnen jeweils einen Boost von 20 Verteidigung.</note>
-        <note category="from">twig:///templates/ajax/game/town/nightwatch.html.twig</note>
-      </notes>
-      <segment>
-        <source>Die Anwesenheit des Geistigen Beistands unter den Nachtwächtern gibt ihnen jeweils einen Boost von 20 Verteidigung.</source>
-        <target>The presence of Psychadelic Spiritual Counsel among the Watchmen gives them a 20 defense boost each.</target>
-      </segment>
-    </unit>
     <unit id="nusxEDS" name="Benutzte Waffe">
       <notes>
         <note category="german">Benutzte Waffe</note>
@@ -21723,7 +21713,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <notes>
         <note category="german">Du hast das Wasser aus {item} in den Brunnen geschüttet (&lt;strong&gt;+1 Einheit&lt;/strong&gt;).</note>
         <note category="from">php:///src/Controller/Town/TownController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Du hast das Wasser aus {item} in den Brunnen geschüttet (&lt;strong&gt;+1 Einheit&lt;/strong&gt;)</source>
@@ -23227,6 +23216,17 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Dieser Bürger scheint völlig verängstigt zu sein! Er bringt keinen Kontrollpunkt in dieser Zone.</source>
         <target>Dieser Bürger scheint völlig verängstigt zu sein! Er bringt keinen Kontrollpunkt in dieser Zone.</target>
+      </segment>
+    </unit>
+    <unit id="pobUoYj">
+      <notes>
+        <note category="german">Die Anwesenheit des Geistigen Beistands unter den Nachtwächtern gibt ihnen jeweils einen Boost von {counsel} Verteidigung.</note>
+        <note category="from">twig:///templates/ajax/game/town/nightwatch.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Die Anwesenheit des Geistigen Beistands unter den Nachtwächtern gibt ihnen jeweils einen Boost von {counsel} Verteidigung.</source>
+        <target>The presence of Psychadelic Spiritual Counsel among the Watchmen gives them a {counsel} defense boost each.</target>
       </segment>
     </unit>
   </file>

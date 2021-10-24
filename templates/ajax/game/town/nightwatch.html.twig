@@ -27,9 +27,9 @@
     {% endif %}
 
     {% if has_counsel %}
-    <div class="help">
-        {{"Die Anwesenheit des Geistigen Beistands unter den Nachtwächtern gibt ihnen jeweils einen Boost von 20 Verteidigung."|trans({}, 'game')}}
-    </div>
+        <div class="help">
+            {{"Die Anwesenheit des Geistigen Beistands unter den Nachtwächtern gibt ihnen jeweils einen Boost von {counsel} Verteidigung."|trans({counsel: counsel_def}, 'game')}}
+        </div>
     {% endif %}
 
     {% if watchers is not empty %}

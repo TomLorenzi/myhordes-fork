@@ -9270,7 +9270,6 @@
       <notes>
         <note category="german">Verbessert die Verteidigung</note>
         <note category="from">db://ItemPrototype</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Verbessert die Verteidigung</source>
@@ -9281,7 +9280,6 @@
       <notes>
         <note category="german">Verhindert Diebstähle</note>
         <note category="from">db://ItemPrototype</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Verhindert Diebstähle</source>
@@ -9313,7 +9311,6 @@
       <notes>
         <note category="german">Macht Miau</note>
         <note category="from">db://ItemPrototype</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Macht Miau</source>

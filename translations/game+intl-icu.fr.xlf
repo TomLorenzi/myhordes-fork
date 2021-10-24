@@ -8226,16 +8226,6 @@
         <target>De valeureux citoyens se sont postés ce soir sur les remparts de la ville : {citizens} ! Souhaitons leur une mort paisible... à moins qu'ils ne survivent ?</target>
       </segment>
     </unit>
-    <unit id="vuWaICz">
-      <notes>
-        <note category="german">Die Anwesenheit des Geistigen Beistands unter den Nachtwächtern gibt ihnen jeweils einen Boost von 20 Verteidigung.</note>
-        <note category="from">twig:///templates/ajax/game/town/nightwatch.html.twig</note>
-      </notes>
-      <segment>
-        <source>Die Anwesenheit des Geistigen Beistands unter den Nachtwächtern gibt ihnen jeweils einen Boost von 20 Verteidigung.</source>
-        <target>La présence de l'objet Discours Rassurant Multicoloré parmi les veilleurs actuels permet d'apporter un gain de 20 points de défense.</target>
-      </segment>
-    </unit>
     <unit id="5mCmMZu" name="Besessen von einer gequälten Seele">
       <notes>
         <note category="german">Besessen von einer gequälten Seele</note>
@@ -23126,6 +23116,17 @@ cette violente opération...]]></target>
       <segment>
         <source>Dieser Bürger scheint völlig verängstigt zu sein! Er bringt keinen Kontrollpunkt in dieser Zone.</source>
         <target>Ce citoyen semble complètement terrorisé ! Il n'apporte aucun point de contrôle dans cette zone.</target>
+      </segment>
+    </unit>
+    <unit id="pobUoYj">
+      <notes>
+        <note category="german">Die Anwesenheit des Geistigen Beistands unter den Nachtwächtern gibt ihnen jeweils einen Boost von {counsel} Verteidigung.</note>
+        <note category="from">twig:///templates/ajax/game/town/nightwatch.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Die Anwesenheit des Geistigen Beistands unter den Nachtwächtern gibt ihnen jeweils einen Boost von {counsel} Verteidigung.</source>
+        <target>La présence de l'objet Discours Rassurant Multicoloré parmi les veilleurs actuels permet d'apporter un gain de {counsel} points de défense.</target>
       </segment>
     </unit>
   </file>
