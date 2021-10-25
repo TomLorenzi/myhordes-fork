@@ -4035,7 +4035,7 @@
       </notes>
       <segment>
         <source>Update</source>
-        <target>Update</target>
+        <target>Mise à jour</target>
       </segment>
     </unit>
     <unit id="J2.6H7T" name="Unbekannt">
@@ -4046,7 +4046,7 @@
       </notes>
       <segment>
         <source>Unbekannt</source>
-        <target>Unbekannt</target>
+        <target>Inconnu</target>
       </segment>
     </unit>
     <unit id="OdO2n.0" name="Täglich">
@@ -4057,7 +4057,7 @@
       </notes>
       <segment>
         <source>Täglich</source>
-        <target>Täglich</target>
+        <target>Journalier</target>
       </segment>
     </unit>
     <unit id="1LsNnOC" name="Wöchentlich">
@@ -4068,7 +4068,7 @@
       </notes>
       <segment>
         <source>Wöchentlich</source>
-        <target>Wöchentlich</target>
+        <target>Hebdomadaire</target>
       </segment>
     </unit>
     <unit id=".QA57M1" name="Monatlich">
@@ -4079,7 +4079,7 @@
       </notes>
       <segment>
         <source>Monatlich</source>
-        <target>Monatlich</target>
+        <target>Mensuel</target>
       </segment>
     </unit>
     <unit id="lhysqm5" name="Manuell">
@@ -4090,7 +4090,7 @@
       </notes>
       <segment>
         <source>Manuell</source>
-        <target>Manuell</target>
+        <target>Manuel</target>
       </segment>
     </unit>
     <unit id="Iv9Lj0S" name="Nicht komprimiert">
@@ -4101,7 +4101,7 @@
       </notes>
       <segment>
         <source>Nicht komprimiert</source>
-        <target>Nicht komprimiert</target>
+        <target>Non compressé</target>
       </segment>
     </unit>
     <unit id="fW.TFsL" name="Systemlogs">
