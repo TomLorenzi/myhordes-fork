@@ -286,7 +286,7 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
     public static $role_data = [
         ['label' => 'Schamane'                    , 'vote' => true,  'icon' => 'shaman', 'name'=>'shaman', 'hidden' => false, 'secret' => false, 'help_section' => 'shaman' ],
         ['label' => 'Reiseleiter in der Außenwelt', 'vote' => true,  'icon' => 'guide',  'name'=>'guide' , 'hidden' => false, 'secret' => false, 'help_section' => 'guide_to_the_world_beyond' ],
-        ['label' => 'Ghul',                         'vote' => false, 'icon' => 'ghoul',  'name'=>'ghoul' , 'hidden' => false, 'secret' => true, 'message' => 'Du hast dich in einen Ghul verwandelt!' ],
+        ['label' => 'Ghul',                         'vote' => false, 'icon' => 'ghoul',  'name'=>'ghoul' , 'hidden' => false, 'secret' => true, 'message' => 'Du hast dich in einen Ghul verwandelt!', 'help_section' => 'ghouls' ],
         ['label' => 'Katapult-Bediener',            'vote' => false, 'icon' => 'cata',   'name'=>'cata'  , 'hidden' => true,  'secret' => false ],
     ];
 
