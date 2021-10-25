@@ -9223,7 +9223,7 @@
       </notes>
       <segment>
         <source>Solange du &lt;strong&gt;erschöpft bist&lt;/strong&gt;, kannst du diese Aktion nicht ausführen (da du keine Aktionspunkte mehr hast)... Trink oder iss etwas, oder nimm eine Droge, ansonsten musst du bis &lt;strong&gt;morgen&lt;/strong&gt; warten.</source>
-        <target><![CDATA[Mientras estés <strong>agotado</strong>, no puedes realizar esta acción (ya que no tienes más puntos de acción)... Bebe, come o toma una droga, de lo contrario tienes que esperar a <strong>mañana</strong>.]]></target>
+        <target><![CDATA[Mientras estés <strong>cansado</strong>, no puedes realizar esta acción (ya que no tienes más puntos de acción)... Bebe, come o toma una droga, de lo contrario tienes que esperar a <strong>mañana</strong>.]]></target>
       </segment>
     </unit>
     <unit id="bCsZ2JO">
