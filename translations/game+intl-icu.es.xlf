@@ -765,7 +765,7 @@
       <notes>
         <note category="german">Zombies</note>
         <note category="state">new</note>
-        <note category="from">twig:///templates/ajax/game/newspaper.html.twig;twig:///templates/ajax/game/town/watchtower.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/newspaper.html.twig;twig:///templates/ajax/game/town/watchtower.html.twig</note>
       </notes>
       <segment>
         <source>Zombies</source>
@@ -935,7 +935,7 @@
     <unit id="77.Cp5H" name="Verteidigung">
       <notes>
         <note category="german">Verteidigung</note>
-        <note category="from">twig:///templates/ajax/game/newspaper.html.twig;twig:///templates/ajax/game/town/dump.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/newspaper.html.twig;twig:///templates/ajax/game/town/dump.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Verteidigung</source>
@@ -1226,7 +1226,7 @@
     <unit id="7F000hR" name="Todesursache">
       <notes>
         <note category="german">Todesursache</note>
-        <note category="from">twig:///templates/ajax/game/newspaper.html.twig;twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/newspaper.html.twig;twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Todesursache</source>
@@ -9049,7 +9049,7 @@
     <unit id="8fTcb5D" name="Tote in der Stadt">
       <notes>
         <note category="german">Tote in der Stadt</note>
-        <note category="from">twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
       </notes>
       <segment>
         <source>Tote in der Stadt</source>
@@ -9059,7 +9059,7 @@
     <unit id="wvs954U" name="Niemand!">
       <notes>
         <note category="german">Niemand!</note>
-        <note category="from">twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
       </notes>
       <segment>
         <source>Niemand!</source>
@@ -9069,7 +9069,7 @@
     <unit id="ooesDbN" name="Sonstige Opfer">
       <notes>
         <note category="german">Sonstige Opfer</note>
-        <note category="from">twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
       </notes>
       <segment>
         <source>Sonstige Opfer</source>
@@ -9079,7 +9079,7 @@
     <unit id="kxeEpoF" name="Opfer">
       <notes>
         <note category="german">Opfer</note>
-        <note category="from">twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
       </notes>
       <segment>
         <source>Opfer</source>
@@ -9089,7 +9089,7 @@
     <unit id="w60IHjv" name="Keine Opfer">
       <notes>
         <note category="german">Keine Opfer</note>
-        <note category="from">twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
       </notes>
       <segment>
         <source>Keine Opfer</source>
@@ -9609,7 +9609,7 @@
     <unit id="dY6rVb6" name="Tor ist offen!">
       <notes>
         <note category="german">Tor ist offen!</note>
-        <note category="from">twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
       </notes>
       <segment>
         <source>Tor ist offen!</source>
@@ -9619,7 +9619,7 @@
     <unit id="1cEye.o" name="Zombies sind eingedrungen.">
       <notes>
         <note category="german">Zombies sind eingedrungen.</note>
-        <note category="from">twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
       </notes>
       <segment>
         <source>Zombies sind eingedrungen.</source>
@@ -9629,7 +9629,7 @@
     <unit id="ojehKlj" name="vor Angst erstarrt">
       <notes>
         <note category="german">vor Angst erstarrt</note>
-        <note category="from">twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
       </notes>
       <segment>
         <source>vor Angst erstarrt</source>
@@ -15217,7 +15217,7 @@
     <unit id="OhpvQec" name="im Nordwesten">
       <notes>
         <note category="german">im Nordwesten</note>
-        <note category="from">php:///src/Controller/GameController.php;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="from">php:///src/Controller/GameController.php;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
       </notes>
       <segment>
         <source>im Nordwesten</source>
@@ -15227,7 +15227,7 @@
     <unit id="dHF9hg3" name="im Norden">
       <notes>
         <note category="german">im Norden</note>
-        <note category="from">php:///src/Controller/GameController.php;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="from">php:///src/Controller/GameController.php;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
       </notes>
       <segment>
         <source>im Norden</source>
@@ -15237,7 +15237,7 @@
     <unit id="8VW_Ac6" name="im Nordosten">
       <notes>
         <note category="german">im Nordosten</note>
-        <note category="from">php:///src/Controller/GameController.php;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="from">php:///src/Controller/GameController.php;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
       </notes>
       <segment>
         <source>im Nordosten</source>
@@ -15247,7 +15247,7 @@
     <unit id="CGH7WpP" name="im Westen">
       <notes>
         <note category="german">im Westen</note>
-        <note category="from">php:///src/Controller/GameController.php;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="from">php:///src/Controller/GameController.php;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
       </notes>
       <segment>
         <source>im Westen</source>
@@ -15257,7 +15257,7 @@
     <unit id="GrDc37F" name="im Osten">
       <notes>
         <note category="german">im Osten</note>
-        <note category="from">php:///src/Controller/GameController.php;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="from">php:///src/Controller/GameController.php;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
       </notes>
       <segment>
         <source>im Osten</source>
@@ -15267,7 +15267,7 @@
     <unit id="luEGXBn" name="im Südwesten">
       <notes>
         <note category="german">im Südwesten</note>
-        <note category="from">php:///src/Controller/GameController.php;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="from">php:///src/Controller/GameController.php;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
       </notes>
       <segment>
         <source>im Südwesten</source>
@@ -15277,7 +15277,7 @@
     <unit id="UpG6M6C" name="im Süden">
       <notes>
         <note category="german">im Süden</note>
-        <note category="from">php:///src/Controller/GameController.php;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="from">php:///src/Controller/GameController.php;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
       </notes>
       <segment>
         <source>im Süden</source>
@@ -15287,7 +15287,7 @@
     <unit id="G2GbQ43" name="im Südosten">
       <notes>
         <note category="german">im Südosten</note>
-        <note category="from">php:///src/Controller/GameController.php;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="from">php:///src/Controller/GameController.php;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
       </notes>
       <segment>
         <source>im Südosten</source>
@@ -15297,7 +15297,7 @@
     <unit id="3UYzFfF">
       <notes>
         <note category="german">Mysteriöse metereologische Phänomene haben gestern Nacht dafür gesorgt, dass sich bestimmte Zonen &lt;strong&gt;{sector} der Stadt&lt;/strong&gt; regeneriert haben.&lt;p&gt;&lt;em&gt;Es können dort durch Graben wieder Gegenstände gefunden werden, auch wenn die Zone zuvor leergesucht wurde!&lt;/em&gt;&lt;/p&gt;</note>
-        <note category="from">twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
       </notes>
       <segment>
         <source>Mysteriöse metereologische Phänomene haben gestern Nacht dafür gesorgt, dass sich bestimmte Zonen &lt;strong&gt;{sector} der Stadt&lt;/strong&gt; regeneriert haben.&lt;p&gt;&lt;em&gt;Es können dort durch Graben wieder Gegenstände gefunden werden, auch wenn die Zone zuvor leergesucht wurde!&lt;/em&gt;&lt;/p&gt;</source>
@@ -15307,7 +15307,7 @@
     <unit id="2ZzcscP" name="Verlorenes Brunnenwasser: {count} Einhet(en)">
       <notes>
         <note category="german">Verlorenes Brunnenwasser: {count__copy} Einhet(en)</note>
-        <note category="from">twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
       </notes>
       <segment>
         <source>Verlorenes Brunnenwasser: {count} Einhet(en)</source>
@@ -20371,7 +20371,7 @@
     <unit id="oZCdnHO" name="Das wird aber nicht lange so bleiben...">
       <notes>
         <note category="german">Das wird aber nicht lange so bleiben...</note>
-        <note category="from">twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
       </notes>
       <segment>
         <source>Das wird aber nicht lange so bleiben...</source>
@@ -20381,7 +20381,7 @@
     <unit id="fJDK8V7" name="Das macht dann... {day} Tage">
       <notes>
         <note category="german">Das macht dann... {day} Tage</note>
-        <note category="from">twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
       </notes>
       <segment>
         <source>Das macht dann... {day} Tage</source>
@@ -21492,7 +21492,7 @@
     <unit id="sXukPwK" name="Immerhin wurden alle Bürger aus der Stadt geschleudert...">
       <notes>
         <note category="german">Immerhin wurden alle Bürger aus der Stadt geschleudert...</note>
-        <note category="from">twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
       </notes>
       <segment>
         <source>Immerhin wurden alle Bürger aus der Stadt geschleudert...</source>
@@ -22462,7 +22462,7 @@
     <unit id="o0S7jOB" name="Tag {d} {today}">
       <notes>
         <note category="german">Tag {d} {today}</note>
-        <note category="from">twig:///templates/ajax/game/log_content.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/game/log_content.html.twig</note>
       </notes>
       <segment>
         <source>Tag {d} {today}</source>

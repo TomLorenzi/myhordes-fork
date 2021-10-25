@@ -4031,7 +4031,6 @@
       <notes>
         <note category="german">Update</note>
         <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Update</source>
@@ -4042,7 +4041,6 @@
       <notes>
         <note category="german">Unbekannt</note>
         <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Unbekannt</source>
@@ -4053,7 +4051,6 @@
       <notes>
         <note category="german">Täglich</note>
         <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Täglich</source>
@@ -4064,7 +4061,6 @@
       <notes>
         <note category="german">Wöchentlich</note>
         <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wöchentlich</source>
@@ -4075,7 +4071,6 @@
       <notes>
         <note category="german">Monatlich</note>
         <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Monatlich</source>
@@ -4086,7 +4081,6 @@
       <notes>
         <note category="german">Manuell</note>
         <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Manuell</source>
@@ -4097,7 +4091,6 @@
       <notes>
         <note category="german">Nicht komprimiert</note>
         <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Nicht komprimiert</source>

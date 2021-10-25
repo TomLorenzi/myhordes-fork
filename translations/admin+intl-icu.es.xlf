@@ -4020,7 +4020,6 @@
       <notes>
         <note category="german">Update</note>
         <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Update</source>
@@ -4031,7 +4030,6 @@
       <notes>
         <note category="german">Unbekannt</note>
         <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Unbekannt</source>
@@ -4042,7 +4040,6 @@
       <notes>
         <note category="german">Täglich</note>
         <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Täglich</source>
@@ -4053,7 +4050,6 @@
       <notes>
         <note category="german">Wöchentlich</note>
         <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wöchentlich</source>
@@ -4064,7 +4060,6 @@
       <notes>
         <note category="german">Monatlich</note>
         <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Monatlich</source>
@@ -4075,7 +4070,6 @@
       <notes>
         <note category="german">Manuell</note>
         <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Manuell</source>
@@ -4086,7 +4080,6 @@
       <notes>
         <note category="german">Nicht komprimiert</note>
         <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Nicht komprimiert</source>
@@ -4097,7 +4090,6 @@
       <notes>
         <note category="german">Systemlogs</note>
         <note category="from">twig:///templates/ajax/admin/files/list.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Systemlogs</source>
@@ -4108,7 +4100,6 @@
       <notes>
         <note category="german">Datenbank-Backups</note>
         <note category="from">twig:///templates/ajax/admin/files/list.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Datenbank-Backups</source>
@@ -4119,7 +4110,6 @@
       <notes>
         <note category="german">Tags</note>
         <note category="from">twig:///templates/ajax/admin/files/list.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Tags</source>
@@ -4130,7 +4120,6 @@
       <notes>
         <note category="german">Datei</note>
         <note category="from">twig:///templates/ajax/admin/files/list.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Datei</source>
@@ -4141,7 +4130,6 @@
       <notes>
         <note category="german">Dateigröße: {s}</note>
         <note category="from">twig:///templates/ajax/admin/files/list.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Dateigröße: {s}</source>
@@ -4152,7 +4140,6 @@
       <notes>
         <note category="german">Dateisystem</note>
         <note category="from">php:///src/Controller/Admin/AdminActionController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Dateisystem</source>
