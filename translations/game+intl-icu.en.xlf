@@ -23215,7 +23215,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Dieser Bürger scheint völlig verängstigt zu sein! Er bringt keinen Kontrollpunkt in dieser Zone.</source>
-        <target>Dieser Bürger scheint völlig verängstigt zu sein! Er bringt keinen Kontrollpunkt in dieser Zone.</target>
+        <target>This citizen seems totally terrified! They are contributing no control points whatsoever!</target>
       </segment>
     </unit>
     <unit id="pobUoYj">
