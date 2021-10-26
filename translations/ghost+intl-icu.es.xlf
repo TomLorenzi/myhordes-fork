@@ -1705,7 +1705,7 @@
       </notes>
       <segment>
         <source>Achtung: Du stehst deiner {coalition} NICHT ZUR VERFÜGUNG! Das bedeutet, dass du diese Partie allein spielen wirst.</source>
-        <target>Advertencia: ¡Tú NO ESTÁS DISPONIBLE para tu {coalition}! Eso significa que entrarás a este pueblo solo.</target>
+        <target>Advertencia: ¡Estás en modo NO DISPONIBLE en tu {coalition}! Eso significa que entrarás a este pueblo solo.</target>
       </segment>
     </unit>
     <unit id="aEPG2aa">
@@ -1715,7 +1715,7 @@
       </notes>
       <segment>
         <source>Achtung: Im Moment steht kein Mitglied deiner {coalition} zur Verfügung, um dir in eine Stadt zu folgen.</source>
-        <target>Advertencia: Tu {coalition} no aparece como "disponible"; ¡si entras a un pueblo, lo harás solo!</target>
+        <target>Advertencia: Ningún miembro de tu {coalition} aparece como "disponible"; ¡si entras a un pueblo, lo harás solo!</target>
       </segment>
     </unit>
     <unit id="BWMOKUf">
@@ -1735,7 +1735,7 @@
       </notes>
       <segment>
         <source>Wenn du eine Stadt betrittst, werden folgende Mitglieder deiner {coalition} dir folgen:</source>
-        <target>Cuando entras a un pueblo, los siguientes miembros de tu {coalition} reencarnarán contigo:</target>
+        <target>Cuando entres a un pueblo, los siguientes miembros de tu {coalition} reencarnarán contigo:</target>
       </segment>
     </unit>
   </file>
