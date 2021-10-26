@@ -221,7 +221,7 @@ class ZoneHandler
 
                         $cache[$timer->getTimestamp()->getTimestamp()] = $found_event_item ? 2 : ( ($zone->getDigs() > 0) ? 1 : 0 );
 
-                        $zone->setDigs(max(0, $zone->getDigs() - 1));
+                        if ($found_item) $zone->setDigs(max(0, $zone->getDigs() - 1));
                         $zone_update = true;
 
                     } else $cache[$timer->getTimestamp()->getTimestamp()] = -1;
