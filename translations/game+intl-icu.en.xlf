@@ -23088,7 +23088,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Mit dieser Aktion kannst du die Stadt betreten, ohne dass es ins Stadtregister eingetragen wird. Wenn du ein paar Spieler eskortierst, werden diese am Stadttor zurückgelassen.</source>
-        <target>Mit dieser Aktion kannst du die Stadt betreten, ohne dass es ins Stadtregister eingetragen wird. Wenn du ein paar Spieler eskortierst, werden diese am Stadttor zurückgelassen.</target>
+        <target>This action allows you to go through the town gates without it being recorded in the Register. If you are escorting players, they will be left at the town gates.</target>
       </segment>
     </unit>
     <unit id="PanD2KO">
@@ -23110,7 +23110,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Mit dieser Aktion kannst du die Stadt verlassen, ohne dass es ins Stadtregister eingetragen wird.</source>
-        <target>Mit dieser Aktion kannst du die Stadt verlassen, ohne dass es ins Stadtregister eingetragen wird.</target>
+        <target>This action allow you to leave the town without this being recorded in the register.</target>
       </segment>
     </unit>
     <unit id="EnGH19o" name="in der Außenwelt">
