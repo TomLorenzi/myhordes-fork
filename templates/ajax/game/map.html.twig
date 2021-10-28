@@ -1,3 +1,4 @@
+{% apply spaceless %}
 <div class="map_area {% if default_show_zone %}zone-viewer-mode{% endif %}">
     {% if not conf.isNightTime %}
         {% set css = 'day' %}
@@ -387,3 +388,5 @@
         })();
     {% endif %}
 </script>
+
+{% endapply %}
