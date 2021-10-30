@@ -15730,7 +15730,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Wätcher</source>
-        <target>Watchman</target>
+        <target>Watchmen</target>
       </segment>
     </unit>
     <unit id="mfY9mWB">
@@ -20252,7 +20252,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Heldenbonus</source>
-        <target>Hero Bonusses</target>
+        <target>Hero Bonuses</target>
       </segment>
     </unit>
     <unit id="ybPDgkf" name="Total">
@@ -20273,7 +20273,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Verteidigungsgegenstände (Blechplatten etc...) müssen in der Truhe abgelegt werden.</source>
-        <target>Defensive objects (sheetmetal, trestles etc...) should be placed in the Chest.</target>
+        <target>Defensive objects (sheetmetal, trestles, etc.) should be placed in the Chest.</target>
       </segment>
     </unit>
     <unit id="A9mtMsb" name="Wächterbonus">
@@ -21821,7 +21821,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Das Gesamtregister ansehen</source>
-        <target>See the detailed town register.</target>
+        <target>See the detailed town register</target>
       </segment>
     </unit>
     <unit id="JJjZLmq">
@@ -22893,7 +22893,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Wenn die Gesamtpunktzahl aller Menschen in einer Zone &lt;strong&gt;mindestens so groß&lt;/strong&gt; wie die der Zombies ist, kann dir nichts geschehen... vorerst zumindest.</source>
-        <target><![CDATA[If the number of Human points is <strong>equal to or more than</strong> the total number of Zombie points, you are in no danger.. for now...]]></target>
+        <target><![CDATA[If the number of Human points is <strong>equal to or more than</strong> the total number of Zombie points, you are in no danger... for now.]]></target>
       </segment>
     </unit>
     <unit id="29qg.oG" name="Dieser Registereintrag kann &lt;strong&gt;nicht&lt;/strong&gt; gefälscht werden.">
@@ -22914,7 +22914,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Klicke hier, um seine Informationen anzuzeigen</source>
-        <target>Klicke hier, um seine Informationen anzuzeigen</target>
+        <target>Click here to view their information</target>
       </segment>
     </unit>
     <unit id="vuquyit" name="Ganz genau, das bist du!">
@@ -22925,7 +22925,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Ganz genau, das bist du!</source>
-        <target>Ganz genau, das bist du!</target>
+        <target>Yes, it's really you...</target>
       </segment>
     </unit>
     <unit id="OjUho9K" name="gesichertes Haus">
@@ -23114,7 +23114,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>in der Außenwelt</source>
-        <target>in der Außenwelt</target>
+        <target>in the World Beyond</target>
       </segment>
     </unit>
     <unit id="aeVr7d_" name="in der Stadt">
@@ -23125,7 +23125,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>in der Stadt</source>
-        <target>in der Stadt</target>
+        <target>in town</target>
       </segment>
     </unit>
     <unit id="BdS7W9e">
@@ -23136,7 +23136,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Die Anzahl der Sterne gibt dir eine Vorstellung von der heutigen Aktivität des Einwohners {citizen}: Anwesenheit, Besuche im Forum, Arbeit im Dorf, etc.</source>
-        <target>Die Anzahl der Sterne gibt dir eine Vorstellung von der heutigen Aktivität des Einwohners {citizen}: Anwesenheit, Besuche im Forum, Arbeit im Dorf, etc.</target>
+        <target>The numbers of stars beside a citizen give you an idea of how active {citizen} has been today: presence, forum visits, work done in town, etc.</target>
       </segment>
     </unit>
     <unit id="Cjw8Lfc">

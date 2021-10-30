@@ -22455,7 +22455,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Dieser Bürger wurde aus der Gemeinschaft verbannt; er hat nicht länger Zugang zu den Gebäuden der Stadt, mit Ausnahme des Brunnens (wobei er auf eine Ration pro Tag eingeschränkt ist).</source>
-        <target>Ce citoyen a été banni de la communauté : il ne pourra plus avoir accès aux dispositifs de la vile, à rexception du puits (limité toutefois à la ration quotidienne, sans supplémentaire).</target>
+        <target>Ce citoyen a été banni de la communauté : il ne pourra plus avoir accès aux dispositifs de la ville, à l'exception du puits (limité toutefois à la ration quotidienne, sans supplémentaire).</target>
       </segment>
     </unit>
     <unit id="Xrx5c_.">
@@ -22687,7 +22687,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Es ist dir gelungen, {item} von {victim} zu stehlen &lt;strong&gt;ohne entdeckt zu werden&lt;/strong&gt;. Nicht schlecht!</source>
-        <target><![CDATA[Vous avez volé {item} à {victim} <strong>sans que quiconque s'en aperçoive</strong>. Vous êtes vraiment habile..]]></target>
+        <target><![CDATA[Vous avez volé {item} à {victim} <strong>sans que quiconque s'en aperçoive</strong>. Vous êtes vraiment habile...]]></target>
       </segment>
     </unit>
     <unit id="3gqgsBC" name="Du hast keine Seelenpunkte gewonnen (am ersten Tag gestorben).">
@@ -22778,7 +22778,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Doch leider ist der letzte Bürger tot, bevor die Horde die Stadttore erreicht... Seine Zunge hängt zwischen den Zähnen seines ehemaligen Freundes...</source>
-        <target>Doch leider ist der letzte Bürger tot, bevor die Horde die Stadttore erreicht... Seine Zunge hängt zwischen den Zähnen seines ehemaligen Freundes...</target>
+        <target>Hélas, le dernier citoyen est mort avant même que la horde n'arrive aux portes de la ville... Sa langue pend entre les dents de son ancien ami...</target>
       </segment>
     </unit>
     <unit id="wey0ykd">
@@ -22798,7 +22798,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Jeder Mensch zählt 2 Punkte, Zombies zählen je 1 Punkt.</source>
-        <target>Chaque humain vaut 2 points, chaque zombie vaut 1 point..</target>
+        <target>Chaque humain vaut 2 points, chaque zombie vaut 1 point.</target>
       </segment>
     </unit>
     <unit id="3yKx05X">
@@ -22808,7 +22808,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Wenn die Gesamtpunktzahl aller Menschen in einer Zone &lt;strong&gt;mindestens so groß&lt;/strong&gt; wie die der Zombies ist, kann dir nichts geschehen... vorerst zumindest.</source>
-        <target><![CDATA[Si les points Humains sont <strong>supérieurs ou égaux</strong> aux points Zombies, vous ne courez aucun danger.. pour le moment.]]></target>
+        <target><![CDATA[Si les points Humains sont <strong>supérieurs ou égaux</strong> aux points Zombies, vous ne courez aucun danger... pour le moment.]]></target>
       </segment>
     </unit>
     <unit id="29qg.oG" name="Dieser Registereintrag kann &lt;strong&gt;nicht&lt;/strong&gt; gefälscht werden.">
@@ -22849,7 +22849,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>gesichertes Haus</source>
-        <target>gesichertes Haus</target>
+        <target>maison protégée</target>
       </segment>
     </unit>
     <unit id="OpG5aGF">
@@ -22860,7 +22860,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>In dieses Haus kann &lt;strong&gt;nicht eingebrochen&lt;/strong&gt; werden. Es ist durch ein Schloss oder etwas anderes gesichert...</source>
-        <target><![CDATA[In dieses Haus kann <strong>nicht eingebrochen</strong> werden. Es ist durch ein Schloss oder etwas anderes gesichert...]]></target>
+        <target><![CDATA[Cette maison <strong>ne peut être cambriolée</strong>. Elle dispose d'un verrou ou autre...]]></target>
       </segment>
     </unit>
     <unit id="y9.hV9G">
@@ -22990,7 +22990,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Mit dieser Aktion kannst du die Stadt betreten, ohne dass es ins Stadtregister eingetragen wird. Wenn du ein paar Spieler eskortierst, werden diese am Stadttor zurückgelassen.</source>
-        <target>Cette action permet de franchir les portes de la ville sans etre enregistré(e) au Registre. Si vous ecortez des joueurs, ils seront laissés aux portes de la ville.</target>
+        <target>Cette action permet de franchir les portes de la ville sans être enregistré(e) au Registre. Si vous escortez des joueurs, ils seront laissés aux portes de la ville.</target>
       </segment>
     </unit>
     <unit id="PanD2KO">
@@ -23010,7 +23010,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Mit dieser Aktion kannst du die Stadt verlassen, ohne dass es ins Stadtregister eingetragen wird.</source>
-        <target>Cette action permet de franchir les portes de la ville sans etre enregistré(e) au Registre.</target>
+        <target>Cette action permet de franchir les portes de la ville sans être enregistré(e) au Registre.</target>
       </segment>
     </unit>
     <unit id="EnGH19o" name="in der Außenwelt">
@@ -23040,7 +23040,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Die Anzahl der Sterne gibt dir eine Vorstellung von der heutigen Aktivität des Einwohners {citizen}: Anwesenheit, Besuche im Forum, Arbeit im Dorf, etc.</source>
-        <target>Le nombre d'étoiles ci-contre vous donne une idée de l'activité du citoyen {citizen} aujourd'hui : présence, visite du forum, travail en ville etc.</target>
+        <target>Le nombre d'étoiles ci-contre vous donne une idée de l'activité du citoyen {citizen} aujourd'hui : présence, visite du forum, travail en ville, etc.</target>
       </segment>
     </unit>
     <unit id="Cjw8Lfc">
@@ -23050,7 +23050,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Du kannst diese Aktion im Lernmodus nicht ausführen. &lt;strong&gt;Zuerst musst du noch etwas Spielerfahrung sammeln&lt;/strong&gt;.&lt;hr/&gt;Klicke auf den Link bei Lernmodus, um diesen Modus zu deaktivieren.</source>
-        <target><![CDATA[Vous ne pouvez pas faire cela en mode apprentissage. En effet, <strong>cette action requiert une plus grande expérience du jeu</strong>.<hr/>Vous pouvez désactiver le mode apprentissage en cliquant sur lien du même nom.]]></target>
+        <target><![CDATA[Vous ne pouvez pas faire cela en mode apprentissage. En effet, <strong>cette action requiert une plus grande expérience du jeu</strong>.<hr/>Vous pouvez désactiver le mode apprentissage en cliquant sur le lien du même nom.]]></target>
       </segment>
     </unit>
     <unit id="PBjVCl0">
