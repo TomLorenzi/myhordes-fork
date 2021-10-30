@@ -2397,5 +2397,41 @@
         <target>Einzigartige Icons</target>
       </segment>
     </unit>
+    <unit id="Erpq5Ut" name="Ergebnisse">
+      <segment>
+        <source>Ergebnisse</source>
+        <target>Ergebnisse</target>
+      </segment>
+    </unit>
+    <unit id="nQxyDaJ" name="Ergebnisse pro Seite">
+      <segment>
+        <source>Ergebnisse pro Seite</source>
+        <target>Ergebnisse pro Seite</target>
+      </segment>
+    </unit>
+    <unit id="zenlipp" name="Ja">
+      <segment>
+        <source>Ja</source>
+        <target>Ja</target>
+      </segment>
+    </unit>
+    <unit id="kOvBveb" name="Nein">
+      <segment>
+        <source>Nein</source>
+        <target>Nein</target>
+      </segment>
+    </unit>
+    <unit id="U6fqsRf" name="Anwenden">
+      <segment>
+        <source>Anwenden</source>
+        <target>Anwenden</target>
+      </segment>
+    </unit>
+    <unit id="Xi3CwX9" name="Keine Ergebnisse">
+      <segment>
+        <source>Keine Ergebnisse</source>
+        <target>Keine Ergebnisse</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

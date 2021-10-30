@@ -2635,5 +2635,113 @@
         <target>Dateisystem</target>
       </segment>
     </unit>
+    <unit id="l3.7Thr" name="Alle User">
+      <segment>
+        <source>Alle User</source>
+        <target>Alle User</target>
+      </segment>
+    </unit>
+    <unit id="HgoJZHL" name="Account-Zustand">
+      <segment>
+        <source>Account-Zustand</source>
+        <target>Account-Zustand</target>
+      </segment>
+    </unit>
+    <unit id="gWNFTze" name="Aktiv">
+      <segment>
+        <source>Aktiv</source>
+        <target>Aktiv</target>
+      </segment>
+    </unit>
+    <unit id="0mB6s81" name="Dummy">
+      <segment>
+        <source>Dummy</source>
+        <target>Dummy</target>
+      </segment>
+    </unit>
+    <unit id="Cpb7Uq8" name="Spezial">
+      <segment>
+        <source>Spezial</source>
+        <target>Spezial</target>
+      </segment>
+    </unit>
+    <unit id="gkxS090" name="Zur Löschung vorgemerkt">
+      <segment>
+        <source>Zur Löschung vorgemerkt</source>
+        <target>Zur Löschung vorgemerkt</target>
+      </segment>
+    </unit>
+    <unit id="03XcNUj" name="Gelöscht">
+      <segment>
+        <source>Gelöscht</source>
+        <target>Gelöscht</target>
+      </segment>
+    </unit>
+    <unit id="nDFaBQH" name="Inkarnation">
+      <segment>
+        <source>Inkarnation</source>
+        <target>Inkarnation</target>
+      </segment>
+    </unit>
+    <unit id="fvbnuSw" name="Zuletzt aktiv">
+      <segment>
+        <source>Zuletzt aktiv</source>
+        <target>Zuletzt aktiv</target>
+      </segment>
+    </unit>
+    <unit id="JgjaqCv" name="Hauptseele">
+      <segment>
+        <source>Hauptseele</source>
+        <target>Hauptseele</target>
+      </segment>
+    </unit>
+    <unit id=".Tw5sZN" name="Keine Hauptseele">
+      <segment>
+        <source>Keine Hauptseele</source>
+        <target>Keine Hauptseele</target>
+      </segment>
+    </unit>
+    <unit id="XiHvmIk" name="Verknüpfte Seele">
+      <segment>
+        <source>Verknüpfte Seele</source>
+        <target>Verknüpfte Seele</target>
+      </segment>
+    </unit>
+    <unit id="zTu5fP6" name="Beliebige verknüpfte Seele">
+      <segment>
+        <source>Beliebige verknüpfte Seele</source>
+        <target>Beliebige verknüpfte Seele</target>
+      </segment>
+    </unit>
+    <unit id="jnWkQ6z" name="Keine verknüpfte Seele">
+      <segment>
+        <source>Keine verknüpfte Seele</source>
+        <target>Keine verknüpfte Seele</target>
+      </segment>
+    </unit>
+    <unit id="AUhHTVv" name="Accountbeschränkung">
+      <segment>
+        <source>Accountbeschränkung</source>
+        <target>Accountbeschränkung</target>
+      </segment>
+    </unit>
+    <unit id="1wv7teh" name="Nicht bestätigt">
+      <segment>
+        <source>Nicht bestätigt</source>
+        <target>Nicht bestätigt</target>
+      </segment>
+    </unit>
+    <unit id="Czy2T4z" name="Nicht aktiv">
+      <segment>
+        <source>Nicht aktiv</source>
+        <target>Nicht aktiv</target>
+      </segment>
+    </unit>
+    <unit id="ADipz4Z" name="Rolle">
+      <segment>
+        <source>Rolle</source>
+        <target>Rolle</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
