@@ -3734,7 +3734,7 @@
       </notes>
       <segment>
         <source>Du drückst den {item} eng an deine Brust... &lt;t-stat-down-terror&gt;Tränen laufen über deine Wange, als du an die Hölle denkst, in der du lebst. Nach ein paar Minuten fühlst du dich besser!&lt;/t-stat-down-terror&gt;&lt;nt-stat-down-terror&gt;Aber nichts geschieht!&lt;/nt-stat-down-terror&gt;</source>
-        <target><![CDATA[Coges {item} fuertemente contra ti... <t-stat-down-terror>Tränen laufen über deine Wange, als du an die Hölle denkst, in der du lebst. Nach ein paar Minuten fühlst du dich besser!</t-stat-down-terror><nt-stat-down-terror><strong>pero nada cambia</strong>. Te sientes aún más triste que antes. ¿Y para qué sirve "vivir" después de todo?</nt-stat-down-terror>]]></target>
+        <target><![CDATA[Coges {item} fuertemente contra ti... <t-stat-down-terror>No puedes contener las lágrimas. La angustia... De pronto rompes en llanto al darte cuenta del infierno en el cual te encuentras...{hr}Después de unos minutos <strong>te sientes mejor</strong>.</t-stat-down-terror><nt-stat-down-terror><strong>pero nada cambia</strong>. Te sientes aún más triste que antes. ¿Y para qué sirve "vivir" después de todo?</nt-stat-down-terror>]]></target>
       </segment>
     </unit>
     <unit id="4TKj72Z">
