@@ -20289,7 +20289,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="GBprgS1" name="Einzigartige Errungenschaften">
       <notes>
         <note category="german">Einzigartige Errungenschaften</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/distinctions.html.twig;twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
@@ -20300,7 +20299,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="IdcXWbV" name="Besondere Errungenschaften">
       <notes>
         <note category="german">Besondere Errungenschaften</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/distinctions.html.twig;twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
@@ -20311,7 +20309,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="FTqbUsX">
       <notes>
         <note category="german">Dies ist eine besondere Errungenschaft, die im Rahmen eines Events verliehen wurde.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/distinctions.html.twig</note>
       </notes>
       <segment>
@@ -20322,7 +20319,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="uB8frFP">
       <notes>
         <note category="german">Dies ist eine einzigartige Errungenschaft, die im Rahmen eines Events verliehen wurde.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/distinctions.html.twig</note>
       </notes>
       <segment>
@@ -21669,7 +21665,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <notes>
         <note category="german">Du kannst das Gebäude nicht betreten, deine offene Wunde würde sich sofort entzünden!</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Du kannst das Gebäude nicht betreten, deine offene Wunde würde sich sofort entzünden!</source>
@@ -23084,7 +23079,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <notes>
         <note category="german">Mit dieser Aktion kannst du die Stadt betreten, ohne dass es ins Stadtregister eingetragen wird. Wenn du ein paar Spieler eskortierst, werden diese am Stadttor zurückgelassen.</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Mit dieser Aktion kannst du die Stadt betreten, ohne dass es ins Stadtregister eingetragen wird. Wenn du ein paar Spieler eskortierst, werden diese am Stadttor zurückgelassen.</source>
@@ -23106,7 +23100,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <notes>
         <note category="german">Mit dieser Aktion kannst du die Stadt verlassen, ohne dass es ins Stadtregister eingetragen wird.</note>
         <note category="from">twig:///templates/ajax/game/town/door.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Mit dieser Aktion kannst du die Stadt verlassen, ohne dass es ins Stadtregister eingetragen wird.</source>
@@ -23211,7 +23204,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <notes>
         <note category="german">Dieser Bürger scheint völlig verängstigt zu sein! Er bringt keinen Kontrollpunkt in dieser Zone.</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Dieser Bürger scheint völlig verängstigt zu sein! Er bringt keinen Kontrollpunkt in dieser Zone.</source>

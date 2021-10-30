@@ -329,6 +329,11 @@
                                 <input x-browser-setting="usePostBackup" type="checkbox" id="setting_browser_postBackup">&nbsp;<label for="setting_browser_postBackup">{{ 'Texteditor-Inhalte zur Sicherheit zwischenspeichern'|trans({}, 'soul') }}</label>
                             </div>
                         </div>
+                        <div class="padded cell rw-12">
+                            <div class="note note-lightest">
+                                <input x-browser-setting="autoParseLinks" type="checkbox" id="setting_browser_autoParseLinks">&nbsp;<label for="setting_browser_autoParseLinks">{{ 'Links in eigenen Posts automatisch klickbar machen'|trans({}, 'soul') }}</label>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 {% if show_importer %}
@@ -775,8 +780,8 @@
             $.ajax.easySend('{{ path('api_soul_header')|e('js') }}', {
                 title: title,
                 icon: icon,
-                desc: $.html.twinoParser.parseToString(document.getElementById('user_desc').value, s => [null,s]),
-                displayName: $.html.twinoParser.parseToString(document.getElementById('user_displayname').value, s => [null,s]),
+                desc: $.html.twinoParser.parseToString(document.getElementById('user_desc').value, s => [null,s], {autoLinks: $.client.config.autoParseLinks.get()}),
+                displayName: document.getElementById('user_displayname').value,
                 pronoun: pronoun
             }, () => {
                 $.html.notice('{{ 'Deine Einstellung wurde gespeichert.'|trans({},'soul')|e('js') }}');

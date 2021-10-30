@@ -295,7 +295,7 @@
                     if (s.search('"') > -1) return [ null,s ];
                     let n = document.querySelector('[x-text-emote][x-text-insert-emote="' + s + '"]');
                     return [n ? n.getAttribute('x-text-emote') : null, s];
-                } );
+                }, {autoLinks: $.client.config.autoParseLinks.get()} );
             }
 
             node_transfer_source.addEventListener('input', function() {

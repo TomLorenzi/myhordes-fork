@@ -2546,5 +2546,11 @@
         <target><![CDATA[In dieser Spalte werden die Anzahl der vollen Tage angezeigt, die jeder Bürger überlebt hat. Ein Tag gilt immer dann als "vollkommen überlebt", <strong>wenn du beim Zombieangriff um 23:59 stirbst</strong>. Solltest du vorher, im Laufe des Tages, sterben gilt der Tag nicht als überlebt...]]></target>
       </segment>
     </unit>
+    <unit id="uOrz9Jc" name="Links in eigenen Posts automatisch klickbar machen">
+      <segment>
+        <source>Links in eigenen Posts automatisch klickbar machen</source>
+        <target>Links in eigenen Posts automatisch klickbar machen</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

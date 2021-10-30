@@ -271,7 +271,7 @@
 
                 fun_send_working = true;
 
-                $.ajax.no_loader().easySend( '{{ path('soul_shout_coalition') }}', {text: $.html.twinoParser.parseToString(box.value, s => [null,s])},
+                $.ajax.no_loader().easySend( '{{ path('soul_shout_coalition') }}', {text: $.html.twinoParser.parseToString(box.value, s => [null,s], {autoLinks: $.client.config.autoParseLinks.get()})},
                     () => {
                         fun_refresh(true, () => {
                             box.value = '';

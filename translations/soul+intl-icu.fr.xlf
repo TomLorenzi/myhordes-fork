@@ -4145,5 +4145,16 @@
         <target><![CDATA[Cette colonne indique le nombre de jours auxquels chaque citoyen a survécu intégralement. Une journée n'est pas considérée comme survécue "intégralement" <strong> si le citoyen meurt d'une cause AUTRE que l'attaque des Hordes à 23:59</strong>.]]></target>
       </segment>
     </unit>
+    <unit id="uOrz9Jc" name="Links in eigenen Posts automatisch klickbar machen">
+      <notes>
+        <note category="german">Links in eigenen Posts automatisch klickbar machen</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Links in eigenen Posts automatisch klickbar machen</source>
+        <target>Links in eigenen Posts automatisch klickbar machen</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

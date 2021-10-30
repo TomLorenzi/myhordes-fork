@@ -4134,5 +4134,16 @@
         <target><![CDATA[La cantidad de días que cada jugador ha sobrevivido íntegramente. Un día no es considerado como sobrevivido "íntegramente" <strong>si el habitante muere por OTRA causa que no sea el ataque de los zombies antes del ataque</strong>.]]></target>
       </segment>
     </unit>
+    <unit id="uOrz9Jc" name="Links in eigenen Posts automatisch klickbar machen">
+      <notes>
+        <note category="german">Links in eigenen Posts automatisch klickbar machen</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Links in eigenen Posts automatisch klickbar machen</source>
+        <target>Links in eigenen Posts automatisch klickbar machen</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

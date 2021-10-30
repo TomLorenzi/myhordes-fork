@@ -872,7 +872,7 @@
         });
 
         let sendLog = function() {
-            $.ajax.easySend( '{{ path('beyond_desert_chat_controller') }}', { msg: $.html.twinoParser.parseToString(document.getElementById('beyond_chat').value, s => [null,s]) },
+            $.ajax.easySend( '{{ path('beyond_desert_chat_controller') }}', { msg: $.html.twinoParser.parseToString(document.getElementById('beyond_chat').value, s => [null,s], {autoLinks: $.client.config.autoParseLinks.get()}) },
                 function () {
                     $.ajax.no_history().load(document.getElementById('beyond_desert_content'), '{{ path('beyond_dashboard_inline', {inline: true}) }}');
                 } );

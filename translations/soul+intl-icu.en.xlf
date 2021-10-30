@@ -4155,5 +4155,16 @@
         <target><![CDATA[This column indicates the number of full days each citizen has survived. A day is not counted as "complete" if a citizen dies <strong>for any reason OTHER than the attack of the Horde at 23:59</strong>.]]></target>
       </segment>
     </unit>
+    <unit id="uOrz9Jc" name="Links in eigenen Posts automatisch klickbar machen">
+      <notes>
+        <note category="german">Links in eigenen Posts automatisch klickbar machen</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Links in eigenen Posts automatisch klickbar machen</source>
+        <target>Automatically make links in my posts clickable</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

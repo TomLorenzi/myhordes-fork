@@ -1,5 +1,9 @@
 interface emoteResolver { (name: string): [string|null,string] }
 
+class TwinoClientOptions {
+    public readonly autoLinks?: boolean;
+}
+
 class TwinoInterimBlock {
 
     public readonly nodeName: string|null;
@@ -682,7 +686,42 @@ export default class TwinoAlikeParser {
         return s;
     }
 
-    parseTo( text: string, target: HTMLElement, resolver: emoteResolver ): void {
+    private static postprocessDOM( elem: HTMLElement, options: TwinoClientOptions = {} ) {
+        if (elem.nodeType === Node.TEXT_NODE) {
+
+            if (options.autoLinks && elem.parentElement.tagName !== 'A') {
+                let str = elem.textContent;
+                let result = null;
+                let found = false;
+
+                while (result = /\b((?:https?|ftps?):\/\/[\S]*)\b/g.exec( str )) {
+                    found = true;
+
+                    let a = document.createElement('a');
+                    a.setAttribute('href', result[0]);
+                    a.innerText = result[0];
+
+                    elem.parentElement.insertBefore( document.createTextNode( str.slice(0,result.index) ), elem );
+                    elem.parentElement.insertBefore( a, elem );
+
+                    str = str.slice(result.index + result[0].length);
+                }
+
+                if (found) {
+                    if (str.length === 0) elem.remove();
+                    else elem.textContent = str;
+                }
+            }
+        }
+         else {
+            if (elem.hasAttribute( 'x-raw' )) return;
+            let children = elem.childNodes;
+            for (let i = 0; i < children.length; i++)
+                this.postprocessDOM( children[i] as HTMLElement, options )
+        }
+    }
+
+    parseTo( text: string, target: HTMLElement, resolver: emoteResolver, options: TwinoClientOptions = {} ): void {
 
         let container_node = document.createElement('p');
         container_node.innerText = TwinoAlikeParser.preprocessText( text );
@@ -691,6 +730,7 @@ export default class TwinoAlikeParser {
         while (changed) changed = changed && TwinoAlikeParser.parseRangeBlocks(container_node,false);
 
         container_node.innerHTML = TwinoAlikeParser.postprocessText( container_node.innerHTML );
+        TwinoAlikeParser.postprocessDOM( container_node, options );
 
         TwinoAlikeParser.parseInsets(container_node);
         TwinoAlikeParser.parseEmotes(container_node, resolver);
@@ -712,9 +752,9 @@ export default class TwinoAlikeParser {
             target.appendChild(c);
     }
 
-    parseToString( text: string, resolver: emoteResolver ): string {
+    parseToString( text: string, resolver: emoteResolver, options: TwinoClientOptions = {} ): string {
         let proxy = document.createElement( 'div' );
-        this.parseTo( text, proxy, resolver );
+        this.parseTo( text, proxy, resolver, options );
         return proxy.innerHTML;
     }
 
