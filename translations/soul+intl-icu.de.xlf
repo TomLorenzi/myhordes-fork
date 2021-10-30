@@ -2552,5 +2552,17 @@
         <target>Links in eigenen Posts automatisch klickbar machen</target>
       </segment>
     </unit>
+    <unit id="5bKzAvY" name="Neuen Threads automatisch abonnieren">
+      <segment>
+        <source>Neuen Threads automatisch abonnieren</source>
+        <target>Neue Threads automatisch abonnieren</target>
+      </segment>
+    </unit>
+    <unit id=".jLeZb1">
+      <segment>
+        <source>Ist diese Option aktiviert, abonnierst du automatisch allen Threads, die du selbst erstellt hast. Du kannst das Abonnement deiner Threads jederzeit manuell beenden.</source>
+        <target>Ist diese Option aktiviert, abonnierst du automatisch allen Threads, die du selbst erstellt hast. Du kannst das Abonnement deiner Threads jederzeit manuell beenden.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -1207,7 +1207,7 @@ class ExternalController extends InventoryAwareController {
                              */
                             while (count($gazette_log) > 0) {
                                 $entry = array_shift($gazette_log);
-                                $template = $entry->getLogEntryTemplate() ?? $entry->getTemplate();
+                                $template = $entry->getTemplate();
                                 if($template->getType() === GazetteEntryTemplate::TypeGazetteWind) continue;
                                 $text = $this->getTranslate($template->getText(), 'game',
                                                             $this->logTemplateHandler->parseTransParams($template->getVariableTypes(),

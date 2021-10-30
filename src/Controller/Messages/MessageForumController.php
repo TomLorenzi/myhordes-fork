@@ -277,7 +277,7 @@ class MessageForumController extends MessageController
         $thread->addPost($post)->setLastPost( $post->getDate() );
 
         try {
-            $em->persist((new ForumThreadSubscription())->setThread($thread)->setUser($user));
+            if (!$user->getNoAutoFollowThreads()) $em->persist((new ForumThreadSubscription())->setThread($thread)->setUser($user));
             $em->persist($thread);
             $em->persist($forum);
 

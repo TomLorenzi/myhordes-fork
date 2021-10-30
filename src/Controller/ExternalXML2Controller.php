@@ -1208,7 +1208,7 @@ class ExternalXML2Controller extends ExternalController {
      */
     protected function parseGazetteLog(GazetteLogEntry $gazetteLogEntry, string $lang = null): string
     {
-        return $this->parseLog($gazetteLogEntry->getLogEntryTemplate() ?? $gazetteLogEntry->getTemplate(), $gazetteLogEntry->getVariables(), $lang);
+        return $this->parseLog($gazetteLogEntry->getTemplate(), $gazetteLogEntry->getVariables(), $lang);
     }
 
     /**

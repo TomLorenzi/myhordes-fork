@@ -28,12 +28,6 @@ class GazetteLogEntry
     private $gazette;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\LogEntryTemplate")
-     * @ORM\JoinColumn(nullable=true, onDelete="CASCADE")
-     */
-    private $logEntryTemplate;
-
-    /**
      * @ORM\Column(type="array", nullable=true)
      */
     private $variables = [];
@@ -69,18 +63,6 @@ class GazetteLogEntry
     public function setGazette(?Gazette $gazette): self
     {
         $this->gazette = $gazette;
-
-        return $this;
-    }
-
-    public function getLogEntryTemplate(): ?LogEntryTemplate
-    {
-        return $this->logEntryTemplate;
-    }
-
-    public function setLogEntryTemplate(?LogEntryTemplate $logEntryTemplate): self
-    {
-        $this->logEntryTemplate = $logEntryTemplate;
 
         return $this;
     }

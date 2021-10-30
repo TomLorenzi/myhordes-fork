@@ -288,6 +288,11 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
      */
     private $shadowBan;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $noAutoFollowThreads = false;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -1166,5 +1171,17 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
     public function setShadowBan($shadowBan): void
     {
         $this->shadowBan = $shadowBan;
+    }
+
+    public function getNoAutoFollowThreads(): ?bool
+    {
+        return $this->noAutoFollowThreads;
+    }
+
+    public function setNoAutoFollowThreads(bool $noAutoFollowThreads): self
+    {
+        $this->noAutoFollowThreads = $noAutoFollowThreads;
+
+        return $this;
     }
 }

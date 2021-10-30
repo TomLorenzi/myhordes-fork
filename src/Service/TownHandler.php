@@ -911,7 +911,7 @@ class TownHandler
 
     public function parseGazetteLog(GazetteLogEntry $gazetteLogEntry): string
     {
-        return $this->parseLog($gazetteLogEntry->getTemplate() !== null ? $gazetteLogEntry->getTemplate() : $gazetteLogEntry->getLogEntryTemplate(), $gazetteLogEntry->getVariables());
+        return $this->parseLog($gazetteLogEntry->getTemplate(), $gazetteLogEntry->getVariables());
     }
 
     public function ensureGazette(Town $town, ?int $day = null, ?bool &$created = null): ?Gazette {
@@ -1176,9 +1176,9 @@ class TownHandler
             while (count($gazette_logs) > 0) {
                 /** @var GazetteLogEntry $log */
                 $log = array_shift($gazette_logs);
-                if ($log->getTemplate() === null && $log->getLogEntryTemplate() === null)
+                if ($log->getTemplate() === null)
                     continue;
-                $type = $log->getTemplate() !== null ? $log->getTemplate()->getType() : $log->getLogEntryTemplate()->getType();
+                $type = $log->getTemplate()->getType();
                 if($type !== GazetteEntryTemplate::TypeGazetteWind)
                     $text .= '<p>' . $this->parseGazetteLog($log) . '</p>';
                 else

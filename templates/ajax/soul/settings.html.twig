@@ -306,6 +306,12 @@
                                 {{help_btn("Mit dem neuen Übersetzungssystem werden Texte akkurater in deiner Sprache dargestellt (zum Beispiel die passende Verwendung von Singular und Plural-Formen). Deaktiviere diese Option, um die originalen Texte aus Die Verdammten zu sehen."|trans({}, 'soul'))}}
                             </div>
                         </div>
+                        <div class="padded cell rw-12">
+                            <div class="note note-lightest">
+                                <input x-setting {% if not app.user.noAutoFollowThreads %}checked{% endif%} type="checkbox" id="setting_auto_follow">&nbsp;<label for="setting_auto_follow">{{'Neuen Threads automatisch abonnieren'|trans({}, 'soul')}}</label>
+                                {{help_btn("Ist diese Option aktiviert, abonnierst du automatisch allen Threads, die du selbst erstellt hast. Du kannst das Abonnement deiner Threads jederzeit manuell beenden."|trans({}, 'soul'))}}
+                            </div>
+                        </div>
                     </div>
 
                     <h5>{{ 'Browser-Einstellungen'|trans({},'soul') }}</h5>
@@ -619,6 +625,7 @@
                     sma: document.getElementById('setting_prefer_classic_avatars').checked,
                     disablefx: document.getElementById('setting_disable_fx').checked,
                     useicu: document.getElementById('setting_use_icu').checked,
+                    autofollow: document.getElementById('setting_auto_follow').checked,
                 },
                 function () {
                     $.ajax.load(null, '{{ path('soul_settings') }}', true);

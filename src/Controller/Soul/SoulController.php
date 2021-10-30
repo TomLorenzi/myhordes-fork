@@ -876,6 +876,7 @@ class SoulController extends CustomAbstractController
         $user->setPreferSmallAvatars( (bool)$parser->get('sma', false) );
         $user->setDisableFx( (bool)$parser->get('disablefx', false) );
         $user->setUseICU( (bool)$parser->get('useicu', false) );
+        $user->setNoAutoFollowThreads( !(bool)$parser->get('autofollow', true) );
         $this->entity_manager->persist( $user );
         $this->entity_manager->flush();
 

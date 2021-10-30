@@ -4159,11 +4159,32 @@
       <notes>
         <note category="german">Links in eigenen Posts automatisch klickbar machen</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Links in eigenen Posts automatisch klickbar machen</source>
         <target>Automatically make links in my posts clickable</target>
+      </segment>
+    </unit>
+    <unit id="5bKzAvY" name="Neuen Threads automatisch abonnieren">
+      <notes>
+        <note category="german">Neuen Threads automatisch abonnieren</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Neuen Threads automatisch abonnieren</source>
+        <target>Automatically follow new forum threads</target>
+      </segment>
+    </unit>
+    <unit id=".jLeZb1">
+      <notes>
+        <note category="german">Ist diese Option aktiviert, abonnierst du automatisch allen Threads, die du selbst erstellt hast. Du kannst das Abonnement deiner Threads jederzeit manuell beenden.</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Ist diese Option aktiviert, abonnierst du automatisch allen Threads, die du selbst erstellt hast. Du kannst das Abonnement deiner Threads jederzeit manuell beenden.</source>
+        <target>This option lets you automatically follow all forum threads you create. You can still unfollow your threads manually.</target>
       </segment>
     </unit>
   </file>
