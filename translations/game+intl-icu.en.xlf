@@ -20294,7 +20294,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Einzigartige Errungenschaften</source>
-        <target>Einzigartige Errungenschaften</target>
+        <target>Unique rewards</target>
       </segment>
     </unit>
     <unit id="IdcXWbV" name="Besondere Errungenschaften">
@@ -20305,7 +20305,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Besondere Errungenschaften</source>
-        <target>Besondere Errungenschaften</target>
+        <target>Special rewards</target>
       </segment>
     </unit>
     <unit id="FTqbUsX">
@@ -20316,7 +20316,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Dies ist eine besondere Errungenschaft, die im Rahmen eines Events verliehen wurde.</source>
-        <target>Dies ist eine besondere Errungenschaft, die im Rahmen eines Events verliehen wurde.</target>
+        <target>This is a special reward that was awarded as part of an event.</target>
       </segment>
     </unit>
     <unit id="uB8frFP">
@@ -20327,7 +20327,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Dies ist eine einzigartige Errungenschaft, die im Rahmen eines Events verliehen wurde.</source>
-        <target>Dies ist eine einzigartige Errungenschaft, die im Rahmen eines Events verliehen wurde.</target>
+        <target>This is a unique reward that was awarded as part of an event.</target>
       </segment>
     </unit>
     <unit id="QOeiiDo">
@@ -23088,7 +23088,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Mit dieser Aktion kannst du die Stadt betreten, ohne dass es ins Stadtregister eingetragen wird. Wenn du ein paar Spieler eskortierst, werden diese am Stadttor zurückgelassen.</source>
-        <target>Mit dieser Aktion kannst du die Stadt betreten, ohne dass es ins Stadtregister eingetragen wird. Wenn du ein paar Spieler eskortierst, werden diese am Stadttor zurückgelassen.</target>
+        <target>This action allows you to go through the town gates without it being recorded in the Register. If you are escorting players, they will be left at the town gates.</target>
       </segment>
     </unit>
     <unit id="PanD2KO">
@@ -23110,7 +23110,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Mit dieser Aktion kannst du die Stadt verlassen, ohne dass es ins Stadtregister eingetragen wird.</source>
-        <target>Mit dieser Aktion kannst du die Stadt verlassen, ohne dass es ins Stadtregister eingetragen wird.</target>
+        <target>This action allow you to leave the town without this being recorded in the register.</target>
       </segment>
     </unit>
     <unit id="EnGH19o" name="in der Außenwelt">
@@ -23215,7 +23215,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Dieser Bürger scheint völlig verängstigt zu sein! Er bringt keinen Kontrollpunkt in dieser Zone.</source>
-        <target>Dieser Bürger scheint völlig verängstigt zu sein! Er bringt keinen Kontrollpunkt in dieser Zone.</target>
+        <target>This citizen seems totally terrified! They are contributing no control points whatsoever!</target>
       </segment>
     </unit>
     <unit id="pobUoYj">

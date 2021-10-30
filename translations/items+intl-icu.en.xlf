@@ -8919,7 +8919,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Du hast {target} mit {item} kombiniert und {target} erzeugt.{hr}Achtung: Du hast {target} vergiftet. Es ist &lt;strong&gt;nahezu unmöglich, es vom Original zu unterscheiden&lt;/strong&gt;, sei also vorsichtig... Es liegt ganz an dir, was du damit jetzt tun möchtest.</source>
-        <target><![CDATA[You have assembled {target} by combining {item} and {target} erzeugt.{hr}Warning! You have poisoned the {target}! It is now <strong>almost impossible to distinguish from a safe one</strong>, so be careful... It's up to you to do with it what you feel is "fair".]]></target>
+        <target><![CDATA[You have assembled {target} by combining {item} and {target}.{hr}Warning! You have poisoned the {target}! It is now <strong>almost impossible to distinguish from a safe one</strong>, so be careful... It's up to you to do with it what you feel is "fair".]]></target>
       </segment>
     </unit>
     <unit id="i.fN8wb" name="Zeuge der großen Verseuchung">
