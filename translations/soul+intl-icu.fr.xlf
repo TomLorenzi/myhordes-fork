@@ -4153,7 +4153,7 @@
       </notes>
       <segment>
         <source>Links in eigenen Posts automatisch klickbar machen</source>
-        <target>Links in eigenen Posts automatisch klickbar machen</target>
+        <target>Rendre automatiquement les liens dans mes messages cliquables</target>
       </segment>
     </unit>
     <unit id="5bKzAvY" name="Neuen Threads automatisch abonnieren">
@@ -4164,7 +4164,7 @@
       </notes>
       <segment>
         <source>Neuen Threads automatisch abonnieren</source>
-        <target>Neuen Threads automatisch abonnieren</target>
+        <target>Suivre automatiquement les nouveaux sujets du forum</target>
       </segment>
     </unit>
     <unit id=".jLeZb1">
@@ -4175,7 +4175,7 @@
       </notes>
       <segment>
         <source>Ist diese Option aktiviert, abonnierst du automatisch allen Threads, die du selbst erstellt hast. Du kannst das Abonnement deiner Threads jederzeit manuell beenden.</source>
-        <target>Ist diese Option aktiviert, abonnierst du automatisch allen Threads, die du selbst erstellt hast. Du kannst das Abonnement deiner Threads jederzeit manuell beenden.</target>
+        <target>Cette option vous permet de suivre automatiquement tous les sujets que vous créez. Vous pouvez toujours vous désabonner de vos sujets manuellement.</target>
       </segment>
     </unit>
   </file>
