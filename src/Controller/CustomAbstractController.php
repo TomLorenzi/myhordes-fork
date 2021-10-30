@@ -111,11 +111,7 @@ class CustomAbstractController extends AbstractController {
         return $data;
     }
 
-    /**
-     * @inheritDoc
-     */
-    protected function render(string $view, array $parameters = [], Response $response = null): Response
-    {
+    private function enrichParameter(array &$parameters): void {
         if ($this->getUser() && $this->getUser()->getActiveCitizen())
             $current_events = $this->conf->getCurrentEvents($this->getUser()->getActiveCitizen()->getTown());
         else $current_events = $this->conf->getCurrentEvents();
@@ -128,8 +124,29 @@ class CustomAbstractController extends AbstractController {
                 break;
             }
         }
+    }
 
+    /**
+     * @inheritDoc
+     */
+    protected function render(string $view, array $parameters = [], Response $response = null): Response
+    {
+        $this->enrichParameter($parameters);
         return parent::render($view, $parameters, $response);
+    }
+
+    protected function renderBlocks(string $view, array $blocks, array $parameters = [], $include_flash = true, Response $response = null): Response
+    {
+        $this->enrichParameter($parameters);
+
+        $twig = $this->get('twig');
+        $template = $twig->load( $view );
+        $args = $twig->mergeGlobals( $parameters );
+
+        $blocks = array_map( fn($block) => $template->renderBlock($block, $args), $blocks );
+        if ($include_flash) $blocks[] = $twig->render('ajax/flash.html.twig', $twig->mergeGlobals([]));
+
+        return parent::render( 'ajax/ajax_plain.html.twig', ['_ajax_base_content' => join('', $blocks)], $response );
     }
 
     /**

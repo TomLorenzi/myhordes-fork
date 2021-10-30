@@ -1,4 +1,4 @@
-const handleItems = function( items, api_path, direction, return_path, warning ) {
+const handleItems = function( items, api_path, direction, return_path, warning, content = null ) {
     for (let i = 0; i < items.length; i++)
         items[i].addEventListener('click', function() {
             if (warning && !confirm(warning)) return;
@@ -11,9 +11,9 @@ const handleItems = function( items, api_path, direction, return_path, warning )
             if (this.hasAttribute('x-theft') && this.getAttribute('x-theft'))
                 data.theft = this.getAttribute('x-theft');
 
-            $.ajax.easySend( api_path, data, () => $.ajax.load(null, return_path, true), null, (data) => {
+            $.ajax.easySend( api_path, data, () => $.ajax.no_history().load(content, return_path), null, (data) => {
                 $.html.selectErrorMessage( data.error, null, c.errors, data )
-                if (parseInt(data.error) === {{ constant('App\\Service\\InventoryHandler::ErrorBankTheftFailed') }}) $.ajax.load(null, return_path, true);
+                if (parseInt(data.error) === {{ constant('App\\Service\\InventoryHandler::ErrorBankTheftFailed') }}) $.no_history().ajax.load(content, return_path);
             });
         });
 };

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ app.request.locale }}" x-ajax-intention="inline">
-    <body>{% block ajax_base %}{% endblock %}</body>
+    <body>{% block ajax_base %}{% if _ajax_base_content is defined %}{{ _ajax_base_content|raw }}{% endif %}{% endblock %}</body>
     {% block js %}
         {% if is_granted('ROLE_USER') %}
             <script>

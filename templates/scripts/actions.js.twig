@@ -21,7 +21,7 @@ item_action_collapse('heroic_actions','x-heroic-toggle');
 
 let camping = document.querySelectorAll('.camping_actions');
 
-const handleSpecialActions = function( actions, api_path, return_path ) {
+const handleSpecialActions = function( actions, api_path, return_path, content = null ) {
     for (let i = 0; i < actions.length; i++) {
         actions[i].addEventListener('click', function() {
             const target_id = this.getAttribute('x-target-id');
@@ -32,7 +32,7 @@ const handleSpecialActions = function( actions, api_path, return_path ) {
                 function (data) {
                     if(data.url)
                         return_path = data.url;
-                    $.ajax.load(null, return_path, true);
+                    $.ajax.no_history().load(content, return_path);
                 }, {
                     '{{ constant('App\\Service\\ActionHandler::ErrorActionForbidden') }}': function(data) {
                         return data.message ? data.message : '{{ 'Das kannst du zur Zeit nicht tun.'|trans({},'game')|e('js') }}'
@@ -42,7 +42,7 @@ const handleSpecialActions = function( actions, api_path, return_path ) {
     }
 }
 
-const handleHeroicActions = function( actions, api_path, return_path ) {
+const handleHeroicActions = function( actions, api_path, return_path, content = null ) {
     for (let i = 0; i < actions.length; i++) {
         actions[i].addEventListener('click', function() {
             const target_id = this.getAttribute('x-target-id');
@@ -57,7 +57,7 @@ const handleHeroicActions = function( actions, api_path, return_path ) {
                 return;
             $.ajax.easySend( api_path, obj,
                 function () {
-                    $.ajax.load(null, return_path, true);
+                    $.ajax.no_history().load(content, return_path);
                 }, {
                     '{{ constant('App\\Service\\ActionHandler::ErrorActionForbidden') }}': function(data) {
                         return data.message ? data.message : '{{ 'Das kannst du zur Zeit nicht tun.'|trans({},'game')|e('js') }}'
@@ -67,14 +67,14 @@ const handleHeroicActions = function( actions, api_path, return_path ) {
     }
 }
 
-const handleCampingActions = function( actions, api_path, return_path ) {
+const handleCampingActions = function( actions, api_path, return_path, content = null ) {
   for (let i = 0; i < actions.length; i++) {
     actions[i].addEventListener('click', function() {
       const action_id = this.getAttribute('x-action-id');
       let obj = { action: action_id };
       $.ajax.easySend( api_path, obj,
                        function () {
-                         $.ajax.load(null, return_path, true);
+                         $.ajax.no_history().load(content, return_path);
                        }, {
                          '{{ constant('App\\Service\\ActionHandler::ErrorActionForbidden') }}': function(data) {
                            return data.message ? data.message : '{{ 'Das kannst du zur Zeit nicht tun.'|trans({},'game')|e('js') }}'
@@ -84,7 +84,7 @@ const handleCampingActions = function( actions, api_path, return_path ) {
   }
 }
 
-const handleActions = function( actions, api_path, return_path ) {
+const handleActions = function( actions, api_path, return_path, content = null ) {
     for (let i = 0; i < actions.length; i++) {
         actions[i].addEventListener('click', function() {
             const item_id   = this.getAttribute('x-provoking-id');
@@ -103,7 +103,7 @@ const handleActions = function( actions, api_path, return_path ) {
                 function (data) {
                     if(data.url)
                         return_path = data.url;
-                    $.ajax.load(null, return_path, true);
+                    $.ajax.no_history().load(content, return_path);
                 }, {
                     '{{ constant('App\\Service\\ActionHandler::ErrorActionForbidden') }}': function(data) {
                         return data.message ? data.message : '{{ 'Das kannst du zur Zeit nicht tun.'|trans({},'game')|e('js') }}'
@@ -136,7 +136,7 @@ const handleActionPopups = function( actions ) {
         });
     }
 }
-const handleRecipes = function( recipes, api_path, return_path ) {
+const handleRecipes = function( recipes, api_path, return_path, content = null ) {
     for (let i = 0; i < recipes.length; i++) {
         recipes[i].addEventListener('click', function() {
             const recipe_id = this.getAttribute('x-recipe-id');
@@ -144,7 +144,7 @@ const handleRecipes = function( recipes, api_path, return_path ) {
                     id: recipe_id
                 },
                 function () {
-                    $.ajax.load(null, return_path, true);
+                    $.ajax.load(content, return_path);
                 }, {
                     '{{ constant('App\\Service\\ActionHandler::ErrorActionForbidden') }}': function(data) {
                         return data.message ? data.message : '{{ 'Das kannst du zur Zeit nicht tun.'|trans({},'game')|e('js') }}'

@@ -53,6 +53,7 @@ use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
+use Twig\Environment;
 
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
@@ -132,7 +133,7 @@ class BeyondController extends InventoryAwareController
         } else return false;
     }
 
-    protected function addDefaultTwigArgs( ?string $section = null, ?array $data = null ): array {
+    protected function addDefaultTwigArgs( ?string $section = null, ?array $data = null, $merge_map = true ): array {
         $zone = $this->getActiveCitizen()->getZone();
         $blocked = !$this->zone_handler->check_cp($zone, $cp);
         $escape = $this->get_escape_timeout( $this->getActiveCitizen(), true );
@@ -208,7 +209,7 @@ class BeyondController extends InventoryAwareController
                 'can_drink' => !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'hasdrunk'),
                 'can_eat' => !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'haseaten')
             ]
-        ], $data, $this->get_map_blob()) );
+        ], $data, $merge_map ? $this->get_map_blob() : []) );
     }
 
     public function get_escape_timeout(Citizen $c, bool $allow_desperate = false): int {
@@ -225,12 +226,15 @@ class BeyondController extends InventoryAwareController
     }
 
     /**
+     * @Route("jx/beyond/desert/{inline}/{sect}", name="beyond_dashboard_inline")
      * @Route("jx/beyond/desert/{sect}", name="beyond_dashboard")
      * @param TownHandler $th
+     * @param Environment $twig
+     * @param bool $inline
      * @param string|null $sect
      * @return Response
      */
-    public function desert(TownHandler $th, string $sect = null): Response
+    public function desert(TownHandler $th, Environment $twig, bool $inline = false, string $sect = ''): Response
     {
         if (!$this->getActiveCitizen()->getHasSeenGazette())
             return $this->redirect($this->generateUrl('game_newspaper'));
@@ -365,7 +369,7 @@ class BeyondController extends InventoryAwareController
             return strcmp($this->translator->trans($a->getPrototype()->getLabel(), [], 'items'), $this->translator->trans($b->getPrototype()->getLabel(), [], 'items'));
         });
 
-        return $this->render( 'ajax/game/beyond/desert.html.twig', $this->addDefaultTwigArgs(null, [
+        $args = $this->addDefaultTwigArgs(null, [
             'hidden_items' => $has_hidden_items,
             'scout' => $this->getActiveCitizen()->getProfession()->getName() === 'hunter',
             'allow_enter_town' => $can_enter,
@@ -399,7 +403,11 @@ class BeyondController extends InventoryAwareController
             'camping_debug' => $camping_debug ?? '',
             'zone_tags' => $zone_tags ?? [],
             'sect' => $sect,
-        ]) );
+        ], !$inline);
+
+        return $inline
+            ? $this->renderBlocks( 'ajax/game/beyond/desert.html.twig', ['content','js'], $args )
+            : $this->render( 'ajax/game/beyond/desert.html.twig', $args );
     }
 
     /**

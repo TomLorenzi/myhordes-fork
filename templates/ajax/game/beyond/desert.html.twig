@@ -853,28 +853,28 @@
                     cf_ret: force_return,
                 },
                 function () {
-                    $.ajax.load(null, '{{ path('beyond_dashboard') }}', true);
+                    $.ajax.no_history().load(document.getElementById('beyond_desert_content'), '{{ path('beyond_dashboard_inline', {inline: true}) }}');
                 } );
         });
 
         $.html.addEventListenerAll( '[x-toggle-escort][x-escort-control-endpoint]', 'click', function(e,elem) {
             $.ajax.easySend( elem.getAttribute('x-escort-control-endpoint'), {on: elem.getAttribute('x-toggle-escort') === '1'},
                 function () {
-                    $.ajax.load(null, '{{ path('beyond_dashboard') }}', true);
+                    $.ajax.no_history().load(document.getElementById('beyond_desert_content'), '{{ path('beyond_dashboard_inline', {inline: true}) }}');
                 } );
         });
 
         $.html.addEventListenerAll( '[x-remote-action][x-escort-control-endpoint]', 'click', function(e,elem) {
             $.ajax.easySend( elem.getAttribute('x-escort-control-endpoint'), {},
                 function () {
-                    $.ajax.load(null, '{{ path('beyond_dashboard') }}', true);
+                    $.ajax.no_history().load(document.getElementById('beyond_desert_content'), '{{ path('beyond_dashboard_inline', {inline: true}) }}');
                 } );
         });
 
         let sendLog = function() {
             $.ajax.easySend( '{{ path('beyond_desert_chat_controller') }}', { msg: $.html.twinoParser.parseToString(document.getElementById('beyond_chat').value, s => [null,s]) },
                 function () {
-                    $.ajax.load(null, '{{ path('beyond_dashboard') }}', true);
+                    $.ajax.no_history().load(document.getElementById('beyond_desert_content'), '{{ path('beyond_dashboard_inline', {inline: true}) }}');
                 } );
         };
         let chat_button = document.getElementById('chat_button');
@@ -896,7 +896,7 @@
             dig_button.addEventListener('click', function() {
                 $.ajax.easySend( '{{ path('beyond_desert_dig_controller') }}', {},
                     function () {
-                        $.ajax.load(null, '{{ path('beyond_dashboard') }}', true);
+                        $.ajax.no_history().load(document.getElementById('beyond_desert_content'), '{{ path('beyond_dashboard_inline', {inline: true}) }}');
                     } );
             });
         $.html.addEventListenerAll( '#enter_ruin_button', 'click', function() {
@@ -918,7 +918,7 @@
             dig_r_button.addEventListener('click', function() {
                 $.ajax.easySend( '{{ path('beyond_desert_scavenge_controller') }}', {},
                     function () {
-                        $.ajax.load(null, '{{ path('beyond_dashboard') }}', true);
+                        $.ajax.no_history().load(document.getElementById('beyond_desert_content'), '{{ path('beyond_dashboard_inline', {inline: true}) }}');
                     } );
             });
 
@@ -946,7 +946,7 @@
             trash_button.addEventListener('click', function() {
                 $.ajax.easySend( '{{ path('beyond_trash_controller') }}', {},
                     function () {
-                        $.ajax.load(null, '{{ path('beyond_dashboard') }}', true);
+                        $.ajax.no_history().load(document.getElementById('beyond_desert_content'), '{{ path('beyond_dashboard_inline', {inline: true}) }}');
                     } );
             });
         {% endif %}
@@ -998,57 +998,57 @@
 
         handleItems(
             document.querySelectorAll('.rucksack>.item[x-item-id]:not(.locked),.rucksack-escort>.item[x-item-id]:not(.locked)'),
-            '{{ path('beyond_desert_item_controller') }}',
-            'down', '{{ path('beyond_dashboard') }}'
+            '{{ path('beyond_desert_item_controller', {inline: true}) }}',
+            'down', '{{ path('beyond_dashboard_inline', {inline: true}) }}', null, document.getElementById('beyond_desert_content')
         );
 
         handleItems(
             document.querySelectorAll('#drop-all-button'),
             '{{ path('beyond_desert_item_controller') }}',
-            'down-all', '{{ path('beyond_dashboard') }}'
+            'down-all', '{{ path('beyond_dashboard_inline', {inline: true}) }}', null, document.getElementById('beyond_desert_content')
         );
 
         handleItems(
             document.querySelectorAll('.desert>.item[x-item-id]:not(.locked),.desert-escort>.item[x-item-id]:not(.locked)'),
             '{{ path('beyond_desert_item_controller') }}',
-            'up', '{{ path('beyond_dashboard') }}'
+            'up', '{{ path('beyond_dashboard_inline', {inline: true}) }}', null, document.getElementById('beyond_desert_content')
         );
 
         handleCampingActions(
             document.querySelectorAll('ul.camping_actions [x-action-id]:not([disabled])'),
-            '{{ path('beyond_desert_camping_controller') }}', '{{ path('beyond_dashboard', {sect: 'ca'}) }}'
+            '{{ path('beyond_desert_camping_controller') }}', '{{ path('beyond_dashboard_inline', {inline: true, sect: 'ca'}) }}', document.getElementById('beyond_desert_content')
         );
 
         {% if banished or town_chaos %}
-        if (document.getElementById("bury_rucksack_button")) {
-            handleItems(
-                document.querySelectorAll('#bury_rucksack_button'),
-                '{{ path('beyond_bury_rucksack_controller') }}',
-                'down-all', '{{ path('beyond_dashboard') }}', '{{ 'Bestätigen?'|trans({},'global')|e('js') }}'
-            );
-        }
+            if (document.getElementById("bury_rucksack_button")) {
+                handleItems(
+                    document.querySelectorAll('#bury_rucksack_button'),
+                    '{{ path('beyond_bury_rucksack_controller', {inline: true}) }}',
+                    'down-all', '{{ path('beyond_dashboard_inline', {inline: true}) }}', '{{ 'Bestätigen?'|trans({},'global')|e('js') }}', document.getElementById('beyond_desert_content')
+                );
+            }
         {% endif %}
 
         {% endif %}
 
         handleHeroicActions(
             document.querySelectorAll('ul.heroic_actions [x-action-id]:not([disabled])'),
-            '{{ path('beyond_desert_heroic_controller') }}', '{{ path('beyond_dashboard') }}'
+            '{{ path('beyond_desert_heroic_controller') }}', '{{ path('beyond_dashboard_inline', {inline: true}) }}', document.getElementById('beyond_desert_content')
         );
 
         handleSpecialActions(
             document.querySelectorAll('ul.special_actions [x-action-id]:not([disabled])'),
-            '{{ path('beyond_desert_special_action_controller') }}', '{{ path('beyond_dashboard') }}'
+            '{{ path('beyond_desert_special_action_controller') }}', '{{ path('beyond_dashboard_inline', {inline: true}) }}', document.getElementById('beyond_desert_content')
         );
 
         handleActions(
             document.querySelectorAll('ul.actions [x-action-id][x-provoking-id]:not([disabled])'),
-            '{{ path('beyond_desert_action_controller') }}', '{{ path('beyond_dashboard') }}'
+            '{{ path('beyond_desert_action_controller') }}', '{{ path('beyond_dashboard_inline', {inline: true}) }}', document.getElementById('beyond_desert_content')
         );
 
         handleActions(
             document.querySelectorAll('._ec [x-action-id][x-provoking-id][x-citizen][x-escort-meta-action]:not([disabled])'),
-            '{{ path('beyond_desert_escort_action_controller') }}', '{{ path('beyond_dashboard') }}'
+            '{{ path('beyond_desert_escort_action_controller') }}', '{{ path('beyond_dashboard_inline', {inline: true}) }}', document.getElementById('beyond_desert_content')
         );
 
         handleActionPopups( document.querySelectorAll('ul.actions>li[x-target-definition]') );
@@ -1057,7 +1057,7 @@
 
         handleRecipes(
             document.querySelectorAll('ul.actions>li[x-recipe-id]:not([disabled])'),
-            '{{ path('beyond_desert_recipe_controller') }}', '{{ path('beyond_dashboard') }}'
+            '{{ path('beyond_desert_recipe_controller') }}', '{{ path('beyond_dashboard_inline', {inline: true}) }}', document.getElementById('beyond_desert_content')
         );
 
         {% if allow_enter_town %}
