@@ -1178,7 +1178,7 @@
     <unit id="JUr1eVI" name="{d} Tage">
       <notes>
         <note category="german">{d} Tage</note>
-        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig;twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>{d} Tage</source>
@@ -4158,7 +4158,7 @@
     </unit>
     <unit id="5bKzAvY" name="Neuen Threads automatisch abonnieren">
       <notes>
-        <note category="german">Neuen Threads automatisch abonnieren</note>
+        <note category="german">Neue Threads automatisch abonnieren</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
         <note category="state">new</note>
       </notes>

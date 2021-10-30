@@ -11,6 +11,7 @@ use App\Entity\CitizenProfession;
 use App\Entity\CitizenRankingProxy;
 use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
+use App\Entity\ConnectionIdentifier;
 use App\Entity\ConnectionWhitelist;
 use App\Entity\FeatureUnlock;
 use App\Entity\FeatureUnlockPrototype;
@@ -42,7 +43,11 @@ use App\Service\UserFactory;
 use App\Service\UserHandler;
 use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
+use Doctrine\Common\Collections\Criteria;
+use Doctrine\Common\Collections\Expr\Comparison;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\Query\Expr;
+use Doctrine\ORM\Query\Expr\Join;
 use Exception;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpFoundation\Request;
@@ -60,13 +65,148 @@ class AdminUserController extends AdminActionController
 {
     /**
      * @Route("jx/admin/users", name="admin_users")
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function users(JSONRequestParser $parser, EntityManagerInterface $em): Response {
+        $query = (new Criteria());
+        $filter = $parser->get_array('filters');
+
+        $fun_realize = function() use (&$em,$filter) {
+            $qb = $em->getRepository(User::class)->createQueryBuilder('u');
+
+            if (isset($filter['elevation']))
+                $qb->andWhere('u.rightsElevation = :elevation')->setParameter('elevation', (int)$filter['elevation']);
+
+            if (isset($filter['lang'])) {
+                if ($filter['lang'] === 'null') $qb->andWhere('u.language IS NULL');
+                else $qb->andWhere('u.language = :lang')->setParameter('lang', $filter['lang']);
+            }
+
+            if (isset($filter['provider'])) {
+                if ($filter['provider'] === 'mh') $qb->andWhere('u.eternalID IS NULL');
+                else $qb->andWhere('u.eternalID IS NOT NULL');
+            }
+
+            if (isset($filter['active']))
+                $qb->andWhere('u.lastActionTimestamp >= :time')->setParameter('time', (new \DateTime())->modify('-' . (int)$filter['active'] . 'days'));
+
+            if (isset($filter['game'])) {
+                $qb->leftJoin(Citizen::class, 'c', Join::WITH, 'c.user = u.id AND c.active = 1');
+                switch ($filter['game']) {
+                    case '1': $qb->andWhere('c.id IS NOT NULL'); break;
+                    case '0': $qb->andWhere('c.id IS NULL'); break;
+                    case 'd': $qb->andWhere('c.id IS NOT NULL')->andWhere('c.alive = 0'); break;
+                }
+            }
+
+            if (isset($filter['main_soul'])) {
+                $qb->leftJoin(TwinoidImport::class, 't', Join::WITH, 't.user = u.id AND t.main = 1');
+                if ($filter['main_soul'] === 'nomain') $qb->andWhere('t.id IS NULL');
+                else $qb->andWhere('t.scope = :tscope')->setParameter('tscope', $filter['main_soul']);
+            }
+
+            if (isset($filter['any_soul'])) {
+                switch ( $filter['any_soul'] ) {
+                    case 'any':
+                        $qb
+                            ->leftJoin(TwinoidImport::class, 't2', Join::WITH, 't2.user = u.id')
+                            ->andWhere('t2.id IS NOT NULL');
+                        break;
+                    case 'noany':
+                        $qb
+                            ->leftJoin(TwinoidImport::class, 't2', Join::WITH, 't2.user = u.id')
+                            ->andWhere('t2.id IS NULL');
+                        break;
+                    default:
+                        $qb
+                            ->leftJoin(TwinoidImport::class, 't2', Join::WITH, 't2.user = u.id AND t2.scope = :t2scope')->setParameter('t2scope', $filter['any_soul'])
+                            ->andWhere('t2.id IS NOT NULL');
+                        break;
+                }
+            }
+
+            if (isset($filter['restriction']))
+                switch ( $filter['restriction'] ) {
+                    case 'none':
+                        $qb
+                            ->leftJoin(AccountRestriction::class, 'r', Join::WITH, 'r.user = u.id')
+                            ->andWhere('r.id IS NULL');
+                        break;
+                    case 'unconf':
+                        $qb
+                            ->leftJoin(AccountRestriction::class, 'r', Join::WITH, 'r.user = u.id AND r.confirmed = 0')
+                            ->andWhere('r.id IS NOT NULL');
+                        break;
+                    case 'inactive':
+                        $qb
+                            ->leftJoin(AccountRestriction::class, 'r', Join::WITH, 'r.user = u.id')
+                            ->leftJoin(AccountRestriction::class, 'r2', Join::WITH, 'r2.user = u.id AND r2.active = 1 AND r2.confirmed = 1 AND (r2.expires > :rdate OR r2.expires IS NULL)')->setParameter('rdate', new \DateTime())
+                            ->andWhere('r.id IS NOT NULL')->andWhere('r2.id IS NULL');
+                        break;
+                    case 'active':
+                        $qb
+                            ->leftJoin(AccountRestriction::class, 'r', Join::WITH, 'r.user = u.id AND r.active = 1 AND r.confirmed = 1 AND (r.expires > :rdate OR r.expires IS NULL)')->setParameter('rdate', new \DateTime())
+                            ->andWhere('r.id IS NOT NULL');
+                        break;
+                }
+
+            if (isset($filter['accountstate']))
+                switch ($filter['accountstate']) {
+                    case 'active': $qb
+                        ->andWhere( 'u.name NOT LIKE :name_as' )->setParameter('name_as', '$ deleted %')
+                        ->andWhere( 'u.deleteAfter IS NULL' )->andWhere( 'u.email NOT LIKE :email_as' )->setParameter('email_as', '%@localhost')
+                        ->andWhere( 'u.email LIKE :email_ass' )->setParameter('email_ass', '%@%');
+                        break;
+                    case 'dummy': $qb
+                        ->andWhere( 'u.email LIKE :email_as' )->setParameter('email_as', '%@localhost');
+                        break;
+                    case 'special': $qb
+                        ->andWhere( 'u.email NOT LIKE :email_as' )->setParameter('email_as', '%@%')->andWhere('u.name != u.email');
+                        break;
+                    case 'pre-del': $qb
+                        ->andWhere( 'u.deleteAfter IS NOT NULL' )->andWhere( 'u.name NOT LIKE :name_as' )->setParameter('name_as', '$ deleted %');
+                        break;
+                    case 'del': $qb
+                        ->andWhere( 'u.name LIKE :name_as' )->setParameter('name_as', '$ deleted %');
+                        break;
+                }
+
+            return $qb;
+        };
+
+
+
+        try {
+            $total_count = $fun_realize()->select('COUNT(u.id)')->getQuery()->getSingleScalarResult();
+        } catch (Exception $e) {
+            $total_count = 0;
+        }
+
+        $users = $total_count === 0 ? [] : $fun_realize()
+            ->setMaxResults( $parser->get_int('limit', 50) )
+            ->setFirstResult( $parser->get_int('page', 0) * $parser->get_int('limit', 50) )
+            ->orderBy('u.id', 'ASC')->getQuery()->getResult();
+
+        return $this->render( 'ajax/admin/users/all_index.html.twig', $this->addDefaultTwigArgs("full_list", [
+            'users' => $users,
+            'limit' => $parser->get_int('limit', 50),
+            'page' => $parser->get_int('page', 0),
+            'pages' => ceil($total_count / $parser->get_int('limit', 50)),
+            'total' => $total_count,
+            'filters' => $filter
+        ]));
+    }
+
+    /**
+     * @Route("jx/admin/users/multis", name="admin_users_multi")
      * @param AntiCheatService $as
      * @return Response
      */
-    public function users(AntiCheatService $as): Response
+    public function users_multi(AntiCheatService $as): Response
     {
         $report = $as->createMultiAccountReport();
-        return $this->render( 'ajax/admin/users/index.html.twig', $this->addDefaultTwigArgs("admin_users_ban", [
+        return $this->render( 'ajax/admin/users/multi_index.html.twig', $this->addDefaultTwigArgs("multi_list", [
             'ma_report' => $report
         ]));
     }

@@ -1,0 +1,228 @@
+{% extends "ajax/ajax.html.twig" %}
+
+{% macro selectFilter(name, label, values, filters) %}
+    <div class="row">
+        <div class="padded cell rw-6"><label for="filter_{{ name }}">{{ label }}</label></div>
+        <div class="padded cell rw-6">
+            <select x-filter="value" x-filter-value="{{ name }}" id="filter_{{ name }}">
+                <option {% if filters[name] is not defined %}selected{% endif%} value=""></option>
+                {% for v in values %}
+                    <option {% if filters[name] is defined and filters[name] == v[0] %}selected{% endif%} value="{{ v[0] }}">{{ v[1] }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+{% endmacro %}
+
+{% block ajax %}
+    {% embed "ajax/admin/users/footer.html.twig" %}{% endembed %}
+    <div class="row">
+        <div class="cell rw-12">
+            {% embed "ajax/admin/users/listing_tabs.html.twig" %}{% endembed %}
+            <h5>{{'Alle User'|trans({}, "admin")}}</h5>
+
+            <div class="row-flex">
+                <div class="padded cell">
+                    <span class="small">{{ 'Ergebnisse'|trans({},'global') }}: <b>{{ total }}</b></span>
+                </div>
+                <div class="padded cell">
+                    <label><span class="small">{{ 'Ergebnisse pro Seite'|trans({},'global') }}</span> <select id="elemcount" class="small">
+                        {% for s in [5,10,15,20,25,50,100,200,500] %}
+                            <option value="{{ s }}" {% if s == limit %}selected{% endif %}>{{ s }}</option>
+                        {% endfor %}
+                    </select></label>
+                </div>
+                <div class="padded cell">
+                    <div tabindex="0" class="small button button-dropdown-button">
+                        <i class="fa fa-filter"></i>
+                        <div class="button-dropdown" style="width: 400px;">
+                            {{ _self.selectFilter( 'provider', 'Account'|trans({},'admin'), [
+                                ['mh', 'MyHordes'],
+                                ['et', 'EternalTwin'],
+                            ], filters ) }}
+                            {{ _self.selectFilter( 'elevation', 'Berechtigungsstufe'|trans({},'admin'), [
+                                [0, 'Spieler'|trans({}, 'admin')],
+                                [3, 'Krähe'|trans({}, 'admin')],
+                                [4, 'Admin'|trans({}, 'admin')],
+                                [5, 'Admin'|trans({}, 'admin') ~ '[+]']
+                            ], filters ) }}
+                            {{ _self.selectFilter( 'accountstate', 'Account-Zustand'|trans({},'admin'), [
+                                ['active',  'Aktiv'|trans({}, 'admin')],
+                                ['dummy',   'Dummy'|trans({}, 'admin')],
+                                ['special', 'Spezial'|trans({}, 'admin')],
+                                ['pre-del', 'Zur Löschung vorgemerkt'|trans({}, 'admin')],
+                                ['del',     'Gelöscht'|trans({}, 'admin')],
+                            ], filters ) }}
+                            {{ _self.selectFilter( 'lang', 'Sprache'|trans({},'admin'), [
+                                ['de', 'de' ],
+                                ['en', 'en' ],
+                                ['fr', 'fr' ],
+                                ['es', 'es' ],
+                                ['null', 'null' ],
+                            ], filters ) }}
+                            {{ _self.selectFilter( 'game', 'Inkarnation'|trans({},'admin'), [
+                                ['1', 'Ja'|trans({},'global') ],
+                                ['0', 'Nein'|trans({},'global') ],
+                                ['d', 'Tod bestätigen'|trans({},'admin') ],
+                            ], filters ) }}
+                            {{ _self.selectFilter( 'active', 'Zuletzt aktiv'|trans({},'admin'), [
+                                ['1', '{d} Tage'|trans({d: 1},'soul') ],
+                                ['2', '{d} Tage'|trans({d: 2},'soul') ],
+                                ['3', '{d} Tage'|trans({d: 3},'soul') ],
+                                ['7', '{d} Tage'|trans({d: 7},'soul') ],
+                                ['14', '{d} Tage'|trans({d: 14},'soul') ],
+                                ['21', '{d} Tage'|trans({d: 21},'soul') ],
+                                ['30', '{d} Tage'|trans({d: 30},'soul') ],
+                                ['60', '{d} Tage'|trans({d: 60},'soul') ],
+                                ['120', '{d} Tage'|trans({d: 120},'soul') ],
+                                ['240', '{d} Tage'|trans({d: 240},'soul') ],
+                                ['365', '{d} Tage'|trans({d: 365},'soul') ],
+                            ], filters ) }}
+                            {{ _self.selectFilter( 'main_soul', 'Hauptseele'|trans({},'admin'), [
+                                ['www.dieverdammten.de', 'Die Verdammten' ],
+                                ['www.die2nite.com', 'Die2Nite' ],
+                                ['www.hordes.fr', 'Hordes' ],
+                                ['www.zombinoia.com', 'Zombinoia' ],
+                                ['nomain', 'Keine Hauptseele'|trans({},'admin') ],
+                            ], filters ) }}
+                            {{ _self.selectFilter( 'any_soul', 'Verknüpfte Seele'|trans({},'admin'), [
+                                ['www.dieverdammten.de', 'Die Verdammten' ],
+                                ['www.die2nite.com', 'Die2Nite' ],
+                                ['www.hordes.fr', 'Hordes' ],
+                                ['www.zombinoia.com', 'Zombinoia' ],
+                                ['any', 'Beliebige verknüpfte Seele'|trans({},'admin') ],
+                                ['noany', 'Keine verknüpfte Seele'|trans({},'admin') ],
+                            ], filters ) }}
+                            {{ _self.selectFilter( 'restriction', 'Accountbeschränkung'|trans({},'admin'), [
+                                ['none', 'Keine'|trans({},'admin') ],
+                                ['unconf', 'Nicht bestätigt'|trans({},'admin') ],
+                                ['inactive', 'Nicht aktiv'|trans({},'admin') ],
+                                ['active', 'Aktiv'|trans({},'admin') ],
+                            ], filters ) }}
+                            <div class="row">
+                                <div class="cell rw-12 right"><button class="small inline" id="apply_filter">{{ 'Anwenden'|trans({},'global') }}</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% if pages > 0 %}
+                <div class="row-table">
+                <div class="row header">
+                    <div class="cell padded rw-1">{{ 'ID'|trans({},'admin') }}</div>
+                    <div class="cell padded rw-3">{{ 'Benutzername'|trans({},'admin') }}</div>
+                    <div class="cell padded rw-2">{{ 'Rolle'|trans({},'admin') }}</div>
+                    <div class="cell-small padded rw-1 center">&nbsp;</div>
+                    <div class="cell-small padded rw-1 center"><img alt="" src="{{ asset('build/images/assets/img/icons/home.gif') }}"></div>
+                    <div class="cell-small padded rw-1 center"><img alt="" height="16" width="16" src="{{ asset('build/images/badges/eternal.png') }}"></div>
+                </div>
+                {% for user in users %}
+                    {# @var user \App\Entity\User #}
+                    <div class="row">
+                        <div class="cell padded rw-1">{{ user.id }}</div>
+                        <div class="cell padded rw-3">
+                            <a target="_blank" href="{{ path('admin_users_account_view', {id: user.id}) }}"><b>{{ user.username }}</b></a>
+                            {% if user.username != user.name %}
+                                <br/><span class="small">{{ user.name }}</span>
+                            {% endif %}
+                            {% if is_granted('ROLE_ADMIN') %}
+                                <br /><span class="small">{{ user.email }}</span>
+                            {% endif %}
+                        </div>
+                        <div class="cell padded rw-2">
+                            <div>
+                                {% if     user.rightsElevation == 0 %} {{ 'Spieler'|trans({}, 'admin') }}
+                                {% elseif user.rightsElevation == 3 %} {{ 'Krähe'|trans({}, 'admin') }}
+                                {% elseif user.rightsElevation == 4 %} {{ 'Admin'|trans({}, 'admin') }}
+                                {% elseif user.rightsElevation == 5 %} {{ 'Admin'|trans({}, 'admin') }}[+]
+                                {% else                             %} {{ user.rightsElevation }} {% endif %}
+                            </div>
+                            <div class="small">
+                                {% if user|is_granted('ROLE_TEAM') %}  <div>{{ 'Team'|trans({}, 'admin') }}     </div>{% endif %}
+                                {% if user|is_granted('ROLE_ORACLE') %}<div>{{ 'Orakel'|trans({}, 'admin') }}   </div>{% endif %}
+                                {% if user|is_granted('ROLE_ANIMAC') %}<div>{{ 'Animateur'|trans({}, 'admin') }}</div>{% endif %}
+                            </div>
+                        </div>
+                        <div class="cell-small padded rw-1 center">
+                            {% if user.language is not null %}
+                                <img height="16" alt="" src="{{ asset('build/images/lang/' ~ user.language ~ '.png') }}"/>
+                            {% else %}
+                                &nbsp;
+                            {% endif %}
+                        </div>
+                        <div class="cell-small padded rw-1 center">
+                            {% if user.activeCitizen %}
+                                <a target="_blank" title="{{ user.activeCitizen.town.name }}" href="{{ path('admin_town_explorer', {id: user.activeCitizen.town.id}) }}"><img alt="[X]" src="{{ asset('build/images/icons/tickOn.gif') }}"/></a>
+                            {% else %}
+                                <img alt="[ ]" src="{{ asset('build/images/icons/tickOff.gif') }}"/>
+                            {% endif %}
+                        </div>
+                        <div class="cell-small padded rw-1 center">
+                            {% if user.eternalID is not null %}
+                                <img alt="[X]" src="{{ asset('build/images/icons/tickOn.gif') }}"/>
+                            {% else %}
+                                <img alt="[X]" src="{{ asset('build/images/icons/tickOff.gif') }}"/>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+                <div class="row-flex">
+                <div x-to-page="0" class="padded cell left pointer" {% if page <= 0 %}disabled{% endif %}>
+                    <img alt="<<" src="{{ asset('build/images/icons/small_prev.gif') }}" />
+                    <span>{{ 'Anfang'|trans({},'global') }}</span>
+                </div>
+                <div x-to-page="{{ page - 1 }}" class="padded cell left pointer" {% if page <= 0 %}disabled{% endif %}>
+                    <img alt="<" src="{{ asset('build/images/icons/small_prev.gif') }}" />
+                    <span>{{ 'Vorh.'|trans({},'global') }}</span>
+                </div>
+                <div class="padded cell grow-1 center">
+                    <label><select id="pagination" class="small">
+                            {% for p in 1..pages %}
+                                <option value="{{ p - 1 }}" {% if (p-1) == page %}selected{% endif %}>{{ 'Seite {page}'|trans({page: p},'global') }}</option>
+                            {% endfor %}
+                        </select></label>
+                </div>
+                <div x-to-page="{{ page + 1 }}" class="padded cell right pointer" {% if page >= pages-1 %}disabled{% endif %}>
+                    <span>{{ 'Folg.'|trans({},'global') }}</span>
+                    <img alt=">" src="{{ asset('build/images/icons/small_next.gif') }}" />
+                </div>
+                <div x-to-page="{{ pages - 1 }}" class="padded cell right pointer" {% if page >= pages-1 %}disabled{% endif %}>
+                    <span>{{ 'Ende'|trans({},'global') }}</span>
+                    <img alt=">" src="{{ asset('build/images/icons/small_next.gif') }}" />
+                </div>
+            </div>
+            {% else %}
+                <div class="row"><div class="cell rw-12 center"><span class="small">{{ 'Keine Ergebnisse'|trans({},'global') }}</span></div></div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+{% block js %}
+    {{ parent() }}
+    <script>
+        $.html.addEventListenerAll('[x-to-page]','click', (e,elem) => load_page( parseInt(elem.getAttribute('x-to-page')) ));
+        $.html.addEventListenerAll('#pagination','change', (e,elem) => load_page( parseInt(elem.value) ));
+        $.html.addEventListenerAll('#elemcount','change', () => load_page());
+        $.html.addEventListenerAll('#apply_filter','click', () => load_page());
+
+        const load_page = function(page = 0) {
+            let filters = {};
+            $.html.forEach('[x-filter][x-filter-value]', elem => {
+                switch (elem.getAttribute('x-filter')) {
+                    case 'value':
+                        if (elem.value !== '' && elem.value !== undefined && elem.value !== null)
+                            filters[elem.getAttribute('x-filter-value')] = elem.value;
+                        break;
+                }
+            })
+
+            $.ajax.no_history().load(null,'{{ path('admin_users') }}',false,{
+                'limit': parseInt(document.getElementById('elemcount').value),
+                page, filters
+            })
+        }
+    </script>
+{% endblock %}

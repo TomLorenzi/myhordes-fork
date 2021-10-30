@@ -294,7 +294,7 @@
     <unit id="SOVZNkR" name="Bestätigen?">
       <notes>
         <note category="german">Bestätigen?</note>
-        <note category="from">twig:///templates/ajax/admin/changelogs/changelogs.html.twig;twig:///templates/ajax/admin/files/list.html.twig;twig:///templates/ajax/admin/reports/gpn-viewer.html.twig;twig:///templates/ajax/admin/reports/pn-viewer.html.twig;twig:///templates/ajax/admin/users/ban.html.twig;twig:///templates/ajax/admin/users/index.html.twig;twig:///templates/ajax/admin/widget/controls.twig;twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/town/citizen_vote.html.twig;twig:///templates/ajax/game/town/construction.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/door.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/game/town/routes.html.twig;twig:///templates/ajax/game/town/town.html.twig;twig:///templates/ajax/game/town/well.html.twig;twig:///templates/ajax/ghost/create_town.html.twig;twig:///templates/ajax/pm/user_list.html.twig;twig:///templates/ajax/pm/view.html.twig;twig:///templates/ajax/soul/settings.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig;twig:///templates/ajax/soul/visit.html.twig;twig:///templates/scripts/actions.js.twig</note>
+        <note category="from">twig:///templates/ajax/admin/changelogs/changelogs.html.twig;twig:///templates/ajax/admin/files/list.html.twig;twig:///templates/ajax/admin/reports/gpn-viewer.html.twig;twig:///templates/ajax/admin/reports/pn-viewer.html.twig;twig:///templates/ajax/admin/users/ban.html.twig;twig:///templates/ajax/admin/users/index.html.twig;twig:///templates/ajax/admin/users/multi_index.html.twig;twig:///templates/ajax/admin/widget/controls.twig;twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/town/citizen_vote.html.twig;twig:///templates/ajax/game/town/construction.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/door.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/game/town/routes.html.twig;twig:///templates/ajax/game/town/town.html.twig;twig:///templates/ajax/game/town/well.html.twig;twig:///templates/ajax/ghost/create_town.html.twig;twig:///templates/ajax/pm/user_list.html.twig;twig:///templates/ajax/pm/view.html.twig;twig:///templates/ajax/soul/settings.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig;twig:///templates/ajax/soul/visit.html.twig;twig:///templates/scripts/actions.js.twig</note>
       </notes>
       <segment>
         <source>Bestätigen?</source>
@@ -3687,7 +3687,7 @@
     <unit id="_CaOPLf" name="Anfang">
       <notes>
         <note category="german">Anfang</note>
-        <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig;twig:///templates/ajax/soul/season.html.twig</note>
       </notes>
       <segment>
         <source>Anfang</source>
@@ -3697,7 +3697,7 @@
     <unit id="vZx83Ox" name="Vorh.">
       <notes>
         <note category="german">Vorh.</note>
-        <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig;twig:///templates/ajax/soul/season.html.twig</note>
       </notes>
       <segment>
         <source>Vorh.</source>
@@ -3707,7 +3707,7 @@
     <unit id="nNymR4f" name="Seite {page}">
       <notes>
         <note category="german">Seite {page}</note>
-        <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig;twig:///templates/ajax/soul/season.html.twig</note>
       </notes>
       <segment>
         <source>Seite {page}</source>
@@ -3717,7 +3717,7 @@
     <unit id="FyfDvhf" name="Folg.">
       <notes>
         <note category="german">Folg.</note>
-        <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig;twig:///templates/ajax/soul/season.html.twig</note>
       </notes>
       <segment>
         <source>Folg.</source>
@@ -3727,7 +3727,7 @@
     <unit id="LdzWBsh" name="Ende">
       <notes>
         <note category="german">Ende</note>
-        <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig;twig:///templates/ajax/soul/season.html.twig</note>
       </notes>
       <segment>
         <source>Ende</source>
@@ -3852,6 +3852,72 @@
       <segment>
         <source>Einzigartige Icons</source>
         <target>Icônes uniques</target>
+      </segment>
+    </unit>
+    <unit id="Erpq5Ut" name="Ergebnisse">
+      <notes>
+        <note category="german">Ergebnisse</note>
+        <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Ergebnisse</source>
+        <target>Ergebnisse</target>
+      </segment>
+    </unit>
+    <unit id="nQxyDaJ" name="Ergebnisse pro Seite">
+      <notes>
+        <note category="german">Ergebnisse pro Seite</note>
+        <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Ergebnisse pro Seite</source>
+        <target>Ergebnisse pro Seite</target>
+      </segment>
+    </unit>
+    <unit id="zenlipp" name="Ja">
+      <notes>
+        <note category="german">Ja</note>
+        <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Ja</source>
+        <target>Ja</target>
+      </segment>
+    </unit>
+    <unit id="kOvBveb" name="Nein">
+      <notes>
+        <note category="german">Nein</note>
+        <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Nein</source>
+        <target>Nein</target>
+      </segment>
+    </unit>
+    <unit id="U6fqsRf" name="Anwenden">
+      <notes>
+        <note category="german">Anwenden</note>
+        <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Anwenden</source>
+        <target>Anwenden</target>
+      </segment>
+    </unit>
+    <unit id="Xi3CwX9" name="Keine Ergebnisse">
+      <notes>
+        <note category="german">Keine Ergebnisse</note>
+        <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Keine Ergebnisse</source>
+        <target>Keine Ergebnisse</target>
       </segment>
     </unit>
   </file>
