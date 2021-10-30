@@ -3862,7 +3862,7 @@
       </notes>
       <segment>
         <source>Ergebnisse</source>
-        <target>Ergebnisse</target>
+        <target>Résultats</target>
       </segment>
     </unit>
     <unit id="nQxyDaJ" name="Ergebnisse pro Seite">
@@ -3873,7 +3873,7 @@
       </notes>
       <segment>
         <source>Ergebnisse pro Seite</source>
-        <target>Ergebnisse pro Seite</target>
+        <target>Résultats par page</target>
       </segment>
     </unit>
     <unit id="zenlipp" name="Ja">
@@ -3884,7 +3884,7 @@
       </notes>
       <segment>
         <source>Ja</source>
-        <target>Ja</target>
+        <target>Oui</target>
       </segment>
     </unit>
     <unit id="kOvBveb" name="Nein">
@@ -3895,7 +3895,7 @@
       </notes>
       <segment>
         <source>Nein</source>
-        <target>Nein</target>
+        <target>Non</target>
       </segment>
     </unit>
     <unit id="U6fqsRf" name="Anwenden">
@@ -3906,7 +3906,7 @@
       </notes>
       <segment>
         <source>Anwenden</source>
-        <target>Anwenden</target>
+        <target>Appliquer</target>
       </segment>
     </unit>
     <unit id="Xi3CwX9" name="Keine Ergebnisse">
@@ -3917,7 +3917,7 @@
       </notes>
       <segment>
         <source>Keine Ergebnisse</source>
-        <target>Keine Ergebnisse</target>
+        <target>Pas de résultats</target>
       </segment>
     </unit>
   </file>
