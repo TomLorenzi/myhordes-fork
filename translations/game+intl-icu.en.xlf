@@ -21673,7 +21673,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du kannst das Gebäude nicht betreten, deine offene Wunde würde sich sofort entzünden!</source>
-        <target>Du kannst das Gebäude nicht betreten, deine offene Wunde würde sich sofort entzünden!</target>
+        <target>You cannot enter this building, your wounds are getting infected!!</target>
       </segment>
     </unit>
     <unit id=".neDsCO">
