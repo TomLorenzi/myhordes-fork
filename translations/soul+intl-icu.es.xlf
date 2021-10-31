@@ -704,7 +704,6 @@
     <unit id="GT7Cwam" name="Twinoid Secret Key">
       <notes>
         <note category="german">Twinoid Secret Key</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
       </notes>
       <segment>
@@ -2417,7 +2416,6 @@
     <unit id="OOWkbLx" name="Score">
       <notes>
         <note category="german">Score</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
       </notes>
       <segment>
@@ -2508,7 +2506,6 @@
     <unit id="MJMhV5L" name="Kleine Stadt">
       <notes>
         <note category="german">Kleine Stadt</note>
-        <note category="state">new</note>
         <note category="from">db://TownClass</note>
       </notes>
       <segment>
@@ -2539,7 +2536,6 @@
     <unit id="2ZxNAfn" name="Private Stadt">
       <notes>
         <note category="german">Private Stadt</note>
-        <note category="state">new</note>
         <note category="from">db://TownClass</note>
       </notes>
       <segment>
@@ -2550,7 +2546,6 @@
     <unit id="G9tS6ug" name="Diese Sperre ist bis zu folgendem Zeitpunkt gültig:">
       <notes>
         <note category="german">Diese Sperre ist bis zu folgendem Zeitpunkt gültig:</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/acc_disabled.html.twig</note>
       </notes>
       <segment>
@@ -2561,7 +2556,6 @@
     <unit id="gLe5bOG">
       <notes>
         <note category="german">Wenn du der Meinung bist, fälschlicherweise gesperrt worden zu sein, kannst du dich im Weltforum melden.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/acc_disabled.html.twig</note>
       </notes>
       <segment>
@@ -2612,7 +2606,6 @@
     <unit id="9DAxndj" name="Spieler">
       <notes>
         <note category="german">Spieler</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
       </notes>
       <segment>
@@ -2643,7 +2636,6 @@
     <unit id="IHRCYe1" name="In Foren posten">
       <notes>
         <note category="german">In Foren posten</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
@@ -2654,7 +2646,6 @@
     <unit id="uNF4FkZ" name="Du verlierst die Schreibrechte im Stadtforum sowie allen Weltforen.">
       <notes>
         <note category="german">Du verlierst die Schreibrechte im Stadtforum sowie allen Weltforen.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
@@ -2665,7 +2656,6 @@
     <unit id="AHcu..1" name="Kommunikation in der Stadt">
       <notes>
         <note category="german">Kommunikation in der Stadt</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
@@ -2676,7 +2666,6 @@
     <unit id="6yvyO_B">
       <notes>
         <note category="german">Du kannst keine Stadtnachrichten schreiben sowie das Schwarze Brett oder den Zonenchat verwenden.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
@@ -2687,7 +2676,6 @@
     <unit id="74vPalP" name="Stadtübergreifende Kommunikation">
       <notes>
         <note category="german">Stadtübergreifende Kommunikation</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
@@ -2698,7 +2686,6 @@
     <unit id="EKVv6mi" name="Du kannst keine Nachrichten über das Nachrichtenzentrum versenden.">
       <notes>
         <note category="german">Du kannst keine Nachrichten über das Nachrichtenzentrum versenden.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
@@ -2709,7 +2696,6 @@
     <unit id="4L8kPem" name="Kommentare">
       <notes>
         <note category="german">Kommentare</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
@@ -2720,7 +2706,6 @@
     <unit id="wY7rEv4" name="Du kannst keine Letzten Worte übermitteln und keine Stadtkommentare verfassen.">
       <notes>
         <note category="german">Du kannst keine Letzten Worte übermitteln und keine Stadtkommentare verfassen.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
@@ -2731,7 +2716,6 @@
     <unit id="cnYKFrt" name="Gruppenorganisation">
       <notes>
         <note category="german">Gruppenorganisation</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
@@ -2742,7 +2726,6 @@
     <unit id="hzqTzKz" name="Du kannst keine Kleinen Koalitionen gründen oder ihnen beitreten.">
       <notes>
         <note category="german">Du kannst keine Kleinen Koalitionen gründen oder ihnen beitreten.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
@@ -2753,7 +2736,6 @@
     <unit id="WPixbld" name="Spielen">
       <notes>
         <note category="german">Spielen</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
@@ -2764,7 +2746,6 @@
     <unit id="VNOZ2rq">
       <notes>
         <note category="german">Du kannst keinen Städten beitreten. Befindest du dich bereits in einer Stadt, kannst du dort keinerlei Aktionen mehr durchführen und keinen Stadtbildschirm aufrufen. Zudem verlierst du den Zugang zum Stadtforum.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
@@ -2785,7 +2766,6 @@
     <unit id="cKxZipz" name="Dauerhafte Beschränkung">
       <notes>
         <note category="german">Dauerhafte Beschränkung</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
@@ -4077,7 +4057,6 @@
       <notes>
         <note category="german">Icon</note>
         <note category="from">php:///src/Structures/TwinoidPayload.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Icon</source>
@@ -4138,7 +4117,6 @@
       <notes>
         <note category="german">Links in eigenen Posts automatisch klickbar machen</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Links in eigenen Posts automatisch klickbar machen</source>
@@ -4149,7 +4127,6 @@
       <notes>
         <note category="german">Neue Threads automatisch abonnieren</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Neuen Threads automatisch abonnieren</source>
@@ -4160,7 +4137,6 @@
       <notes>
         <note category="german">Ist diese Option aktiviert, abonnierst du automatisch allen Threads, die du selbst erstellt hast. Du kannst das Abonnement deiner Threads jederzeit manuell beenden.</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ist diese Option aktiviert, abonnierst du automatisch allen Threads, die du selbst erstellt hast. Du kannst das Abonnement deiner Threads jederzeit manuell beenden.</source>

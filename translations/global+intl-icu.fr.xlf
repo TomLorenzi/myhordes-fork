@@ -3858,7 +3858,6 @@
       <notes>
         <note category="german">Ergebnisse</note>
         <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ergebnisse</source>
@@ -3869,7 +3868,6 @@
       <notes>
         <note category="german">Ergebnisse pro Seite</note>
         <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ergebnisse pro Seite</source>
@@ -3880,7 +3878,6 @@
       <notes>
         <note category="german">Ja</note>
         <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ja</source>
@@ -3891,7 +3888,6 @@
       <notes>
         <note category="german">Nein</note>
         <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Nein</source>
@@ -3902,7 +3898,6 @@
       <notes>
         <note category="german">Anwenden</note>
         <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Anwenden</source>
@@ -3913,7 +3908,6 @@
       <notes>
         <note category="german">Keine Ergebnisse</note>
         <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Keine Ergebnisse</source>
