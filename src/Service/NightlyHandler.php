@@ -629,6 +629,7 @@ class NightlyHandler
         $gazette->setInvasion($overflow);
 
         $this->entity_manager->persist( $this->logTemplates->nightlyAttackBegin($town, $zombies) );
+
         foreach ($this->deferred_log_entries as $deferred_log_entry)
             $this->entity_manager->persist( $deferred_log_entry );
         
@@ -654,6 +655,7 @@ class NightlyHandler
         if ($count_zombified_citizens > 0)
             $this->entity_manager->persist( $this->logTemplates->nightlyAttackBegin($town, $count_zombified_citizens, true, $count_zombified_citizens === 1 ? $last_zombified_citizen : null) );
 
+        $this->entity_manager->persist( $this->logTemplates->nightlyAttackBegin2($town) );
         $this->entity_manager->persist( $this->logTemplates->nightlyAttackSummary($town, $town->getDoor(), $overflow, count($watchers) > 0 && $has_nightwatch));
 
         if ($overflow > 0 && count($watchers) > 0 && $has_nightwatch)

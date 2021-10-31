@@ -151,12 +151,6 @@
         <target>{zombie} ist von den Toten auferstanden und hat den Brunnen kontaminiert! Das kostet uns {num} Rationen Wasser!</target>
       </segment>
     </unit>
-    <unit id="jC4taXw">
-      <segment>
-        <source>Resigniert und untröstlich sahen die Bürger wie eine Horde von {num} Zombies sich in Richtung Stadt bewegte... Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...</source>
-        <target>Resigniert und untröstlich sahen die Bürger wie eine Horde von {num} Zombies sich in Richtung Stadt bewegte... Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...</target>
-      </segment>
-    </unit>
     <unit id="YOzcl2Y" name="{num} Zombies attackieren die Stadtbewohner!">
       <segment>
         <source>{num} Zombies attackieren die Stadtbewohner!</source>
@@ -14752,6 +14746,18 @@
       <segment>
         <source>&lt;strong&gt;Herzlichen Glückwunsch&lt;/strong&gt;, du hast Folgendes freigeschaltet: {list}</source>
         <target><![CDATA[<strong>Herzlichen Glückwunsch</strong>, du hast Folgendes freigeschaltet: {list}]]></target>
+      </segment>
+    </unit>
+    <unit id=".ZhHPoH">
+      <segment>
+        <source>Resigniert und untröstlich sahen die Bürger, wie eine Horde von {num} Zombies sich in Richtung Stadt bewegte...</source>
+        <target>Resigniert und untröstlich sahen die Bürger, wie eine Horde von {num} Zombies sich in Richtung Stadt bewegte...</target>
+      </segment>
+    </unit>
+    <unit id="esTcUBp" name="Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...">
+      <segment>
+        <source>Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...</source>
+        <target>Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...</target>
       </segment>
     </unit>
   </file>

@@ -8466,16 +8466,6 @@
         <target>Le chantier Dernière Chance a apporté + {def} points de défense temporaires dans votre ville, mais tout dans la banque a été détruit! Espérons que cela en valait la peine...</target>
       </segment>
     </unit>
-    <unit id="OP561Ld">
-      <notes>
-        <note category="german">Resigniert und untröstlich sahen die Bürger, wie eine Horde von {num} Zombies sich in Richtung Stadt bewegte... Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...</note>
-        <note category="from">db://LogEntryTemplate</note>
-      </notes>
-      <segment>
-        <source>Resigniert und untröstlich sahen die Bürger, wie eine Horde von {num} Zombies sich in Richtung Stadt bewegte... Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...</source>
-        <target>Dépités, les citoyens ont vu une horde de {num} zombies se diriger vers la ville... Et d'un coup, l'horreur s'est amassée devant les Portes de la Ville...</target>
-      </segment>
-    </unit>
     <unit id="CoVKZbl" name="{sender}: {message}">
       <notes>
         <note category="german">{sender}: {message}</note>
@@ -23128,6 +23118,26 @@ cette violente opération...]]></target>
       <segment>
         <source>&lt;strong&gt;Herzlichen Glückwunsch&lt;/strong&gt;, du hast Folgendes freigeschaltet: {list}</source>
         <target><![CDATA[<strong>Félicitations</strong>, vous avez déverrouillé : {list}]]></target>
+      </segment>
+    </unit>
+    <unit id=".ZhHPoH">
+      <notes>
+        <note category="german">Resigniert und untröstlich sahen die Bürger, wie eine Horde von {num} Zombies sich in Richtung Stadt bewegte...</note>
+        <note category="from">db://LogEntryTemplate</note>
+      </notes>
+      <segment>
+        <source>Resigniert und untröstlich sahen die Bürger, wie eine Horde von {num} Zombies sich in Richtung Stadt bewegte...</source>
+        <target>Dépités, les citoyens ont vu une horde de {num} zombies se diriger vers la ville... </target>
+      </segment>
+    </unit>
+    <unit id="esTcUBp" name="Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...">
+      <notes>
+        <note category="german">Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...</note>
+        <note category="from">db://LogEntryTemplate</note>
+      </notes>
+      <segment>
+        <source>Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...</source>
+        <target>Et d'un coup, l'horreur s'est amassée devant les Portes de la Ville...</target>
       </segment>
     </unit>
   </file>
