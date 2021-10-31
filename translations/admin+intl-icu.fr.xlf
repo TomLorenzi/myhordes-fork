@@ -4166,7 +4166,7 @@
       </notes>
       <segment>
         <source>Alle User</source>
-        <target>Alle User</target>
+        <target>Tous les utilisateurs</target>
       </segment>
     </unit>
     <unit id="HgoJZHL" name="Account-Zustand">
@@ -4177,7 +4177,7 @@
       </notes>
       <segment>
         <source>Account-Zustand</source>
-        <target>Account-Zustand</target>
+        <target>Statut du compte</target>
       </segment>
     </unit>
     <unit id="gWNFTze" name="Aktiv">
@@ -4188,7 +4188,7 @@
       </notes>
       <segment>
         <source>Aktiv</source>
-        <target>Aktiv</target>
+        <target>Actif</target>
       </segment>
     </unit>
     <unit id="0mB6s81" name="Dummy">
@@ -4210,7 +4210,7 @@
       </notes>
       <segment>
         <source>Spezial</source>
-        <target>Spezial</target>
+        <target>Spécial</target>
       </segment>
     </unit>
     <unit id="gkxS090" name="Zur Löschung vorgemerkt">
@@ -4221,7 +4221,7 @@
       </notes>
       <segment>
         <source>Zur Löschung vorgemerkt</source>
-        <target>Zur Löschung vorgemerkt</target>
+        <target>Marqué pour suppression</target>
       </segment>
     </unit>
     <unit id="03XcNUj" name="Gelöscht">
@@ -4232,7 +4232,7 @@
       </notes>
       <segment>
         <source>Gelöscht</source>
-        <target>Gelöscht</target>
+        <target>Supprimé</target>
       </segment>
     </unit>
     <unit id="nDFaBQH" name="Inkarnation">
@@ -4243,7 +4243,7 @@
       </notes>
       <segment>
         <source>Inkarnation</source>
-        <target>Inkarnation</target>
+        <target>Incarnation</target>
       </segment>
     </unit>
     <unit id="fvbnuSw" name="Zuletzt aktiv">
@@ -4254,7 +4254,7 @@
       </notes>
       <segment>
         <source>Zuletzt aktiv</source>
-        <target>Zuletzt aktiv</target>
+        <target>Dernière activité</target>
       </segment>
     </unit>
     <unit id="JgjaqCv" name="Hauptseele">
@@ -4265,7 +4265,7 @@
       </notes>
       <segment>
         <source>Hauptseele</source>
-        <target>Hauptseele</target>
+        <target>Ame principale</target>
       </segment>
     </unit>
     <unit id=".Tw5sZN" name="Keine Hauptseele">
@@ -4276,7 +4276,7 @@
       </notes>
       <segment>
         <source>Keine Hauptseele</source>
-        <target>Keine Hauptseele</target>
+        <target>Ame non principale</target>
       </segment>
     </unit>
     <unit id="XiHvmIk" name="Verknüpfte Seele">
@@ -4287,7 +4287,7 @@
       </notes>
       <segment>
         <source>Verknüpfte Seele</source>
-        <target>Verknüpfte Seele</target>
+        <target>Ame liée</target>
       </segment>
     </unit>
     <unit id="zTu5fP6" name="Beliebige verknüpfte Seele">
@@ -4298,7 +4298,7 @@
       </notes>
       <segment>
         <source>Beliebige verknüpfte Seele</source>
-        <target>Beliebige verknüpfte Seele</target>
+        <target>N'importe quelle âme liée</target>
       </segment>
     </unit>
     <unit id="jnWkQ6z" name="Keine verknüpfte Seele">
@@ -4309,7 +4309,7 @@
       </notes>
       <segment>
         <source>Keine verknüpfte Seele</source>
-        <target>Keine verknüpfte Seele</target>
+        <target>Pas d'âme liée</target>
       </segment>
     </unit>
     <unit id="AUhHTVv" name="Accountbeschränkung">
@@ -4320,7 +4320,7 @@
       </notes>
       <segment>
         <source>Accountbeschränkung</source>
-        <target>Accountbeschränkung</target>
+        <target>Restriction de compte</target>
       </segment>
     </unit>
     <unit id="1wv7teh" name="Nicht bestätigt">
@@ -4331,7 +4331,7 @@
       </notes>
       <segment>
         <source>Nicht bestätigt</source>
-        <target>Nicht bestätigt</target>
+        <target>Non confirmé</target>
       </segment>
     </unit>
     <unit id="Czy2T4z" name="Nicht aktiv">
@@ -4342,7 +4342,7 @@
       </notes>
       <segment>
         <source>Nicht aktiv</source>
-        <target>Nicht aktiv</target>
+        <target>Inactif</target>
       </segment>
     </unit>
     <unit id="ADipz4Z" name="Rolle">
@@ -4353,7 +4353,7 @@
       </notes>
       <segment>
         <source>Rolle</source>
-        <target>Rolle</target>
+        <target>Rôle</target>
       </segment>
     </unit>
   </file>
