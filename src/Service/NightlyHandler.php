@@ -677,6 +677,9 @@ class NightlyHandler
         $has_ikea             = (bool)$this->town_handler->getBuilding($town, 'small_ikea_#00', true);
         $has_armory           = (bool)$this->town_handler->getBuilding($town, 'small_armor_#00', true);
 
+        $wounded_citizens = [];
+        $terrorized_citizens = [];
+
         foreach ($watchers as $watcher) {
             $defBonus = $overflow > 0 ? floor($this->citizen_handler->getNightWatchDefense($watcher->getCitizen(), $has_shooting_gallery, $has_trebuchet, $has_ikea, $has_armory) * $def_scale) : 0;
 
@@ -685,9 +688,6 @@ class NightlyHandler
             $ctz = $watcher->getCitizen();
 
             $this->log->debug("Watcher {$watcher->getCitizen()->getUser()->getName()} chances are <info>{$deathChances}</info> for death and <info>{$woundOrTerrorChances}</info> for wound or terror.");
-
-            $wounded_citizens = [];
-            $terrorized_citizens = [];
 
             if ($this->random->chance($deathChances)) {
                 $this->log->debug("Watcher <info>{$watcher->getCitizen()->getUser()->getUsername()}</info> is now <info>dead</info> because of the watch");
@@ -716,7 +716,7 @@ class NightlyHandler
                         $wounded_citizens[] = $ctz;
                         $this->crow->postAsPM($ctz, '', '', PrivateMessage::TEMPLATE_CROW_NIGHTWATCH_WOUND, $defBonus);
                     }
-                } elseif(!$this->town_handler->getBuilding($town, "small_catapult3_#00", true)) {
+                } elseif (!$this->town_handler->getBuilding($town, "small_cinema_#00", true)) {
                     // Terror
                     if (!$this->citizen_handler->hasStatusEffect($ctz, $status_terror)) {
                         $this->citizen_handler->inflictStatus($ctz, $status_terror);
