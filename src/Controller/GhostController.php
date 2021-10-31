@@ -466,7 +466,7 @@ class GhostController extends CustomAbstractController
             $this->entity_manager->persist($citizen);
             $this->entity_manager->flush();
         } catch (Exception $e) {
-            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException, ['e' => $e->getMessage()]);
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
 
         try {

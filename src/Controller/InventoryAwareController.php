@@ -14,6 +14,7 @@ use App\Entity\FoundRolePlayText;
 use App\Entity\HelpNotificationMarker;
 use App\Entity\HeroicActionPrototype;
 use App\Entity\HomeActionPrototype;
+use App\Entity\HomeIntrusion;
 use App\Entity\Inventory;
 use App\Entity\Item;
 use App\Entity\ItemAction;
@@ -481,7 +482,7 @@ class InventoryAwareController extends CustomAbstractController
         try {
             $this->entity_manager->flush();
         } catch (Exception $e) {
-            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException, ['msg' => $e->getMessage()]  );
+            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
         }
 
         return AjaxResponse::success();
@@ -731,6 +732,7 @@ class InventoryAwareController extends CustomAbstractController
                                     $victim_home,
                                     $this->entity_manager->getRepository(CitizenHomeUpgradePrototype::class)->findOneByName( 'alarm' ) ) && $victim_home->getCitizen()->getAlive())
                                 {
+                                    $this->entity_manager->persist( $this->log->citizenHomeIntrusion( $citizen, $victim_home->getCitizen(), true) );
                                     $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), $citizen, $current_item->getPrototype(), $steal_up, false, $current_item->getBroken() ) );
                                     $this->citizen_handler->inflictStatus( $citizen, 'terror' );
                                     $this->addFlash( 'notice', $this->translator->trans('{victim}s Alarmanlage hat die halbe Stadt aufgeweckt und dich zu Tode erschreckt!', ['{victim}' => $victim_home->getCitizen()->getName()], 'game') );
@@ -760,6 +762,9 @@ class InventoryAwareController extends CustomAbstractController
 
                                 $this->addFlash( 'notice', implode('<hr/>', $messages) );
                             }
+
+                            $intrusion = $this->entity_manager->getRepository(HomeIntrusion::class)->findOneBy(['intruder' => $citizen, 'victim' => $victim_home->getCitizen()]);
+                            if ($intrusion) $this->entity_manager->remove($intrusion);
                         }
                         if(!$floor_up && $hide) {
                             $has_hidden = true;
@@ -1001,7 +1006,7 @@ class InventoryAwareController extends CustomAbstractController
             try {
                 $this->entity_manager->flush();
             } catch (Exception $e) {
-                return AjaxResponse::error( ErrorHelper::ErrorDatabaseException, ['msg' => $e->getMessage()] );
+                return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
             }
 
             if ($msg) $this->addFlash( 'notice', $msg );
@@ -1045,7 +1050,7 @@ class InventoryAwareController extends CustomAbstractController
             try {
                 $this->entity_manager->flush();
             } catch (Exception $e) {
-                return AjaxResponse::error( ErrorHelper::ErrorDatabaseException, ['msg' => $e->getMessage()] );
+                return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
             }
 
             if ($msg) $this->addFlash( 'notice', $msg );
@@ -1083,7 +1088,7 @@ class InventoryAwareController extends CustomAbstractController
             try {
                 $this->entity_manager->flush();
             } catch (Exception $e) {
-                return AjaxResponse::error( ErrorHelper::ErrorDatabaseException, ['msg' => $e->getMessage()] );
+                return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
             }
 
             if ($msg) $this->addFlash( 'notice', $msg );
@@ -1136,7 +1141,7 @@ class InventoryAwareController extends CustomAbstractController
         try {
             $this->entity_manager->flush();
         } catch (Exception $e) {
-            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException, ['msg' => $e->getMessage()] );
+            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
         }
 
         if ($msg) $this->addFlash( 'notice', $msg );
@@ -1211,7 +1216,7 @@ class InventoryAwareController extends CustomAbstractController
             try {
                 $this->entity_manager->flush();
             } catch (Exception $e) {
-                return AjaxResponse::error( ErrorHelper::ErrorDatabaseException, ['msg' => $e->getMessage()] );
+                return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
             }
 
             if ($msg) $this->addFlash( 'notice', $msg );

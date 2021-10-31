@@ -10672,16 +10672,6 @@
         <target>Du hast dafür {count} Aktionspunkt(e) verbraucht.</target>
       </segment>
     </unit>
-    <unit id="tTMCru5">
-      <segment>
-        <source>Als du durch das Fenster blickst, stellst du fest, dass das Haus von {citizen} keinerlei interessante
-                    Gegenstände enthält. Ein paar Tonscherben, viel Staub und eine tote Ratte ist alles, was du erkennen kannst.
-                    Nichts, was der Mühe wert wäre.</source>
-        <target>Als du durch das Fenster blickst, stellst du fest, dass das Haus von {citizen} keinerlei interessante
-                    Gegenstände enthält. Ein paar Tonscherben, viel Staub und eine tote Ratte ist alles, was du erkennen kannst.
-                    Nichts, was der Mühe wert wäre.</target>
-      </segment>
-    </unit>
     <unit id="lo3tdoY" name="Was für eine schreckliche Nacht!">
       <segment>
         <source>Was für eine schreckliche Nacht!</source>
@@ -14758,6 +14748,36 @@
       <segment>
         <source>Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...</source>
         <target>Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...</target>
+      </segment>
+    </unit>
+    <unit id="bAX7fz8">
+      <segment>
+        <source>{intruder} ist bei {victim} eingebrochen und hat dabei das Alarmsystem ausgelöst!!</source>
+        <target>{intruder} ist bei {victim} eingebrochen und hat dabei das Alarmsystem ausgelöst!!</target>
+      </segment>
+    </unit>
+    <unit id="_Vp3AUE">
+      <segment>
+        <source>Du hast das Alarmsystem bei {victim} ausgelöst! Die ganze Stadt weiß jetzt über deinen Einbruch Bescheid.</source>
+        <target>Du hast das Alarmsystem bei {victim} ausgelöst! Die ganze Stadt weiß jetzt über deinen Einbruch Bescheid.</target>
+      </segment>
+    </unit>
+    <unit id="S0oceSj">
+      <segment>
+        <source>Als du durch das Fenster blickst, stellst du fest, dass das Haus von {citizen} keinerlei interessante Gegenstände enthält. Ein paar Tonscherben, viel Staub und eine tote Ratte ist alles, was du erkennen kannst. Nichts, was der Mühe wert wäre.</source>
+        <target>Als du durch das Fenster blickst, stellst du fest, dass das Haus von {citizen} keinerlei interessante Gegenstände enthält. Ein paar Tonscherben, viel Staub und eine tote Ratte ist alles, was du erkennen kannst. Nichts, was der Mühe wert wäre.</target>
+      </segment>
+    </unit>
+    <unit id="SBvsBbX" name="Alarm (Bürger {citizen})">
+      <segment>
+        <source>Alarm (Bürger {citizen})</source>
+        <target>Alarm (Bürger {citizen})</target>
+      </segment>
+    </unit>
+    <unit id="L_ADbyN">
+      <segment>
+        <source>{citizen} hat bei dir daheim den Alarm ausgelöst, als er (sie) um {time} versuchte bei dir einzubrechen!</source>
+        <target>{citizen} hat bei dir daheim den Alarm ausgelöst, als er (sie) um {time} versuchte bei dir einzubrechen!</target>
       </segment>
     </unit>
   </file>

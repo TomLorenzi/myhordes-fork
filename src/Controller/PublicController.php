@@ -584,7 +584,7 @@ class PublicController extends CustomAbstractController
 
                         $this->entity_manager->flush();
                     } catch (Exception $e) {
-                        return AjaxResponse::error( ErrorHelper::ErrorDatabaseException, ['e' => $e->getMessage()] );
+                        return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
                     }
 
                     $session->set('_etwin_login', true);

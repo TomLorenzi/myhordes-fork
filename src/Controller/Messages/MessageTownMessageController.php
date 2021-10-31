@@ -229,7 +229,7 @@ class MessageTownMessageController extends MessageController
         try {
             $em->flush();
         } catch (\Exception $e) {
-            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException, ['e' => $e->getMessage()] );
+            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
         }
 
 
@@ -347,6 +347,13 @@ class MessageTownMessageController extends MessageController
                 case PrivateMessage::TEMPLATE_CROW_NIGHTWATCH_WOUND:
                     $thread->setTitle( $this->translator->trans('Verletzt', [], 'game') );
                     $post->setText( $this->html->prepareEmotes($post->getText(), $this->getUser()) . $this->translator->trans( 'Wir haben zwei Neuigkeiten für dich. Die Gute: du konntest die {count} Zombie(s) abwehren! Die Schlechte: du wurdest dabei verletzt...', ['{count}' => $post->getForeignID()], 'game' ) );
+                    break;
+                case PrivateMessage::TEMPLATE_CROW_INTRUSION:
+                    $intruder = $this->entity_manager->getRepository(Citizen::class)->find( $post->getForeignID() );
+
+                    $time = (int)$post->getText();
+                    $thread->setTitle( $this->translator->trans("Alarm (Bürger {citizen})", ['citizen' =>  $intruder ?? '???'], 'game') );
+                    $post->setText( $this->translator->trans( '{citizen} hat bei dir daheim den Alarm ausgelöst, als er (sie) um {time} versuchte bei dir einzubrechen!', ['citizen' => $intruder ?? '???', 'time' => date('H:i', $time)], 'game' ) );
                     break;
                 default:
                     $post->setText($this->html->prepareEmotes($post->getText(), $this->getUser()));

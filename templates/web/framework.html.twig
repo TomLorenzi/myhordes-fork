@@ -239,9 +239,7 @@
                     data.command = command;
                 }
 
-                $.ajax.background().load( document.getElementById('post-office-content'),'{{ url('pm_view')|e('js') }}', false, data
-
-                );
+                $.ajax.background().load( document.getElementById('post-office-content'),'{{ url('pm_view')|e('js') }}', false, data);
             }
         });
     })();

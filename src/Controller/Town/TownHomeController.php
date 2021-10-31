@@ -154,6 +154,11 @@ class TownHomeController extends TownController
                     case PrivateMessage::TEMPLATE_CROW_NIGHTWATCH_WOUND:
                         $thread->setTitle( $this->translator->trans('Verletzt', [], 'game') );
                         break;
+                    case PrivateMessage::TEMPLATE_CROW_INTRUSION:
+                        $intruder = $this->entity_manager->getRepository(Citizen::class)->find( $thread->getMessages()[0]->getForeignID() );
+                        $thread->setTitle( $this->translator->trans("Alarm (Bürger {citizen})", ['citizen' =>  $intruder ?? '???'], 'game') );
+                        break;
+
                     default: break;
                 }
             }

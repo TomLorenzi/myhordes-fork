@@ -170,7 +170,7 @@ class AdminGroupController extends CustomAbstractController
             $this->entity_manager->persist($base_group);
             $this->entity_manager->flush();
         } catch (Exception $e) {
-            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException, ['e' => $e->getMessage()]);
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
 
         return AjaxResponse::success();

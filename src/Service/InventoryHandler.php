@@ -440,9 +440,6 @@ class InventoryHandler
 
         if ($type_from === self::TransferTypeSteal || $type_to === self::TransferTypeSteal) {
 
-            if ($type_from === self::TransferTypeSteal && !$actor->getTown()->getChaos() && $actor->getStatus()->contains( $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy( ['name' => 'tg_steal'] ) ))
-                return self::ErrorStealLimitHit;
-
             if ($type_to === self::TransferTypeSteal && $actor->getTown()->getChaos() )
                 return TownController::ErrorTownChaos;
 

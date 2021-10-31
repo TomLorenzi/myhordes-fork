@@ -322,7 +322,7 @@ class SoulImportController extends SoulController
                 $this->entity_manager->flush();
 
             } catch (Exception $e) {
-                return AjaxResponse::error(ErrorHelper::ErrorDatabaseException, ['msg' => $e->getMessage()]);
+                return AjaxResponse::error(ErrorHelper::ErrorDatabaseException );
             }
 
             return AjaxResponse::success();

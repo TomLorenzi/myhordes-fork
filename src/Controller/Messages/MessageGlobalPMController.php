@@ -1180,7 +1180,7 @@ class MessageGlobalPMController extends MessageController
         try {
             $em->flush();
         } catch (\Exception $e) {
-            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException, ['m' => $e->getMessage()]);
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException );
         }
 
         return AjaxResponse::success( true , ['url' => $this->generateUrl('pm_view')] );

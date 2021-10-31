@@ -641,7 +641,7 @@ class AdminUserController extends AdminActionController
         try {
             $this->entity_manager->flush();
         } catch (Exception $e) {
-            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException, [$e->getMessage()] );
+            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
         }
 
         return AjaxResponse::success();

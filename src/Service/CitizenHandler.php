@@ -114,7 +114,7 @@ class CitizenHandler
      * @param CitizenStatus|string $status
      * @return bool
      */
-    public function inflictStatus( Citizen &$citizen, $status ): bool {
+    public function inflictStatus( Citizen $citizen, $status ): bool {
         if (is_string( $status )) $status = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName($status);
         if (!$status) return false;
 

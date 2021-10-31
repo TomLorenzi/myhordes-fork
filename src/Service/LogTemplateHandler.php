@@ -1694,6 +1694,22 @@ class LogTemplateHandler
             ->setSecondaryCitizen( $defender );
     }
 
+    public function citizenHomeIntrusion( Citizen $intruder, Citizen $victim, bool $act ): TownLogEntry {
+        $variables = array('intruder' => $intruder->getId(), 'victim' => $victim->getId());
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => $act ? 'citizenIntrusionAct' : 'citizenIntrusionBase']);
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $intruder->getTown() )
+            ->setDay( $intruder->getTown()->getDay() )
+            ->setZone( $intruder->getZone() )
+            ->setTimestamp( new DateTime('now') )
+            ->setCitizen( $intruder )
+            ->setSecondaryCitizen( $victim );
+    }
+
+
     public function sandballAttack( Citizen $attacker, Citizen $defender, bool $wounded ): TownLogEntry {
         $variables = array('attacker' => $attacker->getId(), 'defender' => $defender->getId());
         $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => $wounded ? 'sandballAttackWounded' : 'sandballAttack']);

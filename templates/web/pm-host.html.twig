@@ -91,7 +91,7 @@
 
         $.msg.registerFetchEndpoint( '{{ path('api_pm_spring') }}' );
         $.msg.toggleFetch(true);
-        $.ajax.background().load( document.getElementById('post-office-content'),'{{ url('pm_view')|e('js') }}', false, {});
+        $.ajax.background().load( document.getElementById('post-office-content'),'{{ url('pm_view')|e('js') }}', false, {{ (command is defined ? command : {})|json_encode|raw }});
     })();
 </script>
 </html>

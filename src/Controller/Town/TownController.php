@@ -20,6 +20,7 @@ use App\Entity\Complaint;
 use App\Entity\ComplaintReason;
 use App\Entity\ExpeditionRoute;
 use App\Entity\ForumThreadSubscription;
+use App\Entity\HomeIntrusion;
 use App\Entity\ItemProperty;
 use App\Entity\ItemPrototype;
 use App\Entity\LogEntryTemplate;
@@ -394,6 +395,8 @@ class TownController extends InventoryAwareController
         $can_recycle = !$c->getAlive() && $c->getHome()->getPrototype()->getLevel() > 1 && $c->getHome()->getRecycling() < 15;
         $protected = $this->citizen_handler->houseIsProtected($c, true);
 
+        $intrusion = $this->entity_manager->getRepository(HomeIntrusion::class)->findOneBy(['intruder' => $this->getActiveCitizen(), 'victim' => $c]);
+
         return $this->render( 'ajax/game/town/home_foreign.html.twig', $this->addDefaultTwigArgs('citizens', [
             'owner' => $c,
             'can_attack' => !$this->getActiveCitizen()->getBanished() && !$this->citizen_handler->isTired($this->getActiveCitizen()) && $this->getActiveCitizen()->getAp() >= 5,
@@ -432,7 +435,7 @@ class TownController extends InventoryAwareController
             'attackAP' => $this->getTownConf()->get( TownConf::CONF_MODIFIER_ATTACK_AP, 5 ),
             'can_recycle' => $can_recycle,
             'has_omniscience' => $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'omniscience'),
-
+            'intruding' => $intrusion === null ? 0 : ( $intrusion->getSteal() ? 1 : -1 )
         ]) );
     }
 
@@ -731,6 +734,52 @@ class TownController extends InventoryAwareController
     }
 
     /**
+     * @Route("api/town/visit/{id}/intrude", name="town_visit_intrusion_controller")
+     * @param int $id
+     * @param EntityManagerInterface $em
+     * @return Response
+     */
+    public function intrude_visit_api(int $id, EntityManagerInterface $em, JSONRequestParser $parser): Response {
+
+        $action = $parser->get_int('action');
+
+        $victim = $em->getRepository(Citizen::class)->find( $id );
+        if (!$victim || $victim->getTown()->getId() !== $this->getActiveCitizen()->getTown()->getId() || ($this->citizen_handler->houseIsProtected($victim, true) && $victim->getAlive()) || (!$victim->getZone() && $victim->getAlive()))
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
+
+        if ($action !== 0) {
+            $intrusion = $em->getRepository(HomeIntrusion::class)->findOneBy(['intruder' => $this->getActiveCitizen(), 'victim' => $victim]);
+            if ($intrusion) return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
+
+            if ($this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_steal') && !$this->getActiveCitizen()->getTown()->getChaos())
+                return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
+        }
+
+        foreach ($em->getRepository(HomeIntrusion::class)->findBy(['intruder' => $this->getActiveCitizen()]) as $other_intrusion)
+            $em->remove($other_intrusion);
+
+        if ($action !== 0 && $em->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype( $victim->getHome(), $em->getRepository(CitizenHomeUpgradePrototype::class)->findOneByName( 'alarm' ) ) && $victim->getAlive()) {
+            $this->entity_manager->persist( $this->log->citizenHomeIntrusion( $this->getActiveCitizen(), $victim, false) );
+            $this->addFlash( 'error', $this->translator->trans( 'Du hast das Alarmsystem bei {victim} ausgelöst! Die ganze Stadt weiß jetzt über deinen Einbruch Bescheid.', ['victim' => $victim], 'game' ) );
+        }
+
+        if ($action !== 0) {
+            $this->citizen_handler->inflictStatus($this->getActiveCitizen(), 'tg_steal');
+            $em->persist( (new HomeIntrusion())->setIntruder($this->getActiveCitizen())->setVictim( $victim )->setSteal( $action > 0 ) );
+            $this->crow->postAsPM( $victim, '', '' . time(), PrivateMessage::TEMPLATE_CROW_INTRUSION, $this->getActiveCitizen()->getId() );
+        }
+
+
+        try {
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        return AjaxResponse::success();
+    }
+
+    /**
      * @Route("api/town/visit/{id}/item", name="town_visit_item_controller")
      * @param int $id
      * @param JSONRequestParser $parser
@@ -749,7 +798,13 @@ class TownController extends InventoryAwareController
         if (!$c || $c->getTown()->getId() !== $this->getActiveCitizen()->getTown()->getId())
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
 
+        $intrusion = null;
+        if ($c->getAlive() && !$intrusion = $em->getRepository(HomeIntrusion::class)->findOneBy(['intruder' => $ac, 'victim' => $c]))
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
+
         $direction = $parser->get('direction', '');
+        if ($c->getAlive() && $intrusion && (($intrusion->getSteal() && $direction === 'down') || (!$intrusion->getSteal() && $direction === 'up')))
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
 
         $up_inv   = ($direction === 'down' || $c->getAlive()) ? $ac->getInventory() : $ac->getHome()->getChest();
         $down_inv = $c->getHome()->getChest();
