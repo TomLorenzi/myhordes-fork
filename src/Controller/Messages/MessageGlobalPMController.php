@@ -187,7 +187,11 @@ class MessageGlobalPMController extends MessageController
         $target = Request::createFromGlobals()->headers->get('X-Render-Target', '');
 
         if ($target === 'post-office-content') {
-            return $this->render( 'ajax/pm/view.html.twig', ['rk' => (new DateTime('now'))->getTimestamp(), 'command' => $parser->get('command')]);
+            return $this->render( 'ajax/pm/view.html.twig', [
+                'rk' => (new DateTime('now'))->getTimestamp(),
+                'command' => $parser->get('command'),
+                'official_groups' => array_filter( $this->entity_manager->getRepository(OfficialGroup::class)->findAll(), fn(OfficialGroup $o) => $this->perm->userInGroup($this->getUser(), $o->getUsergroup()) )
+            ]);
         }
 
         return $this->pm_proxy_view();
@@ -1028,12 +1032,28 @@ class MessageGlobalPMController extends MessageController
         if (!$parser->has_all(['title','content','users'], true))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        $title = $parser->trimmed('title');
-        $text  = $parser->trimmed('content');
         $user_ids = $parser->get('users');
         array_map( fn($u) => (int)$u, is_array($parser->get('users')) ? $parser->get('users') : [] );
-
         $users = $this->entity_manager->getRepository(User::class)->findBy(['id' => $user_ids]);
+
+        $sender_as = $parser->trimmed('sender');
+        if ($sender_as) {
+            list($modal,$id) = explode('-', $sender_as);
+            switch ($modal) {
+                case 'u':
+                    if ((int)$id !== $user->getId()) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+                    break;
+                case 'og':
+                    $official_group = $this->entity_manager->getRepository(OfficialGroup::class)->find( (int)$id );
+                    if (!$official_group || !$this->perm->userInGroup($user, $official_group->getUsergroup()))
+                        return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+                    return $this->new_og_thread_api($parser,$em,$perm,(int)$id,$users);
+            }
+        }
+
+        $title = $parser->trimmed('title');
+        $text  = $parser->trimmed('content');
+
         if (count($user_ids) !== count($users)) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         if (count($users) > 100) return AjaxResponse::error( self::ErrorGPMMemberLimitHit);
@@ -1107,20 +1127,18 @@ class MessageGlobalPMController extends MessageController
      * @Route("api/pm/og_post", name="pm_new_og_thread_controller")
      * @param JSONRequestParser $parser
      * @param EntityManagerInterface $em
-     * @param UserHandler $userHandler
      * @param PermissionHandler $perm
+     * @param int|null $overwrite_og
+     * @param User[]|null $overwrite_user
      * @return Response
      */
-    public function new_og_thread_api(JSONRequestParser $parser, EntityManagerInterface $em, UserHandler $userHandler, PermissionHandler $perm): Response {
-
-        $user = $this->getUser();
-
-        if (!$parser->has_all(['title','content','og'], true))
+    public function new_og_thread_api(JSONRequestParser $parser, EntityManagerInterface $em, PermissionHandler $perm, ?int $overwrite_og = null, ?array $overwrite_user = null): Response {
+        if (!$parser->has_all(['title','content'], true) || ( !$parser->has('og') && !$overwrite_og ))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $title = $parser->trimmed('title');
         $text  = $parser->trimmed('content');
-        $og = $parser->get_int('og');
+        $og = $overwrite_og ?? $parser->get_int('og');
 
         $official_group = $this->entity_manager->getRepository(OfficialGroup::class)->find($og);
         if (!$official_group) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
@@ -1133,20 +1151,27 @@ class MessageGlobalPMController extends MessageController
         $pg = (new UserGroup())->setType(UserGroup::GroupMessageGroup)->setName( $title )->setRef1(1)->setRef2( $ts->getTimestamp() )->setRef3( $ts->getTimestamp() );
         $this->entity_manager->persist($pg);
 
-        $perm->associate( $user, $pg, UserGroupAssociation::GroupAssociationTypePrivateMessageMember );
+        if ($overwrite_user)
+            foreach ($overwrite_user as $user)
+                $perm->associate( $user, $pg, UserGroupAssociation::GroupAssociationTypePrivateMessageMember );
+        else {
+            $perm->associate( $this->getUser(), $pg, UserGroupAssociation::GroupAssociationTypePrivateMessageMember );
+            $overwrite_user = [$this->getUser()];
+        }
 
         $post = (new GlobalPrivateMessage())
-            ->setSender($user)->setTimestamp($ts)->setReceiverGroup($pg)->setText($text);
+            ->setSender($this->getUser())->setTimestamp($ts)->setReceiverGroup($pg)->setText($text);
+        if ($overwrite_og) $post->setSenderGroup($official_group);
 
         $tx_len = 0;
-        if (!$this->preparePost($user,null,$post,$tx_len, null, $edit))
+        if (!$this->preparePost($this->getUser(),null,$post,$tx_len, null, $edit))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest, ['a' => 10] );
         if ($tx_len < 2) return AjaxResponse::error( self::ErrorPostTextLength );
 
         $this->entity_manager->persist( (new OfficialGroupMessageLink())->setMessageGroup( $pg )->setOfficialGroup( $official_group ) );
 
         foreach ($perm->usersInGroup( $official_group->getUsergroup()) as $group_member)
-            if ($group_member !== $user)
+            if (!in_array($group_member, $overwrite_user))
                 $perm->associate( $group_member, $pg, UserGroupAssociation::GroupAssociationTypeOfficialGroupMessageMember )
                     ->setRef1( 0  )->setRef2( 0 );
 
@@ -1155,7 +1180,7 @@ class MessageGlobalPMController extends MessageController
         try {
             $em->flush();
         } catch (\Exception $e) {
-            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException, ['m' => $e->getMessage()]);
         }
 
         return AjaxResponse::success( true , ['url' => $this->generateUrl('pm_view')] );

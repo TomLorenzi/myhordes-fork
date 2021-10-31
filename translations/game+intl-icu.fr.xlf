@@ -22774,7 +22774,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Doch leider ist der letzte Bürger tot, bevor die Horde die Stadttore erreicht... Seine Zunge hängt zwischen den Zähnen seines ehemaligen Freundes...</note>
         <note category="from">db://LogEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Doch leider ist der letzte Bürger tot, bevor die Horde die Stadttore erreicht... Seine Zunge hängt zwischen den Zähnen seines ehemaligen Freundes...</source>
@@ -22845,7 +22844,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">gesichertes Haus</note>
         <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>gesichertes Haus</source>
@@ -22856,7 +22854,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">In dieses Haus kann &lt;strong&gt;nicht eingebrochen&lt;/strong&gt; werden. Es ist durch ein Schloss oder etwas anderes gesichert...</note>
         <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>In dieses Haus kann &lt;strong&gt;nicht eingebrochen&lt;/strong&gt; werden. Es ist durch ein Schloss oder etwas anderes gesichert...</source>

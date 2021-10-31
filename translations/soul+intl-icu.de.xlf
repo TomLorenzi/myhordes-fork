@@ -2564,5 +2564,11 @@
         <target>Ist diese Option aktiviert, abonnierst du automatisch allen Threads, die du selbst erstellt hast. Du kannst das Abonnement deiner Threads jederzeit manuell beenden.</target>
       </segment>
     </unit>
+    <unit id="sZZiEzn" name="Absender wählen">
+      <segment>
+        <source>Absender wählen</source>
+        <target>Absender wählen</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

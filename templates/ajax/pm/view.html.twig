@@ -157,6 +157,22 @@
                                     <div class="padded cell rw-8 ro-4"><ul id="pm-selected-users"></ul></div>
                                 </div>
                             </div>
+                            {% if official_groups is not empty %}
+                            <div id="pm-sender-selector">
+                                <div class="row">
+                                    <div class="padded cell rw-4"><label for="pm-account-select">{{'Absender wählen'|trans({}, "soul")}}</label></div>
+                                    <div class="padded cell rw-8">
+                                        <select id="pm-account-select">
+                                            <option selected value="u-{{ app.user.id }}">{{ app.user.name }}</option>
+                                            {% for group in official_groups %}
+                                                <option value="og-{{ group.id }}">{{ group.usergroup.name }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                    <div class="padded cell rw-8 ro-4"><ul id="pm-selected-users"></ul></div>
+                                </div>
+                            </div>
+                            {% endif %}
                         </div>
                         <div id="global-pm-forum-editor"></div>
                         <div id="pm-forum-editor-anchor"></div>
@@ -597,6 +613,7 @@
                 editor.innerText = '';
                 document.getElementById('pm-user-selector').classList.remove('hidden');
                 document.getElementById('pm-og-display').classList.add('hidden');
+                if (document.getElementById('pm-sender-selector')) document.getElementById('pm-sender-selector').classList.remove('hidden');
 
                 document.getElementById('pm-forum-editor-container').classList.remove('hidden');
                 document.getElementById('pm-forum-editor-header').innerHTML = '<i class="fa fa-spin fa-circle-notch"></i> {{ 'Wird geladen...'|trans({},'global')|e('js') }}';
@@ -629,6 +646,7 @@
                 editor.innerText = '';
                 document.getElementById('pm-user-selector').classList.remove('hidden');
                 document.getElementById('pm-og-display').classList.add('hidden');
+                if (document.getElementById('pm-sender-selector')) document.getElementById('pm-sender-selector').classList.remove('hidden');
 
                 document.getElementById('pm-forum-editor-container').classList.remove('hidden');
                 document.getElementById('pm-forum-editor-header').innerHTML = '<i class="fa fa-spin fa-circle-notch"></i> {{ 'Wird geladen...'|trans({},'global')|e('js') }}';
@@ -739,6 +757,7 @@
 
                             editor.innerText = '';
                             document.getElementById('pm-user-selector').classList.add('hidden');
+                            if (document.getElementById('pm-sender-selector')) document.getElementById('pm-sender-selector').classList.add('hidden');
                             document.getElementById('pm-og-info-container').innerHTML = '';
                             document.getElementById('pm-og-info-container').appendChild($.html.createElement('<i class="fa fa-pulse fa-spinner" />'))
                             document.getElementById('pm-og-display').classList.remove('hidden');

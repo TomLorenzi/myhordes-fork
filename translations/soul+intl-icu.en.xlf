@@ -4185,5 +4185,15 @@
         <target>This option lets you automatically follow all forum threads you create. You can still unfollow your threads manually.</target>
       </segment>
     </unit>
+    <unit id="sZZiEzn" name="Absender wählen">
+      <notes>
+        <note category="german">Absender wählen</note>
+        <note category="from">twig:///templates/ajax/pm/view.html.twig</note>
+      </notes>
+      <segment>
+        <source>Absender wählen</source>
+        <target>Send as</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

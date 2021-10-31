@@ -660,6 +660,8 @@
                                             pm_list.push( parseInt(elem.getAttribute('x-soul-id')) );
                                         });
                                         target_payload.users = pm_list;
+                                        if (document.getElementById('pm-account-select'))
+                                            target_payload.sender = document.getElementById('pm-account-select').value;
                                     {% else  %}
                                         let og_id = null, og_con = null;
                                         if ((og_con = document.querySelector('[x-og-resolved]')))
