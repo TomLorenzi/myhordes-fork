@@ -10,6 +10,7 @@ use App\Entity\CitizenRankingProxy;
 use App\Entity\ConsecutiveDeathMarker;
 use App\Entity\EscapeTimer;
 use App\Entity\Gazette;
+use App\Entity\HomeIntrusion;
 use App\Entity\PictoPrototype;
 use App\Entity\RuinZone;
 use App\Entity\TownRankingProxy;
@@ -130,6 +131,8 @@ class DeathHandler
             $citizen->setZone(null);
             $zone->removeCitizen( $citizen );
             $this->zone_handler->handleCitizenCountUpdate( $zone, $ok );
+            foreach ($this->entity_manager->getRepository(HomeIntrusion::class)->findBy(['victim' => $citizen]) as $homeIntrusion)
+                $this->entity_manager->remove($homeIntrusion);
         }
 
         if($citizen->getBanished()){

@@ -21,6 +21,7 @@ use App\Entity\EscortActionGroup;
 use App\Entity\EventActivationMarker;
 use App\Entity\FoundRolePlayText;
 use App\Entity\HomeActionPrototype;
+use App\Entity\HomeIntrusion;
 use App\Entity\Item;
 use App\Entity\ItemAction;
 use App\Entity\ItemProperty;
@@ -1317,6 +1318,8 @@ class ActionHandler
 
                         $jumper->setZone(null);
                         $zone->removeCitizen( $jumper );
+                        foreach ($this->entity_manager->getRepository(HomeIntrusion::class)->findBy(['victim' => $jumper]) as $homeIntrusion)
+                            $this->entity_manager->remove($homeIntrusion);
 
                         /*if ( $zone->getX() !== 0 || $zone->getY() !== 0 ) {
                             $zero_zone = $this->entity_manager->getRepository(Zone::class)->findOneByPosition( $zone->getTown(), 0, 0 );

@@ -13,6 +13,7 @@ use App\Entity\DigRuinMarker;
 use App\Entity\DigTimer;
 use App\Entity\EscapeTimer;
 use App\Entity\EscortActionGroup;
+use App\Entity\HomeIntrusion;
 use App\Entity\Item;
 use App\Entity\ItemAction;
 use App\Entity\ItemGroup;
@@ -662,6 +663,8 @@ class BeyondController extends InventoryAwareController
             // Remove zone from citizen
             $mover->setZone( null );
             $zone->removeCitizen( $mover );
+            foreach ($this->entity_manager->getRepository(HomeIntrusion::class)->findBy(['victim' => $mover]) as $homeIntrusion)
+                $this->entity_manager->remove($homeIntrusion);
 
             // Produce log entries
             if ($special !== 'sneak') {

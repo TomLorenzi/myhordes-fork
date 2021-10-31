@@ -1588,6 +1588,8 @@ class TownController extends InventoryAwareController
         if ($special !== 'sneak')
             $this->entity_manager->persist( $this->log->doorPass( $citizen, false ) );
         $zone->addCitizen( $citizen );
+        foreach ($this->entity_manager->getRepository(HomeIntrusion::class)->findBy(['intruder' => $citizen]) as $homeIntrusion)
+            $this->entity_manager->remove($homeIntrusion);
 
         try {
             $this->entity_manager->persist($citizen);
