@@ -46,6 +46,7 @@ use App\Structures\EventConf;
 use App\Structures\ItemRequest;
 use App\Structures\TownConf;
 use App\Translation\T;
+use DateInterval;
 use DateTime;
 use Doctrine\DBAL\Types\DateType;
 use Doctrine\ORM\EntityManagerInterface;
@@ -727,11 +728,11 @@ class BeyondController extends InventoryAwareController
         $this->picto_handler->give_picto($citizen, 'r_ruine_#00', 1);
         $this->citizen_handler->setAP( $citizen, true, -1 );
 
-        $citizen->addExplorerStat((new RuinExplorerStats())->setActive(true)->setTimeout( (new DateTime())->modify(
+        $citizen->addExplorerStat((new RuinExplorerStats())->setActive(true)->setTimeout( (new DateTime())->add(DateInterval::createFromDateString(
             $this->getTownConf()->get($citizen->getProfession()->getName() === 'collec' ?
                 TownConf::CONF_TIMES_EXPLORE_COLLEC :
                 TownConf::CONF_TIMES_EXPLORE_NORMAL, '+5min')
-        ) ));
+        ) )));
         $this->entity_manager->persist($citizen);
         try {
             $this->entity_manager->flush();

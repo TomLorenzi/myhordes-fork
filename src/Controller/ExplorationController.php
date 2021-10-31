@@ -27,6 +27,7 @@ use App\Service\ZoneHandler;
 use App\Structures\ItemRequest;
 use App\Structures\TownConf;
 use App\Translation\T;
+use DateInterval;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
@@ -170,7 +171,7 @@ class ExplorationController extends InventoryAwareController implements HookedIn
 
         $ex
             ->setEscaping(true)
-            ->setTimeout( (new DateTime)->setTimestamp( $ex->getTimeout()->getTimestamp() )->modify( '-' . mt_rand( 15, 24) . 'sec' ) );
+            ->setTimeout( (new DateTime)->setTimestamp( $ex->getTimeout()->getTimestamp() )->sub(DateInterval::createFromDateString( mt_rand( 15, 24) . 'sec' ) ) );
 
         $this->entity_manager->persist($ex);
         try {

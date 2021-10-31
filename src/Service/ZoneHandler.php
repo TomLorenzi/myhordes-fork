@@ -22,6 +22,7 @@ use App\Entity\Zone;
 use App\Structures\EventConf;
 use App\Structures\TownConf;
 use App\Translation\T;
+use DateInterval;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
@@ -232,9 +233,9 @@ class ZoneHandler
                         $timer->setTimestamp(
                             (new DateTime())->setTimestamp(
                                 $timer->getTimestamp()->getTimestamp()
-                            )->modify($conf->get( $timer->getCitizen()->getProfession()->getName() === 'collec' ?
+                            )->add(DateInterval::createFromDateString($conf->get( $timer->getCitizen()->getProfession()->getName() === 'collec' ?
                                                       TownConf::CONF_TIMES_DIG_COLLEC :
-                                                      TownConf::CONF_TIMES_DIG_NORMAL, '+2hour')) );
+                                                      TownConf::CONF_TIMES_DIG_NORMAL, '+2hour'))) );
 
                     } catch (Exception $e) {
                         $timer->setTimestamp( new DateTime('+1min') );

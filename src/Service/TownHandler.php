@@ -34,6 +34,7 @@ use App\Structures\TownDefenseSummary;
 use App\Structures\TownConf;
 use App\Structures\WatchtowerEstimation;
 use App\Translation\T;
+use DateInterval;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -98,10 +99,10 @@ class TownHandler
             $close_ts = null;
             if ($this->getBuilding( $town, 'small_door_closed_#02', true )) {
                 if ($s <= 60)
-                    $close_ts = $this->timeKeeper->getCurrentAttackTime()->modify('-1min');
+                    $close_ts = $this->timeKeeper->getCurrentAttackTime()->sub(DateInterval::createFromDateString('1min'));
             } elseif ($this->getBuilding( $town, 'small_door_closed_#01', true )) {
                 if ($s <= 1800)
-                    $close_ts = $this->timeKeeper->getCurrentAttackTime()->modify('-30min');
+                    $close_ts = $this->timeKeeper->getCurrentAttackTime()->sub(DateInterval::createFromDateString('30min'));
             }
 
             if ($close_ts !== null) {
