@@ -111,7 +111,28 @@ export default class Ajax {
         let content_source = result_document.querySelectorAll('html>body>:not(script):not(x-message)');
         let style_source = result_document.querySelectorAll('html>head>style');
         let script_source = result_document.querySelectorAll('script');
-        let flash_source = result_document.querySelectorAll('x-message');
+
+        // Merge flash messages
+        let message_stack_changed = true, flash_source = null;
+        do {
+            message_stack_changed = false;
+            flash_source = result_document.querySelectorAll<HTMLElement>('x-message');
+            for (let i = 0; i < flash_source.length; i++)
+                if (flash_source[i].getAttribute('x-label') === 'collapse') {
+                    message_stack_changed = true;
+
+                    if (i > 0) flash_source[i-1].innerHTML += '<hr/>' + flash_source[i].innerHTML
+                    else if (i < (flash_source.length-1)) flash_source[i+1].innerHTML += '<hr/>' + flash_source[i].innerHTML
+                    else {
+                        message_stack_changed = false;
+                        flash_source[i].setAttribute('x-label', 'notice');
+                        break;
+                    }
+
+                    flash_source[i].remove();
+                    break;
+                }
+        } while (message_stack_changed);
 
         // Get the ajax intention; assume "native" if no intention is given
         let ajax_html_elem = result_document.querySelector('html');

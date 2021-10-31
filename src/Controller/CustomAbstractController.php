@@ -16,6 +16,7 @@ use App\Structures\TownConf;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Exception\SessionNotFoundException;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
@@ -49,6 +50,12 @@ class CustomAbstractController extends AbstractController {
         $l = $this->container->get('request_stack')->getCurrentRequest()->getLocale();;
         if ($l) $l = explode('_', $l)[0];
         return in_array($l, ['en','de','es','fr']) ? $l : 'de';
+    }
+
+    private static $flash_message_count = 0;
+    protected function addFlash(string $type, $message): void
+    {
+        parent::addFlash( $type, [$message,++self::$flash_message_count] );
     }
 
     /**

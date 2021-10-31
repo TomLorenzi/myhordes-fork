@@ -1,5 +1,9 @@
+{% set flat = [] %}
 {% for label, messages in app.flashes %}
     {% for message in messages %}
-        <x-message x-label="{{ label }}">{{ message|raw }}</x-message>
+        {% set flat = flat|merge([{label:label,message:message is iterable ? message[0] : message,order: message is iterable ? message[1] : 0}]) %}
     {% endfor %}
+{% endfor %}
+{% for entry in flat|sort( (a,b) => a.order <=> b.order ) %}
+    <x-message x-order="{{ entry.order }}" x-label="{{ entry.label }}">{{ entry.message|raw }}</x-message>
 {% endfor %}

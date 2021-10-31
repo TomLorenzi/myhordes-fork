@@ -1033,17 +1033,17 @@
 
         handleHeroicActions(
             document.querySelectorAll('ul.heroic_actions [x-action-id]:not([disabled])'),
-            '{{ path('beyond_desert_heroic_controller') }}', '{{ path('beyond_dashboard_inline', {inline: true}) }}', document.getElementById('beyond_desert_content')
+            '{{ path('beyond_desert_heroic_controller') }}', '{{ path('beyond_dashboard') }}'
         );
 
         handleSpecialActions(
             document.querySelectorAll('ul.special_actions [x-action-id]:not([disabled])'),
-            '{{ path('beyond_desert_special_action_controller') }}', '{{ path('beyond_dashboard_inline', {inline: true}) }}', document.getElementById('beyond_desert_content')
+            '{{ path('beyond_desert_special_action_controller') }}', '{{ path('beyond_dashboard') }}'
         );
 
         handleActions(
             document.querySelectorAll('ul.actions [x-action-id][x-provoking-id]:not([disabled])'),
-            '{{ path('beyond_desert_action_controller') }}', '{{ path('beyond_dashboard_inline', {inline: true}) }}', document.getElementById('beyond_desert_content')
+            '{{ path('beyond_desert_action_controller') }}', '{{ path('beyond_dashboard') }}'
         );
 
         handleActions(
