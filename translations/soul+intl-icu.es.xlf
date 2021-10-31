@@ -709,7 +709,7 @@
       </notes>
       <segment>
         <source>Twinoid Secret Key</source>
-        <target>Twinoid Secret Key</target>
+        <target>Clave secreta de Twinoid</target>
       </segment>
     </unit>
     <unit id="SWMx7X8" name="Seele auswählen">
@@ -2422,7 +2422,7 @@
       </notes>
       <segment>
         <source>Score</source>
-        <target>Score</target>
+        <target>Puntuación</target>
       </segment>
     </unit>
     <unit id="epp2oSj" name="Vorangegangene Saisons:">
@@ -2513,7 +2513,7 @@
       </notes>
       <segment>
         <source>Kleine Stadt</source>
-        <target>Kleine Stadt</target>
+        <target>Pueblos Amateur</target>
       </segment>
     </unit>
     <unit id="bElrYkF" name="Entfernte Regionen">
@@ -2523,7 +2523,7 @@
       </notes>
       <segment>
         <source>Entfernte Regionen</source>
-        <target>Pueblos normales</target>
+        <target>Pueblos Leyenda</target>
       </segment>
     </unit>
     <unit id="7H7gGH1" name="Pandämonium">
@@ -2544,7 +2544,7 @@
       </notes>
       <segment>
         <source>Private Stadt</source>
-        <target>Private Stadt</target>
+        <target>Pueblos Privados</target>
       </segment>
     </unit>
     <unit id="G9tS6ug" name="Diese Sperre ist bis zu folgendem Zeitpunkt gültig:">
@@ -2555,7 +2555,7 @@
       </notes>
       <segment>
         <source>Diese Sperre ist bis zu folgendem Zeitpunkt gültig:</source>
-        <target>Diese Sperre ist bis zu folgendem Zeitpunkt gültig:</target>
+        <target>Esta restricción durará:</target>
       </segment>
     </unit>
     <unit id="gLe5bOG">
@@ -2566,7 +2566,7 @@
       </notes>
       <segment>
         <source>Wenn du der Meinung bist, fälschlicherweise gesperrt worden zu sein, kannst du dich im Weltforum melden.</source>
-        <target>Wenn du der Meinung bist, fälschlicherweise gesperrt worden zu sein, kannst du dich im Weltforum melden.</target>
+        <target>Si crees que has sido sancionado por error, puedes reportarlo en el Foro Mundial.</target>
       </segment>
     </unit>
     <unit id="4KXz4lN" name="ALLE SAISONS">
@@ -2617,7 +2617,7 @@
       </notes>
       <segment>
         <source>Spieler</source>
-        <target>Spieler</target>
+        <target>Jugador</target>
       </segment>
     </unit>
     <unit id="PBVB79s" name="Dein Account ist eingeschränkt!">
@@ -2648,7 +2648,7 @@
       </notes>
       <segment>
         <source>In Foren posten</source>
-        <target>In Foren posten</target>
+        <target>Escribir en los foros</target>
       </segment>
     </unit>
     <unit id="uNF4FkZ" name="Du verlierst die Schreibrechte im Stadtforum sowie allen Weltforen.">
@@ -2659,7 +2659,7 @@
       </notes>
       <segment>
         <source>Du verlierst die Schreibrechte im Stadtforum sowie allen Weltforen.</source>
-        <target>Du verlierst die Schreibrechte im Stadtforum sowie allen Weltforen.</target>
+        <target>No puedes escribir en el foro del pueblo ni en los foros Mundiales.</target>
       </segment>
     </unit>
     <unit id="AHcu..1" name="Kommunikation in der Stadt">
@@ -2670,7 +2670,7 @@
       </notes>
       <segment>
         <source>Kommunikation in der Stadt</source>
-        <target>Kommunikation in der Stadt</target>
+        <target>Comunicarse en el pueblo</target>
       </segment>
     </unit>
     <unit id="6yvyO_B">
@@ -2681,7 +2681,7 @@
       </notes>
       <segment>
         <source>Du kannst keine Stadtnachrichten schreiben sowie das Schwarze Brett oder den Zonenchat verwenden.</source>
-        <target>Du kannst keine Stadtnachrichten schreiben sowie das Schwarze Brett oder den Zonenchat verwenden.</target>
+        <target>No puedes escribir un Anuncio personal, escribir en la Pizarra de los héroes ni usar el chat del Ultramundo.</target>
       </segment>
     </unit>
     <unit id="74vPalP" name="Stadtübergreifende Kommunikation">
@@ -2692,7 +2692,7 @@
       </notes>
       <segment>
         <source>Stadtübergreifende Kommunikation</source>
-        <target>Stadtübergreifende Kommunikation</target>
+        <target>Enviar mensajes privados</target>
       </segment>
     </unit>
     <unit id="EKVv6mi" name="Du kannst keine Nachrichten über das Nachrichtenzentrum versenden.">
@@ -2703,7 +2703,7 @@
       </notes>
       <segment>
         <source>Du kannst keine Nachrichten über das Nachrichtenzentrum versenden.</source>
-        <target>Du kannst keine Nachrichten über das Nachrichtenzentrum versenden.</target>
+        <target>No puedes crear nuevas conversaciones ni responder a conversaciones existentes.</target>
       </segment>
     </unit>
     <unit id="4L8kPem" name="Kommentare">
@@ -2714,7 +2714,7 @@
       </notes>
       <segment>
         <source>Kommentare</source>
-        <target>Kommentare</target>
+        <target>Comentar</target>
       </segment>
     </unit>
     <unit id="wY7rEv4" name="Du kannst keine Letzten Worte übermitteln und keine Stadtkommentare verfassen.">
@@ -2725,7 +2725,7 @@
       </notes>
       <segment>
         <source>Du kannst keine Letzten Worte übermitteln und keine Stadtkommentare verfassen.</source>
-        <target>Du kannst keine Letzten Worte übermitteln und keine Stadtkommentare verfassen.</target>
+        <target>No puedes escribir Últimas palabras ni dejar comentarios en tus pueblos.</target>
       </segment>
     </unit>
     <unit id="cnYKFrt" name="Gruppenorganisation">
@@ -2736,7 +2736,7 @@
       </notes>
       <segment>
         <source>Gruppenorganisation</source>
-        <target>Gruppenorganisation</target>
+        <target>Organizarse</target>
       </segment>
     </unit>
     <unit id="hzqTzKz" name="Du kannst keine Kleinen Koalitionen gründen oder ihnen beitreten.">
@@ -2747,7 +2747,7 @@
       </notes>
       <segment>
         <source>Du kannst keine Kleinen Koalitionen gründen oder ihnen beitreten.</source>
-        <target>Du kannst keine Kleinen Koalitionen gründen oder ihnen beitreten.</target>
+        <target>No puedes crear nuevas alianzas ni unirte a alianzas existentes.</target>
       </segment>
     </unit>
     <unit id="WPixbld" name="Spielen">
@@ -2758,7 +2758,7 @@
       </notes>
       <segment>
         <source>Spielen</source>
-        <target>Spielen</target>
+        <target>Jugar</target>
       </segment>
     </unit>
     <unit id="VNOZ2rq">
@@ -2769,7 +2769,7 @@
       </notes>
       <segment>
         <source>Du kannst keinen Städten beitreten. Befindest du dich bereits in einer Stadt, kannst du dort keinerlei Aktionen mehr durchführen und keinen Stadtbildschirm aufrufen. Zudem verlierst du den Zugang zum Stadtforum.</source>
-        <target>Du kannst keinen Städten beitreten. Befindest du dich bereits in einer Stadt, kannst du dort keinerlei Aktionen mehr durchführen und keinen Stadtbildschirm aufrufen. Zudem verlierst du den Zugang zum Stadtforum.</target>
+        <target>No puedes unirte a nuevos pueblos; si ya estabas en un pueblo, no podrás realizar ninguna acción ni abrir una página del pueblo. Tampoco podrás seguir viendo el foro del Pueblo actual.</target>
       </segment>
     </unit>
     <unit id="wEtk74c">
@@ -2790,7 +2790,7 @@
       </notes>
       <segment>
         <source>Dauerhafte Beschränkung</source>
-        <target>Dauerhafte Beschränkung</target>
+        <target>Sanción permanente</target>
       </segment>
     </unit>
     <unit id="hP.wuNt" name="Ende der Beschränkung: {date}">
@@ -4081,7 +4081,7 @@
       </notes>
       <segment>
         <source>Icon</source>
-        <target>Icon</target>
+        <target>icono</target>
       </segment>
     </unit>
     <unit id="2LtMDJ7">
@@ -4142,7 +4142,7 @@
       </notes>
       <segment>
         <source>Links in eigenen Posts automatisch klickbar machen</source>
-        <target>Links in eigenen Posts automatisch klickbar machen</target>
+        <target>Crear un hipertexto automáticamente en tus enlaces</target>
       </segment>
     </unit>
     <unit id="5bKzAvY" name="Neuen Threads automatisch abonnieren">
@@ -4153,7 +4153,7 @@
       </notes>
       <segment>
         <source>Neuen Threads automatisch abonnieren</source>
-        <target>Neuen Threads automatisch abonnieren</target>
+        <target>Seguir automáticamente los nuevos temas</target>
       </segment>
     </unit>
     <unit id=".jLeZb1">
@@ -4164,7 +4164,7 @@
       </notes>
       <segment>
         <source>Ist diese Option aktiviert, abonnierst du automatisch allen Threads, die du selbst erstellt hast. Du kannst das Abonnement deiner Threads jederzeit manuell beenden.</source>
-        <target>Ist diese Option aktiviert, abonnierst du automatisch allen Threads, die du selbst erstellt hast. Du kannst das Abonnement deiner Threads jederzeit manuell beenden.</target>
+        <target>Si esta opción está activada, seguirás automáticamente los temas que crees. Puedes dejar de seguirlos manualmente cuando quieras.</target>
       </segment>
     </unit>
     <unit id="sZZiEzn" name="Absender wählen">
