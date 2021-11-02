@@ -601,8 +601,21 @@ class DebugCommand extends Command
             $table = new Table( $output );
             $table->setHeaders( ['Précision', 'Min1', 'Max1', 'Min2', 'Max2'] );
 
+            $old_way = $this->townHandler->get_zombie_estimation($town, null, false);
+            $new_way = $this->townHandler->get_zombie_estimation($town, null, true);
+            $estim = round($old_way[0]->getEstimation() * 100);
+
+            $table->addRow([
+                $estim,
+                $old_way[0]->getMin(),
+                $old_way[0]->getMax(),
+                $new_way[0]->getMin(),
+                $new_way[0]->getMax()
+            ]);
+
             foreach ($citizens as $citizen) {
                 if ($est->getCitizens()->contains($citizen)) continue;
+
                 $est->addCitizen($citizen);
 
                 try {

@@ -635,7 +635,7 @@ class TownHandler
             if ($offsetMin + $offsetMax > 10) {
                 $increase_min = $this->random->chance( $offsetMin / ($offsetMin + $offsetMax) );
                 $alter = $new_formula ? mt_rand(500, 2000) / 1000.0 : 1;
-                if ($this->random->chance(0.5)){
+                if ($this->random->chance(0.25)){
                     $offsetMin -= $alter;
                     $offsetMax -= $new_formula ? mt_rand(500, 2000) / 1000.0 : 1;
                 } else {
