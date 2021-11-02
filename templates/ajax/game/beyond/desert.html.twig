@@ -628,7 +628,7 @@
                                     {% if can_devour_citizen %}
                                         <button {% if not allow_devour_citizen %}disabled{% endif %} x-devour-citizen="{{ path('beyond_desert_devour_citizen_controller', {cid: other_citizen.id}) }}" class="small inline">
                                             <img alt="" src="{{ asset('build/images/roles/ghoul.gif') }}" style="margin-right: 0;" />
-                                            <div class="tooltip help">{{ 'Als Ghul solltest du jeden Tag einen anderen Spieler auffressen.' }}</div>
+                                            <div class="tooltip help">{{ 'Als Ghul solltest du jeden Tag einen anderen Spieler auffressen.'|trans({}, 'game') }}</div>
                                         </button>
                                     {% endif %}
                                     <button x-toggle-escort="0" x-escort-control-endpoint="{{ path('beyond_desert_escort_controller', {cid: other_citizen.id}) }}" class="small inline" ><img alt="" src="{{ asset('build/images/icons/escort_off.gif') }}" style="margin-right: 0;" />
@@ -777,7 +777,7 @@
                                         {% if can_devour_citizen %}
                                             <button {% if not allow_devour_citizen or citizen_hidden %}disabled{% endif %} x-devour-citizen="{{ path('beyond_desert_devour_citizen_controller', {cid: other_citizen.id}) }}" class="small inline">
                                                 <img alt="" src="{{ asset('build/images/roles/ghoul.gif') }}" style="margin-right: 0;" />
-                                                <div class="tooltip help">{{ 'Als Ghul solltest du jeden Tag einen anderen Spieler auffressen.' }}</div>
+                                                <div class="tooltip help">{{ 'Als Ghul solltest du jeden Tag einen anderen Spieler auffressen.'|trans({}, 'game') }}</div>
                                             </button>
                                         {% endif %}
                                         {% if other_citizen.escortSettings is not null and other_citizen.escortSettings.leader is null %}
