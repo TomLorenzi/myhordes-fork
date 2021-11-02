@@ -694,7 +694,7 @@ export default class TwinoAlikeParser {
                 let result = null;
                 let found = false;
 
-                while (result = /\b((?:https?|ftps?):\/\/[\S]*)\b/g.exec( str )) {
+                while (result = /\b((?:https?|ftps?):\/\/[^\s{}[\]<>]*)\b/g.exec( str )) {
                     found = true;
 
                     let a = document.createElement('a');
