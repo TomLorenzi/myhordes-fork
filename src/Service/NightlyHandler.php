@@ -45,6 +45,7 @@ class NightlyHandler
     private array $skip_infection = [];
     private bool $exec_firework = false;
     private ?Building $upgraded_building = null;
+    private bool $exec_reactor = false;
     private array $deferred_log_entries = [];
 
     private EntityManagerInterface $entity_manager;
@@ -285,6 +286,7 @@ class NightlyHandler
                 }
 
                 $gazette->setReactorExplosion(true);
+                $this->exec_reactor = true;
                 $this->entity_manager->persist($gazette);
 
             } else {
@@ -1598,8 +1600,13 @@ class NightlyHandler
         $this->stage2_pre_attack_buildings($town);
         $this->stage2_building_effects($town);
         $this->stage2_day($town);
-        $this->stage2_surprise_attack($town);
-        $this->stage2_attack($town);
+
+        if (!$this->exec_reactor) {
+            $this->stage2_surprise_attack($town);
+            $this->stage2_attack($town);
+        } else foreach ($this->deferred_log_entries as $deferred_log_entry)
+            $this->entity_manager->persist( $deferred_log_entry );
+
         $this->stage2_post_attack_buildings($town);
         $this->stage2_post_attack_building_effects($town);
 
