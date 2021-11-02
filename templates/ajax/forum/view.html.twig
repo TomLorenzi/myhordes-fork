@@ -34,7 +34,7 @@
                 {# @var thread \App\Entity\Thread #}
                 <div class="padded cell factor-0 rw-1 status">
                     {% if thread.locked %}
-                        <img alt="" src="{{ asset('build/images/icons/lock.gif') }}" />
+                        <img style="position: absolute" alt="" src="{{ asset('build/images/icons/lock.gif') }}" />
                     {% else %}
                         &nbsp;
                     {% endif %}
