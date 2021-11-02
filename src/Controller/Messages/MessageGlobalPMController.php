@@ -1029,7 +1029,9 @@ class MessageGlobalPMController extends MessageController
         if ($this->userHandler->isRestricted( $user, AccountRestriction::RestrictionGlobalCommunication ))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
-        if (!$parser->has_all(['title','content','users'], true))
+        if (!$parser->has_all(['title','content'], true))
+            return AjaxResponse::error(self::ErrorPostTitleTextMissing);
+        if (!$parser->has_all(['users'], true))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $user_ids = $parser->get('users');

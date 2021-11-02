@@ -235,7 +235,7 @@ class MessageForumController extends MessageController
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         if (!$parser->has_all(['title','text'], true))
-            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+            return AjaxResponse::error(self::ErrorPostTitleTextMissing );
 
 
         $title = $parser->trimmed('title');

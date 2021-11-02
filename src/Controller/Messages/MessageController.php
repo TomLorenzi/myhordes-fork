@@ -46,6 +46,7 @@ class MessageController extends CustomAbstractController
     const ErrorGPMMemberLimitHit = ErrorHelper::BaseForumErrors + 6;
     const ErrorGPMThreadLimitHit = ErrorHelper::BaseForumErrors + 7;
     const ErrorPMItemChaosOut    = ErrorHelper::BaseForumErrors + 8;
+    const ErrorPostTitleTextMissing  = ErrorHelper::BaseForumErrors + 9;
 
     protected HTMLService $html;
     protected RandomGenerator $rand;

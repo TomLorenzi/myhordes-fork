@@ -3939,5 +3939,15 @@
         <target>No results</target>
       </segment>
     </unit>
+    <unit id="mYGmtAE" name="Deine Nachricht benötigt einen Titel sowie Inhalt.">
+      <notes>
+        <note category="german">Deine Nachricht benötigt einen Titel sowie Inhalt.</note>
+        <note category="from">twig:///templates/scripts/errors/forum.txt.twig</note>
+      </notes>
+      <segment>
+        <source>Deine Nachricht benötigt einen Titel sowie Inhalt.</source>
+        <target>Your message must have content and a title.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

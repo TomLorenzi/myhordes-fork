@@ -2433,5 +2433,11 @@
         <target>Keine Ergebnisse</target>
       </segment>
     </unit>
+    <unit id="mYGmtAE" name="Deine Nachricht benötigt einen Titel sowie Inhalt.">
+      <segment>
+        <source>Deine Nachricht benötigt einen Titel sowie Inhalt.</source>
+        <target>Deine Nachricht benötigt einen Titel sowie Inhalt.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -22,7 +22,7 @@ class ErrorHelper
     const BaseAPIErrors           = 1000;
 
     const BaseForumErrors         = 1100;
-    
+
     const ErrorBannedFromForum    = 1201;
 
     const BaseAvatarErrors        = 1300;
