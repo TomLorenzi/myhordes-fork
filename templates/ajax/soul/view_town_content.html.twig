@@ -10,6 +10,11 @@
     {{ help_lnk('Der Tod und die Berechnung der Seelepunkte'|trans({}, 'help'), 'help', {'name': 'death_and_soul_points'}) }}
     <div class="row">
         <div class="padded cell ro-3 rw-6 ro-md-1 rw-md-10 ro-sm-0 rw-sm-12">
+
+            {% if town.town and town.town.citizens|filter(c=>c.alive) is not empty %}
+                <div class="note note-critical">{{ 'Wenn man den letzten Neuigkeiten Glauben schenken darf, gibt es in dieser Stadt noch Überlebende!'|trans({},'soul') }}</div>
+            {% endif %}
+
             {% if user_name is defined %}
                 <button class="center" x-ajax-href="{{ base_path }}">{{ 'Zurück zur Kartei von {player}'|trans({ player: '<strong>'~user_name~'</strong>' },'soul')|raw }}</button>
             {% else %}

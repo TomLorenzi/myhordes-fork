@@ -4154,5 +4154,15 @@
         <target>Absender wählen</target>
       </segment>
     </unit>
+    <unit id="X_Adc53">
+      <notes>
+        <note category="german">Wenn man den letzten Neuigkeiten Glauben schenken darf, gibt es in dieser Stadt noch Überlebende!</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Wenn man den letzten Neuigkeiten Glauben schenken darf, gibt es in dieser Stadt noch Überlebende!</source>
+        <target>Según las últimas noticias, ¡aún quedarían supervivientes en este pueblo!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

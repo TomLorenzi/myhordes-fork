@@ -2570,5 +2570,11 @@
         <target>Absender wählen</target>
       </segment>
     </unit>
+    <unit id="X_Adc53">
+      <segment>
+        <source>Wenn man den letzten Neuigkeiten Glauben schenken darf, gibt es in dieser Stadt noch Überlebende!</source>
+        <target>Wenn man den letzten Neuigkeiten Glauben schenken darf, gibt es in dieser Stadt noch Überlebende!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
