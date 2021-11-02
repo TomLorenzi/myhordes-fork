@@ -10,6 +10,10 @@
         const fun_refresh = function(d,bg) {
             let payload = {
                 day: d
+                {#  for the Admin section ! #}
+                {% if town is defined %}
+                , town: {{town.id}}
+                {% endif %}
             };
 
             let filters = document.querySelectorAll("[x-filter-name]");
@@ -41,10 +45,6 @@
                 const max = parseInt(control_tab.getAttribute( 'x-page-max' ));
                 let   cur = parseInt(control_tab.getAttribute( 'x-page-current' ));
 
-                /*let control_fwd = control_tab.querySelector( 'div.control:first-child' );
-                let control_bwd = control_tab.querySelector( 'div.control:last-child' );
-                let label       = control_tab.querySelector( 'span' );*/
-
                 const fun_adjust = function(dif) {
                     if ((dif > 0 && cur <= (max-dif)) || (dif < 0 && cur >= (min-dif))) {
                         cur += dif;
@@ -61,9 +61,6 @@
                     this.classList.add("current");
                     fun_refresh(this.getAttribute('x-day'), false);
                 });
-
-                /*control_fwd.addEventListener('click', function() { fun_adjust(+1) });
-                control_bwd.addEventListener('click', function() { fun_adjust(-1) });*/
             }
         }
     }

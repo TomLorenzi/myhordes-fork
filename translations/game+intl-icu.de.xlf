@@ -14780,5 +14780,11 @@
         <target>{citizen} hat bei dir daheim den Alarm ausgelöst, als er (sie) um {time} versuchte bei dir einzubrechen!</target>
       </segment>
     </unit>
+    <unit id="CByaH.z" name="Als Ghul solltest du jeden Tag einen anderen Spieler auffressen.">
+      <segment>
+        <source>Als Ghul solltest du jeden Tag einen anderen Spieler auffressen.</source>
+        <target>Als Ghul solltest du jeden Tag einen anderen Spieler auffressen.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

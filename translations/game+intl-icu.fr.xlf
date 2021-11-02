@@ -23176,5 +23176,27 @@ cette violente opération...]]></target>
         <target>Le citoyen {citizen} a déclenché votre alarme en tentant de rentrer chez vous à exactement {time} !</target>
       </segment>
     </unit>
+    <unit id="OP561Ld">
+      <notes>
+        <note category="german">Resigniert und untröstlich sahen die Bürger, wie eine Horde von {num} Zombies sich in Richtung Stadt bewegte... Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...</note>
+        <note category="from">db://LogEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Resigniert und untröstlich sahen die Bürger, wie eine Horde von {num} Zombies sich in Richtung Stadt bewegte... Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...</source>
+        <target>Resigniert und untröstlich sahen die Bürger, wie eine Horde von {num} Zombies sich in Richtung Stadt bewegte... Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...</target>
+      </segment>
+    </unit>
+    <unit id="CByaH.z" name="Als Ghul solltest du jeden Tag einen anderen Spieler auffressen.">
+      <notes>
+        <note category="german">Als Ghul solltest du jeden Tag einen anderen Spieler auffressen.</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Als Ghul solltest du jeden Tag einen anderen Spieler auffressen.</source>
+        <target>Als Ghul solltest du jeden Tag einen anderen Spieler auffressen.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
