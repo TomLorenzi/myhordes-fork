@@ -346,7 +346,9 @@ class HTMLService {
                             if (!$c->getProfession()->getHeroic()) return false;
                         } elseif ($profession === 'shunned') {
                             if (!$c->getBanished()) return false;
-                        } elseif ($c->getProfession()->getName() !== $profession) return false;
+                        }
+                        elseif ($profession === 'shaman' && $c->getProfession()->getName() !== $profession && !$c->hasRole('shaman')) return false;
+                        elseif ($c->getProfession()->getName() !== $profession) return false;
                     }
 
                     if ($group !== null) {
