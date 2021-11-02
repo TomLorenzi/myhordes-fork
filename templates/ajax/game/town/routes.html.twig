@@ -16,7 +16,7 @@
     </div>
 
     <div class="row">
-        <div class="cell padded header rw-6 row-table routes-list">
+        <div class="cell padded header rw-6 rw-lg-12 row-table routes-list">
             {% if routes|length > 0 %}
             <div class="row header">
                 <div class="padded cell rw-4">{{ 'Expeditionen'|trans({},'game') }}</div>
@@ -37,7 +37,7 @@
             <button x-ajax-href="{{ path('town_planner') }}">{{ 'Eine Expedition Erstellen'|trans({}, 'game') }}</button>
             {% endif %}
         </div>
-        <div class="padded cell rw-6">
+        <div class="padded cell rw-6 rw-lg-12">
             {% embed "ajax/game/map.html.twig" with {'default_zoom': 0, 'default_show_zone': false, 'allow_zone_view': false, 'in_town': true, 'map': map_data, 'chaos': town.chaos} %}
             {% endembed %}
         </div>
