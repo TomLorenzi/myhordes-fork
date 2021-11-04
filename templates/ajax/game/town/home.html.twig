@@ -536,7 +536,7 @@
                         {% if (next_level.ap > 0) %}(<div class="ap">{{ next_level.ap }}</div>){% endif %}
                     </button>
                     {% if not devastated %}
-                        {{ tooltip('<em>Du kannst dein Haus ausbauen und so für eine bessere Verteidigung sorgen. <strong>Wichtige Anmerkung:</strong> Vielleicht wäre es sinnvoller, die dafür benötigten Ressourcen (falls erforderlich) der Stadt zu spenden?</em>'|trans({}, 'game')) }}
+                        {{ tooltip('<em>Du kannst dein Haus ausbauen und so für eine bessere Verteidigung sorgen. <strong>Wichtige Anmerkung:</strong> Vielleicht wäre es sinnvoller, die dafür benötigten Ressourcen (falls erforderlich) der Stadt zu spenden?</em>'|trans({}, 'game'), 'normal') }}
                     {% endif %}
                 </div>
                 <div class="padded cell rw-7 rw-md-12">
