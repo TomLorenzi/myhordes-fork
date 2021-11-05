@@ -431,7 +431,7 @@
       </notes>
       <segment>
         <source>Admin-Wachturm</source>
-        <target>TDG de l'administrateur</target>
+        <target>TDG</target>
       </segment>
     </unit>
     <unit id="OEOXHc." name="ID">
@@ -737,7 +737,7 @@
       </notes>
       <segment>
         <source>Ruinenscanner</source>
-        <target>Infos sur les ruines</target>
+        <target>Ruines</target>
       </segment>
     </unit>
     <unit id="bQMa8Q2" name="Position">
@@ -999,7 +999,7 @@
       </notes>
       <segment>
         <source>Stadtregister</source>
-        <target>Registre de la ville</target>
+        <target>Registre</target>
       </segment>
     </unit>
     <unit id="yu8TLDr" name="Du hast dich umgebracht.">
@@ -3892,7 +3892,7 @@
       </notes>
       <segment>
         <source>Regelsatz</source>
-        <target>Règles de la ville</target>
+        <target>Règles</target>
       </segment>
     </unit>
     <unit id="SwnNAc0" name="Regel">
