@@ -785,7 +785,7 @@ class NightlyHandler
             // zombies - amount of zombies killed by the watch
             $damageInflicted = round(($zombies - ( $initial_overflow - $overflow )) * 0.2);
 
-            $this->log->debug("Inflicting <info>$damageInflicted</info> damage to the buildings in town...");
+            $this->log->info("Inflicting <info>$damageInflicted</info> damage to the buildings in town...");
 
             $targets = [];
 
@@ -801,12 +801,15 @@ class NightlyHandler
             while ($damageInflicted > 0 && !empty($targets)) {
                 $target = array_pop($targets);
 
-                $damages = min($damageInflicted, $target->getHp(), mt_rand(ceil($target->getPrototype()->getHp() * 0.1), ceil($target->getPrototype()->getHp() * 0.7)));
+                //$damages = min($damageInflicted, $target->getHp(), mt_rand(ceil($target->getPrototype()->getHp() * 0.1), ceil($target->getPrototype()->getHp() * 0.7)));
+                $damages = min($damageInflicted, $target->getHp(), mt_rand(ceil($target->getPrototype()->getHp() * 0.1), $target->getPrototype()->getHp()));
 
                 if ($damages <= 0) continue;
 
-                $this->log->debug("The <info>{$target->getPrototype()->getLabel()}</info> has taken <info>$damages</info> damages.");
-                $target->setHp(max(0, $target->getHp() - $damages));
+                $realDamage = min($damages, ceil($target->getPrototype()->getHp() * 0.7));
+
+                $this->log->info("The <info>{$target->getPrototype()->getLabel()}</info> has taken <info>$realDamage</info> damages.");
+                $target->setHp(max(0, $target->getHp() - $realDamage));
 
                 if($target->getPrototype()->getDefense() > 0){
                     $newDef = round(max(0, $target->getPrototype()->getDefense() * $target->getHp() / $target->getPrototype()->getHp()));
@@ -815,10 +818,11 @@ class NightlyHandler
                 }
 
                 if($target->getHp() <= 0){
-                    $this->entity_manager->persist($this->logTemplates->constructionsDestroy($town, $target->getPrototype(), $damages ));
+                    $this->log->info("<info>{$target->getPrototype()->getLabel()}</info> is now destroyed !");
+                    $this->entity_manager->persist($this->logTemplates->constructionsDestroy($town, $target->getPrototype(), $realDamage ));
                     $this->town_handler->destroy_building($town, $target);
                 } else {
-                    $this->entity_manager->persist($this->logTemplates->constructionsDamage($town, $target->getPrototype(), $damages ));
+                    $this->entity_manager->persist($this->logTemplates->constructionsDamage($town, $target->getPrototype(), $realDamage ));
                 }
 
                 $damageInflicted -= $damages;
