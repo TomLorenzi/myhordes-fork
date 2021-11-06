@@ -23280,7 +23280,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Als Ghul solltest du jeden Tag einen anderen Spieler auffressen.</source>
-        <target>Als Ghul solltest du jeden Tag einen anderen Spieler auffressen.</target>
+        <target>As a ghoul, you can devour another citizen once per day to satisfy your overwhelming thirst for blood.</target>
       </segment>
     </unit>
     <unit id="Lx3BlQN">
