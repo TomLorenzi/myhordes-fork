@@ -7,10 +7,6 @@ use App\Entity\ActionCounter;
 use App\Entity\Citizen;
 use App\Entity\CitizenProfession;
 use App\Entity\CauseOfDeath;
-use App\Entity\Complaint;
-use App\Entity\Gazette;
-use App\Entity\GazetteEntryTemplate;
-use App\Entity\GazetteLogEntry;
 use App\Entity\HeroicActionPrototype;
 use App\Entity\HeroSkillPrototype;
 use App\Entity\ItemPrototype;
@@ -18,11 +14,11 @@ use App\Entity\LogEntryTemplate;
 use App\Entity\SpecialActionPrototype;
 use App\Entity\TownLogEntry;
 use App\Entity\User;
-use App\Entity\Zone;
 use App\Response\AjaxResponse;
 use App\Service\CitizenHandler;
 use App\Service\ConfMaster;
 use App\Service\ErrorHelper;
+use App\Service\GazetteService;
 use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
 use App\Service\JSONRequestParser;
@@ -33,18 +29,11 @@ use App\Service\TownHandler;
 use App\Service\UserHandler;
 use App\Structures\ItemRequest;
 use App\Structures\TownConf;
-use App\Translation\T;
-use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
-use DateTime;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
-use Symfony\Component\Validator\Constraints;
-use Symfony\Component\Validator\ConstraintViolationInterface;
-use Symfony\Component\Validator\Context\ExecutionContextInterface;
-use Symfony\Component\Validator\Validation;
 
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
@@ -55,14 +44,20 @@ class GameController extends CustomAbstractController
 {
     private LogTemplateHandler $logTemplateHandler;
     private UserHandler $user_handler;
+    private TownHandler $town_handler;
+    private PictoHandler $picto_handler;
+    private GazetteService $gazette_service;
 
-    public function __construct(EntityManagerInterface $em, TranslatorInterface $translator, LogTemplateHandler $lth, TimeKeeperService $tk, CitizenHandler $ch, UserHandler $uh, TownHandler $th, ConfMaster $conf, PictoHandler $ph, InventoryHandler $ih)
+    public function __construct(EntityManagerInterface $em, TranslatorInterface $translator, LogTemplateHandler $lth,
+                                TimeKeeperService $tk, CitizenHandler $ch, UserHandler $uh, TownHandler $th,
+                                ConfMaster $conf, PictoHandler $ph, InventoryHandler $ih, GazetteService $gs)
     {
         parent::__construct($conf, $em, $tk, $ch, $ih, $translator);
         $this->logTemplateHandler = $lth;
         $this->user_handler = $uh;
         $this->town_handler = $th;
         $this->picto_handler = $ph;
+        $this->gazette_service = $gs;
     }
 
     protected function getActiveCitizen(): Citizen {
@@ -176,7 +171,7 @@ class GameController extends CustomAbstractController
             'show_town_link'  => $in_town,
             'day' => $town->getDay(),
             'log' => $show_register ? $this->renderLog( -1, null, false, null, 50 )->getContent() : "",
-            'gazette' => $this->town_handler->renderGazette($town),
+            'gazette' => $this->gazette_service->renderGazette($town),
             'citizensWithRole' => $citizensWithRole,
             'town' => $town
         ]));

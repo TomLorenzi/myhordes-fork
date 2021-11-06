@@ -10,28 +10,43 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class GazetteEntryTemplate
 {
-    const TypeGazetteNews          = 1;
-    const TypeGazetteNoDeaths      = 2;
-    const TypeGazetteOneDeath      = 3;
-    const TypeGazetteTwoDeaths     = 4;
-    const TypeGazetteMultiDeaths   = 5;
-    const TypeGazetteSuicide       = 6;
-    const TypeGazetteAddiction     = 7;
-    const TypeGazetteDehydration   = 8;
-    const TypeGazettePoison        = 9;
-    const TypeGazetteVanished      = 10;
-    const TypeGazetteWind          = 11;
-    const TypeGazetteReactor       = 12;
+    const TypeGazetteNews               = 1;
+    const TypeGazetteNoDeaths           = 2;
+    const TypeGazetteOneDeath           = 3;
+    const TypeGazetteTwoDeaths          = 4;
+    const TypeGazetteMultiDeaths        = 5;
+    const TypeGazetteSuicide            = 6;
+    const TypeGazetteAddiction          = 7;
+    const TypeGazetteDehydration        = 8;
+    const TypeGazettePoison             = 9;
+    const TypeGazetteVanished           = 10;
+    const TypeGazetteWind               = 11;
+    const TypeGazetteReactor            = 12;
+    const TypeGazetteShamanDeath        = 13;
+    const TypeGazetteGuideDeath         = 14;
+    const TypeGazetteGuideShamanDeath   = 15;
+    const TypeGazetteRedSoul            = 16;
+    const TypeGazetteMultiDehydration   = 17;
+    const TypeGazetteHanging            = 18;
+    const TypeGazetteMultiSuicide       = 19;
+    const TypeGazetteMultiInfection     = 20;
+    const TypeGazetteInfection          = 21;
+    const TypeGazetteDeathWithDoorOpen  = 22;
+    const TypeGazetteFlavour            = 23;
+    const TypeGazetteMultiVanished      = 24;
 
     const RequiresNothing       =  0;
 
+    const BaseRequirementCitizen = 10;
     const RequiresOneCitizen    = 11;
     const RequiresTwoCitizens   = 12;
     const RequiresThreeCitizens = 13;
 
+    const BaseRequirementCadaver = 20;
     const RequiresOneCadaver    = 21;
     const RequiresTwoCadavers   = 22;
 
+    const BaseRequirementCitizenCadaver = 30;
     const RequiresOneOfEach     = 31;
     const RequiresTwoOfEach     = 32;
 
@@ -40,8 +55,18 @@ class GazetteEntryTemplate
     const RequiresDeaths        = 42;
     const RequiresInvasion      = 43;
     const RequiresAttackDeaths  = 44;
+    const RequiresMultipleDehydrations  = 45;
+    const RequiresMultipleSuicides      = 46;
+    const RequiresMultipleInfections    = 47;
+    const RequiresMultipleVanished      = 48;
 
+    const BaseRequirementCitizenInTown = 50;
     const RequiresTwoCitizensInTown = 52;
+
+    const FollowUpTypeNone  = 0;
+    const FollowUpTypeDoubt = 1;
+    const FollowUpTypeBad   = 2;
+
 
     /**
      * @ORM\Id
@@ -74,6 +99,11 @@ class GazetteEntryTemplate
      * @ORM\Column(type="array", nullable=true)
      */
     private $variableTypes = [];
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $followUpType;
 
     public function getId(): ?int
     {
@@ -136,6 +166,18 @@ class GazetteEntryTemplate
     public function setVariableTypes(?array $variableTypes): self
     {
         $this->variableTypes = $variableTypes;
+
+        return $this;
+    }
+
+    public function getFollowUpType(): ?int
+    {
+        return $this->followUpType;
+    }
+
+    public function setFollowUpType(int $followUpType): self
+    {
+        $this->followUpType = $followUpType;
 
         return $this;
     }

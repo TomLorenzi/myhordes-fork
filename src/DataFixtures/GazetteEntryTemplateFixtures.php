@@ -16,7 +16,7 @@ class GazetteEntryTemplateFixtures extends Fixture
         // Gazette: Fun Texts
         ['text'=>'Gestern war ein unbedeutender Tag. Einem Gerücht zufolge wurden {citizen1} und {citizen2} dabei beobachtet, wie sie zusammen im Brunnen badeten. Wenn morgen alle mit einer Pilzinfektion flach liegen, ist ja wohl klar, an wem das lag.',
             'name'=>'gazetteFun_001',
-            'type'=>GazetteEntryTemplate::TypeGazetteNews,
+            'type'=>GazetteEntryTemplate::TypeGazetteFlavour,
             'requirement'=>GazetteEntryTemplate::RequiresTwoCitizens,
             'variableTypes'=>[
                 ['type'=>"citizen", 'name'=>'citizen1'],
@@ -25,11 +25,29 @@ class GazetteEntryTemplateFixtures extends Fixture
         ],
         ['text'=>'Was für ein denkwürdiger Tag! Die Zombies spielten keine Rolle mehr, nachdem {citizen1} zur Mittagszeit nackt auf der Mauer einmal um die Stadt rannte. Kommentar von {citizen2} dazu: "Der Anblick war nicht von schlechten Eltern."',
             'name'=>'gazetteFun_002',
-            'type'=>GazetteEntryTemplate::TypeGazetteNews,
+            'type'=>GazetteEntryTemplate::TypeGazetteFlavour,
             'requirement'=>GazetteEntryTemplate::RequiresTwoCitizens,
             'variableTypes'=>[
                 ['type'=>"citizen", 'name'=>'citizen1'],
                 ['type'=>"citizen", 'name'=>'citizen2'],
+            ],
+        ],
+        ['text'=>'Anmerkung: einer der {attack} Zombies, die letzte Nacht angegriffen haben, wurde <strong>im Brunnen</strong> gefunden... Ich rate euch dringend davon ab, heute Morgen Wasser zu trinken, sonst fangt ihr euch noch eine Infektion ein...',
+            'name'=>'gazetteFun_004',
+            'type'=>GazetteEntryTemplate::TypeGazetteFlavour,
+            'requirement'=>GazetteEntryTemplate::RequiresInvasion,
+            'fot' => GazetteEntryTemplate::FollowUpTypeDoubt,
+            'variableTypes'=>[
+                ['type'=>"num", 'name'=>'attack']
+            ],
+        ],
+        ['text'=>'Außerdem haben mehrere Zombies unerwartet die <strong>Arbeiten</strong> am Westflügel genutzt, um in die Stadt einzudringen und {deaths} Menschen zu verschlingen... Ihr sollten <strong>eure Baustellen besser nicht so ungesichert lassen</strong>.',
+            'name'=>'gazetteFun_003',
+            'type'=>GazetteEntryTemplate::TypeGazetteFlavour,
+            'requirement'=>GazetteEntryTemplate::RequiresAttackDeaths,
+            'fot' => GazetteEntryTemplate::FollowUpTypeBad,
+            'variableTypes'=>[
+                ['type'=>"num", 'name'=>'deaths'],
             ],
         ],
 
@@ -233,6 +251,7 @@ class GazetteEntryTemplateFixtures extends Fixture
             'name'=>'gazetteTownTwoDeaths_001',
             'type'=>GazetteEntryTemplate::TypeGazetteTwoDeaths,
             'requirement'=>GazetteEntryTemplate::RequiresTwoCadavers,
+            'fot' => GazetteEntryTemplate::FollowUpTypeBad,
             'variableTypes'=>[
                 ['type'=>"citizen",'name'=>'cadaver1'],
                 ['type'=>"citizen",'name'=>'cadaver2'],
@@ -242,6 +261,7 @@ class GazetteEntryTemplateFixtures extends Fixture
             'name'=>'gazetteTownTwoDeaths_002',
             'type'=>GazetteEntryTemplate::TypeGazetteTwoDeaths,
             'requirement'=>GazetteEntryTemplate::RequiresTwoCadavers,
+            'fot' => GazetteEntryTemplate::FollowUpTypeBad,
             'variableTypes'=>[
                 ['type'=>"citizen",'name'=>'cadaver1'],
                 ['type'=>"citizen",'name'=>'cadaver2'],
@@ -253,6 +273,7 @@ class GazetteEntryTemplateFixtures extends Fixture
             'name'=>'gazetteTownMultiDeaths_001',
             'type'=>GazetteEntryTemplate::TypeGazetteMultiDeaths,
             'requirement'=>GazetteEntryTemplate::RequiresDeaths,
+            'fot' => GazetteEntryTemplate::FollowUpTypeBad,
             'variableTypes'=>[
                 ['type'=>"num",'name'=>'deaths'],
             ],
@@ -261,6 +282,7 @@ class GazetteEntryTemplateFixtures extends Fixture
             'name'=>'gazetteTownMultiDeaths_002',
             'type'=>GazetteEntryTemplate::TypeGazetteMultiDeaths,
             'requirement'=>GazetteEntryTemplate::RequiresDeaths,
+            'fot' => GazetteEntryTemplate::FollowUpTypeBad,
             'variableTypes'=>[
                 ['type'=>"num",'name'=>'deaths'],
             ],
@@ -269,6 +291,7 @@ class GazetteEntryTemplateFixtures extends Fixture
             'name'=>'gazetteTownMultiDeaths_003',
             'type'=>GazetteEntryTemplate::TypeGazetteMultiDeaths,
             'requirement'=>GazetteEntryTemplate::RequiresDeaths,
+            'fot' => GazetteEntryTemplate::FollowUpTypeBad,
             'variableTypes'=>[
                 ['type'=>"num",'name'=>'deaths'],
             ],
@@ -277,6 +300,7 @@ class GazetteEntryTemplateFixtures extends Fixture
             'name'=>'gazetteTownMultiDeaths_004',
             'type'=>GazetteEntryTemplate::TypeGazetteMultiDeaths,
             'requirement'=>GazetteEntryTemplate::RequiresDeaths,
+            'fot' => GazetteEntryTemplate::FollowUpTypeBad,
             'variableTypes'=>[
                 ['type'=>"num",'name'=>'deaths'],
             ],
@@ -285,12 +309,14 @@ class GazetteEntryTemplateFixtures extends Fixture
             'name'=>'gazetteTownMultiDeaths_005',
             'type'=>GazetteEntryTemplate::TypeGazetteMultiDeaths,
             'requirement'=>GazetteEntryTemplate::RequiresNothing,
+            'fot' => GazetteEntryTemplate::FollowUpTypeBad,
             'variableTypes'=>[],
         ],
         ['text'=>'Wir müssen uns beeilen; unsere Unfähigkeit, zufriedenstellende Verteidigungsanlagen zu errichten, kostete letzte Nacht {deaths} Bürgern das Leben. Zu eurer Information: Gestern Abend wurde die Stadt von {attack} Zombies angegriffen.',
             'name'=>'gazetteTownMultiDeaths_006',
             'type'=>GazetteEntryTemplate::TypeGazetteMultiDeaths,
             'requirement'=>GazetteEntryTemplate::RequiresAttackDeaths,
+            'fot' => GazetteEntryTemplate::FollowUpTypeBad,
             'variableTypes'=>[
                 ['type'=>"num",'name'=>'deaths'],
                 ['type'=>"num",'name'=>'attack'],
@@ -300,6 +326,7 @@ class GazetteEntryTemplateFixtures extends Fixture
             'name'=>'gazetteTownMultiDeaths_007',
             'type'=>GazetteEntryTemplate::TypeGazetteMultiDeaths,
             'requirement'=>GazetteEntryTemplate::RequiresDeaths,
+            'fot' => GazetteEntryTemplate::FollowUpTypeBad,
             'variableTypes'=>[
                 ['type'=>"num",'name'=>'deaths'],
             ],
@@ -308,6 +335,7 @@ class GazetteEntryTemplateFixtures extends Fixture
             'name'=>'gazetteTownMultiDeaths_008',
             'type'=>GazetteEntryTemplate::TypeGazetteMultiDeaths,
             'requirement'=>GazetteEntryTemplate::RequiresDeaths,
+            'fot' => GazetteEntryTemplate::FollowUpTypeBad,
             'variableTypes'=>[
                 ['type'=>"num",'name'=>'deaths'],
             ],
@@ -316,9 +344,49 @@ class GazetteEntryTemplateFixtures extends Fixture
             'name'=>'gazetteTownMultiDeaths_009',
             'type'=>GazetteEntryTemplate::TypeGazetteMultiDeaths,
             'requirement'=>GazetteEntryTemplate::RequiresDeaths,
+            'fot' => GazetteEntryTemplate::FollowUpTypeBad,
             'variableTypes'=>[
                 ['type'=>"num",'name'=>'deaths'],
             ],
+        ],
+        ['text'=>'Bemerkenswert: Die Tür wurde über Nacht offen gelassen. Den Aufzeichnungen zufolge ist es {cadaver1}, der dafür verantwortlich ist. Nun, es ist immer noch in Ordnung... Trotz dieses Fehlers gab es nicht allzu viele Opfer.',
+            'name'=>'gazetteTownDeathsDoor_001',
+            'type'=>GazetteEntryTemplate::TypeGazetteDeathWithDoorOpen,
+            'requirement'=>GazetteEntryTemplate::RequiresOneCadaver,
+            'fot' => GazetteEntryTemplate::FollowUpTypeDoubt,
+            'variableTypes'=>[
+                ['type'=>"citizen",'name'=>'cadaver1'],
+            ],
+        ],
+
+        // Shaman Death
+        ['text'=>'Außerdem wäre es gut, daran zu denken, dass der Schamane der Stadt letzte Nacht gestorben ist. Heute Abend findet eine Neuwahl statt, bei der ein neuer Kandidat aus den Reihen der Überlebenden gewählt wird.',
+            'name'=>'gazetteTownDeadShaman_001',
+            'type'=>GazetteEntryTemplate::TypeGazetteShamanDeath,
+            'requirement'=>GazetteEntryTemplate::RequiresNothing,
+            'variableTypes'=>[],
+        ],
+        ['text'=>'Halten wir kurz inne und gedenken unserem verlorenen Schamanen. Auf Wiedersehen, nutzloser Scharlatan! Wer ist motiviert, ihn zu ersetzen?',
+            'name'=>'gazetteTownDeadShaman_002',
+            'type'=>GazetteEntryTemplate::TypeGazetteShamanDeath,
+            'requirement'=>GazetteEntryTemplate::RequiresNothing,
+            'variableTypes'=>[],
+        ],
+
+        // Guide death
+        ['text'=>'Unser geliebter Reiseleiter in der Außenwelt ist gestern verstorben. Heute Abend findet eine Neuwahl statt, bei der ein neuer Kandidat aus den Reihen der Überlebenden gewählt wird.',
+            'name'=>'gazetteTownDeadGuide_001',
+            'type'=>GazetteEntryTemplate::TypeGazetteGuideDeath,
+            'requirement'=>GazetteEntryTemplate::RequiresNothing,
+            'variableTypes'=>[],
+        ],
+
+        // Shaman & Guide death
+        ['text'=>'Tolle Leistung gestern Abend, der Schamane und der Reiseleiter in der Außenwelt sind beide tot, daher könnte der heutige Tag etwas eintönig werden. Heute Abend findet eine Neuwahl aus den Reihen der Überlebenden statt.',
+            'name'=>'gazetteTownDeadShamanGuide_001',
+            'type'=>GazetteEntryTemplate::TypeGazetteGuideShamanDeath,
+            'requirement'=>GazetteEntryTemplate::RequiresNothing,
+            'variableTypes'=>[],
         ],
 
         // Suicide Death
@@ -330,14 +398,80 @@ class GazetteEntryTemplateFixtures extends Fixture
                 ['type'=>"citizen",'name'=>'cadaver1'],
             ],
         ],
+        ['text'=>'Wir haben geahnt, dass dies passieren würde. <i class="dagger">†</i> {cadaver1} hat gestern Selbstmord begangen. Immerhin hatte dieser Bürger mehrere Tage lang seinen Kopf gegen die Wände geschlagen und Sand gegessen, anstatt seine Wasserrationen einzunehmen... Traurig.',
+            'name'=>'gazetteTownSuicide_002',
+            'type'=>GazetteEntryTemplate::TypeGazetteSuicide,
+            'requirement'=>GazetteEntryTemplate::RequiresOneCadaver,
+            'variableTypes'=>[
+                ['type'=>"citizen",'name'=>'cadaver1'],
+            ],
+        ],
+        ['text'=>'Wir werden nie wieder etwas von <i class="dagger">†</i> {cadaver1} hören, der sich entschlossen hat, dem Angriff der Zombies durch Selbstmord zu entkommen.',
+            'name'=>'gazetteTownSuicide_003',
+            'type'=>GazetteEntryTemplate::TypeGazetteSuicide,
+            'requirement'=>GazetteEntryTemplate::RequiresOneCadaver,
+            'variableTypes'=>[
+                ['type'=>"citizen",'name'=>'cadaver1'],
+            ],
+        ],
+
+        // Multi Suicide Death
+        ['text'=>'Weitere Nachrichten: <strong>{cadavers} Bürger haben gestern Selbstmord begangen</strong>. Schöner Ort zum Leben, nicht wahr?',
+            'name'=>'gazetteTownMultiSuicide_001',
+            'type'=>GazetteEntryTemplate::TypeGazetteMultiSuicide,
+            'requirement'=>GazetteEntryTemplate::RequiresMultipleSuicides,
+            'fot' => GazetteEntryTemplate::FollowUpTypeBad,
+            'variableTypes'=>[
+                ['type'=>"num",'name'=>'cadavers'],
+            ],
+        ],
+        ['text'=>'Nette Welle von Selbstmorden gestern, {cadavers} Kandidaten, von denen nicht einer versagt hat. Wenigstens das haben sie geschafft...',
+            'name'=>'gazetteTownMultiSuicide_002',
+            'type'=>GazetteEntryTemplate::TypeGazetteMultiSuicide,
+            'requirement'=>GazetteEntryTemplate::RequiresMultipleSuicides,
+            'fot' => GazetteEntryTemplate::FollowUpTypeBad,
+            'variableTypes'=>[
+                ['type'=>"num",'name'=>'cadavers'],
+            ],
+        ],
 
         // Addiction Death
         ['text'=>'Ohne großes Bedauern starb <i class="dagger">†</i> {cadaver1} heute Nacht in Folge seiner Abhängigkeit. "Ganz ehrlich, das ist kein großer Verlust", kommentierte {citizen1}.',
             'name'=>'gazetteTownAddiction_001',
             'type'=>GazetteEntryTemplate::TypeGazetteAddiction,
             'requirement'=>GazetteEntryTemplate::RequiresOneOfEach,
+            'fot' => GazetteEntryTemplate::FollowUpTypeBad,
             'variableTypes'=>[
                 ['type'=>"citizen",'name'=>'citizen1'],
+                ['type'=>"citizen",'name'=>'cadaver1'],
+            ],
+        ],
+
+        // Hanging Death
+        ['text'=>'Der Gerechtigkeit ist Genüge getan, ihr habt gestern dafür gestimmt, <i class="dagger">†</i> {cadaver1} zu hängen. Hat doch Spaß gemacht, nicht wahr?',
+            'name'=>'gazetteTownHanging_001',
+            'type'=>GazetteEntryTemplate::TypeGazetteHanging,
+            'requirement'=>GazetteEntryTemplate::RequiresOneCadaver,
+            'fot' => GazetteEntryTemplate::FollowUpTypeDoubt,
+            'variableTypes'=>[
+                ['type'=>"citizen",'name'=>'cadaver1'],
+            ],
+        ],
+        ['text'=>'Amüsant, <i class="dagger">†</i> {cadaver1} hat es nicht lange in der Stadt ausgehalt. Hängen auf dem öffentlichen Platz und Steinigung. Zivilisation ist schön!',
+            'name'=>'gazetteTownHanging_002',
+            'type'=>GazetteEntryTemplate::TypeGazetteHanging,
+            'requirement'=>GazetteEntryTemplate::RequiresOneCadaver,
+            'fot' => GazetteEntryTemplate::FollowUpTypeDoubt,
+            'variableTypes'=>[
+                ['type'=>"citizen",'name'=>'cadaver1'],
+            ],
+        ],
+        ['text'=>'<i class="dagger">†</i> {cadaver1} wird niemanden mehr belästigen, da er mittlerweile an einem Seil schwingt... Die Gesetze der Stadt sind kein Witz!',
+            'name'=>'gazetteTownHanging_003',
+            'type'=>GazetteEntryTemplate::TypeGazetteHanging,
+            'requirement'=>GazetteEntryTemplate::RequiresOneCadaver,
+            'fot' => GazetteEntryTemplate::FollowUpTypeDoubt,
+            'variableTypes'=>[
                 ['type'=>"citizen",'name'=>'cadaver1'],
             ],
         ],
@@ -347,8 +481,101 @@ class GazetteEntryTemplateFixtures extends Fixture
             'name'=>'gazetteTownDehydration_001',
             'type'=>GazetteEntryTemplate::TypeGazetteDehydration,
             'requirement'=>GazetteEntryTemplate::RequiresOneCadaver,
+            'fot' => GazetteEntryTemplate::FollowUpTypeDoubt,
             'variableTypes'=>[
                 ['type'=>"citizen",'name'=>'cadaver1'],
+            ],
+        ],
+        ['text'=>'Abgesehen davon hat der Bürger <i class="dagger">†</i> {cadaver1} gestern wohl endlich verstanden, dass Wasser manchmal nützlich ist. Ein exemplarischer Tod durch Dehydrierung.',
+            'name'=>'gazetteTownDehydration_002',
+            'type'=>GazetteEntryTemplate::TypeGazetteDehydration,
+            'requirement'=>GazetteEntryTemplate::RequiresOneCadaver,
+            'fot' => GazetteEntryTemplate::FollowUpTypeDoubt,
+            'variableTypes'=>[
+                ['type'=>"citizen",'name'=>'cadaver1'],
+            ],
+        ],
+        ['text'=>'Anderes Thema; der Tod von <i class="dagger">†</i> {cadaver1} durch Verdurstung ist ein schlechtes Omen, findet ihr nicht auch?',
+            'name'=>'gazetteTownDehydration_003',
+            'type'=>GazetteEntryTemplate::TypeGazetteDehydration,
+            'requirement'=>GazetteEntryTemplate::RequiresOneCadaver,
+            'fot' => GazetteEntryTemplate::FollowUpTypeDoubt,
+            'variableTypes'=>[
+                ['type'=>"citizen",'name'=>'cadaver1'],
+            ],
+        ],
+        ['text'=>'Ein netter Versuch von <i class="dagger">†</i> {cadaver1}, der mit mir wetten wollte, dass man ohne Wasser überleben kann. Ich habe gewonnen.',
+            'name'=>'gazetteTownDehydration_004',
+            'type'=>GazetteEntryTemplate::TypeGazetteDehydration,
+            'requirement'=>GazetteEntryTemplate::RequiresOneCadaver,
+            'fot' => GazetteEntryTemplate::FollowUpTypeDoubt,
+            'variableTypes'=>[
+                ['type'=>"citizen",'name'=>'cadaver1'],
+            ],
+        ],
+        ['text'=>'<i class="dagger">†</i> {cadaver1} liegt seit gestern als vertrocknete Leiche in seinem Haus. Der Mangel an Wasser, was kann man erwarten. Manche Leute glauben immer noch, sie könnten darauf verzichten.',
+            'name'=>'gazetteTownDehydration_005',
+            'type'=>GazetteEntryTemplate::TypeGazetteDehydration,
+            'requirement'=>GazetteEntryTemplate::RequiresOneCadaver,
+            'fot' => GazetteEntryTemplate::FollowUpTypeDoubt,
+            'variableTypes'=>[
+                ['type'=>"citizen",'name'=>'cadaver1'],
+            ],
+        ],
+
+        // Multi Dehydration Death
+        ['text'=>'Fürs Protokoll, es waren {cadavers} Bürger, die uns gestern Abend verlassen haben. Endgültige Dehydrierung. Ja, das Todesröcheln kam von ihnen...',
+            'name'=>'gazetteTownMultiDehydration_001',
+            'type'=>GazetteEntryTemplate::TypeGazetteMultiDehydration,
+            'requirement'=>GazetteEntryTemplate::RequiresMultipleDehydrations,
+            'fot' => GazetteEntryTemplate::FollowUpTypeBad,
+            'variableTypes'=>[
+                ['type'=>"num",'name'=>'cadavers'],
+            ],
+        ],
+        ['text'=>'Anderes Thema, es waren {cadavers} Bürger, die uns gestern Abend verlassen haben. Endgültige Dehydrierung. Ja, das Todesröcheln kam von ihnen...',
+            'name'=>'gazetteTownMultiDehydration_002',
+            'type'=>GazetteEntryTemplate::TypeGazetteMultiDehydration,
+            'requirement'=>GazetteEntryTemplate::RequiresMultipleDehydrations,
+            'fot' => GazetteEntryTemplate::FollowUpTypeBad,
+            'variableTypes'=>[
+                ['type'=>"num",'name'=>'cadavers'],
+            ],
+        ],
+        ['text'=>'Der Durst hat gestern {cadavers} Bürger übermannt. Ein schöner und langer Todeskampf, der direkt zu einem grausamen Tod führt. Wir haben also kein Wasser mehr? Oh oh oh...',
+            'name'=>'gazetteTownMultiDehydration_003',
+            'type'=>GazetteEntryTemplate::TypeGazetteMultiDehydration,
+            'requirement'=>GazetteEntryTemplate::RequiresMultipleDehydrations,
+            'fot' => GazetteEntryTemplate::FollowUpTypeBad,
+            'variableTypes'=>[
+                ['type'=>"num",'name'=>'cadavers'],
+            ],
+        ],
+        ['text'=>'Abgesehen davon haben {cadavers} Bürger vergessen, dass man ohne Wasser nicht lange überleben kann. Morgen mehr Todesfälle durch Dehydrierung?',
+            'name'=>'gazetteTownMultiDehydration_004',
+            'type'=>GazetteEntryTemplate::TypeGazetteMultiDehydration,
+            'requirement'=>GazetteEntryTemplate::RequiresMultipleDehydrations,
+            'fot' => GazetteEntryTemplate::FollowUpTypeBad,
+            'variableTypes'=>[
+                ['type'=>"num",'name'=>'cadavers'],
+            ],
+        ],
+        ['text'=>'Übrigens, Wassermangel ist teuer, {cadavers} die Bürger sind gestern in der Stadt ausgetrocknet. Oder haben sie "vergessen", ihre Ration zu nehmen? Stellt euch das mal vor!',
+            'name'=>'gazetteTownMultiDehydration_005',
+            'type'=>GazetteEntryTemplate::TypeGazetteMultiDehydration,
+            'requirement'=>GazetteEntryTemplate::RequiresMultipleDehydrations,
+            'fot' => GazetteEntryTemplate::FollowUpTypeBad,
+            'variableTypes'=>[
+                ['type'=>"num",'name'=>'cadavers'],
+            ],
+        ],
+        ['text'=>'Ein anderes Thema, die Stadt trocknet langsam aus (ha ha, verstanden?). {cadavers} Bürger starben in der Nacht an Dehydrierung... Oh oh oh...',
+            'name'=>'gazetteTownMultiDehydration_006',
+            'type'=>GazetteEntryTemplate::TypeGazetteMultiDehydration,
+            'requirement'=>GazetteEntryTemplate::RequiresMultipleDehydrations,
+            'fot' => GazetteEntryTemplate::FollowUpTypeBad,
+            'variableTypes'=>[
+                ['type'=>"num",'name'=>'cadavers'],
             ],
         ],
 
@@ -357,9 +584,94 @@ class GazetteEntryTemplateFixtures extends Fixture
             'name'=>'gazetteTownPoison_001',
             'type'=>GazetteEntryTemplate::TypeGazettePoison,
             'requirement'=>GazetteEntryTemplate::RequiresOneOfEach,
+            'fot' => GazetteEntryTemplate::FollowUpTypeDoubt,
             'variableTypes'=>[
                 ['type'=>"citizen",'name'=>'citizen1'],
                 ['type'=>"citizen",'name'=>'cadaver1'],
+            ],
+        ],
+        ['text'=>'Wenn du dich fragst, wer <i class="dagger">†</i> {cadaver1} gestern (mit Curare) ermordet hat, neige ich stark zu {citizen1}. Stell nicht zu viele Fragen, sagen wir einfach, ich habe meine Quellen. Verbannt den Verräter!',
+            'name'=>'gazetteTownPoison_002',
+            'type'=>GazetteEntryTemplate::TypeGazettePoison,
+            'requirement'=>GazetteEntryTemplate::RequiresOneOfEach,
+            'fot' => GazetteEntryTemplate::FollowUpTypeDoubt,
+            'variableTypes'=>[
+                ['type'=>"citizen",'name'=>'citizen1'],
+                ['type'=>"citizen",'name'=>'cadaver1'],
+            ],
+        ],
+
+        // Infection Death
+        ['text'=>'Zu deiner Information: Wenn du dich fragst, wie hoch das Risiko einer <strong>Infektion</strong> ist, kannst du einen Blick auf den verwesten Körper von <i class="dagger">†</i> {cadaver1} werfen, der letzte Nacht in sein Bett gestorben ist.',
+            'name'=>'gazetteTownInfection_001',
+            'type'=>GazetteEntryTemplate::TypeGazetteInfection,
+            'requirement'=>GazetteEntryTemplate::RequiresOneCadaver,
+            'fot' => GazetteEntryTemplate::FollowUpTypeDoubt,
+            'variableTypes'=>[
+                ['type'=>"citizen",'name'=>'cadaver1'],
+            ],
+        ],
+        ['text'=>'<i class="dagger">†</i> {cadaver1} wird sich mehrere Stunden lang gequält haben, bevor er <strong>buchstäblich auf dem Boden verwest</strong> ist. Eine Infektion kennt keine Gnade...',
+            'name'=>'gazetteTownInfection_002',
+            'type'=>GazetteEntryTemplate::TypeGazetteInfection,
+            'requirement'=>GazetteEntryTemplate::RequiresOneCadaver,
+            'fot' => GazetteEntryTemplate::FollowUpTypeDoubt,
+            'variableTypes'=>[
+                ['type'=>"citizen",'name'=>'cadaver1'],
+            ],
+        ],
+        ['text'=>'Kleine Anekdote, der Geruch in der Stadt heute Morgen war <i class="dagger">†</i> {cadaver1}, der von einer <strong>systemischen Infektion</strong> gezeichnet war. Könnte jemand die Leiche herausholen?',
+            'name'=>'gazetteTownInfection_003',
+            'type'=>GazetteEntryTemplate::TypeGazetteInfection,
+            'requirement'=>GazetteEntryTemplate::RequiresOneCadaver,
+            'fot' => GazetteEntryTemplate::FollowUpTypeDoubt,
+            'variableTypes'=>[
+                ['type'=>"citizen",'name'=>'cadaver1'],
+            ],
+        ],
+        ['text'=>'Ich hoffe, niemand kam <i class="dagger">†</i> {cadaver1} zu nahe. Dieser Bürger ist über Nacht an einer <strong>systemischen Infektion</strong> gestorben. Wir alle haben seine furchtbaren <strong>Schreie der Qual</strong> gehört, machen wir uns nichts vor...',
+            'name'=>'gazetteTownInfection_004',
+            'type'=>GazetteEntryTemplate::TypeGazetteInfection,
+            'requirement'=>GazetteEntryTemplate::RequiresOneCadaver,
+            'fot' => GazetteEntryTemplate::FollowUpTypeDoubt,
+            'variableTypes'=>[
+                ['type'=>"citizen",'name'=>'cadaver1'],
+            ],
+        ],
+        ['text'=>'Dieses geschwollene Ding an <i class="dagger">†</i> {cadaver1}... nun, das ist <i class="dagger">†</i> {cadaver1}. Seine Infektion verlief extrem virulent.',
+            'name'=>'gazetteTownInfection_005',
+            'type'=>GazetteEntryTemplate::TypeGazetteInfection,
+            'requirement'=>GazetteEntryTemplate::RequiresOneCadaver,
+            'fot' => GazetteEntryTemplate::FollowUpTypeDoubt,
+            'variableTypes'=>[
+                ['type'=>"citizen",'name'=>'cadaver1'],
+            ],
+        ],
+
+        // Multi Infection Death
+        ['text'=>'Komisch, in der Stadt riecht es wirklich nach Tod. Die <strong>tödlichen Infektionen</strong> haben letzte Nacht mehrere Bürger schwer getroffen... Wir haben also nichts in der Bank, um so etwas zu verhindern?',
+            'name'=>'gazetteTownMultiInfection_001',
+            'type'=>GazetteEntryTemplate::TypeGazetteMultiInfection,
+            'requirement'=>GazetteEntryTemplate::RequiresNothing,
+            'fot' => GazetteEntryTemplate::FollowUpTypeBad,
+            'variableTypes'=>[],
+        ],
+        ['text'=>'Ihre Haut begann sich zu schälen, aber sie machten sich keine allzu großen Gedanken darüber... {cadavers} Bürger starben letzte Nacht an einer Infektion.',
+            'name'=>'gazetteTownMultiInfection_002',
+            'type'=>GazetteEntryTemplate::TypeGazetteMultiInfection,
+            'requirement'=>GazetteEntryTemplate::RequiresMultipleInfections,
+            'fot' => GazetteEntryTemplate::FollowUpTypeBad,
+            'variableTypes'=>[
+                ['type'=>"num",'name'=>'cadavers'],
+            ],
+        ],
+        ['text'=>'Wir sollten dafür sorgen, dass wir uns um unsere Kranken kümmern. {cadavers} Bürger sind gestern an verschiedenen Infektionen gestorben. Notfalls hängen wir die infizierten Bürger auf, dann müssen wir weniger von ihnen behandeln..',
+            'name'=>'gazetteTownMultiInfection_003',
+            'type'=>GazetteEntryTemplate::TypeGazetteMultiInfection,
+            'requirement'=>GazetteEntryTemplate::RequiresMultipleInfections,
+            'fot' => GazetteEntryTemplate::FollowUpTypeBad,
+            'variableTypes'=>[
+                ['type'=>"num",'name'=>'cadavers'],
             ],
         ],
 
@@ -371,13 +683,61 @@ class GazetteEntryTemplateFixtures extends Fixture
             'variableTypes'=>[],
         ],
 
+        // Red soul death
+        ['text'=>'Wenn du wissen willst, was euer Schamane wert ist, frag <i class="dagger">†</i> {cadaver1}. Er würde wahrscheinlich etwas in der Art von "dieser verf#/}M@$ Scharlatan!!" sagen.',
+            'name'=>'gazetteTownPoison_001',
+            'type'=>GazetteEntryTemplate::TypeGazetteRedSoul,
+            'requirement'=>GazetteEntryTemplate::RequiresOneCadaver,
+            'fot' => GazetteEntryTemplate::FollowUpTypeDoubt,
+            'variableTypes'=>[
+                ['type'=>"citizen",'name'=>'cadaver1']
+            ],
+        ],
+
         // Vanish and other Deaths
         ['text'=>'Nichts genaues weiß man nicht, auf jeden Fall hat seit geraumer Zeit niemand mehr <i class="dagger">†</i> {cadaver1} gesehen.',
             'name'=>'gazetteTownVanished_001',
             'type'=>GazetteEntryTemplate::TypeGazetteVanished,
             'requirement'=>GazetteEntryTemplate::RequiresOneCadaver,
+            'fot' => GazetteEntryTemplate::FollowUpTypeDoubt,
             'variableTypes'=>[
                 ['type'=>"citizen",'name'=>'cadaver1'],
+            ],
+        ],
+        ['text'=>'Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre <strong>in der Nähe der nördlichen Mauer</strong> gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.',
+            'name'=>'gazetteTownMultiVanished_001',
+            'type'=>GazetteEntryTemplate::TypeGazetteMultiVanished,
+            'requirement'=>GazetteEntryTemplate::RequiresMultipleVanished,
+            'fot' => GazetteEntryTemplate::FollowUpTypeBad,
+            'variableTypes'=>[
+                ['type'=>"num",'name'=>'cadavers'],
+            ],
+        ],
+        ['text'=>'Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre <strong>in der Nähe der südlichen Mauer</strong> gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.',
+            'name'=>'gazetteTownMultiVanished_002',
+            'type'=>GazetteEntryTemplate::TypeGazetteMultiVanished,
+            'requirement'=>GazetteEntryTemplate::RequiresMultipleVanished,
+            'fot' => GazetteEntryTemplate::FollowUpTypeBad,
+            'variableTypes'=>[
+                ['type'=>"num",'name'=>'cadavers'],
+            ],
+        ],
+        ['text'=>'Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre <strong>in der Nähe der westlichen Mauer</strong> gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.',
+            'name'=>'gazetteTownMultiVanished_003',
+            'type'=>GazetteEntryTemplate::TypeGazetteMultiVanished,
+            'requirement'=>GazetteEntryTemplate::RequiresMultipleVanished,
+            'fot' => GazetteEntryTemplate::FollowUpTypeBad,
+            'variableTypes'=>[
+                ['type'=>"num",'name'=>'cadavers'],
+            ],
+        ],
+        ['text'=>'Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre <strong>in der Nähe der östlichen Mauer</strong> gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.',
+            'name'=>'gazetteTownMultiVanished_004',
+            'type'=>GazetteEntryTemplate::TypeGazetteMultiVanished,
+            'requirement'=>GazetteEntryTemplate::RequiresMultipleVanished,
+            'fot' => GazetteEntryTemplate::FollowUpTypeBad,
+            'variableTypes'=>[
+                ['type'=>"num",'name'=>'cadavers'],
             ],
         ],
 
@@ -547,6 +907,7 @@ class GazetteEntryTemplateFixtures extends Fixture
                 ->setType( $entry['type'] )
                 ->setRequirement( $entry['requirement'] )
                 ->setVariableTypes($entry['variableTypes'])
+                ->setFollowUpType( $entry['fot'] ?? 0 )
             ;
 
             $manager->persist( $entity );

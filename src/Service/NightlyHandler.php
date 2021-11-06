@@ -65,11 +65,12 @@ class NightlyHandler
     private CrowService $crow;
     private UserHandler $user_handler;
     private GameFactory $game_factory;
+    private GazetteService $gazette_service;
 
     public function __construct(EntityManagerInterface $em, LoggerInterface $log, CitizenHandler $ch, InventoryHandler $ih,
                               RandomGenerator $rg, DeathHandler $dh, TownHandler $th, ZoneHandler $zh, PictoHandler $ph,
                               ItemFactory $if, LogTemplateHandler $lh, ConfMaster $conf, ActionHandler $ah, MazeMaker $maze,
-                              CrowService $crow, UserHandler $uh, GameFactory $gf)
+                              CrowService $crow, UserHandler $uh, GameFactory $gf, GazetteService $gs)
     {
         $this->entity_manager = $em;
         $this->citizen_handler = $ch;
@@ -88,6 +89,7 @@ class NightlyHandler
         $this->crow = $crow;
         $this->user_handler = $uh;
         $this->game_factory = $gf;
+        $this->gazette_service = $gs;
     }
 
     private function check_town(Town $town): bool {
@@ -109,7 +111,7 @@ class NightlyHandler
             return false;
         }
 
-        $this->town_handler->check_gazettes($town);
+        $this->gazette_service->check_gazettes($town);
 
         return true;
     }

@@ -16,6 +16,7 @@ use App\Service\CommandHelper;
 use App\Service\ConfMaster;
 use App\Service\CrowService;
 use App\Service\GameFactory;
+use App\Service\GazetteService;
 use App\Service\Locksmith;
 use App\Service\NightlyHandler;
 use App\Service\TownHandler;
@@ -51,6 +52,7 @@ class CronCommand extends Command
     private GameFactory $gameFactory;
     private UserHandler $userHandler;
     private TownHandler $townHandler;
+    private GazetteService $gazetteService;
     private CrowService $crowService;
     private CommandHelper $helper;
     private ParameterBagInterface $params;
@@ -59,7 +61,7 @@ class CronCommand extends Command
 
     public function __construct(array $db,
                                 EntityManagerInterface $em, NightlyHandler $nh, Locksmith $ls, Translator $translator,
-                                ConfMaster $conf, AntiCheatService $acs, GameFactory $gf, UserHandler $uh,
+                                ConfMaster $conf, AntiCheatService $acs, GameFactory $gf, UserHandler $uh, GazetteService $gs,
                                 TownHandler $th, CrowService $cs, CommandHelper $helper, ParameterBagInterface $params)
     {
         $this->entityManager = $em;
@@ -72,6 +74,7 @@ class CronCommand extends Command
         $this->gameFactory = $gf;
         $this->userHandler = $uh;
         $this->townHandler = $th;
+        $this->gazetteService = $gs;
         $this->crowService = $cs;
         $this->helper = $helper;
         $this->params = $params;
@@ -328,7 +331,7 @@ class CronCommand extends Command
 
                 $town = $this->entityManager->getRepository(Town::class)->find($town_id);
                 //try {
-                    $this->entityManager->persist( $this->townHandler->ensureGazette($town) );
+                    $this->entityManager->persist( $this->gazetteService->ensureGazette($town) );
                     $this->entityManager->flush();
                     $this->entityManager->clear();
                     $town = $this->entityManager->getRepository(Town::class)->find($town_id);

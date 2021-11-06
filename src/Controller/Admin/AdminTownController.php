@@ -41,6 +41,7 @@ use App\Service\CrowService;
 use App\Service\CitizenHandler;
 use App\Service\ErrorHelper;
 use App\Service\GameFactory;
+use App\Service\GazetteService;
 use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
 use App\Service\JSONRequestParser;
@@ -162,10 +163,10 @@ class AdminTownController extends AdminActionController
      * @Route("jx/admin/town/{id<\d+>}/{tab?}", name="admin_town_explorer")
      * @param int $id
      * @param string|null $tab The tab we want to display
-     * @param TownHandler $townHandler
+     * @param GazetteService $gazetteService
      * @return Response
      */
-    public function town_explorer(int $id, ?string $tab, TownHandler $townHandler): Response
+    public function town_explorer(int $id, ?string $tab, GazetteService $gazetteService): Response
     {
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
         if ($town === null) $this->redirect($this->generateUrl('admin_town_list'));
@@ -291,7 +292,7 @@ class AdminTownController extends AdminActionController
             'rootBuildings' => $root,
             'availBuldings' => $inTown,
             'votes' => $votes,
-            'gazette' => $townHandler->renderGazette( $town, $town->getDay(), true),
+            'gazette' => $gazetteService->renderGazette( $town, $town->getDay(), true),
             'blackboards' => $this->entity_manager->getRepository(BlackboardEdit::class)->findBy([ 'town' => $town ], ['time' => 'DESC'], 100),
         ], $this->get_map_blob($town))));
     }
@@ -300,15 +301,15 @@ class AdminTownController extends AdminActionController
      * @Route("api/admin/town/{id<\d+>}/gazette/{day<\d+>}", name="admin_town_explorer_gazette")
      * @param int $id
      * @param int $day
-     * @param TownHandler $townHandler
+     * @param GazetteService $gazetteService
      * @return Response
      */
-    public function api_explore_gazette(int $id, int $day, TownHandler $townHandler): Response {
+    public function api_explore_gazette(int $id, int $day, GazetteService $gazetteService): Response {
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
         if ($town === null || $day > $town->getDay()) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
         return $this->render('ajax/game/gazette_widget.html.twig', [
-            'gazette' => $townHandler->renderGazette( $town, $day, true ),
+            'gazette' => $gazetteService->renderGazette( $town, $day, true ),
         ]);
     }
 

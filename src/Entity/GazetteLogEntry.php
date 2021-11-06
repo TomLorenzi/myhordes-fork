@@ -38,6 +38,11 @@ class GazetteLogEntry
      */
     private $template;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $followUp = 0;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -87,6 +92,18 @@ class GazetteLogEntry
     public function setTemplate(?GazetteEntryTemplate $template): self
     {
         $this->template = $template;
+
+        return $this;
+    }
+
+    public function getFollowUp(): ?int
+    {
+        return $this->followUp;
+    }
+
+    public function setFollowUp(int $followUp): self
+    {
+        $this->followUp = $followUp;
 
         return $this;
     }
