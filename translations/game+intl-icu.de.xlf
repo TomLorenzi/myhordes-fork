@@ -5493,12 +5493,6 @@
         <target>Der Bau des Gebäudes Alles oder nichts hat der Stadt {def} vorübergehende Verteidungspunkte eingebracht. Allerdings wurde dabei der gesamte Inhalt der Bank zerstört! Hoffen wir, dass es das wert war...</target>
       </segment>
     </unit>
-    <unit id="OP561Ld">
-      <segment>
-        <source>Resigniert und untröstlich sahen die Bürger, wie eine Horde von {num} Zombies sich in Richtung Stadt bewegte... Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...</source>
-        <target>Resigniert und untröstlich sahen die Bürger, wie eine Horde von {num} Zombies sich in Richtung Stadt bewegte... Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...</target>
-      </segment>
-    </unit>
     <unit id="CoVKZbl" name="{sender}: {message}">
       <segment>
         <source>{sender}: {message}</source>

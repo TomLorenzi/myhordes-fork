@@ -765,7 +765,7 @@
       <notes>
         <note category="german">Zombies</note>
         <note category="state">new</note>
-        <note category="from">twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/newspaper.html.twig;twig:///templates/ajax/game/town/watchtower.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/town/watchtower.html.twig</note>
       </notes>
       <segment>
         <source>Zombies</source>
@@ -935,7 +935,7 @@
     <unit id="77.Cp5H" name="Verteidigung">
       <notes>
         <note category="german">Verteidigung</note>
-        <note category="from">twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/newspaper.html.twig;twig:///templates/ajax/game/town/dump.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/town/dump.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Verteidigung</source>
@@ -1226,7 +1226,7 @@
     <unit id="7F000hR" name="Todesursache">
       <notes>
         <note category="german">Todesursache</note>
-        <note category="from">twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/newspaper.html.twig;twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Todesursache</source>
@@ -9039,7 +9039,7 @@
     <unit id="8fTcb5D" name="Tote in der Stadt">
       <notes>
         <note category="german">Tote in der Stadt</note>
-        <note category="from">twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/gazette_widget.html.twig</note>
       </notes>
       <segment>
         <source>Tote in der Stadt</source>
@@ -9049,7 +9049,7 @@
     <unit id="wvs954U" name="Niemand!">
       <notes>
         <note category="german">Niemand!</note>
-        <note category="from">twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/gazette_widget.html.twig</note>
       </notes>
       <segment>
         <source>Niemand!</source>
@@ -9059,7 +9059,7 @@
     <unit id="ooesDbN" name="Sonstige Opfer">
       <notes>
         <note category="german">Sonstige Opfer</note>
-        <note category="from">twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/gazette_widget.html.twig</note>
       </notes>
       <segment>
         <source>Sonstige Opfer</source>
@@ -9069,7 +9069,7 @@
     <unit id="kxeEpoF" name="Opfer">
       <notes>
         <note category="german">Opfer</note>
-        <note category="from">twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/gazette_widget.html.twig</note>
       </notes>
       <segment>
         <source>Opfer</source>
@@ -9079,7 +9079,7 @@
     <unit id="w60IHjv" name="Keine Opfer">
       <notes>
         <note category="german">Keine Opfer</note>
-        <note category="from">twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/gazette_widget.html.twig</note>
       </notes>
       <segment>
         <source>Keine Opfer</source>
@@ -9599,7 +9599,7 @@
     <unit id="dY6rVb6" name="Tor ist offen!">
       <notes>
         <note category="german">Tor ist offen!</note>
-        <note category="from">twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/gazette_widget.html.twig</note>
       </notes>
       <segment>
         <source>Tor ist offen!</source>
@@ -9609,7 +9609,7 @@
     <unit id="1cEye.o" name="Zombies sind eingedrungen.">
       <notes>
         <note category="german">Zombies sind eingedrungen.</note>
-        <note category="from">twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/gazette_widget.html.twig</note>
       </notes>
       <segment>
         <source>Zombies sind eingedrungen.</source>
@@ -9619,7 +9619,7 @@
     <unit id="ojehKlj" name="vor Angst erstarrt">
       <notes>
         <note category="german">vor Angst erstarrt</note>
-        <note category="from">twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/gazette_widget.html.twig</note>
       </notes>
       <segment>
         <source>vor Angst erstarrt</source>
@@ -9939,7 +9939,7 @@
     <unit id="D31zha8" name="Allwissenheit">
       <notes>
         <note category="german">Allwissenheit</note>
-        <note category="from">db://HeroSkillPrototype;twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_list_headers.html.twig;twig:///templates/ajax/game/town/citizen_omniscience.html.twig;twig:///templates/ajax/game/town/citizen_vote.html.twig</note>
+        <note category="from">db://HeroSkillPrototype;twig:///templates/ajax/game/town/citizen_list_headers.html.twig</note>
       </notes>
       <segment>
         <source>Allwissenheit</source>
@@ -15287,7 +15287,7 @@
     <unit id="3UYzFfF">
       <notes>
         <note category="german">Mysteriöse metereologische Phänomene haben gestern Nacht dafür gesorgt, dass sich bestimmte Zonen &lt;strong&gt;{sector} der Stadt&lt;/strong&gt; regeneriert haben.&lt;p&gt;&lt;em&gt;Es können dort durch Graben wieder Gegenstände gefunden werden, auch wenn die Zone zuvor leergesucht wurde!&lt;/em&gt;&lt;/p&gt;</note>
-        <note category="from">twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/gazette_widget.html.twig</note>
       </notes>
       <segment>
         <source>Mysteriöse metereologische Phänomene haben gestern Nacht dafür gesorgt, dass sich bestimmte Zonen &lt;strong&gt;{sector} der Stadt&lt;/strong&gt; regeneriert haben.&lt;p&gt;&lt;em&gt;Es können dort durch Graben wieder Gegenstände gefunden werden, auch wenn die Zone zuvor leergesucht wurde!&lt;/em&gt;&lt;/p&gt;</source>
@@ -15297,7 +15297,7 @@
     <unit id="2ZzcscP" name="Verlorenes Brunnenwasser: {count} Einhet(en)">
       <notes>
         <note category="german">Verlorenes Brunnenwasser: {count__copy} Einhet(en)</note>
-        <note category="from">twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/gazette_widget.html.twig</note>
       </notes>
       <segment>
         <source>Verlorenes Brunnenwasser: {count} Einhet(en)</source>
@@ -20347,7 +20347,7 @@
     <unit id="oZCdnHO" name="Das wird aber nicht lange so bleiben...">
       <notes>
         <note category="german">Das wird aber nicht lange so bleiben...</note>
-        <note category="from">twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/gazette_widget.html.twig</note>
       </notes>
       <segment>
         <source>Das wird aber nicht lange so bleiben...</source>
@@ -20357,7 +20357,7 @@
     <unit id="fJDK8V7" name="Das macht dann... {day} Tage">
       <notes>
         <note category="german">Das macht dann... {day} Tage</note>
-        <note category="from">twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/gazette_widget.html.twig</note>
       </notes>
       <segment>
         <source>Das macht dann... {day} Tage</source>
@@ -21468,7 +21468,7 @@
     <unit id="sXukPwK" name="Immerhin wurden alle Bürger aus der Stadt geschleudert...">
       <notes>
         <note category="german">Immerhin wurden alle Bürger aus der Stadt geschleudert...</note>
-        <note category="from">twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/gazette_widget.html.twig</note>
       </notes>
       <segment>
         <source>Immerhin wurden alle Bürger aus der Stadt geschleudert...</source>
@@ -23152,7 +23152,7 @@
       </notes>
       <segment>
         <source>Resigniert und untröstlich sahen die Bürger, wie eine Horde von {num} Zombies sich in Richtung Stadt bewegte...</source>
-        <target> ¡Alerta, algunos compañeros han visto una turba de {num} zombies dirigiéndose hacia el pueblo!</target>
+        <target>¡Alerta, algunos compañeros han visto una turba de {num} zombies dirigiéndose hacia el pueblo!</target>
       </segment>
     </unit>
     <unit id="esTcUBp" name="Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...">
@@ -23198,7 +23198,7 @@
     <unit id="SBvsBbX" name="Alarm (Bürger {citizen})">
       <notes>
         <note category="german">Alarm (Bürger {citizen})</note>
-        <note category="from">php:///src/Controller/Messages/MessageTownMessageController.php</note>
+        <note category="from">php:///src/Controller/Messages/MessageTownMessageController.php;php:///src/Controller/Town/TownHomeController.php</note>
         <note category="state">new</note>
       </notes>
       <segment>
@@ -23215,17 +23215,6 @@
       <segment>
         <source>{citizen} hat bei dir daheim den Alarm ausgelöst, als er (sie) um {time} versuchte bei dir einzubrechen!</source>
         <target>{citizen} hat bei dir daheim den Alarm ausgelöst, als er (sie) um {time} versuchte bei dir einzubrechen!</target>
-      </segment>
-    </unit>
-    <unit id="OP561Ld">
-      <notes>
-        <note category="german">Resigniert und untröstlich sahen die Bürger, wie eine Horde von {num} Zombies sich in Richtung Stadt bewegte... Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...</note>
-        <note category="from">db://LogEntryTemplate</note>
-        <note category="state">new</note>
-      </notes>
-      <segment>
-        <source>Resigniert und untröstlich sahen die Bürger, wie eine Horde von {num} Zombies sich in Richtung Stadt bewegte... Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...</source>
-        <target>Resigniert und untröstlich sahen die Bürger, wie eine Horde von {num} Zombies sich in Richtung Stadt bewegte... Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...</target>
       </segment>
     </unit>
     <unit id="CByaH.z" name="Als Ghul solltest du jeden Tag einen anderen Spieler auffressen.">

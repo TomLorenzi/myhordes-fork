@@ -164,7 +164,7 @@
     <unit id="VIYRzlj" name="Zurück">
       <notes>
         <note category="german">Zurück</note>
-        <note category="from">twig:///templates/ajax/forum/view.html.twig;twig:///templates/ajax/soul/import_preview.html.twig;twig:///templates/ajax/soul/view_rp.html.twig;twig:///templates/ajax/soul/view_town.html.twig;twig:///templates/ajax/soul/view_town_foreign.html.twig</note>
+        <note category="from">twig:///templates/ajax/forum/view.html.twig;twig:///templates/ajax/soul/import_preview.html.twig;twig:///templates/ajax/soul/view_rp.html.twig;twig:///templates/ajax/soul/view_town_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Zurück</source>
@@ -184,7 +184,7 @@
     <unit id="Oxu558J" name="Der Rabe">
       <notes>
         <note category="german">Der Rabe</note>
-        <note category="from">twig:///templates/ajax/forum/editor.html.twig;twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/forum/posts_small.html.twig;twig:///templates/ajax/forum/search_result.html.twig;twig:///templates/ajax/forum/view.html.twig;twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/newspaper.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/bubbles.html.twig;twig:///templates/ajax/soul/pictos.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
+        <note category="from">twig:///templates/ajax/forum/editor.html.twig;twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/forum/posts_small.html.twig;twig:///templates/ajax/forum/search_result.html.twig;twig:///templates/ajax/forum/view.html.twig;twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/bubbles.html.twig;twig:///templates/ajax/soul/pictos.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
       </notes>
       <segment>
         <source>Der Rabe</source>
@@ -284,7 +284,7 @@
     <unit id="SOVZNkR" name="Bestätigen?">
       <notes>
         <note category="german">Bestätigen?</note>
-        <note category="from">twig:///templates/ajax/admin/changelogs/changelogs.html.twig;twig:///templates/ajax/admin/files/list.html.twig;twig:///templates/ajax/admin/reports/gpn-viewer.html.twig;twig:///templates/ajax/admin/reports/pn-viewer.html.twig;twig:///templates/ajax/admin/users/ban.html.twig;twig:///templates/ajax/admin/users/index.html.twig;twig:///templates/ajax/admin/users/multi_index.html.twig;twig:///templates/ajax/admin/widget/controls.twig;twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/town/citizen_vote.html.twig;twig:///templates/ajax/game/town/construction.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/door.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/game/town/routes.html.twig;twig:///templates/ajax/game/town/town.html.twig;twig:///templates/ajax/game/town/well.html.twig;twig:///templates/ajax/ghost/create_town.html.twig;twig:///templates/ajax/pm/user_list.html.twig;twig:///templates/ajax/pm/view.html.twig;twig:///templates/ajax/soul/settings.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig;twig:///templates/ajax/soul/visit.html.twig;twig:///templates/scripts/actions.js.twig</note>
+        <note category="from">twig:///templates/ajax/admin/changelogs/changelogs.html.twig;twig:///templates/ajax/admin/files/list.html.twig;twig:///templates/ajax/admin/reports/gpn-viewer.html.twig;twig:///templates/ajax/admin/reports/pn-viewer.html.twig;twig:///templates/ajax/admin/users/ban.html.twig;twig:///templates/ajax/admin/users/multi_index.html.twig;twig:///templates/ajax/admin/widget/controls.twig;twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/town/citizen_vote.html.twig;twig:///templates/ajax/game/town/construction.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/door.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/game/town/routes.html.twig;twig:///templates/ajax/game/town/town.html.twig;twig:///templates/ajax/game/town/well.html.twig;twig:///templates/ajax/ghost/create_town.html.twig;twig:///templates/ajax/pm/user_list.html.twig;twig:///templates/ajax/pm/view.html.twig;twig:///templates/ajax/soul/settings.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig;twig:///templates/ajax/soul/visit.html.twig;twig:///templates/scripts/actions.js.twig</note>
       </notes>
       <segment>
         <source>Bestätigen?</source>

@@ -215,7 +215,7 @@
     <unit id=".DCeMNu" name="Benutzername">
       <notes>
         <note category="german">Benutzername</note>
-        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/users/account.html.twig;twig:///templates/ajax/admin/users/all_index.html.twig;twig:///templates/ajax/admin/users/index.html.twig;twig:///templates/ajax/admin/users/multi_index.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/users/account.html.twig;twig:///templates/ajax/admin/users/all_index.html.twig;twig:///templates/ajax/admin/users/multi_index.html.twig</note>
       </notes>
       <segment>
         <source>Benutzername</source>
@@ -431,7 +431,7 @@
       </notes>
       <segment>
         <source>Admin-Wachturm</source>
-        <target>TDG de l'administrateur</target>
+        <target>TDG</target>
       </segment>
     </unit>
     <unit id="OEOXHc." name="ID">
@@ -737,7 +737,7 @@
       </notes>
       <segment>
         <source>Ruinenscanner</source>
-        <target>Infos sur les ruines</target>
+        <target>Ruines</target>
       </segment>
     </unit>
     <unit id="bQMa8Q2" name="Position">
@@ -999,7 +999,7 @@
       </notes>
       <segment>
         <source>Stadtregister</source>
-        <target>Registre de la ville</target>
+        <target>Registre</target>
       </segment>
     </unit>
     <unit id="yu8TLDr" name="Du hast dich umgebracht.">
@@ -1246,7 +1246,7 @@
     <unit id="XCp8Tn4" name="Multi-Account Report">
       <notes>
         <note category="german">Multi-Account Report</note>
-        <note category="from">twig:///templates/ajax/admin/users/index.html.twig;twig:///templates/ajax/admin/users/listing_tabs.html.twig;twig:///templates/ajax/admin/users/multi_index.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/users/listing_tabs.html.twig;twig:///templates/ajax/admin/users/multi_index.html.twig</note>
       </notes>
       <segment>
         <source>Multi-Account Report</source>
@@ -1256,7 +1256,7 @@
     <unit id="NBT1t.l" name="Verdacht">
       <notes>
         <note category="german">Verdacht</note>
-        <note category="from">twig:///templates/ajax/admin/users/index.html.twig;twig:///templates/ajax/admin/users/multi_index.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/users/multi_index.html.twig</note>
       </notes>
       <segment>
         <source>Verdacht</source>
@@ -1266,7 +1266,7 @@
     <unit id="5D_B4LJ" name="Andere Accounts">
       <notes>
         <note category="german">Andere Accounts</note>
-        <note category="from">twig:///templates/ajax/admin/users/index.html.twig;twig:///templates/ajax/admin/users/multi_index.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/users/multi_index.html.twig</note>
       </notes>
       <segment>
         <source>Andere Accounts</source>
@@ -1276,7 +1276,7 @@
     <unit id="E6OsQAN" name="Bann">
       <notes>
         <note category="german">Bann</note>
-        <note category="from">twig:///templates/ajax/admin/users/index.html.twig;twig:///templates/ajax/admin/users/multi_index.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/users/multi_index.html.twig</note>
       </notes>
       <segment>
         <source>Bann</source>
@@ -1356,7 +1356,7 @@
     <unit id="E26lZPz" name="Klick, um Profil in neuem Tab zu öffnen">
       <notes>
         <note category="german">Klick, um Profil in neuem Tab zu öffnen</note>
-        <note category="from">twig:///templates/ajax/admin/users/index.html.twig;twig:///templates/ajax/admin/users/multi_index.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/users/multi_index.html.twig</note>
       </notes>
       <segment>
         <source>Klick, um Profil in neuem Tab zu öffnen</source>
@@ -1366,7 +1366,7 @@
     <unit id="KQDagiG" name="STRG+Klick, um zur Whitelist hinzuzufügen">
       <notes>
         <note category="german">STRG+Klick, um zur Whitelist hinzuzufügen</note>
-        <note category="from">twig:///templates/ajax/admin/users/index.html.twig;twig:///templates/ajax/admin/users/multi_index.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/users/multi_index.html.twig</note>
       </notes>
       <segment>
         <source>STRG+Klick, um zur Whitelist hinzuzufügen</source>
@@ -1376,7 +1376,7 @@
     <unit id="hVmvpi1" name="Whitelist">
       <notes>
         <note category="german">Whitelist</note>
-        <note category="from">twig:///templates/ajax/admin/users/index.html.twig;twig:///templates/ajax/admin/users/multi_index.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/users/multi_index.html.twig</note>
       </notes>
       <segment>
         <source>Whitelist</source>
@@ -3892,7 +3892,7 @@
       </notes>
       <segment>
         <source>Regelsatz</source>
-        <target>Règles de la ville</target>
+        <target>Règles</target>
       </segment>
     </unit>
     <unit id="SwnNAc0" name="Regel">
