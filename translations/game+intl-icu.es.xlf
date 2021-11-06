@@ -23221,7 +23221,6 @@
       <notes>
         <note category="german">Als Ghul solltest du jeden Tag einen anderen Spieler auffressen.</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Als Ghul solltest du jeden Tag einen anderen Spieler auffressen.</source>
