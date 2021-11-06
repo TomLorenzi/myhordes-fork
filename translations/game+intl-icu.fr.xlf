@@ -23194,7 +23194,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Wenn du wissen willst, was euer Schamane wert ist, frag &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1}. Er würde wahrscheinlich etwas in der Art von "dieser verf#/}M@$ Scharlatan!!" sagen.</source>
-        <target><![CDATA[Wenn du wissen willst, was euer Schamane wert ist, frag <i class="dagger">†</i> {cadaver1}. Er würde wahrscheinlich etwas in der Art von "dieser verf#/}M@$ Scharlatan!!" sagen.]]></target>
+        <target><![CDATA[Si vous vous demandiez ce que vaut votre chaman, demandez-le à <i class="dagger">†</i> {cadaver1}. Il aurait très certainement dit quelque chose du genre : "£/$M#@ de charlatan de %£?#!$ !!"]]></target>
       </segment>
     </unit>
     <unit id="0NDmGVH">
@@ -23205,7 +23205,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Anmerkung: einer der {attack} Zombies, die letzte Nacht angegriffen haben, wurde &lt;strong&gt;im Brunnen&lt;/strong&gt; gefunden... Ich rate euch dringend davon ab, heute Morgen Wasser zu trinken, sonst fangt ihr euch noch eine Infektion ein...</source>
-        <target><![CDATA[Anmerkung: einer der {attack} Zombies, die letzte Nacht angegriffen haben, wurde <strong>im Brunnen</strong> gefunden... Ich rate euch dringend davon ab, heute Morgen Wasser zu trinken, sonst fangt ihr euch noch eine Infektion ein...]]></target>
+        <target><![CDATA[A souligner : on a retrouvé <strong>dans le puits</strong> un des {attack} zombies qui ont attaqué cette nuit... Je vous déconseille vivement l'eau ce matin, c'est un coup à se choper une infection...]]></target>
       </segment>
     </unit>
     <unit id="VDPDHMC">
@@ -23216,7 +23216,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Außerdem haben mehrere Zombies unerwartet die &lt;strong&gt;Arbeiten&lt;/strong&gt; am Westflügel genutzt, um in die Stadt einzudringen und {deaths} Menschen zu verschlingen... Ihr sollten &lt;strong&gt;eure Baustellen besser nicht so ungesichert lassen&lt;/strong&gt;.</source>
-        <target><![CDATA[Außerdem haben mehrere Zombies unerwartet die <strong>Arbeiten</strong> am Westflügel genutzt, um in die Stadt einzudringen und {deaths} Menschen zu verschlingen... Ihr sollten <strong>eure Baustellen besser nicht so ungesichert lassen</strong>.]]></target>
+        <target><![CDATA[Egalement, on n'avait pas prévu le coup, plusieurs zombies ont profité des <strong>travaux</strong> en cours à côté de l'aile ouest pour s'infiltrer en ville et dévorer {deaths} personnes... Faudrait voir à <strong>pas laisser vos chantiers non sécurisés</strong> comme ça.]]></target>
       </segment>
     </unit>
     <unit id="w.7IdM6">
@@ -23227,7 +23227,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Bemerkenswert: Die Tür wurde über Nacht offen gelassen. Den Aufzeichnungen zufolge ist es {cadaver1}, der dafür verantwortlich ist. Nun, es ist immer noch in Ordnung... Trotz dieses Fehlers gab es nicht allzu viele Opfer.</source>
-        <target>Bemerkenswert: Die Tür wurde über Nacht offen gelassen. Den Aufzeichnungen zufolge ist es {cadaver1}, der dafür verantwortlich ist. Nun, es ist immer noch in Ordnung... Trotz dieses Fehlers gab es nicht allzu viele Opfer.</target>
+        <target>A souligner : la porte est restée ouverte cette nuit. D'après les registres, c'est à {cadaver1} qu'il faut dire bravo. Enfin, ça va encore... Il n'y a pas eu trop de victimes malgré cette gaffe.</target>
       </segment>
     </unit>
     <unit id="7tFNr5z">
@@ -23238,7 +23238,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Außerdem wäre es gut, daran zu denken, dass der Schamane der Stadt letzte Nacht gestorben ist. Heute Abend findet eine Neuwahl statt, bei der ein neuer Kandidat aus den Reihen der Überlebenden gewählt wird.</source>
-        <target>Außerdem wäre es gut, daran zu denken, dass der Schamane der Stadt letzte Nacht gestorben ist. Heute Abend findet eine Neuwahl statt, bei der ein neuer Kandidat aus den Reihen der Überlebenden gewählt wird.</target>
+        <target>D'ailleurs il serait bon de ne pas oublier que le chaman de la ville est mort cette nuit. Une nouvelle élection aura lieu cette nuit pour un choisir un nouveau parmi les survivants.</target>
       </segment>
     </unit>
     <unit id="EvR1zFN">
@@ -23249,7 +23249,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Halten wir kurz inne und gedenken unserem verlorenen Schamanen. Auf Wiedersehen, nutzloser Scharlatan! Wer ist motiviert, ihn zu ersetzen?</source>
-        <target>Halten wir kurz inne und gedenken unserem verlorenen Schamanen. Auf Wiedersehen, nutzloser Scharlatan! Wer ist motiviert, ihn zu ersetzen?</target>
+        <target>Petite pensée à notre chaman disparu, adieu charlatan inutile ! Qui est motivé pour le remplacer ?</target>
       </segment>
     </unit>
     <unit id="r1UYBsR">
@@ -23260,7 +23260,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Unser geliebter Reiseleiter in der Außenwelt ist gestern verstorben. Heute Abend findet eine Neuwahl statt, bei der ein neuer Kandidat aus den Reihen der Überlebenden gewählt wird.</source>
-        <target>Unser geliebter Reiseleiter in der Außenwelt ist gestern verstorben. Heute Abend findet eine Neuwahl statt, bei der ein neuer Kandidat aus den Reihen der Überlebenden gewählt wird.</target>
+        <target>Notre cher Guide de l'Outre-Monde est mort cette nuit. Une nouvelle élection aura lieu cette nuit pour un choisir un nouveau parmi les survivants.</target>
       </segment>
     </unit>
     <unit id="mzUHqMR">
@@ -23271,7 +23271,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Tolle Leistung gestern Abend, der Schamane und der Reiseleiter in der Außenwelt sind beide tot, daher könnte der heutige Tag etwas eintönig werden. Heute Abend findet eine Neuwahl aus den Reihen der Überlebenden statt.</source>
-        <target>Tolle Leistung gestern Abend, der Schamane und der Reiseleiter in der Außenwelt sind beide tot, daher könnte der heutige Tag etwas eintönig werden. Heute Abend findet eine Neuwahl aus den Reihen der Überlebenden statt.</target>
+        <target>Jolie performance la nuit dernière, le Chaman et le Guide de l'Outre-Monde sont tous deux morts, la journée d'aujourd'hui risque de paraître monotone. De nouvelles élections auront lieu cette nuit pour en choisir de nouveaux parmi les survivants.</target>
       </segment>
     </unit>
     <unit id="mDubl5E">
@@ -23282,7 +23282,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Wir haben geahnt, dass dies passieren würde. &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} hat gestern Selbstmord begangen. Immerhin hatte dieser Bürger mehrere Tage lang seinen Kopf gegen die Wände geschlagen und Sand gegessen, anstatt seine Wasserrationen einzunehmen... Traurig.</source>
-        <target><![CDATA[Wir haben geahnt, dass dies passieren würde. <i class="dagger">†</i> {cadaver1} hat gestern Selbstmord begangen. Immerhin hatte dieser Bürger mehrere Tage lang seinen Kopf gegen die Wände geschlagen und Sand gegessen, anstatt seine Wasserrationen einzunehmen... Traurig.]]></target>
+        <target><![CDATA[On se doutait que ça arriverait : <i class="dagger">†</i> {cadaver1} a fini par se suicider hier. Après tout ça faisait plusieurs jours que ce citoyen se cognait la tête contre les murs et mangeait du sable au lieu de prendre ses rations d'eau... Triste.]]></target>
       </segment>
     </unit>
     <unit id="hkJ7fWR">
@@ -23293,7 +23293,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Wir werden nie wieder etwas von &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} hören, der sich entschlossen hat, dem Angriff der Zombies durch Selbstmord zu entkommen.</source>
-        <target><![CDATA[Wir werden nie wieder etwas von <i class="dagger">†</i> {cadaver1} hören, der sich entschlossen hat, dem Angriff der Zombies durch Selbstmord zu entkommen.]]></target>
+        <target><![CDATA[On n'entendra plus jamais <i class="dagger">†</i> {cadaver1}, qui a décidé d'échapper à l'attaque des Hordes en se suicidant.]]></target>
       </segment>
     </unit>
     <unit id="NCukv3K">
@@ -23304,7 +23304,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Weitere Nachrichten: &lt;strong&gt;{cadavers} Bürger haben gestern Selbstmord begangen&lt;/strong&gt;. Schöner Ort zum Leben, nicht wahr?</source>
-        <target><![CDATA[Weitere Nachrichten: <strong>{cadavers} Bürger haben gestern Selbstmord begangen</strong>. Schöner Ort zum Leben, nicht wahr?]]></target>
+        <target><![CDATA[Fait divers aussi, <strong>{cadavers} personnes se sont suicidées</strong> hier. Il fait bon vivre chez nous, hein ?]]></target>
       </segment>
     </unit>
     <unit id="W54WKZj">
@@ -23315,7 +23315,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Nette Welle von Selbstmorden gestern, {cadavers} Kandidaten, von denen nicht einer versagt hat. Wenigstens das haben sie geschafft...</source>
-        <target>Nette Welle von Selbstmorden gestern, {cadavers} Kandidaten, von denen nicht einer versagt hat. Wenigstens das haben sie geschafft...</target>
+        <target>Belle vague de suicide hier, {cadavers} candidats, dont pas un ne s'est loupé. Ils auront au moins réussi ça...</target>
       </segment>
     </unit>
     <unit id="KTLVeMu">
@@ -23326,7 +23326,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Der Gerechtigkeit ist Genüge getan, ihr habt gestern dafür gestimmt, &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} zu hängen. Hat doch Spaß gemacht, nicht wahr?</source>
-        <target><![CDATA[Der Gerechtigkeit ist Genüge getan, ihr habt gestern dafür gestimmt, <i class="dagger">†</i> {cadaver1} zu hängen. Hat doch Spaß gemacht, nicht wahr?]]></target>
+        <target><![CDATA[Justice est faite, vous avez voté pour pendre <i class="dagger">†</i> {cadaver1} hier. On s'amuse comme on peut hein ?]]></target>
       </segment>
     </unit>
     <unit id="u_dmSmH">
@@ -23337,7 +23337,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Amüsant, &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} hat es nicht lange in der Stadt ausgehalt. Hängen auf dem öffentlichen Platz und Steinigung. Zivilisation ist schön!</source>
-        <target><![CDATA[Amüsant, <i class="dagger">†</i> {cadaver1} hat es nicht lange in der Stadt ausgehalt. Hängen auf dem öffentlichen Platz und Steinigung. Zivilisation ist schön!]]></target>
+        <target><![CDATA[Amusant, <i class="dagger">†</i> {cadaver1} n'aura pas fait long feu en ville. Pendaison sur la place publique et lapidation à coups de cailloux. C'est beau la civilisation !]]></target>
       </segment>
     </unit>
     <unit id="ubNXQU3">
@@ -23348,7 +23348,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>&lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} wird niemanden mehr belästigen, da er mittlerweile an einem Seil schwingt... Die Gesetze der Stadt sind kein Witz!</source>
-        <target><![CDATA[<i class="dagger">†</i> {cadaver1} wird niemanden mehr belästigen, da er mittlerweile an einem Seil schwingt... Die Gesetze der Stadt sind kein Witz!]]></target>
+        <target><![CDATA[<i class="dagger">†</i> {cadaver1} n'embêtera plus personne, surtout depuis que ce citoyen se balance au bout d'une corde... On rigole pas en ville !]]></target>
       </segment>
     </unit>
     <unit id="lga50hn">
