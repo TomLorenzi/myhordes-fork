@@ -15068,5 +15068,23 @@
         <target>Pfff...</target>
       </segment>
     </unit>
+    <unit id="LCFSWUy">
+      <segment>
+        <source>Die in das Gebäude investierten APs zählten &lt;strong&gt;50% mehr&lt;/strong&gt; (Sklaverei).</source>
+        <target><![CDATA[Die in das Gebäude investierten APs zählten <strong>50% mehr</strong> (Sklaverei).]]></target>
+      </segment>
+    </unit>
+    <unit id="g7k72IT" name="{citizen} hat an dem Bauprojekt {plan} mitgearbeitet (Sklaverei: +50% AP).">
+      <segment>
+        <source>{citizen} hat an dem Bauprojekt {plan} mitgearbeitet (Sklaverei: +50% AP).</source>
+        <target>{citizen} hat an dem Bauprojekt {plan} mitgearbeitet (Sklaverei: +50% AP).</target>
+      </segment>
+    </unit>
+    <unit id="gtMSDSz" name="{citizen} hat das Gebäude {plan} repariert (Sklaverei: +50% AP).">
+      <segment>
+        <source>{citizen} hat das Gebäude {plan} repariert (Sklaverei: +50% AP).</source>
+        <target>{citizen} hat das Gebäude {plan} repariert (Sklaverei: +50% AP).</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

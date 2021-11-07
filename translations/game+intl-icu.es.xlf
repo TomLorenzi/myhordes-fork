@@ -23755,5 +23755,38 @@
         <target>Pfff...</target>
       </segment>
     </unit>
+    <unit id="LCFSWUy">
+      <notes>
+        <note category="german">Die in das Gebäude investierten APs zählten &lt;strong&gt;50% mehr&lt;/strong&gt; (Sklaverei).</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Die in das Gebäude investierten APs zählten &lt;strong&gt;50% mehr&lt;/strong&gt; (Sklaverei).</source>
+        <target><![CDATA[Die in das Gebäude investierten APs zählten <strong>50% mehr</strong> (Sklaverei).]]></target>
+      </segment>
+    </unit>
+    <unit id="g7k72IT" name="{citizen} hat an dem Bauprojekt {plan} mitgearbeitet (Sklaverei: +50% AP).">
+      <notes>
+        <note category="german">{citizen} hat an dem Bauprojekt {plan} mitgearbeitet (Sklaverei: +50% AP).</note>
+        <note category="from">db://LogEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>{citizen} hat an dem Bauprojekt {plan} mitgearbeitet (Sklaverei: +50% AP).</source>
+        <target>{citizen} hat an dem Bauprojekt {plan} mitgearbeitet (Sklaverei: +50% AP).</target>
+      </segment>
+    </unit>
+    <unit id="gtMSDSz" name="{citizen} hat das Gebäude {plan} repariert (Sklaverei: +50% AP).">
+      <notes>
+        <note category="german">{citizen} hat das Gebäude {plan} repariert (Sklaverei: +50% AP).</note>
+        <note category="from">db://LogEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>{citizen} hat das Gebäude {plan} repariert (Sklaverei: +50% AP).</source>
+        <target>{citizen} hat das Gebäude {plan} repariert (Sklaverei: +50% AP).</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

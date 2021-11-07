@@ -1314,9 +1314,9 @@ class TownController extends InventoryAwareController
         if ($this->town_handler->getBuilding($town, 'item_rp_book2_#00', true)) {
             // TODO: Create an option to include AP in Log entries as a town parameter?
             if (!$was_completed)
-                $this->entity_manager->persist( $this->log->constructionsInvest( $citizen, $building->getPrototype(), $ap ) );
+                $this->entity_manager->persist( $this->log->constructionsInvest( $citizen, $building->getPrototype(), $ap, $slave_bonus ) );
             else
-                $this->entity_manager->persist( $this->log->constructionsInvestRepair( $citizen, $building->getPrototype(), $ap ) );
+                $this->entity_manager->persist( $this->log->constructionsInvestRepair( $citizen, $building->getPrototype(), $ap, $slave_bonus ) );
         }
 
         // Calculate the amount of AP that will be invested in the construction
@@ -1372,6 +1372,9 @@ class TownController extends InventoryAwareController
         }
 
         $messages[] = $this->translator->trans("Du hast dafür {count} Aktionspunkt(e) verbraucht.", ['{count}' => "<strong>$ap</strong>", 'raw_count' => $ap], "game");
+
+        if ($slave_bonus)
+            $messages[] = $this->translator->trans("Die in das Gebäude investierten APs zählten <strong>50% mehr</strong> (Sklaverei).", [], "game");
 
         // Set the activity status
         $this->citizen_handler->inflictStatus($citizen, 'tg_chk_build');

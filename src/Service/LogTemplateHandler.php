@@ -417,9 +417,9 @@ class LogTemplateHandler
             ->setCitizen( $citizen );
     }
 
-    public function constructionsInvest( Citizen $citizen, BuildingPrototype $proto, int $ap ): TownLogEntry {
+    public function constructionsInvest( Citizen $citizen, BuildingPrototype $proto, int $ap, $slave_bonus = false ): TownLogEntry {
         $variables = array('citizen' => $citizen->getId(), 'plan' => $proto->getId());
-        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'constructionsInvest']);
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => $slave_bonus ? 'constructionsInvestSlave' : 'constructionsInvest']);
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
@@ -441,9 +441,9 @@ class LogTemplateHandler
             ->setCitizen( $citizen );
     }
 
-    public function constructionsInvestRepair( Citizen $citizen, BuildingPrototype $proto, int $ap ): TownLogEntry {
+    public function constructionsInvestRepair( Citizen $citizen, BuildingPrototype $proto, int $ap, $slave_bonus = false ): TownLogEntry {
         $variables = array('citizen' => $citizen->getId(), 'plan' => $proto->getId());
-        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'constructionsInvestRepair']);
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => $slave_bonus ? 'constructionsInvestRepairSlave' : 'constructionsInvestRepair']);
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)

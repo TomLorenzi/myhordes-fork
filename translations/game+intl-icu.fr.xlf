@@ -23190,7 +23190,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Wenn du wissen willst, was euer Schamane wert ist, frag &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1}. Er würde wahrscheinlich etwas in der Art von "dieser verf#/}M@$ Scharlatan!!" sagen.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wenn du wissen willst, was euer Schamane wert ist, frag &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1}. Er würde wahrscheinlich etwas in der Art von "dieser verf#/}M@$ Scharlatan!!" sagen.</source>
@@ -23201,7 +23200,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Anmerkung: einer der {attack} Zombies, die letzte Nacht angegriffen haben, wurde &lt;strong&gt;im Brunnen&lt;/strong&gt; gefunden... Ich rate euch dringend davon ab, heute Morgen Wasser zu trinken, sonst fangt ihr euch noch eine Infektion ein...</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Anmerkung: einer der {attack} Zombies, die letzte Nacht angegriffen haben, wurde &lt;strong&gt;im Brunnen&lt;/strong&gt; gefunden... Ich rate euch dringend davon ab, heute Morgen Wasser zu trinken, sonst fangt ihr euch noch eine Infektion ein...</source>
@@ -23212,7 +23210,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Außerdem haben mehrere Zombies unerwartet die &lt;strong&gt;Arbeiten&lt;/strong&gt; am Westflügel genutzt, um in die Stadt einzudringen und {deaths} Menschen zu verschlingen... Ihr sollten &lt;strong&gt;eure Baustellen besser nicht so ungesichert lassen&lt;/strong&gt;.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Außerdem haben mehrere Zombies unerwartet die &lt;strong&gt;Arbeiten&lt;/strong&gt; am Westflügel genutzt, um in die Stadt einzudringen und {deaths} Menschen zu verschlingen... Ihr sollten &lt;strong&gt;eure Baustellen besser nicht so ungesichert lassen&lt;/strong&gt;.</source>
@@ -23223,7 +23220,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Bemerkenswert: Die Tür wurde über Nacht offen gelassen. Den Aufzeichnungen zufolge ist es {cadaver1}, der dafür verantwortlich ist. Nun, es ist immer noch in Ordnung... Trotz dieses Fehlers gab es nicht allzu viele Opfer.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Bemerkenswert: Die Tür wurde über Nacht offen gelassen. Den Aufzeichnungen zufolge ist es {cadaver1}, der dafür verantwortlich ist. Nun, es ist immer noch in Ordnung... Trotz dieses Fehlers gab es nicht allzu viele Opfer.</source>
@@ -23234,7 +23230,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Außerdem wäre es gut, daran zu denken, dass der Schamane der Stadt letzte Nacht gestorben ist. Heute Abend findet eine Neuwahl statt, bei der ein neuer Kandidat aus den Reihen der Überlebenden gewählt wird.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Außerdem wäre es gut, daran zu denken, dass der Schamane der Stadt letzte Nacht gestorben ist. Heute Abend findet eine Neuwahl statt, bei der ein neuer Kandidat aus den Reihen der Überlebenden gewählt wird.</source>
@@ -23245,7 +23240,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Halten wir kurz inne und gedenken unserem verlorenen Schamanen. Auf Wiedersehen, nutzloser Scharlatan! Wer ist motiviert, ihn zu ersetzen?</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Halten wir kurz inne und gedenken unserem verlorenen Schamanen. Auf Wiedersehen, nutzloser Scharlatan! Wer ist motiviert, ihn zu ersetzen?</source>
@@ -23256,7 +23250,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Unser geliebter Reiseleiter in der Außenwelt ist gestern verstorben. Heute Abend findet eine Neuwahl statt, bei der ein neuer Kandidat aus den Reihen der Überlebenden gewählt wird.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Unser geliebter Reiseleiter in der Außenwelt ist gestern verstorben. Heute Abend findet eine Neuwahl statt, bei der ein neuer Kandidat aus den Reihen der Überlebenden gewählt wird.</source>
@@ -23267,7 +23260,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Tolle Leistung gestern Abend, der Schamane und der Reiseleiter in der Außenwelt sind beide tot, daher könnte der heutige Tag etwas eintönig werden. Heute Abend findet eine Neuwahl aus den Reihen der Überlebenden statt.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Tolle Leistung gestern Abend, der Schamane und der Reiseleiter in der Außenwelt sind beide tot, daher könnte der heutige Tag etwas eintönig werden. Heute Abend findet eine Neuwahl aus den Reihen der Überlebenden statt.</source>
@@ -23278,7 +23270,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Wir haben geahnt, dass dies passieren würde. &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} hat gestern Selbstmord begangen. Immerhin hatte dieser Bürger mehrere Tage lang seinen Kopf gegen die Wände geschlagen und Sand gegessen, anstatt seine Wasserrationen einzunehmen... Traurig.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wir haben geahnt, dass dies passieren würde. &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} hat gestern Selbstmord begangen. Immerhin hatte dieser Bürger mehrere Tage lang seinen Kopf gegen die Wände geschlagen und Sand gegessen, anstatt seine Wasserrationen einzunehmen... Traurig.</source>
@@ -23289,7 +23280,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Wir werden nie wieder etwas von &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} hören, der sich entschlossen hat, dem Angriff der Zombies durch Selbstmord zu entkommen.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wir werden nie wieder etwas von &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} hören, der sich entschlossen hat, dem Angriff der Zombies durch Selbstmord zu entkommen.</source>
@@ -23300,7 +23290,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Weitere Nachrichten: &lt;strong&gt;{cadavers} Bürger haben gestern Selbstmord begangen&lt;/strong&gt;. Schöner Ort zum Leben, nicht wahr?</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Weitere Nachrichten: &lt;strong&gt;{cadavers} Bürger haben gestern Selbstmord begangen&lt;/strong&gt;. Schöner Ort zum Leben, nicht wahr?</source>
@@ -23311,7 +23300,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Nette Welle von Selbstmorden gestern, {cadavers} Kandidaten, von denen nicht einer versagt hat. Wenigstens das haben sie geschafft...</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Nette Welle von Selbstmorden gestern, {cadavers} Kandidaten, von denen nicht einer versagt hat. Wenigstens das haben sie geschafft...</source>
@@ -23322,7 +23310,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Der Gerechtigkeit ist Genüge getan, ihr habt gestern dafür gestimmt, &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} zu hängen. Hat doch Spaß gemacht, nicht wahr?</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Der Gerechtigkeit ist Genüge getan, ihr habt gestern dafür gestimmt, &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} zu hängen. Hat doch Spaß gemacht, nicht wahr?</source>
@@ -23333,7 +23320,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Amüsant, &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} hat es nicht lange in der Stadt ausgehalt. Hängen auf dem öffentlichen Platz und Steinigung. Zivilisation ist schön!</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Amüsant, &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} hat es nicht lange in der Stadt ausgehalt. Hängen auf dem öffentlichen Platz und Steinigung. Zivilisation ist schön!</source>
@@ -23344,7 +23330,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">&lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} wird niemanden mehr belästigen, da er mittlerweile an einem Seil schwingt... Die Gesetze der Stadt sind kein Witz!</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>&lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} wird niemanden mehr belästigen, da er mittlerweile an einem Seil schwingt... Die Gesetze der Stadt sind kein Witz!</source>
@@ -23712,6 +23697,36 @@ cette violente opération...]]></target>
       <segment>
         <source>Pfff...</source>
         <target>Pfff...</target>
+      </segment>
+    </unit>
+    <unit id="LCFSWUy">
+      <notes>
+        <note category="german">Die in das Gebäude investierten APs zählten &lt;strong&gt;50% mehr&lt;/strong&gt; (Sklaverei).</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
+      </notes>
+      <segment>
+        <source>Die in das Gebäude investierten APs zählten &lt;strong&gt;50% mehr&lt;/strong&gt; (Sklaverei).</source>
+        <target><![CDATA[Les PA investis dans le chantier ont compté <strong>50% de plus</strong> (esclavagisme).]]></target>
+      </segment>
+    </unit>
+    <unit id="g7k72IT" name="{citizen} hat an dem Bauprojekt {plan} mitgearbeitet (Sklaverei: +50% AP).">
+      <notes>
+        <note category="german">{citizen} hat an dem Bauprojekt {plan} mitgearbeitet (Sklaverei: +50% AP).</note>
+        <note category="from">db://LogEntryTemplate</note>
+      </notes>
+      <segment>
+        <source>{citizen} hat an dem Bauprojekt {plan} mitgearbeitet (Sklaverei: +50% AP).</source>
+        <target>{citizen} a travaillé sur le projet {plan} (esclavagisme: +50% de PA).</target>
+      </segment>
+    </unit>
+    <unit id="gtMSDSz" name="{citizen} hat das Gebäude {plan} repariert (Sklaverei: +50% AP).">
+      <notes>
+        <note category="german">{citizen} hat das Gebäude {plan} repariert (Sklaverei: +50% AP).</note>
+        <note category="from">db://LogEntryTemplate</note>
+      </notes>
+      <segment>
+        <source>{citizen} hat das Gebäude {plan} repariert (Sklaverei: +50% AP).</source>
+        <target>{citizen} a réparé le chantier {plan} (esclavagisme: +50% de PA).</target>
       </segment>
     </unit>
   </file>
