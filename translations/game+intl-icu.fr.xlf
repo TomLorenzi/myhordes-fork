@@ -23344,7 +23344,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Abgesehen davon hat der Bürger &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} gestern wohl endlich verstanden, dass Wasser manchmal nützlich ist. Ein exemplarischer Tod durch Dehydrierung.</source>
-        <target><![CDATA[Abgesehen davon hat der Bürger <i class="dagger">†</i> {cadaver1} gestern wohl endlich verstanden, dass Wasser manchmal nützlich ist. Ein exemplarischer Tod durch Dehydrierung.]]></target>
+        <target><![CDATA[A part ça, hier, le citoyen <i class="dagger">†</i> {cadaver1} aura compris que l'eau, c'était utile parfois. Une belle mort par déshydratation.]]></target>
       </segment>
     </unit>
     <unit id="FWa2XxY">
@@ -23355,7 +23355,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Anderes Thema; der Tod von &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} durch Verdurstung ist ein schlechtes Omen, findet ihr nicht auch?</source>
-        <target><![CDATA[Anderes Thema; der Tod von <i class="dagger">†</i> {cadaver1} durch Verdurstung ist ein schlechtes Omen, findet ihr nicht auch?]]></target>
+        <target><![CDATA[Autre sujet, un sinistre présage, avec la mort de <i class="dagger">†</i> {cadaver1} par déshydratation. Il commence à faire soif, vous ne trouvez pas ?]]></target>
       </segment>
     </unit>
     <unit id="KwXVUkQ">
@@ -23366,7 +23366,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Ein netter Versuch von &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1}, der mit mir wetten wollte, dass man ohne Wasser überleben kann. Ich habe gewonnen.</source>
-        <target><![CDATA[Ein netter Versuch von <i class="dagger">†</i> {cadaver1}, der mit mir wetten wollte, dass man ohne Wasser überleben kann. Ich habe gewonnen.]]></target>
+        <target><![CDATA[Une belle tentative pour <i class="dagger">†</i> {cadaver1} qui a voulu parier avec moi qu'on pouvait survivre sans eau. J'ai gagné !]]></target>
       </segment>
     </unit>
     <unit id="ScxI09z">
@@ -23377,7 +23377,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>&lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} liegt seit gestern als vertrocknete Leiche in seinem Haus. Der Mangel an Wasser, was kann man erwarten. Manche Leute glauben immer noch, sie könnten darauf verzichten.</source>
-        <target><![CDATA[<i class="dagger">†</i> {cadaver1} liegt seit gestern als vertrocknete Leiche in seinem Haus. Der Mangel an Wasser, was kann man erwarten. Manche Leute glauben immer noch, sie könnten darauf verzichten.]]></target>
+        <target><![CDATA[<i class="dagger">†</i> {cadaver1} n'est plus qu'un corps tout desséché dans sa maison depuis hier. Le manque d'eau, que voulez-vous. Y en a qui pensent encore pouvoir s'en passer.]]></target>
       </segment>
     </unit>
     <unit id="AEUoOt3">
@@ -23388,7 +23388,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Fürs Protokoll, es waren {cadavers} Bürger, die uns gestern Abend verlassen haben. Endgültige Dehydrierung. Ja, das Todesröcheln kam von ihnen...</source>
-        <target>Fürs Protokoll, es waren {cadavers} Bürger, die uns gestern Abend verlassen haben. Endgültige Dehydrierung. Ja, das Todesröcheln kam von ihnen...</target>
+        <target>Un petit ragot pour la route, ce sont {cadavers} citoyens qui nous ont quittés hier, dans la nuit. Déshydratation terminale. Oui, les râles d'agonie, c'était eux...</target>
       </segment>
     </unit>
     <unit id="iAlVErh">
@@ -23399,7 +23399,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Anderes Thema, es waren {cadavers} Bürger, die uns gestern Abend verlassen haben. Endgültige Dehydrierung. Ja, das Todesröcheln kam von ihnen...</source>
-        <target>Anderes Thema, es waren {cadavers} Bürger, die uns gestern Abend verlassen haben. Endgültige Dehydrierung. Ja, das Todesröcheln kam von ihnen...</target>
+        <target>Autre chose, ce sont {cadavers} citoyens qui nous ont quittés hier, dans la nuit. Déshydratation terminale. Oui, les râles d'agonie, c'était eux...</target>
       </segment>
     </unit>
     <unit id="sJA5QrY">
@@ -23410,7 +23410,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Der Durst hat gestern {cadavers} Bürger übermannt. Ein schöner und langer Todeskampf, der direkt zu einem grausamen Tod führt. Wir haben also kein Wasser mehr? Oh oh oh...</source>
-        <target>Der Durst hat gestern {cadavers} Bürger übermannt. Ein schöner und langer Todeskampf, der direkt zu einem grausamen Tod führt. Wir haben also kein Wasser mehr? Oh oh oh...</target>
+        <target>Sinon, la soif aura eu raison de {cadavers} citoyens hier. Une belle et longue agonie qui mène directement à une mort atroce. Ah bon, on manquait d'eau ? Ah ah ah...</target>
       </segment>
     </unit>
     <unit id="9IYIWWF">
@@ -23421,7 +23421,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Abgesehen davon haben {cadavers} Bürger vergessen, dass man ohne Wasser nicht lange überleben kann. Morgen mehr Todesfälle durch Dehydrierung?</source>
-        <target>Abgesehen davon haben {cadavers} Bürger vergessen, dass man ohne Wasser nicht lange überleben kann. Morgen mehr Todesfälle durch Dehydrierung?</target>
+        <target>A part ça, {cadavers} citoyens ont oublié que sans eau, on ne survivait pas bien longtemps. D'autres morts par déshydratation demain ?</target>
       </segment>
     </unit>
     <unit id="LSb5uAS">
@@ -23432,7 +23432,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Übrigens, Wassermangel ist teuer, {cadavers} die Bürger sind gestern in der Stadt ausgetrocknet. Oder haben sie "vergessen", ihre Ration zu nehmen? Stellt euch das mal vor!</source>
-        <target>Übrigens, Wassermangel ist teuer, {cadavers} die Bürger sind gestern in der Stadt ausgetrocknet. Oder haben sie "vergessen", ihre Ration zu nehmen? Stellt euch das mal vor!</target>
+        <target>Sinon, le manque d'eau coûte cher, {cadavers} citoyens se sont desséchés en ville hier. Ou alors ils ont "oublié" d'aller prendre leur ration ? Allez savoir.</target>
       </segment>
     </unit>
     <unit id="rsAiEQB">
@@ -23443,7 +23443,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Ein anderes Thema, die Stadt trocknet langsam aus (ha ha, verstanden?). {cadavers} Bürger starben in der Nacht an Dehydrierung... Oh oh oh...</source>
-        <target>Ein anderes Thema, die Stadt trocknet langsam aus (ha ha, verstanden?). {cadavers} Bürger starben in der Nacht an Dehydrierung... Oh oh oh...</target>
+        <target>Autre sujet, une perte sèche pour la ville (ah ah, vous allez comprendre). {cadavers} citoyens sont morts par déshydratation dans la nuit... Ah ah ah...</target>
       </segment>
     </unit>
     <unit id="cPTwDJQ">
@@ -23454,7 +23454,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Wenn du dich fragst, wer &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} gestern (mit Curare) ermordet hat, neige ich stark zu {citizen1}. Stell nicht zu viele Fragen, sagen wir einfach, ich habe meine Quellen. Verbannt den Verräter!</source>
-        <target><![CDATA[Wenn du dich fragst, wer <i class="dagger">†</i> {cadaver1} gestern (mit Curare) ermordet hat, neige ich stark zu {citizen1}. Stell nicht zu viele Fragen, sagen wir einfach, ich habe meine Quellen. Verbannt den Verräter!]]></target>
+        <target><![CDATA[Ne cherchez pas mes amis. Si vous vous demandez qui a assassiné <i class="dagger">†</i> {cadaver1} hier (au curare), je penche fortement pour {citizen1}. Ne m'en demandez pas trop à ce sujet, disons simplement que j'ai mes sources. Bannissez le traître !]]></target>
       </segment>
     </unit>
     <unit id=".w_A.uE">
@@ -23465,7 +23465,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Zu deiner Information: Wenn du dich fragst, wie hoch das Risiko einer &lt;strong&gt;Infektion&lt;/strong&gt; ist, kannst du einen Blick auf den verwesten Körper von &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} werfen, der letzte Nacht in sein Bett gestorben ist.</source>
-        <target><![CDATA[Zu deiner Information: Wenn du dich fragst, wie hoch das Risiko einer <strong>Infektion</strong> ist, kannst du einen Blick auf den verwesten Körper von <i class="dagger">†</i> {cadaver1} werfen, der letzte Nacht in sein Bett gestorben ist.]]></target>
+        <target><![CDATA[Pour info, si vous vous demandiez quel risque on encourait avec une <strong>infection</strong>, vous pouvez jeter un oeil au corps décomposé de <i class="dagger">†</i> {cadaver1} qui a claqué cette nuit dans son lit.]]></target>
       </segment>
     </unit>
     <unit id="5SMPX_Q">
@@ -23476,7 +23476,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>&lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} wird sich mehrere Stunden lang gequält haben, bevor er &lt;strong&gt;buchstäblich auf dem Boden verwest&lt;/strong&gt; ist. Eine Infektion kennt keine Gnade...</source>
-        <target><![CDATA[<i class="dagger">†</i> {cadaver1} wird sich mehrere Stunden lang gequält haben, bevor er <strong>buchstäblich auf dem Boden verwest</strong> ist. Eine Infektion kennt keine Gnade...]]></target>
+        <target><![CDATA[<i class="dagger">†</i> {cadaver1} aura agonisé plusieurs heures avant de <strong>littéralement se décomposer</strong> par terre. Une <strong>infection</strong> ça ne pardonne jamais...]]></target>
       </segment>
     </unit>
     <unit id="s75I5Ev">
@@ -23487,7 +23487,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Kleine Anekdote, der Geruch in der Stadt heute Morgen war &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1}, der von einer &lt;strong&gt;systemischen Infektion&lt;/strong&gt; gezeichnet war. Könnte jemand die Leiche herausholen?</source>
-        <target><![CDATA[Kleine Anekdote, der Geruch in der Stadt heute Morgen war <i class="dagger">†</i> {cadaver1}, der von einer <strong>systemischen Infektion</strong> gezeichnet war. Könnte jemand die Leiche herausholen?]]></target>
+        <target><![CDATA[Petite anecdote, l'odeur en ville, ce matin, c'est <i class="dagger">†</i> {cadaver1}, qui a claqué d'une <strong>infection généralisée</strong>. Quelqu'un pourrait sortir le corps ?]]></target>
       </segment>
     </unit>
     <unit id="XwDxSqj">
@@ -23498,7 +23498,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Ich hoffe, niemand kam &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} zu nahe. Dieser Bürger ist über Nacht an einer &lt;strong&gt;systemischen Infektion&lt;/strong&gt; gestorben. Wir alle haben seine furchtbaren &lt;strong&gt;Schreie der Qual&lt;/strong&gt; gehört, machen wir uns nichts vor...</source>
-        <target><![CDATA[Ich hoffe, niemand kam <i class="dagger">†</i> {cadaver1} zu nahe. Dieser Bürger ist über Nacht an einer <strong>systemischen Infektion</strong> gestorben. Wir alle haben seine furchtbaren <strong>Schreie der Qual</strong> gehört, machen wir uns nichts vor...]]></target>
+        <target><![CDATA[J'espère que personne n'a trop approché <i class="dagger">†</i> {cadaver1}. Ce citoyen a claqué dans la nuit des suites d'une <strong>infection généralisée</strong>. Nous avons tous entendu ses horribles <strong>cris d'agonie</strong>, avouons-le...]]></target>
       </segment>
     </unit>
     <unit id="BxpPAzH">
@@ -23509,7 +23509,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Dieses geschwollene Ding an &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1}... nun, das ist &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1}. Seine Infektion verlief extrem virulent.</source>
-        <target><![CDATA[Dieses geschwollene Ding an <i class="dagger">†</i> {cadaver1}... nun, das ist <i class="dagger">†</i> {cadaver1}. Seine Infektion verlief extrem virulent.]]></target>
+        <target><![CDATA[L'espèce de chose boursouflée chez <i class="dagger">†</i> {cadaver1}... ben c'est <i class="dagger">†</i> {cadaver1}. Son infection aura été particulièrement virulente.]]></target>
       </segment>
     </unit>
     <unit id="ns8621y">
@@ -23520,7 +23520,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Komisch, in der Stadt riecht es wirklich nach Tod. Die &lt;strong&gt;tödlichen Infektionen&lt;/strong&gt; haben letzte Nacht mehrere Bürger schwer getroffen... Wir haben also nichts in der Bank, um so etwas zu verhindern?</source>
-        <target><![CDATA[Komisch, in der Stadt riecht es wirklich nach Tod. Die <strong>tödlichen Infektionen</strong> haben letzte Nacht mehrere Bürger schwer getroffen... Wir haben also nichts in der Bank, um so etwas zu verhindern?]]></target>
+        <target><![CDATA[Amusant, ça sent vraiment la mort en ville. Les <strong>infections mortelles</strong> ont touché de plein fouet plusieurs citoyens hier soir... On n'a donc rien en banque pour enrayer ça ?]]></target>
       </segment>
     </unit>
     <unit id="fICmJjR">
@@ -23531,7 +23531,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Ihre Haut begann sich zu schälen, aber sie machten sich keine allzu großen Gedanken darüber... {cadavers} Bürger starben letzte Nacht an einer Infektion.</source>
-        <target>Ihre Haut begann sich zu schälen, aber sie machten sich keine allzu großen Gedanken darüber... {cadavers} Bürger starben letzte Nacht an einer Infektion.</target>
+        <target>Ils avaient la peau qui commençait à se détacher, mais ils ne s'en sont pas plus inquiétés que ça... {cadavers} personnes sont mortes des suites d'une infection cette nuit.</target>
       </segment>
     </unit>
     <unit id="Muq1Zer">
@@ -23542,7 +23542,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Wir sollten dafür sorgen, dass wir uns um unsere Kranken kümmern. {cadavers} Bürger sind gestern an verschiedenen Infektionen gestorben. Notfalls hängen wir die infizierten Bürger auf, dann müssen wir weniger von ihnen behandeln..</source>
-        <target>Wir sollten dafür sorgen, dass wir uns um unsere Kranken kümmern. {cadavers} Bürger sind gestern an verschiedenen Infektionen gestorben. Notfalls hängen wir die infizierten Bürger auf, dann müssen wir weniger von ihnen behandeln..</target>
+        <target>Faudrait voir à soigner nos malades. {cadavers} citoyens morts des suites de diverses infections hier. A la rigueur, pendez les citoyens infectés, ça fera toujours ça de moins à traiter.</target>
       </segment>
     </unit>
     <unit id="w6Ydl3g">
@@ -23553,7 +23553,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre &lt;strong&gt;in der Nähe der nördlichen Mauer&lt;/strong&gt; gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.</source>
-        <target><![CDATA[Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre <strong>in der Nähe der nördlichen Mauer</strong> gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.]]></target>
+        <target><![CDATA[Petite anecdote, on ignore comment, mais l'un des {cadavers} citoyens disparus dehors cette nuit aurait retrouvé le chemin de la ville et aurait été <strong>aperçu à proximité du mur Nord</strong> ! Cela dit, il lui manquait les jambes et ce citoyen serait mort dans les minutes qui ont suivi. Berk.]]></target>
       </segment>
     </unit>
     <unit id="stCBeN3">
@@ -23564,7 +23564,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre &lt;strong&gt;in der Nähe der südlichen Mauer&lt;/strong&gt; gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.</source>
-        <target><![CDATA[Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre <strong>in der Nähe der südlichen Mauer</strong> gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.]]></target>
+        <target><![CDATA[Petite anecdote, on ignore comment, mais l'un des {cadavers} citoyens disparus dehors cette nuit aurait retrouvé le chemin de la ville et aurait été <strong>aperçu à proximité du mur Sud</strong> ! Cela dit, il lui manquait les jambes et ce citoyen serait mort dans les minutes qui ont suivi. Berk.]]></target>
       </segment>
     </unit>
     <unit id="GAnRpoW">
@@ -23575,7 +23575,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre &lt;strong&gt;in der Nähe der westlichen Mauer&lt;/strong&gt; gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.</source>
-        <target><![CDATA[Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre <strong>in der Nähe der westlichen Mauer</strong> gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.]]></target>
+        <target><![CDATA[Petite anecdote, on ignore comment, mais l'un des {cadavers} citoyens disparus dehors cette nuit aurait retrouvé le chemin de la ville et aurait été <strong>aperçu à proximité du mur Ouest</strong> ! Cela dit, il lui manquait les jambes et ce citoyen serait mort dans les minutes qui ont suivi. Berk.]]></target>
       </segment>
     </unit>
     <unit id="bURQbdD">
@@ -23586,7 +23586,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre &lt;strong&gt;in der Nähe der östlichen Mauer&lt;/strong&gt; gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.</source>
-        <target><![CDATA[Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre <strong>in der Nähe der östlichen Mauer</strong> gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.]]></target>
+        <target><![CDATA[Petite anecdote, on ignore comment, mais l'un des {cadavers} citoyens disparus dehors cette nuit aurait retrouvé le chemin de la ville et aurait été <strong>aperçu à proximité du mur Est</strong> ! Cela dit, il lui manquait les jambes et ce citoyen serait mort dans les minutes qui ont suivi. Berk.]]></target>
       </segment>
     </unit>
     <unit id="nxj3690" name="Nun, das sage ich...">
@@ -23597,7 +23597,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Nun, das sage ich...</source>
-        <target>Nun, das sage ich...</target>
+        <target>Enfin moi ce que j'en dis...</target>
       </segment>
     </unit>
     <unit id="5lxIEc4" name="Das ist doch Unsinn...">
@@ -23608,7 +23608,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Das ist doch Unsinn...</source>
-        <target>Das ist doch Unsinn...</target>
+        <target>N'importe quoi...</target>
       </segment>
     </unit>
     <unit id="QpcjpkN" name="Die einen sagen dies, die anderen das...">
@@ -23619,7 +23619,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Die einen sagen dies, die anderen das...</source>
-        <target>Die einen sagen dies, die anderen das...</target>
+        <target>Je dis ça, moi je dis rien...</target>
       </segment>
     </unit>
     <unit id="6epngC1" name="Ich sags ja nur...">
@@ -23630,7 +23630,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Ich sags ja nur...</source>
-        <target>Ich sags ja nur...</target>
+        <target>Moi, je dis ça...</target>
       </segment>
     </unit>
     <unit id="WXmsbc5" name="Komm schon, glaub mir.">
@@ -23641,7 +23641,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Komm schon, glaub mir.</source>
-        <target>Komm schon, glaub mir.</target>
+        <target>Allez, on y croit.</target>
       </segment>
     </unit>
     <unit id="vcDJ6os" name="Was für eine Organisation...">
@@ -23652,7 +23652,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Was für eine Organisation...</source>
-        <target>Was für eine Organisation...</target>
+        <target>Quelle organisation...</target>
       </segment>
     </unit>
     <unit id=".QOVVt9" name="Wir werden nicht lange durchhalten, das sage ich euch.">
@@ -23663,7 +23663,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Wir werden nicht lange durchhalten, das sage ich euch.</source>
-        <target>Wir werden nicht lange durchhalten, das sage ich euch.</target>
+        <target>On tiendra pas longtemps, moi je vous le dis.</target>
       </segment>
     </unit>
     <unit id="XzG331s">
@@ -23674,7 +23674,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Noch so eine Nacht und wir werden nicht mehr hier sein, um über so etwas zu reden.</source>
-        <target>Noch so eine Nacht und wir werden nicht mehr hier sein, um über so etwas zu reden.</target>
+        <target>Une autre nuit comme ça et on ne sera plus là pour en parler.</target>
       </segment>
     </unit>
     <unit id="Hwl.nBz" name="Das war knapp.">
@@ -23685,7 +23685,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Das war knapp.</source>
-        <target>Das war knapp.</target>
+        <target>Chaud.</target>
       </segment>
     </unit>
     <unit id="P5RrAdn" name="Pfff...">
