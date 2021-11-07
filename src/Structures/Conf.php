@@ -62,4 +62,8 @@ class Conf
     public function get(string $key, $default = null) {
         return $this->flat[$key] ?? $default;
     }
+
+    public function getSubKey(string $key, string $subKey, $default = null) {
+        return $this->flat["{$key}.{$subKey}"] ?? $default;
+    }
 }

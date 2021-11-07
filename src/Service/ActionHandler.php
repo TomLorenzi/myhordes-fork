@@ -866,7 +866,7 @@ class ActionHandler
                     if ($p = $item_spawn->getPrototype())
                         $proto = $p;
                     elseif ($g = $item_spawn->getItemGroup())
-                        $proto = $this->random_generator->pickItemPrototypeFromGroup( $g );
+                        $proto = $this->random_generator->pickItemPrototypeFromGroup( $g, $town_conf );
 
                     if ($proto) $tags[] = 'spawned';
 
@@ -1723,7 +1723,7 @@ class ActionHandler
 
         $this->citizen_handler->deductAPBP( $citizen, $ap );
 
-        $new_item = $this->random_generator->pickItemPrototypeFromGroup( $recipe->getResult() );
+        $new_item = $this->random_generator->pickItemPrototypeFromGroup( $recipe->getResult(), $this->conf->getTownConfiguration( $citizen->getTown() ) );
         $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $new_item ) , $target_inv, true );
 
         if (in_array($recipe->getType(), [Recipe::WorkshopType, Recipe::WorkshopTypeShamanSpecific]))

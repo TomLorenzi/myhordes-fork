@@ -472,7 +472,7 @@ class BeyondController extends InventoryAwareController
         $good = $this->random_generator->chance(0.125);
 
         $item_group = $this->entity_manager->getRepository(ItemGroup::class)->findOneBy(['name' => $good ? 'trash_good' : 'trash_bad']);
-        $proto = $this->random_generator->pickItemPrototypeFromGroup( $item_group );
+        $proto = $this->random_generator->pickItemPrototypeFromGroup( $item_group, $this->getTownConf() );
         if (!$proto)
             return AjaxResponse::error(ErrorHelper::ErrorInternalError);
 
@@ -1327,7 +1327,7 @@ class BeyondController extends InventoryAwareController
                     : $zone->getPrototype()->getDrops() )
                 : $zone->getPrototype()->getDrops();
 
-            $prototype = $group ? $this->random_generator->pickItemPrototypeFromGroup( $group ) : null;
+            $prototype = $group ? $this->random_generator->pickItemPrototypeFromGroup( $group, $this->getTownConf() ) : null;
             if ($prototype) {
                 $item = $this->item_factory->createItem( $prototype );
                 $noPlaceLeftMsg = "";

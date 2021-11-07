@@ -319,7 +319,7 @@ class ExplorationController extends InventoryAwareController implements HookedIn
 
         if ($this->random_generator->chance( $chances )) {
             $group = $ruinZone->getZone()->getPrototype()->getDrops();
-            $prototype = $group ? $this->random_generator->pickItemPrototypeFromGroup( $group ) : null;
+            $prototype = $group ? $this->random_generator->pickItemPrototypeFromGroup( $group, $this->getTownConf() ) : null;
         }
 
         $ruinZone->setDigs( $ruinZone->getDigs() + 1 );

@@ -946,6 +946,10 @@ class ItemFixtures extends Fixture
             array('item' => 'wood_bad_#00', 'count' => '41306'),
             array('item' => 'metal_bad_#00', 'count' => '22856'),
         ),
+        'empty_dig_test' => array(
+            array('item' => 'christmas_candy_#00', 'count' => '41306'),
+            array('item' => 'chidol_#00', 'count' => '22856'),
+        ),
         'base_dig' => array(
             array('item' => 'wood2_#00', 'count' => '16764'),
             array('item' => 'metal_#00', 'count' => '10124'),

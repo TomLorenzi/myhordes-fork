@@ -264,13 +264,13 @@ class ZoneHandler
                         $item_prototype = null;
                         break;
                     case 0:
-                        $item_prototype = $this->random_generator->pickItemPrototypeFromGroup( $empty_group );
+                        $item_prototype = $this->random_generator->pickItemPrototypeFromGroup( $empty_group, $conf );
                         break;
                     case 1:
-                        $item_prototype = $this->random_generator->pickItemPrototypeFromGroup( $base_group );
+                        $item_prototype = $this->random_generator->pickItemPrototypeFromGroup( $base_group, $conf );
                         break;
                     case 2:
-                        $item_prototype = $this->random_generator->pickItemPrototypeFromGroup( $event_group ?? $base_group );
+                        $item_prototype = $this->random_generator->pickItemPrototypeFromGroup( $event_group ?? $base_group, $conf );
                         break;
                     default:
                         $item_prototype = null;

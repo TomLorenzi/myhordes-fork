@@ -116,6 +116,8 @@ class TownConf extends Conf
     const CONF_DISABLED_ROLES = 'disabled_roles';
     const CONF_DISABLED_BUILDINGS = 'disabled_buildings';
 
+    const CONF_OVERRIDE_ITEM_GROUP = 'overrides.item_groups';
+
     public function __construct(array $data)
     {
         $first = false;
