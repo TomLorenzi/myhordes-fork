@@ -736,6 +736,7 @@ class TownController extends InventoryAwareController
     /**
      * @Route("api/town/visit/{id}/intrude", name="town_visit_intrusion_controller")
      * @param int $id
+     * @param JSONRequestParser $parser
      * @return Response
      */
     public function intrude_visit_api(int $id, JSONRequestParser $parser): Response {
@@ -758,7 +759,7 @@ class TownController extends InventoryAwareController
             $this->entity_manager->remove($other_intrusion);
 
         if ($action !== 0 && $this->entity_manager->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype( $victim->getHome(), $this->entity_manager->getRepository(CitizenHomeUpgradePrototype::class)->findOneByName( 'alarm' ) ) && $victim->getAlive()) {
-            $this->entity_manager->persist( $this->log->citizenHomeIntrusion( $this->getActiveCitizen(), $victim, false) );
+            $this->entity_manager->persist( $this->log->citizenHomeIntrusion( $this->getActiveCitizen(), $victim, true) );
             $this->addFlash( 'error', $this->translator->trans( 'Du hast das Alarmsystem bei {victim} ausgelöst! Die ganze Stadt weiß jetzt über deinen Einbruch Bescheid.', ['victim' => $victim], 'game' ) );
             $this->crow->postAsPM( $victim, '', '' . time(), PrivateMessage::TEMPLATE_CROW_INTRUSION, $this->getActiveCitizen()->getId() );
         }

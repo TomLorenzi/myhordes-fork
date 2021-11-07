@@ -1696,8 +1696,7 @@ class LogTemplateHandler
 
     public function citizenHomeIntrusion( Citizen $intruder, Citizen $victim, bool $act ): TownLogEntry {
         $variables = array('intruder' => $intruder->getId(), 'victim' => $victim->getId());
-        //$template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => $act ? 'citizenIntrusionAct' : 'citizenIntrusionBase']);
-        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'citizenIntrusionAct']);
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => $act ? 'citizenIntrusionAct' : 'citizenIntrusionBase']);
 
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
