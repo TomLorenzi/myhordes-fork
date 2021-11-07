@@ -437,8 +437,9 @@
                 }
 
                 if (newstr !== '' && focus_container) {
-                    focus_container.innerHTML = (preview_node ? preview_node.outerHTML : '') + newstr + focus_container.innerHTML;
+                    const pn = preview_node ? preview_node.outerHTML : '';
                     if (preview_node) preview_node.remove();
+                    focus_container.innerHTML = pn + newstr + focus_container.innerHTML;
                     fun_msg_events();
                 }
 
