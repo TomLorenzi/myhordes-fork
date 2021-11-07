@@ -205,13 +205,9 @@ class TwinoConverterToBlocks {
             'aparte': 'sideNote',
         };
 
-        let quotespace = false;
         let nested = false;
         let pollspace = false;
         for (let i = 0; i < parents.length; i++) {
-            if (!quotespace && (parents[i].tagName === 'BLOCKQUOTE'))
-                quotespace = true;
-
             pollspace = ((parents[i].tagName === 'UL' && parents[i].classList.contains('poll')))
 
             let css = typeToClass[match.nodeType()] ?? match.nodeType();
@@ -255,15 +251,13 @@ class TwinoConverterToBlocks {
                 changed = true; break;
             case 'code': blocks.push( new TwinoInterimBlock(nodeContent, 'pre', [], [ ['x-raw','1'] ]) ); changed = true; break;
             case 'quote':
-                if (!quotespace) {
-                    if ( match.nodeInfo() ) {
-                        blocks.push( new TwinoInterimBlock('', 'div', 'clear') );
-                        blocks.push( new TwinoInterimBlock(match.nodeInfo(), 'span', 'quoteauthor') );
-                    }
-
-                    blocks.push( new TwinoInterimBlock(nodeContent, 'blockquote') );
-                    changed = true;
+                if ( match.nodeInfo() ) {
+                    blocks.push( new TwinoInterimBlock('', 'div', 'clear') );
+                    blocks.push( new TwinoInterimBlock(match.nodeInfo(), 'span', 'quoteauthor') );
                 }
+
+                blocks.push( new TwinoInterimBlock(nodeContent, 'blockquote') );
+                changed = true;
 
                 break;
             case 'image':
@@ -400,11 +394,11 @@ class HTMLConverterFromBlocks {
 
         while (cp) {
             if (cp.nodeType === Node.ELEMENT_NODE) {
-                if (!quotespace   && (cp.tagName === 'BLOCKQUOTE' || cp.classList.contains('no-quote'))) quotespace = true;
+                if (!quotespace   && cp.classList.contains('no-quote')) quotespace = true;
                 if (!raw_fallback && (cp.tagName === 'PRE' || cp.classList.contains('raw-fallback'))) raw_fallback = true;
             }
 
-            if (cp.nodeType === Node.ELEMENT_NODE && (cp.tagName === 'BLOCKQUOTE' || cp.classList.contains('no-quote')))
+            if (cp.nodeType === Node.ELEMENT_NODE && cp.classList.contains('no-quote'))
                 quotespace = true;
             cp = cp.parentNode as HTMLElement;
         }
