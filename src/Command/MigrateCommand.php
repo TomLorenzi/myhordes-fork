@@ -174,6 +174,7 @@ class MigrateCommand extends Command
             ->addOption('assign-features', null, InputOption::VALUE_NONE, 'Assign features')
             ->addOption('update-all-sp', null, InputOption::VALUE_NONE, 'Update all soul points')
             ->addOption('fix-forum-posts', null, InputOption::VALUE_NONE, 'Fix forum post content')
+            ->addOption('fix-ranking-survived-days', null, InputOption::VALUE_NONE, 'Fix survived day count in rankings')
 
             ->addOption('repair-permissions', null, InputOption::VALUE_NONE, 'Makes sure forum permissions and user groups are set up properly')
             ->addOption('migrate-oracles', null, InputOption::VALUE_NONE, 'Moves the Oracle role from account elevation to the special permissions flag')
@@ -684,6 +685,17 @@ class MigrateCommand extends Command
                 $post->setText($text);
                 $this->entity_manager->persist($post);
             }
+
+            return 0;
+        }
+
+        //fix-ranking-survived-days
+        if ($input->getOption('fix-ranking-survived-days')) {
+            $this->helper->leChunk($output, TownRankingProxy::class, 100, ['imported' => false], true, false, function(TownRankingProxy $tp):bool {
+                if ($tp->getTown() && $tp->getTown()->getAliveCitizenCount() > 0) return false;
+                $this->game_factory->updateTownScore($tp);
+                return true;
+            });
 
             return 0;
         }
