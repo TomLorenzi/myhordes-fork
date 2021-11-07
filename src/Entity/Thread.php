@@ -83,6 +83,11 @@ class Thread
      */
     private $hidden;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $solved;
+
     public function __construct()
     {
         $this->posts = new ArrayCollection();
@@ -310,6 +315,18 @@ class Thread
     public function setHidden(?bool $hidden): self
     {
         $this->hidden = $hidden;
+
+        return $this;
+    }
+
+    public function getSolved(): ?bool
+    {
+        return $this->solved;
+    }
+
+    public function setSolved(bool $solved): self
+    {
+        $this->solved = $solved;
 
         return $this;
     }

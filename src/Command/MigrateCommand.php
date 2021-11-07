@@ -862,7 +862,10 @@ class MigrateCommand extends Command
                 if ($forum->getTown())
                     $fun_permissions($forum, $this->entity_manager->getRepository(UserGroup::class)->findOneBy( ['type' => UserGroup::GroupTownInhabitants, 'ref1' => $forum->getTown()->getId()] ));
 
-                elseif ($forum->getType() === Forum::ForumTypeDefault || $forum->getType() === null) $fun_permissions($forum, $g_users);
+                elseif ($forum->getType() === Forum::ForumTypeDefault || $forum->getType() === null) {
+                    $fun_permissions($forum, $g_users);
+                    $fun_permissions($forum, $g_oracle, ForumUsagePermissions::PermissionHelp);
+                }
                 elseif ($forum->getType() === Forum::ForumTypeElevated) $fun_permissions($forum, $g_elev);
                 elseif ($forum->getType() === Forum::ForumTypeMods) $fun_permissions($forum, $g_mods);
                 elseif ($forum->getType() === Forum::ForumTypeAdmins) $fun_permissions($forum, $g_admin);

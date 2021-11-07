@@ -37,6 +37,7 @@ class ForumUsagePermissions
     // Moderation
     const PermissionModerate     = 1 << 10;
     const PermissionOwn          = 1 << 11;
+    const PermissionHelp         = 1 << 12;
 
     // Functionality
     const PermissionFormattingOracle    = 1 << 16;

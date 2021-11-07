@@ -82,7 +82,7 @@ class PermissionHandler
      * @param int $permission
      * @return array
      */
-    public function getForumsWithPermission( User $user, $permission = ForumUsagePermissions::PermissionRead ): array {
+    public function getForumsWithPermission(User $user, int $permission = ForumUsagePermissions::PermissionRead ): array {
         $groups = $this->userGroups($user);
 
         $grant = $deny = 0;

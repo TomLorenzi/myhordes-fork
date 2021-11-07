@@ -33,10 +33,10 @@
             <div class="row-flex stretch forum-thread {% if thread.new %}forum-thread-unread{% endif%}" x-public-route="{{ path('forum_thread_view', {fid: fid, tid: thread.id }) }}" {% if postUrl != postUrlFg %}x-post-source-next="{{ postUrlFg }}"{% endif%} x-post-source="{{ postUrl }}" x-thread-id="{{ thread.id }}">
                 {# @var thread \App\Entity\Thread #}
                 <div class="padded cell factor-0 rw-1 status">
-                    {% if thread.locked %}
+                    {% if thread.locked and not thread.solved %}
                         <img style="position: absolute" alt="" src="{{ asset('build/images/icons/lock.gif') }}" />
-                    {% else %}
-                        &nbsp;
+                    {% elseif thread.locked and thread.solved %}
+                        &nbsp;<img style="position: absolute" alt="" src="{{ asset('build/images/icons/done.png') }}" />
                     {% endif %}
                 </div>
                 <div class="padded cell factor-0 rw-8 title">

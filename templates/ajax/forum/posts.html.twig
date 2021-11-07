@@ -75,7 +75,19 @@
                             </div>
                         </div>
                     {% endif %}
-
+                    {% if permission.help() and not locked %}
+                        <div tabindex="0" class="forum-button button-dropdown-button" style="padding: 4px;">
+                            <img alt="" src="{{ asset('build/images/icons/icon_mh_orac.gif') }}" />
+                            <div class="button-dropdown">
+                                {% if not locked %}
+                                    <div tabindex="0" x-forum-moderator-action="solve" class="forum-button">
+                                        <img alt="" src="{{ asset('build/images/icons/icon_mh_orac.gif') }}" />
+                                        <span>{{ 'Gelöst'|trans({},'global') }}</span>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endif %}
                 </div>
                 <div class="cell padded grow-1 right">
                     <div x-forum-action="{{ subscribed ? 'unsub' : 'sub' }}" class="forum-button">
@@ -98,10 +110,12 @@
         </div>
         {% if first_buttons %}<br />{% endif %}
         <div class="center {% if locked %}infoThread{% endif %}">
-            {% if locked %}
+            {% if locked and not solved %}
                 <img alt="" src="{{ asset('build/images/icons/lock.gif') }}" /> {{ 'Diese Diskussion ist beendet.'|trans({},'global') }}
             {% endif %}
-            {# TODO : if thread is resolved with "OK", it display "Diese Diskussion ist als gelöst markiert (oder der Anlass hat sich mittlerweile erledigt)." #}
+            {% if locked and solved %}
+                <img alt="" src="{{ asset('build/images/icons/done.png') }}" /> {{ 'Diese Diskussion ist als gelöst markiert (oder der Anlass hat sich mittlerweile erledigt).'|trans({},'global') }}
+            {% endif %}
         </div>
     {% endblock %}
     {% set first_buttons = false %}
@@ -360,6 +374,13 @@
                 if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
                     return;
                 $.ajax.easySend('{{ path('forum_thread_mod_controller', {fid: fid, tid: tid, mod: 'lock'}) }}', null, reloadPage);
+            });
+        {% endif %}
+        {% if permission.help %}
+            $.html.addEventListenerAll('[x-forum-moderator-action="solve"]', 'click', function(e,elem) {
+                if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
+                    return;
+                $.ajax.easySend('{{ path('forum_thread_mod_controller', {fid: fid, tid: tid, mod: 'solve'}) }}', null, reloadPage);
             });
         {% endif %}
 

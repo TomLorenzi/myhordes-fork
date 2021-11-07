@@ -667,6 +667,8 @@ class MessageForumController extends MessageController
      * @param int $tid
      * @param EntityManagerInterface $em
      * @param JSONRequestParser $parser
+     * @param SessionInterface $session
+     * @param CitizenHandler $ch
      * @param int $pid
      * @return Response
      */
@@ -770,6 +772,7 @@ class MessageForumController extends MessageController
             'posts' => $posts,
             'owned' => $thread->getOwner() === $user,
             'locked' => $thread->getLocked(),
+            'solved' => $thread->getLocked() && $thread->getSolved(),
             'pinned' => $thread->getPinned(),
             'title' => $thread->getTranslatable() ? $this->translator->trans($thread->getTitle(), [], 'game') : $thread->getTitle(),
             'thread' => $thread,
@@ -1127,7 +1130,19 @@ class MessageForumController extends MessageController
                 if ($thread->getOwner() !== $this->getUser() && !$this->perm->checkEffectivePermissions($this->getUser(), $forum, ForumUsagePermissions::PermissionModerate))
                     return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
-                $thread->setLocked(true);
+                $thread->setLocked(true)->setSolved(false);
+                try {
+                    $this->entity_manager->persist($thread);
+                    $this->entity_manager->flush();
+                    return AjaxResponse::success();
+                } catch (Exception $e) {
+                    return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+                }
+            case 'solve':
+                if (!$this->perm->checkEffectivePermissions($this->getUser(), $forum, ForumUsagePermissions::PermissionHelp))
+                    return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+
+                $thread->setLocked(true)->setSolved(true);
                 try {
                     $this->entity_manager->persist($thread);
                     $this->entity_manager->flush();
@@ -1140,7 +1155,7 @@ class MessageForumController extends MessageController
                 if (!$this->perm->checkEffectivePermissions($this->getUser(), $forum, ForumUsagePermissions::PermissionModerate))
                     return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
-                $thread->setLocked(false);
+                $thread->setLocked(false)->setSolved(false);
                 try {
                     $this->entity_manager->persist($thread);
                     $this->entity_manager->flush();
