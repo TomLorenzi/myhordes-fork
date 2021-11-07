@@ -164,8 +164,8 @@ class DeathHandler
             $this->entity_manager->persist($gazette);
         }
 
-        CitizenRankingProxy::fromCitizen( $citizen, true );
-        TownRankingProxy::fromTown( $citizen->getTown(), true );
+        $this->entity_manager->persist( CitizenRankingProxy::fromCitizen( $citizen, true ) );
+        $this->entity_manager->persist( TownRankingProxy::fromTown( $citizen->getTown(), true ) );
 
         // Give soul point
         if (!$this->conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_FEATURE_GIVE_SOULPOINTS, true))

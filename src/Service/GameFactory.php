@@ -21,6 +21,7 @@ use App\Entity\ShoutboxReadMarker;
 use App\Entity\Thread;
 use App\Entity\Town;
 use App\Entity\TownClass;
+use App\Entity\TownRankingProxy;
 use App\Entity\TownSlotReservation;
 use App\Entity\User;
 use App\Entity\UserGroup;
@@ -615,16 +616,25 @@ class GameFactory
         return $main_citizen;
     }
 
-    public function updateTownScore(Town $town): void {
+    /**
+     * @param Town|TownRankingProxy $town
+     * @return void
+     */
+    public function updateTownScore($town): void {
         $score = 0;
         $lastDay = 0;
-        foreach ($town->getRankingEntry()->getCitizens() as $r_citizen) {
+
+        $tr = null;
+        if (is_a( $town, Town::class )) $tr = $town->getRankingEntry();
+        elseif (is_a( $town, TownRankingProxy::class )) $tr = $town;
+
+        foreach ($tr->getCitizens() as $r_citizen) {
             /* @var CitizenRankingProxy $citizen */
             $score += $r_citizen->getDay();
             $lastDay = max( $lastDay, $r_citizen->getDay());
         }
 
-        $town->getRankingEntry()->setDays($lastDay)->setScore($score);
+        $this->entity_manager->persist( $tr->setDays($lastDay)->setScore($score) );
     }
 
     public function compactTown(Town $town): bool {

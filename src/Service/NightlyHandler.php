@@ -1627,7 +1627,7 @@ class NightlyHandler
         foreach ($events as $event) $event->hook_nightly_post($town);
 
         $this->game_factory->updateTownScore( $town );
-        TownRankingProxy::fromTown( $town, true );
+        $this->entity_manager->persist( TownRankingProxy::fromTown( $town, true ) );
         foreach ($town->getCitizens() as $citizen) CitizenRankingProxy::fromCitizen( $citizen, true );
 
         $c = count($this->cleanup);
