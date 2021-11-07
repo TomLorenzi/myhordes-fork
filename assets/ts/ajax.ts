@@ -107,6 +107,21 @@ export default class Ajax {
         if (push_history) history.pushState( url, '', url );
         if (replace_history) history.replaceState( url, '', url );
 
+        // First move content with a specific TARGET selector
+        let fragment = null;
+        while (fragment = result_document.querySelector<HTMLElement>('[x-render-target]')) {
+            let frag_target = document.querySelector<HTMLElement>( fragment.getAttribute('x-render-target') );
+            if (!frag_target) console.warn('Rendered HTML contains an invalid fragment target: ', frag_target, ' Discarding.')
+            else {
+                const frag_doc = document.implementation.createHTMLDocument('');
+                let frag_children = fragment.children;
+                for (let i = 0; i < frag_children.length; i++)
+                    frag_doc.body.appendChild( frag_children[i] );
+                this.render( url, frag_target, frag_doc, false, false );
+            }
+            fragment.remove();
+        }
+
         // Get content, style and script tags
         let content_source = result_document.querySelectorAll('html>body>:not(script):not(x-message)');
         let style_source = result_document.querySelectorAll('html>head>style');

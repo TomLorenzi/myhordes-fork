@@ -409,7 +409,7 @@ class BeyondController extends InventoryAwareController
         ], !$inline);
 
         return $inline
-            ? $this->renderBlocks( 'ajax/game/beyond/desert.html.twig', ['content','js'], $args )
+            ? $this->renderBlocks( 'ajax/game/beyond/desert.html.twig', ['content','js'], [ 'ajax/game/game.html.twig' => 'gma' ], $args )
             : $this->render( 'ajax/game/beyond/desert.html.twig', $args );
     }
 

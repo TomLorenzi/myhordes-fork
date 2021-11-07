@@ -44,7 +44,8 @@
         </div>
     {% endif %}
     <div id="gma" class="game-menu-area">
-        <div class="game-bar">
+        {% block gma %}
+            <div class="game-bar">
             {% block text_menu_content %}
                 <ul class="text-menu">
                     <li class="burger-button"><i class="fa fa-bars"></i></li>
@@ -97,9 +98,10 @@
             {% endblock %}
             {% block menu_bar %}{% endblock %}
         </div>
-        <div class="game-dropdown hidden" style="height: 0">
+            <div class="game-dropdown hidden" style="height: 0">
             {{ block('text_menu_content') }}
         </div>
+        {% endblock %}
     </div>
     {% block ajax %}
     {% endblock %}

@@ -142,7 +142,7 @@ class CustomAbstractController extends AbstractController {
         return parent::render($view, $parameters, $response);
     }
 
-    protected function renderBlocks(string $view, array $blocks, array $parameters = [], $include_flash = true, Response $response = null): Response
+    protected function renderBlocks(string $view, array $blocks, array $externals = [], array $parameters = [], $include_flash = true, Response $response = null): Response
     {
         $this->enrichParameter($parameters);
 
@@ -152,6 +152,14 @@ class CustomAbstractController extends AbstractController {
 
         $blocks = array_map( fn($block) => $template->renderBlock($block, $args), $blocks );
         if ($include_flash) $blocks[] = $twig->render('ajax/flash.html.twig', $twig->mergeGlobals([]));
+
+        foreach ($externals as $ext_view => $def) {
+            list( $target, $ext_block ) = is_string($def) ? [$def,$def] : $def;
+
+            if ($ext_block === '*') $ext_content = $twig->render($ext_view, $args);
+            else $ext_content = $twig->load( $ext_view )->renderBlock($ext_block, $args );
+            $blocks[] = "<div x-render-target='#{$target}'>$ext_content</div>";
+        }
 
         return parent::render( 'ajax/ajax_plain.html.twig', ['_ajax_base_content' => join('', $blocks)], $response );
     }
