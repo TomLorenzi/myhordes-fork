@@ -566,6 +566,7 @@ class AdminUserController extends AdminActionController
                         $user->setRightsElevation( User::USER_LEVEL_BASIC );
 
                         $perm->disassociate( $user, $perm->getDefaultGroup(UserGroup::GroupTypeDefaultOracleGroup));
+                        $perm->disassociate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultAnimactorGroup ) );
                         $perm->disassociate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultElevatedGroup ) );
                         $perm->disassociate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultModeratorGroup ) );
                         $perm->disassociate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultAdminGroup ) );
@@ -577,6 +578,7 @@ class AdminUserController extends AdminActionController
 
                         $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultElevatedGroup ) );
                         $perm->disassociate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultOracleGroup));
+                        $perm->disassociate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultAnimactorGroup ) );
                         $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultModeratorGroup ) );
                         $perm->disassociate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultAdminGroup ) );
                         break;
@@ -585,6 +587,7 @@ class AdminUserController extends AdminActionController
 
                         $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultElevatedGroup ) );
                         $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultOracleGroup));
+                        $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultAnimactorGroup ) );
                         $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultModeratorGroup ) );
                         $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultAdminGroup ) );
                         break;
@@ -615,12 +618,12 @@ class AdminUserController extends AdminActionController
                             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
                         else $user->addRoleFlag( User::USER_ROLE_ANIMAC );
 
-                        //$perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultOracleGroup));
+                        $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultAnimactorGroup));
                         break;
 
                     case '!FLAG_ANIMAC':
                         $user->removeRoleFlag( User::USER_ROLE_ANIMAC );
-                        //$perm->disassociate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultOracleGroup));
+                        $perm->disassociate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultAnimactorGroup));
                         break;
 
                     default: breaK;
