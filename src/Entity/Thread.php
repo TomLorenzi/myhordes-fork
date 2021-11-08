@@ -86,7 +86,7 @@ class Thread
     /**
      * @ORM\Column(type="boolean")
      */
-    private $solved;
+    private $solved = false;
 
     public function __construct()
     {
