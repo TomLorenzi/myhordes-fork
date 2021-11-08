@@ -1162,7 +1162,7 @@
     <unit id="zTo.6Bl">
       <segment>
         <source>Diesen Bonus gibt es nur dann, wenn sich die Wächter wärhend eines Angriffs in det Stadt befinden.</source>
-        <target>Diesen Bonus gibt es nur dann, wenn sich die Wächter wärhend eines Angriffs in det Stadt befinden.</target>
+        <target>Diesen Bonus gibt es nur dann, wenn sich die Wächter während eines Angriffs in der Stadt befinden.</target>
       </segment>
     </unit>
     <unit id="zF4ERQG" name="Diese Kosten können durch den Aufbau der &lt;strong&gt;Müll für Alle&lt;/strong&gt;.">
