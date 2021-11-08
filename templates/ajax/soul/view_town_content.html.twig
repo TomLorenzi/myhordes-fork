@@ -12,7 +12,7 @@
         <div class="padded cell ro-3 rw-6 ro-md-1 rw-md-10 ro-sm-0 rw-sm-12">
 
             {% if town.town and town.town.citizens|filter(c=>c.alive) is not empty %}
-                <div class="note note-critical">{{ 'Wenn man den letzten Neuigkeiten Glauben schenken darf, gibt es in dieser Stadt noch Überlebende!'|trans({},'soul') }}</div>
+                <div class="note note-critical center">{{ 'Wenn man den letzten Neuigkeiten Glauben schenken darf, gibt es in dieser Stadt noch Überlebende!'|trans({},'soul') }}</div>
             {% endif %}
 
             {% if user_name is defined %}
@@ -95,7 +95,7 @@
         {% for citizen in town.citizens|filter(c => c.end is not null or c.confirmed == true)|sort((a,b) => b.day <=> a.day) %}
             {% set days = citizen.day %}
             {% set sp = days * ( days + 1 ) / 2 %}
-            <div class="row {% if citizen.user.id == app.user.id %}me{% endif %}">
+            <div class="row {% if citizen.user.id == app.user.id or user_id is defined and citizen.user.id == user_id %}me{% endif %}">
                 <div class="padded cell rw-1 rw-lg-2 rw-md-3 rw-sm-4">{{citizen.day}}</div>
                 <div class="padded cell rw-1 rw-lg-2 rw-md-3 rw-sm-4 town-points bold">
                     {% if not citizen.disabled and not town.disabled %}
