@@ -1823,7 +1823,7 @@
     </unit>
     <unit id="zTo.6Bl">
       <notes>
-        <note category="german">Diesen Bonus gibt es nur dann, wenn sich die Wächter wärhend eines Angriffs in det Stadt befinden.</note>
+        <note category="german">Diesen Bonus gibt es nur dann, wenn sich die Wächter während eines Angriffs in der Stadt befinden.</note>
         <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
       </notes>
       <segment>
@@ -3947,6 +3947,28 @@
       <segment>
         <source>Deine Nachricht benötigt einen Titel sowie Inhalt.</source>
         <target>Your message must have content and a title.</target>
+      </segment>
+    </unit>
+    <unit id="bPdbUF0" name="Gelöst">
+      <notes>
+        <note category="german">Gelöst</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Gelöst</source>
+        <target>Gelöst</target>
+      </segment>
+    </unit>
+    <unit id="XG157Qz">
+      <notes>
+        <note category="german">Diese Diskussion ist als gelöst markiert (oder der Anlass hat sich mittlerweile erledigt).</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Diese Diskussion ist als gelöst markiert (oder der Anlass hat sich mittlerweile erledigt).</source>
+        <target>Diese Diskussion ist als gelöst markiert (oder der Anlass hat sich mittlerweile erledigt).</target>
       </segment>
     </unit>
   </file>

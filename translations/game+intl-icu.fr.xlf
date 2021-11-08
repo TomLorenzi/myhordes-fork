@@ -23340,7 +23340,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Abgesehen davon hat der Bürger &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} gestern wohl endlich verstanden, dass Wasser manchmal nützlich ist. Ein exemplarischer Tod durch Dehydrierung.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Abgesehen davon hat der Bürger &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} gestern wohl endlich verstanden, dass Wasser manchmal nützlich ist. Ein exemplarischer Tod durch Dehydrierung.</source>
@@ -23351,7 +23350,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Anderes Thema; der Tod von &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} durch Verdurstung ist ein schlechtes Omen, findet ihr nicht auch?</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Anderes Thema; der Tod von &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} durch Verdurstung ist ein schlechtes Omen, findet ihr nicht auch?</source>
@@ -23362,7 +23360,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Ein netter Versuch von &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1}, der mit mir wetten wollte, dass man ohne Wasser überleben kann. Ich habe gewonnen.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ein netter Versuch von &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1}, der mit mir wetten wollte, dass man ohne Wasser überleben kann. Ich habe gewonnen.</source>
@@ -23373,7 +23370,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">&lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} liegt seit gestern als vertrocknete Leiche in seinem Haus. Der Mangel an Wasser, was kann man erwarten. Manche Leute glauben immer noch, sie könnten darauf verzichten.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>&lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} liegt seit gestern als vertrocknete Leiche in seinem Haus. Der Mangel an Wasser, was kann man erwarten. Manche Leute glauben immer noch, sie könnten darauf verzichten.</source>
@@ -23384,7 +23380,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Fürs Protokoll, es waren {cadavers} Bürger, die uns gestern Abend verlassen haben. Endgültige Dehydrierung. Ja, das Todesröcheln kam von ihnen...</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Fürs Protokoll, es waren {cadavers} Bürger, die uns gestern Abend verlassen haben. Endgültige Dehydrierung. Ja, das Todesröcheln kam von ihnen...</source>
@@ -23395,7 +23390,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Anderes Thema, es waren {cadavers} Bürger, die uns gestern Abend verlassen haben. Endgültige Dehydrierung. Ja, das Todesröcheln kam von ihnen...</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Anderes Thema, es waren {cadavers} Bürger, die uns gestern Abend verlassen haben. Endgültige Dehydrierung. Ja, das Todesröcheln kam von ihnen...</source>
@@ -23406,7 +23400,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Der Durst hat gestern {cadavers} Bürger übermannt. Ein schöner und langer Todeskampf, der direkt zu einem grausamen Tod führt. Wir haben also kein Wasser mehr? Oh oh oh...</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Der Durst hat gestern {cadavers} Bürger übermannt. Ein schöner und langer Todeskampf, der direkt zu einem grausamen Tod führt. Wir haben also kein Wasser mehr? Oh oh oh...</source>
@@ -23417,7 +23410,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Abgesehen davon haben {cadavers} Bürger vergessen, dass man ohne Wasser nicht lange überleben kann. Morgen mehr Todesfälle durch Dehydrierung?</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Abgesehen davon haben {cadavers} Bürger vergessen, dass man ohne Wasser nicht lange überleben kann. Morgen mehr Todesfälle durch Dehydrierung?</source>
@@ -23428,7 +23420,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Übrigens, Wassermangel ist teuer, {cadavers} die Bürger sind gestern in der Stadt ausgetrocknet. Oder haben sie "vergessen", ihre Ration zu nehmen? Stellt euch das mal vor!</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Übrigens, Wassermangel ist teuer, {cadavers} die Bürger sind gestern in der Stadt ausgetrocknet. Oder haben sie "vergessen", ihre Ration zu nehmen? Stellt euch das mal vor!</source>
@@ -23439,7 +23430,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Ein anderes Thema, die Stadt trocknet langsam aus (ha ha, verstanden?). {cadavers} Bürger starben in der Nacht an Dehydrierung... Oh oh oh...</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ein anderes Thema, die Stadt trocknet langsam aus (ha ha, verstanden?). {cadavers} Bürger starben in der Nacht an Dehydrierung... Oh oh oh...</source>
@@ -23450,7 +23440,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Wenn du dich fragst, wer &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} gestern (mit Curare) ermordet hat, neige ich stark zu {citizen1}. Stell nicht zu viele Fragen, sagen wir einfach, ich habe meine Quellen. Verbannt den Verräter!</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wenn du dich fragst, wer &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} gestern (mit Curare) ermordet hat, neige ich stark zu {citizen1}. Stell nicht zu viele Fragen, sagen wir einfach, ich habe meine Quellen. Verbannt den Verräter!</source>
@@ -23461,7 +23450,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Zu deiner Information: Wenn du dich fragst, wie hoch das Risiko einer &lt;strong&gt;Infektion&lt;/strong&gt; ist, kannst du einen Blick auf den verwesten Körper von &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} werfen, der letzte Nacht in sein Bett gestorben ist.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Zu deiner Information: Wenn du dich fragst, wie hoch das Risiko einer &lt;strong&gt;Infektion&lt;/strong&gt; ist, kannst du einen Blick auf den verwesten Körper von &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} werfen, der letzte Nacht in sein Bett gestorben ist.</source>
@@ -23472,7 +23460,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">&lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} wird sich mehrere Stunden lang gequält haben, bevor er &lt;strong&gt;buchstäblich auf dem Boden verwest&lt;/strong&gt; ist. Eine Infektion kennt keine Gnade...</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>&lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} wird sich mehrere Stunden lang gequält haben, bevor er &lt;strong&gt;buchstäblich auf dem Boden verwest&lt;/strong&gt; ist. Eine Infektion kennt keine Gnade...</source>
@@ -23483,7 +23470,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Kleine Anekdote, der Geruch in der Stadt heute Morgen war &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1}, der von einer &lt;strong&gt;systemischen Infektion&lt;/strong&gt; gezeichnet war. Könnte jemand die Leiche herausholen?</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Kleine Anekdote, der Geruch in der Stadt heute Morgen war &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1}, der von einer &lt;strong&gt;systemischen Infektion&lt;/strong&gt; gezeichnet war. Könnte jemand die Leiche herausholen?</source>
@@ -23494,7 +23480,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Ich hoffe, niemand kam &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} zu nahe. Dieser Bürger ist über Nacht an einer &lt;strong&gt;systemischen Infektion&lt;/strong&gt; gestorben. Wir alle haben seine furchtbaren &lt;strong&gt;Schreie der Qual&lt;/strong&gt; gehört, machen wir uns nichts vor...</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ich hoffe, niemand kam &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} zu nahe. Dieser Bürger ist über Nacht an einer &lt;strong&gt;systemischen Infektion&lt;/strong&gt; gestorben. Wir alle haben seine furchtbaren &lt;strong&gt;Schreie der Qual&lt;/strong&gt; gehört, machen wir uns nichts vor...</source>
@@ -23505,7 +23490,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Dieses geschwollene Ding an &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1}... nun, das ist &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1}. Seine Infektion verlief extrem virulent.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Dieses geschwollene Ding an &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1}... nun, das ist &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1}. Seine Infektion verlief extrem virulent.</source>
@@ -23516,7 +23500,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Komisch, in der Stadt riecht es wirklich nach Tod. Die &lt;strong&gt;tödlichen Infektionen&lt;/strong&gt; haben letzte Nacht mehrere Bürger schwer getroffen... Wir haben also nichts in der Bank, um so etwas zu verhindern?</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Komisch, in der Stadt riecht es wirklich nach Tod. Die &lt;strong&gt;tödlichen Infektionen&lt;/strong&gt; haben letzte Nacht mehrere Bürger schwer getroffen... Wir haben also nichts in der Bank, um so etwas zu verhindern?</source>
@@ -23527,7 +23510,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Ihre Haut begann sich zu schälen, aber sie machten sich keine allzu großen Gedanken darüber... {cadavers} Bürger starben letzte Nacht an einer Infektion.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ihre Haut begann sich zu schälen, aber sie machten sich keine allzu großen Gedanken darüber... {cadavers} Bürger starben letzte Nacht an einer Infektion.</source>
@@ -23538,7 +23520,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Wir sollten dafür sorgen, dass wir uns um unsere Kranken kümmern. {cadavers} Bürger sind gestern an verschiedenen Infektionen gestorben. Notfalls hängen wir die infizierten Bürger auf, dann müssen wir weniger von ihnen behandeln..</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wir sollten dafür sorgen, dass wir uns um unsere Kranken kümmern. {cadavers} Bürger sind gestern an verschiedenen Infektionen gestorben. Notfalls hängen wir die infizierten Bürger auf, dann müssen wir weniger von ihnen behandeln..</source>
@@ -23549,7 +23530,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre &lt;strong&gt;in der Nähe der nördlichen Mauer&lt;/strong&gt; gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre &lt;strong&gt;in der Nähe der nördlichen Mauer&lt;/strong&gt; gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.</source>
@@ -23560,7 +23540,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre &lt;strong&gt;in der Nähe der südlichen Mauer&lt;/strong&gt; gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre &lt;strong&gt;in der Nähe der südlichen Mauer&lt;/strong&gt; gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.</source>
@@ -23571,7 +23550,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre &lt;strong&gt;in der Nähe der westlichen Mauer&lt;/strong&gt; gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre &lt;strong&gt;in der Nähe der westlichen Mauer&lt;/strong&gt; gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.</source>
@@ -23582,7 +23560,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre &lt;strong&gt;in der Nähe der östlichen Mauer&lt;/strong&gt; gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre &lt;strong&gt;in der Nähe der östlichen Mauer&lt;/strong&gt; gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.</source>
@@ -23593,7 +23570,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Nun, das sage ich...</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Nun, das sage ich...</source>
@@ -23604,7 +23580,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Das ist doch Unsinn...</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Das ist doch Unsinn...</source>
@@ -23615,7 +23590,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Die einen sagen dies, die anderen das...</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Die einen sagen dies, die anderen das...</source>
@@ -23626,7 +23600,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Ich sags ja nur...</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ich sags ja nur...</source>
@@ -23637,7 +23610,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Komm schon, glaub mir.</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Komm schon, glaub mir.</source>
@@ -23648,7 +23620,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Was für eine Organisation...</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Was für eine Organisation...</source>
@@ -23659,7 +23630,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Wir werden nicht lange durchhalten, das sage ich euch.</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wir werden nicht lange durchhalten, das sage ich euch.</source>
@@ -23670,7 +23640,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Noch so eine Nacht und wir werden nicht mehr hier sein, um über so etwas zu reden.</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Noch so eine Nacht und wir werden nicht mehr hier sein, um über so etwas zu reden.</source>
@@ -23681,7 +23650,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Das war knapp.</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Das war knapp.</source>
