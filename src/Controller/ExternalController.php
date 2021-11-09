@@ -23,6 +23,7 @@ use App\Service\ConfMaster;
 use App\Service\CrowService;
 use App\Service\DeathHandler;
 use App\Service\GameFactory;
+use App\Service\GazetteService;
 use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
 use App\Service\LogTemplateHandler;
@@ -70,6 +71,7 @@ class ExternalController extends InventoryAwareController {
     protected DeathHandler           $death_handler;
     protected EntityManagerInterface $entity_manager;
     protected                        $available_langs = ['en', 'fr', 'de', 'es'];
+    protected GazetteService         $gazette_service;
 
     /**
      * BeyondController constructor.
@@ -98,12 +100,13 @@ class ExternalController extends InventoryAwareController {
                                 PictoHandler $ph, TranslatorInterface $translator, GameFactory $gf,
                                 RandomGenerator $rg, ItemFactory $if, LogTemplateHandler $lh,
                                 ConfMaster $conf, ZoneHandler $zh, UserHandler $uh,
-                                CrowService $armbrust, Packages $a, TownHandler $th) {
+                                CrowService $armbrust, Packages $a, TownHandler $th, GazetteService $gs) {
         parent::__construct($em, $ih, $ch, $ah, $dh, $ph, $translator, $lh, $tk, $rg, $conf, $zh, $uh, $armbrust, $th, $a);
         $this->game_factory = $gf;
         $this->item_factory = $if;
         $this->zone_handler = $zh;
         $this->entity_manager = $em;
+        $this->gazette_service = $gs;
     }
 
     /**
@@ -1189,40 +1192,35 @@ class ExternalController extends InventoryAwareController {
         if ($this->town->getDay() == 1) {
             return $data;
         } else {
-            $gazette = $this->town->findGazette($this->town->getDay());
+            $gazette = $this->gazette_service->renderGazette($this->town);
             if (!is_null($gazette)) {
-                $gazette_log = $this->entity_manager->getRepository(GazetteLogEntry::class)->findByFilter($gazette);
-
                 foreach ($fields as $field) {
                     switch ($field) {
                         case "z":
-                            $data[$field] = $gazette->getAttack();
+                            $data[$field] = $gazette['attack'];
                             break;
                         case "def":
-                            $data[$field] = $gazette->getDefense();
+                            $data[$field] = $gazette['defense'];
                             break;
                         case "content":
                             /**
                              * @var GazetteLogEntry $entry
                              */
-                            while (count($gazette_log) > 0) {
-                                $entry = array_shift($gazette_log);
-                                $template = $entry->getTemplate();
-                                if($template->getType() === GazetteEntryTemplate::TypeGazetteWind) continue;
-                                $text = $this->getTranslate($template->getText(), 'game',
-                                                            $this->logTemplateHandler->parseTransParams($template->getVariableTypes(),
-                                                                                                        $entry->getVariables()));
-                                $data[$field] .= "<p>{$text}</p>";
-
+                            if(count($this->langue) == 1) {
+                                $data[$field] = $gazette['text'];
+                            } else {
+                                foreach ($this->langue as $lang) {
+                                    $gazette = $this->gazette_service->renderGazette($this->town, null, true, $lang);
+                                    $data[$field] = $gazette['text'];
+                                }
                             }
                             break;
                         case "regenDir":
                             /* if Searchtower build small_gather_#02 */
                             $buildSearchtower = ($this->town_handler->getBuilding($this->town, 'small_gather_#02', true)) ? true : false;
                             if($buildSearchtower){
-
                                 $regenDir = 'invalid direction';
-                                switch ($gazette->getWindDirection()){
+                                switch ($gazette['windDirection']){
                                     case Zone::DirectionNorthWest:
                                         $regenDir = $this->getTranslate('Nordwesten','game');
                                         break;
