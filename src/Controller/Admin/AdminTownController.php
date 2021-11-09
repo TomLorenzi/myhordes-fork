@@ -416,6 +416,8 @@ class AdminTownController extends AdminActionController
             ]) && !$this->isGranted('ROLE_ADMIN'))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
+        $this->logger->info("[town_manager] Admin <info>{$this->getUser()->getName()}</info> did the action <info>$action</info> in the town <info>{$town->getName()}</info> (id: {$town->getId()}");
+
         $param = $parser->get('param');
 
         switch ($action) {
@@ -735,8 +737,13 @@ class AdminTownController extends AdminActionController
         if (!in_array($town_lang, ['de','en','es','fr','multi']))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
+        $this->logger->info("[add_default_town] Admin <info>{$this->getUser()->getName()}</info> created a <info>$town_lang</info> town (custom name: '<info>$town_name</info>'), which is of type <info>$town_type</info>");
+
         $town = $gameFactory->createTown($town_name, $town_lang, null, $town_type);
-        if (!$town) return AjaxResponse::error(ErrorHelper::ErrorInternalError);
+        if (!$town) {
+            $this->logger->warning("Town creation failed !");
+            return AjaxResponse::error(ErrorHelper::ErrorInternalError);
+        }
 
         try {
             $this->entity_manager->persist( $town );

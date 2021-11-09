@@ -71,6 +71,10 @@ class AdminFileSystemController extends CustomAbstractController
                     'tag' => $trans->trans('Update', [], 'admin'),
                     'color' => '#82846D'
                 ];
+                case 'admin': return [
+                        'tag' => $trans->trans('Admin', [], 'admin'),
+                        'color' => '#ff6633'
+                ];
                 default: return [
                     'tag' => $trans->trans('Unbekannt', [], 'admin'),
                     'color' => '#646165'
