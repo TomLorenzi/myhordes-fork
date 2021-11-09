@@ -1209,9 +1209,10 @@ class ExternalController extends InventoryAwareController {
                             if(count($this->langue) == 1) {
                                 $data[$field] = $gazette['text'];
                             } else {
+                                $data[$field] = [];
                                 foreach ($this->langue as $lang) {
                                     $gazette = $this->gazette_service->renderGazette($this->town, null, true, $lang);
-                                    $data[$field] = $gazette['text'];
+                                    $data[$field][$lang] = $gazette['text'];
                                 }
                             }
                             break;
