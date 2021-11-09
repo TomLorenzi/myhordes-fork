@@ -33,7 +33,7 @@
                                 </div>
                                 <div class="padded cell rw-5">
                                     <code class="small" style="font-size: 0.7em">{{ log.rel }}</code><br/>
-                                    <i class="small">{{ 'Dateigröße: {s}'|trans({s: '<b>' ~ log.info.size|round(2)|filesize ~ '</b>' }, 'admin')|raw }}</i>
+                                    <i class="small">{{ 'Dateigröße: {s}'|trans({s: '<b>' ~ log.info.size|filesize ~ '</b>' }, 'admin')|raw }}</i>
                                 </div>
                                 <div class="padded cell rw-2 right">
                                     {% if is_granted("ROLE_ADMIN") %}
@@ -68,7 +68,7 @@
                                 </div>
                                 <div class="padded cell rw-5">
                                     <code class="small" style="font-size: 0.7em">{{ backup.rel }}</code><br/>
-                                    <i class="small">{{ 'Dateigröße: {s}'|trans({s: '<b>' ~ backup.info.size|round(2)|filesize ~ '</b>' }, 'admin')|raw }}</i>
+                                    <i class="small">{{ 'Dateigröße: {s}'|trans({s: '<b>' ~ backup.info.size|filesize ~ '</b>' }, 'admin')|raw }}</i>
                                 </div>
                                 <div class="padded cell rw-2 right">
                                     {% if is_granted("ROLE_ADMIN") %}

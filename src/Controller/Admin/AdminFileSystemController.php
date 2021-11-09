@@ -18,7 +18,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  * @Route("/",condition="request.isXmlHttpRequest()")
  * @GateKeeperProfile(allow_during_attack=true)
  */
-class AdminFileSystemController extends CustomAbstractController
+class AdminFileSystemController extends AdminActionController
 {
 
     /**
@@ -182,6 +182,8 @@ class AdminFileSystemController extends CustomAbstractController
         $path = new SplFileInfo("{$params->get('kernel.project_dir')}/var/backup/{$f}");
         if (!$path->isFile() || !str_starts_with($path->getRealPath(), $spl_core_path->getRealPath()) || !in_array(strtolower($path->getExtension()), ['sql','xz','gzip','bz2'])) return new Response('', 404);
 
+        $this->logger->info("Admin <info>{$this->getUser()->getName()}</info> downloaded backup <debug>{$f}</debug>");
+
         return $this->file($path->getRealPath(), $path->getFilename(), ResponseHeaderBag::DISPOSITION_ATTACHMENT);
     }
 
@@ -204,6 +206,8 @@ class AdminFileSystemController extends CustomAbstractController
         if ($path->isFile() && str_starts_with($path->getRealPath(), $spl_core_path->getRealPath()) && strtolower($path->getExtension()) === 'log')
             unlink($path->getRealPath());
 
+        $this->logger->info("Admin <info>{$this->getUser()->getName()}</info> deleted log <debug>{$f}</debug>");
+
         return AjaxResponse::success();
     }
 
@@ -225,6 +229,8 @@ class AdminFileSystemController extends CustomAbstractController
         $path = new SplFileInfo("{$params->get('kernel.project_dir')}/var/backup/{$f}");
         if ($path->isFile() && str_starts_with($path->getRealPath(), $spl_core_path->getRealPath()) && in_array(strtolower($path->getExtension()), ['sql','xz','gzip','bz2']))
             unlink($path->getRealPath());
+
+        $this->logger->info("Admin <info>{$this->getUser()->getName()}</info> deleted backup <debug>{$f}</debug>");
 
         return AjaxResponse::success();
     }
