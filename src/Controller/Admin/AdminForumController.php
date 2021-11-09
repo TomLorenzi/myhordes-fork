@@ -104,8 +104,10 @@ class AdminForumController extends AdminActionController
 
         $user = $this->getUser();
         $postId = $parser->get('postId');
-        if ($admh->clearReports($user->getId(), $postId))
+        if ($admh->clearReports($user->getId(), $postId)){
+            $this->logger->info("Admin <info>{$this->getUser()->getName()}</info> cleared reports");
             return AjaxResponse::success();
+        }
         return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
     }
 
