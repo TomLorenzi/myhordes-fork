@@ -579,7 +579,7 @@ class CitizenHandler
         }
 
         // Ruin in zone.
-        $camping_values['ruin'] = $zone->getPrototype() ? $zone->getPrototype()->getCampingLevel() : 0;
+        $camping_values['ruin'] = $zone->getPrototype() ? ($zone->getBuryCount() <= 0 ? $zone->getPrototype()->getCampingLevel() : 8) : 0;
 
         // Zombies in zone. Factor -1.4, for hidden scouts it is -0.6.
         $camping_values['zombies'] = ($has_scout_protection ? -0.6 : -1.4) * $zone->getZombies();
