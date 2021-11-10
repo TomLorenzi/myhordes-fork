@@ -971,7 +971,7 @@
       </notes>
       <segment>
         <source>Gegenstände</source>
-        <target>Objects</target>
+        <target>objects</target>
       </segment>
     </unit>
     <unit id="RmaV9PR" name="Mein Haus ausbauen">
