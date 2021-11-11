@@ -3957,7 +3957,7 @@
       </notes>
       <segment>
         <source>Gelöst</source>
-        <target>Gelöst</target>
+        <target>"Resolved"</target>
       </segment>
     </unit>
     <unit id="XG157Qz">
@@ -3968,7 +3968,7 @@
       </notes>
       <segment>
         <source>Diese Diskussion ist als gelöst markiert (oder der Anlass hat sich mittlerweile erledigt).</source>
-        <target>Diese Diskussion ist als gelöst markiert (oder der Anlass hat sich mittlerweile erledigt).</target>
+        <target>This discussion has been marked as resolved (or the issue has been well-discussed).</target>
       </segment>
     </unit>
   </file>
