@@ -3934,7 +3934,7 @@
       </notes>
       <segment>
         <source>Gelöst</source>
-        <target>Gelöst</target>
+        <target>"Resuello"</target>
       </segment>
     </unit>
     <unit id="XG157Qz">
@@ -3945,7 +3945,7 @@
       </notes>
       <segment>
         <source>Diese Diskussion ist als gelöst markiert (oder der Anlass hat sich mittlerweile erledigt).</source>
-        <target>Diese Diskussion ist als gelöst markiert (oder der Anlass hat sich mittlerweile erledigt).</target>
+        <target>Este tema ha sido marcado como Resuelto (o fue tratado suficientemente).</target>
       </segment>
     </unit>
   </file>
