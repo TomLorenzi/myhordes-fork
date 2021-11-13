@@ -801,6 +801,9 @@ class TownController extends InventoryAwareController
         if ($c->getAlive() && !$intrusion = $em->getRepository(HomeIntrusion::class)->findOneBy(['intruder' => $ac, 'victim' => $c]))
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
 
+        if ($this->citizen_handler->hasStatusEffect($ac, 'tg_steal') && !$ac->getTown()->getChaos())
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
+
         $direction = $parser->get('direction', '');
         if ($c->getAlive() && $intrusion && (($intrusion->getSteal() && $direction === 'down') || (!$intrusion->getSteal() && $direction === 'up')))
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
