@@ -9346,5 +9346,16 @@
         <target>Cuidado: ¡Retira de tu mochila los objetos que no deseas que retornen al pueblo!</target>
       </segment>
     </unit>
+    <unit id="7KhXc2A">
+      <notes>
+        <note category="german">Es ist nicht so appetitlich wie ein &lt;strong&gt;schöner, frischer, zappelnder Mensch&lt;/strong&gt;, aber es erfüllt seinen Zweck und lässt den &lt;strong&gt;Hunger&lt;/strong&gt; ein wenig nachlassen.... Zum Glück ist das Fleisch ziemlich zart, sonst wäre diese Mahlzeit furchtbar gewesen.&lt;hr/&gt;Nach ein paar Sekunden spürst du den furchtbaren Nachgeschmack...</note>
+        <note category="from">db://ItemAction</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Es ist nicht so appetitlich wie ein &lt;strong&gt;schöner, frischer, zappelnder Mensch&lt;/strong&gt;, aber es erfüllt seinen Zweck und lässt den &lt;strong&gt;Hunger&lt;/strong&gt; ein wenig nachlassen.... Zum Glück ist das Fleisch ziemlich zart, sonst wäre diese Mahlzeit furchtbar gewesen.&lt;hr/&gt;Nach ein paar Sekunden spürst du den furchtbaren Nachgeschmack...</source>
+        <target><![CDATA[No es tan apetecible como un <strong>humano fresco y vigoroso</strong>, pero logra al menos calmar tu <strong>voracidad</strong>. Felizmente la carne estaba un poco sazonada...<hr/>Unos segundos después notas que esa cosa tiene un sabor horrible...]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

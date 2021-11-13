@@ -9378,5 +9378,16 @@
         <target>Attention : retirez de votre sac les objets que vous ne souhaitez pas ramener en ville !</target>
       </segment>
     </unit>
+    <unit id="7KhXc2A">
+      <notes>
+        <note category="german">Es ist nicht so appetitlich wie ein &lt;strong&gt;schöner, frischer, zappelnder Mensch&lt;/strong&gt;, aber es erfüllt seinen Zweck und lässt den &lt;strong&gt;Hunger&lt;/strong&gt; ein wenig nachlassen.... Zum Glück ist das Fleisch ziemlich zart, sonst wäre diese Mahlzeit furchtbar gewesen.&lt;hr/&gt;Nach ein paar Sekunden spürst du den furchtbaren Nachgeschmack...</note>
+        <note category="from">db://ItemAction</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Es ist nicht so appetitlich wie ein &lt;strong&gt;schöner, frischer, zappelnder Mensch&lt;/strong&gt;, aber es erfüllt seinen Zweck und lässt den &lt;strong&gt;Hunger&lt;/strong&gt; ein wenig nachlassen.... Zum Glück ist das Fleisch ziemlich zart, sonst wäre diese Mahlzeit furchtbar gewesen.&lt;hr/&gt;Nach ein paar Sekunden spürst du den furchtbaren Nachgeschmack...</source>
+        <target><![CDATA[Ça n'est pas aussi appétissant qu'un <strong>bon humain frais et vigoureux</strong>, mais ça remplit un peu son rôle et calme un minimum votre <strong>voracité</strong>... Heureusement que la viande était un peu faisandée, ce repas aurait été inepte sinon.<hr/>Vous notez, quelques secondes après, que cette chose avait vraiment un arrière-goût horrible...]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

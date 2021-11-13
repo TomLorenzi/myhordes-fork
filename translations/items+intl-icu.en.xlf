@@ -9364,7 +9364,6 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       <notes>
         <note category="german">Befiehl {dogname}, deinen Rucksackinhalt in die Stadt zu bringen:</note>
         <note category="from">twig:///templates/ajax/game/actions.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Befiehl {dogname}, deinen Rucksackinhalt in die Stadt zu bringen:</source>
@@ -9389,6 +9388,17 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       <segment>
         <source>Achtung: Entferne alle Gegenstände aus deinem Rucksack, die du NICHT in die Stadt senden möchtest!</source>
         <target>Attention: take any objects out of your rucksack which you don't want to take back to town!</target>
+      </segment>
+    </unit>
+    <unit id="7KhXc2A">
+      <notes>
+        <note category="german">Es ist nicht so appetitlich wie ein &lt;strong&gt;schöner, frischer, zappelnder Mensch&lt;/strong&gt;, aber es erfüllt seinen Zweck und lässt den &lt;strong&gt;Hunger&lt;/strong&gt; ein wenig nachlassen.... Zum Glück ist das Fleisch ziemlich zart, sonst wäre diese Mahlzeit furchtbar gewesen.&lt;hr/&gt;Nach ein paar Sekunden spürst du den furchtbaren Nachgeschmack...</note>
+        <note category="from">db://ItemAction</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Es ist nicht so appetitlich wie ein &lt;strong&gt;schöner, frischer, zappelnder Mensch&lt;/strong&gt;, aber es erfüllt seinen Zweck und lässt den &lt;strong&gt;Hunger&lt;/strong&gt; ein wenig nachlassen.... Zum Glück ist das Fleisch ziemlich zart, sonst wäre diese Mahlzeit furchtbar gewesen.&lt;hr/&gt;Nach ein paar Sekunden spürst du den furchtbaren Nachgeschmack...</source>
+        <target><![CDATA[It's not as appetising as a <strong>nice, fresh, wriggling human</strong>, but it does the job and makes your <strong>voracity</strong> subside... a little. Fortunately, the meat way quite gamey, this meal would have been dreadful otherwise.<hr/>You observe a few seconds later, that this had a horrendous after taste...]]></target>
       </segment>
     </unit>
   </file>
