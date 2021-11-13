@@ -739,9 +739,9 @@ class CitizenHandler
             /** @var CitizenWatch|null $previousWatches */
             $previousWatches = $this->entity_manager->getRepository(CitizenWatch::class)->findWatchOfCitizenForADay($citizen, $i);
             if ($previousWatches === null || $previousWatches->getSkipped())
-                $fatigue = max($this->getNightwatchBaseFatigue($citizen), $fatigue - 0.05);
+                $fatigue = max($this->getNightwatchBaseFatigue($citizen), $fatigue - ($is_pro ? 0.025 : 0.05));
             else
-                $fatigue += $is_pro ? 0.05 : 0.1;
+                $fatigue += ($is_pro ? 0.05 : 0.1);
         }
 
         $chances = max($this->getNightwatchBaseFatigue($citizen), $fatigue);
