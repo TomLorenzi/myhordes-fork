@@ -23810,5 +23810,16 @@
         <target>Ein Moderator hat deinen Thread "{threadname}" als "Gelöst" markiert. {link_post}</target>
       </segment>
     </unit>
+    <unit id="4zy_n9Y" name="Funkgerät verwenden">
+      <notes>
+        <note category="german">Funkgerät verwenden</note>
+        <note category="from">twig:///templates/ajax/public/maintenance_attack.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Funkgerät verwenden</source>
+        <target>Funkgerät verwenden</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

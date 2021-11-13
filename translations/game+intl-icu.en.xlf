@@ -23857,11 +23857,20 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <notes>
         <note category="german">Ein Moderator hat deinen Thread "{threadname}" als "Gelöst" markiert. {link_post}</note>
         <note category="from">db://LogEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ein Moderator hat deinen Thread "{threadname}" als "Gelöst" markiert. {link_post}</source>
         <target>A moderator has marked your thread "{threadname}" as "resolved". {link_post}</target>
+      </segment>
+    </unit>
+    <unit id="4zy_n9Y" name="Funkgerät verwenden">
+      <notes>
+        <note category="german">Funkgerät verwenden</note>
+        <note category="from">twig:///templates/ajax/public/maintenance_attack.html.twig</note>
+      </notes>
+      <segment>
+        <source>Funkgerät verwenden</source>
+        <target>Use the radio</target>
       </segment>
     </unit>
   </file>
