@@ -34,6 +34,8 @@ class CrowService {
     const ModerationActionImpose = 3;
     const ModerationActionRevoke = 4;
     const ModerationActionMove = 5;
+    const ModerationActionClose = 6;
+    const ModerationActionSolve = 7;
 
     private EntityManagerInterface $em;
 
@@ -178,6 +180,8 @@ class CrowService {
                 switch ("{$target}.{$action}") {
                     case self::ModerationActionTargetThread .'.'. self::ModerationActionDelete: $name = 'gpm_mod_threadDeleted'; break;
                     case self::ModerationActionTargetThread .'.'. self::ModerationActionMove:   $name = 'gpm_mod_threadMoved'; break;
+                    case self::ModerationActionTargetThread .'.'. self::ModerationActionClose:  $name = 'gpm_mod_threadClosed'; break;
+                    case self::ModerationActionTargetThread .'.'. self::ModerationActionSolve:  $name = 'gpm_mod_threadSolved'; break;
                     case self::ModerationActionTargetPost .'.'. self::ModerationActionEdit:     $name = 'gpm_mod_postEdited'; break;
                     case self::ModerationActionTargetPost .'.'. self::ModerationActionDelete:   $name = 'gpm_mod_postDeleted'; break;
                     default: return null;

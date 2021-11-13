@@ -23088,7 +23088,7 @@ cette violente opération...]]></target>
     </unit>
     <unit id="pobUoYj">
       <notes>
-        <note category="german">Die Anwesenheit des Geistigen Beistands unter den Nachtwächtern gibt ihnen jeweils einen Boost von {counsel} Verteidigung.</note>
+        <note category="german">Die Anwesenheit des Geistigen Beistands unter den Nachtwächtern gibt ihnen insgesamt einen Boost von {counsel} Verteidigung.</note>
         <note category="from">twig:///templates/ajax/game/town/nightwatch.html.twig</note>
       </notes>
       <segment>
@@ -23695,6 +23695,28 @@ cette violente opération...]]></target>
       <segment>
         <source>{citizen} hat das Gebäude {plan} repariert (Sklaverei: +50% AP).</source>
         <target>{citizen} a réparé le chantier {plan} (esclavagisme: +50% de PA).</target>
+      </segment>
+    </unit>
+    <unit id="hq.m1hn" name="Ein Moderator hat deinen Thread &quot;{threadname}&quot; geschlossen. {link_post}">
+      <notes>
+        <note category="german">Ein Moderator hat deinen Thread "{threadname}" geschlossen. {link_post}</note>
+        <note category="from">db://LogEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Ein Moderator hat deinen Thread "{threadname}" geschlossen. {link_post}</source>
+        <target>Ein Moderator hat deinen Thread "{threadname}" geschlossen. {link_post}</target>
+      </segment>
+    </unit>
+    <unit id="AEFBcgF">
+      <notes>
+        <note category="german">Ein Moderator hat deinen Thread "{threadname}" als "Gelöst" markiert. {link_post}</note>
+        <note category="from">db://LogEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Ein Moderator hat deinen Thread "{threadname}" als "Gelöst" markiert. {link_post}</source>
+        <target>Ein Moderator hat deinen Thread "{threadname}" als "Gelöst" markiert. {link_post}</target>
       </segment>
     </unit>
   </file>
