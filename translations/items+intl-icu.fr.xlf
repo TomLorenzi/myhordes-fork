@@ -3586,7 +3586,7 @@
     <unit id="qz1Q.uu" name="Verwenden">
       <notes>
         <note category="german">Verwenden</note>
-        <note category="from">db://ItemAction</note>
+        <note category="from">db://ItemAction;twig:///templates/ajax/game/actions.html.twig</note>
       </notes>
       <segment>
         <source>Verwenden</source>
@@ -9346,6 +9346,36 @@
       <segment>
         <source>Macht Miau</source>
         <target>Il fait Miaou</target>
+      </segment>
+    </unit>
+    <unit id="F0BaAFm" name="Befiehl {dogname}, deinen Rucksackinhalt in die Stadt zu bringen:">
+      <notes>
+        <note category="german">Befiehl {dogname}, deinen Rucksackinhalt in die Stadt zu bringen:</note>
+        <note category="from">twig:///templates/ajax/game/actions.html.twig</note>
+      </notes>
+      <segment>
+        <source>Befiehl {dogname}, deinen Rucksackinhalt in die Stadt zu bringen:</source>
+        <target>Demander à {dogname} de ramener le contenu de mon sac à dos dans :</target>
+      </segment>
+    </unit>
+    <unit id="PrYHodM" name="Du kannst ihn auch mit Drogen dopen:">
+      <notes>
+        <note category="german">Du kannst ihn auch mit Drogen dopen:</note>
+        <note category="from">twig:///templates/ajax/game/actions.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du kannst ihn auch mit Drogen dopen:</source>
+        <target>Vous pouvez également le droguer :</target>
+      </segment>
+    </unit>
+    <unit id="QdHhWPJ">
+      <notes>
+        <note category="german">Achtung: Entferne alle Gegenstände aus deinem Rucksack, die du NICHT in die Stadt senden möchtest!</note>
+        <note category="from">twig:///templates/ajax/game/actions.html.twig</note>
+      </notes>
+      <segment>
+        <source>Achtung: Entferne alle Gegenstände aus deinem Rucksack, die du NICHT in die Stadt senden möchtest!</source>
+        <target>Attention : retirez de votre sac les objets que vous ne souhaitez pas ramener en ville !</target>
       </segment>
     </unit>
   </file>

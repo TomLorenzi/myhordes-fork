@@ -5809,5 +5809,23 @@
         <target>Macht Miau</target>
       </segment>
     </unit>
+    <unit id="F0BaAFm" name="Befiehl {dogname}, deinen Rucksackinhalt in die Stadt zu bringen:">
+      <segment>
+        <source>Befiehl {dogname}, deinen Rucksackinhalt in die Stadt zu bringen:</source>
+        <target>Befiehl {dogname}, deinen Rucksackinhalt in die Stadt zu bringen:</target>
+      </segment>
+    </unit>
+    <unit id="PrYHodM" name="Du kannst ihn auch mit Drogen dopen:">
+      <segment>
+        <source>Du kannst ihn auch mit Drogen dopen:</source>
+        <target>Du kannst ihn auch mit Drogen dopen:</target>
+      </segment>
+    </unit>
+    <unit id="QdHhWPJ">
+      <segment>
+        <source>Achtung: Entferne alle Gegenstände aus deinem Rucksack, die du NICHT in die Stadt senden möchtest!</source>
+        <target>Achtung: Entferne alle Gegenstände aus deinem Rucksack, die du NICHT in die Stadt senden möchtest!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

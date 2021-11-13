@@ -3588,7 +3588,7 @@
     <unit id="qz1Q.uu" name="Verwenden">
       <notes>
         <note category="german">Verwenden</note>
-        <note category="from">db://ItemAction</note>
+        <note category="from">db://ItemAction;twig:///templates/ajax/game/actions.html.twig</note>
       </notes>
       <segment>
         <source>Verwenden</source>
@@ -9358,6 +9358,37 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       <segment>
         <source>Macht Miau</source>
         <target>Macht Miau</target>
+      </segment>
+    </unit>
+    <unit id="F0BaAFm" name="Befiehl {dogname}, deinen Rucksackinhalt in die Stadt zu bringen:">
+      <notes>
+        <note category="german">Befiehl {dogname}, deinen Rucksackinhalt in die Stadt zu bringen:</note>
+        <note category="from">twig:///templates/ajax/game/actions.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Befiehl {dogname}, deinen Rucksackinhalt in die Stadt zu bringen:</source>
+        <target>Ask {dogname} to take the contents of your rucksack back to town and put them in:</target>
+      </segment>
+    </unit>
+    <unit id="PrYHodM" name="Du kannst ihn auch mit Drogen dopen:">
+      <notes>
+        <note category="german">Du kannst ihn auch mit Drogen dopen:</note>
+        <note category="from">twig:///templates/ajax/game/actions.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du kannst ihn auch mit Drogen dopen:</source>
+        <target>Alternatively you could drug him:</target>
+      </segment>
+    </unit>
+    <unit id="QdHhWPJ">
+      <notes>
+        <note category="german">Achtung: Entferne alle Gegenstände aus deinem Rucksack, die du NICHT in die Stadt senden möchtest!</note>
+        <note category="from">twig:///templates/ajax/game/actions.html.twig</note>
+      </notes>
+      <segment>
+        <source>Achtung: Entferne alle Gegenstände aus deinem Rucksack, die du NICHT in die Stadt senden möchtest!</source>
+        <target>Attention: take any objects out of your rucksack which you don't want to take back to town!</target>
       </segment>
     </unit>
   </file>

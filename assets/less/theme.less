@@ -788,8 +788,11 @@ ul.actions, ul.special_actions, ul.heroic_actions {
       }
     }
     &>div.targets {
-      position: absolute; display: none; left:100%; right: -100%; top: 0%; z-index: 1500; background: #3b3249;
-      color: #f0d79e; border: 1px solid #afacc1; outline: 2px solid black;
+      position: absolute; display: none; left:100%; right: -100%; top: 0; z-index: 1500;
+      &.rendered-targets {background: #5c2b20; border: 1px solid #efdba8; color: white};
+      &:not(.rendered-targets) {background: #3b3249; border: 1px solid #afacc1;};
+
+      color: #f0d79e; outline: 2px solid black;
       margin: 0; padding: 5px;
       span.highlight { padding-left: 3px; padding-right: 3px; white-space: nowrap; background-color: rgba(255,255,255,0.2);
         img { vertical-align: middle; margin-right: 3px; }
@@ -805,7 +808,7 @@ ul.actions, ul.special_actions, ul.heroic_actions {
           &:not(.line):hover { background: saturate( @myhordes-smalltext, 30% ); border-color: darken(@myhordes-smalltext, 20%) }
         }
       }
-      & *[x-close-for] { text-align: right; text-decoration: underline; cursor: pointer; }
+      & *[x-close-for] { text-align: right; text-decoration: underline; cursor: pointer; color: #ddab76 }
     }
     &>img:first-child { position: absolute; left: 4px; top: 3px; }
     &>span {

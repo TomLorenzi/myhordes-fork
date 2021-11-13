@@ -633,7 +633,7 @@ class ActionHandler
             'items_consume' => [],
             'items_spawn' => [],
             'item_tool' => [],
-            'tamer_dog' => $this->log->generateDogName($citizen->getId()),
+            'tamer_dog' => LogTemplateHandler::generateDogName($citizen->getId(), $this->translator),
             'bp_spawn' => [],
             'bp_parent' => [],
             'rp_text' => '',
