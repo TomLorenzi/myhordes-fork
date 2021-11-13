@@ -342,7 +342,7 @@
                                             <div class="tooltip normal">{{ widget_citizen(citizen) }}</div>
                                         {% endif %}
                                     </div>
-                                    <div class="cell factor-0 avatar ua-{{ random(0,9) }}" style="flex-basis: 90px; background: url('{{ citizen.user.avatar ? path('app_web_avatar', {'uid': citizen.user.id, 'name': citizen.user.avatar.smallName, 'ext': citizen.user.avatar.format}) : asset('build/images/forum/empty_avatar.gif') }}') center/cover no-repeat;" x-ajax-href="{{ url('admin_users_citizen_view', {id: citizen.user.id}) }}">&nbsp;</div>
+                                    <div class="cell factor-0 rw-sm-0 avatar ua-{{ random(0,9) }}" style="flex-basis: 90px; background: url('{{ citizen.user.avatar ? path('app_web_avatar', {'uid': citizen.user.id, 'name': citizen.user.avatar.smallName, 'ext': citizen.user.avatar.format}) : asset('build/images/forum/empty_avatar.gif') }}') center/cover no-repeat;" x-ajax-href="{{ url('admin_users_citizen_view', {id: citizen.user.id}) }}">&nbsp;</div>
                                     <div class="cell factor-0 citizen-{{ citizen.alive ? (citizen.online ? 'online' : 'offline') : 'dead' }}" style="flex-basis: 8px;" x-ajax-href="{{ url('admin_users_citizen_view', {id: citizen.user.id}) }}">&nbsp;</div>
                                     
                                     <div class="padded cell rw-4 factor-1 small content-center-vertical citizen-box citizen-box-name">
@@ -504,22 +504,22 @@
             <div x-tab-group="admin-town" x-tab-id="estimations" x-tab-target>
                 <div class="row-table">
                     <div class="row header">
-                        <div class="cell rw-1 padded"></div>
-                        <div class="cell rw-1 padded">{{ 'ID'|trans({},'admin') }}</div>
-                        <div class="cell rw-1 padded">{{ 'Tag'|trans({},'admin') }}</div>
-                        <div class="cell rw-2 padded">{{ 'Angriff'|trans({},'admin') }}</div>
-                        <div class="cell rw-2 padded">{{ 'Bereich Min'|trans({},'admin') }}</div>
-                        <div class="cell rw-2 padded">{{ 'Bereich Max'|trans({},'admin') }}</div>
+                        <div class="cell rw-1 rw-sm-0 padded"></div>
+                        <div class="cell rw-1 rw-sm-0 padded">{{ 'ID'|trans({},'admin') }}</div>
+                        <div class="cell rw-1 rw-sm-0 padded">{{ 'Tag'|trans({},'admin') }}</div>
+                        <div class="cell rw-2 rw-sm-12 padded">{{ 'Angriff'|trans({},'admin') }}</div>
+                        <div class="cell rw-2 rw-sm-0 padded">{{ 'Bereich Min'|trans({},'admin') }}</div>
+                        <div class="cell rw-2 rw-sm-0 padded">{{ 'Bereich Max'|trans({},'admin') }}</div>
                     </div>
                     {% for est in town.zombieEstimations %}
                         <div class="row {% if est.day == town.day %}bold{% endif %}">
-                            <div class="padded cell rw-1">{% if est.day == town.day %}<i class="fa fa-arrow-right"></i>{% endif %}</div>
-                            <div class="padded cell rw-1">{{ est.id }}</div>
-                            <div class="padded cell rw-1">{{ est.day }}</div>
+                            <div class="padded cell rw-1 rw-sm-2">{% if est.day == town.day %}<i class="fa fa-arrow-right"></i>{% endif %}</div>
+                            <div class="padded cell rw-1 rw-sm-0">{{ est.id }}</div>
+                            <div class="padded cell rw-1 rw-sm-10">{{ est.day }}</div>
                             {% if is_granted("ROLE_ADMIN") or est.day < town.day %}
-                                <div class="padded cell rw-2">{{ est.zombies }}</div>
-                                <div class="padded cell rw-2">{{ est.offsetMin }}%</div>
-                                <div class="padded cell rw-2">{{ est.offsetMax }}%</div>
+                                <div class="padded cell rw-2 rw-sm-4">{{ est.zombies }}</div>
+                                <div class="padded cell rw-2 rw-sm-4">{{ est.offsetMin }}%</div>
+                                <div class="padded cell rw-2 rw-sm-4">{{ est.offsetMax }}%</div>
                             {% endif %}
                         </div>
                     {% endfor %}
@@ -667,7 +667,7 @@
 
             <br />
             <div class="row">
-                <div class="cell rw-3 ro-9">
+                <div class="cell rw-3 ro-9 rw-md-6 ro-md-6 rw-sm-12 ro-sm-0">
                     <button x-ajax-href="{{ path('admin_town_list') }}">{{ 'Stadtübersicht'|trans({},'admin') }}</button>
                 </div>
             </div>
