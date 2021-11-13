@@ -55,6 +55,7 @@ parameters:
       limited: true
       sp_threshold: 15
       tw_threshold: 5
+      tw_cutoff: 1635199200
     avatars:
       allow_raw: false
       max_processing_size: 3145728 # 3MB

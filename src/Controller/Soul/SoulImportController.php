@@ -40,11 +40,15 @@ class SoulImportController extends SoulController
         $user = $this->getUser();
         $main = $this->entity_manager->getRepository(TwinoidImport::class)->findOneBy(['user' => $user, 'main' => true]);
 
+        $town_cutoff = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_TW_CUTOFF, -1);
+        if ($town_cutoff > 0) $town_cutoff = (new DateTime())->setTimestamp($town_cutoff);
+        else $town_cutoff = null;
+
         if ($cache = $this->entity_manager->getRepository(TwinoidImportPreview::class)->findOneBy(['user' => $user])) {
 
             $limited = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_LIMITED, false) && (
                 $user->getSoulPoints() > $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_SP_THRESHOLD, -1) ||
-                $this->entity_manager->getRepository(CitizenRankingProxy::class)->countNonAlphaTowns($user) > $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_TW_THRESHOLD, -1)
+                $this->entity_manager->getRepository(CitizenRankingProxy::class)->countNonAlphaTowns($user, $town_cutoff) > $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_TW_THRESHOLD, -1)
             );
 
             return $this->render( 'ajax/soul/import_preview.html.twig', $this->addDefaultTwigArgs("soul_settings", [
@@ -54,6 +58,10 @@ class SoulImportController extends SoulController
             ]) );
 
         } else
+            $town_cutoff = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_TW_CUTOFF, -1);
+            if ($town_cutoff > 0) $town_cutoff = (new DateTime())->setTimestamp($town_cutoff);
+            else $town_cutoff = null;
+
             return $this->render('ajax/soul/import.html.twig', $this->addDefaultTwigArgs("soul_settings", [
                 'services' => ['www.hordes.fr' => 'Hordes', 'www.die2nite.com' => 'Die2Nite', 'www.dieverdammten.de' => 'Die Verdammten', 'www.zombinoia.com' => 'Zombinoia'],
                 'code' => $code, 'need_sk' => !$twin->hasBuiltInTwinoidAccess(),
@@ -65,7 +73,7 @@ class SoulImportController extends SoulController
                 'limited_import_town_threshold' => $conf->get(MyHordesConf::CONF_IMPORT_TW_THRESHOLD, -1),
                 'is_limited' => $conf->get(MyHordesConf::CONF_IMPORT_LIMITED, false) && (
                         $user->getSoulPoints() > $conf->get(MyHordesConf::CONF_IMPORT_SP_THRESHOLD, -1) ||
-                        $this->entity_manager->getRepository(CitizenRankingProxy::class)->countNonAlphaTowns($user) > $conf->get(MyHordesConf::CONF_IMPORT_TW_THRESHOLD, -1)
+                        $this->entity_manager->getRepository(CitizenRankingProxy::class)->countNonAlphaTowns($user, $town_cutoff) > $conf->get(MyHordesConf::CONF_IMPORT_TW_THRESHOLD, -1)
                     )
             ]));
     }
@@ -89,9 +97,13 @@ class SoulImportController extends SoulController
 
         $main = $this->entity_manager->getRepository(TwinoidImport::class)->findOneBy(['user' => $user, 'main' => true]);
 
+        $town_cutoff = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_TW_CUTOFF, -1);
+        if ($town_cutoff > 0) $town_cutoff = (new DateTime())->setTimestamp($town_cutoff);
+        else $town_cutoff = null;
+
         $limited = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_LIMITED, false) && (
             $user->getSoulPoints() > $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_SP_THRESHOLD, -1) ||
-            $this->entity_manager->getRepository(CitizenRankingProxy::class)->countNonAlphaTowns($user) > $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_TW_THRESHOLD, -1)
+            $this->entity_manager->getRepository(CitizenRankingProxy::class)->countNonAlphaTowns($user, $town_cutoff) > $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_TW_THRESHOLD, -1)
         );
 
         return $this->render( 'ajax/soul/import_preview.html.twig', $this->addDefaultTwigArgs("soul_settings", [
@@ -287,9 +299,13 @@ class SoulImportController extends SoulController
         }
 
         $limit = $conf->get(MyHordesConf::CONF_IMPORT_LIMITED, false);
+        $town_cutoff = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_TW_CUTOFF, -1);
+        if ($town_cutoff > 0) $town_cutoff = (new DateTime())->setTimestamp($town_cutoff);
+        else $town_cutoff = null;
+
         if ($limit &&
             $user->getSoulPoints() <= $conf->get(MyHordesConf::CONF_IMPORT_SP_THRESHOLD, -1) &&
-            $this->entity_manager->getRepository(CitizenRankingProxy::class)->countNonAlphaTowns($user) <= $conf->get(MyHordesConf::CONF_IMPORT_TW_THRESHOLD, -1)
+            $this->entity_manager->getRepository(CitizenRankingProxy::class)->countNonAlphaTowns($user, $town_cutoff) <= $conf->get(MyHordesConf::CONF_IMPORT_TW_THRESHOLD, -1)
         )
             $limit = false;
 
