@@ -14723,7 +14723,7 @@
     <unit id="pobUoYj">
       <segment>
         <source>Die Anwesenheit des Geistigen Beistands unter den Nachtwächtern gibt ihnen jeweils einen Boost von {counsel} Verteidigung.</source>
-        <target>Die Anwesenheit des Geistigen Beistands unter den Nachtwächtern gibt ihnen jeweils einen Boost von {counsel} Verteidigung.</target>
+        <target>Die Anwesenheit des Geistigen Beistands unter den Nachtwächtern gibt ihnen insgesamt einen Boost von {counsel} Verteidigung.</target>
       </segment>
     </unit>
     <unit id="vhwzs0L">

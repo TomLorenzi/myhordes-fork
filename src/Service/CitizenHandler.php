@@ -733,18 +733,16 @@ class CitizenHandler
     public function getDeathChances(Citizen $citizen, bool $during_attack = false): float {
         $fatigue = $this->getNightwatchBaseFatigue($citizen);
 
+        $is_pro = ($citizen->getProfession()->getHeroic() && $this->user_handler->hasSkill($citizen->getUser(), 'prowatch'));
+
         for($i = 1 ; $i <= $citizen->getTown()->getDay() - ($during_attack ? 2 : 1); $i++){
             /** @var CitizenWatch|null $previousWatches */
             $previousWatches = $this->entity_manager->getRepository(CitizenWatch::class)->findWatchOfCitizenForADay($citizen, $i);
-            if($previousWatches === null || $previousWatches->getSkipped()) {
+            if ($previousWatches === null || $previousWatches->getSkipped())
                 $fatigue = max($this->getNightwatchBaseFatigue($citizen), $fatigue - 0.05);
-            } else {
-                $fatigue += 0.1;
-            }
+            else
+                $fatigue += $is_pro ? 0.05 : 0.1;
         }
-
-        if($citizen->getProfession()->getHeroic() && $this->user_handler->hasSkill($citizen->getUser(), 'prowatch'))
-            $fatigue /= 2;
 
         $chances = max($this->getNightwatchBaseFatigue($citizen), $fatigue);
         foreach ($citizen->getStatus() as $status)

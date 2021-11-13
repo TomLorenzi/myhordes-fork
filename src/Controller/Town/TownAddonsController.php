@@ -469,9 +469,12 @@ class TownAddonsController extends TownController
         $has_ikea             = (bool)$th->getBuilding($town, 'small_ikea_#00', true);
         $has_armory           = (bool)$th->getBuilding($town, 'small_armor_#00', true);
 
+        $count = 0;
+
         /** @var CitizenWatch $watcher */
         foreach ($citizenWatch as $watcher) {
             if ($watcher->getCitizen()->getZone() !== null) continue;
+            $count++;
 
             if($watcher->getCitizen()->getId() === $this->getActiveCitizen()->getId())
                 $is_watcher = true;
@@ -523,7 +526,7 @@ class TownAddonsController extends TownController
         $total_def = max(0, $total_def);
 
         if($has_counsel)
-            $total_def += ($counsel_def = 20 * count($watchers));
+            $total_def += ($counsel_def = 20 * $count);
 
         $deathChance = $this->citizen_handler->getDeathChances($this->getActiveCitizen());
         return $this->render( 'ajax/game/town/nightwatch.html.twig', $this->addDefaultTwigArgs('battlement', [
