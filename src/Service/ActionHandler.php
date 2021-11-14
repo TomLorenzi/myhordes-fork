@@ -1316,6 +1316,11 @@ class ActionHandler
                         if ($jumper->activeExplorerStats())
                             $jumper->activeExplorerStats()->setActive( false );
 
+                        $this->citizen_handler->removeStatus($jumper, 'tg_hide');
+                        $this->citizen_handler->removeStatus($jumper, 'tg_tomb');
+                        $jumper->setCampingTimestamp(0);
+                        $jumper->setCampingChance(0);
+
                         $jumper->setZone(null);
                         $zone->removeCitizen( $jumper );
                         foreach ($this->entity_manager->getRepository(HomeIntrusion::class)->findBy(['victim' => $jumper]) as $homeIntrusion)
@@ -1327,7 +1332,7 @@ class ActionHandler
                             if ($others_are_here) $this->entity_manager->persist( $this->log->outsideMove( $jumper, $zone, $zero_zone, true ) );
                             $this->entity_manager->persist( $this->log->outsideMove( $jumper, $zero_zone, $zone, false ) );
                         }*/
-                        if ( ($result->getCustom() === 8) && (count($zone->getCitizens())) )
+                        if ( ($result->getCustom() === 8) && $others_are_here )
                             $this->entity_manager->persist( $this->log->heroicReturnLog( $citizen, $zone ) );
                         if ( $result->getCustom() === 9 )
                             $this->entity_manager->persist( $this->log->heroicRescueLog( $citizen, $jumper, $zone ) );
