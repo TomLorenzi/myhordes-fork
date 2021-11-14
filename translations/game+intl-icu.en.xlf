@@ -3147,7 +3147,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="2UDexHy">
       <notes>
         <note category="german">{citizen} hat das Fass zum Überlaufen gebracht. Die Stadt hat seinen Tod entschieden: {cod}.</note>
-        <note category="state">new</note>
         <note category="from">db://LogEntryTemplate</note>
       </notes>
       <segment>
@@ -3333,7 +3332,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>{citizen} hat die Leiche von {disposed} vernichtet.</source>
-        <target>{citizen} hat die Leiche von {disposed} vernichtet.</target>
+        <target>{citizen} destroyed {disposed}'s body.</target>
       </segment>
     </unit>
     <unit id="VA0jRjM" name="HALTET DEN DIEB! {actor} ist bei {victim} eingebrochen und hat {item} gestohlen!">
