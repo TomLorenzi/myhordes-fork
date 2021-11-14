@@ -543,33 +543,23 @@ class ExternalXML2Controller extends ExternalController {
             // Current gazette
             /** @var Gazette $gazette */
             if ($town->getDay() > 1){
-                $gazette = $town->findGazette( $town->getDay() );
+                $gazette = $this->gazette_service->renderGazette($town);
                 if ($gazette !== null) {
-                    $gazette_logs = $this->entity_manager->getRepository(GazetteLogEntry::class)->findByFilter($gazette);
-
                     $data['data']['city']['news'] = [
                         'attributes' => [
-                            'z' => $gazette->getAttack(),
-                            'def' => $gazette->getDefense()
+                            'z' => $gazette['attack'],
+                            'def' => $gazette['defense']
                         ]
                     ];
                     if($language !== "all") {
-                        $text = '';
-                        while (count($gazette_logs) > 0) {
-                            $text .= '<p>' . $this->parseGazetteLog(array_shift($gazette_logs)) . '</p>';
-                        }
                         $data['data']['city']['news']['content'] = [
-                            'cdata_value' => $text
+                            'cdata_value' => $gazette['text'] . '<p>' . $gazette['wind'] . '</p>'
                         ];
                     } else {
                         foreach($this->available_langs as $lang) {
-                            $logs = $gazette_logs;
-                            $text = '';
-                            while (count($logs) > 0) {
-                                $text .= '<p>' . $this->parseGazetteLog(array_shift($logs), $lang) . '</p>';
-                            }
+                            $gazette = $this->gazette_service->renderGazette($town, null, true, $lang);
                             $data['data']['city']['news']["content-$lang"] = [
-                                'cdata_value' => $text
+                                'cdata_value' => $gazette['text'] . '<p>' . $gazette['wind'] . '</p>'
                             ];
                         }
                     }

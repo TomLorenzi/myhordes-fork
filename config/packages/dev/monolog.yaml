@@ -5,13 +5,19 @@ monolog:
             path: "%kernel.logs_dir%/%kernel.environment%.log"
             level: debug
             max_files: 7
-            channels: ["!event","!night"]
+            channels: ["!event","!night","!admin"]
         night:
             type: rotating_file
             path: "%kernel.logs_dir%/night/%kernel.environment%.log"
             level: debug
             max_files: 14
             channels: ["night"]
+        admin:
+            type: rotating_file
+            path: "%kernel.logs_dir%/admin/%kernel.environment%.log"
+            level: debug
+            max_files: 14
+            channels: [ "admin" ]
         # uncomment to get logging in your browser
         # you may have to allow bigger header sizes in your Web server configuration
         #firephp:

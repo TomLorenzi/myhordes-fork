@@ -83,6 +83,8 @@ class AdminAppController extends AdminActionController
             AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
         }
 
+        $this->logger->info("Admin <info>{$this->getUser()->getName()}</info> <debug>" . ($app->getActive() ? 'activated' : 'deactivated') . "</debug> app <info>{$app->getName()}</info>");
+
         return AjaxResponse::success();
     }
 
@@ -108,6 +110,8 @@ class AdminAppController extends AdminActionController
             $owner = $this->entity_manager->getRepository(User::class)->find((int)$parser->get('owner'));
             if ($owner === null) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
         }
+
+        $old_app = clone $app;
 
         $app
             ->setName( $parser->get('name') )
@@ -148,6 +152,15 @@ class AdminAppController extends AdminActionController
         } catch (\Exception $e) {
             AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
         }
+
+        $this->logger->info("Admin <info>{$this->getUser()->getName()}</info> updated app <info>{$app->getName()}</info> infos", [
+            'name' => "{$old_app->getName()} => {$app->getName()}",
+            'contact' => "{$old_app->getContact()} => {$app->getContact()}",
+            'url' => "{$old_app->getUrl()} => {$app->getUrl()}",
+            'owner' => (($old_app->getOwner() !== null ? $old_app->getOwner()->getName() : 'null') . " => " . ($app->getOwner() !== null ? $app->getOwner()->getName() : 'null')),
+            'testing' => "{$old_app->getTesting()} => {$app->getTesting()}",
+            'link_only' => "{$old_app->getLinkOnly()} => {$app->getLinkOnly()}",
+        ]);
 
         return AjaxResponse::success();
     }

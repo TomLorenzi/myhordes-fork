@@ -215,7 +215,7 @@
                 <li>{{'Leichen-Bonus'|trans({}, 'game')}} : + {{def_summary.cemetery}} <img src="{{ asset('build/images/icons/small_def.gif') }}" /> <a class="help-button"><div class="tooltip help">{{ 'Diesen Bonus gibt es dank eurer alten Freunde und dem Gebäude <strong>Kleiner Friedhof</strong>.'|trans({},'global')|raw }}</div>{{ 'Hilfe'|trans({},'global')|raw }}</a> </li>
                 {% endif %}
                 {% if def_summary.overall_scale > 1 %}
-                <li>{{'Bonus'|trans({}, 'game')}} : + {{ (def_summary.overall_scale - 1) * 100}} % </li>
+                <li>{{'Bonus'|trans({}, 'game')}} : + {{ ((def_summary.overall_scale - 1) * 100)|round(2)}} % </li>
                 {% endif %}
                 {% if has_battlement and def_summary.nightwatch_defense > 0 %}
                 <li>{{'Nachtwächter'|trans({}, 'game')}} : + {{def_summary.nightwatch_defense}} <img src="{{ asset('build/images/icons/small_def.gif') }}" /> <a class="help-button"><div class="tooltip help">{{ 'Diesen Bonus gibt es nur dann, wenn sich die Wächter wärhend eines Angriffs in det Stadt befinden.'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></li>
