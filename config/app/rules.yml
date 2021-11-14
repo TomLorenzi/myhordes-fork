@@ -141,6 +141,7 @@ parameters:
       overrides:
         item_groups:
           empty_dig: 'empty_dig_test'
+          base_dig: 'base_dig_test'
 
     small:
       map:  { min: 12, max: 14, margin: 0.25 }

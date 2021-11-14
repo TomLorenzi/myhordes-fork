@@ -948,8 +948,12 @@ class ItemFixtures extends Fixture
             array('item' => 'metal_bad_#00', 'count' => '22856'),
         ),
         'empty_dig_test' => array(
-            array('item' => 'christmas_candy_#00', 'count' => '41306'),
-            array('item' => 'chidol_#00', 'count' => '22856'),
+            array('item' => 'christmas_candy_#00', 'count' => '1'),
+            array('item' => 'repair_one_#00', 'count' => '2'),
+        ),
+        'base_dig_test' => array(
+            array('item' => 'guitar_#00', 'count' => '1'),
+            array('item' => 'wood_xmas_#00', 'count' => '2'),
         ),
         'base_dig' => array(
             array('item' => 'wood2_#00', 'count' => '16764'),
