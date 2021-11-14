@@ -23873,5 +23873,15 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>Use the radio</target>
       </segment>
     </unit>
+    <unit id="ZUcAy0O" name="Gebäudeliste einblenden">
+      <notes>
+        <note category="german">Gebäudeliste einblenden</note>
+        <note category="from">twig:///templates/ajax/game/town/town.html.twig</note>
+      </notes>
+      <segment>
+        <source>Gebäudeliste einblenden</source>
+        <target>Display construction list</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
