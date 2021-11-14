@@ -1828,7 +1828,7 @@
       </notes>
       <segment>
         <source>Diesen Bonus gibt es nur dann, wenn sich die Wächter wärhend eines Angriffs in det Stadt befinden.</source>
-        <target>This bonus is only available if the Guardians are in the Town during an attack.</target>
+        <target>This bonus is only available if the watchmen are in the town during the attack.</target>
       </segment>
     </unit>
     <unit id="zF4ERQG" name="Diese Kosten können durch den Aufbau der &lt;strong&gt;Müll für Alle&lt;/strong&gt;.">
