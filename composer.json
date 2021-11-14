@@ -54,7 +54,8 @@
         "symfony/yaml": "5.3.*",
         "twig/extra-bundle": "^2.12|^3.0",
         "twig/intl-extra": "^3.0",
-        "twig/twig": "^2.12|^3.0"
+        "twig/twig": "^2.12|^3.0",
+        "myhordes/fixtures": "@dev"
     },
     "require-dev": {
         "dama/doctrine-test-bundle": "^6.6",
@@ -116,5 +117,11 @@
             "allow-contrib": false,
             "require": "5.3.*"
         }
-    }
+    },
+    "repositories": [
+      {
+        "type": "path",
+        "url": "packages/*"
+      }
+    ]
 }

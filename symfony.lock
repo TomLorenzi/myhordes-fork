@@ -147,6 +147,9 @@
     "myclabs/deep-copy": {
         "version": "1.10.2"
     },
+    "myhordes/fixtures": {
+        "version": "dev-override-item-groups"
+    },
     "nikic/php-parser": {
         "version": "v4.5.0"
     },

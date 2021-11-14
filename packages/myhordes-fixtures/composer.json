@@ -1,0 +1,24 @@
+{
+    "name": "myhordes/fixtures",
+    "description": "The base MyHordes fixture package.",
+    "type": "symfony-bundle",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Benjamin Behrendt",
+            "email": "wvsgnovize@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+      "php": ">=7.4",
+      "symfony/framework-bundle": "5.3.*",
+      "symfony/yaml": "5.3.*",
+      "etwin/myhordes": "@dev"
+    },
+    "autoload": {
+      "psr-4": {
+        "MyHordes\\Fixtures\\": "src/"
+      }
+    }
+}
