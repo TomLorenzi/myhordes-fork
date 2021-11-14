@@ -3152,7 +3152,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>{citizen} hat das Fass zum Überlaufen gebracht. Die Stadt hat seinen Tod entschieden: {cod}.</source>
-        <target>{citizen} hat das Fass zum Überlaufen gebracht. Die Stadt hat seinen Tod entschieden: {cod}.</target>
+        <target>This was the last straw. The town has voted for {citizen}s death: {cod}.</target>
       </segment>
     </unit>
     <unit id="ilGQN0q" name="{citizen} hat seinen letzten Atemzug getan: {cod}!">
