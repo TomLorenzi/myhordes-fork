@@ -772,10 +772,10 @@ export default class TwinoAlikeParser {
         return new TwinoInterimBlock( );
     }
 
-    private static parseNestedBlock( elem: HTMLElement ): string {
+    private static buildInterimBlockTree( elem: HTMLElement ): TwinoInterimBlock {
 
         if (elem.nodeType === Node.TEXT_NODE)
-            return elem.textContent;
+            return new TwinoInterimBlock(elem.textContent);
 
         if (elem.nodeType === Node.ELEMENT_NODE) {
 
@@ -787,15 +787,21 @@ export default class TwinoAlikeParser {
                     if (elem.childNodes[i].childNodes[j].nodeType === Node.ELEMENT_NODE) simple = false;
 
                 if (simple) blocks.push( TwinoAlikeParser.parsePlainBlock( elem.childNodes[i] as HTMLElement ) );
-                else blocks.push(new TwinoInterimBlock(TwinoAlikeParser.parseNestedBlock(elem.childNodes[i] as HTMLElement)));
+                else blocks.push(TwinoAlikeParser.buildInterimBlockTree(elem.childNodes[i] as HTMLElement));
             }
 
-            return HTMLConverterFromBlocks.anyBlocks([
-                TwinoAlikeParser.parsePlainBlock( elem as HTMLElement, HTMLConverterFromBlocks.anyBlocks( blocks.filter( block => !block.isEmpty() ), elem as HTMLElement ) )
-            ], elem.parentNode as HTMLElement);
+            return TwinoAlikeParser.parsePlainBlock( elem as HTMLElement, HTMLConverterFromBlocks.anyBlocks( blocks.filter( block => !block.isEmpty() ), elem as HTMLElement ) );
         }
 
-        return '';
+        return new TwinoInterimBlock('');
+
+    }
+
+    private static parseNestedBlock( elem: HTMLElement ): string {
+
+        return HTMLConverterFromBlocks.anyBlocks([
+            TwinoAlikeParser.buildInterimBlockTree(elem)
+        ], elem.parentNode as HTMLElement);
 
     }
 
