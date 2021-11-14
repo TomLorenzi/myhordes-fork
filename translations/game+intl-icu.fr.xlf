@@ -23705,7 +23705,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Ein Moderator hat deinen Thread "{threadname}" geschlossen. {link_post}</source>
-        <target>Ein Moderator hat deinen Thread "{threadname}" geschlossen. {link_post}</target>
+        <target>Un modérateur a fermé votre sujet "{threadname}". {link_post}</target>
       </segment>
     </unit>
     <unit id="AEFBcgF">
@@ -23716,7 +23716,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Ein Moderator hat deinen Thread "{threadname}" als "Gelöst" markiert. {link_post}</source>
-        <target>Ein Moderator hat deinen Thread "{threadname}" als "Gelöst" markiert. {link_post}</target>
+        <target>Un modérateur a marqué votre sujet "{threadname}" comme "résolu". {link_post}</target>
       </segment>
     </unit>
     <unit id="4zy_n9Y" name="Funkgerät verwenden">
@@ -23727,7 +23727,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Funkgerät verwenden</source>
-        <target>Funkgerät verwenden</target>
+        <target>Utiliser la radio</target>
       </segment>
     </unit>
     <unit id="ZUcAy0O" name="Gebäudeliste einblenden">
@@ -23738,7 +23738,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Gebäudeliste einblenden</source>
-        <target>Gebäudeliste einblenden</target>
+        <target>Afficher la liste des chantiers</target>
       </segment>
     </unit>
   </file>
