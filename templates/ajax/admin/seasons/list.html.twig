@@ -5,20 +5,20 @@
         <div class="padded cell rw-12">
             <div class="row-table">
                 <div class="row header">
-                    <div class="padded cell rw-1">{{ 'Akt.'|trans({},'admin') }}</div>
-                    <div class="padded cell rw-2">{{ 'Nummer'|trans({},'admin') }}</div>
-                    <div class="padded cell rw-2">{{ 'Sub-Nummer'|trans({},'admin') }}</div>
-                    <div class="padded cell rw-7">{{ 'Name'|trans({},'admin') }}</div>
+                    <div class="padded cell rw-1 rw-md-0">{{ 'Akt.'|trans({},'admin') }}</div>
+                    <div class="padded cell rw-2 rw-md-0">{{ 'Nummer'|trans({},'admin') }}</div>
+                    <div class="padded cell rw-2 rw-md-0">{{ 'Sub-Nummer'|trans({},'admin') }}</div>
+                    <div class="padded cell rw-7 rw-md-12">{{ 'Name'|trans({},'admin') }}</div>
                 </div>
 
                 {% for season in all_seasons %}
                     {# @var season \App\Entity\Season #}
                     <div class="row">
-                        <div class="padded cell rw-1"><img alt="" class="pointer" x-season-control="{{ path('admin_toggle_current_season', {id: season.id}) }}" x-toggle-season="{{ season.current ? 0 : 1 }}" src="{{ season.current ? asset('build/images/icons/player_online.gif') : asset('build/images/icons/player_offline.gif') }}" /></div>
-                        <div class="padded cell rw-2">{{ season.number }}</div>
-                        <div class="padded cell rw-2">{{ season.subNumber }}</div>
-                        <div class="padded cell rw-6">{{ ('Saison ' ~ season.number ~ '.' ~ season.subNumber)|trans({}, "season")}}</div>
-                        <div class="padded cell rw-1 right">
+                        <div class="padded cell rw-1 rw-sm-2"><img alt="" class="pointer" x-season-control="{{ path('admin_toggle_current_season', {id: season.id}) }}" x-toggle-season="{{ season.current ? 0 : 1 }}" src="{{ season.current ? asset('build/images/icons/player_online.gif') : asset('build/images/icons/player_offline.gif') }}" /></div>
+                        <div class="padded cell rw-2 rw-sm-3">{{ season.number }}</div>
+                        <div class="padded cell rw-2 rw-sm-3">{{ season.subNumber }}</div>
+                        <div class="padded cell rw-6 rw-sm-10">{{ ('Saison ' ~ season.number ~ '.' ~ season.subNumber)|trans({}, "season")}}</div>
+                        <div class="padded cell rw-1 rw-sm-2 right">
                             {% if is_granted("ROLE_ADMIN") %}
                                 <button x-ajax-href="{{ path('admin_season_edit', {id: season.id}) }}" class="small inline"><i class="fa fa-edit"></i></button>
                             {% endif %}

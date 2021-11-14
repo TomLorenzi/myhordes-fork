@@ -123,13 +123,18 @@ class GameController extends CustomAbstractController
 
     /**
      * @Route("api/game/expert_toggle", name="game_toggle_expert_mode")
+     * @param LogTemplateHandler $log
      * @return Response
      */
-    public function toggle_expert_mode() {
+    public function toggle_expert_mode(LogTemplateHandler $log): Response
+    {
         $this->entity_manager->persist( $this->getUser()->setExpert( !$this->getUser()->getExpert() ) );
         if ( !$this->getUser()->getExpert() && $this->getUser()->getActiveCitizen())
-            foreach ($this->getUser()->getActiveCitizen()->getValidLeadingEscorts() as $escort)
-                $this->entity_manager->persist( $escort->getCitizen()->getEscortSettings()->setLeader(null) );
+            foreach ($this->getUser()->getActiveCitizen()->getValidLeadingEscorts() as $escort) {
+                $this->entity_manager->persist($log->beyondEscortReleaseCitizen($this->getUser()->getActiveCitizen(), $escort->getCitizen()));
+                $escort->setLeader(null);
+                $this->entity_manager->persist($escort);
+            }
         try {
             $this->entity_manager->flush();
         } catch (Exception $e) { return AjaxResponse::error(ErrorHelper::ErrorDatabaseException); }

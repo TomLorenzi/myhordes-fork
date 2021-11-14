@@ -53,6 +53,7 @@ use Doctrine\DBAL\Types\DateType;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\Asset\Packages;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -229,16 +230,17 @@ class BeyondController extends InventoryAwareController
     }
 
     /**
-     * @Route("jx/beyond/desert/{inline}/{sect}", name="beyond_dashboard_inline")
      * @Route("jx/beyond/desert/{sect}", name="beyond_dashboard")
      * @param TownHandler $th
-     * @param Environment $twig
      * @param bool $inline
      * @param string|null $sect
      * @return Response
      */
-    public function desert(TownHandler $th, Environment $twig, bool $inline = false, string $sect = ''): Response
+    public function desert(TownHandler $th, string $sect = ''): Response
     {
+        $request = Request::createFromGlobals();
+        $inline = $request->headers->get('X-Render-Target') === 'beyond_desert_content';
+
         if (!$this->getActiveCitizen()->getHasSeenGazette())
             return $this->redirect($this->generateUrl('game_newspaper'));
             

@@ -5,40 +5,40 @@
         <div class="padded cell rw-12">
             <div class="row-table">
                 <div class="row header">
-                    <div class="padded cell rw-1">{{ 'Sprache'|trans({},'admin') }}</div>
-                    <div class="padded cell rw-1">{{ 'Anon.'|trans({},'admin') }}</div>
-                    <div class="padded cell rw-2">{{ 'Icon'|trans({},'admin') }}</div>
-                    <div class="padded cell rw-4">{{ 'Name'|trans({},'admin') }}</div>
-                    <div class="padded cell rw-3">{{ 'Mitglieder'|trans({},'admin') }}</div>
-                    <div class="padded cell rw-1">{{ 'Akt.'|trans({},'admin') }}</div>
+                    <div class="padded cell rw-1 rw-sm-0">{{ 'Sprache'|trans({},'admin') }}</div>
+                    <div class="padded cell rw-1 rw-sm-0">{{ 'Anon.'|trans({},'admin') }}</div>
+                    <div class="padded cell rw-2 rw-sm-0">{{ 'Icon'|trans({},'admin') }}</div>
+                    <div class="padded cell rw-4 rw-sm-6">{{ 'Name'|trans({},'admin') }}</div>
+                    <div class="padded cell rw-3 rw-sm-6">{{ 'Mitglieder'|trans({},'admin') }}</div>
+                    <div class="padded cell rw-1 rw-sm-0">{{ 'Akt.'|trans({},'admin') }}</div>
                 </div>
 
                 {% for group in groups %}
                     <div class="row">
-                        <div class="padded cell rw-1">{{ group.lang }}</div>
-                        <div class="padded cell rw-1 center">
+                        <div class="padded cell rw-1 rw-sm-3">{{ group.lang }}</div>
+                        <div class="padded cell rw-1 rw-sm-3 center">
                             {% if group.anon %}<img alt="On" src="{{ asset('build/images/icons/tickOn.gif') }}" />
                             {% else %}<img alt="Off" src="{{ asset('build/images/icons/tickOff.gif') }}" />
                             {% endif %}
                         </div>
-                        <div class="padded cell rw-2">
+                        <div class="padded cell rw-2 rw-sm-0">
                             <div class="avatar"><img alt="" src="{{ path('app_web_group_icon', { gid: group.usergroup.id, name: group.avatarName, ext: group.avatarExt }) }}" /></div>
                         </div>
-                        <div class="padded cell rw-4">
+                        <div class="padded cell rw-4 rw-sm-6">
                             <div>
                                 {{ group.usergroup.name }}
                                 <div class="tooltip">{{ group.description }}</div>
                             </div>
                             {% if in_group[group.id] %}<span class="small">{{ 'Mitglied'|trans({},'admin')}}</span>{% endif %}
                         </div>
-                        <div class="padded cell rw-3">
+                        <div class="padded cell rw-3 rw-sm-10">
                             {% if group_members[group.id] is empty and group.anon %}
                                 <span class="small">[ {{ 'Die Mitgliederliste ist versteckt.'|trans({},'admin')}} ]</span>
                             {% else %}
                                 {{ group_members[group.id]|map(u => u.name)|join(', ') }}
                             {% endif %}
                         </div>
-                        <div class="padded cell rw-1 right">
+                        <div class="padded cell rw-1 rw-sm-2 right">
                             {% if is_granted("ROLE_ADMIN") %}
                                 <button x-ajax-href="{{ path('admin_group_edit', {id: group.id}) }}" class="small inline"><i class="fa fa-edit"></i></button>
                             {% endif %}

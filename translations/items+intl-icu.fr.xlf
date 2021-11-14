@@ -3586,7 +3586,7 @@
     <unit id="qz1Q.uu" name="Verwenden">
       <notes>
         <note category="german">Verwenden</note>
-        <note category="from">db://ItemAction</note>
+        <note category="from">db://ItemAction;twig:///templates/ajax/game/actions.html.twig</note>
       </notes>
       <segment>
         <source>Verwenden</source>
@@ -8068,7 +8068,7 @@
     <unit id="WvhcAeX">
       <notes>
         <note category="german">&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;nt-kill-latest&gt;Du hast mit dieser Waffe: {item} {kills} Zombie getötet. Ha! Ha! Ha! Das tut wirklich gut, ab und zu mal ein paar Zombies fertig zu machen...&lt;/nt-kill-latest&gt;</note>
-        <note category="from">db://AffectMessage</note>
+        <note category="from">db://AffectMessage;db://ItemAction</note>
       </notes>
       <segment>
         <source>&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;nt-kill-latest&gt;Du hast mit dieser Waffe: {item} {kills} Zombie getötet. Ha! Ha! Ha! Das tut wirklich gut, ab und zu mal ein paar Zombies fertig zu machen...&lt;/nt-kill-latest&gt;</source>
@@ -9346,6 +9346,47 @@
       <segment>
         <source>Macht Miau</source>
         <target>Il fait Miaou</target>
+      </segment>
+    </unit>
+    <unit id="F0BaAFm" name="Befiehl {dogname}, deinen Rucksackinhalt in die Stadt zu bringen:">
+      <notes>
+        <note category="german">Befiehl {dogname}, deinen Rucksackinhalt in die Stadt zu bringen:</note>
+        <note category="from">twig:///templates/ajax/game/actions.html.twig</note>
+      </notes>
+      <segment>
+        <source>Befiehl {dogname}, deinen Rucksackinhalt in die Stadt zu bringen:</source>
+        <target>Demander à {dogname} de ramener le contenu de mon sac à dos dans :</target>
+      </segment>
+    </unit>
+    <unit id="PrYHodM" name="Du kannst ihn auch mit Drogen dopen:">
+      <notes>
+        <note category="german">Du kannst ihn auch mit Drogen dopen:</note>
+        <note category="from">twig:///templates/ajax/game/actions.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du kannst ihn auch mit Drogen dopen:</source>
+        <target>Vous pouvez également le droguer :</target>
+      </segment>
+    </unit>
+    <unit id="QdHhWPJ">
+      <notes>
+        <note category="german">Achtung: Entferne alle Gegenstände aus deinem Rucksack, die du NICHT in die Stadt senden möchtest!</note>
+        <note category="from">twig:///templates/ajax/game/actions.html.twig</note>
+      </notes>
+      <segment>
+        <source>Achtung: Entferne alle Gegenstände aus deinem Rucksack, die du NICHT in die Stadt senden möchtest!</source>
+        <target>Attention : retirez de votre sac les objets que vous ne souhaitez pas ramener en ville !</target>
+      </segment>
+    </unit>
+    <unit id="7KhXc2A">
+      <notes>
+        <note category="german">Es ist nicht so appetitlich wie ein &lt;strong&gt;schöner, frischer, zappelnder Mensch&lt;/strong&gt;, aber es erfüllt seinen Zweck und lässt den &lt;strong&gt;Hunger&lt;/strong&gt; ein wenig nachlassen.... Zum Glück ist das Fleisch ziemlich zart, sonst wäre diese Mahlzeit furchtbar gewesen.&lt;hr/&gt;Nach ein paar Sekunden spürst du den furchtbaren Nachgeschmack...</note>
+        <note category="from">db://ItemAction</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Es ist nicht so appetitlich wie ein &lt;strong&gt;schöner, frischer, zappelnder Mensch&lt;/strong&gt;, aber es erfüllt seinen Zweck und lässt den &lt;strong&gt;Hunger&lt;/strong&gt; ein wenig nachlassen.... Zum Glück ist das Fleisch ziemlich zart, sonst wäre diese Mahlzeit furchtbar gewesen.&lt;hr/&gt;Nach ein paar Sekunden spürst du den furchtbaren Nachgeschmack...</source>
+        <target><![CDATA[Ça n'est pas aussi appétissant qu'un <strong>bon humain frais et vigoureux</strong>, mais ça remplit un peu son rôle et calme un minimum votre <strong>voracité</strong>... Heureusement que la viande était un peu faisandée, ce repas aurait été inepte sinon.<hr/>Vous notez, quelques secondes après, que cette chose avait vraiment un arrière-goût horrible...]]></target>
       </segment>
     </unit>
   </file>

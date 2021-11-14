@@ -513,19 +513,20 @@ class TownHandler
         $has_ikea             = (bool)$this->getBuilding($town, 'small_ikea_#00', true);
         $has_armory           = (bool)$this->getBuilding($town, 'small_armor_#00', true);
 
+        $count = 0;
         foreach ($watchers as $watcher) {
             if ($watcher->getCitizen()->getZone() !== null) continue;
+            $count++;
             $total_def += $this->citizen_handler->getNightWatchDefense($watcher->getCitizen(), $has_shooting_gallery, $has_trebuchet, $has_ikea, $has_armory);
-            foreach ($watcher->getCitizen()->getInventory()->getItems() as $item) {
+            foreach ($watcher->getCitizen()->getInventory()->getItems() as $item)
                 if($item->getPrototype()->getName() == 'chkspk_#00') {
                     $has_counsel = true;
                     break;
                 }
-            }
         }
 
         if($has_counsel)
-            $total_def += 20 * count($watchers);
+            $total_def += 20 * $count;
 
         return $total_def;
     }

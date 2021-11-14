@@ -100,6 +100,11 @@ class ItemAction implements NamedEntity
      */
     private $allowedAtGate;
 
+    /**
+     * @ORM\Column(type="string", length=64, nullable=true)
+     */
+    private $renderer;
+
     public function __construct()
     {
         $this->requirements = new ArrayCollection();
@@ -315,6 +320,18 @@ class ItemAction implements NamedEntity
     public function setAllowedAtGate(?bool $allowedAtGate): self
     {
         $this->allowedAtGate = $allowedAtGate;
+
+        return $this;
+    }
+
+    public function getRenderer(): ?string
+    {
+        return $this->renderer;
+    }
+
+    public function setRenderer(?string $renderer): self
+    {
+        $this->renderer = $renderer;
 
         return $this;
     }

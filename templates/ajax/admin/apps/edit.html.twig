@@ -8,13 +8,13 @@
             <div class="form">
                 <h5>{{ 'Anwendung'|trans({},'admin') }}</h5>
                 <div class="row">
-                    <div class="cell padded rw-4 note note-lightest"><label for="app_name">{{ 'Name der Anwendung'|trans({},'admin') }}</label></div>
-                    <div class="cell padded rw-4"><input id="app_name" type="text" value="{{ current_app is not null ? current_app.name : '' }}" /></div>
+                    <div class="cell padded rw-4 rw-md-6 note note-lightest"><label for="app_name">{{ 'Name der Anwendung'|trans({},'admin') }}</label></div>
+                    <div class="cell padded rw-4 rw-md-6"><input id="app_name" type="text" value="{{ current_app is not null ? current_app.name : '' }}" /></div>
                 </div>
 
                 <div class="row">
-                    <div class="cell padded rw-4 note note-lightest">{{ 'Besitzer'|trans({},'admin') }}</div>
-                    <div class="cell padded rw-4">
+                    <div class="cell padded rw-4 rw-md-6 note note-lightest">{{ 'Besitzer'|trans({},'admin') }}</div>
+                    <div class="cell padded rw-4 rw-md-6">
                         <span id="app_owner_label">
                             {% if current_app is not null and current_app.owner is not null %}
                                 <strong><a href="{{ path('admin_users_account_view', {id: current_app.owner.id}) }}">{{ current_app.owner.name }}</a></strong>
@@ -28,64 +28,64 @@
                     </div>
                 </div>
                 <div class="row hidden" id="app_owner_select">
-                    <div class="cell padded rw-4 ro-4">
+                    <div class="cell padded rw-4 ro-4 rw-md-6 ro-md-6">
                         <div id="users-list-admin">{% include 'ajax/admin/snippets/user_search.html.twig' %}</div>
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="cell padded rw-4 note note-lightest"><label for="app_email">{{ 'Kontakt'|trans({},'admin') }}</label></div>
-                    <div class="cell padded rw-4"><input id="app_email" type="email" value="{{ current_app is not null ? current_app.contact : '' }}" /></div>
+                    <div class="cell padded rw-4 rw-md-6 note note-lightest"><label for="app_email">{{ 'Kontakt'|trans({},'admin') }}</label></div>
+                    <div class="cell padded rw-4 rw-md-6"><input id="app_email" type="email" value="{{ current_app is not null ? current_app.contact : '' }}" /></div>
                 </div>
 
                 <div class="row">
-                    <div class="cell padded rw-4 note note-lightest"><label for="app_url">{{ 'URL'|trans({},'admin') }}</label></div>
-                    <div class="cell padded rw-4"><input id="app_url" type="url" value="{{ current_app is not null ? current_app.url : '' }}" /></div>
+                    <div class="cell padded rw-4 rw-md-6 note note-lightest"><label for="app_url">{{ 'URL'|trans({},'admin') }}</label></div>
+                    <div class="cell padded rw-4 rw-md-6"><input id="app_url" type="url" value="{{ current_app is not null ? current_app.url : '' }}" /></div>
                 </div>
 
                 <h5>{{ 'Anzeige'|trans({},'admin') }}</h5>
                 <div class="row">
-                    <div class="cell padded rw-8"><div class="help">{{ 'Anwendungen im Testbetrieb können nur von ihrem Besitzer verwendet werden.'|trans({},'admin') }}</div></div>
+                    <div class="cell padded rw-8 rw-md-12"><div class="help">{{ 'Anwendungen im Testbetrieb können nur von ihrem Besitzer verwendet werden.'|trans({},'admin') }}</div></div>
                 </div>
                 <div class="row">
-                    <div class="cell padded rw-4 note note-lightest"><label for="app_testing">{{ 'Testbetrieb'|trans({},'admin') }}</label></div>
-                    <div class="cell padded rw-4"><input id="app_testing" type="checkbox" {% if current_app and current_app.testing %}checked{% endif%} /></div>
+                    <div class="cell padded rw-4 rw-md-6 note note-lightest"><label for="app_testing">{{ 'Testbetrieb'|trans({},'admin') }}</label></div>
+                    <div class="cell padded rw-4 rw-md-6"><input id="app_testing" type="checkbox" {% if current_app and current_app.testing %}checked{% endif%} /></div>
                 </div>
 
                 <div class="row">
-                    <div class="cell padded rw-4 note note-lightest"><label for="app_icon">{{ 'Icon'|trans({},'admin') }}</label></div>
-                    <div class="cell padded rw-4">
+                    <div class="cell padded rw-4 rw-md-6 note note-lightest"><label for="app_icon">{{ 'Icon'|trans({},'admin') }}</label></div>
+                    <div class="cell padded rw-4 rw-md-6">
                         <img id="app_icon" style="height: 16px; width: 16px;" alt="-" src="{{ (current_app is not null and current_app.imageName is not null) ? path('app_web_app_icon', { aid: current_app.id, name: current_app.imageName, ext: current_app.imageFormat }) : '' }}" />
                         <label for="app_icon_select" id="app_icon_edit" class="small inline float-right button"><i class="fa fa-edit"></i></label>
                         <button id="app_icon_clear" class="small inline float-right {% if current_app is null or current_app.imageName is null %}hidden{% endif %}"><i class="fa fa-trash"></i></button>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="cell padded ro-4 rw-4">
+                    <div class="cell padded ro-4 rw-4 rw-md-6 ro-md-6">
                         <input class="hidden" type="file" id="app_icon_select" accept=".gif,.jpg,.jpeg,.jif,.jfif,.png,.webp,.bmp">
                     </div>
                 </div>
 
                 <h5>{{ 'Datenzugriff'|trans({},'admin') }}</h5>
                 <div class="row">
-                    <div class="cell padded rw-8"><div class="help">{{ 'Anwendungen ohne API-Zugang werden nur als Links eingebunden.'|trans({},'admin') }}</div></div>
+                    <div class="cell padded rw-8 rw-md-12"><div class="help">{{ 'Anwendungen ohne API-Zugang werden nur als Links eingebunden.'|trans({},'admin') }}</div></div>
                 </div>
                 <div class="row">
-                    <div class="cell padded rw-4 note note-lightest"><label for="app_flux">{{ 'Zugang zur API'|trans({},'admin') }}</label></div>
-                    <div class="cell padded rw-4"><input id="app_flux" type="checkbox" {% if current_app and not current_app.linkOnly %}checked{% endif%} /></div>
+                    <div class="cell padded rw-4 rw-md-6 note note-lightest"><label for="app_flux">{{ 'Zugang zur API'|trans({},'admin') }}</label></div>
+                    <div class="cell padded rw-4 rw-md-6"><input id="app_flux" type="checkbox" {% if current_app and not current_app.linkOnly %}checked{% endif%} /></div>
                 </div>
                 <div id="flux_fields" {% if current_app is null or current_app.linkOnly %}class="hidden"{% endif %}>
                     <div class="row">
-                        <div class="cell padded rw-4 note note-lightest"><label for="app_sk">{{ 'Schlüssel'|trans({},'admin') }}</label></div>
-                        <div class="cell padded rw-4"><input id="app_sk" type="text" readonly value="{{ current_app is not null and current_app.secret is not null ? current_app.secret : ('[ ' ~ ('Wird automatisch generiert'|trans({},'admin')) ~ ' ]') }}" /></div>
+                        <div class="cell padded rw-4 rw-md-6 note note-lightest"><label for="app_sk">{{ 'Schlüssel'|trans({},'admin') }}</label></div>
+                        <div class="cell padded rw-4 rw-md-6"><input id="app_sk" type="text" readonly value="{{ current_app is not null and current_app.secret is not null ? current_app.secret : ('[ ' ~ ('Wird automatisch generiert'|trans({},'admin')) ~ ' ]') }}" /></div>
                     </div>
                     <div class="row {% if current_app is null or current_app.secret is null %}hidden{% endif %}">
-                        <div class="cell padded ro-4 rw-4"><label><input id="app_sk_regen" type="checkbox" {% if current_app is null or current_app.secret is null %}checked{% endif%} /> {{ 'Schlüssel regenerieren'|trans({},'admin') }}</label></div>
+                        <div class="cell padded ro-4 rw-4 rw-md-6 ro-md-6"><label><input id="app_sk_regen" type="checkbox" {% if current_app is null or current_app.secret is null %}checked{% endif%} /> {{ 'Schlüssel regenerieren'|trans({},'admin') }}</label></div>
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="padded cell rw-4 ro-4">
+                    <div class="padded cell rw-4 ro-4 rw-md-6 ro-md-6 ro-sm-0 rw-sm-12">
                         <button id="save_button">{{ (current_app is null ? 'Neue Anwendung registrieren' : "Änderungen an '{appname}' speichern")|trans({'{appname}': current_app is null ? '' : current_app.name},'admin') }}</button>
                     </div>
                 </div>

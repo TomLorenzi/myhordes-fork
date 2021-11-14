@@ -13,6 +13,7 @@ use App\Entity\ItemPrototype;
 use App\Entity\User;
 use App\Service\CitizenHandler;
 use App\Service\GameFactory;
+use App\Service\LogTemplateHandler;
 use App\Service\TownHandler;
 use App\Service\UserHandler;
 use DateTime;
@@ -63,6 +64,7 @@ class Extensions extends AbstractExtension  implements GlobalsInterface
             new TwigFilter('watchpoint',  [$this, 'fetch_watch_points']),
             new TwigFilter('related',  [$this, 'user_relation']),
             new TwigFilter('filesize',  [$this, 'format_filesize']),
+            new TwigFilter('dogname',  [$this, 'dogname']),
         ];
     }
 
@@ -102,6 +104,14 @@ class Extensions extends AbstractExtension  implements GlobalsInterface
      */
     public function check_granted(User $u, string $role): bool {
         return $this->userHandler->hasRole($u,$role);
+    }
+
+    /**
+     * @param User $u
+     * @return string
+     */
+    public function dogname(User $u): string {
+        return LogTemplateHandler::generateDogName( $u->getActiveCitizen() ? $u->getActiveCitizen()->getId() : 0, $this->translator );
     }
 
     /**

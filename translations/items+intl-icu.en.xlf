@@ -3588,7 +3588,7 @@
     <unit id="qz1Q.uu" name="Verwenden">
       <notes>
         <note category="german">Verwenden</note>
-        <note category="from">db://ItemAction</note>
+        <note category="from">db://ItemAction;twig:///templates/ajax/game/actions.html.twig</note>
       </notes>
       <segment>
         <source>Verwenden</source>
@@ -8085,7 +8085,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     <unit id="WvhcAeX">
       <notes>
         <note category="german">&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;nt-kill-latest&gt;Du hast mit dieser Waffe: {item} {kills} Zombie getötet. Ha! Ha! Ha! Das tut wirklich gut, ab und zu mal ein paar Zombies fertig zu machen...&lt;/nt-kill-latest&gt;</note>
-        <note category="from">db://AffectMessage</note>
+        <note category="from">db://AffectMessage;db://ItemAction</note>
       </notes>
       <segment>
         <source>&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;nt-kill-latest&gt;Du hast mit dieser Waffe: {item} {kills} Zombie getötet. Ha! Ha! Ha! Das tut wirklich gut, ab und zu mal ein paar Zombies fertig zu machen...&lt;/nt-kill-latest&gt;</source>
@@ -9358,6 +9358,47 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       <segment>
         <source>Macht Miau</source>
         <target>Macht Miau</target>
+      </segment>
+    </unit>
+    <unit id="F0BaAFm" name="Befiehl {dogname}, deinen Rucksackinhalt in die Stadt zu bringen:">
+      <notes>
+        <note category="german">Befiehl {dogname}, deinen Rucksackinhalt in die Stadt zu bringen:</note>
+        <note category="from">twig:///templates/ajax/game/actions.html.twig</note>
+      </notes>
+      <segment>
+        <source>Befiehl {dogname}, deinen Rucksackinhalt in die Stadt zu bringen:</source>
+        <target>Ask {dogname} to take the contents of your rucksack back to town and put them in:</target>
+      </segment>
+    </unit>
+    <unit id="PrYHodM" name="Du kannst ihn auch mit Drogen dopen:">
+      <notes>
+        <note category="german">Du kannst ihn auch mit Drogen dopen:</note>
+        <note category="from">twig:///templates/ajax/game/actions.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du kannst ihn auch mit Drogen dopen:</source>
+        <target>Alternatively you could drug him:</target>
+      </segment>
+    </unit>
+    <unit id="QdHhWPJ">
+      <notes>
+        <note category="german">Achtung: Entferne alle Gegenstände aus deinem Rucksack, die du NICHT in die Stadt senden möchtest!</note>
+        <note category="from">twig:///templates/ajax/game/actions.html.twig</note>
+      </notes>
+      <segment>
+        <source>Achtung: Entferne alle Gegenstände aus deinem Rucksack, die du NICHT in die Stadt senden möchtest!</source>
+        <target>Attention: take any objects out of your rucksack which you don't want to take back to town!</target>
+      </segment>
+    </unit>
+    <unit id="7KhXc2A">
+      <notes>
+        <note category="german">Es ist nicht so appetitlich wie ein &lt;strong&gt;schöner, frischer, zappelnder Mensch&lt;/strong&gt;, aber es erfüllt seinen Zweck und lässt den &lt;strong&gt;Hunger&lt;/strong&gt; ein wenig nachlassen.... Zum Glück ist das Fleisch ziemlich zart, sonst wäre diese Mahlzeit furchtbar gewesen.&lt;hr/&gt;Nach ein paar Sekunden spürst du den furchtbaren Nachgeschmack...</note>
+        <note category="from">db://ItemAction</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Es ist nicht so appetitlich wie ein &lt;strong&gt;schöner, frischer, zappelnder Mensch&lt;/strong&gt;, aber es erfüllt seinen Zweck und lässt den &lt;strong&gt;Hunger&lt;/strong&gt; ein wenig nachlassen.... Zum Glück ist das Fleisch ziemlich zart, sonst wäre diese Mahlzeit furchtbar gewesen.&lt;hr/&gt;Nach ein paar Sekunden spürst du den furchtbaren Nachgeschmack...</source>
+        <target><![CDATA[It's not as appetising as a <strong>nice, fresh, wriggling human</strong>, but it does the job and makes your <strong>voracity</strong> subside... a little. Fortunately, the meat way quite gamey, this meal would have been dreadful otherwise.<hr/>You observe a few seconds later, that this had a horrendous after taste...]]></target>
       </segment>
     </unit>
   </file>

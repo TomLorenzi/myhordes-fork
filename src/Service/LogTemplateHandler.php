@@ -116,7 +116,7 @@ class LogTemplateHandler
         return $object;
     }
 
-    public function generateDogName(int $numeric): string {
+    public static function generateDogName(int $numeric, TranslatorInterface $trans): string {
         $dog_names_prefix = [
             T::__('TDG_PRE_00_','names'), T::__('TDG_PRE_10_','names'),T::__('TDG_PRE_20_','names'), T::__('TDG_PRE_30_','names'),T::__('TDG_PRE_40_','names'), T::__('TDG_PRE_50_','names'),
             T::__('TDG_PRE_01_','names'), T::__('TDG_PRE_11_','names'),T::__('TDG_PRE_21_','names'), T::__('TDG_PRE_31_','names'),T::__('TDG_PRE_41_','names'), T::__('TDG_PRE_51_','names'),
@@ -144,7 +144,7 @@ class LogTemplateHandler
         ];
 
         list(,$preID,$sufID) = unpack('l2', md5("dog-for-{$numeric}", true));
-        return "{$this->trans->trans($dog_names_prefix[abs($preID % count($dog_names_prefix))],[],'names')}{$this->trans->trans($dog_names_suffix[abs($sufID % count($dog_names_suffix))],[],'names')}";
+        return "{$trans->trans($dog_names_prefix[abs($preID % count($dog_names_prefix))],[],'names')}{$trans->trans($dog_names_suffix[abs($sufID % count($dog_names_suffix))],[],'names')}";
     }
     
     public function parseTransParams(array $variableTypes, array $variables): ?array {
@@ -192,7 +192,7 @@ class LogTemplateHandler
                     $transParams['{'.$typeEntry['name'].'}'] = $wrap_fun( $this->trans->trans($variables[$typeEntry['name']], [], 'game') );
                 }
                 elseif ($typeEntry['type'] === 'dogname') {
-                    $transParams['{'.$typeEntry['name'].'}'] = $wrap_fun( $this->generateDogName((int)$variables[$typeEntry['name']]) );
+                    $transParams['{'.$typeEntry['name'].'}'] = $wrap_fun( self::generateDogName((int)$variables[$typeEntry['name']], $this->trans) );
                 }
                 elseif ($typeEntry['type'] === 'ap') {
                     $transParams['{'.$typeEntry['name'].'}'] = "<div class='ap'>{$variables[$typeEntry['name']]}</div>";

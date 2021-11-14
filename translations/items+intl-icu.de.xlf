@@ -5809,5 +5809,29 @@
         <target>Macht Miau</target>
       </segment>
     </unit>
+    <unit id="F0BaAFm" name="Befiehl {dogname}, deinen Rucksackinhalt in die Stadt zu bringen:">
+      <segment>
+        <source>Befiehl {dogname}, deinen Rucksackinhalt in die Stadt zu bringen:</source>
+        <target>Befiehl {dogname}, deinen Rucksackinhalt in die Stadt zu bringen:</target>
+      </segment>
+    </unit>
+    <unit id="PrYHodM" name="Du kannst ihn auch mit Drogen dopen:">
+      <segment>
+        <source>Du kannst ihn auch mit Drogen dopen:</source>
+        <target>Du kannst ihn auch mit Drogen dopen:</target>
+      </segment>
+    </unit>
+    <unit id="QdHhWPJ">
+      <segment>
+        <source>Achtung: Entferne alle Gegenstände aus deinem Rucksack, die du NICHT in die Stadt senden möchtest!</source>
+        <target>Achtung: Entferne alle Gegenstände aus deinem Rucksack, die du NICHT in die Stadt senden möchtest!</target>
+      </segment>
+    </unit>
+    <unit id="7KhXc2A">
+      <segment>
+        <source>Es ist nicht so appetitlich wie ein &lt;strong&gt;schöner, frischer, zappelnder Mensch&lt;/strong&gt;, aber es erfüllt seinen Zweck und lässt den &lt;strong&gt;Hunger&lt;/strong&gt; ein wenig nachlassen.... Zum Glück ist das Fleisch ziemlich zart, sonst wäre diese Mahlzeit furchtbar gewesen.&lt;hr/&gt;Nach ein paar Sekunden spürst du den furchtbaren Nachgeschmack...</source>
+        <target><![CDATA[Es ist nicht so appetitlich wie ein <strong>schöner, frischer, zappelnder Mensch</strong>, aber es erfüllt seinen Zweck und lässt den <strong>Hunger</strong> ein wenig nachlassen.... Zum Glück ist das Fleisch ziemlich zart, sonst wäre diese Mahlzeit furchtbar gewesen.<hr/>Nach ein paar Sekunden spürst du den furchtbaren Nachgeschmack...]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

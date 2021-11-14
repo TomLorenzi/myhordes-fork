@@ -6,7 +6,6 @@ use App\Entity\CitizenRankingProxy;
 use App\Entity\Season;
 use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\Persistence\ManagerRegistry;
 use Exception;
 
@@ -50,15 +49,19 @@ class CitizenRankingProxyRepository extends ServiceEntityRepository
         }
     }
 
-    public function countNonAlphaTowns(User $user): int {
+    public function countNonAlphaTowns(User $user, ?\DateTime $from = null): int {
         try {
-            return $this->createQueryBuilder('c')
+            $qb = $this->createQueryBuilder('c')
                 ->select('COUNT(c.id)')
                 ->join('c.town', 't')
                 ->andWhere('c.user = :user')->setParameter('user', $user)
                 ->andWhere('t.season IS NOT NULL')
-                ->andWhere('t.imported = false')
-                ->getQuery()->getSingleScalarResult();
+                ->andWhere('t.imported = false');
+
+            if ( $from !== null )
+                $qb->andWhere('c.end IS NOT NULL AND c.end >= :from')->setParameter('from', $from);
+
+            return $qb->getQuery()->getSingleScalarResult();
         } catch (Exception $e) {
             return 0;
         }

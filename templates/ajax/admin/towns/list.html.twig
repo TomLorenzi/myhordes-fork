@@ -15,7 +15,7 @@
             <h5>{{ 'Bürger nach Sprache'|trans({}, 'admin') }}</h5>
             <div class="row">
                 {% for stat in citizen_stats %}
-                <div class="cell rw-2 center">
+                <div class="cell rw-2 rw-sm-3 center">
                         <img src="{{ asset("build/images/lang/" ~ stat.language ~".png") }}" alt="{{ stat.language }}" /><br />
                         {{ stat.count }}
                 </div>
@@ -24,33 +24,33 @@
             <h5>{{ 'Liste aller Städte'|trans({},'admin') }}</h5>
             <div class="row-table">
                 <div class="row header">
-                    <div class="cell padded rw-1">{{ 'ID'|trans({},'admin') }}</div>
-                    <div class="cell padded rw-5">{{ 'Stadtname'|trans({},'admin') }}</div>
-                    <div class="cell padded rw-1">{{ 'Tag'|trans({},'admin') }}</div>
-                    <div class="cell padded rw-2">{{ 'Pop.'|trans({},'admin') }}</div>
-                    <div class="cell padded rw-3 right">{{ 'Aktionen'|trans({},'admin') }}</div>
+                    <div class="cell padded rw-1 rw-sm-0">{{ 'ID'|trans({},'admin') }}</div>
+                    <div class="cell padded rw-5 rw-sm-12">{{ 'Stadtname'|trans({},'admin') }}</div>
+                    <div class="cell padded rw-1 rw-sm-0">{{ 'Tag'|trans({},'admin') }}</div>
+                    <div class="cell padded rw-2 rw-sm-0">{{ 'Pop.'|trans({},'admin') }}</div>
+                    <div class="cell padded rw-3 rw-sm-0 right">{{ 'Aktionen'|trans({},'admin') }}</div>
                 </div>
                 {# @var towns \App\Entity\Town[] #}
                 {% for town in towns %}
-                    <div class="row">
-                        <div class="cell padded rw-1">
-                            {{ town.id }}<br />
+                    <div class="row-flex wrap">
+                        <div class="cell padded rw-1 rw-sm-2 shrink-0">
+                            <span class="hide-mobile">{{ town.id }}</span><span class="small hide-desktop">{{ town.id }}</span><br />
                             {% if town.language is not empty %}
                                 <span class="language"><img src="{{ asset("build/images/lang/" ~ town.language ~".png") }}" alt="{{ town.language }}" /></span>
                             {% endif %}
                         </div>
-                        <div class="cell padded rw-5">
+                        <div class="cell padded rw-5 rw-sm-8">
                             {{ town.name }}<br /><span class="small">{% if town.open %}<i class="fa fa-door-open"></i> {% endif %}{{ town.type.label|trans({},'game') }}</span>
                             {% if town.attackFails >= 3 %}<div style="color: red">{{ 'Quarantäne'|trans({},'game') }}</div> {% endif %}
                             {% if town.rankingEntry.disabled %}<div class="bold" style="color: #ff8800">{{ 'Ranking-Ausschluss'|trans({},'game') }}</div> {% endif %}
                             {% if town.rankingEntry.event %}<div class="bold" style="color: #81b3e2">{{ 'Event-Stadt'|trans({},'ghost') }}</div> {% endif %}
                         </div>
-                        <div class="cell padded rw-1">{{ town.day }}</div>
-                        <div class="cell padded rw-2">
+                        <div class="cell padded rw-1 rw-sm-2 shrink-0">{{ town.day }}</div>
+                        <div class="cell padded rw-2 rw-sm-8">
                             {{ town.citizenCount }} / {{ town.population }} {% if town.citizenCount < town.population %}<i title="{{ 'Geöffnet'|trans({},'admin') }}" class="small fa fa-door-open"></i>{% endif %}<br />
                             <span title="{{ 'Leben'|trans({},'admin') }}" class="small"><i class="fa fa-users"></i> {{ town.aliveCitizenCount }}</span> <span title="{{ 'Tot'|trans({},'admin') }}" class="small"><i class="fa fa-skull"></i> {{ town.citizenCount - town.aliveCitizenCount }}</span> <span title="{{ 'Getrennt'|trans({},'admin') }}" class="small"><i class="fa fa-user-slash"></i> {{ town.citizenCount - town.activeCitizenCount }}</span>
                         </div>
-                        <div class="cell padded rw-3 right">
+                        <div class="cell padded rw-3 rw-sm-4 right">
                             <button x-ajax-href="{{ path('admin_town_explorer', {id: town.id}) }}" class="small inline">{{ 'Details'|trans({},'admin') }}...</button>
                         </div>
                     </div>
@@ -58,21 +58,21 @@
             </div>
 
             <h5>{{ 'Stadt anlegen'|trans({},'admin') }}</h5>
-            <div class="row-flex">
-                <div class="padded cell grow-0 shrink-0"><label><select id="new_town_lang">
+            <div class="row-flex wrap">
+                <div class="padded cell rw-sm-12 grow-0 shrink-0"><label><select id="new_town_lang">
                             <option value="de">DE</option>
                             <option value="en">EN</option>
                             <option value="fr">FR</option>
                             <option value="es">ES</option>
                             <option value="multi">MULTI</option>
                 </select></label></div>
-                <div class="padded cell grow-1 shrink-1"><label><input id="new_town_name" type="text" placeholder="{{ 'Stadtname'|trans({},'admin') }}" /></label></div>
-                <div class="padded cell grow-0 shrink-0"><label><select id="new_town_type">
+                <div class="padded cell rw-sm-12 grow-1 shrink-1"><label><input id="new_town_name" type="text" placeholder="{{ 'Stadtname'|trans({},'admin') }}" /></label></div>
+                <div class="padded cell rw-sm-12 grow-0 shrink-0"><label><select id="new_town_type">
                             <option value="small">{{ 'Kleine Stadt'|trans({},'game') }}</option>
                             <option value="remote">{{ 'Entfernte Regionen'|trans({},'game') }}</option>
                             <option value="panda">{{ 'Pandämonium'|trans({},'game') }}</option>
                 </select></label></div>
-                <div class="padded cell grow-0 shrink-0"><button id="new_town_button">{{ 'Stadt anlegen'|trans({},'admin') }}</button></div>
+                <div class="padded cell rw-sm-12 shrink-0"><button id="new_town_button">{{ 'Stadt anlegen'|trans({},'admin') }}</button></div>
             </div>
         </div>
     </div>

@@ -522,7 +522,12 @@ class GazetteService
         return $gazette;
     }
 
-    public function renderGazette( Town $town, ?int $day = null, bool $allow_dynamic_creation = false ): array {
+    public function renderGazette( Town $town, ?int $day = null, bool $allow_dynamic_creation = false, ?string $lang = null ): array {
+        $origLang = $this->translator->getLocale();
+        if($lang !== null) {
+            $this->translator->setLocale($lang);
+        }
+
         $day = min( $town->getDay(), $day ?? $town->getDay() );
         $death_outside = $death_inside = [];
 
@@ -572,6 +577,10 @@ class GazetteService
             'final' => $day % 5,
             'repeat' => floor($day / 5),
         ];
+
+        if($origLang !== $lang) {
+            $this->translator->setLocale($origLang);
+        }
 
         return [
             'name' => $town->getName(),

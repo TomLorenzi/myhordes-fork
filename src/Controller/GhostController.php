@@ -510,8 +510,8 @@ class GhostController extends CustomAbstractController
         return AjaxResponse::success();
     }
 
-    public function getUserTownClassAccess(MyHordesConf $conf): array {
-        $user = $this->getUser();
+    public function getUserTownClassAccess(MyHordesConf $conf, ?User $user = null): array {
+        $user = $user ?? $this->getUser();
         $sp = $this->user_handler->fetchSoulPoints($user);
         return [
             'small' =>

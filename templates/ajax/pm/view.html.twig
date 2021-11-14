@@ -223,7 +223,23 @@
 
             document.getElementById('new-tab-button').addEventListener('click', () => {
                 document.querySelector('#post-office-button-overlay>ul>li:last-child').click();
-                window.open('{{ path('home_pm') }}', '_blank');
+                let pm_window = window.open('{{ path('home_pm') }}', '_blank');
+                let opened_pm = document.querySelector("#pm-conversation-list li.selected");
+                if(opened_pm !== null){
+                    let id = opened_pm.getAttribute('x-identifier')
+                    let domain = opened_pm.getAttribute('x-domain')
+                    pm_window.addEventListener("DOMContentLoaded", function start_load_pm(){
+                        pm_window.document.addEventListener("mh-navigation-complete", function load_pm(){
+                            let thread = pm_window.document.querySelector("#pm-conversation-list li[x-identifier='" + id + "'][x-domain='" + domain + "']");
+                            if(thread) {
+                                thread.click();
+                                pm_window.document.removeEventListener("mh-navigation-complete", load_pm);
+                                pm_window.removeEventListener("DOMContentLoaded", start_load_pm);
+
+                            }
+                        })
+                    });
+                }
             })
             document.getElementById('return-tab-button').addEventListener('click', () => {
                 window.location.href = '{{ path('home') }}';

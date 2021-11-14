@@ -971,7 +971,7 @@
       </notes>
       <segment>
         <source>Gegenstände</source>
-        <target>Objects</target>
+        <target>objects</target>
       </segment>
     </unit>
     <unit id="RmaV9PR" name="Mein Haus ausbauen">
@@ -23183,7 +23183,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="pobUoYj">
       <notes>
-        <note category="german">Die Anwesenheit des Geistigen Beistands unter den Nachtwächtern gibt ihnen jeweils einen Boost von {counsel} Verteidigung.</note>
+        <note category="german">Die Anwesenheit des Geistigen Beistands unter den Nachtwächtern gibt ihnen insgesamt einen Boost von {counsel} Verteidigung.</note>
         <note category="from">twig:///templates/ajax/game/town/nightwatch.html.twig</note>
       </notes>
       <segment>
@@ -23841,6 +23841,36 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>{citizen} hat das Gebäude {plan} repariert (Sklaverei: +50% AP).</source>
         <target>{citizen} hat das Gebäude {plan} repariert (Sklaverei: +50% AP).</target>
+      </segment>
+    </unit>
+    <unit id="hq.m1hn" name="Ein Moderator hat deinen Thread &quot;{threadname}&quot; geschlossen. {link_post}">
+      <notes>
+        <note category="german">Ein Moderator hat deinen Thread "{threadname}" geschlossen. {link_post}</note>
+        <note category="from">db://LogEntryTemplate</note>
+      </notes>
+      <segment>
+        <source>Ein Moderator hat deinen Thread "{threadname}" geschlossen. {link_post}</source>
+        <target>A moderator has closed your thread "{threadname}". {link_post}</target>
+      </segment>
+    </unit>
+    <unit id="AEFBcgF">
+      <notes>
+        <note category="german">Ein Moderator hat deinen Thread "{threadname}" als "Gelöst" markiert. {link_post}</note>
+        <note category="from">db://LogEntryTemplate</note>
+      </notes>
+      <segment>
+        <source>Ein Moderator hat deinen Thread "{threadname}" als "Gelöst" markiert. {link_post}</source>
+        <target>A moderator has marked your thread "{threadname}" as "resolved". {link_post}</target>
+      </segment>
+    </unit>
+    <unit id="4zy_n9Y" name="Funkgerät verwenden">
+      <notes>
+        <note category="german">Funkgerät verwenden</note>
+        <note category="from">twig:///templates/ajax/public/maintenance_attack.html.twig</note>
+      </notes>
+      <segment>
+        <source>Funkgerät verwenden</source>
+        <target>Use the radio</target>
       </segment>
     </unit>
   </file>

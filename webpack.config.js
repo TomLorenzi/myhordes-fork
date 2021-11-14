@@ -21,7 +21,7 @@ Encore
         from: 'assets/img',
         to: (typeof(local.hash_filenames) !== 'undefined' && !local.hash_filenames)
             ? 'images/[path][name].[ext]'
-            : 'images/[path][name].[contenthash:8].[ext]' ,
+            : 'images/[path][name].[contenthash:8].[ext]',
     })
     .copyFiles({
         from: 'assets/ext',

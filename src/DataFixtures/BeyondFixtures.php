@@ -817,6 +817,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
                 array('item' => 'bureau_#00','count' => 2),
                 array('item' => 'deco_box_#00','count' => 4),
                 array('item' => 'lamp_#00','count' => 4),
+                array('item' => 'teddy_#01','count' => 4),
         ], 'desc' => 'Diese heruntergekommene Gebäude scheint einmal ein Hotel gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...'],
         ["label" => "Verlassenes Hospital",'icon' => 'deserted_hospital',"camping" => 1,"min_dist" => 5, "max_dist" => 100, "chance" => 0, "explorable" => true,
             "explorable_skin" => 'hospital', "explorable_desc" => null,

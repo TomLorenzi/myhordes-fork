@@ -372,7 +372,7 @@
                     <div class="help">{{'Jetzt, da {citizen} tot ist, kannst du ihm einen <strong>Gegenstand klauen</strong>, wenn du möchtest...'|trans({citizen: owner}, 'game')|raw}}</div>
                     {% endif %}
                     <p>{{'Beim Durchwühlen seines Hauses entdeckst du folgende Dinge:'|trans({ref: owner}, 'game')}}</p>
-                    {% embed "ajax/game/inventory.html.twig" with {'size': chest_size, 'items': chest.items, 'foreignChestMode': true} %}
+                    {% embed "ajax/game/inventory.html.twig" with {'size': chest_size, 'items': chest.items, 'foreignChestMode': true, 'showFreeSlots': false} %}
                         {% block class %}chest {% if already_stolen %}locked{% endif %}{% endblock %}
                         {% block title %}{% endblock %}
                     {% endembed %}
@@ -477,7 +477,7 @@
 
             {% if intruding > 0 %}
                 handleItems(
-                    document.querySelectorAll('.chest>.item:not(.locked)[x-item-id]'),
+                    document.querySelectorAll('.chest:not(.locked)>.item:not(.locked)[x-item-id]'),
                     '{{ path('town_visit_item_controller', {id: owner.id}) }}',
                     'up', '{{ path('town_visit', {id: owner.id}) }}'
                 );
@@ -501,48 +501,19 @@
 
                 switch(ev.target.getAttribute('x-action-id')){
                     case "enablesteal": case "enablesneak": case "leave":
-
                         let action = ev.target.getAttribute('x-action-id') === 'leave' ? 0 : ( ev.target.getAttribute('x-action-id') === 'enablesteal' ? 1 : -1 );
                         $.ajax.easySend('{{ path('town_visit_intrusion_controller', {id: owner.id}) }}', {action: action}, () => $.ajax.load(null, '{{ path('town_visit', {id: owner.id}) }}'))
-                        break;
-                        /*
-                        {% if chest.items|length > 0 %}
-                        document.querySelector("ul.chest.locked").classList.remove('locked');
-                        document.querySelector('div.stealhelp').classList.remove('hidden');
-                        {% endif %}
-                        let curtains = document.querySelectorAll('.with-curtains');
-                        if(curtains.length > 0) {
-                            for (let i = 0; i < curtains.length; i++) {
-                                curtains[i].classList.remove('hidden');
-                            }
-                        }
-                        {% if hidden %}
-                        document.querySelector("p.curtain-text").classList.add('hidden');
-                        {% endif %}
-                        handleItems(
-                            document.querySelectorAll('.chest>.item:not(.locked)[x-item-id]'),
-                            '{{ path('town_visit_item_controller', {id: owner.id}) }}',
-                            'up', '{{ path('town_visit', {id: owner.id}) }}'
-                        );*/
-                        break;
-                    //case "enablesneak":
-                        /*
-                        document.querySelector(".citizen-chest ul.rucksack").parentElement.classList.remove('hidden');
-                        handleItems(
-                            document.querySelectorAll('.rucksack>.item:not(.locked)[x-item-id]'),
-                            '{{ path('town_visit_item_controller', {id: owner.id}) }}',
-                            'down', '{{ path('town_visit', {id: owner.id}) }}'
-                        );
-                        */
                         break;
                 }
             });
         {% else %}
-            handleItems(
-                document.querySelectorAll('.chest>.item:not(.locked)[x-item-id]'),
-                '{{ path('town_visit_item_controller', {id: owner.id}) }}',
-                'up', '{{ path('town_visit', {id: owner.id}) }}'
-            );
+            {% if not already_stolen %}
+                handleItems(
+                    document.querySelectorAll('.chest:not(.locked)>.item:not(.locked)[x-item-id]'),
+                    '{{ path('town_visit_item_controller', {id: owner.id}) }}',
+                    'up', '{{ path('town_visit', {id: owner.id}) }}'
+                );
+            {% endif %}
             const recycleBtn = document.querySelectorAll('[x-recycle-home]');
             for (let i = 0; i < recycleBtn.length; i++) {
                 recycleBtn[i].addEventListener('click', function() {

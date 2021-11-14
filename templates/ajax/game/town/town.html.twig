@@ -312,7 +312,12 @@
                             {% endfor %}
                         </div>
                     </div>
-                    <div class="row town-buildings hide-md hide-sm">
+                    <div id="town_list_sm_trigger" class="row hide-desktop hide-lg hide-md">
+                        <div class="cell rw-12">
+                            <button>{{ 'Gebäudeliste einblenden'|trans({},'game') }}</button>
+                        </div>
+                    </div>
+                    <div id="town_list_sm_content" class="row town-buildings hide-sm">
                         <ul>
                             {% for building in builtbuildings|sort((a, b) => a.prototype.orderBy <=> b.prototype.orderBy ) %}
                                 <li class="cell padded-small rw-12">
@@ -334,6 +339,7 @@
                                 </li>
                             {% endfor %}
                         </ul>
+                        <div class="right small hide-desktop hide-lg hide-md"><span class="pointer" id="town_list_sm_restore">{{ 'Schließen'|trans({},'global') }}</span></div>
                     </div>
                 </div>
             </div>
@@ -381,6 +387,16 @@
                 $.ajax.load( null, '{{ path('town_dashboard')|e('js') }}' );
             })
         })
+
+        $.html.addEventListenerAll('#town_list_sm_trigger button', 'click', () => {
+            document.getElementById('town_list_sm_content').classList.remove('hide-sm');
+            document.getElementById('town_list_sm_trigger').classList.add('hide-sm');
+        });
+
+        $.html.addEventListenerAll('#town_list_sm_restore', 'click', () => {
+            document.getElementById('town_list_sm_content').classList.add('hide-sm');
+            document.getElementById('town_list_sm_trigger').classList.remove('hide-sm');
+        });
 
         {% if not app.user.expert %}
             const completed_tuts = $.client.config.completedTutorials.get();
