@@ -23275,22 +23275,20 @@
       <notes>
         <note category="german">Außerdem wäre es gut, daran zu denken, dass der Schamane der Stadt letzte Nacht gestorben ist. Heute Abend findet eine Neuwahl statt, bei der ein neuer Kandidat aus den Reihen der Überlebenden gewählt wird.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Außerdem wäre es gut, daran zu denken, dass der Schamane der Stadt letzte Nacht gestorben ist. Heute Abend findet eine Neuwahl statt, bei der ein neuer Kandidat aus den Reihen der Überlebenden gewählt wird.</source>
-        <target>Außerdem wäre es gut, daran zu denken, dass der Schamane der Stadt letzte Nacht gestorben ist. Heute Abend findet eine Neuwahl statt, bei der ein neuer Kandidat aus den Reihen der Überlebenden gewählt wird.</target>
+        <target>Por lo que parece, el más puro y místico del lugar, el Chamán, murió anoche. Su alma se reencarnará en uno de los supervivientes.</target>
       </segment>
     </unit>
     <unit id="EvR1zFN">
       <notes>
         <note category="german">Halten wir kurz inne und gedenken unserem verlorenen Schamanen. Auf Wiedersehen, nutzloser Scharlatan! Wer ist motiviert, ihn zu ersetzen?</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Halten wir kurz inne und gedenken unserem verlorenen Schamanen. Auf Wiedersehen, nutzloser Scharlatan! Wer ist motiviert, ihn zu ersetzen?</source>
-        <target>Halten wir kurz inne und gedenken unserem verlorenen Schamanen. Auf Wiedersehen, nutzloser Scharlatan! Wer ist motiviert, ihn zu ersetzen?</target>
+        <target>Un minuto de silencio por nuestro Chamán caído. ¡Hasta nunca charlatán inútil!</target>
       </segment>
     </unit>
     <unit id="r1UYBsR">
@@ -23319,121 +23317,110 @@
       <notes>
         <note category="german">Wir haben geahnt, dass dies passieren würde. &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} hat gestern Selbstmord begangen. Immerhin hatte dieser Bürger mehrere Tage lang seinen Kopf gegen die Wände geschlagen und Sand gegessen, anstatt seine Wasserrationen einzunehmen... Traurig.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wir haben geahnt, dass dies passieren würde. &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} hat gestern Selbstmord begangen. Immerhin hatte dieser Bürger mehrere Tage lang seinen Kopf gegen die Wände geschlagen und Sand gegessen, anstatt seine Wasserrationen einzunehmen... Traurig.</source>
-        <target><![CDATA[Wir haben geahnt, dass dies passieren würde. <i class="dagger">†</i> {cadaver1} hat gestern Selbstmord begangen. Immerhin hatte dieser Bürger mehrere Tage lang seinen Kopf gegen die Wände geschlagen und Sand gegessen, anstatt seine Wasserrationen einzunehmen... Traurig.]]></target>
+        <target><![CDATA[<i class="dagger">†</i> {cadaver1} dio un paso al costado, mejor dicho al Más Allá. Al parecer no soportó la ineptitud de sus compañeros y no vio manera de sobrevivir... ¡Qué triste!]]></target>
       </segment>
     </unit>
     <unit id="hkJ7fWR">
       <notes>
         <note category="german">Wir werden nie wieder etwas von &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} hören, der sich entschlossen hat, dem Angriff der Zombies durch Selbstmord zu entkommen.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wir werden nie wieder etwas von &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} hören, der sich entschlossen hat, dem Angriff der Zombies durch Selbstmord zu entkommen.</source>
-        <target><![CDATA[Wir werden nie wieder etwas von <i class="dagger">†</i> {cadaver1} hören, der sich entschlossen hat, dem Angriff der Zombies durch Selbstmord zu entkommen.]]></target>
+        <target><![CDATA[<i class="dagger">†</i> {cadaver1} ya no está entre nosotros, ayer tomó la decisión de <strong>suicidarse</strong> para no seguir teniendo pesadillas con los zombies.]]></target>
       </segment>
     </unit>
     <unit id="NCukv3K">
       <notes>
         <note category="german">Weitere Nachrichten: &lt;strong&gt;{cadavers} Bürger haben gestern Selbstmord begangen&lt;/strong&gt;. Schöner Ort zum Leben, nicht wahr?</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Weitere Nachrichten: &lt;strong&gt;{cadavers} Bürger haben gestern Selbstmord begangen&lt;/strong&gt;. Schöner Ort zum Leben, nicht wahr?</source>
-        <target><![CDATA[Weitere Nachrichten: <strong>{cadavers} Bürger haben gestern Selbstmord begangen</strong>. Schöner Ort zum Leben, nicht wahr?]]></target>
+        <target><![CDATA[{cadavers} <strong>personas se suicidaron</strong> ayer. Nuestro pueblo siempre tan acogedor, ¿eh?]]></target>
       </segment>
     </unit>
     <unit id="W54WKZj">
       <notes>
         <note category="german">Nette Welle von Selbstmorden gestern, {cadavers} Kandidaten, von denen nicht einer versagt hat. Wenigstens das haben sie geschafft...</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Nette Welle von Selbstmorden gestern, {cadavers} Kandidaten, von denen nicht einer versagt hat. Wenigstens das haben sie geschafft...</source>
-        <target>Nette Welle von Selbstmorden gestern, {cadavers} Kandidaten, von denen nicht einer versagt hat. Wenigstens das haben sie geschafft...</target>
+        <target>Ayer hubo una ola de suicidios, {cadavers} candidatos y ninguno falló. Al menos algo hicieron bien en sus vidas...</target>
       </segment>
     </unit>
     <unit id="KTLVeMu">
       <notes>
         <note category="german">Der Gerechtigkeit ist Genüge getan, ihr habt gestern dafür gestimmt, &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} zu hängen. Hat doch Spaß gemacht, nicht wahr?</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Der Gerechtigkeit ist Genüge getan, ihr habt gestern dafür gestimmt, &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} zu hängen. Hat doch Spaß gemacht, nicht wahr?</source>
-        <target><![CDATA[Der Gerechtigkeit ist Genüge getan, ihr habt gestern dafür gestimmt, <i class="dagger">†</i> {cadaver1} zu hängen. Hat doch Spaß gemacht, nicht wahr?]]></target>
+        <target><![CDATA[Se hizo justicia, <i class="dagger">†</i> {cadaver1} fue colgado en público. ¡Hubo una orquesta y todo!]]></target>
       </segment>
     </unit>
     <unit id="u_dmSmH">
       <notes>
         <note category="german">Amüsant, &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} hat es nicht lange in der Stadt ausgehalt. Hängen auf dem öffentlichen Platz und Steinigung. Zivilisation ist schön!</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Amüsant, &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} hat es nicht lange in der Stadt ausgehalt. Hängen auf dem öffentlichen Platz und Steinigung. Zivilisation ist schön!</source>
-        <target><![CDATA[Amüsant, <i class="dagger">†</i> {cadaver1} hat es nicht lange in der Stadt ausgehalt. Hängen auf dem öffentlichen Platz und Steinigung. Zivilisation ist schön!]]></target>
+        <target><![CDATA[<i class="dagger">†</i> {cadaver1} no duró mucho en este pueblo. <strong>Fue colgado</strong> y despúes <strong>apedreado</strong> en la plaza pública. ¡Si seguirmos así nos quedaremos sin vecinos!]]></target>
       </segment>
     </unit>
     <unit id="ubNXQU3">
       <notes>
         <note category="german">&lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} wird niemanden mehr belästigen, da er mittlerweile an einem Seil schwingt... Die Gesetze der Stadt sind kein Witz!</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>&lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} wird niemanden mehr belästigen, da er mittlerweile an einem Seil schwingt... Die Gesetze der Stadt sind kein Witz!</source>
-        <target><![CDATA[<i class="dagger">†</i> {cadaver1} wird niemanden mehr belästigen, da er mittlerweile an einem Seil schwingt... Die Gesetze der Stadt sind kein Witz!]]></target>
+        <target><![CDATA[<i class="dagger">†</i> {cadaver1} no molestará más a nadie, y mucho menos desde que está colgado del cuello... ¿Dónde quedó la amistad?]]></target>
       </segment>
     </unit>
     <unit id="lga50hn">
       <notes>
         <note category="german">Abgesehen davon hat der Bürger &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} gestern wohl endlich verstanden, dass Wasser manchmal nützlich ist. Ein exemplarischer Tod durch Dehydrierung.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Abgesehen davon hat der Bürger &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} gestern wohl endlich verstanden, dass Wasser manchmal nützlich ist. Ein exemplarischer Tod durch Dehydrierung.</source>
-        <target><![CDATA[Abgesehen davon hat der Bürger <i class="dagger">†</i> {cadaver1} gestern wohl endlich verstanden, dass Wasser manchmal nützlich ist. Ein exemplarischer Tod durch Dehydrierung.]]></target>
+        <target><![CDATA[Ayer, el compañero <i class="dagger">†</i> {cadaver1} comprendió, un poco tarde, que <strong>el agua</strong> era vital.]]></target>
       </segment>
     </unit>
     <unit id="FWa2XxY">
       <notes>
         <note category="german">Anderes Thema; der Tod von &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} durch Verdurstung ist ein schlechtes Omen, findet ihr nicht auch?</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Anderes Thema; der Tod von &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} durch Verdurstung ist ein schlechtes Omen, findet ihr nicht auch?</source>
-        <target><![CDATA[Anderes Thema; der Tod von <i class="dagger">†</i> {cadaver1} durch Verdurstung ist ein schlechtes Omen, findet ihr nicht auch?]]></target>
+        <target><![CDATA[Que la muerte de <i class="dagger">†</i> {cadaver1} nos recuerde a todos que la <strong>sed</strong> puede ser mortal.]]></target>
       </segment>
     </unit>
     <unit id="KwXVUkQ">
       <notes>
         <note category="german">Ein netter Versuch von &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1}, der mit mir wetten wollte, dass man ohne Wasser überleben kann. Ich habe gewonnen.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ein netter Versuch von &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1}, der mit mir wetten wollte, dass man ohne Wasser überleben kann. Ich habe gewonnen.</source>
-        <target><![CDATA[Ein netter Versuch von <i class="dagger">†</i> {cadaver1}, der mit mir wetten wollte, dass man ohne Wasser überleben kann. Ich habe gewonnen.]]></target>
+        <target><![CDATA[<i class="dagger">†</i> {cadaver1} apostó conmigo que podía sobrevivir <strong>sin agua</strong>. ¡Y yo gané!]]></target>
       </segment>
     </unit>
     <unit id="ScxI09z">
       <notes>
         <note category="german">&lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} liegt seit gestern als vertrocknete Leiche in seinem Haus. Der Mangel an Wasser, was kann man erwarten. Manche Leute glauben immer noch, sie könnten darauf verzichten.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>&lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} liegt seit gestern als vertrocknete Leiche in seinem Haus. Der Mangel an Wasser, was kann man erwarten. Manche Leute glauben immer noch, sie könnten darauf verzichten.</source>
-        <target><![CDATA[<i class="dagger">†</i> {cadaver1} liegt seit gestern als vertrocknete Leiche in seinem Haus. Der Mangel an Wasser, was kann man erwarten. Manche Leute glauben immer noch, sie könnten darauf verzichten.]]></target>
+        <target><![CDATA[<i class="dagger">†</i> {cadaver1} no es más que un gran pedazo de carne seca. La falta de agua, fue fatal. Y pensar que algunos creen poder prescindir de ella...]]></target>
       </segment>
     </unit>
     <unit id="AEUoOt3">
@@ -23462,143 +23449,130 @@
       <notes>
         <note category="german">Der Durst hat gestern {cadavers} Bürger übermannt. Ein schöner und langer Todeskampf, der direkt zu einem grausamen Tod führt. Wir haben also kein Wasser mehr? Oh oh oh...</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Der Durst hat gestern {cadavers} Bürger übermannt. Ein schöner und langer Todeskampf, der direkt zu einem grausamen Tod führt. Wir haben also kein Wasser mehr? Oh oh oh...</source>
-        <target>Der Durst hat gestern {cadavers} Bürger übermannt. Ein schöner und langer Todeskampf, der direkt zu einem grausamen Tod führt. Wir haben also kein Wasser mehr? Oh oh oh...</target>
+        <target><![CDATA[La <strong>sed</strong> acabó con {cadavers} <strong>compañeros</strong> ayer. Una larga y pesada agonía que termina en <strong>una muerte segura</strong>...]]></target>
       </segment>
     </unit>
     <unit id="9IYIWWF">
       <notes>
         <note category="german">Abgesehen davon haben {cadavers} Bürger vergessen, dass man ohne Wasser nicht lange überleben kann. Morgen mehr Todesfälle durch Dehydrierung?</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Abgesehen davon haben {cadavers} Bürger vergessen, dass man ohne Wasser nicht lange überleben kann. Morgen mehr Todesfälle durch Dehydrierung?</source>
-        <target>Abgesehen davon haben {cadavers} Bürger vergessen, dass man ohne Wasser nicht lange überleben kann. Morgen mehr Todesfälle durch Dehydrierung?</target>
+        <target><![CDATA[{cadavers} <strong>habitantes</strong> olvidaron que sin agua, no se puede vivir. ¿Quiénes son los siguientes?]]></target>
       </segment>
     </unit>
     <unit id="LSb5uAS">
       <notes>
         <note category="german">Übrigens, Wassermangel ist teuer, {cadavers} die Bürger sind gestern in der Stadt ausgetrocknet. Oder haben sie "vergessen", ihre Ration zu nehmen? Stellt euch das mal vor!</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Übrigens, Wassermangel ist teuer, {cadavers} die Bürger sind gestern in der Stadt ausgetrocknet. Oder haben sie "vergessen", ihre Ration zu nehmen? Stellt euch das mal vor!</source>
-        <target>Übrigens, Wassermangel ist teuer, {cadavers} die Bürger sind gestern in der Stadt ausgetrocknet. Oder haben sie "vergessen", ihre Ration zu nehmen? Stellt euch das mal vor!</target>
+        <target>La falta de agua es fatal, {cadavers} compañeros murieron literalmente disecados. ¿Habrán "olvidado" beber sus raciones de agua? Quién sabe.</target>
       </segment>
     </unit>
     <unit id="rsAiEQB">
       <notes>
         <note category="german">Ein anderes Thema, die Stadt trocknet langsam aus (ha ha, verstanden?). {cadavers} Bürger starben in der Nacht an Dehydrierung... Oh oh oh...</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ein anderes Thema, die Stadt trocknet langsam aus (ha ha, verstanden?). {cadavers} Bürger starben in der Nacht an Dehydrierung... Oh oh oh...</source>
-        <target>Ein anderes Thema, die Stadt trocknet langsam aus (ha ha, verstanden?). {cadavers} Bürger starben in der Nacht an Dehydrierung... Oh oh oh...</target>
+        <target><![CDATA[Cuando algunos dijeron <strong>Agua y sed, serio problema</strong>... muchos pensaron que era la canción de Jarabe de Palo y empezaron a tararearla en vez de socorrerlos. Esos {cadavers} compañeros murieron por deshidratación terminal... ¿Contentos?]]></target>
       </segment>
     </unit>
     <unit id="cPTwDJQ">
       <notes>
         <note category="german">Wenn du dich fragst, wer &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} gestern (mit Curare) ermordet hat, neige ich stark zu {citizen1}. Stell nicht zu viele Fragen, sagen wir einfach, ich habe meine Quellen. Verbannt den Verräter!</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wenn du dich fragst, wer &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} gestern (mit Curare) ermordet hat, neige ich stark zu {citizen1}. Stell nicht zu viele Fragen, sagen wir einfach, ich habe meine Quellen. Verbannt den Verräter!</source>
-        <target><![CDATA[Wenn du dich fragst, wer <i class="dagger">†</i> {cadaver1} gestern (mit Curare) ermordet hat, neige ich stark zu {citizen1}. Stell nicht zu viele Fragen, sagen wir einfach, ich habe meine Quellen. Verbannt den Verräter!]]></target>
+        <target><![CDATA[Más claro ni el agua compañeros. El autor del envenenamiento de <i class="dagger">†</i> {cadaver1} ayer (con curare) fue nada más y nada menos que {citizen1}. Confiad en mí, tengo mis fuentes. ¡Desterremos al <strong>traidor</strong>!]]></target>
       </segment>
     </unit>
     <unit id=".w_A.uE">
       <notes>
         <note category="german">Zu deiner Information: Wenn du dich fragst, wie hoch das Risiko einer &lt;strong&gt;Infektion&lt;/strong&gt; ist, kannst du einen Blick auf den verwesten Körper von &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} werfen, der letzte Nacht in sein Bett gestorben ist.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Zu deiner Information: Wenn du dich fragst, wie hoch das Risiko einer &lt;strong&gt;Infektion&lt;/strong&gt; ist, kannst du einen Blick auf den verwesten Körper von &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} werfen, der letzte Nacht in sein Bett gestorben ist.</source>
-        <target><![CDATA[Zu deiner Information: Wenn du dich fragst, wie hoch das Risiko einer <strong>Infektion</strong> ist, kannst du einen Blick auf den verwesten Körper von <i class="dagger">†</i> {cadaver1} werfen, der letzte Nacht in sein Bett gestorben ist.]]></target>
+        <target><![CDATA[Si alguien quiere saber lo que es tener una <strong>infección</strong>, puede ir a echarle un ojo a <i class="dagger">†</i> {cadaver1}, el pobre murió horriblemente en su casa.]]></target>
       </segment>
     </unit>
     <unit id="5SMPX_Q">
       <notes>
         <note category="german">&lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} wird sich mehrere Stunden lang gequält haben, bevor er &lt;strong&gt;buchstäblich auf dem Boden verwest&lt;/strong&gt; ist. Eine Infektion kennt keine Gnade...</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>&lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} wird sich mehrere Stunden lang gequält haben, bevor er &lt;strong&gt;buchstäblich auf dem Boden verwest&lt;/strong&gt; ist. Eine Infektion kennt keine Gnade...</source>
-        <target><![CDATA[<i class="dagger">†</i> {cadaver1} wird sich mehrere Stunden lang gequält haben, bevor er <strong>buchstäblich auf dem Boden verwest</strong> ist. Eine Infektion kennt keine Gnade...]]></target>
+        <target><![CDATA[<i class="dagger">†</i> {cadaver1} agonizó varios días antes de <strong>descomponerse</strong> en vida. Una <strong>infección</strong> no perdona a nadie...]]></target>
       </segment>
     </unit>
     <unit id="s75I5Ev">
       <notes>
         <note category="german">Kleine Anekdote, der Geruch in der Stadt heute Morgen war &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1}, der von einer &lt;strong&gt;systemischen Infektion&lt;/strong&gt; gezeichnet war. Könnte jemand die Leiche herausholen?</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Kleine Anekdote, der Geruch in der Stadt heute Morgen war &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1}, der von einer &lt;strong&gt;systemischen Infektion&lt;/strong&gt; gezeichnet war. Könnte jemand die Leiche herausholen?</source>
-        <target><![CDATA[Kleine Anekdote, der Geruch in der Stadt heute Morgen war <i class="dagger">†</i> {cadaver1}, der von einer <strong>systemischen Infektion</strong> gezeichnet war. Könnte jemand die Leiche herausholen?]]></target>
+        <target><![CDATA[Ese mal olor que nos despertó esta mañana... es <i class="dagger">†</i> {cadaver1}, quien murió de una <strong>infección generalizada</strong>. ¡Por favor que alguien saque ese cadáver de aquí!]]></target>
       </segment>
     </unit>
     <unit id="XwDxSqj">
       <notes>
         <note category="german">Ich hoffe, niemand kam &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} zu nahe. Dieser Bürger ist über Nacht an einer &lt;strong&gt;systemischen Infektion&lt;/strong&gt; gestorben. Wir alle haben seine furchtbaren &lt;strong&gt;Schreie der Qual&lt;/strong&gt; gehört, machen wir uns nichts vor...</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ich hoffe, niemand kam &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} zu nahe. Dieser Bürger ist über Nacht an einer &lt;strong&gt;systemischen Infektion&lt;/strong&gt; gestorben. Wir alle haben seine furchtbaren &lt;strong&gt;Schreie der Qual&lt;/strong&gt; gehört, machen wir uns nichts vor...</source>
-        <target><![CDATA[Ich hoffe, niemand kam <i class="dagger">†</i> {cadaver1} zu nahe. Dieser Bürger ist über Nacht an einer <strong>systemischen Infektion</strong> gestorben. Wir alle haben seine furchtbaren <strong>Schreie der Qual</strong> gehört, machen wir uns nichts vor...]]></target>
+        <target><![CDATA[Espero que nadie se haya acercado a <i class="dagger">†</i> {cadaver1}. Nuestro compañero falleció anoche a causa de una <strong>infección generalizada</strong>. Ahora nos queda olvidar sus <strong>gritos de dolor</strong>...]]></target>
       </segment>
     </unit>
     <unit id="BxpPAzH">
       <notes>
         <note category="german">Dieses geschwollene Ding an &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1}... nun, das ist &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1}. Seine Infektion verlief extrem virulent.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Dieses geschwollene Ding an &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1}... nun, das ist &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1}. Seine Infektion verlief extrem virulent.</source>
-        <target><![CDATA[Dieses geschwollene Ding an <i class="dagger">†</i> {cadaver1}... nun, das ist <i class="dagger">†</i> {cadaver1}. Seine Infektion verlief extrem virulent.]]></target>
+        <target><![CDATA[Esa cosa hinchada y apestosa en casa de <i class="dagger">†</i> {cadaver1},... pues es <i class="dagger">†</i> {cadaver1}. Su infección fue sorprendentemente virulenta.]]></target>
       </segment>
     </unit>
     <unit id="ns8621y">
       <notes>
         <note category="german">Komisch, in der Stadt riecht es wirklich nach Tod. Die &lt;strong&gt;tödlichen Infektionen&lt;/strong&gt; haben letzte Nacht mehrere Bürger schwer getroffen... Wir haben also nichts in der Bank, um so etwas zu verhindern?</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Komisch, in der Stadt riecht es wirklich nach Tod. Die &lt;strong&gt;tödlichen Infektionen&lt;/strong&gt; haben letzte Nacht mehrere Bürger schwer getroffen... Wir haben also nichts in der Bank, um so etwas zu verhindern?</source>
-        <target><![CDATA[Komisch, in der Stadt riecht es wirklich nach Tod. Die <strong>tödlichen Infektionen</strong> haben letzte Nacht mehrere Bürger schwer getroffen... Wir haben also nichts in der Bank, um so etwas zu verhindern?]]></target>
+        <target><![CDATA[Aquí apesta a muerte. <strong>Las infecciones mortales</strong> han azotado al pueblo... ¿Alguien tiene un plan?]]></target>
       </segment>
     </unit>
     <unit id="fICmJjR">
       <notes>
         <note category="german">Ihre Haut begann sich zu schälen, aber sie machten sich keine allzu großen Gedanken darüber... {cadavers} Bürger starben letzte Nacht an einer Infektion.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ihre Haut begann sich zu schälen, aber sie machten sich keine allzu großen Gedanken darüber... {cadavers} Bürger starben letzte Nacht an einer Infektion.</source>
-        <target>Ihre Haut begann sich zu schälen, aber sie machten sich keine allzu großen Gedanken darüber... {cadavers} Bürger starben letzte Nacht an einer Infektion.</target>
+        <target>Muchos no se preocuparon por ella, la subestimaron... Pero la infección acabó por llevarse a {cadavers} personas anoche.</target>
       </segment>
     </unit>
     <unit id="Muq1Zer">
       <notes>
         <note category="german">Wir sollten dafür sorgen, dass wir uns um unsere Kranken kümmern. {cadavers} Bürger sind gestern an verschiedenen Infektionen gestorben. Notfalls hängen wir die infizierten Bürger auf, dann müssen wir weniger von ihnen behandeln..</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wir sollten dafür sorgen, dass wir uns um unsere Kranken kümmern. {cadavers} Bürger sind gestern an verschiedenen Infektionen gestorben. Notfalls hängen wir die infizierten Bürger auf, dann müssen wir weniger von ihnen behandeln..</source>
-        <target>Wir sollten dafür sorgen, dass wir uns um unsere Kranken kümmern. {cadavers} Bürger sind gestern an verschiedenen Infektionen gestorben. Notfalls hängen wir die infizierten Bürger auf, dann müssen wir weniger von ihnen behandeln..</target>
+        <target><![CDATA[Tenemos que cuidar mejor a nuestros enfermos. {cadavers} <strong>habitantes</strong> perecieron por diversas <strong>infecciones</strong> ayer. Un consejo, colgad a los compañeros infectados, eso os hará menos trabajo.]]></target>
       </segment>
     </unit>
     <unit id="w6Ydl3g">
@@ -23819,6 +23793,17 @@
       <segment>
         <source>Funkgerät verwenden</source>
         <target>Funkgerät verwenden</target>
+      </segment>
+    </unit>
+    <unit id="ZUcAy0O" name="Gebäudeliste einblenden">
+      <notes>
+        <note category="german">Gebäudeliste einblenden</note>
+        <note category="from">twig:///templates/ajax/game/town/town.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Gebäudeliste einblenden</source>
+        <target>Gebäudeliste einblenden</target>
       </segment>
     </unit>
   </file>

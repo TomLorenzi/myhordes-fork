@@ -1372,8 +1372,7 @@
       </notes>
       <segment>
         <source>Einmal pro Tag können bestimmte Konstruktionen umsonst verbessert werden (ohne Einsatz von AP oder Ressourcen). Das nennt sich die Verbesserung des Tages. Jede Verbesserung bringt verschiedene Vorteile mit sich (Verteidigung, Wasser, spezielle Fähigkeiten...). Es ist eure Aufgabe die Verbesserung des Tages zu wählen, die euch am geeignetsten scheint.</source>
-        <target>Once per day, certain construction sites can be upgraded free of charge (without AP or resources): this is called the project of the day.
-Each upgrade brings various advantages (defence, water, special skills...).It's up to you to choose the project of the day by voting for what you think is the most appropriate.</target>
+        <target><![CDATA[Once per day, certain construction sites can be upgraded free of charge (without AP or resources): this is called the <strong>project of the day</strong>.<br />Each upgrade brings various advantages (defence, water, special skills...). <strong>It's up to you to choose the project of the day by voting for what you think is the most appropriate.</strong>]]></target>
       </segment>
     </unit>
     <unit id="PhutSSq">
@@ -2067,7 +2066,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Der Tod in "MyHordes" ist nicht weiter schlimm!</source>
-        <target>Dying in "MyHordes" isn't serious !</target>
+        <target>Dying in "MyHordes" isn't serious!</target>
       </segment>
     </unit>
     <unit id="mkPbtI8">
@@ -4148,7 +4147,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Einer der vielen Albi Supermarkt, die um das Jahr 2010 herum aus dem Boden schossen und später dann verschwanden... spezialisiert darauf, Dinge so billig wie möglich zu verscherbeln. Hier findest du alles finden, was du brauchst - egal ob du einfach pleite bist oder eisern auf ein neues Stück Seife sparst, kaufe bei ALBI ein!</source>
-        <target>One of the many Smith's Superstores that proliferated around the year 2010 then disappeared... specialising in making things as cheap as possible, you should be able to find whatever you need here. Whether you're potless or just being tighter than two coats of paint, shop at Smiths !</target>
+        <target>One of the many Smith's Superstores that proliferated around the year 2010 then disappeared... specialising in making things as cheap as possible, you should be able to find whatever you need here. Whether you're potless or just being tighter than two coats of paint, shop at Smiths!</target>
       </segment>
     </unit>
     <unit id="if10dn9">
@@ -4308,7 +4307,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Das Heim eines gewissen Duke R. Cooke, und wenn man der Gedenktafel an der Tür glauben darf... ein Heim für Helden... dieser Ort ist viel größer als eine Villa, es ist eine voll ausgestattete Festung !</source>
-        <target>The home of a certain Duke R. Cooke, and if one is to believe the plaque on the door... a home for Heroes... this place is much bigger than a villa, it's a fully equipped fortress !</target>
+        <target>The home of a certain Duke R. Cooke, and if one is to believe the plaque on the door... a home for Heroes... this place is much bigger than a villa, it's a fully equipped fortress!</target>
       </segment>
     </unit>
     <unit id="q5V8SgZ">
@@ -4710,7 +4709,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Dieses Zelt macht einen wirklich soliden Eindruck und war bestimmt mal ein gutes Versteck. Derjenige, der es aufgestellt hat, wusste wie man sich vor Zombies schützt. Das Zelt verfügt über ein farblich abgestimmtes Tarnnetz, mehrere Ein- und Ausgänge, sowie über ein unterirdisches Notversteck für brenzlige Situation. Bei näherem Hinsehen entdeckst du auf der Zeltplane einen eingestickten Namen: 'Shenji'</source>
-        <target>A good hideout, that's for sure. Whoever put this up certainly knew how to keep his ass well away from zombie clutches : natural camouflage, good all-round visibility, multiple exits and even a hole to hide underground if need be. The name 'C. Norris' has been written on the canvas in unicorn's tears.</target>
+        <target>A good hideout, that's for sure. Whoever put this up certainly knew how to keep his ass well away from zombie clutches: natural camouflage, good all-round visibility, multiple exits and even a hole to hide underground if need be. The name 'C. Norris' has been written on the canvas in unicorn's tears.</target>
       </segment>
     </unit>
     <unit id="SXiUP6e">
@@ -6331,7 +6330,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Großmutter, was hast du für große Zähne... Grrrooooaaar!</source>
-        <target>Grandma, what big teeth you have... GROAR !</target>
+        <target>Grandma, what big teeth you have... GROAR!</target>
       </segment>
     </unit>
     <unit id="GmWG0wd" name="Dehydrationstode">
@@ -8439,7 +8438,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Eine großartige Nacht für einige wohlverdiente Feierlichkeiten. Keine Todesopfer in der Stadt infolge des Angriffs! Eine beträchtliche Horde griff von Osten aus an.</source>
-        <target>A great night for some well-earned celebrations. No deaths in town resulting from the attack ! A sizeable horde attacked at the northern wall.</target>
+        <target>A great night for some well-earned celebrations. No deaths in town resulting from the attack! A sizeable horde attacked at the northern wall.</target>
       </segment>
     </unit>
     <unit id="4DXnNoc">
@@ -8469,7 +8468,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Nahrungsmittelknappheit bei der Horde : {attack} Zombies, und nicht einer von ihnen bekam letzte Nacht etwas zu fressen, unsere Abwehr hielt gut stand.</source>
-        <target>Furthermore, horde food shortage : {attack} Zombies, and not one of them got anything to eat last night, our defences held up well.</target>
+        <target>Furthermore, horde food shortage: {attack} Zombies, and not one of them got anything to eat last night, our defences held up well.</target>
       </segment>
     </unit>
     <unit id="ra16zgk">
@@ -8599,7 +8598,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Da gestern Abend rund {attack} Zombies vor den Toren standen, hätten wir das Schlimmste befürchten können, aber kein einziger ist reingekommen: gute Zeiten! Brecht Euch sich aber nicht den Arm, wenn Ihr Euch gegenseitig auf die Schulter klopft!</source>
-        <target>With around {attack} zombies at the gates last night, we could have feared the worst, but not a single one got in : good times ! Don't break your arm patting yourself on the back just yet !</target>
+        <target>With around {attack} zombies at the gates last night, we could have feared the worst, but not a single one got in: good times! Don't break your arm patting yourself on the back just yet!</target>
       </segment>
     </unit>
     <unit id="HjXCgon">
@@ -8689,7 +8688,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Was für ein Riesenschlamassel: {deaths} starben letzte Nacht in der Stadt! Ein Massaker, zu dem noch der zertrümmerter Schädel eines Haustiers zu zählen ist, der in den Toren verkeilt gefunden wurde. Vermisst jemand einen Hund?</source>
-        <target><![CDATA[a big fiasco : <strong>{deaths} dead</strong> at our place last night! A massacre to which must be added the broken skull of a pet found stuck in the Gate.]]></target>
+        <target><![CDATA[a big fiasco: <strong>{deaths} dead</strong> at our place last night! A massacre to which must be added the broken skull of a pet found stuck in the Gate.]]></target>
       </segment>
     </unit>
     <unit id="fbPbjvi">
@@ -9310,7 +9309,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Einige Bürger wurden Zeugen eines seltsamen Vorfalls... Man könnte sagen, dass die Zombies gestern Abend ausschließlich für &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} gekommen sind. Sie trugen die Leiche den ganzen Weg zur Baustelle, bevor die Zerstückelung begann!</source>
-        <target><![CDATA[Some citizens witnessed a strange event... It could be said that the zombies came exclusively for <i class="dagger">†</i> {cadaver1} last night. They carried the body all the way to the construction site before the dismembering began !]]></target>
+        <target><![CDATA[Some citizens witnessed a strange event... It could be said that the zombies came exclusively for <i class="dagger">†</i> {cadaver1} last night. They carried the body all the way to the construction site before the dismembering began!]]></target>
       </segment>
     </unit>
     <unit id="8kYPugs">
@@ -10112,7 +10111,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Mit dieser Funktion kannst du alle Stadteinwohner auf einmal anschreiben. Du kannst damit in den Foren zudem Rollenspielthreads (RP) erstellen (Übertreibe es aber bitte nicht - Danke!).</source>
-        <target>Now you can send Private Messages to all the citizens in your town at once (from the Messages section in your House). You can also start "RP" threads in the forums (please do not abuse this !).</target>
+        <target>Now you can send Private Messages to all the citizens in your town at once (from the Messages section in your House). You can also start "RP" threads in the forums (please do not abuse this!).</target>
       </segment>
     </unit>
     <unit id="U85YOFG" name="Freundschaft">
@@ -10132,7 +10131,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Mit dieser Fähigkeit kannst du 1 Mal pro Partie (Stadt) jemandem einen Heldentag spendieren! Die anderen werden in dir den Messias erkennen! BEACHTE: Verschenkte Heldentage werden dir von deinem Konto abgezogen. Um jemandem einen Heldentag zu schenken, musst mit ihm in der gleichen Zone stehen oder, wenn du in der Stadt bist, ihn daheim besuchen.</source>
-        <target>Once per game, you can give 1 Hero day to a fellow citizen ! Just wait, you'll become a veritable messiah for the masses... NB: any hero days you give away will be taken from your total, simply go to another citizen's page to give them a Hero day. Warning: When you donate a Hero day, it is only valid for THAT DAY. It cannot be saved for another time.</target>
+        <target>Once per game, you can give 1 Hero day to a fellow citizen! Just wait, you'll become a veritable messiah for the masses... NB: any hero days you give away will be taken from your total, simply go to another citizen's page to give them a Hero day. Warning: When you donate a Hero day, it is only valid for THAT DAY. It cannot be saved for another time.</target>
       </segment>
     </unit>
     <unit id="m6rV1sV" name="Diktator">
@@ -11444,7 +11443,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Teilnehmer beim Community-Treffen in Saarbrücken am 6. November 2011</source>
-        <target>Extremely rare brand reserved for animators present at the Motion Twin stand of the 2008 Video Game Festival in Paris !</target>
+        <target>Extremely rare brand reserved for animators present at the Motion Twin stand of the 2008 Video Game Festival in Paris!</target>
       </segment>
     </unit>
     <unit id="LXPchjh" name="Video Game Festival 2010">
@@ -11465,7 +11464,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du warst beim Video Game Festival 2010 in Paris dabei: Danke!</source>
-        <target>You were present at the Video Game Festival in Paris in 2010 : thank you !</target>
+        <target>You were present at the Video Game Festival in Paris in 2010: thank you!</target>
       </segment>
     </unit>
     <unit id="oIAROod" name="FJV'08 Kanonenfutter">
@@ -11526,7 +11525,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Für die Community-Organisatoren und Entwickler des Clash of the Titans Events. Die Gemeinschaft sagt Danke!</source>
-        <target>Awarded for being one of the community organizers or developers in the Clash of the Titans. Our community thanks you !</target>
+        <target>Awarded for being one of the community organizers or developers in the Clash of the Titans. Our community thanks you!</target>
       </segment>
     </unit>
     <unit id="ejbkJBk" name="Schlachtenbummler">
@@ -11566,7 +11565,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Ehrenpreis für die Teilname am Shock of Heroes Event!</source>
-        <target>Honorary reward for participating in the Shock of heroes !</target>
+        <target>Honorary reward for participating in the Shock of heroes!</target>
       </segment>
     </unit>
     <unit id="3fdrfcN" name="Ultimativer Tod des SoH">
@@ -11586,7 +11585,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Auszeichnung für den größten Helden, der während des Shock of Heroes Events am längsten überlebt hat. Du bist nun eine Legende der Außenwelt!</source>
-        <target>Distinction of the greatest hero having survived the longest during the Shock of heroes, you are now part of the legend of the World Beyond !</target>
+        <target>Distinction of the greatest hero having survived the longest during the Shock of heroes, you are now part of the legend of the World Beyond!</target>
       </segment>
     </unit>
     <unit id="Ycwc7kf">
@@ -11616,7 +11615,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Sieg für die Aufklärer beim Shock of Heroes Event!</source>
-        <target>Victory as a Scavenger during the Shock of Heroes !</target>
+        <target>Victory as a Scavenger during the Shock of Heroes!</target>
       </segment>
     </unit>
     <unit id="GGz46PZ" name="Sieg für die Wächter beim Shock of Heroes Event!">
@@ -11626,7 +11625,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Sieg für die Wächter beim Shock of Heroes Event!</source>
-        <target>Victory as a Guardian during the Shock of heroes !</target>
+        <target>Victory as a Guardian during the Shock of heroes!</target>
       </segment>
     </unit>
     <unit id="53Rhzgi" name="Bewohner Koh-Lambdas">
@@ -11646,7 +11645,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Dieser Bürger war bei der Wiedervereinigung (letzte Runde) von Koh-Lambda dabei!</source>
-        <target>This citizen was present during the Reunification (last round) of Koh-Lambda !</target>
+        <target>This citizen was present during the Reunification (last round) of Koh-Lambda!</target>
       </segment>
     </unit>
     <unit id="1S2CbVP" name="Der Kobold hat dich erwischt">
@@ -11776,7 +11775,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Nach einem zähen Kampf gelingt es dir endlich &lt;strong&gt;einen Zombie&lt;/strong&gt; gegen einen Felsen zu werfen... Sein Kopf ist &lt;strong&gt;explodiert&lt;/strong&gt; und die ganze Soße klebt jetzt an deinen Füßen! Du torkelst ein paar Meter vom Ort des Geschehens weg und keuchst leise vor dich hin: Einer weniger.. Ha... ha...</source>
-        <target><![CDATA[During an frightful encounter, you finally managed to throw <strong>a zombie</strong> against a rock... Its head literally <strong>exploded</strong> and the contents splattered onto your shoes ! Breathless, you stagger backwards : that's one more down...one...less...]]></target>
+        <target><![CDATA[During an frightful encounter, you finally managed to throw <strong>a zombie</strong> against a rock... Its head literally <strong>exploded</strong> and the contents splattered onto your shoes! Breathless, you stagger backwards: that's one more down...one...less...]]></target>
       </segment>
     </unit>
     <unit id=".gJvXXq">
@@ -11856,7 +11855,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Bauprojekte, die mit dem Symbol "&lt;img alt="(!)" src="{path}" /&gt;" gekennzeichnet sind, können nur einmal verwendet werden. Sie werden nach dem Angriff der Zombiehorde wieder abgerissen. Wenn ihr wollt, könnt ihr sie morgen nochmal bauen.</source>
-        <target><![CDATA[Constructions marked with this symbol "<img alt="(!)" src="{path}" />" are temporary : They will be destroyed at midnight, immediately AFTER the attack. To make use of it again tomorrow, it must be rebuilt again tomorrow.]]></target>
+        <target><![CDATA[Constructions marked with this symbol "<img alt="(!)" src="{path}" />" are temporary: They will be destroyed at midnight, immediately AFTER the attack. To make use of it again tomorrow, it must be rebuilt again tomorrow.]]></target>
       </segment>
     </unit>
     <unit id="OpalnFn">
@@ -15229,7 +15228,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Die &lt;strong&gt;Explosion des {plan}&lt;/strong&gt; hat den ganzen Sektor in Mitleidenschaft gezogen! Das wird sicher Spuren hinterlassen ...</source>
-        <target><![CDATA[The whole region has been affected by the <strong>destruction of the {plan}</strong> ! This will certainly leave its mark...]]></target>
+        <target><![CDATA[The whole region has been affected by the <strong>destruction of the {plan}</strong>! This will certainly leave its mark...]]></target>
       </segment>
     </unit>
     <unit id="Klvgn7w">
@@ -15239,7 +15238,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>{master} hat {item} nach &lt;strong&gt;[{x}/{y}]&lt;/strong&gt; &lt;strong&gt;katapultiert&lt;/strong&gt;!</source>
-        <target><![CDATA[{master} has <strong>catapulted</strong> {item} into the following sector: <strong>[{x}/{y}]</strong> !]]></target>
+        <target><![CDATA[{master} has <strong>catapulted</strong> {item} into the following sector: <strong>[{x}/{y}]</strong>!]]></target>
       </segment>
     </unit>
     <unit id="wYsH8yz" name="Das Katapult der Stadt hat {item} auf diese Zone geschleudert.">
@@ -15489,7 +15488,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Sorgfältig verpackt hast du {item} in das Katapult gelegt. Der Gegenstand wurde auf {zone} geschleudert.</source>
-        <target>You carefully wrap, pack and place the {item} in the catapult. The object has been fired to {zone} !</target>
+        <target>You carefully wrap, pack and place the {item} in the catapult. The object has been fired to {zone}!</target>
       </segment>
     </unit>
     <unit id="8l_i1Ah" name="Ein neuer Tag bricht an">
@@ -15749,7 +15748,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Denke daran, dass das Katapult manchmal sein Ziel verfehlt und den Gegenstand in eine angrenzende Zone befördert...</source>
-        <target>Be aware that sometimes the catapult misses it's target and sends the objects to a neighbouring square...</target>
+        <target>Be aware that sometimes the catapult misses its target and sends the objects to a neighbouring square...</target>
       </segment>
     </unit>
     <unit id="vGJYt6I" name="Du wurdest als Verantwortlicher für das Katapult bestimmt!">
@@ -15769,7 +15768,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Wähle einen Gegenstand aus deinem Inventar und gib die Zielkoordinaten ein.</source>
-        <target>You can choosen an object (from those present in your inventory) and a set of coordinates.</target>
+        <target>You can choose an object (from those present in your inventory) and a set of coordinates.</target>
       </segment>
     </unit>
     <unit id="BcAGh_j">
@@ -15799,7 +15798,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Die Aktivierung des Katapults kostet {ap} (diese Kosten können durch den Bau eines besseren Katapults gesenkt werden).</source>
-        <target>Activating the catapult costs {ap} (this cost can be reduced by building a better catapult) .</target>
+        <target>Activating the catapult costs {ap} (this cost can be reduced by building a better catapult).</target>
       </segment>
     </unit>
     <unit id=".SXRDqM" name="Einen zufälligen Bürger als Katapult-Bediener auslosen">
@@ -15820,7 +15819,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Zu verschickender Gegenstand:</source>
-        <target>Object to be sent :</target>
+        <target>Object to be sent:</target>
       </segment>
     </unit>
     <unit id="HseCFgo" name="Gegenstand auswählen">
@@ -16182,7 +16181,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Die Stadt ist nichts weiter als ein widerwärtiger Friedhof. Es war niemand hier, der den letzten Angriff der Zombies hätte aufhalten können: &lt;strong&gt;das Stadttor wurde aufgebrochen&lt;/strong&gt; und &lt;strong&gt;liegt nun in Trümmern&lt;/strong&gt;. {town} existiert nicht mehr...</source>
-        <target><![CDATA[The town is no more than a vast, sickening cemetery. There was nobody here last night to resist the last attack : <strong>the town gates were forced open</strong> and <strong>reduced to splinters</strong>. {town} is no more.]]></target>
+        <target><![CDATA[The town is no more than a vast, sickening cemetery. There was nobody here last night to resist the last attack: <strong>the town gates were forced open</strong> and <strong>reduced to splinters</strong>. {town} is no more.]]></target>
       </segment>
     </unit>
     <unit id="dPIl.ph">
@@ -16364,7 +16363,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Mit dem Bau der(s) {upgrade} hat dein Haus Stufe {level} erreicht!</source>
-        <target>Evolution of the {upgrade} has successfully reached level {level} !</target>
+        <target>Evolution of the {upgrade} has successfully reached level {level}!</target>
       </segment>
     </unit>
     <unit id="X.vNUqq" name="Einen Bürger heimbringen:">
@@ -16486,7 +16485,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>{disposing_citizen} hat {citizen} ordentlich Feuer gegeben. Du hättest Marshmallows vorbereiten können, wenn man dir Bescheid gegeben hätte.</source>
-        <target>{disposing_citizen} put {citizen} on fire. You weren't aware a party was about to start ! Smokin' !</target>
+        <target>{disposing_citizen} put {citizen} on fire. You weren't aware a party was about to start! Smokin'!</target>
       </segment>
     </unit>
     <unit id="NLrfO4J">
@@ -16818,7 +16817,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Fels in der Brandung</source>
-        <target>The Rock !</target>
+        <target>The Rock!</target>
       </segment>
     </unit>
     <unit id="k.3ej4O" name="Archi-Mädlicher Illustrator von Pi">
@@ -17643,7 +17642,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Absolut keine Angst!</source>
-        <target>Not even afraid !</target>
+        <target>Not even afraid!</target>
       </segment>
     </unit>
     <unit id="BpYFjK7" name="Ich habe die Erde umrundet... zweimal!">
@@ -18987,7 +18986,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Mit deinen {mp} kannst du:</source>
-        <target>With your {mp} you can :</target>
+        <target>With your {mp} you can:</target>
       </segment>
     </unit>
     <unit id="LjWDhmt" name="Die Seelen deiner verstorbenen Mitbürger lokalisieren.">
@@ -19348,7 +19347,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>&lt;em&gt;Du kannst dein Haus ausbauen und so für eine bessere Verteidigung sorgen. &lt;strong&gt;Wichtige Anmerkung:&lt;/strong&gt; Vielleicht wäre es sinnvoller, die dafür benötigten Ressourcen (falls erforderlich) der Stadt zu spenden?&lt;/em&gt;</source>
-        <target><![CDATA[<em>You can upgrade your home and benefit from improved defences. <strong>Important :</strong> perhaps it would be wise to use your resources to carry out improvements in the town?</em>]]></target>
+        <target><![CDATA[<em>You can upgrade your home and benefit from improved defences. <strong>Important:</strong> perhaps it would be wise to use your resources to carry out improvements in the town?</em>]]></target>
       </segment>
     </unit>
     <unit id="h.30SZi">
@@ -21033,7 +21032,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>WARNUNG: Es besteht eine große Chance, dass du von anderen Bürgern entdeckt wirst, wenn du jemanden in der Stadt verschlingst! Mach das besser in der Aussenwelt...</source>
-        <target>WARNING : there is a significant chance of being discovered by the other citizens if you devour someone in town! Maybe you should do your murdering in the World Beyond...</target>
+        <target>WARNING: there is a significant chance of being discovered by the other citizens if you devour someone in town! Maybe you should do your murdering in the World Beyond...</target>
       </segment>
     </unit>
     <unit id="lN02s2b">
@@ -21696,7 +21695,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Unsere aktuelle Schätzung ist zu ungenau, um brauchbar zu sein: Wir brauchen mehr Bürger, die auf den Turm gehen!</source>
-        <target>Our current estimation is too inaccurate to be of any use : more citizens need to come to the tower!</target>
+        <target>Our current estimation is too inaccurate to be of any use: more citizens need to come to the tower!</target>
       </segment>
     </unit>
     <unit id="gZG1unt">
@@ -23870,6 +23869,16 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Funkgerät verwenden</source>
         <target>Use the radio</target>
+      </segment>
+    </unit>
+    <unit id="ZUcAy0O" name="Gebäudeliste einblenden">
+      <notes>
+        <note category="german">Gebäudeliste einblenden</note>
+        <note category="from">twig:///templates/ajax/game/town/town.html.twig</note>
+      </notes>
+      <segment>
+        <source>Gebäudeliste einblenden</source>
+        <target>Display construction list</target>
       </segment>
     </unit>
   </file>

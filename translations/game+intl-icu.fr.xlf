@@ -23730,5 +23730,16 @@ cette violente opération...]]></target>
         <target>Funkgerät verwenden</target>
       </segment>
     </unit>
+    <unit id="ZUcAy0O" name="Gebäudeliste einblenden">
+      <notes>
+        <note category="german">Gebäudeliste einblenden</note>
+        <note category="from">twig:///templates/ajax/game/town/town.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Gebäudeliste einblenden</source>
+        <target>Gebäudeliste einblenden</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

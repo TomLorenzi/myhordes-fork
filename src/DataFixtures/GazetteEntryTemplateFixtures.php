@@ -685,7 +685,7 @@ class GazetteEntryTemplateFixtures extends Fixture
 
         // Red soul death
         ['text'=>'Wenn du wissen willst, was euer Schamane wert ist, frag <i class="dagger">†</i> {cadaver1}. Er würde wahrscheinlich etwas in der Art von "dieser verf#/}M@$ Scharlatan!!" sagen.',
-            'name'=>'gazetteTownPoison_001',
+            'name'=>'gazetteTownRedSoul_001',
             'type'=>GazetteEntryTemplate::TypeGazetteRedSoul,
             'requirement'=>GazetteEntryTemplate::RequiresOneCadaver,
             'fot' => GazetteEntryTemplate::FollowUpTypeDoubt,
