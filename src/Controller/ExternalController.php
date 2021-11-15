@@ -1252,7 +1252,7 @@ class ExternalController extends InventoryAwareController {
                             }
                             break;
                         case "water":
-                            $data[$field] = $gazette->getWaterlost();
+                            $data[$field] = $gazette['waterlost'];
                             break;
                     }
                 }
