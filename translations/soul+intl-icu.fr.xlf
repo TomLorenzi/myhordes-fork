@@ -4179,7 +4179,6 @@
       <notes>
         <note category="german">Absender wählen</note>
         <note category="from">twig:///templates/ajax/pm/view.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Absender wählen</source>

@@ -23701,7 +23701,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Ein Moderator hat deinen Thread "{threadname}" geschlossen. {link_post}</note>
         <note category="from">db://LogEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ein Moderator hat deinen Thread "{threadname}" geschlossen. {link_post}</source>
@@ -23712,7 +23711,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Ein Moderator hat deinen Thread "{threadname}" als "Gelöst" markiert. {link_post}</note>
         <note category="from">db://LogEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ein Moderator hat deinen Thread "{threadname}" als "Gelöst" markiert. {link_post}</source>
@@ -23723,7 +23721,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Funkgerät verwenden</note>
         <note category="from">twig:///templates/ajax/public/maintenance_attack.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Funkgerät verwenden</source>
@@ -23734,7 +23731,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Gebäudeliste einblenden</note>
         <note category="from">twig:///templates/ajax/game/town/town.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Gebäudeliste einblenden</source>
