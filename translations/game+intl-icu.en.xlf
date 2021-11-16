@@ -23212,11 +23212,10 @@
       <notes>
         <note category="german">Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...</note>
         <note category="from">db://LogEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...</source>
-        <target>Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...</target>
+        <target>As if out of nowhere, the horde suddenly stood in front of the city gate...</target>
       </segment>
     </unit>
     <unit id="bAX7fz8">
