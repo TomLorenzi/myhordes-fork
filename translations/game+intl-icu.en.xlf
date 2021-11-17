@@ -23658,40 +23658,37 @@
       </notes>
       <segment>
         <source>Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre &lt;strong&gt;in der Nähe der nördlichen Mauer&lt;/strong&gt; gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.</source>
-        <target><![CDATA[Forgetting how for a moment, but one of the [#] citizens missing outside last night found his way back to the town. They were seen near the great wall ! That said, they were missing both legs and they were dead in the minutes that followed. Grim.]]></target>
+        <target><![CDATA[Forgetting how for a moment, but one of the [#] citizens missing outside last night found his way back to the town. They were seen near the northern wall ! That said, they were missing both legs and they were dead in the minutes that followed. Grim.]]></target>
       </segment>
     </unit>
     <unit id="stCBeN3">
       <notes>
         <note category="german">Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre &lt;strong&gt;in der Nähe der südlichen Mauer&lt;/strong&gt; gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre &lt;strong&gt;in der Nähe der südlichen Mauer&lt;/strong&gt; gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.</source>
-        <target><![CDATA[Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre <strong>in der Nähe der südlichen Mauer</strong> gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.]]></target>
+        <target><![CDATA[Forgetting how for a moment, but one of the [#] citizens missing outside last night found his way back to the town. They were seen near the southern wall ! That said, they were missing both legs and they were dead in the minutes that followed. Grim.]]></target>
       </segment>
     </unit>
     <unit id="GAnRpoW">
       <notes>
         <note category="german">Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre &lt;strong&gt;in der Nähe der westlichen Mauer&lt;/strong&gt; gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre &lt;strong&gt;in der Nähe der westlichen Mauer&lt;/strong&gt; gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.</source>
-        <target><![CDATA[Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre <strong>in der Nähe der westlichen Mauer</strong> gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.]]></target>
+        <target><![CDATA[Forgetting how for a moment, but one of the [#] citizens missing outside last night found his way back to the town. They were seen near the western wall ! That said, they were missing both legs and they were dead in the minutes that followed. Grim.]]></target>
       </segment>
     </unit>
     <unit id="bURQbdD">
       <notes>
         <note category="german">Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre &lt;strong&gt;in der Nähe der östlichen Mauer&lt;/strong&gt; gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre &lt;strong&gt;in der Nähe der östlichen Mauer&lt;/strong&gt; gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.</source>
-        <target><![CDATA[Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre <strong>in der Nähe der östlichen Mauer</strong> gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.]]></target>
+        <target><![CDATA[Forgetting how for a moment, but one of the [#] citizens missing outside last night found his way back to the town. They were seen near the eastern wall ! That said, they were missing both legs and they were dead in the minutes that followed. Grim.]]></target>
       </segment>
     </unit>
     <unit id="nxj3690" name="Nun, das sage ich...">
