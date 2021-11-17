@@ -18497,12 +18497,11 @@
     <unit id="0FSEa0F">
       <notes>
         <note category="german">Wir konnte alle Zombies erfolgreich abwehren. Die Nachtwätcher haben eine saubere Arbeit geleistet!</note>
-        <note category="state">new</note>
         <note category="from">db://LogEntryTemplate</note>
       </notes>
       <segment>
         <source>Wir konnte alle Zombies erfolgreich abwehren. Die Nachtwätcher haben eine saubere Arbeit geleistet!</source>
-        <target>Wir konnte alle Zombies erfolgreich abwehren. Die Nachtwätcher haben eine saubere Arbeit geleistet!</target>
+        <target>No zombies got through. The watchmen courageously defended the town!</target>
       </segment>
     </unit>
     <unit id="7d1x6jh" name="Die Zombies haben beim Angriff {list} zerstört.">
