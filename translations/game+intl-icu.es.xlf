@@ -17825,7 +17825,7 @@
       </notes>
       <segment>
         <source>{citizen1} verbrachten die ganze Nacht heulend in ihrem Haus, bis zu dem Punkt, dass jeder dachte, die Zombies würden Bürger-Steaks aus ihm machen. Es stellte sich heraus, dass sie gerade einen &lt;strong&gt;massiven Zusammenbruch&lt;/strong&gt; hatten. Letzte Nacht gab es keine Toten in der Stadt.</source>
-        <target><![CDATA[{citizen1} pasó toda la noche llorando en su casa hasta el punto de que todos pensaron que los zombies estaban haciendo filetes de habitante con él. Resultó que solo estaban teniendo una <strong>colapso masivo</strong>. No hubo muertes en el pueblo anoche.]]></target>
+        <target><![CDATA[{citizen1} ha pasado la noche chillando en su casa, pensamos que un zombie se lo estaba comiendo por pedacitos. En realidad tenía una <strong>gran crisis de nervios</strong>. Fue solo eso, no hubieron muertos anoche.]]></target>
       </segment>
     </unit>
     <unit id="jq7dkW2">
