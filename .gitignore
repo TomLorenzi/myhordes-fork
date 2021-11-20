@@ -3,6 +3,7 @@
 /.env.local
 /.env.local.php
 /.env.*.local
+/.env.deploy
 /config/secrets/prod/prod.decrypt.private.php
 /public/bundles/
 /var/
@@ -30,6 +31,7 @@ composer.phar
 
 # Local webpack config
 webpack.config.local.js
+webpack.config.deploy.js
 
 # Local app configs
 config/packages/dev/app/*.yml
