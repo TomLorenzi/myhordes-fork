@@ -37,15 +37,15 @@
                     <div>
                         <div>
                             {% if citizen.alive %}
-                                {% if citizen.profession.heroic %}
-                                    <img alt="" src="{{ asset('build/images/professions/hero.gif') }}" />
-                                {% else %}
-                                    <img alt="" src="{{ asset('build/images/professions/void.gif') }}" />
-                                {% endif %}
-                                {% if citizen.banished %}
-                                    <img alt="" src="{{ asset('build/images/icons/banished.gif') }}" />
-                                {% endif %}
                                 <img alt="{{ citizen.profession.label|trans({},'game') }}" src="{{ asset('build/images/professions/' ~ citizen.profession.icon ~ '.gif') }}" />
+                                {% for role in citizen.roles %}
+                                    {% if not role.secret and not role.hidden %}
+                                    <span>
+                                        <img alt="" src="{{ asset('build/images/roles/' ~ role.icon ~ '.gif') }}" />
+                                        <div class="tooltip">{{'Diese Bürger is der {role} der Stadt'|trans({'role': role.label|trans({'ref': citizen}, 'game'), 'ref': citizen}, 'game')}}</div>
+                                    </span>
+                                    {% endif %}
+                                {% endfor %}
                             {% else %}
                                 {% if citizen.home.holdsBody %}
                                     <div class="inline-block">
@@ -68,16 +68,16 @@
                                     </div>
                                 {% endif %}
                             {% endif %}
-                            <a class="link username undecorated" href="{{ path('soul_visit', {id: citizen.user.id}) }}"><b class="citizen-name">{{ citizen.name }}</b></a>
+                            <a class="link username undecorated{% if citizen == me%} citizen-label-name-me {% endif %}" href="{{ path('soul_visit', {id: citizen.user.id}) }}"><b class="citizen-name">{{ citizen.name }}</b></a>
                             {% if citizen.alive %}
-                                {% for role in citizen.roles %}
-                                    {% if not role.secret and not role.hidden %}
-                                    <span>
-                                        <img alt="" src="{{ asset('build/images/roles/' ~ role.icon ~ '.gif') }}" />
-                                        <div class="tooltip">{{'Diese Bürger is der {role} der Stadt'|trans({'role': role.label|trans({'ref': citizen}, 'game'), 'ref': citizen}, 'game')}}</div>
-                                    </span>
-                                    {% endif %}
-                                {% endfor %}
+                                {% if citizen.banished %}
+                                    <img alt="" src="{{ asset('build/images/icons/banished.gif') }}" />
+                                {% endif %}
+                                {% if citizen.profession.heroic %}
+                                    <img alt="" src="{{ asset('build/images/professions/hero.gif') }}" />
+                                {% else %}
+                                    <img alt="" src="{{ asset('build/images/professions/void.gif') }}" />
+                                {% endif %}
                             {% endif %}
                         </div>
                         <div class="hide-desktop small-citizen-defense">
