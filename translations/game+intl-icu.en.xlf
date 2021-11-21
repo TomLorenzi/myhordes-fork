@@ -23610,7 +23610,7 @@
       </notes>
       <segment>
         <source>Komisch, in der Stadt riecht es wirklich nach Tod. Die &lt;strong&gt;tödlichen Infektionen&lt;/strong&gt; haben letzte Nacht mehrere Bürger schwer getroffen... Wir haben also nichts in der Bank, um so etwas zu verhindern?</source>
-        <target>That reminds me, the town smells like death. Deadly infections have stricken several citizens as of last night... Do we have anything in the bank to stop it?</target>
+        <target><![CDATA[That reminds me, the town smells like death. Deadly infections have stricken several citizens as of last night... Do we have anything in the bank to stop it?]]></target>
       </segment>
     </unit>
     <unit id="fICmJjR">
@@ -23642,7 +23642,7 @@
       </notes>
       <segment>
         <source>Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre &lt;strong&gt;in der Nähe der nördlichen Mauer&lt;/strong&gt; gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.</source>
-        <target>Forgetting how for a moment, but one of the [#] citizens missing outside last night found his way back to the town. They were seen near the northern wall ! That said, they were missing both legs and they were dead in the minutes that followed. Grim.</target>
+        <target><![CDATA[Forgetting how for a moment, but one of the [#] citizens missing outside last night found his way back to the town. They were seen near the northern wall ! That said, they were missing both legs and they were dead in the minutes that followed. Grim.]]></target>
       </segment>
     </unit>
     <unit id="stCBeN3">
@@ -23652,7 +23652,7 @@
       </notes>
       <segment>
         <source>Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre &lt;strong&gt;in der Nähe der südlichen Mauer&lt;/strong&gt; gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.</source>
-        <target>Forgetting how for a moment, but one of the [#] citizens missing outside last night found his way back to the town. They were seen near the southern wall ! That said, they were missing both legs and they were dead in the minutes that followed. Grim.</target>
+        <target><![CDATA[Forgetting how for a moment, but one of the [#] citizens missing outside last night found his way back to the town. They were seen near the southern wall ! That said, they were missing both legs and they were dead in the minutes that followed. Grim.]]></target>
       </segment>
     </unit>
     <unit id="GAnRpoW">
@@ -23662,7 +23662,7 @@
       </notes>
       <segment>
         <source>Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre &lt;strong&gt;in der Nähe der westlichen Mauer&lt;/strong&gt; gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.</source>
-        <target>Forgetting how for a moment, but one of the [#] citizens missing outside last night found his way back to the town. They were seen near the western wall ! That said, they were missing both legs and they were dead in the minutes that followed. Grim.</target>
+        <target><![CDATA[Forgetting how for a moment, but one of the [#] citizens missing outside last night found his way back to the town. They were seen near the western wall ! That said, they were missing both legs and they were dead in the minutes that followed. Grim.]]></target>
       </segment>
     </unit>
     <unit id="bURQbdD">
@@ -23672,7 +23672,7 @@
       </notes>
       <segment>
         <source>Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre &lt;strong&gt;in der Nähe der östlichen Mauer&lt;/strong&gt; gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.</source>
-        <target>Forgetting how for a moment, but one of the [#] citizens missing outside last night found his way back to the town. They were seen near the eastern wall ! That said, they were missing both legs and they were dead in the minutes that followed. Grim.</target>
+        <target><![CDATA[Forgetting how for a moment, but one of the [#] citizens missing outside last night found his way back to the town. They were seen near the eastern wall ! That said, they were missing both legs and they were dead in the minutes that followed. Grim.]]></target>
       </segment>
     </unit>
     <unit id="nxj3690" name="Nun, das sage ich...">
