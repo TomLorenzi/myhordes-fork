@@ -4179,11 +4179,10 @@
       <notes>
         <note category="german">Absender wählen</note>
         <note category="from">twig:///templates/ajax/pm/view.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Absender wählen</source>
-        <target>Absender wählen</target>
+        <target>Envoyer en tant que</target>
       </segment>
     </unit>
     <unit id="X_Adc53">

@@ -15104,5 +15104,11 @@
         <target>Funkgerät verwenden</target>
       </segment>
     </unit>
+    <unit id="ZUcAy0O" name="Gebäudeliste einblenden">
+      <segment>
+        <source>Gebäudeliste einblenden</source>
+        <target>Gebäudeliste einblenden</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

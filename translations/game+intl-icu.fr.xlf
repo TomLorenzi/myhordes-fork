@@ -23701,33 +23701,40 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Ein Moderator hat deinen Thread "{threadname}" geschlossen. {link_post}</note>
         <note category="from">db://LogEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ein Moderator hat deinen Thread "{threadname}" geschlossen. {link_post}</source>
-        <target>Ein Moderator hat deinen Thread "{threadname}" geschlossen. {link_post}</target>
+        <target>Un modérateur a fermé votre sujet "{threadname}". {link_post}</target>
       </segment>
     </unit>
     <unit id="AEFBcgF">
       <notes>
         <note category="german">Ein Moderator hat deinen Thread "{threadname}" als "Gelöst" markiert. {link_post}</note>
         <note category="from">db://LogEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ein Moderator hat deinen Thread "{threadname}" als "Gelöst" markiert. {link_post}</source>
-        <target>Ein Moderator hat deinen Thread "{threadname}" als "Gelöst" markiert. {link_post}</target>
+        <target>Un modérateur a marqué votre sujet "{threadname}" comme "résolu". {link_post}</target>
       </segment>
     </unit>
     <unit id="4zy_n9Y" name="Funkgerät verwenden">
       <notes>
         <note category="german">Funkgerät verwenden</note>
         <note category="from">twig:///templates/ajax/public/maintenance_attack.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Funkgerät verwenden</source>
-        <target>Funkgerät verwenden</target>
+        <target>Utiliser la radio</target>
+      </segment>
+    </unit>
+    <unit id="ZUcAy0O" name="Gebäudeliste einblenden">
+      <notes>
+        <note category="german">Gebäudeliste einblenden</note>
+        <note category="from">twig:///templates/ajax/game/town/town.html.twig</note>
+      </notes>
+      <segment>
+        <source>Gebäudeliste einblenden</source>
+        <target>Afficher la liste des chantiers</target>
       </segment>
     </unit>
   </file>
