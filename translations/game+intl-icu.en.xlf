@@ -3326,7 +3326,6 @@
     <unit id="RfQQEjf" name="{citizen} hat die Leiche von {disposed} vernichtet.">
       <notes>
         <note category="german">{citizen} hat die Leiche von {disposed} vernichtet.</note>
-        <note category="state">new</note>
         <note category="from">db://LogEntryTemplate</note>
       </notes>
       <segment>
