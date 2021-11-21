@@ -1016,7 +1016,7 @@
 
         handleCampingActions(
             document.querySelectorAll('ul.camping_actions [x-action-id]:not([disabled])'),
-            '{{ path('beyond_desert_camping_controller') }}', '{{ path('beyond_dashboard', {sect: 'ca'}) }}', document.getElementById('beyond_desert_content')
+            '{{ path('beyond_desert_camping_controller') }}', '{{ path('beyond_dashboard', {sect: 'ca'}) }}'
         );
 
         {% if banished or town_chaos %}
