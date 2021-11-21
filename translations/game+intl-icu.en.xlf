@@ -18496,12 +18496,11 @@
     <unit id="0FSEa0F">
       <notes>
         <note category="german">Wir konnte alle Zombies erfolgreich abwehren. Die Nachtwätcher haben eine saubere Arbeit geleistet!</note>
-        <note category="state">new</note>
         <note category="from">db://LogEntryTemplate</note>
       </notes>
       <segment>
         <source>Wir konnte alle Zombies erfolgreich abwehren. Die Nachtwätcher haben eine saubere Arbeit geleistet!</source>
-        <target>Wir konnte alle Zombies erfolgreich abwehren. Die Nachtwätcher haben eine saubere Arbeit geleistet!</target>
+        <target>No zombies got through. The watchmen courageously defended the town!</target>
       </segment>
     </unit>
     <unit id="7d1x6jh" name="Die Zombies haben beim Angriff {list} zerstört.">
@@ -18539,12 +18538,11 @@
     <unit id="OwJiT_2">
       <notes>
         <note category="german">Die Nachtwächter der letzten nacht zeigten unglaublichen Mut, es ist nur schade, dass die Zombies offensichtlich mit etwas anderem beschäftigt waren!</note>
-        <note category="state">new</note>
         <note category="from">db://LogEntryTemplate</note>
       </notes>
       <segment>
         <source>Die Nachtwächter der letzten nacht zeigten unglaublichen Mut, es ist nur schade, dass die Zombies offensichtlich mit etwas anderem beschäftigt waren!</source>
-        <target>Die Nachtwächter der letzten nacht zeigten unglaublichen Mut, es ist nur schade, dass die Zombies offensichtlich mit etwas anderem beschäftigt waren!</target>
+        <target>Last night's watchmen showed incredible courage, it's just a shame the zombies were clearly busy doing something else!</target>
       </segment>
     </unit>
     <unit id="T9nn1le">
@@ -23212,11 +23210,10 @@
       <notes>
         <note category="german">Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...</note>
         <note category="from">db://LogEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...</source>
-        <target>Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...</target>
+        <target>All of a sudden, the source of our nightmares began to gather in front of the town gates...</target>
       </segment>
     </unit>
     <unit id="bAX7fz8">
@@ -23294,11 +23291,10 @@
       <notes>
         <note category="german">Anmerkung: einer der {attack} Zombies, die letzte Nacht angegriffen haben, wurde &lt;strong&gt;im Brunnen&lt;/strong&gt; gefunden... Ich rate euch dringend davon ab, heute Morgen Wasser zu trinken, sonst fangt ihr euch noch eine Infektion ein...</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Anmerkung: einer der {attack} Zombies, die letzte Nacht angegriffen haben, wurde &lt;strong&gt;im Brunnen&lt;/strong&gt; gefunden... Ich rate euch dringend davon ab, heute Morgen Wasser zu trinken, sonst fangt ihr euch noch eine Infektion ein...</source>
-        <target><![CDATA[Anmerkung: einer der {attack} Zombies, die letzte Nacht angegriffen haben, wurde <strong>im Brunnen</strong> gefunden... Ich rate euch dringend davon ab, heute Morgen Wasser zu trinken, sonst fangt ihr euch noch eine Infektion ein...]]></target>
+        <target><![CDATA[One of the {attack} attacking zombies from last night was found <strong>in the well</strong> I'd strongly advise you to skip your water ration today, as it'd be a great way to get an infection...]]></target>
       </segment>
     </unit>
     <unit id="VDPDHMC">
@@ -23338,11 +23334,10 @@
       <notes>
         <note category="german">Halten wir kurz inne und gedenken unserem verlorenen Schamanen. Auf Wiedersehen, nutzloser Scharlatan! Wer ist motiviert, ihn zu ersetzen?</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Halten wir kurz inne und gedenken unserem verlorenen Schamanen. Auf Wiedersehen, nutzloser Scharlatan! Wer ist motiviert, ihn zu ersetzen?</source>
-        <target>Halten wir kurz inne und gedenken unserem verlorenen Schamanen. Auf Wiedersehen, nutzloser Scharlatan! Wer ist motiviert, ihn zu ersetzen?</target>
+        <target>Spare a thought for our for our lost Shaman. Adieu useless charlatan!</target>
       </segment>
     </unit>
     <unit id="r1UYBsR">
@@ -23371,11 +23366,10 @@
       <notes>
         <note category="german">Wir haben geahnt, dass dies passieren würde. &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} hat gestern Selbstmord begangen. Immerhin hatte dieser Bürger mehrere Tage lang seinen Kopf gegen die Wände geschlagen und Sand gegessen, anstatt seine Wasserrationen einzunehmen... Traurig.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wir haben geahnt, dass dies passieren würde. &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} hat gestern Selbstmord begangen. Immerhin hatte dieser Bürger mehrere Tage lang seinen Kopf gegen die Wände geschlagen und Sand gegessen, anstatt seine Wasserrationen einzunehmen... Traurig.</source>
-        <target><![CDATA[Wir haben geahnt, dass dies passieren würde. <i class="dagger">†</i> {cadaver1} hat gestern Selbstmord begangen. Immerhin hatte dieser Bürger mehrere Tage lang seinen Kopf gegen die Wände geschlagen und Sand gegessen, anstatt seine Wasserrationen einzunehmen... Traurig.]]></target>
+        <target><![CDATA[We never thought we'd see the day : <i class="dagger">†</i> {cadaver1} killed themselves yesterday. They had been banging their head off walls and eating sand for days rather than drinking their ration of water...]]></target>
       </segment>
     </unit>
     <unit id="hkJ7fWR">
@@ -23426,11 +23420,10 @@
       <notes>
         <note category="german">Amüsant, &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} hat es nicht lange in der Stadt ausgehalt. Hängen auf dem öffentlichen Platz und Steinigung. Zivilisation ist schön!</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Amüsant, &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} hat es nicht lange in der Stadt ausgehalt. Hängen auf dem öffentlichen Platz und Steinigung. Zivilisation ist schön!</source>
-        <target><![CDATA[Amüsant, <i class="dagger">†</i> {cadaver1} hat es nicht lange in der Stadt ausgehalt. Hängen auf dem öffentlichen Platz und Steinigung. Zivilisation ist schön!]]></target>
+        <target><![CDATA[<i class="dagger">†</i> {cadaver1} didn't last long in town. Hanged in the town square and stoned to death. No half-measures here! Isn't civilisation grand?]]></target>
       </segment>
     </unit>
     <unit id="ubNXQU3">
@@ -23448,77 +23441,70 @@
       <notes>
         <note category="german">Abgesehen davon hat der Bürger &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} gestern wohl endlich verstanden, dass Wasser manchmal nützlich ist. Ein exemplarischer Tod durch Dehydrierung.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Abgesehen davon hat der Bürger &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} gestern wohl endlich verstanden, dass Wasser manchmal nützlich ist. Ein exemplarischer Tod durch Dehydrierung.</source>
-        <target><![CDATA[Abgesehen davon hat der Bürger <i class="dagger">†</i> {cadaver1} gestern wohl endlich verstanden, dass Wasser manchmal nützlich ist. Ein exemplarischer Tod durch Dehydrierung.]]></target>
+        <target><![CDATA[Funny story, yesterday, <i class="dagger">†</i> {cadaver1} finally understood that water has its uses. A fine example of death by dehydration.]]></target>
       </segment>
     </unit>
     <unit id="FWa2XxY">
       <notes>
         <note category="german">Anderes Thema; der Tod von &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} durch Verdurstung ist ein schlechtes Omen, findet ihr nicht auch?</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Anderes Thema; der Tod von &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} durch Verdurstung ist ein schlechtes Omen, findet ihr nicht auch?</source>
-        <target><![CDATA[Anderes Thema; der Tod von <i class="dagger">†</i> {cadaver1} durch Verdurstung ist ein schlechtes Omen, findet ihr nicht auch?]]></target>
+        <target><![CDATA[<i class="dagger">†</i> {cadaver1}'s death from dehydration is a worrying sign. The more you think about it, the more thirsty you become, don't you find?]]></target>
       </segment>
     </unit>
     <unit id="KwXVUkQ">
       <notes>
         <note category="german">Ein netter Versuch von &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1}, der mit mir wetten wollte, dass man ohne Wasser überleben kann. Ich habe gewonnen.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ein netter Versuch von &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1}, der mit mir wetten wollte, dass man ohne Wasser überleben kann. Ich habe gewonnen.</source>
-        <target><![CDATA[Ein netter Versuch von <i class="dagger">†</i> {cadaver1}, der mit mir wetten wollte, dass man ohne Wasser überleben kann. Ich habe gewonnen.]]></target>
+        <target><![CDATA[A sterling effort from <i class="dagger">†</i> {cadaver1} who made a bet with me that they could survive <strong>without water</strong>. I won though !]]></target>
       </segment>
     </unit>
     <unit id="ScxI09z">
       <notes>
         <note category="german">&lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} liegt seit gestern als vertrocknete Leiche in seinem Haus. Der Mangel an Wasser, was kann man erwarten. Manche Leute glauben immer noch, sie könnten darauf verzichten.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>&lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} liegt seit gestern als vertrocknete Leiche in seinem Haus. Der Mangel an Wasser, was kann man erwarten. Manche Leute glauben immer noch, sie könnten darauf verzichten.</source>
-        <target><![CDATA[<i class="dagger">†</i> {cadaver1} liegt seit gestern als vertrocknete Leiche in seinem Haus. Der Mangel an Wasser, was kann man erwarten. Manche Leute glauben immer noch, sie könnten darauf verzichten.]]></target>
+        <target><![CDATA[As of yesterday, <i class="dagger">†</i> {cadaver1} is nothing more than a dried out corpse in a bed. That's what happens when there's a water shortage. For some reason there seem to still be some people who think they can take it or leave it...]]></target>
       </segment>
     </unit>
     <unit id="AEUoOt3">
       <notes>
         <note category="german">Fürs Protokoll, es waren {cadavers} Bürger, die uns gestern Abend verlassen haben. Endgültige Dehydrierung. Ja, das Todesröcheln kam von ihnen...</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Fürs Protokoll, es waren {cadavers} Bürger, die uns gestern Abend verlassen haben. Endgültige Dehydrierung. Ja, das Todesröcheln kam von ihnen...</source>
-        <target>Fürs Protokoll, es waren {cadavers} Bürger, die uns gestern Abend verlassen haben. Endgültige Dehydrierung. Ja, das Todesröcheln kam von ihnen...</target>
+        <target>I meant to tell you, {cadavers} citizens departed during the night. <strong>Terminal dehydration</strong>. The groans of agony? Yes. That was them...</target>
       </segment>
     </unit>
     <unit id="iAlVErh">
       <notes>
         <note category="german">Anderes Thema, es waren {cadavers} Bürger, die uns gestern Abend verlassen haben. Endgültige Dehydrierung. Ja, das Todesröcheln kam von ihnen...</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Anderes Thema, es waren {cadavers} Bürger, die uns gestern Abend verlassen haben. Endgültige Dehydrierung. Ja, das Todesröcheln kam von ihnen...</source>
-        <target>Anderes Thema, es waren {cadavers} Bürger, die uns gestern Abend verlassen haben. Endgültige Dehydrierung. Ja, das Todesröcheln kam von ihnen...</target>
+        <target>I meant to tell you, {cadavers} citizens departed during the night. <strong>Terminal dehydration</strong>. The groans of agony? Yes. That was them...</target>
       </segment>
     </unit>
     <unit id="sJA5QrY">
       <notes>
         <note category="german">Der Durst hat gestern {cadavers} Bürger übermannt. Ein schöner und langer Todeskampf, der direkt zu einem grausamen Tod führt. Wir haben also kein Wasser mehr? Oh oh oh...</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Der Durst hat gestern {cadavers} Bürger übermannt. Ein schöner und langer Todeskampf, der direkt zu einem grausamen Tod führt. Wir haben also kein Wasser mehr? Oh oh oh...</source>
-        <target>Der Durst hat gestern {cadavers} Bürger übermannt. Ein schöner und langer Todeskampf, der direkt zu einem grausamen Tod führt. Wir haben also kein Wasser mehr? Oh oh oh...</target>
+        <target>I meant to tell you, dehydration took the lives of {cadavers} citizens yesterday. An extended period of agony culminating in an excruciating death. Is there a shortage of water or something? Mwahahahaha...</target>
       </segment>
     </unit>
     <unit id="9IYIWWF">
@@ -23547,11 +23533,10 @@
       <notes>
         <note category="german">Ein anderes Thema, die Stadt trocknet langsam aus (ha ha, verstanden?). {cadavers} Bürger starben in der Nacht an Dehydrierung... Oh oh oh...</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ein anderes Thema, die Stadt trocknet langsam aus (ha ha, verstanden?). {cadavers} Bürger starben in der Nacht an Dehydrierung... Oh oh oh...</source>
-        <target>Ein anderes Thema, die Stadt trocknet langsam aus (ha ha, verstanden?). {cadavers} Bürger starben in der Nacht an Dehydrierung... Oh oh oh...</target>
+        <target>a dry spell in town (if you know what I mean). {cadavers} citizens died from dehydration during the night...</target>
       </segment>
     </unit>
     <unit id="cPTwDJQ">
@@ -23591,11 +23576,10 @@
       <notes>
         <note category="german">Kleine Anekdote, der Geruch in der Stadt heute Morgen war &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1}, der von einer &lt;strong&gt;systemischen Infektion&lt;/strong&gt; gezeichnet war. Könnte jemand die Leiche herausholen?</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Kleine Anekdote, der Geruch in der Stadt heute Morgen war &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1}, der von einer &lt;strong&gt;systemischen Infektion&lt;/strong&gt; gezeichnet war. Könnte jemand die Leiche herausholen?</source>
-        <target><![CDATA[Kleine Anekdote, der Geruch in der Stadt heute Morgen war <i class="dagger">†</i> {cadaver1}, der von einer <strong>systemischen Infektion</strong> gezeichnet war. Könnte jemand die Leiche herausholen?]]></target>
+        <target><![CDATA[Other than that, the smell in the town this morning is due to <i class="dagger">†</i> {cadaver1} who died from a <strong>generalised infection</strong>. Could someone please get rid of the body?]]></target>
       </segment>
     </unit>
     <unit id="XwDxSqj">
@@ -23613,22 +23597,20 @@
       <notes>
         <note category="german">Dieses geschwollene Ding an &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1}... nun, das ist &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1}. Seine Infektion verlief extrem virulent.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Dieses geschwollene Ding an &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1}... nun, das ist &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1}. Seine Infektion verlief extrem virulent.</source>
-        <target><![CDATA[Dieses geschwollene Ding an <i class="dagger">†</i> {cadaver1}... nun, das ist <i class="dagger">†</i> {cadaver1}. Seine Infektion verlief extrem virulent.]]></target>
+        <target><![CDATA[Listen to this, the bloated thing at <i class="dagger">†</i> {cadaver1}'s house is <i class="dagger">†</i> {cadaver1}, whose infection was particularly invasive.]]></target>
       </segment>
     </unit>
     <unit id="ns8621y">
       <notes>
         <note category="german">Komisch, in der Stadt riecht es wirklich nach Tod. Die &lt;strong&gt;tödlichen Infektionen&lt;/strong&gt; haben letzte Nacht mehrere Bürger schwer getroffen... Wir haben also nichts in der Bank, um so etwas zu verhindern?</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Komisch, in der Stadt riecht es wirklich nach Tod. Die &lt;strong&gt;tödlichen Infektionen&lt;/strong&gt; haben letzte Nacht mehrere Bürger schwer getroffen... Wir haben also nichts in der Bank, um so etwas zu verhindern?</source>
-        <target><![CDATA[Komisch, in der Stadt riecht es wirklich nach Tod. Die <strong>tödlichen Infektionen</strong> haben letzte Nacht mehrere Bürger schwer getroffen... Wir haben also nichts in der Bank, um so etwas zu verhindern?]]></target>
+        <target><![CDATA[That reminds me, the town smells like death. Deadly infections have stricken several citizens as of last night... Do we have anything in the bank to stop it?]]></target>
       </segment>
     </unit>
     <unit id="fICmJjR">
@@ -23657,44 +23639,40 @@
       <notes>
         <note category="german">Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre &lt;strong&gt;in der Nähe der nördlichen Mauer&lt;/strong&gt; gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre &lt;strong&gt;in der Nähe der nördlichen Mauer&lt;/strong&gt; gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.</source>
-        <target><![CDATA[Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre <strong>in der Nähe der nördlichen Mauer</strong> gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.]]></target>
+        <target><![CDATA[Forgetting how for a moment, but one of the [#] citizens missing outside last night found his way back to the town. They were seen near the northern wall ! That said, they were missing both legs and they were dead in the minutes that followed. Grim.]]></target>
       </segment>
     </unit>
     <unit id="stCBeN3">
       <notes>
         <note category="german">Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre &lt;strong&gt;in der Nähe der südlichen Mauer&lt;/strong&gt; gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre &lt;strong&gt;in der Nähe der südlichen Mauer&lt;/strong&gt; gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.</source>
-        <target><![CDATA[Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre <strong>in der Nähe der südlichen Mauer</strong> gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.]]></target>
+        <target><![CDATA[Forgetting how for a moment, but one of the [#] citizens missing outside last night found his way back to the town. They were seen near the southern wall ! That said, they were missing both legs and they were dead in the minutes that followed. Grim.]]></target>
       </segment>
     </unit>
     <unit id="GAnRpoW">
       <notes>
         <note category="german">Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre &lt;strong&gt;in der Nähe der westlichen Mauer&lt;/strong&gt; gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre &lt;strong&gt;in der Nähe der westlichen Mauer&lt;/strong&gt; gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.</source>
-        <target><![CDATA[Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre <strong>in der Nähe der westlichen Mauer</strong> gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.]]></target>
+        <target><![CDATA[Forgetting how for a moment, but one of the [#] citizens missing outside last night found his way back to the town. They were seen near the western wall ! That said, they were missing both legs and they were dead in the minutes that followed. Grim.]]></target>
       </segment>
     </unit>
     <unit id="bURQbdD">
       <notes>
         <note category="german">Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre &lt;strong&gt;in der Nähe der östlichen Mauer&lt;/strong&gt; gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre &lt;strong&gt;in der Nähe der östlichen Mauer&lt;/strong&gt; gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.</source>
-        <target><![CDATA[Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre <strong>in der Nähe der östlichen Mauer</strong> gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.]]></target>
+        <target><![CDATA[Forgetting how for a moment, but one of the [#] citizens missing outside last night found his way back to the town. They were seen near the eastern wall ! That said, they were missing both legs and they were dead in the minutes that followed. Grim.]]></target>
       </segment>
     </unit>
     <unit id="nxj3690" name="Nun, das sage ich...">
