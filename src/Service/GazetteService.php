@@ -370,6 +370,9 @@ class GazetteService
                     CauseOfDeath::Vanished
                 ]) ) );
 
+                if ($featured_cadaver === null)
+                    return false;
+
                 switch ($featured_cadaver->getCauseOfDeath()->getRef()) {
                     case CauseOfDeath::Cyanide:
                     case CauseOfDeath::Strangulation:
@@ -402,8 +405,6 @@ class GazetteService
 
                 }
             }
-
-
 
             if ($type === null) return false;
 
