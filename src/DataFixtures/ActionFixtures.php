@@ -1113,6 +1113,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'vibr_empty_#00'       => [ 'load_dildo' ],
             'radius_mk2_part_#00'  => [ 'load_rmk2' ],
             'maglite_off_#00'      => [ 'load_maglite' ],
+            'maglite_1_#00'        => [ 'load_maglite' ],
             'radio_off_#00'        => [ 'load_radio' ],
             'sport_elec_empty_#00' => [ 'load_emt' ],
 
