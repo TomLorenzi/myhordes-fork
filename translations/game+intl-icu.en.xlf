@@ -23485,7 +23485,7 @@
       </notes>
       <segment>
         <source>Fürs Protokoll, es waren {cadavers} Bürger, die uns gestern Abend verlassen haben. Endgültige Dehydrierung. Ja, das Todesröcheln kam von ihnen...</source>
-        <target>I meant to tell you, {cadavers} citizens departed during the night. Terminal dehydration. The groans of agony? Yes. That was them...</target>
+        <target>I meant to tell you, {cadavers} citizens departed during the night. <strong>Terminal dehydration</strong>. The groans of agony? Yes. That was them...</target>
       </segment>
     </unit>
     <unit id="iAlVErh">
@@ -23495,7 +23495,7 @@
       </notes>
       <segment>
         <source>Anderes Thema, es waren {cadavers} Bürger, die uns gestern Abend verlassen haben. Endgültige Dehydrierung. Ja, das Todesröcheln kam von ihnen...</source>
-        <target>I meant to tell you, {cadavers} citizens departed during the night. Terminal dehydration. The groans of agony? Yes. That was them...</target>
+        <target>I meant to tell you, {cadavers} citizens departed during the night. <strong>Terminal dehydration</strong>. The groans of agony? Yes. That was them...</target>
       </segment>
     </unit>
     <unit id="sJA5QrY">
