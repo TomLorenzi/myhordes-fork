@@ -106,8 +106,10 @@ then
   exit 2
 fi
 
+_BIN_CONSOLE="sudo -u ${REMOTE_WEBSERVER_USER} -g ${REMOTE_WEBSERVER_GROUP} php bin/console"
+
 echo "-> Freezing the current installation..."
-ssh -t "${_SSH}" "cd \"${REMOTE_PATH_ENTRYPOINT:?}\" && php bin/console app:migrate --maintenance on"
+ssh -t "${_SSH}" "cd \"${REMOTE_PATH_ENTRYPOINT:?}\" && ${_BIN_CONSOLE} app:migrate --maintenance on"
 
 # Confirmation
 echo "Ready to migrate."
@@ -120,10 +122,10 @@ then
 fi
 
 echo "-> Creating backup and clearing cache..."
-ssh -t "${_SSH}" "cd \"${REMOTE_PATH_ENTRYPOINT:?}\" && sleep 5s && php bin/console app:cron backup update && php bin/console cache:clear"
+ssh -t "${_SSH}" "cd \"${REMOTE_PATH_ENTRYPOINT:?}\" && sleep 5s && ${_BIN_CONSOLE} app:cron backup update && ${_BIN_CONSOLE} cache:clear"
 
 echo "-> Running migration..."
-ssh -t "${_SSH}" "cd \"${_NEW_VERSION}\" && php bin/console app:migrate -u -r && php bin/console app:migrate -p -v"
+ssh -t "${_SSH}" "cd \"${_NEW_VERSION}\" && ${_BIN_CONSOLE} app:migrate -u -r && ${_BIN_CONSOLE} app:migrate -p -v"
 ssh -t "${_SSH}" "chown -R ${REMOTE_WEBSERVER_USER}:${REMOTE_WEBSERVER_GROUP} \"${_NEW_VERSION}\" && chown -R ${REMOTE_WEBSERVER_USER}:${REMOTE_WEBSERVER_GROUP} \"${REMOTE_PATH_STORAGE}\""
 
 echo "-> Activating new installation"
