@@ -23323,7 +23323,6 @@
       <notes>
         <note category="german">Außerdem wäre es gut, daran zu denken, dass der Schamane der Stadt letzte Nacht gestorben ist. Heute Abend findet eine Neuwahl statt, bei der ein neuer Kandidat aus den Reihen der Überlebenden gewählt wird.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Außerdem wäre es gut, daran zu denken, dass der Schamane der Stadt letzte Nacht gestorben ist. Heute Abend findet eine Neuwahl statt, bei der ein neuer Kandidat aus den Reihen der Überlebenden gewählt wird.</source>
@@ -23344,7 +23343,6 @@
       <notes>
         <note category="german">Unser geliebter Reiseleiter in der Außenwelt ist gestern verstorben. Heute Abend findet eine Neuwahl statt, bei der ein neuer Kandidat aus den Reihen der Überlebenden gewählt wird.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Unser geliebter Reiseleiter in der Außenwelt ist gestern verstorben. Heute Abend findet eine Neuwahl statt, bei der ein neuer Kandidat aus den Reihen der Überlebenden gewählt wird.</source>
@@ -23376,7 +23374,6 @@
       <notes>
         <note category="german">Wir werden nie wieder etwas von &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} hören, der sich entschlossen hat, dem Angriff der Zombies durch Selbstmord zu entkommen.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wir werden nie wieder etwas von &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} hören, der sich entschlossen hat, dem Angriff der Zombies durch Selbstmord zu entkommen.</source>
@@ -23409,7 +23406,6 @@
       <notes>
         <note category="german">Der Gerechtigkeit ist Genüge getan, ihr habt gestern dafür gestimmt, &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} zu hängen. Hat doch Spaß gemacht, nicht wahr?</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Der Gerechtigkeit ist Genüge getan, ihr habt gestern dafür gestimmt, &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} zu hängen. Hat doch Spaß gemacht, nicht wahr?</source>
@@ -23430,7 +23426,6 @@
       <notes>
         <note category="german">&lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} wird niemanden mehr belästigen, da er mittlerweile an einem Seil schwingt... Die Gesetze der Stadt sind kein Witz!</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>&lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} wird niemanden mehr belästigen, da er mittlerweile an einem Seil schwingt... Die Gesetze der Stadt sind kein Witz!</source>
@@ -23511,7 +23506,6 @@
       <notes>
         <note category="german">Abgesehen davon haben {cadavers} Bürger vergessen, dass man ohne Wasser nicht lange überleben kann. Morgen mehr Todesfälle durch Dehydrierung?</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Abgesehen davon haben {cadavers} Bürger vergessen, dass man ohne Wasser nicht lange überleben kann. Morgen mehr Todesfälle durch Dehydrierung?</source>
@@ -23522,7 +23516,6 @@
       <notes>
         <note category="german">Übrigens, Wassermangel ist teuer, {cadavers} die Bürger sind gestern in der Stadt ausgetrocknet. Oder haben sie "vergessen", ihre Ration zu nehmen? Stellt euch das mal vor!</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Übrigens, Wassermangel ist teuer, {cadavers} die Bürger sind gestern in der Stadt ausgetrocknet. Oder haben sie "vergessen", ihre Ration zu nehmen? Stellt euch das mal vor!</source>
@@ -23543,7 +23536,6 @@
       <notes>
         <note category="german">Wenn du dich fragst, wer &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} gestern (mit Curare) ermordet hat, neige ich stark zu {citizen1}. Stell nicht zu viele Fragen, sagen wir einfach, ich habe meine Quellen. Verbannt den Verräter!</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wenn du dich fragst, wer &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} gestern (mit Curare) ermordet hat, neige ich stark zu {citizen1}. Stell nicht zu viele Fragen, sagen wir einfach, ich habe meine Quellen. Verbannt den Verräter!</source>
@@ -23554,7 +23546,6 @@
       <notes>
         <note category="german">Zu deiner Information: Wenn du dich fragst, wie hoch das Risiko einer &lt;strong&gt;Infektion&lt;/strong&gt; ist, kannst du einen Blick auf den verwesten Körper von &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} werfen, der letzte Nacht in sein Bett gestorben ist.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Zu deiner Information: Wenn du dich fragst, wie hoch das Risiko einer &lt;strong&gt;Infektion&lt;/strong&gt; ist, kannst du einen Blick auf den verwesten Körper von &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} werfen, der letzte Nacht in sein Bett gestorben ist.</source>
@@ -23565,7 +23556,6 @@
       <notes>
         <note category="german">&lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} wird sich mehrere Stunden lang gequält haben, bevor er &lt;strong&gt;buchstäblich auf dem Boden verwest&lt;/strong&gt; ist. Eine Infektion kennt keine Gnade...</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>&lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} wird sich mehrere Stunden lang gequält haben, bevor er &lt;strong&gt;buchstäblich auf dem Boden verwest&lt;/strong&gt; ist. Eine Infektion kennt keine Gnade...</source>
@@ -23586,7 +23576,6 @@
       <notes>
         <note category="german">Ich hoffe, niemand kam &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} zu nahe. Dieser Bürger ist über Nacht an einer &lt;strong&gt;systemischen Infektion&lt;/strong&gt; gestorben. Wir alle haben seine furchtbaren &lt;strong&gt;Schreie der Qual&lt;/strong&gt; gehört, machen wir uns nichts vor...</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ich hoffe, niemand kam &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} zu nahe. Dieser Bürger ist über Nacht an einer &lt;strong&gt;systemischen Infektion&lt;/strong&gt; gestorben. Wir alle haben seine furchtbaren &lt;strong&gt;Schreie der Qual&lt;/strong&gt; gehört, machen wir uns nichts vor...</source>
@@ -23610,14 +23599,13 @@
       </notes>
       <segment>
         <source>Komisch, in der Stadt riecht es wirklich nach Tod. Die &lt;strong&gt;tödlichen Infektionen&lt;/strong&gt; haben letzte Nacht mehrere Bürger schwer getroffen... Wir haben also nichts in der Bank, um so etwas zu verhindern?</source>
-        <target><![CDATA[That reminds me, the town smells like death. Deadly infections have stricken several citizens as of last night... Do we have anything in the bank to stop it?]]></target>
+        <target>That reminds me, the town smells like death. Deadly infections have stricken several citizens as of last night... Do we have anything in the bank to stop it?</target>
       </segment>
     </unit>
     <unit id="fICmJjR">
       <notes>
         <note category="german">Ihre Haut begann sich zu schälen, aber sie machten sich keine allzu großen Gedanken darüber... {cadavers} Bürger starben letzte Nacht an einer Infektion.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ihre Haut begann sich zu schälen, aber sie machten sich keine allzu großen Gedanken darüber... {cadavers} Bürger starben letzte Nacht an einer Infektion.</source>
@@ -23628,7 +23616,6 @@
       <notes>
         <note category="german">Wir sollten dafür sorgen, dass wir uns um unsere Kranken kümmern. {cadavers} Bürger sind gestern an verschiedenen Infektionen gestorben. Notfalls hängen wir die infizierten Bürger auf, dann müssen wir weniger von ihnen behandeln..</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wir sollten dafür sorgen, dass wir uns um unsere Kranken kümmern. {cadavers} Bürger sind gestern an verschiedenen Infektionen gestorben. Notfalls hängen wir die infizierten Bürger auf, dann müssen wir weniger von ihnen behandeln..</source>
@@ -23642,7 +23629,7 @@
       </notes>
       <segment>
         <source>Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre &lt;strong&gt;in der Nähe der nördlichen Mauer&lt;/strong&gt; gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.</source>
-        <target><![CDATA[Forgetting how for a moment, but one of the [#] citizens missing outside last night found his way back to the town. They were seen near the northern wall ! That said, they were missing both legs and they were dead in the minutes that followed. Grim.]]></target>
+        <target>Forgetting how for a moment, but one of the [#] citizens missing outside last night found his way back to the town. They were seen near the northern wall ! That said, they were missing both legs and they were dead in the minutes that followed. Grim.</target>
       </segment>
     </unit>
     <unit id="stCBeN3">
@@ -23652,7 +23639,7 @@
       </notes>
       <segment>
         <source>Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre &lt;strong&gt;in der Nähe der südlichen Mauer&lt;/strong&gt; gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.</source>
-        <target><![CDATA[Forgetting how for a moment, but one of the [#] citizens missing outside last night found his way back to the town. They were seen near the southern wall ! That said, they were missing both legs and they were dead in the minutes that followed. Grim.]]></target>
+        <target>Forgetting how for a moment, but one of the [#] citizens missing outside last night found his way back to the town. They were seen near the southern wall ! That said, they were missing both legs and they were dead in the minutes that followed. Grim.</target>
       </segment>
     </unit>
     <unit id="GAnRpoW">
@@ -23662,7 +23649,7 @@
       </notes>
       <segment>
         <source>Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre &lt;strong&gt;in der Nähe der westlichen Mauer&lt;/strong&gt; gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.</source>
-        <target><![CDATA[Forgetting how for a moment, but one of the [#] citizens missing outside last night found his way back to the town. They were seen near the western wall ! That said, they were missing both legs and they were dead in the minutes that followed. Grim.]]></target>
+        <target>Forgetting how for a moment, but one of the [#] citizens missing outside last night found his way back to the town. They were seen near the western wall ! That said, they were missing both legs and they were dead in the minutes that followed. Grim.</target>
       </segment>
     </unit>
     <unit id="bURQbdD">
@@ -23672,7 +23659,7 @@
       </notes>
       <segment>
         <source>Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre &lt;strong&gt;in der Nähe der östlichen Mauer&lt;/strong&gt; gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.</source>
-        <target><![CDATA[Forgetting how for a moment, but one of the [#] citizens missing outside last night found his way back to the town. They were seen near the eastern wall ! That said, they were missing both legs and they were dead in the minutes that followed. Grim.]]></target>
+        <target>Forgetting how for a moment, but one of the [#] citizens missing outside last night found his way back to the town. They were seen near the eastern wall ! That said, they were missing both legs and they were dead in the minutes that followed. Grim.</target>
       </segment>
     </unit>
     <unit id="nxj3690" name="Nun, das sage ich...">
