@@ -20901,7 +20901,6 @@
     <unit id="sO7EUbm" name="ZERSTÖRT!!">
       <notes>
         <note category="german">ZERSTÖRT!!</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
       </notes>
       <segment>
@@ -21065,7 +21064,6 @@
     <unit id="H790t1y">
       <notes>
         <note category="german">{actor} hat heimlich versucht diesen Gegenstand: {item} bei {victim} abzulegen... Leider wurde er dabei ertappt! Jetzt fragen sich alle: Was wollte er damit bezwecken?</note>
-        <note category="state">new</note>
         <note category="from">db://LogEntryTemplate</note>
       </notes>
       <segment>
@@ -22303,7 +22301,6 @@
       <notes>
         <note category="german">Trinken (Oder du stirbst heute Nacht)</note>
         <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Trinken (Oder du stirbst heute Nacht)</source>
