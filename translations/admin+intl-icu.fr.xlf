@@ -3171,7 +3171,7 @@
       </notes>
       <segment>
         <source>Integrität setzen:</source>
-        <target>Définir l'intégrité:</target>
+        <target>Définir les PA de réparation :</target>
       </segment>
     </unit>
     <unit id="PmdlsrB" name="Neue Anzahl:">
@@ -3181,7 +3181,7 @@
       </notes>
       <segment>
         <source>Neue Anzahl:</source>
-        <target>Nouveau nombre:</target>
+        <target>Nouveau nombre :</target>
       </segment>
     </unit>
     <unit id="VxMIE8o" name="Heldentage setzen">
