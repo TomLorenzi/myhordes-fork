@@ -166,6 +166,31 @@
                             <div id="zone_floor">
 
                             </div>
+                            <div class="lightbox">
+                                <div class="row">
+                                    <div class="cell padded">
+                                        <label for="zone_digs">{{ 'Verbleibe Zonengrabungen:'|trans({}, 'admin') }}</label>
+                                    </div>
+                                    <div class="cell padded">
+                                    <input type="number" id="zone_digs" class="inline" />
+                                    </div>
+                                    <div class="cell padded">
+                                    <button id="zone_dig_set" class="inline"><i class="fa fa-hand-point-down"></i><div class="tooltip">{{'Setzen'|trans({}, 'admin')}}</div></button><br />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="cell padded">
+                                        <label for="ruin_digs">{{ 'Verbleibende Ruinengrabungen:'|trans({}, 'admin') }}</label>
+                                    </div>
+                                    <div class="cell padded">
+                                        <input type="number" id="ruin_digs" class="inline" />
+                                    </div>
+                                    <div class="cell padded">
+                                        <button id="ruin_dig_set" class="inline"><i class="fa fa-hand-point-down"></i><div class="tooltip">{{'Setzen'|trans({}, 'admin')}}</div></button><br />
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
                         {% endif %}
                     </div>
                 </div>
@@ -841,7 +866,8 @@
                     let target = ev.target.parentElement;
                     document.getElementById("dash_zone_generator").setAttribute('x-id', target.getAttribute("x-id"));
                     document.getElementById("zone_coords").innerText = "[" + target.getAttribute("x-zone-x") + ", " + target.getAttribute("x-zone-y") + "]";
-                    $.ajax.no_history().load(document.getElementById("zone_floor"), '{{ url('get_zone_floor', {id: town.id}) }}', false, {'zone_id': target.getAttribute("x-id")}, function(){
+                    $.ajax.easySend('{{ url('get_zone_infos', {id: town.id}) }}', {'zone_id': target.getAttribute("x-id")}, function(data){
+                        document.querySelector("#zone_floor").innerHTML = data.view;
                         document.querySelector("#zone_floor .inventory").classList.add('desert');
                         document.querySelector("#zone_floor .inventory .title").innerText = "[" + target.getAttribute("x-zone-x") + ", " + target.getAttribute("x-zone-y") + "]";
                         let items = document.querySelectorAll('#zone_floor .inventory .item:not(.locked)[x-item-id]');
@@ -858,9 +884,26 @@
                                     }
                                 );
                             });
+
+                        document.getElementById("zone_digs").value = data.zone_digs;
+                        document.getElementById("ruin_digs").value = data.zone_digs;
                     });
                 });
             }
+
+            let set_zone_digs = document.getElementById("zone_dig_set");
+            if(set_zone_digs) set_zone_digs.addEventListener('click', function(){
+                $.ajax.easySend('{{ path('set_zone_digs', {'id': town.id}) }}', {'target': 'zone', 'zone_id': document.getElementById("dash_zone_generator").getAttribute('x-id'), 'digs': document.getElementById('zone_digs').value }, function(){
+                    $.ajax.load(null, '{{ path('admin_town_explorer', {id: town.id, tab: "dash"}) }}', true);
+                })
+            })
+
+            let set_ruin_digs = document.getElementById("ruin_dig_set");
+            if(set_ruin_digs) set_ruin_digs.addEventListener('click', function(){
+                $.ajax.easySend('{{ path('set_zone_digs', {'id': town.id}) }}', {'target': 'ruin', 'zone_id': document.getElementById("dash_zone_generator").getAttribute('x-id'), 'digs': document.getElementById('ruin_digs').value }, function(){
+                    $.ajax.load(null, '{{ path('admin_town_explorer', {id: town.id, tab: "dash"}) }}', true);
+                })
+            })
             {% endif %}
         })();
 

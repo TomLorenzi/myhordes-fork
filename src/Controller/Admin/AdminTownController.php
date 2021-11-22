@@ -973,14 +973,14 @@ class AdminTownController extends AdminActionController
     }
 
     /**
-     * @Route("/api/admin/town/{id}/get_zone_floor", name="get_zone_floor", requirements={"id"="\d+"})
+     * @Route("/api/admin/town/{id}/get_zone_infos", name="get_zone_infos", requirements={"id"="\d+"})
      * @Security("is_granted('ROLE_ADMIN')")
      * Returns the floor of a given zone
      * @param int $id Town ID
      * @param JSONRequestParser $parser
      * @return Response
      */
-    public function get_zone_floor(int $id, JSONRequestParser  $parser): Response{
+    public function get_zone_infos(int $id, JSONRequestParser  $parser): Response{
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
         if (!$town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
@@ -990,10 +990,49 @@ class AdminTownController extends AdminActionController
         if(!$zone || $zone->getTown() !== $town)
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        return $this->render("ajax/game/inventory.html.twig", [
+        $view = $this->renderView("ajax/game/inventory.html.twig", [
             'size' => 0,
             'items' => $zone->getFloor()->getItems()
         ]);
+
+        return AjaxResponse::success(true, [
+            'view' => $view,
+            'zone_digs' => $zone->getDigs(),
+            'ruin_digs' => $zone->getPrototype() !== null ? $zone->getRuinDigs() : 0
+        ]);
+    }
+
+    /**
+     * @Route("/api/admin/town/{id}/set_zone_digs", name="set_zone_digs", requirements={"id"="\d+"})
+     * @Security("is_granted('ROLE_ADMIN')")
+     * Returns the floor of a given zone
+     * @param int $id Town ID
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function set_zone_digs(int $id, JSONRequestParser  $parser): Response{
+        $town = $this->entity_manager->getRepository(Town::class)->find($id);
+        if (!$town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $zone_id = $parser->get('zone_id', -1);
+        $zone = $this->entity_manager->getRepository(Zone::class)->find($zone_id);
+
+        if(!$zone || $zone->getTown() !== $town)
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $target = $parser->get("target");
+        $digs = $parser->get('digs', 0);
+        if($digs < 0)
+            $digs = 0;
+        if ($target == "zone"){
+           $zone->setDigs($digs);
+        } else if ($target == 'ruin' && $zone->getPrototype() !== null) {
+           $zone->setRuinDigs($digs);
+        }
+        $this->entity_manager->persist($zone);
+        $this->entity_manager->flush();
+
+        return AjaxResponse::success();
     }
 
     /**

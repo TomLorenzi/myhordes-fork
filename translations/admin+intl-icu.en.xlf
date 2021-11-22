@@ -2342,7 +2342,7 @@
     <unit id="Q_CT7Yc" name="Setzen">
       <notes>
         <note category="german">Setzen</note>
-        <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/widget/controls.twig</note>
       </notes>
       <segment>
         <source>Setzen</source>
@@ -4383,7 +4383,29 @@
       </notes>
       <segment>
         <source>Aktion bei Klick:</source>
-        <target>Aktion bei Klick:</target>
+        <target>Action on click:</target>
+      </segment>
+    </unit>
+    <unit id="0G7SYAt" name="Verbleibe Zonengrabungen:">
+      <notes>
+        <note category="german">Verbleibe Zonengrabungen:</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Verbleibe Zonengrabungen:</source>
+        <target>Zone digs left:</target>
+      </segment>
+    </unit>
+    <unit id="Bcli6ap" name="Verbleibende Ruinengrabungen:">
+      <notes>
+        <note category="german">Verbleibende Ruinengrabungen:</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Verbleibende Ruinengrabungen:</source>
+        <target>Ruin digs left:</target>
       </segment>
     </unit>
   </file>
