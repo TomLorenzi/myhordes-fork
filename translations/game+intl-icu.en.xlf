@@ -20906,7 +20906,7 @@
       </notes>
       <segment>
         <source>ZERSTÖRT!!</source>
-        <target>ZERSTÖRT!!</target>
+        <target>DESTROYED!!</target>
       </segment>
     </unit>
     <unit id="3I5M2q.">
@@ -21070,7 +21070,7 @@
       </notes>
       <segment>
         <source>{actor} hat heimlich versucht diesen Gegenstand: {item} bei {victim} abzulegen... Leider wurde er dabei ertappt! Jetzt fragen sich alle: Was wollte er damit bezwecken?</source>
-        <target>{actor} hat heimlich versucht diesen Gegenstand: {item} bei {victim} abzulegen... Leider wurde er dabei ertappt! Jetzt fragen sich alle: Was wollte er damit bezwecken?</target>
+        <target>{actor} tried to discretely leave the {item} in {victim}'s house... Unfortunately for this citizen, they were spotted! One question remains though: what could they have been plotting?</target>
       </segment>
     </unit>
     <unit id="3Dm5jOH" name="Du hast den(die,das) {item} bei {victim} abgelegt...">
@@ -22307,7 +22307,7 @@
       </notes>
       <segment>
         <source>Trinken (Oder du stirbst heute Nacht)</source>
-        <target>Trinken (Oder du stirbst heute Nacht)</target>
+        <target>Drink (or die tonight)</target>
       </segment>
     </unit>
     <unit id="016qyFO">
