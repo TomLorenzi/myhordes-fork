@@ -68,7 +68,7 @@
                         <div class="row">
                             <div class="padded cell rw-4 note note-lightest"><label for="administer-town">{{ 'Stadt administrieren'|trans({},'admin') }}</label></div>
                             <div class="padded cell rw-8">
-                                <select id="administer-town" style="width: 30rem;">
+                                <select id="administer-town" style="width: 100%;">
                                     <option value="">-</option>
                                     {% if is_granted("ROLE_ADMIN") %}
                                         <optgroup label="{{ 'Nächtlicher Angriff'|trans({},'admin') }}">
@@ -158,6 +158,15 @@
                     <div class="cell padded rw-6 rw-sm-12">
                         {% embed "ajax/admin/towns/map.html.twig" with {'default_zoom': 0, 'default_show_zone': false, 'allow_zone_view': false, 'map': map_data} %}
                         {% endembed %}
+                        {% if is_granted("ROLE_ADMIN") %}
+                            <div id="dash_zone_generator" x-target="zone" x-id="">
+                                {{ 'Zone'|trans({}, 'admin') }} <span id="zone_coords"></span>
+                                {{ item_creator(itemPrototypes, 'zone') }}
+                            </div>
+                            <div id="zone_floor">
+
+                            </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>
@@ -268,6 +277,16 @@
             <div x-tab-group="admin-town" x-tab-id="bank" x-tab-target>
                 <div class="row">
                     <div x-target="bank" x-id="{{ town.id }}" class="padded cell rw-6 rw-md-12">
+                        {% if is_granted("ROLE_ADMIN") %}
+                            <div class="lightbox">
+                                {{ 'Aktion bei Klick:'|trans({}, 'admin') }}
+                                <div class="note note-lightest">
+                                    <input type="radio" name="itemAction" id="add" value="add" checked /><label for="add">{{ 'Hinzufügen'|trans({}, 'admin') }}</label>
+                                    <input type="radio" name="itemAction" id="remove" value="remove" /><label for="remove">{{ 'Entfernen' |trans({}, 'global') }}</label>
+                                    x <input type="number" id="itemActionQty" value="1" class="inline" />
+                                </div>
+                            </div>
+                        {% endif %}
                         {% embed "ajax/game/inventory.html.twig" with {'size': 0, 'items': bank, 'bankmode': true} %}
                             {% block class %}bank{% endblock %}
                             {% block title %}{% endblock %}
@@ -683,6 +702,7 @@
     {% if is_granted("ROLE_ADMIN") %}
         {{ item_creator_js('input[x-target="rucksack"]:checked,input[x-target="chest"]:checked,input[x-target="zone"]:checked', path('admin_spawn_item', {id: town.id}), path('admin_town_explorer', {id: town.id, tab: "citizens"}), 'ctz') }}
         {{ item_creator_js('[x-target="bank"]', path('admin_spawn_item', {id: town.id}), path('admin_town_explorer', {id: town.id, tab: "bank"}), 'bnk') }}
+        {{ item_creator_js('[x-target="zone"]', path('admin_spawn_item', {id: town.id}), path('admin_town_explorer', {id: town.id, tab: "dash"}), 'zone') }}
         {{ teleport_control_js('input[x-target="status"]:checked', path('admin_teleport_citizen', {id: town.id}), path('admin_town_explorer', {id: town.id, tab: "citizens"})) }}
         {{ picto_creator_js(path('admin_town_give_picto', {id: town.id}), path('admin_town_explorer', {id: town.id, tab: "citizens"})) }}
         {{ status_control_js('input[x-target="status"]:checked', path('admin_town_manage_status', {id: town.id}), path('admin_town_explorer', {id: town.id, tab: "citizens"})) }}
@@ -733,16 +753,13 @@
             });
 
             {% if is_granted("ROLE_ADMIN") %}
-
             let items = document.querySelectorAll('.bank>.item:not(.locked)[x-item-id]');
             for (let i = 0; i < items.length; i++)
                 items[i].addEventListener('click', function(ev) {
-                    let change = "add";
-                    if (ev.ctrlKey)
-                        change = "remove";
+                    let change = document.querySelector('input[name=itemAction]:checked').value;
                     const item_id = this.getAttribute('x-item-id');
-                    $.ajax.easySend('{{ path('admin_bank_item', {id: town.id}) }}', {
-                            item: item_id, change: change
+                    $.ajax.easySend('{{ path('admin_town_item', {id: town.id}) }}', {
+                            item: item_id, change: change, qty: document.getElementById('itemActionQty').value
                         },
                         function () {
                             $.ajax.load(null, '{{ path('admin_town_explorer', {id: town.id, tab: "bank"}) }}', true);
@@ -814,6 +831,34 @@
                            } );
                            break;
                    }
+                });
+            }
+
+            let zones = document.querySelectorAll(".map_area .map .zone");
+            for(let i = 0 ; i < zones.length ; i++) {
+                zones[i].addEventListener('click', function(ev){
+                    ev.preventDefault();ev.stopPropagation();
+                    let target = ev.target.parentElement;
+                    document.getElementById("dash_zone_generator").setAttribute('x-id', target.getAttribute("x-id"));
+                    document.getElementById("zone_coords").innerText = "[" + target.getAttribute("x-zone-x") + ", " + target.getAttribute("x-zone-y") + "]";
+                    $.ajax.no_history().load(document.getElementById("zone_floor"), '{{ url('get_zone_floor', {id: town.id}) }}', false, {'zone_id': target.getAttribute("x-id")}, function(){
+                        document.querySelector("#zone_floor .inventory").classList.add('desert');
+                        document.querySelector("#zone_floor .inventory .title").innerText = "[" + target.getAttribute("x-zone-x") + ", " + target.getAttribute("x-zone-y") + "]";
+                        let items = document.querySelectorAll('#zone_floor .inventory .item:not(.locked)[x-item-id]');
+                        for (let i = 0; i < items.length; i++)
+                            items[i].addEventListener('click', function(ev) {
+                                let change = 'remove';
+                                const item_id = this.getAttribute('x-item-id');
+                                $.ajax.easySend('{{ path('admin_town_item', {id: town.id}) }}', {
+                                        item: item_id, change: change, qty: '1'
+                                    },
+                                    function () {
+                                        let target = document.querySelector('#zone_floor .inventory .item[x-item-id="' + item_id + '"]');
+                                        target.parentElement.removeChild(target);
+                                    }
+                                );
+                            });
+                    });
                 });
             }
             {% endif %}

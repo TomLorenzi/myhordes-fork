@@ -1587,7 +1587,7 @@
     <unit id="y7lc8Ct" name="Hinzufügen">
       <notes>
         <note category="german">Hinzufügen</note>
-        <note category="from">twig:///templates/ajax/admin/spam/domains.html.twig;twig:///templates/ajax/admin/users/ban.html.twig;twig:///templates/ajax/admin/widget/controls.twig</note>
+        <note category="from">twig:///templates/ajax/admin/spam/domains.html.twig;twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/users/ban.html.twig;twig:///templates/ajax/admin/widget/controls.twig</note>
       </notes>
       <segment>
         <source>Hinzufügen</source>
@@ -4337,6 +4337,17 @@
       <segment>
         <source>Rolle</source>
         <target>Rôle</target>
+      </segment>
+    </unit>
+    <unit id="h2jMPFO" name="Aktion bei Klick:">
+      <notes>
+        <note category="german">Aktion bei Klick:</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Aktion bei Klick:</source>
+        <target>Action au clic :</target>
       </segment>
     </unit>
   </file>
