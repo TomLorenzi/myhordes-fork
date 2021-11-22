@@ -128,6 +128,17 @@ echo "-> Running migration..."
 ssh -t "${_SSH}" "cd \"${_NEW_VERSION}\" && ${_BIN_CONSOLE} app:migrate -u -r && ${_BIN_CONSOLE} app:migrate -p -v"
 ssh -t "${_SSH}" "chown -R ${REMOTE_WEBSERVER_USER}:${REMOTE_WEBSERVER_GROUP} \"${_NEW_VERSION}\" && chown -R ${REMOTE_WEBSERVER_USER}:${REMOTE_WEBSERVER_GROUP} \"${REMOTE_PATH_STORAGE}\""
 
+# Confirmation
+echo "Ready to activate the new installation at:"
+echo "${_NEW_VERSION}"
+read -p "Continue? (y/n)" -n 1 -r
+echo ""
+if [[ ! $REPLY =~ ^[Yy]$ ]]
+then
+  echo "Aborted."
+  exit 2
+fi
+
 echo "-> Activating new installation"
 ssh -t "${_SSH}" "ln -sfn \"${_NEW_VERSION}\" \"${REMOTE_PATH_ENTRYPOINT:?}\""
 
