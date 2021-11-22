@@ -9390,7 +9390,7 @@
       </notes>
       <segment>
         <source>Eindeutig! &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} starb an einer Vergiftung. Wie genau das passieren konnte, weiß niemand so recht, aber {citizen1} verhielt sich sehr verdächtig.</source>
-        <target><![CDATA[I'll be you, double-check before swallowing anything. Indeed, <i class="dagger">†</i> {cadaver1} will have lacked caution yesterday. Victim of cyanide poisoning. Criminal act ? Accident ? Blame it on {citizen1} ? Who knows ? ... Oh yes... <strong>I know</strong>.]]></target>
+        <target><![CDATA[If I were you, I'd double-check everything before you swallow it. It seems, <i class="dagger">†</i> {cadaver1} should have been more careful yesterday. A victim of cyanide. A crime? Accident? Who knows? ... Oh yes... <strong>Me. I know</strong>.]]></target>
       </segment>
     </unit>
     <unit id="jC0g8aF">
@@ -21568,7 +21568,7 @@
       </notes>
       <segment>
         <source>Mehrere Brandherde wurden im Reaktorkern gesichtet, bevor er komplett in Flammen aufging. Kurz danach wurde das gesamte Gebiet von einem grünen Blitz vollkommen verwüstet. Die wenigen Überlebenden sind innerhalb nur weniger Sekunden an Strahlenkrankheit gestorben. Was für ein Ende!</source>
-        <target>Multiple fires were reported in our Reactor core before it burst into flames. Then a huge green flash wiped out and contaminated the whole area. It only took a few seconds for the few remaining survivors to perish through radiation poisoning. What a climax!</target>
+        <target><![CDATA[Multiple fires were reported in our <strong>Reactor core</strong> before it burst into flames. Then a huge green flash wiped out and contaminated the whole area. It only took <strong>a few seconds</strong> for the few remaining survivors to perish through <strong>radiation poisoning<s/trong>. What a climax!]]></target>
       </segment>
     </unit>
     <unit id="mw_CjlK" name="Wenn die Stadt eine Pumpe baut, ist sie im Stande mehr Wasser zu fördern!">
@@ -23327,7 +23327,7 @@
       </notes>
       <segment>
         <source>Außerdem wäre es gut, daran zu denken, dass der Schamane der Stadt letzte Nacht gestorben ist. Heute Abend findet eine Neuwahl statt, bei der ein neuer Kandidat aus den Reihen der Überlebenden gewählt wird.</source>
-        <target>Außerdem wäre es gut, daran zu denken, dass der Schamane der Stadt letzte Nacht gestorben ist. Heute Abend findet eine Neuwahl statt, bei der ein neuer Kandidat aus den Reihen der Überlebenden gewählt wird.</target>
+        <target>By the way, your seer and resident mystic, the shaman died last night. His soul will reincarnate in one of the survivors.</target>
       </segment>
     </unit>
     <unit id="EvR1zFN">
@@ -23337,7 +23337,7 @@
       </notes>
       <segment>
         <source>Halten wir kurz inne und gedenken unserem verlorenen Schamanen. Auf Wiedersehen, nutzloser Scharlatan! Wer ist motiviert, ihn zu ersetzen?</source>
-        <target>Spare a thought for our for our lost Shaman. Adieu useless charlatan!</target>
+        <target>Spare a thought for our lost Shaman. Adieu useless charlatan!</target>
       </segment>
     </unit>
     <unit id="r1UYBsR">
@@ -23348,7 +23348,7 @@
       </notes>
       <segment>
         <source>Unser geliebter Reiseleiter in der Außenwelt ist gestern verstorben. Heute Abend findet eine Neuwahl statt, bei der ein neuer Kandidat aus den Reihen der Überlebenden gewählt wird.</source>
-        <target>Unser geliebter Reiseleiter in der Außenwelt ist gestern verstorben. Heute Abend findet eine Neuwahl statt, bei der ein neuer Kandidat aus den Reihen der Überlebenden gewählt wird.</target>
+        <target>Our wonderful guide went and get himself lost... There will be an election tonight to decide who'll be the next victim.. I mean, guide.</target>
       </segment>
     </unit>
     <unit id="mzUHqMR">
@@ -23380,7 +23380,7 @@
       </notes>
       <segment>
         <source>Wir werden nie wieder etwas von &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} hören, der sich entschlossen hat, dem Angriff der Zombies durch Selbstmord zu entkommen.</source>
-        <target><![CDATA[Wir werden nie wieder etwas von <i class="dagger">†</i> {cadaver1} hören, der sich entschlossen hat, dem Angriff der Zombies durch Selbstmord zu entkommen.]]></target>
+        <target><![CDATA[We'll never hear from <i class="dagger">†</i> {cadaver1} again, as he decided to escape the zombie hordes by <strong>committing suicide</strong>.]]></target>
       </segment>
     </unit>
     <unit id="NCukv3K">
@@ -23413,7 +23413,7 @@
       </notes>
       <segment>
         <source>Der Gerechtigkeit ist Genüge getan, ihr habt gestern dafür gestimmt, &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} zu hängen. Hat doch Spaß gemacht, nicht wahr?</source>
-        <target><![CDATA[Der Gerechtigkeit ist Genüge getan, ihr habt gestern dafür gestimmt, <i class="dagger">†</i> {cadaver1} zu hängen. Hat doch Spaß gemacht, nicht wahr?]]></target>
+        <target><![CDATA[Justice has been served, yesterday you voted to hang <i class="dagger">†</i> {cadaver1}. Well we need some kind of entertainment now there's no X-Factor...]]></target>
       </segment>
     </unit>
     <unit id="u_dmSmH">
@@ -23434,7 +23434,7 @@
       </notes>
       <segment>
         <source>&lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} wird niemanden mehr belästigen, da er mittlerweile an einem Seil schwingt... Die Gesetze der Stadt sind kein Witz!</source>
-        <target><![CDATA[<i class="dagger">†</i> {cadaver1} wird niemanden mehr belästigen, da er mittlerweile an einem Seil schwingt... Die Gesetze der Stadt sind kein Witz!]]></target>
+        <target><![CDATA[<i class="dagger">†</i> {cadaver1} won't annoy anyone anymore, especially when he's currently dangling from the end of a rope... We don't mess around here!]]></target>
       </segment>
     </unit>
     <unit id="lga50hn">
@@ -23454,7 +23454,7 @@
       </notes>
       <segment>
         <source>Anderes Thema; der Tod von &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} durch Verdurstung ist ein schlechtes Omen, findet ihr nicht auch?</source>
-        <target><![CDATA[<i class="dagger">†</i> {cadaver1}'s death from dehydration is a worrying sign. The more you think about it, the more thirsty you become, don't you find?]]></target>
+        <target><![CDATA[<i class="dagger">†</i> {cadaver1}'s death from dehydration is a worrying sign. The more you think about it, the more thirsty you become, don't you think?]]></target>
       </segment>
     </unit>
     <unit id="KwXVUkQ">
@@ -23504,7 +23504,7 @@
       </notes>
       <segment>
         <source>Der Durst hat gestern {cadavers} Bürger übermannt. Ein schöner und langer Todeskampf, der direkt zu einem grausamen Tod führt. Wir haben also kein Wasser mehr? Oh oh oh...</source>
-        <target>I meant to tell you, dehydration took the lives of {cadavers} citizens yesterday. An extended period of agony culminating in an excruciating death. Is there a shortage of water or something? Mwahahahaha...</target>
+        <target><![CDATA[<strong>Dehydration</strong> took the lives of {cadavers} citizens yesterday. An extended period of agony culminating in an excruciating death. Is there a shortage of water or something? Mwahahahaha...]]></target>
       </segment>
     </unit>
     <unit id="9IYIWWF">
@@ -23515,7 +23515,7 @@
       </notes>
       <segment>
         <source>Abgesehen davon haben {cadavers} Bürger vergessen, dass man ohne Wasser nicht lange überleben kann. Morgen mehr Todesfälle durch Dehydrierung?</source>
-        <target>Abgesehen davon haben {cadavers} Bürger vergessen, dass man ohne Wasser nicht lange überleben kann. Morgen mehr Todesfälle durch Dehydrierung?</target>
+        <target><![CDATA[{cadavers}<strong> citizens</strong> forgot that without water, they wouldn't survive for long. More deaths by dehydration tomorrow?]]></target>
       </segment>
     </unit>
     <unit id="LSb5uAS">
@@ -23526,7 +23526,7 @@
       </notes>
       <segment>
         <source>Übrigens, Wassermangel ist teuer, {cadavers} die Bürger sind gestern in der Stadt ausgetrocknet. Oder haben sie "vergessen", ihre Ration zu nehmen? Stellt euch das mal vor!</source>
-        <target>Übrigens, Wassermangel ist teuer, {cadavers} die Bürger sind gestern in der Stadt ausgetrocknet. Oder haben sie "vergessen", ihre Ration zu nehmen? Stellt euch das mal vor!</target>
+        <target>Water shortages are expensive, {cadavers} citizens dried out properly in town yesterday. Or did they just "forget" to collect their ration? Better go and check.</target>
       </segment>
     </unit>
     <unit id="rsAiEQB">
@@ -23536,7 +23536,7 @@
       </notes>
       <segment>
         <source>Ein anderes Thema, die Stadt trocknet langsam aus (ha ha, verstanden?). {cadavers} Bürger starben in der Nacht an Dehydrierung... Oh oh oh...</source>
-        <target>a dry spell in town (if you know what I mean). {cadavers} citizens died from dehydration during the night...</target>
+        <target><![CDATA[A <strong>dry spell</strong> in town (if you know what I mean). {cadavers} citizens died from dehydration during the night...]]></target>
       </segment>
     </unit>
     <unit id="cPTwDJQ">
@@ -23547,7 +23547,7 @@
       </notes>
       <segment>
         <source>Wenn du dich fragst, wer &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} gestern (mit Curare) ermordet hat, neige ich stark zu {citizen1}. Stell nicht zu viele Fragen, sagen wir einfach, ich habe meine Quellen. Verbannt den Verräter!</source>
-        <target><![CDATA[Wenn du dich fragst, wer <i class="dagger">†</i> {cadaver1} gestern (mit Curare) ermordet hat, neige ich stark zu {citizen1}. Stell nicht zu viele Fragen, sagen wir einfach, ich habe meine Quellen. Verbannt den Verräter!]]></target>
+        <target><![CDATA[Don't bother starting any private investigations. If you want to know who killed <i class="dagger">†</i> {cadaver1} yesterday (curare poisoning), I firmly believe it was {citizen1}. I can't say too much on the subject, but let's just say that I have my sources. Treachery and treason - there's always an excuse for it. Ban the traitor!]]></target>
       </segment>
     </unit>
     <unit id=".w_A.uE">
@@ -23558,7 +23558,7 @@
       </notes>
       <segment>
         <source>Zu deiner Information: Wenn du dich fragst, wie hoch das Risiko einer &lt;strong&gt;Infektion&lt;/strong&gt; ist, kannst du einen Blick auf den verwesten Körper von &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} werfen, der letzte Nacht in sein Bett gestorben ist.</source>
-        <target><![CDATA[Zu deiner Information: Wenn du dich fragst, wie hoch das Risiko einer <strong>Infektion</strong> ist, kannst du einen Blick auf den verwesten Körper von <i class="dagger">†</i> {cadaver1} werfen, der letzte Nacht in sein Bett gestorben ist.]]></target>
+        <target><![CDATA[If you're wondering what the dangers are if you become <strong>infected</strong>, you should take a look at <i class="dagger">†</i> {cadaver1}'s body. They died in their bed last night.]]></target>
       </segment>
     </unit>
     <unit id="5SMPX_Q">
@@ -23569,7 +23569,7 @@
       </notes>
       <segment>
         <source>&lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} wird sich mehrere Stunden lang gequält haben, bevor er &lt;strong&gt;buchstäblich auf dem Boden verwest&lt;/strong&gt; ist. Eine Infektion kennt keine Gnade...</source>
-        <target><![CDATA[<i class="dagger">†</i> {cadaver1} wird sich mehrere Stunden lang gequält haben, bevor er <strong>buchstäblich auf dem Boden verwest</strong> ist. Eine Infektion kennt keine Gnade...]]></target>
+        <target><![CDATA[<i class="dagger">†</i> {cadaver1} was in agony for several hours before literally <strong>decomposing</strong> on the ground. An infection never shows mercy...]]></target>
       </segment>
     </unit>
     <unit id="s75I5Ev">
@@ -23590,7 +23590,7 @@
       </notes>
       <segment>
         <source>Ich hoffe, niemand kam &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} zu nahe. Dieser Bürger ist über Nacht an einer &lt;strong&gt;systemischen Infektion&lt;/strong&gt; gestorben. Wir alle haben seine furchtbaren &lt;strong&gt;Schreie der Qual&lt;/strong&gt; gehört, machen wir uns nichts vor...</source>
-        <target><![CDATA[Ich hoffe, niemand kam <i class="dagger">†</i> {cadaver1} zu nahe. Dieser Bürger ist über Nacht an einer <strong>systemischen Infektion</strong> gestorben. Wir alle haben seine furchtbaren <strong>Schreie der Qual</strong> gehört, machen wir uns nichts vor...]]></target>
+        <target><![CDATA[I hope nobody has gotten too close to <i class="dagger">†</i> {cadaver1} lately. They died during the night from a <strong>generalised infection</strong>. We all heard his <strong>screams of agony</strong>, let's be honest...]]></target>
       </segment>
     </unit>
     <unit id="BxpPAzH">
@@ -23621,7 +23621,7 @@
       </notes>
       <segment>
         <source>Ihre Haut begann sich zu schälen, aber sie machten sich keine allzu großen Gedanken darüber... {cadavers} Bürger starben letzte Nacht an einer Infektion.</source>
-        <target>Ihre Haut begann sich zu schälen, aber sie machten sich keine allzu großen Gedanken darüber... {cadavers} Bürger starben letzte Nacht an einer Infektion.</target>
+        <target>Their skin started to crack and peel, but that wasn't the worst of their worries... {cadavers} people died of infections last night.</target>
       </segment>
     </unit>
     <unit id="Muq1Zer">
@@ -23632,7 +23632,7 @@
       </notes>
       <segment>
         <source>Wir sollten dafür sorgen, dass wir uns um unsere Kranken kümmern. {cadavers} Bürger sind gestern an verschiedenen Infektionen gestorben. Notfalls hängen wir die infizierten Bürger auf, dann müssen wir weniger von ihnen behandeln..</source>
-        <target>Wir sollten dafür sorgen, dass wir uns um unsere Kranken kümmern. {cadavers} Bürger sind gestern an verschiedenen Infektionen gestorben. Notfalls hängen wir die infizierten Bürger auf, dann müssen wir weniger von ihnen behandeln..</target>
+        <target><![CDATA[We must try to care for our sick and wounded. {cadavers} <strong>citizens</strong> died from various <strong>infections</strong> yesterday. In a pinch, you could always hang the infected, that leaves fewer to treat.]]></target>
       </segment>
     </unit>
     <unit id="w6Ydl3g">
