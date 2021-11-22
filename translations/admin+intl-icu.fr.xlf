@@ -4343,7 +4343,6 @@
       <notes>
         <note category="german">Aktion bei Klick:</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Aktion bei Klick:</source>

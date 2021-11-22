@@ -2743,5 +2743,11 @@
         <target>Rolle</target>
       </segment>
     </unit>
+    <unit id="h2jMPFO" name="Aktion bei Klick:">
+      <segment>
+        <source>Aktion bei Klick:</source>
+        <target>Aktion bei Klick:</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

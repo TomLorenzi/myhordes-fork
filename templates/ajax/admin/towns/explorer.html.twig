@@ -853,8 +853,8 @@
                                         item: item_id, change: change, qty: '1'
                                     },
                                     function () {
-                                        let target = document.querySelector('#zone_floor .inventory .item[x-item-id="' + item_id + '"]');
-                                        target.parentElement.removeChild(target);
+                                        let itemTarget = document.querySelector('#zone_floor .inventory .item[x-item-id="' + item_id + '"]');
+                                        itemTarget.parentElement.removeChild(itemTarget);
                                     }
                                 );
                             });
