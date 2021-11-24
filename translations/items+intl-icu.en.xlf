@@ -8804,12 +8804,11 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     <unit id="kXs8w7H" name="Du kannst diesen Gegenstand nur &lt;strong&gt;einmal am Tag&lt;/strong&gt; verwenden...">
       <notes>
         <note category="german">Du kannst diesen Gegenstand nur &lt;strong&gt;einmal am Tag&lt;/strong&gt; verwenden...</note>
-        <note category="state">new</note>
         <note category="from">db://Requirement</note>
       </notes>
       <segment>
         <source>Du kannst diesen Gegenstand nur &lt;strong&gt;einmal am Tag&lt;/strong&gt; verwenden...</source>
-        <target><![CDATA[Du kannst diesen Gegenstand nur <strong>einmal am Tag</strong> verwenden...]]></target>
+        <target><![CDATA[You can only use this kind of object <strong>once per day</strong>...]]></target>
       </segment>
     </unit>
     <unit id="et83IYx" name="So, zur Desinfektion nur noch draufspucken und hopp: Sieht wie neu aus!">
