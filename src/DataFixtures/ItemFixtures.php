@@ -71,7 +71,7 @@ class ItemFixtures extends Fixture
         ['label' => 'Mini Hi-Fi Anlage (defekt)', 'icon' => 'music_part', 'category' => 'Furniture', 'deco' =>1, 'heavy' =>true, 'watchpoint' => 0],                       // -- ---
         ['label' => 'Kette + Vorhängeschloss', 'icon' => 'lock', 'category' => 'Furniture', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0, 'deco_text' => 'Verhindert Diebstähle'],                               // -- ---
         ['label' => 'Fußabstreifer', 'icon' => 'door_carpet', 'category' => 'Furniture', 'deco' =>5, 'heavy' =>false, 'watchpoint' => 0],                                  // -- ---
-        ['label' => 'Videoprojektor', 'icon' => 'cinema', 'category' => 'Furniture', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                                       // -- ---
+        ['label' => 'Videoprojektor', 'icon' => 'cinema', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                                       // -- ---
         ['label' => 'Nachttischlampe (an)', 'icon' => 'lamp_on', 'category' => 'Furniture', 'deco' =>3, 'heavy' =>false, 'watchpoint' => 10],                               // -- ---
         ['label' => 'Mini Hi-Fi Anlage (an)', 'icon' => 'music', 'category' => 'Furniture', 'deco' =>10, 'heavy' =>true, 'watchpoint' => -15],                               // -- ---
         ['label' => 'Ektorp-Gluten Stuhl', 'icon' => 'chair_basic', 'category' => 'Furniture', 'deco' =>2, 'heavy' =>true, 'watchpoint' => 8],                             // -- Out
