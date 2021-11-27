@@ -613,7 +613,7 @@ class NightlyHandler
 
         /** @var TownDefenseSummary|null $def_summary */
         $def_summary = null;
-	    $gazette->setDefense($def = $town->getDevastated() ? 0 : $this->town_handler->calculate_town_def( $town, $def_summary ));
+        $gazette->setDefense($def = $town->getDevastated() ? 0 : $this->town_handler->calculate_town_def( $town, $def_summary ));
 
         /** @var ZombieEstimation $est */
         $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$town->getDay()-1);
@@ -636,7 +636,7 @@ class NightlyHandler
 
         foreach ($this->deferred_log_entries as $deferred_log_entry)
             $this->entity_manager->persist( $deferred_log_entry );
-        
+
         $this->log->debug("Getting watchers for day " . $town->getDay());
 
         $has_nightwatch = $this->town_handler->getBuilding($town, 'small_round_path_#00');
@@ -658,6 +658,8 @@ class NightlyHandler
 
         if ($count_zombified_citizens > 0)
             $this->entity_manager->persist( $this->logTemplates->nightlyAttackBegin($town, $count_zombified_citizens, true, $count_zombified_citizens === 1 ? $last_zombified_citizen : null) );
+
+        $this->stage2_surprise_attack($town);
 
         $this->entity_manager->persist( $this->logTemplates->nightlyAttackBegin2($town) );
         $this->entity_manager->persist( $this->logTemplates->nightlyAttackSummary($town, $town->getDoor(), $overflow, count($watchers) > 0 && $has_nightwatch));
@@ -877,7 +879,7 @@ class NightlyHandler
             $this->entity_manager->persist($gazette);
             return;
         }
-		
+
         $survival_count = 0;
         /** @var Citizen[] $targets */
         $targets = [];
@@ -1608,7 +1610,6 @@ class NightlyHandler
         $this->stage2_day($town);
 
         if (!$this->exec_reactor) {
-            $this->stage2_surprise_attack($town);
             $this->stage2_attack($town);
         } else foreach ($this->deferred_log_entries as $deferred_log_entry)
             $this->entity_manager->persist( $deferred_log_entry );
