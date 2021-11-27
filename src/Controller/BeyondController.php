@@ -366,7 +366,7 @@ class BeyondController extends InventoryAwareController
         }
 
         $has_hidden_items =
-            $this->getActiveCitizen()->getBanished() &&
+            ($this->getActiveCitizen()->getBanished() || $town->getChaos()) &&
             !$this->getActiveCitizen()->getZone()->getFloor()->getItems()->filter(function(Item $i) { return $i->getHidden(); })->isEmpty();
 
         $floorItems = $zone->getFloor()->getItems()->toArray();

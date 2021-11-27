@@ -109,7 +109,7 @@ fi
 _BIN_CONSOLE="sudo -u ${REMOTE_WEBSERVER_USER} -g ${REMOTE_WEBSERVER_GROUP} php bin/console"
 
 echo "-> Freezing the current installation..."
-ssh -t "${_SSH}" "cd \"${REMOTE_PATH_ENTRYPOINT:?}\" && ${_BIN_CONSOLE} app:migrate --maintenance on"
+ssh -t "${_SSH}" "cd \"${REMOTE_PATH_ENTRYPOINT:?}\" && ${_BIN_CONSOLE} app:migrate --maintenance on && touch public/maintenance/.active"
 
 # Confirmation
 echo "Ready to migrate."
@@ -122,7 +122,7 @@ then
 fi
 
 echo "-> Creating backup and clearing cache..."
-ssh -t "${_SSH}" "cd \"${REMOTE_PATH_ENTRYPOINT:?}\" && sleep 5s && ${_BIN_CONSOLE} app:cron backup update && ${_BIN_CONSOLE} cache:clear"
+ssh -t "${_SSH}" "cd \"${REMOTE_PATH_ENTRYPOINT:?}\" && sleep 5s && ${_BIN_CONSOLE} app:cron backup update && ${_BIN_CONSOLE} cache:clear && rm -rf \"${REMOTE_PATH_STORAGE:?}/cache/*\""
 
 echo "-> Running migration..."
 ssh -t "${_SSH}" "cd \"${_NEW_VERSION}\" && ${_BIN_CONSOLE} app:migrate -u -r && ${_BIN_CONSOLE} app:migrate -p -v"

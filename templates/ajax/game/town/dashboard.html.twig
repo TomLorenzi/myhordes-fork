@@ -193,9 +193,9 @@
 
     {% if app.user.expert %}
         <div class="row">
-        <h5>{{ 'Unsere Verteidigungen'|trans({}, 'game')}} :</h5>
+        <h5>{{ 'Unsere Verteidigungen'|trans({}, 'game')}}</h5>
             {% if town.well < 15 %}
-                <div class="note note-critical">{{ '<strong>Achtung</strong>: Befinden sich nicht genügend Rationen Wasser im Brunnen, arbeiten manche Konstruktionen (wie z.B. der Wasserturm) beim Angriff nicht mit voller Stärke!'|trans({}, 'game')|raw }}</div>
+                <div class="note note-critical">{{ '<strong>Achtung:</strong> Befinden sich nicht genügend Rationen Wasser im Brunnen, arbeiten manche Konstruktionen (wie z.B. der Wasserturm) beim Angriff nicht mit voller Stärke!'|trans({}, 'game')|raw }}</div>
             {% endif %}
         <div class="padded cell rw-12 defense-detail">
             <ul class="overview-list">

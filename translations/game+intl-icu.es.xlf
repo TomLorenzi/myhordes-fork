@@ -1941,7 +1941,7 @@
       </notes>
       <segment>
         <source>{ruin} durchsuchen</source>
-        <target>Hurgar: {ruin}</target>
+        <target><![CDATA[Hurgar: <strong>{ruin}</strong>]]></target>
       </segment>
     </unit>
     <unit id="ZaxaGah" name="Zone freiräumen">
@@ -2433,7 +2433,7 @@
       </notes>
       <segment>
         <source>Albi Supermarkt</source>
-        <target>Tienda de Don Chicho</target>
+        <target>Tienda Don Chicho</target>
       </segment>
     </unit>
     <unit id="z79LmBi" name="Alte Höhle">
@@ -2443,7 +2443,7 @@
       </notes>
       <segment>
         <source>Alte Höhle</source>
-        <target>Refugio en construcción</target>
+        <target>Cueva</target>
       </segment>
     </unit>
     <unit id="7N1b8YP" name="Alte Hydraulikpumpe">
@@ -2513,7 +2513,7 @@
       </notes>
       <segment>
         <source>Atombunker</source>
-        <target>Refugio anti-atómico</target>
+        <target>Refugio Anti-atómico</target>
       </segment>
     </unit>
     <unit id="pSDkjjr" name="Atomic Cafe">
@@ -2543,7 +2543,7 @@
       </notes>
       <segment>
         <source>Autowracks</source>
-        <target>Carrocería de autos</target>
+        <target>Carrocerías de autos</target>
       </segment>
     </unit>
     <unit id="lVmO2OQ" name="Bar der verlorenen Hoffnungen">
@@ -2563,7 +2563,7 @@
       </notes>
       <segment>
         <source>Baumarkt</source>
-        <target>Home depot</target>
+        <target>La casa del constructor</target>
       </segment>
     </unit>
     <unit id="ejtguBI" name="Baustellencontainer">
@@ -2573,7 +2573,7 @@
       </notes>
       <segment>
         <source>Baustellencontainer</source>
-        <target>La casa del constructor</target>
+        <target>Refugio en construcción</target>
       </segment>
     </unit>
     <unit id="4P7trch" name="Dönerbude Utsel-Brutzel">
@@ -2633,7 +2633,7 @@
       </notes>
       <segment>
         <source>Ein seltsames kreisförmiges Gerät</source>
-        <target>Dispositivo circular</target>
+        <target>Un extraño aparato circular</target>
       </segment>
     </unit>
     <unit id="XbKWmCS" name="E-KEA">
@@ -2663,7 +2663,7 @@
       </notes>
       <segment>
         <source>Fast Food Restaurant</source>
-        <target>Restaurante «Rey Hamburgo»</target>
+        <target>Restaurante «Burger Twin»</target>
       </segment>
     </unit>
     <unit id="3jRHmba" name="Flugzeugwrack">
@@ -2703,7 +2703,7 @@
       </notes>
       <segment>
         <source>Höhle</source>
-        <target>Cueva</target>
+        <target>Caverna</target>
       </segment>
     </unit>
     <unit id="9x03HdM" name="Indianerfriedhof">
@@ -2753,7 +2753,7 @@
       </notes>
       <segment>
         <source>Kosmetiklabor</source>
-        <target>Laboratorio cosmético</target>
+        <target>Laboratorio de cosméticos</target>
       </segment>
     </unit>
     <unit id="XZBo0Eq" name="Krankenwagen">
@@ -2783,7 +2783,7 @@
       </notes>
       <segment>
         <source>Leeres Parkhaus</source>
-        <target>Parking abandonado</target>
+        <target>Parqueadero abandonado</target>
       </segment>
     </unit>
     <unit id="PLyihQR" name="Liegengebliebener Kampfpanzer">
@@ -2793,7 +2793,7 @@
       </notes>
       <segment>
         <source>Liegengebliebener Kampfpanzer</source>
-        <target>Tanque desvalijado</target>
+        <target>Tanque averiado</target>
       </segment>
     </unit>
     <unit id="ECpLJti" name="Motel 'Dusk'">
@@ -2863,7 +2863,7 @@
       </notes>
       <segment>
         <source>Tante Emma Laden</source>
-        <target>Minimercado</target>
+        <target>Minimercado «Ocxo»</target>
       </segment>
     </unit>
     <unit id="19QLQFs" name="Truck 'Rathaus auf Rädern'">
@@ -3003,7 +3003,7 @@
       </notes>
       <segment>
         <source>Zerstörte Apotheke</source>
-        <target>Farmacia destruida</target>
+        <target>Farmatodito destruido</target>
       </segment>
     </unit>
     <unit id="4N3cahH" name="ZomBIER Bar">
@@ -4114,7 +4114,7 @@
       </notes>
       <segment>
         <source>Hier wohnte ein Bürger, der  sich außerhalb der Stadt niedergelassen hat, weil er den Streitigkeiten und dem Verrat, die das Stadtleben mit sich bringt, entfliehen wollte. Die Hälfte seiner Leiche liegt immer noch im Wohnzimmer.</source>
-        <target>Hier wohnte ein Bürger, der  sich außerhalb der Stadt niedergelassen hat, weil er den Streitigkeiten und dem Verrat, die das Stadtleben mit sich bringt, entfliehen wollte. Die Hälfte seiner Leiche liegt immer noch im Wohnzimmer.</target>
+        <target><![CDATA[Aquí vivió un habitante que se instaló en el desierto, pensando empezar una nueva vida, lejos de la traición y de las intrigas de sus compañeros. <strong>La mitad de su cuerpo aún está tirado en un rincón</strong>.]]></target>
       </segment>
     </unit>
     <unit id="I0Djxyu">
@@ -4125,7 +4125,7 @@
       </notes>
       <segment>
         <source>Einer der vielen Albi Supermarkt, die um das Jahr 2010 herum aus dem Boden schossen und später dann verschwanden... spezialisiert darauf, Dinge so billig wie möglich zu verscherbeln. Hier findest du alles finden, was du brauchst - egal ob du einfach pleite bist oder eisern auf ein neues Stück Seife sparst, kaufe bei ALBI ein!</source>
-        <target>Einer der vielen Albi Supermarkt, die um das Jahr 2010 herum aus dem Boden schossen und später dann verschwanden... spezialisiert darauf, Dinge so billig wie möglich zu verscherbeln. Hier findest du alles finden, was du brauchst - egal ob du einfach pleite bist oder eisern auf ein neues Stück Seife sparst, kaufe bei ALBI ein!</target>
+        <target>Ahí se encuentran muchos productos de limpieza. Los más desfavorecidos encontrarán algo de comer...</target>
       </segment>
     </unit>
     <unit id="if10dn9">
@@ -4136,7 +4136,7 @@
       </notes>
       <segment>
         <source>Manche Fehler enden zwangsläufig tödlich. Nehmt als Beispiel diese Höhle. Stellt euch vor, ihr werdet von einer Zombiemeute verfolgt und eilt überstürzt in eine Höhle, um Schutz zu suchen. Ihr werdet dann folgendes Problem haben: Wie kommt ihr heil wieder raus, wenn die Biester euch gefolgt sind? Der zerfledderte Typ an der Wand dort hinten scheint dies nicht bedacht zu haben...</source>
-        <target>Manche Fehler enden zwangsläufig tödlich. Nehmt als Beispiel diese Höhle. Stellt euch vor, ihr werdet von einer Zombiemeute verfolgt und eilt überstürzt in eine Höhle, um Schutz zu suchen. Ihr werdet dann folgendes Problem haben: Wie kommt ihr heil wieder raus, wenn die Biester euch gefolgt sind? Der zerfledderte Typ an der Wand dort hinten scheint dies nicht bedacht zu haben...</target>
+        <target>El típico caso de un hombre que se mete en una cueva huyendo de una turba de zombies. Todo bien hasta allí, hasta que el hombre recuerda que tenía 2 zombies abrazados a su espalda. El pobre gritó de todo menos «Por favor».</target>
       </segment>
     </unit>
     <unit id="bnTVKZv">
@@ -4146,7 +4146,7 @@
       </notes>
       <segment>
         <source>Eine alte Pumpe, die zwar vor sich hin rostet, aber dennoch in der Lage ist, in der Wüste Wasser zu schöpfen... Das einzige Problem ist, dass das Wasser, selbst wenn Sie es zum Funktionieren bringen, im Grunde genommen ungenießbar ist und in der Stadt mit den entsprechenden Geräten gereinigt werden muss.</source>
-        <target><![CDATA[Esta vieja bomba hidráulica está bastante corroída y tiene aún la capacidad de extraer agua en el desierto... Si llegas a hacerla funcionar, el agua <strong>no será potable <strong>y deberá</strong> ser purificada en el pueblo</strong> con los productos necesarios.]]></target>
+        <target><![CDATA[Esta bomba hidráulica está bastante corroída y tiene aún la capacidad de extraer agua en el desierto... Si llegas a hacerla funcionar, el agua <strong>no será potable</strong> y deberá ser <strong>purificada en el pueblo</strong> con los productos necesarios.]]></target>
       </segment>
     </unit>
     <unit id="7y4PXTQ">
@@ -4157,7 +4157,7 @@
       </notes>
       <segment>
         <source>Ein altes Fahrradverleihlager, das mit Metallstücken, Werkzeugen und allen Arten von Schutt übersät ist.</source>
-        <target>Ein altes Fahrradverleihlager, das mit Metallstücken, Werkzeugen und allen Arten von Schutt übersät ist.</target>
+        <target>Un antiguo taller de reparación de bicicletas repleta de herramientas y chatarra de todo tipo.</target>
       </segment>
     </unit>
     <unit id="2.pUWsx">
@@ -4168,7 +4168,7 @@
       </notes>
       <segment>
         <source>Dieser Rangierbahnhof war einmal das zentrale Drehkreuz des Landes. Waren aus aller Herren Länder wurden hier rund um die Uhr umgeladen und in alle Himmelsrichtungen versendet. Das 'weitverzweigte Netzt' ist heute noch ungefähr 150 Meter lang, vorausgesetzt man zählt die Gleisüberbleibsel da hinten noch mit.</source>
-        <target>Dieser Rangierbahnhof war einmal das zentrale Drehkreuz des Landes. Waren aus aller Herren Länder wurden hier rund um die Uhr umgeladen und in alle Himmelsrichtungen versendet. Das 'weitverzweigte Netzt' ist heute noch ungefähr 150 Meter lang, vorausgesetzt man zählt die Gleisüberbleibsel da hinten noch mit.</target>
+        <target>Esta plataforma ferroviaria se dedicaba a la distribución de mercancías. Ya que estás aquí, ¿por qué no echarle un vistazo?</target>
       </segment>
     </unit>
     <unit id="KNKSRpW">
@@ -4179,7 +4179,7 @@
       </notes>
       <segment>
         <source>Die menschlichen Überreste, die in der Auffahrt liegen gehören den ehemaligen Patienten dieses improvisierten Krankenhauses. Schwer zu sagen, wie viele Menschen hier beim abendlichen Angriff gestorben sind... Wenn du die Anzahl der Arme durch zwei teilst, vielleicht bekommst du dann eine grobe Schätzung?</source>
-        <target>Die menschlichen Überreste, die in der Auffahrt liegen gehören den ehemaligen Patienten dieses improvisierten Krankenhauses. Schwer zu sagen, wie viele Menschen hier beim abendlichen Angriff gestorben sind... Wenn du die Anzahl der Arme durch zwei teilst, vielleicht bekommst du dann eine grobe Schätzung?</target>
+        <target>Entre los cuerpos regados en los pasillos de este hospital improvisado se encuentran pacientes, enfermeras y víctimas del ataque... Es difícil saber cuántos hay. ¿Tal vez contando la cantidad de brazos y dividiéndolas entre dos?</target>
       </segment>
     </unit>
     <unit id="Of9gthO">
@@ -4190,7 +4190,7 @@
       </notes>
       <segment>
         <source>Das Einzige, was auf diesem bröckelnden Flugplatz startet oder landet, sind die Fliegen. Vielleicht finden Sie etwas Nützliches, wenn Sie in den Lagerhallen herumstöbern. Zum Beispiel einen A380 in funktionstüchtigem Zustand.</source>
-        <target>Das Einzige, was auf diesem bröckelnden Flugplatz startet oder landet, sind die Fliegen. Vielleicht finden Sie etwas Nützliches, wenn Sie in den Lagerhallen herumstöbern. Zum Beispiel einen A380 in funktionstüchtigem Zustand.</target>
+        <target>Lo único que vuela en este lugar son las moscas. Tal vez hurgando en el depósito encuentres algo útil. Algo como un Boeing 747 que funcione.</target>
       </segment>
     </unit>
     <unit id="GY66Lzm">
@@ -4231,7 +4231,7 @@
       </notes>
       <segment>
         <source>Früher wäre dies sicherlich einer der trendigsten Joints auf der M25 gewesen, mit verwässerten Getränken, dem Aroma von abgestandener Pisse und toten Ratten auf der Bar. Sie müssen seit Jahren der erste Mensch sein, der hier einen Fuß hinein gesetzt hat.</source>
-        <target>Früher wäre dies sicherlich einer der trendigsten Joints auf der M25 gewesen, mit verwässerten Getränken, dem Aroma von abgestandener Pisse und toten Ratten auf der Bar. Sie müssen seit Jahren der erste Mensch sein, der hier einen Fuß hinein gesetzt hat.</target>
+        <target>En una época, fue una parada oblitoria en en la A-667. Apreciado por su variedad de carnes, a pesar de su olor a orina y las ratas muertas en los rincones. Es una pena que ya no haya restaurantes así...</target>
       </segment>
     </unit>
     <unit id="Q4yDNyf">
@@ -4242,7 +4242,7 @@
       </notes>
       <segment>
         <source>Ein Kombi, der sich in einen Kleintransporter verkeilt hat. Der großen Anzahl an verkohlten Leichen nach zu urteilen, hat hier ein Unfall eine richtig große Karambolage verursacht.</source>
-        <target>Ein Kombi, der sich in einen Kleintransporter verkeilt hat. Der großen Anzahl an verkohlten Leichen nach zu urteilen, hat hier ein Unfall eine richtig große Karambolage verursacht.</target>
+        <target><![CDATA[Un modelo común de <strong>automóvil familiar</strong> empotrado en otro modelo común de <strong>furgoneta</strong>... Este choque debió provocar un <strong>accidente</strong> de gran envergadura a juzgar por la cadena de coches semi-destruidos que se encuentran alrededor.]]></target>
       </segment>
     </unit>
     <unit id="6pUg5Hf">
@@ -4253,7 +4253,7 @@
       </notes>
       <segment>
         <source>Diese Bar ist hinter einem kleinen Hügel an einer solchen Stelle versteckt, dass man leicht direkt daran vorbeigehen könnte, ohne es zu merken. Der Innenraum ist mit unzähligen Schwarzweiß-Portraits und Fotos geschmückt. Auf den Bildern ist oft ein Typ in gestreifter Pyjama-Kleidung zu sehen, der neben verschiedenen anderen Personen steht.</source>
-        <target>Diese Bar ist hinter einem kleinen Hügel an einer solchen Stelle versteckt, dass man leicht direkt daran vorbeigehen könnte, ohne es zu merken. Der Innenraum ist mit unzähligen Schwarzweiß-Portraits und Fotos geschmückt. Auf den Bildern ist oft ein Typ in gestreifter Pyjama-Kleidung zu sehen, der neben verschiedenen anderen Personen steht.</target>
+        <target>Este extraño bar se encuentra detrás de una colina y nadie se había dado cuenta de su existencia. El interior está decorado con muchísimas fotos en blanco y negro, en todas ellas hay un hombre vestido con un traje a rayas junto a diversas personas.</target>
       </segment>
     </unit>
     <unit id="YM4htdV">
@@ -4264,7 +4264,7 @@
       </notes>
       <segment>
         <source>Der Baumarkt ist das zweite Zuhause eines jeden Handwerkers. In dieser Welt avanciert er jedoch zu einem wahren Paradies! Gegenstände von unschätzbarem Wert warten nur darauf von dir entdeckt zu werden... Der Werbespruch auf dem Dach hat zudem nichts von seiner Aktualität eingebüßt: 'Plündern Sie uns bevor es andere tun!'</source>
-        <target>Der Baumarkt ist das zweite Zuhause eines jeden Handwerkers. In dieser Welt avanciert er jedoch zu einem wahren Paradies! Gegenstände von unschätzbarem Wert warten nur darauf von dir entdeckt zu werden... Der Werbespruch auf dem Dach hat zudem nichts von seiner Aktualität eingebüßt: 'Plündern Sie uns bevor es andere tun!'</target>
+        <target>Un paraíso para los amantes de las tuercas y destornilladores... Su eslogan sigue siendo vigente: « Más barato, imposible »</target>
       </segment>
     </unit>
     <unit id="k6GmYdG">
@@ -4274,7 +4274,7 @@
       </notes>
       <segment>
         <source>Dieser riesige gelbe Metallcontainer macht einen verlorenen Eindruck. Weit und breit keine Baustelle. Der Gemeinschaftsraum im Inneren ist mit leeren Bierflaschen übersät</source>
-        <target>Un gran container de metal en medio del desierto. Aquí debió haber hombres tabajando, pero hoy no queda nada más que esta "cabaña".</target>
+        <target>Un gran container de metal en medio del desierto. Aquí debió haber gente tabajando, pero hoy no queda nada más que esta "cabaña".</target>
       </segment>
     </unit>
     <unit id="8C9iaLK">
@@ -4285,7 +4285,7 @@
       </notes>
       <segment>
         <source>Von wegen Döner macht schöner. Scheint so als hätte der Besitzer dieser Bude das mit den Dönern und den Spießen missverstanden. Wer hier reingeht kommt garantiert nicht mehr raus.</source>
-        <target>Von wegen Döner macht schöner. Scheint so als hätte der Besitzer dieser Bude das mit den Dönern und den Spießen missverstanden. Wer hier reingeht kommt garantiert nicht mehr raus.</target>
+        <target>¿Tienes ganas de comer algo rico? ¡Ni se te ocurra venir aquí! o será el propio cocinero quien saldrá a devorarte!</target>
       </segment>
     </unit>
     <unit id="Y107l78">
@@ -4295,7 +4295,7 @@
       </notes>
       <segment>
         <source>Das Heim eines gewissen Duke R. Cooke, und wenn man der Gedenktafel an der Tür glauben darf... ein Heim für Helden... dieser Ort ist viel größer als eine Villa, es ist eine voll ausgestattete Festung !</source>
-        <target>El hogar de un tal Duke R. Cooke, y si puedes creer la placa en la puerta... un hogar para héroes... ¡Este lugar es mucho más grande que una mansión, es una fortaleza completamente equipada!</target>
+        <target>El hogar de un tal Duke R. Cooke, y si puedes creer en la placa en la puerta... un hogar para héroes... ¡Este lugar es mucho más grande que una mansión, es una fortaleza completamente equipada!</target>
       </segment>
     </unit>
     <unit id="q5V8SgZ">
@@ -4326,7 +4326,7 @@
       </notes>
       <segment>
         <source>Diese Mineralienabbauzone trägt alle Merkmale eines schrecklichen Unglücks : der Hang scheint auf die Arbeiter, Maschinen und Gebäude darunter eingestürzt zu sein.</source>
-        <target>Diese Mineralienabbauzone trägt alle Merkmale eines schrecklichen Unglücks : der Hang scheint auf die Arbeiter, Maschinen und Gebäude darunter eingestürzt zu sein.</target>
+        <target><![CDATA[Una <strong>zona de extracción de minerales</strong> que lleva las marcas de un <strong>terrible accidente</strong>: toda una ladera se <strong>derrumbó</strong> sobre la gente, las máquinas y los edificios.]]></target>
       </segment>
     </unit>
     <unit id=".cft5Zt">
@@ -4337,7 +4337,7 @@
       </notes>
       <segment>
         <source>Das Ganze sieht wie eine komische runde Metallscheibe aus, die mal zu einen Flugzeugcockpit gehörte. Aber du bist dir nicht ganz sicher, denn es könnte sich auch um ein Mähdrescherteil handeln...</source>
-        <target>Das Ganze sieht wie eine komische runde Metallscheibe aus, die mal zu einen Flugzeugcockpit gehörte. Aber du bist dir nicht ganz sicher, denn es könnte sich auch um ein Mähdrescherteil handeln...</target>
+        <target>Parece un enorme disco metálico de lo que pudo haber sido una trilladora acgrícola...</target>
       </segment>
     </unit>
     <unit id="7alcjvi">
@@ -4368,7 +4368,7 @@
       </notes>
       <segment>
         <source>Aus diesem Gebäude strömt ein entsetzlicher Gestank von verwesenden Leichen : Die Fleischvorräte haben sich in ekelerregende Hügel aus schimmeligem, weißem Fleisch verwandelt, aus denen eine dicke, scharfe Flüssigkeit austritt, die nun den Boden bedeckt und sogar begonnen hat, aus der Tür zu laufen...</source>
-        <target>Aus diesem Gebäude strömt ein entsetzlicher Gestank von verwesenden Leichen : Die Fleischvorräte haben sich in ekelerregende Hügel aus schimmeligem, weißem Fleisch verwandelt, aus denen eine dicke, scharfe Flüssigkeit austritt, die nun den Boden bedeckt und sogar begonnen hat, aus der Tür zu laufen...</target>
+        <target><![CDATA[Un olor atroz a cadáver sale de este edificio. La carne guardada se ha transformado en <strong>montículos de podredumbre blanca</strong> que comenzó a gelatinizarse... ]]></target>
       </segment>
     </unit>
     <unit id="TkIE5Fb">
@@ -4379,7 +4379,7 @@
       </notes>
       <segment>
         <source>Dieser Langstreckenflieger ist mitten im nirgendwo abgestürzt... Da der Wüstensand das Wrack fast vollkommen eingegraben hat und sich der Zahn der Zeit in das Material gefressen hat, lässt sich nicht mehr sagen, was das Flugzeug transportierte. Du lässt deinen Blick schweifen, es sind jedoch weit und breit keine Leichen erkennbar...</source>
-        <target>Dieser Langstreckenflieger ist mitten im nirgendwo abgestürzt... Da der Wüstensand das Wrack fast vollkommen eingegraben hat und sich der Zahn der Zeit in das Material gefressen hat, lässt sich nicht mehr sagen, was das Flugzeug transportierte. Du lässt deinen Blick schweifen, es sind jedoch weit und breit keine Leichen erkennbar...</target>
+        <target>Este avión comercial se estrelló en medio del desierto... Es difícil saber lo que transportaba, la arena ha cubierto casi todo. La presencia de asientos hace pensar que habían pasajeros, pero no hay rastro de cuerpos...</target>
       </segment>
     </unit>
     <unit id="DOlr_bI">
@@ -4410,7 +4410,7 @@
       </notes>
       <segment>
         <source>Eine Art Steinhöhle, die früher als Grabstätte oder Unterschlupf gedient haben muss... Schauen Sie sich das an. Im Inneren ist es absolut stockfinster, die Luft ist eisig und es riecht stark nach verfaulendem Fleisch...</source>
-        <target>Eine Art Steinhöhle, die früher als Grabstätte oder Unterschlupf gedient haben muss... Schauen Sie sich das an. Im Inneren ist es absolut stockfinster, die Luft ist eisig und es riecht stark nach verfaulendem Fleisch...</target>
+        <target><![CDATA[Una especie de <strong>gruta</strong> que debió servir como sepulcro o refugio... Su interior presenta una <strong>oscuridad total</strong>, el aire es <strong>glacial</strong> y huele a <strong>carroña</strong>.]]></target>
       </segment>
     </unit>
     <unit id="igWQAKU">
@@ -4421,7 +4421,7 @@
       </notes>
       <segment>
         <source>Ein altes indianisches Gräberfeld, das fast vollständig mit Sand und verrottender Vegetation bedeckt ist. Im Vergleich zum Rest der Welt fühlt man sich hier seltsam wohl...</source>
-        <target>Ein altes indianisches Gräberfeld, das fast vollständig mit Sand und verrottender Vegetation bedeckt ist. Im Vergleich zum Rest der Welt fühlt man sich hier seltsam wohl...</target>
+        <target>Un antiguo cementerio cubierto de arena y mala hierba. Es un lugar reconfortante, comparándolo con el pueblo...</target>
       </segment>
     </unit>
     <unit id="K.rB207">
@@ -4432,7 +4432,7 @@
       </notes>
       <segment>
         <source>Orte wie dieser sind heutzutage ein Geschenk des Himmels... Hier gibt es garantiert alles an Plastikspielzeug, was man sich wünschen kann... und vielleicht noch ein paar andere nützliche Gadgets.</source>
-        <target>Orte wie dieser sind heutzutage ein Geschenk des Himmels... Hier gibt es garantiert alles an Plastikspielzeug, was man sich wünschen kann... und vielleicht noch ein paar andere nützliche Gadgets.</target>
+        <target>Este lugar es una bendición... Aquí podrás encontrar lo necesario para equiparte con juguetes de plástico y otras cosas indispensables.</target>
       </segment>
     </unit>
     <unit id="Y0GOqx4">
@@ -4453,7 +4453,7 @@
       </notes>
       <segment>
         <source>Das Kraftwerk sammelt das benachbarte Grundwasser in einem Stauraum. Die Energie der Bewegung des fließenden Wassers wird auf eine Turbine übertragen, wodurch dieses in Drehbewegung mit hohem Drehmoment versetzt wird. Das Filtersystem scheint kaputt zu sein, aber das schmutzige Wasser kann trotzdem eingesammelt werden.</source>
-        <target>Das Kraftwerk sammelt das benachbarte Grundwasser in einem Stauraum. Die Energie der Bewegung des fließenden Wassers wird auf eine Turbine übertragen, wodurch dieses in Drehbewegung mit hohem Drehmoment versetzt wird. Das Filtersystem scheint kaputt zu sein, aber das schmutzige Wasser kann trotzdem eingesammelt werden.</target>
+        <target><![CDATA[Esta central extrae el agua de las capas freáticas y la deposita en un reservorio de concreto. El <strong>sistema de filtrado parece no funcionar</strong>, pero se debe poder recuperar el agua contaminada que se encuentra almacenada aquí.]]></target>
       </segment>
     </unit>
     <unit id="I8_.QXa">
@@ -4464,7 +4464,7 @@
       </notes>
       <segment>
         <source>Dieses bedrückende Gebäude diente einst als Einrichtung für Tierversuche (Kaninchen in Zwischenprüfungen etc...). Es riecht nach Kampfer, Äther und verrottenden Kadavern. Und Sie sind noch nicht einmal hineingegangen...</source>
-        <target>Dieses bedrückende Gebäude diente einst als Einrichtung für Tierversuche (Kaninchen in Zwischenprüfungen etc...). Es riecht nach Kampfer, Äther und verrottenden Kadavern. Und Sie sind noch nicht einmal hineingegangen...</target>
+        <target>Este frío edificio sirvió alguna vez para elaborar cosméticos y probarlos en animales. Los cadáveres de las ratas tienen la piel llena de brotes asquerosos. Esperas no haber usado nunca una de esas cremas...</target>
       </segment>
     </unit>
     <unit id="O2YPsmI">
@@ -4475,7 +4475,7 @@
       </notes>
       <segment>
         <source>Dieser Krankenwagen ist mitten auf der Straße stehen geblieben. Er hat keine Reifen mehr und auch der Motor fehlt... Außerdem finden sich keinerlei Anzeichen für einen Kampf oder Unfall... Höchst seltsam...</source>
-        <target>Dieser Krankenwagen ist mitten auf der Straße stehen geblieben. Er hat keine Reifen mehr und auch der Motor fehlt... Außerdem finden sich keinerlei Anzeichen für einen Kampf oder Unfall... Höchst seltsam...</target>
+        <target>Una ambulancia detenida en medio de la pista. Ya no tiene ruedas ni motor... No hay huellas de pelea, ni de accidente. Tampoco encuentras cuerpos...</target>
       </segment>
     </unit>
     <unit id="zMoz8Nc">
@@ -4486,7 +4486,7 @@
       </notes>
       <segment>
         <source>Die letzte Inventur hat hier schon vor einiger Zeit stattgefunden... Die 30 Leichen, die in Halle 2 hängen, lassen darauf vermuten, dass mit den Bilanzen etwas nicht stimmte. Dem Umfang ihrer Bäuche nach zu urteilen, handelt es sich wahrscheinlich um den Verwaltungsrat. War es ein kollektiver Selbstmord? Ihr gefesselten Hände sprechen nicht dafür.</source>
-        <target>Die letzte Inventur hat hier schon vor einiger Zeit stattgefunden... Die 30 Leichen, die in Halle 2 hängen, lassen darauf vermuten, dass mit den Bilanzen etwas nicht stimmte. Dem Umfang ihrer Bäuche nach zu urteilen, handelt es sich wahrscheinlich um den Verwaltungsrat. War es ein kollektiver Selbstmord? Ihr gefesselten Hände sprechen nicht dafür.</target>
+        <target>El depósito de una gran tienda que quebró hace mucho tiempo. Es lo que hace pensar la cantidad de cuerpos colgados en el hangar número 2. Supones que fue un suicidio colectivo de los miembros del consejo de dirección, pero el hecho de que tengan las manos atadas te deja perplejo.</target>
       </segment>
     </unit>
     <unit id="8nwRIpb">
@@ -4497,7 +4497,7 @@
       </notes>
       <segment>
         <source>Ein unterirdisches Parkhaus, das fast vollständig vom Sand begraben wurde - der ideale Ort, um alleine zu sterben. Niemand wird dich hören...</source>
-        <target>Ein unterirdisches Parkhaus, das fast vollständig vom Sand begraben wurde - der ideale Ort, um alleine zu sterben. Niemand wird dich hören...</target>
+        <target><![CDATA[Un estacionamiento subterráneo cubierto de arena. Ideal para <strong>morir en la oscuridad</strong>, sin que nadie te escuche...]]></target>
       </segment>
     </unit>
     <unit id="x6pd97C">
@@ -4508,7 +4508,7 @@
       </notes>
       <segment>
         <source>Dieses militärische Vehikel ist wie die metaphorische Konservendose. Der Soldat ist drinnen und spielt die Rolle einer Sardine, und hundert Zombies draußen spielen den hungrigen Bürger. Der Bürger gewinnt...</source>
-        <target>Dieses militärische Vehikel ist wie die metaphorische Konservendose. Der Soldat ist drinnen und spielt die Rolle einer Sardine, und hundert Zombies draußen spielen den hungrigen Bürger. Der Bürger gewinnt...</target>
+        <target><![CDATA[Metafóricamente sería: <strong>Una lata de sardinas</strong> en manos de una centena de zombies hambrientos. Y de la sardina no quedó nada...]]></target>
       </segment>
     </unit>
     <unit id="42b1Trj">
@@ -4519,7 +4519,7 @@
       </notes>
       <segment>
         <source>Beim Anblick des Gebäudes stellst du dir die Frage, wer in diesem schäbigen Motel früher übernachtet hat. Bilder und Szenen verschiedener Roadmovies schießen dir durch den Kopf: Thelma&amp;Louise, Natural Born Killers... Du denkst dir: 'Vielleicht sollte ich als Erstes Zimmer 215 kontrollieren. Man weiß ja nie...'.</source>
-        <target><![CDATA[Beim Anblick des Gebäudes stellst du dir die Frage, wer in diesem schäbigen Motel früher übernachtet hat. Bilder und Szenen verschiedener Roadmovies schießen dir durch den Kopf: Thelma&Louise, Natural Born Killers... Du denkst dir: 'Vielleicht sollte ich als Erstes Zimmer 215 kontrollieren. Man weiß ja nie...'.]]></target>
+        <target><![CDATA[Te preguntas a quién se le podría ocurrir venir a alojarse en un hostal tan lejano y miserable... Mirando el registro de huéspedes, sí hay alguien: Un tal Valedres, en la habitación 215. Tal vez valga la pena explorar...]]></target>
       </segment>
     </unit>
     <unit id="sYaNvt8">
@@ -4530,7 +4530,7 @@
       </notes>
       <segment>
         <source>Die hier stationierten Soldaten waren auf alles vorbereitet: Waffen, Vorräte und eine 150 m lange Sicherheitszone. Auf alles, außer darauf, dass ihr Leutnant sie während der Nacht verspeiste. Spaß beiseite, mit einer soliden Mauer und einer gesunden Diktatur gibt es (unter dem Gesichtspunkt des Überlebens) nichts Vergleichbares !</source>
-        <target>Die hier stationierten Soldaten waren auf alles vorbereitet: Waffen, Vorräte und eine 150 m lange Sicherheitszone. Auf alles, außer darauf, dass ihr Leutnant sie während der Nacht verspeiste. Spaß beiseite, mit einer soliden Mauer und einer gesunden Diktatur gibt es (unter dem Gesichtspunkt des Überlebens) nichts Vergleichbares !</target>
+        <target>Soldados armados hasta los dientes, entrenamientos diarios, provisiones y perímetro de seguridad de 150m. Todo estaba bien preparado, solo que no contaban con que el general los devorase a todos una noche de abril...</target>
       </segment>
     </unit>
     <unit id=".bMEBv6">
@@ -4541,7 +4541,7 @@
       </notes>
       <segment>
         <source>Dieses Gebäude scheint von den turbulenten Ereignissen der Vergangenheit verschont worden zu sein. Es ist noch vollkommen intakt und erinnert an ein klassisches Postbüro mit doppelten Schalterfenstern und durchsiebtem Sprechfenster. Hier wirst du kaum etwas Nützliches finden außer etwas zum Lesen...</source>
-        <target>Dieses Gebäude scheint von den turbulenten Ereignissen der Vergangenheit verschont worden zu sein. Es ist noch vollkommen intakt und erinnert an ein klassisches Postbüro mit doppelten Schalterfenstern und durchsiebtem Sprechfenster. Hier wirst du kaum etwas Nützliches finden außer etwas zum Lesen...</target>
+        <target>El edificio resistió bien el paso del tiempo. Además de reliquias del servicio postal, no crees encontrar nada interesante, a menos que te guste leer...</target>
       </segment>
     </unit>
     <unit id="91Rj1wr">
@@ -4552,7 +4552,7 @@
       </notes>
       <segment>
         <source>Der Zugang zu dieser Höhle ist ein notdürftig abgedecktes Loch in der Erde. Er führt in eine übergroße feuchte Grotte, die mit allerlei Trümmern und Gerümpel gefüllt ist. Höchstwahrscheinlich handelt es sich um Beutegut, das bei der Plünderung einer benachbarten Stadt eingesackt wurde. Vielleicht wurde deine Stadt mit diesem Raubgut errichtet? Und wer weiß: Womöglich haben die ersten Einwohner deiner Stadt an diesen Raubzügen teilgenommen...</source>
-        <target>Der Zugang zu dieser Höhle ist ein notdürftig abgedecktes Loch in der Erde. Er führt in eine übergroße feuchte Grotte, die mit allerlei Trümmern und Gerümpel gefüllt ist. Höchstwahrscheinlich handelt es sich um Beutegut, das bei der Plünderung einer benachbarten Stadt eingesackt wurde. Vielleicht wurde deine Stadt mit diesem Raubgut errichtet? Und wer weiß: Womöglich haben die ersten Einwohner deiner Stadt an diesen Raubzügen teilgenommen...</target>
+        <target><![CDATA[Un hoyo <strong>se esconde</strong> en el suelo detrás de tablas y arena. Lleva a una caverna húmeda llena de <strong>cachivaches</strong> acumulados probablemente con los <strong>robos a un pueblo vecino</strong>. Quién sabe si <strong>tu pueblo</strong> se construyó con base en objetos robados. Puede ser que los <strong>primeros habitantes</strong> hayan sido los autores de todo esto...]]></target>
       </segment>
     </unit>
     <unit id="alVUMDw">
@@ -4563,7 +4563,7 @@
       </notes>
       <segment>
         <source>Dieser von Einschusskratern und schwarzen getrockneten Blutlachen übersäte Schützengraben lässt erahnen, was sich hier abgespielt hat. Der größte Teil des Grabens ist in sich zusammengestürzt, doch hier und dort erblickst du noch ein paar begehbare Stellen, die sich nach nutzbaren Gegenständen absuchen lassen.</source>
-        <target>Dieser von Einschusskratern und schwarzen getrockneten Blutlachen übersäte Schützengraben lässt erahnen, was sich hier abgespielt hat. Der größte Teil des Grabens ist in sich zusammengestürzt, doch hier und dort erblickst du noch ein paar begehbare Stellen, die sich nach nutzbaren Gegenständen absuchen lassen.</target>
+        <target><![CDATA[Los numerosos <strong>cráteres</strong> y <strong>manchas de sangre seca</strong> hacen pensar que una <strong>gran batalla</strong> tuvo lugar aquí. La mayoría de las trincheras fueron saqueadas, pero quedan aún <strong>algunas que pueden contener algo interesante</strong>.]]></target>
       </segment>
     </unit>
     <unit id="odvB3Fd">
@@ -4574,7 +4574,7 @@
       </notes>
       <segment>
         <source>What was once the local library is now a collection of several small houses. Today, the books are mostly torn or burnt, the ground is littered with torn pages and the shelves have been knocked over.</source>
-        <target>What was once the local library is now a collection of several small houses. Today, the books are mostly torn or burnt, the ground is littered with torn pages and the shelves have been knocked over.</target>
+        <target>Un pequeño edificio que servía de biblioteca para los vecinos. Hoy la mayoría de libros están quemados o rotos, el piso está lleno de hojas arrancadas y estanterías caídas.</target>
       </segment>
     </unit>
     <unit id="Uin8bw9">
@@ -4585,7 +4585,7 @@
       </notes>
       <segment>
         <source>In diesem Geschäft konnte man früher allerlei Produkte des täglichen Bedarfs kaufen: Lebensmittel, Getränke, Reinigungsmittel... An der Tür steht: Rund um die Uhr geöffnet (auch am Wochenende). In der Tat, das klaffenden Loch in der Mauer bestätigt dies.</source>
-        <target>In diesem Geschäft konnte man früher allerlei Produkte des täglichen Bedarfs kaufen: Lebensmittel, Getränke, Reinigungsmittel... An der Tür steht: Rund um die Uhr geöffnet (auch am Wochenende). In der Tat, das klaffenden Loch in der Mauer bestätigt dies.</target>
+        <target>Esta tienda vendía todo tipo de productos de consumo diario: comida, bebidas, productos de limpieza... Abierto las 24 horas, los 7 días de la semana, según lo que dice en la entrada. La puerta destrozada le da la razón.</target>
       </segment>
     </unit>
     <unit id="ViudDKu">
@@ -4596,7 +4596,7 @@
       </notes>
       <segment>
         <source>Ihr Vertreter vor Ihrer Haustür. Die Zombies stimmten diesem Konzept voll und ganz zu, wenn man die Krallenspuren auf den Polstern der Kabine und die überall versprühten menschlichen Überreste bemerkt.</source>
-        <target>Ihr Vertreter vor Ihrer Haustür. Die Zombies stimmten diesem Konzept voll und ganz zu, wenn man die Krallenspuren auf den Polstern der Kabine und die überall versprühten menschlichen Überreste bemerkt.</target>
+        <target><![CDATA[Un buen día los pobladores salieron a hacer una excursión por el desierto en este bus cantando alegremente: «Vamo' pa' la playa, pa' curarte el alma», pero cuando cantaron la famosa canción de The Cranberries: «...in your head...zombie, zombie... » Una turba de muertos vivientes se unió al coro... dejando 40 muertos.]]></target>
       </segment>
     </unit>
     <unit id="9TPFQ6o">
@@ -4607,7 +4607,7 @@
       </notes>
       <segment>
         <source>Es handelt sich um einen Transportlaster der sowjetischen Firma Transtwinï. Die Fahrerkabine hat sich komplett in einem Baum verkeilt. Der aufgeschlitzte Fahrersitz, sowie die großflächigen Blutspuren an den Wänden, lassen darauf schließen, dass der Unfall nicht die Todesursache war...</source>
-        <target>Es handelt sich um einen Transportlaster der sowjetischen Firma Transtwinï. Die Fahrerkabine hat sich komplett in einem Baum verkeilt. Der aufgeschlitzte Fahrersitz, sowie die großflächigen Blutspuren an den Wänden, lassen darauf schließen, dass der Unfall nicht die Todesursache war...</target>
+        <target><![CDATA[Un camión de la empresa rusa <strong>Transtwina</strong>. La cabina del conductor está totalmente <strong>encastrada en un árbol</strong>, pero los <strong>arañazos</strong> profundos en el asiento y la <strong>sangre</strong> en las paredes hacen pensar que no fue un accidente...]]></target>
       </segment>
     </unit>
     <unit id="k6o0Mpp">
@@ -4618,7 +4618,7 @@
       </notes>
       <segment>
         <source>Die fröhlichen Kinderzeichnungen an den Wänden stehen im starken Kontrast zu den nicht identifizierbaren menschlichen Überresten am Boden. Du hast das Gefühl, ein dunkles Kichern aus dem Bauschutt zu hören.</source>
-        <target>Die fröhlichen Kinderzeichnungen an den Wänden stehen im starken Kontrast zu den nicht identifizierbaren menschlichen Überresten am Boden. Du hast das Gefühl, ein dunkles Kichern aus dem Bauschutt zu hören.</target>
+        <target><![CDATA[Era una escuela de niños muy pequeños, los dibujos en las paredes lo indican. El contraste con los restos de cuerpos humanos en el suelo es desolador. Por momentos te parece oir <strong>ecos de risas</strong> entre los escombros.]]></target>
       </segment>
     </unit>
     <unit id="Ct60IzG">
@@ -4629,7 +4629,7 @@
       </notes>
       <segment>
         <source>In dieses schöne Gebäude gingen die Menschen früher zur Arbeit. Pünktlichkeit und Dresscode waren Pflicht. Die tägliche Routine bestand darin, mit einer Gruppe unbekannter Kollegen Zielvorgaben zu erreichen und um sein eigenes Überleben zu kämpfen... Hhmmm, wenn du so drüber nachdenkst: So viel hat sich gar nicht geändert - bis auf den Dresscode vielleicht.</source>
-        <target>In dieses schöne Gebäude gingen die Menschen früher zur Arbeit. Pünktlichkeit und Dresscode waren Pflicht. Die tägliche Routine bestand darin, mit einer Gruppe unbekannter Kollegen Zielvorgaben zu erreichen und um sein eigenes Überleben zu kämpfen... Hhmmm, wenn du so drüber nachdenkst: So viel hat sich gar nicht geändert - bis auf den Dresscode vielleicht.</target>
+        <target>El edificio de una gran empresa donde la gente venía a trabajar, con compañeros anónimos y con un solo objetivo: sobrevivir. Vaya, las cosas no han cambiado mucho...</target>
       </segment>
     </unit>
     <unit id="uy1WNX.">
@@ -4640,7 +4640,7 @@
       </notes>
       <segment>
         <source>Jemand hat hier vor langer Zeit gelebt. Vielleicht jemand, der von einer Familie umgeben war, die ihn liebte und mit der er viele glückliche Stunden zusammen verbrachte ? Heute ist alles, was bleibt, ein wenig Staub und völlige Verwüstung... und gelegentlich eine Leiche, die mit den Zähnen knirschend auf einen zustürmt.</source>
-        <target>Jemand hat hier vor langer Zeit gelebt. Vielleicht jemand, der von einer Familie umgeben war, die ihn liebte und mit der er viele glückliche Stunden zusammen verbrachte ? Heute ist alles, was bleibt, ein wenig Staub und völlige Verwüstung... und gelegentlich eine Leiche, die mit den Zähnen knirschend auf einen zustürmt.</target>
+        <target>Alguien vivió aquí hace mucho tiempo. ¿Habrá tenido una familia que le amaba y un hogar feliz? Hoy no queda nada, solo polvo y una desolación total. De vez en cuando, un cadáver tiembla rechinando los dientes.</target>
       </segment>
     </unit>
     <unit id="Mk_nOE9">
@@ -4651,7 +4651,7 @@
       </notes>
       <segment>
         <source>Soll das eine Schule, ein Parkhaus oder vielleicht ein Kaufhaus sein? Du kannst es nicht erkennen... Das einzige, was von diesem geheimnisvollen Projekt noch übrig ist, sind ein paar verrostete Metallstrukturen.</source>
-        <target>Soll das eine Schule, ein Parkhaus oder vielleicht ein Kaufhaus sein? Du kannst es nicht erkennen... Das einzige, was von diesem geheimnisvollen Projekt noch übrig ist, sind ein paar verrostete Metallstrukturen.</target>
+        <target><![CDATA[Te cuesta imaginar lo que se quiso construir aquí. ¿Una escuela, una prisión?... Solo las estructuras metálicas fueron testigos de ese <strong>misterioso proyecto</strong>.]]></target>
       </segment>
     </unit>
     <unit id="bVAo.cx">
@@ -4662,7 +4662,7 @@
       </notes>
       <segment>
         <source>Wow - das ist ein verdammtes Geschenk des Himmels! Ein Brunnen, der immer noch funktioniert ! Völlig verloren in der Mitte von Nirgendwo gibt es hier niemanden mit seinem Regelwerk, der Ihnen sagt: 'Tun Sie dies nicht, tun Sie das nicht, nehmen Sie nicht zu viel Wasser, bla bla bla bla...'. Na los, nimm einen Drink, es wird unser kleines Geheimnis sein...</source>
-        <target>Wow - das ist ein verdammtes Geschenk des Himmels! Ein Brunnen, der immer noch funktioniert ! Völlig verloren in der Mitte von Nirgendwo gibt es hier niemanden mit seinem Regelwerk, der Ihnen sagt: 'Tun Sie dies nicht, tun Sie das nicht, nehmen Sie nicht zu viel Wasser, bla bla bla bla...'. Na los, nimm einen Drink, es wird unser kleines Geheimnis sein...</target>
+        <target><![CDATA[¡Gracias Frocoa! <strong>Un pozo</strong> totalmente perdido en medio del desierto y que además se ve muy bien. Nadie con un Registro en mano que te diga «oye, ¿A dónde vás, qué llevas? no tomes mucha agua...». Pero, shhhh, no se lo digas a nadie.]]></target>
       </segment>
     </unit>
     <unit id="nIZoj0r">
@@ -4673,7 +4673,7 @@
       </notes>
       <segment>
         <source>Ursprünglich zur Lagerung von Getreide konstruiert, aber als die Zeit verging und das Getreide knapp wurde, füllten sich die Tanks mit Regenwasser (und einer toten Ratte). Sie brauchen allerdings den richtigen Bausatz, um sie zu benutzen...</source>
-        <target>Ursprünglich zur Lagerung von Getreide konstruiert, aber als die Zeit verging und das Getreide knapp wurde, füllten sich die Tanks mit Regenwasser (und einer toten Ratte). Sie brauchen allerdings den richtigen Bausatz, um sie zu benutzen...</target>
+        <target>Este lugar debió servir para almacenar los granos. Pero con el tiempo, los depósitos se llenaron con agua de lluvia. Aquí podrías abastecerte.</target>
       </segment>
     </unit>
     <unit id="icD0mRG">
@@ -4684,7 +4684,7 @@
       </notes>
       <segment>
         <source>Was hier passiert ist erschließt sich dir nicht so ganz... Ein riesiger Felsen ist mit voller Wucht auf die Straße geschleudert worden - doch woher kam er? Rings um dich ist nichts als Wüste...</source>
-        <target>Was hier passiert ist erschließt sich dir nicht so ganz... Ein riesiger Felsen ist mit voller Wucht auf die Straße geschleudert worden - doch woher kam er? Rings um dich ist nichts als Wüste...</target>
+        <target><![CDATA[Lo que sucedió aquí es <strong>incomprensible</strong>: una enorme <strong>roca</strong> cayó en medio de la pista, como <strong>caída del cielo</strong>...]]></target>
       </segment>
     </unit>
     <unit id="yFJW.aK">
@@ -4694,7 +4694,7 @@
       </notes>
       <segment>
         <source>Ein Ort des Friedens und der Gelassenheit... Wenn Sie bewaffnet und bereit sind, um Ihr Leben zu kämpfen. Die umgebende Vegetation ist unheimlich und riecht stark nach Tod, unidentifizierte Kreaturen lauern im Schatten... Sie haben das überwältigende Gefühl, dass eine Kreatur aus einer Hecke ausbrechen und Sie angreifen wird.</source>
-        <target>Un lugar de paz y serenidad... cuando estás armado y listo para luchar por tu vida. La vegetación circundante es espeluznante y huele a carroña, lo cual no te inspira mucha confianza. Tienes el presentimiento de que extrañas criaturas acechan en las sombras, preparadas para salir de entre los arbustos y atacarte en cualquier momento.</target>
+        <target><![CDATA[Un lugar de paz y serenidad... siempre y cuando estés armado para sobrevivir. La vegetación es <strong>siniestra</strong> y <strong>huele a muerte</strong>, <strong>criaturas</strong> indescriptibles se mueven entre las sombras... Sientes constantemente que algo horrible va a <strong>lanzarse sobre ti</strong> desde la maleza.]]></target>
       </segment>
     </unit>
     <unit id="XXTLDoG">
@@ -4705,7 +4705,7 @@
       </notes>
       <segment>
         <source>Wenn Sie drohen, verstümmeln oder morden wollen, haben Sie hier die Hauptader getroffen... Die in den Wänden steckenden Schrapnelle, Einschusslöcher und Trümmer ringsum geben Ihnen eine gute Vorstellung davon, welche Art von 'Ereignissen' sich hier abgespielt haben...</source>
-        <target>Wenn Sie drohen, verstümmeln oder morden wollen, haben Sie hier die Hauptader getroffen... Die in den Wänden steckenden Schrapnelle, Einschusslöcher und Trümmer ringsum geben Ihnen eine gute Vorstellung davon, welche Art von 'Ereignissen' sich hier abgespielt haben...</target>
+        <target><![CDATA[Como un niño en una tienda de juguetes. Así se sienten los aficionados a los balazos en este lugar. Los agujeros en las paredes dicen mucho sobre el <strong>ambiente</strong> que se vivía aquí...]]></target>
       </segment>
     </unit>
     <unit id="DYD9pRM">
@@ -4716,7 +4716,7 @@
       </notes>
       <segment>
         <source>Das Schiebetor dieses Supermarktlagers hat allen Plünderungsversuchen erfolgreich getrotzt. Durch einen etwas versteckten Seiteneingang gelangst du ins Innere und machst dich sofort auf die Suche nach Dingen, die du noch gebrauchen kannst...</source>
-        <target>Das Schiebetor dieses Supermarktlagers hat allen Plünderungsversuchen erfolgreich getrotzt. Durch einen etwas versteckten Seiteneingang gelangst du ins Innere und machst dich sofort auf die Suche nach Dingen, die du noch gebrauchen kannst...</target>
+        <target><![CDATA[Servía para almacenar los productos de un antiguo supermercado y <strong>su puerta resistió a los saqueos</strong>. Debe contener <strong>algunas cosillas</strong> interesantes...]]></target>
       </segment>
     </unit>
     <unit id="qSSpkKa">
@@ -4727,7 +4727,7 @@
       </notes>
       <segment>
         <source>Dieses Zelt macht einen wirklich soliden Eindruck und war bestimmt mal ein gutes Versteck. Derjenige, der es aufgestellt hat, wusste wie man sich vor Zombies schützt. Das Zelt verfügt über ein farblich abgestimmtes Tarnnetz, mehrere Ein- und Ausgänge, sowie über ein unterirdisches Notversteck für brenzlige Situation. Bei näherem Hinsehen entdeckst du auf der Zeltplane einen eingestickten Namen: 'Shenji'</source>
-        <target>Dieses Zelt macht einen wirklich soliden Eindruck und war bestimmt mal ein gutes Versteck. Derjenige, der es aufgestellt hat, wusste wie man sich vor Zombies schützt. Das Zelt verfügt über ein farblich abgestimmtes Tarnnetz, mehrere Ein- und Ausgänge, sowie über ein unterirdisches Notversteck für brenzlige Situation. Bei näherem Hinsehen entdeckst du auf der Zeltplane einen eingestickten Namen: 'Shenji'</target>
+        <target>Un buen escondite. El tipo que construyó esto sabía esconder muy bien su trasero de los zombies: Camuflaje natural, buena visibilidad de los alrededores desde el interior, varias posibilidades de escape y de esconderse bajo la tierra si fuese necesario. El nombre «Shenji» está bordado en la tela.</target>
       </segment>
     </unit>
     <unit id="SXiUP6e">
@@ -4738,7 +4738,7 @@
       </notes>
       <segment>
         <source>Mitten in der Wüste entdeckst du eine kleine Stadtviertelapotheke – grotesk! Ein unbeschreibbarer Gestank liegt in der Luft und es riecht nach allem möglichen, außer nach Gesundheit.</source>
-        <target>Mitten in der Wüste entdeckst du eine kleine Stadtviertelapotheke – grotesk! Ein unbeschreibbarer Gestank liegt in der Luft und es riecht nach allem möglichen, außer nach Gesundheit.</target>
+        <target><![CDATA[Una pequeña farmacia de barrio perdida en medio del desierto. Los <strong>olores innombrables</strong> hacen pensar que aquí no solo habían medicamentos.]]></target>
       </segment>
     </unit>
     <unit id="rcbYTzS">
@@ -4748,7 +4748,7 @@
       </notes>
       <segment>
         <source>Es sieht eigentlich nicht mehr wie eine Bar aus, aber das halb im Sand vergrabene Schild und das Vorhandensein einiger zerbrochener Optiken lassen keinen großen Zweifel aufkommen. Die meisten Flaschen sind zerbrochen, aber Sie können hier mit ziemlicher Sicherheit etwas Nützliches finden...</source>
-        <target><![CDATA[Lo único que indica que se trata de un bar es el panel con el logo de una cerveza y gran la cantidad de <strong>botellas rotas</strong>. Algo interesante podrías encontrar aquí...]]></target>
+        <target><![CDATA[Lo único que indica que se trata de un bar es el panel con el logo de una cerveza y la gran cantidad de <strong>botellas rotas</strong>. Algo interesante podrías encontrar aquí...]]></target>
       </segment>
     </unit>
     <unit id="e19N5sC">
@@ -19453,12 +19453,12 @@
     </unit>
     <unit id="N0yoB1W">
       <notes>
-        <note category="german">&lt;strong&gt;Achtung&lt;/strong&gt;: Befinden sich nicht genügend Rationen Wasser im Brunnen, arbeiten manche Konstruktionen (wie z.B. der Wasserturm) beim Angriff nicht mit voller Stärke!</note>
+        <note category="german">&lt;strong&gt;Achtung:&lt;/strong&gt; Befinden sich nicht genügend Rationen Wasser im Brunnen, arbeiten manche Konstruktionen (wie z.B. der Wasserturm) beim Angriff nicht mit voller Stärke!</note>
         <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
       </notes>
       <segment>
-        <source>&lt;strong&gt;Achtung&lt;/strong&gt;: Befinden sich nicht genügend Rationen Wasser im Brunnen, arbeiten manche Konstruktionen (wie z.B. der Wasserturm) beim Angriff nicht mit voller Stärke!</source>
-        <target><![CDATA[<strong>Atención</strong>: ¡Sin agua, algunas mejoras (como el sistema de riego) no funcionarán durante el ataque!]]></target>
+        <source>&lt;strong&gt;Achtung:&lt;/strong&gt; Befinden sich nicht genügend Rationen Wasser im Brunnen, arbeiten manche Konstruktionen (wie z.B. der Wasserturm) beim Angriff nicht mit voller Stärke!</source>
+        <target><![CDATA[<strong>Atención:</strong> ¡Sin agua, algunas mejoras (como el sistema de riego) no funcionarán durante el ataque!]]></target>
       </segment>
     </unit>
     <unit id="485Czj9" name="Du kannst heute keinen weiteren Gegenstand stehlen.">

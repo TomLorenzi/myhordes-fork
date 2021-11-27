@@ -2863,7 +2863,7 @@
       </notes>
       <segment>
         <source>via {group_inbox}</source>
-        <target>via {group_inbox}</target>
+        <target>vía {group_inbox}</target>
       </segment>
     </unit>
     <unit id="GiaI_3b" name="Überlebte Tage">
@@ -3857,7 +3857,7 @@
       </notes>
       <segment>
         <source>Ergebnisse</source>
-        <target>Ergebnisse</target>
+        <target>Resultados</target>
       </segment>
     </unit>
     <unit id="nQxyDaJ" name="Ergebnisse pro Seite">
@@ -3868,7 +3868,7 @@
       </notes>
       <segment>
         <source>Ergebnisse pro Seite</source>
-        <target>Ergebnisse pro Seite</target>
+        <target>Resultados por página</target>
       </segment>
     </unit>
     <unit id="zenlipp" name="Ja">
@@ -3879,7 +3879,7 @@
       </notes>
       <segment>
         <source>Ja</source>
-        <target>Ja</target>
+        <target>Sí</target>
       </segment>
     </unit>
     <unit id="kOvBveb" name="Nein">
@@ -3890,7 +3890,7 @@
       </notes>
       <segment>
         <source>Nein</source>
-        <target>Nein</target>
+        <target>No</target>
       </segment>
     </unit>
     <unit id="U6fqsRf" name="Anwenden">
@@ -3901,7 +3901,7 @@
       </notes>
       <segment>
         <source>Anwenden</source>
-        <target>Anwenden</target>
+        <target>Aplicar</target>
       </segment>
     </unit>
     <unit id="Xi3CwX9" name="Keine Ergebnisse">
@@ -3912,7 +3912,7 @@
       </notes>
       <segment>
         <source>Keine Ergebnisse</source>
-        <target>Keine Ergebnisse</target>
+        <target>No hay resultados</target>
       </segment>
     </unit>
     <unit id="mYGmtAE" name="Deine Nachricht benötigt einen Titel sowie Inhalt.">
@@ -3923,7 +3923,7 @@
       </notes>
       <segment>
         <source>Deine Nachricht benötigt einen Titel sowie Inhalt.</source>
-        <target>Deine Nachricht benötigt einen Titel sowie Inhalt.</target>
+        <target>Tu mensaje debe tener un título y un cuerpo.</target>
       </segment>
     </unit>
     <unit id="bPdbUF0" name="Gelöst">
