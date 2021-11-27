@@ -133,12 +133,17 @@ class GazetteService
     }
 
     protected function decompose_requirements( GazetteEntryTemplate $g ): array {
-        $class = intval(floor($g->getRequirement() / 10));
+
+        $base = ($g->getRequirement() < 100) ? $g->getRequirement() * 10 : $g->getRequirement();
+        $class = intval(floor($base / 100));
+        $arg1 = intval(floor(($base-$class*100) / 10));
+        $arg2 = intval($base-$class*100-$arg1*10);
+
         switch ($class) {
             case 1:case 2:case 3:case 5:
-                return [ $class * 10, $g->getRequirement() % 10 ];
-            case 4:
-                return [ $g->getRequirement(), 0 ];
+                return [ $class * 10, $arg1 ];
+            case 4:case 6:
+                return [ $class*10 + $arg1, $arg2 ];
             default:
                 return [0,0];
         }
@@ -160,8 +165,13 @@ class GazetteService
                 case GazetteEntryTemplate::BaseRequirementCadaver:        return count( $death_inside ) >= $arg;
                 case GazetteEntryTemplate::BaseRequirementCitizenCadaver: return count( $survivors )    >= $arg && count( $death_inside ) >= $arg;
                 case GazetteEntryTemplate::BaseRequirementCitizenInTown:  return count( array_filter( $survivors, fn(Citizen $c) => $c->getZone() === null ) ) >= $arg;
-                case GazetteEntryTemplate::RequiresMultipleDehydrations:  return count( array_filter( $death_outside, fn(Citizen $c) => $c->getCauseOfDeath()->getRef() === CauseOfDeath::Dehydration ) ) >= 2;
-                case GazetteEntryTemplate::RequiresMultipleSuicides:      return count( array_filter( $death_outside, fn(Citizen $c) => $c->getCauseOfDeath()->getRef() === CauseOfDeath::Cyanide ) ) >= 2;
+                case GazetteEntryTemplate::RequiresMultipleDehydrations:  return count( $survivors ) >= $arg && count( array_filter( $death_outside, fn(Citizen $c) => $c->getCauseOfDeath()->getRef() === CauseOfDeath::Dehydration ) ) >= 2;
+                case GazetteEntryTemplate::RequiresMultipleSuicides:      return count( $survivors ) >= $arg && count( array_filter( $death_outside, fn(Citizen $c) => $c->getCauseOfDeath()->getRef() === CauseOfDeath::Cyanide ) ) >= 2;
+                case GazetteEntryTemplate::RequiresMultipleInfections:    return count( $survivors ) >= $arg && count( array_filter( $death_outside, fn(Citizen $c) => $c->getCauseOfDeath()->getRef() === CauseOfDeath::Infection ) ) >= 2;
+                case GazetteEntryTemplate::RequiresMultipleVanished:      return count( $survivors ) >= $arg && count( array_filter( $death_outside, fn(Citizen $c) => $c->getCauseOfDeath()->getRef() === CauseOfDeath::Vanished ) ) >= 2;
+                case GazetteEntryTemplate::RequiresMultipleHangings:      return count( $survivors ) >= $arg && count( array_filter( $death_outside, fn(Citizen $c) => $c->getCauseOfDeath()->getRef() === CauseOfDeath::Hanging ) ) >= 2;
+                case GazetteEntryTemplate::RequiresMultipleCrosses:       return count( $survivors ) >= $arg && count( array_filter( $death_outside, fn(Citizen $c) => $c->getCauseOfDeath()->getRef() === CauseOfDeath::ChocolateCross ) ) >= 2;
+                case GazetteEntryTemplate::RequiresMultipleRedSouls:      return count( $survivors ) >= $arg && count( array_filter( $death_outside, fn(Citizen $c) => $c->getCauseOfDeath()->getRef() === CauseOfDeath::Haunted ) ) >= 2;
                 case GazetteEntryTemplate::RequiresInvasion:              return $gazette->getInvasion() > 0;
                 case GazetteEntryTemplate::RequiresAttackDeaths:          return $gazette->getDeaths() > 0;
                 default: return true;
@@ -185,99 +195,97 @@ class GazetteService
 
         list($class,$arg) = $this->decompose_requirements( $g );
 
+        $_add_elements = function( $name, array $list, ?Citizen $featured, $n, &$var ) {
+            $elems = array_filter( $list, fn(Citizen $c) => $c !== $featured );
+            if ($n > 0) shuffle($elems);
+            if ($featured !== null) array_unshift( $elems, $featured );
+
+            for ($i = 1; $i <= $n; $i++)
+                $var["$name$i"] = (array_shift($elems))->getId();
+            $var["{$name}s"] = count($elems);
+        };
+
+        if ($g->getType() === GazetteEntryTemplate::TypeGazettePoison)
+            $variables['poison'] = $this->rand->pick( [
+                T::__('Arsen','game'),T::__('Cyanolin','game'),T::__('Neurotwinin','game'),
+                T::__('Rizin','game'),T::__('Botulinumtoxin','game'),T::__('Virunoir','game'),
+                T::__('Chlorotwinat','game'),T::__('Kaliumchlorid','game'),T::__('Kurare','game'),
+                T::__('Zyanid (poison)','game'),T::__('Phenol','game'),T::__('Ponasulfat','game')
+            ] );
+
         switch ($class) {
             case GazetteEntryTemplate::BaseRequirementCitizen:
-                $citizens = array_filter( $survivors, fn(Citizen $c) => $c !== $featured );
-                shuffle($citizens);
-                if ($featured !== null && $featured->getAlive()) array_unshift( $citizens, $featured );
-
-                for ($i = 1; $i <= $arg; $i++)
-                    $variables['citizen' . $i] = (array_shift($citizens))->getId();
-                $variables['citizens'] = count($citizens);
-
+                $_add_elements( 'citizen', $survivors, $featured !== null && $featured->getAlive() ? $featured : null, $arg, $variables );
                 break;
 
             case GazetteEntryTemplate::BaseRequirementCadaver:
-                $cadavers = array_filter( $death_inside, fn(Citizen $c) => $c !== $featured );
-                shuffle($cadavers);
-                if ($featured !== null && !$featured->getAlive()) array_unshift( $cadavers, $featured );
-
-                for ($i = 1; $i <= $arg; $i++)
-                    $variables['cadaver' . $i] = (array_shift($cadavers))->getId();
-                $variables['cadavers'] = count($cadavers);
-
+                $_add_elements( 'cadaver', $death_inside, $featured !== null && !$featured->getAlive() ? $featured : null, $arg, $variables );
                 break;
 
             case GazetteEntryTemplate::BaseRequirementCitizenCadaver:
-                $citizens = array_filter( $survivors, fn(Citizen $c) => $c !== $featured );
-                shuffle($citizens);
-                if ($featured !== null && $featured->getAlive()) array_unshift( $citizens, $featured );
-
-                $cadavers = array_filter( $death_inside, fn(Citizen $c) => $c !== $featured );
-                shuffle($cadavers);
-                if ($featured !== null && !$featured->getAlive()) array_unshift( $cadavers, $featured );
-
-                for ($i = 1; $i <= $arg; $i++)
-                    $variables['citizen' . $i] = (array_shift($citizens))->getId();
-                $variables['citizens'] = count($citizens);
-                for ($i = 1; $i <= $arg; $i++)
-                    $variables['cadaver' . $i] = (array_shift($cadavers))->getId();
-                $variables['cadavers'] = count($cadavers);
+                $_add_elements( 'citizen', $survivors, $featured !== null && $featured->getAlive() ? $featured : null, $arg, $variables );
+                $_add_elements( 'cadaver', $death_inside, $featured !== null && !$featured->getAlive() ? $featured : null, $arg, $variables );
                 break;
 
             case GazetteEntryTemplate::RequiresAttack:
                 $attack = $gazette->getAttack();
                 $variables['attack'] = $attack < 2000 ? 10 * (round($attack / 10)) : 100 * (round($attack / 100));
-
                 break;
 
             case GazetteEntryTemplate::RequiresInvasion:
                 $attack = $gazette->getAttack();
                 $variables['attack'] = $attack < 2000 ? 10 * (round($attack / 10)) : 100 * (round($attack / 100));
                 $variables['invasion'] = $gazette->getInvasion();
-
                 break;
 
             case GazetteEntryTemplate::RequiresAttackDeaths:
                 $attack = $gazette->getAttack();
                 $variables['attack'] = $attack < 2000 ? 10 * (round($attack / 10)) : 100 * (round($attack / 100));
                 $variables['deaths'] = $gazette->getDeaths();
-
                 break;
 
             case GazetteEntryTemplate::RequiresDefense:
                 $defense = $gazette->getDefense();
                 $variables['defense'] = $defense < 2000 ? 10 * (round($defense / 10)) : 100 * (round($defense / 100));
-
                 break;
 
             case GazetteEntryTemplate::RequiresDeaths:
                 $variables['deaths'] = $gazette->getDeaths();
-
                 break;
 
             case GazetteEntryTemplate::RequiresMultipleDehydrations:
-                $cadavers = array_filter( $death_outside, fn(Citizen $c) => $c->getCauseOfDeath()->getRef() === CauseOfDeath::Dehydration );
-                $variables['cadavers'] = count($cadavers);
-
+                $_add_elements('cadavers', array_filter( $death_outside, fn(Citizen $c) => $c->getCauseOfDeath()->getRef() === CauseOfDeath::Dehydration ), null, 0, $variables);
+                if ($arg > 0) $_add_elements( 'citizen', $survivors, $featured !== null && $featured->getAlive() ? $featured : null, $arg, $variables );
                 break;
 
             case GazetteEntryTemplate::RequiresMultipleSuicides:
-                $cadavers = array_filter( $death_outside, fn(Citizen $c) => $c->getCauseOfDeath()->getRef() === CauseOfDeath::Cyanide );
-                $variables['cadavers'] = count($cadavers);
-
+                $_add_elements('cadavers', array_filter( $death_outside, fn(Citizen $c) => $c->getCauseOfDeath()->getRef() === CauseOfDeath::Cyanide ), null, 0, $variables);
+                if ($arg > 0) $_add_elements( 'citizen', $survivors, $featured !== null && $featured->getAlive() ? $featured : null, $arg, $variables );
                 break;
 
             case GazetteEntryTemplate::RequiresMultipleInfections:
-                $cadavers = array_filter( $death_outside, fn(Citizen $c) => $c->getCauseOfDeath()->getRef() === CauseOfDeath::Infection );
-                $variables['cadavers'] = count($cadavers);
-
+                $_add_elements('cadavers', array_filter( $death_outside, fn(Citizen $c) => $c->getCauseOfDeath()->getRef() === CauseOfDeath::Infection ), null, 0, $variables);
+                if ($arg > 0) $_add_elements( 'citizen', $survivors, $featured !== null && $featured->getAlive() ? $featured : null, $arg, $variables );
                 break;
 
             case GazetteEntryTemplate::RequiresMultipleVanished:
-                $cadavers = array_filter( $death_outside, fn(Citizen $c) => $c->getCauseOfDeath()->getRef() === CauseOfDeath::Vanished );
-                $variables['cadavers'] = count($cadavers);
+                $_add_elements('cadavers', array_filter( $death_outside, fn(Citizen $c) => $c->getCauseOfDeath()->getRef() === CauseOfDeath::Vanished ), null, 0, $variables);
+                if ($arg > 0) $_add_elements( 'citizen', $survivors, $featured !== null && $featured->getAlive() ? $featured : null, $arg, $variables );
+                break;
 
+            case GazetteEntryTemplate::RequiresMultipleHangings:
+                $_add_elements('cadavers', array_filter( $death_outside, fn(Citizen $c) => $c->getCauseOfDeath()->getRef() === CauseOfDeath::Hanging ), null, 0, $variables);
+                if ($arg > 0) $_add_elements( 'citizen', $survivors, $featured !== null && $featured->getAlive() ? $featured : null, $arg, $variables );
+                break;
+
+            case GazetteEntryTemplate::RequiresMultipleCrosses:
+                $_add_elements('cadavers', array_filter( $death_outside, fn(Citizen $c) => $c->getCauseOfDeath()->getRef() === CauseOfDeath::ChocolateCross ), null, 0, $variables);
+                if ($arg > 0) $_add_elements( 'citizen', $survivors, $featured !== null && $featured->getAlive() ? $featured : null, $arg, $variables );
+                break;
+
+            case GazetteEntryTemplate::RequiresMultipleRedSouls:
+                $_add_elements('cadavers', array_filter( $death_outside, fn(Citizen $c) => $c->getCauseOfDeath()->getRef() === CauseOfDeath::Haunted ), null, 0, $variables);
+                if ($arg > 0) $_add_elements( 'citizen', $survivors, $featured !== null && $featured->getAlive() ? $featured : null, $arg, $variables );
                 break;
 
             case GazetteEntryTemplate::BaseRequirementCitizenInTown:
@@ -314,6 +322,7 @@ class GazetteService
         if ( $gazette->getReactorExplosion() ) $criteria = [ 'type' => GazetteEntryTemplate::TypeGazetteReactor ];
         elseif ( $town->getDevastated() ) $criteria = [ 'name' => 'gazetteTownDevastated' ];
         elseif (count($death_inside) > 0 && count($death_inside) < 5 && $gazette->getDoor()) $criteria = [ 'type' => GazetteEntryTemplate::TypeGazetteDeathWithDoorOpen ];
+        elseif ($gazette->getDay() === 2 && count($death_inside) === 0) $criteria = [ 'type' => GazetteEntryTemplate::TypeGazetteDayOne ];
         else $criteria = [ 'type' => GazetteEntryTemplate::TypeGazetteNoDeaths + (min(count($death_inside), 3)) ];
 
         if ($townTemplate = $this->select_gazette_template($gazette, $criteria, $survivors, $death_inside)) {
@@ -343,7 +352,7 @@ class GazetteService
                 if ($citizen->getCauseOfDeath() && !isset($d_list[$citizen->getCauseOfDeath()->getRef()])) $d_list[$citizen->getCauseOfDeath()->getRef()] = 1;
                 else $d_list[$citizen->getCauseOfDeath()->getRef()]++;
 
-            $d_list = array_filter( $d_list, fn($v,$k) => $v >= 2 && in_array($k,[CauseOfDeath::Cyanide,CauseOfDeath::Dehydration,CauseOfDeath::Infection,CauseOfDeath::Vanished]), ARRAY_FILTER_USE_BOTH );
+            $d_list = array_filter( $d_list, fn($v,$k) => $v >= 2 && in_array($k,[CauseOfDeath::Cyanide,CauseOfDeath::Dehydration,CauseOfDeath::Infection,CauseOfDeath::Vanished,CauseOfDeath::Hanging,CauseOfDeath::ChocolateCross,CauseOfDeath::Haunted]), ARRAY_FILTER_USE_BOTH );
             $focus = $this->rand->pick( array_keys($d_list) );
 
             if ($focus !== null) switch ($focus) {
@@ -355,6 +364,12 @@ class GazetteService
                     $type = GazetteEntryTemplate::TypeGazetteMultiInfection; break;
                 case CauseOfDeath::Vanished:
                     $type = GazetteEntryTemplate::TypeGazetteMultiVanished; break;
+                case CauseOfDeath::Hanging:
+                    $type = GazetteEntryTemplate::TypeGazetteMultiHanging; break;
+                case CauseOfDeath::ChocolateCross:
+                    $type = GazetteEntryTemplate::TypeGazetteMultiChocolateCross; break;
+                case CauseOfDeath::Haunted:
+                    $type = GazetteEntryTemplate::RequiresMultipleRedSouls; break;
             }
 
             // Check for individual deaths
@@ -367,7 +382,9 @@ class GazetteService
                     CauseOfDeath::Poison,
                     CauseOfDeath::Haunted,
                     CauseOfDeath::Infection,
-                    CauseOfDeath::Vanished
+                    CauseOfDeath::Vanished,
+                    CauseOfDeath::Hanging,
+                    CauseOfDeath::ChocolateCross
                 ]) ) );
 
                 if ($featured_cadaver === null)
@@ -402,7 +419,12 @@ class GazetteService
                     case CauseOfDeath::Vanished:
                         $type = GazetteEntryTemplate::TypeGazetteVanished;
                         break;
-
+                    case CauseOfDeath::Hanging:
+                        $type = GazetteEntryTemplate::TypeGazetteHanging;
+                        break;
+                    case CauseOfDeath::ChocolateCross:
+                        $type = GazetteEntryTemplate::TypeGazetteChocolateCross;
+                        break;
                 }
             }
 

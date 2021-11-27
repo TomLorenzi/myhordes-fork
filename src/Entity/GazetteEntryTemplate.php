@@ -34,6 +34,11 @@ class GazetteEntryTemplate
     const TypeGazetteDeathWithDoorOpen  = 22;
     const TypeGazetteFlavour            = 23;
     const TypeGazetteMultiVanished      = 24;
+    const TypeGazetteChocolateCross     = 25;
+    const TypeGazetteMultiHanging       = 26;
+    const TypeGazetteMultiChocolateCross = 27;
+    const TypeGazetteMultiRedSoul       = 28;
+    const TypeGazetteDayOne             = 29;
 
     const RequiresNothing       =  0;
 
@@ -59,9 +64,16 @@ class GazetteEntryTemplate
     const RequiresMultipleSuicides      = 46;
     const RequiresMultipleInfections    = 47;
     const RequiresMultipleVanished      = 48;
+    const RequiresMultipleHangings      = 49;
 
     const BaseRequirementCitizenInTown = 50;
     const RequiresTwoCitizensInTown = 52;
+
+    const RequiresMultipleCrosses       = 60;
+    const RequiresMultipleRedSouls      = 61;
+
+    const RequiresMultipleInfectionsC1  = 471;
+    const RequiresMultipleHangingsC1    = 491;
 
     const FollowUpTypeNone  = 0;
     const FollowUpTypeDoubt = 1;
