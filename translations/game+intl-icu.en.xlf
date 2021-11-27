@@ -1951,7 +1951,7 @@
     </unit>
     <unit id="FB4yWED" name="{ruin} durchsuchen">
       <notes>
-        <note category="german">{ruin} durchsuchen</note>
+        <note category="german">&lt;strong&gt;{ruin}&lt;/strong&gt; durchsuchen</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
@@ -19447,7 +19447,7 @@
         <target>Looking through the window, you decide that {citizen}'s house is to all intents and purposes void of anything of interest. No doubt the other citizens have already recovered everything of any value.</target>
       </segment>
     </unit>
-    <unit id="N0yoB1W">
+    <unit id="2skYpuv">
       <notes>
         <note category="german">&lt;strong&gt;Achtung:&lt;/strong&gt; Befinden sich nicht genügend Rationen Wasser im Brunnen, arbeiten manche Konstruktionen (wie z.B. der Wasserturm) beim Angriff nicht mit voller Stärke!</note>
         <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
@@ -20868,7 +20868,6 @@
     <unit id="WUioDKI" name="Das Stadttor ist zerstört!">
       <notes>
         <note category="german">Das Stadttor ist zerstört!</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/door.html.twig</note>
       </notes>
       <segment>
@@ -20890,7 +20889,6 @@
     <unit id="70HaeRK">
       <notes>
         <note category="german">Die Stadt ist verwüstet! Du kannst dein Haus nicht mehr ausbauen, weil es ebenfalls niedergebrannt ist.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
       </notes>
       <segment>
@@ -22827,7 +22825,6 @@
       <notes>
         <note category="german">Doch leider ist der letzte Bürger tot, bevor die Horde die Stadttore erreicht... Seine Zunge hängt zwischen den Zähnen seines ehemaligen Freundes...</note>
         <note category="from">db://LogEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Doch leider ist der letzte Bürger tot, bevor die Horde die Stadttore erreicht... Seine Zunge hängt zwischen den Zähnen seines ehemaligen Freundes...</source>

@@ -1936,7 +1936,7 @@
     </unit>
     <unit id="FB4yWED" name="{ruin} durchsuchen">
       <notes>
-        <note category="german">{ruin} durchsuchen</note>
+        <note category="german">&lt;strong&gt;{ruin}&lt;/strong&gt; durchsuchen</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
@@ -4109,7 +4109,6 @@
     <unit id="Pq_GOUr">
       <notes>
         <note category="german">Hier wohnte ein Bürger, der  sich außerhalb der Stadt niedergelassen hat, weil er den Streitigkeiten und dem Verrat, die das Stadtleben mit sich bringt, entfliehen wollte. Die Hälfte seiner Leiche liegt immer noch im Wohnzimmer.</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
@@ -4120,7 +4119,6 @@
     <unit id="I0Djxyu">
       <notes>
         <note category="german">Einer der vielen Albi Supermarkt, die um das Jahr 2010 herum aus dem Boden schossen und später dann verschwanden... spezialisiert darauf, Dinge so billig wie möglich zu verscherbeln. Hier findest du alles finden, was du brauchst - egal ob du einfach pleite bist oder eisern auf ein neues Stück Seife sparst, kaufe bei ALBI ein!</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
@@ -4131,7 +4129,6 @@
     <unit id="if10dn9">
       <notes>
         <note category="german">Manche Fehler enden zwangsläufig tödlich. Nehmt als Beispiel diese Höhle. Stellt euch vor, ihr werdet von einer Zombiemeute verfolgt und eilt überstürzt in eine Höhle, um Schutz zu suchen. Ihr werdet dann folgendes Problem haben: Wie kommt ihr heil wieder raus, wenn die Biester euch gefolgt sind? Der zerfledderte Typ an der Wand dort hinten scheint dies nicht bedacht zu haben...</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
@@ -4152,7 +4149,6 @@
     <unit id="7y4PXTQ">
       <notes>
         <note category="german">Ein altes Fahrradverleihlager, das mit Metallstücken, Werkzeugen und allen Arten von Schutt übersät ist.</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
@@ -4163,7 +4159,6 @@
     <unit id="2.pUWsx">
       <notes>
         <note category="german">Dieser Rangierbahnhof war einmal das zentrale Drehkreuz des Landes. Waren aus aller Herren Länder wurden hier rund um die Uhr umgeladen und in alle Himmelsrichtungen versendet. Das 'weitverzweigte Netzt' ist heute noch ungefähr 150 Meter lang, vorausgesetzt man zählt die Gleisüberbleibsel da hinten noch mit.</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
@@ -4174,7 +4169,6 @@
     <unit id="KNKSRpW">
       <notes>
         <note category="german">Die menschlichen Überreste, die in der Auffahrt liegen gehören den ehemaligen Patienten dieses improvisierten Krankenhauses. Schwer zu sagen, wie viele Menschen hier beim abendlichen Angriff gestorben sind... Wenn du die Anzahl der Arme durch zwei teilst, vielleicht bekommst du dann eine grobe Schätzung?</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
@@ -4185,7 +4179,6 @@
     <unit id="Of9gthO">
       <notes>
         <note category="german">Das Einzige, was auf diesem bröckelnden Flugplatz startet oder landet, sind die Fliegen. Vielleicht finden Sie etwas Nützliches, wenn Sie in den Lagerhallen herumstöbern. Zum Beispiel einen A380 in funktionstüchtigem Zustand.</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
@@ -4226,7 +4219,6 @@
     <unit id="gINGGfh">
       <notes>
         <note category="german">Früher wäre dies sicherlich einer der trendigsten Joints auf der M25 gewesen, mit verwässerten Getränken, dem Aroma von abgestandener Pisse und toten Ratten auf der Bar. Sie müssen seit Jahren der erste Mensch sein, der hier einen Fuß hinein gesetzt hat.</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
@@ -4237,7 +4229,6 @@
     <unit id="Q4yDNyf">
       <notes>
         <note category="german">Ein Kombi, der sich in einen Kleintransporter verkeilt hat. Der großen Anzahl an verkohlten Leichen nach zu urteilen, hat hier ein Unfall eine richtig große Karambolage verursacht.</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
@@ -4248,7 +4239,6 @@
     <unit id="6pUg5Hf">
       <notes>
         <note category="german">Diese Bar ist hinter einem kleinen Hügel an einer solchen Stelle versteckt, dass man leicht direkt daran vorbeigehen könnte, ohne es zu merken. Der Innenraum ist mit unzähligen Schwarzweiß-Portraits und Fotos geschmückt. Auf den Bildern ist oft ein Typ in gestreifter Pyjama-Kleidung zu sehen, der neben verschiedenen anderen Personen steht.</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
@@ -4259,7 +4249,6 @@
     <unit id="YM4htdV">
       <notes>
         <note category="german">Der Baumarkt ist das zweite Zuhause eines jeden Handwerkers. In dieser Welt avanciert er jedoch zu einem wahren Paradies! Gegenstände von unschätzbarem Wert warten nur darauf von dir entdeckt zu werden... Der Werbespruch auf dem Dach hat zudem nichts von seiner Aktualität eingebüßt: 'Plündern Sie uns bevor es andere tun!'</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
@@ -4280,7 +4269,6 @@
     <unit id="8C9iaLK">
       <notes>
         <note category="german">Von wegen Döner macht schöner. Scheint so als hätte der Besitzer dieser Bude das mit den Dönern und den Spießen missverstanden. Wer hier reingeht kommt garantiert nicht mehr raus.</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
@@ -4321,7 +4309,6 @@
     <unit id="aR2iiDZ">
       <notes>
         <note category="german">Diese Mineralienabbauzone trägt alle Merkmale eines schrecklichen Unglücks : der Hang scheint auf die Arbeiter, Maschinen und Gebäude darunter eingestürzt zu sein.</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
@@ -4332,7 +4319,6 @@
     <unit id=".cft5Zt">
       <notes>
         <note category="german">Das Ganze sieht wie eine komische runde Metallscheibe aus, die mal zu einen Flugzeugcockpit gehörte. Aber du bist dir nicht ganz sicher, denn es könnte sich auch um ein Mähdrescherteil handeln...</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
@@ -4363,7 +4349,6 @@
     <unit id="jfKgTEc">
       <notes>
         <note category="german">Aus diesem Gebäude strömt ein entsetzlicher Gestank von verwesenden Leichen : Die Fleischvorräte haben sich in ekelerregende Hügel aus schimmeligem, weißem Fleisch verwandelt, aus denen eine dicke, scharfe Flüssigkeit austritt, die nun den Boden bedeckt und sogar begonnen hat, aus der Tür zu laufen...</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
@@ -4374,7 +4359,6 @@
     <unit id="TkIE5Fb">
       <notes>
         <note category="german">Dieser Langstreckenflieger ist mitten im nirgendwo abgestürzt... Da der Wüstensand das Wrack fast vollkommen eingegraben hat und sich der Zahn der Zeit in das Material gefressen hat, lässt sich nicht mehr sagen, was das Flugzeug transportierte. Du lässt deinen Blick schweifen, es sind jedoch weit und breit keine Leichen erkennbar...</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
@@ -4405,7 +4389,6 @@
     <unit id="VsNvfPD">
       <notes>
         <note category="german">Eine Art Steinhöhle, die früher als Grabstätte oder Unterschlupf gedient haben muss... Schauen Sie sich das an. Im Inneren ist es absolut stockfinster, die Luft ist eisig und es riecht stark nach verfaulendem Fleisch...</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
@@ -4416,7 +4399,6 @@
     <unit id="igWQAKU">
       <notes>
         <note category="german">Ein altes indianisches Gräberfeld, das fast vollständig mit Sand und verrottender Vegetation bedeckt ist. Im Vergleich zum Rest der Welt fühlt man sich hier seltsam wohl...</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
@@ -4427,7 +4409,6 @@
     <unit id="K.rB207">
       <notes>
         <note category="german">Orte wie dieser sind heutzutage ein Geschenk des Himmels... Hier gibt es garantiert alles an Plastikspielzeug, was man sich wünschen kann... und vielleicht noch ein paar andere nützliche Gadgets.</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
@@ -4448,7 +4429,6 @@
     <unit id="jCOLohr">
       <notes>
         <note category="german">Das Kraftwerk sammelt das benachbarte Grundwasser in einem Stauraum. Die Energie der Bewegung des fließenden Wassers wird auf eine Turbine übertragen, wodurch dieses in Drehbewegung mit hohem Drehmoment versetzt wird. Das Filtersystem scheint kaputt zu sein, aber das schmutzige Wasser kann trotzdem eingesammelt werden.</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
@@ -4459,7 +4439,6 @@
     <unit id="I8_.QXa">
       <notes>
         <note category="german">Dieses bedrückende Gebäude diente einst als Einrichtung für Tierversuche (Kaninchen in Zwischenprüfungen etc...). Es riecht nach Kampfer, Äther und verrottenden Kadavern. Und Sie sind noch nicht einmal hineingegangen...</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
@@ -4470,7 +4449,6 @@
     <unit id="O2YPsmI">
       <notes>
         <note category="german">Dieser Krankenwagen ist mitten auf der Straße stehen geblieben. Er hat keine Reifen mehr und auch der Motor fehlt... Außerdem finden sich keinerlei Anzeichen für einen Kampf oder Unfall... Höchst seltsam...</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
@@ -4481,7 +4459,6 @@
     <unit id="zMoz8Nc">
       <notes>
         <note category="german">Die letzte Inventur hat hier schon vor einiger Zeit stattgefunden... Die 30 Leichen, die in Halle 2 hängen, lassen darauf vermuten, dass mit den Bilanzen etwas nicht stimmte. Dem Umfang ihrer Bäuche nach zu urteilen, handelt es sich wahrscheinlich um den Verwaltungsrat. War es ein kollektiver Selbstmord? Ihr gefesselten Hände sprechen nicht dafür.</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
@@ -4492,7 +4469,6 @@
     <unit id="8nwRIpb">
       <notes>
         <note category="german">Ein unterirdisches Parkhaus, das fast vollständig vom Sand begraben wurde - der ideale Ort, um alleine zu sterben. Niemand wird dich hören...</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
@@ -4503,7 +4479,6 @@
     <unit id="x6pd97C">
       <notes>
         <note category="german">Dieses militärische Vehikel ist wie die metaphorische Konservendose. Der Soldat ist drinnen und spielt die Rolle einer Sardine, und hundert Zombies draußen spielen den hungrigen Bürger. Der Bürger gewinnt...</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
@@ -4514,18 +4489,16 @@
     <unit id="42b1Trj">
       <notes>
         <note category="german">Beim Anblick des Gebäudes stellst du dir die Frage, wer in diesem schäbigen Motel früher übernachtet hat. Bilder und Szenen verschiedener Roadmovies schießen dir durch den Kopf: Thelma&amp;Louise, Natural Born Killers... Du denkst dir: 'Vielleicht sollte ich als Erstes Zimmer 215 kontrollieren. Man weiß ja nie...'.</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
         <source>Beim Anblick des Gebäudes stellst du dir die Frage, wer in diesem schäbigen Motel früher übernachtet hat. Bilder und Szenen verschiedener Roadmovies schießen dir durch den Kopf: Thelma&amp;Louise, Natural Born Killers... Du denkst dir: 'Vielleicht sollte ich als Erstes Zimmer 215 kontrollieren. Man weiß ja nie...'.</source>
-        <target><![CDATA[Te preguntas a quién se le podría ocurrir venir a alojarse en un hostal tan lejano y miserable... Mirando el registro de huéspedes, sí hay alguien: Un tal Valedres, en la habitación 215. Tal vez valga la pena explorar...]]></target>
+        <target>Te preguntas a quién se le podría ocurrir venir a alojarse en un hostal tan lejano y miserable... Mirando el registro de huéspedes, sí hay alguien: Un tal Valedres, en la habitación 215. Tal vez valga la pena explorar...</target>
       </segment>
     </unit>
     <unit id="sYaNvt8">
       <notes>
         <note category="german">Die hier stationierten Soldaten waren auf alles vorbereitet: Waffen, Vorräte und eine 150 m lange Sicherheitszone. Auf alles, außer darauf, dass ihr Leutnant sie während der Nacht verspeiste. Spaß beiseite, mit einer soliden Mauer und einer gesunden Diktatur gibt es (unter dem Gesichtspunkt des Überlebens) nichts Vergleichbares !</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
@@ -4536,7 +4509,6 @@
     <unit id=".bMEBv6">
       <notes>
         <note category="german">Dieses Gebäude scheint von den turbulenten Ereignissen der Vergangenheit verschont worden zu sein. Es ist noch vollkommen intakt und erinnert an ein klassisches Postbüro mit doppelten Schalterfenstern und durchsiebtem Sprechfenster. Hier wirst du kaum etwas Nützliches finden außer etwas zum Lesen...</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
@@ -4547,7 +4519,6 @@
     <unit id="91Rj1wr">
       <notes>
         <note category="german">Der Zugang zu dieser Höhle ist ein notdürftig abgedecktes Loch in der Erde. Er führt in eine übergroße feuchte Grotte, die mit allerlei Trümmern und Gerümpel gefüllt ist. Höchstwahrscheinlich handelt es sich um Beutegut, das bei der Plünderung einer benachbarten Stadt eingesackt wurde. Vielleicht wurde deine Stadt mit diesem Raubgut errichtet? Und wer weiß: Womöglich haben die ersten Einwohner deiner Stadt an diesen Raubzügen teilgenommen...</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
@@ -4558,7 +4529,6 @@
     <unit id="alVUMDw">
       <notes>
         <note category="german">Dieser von Einschusskratern und schwarzen getrockneten Blutlachen übersäte Schützengraben lässt erahnen, was sich hier abgespielt hat. Der größte Teil des Grabens ist in sich zusammengestürzt, doch hier und dort erblickst du noch ein paar begehbare Stellen, die sich nach nutzbaren Gegenständen absuchen lassen.</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
@@ -4569,7 +4539,6 @@
     <unit id="odvB3Fd">
       <notes>
         <note category="german">What was once the local library is now a collection of several small houses. Today, the books are mostly torn or burnt, the ground is littered with torn pages and the shelves have been knocked over.</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
@@ -4580,7 +4549,6 @@
     <unit id="Uin8bw9">
       <notes>
         <note category="german">In diesem Geschäft konnte man früher allerlei Produkte des täglichen Bedarfs kaufen: Lebensmittel, Getränke, Reinigungsmittel... An der Tür steht: Rund um die Uhr geöffnet (auch am Wochenende). In der Tat, das klaffenden Loch in der Mauer bestätigt dies.</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
@@ -4591,18 +4559,16 @@
     <unit id="ViudDKu">
       <notes>
         <note category="german">Ihr Vertreter vor Ihrer Haustür. Die Zombies stimmten diesem Konzept voll und ganz zu, wenn man die Krallenspuren auf den Polstern der Kabine und die überall versprühten menschlichen Überreste bemerkt.</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
         <source>Ihr Vertreter vor Ihrer Haustür. Die Zombies stimmten diesem Konzept voll und ganz zu, wenn man die Krallenspuren auf den Polstern der Kabine und die überall versprühten menschlichen Überreste bemerkt.</source>
-        <target><![CDATA[Un buen día los pobladores salieron a hacer una excursión por el desierto en este bus cantando alegremente: «Vamo' pa' la playa, pa' curarte el alma», pero cuando cantaron la famosa canción de The Cranberries: «...in your head...zombie, zombie... » Una turba de muertos vivientes se unió al coro... dejando 40 muertos.]]></target>
+        <target>Un buen día los pobladores salieron a hacer una excursión por el desierto en este bus cantando alegremente: «Vamo' pa' la playa, pa' curarte el alma», pero cuando cantaron la famosa canción de The Cranberries: «...in your head...zombie, zombie... » Una turba de muertos vivientes se unió al coro... dejando 40 muertos.</target>
       </segment>
     </unit>
     <unit id="9TPFQ6o">
       <notes>
         <note category="german">Es handelt sich um einen Transportlaster der sowjetischen Firma Transtwinï. Die Fahrerkabine hat sich komplett in einem Baum verkeilt. Der aufgeschlitzte Fahrersitz, sowie die großflächigen Blutspuren an den Wänden, lassen darauf schließen, dass der Unfall nicht die Todesursache war...</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
@@ -4613,7 +4579,6 @@
     <unit id="k6o0Mpp">
       <notes>
         <note category="german">Die fröhlichen Kinderzeichnungen an den Wänden stehen im starken Kontrast zu den nicht identifizierbaren menschlichen Überresten am Boden. Du hast das Gefühl, ein dunkles Kichern aus dem Bauschutt zu hören.</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
@@ -4624,7 +4589,6 @@
     <unit id="Ct60IzG">
       <notes>
         <note category="german">In dieses schöne Gebäude gingen die Menschen früher zur Arbeit. Pünktlichkeit und Dresscode waren Pflicht. Die tägliche Routine bestand darin, mit einer Gruppe unbekannter Kollegen Zielvorgaben zu erreichen und um sein eigenes Überleben zu kämpfen... Hhmmm, wenn du so drüber nachdenkst: So viel hat sich gar nicht geändert - bis auf den Dresscode vielleicht.</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
@@ -4635,7 +4599,6 @@
     <unit id="uy1WNX.">
       <notes>
         <note category="german">Jemand hat hier vor langer Zeit gelebt. Vielleicht jemand, der von einer Familie umgeben war, die ihn liebte und mit der er viele glückliche Stunden zusammen verbrachte ? Heute ist alles, was bleibt, ein wenig Staub und völlige Verwüstung... und gelegentlich eine Leiche, die mit den Zähnen knirschend auf einen zustürmt.</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
@@ -4646,7 +4609,6 @@
     <unit id="Mk_nOE9">
       <notes>
         <note category="german">Soll das eine Schule, ein Parkhaus oder vielleicht ein Kaufhaus sein? Du kannst es nicht erkennen... Das einzige, was von diesem geheimnisvollen Projekt noch übrig ist, sind ein paar verrostete Metallstrukturen.</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
@@ -4657,7 +4619,6 @@
     <unit id="bVAo.cx">
       <notes>
         <note category="german">Wow - das ist ein verdammtes Geschenk des Himmels! Ein Brunnen, der immer noch funktioniert ! Völlig verloren in der Mitte von Nirgendwo gibt es hier niemanden mit seinem Regelwerk, der Ihnen sagt: 'Tun Sie dies nicht, tun Sie das nicht, nehmen Sie nicht zu viel Wasser, bla bla bla bla...'. Na los, nimm einen Drink, es wird unser kleines Geheimnis sein...</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
@@ -4668,7 +4629,6 @@
     <unit id="nIZoj0r">
       <notes>
         <note category="german">Ursprünglich zur Lagerung von Getreide konstruiert, aber als die Zeit verging und das Getreide knapp wurde, füllten sich die Tanks mit Regenwasser (und einer toten Ratte). Sie brauchen allerdings den richtigen Bausatz, um sie zu benutzen...</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
@@ -4679,7 +4639,6 @@
     <unit id="icD0mRG">
       <notes>
         <note category="german">Was hier passiert ist erschließt sich dir nicht so ganz... Ein riesiger Felsen ist mit voller Wucht auf die Straße geschleudert worden - doch woher kam er? Rings um dich ist nichts als Wüste...</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
@@ -4700,7 +4659,6 @@
     <unit id="XXTLDoG">
       <notes>
         <note category="german">Wenn Sie drohen, verstümmeln oder morden wollen, haben Sie hier die Hauptader getroffen... Die in den Wänden steckenden Schrapnelle, Einschusslöcher und Trümmer ringsum geben Ihnen eine gute Vorstellung davon, welche Art von 'Ereignissen' sich hier abgespielt haben...</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
@@ -4711,7 +4669,6 @@
     <unit id="DYD9pRM">
       <notes>
         <note category="german">Das Schiebetor dieses Supermarktlagers hat allen Plünderungsversuchen erfolgreich getrotzt. Durch einen etwas versteckten Seiteneingang gelangst du ins Innere und machst dich sofort auf die Suche nach Dingen, die du noch gebrauchen kannst...</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
@@ -4722,7 +4679,6 @@
     <unit id="qSSpkKa">
       <notes>
         <note category="german">Dieses Zelt macht einen wirklich soliden Eindruck und war bestimmt mal ein gutes Versteck. Derjenige, der es aufgestellt hat, wusste wie man sich vor Zombies schützt. Das Zelt verfügt über ein farblich abgestimmtes Tarnnetz, mehrere Ein- und Ausgänge, sowie über ein unterirdisches Notversteck für brenzlige Situation. Bei näherem Hinsehen entdeckst du auf der Zeltplane einen eingestickten Namen: 'Shenji'</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
@@ -4733,7 +4689,6 @@
     <unit id="SXiUP6e">
       <notes>
         <note category="german">Mitten in der Wüste entdeckst du eine kleine Stadtviertelapotheke – grotesk! Ein unbeschreibbarer Gestank liegt in der Luft und es riecht nach allem möglichen, außer nach Gesundheit.</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
@@ -19451,7 +19406,7 @@
         <target>Cuando miras por la ventana, notas que la casa de {citizen} ya no contiene ningún artículo de valor. Es probable que otros habitantes ya se hayan llevado todo lo que no estaba clavado...</target>
       </segment>
     </unit>
-    <unit id="N0yoB1W">
+    <unit id="2skYpuv">
       <notes>
         <note category="german">&lt;strong&gt;Achtung:&lt;/strong&gt; Befinden sich nicht genügend Rationen Wasser im Brunnen, arbeiten manche Konstruktionen (wie z.B. der Wasserturm) beim Angriff nicht mit voller Stärke!</note>
         <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
