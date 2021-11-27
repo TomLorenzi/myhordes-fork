@@ -22,16 +22,14 @@
                 </div>
                 <div class="padded cell rw-3 rw-md-6 small">
                     <span>
-                        {% if citizen.profession.heroic %}
-                            <img alt="" src="{{ asset('build/images/professions/hero.gif') }}" />
-                        {% else %}
-                            <img alt="" src="{{ asset('build/images/professions/void.gif') }}" />
-                        {% endif %}
+                        <img alt="{{ citizen.profession.label|trans({},'game') }}" src="{{ asset('build/images/professions/' ~ citizen.profession.icon ~ '.gif') }}" />
+                        <b>{{ citizen.name }}</b>
                         {% if citizen.banished %}
                             <img alt="" src="{{ asset('build/images/icons/banished.gif') }}" />
                         {% endif %}
-                        <img alt="{{ citizen.profession.label|trans({},'game') }}" src="{{ asset('build/images/professions/' ~ citizen.profession.icon ~ '.gif') }}" />
-                        <b>{{ citizen.name }}</b>
+                        {% if citizen.profession.heroic %}
+                            <img alt="" src="{{ asset('build/images/professions/hero.gif') }}" />
+                        {% endif %}
                     </span>
                 </div>
                 <div class="padded cell rw-3 ro-5 small right">
