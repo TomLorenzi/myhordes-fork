@@ -19437,11 +19437,11 @@
     </unit>
     <unit id="N0yoB1W">
       <notes>
-        <note category="german">&lt;strong&gt;Achtung&lt;/strong&gt;: Befinden sich nicht genügend Rationen Wasser im Brunnen, arbeiten manche Konstruktionen (wie z.B. der Wasserturm) beim Angriff nicht mit voller Stärke!</note>
+        <note category="german">&lt;strong&gt;Achtung:&lt;/strong&gt; Befinden sich nicht genügend Rationen Wasser im Brunnen, arbeiten manche Konstruktionen (wie z.B. der Wasserturm) beim Angriff nicht mit voller Stärke!</note>
         <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
       </notes>
       <segment>
-        <source>&lt;strong&gt;Achtung&lt;/strong&gt;: Befinden sich nicht genügend Rationen Wasser im Brunnen, arbeiten manche Konstruktionen (wie z.B. der Wasserturm) beim Angriff nicht mit voller Stärke!</source>
+        <source>&lt;strong&gt;Achtung:&lt;/strong&gt; Befinden sich nicht genügend Rationen Wasser im Brunnen, arbeiten manche Konstruktionen (wie z.B. der Wasserturm) beim Angriff nicht mit voller Stärke!</source>
         <target><![CDATA[<strong>Attention :</strong> sans eau, certaines évolutions (comme les aqua-tourelles) ne fonctionneront pas lors de l'attaque !]]></target>
       </segment>
     </unit>
