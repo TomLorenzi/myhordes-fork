@@ -23737,5 +23737,25 @@ cette violente opération...]]></target>
         <target>Afficher la liste des chantiers</target>
       </segment>
     </unit>
+    <unit id="tn37OGR">
+      <notes>
+        <note category="german">&lt;strong&gt;{citizen} scheint von einer plötzlichen, unkontrollierbaren Panik ergriffen zu sein&lt;/strong&gt;! Es ist unmöglich, auch nur einen Schritt weiter zu gehen... seine &lt;strong&gt;Bewegung wurde unterbrochen&lt;/strong&gt;.</note>
+        <note category="from">db://LogEntryTemplate</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;{citizen} scheint von einer plötzlichen, unkontrollierbaren Panik ergriffen zu sein&lt;/strong&gt;! Es ist unmöglich, auch nur einen Schritt weiter zu gehen... seine &lt;strong&gt;Bewegung wurde unterbrochen&lt;/strong&gt;.</source>
+        <target><![CDATA[<strong>{citizen} semble pris(e) d'une soudaine et incontrôlable panique</strong> ! Impossible de faire un pas de plus... <strong>son déplacement a été interrompu.</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="_yQk_x1">
+      <notes>
+        <note category="german">Als du dich umschaust, &lt;strong&gt;überfällt dich eine plötzliche, unkontrollierbare Panik&lt;/strong&gt;! Es ist unmöglich, auch nur einen Schritt weiterzugehen.&lt;hr/&gt;Deine Bewegung wurde &lt;strong&gt;unterbrochen&lt;/strong&gt; und du hast &lt;strong&gt;1 AP&lt;/strong&gt; verloren.</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
+      </notes>
+      <segment>
+        <source>Als du dich umschaust, &lt;strong&gt;überfällt dich eine plötzliche, unkontrollierbare Panik&lt;/strong&gt;! Es ist unmöglich, auch nur einen Schritt weiterzugehen.&lt;hr/&gt;Deine Bewegung wurde &lt;strong&gt;unterbrochen&lt;/strong&gt; und du hast &lt;strong&gt;1 AP&lt;/strong&gt; verloren.</source>
+        <target><![CDATA[En regardant autour de vous, <strong>vous êtes pris(e) d'une soudaine et incontrôlable panique</strong> ! Impossible de faire un pas de plus...  Votre déplacement a été <strong>interrompu</strong> et vous avez perdu<strong>1 AP</strong>.]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>
