@@ -7,16 +7,16 @@
     </div>
     <div class="tab tab-floater">
         <div class="tab{% if admin_tab == "admin_users_account" %} selected{% endif %}">
-            <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('admin_users_account_view', { 'id': user.Id }) }}">{% trans from 'admin' %}Account{% endtrans %}</div>
+            <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('admin_users_account_view', { 'id': user.Id }) }}"><img src="{{ asset('build/images/item/item_soul_blue.gif') }}" alt="" /> <span class="hide-sm">{% trans from 'admin' %}Account{% endtrans %}</span></div>
         </div>
         <div class="tab{% if admin_tab == "admin_users_ban" %} selected{% endif %}">
-            <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('admin_users_ban_view', { 'id': user.Id }) }}">{% trans from 'admin' %}Verbannung{% endtrans %}</div>
+            <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('admin_users_ban_view', { 'id': user.Id }) }}"><img src="{{ asset('build/images/icons/banished.gif') }}" alt="" /> <span class="hide-sm">{% trans from 'admin' %}Verbannung{% endtrans %}</span></div>
         </div>
         <div class="tab{% if admin_tab == "admin_users_citizen" %} selected{% endif %}">
-            <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('admin_users_citizen_view', { 'id': user.Id }) }}">{% trans from 'admin' %}Bürger{% endtrans %}</div>
+            <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('admin_users_citizen_view', { 'id': user.Id }) }}"><img src="{{ asset('build/images/icons/small_human.gif') }}" alt="" /> <span class="hide-sm">{% trans from 'admin' %}Bürger{% endtrans %}</span></div>
         </div>
         <div class="tab{% if admin_tab == "admin_users_pictos" %} selected{% endif %}">
-            <div class="tab-link" x-ajax-href="{{ path('admin_users_pictos_view', { 'id': user.Id }) }}">{% trans from 'admin' %}Auszeichnungen{% endtrans %}</div>
+            <div class="tab-link" x-ajax-href="{{ path('admin_users_pictos_view', { 'id': user.Id }) }}"><img src="{{ asset('build/images/pictos/r_heroac.gif') }}" alt="" /> <span class="hide-sm">{% trans from 'admin' %}Auszeichnungen{% endtrans %}</span></div>
         </div>
     </div>
 
