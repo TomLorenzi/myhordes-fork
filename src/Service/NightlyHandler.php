@@ -641,12 +641,6 @@ class NightlyHandler
 
         $has_nightwatch = $this->town_handler->getBuilding($town, 'small_round_path_#00');
 
-        /** @var CitizenWatch[] $watchers */
-        $watchers = $this->entity_manager->getRepository(CitizenWatch::class)->findWatchersOfDay($town, $town->getDay() - 1); // -1 because day has been advanced before stage2
-
-        $inactive_watchers = array_filter( $watchers, fn(CitizenWatch $w) => $w->getCitizen()->getZone() !== null || !$w->getCitizen()->getAlive() );
-        $watchers = array_filter( $watchers, fn(CitizenWatch $w) => $w->getCitizen()->getZone() === null && $w->getCitizen()->getAlive() );
-
         $count_zombified_citizens = 0;
         $last_zombified_citizen = null;
         foreach ($town->getCitizens() as $citizen)
@@ -660,6 +654,12 @@ class NightlyHandler
             $this->entity_manager->persist( $this->logTemplates->nightlyAttackBegin($town, $count_zombified_citizens, true, $count_zombified_citizens === 1 ? $last_zombified_citizen : null) );
 
         $this->stage2_surprise_attack($town);
+
+        /** @var CitizenWatch[] $watchers */
+        $watchers = $this->entity_manager->getRepository(CitizenWatch::class)->findWatchersOfDay($town, $town->getDay() - 1); // -1 because day has been advanced before stage2
+
+        $inactive_watchers = array_filter( $watchers, fn(CitizenWatch $w) => $w->getCitizen()->getZone() !== null || !$w->getCitizen()->getAlive() );
+        $watchers = array_filter( $watchers, fn(CitizenWatch $w) => $w->getCitizen()->getZone() === null && $w->getCitizen()->getAlive() );
 
         $this->entity_manager->persist( $this->logTemplates->nightlyAttackBegin2($town) );
         $this->entity_manager->persist( $this->logTemplates->nightlyAttackSummary($town, $town->getDoor(), $overflow, count($watchers) > 0 && $has_nightwatch));
