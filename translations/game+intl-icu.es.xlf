@@ -1941,7 +1941,7 @@
       </notes>
       <segment>
         <source>{ruin} durchsuchen</source>
-        <target>Hurgar: {ruin}</target>
+        <target><![CDATA[Hurgar: <strong>{ruin}</strong>]]></target>
       </segment>
     </unit>
     <unit id="ZaxaGah" name="Zone freiräumen">

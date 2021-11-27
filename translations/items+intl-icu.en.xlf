@@ -7315,8 +7315,7 @@
       </notes>
       <segment>
         <source>In deiner Küche hast du {items_consume} in {items_spawn} umgewandelt.</source>
-        <target>You use {items_consume} and a few other bits and pieces.
-You put every effort into it. Then, after some time passes, you retrieve a {items_spawn} from the "stove".</target>
+        <target>You use {items_consume} and a few other bits and pieces.{hr}You put every effort into it. Then, after some time passes, you retrieve a {items_spawn} from the "stove".</target>
       </segment>
     </unit>
     <unit id="GhoMZLz" name="Gegenstände suchen">
@@ -7747,7 +7746,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Das {item} beginnt rasch zu wirken. Das Fieber klingt ab, dein Herz beginnt wieder in einem halbwegs normalen Takt zu schlagen... Du warst nicht weit von einem schrecklichen Tod entfernt.</source>
-        <target><![CDATA[The {item} rapidly takes effect. <strong>The fever subsides</strong>, your heart starts beating at a a semi-normal rate again... You weren't far away from a horrible death.]]></target>
+        <target><![CDATA[The {item} rapidly takes effect. <strong>The fever subsides</strong>, your heart starts beating at a semi-normal rate again... You weren't far away from a horrible death.]]></target>
       </segment>
     </unit>
     <unit id="xWENNfP" name="Gequälte Seele">
@@ -7957,7 +7956,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Schlechte Nachrichten, das hättest du nicht in den Mund nehmen sollen... Du bist infiziert!</source>
-        <target>Bad news, you maybe shouldn't have swallowed that... you have been infected!</target>
+        <target><![CDATA[<strong>Bad news</strong>, you maybe shouldn't have swallowed that... you have been <strong>infected</strong>!]]></target>
       </segment>
     </unit>
     <unit id="UhcYCoM">
