@@ -1956,7 +1956,7 @@
       </notes>
       <segment>
         <source>{ruin} durchsuchen</source>
-        <target>Search {ruin}</target>
+        <target><![CDATA[Explore: <strong>{ruin}</strong>]]></target>
       </segment>
     </unit>
     <unit id="ZaxaGah" name="Zone freiräumen">
@@ -9990,7 +9990,7 @@
       </notes>
       <segment>
         <source>Du brauchst eine Weile, bis du alle Gegenstände versteckt hast, die du bei dir trägst... Ha Ha... Du hast 2 Aktionspunkte verbraucht.</source>
-        <target>It will take you a while to hide all the items you carry with you ... Ha Ha ... You used up 2 action points.</target>
+        <target><![CDATA[You spend a while <strong>hiding all the objects on your person...</strong> Ha Ha...<hr />You have used <strong>2 action points.</strong>]]></target>
       </segment>
     </unit>
     <unit id="ZgukXzf" name="Deine Nachricht und deine ausgewählten Gegenstände wurden überbracht.">
@@ -20873,7 +20873,7 @@
       </notes>
       <segment>
         <source>Das Stadttor ist zerstört!</source>
-        <target>Das Stadttor ist zerstört!</target>
+        <target>The town gates have been destroyed.</target>
       </segment>
     </unit>
     <unit id="ixRzzXD">
@@ -20895,7 +20895,7 @@
       </notes>
       <segment>
         <source>Die Stadt ist verwüstet! Du kannst dein Haus nicht mehr ausbauen, weil es ebenfalls niedergebrannt ist.</source>
-        <target>Die Stadt ist verwüstet! Du kannst dein Haus nicht mehr ausbauen, weil es ebenfalls niedergebrannt ist.</target>
+        <target>The town has been devastated! You cannot upgrade your house because it, too, has been reduced to firewood.</target>
       </segment>
     </unit>
     <unit id="sO7EUbm" name="ZERSTÖRT!!">
@@ -22831,7 +22831,7 @@
       </notes>
       <segment>
         <source>Doch leider ist der letzte Bürger tot, bevor die Horde die Stadttore erreicht... Seine Zunge hängt zwischen den Zähnen seines ehemaligen Freundes...</source>
-        <target>Doch leider ist der letzte Bürger tot, bevor die Horde die Stadttore erreicht... Seine Zunge hängt zwischen den Zähnen seines ehemaligen Freundes...</target>
+        <target>Alas, the last remaining citizen died before the zombies attacked... Their tongue is now hanging between their former friend's teeth...</target>
       </segment>
     </unit>
     <unit id="wey0ykd">

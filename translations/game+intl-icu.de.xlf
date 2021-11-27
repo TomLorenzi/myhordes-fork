@@ -1291,7 +1291,7 @@
     <unit id="FB4yWED" name="{ruin} durchsuchen">
       <segment>
         <source>{ruin} durchsuchen</source>
-        <target>{ruin} durchsuchen</target>
+        <target><![CDATA[<strong>{ruin}</strong> durchsuchen]]></target>
       </segment>
     </unit>
     <unit id="ZaxaGah" name="Zone freiräumen">

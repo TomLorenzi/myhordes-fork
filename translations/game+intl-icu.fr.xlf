@@ -1930,7 +1930,7 @@
       </notes>
       <segment>
         <source>{ruin} durchsuchen</source>
-        <target>Fouiller : {ruin}</target>
+        <target><![CDATA[Fouiller : <strong>{ruin}</strong>]]></target>
       </segment>
     </unit>
     <unit id="ZaxaGah" name="Zone freiräumen">

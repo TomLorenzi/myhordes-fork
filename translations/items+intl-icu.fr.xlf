@@ -7922,7 +7922,7 @@
       </notes>
       <segment>
         <source>Schlechte Nachrichten, das hättest du nicht in den Mund nehmen sollen... Du bist infiziert!</source>
-        <target>Mauvaise nouvelle, vous n'auriez peut-être pas dû l'avaler... Vous avez été infecté(e) !</target>
+        <target><![CDATA[<strong>Mauvaise nouvelle</strong>, vous n'auriez peut-être pas dû l'avaler... Vous avez été <strong>infecté(e)</strong> !]]></target>
       </segment>
     </unit>
     <unit id="UhcYCoM">
