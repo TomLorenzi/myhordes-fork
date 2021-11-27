@@ -313,7 +313,7 @@ class NightlyHandler
                 }
 
 
-            if (!empty($buildings)) {
+            if (!empty($buildings) && $max_votes > 0) {
                 /** @var Building $target_building */
                 $this->upgraded_building = $target_building = $this->random->pick( $buildings );
                 $target_building->setLevel( $target_building->getLevel() + 1 );
