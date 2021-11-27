@@ -764,10 +764,8 @@ class TownController extends InventoryAwareController
             $this->crow->postAsPM( $victim, '', '' . time(), PrivateMessage::TEMPLATE_CROW_INTRUSION, $this->getActiveCitizen()->getId() );
         }
 
-        if ($action !== 0) {
-            $this->citizen_handler->inflictStatus($this->getActiveCitizen(), 'tg_steal');
+        if ($action !== 0)
             $this->entity_manager->persist( (new HomeIntrusion())->setIntruder($this->getActiveCitizen())->setVictim( $victim )->setSteal( $action > 0 ) );
-        }
 
         try {
             $this->entity_manager->flush();
