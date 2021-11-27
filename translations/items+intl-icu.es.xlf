@@ -3769,7 +3769,7 @@
     </unit>
     <unit id="9Wgu8lv" name="Wasser suchen">
       <notes>
-        <note category="german">Wasser suchen</note>
+        <note category="german">Wasser</note>
         <note category="from">db://ItemAction</note>
       </notes>
       <segment>
@@ -3779,7 +3779,7 @@
     </unit>
     <unit id="JAlTzuc" name="Essen suchen">
       <notes>
-        <note category="german">Essen suchen</note>
+        <note category="german">Essen</note>
         <note category="from">db://ItemAction</note>
       </notes>
       <segment>
@@ -9354,6 +9354,17 @@
       <segment>
         <source>Es ist nicht so appetitlich wie ein &lt;strong&gt;schöner, frischer, zappelnder Mensch&lt;/strong&gt;, aber es erfüllt seinen Zweck und lässt den &lt;strong&gt;Hunger&lt;/strong&gt; ein wenig nachlassen.... Zum Glück ist das Fleisch ziemlich zart, sonst wäre diese Mahlzeit furchtbar gewesen.&lt;hr/&gt;Nach ein paar Sekunden spürst du den furchtbaren Nachgeschmack...</source>
         <target><![CDATA[No es tan apetecible como un <strong>humano fresco y vigoroso</strong>, pero logra al menos calmar tu <strong>voracidad</strong>. Felizmente la carne estaba un poco sazonada...<hr/>Unos segundos después notas que esa cosa tiene un sabor horrible...]]></target>
+      </segment>
+    </unit>
+    <unit id="Z37r5VN" name="Erhalten:">
+      <notes>
+        <note category="german">Erhalten:</note>
+        <note category="from">twig:///templates/ajax/game/actions.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Erhalten:</source>
+        <target>Erhalten:</target>
       </segment>
     </unit>
   </file>
