@@ -1883,7 +1883,7 @@ class TownController extends InventoryAwareController
             ),
         ];
 
-        if(!$this->citizen_handler->hasStatusEffect($c, array_keys($healableStatus)) || $c->getZone() || $this->citizen_handler->hasStatusEffect($c, 'tg_shaman_heal')){
+        if(!$this->citizen_handler->hasStatusEffect($c, array_keys($healableStatus)) || $this->citizen_handler->hasStatusEffect($c, 'tg_shaman_heal')){
             $message[] = $this->translator->trans('Du kannst diesen Bürger nicht heilen. Entweder bedarf er keiner Heilung, ist nicht in der Stadt oder hat heute bereits eine mystische Heilung erfahren.', [], 'game');
             $this->addFlash('notice', implode('<hr />', $message));
             return AjaxResponse::success();
@@ -1906,6 +1906,7 @@ class TownController extends InventoryAwareController
             }
 
             $message[] = $this->translator->trans($healableStatus[$healedStatus]['success'], ['{citizen}' => "<span>" . $c->getName() . "</span>"], 'game');
+            $this->entity_manager->persist( $this->log->shamanHealLog( $this->getActiveCitizen(), $c ) );
 
             $transfer = $this->random_generator->chance(0.1);
             if($transfer){

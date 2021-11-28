@@ -15506,5 +15506,11 @@
         <target><![CDATA[<strong>{citizen1}</strong> ist so oft zur Bank gerannt, dass es ja irgendwann mal auffallen MUSSTE! Allein gestern waren es <strong>{random} Mal</strong>.]]></target>
       </segment>
     </unit>
+    <unit id="bVo7YAL" name="{shaman} hat {citizen} soeben mit seinen mystischen Schamanenkräften geheilt!">
+      <segment>
+        <source>{shaman} hat {citizen} soeben mit seinen mystischen Schamanenkräften geheilt!</source>
+        <target>{shaman} hat {citizen} soeben mit seinen mystischen Schamanenkräften geheilt!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

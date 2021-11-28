@@ -1690,6 +1690,21 @@ class LogTemplateHandler
             ->setSecondaryCitizen( $citizen );
     }
 
+    public function shamanHealLog( Citizen $shaman, Citizen $citizen ): TownLogEntry {
+        $variables = array('shaman' => $shaman->getId(), 'citizen' => $citizen->getId());
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'shamanHeal']);
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $shaman->getTown() )
+            ->setDay( $shaman->getTown()->getDay() )
+            ->setZone( null )
+            ->setTimestamp( new DateTime('now') )
+            ->setCitizen( $shaman )
+            ->setSecondaryCitizen( $citizen );
+    }
+
     public function citizenAttack( Citizen $attacker, Citizen $defender, bool $wounded ): TownLogEntry {
         $variables = array('attacker' => $attacker->getId(), 'defender' => $defender->getId());
         $template = $attacker->getZone()
