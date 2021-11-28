@@ -24434,7 +24434,7 @@
     </unit>
     <unit id="eYaqEgt" name="Zyanid (poison)">
       <notes>
-        <note category="german">Zyanid (poison)</note>
+        <note category="german">Zyanid</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
         <note category="state">new</note>
       </notes>

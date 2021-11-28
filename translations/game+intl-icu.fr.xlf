@@ -24022,418 +24022,380 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Du solltest auch einen Blick auf die Leiche von &lt;strong&gt;† {cadaver1}&lt;/strong&gt; werfen. Die Umstände des Todes könnten nicht fragwürdiger sein ... Hmm? Mord? Wer hat "Mord" gesagt?</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Du solltest auch einen Blick auf die Leiche von &lt;strong&gt;† {cadaver1}&lt;/strong&gt; werfen. Die Umstände des Todes könnten nicht fragwürdiger sein ... Hmm? Mord? Wer hat "Mord" gesagt?</source>
-        <target><![CDATA[Du solltest auch einen Blick auf die Leiche von <strong>† {cadaver1}</strong> werfen. Die Umstände des Todes könnten nicht fragwürdiger sein ... Hmm? Mord? Wer hat "Mord" gesagt?]]></target>
+        <target><![CDATA[Il faudra également penser à jeter un œil au cadavre de <strong>† {cadaver1}</strong>. Les circonstances de la mort sont on ne peut plus douteuses... Hmm ? Meurtre ? Qui a dit "meurtre" ?]]></target>
       </segment>
     </unit>
     <unit id="rs0Vp9r">
       <notes>
         <note category="german">In der Stadt gibt es perfideere Menschen als mich. Ein Beweis dafür ist der gewaltsame Tod von &lt;strong&gt;† {cadaver1}&lt;/strong&gt; gestern, der einem Mord zum Opfer fiel (Vergiftung mit {poison}, meiner Meinung nach). Es war sauber, ohne viel Dreck, obwohl es scheint dass &lt;strong&gt;† {cadaver1}&lt;/strong&gt; sehr gelitten hat. Gute Arbeit, mach weiter so, Kollege.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>In der Stadt gibt es perfideere Menschen als mich. Ein Beweis dafür ist der gewaltsame Tod von &lt;strong&gt;† {cadaver1}&lt;/strong&gt; gestern, der einem Mord zum Opfer fiel (Vergiftung mit {poison}, meiner Meinung nach). Es war sauber, ohne viel Dreck, obwohl es scheint dass &lt;strong&gt;† {cadaver1}&lt;/strong&gt; sehr gelitten hat. Gute Arbeit, mach weiter so, Kollege.</source>
-        <target><![CDATA[In der Stadt gibt es perfideere Menschen als mich. Ein Beweis dafür ist der gewaltsame Tod von <strong>† {cadaver1}</strong> gestern, der einem Mord zum Opfer fiel (Vergiftung mit {poison}, meiner Meinung nach). Es war sauber, ohne viel Dreck, obwohl es scheint dass <strong>† {cadaver1}</strong> sehr gelitten hat. Gute Arbeit, mach weiter so, Kollege.]]></target>
+        <target><![CDATA[Il y a plus perfide que moi en ville. J'en veux pour preuve la mort violente de <strong>† {cadaver1}</strong> hier, victime d'un meurtre (empoisonnement {poison}, à mon avis). C'était propre, sans trop de débordement, même s'il semblerait que <strong>† {cadaver1}</strong> ait énormément souffert. Du travail bien fait, continue comme ça, cher ami.]]></target>
       </segment>
     </unit>
     <unit id="QEItt5b">
       <notes>
         <note category="german">Vorsicht ist geboten! Ein Mörder versteckt sich unter uns! Gestern wurde die Leiche von &lt;strong&gt;† {cadaver1}&lt;/strong&gt; gefunden, die Opfer einer Vergiftung wurde, vermutlich {poison} (fragt mich nicht, wie ich das herausgefunden habe). Wer ist der Mörder?</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Vorsicht ist geboten! Ein Mörder versteckt sich unter uns! Gestern wurde die Leiche von &lt;strong&gt;† {cadaver1}&lt;/strong&gt; gefunden, die Opfer einer Vergiftung wurde, vermutlich {poison} (fragt mich nicht, wie ich das herausgefunden habe). Wer ist der Mörder?</source>
-        <target><![CDATA[Vorsicht ist geboten! Ein Mörder versteckt sich unter uns! Gestern wurde die Leiche von <strong>† {cadaver1}</strong> gefunden, die Opfer einer Vergiftung wurde, vermutlich {poison} (fragt mich nicht, wie ich das herausgefunden habe). Wer ist der Mörder?]]></target>
+        <target><![CDATA[Prudence ! Un assassin se cache parmi nous ! On a retrouvé hier le cadavre de <strong>† {cadaver1}</strong>, victime d'un empoisonnement, probablement {poison} (ne me demandez pas comment je l'ai appris). Qui est le meurtrier ?]]></target>
       </segment>
     </unit>
     <unit id="2IvlK44">
       <notes>
         <note category="german">Jemand konnte &lt;strong&gt;† {cadaver1}&lt;/strong&gt; offensichtlich nicht leiden. Das &lt;strong&gt;Gift&lt;/strong&gt;, welches gestern in sein Essen gemischt wurde, war äußerst effektiv.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Jemand konnte &lt;strong&gt;† {cadaver1}&lt;/strong&gt; offensichtlich nicht leiden. Das &lt;strong&gt;Gift&lt;/strong&gt;, welches gestern in sein Essen gemischt wurde, war äußerst effektiv.</source>
-        <target><![CDATA[Jemand konnte <strong>† {cadaver1}</strong> offensichtlich nicht leiden. Das <strong>Gift</strong>, welches gestern in sein Essen gemischt wurde, war äußerst effektiv.]]></target>
+        <target><![CDATA[Quelqu'un n'aimait visiblement pas <strong>† {cadaver1}</strong> : son repas d'hier aura été le dernier. Le <strong>poison</strong> qui y avait été dissimulé aura été très efficace.]]></target>
       </segment>
     </unit>
     <unit id="MFrPzmx">
       <notes>
         <note category="german">Wenn das Wasser komisch schmeckt, bist du vielleicht kurz davor, an einer Vergiftung zu vergehen. Wie &lt;strong&gt;† {cadaver1}&lt;/strong&gt; gestern, dessen &lt;strong&gt;verdächtiger Tod&lt;/strong&gt; viele Fragen aufwirft ...</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wenn das Wasser komisch schmeckt, bist du vielleicht kurz davor, an einer Vergiftung zu vergehen. Wie &lt;strong&gt;† {cadaver1}&lt;/strong&gt; gestern, dessen &lt;strong&gt;verdächtiger Tod&lt;/strong&gt; viele Fragen aufwirft ...</source>
-        <target><![CDATA[Wenn das Wasser komisch schmeckt, bist du vielleicht kurz davor, an einer Vergiftung zu vergehen. Wie <strong>† {cadaver1}</strong> gestern, dessen <strong>verdächtiger Tod</strong> viele Fragen aufwirft ...]]></target>
+        <target><![CDATA[Si l'eau a un drôle de goût, peut-être êtes-vous sur le point de claquer d'un empoisonnement {poison}. Comme <strong>† {cadaver1}</strong> hier, dont la <strong>mort suspecte</strong> soulève beaucoup d'interrogations...]]></target>
       </segment>
     </unit>
     <unit id="VtkKrJs">
       <notes>
         <note category="german">Die ganze Stadt freut sich über &lt;strong&gt;† {cadaver1}s&lt;/strong&gt; Tod. Seine &lt;strong&gt;Infektion&lt;/strong&gt; hat ihn endlich dahingerafft.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Die ganze Stadt freut sich über &lt;strong&gt;† {cadaver1}s&lt;/strong&gt; Tod. Seine &lt;strong&gt;Infektion&lt;/strong&gt; hat ihn endlich dahingerafft.</source>
-        <target><![CDATA[Die ganze Stadt freut sich über <strong>† {cadaver1}s</strong> Tod. Seine <strong>Infektion</strong> hat ihn endlich dahingerafft.]]></target>
+        <target><![CDATA[Tout le monde sera heureux d'apprendre la mort de <strong>† {cadaver1}</strong> qui a <strong>enfin</strong> claqué de son infection.]]></target>
       </segment>
     </unit>
     <unit id="XscnmcS">
       <notes>
         <note category="german">Die &lt;strong&gt;Krankheit&lt;/strong&gt; brauchte nicht lange, um mehrere Bürger ({cadavers}, wie mir scheint) in der Nacht niederzustrecken. Kaum &lt;strong&gt;zwei Tage Inkubationszeit&lt;/strong&gt;, und schwupps, waren sie ganz kalt.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Die &lt;strong&gt;Krankheit&lt;/strong&gt; brauchte nicht lange, um mehrere Bürger ({cadavers}, wie mir scheint) in der Nacht niederzustrecken. Kaum &lt;strong&gt;zwei Tage Inkubationszeit&lt;/strong&gt;, und schwupps, waren sie ganz kalt.</source>
-        <target><![CDATA[Die <strong>Krankheit</strong> brauchte nicht lange, um mehrere Bürger ({cadavers}, wie mir scheint) in der Nacht niederzustrecken. Kaum <strong>zwei Tage Inkubationszeit</strong>, und schwupps, waren sie ganz kalt.]]></target>
+        <target><![CDATA[Il n'aura pas fallu longtemps à la <strong>maladie</strong> pour terrasser plusieurs citoyens ({cadavers}, il me semble) dans la nuit. A peine <strong>deux jours d'incubation</strong>, et hop, les voilà tout froid.]]></target>
       </segment>
     </unit>
     <unit id=".YudnW.">
       <notes>
         <note category="german">Unsere infizierten &lt;strong&gt;{cadavers} Patienten&lt;/strong&gt; haben heute Nacht endlich den Löffel abgegeben. "Nicht zu früh", kommentiert &lt;strong&gt;{citizen1}&lt;/strong&gt;.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Unsere infizierten &lt;strong&gt;{cadavers} Patienten&lt;/strong&gt; haben heute Nacht endlich den Löffel abgegeben. "Nicht zu früh", kommentiert &lt;strong&gt;{citizen1}&lt;/strong&gt;.</source>
-        <target><![CDATA[Unsere infizierten <strong>{cadavers} Patienten</strong> haben heute Nacht endlich den Löffel abgegeben. "Nicht zu früh", kommentiert <strong>{citizen1}</strong>.]]></target>
+        <target><![CDATA[Nos <strong>{cadavers} malades</strong> infectés ont finalement passé l'arme à gauche cette nuit. "Pas trop tôt", commente <strong>{citizen1}</strong>.]]></target>
       </segment>
     </unit>
     <unit id="n0ZuQDo">
       <notes>
         <note category="german">Wir müssen uns keine Sorgen mehr um unsere {cadavers} Kranken machen. Sie sind heute Nacht alle oder fast alle gestorben. Champagner für alle!</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wir müssen uns keine Sorgen mehr um unsere {cadavers} Kranken machen. Sie sind heute Nacht alle oder fast alle gestorben. Champagner für alle!</source>
-        <target>Wir müssen uns keine Sorgen mehr um unsere {cadavers} Kranken machen. Sie sind heute Nacht alle oder fast alle gestorben. Champagner für alle!</target>
+        <target>On n'aura plus à s'inquiéter pour nos {cadavers} malades. Ils sont tous morts cette nuit, ou presque. Champagne !</target>
       </segment>
     </unit>
     <unit id="caZyk5r">
       <notes>
         <note category="german">Ihr müsst nicht mehr auf &lt;strong&gt;† {cadaver1}&lt;/strong&gt; warten, er wird noch einige Zeit in der Wüste bleiben, nachdem er beschlossen hat, sich selbst zu erwürgen... auf nachdrückliches Anraten der gequälten Seele, die die Kontrolle über seinen Körper übernommen hat.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ihr müsst nicht mehr auf &lt;strong&gt;† {cadaver1}&lt;/strong&gt; warten, er wird noch einige Zeit in der Wüste bleiben, nachdem er beschlossen hat, sich selbst zu erwürgen... auf nachdrückliches Anraten der gequälten Seele, die die Kontrolle über seinen Körper übernommen hat.</source>
-        <target><![CDATA[Ihr müsst nicht mehr auf <strong>† {cadaver1}</strong> warten, er wird noch einige Zeit in der Wüste bleiben, nachdem er beschlossen hat, sich selbst zu erwürgen... auf nachdrückliches Anraten der gequälten Seele, die die Kontrolle über seinen Körper übernommen hat.]]></target>
+        <target><![CDATA[Vous n'avez plus à attendre <strong>† {cadaver1}</strong>, il va rester quelques temps encore dans le désert après avoir décidé de s'étrangler tout seul... sous forte recommandation de l'âme torturée qui à pris contrôle de son corps.]]></target>
       </segment>
     </unit>
     <unit id="fi.WhGd">
       <notes>
         <note category="german">Übrigens, &lt;strong&gt;{cadavers} Bürger&lt;/strong&gt; die ein wenig zu vertrauensselig waren, sind auf abscheuliche Weise und durch ihre eigenen schmutzigen Hände gestorben. Hat jemand den Schamanen gesehen?!</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Übrigens, &lt;strong&gt;{cadavers} Bürger&lt;/strong&gt; die ein wenig zu vertrauensselig waren, sind auf abscheuliche Weise und durch ihre eigenen schmutzigen Hände gestorben. Hat jemand den Schamanen gesehen?!</source>
-        <target><![CDATA[Übrigens, <strong>{cadavers} Bürger</strong> die ein wenig zu vertrauensselig waren, sind auf abscheuliche Weise und durch ihre eigenen schmutzigen Hände gestorben. Hat jemand den Schamanen gesehen?!]]></target>
+        <target><![CDATA[Alors que <strong>{cadavers} citoyens</strong> un peu trop confiants sont décédés de façon abominable et de leurs propres mains sales. Quelqu'un à vu passer le Chaman ?!!]]></target>
       </segment>
     </unit>
     <unit id="Hua9L0W">
       <notes>
         <note category="german">&lt;strong&gt;{citizen1}&lt;/strong&gt; soll gestern mehrere Stunden damit verbracht haben, in den in der Bank gelagerten Kleinigkeiten herumzuschnüffeln. Trickserei oder Dienst an der Stadt?</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>&lt;strong&gt;{citizen1}&lt;/strong&gt; soll gestern mehrere Stunden damit verbracht haben, in den in der Bank gelagerten Kleinigkeiten herumzuschnüffeln. Trickserei oder Dienst an der Stadt?</source>
-        <target><![CDATA[<strong>{citizen1}</strong> soll gestern mehrere Stunden damit verbracht haben, in den in der Bank gelagerten Kleinigkeiten herumzuschnüffeln. Trickserei oder Dienst an der Stadt?]]></target>
+        <target><![CDATA[<strong>{citizen1}</strong> aurait passé plusieurs heures hier à farfouiller dans les babioles stockées à la banque. Magouille ou service rendu ?]]></target>
       </segment>
     </unit>
     <unit id="Zsp2m_l">
       <notes>
         <note category="german">&lt;strong&gt;{citizen1}&lt;/strong&gt; berichtet uns Informationen, die mit Vorsicht zu genießen ist. Laut diesem Bürger soll &lt;strong&gt;{citizen2}&lt;/strong&gt; nämlich gesehen worden sein, wie er den ganzen Tag über in der Nähe der Bank herumlungerte... Zu welchem Zweck? Ein Mysterium.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>&lt;strong&gt;{citizen1}&lt;/strong&gt; berichtet uns Informationen, die mit Vorsicht zu genießen ist. Laut diesem Bürger soll &lt;strong&gt;{citizen2}&lt;/strong&gt; nämlich gesehen worden sein, wie er den ganzen Tag über in der Nähe der Bank herumlungerte... Zu welchem Zweck? Ein Mysterium.</source>
-        <target><![CDATA[<strong>{citizen1}</strong> berichtet uns Informationen, die mit Vorsicht zu genießen ist. Laut diesem Bürger soll <strong>{citizen2}</strong> nämlich gesehen worden sein, wie er den ganzen Tag über in der Nähe der Bank herumlungerte... Zu welchem Zweck? Ein Mysterium.]]></target>
+        <target><![CDATA[<strong>{citizen1}</strong> nous rapporte une info à prendre avec des pincettes. En effet, selon ce citoyen, <strong>{citizen2}</strong> aurait été vu rodant près de la banque pendant tout la journée... Pour quoi faire ? Mystère.]]></target>
       </segment>
     </unit>
     <unit id="NGm.hBZ">
       <notes>
         <note category="german">&lt;strong&gt;{citizen1}&lt;/strong&gt; hatte sich bislang seelenruhig aus unseren Vorräten bedient. Gestern jedoch machte ihm &lt;strong&gt;{citizen2}&lt;/strong&gt; unmissverständlich klar, dass, wenn er so weiter mache, er eines Morgens nicht mehr aufwachen würde.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>&lt;strong&gt;{citizen1}&lt;/strong&gt; hatte sich bislang seelenruhig aus unseren Vorräten bedient. Gestern jedoch machte ihm &lt;strong&gt;{citizen2}&lt;/strong&gt; unmissverständlich klar, dass, wenn er so weiter mache, er eines Morgens nicht mehr aufwachen würde.</source>
-        <target><![CDATA[<strong>{citizen1}</strong> hatte sich bislang seelenruhig aus unseren Vorräten bedient. Gestern jedoch machte ihm <strong>{citizen2}</strong> unmissverständlich klar, dass, wenn er so weiter mache, er eines Morgens nicht mehr aufwachen würde.]]></target>
+        <target><![CDATA[<strong>{citizen1}</strong> se servirait tranquillement dans notre banque sans que cela ne dérange qui que ce soit. Sauf peut-être <strong>{citizen2}</strong> qui aurait quand même dit : "ça va se régler à coups de tournevis, cette histoire".]]></target>
       </segment>
     </unit>
     <unit id="xJHdFrN">
       <notes>
         <note category="german">Im Register steht, wie oft sich &lt;strong&gt;{citizen1}&lt;/strong&gt; an der Bank zu schaffen gemacht hat. Hat da jemand &lt;strong&gt;verdächtig&lt;/strong&gt; gesagt?</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Im Register steht, wie oft sich &lt;strong&gt;{citizen1}&lt;/strong&gt; an der Bank zu schaffen gemacht hat. Hat da jemand &lt;strong&gt;verdächtig&lt;/strong&gt; gesagt?</source>
-        <target><![CDATA[Im Register steht, wie oft sich <strong>{citizen1}</strong> an der Bank zu schaffen gemacht hat. Hat da jemand <strong>verdächtig</strong> gesagt?]]></target>
+        <target><![CDATA[Au détour du registre, on notera les nombreux passages de <strong>{citizen1}</strong> dans nos stocks à la banque. Qui a dit <strong>suspect</strong> ?]]></target>
       </segment>
     </unit>
     <unit id="ahvSFmN">
       <notes>
         <note category="german">Eine ziemliche Menge an Betrügereien von &lt;strong&gt;{citizen1}&lt;/strong&gt;, der gestern in der Bank herumstöberte... Wirf einen Blick in das Register...</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Eine ziemliche Menge an Betrügereien von &lt;strong&gt;{citizen1}&lt;/strong&gt;, der gestern in der Bank herumstöberte... Wirf einen Blick in das Register...</source>
-        <target><![CDATA[Eine ziemliche Menge an Betrügereien von <strong>{citizen1}</strong>, der gestern in der Bank herumstöberte... Wirf einen Blick in das Register...]]></target>
+        <target><![CDATA[Bel exemple de magouille pour ce citoyen, <strong>{citizen1}</strong>, qui a beaucoup fouiné dans la banque toute la journée d'hier... Jetez donc un œil au registre...]]></target>
       </segment>
     </unit>
     <unit id="89VTNik">
       <notes>
         <note category="german">Einige fragen sich, was &lt;strong&gt;{citizen1}&lt;/strong&gt; gestern den ganzen Tag &lt;strong&gt;in der Bank&lt;/strong&gt; gemacht hat... Wir bemerken einige &lt;strong&gt;sehr&lt;/strong&gt; verdächtige Vorgänge...</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Einige fragen sich, was &lt;strong&gt;{citizen1}&lt;/strong&gt; gestern den ganzen Tag &lt;strong&gt;in der Bank&lt;/strong&gt; gemacht hat... Wir bemerken einige &lt;strong&gt;sehr&lt;/strong&gt; verdächtige Vorgänge...</source>
-        <target><![CDATA[Einige fragen sich, was <strong>{citizen1}</strong> gestern den ganzen Tag <strong>in der Bank</strong> gemacht hat... Wir bemerken einige <strong>sehr</strong> verdächtige Vorgänge...]]></target>
+        <target><![CDATA[Certains se demandent bien ce que <strong>{citizen1}</strong> faisait toute la journée <strong>à la banque</strong> hier... On notera quelques allées et venues <strong>très</strong> suspectes...]]></target>
       </segment>
     </unit>
     <unit id="UTjLUdM">
       <notes>
         <note category="german">Die Aufzeichnungen zeigen, dass &lt;strong&gt;{citizen1}&lt;/strong&gt; sich mit unseren &lt;strong&gt;Bankreserven&lt;/strong&gt; gut amüsiert hat...</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Die Aufzeichnungen zeigen, dass &lt;strong&gt;{citizen1}&lt;/strong&gt; sich mit unseren &lt;strong&gt;Bankreserven&lt;/strong&gt; gut amüsiert hat...</source>
-        <target><![CDATA[Die Aufzeichnungen zeigen, dass <strong>{citizen1}</strong> sich mit unseren <strong>Bankreserven</strong> gut amüsiert hat...]]></target>
+        <target><![CDATA[D'après les registres, je me suis laissé dire que <strong>{citizen1}</strong> s'amusait bien avec nos <strong>réserves en banque</strong>...]]></target>
       </segment>
     </unit>
     <unit id="xQbE5UV">
       <notes>
         <note category="german">Es scheint, dass &lt;strong&gt;{citizen1}&lt;/strong&gt; beschlossen hat, seine fragwürdigen Fundstücke in unserer Bank zu stapeln. Es geht nicht um &lt;strong&gt;Quantität&lt;/strong&gt;, nicht wahr &lt;strong&gt;{citizen1}&lt;/strong&gt; ...</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Es scheint, dass &lt;strong&gt;{citizen1}&lt;/strong&gt; beschlossen hat, seine fragwürdigen Fundstücke in unserer Bank zu stapeln. Es geht nicht um &lt;strong&gt;Quantität&lt;/strong&gt;, nicht wahr &lt;strong&gt;{citizen1}&lt;/strong&gt; ...</source>
-        <target><![CDATA[Es scheint, dass <strong>{citizen1}</strong> beschlossen hat, seine fragwürdigen Fundstücke in unserer Bank zu stapeln. Es geht nicht um <strong>Quantität</strong>, nicht wahr <strong>{citizen1}</strong> ...]]></target>
+        <target><![CDATA[Il semblerait que <strong>{citizen1}</strong> ait décidé d'entasser ses trouvailles douteuses dans notre banque. C'est pas le tout de faire dans la <strong>quantité</strong>, hein <strong>{citizen1}</strong>...]]></target>
       </segment>
     </unit>
     <unit id="XMONJCi">
       <notes>
         <note category="german">Ich weiß nicht wie ihr das seht, aber &lt;strong&gt;{citizen1}&lt;/strong&gt; hat die Bank gestern offenbar mit einem Haufen nutzlosem Dreck gefüllt.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ich weiß nicht wie ihr das seht, aber &lt;strong&gt;{citizen1}&lt;/strong&gt; hat die Bank gestern offenbar mit einem Haufen nutzlosem Dreck gefüllt.</source>
-        <target><![CDATA[Ich weiß nicht wie ihr das seht, aber <strong>{citizen1}</strong> hat die Bank gestern offenbar mit einem Haufen nutzlosem Dreck gefüllt.]]></target>
+        <target><![CDATA[Je sais pas ce que vous en pensez, mais <strong>{citizen1}</strong> a apparemment rempli la banque d'un paquet de saletés inutiles hier.]]></target>
       </segment>
     </unit>
     <unit id="AQXmvEH">
       <notes>
         <note category="german">Der &lt;strong&gt;Bank&lt;/strong&gt; geht es ziemlich gut, vor allem dank des Beitrags von &lt;strong&gt;{citizen1}&lt;/strong&gt;, der ziemlich viel mitgebracht hat...</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Der &lt;strong&gt;Bank&lt;/strong&gt; geht es ziemlich gut, vor allem dank des Beitrags von &lt;strong&gt;{citizen1}&lt;/strong&gt;, der ziemlich viel mitgebracht hat...</source>
-        <target><![CDATA[Der <strong>Bank</strong> geht es ziemlich gut, vor allem dank des Beitrags von <strong>{citizen1}</strong>, der ziemlich viel mitgebracht hat...]]></target>
+        <target><![CDATA[La <strong>banque</strong> se porte plutôt pas mal, surtout grâce à la contribution de <strong>{citizen1}</strong> qui aura ramené pas mal de choses...]]></target>
       </segment>
     </unit>
     <unit id="x1i3hMt">
       <notes>
         <note category="german">Angeblich wurden der Bank gestern einige verdächtige Entnahmen gemeldet. Die Zeugenaussagen deuten darauf hin, dass es sich um &lt;strong&gt;{citizen1}&lt;/strong&gt; handeln soll, einige sprechen aber auch von &lt;strong&gt;{citizen2}&lt;/strong&gt;.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Angeblich wurden der Bank gestern einige verdächtige Entnahmen gemeldet. Die Zeugenaussagen deuten darauf hin, dass es sich um &lt;strong&gt;{citizen1}&lt;/strong&gt; handeln soll, einige sprechen aber auch von &lt;strong&gt;{citizen2}&lt;/strong&gt;.</source>
-        <target><![CDATA[Angeblich wurden der Bank gestern einige verdächtige Entnahmen gemeldet. Die Zeugenaussagen deuten darauf hin, dass es sich um <strong>{citizen1}</strong> handeln soll, einige sprechen aber auch von <strong>{citizen2}</strong>.]]></target>
+        <target><![CDATA[On aurait signalé quelques emprunts suspects à la banque hier. Les témoignages laissent entendre qu'il s'agirait de <strong>{citizen1}</strong>, mais certains parlent aussi de <strong>{citizen2}</strong>.]]></target>
       </segment>
     </unit>
     <unit id="Gsbf.rs">
       <notes>
         <note category="german">Mal was anderes: ein Blick ins Bankregisterbuch hat leider Unerfreuliches offenbart. &lt;strong&gt;{citizen1}&lt;/strong&gt; hat sich &lt;strong&gt;in der Bank ausgetobt&lt;/strong&gt; und so allerhand &lt;strong&gt;mitgehen lassen&lt;/strong&gt;...</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Mal was anderes: ein Blick ins Bankregisterbuch hat leider Unerfreuliches offenbart. &lt;strong&gt;{citizen1}&lt;/strong&gt; hat sich &lt;strong&gt;in der Bank ausgetobt&lt;/strong&gt; und so allerhand &lt;strong&gt;mitgehen lassen&lt;/strong&gt;...</source>
-        <target><![CDATA[Mal was anderes: ein Blick ins Bankregisterbuch hat leider Unerfreuliches offenbart. <strong>{citizen1}</strong> hat sich <strong>in der Bank ausgetobt</strong> und so allerhand <strong>mitgehen lassen</strong>...]]></target>
+        <target><![CDATA[Si vous jetez un œil au registre, vous remarquerez que <strong>{citizen1}</strong> a passé pas mal de temps à fouiner dans la banque... Moi, je dis ça...]]></target>
       </segment>
     </unit>
     <unit id="IckdGni">
       <notes>
         <note category="german">Einige Einwohner wundern sich, was &lt;strong&gt;{citizen1}&lt;/strong&gt; gestern den ganzen Tag in der Bank getrieben hat... Er sollte wissen, dass sein &lt;strong&gt;ständiges Kommen und Gehen&lt;/strong&gt; nicht unbemerkt geblieben ist...</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Einige Einwohner wundern sich, was &lt;strong&gt;{citizen1}&lt;/strong&gt; gestern den ganzen Tag in der Bank getrieben hat... Er sollte wissen, dass sein &lt;strong&gt;ständiges Kommen und Gehen&lt;/strong&gt; nicht unbemerkt geblieben ist...</source>
-        <target><![CDATA[Einige Einwohner wundern sich, was <strong>{citizen1}</strong> gestern den ganzen Tag in der Bank getrieben hat... Er sollte wissen, dass sein <strong>ständiges Kommen und Gehen</strong> nicht unbemerkt geblieben ist...]]></target>
+        <target><![CDATA[Toute la journée, les citoyens auront pu relever les va-et-vients suspects de <strong>{citizen1}</strong> dans notre banque. A vous de juger.]]></target>
       </segment>
     </unit>
     <unit id="LbG8Gk4" name="Arsen">
       <notes>
         <note category="german">Arsen</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Arsen</source>
-        <target>Arsen</target>
+        <target>à l'arsenic</target>
       </segment>
     </unit>
     <unit id="HCIRSS9" name="Cyanolin">
       <notes>
         <note category="german">Cyanolin</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Cyanolin</source>
-        <target>Cyanolin</target>
+        <target>à la cyanoline</target>
       </segment>
     </unit>
     <unit id="Rnp_9CF" name="Neurotwinin">
       <notes>
         <note category="german">Neurotwinin</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Neurotwinin</source>
-        <target>Neurotwinin</target>
+        <target>à la neuro-twinine</target>
       </segment>
     </unit>
     <unit id="3Uh1oV9" name="Rizin">
       <notes>
         <note category="german">Rizin</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Rizin</source>
-        <target>Rizin</target>
+        <target>à la ricine</target>
       </segment>
     </unit>
     <unit id="CZvDuqX" name="Botulinumtoxin">
       <notes>
         <note category="german">Botulinumtoxin</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Botulinumtoxin</source>
-        <target>Botulinumtoxin</target>
+        <target>à la toxine botulique</target>
       </segment>
     </unit>
     <unit id="HR8OwWp" name="Virunoir">
       <notes>
         <note category="german">Virunoir</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Virunoir</source>
-        <target>Virunoir</target>
+        <target>à la virulente noire</target>
       </segment>
     </unit>
     <unit id="aMG9BKE" name="Chlorotwinat">
       <notes>
         <note category="german">Chlorotwinat</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Chlorotwinat</source>
-        <target>Chlorotwinat</target>
+        <target>au chlorotwinate</target>
       </segment>
     </unit>
     <unit id="vlTzPfn" name="Kaliumchlorid">
       <notes>
         <note category="german">Kaliumchlorid</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Kaliumchlorid</source>
-        <target>Kaliumchlorid</target>
+        <target>au chlorure de potassium</target>
       </segment>
     </unit>
     <unit id="QiiYtFk" name="Kurare">
       <notes>
         <note category="german">Kurare</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Kurare</source>
-        <target>Kurare</target>
+        <target>au curare</target>
       </segment>
     </unit>
     <unit id="eYaqEgt" name="Zyanid (poison)">
       <notes>
-        <note category="german">Zyanid (poison)</note>
+        <note category="german">Zyanid</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Zyanid (poison)</source>
-        <target>Zyanid (poison)</target>
+        <target>au cyanure</target>
       </segment>
     </unit>
     <unit id="oGlsrDH" name="Phenol">
       <notes>
         <note category="german">Phenol</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Phenol</source>
-        <target>Phenol</target>
+        <target>au phénol</target>
       </segment>
     </unit>
     <unit id="BgNl_yX" name="Ponasulfat">
       <notes>
         <note category="german">Ponasulfat</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ponasulfat</source>
-        <target>Ponasulfat</target>
+        <target>au ponasulfate</target>
       </segment>
     </unit>
     <unit id="csNYTXg">
       <notes>
         <note category="german">Es gibt einige, die sich auf unsere Kosten einen Spaß machen, das sage ich euch, zum Beispiel &lt;strong&gt;{citizen1}&lt;/strong&gt;, der {random} Mal vorbeikam, um eine Kleinigkeit aus der Bank zu holen... Wir verweigern uns nichts.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Es gibt einige, die sich auf unsere Kosten einen Spaß machen, das sage ich euch, zum Beispiel &lt;strong&gt;{citizen1}&lt;/strong&gt;, der {random} Mal vorbeikam, um eine Kleinigkeit aus der Bank zu holen... Wir verweigern uns nichts.</source>
-        <target><![CDATA[Es gibt einige, die sich auf unsere Kosten einen Spaß machen, das sage ich euch, zum Beispiel <strong>{citizen1}</strong>, der {random} Mal vorbeikam, um eine Kleinigkeit aus der Bank zu holen... Wir verweigern uns nichts.]]></target>
+        <target><![CDATA[Il y en a qui se font plaisir sur notre dos je vous le dis, avec (par exemple) <strong>{citizen1}</strong> qui est passé(e) {random} fois prendre un petit quelque chose dans la banque... On ne se refuse rien..]]></target>
       </segment>
     </unit>
     <unit id="9WkEMJc">
       <notes>
         <note category="german">&lt;strong&gt;{citizen1}&lt;/strong&gt; ist so oft zur Bank gerannt, dass es ja irgendwann mal auffallen MUSSTE! Allein gestern waren es &lt;strong&gt;{random} Mal&lt;/strong&gt;.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>&lt;strong&gt;{citizen1}&lt;/strong&gt; ist so oft zur Bank gerannt, dass es ja irgendwann mal auffallen MUSSTE! Allein gestern waren es &lt;strong&gt;{random} Mal&lt;/strong&gt;.</source>
-        <target><![CDATA[<strong>{citizen1}</strong> ist so oft zur Bank gerannt, dass es ja irgendwann mal auffallen MUSSTE! Allein gestern waren es <strong>{random} Mal</strong>.]]></target>
+        <target><![CDATA[On notera le bon paquet de fois où <strong>{citizen1}</strong> a été aperçu(e) en train de se servir dans la banque. <strong>{random} fois</strong> rien qu'hier.]]></target>
       </segment>
     </unit>
     <unit id="bVo7YAL" name="{shaman} hat {citizen} soeben mit seinen mystischen Schamanenkräften geheilt!">
