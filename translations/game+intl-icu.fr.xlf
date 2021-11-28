@@ -24227,17 +24227,6 @@ cette violente opération...]]></target>
         <target><![CDATA[Es scheint, dass <strong>{citizen1}</strong> beschlossen hat, seine fragwürdigen Fundstücke in unserer Bank zu stapeln. Es geht nicht um <strong>Quantität</strong>, nicht wahr <strong>{citizen1}</strong> ...]]></target>
       </segment>
     </unit>
-    <unit id="wHFWi2m">
-      <notes>
-        <note category="german">Es gibt einige, die sich auf unsere Kosten einen Spaß machen, das sage ich euch, zum Beispiel &lt;strong&gt;{citizen1}&lt;/strong&gt;, der oft vorbeikam, um eine Kleinigkeit aus der Bank zu holen... Wir verweigern uns nichts.</note>
-        <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
-      </notes>
-      <segment>
-        <source>Es gibt einige, die sich auf unsere Kosten einen Spaß machen, das sage ich euch, zum Beispiel &lt;strong&gt;{citizen1}&lt;/strong&gt;, der oft vorbeikam, um eine Kleinigkeit aus der Bank zu holen... Wir verweigern uns nichts.</source>
-        <target><![CDATA[Es gibt einige, die sich auf unsere Kosten einen Spaß machen, das sage ich euch, zum Beispiel <strong>{citizen1}</strong>, der oft vorbeikam, um eine Kleinigkeit aus der Bank zu holen... Wir verweigern uns nichts.]]></target>
-      </segment>
-    </unit>
     <unit id="XMONJCi">
       <notes>
         <note category="german">Ich weiß nicht wie ihr das seht, aber &lt;strong&gt;{citizen1}&lt;/strong&gt; hat die Bank gestern offenbar mit einem Haufen nutzlosem Dreck gefüllt.</note>
@@ -24269,17 +24258,6 @@ cette violente opération...]]></target>
       <segment>
         <source>Angeblich wurden der Bank gestern einige verdächtige Entnahmen gemeldet. Die Zeugenaussagen deuten darauf hin, dass es sich um &lt;strong&gt;{citizen1}&lt;/strong&gt; handeln soll, einige sprechen aber auch von &lt;strong&gt;{citizen2}&lt;/strong&gt;.</source>
         <target><![CDATA[Angeblich wurden der Bank gestern einige verdächtige Entnahmen gemeldet. Die Zeugenaussagen deuten darauf hin, dass es sich um <strong>{citizen1}</strong> handeln soll, einige sprechen aber auch von <strong>{citizen2}</strong>.]]></target>
-      </segment>
-    </unit>
-    <unit id="W0sFQi_">
-      <notes>
-        <note category="german">&lt;strong&gt;{citizen1}&lt;/strong&gt; ist so oft zur Bank gerannt, dass es ja irgendwann mal auffallen MUSSTE! Allein gestern waren es &lt;strong&gt;[n_catch] Mal&lt;/strong&gt;.</note>
-        <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
-      </notes>
-      <segment>
-        <source>&lt;strong&gt;{citizen1}&lt;/strong&gt; ist so oft zur Bank gerannt, dass es ja irgendwann mal auffallen MUSSTE! Allein gestern waren es &lt;strong&gt;[n_catch] Mal&lt;/strong&gt;.</source>
-        <target><![CDATA[<strong>{citizen1}</strong> ist so oft zur Bank gerannt, dass es ja irgendwann mal auffallen MUSSTE! Allein gestern waren es <strong>[n_catch] Mal</strong>.]]></target>
       </segment>
     </unit>
     <unit id="Gsbf.rs">
@@ -24434,6 +24412,28 @@ cette violente opération...]]></target>
       <segment>
         <source>Ponasulfat</source>
         <target>Ponasulfat</target>
+      </segment>
+    </unit>
+    <unit id="csNYTXg">
+      <notes>
+        <note category="german">Es gibt einige, die sich auf unsere Kosten einen Spaß machen, das sage ich euch, zum Beispiel &lt;strong&gt;{citizen1}&lt;/strong&gt;, der {random} Mal vorbeikam, um eine Kleinigkeit aus der Bank zu holen... Wir verweigern uns nichts.</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Es gibt einige, die sich auf unsere Kosten einen Spaß machen, das sage ich euch, zum Beispiel &lt;strong&gt;{citizen1}&lt;/strong&gt;, der {random} Mal vorbeikam, um eine Kleinigkeit aus der Bank zu holen... Wir verweigern uns nichts.</source>
+        <target><![CDATA[Es gibt einige, die sich auf unsere Kosten einen Spaß machen, das sage ich euch, zum Beispiel <strong>{citizen1}</strong>, der {random} Mal vorbeikam, um eine Kleinigkeit aus der Bank zu holen... Wir verweigern uns nichts.]]></target>
+      </segment>
+    </unit>
+    <unit id="9WkEMJc">
+      <notes>
+        <note category="german">&lt;strong&gt;{citizen1}&lt;/strong&gt; ist so oft zur Bank gerannt, dass es ja irgendwann mal auffallen MUSSTE! Allein gestern waren es &lt;strong&gt;{random} Mal&lt;/strong&gt;.</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;{citizen1}&lt;/strong&gt; ist so oft zur Bank gerannt, dass es ja irgendwann mal auffallen MUSSTE! Allein gestern waren es &lt;strong&gt;{random} Mal&lt;/strong&gt;.</source>
+        <target><![CDATA[<strong>{citizen1}</strong> ist so oft zur Bank gerannt, dass es ja irgendwann mal auffallen MUSSTE! Allein gestern waren es <strong>{random} Mal</strong>.]]></target>
       </segment>
     </unit>
   </file>

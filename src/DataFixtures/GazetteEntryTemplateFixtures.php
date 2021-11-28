@@ -1162,11 +1162,12 @@ class GazetteEntryTemplateFixtures extends Fixture
                 ['type'=>"citizen", 'name'=>'citizen1'],
             ],
         ],
-        ['text'=>'Es gibt einige, die sich auf unsere Kosten einen Spaß machen, das sage ich euch, zum Beispiel <strong>{citizen1}</strong>, der oft vorbeikam, um eine Kleinigkeit aus der Bank zu holen... Wir verweigern uns nichts.',
+        ['text'=>'Es gibt einige, die sich auf unsere Kosten einen Spaß machen, das sage ich euch, zum Beispiel <strong>{citizen1}</strong>, der {random} Mal vorbeikam, um eine Kleinigkeit aus der Bank zu holen... Wir verweigern uns nichts.',
             'name'=>'gazetteTownDayOne_009',
             'type'=>GazetteEntryTemplate::TypeGazetteDayOne,
             'requirement'=>GazetteEntryTemplate::RequiresOneCitizen,
             'variableTypes'=>[
+                ['type'=>"num", 'name'=>'random'],
                 ['type'=>"citizen", 'name'=>'citizen1'],
             ],
         ],
@@ -1195,11 +1196,12 @@ class GazetteEntryTemplateFixtures extends Fixture
                 ['type'=>"citizen", 'name'=>'citizen2'],
             ],
         ],
-        ['text'=>'<strong>{citizen1}</strong> ist so oft zur Bank gerannt, dass es ja irgendwann mal auffallen MUSSTE! Allein gestern waren es <strong>[n_catch] Mal</strong>.',
+        ['text'=>'<strong>{citizen1}</strong> ist so oft zur Bank gerannt, dass es ja irgendwann mal auffallen MUSSTE! Allein gestern waren es <strong>{random} Mal</strong>.',
             'name'=>'gazetteTownDayOne_013',
             'type'=>GazetteEntryTemplate::TypeGazetteDayOne,
             'requirement'=>GazetteEntryTemplate::RequiresOneCitizen,
             'variableTypes'=>[
+                ['type'=>"num", 'name'=>'random'],
                 ['type'=>"citizen", 'name'=>'citizen1'],
             ],
         ],
@@ -1367,7 +1369,6 @@ class GazetteEntryTemplateFixtures extends Fixture
             // Get existing entry, or create new one
             $entity = $this->entityManager->getRepository(GazetteEntryTemplate::class)->findOneBy( ['name' => $entry['name']] );
             if ($entity === null) $entity = new GazetteEntryTemplate();
-            elseif ($entity->getText() !== $entry['text']) $out->writeln("{$entity->getName()}\n\t{$entity->getText()}\n\t{$entry['text']}\n\n");
 
             // Set property
             $entity

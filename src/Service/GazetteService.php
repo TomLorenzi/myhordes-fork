@@ -213,6 +213,9 @@ class GazetteService
                 T::__('Zyanid (poison)','game'),T::__('Phenol','game'),T::__('Ponasulfat','game')
             ] );
 
+        if ($g->getType() === GazetteEntryTemplate::TypeGazetteDayOne)
+            $variables['random'] = mt_rand(15,99);
+
         switch ($class) {
             case GazetteEntryTemplate::BaseRequirementCitizen:
                 $_add_elements( 'citizen', $survivors, $featured !== null && $featured->getAlive() ? $featured : null, $arg, $variables );
