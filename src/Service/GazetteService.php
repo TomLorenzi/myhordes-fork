@@ -257,37 +257,37 @@ class GazetteService
                 break;
 
             case GazetteEntryTemplate::RequiresMultipleDehydrations:
-                $_add_elements('cadavers', array_filter( $death_outside, fn(Citizen $c) => $c->getCauseOfDeath()->getRef() === CauseOfDeath::Dehydration ), null, 0, $variables);
+                $_add_elements('cadaver', array_filter( $death_outside, fn(Citizen $c) => $c->getCauseOfDeath()->getRef() === CauseOfDeath::Dehydration ), null, 0, $variables);
                 if ($arg > 0) $_add_elements( 'citizen', $survivors, $featured !== null && $featured->getAlive() ? $featured : null, $arg, $variables );
                 break;
 
             case GazetteEntryTemplate::RequiresMultipleSuicides:
-                $_add_elements('cadavers', array_filter( $death_outside, fn(Citizen $c) => $c->getCauseOfDeath()->getRef() === CauseOfDeath::Cyanide ), null, 0, $variables);
+                $_add_elements('cadaver', array_filter( $death_outside, fn(Citizen $c) => $c->getCauseOfDeath()->getRef() === CauseOfDeath::Cyanide ), null, 0, $variables);
                 if ($arg > 0) $_add_elements( 'citizen', $survivors, $featured !== null && $featured->getAlive() ? $featured : null, $arg, $variables );
                 break;
 
             case GazetteEntryTemplate::RequiresMultipleInfections:
-                $_add_elements('cadavers', array_filter( $death_outside, fn(Citizen $c) => $c->getCauseOfDeath()->getRef() === CauseOfDeath::Infection ), null, 0, $variables);
+                $_add_elements('cadaver', array_filter( $death_outside, fn(Citizen $c) => $c->getCauseOfDeath()->getRef() === CauseOfDeath::Infection ), null, 0, $variables);
                 if ($arg > 0) $_add_elements( 'citizen', $survivors, $featured !== null && $featured->getAlive() ? $featured : null, $arg, $variables );
                 break;
 
             case GazetteEntryTemplate::RequiresMultipleVanished:
-                $_add_elements('cadavers', array_filter( $death_outside, fn(Citizen $c) => $c->getCauseOfDeath()->getRef() === CauseOfDeath::Vanished ), null, 0, $variables);
+                $_add_elements('cadaver', array_filter( $death_outside, fn(Citizen $c) => $c->getCauseOfDeath()->getRef() === CauseOfDeath::Vanished ), null, 0, $variables);
                 if ($arg > 0) $_add_elements( 'citizen', $survivors, $featured !== null && $featured->getAlive() ? $featured : null, $arg, $variables );
                 break;
 
             case GazetteEntryTemplate::RequiresMultipleHangings:
-                $_add_elements('cadavers', array_filter( $death_outside, fn(Citizen $c) => $c->getCauseOfDeath()->getRef() === CauseOfDeath::Hanging ), null, 0, $variables);
+                $_add_elements('cadaver', array_filter( $death_outside, fn(Citizen $c) => $c->getCauseOfDeath()->getRef() === CauseOfDeath::Hanging ), null, 0, $variables);
                 if ($arg > 0) $_add_elements( 'citizen', $survivors, $featured !== null && $featured->getAlive() ? $featured : null, $arg, $variables );
                 break;
 
             case GazetteEntryTemplate::RequiresMultipleCrosses:
-                $_add_elements('cadavers', array_filter( $death_outside, fn(Citizen $c) => $c->getCauseOfDeath()->getRef() === CauseOfDeath::ChocolateCross ), null, 0, $variables);
+                $_add_elements('cadaver', array_filter( $death_outside, fn(Citizen $c) => $c->getCauseOfDeath()->getRef() === CauseOfDeath::ChocolateCross ), null, 0, $variables);
                 if ($arg > 0) $_add_elements( 'citizen', $survivors, $featured !== null && $featured->getAlive() ? $featured : null, $arg, $variables );
                 break;
 
             case GazetteEntryTemplate::RequiresMultipleRedSouls:
-                $_add_elements('cadavers', array_filter( $death_outside, fn(Citizen $c) => $c->getCauseOfDeath()->getRef() === CauseOfDeath::Haunted ), null, 0, $variables);
+                $_add_elements('cadaver', array_filter( $death_outside, fn(Citizen $c) => $c->getCauseOfDeath()->getRef() === CauseOfDeath::Haunted ), null, 0, $variables);
                 if ($arg > 0) $_add_elements( 'citizen', $survivors, $featured !== null && $featured->getAlive() ? $featured : null, $arg, $variables );
                 break;
 
