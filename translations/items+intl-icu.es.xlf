@@ -9360,7 +9360,6 @@
       <notes>
         <note category="german">Erhalten:</note>
         <note category="from">twig:///templates/ajax/game/actions.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Erhalten:</source>
