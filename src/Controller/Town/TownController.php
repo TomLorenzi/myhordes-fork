@@ -856,6 +856,7 @@ class TownController extends InventoryAwareController
             'rations_left' => $this->getActiveCitizen()->getTown()->getWell(),
             'first_take' => $this->getActiveCitizen()->getSpecificActionCounterValue( ActionCounter::ActionTypeWell ) === 0,
             'allow_take' => $this->getActiveCitizen()->getSpecificActionCounterValue( ActionCounter::ActionTypeWell ) < $allow_take,
+            'maximum' => $allow_take,
             'pump' => $pump,
 
             'log' => $this->renderLog( -1, null, false, LogEntryTemplate::TypeWell, 10 )->getContent(),
