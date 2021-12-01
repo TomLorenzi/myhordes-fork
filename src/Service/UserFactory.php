@@ -271,6 +271,7 @@ class UserFactory
         }
 
         if ($message === null || $headline === null) return false;
+        // FROM: https://stackoverflow.com/questions/4389676/email-from-php-has-broken-subject-header-encoding/27648245
         $headline = "MyHordes - $headline";
         mb_internal_encoding('UTF-8');
         $headline = mb_encode_mimeheader($headline, 'UTF-8', 'B', "\r\n", strlen('Subject: '));
