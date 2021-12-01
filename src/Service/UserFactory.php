@@ -271,9 +271,13 @@ class UserFactory
         }
 
         if ($message === null || $headline === null) return false;
+        $headline = "MyHordes - $headline";
+        mb_internal_encoding('UTF-8');
+        $headline = mb_encode_mimeheader($headline, 'UTF-8', 'B', "\r\n", strlen('Subject: '));
         return mail(
             $token->getType() === UserPendingValidation::ChangeEmailValidation ? $token->getUser()->getPendingEmail() : $token->getUser()->getEmail(),
-            "MyHordes - {$headline}", $message,
+            $headline,
+            $message,
             [
                 'MIME-Version' => '1.0',
                 'Content-type' => 'text/html; charset=UTF-8',
