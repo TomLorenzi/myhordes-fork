@@ -3779,22 +3779,22 @@
     </unit>
     <unit id="9Wgu8lv" name="Wasser suchen">
       <notes>
-        <note category="german">Wasser suchen</note>
+        <note category="german">Wasser</note>
         <note category="from">db://ItemAction</note>
       </notes>
       <segment>
         <source>Wasser suchen</source>
-        <target>Seek Water</target>
+        <target>Water</target>
       </segment>
     </unit>
     <unit id="JAlTzuc" name="Essen suchen">
       <notes>
-        <note category="german">Essen suchen</note>
+        <note category="german">Essen</note>
         <note category="from">db://ItemAction</note>
       </notes>
       <segment>
         <source>Essen suchen</source>
-        <target>Seek Food</target>
+        <target>Food</target>
       </segment>
     </unit>
     <unit id="TmH05e3" name="Tarnen">
@@ -7315,8 +7315,7 @@
       </notes>
       <segment>
         <source>In deiner Küche hast du {items_consume} in {items_spawn} umgewandelt.</source>
-        <target>You use {items_consume} and a few other bits and pieces.
-You put every effort into it. Then, after some time passes, you retrieve a {items_spawn} from the "stove".</target>
+        <target>You use {items_consume} and a few other bits and pieces.{hr}You put every effort into it. Then, after some time passes, you retrieve a {items_spawn} from the "stove".</target>
       </segment>
     </unit>
     <unit id="GhoMZLz" name="Gegenstände suchen">
@@ -7747,7 +7746,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Das {item} beginnt rasch zu wirken. Das Fieber klingt ab, dein Herz beginnt wieder in einem halbwegs normalen Takt zu schlagen... Du warst nicht weit von einem schrecklichen Tod entfernt.</source>
-        <target><![CDATA[The {item} rapidly takes effect. <strong>The fever subsides</strong>, your heart starts beating at a a semi-normal rate again... You weren't far away from a horrible death.]]></target>
+        <target><![CDATA[The {item} rapidly takes effect. <strong>The fever subsides</strong>, your heart starts beating at a semi-normal rate again... You weren't far away from a horrible death.]]></target>
       </segment>
     </unit>
     <unit id="xWENNfP" name="Gequälte Seele">
@@ -7957,7 +7956,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Schlechte Nachrichten, das hättest du nicht in den Mund nehmen sollen... Du bist infiziert!</source>
-        <target>Bad news, you maybe shouldn't have swallowed that... you have been infected!</target>
+        <target><![CDATA[<strong>Bad news</strong>, you maybe shouldn't have swallowed that... you have been <strong>infected</strong>!]]></target>
       </segment>
     </unit>
     <unit id="UhcYCoM">
@@ -8804,12 +8803,11 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     <unit id="kXs8w7H" name="Du kannst diesen Gegenstand nur &lt;strong&gt;einmal am Tag&lt;/strong&gt; verwenden...">
       <notes>
         <note category="german">Du kannst diesen Gegenstand nur &lt;strong&gt;einmal am Tag&lt;/strong&gt; verwenden...</note>
-        <note category="state">new</note>
         <note category="from">db://Requirement</note>
       </notes>
       <segment>
         <source>Du kannst diesen Gegenstand nur &lt;strong&gt;einmal am Tag&lt;/strong&gt; verwenden...</source>
-        <target><![CDATA[Du kannst diesen Gegenstand nur <strong>einmal am Tag</strong> verwenden...]]></target>
+        <target><![CDATA[You can only use this kind of object <strong>once per day</strong>...]]></target>
       </segment>
     </unit>
     <unit id="et83IYx" name="So, zur Desinfektion nur noch draufspucken und hopp: Sieht wie neu aus!">
@@ -9398,6 +9396,16 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       <segment>
         <source>Es ist nicht so appetitlich wie ein &lt;strong&gt;schöner, frischer, zappelnder Mensch&lt;/strong&gt;, aber es erfüllt seinen Zweck und lässt den &lt;strong&gt;Hunger&lt;/strong&gt; ein wenig nachlassen.... Zum Glück ist das Fleisch ziemlich zart, sonst wäre diese Mahlzeit furchtbar gewesen.&lt;hr/&gt;Nach ein paar Sekunden spürst du den furchtbaren Nachgeschmack...</source>
         <target><![CDATA[It's not as appetising as a <strong>nice, fresh, wriggling human</strong>, but it does the job and makes your <strong>voracity</strong> subside... a little. Fortunately, the meat way quite gamey, this meal would have been dreadful otherwise.<hr/>You observe a few seconds later, that this had a horrendous after taste...]]></target>
+      </segment>
+    </unit>
+    <unit id="Z37r5VN" name="Erhalten:">
+      <notes>
+        <note category="german">Erhalten:</note>
+        <note category="from">twig:///templates/ajax/game/actions.html.twig</note>
+      </notes>
+      <segment>
+        <source>Erhalten:</source>
+        <target>Obtain:</target>
       </segment>
     </unit>
   </file>

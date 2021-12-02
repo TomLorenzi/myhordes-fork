@@ -767,7 +767,7 @@ class AdminTownController extends AdminActionController
     }
 
     /**
-     * @Route("/api/admin/town/{id}/bank/item", name="admin_bank_item", requirements={"id"="\d+"})
+     * @Route("/api/admin/town/{id}/item", name="admin_town_item", requirements={"id"="\d+"})
      * @Security("is_granted('ROLE_ADMIN')")
      * Add or remove an item from the bank
      * @param int $id Town ID
@@ -776,7 +776,7 @@ class AdminTownController extends AdminActionController
      * @param ItemFactory $itemFactory
      * @return Response
      */
-    public function bank_item_action(int $id, JSONRequestParser $parser, InventoryHandler $handler, ItemFactory $itemFactory): Response
+    public function town_item_action(int $id, JSONRequestParser $parser, InventoryHandler $handler, ItemFactory $itemFactory): Response
     {
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
         if (!$town) {
@@ -785,13 +785,17 @@ class AdminTownController extends AdminActionController
 
         $item_id = $parser->get('item');
         $change = $parser->get('change');
+        $qty = $parser->get('qty', 1);
+        if($qty <= 0)
+            $qty = 1;
 
         $item = $this->entity_manager->getRepository(Item::class)->find($item_id);
 
         if ($change == 'add') {
-            $handler->forceMoveItem($town->getBank(), $itemFactory->createItem($item->getPrototype()->getName()));
+            for($i = 0 ; $i < $qty ; $i++)
+                $handler->forceMoveItem($town->getBank(), $itemFactory->createItem($item->getPrototype()->getName()));
         } else {
-            $handler->forceRemoveItem($item);
+            $handler->forceRemoveItem($item, $qty);
         }
 
         $this->entity_manager->persist($town->getBank());
@@ -963,6 +967,69 @@ class AdminTownController extends AdminActionController
             $this->entity_manager->persist($inventory);
         }
 
+        $this->entity_manager->flush();
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("/api/admin/town/{id}/get_zone_infos", name="get_zone_infos", requirements={"id"="\d+"})
+     * @Security("is_granted('ROLE_ADMIN')")
+     * Returns the floor of a given zone
+     * @param int $id Town ID
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function get_zone_infos(int $id, JSONRequestParser  $parser): Response{
+        $town = $this->entity_manager->getRepository(Town::class)->find($id);
+        if (!$town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $zone_id = $parser->get('zone_id', -1);
+        $zone = $this->entity_manager->getRepository(Zone::class)->find($zone_id);
+
+        if(!$zone || $zone->getTown() !== $town)
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $view = $this->renderView("ajax/game/inventory.html.twig", [
+            'size' => 0,
+            'items' => $zone->getFloor()->getItems()
+        ]);
+
+        return AjaxResponse::success(true, [
+            'view' => $view,
+            'zone_digs' => $zone->getDigs(),
+            'ruin_digs' => $zone->getPrototype() !== null ? $zone->getRuinDigs() : 0
+        ]);
+    }
+
+    /**
+     * @Route("/api/admin/town/{id}/set_zone_digs", name="set_zone_digs", requirements={"id"="\d+"})
+     * @Security("is_granted('ROLE_ADMIN')")
+     * Returns the floor of a given zone
+     * @param int $id Town ID
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function set_zone_digs(int $id, JSONRequestParser  $parser): Response{
+        $town = $this->entity_manager->getRepository(Town::class)->find($id);
+        if (!$town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $zone_id = $parser->get('zone_id', -1);
+        $zone = $this->entity_manager->getRepository(Zone::class)->find($zone_id);
+
+        if(!$zone || $zone->getTown() !== $town)
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $target = $parser->get("target");
+        $digs = $parser->get('digs', 0);
+        if($digs < 0)
+            $digs = 0;
+        if ($target == "zone"){
+           $zone->setDigs($digs);
+        } else if ($target == 'ruin' && $zone->getPrototype() !== null) {
+           $zone->setRuinDigs($digs);
+        }
+        $this->entity_manager->persist($zone);
         $this->entity_manager->flush();
 
         return AjaxResponse::success();

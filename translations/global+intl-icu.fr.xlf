@@ -2572,7 +2572,7 @@
     <unit id="OCg3Wi1" name="Entfernen">
       <notes>
         <note category="german">Entfernen</note>
-        <note category="from">twig:///templates/ajax/forum/search.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/forum/search.html.twig</note>
       </notes>
       <segment>
         <source>Entfernen</source>
@@ -3791,7 +3791,7 @@
       </notes>
       <segment>
         <source>Danke an</source>
-        <target>Merci à</target>
+        <target>Remerciements</target>
       </segment>
     </unit>
     <unit id="0inaYdi" name="Thread verschieben">

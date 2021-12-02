@@ -1951,12 +1951,12 @@
     </unit>
     <unit id="FB4yWED" name="{ruin} durchsuchen">
       <notes>
-        <note category="german">{ruin} durchsuchen</note>
+        <note category="german">&lt;strong&gt;{ruin}&lt;/strong&gt; durchsuchen</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
         <source>{ruin} durchsuchen</source>
-        <target>Search {ruin}</target>
+        <target><![CDATA[Explore: <strong>{ruin}</strong>]]></target>
       </segment>
     </unit>
     <unit id="ZaxaGah" name="Zone freiräumen">
@@ -8120,12 +8120,11 @@
     <unit id="_s1Oex0" name="Gesamte Eskorte">
       <notes>
         <note category="german">Gesamte Eskorte</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
         <source>Gesamte Eskorte</source>
-        <target>Gesamte Eskorte</target>
+        <target>Entire escort</target>
       </segment>
     </unit>
     <unit id="Jh.CarL" name="Bürger in dieser Zone">
@@ -9390,7 +9389,7 @@
       </notes>
       <segment>
         <source>Eindeutig! &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} starb an einer Vergiftung. Wie genau das passieren konnte, weiß niemand so recht, aber {citizen1} verhielt sich sehr verdächtig.</source>
-        <target><![CDATA[I'll be you, double-check before swallowing anything. Indeed, <i class="dagger">†</i> {cadaver1} will have lacked caution yesterday. Victim of cyanide poisoning. Criminal act ? Accident ? Blame it on {citizen1} ? Who knows ? ... Oh yes... <strong>I know</strong>.]]></target>
+        <target><![CDATA[If I were you, I'd double-check everything before you swallow it. It seems, <i class="dagger">†</i> {cadaver1} should have been more careful yesterday. A victim of cyanide. A crime? Accident? Who knows? ... Oh yes... <strong>Me. I know</strong>.]]></target>
       </segment>
     </unit>
     <unit id="jC0g8aF">
@@ -9990,7 +9989,7 @@
       </notes>
       <segment>
         <source>Du brauchst eine Weile, bis du alle Gegenstände versteckt hast, die du bei dir trägst... Ha Ha... Du hast 2 Aktionspunkte verbraucht.</source>
-        <target>It will take you a while to hide all the items you carry with you ... Ha Ha ... You used up 2 action points.</target>
+        <target><![CDATA[You spend a while <strong>hiding all the objects on your person...</strong> Ha Ha...<hr />You have used <strong>2 action points.</strong>]]></target>
       </segment>
     </unit>
     <unit id="ZgukXzf" name="Deine Nachricht und deine ausgewählten Gegenstände wurden überbracht.">
@@ -19447,14 +19446,14 @@
         <target>Looking through the window, you decide that {citizen}'s house is to all intents and purposes void of anything of interest. No doubt the other citizens have already recovered everything of any value.</target>
       </segment>
     </unit>
-    <unit id="N0yoB1W">
+    <unit id="2skYpuv">
       <notes>
-        <note category="german">&lt;strong&gt;Achtung&lt;/strong&gt;: Befinden sich nicht genügend Rationen Wasser im Brunnen, arbeiten manche Konstruktionen (wie z.B. der Wasserturm) beim Angriff nicht mit voller Stärke!</note>
+        <note category="german">&lt;strong&gt;Achtung:&lt;/strong&gt; Befinden sich nicht genügend Rationen Wasser im Brunnen, arbeiten manche Konstruktionen (wie z.B. der Wasserturm) beim Angriff nicht mit voller Stärke!</note>
         <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
       </notes>
       <segment>
-        <source>&lt;strong&gt;Achtung&lt;/strong&gt;: Befinden sich nicht genügend Rationen Wasser im Brunnen, arbeiten manche Konstruktionen (wie z.B. der Wasserturm) beim Angriff nicht mit voller Stärke!</source>
-        <target><![CDATA[<strong>Warning</strong>: without water, certain upgrades (such as water turrets) will not work during the attack!]]></target>
+        <source>&lt;strong&gt;Achtung:&lt;/strong&gt; Befinden sich nicht genügend Rationen Wasser im Brunnen, arbeiten manche Konstruktionen (wie z.B. der Wasserturm) beim Angriff nicht mit voller Stärke!</source>
+        <target><![CDATA[<strong>Warning:</strong> without water, certain upgrades (such as water turrets) will not work during the attack!]]></target>
       </segment>
     </unit>
     <unit id="485Czj9" name="Du kannst heute keinen weiteren Gegenstand stehlen.">
@@ -20868,12 +20867,11 @@
     <unit id="WUioDKI" name="Das Stadttor ist zerstört!">
       <notes>
         <note category="german">Das Stadttor ist zerstört!</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/door.html.twig</note>
       </notes>
       <segment>
         <source>Das Stadttor ist zerstört!</source>
-        <target>Das Stadttor ist zerstört!</target>
+        <target>The town gates have been destroyed.</target>
       </segment>
     </unit>
     <unit id="ixRzzXD">
@@ -20890,23 +20888,21 @@
     <unit id="70HaeRK">
       <notes>
         <note category="german">Die Stadt ist verwüstet! Du kannst dein Haus nicht mehr ausbauen, weil es ebenfalls niedergebrannt ist.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
       </notes>
       <segment>
         <source>Die Stadt ist verwüstet! Du kannst dein Haus nicht mehr ausbauen, weil es ebenfalls niedergebrannt ist.</source>
-        <target>Die Stadt ist verwüstet! Du kannst dein Haus nicht mehr ausbauen, weil es ebenfalls niedergebrannt ist.</target>
+        <target>The town has been devastated! You cannot upgrade your house because it, too, has been reduced to firewood.</target>
       </segment>
     </unit>
     <unit id="sO7EUbm" name="ZERSTÖRT!!">
       <notes>
         <note category="german">ZERSTÖRT!!</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
       </notes>
       <segment>
         <source>ZERSTÖRT!!</source>
-        <target>ZERSTÖRT!!</target>
+        <target>DESTROYED!!</target>
       </segment>
     </unit>
     <unit id="3I5M2q.">
@@ -21065,12 +21061,11 @@
     <unit id="H790t1y">
       <notes>
         <note category="german">{actor} hat heimlich versucht diesen Gegenstand: {item} bei {victim} abzulegen... Leider wurde er dabei ertappt! Jetzt fragen sich alle: Was wollte er damit bezwecken?</note>
-        <note category="state">new</note>
         <note category="from">db://LogEntryTemplate</note>
       </notes>
       <segment>
         <source>{actor} hat heimlich versucht diesen Gegenstand: {item} bei {victim} abzulegen... Leider wurde er dabei ertappt! Jetzt fragen sich alle: Was wollte er damit bezwecken?</source>
-        <target>{actor} hat heimlich versucht diesen Gegenstand: {item} bei {victim} abzulegen... Leider wurde er dabei ertappt! Jetzt fragen sich alle: Was wollte er damit bezwecken?</target>
+        <target>{actor} tried to discretely leave the {item} in {victim}'s house... Unfortunately for this citizen, they were spotted! One question remains though: what could they have been plotting?</target>
       </segment>
     </unit>
     <unit id="3Dm5jOH" name="Du hast den(die,das) {item} bei {victim} abgelegt...">
@@ -21568,7 +21563,7 @@
       </notes>
       <segment>
         <source>Mehrere Brandherde wurden im Reaktorkern gesichtet, bevor er komplett in Flammen aufging. Kurz danach wurde das gesamte Gebiet von einem grünen Blitz vollkommen verwüstet. Die wenigen Überlebenden sind innerhalb nur weniger Sekunden an Strahlenkrankheit gestorben. Was für ein Ende!</source>
-        <target>Multiple fires were reported in our Reactor core before it burst into flames. Then a huge green flash wiped out and contaminated the whole area. It only took a few seconds for the few remaining survivors to perish through radiation poisoning. What a climax!</target>
+        <target><![CDATA[Multiple fires were reported in our <strong>Reactor core</strong> before it burst into flames. Then a huge green flash wiped out and contaminated the whole area. It only took <strong>a few seconds</strong> for the few remaining survivors to perish through <strong>radiation poisoning<s/trong>. What a climax!]]></target>
       </segment>
     </unit>
     <unit id="mw_CjlK" name="Wenn die Stadt eine Pumpe baut, ist sie im Stande mehr Wasser zu fördern!">
@@ -22303,11 +22298,10 @@
       <notes>
         <note category="german">Trinken (Oder du stirbst heute Nacht)</note>
         <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Trinken (Oder du stirbst heute Nacht)</source>
-        <target>Trinken (Oder du stirbst heute Nacht)</target>
+        <target>Drink (or die tonight)</target>
       </segment>
     </unit>
     <unit id="016qyFO">
@@ -22830,11 +22824,10 @@
       <notes>
         <note category="german">Doch leider ist der letzte Bürger tot, bevor die Horde die Stadttore erreicht... Seine Zunge hängt zwischen den Zähnen seines ehemaligen Freundes...</note>
         <note category="from">db://LogEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Doch leider ist der letzte Bürger tot, bevor die Horde die Stadttore erreicht... Seine Zunge hängt zwischen den Zähnen seines ehemaligen Freundes...</source>
-        <target>Doch leider ist der letzte Bürger tot, bevor die Horde die Stadttore erreicht... Seine Zunge hängt zwischen den Zähnen seines ehemaligen Freundes...</target>
+        <target>Alas, the last remaining citizen died before the zombies attacked... Their tongue is now hanging between their former friend's teeth...</target>
       </segment>
     </unit>
     <unit id="wey0ykd">
@@ -23323,11 +23316,10 @@
       <notes>
         <note category="german">Außerdem wäre es gut, daran zu denken, dass der Schamane der Stadt letzte Nacht gestorben ist. Heute Abend findet eine Neuwahl statt, bei der ein neuer Kandidat aus den Reihen der Überlebenden gewählt wird.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Außerdem wäre es gut, daran zu denken, dass der Schamane der Stadt letzte Nacht gestorben ist. Heute Abend findet eine Neuwahl statt, bei der ein neuer Kandidat aus den Reihen der Überlebenden gewählt wird.</source>
-        <target>Außerdem wäre es gut, daran zu denken, dass der Schamane der Stadt letzte Nacht gestorben ist. Heute Abend findet eine Neuwahl statt, bei der ein neuer Kandidat aus den Reihen der Überlebenden gewählt wird.</target>
+        <target>By the way, your seer and resident mystic, the shaman died last night. His soul will reincarnate in one of the survivors.</target>
       </segment>
     </unit>
     <unit id="EvR1zFN">
@@ -23337,18 +23329,17 @@
       </notes>
       <segment>
         <source>Halten wir kurz inne und gedenken unserem verlorenen Schamanen. Auf Wiedersehen, nutzloser Scharlatan! Wer ist motiviert, ihn zu ersetzen?</source>
-        <target>Spare a thought for our for our lost Shaman. Adieu useless charlatan!</target>
+        <target>Spare a thought for our lost Shaman. Adieu useless charlatan!</target>
       </segment>
     </unit>
     <unit id="r1UYBsR">
       <notes>
         <note category="german">Unser geliebter Reiseleiter in der Außenwelt ist gestern verstorben. Heute Abend findet eine Neuwahl statt, bei der ein neuer Kandidat aus den Reihen der Überlebenden gewählt wird.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Unser geliebter Reiseleiter in der Außenwelt ist gestern verstorben. Heute Abend findet eine Neuwahl statt, bei der ein neuer Kandidat aus den Reihen der Überlebenden gewählt wird.</source>
-        <target>Unser geliebter Reiseleiter in der Außenwelt ist gestern verstorben. Heute Abend findet eine Neuwahl statt, bei der ein neuer Kandidat aus den Reihen der Überlebenden gewählt wird.</target>
+        <target>Our wonderful guide went and get himself lost... There will be an election tonight to decide who'll be the next victim.. I mean, guide.</target>
       </segment>
     </unit>
     <unit id="mzUHqMR">
@@ -23376,11 +23367,10 @@
       <notes>
         <note category="german">Wir werden nie wieder etwas von &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} hören, der sich entschlossen hat, dem Angriff der Zombies durch Selbstmord zu entkommen.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wir werden nie wieder etwas von &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} hören, der sich entschlossen hat, dem Angriff der Zombies durch Selbstmord zu entkommen.</source>
-        <target><![CDATA[Wir werden nie wieder etwas von <i class="dagger">†</i> {cadaver1} hören, der sich entschlossen hat, dem Angriff der Zombies durch Selbstmord zu entkommen.]]></target>
+        <target><![CDATA[We'll never hear from <i class="dagger">†</i> {cadaver1} again, as he decided to escape the zombie hordes by <strong>committing suicide</strong>.]]></target>
       </segment>
     </unit>
     <unit id="NCukv3K">
@@ -23409,11 +23399,10 @@
       <notes>
         <note category="german">Der Gerechtigkeit ist Genüge getan, ihr habt gestern dafür gestimmt, &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} zu hängen. Hat doch Spaß gemacht, nicht wahr?</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Der Gerechtigkeit ist Genüge getan, ihr habt gestern dafür gestimmt, &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} zu hängen. Hat doch Spaß gemacht, nicht wahr?</source>
-        <target><![CDATA[Der Gerechtigkeit ist Genüge getan, ihr habt gestern dafür gestimmt, <i class="dagger">†</i> {cadaver1} zu hängen. Hat doch Spaß gemacht, nicht wahr?]]></target>
+        <target><![CDATA[Justice has been served, yesterday you voted to hang <i class="dagger">†</i> {cadaver1}. Well we need some kind of entertainment now there's no X-Factor...]]></target>
       </segment>
     </unit>
     <unit id="u_dmSmH">
@@ -23430,11 +23419,10 @@
       <notes>
         <note category="german">&lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} wird niemanden mehr belästigen, da er mittlerweile an einem Seil schwingt... Die Gesetze der Stadt sind kein Witz!</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>&lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} wird niemanden mehr belästigen, da er mittlerweile an einem Seil schwingt... Die Gesetze der Stadt sind kein Witz!</source>
-        <target><![CDATA[<i class="dagger">†</i> {cadaver1} wird niemanden mehr belästigen, da er mittlerweile an einem Seil schwingt... Die Gesetze der Stadt sind kein Witz!]]></target>
+        <target><![CDATA[<i class="dagger">†</i> {cadaver1} won't annoy anyone anymore, especially when he's currently dangling from the end of a rope... We don't mess around here!]]></target>
       </segment>
     </unit>
     <unit id="lga50hn">
@@ -23454,7 +23442,7 @@
       </notes>
       <segment>
         <source>Anderes Thema; der Tod von &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} durch Verdurstung ist ein schlechtes Omen, findet ihr nicht auch?</source>
-        <target><![CDATA[<i class="dagger">†</i> {cadaver1}'s death from dehydration is a worrying sign. The more you think about it, the more thirsty you become, don't you find?]]></target>
+        <target><![CDATA[<i class="dagger">†</i> {cadaver1}'s death from dehydration is a worrying sign. The more you think about it, the more thirsty you become, don't you think?]]></target>
       </segment>
     </unit>
     <unit id="KwXVUkQ">
@@ -23484,7 +23472,7 @@
       </notes>
       <segment>
         <source>Fürs Protokoll, es waren {cadavers} Bürger, die uns gestern Abend verlassen haben. Endgültige Dehydrierung. Ja, das Todesröcheln kam von ihnen...</source>
-        <target>I meant to tell you, {cadavers} citizens departed during the night. <strong>Terminal dehydration</strong>. The groans of agony? Yes. That was them...</target>
+        <target><![CDATA[I meant to tell you, {cadavers} citizens departed during the night. <strong>Terminal dehydration</strong>. The groans of agony? Yes. That was them...]]></target>
       </segment>
     </unit>
     <unit id="iAlVErh">
@@ -23494,7 +23482,7 @@
       </notes>
       <segment>
         <source>Anderes Thema, es waren {cadavers} Bürger, die uns gestern Abend verlassen haben. Endgültige Dehydrierung. Ja, das Todesröcheln kam von ihnen...</source>
-        <target>I meant to tell you, {cadavers} citizens departed during the night. <strong>Terminal dehydration</strong>. The groans of agony? Yes. That was them...</target>
+        <target><![CDATA[I meant to tell you, {cadavers} citizens departed during the night. <strong>Terminal dehydration</strong>. The groans of agony? Yes. That was them...]]></target>
       </segment>
     </unit>
     <unit id="sJA5QrY">
@@ -23504,29 +23492,27 @@
       </notes>
       <segment>
         <source>Der Durst hat gestern {cadavers} Bürger übermannt. Ein schöner und langer Todeskampf, der direkt zu einem grausamen Tod führt. Wir haben also kein Wasser mehr? Oh oh oh...</source>
-        <target>I meant to tell you, dehydration took the lives of {cadavers} citizens yesterday. An extended period of agony culminating in an excruciating death. Is there a shortage of water or something? Mwahahahaha...</target>
+        <target><![CDATA[<strong>Dehydration</strong> took the lives of {cadavers} citizens yesterday. An extended period of agony culminating in an excruciating death. Is there a shortage of water or something? Mwahahahaha...]]></target>
       </segment>
     </unit>
     <unit id="9IYIWWF">
       <notes>
         <note category="german">Abgesehen davon haben {cadavers} Bürger vergessen, dass man ohne Wasser nicht lange überleben kann. Morgen mehr Todesfälle durch Dehydrierung?</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Abgesehen davon haben {cadavers} Bürger vergessen, dass man ohne Wasser nicht lange überleben kann. Morgen mehr Todesfälle durch Dehydrierung?</source>
-        <target>Abgesehen davon haben {cadavers} Bürger vergessen, dass man ohne Wasser nicht lange überleben kann. Morgen mehr Todesfälle durch Dehydrierung?</target>
+        <target><![CDATA[{cadavers}<strong> citizens</strong> forgot that without water, they wouldn't survive for long. More deaths by dehydration tomorrow?]]></target>
       </segment>
     </unit>
     <unit id="LSb5uAS">
       <notes>
         <note category="german">Übrigens, Wassermangel ist teuer, {cadavers} die Bürger sind gestern in der Stadt ausgetrocknet. Oder haben sie "vergessen", ihre Ration zu nehmen? Stellt euch das mal vor!</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Übrigens, Wassermangel ist teuer, {cadavers} die Bürger sind gestern in der Stadt ausgetrocknet. Oder haben sie "vergessen", ihre Ration zu nehmen? Stellt euch das mal vor!</source>
-        <target>Übrigens, Wassermangel ist teuer, {cadavers} die Bürger sind gestern in der Stadt ausgetrocknet. Oder haben sie "vergessen", ihre Ration zu nehmen? Stellt euch das mal vor!</target>
+        <target>Water shortages are expensive, {cadavers} citizens dried out properly in town yesterday. Or did they just "forget" to collect their ration? Better go and check.</target>
       </segment>
     </unit>
     <unit id="rsAiEQB">
@@ -23536,40 +23522,37 @@
       </notes>
       <segment>
         <source>Ein anderes Thema, die Stadt trocknet langsam aus (ha ha, verstanden?). {cadavers} Bürger starben in der Nacht an Dehydrierung... Oh oh oh...</source>
-        <target>a dry spell in town (if you know what I mean). {cadavers} citizens died from dehydration during the night...</target>
+        <target><![CDATA[A <strong>dry spell</strong> in town (if you know what I mean). {cadavers} citizens died from dehydration during the night...]]></target>
       </segment>
     </unit>
     <unit id="cPTwDJQ">
       <notes>
         <note category="german">Wenn du dich fragst, wer &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} gestern (mit Curare) ermordet hat, neige ich stark zu {citizen1}. Stell nicht zu viele Fragen, sagen wir einfach, ich habe meine Quellen. Verbannt den Verräter!</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wenn du dich fragst, wer &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} gestern (mit Curare) ermordet hat, neige ich stark zu {citizen1}. Stell nicht zu viele Fragen, sagen wir einfach, ich habe meine Quellen. Verbannt den Verräter!</source>
-        <target><![CDATA[Wenn du dich fragst, wer <i class="dagger">†</i> {cadaver1} gestern (mit Curare) ermordet hat, neige ich stark zu {citizen1}. Stell nicht zu viele Fragen, sagen wir einfach, ich habe meine Quellen. Verbannt den Verräter!]]></target>
+        <target><![CDATA[Don't bother starting any private investigations. If you want to know who killed <i class="dagger">†</i> {cadaver1} yesterday (curare poisoning), I firmly believe it was {citizen1}. I can't say too much on the subject, but let's just say that I have my sources. Treachery and treason - there's always an excuse for it. Ban the traitor!]]></target>
       </segment>
     </unit>
     <unit id=".w_A.uE">
       <notes>
         <note category="german">Zu deiner Information: Wenn du dich fragst, wie hoch das Risiko einer &lt;strong&gt;Infektion&lt;/strong&gt; ist, kannst du einen Blick auf den verwesten Körper von &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} werfen, der letzte Nacht in sein Bett gestorben ist.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Zu deiner Information: Wenn du dich fragst, wie hoch das Risiko einer &lt;strong&gt;Infektion&lt;/strong&gt; ist, kannst du einen Blick auf den verwesten Körper von &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} werfen, der letzte Nacht in sein Bett gestorben ist.</source>
-        <target><![CDATA[Zu deiner Information: Wenn du dich fragst, wie hoch das Risiko einer <strong>Infektion</strong> ist, kannst du einen Blick auf den verwesten Körper von <i class="dagger">†</i> {cadaver1} werfen, der letzte Nacht in sein Bett gestorben ist.]]></target>
+        <target><![CDATA[If you're wondering what the dangers are if you become <strong>infected</strong>, you should take a look at <i class="dagger">†</i> {cadaver1}'s body. They died in their bed last night.]]></target>
       </segment>
     </unit>
     <unit id="5SMPX_Q">
       <notes>
         <note category="german">&lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} wird sich mehrere Stunden lang gequält haben, bevor er &lt;strong&gt;buchstäblich auf dem Boden verwest&lt;/strong&gt; ist. Eine Infektion kennt keine Gnade...</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>&lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} wird sich mehrere Stunden lang gequält haben, bevor er &lt;strong&gt;buchstäblich auf dem Boden verwest&lt;/strong&gt; ist. Eine Infektion kennt keine Gnade...</source>
-        <target><![CDATA[<i class="dagger">†</i> {cadaver1} wird sich mehrere Stunden lang gequält haben, bevor er <strong>buchstäblich auf dem Boden verwest</strong> ist. Eine Infektion kennt keine Gnade...]]></target>
+        <target><![CDATA[<i class="dagger">†</i> {cadaver1} was in agony for several hours before literally <strong>decomposing</strong> on the ground. An infection never shows mercy...]]></target>
       </segment>
     </unit>
     <unit id="s75I5Ev">
@@ -23586,11 +23569,10 @@
       <notes>
         <note category="german">Ich hoffe, niemand kam &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} zu nahe. Dieser Bürger ist über Nacht an einer &lt;strong&gt;systemischen Infektion&lt;/strong&gt; gestorben. Wir alle haben seine furchtbaren &lt;strong&gt;Schreie der Qual&lt;/strong&gt; gehört, machen wir uns nichts vor...</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ich hoffe, niemand kam &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} zu nahe. Dieser Bürger ist über Nacht an einer &lt;strong&gt;systemischen Infektion&lt;/strong&gt; gestorben. Wir alle haben seine furchtbaren &lt;strong&gt;Schreie der Qual&lt;/strong&gt; gehört, machen wir uns nichts vor...</source>
-        <target><![CDATA[Ich hoffe, niemand kam <i class="dagger">†</i> {cadaver1} zu nahe. Dieser Bürger ist über Nacht an einer <strong>systemischen Infektion</strong> gestorben. Wir alle haben seine furchtbaren <strong>Schreie der Qual</strong> gehört, machen wir uns nichts vor...]]></target>
+        <target><![CDATA[I hope nobody has gotten too close to <i class="dagger">†</i> {cadaver1} lately. They died during the night from a <strong>generalised infection</strong>. We all heard his <strong>screams of agony</strong>, let's be honest...]]></target>
       </segment>
     </unit>
     <unit id="BxpPAzH">
@@ -23610,29 +23592,27 @@
       </notes>
       <segment>
         <source>Komisch, in der Stadt riecht es wirklich nach Tod. Die &lt;strong&gt;tödlichen Infektionen&lt;/strong&gt; haben letzte Nacht mehrere Bürger schwer getroffen... Wir haben also nichts in der Bank, um so etwas zu verhindern?</source>
-        <target><![CDATA[That reminds me, the town smells like death. Deadly infections have stricken several citizens as of last night... Do we have anything in the bank to stop it?]]></target>
+        <target>That reminds me, the town smells like death. Deadly infections have stricken several citizens as of last night... Do we have anything in the bank to stop it?</target>
       </segment>
     </unit>
     <unit id="fICmJjR">
       <notes>
         <note category="german">Ihre Haut begann sich zu schälen, aber sie machten sich keine allzu großen Gedanken darüber... {cadavers} Bürger starben letzte Nacht an einer Infektion.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ihre Haut begann sich zu schälen, aber sie machten sich keine allzu großen Gedanken darüber... {cadavers} Bürger starben letzte Nacht an einer Infektion.</source>
-        <target>Ihre Haut begann sich zu schälen, aber sie machten sich keine allzu großen Gedanken darüber... {cadavers} Bürger starben letzte Nacht an einer Infektion.</target>
+        <target>Their skin started to crack and peel, but that wasn't the worst of their worries... {cadavers} people died of infections last night.</target>
       </segment>
     </unit>
     <unit id="Muq1Zer">
       <notes>
         <note category="german">Wir sollten dafür sorgen, dass wir uns um unsere Kranken kümmern. {cadavers} Bürger sind gestern an verschiedenen Infektionen gestorben. Notfalls hängen wir die infizierten Bürger auf, dann müssen wir weniger von ihnen behandeln..</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wir sollten dafür sorgen, dass wir uns um unsere Kranken kümmern. {cadavers} Bürger sind gestern an verschiedenen Infektionen gestorben. Notfalls hängen wir die infizierten Bürger auf, dann müssen wir weniger von ihnen behandeln..</source>
-        <target>Wir sollten dafür sorgen, dass wir uns um unsere Kranken kümmern. {cadavers} Bürger sind gestern an verschiedenen Infektionen gestorben. Notfalls hängen wir die infizierten Bürger auf, dann müssen wir weniger von ihnen behandeln..</target>
+        <target><![CDATA[We must try to care for our sick and wounded. {cadavers} <strong>citizens</strong> died from various <strong>infections</strong> yesterday. In a pinch, you could always hang the infected, that leaves fewer to treat.]]></target>
       </segment>
     </unit>
     <unit id="w6Ydl3g">
@@ -23642,7 +23622,7 @@
       </notes>
       <segment>
         <source>Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre &lt;strong&gt;in der Nähe der nördlichen Mauer&lt;/strong&gt; gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.</source>
-        <target><![CDATA[Forgetting how for a moment, but one of the [#] citizens missing outside last night found his way back to the town. They were seen near the northern wall ! That said, they were missing both legs and they were dead in the minutes that followed. Grim.]]></target>
+        <target>Forgetting how for a moment, but one of the [#] citizens missing outside last night found his way back to the town. They were seen near the northern wall ! That said, they were missing both legs and they were dead in the minutes that followed. Grim.</target>
       </segment>
     </unit>
     <unit id="stCBeN3">
@@ -23652,7 +23632,7 @@
       </notes>
       <segment>
         <source>Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre &lt;strong&gt;in der Nähe der südlichen Mauer&lt;/strong&gt; gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.</source>
-        <target><![CDATA[Forgetting how for a moment, but one of the [#] citizens missing outside last night found his way back to the town. They were seen near the southern wall ! That said, they were missing both legs and they were dead in the minutes that followed. Grim.]]></target>
+        <target>Forgetting how for a moment, but one of the [#] citizens missing outside last night found his way back to the town. They were seen near the southern wall ! That said, they were missing both legs and they were dead in the minutes that followed. Grim.</target>
       </segment>
     </unit>
     <unit id="GAnRpoW">
@@ -23662,7 +23642,7 @@
       </notes>
       <segment>
         <source>Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre &lt;strong&gt;in der Nähe der westlichen Mauer&lt;/strong&gt; gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.</source>
-        <target><![CDATA[Forgetting how for a moment, but one of the [#] citizens missing outside last night found his way back to the town. They were seen near the western wall ! That said, they were missing both legs and they were dead in the minutes that followed. Grim.]]></target>
+        <target>Forgetting how for a moment, but one of the [#] citizens missing outside last night found his way back to the town. They were seen near the western wall ! That said, they were missing both legs and they were dead in the minutes that followed. Grim.</target>
       </segment>
     </unit>
     <unit id="bURQbdD">
@@ -23672,7 +23652,7 @@
       </notes>
       <segment>
         <source>Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre &lt;strong&gt;in der Nähe der östlichen Mauer&lt;/strong&gt; gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.</source>
-        <target><![CDATA[Forgetting how for a moment, but one of the [#] citizens missing outside last night found his way back to the town. They were seen near the eastern wall ! That said, they were missing both legs and they were dead in the minutes that followed. Grim.]]></target>
+        <target>Forgetting how for a moment, but one of the [#] citizens missing outside last night found his way back to the town. They were seen near the eastern wall ! That said, they were missing both legs and they were dead in the minutes that followed. Grim.</target>
       </segment>
     </unit>
     <unit id="nxj3690" name="Nun, das sage ich...">
@@ -23856,6 +23836,742 @@
       <segment>
         <source>Gebäudeliste einblenden</source>
         <target>Display construction list</target>
+      </segment>
+    </unit>
+    <unit id="tn37OGR">
+      <notes>
+        <note category="german">&lt;strong&gt;{citizen} scheint von einer plötzlichen, unkontrollierbaren Panik ergriffen zu sein&lt;/strong&gt;! Es ist unmöglich, auch nur einen Schritt weiter zu gehen... seine &lt;strong&gt;Bewegung wurde unterbrochen&lt;/strong&gt;.</note>
+        <note category="from">db://LogEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;{citizen} scheint von einer plötzlichen, unkontrollierbaren Panik ergriffen zu sein&lt;/strong&gt;! Es ist unmöglich, auch nur einen Schritt weiter zu gehen... seine &lt;strong&gt;Bewegung wurde unterbrochen&lt;/strong&gt;.</source>
+        <target><![CDATA[<strong>{citizen} scheint von einer plötzlichen, unkontrollierbaren Panik ergriffen zu sein</strong>! Es ist unmöglich, auch nur einen Schritt weiter zu gehen... seine <strong>Bewegung wurde unterbrochen</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="_yQk_x1">
+      <notes>
+        <note category="german">Als du dich umschaust, &lt;strong&gt;überfällt dich eine plötzliche, unkontrollierbare Panik&lt;/strong&gt;! Es ist unmöglich, auch nur einen Schritt weiterzugehen.&lt;hr/&gt;Deine Bewegung wurde &lt;strong&gt;unterbrochen&lt;/strong&gt; und du hast &lt;strong&gt;1 AP&lt;/strong&gt; verloren.</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Als du dich umschaust, &lt;strong&gt;überfällt dich eine plötzliche, unkontrollierbare Panik&lt;/strong&gt;! Es ist unmöglich, auch nur einen Schritt weiterzugehen.&lt;hr/&gt;Deine Bewegung wurde &lt;strong&gt;unterbrochen&lt;/strong&gt; und du hast &lt;strong&gt;1 AP&lt;/strong&gt; verloren.</source>
+        <target><![CDATA[Als du dich umschaust, <strong>überfällt dich eine plötzliche, unkontrollierbare Panik</strong>! Es ist unmöglich, auch nur einen Schritt weiterzugehen.<hr/>Deine Bewegung wurde <strong>unterbrochen</strong> und du hast <strong>1 AP</strong> verloren.]]></target>
+      </segment>
+    </unit>
+    <unit id="EKiagwt">
+      <notes>
+        <note category="german">Niemandem war es aufgefallen, wie schlecht es &lt;strong&gt;† {cadaver1}&lt;/strong&gt; ging. Von Allen im Stich gelassen, hat er es vorgezogen, &lt;strong&gt;seinem Leben ein Ende zu setzten&lt;/strong&gt;, anstatt weiter mit uns zu leben...</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Niemandem war es aufgefallen, wie schlecht es &lt;strong&gt;† {cadaver1}&lt;/strong&gt; ging. Von Allen im Stich gelassen, hat er es vorgezogen, &lt;strong&gt;seinem Leben ein Ende zu setzten&lt;/strong&gt;, anstatt weiter mit uns zu leben...</source>
+        <target><![CDATA[Niemandem war es aufgefallen, wie schlecht es <strong>† {cadaver1}</strong> ging. Von Allen im Stich gelassen, hat er es vorgezogen, <strong>seinem Leben ein Ende zu setzten</strong>, anstatt weiter mit uns zu leben...]]></target>
+      </segment>
+    </unit>
+    <unit id="We0LIUc">
+      <notes>
+        <note category="german">Gestern ist einigen Bürgern aufgefallen, dass &lt;strong&gt;† {cadaver1}&lt;/strong&gt; verdächtig still war. Anscheinend hat er es inzwischen vorgezogen, &lt;strong&gt;Selbstmord&lt;/strong&gt; zu begehen.</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Gestern ist einigen Bürgern aufgefallen, dass &lt;strong&gt;† {cadaver1}&lt;/strong&gt; verdächtig still war. Anscheinend hat er es inzwischen vorgezogen, &lt;strong&gt;Selbstmord&lt;/strong&gt; zu begehen.</source>
+        <target><![CDATA[Gestern ist einigen Bürgern aufgefallen, dass <strong>† {cadaver1}</strong> verdächtig still war. Anscheinend hat er es inzwischen vorgezogen, <strong>Selbstmord</strong> zu begehen.]]></target>
+      </segment>
+    </unit>
+    <unit id="mftT59R">
+      <notes>
+        <note category="german">Gute Nachrichten! Wir können uns alle von &lt;strong&gt;† {cadaver1}&lt;/strong&gt; verabschieden, der gestern beschlossen hat, sich von seinem Leben zu trennen.</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Gute Nachrichten! Wir können uns alle von &lt;strong&gt;† {cadaver1}&lt;/strong&gt; verabschieden, der gestern beschlossen hat, sich von seinem Leben zu trennen.</source>
+        <target><![CDATA[Gute Nachrichten! Wir können uns alle von <strong>† {cadaver1}</strong> verabschieden, der gestern beschlossen hat, sich von seinem Leben zu trennen.]]></target>
+      </segment>
+    </unit>
+    <unit id="1catDqP">
+      <notes>
+        <note category="german">&lt;strong&gt;{citizen1}&lt;/strong&gt; soll heute Morgen die Leiche von &lt;strong&gt;† {cadaver1}&lt;/strong&gt; inmitten einer Baustelle gefunden haben. Laut diesem Bürger handelte es sich um einen Selbstmord.... Nur konnte &lt;strong&gt;{citizen1}&lt;/strong&gt; uns das Messer, das im Rücken der Leiche steckte, nicht erklären...</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;{citizen1}&lt;/strong&gt; soll heute Morgen die Leiche von &lt;strong&gt;† {cadaver1}&lt;/strong&gt; inmitten einer Baustelle gefunden haben. Laut diesem Bürger handelte es sich um einen Selbstmord.... Nur konnte &lt;strong&gt;{citizen1}&lt;/strong&gt; uns das Messer, das im Rücken der Leiche steckte, nicht erklären...</source>
+        <target><![CDATA[<strong>{citizen1}</strong> soll heute Morgen die Leiche von <strong>† {cadaver1}</strong> inmitten einer Baustelle gefunden haben. Laut diesem Bürger handelte es sich um einen Selbstmord.... Nur konnte <strong>{citizen1}</strong> uns das Messer, das im Rücken der Leiche steckte, nicht erklären...]]></target>
+      </segment>
+    </unit>
+    <unit id="D7.ISce">
+      <notes>
+        <note category="german">&lt;strong&gt;† {cadaver1}&lt;/strong&gt; hat gestern endlich mal eine gute Entscheidung getroffen: Selbstmord zu begehen. "Besser spät als nie", kommentierte &lt;strong&gt;{citizen1}&lt;/strong&gt;...</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;† {cadaver1}&lt;/strong&gt; hat gestern endlich mal eine gute Entscheidung getroffen: Selbstmord zu begehen. "Besser spät als nie", kommentierte &lt;strong&gt;{citizen1}&lt;/strong&gt;...</source>
+        <target><![CDATA[<strong>† {cadaver1}</strong> hat gestern endlich mal eine gute Entscheidung getroffen: Selbstmord zu begehen. "Besser spät als nie", kommentierte <strong>{citizen1}</strong>...]]></target>
+      </segment>
+    </unit>
+    <unit id="f4Be_QH">
+      <notes>
+        <note category="german">Gestern hat &lt;strong&gt;† {cadaver1}&lt;/strong&gt; zum ersten Mal etwas richtig gemacht - allerdings auch zum letzten mal... Er beendete sein Leben auf eine... ziemlich gewaltsame Weise.</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Gestern hat &lt;strong&gt;† {cadaver1}&lt;/strong&gt; zum ersten Mal etwas richtig gemacht - allerdings auch zum letzten mal... Er beendete sein Leben auf eine... ziemlich gewaltsame Weise.</source>
+        <target><![CDATA[Gestern hat <strong>† {cadaver1}</strong> zum ersten Mal etwas richtig gemacht - allerdings auch zum letzten mal... Er beendete sein Leben auf eine... ziemlich gewaltsame Weise.]]></target>
+      </segment>
+    </unit>
+    <unit id="mqGx_o0">
+      <notes>
+        <note category="german">In der Stadt herrscht große Niedergeschlagenheit. Nicht weniger als &lt;strong&gt;{cadavers} Menschen&lt;/strong&gt; haben sich entschlossen, &lt;strong&gt;ihrem Leben auf verschiedene Arten ein Ende zu setzen&lt;/strong&gt;. Welche Freude...</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>In der Stadt herrscht große Niedergeschlagenheit. Nicht weniger als &lt;strong&gt;{cadavers} Menschen&lt;/strong&gt; haben sich entschlossen, &lt;strong&gt;ihrem Leben auf verschiedene Arten ein Ende zu setzen&lt;/strong&gt;. Welche Freude...</source>
+        <target><![CDATA[In der Stadt herrscht große Niedergeschlagenheit. Nicht weniger als <strong>{cadavers} Menschen</strong> haben sich entschlossen, <strong>ihrem Leben auf verschiedene Arten ein Ende zu setzen</strong>. Welche Freude...]]></target>
+      </segment>
+    </unit>
+    <unit id="KNnd7as">
+      <notes>
+        <note category="german">Ich habe gestern &lt;strong&gt;{cadavers} Selbstmorde&lt;/strong&gt; gezählt. Schlussendlich kommt die Gefahr vielleicht nicht von außen... &lt;strong&gt;Was&lt;/strong&gt; habt ihr ihnen angetan?</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Ich habe gestern &lt;strong&gt;{cadavers} Selbstmorde&lt;/strong&gt; gezählt. Schlussendlich kommt die Gefahr vielleicht nicht von außen... &lt;strong&gt;Was&lt;/strong&gt; habt ihr ihnen angetan?</source>
+        <target><![CDATA[Ich habe gestern <strong>{cadavers} Selbstmorde</strong> gezählt. Schlussendlich kommt die Gefahr vielleicht nicht von außen... <strong>Was</strong> habt ihr ihnen angetan?]]></target>
+      </segment>
+    </unit>
+    <unit id="TGk1Ozt">
+      <notes>
+        <note category="german">Der Mut der &lt;strong&gt;{cadavers} Bürger&lt;/strong&gt; von gestern, die es vorzogen, &lt;strong&gt;Selbstmord&lt;/strong&gt; zu begehen, anstatt sich dem Angriff heute Abend zu stellen, wird gebührend gewürdigt werden.</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Der Mut der &lt;strong&gt;{cadavers} Bürger&lt;/strong&gt; von gestern, die es vorzogen, &lt;strong&gt;Selbstmord&lt;/strong&gt; zu begehen, anstatt sich dem Angriff heute Abend zu stellen, wird gebührend gewürdigt werden.</source>
+        <target><![CDATA[Der Mut der <strong>{cadavers} Bürger</strong> von gestern, die es vorzogen, <strong>Selbstmord</strong> zu begehen, anstatt sich dem Angriff heute Abend zu stellen, wird gebührend gewürdigt werden.]]></target>
+      </segment>
+    </unit>
+    <unit id="VxJqSTv">
+      <notes>
+        <note category="german">Es gab gestern ein großes Stadtfest. &lt;strong&gt;&lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} wurde gehängt&lt;/strong&gt;. Endlich mal was los hier!</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Es gab gestern ein großes Stadtfest. &lt;strong&gt;&lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} wurde gehängt&lt;/strong&gt;. Endlich mal was los hier!</source>
+        <target><![CDATA[Es gab gestern ein großes Stadtfest. <strong><i class="dagger">†</i> {cadaver1} wurde gehängt</strong>. Endlich mal was los hier!]]></target>
+      </segment>
+    </unit>
+    <unit id="SXSdY4m">
+      <notes>
+        <note category="german">Großes Melodrama gestern während der Hängung von &lt;strong&gt;† {cadaver1}&lt;/strong&gt;: &lt;strong&gt;{citizen1}&lt;/strong&gt; soll aus Trauer versucht haben, die Feierlichkeiten zu verhindern, was er schlussendlich durch Gewalt sowie anderes &lt;strong&gt;anti-soziales Verhalten&lt;/strong&gt; erreichen wollte. Einige Nachbarn sollen empfohlen haben, auch diesen Störenfried aufzuhängen...</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Großes Melodrama gestern während der Hängung von &lt;strong&gt;† {cadaver1}&lt;/strong&gt;: &lt;strong&gt;{citizen1}&lt;/strong&gt; soll aus Trauer versucht haben, die Feierlichkeiten zu verhindern, was er schlussendlich durch Gewalt sowie anderes &lt;strong&gt;anti-soziales Verhalten&lt;/strong&gt; erreichen wollte. Einige Nachbarn sollen empfohlen haben, auch diesen Störenfried aufzuhängen...</source>
+        <target><![CDATA[Großes Melodrama gestern während der Hängung von <strong>† {cadaver1}</strong>: <strong>{citizen1}</strong> soll aus Trauer versucht haben, die Feierlichkeiten zu verhindern, was er schlussendlich durch Gewalt sowie anderes <strong>anti-soziales Verhalten</strong> erreichen wollte. Einige Nachbarn sollen empfohlen haben, auch diesen Störenfried aufzuhängen...]]></target>
+      </segment>
+    </unit>
+    <unit id="qNYEo_e">
+      <notes>
+        <note category="german">Die Gemeinde wollte dem Bürger &lt;strong&gt;† {cadaver1}&lt;/strong&gt; den Schrecken des heutigen Angriffs ersparen, indem sie ihn tagsüber &lt;strong&gt;aufknüpften&lt;/strong&gt;.</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Die Gemeinde wollte dem Bürger &lt;strong&gt;† {cadaver1}&lt;/strong&gt; den Schrecken des heutigen Angriffs ersparen, indem sie ihn tagsüber &lt;strong&gt;aufknüpften&lt;/strong&gt;.</source>
+        <target><![CDATA[Die Gemeinde wollte dem Bürger <strong>† {cadaver1}</strong> den Schrecken des heutigen Angriffs ersparen, indem sie ihn tagsüber <strong>aufknüpften</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="HnFKIJL">
+      <notes>
+        <note category="german">Die Stadt hatte gestern beschlossen, &lt;strong&gt;† {cadaver1}&lt;/strong&gt; zu erhängen. Leider verlief die Hinrichtung nicht reibungslos. Drei Anläufe waren nötig, um ihm schließlich das Genick zu brechen.</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Die Stadt hatte gestern beschlossen, &lt;strong&gt;† {cadaver1}&lt;/strong&gt; zu erhängen. Leider verlief die Hinrichtung nicht reibungslos. Drei Anläufe waren nötig, um ihm schließlich das Genick zu brechen.</source>
+        <target><![CDATA[Die Stadt hatte gestern beschlossen, <strong>† {cadaver1}</strong> zu erhängen. Leider verlief die Hinrichtung nicht reibungslos. Drei Anläufe waren nötig, um ihm schließlich das Genick zu brechen.]]></target>
+      </segment>
+    </unit>
+    <unit id="9NOVAyP">
+      <notes>
+        <note category="german">Anstatt die Zombies gewähren zu lassen, beschlossen die Bürger gestern, &lt;strong&gt;† {cadaver1}&lt;/strong&gt; im Voraus zu eliminieren. "Wir haben uns köstlich amüsiert", berichtet &lt;strong&gt;{citizen1}&lt;/strong&gt;...</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Anstatt die Zombies gewähren zu lassen, beschlossen die Bürger gestern, &lt;strong&gt;† {cadaver1}&lt;/strong&gt; im Voraus zu eliminieren. "Wir haben uns köstlich amüsiert", berichtet &lt;strong&gt;{citizen1}&lt;/strong&gt;...</source>
+        <target><![CDATA[Anstatt die Zombies gewähren zu lassen, beschlossen die Bürger gestern, <strong>† {cadaver1}</strong> im Voraus zu eliminieren. "Wir haben uns köstlich amüsiert", berichtet <strong>{citizen1}</strong>...]]></target>
+      </segment>
+    </unit>
+    <unit id="AMEjDOm">
+      <notes>
+        <note category="german">{cadavers} Bürgerinnen und Bürger haben wirklich zu viel getan. Oder nicht genug. Wie auch immer, die Gemeinschaft entschied daher, dass man sie gestern im Laufe des Tages &lt;strong&gt;entfernen&lt;/strong&gt; sollte.</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>{cadavers} Bürgerinnen und Bürger haben wirklich zu viel getan. Oder nicht genug. Wie auch immer, die Gemeinschaft entschied daher, dass man sie gestern im Laufe des Tages &lt;strong&gt;entfernen&lt;/strong&gt; sollte.</source>
+        <target><![CDATA[{cadavers} Bürgerinnen und Bürger haben wirklich zu viel getan. Oder nicht genug. Wie auch immer, die Gemeinschaft entschied daher, dass man sie gestern im Laufe des Tages <strong>entfernen</strong> sollte.]]></target>
+      </segment>
+    </unit>
+    <unit id="MWWoG3c">
+      <notes>
+        <note category="german">Bei uns wird versucht, alles so effizient wie möglich zu gestalten. Also dachten wir uns gestern, dass wir das &lt;strong&gt;Potential&lt;/strong&gt; des Galgen voll ausnutzen müssen: {cadavers} Bürger wurden zu diesem Zweck bestimmt und aufgehängt.</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Bei uns wird versucht, alles so effizient wie möglich zu gestalten. Also dachten wir uns gestern, dass wir das &lt;strong&gt;Potential&lt;/strong&gt; des Galgen voll ausnutzen müssen: {cadavers} Bürger wurden zu diesem Zweck bestimmt und aufgehängt.</source>
+        <target><![CDATA[Bei uns wird versucht, alles so effizient wie möglich zu gestalten. Also dachten wir uns gestern, dass wir das <strong>Potential</strong> des Galgen voll ausnutzen müssen: {cadavers} Bürger wurden zu diesem Zweck bestimmt und aufgehängt.]]></target>
+      </segment>
+    </unit>
+    <unit id="5G5XCkH">
+      <notes>
+        <note category="german">Nette Aktion in der Stadt gestern mit der &lt;strong&gt;Festnahme&lt;/strong&gt; und dem &lt;strong&gt;Hängen&lt;/strong&gt; von {cadavers} Bürgern. Gerichtsverfahren? Verhandlung? Nein, keine Zeit.</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Nette Aktion in der Stadt gestern mit der &lt;strong&gt;Festnahme&lt;/strong&gt; und dem &lt;strong&gt;Hängen&lt;/strong&gt; von {cadavers} Bürgern. Gerichtsverfahren? Verhandlung? Nein, keine Zeit.</source>
+        <target><![CDATA[Nette Aktion in der Stadt gestern mit der <strong>Festnahme</strong> und dem <strong>Hängen</strong> von {cadavers} Bürgern. Gerichtsverfahren? Verhandlung? Nein, keine Zeit.]]></target>
+      </segment>
+    </unit>
+    <unit id="j8SUZmh">
+      <notes>
+        <note category="german">Der Bürger &lt;strong&gt;{citizen}&lt;/strong&gt; war heute Morgen überglücklich über die summarische Hinrichtung von {cadavers} "Verrätern der Gemeinschaft". Ein "Beispiel für unsere schöne partizipative Demokratie in Aktion", soll dieser Bürger kommentiert haben.</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Der Bürger &lt;strong&gt;{citizen}&lt;/strong&gt; war heute Morgen überglücklich über die summarische Hinrichtung von {cadavers} "Verrätern der Gemeinschaft". Ein "Beispiel für unsere schöne partizipative Demokratie in Aktion", soll dieser Bürger kommentiert haben.</source>
+        <target><![CDATA[Der Bürger <strong>{citizen}</strong> war heute Morgen überglücklich über die summarische Hinrichtung von {cadavers} "Verrätern der Gemeinschaft". Ein "Beispiel für unsere schöne partizipative Demokratie in Aktion", soll dieser Bürger kommentiert haben.]]></target>
+      </segment>
+    </unit>
+    <unit id="zQ5c0bK">
+      <notes>
+        <note category="german">Das waren ein paar schöne &lt;strong&gt;Hängungen&lt;/strong&gt; gestern, man kann sagen, dass ihr es faustdick hinter den Ohren habt, das ist kein Spaß...</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Das waren ein paar schöne &lt;strong&gt;Hängungen&lt;/strong&gt; gestern, man kann sagen, dass ihr es faustdick hinter den Ohren habt, das ist kein Spaß...</source>
+        <target><![CDATA[Das waren ein paar schöne <strong>Hängungen</strong> gestern, man kann sagen, dass ihr es faustdick hinter den Ohren habt, das ist kein Spaß...]]></target>
+      </segment>
+    </unit>
+    <unit id="SVY7z0M">
+      <notes>
+        <note category="german">Große Feier in der Stadt gestern, mit der &lt;strong&gt;Kreuzigung von &lt;/strong&gt;&lt;strong&gt;† {cadaver1}&lt;/strong&gt;. Da ist mal was los und ein Schokoladenkreuz kann sich als köstlich UND nützlich erweisen.</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Große Feier in der Stadt gestern, mit der &lt;strong&gt;Kreuzigung von &lt;/strong&gt;&lt;strong&gt;† {cadaver1}&lt;/strong&gt;. Da ist mal was los und ein Schokoladenkreuz kann sich als köstlich UND nützlich erweisen.</source>
+        <target><![CDATA[Große Feier in der Stadt gestern, mit der <strong>Kreuzigung von </strong><strong>† {cadaver1}</strong>. Da ist mal was los und ein Schokoladenkreuz kann sich als köstlich UND nützlich erweisen.]]></target>
+      </segment>
+    </unit>
+    <unit id="z0t9GV6">
+      <notes>
+        <note category="german">Nette Aktion in der Stadt gestern mit der &lt;strong&gt;Festnahme&lt;/strong&gt; und der &lt;strong&gt;Kreuzigung&lt;/strong&gt; von {cadavers} Bürgern. Gerichtsverfahren? Verhandlung? Nein, keine Zeit.</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Nette Aktion in der Stadt gestern mit der &lt;strong&gt;Festnahme&lt;/strong&gt; und der &lt;strong&gt;Kreuzigung&lt;/strong&gt; von {cadavers} Bürgern. Gerichtsverfahren? Verhandlung? Nein, keine Zeit.</source>
+        <target><![CDATA[Nette Aktion in der Stadt gestern mit der <strong>Festnahme</strong> und der <strong>Kreuzigung</strong> von {cadavers} Bürgern. Gerichtsverfahren? Verhandlung? Nein, keine Zeit.]]></target>
+      </segment>
+    </unit>
+    <unit id="2HFiX31">
+      <notes>
+        <note category="german">{cadavers} Mitbürger sind gestern von uns geschieden. Eine letale &lt;strong&gt;hypertone Dehydratation&lt;/strong&gt; war die Ursache. Jaja, die Schmerzensschreie gestern Nacht, das war sie, die Dehydratation...</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>{cadavers} Mitbürger sind gestern von uns geschieden. Eine letale &lt;strong&gt;hypertone Dehydratation&lt;/strong&gt; war die Ursache. Jaja, die Schmerzensschreie gestern Nacht, das war sie, die Dehydratation...</source>
+        <target><![CDATA[{cadavers} Mitbürger sind gestern von uns geschieden. Eine letale <strong>hypertone Dehydratation</strong> war die Ursache. Jaja, die Schmerzensschreie gestern Nacht, das war sie, die Dehydratation...]]></target>
+      </segment>
+    </unit>
+    <unit id="3Hnf7p_">
+      <notes>
+        <note category="german">&lt;strong&gt;† {cadaver1} wurde ermordet&lt;/strong&gt;. Ich war es nicht, obwohl ich schon Lust gehabt hätte... Also, wer war's? Raus mit der Sprache!</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;† {cadaver1} wurde ermordet&lt;/strong&gt;. Ich war es nicht, obwohl ich schon Lust gehabt hätte... Also, wer war's? Raus mit der Sprache!</source>
+        <target><![CDATA[<strong>† {cadaver1} wurde ermordet</strong>. Ich war es nicht, obwohl ich schon Lust gehabt hätte... Also, wer war's? Raus mit der Sprache!]]></target>
+      </segment>
+    </unit>
+    <unit id="k6MpVYB">
+      <notes>
+        <note category="german">Die Meinungen über die Ursache für &lt;strong&gt;† {cadaver1}&lt;/strong&gt; plötzlichen Tod gehen auseinander: Einige glauben, dass es sich um Selbstmord handelt, andere denken, dass &lt;strong&gt;{citizen1}&lt;/strong&gt; der Mörder ist. Ich persönlich neige eher zur &lt;strong&gt;zweiten Hypothese&lt;/strong&gt;...</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Die Meinungen über die Ursache für &lt;strong&gt;† {cadaver1}&lt;/strong&gt; plötzlichen Tod gehen auseinander: Einige glauben, dass es sich um Selbstmord handelt, andere denken, dass &lt;strong&gt;{citizen1}&lt;/strong&gt; der Mörder ist. Ich persönlich neige eher zur &lt;strong&gt;zweiten Hypothese&lt;/strong&gt;...</source>
+        <target><![CDATA[Die Meinungen über die Ursache für <strong>† {cadaver1}</strong> plötzlichen Tod gehen auseinander: Einige glauben, dass es sich um Selbstmord handelt, andere denken, dass <strong>{citizen1}</strong> der Mörder ist. Ich persönlich neige eher zur <strong>zweiten Hypothese</strong>...]]></target>
+      </segment>
+    </unit>
+    <unit id="9mQXaZj">
+      <notes>
+        <note category="german">Neben den Zombieangriffen, müssen wir uns ab sofort auch auf Morde und Mordversuche in unseren eigenen Reihen einstellen. &lt;strong&gt;† {cadaver1}&lt;/strong&gt; wurde bereits ermordert.</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Neben den Zombieangriffen, müssen wir uns ab sofort auch auf Morde und Mordversuche in unseren eigenen Reihen einstellen. &lt;strong&gt;† {cadaver1}&lt;/strong&gt; wurde bereits ermordert.</source>
+        <target><![CDATA[Neben den Zombieangriffen, müssen wir uns ab sofort auch auf Morde und Mordversuche in unseren eigenen Reihen einstellen. <strong>† {cadaver1}</strong> wurde bereits ermordert.]]></target>
+      </segment>
+    </unit>
+    <unit id="URmKGWm">
+      <notes>
+        <note category="german">Gute Nachrichten, meine Freunde! Ein Verräter hat sich in unsere Reihen geschlichen. Als ob die Toten von Mitternacht nicht schon genug wären, müssen wir uns von nun an mit einer neuen Gefahr in unseren Mauern auseinandersetzen. Gestern wurde &lt;strong&gt;† {cadaver1} ermordet&lt;/strong&gt;. Vergiftung mit {poison}! Bürger, Zeit für Panik!</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Gute Nachrichten, meine Freunde! Ein Verräter hat sich in unsere Reihen geschlichen. Als ob die Toten von Mitternacht nicht schon genug wären, müssen wir uns von nun an mit einer neuen Gefahr in unseren Mauern auseinandersetzen. Gestern wurde &lt;strong&gt;† {cadaver1} ermordet&lt;/strong&gt;. Vergiftung mit {poison}! Bürger, Zeit für Panik!</source>
+        <target><![CDATA[Gute Nachrichten, meine Freunde! Ein Verräter hat sich in unsere Reihen geschlichen. Als ob die Toten von Mitternacht nicht schon genug wären, müssen wir uns von nun an mit einer neuen Gefahr in unseren Mauern auseinandersetzen. Gestern wurde <strong>† {cadaver1} ermordet</strong>. Vergiftung mit {poison}! Bürger, Zeit für Panik!]]></target>
+      </segment>
+    </unit>
+    <unit id=".IdHdet">
+      <notes>
+        <note category="german">Du solltest auch einen Blick auf die Leiche von &lt;strong&gt;† {cadaver1}&lt;/strong&gt; werfen. Die Umstände des Todes könnten nicht fragwürdiger sein ... Hmm? Mord? Wer hat "Mord" gesagt?</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Du solltest auch einen Blick auf die Leiche von &lt;strong&gt;† {cadaver1}&lt;/strong&gt; werfen. Die Umstände des Todes könnten nicht fragwürdiger sein ... Hmm? Mord? Wer hat "Mord" gesagt?</source>
+        <target><![CDATA[Du solltest auch einen Blick auf die Leiche von <strong>† {cadaver1}</strong> werfen. Die Umstände des Todes könnten nicht fragwürdiger sein ... Hmm? Mord? Wer hat "Mord" gesagt?]]></target>
+      </segment>
+    </unit>
+    <unit id="rs0Vp9r">
+      <notes>
+        <note category="german">In der Stadt gibt es perfideere Menschen als mich. Ein Beweis dafür ist der gewaltsame Tod von &lt;strong&gt;† {cadaver1}&lt;/strong&gt; gestern, der einem Mord zum Opfer fiel (Vergiftung mit {poison}, meiner Meinung nach). Es war sauber, ohne viel Dreck, obwohl es scheint dass &lt;strong&gt;† {cadaver1}&lt;/strong&gt; sehr gelitten hat. Gute Arbeit, mach weiter so, Kollege.</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>In der Stadt gibt es perfideere Menschen als mich. Ein Beweis dafür ist der gewaltsame Tod von &lt;strong&gt;† {cadaver1}&lt;/strong&gt; gestern, der einem Mord zum Opfer fiel (Vergiftung mit {poison}, meiner Meinung nach). Es war sauber, ohne viel Dreck, obwohl es scheint dass &lt;strong&gt;† {cadaver1}&lt;/strong&gt; sehr gelitten hat. Gute Arbeit, mach weiter so, Kollege.</source>
+        <target><![CDATA[In der Stadt gibt es perfideere Menschen als mich. Ein Beweis dafür ist der gewaltsame Tod von <strong>† {cadaver1}</strong> gestern, der einem Mord zum Opfer fiel (Vergiftung mit {poison}, meiner Meinung nach). Es war sauber, ohne viel Dreck, obwohl es scheint dass <strong>† {cadaver1}</strong> sehr gelitten hat. Gute Arbeit, mach weiter so, Kollege.]]></target>
+      </segment>
+    </unit>
+    <unit id="QEItt5b">
+      <notes>
+        <note category="german">Vorsicht ist geboten! Ein Mörder versteckt sich unter uns! Gestern wurde die Leiche von &lt;strong&gt;† {cadaver1}&lt;/strong&gt; gefunden, die Opfer einer Vergiftung wurde, vermutlich {poison} (fragt mich nicht, wie ich das herausgefunden habe). Wer ist der Mörder?</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Vorsicht ist geboten! Ein Mörder versteckt sich unter uns! Gestern wurde die Leiche von &lt;strong&gt;† {cadaver1}&lt;/strong&gt; gefunden, die Opfer einer Vergiftung wurde, vermutlich {poison} (fragt mich nicht, wie ich das herausgefunden habe). Wer ist der Mörder?</source>
+        <target><![CDATA[Vorsicht ist geboten! Ein Mörder versteckt sich unter uns! Gestern wurde die Leiche von <strong>† {cadaver1}</strong> gefunden, die Opfer einer Vergiftung wurde, vermutlich {poison} (fragt mich nicht, wie ich das herausgefunden habe). Wer ist der Mörder?]]></target>
+      </segment>
+    </unit>
+    <unit id="2IvlK44">
+      <notes>
+        <note category="german">Jemand konnte &lt;strong&gt;† {cadaver1}&lt;/strong&gt; offensichtlich nicht leiden. Das &lt;strong&gt;Gift&lt;/strong&gt;, welches gestern in sein Essen gemischt wurde, war äußerst effektiv.</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Jemand konnte &lt;strong&gt;† {cadaver1}&lt;/strong&gt; offensichtlich nicht leiden. Das &lt;strong&gt;Gift&lt;/strong&gt;, welches gestern in sein Essen gemischt wurde, war äußerst effektiv.</source>
+        <target><![CDATA[Jemand konnte <strong>† {cadaver1}</strong> offensichtlich nicht leiden. Das <strong>Gift</strong>, welches gestern in sein Essen gemischt wurde, war äußerst effektiv.]]></target>
+      </segment>
+    </unit>
+    <unit id="MFrPzmx">
+      <notes>
+        <note category="german">Wenn das Wasser komisch schmeckt, bist du vielleicht kurz davor, an einer Vergiftung zu vergehen. Wie &lt;strong&gt;† {cadaver1}&lt;/strong&gt; gestern, dessen &lt;strong&gt;verdächtiger Tod&lt;/strong&gt; viele Fragen aufwirft ...</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Wenn das Wasser komisch schmeckt, bist du vielleicht kurz davor, an einer Vergiftung zu vergehen. Wie &lt;strong&gt;† {cadaver1}&lt;/strong&gt; gestern, dessen &lt;strong&gt;verdächtiger Tod&lt;/strong&gt; viele Fragen aufwirft ...</source>
+        <target><![CDATA[Wenn das Wasser komisch schmeckt, bist du vielleicht kurz davor, an einer Vergiftung zu vergehen. Wie <strong>† {cadaver1}</strong> gestern, dessen <strong>verdächtiger Tod</strong> viele Fragen aufwirft ...]]></target>
+      </segment>
+    </unit>
+    <unit id="VtkKrJs">
+      <notes>
+        <note category="german">Die ganze Stadt freut sich über &lt;strong&gt;† {cadaver1}s&lt;/strong&gt; Tod. Seine &lt;strong&gt;Infektion&lt;/strong&gt; hat ihn endlich dahingerafft.</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Die ganze Stadt freut sich über &lt;strong&gt;† {cadaver1}s&lt;/strong&gt; Tod. Seine &lt;strong&gt;Infektion&lt;/strong&gt; hat ihn endlich dahingerafft.</source>
+        <target><![CDATA[Die ganze Stadt freut sich über <strong>† {cadaver1}s</strong> Tod. Seine <strong>Infektion</strong> hat ihn endlich dahingerafft.]]></target>
+      </segment>
+    </unit>
+    <unit id="XscnmcS">
+      <notes>
+        <note category="german">Die &lt;strong&gt;Krankheit&lt;/strong&gt; brauchte nicht lange, um mehrere Bürger ({cadavers}, wie mir scheint) in der Nacht niederzustrecken. Kaum &lt;strong&gt;zwei Tage Inkubationszeit&lt;/strong&gt;, und schwupps, waren sie ganz kalt.</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Die &lt;strong&gt;Krankheit&lt;/strong&gt; brauchte nicht lange, um mehrere Bürger ({cadavers}, wie mir scheint) in der Nacht niederzustrecken. Kaum &lt;strong&gt;zwei Tage Inkubationszeit&lt;/strong&gt;, und schwupps, waren sie ganz kalt.</source>
+        <target><![CDATA[Die <strong>Krankheit</strong> brauchte nicht lange, um mehrere Bürger ({cadavers}, wie mir scheint) in der Nacht niederzustrecken. Kaum <strong>zwei Tage Inkubationszeit</strong>, und schwupps, waren sie ganz kalt.]]></target>
+      </segment>
+    </unit>
+    <unit id=".YudnW.">
+      <notes>
+        <note category="german">Unsere infizierten &lt;strong&gt;{cadavers} Patienten&lt;/strong&gt; haben heute Nacht endlich den Löffel abgegeben. "Nicht zu früh", kommentiert &lt;strong&gt;{citizen1}&lt;/strong&gt;.</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Unsere infizierten &lt;strong&gt;{cadavers} Patienten&lt;/strong&gt; haben heute Nacht endlich den Löffel abgegeben. "Nicht zu früh", kommentiert &lt;strong&gt;{citizen1}&lt;/strong&gt;.</source>
+        <target><![CDATA[Unsere infizierten <strong>{cadavers} Patienten</strong> haben heute Nacht endlich den Löffel abgegeben. "Nicht zu früh", kommentiert <strong>{citizen1}</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="n0ZuQDo">
+      <notes>
+        <note category="german">Wir müssen uns keine Sorgen mehr um unsere {cadavers} Kranken machen. Sie sind heute Nacht alle oder fast alle gestorben. Champagner für alle!</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Wir müssen uns keine Sorgen mehr um unsere {cadavers} Kranken machen. Sie sind heute Nacht alle oder fast alle gestorben. Champagner für alle!</source>
+        <target>Wir müssen uns keine Sorgen mehr um unsere {cadavers} Kranken machen. Sie sind heute Nacht alle oder fast alle gestorben. Champagner für alle!</target>
+      </segment>
+    </unit>
+    <unit id="caZyk5r">
+      <notes>
+        <note category="german">Ihr müsst nicht mehr auf &lt;strong&gt;† {cadaver1}&lt;/strong&gt; warten, er wird noch einige Zeit in der Wüste bleiben, nachdem er beschlossen hat, sich selbst zu erwürgen... auf nachdrückliches Anraten der gequälten Seele, die die Kontrolle über seinen Körper übernommen hat.</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Ihr müsst nicht mehr auf &lt;strong&gt;† {cadaver1}&lt;/strong&gt; warten, er wird noch einige Zeit in der Wüste bleiben, nachdem er beschlossen hat, sich selbst zu erwürgen... auf nachdrückliches Anraten der gequälten Seele, die die Kontrolle über seinen Körper übernommen hat.</source>
+        <target><![CDATA[Ihr müsst nicht mehr auf <strong>† {cadaver1}</strong> warten, er wird noch einige Zeit in der Wüste bleiben, nachdem er beschlossen hat, sich selbst zu erwürgen... auf nachdrückliches Anraten der gequälten Seele, die die Kontrolle über seinen Körper übernommen hat.]]></target>
+      </segment>
+    </unit>
+    <unit id="fi.WhGd">
+      <notes>
+        <note category="german">Übrigens, &lt;strong&gt;{cadavers} Bürger&lt;/strong&gt; die ein wenig zu vertrauensselig waren, sind auf abscheuliche Weise und durch ihre eigenen schmutzigen Hände gestorben. Hat jemand den Schamanen gesehen?!</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Übrigens, &lt;strong&gt;{cadavers} Bürger&lt;/strong&gt; die ein wenig zu vertrauensselig waren, sind auf abscheuliche Weise und durch ihre eigenen schmutzigen Hände gestorben. Hat jemand den Schamanen gesehen?!</source>
+        <target><![CDATA[Übrigens, <strong>{cadavers} Bürger</strong> die ein wenig zu vertrauensselig waren, sind auf abscheuliche Weise und durch ihre eigenen schmutzigen Hände gestorben. Hat jemand den Schamanen gesehen?!]]></target>
+      </segment>
+    </unit>
+    <unit id="Hua9L0W">
+      <notes>
+        <note category="german">&lt;strong&gt;{citizen1}&lt;/strong&gt; soll gestern mehrere Stunden damit verbracht haben, in den in der Bank gelagerten Kleinigkeiten herumzuschnüffeln. Trickserei oder Dienst an der Stadt?</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;{citizen1}&lt;/strong&gt; soll gestern mehrere Stunden damit verbracht haben, in den in der Bank gelagerten Kleinigkeiten herumzuschnüffeln. Trickserei oder Dienst an der Stadt?</source>
+        <target><![CDATA[<strong>{citizen1}</strong> soll gestern mehrere Stunden damit verbracht haben, in den in der Bank gelagerten Kleinigkeiten herumzuschnüffeln. Trickserei oder Dienst an der Stadt?]]></target>
+      </segment>
+    </unit>
+    <unit id="Zsp2m_l">
+      <notes>
+        <note category="german">&lt;strong&gt;{citizen1}&lt;/strong&gt; berichtet uns Informationen, die mit Vorsicht zu genießen ist. Laut diesem Bürger soll &lt;strong&gt;{citizen2}&lt;/strong&gt; nämlich gesehen worden sein, wie er den ganzen Tag über in der Nähe der Bank herumlungerte... Zu welchem Zweck? Ein Mysterium.</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;{citizen1}&lt;/strong&gt; berichtet uns Informationen, die mit Vorsicht zu genießen ist. Laut diesem Bürger soll &lt;strong&gt;{citizen2}&lt;/strong&gt; nämlich gesehen worden sein, wie er den ganzen Tag über in der Nähe der Bank herumlungerte... Zu welchem Zweck? Ein Mysterium.</source>
+        <target><![CDATA[<strong>{citizen1}</strong> berichtet uns Informationen, die mit Vorsicht zu genießen ist. Laut diesem Bürger soll <strong>{citizen2}</strong> nämlich gesehen worden sein, wie er den ganzen Tag über in der Nähe der Bank herumlungerte... Zu welchem Zweck? Ein Mysterium.]]></target>
+      </segment>
+    </unit>
+    <unit id="NGm.hBZ">
+      <notes>
+        <note category="german">&lt;strong&gt;{citizen1}&lt;/strong&gt; hatte sich bislang seelenruhig aus unseren Vorräten bedient. Gestern jedoch machte ihm &lt;strong&gt;{citizen2}&lt;/strong&gt; unmissverständlich klar, dass, wenn er so weiter mache, er eines Morgens nicht mehr aufwachen würde.</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;{citizen1}&lt;/strong&gt; hatte sich bislang seelenruhig aus unseren Vorräten bedient. Gestern jedoch machte ihm &lt;strong&gt;{citizen2}&lt;/strong&gt; unmissverständlich klar, dass, wenn er so weiter mache, er eines Morgens nicht mehr aufwachen würde.</source>
+        <target><![CDATA[<strong>{citizen1}</strong> hatte sich bislang seelenruhig aus unseren Vorräten bedient. Gestern jedoch machte ihm <strong>{citizen2}</strong> unmissverständlich klar, dass, wenn er so weiter mache, er eines Morgens nicht mehr aufwachen würde.]]></target>
+      </segment>
+    </unit>
+    <unit id="xJHdFrN">
+      <notes>
+        <note category="german">Im Register steht, wie oft sich &lt;strong&gt;{citizen1}&lt;/strong&gt; an der Bank zu schaffen gemacht hat. Hat da jemand &lt;strong&gt;verdächtig&lt;/strong&gt; gesagt?</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Im Register steht, wie oft sich &lt;strong&gt;{citizen1}&lt;/strong&gt; an der Bank zu schaffen gemacht hat. Hat da jemand &lt;strong&gt;verdächtig&lt;/strong&gt; gesagt?</source>
+        <target><![CDATA[Im Register steht, wie oft sich <strong>{citizen1}</strong> an der Bank zu schaffen gemacht hat. Hat da jemand <strong>verdächtig</strong> gesagt?]]></target>
+      </segment>
+    </unit>
+    <unit id="ahvSFmN">
+      <notes>
+        <note category="german">Eine ziemliche Menge an Betrügereien von &lt;strong&gt;{citizen1}&lt;/strong&gt;, der gestern in der Bank herumstöberte... Wirf einen Blick in das Register...</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Eine ziemliche Menge an Betrügereien von &lt;strong&gt;{citizen1}&lt;/strong&gt;, der gestern in der Bank herumstöberte... Wirf einen Blick in das Register...</source>
+        <target><![CDATA[Eine ziemliche Menge an Betrügereien von <strong>{citizen1}</strong>, der gestern in der Bank herumstöberte... Wirf einen Blick in das Register...]]></target>
+      </segment>
+    </unit>
+    <unit id="89VTNik">
+      <notes>
+        <note category="german">Einige fragen sich, was &lt;strong&gt;{citizen1}&lt;/strong&gt; gestern den ganzen Tag &lt;strong&gt;in der Bank&lt;/strong&gt; gemacht hat... Wir bemerken einige &lt;strong&gt;sehr&lt;/strong&gt; verdächtige Vorgänge...</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Einige fragen sich, was &lt;strong&gt;{citizen1}&lt;/strong&gt; gestern den ganzen Tag &lt;strong&gt;in der Bank&lt;/strong&gt; gemacht hat... Wir bemerken einige &lt;strong&gt;sehr&lt;/strong&gt; verdächtige Vorgänge...</source>
+        <target><![CDATA[Einige fragen sich, was <strong>{citizen1}</strong> gestern den ganzen Tag <strong>in der Bank</strong> gemacht hat... Wir bemerken einige <strong>sehr</strong> verdächtige Vorgänge...]]></target>
+      </segment>
+    </unit>
+    <unit id="UTjLUdM">
+      <notes>
+        <note category="german">Die Aufzeichnungen zeigen, dass &lt;strong&gt;{citizen1}&lt;/strong&gt; sich mit unseren &lt;strong&gt;Bankreserven&lt;/strong&gt; gut amüsiert hat...</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Die Aufzeichnungen zeigen, dass &lt;strong&gt;{citizen1}&lt;/strong&gt; sich mit unseren &lt;strong&gt;Bankreserven&lt;/strong&gt; gut amüsiert hat...</source>
+        <target><![CDATA[Die Aufzeichnungen zeigen, dass <strong>{citizen1}</strong> sich mit unseren <strong>Bankreserven</strong> gut amüsiert hat...]]></target>
+      </segment>
+    </unit>
+    <unit id="xQbE5UV">
+      <notes>
+        <note category="german">Es scheint, dass &lt;strong&gt;{citizen1}&lt;/strong&gt; beschlossen hat, seine fragwürdigen Fundstücke in unserer Bank zu stapeln. Es geht nicht um &lt;strong&gt;Quantität&lt;/strong&gt;, nicht wahr &lt;strong&gt;{citizen1}&lt;/strong&gt; ...</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Es scheint, dass &lt;strong&gt;{citizen1}&lt;/strong&gt; beschlossen hat, seine fragwürdigen Fundstücke in unserer Bank zu stapeln. Es geht nicht um &lt;strong&gt;Quantität&lt;/strong&gt;, nicht wahr &lt;strong&gt;{citizen1}&lt;/strong&gt; ...</source>
+        <target><![CDATA[Es scheint, dass <strong>{citizen1}</strong> beschlossen hat, seine fragwürdigen Fundstücke in unserer Bank zu stapeln. Es geht nicht um <strong>Quantität</strong>, nicht wahr <strong>{citizen1}</strong> ...]]></target>
+      </segment>
+    </unit>
+    <unit id="XMONJCi">
+      <notes>
+        <note category="german">Ich weiß nicht wie ihr das seht, aber &lt;strong&gt;{citizen1}&lt;/strong&gt; hat die Bank gestern offenbar mit einem Haufen nutzlosem Dreck gefüllt.</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Ich weiß nicht wie ihr das seht, aber &lt;strong&gt;{citizen1}&lt;/strong&gt; hat die Bank gestern offenbar mit einem Haufen nutzlosem Dreck gefüllt.</source>
+        <target><![CDATA[Ich weiß nicht wie ihr das seht, aber <strong>{citizen1}</strong> hat die Bank gestern offenbar mit einem Haufen nutzlosem Dreck gefüllt.]]></target>
+      </segment>
+    </unit>
+    <unit id="AQXmvEH">
+      <notes>
+        <note category="german">Der &lt;strong&gt;Bank&lt;/strong&gt; geht es ziemlich gut, vor allem dank des Beitrags von &lt;strong&gt;{citizen1}&lt;/strong&gt;, der ziemlich viel mitgebracht hat...</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Der &lt;strong&gt;Bank&lt;/strong&gt; geht es ziemlich gut, vor allem dank des Beitrags von &lt;strong&gt;{citizen1}&lt;/strong&gt;, der ziemlich viel mitgebracht hat...</source>
+        <target><![CDATA[Der <strong>Bank</strong> geht es ziemlich gut, vor allem dank des Beitrags von <strong>{citizen1}</strong>, der ziemlich viel mitgebracht hat...]]></target>
+      </segment>
+    </unit>
+    <unit id="x1i3hMt">
+      <notes>
+        <note category="german">Angeblich wurden der Bank gestern einige verdächtige Entnahmen gemeldet. Die Zeugenaussagen deuten darauf hin, dass es sich um &lt;strong&gt;{citizen1}&lt;/strong&gt; handeln soll, einige sprechen aber auch von &lt;strong&gt;{citizen2}&lt;/strong&gt;.</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Angeblich wurden der Bank gestern einige verdächtige Entnahmen gemeldet. Die Zeugenaussagen deuten darauf hin, dass es sich um &lt;strong&gt;{citizen1}&lt;/strong&gt; handeln soll, einige sprechen aber auch von &lt;strong&gt;{citizen2}&lt;/strong&gt;.</source>
+        <target><![CDATA[Angeblich wurden der Bank gestern einige verdächtige Entnahmen gemeldet. Die Zeugenaussagen deuten darauf hin, dass es sich um <strong>{citizen1}</strong> handeln soll, einige sprechen aber auch von <strong>{citizen2}</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="Gsbf.rs">
+      <notes>
+        <note category="german">Mal was anderes: ein Blick ins Bankregisterbuch hat leider Unerfreuliches offenbart. &lt;strong&gt;{citizen1}&lt;/strong&gt; hat sich &lt;strong&gt;in der Bank ausgetobt&lt;/strong&gt; und so allerhand &lt;strong&gt;mitgehen lassen&lt;/strong&gt;...</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Mal was anderes: ein Blick ins Bankregisterbuch hat leider Unerfreuliches offenbart. &lt;strong&gt;{citizen1}&lt;/strong&gt; hat sich &lt;strong&gt;in der Bank ausgetobt&lt;/strong&gt; und so allerhand &lt;strong&gt;mitgehen lassen&lt;/strong&gt;...</source>
+        <target><![CDATA[Mal was anderes: ein Blick ins Bankregisterbuch hat leider Unerfreuliches offenbart. <strong>{citizen1}</strong> hat sich <strong>in der Bank ausgetobt</strong> und so allerhand <strong>mitgehen lassen</strong>...]]></target>
+      </segment>
+    </unit>
+    <unit id="IckdGni">
+      <notes>
+        <note category="german">Einige Einwohner wundern sich, was &lt;strong&gt;{citizen1}&lt;/strong&gt; gestern den ganzen Tag in der Bank getrieben hat... Er sollte wissen, dass sein &lt;strong&gt;ständiges Kommen und Gehen&lt;/strong&gt; nicht unbemerkt geblieben ist...</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Einige Einwohner wundern sich, was &lt;strong&gt;{citizen1}&lt;/strong&gt; gestern den ganzen Tag in der Bank getrieben hat... Er sollte wissen, dass sein &lt;strong&gt;ständiges Kommen und Gehen&lt;/strong&gt; nicht unbemerkt geblieben ist...</source>
+        <target><![CDATA[Einige Einwohner wundern sich, was <strong>{citizen1}</strong> gestern den ganzen Tag in der Bank getrieben hat... Er sollte wissen, dass sein <strong>ständiges Kommen und Gehen</strong> nicht unbemerkt geblieben ist...]]></target>
+      </segment>
+    </unit>
+    <unit id="LbG8Gk4" name="Arsen">
+      <notes>
+        <note category="german">Arsen</note>
+        <note category="from">php:///src/Service/GazetteService.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Arsen</source>
+        <target>Arsen</target>
+      </segment>
+    </unit>
+    <unit id="HCIRSS9" name="Cyanolin">
+      <notes>
+        <note category="german">Cyanolin</note>
+        <note category="from">php:///src/Service/GazetteService.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Cyanolin</source>
+        <target>Cyanolin</target>
+      </segment>
+    </unit>
+    <unit id="Rnp_9CF" name="Neurotwinin">
+      <notes>
+        <note category="german">Neurotwinin</note>
+        <note category="from">php:///src/Service/GazetteService.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Neurotwinin</source>
+        <target>Neurotwinin</target>
+      </segment>
+    </unit>
+    <unit id="3Uh1oV9" name="Rizin">
+      <notes>
+        <note category="german">Rizin</note>
+        <note category="from">php:///src/Service/GazetteService.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Rizin</source>
+        <target>Rizin</target>
+      </segment>
+    </unit>
+    <unit id="CZvDuqX" name="Botulinumtoxin">
+      <notes>
+        <note category="german">Botulinumtoxin</note>
+        <note category="from">php:///src/Service/GazetteService.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Botulinumtoxin</source>
+        <target>Botulinumtoxin</target>
+      </segment>
+    </unit>
+    <unit id="HR8OwWp" name="Virunoir">
+      <notes>
+        <note category="german">Virunoir</note>
+        <note category="from">php:///src/Service/GazetteService.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Virunoir</source>
+        <target>Virunoir</target>
+      </segment>
+    </unit>
+    <unit id="aMG9BKE" name="Chlorotwinat">
+      <notes>
+        <note category="german">Chlorotwinat</note>
+        <note category="from">php:///src/Service/GazetteService.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Chlorotwinat</source>
+        <target>Chlorotwinat</target>
+      </segment>
+    </unit>
+    <unit id="vlTzPfn" name="Kaliumchlorid">
+      <notes>
+        <note category="german">Kaliumchlorid</note>
+        <note category="from">php:///src/Service/GazetteService.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Kaliumchlorid</source>
+        <target>Kaliumchlorid</target>
+      </segment>
+    </unit>
+    <unit id="QiiYtFk" name="Kurare">
+      <notes>
+        <note category="german">Kurare</note>
+        <note category="from">php:///src/Service/GazetteService.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Kurare</source>
+        <target>Kurare</target>
+      </segment>
+    </unit>
+    <unit id="eYaqEgt" name="Zyanid (poison)">
+      <notes>
+        <note category="german">Zyanid</note>
+        <note category="from">php:///src/Service/GazetteService.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Zyanid (poison)</source>
+        <target>Zyanid (poison)</target>
+      </segment>
+    </unit>
+    <unit id="oGlsrDH" name="Phenol">
+      <notes>
+        <note category="german">Phenol</note>
+        <note category="from">php:///src/Service/GazetteService.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Phenol</source>
+        <target>Phenol</target>
+      </segment>
+    </unit>
+    <unit id="BgNl_yX" name="Ponasulfat">
+      <notes>
+        <note category="german">Ponasulfat</note>
+        <note category="from">php:///src/Service/GazetteService.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Ponasulfat</source>
+        <target>Ponasulfat</target>
+      </segment>
+    </unit>
+    <unit id="csNYTXg">
+      <notes>
+        <note category="german">Es gibt einige, die sich auf unsere Kosten einen Spaß machen, das sage ich euch, zum Beispiel &lt;strong&gt;{citizen1}&lt;/strong&gt;, der {random} Mal vorbeikam, um eine Kleinigkeit aus der Bank zu holen... Wir verweigern uns nichts.</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Es gibt einige, die sich auf unsere Kosten einen Spaß machen, das sage ich euch, zum Beispiel &lt;strong&gt;{citizen1}&lt;/strong&gt;, der {random} Mal vorbeikam, um eine Kleinigkeit aus der Bank zu holen... Wir verweigern uns nichts.</source>
+        <target><![CDATA[Es gibt einige, die sich auf unsere Kosten einen Spaß machen, das sage ich euch, zum Beispiel <strong>{citizen1}</strong>, der {random} Mal vorbeikam, um eine Kleinigkeit aus der Bank zu holen... Wir verweigern uns nichts.]]></target>
+      </segment>
+    </unit>
+    <unit id="9WkEMJc">
+      <notes>
+        <note category="german">&lt;strong&gt;{citizen1}&lt;/strong&gt; ist so oft zur Bank gerannt, dass es ja irgendwann mal auffallen MUSSTE! Allein gestern waren es &lt;strong&gt;{random} Mal&lt;/strong&gt;.</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;{citizen1}&lt;/strong&gt; ist so oft zur Bank gerannt, dass es ja irgendwann mal auffallen MUSSTE! Allein gestern waren es &lt;strong&gt;{random} Mal&lt;/strong&gt;.</source>
+        <target><![CDATA[<strong>{citizen1}</strong> ist so oft zur Bank gerannt, dass es ja irgendwann mal auffallen MUSSTE! Allein gestern waren es <strong>{random} Mal</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="bVo7YAL" name="{shaman} hat {citizen} soeben mit seinen mystischen Schamanenkräften geheilt!">
+      <notes>
+        <note category="german">{shaman} hat {citizen} soeben mit seinen mystischen Schamanenkräften geheilt!</note>
+        <note category="from">db://LogEntryTemplate</note>
+      </notes>
+      <segment>
+        <source>{shaman} hat {citizen} soeben mit seinen mystischen Schamanenkräften geheilt!</source>
+        <target>{shaman} has just healed {citizen} thanks to their shamanic powers!</target>
       </segment>
     </unit>
   </file>

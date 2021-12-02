@@ -36,7 +36,7 @@
 
     &>.log-entry {
       &:before { content: " "; height: 16px; width: 16px; top: 2px; left: 2px; position: absolute; }
-      padding: 2px 2px 2px 20px; position: relative; cursor: default; margin: 1px 0;
+      padding: 2px 2px 2px 20px; position: relative; cursor: default; margin: 1px 0; word-wrap: anywhere;
       &>span.log-part-time {
         color: @myhordes-smalltext; font-size: 0.9em; display: inline-block; width: 50px;
         position: relative; text-align: center;
@@ -55,7 +55,11 @@
             padding-left: 3px;
             padding-right: 3px;
             white-space: nowrap;
-            background-color: #784323; 
+            background-color: #784323;
+            max-width: 100%;
+            display: inline-block;
+            overflow: hidden;
+            text-overflow: ellipsis;
           } 
         }
         &.log-part-entry-hidden {

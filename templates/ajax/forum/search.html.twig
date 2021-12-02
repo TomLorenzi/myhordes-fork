@@ -85,12 +85,16 @@
     {{ parent() }}
     {{ include('ajax/flash.html.twig') }}
     <script>
-        $.html.addEventListenerAll('#search-begin-btn', 'click', () => $.ajax.no_history().load( document.getElementById('search-results'), '{{ path('forum_query_controller')|e('js') }}', false, {
+        const doSearch = () => $.ajax.no_history().load( document.getElementById('search-results'), '{{ path('forum_query_controller')|e('js') }}', false, {
             fid: parseInt(document.querySelector('#search-forum').value),
             query: document.querySelector('#search-query').value,
             opt_title: document.querySelector('#search-opt-title').checked ? 1 : 0,
             user: document.querySelector('[x-selected-user]') ? parseInt(document.querySelector('[x-selected-user]').getAttribute('x-selected-user')) : -1
-        } ) );
+        } );
+
+        $.html.addEventListenerAll('#search-query', 'keydown', e => e.key === 'Enter' && doSearch());
+
+        $.html.addEventListenerAll('#search-begin-btn', 'click', doSearch);
 
         $.html.addEventListenerAll('#search_selected_user img', 'click', () => {
             let e = document.getElementById('search_selected_user');

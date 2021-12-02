@@ -92,7 +92,7 @@
 </div>
 
 </body>
-<footer>
+<footer class="{% if custom_css is defined and custom_css != '' %}{{ custom_css }}{% endif %}">
     {% block footer %}
         {% if debug %}
             <div class="row">

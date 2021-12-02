@@ -72,6 +72,15 @@
                 <div class="help">
                     {{ 'Achtung: Entferne alle Gegenstände aus deinem Rucksack, die du NICHT in die Stadt senden möchtest!'|trans({}, 'items') }}
                 </div>
+
+            {% elseif renderer == 'survivalist_popup' %}
+
+                <div>
+                    {{ 'Erhalten:'|trans({}, 'items') }}
+                    <div>{{ _self.inline_action_renderer( scout, actions|filter(a => a.action.name == 'hero_surv_1' ) ) }}</div>
+                    <div>{{ _self.inline_action_renderer( scout, actions|filter(a => a.action.name == 'hero_surv_2' ) ) }}</div>
+                </div>
+                
             {% else %}
                 [ WARNING: UNKNOWN ACTION ACCUMULATOR "{{ renderer }}" ]
             {% endif %}

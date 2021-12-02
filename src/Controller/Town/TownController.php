@@ -764,10 +764,8 @@ class TownController extends InventoryAwareController
             $this->crow->postAsPM( $victim, '', '' . time(), PrivateMessage::TEMPLATE_CROW_INTRUSION, $this->getActiveCitizen()->getId() );
         }
 
-        if ($action !== 0) {
-            $this->citizen_handler->inflictStatus($this->getActiveCitizen(), 'tg_steal');
+        if ($action !== 0)
             $this->entity_manager->persist( (new HomeIntrusion())->setIntruder($this->getActiveCitizen())->setVictim( $victim )->setSteal( $action > 0 ) );
-        }
 
         try {
             $this->entity_manager->flush();
@@ -799,9 +797,6 @@ class TownController extends InventoryAwareController
 
         $intrusion = null;
         if ($c->getAlive() && !$intrusion = $em->getRepository(HomeIntrusion::class)->findOneBy(['intruder' => $ac, 'victim' => $c]))
-            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
-
-        if ($this->citizen_handler->hasStatusEffect($ac, 'tg_steal') && !$ac->getTown()->getChaos())
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
 
         $direction = $parser->get('direction', '');
@@ -1888,7 +1883,7 @@ class TownController extends InventoryAwareController
             ),
         ];
 
-        if(!$this->citizen_handler->hasStatusEffect($c, array_keys($healableStatus)) || $c->getZone() || $this->citizen_handler->hasStatusEffect($c, 'tg_shaman_heal')){
+        if(!$this->citizen_handler->hasStatusEffect($c, array_keys($healableStatus)) || $this->citizen_handler->hasStatusEffect($c, 'tg_shaman_heal')){
             $message[] = $this->translator->trans('Du kannst diesen Bürger nicht heilen. Entweder bedarf er keiner Heilung, ist nicht in der Stadt oder hat heute bereits eine mystische Heilung erfahren.', [], 'game');
             $this->addFlash('notice', implode('<hr />', $message));
             return AjaxResponse::success();
@@ -1911,6 +1906,7 @@ class TownController extends InventoryAwareController
             }
 
             $message[] = $this->translator->trans($healableStatus[$healedStatus]['success'], ['{citizen}' => "<span>" . $c->getName() . "</span>"], 'game');
+            $this->entity_manager->persist( $this->log->shamanHealLog( $this->getActiveCitizen(), $c ) );
 
             $transfer = $this->random_generator->chance(0.1);
             if($transfer){

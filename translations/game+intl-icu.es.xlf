@@ -1936,12 +1936,12 @@
     </unit>
     <unit id="FB4yWED" name="{ruin} durchsuchen">
       <notes>
-        <note category="german">{ruin} durchsuchen</note>
+        <note category="german">&lt;strong&gt;{ruin}&lt;/strong&gt; durchsuchen</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
         <source>{ruin} durchsuchen</source>
-        <target>Hurgar: {ruin}</target>
+        <target><![CDATA[Hurgar: <strong>{ruin}</strong>]]></target>
       </segment>
     </unit>
     <unit id="ZaxaGah" name="Zone freiräumen">
@@ -2433,7 +2433,7 @@
       </notes>
       <segment>
         <source>Albi Supermarkt</source>
-        <target>Tienda de Don Chicho</target>
+        <target>Tienda Don Chicho</target>
       </segment>
     </unit>
     <unit id="z79LmBi" name="Alte Höhle">
@@ -2443,7 +2443,7 @@
       </notes>
       <segment>
         <source>Alte Höhle</source>
-        <target>Refugio en construcción</target>
+        <target>Cueva</target>
       </segment>
     </unit>
     <unit id="7N1b8YP" name="Alte Hydraulikpumpe">
@@ -2513,7 +2513,7 @@
       </notes>
       <segment>
         <source>Atombunker</source>
-        <target>Refugio anti-atómico</target>
+        <target>Refugio Anti-atómico</target>
       </segment>
     </unit>
     <unit id="pSDkjjr" name="Atomic Cafe">
@@ -2543,7 +2543,7 @@
       </notes>
       <segment>
         <source>Autowracks</source>
-        <target>Carrocería de autos</target>
+        <target>Carrocerías de autos</target>
       </segment>
     </unit>
     <unit id="lVmO2OQ" name="Bar der verlorenen Hoffnungen">
@@ -2563,7 +2563,7 @@
       </notes>
       <segment>
         <source>Baumarkt</source>
-        <target>Home depot</target>
+        <target>La casa del constructor</target>
       </segment>
     </unit>
     <unit id="ejtguBI" name="Baustellencontainer">
@@ -2573,7 +2573,7 @@
       </notes>
       <segment>
         <source>Baustellencontainer</source>
-        <target>La casa del constructor</target>
+        <target>Refugio en construcción</target>
       </segment>
     </unit>
     <unit id="4P7trch" name="Dönerbude Utsel-Brutzel">
@@ -2633,7 +2633,7 @@
       </notes>
       <segment>
         <source>Ein seltsames kreisförmiges Gerät</source>
-        <target>Dispositivo circular</target>
+        <target>Un extraño aparato circular</target>
       </segment>
     </unit>
     <unit id="XbKWmCS" name="E-KEA">
@@ -2663,7 +2663,7 @@
       </notes>
       <segment>
         <source>Fast Food Restaurant</source>
-        <target>Restaurante «Rey Hamburgo»</target>
+        <target>Restaurante «Burger Twin»</target>
       </segment>
     </unit>
     <unit id="3jRHmba" name="Flugzeugwrack">
@@ -2703,7 +2703,7 @@
       </notes>
       <segment>
         <source>Höhle</source>
-        <target>Cueva</target>
+        <target>Caverna</target>
       </segment>
     </unit>
     <unit id="9x03HdM" name="Indianerfriedhof">
@@ -2753,7 +2753,7 @@
       </notes>
       <segment>
         <source>Kosmetiklabor</source>
-        <target>Laboratorio cosmético</target>
+        <target>Laboratorio de cosméticos</target>
       </segment>
     </unit>
     <unit id="XZBo0Eq" name="Krankenwagen">
@@ -2783,7 +2783,7 @@
       </notes>
       <segment>
         <source>Leeres Parkhaus</source>
-        <target>Parking abandonado</target>
+        <target>Parqueadero abandonado</target>
       </segment>
     </unit>
     <unit id="PLyihQR" name="Liegengebliebener Kampfpanzer">
@@ -2793,7 +2793,7 @@
       </notes>
       <segment>
         <source>Liegengebliebener Kampfpanzer</source>
-        <target>Tanque desvalijado</target>
+        <target>Tanque averiado</target>
       </segment>
     </unit>
     <unit id="ECpLJti" name="Motel 'Dusk'">
@@ -2863,7 +2863,7 @@
       </notes>
       <segment>
         <source>Tante Emma Laden</source>
-        <target>Minimercado</target>
+        <target>Minimercado «Ocxo»</target>
       </segment>
     </unit>
     <unit id="19QLQFs" name="Truck 'Rathaus auf Rädern'">
@@ -3003,7 +3003,7 @@
       </notes>
       <segment>
         <source>Zerstörte Apotheke</source>
-        <target>Farmacia destruida</target>
+        <target>Farmatodito destruido</target>
       </segment>
     </unit>
     <unit id="4N3cahH" name="ZomBIER Bar">
@@ -4109,34 +4109,31 @@
     <unit id="Pq_GOUr">
       <notes>
         <note category="german">Hier wohnte ein Bürger, der  sich außerhalb der Stadt niedergelassen hat, weil er den Streitigkeiten und dem Verrat, die das Stadtleben mit sich bringt, entfliehen wollte. Die Hälfte seiner Leiche liegt immer noch im Wohnzimmer.</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
         <source>Hier wohnte ein Bürger, der  sich außerhalb der Stadt niedergelassen hat, weil er den Streitigkeiten und dem Verrat, die das Stadtleben mit sich bringt, entfliehen wollte. Die Hälfte seiner Leiche liegt immer noch im Wohnzimmer.</source>
-        <target>Hier wohnte ein Bürger, der  sich außerhalb der Stadt niedergelassen hat, weil er den Streitigkeiten und dem Verrat, die das Stadtleben mit sich bringt, entfliehen wollte. Die Hälfte seiner Leiche liegt immer noch im Wohnzimmer.</target>
+        <target><![CDATA[Aquí vivió un habitante que se instaló en el desierto, pensando empezar una nueva vida, lejos de la traición y de las intrigas de sus compañeros. <strong>La mitad de su cuerpo aún está tirado en un rincón</strong>.]]></target>
       </segment>
     </unit>
     <unit id="I0Djxyu">
       <notes>
         <note category="german">Einer der vielen Albi Supermarkt, die um das Jahr 2010 herum aus dem Boden schossen und später dann verschwanden... spezialisiert darauf, Dinge so billig wie möglich zu verscherbeln. Hier findest du alles finden, was du brauchst - egal ob du einfach pleite bist oder eisern auf ein neues Stück Seife sparst, kaufe bei ALBI ein!</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
         <source>Einer der vielen Albi Supermarkt, die um das Jahr 2010 herum aus dem Boden schossen und später dann verschwanden... spezialisiert darauf, Dinge so billig wie möglich zu verscherbeln. Hier findest du alles finden, was du brauchst - egal ob du einfach pleite bist oder eisern auf ein neues Stück Seife sparst, kaufe bei ALBI ein!</source>
-        <target>Einer der vielen Albi Supermarkt, die um das Jahr 2010 herum aus dem Boden schossen und später dann verschwanden... spezialisiert darauf, Dinge so billig wie möglich zu verscherbeln. Hier findest du alles finden, was du brauchst - egal ob du einfach pleite bist oder eisern auf ein neues Stück Seife sparst, kaufe bei ALBI ein!</target>
+        <target>Ahí se encuentran muchos productos de limpieza. Los más desfavorecidos encontrarán algo de comer...</target>
       </segment>
     </unit>
     <unit id="if10dn9">
       <notes>
         <note category="german">Manche Fehler enden zwangsläufig tödlich. Nehmt als Beispiel diese Höhle. Stellt euch vor, ihr werdet von einer Zombiemeute verfolgt und eilt überstürzt in eine Höhle, um Schutz zu suchen. Ihr werdet dann folgendes Problem haben: Wie kommt ihr heil wieder raus, wenn die Biester euch gefolgt sind? Der zerfledderte Typ an der Wand dort hinten scheint dies nicht bedacht zu haben...</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
         <source>Manche Fehler enden zwangsläufig tödlich. Nehmt als Beispiel diese Höhle. Stellt euch vor, ihr werdet von einer Zombiemeute verfolgt und eilt überstürzt in eine Höhle, um Schutz zu suchen. Ihr werdet dann folgendes Problem haben: Wie kommt ihr heil wieder raus, wenn die Biester euch gefolgt sind? Der zerfledderte Typ an der Wand dort hinten scheint dies nicht bedacht zu haben...</source>
-        <target>Manche Fehler enden zwangsläufig tödlich. Nehmt als Beispiel diese Höhle. Stellt euch vor, ihr werdet von einer Zombiemeute verfolgt und eilt überstürzt in eine Höhle, um Schutz zu suchen. Ihr werdet dann folgendes Problem haben: Wie kommt ihr heil wieder raus, wenn die Biester euch gefolgt sind? Der zerfledderte Typ an der Wand dort hinten scheint dies nicht bedacht zu haben...</target>
+        <target>El típico caso de un hombre que se mete en una cueva huyendo de una turba de zombies. Todo bien hasta allí, hasta que el hombre recuerda que tenía 2 zombies abrazados a su espalda. El pobre gritó de todo menos «Por favor».</target>
       </segment>
     </unit>
     <unit id="bnTVKZv">
@@ -4146,51 +4143,47 @@
       </notes>
       <segment>
         <source>Eine alte Pumpe, die zwar vor sich hin rostet, aber dennoch in der Lage ist, in der Wüste Wasser zu schöpfen... Das einzige Problem ist, dass das Wasser, selbst wenn Sie es zum Funktionieren bringen, im Grunde genommen ungenießbar ist und in der Stadt mit den entsprechenden Geräten gereinigt werden muss.</source>
-        <target><![CDATA[Esta vieja bomba hidráulica está bastante corroída y tiene aún la capacidad de extraer agua en el desierto... Si llegas a hacerla funcionar, el agua <strong>no será potable <strong>y deberá</strong> ser purificada en el pueblo</strong> con los productos necesarios.]]></target>
+        <target><![CDATA[Esta bomba hidráulica está bastante corroída y tiene aún la capacidad de extraer agua en el desierto... Si llegas a hacerla funcionar, el agua <strong>no será potable</strong> y deberá ser <strong>purificada en el pueblo</strong> con los productos necesarios.]]></target>
       </segment>
     </unit>
     <unit id="7y4PXTQ">
       <notes>
         <note category="german">Ein altes Fahrradverleihlager, das mit Metallstücken, Werkzeugen und allen Arten von Schutt übersät ist.</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
         <source>Ein altes Fahrradverleihlager, das mit Metallstücken, Werkzeugen und allen Arten von Schutt übersät ist.</source>
-        <target>Ein altes Fahrradverleihlager, das mit Metallstücken, Werkzeugen und allen Arten von Schutt übersät ist.</target>
+        <target>Un antiguo taller de reparación de bicicletas repleta de herramientas y chatarra de todo tipo.</target>
       </segment>
     </unit>
     <unit id="2.pUWsx">
       <notes>
         <note category="german">Dieser Rangierbahnhof war einmal das zentrale Drehkreuz des Landes. Waren aus aller Herren Länder wurden hier rund um die Uhr umgeladen und in alle Himmelsrichtungen versendet. Das 'weitverzweigte Netzt' ist heute noch ungefähr 150 Meter lang, vorausgesetzt man zählt die Gleisüberbleibsel da hinten noch mit.</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
         <source>Dieser Rangierbahnhof war einmal das zentrale Drehkreuz des Landes. Waren aus aller Herren Länder wurden hier rund um die Uhr umgeladen und in alle Himmelsrichtungen versendet. Das 'weitverzweigte Netzt' ist heute noch ungefähr 150 Meter lang, vorausgesetzt man zählt die Gleisüberbleibsel da hinten noch mit.</source>
-        <target>Dieser Rangierbahnhof war einmal das zentrale Drehkreuz des Landes. Waren aus aller Herren Länder wurden hier rund um die Uhr umgeladen und in alle Himmelsrichtungen versendet. Das 'weitverzweigte Netzt' ist heute noch ungefähr 150 Meter lang, vorausgesetzt man zählt die Gleisüberbleibsel da hinten noch mit.</target>
+        <target>Esta plataforma ferroviaria se dedicaba a la distribución de mercancías. Ya que estás aquí, ¿por qué no echarle un vistazo?</target>
       </segment>
     </unit>
     <unit id="KNKSRpW">
       <notes>
         <note category="german">Die menschlichen Überreste, die in der Auffahrt liegen gehören den ehemaligen Patienten dieses improvisierten Krankenhauses. Schwer zu sagen, wie viele Menschen hier beim abendlichen Angriff gestorben sind... Wenn du die Anzahl der Arme durch zwei teilst, vielleicht bekommst du dann eine grobe Schätzung?</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
         <source>Die menschlichen Überreste, die in der Auffahrt liegen gehören den ehemaligen Patienten dieses improvisierten Krankenhauses. Schwer zu sagen, wie viele Menschen hier beim abendlichen Angriff gestorben sind... Wenn du die Anzahl der Arme durch zwei teilst, vielleicht bekommst du dann eine grobe Schätzung?</source>
-        <target>Die menschlichen Überreste, die in der Auffahrt liegen gehören den ehemaligen Patienten dieses improvisierten Krankenhauses. Schwer zu sagen, wie viele Menschen hier beim abendlichen Angriff gestorben sind... Wenn du die Anzahl der Arme durch zwei teilst, vielleicht bekommst du dann eine grobe Schätzung?</target>
+        <target>Entre los cuerpos regados en los pasillos de este hospital improvisado se encuentran pacientes, enfermeras y víctimas del ataque... Es difícil saber cuántos hay. ¿Tal vez contando la cantidad de brazos y dividiéndolas entre dos?</target>
       </segment>
     </unit>
     <unit id="Of9gthO">
       <notes>
         <note category="german">Das Einzige, was auf diesem bröckelnden Flugplatz startet oder landet, sind die Fliegen. Vielleicht finden Sie etwas Nützliches, wenn Sie in den Lagerhallen herumstöbern. Zum Beispiel einen A380 in funktionstüchtigem Zustand.</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
         <source>Das Einzige, was auf diesem bröckelnden Flugplatz startet oder landet, sind die Fliegen. Vielleicht finden Sie etwas Nützliches, wenn Sie in den Lagerhallen herumstöbern. Zum Beispiel einen A380 in funktionstüchtigem Zustand.</source>
-        <target>Das Einzige, was auf diesem bröckelnden Flugplatz startet oder landet, sind die Fliegen. Vielleicht finden Sie etwas Nützliches, wenn Sie in den Lagerhallen herumstöbern. Zum Beispiel einen A380 in funktionstüchtigem Zustand.</target>
+        <target>Lo único que vuela en este lugar son las moscas. Tal vez hurgando en el depósito encuentres algo útil. Algo como un Boeing 747 que funcione.</target>
       </segment>
     </unit>
     <unit id="GY66Lzm">
@@ -4226,45 +4219,41 @@
     <unit id="gINGGfh">
       <notes>
         <note category="german">Früher wäre dies sicherlich einer der trendigsten Joints auf der M25 gewesen, mit verwässerten Getränken, dem Aroma von abgestandener Pisse und toten Ratten auf der Bar. Sie müssen seit Jahren der erste Mensch sein, der hier einen Fuß hinein gesetzt hat.</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
         <source>Früher wäre dies sicherlich einer der trendigsten Joints auf der M25 gewesen, mit verwässerten Getränken, dem Aroma von abgestandener Pisse und toten Ratten auf der Bar. Sie müssen seit Jahren der erste Mensch sein, der hier einen Fuß hinein gesetzt hat.</source>
-        <target>Früher wäre dies sicherlich einer der trendigsten Joints auf der M25 gewesen, mit verwässerten Getränken, dem Aroma von abgestandener Pisse und toten Ratten auf der Bar. Sie müssen seit Jahren der erste Mensch sein, der hier einen Fuß hinein gesetzt hat.</target>
+        <target>En una época, fue una parada oblitoria en en la A-667. Apreciado por su variedad de carnes, a pesar de su olor a orina y las ratas muertas en los rincones. Es una pena que ya no haya restaurantes así...</target>
       </segment>
     </unit>
     <unit id="Q4yDNyf">
       <notes>
         <note category="german">Ein Kombi, der sich in einen Kleintransporter verkeilt hat. Der großen Anzahl an verkohlten Leichen nach zu urteilen, hat hier ein Unfall eine richtig große Karambolage verursacht.</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
         <source>Ein Kombi, der sich in einen Kleintransporter verkeilt hat. Der großen Anzahl an verkohlten Leichen nach zu urteilen, hat hier ein Unfall eine richtig große Karambolage verursacht.</source>
-        <target>Ein Kombi, der sich in einen Kleintransporter verkeilt hat. Der großen Anzahl an verkohlten Leichen nach zu urteilen, hat hier ein Unfall eine richtig große Karambolage verursacht.</target>
+        <target><![CDATA[Un modelo común de <strong>automóvil familiar</strong> empotrado en otro modelo común de <strong>furgoneta</strong>... Este choque debió provocar un <strong>accidente</strong> de gran envergadura a juzgar por la cadena de coches semi-destruidos que se encuentran alrededor.]]></target>
       </segment>
     </unit>
     <unit id="6pUg5Hf">
       <notes>
         <note category="german">Diese Bar ist hinter einem kleinen Hügel an einer solchen Stelle versteckt, dass man leicht direkt daran vorbeigehen könnte, ohne es zu merken. Der Innenraum ist mit unzähligen Schwarzweiß-Portraits und Fotos geschmückt. Auf den Bildern ist oft ein Typ in gestreifter Pyjama-Kleidung zu sehen, der neben verschiedenen anderen Personen steht.</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
         <source>Diese Bar ist hinter einem kleinen Hügel an einer solchen Stelle versteckt, dass man leicht direkt daran vorbeigehen könnte, ohne es zu merken. Der Innenraum ist mit unzähligen Schwarzweiß-Portraits und Fotos geschmückt. Auf den Bildern ist oft ein Typ in gestreifter Pyjama-Kleidung zu sehen, der neben verschiedenen anderen Personen steht.</source>
-        <target>Diese Bar ist hinter einem kleinen Hügel an einer solchen Stelle versteckt, dass man leicht direkt daran vorbeigehen könnte, ohne es zu merken. Der Innenraum ist mit unzähligen Schwarzweiß-Portraits und Fotos geschmückt. Auf den Bildern ist oft ein Typ in gestreifter Pyjama-Kleidung zu sehen, der neben verschiedenen anderen Personen steht.</target>
+        <target>Este extraño bar se encuentra detrás de una colina y nadie se había dado cuenta de su existencia. El interior está decorado con muchísimas fotos en blanco y negro, en todas ellas hay un hombre vestido con un traje a rayas junto a diversas personas.</target>
       </segment>
     </unit>
     <unit id="YM4htdV">
       <notes>
         <note category="german">Der Baumarkt ist das zweite Zuhause eines jeden Handwerkers. In dieser Welt avanciert er jedoch zu einem wahren Paradies! Gegenstände von unschätzbarem Wert warten nur darauf von dir entdeckt zu werden... Der Werbespruch auf dem Dach hat zudem nichts von seiner Aktualität eingebüßt: 'Plündern Sie uns bevor es andere tun!'</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
         <source>Der Baumarkt ist das zweite Zuhause eines jeden Handwerkers. In dieser Welt avanciert er jedoch zu einem wahren Paradies! Gegenstände von unschätzbarem Wert warten nur darauf von dir entdeckt zu werden... Der Werbespruch auf dem Dach hat zudem nichts von seiner Aktualität eingebüßt: 'Plündern Sie uns bevor es andere tun!'</source>
-        <target>Der Baumarkt ist das zweite Zuhause eines jeden Handwerkers. In dieser Welt avanciert er jedoch zu einem wahren Paradies! Gegenstände von unschätzbarem Wert warten nur darauf von dir entdeckt zu werden... Der Werbespruch auf dem Dach hat zudem nichts von seiner Aktualität eingebüßt: 'Plündern Sie uns bevor es andere tun!'</target>
+        <target>Un paraíso para los amantes de las tuercas y destornilladores... Su eslogan sigue siendo vigente: « Más barato, imposible »</target>
       </segment>
     </unit>
     <unit id="k6GmYdG">
@@ -4274,18 +4263,17 @@
       </notes>
       <segment>
         <source>Dieser riesige gelbe Metallcontainer macht einen verlorenen Eindruck. Weit und breit keine Baustelle. Der Gemeinschaftsraum im Inneren ist mit leeren Bierflaschen übersät</source>
-        <target>Un gran container de metal en medio del desierto. Aquí debió haber hombres tabajando, pero hoy no queda nada más que esta "cabaña".</target>
+        <target>Un gran container de metal en medio del desierto. Aquí debió haber gente tabajando, pero hoy no queda nada más que esta "cabaña".</target>
       </segment>
     </unit>
     <unit id="8C9iaLK">
       <notes>
         <note category="german">Von wegen Döner macht schöner. Scheint so als hätte der Besitzer dieser Bude das mit den Dönern und den Spießen missverstanden. Wer hier reingeht kommt garantiert nicht mehr raus.</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
         <source>Von wegen Döner macht schöner. Scheint so als hätte der Besitzer dieser Bude das mit den Dönern und den Spießen missverstanden. Wer hier reingeht kommt garantiert nicht mehr raus.</source>
-        <target>Von wegen Döner macht schöner. Scheint so als hätte der Besitzer dieser Bude das mit den Dönern und den Spießen missverstanden. Wer hier reingeht kommt garantiert nicht mehr raus.</target>
+        <target>¿Tienes ganas de comer algo rico? ¡Ni se te ocurra venir aquí! o será el propio cocinero quien saldrá a devorarte!</target>
       </segment>
     </unit>
     <unit id="Y107l78">
@@ -4295,7 +4283,7 @@
       </notes>
       <segment>
         <source>Das Heim eines gewissen Duke R. Cooke, und wenn man der Gedenktafel an der Tür glauben darf... ein Heim für Helden... dieser Ort ist viel größer als eine Villa, es ist eine voll ausgestattete Festung !</source>
-        <target>El hogar de un tal Duke R. Cooke, y si puedes creer la placa en la puerta... un hogar para héroes... ¡Este lugar es mucho más grande que una mansión, es una fortaleza completamente equipada!</target>
+        <target>El hogar de un tal Duke R. Cooke, y si puedes creer en la placa en la puerta... un hogar para héroes... ¡Este lugar es mucho más grande que una mansión, es una fortaleza completamente equipada!</target>
       </segment>
     </unit>
     <unit id="q5V8SgZ">
@@ -4321,23 +4309,21 @@
     <unit id="aR2iiDZ">
       <notes>
         <note category="german">Diese Mineralienabbauzone trägt alle Merkmale eines schrecklichen Unglücks : der Hang scheint auf die Arbeiter, Maschinen und Gebäude darunter eingestürzt zu sein.</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
         <source>Diese Mineralienabbauzone trägt alle Merkmale eines schrecklichen Unglücks : der Hang scheint auf die Arbeiter, Maschinen und Gebäude darunter eingestürzt zu sein.</source>
-        <target>Diese Mineralienabbauzone trägt alle Merkmale eines schrecklichen Unglücks : der Hang scheint auf die Arbeiter, Maschinen und Gebäude darunter eingestürzt zu sein.</target>
+        <target><![CDATA[Una <strong>zona de extracción de minerales</strong> que lleva las marcas de un <strong>terrible accidente</strong>: toda una ladera se <strong>derrumbó</strong> sobre la gente, las máquinas y los edificios.]]></target>
       </segment>
     </unit>
     <unit id=".cft5Zt">
       <notes>
         <note category="german">Das Ganze sieht wie eine komische runde Metallscheibe aus, die mal zu einen Flugzeugcockpit gehörte. Aber du bist dir nicht ganz sicher, denn es könnte sich auch um ein Mähdrescherteil handeln...</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
         <source>Das Ganze sieht wie eine komische runde Metallscheibe aus, die mal zu einen Flugzeugcockpit gehörte. Aber du bist dir nicht ganz sicher, denn es könnte sich auch um ein Mähdrescherteil handeln...</source>
-        <target>Das Ganze sieht wie eine komische runde Metallscheibe aus, die mal zu einen Flugzeugcockpit gehörte. Aber du bist dir nicht ganz sicher, denn es könnte sich auch um ein Mähdrescherteil handeln...</target>
+        <target>Parece un enorme disco metálico de lo que pudo haber sido una trilladora acgrícola...</target>
       </segment>
     </unit>
     <unit id="7alcjvi">
@@ -4363,23 +4349,21 @@
     <unit id="jfKgTEc">
       <notes>
         <note category="german">Aus diesem Gebäude strömt ein entsetzlicher Gestank von verwesenden Leichen : Die Fleischvorräte haben sich in ekelerregende Hügel aus schimmeligem, weißem Fleisch verwandelt, aus denen eine dicke, scharfe Flüssigkeit austritt, die nun den Boden bedeckt und sogar begonnen hat, aus der Tür zu laufen...</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
         <source>Aus diesem Gebäude strömt ein entsetzlicher Gestank von verwesenden Leichen : Die Fleischvorräte haben sich in ekelerregende Hügel aus schimmeligem, weißem Fleisch verwandelt, aus denen eine dicke, scharfe Flüssigkeit austritt, die nun den Boden bedeckt und sogar begonnen hat, aus der Tür zu laufen...</source>
-        <target>Aus diesem Gebäude strömt ein entsetzlicher Gestank von verwesenden Leichen : Die Fleischvorräte haben sich in ekelerregende Hügel aus schimmeligem, weißem Fleisch verwandelt, aus denen eine dicke, scharfe Flüssigkeit austritt, die nun den Boden bedeckt und sogar begonnen hat, aus der Tür zu laufen...</target>
+        <target><![CDATA[Un olor atroz a cadáver sale de este edificio. La carne guardada se ha transformado en <strong>montículos de podredumbre blanca</strong> que comenzó a gelatinizarse... ]]></target>
       </segment>
     </unit>
     <unit id="TkIE5Fb">
       <notes>
         <note category="german">Dieser Langstreckenflieger ist mitten im nirgendwo abgestürzt... Da der Wüstensand das Wrack fast vollkommen eingegraben hat und sich der Zahn der Zeit in das Material gefressen hat, lässt sich nicht mehr sagen, was das Flugzeug transportierte. Du lässt deinen Blick schweifen, es sind jedoch weit und breit keine Leichen erkennbar...</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
         <source>Dieser Langstreckenflieger ist mitten im nirgendwo abgestürzt... Da der Wüstensand das Wrack fast vollkommen eingegraben hat und sich der Zahn der Zeit in das Material gefressen hat, lässt sich nicht mehr sagen, was das Flugzeug transportierte. Du lässt deinen Blick schweifen, es sind jedoch weit und breit keine Leichen erkennbar...</source>
-        <target>Dieser Langstreckenflieger ist mitten im nirgendwo abgestürzt... Da der Wüstensand das Wrack fast vollkommen eingegraben hat und sich der Zahn der Zeit in das Material gefressen hat, lässt sich nicht mehr sagen, was das Flugzeug transportierte. Du lässt deinen Blick schweifen, es sind jedoch weit und breit keine Leichen erkennbar...</target>
+        <target>Este avión comercial se estrelló en medio del desierto... Es difícil saber lo que transportaba, la arena ha cubierto casi todo. La presencia de asientos hace pensar que habían pasajeros, pero no hay rastro de cuerpos...</target>
       </segment>
     </unit>
     <unit id="DOlr_bI">
@@ -4405,34 +4389,31 @@
     <unit id="VsNvfPD">
       <notes>
         <note category="german">Eine Art Steinhöhle, die früher als Grabstätte oder Unterschlupf gedient haben muss... Schauen Sie sich das an. Im Inneren ist es absolut stockfinster, die Luft ist eisig und es riecht stark nach verfaulendem Fleisch...</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
         <source>Eine Art Steinhöhle, die früher als Grabstätte oder Unterschlupf gedient haben muss... Schauen Sie sich das an. Im Inneren ist es absolut stockfinster, die Luft ist eisig und es riecht stark nach verfaulendem Fleisch...</source>
-        <target>Eine Art Steinhöhle, die früher als Grabstätte oder Unterschlupf gedient haben muss... Schauen Sie sich das an. Im Inneren ist es absolut stockfinster, die Luft ist eisig und es riecht stark nach verfaulendem Fleisch...</target>
+        <target><![CDATA[Una especie de <strong>gruta</strong> que debió servir como sepulcro o refugio... Su interior presenta una <strong>oscuridad total</strong>, el aire es <strong>glacial</strong> y huele a <strong>carroña</strong>.]]></target>
       </segment>
     </unit>
     <unit id="igWQAKU">
       <notes>
         <note category="german">Ein altes indianisches Gräberfeld, das fast vollständig mit Sand und verrottender Vegetation bedeckt ist. Im Vergleich zum Rest der Welt fühlt man sich hier seltsam wohl...</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
         <source>Ein altes indianisches Gräberfeld, das fast vollständig mit Sand und verrottender Vegetation bedeckt ist. Im Vergleich zum Rest der Welt fühlt man sich hier seltsam wohl...</source>
-        <target>Ein altes indianisches Gräberfeld, das fast vollständig mit Sand und verrottender Vegetation bedeckt ist. Im Vergleich zum Rest der Welt fühlt man sich hier seltsam wohl...</target>
+        <target>Un antiguo cementerio cubierto de arena y mala hierba. Es un lugar reconfortante, comparándolo con el pueblo...</target>
       </segment>
     </unit>
     <unit id="K.rB207">
       <notes>
         <note category="german">Orte wie dieser sind heutzutage ein Geschenk des Himmels... Hier gibt es garantiert alles an Plastikspielzeug, was man sich wünschen kann... und vielleicht noch ein paar andere nützliche Gadgets.</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
         <source>Orte wie dieser sind heutzutage ein Geschenk des Himmels... Hier gibt es garantiert alles an Plastikspielzeug, was man sich wünschen kann... und vielleicht noch ein paar andere nützliche Gadgets.</source>
-        <target>Orte wie dieser sind heutzutage ein Geschenk des Himmels... Hier gibt es garantiert alles an Plastikspielzeug, was man sich wünschen kann... und vielleicht noch ein paar andere nützliche Gadgets.</target>
+        <target>Este lugar es una bendición... Aquí podrás encontrar lo necesario para equiparte con juguetes de plástico y otras cosas indispensables.</target>
       </segment>
     </unit>
     <unit id="Y0GOqx4">
@@ -4448,243 +4429,221 @@
     <unit id="jCOLohr">
       <notes>
         <note category="german">Das Kraftwerk sammelt das benachbarte Grundwasser in einem Stauraum. Die Energie der Bewegung des fließenden Wassers wird auf eine Turbine übertragen, wodurch dieses in Drehbewegung mit hohem Drehmoment versetzt wird. Das Filtersystem scheint kaputt zu sein, aber das schmutzige Wasser kann trotzdem eingesammelt werden.</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
         <source>Das Kraftwerk sammelt das benachbarte Grundwasser in einem Stauraum. Die Energie der Bewegung des fließenden Wassers wird auf eine Turbine übertragen, wodurch dieses in Drehbewegung mit hohem Drehmoment versetzt wird. Das Filtersystem scheint kaputt zu sein, aber das schmutzige Wasser kann trotzdem eingesammelt werden.</source>
-        <target>Das Kraftwerk sammelt das benachbarte Grundwasser in einem Stauraum. Die Energie der Bewegung des fließenden Wassers wird auf eine Turbine übertragen, wodurch dieses in Drehbewegung mit hohem Drehmoment versetzt wird. Das Filtersystem scheint kaputt zu sein, aber das schmutzige Wasser kann trotzdem eingesammelt werden.</target>
+        <target><![CDATA[Esta central extrae el agua de las capas freáticas y la deposita en un reservorio de concreto. El <strong>sistema de filtrado parece no funcionar</strong>, pero se debe poder recuperar el agua contaminada que se encuentra almacenada aquí.]]></target>
       </segment>
     </unit>
     <unit id="I8_.QXa">
       <notes>
         <note category="german">Dieses bedrückende Gebäude diente einst als Einrichtung für Tierversuche (Kaninchen in Zwischenprüfungen etc...). Es riecht nach Kampfer, Äther und verrottenden Kadavern. Und Sie sind noch nicht einmal hineingegangen...</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
         <source>Dieses bedrückende Gebäude diente einst als Einrichtung für Tierversuche (Kaninchen in Zwischenprüfungen etc...). Es riecht nach Kampfer, Äther und verrottenden Kadavern. Und Sie sind noch nicht einmal hineingegangen...</source>
-        <target>Dieses bedrückende Gebäude diente einst als Einrichtung für Tierversuche (Kaninchen in Zwischenprüfungen etc...). Es riecht nach Kampfer, Äther und verrottenden Kadavern. Und Sie sind noch nicht einmal hineingegangen...</target>
+        <target>Este frío edificio sirvió alguna vez para elaborar cosméticos y probarlos en animales. Los cadáveres de las ratas tienen la piel llena de brotes asquerosos. Esperas no haber usado nunca una de esas cremas...</target>
       </segment>
     </unit>
     <unit id="O2YPsmI">
       <notes>
         <note category="german">Dieser Krankenwagen ist mitten auf der Straße stehen geblieben. Er hat keine Reifen mehr und auch der Motor fehlt... Außerdem finden sich keinerlei Anzeichen für einen Kampf oder Unfall... Höchst seltsam...</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
         <source>Dieser Krankenwagen ist mitten auf der Straße stehen geblieben. Er hat keine Reifen mehr und auch der Motor fehlt... Außerdem finden sich keinerlei Anzeichen für einen Kampf oder Unfall... Höchst seltsam...</source>
-        <target>Dieser Krankenwagen ist mitten auf der Straße stehen geblieben. Er hat keine Reifen mehr und auch der Motor fehlt... Außerdem finden sich keinerlei Anzeichen für einen Kampf oder Unfall... Höchst seltsam...</target>
+        <target>Una ambulancia detenida en medio de la pista. Ya no tiene ruedas ni motor... No hay huellas de pelea, ni de accidente. Tampoco encuentras cuerpos...</target>
       </segment>
     </unit>
     <unit id="zMoz8Nc">
       <notes>
         <note category="german">Die letzte Inventur hat hier schon vor einiger Zeit stattgefunden... Die 30 Leichen, die in Halle 2 hängen, lassen darauf vermuten, dass mit den Bilanzen etwas nicht stimmte. Dem Umfang ihrer Bäuche nach zu urteilen, handelt es sich wahrscheinlich um den Verwaltungsrat. War es ein kollektiver Selbstmord? Ihr gefesselten Hände sprechen nicht dafür.</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
         <source>Die letzte Inventur hat hier schon vor einiger Zeit stattgefunden... Die 30 Leichen, die in Halle 2 hängen, lassen darauf vermuten, dass mit den Bilanzen etwas nicht stimmte. Dem Umfang ihrer Bäuche nach zu urteilen, handelt es sich wahrscheinlich um den Verwaltungsrat. War es ein kollektiver Selbstmord? Ihr gefesselten Hände sprechen nicht dafür.</source>
-        <target>Die letzte Inventur hat hier schon vor einiger Zeit stattgefunden... Die 30 Leichen, die in Halle 2 hängen, lassen darauf vermuten, dass mit den Bilanzen etwas nicht stimmte. Dem Umfang ihrer Bäuche nach zu urteilen, handelt es sich wahrscheinlich um den Verwaltungsrat. War es ein kollektiver Selbstmord? Ihr gefesselten Hände sprechen nicht dafür.</target>
+        <target>El depósito de una gran tienda que quebró hace mucho tiempo. Es lo que hace pensar la cantidad de cuerpos colgados en el hangar número 2. Supones que fue un suicidio colectivo de los miembros del consejo de dirección, pero el hecho de que tengan las manos atadas te deja perplejo.</target>
       </segment>
     </unit>
     <unit id="8nwRIpb">
       <notes>
         <note category="german">Ein unterirdisches Parkhaus, das fast vollständig vom Sand begraben wurde - der ideale Ort, um alleine zu sterben. Niemand wird dich hören...</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
         <source>Ein unterirdisches Parkhaus, das fast vollständig vom Sand begraben wurde - der ideale Ort, um alleine zu sterben. Niemand wird dich hören...</source>
-        <target>Ein unterirdisches Parkhaus, das fast vollständig vom Sand begraben wurde - der ideale Ort, um alleine zu sterben. Niemand wird dich hören...</target>
+        <target><![CDATA[Un estacionamiento subterráneo cubierto de arena. Ideal para <strong>morir en la oscuridad</strong>, sin que nadie te escuche...]]></target>
       </segment>
     </unit>
     <unit id="x6pd97C">
       <notes>
         <note category="german">Dieses militärische Vehikel ist wie die metaphorische Konservendose. Der Soldat ist drinnen und spielt die Rolle einer Sardine, und hundert Zombies draußen spielen den hungrigen Bürger. Der Bürger gewinnt...</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
         <source>Dieses militärische Vehikel ist wie die metaphorische Konservendose. Der Soldat ist drinnen und spielt die Rolle einer Sardine, und hundert Zombies draußen spielen den hungrigen Bürger. Der Bürger gewinnt...</source>
-        <target>Dieses militärische Vehikel ist wie die metaphorische Konservendose. Der Soldat ist drinnen und spielt die Rolle einer Sardine, und hundert Zombies draußen spielen den hungrigen Bürger. Der Bürger gewinnt...</target>
+        <target><![CDATA[Metafóricamente sería: <strong>Una lata de sardinas</strong> en manos de una centena de zombies hambrientos. Y de la sardina no quedó nada...]]></target>
       </segment>
     </unit>
     <unit id="42b1Trj">
       <notes>
         <note category="german">Beim Anblick des Gebäudes stellst du dir die Frage, wer in diesem schäbigen Motel früher übernachtet hat. Bilder und Szenen verschiedener Roadmovies schießen dir durch den Kopf: Thelma&amp;Louise, Natural Born Killers... Du denkst dir: 'Vielleicht sollte ich als Erstes Zimmer 215 kontrollieren. Man weiß ja nie...'.</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
         <source>Beim Anblick des Gebäudes stellst du dir die Frage, wer in diesem schäbigen Motel früher übernachtet hat. Bilder und Szenen verschiedener Roadmovies schießen dir durch den Kopf: Thelma&amp;Louise, Natural Born Killers... Du denkst dir: 'Vielleicht sollte ich als Erstes Zimmer 215 kontrollieren. Man weiß ja nie...'.</source>
-        <target><![CDATA[Beim Anblick des Gebäudes stellst du dir die Frage, wer in diesem schäbigen Motel früher übernachtet hat. Bilder und Szenen verschiedener Roadmovies schießen dir durch den Kopf: Thelma&Louise, Natural Born Killers... Du denkst dir: 'Vielleicht sollte ich als Erstes Zimmer 215 kontrollieren. Man weiß ja nie...'.]]></target>
+        <target>Te preguntas a quién se le podría ocurrir venir a alojarse en un hostal tan lejano y miserable... Mirando el registro de huéspedes, sí hay alguien: Un tal Valedres, en la habitación 215. Tal vez valga la pena explorar...</target>
       </segment>
     </unit>
     <unit id="sYaNvt8">
       <notes>
         <note category="german">Die hier stationierten Soldaten waren auf alles vorbereitet: Waffen, Vorräte und eine 150 m lange Sicherheitszone. Auf alles, außer darauf, dass ihr Leutnant sie während der Nacht verspeiste. Spaß beiseite, mit einer soliden Mauer und einer gesunden Diktatur gibt es (unter dem Gesichtspunkt des Überlebens) nichts Vergleichbares !</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
         <source>Die hier stationierten Soldaten waren auf alles vorbereitet: Waffen, Vorräte und eine 150 m lange Sicherheitszone. Auf alles, außer darauf, dass ihr Leutnant sie während der Nacht verspeiste. Spaß beiseite, mit einer soliden Mauer und einer gesunden Diktatur gibt es (unter dem Gesichtspunkt des Überlebens) nichts Vergleichbares !</source>
-        <target>Die hier stationierten Soldaten waren auf alles vorbereitet: Waffen, Vorräte und eine 150 m lange Sicherheitszone. Auf alles, außer darauf, dass ihr Leutnant sie während der Nacht verspeiste. Spaß beiseite, mit einer soliden Mauer und einer gesunden Diktatur gibt es (unter dem Gesichtspunkt des Überlebens) nichts Vergleichbares !</target>
+        <target>Soldados armados hasta los dientes, entrenamientos diarios, provisiones y perímetro de seguridad de 150m. Todo estaba bien preparado, solo que no contaban con que el general los devorase a todos una noche de abril...</target>
       </segment>
     </unit>
     <unit id=".bMEBv6">
       <notes>
         <note category="german">Dieses Gebäude scheint von den turbulenten Ereignissen der Vergangenheit verschont worden zu sein. Es ist noch vollkommen intakt und erinnert an ein klassisches Postbüro mit doppelten Schalterfenstern und durchsiebtem Sprechfenster. Hier wirst du kaum etwas Nützliches finden außer etwas zum Lesen...</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
         <source>Dieses Gebäude scheint von den turbulenten Ereignissen der Vergangenheit verschont worden zu sein. Es ist noch vollkommen intakt und erinnert an ein klassisches Postbüro mit doppelten Schalterfenstern und durchsiebtem Sprechfenster. Hier wirst du kaum etwas Nützliches finden außer etwas zum Lesen...</source>
-        <target>Dieses Gebäude scheint von den turbulenten Ereignissen der Vergangenheit verschont worden zu sein. Es ist noch vollkommen intakt und erinnert an ein klassisches Postbüro mit doppelten Schalterfenstern und durchsiebtem Sprechfenster. Hier wirst du kaum etwas Nützliches finden außer etwas zum Lesen...</target>
+        <target>El edificio resistió bien el paso del tiempo. Además de reliquias del servicio postal, no crees encontrar nada interesante, a menos que te guste leer...</target>
       </segment>
     </unit>
     <unit id="91Rj1wr">
       <notes>
         <note category="german">Der Zugang zu dieser Höhle ist ein notdürftig abgedecktes Loch in der Erde. Er führt in eine übergroße feuchte Grotte, die mit allerlei Trümmern und Gerümpel gefüllt ist. Höchstwahrscheinlich handelt es sich um Beutegut, das bei der Plünderung einer benachbarten Stadt eingesackt wurde. Vielleicht wurde deine Stadt mit diesem Raubgut errichtet? Und wer weiß: Womöglich haben die ersten Einwohner deiner Stadt an diesen Raubzügen teilgenommen...</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
         <source>Der Zugang zu dieser Höhle ist ein notdürftig abgedecktes Loch in der Erde. Er führt in eine übergroße feuchte Grotte, die mit allerlei Trümmern und Gerümpel gefüllt ist. Höchstwahrscheinlich handelt es sich um Beutegut, das bei der Plünderung einer benachbarten Stadt eingesackt wurde. Vielleicht wurde deine Stadt mit diesem Raubgut errichtet? Und wer weiß: Womöglich haben die ersten Einwohner deiner Stadt an diesen Raubzügen teilgenommen...</source>
-        <target>Der Zugang zu dieser Höhle ist ein notdürftig abgedecktes Loch in der Erde. Er führt in eine übergroße feuchte Grotte, die mit allerlei Trümmern und Gerümpel gefüllt ist. Höchstwahrscheinlich handelt es sich um Beutegut, das bei der Plünderung einer benachbarten Stadt eingesackt wurde. Vielleicht wurde deine Stadt mit diesem Raubgut errichtet? Und wer weiß: Womöglich haben die ersten Einwohner deiner Stadt an diesen Raubzügen teilgenommen...</target>
+        <target><![CDATA[Un hoyo <strong>se esconde</strong> en el suelo detrás de tablas y arena. Lleva a una caverna húmeda llena de <strong>cachivaches</strong> acumulados probablemente con los <strong>robos a un pueblo vecino</strong>. Quién sabe si <strong>tu pueblo</strong> se construyó con base en objetos robados. Puede ser que los <strong>primeros habitantes</strong> hayan sido los autores de todo esto...]]></target>
       </segment>
     </unit>
     <unit id="alVUMDw">
       <notes>
         <note category="german">Dieser von Einschusskratern und schwarzen getrockneten Blutlachen übersäte Schützengraben lässt erahnen, was sich hier abgespielt hat. Der größte Teil des Grabens ist in sich zusammengestürzt, doch hier und dort erblickst du noch ein paar begehbare Stellen, die sich nach nutzbaren Gegenständen absuchen lassen.</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
         <source>Dieser von Einschusskratern und schwarzen getrockneten Blutlachen übersäte Schützengraben lässt erahnen, was sich hier abgespielt hat. Der größte Teil des Grabens ist in sich zusammengestürzt, doch hier und dort erblickst du noch ein paar begehbare Stellen, die sich nach nutzbaren Gegenständen absuchen lassen.</source>
-        <target>Dieser von Einschusskratern und schwarzen getrockneten Blutlachen übersäte Schützengraben lässt erahnen, was sich hier abgespielt hat. Der größte Teil des Grabens ist in sich zusammengestürzt, doch hier und dort erblickst du noch ein paar begehbare Stellen, die sich nach nutzbaren Gegenständen absuchen lassen.</target>
+        <target><![CDATA[Los numerosos <strong>cráteres</strong> y <strong>manchas de sangre seca</strong> hacen pensar que una <strong>gran batalla</strong> tuvo lugar aquí. La mayoría de las trincheras fueron saqueadas, pero quedan aún <strong>algunas que pueden contener algo interesante</strong>.]]></target>
       </segment>
     </unit>
     <unit id="odvB3Fd">
       <notes>
         <note category="german">What was once the local library is now a collection of several small houses. Today, the books are mostly torn or burnt, the ground is littered with torn pages and the shelves have been knocked over.</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
         <source>What was once the local library is now a collection of several small houses. Today, the books are mostly torn or burnt, the ground is littered with torn pages and the shelves have been knocked over.</source>
-        <target>What was once the local library is now a collection of several small houses. Today, the books are mostly torn or burnt, the ground is littered with torn pages and the shelves have been knocked over.</target>
+        <target>Un pequeño edificio que servía de biblioteca para los vecinos. Hoy la mayoría de libros están quemados o rotos, el piso está lleno de hojas arrancadas y estanterías caídas.</target>
       </segment>
     </unit>
     <unit id="Uin8bw9">
       <notes>
         <note category="german">In diesem Geschäft konnte man früher allerlei Produkte des täglichen Bedarfs kaufen: Lebensmittel, Getränke, Reinigungsmittel... An der Tür steht: Rund um die Uhr geöffnet (auch am Wochenende). In der Tat, das klaffenden Loch in der Mauer bestätigt dies.</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
         <source>In diesem Geschäft konnte man früher allerlei Produkte des täglichen Bedarfs kaufen: Lebensmittel, Getränke, Reinigungsmittel... An der Tür steht: Rund um die Uhr geöffnet (auch am Wochenende). In der Tat, das klaffenden Loch in der Mauer bestätigt dies.</source>
-        <target>In diesem Geschäft konnte man früher allerlei Produkte des täglichen Bedarfs kaufen: Lebensmittel, Getränke, Reinigungsmittel... An der Tür steht: Rund um die Uhr geöffnet (auch am Wochenende). In der Tat, das klaffenden Loch in der Mauer bestätigt dies.</target>
+        <target>Esta tienda vendía todo tipo de productos de consumo diario: comida, bebidas, productos de limpieza... Abierto las 24 horas, los 7 días de la semana, según lo que dice en la entrada. La puerta destrozada le da la razón.</target>
       </segment>
     </unit>
     <unit id="ViudDKu">
       <notes>
         <note category="german">Ihr Vertreter vor Ihrer Haustür. Die Zombies stimmten diesem Konzept voll und ganz zu, wenn man die Krallenspuren auf den Polstern der Kabine und die überall versprühten menschlichen Überreste bemerkt.</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
         <source>Ihr Vertreter vor Ihrer Haustür. Die Zombies stimmten diesem Konzept voll und ganz zu, wenn man die Krallenspuren auf den Polstern der Kabine und die überall versprühten menschlichen Überreste bemerkt.</source>
-        <target>Ihr Vertreter vor Ihrer Haustür. Die Zombies stimmten diesem Konzept voll und ganz zu, wenn man die Krallenspuren auf den Polstern der Kabine und die überall versprühten menschlichen Überreste bemerkt.</target>
+        <target>Un buen día los pobladores salieron a hacer una excursión por el desierto en este bus cantando alegremente: «Vamo' pa' la playa, pa' curarte el alma», pero cuando cantaron la famosa canción de The Cranberries: «...in your head...zombie, zombie... » Una turba de muertos vivientes se unió al coro... dejando 40 muertos.</target>
       </segment>
     </unit>
     <unit id="9TPFQ6o">
       <notes>
         <note category="german">Es handelt sich um einen Transportlaster der sowjetischen Firma Transtwinï. Die Fahrerkabine hat sich komplett in einem Baum verkeilt. Der aufgeschlitzte Fahrersitz, sowie die großflächigen Blutspuren an den Wänden, lassen darauf schließen, dass der Unfall nicht die Todesursache war...</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
         <source>Es handelt sich um einen Transportlaster der sowjetischen Firma Transtwinï. Die Fahrerkabine hat sich komplett in einem Baum verkeilt. Der aufgeschlitzte Fahrersitz, sowie die großflächigen Blutspuren an den Wänden, lassen darauf schließen, dass der Unfall nicht die Todesursache war...</source>
-        <target>Es handelt sich um einen Transportlaster der sowjetischen Firma Transtwinï. Die Fahrerkabine hat sich komplett in einem Baum verkeilt. Der aufgeschlitzte Fahrersitz, sowie die großflächigen Blutspuren an den Wänden, lassen darauf schließen, dass der Unfall nicht die Todesursache war...</target>
+        <target><![CDATA[Un camión de la empresa rusa <strong>Transtwina</strong>. La cabina del conductor está totalmente <strong>encastrada en un árbol</strong>, pero los <strong>arañazos</strong> profundos en el asiento y la <strong>sangre</strong> en las paredes hacen pensar que no fue un accidente...]]></target>
       </segment>
     </unit>
     <unit id="k6o0Mpp">
       <notes>
         <note category="german">Die fröhlichen Kinderzeichnungen an den Wänden stehen im starken Kontrast zu den nicht identifizierbaren menschlichen Überresten am Boden. Du hast das Gefühl, ein dunkles Kichern aus dem Bauschutt zu hören.</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
         <source>Die fröhlichen Kinderzeichnungen an den Wänden stehen im starken Kontrast zu den nicht identifizierbaren menschlichen Überresten am Boden. Du hast das Gefühl, ein dunkles Kichern aus dem Bauschutt zu hören.</source>
-        <target>Die fröhlichen Kinderzeichnungen an den Wänden stehen im starken Kontrast zu den nicht identifizierbaren menschlichen Überresten am Boden. Du hast das Gefühl, ein dunkles Kichern aus dem Bauschutt zu hören.</target>
+        <target><![CDATA[Era una escuela de niños muy pequeños, los dibujos en las paredes lo indican. El contraste con los restos de cuerpos humanos en el suelo es desolador. Por momentos te parece oir <strong>ecos de risas</strong> entre los escombros.]]></target>
       </segment>
     </unit>
     <unit id="Ct60IzG">
       <notes>
         <note category="german">In dieses schöne Gebäude gingen die Menschen früher zur Arbeit. Pünktlichkeit und Dresscode waren Pflicht. Die tägliche Routine bestand darin, mit einer Gruppe unbekannter Kollegen Zielvorgaben zu erreichen und um sein eigenes Überleben zu kämpfen... Hhmmm, wenn du so drüber nachdenkst: So viel hat sich gar nicht geändert - bis auf den Dresscode vielleicht.</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
         <source>In dieses schöne Gebäude gingen die Menschen früher zur Arbeit. Pünktlichkeit und Dresscode waren Pflicht. Die tägliche Routine bestand darin, mit einer Gruppe unbekannter Kollegen Zielvorgaben zu erreichen und um sein eigenes Überleben zu kämpfen... Hhmmm, wenn du so drüber nachdenkst: So viel hat sich gar nicht geändert - bis auf den Dresscode vielleicht.</source>
-        <target>In dieses schöne Gebäude gingen die Menschen früher zur Arbeit. Pünktlichkeit und Dresscode waren Pflicht. Die tägliche Routine bestand darin, mit einer Gruppe unbekannter Kollegen Zielvorgaben zu erreichen und um sein eigenes Überleben zu kämpfen... Hhmmm, wenn du so drüber nachdenkst: So viel hat sich gar nicht geändert - bis auf den Dresscode vielleicht.</target>
+        <target>El edificio de una gran empresa donde la gente venía a trabajar, con compañeros anónimos y con un solo objetivo: sobrevivir. Vaya, las cosas no han cambiado mucho...</target>
       </segment>
     </unit>
     <unit id="uy1WNX.">
       <notes>
         <note category="german">Jemand hat hier vor langer Zeit gelebt. Vielleicht jemand, der von einer Familie umgeben war, die ihn liebte und mit der er viele glückliche Stunden zusammen verbrachte ? Heute ist alles, was bleibt, ein wenig Staub und völlige Verwüstung... und gelegentlich eine Leiche, die mit den Zähnen knirschend auf einen zustürmt.</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
         <source>Jemand hat hier vor langer Zeit gelebt. Vielleicht jemand, der von einer Familie umgeben war, die ihn liebte und mit der er viele glückliche Stunden zusammen verbrachte ? Heute ist alles, was bleibt, ein wenig Staub und völlige Verwüstung... und gelegentlich eine Leiche, die mit den Zähnen knirschend auf einen zustürmt.</source>
-        <target>Jemand hat hier vor langer Zeit gelebt. Vielleicht jemand, der von einer Familie umgeben war, die ihn liebte und mit der er viele glückliche Stunden zusammen verbrachte ? Heute ist alles, was bleibt, ein wenig Staub und völlige Verwüstung... und gelegentlich eine Leiche, die mit den Zähnen knirschend auf einen zustürmt.</target>
+        <target>Alguien vivió aquí hace mucho tiempo. ¿Habrá tenido una familia que le amaba y un hogar feliz? Hoy no queda nada, solo polvo y una desolación total. De vez en cuando, un cadáver tiembla rechinando los dientes.</target>
       </segment>
     </unit>
     <unit id="Mk_nOE9">
       <notes>
         <note category="german">Soll das eine Schule, ein Parkhaus oder vielleicht ein Kaufhaus sein? Du kannst es nicht erkennen... Das einzige, was von diesem geheimnisvollen Projekt noch übrig ist, sind ein paar verrostete Metallstrukturen.</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
         <source>Soll das eine Schule, ein Parkhaus oder vielleicht ein Kaufhaus sein? Du kannst es nicht erkennen... Das einzige, was von diesem geheimnisvollen Projekt noch übrig ist, sind ein paar verrostete Metallstrukturen.</source>
-        <target>Soll das eine Schule, ein Parkhaus oder vielleicht ein Kaufhaus sein? Du kannst es nicht erkennen... Das einzige, was von diesem geheimnisvollen Projekt noch übrig ist, sind ein paar verrostete Metallstrukturen.</target>
+        <target><![CDATA[Te cuesta imaginar lo que se quiso construir aquí. ¿Una escuela, una prisión?... Solo las estructuras metálicas fueron testigos de ese <strong>misterioso proyecto</strong>.]]></target>
       </segment>
     </unit>
     <unit id="bVAo.cx">
       <notes>
         <note category="german">Wow - das ist ein verdammtes Geschenk des Himmels! Ein Brunnen, der immer noch funktioniert ! Völlig verloren in der Mitte von Nirgendwo gibt es hier niemanden mit seinem Regelwerk, der Ihnen sagt: 'Tun Sie dies nicht, tun Sie das nicht, nehmen Sie nicht zu viel Wasser, bla bla bla bla...'. Na los, nimm einen Drink, es wird unser kleines Geheimnis sein...</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
         <source>Wow - das ist ein verdammtes Geschenk des Himmels! Ein Brunnen, der immer noch funktioniert ! Völlig verloren in der Mitte von Nirgendwo gibt es hier niemanden mit seinem Regelwerk, der Ihnen sagt: 'Tun Sie dies nicht, tun Sie das nicht, nehmen Sie nicht zu viel Wasser, bla bla bla bla...'. Na los, nimm einen Drink, es wird unser kleines Geheimnis sein...</source>
-        <target>Wow - das ist ein verdammtes Geschenk des Himmels! Ein Brunnen, der immer noch funktioniert ! Völlig verloren in der Mitte von Nirgendwo gibt es hier niemanden mit seinem Regelwerk, der Ihnen sagt: 'Tun Sie dies nicht, tun Sie das nicht, nehmen Sie nicht zu viel Wasser, bla bla bla bla...'. Na los, nimm einen Drink, es wird unser kleines Geheimnis sein...</target>
+        <target><![CDATA[¡Gracias Frocoa! <strong>Un pozo</strong> totalmente perdido en medio del desierto y que además se ve muy bien. Nadie con un Registro en mano que te diga «oye, ¿A dónde vás, qué llevas? no tomes mucha agua...». Pero, shhhh, no se lo digas a nadie.]]></target>
       </segment>
     </unit>
     <unit id="nIZoj0r">
       <notes>
         <note category="german">Ursprünglich zur Lagerung von Getreide konstruiert, aber als die Zeit verging und das Getreide knapp wurde, füllten sich die Tanks mit Regenwasser (und einer toten Ratte). Sie brauchen allerdings den richtigen Bausatz, um sie zu benutzen...</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
         <source>Ursprünglich zur Lagerung von Getreide konstruiert, aber als die Zeit verging und das Getreide knapp wurde, füllten sich die Tanks mit Regenwasser (und einer toten Ratte). Sie brauchen allerdings den richtigen Bausatz, um sie zu benutzen...</source>
-        <target>Ursprünglich zur Lagerung von Getreide konstruiert, aber als die Zeit verging und das Getreide knapp wurde, füllten sich die Tanks mit Regenwasser (und einer toten Ratte). Sie brauchen allerdings den richtigen Bausatz, um sie zu benutzen...</target>
+        <target>Este lugar debió servir para almacenar los granos. Pero con el tiempo, los depósitos se llenaron con agua de lluvia. Aquí podrías abastecerte.</target>
       </segment>
     </unit>
     <unit id="icD0mRG">
       <notes>
         <note category="german">Was hier passiert ist erschließt sich dir nicht so ganz... Ein riesiger Felsen ist mit voller Wucht auf die Straße geschleudert worden - doch woher kam er? Rings um dich ist nichts als Wüste...</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
         <source>Was hier passiert ist erschließt sich dir nicht so ganz... Ein riesiger Felsen ist mit voller Wucht auf die Straße geschleudert worden - doch woher kam er? Rings um dich ist nichts als Wüste...</source>
-        <target>Was hier passiert ist erschließt sich dir nicht so ganz... Ein riesiger Felsen ist mit voller Wucht auf die Straße geschleudert worden - doch woher kam er? Rings um dich ist nichts als Wüste...</target>
+        <target><![CDATA[Lo que sucedió aquí es <strong>incomprensible</strong>: una enorme <strong>roca</strong> cayó en medio de la pista, como <strong>caída del cielo</strong>...]]></target>
       </segment>
     </unit>
     <unit id="yFJW.aK">
@@ -4694,51 +4653,47 @@
       </notes>
       <segment>
         <source>Ein Ort des Friedens und der Gelassenheit... Wenn Sie bewaffnet und bereit sind, um Ihr Leben zu kämpfen. Die umgebende Vegetation ist unheimlich und riecht stark nach Tod, unidentifizierte Kreaturen lauern im Schatten... Sie haben das überwältigende Gefühl, dass eine Kreatur aus einer Hecke ausbrechen und Sie angreifen wird.</source>
-        <target>Un lugar de paz y serenidad... cuando estás armado y listo para luchar por tu vida. La vegetación circundante es espeluznante y huele a carroña, lo cual no te inspira mucha confianza. Tienes el presentimiento de que extrañas criaturas acechan en las sombras, preparadas para salir de entre los arbustos y atacarte en cualquier momento.</target>
+        <target><![CDATA[Un lugar de paz y serenidad... siempre y cuando estés armado para sobrevivir. La vegetación es <strong>siniestra</strong> y <strong>huele a muerte</strong>, <strong>criaturas</strong> indescriptibles se mueven entre las sombras... Sientes constantemente que algo horrible va a <strong>lanzarse sobre ti</strong> desde la maleza.]]></target>
       </segment>
     </unit>
     <unit id="XXTLDoG">
       <notes>
         <note category="german">Wenn Sie drohen, verstümmeln oder morden wollen, haben Sie hier die Hauptader getroffen... Die in den Wänden steckenden Schrapnelle, Einschusslöcher und Trümmer ringsum geben Ihnen eine gute Vorstellung davon, welche Art von 'Ereignissen' sich hier abgespielt haben...</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
         <source>Wenn Sie drohen, verstümmeln oder morden wollen, haben Sie hier die Hauptader getroffen... Die in den Wänden steckenden Schrapnelle, Einschusslöcher und Trümmer ringsum geben Ihnen eine gute Vorstellung davon, welche Art von 'Ereignissen' sich hier abgespielt haben...</source>
-        <target>Wenn Sie drohen, verstümmeln oder morden wollen, haben Sie hier die Hauptader getroffen... Die in den Wänden steckenden Schrapnelle, Einschusslöcher und Trümmer ringsum geben Ihnen eine gute Vorstellung davon, welche Art von 'Ereignissen' sich hier abgespielt haben...</target>
+        <target><![CDATA[Como un niño en una tienda de juguetes. Así se sienten los aficionados a los balazos en este lugar. Los agujeros en las paredes dicen mucho sobre el <strong>ambiente</strong> que se vivía aquí...]]></target>
       </segment>
     </unit>
     <unit id="DYD9pRM">
       <notes>
         <note category="german">Das Schiebetor dieses Supermarktlagers hat allen Plünderungsversuchen erfolgreich getrotzt. Durch einen etwas versteckten Seiteneingang gelangst du ins Innere und machst dich sofort auf die Suche nach Dingen, die du noch gebrauchen kannst...</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
         <source>Das Schiebetor dieses Supermarktlagers hat allen Plünderungsversuchen erfolgreich getrotzt. Durch einen etwas versteckten Seiteneingang gelangst du ins Innere und machst dich sofort auf die Suche nach Dingen, die du noch gebrauchen kannst...</source>
-        <target>Das Schiebetor dieses Supermarktlagers hat allen Plünderungsversuchen erfolgreich getrotzt. Durch einen etwas versteckten Seiteneingang gelangst du ins Innere und machst dich sofort auf die Suche nach Dingen, die du noch gebrauchen kannst...</target>
+        <target><![CDATA[Servía para almacenar los productos de un antiguo supermercado y <strong>su puerta resistió a los saqueos</strong>. Debe contener <strong>algunas cosillas</strong> interesantes...]]></target>
       </segment>
     </unit>
     <unit id="qSSpkKa">
       <notes>
         <note category="german">Dieses Zelt macht einen wirklich soliden Eindruck und war bestimmt mal ein gutes Versteck. Derjenige, der es aufgestellt hat, wusste wie man sich vor Zombies schützt. Das Zelt verfügt über ein farblich abgestimmtes Tarnnetz, mehrere Ein- und Ausgänge, sowie über ein unterirdisches Notversteck für brenzlige Situation. Bei näherem Hinsehen entdeckst du auf der Zeltplane einen eingestickten Namen: 'Shenji'</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
         <source>Dieses Zelt macht einen wirklich soliden Eindruck und war bestimmt mal ein gutes Versteck. Derjenige, der es aufgestellt hat, wusste wie man sich vor Zombies schützt. Das Zelt verfügt über ein farblich abgestimmtes Tarnnetz, mehrere Ein- und Ausgänge, sowie über ein unterirdisches Notversteck für brenzlige Situation. Bei näherem Hinsehen entdeckst du auf der Zeltplane einen eingestickten Namen: 'Shenji'</source>
-        <target>Dieses Zelt macht einen wirklich soliden Eindruck und war bestimmt mal ein gutes Versteck. Derjenige, der es aufgestellt hat, wusste wie man sich vor Zombies schützt. Das Zelt verfügt über ein farblich abgestimmtes Tarnnetz, mehrere Ein- und Ausgänge, sowie über ein unterirdisches Notversteck für brenzlige Situation. Bei näherem Hinsehen entdeckst du auf der Zeltplane einen eingestickten Namen: 'Shenji'</target>
+        <target>Un buen escondite. El tipo que construyó esto sabía esconder muy bien su trasero de los zombies: Camuflaje natural, buena visibilidad de los alrededores desde el interior, varias posibilidades de escape y de esconderse bajo la tierra si fuese necesario. El nombre «Shenji» está bordado en la tela.</target>
       </segment>
     </unit>
     <unit id="SXiUP6e">
       <notes>
         <note category="german">Mitten in der Wüste entdeckst du eine kleine Stadtviertelapotheke – grotesk! Ein unbeschreibbarer Gestank liegt in der Luft und es riecht nach allem möglichen, außer nach Gesundheit.</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
         <source>Mitten in der Wüste entdeckst du eine kleine Stadtviertelapotheke – grotesk! Ein unbeschreibbarer Gestank liegt in der Luft und es riecht nach allem möglichen, außer nach Gesundheit.</source>
-        <target>Mitten in der Wüste entdeckst du eine kleine Stadtviertelapotheke – grotesk! Ein unbeschreibbarer Gestank liegt in der Luft und es riecht nach allem möglichen, außer nach Gesundheit.</target>
+        <target><![CDATA[Una pequeña farmacia de barrio perdida en medio del desierto. Los <strong>olores innombrables</strong> hacen pensar que aquí no solo habían medicamentos.]]></target>
       </segment>
     </unit>
     <unit id="rcbYTzS">
@@ -4748,7 +4703,7 @@
       </notes>
       <segment>
         <source>Es sieht eigentlich nicht mehr wie eine Bar aus, aber das halb im Sand vergrabene Schild und das Vorhandensein einiger zerbrochener Optiken lassen keinen großen Zweifel aufkommen. Die meisten Flaschen sind zerbrochen, aber Sie können hier mit ziemlicher Sicherheit etwas Nützliches finden...</source>
-        <target><![CDATA[Lo único que indica que se trata de un bar es el panel con el logo de una cerveza y gran la cantidad de <strong>botellas rotas</strong>. Algo interesante podrías encontrar aquí...]]></target>
+        <target><![CDATA[Lo único que indica que se trata de un bar es el panel con el logo de una cerveza y la gran cantidad de <strong>botellas rotas</strong>. Algo interesante podrías encontrar aquí...]]></target>
       </segment>
     </unit>
     <unit id="e19N5sC">
@@ -19451,14 +19406,14 @@
         <target>Cuando miras por la ventana, notas que la casa de {citizen} ya no contiene ningún artículo de valor. Es probable que otros habitantes ya se hayan llevado todo lo que no estaba clavado...</target>
       </segment>
     </unit>
-    <unit id="N0yoB1W">
+    <unit id="2skYpuv">
       <notes>
-        <note category="german">&lt;strong&gt;Achtung&lt;/strong&gt;: Befinden sich nicht genügend Rationen Wasser im Brunnen, arbeiten manche Konstruktionen (wie z.B. der Wasserturm) beim Angriff nicht mit voller Stärke!</note>
+        <note category="german">&lt;strong&gt;Achtung:&lt;/strong&gt; Befinden sich nicht genügend Rationen Wasser im Brunnen, arbeiten manche Konstruktionen (wie z.B. der Wasserturm) beim Angriff nicht mit voller Stärke!</note>
         <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
       </notes>
       <segment>
-        <source>&lt;strong&gt;Achtung&lt;/strong&gt;: Befinden sich nicht genügend Rationen Wasser im Brunnen, arbeiten manche Konstruktionen (wie z.B. der Wasserturm) beim Angriff nicht mit voller Stärke!</source>
-        <target><![CDATA[<strong>Atención</strong>: ¡Sin agua, algunas mejoras (como el sistema de riego) no funcionarán durante el ataque!]]></target>
+        <source>&lt;strong&gt;Achtung:&lt;/strong&gt; Befinden sich nicht genügend Rationen Wasser im Brunnen, arbeiten manche Konstruktionen (wie z.B. der Wasserturm) beim Angriff nicht mit voller Stärke!</source>
+        <target><![CDATA[<strong>Atención:</strong> ¡Sin agua, algunas mejoras (como el sistema de riego) no funcionarán durante el ataque!]]></target>
       </segment>
     </unit>
     <unit id="485Czj9" name="Du kannst heute keinen weiteren Gegenstand stehlen.">
@@ -23804,6 +23759,743 @@
       <segment>
         <source>Gebäudeliste einblenden</source>
         <target>Gebäudeliste einblenden</target>
+      </segment>
+    </unit>
+    <unit id="tn37OGR">
+      <notes>
+        <note category="german">&lt;strong&gt;{citizen} scheint von einer plötzlichen, unkontrollierbaren Panik ergriffen zu sein&lt;/strong&gt;! Es ist unmöglich, auch nur einen Schritt weiter zu gehen... seine &lt;strong&gt;Bewegung wurde unterbrochen&lt;/strong&gt;.</note>
+        <note category="from">db://LogEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;{citizen} scheint von einer plötzlichen, unkontrollierbaren Panik ergriffen zu sein&lt;/strong&gt;! Es ist unmöglich, auch nur einen Schritt weiter zu gehen... seine &lt;strong&gt;Bewegung wurde unterbrochen&lt;/strong&gt;.</source>
+        <target><![CDATA[<strong>{citizen} scheint von einer plötzlichen, unkontrollierbaren Panik ergriffen zu sein</strong>! Es ist unmöglich, auch nur einen Schritt weiter zu gehen... seine <strong>Bewegung wurde unterbrochen</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="_yQk_x1">
+      <notes>
+        <note category="german">Als du dich umschaust, &lt;strong&gt;überfällt dich eine plötzliche, unkontrollierbare Panik&lt;/strong&gt;! Es ist unmöglich, auch nur einen Schritt weiterzugehen.&lt;hr/&gt;Deine Bewegung wurde &lt;strong&gt;unterbrochen&lt;/strong&gt; und du hast &lt;strong&gt;1 AP&lt;/strong&gt; verloren.</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Als du dich umschaust, &lt;strong&gt;überfällt dich eine plötzliche, unkontrollierbare Panik&lt;/strong&gt;! Es ist unmöglich, auch nur einen Schritt weiterzugehen.&lt;hr/&gt;Deine Bewegung wurde &lt;strong&gt;unterbrochen&lt;/strong&gt; und du hast &lt;strong&gt;1 AP&lt;/strong&gt; verloren.</source>
+        <target><![CDATA[Als du dich umschaust, <strong>überfällt dich eine plötzliche, unkontrollierbare Panik</strong>! Es ist unmöglich, auch nur einen Schritt weiterzugehen.<hr/>Deine Bewegung wurde <strong>unterbrochen</strong> und du hast <strong>1 AP</strong> verloren.]]></target>
+      </segment>
+    </unit>
+    <unit id="EKiagwt">
+      <notes>
+        <note category="german">Niemandem war es aufgefallen, wie schlecht es &lt;strong&gt;† {cadaver1}&lt;/strong&gt; ging. Von Allen im Stich gelassen, hat er es vorgezogen, &lt;strong&gt;seinem Leben ein Ende zu setzten&lt;/strong&gt;, anstatt weiter mit uns zu leben...</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Niemandem war es aufgefallen, wie schlecht es &lt;strong&gt;† {cadaver1}&lt;/strong&gt; ging. Von Allen im Stich gelassen, hat er es vorgezogen, &lt;strong&gt;seinem Leben ein Ende zu setzten&lt;/strong&gt;, anstatt weiter mit uns zu leben...</source>
+        <target><![CDATA[Niemandem war es aufgefallen, wie schlecht es <strong>† {cadaver1}</strong> ging. Von Allen im Stich gelassen, hat er es vorgezogen, <strong>seinem Leben ein Ende zu setzten</strong>, anstatt weiter mit uns zu leben...]]></target>
+      </segment>
+    </unit>
+    <unit id="We0LIUc">
+      <notes>
+        <note category="german">Gestern ist einigen Bürgern aufgefallen, dass &lt;strong&gt;† {cadaver1}&lt;/strong&gt; verdächtig still war. Anscheinend hat er es inzwischen vorgezogen, &lt;strong&gt;Selbstmord&lt;/strong&gt; zu begehen.</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Gestern ist einigen Bürgern aufgefallen, dass &lt;strong&gt;† {cadaver1}&lt;/strong&gt; verdächtig still war. Anscheinend hat er es inzwischen vorgezogen, &lt;strong&gt;Selbstmord&lt;/strong&gt; zu begehen.</source>
+        <target><![CDATA[Gestern ist einigen Bürgern aufgefallen, dass <strong>† {cadaver1}</strong> verdächtig still war. Anscheinend hat er es inzwischen vorgezogen, <strong>Selbstmord</strong> zu begehen.]]></target>
+      </segment>
+    </unit>
+    <unit id="mftT59R">
+      <notes>
+        <note category="german">Gute Nachrichten! Wir können uns alle von &lt;strong&gt;† {cadaver1}&lt;/strong&gt; verabschieden, der gestern beschlossen hat, sich von seinem Leben zu trennen.</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Gute Nachrichten! Wir können uns alle von &lt;strong&gt;† {cadaver1}&lt;/strong&gt; verabschieden, der gestern beschlossen hat, sich von seinem Leben zu trennen.</source>
+        <target><![CDATA[Gute Nachrichten! Wir können uns alle von <strong>† {cadaver1}</strong> verabschieden, der gestern beschlossen hat, sich von seinem Leben zu trennen.]]></target>
+      </segment>
+    </unit>
+    <unit id="1catDqP">
+      <notes>
+        <note category="german">&lt;strong&gt;{citizen1}&lt;/strong&gt; soll heute Morgen die Leiche von &lt;strong&gt;† {cadaver1}&lt;/strong&gt; inmitten einer Baustelle gefunden haben. Laut diesem Bürger handelte es sich um einen Selbstmord.... Nur konnte &lt;strong&gt;{citizen1}&lt;/strong&gt; uns das Messer, das im Rücken der Leiche steckte, nicht erklären...</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;{citizen1}&lt;/strong&gt; soll heute Morgen die Leiche von &lt;strong&gt;† {cadaver1}&lt;/strong&gt; inmitten einer Baustelle gefunden haben. Laut diesem Bürger handelte es sich um einen Selbstmord.... Nur konnte &lt;strong&gt;{citizen1}&lt;/strong&gt; uns das Messer, das im Rücken der Leiche steckte, nicht erklären...</source>
+        <target><![CDATA[<strong>{citizen1}</strong> soll heute Morgen die Leiche von <strong>† {cadaver1}</strong> inmitten einer Baustelle gefunden haben. Laut diesem Bürger handelte es sich um einen Selbstmord.... Nur konnte <strong>{citizen1}</strong> uns das Messer, das im Rücken der Leiche steckte, nicht erklären...]]></target>
+      </segment>
+    </unit>
+    <unit id="D7.ISce">
+      <notes>
+        <note category="german">&lt;strong&gt;† {cadaver1}&lt;/strong&gt; hat gestern endlich mal eine gute Entscheidung getroffen: Selbstmord zu begehen. "Besser spät als nie", kommentierte &lt;strong&gt;{citizen1}&lt;/strong&gt;...</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;† {cadaver1}&lt;/strong&gt; hat gestern endlich mal eine gute Entscheidung getroffen: Selbstmord zu begehen. "Besser spät als nie", kommentierte &lt;strong&gt;{citizen1}&lt;/strong&gt;...</source>
+        <target><![CDATA[<strong>† {cadaver1}</strong> hat gestern endlich mal eine gute Entscheidung getroffen: Selbstmord zu begehen. "Besser spät als nie", kommentierte <strong>{citizen1}</strong>...]]></target>
+      </segment>
+    </unit>
+    <unit id="f4Be_QH">
+      <notes>
+        <note category="german">Gestern hat &lt;strong&gt;† {cadaver1}&lt;/strong&gt; zum ersten Mal etwas richtig gemacht - allerdings auch zum letzten mal... Er beendete sein Leben auf eine... ziemlich gewaltsame Weise.</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Gestern hat &lt;strong&gt;† {cadaver1}&lt;/strong&gt; zum ersten Mal etwas richtig gemacht - allerdings auch zum letzten mal... Er beendete sein Leben auf eine... ziemlich gewaltsame Weise.</source>
+        <target><![CDATA[Gestern hat <strong>† {cadaver1}</strong> zum ersten Mal etwas richtig gemacht - allerdings auch zum letzten mal... Er beendete sein Leben auf eine... ziemlich gewaltsame Weise.]]></target>
+      </segment>
+    </unit>
+    <unit id="mqGx_o0">
+      <notes>
+        <note category="german">In der Stadt herrscht große Niedergeschlagenheit. Nicht weniger als &lt;strong&gt;{cadavers} Menschen&lt;/strong&gt; haben sich entschlossen, &lt;strong&gt;ihrem Leben auf verschiedene Arten ein Ende zu setzen&lt;/strong&gt;. Welche Freude...</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>In der Stadt herrscht große Niedergeschlagenheit. Nicht weniger als &lt;strong&gt;{cadavers} Menschen&lt;/strong&gt; haben sich entschlossen, &lt;strong&gt;ihrem Leben auf verschiedene Arten ein Ende zu setzen&lt;/strong&gt;. Welche Freude...</source>
+        <target><![CDATA[In der Stadt herrscht große Niedergeschlagenheit. Nicht weniger als <strong>{cadavers} Menschen</strong> haben sich entschlossen, <strong>ihrem Leben auf verschiedene Arten ein Ende zu setzen</strong>. Welche Freude...]]></target>
+      </segment>
+    </unit>
+    <unit id="KNnd7as">
+      <notes>
+        <note category="german">Ich habe gestern &lt;strong&gt;{cadavers} Selbstmorde&lt;/strong&gt; gezählt. Schlussendlich kommt die Gefahr vielleicht nicht von außen... &lt;strong&gt;Was&lt;/strong&gt; habt ihr ihnen angetan?</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Ich habe gestern &lt;strong&gt;{cadavers} Selbstmorde&lt;/strong&gt; gezählt. Schlussendlich kommt die Gefahr vielleicht nicht von außen... &lt;strong&gt;Was&lt;/strong&gt; habt ihr ihnen angetan?</source>
+        <target><![CDATA[Ich habe gestern <strong>{cadavers} Selbstmorde</strong> gezählt. Schlussendlich kommt die Gefahr vielleicht nicht von außen... <strong>Was</strong> habt ihr ihnen angetan?]]></target>
+      </segment>
+    </unit>
+    <unit id="TGk1Ozt">
+      <notes>
+        <note category="german">Der Mut der &lt;strong&gt;{cadavers} Bürger&lt;/strong&gt; von gestern, die es vorzogen, &lt;strong&gt;Selbstmord&lt;/strong&gt; zu begehen, anstatt sich dem Angriff heute Abend zu stellen, wird gebührend gewürdigt werden.</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Der Mut der &lt;strong&gt;{cadavers} Bürger&lt;/strong&gt; von gestern, die es vorzogen, &lt;strong&gt;Selbstmord&lt;/strong&gt; zu begehen, anstatt sich dem Angriff heute Abend zu stellen, wird gebührend gewürdigt werden.</source>
+        <target><![CDATA[Der Mut der <strong>{cadavers} Bürger</strong> von gestern, die es vorzogen, <strong>Selbstmord</strong> zu begehen, anstatt sich dem Angriff heute Abend zu stellen, wird gebührend gewürdigt werden.]]></target>
+      </segment>
+    </unit>
+    <unit id="VxJqSTv">
+      <notes>
+        <note category="german">Es gab gestern ein großes Stadtfest. &lt;strong&gt;&lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} wurde gehängt&lt;/strong&gt;. Endlich mal was los hier!</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Es gab gestern ein großes Stadtfest. &lt;strong&gt;&lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} wurde gehängt&lt;/strong&gt;. Endlich mal was los hier!</source>
+        <target><![CDATA[Es gab gestern ein großes Stadtfest. <strong><i class="dagger">†</i> {cadaver1} wurde gehängt</strong>. Endlich mal was los hier!]]></target>
+      </segment>
+    </unit>
+    <unit id="SXSdY4m">
+      <notes>
+        <note category="german">Großes Melodrama gestern während der Hängung von &lt;strong&gt;† {cadaver1}&lt;/strong&gt;: &lt;strong&gt;{citizen1}&lt;/strong&gt; soll aus Trauer versucht haben, die Feierlichkeiten zu verhindern, was er schlussendlich durch Gewalt sowie anderes &lt;strong&gt;anti-soziales Verhalten&lt;/strong&gt; erreichen wollte. Einige Nachbarn sollen empfohlen haben, auch diesen Störenfried aufzuhängen...</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Großes Melodrama gestern während der Hängung von &lt;strong&gt;† {cadaver1}&lt;/strong&gt;: &lt;strong&gt;{citizen1}&lt;/strong&gt; soll aus Trauer versucht haben, die Feierlichkeiten zu verhindern, was er schlussendlich durch Gewalt sowie anderes &lt;strong&gt;anti-soziales Verhalten&lt;/strong&gt; erreichen wollte. Einige Nachbarn sollen empfohlen haben, auch diesen Störenfried aufzuhängen...</source>
+        <target><![CDATA[Großes Melodrama gestern während der Hängung von <strong>† {cadaver1}</strong>: <strong>{citizen1}</strong> soll aus Trauer versucht haben, die Feierlichkeiten zu verhindern, was er schlussendlich durch Gewalt sowie anderes <strong>anti-soziales Verhalten</strong> erreichen wollte. Einige Nachbarn sollen empfohlen haben, auch diesen Störenfried aufzuhängen...]]></target>
+      </segment>
+    </unit>
+    <unit id="qNYEo_e">
+      <notes>
+        <note category="german">Die Gemeinde wollte dem Bürger &lt;strong&gt;† {cadaver1}&lt;/strong&gt; den Schrecken des heutigen Angriffs ersparen, indem sie ihn tagsüber &lt;strong&gt;aufknüpften&lt;/strong&gt;.</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Die Gemeinde wollte dem Bürger &lt;strong&gt;† {cadaver1}&lt;/strong&gt; den Schrecken des heutigen Angriffs ersparen, indem sie ihn tagsüber &lt;strong&gt;aufknüpften&lt;/strong&gt;.</source>
+        <target><![CDATA[Die Gemeinde wollte dem Bürger <strong>† {cadaver1}</strong> den Schrecken des heutigen Angriffs ersparen, indem sie ihn tagsüber <strong>aufknüpften</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="HnFKIJL">
+      <notes>
+        <note category="german">Die Stadt hatte gestern beschlossen, &lt;strong&gt;† {cadaver1}&lt;/strong&gt; zu erhängen. Leider verlief die Hinrichtung nicht reibungslos. Drei Anläufe waren nötig, um ihm schließlich das Genick zu brechen.</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Die Stadt hatte gestern beschlossen, &lt;strong&gt;† {cadaver1}&lt;/strong&gt; zu erhängen. Leider verlief die Hinrichtung nicht reibungslos. Drei Anläufe waren nötig, um ihm schließlich das Genick zu brechen.</source>
+        <target><![CDATA[Die Stadt hatte gestern beschlossen, <strong>† {cadaver1}</strong> zu erhängen. Leider verlief die Hinrichtung nicht reibungslos. Drei Anläufe waren nötig, um ihm schließlich das Genick zu brechen.]]></target>
+      </segment>
+    </unit>
+    <unit id="9NOVAyP">
+      <notes>
+        <note category="german">Anstatt die Zombies gewähren zu lassen, beschlossen die Bürger gestern, &lt;strong&gt;† {cadaver1}&lt;/strong&gt; im Voraus zu eliminieren. "Wir haben uns köstlich amüsiert", berichtet &lt;strong&gt;{citizen1}&lt;/strong&gt;...</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Anstatt die Zombies gewähren zu lassen, beschlossen die Bürger gestern, &lt;strong&gt;† {cadaver1}&lt;/strong&gt; im Voraus zu eliminieren. "Wir haben uns köstlich amüsiert", berichtet &lt;strong&gt;{citizen1}&lt;/strong&gt;...</source>
+        <target><![CDATA[Anstatt die Zombies gewähren zu lassen, beschlossen die Bürger gestern, <strong>† {cadaver1}</strong> im Voraus zu eliminieren. "Wir haben uns köstlich amüsiert", berichtet <strong>{citizen1}</strong>...]]></target>
+      </segment>
+    </unit>
+    <unit id="AMEjDOm">
+      <notes>
+        <note category="german">{cadavers} Bürgerinnen und Bürger haben wirklich zu viel getan. Oder nicht genug. Wie auch immer, die Gemeinschaft entschied daher, dass man sie gestern im Laufe des Tages &lt;strong&gt;entfernen&lt;/strong&gt; sollte.</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>{cadavers} Bürgerinnen und Bürger haben wirklich zu viel getan. Oder nicht genug. Wie auch immer, die Gemeinschaft entschied daher, dass man sie gestern im Laufe des Tages &lt;strong&gt;entfernen&lt;/strong&gt; sollte.</source>
+        <target><![CDATA[{cadavers} Bürgerinnen und Bürger haben wirklich zu viel getan. Oder nicht genug. Wie auch immer, die Gemeinschaft entschied daher, dass man sie gestern im Laufe des Tages <strong>entfernen</strong> sollte.]]></target>
+      </segment>
+    </unit>
+    <unit id="MWWoG3c">
+      <notes>
+        <note category="german">Bei uns wird versucht, alles so effizient wie möglich zu gestalten. Also dachten wir uns gestern, dass wir das &lt;strong&gt;Potential&lt;/strong&gt; des Galgen voll ausnutzen müssen: {cadavers} Bürger wurden zu diesem Zweck bestimmt und aufgehängt.</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Bei uns wird versucht, alles so effizient wie möglich zu gestalten. Also dachten wir uns gestern, dass wir das &lt;strong&gt;Potential&lt;/strong&gt; des Galgen voll ausnutzen müssen: {cadavers} Bürger wurden zu diesem Zweck bestimmt und aufgehängt.</source>
+        <target><![CDATA[Bei uns wird versucht, alles so effizient wie möglich zu gestalten. Also dachten wir uns gestern, dass wir das <strong>Potential</strong> des Galgen voll ausnutzen müssen: {cadavers} Bürger wurden zu diesem Zweck bestimmt und aufgehängt.]]></target>
+      </segment>
+    </unit>
+    <unit id="5G5XCkH">
+      <notes>
+        <note category="german">Nette Aktion in der Stadt gestern mit der &lt;strong&gt;Festnahme&lt;/strong&gt; und dem &lt;strong&gt;Hängen&lt;/strong&gt; von {cadavers} Bürgern. Gerichtsverfahren? Verhandlung? Nein, keine Zeit.</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Nette Aktion in der Stadt gestern mit der &lt;strong&gt;Festnahme&lt;/strong&gt; und dem &lt;strong&gt;Hängen&lt;/strong&gt; von {cadavers} Bürgern. Gerichtsverfahren? Verhandlung? Nein, keine Zeit.</source>
+        <target><![CDATA[Nette Aktion in der Stadt gestern mit der <strong>Festnahme</strong> und dem <strong>Hängen</strong> von {cadavers} Bürgern. Gerichtsverfahren? Verhandlung? Nein, keine Zeit.]]></target>
+      </segment>
+    </unit>
+    <unit id="j8SUZmh">
+      <notes>
+        <note category="german">Der Bürger &lt;strong&gt;{citizen}&lt;/strong&gt; war heute Morgen überglücklich über die summarische Hinrichtung von {cadavers} "Verrätern der Gemeinschaft". Ein "Beispiel für unsere schöne partizipative Demokratie in Aktion", soll dieser Bürger kommentiert haben.</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Der Bürger &lt;strong&gt;{citizen}&lt;/strong&gt; war heute Morgen überglücklich über die summarische Hinrichtung von {cadavers} "Verrätern der Gemeinschaft". Ein "Beispiel für unsere schöne partizipative Demokratie in Aktion", soll dieser Bürger kommentiert haben.</source>
+        <target><![CDATA[Der Bürger <strong>{citizen}</strong> war heute Morgen überglücklich über die summarische Hinrichtung von {cadavers} "Verrätern der Gemeinschaft". Ein "Beispiel für unsere schöne partizipative Demokratie in Aktion", soll dieser Bürger kommentiert haben.]]></target>
+      </segment>
+    </unit>
+    <unit id="zQ5c0bK">
+      <notes>
+        <note category="german">Das waren ein paar schöne &lt;strong&gt;Hängungen&lt;/strong&gt; gestern, man kann sagen, dass ihr es faustdick hinter den Ohren habt, das ist kein Spaß...</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Das waren ein paar schöne &lt;strong&gt;Hängungen&lt;/strong&gt; gestern, man kann sagen, dass ihr es faustdick hinter den Ohren habt, das ist kein Spaß...</source>
+        <target><![CDATA[Das waren ein paar schöne <strong>Hängungen</strong> gestern, man kann sagen, dass ihr es faustdick hinter den Ohren habt, das ist kein Spaß...]]></target>
+      </segment>
+    </unit>
+    <unit id="SVY7z0M">
+      <notes>
+        <note category="german">Große Feier in der Stadt gestern, mit der &lt;strong&gt;Kreuzigung von &lt;/strong&gt;&lt;strong&gt;† {cadaver1}&lt;/strong&gt;. Da ist mal was los und ein Schokoladenkreuz kann sich als köstlich UND nützlich erweisen.</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Große Feier in der Stadt gestern, mit der &lt;strong&gt;Kreuzigung von &lt;/strong&gt;&lt;strong&gt;† {cadaver1}&lt;/strong&gt;. Da ist mal was los und ein Schokoladenkreuz kann sich als köstlich UND nützlich erweisen.</source>
+        <target><![CDATA[Große Feier in der Stadt gestern, mit der <strong>Kreuzigung von </strong><strong>† {cadaver1}</strong>. Da ist mal was los und ein Schokoladenkreuz kann sich als köstlich UND nützlich erweisen.]]></target>
+      </segment>
+    </unit>
+    <unit id="z0t9GV6">
+      <notes>
+        <note category="german">Nette Aktion in der Stadt gestern mit der &lt;strong&gt;Festnahme&lt;/strong&gt; und der &lt;strong&gt;Kreuzigung&lt;/strong&gt; von {cadavers} Bürgern. Gerichtsverfahren? Verhandlung? Nein, keine Zeit.</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Nette Aktion in der Stadt gestern mit der &lt;strong&gt;Festnahme&lt;/strong&gt; und der &lt;strong&gt;Kreuzigung&lt;/strong&gt; von {cadavers} Bürgern. Gerichtsverfahren? Verhandlung? Nein, keine Zeit.</source>
+        <target><![CDATA[Nette Aktion in der Stadt gestern mit der <strong>Festnahme</strong> und der <strong>Kreuzigung</strong> von {cadavers} Bürgern. Gerichtsverfahren? Verhandlung? Nein, keine Zeit.]]></target>
+      </segment>
+    </unit>
+    <unit id="2HFiX31">
+      <notes>
+        <note category="german">{cadavers} Mitbürger sind gestern von uns geschieden. Eine letale &lt;strong&gt;hypertone Dehydratation&lt;/strong&gt; war die Ursache. Jaja, die Schmerzensschreie gestern Nacht, das war sie, die Dehydratation...</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>{cadavers} Mitbürger sind gestern von uns geschieden. Eine letale &lt;strong&gt;hypertone Dehydratation&lt;/strong&gt; war die Ursache. Jaja, die Schmerzensschreie gestern Nacht, das war sie, die Dehydratation...</source>
+        <target><![CDATA[{cadavers} Mitbürger sind gestern von uns geschieden. Eine letale <strong>hypertone Dehydratation</strong> war die Ursache. Jaja, die Schmerzensschreie gestern Nacht, das war sie, die Dehydratation...]]></target>
+      </segment>
+    </unit>
+    <unit id="3Hnf7p_">
+      <notes>
+        <note category="german">&lt;strong&gt;† {cadaver1} wurde ermordet&lt;/strong&gt;. Ich war es nicht, obwohl ich schon Lust gehabt hätte... Also, wer war's? Raus mit der Sprache!</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;† {cadaver1} wurde ermordet&lt;/strong&gt;. Ich war es nicht, obwohl ich schon Lust gehabt hätte... Also, wer war's? Raus mit der Sprache!</source>
+        <target><![CDATA[<strong>† {cadaver1} wurde ermordet</strong>. Ich war es nicht, obwohl ich schon Lust gehabt hätte... Also, wer war's? Raus mit der Sprache!]]></target>
+      </segment>
+    </unit>
+    <unit id="k6MpVYB">
+      <notes>
+        <note category="german">Die Meinungen über die Ursache für &lt;strong&gt;† {cadaver1}&lt;/strong&gt; plötzlichen Tod gehen auseinander: Einige glauben, dass es sich um Selbstmord handelt, andere denken, dass &lt;strong&gt;{citizen1}&lt;/strong&gt; der Mörder ist. Ich persönlich neige eher zur &lt;strong&gt;zweiten Hypothese&lt;/strong&gt;...</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Die Meinungen über die Ursache für &lt;strong&gt;† {cadaver1}&lt;/strong&gt; plötzlichen Tod gehen auseinander: Einige glauben, dass es sich um Selbstmord handelt, andere denken, dass &lt;strong&gt;{citizen1}&lt;/strong&gt; der Mörder ist. Ich persönlich neige eher zur &lt;strong&gt;zweiten Hypothese&lt;/strong&gt;...</source>
+        <target><![CDATA[Die Meinungen über die Ursache für <strong>† {cadaver1}</strong> plötzlichen Tod gehen auseinander: Einige glauben, dass es sich um Selbstmord handelt, andere denken, dass <strong>{citizen1}</strong> der Mörder ist. Ich persönlich neige eher zur <strong>zweiten Hypothese</strong>...]]></target>
+      </segment>
+    </unit>
+    <unit id="9mQXaZj">
+      <notes>
+        <note category="german">Neben den Zombieangriffen, müssen wir uns ab sofort auch auf Morde und Mordversuche in unseren eigenen Reihen einstellen. &lt;strong&gt;† {cadaver1}&lt;/strong&gt; wurde bereits ermordert.</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Neben den Zombieangriffen, müssen wir uns ab sofort auch auf Morde und Mordversuche in unseren eigenen Reihen einstellen. &lt;strong&gt;† {cadaver1}&lt;/strong&gt; wurde bereits ermordert.</source>
+        <target><![CDATA[Neben den Zombieangriffen, müssen wir uns ab sofort auch auf Morde und Mordversuche in unseren eigenen Reihen einstellen. <strong>† {cadaver1}</strong> wurde bereits ermordert.]]></target>
+      </segment>
+    </unit>
+    <unit id="URmKGWm">
+      <notes>
+        <note category="german">Gute Nachrichten, meine Freunde! Ein Verräter hat sich in unsere Reihen geschlichen. Als ob die Toten von Mitternacht nicht schon genug wären, müssen wir uns von nun an mit einer neuen Gefahr in unseren Mauern auseinandersetzen. Gestern wurde &lt;strong&gt;† {cadaver1} ermordet&lt;/strong&gt;. Vergiftung mit {poison}! Bürger, Zeit für Panik!</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Gute Nachrichten, meine Freunde! Ein Verräter hat sich in unsere Reihen geschlichen. Als ob die Toten von Mitternacht nicht schon genug wären, müssen wir uns von nun an mit einer neuen Gefahr in unseren Mauern auseinandersetzen. Gestern wurde &lt;strong&gt;† {cadaver1} ermordet&lt;/strong&gt;. Vergiftung mit {poison}! Bürger, Zeit für Panik!</source>
+        <target><![CDATA[Gute Nachrichten, meine Freunde! Ein Verräter hat sich in unsere Reihen geschlichen. Als ob die Toten von Mitternacht nicht schon genug wären, müssen wir uns von nun an mit einer neuen Gefahr in unseren Mauern auseinandersetzen. Gestern wurde <strong>† {cadaver1} ermordet</strong>. Vergiftung mit {poison}! Bürger, Zeit für Panik!]]></target>
+      </segment>
+    </unit>
+    <unit id=".IdHdet">
+      <notes>
+        <note category="german">Du solltest auch einen Blick auf die Leiche von &lt;strong&gt;† {cadaver1}&lt;/strong&gt; werfen. Die Umstände des Todes könnten nicht fragwürdiger sein ... Hmm? Mord? Wer hat "Mord" gesagt?</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Du solltest auch einen Blick auf die Leiche von &lt;strong&gt;† {cadaver1}&lt;/strong&gt; werfen. Die Umstände des Todes könnten nicht fragwürdiger sein ... Hmm? Mord? Wer hat "Mord" gesagt?</source>
+        <target><![CDATA[Du solltest auch einen Blick auf die Leiche von <strong>† {cadaver1}</strong> werfen. Die Umstände des Todes könnten nicht fragwürdiger sein ... Hmm? Mord? Wer hat "Mord" gesagt?]]></target>
+      </segment>
+    </unit>
+    <unit id="rs0Vp9r">
+      <notes>
+        <note category="german">In der Stadt gibt es perfideere Menschen als mich. Ein Beweis dafür ist der gewaltsame Tod von &lt;strong&gt;† {cadaver1}&lt;/strong&gt; gestern, der einem Mord zum Opfer fiel (Vergiftung mit {poison}, meiner Meinung nach). Es war sauber, ohne viel Dreck, obwohl es scheint dass &lt;strong&gt;† {cadaver1}&lt;/strong&gt; sehr gelitten hat. Gute Arbeit, mach weiter so, Kollege.</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>In der Stadt gibt es perfideere Menschen als mich. Ein Beweis dafür ist der gewaltsame Tod von &lt;strong&gt;† {cadaver1}&lt;/strong&gt; gestern, der einem Mord zum Opfer fiel (Vergiftung mit {poison}, meiner Meinung nach). Es war sauber, ohne viel Dreck, obwohl es scheint dass &lt;strong&gt;† {cadaver1}&lt;/strong&gt; sehr gelitten hat. Gute Arbeit, mach weiter so, Kollege.</source>
+        <target><![CDATA[In der Stadt gibt es perfideere Menschen als mich. Ein Beweis dafür ist der gewaltsame Tod von <strong>† {cadaver1}</strong> gestern, der einem Mord zum Opfer fiel (Vergiftung mit {poison}, meiner Meinung nach). Es war sauber, ohne viel Dreck, obwohl es scheint dass <strong>† {cadaver1}</strong> sehr gelitten hat. Gute Arbeit, mach weiter so, Kollege.]]></target>
+      </segment>
+    </unit>
+    <unit id="QEItt5b">
+      <notes>
+        <note category="german">Vorsicht ist geboten! Ein Mörder versteckt sich unter uns! Gestern wurde die Leiche von &lt;strong&gt;† {cadaver1}&lt;/strong&gt; gefunden, die Opfer einer Vergiftung wurde, vermutlich {poison} (fragt mich nicht, wie ich das herausgefunden habe). Wer ist der Mörder?</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Vorsicht ist geboten! Ein Mörder versteckt sich unter uns! Gestern wurde die Leiche von &lt;strong&gt;† {cadaver1}&lt;/strong&gt; gefunden, die Opfer einer Vergiftung wurde, vermutlich {poison} (fragt mich nicht, wie ich das herausgefunden habe). Wer ist der Mörder?</source>
+        <target><![CDATA[Vorsicht ist geboten! Ein Mörder versteckt sich unter uns! Gestern wurde die Leiche von <strong>† {cadaver1}</strong> gefunden, die Opfer einer Vergiftung wurde, vermutlich {poison} (fragt mich nicht, wie ich das herausgefunden habe). Wer ist der Mörder?]]></target>
+      </segment>
+    </unit>
+    <unit id="2IvlK44">
+      <notes>
+        <note category="german">Jemand konnte &lt;strong&gt;† {cadaver1}&lt;/strong&gt; offensichtlich nicht leiden. Das &lt;strong&gt;Gift&lt;/strong&gt;, welches gestern in sein Essen gemischt wurde, war äußerst effektiv.</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Jemand konnte &lt;strong&gt;† {cadaver1}&lt;/strong&gt; offensichtlich nicht leiden. Das &lt;strong&gt;Gift&lt;/strong&gt;, welches gestern in sein Essen gemischt wurde, war äußerst effektiv.</source>
+        <target><![CDATA[Jemand konnte <strong>† {cadaver1}</strong> offensichtlich nicht leiden. Das <strong>Gift</strong>, welches gestern in sein Essen gemischt wurde, war äußerst effektiv.]]></target>
+      </segment>
+    </unit>
+    <unit id="MFrPzmx">
+      <notes>
+        <note category="german">Wenn das Wasser komisch schmeckt, bist du vielleicht kurz davor, an einer Vergiftung zu vergehen. Wie &lt;strong&gt;† {cadaver1}&lt;/strong&gt; gestern, dessen &lt;strong&gt;verdächtiger Tod&lt;/strong&gt; viele Fragen aufwirft ...</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Wenn das Wasser komisch schmeckt, bist du vielleicht kurz davor, an einer Vergiftung zu vergehen. Wie &lt;strong&gt;† {cadaver1}&lt;/strong&gt; gestern, dessen &lt;strong&gt;verdächtiger Tod&lt;/strong&gt; viele Fragen aufwirft ...</source>
+        <target><![CDATA[Wenn das Wasser komisch schmeckt, bist du vielleicht kurz davor, an einer Vergiftung zu vergehen. Wie <strong>† {cadaver1}</strong> gestern, dessen <strong>verdächtiger Tod</strong> viele Fragen aufwirft ...]]></target>
+      </segment>
+    </unit>
+    <unit id="VtkKrJs">
+      <notes>
+        <note category="german">Die ganze Stadt freut sich über &lt;strong&gt;† {cadaver1}s&lt;/strong&gt; Tod. Seine &lt;strong&gt;Infektion&lt;/strong&gt; hat ihn endlich dahingerafft.</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Die ganze Stadt freut sich über &lt;strong&gt;† {cadaver1}s&lt;/strong&gt; Tod. Seine &lt;strong&gt;Infektion&lt;/strong&gt; hat ihn endlich dahingerafft.</source>
+        <target><![CDATA[Die ganze Stadt freut sich über <strong>† {cadaver1}s</strong> Tod. Seine <strong>Infektion</strong> hat ihn endlich dahingerafft.]]></target>
+      </segment>
+    </unit>
+    <unit id="XscnmcS">
+      <notes>
+        <note category="german">Die &lt;strong&gt;Krankheit&lt;/strong&gt; brauchte nicht lange, um mehrere Bürger ({cadavers}, wie mir scheint) in der Nacht niederzustrecken. Kaum &lt;strong&gt;zwei Tage Inkubationszeit&lt;/strong&gt;, und schwupps, waren sie ganz kalt.</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Die &lt;strong&gt;Krankheit&lt;/strong&gt; brauchte nicht lange, um mehrere Bürger ({cadavers}, wie mir scheint) in der Nacht niederzustrecken. Kaum &lt;strong&gt;zwei Tage Inkubationszeit&lt;/strong&gt;, und schwupps, waren sie ganz kalt.</source>
+        <target><![CDATA[Die <strong>Krankheit</strong> brauchte nicht lange, um mehrere Bürger ({cadavers}, wie mir scheint) in der Nacht niederzustrecken. Kaum <strong>zwei Tage Inkubationszeit</strong>, und schwupps, waren sie ganz kalt.]]></target>
+      </segment>
+    </unit>
+    <unit id=".YudnW.">
+      <notes>
+        <note category="german">Unsere infizierten &lt;strong&gt;{cadavers} Patienten&lt;/strong&gt; haben heute Nacht endlich den Löffel abgegeben. "Nicht zu früh", kommentiert &lt;strong&gt;{citizen1}&lt;/strong&gt;.</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Unsere infizierten &lt;strong&gt;{cadavers} Patienten&lt;/strong&gt; haben heute Nacht endlich den Löffel abgegeben. "Nicht zu früh", kommentiert &lt;strong&gt;{citizen1}&lt;/strong&gt;.</source>
+        <target><![CDATA[Unsere infizierten <strong>{cadavers} Patienten</strong> haben heute Nacht endlich den Löffel abgegeben. "Nicht zu früh", kommentiert <strong>{citizen1}</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="n0ZuQDo">
+      <notes>
+        <note category="german">Wir müssen uns keine Sorgen mehr um unsere {cadavers} Kranken machen. Sie sind heute Nacht alle oder fast alle gestorben. Champagner für alle!</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Wir müssen uns keine Sorgen mehr um unsere {cadavers} Kranken machen. Sie sind heute Nacht alle oder fast alle gestorben. Champagner für alle!</source>
+        <target>Wir müssen uns keine Sorgen mehr um unsere {cadavers} Kranken machen. Sie sind heute Nacht alle oder fast alle gestorben. Champagner für alle!</target>
+      </segment>
+    </unit>
+    <unit id="caZyk5r">
+      <notes>
+        <note category="german">Ihr müsst nicht mehr auf &lt;strong&gt;† {cadaver1}&lt;/strong&gt; warten, er wird noch einige Zeit in der Wüste bleiben, nachdem er beschlossen hat, sich selbst zu erwürgen... auf nachdrückliches Anraten der gequälten Seele, die die Kontrolle über seinen Körper übernommen hat.</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Ihr müsst nicht mehr auf &lt;strong&gt;† {cadaver1}&lt;/strong&gt; warten, er wird noch einige Zeit in der Wüste bleiben, nachdem er beschlossen hat, sich selbst zu erwürgen... auf nachdrückliches Anraten der gequälten Seele, die die Kontrolle über seinen Körper übernommen hat.</source>
+        <target><![CDATA[Ihr müsst nicht mehr auf <strong>† {cadaver1}</strong> warten, er wird noch einige Zeit in der Wüste bleiben, nachdem er beschlossen hat, sich selbst zu erwürgen... auf nachdrückliches Anraten der gequälten Seele, die die Kontrolle über seinen Körper übernommen hat.]]></target>
+      </segment>
+    </unit>
+    <unit id="fi.WhGd">
+      <notes>
+        <note category="german">Übrigens, &lt;strong&gt;{cadavers} Bürger&lt;/strong&gt; die ein wenig zu vertrauensselig waren, sind auf abscheuliche Weise und durch ihre eigenen schmutzigen Hände gestorben. Hat jemand den Schamanen gesehen?!</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Übrigens, &lt;strong&gt;{cadavers} Bürger&lt;/strong&gt; die ein wenig zu vertrauensselig waren, sind auf abscheuliche Weise und durch ihre eigenen schmutzigen Hände gestorben. Hat jemand den Schamanen gesehen?!</source>
+        <target><![CDATA[Übrigens, <strong>{cadavers} Bürger</strong> die ein wenig zu vertrauensselig waren, sind auf abscheuliche Weise und durch ihre eigenen schmutzigen Hände gestorben. Hat jemand den Schamanen gesehen?!]]></target>
+      </segment>
+    </unit>
+    <unit id="Hua9L0W">
+      <notes>
+        <note category="german">&lt;strong&gt;{citizen1}&lt;/strong&gt; soll gestern mehrere Stunden damit verbracht haben, in den in der Bank gelagerten Kleinigkeiten herumzuschnüffeln. Trickserei oder Dienst an der Stadt?</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;{citizen1}&lt;/strong&gt; soll gestern mehrere Stunden damit verbracht haben, in den in der Bank gelagerten Kleinigkeiten herumzuschnüffeln. Trickserei oder Dienst an der Stadt?</source>
+        <target><![CDATA[<strong>{citizen1}</strong> soll gestern mehrere Stunden damit verbracht haben, in den in der Bank gelagerten Kleinigkeiten herumzuschnüffeln. Trickserei oder Dienst an der Stadt?]]></target>
+      </segment>
+    </unit>
+    <unit id="Zsp2m_l">
+      <notes>
+        <note category="german">&lt;strong&gt;{citizen1}&lt;/strong&gt; berichtet uns Informationen, die mit Vorsicht zu genießen ist. Laut diesem Bürger soll &lt;strong&gt;{citizen2}&lt;/strong&gt; nämlich gesehen worden sein, wie er den ganzen Tag über in der Nähe der Bank herumlungerte... Zu welchem Zweck? Ein Mysterium.</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;{citizen1}&lt;/strong&gt; berichtet uns Informationen, die mit Vorsicht zu genießen ist. Laut diesem Bürger soll &lt;strong&gt;{citizen2}&lt;/strong&gt; nämlich gesehen worden sein, wie er den ganzen Tag über in der Nähe der Bank herumlungerte... Zu welchem Zweck? Ein Mysterium.</source>
+        <target><![CDATA[<strong>{citizen1}</strong> berichtet uns Informationen, die mit Vorsicht zu genießen ist. Laut diesem Bürger soll <strong>{citizen2}</strong> nämlich gesehen worden sein, wie er den ganzen Tag über in der Nähe der Bank herumlungerte... Zu welchem Zweck? Ein Mysterium.]]></target>
+      </segment>
+    </unit>
+    <unit id="NGm.hBZ">
+      <notes>
+        <note category="german">&lt;strong&gt;{citizen1}&lt;/strong&gt; hatte sich bislang seelenruhig aus unseren Vorräten bedient. Gestern jedoch machte ihm &lt;strong&gt;{citizen2}&lt;/strong&gt; unmissverständlich klar, dass, wenn er so weiter mache, er eines Morgens nicht mehr aufwachen würde.</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;{citizen1}&lt;/strong&gt; hatte sich bislang seelenruhig aus unseren Vorräten bedient. Gestern jedoch machte ihm &lt;strong&gt;{citizen2}&lt;/strong&gt; unmissverständlich klar, dass, wenn er so weiter mache, er eines Morgens nicht mehr aufwachen würde.</source>
+        <target><![CDATA[<strong>{citizen1}</strong> hatte sich bislang seelenruhig aus unseren Vorräten bedient. Gestern jedoch machte ihm <strong>{citizen2}</strong> unmissverständlich klar, dass, wenn er so weiter mache, er eines Morgens nicht mehr aufwachen würde.]]></target>
+      </segment>
+    </unit>
+    <unit id="xJHdFrN">
+      <notes>
+        <note category="german">Im Register steht, wie oft sich &lt;strong&gt;{citizen1}&lt;/strong&gt; an der Bank zu schaffen gemacht hat. Hat da jemand &lt;strong&gt;verdächtig&lt;/strong&gt; gesagt?</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Im Register steht, wie oft sich &lt;strong&gt;{citizen1}&lt;/strong&gt; an der Bank zu schaffen gemacht hat. Hat da jemand &lt;strong&gt;verdächtig&lt;/strong&gt; gesagt?</source>
+        <target><![CDATA[Im Register steht, wie oft sich <strong>{citizen1}</strong> an der Bank zu schaffen gemacht hat. Hat da jemand <strong>verdächtig</strong> gesagt?]]></target>
+      </segment>
+    </unit>
+    <unit id="ahvSFmN">
+      <notes>
+        <note category="german">Eine ziemliche Menge an Betrügereien von &lt;strong&gt;{citizen1}&lt;/strong&gt;, der gestern in der Bank herumstöberte... Wirf einen Blick in das Register...</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Eine ziemliche Menge an Betrügereien von &lt;strong&gt;{citizen1}&lt;/strong&gt;, der gestern in der Bank herumstöberte... Wirf einen Blick in das Register...</source>
+        <target><![CDATA[Eine ziemliche Menge an Betrügereien von <strong>{citizen1}</strong>, der gestern in der Bank herumstöberte... Wirf einen Blick in das Register...]]></target>
+      </segment>
+    </unit>
+    <unit id="89VTNik">
+      <notes>
+        <note category="german">Einige fragen sich, was &lt;strong&gt;{citizen1}&lt;/strong&gt; gestern den ganzen Tag &lt;strong&gt;in der Bank&lt;/strong&gt; gemacht hat... Wir bemerken einige &lt;strong&gt;sehr&lt;/strong&gt; verdächtige Vorgänge...</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Einige fragen sich, was &lt;strong&gt;{citizen1}&lt;/strong&gt; gestern den ganzen Tag &lt;strong&gt;in der Bank&lt;/strong&gt; gemacht hat... Wir bemerken einige &lt;strong&gt;sehr&lt;/strong&gt; verdächtige Vorgänge...</source>
+        <target><![CDATA[Einige fragen sich, was <strong>{citizen1}</strong> gestern den ganzen Tag <strong>in der Bank</strong> gemacht hat... Wir bemerken einige <strong>sehr</strong> verdächtige Vorgänge...]]></target>
+      </segment>
+    </unit>
+    <unit id="UTjLUdM">
+      <notes>
+        <note category="german">Die Aufzeichnungen zeigen, dass &lt;strong&gt;{citizen1}&lt;/strong&gt; sich mit unseren &lt;strong&gt;Bankreserven&lt;/strong&gt; gut amüsiert hat...</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Die Aufzeichnungen zeigen, dass &lt;strong&gt;{citizen1}&lt;/strong&gt; sich mit unseren &lt;strong&gt;Bankreserven&lt;/strong&gt; gut amüsiert hat...</source>
+        <target><![CDATA[Die Aufzeichnungen zeigen, dass <strong>{citizen1}</strong> sich mit unseren <strong>Bankreserven</strong> gut amüsiert hat...]]></target>
+      </segment>
+    </unit>
+    <unit id="xQbE5UV">
+      <notes>
+        <note category="german">Es scheint, dass &lt;strong&gt;{citizen1}&lt;/strong&gt; beschlossen hat, seine fragwürdigen Fundstücke in unserer Bank zu stapeln. Es geht nicht um &lt;strong&gt;Quantität&lt;/strong&gt;, nicht wahr &lt;strong&gt;{citizen1}&lt;/strong&gt; ...</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Es scheint, dass &lt;strong&gt;{citizen1}&lt;/strong&gt; beschlossen hat, seine fragwürdigen Fundstücke in unserer Bank zu stapeln. Es geht nicht um &lt;strong&gt;Quantität&lt;/strong&gt;, nicht wahr &lt;strong&gt;{citizen1}&lt;/strong&gt; ...</source>
+        <target><![CDATA[Es scheint, dass <strong>{citizen1}</strong> beschlossen hat, seine fragwürdigen Fundstücke in unserer Bank zu stapeln. Es geht nicht um <strong>Quantität</strong>, nicht wahr <strong>{citizen1}</strong> ...]]></target>
+      </segment>
+    </unit>
+    <unit id="XMONJCi">
+      <notes>
+        <note category="german">Ich weiß nicht wie ihr das seht, aber &lt;strong&gt;{citizen1}&lt;/strong&gt; hat die Bank gestern offenbar mit einem Haufen nutzlosem Dreck gefüllt.</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Ich weiß nicht wie ihr das seht, aber &lt;strong&gt;{citizen1}&lt;/strong&gt; hat die Bank gestern offenbar mit einem Haufen nutzlosem Dreck gefüllt.</source>
+        <target><![CDATA[Ich weiß nicht wie ihr das seht, aber <strong>{citizen1}</strong> hat die Bank gestern offenbar mit einem Haufen nutzlosem Dreck gefüllt.]]></target>
+      </segment>
+    </unit>
+    <unit id="AQXmvEH">
+      <notes>
+        <note category="german">Der &lt;strong&gt;Bank&lt;/strong&gt; geht es ziemlich gut, vor allem dank des Beitrags von &lt;strong&gt;{citizen1}&lt;/strong&gt;, der ziemlich viel mitgebracht hat...</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Der &lt;strong&gt;Bank&lt;/strong&gt; geht es ziemlich gut, vor allem dank des Beitrags von &lt;strong&gt;{citizen1}&lt;/strong&gt;, der ziemlich viel mitgebracht hat...</source>
+        <target><![CDATA[Der <strong>Bank</strong> geht es ziemlich gut, vor allem dank des Beitrags von <strong>{citizen1}</strong>, der ziemlich viel mitgebracht hat...]]></target>
+      </segment>
+    </unit>
+    <unit id="x1i3hMt">
+      <notes>
+        <note category="german">Angeblich wurden der Bank gestern einige verdächtige Entnahmen gemeldet. Die Zeugenaussagen deuten darauf hin, dass es sich um &lt;strong&gt;{citizen1}&lt;/strong&gt; handeln soll, einige sprechen aber auch von &lt;strong&gt;{citizen2}&lt;/strong&gt;.</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Angeblich wurden der Bank gestern einige verdächtige Entnahmen gemeldet. Die Zeugenaussagen deuten darauf hin, dass es sich um &lt;strong&gt;{citizen1}&lt;/strong&gt; handeln soll, einige sprechen aber auch von &lt;strong&gt;{citizen2}&lt;/strong&gt;.</source>
+        <target><![CDATA[Angeblich wurden der Bank gestern einige verdächtige Entnahmen gemeldet. Die Zeugenaussagen deuten darauf hin, dass es sich um <strong>{citizen1}</strong> handeln soll, einige sprechen aber auch von <strong>{citizen2}</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="Gsbf.rs">
+      <notes>
+        <note category="german">Mal was anderes: ein Blick ins Bankregisterbuch hat leider Unerfreuliches offenbart. &lt;strong&gt;{citizen1}&lt;/strong&gt; hat sich &lt;strong&gt;in der Bank ausgetobt&lt;/strong&gt; und so allerhand &lt;strong&gt;mitgehen lassen&lt;/strong&gt;...</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Mal was anderes: ein Blick ins Bankregisterbuch hat leider Unerfreuliches offenbart. &lt;strong&gt;{citizen1}&lt;/strong&gt; hat sich &lt;strong&gt;in der Bank ausgetobt&lt;/strong&gt; und so allerhand &lt;strong&gt;mitgehen lassen&lt;/strong&gt;...</source>
+        <target><![CDATA[Mal was anderes: ein Blick ins Bankregisterbuch hat leider Unerfreuliches offenbart. <strong>{citizen1}</strong> hat sich <strong>in der Bank ausgetobt</strong> und so allerhand <strong>mitgehen lassen</strong>...]]></target>
+      </segment>
+    </unit>
+    <unit id="IckdGni">
+      <notes>
+        <note category="german">Einige Einwohner wundern sich, was &lt;strong&gt;{citizen1}&lt;/strong&gt; gestern den ganzen Tag in der Bank getrieben hat... Er sollte wissen, dass sein &lt;strong&gt;ständiges Kommen und Gehen&lt;/strong&gt; nicht unbemerkt geblieben ist...</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Einige Einwohner wundern sich, was &lt;strong&gt;{citizen1}&lt;/strong&gt; gestern den ganzen Tag in der Bank getrieben hat... Er sollte wissen, dass sein &lt;strong&gt;ständiges Kommen und Gehen&lt;/strong&gt; nicht unbemerkt geblieben ist...</source>
+        <target><![CDATA[Einige Einwohner wundern sich, was <strong>{citizen1}</strong> gestern den ganzen Tag in der Bank getrieben hat... Er sollte wissen, dass sein <strong>ständiges Kommen und Gehen</strong> nicht unbemerkt geblieben ist...]]></target>
+      </segment>
+    </unit>
+    <unit id="LbG8Gk4" name="Arsen">
+      <notes>
+        <note category="german">Arsen</note>
+        <note category="from">php:///src/Service/GazetteService.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Arsen</source>
+        <target>Arsen</target>
+      </segment>
+    </unit>
+    <unit id="HCIRSS9" name="Cyanolin">
+      <notes>
+        <note category="german">Cyanolin</note>
+        <note category="from">php:///src/Service/GazetteService.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Cyanolin</source>
+        <target>Cyanolin</target>
+      </segment>
+    </unit>
+    <unit id="Rnp_9CF" name="Neurotwinin">
+      <notes>
+        <note category="german">Neurotwinin</note>
+        <note category="from">php:///src/Service/GazetteService.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Neurotwinin</source>
+        <target>Neurotwinin</target>
+      </segment>
+    </unit>
+    <unit id="3Uh1oV9" name="Rizin">
+      <notes>
+        <note category="german">Rizin</note>
+        <note category="from">php:///src/Service/GazetteService.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Rizin</source>
+        <target>Rizin</target>
+      </segment>
+    </unit>
+    <unit id="CZvDuqX" name="Botulinumtoxin">
+      <notes>
+        <note category="german">Botulinumtoxin</note>
+        <note category="from">php:///src/Service/GazetteService.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Botulinumtoxin</source>
+        <target>Botulinumtoxin</target>
+      </segment>
+    </unit>
+    <unit id="HR8OwWp" name="Virunoir">
+      <notes>
+        <note category="german">Virunoir</note>
+        <note category="from">php:///src/Service/GazetteService.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Virunoir</source>
+        <target>Virunoir</target>
+      </segment>
+    </unit>
+    <unit id="aMG9BKE" name="Chlorotwinat">
+      <notes>
+        <note category="german">Chlorotwinat</note>
+        <note category="from">php:///src/Service/GazetteService.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Chlorotwinat</source>
+        <target>Chlorotwinat</target>
+      </segment>
+    </unit>
+    <unit id="vlTzPfn" name="Kaliumchlorid">
+      <notes>
+        <note category="german">Kaliumchlorid</note>
+        <note category="from">php:///src/Service/GazetteService.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Kaliumchlorid</source>
+        <target>Kaliumchlorid</target>
+      </segment>
+    </unit>
+    <unit id="QiiYtFk" name="Kurare">
+      <notes>
+        <note category="german">Kurare</note>
+        <note category="from">php:///src/Service/GazetteService.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Kurare</source>
+        <target>Kurare</target>
+      </segment>
+    </unit>
+    <unit id="eYaqEgt" name="Zyanid (poison)">
+      <notes>
+        <note category="german">Zyanid</note>
+        <note category="from">php:///src/Service/GazetteService.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Zyanid (poison)</source>
+        <target>Zyanid (poison)</target>
+      </segment>
+    </unit>
+    <unit id="oGlsrDH" name="Phenol">
+      <notes>
+        <note category="german">Phenol</note>
+        <note category="from">php:///src/Service/GazetteService.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Phenol</source>
+        <target>Phenol</target>
+      </segment>
+    </unit>
+    <unit id="BgNl_yX" name="Ponasulfat">
+      <notes>
+        <note category="german">Ponasulfat</note>
+        <note category="from">php:///src/Service/GazetteService.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Ponasulfat</source>
+        <target>Ponasulfat</target>
+      </segment>
+    </unit>
+    <unit id="csNYTXg">
+      <notes>
+        <note category="german">Es gibt einige, die sich auf unsere Kosten einen Spaß machen, das sage ich euch, zum Beispiel &lt;strong&gt;{citizen1}&lt;/strong&gt;, der {random} Mal vorbeikam, um eine Kleinigkeit aus der Bank zu holen... Wir verweigern uns nichts.</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Es gibt einige, die sich auf unsere Kosten einen Spaß machen, das sage ich euch, zum Beispiel &lt;strong&gt;{citizen1}&lt;/strong&gt;, der {random} Mal vorbeikam, um eine Kleinigkeit aus der Bank zu holen... Wir verweigern uns nichts.</source>
+        <target><![CDATA[Es gibt einige, die sich auf unsere Kosten einen Spaß machen, das sage ich euch, zum Beispiel <strong>{citizen1}</strong>, der {random} Mal vorbeikam, um eine Kleinigkeit aus der Bank zu holen... Wir verweigern uns nichts.]]></target>
+      </segment>
+    </unit>
+    <unit id="9WkEMJc">
+      <notes>
+        <note category="german">&lt;strong&gt;{citizen1}&lt;/strong&gt; ist so oft zur Bank gerannt, dass es ja irgendwann mal auffallen MUSSTE! Allein gestern waren es &lt;strong&gt;{random} Mal&lt;/strong&gt;.</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;{citizen1}&lt;/strong&gt; ist so oft zur Bank gerannt, dass es ja irgendwann mal auffallen MUSSTE! Allein gestern waren es &lt;strong&gt;{random} Mal&lt;/strong&gt;.</source>
+        <target><![CDATA[<strong>{citizen1}</strong> ist so oft zur Bank gerannt, dass es ja irgendwann mal auffallen MUSSTE! Allein gestern waren es <strong>{random} Mal</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="bVo7YAL" name="{shaman} hat {citizen} soeben mit seinen mystischen Schamanenkräften geheilt!">
+      <notes>
+        <note category="german">{shaman} hat {citizen} soeben mit seinen mystischen Schamanenkräften geheilt!</note>
+        <note category="from">db://LogEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>{shaman} hat {citizen} soeben mit seinen mystischen Schamanenkräften geheilt!</source>
+        <target>{shaman} hat {citizen} soeben mit seinen mystischen Schamanenkräften geheilt!</target>
       </segment>
     </unit>
   </file>

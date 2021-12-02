@@ -36,14 +36,14 @@ body.arma {
             visibility: hidden;
             line-height: 0;
             &.author {
-                &:before {
+                &:after {
                     content: "ERROR";
                     visibility: visible;
                     line-height: initial;
                 }
             }
             &.nbPost {
-                &:before {
+                &:after {
                     content: "666";
                     visibility: visible;
                     line-height: initial;
@@ -64,8 +64,14 @@ body.arma {
     .citizens-list .avatar.ua-9 { background: url(../../img/anims/doomed10.gif) !important; }
 }
 
+footer.arma {
+  .cell-small.footer > div, .cell.footer > div {
+    background: rgba(0, 0, 0, 0.88);
+  }
+}
+
 body.christmas {
-  #wrapper>#header { background: url(../../img/background/header_xmas_de.gif); }
+  #wrapper>#header { background: url(../../img/background/header_xmas_de.webp); }
 }
 
 body.stpatrick {
