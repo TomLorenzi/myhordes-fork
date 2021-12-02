@@ -23860,11 +23860,10 @@
       <notes>
         <note category="german">Ich habe gestern &lt;strong&gt;{cadavers} Selbstmorde&lt;/strong&gt; gezählt. Schlussendlich kommt die Gefahr vielleicht nicht von außen... &lt;strong&gt;Was&lt;/strong&gt; habt ihr ihnen angetan?</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ich habe gestern &lt;strong&gt;{cadavers} Selbstmorde&lt;/strong&gt; gezählt. Schlussendlich kommt die Gefahr vielleicht nicht von außen... &lt;strong&gt;Was&lt;/strong&gt; habt ihr ihnen angetan?</source>
-        <target><![CDATA[Ich habe gestern <strong>{cadavers} Selbstmorde</strong> gezählt. Schlussendlich kommt die Gefahr vielleicht nicht von außen... <strong>Was</strong> habt ihr ihnen angetan?]]></target>
+        <target><![CDATA[Hubieron <strong>{cadavers} suicidios</strong> ayer. Tal vez, el peligro no haya venido de afuera... ¿<strong>Qué</strong> habéis hecho?]]></target>
       </segment>
     </unit>
     <unit id="TGk1Ozt">
@@ -23882,44 +23881,40 @@
       <notes>
         <note category="german">Es gab gestern ein großes Stadtfest. &lt;strong&gt;&lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} wurde gehängt&lt;/strong&gt;. Endlich mal was los hier!</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Es gab gestern ein großes Stadtfest. &lt;strong&gt;&lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} wurde gehängt&lt;/strong&gt;. Endlich mal was los hier!</source>
-        <target><![CDATA[Es gab gestern ein großes Stadtfest. <strong><i class="dagger">†</i> {cadaver1} wurde gehängt</strong>. Endlich mal was los hier!]]></target>
+        <target><![CDATA[Anoche hubo una gran fiesta por el ahorcamiento de <strong><i class="dagger">†</i> {cadaver1}</strong>. Fue conmovedor, hacía tiempo que el pueblo no se divertía tanto...]]></target>
       </segment>
     </unit>
     <unit id="SXSdY4m">
       <notes>
         <note category="german">Großes Melodrama gestern während der Hängung von &lt;strong&gt;† {cadaver1}&lt;/strong&gt;: &lt;strong&gt;{citizen1}&lt;/strong&gt; soll aus Trauer versucht haben, die Feierlichkeiten zu verhindern, was er schlussendlich durch Gewalt sowie anderes &lt;strong&gt;anti-soziales Verhalten&lt;/strong&gt; erreichen wollte. Einige Nachbarn sollen empfohlen haben, auch diesen Störenfried aufzuhängen...</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Großes Melodrama gestern während der Hängung von &lt;strong&gt;† {cadaver1}&lt;/strong&gt;: &lt;strong&gt;{citizen1}&lt;/strong&gt; soll aus Trauer versucht haben, die Feierlichkeiten zu verhindern, was er schlussendlich durch Gewalt sowie anderes &lt;strong&gt;anti-soziales Verhalten&lt;/strong&gt; erreichen wollte. Einige Nachbarn sollen empfohlen haben, auch diesen Störenfried aufzuhängen...</source>
-        <target><![CDATA[Großes Melodrama gestern während der Hängung von <strong>† {cadaver1}</strong>: <strong>{citizen1}</strong> soll aus Trauer versucht haben, die Feierlichkeiten zu verhindern, was er schlussendlich durch Gewalt sowie anderes <strong>anti-soziales Verhalten</strong> erreichen wollte. Einige Nachbarn sollen empfohlen haben, auch diesen Störenfried aufzuhängen...]]></target>
+        <target><![CDATA[Hubo tremendo lío durante el ahorcamiento de <strong>† {cadaver1}</strong>. <strong>{citizen1}</strong>, habría intentado interrumpir las festividades, al punto de ponerse muy agresivo y <strong>anti-comunitario</strong>. Algunos vecinos recomendaron colgarlo por aguafiestas...]]></target>
       </segment>
     </unit>
     <unit id="qNYEo_e">
       <notes>
         <note category="german">Die Gemeinde wollte dem Bürger &lt;strong&gt;† {cadaver1}&lt;/strong&gt; den Schrecken des heutigen Angriffs ersparen, indem sie ihn tagsüber &lt;strong&gt;aufknüpften&lt;/strong&gt;.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Die Gemeinde wollte dem Bürger &lt;strong&gt;† {cadaver1}&lt;/strong&gt; den Schrecken des heutigen Angriffs ersparen, indem sie ihn tagsüber &lt;strong&gt;aufknüpften&lt;/strong&gt;.</source>
-        <target><![CDATA[Die Gemeinde wollte dem Bürger <strong>† {cadaver1}</strong> den Schrecken des heutigen Angriffs ersparen, indem sie ihn tagsüber <strong>aufknüpften</strong>.]]></target>
+        <target><![CDATA[La comunidad decidió salvar a <strong>† {cadaver1}</strong> del horror de los ataques de los zombies. ¿Cómo? <strong>Colgándolo</strong>. Ese es el verdadero compañerismo.]]></target>
       </segment>
     </unit>
     <unit id="HnFKIJL">
       <notes>
         <note category="german">Die Stadt hatte gestern beschlossen, &lt;strong&gt;† {cadaver1}&lt;/strong&gt; zu erhängen. Leider verlief die Hinrichtung nicht reibungslos. Drei Anläufe waren nötig, um ihm schließlich das Genick zu brechen.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Die Stadt hatte gestern beschlossen, &lt;strong&gt;† {cadaver1}&lt;/strong&gt; zu erhängen. Leider verlief die Hinrichtung nicht reibungslos. Drei Anläufe waren nötig, um ihm schließlich das Genick zu brechen.</source>
-        <target><![CDATA[Die Stadt hatte gestern beschlossen, <strong>† {cadaver1}</strong> zu erhängen. Leider verlief die Hinrichtung nicht reibungslos. Drei Anläufe waren nötig, um ihm schließlich das Genick zu brechen.]]></target>
+        <target><![CDATA[El pueblo decidió colgar a <strong>† {cadaver1}</strong> anoche. Se necesitaron varios intentos, el desgraciado no pesaba mucho.]]></target>
       </segment>
     </unit>
     <unit id="9NOVAyP">
@@ -24479,7 +24474,7 @@
       </notes>
       <segment>
         <source>&lt;strong&gt;{citizen1}&lt;/strong&gt; ist so oft zur Bank gerannt, dass es ja irgendwann mal auffallen MUSSTE! Allein gestern waren es &lt;strong&gt;{random} Mal&lt;/strong&gt;.</source>
-        <target><![CDATA[es alarmante la cantidad de veces que <strong>{citizen1}</strong> ha sido visto sacando cosas del Almacén. <strong>{random} veces</strong> solo ayer.]]></target>
+        <target><![CDATA[Es alarmante la cantidad de veces que <strong>{citizen1}</strong> ha sido visto sacando cosas del Almacén. <strong>{random} veces</strong> solo ayer.]]></target>
       </segment>
     </unit>
     <unit id="bVo7YAL" name="{shaman} hat {citizen} soeben mit seinen mystischen Schamanenkräften geheilt!">
