@@ -24484,7 +24484,7 @@
       </notes>
       <segment>
         <source>&lt;strong&gt;{citizen1}&lt;/strong&gt; ist so oft zur Bank gerannt, dass es ja irgendwann mal auffallen MUSSTE! Allein gestern waren es &lt;strong&gt;{random} Mal&lt;/strong&gt;.</source>
-        <target><![CDATA[<strong>{citizen1}</strong> ist so oft zur Bank gerannt, dass es ja irgendwann mal auffallen MUSSTE! Allein gestern waren es <strong>{random} Mal</strong>.]]></target>
+        <target><![CDATA[es alarmante la cantidad de veces que <strong>{citizen1}</strong> ha sido visto sacando cosas del Almacén. <strong>{random} veces</strong> solo ayer.]]></target>
       </segment>
     </unit>
     <unit id="bVo7YAL" name="{shaman} hat {citizen} soeben mit seinen mystischen Schamanenkräften geheilt!">
