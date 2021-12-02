@@ -23534,44 +23534,40 @@
       <notes>
         <note category="german">Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre &lt;strong&gt;in der Nähe der nördlichen Mauer&lt;/strong&gt; gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre &lt;strong&gt;in der Nähe der nördlichen Mauer&lt;/strong&gt; gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.</source>
-        <target><![CDATA[Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre <strong>in der Nähe der nördlichen Mauer</strong> gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.]]></target>
+        <target><![CDATA[¡Desde los techos, hemos visto a uno de los {cadavers} desaparecidos en el desierto volver hacia el pueblo <strong>cerca del muro norte</strong>! Por desgracia, le faltaban las piernas y murió a varios metros del Portal. Puajjj.]]></target>
       </segment>
     </unit>
     <unit id="stCBeN3">
       <notes>
         <note category="german">Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre &lt;strong&gt;in der Nähe der südlichen Mauer&lt;/strong&gt; gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre &lt;strong&gt;in der Nähe der südlichen Mauer&lt;/strong&gt; gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.</source>
-        <target><![CDATA[Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre <strong>in der Nähe der südlichen Mauer</strong> gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.]]></target>
+        <target><![CDATA[¡Desde los techos, hemos visto a uno de los {cadavers} desaparecidos en el desierto volver hacia el pueblo <strong>cerca del muro sur</strong>! Por desgracia, le faltaban las piernas y murió a varios metros del Portal. Puajjj.]]></target>
       </segment>
     </unit>
     <unit id="GAnRpoW">
       <notes>
         <note category="german">Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre &lt;strong&gt;in der Nähe der westlichen Mauer&lt;/strong&gt; gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre &lt;strong&gt;in der Nähe der westlichen Mauer&lt;/strong&gt; gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.</source>
-        <target><![CDATA[Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre <strong>in der Nähe der westlichen Mauer</strong> gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.]]></target>
+        <target><![CDATA[¡Desde los techos, hemos visto a uno de los {cadavers} desaparecidos en el desierto volver hacia el pueblo <strong>cerca del muro oeste</strong>! Por desgracia, le faltaban las piernas y murió a varios metros del Portal. Puajjj.]]></target>
       </segment>
     </unit>
     <unit id="bURQbdD">
       <notes>
         <note category="german">Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre &lt;strong&gt;in der Nähe der östlichen Mauer&lt;/strong&gt; gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre &lt;strong&gt;in der Nähe der östlichen Mauer&lt;/strong&gt; gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.</source>
-        <target><![CDATA[Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre <strong>in der Nähe der östlichen Mauer</strong> gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.]]></target>
+        <target><![CDATA[¡Desde los techos, hemos visto a uno de los {cadavers} desaparecidos en el desierto volver hacia el pueblo <strong>cerca del muro este</strong>! Por desgracia, le faltaban las piernas y murió a varios metros del Portal. Puajjj.]]></target>
       </segment>
     </unit>
     <unit id="nxj3690" name="Nun, das sage ich...">
@@ -24480,7 +24476,6 @@
       <notes>
         <note category="german">&lt;strong&gt;{citizen1}&lt;/strong&gt; ist so oft zur Bank gerannt, dass es ja irgendwann mal auffallen MUSSTE! Allein gestern waren es &lt;strong&gt;{random} Mal&lt;/strong&gt;.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>&lt;strong&gt;{citizen1}&lt;/strong&gt; ist so oft zur Bank gerannt, dass es ja irgendwann mal auffallen MUSSTE! Allein gestern waren es &lt;strong&gt;{random} Mal&lt;/strong&gt;.</source>
