@@ -21492,13 +21492,13 @@
         <target>After all, the citizens have been thrown out of town by the explosion...</target>
       </segment>
     </unit>
-    <unit id="OXoMte5" name="Du kannst nicht &lt;strong&gt;mehr als 2 Rationen Wasser pro Tag&lt;/strong&gt; entnehmen.">
+    <unit id="OXoMte5" name="Du kannst nicht &lt;strong&gt;mehr als {max} Rationen Wasser pro Tag&lt;/strong&gt; entnehmen.">
       <notes>
-        <note category="german">Du kannst nicht &lt;strong&gt;mehr als 2 Rationen Wasser pro Tag&lt;/strong&gt; entnehmen.</note>
+        <note category="german">Du kannst nicht &lt;strong&gt;mehr als {max} Rationen Wasser pro Tag&lt;/strong&gt; entnehmen.</note>
         <note category="from">twig:///templates/ajax/game/town/well.html.twig</note>
       </notes>
       <segment>
-        <source>Du kannst nicht &lt;strong&gt;mehr als 2 Rationen Wasser pro Tag&lt;/strong&gt; entnehmen.</source>
+        <source>Du kannst nicht &lt;strong&gt;mehr als {max} Rationen Wasser pro Tag&lt;/strong&gt; entnehmen.</source>
         <target><![CDATA[You cannot take <strong>more than 2 rations of water per day</strong>.]]></target>
       </segment>
     </unit>
