@@ -56,7 +56,39 @@
                 {% endif %}
             </div>
         {% endif %}
-
+        {% if tid is null and tags is defined and tags is not empty %}
+            <div class="row">
+                {% if type != 'global-pm' and type != 'numb' %}
+                    <div class="cell rw-4 padded">
+                        <label for="{{ type }}-forum-editor-tag">{{ 'Tag (optional)'|trans({},'global') }}</label>
+                    </div>
+                    <div class="cell rw-8 padded">
+                        <select id="{{ type }}-forum-editor-tag">
+                            <option value="-none-"></option>
+                            {% for tag in tags %}
+                                <option value="{{ tag.name }}">{{ tag.label|trans({},'global') }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                {% endif %}
+                {% if type == "changelog" or type == "announcement" %}
+                    {% if type == "changelog" %}
+                        <div class="cell rw-4 padded">
+                            <label for="{{ type }}-forum-editor-version">{{ 'Version'|trans({},'global') }}</label>
+                        </div>
+                        <div class="cell rw-8 padded">
+                            <input type="text" id="{{ type }}-forum-editor-version" />
+                        </div>
+                    {% endif %}
+                    <div class="cell rw-4 padded">
+                        <label for="{{ type }}-forum-editor-lang">{{ 'Sprache'|trans({},'global') }}</label>
+                    </div>
+                    <div class="cell rw-8 padded">
+                        <select id="{{ type }}-forum-editor-lang"></select>
+                    </div>
+                {% endif %}
+            </div>
+        {% endif %}
         <div class="row classic-editor">
             <div class="padded cell rw-12">
                 {% if type != 'global-pm' %}
@@ -680,6 +712,7 @@
                                 target_url = '{{ path('forum_new_thread_controller', {id: fid}) }}';
                                 target_payload = {
                                     title: document.getElementById('{{ type }}-forum-editor-title').value,
+                                    tag: document.getElementById('{{ type }}-forum-editor-tag').value,
                                     text: content_node.innerHTML,
                                     type: type
                                 };

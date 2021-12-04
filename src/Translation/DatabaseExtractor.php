@@ -253,7 +253,7 @@ class DatabaseExtractor implements ExtractorInterface
 
         foreach ($this->em->getRepository(ThreadTag::class)->findAll() as $tag) {
             /** @var ThreadTag $tag */
-            $this->insert( $c, $tag->getLabel(), 'game', ThreadTag::class );
+            $this->insert( $c, $tag->getLabel(), 'global', ThreadTag::class );
         }
 
         foreach ($this->em->getRepository(TownClass::class)->findAll() as $town)

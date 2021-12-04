@@ -65,6 +65,8 @@ class Extensions extends AbstractExtension  implements GlobalsInterface
             new TwigFilter('related',  [$this, 'user_relation']),
             new TwigFilter('filesize',  [$this, 'format_filesize']),
             new TwigFilter('dogname',  [$this, 'dogname']),
+            new TwigFilter('color',  [$this, 'color']),
+            new TwigFilter('textcolor',  [$this, 'color_tx']),
         ];
     }
 
@@ -112,6 +114,37 @@ class Extensions extends AbstractExtension  implements GlobalsInterface
      */
     public function dogname(User $u): string {
         return LogTemplateHandler::generateDogName( $u->getActiveCitizen() ? $u->getActiveCitizen()->getId() : 0, $this->translator );
+    }
+
+    /**
+     * @param string $bin
+     * @return string
+     */
+    public function color(string $bin): string {
+        return '#' . bin2hex($bin);
+    }
+
+    /**
+     * @param string $color
+     * @return string
+     */
+    public function color_tx(string $color): string {
+        if (empty($color)) return '#000';
+        if (mb_substr($color,0,1) === '#') $color = mb_substr($color,1);
+
+        switch (mb_strlen($color)) {
+            case 3: case 4: $color = "{$color[0]}{$color[0]}{$color[1]}{$color[1]}{$color[2]}{$color[2]}"; break;
+            case 6: case 8: $color = substr($color, 0, 6); break;
+            default: $color = 'ffffff';
+        }
+
+        return (
+            hexdec( substr($color, 0, 2) ) * .299 +
+            hexdec( substr($color, 2, 2) ) * .587 +
+            hexdec( substr($color, 4, 2) ) * .114
+        ) > 150 ? '#000000' : '#ffffff';
+
+
     }
 
     /**
