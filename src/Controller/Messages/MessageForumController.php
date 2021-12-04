@@ -240,7 +240,7 @@ class MessageForumController extends MessageController
 
 
         $title = $parser->trimmed('title');
-        $tag  = $parser->trimmed('tag');
+        $tag   = $this->userHandler->hasSkill($user, 'writer') ? $parser->trimmed('tag') : null;
         $text  = $parser->trimmed('text');
 
         if (empty($tag) || $tag === '-none-')
@@ -835,9 +835,9 @@ class MessageForumController extends MessageController
             $username = $user->getName();
         }
 
-        $tags = array_filter( $forum->getAllowedTags()->getValues(),
+        $tags = $this->userHandler->hasSkill($user, 'writer') ? array_filter( $forum->getAllowedTags()->getValues(),
             fn(ThreadTag $tag) => $tag->getPermissionMap() === null || $this->perm->isPermitted( $permissions, $tag->getPermissionMap() )
-        );
+        ) : [];
 
         return $this->render( 'ajax/forum/editor.html.twig', [
             'fid' => $id,

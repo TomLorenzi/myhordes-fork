@@ -173,6 +173,7 @@ class EmoteFixtures extends Fixture {
         'dsc_orga'   => [ 'color' => null, 'label' => 'Orga.' ],
         'dsc_sugg'   => [ 'color' => null, 'label' => 'Vorschlag' ],
         'dsc_salc'   => [ 'color' => null, 'label' => 'SALC' ],
+        'dsc_proj'   => [ 'color' => null, 'label' => 'Projekt' ],
     ];
 
     private function insertEmotes(ObjectManager $manager, ConsoleOutputInterface $out) {

@@ -710,9 +710,12 @@
                         {% else %}
                             {% if tid is null %}
                                 target_url = '{{ path('forum_new_thread_controller', {id: fid}) }}';
+                                let tag = null;
+                                if (document.getElementById('{{ type }}-forum-editor-tag'))
+                                    tag = document.getElementById('{{ type }}-forum-editor-tag').value;
                                 target_payload = {
                                     title: document.getElementById('{{ type }}-forum-editor-title').value,
-                                    tag: document.getElementById('{{ type }}-forum-editor-tag').value,
+                                    tag: tag,
                                     text: content_node.innerHTML,
                                     type: type
                                 };
