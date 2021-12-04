@@ -263,7 +263,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'contaminated_zone_infect'  => [ 'collection' => [ 'custom' => [22] ] ],
 
             'consume_item'    => [ 'item' => [ 'consume' => true,  'morph' => null, 'break' => null, 'poison' => null ] ],
-            'break_item'      => [ 'item' => [ 'consume' => false, 'morph' => null, 'break' => true, 'poison' => null ], "message" => ['text' => 'Deine Waffe ist durch den harten Aufschlag <strong>kaputt</strong> gegangen...', 'ordering' => 99999] ],
+            'break_item'      => [ 'item' => [ 'consume' => false, 'morph' => null, 'break' => true, 'poison' => null ], 'picto' => 'picto_break', "message" => ['text' => 'Deine Waffe ist durch den harten Aufschlag <strong>kaputt</strong> gegangen...', 'ordering' => 99999] ],
             'cleanse_item'    => [ 'item' => [ 'consume' => false, 'morph' => null, 'break' => true, 'poison' => false ] ],
             'empty_jerrygun'  => [ 'item' => [ 'consume' => false, 'morph' => 'jerrygun_off_#00', 'break' => null, 'poison' => null ] ],
 
@@ -438,6 +438,9 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 'satisfy_ghoul_10' => [ 'hunger' => -15 ],
             ],
             'item' => [],
+            'picto' => [
+                'picto_break' => ['r_broken_#00']
+            ],
 
             'spawn' => [
                 'xmas_dv' => [ ['omg_this_will_kill_you_#00', 8], ['pocket_belt_#00', 8], ['christmas_candy_#00', 8], 'rp_scroll_#00', 'rp_manual_#00', 'rp_sheets_#00', 'rp_letter_#00', 'rp_scroll_#00', 'rp_book_#00', 'rp_book_#01', 'rp_book2_#00' ],

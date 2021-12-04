@@ -21434,7 +21434,7 @@
         <target>Immerhin wurden alle Bürger aus der Stadt geschleudert...</target>
       </segment>
     </unit>
-    <unit id="OXoMte5" name="Du kannst nicht &lt;strong&gt;mehr als {max} Rationen Wasser pro Tag&lt;/strong&gt; entnehmen.">
+    <unit id="InNTsjR">
       <notes>
         <note category="german">Du kannst nicht &lt;strong&gt;mehr als {max} Rationen Wasser pro Tag&lt;/strong&gt; entnehmen.</note>
         <note category="from">twig:///templates/ajax/game/town/well.html.twig</note>
