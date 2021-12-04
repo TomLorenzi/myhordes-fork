@@ -2451,5 +2451,83 @@
         <target>Diese Diskussion ist als gelöst markiert (oder der Anlass hat sich mittlerweile erledigt).</target>
       </segment>
     </unit>
+    <unit id="9swBy37" name="Fehler">
+      <segment>
+        <source>Fehler</source>
+        <target>Fehler</target>
+      </segment>
+    </unit>
+    <unit id="6tB8hLq" name="Changelog">
+      <segment>
+        <source>Changelog</source>
+        <target>Changelog</target>
+      </segment>
+    </unit>
+    <unit id="Th9Jqci" name="Event">
+      <segment>
+        <source>Event</source>
+        <target>Event</target>
+      </segment>
+    </unit>
+    <unit id="3NNJH4T" name="RP">
+      <segment>
+        <source>RP</source>
+        <target>RP</target>
+      </segment>
+    </unit>
+    <unit id="wcEAnT8" name="Update">
+      <segment>
+        <source>Update</source>
+        <target>Update</target>
+      </segment>
+    </unit>
+    <unit id="pVVGIsZ" name="Post">
+      <segment>
+        <source>Post</source>
+        <target>Post</target>
+      </segment>
+    </unit>
+    <unit id="k8yukmg" name="Disk.">
+      <segment>
+        <source>Disk.</source>
+        <target>Disk.</target>
+      </segment>
+    </unit>
+    <unit id="jdZdCVL" name="Guide">
+      <segment>
+        <source>Guide</source>
+        <target>Guide</target>
+      </segment>
+    </unit>
+    <unit id="2NNH_gz" name="Orga.">
+      <segment>
+        <source>Orga.</source>
+        <target>Orga.</target>
+      </segment>
+    </unit>
+    <unit id="knm5RWw" name="Vorschlag">
+      <segment>
+        <source>Vorschlag</source>
+        <target>Vorschlag</target>
+      </segment>
+    </unit>
+    <unit id="dlGjhQC" name="SALC">
+      <segment>
+        <source>SALC</source>
+        <target>SALC</target>
+      </segment>
+    </unit>
+    <unit id="VsuA962" name="Tag (optional)">
+      <segment>
+        <source>Tag (optional)</source>
+        <target>Tag (optional)</target>
+      </segment>
+    </unit>
+    <unit id="QOv5Ovj" name="Projekt">
+      <segment>
+        <source>Projekt</source>
+        <target>Projekt</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

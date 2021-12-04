@@ -384,7 +384,7 @@
     <unit id="lUcvZQo" name="Hilfe">
       <notes>
         <note category="german">Hilfe</note>
-        <note category="from">php:///src/Controller/GameController.php;php:///src/Service/GazetteService.php;php:///src/Twig/Extensions.php;twig:///templates/ajax/ajax.html.twig;twig:///templates/ajax/forum/editor.html.twig;twig:///templates/ajax/game/beyond/beyond.html.twig;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/jobs.html.twig;twig:///templates/ajax/game/newspaper.html.twig;twig:///templates/ajax/game/town/bank.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/dump.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/game/town/town.html.twig;twig:///templates/ajax/ghost/create_town.html.twig;twig:///templates/ajax/pm/bubbles.html.twig;twig:///templates/ajax/public/disclaimer.html.twig;twig:///templates/ajax/soul/coalitions.html.twig;twig:///templates/ajax/soul/me.html.twig;twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/season.html.twig;twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="from">db://ThreadTag;php:///src/Controller/GameController.php;php:///src/Service/GazetteService.php;php:///src/Twig/Extensions.php;twig:///templates/ajax/ajax.html.twig;twig:///templates/ajax/forum/editor.html.twig;twig:///templates/ajax/game/beyond/beyond.html.twig;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/jobs.html.twig;twig:///templates/ajax/game/newspaper.html.twig;twig:///templates/ajax/game/town/bank.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/dump.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/game/town/town.html.twig;twig:///templates/ajax/ghost/create_town.html.twig;twig:///templates/ajax/pm/bubbles.html.twig;twig:///templates/ajax/public/disclaimer.html.twig;twig:///templates/ajax/soul/coalitions.html.twig;twig:///templates/ajax/soul/me.html.twig;twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/season.html.twig;twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Hilfe</source>
@@ -3942,6 +3942,141 @@
       <segment>
         <source>Diese Diskussion ist als gelöst markiert (oder der Anlass hat sich mittlerweile erledigt).</source>
         <target>Cette discussion a été marquée comme résolue (ou le tour de la question a été fait).</target>
+      </segment>
+    </unit>
+    <unit id="9swBy37" name="Fehler">
+      <notes>
+        <note category="german">Fehler</note>
+        <note category="from">db://ThreadTag</note>
+      </notes>
+      <segment>
+        <source>Fehler</source>
+        <target>Bugs</target>
+      </segment>
+    </unit>
+    <unit id="6tB8hLq" name="Changelog">
+      <notes>
+        <note category="german">Changelog</note>
+        <note category="from">db://ThreadTag</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Changelog</source>
+        <target>Changelog</target>
+      </segment>
+    </unit>
+    <unit id="Th9Jqci" name="Event">
+      <notes>
+        <note category="german">Event</note>
+        <note category="from">db://ThreadTag</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Event</source>
+        <target>Event</target>
+      </segment>
+    </unit>
+    <unit id="3NNJH4T" name="RP">
+      <notes>
+        <note category="german">RP</note>
+        <note category="from">db://ThreadTag</note>
+      </notes>
+      <segment>
+        <source>RP</source>
+        <target>Rôle Play</target>
+      </segment>
+    </unit>
+    <unit id="wcEAnT8" name="Update">
+      <notes>
+        <note category="german">Update</note>
+        <note category="from">db://ThreadTag</note>
+      </notes>
+      <segment>
+        <source>Update</source>
+        <target>Maj</target>
+      </segment>
+    </unit>
+    <unit id="pVVGIsZ" name="Post">
+      <notes>
+        <note category="german">Post</note>
+        <note category="from">db://ThreadTag</note>
+      </notes>
+      <segment>
+        <source>Post</source>
+        <target>Courrier</target>
+      </segment>
+    </unit>
+    <unit id="k8yukmg" name="Disk.">
+      <notes>
+        <note category="german">Disk.</note>
+        <note category="from">db://ThreadTag</note>
+      </notes>
+      <segment>
+        <source>Disk.</source>
+        <target>Débat</target>
+      </segment>
+    </unit>
+    <unit id="jdZdCVL" name="Guide">
+      <notes>
+        <note category="german">Guide</note>
+        <note category="from">db://ThreadTag</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Guide</source>
+        <target>Guide</target>
+      </segment>
+    </unit>
+    <unit id="2NNH_gz" name="Orga.">
+      <notes>
+        <note category="german">Orga.</note>
+        <note category="from">db://ThreadTag</note>
+      </notes>
+      <segment>
+        <source>Orga.</source>
+        <target>Orga</target>
+      </segment>
+    </unit>
+    <unit id="knm5RWw" name="Vorschlag">
+      <notes>
+        <note category="german">Vorschlag</note>
+        <note category="from">db://ThreadTag</note>
+      </notes>
+      <segment>
+        <source>Vorschlag</source>
+        <target>Suggs</target>
+      </segment>
+    </unit>
+    <unit id="dlGjhQC" name="SALC">
+      <notes>
+        <note category="german">SALC</note>
+        <note category="from">db://ThreadTag</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>SALC</source>
+        <target>SALC</target>
+      </segment>
+    </unit>
+    <unit id="VsuA962" name="Tag (optional)">
+      <notes>
+        <note category="german">Tag (optional)</note>
+        <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Tag (optional)</source>
+        <target>Tag (optional)</target>
+      </segment>
+    </unit>
+    <unit id="QOv5Ovj" name="Projekt">
+      <notes>
+        <note category="german">Projekt</note>
+        <note category="from">db://ThreadTag</note>
+      </notes>
+      <segment>
+        <source>Projekt</source>
+        <target>Projet</target>
       </segment>
     </unit>
   </file>
