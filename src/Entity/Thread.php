@@ -88,6 +88,12 @@ class Thread
      */
     private $solved = false;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=ThreadTag::class)
+     * @ORM\JoinColumn(nullable=true, onDelete="SET NULL")
+     */
+    private $tag;
+
     public function __construct()
     {
         $this->posts = new ArrayCollection();
@@ -327,6 +333,18 @@ class Thread
     public function setSolved(bool $solved): self
     {
         $this->solved = $solved;
+
+        return $this;
+    }
+
+    public function getTag(): ?ThreadTag
+    {
+        return $this->tag;
+    }
+
+    public function setTag(?ThreadTag $tag): self
+    {
+        $this->tag = $tag;
 
         return $this;
     }

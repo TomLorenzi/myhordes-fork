@@ -5,6 +5,8 @@ namespace App\DataFixtures;
 
 
 use App\Entity\Emotes;
+use App\Entity\ForumUsagePermissions;
+use App\Entity\ThreadTag;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ObjectManager;
@@ -157,6 +159,22 @@ class EmoteFixtures extends Fixture {
         ['tag'=>':sand:', 'path'=>'build/images/emotes/sandb.gif', 'isactive'=> true, 'requiresunlock'=> true, 'index'=> 133],
     ];
 
+    protected static $tag_data = [
+        'bugs'   => [ 'color' => '3b1c32', 'label' => 'Fehler' ],
+        'help'   => [ 'color' => 'ca054d', 'label' => 'Hilfe'  ],
+        'update' => [ 'color' => '3d405b', 'label' => 'Update', 'mask' => ForumUsagePermissions::PermissionPostAsDev ],
+        'event'  => [ 'color' => '43aa8b', 'label' => 'event' ],
+        'rp'     => [ 'color' => 'd4a373', 'label' => 'RP' ],
+
+        'dsc_update' => [ 'color' => null, 'label' => 'Update' ],
+        'dsc_post'   => [ 'color' => null, 'label' => 'Post' ],
+        'dsc_disc'   => [ 'color' => null, 'label' => 'Disk.' ],
+        'dsc_guide'  => [ 'color' => null, 'label' => 'Guide' ],
+        'dsc_orga'   => [ 'color' => null, 'label' => 'Orga.' ],
+        'dsc_sugg'   => [ 'color' => null, 'label' => 'Vorschlag' ],
+        'dsc_salc'   => [ 'color' => null, 'label' => 'SALC' ],
+    ];
+
     private function insertEmotes(ObjectManager $manager, ConsoleOutputInterface $out) {
         $out->writeln('<comment>Emotes: ' . count(static::$emote_data) . ' fixture entries available.</comment>');
 
@@ -183,12 +201,35 @@ class EmoteFixtures extends Fixture {
         $progress->finish();
     }
 
+    private function insertForumTags(ObjectManager $manager, ConsoleOutputInterface $out) {
+        $out->writeln('<comment>Forum Tags: ' . count(static::$tag_data) . ' fixture entries available.</comment>');
+
+        $progress = new ProgressBar( $out->section() );
+        $progress->start( count(static::$tag_data) );
+
+        foreach (static::$tag_data as $name => $entry) {
+            $entity = $this->entityManager->getRepository(ThreadTag::class)->findOneBy(['name' => $name]);
+            if ($entity === null) {
+                $entity = new ThreadTag();
+            }
+
+            $entity->setName($name)->setLabel($entry['label'])->setColor( hex2bin($entry['color'] ?? '00000030') )
+                ->setPermissionMap($entry['mask'] ?? null);
+
+            $manager->persist($entity);
+            $progress->advance();
+        }
+        $manager->flush();
+        $progress->finish();
+    }
+
     public function load(ObjectManager $manager) {
         $output = new ConsoleOutput();
         $output->writeln( '<info>Installing fixtures: Emotes Database</info>' );
         $output->writeln("");
 
         $this->insertEmotes($manager, $output);
+        $this->insertForumTags($manager, $output);
         $output->writeln("");
     }
 }
