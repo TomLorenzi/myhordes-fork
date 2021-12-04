@@ -26,6 +26,7 @@ use App\Entity\RuinZone;
 use App\Entity\Season;
 use App\Entity\ShadowBan;
 use App\Entity\SpecialActionPrototype;
+use App\Entity\ThreadTag;
 use App\Entity\Town;
 use App\Entity\TownLogEntry;
 use App\Entity\TownRankingProxy;
@@ -106,6 +107,7 @@ class MigrateCommand extends Command
         'a7fa0be81f35415ca3c2fc5810bdc53acd6331cc' => [ ['app:migrate', ['--prune-rp-texts' => true] ] ],
         '8e7d00f016648b180840f47544d98d337e5c0088' => [ ['app:migrate', ['--fix-ranking-survived-days' => true] ] ],
         'ffa2f28a35c5a34a0fbb26d8f478d5fc0f24679a' => [ ['app:migrate', ['--repair-permissions' => true] ] ],
+        '0d37ad639bb89157ffa64eac0821ac490e063224' => [ ['app:migrate', ['--reassign-thread-tags' => true] ] ],
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
@@ -177,6 +179,7 @@ class MigrateCommand extends Command
             ->addOption('update-all-sp', null, InputOption::VALUE_NONE, 'Update all soul points')
             ->addOption('fix-forum-posts', null, InputOption::VALUE_NONE, 'Fix forum post content')
             ->addOption('fix-ranking-survived-days', null, InputOption::VALUE_NONE, 'Fix survived day count in rankings')
+            ->addOption('reassign-thread-tags', null, InputOption::VALUE_NONE, 'Repairs ThreadTag assignment to forums')
 
             ->addOption('repair-permissions', null, InputOption::VALUE_NONE, 'Makes sure forum permissions and user groups are set up properly')
             ->addOption('migrate-oracles', null, InputOption::VALUE_NONE, 'Moves the Oracle role from account elevation to the special permissions flag')
@@ -696,6 +699,23 @@ class MigrateCommand extends Command
             $this->helper->leChunk($output, TownRankingProxy::class, 100, ['imported' => false], true, false, function(TownRankingProxy $tp):bool {
                 if ($tp->getTown() && $tp->getTown()->getAliveCitizenCount() > 0) return false;
                 $this->game_factory->updateTownScore($tp);
+                return true;
+            });
+
+            return 0;
+        }
+
+        if ($input->getOption('reassign-thread-tags')) {
+            $all_tags = $this->entity_manager->getRepository(ThreadTag::class)->findAll();
+            $this->helper->leChunk($output, Forum::class, 2, null, true, true, function(Forum $forum) use($all_tags):bool {
+
+                $forum->getAllowedTags()->clear();
+                $tag_list = [];
+
+                if ($forum->getTown()) $tag_list = ['help','rp'];
+                else $tag_list = array_map(fn(ThreadTag $t) => $t->getName(), $all_tags);
+
+                foreach ($all_tags as $tag) if (in_array($tag->getName(), $tag_list)) $forum->addAllowedTag($tag);
                 return true;
             });
 
