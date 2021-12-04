@@ -162,8 +162,8 @@ class EmoteFixtures extends Fixture {
     protected static $tag_data = [
         'bugs'   => [ 'color' => '3b1c32', 'label' => 'Fehler' ],
         'help'   => [ 'color' => 'ca054d', 'label' => 'Hilfe'  ],
-        'update' => [ 'color' => '3d405b', 'label' => 'Update', 'mask' => ForumUsagePermissions::PermissionPostAsDev ],
-        'event'  => [ 'color' => '43aa8b', 'label' => 'event' ],
+        'update' => [ 'color' => '3d405b', 'label' => 'Changelog', 'mask' => ForumUsagePermissions::PermissionPostAsDev ],
+        'event'  => [ 'color' => '43aa8b', 'label' => 'Event' ],
         'rp'     => [ 'color' => 'd4a373', 'label' => 'RP' ],
 
         'dsc_update' => [ 'color' => null, 'label' => 'Update' ],

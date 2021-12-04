@@ -44,6 +44,8 @@ class ThreadTag
      */
     private $permissionMap;
 
+    private ?string $color_cache = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -75,12 +77,12 @@ class ThreadTag
 
     public function getColor()
     {
-        return $this->color;
+        return $this->color_cache ?? ($this->color_cache = is_string($this->color) ? $this->color : stream_get_contents($this->color));
     }
 
     public function setColor($color): self
     {
-        $this->color = $color;
+        $this->color = $this->color_cache = $color;
 
         return $this;
     }
