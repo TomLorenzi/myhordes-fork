@@ -707,7 +707,7 @@ class MigrateCommand extends Command
 
         if ($input->getOption('reassign-thread-tags')) {
             $all_tags = $this->entity_manager->getRepository(ThreadTag::class)->findAll();
-            $this->helper->leChunk($output, Forum::class, 2, null, true, true, function(Forum $forum) use($all_tags):bool {
+            $this->helper->leChunk($output, Forum::class, 2, [], true, true, function(Forum $forum) use($all_tags):bool {
 
                 $forum->getAllowedTags()->clear();
                 $tag_list = [];
