@@ -71,7 +71,7 @@ class ItemFixtures extends Fixture
         ['label' => 'Mini Hi-Fi Anlage (defekt)', 'icon' => 'music_part', 'category' => 'Furniture', 'deco' =>1, 'heavy' =>true, 'watchpoint' => 0],                       // -- ---
         ['label' => 'Kette + Vorhängeschloss', 'icon' => 'lock', 'category' => 'Furniture', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0, 'deco_text' => 'Verhindert Diebstähle'],                               // -- ---
         ['label' => 'Fußabstreifer', 'icon' => 'door_carpet', 'category' => 'Furniture', 'deco' =>5, 'heavy' =>false, 'watchpoint' => 0],                                  // -- ---
-        ['label' => 'Videoprojektor', 'icon' => 'cinema', 'category' => 'Furniture', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                                       // -- ---
+        ['label' => 'Videoprojektor', 'icon' => 'cinema', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                                       // -- ---
         ['label' => 'Nachttischlampe (an)', 'icon' => 'lamp_on', 'category' => 'Furniture', 'deco' =>3, 'heavy' =>false, 'watchpoint' => 10],                               // -- ---
         ['label' => 'Mini Hi-Fi Anlage (an)', 'icon' => 'music', 'category' => 'Furniture', 'deco' =>10, 'heavy' =>true, 'watchpoint' => -15],                               // -- ---
         ['label' => 'Ektorp-Gluten Stuhl', 'icon' => 'chair_basic', 'category' => 'Furniture', 'deco' =>2, 'heavy' =>true, 'watchpoint' => 8],                             // -- Out
@@ -771,19 +771,19 @@ class ItemFixtures extends Fixture
     
     public static $item_prototype_properties = [
         'saw_tool_#00'               => [ 'impoundable', 'can_opener', 'box_opener' ],
-        'can_opener_#00'             => [ 'weapon', 'can_opener', 'box_opener', 'nw_armory' ],
-        'screw_#00'                  => [ 'weapon', 'can_opener', 'box_opener', 'nw_armory' ],
-        'swiss_knife_#00'            => [ 'impoundable', 'weapon', 'can_opener', 'box_opener', 'nw_armory' ],
-        'wrench_#00'                 => [ 'impoundable', 'weapon', 'box_opener', 'nw_armory' ],
-        'cutter_#00'                 => [ 'impoundable', 'weapon', 'box_opener', 'nw_armory' ],
-        'small_knife_#00'            => [ 'impoundable', 'weapon', 'box_opener', 'nw_armory' ],
-        'bone_#00'                   => [ 'weapon', 'box_opener', 'nw_armory' ],
+        'can_opener_#00'             => [ 'weapon', 'can_opener', 'box_opener', 'nw_armory', 'parcel_opener', 'parcel_opener_h' ],
+        'screw_#00'                  => [ 'weapon', 'can_opener', 'box_opener', 'nw_armory', 'parcel_opener', 'parcel_opener_h' ],
+        'swiss_knife_#00'            => [ 'impoundable', 'weapon', 'can_opener', 'box_opener', 'nw_armory', 'parcel_opener', 'parcel_opener_h' ],
+        'wrench_#00'                 => [ 'impoundable', 'weapon', 'box_opener', 'nw_armory', 'parcel_opener', 'parcel_opener_h' ],
+        'cutter_#00'                 => [ 'impoundable', 'weapon', 'box_opener', 'nw_armory', 'parcel_opener', 'parcel_opener_h' ],
+        'small_knife_#00'            => [ 'impoundable', 'weapon', 'box_opener', 'nw_armory', 'parcel_opener', 'parcel_opener_h' ],
+        'bone_#00'                   => [ 'weapon', 'box_opener', 'nw_armory', 'parcel_opener', 'parcel_opener_h' ],
         'cutcut_#00'                 => [ 'impoundable', 'weapon', 'box_opener', 'esc_fixed', 'nw_armory' ],
         'hurling_stick_#00'          => [ 'weapon', 'box_opener', 'nw_armory' ],
-        'chair_basic_#00'            => [ 'box_opener', 'nw_ikea', 'nw_armory' ],
+        'chair_basic_#00'            => [ 'box_opener', 'nw_ikea', 'nw_armory', 'parcel_opener_h' ],
         'chair_#00'                  => [ 'nw_ikea' ],
-        'staff_#00'                  => [ 'impoundable', 'weapon', 'box_opener', 'nw_armory' ],
-        'chain_#00'                  => [ 'impoundable', 'weapon', 'box_opener', 'esc_fixed', 'nw_armory' ],
+        'staff_#00'                  => [ 'impoundable', 'weapon', 'box_opener', 'nw_armory', 'parcel_opener', 'parcel_opener_h' ],
+        'chain_#00'                  => [ 'impoundable', 'weapon', 'box_opener', 'esc_fixed', 'nw_armory', 'parcel_opener', 'parcel_opener_h' ],
         'pc_#00'                     => [ 'box_opener', 'nw_ikea', 'nw_armory' ],
         'door_#00'                   => [ 'impoundable', 'defence' ],
         'car_door_#00'               => [ 'impoundable', 'defence' ],
@@ -819,7 +819,7 @@ class ItemFixtures extends Fixture
         'big_pgun_#00'               => [ 'impoundable', 'weapon', 'esc_fixed', 'nw_armory' ],
         'big_pgun_empty_#00'         => [ 'esc_fixed' ],
         'mixergun_#00'               => [ 'impoundable', 'weapon', 'nw_armory' ],
-        'chainsaw_#00'               => [ 'impoundable', 'weapon', 'box_opener', 'esc_fixed', 'nw_armory' ],
+        'chainsaw_#00'               => [ 'impoundable', 'weapon', 'box_opener', 'esc_fixed', 'nw_armory', 'parcel_opener_h' ],
         'taser_#00'                  => [ 'impoundable', 'weapon', 'nw_armory' ],
         'lpoint4_#00'                => [ 'impoundable', 'weapon', 'esc_fixed', 'nw_armory' ],
         'lpoint3_#00'                => [ 'impoundable', 'weapon', 'esc_fixed', 'nw_armory' ],
@@ -836,7 +836,7 @@ class ItemFixtures extends Fixture
         'watergun_1_#00'             => [ 'impoundable', 'weapon', 'nw_shooting', 'nw_armory' ],
         'jerrygun_#00'               => [ 'impoundable', 'weapon', 'esc_fixed' ],
         'jerrycan_#00'               => [ 'hero_find_lucky' ],
-        'knife_#00'                  => [ 'impoundable', 'weapon', 'box_opener', 'esc_fixed', 'nw_armory' ],
+        'knife_#00'                  => [ 'impoundable', 'weapon', 'box_opener', 'esc_fixed', 'nw_armory', 'parcel_opener', 'parcel_opener_h' ],
         'lawn_#00'                   => [ 'weapon', 'nw_armory' ],
         'torch_off_#00'              => [ 'impoundable', 'weapon', 'nw_armory' ],
         'iphone_#00'                 => [ 'impoundable', 'weapon', 'nw_armory' ],

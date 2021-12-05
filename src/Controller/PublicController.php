@@ -120,7 +120,7 @@ class PublicController extends CustomAbstractController
      */
     public function validate(): Response
     {
-        if ($this->getUser()->getValidated())
+        if ($this->getUser() && $this->getUser()->getValidated())
             return $this->redirect($this->generateUrl('initial_landing'));
         return $this->render( 'ajax/public/validate.html.twig' );
     }

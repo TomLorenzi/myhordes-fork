@@ -9,6 +9,7 @@ use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
 use App\Entity\Forum;
 use App\Entity\ForumUsagePermissions;
+use App\Entity\ThreadTag;
 use App\Entity\UserGroup;
 use App\Kernel;
 use App\Service\CitizenHandler;
@@ -130,6 +131,8 @@ class ForumCreatorCommand extends Command
                     $g = null;
             }
 
+            foreach ($this->entityManager->getRepository(ThreadTag::class)->findAll() as $tag)
+                $newForum->addAllowedTag($tag);
 
             if ($g)
                 $this->entityManager->persist( $p = (new ForumUsagePermissions())

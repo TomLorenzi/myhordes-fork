@@ -75,7 +75,7 @@ class HTMLService {
                 'ol' => [],
                 'li' => [],
                 'div' => [ 'class', 'x-a', 'x-b' ],
-                'span' => [ 'class' ],
+                'span' => [ 'class', 'x-a', 'x-b' ],
                 'a' => [ 'href', 'title' ],
                 'figure' => [ 'style' ],
             ],
@@ -371,14 +371,18 @@ class HTMLService {
                 $d->nodeValue = $cc->getName();
             },
             // A citizen ref node
-            '//div[@class=\'cref\']'   => function (DOMElement $user_ref) {
+            '//div[@class=\'cref\']|//span[@class=\'quoteauthor\']' => function (DOMElement $user_ref) use ($user) {
                 $id = $user_ref->attributes->getNamedItem('x-a') ? $user_ref->attributes->getNamedItem('x-a')->nodeValue : null;
                 $user_ref->removeAttribute('x-a');
 
                 $target_user = null;
                 if ($id === 'auto') {
                     $name = $user_ref->textContent;
-                    $target_user = !empty(trim($name)) ? $this->entity_manager->getRepository(User::class)->findOneByNameOrDisplayName($name,true,true) : null;
+                    if ($name === 'me')
+                        // This is safe, because "me" is not a valid username
+                        $target_user = $user;
+                    else
+                        $target_user = !empty(trim($name)) ? $this->entity_manager->getRepository(User::class)->findOneByNameOrDisplayName($name,true,true) : null;
                 } elseif (is_numeric($id))
                     $target_user = $this->entity_manager->getRepository(User::class)->find($id);
 

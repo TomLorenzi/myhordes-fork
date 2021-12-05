@@ -140,12 +140,18 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'not_drunk'    => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'drunk' ] ]],
             'not_hungover' => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'hungover' ] ]],
 
-            'have_can_opener'    => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'item' => [ 'item' => null, 'prop' => 'can_opener' ] ], 'text' => 'Du hast nichts, mit dem du dieses Ding aufbekommen könntest..' ],
-            'have_box_opener'    => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'item' => [ 'item' => null, 'prop' => 'box_opener' ] ], 'text' => 'Du hast nichts, mit dem du dieses Ding aufbekommen könntest..' ],
-            'have_can_opener_hd' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'item' => [ 'item' => null, 'prop' => 'can_opener' ] ] ],
-            'have_box_opener_hd' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'item' => [ 'item' => null, 'prop' => 'box_opener' ] ] ],
-            'not_have_can_opener_hd' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'item' => [ 'item' => null, 'prop' => 'can_opener', 'count' => 0 ] ] ],
-            'not_have_box_opener_hd' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'item' => [ 'item' => null, 'prop' => 'box_opener', 'count' => 0 ] ] ],
+            'have_can_opener'            => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'item' => [ 'item' => null, 'prop' => 'can_opener' ] ], 'text' => 'Du hast nichts, mit dem du dieses Ding aufbekommen könntest..' ],
+            'have_box_opener'            => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'item' => [ 'item' => null, 'prop' => 'box_opener' ] ], 'text' => 'Du hast nichts, mit dem du dieses Ding aufbekommen könntest..' ],
+            'have_parcel_opener'         => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'item' => [ 'item' => null, 'prop' => 'parcel_opener' ] ],      'text' => 'Du hast nichts, mit dem du dieses Ding aufbekommen könntest..' ],
+            'have_parcel_opener_home'    => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'item' => [ 'item' => null, 'prop' => 'parcel_opener_h' ] ], 'text' => 'Du hast nichts, mit dem du dieses Ding aufbekommen könntest..' ],
+            'have_can_opener_hd'         => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'item' => [ 'item' => null, 'prop' => 'can_opener' ] ] ],
+            'have_box_opener_hd'         => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'item' => [ 'item' => null, 'prop' => 'box_opener' ] ] ],
+            'have_parcel_opener_hd'      => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'item' => [ 'item' => null, 'prop' => 'parcel_opener' ] ] ],
+            'have_parcel_opener_home_hd' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'item' => [ 'item' => null, 'prop' => 'parcel_opener_h' ] ] ],
+            'not_have_can_opener_hd'         => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'item' => [ 'item' => null, 'prop' => 'can_opener', 'count' => 0 ] ] ],
+            'not_have_box_opener_hd'         => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'item' => [ 'item' => null, 'prop' => 'box_opener', 'count' => 0 ] ] ],
+            'not_have_parcel_opener_hd'      => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'item' => [ 'item' => null, 'prop' => 'parcel_opener', 'count' => 0 ] ] ],
+            'not_have_parcel_opener_home_hd' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'item' => [ 'item' => null, 'prop' => 'parcel_opener_h', 'count' => 0 ] ] ],
             'have_water'        => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'item' => [ 'item' => 'water_#00', 'prop' => null ] ],    'text_key' => 'item_needed_generic' ],
             'have_water_shaman' => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'item' => [ 'item' => 'water_#00', 'prop' => null ] ],    'text' => 'Du musst etwas Wasser zum Umwandeln haben, um den Trank vorzubereiten.' ],
             'have_canister'   => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'item' => [ 'item' => 'jerrycan_#00', 'prop' => null ] ], 'text_key' => 'item_needed_generic' ],
@@ -263,7 +269,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'contaminated_zone_infect'  => [ 'collection' => [ 'custom' => [22] ] ],
 
             'consume_item'    => [ 'item' => [ 'consume' => true,  'morph' => null, 'break' => null, 'poison' => null ] ],
-            'break_item'      => [ 'item' => [ 'consume' => false, 'morph' => null, 'break' => true, 'poison' => null ], "message" => ['text' => 'Deine Waffe ist durch den harten Aufschlag <strong>kaputt</strong> gegangen...', 'ordering' => 99999] ],
+            'break_item'      => [ 'item' => [ 'consume' => false, 'morph' => null, 'break' => true, 'poison' => null ], 'picto' => 'picto_break', "message" => ['text' => 'Deine Waffe ist durch den harten Aufschlag <strong>kaputt</strong> gegangen...', 'ordering' => 99999] ],
             'cleanse_item'    => [ 'item' => [ 'consume' => false, 'morph' => null, 'break' => true, 'poison' => false ] ],
             'empty_jerrygun'  => [ 'item' => [ 'consume' => false, 'morph' => 'jerrygun_off_#00', 'break' => null, 'poison' => null ] ],
 
@@ -438,6 +444,9 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 'satisfy_ghoul_10' => [ 'hunger' => -15 ],
             ],
             'item' => [],
+            'picto' => [
+                'picto_break' => ['r_broken_#00']
+            ],
 
             'spawn' => [
                 'xmas_dv' => [ ['omg_this_will_kill_you_#00', 8], ['pocket_belt_#00', 8], ['christmas_candy_#00', 8], 'rp_scroll_#00', 'rp_manual_#00', 'rp_sheets_#00', 'rp_letter_#00', 'rp_scroll_#00', 'rp_book_#00', 'rp_book_#01', 'rp_book2_#00' ],
@@ -684,19 +693,22 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'open_metalbox2' => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => [ 'not_profession_tech', 'have_can_opener', 'is_not_wounded_hands' ], 'result' => [ 'consume_item', [ 'spawn' => 'metalbox2' ] ], 'message_key' => 'container_open_tool' ],
             'open_catbox'    => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => [ 'not_profession_tech', 'have_can_opener', 'is_not_wounded_hands' ], 'result' => [ 'consume_item', [ 'spawn' => 'catbox' ] ], 'message_key' => 'container_open_tool' ],
             'open_toolbox'    => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => [ 'not_profession_tech', 'have_box_opener', 'is_not_wounded_hands' ], 'result' => [ 'consume_item', [ 'spawn' => 'toolbox' ] ], 'message_key' => 'container_open_weapon' ],
-            'open_foodbox'    => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => [ 'not_profession_tech', 'have_box_opener', 'is_not_wounded_hands' ], 'result' => [ 'consume_item', [ 'spawn' => 'foodbox' ] ], 'message_key' => 'container_open_weapon' ],
+            'open_foodbox_out'   => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => [ 'not_profession_tech', 'have_parcel_opener', 'is_not_wounded_hands', 'must_be_outside_or_exploring' ], 'result' => [ 'consume_item', [ 'spawn' => 'foodbox' ] ], 'message_key' => 'container_open_weapon' ],
+            'open_foodbox_in'    => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => [ 'not_profession_tech', 'have_parcel_opener_home', 'is_not_wounded_hands', 'must_be_inside' ], 'result' => [ 'consume_item', [ 'spawn' => 'foodbox' ] ], 'message_key' => 'container_open_weapon' ],
 
             'open_metalbox_t1'  => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => [ 'profession_tech', 'have_can_opener_hd', 'is_not_wounded_hands' ], 'result' => [ 'consume_item', [ 'spawn' => 'metalbox' ] ], 'message_key' => 'container_open_tool' ],
             'open_metalbox2_t1' => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => [ 'profession_tech', 'have_can_opener_hd', 'is_not_wounded_hands' ], 'result' => [ 'consume_item', [ 'spawn' => 'metalbox2' ] ], 'message_key' => 'container_open_tool' ],
             'open_catbox_t1'    => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => [ 'profession_tech', 'have_can_opener_hd', 'is_not_wounded_hands' ], 'result' => [ 'consume_item', [ 'spawn' => 'catbox' ] ], 'message_key' => 'container_open_tool' ],
             'open_toolbox_t1'    => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => [ 'profession_tech', 'have_box_opener_hd', 'is_not_wounded_hands' ], 'result' => [ 'consume_item', [ 'spawn' => 'toolbox' ] ], 'message_key' => 'container_open_weapon' ],
-            'open_foodbox_t1'    => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => [ 'profession_tech', 'have_box_opener_hd', 'is_not_wounded_hands' ], 'result' => [ 'consume_item', [ 'spawn' => 'foodbox' ] ], 'message_key' => 'container_open_weapon' ],
+            'open_foodbox_out_t1'    => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => [ 'profession_tech', 'have_parcel_opener_hd', 'is_not_wounded_hands', 'must_be_outside_or_exploring' ], 'result' => [ 'consume_item', [ 'spawn' => 'foodbox' ] ], 'message_key' => 'container_open_weapon' ],
+            'open_foodbox_in_t1'    => [ 'label' => 'Öffnen', 'at00' => true, 'meta'  => [ 'profession_tech', 'have_parcel_opener_home_hd', 'is_not_wounded_hands', 'must_be_inside' ], 'result' => [ 'consume_item', [ 'spawn' => 'foodbox' ] ], 'message_key' => 'container_open_weapon' ],
 
             'open_metalbox_t2'  => [ 'label' => 'Öffnen (1 BP)', 'at00' => true, 'meta' => [ 'profession_tech', 'not_have_can_opener_hd', 'min_1_cp' ], 'result' => [ 'minus_1cp', 'consume_item', [ 'spawn' => 'metalbox' ] ], 'message_key' => 'container_open' ],
             'open_metalbox2_t2' => [ 'label' => 'Öffnen (1 BP)', 'at00' => true, 'meta' => [ 'profession_tech', 'not_have_can_opener_hd', 'min_1_cp' ], 'result' => [ 'minus_1cp', 'consume_item', [ 'spawn' => 'metalbox2' ] ], 'message_key' => 'container_open' ],
             'open_catbox_t2'    => [ 'label' => 'Öffnen (1 BP)', 'at00' => true, 'meta' => [ 'profession_tech', 'not_have_can_opener_hd', 'min_1_cp' ], 'result' => [ 'minus_1cp', 'consume_item', [ 'spawn' => 'catbox' ] ], 'message_key' => 'container_open' ],
             'open_toolbox_t2'    => [ 'label' => 'Öffnen (1 BP)', 'at00' => true, 'meta' => [ 'profession_tech', 'not_have_box_opener_hd', 'min_1_cp' ], 'result' => [ 'minus_1cp', 'consume_item', [ 'spawn' => 'toolbox' ] ], 'message_key' => 'container_open' ],
-            'open_foodbox_t2'    => [ 'label' => 'Öffnen (1 BP)', 'at00' => true, 'meta' => [ 'profession_tech', 'not_have_box_opener_hd', 'min_1_cp' ], 'result' => [ 'minus_1cp', 'consume_item', [ 'spawn' => 'foodbox' ] ], 'message_key' => 'container_open' ],
+            'open_foodbox_out_t2'    => [ 'label' => 'Öffnen (1 BP)', 'at00' => true, 'meta' => [ 'profession_tech', 'not_have_parcel_opener_hd', 'min_1_cp', 'must_be_outside_or_exploring' ], 'result' => [ 'minus_1cp', 'consume_item', [ 'spawn' => 'foodbox' ] ], 'message_key' => 'container_open' ],
+            'open_foodbox_in_t2'    => [ 'label' => 'Öffnen (1 BP)', 'at00' => true, 'meta' => [ 'profession_tech', 'not_have_parcel_opener_home_hd', 'min_1_cp', 'must_be_inside' ], 'result' => [ 'minus_1cp', 'consume_item', [ 'spawn' => 'foodbox' ] ], 'message_key' => 'container_open' ],
 
             'open_safe'      => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => [ 'min_1_ap', 'not_tired', 'is_not_wounded_hands' ], 'result' => [ 'minus_1ap', ['group' => [ [['do_nothing'], 95], [ ['consume_item', [ 'spawn' =>  'safe' ]], 5 ] ]] ], 'message_key' => 'container_optional' ],
             'open_asafe'     => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => [ 'min_1_ap', 'not_tired', 'is_not_wounded_hands' ], 'result' => [ 'minus_1ap', ['group' => [ [['do_nothing'], 95], [ ['consume_item', [ 'spawn' => 'asafe' ]], 5 ] ]] ], 'message_key' => 'container_optional' ],
@@ -759,7 +771,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'throw_animal'        => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ 'consume_item', 'kill_1_zombie_s', ['picto' => ['r_animal_#00']] ], 'message_key' => 'throw_animal' ],
             'throw_animal_cat'    => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'group' => [ [['do_nothing'], 88], [['consume_item', ['picto' => ['r_animal_#00']]], 12] ] ], 'kill_1_zombie_s' ], 'message_key' => 'throw_animal' ],
             'throw_animal_dog'    => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'group' => [ [['do_nothing'], 95], [['consume_item', ['picto' => ['r_animal_#00']]], 5] ] ], 'kill_1_zombie_s' ], 'message_key' => 'throw_animal' ],
-            'throw_animal_angryc' => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies' ], 'result' => [ 'consume_item', [ 'group' => [ [['inflict_wound'], 1], [[ 'kill_all_zombie'], 2] ] ], ['picto' => ['r_animal_#00']] ], 'message' => '<t-stat-up-tg_meta_wound>Diese Katze ist unglaublich! Sie scheint keine Angst zu haben, nicht einmal vor dir. Das Tier springt dir an die Kehle und vergräbt seine Krallen tief in deinem Fleisch.</t-stat-up-tg_meta_wound><t-kills>Diese Katze ist unglaublich! Sie scheint keine Angst zu haben, nicht einmal vor dem abartigen Gestank der Zombies. Mit mehr Zerstörungskraft als der Duracell-Hase und das Killer-Kaninchen von Caerbannog hat sie die Zone komplett bereinigt.</t-kills>' ],
+            'throw_animal_angryc' => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ 'consume_item', [ 'group' => [ [['inflict_wound'], 1], [[ 'kill_all_zombie'], 2] ] ], ['picto' => ['r_animal_#00']] ], 'message' => '<t-stat-up-tg_meta_wound>Diese Katze ist unglaublich! Sie scheint keine Angst zu haben, nicht einmal vor dir. Das Tier springt dir an die Kehle und vergräbt seine Krallen tief in deinem Fleisch.</t-stat-up-tg_meta_wound><t-kills>Diese Katze ist unglaublich! Sie scheint keine Angst zu haben, nicht einmal vor dem abartigen Gestank der Zombies. Mit mehr Zerstörungskraft als der Duracell-Hase und das Killer-Kaninchen von Caerbannog hat sie die Zone komplett bereinigt.</t-kills>' ],
 
             'throw_b_machine_1'     => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired', 'is_not_wounded_hands' ], 'result' => [ ['group' => 'g_break_30'], 'kill_1_zombie' ] ],
             'throw_b_bone'          => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired', 'is_not_wounded_hands' ], 'result' => [ ['group' => 'g_break_75'], 'kill_1_zombie' ] ],
@@ -881,8 +893,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'hero_tamer_2b'  => [ 'label' => 'Zur Truhe schicken', 'at00' => true, 'renderer' => 'tamer_dog_popup', 'meta' => [ 'must_be_outside_or_exploring' ], 'result' => [ 'hero_tamer_2b' ], 'confirm' => true, 'message' => '<t-fail><t-no-room>Deine Truhe kann nicht <strong>{items_count} Gegenstände</strong> aufnehmen: er hat <strong>{size} Platz(e)</strong> übrig.</t-no-room><t-door-closed>Das Stadttor ist geschlossen...</t-door-closed><t-no-items>{tamer_dog} kann nichts mitnehmen, da du <strong>nichts im Rucksack hast</strong>.</t-no-items></t-fail><nt-fail>Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}Genau wie du es gewünscht hast, <strong>hat er alles zur Truhe in deinem Haus gebracht</strong>.{hr}Braver Junge!</nt-fail>' ],
             'hero_tamer_3'   => [ 'label' => 'Dopen',              'at00' => true, 'renderer' => 'tamer_dog_popup', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_drug' ], 'result' => [ 'consume_drug', 'hero_tamer_3' ], 'message' => 'Du gibst deinem {tamer_dog} {items_consume}, die er gierig hinunterschlingt.{hr}Es vergeht keine Minute bis die Drogen Wirkung zeigen: Dein Fifi hat nun leuchtende Augen, ein glänzendes Fell und einen wedelnden Schwanz.' ],
 
-            'hero_surv_1' => [ 'label' => 'Wasser suchen', 'meta' => [ 'must_be_outside_3km', 'not_yet_sbook' ],                         'result' => [ 'contaminated_zone_infect', 'hero_surv_0', 'hero_surv_1' ], 'message' => '{casino}' ],
-            'hero_surv_2' => [ 'label' => 'Essen suchen',  'meta' => [ 'no_full_ap', 'must_be_outside_3km', 'not_yet_sbook', 'eat_ap' ], 'result' => [ 'contaminated_zone_infect', 'hero_surv_0', 'hero_surv_2' ], 'message' => '{casino}' ],
+            'hero_surv_1' => [ 'label' => 'Wasser suchen', 'renderer' => 'survivalist_popup', 'meta' => [ 'must_be_outside_3km', 'not_yet_sbook' ],                         'result' => [ 'contaminated_zone_infect', 'hero_surv_0', 'hero_surv_1' ], 'message' => '{casino}' ],
+            'hero_surv_2' => [ 'label' => 'Essen suchen',  'renderer' => 'survivalist_popup', 'meta' => [ 'no_full_ap', 'must_be_outside_3km', 'not_yet_sbook', 'eat_ap' ], 'result' => [ 'contaminated_zone_infect', 'hero_surv_0', 'hero_surv_2' ], 'message' => '{casino}' ],
 
             'hero_hunter_1' => [ 'label' => 'Tarnen', 'at00' => true, 'meta' => [ 'must_be_outside', [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'zombies' => [ 'min' => 0, 'block' => false, 'temp' => true ] ], 'text' => 'Das kannst die <strong>Tarnkleidung</strong> nicht verwenden, solange die Zombies diese Zone kontrollieren!'] ], 'result' => [ 'hero_hunter' ], 'message' => 'Du bist ab sofort getarnt.' ],
             'hero_hunter_2' => [ 'label' => 'Tarnen', 'at00' => true, 'meta' => [ 'must_be_inside' ], 'result' => [ 'hero_hunter' ], 'message' => 'Du bist nun getarnt.' ],
@@ -1096,7 +1108,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'chest_xl_#00'        => [ 'open_metalbox2', 'open_metalbox2_t1', 'open_metalbox2_t2' ],
             'catbox_#00'          => [ 'open_catbox', 'open_catbox_t1', 'open_catbox_t2' ],
             'chest_tools_#00'     => [ 'open_toolbox', 'open_toolbox_t1', 'open_toolbox_t2' ],
-            'chest_food_#00'      => [ 'open_foodbox', 'open_foodbox_t1', 'open_foodbox_t2' ],
+            'chest_food_#00'      => [ 'open_foodbox_in', 'open_foodbox_out', 'open_foodbox_in_t1', 'open_foodbox_out_t1', 'open_foodbox_in_t2', 'open_foodbox_out_t2' ],
 
             'safe_#00'             => [ 'open_safe' ],
             'bplan_box_e_#00'      => [ 'open_asafe' ],
@@ -1113,6 +1125,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'vibr_empty_#00'       => [ 'load_dildo' ],
             'radius_mk2_part_#00'  => [ 'load_rmk2' ],
             'maglite_off_#00'      => [ 'load_maglite' ],
+            'maglite_1_#00'        => [ 'load_maglite' ],
             'radio_off_#00'        => [ 'load_radio' ],
             'sport_elec_empty_#00' => [ 'load_emt' ],
 

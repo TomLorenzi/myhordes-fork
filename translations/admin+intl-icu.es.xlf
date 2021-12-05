@@ -1579,7 +1579,7 @@
     <unit id="y7lc8Ct" name="Hinzufügen">
       <notes>
         <note category="german">Hinzufügen</note>
-        <note category="from">twig:///templates/ajax/admin/spam/domains.html.twig;twig:///templates/ajax/admin/users/ban.html.twig;twig:///templates/ajax/admin/widget/controls.twig</note>
+        <note category="from">twig:///templates/ajax/admin/spam/domains.html.twig;twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/users/ban.html.twig;twig:///templates/ajax/admin/widget/controls.twig</note>
       </notes>
       <segment>
         <source>Hinzufügen</source>
@@ -2323,7 +2323,7 @@
     <unit id="Q_CT7Yc" name="Setzen">
       <notes>
         <note category="german">Setzen</note>
-        <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/widget/controls.twig</note>
       </notes>
       <segment>
         <source>Setzen</source>
@@ -4342,6 +4342,39 @@
       <segment>
         <source>Rolle</source>
         <target>Rolle</target>
+      </segment>
+    </unit>
+    <unit id="h2jMPFO" name="Aktion bei Klick:">
+      <notes>
+        <note category="german">Aktion bei Klick:</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Aktion bei Klick:</source>
+        <target>Aktion bei Klick:</target>
+      </segment>
+    </unit>
+    <unit id="0G7SYAt" name="Verbleibe Zonengrabungen:">
+      <notes>
+        <note category="german">Verbleibe Zonengrabungen:</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Verbleibe Zonengrabungen:</source>
+        <target>Verbleibe Zonengrabungen:</target>
+      </segment>
+    </unit>
+    <unit id="Bcli6ap" name="Verbleibende Ruinengrabungen:">
+      <notes>
+        <note category="german">Verbleibende Ruinengrabungen:</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Verbleibende Ruinengrabungen:</source>
+        <target>Verbleibende Ruinengrabungen:</target>
       </segment>
     </unit>
   </file>

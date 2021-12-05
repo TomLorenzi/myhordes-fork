@@ -17,6 +17,7 @@ use App\Entity\OfficialGroup;
 use App\Entity\Post;
 use App\Entity\Thread;
 use App\Entity\ThreadReadMarker;
+use App\Entity\ThreadTag;
 use App\Entity\User;
 use App\Response\AjaxResponse;
 use App\Service\CitizenHandler;
@@ -239,7 +240,19 @@ class MessageForumController extends MessageController
 
 
         $title = $parser->trimmed('title');
+        $tag   = $this->userHandler->hasSkill($user, 'writer') ? $parser->trimmed('tag') : null;
         $text  = $parser->trimmed('text');
+
+        if (empty($tag) || $tag === '-none-')
+            $tag = null;
+        else $tag = $this->entity_manager->getRepository(ThreadTag::class)->findOneBy(['name' => $tag]);
+
+        if ($tag !== null) {
+            if ($tag->getPermissionMap() !== null && !$this->perm->isPermitted( $permission, $tag->getPermissionMap() ))
+                return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+            if (!$forum->getAllowedTags()->contains($tag))
+                return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+        }
 
         $type = $parser->get('type') ?? 'USER';
         $valid = ['USER'];
@@ -251,7 +264,7 @@ class MessageForumController extends MessageController
         if (mb_strlen($title) < 3 || mb_strlen($title) > 64)  return AjaxResponse::error( self::ErrorPostTitleLength );
         if (mb_strlen($text) < 2 || mb_strlen($text) > 16384) return AjaxResponse::error( self::ErrorPostTextLength );
 
-        $thread = (new Thread())->setTitle( $title )->setOwner($user);
+        $thread = (new Thread())->setTitle( $title )->setTag($tag)->setOwner($user);
 
         $map_type = [
             'CROW' => 66,
@@ -822,6 +835,10 @@ class MessageForumController extends MessageController
             $username = $user->getName();
         }
 
+        $tags = $this->userHandler->hasSkill($user, 'writer') ? array_filter( $forum->getAllowedTags()->getValues(),
+            fn(ThreadTag $tag) => $tag->getPermissionMap() === null || $this->perm->isPermitted( $permissions, $tag->getPermissionMap() )
+        ) : [];
+
         return $this->render( 'ajax/forum/editor.html.twig', [
             'fid' => $id,
             'tid' => null,
@@ -834,6 +851,7 @@ class MessageForumController extends MessageController
             'username' => $username,
             'forum' => true,
             'town_controls' => $forum->getTown() !== null,
+            'tags' => $tags
         ] );
     }
 
@@ -1131,11 +1149,14 @@ class MessageForumController extends MessageController
                     return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
                 $thread->setLocked(true)->setSolved(false);
-                $notification = $crow->createPM_moderation( $thread->getOwner(),
-                                                            CrowService::ModerationActionDomainForum, CrowService::ModerationActionTargetThread, CrowService::ModerationActionClose,
-                                                            $thread->firstPost(true)
-                );
-                if ($notification) $this->entity_manager->persist($notification);
+
+                if ($thread->getOwner() !== $this->getUser()) {
+                    $notification = $crow->createPM_moderation( $thread->getOwner(),
+                                                                CrowService::ModerationActionDomainForum, CrowService::ModerationActionTargetThread, CrowService::ModerationActionClose,
+                                                                $thread->firstPost(true)
+                    );
+                    if ($notification) $this->entity_manager->persist($notification);
+                }
 
                 try {
                     $this->entity_manager->persist($thread);
@@ -1149,11 +1170,14 @@ class MessageForumController extends MessageController
                     return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
                 $thread->setLocked(true)->setSolved(true);
-                $notification = $crow->createPM_moderation( $thread->getOwner(),
-                                                            CrowService::ModerationActionDomainForum, CrowService::ModerationActionTargetThread, CrowService::ModerationActionSolve,
-                                                            $thread->firstPost(true)
-                );
-                if ($notification) $this->entity_manager->persist($notification);
+
+                if ($thread->getOwner() !== $this->getUser()) {
+                    $notification = $crow->createPM_moderation( $thread->getOwner(),
+                                                                CrowService::ModerationActionDomainForum, CrowService::ModerationActionTargetThread, CrowService::ModerationActionSolve,
+                                                                $thread->firstPost(true)
+                    );
+                    if ($notification) $this->entity_manager->persist($notification);
+                }
 
                 try {
                     $this->entity_manager->persist($thread);

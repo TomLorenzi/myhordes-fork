@@ -855,6 +855,19 @@ class LogTemplateHandler
             ->setCitizen( $citizen );
     }
 
+    public function outsideMoveoutsideMoveFailTerror( Citizen $citizen ): TownLogEntry {
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'outsideMoveFailTerror']);
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables(['citizen' => $citizen->getId()])
+            ->setTown( $citizen->getTown() )
+            ->setZone( $citizen->getZone() )
+            ->setDay( $citizen->getTown()->getDay() )
+            ->setTimestamp( new DateTime('now') )
+            ->setCitizen( $citizen );
+    }
+
     public function outsideDig( Citizen $citizen, ?ItemPrototype $item, ?DateTimeInterface $time = null ): TownLogEntry {
         $found_something = $item !== null;
         if ($found_something) {
@@ -1674,6 +1687,21 @@ class LogTemplateHandler
             ->setZone( null )
             ->setTimestamp( new DateTime('now') )
             ->setCitizen( $hero )
+            ->setSecondaryCitizen( $citizen );
+    }
+
+    public function shamanHealLog( Citizen $shaman, Citizen $citizen ): TownLogEntry {
+        $variables = array('shaman' => $shaman->getId(), 'citizen' => $citizen->getId());
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'shamanHeal']);
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $shaman->getTown() )
+            ->setDay( $shaman->getTown()->getDay() )
+            ->setZone( null )
+            ->setTimestamp( new DateTime('now') )
+            ->setCitizen( $shaman )
             ->setSecondaryCitizen( $citizen );
     }
 

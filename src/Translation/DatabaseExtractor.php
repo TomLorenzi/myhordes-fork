@@ -25,6 +25,7 @@ use App\Entity\PictoPrototype;
 use App\Entity\Recipe;
 use App\Entity\Requirement;
 use App\Entity\Season;
+use App\Entity\ThreadTag;
 use App\Entity\TownClass;
 use App\Entity\ZonePrototype;
 use App\Entity\ZoneTag;
@@ -248,6 +249,11 @@ class DatabaseExtractor implements ExtractorInterface
             /** @var ComplaintReason $reason */
             if ($reason->getText())
                 $this->insert( $c, $reason->getText(), 'game', ComplaintReason::class );
+        }
+
+        foreach ($this->em->getRepository(ThreadTag::class)->findAll() as $tag) {
+            /** @var ThreadTag $tag */
+            $this->insert( $c, $tag->getLabel(), 'global', ThreadTag::class );
         }
 
         foreach ($this->em->getRepository(TownClass::class)->findAll() as $town)

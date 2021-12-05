@@ -42,10 +42,11 @@ class TwinoRegexResult {
     static readonly TypeInset = 3;
     static readonly TypeEmote = 4;
 
-    private static readonly TypeInsetA = 31;
-    private static readonly TypeInsetB = 32;
-    private static readonly TypeInsetC = 33;
-    private static readonly TypeInsetD = 34;
+    private static readonly TypeInsetA  = 31;
+    private static readonly TypeInsetB  = 32;
+    private static readonly TypeInsetC  = 33;
+    private static readonly TypeInsetD  = 34;
+    private static readonly TypeInsetD2 = 35;
 
     private readonly type:  number;
     private readonly match: RegExpMatchArray|Array<string>;
@@ -66,6 +67,7 @@ class TwinoRegexResult {
             else if (this.match[2] !== undefined) this.type = TwinoRegexResult.TypeInsetB;
             else if (this.match[4] !== undefined) this.type = TwinoRegexResult.TypeInsetC;
             else if (this.match[6] !== undefined) this.type = TwinoRegexResult.TypeInsetD;
+            else if (this.match[8] !== undefined) this.type = TwinoRegexResult.TypeInsetD2;
             else throw new Error( 'Unable to guess TRR subtype for TypeInset instance.' );
 
         }
@@ -75,7 +77,7 @@ class TwinoRegexResult {
 
         switch (type) {
             case TwinoRegexResult.TypeShortBB: return /(?:([^\w\s]){2})([\s\S]*?)\1{2}/gm;
-            case TwinoRegexResult.TypeInset:   return /{([a-zA-Z]+)}|{([a-zA-Z]+),([\w,]*)}|{([a-zA-Z]+)(\d+)}|\B@([\w_-]*)(?::(\d+))?\b/g;
+            case TwinoRegexResult.TypeInset:   return /{([a-zA-Z]+)}|{([a-zA-Z]+),([\w,]*)}|{([a-zA-Z]+)(\d+)}|\B@([\S]*):(\d+)\b|\B@([\w_-]*)(?::(\d+))?\b/g;
             case TwinoRegexResult.TypeEmote:   return /(?::(\w+?):)|([:;].)/g;
             default: throw Error( 'No regex defined for this type of TRR!' )
         }
@@ -149,7 +151,7 @@ class TwinoRegexResult {
                 return this.match[2].toLowerCase();
             case TwinoRegexResult.TypeInsetC:
                 return this.match[4].toLowerCase();
-            case TwinoRegexResult.TypeInsetD:
+            case TwinoRegexResult.TypeInsetD: case TwinoRegexResult.TypeInsetD2:
                 return '@';
             case TwinoRegexResult.TypeEmote:
                 return this.match[0].toLowerCase();
@@ -166,6 +168,8 @@ class TwinoRegexResult {
                 return this.match[2];
             case TwinoRegexResult.TypeInsetD:
                 return this.match[6];
+            case TwinoRegexResult.TypeInsetD2:
+                return this.match[8];
             default:
                 throw new Error('Attempt to access node content of a TRR not representing a block node.');
         }
@@ -183,6 +187,8 @@ class TwinoRegexResult {
                 return this.match[5] ?? null;
             case TwinoRegexResult.TypeInsetD:
                 return this.match[7] ?? null;
+            case TwinoRegexResult.TypeInsetD2:
+                return this.match[9] ?? null;
             default:
                 throw new Error('Attempt to access node info of a TRR not supporting additional node information.');
         }
@@ -252,8 +258,9 @@ class TwinoConverterToBlocks {
             case 'code': blocks.push( new TwinoInterimBlock(nodeContent, 'pre', [], [ ['x-raw','1'] ]) ); changed = true; break;
             case 'quote':
                 if ( match.nodeInfo() ) {
+                    let split = match.nodeInfo().split(':');
                     blocks.push( new TwinoInterimBlock('', 'div', 'clear') );
-                    blocks.push( new TwinoInterimBlock(match.nodeInfo(), 'span', 'quoteauthor') );
+                    blocks.push( new TwinoInterimBlock(split.length === 2 ? split[0] : match.nodeInfo(), 'span', 'quoteauthor', split.length === 2 && !isNaN(parseInt(split[1])) ? [ ['x-a',split[1]] ] : []) );
                 }
 
                 blocks.push( new TwinoInterimBlock(nodeContent, 'blockquote') );

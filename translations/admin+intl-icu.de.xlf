@@ -2743,5 +2743,23 @@
         <target>Rolle</target>
       </segment>
     </unit>
+    <unit id="h2jMPFO" name="Aktion bei Klick:">
+      <segment>
+        <source>Aktion bei Klick:</source>
+        <target>Aktion bei Klick:</target>
+      </segment>
+    </unit>
+    <unit id="0G7SYAt" name="Verbleibe Zonengrabungen:">
+      <segment>
+        <source>Verbleibe Zonengrabungen:</source>
+        <target>Verbleibe Zonengrabungen:</target>
+      </segment>
+    </unit>
+    <unit id="Bcli6ap" name="Verbleibende Ruinengrabungen:">
+      <segment>
+        <source>Verbleibende Ruinengrabungen:</source>
+        <target>Verbleibende Ruinengrabungen:</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

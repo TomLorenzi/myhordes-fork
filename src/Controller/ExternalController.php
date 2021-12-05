@@ -453,7 +453,7 @@ class ExternalController extends InventoryAwareController {
                     if (is_array($field)) {
                         foreach ($field as $ProtoFieldName => $ProtoFieldValue) {
                             if ($ProtoFieldName == "resources") {
-                                $data_building[$ProtoFieldName] = $this->getResources($building->getPrototype(), $ProtoFieldValue['fields']);
+                                $data_building[$ProtoFieldName] = $this->getResources($building->getPrototype(), $ProtoFieldValue['fields'] ?? []);
                             }
                         }
                     } else {
@@ -554,23 +554,23 @@ class ExternalController extends InventoryAwareController {
                     switch ($ProtoFieldName) {
                         case "chantiers":
                         case "buildings":
-                            $data[$ProtoFieldName] = $this->getChantiersData($ProtoFieldName, $ProtoFieldValue['fields']);
+                            $data[$ProtoFieldName] = $this->getChantiersData($ProtoFieldName, $ProtoFieldValue['fields'] ?? []);
                             break;
                         case "news":
-                            $data[$ProtoFieldName] = $this->getNewsData($ProtoFieldValue['fields']);
+                            $data[$ProtoFieldName] = $this->getNewsData($ProtoFieldValue['fields'] ?? []);
                             break;
                         case "defense":
-                            $data[$ProtoFieldName] = $this->getDefenseData($ProtoFieldValue['fields']);
+                            $data[$ProtoFieldName] = $this->getDefenseData($ProtoFieldValue['fields'] ?? []);
                             break;
                         case "upgrades":
-                            $data[$ProtoFieldName] = $this->getUpgradesData($ProtoFieldValue['fields']);
+                            $data[$ProtoFieldName] = $this->getUpgradesData($ProtoFieldValue['fields'] ?? []);
                             break;
                         case "estimations":
                         case "estimationsNext":
-                            $data[$ProtoFieldName] = $this->getEstimationData($ProtoFieldName, $ProtoFieldValue['fields']);
+                            $data[$ProtoFieldName] = $this->getEstimationData($ProtoFieldName, $ProtoFieldValue['fields'] ?? []);
                             break;
                         case "bank":
-                            $data[$ProtoFieldName] = $this->getBankData($ProtoFieldValue['fields']);
+                            $data[$ProtoFieldName] = $this->getBankData($ProtoFieldValue['fields'] ?? []);
                             break;
                     }
                 }
@@ -1081,19 +1081,19 @@ class ExternalController extends InventoryAwareController {
                 foreach ($field as $ProtoFieldName => $ProtoFieldValue) {
                     switch ($ProtoFieldName) {
                         case "cadavers":
-                            $data[$ProtoFieldName] = $this->getCadaversData($ProtoFieldValue['fields']);
+                            $data[$ProtoFieldName] = $this->getCadaversData($ProtoFieldValue['fields'] ?? []);
                             break;
                         case "citizens":
-                            $data[$ProtoFieldName] = $this->getCitizensData($ProtoFieldValue['fields']);
+                            $data[$ProtoFieldName] = $this->getCitizensData($ProtoFieldValue['fields'] ?? []);
                             break;
                         case "city":
-                            $data[$ProtoFieldName] = $this->getCityData($ProtoFieldValue['fields']);
+                            $data[$ProtoFieldName] = $this->getCityData($ProtoFieldValue['fields'] ?? []);
                             break;
                         case "expeditions":
-                            $data[$ProtoFieldName] = $this->getExpeditionsData($ProtoFieldValue['fields']);
+                            $data[$ProtoFieldName] = $this->getExpeditionsData($ProtoFieldValue['fields'] ?? []);
                             break;
                         case "zones":
-                            $data[$ProtoFieldName] = $this->getZonesData($ProtoFieldValue['fields']);
+                            $data[$ProtoFieldName] = $this->getZonesData($ProtoFieldValue['fields'] ?? []);
                             break;
                     }
                 }
@@ -1192,7 +1192,7 @@ class ExternalController extends InventoryAwareController {
         if ($this->town->getDay() == 1) {
             return $data;
         } else {
-            $gazette = $this->gazette_service->renderGazette($this->town);
+            $gazette = $this->gazette_service->renderGazette($this->town, null, false, count($this->langue) == 1 ? $this->langue[0] : null);
             if (!is_null($gazette)) {
                 foreach ($fields as $field) {
                     switch ($field) {
@@ -1211,7 +1211,7 @@ class ExternalController extends InventoryAwareController {
                             } else {
                                 $data[$field] = [];
                                 foreach ($this->langue as $lang) {
-                                    $gazette = $this->gazette_service->renderGazette($this->town, null, true, $lang);
+                                    $gazette = $this->gazette_service->renderGazette($this->town, null, false, $lang);
                                     $data[$field][$lang] = $gazette['text'];
                                 }
                             }
@@ -1252,7 +1252,7 @@ class ExternalController extends InventoryAwareController {
                             }
                             break;
                         case "water":
-                            $data[$field] = $gazette->getWaterlost();
+                            $data[$field] = $gazette['waterlost'];
                             break;
                     }
                 }
@@ -1330,7 +1330,7 @@ class ExternalController extends InventoryAwareController {
                     if (is_array($field)) {
                         foreach ($field as $ProtoFieldName => $ProtoFieldValue) {
                             if ($ProtoFieldName == 'rsc') {
-                                $data_resources[$ProtoFieldName] = $this->getItemData($resource->getPrototype(), $ProtoFieldValue['fields']);
+                                $data_resources[$ProtoFieldName] = $this->getItemData($resource->getPrototype(), $ProtoFieldValue['fields'] ?? []);
                             }
                         }
                     } else {
@@ -1366,7 +1366,7 @@ class ExternalController extends InventoryAwareController {
                         foreach ($field as $ProtoFieldName => $ProtoFieldValue) {
                             if ($ProtoFieldName == "list") {
                                 $data[$ProtoFieldName][] =
-                                    $this->getListCityUpgradesData($building->getPrototype(), $building->getLevel(), $ProtoFieldValue['fields']);
+                                    $this->getListCityUpgradesData($building->getPrototype(), $building->getLevel(), $ProtoFieldValue['fields'] ?? []);
                             }
                         }
                     } else {

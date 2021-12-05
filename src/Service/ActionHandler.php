@@ -818,6 +818,8 @@ class ActionHandler
 
                 $can_opener_prop = $this->entity_manager->getRepository(ItemProperty::class )->findOneBy(['name' => 'can_opener']);
                 $box_opener_prop = $this->entity_manager->getRepository(ItemProperty::class )->findOneBy(['name' => 'box_opener']);
+                $parcel_opener_prop = $this->entity_manager->getRepository(ItemProperty::class )->findOneBy(['name' => 'parcel_opener']);
+                $parcel_opener_home_prop = $this->entity_manager->getRepository(ItemProperty::class )->findOneBy(['name' => 'parcel_opener_h']);
 
                 foreach ($action->getRequirements() as $req) {
                     if (!$req->getItem() || $req->getItem()->getCount() <= 0) continue;
@@ -829,6 +831,16 @@ class ActionHandler
 
                     if ($req->getItem() && $req->getItem()->getProperty() == $box_opener_prop) {
                         $execute_info_cache['item_tool'] = $this->inventory_handler->fetchSpecificItems($citizen->getZone() ? $citizen->getInventory() : [$citizen->getInventory(),$citizen->getHome()->getChest()], [new ItemRequest('box_opener', 1, false, null, true)])[0]->getPrototype();
+                        break;
+                    }
+
+                    if ($req->getItem() && $req->getItem()->getProperty() == $parcel_opener_prop) {
+                        $execute_info_cache['item_tool'] = $this->inventory_handler->fetchSpecificItems($citizen->getZone() ? $citizen->getInventory() : [$citizen->getInventory(),$citizen->getHome()->getChest()], [new ItemRequest('parcel_opener', 1, false, null, true)])[0]->getPrototype();
+                        break;
+                    }
+
+                    if ($req->getItem() && $req->getItem()->getProperty() == $parcel_opener_home_prop) {
+                        $execute_info_cache['item_tool'] = $this->inventory_handler->fetchSpecificItems($citizen->getZone() ? $citizen->getInventory() : [$citizen->getInventory(),$citizen->getHome()->getChest()], [new ItemRequest('parcel_opener_h', 1, false, null, true)])[0]->getPrototype();
                         break;
                     }
                 }

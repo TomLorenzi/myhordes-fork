@@ -55,9 +55,15 @@ class Forum
      */
     private $icon;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=ThreadTag::class)
+     */
+    private $allowedTags;
+
     public function __construct()
     {
         $this->threads = new ArrayCollection();
+        $this->allowedTags = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -152,6 +158,30 @@ class Forum
     public function setIcon(?string $icon): self
     {
         $this->icon = $icon;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ThreadTag[]
+     */
+    public function getAllowedTags(): Collection
+    {
+        return $this->allowedTags;
+    }
+
+    public function addAllowedTag(ThreadTag $allowedTag): self
+    {
+        if (!$this->allowedTags->contains($allowedTag)) {
+            $this->allowedTags[] = $allowedTag;
+        }
+
+        return $this;
+    }
+
+    public function removeAllowedTag(ThreadTag $allowedTag): self
+    {
+        $this->allowedTags->removeElement($allowedTag);
 
         return $this;
     }

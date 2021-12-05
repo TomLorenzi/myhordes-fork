@@ -274,7 +274,7 @@
     <unit id="uAj26XB" name="Schließen">
       <notes>
         <note category="german">Schließen</note>
-        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/actions.html.twig;twig:///templates/ajax/game/town/door.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/game/town/planner.html.twig;twig:///templates/ajax/ghost/intro.html.twig;twig:///templates/ajax/soul/season.html.twig</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/actions.html.twig;twig:///templates/ajax/game/town/door.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/game/town/planner.html.twig;twig:///templates/ajax/game/town/town.html.twig;twig:///templates/ajax/ghost/intro.html.twig;twig:///templates/ajax/soul/season.html.twig</note>
       </notes>
       <segment>
         <source>Schließen</source>
@@ -374,7 +374,7 @@
     <unit id="lUcvZQo" name="Hilfe">
       <notes>
         <note category="german">Hilfe</note>
-        <note category="from">php:///src/Controller/GameController.php;php:///src/Service/GazetteService.php;php:///src/Twig/Extensions.php;twig:///templates/ajax/ajax.html.twig;twig:///templates/ajax/forum/editor.html.twig;twig:///templates/ajax/game/beyond/beyond.html.twig;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/jobs.html.twig;twig:///templates/ajax/game/newspaper.html.twig;twig:///templates/ajax/game/town/bank.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/dump.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/game/town/town.html.twig;twig:///templates/ajax/ghost/create_town.html.twig;twig:///templates/ajax/pm/bubbles.html.twig;twig:///templates/ajax/public/disclaimer.html.twig;twig:///templates/ajax/soul/coalitions.html.twig;twig:///templates/ajax/soul/me.html.twig;twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/season.html.twig;twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="from">db://ThreadTag;php:///src/Controller/GameController.php;php:///src/Service/GazetteService.php;php:///src/Twig/Extensions.php;twig:///templates/ajax/ajax.html.twig;twig:///templates/ajax/forum/editor.html.twig;twig:///templates/ajax/game/beyond/beyond.html.twig;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/jobs.html.twig;twig:///templates/ajax/game/newspaper.html.twig;twig:///templates/ajax/game/town/bank.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/dump.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/game/town/town.html.twig;twig:///templates/ajax/ghost/create_town.html.twig;twig:///templates/ajax/pm/bubbles.html.twig;twig:///templates/ajax/public/disclaimer.html.twig;twig:///templates/ajax/soul/coalitions.html.twig;twig:///templates/ajax/soul/me.html.twig;twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/season.html.twig;twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Hilfe</source>
@@ -2546,7 +2546,7 @@
     <unit id="OCg3Wi1" name="Entfernen">
       <notes>
         <note category="german">Entfernen</note>
-        <note category="from">twig:///templates/ajax/forum/search.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/forum/search.html.twig</note>
       </notes>
       <segment>
         <source>Entfernen</source>
@@ -2858,12 +2858,11 @@
     <unit id="jQrj982" name="via {group_inbox}">
       <notes>
         <note category="german">via {group_inbox}</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/pm/bubbles.html.twig</note>
       </notes>
       <segment>
         <source>via {group_inbox}</source>
-        <target>via {group_inbox}</target>
+        <target>vía {group_inbox}</target>
       </segment>
     </unit>
     <unit id="GiaI_3b" name="Überlebte Tage">
@@ -3853,84 +3852,76 @@
       <notes>
         <note category="german">Ergebnisse</note>
         <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ergebnisse</source>
-        <target>Ergebnisse</target>
+        <target>Resultados</target>
       </segment>
     </unit>
     <unit id="nQxyDaJ" name="Ergebnisse pro Seite">
       <notes>
         <note category="german">Ergebnisse pro Seite</note>
         <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ergebnisse pro Seite</source>
-        <target>Ergebnisse pro Seite</target>
+        <target>Resultados por página</target>
       </segment>
     </unit>
     <unit id="zenlipp" name="Ja">
       <notes>
         <note category="german">Ja</note>
         <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ja</source>
-        <target>Ja</target>
+        <target>Sí</target>
       </segment>
     </unit>
     <unit id="kOvBveb" name="Nein">
       <notes>
         <note category="german">Nein</note>
         <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Nein</source>
-        <target>Nein</target>
+        <target>No</target>
       </segment>
     </unit>
     <unit id="U6fqsRf" name="Anwenden">
       <notes>
         <note category="german">Anwenden</note>
         <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Anwenden</source>
-        <target>Anwenden</target>
+        <target>Aplicar</target>
       </segment>
     </unit>
     <unit id="Xi3CwX9" name="Keine Ergebnisse">
       <notes>
         <note category="german">Keine Ergebnisse</note>
         <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Keine Ergebnisse</source>
-        <target>Keine Ergebnisse</target>
+        <target>No hay resultados</target>
       </segment>
     </unit>
     <unit id="mYGmtAE" name="Deine Nachricht benötigt einen Titel sowie Inhalt.">
       <notes>
         <note category="german">Deine Nachricht benötigt einen Titel sowie Inhalt.</note>
         <note category="from">twig:///templates/scripts/errors/forum.txt.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Deine Nachricht benötigt einen Titel sowie Inhalt.</source>
-        <target>Deine Nachricht benötigt einen Titel sowie Inhalt.</target>
+        <target>Tu mensaje debe tener un título y un cuerpo.</target>
       </segment>
     </unit>
     <unit id="bPdbUF0" name="Gelöst">
       <notes>
         <note category="german">Gelöst</note>
         <note category="from">twig:///templates/ajax/forum/posts.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Gelöst</source>
@@ -3941,11 +3932,207 @@
       <notes>
         <note category="german">Diese Diskussion ist als gelöst markiert (oder der Anlass hat sich mittlerweile erledigt).</note>
         <note category="from">twig:///templates/ajax/forum/posts.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Diese Diskussion ist als gelöst markiert (oder der Anlass hat sich mittlerweile erledigt).</source>
         <target>Este tema ha sido marcado como Resuelto (o fue tratado suficientemente).</target>
+      </segment>
+    </unit>
+    <unit id="9swBy37" name="Fehler">
+      <notes>
+        <note category="german">Fehler</note>
+        <note category="from">db://ThreadTag</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Fehler</source>
+        <target>Fehler</target>
+      </segment>
+    </unit>
+    <unit id="6tB8hLq" name="Changelog">
+      <notes>
+        <note category="german">Changelog</note>
+        <note category="from">db://ThreadTag</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Changelog</source>
+        <target>Changelog</target>
+      </segment>
+    </unit>
+    <unit id="Th9Jqci" name="Event">
+      <notes>
+        <note category="german">Event</note>
+        <note category="from">db://ThreadTag</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Event</source>
+        <target>Event</target>
+      </segment>
+    </unit>
+    <unit id="3NNJH4T" name="RP">
+      <notes>
+        <note category="german">RP</note>
+        <note category="from">db://ThreadTag</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>RP</source>
+        <target>RP</target>
+      </segment>
+    </unit>
+    <unit id="wcEAnT8" name="Update">
+      <notes>
+        <note category="german">Update</note>
+        <note category="from">db://ThreadTag</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Update</source>
+        <target>Update</target>
+      </segment>
+    </unit>
+    <unit id="pVVGIsZ" name="Post">
+      <notes>
+        <note category="german">Post</note>
+        <note category="from">db://ThreadTag</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Post</source>
+        <target>Post</target>
+      </segment>
+    </unit>
+    <unit id="k8yukmg" name="Disk.">
+      <notes>
+        <note category="german">Disk.</note>
+        <note category="from">db://ThreadTag</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Disk.</source>
+        <target>Disk.</target>
+      </segment>
+    </unit>
+    <unit id="jdZdCVL" name="Guide">
+      <notes>
+        <note category="german">Guide</note>
+        <note category="from">db://ThreadTag</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Guide</source>
+        <target>Guide</target>
+      </segment>
+    </unit>
+    <unit id="2NNH_gz" name="Orga.">
+      <notes>
+        <note category="german">Orga.</note>
+        <note category="from">db://ThreadTag</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Orga.</source>
+        <target>Orga.</target>
+      </segment>
+    </unit>
+    <unit id="knm5RWw" name="Vorschlag">
+      <notes>
+        <note category="german">Vorschlag</note>
+        <note category="from">db://ThreadTag</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Vorschlag</source>
+        <target>Vorschlag</target>
+      </segment>
+    </unit>
+    <unit id="dlGjhQC" name="SALC">
+      <notes>
+        <note category="german">SALC</note>
+        <note category="from">db://ThreadTag</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>SALC</source>
+        <target>SALC</target>
+      </segment>
+    </unit>
+    <unit id="VsuA962" name="Tag (optional)">
+      <notes>
+        <note category="german">Tag (optional)</note>
+        <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Tag (optional)</source>
+        <target>Tag (optional)</target>
+      </segment>
+    </unit>
+    <unit id="QOv5Ovj" name="Projekt">
+      <notes>
+        <note category="german">Projekt</note>
+        <note category="from">db://ThreadTag</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Projekt</source>
+        <target>Projekt</target>
+      </segment>
+    </unit>
+    <unit id="Lof2KKm" name="Tag hinzufügen (optional)">
+      <notes>
+        <note category="german">Tag hinzufügen (optional)</note>
+        <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
+      </notes>
+      <segment>
+        <source>Tag hinzufügen (optional)</source>
+        <target>Agregar una etiqueta (opcional)</target>
+      </segment>
+    </unit>
+    <unit id="FQORaiq" name="Tag">
+      <notes>
+        <note category="german">Tag</note>
+        <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Tag</source>
+        <target>Tag</target>
+      </segment>
+    </unit>
+    <unit id="aO5vOyS">
+      <notes>
+        <note category="german">Ein Script auf dieser Seite ist abgestürzt; weitere Informationen wurden an die Web-Konsole übermittelt. Die Seite funktioniert möglicherweise nicht mehr korrekt. Bitte melde diesen Fehler:</note>
+        <note category="from">twig:///templates/scripts/errors/generic.txt.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Ein Script auf dieser Seite ist abgestürzt; weitere Informationen wurden an die Web-Konsole übermittelt. Die Seite funktioniert möglicherweise nicht mehr korrekt. Bitte melde diesen Fehler:</source>
+        <target>Ein Script auf dieser Seite ist abgestürzt; weitere Informationen wurden an die Web-Konsole übermittelt. Die Seite funktioniert möglicherweise nicht mehr korrekt. Bitte melde diesen Fehler:</target>
+      </segment>
+    </unit>
+    <unit id="fU14gKC">
+      <notes>
+        <note category="german">Ein Fehler ist aufgetreten. Es stehen keine weiteren Informationen zur Verfügung.</note>
+        <note category="from">twig:///templates/scripts/errors/generic.txt.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Ein Fehler ist aufgetreten. Es stehen keine weiteren Informationen zur Verfügung.</source>
+        <target>Ein Fehler ist aufgetreten. Es stehen keine weiteren Informationen zur Verfügung.</target>
+      </segment>
+    </unit>
+    <unit id="6g.kIsT">
+      <notes>
+        <note category="german">Schon gewusst? Bei vielen Aktionen wird auf mobilen Geräten zunächst ein Hilfetext eingeblendet. Wenn du die Aktion durchführen möchtest, musst du die Aktion erneut antippen. Wenn du es eilig hast und lieber keine Hilfetexte sehen möchtest, kannst du dieses Verhalten kannst du in deinen Seeleneinstellungen über die Einstellung "Tooltips auf mobilen Geräten durch antippen anzeigen" deaktivieren.</note>
+        <note category="from">twig:///templates/web/framework.html.twig;twig:///templates/web/pm-host.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Schon gewusst? Bei vielen Aktionen wird auf mobilen Geräten zunächst ein Hilfetext eingeblendet. Wenn du die Aktion durchführen möchtest, musst du die Aktion erneut antippen. Wenn du es eilig hast und lieber keine Hilfetexte sehen möchtest, kannst du dieses Verhalten kannst du in deinen Seeleneinstellungen über die Einstellung "Tooltips auf mobilen Geräten durch antippen anzeigen" deaktivieren.</source>
+        <target>Schon gewusst? Bei vielen Aktionen wird auf mobilen Geräten zunächst ein Hilfetext eingeblendet. Wenn du die Aktion durchführen möchtest, musst du die Aktion erneut antippen. Wenn du es eilig hast und lieber keine Hilfetexte sehen möchtest, kannst du dieses Verhalten kannst du in deinen Seeleneinstellungen über die Einstellung "Tooltips auf mobilen Geräten durch antippen anzeigen" deaktivieren.</target>
       </segment>
     </unit>
   </file>
