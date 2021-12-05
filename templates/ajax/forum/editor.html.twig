@@ -31,38 +31,48 @@
         {% if tid is null or (edit_title is defined and edit_title is not null) %}
             <div class="row">
                 {% if type != 'global-pm' and type != 'numb' %}
-                    <div class="cell rw-4 padded">
+                    <div class="cell rw-3 padded">
                         <label for="{{ type }}-forum-editor-title">{{ 'Titel'|trans({},'global') }}</label>
                     </div>
-                    <div class="cell rw-8 padded">
-                        <input type="text" id="{{ type }}-forum-editor-title" {% if edit_title is defined and edit_title is not null %}value="{{ edit_title }}"{% endif%} />
-                    </div>
+                    {% if tid is null and tags is defined and tags is not empty %}
+                        <div class="cell rw-5 rw-sm-9 padded">
+                            <input type="text" id="{{ type }}-forum-editor-title" {% if edit_title is defined and edit_title is not null %}value="{{ edit_title }}"{% endif%} />
+                        </div>
+                        <div class="cell rw-4 rw-sm-12 padded">
+                            <span class="small pointer" id="{{ type }}-forum-editor-tag-toggle">{{ 'Tag hinzufügen (optional)'|trans({},'global') }}</span>
+                        </div>
+                    {% else %}
+                        <div class="cell rw-9 padded">
+                            <input type="text" id="{{ type }}-forum-editor-title" {% if edit_title is defined and edit_title is not null %}value="{{ edit_title }}"{% endif%} />
+                        </div>
+                    {% endif %}
+
                 {% endif %}
                 {% if type == "changelog" or type == "announcement" %}
                     {% if type == "changelog" %}
-                        <div class="cell rw-4 padded">
+                        <div class="cell rw-3 padded">
                             <label for="{{ type }}-forum-editor-version">{{ 'Version'|trans({},'global') }}</label>
                         </div>
-                        <div class="cell rw-8 padded">
+                        <div class="cell rw-9 padded">
                             <input type="text" id="{{ type }}-forum-editor-version" />
                         </div>
                     {% endif %}
-                    <div class="cell rw-4 padded">
+                    <div class="cell rw-3 padded">
                         <label for="{{ type }}-forum-editor-lang">{{ 'Sprache'|trans({},'global') }}</label>
                     </div>
-                    <div class="cell rw-8 padded">
+                    <div class="cell rw-9 padded">
                         <select id="{{ type }}-forum-editor-lang"></select>
                     </div>
                 {% endif %}
             </div>
         {% endif %}
         {% if tid is null and tags is defined and tags is not empty %}
-            <div class="row">
+            <div class="row hidden" id="{{ type }}-forum-editor-tag-row">
                 {% if type != 'global-pm' and type != 'numb' %}
-                    <div class="cell rw-4 padded">
-                        <label for="{{ type }}-forum-editor-tag">{{ 'Tag (optional)'|trans({},'global') }}</label>
+                    <div class="cell rw-3 padded">
+                        <label for="{{ type }}-forum-editor-tag">{{ 'Tag'|trans({},'global') }}</label>
                     </div>
-                    <div class="cell rw-8 padded">
+                    <div class="cell rw-9 padded">
                         <select id="{{ type }}-forum-editor-tag">
                             <option value="-none-"></option>
                             {% for tag in tags %}
@@ -299,6 +309,11 @@
                 e.preventDefault();
                 $.html.forEach('#{{ type }}-forum-editor *[x-extended]', elem => elem.classList.remove('hidden') );
                 $.html.forEach('#{{ type }}-forum-editor *[x-non-extended]', elem => elem.classList.add('hidden') );
+            });
+
+            $.html.addEventListenerAll('#{{ type }}-forum-editor-tag-toggle', 'click', () => {
+                $.html.forEach('#{{ type }}-forum-editor-tag-toggle', elem => elem.classList.add('hidden') );
+                $.html.forEach('#{{ type }}-forum-editor-tag-row', elem => elem.classList.remove('hidden') );
             });
 
             let node_transfer_source = document.getElementById('{{ type }}-forum-editor-text');
