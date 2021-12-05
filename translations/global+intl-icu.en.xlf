@@ -4147,5 +4147,15 @@
         <target>An error occurred. No further details are available.</target>
       </segment>
     </unit>
+    <unit id="6g.kIsT">
+      <notes>
+        <note category="german">Schon gewusst? Bei vielen Aktionen wird auf mobilen Geräten zunächst ein Hilfetext eingeblendet. Wenn du die Aktion durchführen möchtest, musst du die Aktion erneut antippen. Wenn du es eilig hast und lieber keine Hilfetexte sehen möchtest, kannst du dieses Verhalten kannst du in deinen Seeleneinstellungen über die Einstellung "Tooltips auf mobilen Geräten durch antippen anzeigen" deaktivieren.</note>
+        <note category="from">twig:///templates/web/framework.html.twig;twig:///templates/web/pm-host.html.twig</note>
+      </notes>
+      <segment>
+        <source>Schon gewusst? Bei vielen Aktionen wird auf mobilen Geräten zunächst ein Hilfetext eingeblendet. Wenn du die Aktion durchführen möchtest, musst du die Aktion erneut antippen. Wenn du es eilig hast und lieber keine Hilfetexte sehen möchtest, kannst du dieses Verhalten kannst du in deinen Seeleneinstellungen über die Einstellung "Tooltips auf mobilen Geräten durch antippen anzeigen" deaktivieren.</source>
+        <target>Did you know? Many actions will display a help text when they are first tapped. To perform the action, simply tap them again. If you're in a hurry and prefer to not see these help texts, disable the setting "Single tap to show tooltips" within your soul settings.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

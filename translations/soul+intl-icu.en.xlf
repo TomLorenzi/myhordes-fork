@@ -4205,5 +4205,25 @@
         <target>Last time we heard, there were still survivors in this town!</target>
       </segment>
     </unit>
+    <unit id="jkvvjFX" name="Tooltips auf mobilen Geräten durch antippen anzeigen">
+      <notes>
+        <note category="german">Tooltips auf mobilen Geräten durch antippen anzeigen</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>Tooltips auf mobilen Geräten durch antippen anzeigen</source>
+        <target>Single tap to show tooltips</target>
+      </segment>
+    </unit>
+    <unit id="JB7.CP8">
+      <notes>
+        <note category="german">Ist diese Einstellung aktiviert, öffnet das erste Antippen eines Objekts dessen Tooltip - erst das zweite Antippen führt die eigentliche Aktion durch. Ist die Einstellung deaktiviert, führt das erste Antippen die Aktion direkt aus - um den Tooptip zu öffnen, muss das Objekt länger gedrückt werden. Dies bezieht sich ausschließlich auf Geräte mit Finger- oder Stifteingabe. Bei Mauseingaben hat diese Einstellung keinen Effekt.</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>Ist diese Einstellung aktiviert, öffnet das erste Antippen eines Objekts dessen Tooltip - erst das zweite Antippen führt die eigentliche Aktion durch. Ist die Einstellung deaktiviert, führt das erste Antippen die Aktion direkt aus - um den Tooptip zu öffnen, muss das Objekt länger gedrückt werden. Dies bezieht sich ausschließlich auf Geräte mit Finger- oder Stifteingabe. Bei Mauseingaben hat diese Einstellung keinen Effekt.</source>
+        <target>When activated, tapping an object will show its tooltip - to interact with it, you need to tap it again. When disabled, the first tap will execute the action right away. To only see the tooltip without performing the action, press the object for more than a second. This setting only affects pen or finger input. For mouse input, it has no effect.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
