@@ -2,6 +2,9 @@
 
 namespace MyHordes\Fixtures\DependencyInjection\Compiler;
 
+use MyHordes\Fixtures\Fixtures\AwardFeature;
+use MyHordes\Fixtures\Fixtures\AwardIcon;
+use MyHordes\Fixtures\Fixtures\AwardTitle;
 use MyHordes\Fixtures\Fixtures\RolePlayText;
 use MyHordes\Fixtures\Fixtures\Town;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
@@ -14,8 +17,11 @@ class FixtureChain implements CompilerPassInterface
     {
         // List of interfaces
         $interfaces = [
-            Town::class => 'myhordes.fixtures.town',
-            RolePlayText::class => 'myhordes.fixtures.rp_texts',
+            Town::class             => 'myhordes.fixtures.town',
+            RolePlayText::class     => 'myhordes.fixtures.rp_texts',
+            AwardTitle::class       => 'myhordes.fixtures.awards.titles',
+            AwardIcon::class        => 'myhordes.fixtures.awards.icons',
+            AwardFeature::class     => 'myhordes.fixtures.awards.features',
         ];
 
 

@@ -16,5 +16,13 @@ services:
 
     MyHordes\Fixtures\Service\TownDataService:
       tags: [ { name: 'myhordes.fixtures.town', priority: 0 } ]
+
     MyHordes\Fixtures\Service\RolePlayTextDataService:
       tags: [ { name: 'myhordes.fixtures.rp_texts', priority: 0 } ]
+
+    MyHordes\Fixtures\Service\AwardTitleDataService:
+      tags: [ { name: 'myhordes.fixtures.awards.titles', priority: 0 } ]
+    MyHordes\Fixtures\Service\AwardIconDataService:
+      tags: [ { name: 'myhordes.fixtures.awards.icons', priority: 0 } ]
+    MyHordes\Fixtures\Service\AwardFeatureDataService:
+      tags: [ { name: 'myhordes.fixtures.awards.features', priority: 0 } ]
