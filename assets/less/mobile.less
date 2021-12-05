@@ -115,7 +115,21 @@
 @media (max-width: (@screen-small-threshold - 1)) {
   .hide-@{screen-small} {display: none !important;};
   #notifications { width: 100%; left: 0; margin-left: 0; }
+  #postbox {
+    img { height: 32px; width: 32px; }
+    #postbox-new-msg-counter {
+      position: absolute; background: darkred; padding: 2px; border-radius: 100px; bottom: -2px; right: -2px;
+      display: block; width: 24px; height: 24px; font-size: 14px; text-align: center; box-shadow: 0 0 3px black;
+    }
+  }
   button, .button { padding-top: 16px; padding-bottom: 16px; margin-top: 8px; margin-bottom: 8px; }
+  ul.inventory > li:not(.title):not(.category) {
+    margin: 5px; height: 34px !important;  width: 34px !important;
+    &.item {
+      &.counted > span:not(:first-child) { background: rgba(0,0,0,0.75); padding: 1px 3px; border-radius: 2px; }
+      img { width: 32px; height: auto; }
+    }
+  }
   ul.actions>li, ul.special_actions>li, ul.heroic_actions>li {
     padding-top: 16px; padding-bottom: 16px; &>img:first-child { top: 19px; }
     &>div.targets {

@@ -340,6 +340,12 @@
                                 <input x-browser-setting="autoParseLinks" type="checkbox" id="setting_browser_autoParseLinks">&nbsp;<label for="setting_browser_autoParseLinks">{{ 'Links in eigenen Posts automatisch klickbar machen'|trans({}, 'soul') }}</label>
                             </div>
                         </div>
+                        <div class="padded cell rw-12">
+                            <div class="note note-lightest">
+                                <input x-browser-setting="twoTapTooltips" type="checkbox" id="setting_browser_twoTapTooltips">&nbsp;<label for="setting_browser_twoTapTooltips">{{ 'Tooltips auf mobilen Geräten durch antippen anzeigen'|trans({}, 'soul') }}</label>
+                                {{help_btn("Ist diese Einstellung aktiviert, öffnet das erste Antippen eines Objekts dessen Tooltip - erst das zweite Antippen führt die eigentliche Aktion durch. Ist die Einstellung deaktiviert, führt das erste Antippen die Aktion direkt aus - um den Tooptip zu öffnen, muss das Objekt länger gedrückt werden. Dies bezieht sich ausschließlich auf Geräte mit Finger- oder Stifteingabe. Bei Mauseingaben hat diese Einstellung keinen Effekt."|trans({}, 'soul'))}}
+                            </div>
+                        </div>
                     </div>
                 </div>
                 {% if show_importer %}

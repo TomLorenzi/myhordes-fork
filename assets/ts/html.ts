@@ -303,45 +303,80 @@ export default class HTML {
            e.preventDefault();
         }, false);
 
-        const fun_tooltip_pos = function(e: PointerEvent|MouseEvent) {
-            element.style.top  = e.clientY + 'px';
+        const fun_tooltip_pos = function(pointer: boolean = false) {
+            return function(e: PointerEvent|MouseEvent) {
 
-            // Make sure the tooltip does not exit the screen on the right
-            // If it does, attach it left to the cursor instead of right
-            if (e.clientX + element.clientWidth + 25 > window.innerWidth) {
+                if (pointer) {
+                    if (e instanceof PointerEvent && e.pointerType === 'mouse') return;
 
-                // Make sure the tooltip does not exit the screen on the left
-                // If it does, center it on screen below the cursor
-                if ( (e.clientX - element.clientWidth - 50) < 0 ) {
+                    // Center the tooltip below the parent
+                    element.style.top  = parent.getBoundingClientRect().top + parent.clientHeight + 'px';
                     element.style.left = (window.innerWidth - element.clientWidth)/2 + 'px';
-                } else element.style.left = (e.clientX - element.clientWidth - 50) + 'px';
 
-            } else element.style.left = e.clientX + 'px';
+                } else if (element.dataset.touchtip !== '1') {
+                    element.style.top  = e.clientY + 'px';
 
+                    // Make sure the tooltip does not exit the screen on the right
+                    // If it does, attach it left to the cursor instead of right
+                    if (e.clientX + element.clientWidth + 25 > window.innerWidth) {
+
+                        // Make sure the tooltip does not exit the screen on the left
+                        // If it does, center it on screen below the cursor
+                        if ( (e.clientX - element.clientWidth - 50) < 0 ) {
+                            element.style.left = (window.innerWidth - element.clientWidth)/2 + 'px';
+                        } else element.style.left = (e.clientX - element.clientWidth - 50) + 'px';
+
+                    } else element.style.left = e.clientX + 'px';
+                }
+
+
+            }
         }
 
-        const fun_tooltip_show = function(e: PointerEvent|MouseEvent) {
-            element.style.display = 'block';
-            container.append( element );
-            fun_tooltip_pos(e);
-            element.dispatchEvent( new Event('appear') );
+        const fun_tooltip_show = function(pointer: boolean) {
+            return function(e: PointerEvent|MouseEvent) {
+                if (pointer && e instanceof PointerEvent && e.pointerType === 'mouse') return;
+                element.style.display = 'block';
+                container.append( element );
+                fun_tooltip_pos(pointer)(e);
+                element.dispatchEvent( new Event('appear') );
+                if (pointer && $.client.config.twoTapTooltips.get()) {
+                    if (parent.dataset.stage !== '1') {
+                        document.body.addEventListener('click', e => e.stopPropagation(),
+                            {capture: true, once: true});
+                        parent.addEventListener('click', () => parent.dataset.stage = '0', {once: true})
+                    }
+
+                    $.html.forEach( '[data-stage="1"]', e => e.dataset.stage = '0' );
+                    parent.dataset.stage = element.dataset.touchtip = '1';
+
+                    if (!$.client.config.ttttHelpSeen.get()) {
+                        alert(c.taptut);
+                        $.client.config.ttttHelpSeen.set(true);
+                    }
+                }
+            }
         }
+
 
         const fun_tooltip_hide = function(e: PointerEvent|TouchEvent|MouseEvent) {
             element.dispatchEvent( new Event('disappear') );
             element.style.display = 'none';
             parent.append( element );
+            parent.dataset.stage = element.dataset.touchtip = '0';
         }
 
-        parent.addEventListener('pointerenter', fun_tooltip_show);
-        parent.addEventListener('mouseenter',   fun_tooltip_show);
+        parent.addEventListener('pointerdown',  fun_tooltip_show(true));
+        parent.addEventListener('mouseenter',   fun_tooltip_show(false));
 
-        parent.addEventListener('pointermove', fun_tooltip_pos);
-
-        parent.addEventListener('pointerleave', fun_tooltip_hide);
-        parent.addEventListener('pointerup',    fun_tooltip_hide);
-        parent.addEventListener('touchend',     fun_tooltip_hide);
+        parent.addEventListener('mousemove', fun_tooltip_pos(false));
         parent.addEventListener('mouseleave',   fun_tooltip_hide);
+
+        if (!$.client.config.twoTapTooltips.get()) {
+            parent.addEventListener('pointerleave', fun_tooltip_hide);
+            parent.addEventListener('pointerup',    fun_tooltip_hide);
+            parent.addEventListener('touchend',     fun_tooltip_hide);
+        }
     };
 
     addLoadStack( num: number = 1): void {
