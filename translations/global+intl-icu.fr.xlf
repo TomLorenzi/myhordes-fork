@@ -3983,7 +3983,7 @@
       </notes>
       <segment>
         <source>RP</source>
-        <target>Rôle Play</target>
+        <target>Roleplay</target>
       </segment>
     </unit>
     <unit id="wcEAnT8" name="Update">
@@ -4066,7 +4066,7 @@
       </notes>
       <segment>
         <source>Tag (optional)</source>
-        <target>Tag (optional)</target>
+        <target>Tag (optionnel)</target>
       </segment>
     </unit>
     <unit id="QOv5Ovj" name="Projekt">
