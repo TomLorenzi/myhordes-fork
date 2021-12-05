@@ -1,8 +1,9 @@
-import {Global} from "./defaults";
+import {Const, Global} from "./defaults";
 
 import TwinoAlikeParser from "./twino"
 
 declare var $: Global;
+declare var c: Const;
 
 interface elementHandler { (element: HTMLElement, index: number): void }
 interface eventListener { (e: Event, element: HTMLElement, index: number): void }
@@ -71,7 +72,7 @@ export default class HTML {
                 this.error( messages[code](data) );
             else this.error( messages[code] );
         } else if ( base.hasOwnProperty(code) ) this.error( base[code] );
-        else this.error( 'An error occurred. No further details are available.' );
+        else this.error( c.errors['common'] );
     }
 
     message(label: string, msg: string ): void {

@@ -4079,5 +4079,48 @@
         <target>Projet</target>
       </segment>
     </unit>
+    <unit id="Lof2KKm" name="Tag hinzufügen (optional)">
+      <notes>
+        <note category="german">Tag hinzufügen (optional)</note>
+        <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
+      </notes>
+      <segment>
+        <source>Tag hinzufügen (optional)</source>
+        <target>Ajouter un tag (optionnel)</target>
+      </segment>
+    </unit>
+    <unit id="FQORaiq" name="Tag">
+      <notes>
+        <note category="german">Tag</note>
+        <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Tag</source>
+        <target>Tag</target>
+      </segment>
+    </unit>
+    <unit id="aO5vOyS">
+      <notes>
+        <note category="german">Ein Script auf dieser Seite ist abgestürzt; weitere Informationen wurden an die Web-Konsole übermittelt. Die Seite funktioniert möglicherweise nicht mehr korrekt. Bitte melde diesen Fehler:</note>
+        <note category="from">twig:///templates/scripts/errors/generic.txt.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Ein Script auf dieser Seite ist abgestürzt; weitere Informationen wurden an die Web-Konsole übermittelt. Die Seite funktioniert möglicherweise nicht mehr korrekt. Bitte melde diesen Fehler:</source>
+        <target>Ein Script auf dieser Seite ist abgestürzt; weitere Informationen wurden an die Web-Konsole übermittelt. Die Seite funktioniert möglicherweise nicht mehr korrekt. Bitte melde diesen Fehler:</target>
+      </segment>
+    </unit>
+    <unit id="fU14gKC">
+      <notes>
+        <note category="german">Ein Fehler ist aufgetreten. Es stehen keine weiteren Informationen zur Verfügung.</note>
+        <note category="from">twig:///templates/scripts/errors/generic.txt.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Ein Fehler ist aufgetreten. Es stehen keine weiteren Informationen zur Verfügung.</source>
+        <target>Ein Fehler ist aufgetreten. Es stehen keine weiteren Informationen zur Verfügung.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
