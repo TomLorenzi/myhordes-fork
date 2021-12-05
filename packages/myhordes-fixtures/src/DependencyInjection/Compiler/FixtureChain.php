@@ -2,6 +2,7 @@
 
 namespace MyHordes\Fixtures\DependencyInjection\Compiler;
 
+use MyHordes\Fixtures\Fixtures\RolePlayText;
 use MyHordes\Fixtures\Fixtures\Town;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -14,6 +15,7 @@ class FixtureChain implements CompilerPassInterface
         // List of interfaces
         $interfaces = [
             Town::class => 'myhordes.fixtures.town',
+            RolePlayText::class => 'myhordes.fixtures.rp_texts',
         ];
 
 

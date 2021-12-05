@@ -16,3 +16,5 @@ services:
 
     MyHordes\Fixtures\Service\TownDataService:
       tags: [ { name: 'myhordes.fixtures.town', priority: 0 } ]
+    MyHordes\Fixtures\Service\RolePlayTextDataService:
+      tags: [ { name: 'myhordes.fixtures.rp_texts', priority: 0 } ]
