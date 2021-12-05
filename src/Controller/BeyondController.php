@@ -787,7 +787,7 @@ class BeyondController extends InventoryAwareController
             $movement_interrupted = true;
         }
 
-        if ($this->citizen_handler->hasStatusEffect($citizen, 'terror') && $this->random_generator->chance(0.05)) {
+        if ($zone->getZombies() > 0 && $this->citizen_handler->hasStatusEffect($citizen, 'terror') && $this->random_generator->chance(0.05)) {
             $this->addFlash('notice', $this->translator->trans('Als du dich umschaust, <strong>überfällt dich eine plötzliche, unkontrollierbare Panik</strong>! Es ist unmöglich, auch nur einen Schritt weiterzugehen.<hr/>Deine Bewegung wurde <strong>unterbrochen</strong> und du hast <strong>1 AP</strong> verloren.', [], 'game'));
             $this->entity_manager->persist($this->log->outsideMoveoutsideMoveFailTerror( $citizen ));
             $movement_interrupted = true;
@@ -830,7 +830,7 @@ class BeyondController extends InventoryAwareController
                 $movement_interrupted = true;
             }
 
-            if ($mover !== $citizen && $this->citizen_handler->hasStatusEffect($mover, 'terror') && $this->random_generator->chance(0.05)) {
+            if ($mover !== $citizen && $zone->getZombies() > 0 && $this->citizen_handler->hasStatusEffect($mover, 'terror') && $this->random_generator->chance(0.05)) {
                 $this->entity_manager->persist($this->log->outsideMoveoutsideMoveFailTerror( $mover ));
                 $movement_interrupted = true;
             }
