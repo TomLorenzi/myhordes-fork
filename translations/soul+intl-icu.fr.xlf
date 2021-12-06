@@ -219,7 +219,7 @@
       </notes>
       <segment>
         <source>Der Server kann das gewählte Bild nicht auf die erforderliche Dateigröße komprimieren.</source>
-        <target>Ce fichier est trop volumineux et le serveur n'as pas pu le compresser suffisament.</target>
+        <target>Ce fichier est trop volumineux et le serveur n'a pas pu le compresser suffisamment.</target>
       </segment>
     </unit>
     <unit id="EL4cDyq" name="Bei der Verarbeitung des Bildes ist ein interner Fehler aufgetreten.">
