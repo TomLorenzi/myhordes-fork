@@ -4203,7 +4203,7 @@
       </notes>
       <segment>
         <source>Tooltips auf mobilen Geräten durch antippen anzeigen</source>
-        <target>Tooltips auf mobilen Geräten durch antippen anzeigen</target>
+        <target>Afficher les info-bulles sur les appareils mobiles en appuyant dessus</target>
       </segment>
     </unit>
     <unit id="JB7.CP8">
@@ -4214,7 +4214,7 @@
       </notes>
       <segment>
         <source>Ist diese Einstellung aktiviert, öffnet das erste Antippen eines Objekts dessen Tooltip - erst das zweite Antippen führt die eigentliche Aktion durch. Ist die Einstellung deaktiviert, führt das erste Antippen die Aktion direkt aus - um den Tooptip zu öffnen, muss das Objekt länger gedrückt werden. Dies bezieht sich ausschließlich auf Geräte mit Finger- oder Stifteingabe. Bei Mauseingaben hat diese Einstellung keinen Effekt.</source>
-        <target>Ist diese Einstellung aktiviert, öffnet das erste Antippen eines Objekts dessen Tooltip - erst das zweite Antippen führt die eigentliche Aktion durch. Ist die Einstellung deaktiviert, führt das erste Antippen die Aktion direkt aus - um den Tooptip zu öffnen, muss das Objekt länger gedrückt werden. Dies bezieht sich ausschließlich auf Geräte mit Finger- oder Stifteingabe. Bei Mauseingaben hat diese Einstellung keinen Effekt.</target>
+        <target>Si ce paramètre est activé, le premier appui sur un objet ouvre son info-bulle - seul le deuxième appui effectue l’action réelle. Si le paramètre est désactivé, le premier appui effectue l’action directement - pour ouvrir l'info-bulle, l'appui sur l'action doit être effectué plus longtemps. Cela s’applique uniquement aux appareils avec un écran tactile ou un stylet. Lors de l'usage d’une souris, ce paramètre n’a aucun effet.</target>
       </segment>
     </unit>
   </file>
