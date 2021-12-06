@@ -153,14 +153,25 @@ class AdminAppController extends AdminActionController
             AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
         }
 
-        $this->logger->info("Admin <info>{$this->getUser()->getName()}</info> updated app <info>{$app->getName()}</info> infos", [
-            'name' => "{$old_app->getName()} => {$app->getName()}",
-            'contact' => "{$old_app->getContact()} => {$app->getContact()}",
-            'url' => "{$old_app->getUrl()} => {$app->getUrl()}",
-            'owner' => (($old_app->getOwner() !== null ? $old_app->getOwner()->getName() : 'null') . " => " . ($app->getOwner() !== null ? $app->getOwner()->getName() : 'null')),
-            'testing' => "{$old_app->getTesting()} => {$app->getTesting()}",
-            'link_only' => "{$old_app->getLinkOnly()} => {$app->getLinkOnly()}",
-        ]);
+        if($old_app !== null) {
+            $this->logger->info("Admin <info>{$this->getUser()->getName()}</info> updated app <info>{$app->getName()}</info> infos", [
+                'name' => "{$old_app->getName()} => {$app->getName()}",
+                'contact' => "{$old_app->getContact()} => {$app->getContact()}",
+                'url' => "{$old_app->getUrl()} => {$app->getUrl()}",
+                'owner' => (($old_app->getOwner() !== null ? $old_app->getOwner()->getName() : 'null') . " => " . ($app->getOwner() !== null ? $app->getOwner()->getName() : 'null')),
+                'testing' => "{$old_app->getTesting()} => {$app->getTesting()}",
+                'link_only' => "{$old_app->getLinkOnly()} => {$app->getLinkOnly()}",
+            ]);
+        } else {
+            $this->logger->info("Admin <info>{$this->getUser()->getName()}</info> created app <info>{$app->getName()}</info> infos", [
+                'name' => $app->getName(),
+                'contact' => $app->getContact(),
+                'url' => $app->getUrl(),
+                'owner' => ($app->getOwner() !== null ? $app->getOwner()->getName() : 'null'),
+                'testing' => $app->getTesting(),
+                'link_only' => $app->getLinkOnly(),
+            ]);
+        }
 
         return AjaxResponse::success();
     }
