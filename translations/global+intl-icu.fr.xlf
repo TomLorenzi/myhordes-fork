@@ -4103,7 +4103,6 @@
       <notes>
         <note category="german">Ein Script auf dieser Seite ist abgestürzt; weitere Informationen wurden an die Web-Konsole übermittelt. Die Seite funktioniert möglicherweise nicht mehr korrekt. Bitte melde diesen Fehler:</note>
         <note category="from">twig:///templates/scripts/errors/generic.txt.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ein Script auf dieser Seite ist abgestürzt; weitere Informationen wurden an die Web-Konsole übermittelt. Die Seite funktioniert möglicherweise nicht mehr korrekt. Bitte melde diesen Fehler:</source>
@@ -4114,7 +4113,6 @@
       <notes>
         <note category="german">Ein Fehler ist aufgetreten. Es stehen keine weiteren Informationen zur Verfügung.</note>
         <note category="from">twig:///templates/scripts/errors/generic.txt.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ein Fehler ist aufgetreten. Es stehen keine weiteren Informationen zur Verfügung.</source>
@@ -4125,7 +4123,6 @@
       <notes>
         <note category="german">Schon gewusst? Bei vielen Aktionen wird auf mobilen Geräten zunächst ein Hilfetext eingeblendet. Wenn du die Aktion durchführen möchtest, musst du die Aktion erneut antippen. Wenn du es eilig hast und lieber keine Hilfetexte sehen möchtest, kannst du dieses Verhalten kannst du in deinen Seeleneinstellungen über die Einstellung "Tooltips auf mobilen Geräten durch antippen anzeigen" deaktivieren.</note>
         <note category="from">twig:///templates/web/framework.html.twig;twig:///templates/web/pm-host.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Schon gewusst? Bei vielen Aktionen wird auf mobilen Geräten zunächst ein Hilfetext eingeblendet. Wenn du die Aktion durchführen möchtest, musst du die Aktion erneut antippen. Wenn du es eilig hast und lieber keine Hilfetexte sehen möchtest, kannst du dieses Verhalten kannst du in deinen Seeleneinstellungen über die Einstellung "Tooltips auf mobilen Geräten durch antippen anzeigen" deaktivieren.</source>
