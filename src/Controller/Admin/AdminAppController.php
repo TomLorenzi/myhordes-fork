@@ -110,8 +110,7 @@ class AdminAppController extends AdminActionController
             $owner = $this->entity_manager->getRepository(User::class)->find((int)$parser->get('owner'));
             if ($owner === null) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
         }
-
-        $old_app = clone $app;
+        $old_app = $id< 0 ? null : clone $app;
 
         $app
             ->setName( $parser->get('name') )
