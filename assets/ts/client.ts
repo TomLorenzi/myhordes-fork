@@ -24,7 +24,7 @@ class Config {
         this.notificationAsPopup   = this.makeConf<boolean>('notifAsPopup', false);
         this.usePostBackup         = this.makeConf<boolean>('useEditorCache', true);
         this.autoParseLinks        = this.makeConf<boolean>('autoParseLinks', true);
-        this.twoTapTooltips        = this.makeConf<boolean>('twoTapTooltips', true);
+        this.twoTapTooltips        = this.makeConf<boolean>('twoTapTooltips', false);
         this.ttttHelpSeen          = this.makeConf<boolean>('ttttHelpSeen', false);
         this.twinoidImport         = this.makeConf<[number,string,string]>('twinImport', [0,'',''], true);
         this.editorCache           = this.makeConf<string>('editorCache', '', true);

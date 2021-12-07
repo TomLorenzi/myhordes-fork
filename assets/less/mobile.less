@@ -126,7 +126,12 @@
   ul.inventory > li:not(.title):not(.category) {
     margin: 5px; height: 34px !important;  width: 34px !important;
     &.item {
-      &.counted > span:not(:first-child) { background: rgba(0,0,0,0.75); padding: 1px 3px; border-radius: 2px; }
+      &.counted {
+        position: relative;
+        & > span:not(:first-child) {
+          background: rgba(0,0,0,0.75); padding: 1px 3px; border-radius: 2px; position: absolute; left: 0; bottom: 0;
+        }
+      }
       img { width: 32px; height: auto; }
     }
   }
