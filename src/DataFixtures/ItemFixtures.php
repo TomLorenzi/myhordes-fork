@@ -789,7 +789,7 @@ class ItemFixtures extends Fixture
         'car_door_#00'               => [ 'impoundable', 'defence' ],
         'pet_dog_#00'                => [ 'impoundable', 'defence', 'pet', 'esc_fixed', 'lock' ],
         'plate_#00'                  => [ 'impoundable', 'defence' ],
-        'torch_#00'                  => [ 'impoundable', 'defence', 'weapon', 'nw_ikea', 'nw_armory', 'prevent_night' ],
+        'torch_#00'                  => [ 'impoundable', 'defence', 'weapon', 'nw_armory', 'prevent_night' ],
         'tekel_#00'                  => [ 'impoundable', 'defence', 'lock', 'pet' ],
         'trestle_#00'                => [ 'impoundable', 'defence' ],
         'table_#00'                  => [ 'impoundable', 'defence', 'nw_ikea' ],
