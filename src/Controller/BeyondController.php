@@ -1562,7 +1562,7 @@ class BeyondController extends InventoryAwareController
         if (!$target_citizen || $target_citizen->getZone() === null || $target_citizen->getZone()->getId() !== $citizen->getZone()->getId())
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
-        if ((!$citizen->getProfession()->getHeroic() && !$citizen->hasRole('guide')))
+        if (!$citizen->getProfession()->getHeroic() && !$citizen->hasRole('guide'))
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         if ($citizen->getBanished())
