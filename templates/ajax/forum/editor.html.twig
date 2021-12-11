@@ -31,11 +31,54 @@
         {% if tid is null or (edit_title is defined and edit_title is not null) %}
             <div class="row">
                 {% if type != 'global-pm' and type != 'numb' %}
-                    <div class="cell rw-4 padded">
+                    <div class="cell rw-3 padded">
                         <label for="{{ type }}-forum-editor-title">{{ 'Titel'|trans({},'global') }}</label>
                     </div>
-                    <div class="cell rw-8 padded">
-                        <input type="text" id="{{ type }}-forum-editor-title" {% if edit_title is defined and edit_title is not null %}value="{{ edit_title }}"{% endif%} />
+                    {% if tags is defined and tags is not empty and (current_tag is not defined or current_tag is empty) %}
+                        <div class="cell rw-5 rw-sm-9 padded">
+                            <input type="text" id="{{ type }}-forum-editor-title" {% if edit_title is defined and edit_title is not null %}value="{{ edit_title }}"{% endif%} />
+                        </div>
+                        <div class="cell rw-4 rw-sm-12 padded">
+                            <span class="small pointer" id="{{ type }}-forum-editor-tag-toggle">{{ 'Tag hinzufügen (optional)'|trans({},'global') }}</span>
+                        </div>
+                    {% else %}
+                        <div class="cell rw-9 padded">
+                            <input type="text" id="{{ type }}-forum-editor-title" {% if edit_title is defined and edit_title is not null %}value="{{ edit_title }}"{% endif%} />
+                        </div>
+                    {% endif %}
+
+                {% endif %}
+                {% if type == "changelog" or type == "announcement" %}
+                    {% if type == "changelog" %}
+                        <div class="cell rw-3 padded">
+                            <label for="{{ type }}-forum-editor-version">{{ 'Version'|trans({},'global') }}</label>
+                        </div>
+                        <div class="cell rw-9 padded">
+                            <input type="text" id="{{ type }}-forum-editor-version" />
+                        </div>
+                    {% endif %}
+                    <div class="cell rw-3 padded">
+                        <label for="{{ type }}-forum-editor-lang">{{ 'Sprache'|trans({},'global') }}</label>
+                    </div>
+                    <div class="cell rw-9 padded">
+                        <select id="{{ type }}-forum-editor-lang"></select>
+                    </div>
+                {% endif %}
+            </div>
+        {% endif %}
+        {% if tags is defined and tags is not empty %}
+            <div class="row {% if current_tag is not defined or current_tag is empty %}hidden{% endif %}" id="{{ type }}-forum-editor-tag-row">
+                {% if type != 'global-pm' and type != 'numb' %}
+                    <div class="cell rw-3 padded">
+                        <label for="{{ type }}-forum-editor-tag">{{ 'Tag'|trans({},'global') }}</label>
+                    </div>
+                    <div class="cell rw-9 padded">
+                        <select id="{{ type }}-forum-editor-tag">
+                            <option value="-none-"></option>
+                            {% for tag in tags %}
+                                <option {% if current_tag is defined and current_tag == tag%}selected{% endif%} value="{{ tag.name }}">{{ tag.label|trans({},'global') }}</option>
+                            {% endfor %}
+                        </select>
                     </div>
                 {% endif %}
                 {% if type == "changelog" or type == "announcement" %}
@@ -56,7 +99,6 @@
                 {% endif %}
             </div>
         {% endif %}
-
         <div class="row classic-editor">
             <div class="padded cell rw-12">
                 {% if type != 'global-pm' %}
@@ -267,6 +309,11 @@
                 e.preventDefault();
                 $.html.forEach('#{{ type }}-forum-editor *[x-extended]', elem => elem.classList.remove('hidden') );
                 $.html.forEach('#{{ type }}-forum-editor *[x-non-extended]', elem => elem.classList.add('hidden') );
+            });
+
+            $.html.addEventListenerAll('#{{ type }}-forum-editor-tag-toggle', 'click', () => {
+                $.html.forEach('#{{ type }}-forum-editor-tag-toggle', elem => elem.classList.add('hidden') );
+                $.html.forEach('#{{ type }}-forum-editor-tag-row', elem => elem.classList.remove('hidden') );
             });
 
             let node_transfer_source = document.getElementById('{{ type }}-forum-editor-text');
@@ -678,8 +725,12 @@
                         {% else %}
                             {% if tid is null %}
                                 target_url = '{{ path('forum_new_thread_controller', {id: fid}) }}';
+                                let tag = null;
+                                if (document.getElementById('{{ type }}-forum-editor-tag'))
+                                    tag = document.getElementById('{{ type }}-forum-editor-tag').value;
                                 target_payload = {
                                     title: document.getElementById('{{ type }}-forum-editor-title').value,
+                                    tag: tag,
                                     text: content_node.innerHTML,
                                     type: type
                                 };
@@ -691,8 +742,16 @@
                                 };
                             {% else %}
                                 target_url = '{{ path('forum_edit_post_controller', {fid: fid, tid: tid, pid: pid}) }}';
+                                {% if edit_title is defined %}
+                                    let tag_edit = null;
+                                    if (document.getElementById('{{ type }}-forum-editor-tag'))
+                                        tag_edit = document.getElementById('{{ type }}-forum-editor-tag').value;
+                                {% endif %}
                                 target_payload = {
-                                    {% if edit_title is defined %}title: document.getElementById('{{ type }}-forum-editor-title') ? document.getElementById('{{ type }}-forum-editor-title').value : null,{% endif %}
+                                    {% if edit_title is defined %}
+                                        title: document.getElementById('{{ type }}-forum-editor-title') ? document.getElementById('{{ type }}-forum-editor-title').value : null,
+                                        tag: tag_edit,
+                                    {% endif %}
                                     text: content_node.innerHTML
                                 };
                             {% endif %}

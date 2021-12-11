@@ -85,9 +85,9 @@ class AdminFileSystemController extends AdminActionController
 
         $log_files = array_map( fn($e) => [
             'info' => $e,
-            'rel' => str_replace($params->get('kernel.project_dir'),'', $e->getRealPath()),
-            'time' => (new \DateTime())->setTimestamp( $e->getCTime() ),
-            'access' => str_replace(['/','\\'],'::', str_replace("$log_base_dir/",'', $e->getRealPath())),
+            'rel' => $e->getRealPath(),
+            'time' => (new \DateTime())->setTimestamp( $e->getMTime() ),
+            'access' => str_replace(['/','\\'],'::', $e->getRealPath()),
             'tags' => [$extract_log_type($e)]
         ], $this->list_files( $log_base_dir, 'log' ));
         usort($log_files, fn($a,$b) => $b['time'] <=> $a['time'] );
@@ -146,9 +146,8 @@ class AdminFileSystemController extends AdminActionController
         $f = str_replace(['..','::'],['','/'],$f);
 
         $spl_core_path = new SplFileInfo("{$params->get('kernel.project_dir')}/var/log");
-
-        $path = new SplFileInfo("{$params->get('kernel.project_dir')}/var/log/{$f}");
-        if (!$path->isFile() || !strtolower($path->getExtension()) === 'log') return new Response('', 404);
+        $path = new SplFileInfo($f);
+        if (!$path->isFile() || strtolower($path->getExtension()) !== 'log' || !str_starts_with( $path->getRealPath(), $spl_core_path->getRealPath() )) return new Response('', 404);
 
         if ($path->getSize() > 67108864)        $a = 'download';
         else if ($path->getSize() > 16777216 && $a === 'view') $a = 'print';
@@ -178,9 +177,8 @@ class AdminFileSystemController extends AdminActionController
         $f = str_replace(['..','::'],['','/'],$f);
 
         $spl_core_path = new SplFileInfo("{$params->get('kernel.project_dir')}/var/backup");
-
-        $path = new SplFileInfo("{$params->get('kernel.project_dir')}/var/backup/{$f}");
-        if (!$path->isFile() || !in_array(strtolower($path->getExtension()), ['sql','xz','gzip','bz2'])) return new Response('', 404);
+        $path = new SplFileInfo($f);
+        if (!$path->isFile() || !in_array(strtolower($path->getExtension()), ['sql','xz','gzip','bz2']) || !str_starts_with( $path->getRealPath(), $spl_core_path->getRealPath() )) return new Response('', 404);
 
         $this->logger->info("Admin <info>{$this->getUser()->getName()}</info> downloaded backup <debug>{$f}</debug>");
 
@@ -201,9 +199,8 @@ class AdminFileSystemController extends AdminActionController
         $f = str_replace(['..','::'],['','/'],$f);
 
         $spl_core_path = new SplFileInfo("{$params->get('kernel.project_dir')}/var/log");
-
-        $path = new SplFileInfo("{$params->get('kernel.project_dir')}/var/log/{$f}");
-        if ($path->isFile() && strtolower($path->getExtension()) === 'log')
+        $path = new SplFileInfo($f);
+        if ($path->isFile() && strtolower($path->getExtension()) !== 'log' && str_starts_with( $path->getRealPath(), $spl_core_path->getRealPath() ))
             unlink($path->getRealPath());
 
         $this->logger->info("Admin <info>{$this->getUser()->getName()}</info> deleted log <debug>{$f}</debug>");
@@ -225,9 +222,8 @@ class AdminFileSystemController extends AdminActionController
         $f = str_replace(['..','::'],['','/'],$f);
 
         $spl_core_path = new SplFileInfo("{$params->get('kernel.project_dir')}/var/backup");
-
-        $path = new SplFileInfo("{$params->get('kernel.project_dir')}/var/backup/{$f}");
-        if ($path->isFile() && in_array(strtolower($path->getExtension()), ['sql','xz','gzip','bz2']))
+        $path = new SplFileInfo($f);
+        if ($path->isFile() && in_array(strtolower($path->getExtension()), ['sql','xz','gzip','bz2']) && str_starts_with( $path->getRealPath(), $spl_core_path->getRealPath() ))
             unlink($path->getRealPath());
 
         $this->logger->info("Admin <info>{$this->getUser()->getName()}</info> deleted backup <debug>{$f}</debug>");

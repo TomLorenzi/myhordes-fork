@@ -17,6 +17,7 @@ use App\Entity\OfficialGroup;
 use App\Entity\Post;
 use App\Entity\Thread;
 use App\Entity\ThreadReadMarker;
+use App\Entity\ThreadTag;
 use App\Entity\User;
 use App\Response\AjaxResponse;
 use App\Service\CitizenHandler;
@@ -239,7 +240,19 @@ class MessageForumController extends MessageController
 
 
         $title = $parser->trimmed('title');
+        $tag   = $this->userHandler->hasSkill($user, 'writer') ? $parser->trimmed('tag') : null;
         $text  = $parser->trimmed('text');
+
+        if (empty($tag) || $tag === '-none-')
+            $tag = null;
+        else $tag = $this->entity_manager->getRepository(ThreadTag::class)->findOneBy(['name' => $tag]);
+
+        if ($tag !== null) {
+            if ($tag->getPermissionMap() !== null && !$this->perm->isPermitted( $permission, $tag->getPermissionMap() ))
+                return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+            if (!$forum->getAllowedTags()->contains($tag))
+                return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+        }
 
         $type = $parser->get('type') ?? 'USER';
         $valid = ['USER'];
@@ -251,7 +264,7 @@ class MessageForumController extends MessageController
         if (mb_strlen($title) < 3 || mb_strlen($title) > 64)  return AjaxResponse::error( self::ErrorPostTitleLength );
         if (mb_strlen($text) < 2 || mb_strlen($text) > 16384) return AjaxResponse::error( self::ErrorPostTextLength );
 
-        $thread = (new Thread())->setTitle( $title )->setOwner($user);
+        $thread = (new Thread())->setTitle( $title )->setTag($tag)->setOwner($user);
 
         $map_type = [
             'CROW' => 66,
@@ -583,8 +596,21 @@ class MessageForumController extends MessageController
 
         if ($post === $thread->firstPost(true) && $parser->has('title',true) && !$thread->getTranslatable()) {
             $title = $parser->get('title');
+            $tag = $this->userHandler->hasSkill($user, 'writer') ? $parser->trimmed('tag') : null;
+
+            if (empty($tag) || $tag === '-none-')
+                $tag = null;
+            else $tag = $this->entity_manager->getRepository(ThreadTag::class)->findOneBy(['name' => $tag]);
+
+            if ($tag !== null) {
+                if ($tag->getPermissionMap() !== null && !$this->perm->isPermitted( $permission, $tag->getPermissionMap() ))
+                    $tag = null;
+                if (!$forum->getAllowedTags()->contains($tag))
+                    $tag = null;
+            }
+
             if (mb_strlen($title) >= 3 && mb_strlen($title) <= 64) {
-                $thread->setTitle($title);
+                $thread->setTitle($title)->setTag($tag);
                 $this->entity_manager->persist($thread);
             }
         }
@@ -708,7 +734,7 @@ class MessageForumController extends MessageController
         elseif ($parser->has('page'))
             $page = min(max(1,$parser->get('page', 1)), $pages);
         elseif (!$marker->getPost()) $page = 1;
-        else $page = min($pages,1 + floor(($em->getRepository(Post::class)->getOffsetOfPostByThread( $thread, $marker->getPost(), $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate ) )) / $num_per_page));
+        else $page = min($pages,1 + floor((1+$em->getRepository(Post::class)->getOffsetOfPostByThread( $thread, $marker->getPost(), $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate ) )) / $num_per_page));
 
         if ($this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate ))
             $posts = $em->getRepository(Post::class)->findByThread($thread, $num_per_page, ($page-1)*$num_per_page);
@@ -822,6 +848,10 @@ class MessageForumController extends MessageController
             $username = $user->getName();
         }
 
+        $tags = $this->userHandler->hasSkill($user, 'writer') ? array_filter( $forum->getAllowedTags()->getValues(),
+            fn(ThreadTag $tag) => $tag->getPermissionMap() === null || $this->perm->isPermitted( $permissions, $tag->getPermissionMap() )
+        ) : [];
+
         return $this->render( 'ajax/forum/editor.html.twig', [
             'fid' => $id,
             'tid' => null,
@@ -834,6 +864,7 @@ class MessageForumController extends MessageController
             'username' => $username,
             'forum' => true,
             'town_controls' => $forum->getTown() !== null,
+            'tags' => $tags
         ] );
     }
 
@@ -1033,6 +1064,12 @@ class MessageForumController extends MessageController
             $username = $user->getName();
         }
 
+        if ($post !== null && $thread->firstPost(true) === $post && !$thread->getTranslatable())
+            $tags = $this->userHandler->hasSkill($user, 'writer') ? array_filter( $forum->getAllowedTags()->getValues(),
+                fn(ThreadTag $tag) => $tag->getPermissionMap() === null || $this->perm->isPermitted( $permissions, $tag->getPermissionMap() )
+            ) : [];
+        else $tags = [];
+
         return $this->render( 'ajax/forum/editor.html.twig', [
             'fid' => $fid,
             'tid' => $tid,
@@ -1047,6 +1084,8 @@ class MessageForumController extends MessageController
             'username' => $username,
             'forum' => true,
             'town_controls' => $thread->getForum()->getTown() !== null,
+            'tags' => $tags,
+            'current_tag' => $thread->getTag()
         ] );
     }
 

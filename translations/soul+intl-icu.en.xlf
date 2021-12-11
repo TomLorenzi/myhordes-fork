@@ -670,7 +670,7 @@
       </notes>
       <segment>
         <source>Deine Einstellung wurde gespeichert.</source>
-        <target>Your settings has been saved.</target>
+        <target>Your settings have been saved.</target>
       </segment>
     </unit>
     <unit id="TP_RyxL" name="Haus besuchen">
@@ -2941,19 +2941,6 @@
         <target>My avatar</target>
       </segment>
     </unit>
-    <unit id="FFE77tY">
-      <notes>
-        <note category="german">Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
-                                                    Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</note>
-        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-      </notes>
-      <segment>
-        <source>Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
-                                                    Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</source>
-        <target>Select which part of your profile picture should be used for the reduced display.
-                                                    Move the section with the mouse and enlarge or reduce it with the mouse wheel.</target>
-      </segment>
-    </unit>
     <unit id="ff37B3l" name="Du hast aktuell noch keine Plätze reserviert.">
       <notes>
         <note category="german">Du hast aktuell noch keine Plätze reserviert.</note>
@@ -3810,19 +3797,6 @@
         <target>This badge belongs to an animactor. The animcators organize and coordinate community events.</target>
       </segment>
     </unit>
-    <unit id="x58.kZm">
-      <notes>
-        <note category="german">Öffne MyHordes in einem größeren Fenster oder auf einem Gerät mit einem größeren Bildschirm,
-                                                um den Bildausschnitt für die komprimierte Anzeige einzustellen.</note>
-        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-      </notes>
-      <segment>
-        <source>Öffne MyHordes in einem größeren Fenster oder auf einem Gerät mit einem größeren Bildschirm,
-                                                um den Bildausschnitt für die komprimierte Anzeige einzustellen.</source>
-        <target>Open MyHordes in a larger window or on a device with a larger screen
-                                                to edit the compressed display area.</target>
-      </segment>
-    </unit>
     <unit id="RZid5J_" name="Details">
       <notes>
         <note category="german">Details</note>
@@ -4203,6 +4177,137 @@
       <segment>
         <source>Wenn man den letzten Neuigkeiten Glauben schenken darf, gibt es in dieser Stadt noch Überlebende!</source>
         <target>Last time we heard, there were still survivors in this town!</target>
+      </segment>
+    </unit>
+    <unit id="jkvvjFX" name="Tooltips auf mobilen Geräten durch antippen anzeigen">
+      <notes>
+        <note category="german">Tooltips auf mobilen Geräten durch antippen anzeigen</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>Tooltips auf mobilen Geräten durch antippen anzeigen</source>
+        <target>Single tap to show tooltips</target>
+      </segment>
+    </unit>
+    <unit id="JB7.CP8">
+      <notes>
+        <note category="german">Ist diese Einstellung aktiviert, öffnet das erste Antippen eines Objekts dessen Tooltip - erst das zweite Antippen führt die eigentliche Aktion durch. Ist die Einstellung deaktiviert, führt das erste Antippen die Aktion direkt aus - um den Tooltip zu öffnen, muss das Objekt länger gedrückt werden. Dies bezieht sich ausschließlich auf Geräte mit Finger- oder Stifteingabe. Bei Mauseingaben hat diese Einstellung keinen Effekt.</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>Ist diese Einstellung aktiviert, öffnet das erste Antippen eines Objekts dessen Tooltip - erst das zweite Antippen führt die eigentliche Aktion durch. Ist die Einstellung deaktiviert, führt das erste Antippen die Aktion direkt aus - um den Tooptip zu öffnen, muss das Objekt länger gedrückt werden. Dies bezieht sich ausschließlich auf Geräte mit Finger- oder Stifteingabe. Bei Mauseingaben hat diese Einstellung keinen Effekt.</source>
+        <target>When activated, tapping an object will show its tooltip - to interact with it, you need to tap it again. When disabled, the first tap will execute the action right away. To only see the tooltip without performing the action, press the object for more than a second. This setting only affects pen or finger input. For mouse input, it has no effect.</target>
+      </segment>
+    </unit>
+    <unit id="eZ9JHxg" name="Profil und Avatar">
+      <notes>
+        <note category="german">Profil und Avatar</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>Profil und Avatar</source>
+        <target><![CDATA[Profile & Avatar]]></target>
+      </segment>
+    </unit>
+    <unit id="HJpR2F4" name="Account und Sicherheit">
+      <notes>
+        <note category="german">Account und Sicherheit</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>Account und Sicherheit</source>
+        <target><![CDATA[Account & Security]]></target>
+      </segment>
+    </unit>
+    <unit id="dZH4JwY" name="Seelenimport">
+      <notes>
+        <note category="german">Seelenimport</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>Seelenimport</source>
+        <target>Soul Import</target>
+      </segment>
+    </unit>
+    <unit id="JO3dcQu" name="Allgemein">
+      <notes>
+        <note category="german">Allgemein</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>Allgemein</source>
+        <target>General</target>
+      </segment>
+    </unit>
+    <unit id="0x3hpcX" name="Browser">
+      <notes>
+        <note category="german">Browser</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Browser</source>
+        <target>Browser</target>
+      </segment>
+    </unit>
+    <unit id="JeVu4ox" name="Erweitert">
+      <notes>
+        <note category="german">Erweitert</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>Erweitert</source>
+        <target>Advanced</target>
+      </segment>
+    </unit>
+    <unit id="h8KIsxl" name="Icon-Zoom auf mobilen Geräten">
+      <notes>
+        <note category="german">Icon-Zoom auf mobilen Geräten</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>Icon-Zoom auf mobilen Geräten</source>
+        <target>Icon zoom for mobile devices</target>
+      </segment>
+    </unit>
+    <unit id="1kCprst">
+      <notes>
+        <note category="german">Um Items in deinem Rucksack und der Bank auf einem mobilen Gerät einfacher mit dem Finger auswählen zu können, kannst du deren Größe anpassen. Diese Einstellung betrifft nur mobile Geräte mit einem kleinen Bildschirm, beispielsweise Smartphones.</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>Um Items in deinem Rucksack und der Bank auf einem mobilen Gerät einfacher mit dem Finger auswählen zu können, kannst du deren Größe anpassen. Diese Einstellung betrifft nur mobile Geräte mit einem kleinen Bildschirm, beispielsweise Smartphones.</source>
+        <target>To make it easier to select items in your backpack and bank with your finger on a mobile device, you can adjust their size. This setting only affects mobile devices with a small screen, such as smartphones.</target>
+      </segment>
+    </unit>
+    <unit id="HkoJZOT" name="Zoom deaktiviert">
+      <notes>
+        <note category="german">Zoom deaktiviert</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>Zoom deaktiviert</source>
+        <target>Zoom disabled</target>
+      </segment>
+    </unit>
+    <unit id="fDGQ_d2">
+      <notes>
+        <note category="german">Öffne MyHordes in einem größeren Fenster oder auf einem Gerät mit einem größeren Bildschirm, um den Bildausschnitt für die komprimierte Anzeige einzustellen.</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>Öffne MyHordes in einem größeren Fenster oder auf einem Gerät mit einem größeren Bildschirm, um den Bildausschnitt für die komprimierte Anzeige einzustellen.</source>
+        <target>Open MyHordes in a larger window or on a device with a larger screen to edit the compressed display area.</target>
+      </segment>
+    </unit>
+    <unit id="DLDvs.b">
+      <notes>
+        <note category="german">Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll. Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll. Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</source>
+        <target>Select which part of your profile picture should be used for the reduced display. Move the section with the mouse and enlarge or reduce it with the mouse wheel.</target>
       </segment>
     </unit>
   </file>

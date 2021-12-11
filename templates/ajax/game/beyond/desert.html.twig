@@ -781,7 +781,7 @@
                                             </button>
                                         {% endif %}
                                         {% if other_citizen.escortSettings is not null and other_citizen.escortSettings.leader is null %}
-                                            <button {% if not citizen.profession.heroic or citizen_hidden %}disabled{% else %}x-toggle-escort="1" x-escort-control-endpoint="{{ path('beyond_desert_escort_controller', {cid: other_citizen.id}) }}"{% endif%} class="small inline" ><img alt="" src="{{ asset('build/images/icons/escort_in.gif') }}" style="margin-right: 0;" />
+                                            <button {% if (not citizen.profession.heroic and not citizen.role('guide')) or citizen_hidden %}disabled{% else %}x-toggle-escort="1" x-escort-control-endpoint="{{ path('beyond_desert_escort_controller', {cid: other_citizen.id}) }}"{% endif%} class="small inline" ><img alt="" src="{{ asset('build/images/icons/escort_in.gif') }}" style="margin-right: 0;" />
                                                 <div class="tooltip">{{ '{citizen} wartet auf eine Eskorte. Klick ihn an, damit er dir folgt.'|trans({'{citizen}': other_citizen.name},'game') }}</div>
                                             </button>
                                         {% endif %}

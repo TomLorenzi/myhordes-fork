@@ -21434,14 +21434,14 @@
         <target>Immerhin wurden alle Bürger aus der Stadt geschleudert...</target>
       </segment>
     </unit>
-    <unit id="OXoMte5" name="Du kannst nicht &lt;strong&gt;mehr als 2 Rationen Wasser pro Tag&lt;/strong&gt; entnehmen.">
+    <unit id="InNTsjR">
       <notes>
-        <note category="german">Du kannst nicht &lt;strong&gt;mehr als 2 Rationen Wasser pro Tag&lt;/strong&gt; entnehmen.</note>
+        <note category="german">Du kannst nicht &lt;strong&gt;mehr als {max} Rationen Wasser pro Tag&lt;/strong&gt; entnehmen.</note>
         <note category="from">twig:///templates/ajax/game/town/well.html.twig</note>
       </notes>
       <segment>
-        <source>Du kannst nicht &lt;strong&gt;mehr als 2 Rationen Wasser pro Tag&lt;/strong&gt; entnehmen.</source>
-        <target><![CDATA[Vous ne pouvez pas prendre <strong>plus de 2 rations d'eau par jour</strong>.]]></target>
+        <source>Du kannst nicht &lt;strong&gt;mehr als {max} Rationen Wasser pro Tag&lt;/strong&gt; entnehmen.</source>
+        <target><![CDATA[Vous ne pouvez pas prendre <strong>plus de {max} rations d'eau par jour</strong>.]]></target>
       </segment>
     </unit>
     <unit id="AnxKtct">

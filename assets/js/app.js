@@ -40,6 +40,7 @@ window.$ = $;
 document.addEventListener('DOMContentLoaded', function() {
     $.ajax.setDefaultNode( document.getElementById('content') );
     $.html.init();
+    document.body.classList.add( 'icon-zoom-' + $.client.config.iconZoom.get() )
     const initial_landing = document.documentElement.getAttribute('x-ajax-landing');
     if (initial_landing) $.ajax.no_loader().load( null, initial_landing, true, {} );
 }, {once: true, passive: true});

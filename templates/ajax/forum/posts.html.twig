@@ -286,7 +286,7 @@
                     {% endif %}
 
 
-                    <div class="forum-post-content" x-post-content-id="{{ post.id }}" x-post-content-author="{{ author_name }}">
+                    <div class="forum-post-content" x-post-content-id="{{ post.id }}" x-post-content-author-id="{{author_name == post.owner.name ? post.owner.id : -1 }}" x-post-content-author="{{ author_name }}">
                         {{ post.translate ? (post.text|trans({},'game')|raw) : (post.text|raw) }}
                         {% if not post.translate and paranoid and post.owner.name != 'Der Rabe' %}
                             {% set mode = (app.user.id + post.id + post.owner.id) % 12 %}
@@ -462,12 +462,13 @@
             let fun_quote = function() {
                 let content = document.querySelector('[x-post-content-id="' + elem.getAttribute('x-post-id') + '"]');
                 let author = content.getAttribute('x-post-content-author');
+                let author_id = parseInt(content.getAttribute('x-post-content-author-id'));
                 let textEditor = document.getElementById("forum-forum-editor-text");
                 const quote = elem.getAttribute('x-forum-action') === 'quote-post';
 
                 if(textEditor.value !== '' && !textEditor.value.endsWith("\n")) textEditor.value += "\n";
 
-                textEditor.value += (quote ? (author ? ('[quote=' + author + ']') : '[quote]') : '') + $.html.twinoParser.parseFrom( content.innerHTML, $.html.twinoParser.OpModeQuote ) + (quote ? '[/quote]' : '') + "\n";
+                textEditor.value += (quote ? (author ? ('[quote=' + author + (author_id > 0 ? (':' + author_id) : '') + ']') : '[quote]') : '') + $.html.twinoParser.parseFrom( content.innerHTML, $.html.twinoParser.OpModeQuote ) + (quote ? '[/quote]' : '') + "\n";
                 textEditor.dispatchEvent(new Event('input', {bubbles: true,cancelable: true}));
                 textEditor.focus();
             };

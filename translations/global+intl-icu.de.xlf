@@ -2451,5 +2451,113 @@
         <target>Diese Diskussion ist als gelöst markiert (oder der Anlass hat sich mittlerweile erledigt).</target>
       </segment>
     </unit>
+    <unit id="9swBy37" name="Fehler">
+      <segment>
+        <source>Fehler</source>
+        <target>Fehler</target>
+      </segment>
+    </unit>
+    <unit id="6tB8hLq" name="Changelog">
+      <segment>
+        <source>Changelog</source>
+        <target>Changelog</target>
+      </segment>
+    </unit>
+    <unit id="Th9Jqci" name="Event">
+      <segment>
+        <source>Event</source>
+        <target>Event</target>
+      </segment>
+    </unit>
+    <unit id="3NNJH4T" name="RP">
+      <segment>
+        <source>RP</source>
+        <target>RP</target>
+      </segment>
+    </unit>
+    <unit id="wcEAnT8" name="Update">
+      <segment>
+        <source>Update</source>
+        <target>Update</target>
+      </segment>
+    </unit>
+    <unit id="pVVGIsZ" name="Post">
+      <segment>
+        <source>Post</source>
+        <target>Post</target>
+      </segment>
+    </unit>
+    <unit id="k8yukmg" name="Disk.">
+      <segment>
+        <source>Disk.</source>
+        <target>Disk.</target>
+      </segment>
+    </unit>
+    <unit id="jdZdCVL" name="Guide">
+      <segment>
+        <source>Guide</source>
+        <target>Guide</target>
+      </segment>
+    </unit>
+    <unit id="2NNH_gz" name="Orga.">
+      <segment>
+        <source>Orga.</source>
+        <target>Orga.</target>
+      </segment>
+    </unit>
+    <unit id="knm5RWw" name="Vorschlag">
+      <segment>
+        <source>Vorschlag</source>
+        <target>Vorschlag</target>
+      </segment>
+    </unit>
+    <unit id="dlGjhQC" name="SALC">
+      <segment>
+        <source>SALC</source>
+        <target>SALC</target>
+      </segment>
+    </unit>
+    <unit id="VsuA962" name="Tag (optional)">
+      <segment>
+        <source>Tag (optional)</source>
+        <target>Tag (optional)</target>
+      </segment>
+    </unit>
+    <unit id="QOv5Ovj" name="Projekt">
+      <segment>
+        <source>Projekt</source>
+        <target>Projekt</target>
+      </segment>
+    </unit>
+    <unit id="Lof2KKm" name="Tag hinzufügen (optional)">
+      <segment>
+        <source>Tag hinzufügen (optional)</source>
+        <target>Tag hinzufügen (optional)</target>
+      </segment>
+    </unit>
+    <unit id="FQORaiq" name="Tag">
+      <segment>
+        <source>Tag</source>
+        <target>Tag</target>
+      </segment>
+    </unit>
+    <unit id="aO5vOyS">
+      <segment>
+        <source>Ein Script auf dieser Seite ist abgestürzt; weitere Informationen wurden an die Web-Konsole übermittelt. Die Seite funktioniert möglicherweise nicht mehr korrekt. Bitte melde diesen Fehler:</source>
+        <target>Ein Script auf dieser Seite ist abgestürzt; weitere Informationen wurden an die Web-Konsole übermittelt. Die Seite funktioniert möglicherweise nicht mehr korrekt. Bitte melde diesen Fehler:</target>
+      </segment>
+    </unit>
+    <unit id="fU14gKC">
+      <segment>
+        <source>Ein Fehler ist aufgetreten. Es stehen keine weiteren Informationen zur Verfügung.</source>
+        <target>Ein Fehler ist aufgetreten. Es stehen keine weiteren Informationen zur Verfügung.</target>
+      </segment>
+    </unit>
+    <unit id="6g.kIsT">
+      <segment>
+        <source>Schon gewusst? Bei vielen Aktionen wird auf mobilen Geräten zunächst ein Hilfetext eingeblendet. Wenn du die Aktion durchführen möchtest, musst du die Aktion erneut antippen. Wenn du es eilig hast und lieber keine Hilfetexte sehen möchtest, kannst du dieses Verhalten kannst du in deinen Seeleneinstellungen über die Einstellung "Tooltips auf mobilen Geräten durch antippen anzeigen" deaktivieren.</source>
+        <target>Schon gewusst? Bei vielen Aktionen wird auf mobilen Geräten zunächst ein Hilfetext eingeblendet. Wenn du die Aktion durchführen möchtest, musst du die Aktion erneut antippen. Wenn du es eilig hast und lieber keine Hilfetexte sehen möchtest, kannst du dieses Verhalten kannst du in deinen Seeleneinstellungen über die Einstellung "Tooltips auf mobilen Geräten durch antippen anzeigen" deaktivieren.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

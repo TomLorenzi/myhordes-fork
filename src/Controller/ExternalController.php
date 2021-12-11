@@ -1192,7 +1192,7 @@ class ExternalController extends InventoryAwareController {
         if ($this->town->getDay() == 1) {
             return $data;
         } else {
-            $gazette = $this->gazette_service->renderGazette($this->town);
+            $gazette = $this->gazette_service->renderGazette($this->town, null, false, count($this->langue) == 1 ? $this->langue[0] : null);
             if (!is_null($gazette)) {
                 foreach ($fields as $field) {
                     switch ($field) {
@@ -1211,7 +1211,7 @@ class ExternalController extends InventoryAwareController {
                             } else {
                                 $data[$field] = [];
                                 foreach ($this->langue as $lang) {
-                                    $gazette = $this->gazette_service->renderGazette($this->town, null, true, $lang);
+                                    $gazette = $this->gazette_service->renderGazette($this->town, null, false, $lang);
                                     $data[$field][$lang] = $gazette['text'];
                                 }
                             }

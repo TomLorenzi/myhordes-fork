@@ -13704,10 +13704,10 @@
         <target>Immerhin wurden alle Bürger aus der Stadt geschleudert...</target>
       </segment>
     </unit>
-    <unit id="OXoMte5" name="Du kannst nicht &lt;strong&gt;mehr als 2 Rationen Wasser pro Tag&lt;/strong&gt; entnehmen.">
+    <unit id="InNTsjR">
       <segment>
-        <source>Du kannst nicht &lt;strong&gt;mehr als 2 Rationen Wasser pro Tag&lt;/strong&gt; entnehmen.</source>
-        <target><![CDATA[Du kannst nicht <strong>mehr als 2 Rationen Wasser pro Tag</strong> entnehmen.]]></target>
+        <source>Du kannst nicht &lt;strong&gt;mehr als {max} Rationen Wasser pro Tag&lt;/strong&gt; entnehmen.</source>
+        <target><![CDATA[Du kannst nicht <strong>mehr als {max} Rationen Wasser pro Tag</strong> entnehmen.]]></target>
       </segment>
     </unit>
     <unit id="AnxKtct">

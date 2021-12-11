@@ -19,6 +19,7 @@ use App\Entity\Shoutbox;
 use App\Entity\ShoutboxEntry;
 use App\Entity\ShoutboxReadMarker;
 use App\Entity\Thread;
+use App\Entity\ThreadTag;
 use App\Entity\Town;
 use App\Entity\TownClass;
 use App\Entity\TownRankingProxy;
@@ -421,6 +422,9 @@ class GameFactory
         foreach ($town->getZones() as $zone) $zone->setStartZombies( $zone->getZombies() );
 
         $town->setForum((new Forum())->setTitle($town->getName()));
+        foreach ($this->entity_manager->getRepository(ThreadTag::class)->findBy(['name' => ['help','rp']]) as $tag)
+            $town->getForum()->addAllowedTag($tag);
+
         $this->crow->postToForum( $town->getForum(),
             [
                 T::__('In diesem Thread dreht sich alles um die Bank.', 'game'),

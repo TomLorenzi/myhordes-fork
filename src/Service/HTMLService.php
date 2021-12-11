@@ -75,7 +75,7 @@ class HTMLService {
                 'ol' => [],
                 'li' => [],
                 'div' => [ 'class', 'x-a', 'x-b' ],
-                'span' => [ 'class' ],
+                'span' => [ 'class', 'x-a', 'x-b' ],
                 'a' => [ 'href', 'title' ],
                 'figure' => [ 'style' ],
             ],
@@ -371,7 +371,7 @@ class HTMLService {
                 $d->nodeValue = $cc->getName();
             },
             // A citizen ref node
-            '//div[@class=\'cref\']'   => function (DOMElement $user_ref) use ($user) {
+            '//div[@class=\'cref\']|//span[@class=\'quoteauthor\']' => function (DOMElement $user_ref) use ($user) {
                 $id = $user_ref->attributes->getNamedItem('x-a') ? $user_ref->attributes->getNamedItem('x-a')->nodeValue : null;
                 $user_ref->removeAttribute('x-a');
 

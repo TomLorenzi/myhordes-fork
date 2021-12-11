@@ -80,6 +80,11 @@
                                 </div>
                             </span>
                         {% endif %}
+                        {% if thread.tag %}
+                            <span class="float-right thread-tag" style="background-color: {{ thread.tag.color|color }}; color: {{ thread.tag.color|color|textcolor }}">
+                                {{ thread.tag.label|trans({},'global') }}
+                            </span>
+                        {% endif %}
                     </div>
                 </div>
                 <div class="padded cell factor-0 rw-3 right count">

@@ -216,6 +216,10 @@ class Town
         return $this->language;
     }
 
+    public function getRealLanguage(): ?string {
+        return in_array($this->getLanguage(), ['de','en','fr','es']) ? $this->getLanguage() : null;
+    }
+
     public function setLanguage(string $language): self
     {
         $this->language = $language;

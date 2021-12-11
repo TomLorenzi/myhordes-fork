@@ -9,5 +9,6 @@ export interface Global {
 }
 
 export interface Const {
-    errors: object
+    errors: object,
+    taptut: string
 }

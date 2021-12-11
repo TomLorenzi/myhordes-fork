@@ -634,11 +634,14 @@ class TownHandler
     public function calculate_offsets(&$offsetMin, &$offsetMax, $nbRound, $new_formula){
         for ($i = 0; $i < $nbRound; $i++) {
             if ($offsetMin + $offsetMax > 10) {
-                $increase_min = $this->random->chance( $offsetMin / ($offsetMin + $offsetMax) );
+                $increase_min = $this->random->chance($offsetMin / ($offsetMin + $offsetMax));
                 $alter = $new_formula ? mt_rand(500, 2000) / 1000.0 : 1;
                 if ($this->random->chance(0.25)){
-                    $offsetMin -= $alter;
-                    $offsetMax -= $new_formula ? mt_rand(500, 2000) / 1000.0 : 1;
+                    $alterMax = $new_formula ? mt_rand(500, 2000) / 1000.0 : 1;
+                    if($offsetMin > 3)
+                        $offsetMin -= $alter;
+                    if($offsetMax > 3)
+                        $offsetMax -= $alterMax;
                 } else {
                     if ($increase_min) $offsetMin -= $alter;
                     else $offsetMax -= $alter;
