@@ -4163,99 +4163,90 @@
       <notes>
         <note category="german">Profil und Avatar</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Profil und Avatar</source>
-        <target>Profil und Avatar</target>
+        <target>Perfil y Avatar</target>
       </segment>
     </unit>
     <unit id="HJpR2F4" name="Account und Sicherheit">
       <notes>
         <note category="german">Account und Sicherheit</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Account und Sicherheit</source>
-        <target>Account und Sicherheit</target>
+        <target>Cuenta y Seguridad</target>
       </segment>
     </unit>
     <unit id="dZH4JwY" name="Seelenimport">
       <notes>
         <note category="german">Seelenimport</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Seelenimport</source>
-        <target>Seelenimport</target>
+        <target>Importación de Alma</target>
       </segment>
     </unit>
     <unit id="JO3dcQu" name="Allgemein">
       <notes>
         <note category="german">Allgemein</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Allgemein</source>
-        <target>Allgemein</target>
+        <target>General</target>
       </segment>
     </unit>
     <unit id="0x3hpcX" name="Browser">
       <notes>
         <note category="german">Browser</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Browser</source>
-        <target>Browser</target>
+        <target>Navegador</target>
       </segment>
     </unit>
     <unit id="JeVu4ox" name="Erweitert">
       <notes>
         <note category="german">Erweitert</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Erweitert</source>
-        <target>Erweitert</target>
+        <target>Avanzado</target>
       </segment>
     </unit>
     <unit id="h8KIsxl" name="Icon-Zoom auf mobilen Geräten">
       <notes>
         <note category="german">Icon-Zoom auf mobilen Geräten</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Icon-Zoom auf mobilen Geräten</source>
-        <target>Icon-Zoom auf mobilen Geräten</target>
+        <target>Zoom de íconos para dispositivos móviles</target>
       </segment>
     </unit>
     <unit id="1kCprst">
       <notes>
         <note category="german">Um Items in deinem Rucksack und der Bank auf einem mobilen Gerät einfacher mit dem Finger auswählen zu können, kannst du deren Größe anpassen. Diese Einstellung betrifft nur mobile Geräte mit einem kleinen Bildschirm, beispielsweise Smartphones.</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Um Items in deinem Rucksack und der Bank auf einem mobilen Gerät einfacher mit dem Finger auswählen zu können, kannst du deren Größe anpassen. Diese Einstellung betrifft nur mobile Geräte mit einem kleinen Bildschirm, beispielsweise Smartphones.</source>
-        <target>Um Items in deinem Rucksack und der Bank auf einem mobilen Gerät einfacher mit dem Finger auswählen zu können, kannst du deren Größe anpassen. Diese Einstellung betrifft nur mobile Geräte mit einem kleinen Bildschirm, beispielsweise Smartphones.</target>
+        <target>Para hacer que los items en tu mochila y el almacén sean más fáciles de seleccionar con tu dedo en un dispositivo móvil, puedes ajustar su tamaño. Esta configuración solamente afecta dispositivos móviles con una pantalla pequeña, como los smartphones.</target>
       </segment>
     </unit>
     <unit id="HkoJZOT" name="Zoom deaktiviert">
       <notes>
         <note category="german">Zoom deaktiviert</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Zoom deaktiviert</source>
-        <target>Zoom deaktiviert</target>
+        <target>Zoom desactivado</target>
       </segment>
     </unit>
     <unit id="fDGQ_d2">
