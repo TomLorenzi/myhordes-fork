@@ -124,30 +124,49 @@
   }
   button, .button { padding-top: 16px; padding-bottom: 16px; margin-top: 8px; margin-bottom: 8px; }
 
-  body:not(.icon-zoom-1-00) ul.inventory > li:not(.title):not(.category) {
-    margin: 5px;
-    &.item.counted {
-      position: relative;
-      & > span:not(:first-child) {
-        background: rgba(0,0,0,0.75); padding: 1px 3px; border-radius: 2px; position: absolute; right: -5px; bottom: -5px;
+  body:not(.icon-zoom-1-00) ul.inventory {
+    &.rucksack { background: url("../img/background/inventory/inv_bag.gif") no-repeat top left/cover;  }
+    & > li {
+      &.title { margin: 5px; display: inline-flex; align-items: center }
+      &:not(.title):not(.category) {
+        margin: 5px;
+        &.item.counted {
+          position: relative;
+          & > span:not(:first-child) {
+            background: rgba(0,0,0,0.75); padding: 1px 3px; border-radius: 2px; position: absolute; right: -5px; bottom: -5px;
+          }
+        }
       }
     }
   }
-  body.icon-zoom-1-25 ul.inventory > li:not(.title):not(.category) {
-    height: 22px !important;  width: 22px !important;
-    &.item img { width: 20px; height: auto; }
+
+  body.icon-zoom-1-25 ul.inventory > li {
+    &.title { height: 22px !important; }
+    &:not(.title):not(.category) {
+      height: 22px !important;  width: 22px !important;
+      &.item img { width: 20px; height: auto; }
+    }
   }
-  body.icon-zoom-1-50 ul.inventory > li:not(.title):not(.category) {
-    height: 26px !important;  width: 26px !important;
-    &.item img { width: 24px; height: auto; }
+  body.icon-zoom-1-50 ul.inventory > li {
+    &.title { height: 26px !important; }
+    &:not(.title):not(.category) {
+      height: 26px !important;  width: 26px !important;
+      &.item img { width: 24px; height: auto; }
+    }
   }
-  body.icon-zoom-1-75 ul.inventory > li:not(.title):not(.category) {
-    height: 30px !important;  width: 30px !important;
-    &.item img { width: 28px; height: auto; }
+  body.icon-zoom-1-75 ul.inventory > li {
+    &.title { height: 30px !important; }
+    &:not(.title):not(.category) {
+      height: 30px !important;  width: 30px !important;
+      &.item img { width: 28px; height: auto; }
+    }
   }
-  body.icon-zoom-2-00 ul.inventory > li:not(.title):not(.category) {
-    height: 34px !important;  width: 34px !important;
-    &.item img { width: 32px; height: auto; }
+  body.icon-zoom-2-00 ul.inventory > li {
+    &.title { height: 34px !important; }
+    &:not(.title):not(.category) {
+      height: 34px !important;  width: 34px !important;
+      &.item img { width: 32px; height: auto; }
+    }
   }
 
   ul.actions>li, ul.special_actions>li, ul.heroic_actions>li {
