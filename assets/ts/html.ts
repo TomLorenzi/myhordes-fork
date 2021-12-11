@@ -333,6 +333,13 @@ export default class HTML {
             }
         }
 
+        const fun_tooltip_hide = function(e: PointerEvent|TouchEvent|MouseEvent) {
+            element.dispatchEvent( new Event('disappear') );
+            element.style.display = 'none';
+            parent.append( element );
+            parent.dataset.stage = element.dataset.touchtip = '0';
+        }
+
         const fun_tooltip_show = function(pointer: boolean) {
             return function(e: PointerEvent|MouseEvent) {
                 if (pointer && e instanceof PointerEvent && e.pointerType === 'mouse') return;
@@ -345,6 +352,7 @@ export default class HTML {
                         document.body.addEventListener('click', e => e.stopPropagation(),
                             {capture: true, once: true});
                         parent.addEventListener('click', () => parent.dataset.stage = '0', {once: true})
+                        window.addEventListener('scroll', () => fun_tooltip_hide(e), {once: true})
                     }
 
                     $.html.forEach( '[data-stage="1"]', e => e.dataset.stage = '0' );
@@ -356,14 +364,6 @@ export default class HTML {
                     }
                 }
             }
-        }
-
-
-        const fun_tooltip_hide = function(e: PointerEvent|TouchEvent|MouseEvent) {
-            element.dispatchEvent( new Event('disappear') );
-            element.style.display = 'none';
-            parent.append( element );
-            parent.dataset.stage = element.dataset.touchtip = '0';
         }
 
         parent.addEventListener('pointerdown',  fun_tooltip_show(true));

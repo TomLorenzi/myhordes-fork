@@ -602,7 +602,7 @@ class DebugCommand extends Command
             $output->writeln("Attack for day {$town->getDay()} : <info>{$est->getZombies()}</info>, soul factor is <info>$soulFactor</info>, real attack will be <info>" . ($est->getZombies() * $soulFactor) . "</info>");
 
             $table = new Table( $output );
-            $table->setHeaders( ['Précision', 'Min1', 'Max1', 'Min2', 'Max2'] );
+            $table->setHeaders( ['Precision', 'MinOld1', 'MaxOld1', 'MinNew2', 'MaxNew2'] );
 
             $old_way = $this->townHandler->get_zombie_estimation($town, null, false);
             $new_way = $this->townHandler->get_zombie_estimation($town, null, true);

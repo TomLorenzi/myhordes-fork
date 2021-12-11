@@ -34,7 +34,7 @@
                     <div class="cell rw-3 padded">
                         <label for="{{ type }}-forum-editor-title">{{ 'Titel'|trans({},'global') }}</label>
                     </div>
-                    {% if tid is null and tags is defined and tags is not empty %}
+                    {% if tags is defined and tags is not empty and (current_tag is not defined or current_tag is empty) %}
                         <div class="cell rw-5 rw-sm-9 padded">
                             <input type="text" id="{{ type }}-forum-editor-title" {% if edit_title is defined and edit_title is not null %}value="{{ edit_title }}"{% endif%} />
                         </div>
@@ -66,8 +66,8 @@
                 {% endif %}
             </div>
         {% endif %}
-        {% if tid is null and tags is defined and tags is not empty %}
-            <div class="row hidden" id="{{ type }}-forum-editor-tag-row">
+        {% if tags is defined and tags is not empty %}
+            <div class="row {% if current_tag is not defined or current_tag is empty %}hidden{% endif %}" id="{{ type }}-forum-editor-tag-row">
                 {% if type != 'global-pm' and type != 'numb' %}
                     <div class="cell rw-3 padded">
                         <label for="{{ type }}-forum-editor-tag">{{ 'Tag'|trans({},'global') }}</label>
@@ -76,7 +76,7 @@
                         <select id="{{ type }}-forum-editor-tag">
                             <option value="-none-"></option>
                             {% for tag in tags %}
-                                <option value="{{ tag.name }}">{{ tag.label|trans({},'global') }}</option>
+                                <option {% if current_tag is defined and current_tag == tag%}selected{% endif%} value="{{ tag.name }}">{{ tag.label|trans({},'global') }}</option>
                             {% endfor %}
                         </select>
                     </div>
@@ -742,8 +742,16 @@
                                 };
                             {% else %}
                                 target_url = '{{ path('forum_edit_post_controller', {fid: fid, tid: tid, pid: pid}) }}';
+                                {% if edit_title is defined %}
+                                    let tag_edit = null;
+                                    if (document.getElementById('{{ type }}-forum-editor-tag'))
+                                        tag_edit = document.getElementById('{{ type }}-forum-editor-tag').value;
+                                {% endif %}
                                 target_payload = {
-                                    {% if edit_title is defined %}title: document.getElementById('{{ type }}-forum-editor-title') ? document.getElementById('{{ type }}-forum-editor-title').value : null,{% endif %}
+                                    {% if edit_title is defined %}
+                                        title: document.getElementById('{{ type }}-forum-editor-title') ? document.getElementById('{{ type }}-forum-editor-title').value : null,
+                                        tag: tag_edit,
+                                    {% endif %}
                                     text: content_node.innerHTML
                                 };
                             {% endif %}

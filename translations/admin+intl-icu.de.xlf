@@ -1351,10 +1351,10 @@
         <target>Neue Anwendung registrieren</target>
       </segment>
     </unit>
-    <unit id="MxCYTlN" name="Änderungen an '{appname}' speichern">
+    <unit id="2OM.kVy" name="Änderungen an {appname} speichern">
       <segment>
-        <source>Änderungen an '{appname}' speichern</source>
-        <target>Änderungen an '{appname}' speichern</target>
+        <source>Änderungen an {appname} speichern</source>
+        <target>Änderungen an « {appname} » speichern</target>
       </segment>
     </unit>
     <unit id="zLJ.A.A" name="Anzeigen">

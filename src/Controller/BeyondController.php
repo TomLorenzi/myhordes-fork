@@ -566,7 +566,7 @@ class BeyondController extends InventoryAwareController
             ($this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'drunk') ? HTMLService::ModulationDrunk : HTMLService::ModulationNone) |
             ($this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'terror') ? HTMLService::ModulationTerror : HTMLService::ModulationNone) |
             ($this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'wound1') ? HTMLService::ModulationHead : HTMLService::ModulationNone)
-            , $this->getUserLanguage(), $d );
+            , $this->getActiveCitizen()->getTown()->getRealLanguage() ?? $this->getUserLanguage(), $d );
 
         try {
             $this->entity_manager->persist( $this->log->beyondChat( $this->getActiveCitizen(), $message ) );
@@ -1562,7 +1562,7 @@ class BeyondController extends InventoryAwareController
         if (!$target_citizen || $target_citizen->getZone() === null || $target_citizen->getZone()->getId() !== $citizen->getZone()->getId())
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
-        if ((!$citizen->getProfession()->getHeroic() && !$citizen->hasRole('guide')))
+        if (!$citizen->getProfession()->getHeroic() && !$citizen->hasRole('guide'))
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         if ($citizen->getBanished())
