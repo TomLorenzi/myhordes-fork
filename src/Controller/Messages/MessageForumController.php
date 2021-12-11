@@ -734,7 +734,7 @@ class MessageForumController extends MessageController
         elseif ($parser->has('page'))
             $page = min(max(1,$parser->get('page', 1)), $pages);
         elseif (!$marker->getPost()) $page = 1;
-        else $page = min($pages,1 + floor(($em->getRepository(Post::class)->getOffsetOfPostByThread( $thread, $marker->getPost(), $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate ) )) / $num_per_page));
+        else $page = min($pages,1 + floor((1+$em->getRepository(Post::class)->getOffsetOfPostByThread( $thread, $marker->getPost(), $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate ) )) / $num_per_page));
 
         if ($this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate ))
             $posts = $em->getRepository(Post::class)->findByThread($thread, $num_per_page, ($page-1)*$num_per_page);
