@@ -109,14 +109,6 @@
         <target>Komprimierte Anzeige bearbeiten</target>
       </segment>
     </unit>
-    <unit id="Af7eIx8">
-      <segment>
-        <source>Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
-                                    Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</source>
-        <target>Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
-                                    Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</target>
-      </segment>
-    </unit>
     <unit id="37GuQ5_" name="Profilbild hochladen">
       <segment>
         <source>Profilbild hochladen</source>
@@ -2340,20 +2332,6 @@
         <target>Diese Karteikarte gehört einem Animateur. Animateure organisieren und koordinieren Community-Events.</target>
       </segment>
     </unit>
-    <unit id="x58.kZm">
-      <segment>
-        <source>Öffne MyHordes in einem größeren Fenster oder auf einem Gerät mit einem größeren Bildschirm,
-                                                um den Bildausschnitt für die komprimierte Anzeige einzustellen.</source>
-        <target>Öffne MyHordes in einem größeren Fenster oder auf einem Gerät mit einem größeren Bildschirm,
-                                                um den Bildausschnitt für die komprimierte Anzeige einzustellen.</target>
-      </segment>
-    </unit>
-    <unit id="RZid5J_" name="Details">
-      <segment>
-        <source>Details</source>
-        <target>Details</target>
-      </segment>
-    </unit>
     <unit id="2Qh0PhD" name="Auf MyHordes erworbene Auszeichnungen">
       <segment>
         <source>Auf MyHordes erworbene Auszeichnungen</source>
@@ -2586,6 +2564,78 @@
       <segment>
         <source>Ist diese Einstellung aktiviert, öffnet das erste Antippen eines Objekts dessen Tooltip - erst das zweite Antippen führt die eigentliche Aktion durch. Ist die Einstellung deaktiviert, führt das erste Antippen die Aktion direkt aus - um den Tooptip zu öffnen, muss das Objekt länger gedrückt werden. Dies bezieht sich ausschließlich auf Geräte mit Finger- oder Stifteingabe. Bei Mauseingaben hat diese Einstellung keinen Effekt.</source>
         <target>Ist diese Einstellung aktiviert, öffnet das erste Antippen eines Objekts dessen Tooltip - erst das zweite Antippen führt die eigentliche Aktion durch. Ist die Einstellung deaktiviert, führt das erste Antippen die Aktion direkt aus - um den Tooltip zu öffnen, muss das Objekt länger gedrückt werden. Dies bezieht sich ausschließlich auf Geräte mit Finger- oder Stifteingabe. Bei Mauseingaben hat diese Einstellung keinen Effekt.</target>
+      </segment>
+    </unit>
+    <unit id="eZ9JHxg" name="Profil und Avatar">
+      <segment>
+        <source>Profil und Avatar</source>
+        <target>Profil und Avatar</target>
+      </segment>
+    </unit>
+    <unit id="HJpR2F4" name="Account und Sicherheit">
+      <segment>
+        <source>Account und Sicherheit</source>
+        <target>Account und Sicherheit</target>
+      </segment>
+    </unit>
+    <unit id="dZH4JwY" name="Seelenimport">
+      <segment>
+        <source>Seelenimport</source>
+        <target>Seelenimport</target>
+      </segment>
+    </unit>
+    <unit id="JO3dcQu" name="Allgemein">
+      <segment>
+        <source>Allgemein</source>
+        <target>Allgemein</target>
+      </segment>
+    </unit>
+    <unit id="0x3hpcX" name="Browser">
+      <segment>
+        <source>Browser</source>
+        <target>Browser</target>
+      </segment>
+    </unit>
+    <unit id="JeVu4ox" name="Erweitert">
+      <segment>
+        <source>Erweitert</source>
+        <target>Erweitert</target>
+      </segment>
+    </unit>
+    <unit id="h8KIsxl" name="Icon-Zoom auf mobilen Geräten">
+      <segment>
+        <source>Icon-Zoom auf mobilen Geräten</source>
+        <target>Icon-Zoom auf mobilen Geräten</target>
+      </segment>
+    </unit>
+    <unit id="1kCprst">
+      <segment>
+        <source>Um Items in deinem Rucksack und der Bank auf einem mobilen Gerät einfacher mit dem Finger auswählen zu können, kannst du deren Größe anpassen. Diese Einstellung betrifft nur mobile Geräte mit einem kleinen Bildschirm, beispielsweise Smartphones.</source>
+        <target>Um Items in deinem Rucksack und der Bank auf einem mobilen Gerät einfacher mit dem Finger auswählen zu können, kannst du deren Größe anpassen. Diese Einstellung betrifft nur mobile Geräte mit einem kleinen Bildschirm, beispielsweise Smartphones.</target>
+      </segment>
+    </unit>
+    <unit id="HkoJZOT" name="Zoom deaktiviert">
+      <segment>
+        <source>Zoom deaktiviert</source>
+        <target>Zoom deaktiviert</target>
+      </segment>
+    </unit>
+    <unit id="fDGQ_d2">
+      <segment>
+        <source>Öffne MyHordes in einem größeren Fenster oder auf einem Gerät mit einem größeren Bildschirm, um den Bildausschnitt für die komprimierte Anzeige einzustellen.</source>
+        <target>Öffne MyHordes in einem größeren Fenster oder auf einem Gerät mit einem größeren Bildschirm, um den Bildausschnitt für die komprimierte Anzeige einzustellen.</target>
+      </segment>
+    </unit>
+    <unit id="DLDvs.b">
+      <segment>
+        <source>Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll. Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</source>
+        <target>Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll. Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</target>
+      </segment>
+    </unit>
+    <unit id="RZid5J_" name="Details">
+      <segment>
+        <source>Details</source>
+        <target>Details</target>
       </segment>
     </unit>
   </file>

@@ -123,18 +123,33 @@
     }
   }
   button, .button { padding-top: 16px; padding-bottom: 16px; margin-top: 8px; margin-bottom: 8px; }
-  ul.inventory > li:not(.title):not(.category) {
-    margin: 5px; height: 34px !important;  width: 34px !important;
-    &.item {
-      &.counted {
-        position: relative;
-        & > span:not(:first-child) {
-          background: rgba(0,0,0,0.75); padding: 1px 3px; border-radius: 2px; position: absolute; left: 0; bottom: 0;
-        }
+
+  body:not(.icon-zoom-1-00) ul.inventory > li:not(.title):not(.category) {
+    margin: 5px;
+    &.item.counted {
+      position: relative;
+      & > span:not(:first-child) {
+        background: rgba(0,0,0,0.75); padding: 1px 3px; border-radius: 2px; position: absolute; right: -5px; bottom: -5px;
       }
-      img { width: 32px; height: auto; }
     }
   }
+  body.icon-zoom-1-25 ul.inventory > li:not(.title):not(.category) {
+    height: 22px !important;  width: 22px !important;
+    &.item img { width: 20px; height: auto; }
+  }
+  body.icon-zoom-1-50 ul.inventory > li:not(.title):not(.category) {
+    height: 26px !important;  width: 26px !important;
+    &.item img { width: 24px; height: auto; }
+  }
+  body.icon-zoom-1-75 ul.inventory > li:not(.title):not(.category) {
+    height: 30px !important;  width: 30px !important;
+    &.item img { width: 28px; height: auto; }
+  }
+  body.icon-zoom-2-00 ul.inventory > li:not(.title):not(.category) {
+    height: 34px !important;  width: 34px !important;
+    &.item img { width: 32px; height: auto; }
+  }
+
   ul.actions>li, ul.special_actions>li, ul.heroic_actions>li {
     padding-top: 16px; padding-bottom: 16px; &>img:first-child { top: 19px; }
     &>div.targets {

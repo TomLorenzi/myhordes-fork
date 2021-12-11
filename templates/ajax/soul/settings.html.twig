@@ -262,8 +262,7 @@
                                         <div class="row hide-lg hide-desktop">
                                             <div class="help">
                                                 {% trans from 'soul' %}
-                                                    Öffne MyHordes in einem größeren Fenster oder auf einem Gerät mit einem größeren Bildschirm,
-                                                    um den Bildausschnitt für die komprimierte Anzeige einzustellen.
+                                                    Öffne MyHordes in einem größeren Fenster oder auf einem Gerät mit einem größeren Bildschirm, um den Bildausschnitt für die komprimierte Anzeige einzustellen.
                                                 {% endtrans %}
                                             </div>
                                         </div>
@@ -271,8 +270,7 @@
                                             <div class="padded cell rw-6 rw-lg-12">
                                                 <div class="help">
                                                     {% trans from 'soul' %}
-                                                        Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
-                                                        Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.
+                                                        Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll. Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.
                                                     {% endtrans %}
                                                 </div>
                                             </div>
@@ -509,6 +507,21 @@
                                     {{help_btn("Ist diese Einstellung aktiviert, öffnet das erste Antippen eines Objekts dessen Tooltip - erst das zweite Antippen führt die eigentliche Aktion durch. Ist die Einstellung deaktiviert, führt das erste Antippen die Aktion direkt aus - um den Tooptip zu öffnen, muss das Objekt länger gedrückt werden. Dies bezieht sich ausschließlich auf Geräte mit Finger- oder Stifteingabe. Bei Mauseingaben hat diese Einstellung keinen Effekt."|trans({}, 'soul'))}}
                                 </div>
                             </div>
+                            <div class="padded cell rw-4 rw-md-6 rw-sm-12">
+                                <div class="note note-lightest">
+                                    <label for="setting_browser_iconZoom">{{ 'Icon-Zoom auf mobilen Geräten'|trans({}, 'soul') }}</label>
+                                    {{help_btn("Um Items in deinem Rucksack und der Bank auf einem mobilen Gerät einfacher mit dem Finger auswählen zu können, kannst du deren Größe anpassen. Diese Einstellung betrifft nur mobile Geräte mit einem kleinen Bildschirm, beispielsweise Smartphones."|trans({}, 'soul'))}}
+                                </div>
+                            </div>
+                            <div class="padded cell rw-8 rw-md-6 rw-sm-12">
+                                <select id="setting_browser_iconZoom">
+                                    <option value="1-00">x1 ({{ 'Zoom deaktiviert'|trans({}, 'soul') }})</option>
+                                    <option value="1-25">x1.25</option>
+                                    <option value="1-50">x1.5</option>
+                                    <option value="1-75">x1.75</option>
+                                    <option value="2-00">x2</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -573,6 +586,18 @@
                 default: return;
             }
         })
+
+        $.html.forEach('#setting_browser_iconZoom', e => e.value = $.client.config.iconZoom.get());
+        $.html.addEventListenerAll('#setting_browser_iconZoom', 'change', function(e,elem) {
+            const old_classes = document.body.classList;
+            old_classes.forEach(c => {
+                if (c.substring(0,10) === 'icon-zoom-') document.body.classList.remove(c);
+            });
+
+            document.body.classList.add('icon-zoom-' + elem.value);
+            $.client.config.iconZoom.set(elem.value);
+            confirmConig();
+        });
 
         $.html.addEventListenerAll('#acc_del_btn', 'click', function(e) {
             e.preventDefault();
