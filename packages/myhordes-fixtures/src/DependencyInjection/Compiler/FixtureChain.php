@@ -6,7 +6,10 @@ use MyHordes\Fixtures\Fixtures\AwardFeature;
 use MyHordes\Fixtures\Fixtures\AwardIcon;
 use MyHordes\Fixtures\Fixtures\AwardTitle;
 use MyHordes\Fixtures\Fixtures\RolePlayText;
+use MyHordes\Fixtures\Fixtures\Ruin;
+use MyHordes\Fixtures\Fixtures\RuinRoom;
 use MyHordes\Fixtures\Fixtures\Town;
+use MyHordes\Fixtures\Fixtures\ZoneTag;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;
@@ -22,6 +25,9 @@ class FixtureChain implements CompilerPassInterface
             AwardTitle::class       => 'myhordes.fixtures.awards.titles',
             AwardIcon::class        => 'myhordes.fixtures.awards.icons',
             AwardFeature::class     => 'myhordes.fixtures.awards.features',
+            Ruin::class             => 'myhordes.fixtures.ruins.data',
+            RuinRoom::class         => 'myhordes.fixtures.ruins.rooms',
+            ZoneTag::class          => 'myhordes.fixtures.zones.tags',
         ];
 
 

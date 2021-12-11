@@ -26,3 +26,11 @@ services:
       tags: [ { name: 'myhordes.fixtures.awards.icons', priority: 0 } ]
     MyHordes\Fixtures\Service\AwardFeatureDataService:
       tags: [ { name: 'myhordes.fixtures.awards.features', priority: 0 } ]
+
+    MyHordes\Fixtures\Service\RuinDataService:
+      tags: [ { name: 'myhordes.fixtures.ruins.data', priority: 0 } ]
+    MyHordes\Fixtures\Service\RuinRoomDataService:
+      tags: [ { name: 'myhordes.fixtures.ruins.rooms', priority: 0 } ]
+
+    MyHordes\Fixtures\Service\ZoneTagDataService:
+      tags: [ { name: 'myhordes.fixtures.zones.tags', priority: 0 } ]
