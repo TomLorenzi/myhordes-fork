@@ -1811,11 +1811,11 @@ class LogTemplateHandler
             ->setTimestamp( new DateTime('now') );
     }
 
-    public function bankBanRecovery( Citizen $citizen, $items, $kill ): TownLogEntry {
+    public function bankBanRecovery( Citizen $citizen, $items, $gallows ): TownLogEntry {
         $variables = array('shunned' => $citizen->getId(),
             'list' => array_map( function($e) { if(array_key_exists('count', $e)) {return array('id' => $e['item']->getId(),'count' => $e['count']);}
             else { return array('id' => $e[0]->getId()); } }, $items ));
-        if ($kill)
+        if ($gallows)
             $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'bankBanRecoveryDeath']);
         else
             $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'bankBanRecovery']);
