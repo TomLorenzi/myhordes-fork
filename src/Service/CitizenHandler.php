@@ -275,7 +275,7 @@ class CitizenHandler
             $this->inventory_handler->forceMoveItem( $citizen->getInventory(), $this->item_factory->createItem( 'poison_#00' ));
         }
 
-        if (!empty($itemsForLog)) $this->entity_manager->persist($this->log->bankBanRecovery($citizen, $itemsForLog, $active === $gallows));
+        if (!empty($itemsForLog)) $this->entity_manager->persist($this->log->bankBanRecovery($citizen, $itemsForLog, $active === $gallows, $active === $cage));
 
         return $action;
     }
