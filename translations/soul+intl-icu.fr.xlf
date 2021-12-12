@@ -4197,7 +4197,7 @@
       </notes>
       <segment>
         <source>Profil und Avatar</source>
-        <target>Profil und Avatar</target>
+        <target>Profil et Avatar</target>
       </segment>
     </unit>
     <unit id="HJpR2F4" name="Account und Sicherheit">
@@ -4208,7 +4208,7 @@
       </notes>
       <segment>
         <source>Account und Sicherheit</source>
-        <target>Account und Sicherheit</target>
+        <target>Compte et Sécurité</target>
       </segment>
     </unit>
     <unit id="dZH4JwY" name="Seelenimport">
@@ -4219,7 +4219,7 @@
       </notes>
       <segment>
         <source>Seelenimport</source>
-        <target>Seelenimport</target>
+        <target>Importation d'âme</target>
       </segment>
     </unit>
     <unit id="JO3dcQu" name="Allgemein">
@@ -4230,7 +4230,7 @@
       </notes>
       <segment>
         <source>Allgemein</source>
-        <target>Allgemein</target>
+        <target>Général</target>
       </segment>
     </unit>
     <unit id="0x3hpcX" name="Browser">
@@ -4241,7 +4241,7 @@
       </notes>
       <segment>
         <source>Browser</source>
-        <target>Browser</target>
+        <target>Navigateur</target>
       </segment>
     </unit>
     <unit id="JeVu4ox" name="Erweitert">
@@ -4252,7 +4252,7 @@
       </notes>
       <segment>
         <source>Erweitert</source>
-        <target>Erweitert</target>
+        <target>Avancé</target>
       </segment>
     </unit>
     <unit id="h8KIsxl" name="Icon-Zoom auf mobilen Geräten">
@@ -4263,7 +4263,7 @@
       </notes>
       <segment>
         <source>Icon-Zoom auf mobilen Geräten</source>
-        <target>Icon-Zoom auf mobilen Geräten</target>
+        <target>Zoom des icônes pour les appareils mobiles</target>
       </segment>
     </unit>
     <unit id="1kCprst">
@@ -4274,7 +4274,7 @@
       </notes>
       <segment>
         <source>Um Items in deinem Rucksack und der Bank auf einem mobilen Gerät einfacher mit dem Finger auswählen zu können, kannst du deren Größe anpassen. Diese Einstellung betrifft nur mobile Geräte mit einem kleinen Bildschirm, beispielsweise Smartphones.</source>
-        <target>Um Items in deinem Rucksack und der Bank auf einem mobilen Gerät einfacher mit dem Finger auswählen zu können, kannst du deren Größe anpassen. Diese Einstellung betrifft nur mobile Geräte mit einem kleinen Bildschirm, beispielsweise Smartphones.</target>
+        <target>Pour faciliter la sélection d'objets dans votre sac à dos et la banque avec votre doigt sur un appareil mobile, vous pouvez ajuster leur taille. Ce paramètre n’affecte que les appareils mobiles avec un petit écran, tels que les smartphones.</target>
       </segment>
     </unit>
     <unit id="HkoJZOT" name="Zoom deaktiviert">
@@ -4285,7 +4285,7 @@
       </notes>
       <segment>
         <source>Zoom deaktiviert</source>
-        <target>Zoom deaktiviert</target>
+        <target>Zoom désactivé</target>
       </segment>
     </unit>
     <unit id="fDGQ_d2">
