@@ -72,7 +72,9 @@ class GazetteEntryTemplate
     const RequiresMultipleCrosses       = 60;
     const RequiresMultipleRedSouls      = 61;
 
+    const RequiresAttackDeathsC1        = 441;
     const RequiresMultipleInfectionsC1  = 471;
+    const RequiresMultipleVanishedC1    = 481;
     const RequiresMultipleHangingsC1    = 491;
 
     const FollowUpTypeNone  = 0;

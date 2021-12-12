@@ -42,12 +42,18 @@ class GazetteService
 
     }
 
-    protected function parseLog( $template, array $variables ): String {
+    protected function parseLog( $template, array $variables, $lowercase = false ): String {
         $variableTypes = $template->getVariableTypes();
         $transParams = $this->log->parseTransParams($variableTypes, $variables);
 
         try {
+            if ($lowercase) {
+                $proto = $this->translator->trans($template->getText(), [], 'game');
+                $lowercase = (substr($proto, 0, 1) !== strtolower(substr($proto, 0, 1)));
+            }
             $text = $this->translator->trans($template->getText(), $transParams, 'game');
+            if ($lowercase)
+                $text = strtolower(substr($text, 0, 1)) . substr($text, 1);
         }
         catch (Exception $e) {
             $text = "null";
@@ -56,7 +62,7 @@ class GazetteService
         return $text;
     }
 
-    public function parseGazetteLog(GazetteLogEntry $gazetteLogEntry): string
+    public function parseGazetteLog(GazetteLogEntry $gazetteLogEntry, $lowercase = false): string
     {
         $flavour = [
             GazetteEntryTemplate::FollowUpTypeDoubt => [
@@ -76,7 +82,7 @@ class GazetteService
                 $this->translator->trans('Pfff...', [], 'game'),
             ],
         ];
-        $txt = $this->parseLog($gazetteLogEntry->getTemplate(), $gazetteLogEntry->getVariables());
+        $txt = $this->parseLog($gazetteLogEntry->getTemplate(), $gazetteLogEntry->getVariables(), $lowercase);
 
         if ($txt && $gazetteLogEntry->getTemplate() && $gazetteLogEntry->getFollowUp() > 0 &&
             isset($flavour[ $gazetteLogEntry->getTemplate()->getFollowUpType() ]) && isset($flavour[ $gazetteLogEntry->getTemplate()->getFollowUpType() ][ $gazetteLogEntry->getFollowUp() ]))
@@ -173,7 +179,7 @@ class GazetteService
                 case GazetteEntryTemplate::RequiresMultipleCrosses:       return count( $survivors ) >= $arg && count( array_filter( $death_outside, fn(Citizen $c) => $c->getCauseOfDeath()->getRef() === CauseOfDeath::ChocolateCross ) ) >= 2;
                 case GazetteEntryTemplate::RequiresMultipleRedSouls:      return count( $survivors ) >= $arg && count( array_filter( $death_outside, fn(Citizen $c) => $c->getCauseOfDeath()->getRef() === CauseOfDeath::Haunted ) ) >= 2;
                 case GazetteEntryTemplate::RequiresInvasion:              return $gazette->getInvasion() > 0;
-                case GazetteEntryTemplate::RequiresAttackDeaths:          return $gazette->getDeaths() > 0;
+                case GazetteEntryTemplate::RequiresAttackDeaths:          return count( $survivors ) >= $arg && $gazette->getDeaths() > 0;
                 default: return true;
             }
         });
@@ -205,16 +211,58 @@ class GazetteService
             $var["{$name}s"] = count($elems);
         };
 
-        if ($g->getType() === GazetteEntryTemplate::TypeGazettePoison)
-            $variables['poison'] = $this->rand->pick( [
-                T::__('Arsen','game'),T::__('Cyanolin','game'),T::__('Neurotwinin','game'),
-                T::__('Rizin','game'),T::__('Botulinumtoxin','game'),T::__('Virunoir','game'),
-                T::__('Chlorotwinat','game'),T::__('Kaliumchlorid','game'),T::__('Kurare','game'),
-                T::__('Zyanid (poison)','game'),T::__('Phenol','game'),T::__('Ponasulfat','game')
-            ] );
-
-        if ($g->getType() === GazetteEntryTemplate::TypeGazetteDayOne)
-            $variables['random'] = mt_rand(15,99);
+        foreach ($g->getVariableTypes() as ['name' => $name])
+            switch ($name) {
+                case 'poison':
+                    $variables['poison'] = $this->rand->pick( [
+                        T::__('Arsen','game'),T::__('Cyanolin','game'),T::__('Neurotwinin','game'),
+                        T::__('Rizin','game'),T::__('Botulinumtoxin','game'),T::__('Virunoir','game'),
+                        T::__('Chlorotwinat','game'),T::__('Kaliumchlorid','game'),T::__('Kurare','game'),
+                        T::__('Zyanid (poison)','game'),T::__('Phenol','game'),T::__('Ponasulfat','game')
+                    ] );
+                    break;
+                case 'location':
+                    $variables['location'] = $this->rand->pick( [
+                        T::__('in der Nähe des Gemüsegartens','game'),T::__('in der Nähe der südlichen Stadtmauer','game'),
+                        T::__('am Stadttor','game'),T::__('am Aussichtsturm','game'),
+                        T::__('am westlichen Flügel der Stadt','game'),T::__('an der nördlichen Stadtmauer','game'),
+                        T::__('an unserer schwach gesicherten Flanke','game'),T::__('in der Nähe des Brunnens','game'),
+                        T::__('an der östlichen Stadtmauer','game'),T::__('in der Stadtmauer am Stadttor','game'),
+                    ] );
+                    break;
+                case 'mascot':
+                    $variables['mascot'] = $this->rand->pick( [
+                        T::__('Drops','game'),T::__('Whitie','game'),T::__('Fettwanst','game'),
+                        T::__('Gizmo','game'),T::__('Romero','game'),T::__('Krümel','game'),
+                        T::__('Trolli','game'),T::__('Warpie','game'),T::__('Panda','game'),
+                        T::__('Urmel','game'),T::__('Nuffi','game'),T::__('Kampfzwerg','game'),
+                        T::__('Brummbrumm','game'),T::__('Quälgeist','game'),T::__('Wuschel','game'),
+                    ] );
+                    break;
+                case 'animal':
+                    $variables['animal'] = $this->rand->pick( [
+                        T::__('Ratte','game'),T::__('Ziege','game'),T::__('Pudel','game'),
+                        T::__('Hamster','game'),T::__('Köter','game'),T::__('Schwein','game'),
+                        T::__('Erdmännchen','game'),T::__('Wasserschwein','game'),T::__('Sumpfschildkröte','game'),
+                        T::__('Kätzchen','game'),
+                    ] );
+                    break;
+                case 'item':
+                    $variables['item'] = $this->rand->pick( [
+                        T::__('einen Haufen Gerümpel ','game'),T::__('einen Holzstapel ','game'),
+                        T::__('einen Haufen Schrott','game'),T::__('einen toter Baumstamm','game'),
+                        T::__('eine vergessene Leiter','game'),T::__('einen Berg von Kisten','game'),
+                        T::__('einen Turm aus Trümmern','game'),T::__('einen Haufen Plunder','game'),
+                        T::__('einen Steinhaufen','game'),T::__('einen Haufen Ramsch','game'),
+                    ] );
+                    break;
+                case 'random':
+                    $variables['random'] = mt_rand(15,99);
+                    break;
+                case 'randomHour':
+                    $variables['randomHour'] = mt_rand(0,12);
+                    break;
+            }
 
         switch ($class) {
             case GazetteEntryTemplate::BaseRequirementCitizen:
@@ -244,7 +292,8 @@ class GazetteService
             case GazetteEntryTemplate::RequiresAttackDeaths:
                 $attack = $gazette->getAttack();
                 $variables['attack'] = $attack < 2000 ? 10 * (round($attack / 10)) : 100 * (round($attack / 100));
-                $variables['deaths'] = $gazette->getDeaths();
+                $variables['deaths'] = $variables['cadavers'] = $gazette->getDeaths();
+                if ($arg > 0) $_add_elements( 'citizen', $survivors, $featured !== null && $featured->getAlive() ? $featured : null, $arg, $variables );
                 break;
 
             case GazetteEntryTemplate::RequiresDefense:
@@ -253,7 +302,7 @@ class GazetteService
                 break;
 
             case GazetteEntryTemplate::RequiresDeaths:
-                $variables['deaths'] = $gazette->getDeaths();
+                $variables['deaths'] = $variables['cadavers'] = $gazette->getDeaths();
                 break;
 
             case GazetteEntryTemplate::RequiresMultipleDehydrations:
@@ -483,7 +532,7 @@ class GazetteService
     }
 
     protected function gazette_section_flavour( Gazette $gazette, Town $town, int $day, array $survivors = [], array $death_inside = [] ): bool {
-        if ( $gazette->getReactorExplosion() || $town->getDevastated() ) return false;
+        if ( $gazette->getReactorExplosion() || $town->getDevastated() || $gazette->getDeaths() > 0 ) return false;
 
         $criteria = [ 'type' => GazetteEntryTemplate::TypeGazetteFlavour ];
 
@@ -583,15 +632,41 @@ class GazetteService
             }
         } else {
             $gazette_logs = $this->entity_manager->getRepository(GazetteLogEntry::class)->findBy(['gazette' => $gazette]);
+            $num = 0;
+
+            $in_between = [
+                T::__('Eilmeldung:', 'game'),
+                T::__('Liebe Bürgerinnen und Bürger,', 'game'),
+                T::__('Neue Nachrichten:', 'game'),
+                T::__('Eine kleine Anekdote:', 'game'),
+                T::__('Das muss hier auch noch erzählt werden:', 'game'),
+                T::__('Folgendes:', 'game'),
+                T::__('Das Neueste aus der Gerüchteküche:', 'game'),
+                T::__('Die Gerüchteküche brodelt mal wieder:', 'game'),
+                T::__('Klatsch und Tratsch:', 'game'),
+                T::__('Aktuelles in Kürze:', 'game'),
+                T::__('WICHTIG:', 'game'),
+                T::__('Hinweis an die Bevölkerung:', 'game'),
+                T::__('Zur Aufheiterung:', 'game'),
+                T::__('Gut zu wissen:', 'game'),
+                T::__('Mal was anderes:', 'game'),
+                T::__('Das neueste Geschwätz:', 'game'),
+            ];
+            $in_between_mod = (ceil(count($in_between)/10) + 1) * 10;
+
             while (count($gazette_logs) > 0) {
                 /** @var GazetteLogEntry $log */
                 $log = array_shift($gazette_logs);
                 if ($log->getTemplate() === null)
                     continue;
+                $num++;
                 $type = $log->getTemplate()->getType();
-                if($type !== GazetteEntryTemplate::TypeGazetteWind)
-                    $text .= '<p>' . $this->parseGazetteLog($log) . '</p>';
-                else
+                if ($type !== GazetteEntryTemplate::TypeGazetteWind) {
+                    if ($num === 2)
+                        $inbetween = $in_between[$log->getId() % $in_between_mod] ?? '';
+                    else $inbetween = '';
+                    $text .= '<p>' . ($inbetween !== '' ? ($this->translator->trans($inbetween,[],'game') . ' ') : '') . $this->parseGazetteLog($log, $inbetween !== '') . '</p>';
+                } else
                     $wind = $this->parseGazetteLog($log);
             }
         }
