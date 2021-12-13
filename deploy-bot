@@ -64,7 +64,7 @@ echo "-> Removing unneeded files..."
 rm -rf "${_TEMP:?}/var"
 rm -rf "${_TEMP:?}/.gitlab"
 rm -rf "${_TEMP:?}/config/packages/${DEPLOY_ENV:?}/app"
-rm -rf "${_TEMP:?}/node-modules"
+rm -rf "${_TEMP:?}/node_modules"
 
 echo "-> Creating update package..."
 if test -f "${_UPDATE_PACKAGE}";
@@ -139,10 +139,6 @@ then
   echo "Aborted."
   exit 2
 fi
-
-echo "-> Creating backup and clearing cache..."
-ssh -t "${_SSH}" "rm -rf \"${REMOTE_PATH_STORAGE:?}/cache/*\""
-
 
 echo "-> Activating new installation"
 ssh -t "${_SSH}" "ln -sfn \"${_NEW_VERSION}\" \"${REMOTE_PATH_ENTRYPOINT:?}\""
