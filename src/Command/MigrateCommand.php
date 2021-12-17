@@ -111,6 +111,7 @@ class MigrateCommand extends Command
         '8e7d00f016648b180840f47544d98d337e5c0088' => [ ['app:migrate', ['--fix-ranking-survived-days' => true] ] ],
         'ffa2f28a35c5a34a0fbb26d8f478d5fc0f24679a' => [ ['app:migrate', ['--repair-permissions' => true] ] ],
         '0d37ad639bb89157ffa64eac0821ac490e063224' => [ ['app:migrate', ['--reassign-thread-tags' => true] ] ],
+        'd669a5376c073ff8ede12330dbd3968346c78425' => [ ['app:migrate', ['--assign-official-tag' => true] ] ],
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
