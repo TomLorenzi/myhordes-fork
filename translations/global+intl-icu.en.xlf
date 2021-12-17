@@ -4157,5 +4157,16 @@
         <target>Did you know? Many actions will display a help text when they are first tapped. To perform the action, simply tap them again. If you're in a hurry and prefer to not see these help texts, disable the setting "Single tap to show tooltips" within your soul settings.</target>
       </segment>
     </unit>
+    <unit id="eJvIel0" name="Offiziell">
+      <notes>
+        <note category="german">Offiziell</note>
+        <note category="from">db://ThreadTag</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Offiziell</source>
+        <target>Official</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

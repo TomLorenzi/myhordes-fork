@@ -11,6 +11,7 @@ use App\Entity\Building;
 use App\Entity\Citizen;
 use App\Entity\CitizenRankingProxy;
 use App\Entity\CitizenStatus;
+use App\Entity\Complaint;
 use App\Entity\FeatureUnlock;
 use App\Entity\FeatureUnlockPrototype;
 use App\Entity\Forum;
@@ -26,6 +27,7 @@ use App\Entity\RuinZone;
 use App\Entity\Season;
 use App\Entity\ShadowBan;
 use App\Entity\SpecialActionPrototype;
+use App\Entity\Thread;
 use App\Entity\ThreadTag;
 use App\Entity\Town;
 use App\Entity\TownLogEntry;
@@ -47,6 +49,7 @@ use App\Service\RandomGenerator;
 use App\Service\UserFactory;
 use App\Service\UserHandler;
 use App\Structures\TownConf;
+use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\Console\Command\Command;
@@ -180,6 +183,7 @@ class MigrateCommand extends Command
             ->addOption('fix-forum-posts', null, InputOption::VALUE_NONE, 'Fix forum post content')
             ->addOption('fix-ranking-survived-days', null, InputOption::VALUE_NONE, 'Fix survived day count in rankings')
             ->addOption('reassign-thread-tags', null, InputOption::VALUE_NONE, 'Repairs ThreadTag assignment to forums')
+            ->addOption('assign-official-tag', null, InputOption::VALUE_NONE, 'Assign the Official tag in the Town forums')
 
             ->addOption('repair-permissions', null, InputOption::VALUE_NONE, 'Makes sure forum permissions and user groups are set up properly')
             ->addOption('migrate-oracles', null, InputOption::VALUE_NONE, 'Moves the Oracle role from account elevation to the special permissions flag')
@@ -720,6 +724,27 @@ class MigrateCommand extends Command
             });
 
             return 0;
+        }
+
+        if ($input->getOption('assign-official-tag')) {
+            $tag = $this->entity_manager->getRepository(ThreadTag::class)->findOneBy(['name' => 'official']);
+            $crow = $this->entity_manager->getRepository(User::class)->find(66);
+            $criteria = new Criteria();
+            $criteria->andWhere($criteria->expr()->neq('town', $null));
+            $townForums = $this->entity_manager->getRepository(Forum::class)->matching($criteria);
+            /** @var Forum $townForum */
+            foreach ($townForums as $townForum) {
+                $threads = $townForum->getThreads();
+                /** @var Thread $thread */
+                foreach ($threads as $thread) {
+                    if($thread->getOwner() !== $crow) continue;
+                    if($thread->getTag() === $tag) continue;
+                    $thread->setTag($tag);
+                    $this->entity_manager->persist($tag);
+                }
+            }
+
+            $this->entity_manager->flush();
         }
 
         if ($input->getOption('repair-proxies')) {

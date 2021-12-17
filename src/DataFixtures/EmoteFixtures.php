@@ -165,6 +165,7 @@ class EmoteFixtures extends Fixture {
         'update' => [ 'color' => '3d405b', 'label' => 'Changelog', 'mask' => ForumUsagePermissions::PermissionPostAsDev ],
         'event'  => [ 'color' => '43aa8b', 'label' => 'Event' ],
         'rp'     => [ 'color' => 'd4a373', 'label' => 'RP' ],
+        'official' => ['color' => 'aa0000', 'label' => 'Offiziell', 'mask' => ForumUsagePermissions::PermissionPostAsCrow ],
 
         'dsc_update' => [ 'color' => null, 'label' => 'Update' ],
         'dsc_post'   => [ 'color' => null, 'label' => 'Post' ],

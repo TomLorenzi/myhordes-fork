@@ -4129,5 +4129,16 @@
         <target>Le saviez-vous? Pour de nombreuses actions, une info-bulle s’affiche d’abord sur les appareils mobiles. Si vous souhaitez effectuer l’action, vous devez appuyer à nouveau sur celle-ci. Si vous êtes pressé et préférez ne pas voir les textes d’aide, vous pouvez désactiver cette fonctionnalité dans les paramètres de votre âme via le paramètre « Afficher les info-bulles sur les appareils mobiles en appuyant dessus ».</target>
       </segment>
     </unit>
+    <unit id="eJvIel0" name="Offiziell">
+      <notes>
+        <note category="german">Offiziell</note>
+        <note category="from">db://ThreadTag</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Offiziell</source>
+        <target>Officiel</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
