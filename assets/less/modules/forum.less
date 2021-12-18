@@ -620,17 +620,30 @@ ul.subscriptions {
   }
 }
 
-.forum-preview-container {
-  border: 1px solid @myhordes-smalltext; padding: 3px;
-  overflow: auto; font-size: 0.8em;
-  &.fix-height { max-height: 300px; }
+.forum-preview-wrapper {
+  position: relative; overflow-y: auto; overflow-x: hidden;
+  .forum-preview-container {
+    overflow: auto; font-size: 0.8em;
 
-  .forum-post-header .post-note { display: none; }
-  .forum-post-content {
-    padding-bottom: 4px;
-    p { margin: 2px 0; }
+    .forum-post-header .post-note { display: none; }
+    .forum-post-content {
+      padding-bottom: 4px;
+      p { margin: 2px 0; }
+    }
+  }
+
+  &:not(.forum-preview-wrapper-bank) {
+    max-height: 500px;
+  }
+
+  &.forum-preview-wrapper-bank {
+    min-height: 100%;
+    .forum-preview-container {
+      position: absolute; left: 3px; top: 3px; right: 3px; bottom: 3px;
+    }
   }
 }
+
 
 .home-pm {
   .forum-post-content {

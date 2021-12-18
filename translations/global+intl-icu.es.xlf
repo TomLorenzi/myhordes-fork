@@ -4132,5 +4132,15 @@
         <target> ¿Lo sabías? Muchas acciones mostrarán texto de ayuda cuando son tocadas por primera vez. Para realizar la acción, simplemente tócalas de nuevo. Si estás apresurado y prefieres no tener que ver estos textos de ayuda, desactiva la configuración "Un solo toque para mostrar descripción" dentro de tus configuraciones de alma.</target>
       </segment>
     </unit>
+    <unit id="eJvIel0" name="Offiziell">
+      <notes>
+        <note category="german">Offiziell</note>
+        <note category="from">db://ThreadTag</note>
+      </notes>
+      <segment>
+        <source>Offiziell</source>
+        <target>Oficial</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

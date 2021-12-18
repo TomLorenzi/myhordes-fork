@@ -860,9 +860,9 @@ class ActionHandler
                         if ($target_result->getPoison() !== null) $target->setPoison( $target_result->getPoison() );
                     }
                 } elseif (is_a($target, ItemPrototype::class)) {
-                    if ( ($target->getHeavy() && $this->inventory_handler->countHeavyItems( $citizen->getInventory() ) > 0) || $this->inventory_handler->getFreeSize($citizen->getInventory()) <= 0 )
-                        $execute_info_cache['message'][] = $this->translator->trans('Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...', [], 'game');
-                    if ($this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $target ), [ $citizen->getInventory(), $floor_inventory, $citizen->getZone() ? null : $citizen->getTown()->getBank() ])) {
+                    if ($i = $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $target ), [ $citizen->getInventory(), $floor_inventory, $citizen->getZone() ? null : $citizen->getTown()->getBank() ])) {
+                        if ($i !== $citizen->getInventory())
+                            $execute_info_cache['message'][] = $this->translator->trans('Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...', [], 'game');
                         $execute_info_cache['items_spawn'][] = $target;
                         if(!$citizen->getZone())
                             $tags[] = "inside";
@@ -891,9 +891,11 @@ class ActionHandler
                             break;
                         case AffectItemSpawn::DropTargetRucksack:
                             $target = [ $citizen->getInventory() ];
+                            $force = true;
+                            break;
                         case AffectItemSpawn::DropTargetDefault:
                         default:
-                            $target = $execute_info_cache['source_inv'] !== null ? [$execute_info_cache['source_inv']] : [ $citizen->getInventory(), $floor_inventory, $citizen->getZone() ? null : $citizen->getTown()->getBank() ];
+                            $target = [$execute_info_cache['source_inv'] ?? null, $citizen->getInventory(), $floor_inventory, $citizen->getZone() ? null : $citizen->getTown()->getBank() ];
                             break;
                     }
 
@@ -1305,7 +1307,6 @@ class ActionHandler
                         if (!$jumper) break;
                         $zone = $jumper->getZone();
                         if (!$zone) break;
-                        $others_are_here = $zone->getCitizens()->count() > 0;
 
                         $this->zone_handler->updateZone( $zone );
                         $cp_ok = $this->zone_handler->check_cp( $zone );
@@ -1344,6 +1345,7 @@ class ActionHandler
                             if ($others_are_here) $this->entity_manager->persist( $this->log->outsideMove( $jumper, $zone, $zero_zone, true ) );
                             $this->entity_manager->persist( $this->log->outsideMove( $jumper, $zero_zone, $zone, false ) );
                         }*/
+                        $others_are_here = $zone->getCitizens()->count() > 0;
                         if ( ($result->getCustom() === 8) && $others_are_here )
                             $this->entity_manager->persist( $this->log->heroicReturnLog( $citizen, $zone ) );
                         if ( $result->getCustom() === 9 )

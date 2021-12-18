@@ -11,6 +11,7 @@ use App\Entity\Post;
 use App\Entity\PrivateMessage;
 use App\Entity\PrivateMessageThread;
 use App\Entity\Thread;
+use App\Entity\ThreadTag;
 use App\Entity\User;
 use App\Structures\TownConf;
 use DateTime;
@@ -49,11 +50,13 @@ class CrowService {
     }
 
     /**
+     * Post a message in a forum/thread as the crow
      * @param Forum $forum
      * @param string|array $text
      * @param bool $pinned
      * @param bool $translatable
      * @param string|array|null $title
+     * @param int $semantic
      * @param Thread|null $thread
      */
     public function postToForum( Forum $forum, $text, bool $pinned, bool $translatable, $title = null, $semantic = 0, ?Thread $thread = null ) {
@@ -74,7 +77,8 @@ class CrowService {
             $thread = (new Thread())
                 ->setTitle( $title )
                 ->setTranslatable( $translatable )
-                ->setOwner( $this->getCrowAccount() );
+                ->setOwner( $this->getCrowAccount() )
+                ->setTag($this->em->getRepository(ThreadTag::class)->findOneBy(['name' => 'official']));
             $forum->addThread($thread);
         }
 

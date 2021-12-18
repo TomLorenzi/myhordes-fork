@@ -46,7 +46,7 @@
                 {% if post.owner.name == 'Der Rabe' %}{% set author_name = 'Der Rabe'|trans({},'global') %}
                 {% elseif post.owner.name == 'Animateur-Team' %}{% set author_name = 'Animateur-Team'|trans({},'global') %}{% endif %}
 
-                <div class="forum-post forum-post-small {% if variant is not null %}forum-post-variant-{{ variant }}{% endif %} {% if not post.hidden %}{% else %}forum-post-hidden{% endif %} {% if post.new %}forum-post-new{% endif %} {% if markedPost is defined and post.id == markedPost %}forum-post-marked{% endif %}" id="{{post.id}}">
+                <div class="forum-post forum-post-small {% if not loop.last %}hide-sm{% endif%} {% if variant is not null %}forum-post-variant-{{ variant }}{% endif %} {% if not post.hidden %}{% else %}forum-post-hidden{% endif %} {% if post.new %}forum-post-new{% endif %} {% if markedPost is defined and post.id == markedPost %}forum-post-marked{% endif %}" id="{{post.id}}">
                     <div class="forum-post-content">
                         {% if post.owner.name == 'Der Rabe' %}
                             <div class="avatarcrow small"><img alt="" src="{{ asset('build/images/forum/crow/crow.small.' ~ (app.request.locale|e('html_attr')|split('_', 2))[0] ~ '.png') }}"></div>

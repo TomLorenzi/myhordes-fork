@@ -2100,9 +2100,10 @@ class TownController extends InventoryAwareController
             foreach ($town->getCitizens() as $foreinCitizen) {
                 if(!$foreinCitizen->getAlive()) continue;
 
-                if ($foreinCitizen->getBanished())
+                if ($foreinCitizen->getBanished()) {
                     $foreinCitizen->setBanished(false);
-                else {
+                    $this->citizen_handler->inflictStatus($foreinCitizen, 'tg_revolutionist');
+                } else {
                     $foreinCitizen->setBanished(true);
                     foreach ($foreinCitizen->getInventory()->getItems() as $item)
                         if (!$item->getEssential() && $item->getPrototype()->getProperties()->contains( $impound_prop ))

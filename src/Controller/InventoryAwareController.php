@@ -114,6 +114,11 @@ class InventoryAwareController extends CustomAbstractController
             $this->getActiveCitizen()->addHelpNotification( $this->entity_manager->getRepository(HelpNotificationMarker::class)->findOneByName('guide') );
             $this->entity_manager->persist($this->getActiveCitizen());
             $this->entity_manager->flush();
+        } else if ($this->getActiveCitizen()->getTown()->getInsurrectionProgress() >= 100 && !$this->getActiveCitizen()->hasSeenHelpNotification('insurrection') ) {
+            $this->addFlash('popup-insurrection', $this->renderView('ajax/game/notifications/insurrection.html.twig', ['revolutionist' => $this->getActiveCitizen()->hasStatus('tg_revolutionist')]));
+            $this->getActiveCitizen()->addHelpNotification( $this->entity_manager->getRepository(HelpNotificationMarker::class)->findOneByName('insurrection') );
+            $this->entity_manager->persist($this->getActiveCitizen());
+            $this->entity_manager->flush();
         }
         return true;
     }
@@ -631,7 +636,7 @@ class InventoryAwareController extends CustomAbstractController
 
                         // The red soul vanishes too
                         $this->inventory_handler->forceRemoveItem($current_item);
-                    } elseif ($this->citizen_handler->hasStatusEffect($target_citizen, "tg_shaman_immune"))
+                    } elseif ( !$target_citizen->hasRole('shaman') && $target_citizen->getProfession()->getName() !== 'shaman' && $this->citizen_handler->hasStatusEffect($target_citizen, "tg_shaman_immune"))
                         $this->addFlash('notice', $this->translator->trans('Du nimmst diese wandernde Seele und betest, dass der Schamane weiß, wie man diesen Trank zubereitet! Und du überlebst! Was für ein Glück, du hätten keine müde Mark auf den Scharlatan gewettet.', [], "game"));
                 }
 

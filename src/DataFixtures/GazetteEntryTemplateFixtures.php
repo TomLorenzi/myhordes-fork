@@ -1357,6 +1357,7 @@ class GazetteEntryTemplateFixtures extends Fixture
             'requirement'=>GazetteEntryTemplate::RequiresOneCadaver,
             'fot' => GazetteEntryTemplate::FollowUpTypeDoubt,
             'variableTypes'=>[
+                ['type'=>"transString",'name'=>'poison'],
                 ['type'=>"citizen",'name'=>'cadaver1'],
             ],
         ],
