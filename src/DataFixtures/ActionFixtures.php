@@ -455,7 +455,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 'xmas_1'  => [ 'rp_letter_#00' ],
                 'matbox'  => [ 'wood2_#00', 'metal_#00' ],
 
-                'metalbox'  => [ 'what' => ['drug_#00', 'bandage_#00', /*'vodka_de_#00',*/ 'vodka_#00', ['explo_#00', 2], 'lights_#00', 'drug_hero_#00', 'rhum_#00'], 'where' => AffectItemSpawn::DropTargetFloor ],
+                'metalbox'  => [ 'what' => ['drug_#00', 'bandage_#00', /*'vodka_de_#00',*/ 'vodka_#00', ['explo_#00', 2], 'lights_#00', 'drug_hero_#00', 'rhum_#00'], 'where' => AffectItemSpawn::DropTargetRucksack ],
                 'metalbox2' => [ 'what' => [['watergun_opt_part_#00',2], ['pilegun_upkit_#00',2], ['pocket_belt_#00',2], ['cutcut_#00',2], ['chainsaw_part_#00',2], ['mixergun_part_#00',2], 'big_pgun_part_#00', ['lawn_part_#00',2]], 'where' => AffectItemSpawn::DropTargetRucksack],
                 'catbox'    => [ 'poison_part_#00', 'pet_cat_#00', 'angryc_#00' ],
                 'toolbox'   => [ 'pile_#00', ['meca_parts_#00', 2], 'rustine_#00', 'tube_#00', 'pharma_#00', ['explo_#00', 2], 'lights_#00' ],
@@ -466,7 +466,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 'proj'   => [ 'lens_#00' ],
                 'empty_battery' => [ 'what' => ['pile_broken_#00'], 'where' => AffectItemSpawn::DropTargetFloor ],
                 'battery' => [ 'what' => ['pile_#00'], 'where' => AffectItemSpawn::DropTargetFloor ],
-                'safe'  => [ 'what' => [['watergun_opt_part_#00',10], ['big_pgun_part_#00',5], ['lawn_part_#00',10], ['chainsaw_part_#00',10], ['mixergun_part_#00',10], ['cutcut_#00',10], ['pilegun_upkit_#00',10], ['book_gen_letter_#00',5], ['pocket_belt_#00',15], ['meca_parts_#00',10]], 'where' => AffectItemSpawn::DropTargetFloor ],
+                'safe'  => [ 'what' => [['watergun_opt_part_#00',10], ['big_pgun_part_#00',5], ['lawn_part_#00',10], ['chainsaw_part_#00',10], ['mixergun_part_#00',10], ['cutcut_#00',10], ['pilegun_upkit_#00',10], ['book_gen_letter_#00',5], ['pocket_belt_#00',15], ['meca_parts_#00',10]], 'where' => AffectItemSpawn::DropTargetRucksack ],
                 'asafe' => [ 'bplan_e_#00' ],
 
                 'lab_fail_drugs'    => [ 'what' => ['drug_#00', 'xanax_#00', 'drug_random_#00', 'drug_water_#00', 'water_cleaner_#00'], "where" => AffectItemSpawn::DropTargetFloor  ],
