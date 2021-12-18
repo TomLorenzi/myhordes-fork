@@ -2559,5 +2559,11 @@
         <target>Schon gewusst? Bei vielen Aktionen wird auf mobilen Geräten zunächst ein Hilfetext eingeblendet. Wenn du die Aktion durchführen möchtest, musst du die Aktion erneut antippen. Wenn du es eilig hast und lieber keine Hilfetexte sehen möchtest, kannst du dieses Verhalten kannst du in deinen Seeleneinstellungen über die Einstellung "Tooltips auf mobilen Geräten durch antippen anzeigen" deaktivieren.</target>
       </segment>
     </unit>
+    <unit id="eJvIel0" name="Offiziell">
+      <segment>
+        <source>Offiziell</source>
+        <target>Offiziell</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
