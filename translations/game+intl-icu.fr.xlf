@@ -23804,7 +23804,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>&lt;strong&gt;† {cadaver1}&lt;/strong&gt; hat gestern endlich mal eine gute Entscheidung getroffen: Selbstmord zu begehen. "Besser spät als nie", kommentierte &lt;strong&gt;{citizen1}&lt;/strong&gt;...</source>
-        <target><![CDATA[<strong>† {cadaver1}</strong> a enfin pris la bonne décision hier : le suicide. "Pas trop tôt", selon <strong>[citizen]</strong>...]]></target>
+        <target><![CDATA[<strong>† {cadaver1}</strong> a enfin pris la bonne décision hier : le suicide. "Pas trop tôt", selon <strong>{citizen1}</strong>...]]></target>
       </segment>
     </unit>
     <unit id="f4Be_QH">
