@@ -10,7 +10,7 @@
 {% block js %}
     {{ parent() }}
     <script>
-        (function() { $.ajax.no_history().load( document.getElementById('search_content'), '{{ forum ? url('forum_id_search_controller', {fid: forum}) : url('forum_all_search_controller') }}', false, {
+        (function() { $.ajax.no_history().load( document.getElementById('search_content'), '{{ (forum and forum > 0) ? url('forum_id_search_controller', {fid: forum}) : url('forum_all_search_controller') }}', false, {
             'user': {{ user ? user : 'null' }},
             'query': {{ query ? ("'" ~ query|e('js') ~ "'")|raw : 'null' }},
             'titles': {{ opt_title ? 'true' : 'false' }},
