@@ -25959,99 +25959,90 @@
       <notes>
         <note category="german">Wir werden alle sterben: Sag es weiter!</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wir werden alle sterben: Sag es weiter!</source>
-        <target>Wir werden alle sterben: Sag es weiter!</target>
+        <target>Todos vamos a morir: ¡corre la voz!</target>
       </segment>
     </unit>
     <unit id="lX3GkoF" name="Revolution!">
       <notes>
         <note category="german">Revolution!</note>
         <note category="from">twig:///templates/ajax/game/notifications/insurrection.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Revolution!</source>
-        <target>Revolution!</target>
+        <target>¡Insurrección!</target>
       </segment>
     </unit>
     <unit id="864jEAf">
       <notes>
         <note category="german">Vor dir siehst du die glimmenden Überreste einer Barrikade. In der Ferne ertöhnen Jubelschreie und Sirenenrufe.</note>
         <note category="from">twig:///templates/ajax/game/notifications/insurrection.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Vor dir siehst du die glimmenden Überreste einer Barrikade. In der Ferne ertöhnen Jubelschreie und Sirenenrufe.</source>
-        <target>Vor dir siehst du die glimmenden Überreste einer Barrikade. In der Ferne ertöhnen Jubelschreie und Sirenenrufe.</target>
+        <target>Ante ti yacen los restos humeantes de una barricada. A lo lejos, resuenan los festejos y llamados de sirenas.</target>
       </segment>
     </unit>
     <unit id="FZfbNcs">
       <notes>
         <note category="german">Die Verbannten der Stadt wollten sich nicht länger unterdrücken lassen und haben eine Revolution angezettelt! Die bisherigen Anführer der Stadt wurden entmachtet und die Revolutionäre haben die Kontrolle übernommen.</note>
         <note category="from">twig:///templates/ajax/game/notifications/insurrection.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Die Verbannten der Stadt wollten sich nicht länger unterdrücken lassen und haben eine Revolution angezettelt! Die bisherigen Anführer der Stadt wurden entmachtet und die Revolutionäre haben die Kontrolle übernommen.</source>
-        <target>Die Verbannten der Stadt wollten sich nicht länger unterdrücken lassen und haben eine Revolution angezettelt! Die bisherigen Anführer der Stadt wurden entmachtet und die Revolutionäre haben die Kontrolle übernommen.</target>
+        <target>¡Los desterrados de la ciudad ya no querían ser oprimidos y han empezado una revolución! Los líderes anteriores de la ciudad han sido expulsados y los revolucionarios han tomado el control.</target>
       </segment>
     </unit>
     <unit id=".TChYJ9" name="Du bist nun frei.">
       <notes>
         <note category="german">Du bist nun frei.</note>
         <note category="from">twig:///templates/ajax/game/notifications/insurrection.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Du bist nun frei.</source>
-        <target>Du bist nun frei.</target>
+        <target>Ahora eres libre.</target>
       </segment>
     </unit>
     <unit id="Tu_xrDM">
       <notes>
         <note category="german">Erlöst von den Fesseln der Verbannung kannst du nun zusammen mit den anderen Revolutionären das Schicksal der Stadt bestimmen.</note>
         <note category="from">twig:///templates/ajax/game/notifications/insurrection.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Erlöst von den Fesseln der Verbannung kannst du nun zusammen mit den anderen Revolutionären das Schicksal der Stadt bestimmen.</source>
-        <target>Erlöst von den Fesseln der Verbannung kannst du nun zusammen mit den anderen Revolutionären das Schicksal der Stadt bestimmen.</target>
+        <target>Liberado de las cadenas del destierro, ahora puedes determinar el destino de la ciudad junto con los otros revolucionarios.</target>
       </segment>
     </unit>
     <unit id="CTl4Y7q" name="Du bist nun verbannt.">
       <notes>
         <note category="german">Du bist nun verbannt.</note>
         <note category="from">twig:///templates/ajax/game/notifications/insurrection.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Du bist nun verbannt.</source>
-        <target>Du bist nun verbannt.</target>
+        <target>Has sido desterrado.</target>
       </segment>
     </unit>
     <unit id="jJbS7ew">
       <notes>
         <note category="german">Die Revolutionäre haben die Führung in der Stadt übernommen und die vormals freien Bürger erfahren nun selbst das bittere Schicksal der Verbannung.</note>
         <note category="from">twig:///templates/ajax/game/notifications/insurrection.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Die Revolutionäre haben die Führung in der Stadt übernommen und die vormals freien Bürger erfahren nun selbst das bittere Schicksal der Verbannung.</source>
-        <target>Die Revolutionäre haben die Führung in der Stadt übernommen und die vormals freien Bürger erfahren nun selbst das bittere Schicksal der Verbannung.</target>
+        <target>Los revolucionarios han tomado el control de la ciudad y los ciudadanos previamente libres ahora están experimentando el amargo destino del destierro ellos mismos.</target>
       </segment>
     </unit>
     <unit id="NvYJXqK" name="Schau dir am besten gleich den {revolution_help} an.">
       <notes>
         <note category="german">Schau dir am besten gleich den {revolution_help} an.</note>
         <note category="from">twig:///templates/ajax/game/notifications/insurrection.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Schau dir am besten gleich den {revolution_help} an.</source>
-        <target>Schau dir am besten gleich den {revolution_help} an.</target>
+        <target>Lo mejor será echarle un ojo a la {revolution_help} ahora mismo.</target>
       </segment>
     </unit>
     <unit id="WsdOdCK" name="Verbannten-Ratgeber">
@@ -26062,18 +26053,17 @@
       </notes>
       <segment>
         <source>Verbannten-Ratgeber</source>
-        <target>Verbannten-Ratgeber</target>
+        <target>Guía al Destierro</target>
       </segment>
     </unit>
     <unit id="6MOyLKz" name="Dort findest du alle Informationen über den Aufstand und dessen Folgen.">
       <notes>
         <note category="german">Dort findest du alle Informationen über den Aufstand und dessen Folgen.</note>
         <note category="from">twig:///templates/ajax/game/notifications/insurrection.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Dort findest du alle Informationen über den Aufstand und dessen Folgen.</source>
-        <target>Dort findest du alle Informationen über den Aufstand und dessen Folgen.</target>
+        <target>Allí encontrarás toda la información sobre esta insurrección y sus consecuencias.</target>
       </segment>
     </unit>
   </file>

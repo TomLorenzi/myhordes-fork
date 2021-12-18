@@ -26052,11 +26052,10 @@
       <notes>
         <note category="german">Wir werden alle sterben: Sag es weiter!</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wir werden alle sterben: Sag es weiter!</source>
-        <target>Wir werden alle sterben: Sag es weiter!</target>
+        <target>We're all going to die: spread the word!</target>
       </segment>
     </unit>
     <unit id="lX3GkoF" name="Revolution!">
