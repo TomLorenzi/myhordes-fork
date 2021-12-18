@@ -1305,7 +1305,6 @@ class ActionHandler
                         if (!$jumper) break;
                         $zone = $jumper->getZone();
                         if (!$zone) break;
-                        $others_are_here = $zone->getCitizens()->count() > 0;
 
                         $this->zone_handler->updateZone( $zone );
                         $cp_ok = $this->zone_handler->check_cp( $zone );
@@ -1344,6 +1343,7 @@ class ActionHandler
                             if ($others_are_here) $this->entity_manager->persist( $this->log->outsideMove( $jumper, $zone, $zero_zone, true ) );
                             $this->entity_manager->persist( $this->log->outsideMove( $jumper, $zero_zone, $zone, false ) );
                         }*/
+                        $others_are_here = $zone->getCitizens()->count() > 0;
                         if ( ($result->getCustom() === 8) && $others_are_here )
                             $this->entity_manager->persist( $this->log->heroicReturnLog( $citizen, $zone ) );
                         if ( $result->getCustom() === 9 )
