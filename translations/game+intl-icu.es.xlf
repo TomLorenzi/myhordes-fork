@@ -23197,33 +23197,30 @@
       <notes>
         <note category="german">Anmerkung: einer der {attack} Zombies, die letzte Nacht angegriffen haben, wurde &lt;strong&gt;im Brunnen&lt;/strong&gt; gefunden... Ich rate euch dringend davon ab, heute Morgen Wasser zu trinken, sonst fangt ihr euch noch eine Infektion ein...</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Anmerkung: einer der {attack} Zombies, die letzte Nacht angegriffen haben, wurde &lt;strong&gt;im Brunnen&lt;/strong&gt; gefunden... Ich rate euch dringend davon ab, heute Morgen Wasser zu trinken, sonst fangt ihr euch noch eine Infektion ein...</source>
-        <target><![CDATA[Anmerkung: einer der {attack} Zombies, die letzte Nacht angegriffen haben, wurde <strong>im Brunnen</strong> gefunden... Ich rate euch dringend davon ab, heute Morgen Wasser zu trinken, sonst fangt ihr euch noch eine Infektion ein...]]></target>
+        <target><![CDATA[¡Oh sorpresa! encontramos <strong>dentro del pozo</strong> uno de los {attack} zombies que nos atacaron anoche... Aconsejamos evitar el contacto con el agua hoy, hay riesgo de infección...]]></target>
       </segment>
     </unit>
     <unit id="VDPDHMC">
       <notes>
         <note category="german">Außerdem haben mehrere Zombies unerwartet die &lt;strong&gt;Arbeiten&lt;/strong&gt; am Westflügel genutzt, um in die Stadt einzudringen und {deaths} Menschen zu verschlingen... Ihr sollten &lt;strong&gt;eure Baustellen besser nicht so ungesichert lassen&lt;/strong&gt;.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Außerdem haben mehrere Zombies unerwartet die &lt;strong&gt;Arbeiten&lt;/strong&gt; am Westflügel genutzt, um in die Stadt einzudringen und {deaths} Menschen zu verschlingen... Ihr sollten &lt;strong&gt;eure Baustellen besser nicht so ungesichert lassen&lt;/strong&gt;.</source>
-        <target><![CDATA[Außerdem haben mehrere Zombies unerwartet die <strong>Arbeiten</strong> am Westflügel genutzt, um in die Stadt einzudringen und {deaths} Menschen zu verschlingen... Ihr sollten <strong>eure Baustellen besser nicht so ungesichert lassen</strong>.]]></target>
+        <target><![CDATA[No habíamos pensado en eso. Varios zombies aprovecharon los espacios entre las <strong>construcciones</strong> junto al ala oeste para entrar en el pueblo y comerse a {deaths} personas... Para la próxima vez recordemos <strong>no dejar las construcciones sin seguridad</strong>.]]></target>
       </segment>
     </unit>
     <unit id="w.7IdM6">
       <notes>
         <note category="german">Bemerkenswert: Die Tür wurde über Nacht offen gelassen. Den Aufzeichnungen zufolge ist es {cadaver1}, der dafür verantwortlich ist. Nun, es ist immer noch in Ordnung... Trotz dieses Fehlers gab es nicht allzu viele Opfer.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Bemerkenswert: Die Tür wurde über Nacht offen gelassen. Den Aufzeichnungen zufolge ist es {cadaver1}, der dafür verantwortlich ist. Nun, es ist immer noch in Ordnung... Trotz dieses Fehlers gab es nicht allzu viele Opfer.</source>
-        <target>Bemerkenswert: Die Tür wurde über Nacht offen gelassen. Den Aufzeichnungen zufolge ist es {cadaver1}, der dafür verantwortlich ist. Nun, es ist immer noch in Ordnung... Trotz dieses Fehlers gab es nicht allzu viele Opfer.</target>
+        <target>Un punto importante: el portal se quedó abierto esta noche. Según los registros, le debemos el favor a {cadaver1}. Por suerte, ese ""pequeño error"" no causó muchas víctimas.</target>
       </segment>
     </unit>
     <unit id="7tFNr5z">
@@ -23640,22 +23637,20 @@
       <notes>
         <note category="german">Wir werden nicht lange durchhalten, das sage ich euch.</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wir werden nicht lange durchhalten, das sage ich euch.</source>
-        <target>Wir werden nicht lange durchhalten, das sage ich euch.</target>
+        <target>Así no llegaremos muy lejos.</target>
       </segment>
     </unit>
     <unit id="XzG331s">
       <notes>
         <note category="german">Noch so eine Nacht und wir werden nicht mehr hier sein, um über so etwas zu reden.</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Noch so eine Nacht und wir werden nicht mehr hier sein, um über so etwas zu reden.</source>
-        <target>Noch so eine Nacht und wir werden nicht mehr hier sein, um über so etwas zu reden.</target>
+        <target>Una noche más como esta y no estaremos más aquí para contarlo.</target>
       </segment>
     </unit>
     <unit id="Hwl.nBz" name="Das war knapp.">
@@ -23816,11 +23811,10 @@
       <notes>
         <note category="german">&lt;strong&gt;{citizen1}&lt;/strong&gt; soll heute Morgen die Leiche von &lt;strong&gt;† {cadaver1}&lt;/strong&gt; inmitten einer Baustelle gefunden haben. Laut diesem Bürger handelte es sich um einen Selbstmord.... Nur konnte &lt;strong&gt;{citizen1}&lt;/strong&gt; uns das Messer, das im Rücken der Leiche steckte, nicht erklären...</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>&lt;strong&gt;{citizen1}&lt;/strong&gt; soll heute Morgen die Leiche von &lt;strong&gt;† {cadaver1}&lt;/strong&gt; inmitten einer Baustelle gefunden haben. Laut diesem Bürger handelte es sich um einen Selbstmord.... Nur konnte &lt;strong&gt;{citizen1}&lt;/strong&gt; uns das Messer, das im Rücken der Leiche steckte, nicht erklären...</source>
-        <target><![CDATA[<strong>{citizen1}</strong> soll heute Morgen die Leiche von <strong>† {cadaver1}</strong> inmitten einer Baustelle gefunden haben. Laut diesem Bürger handelte es sich um einen Selbstmord.... Nur konnte <strong>{citizen1}</strong> uns das Messer, das im Rücken der Leiche steckte, nicht erklären...]]></target>
+        <target><![CDATA[<strong>{citizen1}</strong> habría encontrado el cuerpo de <strong>† {cadaver1}</strong> en una calle oscura. Según él, se trataría de un suicidio... Solo que, <strong>{citizen1}</strong> no pudo explicarnos por qué la víctima tenía un cuchillo clavado en la espalda...]]></target>
       </segment>
     </unit>
     <unit id="D7.ISce">
@@ -23921,11 +23915,10 @@
       <notes>
         <note category="german">Anstatt die Zombies gewähren zu lassen, beschlossen die Bürger gestern, &lt;strong&gt;† {cadaver1}&lt;/strong&gt; im Voraus zu eliminieren. "Wir haben uns köstlich amüsiert", berichtet &lt;strong&gt;{citizen1}&lt;/strong&gt;...</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Anstatt die Zombies gewähren zu lassen, beschlossen die Bürger gestern, &lt;strong&gt;† {cadaver1}&lt;/strong&gt; im Voraus zu eliminieren. "Wir haben uns köstlich amüsiert", berichtet &lt;strong&gt;{citizen1}&lt;/strong&gt;...</source>
-        <target><![CDATA[Anstatt die Zombies gewähren zu lassen, beschlossen die Bürger gestern, <strong>† {cadaver1}</strong> im Voraus zu eliminieren. "Wir haben uns köstlich amüsiert", berichtet <strong>{citizen1}</strong>...]]></target>
+        <target><![CDATA[Para no dejarles ese placer a los zombies, los habitantes del pueblo prefirieron eliminar personalmente a <strong>† {cadaver1}</strong>. ""Lo pasamos muy bien"", aseguró <strong>{citizen1}</strong>...]]></target>
       </segment>
     </unit>
     <unit id="AMEjDOm">
