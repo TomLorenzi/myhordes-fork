@@ -636,7 +636,7 @@ class InventoryAwareController extends CustomAbstractController
 
                         // The red soul vanishes too
                         $this->inventory_handler->forceRemoveItem($current_item);
-                    } elseif ($this->citizen_handler->hasStatusEffect($target_citizen, "tg_shaman_immune"))
+                    } elseif ( !$target_citizen->hasRole('shaman') && $target_citizen->getProfession()->getName() !== 'shaman' && $this->citizen_handler->hasStatusEffect($target_citizen, "tg_shaman_immune"))
                         $this->addFlash('notice', $this->translator->trans('Du nimmst diese wandernde Seele und betest, dass der Schamane weiß, wie man diesen Trank zubereitet! Und du überlebst! Was für ein Glück, du hätten keine müde Mark auf den Scharlatan gewettet.', [], "game"));
                 }
 
