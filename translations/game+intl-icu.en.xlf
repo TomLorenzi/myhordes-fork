@@ -4559,17 +4559,6 @@
         <target>Numerous craters and splashes of dried blood lead you to think that a large - scale battle took place here. Most of the trenches are buried, but there are still some that are worth exploring...</target>
       </segment>
     </unit>
-    <unit id="odvB3Fd">
-      <notes>
-        <note category="german">What was once the local library is now a collection of several small houses. Today, the books are mostly torn or burnt, the ground is littered with torn pages and the shelves have been knocked over.</note>
-        <note category="state">new</note>
-        <note category="from">db://ZonePrototype</note>
-      </notes>
-      <segment>
-        <source>What was once the local library is now a collection of several small houses. Today, the books are mostly torn or burnt, the ground is littered with torn pages and the shelves have been knocked over.</source>
-        <target>What was once the local library is now a collection of several small houses. Today, the books are mostly torn or burnt, the ground is littered with torn pages and the shelves have been knocked over.</target>
-      </segment>
-    </unit>
     <unit id="Uin8bw9">
       <notes>
         <note category="german">In diesem Geschäft konnte man früher allerlei Produkte des täglichen Bedarfs kaufen: Lebensmittel, Getränke, Reinigungsmittel... An der Tür steht: Rund um die Uhr geöffnet (auch am Wochenende). In der Tat, das klaffenden Loch in der Mauer bestätigt dies.</note>
@@ -26157,6 +26146,26 @@
       <segment>
         <source>Dort findest du alle Informationen über den Aufstand und dessen Folgen.</source>
         <target>There you will find all the information about this insurrection and its consequences.</target>
+      </segment>
+    </unit>
+    <unit id="A_msYAO">
+      <notes>
+        <note category="german">Was einst die örtliche Bibliothek war, ist heute eine Ansammlung von mehreren kleinen Häusern. Heute sind die Bücher größtenteils zerrissen oder verbrannt, der Boden ist mit zerrissenen Seiten übersät und die Regale sind umgestoßen worden.</note>
+        <note category="from">db://ZonePrototype</note>
+      </notes>
+      <segment>
+        <source>Was einst die örtliche Bibliothek war, ist heute eine Ansammlung von mehreren kleinen Häusern. Heute sind die Bücher größtenteils zerrissen oder verbrannt, der Boden ist mit zerrissenen Seiten übersät und die Regale sind umgestoßen worden.</source>
+        <target>What was once the local library is now a collection of several small houses. Today, the books are mostly torn or burnt, the ground is littered with torn pages and the shelves have been knocked over.</target>
+      </segment>
+    </unit>
+    <unit id="AQwtZit" name="Diskussionen rund um die Bank">
+      <notes>
+        <note category="german">Diskussionen rund um die Bank</note>
+        <note category="from">twig:///templates/ajax/game/town/bank.html.twig</note>
+      </notes>
+      <segment>
+        <source>Diskussionen rund um die Bank</source>
+        <target>Discussions about the bank</target>
       </segment>
     </unit>
   </file>

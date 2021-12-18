@@ -554,7 +554,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
             array('item' => 'cigs_#00','count' => 1),
             array('item' => 'lamp_#00','count' => 1),
             array('item' => 'lens_#00','count' => 1),
-        ], 'desc' => 'What was once the local library is now a collection of several small houses. Today, the books are mostly torn or burnt, the ground is littered with torn pages and the shelves have been knocked over.'],
+        ], 'desc' => 'Was einst die örtliche Bibliothek war, ist heute eine Ansammlung von mehreren kleinen Häusern. Heute sind die Bücher größtenteils zerrissen oder verbrannt, der Boden ist mit zerrissenen Seiten übersät und die Regale sind umgestoßen worden.'],
         ["label" => "Tante Emma Laden",'icon' => 'emma',"camping" => 7,"min_dist" => 8, "max_dist" => 11, "chance" => 913, "drops" => [
             array('item' => 'cigs_#00','count' => 77),
             array('item' => 'jerrycan_#00','count' => 75),

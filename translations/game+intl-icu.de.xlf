@@ -16382,5 +16382,17 @@
         <target>Dort findest du alle Informationen über den Aufstand und dessen Folgen.</target>
       </segment>
     </unit>
+    <unit id="A_msYAO">
+      <segment>
+        <source>Was einst die örtliche Bibliothek war, ist heute eine Ansammlung von mehreren kleinen Häusern. Heute sind die Bücher größtenteils zerrissen oder verbrannt, der Boden ist mit zerrissenen Seiten übersät und die Regale sind umgestoßen worden.</source>
+        <target>Was einst die örtliche Bibliothek war, ist heute eine Ansammlung von mehreren kleinen Häusern. Heute sind die Bücher größtenteils zerrissen oder verbrannt, der Boden ist mit zerrissenen Seiten übersät und die Regale sind umgestoßen worden.</target>
+      </segment>
+    </unit>
+    <unit id="AQwtZit" name="Diskussionen rund um die Bank">
+      <segment>
+        <source>Diskussionen rund um die Bank</source>
+        <target>Diskussionen rund um die Bank</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
