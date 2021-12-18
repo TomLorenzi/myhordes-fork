@@ -210,9 +210,15 @@ class WebController extends CustomAbstractController
      * @param string $ajax
      * @return Response
      */
-    public function loader(string $ajax): Response
+    public function loader(string $ajax, Request $q): Response
     {
-        return $this->handleDomainRedirection() ?? $this->render_web_framework(Request::createFromGlobals()->getBasePath() . '/jx/' . $ajax);
+        if ($q->query->count() > 0) {
+            $bag = [];
+            foreach ($q->query as $p => $v)
+                $bag[] = urlencode($p) . '=' . urlencode($v);
+            $bag = '?' . implode('&',$bag);
+        } else $bag = '';
+        return $this->handleDomainRedirection() ?? $this->render_web_framework(Request::createFromGlobals()->getBasePath() . "/jx/{$ajax}{$bag}");
     }
 
     private function check_cache(string $name): ?Response {

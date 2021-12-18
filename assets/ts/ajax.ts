@@ -181,8 +181,8 @@ export default class Ajax {
                     }
 
                     let no_scroll = buttons[b].hasAttribute('x-ajax-sticky');
-
-                    ajax_instance.load( load_target, buttons[b].getAttribute('x-ajax-href'), true, {}, () => {
+                    let no_history = buttons[b].hasAttribute('x-ajax-transient');
+                    ajax_instance.load( load_target, buttons[b].getAttribute('x-ajax-href'), !no_history, {}, () => {
                         if (!no_scroll) window.scrollTo(0, 0);
                     } )
                 }, {once: true, capture: true});
@@ -296,11 +296,11 @@ export default class Ajax {
         if (!(target = this.prepareTarget( target ))) return;
         url = this.prepareURL(url);
 
-        const no_hist    = this.fetch_no_history();
+        const no_hist    = this.fetch_no_history() || !push_history;
         const no_loader  = this.fetch_no_loader();
         const no_error  = this.fetch_soft_fail();
 
-        if (push_history) this.push_history(url);
+        if (!no_hist) this.push_history(url);
         let this_promise;
         document.dispatchEvent( new CustomEvent('mh-navigation-begin', {detail: {url: url, post: data, node: target, complete: new Promise((resolve,reject) => {
             this_promise = [resolve,reject]
