@@ -26049,7 +26049,6 @@
       <notes>
         <note category="german">Verbannten-Ratgeber</note>
         <note category="from">twig:///templates/ajax/game/notifications/insurrection.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Verbannten-Ratgeber</source>
