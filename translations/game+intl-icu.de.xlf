@@ -16316,5 +16316,71 @@
         <target>Das neueste Geschwätz:</target>
       </segment>
     </unit>
+    <unit id="dAly6Ww" name="Wir werden alle sterben: Sag es weiter!">
+      <segment>
+        <source>Wir werden alle sterben: Sag es weiter!</source>
+        <target>Wir werden alle sterben: Sag es weiter!</target>
+      </segment>
+    </unit>
+    <unit id="lX3GkoF" name="Revolution!">
+      <segment>
+        <source>Revolution!</source>
+        <target>Revolution!</target>
+      </segment>
+    </unit>
+    <unit id="864jEAf">
+      <segment>
+        <source>Vor dir siehst du die glimmenden Überreste einer Barrikade. In der Ferne ertöhnen Jubelschreie und Sirenenrufe.</source>
+        <target>Vor dir siehst du die glimmenden Überreste einer Barrikade. In der Ferne ertöhnen Jubelschreie und Sirenenrufe.</target>
+      </segment>
+    </unit>
+    <unit id="FZfbNcs">
+      <segment>
+        <source>Die Verbannten der Stadt wollten sich nicht länger unterdrücken lassen und haben eine Revolution angezettelt! Die bisherigen Anführer der Stadt wurden entmachtet und die Revolutionäre haben die Kontrolle übernommen.</source>
+        <target>Die Verbannten der Stadt wollten sich nicht länger unterdrücken lassen und haben eine Revolution angezettelt! Die bisherigen Anführer der Stadt wurden entmachtet und die Revolutionäre haben die Kontrolle übernommen.</target>
+      </segment>
+    </unit>
+    <unit id=".TChYJ9" name="Du bist nun frei.">
+      <segment>
+        <source>Du bist nun frei.</source>
+        <target>Du bist nun frei.</target>
+      </segment>
+    </unit>
+    <unit id="Tu_xrDM">
+      <segment>
+        <source>Erlöst von den Fesseln der Verbannung kannst du nun zusammen mit den anderen Revolutionären das Schicksal der Stadt bestimmen.</source>
+        <target>Erlöst von den Fesseln der Verbannung kannst du nun zusammen mit den anderen Revolutionären das Schicksal der Stadt bestimmen.</target>
+      </segment>
+    </unit>
+    <unit id="CTl4Y7q" name="Du bist nun verbannt.">
+      <segment>
+        <source>Du bist nun verbannt.</source>
+        <target>Du bist nun verbannt.</target>
+      </segment>
+    </unit>
+    <unit id="jJbS7ew">
+      <segment>
+        <source>Die Revolutionäre haben die Führung in der Stadt übernommen und die vormals freien Bürger erfahren nun selbst das bittere Schicksal der Verbannung.</source>
+        <target>Die Revolutionäre haben die Führung in der Stadt übernommen und die vormals freien Bürger erfahren nun selbst das bittere Schicksal der Verbannung.</target>
+      </segment>
+    </unit>
+    <unit id="NvYJXqK" name="Schau dir am besten gleich den {revolution_help} an.">
+      <segment>
+        <source>Schau dir am besten gleich den {revolution_help} an.</source>
+        <target>Schau dir am besten gleich den {revolution_help} an.</target>
+      </segment>
+    </unit>
+    <unit id="WsdOdCK" name="Verbannten-Ratgeber">
+      <segment>
+        <source>Verbannten-Ratgeber</source>
+        <target>Verbannten-Ratgeber</target>
+      </segment>
+    </unit>
+    <unit id="6MOyLKz" name="Dort findest du alle Informationen über den Aufstand und dessen Folgen.">
+      <segment>
+        <source>Dort findest du alle Informationen über den Aufstand und dessen Folgen.</source>
+        <target>Dort findest du alle Informationen über den Aufstand und dessen Folgen.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -1,0 +1,35 @@
+<div class="inner-notification-header">
+    <strong>{{ 'Revolution!'|trans({},'game') }}</strong>
+</div>
+<div class="inner-notification-content">
+    <img class="float-left" alt="" src="{{ asset('build/images/background/popup/fist.gif') }}">
+    <p class="small">
+        {% trans from 'game' %}
+            Vor dir siehst du die glimmenden Überreste einer Barrikade. In der Ferne ertöhnen Jubelschreie und Sirenenrufe.
+        {% endtrans %}<br />
+        {% trans from 'game' %}
+            Die Verbannten der Stadt wollten sich nicht länger unterdrücken lassen und haben eine Revolution angezettelt! Die bisherigen Anführer der Stadt wurden entmachtet und die Revolutionäre haben die Kontrolle übernommen.
+        {% endtrans %}<br />
+    </p>
+    <p>
+        {% if revolutionist %}
+            <b>{{ 'Du bist nun frei.'|trans({},'game') }}</b>
+            {% trans from 'game' %}
+                Erlöst von den Fesseln der Verbannung kannst du nun zusammen mit den anderen Revolutionären das Schicksal der Stadt bestimmen.
+            {% endtrans %}
+        {% else %}
+            <b>{{ 'Du bist nun verbannt.'|trans({},'game') }}</b>
+            {% trans from 'game' %}
+                Die Revolutionäre haben die Führung in der Stadt übernommen und die vormals freien Bürger erfahren nun selbst das bittere Schicksal der Verbannung.
+            {% endtrans %}
+        {% endif %}
+    </p>
+    <p class="clear">
+        {% trans with {'{revolution_help}': ('<a target="_blank" href="' ~ path('help', {'name': 'shunned_citizens'}) ~ '">' ~ 'Verbannten-Ratgeber'|trans({},'game') ~ '</a>')} from 'game' %}
+            Schau dir am besten gleich den {revolution_help} an.
+        {% endtrans %}<br />
+        {% trans from 'game' %}
+            Dort findest du alle Informationen über den Aufstand und dessen Folgen.
+        {% endtrans %}
+    </p>
+</div>

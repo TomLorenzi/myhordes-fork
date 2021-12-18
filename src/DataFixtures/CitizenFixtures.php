@@ -107,6 +107,7 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
         ['name' => 'tg_tried_pp'],
         ['name' => 'tg_meta_ginfect'],
         ['name' => 'tg_spirit_guide'],
+        ['name' => 'tg_revolutionist'],
     ];
 
     public static $causes_of_death = [
@@ -291,7 +292,7 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
     ];
 
     public static $notificationMarkers = [
-        'ghoul', 'shaman', 'guide'
+        'ghoul', 'shaman', 'guide', 'insurrection'
     ];
 
     public static $complaintReasons = [

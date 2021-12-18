@@ -114,6 +114,11 @@ class InventoryAwareController extends CustomAbstractController
             $this->getActiveCitizen()->addHelpNotification( $this->entity_manager->getRepository(HelpNotificationMarker::class)->findOneByName('guide') );
             $this->entity_manager->persist($this->getActiveCitizen());
             $this->entity_manager->flush();
+        } else if ($this->getActiveCitizen()->getTown()->getInsurrectionProgress() >= 100 && !$this->getActiveCitizen()->hasSeenHelpNotification('insurrection') ) {
+            $this->addFlash('popup-insurrection', $this->renderView('ajax/game/notifications/insurrection.html.twig', ['revolutionist' => $this->getActiveCitizen()->hasStatus('tg_revolutionist')]));
+            $this->getActiveCitizen()->addHelpNotification( $this->entity_manager->getRepository(HelpNotificationMarker::class)->findOneByName('insurrection') );
+            $this->entity_manager->persist($this->getActiveCitizen());
+            $this->entity_manager->flush();
         }
         return true;
     }
