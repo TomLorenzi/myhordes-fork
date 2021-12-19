@@ -747,7 +747,6 @@ class GazetteService
             $i = 0; $continue = true;
             while ($i < $initial_node->getMaxBranchSize() && $continue && $current_node && $remaining_citizen > 0) {
 
-
                 if ($current_node === $initial_node && $initial_node->getRepartition() !== null)
                     $remaining_citizen = count( $citizenPartition );
                 $remaining_citizen -= $current_node->getCitizenReferenceIncrement();
@@ -755,8 +754,9 @@ class GazetteService
                 if ($remaining_citizen >= 0)
                     $expander_list[] = [$current_node, $current_node === $initial_node ? $initial_node->getRepartition() : null];
 
-                if ($continue = ((++$i) < $initial_node->getMinBranchSize()) || $this->rand->chance( $current_node->getContinueChance() ))
-                    $current_node = $this->rand->pick( $current_node->getContinueBranch() );
+                $refnode_for_branching = ($current_node->getContinueBranch()->isEmpty() || !$this->rand->chance( $current_node->getContinueChance() )) ? $initial_node : $current_node;
+                if ($continue = ((++$i) < $initial_node->getMinBranchSize()) || $this->rand->chance( $refnode_for_branching->getContinueChance() ))
+                    $current_node = $this->rand->pick( $refnode_for_branching->getContinueBranch() );
             }
         }
 
@@ -776,6 +776,8 @@ class GazetteService
             return $citizenPartition[ $select_id % count($citizenPartition) ];
         };
 
+        $citizen_reflist = [];
+
         /**
          * @var CouncilEntryTemplate $template
          * @var ?int $repartition
@@ -783,9 +785,13 @@ class GazetteService
         foreach ( $expander_list as list( $template, $repartition ) ) {
 
             $citizen_list = $select_citizens( $template, $repartition );
+            if ($template->getCreateReference())
+                $citizen_reflist = $citizen_list;
             $variables = [];
             foreach ($citizen_list as $i => $citizen_list_entry)
                 $variables["citizen{$i}"] = $citizen_list_entry;
+            foreach ($citizen_reflist as $i => $citizen_list_entry)
+                $variables["ref_citizen{$i}"] = $citizen_list_entry;
 
             $valid = (!$template->getVocal() || !empty($citizen_list));
             foreach ($template->getVariableTypes() as list('type'=>$type, 'name'=>$name))

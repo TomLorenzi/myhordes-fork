@@ -19,15 +19,19 @@ class CouncilEntryTemplate
 {
     const CouncilNodeGenericMCIntro             = 10;
     const CouncilNodeGenericMCComplaint         = 20;
+    const CouncilNodeGenericDiscussion          = 21;
     const CouncilNodeGenericMCDrawStraw         = 30;
 
     const CouncilNodeGenericChatterIntro   = 41;
+    const CouncilNodeGenericInsult         = 42;
 
     const CouncilNodeRootShamanFirst       = 101;
     const CouncilNodeRootShamanReplace     = 102;
     const CouncilNodeShamanFirstIntro      = 111;
     const CouncilNodeShamanReplaceIntro    = 112;
-    const CouncilNodeShamanDiscussion      = 120;
+    const CouncilNodeShamanDiscussionRoot  = 120;
+    const CouncilNodeShamanDiscussion      = 121;
+    const CouncilNodeShamanDiscussionFollowUp = 122;
     const CouncilNodeShamanResult          = 130;
     const CouncilNodeShamanChatterIntro    = 141;
 
@@ -35,7 +39,9 @@ class CouncilEntryTemplate
     const CouncilNodeRootGuideReplace      = 202;
     const CouncilNodeGuideFirstIntro       = 211;
     const CouncilNodeGuideReplaceIntro     = 212;
-    const CouncilNodeGuideDiscussion       = 220;
+    const CouncilNodeGuideDiscussionRoot   = 220;
+    const CouncilNodeGuideDiscussion       = 221;
+    const CouncilNodeGuideDiscussionFollowUp = 222;
     const CouncilNodeGuideResult           = 230;
     const CouncilNodeGuideChatterIntro     = 241;
 
@@ -115,6 +121,11 @@ class CouncilEntryTemplate
      * @ORM\Column(type="boolean")
      */
     private $vocal;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $createReference;
 
     public function __construct()
     {
@@ -302,6 +313,18 @@ class CouncilEntryTemplate
     public function setVocal(bool $vocal): self
     {
         $this->vocal = $vocal;
+
+        return $this;
+    }
+
+    public function getCreateReference(): ?bool
+    {
+        return $this->createReference;
+    }
+
+    public function setCreateReference(bool $createReference): self
+    {
+        $this->createReference = $createReference;
 
         return $this;
     }

@@ -2042,7 +2042,7 @@ class GazetteEntryTemplateFixtures extends Fixture
         'rootShamanNew' => [ 'semantic' => CouncilEntryTemplate::CouncilNodeRootShamanFirst, 'structure' => [
             CouncilEntryTemplate::CouncilNodeGenericMCIntro,
             CouncilEntryTemplate::CouncilNodeShamanFirstIntro,
-            CouncilEntryTemplate::CouncilNodeShamanDiscussion,
+            CouncilEntryTemplate::CouncilNodeShamanDiscussionRoot,
             CouncilEntryTemplate::CouncilNodeGenericMCComplaint,
             CouncilEntryTemplate::CouncilNodeGenericMCDrawStraw,
             CouncilEntryTemplate::CouncilNodeShamanResult,
@@ -2050,7 +2050,7 @@ class GazetteEntryTemplateFixtures extends Fixture
         'rootShamanReplace' => [ 'semantic' => CouncilEntryTemplate::CouncilNodeRootShamanReplace, 'structure' => [
             CouncilEntryTemplate::CouncilNodeGenericMCIntro,
             CouncilEntryTemplate::CouncilNodeShamanReplaceIntro,
-            CouncilEntryTemplate::CouncilNodeShamanDiscussion,
+            CouncilEntryTemplate::CouncilNodeShamanDiscussionRoot,
             CouncilEntryTemplate::CouncilNodeGenericMCComplaint,
             CouncilEntryTemplate::CouncilNodeGenericMCDrawStraw,
             CouncilEntryTemplate::CouncilNodeShamanResult,
@@ -2059,7 +2059,7 @@ class GazetteEntryTemplateFixtures extends Fixture
         'rootGuideNew' => [ 'semantic' => CouncilEntryTemplate::CouncilNodeRootGuideFirst, 'structure' => [
             CouncilEntryTemplate::CouncilNodeGenericMCIntro,
             CouncilEntryTemplate::CouncilNodeGuideFirstIntro,
-            CouncilEntryTemplate::CouncilNodeGuideDiscussion,
+            CouncilEntryTemplate::CouncilNodeGuideDiscussionRoot,
             CouncilEntryTemplate::CouncilNodeGenericMCComplaint,
             CouncilEntryTemplate::CouncilNodeGenericMCDrawStraw,
             CouncilEntryTemplate::CouncilNodeGuideResult,
@@ -2067,7 +2067,7 @@ class GazetteEntryTemplateFixtures extends Fixture
         'rootGuideReplace' => [ 'semantic' => CouncilEntryTemplate::CouncilNodeRootGuideReplace, 'structure' => [
             CouncilEntryTemplate::CouncilNodeGenericMCIntro,
             CouncilEntryTemplate::CouncilNodeGuideReplaceIntro,
-            CouncilEntryTemplate::CouncilNodeGuideDiscussion,
+            CouncilEntryTemplate::CouncilNodeGuideDiscussionRoot,
             CouncilEntryTemplate::CouncilNodeGenericMCComplaint,
             CouncilEntryTemplate::CouncilNodeGenericMCDrawStraw,
             CouncilEntryTemplate::CouncilNodeGuideResult,
@@ -2078,8 +2078,43 @@ class GazetteEntryTemplateFixtures extends Fixture
         ],
 
         'CouncilNodeShamanFirstIntro_001' => [ 'semantic' => CouncilEntryTemplate::CouncilNodeShamanFirstIntro, 'citizen' => 0, 'repartition' => 1,
-            'branch_size' => [3,6], 'branch_options' => [ CouncilEntryTemplate::CouncilNodeGenericChatterIntro, CouncilEntryTemplate::CouncilNodeShamanChatterIntro ],
+            'branch_size' => [2,5], 'branch_options' => [ CouncilEntryTemplate::CouncilNodeGenericChatterIntro, CouncilEntryTemplate::CouncilNodeShamanChatterIntro ],
             'text' => 'todo',
+        ],
+
+        'RootCouncilNodeShamanDiscussion_001' => [ 'semantic' => CouncilEntryTemplate::CouncilNodeShamanDiscussionRoot, 'repartition' => 1,
+            'branch_size' => [3,15], 'branch_options' => [ CouncilEntryTemplate::CouncilNodeShamanDiscussion, CouncilEntryTemplate::CouncilNodeGenericDiscussion ], 'branch_chance' => 0.8,
+        ],
+        'RootCouncilNodeShamanDiscussion_002' => [ 'semantic' => CouncilEntryTemplate::CouncilNodeShamanDiscussionRoot, 'citizen' => 0, 'repartition' => 1,
+            'branch_size' => [3,15], 'branch_options' => [ CouncilEntryTemplate::CouncilNodeShamanDiscussion, CouncilEntryTemplate::CouncilNodeGenericDiscussion ], 'branch_chance' => 0.8,
+            'text' => 'Meldet sich niemand freiwillig?',     // No volunteers?
+        ],
+
+        'CouncilNodeShamanDiscussion_001' => [ 'semantic' => CouncilEntryTemplate::CouncilNodeShamanDiscussion, 'set_ref' => true,
+            'branch_options' => [ CouncilEntryTemplate::CouncilNodeShamanDiscussionFollowUp ], 'branch_chance' => 0.8,
+            'text' => 'Lasst uns diesen Unsinn hier einfach beenden und mich wählen! Ihr alle wisst, dass ich der beste Kandidat für den Posten bin!',     // Let's do away with this boring ritual and just pick me! You all know I'm the perfect candidate!
+        ],
+
+        'CouncilNodeShamanDiscussionFollowUp_001' => [ 'semantic' => CouncilEntryTemplate::CouncilNodeShamanDiscussionFollowUp,
+            'branch_options' => [ CouncilEntryTemplate::CouncilNodeShamanDiscussionFollowUp ], 'branch_chance' => 0.5,
+            'text' => 'Ich wusste schon immer, dass {ref_citizen0} sich gerne verkleidet...',     // I always knew that {ref_citizen0} liked playing dress up...
+        ],
+        'CouncilNodeShamanDiscussionFollowUp_002' => [ 'semantic' => CouncilEntryTemplate::CouncilNodeShamanDiscussionFollowUp,
+            'branch_options' => [ CouncilEntryTemplate::CouncilNodeShamanDiscussionFollowUp ], 'branch_chance' => 0.5,
+            'text' => 'Mit dem Gesicht kann er uns höchstens Flüche heraufbeschwören!',     // He's gonna attract the evil eye with a head like that!
+        ],
+
+        'CouncilNodeGenericDiscussion_001' => [ 'semantic' => CouncilEntryTemplate::CouncilNodeGenericDiscussion,
+            'text' => 'Und wenn wir einfach wie sonst auch Stäbchen ziehen?',     // And what about if we just drew straws like usual?
+        ],
+        'CouncilNodeGenericDiscussion_002' => [ 'semantic' => CouncilEntryTemplate::CouncilNodeGenericDiscussion,
+            'text' => 'Wisst ihr, wenn wir diesen Raum hier neu einrichten würden...',     // You know if we re-did the decorations in this room...
+        ],
+        'CouncilNodeGenericDiscussion_003' => [ 'semantic' => CouncilEntryTemplate::CouncilNodeGenericDiscussion,
+            'text' => 'Ich hab Hunger!',     // I'm hungry!
+        ],
+        'CouncilNodeGenericDiscussion_004' => [ 'semantic' => CouncilEntryTemplate::CouncilNodeGenericDiscussion,
+            'text' => 'Weis einer, wie spät es ist?',     // Has anyone got the time?
         ],
     ];
 
