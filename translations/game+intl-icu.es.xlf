@@ -26069,11 +26069,10 @@
       <notes>
         <note category="german">Diskussionen rund um die Bank</note>
         <note category="from">twig:///templates/ajax/game/town/bank.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Diskussionen rund um die Bank</source>
-        <target>Diskussionen rund um die Bank</target>
+        <target>Charlas sobre el Almacén</target>
       </segment>
     </unit>
   </file>
