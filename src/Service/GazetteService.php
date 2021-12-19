@@ -5,6 +5,8 @@ namespace App\Service;
 
 use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
+use App\Entity\CouncilEntry;
+use App\Entity\CouncilEntryTemplate;
 use App\Entity\Gazette;
 use App\Entity\GazetteEntryTemplate;
 use App\Entity\GazetteLogEntry;
@@ -705,5 +707,102 @@ class GazetteService
             'windDirection' => intval($gazette->getWindDirection()),
             'waterlost' => intval($gazette->getWaterlost()),
         ];
+    }
+
+    static array $node_block_cache = [];
+    static array $node_block_ord = [];
+    public function generateCouncilNodeList(Town $town, int $day, int $rootNodeSemantic, array $citizenPartition) {
+
+        $cache_key = $town->getId() . '.' . $day;
+        if (!isset(static::$node_block_cache[$cache_key])) static::$node_block_cache[$cache_key] = [];
+        if (!isset(static::$node_block_ord[$cache_key]))   static::$node_block_ord[$cache_key] = 0;
+
+        foreach ( $this->entity_manager->getRepository(CouncilEntry::class)->findBy(['town' => $town, 'day' => $day]) as $previous_node) {
+            static::$node_block_cache[$cache_key][] = $previous_node->getTemplate();
+            static::$node_block_ord[$cache_key] = max(static::$node_block_ord[$cache_key], $previous_node->getOrd());
+        }
+
+        $get_one = function (int $semantic) use ($cache_key): ?CouncilEntryTemplate {
+            $node = $this->rand->pick(
+                array_diff( $this->entity_manager->getRepository(CouncilEntryTemplate::class)->findBy( ['semantic' => $semantic] ), static::$node_block_cache[$cache_key])
+            );
+            if ($node) static::$node_block_cache[$cache_key][] = $node;
+            return $node;
+        };
+
+        /** @var CouncilEntryTemplate[] $structure_list */
+        $structure_list = [];
+        $structure_stack = [$rootNodeSemantic];
+        while (!empty($structure_stack)) {
+            /** @var CouncilEntryTemplate $node */
+            $node = array_pop($structure_stack);
+            $structure_list[] = $node;
+            $structure_stack = array_merge($structure_stack, array_reverse( array_filter( array_map( fn(int $s) => $get_one($s), $node->getSubStructure() ) ) ));
+        }
+
+        $expander_list = []; $remaining_citizen = count( $citizenPartition );
+        foreach ( $structure_list as $initial_node ) {
+            $current_node = $initial_node;
+
+            $i = 0; $continue = true;
+            while ($i < $initial_node->getMaxBranchSize() && $continue && $current_node && $remaining_citizen > 0) {
+
+
+                if ($current_node === $initial_node && $initial_node->getRepartition() !== null)
+                    $remaining_citizen = count( $citizenPartition );
+                $remaining_citizen -= $current_node->getCitizenReferenceIncrement();
+
+                if ($remaining_citizen >= 0)
+                    $expander_list[] = [$current_node, $current_node === $initial_node ? $initial_node->getRepartition() : null];
+
+                if ($continue = ((++$i) < $initial_node->getMinBranchSize()) || $this->rand->chance( $current_node->getContinueChance() ))
+                    $current_node = $this->rand->pick( $current_node->getContinueBranch() );
+            }
+        }
+
+        $part_current = 0;
+        $select_citizens = function ( CouncilEntryTemplate $template, ?int $repartition = null ) use (&$part_current, &$citizenPartition): array {
+            $select_id = $template->getCitizenReferenceRelative() ? ($part_current + $template->getCitizenReference()) : $template->getCitizenReference();
+            $next_id = $repartition === null ? ($part_current + $template->getCitizenReferenceIncrement()) : $template->getCitizenReferenceIncrement();
+
+            if ($repartition !== null) {
+                $fixed = array_slice( $citizenPartition, 0, $repartition );
+                $repartitioned = array_slice( $citizenPartition, $repartition );
+                shuffle( $repartitioned );
+                $citizenPartition = array_merge( $fixed, $repartitioned );
+            }
+
+            $part_current = $next_id % count($citizenPartition);
+            return $citizenPartition[ $select_id % count($citizenPartition) ];
+        };
+
+        /**
+         * @var CouncilEntryTemplate $template
+         * @var ?int $repartition
+         */
+        foreach ( $expander_list as list( $template, $repartition ) ) {
+
+            $citizen_list = $select_citizens( $template, $repartition );
+            $variables = [];
+            foreach ($citizen_list as $i => $citizen_list_entry)
+                $variables["citizen{$i}"] = $citizen_list_entry;
+
+            $valid = (!$template->getVocal() || !empty($citizen_list));
+            foreach ($template->getVariableTypes() as list('type'=>$type, 'name'=>$name))
+                if ($type === 'citizen' && !array_key_exists($name,$variables))
+                    $valid = false;
+            if (!$valid) continue;
+
+            $this->entity_manager->persist( (new CouncilEntry())
+                ->setTown( $town )
+                ->setDay( $day )
+                ->setCitizen( $template->getVocal() ? $citizen_list[0] : null )
+                ->setTemplate( $template )
+                ->setVariables( $variables )
+                ->setOrd( ++static::$node_block_ord[$cache_key] )
+            );
+
+        }
+
     }
 }

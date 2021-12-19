@@ -9,6 +9,7 @@ use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
 use App\Entity\CitizenVote;
 use App\Entity\CitizenWatch;
+use App\Entity\CouncilEntryTemplate;
 use App\Entity\DigRuinMarker;
 use App\Entity\EscapeTimer;
 use App\Entity\Gazette;
@@ -1495,6 +1496,8 @@ class NightlyHandler
                     if ($citizen->getAlive()) $votes[$citizen->getId()] = 0;
             }
 
+            $partition = [];
+
             foreach ($citizens as $citizen) {
                 // Dead citizen cannot vote
                 if(!$citizen->getAlive()) continue;
@@ -1507,8 +1510,11 @@ class NightlyHandler
                     $vote_for_id = $this->random->pick(array_keys($votes), 1);
                     $votes[$vote_for_id]++;
 
-                    $this->log->debug("Citizen {$citizen->getName()} then voted for citizen " . $this->entity_manager->getRepository(Citizen::class)->find($vote_for_id)->getName());
+                    $voted_for = $this->entity_manager->getRepository(Citizen::class)->find($vote_for_id);
+                    $partition[] = [$citizen,$voted_for];
+                    $this->log->debug("Citizen {$citizen->getName()} then voted for citizen " . $voted_for->getName());
                 } else {
+                    $partition[] = [$citizen,$voted->getVotedCitizen()];
                     $this->log->debug("Citizen {$citizen->getName()} voted for {$voted->getVotedCitizen()->getName()}");
                 }
             }
@@ -1530,6 +1536,19 @@ class NightlyHandler
                 $this->log->info( "Citizen <info>{$winningCitizen->getUser()->getUsername()}</info> has been elected as <info>{$role->getLabel()}</info>." );
                 $this->citizen_handler->addRole($winningCitizen, $role);
                 $this->entity_manager->persist($winningCitizen);
+
+                shuffle($partition);
+                $partition[0][1] = $winningCitizen;
+
+                switch ($role->getName()) {
+                    case 'shaman':
+                        $this->gazette_service->generateCouncilNodeList( $town, $town->getDay(), $this->entity_manager->getRepository(Citizen::class)->findLastOneByRoleAndTown($role, $town) ? CouncilEntryTemplate::CouncilNodeRootShamanReplace : CouncilEntryTemplate::CouncilNodeRootShamanFirst, $partition );
+                        break;
+                    case 'guide':
+                        $this->gazette_service->generateCouncilNodeList( $town, $town->getDay(), $this->entity_manager->getRepository(Citizen::class)->findLastOneByRoleAndTown($role, $town) ? CouncilEntryTemplate::CouncilNodeRootGuideReplace : CouncilEntryTemplate::CouncilNodeRootGuideFirst, $partition );
+                        break;
+                }
+
             }
 
             // we remove the votes

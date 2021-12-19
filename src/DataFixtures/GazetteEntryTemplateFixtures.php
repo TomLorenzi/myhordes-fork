@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\CouncilEntryTemplate;
 use App\Entity\GazetteEntryTemplate;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
@@ -2033,6 +2034,52 @@ class GazetteEntryTemplateFixtures extends Fixture
                 ['type'=>"transString",'name'=>'sector'],
                 ['type'=>"transString",'name'=>'sector2'],
             ],
+        ],
+    ];
+
+    public static $council_entry_template_data = [
+
+        'rootShamanNew' => [ 'semantic' => CouncilEntryTemplate::CouncilNodeRootShamanFirst, 'structure' => [
+            CouncilEntryTemplate::CouncilNodeGenericMCIntro,
+            CouncilEntryTemplate::CouncilNodeShamanFirstIntro,
+            CouncilEntryTemplate::CouncilNodeShamanDiscussion,
+            CouncilEntryTemplate::CouncilNodeGenericMCComplaint,
+            CouncilEntryTemplate::CouncilNodeGenericMCDrawStraw,
+            CouncilEntryTemplate::CouncilNodeShamanResult,
+        ] ],
+        'rootShamanReplace' => [ 'semantic' => CouncilEntryTemplate::CouncilNodeRootShamanReplace, 'structure' => [
+            CouncilEntryTemplate::CouncilNodeGenericMCIntro,
+            CouncilEntryTemplate::CouncilNodeShamanReplaceIntro,
+            CouncilEntryTemplate::CouncilNodeShamanDiscussion,
+            CouncilEntryTemplate::CouncilNodeGenericMCComplaint,
+            CouncilEntryTemplate::CouncilNodeGenericMCDrawStraw,
+            CouncilEntryTemplate::CouncilNodeShamanResult,
+        ] ],
+
+        'rootGuideNew' => [ 'semantic' => CouncilEntryTemplate::CouncilNodeRootGuideFirst, 'structure' => [
+            CouncilEntryTemplate::CouncilNodeGenericMCIntro,
+            CouncilEntryTemplate::CouncilNodeGuideFirstIntro,
+            CouncilEntryTemplate::CouncilNodeGuideDiscussion,
+            CouncilEntryTemplate::CouncilNodeGenericMCComplaint,
+            CouncilEntryTemplate::CouncilNodeGenericMCDrawStraw,
+            CouncilEntryTemplate::CouncilNodeGuideResult,
+        ] ],
+        'rootGuideReplace' => [ 'semantic' => CouncilEntryTemplate::CouncilNodeRootGuideReplace, 'structure' => [
+            CouncilEntryTemplate::CouncilNodeGenericMCIntro,
+            CouncilEntryTemplate::CouncilNodeGuideReplaceIntro,
+            CouncilEntryTemplate::CouncilNodeGuideDiscussion,
+            CouncilEntryTemplate::CouncilNodeGenericMCComplaint,
+            CouncilEntryTemplate::CouncilNodeGenericMCDrawStraw,
+            CouncilEntryTemplate::CouncilNodeGuideResult,
+        ] ],
+
+        'CouncilNodeGenericMCIntro_001' => [ 'semantic' => CouncilEntryTemplate::CouncilNodeGenericMCIntro, 'citizen' => 0, 'repartition' => 1,
+            'text' => 'todo',
+        ],
+
+        'CouncilNodeShamanFirstIntro_001' => [ 'semantic' => CouncilEntryTemplate::CouncilNodeShamanFirstIntro, 'citizen' => 0, 'repartition' => 1,
+            'branch_size' => [3,6], 'branch_options' => [ CouncilEntryTemplate::CouncilNodeGenericChatterIntro, CouncilEntryTemplate::CouncilNodeShamanChatterIntro ],
+            'text' => 'todo',
         ],
     ];
 
