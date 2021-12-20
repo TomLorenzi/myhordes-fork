@@ -25744,7 +25744,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Wir werden alle sterben: Sag es weiter!</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wir werden alle sterben: Sag es weiter!</source>
@@ -25755,7 +25754,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Revolution!</note>
         <note category="from">twig:///templates/ajax/game/notifications/insurrection.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Revolution!</source>
@@ -25766,7 +25764,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Vor dir siehst du die glimmenden Überreste einer Barrikade. In der Ferne ertöhnen Jubelschreie und Sirenenrufe.</note>
         <note category="from">twig:///templates/ajax/game/notifications/insurrection.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Vor dir siehst du die glimmenden Überreste einer Barrikade. In der Ferne ertöhnen Jubelschreie und Sirenenrufe.</source>
@@ -25777,7 +25774,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Die Verbannten der Stadt wollten sich nicht länger unterdrücken lassen und haben eine Revolution angezettelt! Die bisherigen Anführer der Stadt wurden entmachtet und die Revolutionäre haben die Kontrolle übernommen.</note>
         <note category="from">twig:///templates/ajax/game/notifications/insurrection.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Die Verbannten der Stadt wollten sich nicht länger unterdrücken lassen und haben eine Revolution angezettelt! Die bisherigen Anführer der Stadt wurden entmachtet und die Revolutionäre haben die Kontrolle übernommen.</source>
@@ -25788,7 +25784,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Du bist nun frei.</note>
         <note category="from">twig:///templates/ajax/game/notifications/insurrection.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Du bist nun frei.</source>
@@ -25799,7 +25794,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Erlöst von den Fesseln der Verbannung kannst du nun zusammen mit den anderen Revolutionären das Schicksal der Stadt bestimmen.</note>
         <note category="from">twig:///templates/ajax/game/notifications/insurrection.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Erlöst von den Fesseln der Verbannung kannst du nun zusammen mit den anderen Revolutionären das Schicksal der Stadt bestimmen.</source>
@@ -25810,7 +25804,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Du bist nun verbannt.</note>
         <note category="from">twig:///templates/ajax/game/notifications/insurrection.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Du bist nun verbannt.</source>
@@ -25821,7 +25814,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Die Revolutionäre haben die Führung in der Stadt übernommen und die vormals freien Bürger erfahren nun selbst das bittere Schicksal der Verbannung.</note>
         <note category="from">twig:///templates/ajax/game/notifications/insurrection.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Die Revolutionäre haben die Führung in der Stadt übernommen und die vormals freien Bürger erfahren nun selbst das bittere Schicksal der Verbannung.</source>
@@ -25832,7 +25824,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Schau dir am besten gleich den {revolution_help} an.</note>
         <note category="from">twig:///templates/ajax/game/notifications/insurrection.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Schau dir am besten gleich den {revolution_help} an.</source>
@@ -25843,7 +25834,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Verbannten-Ratgeber</note>
         <note category="from">twig:///templates/ajax/game/notifications/insurrection.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Verbannten-Ratgeber</source>
@@ -25854,7 +25844,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Dort findest du alle Informationen über den Aufstand und dessen Folgen.</note>
         <note category="from">twig:///templates/ajax/game/notifications/insurrection.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Dort findest du alle Informationen über den Aufstand und dessen Folgen.</source>
@@ -25875,7 +25864,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Diskussionen rund um die Bank</note>
         <note category="from">twig:///templates/ajax/game/town/bank.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Diskussionen rund um die Bank</source>
