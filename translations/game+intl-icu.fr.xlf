@@ -25748,7 +25748,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Wir werden alle sterben: Sag es weiter!</source>
-        <target>Wir werden alle sterben: Sag es weiter!</target>
+        <target>Nous allons tous mourir : passez le mot !</target>
       </segment>
     </unit>
     <unit id="lX3GkoF" name="Revolution!">
@@ -25759,7 +25759,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Revolution!</source>
-        <target>Revolution!</target>
+        <target>Insurrection !</target>
       </segment>
     </unit>
     <unit id="864jEAf">
@@ -25770,7 +25770,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Vor dir siehst du die glimmenden Überreste einer Barrikade. In der Ferne ertöhnen Jubelschreie und Sirenenrufe.</source>
-        <target>Vor dir siehst du die glimmenden Überreste einer Barrikade. In der Ferne ertöhnen Jubelschreie und Sirenenrufe.</target>
+        <target>Devant vous, vous pouvez voir les restes fumants d’une barricade. Au loin, des cris de jubilation et des sirènes rugissent.</target>
       </segment>
     </unit>
     <unit id="FZfbNcs">
@@ -25781,7 +25781,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Die Verbannten der Stadt wollten sich nicht länger unterdrücken lassen und haben eine Revolution angezettelt! Die bisherigen Anführer der Stadt wurden entmachtet und die Revolutionäre haben die Kontrolle übernommen.</source>
-        <target>Die Verbannten der Stadt wollten sich nicht länger unterdrücken lassen und haben eine Revolution angezettelt! Die bisherigen Anführer der Stadt wurden entmachtet und die Revolutionäre haben die Kontrolle übernommen.</target>
+        <target>Les bannis de la ville ne voulaient plus être opprimés et ont commencé une révolution ! Les anciens dirigeants de la ville ont été évincés et les révolutionnaires ont pris le contrôle.</target>
       </segment>
     </unit>
     <unit id=".TChYJ9" name="Du bist nun frei.">
@@ -25792,7 +25792,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Du bist nun frei.</source>
-        <target>Du bist nun frei.</target>
+        <target>Vous êtes maintenant libre.</target>
       </segment>
     </unit>
     <unit id="Tu_xrDM">
@@ -25803,7 +25803,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Erlöst von den Fesseln der Verbannung kannst du nun zusammen mit den anderen Revolutionären das Schicksal der Stadt bestimmen.</source>
-        <target>Erlöst von den Fesseln der Verbannung kannst du nun zusammen mit den anderen Revolutionären das Schicksal der Stadt bestimmen.</target>
+        <target>Libéré des chaînes du bannissement, vous pouvez maintenant déterminer le sort de la ville avec les autres révolutionnaires.</target>
       </segment>
     </unit>
     <unit id="CTl4Y7q" name="Du bist nun verbannt.">
@@ -25814,7 +25814,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Du bist nun verbannt.</source>
-        <target>Du bist nun verbannt.</target>
+        <target>Vous êtes maintenant banni.</target>
       </segment>
     </unit>
     <unit id="jJbS7ew">
@@ -25825,7 +25825,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Die Revolutionäre haben die Führung in der Stadt übernommen und die vormals freien Bürger erfahren nun selbst das bittere Schicksal der Verbannung.</source>
-        <target>Die Revolutionäre haben die Führung in der Stadt übernommen und die vormals freien Bürger erfahren nun selbst das bittere Schicksal der Verbannung.</target>
+        <target>Les révolutionnaires ont pris le contrôle de la ville et les citoyens autrefois libres connaissent maintenant le destin amer du bannissement eux-mêmes.</target>
       </segment>
     </unit>
     <unit id="NvYJXqK" name="Schau dir am besten gleich den {revolution_help} an.">
@@ -25836,7 +25836,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Schau dir am besten gleich den {revolution_help} an.</source>
-        <target>Schau dir am besten gleich den {revolution_help} an.</target>
+        <target>Il est préférable de jeter un coup d’oeil au {revolution_help} dès maintenant.</target>
       </segment>
     </unit>
     <unit id="WsdOdCK" name="Verbannten-Ratgeber">
@@ -25847,7 +25847,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Verbannten-Ratgeber</source>
-        <target>Verbannten-Ratgeber</target>
+        <target>Guide du bannissement</target>
       </segment>
     </unit>
     <unit id="6MOyLKz" name="Dort findest du alle Informationen über den Aufstand und dessen Folgen.">
@@ -25858,7 +25858,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Dort findest du alle Informationen über den Aufstand und dessen Folgen.</source>
-        <target>Dort findest du alle Informationen über den Aufstand und dessen Folgen.</target>
+        <target>Vous y trouverez toutes les informations sur cette insurrection et ses conséquences.</target>
       </segment>
     </unit>
     <unit id="A_msYAO">
@@ -25879,7 +25879,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Diskussionen rund um die Bank</source>
-        <target>Diskussionen rund um die Bank</target>
+        <target>Discussions sur la banque</target>
       </segment>
     </unit>
   </file>
