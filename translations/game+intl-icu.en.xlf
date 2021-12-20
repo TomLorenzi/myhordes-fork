@@ -16190,7 +16190,7 @@
       </notes>
       <segment>
         <source>{attacker} hat {defender} einen Sandball direkt ins Gesicht geworfen!</source>
-        <target>{attacker} hat {defender} einen Sandball direkt ins Gesicht geworfen!</target>
+        <target>{attacker} has thrown a sand ball right into {defender}'s face!</target>
       </segment>
     </unit>
     <unit id="PgQR75x" name="Zahlreiche Diebstähle begangen">
