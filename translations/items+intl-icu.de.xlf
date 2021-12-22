@@ -5017,12 +5017,6 @@
         <target>Du hast {item} getrunken, aber scheinbar geschieht nichts...</target>
       </segment>
     </unit>
-    <unit id="r4cpVVY" name="Du hast einen Sandball in {citizen}s Gesicht geworfen.">
-      <segment>
-        <source>Du hast einen Sandball in {citizen}s Gesicht geworfen.</source>
-        <target>Du hast einen Sandball in {citizen}s Gesicht geworfen.</target>
-      </segment>
-    </unit>
     <unit id="_2J5LX7" name="Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter.">
       <segment>
         <source>Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter.</source>
