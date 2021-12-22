@@ -840,9 +840,9 @@ class ItemFixtures extends Fixture
         'lawn_#00'                   => [ 'weapon', 'nw_armory' ],
         'torch_off_#00'              => [ 'impoundable', 'weapon', 'nw_armory' ],
         'iphone_#00'                 => [ 'impoundable', 'weapon', 'nw_armory' ],
-        'machine_1_#00'              => [ 'esc_fixed', 'nw_ikea', 'nw_armory' ],
-        'machine_2_#00'              => [ 'esc_fixed', 'nw_ikea', 'nw_armory' ],
-        'machine_3_#00'              => [ 'esc_fixed', 'nw_ikea', 'nw_armory' ],
+        'machine_1_#00'              => [ 'esc_fixed', 'nw_ikea', 'nw_armory', 'impoundable' ],
+        'machine_2_#00'              => [ 'esc_fixed', 'nw_ikea', 'nw_armory', 'impoundable' ],
+        'machine_3_#00'              => [ 'esc_fixed', 'nw_ikea', 'nw_armory', 'impoundable' ],
         'disinfect_#00'              => [ 'impoundable', 'drug' ],
         'drug_#00'                   => [ 'can_poison', 'impoundable', 'drug' ],
         'drug_hero_#00'              => [ 'impoundable', 'drug', 'esc_fixed' ],
@@ -939,6 +939,11 @@ class ItemFixtures extends Fixture
         'maglite_1_#00'              => [ 'prevent_night' ],
         'maglite_2_#00'              => [ 'prevent_night' ],
         'wood_xmas_#00'              => [ 'food' ],
+        'christmas_suit_full_#00'    => [ 'impoundable' ],
+        'christmas_suit_1_#00'    => [ 'impoundable' ],
+        'christmas_suit_2_#00'    => [ 'impoundable' ],
+        'christmas_suit_3_#00'    => [ 'impoundable' ],
+        'leprechaun_suit_#00'    => [ 'impoundable' ],
     ];
 
     public static $item_groups = [
