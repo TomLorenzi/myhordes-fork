@@ -31,6 +31,7 @@ use App\Entity\LogEntryTemplate;
 use App\Entity\PictoPrototype;
 use App\Entity\Recipe;
 use App\Entity\RequireDay;
+use App\Entity\RequireEvent;
 use App\Entity\RequireLocation;
 use App\Entity\Requirement;
 use App\Entity\Result;
@@ -297,6 +298,21 @@ class ActionHandler
                 /** @var RequireDay $day */
                 $town = $citizen->getTown();
                 if($day->getMin() > $town->getDay() || $day->getMax() < $town->getDay()) {
+                    $current_state = min( $current_state, $this_state );
+                }
+            }
+
+            if ($eventReq = $meta_requirement->getEvent()) {
+                /** @var RequireEvent $eventReq */
+                $events = $this->conf->getCurrentEvents($citizen->getTown(), $markers);
+                $found = false;
+                foreach ($events as $event) {
+                    if ($event->name() == $eventReq->getEventName() && $event->active()) {
+                        $found = true;
+                        break;
+                    }
+                }
+                if(!$found) {
                     $current_state = min( $current_state, $this_state );
                 }
             }
