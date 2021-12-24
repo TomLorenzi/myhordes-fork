@@ -16185,7 +16185,6 @@
     <unit id="7Fs6S13" name="{attacker} hat {defender} einen Sandball direkt ins Gesicht geworfen!">
       <notes>
         <note category="german">{attacker} hat {defender} einen Sandball direkt ins Gesicht geworfen!</note>
-        <note category="state">new</note>
         <note category="from">db://LogEntryTemplate</note>
       </notes>
       <segment>
