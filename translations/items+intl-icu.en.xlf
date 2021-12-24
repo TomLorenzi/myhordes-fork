@@ -8078,7 +8078,7 @@
       </notes>
       <segment>
         <source>&lt;nt-fail&gt;Du hast einen Sandball in {citizen}s Gesicht geworfen.&lt;/nt-fail&gt;&lt;t-fail&gt;Hier ist niemand, auf den du den Sandball werfen könntest...&lt;/t-fail&gt;</source>
-        <target><![CDATA[<nt-fail>You threw a sandball in {citizen}'s face.</nt-fail><t-fail>There is no one here to throw the sandball...</t-fail>]]></target>
+        <target><![CDATA[<nt-fail>You threw a sandball in {citizen}'s face.</nt-fail><t-fail>There is no one here to throw the sandball... (there is no one here, or you have already hit everyone 30 minutes or less ago)...</t-fail>]]></target>
       </segment>
     </unit>
     <unit id="WvhcAeX">
