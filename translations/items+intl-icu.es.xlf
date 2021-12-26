@@ -8067,12 +8067,12 @@
     </unit>
     <unit id="Mmr6mlb">
       <notes>
-        <note category="german">&lt;nt-fail&gt;Du hast einen Sandball in {citizen}s Gesicht geworfen.&lt;/nt-fail&gt;&lt;t-fail&gt;Hier ist niemand, auf den du den Sandball werfen könntest...&lt;/t-fail&gt;</note>
+        <note category="german">&lt;nt-fail&gt;Du hast einen Sandball in {citizen}s Gesicht geworfen.&lt;/nt-fail&gt;&lt;t-fail&gt;Hier ist niemand, auf den du den Sandball werfen könntest... (hier ist niemand, oder du hast in den letzten 30 Minuten schon einmal jeden getroffen)...&lt;/t-fail&gt;</note>
         <note category="from">db://ItemAction</note>
       </notes>
       <segment>
         <source>&lt;nt-fail&gt;Du hast einen Sandball in {citizen}s Gesicht geworfen.&lt;/nt-fail&gt;&lt;t-fail&gt;Hier ist niemand, auf den du den Sandball werfen könntest...&lt;/t-fail&gt;</source>
-        <target><![CDATA[<nt-fail>Lanzaste una Bola de arena a la cara de {citizen}.</nt-fail><t-fail>No hay nadie aquí a quien tirarle la Bola de arena.</t-fail>]]></target>
+        <target><![CDATA[<nt-fail>Lanzaste una Bola de arena a la cara de {citizen}.</nt-fail><t-fail>No hay nadie aquí a quien tirarle la Bola de arena. (no hay nadie aquí, o ya les pegaste a todos hace 30 minutos o menos)...</t-fail>]]></target>
       </segment>
     </unit>
     <unit id="DJF1Mzv">
