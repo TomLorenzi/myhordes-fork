@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping\UniqueConstraint;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ActionCounterRepository")
- * @Table(uniqueConstraints={@UniqueConstraint(name="action_counter_assoc_unique",columns={"citizen_id","type"})})
+ * @Table(uniqueConstraints={@UniqueConstraint(name="action_counter_assoc_unique",columns={"citizen_id","type","reference_id"})})
  */
 class ActionCounter
 {
@@ -55,6 +55,11 @@ class ActionCounter
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $last;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $referenceID = 0;
 
     public function getId(): ?int
     {
@@ -116,5 +121,17 @@ class ActionCounter
     public function getDaily(): ?bool
     {
         return !in_array($this->type, self::PerGameActionTypes);
+    }
+
+    public function getReferenceID(): ?int
+    {
+        return $this->referenceID;
+    }
+
+    public function setReferenceID(int $referenceID): self
+    {
+        $this->referenceID = $referenceID;
+
+        return $this;
     }
 }

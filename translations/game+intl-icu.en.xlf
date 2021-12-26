@@ -16185,12 +16185,11 @@
     <unit id="7Fs6S13" name="{attacker} hat {defender} einen Sandball direkt ins Gesicht geworfen!">
       <notes>
         <note category="german">{attacker} hat {defender} einen Sandball direkt ins Gesicht geworfen!</note>
-        <note category="state">new</note>
         <note category="from">db://LogEntryTemplate</note>
       </notes>
       <segment>
         <source>{attacker} hat {defender} einen Sandball direkt ins Gesicht geworfen!</source>
-        <target>{attacker} hat {defender} einen Sandball direkt ins Gesicht geworfen!</target>
+        <target>{attacker} has thrown a sand ball right into {defender}'s face!</target>
       </segment>
     </unit>
     <unit id="PgQR75x" name="Zahlreiche Diebstähle begangen">
@@ -16290,7 +16289,7 @@
       </notes>
       <segment>
         <source>Hortet zu viele Gegenstände</source>
-        <target>keeps too many items for themselves</target>
+        <target>Keeps too many items for themselves</target>
       </segment>
     </unit>
     <unit id="aCap5cU" name="Aggressiver Mitbürger">
@@ -26094,7 +26093,7 @@
       </notes>
       <segment>
         <source>Erlöst von den Fesseln der Verbannung kannst du nun zusammen mit den anderen Revolutionären das Schicksal der Stadt bestimmen.</source>
-        <target>Released from the shackles of banishment, you can now determine the fate of the city together with the other revolutionaries. </target>
+        <target>Released from the shackles of banishment, you can now determine the fate of the city together with the other revolutionaries.</target>
       </segment>
     </unit>
     <unit id="CTl4Y7q" name="Du bist nun verbannt.">
