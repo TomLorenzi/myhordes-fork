@@ -8902,7 +8902,7 @@
       </notes>
       <segment>
         <source>Du hast {target} mit {item} kombiniert und {target} erzeugt.{hr}Achtung: Du hast {target} vergiftet. Es ist &lt;strong&gt;nahezu unmöglich, es vom Original zu unterscheiden&lt;/strong&gt;, sei also vorsichtig... Es liegt ganz an dir, was du damit jetzt tun möchtest.</source>
-        <target><![CDATA[Combinó {target} con {item} y creó {target}. {Hr} Advertencia: envenenó {target}. Es <strong>casi imposible diferenciarlo del original</strong>, así que tenga cuidado... depende de usted lo que quiera hacer con él ahora.]]></target>
+        <target><![CDATA[Combinaste {target} con {item} y creaste {target}. {Hr} Atención, ¡has envenenado {target}! Y es <strong>casi imposible distinguir este objeto del original</strong>, debes ser prudente... Aunque tienes la libertad de hacer lo que te parezca "justo".]]></target>
       </segment>
     </unit>
     <unit id="i.fN8wb" name="Zeuge der großen Verseuchung">
