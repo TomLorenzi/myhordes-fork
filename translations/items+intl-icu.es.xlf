@@ -9366,5 +9366,16 @@
         <target>Obtener :</target>
       </segment>
     </unit>
+    <unit id="yUEkyOu" name="Dir fällt kein Grund ein, dies zu tun...">
+      <notes>
+        <note category="german">Dir fällt kein Grund ein, dies zu tun...</note>
+        <note category="from">db://Requirement</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Dir fällt kein Grund ein, dies zu tun...</source>
+        <target>Dir fällt kein Grund ein, dies zu tun...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -112,6 +112,11 @@ class Requirement
      */
     private $custom;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=RequireEvent::class)
+     */
+    private $Event;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -323,6 +328,18 @@ class Requirement
     public function setCustom(?int $custom): self
     {
         $this->custom = $custom;
+
+        return $this;
+    }
+
+    public function getEvent(): ?RequireEvent
+    {
+        return $this->Event;
+    }
+
+    public function setEvent(?RequireEvent $Event): self
+    {
+        $this->Event = $Event;
 
         return $this;
     }
