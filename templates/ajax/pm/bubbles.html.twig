@@ -115,7 +115,7 @@
             {% endfor %}
         {% elseif entry.official is not null %}
             <span class="author group-desc"><b class="sender" style="color: #ddab76">[ {{ entry.official.usergroup.name }} ]</b></span>
-        {% elseif entry.users|length > 2 and entry.owner != app.user %}
+        {% elseif entry.users|length > 2 and entry.owner != app.user and not entry.owner is null %}
             <span class="author group-desc"><b class="sender">{{ entry.owner.name }}</b>, {{ '{n} Teilnehmer'|trans({'{n}': entry.users|length},'global') }}</span>
         {% elseif entry.users|length > 2 %}
             <span class="author group-desc">{{ '{n} Teilnehmer'|trans({'{n}': entry.users|length},'global') }}</span>

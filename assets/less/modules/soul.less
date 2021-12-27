@@ -93,11 +93,11 @@ div.tooltip.badge-tooltip {
                 margin-top: 10px;
             }
 
-            .picto { display: inline-block; width: 32px; height: 32px; font-size: 1rem; padding-top: 3px; }
+            .picto { display: inline-block; width: 32px; height: 32px; font-size: 1rem; padding-top: 3px; position: relative; }
             .rare { background: url("../../img/pictos/rewardBg_rare.gif") no-repeat; }
 
             .counter {
-                margin-top: -9.8px;
+                margin-top: -9.8px; position: absolute; bottom: 5px; left: 0; right: 0; font-size: 0; line-height: 0;
                 .count {
                     background: url("../../fonts/fontBitmap.png") no-repeat; line-height: 0; font-size: 0; width: 5px; height: 8px; display: inline-block;
                     .pictoBitmapFont(@o:0px;@m:9;@i:0) when (@i = 1) { &[num="@{i}"]{ background-position: -@o 0;} .pictoBitmapFont(@o+4,@m,@i+1); }

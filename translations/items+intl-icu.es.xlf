@@ -8067,12 +8067,12 @@
     </unit>
     <unit id="Mmr6mlb">
       <notes>
-        <note category="german">&lt;nt-fail&gt;Du hast einen Sandball in {citizen}s Gesicht geworfen.&lt;/nt-fail&gt;&lt;t-fail&gt;Hier ist niemand, auf den du den Sandball werfen könntest...&lt;/t-fail&gt;</note>
+        <note category="german">&lt;nt-fail&gt;Du hast einen Sandball in {citizen}s Gesicht geworfen.&lt;/nt-fail&gt;&lt;t-fail&gt;Hier ist niemand, auf den du den Sandball werfen könntest... (hier ist niemand, oder du hast in den letzten 30 Minuten schon einmal jeden getroffen)...&lt;/t-fail&gt;</note>
         <note category="from">db://ItemAction</note>
       </notes>
       <segment>
         <source>&lt;nt-fail&gt;Du hast einen Sandball in {citizen}s Gesicht geworfen.&lt;/nt-fail&gt;&lt;t-fail&gt;Hier ist niemand, auf den du den Sandball werfen könntest...&lt;/t-fail&gt;</source>
-        <target><![CDATA[<nt-fail>Lanzaste una Bola de arena a la cara de {citizen}.</nt-fail><t-fail>No hay nadie aquí a quien tirarle la Bola de arena.</t-fail>]]></target>
+        <target><![CDATA[<nt-fail>Lanzaste una Bola de arena a la cara de {citizen}.</nt-fail><t-fail>No hay nadie aquí a quien tirarle la Bola de arena. (no hay nadie aquí, o ya les pegaste a todos hace 30 minutos o menos)...</t-fail>]]></target>
       </segment>
     </unit>
     <unit id="DJF1Mzv">
@@ -8902,7 +8902,7 @@
       </notes>
       <segment>
         <source>Du hast {target} mit {item} kombiniert und {target} erzeugt.{hr}Achtung: Du hast {target} vergiftet. Es ist &lt;strong&gt;nahezu unmöglich, es vom Original zu unterscheiden&lt;/strong&gt;, sei also vorsichtig... Es liegt ganz an dir, was du damit jetzt tun möchtest.</source>
-        <target><![CDATA[Combinó {target} con {item} y creó {target}. {Hr} Advertencia: envenenó {target}. Es <strong>casi imposible diferenciarlo del original</strong>, así que tenga cuidado... depende de usted lo que quiera hacer con él ahora.]]></target>
+        <target><![CDATA[Combinaste {target} con {item} y creaste {target}. {Hr} Atención, ¡has envenenado {target}! Y es <strong>casi imposible distinguir este objeto del original</strong>, debes ser prudente... Aunque tienes la libertad de hacer lo que te parezca "justo".]]></target>
       </segment>
     </unit>
     <unit id="i.fN8wb" name="Zeuge der großen Verseuchung">
@@ -9364,6 +9364,17 @@
       <segment>
         <source>Erhalten:</source>
         <target>Obtener :</target>
+      </segment>
+    </unit>
+    <unit id="yUEkyOu" name="Dir fällt kein Grund ein, dies zu tun...">
+      <notes>
+        <note category="german">Dir fällt kein Grund ein, dies zu tun...</note>
+        <note category="from">db://Requirement</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Dir fällt kein Grund ein, dies zu tun...</source>
+        <target>Dir fällt kein Grund ein, dies zu tun...</target>
       </segment>
     </unit>
   </file>

@@ -31,6 +31,7 @@ use App\Entity\LogEntryTemplate;
 use App\Entity\PictoPrototype;
 use App\Entity\Recipe;
 use App\Entity\RequireDay;
+use App\Entity\RequireEvent;
 use App\Entity\RequireLocation;
 use App\Entity\Requirement;
 use App\Entity\Result;
@@ -297,6 +298,21 @@ class ActionHandler
                 /** @var RequireDay $day */
                 $town = $citizen->getTown();
                 if($day->getMin() > $town->getDay() || $day->getMax() < $town->getDay()) {
+                    $current_state = min( $current_state, $this_state );
+                }
+            }
+
+            if ($eventReq = $meta_requirement->getEvent()) {
+                /** @var RequireEvent $eventReq */
+                $events = $this->conf->getCurrentEvents($citizen->getTown(), $markers);
+                $found = false;
+                foreach ($events as $event) {
+                    if ($event->name() == $eventReq->getEventName() && $event->active()) {
+                        $found = true;
+                        break;
+                    }
+                }
+                if(!$found) {
                     $current_state = min( $current_state, $this_state );
                 }
             }
@@ -1497,17 +1513,14 @@ class ActionHandler
                         if ($target === null) {
                             // Hordes-like - there is no target, there is only ZUUL
                             $list = $citizen->getZone()->getCitizens()->filter( function(Citizen $c) use ($citizen): bool {
-                                return $c->getAlive() && $c !== $citizen && ($c->getSpecificActionCounter(ActionCounter::ActionTypeSandballHit)->getLast() === null || $c->getSpecificActionCounter(ActionCounter::ActionTypeSandballHit)->getLast()->getTimestamp() < (time() - 1800));
+                                return $c->getAlive() && $c !== $citizen && ($c->getSpecificActionCounter(ActionCounter::ActionTypeSandballHit, $citizen->getId())->getLast() === null || $c->getSpecificActionCounter(ActionCounter::ActionTypeSandballHit, $citizen->getId())->getLast()->getTimestamp() < (time() - 1800));
                             } )->getValues();
                             $sandball_target = $this->random_generator->pick( $list );
 
                         } else $sandball_target = $target;
 
-                        /** @var EventActivationMarker[] $eam */
-                        $eam = $this->entity_manager->getRepository(EventActivationMarker::class)->findBy(['citizen' => $citizen, 'active' => true]);
-                        $b = false;
-                        foreach ($eam as $m) if ($m->getEvent() === 'christmas') $b = true;
-                        if (!$b) $sandball_target = null;
+                        if (!$this->entity_manager->getRepository(EventActivationMarker::class)->findOneBy(['town' => $citizen->getTown(), 'active' => true, 'event' => 'christmas']))
+                            $sandball_target = null;
 
                         if ($sandball_target !== null) {
                             $this->picto_handler->give_picto($citizen, 'r_sandb_#00');
@@ -1516,7 +1529,7 @@ class ActionHandler
                             $execute_info_cache['items_consume'][] = $item->getPrototype();
 
                             $execute_info_cache['citizen'] = $sandball_target;
-                            $sandball_target->getSpecificActionCounter(ActionCounter::ActionTypeSandballHit)->increment();
+                            $sandball_target->getSpecificActionCounter(ActionCounter::ActionTypeSandballHit, $citizen->getId())->increment();
 
                             $hurt = !$this->citizen_handler->isWounded($sandball_target) && $this->random_generator->chance( $town_conf->get(TownConf::CONF_MODIFIER_SANDBALL_NASTYNESS, 0.0) );
                             if ($hurt) $this->citizen_handler->inflictWound($sandball_target);

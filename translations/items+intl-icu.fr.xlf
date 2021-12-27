@@ -228,7 +228,7 @@
       </notes>
       <segment>
         <source>Verstellbarer Schraubenschlüssel</source>
-        <target>Clef à Molette</target>
+        <target>Clé à Molette</target>
       </segment>
     </unit>
     <unit id="xKt9A2O" name="Schraubenzieher">
@@ -3539,7 +3539,7 @@
       </notes>
       <segment>
         <source>Der Text ist überschrieben mit {rp_text}. Du beginnst, ihn zu lesen&lt;t-rp_ok&gt;! Der Text wurde deinem Archiv hinzugefügt.&lt;/t-rp_ok&gt;&lt;t-rp_fail&gt;... Leider stellst du fest, dass du diesen Text bereits kennst.&lt;/t-rp_fail&gt;</source>
-        <target><![CDATA[Vous examinez ce recueil en détail... Vous y découvrez un texte apparemment intitulé « {rp_text} ». Vous le lisez avec la plus grande attention...{hr}<t-rp_ok><strong>Un nouveau document a été ajouté à vos écrits !</strong></t-rp_ok><t-rp_fail>Vous aviez déjà découvert cet écrit. Il ne vous rapportera donc pas de distinction supplémentaire.</t-rp_fail>]]></target>
+        <target><![CDATA[Vous examinez ce recueil en détail... Vous y découvrez un texte apparemment intitulé « {rp_text} ». Vous le lisez avec la plus grande attention...{hr}<t-rp_ok><strong>Un nouveau document a été ajouté à vos écrits !</strong></t-rp_ok><t-rp_fail>Vous aviez déjà découvert cet écrit. Il ne vous rapportera donc <strong>pas de distinction supplémentaire</strong>.</t-rp_fail>]]></target>
       </segment>
     </unit>
     <unit id="glkUAZ8" name="Werfen">
@@ -5640,7 +5640,7 @@
       </notes>
       <segment>
         <source>Bei dieser verbesserten Version des normalen Batteriewerfers 1-PDTG ist der PDTT Mark II-Druckregler schon eingebaut. Durch Feinjustierung der Schusskraft ist es manchmal sogar möglich die verschossene Batterie wieder einzusammeln.</source>
-        <target>Cette version améliorée du Lance-pile comporte un canon équipé d'un Calibrateur PDTT Mark II. En dosant précisément la puissance de tir, ce canon permet _parfois_ de récupérer la pile qui a été tirée.</target>
+        <target>Cette version améliorée du Lance-pile comporte un canon équipé d'un Calibrateur PDTT Mark II. En dosant précisément la puissance de tir, ce canon permet (parfois) de récupérer la pile qui a été tirée.</target>
       </segment>
     </unit>
     <unit id="BvZwvzY">
@@ -7812,7 +7812,7 @@
       </notes>
       <segment>
         <source>Logbuch Schokolade</source>
-        <target>Bûche en chocolat</target>
+        <target>Bûche de Noël</target>
       </segment>
     </unit>
     <unit id="WSBb1y.">
@@ -8057,7 +8057,7 @@
     </unit>
     <unit id="Mmr6mlb">
       <notes>
-        <note category="german">&lt;nt-fail&gt;Du hast einen Sandball in {citizen}s Gesicht geworfen.&lt;/nt-fail&gt;&lt;t-fail&gt;Hier ist niemand, auf den du den Sandball werfen könntest...&lt;/t-fail&gt;</note>
+        <note category="german">&lt;nt-fail&gt;Du hast einen Sandball in {citizen}s Gesicht geworfen.&lt;/nt-fail&gt;&lt;t-fail&gt;Hier ist niemand, auf den du den Sandball werfen könntest... (hier ist niemand, oder du hast in den letzten 30 Minuten schon einmal jeden getroffen)...&lt;/t-fail&gt;</note>
         <note category="from">db://ItemAction</note>
       </notes>
       <segment>
@@ -9396,6 +9396,17 @@
       <segment>
         <source>Erhalten:</source>
         <target>Obtenir :</target>
+      </segment>
+    </unit>
+    <unit id="yUEkyOu" name="Dir fällt kein Grund ein, dies zu tun...">
+      <notes>
+        <note category="german">Dir fällt kein Grund ein, dies zu tun...</note>
+        <note category="from">db://Requirement</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Dir fällt kein Grund ein, dies zu tun...</source>
+        <target>Vous ne voyez pas pourquoi vous feriez ça...</target>
       </segment>
     </unit>
   </file>
