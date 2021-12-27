@@ -77,7 +77,7 @@
                             {# @var town \src\Entity\TownRankingProxy #}
                             <div class="cell rw-1 season_entry_td center"><img src="{{ asset("build/images/lang/" ~ town.language ~".png") }}" alt="{{ town.language }}" /></div>
                             <div class="cell rw-1 season_entry_td center">{{ pos }}</div>
-                            <div class="cell rw-6 season_entry_td left"><div class="inline-block"><img x-town-details="{{ town.id }}" x-town-toggle="{{ town.id }}" class="pointer" alt="+" src="{{ asset('build/images/icons/small_more.gif') }}" alt-src="{{ asset('build/images/icons/small_less.gif') }}" /><div class="tooltip help">{{ 'Die Liste der eingeschriebenen Spieler ansehen.'|trans({},'game') }}</div></div> {{ town.name }}</div>
+                            <div class="cell rw-6 season_entry_td left"><div class="inline-block"><img x-town-details="{{ town.id }}" x-town-toggle="{{ town.id }}" class="pointer" alt="+" src="{{ asset('build/images/icons/small_more.gif') }}" /><div class="tooltip help">{{ 'Die Liste der eingeschriebenen Spieler ansehen.'|trans({},'game') }}</div></div> {{ town.name }}</div>
                             <div class="cell rw-2 season_entry_td center" style="color: #f0d79e">{{ town.days }}</div>
                             <div class="cell rw-2 season_entry_td center"><strong>{{ town.score }}</strong></div>
                         </div>
@@ -85,10 +85,11 @@
                             <div class="row-flex stretch season_entry_container" x-town-latest="">
                                 <div class="cell rw-1 center" style="border-right: 1px solid #7e4d2a;"></div>
                                 <div class="cell rw-7 ro-1">
-                                {% for denizen in town.citizens|filter(a => a.day == town.days)|sort((a,b) => a.user.name|lower <=> b.user.name|lower) %}
-                                    <span {% if loop.index0 >= 5 %}x-default-display="hidden" class="hidden"{% endif %} x-town-list="{{ town.id }}"><a href="{{ path('soul_visit', {id: denizen.user.id}) }}"><b>{{ denizen.user.name }}</b></a> <span style="color: #f0d79e">({{ denizen.day }})</span></span>
+                                {% for denizen in town.citizens|sort((a,b) => b.day <=> a.day ?: b.end <=> a.end) %}
+                                {% if denizen.day == town.days %}
+                                    <a href="{{ path('soul_visit', {id: denizen.user.id}) }}"><b>{{ denizen.user.name }}</b></a> <span style="color: #f0d79e">({{ denizen.day }})</span>
+                                {% endif %}
                                 {% endfor %}
-                                {% if town.citizens|filter(a => a.day == town.days)|length >4 %}<img x-town-toggle-list="{{ town.id }}" class="pointer" alt="+" src="{{ asset('build/images/icons/small_more.gif') }}" alt-src="{{ asset('build/images/icons/small_less.gif') }}" />{% endif %}
                                 </div>
                                 <div class="cell rw-4 center"></div>
                             </div>
@@ -272,43 +273,17 @@
         } )
 
         $.html.addEventListenerAll( '[x-town-toggle]', 'click', function(e,elem) {
-            let old_src = elem.getAttribute('src');
-            let new_src = elem.getAttribute('alt-src');
-            elem.setAttribute('src', new_src);
-            elem.setAttribute('alt-src', old_src);
             const id = elem.getAttribute('x-town-toggle');
             document.querySelectorAll('[x-town-tohide="' + id + '"]').forEach(function( target ) {
-                // We hide all the other details
-                document.querySelectorAll('[x-town-tohide]:not([x-town-tohide="' + id + '"])').forEach(function(target2){
-                    if (!target2.classList.contains('hidden')) target2.classList.add('hidden');
-                });
                 if (target.classList.contains('hidden')) target.classList.remove('hidden');
                 else target.classList.add('hidden');
+                // todo: hide other town lists when selecting a new one ? hordes works this way
             })
             document.querySelectorAll('[x-town-latest=""]').forEach(function( target ) {
                 if (!target.classList.contains('hidden')) target.classList.add('hidden');
                 // opening and closing a town won't restore the x-town-latest, but not a problem imo ! 
                 // allows to display the rankings without it which is good
-                // Hordes works like this
             })
-        } );
-
-        $.html.addEventListenerAll( '[x-town-toggle-list]', 'click', function(e,elem) {
-            let old_src = elem.getAttribute('src');
-            let new_src = elem.getAttribute('alt-src');
-            elem.setAttribute('src', new_src);
-            elem.setAttribute('alt-src', old_src);
-            const id = elem.getAttribute('x-town-toggle-list');
-            document.querySelectorAll('[x-town-list="' + id + '"][x-default-display="hidden"]').forEach(function( target ) {
-                if (target.classList.contains('hidden')) target.classList.remove('hidden');
-                else target.classList.add('hidden');
-                // todo: hide other town lists when selecting a new one ? hordes works this way
-            })
-            /*document.querySelectorAll('[x-town-latest=""]').forEach(function( target ) {
-                if (!target.classList.contains('hidden')) target.classList.add('hidden');
-                // opening and closing a town won't restore the x-town-latest, but not a problem imo !
-                // allows to display the rankings without it which is good
-            })*/
         } );
     </script>
 {% endblock %}
