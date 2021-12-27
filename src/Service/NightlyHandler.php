@@ -1496,11 +1496,17 @@ class NightlyHandler
                     if ($citizen->getAlive()) $votes[$citizen->getId()] = 0;
             }
 
-            $partition = [];
+            $partition = [
+                '_council' => [],
+                '_voted' => [],
+                '_winner' => [],
+            ];
 
             foreach ($citizens as $citizen) {
                 // Dead citizen cannot vote
                 if(!$citizen->getAlive()) continue;
+
+                $partition['_council'][] = $citizen;
 
                 $voted = $this->entity_manager->getRepository(CitizenVote::class)->findOneBy(['autor' => $citizen, 'role' => $role]); //findOneByCitizenAndRole($citizen, $role);
                 /** @var CitizenVote $voted */
@@ -1511,10 +1517,10 @@ class NightlyHandler
                     $votes[$vote_for_id]++;
 
                     $voted_for = $this->entity_manager->getRepository(Citizen::class)->find($vote_for_id);
-                    $partition[] = [$citizen,$voted_for];
+                    $partition['_voted'][$voted_for->getId()] = $voted_for;
                     $this->log->debug("Citizen {$citizen->getName()} then voted for citizen " . $voted_for->getName());
                 } else {
-                    $partition[] = [$citizen,$voted->getVotedCitizen()];
+                    $partition['_voted'][$voted->getVotedCitizen()->getId()] = $voted->getVotedCitizen();
                     $this->log->debug("Citizen {$citizen->getName()} voted for {$voted->getVotedCitizen()->getName()}");
                 }
             }
@@ -1537,15 +1543,22 @@ class NightlyHandler
                 $this->citizen_handler->addRole($winningCitizen, $role);
                 $this->entity_manager->persist($winningCitizen);
 
-                shuffle($partition);
-                $partition[0][1] = $winningCitizen;
+                $partition['_winner'] = [$winningCitizen];
+
+                $partition['_council'] = array_diff( $partition['_council'], array_slice($partition['_voted'], 0, max(0,count($partition['_council']) - 7)), $partition['_winner'] );
+                $partition['_voted'] = array_diff( $partition['_voted'], $partition['_winner'] );
+                shuffle($partition['_council']);
+                shuffle($partition['_voted']);
+
+                if (!empty($partition['_council']))
+                    $partition['_mc'] = [ array_pop( $partition['_council'] ) ];
 
                 switch ($role->getName()) {
                     case 'shaman':
-                        $this->gazette_service->generateCouncilNodeList( $town, $town->getDay(), $this->entity_manager->getRepository(Citizen::class)->findLastOneByRoleAndTown($role, $town) ? CouncilEntryTemplate::CouncilNodeRootShamanReplace : CouncilEntryTemplate::CouncilNodeRootShamanFirst, $partition );
+                        $this->gazette_service->generateCouncilNodeList( $town, $town->getDay(), $this->entity_manager->getRepository(Citizen::class)->findLastOneByRoleAndTown($role, $town) ? CouncilEntryTemplate::CouncilNodeRootShamanNext : CouncilEntryTemplate::CouncilNodeRootShamanFirst, $partition );
                         break;
                     case 'guide':
-                        $this->gazette_service->generateCouncilNodeList( $town, $town->getDay(), $this->entity_manager->getRepository(Citizen::class)->findLastOneByRoleAndTown($role, $town) ? CouncilEntryTemplate::CouncilNodeRootGuideReplace : CouncilEntryTemplate::CouncilNodeRootGuideFirst, $partition );
+                        $this->gazette_service->generateCouncilNodeList( $town, $town->getDay(), $this->entity_manager->getRepository(Citizen::class)->findLastOneByRoleAndTown($role, $town) ? CouncilEntryTemplate::CouncilNodeRootGuideNext : CouncilEntryTemplate::CouncilNodeRootGuideFirst, $partition );
                         break;
                 }
 

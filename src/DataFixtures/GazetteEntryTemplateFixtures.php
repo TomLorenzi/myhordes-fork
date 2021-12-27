@@ -2039,83 +2039,477 @@ class GazetteEntryTemplateFixtures extends Fixture
 
     public static $council_entry_template_data = [
 
-        'rootShamanNew' => [ 'semantic' => CouncilEntryTemplate::CouncilNodeRootShamanFirst, 'structure' => [
-            CouncilEntryTemplate::CouncilNodeGenericMCIntro,
-            CouncilEntryTemplate::CouncilNodeShamanFirstIntro,
-            CouncilEntryTemplate::CouncilNodeShamanDiscussionRoot,
-            CouncilEntryTemplate::CouncilNodeGenericMCComplaint,
-            CouncilEntryTemplate::CouncilNodeGenericMCDrawStraw,
-            CouncilEntryTemplate::CouncilNodeShamanResult,
-        ] ],
-        'rootShamanReplace' => [ 'semantic' => CouncilEntryTemplate::CouncilNodeRootShamanReplace, 'structure' => [
-            CouncilEntryTemplate::CouncilNodeGenericMCIntro,
-            CouncilEntryTemplate::CouncilNodeShamanReplaceIntro,
-            CouncilEntryTemplate::CouncilNodeShamanDiscussionRoot,
-            CouncilEntryTemplate::CouncilNodeGenericMCComplaint,
-            CouncilEntryTemplate::CouncilNodeGenericMCDrawStraw,
-            CouncilEntryTemplate::CouncilNodeShamanResult,
-        ] ],
-
-        'rootGuideNew' => [ 'semantic' => CouncilEntryTemplate::CouncilNodeRootGuideFirst, 'structure' => [
-            CouncilEntryTemplate::CouncilNodeGenericMCIntro,
-            CouncilEntryTemplate::CouncilNodeGuideFirstIntro,
-            CouncilEntryTemplate::CouncilNodeGuideDiscussionRoot,
-            CouncilEntryTemplate::CouncilNodeGenericMCComplaint,
-            CouncilEntryTemplate::CouncilNodeGenericMCDrawStraw,
-            CouncilEntryTemplate::CouncilNodeGuideResult,
-        ] ],
-        'rootGuideReplace' => [ 'semantic' => CouncilEntryTemplate::CouncilNodeRootGuideReplace, 'structure' => [
-            CouncilEntryTemplate::CouncilNodeGenericMCIntro,
-            CouncilEntryTemplate::CouncilNodeGuideReplaceIntro,
-            CouncilEntryTemplate::CouncilNodeGuideDiscussionRoot,
-            CouncilEntryTemplate::CouncilNodeGenericMCComplaint,
-            CouncilEntryTemplate::CouncilNodeGenericMCDrawStraw,
-            CouncilEntryTemplate::CouncilNodeGuideResult,
-        ] ],
-
-        'CouncilNodeGenericMCIntro_001' => [ 'semantic' => CouncilEntryTemplate::CouncilNodeGenericMCIntro, 'citizen' => 0, 'repartition' => 1,
-            'text' => 'todo',
+        'shaman_root_first' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeRootShamanFirst, 'mode' => CouncilEntryTemplate::CouncilBranchModeStructured,
+            'branches' => [
+                CouncilEntryTemplate::CouncilRootNodeGenericMCIntro,
+                CouncilEntryTemplate::CouncilRootNodeShamanIntroFirst,
+                CouncilEntryTemplate::CouncilRootNodeShamanFollowUpFirst,
+                CouncilEntryTemplate::CouncilRootNodeShamanBeginVoteAny,
+                CouncilEntryTemplate::CouncilRootNodeShamanVoteAny,
+                CouncilEntryTemplate::CouncilRootNodeShamanEndVoteAny,
+                CouncilEntryTemplate::CouncilRootNodeShamanStrawAny,
+                CouncilEntryTemplate::CouncilRootNodeShamanStrawResponseAny,
+                CouncilEntryTemplate::CouncilRootNodeShamanStrawFinalAny,
+                CouncilEntryTemplate::CouncilRootNodeShamanStrawResultAny,
+                CouncilEntryTemplate::CouncilRootNodeShamanStrawResultResponseAny,
+                CouncilEntryTemplate::CouncilRootNodeShamanFinalAny,
+            ]
+        ],
+        
+        'shaman_root_next' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeRootShamanNext, 'mode' => CouncilEntryTemplate::CouncilBranchModeStructured,
+            'branches' => [
+                CouncilEntryTemplate::CouncilRootNodeGenericMCIntro,
+                CouncilEntryTemplate::CouncilRootNodeShamanIntroNext,
+                CouncilEntryTemplate::CouncilRootNodeShamanFollowUpNext,
+                CouncilEntryTemplate::CouncilRootNodeShamanBeginVoteAny,
+                CouncilEntryTemplate::CouncilRootNodeShamanVoteAny,
+                CouncilEntryTemplate::CouncilRootNodeShamanEndVoteAny,
+                CouncilEntryTemplate::CouncilRootNodeShamanStrawAny,
+                CouncilEntryTemplate::CouncilRootNodeShamanStrawResponseAny,
+                CouncilEntryTemplate::CouncilRootNodeShamanStrawFinalAny,
+                CouncilEntryTemplate::CouncilRootNodeShamanStrawResultAny,
+                CouncilEntryTemplate::CouncilRootNodeShamanStrawResultResponseAny,
+                CouncilEntryTemplate::CouncilRootNodeShamanFinalAny,
+            ]
         ],
 
-        'CouncilNodeShamanFirstIntro_001' => [ 'semantic' => CouncilEntryTemplate::CouncilNodeShamanFirstIntro, 'citizen' => 0, 'repartition' => 1,
-            'branch_size' => [2,5], 'branch_options' => [ CouncilEntryTemplate::CouncilNodeGenericChatterIntro, CouncilEntryTemplate::CouncilNodeShamanChatterIntro ],
-            'text' => 'todo',
+        'generic_root_mc_intro' => [
+            'semantic' => CouncilEntryTemplate::CouncilRootNodeGenericMCIntro, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branches' => [CouncilEntryTemplate::CouncilNodeGenericMCIntro]
         ],
 
-        'RootCouncilNodeShamanDiscussion_001' => [ 'semantic' => CouncilEntryTemplate::CouncilNodeShamanDiscussionRoot, 'repartition' => 1,
-            'branch_size' => [3,15], 'branch_options' => [ CouncilEntryTemplate::CouncilNodeShamanDiscussion, CouncilEntryTemplate::CouncilNodeGenericDiscussion ], 'branch_chance' => 0.8,
-        ],
-        'RootCouncilNodeShamanDiscussion_002' => [ 'semantic' => CouncilEntryTemplate::CouncilNodeShamanDiscussionRoot, 'citizen' => 0, 'repartition' => 1,
-            'branch_size' => [3,15], 'branch_options' => [ CouncilEntryTemplate::CouncilNodeShamanDiscussion, CouncilEntryTemplate::CouncilNodeGenericDiscussion ], 'branch_chance' => 0.8,
-            'text' => 'Meldet sich niemand freiwillig?',     // No volunteers?
+        'shaman_root_intro_first' => [
+            'semantic' => CouncilEntryTemplate::CouncilRootNodeShamanIntroFirst, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branches' => [CouncilEntryTemplate::CouncilNodeShamanIntroFirst]
         ],
 
-        'CouncilNodeShamanDiscussion_001' => [ 'semantic' => CouncilEntryTemplate::CouncilNodeShamanDiscussion, 'set_ref' => true,
-            'branch_options' => [ CouncilEntryTemplate::CouncilNodeShamanDiscussionFollowUp ], 'branch_chance' => 0.8,
-            'text' => 'Lasst uns diesen Unsinn hier einfach beenden und mich wählen! Ihr alle wisst, dass ich der beste Kandidat für den Posten bin!',     // Let's do away with this boring ritual and just pick me! You all know I'm the perfect candidate!
+        'shaman_root_intro_next' => [
+            'semantic' => CouncilEntryTemplate::CouncilRootNodeShamanIntroNext, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branches' => [CouncilEntryTemplate::CouncilNodeShamanIntroNext]
         ],
 
-        'CouncilNodeShamanDiscussionFollowUp_001' => [ 'semantic' => CouncilEntryTemplate::CouncilNodeShamanDiscussionFollowUp,
-            'branch_options' => [ CouncilEntryTemplate::CouncilNodeShamanDiscussionFollowUp ], 'branch_chance' => 0.5,
-            'text' => 'Ich wusste schon immer, dass {ref_citizen0} sich gerne verkleidet...',     // I always knew that {ref_citizen0} liked playing dress up...
-        ],
-        'CouncilNodeShamanDiscussionFollowUp_002' => [ 'semantic' => CouncilEntryTemplate::CouncilNodeShamanDiscussionFollowUp,
-            'branch_options' => [ CouncilEntryTemplate::CouncilNodeShamanDiscussionFollowUp ], 'branch_chance' => 0.5,
-            'text' => 'Mit dem Gesicht kann er uns höchstens Flüche heraufbeschwören!',     // He's gonna attract the evil eye with a head like that!
+        'shaman_root_follow_up_first' => [
+            'semantic' => CouncilEntryTemplate::CouncilRootNodeShamanIntroFirst, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branch_count' => 2, 'branches' => [CouncilEntryTemplate::CouncilNodeShamanFollowUpFirst,CouncilEntryTemplate::CouncilNodeShamanFollowUpAny,CouncilEntryTemplate::CouncilNodeGenericFollowUpAny]
         ],
 
-        'CouncilNodeGenericDiscussion_001' => [ 'semantic' => CouncilEntryTemplate::CouncilNodeGenericDiscussion,
-            'text' => 'Und wenn wir einfach wie sonst auch Stäbchen ziehen?',     // And what about if we just drew straws like usual?
+        'shaman_root_follow_up_next' => [
+            'semantic' => CouncilEntryTemplate::CouncilRootNodeShamanIntroNext, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branch_count' => 2, 'branches' => [CouncilEntryTemplate::CouncilNodeShamanFollowUpNext,CouncilEntryTemplate::CouncilNodeShamanFollowUpAny,CouncilEntryTemplate::CouncilNodeGenericFollowUpAny]
         ],
-        'CouncilNodeGenericDiscussion_002' => [ 'semantic' => CouncilEntryTemplate::CouncilNodeGenericDiscussion,
-            'text' => 'Wisst ihr, wenn wir diesen Raum hier neu einrichten würden...',     // You know if we re-did the decorations in this room...
+
+        'shaman_root_begin_vote' => [
+            'semantic' => CouncilEntryTemplate::CouncilRootNodeShamanBeginVoteAny, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branches' => [CouncilEntryTemplate::CouncilNodeShamanBeginVoteAny,CouncilEntryTemplate::CouncilNodeGenericBeginVoteAny]
         ],
-        'CouncilNodeGenericDiscussion_003' => [ 'semantic' => CouncilEntryTemplate::CouncilNodeGenericDiscussion,
-            'text' => 'Ich hab Hunger!',     // I'm hungry!
+
+        'shaman_root_vote' => [
+            'semantic' => CouncilEntryTemplate::CouncilRootNodeShamanVoteAny, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branch_count' => [2,10], 'branches' => [CouncilEntryTemplate::CouncilNodeShamanVoteAny,CouncilEntryTemplate::CouncilNodeGenericVoteAny]
         ],
-        'CouncilNodeGenericDiscussion_004' => [ 'semantic' => CouncilEntryTemplate::CouncilNodeGenericDiscussion,
-            'text' => 'Weis einer, wie spät es ist?',     // Has anyone got the time?
+
+        'shaman_root_end_vote' => [
+            'semantic' => CouncilEntryTemplate::CouncilRootNodeShamanEndVoteAny, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branches' => [CouncilEntryTemplate::CouncilNodeShamanEndVoteAny,CouncilEntryTemplate::CouncilNodeGenericEndVoteAny]
         ],
+
+        'shaman_root_straw' => [
+            'semantic' => CouncilEntryTemplate::CouncilRootNodeShamanStrawAny, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branches' => [CouncilEntryTemplate::CouncilNodeShamanStrawAny,CouncilEntryTemplate::CouncilNodeGenericStrawAny]
+        ],
+
+        'shaman_root_straw_response' => [
+            'semantic' => CouncilEntryTemplate::CouncilRootNodeShamanStrawResponseAny, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branch_count' => [1,2], 'branches' => [CouncilEntryTemplate::CouncilNodeShamanStrawResponseAny,CouncilEntryTemplate::CouncilNodeGenericStrawResponseAny]
+        ],
+
+        'shaman_root_straw_final' => [
+            'semantic' => CouncilEntryTemplate::CouncilRootNodeShamanStrawFinalAny, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branches' => [CouncilEntryTemplate::CouncilNodeShamanStrawFinalAny,CouncilEntryTemplate::CouncilNodeGenericStrawFinalAny]
+        ],
+
+        'shaman_root_straw_result' => [
+            'semantic' => CouncilEntryTemplate::CouncilRootNodeShamanStrawResultAny, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branches' => [CouncilEntryTemplate::CouncilNodeShamanStrawResultAny]
+        ],
+
+        'shaman_root_straw_result_response' => [
+            'semantic' => CouncilEntryTemplate::CouncilRootNodeShamanStrawResultResponseAny, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branch_count' => [1,3], 'branches' => [CouncilEntryTemplate::CouncilNodeShamanStrawResultResponseAny,CouncilEntryTemplate::CouncilNodeGenericStrawResultResponseAny]
+        ],
+
+        'shaman_root_final' => [
+            'semantic' => CouncilEntryTemplate::CouncilRootNodeShamanFinalAny, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branches' => [CouncilEntryTemplate::CouncilNodeShamanFinalAny]
+        ],
+
+        'generic_follow_up_any_001' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericFollowUpAny,
+            'text' => 'Wieso darf hier überhaupt {mc} die Leitung übernehmen? Kann mir das mal jemand erklären?', //  Why's [MC] get to run the show anyway? That's what I wanna know!
+            'variables' => [ 'types' => [['type'=>"citizen", 'name'=>'mc']], 'config' => [ 'main' => ['from' => '_council'], 'mc' => ['from' => '_mc'] ] ]
+        ],
+        'generic_follow_up_any_002' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericFollowUpAny,
+            'text' => 'Warum hat dieser nichtsnutzige {mc} überhaupt das Sagen!?', // Why's that no good [MC] running the show anyway!?
+            'variables' => [ 'types' => [['type'=>"citizen", 'name'=>'mc']], 'config' => [ 'main' => ['from' => '_council'], 'mc' => ['from' => '_mc'] ] ]
+        ],
+
+        'generic_follow_up_any_q_response_001' => [
+            'text' => 'Noob!', // Noob!
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+
+        'generic_begin_vote_001' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericBeginVoteAny,
+            'text' => 'Keine Freiwilligen?', // No volunteers?
+            'variables' => [ 'config' => [ 'main' => ['from' => '_mc'] ] ]
+        ],
+        'generic_begin_vote_002' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericBeginVoteAny,
+            'text' => 'Ein Versuch kann ja nicht schaden, vielleicht ist hier jemand wirklich verrückt genug dafür?', // Well it can't hurt to try, there might be someone crazy enough out there?
+            'variables' => [ 'config' => [ 'main' => ['from' => '_mc'] ] ]
+        ],
+        'generic_begin_vote_003' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericBeginVoteAny,
+            'text' => 'Okay... Freiwillige vor?', // Soooo... Any volunteers?
+            'variables' => [ 'config' => [ 'main' => ['from' => '_mc'] ] ]
+        ],
+        'generic_begin_vote_004' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericBeginVoteAny,
+            'text' => 'Echt jetzt?!?', // Seriously?!?
+            'variables' => [ 'config' => [ 'main' => ['from' => '_mc'] ] ]
+        ],
+        'generic_begin_vote_005' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericBeginVoteAny,
+            'text' => 'Irgendwer?', // Anyone?
+            'variables' => [ 'config' => [ 'main' => ['from' => '_mc'] ] ]
+        ],
+
+        'generic_mc_intro_001' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericMCIntro,
+            'text' => 'Hallo zusammen, wir müssen das hier über die Bühne bringen, also ähem, melde ich mich mehr oder weniger freiwillig als Zeremonienmeister...', // Hey there everyone, we need to get this show on the road so errrr, I relucantly volunteer as MC...
+            'variables' => [ 'config' => [ 'main' => ['from' => '_mc'] ] ]
+        ],
+        'generic_mc_intro_002' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericMCIntro,
+            'text' => 'Da Respekt für eine effektive Kommunikation unerlässlich ist, werde ich hier der Zeremonienmeister sein.', // Respect being essential to effective communication, I'll be the master of ceremonies around here.
+            'variables' => [ 'config' => [ 'main' => ['from' => '_mc'] ] ]
+        ],
+        'generic_mc_intro_003' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericMCIntro,
+            'text' => 'Hört an, hört an!', // Hear ye hear ye!
+            'variables' => [ 'config' => [ 'main' => ['from' => '_mc'] ] ]
+        ],
+
+        'generic_vote_001' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericVoteAny, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branch_count' => [0,2], 'branches' => [CouncilEntryTemplate::CouncilNodeGenericVoteResponseAny],
+            'text' => 'Ich denke, {voted} sollte das übernehmen, dann hätte er etwas zu tun! Was meint ihr?', //  I reckon it should be Jensine, that'd give him something to do! What' you guys think?
+            'variables' => [ 'types' => [['type'=>"citizen", 'name'=>'voted']], 'config' => [ 'main' => ['from' => '_council'], 'voted' => ['from' => 'voted', 'consume' => true] ] ]
+        ],
+        'generic_vote_002' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericVoteAny, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branch_count' => [0,2], 'branches' => [CouncilEntryTemplate::CouncilNodeGenericVoteResponseAny],
+            'text' => 'Ich stimme für {voted}.', // I vote for Rammas
+            'variables' => [ 'types' => [['type'=>"citizen", 'name'=>'voted']], 'config' => [ 'main' => ['from' => '_council'], 'voted' => ['from' => 'voted', 'consume' => true] ] ]
+        ],
+        'generic_vote_003' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericVoteAny,
+            'text' => 'Lasst uns dieses langweilige Ritual abschaffen und einfach mich auswählen! Ihr wisst alle, dass ich der perfekte Kandidat bin!', // Let's do away with this borning ritual and just pick me! You all know I'm the perfect candidate!
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'generic_vote_004' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericVoteAny,
+            'text' => 'Ich ich ich ich ich ich!', //  Me me me me me me!
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'generic_vote_005' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericVoteAny,
+            'text' => 'Wie spät ist es eigentlich?', // Has anyone got the time?
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'generic_vote_006' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericVoteAny,
+            'text' => 'Können wir jetzt endlich jemanden auswählen? Ich will mich hinhauen!', // Can we just choose already? I wanna hit the hay!
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'generic_vote_007' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericVoteAny,
+            'text' => 'Wenn wir diesen Raum neu dekorieren würden...', // You know if we re-did the decorations in this room...
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'generic_vote_008' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericVoteAny,
+            'text' => 'Ich hab Hunger!', // I'm hungry!
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'generic_vote_009' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericVoteAny,
+            'text' => 'Und was wäre, wenn wir wie üblich Strohhalme ziehen würden?', // And what about if we just drew straws like usual?
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'generic_vote_010' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericVoteAny,
+            'text' => 'Hört auf, mich anzugucken!', //  Stop looking!
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'generic_vote_011' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericVoteAny,
+            'text' => 'Hat jemand gerade einen Jugendlichen vorbeigehen sehen?', // Did someone just see a a youngster go past?
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+
+        'generic_vote_response_001' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericVoteResponseAny,
+            'text' => '+1 !', //  +1 !
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'generic_vote_response_002' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericVoteResponseAny,
+            'text' => 'Er stinkt nach Alkohol.', // He stinks of alcohol
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'generic_vote_response_003' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericVoteResponseAny,
+            'text' => 'Er stinkt wie die Rückseite einer...', // He stinks like the backside of a...
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'generic_vote_response_004' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericVoteResponseAny,
+            'text' => 'Ich vertraue ihm nicht.', // I don't trust him.
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'generic_vote_response_005' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericVoteResponseAny,
+            'text' => 'Na das überrascht mich ja mal so gar nicht!', // Well now that doesn't surprise me one bit!
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'generic_vote_response_006' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericVoteResponseAny,
+            'text' => 'Nun, ich stimme zu, dieser Job würde sehr gut zu ihm passen.', // Well for me I agree, that job would suit him down to the ground.
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'generic_vote_response_007' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericVoteResponseAny,
+            'text' => 'Ach komm schon!', // Oh man, come on!
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'generic_vote_response_008' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericVoteResponseAny,
+            'text' => 'Wir könnten ja auch warten, bis sich jemand anderes freiwillig meldet...', // We could always wait for someone else to volunteer...
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'generic_vote_response_009' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericVoteResponseAny,
+            'text' => 'Es gehört sich nicht für andere zu sprechen, {parent}.', // It ain't nice to speak for others Acedia.
+            'variables' => [ 'types' => [['type'=>"citizen", 'name'=>'parent']], 'config' => [ 'main' => ['from' => '_council'], 'parent' => ['from' => '_parent'] ] ]
+        ],
+        'generic_vote_response_010' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericVoteResponseAny,
+            'text' => 'Typisch für dich {parent}, immer jemand anderen vorschicken!', // Now that's just typical you Sagittaeri, always calling out someone else!
+            'variables' => [ 'types' => [['type'=>"citizen", 'name'=>'parent']], 'config' => [ 'main' => ['from' => '_council'], 'parent' => ['from' => '_parent'] ] ]
+        ],
+        'generic_vote_response_011' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericVoteResponseAny,
+            'text' => 'Ja, ich habe genug von seinen Spielchen! Hängen wir ihn auf!', // Yeah I'm sick of his horseplay! Let's string him up!
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'generic_vote_response_012' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericVoteResponseAny,
+            'text' => 'Muss ich darauf antworten?', // Do I have to respond to that?
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'generic_vote_response_013' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericVoteResponseAny,
+            'text' => 'Du warst schon immer feige! Hinter dem Rücken der anderen reden und so!', // Do I have to respond to that?
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'generic_vote_response_014' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericVoteResponseAny,
+            'text' => 'Ich habe nicht wirklich eine Meinung, aber ich werde trotzdem meinen Senf dazu geben!', // I don't really have an opinion, but I'm gonna share my 2 cents anyway!
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'generic_vote_response_015' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericVoteResponseAny,
+            'text' => 'Solange nicht ich ausgewählt werde, bin ich zufrieden.', //  As long as y'all don't pick me I'm happy!
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'generic_vote_response_016' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericVoteResponseAny,
+            'text' => 'Ich möchte euch sagen, wie wenig mich das alles interessiert, aber ich habe keine Lust dazu.', //  I kind of feel like telling you all just how little I care about this, but I can't be bothered.
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'generic_vote_response_017' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericVoteResponseAny,
+            'text' => 'Es gibt nichts Schlimmeres, als einen Traum zu verfolgen, der nie in Erfüllung geht.', //  There's nothing worse than pursuing a dream that never comes to fruition.
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'generic_vote_response_018' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericVoteResponseAny,
+            'text' => 'Solange ich das nicht bin geht mir das sowas von am Arsch vorbei!', //  As long as it ain't me, I don't give a damn!
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'generic_vote_response_019' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericVoteResponseAny,
+            'text' => 'Solange ich das nicht bin, ist mir das völlig egal!', // As long as it's not me I don't give two hoots!
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'generic_vote_response_020' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericVoteResponseAny,
+            'text' => 'Also, ich fange an zu glauben, dass es mir eigentlich egal ist...', // Yeah I'm starting to think that I don't really give a damn...
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'generic_vote_response_021' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericVoteResponseAny,
+            'text' => 'Ja, aber es ist entweder er oder jemand anderes.', // Yeah, but it's him or someone else.
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'generic_vote_response_022' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericVoteResponseAny,
+            'text' => 'Yeah!', // Yeah!
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'generic_vote_response_023' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericVoteResponseAny,
+            'text' => 'Guter Witz!', // That's a good one!
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'generic_vote_response_024' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericVoteResponseAny,
+            'text' => 'looooooooool', // looooooooool
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'generic_vote_response_025' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericVoteResponseAny,
+            'text' => 'Ach, jetzt bist du einfach nur gemein. Meinst du nicht, dass er es schon schwer genug hat, wenn er so behindert ist und so?!', // Oh now you're just being mean. Don't you think he's got it bad enough handicapped like that and all?!
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'generic_vote_response_026' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericVoteResponseAny,
+            'text' => 'Also meiner Meinung nach passt das gut zu ihm.', //  Yeah, that suits him, in my humble opinion...
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'generic_vote_response_027' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericVoteResponseAny,
+            'text' => 'Lasst uns hiermit nicht herumalbern!', // No way, don't mess around with this!
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+
+        'shaman_intro_first_001' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeShamanIntroFirst,
+            'text' => 'Der erste Punkt auf der Tagesordnung ist die Wahl eines neuen Scharlatans, ich meine, ähm, Schamanen! Ja, einen Schamanen... Ich meine, jede verzweifelte Stadt braucht einen Schamanen, nicht wahr?', // First order of business is electing a new charlatan, I mean, errr, Shaman! Yeah, a Shaman... I mean, every desperate town needs a Shaman don't it?
+            'variables' => [ 'config' => [ 'main' => ['from' => '_mc'] ] ]
+        ],
+
+        'shaman_intro_next_001' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeShamanIntroNext,
+            'text' => 'Da unser Schamane heute Nacht von uns gegangen ist, müssen wir jetzt einen Ersatz wählen.', // Notre chaman nous ayant quitté cette nuit, il nous faut en choisir un autre dès à présent.
+            'variables' => [ 'config' => [ 'main' => ['from' => '_mc'] ] ]
+        ],
+        'shaman_intro_next_002' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeShamanIntroNext,
+            'text' => 'Unser Schamane, den wir alle sehr, sehr, sehr vermissen (lacht), ist kürzlich verstorben. Ich beantrage, dass wir über einen Nachfolger abstimmen.', // Our dearly, dearly, dearly missed shaman (snorts of laughter) passed recently. I move that we vote on a replacement.
+            'variables' => [ 'config' => [ 'main' => ['from' => '_mc'] ] ]
+        ],
+        'shaman_intro_next_003' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeShamanIntroNext,
+            'text' => 'Wir alle wissen ja, wie das enden wird, zumindest die meisten von uns... Wir sollten also einen neuen Schamanen wählen, damit er sich um unsere Seelen kümmern und den letzten ersetzen kann, der, wie ich sagen muss, ein verdammt guter Voodooman war!', // Now we all know how this gonna end, least most of us do... So T say we elect a new shaman so that he can take care of our souls and replace the last one, who was, I have to say, one hell of a voodooman!
+            'variables' => [ 'config' => [ 'main' => ['from' => '_mc'] ] ]
+        ],
+
+        'shaman_follow_up_any_001' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeShamanFollowUpAny,
+            'text' => 'Ich hau den Zombies ganz einfach die Schädel ein, egal ob mit oder ohne Schamanen!', // I'm gonna split some zombie skull with or without a shaman!
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'shaman_follow_up_any_002' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeShamanFollowUpAny,
+            'text' => 'Ja, das sehe ich auch so. Ich meine, selbst wenn er als Hexendoktor nichts taugt, sehe ich ihn gerne in diesem lächerlichen Kostüm!', // Yeah I second that. I mean even if he's no good as a witchdoctor, I sure love seeing him in that stupid costume!
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'shaman_follow_up_any_003' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeShamanFollowUpAny,
+            'text' => 'Aber wir brauchen einen Schamanen, das ist wichtig!', // But we need a shaman, it's important!
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'shaman_follow_up_any_004' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeShamanFollowUpAny,
+            'text' => 'Er jagt mir eine Heidenangst ein!', // He scares the heebie-jeebies out of me!
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'shaman_follow_up_any_005' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeShamanFollowUpAny,
+            'text' => 'Kommt schon, so verzweifelt sind wir noch nicht!', // Come on now, we're not so desperate yet!
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'shaman_follow_up_any_006' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeShamanFollowUpAny, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branch_count' => [1,2], 'branches' => [
+                'shaman_follow_up_any_q_response_001','shaman_follow_up_any_q_response_002','shaman_follow_up_any_q_response_003','shaman_follow_up_any_q_response_004',
+                'generic_follow_up_any_q_response_001'
+            ],
+            'text' => 'Was genau ist überhaupt ein Schamane?', // What the hell's a Shaman anyway?
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'shaman_follow_up_any_q_response_001' => [
+            'text' => 'Ah, jetzt ist er durchgedreht. Die letzte Nacht auf der Wacht war wohl zu viel...', // Ahh he's fried! One too many nights on the watch...
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'shaman_follow_up_any_q_response_002' => [
+            'text' => 'Er ist unser Vertreter im Jenseits und Herr über unsere verdammten Seelen!', // He's our representative with the beyond, the master of our damned souls!
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'shaman_follow_up_any_q_response_003' => [
+            'text' => 'Er ist eigentlich genau wie du, nur interessanter.', // He's just like you, but more interesting
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'shaman_follow_up_any_q_response_004' => [
+            'text' => 'Er ist eigentlich genau wie du, nur nützlicher.', // He's just like you but more useful
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+
+        'shaman_follow_up_next_001' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeShamanFollowUpNext,
+            'text' => 'Krasse Sache! Ein neuer Schamane!', // Hot damn! A new Shaman!
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'shaman_follow_up_next_002' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeShamanFollowUpNext,
+            'text' => 'Super, eine neue Wahl eines Schamanen!', // Great, a new election of the Shaman job!
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+
+        'shaman_vote_001' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeShamanVoteAny, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branch_count' => [0,2], 'branches' => [CouncilEntryTemplate::CouncilNodeShamanVoteResponseAny,CouncilEntryTemplate::CouncilNodeGenericVoteResponseAny],
+            'text' => 'Also ich schlage unseren Freund {voted} vor, der einfach soooo gerne redet.', // Well I propose that it be our dear [randomVotedPerson] because he just looooves talkin'.
+            'variables' => [ 'types' => [['type'=>"citizen", 'name'=>'voted']], 'config' => [ 'main' => ['from' => '_council'], 'voted' => ['from' => 'voted', 'consume' => true] ] ]
+        ],
+        'shaman_vote_002' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeShamanVoteAny, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branch_count' => [0,2], 'branches' => [CouncilEntryTemplate::CouncilNodeShamanVoteResponseAny,CouncilEntryTemplate::CouncilNodeGenericVoteResponseAny],
+            'text' => 'Ich wusste schon immer, dass {voted} sich gerne verkleidet...', //  I always knew that [randomVotedPerson] liked playing dress up..
+            'variables' => [ 'types' => [['type'=>"citizen", 'name'=>'voted']], 'config' => [ 'main' => ['from' => '_council'], 'voted' => ['from' => 'voted', 'consume' => true] ] ]
+        ],
+        'shaman_vote_003' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeShamanVoteAny,
+            'text' => 'Kann man gleichzeitig Ghul und Schamane sein?', // Can we be a ghoul and the shaman at the same time?
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'shaman_vote_004' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeShamanVoteAny, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branch_count' => [0,2], 'branches' => [CouncilEntryTemplate::CouncilNodeShamanVoteResponseAny,CouncilEntryTemplate::CouncilNodeGenericVoteResponseAny],
+            'text' => 'Wie wäre es mit {voted}? Er hat immerhin vorhergesehen, dass {previous} etwas dämliches sagen wird...', // Why not -Sieg ried-? He did predict that DefenestrateMe was gonna say mething stupid...
+            'variables' => [ 'types' => [['type'=>"citizen", 'name'=>'voted'],['type'=>"citizen", 'name'=>'previous']], 'config' => [ 'main' => ['from' => '_council'], 'voted' => ['from' => 'voted', 'consume' => true], 'previous' => ['from' => '_siblings', 'consume' => true] ] ]
+        ],
+        'shaman_vote_response_001' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeShamanVoteResponseAny,
+            'text' => 'Mit so einem Kopf wird er den bösen Blick auf sich ziehen!', // He's gonna attract the evil eye with a head like that!
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+
     ];
 
     private $entityManager;

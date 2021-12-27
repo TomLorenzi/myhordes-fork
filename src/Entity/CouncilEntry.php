@@ -47,6 +47,7 @@ class CouncilEntry
 
     /**
      * @ORM\ManyToOne(targetEntity=Citizen::class)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $citizen;
 
