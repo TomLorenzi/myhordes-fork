@@ -1631,7 +1631,7 @@
     </unit>
     <unit id="ilZ07q2">
       <notes>
-        <note category="german">{winner} wurde zum Führer gewählt. Hoffen wir, dass er uns aus diesem Schlamassel heraushelfen kann...</note>
+        <note category="german">{winner} wurde zum Reiseleiter gewählt. Hoffen wir, dass er uns aus diesem Schlamassel heraushelfen kann...</note>
         <note category="from">db://CouncilEntryTemplate</note>
         <note category="state">new</note>
       </notes>

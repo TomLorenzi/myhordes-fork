@@ -44,16 +44,16 @@ class GazetteService
 
     }
 
-    protected function parseLog( $template, array $variables, $lowercase = false ): String {
+    protected function parseLog( $template, array $variables, $lowercase = false, $domain = 'game' ): String {
         $variableTypes = $template->getVariableTypes();
         $transParams = $this->log->parseTransParams($variableTypes, $variables);
 
         try {
             if ($lowercase) {
-                $proto = $this->translator->trans($template->getText(), [], 'game');
+                $proto = $this->translator->trans($template->getText(), [], $domain);
                 $lowercase = (substr($proto, 0, 1) !== strtolower(substr($proto, 0, 1)));
             }
-            $text = $this->translator->trans($template->getText(), $transParams, 'game');
+            $text = $this->translator->trans($template->getText(), $transParams, $domain);
             if ($lowercase)
                 $text = strtolower(substr($text, 0, 1)) . substr($text, 1);
         }
@@ -91,6 +91,11 @@ class GazetteService
 
             $txt .= " {$flavour[ $gazetteLogEntry->getTemplate()->getFollowUpType() ][ $gazetteLogEntry->getFollowUp() ]}";
         return $txt;
+    }
+
+    public function parseCouncilLog(CouncilEntry $councilEntry): string
+    {
+        return $this->parseLog($councilEntry->getTemplate(), $councilEntry->getVariables(), false, 'council');
     }
 
     protected function generate_wind_entry(Gazette $gazette, int $day): string {
@@ -736,9 +741,14 @@ class GazetteService
                         foreach ($template->getVariableDefinitions() as $name => $def) {
                             if (isset($def['from'])) {
                                 $cache[$def['from']] = 1 + ($cache[$def['from']] ?? 0);
-                                if ($def['consume'] && str_starts_with($def['from'], '_'))
+                                if (($def['consume'] ?? false) && str_starts_with($def['from'], '_')) {
+                                    //echo "REJECTING {$template->getName()}: Consumes from protected group.\n";
                                     return false;
-                            } else return false;
+                                }
+                            } else {
+                                //echo "REJECTING {$template->getName()}: No group\n";
+                                return false;
+                            }
                             if ($name === 'main') {
                                 $has_main = true;
                                 $main_source = $def['from'];
@@ -746,17 +756,26 @@ class GazetteService
                         }
 
                         if ($template->getVocal()) {
-                            if (!$has_main || !isset( $variable_stack[$main_source] )) return false;
-                            $blocked_names = [];
-                            /** @var CouncilEntry $name_blocker */
-                            foreach ( array_merge($parents,$siblings) as $name_blocker )
-                                if ($name_blocker->getCitizen()) $blocked_names[] = $name_blocker->getCitizen();
-                            $variable_stack_copy[$main_source] = array_diff($variable_stack[$main_source], $blocked_names);
+                            if (!$has_main || !isset( $variable_stack_copy[$main_source] )) {
+                                //echo "REJECTING {$template->getName()}: Undefined MAIN for vocal (" . ($main_source !== null ? $main_source : 'no source') . ")\n";
+                                return false;
+                            }
+
+                            if (str_ends_with($main_source, '?')) {
+                                $blocked_names = [];
+                                /** @var CouncilEntry $name_blocker */
+                                foreach ( array_merge($parents,$siblings) as $name_blocker )
+                                    if ($name_blocker->getCitizen()) $blocked_names[] = $name_blocker->getCitizen();
+                                $variable_stack_copy[$main_source] = array_diff($variable_stack_copy[$main_source], $blocked_names);
+                            }
                         }
 
                         foreach ($cache as $name => $count)
-                            if (!isset( $variable_stack_copy[$name] ) || count($variable_stack_copy[$name]) < $count)
+                            if (!isset( $variable_stack_copy[$name] ) || count($variable_stack_copy[$name]) < $count) {
+                                $cc = isset( $variable_stack_copy[$name] ) ? count($variable_stack_copy[$name]) : 0;
+                                //echo "REJECTING {$template->getName()}: Insufficient group members ($name has {$cc}, needs {$count}).\n";
                                 return false;
+                            }
 
                         return true;
                     }
@@ -770,18 +789,19 @@ class GazetteService
                 foreach ($node->getVariableDefinitions() as $name => $def) {
                     if ($name !== 'main') {
                         /** @var ?Citizen $selected_citizen */
-                        $selected_citizen = $def['consume'] ? $this->rand->draw( $variable_stack[$def['from']] ) : $this->rand->pick( $variable_stack[$def['from']] );
+                        $selected_citizen = ($def['consume'] ?? false) ? $this->rand->draw( $variable_stack[$def['from']] ) : $this->rand->pick( $variable_stack[$def['from']] );
                         if ($selected_citizen)
                             $variables[$name] = $selected_citizen->getId();
                     } else {
                         $blocked_names = [];
-                        /** @var CouncilEntry $name_blocker */
-                        foreach ( array_merge($parents,$siblings) as $name_blocker )
-                            if ($name_blocker->getCitizen()) $blocked_names[] = $name_blocker->getCitizen();
+                        if (str_ends_with($def['from'], '?'))
+                            /** @var CouncilEntry $name_blocker */
+                            foreach ( array_merge($parents,$siblings) as $name_blocker )
+                                if ($name_blocker->getCitizen()) $blocked_names[] = $name_blocker->getCitizen();
                         $main_citizen = $this->rand->pick( array_diff( $variable_stack[$def['from']], $blocked_names ) );
                         if ($main_citizen)
                             $variables['main'] = $main_citizen->getId();
-                        if ($def['consume']) unset( $variable_stack[$def['from']][ array_search( $main_citizen, $variable_stack[$def['from']], true ) ] );
+                        if ($def['consume'] ?? false) unset( $variable_stack[$def['from']][ array_search( $main_citizen, $variable_stack[$def['from']], true ) ] );
                     }
 
                 }
@@ -806,17 +826,20 @@ class GazetteService
             $siblings = [];
 
             /** @var CouncilEntryTemplate $template */
-            foreach ($templates as $template)
+            foreach ($templates as $template) {
 
-                if ($new_node = $implement_template( $parent, $parents, $siblings, [$template], $citizenData )) {
+                if ($new_node = $implement_template($parent, $parents, $siblings, [$template], $citizenData)) {
                     switch ($new_node->getTemplate()->getBranchMode()) {
                         case CouncilEntryTemplate::CouncilBranchModeStructured:
-                            $add_to_list( $new_node->getTemplate()->getBranches()->getValues(), $new_node, $parents );
+                            $add_to_list($new_node->getTemplate()->getBranches()->getValues(), $new_node, $parents);
                             break;
                         case CouncilEntryTemplate::CouncilBranchModeRandom:
-                            $num = mt_rand( $new_node->getTemplate()->getBranchSizeMin(), $new_node->getTemplate()->getBranchSizeMax() );
+                            $num = mt_rand($new_node->getTemplate()->getBranchSizeMin(), $new_node->getTemplate()->getBranchSizeMax());
+                            $branches = $new_node->getTemplate()->getBranches()->getValues();
+                            shuffle($branches);
+
                             while ($num > 0) {
-                                $add_to_list( $new_node->getTemplate()->getBranches()->getValues(), $new_node, $parents, true );
+                                $add_to_list($branches, $new_node, $parents, true);
                                 $num--;
                             }
 
@@ -825,16 +848,17 @@ class GazetteService
                             break;
                     }
                     $siblings[] = $new_node;
-                    $citizenData['_siblings'] = array_filter( array_map( fn(CouncilEntry $c) => $c->getCitizen(), $siblings) );
+                    $citizenData['_siblings'] = array_filter(array_map(fn(CouncilEntry $c) => $c->getCitizen(), $siblings));
 
                     $this->entity_manager->persist($new_node);
 
                     if ($once) break;
                 }
+            }
         };
 
         $add_to_list(
-            $this->rand->pick($this->entity_manager->getRepository(CouncilEntryTemplate::class)->findBy(['semantic' => $rootNodeSemantic])),
+            $this->rand->pick($this->entity_manager->getRepository(CouncilEntryTemplate::class)->findBy(['semantic' => $rootNodeSemantic]), 1, true),
             null, [], true
         );
     }

@@ -1497,8 +1497,8 @@ class NightlyHandler
             }
 
             $partition = [
-                '_council' => [],
-                '_voted' => [],
+                '_council?' => [],
+                'voted' => [],
                 '_winner' => [],
             ];
 
@@ -1506,7 +1506,7 @@ class NightlyHandler
                 // Dead citizen cannot vote
                 if(!$citizen->getAlive()) continue;
 
-                $partition['_council'][] = $citizen;
+                $partition['_council?'][] = $citizen;
 
                 $voted = $this->entity_manager->getRepository(CitizenVote::class)->findOneBy(['autor' => $citizen, 'role' => $role]); //findOneByCitizenAndRole($citizen, $role);
                 /** @var CitizenVote $voted */
@@ -1517,10 +1517,10 @@ class NightlyHandler
                     $votes[$vote_for_id]++;
 
                     $voted_for = $this->entity_manager->getRepository(Citizen::class)->find($vote_for_id);
-                    $partition['_voted'][$voted_for->getId()] = $voted_for;
+                    $partition['voted'][$voted_for->getId()] = $voted_for;
                     $this->log->debug("Citizen {$citizen->getName()} then voted for citizen " . $voted_for->getName());
                 } else {
-                    $partition['_voted'][$voted->getVotedCitizen()->getId()] = $voted->getVotedCitizen();
+                    $partition['voted'][$voted->getVotedCitizen()->getId()] = $voted->getVotedCitizen();
                     $this->log->debug("Citizen {$citizen->getName()} voted for {$voted->getVotedCitizen()->getName()}");
                 }
             }
@@ -1545,13 +1545,13 @@ class NightlyHandler
 
                 $partition['_winner'] = [$winningCitizen];
 
-                $partition['_council'] = array_diff( $partition['_council'], array_slice($partition['_voted'], 0, max(0,count($partition['_council']) - 7)), $partition['_winner'] );
-                $partition['_voted'] = array_diff( $partition['_voted'], $partition['_winner'] );
-                shuffle($partition['_council']);
-                shuffle($partition['_voted']);
+                $partition['_council?'] = array_diff( $partition['_council?'], array_slice($partition['voted'], 0, max(0,count($partition['_council?']) - 7)), $partition['_winner'] );
+                $partition['voted'] = array_diff( $partition['voted'], $partition['_winner'] );
+                shuffle($partition['_council?']);
+                shuffle($partition['voted']);
 
-                if (!empty($partition['_council']))
-                    $partition['_mc'] = [ array_pop( $partition['_council'] ) ];
+                if (!empty($partition['_council?']))
+                    $partition['_mc'] = [ array_pop( $partition['_council?'] ) ];
 
                 switch ($role->getName()) {
                     case 'shaman':
