@@ -2397,10 +2397,210 @@ class GazetteEntryTemplateFixtures extends Fixture
             'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
         ],
 
+        'generic_vote_end_001' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericEndVoteAny, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branch_count' => 1, 'branches' => [CouncilEntryTemplate::CouncilNodeGenericEndVoteResponseA],
+            'text' => 'Ich habe einseitig beschlossen, dass wir hier keine Zeit mehr damit verschwenden werden, über etwas völlig Unwichtiges zu streiten.', // I have decided unilaterally, that we're not going to waste any more time arguing over something of singular unimportance.
+            'variables' => [ 'config' => [ 'main' => ['from' => '_mc'] ] ]
+        ],
+        'generic_vote_end_002' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericEndVoteAny, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branch_count' => 1, 'branches' => [CouncilEntryTemplate::CouncilNodeGenericEndVoteResponseA],
+            'text' => 'Es ist jedes Mal dasselbe! Können wir nicht einfach schnell und in Ruhe eine Entscheidung treffen, ohne ihne dass alles in einem Debakel endet?', // Every time it's the same! Can't we just make a decision quickly and quietly without it turning into a debacle?
+            'variables' => [ 'config' => [ 'main' => ['from' => '_mc'] ] ]
+        ],
+
+        'generic_vote_end_response_a_001' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericEndVoteResponseA, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branch_count' => 1, 'branches' => [CouncilEntryTemplate::CouncilNodeGenericEndVoteResponseB],
+            'text' => 'Die Hoffnung stirbt zuletzt...', // Hope is the last thing to die...
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'generic_vote_end_response_a_002' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericEndVoteResponseA, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branch_count' => 1, 'branches' => [CouncilEntryTemplate::CouncilNodeGenericEndVoteResponseB],
+            'text' => 'Der Traum von einem organisierten Treffen ist der sprichwörtliche Topf voll Gold!', // The dream of an organised meeting is the proverbial pot of gold!
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'generic_vote_end_response_a_003' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericEndVoteResponseA, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branch_count' => 1, 'branches' => [CouncilEntryTemplate::CouncilNodeGenericEndVoteResponseB],
+            'text' => 'Diejenigen von euch, die nach uns kommen, verhärtet nicht eure Herzen gegen uns...', // Those of you who will come after, harden not your hearts against us...
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'generic_vote_end_response_a_004' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericEndVoteResponseA, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branch_count' => 1, 'branches' => [CouncilEntryTemplate::CouncilNodeGenericEndVoteResponseB],
+            'text' => 'Wer keine Hoffnung mehr hat, kann auch nichts mehr bereuen.', //  He who has no more hope has no more regrets.
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+
+        'generic_vote_end_response_b_001' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericEndVoteResponseB,
+            'text' => 'Ja, halt die Klappe, Shakespeare.', // Yeah, pipe down Shakespeare
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'generic_vote_end_response_b_002' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericEndVoteResponseB,
+            'text' => 'Trottel.', // Nincompoop
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'generic_vote_end_response_b_003' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericEndVoteResponseB,
+            'text' => 'Zum Galgen mit ihm!', // Quick! To the gallows!
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+
+        'generic_straw_001' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericStrawAny, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branch_count' => 1, 'branches' => [CouncilEntryTemplate::CouncilNodeGenericStrawInitAny],
+            'text' => 'Nimm einfach einen Strohhalm und bring es hinter dich!', // Just pick a straw and get it over with already!
+            'variables' => [ 'config' => [ 'main' => ['from' => '_mc'] ] ]
+        ],
+        'generic_straw_002' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericStrawAny, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branch_count' => 1, 'branches' => [CouncilEntryTemplate::CouncilNodeGenericStrawInitAny],
+            'text' => 'Ja, ja, jetzt gib mir schon einen verfluchten Strohhalm!', //  Yeah yeah, gimme a stinking straw already!
+            'variables' => [ 'config' => [ 'main' => ['from' => '_mc'] ] ]
+        ],
+        'generic_straw_003' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericStrawAny, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branch_count' => 1, 'branches' => [CouncilEntryTemplate::CouncilNodeGenericStrawInitAny],
+            'text' => 'Ok, lasst uns wie immer Strohhalme ziehen und die Sache hinter uns bringen.', //  Ok let's draw straws as usual and get this done.
+            'variables' => [ 'config' => [ 'main' => ['from' => '_mc'] ] ]
+        ],
+
+        'generic_straw_init_001' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericStrawInitAny,
+            'text' => 'Ok, jeder nimmt sich einen Strohhalm.', // Ok everyone come take a straw.
+            'variables' => [ 'config' => [ 'main' => ['from' => '_mc'] ] ]
+        ],
+        // THIS IS AN INTENTIONAL DUPLICATE! DO NOT REMOVE IT!
+        'generic_straw_init_002' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericStrawInitAny,
+            'text' => 'Ok, jeder nimmt sich einen Strohhalm.', // Ok everyone come take a straw.
+            'variables' => [ 'config' => [ 'main' => ['from' => '_mc'] ] ]
+        ],
+
+        'generic_straw_response_001' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeShamanStrawResponseAny, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branch_count' => 1, 'branches' => ['generic_straw_response_001_r001','generic_straw_response_001_r002'],
+            'text' => 'Warum werfen wir zur Abwechslung nicht mal eine Münze?', //  Why don't we toss a coin for a change?
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'generic_straw_response_001_r001' => [
+            'text' => 'Klar Einstein, Kopf oder Zahl zm eine Persion aus 34 auszuwählen.', // Yeah genius, heads or tales to pick 1 person out of 34.
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'generic_straw_response_001_r002' => [
+            'text' => 'Hast du denn eine Münze?', // Have you got a coin?
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+
+        'generic_straw_response_002' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeShamanStrawResponseAny, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branch_count' => 2, 'branches' => ['generic_straw_response_002_r001','generic_straw_response_002_r002'],
+            'text' => 'Wir wählen aus wer gefressen wird, richtig?', // So we're choosing who's gonna be eaten right?
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'generic_straw_response_002_r001' => [
+            'text' => 'Facepalm!', //  Facepalm!
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'generic_straw_response_002_r002' => [
+            'text' => 'Echt jetzt?', // Seriously?
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+
+        'generic_straw_response_003' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeShamanStrawResponseAny, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branch_count' => 1, 'branches' => ['generic_straw_response_003_r001','generic_straw_response_003_r002','generic_vote_end_response_b_002'],
+            'text' => 'Und was machen wir bei einem Gleichstand?', // And if it's a draw then what?
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'generic_straw_response_003_r001' => [
+            'text' => 'Wir hängen beide und fangen nochmal von vorne an!?', // We'll hang 'em both and start again!?
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'generic_straw_response_003_r002' => [
+            'text' => 'Komm, lass gut sein.', // Get outta here!
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+
+        'generic_straw_response_004' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeShamanStrawResponseAny,
+            'text' => 'Oh Mann! Der Einstein hier drüben hat seinen Strohhalm gefressen!', //  Oh man! Einstein over there has already eaten his straw!
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+
+        'generic_straw_response_005' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeShamanStrawResponseAny, 'mode' => CouncilEntryTemplate::CouncilBranchModeStructured,
+            'branch_count' => 2, 'branches' => ['generic_straw_response_005_r001','generic_straw_response_005_r002'],
+            'text' => 'Kann ich meinen Strohhalm essen wenn wir fertig sind?', // Can I eat my straw once we're done?
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'generic_straw_response_005_r001' => [
+            'text' => 'Wo hat er hier überhaupt Stroh her?', // Where'd he get some straw from anyway?
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'generic_straw_response_005_r002' => [
+            'text' => '...Wer sagt, dass das Stroh ist?...', // ...Who says it's straw?...
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+
+        'generic_straw_response_006' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeShamanStrawResponseAny, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branch_count' => 1, 'branches' => ['generic_straw_response_006_r001','generic_straw_response_006_r002'],
+            'text' => 'Ihr wisst, dass ... nun, .... wie ich schon sagte ... ahhhh, auf mich hört sowieso niemand.', // You know that... well .... as I was saying ... ahhhh, nobody listens to me anyway.
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'generic_straw_response_006_r001' => [
+            'text' => 'Hat jemand etwas gesagt?', // Did someone say something?
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'generic_straw_response_006_r002' => [
+            'text' => 'Was?', // What's that?
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+
+        'generic_straw_final_001' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericStrawFinalAny, 'vocal' => false,
+            'text' => '...das Ziehen der Strohhalme findet in jugendlicher Unordnung statt, wobei jeder seinen Strohhalm mit dem des Nachbarn vergleicht...', // ...the drawing of the straws takes place in juvenile disorder, each person comparing their straw with the person beside them...
+        ],
+        'generic_straw_final_002' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericStrawFinalAny, 'vocal' => false,
+            'text' => '...', // ...
+        ],
+        'generic_straw_final_003' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericStrawFinalAny, 'vocal' => false,
+            'text' => '...Und so beginnt das Strohhalmziehen...', // ...And so the drawing of the straw ensues...
+        ],
+
+        'generic_straw_result_response_001' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericStrawResultResponseAny,
+            'text' => 'Er war sowieso schon ziemlich seltsam...', // He was plenty weird to start with..
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'generic_straw_result_response_002' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericStrawResultResponseAny,
+            'text' => 'Pfffffff', // Pfffffff
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'generic_straw_result_response_003' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericStrawResultResponseAny,
+            'text' => 'Solange er zumindest ein paar Tage durchhält... Ich möchte dieses Treffen nicht jeden Morgen wiederholen müssen!', //  As long as he lasts a couple of days... I don't want to have to redo this meeting every morning!
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'generic_straw_result_response_004' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericStrawResultResponseAny,
+            'text' => 'Ich wusste es!', // I knew it!
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+
         'shaman_intro_first_001' => [
             'semantic' => CouncilEntryTemplate::CouncilNodeShamanIntroFirst,
             'text' => 'Der erste Punkt auf der Tagesordnung ist die Wahl eines neuen Scharlatans, ich meine, ähm, Schamanen! Ja, einen Schamanen... Ich meine, jede verzweifelte Stadt braucht einen Schamanen, nicht wahr?', // First order of business is electing a new charlatan, I mean, errr, Shaman! Yeah, a Shaman... I mean, every desperate town needs a Shaman don't it?
-            'variables' => [ 'config' => [ 'main' => ['from' => '_mc'] ] ]
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
         ],
 
         'shaman_intro_next_001' => [
@@ -2504,10 +2704,91 @@ class GazetteEntryTemplateFixtures extends Fixture
             'text' => 'Wie wäre es mit {voted}? Er hat immerhin vorhergesehen, dass {previous} etwas dämliches sagen wird...', // Why not -Sieg ried-? He did predict that DefenestrateMe was gonna say mething stupid...
             'variables' => [ 'types' => [['type'=>"citizen", 'name'=>'voted'],['type'=>"citizen", 'name'=>'previous']], 'config' => [ 'main' => ['from' => '_council'], 'voted' => ['from' => 'voted', 'consume' => true], 'previous' => ['from' => '_siblings', 'consume' => true] ] ]
         ],
+
         'shaman_vote_response_001' => [
             'semantic' => CouncilEntryTemplate::CouncilNodeShamanVoteResponseAny,
             'text' => 'Mit so einem Kopf wird er den bösen Blick auf sich ziehen!', // He's gonna attract the evil eye with a head like that!
             'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+
+        'shaman_vote_end_001' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeShamanEndVoteAny, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branch_count' => 1, 'branches' => [CouncilEntryTemplate::CouncilNodeGenericEndVoteResponseA],
+            'text' => 'Ruhe! Wir müssen dieses Treffen zum Ende bringen! Immerhin haben wir eine Stadt zu verteidigen! Der Schamane ist sowieso nur hier, um uns Hoffnung zu machen', // Silence!  We've got to finish this meeting! We've got a town to defend! The shaman's only here to keep our hopes up anyway.
+            'variables' => [ 'config' => [ 'main' => ['from' => '_mc'] ] ]
+        ],
+
+        'shaman_straw_result_001' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeShamanStrawResultAny,
+            'text' => 'Nun, da das erledigt ist, haben wir einen neuen Schamanen bekommen: {winner}!', //  Well now it's done and dusted, we've got ourselves a new Shaman: [Shaman]!
+            'variables' => [ 'types' => [['type'=>"citizen", 'name'=>'winner']], 'config' => [ 'main' => ['from' => '_mc'], 'winner' => ['from' => '_winner'] ] ]
+        ],
+
+        'shaman_straw_result_response_001' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeShamanStrawResultResponseAny,
+            'text' => 'Alles in allem wäre {voted} im Nachhinein betrachtet vielleicht eine bessere Wahl gewesen.', // All things seen in hindsight maybe [randomVotedPerson] was a good choice.
+            'variables' => [ 'types' => [['type'=>"citizen", 'name'=>'voted']], 'config' => [ 'main' => ['from' => '_council'], 'voted' => ['from' => 'voted', 'consume' => true] ] ]
+        ],
+        'shaman_straw_result_response_002' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeShamanStrawResultResponseAny,
+            'text' => 'Eigentlich wollte ich Schamane werden!', // Actually, I wanted to be the Shaman!
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'shaman_straw_result_response_003' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeShamanStrawResultResponseAny,
+            'text' => 'Oh Mann, wir sind komplett im Arsch!', // Oh man we're so screwed!
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'shaman_straw_result_response_004' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeShamanStrawResultResponseAny,
+            'text' => 'Pff, der überlebt die Nacht doch eh nicht....', // Bah, he won't make it through the night....
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'shaman_straw_result_response_005' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeShamanStrawResultResponseAny,
+            'text' => 'Lasst uns ihn aufhängen! Wer macht mit!?', // Let's hang him! Who's with me!?
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'shaman_straw_result_response_006' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeShamanStrawResultResponseAny,
+            'text' => 'Wie buchstabiert man das eigentlich: Schamane oder Schamahne?', // How do you spell that anyway : chaman ou shaman?
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'shaman_straw_result_response_007' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeShamanStrawResultResponseAny,
+            'text' => 'Schaut doch mal, wie er schon jetzt angezogen ist... Wir werden den Unterschied gar nicht merken!', // Look at how he dresses already... We're not gonna notice the difference!
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'shaman_straw_result_response_008' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeShamanStrawResultResponseAny,
+            'text' => 'Wenn wir so wählen, bist du der nächste Kandidat...', // Well if that's how we're choosing, you're shaping up as the next candidate...
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'shaman_straw_result_response_009' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeShamanStrawResultResponseAny,
+            'text' => 'Mann, ich wollte die Vorstellung übernehmen!', // Man I was doing the introduction!
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'shaman_straw_result_response_010' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeShamanStrawResultResponseAny,
+            'text' => 'Leck mich doch!', // Get out of here!
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'shaman_straw_result_response_011' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeShamanStrawResultResponseAny,
+            'text' => 'Gepriesen sei der Schamane!', // Blessed be the Shaman!
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'shaman_straw_result_response_012' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeShamanStrawResultResponseAny,
+            'text' => 'Was ist ein Schaaaar Maaane?', // What's a shaaar maaan?
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+
+        'shaman_final_001' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeShamanFinalAny, 'vocal' => false,
+            'text' => '{winner} ist zum Schamanen gewählt worden, seine zweifelhaften schamanischen Kräfte treten sofort in Kraft. Hoffentlich können sie den Bewohnern der Stadt helfen, ihr erbärmliches Schicksal zu meistern.', // Peter has been elected as the Shaman, their dubious shamanic powers take effect immeadiately. Let's hope they can help the townsfolk improve their wretched lot in life.
+            'variables' => [ 'types' => [['type'=>"citizen", 'name'=>'winner']], 'config' => [ 'winner' => ['from' => '_winner'] ] ]
         ],
 
     ];

@@ -32,7 +32,10 @@ class CouncilEntryTemplate
     const CouncilNodeGenericVoteAny                =   40;
     const CouncilNodeGenericVoteResponseAny        =   45;
     const CouncilNodeGenericEndVoteAny             =   50;
+    const CouncilNodeGenericEndVoteResponseA       =   55;
+    const CouncilNodeGenericEndVoteResponseB       =   56;
     const CouncilNodeGenericStrawAny               =   60;
+    const CouncilNodeGenericStrawInitAny           =   65;
     const CouncilNodeGenericStrawResponseAny       =   70;
     const CouncilNodeGenericStrawFinalAny          =   80;
     const CouncilNodeGenericStrawResultResponseAny =  100;
@@ -62,6 +65,8 @@ class CouncilEntryTemplate
     const CouncilNodeShamanVoteAny                 = 1040;
     const CouncilNodeShamanVoteResponseAny         = 1045;
     const CouncilNodeShamanEndVoteAny              = 1050;
+    const CouncilNodeShamanEndVoteResponseA        = 1055;
+    const CouncilNodeShamanEndVoteResponseB        = 1056;
     const CouncilNodeShamanStrawAny                = 1060;
     const CouncilNodeShamanStrawFinalAny           = 1070;
     const CouncilNodeShamanStrawResponseAny        = 1080;
