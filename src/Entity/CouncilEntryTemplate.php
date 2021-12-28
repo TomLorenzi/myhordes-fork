@@ -142,11 +142,6 @@ class CouncilEntryTemplate
     private $vocal;
 
     /**
-     * @ORM\Column(type="boolean")
-     */
-    private $createReference;
-
-    /**
      * @ORM\ManyToMany(targetEntity=CouncilEntryTemplate::class)
      * @OrderBy({"semantic" = "ASC"})
      */
@@ -174,8 +169,12 @@ class CouncilEntryTemplate
 
     public function __construct()
     {
-        $this->continueBranch = new ArrayCollection();
         $this->branches = new ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return "_CouncilEntryTemplate_{$this->getName()}";
     }
 
     public function getId(): ?int
@@ -200,33 +199,9 @@ class CouncilEntryTemplate
         return $this->text;
     }
 
-    public function setText(string $text): self
+    public function setText(?string $text): self
     {
         $this->text = $text;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|self[]
-     */
-    public function getContinueBranch(): Collection
-    {
-        return $this->continueBranch;
-    }
-
-    public function addContinueBranch(self $continueBranch): self
-    {
-        if (!$this->continueBranch->contains($continueBranch)) {
-            $this->continueBranch[] = $continueBranch;
-        }
-
-        return $this;
-    }
-
-    public function removeContinueBranch(self $continueBranch): self
-    {
-        $this->continueBranch->removeElement($continueBranch);
 
         return $this;
     }
@@ -263,18 +238,6 @@ class CouncilEntryTemplate
     public function setVocal(bool $vocal): self
     {
         $this->vocal = $vocal;
-
-        return $this;
-    }
-
-    public function getCreateReference(): ?bool
-    {
-        return $this->createReference;
-    }
-
-    public function setCreateReference(bool $createReference): self
-    {
-        $this->createReference = $createReference;
 
         return $this;
     }

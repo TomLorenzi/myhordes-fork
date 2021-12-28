@@ -13,6 +13,7 @@ use App\Entity\CitizenProfession;
 use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
 use App\Entity\ComplaintReason;
+use App\Entity\CouncilEntryTemplate;
 use App\Entity\EscortActionGroup;
 use App\Entity\FeatureUnlockPrototype;
 use App\Entity\GazetteEntryTemplate;
@@ -265,6 +266,11 @@ class DatabaseExtractor implements ExtractorInterface
             /** @var Season $season */
             $this->insert( $c, "Saison {$season->getNumber()}.{$season->getSubNumber()}", 'season', Season::class );
         }
+
+        foreach ($this->em->getRepository(CouncilEntryTemplate::class)->findAll() as $councilTemplate)
+            /** @var CouncilEntryTemplate $councilTemplate */
+            if ($councilTemplate->getText())
+                $this->insert( $c, $councilTemplate->getText(), 'council', CouncilEntryTemplate::class );
         //</editor-fold>
     }
 
