@@ -78,33 +78,35 @@ class CouncilEntryTemplate
     const CouncilNodeRootGuideNext                    = 992002;
     const CouncilRootNodeGuideIntroFirst              = 992011;
     const CouncilRootNodeGuideIntroNext               = 992012;
-    const CouncilRootNodeGuideFollowUpAny             = 992020;
     const CouncilRootNodeGuideFollowUpFirst           = 992021;
     const CouncilRootNodeGuideFollowUpNext            = 992022;
     const CouncilRootNodeGuideBeginVoteAny            = 992030;
     const CouncilRootNodeGuideVoteAny                 = 992040;
-    const CouncilRootNodeGuideVoteResponseAny         = 992050;
-    const CouncilRootNodeGuideEndVoteAny              = 992060;
-    const CouncilRootNodeGuideStrawAny                = 992070;
-    const CouncilRootNodeGuideStrawResponseAny        = 992080;
+    const CouncilRootNodeGuideEndVoteAny              = 992050;
+    const CouncilRootNodeGuideStrawAny                = 992060;
+    const CouncilRootNodeGuideStrawResponseAny        = 992070;
+    const CouncilRootNodeGuideStrawFinalAny           = 992080;
     const CouncilRootNodeGuideStrawResultAny          = 992090;
     const CouncilRootNodeGuideStrawResultResponseAny  = 992100;
     const CouncilRootNodeGuideFinalAny                = 992110;
 
-    const CouncilNodeGuideIntroFirst               = 2011;
-    const CouncilNodeGuideIntroNext                = 2012;
-    const CouncilNodeGuideFollowUpAny              = 2020;
-    const CouncilNodeGuideFollowUpFirst            = 2021;
-    const CouncilNodeGuideFollowUpNext             = 2022;
-    const CouncilNodeGuideBeginVoteAny             = 2030;
-    const CouncilNodeGuideVoteAny                  = 2040;
-    const CouncilNodeGuideVoteResponseAny          = 2050;
-    const CouncilNodeGuideEndVoteAny               = 2060;
-    const CouncilNodeGuideStrawAny                 = 2070;
-    const CouncilNodeGuideStrawResponseAny         = 2080;
-    const CouncilNodeGuideStrawResultAny           = 2090;
-    const CouncilNodeGuideStrawResultResponseAny   = 2100;
-    const CouncilNodeGuideFinalAny                 = 2110;
+    const CouncilNodeGuideIntroFirst              = 2011;
+    const CouncilNodeGuideIntroNext               = 2012;
+    const CouncilNodeGuideFollowUpAny             = 2020;
+    const CouncilNodeGuideFollowUpFirst           = 2021;
+    const CouncilNodeGuideFollowUpNext            = 2022;
+    const CouncilNodeGuideBeginVoteAny            = 2030;
+    const CouncilNodeGuideVoteAny                 = 2040;
+    const CouncilNodeGuideVoteResponseAny         = 2045;
+    const CouncilNodeGuideEndVoteAny              = 2050;
+    const CouncilNodeGuideEndVoteResponseA        = 2055;
+    const CouncilNodeGuideEndVoteResponseB        = 2056;
+    const CouncilNodeGuideStrawAny                = 2060;
+    const CouncilNodeGuideStrawFinalAny           = 2070;
+    const CouncilNodeGuideStrawResponseAny        = 2080;
+    const CouncilNodeGuideStrawResultAny          = 2090;
+    const CouncilNodeGuideStrawResultResponseAny  = 2100;
+    const CouncilNodeGuideFinalAny                = 2110;
 
     
     /**

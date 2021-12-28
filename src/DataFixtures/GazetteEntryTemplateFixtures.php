@@ -2075,6 +2075,42 @@ class GazetteEntryTemplateFixtures extends Fixture
             ]
         ],
 
+        'guide_root_first' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeRootGuideFirst, 'mode' => CouncilEntryTemplate::CouncilBranchModeStructured,
+            'branches' => [
+                CouncilEntryTemplate::CouncilRootNodeGenericMCIntro,
+                CouncilEntryTemplate::CouncilRootNodeGuideIntroFirst,
+                CouncilEntryTemplate::CouncilRootNodeGuideFollowUpFirst,
+                CouncilEntryTemplate::CouncilRootNodeGuideBeginVoteAny,
+                CouncilEntryTemplate::CouncilRootNodeGuideVoteAny,
+                CouncilEntryTemplate::CouncilRootNodeGuideEndVoteAny,
+                CouncilEntryTemplate::CouncilRootNodeGuideStrawAny,
+                CouncilEntryTemplate::CouncilRootNodeGuideStrawResponseAny,
+                CouncilEntryTemplate::CouncilRootNodeGuideStrawFinalAny,
+                CouncilEntryTemplate::CouncilRootNodeGuideStrawResultAny,
+                CouncilEntryTemplate::CouncilRootNodeGuideStrawResultResponseAny,
+                CouncilEntryTemplate::CouncilRootNodeGuideFinalAny,
+            ]
+        ],
+
+        'guide_root_next' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeRootGuideNext, 'mode' => CouncilEntryTemplate::CouncilBranchModeStructured,
+            'branches' => [
+                CouncilEntryTemplate::CouncilRootNodeGenericMCIntro,
+                CouncilEntryTemplate::CouncilRootNodeGuideIntroNext,
+                CouncilEntryTemplate::CouncilRootNodeGuideFollowUpNext,
+                CouncilEntryTemplate::CouncilRootNodeGuideBeginVoteAny,
+                CouncilEntryTemplate::CouncilRootNodeGuideVoteAny,
+                CouncilEntryTemplate::CouncilRootNodeGuideEndVoteAny,
+                CouncilEntryTemplate::CouncilRootNodeGuideStrawAny,
+                CouncilEntryTemplate::CouncilRootNodeGuideStrawResponseAny,
+                CouncilEntryTemplate::CouncilRootNodeGuideStrawFinalAny,
+                CouncilEntryTemplate::CouncilRootNodeGuideStrawResultAny,
+                CouncilEntryTemplate::CouncilRootNodeGuideStrawResultResponseAny,
+                CouncilEntryTemplate::CouncilRootNodeGuideFinalAny,
+            ]
+        ],
+
         'generic_root_mc_intro' => [
             'semantic' => CouncilEntryTemplate::CouncilRootNodeGenericMCIntro, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
             'branches' => [CouncilEntryTemplate::CouncilNodeGenericMCIntro]
@@ -2143,6 +2179,71 @@ class GazetteEntryTemplateFixtures extends Fixture
         'shaman_root_final' => [
             'semantic' => CouncilEntryTemplate::CouncilRootNodeShamanFinalAny, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
             'branches' => [CouncilEntryTemplate::CouncilNodeShamanFinalAny]
+        ],
+
+        'guide_root_intro_first' => [
+            'semantic' => CouncilEntryTemplate::CouncilRootNodeGuideIntroFirst, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branches' => [CouncilEntryTemplate::CouncilNodeGuideIntroFirst]
+        ],
+
+        'guide_root_intro_next' => [
+            'semantic' => CouncilEntryTemplate::CouncilRootNodeGuideIntroNext, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branches' => [CouncilEntryTemplate::CouncilNodeGuideIntroNext]
+        ],
+
+        'guide_root_follow_up_first' => [
+            'semantic' => CouncilEntryTemplate::CouncilRootNodeGuideIntroFirst, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branch_count' => 2, 'branches' => [CouncilEntryTemplate::CouncilNodeGuideFollowUpFirst,CouncilEntryTemplate::CouncilNodeGuideFollowUpAny,CouncilEntryTemplate::CouncilNodeGenericFollowUpAny]
+        ],
+
+        'guide_root_follow_up_next' => [
+            'semantic' => CouncilEntryTemplate::CouncilRootNodeGuideIntroNext, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branch_count' => 2, 'branches' => [CouncilEntryTemplate::CouncilNodeGuideFollowUpNext,CouncilEntryTemplate::CouncilNodeGuideFollowUpAny,CouncilEntryTemplate::CouncilNodeGenericFollowUpAny]
+        ],
+
+        'guide_root_begin_vote' => [
+            'semantic' => CouncilEntryTemplate::CouncilRootNodeGuideBeginVoteAny, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branches' => [CouncilEntryTemplate::CouncilNodeGuideBeginVoteAny,CouncilEntryTemplate::CouncilNodeGenericBeginVoteAny]
+        ],
+
+        'guide_root_vote' => [
+            'semantic' => CouncilEntryTemplate::CouncilRootNodeGuideVoteAny, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branch_count' => [2,10], 'branches' => [CouncilEntryTemplate::CouncilNodeGuideVoteAny,CouncilEntryTemplate::CouncilNodeGenericVoteAny]
+        ],
+
+        'guide_root_end_vote' => [
+            'semantic' => CouncilEntryTemplate::CouncilRootNodeGuideEndVoteAny, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branches' => [CouncilEntryTemplate::CouncilNodeGuideEndVoteAny,CouncilEntryTemplate::CouncilNodeGenericEndVoteAny]
+        ],
+
+        'guide_root_straw' => [
+            'semantic' => CouncilEntryTemplate::CouncilRootNodeGuideStrawAny, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branches' => [CouncilEntryTemplate::CouncilNodeGuideStrawAny,CouncilEntryTemplate::CouncilNodeGenericStrawAny]
+        ],
+
+        'guide_root_straw_response' => [
+            'semantic' => CouncilEntryTemplate::CouncilRootNodeGuideStrawResponseAny, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branch_count' => [1,2], 'branches' => [CouncilEntryTemplate::CouncilNodeGuideStrawResponseAny,CouncilEntryTemplate::CouncilNodeGenericStrawResponseAny]
+        ],
+
+        'guide_root_straw_final' => [
+            'semantic' => CouncilEntryTemplate::CouncilRootNodeGuideStrawFinalAny, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branches' => [CouncilEntryTemplate::CouncilNodeGuideStrawFinalAny,CouncilEntryTemplate::CouncilNodeGenericStrawFinalAny]
+        ],
+
+        'guide_root_straw_result' => [
+            'semantic' => CouncilEntryTemplate::CouncilRootNodeGuideStrawResultAny, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branches' => [CouncilEntryTemplate::CouncilNodeGuideStrawResultAny]
+        ],
+
+        'guide_root_straw_result_response' => [
+            'semantic' => CouncilEntryTemplate::CouncilRootNodeGuideStrawResultResponseAny, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branch_count' => [1,3], 'branches' => [CouncilEntryTemplate::CouncilNodeGuideStrawResultResponseAny,CouncilEntryTemplate::CouncilNodeGenericStrawResultResponseAny]
+        ],
+
+        'guide_root_final' => [
+            'semantic' => CouncilEntryTemplate::CouncilRootNodeGuideFinalAny, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branches' => [CouncilEntryTemplate::CouncilNodeGuideFinalAny]
         ],
 
         'generic_follow_up_any_001' => [
@@ -2600,7 +2701,7 @@ class GazetteEntryTemplateFixtures extends Fixture
         'shaman_intro_first_001' => [
             'semantic' => CouncilEntryTemplate::CouncilNodeShamanIntroFirst,
             'text' => 'Der erste Punkt auf der Tagesordnung ist die Wahl eines neuen Scharlatans, ich meine, ähm, Schamanen! Ja, einen Schamanen... Ich meine, jede verzweifelte Stadt braucht einen Schamanen, nicht wahr?', // First order of business is electing a new charlatan, I mean, errr, Shaman! Yeah, a Shaman... I mean, every desperate town needs a Shaman don't it?
-            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+            'variables' => [ 'config' => [ 'main' => ['from' => '_mc'] ] ]
         ],
 
         'shaman_intro_next_001' => [
@@ -2791,6 +2892,158 @@ class GazetteEntryTemplateFixtures extends Fixture
             'variables' => [ 'types' => [['type'=>"citizen", 'name'=>'winner']], 'config' => [ 'winner' => ['from' => '_winner'] ] ]
         ],
 
+        'guide_intro_first_001' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGuideIntroFirst,
+            'text' => 'Wir brauchen einen neuen Reiseleiter für die Außenwelt im Eiltempo!', // We need a new Guide to the World Beyond on the double!
+            'variables' => [ 'config' => [ 'main' => ['from' => '_mc'] ] ]
+        ],
+
+        'guide_intro_next_001' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGuideIntroNext,
+            'text' => 'Da unser geliebter Reiseleiter in der Außenwelt uns heute Nacht verlassen hat, müssen wir ab sofort einen neuen wählen.', // Notre Guide de l'Outre-Monde aimé nous ayant quitté cette nuit, il nous faut en choisir un autre dès à présent.
+            'variables' => [ 'config' => [ 'main' => ['from' => '_mc'] ] ]
+        ],
+        'guide_intro_next_002' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGuideIntroNext,
+            'text' => 'Mit Traurigkeit und einem gewissen Sinn für Ironie beklagen wir den Verlust unseres Reiseleiters...', // It's with sadness, and a certain sense of irony that we lament the loss of our Guide...
+            'variables' => [ 'config' => [ 'main' => ['from' => '_mc'] ] ]
+        ],
+        'guide_intro_next_003' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGuideIntroNext,
+            'text' => 'Unser Reiseleiter hat sich gestern Abend irgendwie verlaufen und kommt nicht mehr zurück! Wer möchte ihn also ersetzen?', // Our Guide somehow managed to get lost last night, and he ain't coming back! So who wants to replace him?
+            'variables' => [ 'config' => [ 'main' => ['from' => '_mc'] ] ]
+        ],
+
+        'guide_follow_up_any_001' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGuideFollowUpAny,
+            'text' => 'Wir brauchen einen guten Reiseleiter. Eine gute Reiseleitung ist wichtig.', // You've got to have a good guide. Good guidance is important.
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'guide_follow_up_any_002' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGuideFollowUpAny,
+            'text' => 'Es ist ziemlich offensichtlich, dass die Navigation nach den Sternen Schwachsinn ist!', // Pretty obvious that navigating by the stars is a crock!
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'guide_follow_up_any_003' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGuideFollowUpAny,
+            'text' => 'Ich wäre gerne der Reiseleiter!', // I'd love to be the Guide
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'guide_follow_up_any_004' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGuideFollowUpAny, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branch_count' => [1,2], 'branches' => [
+                'guide_follow_up_any_q_response_001','guide_follow_up_any_q_response_002','guide_follow_up_any_q_response_003',
+                'generic_follow_up_any_q_response_001'
+            ],
+            'text' => 'Was ist denn ein Speiseschreiter?', // What's a guyed anyway?
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'guide_follow_up_any_q_response_001' => [
+            'text' => 'Es sind die Individuen, die uns mit Sicherheit in den sicheren Tod führen...', // They're the individual responsible for leading us surely to our certian death...
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'guide_follow_up_any_q_response_002' => [
+            'text' => 'Die sind wie du? Nur hübscher?', // They're like you? But better looking?
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'guide_follow_up_any_q_response_003' => [
+            'text' => 'Sie sind wie dieser Hexendoktor, nur nützlicher!', // They're like the witchdoctor guy, but useful!
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+
+        'guide_follow_up_next_001' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGuideFollowUpNext,
+            'text' => 'Ich werde dich rächen, Kumpel! Du musst mir nur den Zombie bringen, der dich erwischt hat, dann wirst du schon sehen!', // I'll revenge you buddy! Just you bring me the zombie that got you, you'll see!
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'guide_follow_up_next_002' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGuideFollowUpNext,
+            'text' => 'Ich bin ein bisschen traurig... Ich werde den Kerl und seinen klapprigen alten Kompass vermissen.', // I'm a bit sad... I'll miss that guy and his dodgey old compass.
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'guide_follow_up_next_003' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGuideFollowUpNext,
+            'text' => 'Oh, Mann! Ich habe ihm gesagt, dass er nach Osten gehen muss!', // Jeez! I told him he had to go east!
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'guide_follow_up_next_004' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGuideFollowUpNext,
+            'text' => 'Eine neue Wahl zum Reiseleiter durch die Außenwelt!', // Chouette une nouvelle élection de Guide de l'Outre-Monde !
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+
+        'guide_vote_001' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGuideVoteAny, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branch_count' => [0,2], 'branches' => [CouncilEntryTemplate::CouncilNodeGuideVoteResponseAny,CouncilEntryTemplate::CouncilNodeGenericVoteResponseAny],
+            'text' => 'Nun, ich schlage vor, dass es unser lieber {voted} sein soll, er hat die malerischste kleine Hütte...', // Well I propose that it be our dear [randomVotedPerson] they've got the quaintest little hovel...
+            'variables' => [ 'types' => [['type'=>"citizen", 'name'=>'voted']], 'config' => [ 'main' => ['from' => '_council'], 'voted' => ['from' => 'voted', 'consume' => true] ] ]
+        ],
+        'guide_vote_002' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGuideVoteAny, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branch_count' => [0,2], 'branches' => [CouncilEntryTemplate::CouncilNodeGuideVoteResponseAny,CouncilEntryTemplate::CouncilNodeGenericVoteResponseAny],
+            'text' => 'Ich schlage vor, dass es nicht {voted} sein sollte, da es eine zu wichtige Rolle ist, um ein solches Risiko einzugehen.', // Je propose que ce ne soit pas Anarchik, c'est un rôle trop important pour prendre un tel risque.
+            'variables' => [ 'types' => [['type'=>"citizen", 'name'=>'voted']], 'config' => [ 'main' => ['from' => '_council'], 'voted' => ['from' => 'voted', 'consume' => true] ] ]
+        ],
+
+        'guide_vote_end_001' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGuideEndVoteAny, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branch_count' => 1, 'branches' => [CouncilEntryTemplate::CouncilNodeGenericEndVoteResponseA],
+            'text' => 'Ruhe! Wir müssen dieses Treffen zu Ende bringen! Wir haben eine große Wüste zu erforschen und keinen Reiseleiter, der uns hilft!', // Silence! We've got to finish this meeting! We've got a big ol' desert to explore and no Guide to help us!
+            'variables' => [ 'config' => [ 'main' => ['from' => '_mc'] ] ]
+        ],
+
+        'guide_straw_result_001' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGuideStrawResultAny,
+            'text' => 'So, jetzt haben wir ganz offiziell einen neuen Reiseleiter bestimmt: {winner}!', // So now we officially have our new Guide to the World Beyond: [Guide]!
+            'variables' => [ 'types' => [['type'=>"citizen", 'name'=>'winner']], 'config' => [ 'main' => ['from' => '_mc'], 'winner' => ['from' => '_winner'] ] ]
+        ],
+
+        'guide_straw_result_response_001' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGuideStrawResultResponseAny,
+            'text' => 'Hmmmm alles in allem wäre {voted} vielleicht die bessere Wahl gewesen...', // Hmmmm all things considered maybe [randomVotedPerson] would have been a better choice...
+            'variables' => [ 'types' => [['type'=>"citizen", 'name'=>'voted']], 'config' => [ 'main' => ['from' => '_council'], 'voted' => ['from' => 'voted', 'consume' => true] ] ]
+        ],
+        'guide_straw_result_response_002' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGuideStrawResultResponseAny,
+            'text' => 'Ich hoffe, er hält wenigstens ein paar Tage durch... Ich will nicht jeden verdammten Tag abstimmen müssen!', // Here's hoping they last a few days... Don't want to be voting every bloody day!
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'guide_straw_result_response_003' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGuideStrawResultResponseAny,
+            'text' => 'Weis der überhaupt, wie man aus der Stadt kommt?', // Does he even know how to get out of town?
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'guide_straw_result_response_004' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGuideStrawResultResponseAny,
+            'text' => 'Und er dachte, er wäre vorher gut gewesen...', // And he thought he was good before...
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'guide_straw_result_response_005' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGuideStrawResultResponseAny,
+            'text' => 'Jetzt sind wir zwar immer noch auf dem sprichwörtlichen Holzweg, aber wir haben zumindest einen Reiseleiter!', // Now we're of the proverbial creek, but we have a paddle!
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'guide_straw_result_response_006' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGuideStrawResultResponseAny,
+            'text' => 'Hurra für den Reiseleiter!', // Hooray for the Guide
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'guide_straw_result_response_007' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGuideStrawResultResponseAny,
+            'text' => 'Er hat schon vorher geprahlt.', // Déjà qu'il se la racontait avant..
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+        'guide_straw_result_response_008' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGuideStrawResultResponseAny,
+            'text' => 'Wir sind sowas von im Ar...', // Nous voilà pas dans la m****
+            'variables' => [ 'config' => [ 'main' => ['from' => '_council'] ] ]
+        ],
+
+        'guide_final_001' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGuideFinalAny, 'vocal' => false,
+            'text' => '{winner} wurde zum Führer gewählt. Hoffen wir, dass er uns aus diesem Schlamassel heraushelfen kann...', // [Guide] has been elected as the Guide, let's hope they can help get us out of this mess...
+            'variables' => [ 'types' => [['type'=>"citizen", 'name'=>'winner']], 'config' => [ 'winner' => ['from' => '_winner'] ] ]
+        ],
     ];
 
     private $entityManager;
