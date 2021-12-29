@@ -9034,7 +9034,7 @@
     <unit id="Tj4dAlQ" name="Umdrehen">
       <notes>
         <note category="german">Umdrehen</note>
-        <note category="from">twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
       </notes>
       <segment>
         <source>Umdrehen</source>
@@ -11355,7 +11355,7 @@
     <unit id="ANGnefx" name="Stadtrat">
       <notes>
         <note category="german">Stadtrat</note>
-        <note category="from">twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
       </notes>
       <segment>
         <source>Stadtrat</source>

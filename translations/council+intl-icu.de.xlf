@@ -379,12 +379,6 @@
         <target>Warum werfen wir zur Abwechslung nicht mal eine Münze?</target>
       </segment>
     </unit>
-    <unit id="Ru.eARx" name="Klar Einstein, Kopf oder Zahl zm eine Persion aus 34 auszuwählen.">
-      <segment>
-        <source>Klar Einstein, Kopf oder Zahl zm eine Persion aus 34 auszuwählen.</source>
-        <target>Klar Einstein, Kopf oder Zahl um eine Persion aus 34 auszuwählen.</target>
-      </segment>
-    </unit>
     <unit id="DH.9rz3" name="Hast du denn eine Münze?">
       <segment>
         <source>Hast du denn eine Münze?</source>
@@ -893,6 +887,54 @@
       <segment>
         <source>{winner} wurde zum Führer gewählt. Hoffen wir, dass er uns aus diesem Schlamassel heraushelfen kann...</source>
         <target>{winner} wurde zum Reiseleiter gewählt. Hoffen wir, dass er uns aus diesem Schlamassel heraushelfen kann...</target>
+      </segment>
+    </unit>
+    <unit id="AraAi_U" name="Klar Einstein, Kopf oder Zahl zm eine Persion aus {_voted} auszuwählen.">
+      <segment>
+        <source>Klar Einstein, Kopf oder Zahl zm eine Persion aus {_voted} auszuwählen.</source>
+        <target>Klar Einstein, Kopf oder Zahl zm eine Persion aus {_voted} auszuwählen.</target>
+      </segment>
+    </unit>
+    <unit id="bz7XUkS">
+      <segment>
+        <source>Gut, alles was ich jetzt noch zu tun habe ist mich selbst zum Schamanen zu wählen. Endlich gibt es mal ein einstimmiges Ergebnis.</source>
+        <target>Gut, alles was ich jetzt noch zu tun habe ist mich selbst zum Schamanen zu wählen. Endlich gibt es mal ein einstimmiges Ergebnis.</target>
+      </segment>
+    </unit>
+    <unit id="a1vKnRs">
+      <segment>
+        <source>Gut, wenn niemand etwas dagegen einzuwenden hat, dann ernenne ich mich hiermit selbst zum Reiseleiter in der Außenwelt!</source>
+        <target>Gut, wenn niemand etwas dagegen einzuwenden hat, dann ernenne ich mich hiermit selbst zum Reiseleiter in der Außenwelt!</target>
+      </segment>
+    </unit>
+    <unit id="wa_fviX">
+      <segment>
+        <source>Niemand ist mehr in der Stadt, keiner kann diese Versammlung halten, daher überspringen wir die Wahl zum Schamanen.</source>
+        <target>Niemand ist mehr in der Stadt, keiner kann diese Versammlung halten, daher überspringen wir die Wahl zum Schamanen.</target>
+      </segment>
+    </unit>
+    <unit id="7IXrDK6">
+      <segment>
+        <source>Niemand ist mehr in der Stadt, keiner kann diese Versammlung halten, daher überspringen wir die Wahl zum Reiseleiter in der Außenwelt.</source>
+        <target>Niemand ist mehr in der Stadt, keiner kann diese Versammlung halten, daher überspringen wir die Wahl zum Reiseleiter in der Außenwelt.</target>
+      </segment>
+    </unit>
+    <unit id="kSlgIIW" name="Allen steht die Erschöpfung ins Gesicht geschrieben.">
+      <segment>
+        <source>Allen steht die Erschöpfung ins Gesicht geschrieben.</source>
+        <target>Allen steht die Erschöpfung ins Gesicht geschrieben.</target>
+      </segment>
+    </unit>
+    <unit id="OTSv8r.">
+      <segment>
+        <source>Wir ziehen Strohhalme, wie wir es immer machen. Der Kürzeste gewinnt. Kommt schon, kommt und zieht einen Stohhalm.</source>
+        <target>Wir ziehen Strohhalme, wie wir es immer machen. Der Kürzeste gewinnt. Kommt schon, kommt und zieht einen Stohhalm.</target>
+      </segment>
+    </unit>
+    <unit id="0LsI1XY">
+      <segment>
+        <source>OK, es sind nicht mehr viele von uns übrig, also lasst uns das schnell hinter uns bringen.</source>
+        <target>OK, es sind nicht mehr viele von uns übrig, also lasst uns das schnell hinter uns bringen.</target>
       </segment>
     </unit>
   </file>

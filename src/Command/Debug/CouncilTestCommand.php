@@ -57,7 +57,11 @@ class CouncilTestCommand extends Command
             ->addArgument('CouncilRootNodeID', InputArgument::REQUIRED, 'Council Root Node ID')
 
             ->addOption('clear-previous', null, InputOption::VALUE_REQUIRED, 'Clears all existing council texts before generating new ones.', false)
-            ->addOption('count-voted', null, InputOption::VALUE_REQUIRED, 'Number of citizens that received votes. Excludes the winner. Only valid for election councils.', 6)
+
+            ->addOption('count-voted',      null, InputOption::VALUE_REQUIRED, 'Number of citizens that received votes. Excludes the winner. Only valid for election councils.', 6)
+            ->addOption('count-discussion', null, InputOption::VALUE_REQUIRED, 'Number of citizens that partake in the discussion. Only valid for election councils.', 999)
+            ->addOption('no-mc', null, InputOption::VALUE_REQUIRED, 'If set to any value other than 0, no MC will be generated.', 0)
+
             ->addOption('structure', null, InputOption::VALUE_NONE, 'Show empty structural nodes')
         ;
     }
@@ -104,14 +108,22 @@ class CouncilTestCommand extends Command
         }
 
         switch ($node) {
-            case CouncilEntryTemplate::CouncilNodeRootGuideFirst: case CouncilEntryTemplate::CouncilNodeRootGuideNext:
+            case CouncilEntryTemplate::CouncilNodeRootGuideFirst:  case CouncilEntryTemplate::CouncilNodeRootGuideNext:
             case CouncilEntryTemplate::CouncilNodeRootShamanFirst: case CouncilEntryTemplate::CouncilNodeRootShamanNext:
-                $partition['_mc']      = $this->rand->draw( $all_citizens, 1, true );
-                $partition['_winner']  = $this->rand->draw( $all_citizens, 1, true );
-                $partition['voted']   = $this->rand->draw( $all_citizens, (int)$input->getOption('count-voted'), true );
-                $partition['_council?'] = $all_citizens;
-
+            case CouncilEntryTemplate::CouncilNodeRootShamanFew:   case CouncilEntryTemplate::CouncilNodeRootShamanFew:
+                $partition['_mc']       = (int)$input->getOption('no-mc') ? [] : $this->rand->draw( $all_citizens, 1, true );
+                $partition['_winner']   = $this->rand->draw( $all_citizens, 1, true );
+                $partition['voted']     = $this->rand->draw( $all_citizens, (int)$input->getOption('count-voted'), true );
+                $partition['_council?'] = array_slice($all_citizens, 0, (int)$input->getOption('count-discussion'));
                 break;
+
+            case CouncilEntryTemplate::CouncilNodeRootGuideSingle: case CouncilEntryTemplate::CouncilNodeRootShamanSingle:
+                $partition['_winner'] = $this->rand->draw( $all_citizens, 1, true );
+                break;
+
+            case CouncilEntryTemplate::CouncilNodeRootGuideNone: case CouncilEntryTemplate::CouncilNodeRootShamanNone:
+                break;
+
             default:
                 throw new Exception('No partition generator for the given root node ID was found. Cannot proceed.');
         }

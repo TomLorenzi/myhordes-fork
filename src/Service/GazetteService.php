@@ -727,6 +727,10 @@ class GazetteService
             static::$node_block_ord[$cache_key] = max(static::$node_block_ord[$cache_key], $previous_node->getOrd());
         }
 
+        foreach ( array_keys($citizenData) as $key )
+            if (!str_starts_with($key, '_') && !isset($citizenData["_$key"]))
+                $citizenData["_$key"] = $citizenData[$key];
+
         $ord = static::$node_block_ord[$cache_key];
 
         $implement_template = function (?CouncilEntry $parent, array $parents, array $siblings, array $templates, array &$variable_stack) use ($cache_key, $town, $day, &$ord): ?CouncilEntry {
@@ -766,6 +770,7 @@ class GazetteService
                                 /** @var CouncilEntry $name_blocker */
                                 foreach ( array_merge($parents,$siblings) as $name_blocker )
                                     if ($name_blocker->getCitizen()) $blocked_names[] = $name_blocker->getCitizen();
+                                //echo 'Before: ' . count($variable_stack_copy[$main_source]) . ', after ' . count( array_diff($variable_stack_copy[$main_source], $blocked_names) ) . ', blocking ' . count($blocked_names) . "\n";
                                 $variable_stack_copy[$main_source] = array_diff($variable_stack_copy[$main_source], $blocked_names);
                             }
                         }
@@ -782,6 +787,7 @@ class GazetteService
                 )
             );
 
+            /** @var CouncilEntryTemplate $node */
             if ($node) {
                 if ($node->getText() !== null)
                     static::$node_block_cache[$cache_key][] = $node;
@@ -804,6 +810,12 @@ class GazetteService
                             $variables['main'] = $main_citizen->getId();
                         if ($def['consume'] ?? false) unset( $variable_stack[$def['from']][ array_search( $main_citizen, $variable_stack[$def['from']], true ) ] );
                     }
+                }
+
+                foreach ($node->getVariableTypes() as $typedef) {
+
+                    if ($typedef['type'] === 'num' && isset($variable_stack[$typedef['name']]))
+                        $variables[$typedef['name']] = count($variable_stack[$typedef['name']]);
 
                 }
 
@@ -819,12 +831,11 @@ class GazetteService
         };
 
         $add_to_list = null;
-        $add_to_list = function ( array $templates, ?CouncilEntry $parent = null, array $parents = [], $once = false ) use (&$add_to_list, &$list, &$implement_template, &$citizenData) {
+        $add_to_list = function ( array $templates, ?CouncilEntry $parent = null, array $parents = [], array &$siblings = [], $once = false ) use (&$add_to_list, &$list, &$implement_template, &$citizenData) {
 
             if ($parent) $parents[] = $parent;
             $citizenData['_parent'] = ($parent && $parent->getCitizen()) ? [$parent->getCitizen()] : [];
-            $citizenData['_siblings'] = [];
-            $siblings = [];
+            $citizenData['_siblings'] = $siblings;
 
             /** @var CouncilEntryTemplate $template */
             foreach ($templates as $template) {
@@ -832,17 +843,20 @@ class GazetteService
                 if ($new_node = $implement_template($parent, $parents, $siblings, [$template], $citizenData)) {
                     switch ($new_node->getTemplate()->getBranchMode()) {
                         case CouncilEntryTemplate::CouncilBranchModeStructured:
-                            $add_to_list($new_node->getTemplate()->getBranches()->getValues(), $new_node, $parents);
+                            $s = [];
+                            $add_to_list($new_node->getTemplate()->getBranches()->getValues(), $new_node, $parents, $s);
                             break;
                         case CouncilEntryTemplate::CouncilBranchModeRandom:
                             $num = mt_rand($new_node->getTemplate()->getBranchSizeMin(), $new_node->getTemplate()->getBranchSizeMax());
                             $branches = $new_node->getTemplate()->getBranches()->getValues();
                             shuffle($branches);
 
+                            $original_siblings = $siblings;
                             while ($num > 0) {
-                                $add_to_list($branches, $new_node, $parents, true);
+                                $add_to_list($branches, $new_node, $parents, $siblings, true);
                                 $num--;
                             }
+                            $siblings = $original_siblings;
 
                             break;
                         default:
@@ -858,9 +872,10 @@ class GazetteService
             }
         };
 
+        $s = [];
         $add_to_list(
             $this->rand->pick($this->entity_manager->getRepository(CouncilEntryTemplate::class)->findBy(['semantic' => $rootNodeSemantic]), 1, true),
-            null, [], true
+            null, [], $s, true
         );
     }
 }

@@ -25,8 +25,10 @@ class CouncilEntryTemplate
     const CouncilNodeContextOnly                   =    0;
 
     const CouncilRootNodeGenericMCIntro                =  990001;
+    const CouncilRootNodeGenericIntroFew               =  990005;
 
     const CouncilNodeGenericMCIntro                =    1;
+    const CouncilNodeGenericIntroFew               =    5;
     const CouncilNodeGenericFollowUpAny            =   20;
     const CouncilNodeGenericBeginVoteAny           =   30;
     const CouncilNodeGenericVoteAny                =   40;
@@ -35,6 +37,7 @@ class CouncilEntryTemplate
     const CouncilNodeGenericEndVoteResponseA       =   55;
     const CouncilNodeGenericEndVoteResponseB       =   56;
     const CouncilNodeGenericStrawAny               =   60;
+    const CouncilNodeGenericStrawFew               =   65;
     const CouncilNodeGenericStrawInitAny           =   65;
     const CouncilNodeGenericStrawResponseAny       =   70;
     const CouncilNodeGenericStrawFinalAny          =   80;
@@ -42,14 +45,22 @@ class CouncilEntryTemplate
     
     const CouncilNodeRootShamanFirst                   = 991001;
     const CouncilNodeRootShamanNext                    = 991002;
+    const CouncilNodeRootShamanSingle                  = 991003;
+    const CouncilNodeRootShamanNone                    = 991004;
+    const CouncilNodeRootShamanFew                     = 991005;
     const CouncilRootNodeShamanIntroFirst              = 991011;
     const CouncilRootNodeShamanIntroNext               = 991012;
+    const CouncilRootNodeShamanIntroSingle             = 991013;
+    const CouncilRootNodeShamanIntroNone               = 991014;
+    const CouncilRootNodeShamanIntroFew                = 991015;
+    const CouncilRootNodeShamanIntroFew2               = 991016;
     const CouncilRootNodeShamanFollowUpFirst           = 991021;
     const CouncilRootNodeShamanFollowUpNext            = 991022;
     const CouncilRootNodeShamanBeginVoteAny            = 991030;
     const CouncilRootNodeShamanVoteAny                 = 991040;
     const CouncilRootNodeShamanEndVoteAny              = 991050;
     const CouncilRootNodeShamanStrawAny                = 991060;
+    const CouncilRootNodeShamanStrawFew                = 991065;
     const CouncilRootNodeShamanStrawResponseAny        = 991070;
     const CouncilRootNodeShamanStrawFinalAny           = 991080;
     const CouncilRootNodeShamanStrawResultAny          = 991090;
@@ -58,6 +69,9 @@ class CouncilEntryTemplate
     
     const CouncilNodeShamanIntroFirst              = 1011;
     const CouncilNodeShamanIntroNext               = 1012;
+    const CouncilNodeShamanIntroSingle             = 1013;
+    const CouncilNodeShamanIntroNone               = 1014;
+    const CouncilNodeShamanIntroFew                = 1015;
     const CouncilNodeShamanFollowUpAny             = 1020;
     const CouncilNodeShamanFollowUpFirst           = 1021;
     const CouncilNodeShamanFollowUpNext            = 1022;
@@ -68,6 +82,7 @@ class CouncilEntryTemplate
     const CouncilNodeShamanEndVoteResponseA        = 1055;
     const CouncilNodeShamanEndVoteResponseB        = 1056;
     const CouncilNodeShamanStrawAny                = 1060;
+    const CouncilNodeShamanStrawFew                = 1065;
     const CouncilNodeShamanStrawFinalAny           = 1070;
     const CouncilNodeShamanStrawResponseAny        = 1080;
     const CouncilNodeShamanStrawResultAny          = 1090;
@@ -76,14 +91,22 @@ class CouncilEntryTemplate
 
     const CouncilNodeRootGuideFirst                   = 992001;
     const CouncilNodeRootGuideNext                    = 992002;
+    const CouncilNodeRootGuideSingle                  = 992003;
+    const CouncilNodeRootGuideNone                    = 992004;
+    const CouncilNodeRootGuideFew                     = 992005;
     const CouncilRootNodeGuideIntroFirst              = 992011;
     const CouncilRootNodeGuideIntroNext               = 992012;
+    const CouncilRootNodeGuideIntroSingle             = 992013;
+    const CouncilRootNodeGuideIntroNone               = 992014;
+    const CouncilRootNodeGuideIntroFew                = 992015;
+    const CouncilRootNodeGuideIntroFew2                = 992016;
     const CouncilRootNodeGuideFollowUpFirst           = 992021;
     const CouncilRootNodeGuideFollowUpNext            = 992022;
     const CouncilRootNodeGuideBeginVoteAny            = 992030;
     const CouncilRootNodeGuideVoteAny                 = 992040;
     const CouncilRootNodeGuideEndVoteAny              = 992050;
     const CouncilRootNodeGuideStrawAny                = 992060;
+    const CouncilRootNodeGuideStrawFew                = 992065;
     const CouncilRootNodeGuideStrawResponseAny        = 992070;
     const CouncilRootNodeGuideStrawFinalAny           = 992080;
     const CouncilRootNodeGuideStrawResultAny          = 992090;
@@ -92,6 +115,9 @@ class CouncilEntryTemplate
 
     const CouncilNodeGuideIntroFirst              = 2011;
     const CouncilNodeGuideIntroNext               = 2012;
+    const CouncilNodeGuideIntroSingle             = 2013;
+    const CouncilNodeGuideIntroNone               = 2014;
+    const CouncilNodeGuideIntroFew                = 2015;
     const CouncilNodeGuideFollowUpAny             = 2020;
     const CouncilNodeGuideFollowUpFirst           = 2021;
     const CouncilNodeGuideFollowUpNext            = 2022;
@@ -102,6 +128,7 @@ class CouncilEntryTemplate
     const CouncilNodeGuideEndVoteResponseA        = 2055;
     const CouncilNodeGuideEndVoteResponseB        = 2056;
     const CouncilNodeGuideStrawAny                = 2060;
+    const CouncilNodeGuideStrawFew                = 2065;
     const CouncilNodeGuideStrawFinalAny           = 2070;
     const CouncilNodeGuideStrawResponseAny        = 2080;
     const CouncilNodeGuideStrawResultAny          = 2090;

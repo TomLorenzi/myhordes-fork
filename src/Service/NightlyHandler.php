@@ -1502,11 +1502,13 @@ class NightlyHandler
                 '_winner' => [],
             ];
 
+            $valid_citizens = 0;
             foreach ($citizens as $citizen) {
                 // Dead citizen cannot vote
                 if(!$citizen->getAlive()) continue;
+                $valid_citizens++;
 
-                $partition['_council?'][] = $citizen;
+                if (!$citizen->getZone()) $partition['_council?'][] = $citizen;
 
                 $voted = $this->entity_manager->getRepository(CitizenVote::class)->findOneBy(['autor' => $citizen, 'role' => $role]); //findOneByCitizenAndRole($citizen, $role);
                 /** @var CitizenVote $voted */
@@ -1537,7 +1539,7 @@ class NightlyHandler
             }
 
             // We give him the related status
-            $winningCitizen = $this->entity_manager->getRepository(Citizen::class)->find($citizenWinnerId);
+            $winningCitizen = $citizenWinnerId > 0 ? $this->entity_manager->getRepository(Citizen::class)->find($citizenWinnerId) : null;
             if($winningCitizen !== null){
                 $this->log->info( "Citizen <info>{$winningCitizen->getUser()->getUsername()}</info> has been elected as <info>{$role->getLabel()}</info>." );
                 $this->citizen_handler->addRole($winningCitizen, $role);
@@ -1555,13 +1557,30 @@ class NightlyHandler
 
                 switch ($role->getName()) {
                     case 'shaman':
-                        $this->gazette_service->generateCouncilNodeList( $town, $town->getDay(), $this->entity_manager->getRepository(Citizen::class)->findLastOneByRoleAndTown($role, $town) ? CouncilEntryTemplate::CouncilNodeRootShamanNext : CouncilEntryTemplate::CouncilNodeRootShamanFirst, $partition );
+                        if ($valid_citizens === 1)
+                            $this->gazette_service->generateCouncilNodeList( $town, $town->getDay(), CouncilEntryTemplate::CouncilNodeRootShamanSingle, $partition );
+                        elseif ( $valid_citizens < 10 )
+                            $this->gazette_service->generateCouncilNodeList( $town, $town->getDay(), CouncilEntryTemplate::CouncilNodeRootShamanFew, $partition );
+                        else $this->gazette_service->generateCouncilNodeList( $town, $town->getDay(), $this->entity_manager->getRepository(Citizen::class)->findLastOneByRoleAndTown($role, $town) ? CouncilEntryTemplate::CouncilNodeRootShamanNext : CouncilEntryTemplate::CouncilNodeRootShamanFirst, $partition );
                         break;
                     case 'guide':
-                        $this->gazette_service->generateCouncilNodeList( $town, $town->getDay(), $this->entity_manager->getRepository(Citizen::class)->findLastOneByRoleAndTown($role, $town) ? CouncilEntryTemplate::CouncilNodeRootGuideNext : CouncilEntryTemplate::CouncilNodeRootGuideFirst, $partition );
+                        if ($valid_citizens === 1)
+                            $this->gazette_service->generateCouncilNodeList( $town, $town->getDay(), CouncilEntryTemplate::CouncilNodeRootGuideSingle, $partition );
+                        elseif ( $valid_citizens < 10 )
+                            $this->gazette_service->generateCouncilNodeList( $town, $town->getDay(), CouncilEntryTemplate::CouncilNodeRootGuideFew, $partition );
+                        else $this->gazette_service->generateCouncilNodeList( $town, $town->getDay(), $this->entity_manager->getRepository(Citizen::class)->findLastOneByRoleAndTown($role, $town) ? CouncilEntryTemplate::CouncilNodeRootGuideNext : CouncilEntryTemplate::CouncilNodeRootGuideFirst, $partition );
                         break;
                 }
 
+            } else {
+                switch ($role->getName()) {
+                    case 'shaman':
+                        $this->gazette_service->generateCouncilNodeList( $town, $town->getDay(), CouncilEntryTemplate::CouncilNodeRootShamanNone, [] );
+                        break;
+                    case 'guide':
+                        $this->gazette_service->generateCouncilNodeList( $town, $town->getDay(), CouncilEntryTemplate::CouncilNodeRootGuideNone, [] );
+                        break;
+                }
             }
 
             // we remove the votes

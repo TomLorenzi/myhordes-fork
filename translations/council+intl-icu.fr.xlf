@@ -5,7 +5,6 @@
       <notes>
         <note category="german">Wieso darf hier überhaupt {mc} die Leitung übernehmen? Kann mir das mal jemand erklären?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wieso darf hier überhaupt {mc} die Leitung übernehmen? Kann mir das mal jemand erklären?</source>
@@ -16,7 +15,6 @@
       <notes>
         <note category="german">Warum hat dieser nichtsnutzige {mc} überhaupt das Sagen!?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Warum hat dieser nichtsnutzige {mc} überhaupt das Sagen!?</source>
@@ -27,7 +25,6 @@
       <notes>
         <note category="german">Noob!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Noob!</source>
@@ -38,7 +35,6 @@
       <notes>
         <note category="german">Keine Freiwilligen?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Keine Freiwilligen?</source>
@@ -49,7 +45,6 @@
       <notes>
         <note category="german">Ein Versuch kann ja nicht schaden, vielleicht ist hier jemand wirklich verrückt genug dafür?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ein Versuch kann ja nicht schaden, vielleicht ist hier jemand wirklich verrückt genug dafür?</source>
@@ -60,7 +55,6 @@
       <notes>
         <note category="german">Okay... Freiwillige vor?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Okay... Freiwillige vor?</source>
@@ -71,7 +65,6 @@
       <notes>
         <note category="german">Echt jetzt?!?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Echt jetzt?!?</source>
@@ -82,7 +75,6 @@
       <notes>
         <note category="german">Irgendwer?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Irgendwer?</source>
@@ -93,7 +85,6 @@
       <notes>
         <note category="german">Hallo zusammen, wir müssen das hier über die Bühne bringen, also ähem, melde ich mich mehr oder weniger freiwillig als Zeremonienmeister...</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Hallo zusammen, wir müssen das hier über die Bühne bringen, also ähem, melde ich mich mehr oder weniger freiwillig als Zeremonienmeister...</source>
@@ -104,7 +95,6 @@
       <notes>
         <note category="german">Da Respekt für eine effektive Kommunikation unerlässlich ist, werde ich hier der Zeremonienmeister sein.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Da Respekt für eine effektive Kommunikation unerlässlich ist, werde ich hier der Zeremonienmeister sein.</source>
@@ -115,7 +105,6 @@
       <notes>
         <note category="german">Hört an, hört an!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Hört an, hört an!</source>
@@ -126,7 +115,6 @@
       <notes>
         <note category="german">Ich denke, {voted} sollte das übernehmen, dann hätte er etwas zu tun! Was meint ihr?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ich denke, {voted} sollte das übernehmen, dann hätte er etwas zu tun! Was meint ihr?</source>
@@ -137,7 +125,6 @@
       <notes>
         <note category="german">Ich stimme für {voted}.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ich stimme für {voted}.</source>
@@ -148,7 +135,6 @@
       <notes>
         <note category="german">Lasst uns dieses langweilige Ritual abschaffen und einfach mich auswählen! Ihr wisst alle, dass ich der perfekte Kandidat bin!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Lasst uns dieses langweilige Ritual abschaffen und einfach mich auswählen! Ihr wisst alle, dass ich der perfekte Kandidat bin!</source>
@@ -159,7 +145,6 @@
       <notes>
         <note category="german">Ich ich ich ich ich ich!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ich ich ich ich ich ich!</source>
@@ -170,7 +155,6 @@
       <notes>
         <note category="german">Wie spät ist es eigentlich?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wie spät ist es eigentlich?</source>
@@ -181,7 +165,6 @@
       <notes>
         <note category="german">Können wir jetzt endlich jemanden auswählen? Ich will mich hinhauen!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Können wir jetzt endlich jemanden auswählen? Ich will mich hinhauen!</source>
@@ -192,7 +175,6 @@
       <notes>
         <note category="german">Wenn wir diesen Raum neu dekorieren würden...</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wenn wir diesen Raum neu dekorieren würden...</source>
@@ -203,7 +185,6 @@
       <notes>
         <note category="german">Ich hab Hunger!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ich hab Hunger!</source>
@@ -214,7 +195,6 @@
       <notes>
         <note category="german">Und was wäre, wenn wir wie üblich Strohhalme ziehen würden?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Und was wäre, wenn wir wie üblich Strohhalme ziehen würden?</source>
@@ -225,7 +205,6 @@
       <notes>
         <note category="german">Hört auf, mich anzugucken!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Hört auf, mich anzugucken!</source>
@@ -236,7 +215,6 @@
       <notes>
         <note category="german">Hat jemand gerade einen Jugendlichen vorbeigehen sehen?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Hat jemand gerade einen Jugendlichen vorbeigehen sehen?</source>
@@ -247,7 +225,6 @@
       <notes>
         <note category="german">+1 !</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>+1 !</source>
@@ -258,7 +235,6 @@
       <notes>
         <note category="german">Er stinkt nach Alkohol.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Er stinkt nach Alkohol.</source>
@@ -269,7 +245,6 @@
       <notes>
         <note category="german">Er stinkt wie die Rückseite einer...</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Er stinkt wie die Rückseite einer...</source>
@@ -280,7 +255,6 @@
       <notes>
         <note category="german">Ich vertraue ihm nicht.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ich vertraue ihm nicht.</source>
@@ -291,7 +265,6 @@
       <notes>
         <note category="german">Na das überrascht mich ja mal so gar nicht!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Na das überrascht mich ja mal so gar nicht!</source>
@@ -302,7 +275,6 @@
       <notes>
         <note category="german">Nun, ich stimme zu, dieser Job würde sehr gut zu ihm passen.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Nun, ich stimme zu, dieser Job würde sehr gut zu ihm passen.</source>
@@ -324,7 +296,6 @@
       <notes>
         <note category="german">Wir könnten ja auch warten, bis sich jemand anderes freiwillig meldet...</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wir könnten ja auch warten, bis sich jemand anderes freiwillig meldet...</source>
@@ -335,7 +306,6 @@
       <notes>
         <note category="german">Es gehört sich nicht für andere zu sprechen, {parent}.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Es gehört sich nicht für andere zu sprechen, {parent}.</source>
@@ -346,7 +316,6 @@
       <notes>
         <note category="german">Typisch für dich {parent}, immer jemand anderen vorschicken!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Typisch für dich {parent}, immer jemand anderen vorschicken!</source>
@@ -357,7 +326,6 @@
       <notes>
         <note category="german">Ja, ich habe genug von seinen Spielchen! Hängen wir ihn auf!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ja, ich habe genug von seinen Spielchen! Hängen wir ihn auf!</source>
@@ -368,7 +336,6 @@
       <notes>
         <note category="german">Muss ich darauf antworten?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Muss ich darauf antworten?</source>
@@ -379,7 +346,6 @@
       <notes>
         <note category="german">Du warst schon immer feige! Hinter dem Rücken der anderen reden und so!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Du warst schon immer feige! Hinter dem Rücken der anderen reden und so!</source>
@@ -390,7 +356,6 @@
       <notes>
         <note category="german">Ich habe nicht wirklich eine Meinung, aber ich werde trotzdem meinen Senf dazu geben!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ich habe nicht wirklich eine Meinung, aber ich werde trotzdem meinen Senf dazu geben!</source>
@@ -401,7 +366,6 @@
       <notes>
         <note category="german">Solange nicht ich ausgewählt werde, bin ich zufrieden.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Solange nicht ich ausgewählt werde, bin ich zufrieden.</source>
@@ -412,7 +376,6 @@
       <notes>
         <note category="german">Ich möchte euch sagen, wie wenig mich das alles interessiert, aber ich habe keine Lust dazu.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ich möchte euch sagen, wie wenig mich das alles interessiert, aber ich habe keine Lust dazu.</source>
@@ -423,7 +386,6 @@
       <notes>
         <note category="german">Es gibt nichts Schlimmeres, als einen Traum zu verfolgen, der nie in Erfüllung geht.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Es gibt nichts Schlimmeres, als einen Traum zu verfolgen, der nie in Erfüllung geht.</source>
@@ -434,7 +396,6 @@
       <notes>
         <note category="german">Solange ich das nicht bin geht mir das sowas von am Arsch vorbei!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Solange ich das nicht bin geht mir das sowas von am Arsch vorbei!</source>
@@ -467,7 +428,6 @@
       <notes>
         <note category="german">Ja, aber es ist entweder er oder jemand anderes.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ja, aber es ist entweder er oder jemand anderes.</source>
@@ -478,7 +438,6 @@
       <notes>
         <note category="german">Yeah!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Yeah!</source>
@@ -489,7 +448,6 @@
       <notes>
         <note category="german">Guter Witz!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Guter Witz!</source>
@@ -500,7 +458,6 @@
       <notes>
         <note category="german">looooooooool</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>looooooooool</source>
@@ -522,7 +479,6 @@
       <notes>
         <note category="german">Also meiner Meinung nach passt das gut zu ihm.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Also meiner Meinung nach passt das gut zu ihm.</source>
@@ -533,7 +489,6 @@
       <notes>
         <note category="german">Lasst uns hiermit nicht herumalbern!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Lasst uns hiermit nicht herumalbern!</source>
@@ -544,7 +499,6 @@
       <notes>
         <note category="german">Ich habe einseitig beschlossen, dass wir hier keine Zeit mehr damit verschwenden werden, über etwas völlig Unwichtiges zu streiten.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ich habe einseitig beschlossen, dass wir hier keine Zeit mehr damit verschwenden werden, über etwas völlig Unwichtiges zu streiten.</source>
@@ -555,7 +509,6 @@
       <notes>
         <note category="german">Es ist jedes Mal dasselbe! Können wir nicht einfach schnell und in Ruhe eine Entscheidung treffen, ohne ihne dass alles in einem Debakel endet?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Es ist jedes Mal dasselbe! Können wir nicht einfach schnell und in Ruhe eine Entscheidung treffen, ohne ihne dass alles in einem Debakel endet?</source>
@@ -566,7 +519,6 @@
       <notes>
         <note category="german">Die Hoffnung stirbt zuletzt...</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Die Hoffnung stirbt zuletzt...</source>
@@ -577,7 +529,6 @@
       <notes>
         <note category="german">Der Traum von einem organisierten Treffen ist der sprichwörtliche Topf voll Gold!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Der Traum von einem organisierten Treffen ist der sprichwörtliche Topf voll Gold!</source>
@@ -588,7 +539,6 @@
       <notes>
         <note category="german">Diejenigen von euch, die nach uns kommen, verhärtet nicht eure Herzen gegen uns...</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Diejenigen von euch, die nach uns kommen, verhärtet nicht eure Herzen gegen uns...</source>
@@ -599,7 +549,6 @@
       <notes>
         <note category="german">Wer keine Hoffnung mehr hat, kann auch nichts mehr bereuen.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wer keine Hoffnung mehr hat, kann auch nichts mehr bereuen.</source>
@@ -610,7 +559,6 @@
       <notes>
         <note category="german">Ja, halt die Klappe, Shakespeare.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ja, halt die Klappe, Shakespeare.</source>
@@ -621,7 +569,6 @@
       <notes>
         <note category="german">Trottel.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Trottel.</source>
@@ -632,7 +579,6 @@
       <notes>
         <note category="german">Zum Galgen mit ihm!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Zum Galgen mit ihm!</source>
@@ -643,7 +589,6 @@
       <notes>
         <note category="german">Nimm einfach einen Strohhalm und bring es hinter dich!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Nimm einfach einen Strohhalm und bring es hinter dich!</source>
@@ -654,7 +599,6 @@
       <notes>
         <note category="german">Ja, ja, jetzt gib mir schon einen verfluchten Strohhalm!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ja, ja, jetzt gib mir schon einen verfluchten Strohhalm!</source>
@@ -665,7 +609,6 @@
       <notes>
         <note category="german">Ok, lasst uns wie immer Strohhalme ziehen und die Sache hinter uns bringen.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ok, lasst uns wie immer Strohhalme ziehen und die Sache hinter uns bringen.</source>
@@ -676,7 +619,6 @@
       <notes>
         <note category="german">Ok, jeder nimmt sich einen Strohhalm.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ok, jeder nimmt sich einen Strohhalm.</source>
@@ -687,29 +629,16 @@
       <notes>
         <note category="german">Warum werfen wir zur Abwechslung nicht mal eine Münze?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Warum werfen wir zur Abwechslung nicht mal eine Münze?</source>
         <target>Pourquoi on le ferait pas à pile ou face pour changer ?</target>
       </segment>
     </unit>
-    <unit id="Ru.eARx" name="Klar Einstein, Kopf oder Zahl zm eine Persion aus 34 auszuwählen.">
-      <notes>
-        <note category="german">Klar Einstein, Kopf oder Zahl zm eine Persion aus 34 auszuwählen.</note>
-        <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
-      </notes>
-      <segment>
-        <source>Klar Einstein, Kopf oder Zahl zm eine Persion aus 34 auszuwählen.</source>
-        <target>Klar Einstein, Kopf oder Zahl zm eine Persion aus 34 auszuwählen.</target>
-      </segment>
-    </unit>
     <unit id="DH.9rz3" name="Hast du denn eine Münze?">
       <notes>
         <note category="german">Hast du denn eine Münze?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Hast du denn eine Münze?</source>
@@ -720,7 +649,6 @@
       <notes>
         <note category="german">Wir wählen aus wer gefressen wird, richtig?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wir wählen aus wer gefressen wird, richtig?</source>
@@ -731,7 +659,6 @@
       <notes>
         <note category="german">Facepalm!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Facepalm!</source>
@@ -742,7 +669,6 @@
       <notes>
         <note category="german">Echt jetzt?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Echt jetzt?</source>
@@ -753,7 +679,6 @@
       <notes>
         <note category="german">Und was machen wir bei einem Gleichstand?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Und was machen wir bei einem Gleichstand?</source>
@@ -764,7 +689,6 @@
       <notes>
         <note category="german">Wir hängen beide und fangen nochmal von vorne an!?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wir hängen beide und fangen nochmal von vorne an!?</source>
@@ -775,7 +699,6 @@
       <notes>
         <note category="german">Komm, lass gut sein.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Komm, lass gut sein.</source>
@@ -786,7 +709,6 @@
       <notes>
         <note category="german">Oh Mann! Der Einstein hier drüben hat seinen Strohhalm gefressen!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Oh Mann! Der Einstein hier drüben hat seinen Strohhalm gefressen!</source>
@@ -797,7 +719,6 @@
       <notes>
         <note category="german">Kann ich meinen Strohhalm essen wenn wir fertig sind?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Kann ich meinen Strohhalm essen wenn wir fertig sind?</source>
@@ -808,7 +729,6 @@
       <notes>
         <note category="german">Wo hat er hier überhaupt Stroh her?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wo hat er hier überhaupt Stroh her?</source>
@@ -819,7 +739,6 @@
       <notes>
         <note category="german">...Wer sagt, dass das Stroh ist?...</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>...Wer sagt, dass das Stroh ist?...</source>
@@ -830,7 +749,6 @@
       <notes>
         <note category="german">Ihr wisst, dass ... nun, .... wie ich schon sagte ... ahhhh, auf mich hört sowieso niemand.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ihr wisst, dass ... nun, .... wie ich schon sagte ... ahhhh, auf mich hört sowieso niemand.</source>
@@ -841,7 +759,6 @@
       <notes>
         <note category="german">Hat jemand etwas gesagt?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Hat jemand etwas gesagt?</source>
@@ -852,7 +769,6 @@
       <notes>
         <note category="german">Was?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Was?</source>
@@ -863,7 +779,6 @@
       <notes>
         <note category="german">...das Ziehen der Strohhalme findet in jugendlicher Unordnung statt, wobei jeder seinen Strohhalm mit dem des Nachbarn vergleicht...</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>...das Ziehen der Strohhalme findet in jugendlicher Unordnung statt, wobei jeder seinen Strohhalm mit dem des Nachbarn vergleicht...</source>
@@ -874,7 +789,6 @@
       <notes>
         <note category="german">...</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>...</source>
@@ -885,7 +799,6 @@
       <notes>
         <note category="german">...Und so beginnt das Strohhalmziehen...</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>...Und so beginnt das Strohhalmziehen...</source>
@@ -896,7 +809,6 @@
       <notes>
         <note category="german">Er war sowieso schon ziemlich seltsam...</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Er war sowieso schon ziemlich seltsam...</source>
@@ -918,7 +830,6 @@
       <notes>
         <note category="german">Solange er zumindest ein paar Tage durchhält... Ich möchte dieses Treffen nicht jeden Morgen wiederholen müssen!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Solange er zumindest ein paar Tage durchhält... Ich möchte dieses Treffen nicht jeden Morgen wiederholen müssen!</source>
@@ -929,7 +840,6 @@
       <notes>
         <note category="german">Ich wusste es!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ich wusste es!</source>
@@ -940,7 +850,6 @@
       <notes>
         <note category="german">Der erste Punkt auf der Tagesordnung ist die Wahl eines neuen Scharlatans, ich meine, ähm, Schamanen! Ja, einen Schamanen... Ich meine, jede verzweifelte Stadt braucht einen Schamanen, nicht wahr?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Der erste Punkt auf der Tagesordnung ist die Wahl eines neuen Scharlatans, ich meine, ähm, Schamanen! Ja, einen Schamanen... Ich meine, jede verzweifelte Stadt braucht einen Schamanen, nicht wahr?</source>
@@ -951,7 +860,6 @@
       <notes>
         <note category="german">Da unser Schamane heute Nacht von uns gegangen ist, müssen wir jetzt einen Ersatz wählen.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Da unser Schamane heute Nacht von uns gegangen ist, müssen wir jetzt einen Ersatz wählen.</source>
@@ -962,7 +870,6 @@
       <notes>
         <note category="german">Unser Schamane, den wir alle sehr, sehr, sehr vermissen (lacht), ist kürzlich verstorben. Ich beantrage, dass wir über einen Nachfolger abstimmen.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Unser Schamane, den wir alle sehr, sehr, sehr vermissen (lacht), ist kürzlich verstorben. Ich beantrage, dass wir über einen Nachfolger abstimmen.</source>
@@ -973,7 +880,6 @@
       <notes>
         <note category="german">Wir alle wissen ja, wie das enden wird, zumindest die meisten von uns... Wir sollten also einen neuen Schamanen wählen, damit er sich um unsere Seelen kümmern und den letzten ersetzen kann, der, wie ich sagen muss, ein verdammt guter Voodooman war!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wir alle wissen ja, wie das enden wird, zumindest die meisten von uns... Wir sollten also einen neuen Schamanen wählen, damit er sich um unsere Seelen kümmern und den letzten ersetzen kann, der, wie ich sagen muss, ein verdammt guter Voodooman war!</source>
@@ -984,7 +890,6 @@
       <notes>
         <note category="german">Ich hau den Zombies ganz einfach die Schädel ein, egal ob mit oder ohne Schamanen!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ich hau den Zombies ganz einfach die Schädel ein, egal ob mit oder ohne Schamanen!</source>
@@ -995,7 +900,6 @@
       <notes>
         <note category="german">Ja, das sehe ich auch so. Ich meine, selbst wenn er als Hexendoktor nichts taugt, sehe ich ihn gerne in diesem lächerlichen Kostüm!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ja, das sehe ich auch so. Ich meine, selbst wenn er als Hexendoktor nichts taugt, sehe ich ihn gerne in diesem lächerlichen Kostüm!</source>
@@ -1006,7 +910,6 @@
       <notes>
         <note category="german">Aber wir brauchen einen Schamanen, das ist wichtig!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Aber wir brauchen einen Schamanen, das ist wichtig!</source>
@@ -1017,7 +920,6 @@
       <notes>
         <note category="german">Er jagt mir eine Heidenangst ein!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Er jagt mir eine Heidenangst ein!</source>
@@ -1028,7 +930,6 @@
       <notes>
         <note category="german">Kommt schon, so verzweifelt sind wir noch nicht!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Kommt schon, so verzweifelt sind wir noch nicht!</source>
@@ -1039,7 +940,6 @@
       <notes>
         <note category="german">Was genau ist überhaupt ein Schamane?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Was genau ist überhaupt ein Schamane?</source>
@@ -1050,7 +950,6 @@
       <notes>
         <note category="german">Ah, jetzt ist er durchgedreht. Die letzte Nacht auf der Wacht war wohl zu viel...</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ah, jetzt ist er durchgedreht. Die letzte Nacht auf der Wacht war wohl zu viel...</source>
@@ -1061,7 +960,6 @@
       <notes>
         <note category="german">Er ist unser Vertreter im Jenseits und Herr über unsere verdammten Seelen!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Er ist unser Vertreter im Jenseits und Herr über unsere verdammten Seelen!</source>
@@ -1083,7 +981,6 @@
       <notes>
         <note category="german">Er ist eigentlich genau wie du, nur nützlicher.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Er ist eigentlich genau wie du, nur nützlicher.</source>
@@ -1094,7 +991,6 @@
       <notes>
         <note category="german">Krasse Sache! Ein neuer Schamane!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Krasse Sache! Ein neuer Schamane!</source>
@@ -1105,7 +1001,6 @@
       <notes>
         <note category="german">Super, eine neue Wahl eines Schamanen!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Super, eine neue Wahl eines Schamanen!</source>
@@ -1116,7 +1011,6 @@
       <notes>
         <note category="german">Also ich schlage unseren Freund {voted} vor, der einfach soooo gerne redet.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Also ich schlage unseren Freund {voted} vor, der einfach soooo gerne redet.</source>
@@ -1127,7 +1021,6 @@
       <notes>
         <note category="german">Ich wusste schon immer, dass {voted} sich gerne verkleidet...</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ich wusste schon immer, dass {voted} sich gerne verkleidet...</source>
@@ -1138,7 +1031,6 @@
       <notes>
         <note category="german">Kann man gleichzeitig Ghul und Schamane sein?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Kann man gleichzeitig Ghul und Schamane sein?</source>
@@ -1149,7 +1041,6 @@
       <notes>
         <note category="german">Wie wäre es mit {voted}? Er hat immerhin vorhergesehen, dass {previous} etwas dämliches sagen wird...</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wie wäre es mit {voted}? Er hat immerhin vorhergesehen, dass {previous} etwas dämliches sagen wird...</source>
@@ -1160,7 +1051,6 @@
       <notes>
         <note category="german">Mit so einem Kopf wird er den bösen Blick auf sich ziehen!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Mit so einem Kopf wird er den bösen Blick auf sich ziehen!</source>
@@ -1171,7 +1061,6 @@
       <notes>
         <note category="german">Ruhe! Wir müssen dieses Treffen zum Ende bringen! Immerhin haben wir eine Stadt zu verteidigen! Der Schamane ist sowieso nur hier, um uns Hoffnung zu machen</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ruhe! Wir müssen dieses Treffen zum Ende bringen! Immerhin haben wir eine Stadt zu verteidigen! Der Schamane ist sowieso nur hier, um uns Hoffnung zu machen</source>
@@ -1182,7 +1071,6 @@
       <notes>
         <note category="german">Nun, da das erledigt ist, haben wir einen neuen Schamanen bekommen: {winner}!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Nun, da das erledigt ist, haben wir einen neuen Schamanen bekommen: {winner}!</source>
@@ -1193,7 +1081,6 @@
       <notes>
         <note category="german">Alles in allem wäre {voted} im Nachhinein betrachtet vielleicht eine bessere Wahl gewesen.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Alles in allem wäre {voted} im Nachhinein betrachtet vielleicht eine bessere Wahl gewesen.</source>
@@ -1204,7 +1091,6 @@
       <notes>
         <note category="german">Eigentlich wollte ich Schamane werden!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Eigentlich wollte ich Schamane werden!</source>
@@ -1215,7 +1101,6 @@
       <notes>
         <note category="german">Oh Mann, wir sind komplett im Arsch!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Oh Mann, wir sind komplett im Arsch!</source>
@@ -1226,7 +1111,6 @@
       <notes>
         <note category="german">Pff, der überlebt die Nacht doch eh nicht....</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Pff, der überlebt die Nacht doch eh nicht....</source>
@@ -1237,7 +1121,6 @@
       <notes>
         <note category="german">Lasst uns ihn aufhängen! Wer macht mit!?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Lasst uns ihn aufhängen! Wer macht mit!?</source>
@@ -1248,7 +1131,6 @@
       <notes>
         <note category="german">Wie buchstabiert man das eigentlich: Schamane oder Schamahne?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wie buchstabiert man das eigentlich: Schamane oder Schamahne?</source>
@@ -1259,7 +1141,6 @@
       <notes>
         <note category="german">Schaut doch mal, wie er schon jetzt angezogen ist... Wir werden den Unterschied gar nicht merken!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Schaut doch mal, wie er schon jetzt angezogen ist... Wir werden den Unterschied gar nicht merken!</source>
@@ -1270,7 +1151,6 @@
       <notes>
         <note category="german">Wenn wir so wählen, bist du der nächste Kandidat...</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wenn wir so wählen, bist du der nächste Kandidat...</source>
@@ -1292,7 +1172,6 @@
       <notes>
         <note category="german">Leck mich doch!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Leck mich doch!</source>
@@ -1314,7 +1193,6 @@
       <notes>
         <note category="german">Was ist ein Schaaaar Maaane?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Was ist ein Schaaaar Maaane?</source>
@@ -1325,7 +1203,6 @@
       <notes>
         <note category="german">{winner} ist zum Schamanen gewählt worden, seine zweifelhaften schamanischen Kräfte treten sofort in Kraft. Hoffentlich können sie den Bewohnern der Stadt helfen, ihr erbärmliches Schicksal zu meistern.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>{winner} ist zum Schamanen gewählt worden, seine zweifelhaften schamanischen Kräfte treten sofort in Kraft. Hoffentlich können sie den Bewohnern der Stadt helfen, ihr erbärmliches Schicksal zu meistern.</source>
@@ -1336,7 +1213,6 @@
       <notes>
         <note category="german">Wir brauchen einen neuen Reiseleiter für die Außenwelt im Eiltempo!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wir brauchen einen neuen Reiseleiter für die Außenwelt im Eiltempo!</source>
@@ -1347,7 +1223,6 @@
       <notes>
         <note category="german">Da unser geliebter Reiseleiter in der Außenwelt uns heute Nacht verlassen hat, müssen wir ab sofort einen neuen wählen.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Da unser geliebter Reiseleiter in der Außenwelt uns heute Nacht verlassen hat, müssen wir ab sofort einen neuen wählen.</source>
@@ -1358,7 +1233,6 @@
       <notes>
         <note category="german">Mit Traurigkeit und einem gewissen Sinn für Ironie beklagen wir den Verlust unseres Reiseleiters...</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Mit Traurigkeit und einem gewissen Sinn für Ironie beklagen wir den Verlust unseres Reiseleiters...</source>
@@ -1380,7 +1254,6 @@
       <notes>
         <note category="german">Wir brauchen einen guten Reiseleiter. Eine gute Reiseleitung ist wichtig.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wir brauchen einen guten Reiseleiter. Eine gute Reiseleitung ist wichtig.</source>
@@ -1391,7 +1264,6 @@
       <notes>
         <note category="german">Es ist ziemlich offensichtlich, dass die Navigation nach den Sternen Schwachsinn ist!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Es ist ziemlich offensichtlich, dass die Navigation nach den Sternen Schwachsinn ist!</source>
@@ -1402,7 +1274,6 @@
       <notes>
         <note category="german">Ich wäre gerne der Reiseleiter!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ich wäre gerne der Reiseleiter!</source>
@@ -1413,7 +1284,6 @@
       <notes>
         <note category="german">Was ist denn ein Speiseschreiter?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Was ist denn ein Speiseschreiter?</source>
@@ -1446,7 +1316,6 @@
       <notes>
         <note category="german">Sie sind wie dieser Hexendoktor, nur nützlicher!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Sie sind wie dieser Hexendoktor, nur nützlicher!</source>
@@ -1457,7 +1326,6 @@
       <notes>
         <note category="german">Ich werde dich rächen, Kumpel! Du musst mir nur den Zombie bringen, der dich erwischt hat, dann wirst du schon sehen!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ich werde dich rächen, Kumpel! Du musst mir nur den Zombie bringen, der dich erwischt hat, dann wirst du schon sehen!</source>
@@ -1468,7 +1336,6 @@
       <notes>
         <note category="german">Ich bin ein bisschen traurig... Ich werde den Kerl und seinen klapprigen alten Kompass vermissen.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ich bin ein bisschen traurig... Ich werde den Kerl und seinen klapprigen alten Kompass vermissen.</source>
@@ -1479,7 +1346,6 @@
       <notes>
         <note category="german">Oh, Mann! Ich habe ihm gesagt, dass er nach Osten gehen muss!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Oh, Mann! Ich habe ihm gesagt, dass er nach Osten gehen muss!</source>
@@ -1490,7 +1356,6 @@
       <notes>
         <note category="german">Eine neue Wahl zum Reiseleiter durch die Außenwelt!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Eine neue Wahl zum Reiseleiter durch die Außenwelt!</source>
@@ -1501,7 +1366,6 @@
       <notes>
         <note category="german">Nun, ich schlage vor, dass es unser lieber {voted} sein soll, er hat die malerischste kleine Hütte...</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Nun, ich schlage vor, dass es unser lieber {voted} sein soll, er hat die malerischste kleine Hütte...</source>
@@ -1512,7 +1376,6 @@
       <notes>
         <note category="german">Ich schlage vor, dass es nicht {voted} sein sollte, da es eine zu wichtige Rolle ist, um ein solches Risiko einzugehen.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ich schlage vor, dass es nicht {voted} sein sollte, da es eine zu wichtige Rolle ist, um ein solches Risiko einzugehen.</source>
@@ -1523,7 +1386,6 @@
       <notes>
         <note category="german">Ruhe! Wir müssen dieses Treffen zu Ende bringen! Wir haben eine große Wüste zu erforschen und keinen Reiseleiter, der uns hilft!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ruhe! Wir müssen dieses Treffen zu Ende bringen! Wir haben eine große Wüste zu erforschen und keinen Reiseleiter, der uns hilft!</source>
@@ -1534,7 +1396,6 @@
       <notes>
         <note category="german">So, jetzt haben wir ganz offiziell einen neuen Reiseleiter bestimmt: {winner}!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>So, jetzt haben wir ganz offiziell einen neuen Reiseleiter bestimmt: {winner}!</source>
@@ -1545,7 +1406,6 @@
       <notes>
         <note category="german">Hmmmm alles in allem wäre {voted} vielleicht die bessere Wahl gewesen...</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Hmmmm alles in allem wäre {voted} vielleicht die bessere Wahl gewesen...</source>
@@ -1567,7 +1427,6 @@
       <notes>
         <note category="german">Weis der überhaupt, wie man aus der Stadt kommt?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Weis der überhaupt, wie man aus der Stadt kommt?</source>
@@ -1600,7 +1459,6 @@
       <notes>
         <note category="german">Hurra für den Reiseleiter!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Hurra für den Reiseleiter!</source>
@@ -1611,7 +1469,6 @@
       <notes>
         <note category="german">Er hat schon vorher geprahlt.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Er hat schon vorher geprahlt.</source>
@@ -1622,7 +1479,6 @@
       <notes>
         <note category="german">Wir sind sowas von im Ar...</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wir sind sowas von im Ar...</source>
@@ -1633,11 +1489,98 @@
       <notes>
         <note category="german">{winner} wurde zum Reiseleiter gewählt. Hoffen wir, dass er uns aus diesem Schlamassel heraushelfen kann...</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>{winner} wurde zum Führer gewählt. Hoffen wir, dass er uns aus diesem Schlamassel heraushelfen kann...</source>
         <target>{winner} a été élu Guide de l'Outre-Monde, ses fonctions prennent effet immédiatement.</target>
+      </segment>
+    </unit>
+    <unit id="AraAi_U" name="Klar Einstein, Kopf oder Zahl zm eine Persion aus {_voted} auszuwählen.">
+      <notes>
+        <note category="german">Klar Einstein, Kopf oder Zahl zm eine Persion aus {_voted} auszuwählen.</note>
+        <note category="from">db://CouncilEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Klar Einstein, Kopf oder Zahl zm eine Persion aus {_voted} auszuwählen.</source>
+        <target>Klar Einstein, Kopf oder Zahl zm eine Persion aus {_voted} auszuwählen.</target>
+      </segment>
+    </unit>
+    <unit id="bz7XUkS">
+      <notes>
+        <note category="german">Gut, alles was ich jetzt noch zu tun habe ist mich selbst zum Schamanen zu wählen. Endlich gibt es mal ein einstimmiges Ergebnis.</note>
+        <note category="from">db://CouncilEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Gut, alles was ich jetzt noch zu tun habe ist mich selbst zum Schamanen zu wählen. Endlich gibt es mal ein einstimmiges Ergebnis.</source>
+        <target>Gut, alles was ich jetzt noch zu tun habe ist mich selbst zum Schamanen zu wählen. Endlich gibt es mal ein einstimmiges Ergebnis.</target>
+      </segment>
+    </unit>
+    <unit id="a1vKnRs">
+      <notes>
+        <note category="german">Gut, wenn niemand etwas dagegen einzuwenden hat, dann ernenne ich mich hiermit selbst zum Reiseleiter in der Außenwelt!</note>
+        <note category="from">db://CouncilEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Gut, wenn niemand etwas dagegen einzuwenden hat, dann ernenne ich mich hiermit selbst zum Reiseleiter in der Außenwelt!</source>
+        <target>Gut, wenn niemand etwas dagegen einzuwenden hat, dann ernenne ich mich hiermit selbst zum Reiseleiter in der Außenwelt!</target>
+      </segment>
+    </unit>
+    <unit id="wa_fviX">
+      <notes>
+        <note category="german">Niemand ist mehr in der Stadt, keiner kann diese Versammlung halten, daher überspringen wir die Wahl zum Schamanen.</note>
+        <note category="from">db://CouncilEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Niemand ist mehr in der Stadt, keiner kann diese Versammlung halten, daher überspringen wir die Wahl zum Schamanen.</source>
+        <target>Niemand ist mehr in der Stadt, keiner kann diese Versammlung halten, daher überspringen wir die Wahl zum Schamanen.</target>
+      </segment>
+    </unit>
+    <unit id="7IXrDK6">
+      <notes>
+        <note category="german">Niemand ist mehr in der Stadt, keiner kann diese Versammlung halten, daher überspringen wir die Wahl zum Reiseleiter in der Außenwelt.</note>
+        <note category="from">db://CouncilEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Niemand ist mehr in der Stadt, keiner kann diese Versammlung halten, daher überspringen wir die Wahl zum Reiseleiter in der Außenwelt.</source>
+        <target>Niemand ist mehr in der Stadt, keiner kann diese Versammlung halten, daher überspringen wir die Wahl zum Reiseleiter in der Außenwelt.</target>
+      </segment>
+    </unit>
+    <unit id="kSlgIIW" name="Allen steht die Erschöpfung ins Gesicht geschrieben.">
+      <notes>
+        <note category="german">Allen steht die Erschöpfung ins Gesicht geschrieben.</note>
+        <note category="from">db://CouncilEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Allen steht die Erschöpfung ins Gesicht geschrieben.</source>
+        <target>Allen steht die Erschöpfung ins Gesicht geschrieben.</target>
+      </segment>
+    </unit>
+    <unit id="OTSv8r.">
+      <notes>
+        <note category="german">Wir ziehen Strohhalme, wie wir es immer machen. Der Kürzeste gewinnt. Kommt schon, kommt und zieht einen Stohhalm.</note>
+        <note category="from">db://CouncilEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Wir ziehen Strohhalme, wie wir es immer machen. Der Kürzeste gewinnt. Kommt schon, kommt und zieht einen Stohhalm.</source>
+        <target>Wir ziehen Strohhalme, wie wir es immer machen. Der Kürzeste gewinnt. Kommt schon, kommt und zieht einen Stohhalm.</target>
+      </segment>
+    </unit>
+    <unit id="0LsI1XY">
+      <notes>
+        <note category="german">OK, es sind nicht mehr viele von uns übrig, also lasst uns das schnell hinter uns bringen.</note>
+        <note category="from">db://CouncilEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>OK, es sind nicht mehr viele von uns übrig, also lasst uns das schnell hinter uns bringen.</source>
+        <target>OK, es sind nicht mehr viele von uns übrig, also lasst uns das schnell hinter uns bringen.</target>
       </segment>
     </unit>
   </file>

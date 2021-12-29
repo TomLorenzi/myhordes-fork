@@ -2054,7 +2054,8 @@ class GazetteEntryTemplateFixtures extends Fixture
                 CouncilEntryTemplate::CouncilRootNodeShamanStrawResultAny,
                 CouncilEntryTemplate::CouncilRootNodeShamanStrawResultResponseAny,
                 CouncilEntryTemplate::CouncilRootNodeShamanFinalAny,
-            ]
+            ],
+            'variables' => [ 'config' => [ '_mc_constraint' => ['from' => '_mc'], '_winner_constraint' => ['from' => '_winner'], '_council' => ['from' => '_council?'] ] ]
         ],
         
         'shaman_root_next' => [
@@ -2072,7 +2073,37 @@ class GazetteEntryTemplateFixtures extends Fixture
                 CouncilEntryTemplate::CouncilRootNodeShamanStrawResultAny,
                 CouncilEntryTemplate::CouncilRootNodeShamanStrawResultResponseAny,
                 CouncilEntryTemplate::CouncilRootNodeShamanFinalAny,
+            ],
+            'variables' => [ 'config' => [ '_mc_constraint' => ['from' => '_mc'], '_winner_constraint' => ['from' => '_winner'], '_council' => ['from' => '_council?'] ] ]
+        ],
+
+        'shaman_root_single' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeRootShamanSingle, 'mode' => CouncilEntryTemplate::CouncilBranchModeStructured,
+            'branches' => [
+                CouncilEntryTemplate::CouncilRootNodeShamanIntroSingle,
+                CouncilEntryTemplate::CouncilRootNodeShamanFinalAny,
+            ],
+            'variables' => [ 'config' => [ '_winner_constraint' => ['from' => '_winner'] ] ]
+        ],
+
+        'shaman_root_none' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeRootShamanNone, 'mode' => CouncilEntryTemplate::CouncilBranchModeStructured,
+            'branches' => [
+                CouncilEntryTemplate::CouncilRootNodeShamanIntroNone,
             ]
+        ],
+
+        'shaman_root_few' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeRootShamanFew, 'mode' => CouncilEntryTemplate::CouncilBranchModeStructured,
+            'branches' => [
+                CouncilEntryTemplate::CouncilRootNodeShamanIntroFew,
+                CouncilEntryTemplate::CouncilRootNodeShamanIntroFew2,
+                CouncilEntryTemplate::CouncilRootNodeShamanStrawFew,
+                CouncilEntryTemplate::CouncilRootNodeShamanStrawResultAny,
+                CouncilEntryTemplate::CouncilRootNodeShamanStrawResultResponseAny,
+                CouncilEntryTemplate::CouncilRootNodeShamanFinalAny,
+            ],
+            'variables' => [ 'config' => [ '_mc_constraint' => ['from' => '_mc'], '_winner_constraint' => ['from' => '_winner'], '_council' => ['from' => '_council?'] ] ]
         ],
 
         'guide_root_first' => [
@@ -2090,7 +2121,8 @@ class GazetteEntryTemplateFixtures extends Fixture
                 CouncilEntryTemplate::CouncilRootNodeGuideStrawResultAny,
                 CouncilEntryTemplate::CouncilRootNodeGuideStrawResultResponseAny,
                 CouncilEntryTemplate::CouncilRootNodeGuideFinalAny,
-            ]
+            ],
+            'variables' => [ 'config' => [ '_mc_constraint' => ['from' => '_mc'], '_winner_constraint' => ['from' => '_winner'], '_council' => ['from' => '_council?'] ] ]
         ],
 
         'guide_root_next' => [
@@ -2108,12 +2140,47 @@ class GazetteEntryTemplateFixtures extends Fixture
                 CouncilEntryTemplate::CouncilRootNodeGuideStrawResultAny,
                 CouncilEntryTemplate::CouncilRootNodeGuideStrawResultResponseAny,
                 CouncilEntryTemplate::CouncilRootNodeGuideFinalAny,
+            ],
+            'variables' => [ 'config' => [ '_mc_constraint' => ['from' => '_mc'], '_winner_constraint' => ['from' => '_winner'], '_council' => ['from' => '_council?'] ] ]
+        ],
+
+        'guide_root_single' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeRootGuideSingle, 'mode' => CouncilEntryTemplate::CouncilBranchModeStructured,
+            'branches' => [
+                CouncilEntryTemplate::CouncilRootNodeGuideIntroSingle,
+                CouncilEntryTemplate::CouncilRootNodeShamanFinalAny,
+            ],
+            'variables' => [ 'config' => [ '_winner_constraint' => ['from' => '_winner'] ] ]
+        ],
+
+        'guide_root_none' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeRootGuideNone, 'mode' => CouncilEntryTemplate::CouncilBranchModeStructured,
+            'branches' => [
+                CouncilEntryTemplate::CouncilRootNodeGuideIntroNone,
             ]
+        ],
+
+        'guide_root_few' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeRootGuideFew, 'mode' => CouncilEntryTemplate::CouncilBranchModeStructured,
+            'branches' => [
+                CouncilEntryTemplate::CouncilRootNodeGuideIntroFew,
+                CouncilEntryTemplate::CouncilRootNodeGuideIntroFew2,
+                CouncilEntryTemplate::CouncilRootNodeGuideStrawFew,
+                CouncilEntryTemplate::CouncilRootNodeGuideStrawResultAny,
+                CouncilEntryTemplate::CouncilRootNodeGuideStrawResultResponseAny,
+                CouncilEntryTemplate::CouncilRootNodeGuideFinalAny,
+            ],
+            'variables' => [ 'config' => [ '_mc_constraint' => ['from' => '_mc'], '_winner_constraint' => ['from' => '_winner'], '_council' => ['from' => '_council?'] ] ]
         ],
 
         'generic_root_mc_intro' => [
             'semantic' => CouncilEntryTemplate::CouncilRootNodeGenericMCIntro, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
             'branches' => [CouncilEntryTemplate::CouncilNodeGenericMCIntro]
+        ],
+
+        'shaman_root_intro_few2' => [
+            'semantic' => CouncilEntryTemplate::CouncilRootNodeShamanIntroFew2, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branches' => [CouncilEntryTemplate::CouncilNodeGenericIntroFew]
         ],
 
         'shaman_root_intro_first' => [
@@ -2124,6 +2191,21 @@ class GazetteEntryTemplateFixtures extends Fixture
         'shaman_root_intro_next' => [
             'semantic' => CouncilEntryTemplate::CouncilRootNodeShamanIntroNext, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
             'branches' => [CouncilEntryTemplate::CouncilNodeShamanIntroNext]
+        ],
+
+        'shaman_root_intro_single' => [
+            'semantic' => CouncilEntryTemplate::CouncilRootNodeShamanIntroSingle, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branches' => [CouncilEntryTemplate::CouncilNodeShamanIntroSingle]
+        ],
+
+        'shaman_root_intro_none' => [
+            'semantic' => CouncilEntryTemplate::CouncilRootNodeShamanIntroNone, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branches' => [CouncilEntryTemplate::CouncilNodeShamanIntroNone]
+        ],
+
+        'shaman_root_intro_few' => [
+            'semantic' => CouncilEntryTemplate::CouncilRootNodeShamanIntroFew, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branches' => [CouncilEntryTemplate::CouncilNodeShamanIntroFew]
         ],
 
         'shaman_root_follow_up_first' => [
@@ -2156,6 +2238,11 @@ class GazetteEntryTemplateFixtures extends Fixture
             'branches' => [CouncilEntryTemplate::CouncilNodeShamanStrawAny,CouncilEntryTemplate::CouncilNodeGenericStrawAny]
         ],
 
+        'shaman_root_straw_few' => [
+            'semantic' => CouncilEntryTemplate::CouncilRootNodeShamanStrawFew, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branches' => [CouncilEntryTemplate::CouncilNodeShamanStrawFew,CouncilEntryTemplate::CouncilNodeGenericStrawFew]
+        ],
+
         'shaman_root_straw_response' => [
             'semantic' => CouncilEntryTemplate::CouncilRootNodeShamanStrawResponseAny, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
             'branch_count' => [1,2], 'branches' => [CouncilEntryTemplate::CouncilNodeShamanStrawResponseAny,CouncilEntryTemplate::CouncilNodeGenericStrawResponseAny]
@@ -2181,6 +2268,11 @@ class GazetteEntryTemplateFixtures extends Fixture
             'branches' => [CouncilEntryTemplate::CouncilNodeShamanFinalAny]
         ],
 
+        'guide_root_intro_few2' => [
+            'semantic' => CouncilEntryTemplate::CouncilRootNodeGuideIntroFew2, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branches' => [CouncilEntryTemplate::CouncilNodeGenericIntroFew]
+        ],
+
         'guide_root_intro_first' => [
             'semantic' => CouncilEntryTemplate::CouncilRootNodeGuideIntroFirst, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
             'branches' => [CouncilEntryTemplate::CouncilNodeGuideIntroFirst]
@@ -2189,6 +2281,21 @@ class GazetteEntryTemplateFixtures extends Fixture
         'guide_root_intro_next' => [
             'semantic' => CouncilEntryTemplate::CouncilRootNodeGuideIntroNext, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
             'branches' => [CouncilEntryTemplate::CouncilNodeGuideIntroNext]
+        ],
+
+        'guide_root_intro_single' => [
+            'semantic' => CouncilEntryTemplate::CouncilRootNodeGuideIntroSingle, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branches' => [CouncilEntryTemplate::CouncilNodeGuideIntroSingle]
+        ],
+
+        'guide_root_intro_none' => [
+            'semantic' => CouncilEntryTemplate::CouncilRootNodeGuideIntroNone, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branches' => [CouncilEntryTemplate::CouncilNodeGuideIntroNone]
+        ],
+
+        'guide_root_intro_few' => [
+            'semantic' => CouncilEntryTemplate::CouncilRootNodeGuideIntroFew, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branches' => [CouncilEntryTemplate::CouncilNodeGuideIntroFew]
         ],
 
         'guide_root_follow_up_first' => [
@@ -2219,6 +2326,11 @@ class GazetteEntryTemplateFixtures extends Fixture
         'guide_root_straw' => [
             'semantic' => CouncilEntryTemplate::CouncilRootNodeGuideStrawAny, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
             'branches' => [CouncilEntryTemplate::CouncilNodeGuideStrawAny,CouncilEntryTemplate::CouncilNodeGenericStrawAny]
+        ],
+
+        'guide_root_straw_few' => [
+            'semantic' => CouncilEntryTemplate::CouncilRootNodeGuideStrawFew, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
+            'branches' => [CouncilEntryTemplate::CouncilNodeGuideStrawFew,CouncilEntryTemplate::CouncilNodeGenericStrawFew]
         ],
 
         'guide_root_straw_response' => [
@@ -2302,6 +2414,16 @@ class GazetteEntryTemplateFixtures extends Fixture
             'semantic' => CouncilEntryTemplate::CouncilNodeGenericMCIntro,
             'text' => 'Hört an, hört an!', // Hear ye hear ye!
             'variables' => [ 'config' => [ 'main' => ['from' => '_mc'] ] ]
+        ],
+
+        'generic_intro_few_001' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericIntroFew, 'vocal' => false,
+            'text' => 'Allen steht die Erschöpfung ins Gesicht geschrieben.', // Fatigue on the other hand is front and center...
+        ],
+        // THIS IS AN INTENTIONAL DUPLICATE! DO NOT REMOVE IT!
+        'generic_intro_few_002' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericIntroFew, 'vocal' => false,
+            'text' => 'Allen steht die Erschöpfung ins Gesicht geschrieben.', // Fatigue on the other hand is front and center...
         ],
 
         'generic_vote_001' => [
@@ -2571,6 +2693,12 @@ class GazetteEntryTemplateFixtures extends Fixture
             'variables' => [ 'config' => [ 'main' => ['from' => '_mc'] ] ]
         ],
 
+        'generic_straw_few_001' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericStrawFew,
+            'text' => 'Wir ziehen Strohhalme, wie wir es immer machen. Der Kürzeste gewinnt. Kommt schon, kommt und zieht einen Stohhalm.', // We'll do the straw like we usually do. Shorts straw gets it. Come on now, come pick a straw.
+            'variables' => [ 'config' => [ 'main' => ['from' => '_mc'] ] ]
+        ],
+
         'generic_straw_init_001' => [
             'semantic' => CouncilEntryTemplate::CouncilNodeGenericStrawInitAny,
             'text' => 'Ok, jeder nimmt sich einen Strohhalm.', // Ok everyone come take a straw.
@@ -2590,8 +2718,8 @@ class GazetteEntryTemplateFixtures extends Fixture
             'variables' => [ 'config' => [ 'main' => ['from' => '_council?'] ] ]
         ],
         'generic_straw_response_001_r001' => [
-            'text' => 'Klar Einstein, Kopf oder Zahl zm eine Persion aus 34 auszuwählen.', // Yeah genius, heads or tales to pick 1 person out of 34.
-            'variables' => [ 'config' => [ 'main' => ['from' => '_council?'] ] ]
+            'text' => 'Klar Einstein, Kopf oder Zahl zm eine Persion aus {_voted} auszuwählen.', // Yeah genius, heads or tales to pick 1 person out of 34.
+            'variables' => [ 'types' => [['type'=>"num", 'name'=>'_voted']], 'config' => [ 'main' => ['from' => '_council?'], '_constraint_vote3_1' => ['from' => '_voted'], '_constraint_vote3_2' => ['from' => '_voted'], '_constraint_vote3_3' => ['from' => '_voted'] ] ]
         ],
         'generic_straw_response_001_r002' => [
             'text' => 'Hast du denn eine Münze?', // Have you got a coin?
@@ -2717,6 +2845,23 @@ class GazetteEntryTemplateFixtures extends Fixture
         'shaman_intro_next_003' => [
             'semantic' => CouncilEntryTemplate::CouncilNodeShamanIntroNext,
             'text' => 'Wir alle wissen ja, wie das enden wird, zumindest die meisten von uns... Wir sollten also einen neuen Schamanen wählen, damit er sich um unsere Seelen kümmern und den letzten ersetzen kann, der, wie ich sagen muss, ein verdammt guter Voodooman war!', // Now we all know how this gonna end, least most of us do... So T say we elect a new shaman so that he can take care of our souls and replace the last one, who was, I have to say, one hell of a voodooman!
+            'variables' => [ 'config' => [ 'main' => ['from' => '_mc'] ] ]
+        ],
+
+        'shaman_intro_single_001' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeShamanIntroSingle,
+            'text' => 'Gut, alles was ich jetzt noch zu tun habe ist mich selbst zum Schamanen zu wählen. Endlich gibt es mal ein einstimmiges Ergebnis.', // Bon, il ne me reste plus qu'à m'élire Chaman, pour une fois qu'il y a unanimité !
+            'variables' => [ 'config' => [ 'main' => ['from' => '_winner'] ] ]
+        ],
+
+        'shaman_intro_none_001' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeShamanIntroNone, 'vocal' => false,
+            'text' => 'Niemand ist mehr in der Stadt, keiner kann diese Versammlung halten, daher überspringen wir die Wahl zum Schamanen.', // There is noone left in town, noone to hold this assembly, so today we're just going to skip the election of the Shaman
+        ],
+
+        'shaman_intro_few_001' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeShamanIntroFew,
+            'text' => 'OK, es sind nicht mehr viele von uns übrig, also lasst uns das schnell hinter uns bringen.', // OK, there's not many of us left, so let's get this over and done with.
             'variables' => [ 'config' => [ 'main' => ['from' => '_mc'] ] ]
         ],
 
@@ -2911,6 +3056,23 @@ class GazetteEntryTemplateFixtures extends Fixture
         'guide_intro_next_003' => [
             'semantic' => CouncilEntryTemplate::CouncilNodeGuideIntroNext,
             'text' => 'Unser Reiseleiter hat sich gestern Abend irgendwie verlaufen und kommt nicht mehr zurück! Wer möchte ihn also ersetzen?', // Our Guide somehow managed to get lost last night, and he ain't coming back! So who wants to replace him?
+            'variables' => [ 'config' => [ 'main' => ['from' => '_mc'] ] ]
+        ],
+
+        'guide_intro_single_001' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGuideIntroSingle,
+            'text' => 'Gut, wenn niemand etwas dagegen einzuwenden hat, dann ernenne ich mich hiermit selbst zum Reiseleiter in der Außenwelt!', // Bon, puisque tout le monde est d'accord, je me prononce Guide de l'Outre-Monde
+            'variables' => [ 'config' => [ 'main' => ['from' => '_winner'] ] ]
+        ],
+
+        'guide_intro_none_001' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGuideIntroNone, 'vocal' => false,
+            'text' => 'Niemand ist mehr in der Stadt, keiner kann diese Versammlung halten, daher überspringen wir die Wahl zum Reiseleiter in der Außenwelt.', // There is noone left in town, noone to hold this assembly, so today we're just going to skip the election of the Guide to the World Beyond
+        ],
+
+        'guide_intro_few_001' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGuideIntroFew,
+            'text' => 'OK, es sind nicht mehr viele von uns übrig, also lasst uns das schnell hinter uns bringen.', // OK, there's not many of us left, so let's get this over and done with.
             'variables' => [ 'config' => [ 'main' => ['from' => '_mc'] ] ]
         ],
 
