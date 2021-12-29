@@ -18153,7 +18153,7 @@
       </notes>
       <segment>
         <source>Deine Stadt "{town}" wurde von einem Administrator negiert. Die Stadt wird nicht im Ranking oder auf deiner Seele erscheinen und du bekommst für sie keine Seelenpunkte oder Auszeichnungen.</source>
-        <target>Votre ville "{town}" a été annulée par un administrateur. La ville n'apparaîtra pas dans le classement ou sur votre âme et vous n'obtiendrez pas de points d'âme ou de récompenses pour elle.</target>
+        <target>Votre ville "{town}" a été annulée par un administrateur. La ville n'apparaîtra pas dans le classement ou sur votre âme et vous n'obtiendrez pas de points d'âme ou de récompenses pour celle-ci.</target>
       </segment>
     </unit>
     <unit id="J4srRkJ">
@@ -18163,7 +18163,7 @@
       </notes>
       <segment>
         <source>Deine Stadt "{town}" wurde automatisch negiert, da sie sich nicht rechtzeitig gefüllt hat. Die Stadt wird nicht im Ranking oder auf deiner Seele erscheinen und du bekommst für sie keine Seelenpunkte oder Auszeichnungen.</source>
-        <target>Votre ville "{town}" a été automatiquement annulée car elle ne s'est pas remplie à temps. La ville n'apparaîtra pas dans le classement ou sur votre âme et vous n'obtiendrez pas de points d'âme ou de récompenses pour elle.</target>
+        <target>Votre ville "{town}" a été automatiquement annulée car elle ne s'est pas remplie à temps. La ville n'apparaîtra pas dans le classement ou sur votre âme et vous n'obtiendrez pas de points d'âme ou de récompenses pour celle-ci.</target>
       </segment>
     </unit>
     <unit id="XceTiLp">
