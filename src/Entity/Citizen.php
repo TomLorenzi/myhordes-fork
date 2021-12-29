@@ -305,6 +305,11 @@ class Citizen
         $this->visitedZones = new ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return $this->getId() ? "Citizen#{$this->getId()}" : "Citizen##{$this->getUser()->getId()}#{$this->getTown()->getId()}";
+    }
+
     public function getId(): ?int
     {
         return $this->id;

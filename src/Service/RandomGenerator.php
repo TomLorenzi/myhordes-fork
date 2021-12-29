@@ -26,6 +26,7 @@ class RandomGenerator
     }
 
     /**
+     * Randomly selects N elements from an array
      * @param array $a
      * @param int $num
      * @param bool $force_array
@@ -36,6 +37,22 @@ class RandomGenerator
         elseif ($num === 1) return $force_array ? [$a[ array_rand($a, 1) ]] : $a[ array_rand($a, 1) ];
         elseif (count($a) === 1) return array_values($a);
         else return array_map( function($k) use (&$a) { return $a[$k]; }, array_rand( $a, min($num,count($a)) ) );
+    }
+
+    /**
+     * Randomly selects N elements from an array and removes these elements from the array.
+     * @param array $a
+     * @param int $num
+     * @param bool $force_array
+     * @return mixed|array|null
+     */
+    function draw( array &$a, int $num = 1, bool $force_array = false ) {
+        $pick = $this->pick( $a, $num, $force_array );
+        foreach ((is_array($pick) ? $pick : [$pick]) as $picked) {
+            $index = array_search( $picked, $a, true );
+            if ($index !== false) unset($a[$index]);
+        }
+        return $pick;
     }
 
     function pickEntryFromRawRandomArray( array $g ) {

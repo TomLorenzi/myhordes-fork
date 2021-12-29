@@ -9,6 +9,7 @@ use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
 use App\Entity\CitizenVote;
 use App\Entity\CitizenWatch;
+use App\Entity\CouncilEntryTemplate;
 use App\Entity\DigRuinMarker;
 use App\Entity\EscapeTimer;
 use App\Entity\Gazette;
@@ -1495,9 +1496,17 @@ class NightlyHandler
                     if ($citizen->getAlive()) $votes[$citizen->getId()] = 0;
             }
 
+            $partition = [
+                '_council?' => [],
+                'voted' => [],
+                '_winner' => [],
+            ];
+
             foreach ($citizens as $citizen) {
                 // Dead citizen cannot vote
                 if(!$citizen->getAlive()) continue;
+
+                $partition['_council?'][] = $citizen;
 
                 $voted = $this->entity_manager->getRepository(CitizenVote::class)->findOneBy(['autor' => $citizen, 'role' => $role]); //findOneByCitizenAndRole($citizen, $role);
                 /** @var CitizenVote $voted */
@@ -1507,8 +1516,11 @@ class NightlyHandler
                     $vote_for_id = $this->random->pick(array_keys($votes), 1);
                     $votes[$vote_for_id]++;
 
-                    $this->log->debug("Citizen {$citizen->getName()} then voted for citizen " . $this->entity_manager->getRepository(Citizen::class)->find($vote_for_id)->getName());
+                    $voted_for = $this->entity_manager->getRepository(Citizen::class)->find($vote_for_id);
+                    $partition['voted'][$voted_for->getId()] = $voted_for;
+                    $this->log->debug("Citizen {$citizen->getName()} then voted for citizen " . $voted_for->getName());
                 } else {
+                    $partition['voted'][$voted->getVotedCitizen()->getId()] = $voted->getVotedCitizen();
                     $this->log->debug("Citizen {$citizen->getName()} voted for {$voted->getVotedCitizen()->getName()}");
                 }
             }
@@ -1530,6 +1542,26 @@ class NightlyHandler
                 $this->log->info( "Citizen <info>{$winningCitizen->getUser()->getUsername()}</info> has been elected as <info>{$role->getLabel()}</info>." );
                 $this->citizen_handler->addRole($winningCitizen, $role);
                 $this->entity_manager->persist($winningCitizen);
+
+                $partition['_winner'] = [$winningCitizen];
+
+                $partition['_council?'] = array_diff( $partition['_council?'], array_slice($partition['voted'], 0, max(0,count($partition['_council?']) - 7)), $partition['_winner'] );
+                $partition['voted'] = array_diff( $partition['voted'], $partition['_winner'] );
+                shuffle($partition['_council?']);
+                shuffle($partition['voted']);
+
+                if (!empty($partition['_council?']))
+                    $partition['_mc'] = [ array_pop( $partition['_council?'] ) ];
+
+                switch ($role->getName()) {
+                    case 'shaman':
+                        $this->gazette_service->generateCouncilNodeList( $town, $town->getDay(), $this->entity_manager->getRepository(Citizen::class)->findLastOneByRoleAndTown($role, $town) ? CouncilEntryTemplate::CouncilNodeRootShamanNext : CouncilEntryTemplate::CouncilNodeRootShamanFirst, $partition );
+                        break;
+                    case 'guide':
+                        $this->gazette_service->generateCouncilNodeList( $town, $town->getDay(), $this->entity_manager->getRepository(Citizen::class)->findLastOneByRoleAndTown($role, $town) ? CouncilEntryTemplate::CouncilNodeRootGuideNext : CouncilEntryTemplate::CouncilNodeRootGuideFirst, $partition );
+                        break;
+                }
+
             }
 
             // we remove the votes

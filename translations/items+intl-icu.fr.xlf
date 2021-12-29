@@ -228,7 +228,7 @@
       </notes>
       <segment>
         <source>Verstellbarer Schraubenschlüssel</source>
-        <target>Clef à Molette</target>
+        <target>Clé à Molette</target>
       </segment>
     </unit>
     <unit id="xKt9A2O" name="Schraubenzieher">
@@ -7812,7 +7812,7 @@
       </notes>
       <segment>
         <source>Logbuch Schokolade</source>
-        <target>Bûche en chocolat</target>
+        <target>Bûche de Noël</target>
       </segment>
     </unit>
     <unit id="WSBb1y.">
@@ -9402,7 +9402,6 @@
       <notes>
         <note category="german">Dir fällt kein Grund ein, dies zu tun...</note>
         <note category="from">db://Requirement</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Dir fällt kein Grund ein, dies zu tun...</source>
