@@ -723,7 +723,7 @@ class GazetteService
         if (!isset(static::$node_block_ord[$cache_key]))   static::$node_block_ord[$cache_key] = 0;
 
         foreach ( $this->entity_manager->getRepository(CouncilEntry::class)->findBy(['town' => $town, 'day' => $day]) as $previous_node) {
-            static::$node_block_cache[$cache_key][] = $previous_node->getTemplate();
+            if ($previous_node->getTemplate()->getText() !== null) static::$node_block_cache[$cache_key][] = $previous_node->getTemplate();
             static::$node_block_ord[$cache_key] = max(static::$node_block_ord[$cache_key], $previous_node->getOrd());
         }
 
@@ -772,7 +772,7 @@ class GazetteService
 
                         foreach ($cache as $name => $count)
                             if (!isset( $variable_stack_copy[$name] ) || count($variable_stack_copy[$name]) < $count) {
-                                $cc = isset( $variable_stack_copy[$name] ) ? count($variable_stack_copy[$name]) : 0;
+                                //$cc = isset( $variable_stack_copy[$name] ) ? count($variable_stack_copy[$name]) : 0;
                                 //echo "REJECTING {$template->getName()}: Insufficient group members ($name has {$cc}, needs {$count}).\n";
                                 return false;
                             }
@@ -783,7 +783,8 @@ class GazetteService
             );
 
             if ($node) {
-                static::$node_block_cache[$cache_key][] = $node;
+                if ($node->getText() !== null)
+                    static::$node_block_cache[$cache_key][] = $node;
 
                 $variables = []; $main_citizen = null;
                 foreach ($node->getVariableDefinitions() as $name => $def) {

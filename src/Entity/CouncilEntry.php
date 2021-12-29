@@ -11,7 +11,6 @@ use Doctrine\ORM\Mapping\UniqueConstraint;
  * @ORM\Entity(repositoryClass=CouncilEntryRepository::class)
  * @Table(uniqueConstraints={
  *     @UniqueConstraint(name="council_entry_ord_unique",columns={"town_id","ord","day"}),
- *     @UniqueConstraint(name="council_entry_template_unique",columns={"town_id","template_id","day"}),
  * })
  */
 class CouncilEntry

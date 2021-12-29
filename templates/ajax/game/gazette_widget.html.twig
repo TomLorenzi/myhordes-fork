@@ -134,3 +134,21 @@
         {% endif %}
     </div>
 </div>
+<div id="gazette-switcher"><label class="button" for="gazette-switch">{{ 'Umdrehen'|trans({}, 'game') }}</label></div>
+{% if council is defined and council is not empty %}
+    <h1 class="page-head">{{ 'Stadtrat'|trans({},'game') }}</h1>
+    <div class="center">
+        <div id="council">
+            <img class="council-big hide-md hide-sm" alt="" src="{{ council|length < 30 ? asset('build/images/background/council_white.gif') : asset('build/images/background/council_white_big.gif') }}" >
+            <img class="council-small hide-desktop hide-lg" alt="" src="{{ asset('build/images/background/council_white.gif') }}" >
+            <div>
+                {% for council_item in council %}
+                    <div class="{% if not council_item[1] %}status{% endif %}">
+                        {% if council_item[1] %}<span class="author color-{{ council_item[1].id % 10 }}">{{ council_item[1].name }}</span>{% endif %}
+                        {{ council_item[0]|raw }}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endif %}

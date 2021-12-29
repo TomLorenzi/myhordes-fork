@@ -7,6 +7,7 @@ use App\Entity\ActionCounter;
 use App\Entity\Citizen;
 use App\Entity\CitizenProfession;
 use App\Entity\CauseOfDeath;
+use App\Entity\CouncilEntry;
 use App\Entity\HeroicActionPrototype;
 use App\Entity\HeroSkillPrototype;
 use App\Entity\ItemPrototype;
@@ -178,7 +179,10 @@ class GameController extends CustomAbstractController
             'log' => $show_register ? $this->renderLog( -1, null, false, null, 50 )->getContent() : "",
             'gazette' => $this->gazette_service->renderGazette($town),
             'citizensWithRole' => $citizensWithRole,
-            'town' => $town
+            'town' => $town,
+            'council' => array_map( fn(CouncilEntry $c) => [$this->gazette_service->parseCouncilLog( $c ), $c->getCitizen()], array_filter( $this->entity_manager->getRepository(CouncilEntry::class)->findBy(['town' => $town, 'day' => $town->getDay()], ['ord' => 'ASC']),
+                fn(CouncilEntry $c) => ($c->getTemplate() && $c->getTemplate()->getText() !== null)
+            ))
         ]));
     }
 
