@@ -134,11 +134,10 @@
       <notes>
         <note category="german">Ich stimme für {voted}.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ich stimme für {voted}.</source>
-        <target>Ich stimme für {voted}.</target>
+        <target>Yo voto por {voted}.</target>
       </segment>
     </unit>
     <unit id="10GRG9l">
@@ -178,11 +177,10 @@
       <notes>
         <note category="german">Können wir jetzt endlich jemanden auswählen? Ich will mich hinhauen!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Können wir jetzt endlich jemanden auswählen? Ich will mich hinhauen!</source>
-        <target>Können wir jetzt endlich jemanden auswählen? Ich will mich hinhauen!</target>
+        <target>¿Podemos decidirnos de una vez? ¡Quiero ir a mi fregada cama!</target>
       </segment>
     </unit>
     <unit id="vJx7d.D" name="Wenn wir diesen Raum neu dekorieren würden...">
@@ -233,11 +231,10 @@
       <notes>
         <note category="german">Hat jemand gerade einen Jugendlichen vorbeigehen sehen?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Hat jemand gerade einen Jugendlichen vorbeigehen sehen?</source>
-        <target>Hat jemand gerade einen Jugendlichen vorbeigehen sehen?</target>
+        <target>¿Alguien acaba de ver a un joven irse por ahí?</target>
       </segment>
     </unit>
     <unit id="by47yGF" name="+1 !">
@@ -494,7 +491,6 @@
       <notes>
         <note category="german">looooooooool</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>looooooooool</source>
@@ -667,11 +663,10 @@
       <notes>
         <note category="german">Ok, jeder nimmt sich einen Strohhalm.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ok, jeder nimmt sich einen Strohhalm.</source>
-        <target>Ok, jeder nimmt sich einen Strohhalm.</target>
+        <target>Que todo el mundo coja una pajita.</target>
       </segment>
     </unit>
     <unit id="MOrsXAO" name="Warum werfen wir zur Abwechslung nicht mal eine Münze?">
@@ -894,11 +889,10 @@
       <notes>
         <note category="german">Solange er zumindest ein paar Tage durchhält... Ich möchte dieses Treffen nicht jeden Morgen wiederholen müssen!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Solange er zumindest ein paar Tage durchhält... Ich möchte dieses Treffen nicht jeden Morgen wiederholen müssen!</source>
-        <target>Solange er zumindest ein paar Tage durchhält... Ich möchte dieses Treffen nicht jeden Morgen wiederholen müssen!</target>
+        <target>Mientras él dure un par de días... ¡No quiero volver a tener esta situación todas las mañanas!</target>
       </segment>
     </unit>
     <unit id="SghNFwc" name="Ich wusste es!">
@@ -1121,11 +1115,10 @@
       <notes>
         <note category="german">Wie wäre es mit {voted}? Er hat immerhin vorhergesehen, dass {previous} etwas dämliches sagen wird...</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wie wäre es mit {voted}? Er hat immerhin vorhergesehen, dass {previous} etwas dämliches sagen wird...</source>
-        <target>Wie wäre es mit {voted}? Er hat immerhin vorhergesehen, dass {previous} etwas dämliches sagen wird...</target>
+        <target>¿Por qué no {voted}? Él predijo que {previous} iba a decir algo estúpido...</target>
       </segment>
     </unit>
     <unit id="jXuJK7h" name="Mit so einem Kopf wird er den bösen Blick auf sich ziehen!">
@@ -1173,11 +1166,10 @@
       <notes>
         <note category="german">Eigentlich wollte ich Schamane werden!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Eigentlich wollte ich Schamane werden!</source>
-        <target>Eigentlich wollte ich Schamane werden!</target>
+        <target>¡Yo quiero ser el Hombre, quiero ser el Chamán!</target>
       </segment>
     </unit>
     <unit id="H4KhFnC" name="Oh Mann, wir sind komplett im Arsch!">
