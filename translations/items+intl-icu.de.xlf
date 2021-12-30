@@ -5851,5 +5851,11 @@
         <target>Wenn du den Plan studieren willst, musst du in die relative Ruhe der Stadt zurückkehren.</target>
       </segment>
     </unit>
+    <unit id="E62nAap" name="Du musst mindestens 3 Kilometer von der Stadt entfernt sein, um das zu tun.">
+      <segment>
+        <source>Du musst mindestens 3 Kilometer von der Stadt entfernt sein, um das zu tun.</source>
+        <target>Du musst mindestens 3 Kilometer von der Stadt entfernt sein, um das zu tun.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

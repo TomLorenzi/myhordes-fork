@@ -9398,5 +9398,16 @@
         <target>Debes encontrarte cómodo, en el pueblo, para estudiar ese plano.</target>
       </segment>
     </unit>
+    <unit id="E62nAap" name="Du musst mindestens 3 Kilometer von der Stadt entfernt sein, um das zu tun.">
+      <notes>
+        <note category="german">Du musst mindestens 3 Kilometer von der Stadt entfernt sein, um das zu tun.</note>
+        <note category="from">db://Requirement</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Du musst mindestens 3 Kilometer von der Stadt entfernt sein, um das zu tun.</source>
+        <target>Para hacer esto debes estar a más de 3 kilómetros del pueblo.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

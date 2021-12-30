@@ -9438,5 +9438,16 @@
         <target>To study the plans, head back to the relative calm of the town.</target>
       </segment>
     </unit>
+    <unit id="E62nAap" name="Du musst mindestens 3 Kilometer von der Stadt entfernt sein, um das zu tun.">
+      <notes>
+        <note category="german">Du musst mindestens 3 Kilometer von der Stadt entfernt sein, um das zu tun.</note>
+        <note category="from">db://Requirement</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Du musst mindestens 3 Kilometer von der Stadt entfernt sein, um das zu tun.</source>
+        <target>You have to be more than 3 kilometers from the town to do that.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
