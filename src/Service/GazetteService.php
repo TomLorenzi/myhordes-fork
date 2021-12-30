@@ -716,7 +716,7 @@ class GazetteService
 
     static array $node_block_cache = [];
     static array $node_block_ord = [];
-    public function generateCouncilNodeList(Town $town, int $day, int $rootNodeSemantic, array $citizenData) {
+    public function generateCouncilNodeList(Town $town, int $day, int $rootNodeSemantic, array $citizenData, array $flags = []) {
 
         $cache_key = $town->getId() . '.' . $day;
         if (!isset(static::$node_block_cache[$cache_key])) static::$node_block_cache[$cache_key] = [];
@@ -733,29 +733,33 @@ class GazetteService
 
         $ord = static::$node_block_ord[$cache_key];
 
-        $implement_template = function (?CouncilEntry $parent, array $parents, array $siblings, array $templates, array &$variable_stack) use ($cache_key, $town, $day, &$ord): ?CouncilEntry {
+        $implement_template = function (?CouncilEntry $parent, array $parents, array $siblings, array $templates, array &$variable_stack) use ($cache_key, $town, $day, &$ord, &$flags): ?CouncilEntry {
             $variable_stack_copy = $variable_stack;
             $node = $this->rand->pick(
                 array_filter(
                     array_diff( $templates, static::$node_block_cache[$cache_key])
-                    , function(CouncilEntryTemplate $template) use (&$variable_stack_copy, $parent, $parents, $siblings) {
+                    , function(CouncilEntryTemplate $template) use (&$variable_stack_copy, $parent, $parents, $siblings, &$flags) {
 
                         $has_main = false; $main_source = null;
                         $cache = [];
                         foreach ($template->getVariableDefinitions() as $name => $def) {
+                            foreach ($def['flags'] ?? [] as $flagname => $flagvalue)
+                                if ( ($flags[$flagname] ?? false) !== (bool)$flagvalue ) {
+                                    //echo "REJECTING {$template->getName()}: Failed flag '$flagname' test.\n";
+                                    return false;
+                                }
+
                             if (isset($def['from'])) {
                                 $cache[$def['from']] = 1 + ($cache[$def['from']] ?? 0);
                                 if (($def['consume'] ?? false) && str_starts_with($def['from'], '_')) {
                                     //echo "REJECTING {$template->getName()}: Consumes from protected group.\n";
                                     return false;
                                 }
-                            } else {
-                                //echo "REJECTING {$template->getName()}: No group\n";
-                                return false;
-                            }
-                            if ($name === 'main') {
-                                $has_main = true;
-                                $main_source = $def['from'];
+
+                                if ($name === 'main') {
+                                    $has_main = true;
+                                    $main_source = $def['from'];
+                                }
                             }
                         }
 
@@ -794,6 +798,8 @@ class GazetteService
 
                 $variables = []; $main_citizen = null;
                 foreach ($node->getVariableDefinitions() as $name => $def) {
+                    if (!isset($def['from'])) continue;
+
                     if ($name !== 'main') {
                         /** @var ?Citizen $selected_citizen */
                         $selected_citizen = ($def['consume'] ?? false) ? $this->rand->draw( $variable_stack[$def['from']] ) : $this->rand->pick( $variable_stack[$def['from']] );

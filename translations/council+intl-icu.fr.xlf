@@ -1510,22 +1510,20 @@
       <notes>
         <note category="german">Gut, alles was ich jetzt noch zu tun habe ist mich selbst zum Schamanen zu wählen. Endlich gibt es mal ein einstimmiges Ergebnis.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Gut, alles was ich jetzt noch zu tun habe ist mich selbst zum Schamanen zu wählen. Endlich gibt es mal ein einstimmiges Ergebnis.</source>
-        <target>Gut, alles was ich jetzt noch zu tun habe ist mich selbst zum Schamanen zu wählen. Endlich gibt es mal ein einstimmiges Ergebnis.</target>
+        <target>Bon, il ne me reste plus qu'à m'élire Chaman, pour une fois qu'il y a unanimité !</target>
       </segment>
     </unit>
     <unit id="a1vKnRs">
       <notes>
         <note category="german">Gut, wenn niemand etwas dagegen einzuwenden hat, dann ernenne ich mich hiermit selbst zum Reiseleiter in der Außenwelt!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Gut, wenn niemand etwas dagegen einzuwenden hat, dann ernenne ich mich hiermit selbst zum Reiseleiter in der Außenwelt!</source>
-        <target>Gut, wenn niemand etwas dagegen einzuwenden hat, dann ernenne ich mich hiermit selbst zum Reiseleiter in der Außenwelt!</target>
+        <target>Bon, puisque tout le monde est d'accord, je me prononce Guide de l'Outre-Monde.</target>
       </segment>
     </unit>
     <unit id="wa_fviX">
@@ -1581,6 +1579,16 @@
       <segment>
         <source>OK, es sind nicht mehr viele von uns übrig, also lasst uns das schnell hinter uns bringen.</source>
         <target>OK, es sind nicht mehr viele von uns übrig, also lasst uns das schnell hinter uns bringen.</target>
+      </segment>
+    </unit>
+    <unit id="0fqtP6p">
+      <notes>
+        <note category="german">Hm hm ... Ich will ja kein Spielverderber sein, aber wir sind noch nicht wirklich fertig...</note>
+        <note category="from">db://CouncilEntryTemplate</note>
+      </notes>
+      <segment>
+        <source>Hm hm ... Ich will ja kein Spielverderber sein, aber wir sind noch nicht wirklich fertig...</source>
+        <target>Hum hum... Je veux pas faire le rabat joie, mais on en a pas vraiment terminé encore...	</target>
       </segment>
     </unit>
   </file>

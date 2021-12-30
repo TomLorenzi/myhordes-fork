@@ -937,5 +937,11 @@
         <target>OK, es sind nicht mehr viele von uns übrig, also lasst uns das schnell hinter uns bringen.</target>
       </segment>
     </unit>
+    <unit id="0fqtP6p">
+      <segment>
+        <source>Hm hm ... Ich will ja kein Spielverderber sein, aber wir sind noch nicht wirklich fertig...</source>
+        <target>Hm hm ... Ich will ja kein Spielverderber sein, aber wir sind noch nicht wirklich fertig...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

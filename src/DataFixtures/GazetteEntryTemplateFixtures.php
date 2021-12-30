@@ -2403,17 +2403,22 @@ class GazetteEntryTemplateFixtures extends Fixture
         'generic_mc_intro_001' => [
             'semantic' => CouncilEntryTemplate::CouncilNodeGenericMCIntro,
             'text' => 'Hallo zusammen, wir müssen das hier über die Bühne bringen, also ähem, melde ich mich mehr oder weniger freiwillig als Zeremonienmeister...', // Hey there everyone, we need to get this show on the road so errrr, I relucantly volunteer as MC...
-            'variables' => [ 'config' => [ 'main' => ['from' => '_mc'] ] ]
+            'variables' => [ 'config' => [ 'main' => ['from' => '_mc', 'flags' => [ 'same_mc' => false ]] ] ]
         ],
         'generic_mc_intro_002' => [
             'semantic' => CouncilEntryTemplate::CouncilNodeGenericMCIntro,
             'text' => 'Da Respekt für eine effektive Kommunikation unerlässlich ist, werde ich hier der Zeremonienmeister sein.', // Respect being essential to effective communication, I'll be the master of ceremonies around here.
-            'variables' => [ 'config' => [ 'main' => ['from' => '_mc'] ] ]
+            'variables' => [ 'config' => [ 'main' => ['from' => '_mc', 'flags' => [ 'same_mc' => false ]] ] ]
         ],
         'generic_mc_intro_003' => [
             'semantic' => CouncilEntryTemplate::CouncilNodeGenericMCIntro,
             'text' => 'Hört an, hört an!', // Hear ye hear ye!
-            'variables' => [ 'config' => [ 'main' => ['from' => '_mc'] ] ]
+            'variables' => [ 'config' => [ 'main' => ['from' => '_mc', 'flags' => [ 'same_mc' => false ]] ] ]
+        ],
+        'generic_mc_intro_004' => [
+            'semantic' => CouncilEntryTemplate::CouncilNodeGenericMCIntro,
+            'text' => 'Hm hm ... Ich will ja kein Spielverderber sein, aber wir sind noch nicht wirklich fertig...', // Hum hum... Je veux pas faire le rabat joie, mais on en a pas vraiment terminé encore...
+            'variables' => [ 'config' => [ 'main' => ['from' => '_mc', 'flags' => [ 'same_mc' => true ]] ] ]
         ],
 
         'generic_intro_few_001' => [

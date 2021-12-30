@@ -61,6 +61,7 @@ class CouncilTestCommand extends Command
             ->addOption('count-voted',      null, InputOption::VALUE_REQUIRED, 'Number of citizens that received votes. Excludes the winner. Only valid for election councils.', 6)
             ->addOption('count-discussion', null, InputOption::VALUE_REQUIRED, 'Number of citizens that partake in the discussion. Only valid for election councils.', 999)
             ->addOption('no-mc', null, InputOption::VALUE_REQUIRED, 'If set to any value other than 0, no MC will be generated.', 0)
+            ->addOption('same-mc', null, InputOption::VALUE_REQUIRED, 'If set to any value other than 0, the generator will attempt to select the same citizen as MC that was selected before. Has no effect if clear-previous or no-mc are enabled.', 0)
 
             ->addOption('structure', null, InputOption::VALUE_NONE, 'Show empty structural nodes')
         ;
@@ -101,17 +102,27 @@ class CouncilTestCommand extends Command
         $partition = [];
         $all_citizens = array_filter( $town->getCitizens()->getValues(), fn(Citizen $c) => $c->getAlive() );
 
+        $previous_mc = null;
+
         if ((int)$input->getOption('clear-previous')) {
             foreach ($this->entity_manager->getRepository(CouncilEntry::class)->findBy(['town' => $town, 'day' => $town->getDay()]) as $existing)
                 $this->entity_manager->remove($existing);
             $this->entity_manager->flush();
-        }
+        } else
+            foreach ($this->entity_manager->getRepository(CouncilEntry::class)->findBy(['town' => $town, 'day' => $town->getDay()], ['ord' => 'ASC']) as $existing)
+                if ($existing->getTemplate() && $existing->getTemplate()->getSemantic() === CouncilEntryTemplate::CouncilNodeGenericMCIntro)
+                    $previous_mc = $existing->getCitizen();
 
+        $flags = [];
         switch ($node) {
             case CouncilEntryTemplate::CouncilNodeRootGuideFirst:  case CouncilEntryTemplate::CouncilNodeRootGuideNext:
             case CouncilEntryTemplate::CouncilNodeRootShamanFirst: case CouncilEntryTemplate::CouncilNodeRootShamanNext:
             case CouncilEntryTemplate::CouncilNodeRootShamanFew:   case CouncilEntryTemplate::CouncilNodeRootShamanFew:
-                $partition['_mc']       = (int)$input->getOption('no-mc') ? [] : $this->rand->draw( $all_citizens, 1, true );
+                if ($previous_mc && in_array( $previous_mc, $all_citizens ) && !(int)$input->getOption('no-mc') && (int)$input->getOption('same-mc')) {
+                    $partition['_mc'] = [$previous_mc];
+                    $all_citizens = array_filter($all_citizens, fn(Citizen $c) => $c !== $previous_mc);
+                    $flags['same_mc'] = true;
+                } else $partition['_mc'] = (int)$input->getOption('no-mc') ? [] : $this->rand->draw( $all_citizens, 1, true );
                 $partition['_winner']   = $this->rand->draw( $all_citizens, 1, true );
                 $partition['voted']     = $this->rand->draw( $all_citizens, (int)$input->getOption('count-voted'), true );
                 $partition['_council?'] = array_slice($all_citizens, 0, (int)$input->getOption('count-discussion'));
@@ -131,13 +142,18 @@ class CouncilTestCommand extends Command
         $output->writeln('Using the following partition:');
         foreach ($partition as $key => $list) {
             $output->writeln("<info>$key</info>");
-            foreach ($list as $citizen)
-                $output->writeln("\t<comment>{$citizen->getName()}</comment>");
+            $output->writeln( implode(', ', array_map( fn(Citizen $c) => "<comment>{$c->getName()}</comment>", $list ) ) );
         }
         $output->writeln('');
 
+        $output->writeln('Using the following flags:');
+        foreach ($flags as $key => $value)
+            $output->writeln("<info>$key</info> -> <comment>" . ($value ? 'Y' : 'N') . '</comment>');
+
+        $output->writeln('');
+
         $output->write('Now generating the council... ');
-        $this->gazette_service->generateCouncilNodeList($town, $town->getDay(), $node, $partition);
+        $this->gazette_service->generateCouncilNodeList($town, $town->getDay(), $node, $partition, $flags);
         $this->entity_manager->flush();
         $output->writeln("<info>OK!</info>");
         $output->writeln('');
