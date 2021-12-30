@@ -38,11 +38,10 @@
       <notes>
         <note category="german">Keine Freiwilligen?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Keine Freiwilligen?</source>
-        <target>Keine Freiwilligen?</target>
+        <target>¿No hay voluntarios?</target>
       </segment>
     </unit>
     <unit id="rkpwMU_">
@@ -60,11 +59,10 @@
       <notes>
         <note category="german">Okay... Freiwillige vor?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Okay... Freiwillige vor?</source>
-        <target>Okay... Freiwillige vor?</target>
+        <target>Así que... ¿Algún voluntario?</target>
       </segment>
     </unit>
     <unit id="WXO1984" name="Echt jetzt?!?">
@@ -93,11 +91,10 @@
       <notes>
         <note category="german">Hallo zusammen, wir müssen das hier über die Bühne bringen, also ähem, melde ich mich mehr oder weniger freiwillig als Zeremonienmeister...</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Hallo zusammen, wir müssen das hier über die Bühne bringen, also ähem, melde ich mich mehr oder weniger freiwillig als Zeremonienmeister...</source>
-        <target>Hallo zusammen, wir müssen das hier über die Bühne bringen, also ähem, melde ich mich mehr oder weniger freiwillig als Zeremonienmeister...</target>
+        <target>Hola a todos, tenemos que acabar con esta entrevista deprisa, por lo que me ofrezco gentilmente como voluntario para el cargo...</target>
       </segment>
     </unit>
     <unit id="mnMCzRQ">
@@ -346,11 +343,10 @@
       <notes>
         <note category="german">Typisch für dich {parent}, immer jemand anderen vorschicken!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Typisch für dich {parent}, immer jemand anderen vorschicken!</source>
-        <target>Typisch für dich {parent}, immer jemand anderen vorschicken!</target>
+        <target>¡Es clásico en ti, diantres {parent}, siempre buscando a otro!</target>
       </segment>
     </unit>
     <unit id="9gWCDza" name="Ja, ich habe genug von seinen Spielchen! Hängen wir ihn auf!">
@@ -390,11 +386,10 @@
       <notes>
         <note category="german">Ich habe nicht wirklich eine Meinung, aber ich werde trotzdem meinen Senf dazu geben!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ich habe nicht wirklich eine Meinung, aber ich werde trotzdem meinen Senf dazu geben!</source>
-        <target>Ich habe nicht wirklich eine Meinung, aber ich werde trotzdem meinen Senf dazu geben!</target>
+        <target>¡No tengo una buena opinión realmente, pero voy a compartirla de todos modos!</target>
       </segment>
     </unit>
     <unit id="aqqoI0m" name="Solange nicht ich ausgewählt werde, bin ich zufrieden.">
@@ -600,7 +595,7 @@
       </notes>
       <segment>
         <source>Wer keine Hoffnung mehr hat, kann auch nichts mehr bereuen.</source>
-        <target>Wer keine Hoffnung mehr hat, kann auch nichts mehr bereuen.</target>
+        <target>El que no tiene esperanza tampoco tiene qué perder.</target>
       </segment>
     </unit>
     <unit id="owHwv_i" name="Ja, halt die Klappe, Shakespeare.">
@@ -662,11 +657,10 @@
       <notes>
         <note category="german">Ok, lasst uns wie immer Strohhalme ziehen und die Sache hinter uns bringen.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ok, lasst uns wie immer Strohhalme ziehen und die Sache hinter uns bringen.</source>
-        <target>Ok, lasst uns wie immer Strohhalme ziehen und die Sache hinter uns bringen.</target>
+        <target>Bien, tomemos unas pajitas y resolvamos esto como siempre.</target>
       </segment>
     </unit>
     <unit id="1csHJEq" name="Ok, jeder nimmt sich einen Strohhalm.">
@@ -782,11 +776,10 @@
       <notes>
         <note category="german">Kann ich meinen Strohhalm essen wenn wir fertig sind?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Kann ich meinen Strohhalm essen wenn wir fertig sind?</source>
-        <target>Kann ich meinen Strohhalm essen wenn wir fertig sind?</target>
+        <target>¿Puedo comerme mi pajita al acabar?</target>
       </segment>
     </unit>
     <unit id="4rxAuQN" name="Wo hat er hier überhaupt Stroh her?">
@@ -1097,11 +1090,10 @@
       <notes>
         <note category="german">Also ich schlage unseren Freund {voted} vor, der einfach soooo gerne redet.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Also ich schlage unseren Freund {voted} vor, der einfach soooo gerne redet.</source>
-        <target>Also ich schlage unseren Freund {voted} vor, der einfach soooo gerne redet.</target>
+        <target>Bueno, ya propuse que sea nuestro querido {voted} porque a él le encaaaaaaaaaaaanta hablar.</target>
       </segment>
     </unit>
     <unit id="cLRQr98" name="Ich wusste schon immer, dass {voted} sich gerne verkleidet...">
@@ -1151,11 +1143,10 @@
       <notes>
         <note category="german">Ruhe! Wir müssen dieses Treffen zum Ende bringen! Immerhin haben wir eine Stadt zu verteidigen! Der Schamane ist sowieso nur hier, um uns Hoffnung zu machen</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ruhe! Wir müssen dieses Treffen zum Ende bringen! Immerhin haben wir eine Stadt zu verteidigen! Der Schamane ist sowieso nur hier, um uns Hoffnung zu machen</source>
-        <target>Ruhe! Wir müssen dieses Treffen zum Ende bringen! Immerhin haben wir eine Stadt zu verteidigen! Der Schamane ist sowieso nur hier, um uns Hoffnung zu machen</target>
+        <target>¡Silencio! ¡Tenemos que acabar con esta entrevista! ¡El pueblo no va a defenderse solo! El Chamán está aquí para ayudarnos solamente.</target>
       </segment>
     </unit>
     <unit id="2exkO3j" name="Nun, da das erledigt ist, haben wir einen neuen Schamanen bekommen: {winner}!">
