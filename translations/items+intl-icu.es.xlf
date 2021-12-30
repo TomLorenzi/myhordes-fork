@@ -9402,7 +9402,6 @@
       <notes>
         <note category="german">Du musst mindestens 3 Kilometer von der Stadt entfernt sein, um das zu tun.</note>
         <note category="from">db://Requirement</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Du musst mindestens 3 Kilometer von der Stadt entfernt sein, um das zu tun.</source>

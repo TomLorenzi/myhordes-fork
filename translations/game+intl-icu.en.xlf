@@ -26166,5 +26166,15 @@
         <target>Discussions about the bank</target>
       </segment>
     </unit>
+    <unit id="DN3_mKM">
+      <notes>
+        <note category="german">Allen Widrigkeiten zum Trotz scheint es {citizen} gelungen zu sein, in der Zone etwas zu finden, mit dem er überleben kann...</note>
+        <note category="from">db://LogEntryTemplate</note>
+      </notes>
+      <segment>
+        <source>Allen Widrigkeiten zum Trotz scheint es {citizen} gelungen zu sein, in der Zone etwas zu finden, mit dem er überleben kann...</source>
+        <target>Against all odds, {citizen} seems to have been able to find something in the zone to survive on...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

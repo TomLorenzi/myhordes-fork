@@ -16394,5 +16394,11 @@
         <target>Diskussionen rund um die Bank</target>
       </segment>
     </unit>
+    <unit id="DN3_mKM">
+      <segment>
+        <source>Allen Widrigkeiten zum Trotz scheint es {citizen} gelungen zu sein, in der Zone etwas zu finden, mit dem er überleben kann...</source>
+        <target>Allen Widrigkeiten zum Trotz scheint es {citizen} gelungen zu sein, in der Zone etwas zu finden, mit dem er überleben kann...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

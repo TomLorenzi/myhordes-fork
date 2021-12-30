@@ -25870,5 +25870,15 @@ cette violente opération...]]></target>
         <target>Discussions sur la banque</target>
       </segment>
     </unit>
+    <unit id="DN3_mKM">
+      <notes>
+        <note category="german">Allen Widrigkeiten zum Trotz scheint es {citizen} gelungen zu sein, in der Zone etwas zu finden, mit dem er überleben kann...</note>
+        <note category="from">db://LogEntryTemplate</note>
+      </notes>
+      <segment>
+        <source>Allen Widrigkeiten zum Trotz scheint es {citizen} gelungen zu sein, in der Zone etwas zu finden, mit dem er überleben kann...</source>
+        <target>Contre toute attente, {citizen} semble avoir trouvé quelque chose pour subvenir à ses besoins dans le coin...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
