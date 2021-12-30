@@ -243,7 +243,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'must_not_be_tombed' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_tomb' ] ] ],
             'must_be_hidden' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'status' => [ 'enabled' => true, 'status' => 'tg_hide' ] ] ],
             'must_be_tombed' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'status' => [ 'enabled' => true, 'status' => 'tg_tomb' ] ] ],
-            'not_before_day_2' => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'day' => [ 'min' => 2, 'max' => 99 ] ] ],
+            'not_before_day_2' => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'day' => [ 'min' => 2, 'max' => 99 ] ], 'text' => 'Dies kannst du erst ab <strong>Tag 2</strong> tun.' ],
 
             'must_be_day' => [ 'collection' =>    [ 'custom' => [1] ] ],
             'must_be_night'  => [ 'collection' => [ 'custom' => [2] ] ],

@@ -9408,5 +9408,15 @@
         <target>Vous ne voyez pas pourquoi vous feriez ça...</target>
       </segment>
     </unit>
+    <unit id="4Exhdnj" name="Dies kannst du erst ab &lt;strong&gt;Tag 2&lt;/strong&gt; tun.">
+      <notes>
+        <note category="german">Dies kannst du erst ab &lt;strong&gt;Tag 2&lt;/strong&gt; tun.</note>
+        <note category="from">db://Requirement</note>
+      </notes>
+      <segment>
+        <source>Dies kannst du erst ab &lt;strong&gt;Tag 2&lt;/strong&gt; tun.</source>
+        <target><![CDATA[Vous ne pouvez pas faire cela avant le <strong>jour 2</strong>.]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

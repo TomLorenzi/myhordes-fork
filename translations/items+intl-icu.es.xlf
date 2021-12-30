@@ -9377,5 +9377,16 @@
         <target>Dir fällt kein Grund ein, dies zu tun...</target>
       </segment>
     </unit>
+    <unit id="4Exhdnj" name="Dies kannst du erst ab &lt;strong&gt;Tag 2&lt;/strong&gt; tun.">
+      <notes>
+        <note category="german">Dies kannst du erst ab &lt;strong&gt;Tag 2&lt;/strong&gt; tun.</note>
+        <note category="from">db://Requirement</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Dies kannst du erst ab &lt;strong&gt;Tag 2&lt;/strong&gt; tun.</source>
+        <target><![CDATA[Dies kannst du erst ab <strong>Tag 2</strong> tun.]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>
