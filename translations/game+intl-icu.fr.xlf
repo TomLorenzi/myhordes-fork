@@ -24857,7 +24857,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>&lt;strong&gt;{citizen1}s&lt;/strong&gt; {animal} wurde heute Morgen in mehrere Stücke zerfetzt aufgefunden. Ein Stück wurde sogar aus dem Brunnen gefischt. Das erklärt auch den seltsamen Geschmack der Wasserrationen von heute Morgen...</source>
-        <target>{animal} que je-ne-sais-plus-qui avait baptisé {mascot} a été retrouvé ce matin en deux morceaux. L'un était dans le puits. Le goût bizarre des rations de ce matin viendrait de là...</target>
+        <target>{animal} que je-ne-sais-plus-qui avait baptisé {citizen1} a été retrouvé ce matin en deux morceaux. L'un était dans le puits. Le goût bizarre des rations de ce matin viendrait de là...</target>
       </segment>
     </unit>
     <unit id="BKXfX1n">
