@@ -875,7 +875,7 @@ class TownHandler
         $constructionBonus = 0;
         $repairBonus = 0;
         if (($workshop = $this->getBuilding($town, "small_refine_#00")) !== null) {
-            $constructionBonus = 0.06 * $workshop->getLevel();
+            $constructionBonus = min(0.06 * $workshop->getLevel(), 0.28);
             if ($workshop->getLevel() >= 4) {
                 $repairBonus = $workshop->getLevel() - 3;
             }

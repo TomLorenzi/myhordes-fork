@@ -48,6 +48,7 @@ class MyHordesConf extends Conf
     const CONF_AVATAR_SIZE_STORAGE = 'avatars.max_storage_size';
 
     const CONF_COA_MAX_NUM = 'coalitions.size';
+    const CONF_COA_MAX_DAYS_INACTIVITY = 'coalitions.inactive_after_days';
 
     const CONF_ANTI_GRIEF_SP  = 'anti-grief.min-sp';
     const CONF_ANTI_GRIEF_REG = 'anti-grief.reg-limit';

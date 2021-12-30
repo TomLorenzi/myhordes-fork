@@ -48,6 +48,9 @@
                     <div class="tooltip normal">{{ entry.message|raw }}</div>
                 {% endif %}
             </span>
+            {% if entry.crossed and entry.message %}
+                <div class="tooltip normal">{{ entry.message|raw }}</div>
+            {% endif %}
         {% endfor %}
     {% endmacro %}
 

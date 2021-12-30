@@ -889,6 +889,19 @@ class LogTemplateHandler
             ->setZone( $citizen->getZone() );
     }
 
+    public function outsideDigSurvivalist( Citizen $citizen ): TownLogEntry {
+        $variables = array('citizen' => $citizen->getId());
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate( $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'outsideDigSurvivalist']) )
+            ->setVariables($variables)
+            ->setTown( $citizen->getTown() )
+            ->setDay( $citizen->getTown()->getDay() )
+            ->setTimestamp( new DateTime('now') )
+            ->setCitizen( $citizen )
+            ->setZone( $citizen->getZone() );
+    }
+
     public function outsideUncover( Citizen $citizen, int $count = 1, ?ItemPrototype $proto = null): TownLogEntry {
         if ($proto) {
             $variables = array('citizen' => $citizen->getId(), 'count' => $count, 'item' => $proto->getId());

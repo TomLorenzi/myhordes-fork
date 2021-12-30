@@ -8509,7 +8509,7 @@
     <unit id="Tj4dAlQ" name="Umdrehen">
       <notes>
         <note category="german">Umdrehen</note>
-        <note category="from">twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
       </notes>
       <segment>
         <source>Umdrehen</source>
@@ -11380,7 +11380,7 @@
     <unit id="ANGnefx" name="Stadtrat">
       <notes>
         <note category="german">Stadtrat</note>
-        <note category="from">twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
       </notes>
       <segment>
         <source>Stadtrat</source>
@@ -24857,7 +24857,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>&lt;strong&gt;{citizen1}s&lt;/strong&gt; {animal} wurde heute Morgen in mehrere Stücke zerfetzt aufgefunden. Ein Stück wurde sogar aus dem Brunnen gefischt. Das erklärt auch den seltsamen Geschmack der Wasserrationen von heute Morgen...</source>
-        <target>{animal} que je-ne-sais-plus-qui avait baptisé {mascot} a été retrouvé ce matin en deux morceaux. L'un était dans le puits. Le goût bizarre des rations de ce matin viendrait de là...</target>
+        <target>{animal} que je-ne-sais-plus-qui avait baptisé {citizen1} a été retrouvé ce matin en deux morceaux. L'un était dans le puits. Le goût bizarre des rations de ce matin viendrait de là...</target>
       </segment>
     </unit>
     <unit id="BKXfX1n">
@@ -25868,6 +25868,16 @@ cette violente opération...]]></target>
       <segment>
         <source>Diskussionen rund um die Bank</source>
         <target>Discussions sur la banque</target>
+      </segment>
+    </unit>
+    <unit id="DN3_mKM">
+      <notes>
+        <note category="german">Allen Widrigkeiten zum Trotz scheint es {citizen} gelungen zu sein, in der Zone etwas zu finden, mit dem er überleben kann...</note>
+        <note category="from">db://LogEntryTemplate</note>
+      </notes>
+      <segment>
+        <source>Allen Widrigkeiten zum Trotz scheint es {citizen} gelungen zu sein, in der Zone etwas zu finden, mit dem er überleben kann...</source>
+        <target>Contre toute attente, {citizen} semble avoir trouvé quelque chose pour subvenir à ses besoins dans le coin...</target>
       </segment>
     </unit>
   </file>

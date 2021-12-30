@@ -16,6 +16,7 @@ parameters:
         manual: -1
     coalitions:
       size: 5
+      inactive_after_days: 5
     anti-grief:
       min-sp: 20
       reg-limit: 2

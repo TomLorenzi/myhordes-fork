@@ -228,7 +228,7 @@
       </notes>
       <segment>
         <source>Verstellbarer Schraubenschlüssel</source>
-        <target>Clef à Molette</target>
+        <target>Clé à Molette</target>
       </segment>
     </unit>
     <unit id="xKt9A2O" name="Schraubenzieher">
@@ -7812,7 +7812,7 @@
       </notes>
       <segment>
         <source>Logbuch Schokolade</source>
-        <target>Bûche en chocolat</target>
+        <target>Bûche de Noël</target>
       </segment>
     </unit>
     <unit id="WSBb1y.">
@@ -9402,11 +9402,40 @@
       <notes>
         <note category="german">Dir fällt kein Grund ein, dies zu tun...</note>
         <note category="from">db://Requirement</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Dir fällt kein Grund ein, dies zu tun...</source>
         <target>Vous ne voyez pas pourquoi vous feriez ça...</target>
+      </segment>
+    </unit>
+    <unit id="4Exhdnj" name="Dies kannst du erst ab &lt;strong&gt;Tag 2&lt;/strong&gt; tun.">
+      <notes>
+        <note category="german">Dies kannst du erst ab &lt;strong&gt;Tag 2&lt;/strong&gt; tun.</note>
+        <note category="from">db://Requirement</note>
+      </notes>
+      <segment>
+        <source>Dies kannst du erst ab &lt;strong&gt;Tag 2&lt;/strong&gt; tun.</source>
+        <target><![CDATA[Vous ne pouvez pas faire cela avant le <strong>jour 2</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="u9sIc_x">
+      <notes>
+        <note category="german">Wenn du den Plan studieren willst, musst du in die relative Ruhe der Stadt zurückkehren.</note>
+        <note category="from">db://Requirement</note>
+      </notes>
+      <segment>
+        <source>Wenn du den Plan studieren willst, musst du in die relative Ruhe der Stadt zurückkehren.</source>
+        <target>Vous devez vous trouver au calme, en ville, pour étudier ce plan.</target>
+      </segment>
+    </unit>
+    <unit id="E62nAap" name="Du musst mindestens 3 Kilometer von der Stadt entfernt sein, um das zu tun.">
+      <notes>
+        <note category="german">Du musst mindestens 3 Kilometer von der Stadt entfernt sein, um das zu tun.</note>
+        <note category="from">db://Requirement</note>
+      </notes>
+      <segment>
+        <source>Du musst mindestens 3 Kilometer von der Stadt entfernt sein, um das zu tun.</source>
+        <target>Vous devez être éloigné de plus de 3 kilomètres de la ville, pour faire cela.</target>
       </segment>
     </unit>
   </file>

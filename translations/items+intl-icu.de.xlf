@@ -5839,5 +5839,23 @@
         <target>Dir fällt kein Grund ein, dies zu tun...</target>
       </segment>
     </unit>
+    <unit id="4Exhdnj" name="Dies kannst du erst ab &lt;strong&gt;Tag 2&lt;/strong&gt; tun.">
+      <segment>
+        <source>Dies kannst du erst ab &lt;strong&gt;Tag 2&lt;/strong&gt; tun.</source>
+        <target><![CDATA[Dies kannst du erst ab <strong>Tag 2</strong> tun.]]></target>
+      </segment>
+    </unit>
+    <unit id="u9sIc_x">
+      <segment>
+        <source>Wenn du den Plan studieren willst, musst du in die relative Ruhe der Stadt zurückkehren.</source>
+        <target>Wenn du den Plan studieren willst, musst du in die relative Ruhe der Stadt zurückkehren.</target>
+      </segment>
+    </unit>
+    <unit id="E62nAap" name="Du musst mindestens 3 Kilometer von der Stadt entfernt sein, um das zu tun.">
+      <segment>
+        <source>Du musst mindestens 3 Kilometer von der Stadt entfernt sein, um das zu tun.</source>
+        <target>Du musst mindestens 3 Kilometer von der Stadt entfernt sein, um das zu tun.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -264,7 +264,6 @@ class CitizenHandler
 
                 $this->entity_manager->persist( $cage );
                 $citizen->getHome()->setHoldsBody(false);
-                $citizen->setDisposed(Citizen::Ghoul);
                 $active = $cage;
             }
             $this->entity_manager->persist( $this->log->citizenDeath( $citizen, 0, null ) );
@@ -275,7 +274,10 @@ class CitizenHandler
             $this->inventory_handler->forceMoveItem( $citizen->getInventory(), $this->item_factory->createItem( 'poison_#00' ));
         }
 
-        if (!empty($itemsForLog)) $this->entity_manager->persist($this->log->bankBanRecovery($citizen, $itemsForLog, $active === $gallows, $active === $cage));
+        if (!empty($itemsForLog))
+            $this->entity_manager->persist(
+                $this->log->bankBanRecovery($citizen, $itemsForLog, $active !== null && $active === $gallows, $active !== null && $active === $cage)
+            );
 
         return $action;
     }

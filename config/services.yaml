@@ -70,6 +70,10 @@ services:
         arguments:
             $translator: '@app.decoration.translator.inner'
 
+    App\Command\Debug\CouncilTestCommand:
+      arguments:
+        $translator: '@app.decoration.translator.inner'
+
     App\Command\Town\TownInspectorCommand:
         arguments:
             $translator: '@app.decoration.translator.inner'

@@ -515,8 +515,10 @@
                     </div>
                 </div>
 
-                {% embed "ajax/game/gazette_widget.html.twig" with { gazette: gazette } %}
-                {% endembed %}
+                <div id="gazette-target">
+                    {% embed "ajax/game/gazette_widget.html.twig" with { gazette: gazette, council: council } %}
+                    {% endembed %}
+                </div>
 
                 {% embed "ajax/admin/towns/log.html.twig" with {'log_content': log, 'log_source': path('admin_newspaper_log_controller') } %}
                 {% endembed %}
@@ -916,7 +918,7 @@
         })
 
         $.html.addEventListenerAll('#gazetteSelector', 'change', (e,elem) => {
-            $.ajax.no_history().load( document.getElementById('gazette'), elem.value, false )
+            $.ajax.no_history().load( document.getElementById('gazette-target'), elem.value, false )
         })
 
     </script>

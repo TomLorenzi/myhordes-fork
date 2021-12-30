@@ -22,6 +22,7 @@ use App\Entity\CitizenVote;
 use App\Entity\CitizenWatch;
 use App\Entity\Complaint;
 use App\Entity\ComplaintReason;
+use App\Entity\CouncilEntry;
 use App\Entity\ExpeditionRoute;
 use App\Entity\HeroicActionPrototype;
 use App\Entity\Inventory;
@@ -293,6 +294,9 @@ class AdminTownController extends AdminActionController
             'availBuldings' => $inTown,
             'votes' => $votes,
             'gazette' => $gazetteService->renderGazette( $town, $town->getDay(), true),
+            'council' => array_map( fn(CouncilEntry $c) => [$gazetteService->parseCouncilLog( $c ), $c->getCitizen()], array_filter( $this->entity_manager->getRepository(CouncilEntry::class)->findBy(['town' => $town, 'day' => $town->getDay()], ['ord' => 'ASC']),
+                fn(CouncilEntry $c) => ($c->getTemplate() && $c->getTemplate()->getText() !== null)
+            )),
             'blackboards' => $this->entity_manager->getRepository(BlackboardEdit::class)->findBy([ 'town' => $town ], ['time' => 'DESC'], 100),
         ], $this->get_map_blob($town))));
     }
@@ -310,6 +314,9 @@ class AdminTownController extends AdminActionController
 
         return $this->render('ajax/game/gazette_widget.html.twig', [
             'gazette' => $gazetteService->renderGazette( $town, $day, true ),
+            'council' => array_map( fn(CouncilEntry $c) => [$gazetteService->parseCouncilLog( $c ), $c->getCitizen()], array_filter( $this->entity_manager->getRepository(CouncilEntry::class)->findBy(['town' => $town, 'day' => $day], ['ord' => 'ASC']),
+                fn(CouncilEntry $c) => ($c->getTemplate() && $c->getTemplate()->getText() !== null)
+            ))
         ]);
     }
 

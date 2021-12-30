@@ -1305,6 +1305,7 @@ class ActionHandler
                                 $execute_info_cache['ap'] += ( $citizen->getAp() - $old_ap );
                             }
 
+                            $this->entity_manager->persist( $this->log->outsideDigSurvivalist( $citizen ) );
                             $execute_info_cache['casino'] = $this->translator->trans($drink ? 'Äußerst erfrischend, und sogar mit einer leichten Note von Cholera.' : 'Immer noch besser als das Zeug, was die Köche in der Stadt zubereiten....', [], 'items');
 
                         } else $execute_info_cache['casino'] = $this->translator->trans('Trotz intensiver Suche hast du nichts verwertbares gefunden...', [], 'items');

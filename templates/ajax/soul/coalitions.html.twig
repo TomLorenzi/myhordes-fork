@@ -84,7 +84,7 @@
                 {% set all_sleepers = all_users|filter(ac => (
                     ac.associationType == constant('App\\Entity\\UserGroupAssociation::GroupAssociationTypeCoalitionMemberInactive') or
                     ac.user.lastActionTimestamp is null or
-                    ac.user.lastActionTimestamp.timestamp < ('now'|date('U') - 432000) or
+                    (coa_inactive_timeout > 0 and ac.user.lastActionTimestamp.timestamp < ('now'|date('U') - coa_inactive_timeout)) or
                     ac.user.activeCitizen is not null
                     ) and ac not in all_invited
                 ) %}
