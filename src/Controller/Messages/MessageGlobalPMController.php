@@ -12,6 +12,7 @@ use App\Entity\ForumUsagePermissions;
 use App\Entity\GlobalPrivateMessage;
 use App\Entity\OfficialGroup;
 use App\Entity\OfficialGroupMessageLink;
+use App\Entity\Post;
 use App\Entity\SocialRelation;
 use App\Entity\User;
 use App\Entity\UserGroup;
@@ -284,6 +285,18 @@ class MessageGlobalPMController extends MessageController
         }
 
         foreach ($subscriptions as $subscription) {
+            $user_cache = [$this->getUser()];
+            $users = array_filter( array_reverse( array_map( fn(Post $p) => $p->getOwner(), array_filter(
+                $this->entity_manager->getRepository(Post::class)->findBy(['thread' => $subscription->getThread()], ['date' => 'DESC'], $subscription->getNum()),
+                fn(Post $p) => !$p->getHidden() && $p->getOwner() !== $this->getUser(),
+            ))), function (User $u) use (&$user_cache) {
+                if (in_array($u, $user_cache)) return false;
+                $user_cache[] = $u;
+                return true;
+            });
+
+            $users[] = $this->getUser();
+
             $entries[] = [
                 'obj'    => $subscription->getThread(),
                 'date'   => new DateTime(),
@@ -297,7 +310,7 @@ class MessageGlobalPMController extends MessageController
                 'count'  => $subscription->getNum(),
                 'unread' => $subscription->getNum(),
                 'owner'  => $this->getUser(),
-                'users'  => [$this->getUser()]
+                'users'  => $users
             ];
         }
     }
