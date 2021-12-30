@@ -123,7 +123,6 @@
       <notes>
         <note category="german">Ich denke, {voted} sollte das übernehmen, dann hätte er etwas zu tun! Was meint ihr?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ich denke, {voted} sollte das übernehmen, dann hätte er etwas zu tun! Was meint ihr?</source>
@@ -220,11 +219,10 @@
       <notes>
         <note category="german">Hört auf, mich anzugucken!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Hört auf, mich anzugucken!</source>
-        <target>Hört auf, mich anzugucken!</target>
+        <target>¡Deja de mirar!</target>
       </segment>
     </unit>
     <unit id="Up1qhvk" name="Hat jemand gerade einen Jugendlichen vorbeigehen sehen?">
@@ -296,11 +294,10 @@
       <notes>
         <note category="german">Nun, ich stimme zu, dieser Job würde sehr gut zu ihm passen.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Nun, ich stimme zu, dieser Job würde sehr gut zu ihm passen.</source>
-        <target>Nun, ich stimme zu, dieser Job würde sehr gut zu ihm passen.</target>
+        <target>Estoy de acuerdo, ese trabajo se lo llevará de una a la tumba.</target>
       </segment>
     </unit>
     <unit id="Tq4NWuF" name="Ach komm schon!">
@@ -403,11 +400,10 @@
       <notes>
         <note category="german">Ich möchte euch sagen, wie wenig mich das alles interessiert, aber ich habe keine Lust dazu.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ich möchte euch sagen, wie wenig mich das alles interessiert, aber ich habe keine Lust dazu.</source>
-        <target>Ich möchte euch sagen, wie wenig mich das alles interessiert, aber ich habe keine Lust dazu.</target>
+        <target>No os podéis hacer una idea de lo poco que está importándome esto, no os ofendáis.</target>
       </segment>
     </unit>
     <unit id="MNAVDhi">
@@ -587,7 +583,6 @@
       <notes>
         <note category="german">Wer keine Hoffnung mehr hat, kann auch nichts mehr bereuen.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wer keine Hoffnung mehr hat, kann auch nichts mehr bereuen.</source>
@@ -683,11 +678,10 @@
       <notes>
         <note category="german">Hast du denn eine Münze?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Hast du denn eine Münze?</source>
-        <target>Hast du denn eine Münze?</target>
+        <target>¿Acaso tienes plata encima?</target>
       </segment>
     </unit>
     <unit id="9D3oGZ0" name="Wir wählen aus wer gefressen wird, richtig?">
@@ -1029,11 +1023,10 @@
       <notes>
         <note category="german">Er ist unser Vertreter im Jenseits und Herr über unsere verdammten Seelen!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Er ist unser Vertreter im Jenseits und Herr über unsere verdammten Seelen!</source>
-        <target>Er ist unser Vertreter im Jenseits und Herr über unsere verdammten Seelen!</target>
+        <target>¡Es nuestro representate del más allá, el dueño de nuestras almas malditas!</target>
       </segment>
     </unit>
     <unit id="oESTMxm" name="Er ist eigentlich genau wie du, nur interessanter.">
@@ -1104,11 +1097,10 @@
       <notes>
         <note category="german">Kann man gleichzeitig Ghul und Schamane sein?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Kann man gleichzeitig Ghul und Schamane sein?</source>
-        <target>Kann man gleichzeitig Ghul und Schamane sein?</target>
+        <target>¿Podemos ser Chama-Mutantes?</target>
       </segment>
     </unit>
     <unit id="p93KBVz">
@@ -1125,7 +1117,6 @@
       <notes>
         <note category="german">Mit so einem Kopf wird er den bösen Blick auf sich ziehen!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Mit so einem Kopf wird er den bösen Blick auf sich ziehen!</source>
