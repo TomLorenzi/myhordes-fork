@@ -67,6 +67,7 @@ class SoulCoalitionController extends SoulController
             'invitations' => $user_invitations,
             'max_coa_size' => $conf->getGlobalConf()->get(MyHordesConf::CONF_COA_MAX_NUM, 5),
             'coa_full' => count($all_users) >= $conf->getGlobalConf()->get(MyHordesConf::CONF_COA_MAX_NUM, 5),
+            'coa_inactive_timeout' => $conf->getGlobalConf()->get(MyHordesConf::CONF_COA_MAX_DAYS_INACTIVITY, 5) * 86400,
         ]) );
     }
 

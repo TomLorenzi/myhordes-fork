@@ -650,11 +650,13 @@ class UserHandler
         $active = false;
 
         $valid_members = [];
+        $timeout = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_COA_MAX_DAYS_INACTIVITY) * 86400;
+
         foreach ($all_coalition_members as $member)
             if (
                 $member->getAssociationType() === UserGroupAssociation::GroupAssociationTypeCoalitionMember &&
                 $member->getUser()->getLastActionTimestamp() !== null &&
-                $member->getUser()->getLastActionTimestamp()->getTimestamp() > (time() - 432000) &&
+                ($timeout <= 0 || $member->getUser()->getLastActionTimestamp()->getTimestamp() > (time() - $timeout)) &&
                 $member->getUser()->getActiveCitizen() === null &&
                 !$this->getConsecutiveDeathLock($member->getUser())
             ) {
