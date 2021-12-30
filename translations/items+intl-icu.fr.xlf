@@ -9418,5 +9418,15 @@
         <target><![CDATA[Vous ne pouvez pas faire cela avant le <strong>jour 2</strong>.]]></target>
       </segment>
     </unit>
+    <unit id="u9sIc_x">
+      <notes>
+        <note category="german">Wenn du den Plan studieren willst, musst du in die relative Ruhe der Stadt zurückkehren.</note>
+        <note category="from">db://Requirement</note>
+      </notes>
+      <segment>
+        <source>Wenn du den Plan studieren willst, musst du in die relative Ruhe der Stadt zurückkehren.</source>
+        <target>Vous devez vous trouver au calme, en ville, pour étudier ce plan.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
