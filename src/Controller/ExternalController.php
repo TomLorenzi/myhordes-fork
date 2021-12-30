@@ -132,6 +132,11 @@ class ExternalController extends InventoryAwareController {
             $type = 'internalerror';
         }
 
+        if ($this->time_keeper->isDuringAttack() && $type !== 'internalerror' && $type !== 'status') {
+            $data = ["error" => "nightly_attack"];
+            $type = 'internalerror';
+        }
+
         switch ($type) {
             case 'internalerror':
                 if (empty($data)) {
