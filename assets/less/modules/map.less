@@ -14,7 +14,7 @@ div.map_area {
       display: block; content: " "; position: absolute; left: 0; top: 0; width: 100%; height: 100%;
       pointer-events: none;
     }
-    &:before {background: radial-gradient(circle, rgba(0,0,0,0) 0%, rgba(0,0,0,0.1) 30%, rgba(0,0,0,0.7) 100%); z-index: 3; pointer-events: none }
+    &:before {z-index: 3; pointer-events: none }
     &:after {background: url("../../img/anims/noise.gif") repeat; opacity: 0.02; z-index: 5; pointer-events: none }
     &>.frame-plane {
       &>* { position: absolute; }
