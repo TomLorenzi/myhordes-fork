@@ -1,5 +1,9 @@
 {% extends "ajax/ajax.html.twig" %}
 {% block title %}{{ 'Aktuelle Städte'|trans({}, 'admin')|raw }}{% endblock %}
+{% block menu_text %}
+    {{parent()}}
+    <li class="back-dash" x-ajax-href="{{ url('game_landing') }}">{{ 'Zum Spiel'|trans({},'global') }}</li>
+{% endblock %}
 {% block ajax %}
     {% embed "ajax/admin/towns/header.html.twig" with {'search_controller': 'admin_towns_fuzzyfind'} %}{% endembed %}
     <div class="row">

@@ -3,6 +3,7 @@
     {{parent()}}
     <li class="back-dash" x-ajax-href="{{ url('game_landing') }}">{{ 'Zum Spiel'|trans({},'global') }}</li>
 {% endblock %}
+{% block title %}{{ 'Users'|trans({}, 'admin') }}{% endblock %}
 {% macro selectFilter(name, label, values, filters) %}
     <div class="row">
         <div class="padded cell rw-6"><label for="filter_{{ name }}">{{ label }}</label></div>
