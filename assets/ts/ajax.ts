@@ -123,14 +123,12 @@ export default class Ajax {
         }
 
         // Get content, style and script tags
-
         let content_source = result_document.querySelectorAll('html>body>:not(script):not(x-message)');
         let style_source = result_document.querySelectorAll('html>head>style');
         let script_source = result_document.querySelectorAll('script');
         let react_mounts = {}
         $.html.forEach('[id][x-react-mount]', c => {
             react_mounts[c.id] = c;
-            console.log(c.id, c);
         }, result_document)
 
         // Merge flash messages
@@ -171,7 +169,7 @@ export default class Ajax {
             if (react_mounts[c.id]) {
                 react_mounts[c.id].parentElement.insertBefore( c, react_mounts[c.id] );
                 react_mounts[c.id].remove();
-                delete react_mounts[c.id];
+                react_mounts[c.id] = c;
             }
         }, target );
 
