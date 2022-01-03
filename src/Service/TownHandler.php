@@ -594,9 +594,6 @@ class TownHandler
             $min2 = round($est->getZombies() - ($est->getZombies() * $offsetMin / 100));
             $max2 = round($est->getZombies() + ($est->getZombies() * $offsetMax / 100));
 
-            /*$min2 = round($min2, 2 - strlen(strval($min2)));
-            $max2 = round($max2, 2 - strlen(strval($max2)));*/
-
             $min2 = round($min2 / 25) * 25;
             $max2 = round($max2 / 25) * 25;
 
