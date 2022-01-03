@@ -123,9 +123,15 @@ export default class Ajax {
         }
 
         // Get content, style and script tags
+
         let content_source = result_document.querySelectorAll('html>body>:not(script):not(x-message)');
         let style_source = result_document.querySelectorAll('html>head>style');
         let script_source = result_document.querySelectorAll('script');
+        let react_mounts = {}
+        $.html.forEach('[id][x-react-mount]', c => {
+            react_mounts[c.id] = c;
+            console.log(c.id, c);
+        }, result_document)
 
         // Merge flash messages
         let message_stack_changed = true, flash_source = null;
@@ -154,8 +160,22 @@ export default class Ajax {
         let ajax_intention = ajax_html_elem ? ajax_html_elem.getAttribute('x-ajax-intention') : 'inline';
         ajax_intention = ajax_intention ? ajax_intention :  'native';
 
-        // Clear the target
+        // React container cache
+        let container_cache = {};
+
+        // Clear the tooltips
         $.html.clearTooltips( target );
+
+        // Save react mounts
+        $.html.forEach( '[id][x-react-mount]', c => {
+            if (react_mounts[c.id]) {
+                react_mounts[c.id].parentElement.insertBefore( c, react_mounts[c.id] );
+                react_mounts[c.id].remove();
+                delete react_mounts[c.id];
+            }
+        }, target );
+
+        // Clear the target
         {let c; while ((c = target.firstChild)) target.removeChild(c);}
 
         let ajax_instance = this;
@@ -259,6 +279,11 @@ export default class Ajax {
                 $.html.handleTooltip( <HTMLElement>tooltips[t] );
             target.appendChild( content_source[i] );
         }
+        Object.entries(react_mounts).forEach(entry => {
+            const component = <HTMLElement>entry[1];
+            let data = component.hasAttribute('x-react-data') ? JSON.parse(component.getAttribute('x-react-data')) : {};
+            $.components.generate( component, component.getAttribute('x-react-mount'), data );
+        });
 
         for (let i = 0; i < script_source.length; i++)
             try {

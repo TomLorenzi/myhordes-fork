@@ -137,8 +137,12 @@
             {% endif %}
         </div>
         <div class="padded cell rw-6 rw-md-12">
-            {% embed "ajax/game/map.html.twig" with {'default_zoom': 0, 'default_show_zone': false, 'allow_zone_view': false, 'in_town': true, 'chaos': chaos, 'is_shaman': is_shaman, 'map': map_data, 'chaos': town.chaos} %}
-            {% endembed %}
+            {% if false %}
+                {% embed "ajax/game/map.html.twig" with {'default_zoom': 0, 'default_show_zone': false, 'allow_zone_view': false, 'in_town': true, 'chaos': chaos, 'is_shaman': is_shaman, 'map': map_data, 'chaos': town.chaos} %}
+                {% endembed %}
+            {% else %}
+                <div id="door-map" x-react-mount="map" x-react-data='{"displayType":"any","className":"day","geometry":{"x0":-10,"x1":10,"y0":-10,"y1":10}}'></div>
+            {% endif %}
         </div>
     </div>
 
