@@ -1,5 +1,9 @@
 {% extends "ajax/ajax.html.twig" %}
 {% block title %}{% if current_app is null %}{{ 'Neue Anwendung'|trans({}, 'admin') }}{% else %}{{ 'Anwendung "{external_app}"'|trans({'{external_app}': current_app.name}, "admin")|raw }}{% endif %}{% endblock %}
+{% block menu_text %}
+    {{parent()}}
+    <li class="back-dash" x-ajax-href="{{ url('game_landing') }}">{{ 'Zum Spiel'|trans({},'global') }}</li>
+{% endblock %}
 {% block ajax %}
     {# @var current_app \App\Entity\ExternalApp #}
     <div class="row">
