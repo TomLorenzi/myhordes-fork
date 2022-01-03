@@ -38,7 +38,7 @@
                     <li class="status">
                     	<img src="{{ asset('build/images/status/status_' ~ stat.name ~ '.gif') }}" alt="{{ stat.label|trans({},'game') }}">
                     	{% if stat.description %}
-                    	<div class="tooltip normal">
+                    	<div class="tooltip item">
                             <h1>{{ stat.label|trans({}, 'game') }}</h1>
                             {{ stat.description|trans({}, 'game')|raw }}
                     	</div>
@@ -49,7 +49,7 @@
             {% if is_granted('ROLE_CROW') and app.environment == 'dev'  %}
                 <li class="status">
                     <img src="{{ asset('build/images/status/status_unknown.gif') }}" alt="[ ]">
-                    <div class="tooltip normal">
+                    <div class="tooltip item">
                         <h1>{{ 'Versteckte Statuseffekte'|trans({}, 'admin') }}</h1>
                     {% for stat in status %}
                         {# @var stat \App\Entity\CitizenStatus #}
