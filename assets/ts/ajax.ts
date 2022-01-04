@@ -280,6 +280,7 @@ export default class Ajax {
         Object.entries(react_mounts).forEach(entry => {
             const component = <HTMLElement>entry[1];
             let data = component.hasAttribute('x-react-data') ? JSON.parse(component.getAttribute('x-react-data')) : {};
+            component.removeAttribute('x-react-data');
             $.components.generate( component, component.getAttribute('x-react-mount'), data );
         });
 

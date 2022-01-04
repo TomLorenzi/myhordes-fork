@@ -1,0 +1,113 @@
+export type MapGeometry = {
+    x0: number,
+    x1: number,
+    y0: number,
+    y1: number
+}
+
+type MapZoneRuin = {
+    n: string,      // Translated name
+    b: boolean,     // Buried?
+    e: boolean,     // Explorable?
+}
+
+type MapCoordinate = {
+    x: number,      // X coordinate
+    y: number,      // Y coordinate
+}
+
+export interface MapZone extends MapCoordinate {
+    z?: number,     // Exact number of zombies
+    d?: number,     // Danger level
+    r?: MapZoneRuin,
+    td?: boolean    // Only defined for town zone: true - town is devastated, false - town is not devastated
+    c?: string[],   // Names of all citizens on the zone
+    co?: number,    // Number of additional citizens to display without names (only town zone)
+    cc?: boolean    // True, if the active citizen is here
+    t?: boolean     // Visited today?
+    g?: boolean     // Global view
+    s?: boolean     // Contains a soul
+    tg?: number     // Tag Ref
+}
+
+export type MapRoute = {
+    id: number,
+    owner: string,
+    label: string,
+    length: number,
+    stops: MapCoordinate[],
+}
+
+type MapData = {
+    geo: MapGeometry,
+    zones: MapZone[]
+}
+
+export type MapCoreProps = {
+    displayType: string;
+    className: string;
+    fx: boolean,
+    map: MapData;
+    routes: MapRoute[],
+    strings: RuntimeMapStrings,
+}
+
+export type RuntimeMapStrings = {
+    zone: string,
+    distance: string,
+    danger: string[],
+    tags: string[],
+    mark: string,
+    routes: string,
+}
+
+export type RuntimeMapSettings = {
+    showGlobal: boolean,
+}
+
+export type RuntimeMapState = {
+    showPanel: boolean,
+    markEnabled: boolean,
+    activeRoute: number | undefined;
+}
+
+export type RuntimeMapStateAction = {
+    showPanel?: boolean,
+    markEnabled?: boolean,
+    activeRoute?: number | boolean;
+}
+
+export type MapOverviewParentProps = {
+    settings: RuntimeMapSettings,
+    map: MapData,
+    strings: RuntimeMapStrings,
+}
+
+export type MapOverviewParentState = {
+    zoom: number,
+}
+
+export type MapRouteListProps = {
+    visible: boolean,
+    routes: MapRoute[],
+    strings: RuntimeMapStrings,
+    activeRoute: number | undefined,
+    wrapDispatcher: (RuntimeMapStateAction)=>void
+}
+
+export type MapRouteListState = {
+    activeRoute: number | undefined,
+}
+
+export type MapControlProps = {
+    strings: RuntimeMapStrings,
+    markEnabled: boolean,
+    showRoutes: boolean,
+    showRoutesPanel: boolean,
+    wrapDispatcher: (RuntimeMapStateAction)=>void
+}
+
+export type MapControlState = {
+    canZoomIn: boolean,
+    canZoomOut: boolean
+}

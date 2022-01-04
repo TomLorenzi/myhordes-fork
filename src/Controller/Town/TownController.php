@@ -1635,6 +1635,7 @@ class TownController extends InventoryAwareController
         $can_go_out = !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tired') && $this->getActiveCitizen()->getAp() > 0;
 
         $town = $this->getActiveCitizen()->getTown();
+        $time = $this->getTownConf()->isNightTime() ? 'night' : 'day';
 
         return $this->render( 'ajax/game/town/door.html.twig', $this->addDefaultTwigArgs('door', array_merge([
             'def'               => $th->calculate_town_def($town, $defSummary),
@@ -1646,7 +1647,8 @@ class TownController extends InventoryAwareController
             'show_sneaky'       => $this->getActiveCitizen()->hasRole('ghoul'),
             'log'               => $this->renderLog( -1, null, false, LogEntryTemplate::TypeDoor, 10 )->getContent(),
             'day'               => $this->getActiveCitizen()->getTown()->getDay(),
-            'door_section'      => 'door'
+            'door_section'      => 'door',
+            'map_public_json'   => json_encode( $this->get_public_map_blob( 'door-preview', $time ) )
         ], $this->get_map_blob())) );
     }
 
