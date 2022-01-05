@@ -5,7 +5,7 @@ import {
     MapOverviewParentProps,
     MapOverviewParentState,
     MapZone,
-    RuntimeMapSettings,
+    RuntimeMapSettings, RuntimeMapStateAction,
     RuntimeMapStrings
 } from "./typedef";
 
@@ -14,14 +14,40 @@ export type MapOverviewParentStateAction = {
 }
 
 const MapOverviewRoutePainter = ( props: MapOverviewParentProps ) => {
+    let pt_last = props.settings.enableComplexZoneRouting ? null : {x:0,y:0};
+    let last_pt = props.routeEditor.length > 0 ? props.routeEditor[ props.routeEditor.length-1 ] : null;
     return (
             <div className="svg">
                 <svg viewBox={`${props.map.geo.x0} ${props.map.geo.y0} ${1+(props.map.geo.x1-props.map.geo.x0)} ${1+(props.map.geo.y1-props.map.geo.y0)}`} xmlns="http://www.w3.org/2000/svg">
-                    <g x-local-id="map-marker-layer"/>
+                    <g>
+                        {props.marking && (
+                            <rect x={props.marking.x} y={props.marking.y}
+                                  height={1} width={1}
+                                  fill={'transparent'} opacity={0.5} strokeWidth={0.08} stroke={'white'}
+                            />
+                        )}
+                    </g>
                     <g x-local-id="map-expedition-layer">
                         <g x-local-id="map-expedition-context"/>
                         <g x-local-id="map-expedition-focus"/>
-                        <g x-local-id="map-expedition-live-editor"/>
+                        <g>
+                            { props.routeEditor.map( (c,i) => {
+                                const r = pt_last !== null ? <line key={'r' + i} x1={pt_last.x + 0.5} x2={c.x + 0.5} y1={pt_last.y + 0.5} y2={c.y + 0.5} strokeWidth={0.10} stroke={'rgba(255,255,255,0.5)'}/> : null;
+                                pt_last = c;
+                                return r;
+                            } ) }
+                            { props.settings.enableSimpleZoneRouting && !props.settings.enableComplexZoneRouting && (
+                                <>
+                                    { last_pt && last_pt.x !== last_pt.y && ( last_pt.x === 0 || last_pt.y === 0 ) && (
+                                        <line x1={last_pt.x + 0.5} x2={0.5} y1={last_pt.y + 0.5} y2={0.5} strokeWidth={0.10} stroke={'rgba(255,255,255,0.5)'} strokeDasharray={'0.1'}/>
+                                    ) }
+                                    <circle cx={0.5} cy={0.5} r={0.12} fill={'white'}/>
+                                </>
+                            ) }
+                            { props.routeEditor.map( (c,i) =>
+                                <circle key={'c'+i} cx={c.x+0.5} cy={c.y+0.5} r={0.12} fill={'white'}/>
+                            ) }
+                        </g>
                     </g>
                 </svg>
             </div>
@@ -75,11 +101,25 @@ type MapOverviewZoneProps = {
     geo: MapGeometry,
     zone: MapZone,
     strings: RuntimeMapStrings,
+    conf: RuntimeMapSettings,
+    wrapDispatcher: (RuntimeMapStateAction)=>void
 }
 
 const MapOverviewZone = ( props: MapOverviewZoneProps ) => {
+    const click_handler = ()=>{
+        let data: RuntimeMapStateAction = {};
+
+        if (props.conf.enableZoneMarking)
+            data.activeZone = props.zone;
+
+        if (props.conf.enableSimpleZoneRouting)
+            data.routeEditorPush = props.zone;
+
+        if (Object.entries(data).length > 0) props.wrapDispatcher(data);
+    };
+
     return (
-        <div className={`zone 
+        <div onClick={click_handler} className={`zone 
             ${typeof props.zone.td !== "undefined" ? `town ${props.zone.td ? 'devast' : ''}` : ''}
             ${props.zone.cc ? 'active' : ''}
             ${typeof props.zone.t  !== "undefined" ? (props.zone.t ? '' : 'past') : 'unknown'}
@@ -123,12 +163,12 @@ const MapOverviewParent = ( props: MapOverviewParentProps ) => {
 
     return (
         <div className={'scroll-plane'}>
-            <MapOverviewRoutePainter map={props.map} settings={props.settings} strings={props.strings} />
+            <MapOverviewRoutePainter map={props.map} settings={props.settings} strings={props.strings} marking={props.marking} wrapDispatcher={props.wrapDispatcher} routeEditor={props.routeEditor} />
             <div className={'zone-grid'} style={{
                 gridTemplateColumns: `repeat(${cell_num_x}, ${cell_size})`,
                 gridTemplateRows: `repeat(${cell_num_y}, ${cell_size})`
             }}>
-                {Object.entries(cache).map(([k,z]) => <MapOverviewZone key={k} geo={props.map.geo} zone={z as MapZone} strings={props.strings}/>)}
+                {Object.entries(cache).map(([k,z]) => <MapOverviewZone key={k} geo={props.map.geo} zone={z as MapZone} strings={props.strings} conf={props.settings} wrapDispatcher={props.wrapDispatcher}/>)}
             </div>
         </div>
     )

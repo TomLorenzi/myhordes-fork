@@ -11,8 +11,7 @@
 
     <div class="row">
         <div class="padded cell rw-12">
-            {% embed "ajax/game/map.html.twig" with {'default_zoom': 0, 'default_show_zone': false, 'allow_zone_view': false, 'in_town': true, 'map': map_data, 'chaos': town.chaos} %}
-            {% endembed %}
+            <div id="planner-map" x-react-mount="map" x-react-data="{{ map_public_json }}"></div>
         </div>
     </div>
 
@@ -28,7 +27,7 @@
                     <div class="padded cell rw-12"><input id="route_name" type="text" maxlength="32" placeholder="{{ 'Name der Route'|trans({},'game') }}" /></div>
                 </div>
                 <div class="row">
-                    <div class="padded cell rw-6"><a id="route_undo" class="small" href=""><i class="fa fa-undo"></i> {{ 'Rückgängig'|trans({},'global') }}</a></div>
+                    <div class="padded cell rw-6"><a id="route_undo" class="small" href="#"><i class="fa fa-undo"></i> {{ 'Rückgängig'|trans({},'global') }}</a></div>
                 </div>
                 <div class="row">
                     <div class="padded cell rw-6"><a class="small" href="" x-ajax-href="{{ path('town_planner') }}">{{ 'Abbrechen'|trans({},'global') }}</a></div>
@@ -52,15 +51,14 @@
 {% block js %}
     {{ parent() }}
     <script>
-        {% embed "scripts/map.js.twig" with {'map': map_data} %}{% endembed %}
-
+        /*
         let map = document.querySelector('.map_area');
         let save_button = document.getElementById('save_button');
 
         let edit_nodes = [];
         let edit_complex = false;
         let edit_active = false;
-
+        */
         const begin_route = function(complex) {
             {% if not allow_extended %}
                 complex = false;
@@ -68,30 +66,24 @@
             document.getElementById('create_route_control').style.display = 'none';
             document.getElementById('route_dashboard').style.display = 'block';
 
-            if (!complex) edit_nodes = [ [0,0], [0,0] ];
+            $.components.dispatchEvent('planner-map', 'planning-begin', {complex});
+
+
+            /*if (!complex) edit_nodes = [ [0,0], [0,0] ];
 
             edit_complex = complex;
             edit_active = true;
 
-            render_routes( map, 'live-editor', '#b4da4c', edit_nodes );
+            render_routes( map, 'live-editor', '#b4da4c', edit_nodes );*/
         }
 
-        document.getElementById('route_undo').addEventListener('click', function(e) {
+        $.components.attachEventListener('planner-map', 'planner-step', e=>console.log(e));
+
+        document.getElementById('route_undo').addEventListener('click', e => {
             e.preventDefault();
-            if (!edit_complex) {
-                if (edit_nodes.length > 2) {
-                    edit_nodes.pop();
-                    edit_nodes.pop();
-                    edit_nodes.push( [0,0] );
-                }
-            } else if (edit_nodes.length > 0)
-                edit_nodes.pop();
-
-            if (render_routes( map, 'live-editor', '#b8c49c', edit_nodes ))
-                save_button.removeAttribute('disabled');
-            else save_button.setAttribute('disabled','disabled');
+            $.components.dispatchEvent('planner-map', 'planning-undo', {});
         });
-
+        /*
         map.addEventListener('zone-click', function(e) {
             if (!edit_active) {
                 mark_zone(map,e.detail.x,e.detail.y,true);
@@ -112,7 +104,7 @@
             if (render_routes( map, 'live-editor', '#b8c49c', edit_nodes ))
                 save_button.removeAttribute('disabled');
             else save_button.setAttribute('disabled','disabled');
-        });
+        });*/
 
         document.getElementById('save_button').addEventListener('click', function(e) {
             const name = document.getElementById('route_name').value;

@@ -167,10 +167,12 @@ export default class Ajax {
         // Save react mounts
         $.html.forEach( '[id][x-react-mount]', c => {
             if (react_mounts[c.id]) {
+                if (react_mounts[c.id].getAttribute('x-react-data'))
+                    c.setAttribute( 'x-react-data', react_mounts[c.id].getAttribute('x-react-data') )
                 react_mounts[c.id].parentElement.insertBefore( c, react_mounts[c.id] );
                 react_mounts[c.id].remove();
                 react_mounts[c.id] = c;
-            }
+            } else $.components.degenerate( c );
         }, target );
 
         // Clear the target
@@ -306,6 +308,7 @@ export default class Ajax {
             bubbles: true, cancelable: true
         }));
 
+        $.components.prune();
         $.html.restoreTutorialStage();
     }
 

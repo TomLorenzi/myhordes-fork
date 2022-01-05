@@ -11,7 +11,7 @@ type MapZoneRuin = {
     e: boolean,     // Explorable?
 }
 
-type MapCoordinate = {
+export type MapCoordinate = {
     x: number,      // X coordinate
     y: number,      // Y coordinate
 }
@@ -63,24 +63,39 @@ export type RuntimeMapStrings = {
 
 export type RuntimeMapSettings = {
     showGlobal: boolean,
+    enableZoneMarking: boolean,
+    enableZoneRouting: boolean,
+
+    enableSimpleZoneRouting: boolean,
+    enableComplexZoneRouting: boolean,
 }
 
 export type RuntimeMapState = {
+    conf: RuntimeMapSettings,
     showPanel: boolean,
     markEnabled: boolean,
     activeRoute: number | undefined;
+    activeZone: MapCoordinate | undefined;
+    routeEditor: MapCoordinate[];
 }
 
 export type RuntimeMapStateAction = {
+    configure?: RuntimeMapSettings
     showPanel?: boolean,
     markEnabled?: boolean,
-    activeRoute?: number | boolean;
+    activeRoute?: number | boolean,
+    activeZone?: MapCoordinate | boolean,
+    routeEditorPush?: MapCoordinate,
+    routeEditorPop?: boolean,
 }
 
 export type MapOverviewParentProps = {
     settings: RuntimeMapSettings,
     map: MapData,
     strings: RuntimeMapStrings,
+    marking: MapCoordinate | undefined,
+    wrapDispatcher: (RuntimeMapStateAction)=>void,
+    routeEditor: MapCoordinate[]
 }
 
 export type MapOverviewParentState = {

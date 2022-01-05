@@ -1692,11 +1692,12 @@ class TownController extends InventoryAwareController
         if(count($routes) >= 16)
             return $this->redirect($this->generateUrl('town_routes'));
 
-        return $this->render( 'ajax/game/town/planner.html.twig', $this->addDefaultTwigArgs('door', array_merge([
+        return $this->render( 'ajax/game/town/planner.html.twig', $this->addDefaultTwigArgs('door', [
             'door_section'      => 'planner',
             'town'  =>  $this->getActiveCitizen()->getTown(),
             'allow_extended' => $this->getActiveCitizen()->getProfession()->getHeroic(),
-        ], $this->get_map_blob())) );
+            'map_public_json'   => json_encode( $this->get_public_map_blob( 'door-planner', $this->getTownConf()->isNightTime() ? 'night' : 'day' ) )
+        ]) );
     }
 
     /**
