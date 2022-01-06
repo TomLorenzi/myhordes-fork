@@ -2761,5 +2761,17 @@
         <target>Verbleibende Ruinengrabungen:</target>
       </segment>
     </unit>
+    <unit id="nOcPaSS" name="Zurzeit in der Stadt">
+      <segment>
+        <source>Zurzeit in der Stadt</source>
+        <target>Zurzeit in der Stadt</target>
+      </segment>
+    </unit>
+    <unit id="jPmvEEG" name="Eternal-Twin-Konto verlinkt">
+      <segment>
+        <source>Eternal-Twin-Konto verlinkt</source>
+        <target>Eternal-Twin-Konto verlinkt</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -4369,5 +4369,27 @@
         <target>Fouilles de ruine restantes :</target>
       </segment>
     </unit>
+    <unit id="nOcPaSS" name="Zurzeit in der Stadt">
+      <notes>
+        <note category="german">Zurzeit in der Stadt</note>
+        <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Zurzeit in der Stadt</source>
+        <target>Actuellement en ville</target>
+      </segment>
+    </unit>
+    <unit id="jPmvEEG" name="Eternal-Twin-Konto verlinkt">
+      <notes>
+        <note category="german">Eternal-Twin-Konto verlinkt</note>
+        <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Eternal-Twin-Konto verlinkt</source>
+        <target>Compte Eternal-Twin lié</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

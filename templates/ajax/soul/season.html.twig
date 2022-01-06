@@ -151,7 +151,7 @@
                                     {% endif %}
                                 </option>
                             {% endfor %}
-                            <option value="a" {% if currentSeason is null %}selected{% endif %}>{{'Alpha-Seelen'|trans({}, "soul")}}</option>
+                            <option value="a" {% if currentSeason == 'a' %}selected{% endif %}>{{'Alpha-Seelen'|trans({}, "soul")}}</option>
                         </select>
                     </div>
                     <div class="cell rw-8">
@@ -269,7 +269,7 @@
         {% endif %}
 
         $.html.addEventListenerAll('#pagination', 'change', (e,elem) => {
-            $.ajax.load(null, elem.value, true);
+            $.ajax.load(null, elem.value, true, {'season': season.value});
         } )
 
         $.html.addEventListenerAll( '[x-town-toggle]', 'click', function(e,elem) {

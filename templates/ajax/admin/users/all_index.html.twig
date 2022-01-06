@@ -1,5 +1,9 @@
 {% extends "ajax/ajax.html.twig" %}
-
+{% block menu_text %}
+    {{parent()}}
+    <li class="back-dash" x-ajax-href="{{ url('game_landing') }}">{{ 'Zum Spiel'|trans({},'global') }}</li>
+{% endblock %}
+{% block title %}{{ 'Users'|trans({}, 'admin') }}{% endblock %}
 {% macro selectFilter(name, label, values, filters) %}
     <div class="row">
         <div class="padded cell rw-6"><label for="filter_{{ name }}">{{ label }}</label></div>
@@ -114,8 +118,8 @@
                     <div class="cell padded rw-3 rw-sm-6">{{ 'Benutzername'|trans({},'admin') }}</div>
                     <div class="cell padded rw-2 rw-sm-0">{{ 'Rolle'|trans({},'admin') }}</div>
                     <div class="cell-small padded rw-1 rw-sm-2 center">&nbsp;</div>
-                    <div class="cell-small padded rw-1 rw-sm-2 center"><img alt="" src="{{ asset('build/images/assets/img/icons/home.gif') }}"></div>
-                    <div class="cell-small padded rw-1 rw-sm-2 center"><img alt="" height="16" width="16" src="{{ asset('build/images/badges/eternal.png') }}"></div>
+                    <div class="cell-small padded rw-1 rw-sm-2 center"><img alt="" src="{{ asset('build/images/assets/img/icons/home.gif') }}"><div class="tooltip help">{{ 'Zurzeit in der Stadt'|trans({}, 'admin') }}</div></div>
+                    <div class="cell-small padded rw-1 rw-sm-2 center"><img alt="" height="16" width="16" src="{{ asset('build/images/badges/eternal.png') }}"><div class="tooltip help">{{ 'Eternal-Twin-Konto verlinkt'|trans({}, 'admin') }}</div></div>
                 </div>
                 {% for user in users %}
                     {# @var user \App\Entity\User #}
@@ -153,7 +157,7 @@
                         </div>
                         <div class="cell-small padded rw-1 rw-sm-2 center">
                             {% if user.activeCitizen %}
-                                <a target="_blank" title="{{ user.activeCitizen.town.name }}" href="{{ path('admin_town_explorer', {id: user.activeCitizen.town.id}) }}"><img alt="[X]" src="{{ asset('build/images/icons/tickOn.gif') }}"/></a>
+                                <a target="_blank" title="{{ user.activeCitizen.town.name }}" href="{{ path('admin_town_explorer', {id: user.activeCitizen.town.id}) }}"><img alt="[X]" src="{{ asset('build/images/icons/tickOn.gif') }}"/><div class="tooltip">{{ user.activeCitizen.town.name }}</div></a>
                             {% else %}
                                 <img alt="[ ]" src="{{ asset('build/images/icons/tickOff.gif') }}"/>
                             {% endif %}
@@ -162,7 +166,7 @@
                             {% if user.eternalID is not null %}
                                 <img alt="[X]" src="{{ asset('build/images/icons/tickOn.gif') }}"/>
                             {% else %}
-                                <img alt="[X]" src="{{ asset('build/images/icons/tickOff.gif') }}"/>
+                                <img alt="[ ]" src="{{ asset('build/images/icons/tickOff.gif') }}"/>
                             {% endif %}
                         </div>
                     </div>

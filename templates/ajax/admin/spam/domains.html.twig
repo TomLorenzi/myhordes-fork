@@ -1,4 +1,9 @@
 {% extends "ajax/ajax.html.twig" %}
+{% block menu_text %}
+    {{parent()}}
+    <li class="back-dash" x-ajax-href="{{ url('game_landing') }}">{{ 'Zum Spiel'|trans({},'global') }}</li>
+{% endblock %}
+{% block title %}{{ 'AntiSpam'|trans({}, 'admin') }}{% endblock %}
 {% block ajax %}
     <div class="row">
         <div class="cell rw-12">

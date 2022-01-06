@@ -594,11 +594,8 @@ class TownHandler
             $min2 = round($est->getZombies() - ($est->getZombies() * $offsetMin / 100));
             $max2 = round($est->getZombies() + ($est->getZombies() * $offsetMax / 100));
 
-            /*$min2 = round($min2, 2 - strlen(strval($min2)));
-            $max2 = round($max2, 2 - strlen(strval($max2)));*/
-
-            $min2 = round($min2 / 25) * 25;
-            $max2 = round($max2 / 25) * 25;
+            $min2 = floor($min2 / 25) * 25;
+            $max2 = ceil($max2 / 25) * 25;
 
             $soulFactor = min(1 + (0.04 * $this->get_red_soul_count($town)), (float)$this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_RED_SOUL_FACTOR, 1.2));
 

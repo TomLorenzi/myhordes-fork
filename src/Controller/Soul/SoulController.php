@@ -667,8 +667,8 @@ class SoulController extends CustomAbstractController
 
         return $this->render( 'ajax/soul/season.html.twig', $this->addDefaultTwigArgs("soul_season", [
             'seasons' => $seasons,
-            'currentSeason' => $currentSeason,
-            'virtualSeason' => is_string($currentSeason),
+            'currentSeason' => $seasonId === 'a' ? 'a' : $currentSeason,
+            'virtualSeason' => is_string($currentSeason) || $seasonId === 'a',
             'ranking' => $ranking,
             'currentType' => 0,
             'soloType' => 'soul',

@@ -1,7 +1,6 @@
 {% extends "ajax/ajax.html.twig" %}
 
 {% from "ajax/admin/widget/displays.twig" import widget_citizen %}
-
 {% from "ajax/admin/widget/controls.twig" import widget_item_creator as item_creator, widget_item_creator_js as item_creator_js %}
 {% from "ajax/admin/widget/controls.twig" import widget_picto_creator as picto_creator, widget_picto_creator_js as picto_creator_js %}
 {% from "ajax/admin/widget/controls.twig" import widget_status_control as status_control, widget_status_control_js as status_control_js %}
@@ -11,6 +10,10 @@
 {% from "ajax/admin/widget/controls.twig" import widget_teleport_control as teleport_control, widget_teleport_control_js as teleport_control_js %}
 
 {% block title %}{{'Stadt {townname}'|trans({'{townname}': town.name}, 'admin')|raw}}{% endblock %}
+{% block menu_text %}
+    {{parent()}}
+    <li class="back-dash" x-ajax-href="{{ url('game_landing') }}">{{ 'Zum Spiel'|trans({},'global') }}</li>
+{% endblock %}
 {% block ajax %}
     {% macro valuelist(prop,val) %}
         <div class="row">
