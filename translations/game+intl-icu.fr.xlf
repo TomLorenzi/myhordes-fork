@@ -25880,5 +25880,16 @@ cette violente opération...]]></target>
         <target>Contre toute attente, {citizen} semble avoir trouvé quelque chose pour subvenir à ses besoins dans le coin...</target>
       </segment>
     </unit>
+    <unit id="sDajFXt">
+      <notes>
+        <note category="german">Nachrichten &lt;strong&gt;ohne Titel&lt;/strong&gt; oder &lt;strong&gt;Text&lt;/strong&gt; können nicht versendet werden.</note>
+        <note category="from">twig:///templates/scripts/errors/messages.txt.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Nachrichten &lt;strong&gt;ohne Titel&lt;/strong&gt; oder &lt;strong&gt;Text&lt;/strong&gt; können nicht versendet werden.</source>
+        <target><![CDATA[Vous ne pouvez pas envoyer un <strong>message vide</strong> ou un message avec un <strong>titre vide</strong>...]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

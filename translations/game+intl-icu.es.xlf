@@ -26085,5 +26085,16 @@
         <target>¿Quién lo hubiera creído?, {citizen} parece haber encontrado algo para sobrevivir...</target>
       </segment>
     </unit>
+    <unit id="sDajFXt">
+      <notes>
+        <note category="german">Nachrichten &lt;strong&gt;ohne Titel&lt;/strong&gt; oder &lt;strong&gt;Text&lt;/strong&gt; können nicht versendet werden.</note>
+        <note category="from">twig:///templates/scripts/errors/messages.txt.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Nachrichten &lt;strong&gt;ohne Titel&lt;/strong&gt; oder &lt;strong&gt;Text&lt;/strong&gt; können nicht versendet werden.</source>
+        <target><![CDATA[No puedes enviar un <strong>mensaje vacío</strong> o con el <strong>título vacío</strong>...]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

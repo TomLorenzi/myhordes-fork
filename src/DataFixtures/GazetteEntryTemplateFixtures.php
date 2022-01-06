@@ -518,6 +518,7 @@ class GazetteEntryTemplateFixtures extends Fixture
             'fot' => GazetteEntryTemplate::FollowUpTypeBad,
             'variableTypes'=>[
                 ['type'=>"num",'name'=>'deaths'],
+                ['type'=>"num",'name'=>'attack'],
             ],
         ],
         ['text'=>'Aus unerklärlichen Gründen ist es gestern Nacht einer kleinen Zombiegruppe gelungen, die Stadt zu betreten. <strong>{deaths} Bürger</strong> mussten dafür mit ihrem Leben bezahlen.',
