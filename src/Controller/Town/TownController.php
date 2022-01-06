@@ -1637,7 +1637,7 @@ class TownController extends InventoryAwareController
         $town = $this->getActiveCitizen()->getTown();
         $time = $this->getTownConf()->isNightTime() ? 'night' : 'day';
 
-        return $this->render( 'ajax/game/town/door.html.twig', $this->addDefaultTwigArgs('door', array_merge([
+        return $this->render( 'ajax/game/town/door.html.twig', $this->addDefaultTwigArgs('door', [
             'def'               => $th->calculate_town_def($town, $defSummary),
             'town'              => $town,
             'door_locked'       => $door_locked,
@@ -1649,7 +1649,7 @@ class TownController extends InventoryAwareController
             'day'               => $this->getActiveCitizen()->getTown()->getDay(),
             'door_section'      => 'door',
             'map_public_json'   => json_encode( $this->get_public_map_blob( 'door-preview', $time ) )
-        ], $this->get_map_blob())) );
+        ]) );
     }
 
     /**
