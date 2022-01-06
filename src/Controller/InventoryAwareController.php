@@ -963,7 +963,7 @@ class InventoryAwareController extends CustomAbstractController
             if ($zone->getDiscoveryStatus() >= Zone::DiscoveryStateCurrent) {
                 if ($zone->getZombieStatus() >= Zone::ZombieStateExact)
                     $current_zone['z'] = $zone->getZombies();
-                elseif ($zone->getZombieStatus() >= Zone::ZombieStateEstimate) {
+                if ($zone->getZombieStatus() >= Zone::ZombieStateEstimate) {
                     if     ($zone->getZombies() == 0)                   $current_zone['d'] = 0;
                     elseif ($zone->getZombies() <= 2)                   $current_zone['d'] = 1;
                     elseif ($zone->getZombies() <= 5)                   $current_zone['d'] = 2;
