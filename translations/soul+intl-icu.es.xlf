@@ -4144,7 +4144,7 @@
       </notes>
       <segment>
         <source>Tooltips auf mobilen Geräten durch antippen anzeigen</source>
-        <target> Un solo toque para mostrar descripción</target>
+        <target>Un solo toque para mostrar descripción</target>
       </segment>
     </unit>
     <unit id="JB7.CP8">
@@ -4154,7 +4154,7 @@
       </notes>
       <segment>
         <source>Ist diese Einstellung aktiviert, öffnet das erste Antippen eines Objekts dessen Tooltip - erst das zweite Antippen führt die eigentliche Aktion durch. Ist die Einstellung deaktiviert, führt das erste Antippen die Aktion direkt aus - um den Tooptip zu öffnen, muss das Objekt länger gedrückt werden. Dies bezieht sich ausschließlich auf Geräte mit Finger- oder Stifteingabe. Bei Mauseingaben hat diese Einstellung keinen Effekt.</source>
-        <target> Cuando está activado, tocar un objeto mostrará su descripción - para interactuar con él, necesitas tocarlo nuevamente. Cuando está desactivado, el primer toque ejecutará la acción enseguida. Para solo ver la descripción sin realizar la acción, mantén presionado el objeto por más de un segundo. Esta configuración solo afecta al uso del dedo o lápiz. No tiene efecto sobre el ratón.</target>
+        <target>Cuando está activado, tocar un objeto mostrará su descripción - para interactuar con él, necesitas tocarlo nuevamente. Cuando está desactivado, el primer toque ejecutará la acción enseguida. Para solo ver la descripción sin realizar la acción, mantén presionado el objeto por más de un segundo. Esta configuración solo afecta al uso del dedo o lápiz. No tiene efecto sobre el ratón.</target>
       </segment>
     </unit>
     <unit id="eZ9JHxg" name="Profil und Avatar">
@@ -4214,7 +4214,7 @@
       </notes>
       <segment>
         <source>Erweitert</source>
-        <target>Avanzado</target>
+        <target>Avanzada</target>
       </segment>
     </unit>
     <unit id="h8KIsxl" name="Icon-Zoom auf mobilen Geräten">
@@ -4224,7 +4224,7 @@
       </notes>
       <segment>
         <source>Icon-Zoom auf mobilen Geräten</source>
-        <target>Zoom de íconos para dispositivos móviles</target>
+        <target>Zoom de iconos para dispositivos móviles</target>
       </segment>
     </unit>
     <unit id="1kCprst">
@@ -4234,7 +4234,7 @@
       </notes>
       <segment>
         <source>Um Items in deinem Rucksack und der Bank auf einem mobilen Gerät einfacher mit dem Finger auswählen zu können, kannst du deren Größe anpassen. Diese Einstellung betrifft nur mobile Geräte mit einem kleinen Bildschirm, beispielsweise Smartphones.</source>
-        <target>Para hacer que los items en tu mochila y el almacén sean más fáciles de seleccionar con tu dedo en un dispositivo móvil, puedes ajustar su tamaño. Esta configuración solamente afecta dispositivos móviles con una pantalla pequeña, como los smartphones.</target>
+        <target>Para hacer que los objetos en tu mochila y el almacén sean más fáciles de seleccionar con tu dedo en un dispositivo móvil, puedes ajustar su tamaño. Esta configuración solamente afecta dispositivos móviles con una pantalla pequeña, como los smartphones.</target>
       </segment>
     </unit>
     <unit id="HkoJZOT" name="Zoom deaktiviert">
@@ -4254,7 +4254,7 @@
       </notes>
       <segment>
         <source>Öffne MyHordes in einem größeren Fenster oder auf einem Gerät mit einem größeren Bildschirm, um den Bildausschnitt für die komprimierte Anzeige einzustellen.</source>
-        <target>Abra MyHordes en una ventana más grande o en un dispositivo con una pantalla más grande, para configurar la sección de imagen para la pantalla comprimida.</target>
+        <target>Abre MyHordes en una ventana más grande o en un dispositivo con una pantalla más grande, para configurar la sección de imagen para la pantalla comprimida.</target>
       </segment>
     </unit>
     <unit id="DLDvs.b">
@@ -4264,7 +4264,7 @@
       </notes>
       <segment>
         <source>Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll. Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</source>
-        <target>Seleccione qué parte de su foto de perfil debe usarse para la visualización reducida. Mueva la sección con el ratón y amplíela o redúzcala con la rueda del ratón.</target>
+        <target>Selecciona qué parte de tu foto de perfil debe usarse para la visualización reducida. Mueve la sección con el ratón y amplíala o redúcela con la rueda del ratón.</target>
       </segment>
     </unit>
   </file>
