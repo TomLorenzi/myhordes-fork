@@ -20,7 +20,7 @@ const RouteRenderer = ( props: { route: MapCoordinate[], color: string, opacity:
     let last_pt = props.route.length > 0 ? props.route[ props.route.length-1 ] : null;
 
     return (
-        <g>
+        <>
             { props.route.map( (c,i) => {
                 const r = pt_last !== null ? <line key={'r' + i} x1={pt_last.x + 0.5} x2={c.x + 0.5} y1={pt_last.y + 0.5} y2={c.y + 0.5} strokeWidth={0.10} strokeOpacity={props.opacity} stroke={props.color}/> : null;
                 pt_last = c;
@@ -37,7 +37,7 @@ const RouteRenderer = ( props: { route: MapCoordinate[], color: string, opacity:
             { props.route.map( (c,i) =>
                 <circle key={'c'+i} cx={c.x+0.5} cy={c.y+0.5} r={0.12} fill={props.color}/>
             ) }
-        </g>
+        </>
     )
 }
 
@@ -45,14 +45,12 @@ const MapOverviewRoutePainter = ( props: MapOverviewParentProps ) => {
     return (
             <div className="svg">
                 <svg viewBox={`${props.map.geo.x0} ${props.map.geo.y0} ${1+(props.map.geo.x1-props.map.geo.x0)} ${1+(props.map.geo.y1-props.map.geo.y0)}`} xmlns="http://www.w3.org/2000/svg">
-                    <g>
-                        {props.marking && (
-                            <rect x={props.marking.x} y={props.marking.y}
-                                  height={1} width={1}
-                                  fill={'transparent'} opacity={0.5} strokeWidth={0.08} stroke={'white'}
-                            />
-                        )}
-                    </g>
+                    {props.marking && (
+                        <rect x={props.marking.x} y={props.marking.y}
+                              height={1} width={1}
+                              fill={'transparent'} opacity={0.5} strokeWidth={0.08} stroke={'white'}
+                        />
+                    )}
                     <RouteRenderer route={props.routeViewer} color={'#b4da4c'} opacity={1} simple={false}/>
                     { props.settings.enableSimpleZoneRouting && (
                         <RouteRenderer route={props.routeEditor} color={'white'} opacity={0.5}
