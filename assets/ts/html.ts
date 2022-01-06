@@ -24,8 +24,8 @@ export default class HTML {
         document.getElementById('modal-backdrop').addEventListener('pop', () => this.nextPopup())
     }
 
-    forEach( query: string, handler: elementHandler ): number {
-        const elements = <NodeListOf<HTMLElement>>document.querySelectorAll(query);
+    forEach( query: string, handler: elementHandler, parent: HTMLElement|Document = null ): number {
+        const elements = <NodeListOf<HTMLElement>>(parent ?? document).querySelectorAll(query);
         for (let i = 0; i < elements.length; i++) handler(elements[i],i);
         return elements.length;
     }

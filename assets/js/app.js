@@ -1,4 +1,6 @@
 // LESS files
+import attack from "./attack";
+
 require('../less/theme.less');
 require('../less/grid.less');
 require('../less/mixins.less');
@@ -17,6 +19,7 @@ import Client from '../ts/client'
 import Ajax from '../ts/ajax'
 import HTML from '../ts/html'
 import MessageAPI from '../ts/messages'
+import Components from "../ts/react";
 const matchAll = require('string.prototype.matchall');
 matchAll.shim();
 
@@ -31,6 +34,7 @@ let $ = {
     html: new HTML(),
     client: new Client(),
     msg: new MessageAPI(),
+    components: new Components(),
     vendor: {
         punycode: require("./punycode")
     }

@@ -168,7 +168,7 @@
         form.append(sec_p)
 
         $.html.popup('{{ 'Unangemessenen Inhalt melden'|trans({},'global')|e('js') }}', form, null, [
-            [ '{{ 'Inhalt melden'|trans({},'global')|e('js') }}',  [ ['click', (e_sub,elem_sub) => {
+            [ '{{ 'Inhalt melden'|trans({},'global')|e('js') }}',  [ ['click', (e_sub, elem_sub) => {
                 const reason = document.querySelector('[name="report_reason"]:checked') ? parseInt(document.querySelector('[name="report_reason"]:checked').value) : 0;
                 const detail = document.querySelector('[name="report_details"]') ? document.querySelector('[name="report_details"]').value : '';
 
@@ -177,7 +177,7 @@
                     $.ajax.load(null, '{{ path('town_house', {'tab': 'messages', 'subtab': 'received'}) }}', true);
                 } )
             }] ] ],
-            [ '{{ 'Abbrechen'|trans({},'global')|e('js') }}', [ ['click', (e_sub,elem_sub) => $.html.triggerPopupPop(elem_sub)] ] ]
+            [ '{{ 'Abbrechen'|trans({},'global')|e('js') }}', [ ['click', (e_sub, elem_sub) => $.html.triggerPopupPop(elem_sub)] ] ]
         ] );
     });
 </script>
