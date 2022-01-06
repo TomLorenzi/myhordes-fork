@@ -4,22 +4,24 @@ import {ReactData} from "../index";
 import {
     MapCoordinate,
     MapCoreProps,
-    MapOverviewParentState,
-    RuntimeMapSettings,
     RuntimeMapState,
     RuntimeMapStateAction
 } from "./typedef";
-import MapOverviewParent, {MapOverviewParentStateAction} from "./Overview";
+import MapOverviewParent from "./Overview";
 import MapRouteList from "./RouteList";
 import MapControls from "./Controls";
-import {act} from "react-dom/test-utils";
+import {useEffect} from "react";
+import {Global} from "../../defaults";
+
+declare var $: Global;
 
 interface ReactDataMapCore extends ReactData<MapCoreProps> {}
 
 interface EventDataPlanningBegin { complex: boolean }
+interface EventDataSelectRoute { route: number|boolean }
 
 const validRoute = (route: MapCoordinate[], complex: boolean): boolean => {
-    if (route.length === 0) return false;
+    if (route.length < 2) return false;
 
     let routeCopy = [...route];
     if (!complex) {
@@ -42,13 +44,33 @@ const validateRouteStep = (route: MapCoordinate[], next: MapCoordinate, complex:
     return (last.x === next.x || last.y === next.y) && (last.x !== next.x || last.y !== next.y);
 }
 
-const MapWrapper = ( props: ReactDataMapCore ) => {
+const processRoute = (route: MapCoordinate[], complex: boolean) => {
+    let routeCopy = [...route];
+    if (!complex) {
+        routeCopy.splice(0,0, {x: 0, y: 0});
+        routeCopy.push({x: 0, y: 0})
+    }
+    return routeCopy.map(c => [c.x,c.y]);
+}
+
+export const MapWrapper = ( props: ReactDataMapCore ) => {
+    let mk = $.client.get('marker','routes',null);
+    if (!mk) mk = undefined;
+    else mk = {x: mk[0] ?? 0, y: mk[1] ?? 0}
+
     const [state, dispatch] = React.useReducer((state: RuntimeMapState, action: RuntimeMapStateAction): RuntimeMapState => {
         const new_state = {...state};
         if (typeof action.configure   !== "undefined") new_state.conf        = action.configure;
         if (typeof action.showPanel   !== "undefined") new_state.showPanel   = action.showPanel;
-        if (typeof action.markEnabled !== "undefined") new_state.markEnabled = action.markEnabled;
-        if (typeof action.activeRoute !== "undefined") new_state.activeRoute = action.activeRoute === false ? undefined : action.activeRoute as number;
+        if (typeof action.markEnabled !== "undefined") {
+            new_state.markEnabled = action.markEnabled;
+            $.client.set('map', 'tags', new_state.markEnabled ? 'show' : 'hide', true);
+        }
+        if (typeof action.activeRoute !== "undefined") {
+            new_state.activeRoute = action.activeRoute === false ? undefined : action.activeRoute as number;
+            $.client.set('current','routes', new_state.activeRoute, false);
+            props.eventGateway('route-selected', {route: new_state.activeRoute ?? null});
+        }
         if (typeof action.activeZone  !== "undefined") {
             if (action.activeZone === false ) new_state.activeZone = undefined;
             else if (action.activeZone !== true ) {
@@ -57,20 +79,26 @@ const MapWrapper = ( props: ReactDataMapCore ) => {
                     new_state.activeZone = action.activeZone;
                 else new_state.activeZone = undefined;
             }
+            $.client.set('marker','routes',new_state.activeZone ? [new_state.activeZone.x,new_state.activeZone.y] : null, false)
         }
         if (typeof action.routeEditorPop  !== "undefined") {
             new_state.routeEditor = action.routeEditorPop === true ? [] : new_state.routeEditor.slice(0,-1);
-            props.eventGateway('planner-step', { valid: validRoute(new_state.routeEditor, new_state.conf.enableComplexZoneRouting), route: new_state.routeEditor.map(c => [c.x,c.y]) });
+            props.eventGateway('planner-step', { valid: validRoute(new_state.routeEditor, new_state.conf.enableComplexZoneRouting), route: processRoute(new_state.routeEditor, new_state.conf.enableComplexZoneRouting) });
         }
         if (typeof action.routeEditorPush !== "undefined" && validateRouteStep(new_state.routeEditor, action.routeEditorPush, new_state.conf.enableComplexZoneRouting)) {
             new_state.routeEditor = new_state.routeEditor.slice(0);
             new_state.routeEditor.push(action.routeEditorPush);
-            props.eventGateway('planner-step', { valid: validRoute(new_state.routeEditor, new_state.conf.enableComplexZoneRouting), route: new_state.routeEditor.map(c => [c.x,c.y]) });
+            props.eventGateway('planner-step', { valid: validRoute(new_state.routeEditor, new_state.conf.enableComplexZoneRouting), route: processRoute(new_state.routeEditor, new_state.conf.enableComplexZoneRouting) });
         }
 
         return new_state;
     }, {
-        showPanel: false, markEnabled: false, activeRoute: undefined, activeZone: undefined, routeEditor: [],
+        markEnabled: $.client.get('map', 'tags', 'hide') === 'show',
+        activeRoute: $.client.get('current','routes', null) ?? undefined,
+        activeZone: mk,
+
+        showPanel: false,
+        routeEditor: [],
         conf: {
             showGlobal:         props.data.displayType.split('-')[0] === 'beyond',
             enableZoneMarking:  props.data.displayType.split('-')[0] === 'beyond',
@@ -81,22 +109,45 @@ const MapWrapper = ( props: ReactDataMapCore ) => {
         }
     });
 
-    if (state.conf.enableZoneRouting) {
-        props.eventRegistrar('planning-begin', (data) => {
-            let new_conf = {...state.conf};
-            new_conf.enableSimpleZoneRouting = (new_conf.enableComplexZoneRouting = (data as EventDataPlanningBegin).complex) || true;
-            dispatch({configure: new_conf, routeEditorPop: true})
-        });
-        props.eventRegistrar('planning-undo', () => {
-            dispatch({routeEditorPop: false})
-        });
-        props.eventRegistrar('planning-end',   () => {
-            let new_conf = {...state.conf};
-            new_conf.enableSimpleZoneRouting = new_conf.enableComplexZoneRouting = false;
-            dispatch({configure: new_conf, routeEditorPop: true})
-        });
-    }
+    useEffect(()=>{
+        const f_selectRoute = data => dispatch({activeRoute: (data as EventDataSelectRoute).route});
+        props.eventRegistrar('select-route', f_selectRoute, false);
+        return () => {
+            props.eventRegistrar('select-route',  f_selectRoute, true);
+        }
+    })
+    useEffect(()=>{
+            if (state.conf.enableZoneRouting) {
+                const f_planningBegin = (data:EventDataPlanningBegin) => {
+                    let new_conf = {...state.conf};
+                    new_conf.enableSimpleZoneRouting = (new_conf.enableComplexZoneRouting = data.complex) || true;
+                    dispatch({configure: new_conf, routeEditorPop: true})
+                };
 
+                const f_planningUndo = () => {
+                    console.log('planning-undo');
+                    dispatch({routeEditorPop: false})
+                }
+
+                const f_planningEnd = () => {
+                    let new_conf = {...state.conf};
+                    new_conf.enableSimpleZoneRouting = new_conf.enableComplexZoneRouting = false;
+                    dispatch({configure: new_conf, routeEditorPop: true})
+                }
+
+                props.eventRegistrar('planning-begin',  f_planningBegin,    false);
+                props.eventRegistrar('planning-undo',   f_planningUndo,     false);
+                props.eventRegistrar('planning-end',    f_planningEnd,      false);
+
+                return () => {
+                    props.eventRegistrar('planning-begin',  f_planningBegin,    true);
+                    props.eventRegistrar('planning-undo',   f_planningUndo,     true);
+                    props.eventRegistrar('planning-end',    f_planningEnd,      true);
+                }
+            } else return ()=>{};
+        });
+
+    const activeRoute = props.data.routes.filter(r=>r.id===state.activeRoute).map(r=>r.stops);
 
     return (
             <div className={'react_map_area'}>
@@ -105,8 +156,13 @@ const MapWrapper = ( props: ReactDataMapCore ) => {
                         { ['tl','tr','bl','br','t0l','t1','t0r','l0t','l1','l0m','l0b','l2','r0t','r1','r0b','b']
                             .map(s=><div key={s} className={s}/>) }
                     </div>
-                    <MapOverviewParent map={props.data.map} strings={props.data.strings} settings={state.conf} marking={state.activeZone} wrapDispatcher={dispatch} routeEditor={state.routeEditor}/>
-                    <MapRouteList visible={state.showPanel} routes={props.data.routes} strings={props.data.strings} activeRoute={state.activeRoute} wrapDispatcher={dispatch} />
+                    <MapOverviewParent map={props.data.map} strings={props.data.strings} settings={state.conf}
+                                       marking={state.activeZone} wrapDispatcher={dispatch} etag={props.data.etag}
+                                       routeEditor={state.routeEditor}
+                                       routeViewer={activeRoute[0] ?? []}/>
+                    <MapRouteList visible={state.showPanel} routes={props.data.routes} strings={props.data.strings}
+                                  activeRoute={state.activeRoute} wrapDispatcher={dispatch}
+                    />
                     { props.data.fx && [0,1,2,3,4].map(k=><div key={k} className="retro-effect"/>) }
                 </div>
                 <MapControls
@@ -115,6 +171,4 @@ const MapWrapper = ( props: ReactDataMapCore ) => {
                 />
             </div>
         )
-}
-
-export default MapWrapper;
+};

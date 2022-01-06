@@ -46,6 +46,7 @@ type MapData = {
 export type MapCoreProps = {
     displayType: string;
     className: string;
+    etag: number,
     fx: boolean,
     map: MapData;
     routes: MapRoute[],
@@ -95,7 +96,13 @@ export type MapOverviewParentProps = {
     strings: RuntimeMapStrings,
     marking: MapCoordinate | undefined,
     wrapDispatcher: (RuntimeMapStateAction)=>void,
-    routeEditor: MapCoordinate[]
+    routeEditor: MapCoordinate[],
+    routeViewer: MapCoordinate[],
+    etag: number,
+}
+
+export interface MapOverviewGridProps extends MapOverviewParentProps {
+    zoom: number
 }
 
 export type MapOverviewParentState = {

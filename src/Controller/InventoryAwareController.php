@@ -1001,16 +1001,6 @@ class InventoryAwareController extends CustomAbstractController
                 $current_zone['co'] = count( array_filter( $this->getActiveCitizen()->getTown()->getCitizens()->getValues(), fn(Citizen $c) => $c->getAlive() && $c->getZone() === null ) );
 
             $zones[] = $current_zone;
-
-            //if (!isset($zones_attributes[$x])) $zones_attributes[$x] = [];
-            //$zones_classes[$x][$y] = $this->zone_handler->getZoneClasses(
-            //    $this->getActiveCitizen()->getTown(),
-            //    $zone,
-            //    $this->getActiveCitizen(),
-            //    in_array($zone->getId(), $soul_zones_ids),
-            //    false,
-            //    $upgraded_map
-            //);
         }
 
         $all_tags = [];
@@ -1024,6 +1014,7 @@ class InventoryAwareController extends CustomAbstractController
         return [
             'displayType' => $displayType,
             'className' => $class,
+            'etag'  => time(),
             'fx' => !$this->getActiveCitizen()->getUser()->getDisableFx(),
             'map' => [
                 'geo' => [ 'x0' => $range_x[0], 'x1' => $range_x[1], 'y0' => $range_y[0], 'y1' => $range_y[1] ],

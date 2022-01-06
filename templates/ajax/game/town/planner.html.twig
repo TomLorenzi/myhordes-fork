@@ -30,7 +30,7 @@
                     <div class="padded cell rw-6"><a id="route_undo" class="small" href="#"><i class="fa fa-undo"></i> {{ 'Rückgängig'|trans({},'global') }}</a></div>
                 </div>
                 <div class="row">
-                    <div class="padded cell rw-6"><a class="small" href="" x-ajax-href="{{ path('town_planner') }}">{{ 'Abbrechen'|trans({},'global') }}</a></div>
+                    <div class="padded cell rw-6"><a id="cancel_route" class="small" href="#">{{ 'Abbrechen'|trans({},'global') }}</a></div>
                     <div class="padded cell rw-6"><button disabled id="save_button">{{ 'Speichern'|trans({},'global') }}</button></div>
                 </div>
             </div>
@@ -51,14 +51,6 @@
 {% block js %}
     {{ parent() }}
     <script>
-        /*
-        let map = document.querySelector('.map_area');
-        let save_button = document.getElementById('save_button');
-
-        let edit_nodes = [];
-        let edit_complex = false;
-        let edit_active = false;
-        */
         const begin_route = function(complex) {
             {% if not allow_extended %}
                 complex = false;
@@ -67,44 +59,26 @@
             document.getElementById('route_dashboard').style.display = 'block';
 
             $.components.dispatchEvent('planner-map', 'planning-begin', {complex});
-
-
-            /*if (!complex) edit_nodes = [ [0,0], [0,0] ];
-
-            edit_complex = complex;
-            edit_active = true;
-
-            render_routes( map, 'live-editor', '#b4da4c', edit_nodes );*/
         }
 
-        $.components.attachEventListener('planner-map', 'planner-step', e=>console.log(e));
+        let edit_nodes = null;
+        $.components.attachEventListener('planner-map', 'planner-step', e => {
+            edit_nodes = e.route;
+            if (e.valid) document.getElementById('save_button').removeAttribute('disabled');
+            else document.getElementById('save_button').setAttribute('disabled','disabled');
+        });
 
         document.getElementById('route_undo').addEventListener('click', e => {
             e.preventDefault();
             $.components.dispatchEvent('planner-map', 'planning-undo', {});
         });
-        /*
-        map.addEventListener('zone-click', function(e) {
-            if (!edit_active) {
-                mark_zone(map,e.detail.x,e.detail.y,true);
-                return;
-            }
 
-            if (edit_complex) {
-                if (edit_nodes.length === 0 || ((e.detail.x === edit_nodes[edit_nodes.length-1][0] || e.detail.y === edit_nodes[edit_nodes.length-1][1]) && (e.detail.x !== edit_nodes[edit_nodes.length-1][0] || e.detail.y !== edit_nodes[edit_nodes.length-1][1])) )
-                    edit_nodes.push( [ e.detail.x, e.detail.y ] );
-            } else {
-                if (e.detail.x === 0 && e.detail.y === 0) return;
-                edit_nodes.pop();
-                if ((e.detail.x === edit_nodes[edit_nodes.length-1][0] || e.detail.y === edit_nodes[edit_nodes.length-1][1]) && (e.detail.x !== edit_nodes[edit_nodes.length-1][0] || e.detail.y !== edit_nodes[edit_nodes.length-1][1]))
-                    edit_nodes.push( [ e.detail.x, e.detail.y ] );
-                edit_nodes.push( [0,0] );
-            }
-
-            if (render_routes( map, 'live-editor', '#b8c49c', edit_nodes ))
-                save_button.removeAttribute('disabled');
-            else save_button.setAttribute('disabled','disabled');
-        });*/
+        document.getElementById('cancel_route').addEventListener('click', e => {
+            e.preventDefault();
+            document.getElementById('create_route_control').style.display = 'block';
+            document.getElementById('route_dashboard').style.display = 'none';
+            $.components.dispatchEvent('planner-map', 'planning-end', {});
+        });
 
         document.getElementById('save_button').addEventListener('click', function(e) {
             const name = document.getElementById('route_name').value;
@@ -114,7 +88,8 @@
             }
             $.ajax.easySend( '{{ path('town_planner_route_submit_controller') }}', {data: edit_nodes, name: name},
                 function () {
-                    $.ajax.load(null, '{{ path('town_planner') }}', true);
+                    $.components.dispatchEvent('planner-map', 'planning-end', {})
+                    $.ajax.load(null, '{{ path('town_planner') }}', false, {}, () => $.components.dispatchEvent('planner-map', 'planning-end', {}));
                 } );
         });
 

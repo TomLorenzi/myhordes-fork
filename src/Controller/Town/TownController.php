@@ -1670,12 +1670,13 @@ class TownController extends InventoryAwareController
         if (!$this->getActiveCitizen()->getHasSeenGazette())
             return $this->redirect($this->generateUrl('game_newspaper'));
 
-        return $this->render( 'ajax/game/town/routes.html.twig', $this->addDefaultTwigArgs('door', array_merge([
+        return $this->render( 'ajax/game/town/routes.html.twig', $this->addDefaultTwigArgs('door', [
             'door_section'      => 'planner',
             'town'  =>  $this->getActiveCitizen()->getTown(),
-            'routes' => $expeditions = $this->entity_manager->getRepository(ExpeditionRoute::class)->findByTown($this->getActiveCitizen()->getTown()),
+            'routes' => $this->entity_manager->getRepository(ExpeditionRoute::class)->findByTown($this->getActiveCitizen()->getTown()),
             'allow_extended' => $this->getActiveCitizen()->getProfession()->getHeroic(),
-        ], $this->get_map_blob())) );
+            'map_public_json'   => json_encode( $this->get_public_map_blob( 'door-preview', $this->getTownConf()->isNightTime() ? 'night' : 'day' ) )
+        ]));
     }
 
     /**
@@ -1726,6 +1727,7 @@ class TownController extends InventoryAwareController
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         $last = null; $ap = 0;
+        $buildup = [];
         foreach ($data as $entry)
             if (!is_array($entry) && count($entry) !== 2) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
             else {
@@ -1740,8 +1742,12 @@ class TownController extends InventoryAwareController
                     if ($last[0] === $x && $last[1] === $y) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
                     $ap += (abs($last[0] - $x) + abs($last[1] - $y));
                 }
-                $last = [$x,$y];
+
+                if ($last === null || $last[0] !== $x || $last[1] !== $y)
+                    $buildup[] = $last = [$x,$y];
             }
+
+        $data = $buildup;
 
         $is_pro_route = $data[0] !== [0,0] || $data[count($data)-1] !== [0,0];
         if ($is_pro_route && !$citizen->getProfession()->getHeroic())

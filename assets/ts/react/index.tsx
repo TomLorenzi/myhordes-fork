@@ -3,14 +3,14 @@ import * as ReactDOM from "react-dom";
 
 import {Global} from "../defaults";
 import {MapCoreProps} from "./map/typedef";
-import MapWrapper from "./map/Wrapper";
+import {MapWrapper} from "./map/Wrapper";
 
 declare var $: Global;
 
 export interface ReactData<Type=object> {
     data: Type,
     eventGateway: (event: string, data: object)=>void,
-    eventRegistrar: (event: string, callback: ReactIOEventListener)=>void
+    eventRegistrar: (event: string, callback: ReactIOEventListener, remove:boolean)=>void
 }
 
 type ReactIOIncomingEvent = { event: string, data: object }
@@ -23,11 +23,11 @@ export class ReactIO {
     private dom: HTMLElement;
     private listeners: ReactIOEventListenerList;
     private dom_listeners: ReactIOEventListenerList;
+    //private react_listener: ((CustomEvent)=>void) | undefined;
 
     constructor(parent: HTMLElement) {
         this.clear();
-        this.dom = parent;
-        this.dom.addEventListener('_react', (e:CustomEvent) => {
+        (this.dom = parent).addEventListener('_react', (e:CustomEvent) => {
             const detail = e.detail as ReactIOIncomingEvent;
             if (typeof this.listeners[detail.event] === "undefined") return;
             this.listeners[detail.event].forEach( e=>e(detail.data) );
@@ -49,9 +49,11 @@ export class ReactIO {
     }
 
     public getReactListenerGateway() {
-        return (event: string, callback: ReactIOEventListener) => {
+        return (event: string, callback: ReactIOEventListener, remove: boolean) => {
             if (typeof this.listeners[event] === "undefined") this.listeners[event] = [];
-            this.listeners[event].push(callback);
+            if (remove) this.listeners[event] = this.listeners[event].filter(f=>f!==callback)
+            else this.listeners[event].push(callback);
+            if (this.listeners[event].length === 0) delete this.listeners[event];
         }
     }
 
@@ -60,6 +62,7 @@ export class ReactIO {
         if (typeof this.dom_listeners[event] === "undefined") this.dom_listeners[event] = [];
         this.dom_listeners[event].push(wrap_call);
         this.dom.addEventListener(`_react_${event}`, wrap_call)
+        console.log(this);
     }
 }
 
