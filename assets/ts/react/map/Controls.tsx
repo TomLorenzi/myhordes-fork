@@ -1,13 +1,7 @@
 import * as React from "react";
 
 import {
-    MapControlProps, MapControlState,
-    MapGeometry,
-    MapOverviewParentProps,
-    MapOverviewParentState, MapRouteListProps, MapRouteListState,
-    MapZone,
-    RuntimeMapSettings,
-    RuntimeMapStrings
+    MapControlProps,
 } from "./typedef";
 
 export type MapControlStateAction = {
@@ -17,12 +11,23 @@ export type MapControlStateAction = {
 
 const MapControls = ( props: MapControlProps ) => {
 
-    const [state, dispatch] = React.useReducer((state: MapControlState, action: MapControlStateAction): MapControlState => {
-        const new_state = {...state};
-        if (typeof action.zoomIn !== "undefined") new_state.canZoomIn = action.zoomIn;
-        if (typeof action.zoomOut !== "undefined") new_state.canZoomOut = action.zoomOut;
-        return new_state;
-    }, {activeRoute: undefined});
+    const zoom_handler = (n:number) => {
+        if (props.zoom === 0 && n === 1 && props.scrollAreaRef.current) {
+            if ((props.scrollAreaRef.current.querySelector('.zone')?.clientWidth ?? 0) > 16)
+                n=2;
+            if ((props.scrollAreaRef.current.querySelector('.zone')?.clientWidth ?? 0) > 30)
+                n=0;
+        }
+        if (props.zoom === 2 && n === -1 && props.scrollAreaRef.current) {
+            if ((props.scrollAreaRef.current.clientWidth * 2/3) / props.scrollAreaRef.current.parentElement.clientWidth < 1.1)
+                n=-2;
+        }
+        props.wrapDispatcher({zoom: Math.max( 0, Math.min( props.zoom + n, 2 ) ) });
+    }
+
+    const center_handler = () => {
+        if (props.zoom !== 0) props.scrollAreaRef.current.dispatchEvent(new CustomEvent('_mv_center'));
+    }
 
     return (
         <div className="controls">
@@ -37,6 +42,21 @@ const MapControls = ( props: MapControlProps ) => {
                         </button>
                     </div>
                     <div className="float-right">
+                        <button onClick={()=>zoom_handler(1)}  disabled={props.zoom >= 2}
+                            className={`small inline map_button map_button_icon map_button_right`}
+                        >
+                            <i className="fa fa-plus"/>
+                        </button>
+                        <button onClick={()=>center_handler()} disabled={props.zoom <= 0}
+                            className={`small inline map_button map_button_icon map_button_right`}
+                        >
+                            <i className="fa fa-map-marker-alt"/>
+                        </button>
+                        <button onClick={()=>zoom_handler(-1)} disabled={props.zoom <= 0}
+                            className={`small inline map_button map_button_icon map_button_right`}
+                        >
+                            <i className="fa fa-minus"/>
+                        </button>
                         { props.showRoutes && (
                             <button
                                 className="small inline map_button map_button_right"

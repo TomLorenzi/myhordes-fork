@@ -137,9 +137,6 @@
             {% endif %}
         </div>
         <div class="padded cell rw-6 rw-md-12">
-            {% embed "ajax/game/map.html.twig" with {'default_zoom': 0, 'default_show_zone': false, 'allow_zone_view': false, 'in_town': true, 'chaos': chaos, 'is_shaman': is_shaman, 'map': map_data, 'chaos': town.chaos} %}
-            {% endembed %}
-
             <div id="door-map" x-react-mount="map" x-react-data="{{ map_public_json }}"></div>
         </div>
     </div>
@@ -159,7 +156,6 @@
 {% block js %}
     {{ parent() }}
     <script>
-        {% embed "scripts/map.js.twig" with {'map': map_data} %}{% endembed %};
         {% embed "scripts/log.js.twig" %}{% endembed %}
 
         const handleDoor = function(element, action) {

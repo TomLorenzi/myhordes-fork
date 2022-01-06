@@ -62,7 +62,6 @@ export class ReactIO {
         if (typeof this.dom_listeners[event] === "undefined") this.dom_listeners[event] = [];
         this.dom_listeners[event].push(wrap_call);
         this.dom.addEventListener(`_react_${event}`, wrap_call)
-        console.log(this);
     }
 }
 

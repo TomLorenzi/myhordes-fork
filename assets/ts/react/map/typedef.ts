@@ -78,6 +78,7 @@ export type RuntimeMapState = {
     activeRoute: number | undefined;
     activeZone: MapCoordinate | undefined;
     routeEditor: MapCoordinate[];
+    zoom: number;
 }
 
 export type RuntimeMapStateAction = {
@@ -88,6 +89,7 @@ export type RuntimeMapStateAction = {
     activeZone?: MapCoordinate | boolean,
     routeEditorPush?: MapCoordinate,
     routeEditorPop?: boolean,
+    zoom?: number,
 }
 
 export type MapOverviewParentProps = {
@@ -99,15 +101,15 @@ export type MapOverviewParentProps = {
     routeEditor: MapCoordinate[],
     routeViewer: MapCoordinate[],
     etag: number,
+    zoom: number,
+    scrollAreaRef:  {current?: HTMLDivElement}
 }
 
 export interface MapOverviewGridProps extends MapOverviewParentProps {
     zoom: number
 }
 
-export type MapOverviewParentState = {
-    zoom: number,
-}
+export type MapOverviewParentState = {}
 
 export type MapRouteListProps = {
     visible: boolean,
@@ -126,10 +128,7 @@ export type MapControlProps = {
     markEnabled: boolean,
     showRoutes: boolean,
     showRoutesPanel: boolean,
-    wrapDispatcher: (RuntimeMapStateAction)=>void
-}
-
-export type MapControlState = {
-    canZoomIn: boolean,
-    canZoomOut: boolean
+    wrapDispatcher: (RuntimeMapStateAction)=>void,
+    zoom: number,
+    scrollAreaRef: {current?: HTMLDivElement}
 }

@@ -10,7 +10,7 @@ import {
 import MapOverviewParent from "./Overview";
 import MapRouteList from "./RouteList";
 import MapControls from "./Controls";
-import {useEffect} from "react";
+import {useEffect, useRef} from "react";
 import {Global} from "../../defaults";
 
 declare var $: Global;
@@ -58,10 +58,13 @@ export const MapWrapper = ( props: ReactDataMapCore ) => {
     if (!mk) mk = undefined;
     else mk = {x: mk[0] ?? 0, y: mk[1] ?? 0}
 
+    const scrollPlaneRef = useRef<HTMLDivElement>(null);
+
     const [state, dispatch] = React.useReducer((state: RuntimeMapState, action: RuntimeMapStateAction): RuntimeMapState => {
         const new_state = {...state};
         if (typeof action.configure   !== "undefined") new_state.conf        = action.configure;
         if (typeof action.showPanel   !== "undefined") new_state.showPanel   = action.showPanel;
+        if (typeof action.zoom        !== "undefined") new_state.zoom        = action.zoom;
         if (typeof action.markEnabled !== "undefined") {
             new_state.markEnabled = action.markEnabled;
             $.client.set('map', 'tags', new_state.markEnabled ? 'show' : 'hide', true);
@@ -99,6 +102,8 @@ export const MapWrapper = ( props: ReactDataMapCore ) => {
 
         showPanel: false,
         routeEditor: [],
+        zoom: 0,
+
         conf: {
             showGlobal:         props.data.displayType.split('-')[0] === 'beyond',
             enableZoneMarking:  props.data.displayType.split('-')[0] === 'beyond',
@@ -125,7 +130,6 @@ export const MapWrapper = ( props: ReactDataMapCore ) => {
                 };
 
                 const f_planningUndo = () => {
-                    console.log('planning-undo');
                     dispatch({routeEditorPop: false})
                 }
 
@@ -150,7 +154,7 @@ export const MapWrapper = ( props: ReactDataMapCore ) => {
     const activeRoute = props.data.routes.filter(r=>r.id===state.activeRoute).map(r=>r.stops);
 
     return (
-            <div className={'react_map_area'}>
+            <div draggable={false} className={'react_map_area'}>
                 <div className={`map map-inner-react ${props.data.className} ${state.conf.showGlobal ? 'show-global' : ''} ${state.markEnabled ? 'show-tags' : ''}`}>
                     <div className="frame-plane">
                         { ['tl','tr','bl','br','t0l','t1','t0r','l0t','l1','l0m','l0b','l2','r0t','r1','r0b','b']
@@ -158,8 +162,10 @@ export const MapWrapper = ( props: ReactDataMapCore ) => {
                     </div>
                     <MapOverviewParent map={props.data.map} strings={props.data.strings} settings={state.conf}
                                        marking={state.activeZone} wrapDispatcher={dispatch} etag={props.data.etag}
-                                       routeEditor={state.routeEditor}
-                                       routeViewer={activeRoute[0] ?? []}/>
+                                       routeEditor={state.routeEditor} zoom={state.zoom}
+                                       routeViewer={activeRoute[0] ?? []}
+                                       scrollAreaRef={scrollPlaneRef}
+                    />
                     <MapRouteList visible={state.showPanel} routes={props.data.routes} strings={props.data.strings}
                                   activeRoute={state.activeRoute} wrapDispatcher={dispatch}
                     />
@@ -167,7 +173,8 @@ export const MapWrapper = ( props: ReactDataMapCore ) => {
                 </div>
                 <MapControls
                     strings={props.data.strings} markEnabled={state.markEnabled} wrapDispatcher={dispatch}
-                    showRoutes={props.data.routes.length > 0} showRoutesPanel={state.showPanel}
+                    showRoutes={props.data.routes.length > 0} showRoutesPanel={state.showPanel} zoom={state.zoom}
+                    scrollAreaRef={scrollPlaneRef}
                 />
             </div>
         )
