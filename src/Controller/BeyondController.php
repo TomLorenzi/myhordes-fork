@@ -173,6 +173,8 @@ class BeyondController extends InventoryAwareController
             $zone_players += $this->entity_manager->getRepository(Citizen::class)->count(['town' => $this->getActiveCitizen()->getTown(), 'zone' => null, 'alive' => true]);
         }
 
+        $allow_movement = (!$blocked || $escape > 0 || $scout_movement) && !$citizen_tired && !$citizen_hidden;
+
         return parent::addDefaultTwigArgs( $section, array_merge( [
             'zone_players' => $zone_players,
             'zone_zombies' => max(0,$zone->getZombies()),
@@ -182,7 +184,7 @@ class BeyondController extends InventoryAwareController
             'allow_devour_citizen' => !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_ghoul_eat'),
             'zone_cp' => $cp,
             'zone'  =>  $zone,
-            'allow_movement' => (!$blocked || $escape > 0 || $scout_movement) && !$citizen_tired && !$citizen_hidden,
+            'allow_movement' => $allow_movement,
             'active_scout_mode' => $scout_movement,
             'scout_level' => $scout_level,
             'scout_sense' => $scout_sense,
@@ -212,7 +214,8 @@ class BeyondController extends InventoryAwareController
             'status_info' => [
                 'can_drink' => !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'hasdrunk'),
                 'can_eat' => !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'haseaten')
-            ]
+            ],
+            'map_public_json'   => json_encode( $this->get_public_map_blob( $allow_movement ? 'beyond' : 'beyond-static', $this->getTownConf()->isNightTime() ? 'night' : 'day' ) )
         ], $data, $merge_map ? $this->get_map_blob() : []) );
     }
 

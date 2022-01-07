@@ -30,6 +30,23 @@ export interface MapZone extends MapCoordinate {
     tg?: number     // Tag Ref
 }
 
+export interface LocalZone {
+    xr: number,     // Relative X coordinate (current citizen position is 0/0)
+    yr: number,     // Relative Y coordinate (current citizen position is 0/0)
+    x?: number,     // Absolute X coordinate
+    y?: number,     // Absolute Y coordinate
+    v?: boolean,    // Visited?
+    c?: number,     // Exact number of citizens
+    z?: number,     // Exact number of zombies
+    zc?: number,    // Exact number of killed zombies
+    r?: string,     // URL to ruin icon
+    n?: string,     // Name of the local ruin
+
+    ss?: boolean    // Scout sense
+    sh?: number     // Scavenger sense
+    se?: number     // Arrow coloring
+}
+
 export type MapRoute = {
     id: number,
     owner: string,
@@ -40,7 +57,8 @@ export type MapRoute = {
 
 type MapData = {
     geo: MapGeometry,
-    zones: MapZone[]
+    zones: MapZone[],
+    local: LocalZone[],
 }
 
 export type MapCoreProps = {
@@ -59,14 +77,20 @@ export type RuntimeMapStrings = {
     danger: string[],
     tags: string[],
     mark: string,
+    'global': string,
     routes: string,
+    map: string,
+    close: string,
+    position: string,
 }
 
 export type RuntimeMapSettings = {
-    showGlobal: boolean,
     enableZoneMarking: boolean,
+    enableGlobalButton: boolean,
     enableZoneRouting: boolean,
 
+    enableLocalView: boolean,
+    enableMovementControls: boolean,
     enableSimpleZoneRouting: boolean,
     enableComplexZoneRouting: boolean,
 }
@@ -74,17 +98,22 @@ export type RuntimeMapSettings = {
 export type RuntimeMapState = {
     conf: RuntimeMapSettings,
     showPanel: boolean,
+    showViewer: boolean,
     markEnabled: boolean,
+    globalEnabled: boolean,
     activeRoute: number | undefined;
     activeZone: MapCoordinate | undefined;
     routeEditor: MapCoordinate[];
     zoom: number;
+    zoomChanged: boolean;
 }
 
 export type RuntimeMapStateAction = {
     configure?: RuntimeMapSettings
     showPanel?: boolean,
+    showViewer?: boolean,
     markEnabled?: boolean,
+    globalEnabled?: boolean,
     activeRoute?: number | boolean,
     activeZone?: MapCoordinate | boolean,
     routeEditorPush?: MapCoordinate,
@@ -101,7 +130,7 @@ export type MapOverviewParentProps = {
     routeEditor: MapCoordinate[],
     routeViewer: MapCoordinate[],
     etag: number,
-    zoom: number,
+    zoom: number, zoomChanged: boolean,
     scrollAreaRef:  {current?: HTMLDivElement}
 }
 
@@ -125,10 +154,36 @@ export type MapRouteListState = {
 
 export type MapControlProps = {
     strings: RuntimeMapStrings,
+
     markEnabled: boolean,
+    globalEnabled: boolean,
     showRoutes: boolean,
     showRoutesPanel: boolean,
+    showGlobalButton: boolean,
+    showZoneViewerButtons: boolean,
     wrapDispatcher: (RuntimeMapStateAction)=>void,
     zoom: number,
     scrollAreaRef: {current?: HTMLDivElement}
+}
+
+export type LocalZoneSurroundings = {
+    n: LocalZone|null,
+    s: LocalZone|null,
+    e: LocalZone|null,
+    w: LocalZone|null,
+    '0': LocalZone
+}
+
+export type LocalControlProps = {
+    fx: boolean,
+    planes: LocalZoneSurroundings,
+    movement: boolean,
+    strings: RuntimeMapStrings,
+}
+
+export type LocalZoneProps = {
+    fx: boolean,
+    plane: LocalZone[],
+    movement: boolean,
+    strings: RuntimeMapStrings,
 }

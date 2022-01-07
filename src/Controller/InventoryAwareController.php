@@ -942,6 +942,12 @@ class InventoryAwareController extends CustomAbstractController
 
         $upgraded_map = $this->town_handler->getBuilding($this->getActiveCitizen()->getTown(), 'item_electro_#00', true) !== null;
 
+        $local_zones = [];
+        $citizen_zone = $this->getActiveCitizen()->getZone();
+
+        $scavenger_sense = $this->getActiveCitizen()->getProfession()->getName() === 'collec';
+        $scout_sense     = $this->getActiveCitizen()->getProfession()->getName() === 'hunter';
+
         foreach ($this->getActiveCitizen()->getTown()->getZones() as $zone) {
             $x = $zone->getX();
             $y = $zone->getY();
@@ -958,6 +964,11 @@ class InventoryAwareController extends CustomAbstractController
                     $zones[] = $current_zone;
                 continue;
             }
+
+            if ($citizen_zone !== null
+                && max( abs( $citizen_zone->getX() - $zone->getX() ), abs( $citizen_zone->getY() - $zone->getY() ) ) <= 2
+                && ( abs( $citizen_zone->getX() - $zone->getX() ) + abs( $citizen_zone->getY() - $zone->getY() ) ) < 4
+            ) $local_zones[] = $zone;
 
             $current_zone['t'] = $zone->getDiscoveryStatus() >= Zone::DiscoveryStateCurrent;
             if ($zone->getDiscoveryStatus() >= Zone::DiscoveryStateCurrent) {
@@ -1018,7 +1029,48 @@ class InventoryAwareController extends CustomAbstractController
             'fx' => !$this->getActiveCitizen()->getUser()->getDisableFx(),
             'map' => [
                 'geo' => [ 'x0' => $range_x[0], 'x1' => $range_x[1], 'y0' => $range_y[0], 'y1' => $range_y[1] ],
-                'zones' => $zones
+                'zones' => $zones,
+                'local' => array_map( function(Zone $z) use ($citizen_zone,$scavenger_sense,$scout_sense) {
+                    $local = $citizen_zone === $z;
+                    $adjacent = ( abs( $citizen_zone->getX() - $z->getX() ) + abs( $citizen_zone->getY() - $z->getY() ) ) <= 1;
+                    $obj = [
+                        'xr' => $z->getX() - $citizen_zone->getX(), 'yr' => $z->getY() - $citizen_zone->getY(),
+                        'v' => $z->getDiscoveryStatus() > Zone::DiscoveryStateNone
+                    ];
+
+                    if ( $z->isTownZone() ) {
+                        $obj['r'] = $this->asset->getUrl('build/images/ruin/town.gif');
+                        if ($local) $obj['n'] = $this->getActiveCitizen()->getTown()->getName();
+                    } elseif ($z->getPrototype() && $z->getBuryCount() > 0) {
+                        $obj['r'] = $this->asset->getUrl('build/images/ruin/burried.gif');
+                        if ($local) $obj['n'] = $this->translator->trans( 'Verschüttete Ruine', [], 'game' );
+                    } elseif ($z->getPrototype()) {
+                        $obj['r'] = $this->asset->getUrl("build/images/ruin/{$z->getPrototype()->getIcon()}.gif");
+                        if ($local) $obj['n'] = $this->translator->trans( $z->getPrototype()->getLabel(), [], 'game' );
+                    }
+
+                    if (!$local && $adjacent && !$z->isTownZone()) {
+                        if ($scavenger_sense && $z->getDiscoveryStatus() > Zone::DiscoveryStateNone) {
+                            $obj['ss'] = $z->getDigs() > 0 || ($z->getPrototype() && $z->getRuinDigs() > 0);
+                            if (!$obj['ss']) $obj['se'] = 2;
+                        }
+                        if ($scout_sense) {
+                            $obj['sh'] = $z->getPersonalScoutEstimation($this->getActiveCitizen());
+                            $obj['se'] = $obj['sh'] >= 9 ? 2 : ($obj['sh'] >= 5 ? 1 : 0);
+                        }
+                    }
+
+                    if ($local) {
+                        $obj['x']  = $z->getX(); $obj['y'] = $z->getY();
+                        $obj['z']  = $z->getZombies();
+                        $obj['zc'] = max(0, $z->getInitialZombies() - $z->getZombies());
+                        $obj['c']  = $z->getCitizens()->count() + ($z->isTownZone()
+                            ? count( array_filter( $this->getActiveCitizen()->getTown()->getCitizens()->getValues(), fn(Citizen $c) => $c->getAlive() && $c->getZone() === null ) )
+                            : 0);
+                    }
+
+                    return $obj;
+                }, $local_zones )
             ],
             'routes' => array_map( fn(ExpeditionRoute $route) => [
                 'id' => $route->getId(),
@@ -1037,7 +1089,11 @@ class InventoryAwareController extends CustomAbstractController
                 ],
                 'tags' => array_values($all_tags),
                 'mark' => $this->translator->trans('Mark.', [], 'game'),
+                'global' => $this->translator->trans('Global', [], 'game'),
                 'routes' => $this->translator->trans('Routen', [], 'game'),
+                'map'    => $this->translator->trans('Karte', [], 'game'),
+                'close'  => $this->translator->trans('Schließen', [], 'game'),
+                'position' => $this->translator->trans('Position:', [], 'game'),
             ]
         ];
     }

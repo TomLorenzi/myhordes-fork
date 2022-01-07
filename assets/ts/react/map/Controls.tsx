@@ -4,11 +4,6 @@ import {
     MapControlProps,
 } from "./typedef";
 
-export type MapControlStateAction = {
-    zoomIn?: boolean,
-    zoomOut?: boolean
-}
-
 const MapControls = ( props: MapControlProps ) => {
 
     const zoom_handler = (n:number) => {
@@ -34,12 +29,26 @@ const MapControls = ( props: MapControlProps ) => {
             <div className="tilemap_controls">
                 <div className="row">
                     <div className="float-left">
+                        { props.showZoneViewerButtons && (
+                            <button onClick={()=>props.wrapDispatcher({showViewer: true})}
+                                className="small inline map_button map_button_left">
+                                <div>{ props.strings.close }</div>
+                            </button>
+                        ) }
                         <button
                             className={`small inline ${props.markEnabled ? 'show-tags' : 'hide-tags'} map_button map_button_left`}
                             onClick={()=>props.wrapDispatcher({markEnabled: !props.markEnabled})}
                         >
                             <div>{props.strings.mark}</div>
                         </button>
+                        { props.showGlobalButton && (
+                            <button
+                                className={`small inline ${props.globalEnabled ? 'show-tags' : 'hide-tags'} map_button map_button_left`}
+                                onClick={()=>props.wrapDispatcher({globalEnabled: !props.globalEnabled})}
+                            >
+                                <div>{props.strings.global}</div>
+                            </button>
+                        ) }
                     </div>
                     <div className="float-right">
                         <button onClick={()=>zoom_handler(1)}  disabled={props.zoom >= 2}
@@ -69,6 +78,14 @@ const MapControls = ( props: MapControlProps ) => {
                     </div>
                 </div>
             </div>
+            { props.showZoneViewerButtons && (
+                <div className="zonemap_controls">
+                    <button onClick={()=>props.wrapDispatcher({showViewer: false})}
+                        className="small inline map-icon map_button map_button_left">
+                        <div>{ props.strings.map }</div>
+                    </button>
+                </div>
+            ) }
         </div>
     )
 }

@@ -236,29 +236,31 @@ const MapOverviewParent = ( props: MapOverviewParentProps ) => {
     });
 
     useLayoutEffect(() => {
-        if (props.scrollAreaRef.current) {
+        if (props.zoomChanged && props.scrollAreaRef.current)
             props.scrollAreaRef.current.dispatchEvent(new CustomEvent('_mv_center'));
-            return () => resetPlanePosition();
-        } else return ()=>{};
+        return ()=>{};
     });
 
     let activePointer: number|null = null;
-    const down=e=>{ if (activePointer === null) activePointer = e.pointerId; }
-    const move=e=>{ if (activePointer === e.pointerId) {
-        let ox = parseFloat(props.scrollAreaRef.current.dataset.ox) ?? 0;
-        let oy = parseFloat(props.scrollAreaRef.current.dataset.oy) ?? 0;
+    const down=e=>{ if (activePointer === null) activePointer = e.pointerId; e.preventDefault(); }
+    const move=e=>{
+        if (activePointer === e.pointerId) {
+            let ox = parseFloat(props.scrollAreaRef.current.dataset.ox) ?? 0;
+            let oy = parseFloat(props.scrollAreaRef.current.dataset.oy) ?? 0;
 
-        setPlanePosition( ox+e.movementX, oy+e.movementY );
+            setPlanePosition( ox+e.movementX, oy+e.movementY );
+        }
         e.preventDefault();
-    } }
-    const up=  e=>{ if (activePointer === e.pointerId) activePointer = null; }
+    }
+    const up=e=>{ if (activePointer === e.pointerId) activePointer = null; e.preventDefault(); }
 
     return (
         <div ref={props.scrollAreaRef} className={`scroll-plane ${props.zoom === 0 ? 'auto-size' : ''}`}
-             onPointerDown={props.zoom > 0 ? down : null} onPointerMove={props.zoom > 0 ? move : null} onPointerUp={props.zoom > 0 ? up : null}
+             onPointerDown={props.zoom > 0 ? down : null} onPointerMove={props.zoom > 0 ? move : null}
+             onPointerUp={props.zoom > 0 ? up : null} onPointerLeave={props.zoom > 0 ? up : null}
         >
             <MapOverviewRoutePainter map={props.map} settings={props.settings} strings={props.strings}
-                                     scrollAreaRef={props.scrollAreaRef}
+                                     scrollAreaRef={props.scrollAreaRef} zoomChanged={props.zoomChanged}
                                      marking={props.marking} wrapDispatcher={props.wrapDispatcher} etag={props.etag}
                                      routeEditor={props.routeEditor} routeViewer={props.routeViewer} zoom={props.zoom}
             />

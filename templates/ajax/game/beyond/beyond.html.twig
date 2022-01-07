@@ -71,6 +71,9 @@
                                 'map': map_data,
                                 'blocked': zone_blocked,
                             } %}{% endembed %}
+
+                            <div id="beyond-map" x-react-mount="map" x-react-data="{{ map_public_json }}"></div>
+
                             <div class="zone-info link" x-ajax-href="{{ path('help', {'name': 'control_points'}) }}">
                                 <div class="row zone-cp note note-light">
                                     <div class="cell rw-5 left"><img src="{{ asset('build/images/icons/small_human.gif') }}" alt="CP" /> <span class="humans-cp">{% if zone.x != 0 or zone.y != 0 %}{% trans with {'{points}': zone_cp} from 'game' %}{points} Punkt(e){% endtrans %}{% else %}--{% endif %}</span></div>

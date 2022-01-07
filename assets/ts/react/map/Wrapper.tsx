@@ -12,6 +12,7 @@ import MapRouteList from "./RouteList";
 import MapControls from "./Controls";
 import {useEffect, useRef} from "react";
 import {Global} from "../../defaults";
+import LocalZoneView from "./ZoneView";
 
 declare var $: Global;
 
@@ -64,10 +65,18 @@ export const MapWrapper = ( props: ReactDataMapCore ) => {
         const new_state = {...state};
         if (typeof action.configure   !== "undefined") new_state.conf        = action.configure;
         if (typeof action.showPanel   !== "undefined") new_state.showPanel   = action.showPanel;
-        if (typeof action.zoom        !== "undefined") new_state.zoom        = action.zoom;
+        if (typeof action.showViewer  !== "undefined") new_state.showViewer  = action.showViewer;
+        if (typeof action.zoom        !== "undefined") {
+            new_state.zoomChanged = new_state.zoom !== action.zoom
+            new_state.zoom = action.zoom;
+        } else new_state.zoomChanged = false;
         if (typeof action.markEnabled !== "undefined") {
             new_state.markEnabled = action.markEnabled;
             $.client.set('map', 'tags', new_state.markEnabled ? 'show' : 'hide', true);
+        }
+        if (typeof action.globalEnabled !== "undefined") {
+            new_state.globalEnabled = action.globalEnabled;
+            $.client.set('map', 'global', new_state.markEnabled ? 'show' : 'hide', true);
         }
         if (typeof action.activeRoute !== "undefined") {
             new_state.activeRoute = action.activeRoute === false ? undefined : action.activeRoute as number;
@@ -97,18 +106,22 @@ export const MapWrapper = ( props: ReactDataMapCore ) => {
         return new_state;
     }, {
         markEnabled: $.client.get('map', 'tags', 'hide') === 'show',
+        globalEnabled: $.client.get('map', 'global', 'hide') === 'show' && props.data.displayType.split('-')[0] === 'beyond',
         activeRoute: $.client.get('current','routes', null) ?? undefined,
         activeZone: mk,
 
         showPanel: false,
+        showViewer: props.data.displayType.split('-')[0] === 'beyond',
         routeEditor: [],
         zoom: 0,
 
         conf: {
-            showGlobal:         props.data.displayType.split('-')[0] === 'beyond',
             enableZoneMarking:  props.data.displayType.split('-')[0] === 'beyond',
+            enableGlobalButton: props.data.displayType.split('-')[0] === 'beyond',
             enableZoneRouting:  props.data.displayType === 'door-planner',
 
+            enableLocalView: props.data.displayType.split('-')[0] === 'beyond',
+            enableMovementControls: props.data.displayType.split('-')[0] === 'beyond',
             enableSimpleZoneRouting:  false,
             enableComplexZoneRouting:  false,
         }
@@ -154,27 +167,32 @@ export const MapWrapper = ( props: ReactDataMapCore ) => {
     const activeRoute = props.data.routes.filter(r=>r.id===state.activeRoute).map(r=>r.stops);
 
     return (
-            <div draggable={false} className={'react_map_area'}>
-                <div className={`map map-inner-react ${props.data.className} ${state.conf.showGlobal ? 'show-global' : ''} ${state.markEnabled ? 'show-tags' : ''}`}>
+            <div draggable={false} className={`react_map_area ${state.showViewer ? 'zone-viewer-mode' : ''}`}>
+                <div className={`map map-inner-react ${props.data.className} ${state.globalEnabled ? '' : 'show-global'} ${state.markEnabled ? 'show-tags' : ''}`}>
                     <div className="frame-plane">
                         { ['tl','tr','bl','br','t0l','t1','t0r','l0t','l1','l0m','l0b','l2','r0t','r1','r0b','b']
                             .map(s=><div key={s} className={s}/>) }
                     </div>
                     <MapOverviewParent map={props.data.map} strings={props.data.strings} settings={state.conf}
                                        marking={state.activeZone} wrapDispatcher={dispatch} etag={props.data.etag}
-                                       routeEditor={state.routeEditor} zoom={state.zoom}
+                                       routeEditor={state.routeEditor} zoom={state.zoom} zoomChanged={state.zoomChanged}
                                        routeViewer={activeRoute[0] ?? []}
                                        scrollAreaRef={scrollPlaneRef}
                     />
                     <MapRouteList visible={state.showPanel} routes={props.data.routes} strings={props.data.strings}
                                   activeRoute={state.activeRoute} wrapDispatcher={dispatch}
                     />
+                    { state.conf.enableLocalView && (
+                        <LocalZoneView fx={props.data.fx} plane={props.data.map.local} strings={props.data.strings}
+                                       movement={state.conf.enableMovementControls && props.data.displayType !== 'beyond-static'} />
+                    ) }
                     { props.data.fx && [0,1,2,3,4].map(k=><div key={k} className="retro-effect"/>) }
                 </div>
                 <MapControls
-                    strings={props.data.strings} markEnabled={state.markEnabled} wrapDispatcher={dispatch}
+                    strings={props.data.strings} markEnabled={state.markEnabled} globalEnabled={state.globalEnabled} wrapDispatcher={dispatch}
                     showRoutes={props.data.routes.length > 0} showRoutesPanel={state.showPanel} zoom={state.zoom}
-                    scrollAreaRef={scrollPlaneRef}
+                    scrollAreaRef={scrollPlaneRef} showGlobalButton={state.conf.enableGlobalButton}
+                    showZoneViewerButtons={state.conf.enableLocalView}
                 />
             </div>
         )
