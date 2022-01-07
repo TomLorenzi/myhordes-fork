@@ -3946,7 +3946,7 @@
       </notes>
       <segment>
         <source>Fehler</source>
-        <target>Fehler</target>
+        <target>Error</target>
       </segment>
     </unit>
     <unit id="6tB8hLq" name="Changelog">
@@ -3957,7 +3957,7 @@
       </notes>
       <segment>
         <source>Changelog</source>
-        <target>Changelog</target>
+        <target>Cambios</target>
       </segment>
     </unit>
     <unit id="Th9Jqci" name="Event">
@@ -3968,7 +3968,7 @@
       </notes>
       <segment>
         <source>Event</source>
-        <target>Event</target>
+        <target>Evento</target>
       </segment>
     </unit>
     <unit id="3NNJH4T" name="RP">
@@ -3990,7 +3990,7 @@
       </notes>
       <segment>
         <source>Update</source>
-        <target>Update</target>
+        <target>Versión</target>
       </segment>
     </unit>
     <unit id="pVVGIsZ" name="Post">
@@ -4001,7 +4001,7 @@
       </notes>
       <segment>
         <source>Post</source>
-        <target>Post</target>
+        <target>Correo</target>
       </segment>
     </unit>
     <unit id="k8yukmg" name="Disk.">
@@ -4012,7 +4012,7 @@
       </notes>
       <segment>
         <source>Disk.</source>
-        <target>Disk.</target>
+        <target>Debate</target>
       </segment>
     </unit>
     <unit id="jdZdCVL" name="Guide">
@@ -4023,7 +4023,7 @@
       </notes>
       <segment>
         <source>Guide</source>
-        <target>Guide</target>
+        <target>Guía</target>
       </segment>
     </unit>
     <unit id="2NNH_gz" name="Orga.">
@@ -4034,7 +4034,7 @@
       </notes>
       <segment>
         <source>Orga.</source>
-        <target>Orga.</target>
+        <target>Org.</target>
       </segment>
     </unit>
     <unit id="knm5RWw" name="Vorschlag">
@@ -4045,7 +4045,7 @@
       </notes>
       <segment>
         <source>Vorschlag</source>
-        <target>Vorschlag</target>
+        <target>Sugerencia</target>
       </segment>
     </unit>
     <unit id="dlGjhQC" name="SALC">
@@ -4056,7 +4056,7 @@
       </notes>
       <segment>
         <source>SALC</source>
-        <target>SALC</target>
+        <target>Tonterías</target>
       </segment>
     </unit>
     <unit id="VsuA962" name="Tag (optional)">
@@ -4067,7 +4067,7 @@
       </notes>
       <segment>
         <source>Tag (optional)</source>
-        <target>Tag (optional)</target>
+        <target>Etiqueta (opcional)</target>
       </segment>
     </unit>
     <unit id="QOv5Ovj" name="Projekt">
@@ -4078,7 +4078,7 @@
       </notes>
       <segment>
         <source>Projekt</source>
-        <target>Projekt</target>
+        <target>Proyecto</target>
       </segment>
     </unit>
     <unit id="Lof2KKm" name="Tag hinzufügen (optional)">
@@ -4099,7 +4099,7 @@
       </notes>
       <segment>
         <source>Tag</source>
-        <target>Tag</target>
+        <target>Etiqueta</target>
       </segment>
     </unit>
     <unit id="aO5vOyS">
@@ -4129,7 +4129,7 @@
       </notes>
       <segment>
         <source>Schon gewusst? Bei vielen Aktionen wird auf mobilen Geräten zunächst ein Hilfetext eingeblendet. Wenn du die Aktion durchführen möchtest, musst du die Aktion erneut antippen. Wenn du es eilig hast und lieber keine Hilfetexte sehen möchtest, kannst du dieses Verhalten kannst du in deinen Seeleneinstellungen über die Einstellung "Tooltips auf mobilen Geräten durch antippen anzeigen" deaktivieren.</source>
-        <target> ¿Lo sabías? Muchas acciones mostrarán texto de ayuda cuando son tocadas por primera vez. Para realizar la acción, simplemente tócalas de nuevo. Si estás apresurado y prefieres no tener que ver estos textos de ayuda, desactiva la configuración "Un solo toque para mostrar descripción" dentro de tus configuraciones de alma.</target>
+        <target> ¿Lo sabías? Muchas acciones mostrarán texto de ayuda cuando sean tocadas por primera vez. Para realizar la acción, simplemente tócalas de nuevo. Si estás apresurado y prefieres no tener que ver estos textos de ayuda, desactiva la configuración "Un solo toque para mostrar descripción" dentro de tus configuraciones de alma.</target>
       </segment>
     </unit>
     <unit id="eJvIel0" name="Offiziell">
@@ -4150,7 +4150,7 @@
       </notes>
       <segment>
         <source>Wir MÜSSEN Verteidigungsanlagen bauen. Falls Ressourcen dafür fehlen, geh in die Außenwelt (die Wüste außerhalb der Stadt) und suche danach.</source>
-        <target>Wir MÜSSEN Verteidigungsanlagen bauen. Falls Ressourcen dafür fehlen, geh in die Außenwelt (die Wüste außerhalb der Stadt) und suche danach.</target>
+        <target>¡DEBEMOS construir más defensas! Si faltasen recursos, ¡habrá que ir a buscarlos en el Ultramundo (el desierto alrededor del pueblo).</target>
       </segment>
     </unit>
     <unit id="nsoY7Vf" name="{n} neue Beiträge in">
