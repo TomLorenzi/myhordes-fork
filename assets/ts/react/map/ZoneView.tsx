@@ -16,7 +16,7 @@ const LocalZone = ( props: { zone: LocalZone, key: string } ) => {
 
     if (currentZone.xr === props.zone.xr && currentZone.yr === props.zone.yr) {
         if ( citizenPositions.length > (props.zone.c??0) ) setCitizenPositions( citizenPositions.slice(0, (props.zone.c??0)) );
-        if ( zombiePositions.length  > ((props.zone.z??0) + (props.zone.zc??0)) ) setCitizenPositions( zombiePositions.slice(0, (props.zone.z??0) + (props.zone.zc??0)) );
+        if ( zombiePositions.length  > ((props.zone.z??0) + (props.zone.zc??0)) ) setZombiePositions( zombiePositions.slice(0, (props.zone.z??0) + (props.zone.zc??0)) );
 
         if ( citizenPositions.length < (props.zone.c??0) ) {
             let tmp = [...citizenPositions];
@@ -25,7 +25,7 @@ const LocalZone = ( props: { zone: LocalZone, key: string } ) => {
         }
 
         if ( zombiePositions.length < ((props.zone.z??0) + (props.zone.zc??0)) ) {
-            let tmp = [...citizenPositions];
+            let tmp = [...zombiePositions];
             while (tmp.length < ((props.zone.z??0) + (props.zone.zc??0))) tmp.push({ x: Math.random() * 80.0 + 15, y: Math.random() * 80.0 + 15} );
             setZombiePositions( tmp );
         }
@@ -37,7 +37,7 @@ const LocalZone = ( props: { zone: LocalZone, key: string } ) => {
 
     let actors = [];
     citizenPositions.forEach( (p,i) => actors.push(<div key={`c${i}`} data-z={p.y} className="actor citizen" style={{left: `${p.x}%`, top: `${p.y}%`}}/>));
-    zombiePositions.forEach(  (p,i) => actors.push(<div key={`z${i}`} data-z={p.y} className={`actor ${i<props.zone.z ? 'zombie' : 'splatter'}`} style={{left: `${p.x}%`, top: `${p.y}%`}}/>));
+    zombiePositions.forEach(  (p,i) => actors.push(<div key={`z${i}`} data-z={p.y - (i<props.zone.z ? 0 : 666)} className={`actor ${i<props.zone.z ? 'zombie' : 'splatter'}`} style={{left: `${p.x}%`, top: `${p.y}%`}}/>));
 
     actors.sort( (a,b) => a.props['data-z'] - b.props['data-z'] )
 
