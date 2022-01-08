@@ -125,7 +125,7 @@ const activate_route = function(map, color, id) {
     }
 }
 
-let scroll_areas = document.querySelectorAll('.map>.scroll-plane');
+let scroll_areas = document.querySelectorAll('.map:not(.map-inner-react)>.scroll-plane');
 for (let i = 0; i < scroll_areas.length; i++) {
     let scroll_area = scroll_areas[i];
     let map_area = scroll_area.parentNode;

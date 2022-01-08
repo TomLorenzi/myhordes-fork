@@ -550,7 +550,7 @@
 
                 $.html.popup(title, form, 'tag'+tag, [
                     [ '{{ 'Einfügen'|trans({},'global')|e('js') }}',  [ ['click', processModal] ] ],
-                    [ '{{ 'Abbrechen'|trans({},'global')|e('js') }}', [ ['click', (e,elem) => $.html.triggerPopupPop(elem)] ] ]
+                    [ '{{ 'Abbrechen'|trans({},'global')|e('js') }}', [ ['click', (e, elem) => $.html.triggerPopupPop(elem)] ] ]
                 ] );
 
                 if (!textInput.value || !urlInput) textInput.focus();

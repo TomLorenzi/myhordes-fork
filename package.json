@@ -1,5 +1,6 @@
 {
     "devDependencies": {
+        "@babel/preset-react": "^7.0.0",
         "@eternal-twin/cli": ">=0.9.1",
         "@fortawesome/fontawesome-free": "^5.14.0",
         "@symfony/webpack-encore": "^1.6.1",
@@ -26,6 +27,9 @@
     },
     "dependencies": {
         "latest-createjs": "^1.0.24",
+        "prop-types": "^15.8.0",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2",
         "string.prototype.matchall": "^4.0.2"
     }
 }
