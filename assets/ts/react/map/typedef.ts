@@ -42,6 +42,7 @@ export interface LocalZone {
     r?: string,     // URL to ruin icon
     n?: string,     // Name of the local ruin
 
+    vv?: boolean    // Player has been here already
     ss?: boolean    // Scout sense
     sh?: number     // Scavenger sense
     se?: number     // Arrow coloring
@@ -119,6 +120,7 @@ export type RuntimeMapStateAction = {
     routeEditorPush?: MapCoordinate,
     routeEditorPop?: boolean,
     zoom?: number,
+    moveto?: {x:number,y:number,dx:number,dy:number}
 }
 
 export type MapOverviewParentProps = {
@@ -179,6 +181,11 @@ export type LocalControlProps = {
     planes: LocalZoneSurroundings,
     movement: boolean,
     strings: RuntimeMapStrings,
+    activeRoute: MapRoute | null,
+    wrapDispatcher: (RuntimeMapStateAction)=>void,
+    dx: number,
+    dy: number,
+    marker: MapCoordinate | null,
 }
 
 export type LocalZoneProps = {
@@ -186,4 +193,9 @@ export type LocalZoneProps = {
     plane: LocalZone[],
     movement: boolean,
     strings: RuntimeMapStrings,
+    activeRoute: MapRoute | null,
+    wrapDispatcher: (RuntimeMapStateAction)=>void,
+    dx: number,
+    dy: number,
+    marker: MapCoordinate | null,
 }

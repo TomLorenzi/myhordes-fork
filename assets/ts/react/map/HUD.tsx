@@ -4,20 +4,23 @@ import {
     LocalControlProps,
     LocalZone,
     LocalZoneProps,
-    MapControlProps,
+    MapControlProps, MapCoordinate,
 } from "./typedef";
 
-/*
-                        {% if zone.x < map.map_x1 %}<div x-direction-x="1"  x-direction-y="0"  x-target-x="{{ zone.x + 1 }}" x-target-y="{{ zone.y }}" class="action-move action-move-danger-{{ arrow_danger_level_e }} action-move-east"></div>{% endif %}
-                        {% if zone.x > map.map_x0 %}<div x-direction-x="-1" x-direction-y="0"  x-target-x="{{ zone.x - 1 }}" x-target-y="{{ zone.y }}" class="action-move action-move-danger-{{ arrow_danger_level_w }} action-move-west"></div>{% endif %}
-                        {% if zone.y > map.map_y0 %}<div x-direction-x="0"  x-direction-y="-1" x-target-x="{{ zone.x }}" x-target-y="{{ zone.y - 1 }}" class="action-move action-move-danger-{{ arrow_danger_level_s }} action-move-south"></div>{% endif %}
-                        {% if zone.y < map.map_y1 %}<div x-direction-x="0"  x-direction-y="1"  x-target-x="{{ zone.x }}" x-target-y="{{ zone.y + 1 }}" class="action-move action-move-danger-{{ arrow_danger_level_n }} action-move-north"></div>{% endif %}
- */
+type ZoneControlArrowProps = {
+    direction: string;
+    horizontal: boolean;
+    zone: LocalZone|null;
+    onRoute: boolean;
+    onClick: ()=>void,
+}
 
-const ZoneControlMovementArrow = ( props: { direction: string, horizontal: boolean, zone: LocalZone|null } ) => {
+const ZoneControlMovementArrow = ( props: ZoneControlArrowProps ) => {
     return (props.zone === null) ? <></> : (
         <>
-            <div className={`action-move action-move-danger-${props.zone.se ?? 0} action-move-${props.direction}`}/>
+            <div onClick={props.onClick}
+                 className={`action-move action-move-danger-${props.zone.se ?? 0} action-move-${props.direction} ${props.onRoute ? 'on-route' : ''}`}
+            />
             { typeof props.zone.ss !== "undefined" && (
                 <div className={`scavenger-sense scavenger-sense-${props.direction} scavenger-sense-${props.zone.ss ? '1' : '0'}`}>
                     <div className="img"/>
@@ -35,17 +38,103 @@ const ZoneControlMovementArrow = ( props: { direction: string, horizontal: boole
 }
 
 const ZoneControlParent = ( props: LocalControlProps ) => {
+    let m = false;
+
+    let routeDirectionCache = {n:false,s:false,e:false,w:false};
+
+    const between = (a:number,b:number,v:number) => Math.min(a,b) <= v && Math.max(a,b) >= v;
+    const distance = (a:MapCoordinate,b:MapCoordinate) => Math.abs(a.x-b.x) + Math.abs(a.y-b.y);
+    const count_recs = (r:{n:boolean,s:boolean,e:boolean,w:boolean}) =>
+        (r.n?1:0) + (r.s?1:0) + (r.w?1:0) + (r.e?1:0);
+
+    type mf=(f:MapCoordinate)=>void;
+    const move = (a:MapCoordinate,b:MapCoordinate,f:mf) => {
+        if (a.x<b.x&&a.y===b.y) for (let x = a.x; x <= b.x; ++x) f({x,y:a.y});
+        if (a.x>b.x&&a.y===b.y) for (let x = a.x; x >= b.x; --x) f({x,y:a.y});
+        if (a.x===b.x&&a.y<b.y) for (let y = a.y; y <= b.y; ++y) f({x:a.x,y});
+        if (a.x===b.x&&a.y>b.y) for (let y = a.y; y >= b.y; --y) f({x:a.x,y});
+        if (a.x===b.x&&a.y===b.y) f({x:a.x,y:a.y});
+    }
+    
+    if (typeof props.planes["0"].x !== "undefined" && typeof props.planes["0"].y !== "undefined" && (props.activeRoute?.stops ?? []).length > 0) {
+        const zone = props.planes["0"] as MapCoordinate;
+        // Check if we're on route
+        props.activeRoute.stops.forEach( (co,i) => {
+            if (i > 0) {
+                if (co.x === zone.x && between(co.y,props.activeRoute.stops[i-1].y,zone.y)) {
+                    if (zone.y < co.y) routeDirectionCache.n = m = true;
+                    if (zone.y > co.y) routeDirectionCache.s = m = true;
+                }
+                if (co.y === zone.y && between(co.x,props.activeRoute.stops[i-1].x,zone.x)) {
+                    if (zone.x < co.x) routeDirectionCache.e = m = true;
+                    if (zone.x > co.x) routeDirectionCache.w = m = true;
+                }
+            }
+        } )
+        
+        // We're not on route. Try to find the way back
+        if (!m) {
+
+            let d = null; let closest = null;
+
+            // Find the closest route point
+            props.activeRoute.stops.forEach( (co,index)=> {
+                if (index > 0) move( props.activeRoute.stops[index-1], props.activeRoute.stops[index], co => {
+                    const dt = distance(co,zone);
+                    if (d === null || dt <= d) { d = dt; closest = co; }
+                } );
+            } )
+
+            const dx = Math.abs( zone.x - closest.x );
+            const dy = Math.abs( zone.y - closest.y );
+
+            if (dx >= dy) routeDirectionCache.w = !(routeDirectionCache.e = zone.x < closest.x);
+            if (dx <= dy) routeDirectionCache.s = !(routeDirectionCache.n = zone.y < closest.y);
+        }
+
+        // We have multiple directional suggestions; cross-reference them with the zones the player has already visited
+        if (count_recs(routeDirectionCache) > 1) {
+            let tmp = {
+                n: routeDirectionCache.n && !props.planes.n.vv,
+                s: routeDirectionCache.s && !props.planes.s.vv,
+                e: routeDirectionCache.e && !props.planes.e.vv,
+                w: routeDirectionCache.w && !props.planes.w.vv,
+            };
+            if (count_recs(tmp) === 1) routeDirectionCache = tmp;
+        }
+    }
+
+    let marker_rotation = null;
+    if (props.marker && typeof props.planes["0"].x !== "undefined") {
+        const d_x = props.marker.x - props.planes["0"].x - props.dx;
+        const d_y = props.planes["0"].y - props.marker.y + props.dy;
+
+        if (d_x !== 0 || d_y !== 0) {
+            const angle = Math.round(Math.acos( d_y / Math.sqrt( d_x*d_x + d_y*d_y ) ) * 57.2957795);
+            marker_rotation = { transform: `rotate(${((d_x > 0) ? 360 - angle : angle)}deg)` }
+        }
+    }
+
     return (
         <div className={`zone-plane-controls ${props.fx ? 'retro' : ''} ${props.movement ? '' : 'blocked'}`}>
-            <div className="marker-direction"/>
-            <ZoneControlMovementArrow direction={'east'}  zone={props.planes.e} horizontal={true}/>
-            <ZoneControlMovementArrow direction={'west'}  zone={props.planes.w} horizontal={true}/>
-            <ZoneControlMovementArrow direction={'north'} zone={props.planes.n} horizontal={false}/>
-            <ZoneControlMovementArrow direction={'south'} zone={props.planes.s} horizontal={false}/>
-            { typeof props.planes["0"]?.x !== "undefined" && typeof props.planes["0"]?.y !== "undefined" && (
+            { marker_rotation !== null && (
+                <div style={marker_rotation} className="marker-direction"/>
+            ) }
+            { props.movement && props.dx === 0 && props.dy === 0 && (
+                <>
+                    <ZoneControlMovementArrow onClick={()=>props.wrapDispatcher({moveto: {x:props.planes["0"].x+1, y:props.planes["0"].y, dx:  1, dy:  0}})}
+                                              direction={'east'}  zone={props.planes.e} onRoute={routeDirectionCache.e} horizontal={true}/>
+                    <ZoneControlMovementArrow onClick={()=>props.wrapDispatcher({moveto: {x:props.planes["0"].x-1, y:props.planes["0"].y, dx: -1, dy:  0}})}
+                                              direction={'west'}  zone={props.planes.w} onRoute={routeDirectionCache.w} horizontal={true}/>
+                    <ZoneControlMovementArrow onClick={()=>props.wrapDispatcher({moveto: {x:props.planes["0"].x, y:props.planes["0"].y+1, dx:  0, dy:  1}})}
+                                              direction={'north'} zone={props.planes.n} onRoute={routeDirectionCache.n} horizontal={false}/>
+                    <ZoneControlMovementArrow onClick={()=>props.wrapDispatcher({moveto: {x:props.planes["0"].x, y:props.planes["0"].y-1, dx:  0, dy: -1}})}
+                                              direction={'south'} zone={props.planes.s} onRoute={routeDirectionCache.s} horizontal={false}/>
+                </>
+            ) }
+            { typeof props.planes["0"]?.x !== "undefined" && typeof props.planes["0"]?.y !== "undefined" && props.dx === 0 && props.dy === 0 && (
                 <div className="current-location">{`${props.strings.position} ${props.planes["0"].x} / ${props.planes["0"].y}`}</div>
             ) }
-
         </div>
     )
 }

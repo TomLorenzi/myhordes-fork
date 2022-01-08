@@ -959,16 +959,16 @@ class InventoryAwareController extends CustomAbstractController
             if ( in_array( $zone->getId(), $soul_zones_ids) )
                 $current_zone['s'] = true;
 
+            if ($citizen_zone !== null
+                && max( abs( $citizen_zone->getX() - $zone->getX() ), abs( $citizen_zone->getY() - $zone->getY() ) ) <= 2
+                && ( abs( $citizen_zone->getX() - $zone->getX() ) + abs( $citizen_zone->getY() - $zone->getY() ) ) < 4
+            ) $local_zones[] = $zone;
+
             if ($zone->getDiscoveryStatus() <= Zone::DiscoveryStateNone) {
                 if ($current_zone['s'] ?? false)
                     $zones[] = $current_zone;
                 continue;
             }
-
-            if ($citizen_zone !== null
-                && max( abs( $citizen_zone->getX() - $zone->getX() ), abs( $citizen_zone->getY() - $zone->getY() ) ) <= 2
-                && ( abs( $citizen_zone->getX() - $zone->getX() ) + abs( $citizen_zone->getY() - $zone->getY() ) ) < 4
-            ) $local_zones[] = $zone;
 
             $current_zone['t'] = $zone->getDiscoveryStatus() >= Zone::DiscoveryStateCurrent;
             if ($zone->getDiscoveryStatus() >= Zone::DiscoveryStateCurrent) {
@@ -1050,6 +1050,7 @@ class InventoryAwareController extends CustomAbstractController
                     }
 
                     if (!$local && $adjacent && !$z->isTownZone()) {
+                        $obj['vv'] = $this->getActiveCitizen()->getVisitedZones()->contains($z);
                         if ($scavenger_sense && $z->getDiscoveryStatus() > Zone::DiscoveryStateNone) {
                             $obj['ss'] = $z->getDigs() > 0 || ($z->getPrototype() && $z->getRuinDigs() > 0);
                             if (!$obj['ss']) $obj['se'] = 2;

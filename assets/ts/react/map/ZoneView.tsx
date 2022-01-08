@@ -88,6 +88,7 @@ const LocalZoneGrid = ( props: { cache: { [key: string]: LocalZone; } } ) => {
 const LocalZoneView = ( props: LocalZoneProps ) => {
     let cache = {};
     let surroundings: LocalZoneSurroundings = {n:null,s:null,e:null,w:null,'0':null};
+
     props.plane.forEach( zone => {
         cache[`${zone.yr}-${zone.xr}`] = zone;
         if (zone.xr * zone.yr === 0) {
@@ -99,21 +100,27 @@ const LocalZoneView = ( props: LocalZoneProps ) => {
         }
     } );
 
-
-
     const bar = [-2,-1,0,1,2];
     bar.forEach( yr => bar.forEach( xr => {
         if (typeof cache[`${yr}-${xr}`] === "undefined")
             cache[`${yr}-${xr}`] = {xr,yr}
     }) )
 
+    let style={
+        left: `${-200 + props.dx * -40}%`,
+        top:  `${-200 + props.dy *  40}%`,
+    }
+
     return (
         <>
-            <div className={`zone-plane ${props.fx ? 'retro' : ''}`}>
+            <div className={`zone-plane ${props.fx ? 'retro' : ''}`} style={style}>
                 { (props.fx ? [0,1,2,3,4] : []).map(i => <div key={i} className="retro-effect hide-lg hide-md hide-sm"/>) }
                 <LocalZoneGrid cache={cache}/>
             </div>
-            <ZoneControlParent strings={props.strings} fx={props.fx} movement={props.movement} planes={surroundings} />
+            <ZoneControlParent strings={props.strings} fx={props.fx} movement={props.movement} planes={surroundings}
+                               activeRoute={props.activeRoute} wrapDispatcher={props.wrapDispatcher} marker={props.marker}
+                               dx={props.dx} dy={props.dy}
+            />
         </>
 
     )

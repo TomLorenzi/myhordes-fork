@@ -60,6 +60,7 @@ export const MapWrapper = ( props: ReactDataMapCore ) => {
     else mk = {x: mk[0] ?? 0, y: mk[1] ?? 0}
 
     const scrollPlaneRef = useRef<HTMLDivElement>(null);
+    let dx = 0, dy = 0;
 
     const [state, dispatch] = React.useReducer((state: RuntimeMapState, action: RuntimeMapStateAction): RuntimeMapState => {
         const new_state = {...state};
@@ -102,11 +103,16 @@ export const MapWrapper = ( props: ReactDataMapCore ) => {
             new_state.routeEditor.push(action.routeEditorPush);
             props.eventGateway('planner-step', { valid: validRoute(new_state.routeEditor, new_state.conf.enableComplexZoneRouting), route: processRoute(new_state.routeEditor, new_state.conf.enableComplexZoneRouting) });
         }
+        if (typeof action.moveto !== "undefined") {
+            dx = action.moveto.dx;
+            dy = action.moveto.dy;
+            props.eventGateway('player-movement', {x:action.moveto.x, y:action.moveto.y});
+        } else dx = dy = 0;
 
         return new_state;
     }, {
         markEnabled: $.client.get('map', 'tags', 'hide') === 'show',
-        globalEnabled: $.client.get('map', 'global', 'hide') === 'show' && props.data.displayType.split('-')[0] === 'beyond',
+        globalEnabled: $.client.get('map', 'global', 'hide') === 'show' || props.data.displayType.split('-')[0] !== 'beyond',
         activeRoute: $.client.get('current','routes', null) ?? undefined,
         activeZone: mk,
 
@@ -135,36 +141,47 @@ export const MapWrapper = ( props: ReactDataMapCore ) => {
         }
     })
     useEffect(()=>{
-            if (state.conf.enableZoneRouting) {
-                const f_planningBegin = (data:EventDataPlanningBegin) => {
-                    let new_conf = {...state.conf};
-                    new_conf.enableSimpleZoneRouting = (new_conf.enableComplexZoneRouting = data.complex) || true;
-                    dispatch({configure: new_conf, routeEditorPop: true})
-                };
+        if (state.conf.enableZoneRouting) {
+            const f_planningBegin = (data:EventDataPlanningBegin) => {
+                let new_conf = {...state.conf};
+                new_conf.enableSimpleZoneRouting = (new_conf.enableComplexZoneRouting = data.complex) || true;
+                dispatch({configure: new_conf, routeEditorPop: true})
+            };
 
-                const f_planningUndo = () => {
-                    dispatch({routeEditorPop: false})
-                }
+            const f_planningUndo = () => {
+                dispatch({routeEditorPop: false})
+            }
 
-                const f_planningEnd = () => {
-                    let new_conf = {...state.conf};
-                    new_conf.enableSimpleZoneRouting = new_conf.enableComplexZoneRouting = false;
-                    dispatch({configure: new_conf, routeEditorPop: true})
-                }
+            const f_planningEnd = () => {
+                let new_conf = {...state.conf};
+                new_conf.enableSimpleZoneRouting = new_conf.enableComplexZoneRouting = false;
+                dispatch({configure: new_conf, routeEditorPop: true})
+            }
 
-                props.eventRegistrar('planning-begin',  f_planningBegin,    false);
-                props.eventRegistrar('planning-undo',   f_planningUndo,     false);
-                props.eventRegistrar('planning-end',    f_planningEnd,      false);
+            props.eventRegistrar('planning-begin',  f_planningBegin,    false);
+            props.eventRegistrar('planning-undo',   f_planningUndo,     false);
+            props.eventRegistrar('planning-end',    f_planningEnd,      false);
 
-                return () => {
-                    props.eventRegistrar('planning-begin',  f_planningBegin,    true);
-                    props.eventRegistrar('planning-undo',   f_planningUndo,     true);
-                    props.eventRegistrar('planning-end',    f_planningEnd,      true);
-                }
-            } else return ()=>{};
-        });
+            return () => {
+                props.eventRegistrar('planning-begin',  f_planningBegin,    true);
+                props.eventRegistrar('planning-undo',   f_planningUndo,     true);
+                props.eventRegistrar('planning-end',    f_planningEnd,      true);
+            }
+        } else return ()=>{};
+    });
+    useEffect(()=>{
+        if (state.conf.enableLocalView) {
+            const f_resetPan = () => { dispatch({}) };
+            props.eventRegistrar('movement-reset',  f_resetPan,    false);
 
-    const activeRoute = props.data.routes.filter(r=>r.id===state.activeRoute).map(r=>r.stops);
+            return () => {
+                props.eventRegistrar('movement-reset',  f_resetPan,    true);
+            }
+        } else return ()=>{};
+    });
+
+
+    const activeRoute = props.data.routes.filter(r=>r.id===state.activeRoute)[0] ?? null;
 
     return (
             <div draggable={false} className={`react_map_area ${state.showViewer ? 'zone-viewer-mode' : ''}`}>
@@ -176,7 +193,7 @@ export const MapWrapper = ( props: ReactDataMapCore ) => {
                     <MapOverviewParent map={props.data.map} strings={props.data.strings} settings={state.conf}
                                        marking={state.activeZone} wrapDispatcher={dispatch} etag={props.data.etag}
                                        routeEditor={state.routeEditor} zoom={state.zoom} zoomChanged={state.zoomChanged}
-                                       routeViewer={activeRoute[0] ?? []}
+                                       routeViewer={activeRoute?.stops ?? []}
                                        scrollAreaRef={scrollPlaneRef}
                     />
                     <MapRouteList visible={state.showPanel} routes={props.data.routes} strings={props.data.strings}
@@ -184,6 +201,7 @@ export const MapWrapper = ( props: ReactDataMapCore ) => {
                     />
                     { state.conf.enableLocalView && (
                         <LocalZoneView fx={props.data.fx} plane={props.data.map.local} strings={props.data.strings}
+                                       activeRoute={activeRoute} dx={dx} dy={dy} wrapDispatcher={dispatch} marker={state.activeZone ?? null}
                                        movement={state.conf.enableMovementControls && props.data.displayType !== 'beyond-static'} />
                     ) }
                     { props.data.fx && [0,1,2,3,4].map(k=><div key={k} className="retro-effect"/>) }

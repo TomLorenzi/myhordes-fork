@@ -215,8 +215,9 @@ class BeyondController extends InventoryAwareController
                 'can_drink' => !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'hasdrunk'),
                 'can_eat' => !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'haseaten')
             ],
+        ], $data, $merge_map ? [
             'map_public_json'   => json_encode( $this->get_public_map_blob( $allow_movement ? 'beyond' : 'beyond-static', $this->getTownConf()->isNightTime() ? 'night' : 'day' ) )
-        ], $data, $merge_map ? $this->get_map_blob() : []) );
+        ] : []) );
     }
 
     public function get_escape_timeout(Citizen $c, bool $allow_desperate = false): int {

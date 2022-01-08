@@ -679,7 +679,7 @@ div.react_map_area {
         &.action-move-south { left: 50%; bottom: 5px; transform: translateX(-50%) rotate(180deg); }
         &.action-move-west { top: 50%; left: -10px; transform: translateY(-50%) rotate(270deg); }
       }
-      &>.marker-direction  { top: 0; bottom: 0; left:  0; right: 0; background: url("../../img/icons/map/map_move_marker.svg") center/contain no-repeat; }
+      &>.marker-direction  { top: 0; bottom: 0; left:  0; right: 0; background: url("../../img/icons/map/map_move_marker.svg") center/contain no-repeat; transition: transform 1.25s ease; }
       &>.current-location  { position: absolute;bottom: 5px;top: auto;right: 5px;left: auto;display: block;z-index: 10;color: #d7ff5b;font-size: 1.25rem;text-shadow: 0 0 5px #d7ff5b;font-family: "visitor2";letter-spacing: 0.1rem; }
       &.retro {
         &>.current-location { animation: glitch-anim-text 4s infinite linear alternate; }
