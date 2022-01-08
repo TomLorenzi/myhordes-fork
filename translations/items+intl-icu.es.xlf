@@ -9381,7 +9381,6 @@
       <notes>
         <note category="german">Dies kannst du erst ab &lt;strong&gt;Tag 2&lt;/strong&gt; tun.</note>
         <note category="from">db://Requirement</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Dies kannst du erst ab &lt;strong&gt;Tag 2&lt;/strong&gt; tun.</source>

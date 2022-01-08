@@ -4150,7 +4150,6 @@
       <notes>
         <note category="german">Alle User</note>
         <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig;twig:///templates/ajax/admin/users/listing_tabs.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Alle User</source>
@@ -4161,7 +4160,6 @@
       <notes>
         <note category="german">Account-Zustand</note>
         <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Account-Zustand</source>
@@ -4172,7 +4170,6 @@
       <notes>
         <note category="german">Aktiv</note>
         <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Aktiv</source>
@@ -4194,7 +4191,6 @@
       <notes>
         <note category="german">Spezial</note>
         <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Spezial</source>
@@ -4205,7 +4201,6 @@
       <notes>
         <note category="german">Zur Löschung vorgemerkt</note>
         <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Zur Löschung vorgemerkt</source>
@@ -4216,7 +4211,6 @@
       <notes>
         <note category="german">Gelöscht</note>
         <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Gelöscht</source>
@@ -4227,7 +4221,6 @@
       <notes>
         <note category="german">Inkarnation</note>
         <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Inkarnation</source>
@@ -4238,7 +4231,6 @@
       <notes>
         <note category="german">Zuletzt aktiv</note>
         <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Zuletzt aktiv</source>
@@ -4249,7 +4241,6 @@
       <notes>
         <note category="german">Hauptseele</note>
         <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Hauptseele</source>
@@ -4260,7 +4251,6 @@
       <notes>
         <note category="german">Keine Hauptseele</note>
         <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Keine Hauptseele</source>
@@ -4271,7 +4261,6 @@
       <notes>
         <note category="german">Verknüpfte Seele</note>
         <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Verknüpfte Seele</source>
@@ -4282,7 +4271,6 @@
       <notes>
         <note category="german">Beliebige verknüpfte Seele</note>
         <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Beliebige verknüpfte Seele</source>
@@ -4293,7 +4281,6 @@
       <notes>
         <note category="german">Keine verknüpfte Seele</note>
         <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Keine verknüpfte Seele</source>
@@ -4304,7 +4291,6 @@
       <notes>
         <note category="german">Accountbeschränkung</note>
         <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Accountbeschränkung</source>
@@ -4315,7 +4301,6 @@
       <notes>
         <note category="german">Nicht bestätigt</note>
         <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Nicht bestätigt</source>
@@ -4326,7 +4311,6 @@
       <notes>
         <note category="german">Nicht aktiv</note>
         <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Nicht aktiv</source>
@@ -4337,7 +4321,6 @@
       <notes>
         <note category="german">Rolle</note>
         <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Rolle</source>
@@ -4348,7 +4331,6 @@
       <notes>
         <note category="german">Aktion bei Klick:</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Aktion bei Klick:</source>
@@ -4359,7 +4341,6 @@
       <notes>
         <note category="german">Verbleibe Zonengrabungen:</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Verbleibe Zonengrabungen:</source>
@@ -4370,7 +4351,6 @@
       <notes>
         <note category="german">Verbleibende Ruinengrabungen:</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Verbleibende Ruinengrabungen:</source>
@@ -4381,7 +4361,6 @@
       <notes>
         <note category="german">Zurzeit in der Stadt</note>
         <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Zurzeit in der Stadt</source>
@@ -4392,7 +4371,6 @@
       <notes>
         <note category="german">Eternal-Twin-Konto verlinkt</note>
         <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Eternal-Twin-Konto verlinkt</source>

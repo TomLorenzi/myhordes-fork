@@ -26180,7 +26180,6 @@
       <notes>
         <note category="german">Nachrichten &lt;strong&gt;ohne Titel&lt;/strong&gt; oder &lt;strong&gt;Text&lt;/strong&gt; können nicht versendet werden.</note>
         <note category="from">twig:///templates/scripts/errors/messages.txt.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Nachrichten &lt;strong&gt;ohne Titel&lt;/strong&gt; oder &lt;strong&gt;Text&lt;/strong&gt; können nicht versendet werden.</source>

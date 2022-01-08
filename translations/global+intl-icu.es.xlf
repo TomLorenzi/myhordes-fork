@@ -3942,7 +3942,6 @@
       <notes>
         <note category="german">Fehler</note>
         <note category="from">db://ThreadTag</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Fehler</source>
@@ -3953,7 +3952,6 @@
       <notes>
         <note category="german">Changelog</note>
         <note category="from">db://ThreadTag</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Changelog</source>
@@ -3964,7 +3962,6 @@
       <notes>
         <note category="german">Event</note>
         <note category="from">db://ThreadTag</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Event</source>
@@ -3986,7 +3983,6 @@
       <notes>
         <note category="german">Update</note>
         <note category="from">db://ThreadTag</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Update</source>
@@ -3997,7 +3993,6 @@
       <notes>
         <note category="german">Post</note>
         <note category="from">db://ThreadTag</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Post</source>
@@ -4008,7 +4003,6 @@
       <notes>
         <note category="german">Disk.</note>
         <note category="from">db://ThreadTag</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Disk.</source>
@@ -4019,7 +4013,6 @@
       <notes>
         <note category="german">Guide</note>
         <note category="from">db://ThreadTag</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Guide</source>
@@ -4030,7 +4023,6 @@
       <notes>
         <note category="german">Orga.</note>
         <note category="from">db://ThreadTag</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Orga.</source>
@@ -4041,7 +4033,6 @@
       <notes>
         <note category="german">Vorschlag</note>
         <note category="from">db://ThreadTag</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Vorschlag</source>
@@ -4052,7 +4043,6 @@
       <notes>
         <note category="german">SALC</note>
         <note category="from">db://ThreadTag</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>SALC</source>
@@ -4063,7 +4053,6 @@
       <notes>
         <note category="german">Tag (optional)</note>
         <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Tag (optional)</source>
@@ -4074,7 +4063,6 @@
       <notes>
         <note category="german">Projekt</note>
         <note category="from">db://ThreadTag</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Projekt</source>
@@ -4095,7 +4083,6 @@
       <notes>
         <note category="german">Tag</note>
         <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Tag</source>
@@ -4146,7 +4133,6 @@
       <notes>
         <note category="german">Wir MÜSSEN Verteidigungsanlagen bauen. Falls Ressourcen dafür fehlen, geh in die Außenwelt (die Wüste außerhalb der Stadt) und suche danach.</note>
         <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wir MÜSSEN Verteidigungsanlagen bauen. Falls Ressourcen dafür fehlen, geh in die Außenwelt (die Wüste außerhalb der Stadt) und suche danach.</source>
