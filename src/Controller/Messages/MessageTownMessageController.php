@@ -36,6 +36,8 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class MessageTownMessageController extends MessageController
 {
 
+    public const ErrorMessageOrTitleEmpty = ErrorHelper::BaseMessageErrors + 1;
+
     /**
      * @Route("api/town/house/sendpm", name="town_house_send_pm_controller")
      * @param EntityManagerInterface $em
@@ -65,7 +67,7 @@ class MessageTownMessageController extends MessageController
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         if(($tid === -1 && empty($title)) || empty($content)) {
-            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+            return AjaxResponse::error(self::ErrorMessageOrTitleEmpty);
         }
 
         $sender = $this->getUser()->getActiveCitizen();

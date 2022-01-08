@@ -95,7 +95,7 @@ class SchedulerCommand extends Command
         if ($input->getOption('info'))
             foreach ( $this->entityManager->getRepository(AttackSchedule::class)->findByCompletion( false ) as $s )
                 /** @var $s AttackSchedule */
-                $output->writeln( "Scheduled Attack: <info>{$s->getTimestamp()->format('d.m.Y H:i:s')}</info>." );
+                $output->writeln( "Scheduled Attack: N.<info>{$s->getId()} @ {$s->getTimestamp()->format('d.m.Y H:i:s')}</info>." );
 
         return 0;
     }

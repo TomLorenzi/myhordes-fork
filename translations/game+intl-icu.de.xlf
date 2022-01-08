@@ -16400,5 +16400,11 @@
         <target>Allen Widrigkeiten zum Trotz scheint es {citizen} gelungen zu sein, in der Zone etwas zu finden, mit dem er überleben kann...</target>
       </segment>
     </unit>
+    <unit id="sDajFXt">
+      <segment>
+        <source>Nachrichten &lt;strong&gt;ohne Titel&lt;/strong&gt; oder &lt;strong&gt;Text&lt;/strong&gt; können nicht versendet werden.</source>
+        <target><![CDATA[Nachrichten <strong>ohne Titel</strong> oder <strong>Text</strong> können nicht versendet werden.]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>
