@@ -48,11 +48,10 @@
       <notes>
         <note category="german">Ein Versuch kann ja nicht schaden, vielleicht ist hier jemand wirklich verrückt genug dafür?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ein Versuch kann ja nicht schaden, vielleicht ist hier jemand wirklich verrückt genug dafür?</source>
-        <target>Ein Versuch kann ja nicht schaden, vielleicht ist hier jemand wirklich verrückt genug dafür?</target>
+        <target>Bueno, intentarlo no hace daño, podría haber alguien suficientemente loco fuera, ¿no?</target>
       </segment>
     </unit>
     <unit id="cCVN.vz" name="Okay... Freiwillige vor?">
@@ -186,11 +185,10 @@
       <notes>
         <note category="german">Wenn wir diesen Raum neu dekorieren würden...</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wenn wir diesen Raum neu dekorieren würden...</source>
-        <target>Wenn wir diesen Raum neu dekorieren würden...</target>
+        <target>Ya sabes, si elegimos mejor el diseño de esta sala...</target>
       </segment>
     </unit>
     <unit id="5HXRieY" name="Ich hab Hunger!">
@@ -347,11 +345,10 @@
       <notes>
         <note category="german">Ja, ich habe genug von seinen Spielchen! Hängen wir ihn auf!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ja, ich habe genug von seinen Spielchen! Hängen wir ihn auf!</source>
-        <target>Ja, ich habe genug von seinen Spielchen! Hängen wir ihn auf!</target>
+        <target>¡Ya estoy harto de sus maneras, vamos a colgarlo!</target>
       </segment>
     </unit>
     <unit id="MBAkUEo" name="Muss ich darauf antworten?">
@@ -540,11 +537,10 @@
       <notes>
         <note category="german">Es ist jedes Mal dasselbe! Können wir nicht einfach schnell und in Ruhe eine Entscheidung treffen, ohne ihne dass alles in einem Debakel endet?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Es ist jedes Mal dasselbe! Können wir nicht einfach schnell und in Ruhe eine Entscheidung treffen, ohne ihne dass alles in einem Debakel endet?</source>
-        <target>Es ist jedes Mal dasselbe! Können wir nicht einfach schnell und in Ruhe eine Entscheidung treffen, ohne ihne dass alles in einem Debakel endet?</target>
+        <target>¡Siempre pasa lo mismo! ¿Podemos simplemente tomar rápido la decisión sin convertirla en una absurda debacle?</target>
       </segment>
     </unit>
     <unit id="nClkP4w" name="Die Hoffnung stirbt zuletzt...">
@@ -721,11 +717,10 @@
       <notes>
         <note category="german">Und was machen wir bei einem Gleichstand?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Und was machen wir bei einem Gleichstand?</source>
-        <target>Und was machen wir bei einem Gleichstand?</target>
+        <target>¿Y si empatamos?</target>
       </segment>
     </unit>
     <unit id="RYcKsKF" name="Wir hängen beide und fangen nochmal von vorne an!?">
@@ -754,11 +749,10 @@
       <notes>
         <note category="german">Oh Mann! Der Einstein hier drüben hat seinen Strohhalm gefressen!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Oh Mann! Der Einstein hier drüben hat seinen Strohhalm gefressen!</source>
-        <target>Oh Mann! Der Einstein hier drüben hat seinen Strohhalm gefressen!</target>
+        <target>¡Venga, tío! ¡El propio Einstein ahí afuera ha mordido esa pajita! Mira, puedes saludarlo.</target>
       </segment>
     </unit>
     <unit id="MdjHW4x" name="Kann ich meinen Strohhalm essen wenn wir fertig sind?">
@@ -775,11 +769,10 @@
       <notes>
         <note category="german">Wo hat er hier überhaupt Stroh her?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wo hat er hier überhaupt Stroh her?</source>
-        <target>Wo hat er hier überhaupt Stroh her?</target>
+        <target>¿De dónde pretende que la saquemos?</target>
       </segment>
     </unit>
     <unit id="VPqA7DQ" name="...Wer sagt, dass das Stroh ist?...">
@@ -1033,11 +1026,10 @@
       <notes>
         <note category="german">Er ist eigentlich genau wie du, nur interessanter.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Er ist eigentlich genau wie du, nur interessanter.</source>
-        <target>Er ist eigentlich genau wie du, nur interessanter.</target>
+        <target>Es como tú, pero más interesante.</target>
       </segment>
     </unit>
     <unit id="F4aGZOU" name="Er ist eigentlich genau wie du, nur nützlicher.">
@@ -1055,11 +1047,10 @@
       <notes>
         <note category="german">Krasse Sache! Ein neuer Schamane!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Krasse Sache! Ein neuer Schamane!</source>
-        <target>Krasse Sache! Ein neuer Schamane!</target>
+        <target>¡Maldita sea! ¡Un nuevo Chamán!</target>
       </segment>
     </unit>
     <unit id="ew4trqb" name="Super, eine neue Wahl eines Schamanen!">
@@ -1266,11 +1257,10 @@
       <notes>
         <note category="german">Was ist ein Schaaaar Maaane?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Was ist ein Schaaaar Maaane?</source>
-        <target>Was ist ein Schaaaar Maaane?</target>
+        <target>¿Qué es un Cha-Cha-Chá man?</target>
       </segment>
     </unit>
     <unit id="ll_J.2m">

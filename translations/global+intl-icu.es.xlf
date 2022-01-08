@@ -4157,33 +4157,30 @@
       <notes>
         <note category="german">{n} neue Beiträge in</note>
         <note category="from">twig:///templates/ajax/pm/bubbles.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>{n} neue Beiträge in</source>
-        <target>{n} neue Beiträge in</target>
+        <target>{n} nuevas respuestas en</target>
       </segment>
     </unit>
     <unit id="o_0krUA" name="{n} oder mehr neue Beiträge in">
       <notes>
         <note category="german">{n} oder mehr neue Beiträge in</note>
         <note category="from">twig:///templates/ajax/pm/bubbles.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>{n} oder mehr neue Beiträge in</source>
-        <target>{n} oder mehr neue Beiträge in</target>
+        <target>{n} o más nuevas respuestas en</target>
       </segment>
     </unit>
     <unit id=".YY5QFh" name="und andere.">
       <notes>
         <note category="german">und andere.</note>
         <note category="from">twig:///templates/ajax/pm/bubbles.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>und andere.</source>
-        <target>und andere.</target>
+        <target>y otros.</target>
       </segment>
     </unit>
   </file>
