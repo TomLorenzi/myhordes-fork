@@ -6916,7 +6916,7 @@
       </notes>
       <segment>
         <source>&lt;t-bp_ok&gt;Du liest den {item} und stellst fest, dass es sich um einen Plan für {bp_spawn} handelt.&lt;/t-bp_ok&gt;&lt;t-bp_parent&gt;{hr}Dafür ist das Bauprojekt {bp_parent} nötig.&lt;/t-bp_parent&gt;&lt;t-bp_fail&gt;Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...&lt;/t-bp_fail&gt;</source>
-        <target><![CDATA[<t-bp_ok>¡Examinando el plano, te das cuenta de que describe detalladamente la construcción de {bp_spawn}! Colocas esa información en el panel de las construcciones.</t-bp_ok><t-bp_parent>{hr}Ese proyecto requiere primeramente la construcción : {bp_parent}.</t-bp_parent><t-bp_fail><strong>¡Tu pueblo ya ha liberado todas las construcciones de esta categoría!</strong> Por lo tanto este {item} es inútil y decides tirarlo.</t-bp_fail>]]></target>
+        <target><![CDATA[<t-bp_ok>¡Examinando el plano, te das cuenta de que describe detalladamente la construcción de {bp_spawn}! Colocas esa información en el panel de las construcciones.</t-bp_ok><t-bp_parent>{hr}Ese proyecto requiere primeramente la construcción: {bp_parent}.</t-bp_parent><t-bp_fail><strong>¡Tu pueblo ya ha liberado todas las construcciones de esta categoría!</strong> Por lo tanto este {item} es inútil y decides tirarlo.</t-bp_fail>]]></target>
       </segment>
     </unit>
     <unit id="V2fAVB5" name="Aufbauen">
@@ -9363,7 +9363,7 @@
       </notes>
       <segment>
         <source>Erhalten:</source>
-        <target>Obtener :</target>
+        <target>Obtener:</target>
       </segment>
     </unit>
     <unit id="yUEkyOu" name="Dir fällt kein Grund ein, dies zu tun...">
@@ -9385,7 +9385,7 @@
       </notes>
       <segment>
         <source>Dies kannst du erst ab &lt;strong&gt;Tag 2&lt;/strong&gt; tun.</source>
-        <target><![CDATA[Dies kannst du erst ab <strong>Tag 2</strong> tun.]]></target>
+        <target><![CDATA[Es demasiado pronto para morir de esa forma. Debes esperar al menos hasta el <strong>Día 2</strong> para intentarlo.]]></target>
       </segment>
     </unit>
     <unit id="u9sIc_x">

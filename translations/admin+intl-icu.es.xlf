@@ -4154,7 +4154,7 @@
       </notes>
       <segment>
         <source>Alle User</source>
-        <target>Alle User</target>
+        <target>Todos los usuarios</target>
       </segment>
     </unit>
     <unit id="HgoJZHL" name="Account-Zustand">
@@ -4165,7 +4165,7 @@
       </notes>
       <segment>
         <source>Account-Zustand</source>
-        <target>Account-Zustand</target>
+        <target>Estado de la cuenta</target>
       </segment>
     </unit>
     <unit id="gWNFTze" name="Aktiv">
@@ -4176,7 +4176,7 @@
       </notes>
       <segment>
         <source>Aktiv</source>
-        <target>Aktiv</target>
+        <target>Activa</target>
       </segment>
     </unit>
     <unit id="0mB6s81" name="Dummy">
@@ -4198,7 +4198,7 @@
       </notes>
       <segment>
         <source>Spezial</source>
-        <target>Spezial</target>
+        <target>Especial</target>
       </segment>
     </unit>
     <unit id="gkxS090" name="Zur Löschung vorgemerkt">
@@ -4209,7 +4209,7 @@
       </notes>
       <segment>
         <source>Zur Löschung vorgemerkt</source>
-        <target>Zur Löschung vorgemerkt</target>
+        <target>Eliminación pendiente</target>
       </segment>
     </unit>
     <unit id="03XcNUj" name="Gelöscht">
@@ -4220,7 +4220,7 @@
       </notes>
       <segment>
         <source>Gelöscht</source>
-        <target>Gelöscht</target>
+        <target>Eliminada</target>
       </segment>
     </unit>
     <unit id="nDFaBQH" name="Inkarnation">
@@ -4231,7 +4231,7 @@
       </notes>
       <segment>
         <source>Inkarnation</source>
-        <target>Inkarnation</target>
+        <target>Encarnación</target>
       </segment>
     </unit>
     <unit id="fvbnuSw" name="Zuletzt aktiv">
@@ -4242,7 +4242,7 @@
       </notes>
       <segment>
         <source>Zuletzt aktiv</source>
-        <target>Zuletzt aktiv</target>
+        <target>Última conexión</target>
       </segment>
     </unit>
     <unit id="JgjaqCv" name="Hauptseele">
@@ -4253,7 +4253,7 @@
       </notes>
       <segment>
         <source>Hauptseele</source>
-        <target>Hauptseele</target>
+        <target>Alma principal</target>
       </segment>
     </unit>
     <unit id=".Tw5sZN" name="Keine Hauptseele">
@@ -4264,7 +4264,7 @@
       </notes>
       <segment>
         <source>Keine Hauptseele</source>
-        <target>Keine Hauptseele</target>
+        <target>Sin alma principal</target>
       </segment>
     </unit>
     <unit id="XiHvmIk" name="Verknüpfte Seele">
@@ -4275,7 +4275,7 @@
       </notes>
       <segment>
         <source>Verknüpfte Seele</source>
-        <target>Verknüpfte Seele</target>
+        <target>Alma vinculada</target>
       </segment>
     </unit>
     <unit id="zTu5fP6" name="Beliebige verknüpfte Seele">
@@ -4286,7 +4286,7 @@
       </notes>
       <segment>
         <source>Beliebige verknüpfte Seele</source>
-        <target>Beliebige verknüpfte Seele</target>
+        <target>Cualquier alma vinculada</target>
       </segment>
     </unit>
     <unit id="jnWkQ6z" name="Keine verknüpfte Seele">
@@ -4297,7 +4297,7 @@
       </notes>
       <segment>
         <source>Keine verknüpfte Seele</source>
-        <target>Keine verknüpfte Seele</target>
+        <target>Sin alma vinculada</target>
       </segment>
     </unit>
     <unit id="AUhHTVv" name="Accountbeschränkung">
@@ -4308,7 +4308,7 @@
       </notes>
       <segment>
         <source>Accountbeschränkung</source>
-        <target>Accountbeschränkung</target>
+        <target>Restricción de cuenta</target>
       </segment>
     </unit>
     <unit id="1wv7teh" name="Nicht bestätigt">
@@ -4319,7 +4319,7 @@
       </notes>
       <segment>
         <source>Nicht bestätigt</source>
-        <target>Nicht bestätigt</target>
+        <target>No confirmada</target>
       </segment>
     </unit>
     <unit id="Czy2T4z" name="Nicht aktiv">
@@ -4330,7 +4330,7 @@
       </notes>
       <segment>
         <source>Nicht aktiv</source>
-        <target>Nicht aktiv</target>
+        <target>Inactiva</target>
       </segment>
     </unit>
     <unit id="ADipz4Z" name="Rolle">
@@ -4341,7 +4341,7 @@
       </notes>
       <segment>
         <source>Rolle</source>
-        <target>Rolle</target>
+        <target>Rol</target>
       </segment>
     </unit>
     <unit id="h2jMPFO" name="Aktion bei Klick:">
@@ -4352,7 +4352,7 @@
       </notes>
       <segment>
         <source>Aktion bei Klick:</source>
-        <target>Aktion bei Klick:</target>
+        <target>Acción en el clic:</target>
       </segment>
     </unit>
     <unit id="0G7SYAt" name="Verbleibe Zonengrabungen:">
@@ -4363,7 +4363,7 @@
       </notes>
       <segment>
         <source>Verbleibe Zonengrabungen:</source>
-        <target>Verbleibe Zonengrabungen:</target>
+        <target>Excavaciones restantes:</target>
       </segment>
     </unit>
     <unit id="Bcli6ap" name="Verbleibende Ruinengrabungen:">
@@ -4374,7 +4374,7 @@
       </notes>
       <segment>
         <source>Verbleibende Ruinengrabungen:</source>
-        <target>Verbleibende Ruinengrabungen:</target>
+        <target>Búsquedas(en ruina) restantes:</target>
       </segment>
     </unit>
     <unit id="nOcPaSS" name="Zurzeit in der Stadt">
@@ -4385,7 +4385,7 @@
       </notes>
       <segment>
         <source>Zurzeit in der Stadt</source>
-        <target>Zurzeit in der Stadt</target>
+        <target>Actualmente en pueblo</target>
       </segment>
     </unit>
     <unit id="jPmvEEG" name="Eternal-Twin-Konto verlinkt">
@@ -4396,7 +4396,7 @@
       </notes>
       <segment>
         <source>Eternal-Twin-Konto verlinkt</source>
-        <target>Eternal-Twin-Konto verlinkt</target>
+        <target>Cuenta de Eternaltwin vinculada</target>
       </segment>
     </unit>
   </file>
