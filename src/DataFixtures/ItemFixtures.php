@@ -934,7 +934,7 @@ class ItemFixtures extends Fixture
         'rlaunc_#00'                 => [ 'nw_armory' ],
         'repair_one_#00'             => [ 'hero_find_lucky' ],
         'electro_box_#00'            => [ 'hero_find_lucky' ],
-        'christmas_candy_#00'        => [ 'can_cook' ],
+        'christmas_candy_#00'        => [ 'food', 'can_cook' ],
         'omg_this_will_kill_you_#00' => [ 'can_cook' ],
         'chidol_#00'                 => [ 'prevent_terror' ],
         'maglite_1_#00'              => [ 'prevent_night' ],
