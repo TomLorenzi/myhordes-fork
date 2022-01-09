@@ -699,12 +699,14 @@ class InventoryAwareController extends CustomAbstractController
                             $hasExplodingDoormat = false;
 
                             if ($this->inventory_handler->countSpecificItems($citizen->getInventory(), "christmas_suit_full_#00") > 0){
-                                $pictoName = "r_santac_#00";
+                                if($victim_home->getCitizen()->getAlive())
+                                    $pictoName = "r_santac_#00";
                                 $isSanta = true;
                             }
 
                             if ($this->inventory_handler->countSpecificItems($citizen->getInventory(), "leprechaun_suit_#00") > 0){
-                                $pictoName = "r_lepre_#00";
+                                if($victim_home->getCitizen()->getAlive())
+                                    $pictoName = "r_lepre_#00";
                                 $isLeprechaun = true;
                             }
 
