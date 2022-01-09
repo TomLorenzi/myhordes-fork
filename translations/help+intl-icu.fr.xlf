@@ -8617,8 +8617,8 @@ Um Kontakt mit den Administratoren aufzunehmen, schreibe an die &lt;a x-group-co
       <segment>
         <source>&lt;strong&gt;DEN SUPPORT KONTAKTIEREN:&lt;/strong&gt;
 Um Kontakt mit den Administratoren aufzunehmen, schreibe an die &lt;a x-group-connect="{oglink}" href="#"&gt;Offizielle Gruppe&lt;/a&gt; des Technischen Supports.</source>
-        <target><![CDATA[<strong>DEN SUPPORT KONTAKTIEREN:</strong>
-Um Kontakt mit den Administratoren aufzunehmen, schreibe an die <a x-group-connect="{oglink}" href="#">Offizielle Gruppe</a> des Technischen Supports.]]></target>
+        <target><![CDATA[<strong>CONTACTER LE SUPPORT:</strong>
+Pour contacter les administrateurs, écrivez au support technique <a x-group-connect="{oglink}" href="#">Groupe officiel</a>.]]></target>
       </segment>
     </unit>
   </file>
