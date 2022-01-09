@@ -200,7 +200,7 @@
       </notes>
       <segment>
         <source>E-Mail</source>
-        <target>E-Mail</target>
+        <target>Correo electrónico</target>
       </segment>
     </unit>
     <unit id=".Dfg1PE" name="Validiert">
@@ -1624,7 +1624,7 @@
       </notes>
       <segment>
         <source>Öffnen</source>
-        <target>Öffnen</target>
+        <target>Abrir</target>
       </segment>
     </unit>
     <unit id="Z7aWRoY" name="Dashboard">
@@ -3381,7 +3381,7 @@
       </notes>
       <segment>
         <source>Anon.</source>
-        <target>Anon.</target>
+        <target>Anón.</target>
       </segment>
     </unit>
     <unit id="vBZ55s_" name="Mitglieder">
@@ -4184,7 +4184,7 @@
       </notes>
       <segment>
         <source>Dummy</source>
-        <target>Dummy</target>
+        <target>Genérica</target>
       </segment>
     </unit>
     <unit id="Cpb7Uq8" name="Spezial">
@@ -4385,7 +4385,7 @@
       </notes>
       <segment>
         <source>Gruppentyp</source>
-        <target>Gruppentyp</target>
+        <target>Tipo de grupo</target>
       </segment>
     </unit>
   </file>
