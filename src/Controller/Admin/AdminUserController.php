@@ -422,8 +422,7 @@ class AdminUserController extends AdminActionController
                     return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
                 $user
                     ->setEternalID( null )
-                    ->setEmail( $param )
-                    ->setPassword( null );
+                    ->setEmail( $param );
                 $this->entity_manager->persist($user);
                 break;
 

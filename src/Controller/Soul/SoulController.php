@@ -1043,7 +1043,7 @@ class SoulController extends CustomAbstractController
         if ($this->isGranted('ROLE_DUMMY') && !$this->isGranted( 'ROLE_CROW' ))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
-        if ($this->isGranted('ROLE_ETERNAL') && !empty($new_pw))
+        if ($this->isGranted('ROLE_ETERNAL') && $user->getPassword() === null && !empty($new_pw))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
         $change = false;
@@ -1085,6 +1085,7 @@ class SoulController extends CustomAbstractController
 
             $user->setEmail($user->getPendingEmail());
             $user->setPendingEmail(null);
+            $user->setPendingValidation(null);
             $this->entity_manager->remove( $pending );
             $change = true;
         }
