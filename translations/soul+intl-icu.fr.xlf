@@ -2615,8 +2615,7 @@
     </unit>
     <unit id="gLe5bOG">
       <notes>
-        <note category="german">Wenn du der Meinung bist, fälschlicherweise gesperrt worden zu sein, kannst du dich im Weltforum melden.</note>
-        <note category="state">new</note>
+        <note category="german">Wenn du der Meinung bist, fälschlicherweise gesperrt worden zu sein, kannst du dich im Rabennest (unten auf der Forenübersicht) melden.</note>
         <note category="from">twig:///templates/ajax/soul/acc_disabled.html.twig</note>
       </notes>
       <segment>

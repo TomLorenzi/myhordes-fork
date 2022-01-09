@@ -143,6 +143,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'not_drunk'    => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'drunk' ] ]],
             'not_hungover' => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'hungover' ] ]],
 
+            'room_for_item' =>  [ 'type' => Requirement::MessageOnFail, 'collection' => ['custom' => [69] ], 'text' => 'Hierfür hast du keinen Platz.'],
+
             'have_can_opener'            => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'item' => [ 'item' => null, 'prop' => 'can_opener' ] ], 'text' => 'Du hast nichts, mit dem du dieses Ding aufbekommen könntest..' ],
             'have_box_opener'            => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'item' => [ 'item' => null, 'prop' => 'box_opener' ] ], 'text' => 'Du hast nichts, mit dem du dieses Ding aufbekommen könntest..' ],
             'have_parcel_opener'         => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'item' => [ 'item' => null, 'prop' => 'parcel_opener' ] ],      'text' => 'Du hast nichts, mit dem du dieses Ding aufbekommen könntest..' ],
@@ -685,8 +687,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'open_abox'     => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands'], 'result' => [ 'consume_item', [ 'spawn' => [ 'bplan_r_#00' ] ] ], 'message_key' => 'container_open' ],
             'open_cbox'     => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands'], 'result' => [ 'consume_item', [ 'spawn' => [ ['bplan_c_#00',50], ['bplan_u_#00',35], ['bplan_r_#00',10], ['bplan_e_#00',5]] ] ], 'message_key' => 'container_open_cbox' ],
 
-            'open_matbox3'   => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands'], 'result' => [ [ 'item' => [ 'consume' => false, 'morph' => 'rsc_pack_2_#00' ],  'spawn' => 'matbox' ] ], 'message_key' => 'container_open_not_empty' ],
-            'open_matbox2'   => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands'], 'result' => [ [ 'item' => [ 'consume' => false, 'morph' => 'rsc_pack_1_#00' ],  'spawn' => 'matbox' ] ], 'message_key' => 'container_open_not_empty' ],
+            'open_matbox3'   => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands','room_for_item'], 'result' => [ [ 'item' => [ 'consume' => false, 'morph' => 'rsc_pack_2_#00' ],  'spawn' => 'matbox' ] ], 'message_key' => 'container_open_not_empty' ],
+            'open_matbox2'   => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands','room_for_item'], 'result' => [ [ 'item' => [ 'consume' => false, 'morph' => 'rsc_pack_1_#00' ],  'spawn' => 'matbox' ] ], 'message_key' => 'container_open_not_empty' ],
             'open_matbox1'   => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands'], 'result' => [ 'consume_item', [ 'spawn' => 'matbox' ] ], 'message_key' => 'container_open_empty' ],
 
             'open_xmasbox3'  => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands'], 'result' => [ [ 'item' => [ 'consume' => false, 'morph' => 'chest_christmas_2_#00' ],  'spawn' => 'xmas_3' ] ], 'message_key' => 'container_open_not_empty' ],

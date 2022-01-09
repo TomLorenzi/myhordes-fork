@@ -5857,5 +5857,11 @@
         <target>Du musst mindestens 3 Kilometer von der Stadt entfernt sein, um das zu tun.</target>
       </segment>
     </unit>
+    <unit id="EPH5jLS" name="Hierfür hast du keinen Platz.">
+      <segment>
+        <source>Hierfür hast du keinen Platz.</source>
+        <target>Hierfür hast du keinen Platz.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

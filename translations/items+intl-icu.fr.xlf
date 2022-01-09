@@ -9438,5 +9438,16 @@
         <target>Vous devez être éloigné de plus de 3 kilomètres de la ville, pour faire cela.</target>
       </segment>
     </unit>
+    <unit id="EPH5jLS" name="Hierfür hast du keinen Platz.">
+      <notes>
+        <note category="german">Hierfür hast du keinen Platz.</note>
+        <note category="from">db://Requirement</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Hierfür hast du keinen Platz.</source>
+        <target>Hierfür hast du keinen Platz.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
