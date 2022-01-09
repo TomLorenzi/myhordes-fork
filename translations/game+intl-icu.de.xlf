@@ -16406,5 +16406,17 @@
         <target><![CDATA[Nachrichten <strong>ohne Titel</strong> oder <strong>Text</strong> können nicht versendet werden.]]></target>
       </segment>
     </unit>
+    <unit id="O.lyccv" name="Materialienverbrauch ansehen">
+      <segment>
+        <source>Materialienverbrauch ansehen</source>
+        <target>Nur benötigte Materialien anzeigen</target>
+      </segment>
+    </unit>
+    <unit id="83UNHAB" name="Normale Ansicht">
+      <segment>
+        <source>Normale Ansicht</source>
+        <target>Normale Ansicht</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

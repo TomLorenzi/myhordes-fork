@@ -26095,5 +26095,25 @@
         <target><![CDATA[No puedes enviar un <strong>mensaje vacío</strong> o con el <strong>título vacío</strong>...]]></target>
       </segment>
     </unit>
+    <unit id="O.lyccv" name="Materialienverbrauch ansehen">
+      <notes>
+        <note category="german">Materialienverbrauch ansehen</note>
+        <note category="from">twig:///templates/ajax/game/town/construction.html.twig</note>
+      </notes>
+      <segment>
+        <source>Materialienverbrauch ansehen</source>
+        <target>Activar la vista rápida</target>
+      </segment>
+    </unit>
+    <unit id="83UNHAB" name="Normale Ansicht">
+      <notes>
+        <note category="german">Normale Ansicht</note>
+        <note category="from">twig:///templates/ajax/game/town/construction.html.twig</note>
+      </notes>
+      <segment>
+        <source>Normale Ansicht</source>
+        <target>Activar la vista detallada</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

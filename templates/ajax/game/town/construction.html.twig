@@ -56,6 +56,11 @@
         </div>
     {% endif %}
 
+    <div class="row">
+        <div class="small cell rw-12 right build-req-detail"><a href="#" id="toggle_constmode_short">{{ 'Materialienverbrauch ansehen'|trans({},'game') }}</a></div>
+        <div class="small cell rw-12 right build-req-short hidden"><a href="#" id="toggle_constmode_detail">{{ 'Normale Ansicht'|trans({},'game') }}</a></div>
+    </div>
+
     {% macro building_entry(building, buildable, n, dict, items, disable_all, workshopBonus, hpToAp, canvote, votedBuilding) %}
         {# @var building \App\Entity\Building #}
         <div class="row {% if not buildable %}locked{% elseif building.complete %}complete{% endif %} {% if building == votedBuilding %}voted{% endif %} {% if n > 0 %}lv-{{ min(n,6) }}{% else %}root{% endif %}">
@@ -138,13 +143,22 @@
                         {% if items[ itemgroup.prototype.id ] < itemgroup.chance %}
                             {% set res_ok = false %}
                         {% endif %}
-                        <div class="build-req">
-                            <img alt="" src="{{ asset('build/images/item/item_' ~ itemgroup.prototype.icon ~ '.gif' ) }}" />
-                            <span class="resource current {% if items[ itemgroup.prototype.id ] < itemgroup.chance %}low{% endif %}">{{ items[ itemgroup.prototype.id ] }}/</span><span class="resource needed">{{ itemgroup.chance }}</span>
-                            <div class="tooltip">
-                                {{ itemgroup.prototype.label|trans({}, 'items') }}
+                            <div class="build-req build-req-detail">
+                                <img alt="" src="{{ asset('build/images/item/item_' ~ itemgroup.prototype.icon ~ '.gif' ) }}" />
+                                <span class="resource current {% if items[ itemgroup.prototype.id ] < itemgroup.chance %}low{% endif %}">{{ items[ itemgroup.prototype.id ] }}/</span><span class="resource needed">{{ itemgroup.chance }}</span>
+                                <div class="tooltip">
+                                    {{ itemgroup.prototype.label|trans({}, 'items') }}
+                                </div>
                             </div>
-                        </div>
+                            {% if items[ itemgroup.prototype.id ] < itemgroup.chance %}
+                                <div class="build-req build-req-short hidden">
+                                    <img alt="" src="{{ asset('build/images/item/item_' ~ itemgroup.prototype.icon ~ '.gif' ) }}" />
+                                    <span class="resource needed">{{ itemgroup.chance - items[ itemgroup.prototype.id ] }}</span>
+                                    <div class="tooltip">
+                                        {{ itemgroup.prototype.label|trans({}, 'items') }}
+                                    </div>
+                                </div>
+                            {% endif %}
                     {% endfor %}
                 {% endif %}
             </div>
@@ -295,5 +309,25 @@
             let container = document.querySelector('.forum-preview-wrapper');
             container.scrollTop = container.scrollHeight;
         } );
+
+        const update_view_mode = () => {
+            const short = $.client.config.showShortConstrList.get();
+            $.html.forEach('.build-req-detail', elem => elem.classList.toggle( 'hidden', short ));
+            $.html.forEach('.build-req-short',  elem => elem.classList.toggle( 'hidden', !short ));
+        }
+
+        update_view_mode();
+
+        $.html.addEventListenerAll('#toggle_constmode_short', 'click', e => {
+            e.preventDefault();
+            $.client.config.showShortConstrList.set(true);
+            update_view_mode();
+        });
+
+        $.html.addEventListenerAll('#toggle_constmode_detail', 'click', e => {
+            e.preventDefault();
+            $.client.config.showShortConstrList.set(false);
+            update_view_mode();
+        });
     </script>
 {% endblock %}

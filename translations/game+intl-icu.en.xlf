@@ -26185,5 +26185,25 @@
         <target><![CDATA[You cannot send an <strong>empty message</strong> or a message with <strong>no subject</strong>...]]></target>
       </segment>
     </unit>
+    <unit id="O.lyccv" name="Materialienverbrauch ansehen">
+      <notes>
+        <note category="german">Materialienverbrauch ansehen</note>
+        <note category="from">twig:///templates/ajax/game/town/construction.html.twig</note>
+      </notes>
+      <segment>
+        <source>Materialienverbrauch ansehen</source>
+        <target>Only required materials</target>
+      </segment>
+    </unit>
+    <unit id="83UNHAB" name="Normale Ansicht">
+      <notes>
+        <note category="german">Normale Ansicht</note>
+        <note category="from">twig:///templates/ajax/game/town/construction.html.twig</note>
+      </notes>
+      <segment>
+        <source>Normale Ansicht</source>
+        <target>Normal view</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
