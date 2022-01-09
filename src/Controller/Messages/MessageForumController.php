@@ -23,6 +23,7 @@ use App\Response\AjaxResponse;
 use App\Service\CitizenHandler;
 use App\Service\CrowService;
 use App\Service\ErrorHelper;
+use App\Service\HTMLService;
 use App\Service\JSONRequestParser;
 use App\Service\Locksmith;
 use App\Service\PictoHandler;
@@ -267,6 +268,13 @@ class MessageForumController extends MessageController
 
         if (mb_strlen($title) < 3 || mb_strlen($title) > 64)  return AjaxResponse::error( self::ErrorPostTitleLength );
         if (mb_strlen($text) < 2 || mb_strlen($text) > 16384) return AjaxResponse::error( self::ErrorPostTextLength );
+
+        if ($town_citizen)
+            $title = $this->html->htmlDistort( $title,
+                                            ($this->citizen_handler->hasStatusEffect($town_citizen, 'drunk') ? HTMLService::ModulationDrunk : HTMLService::ModulationNone) |
+                                            ($this->citizen_handler->hasStatusEffect($town_citizen, 'terror') ? HTMLService::ModulationTerror : HTMLService::ModulationNone) |
+                                            ($this->citizen_handler->hasStatusEffect($town_citizen, 'wound1') ? HTMLService::ModulationHead : HTMLService::ModulationNone)
+                , $town_citizen->getTown()->getRealLanguage() ?? $this->getUserLanguage(), $d );
 
         $thread = (new Thread())->setTitle( $title )->setTag($tag)->setOwner($user);
 
@@ -618,6 +626,13 @@ class MessageForumController extends MessageController
             }
 
             if (mb_strlen($title) >= 3 && mb_strlen($title) <= 64) {
+                if ($town_citizen)
+                    $title = $this->html->htmlDistort( $title,
+                                                       ($this->citizen_handler->hasStatusEffect($town_citizen, 'drunk') ? HTMLService::ModulationDrunk : HTMLService::ModulationNone) |
+                                                       ($this->citizen_handler->hasStatusEffect($town_citizen, 'terror') ? HTMLService::ModulationTerror : HTMLService::ModulationNone) |
+                                                       ($this->citizen_handler->hasStatusEffect($town_citizen, 'wound1') ? HTMLService::ModulationHead : HTMLService::ModulationNone)
+                        , $town_citizen->getTown()->getRealLanguage() ?? $this->getUserLanguage(), $d );
+
                 $thread->setTitle($title)->setTag($tag);
                 $this->entity_manager->persist($thread);
             }
