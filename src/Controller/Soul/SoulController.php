@@ -17,6 +17,7 @@ use App\Entity\FeatureUnlock;
 use App\Entity\FeatureUnlockPrototype;
 use App\Entity\FoundRolePlayText;
 use App\Entity\HeroSkillPrototype;
+use App\Entity\OfficialGroup;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
 use App\Entity\RememberMeTokens;
@@ -1408,7 +1409,10 @@ class SoulController extends CustomAbstractController
      */
     public function help_me(): Response
     {
-        return $this->render( 'ajax/help/shell.html.twig');
+        $support_groups = $this->entity_manager->getRepository(OfficialGroup::class)->findBy(['lang' => $this->getUserLanguage(), 'semantic' => OfficialGroup::SEMANTIC_SUPPORT]);
+        return $this->render( 'ajax/help/shell.html.twig', [
+            'support' => count($support_groups) === 1 ? $support_groups[0] : null
+        ]);
     }
 
     /**

@@ -4389,5 +4389,16 @@
         <target>Compte Eternal-Twin lié</target>
       </segment>
     </unit>
+    <unit id="_VFidG8" name="Gruppentyp">
+      <notes>
+        <note category="german">Gruppentyp</note>
+        <note category="from">twig:///templates/ajax/admin/groups/edit.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Gruppentyp</source>
+        <target>Gruppentyp</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -2422,7 +2422,7 @@
     <unit id="PXyHpOf" name="Fehler beim Laden des Posteingangs.">
       <notes>
         <note category="german">Fehler beim Laden des Posteingangs.</note>
-        <note category="from">twig:///templates/ajax/forum/list.html.twig;twig:///templates/ajax/pm/proxy.html.twig</note>
+        <note category="from">twig:///templates/ajax/forum/list.html.twig;twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/pm/proxy.html.twig</note>
       </notes>
       <segment>
         <source>Fehler beim Laden des Posteingangs.</source>

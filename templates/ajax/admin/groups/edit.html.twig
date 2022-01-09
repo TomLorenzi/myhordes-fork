@@ -20,6 +20,17 @@
                 </div>
 
                 <div class="row">
+                    <div class="cell padded rw-4 note note-lightest"><label for="group-semantic">{{ 'Gruppentyp'|trans({},'admin') }}</label></div>
+                    <div class="cell padded rw-4">
+                        <select id="group-semantic">
+                            {% for label, value in types %}
+                                <option value="{{ value }}"{% if current_group.semantic == value %} selected{% endif %}>{{ label }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
                     <div class="cell padded rw-4 note note-lightest"><label for="group-name">{{ 'Name'|trans({},'admin') }}</label></div>
                     <div class="cell padded rw-4"><input id="group-name" type="text" value="{{ current_group is not null ? current_group.usergroup.name : '' }}" /></div>
                 </div>
@@ -189,6 +200,7 @@
 
             const payload = {
                 name: document.getElementById('group-name').value,
+                type: document.getElementById('group-semantic').value,
                 desc: document.getElementById('group-desc').value,
                 lang: document.getElementById('group-lang').value,
                 anon: document.getElementById('group-anon').checked,

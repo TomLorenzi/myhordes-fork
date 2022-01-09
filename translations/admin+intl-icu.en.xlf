@@ -4425,5 +4425,15 @@
         <target>Linked Eternal-Twin account</target>
       </segment>
     </unit>
+    <unit id="_VFidG8" name="Gruppentyp">
+      <notes>
+        <note category="german">Gruppentyp</note>
+        <note category="from">twig:///templates/ajax/admin/groups/edit.html.twig</note>
+      </notes>
+      <segment>
+        <source>Gruppentyp</source>
+        <target>Group Type</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

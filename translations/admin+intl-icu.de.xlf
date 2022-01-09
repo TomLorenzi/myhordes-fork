@@ -2773,5 +2773,11 @@
         <target>Eternal-Twin-Konto verlinkt</target>
       </segment>
     </unit>
+    <unit id="_VFidG8" name="Gruppentyp">
+      <segment>
+        <source>Gruppentyp</source>
+        <target>Gruppentyp</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -4,12 +4,17 @@ namespace App\Entity;
 
 use App\Repository\OfficialGroupRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\Table;
+use Doctrine\ORM\Mapping\UniqueConstraint;
 
 /**
  * @ORM\Entity(repositoryClass=OfficialGroupRepository::class)
  */
 class OfficialGroup
 {
+    const SEMANTIC_NONE = 0;
+    const SEMANTIC_SUPPORT = 1;
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -52,6 +57,11 @@ class OfficialGroup
      * @ORM\Column(type="string", length=9)
      */
     private $avatarExt;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $semantic = 0;
 
     public function getId(): ?int
     {
@@ -138,6 +148,18 @@ class OfficialGroup
     public function setAvatarExt(string $avatarExt): self
     {
         $this->avatarExt = $avatarExt;
+
+        return $this;
+    }
+
+    public function getSemantic(): ?int
+    {
+        return $this->semantic;
+    }
+
+    public function setSemantic(int $semantic): self
+    {
+        $this->semantic = $semantic;
 
         return $this;
     }
