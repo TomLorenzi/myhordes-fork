@@ -22,7 +22,7 @@
             </p>
             <p>
                 {% if restriction.publicReason is not empty %}
-                    {{ 'Folgende Begründung wurde für deine Sperre hinterlegt: '|trans({},'soul') }} <i>"{{ restriction.publicReason }}".</i>
+                    {{ 'Folgende Begründung wurde für deine Sperre hinterlegt:'|trans({},'soul') }} <i>"{{ restriction.publicReason }}".</i>
                 {% else %}
                     {{ 'Es wurde keine Begründung für diese Sperre hinterlegt.'|trans({},'soul') }}
                 {% endif %}
