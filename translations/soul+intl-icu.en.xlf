@@ -2561,7 +2561,7 @@
       </notes>
       <segment>
         <source>Diese Sperre ist bis zu folgendem Zeitpunkt gültig:</source>
-        <target>Diese Sperre ist bis zu folgendem Zeitpunkt gültig:</target>
+        <target>This ban will be active until the following date:</target>
       </segment>
     </unit>
     <unit id="gLe5bOG">
@@ -2763,7 +2763,7 @@
       </notes>
       <segment>
         <source>Spielen</source>
-        <target>Spielen</target>
+        <target>Play</target>
       </segment>
     </unit>
     <unit id="VNOZ2rq">
@@ -2774,7 +2774,7 @@
       </notes>
       <segment>
         <source>Du kannst keinen Städten beitreten. Befindest du dich bereits in einer Stadt, kannst du dort keinerlei Aktionen mehr durchführen und keinen Stadtbildschirm aufrufen. Zudem verlierst du den Zugang zum Stadtforum.</source>
-        <target>Du kannst keinen Städten beitreten. Befindest du dich bereits in einer Stadt, kannst du dort keinerlei Aktionen mehr durchführen und keinen Stadtbildschirm aufrufen. Zudem verlierst du den Zugang zum Stadtforum.</target>
+        <target>You can't join towns. If you are already in a town, you can no longer perform any actions or open a town's page. You'll also lose access to the Town Forum.</target>
       </segment>
     </unit>
     <unit id="wEtk74c">
