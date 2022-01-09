@@ -4298,5 +4298,16 @@
         <target>Sélectionnez la partie de votre photo de profil à utiliser pour l'affichage réduit. Déplacez la section avec la souris et agrandissez-la ou réduisez-la avec la molette de la souris.</target>
       </segment>
     </unit>
+    <unit id=".R_0uOZ" name="Denke daran, dich ebenfalls aus deinem EternalTwin Account auszuloggen!">
+      <notes>
+        <note category="german">Denke daran, dich ebenfalls aus deinem EternalTwin Account auszuloggen!</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Denke daran, dich ebenfalls aus deinem EternalTwin Account auszuloggen!</source>
+        <target>Denke daran, dich ebenfalls aus deinem EternalTwin Account auszuloggen!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

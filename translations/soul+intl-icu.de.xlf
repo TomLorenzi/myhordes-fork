@@ -2638,5 +2638,11 @@
         <target>Details</target>
       </segment>
     </unit>
+    <unit id=".R_0uOZ" name="Denke daran, dich ebenfalls aus deinem EternalTwin Account auszuloggen!">
+      <segment>
+        <source>Denke daran, dich ebenfalls aus deinem EternalTwin Account auszuloggen!</source>
+        <target>Denke daran, dich ebenfalls aus deinem EternalTwin Account auszuloggen!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

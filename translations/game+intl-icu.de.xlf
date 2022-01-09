@@ -15893,7 +15893,7 @@
     <unit id="xpS6KNV">
       <segment>
         <source>Letzte Nacht war die Stadt von Zombies umzingelt! Einige schafften es, die Mauern zu durchbrechen, ein Zustrom, der uns {deaths} gute Leute kostete.</source>
-        <target>Letzte Nacht war die Stadt von Zombies umzingelt! Einige schafften es, die Mauern zu durchbrechen, ein Zustrom, der uns {deaths} gute Leute kostete.</target>
+        <target>Letzte Nacht war die Stadt {attack} von Zombies umzingelt! Einige schafften es, die Mauern zu durchbrechen, ein Zustrom, der uns {deaths} gute Leute kostete.</target>
       </segment>
     </unit>
     <unit id="U8GFvq9">

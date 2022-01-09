@@ -4309,5 +4309,15 @@
         <target>Select which part of your profile picture should be used for the reduced display. Move the section with the mouse and enlarge or reduce it with the mouse wheel.</target>
       </segment>
     </unit>
+    <unit id=".R_0uOZ" name="Denke daran, dich ebenfalls aus deinem EternalTwin Account auszuloggen!">
+      <notes>
+        <note category="german">Denke daran, dich ebenfalls aus deinem EternalTwin Account auszuloggen!</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>Denke daran, dich ebenfalls aus deinem EternalTwin Account auszuloggen!</source>
+        <target>Remember, you also need to log out of your EternalTwin account!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

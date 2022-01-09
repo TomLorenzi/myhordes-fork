@@ -25166,7 +25166,7 @@
     </unit>
     <unit id="xpS6KNV">
       <notes>
-        <note category="german">Letzte Nacht war die Stadt von Zombies umzingelt! Einige schafften es, die Mauern zu durchbrechen, ein Zustrom, der uns {deaths} gute Leute kostete.</note>
+        <note category="german">Letzte Nacht war die Stadt {attack} von Zombies umzingelt! Einige schafften es, die Mauern zu durchbrechen, ein Zustrom, der uns {deaths} gute Leute kostete.</note>
         <note category="from">db://GazetteEntryTemplate</note>
         <note category="state">new</note>
       </notes>
