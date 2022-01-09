@@ -2109,6 +2109,11 @@ class TownController extends InventoryAwareController
             foreach ($town->getCitizens() as $foreinCitizen) {
                 if(!$foreinCitizen->getAlive()) continue;
 
+                // Remove complaints
+                $complaints = $this->entity_manager->getRepository(Complaint::class)->findByCulprit($foreinCitizen);
+                foreach ($complaints as $complaint)
+                    $this->entity_manager->remove($complaint);
+
                 if ($foreinCitizen->getBanished()) {
                     $foreinCitizen->setBanished(false);
                     $this->citizen_handler->inflictStatus($foreinCitizen, 'tg_revolutionist');
