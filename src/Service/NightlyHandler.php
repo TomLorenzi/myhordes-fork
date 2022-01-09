@@ -605,7 +605,7 @@ class NightlyHandler
         $cod = $this->entity_manager->getRepository(CauseOfDeath::class)->findOneBy(['ref' => CauseOfDeath::NightlyAttack]);
         $status_terror  = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy(['name' => 'terror']);
 
-        $has_kino = $this->town_handler->getBuilding($town, 'small_cinema_#00', true);
+        $has_kino = $this->town_handler->getBuilding($town, 'small_cinema_#00', true) || $this->town_handler->getBuilding($town, 'small_catapult3_#00', true);
 
         // Day already advanced, let's get today's gazette!
         /** @var Gazette $gazette */
