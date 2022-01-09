@@ -2610,7 +2610,7 @@
       </notes>
       <segment>
         <source>Diese Sperre ist bis zu folgendem Zeitpunkt gültig:</source>
-        <target>Diese Sperre ist bis zu folgendem Zeitpunkt gültig:</target>
+        <target>Ce bannissement sera actif jusqu’à la date suivante :</target>
       </segment>
     </unit>
     <unit id="gLe5bOG">
@@ -2762,7 +2762,7 @@
       </notes>
       <segment>
         <source>Spielen</source>
-        <target>Spielen</target>
+        <target>Jouer</target>
       </segment>
     </unit>
     <unit id="VNOZ2rq">
@@ -2773,7 +2773,7 @@
       </notes>
       <segment>
         <source>Du kannst keinen Städten beitreten. Befindest du dich bereits in einer Stadt, kannst du dort keinerlei Aktionen mehr durchführen und keinen Stadtbildschirm aufrufen. Zudem verlierst du den Zugang zum Stadtforum.</source>
-        <target>Du kannst keinen Städten beitreten. Befindest du dich bereits in einer Stadt, kannst du dort keinerlei Aktionen mehr durchführen und keinen Stadtbildschirm aufrufen. Zudem verlierst du den Zugang zum Stadtforum.</target>
+        <target>Vous ne pouvez pas rejoindre des villes. Si vous êtes déjà dans une ville, vous ne pouvez plus effectuer d’actions ou ouvrir une page de la ville. Vous perdrez également l’accès au Forum de la ville.</target>
       </segment>
     </unit>
     <unit id="wEtk74c">
