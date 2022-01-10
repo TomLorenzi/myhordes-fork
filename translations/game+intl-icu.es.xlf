@@ -8398,7 +8398,7 @@
       </notes>
       <segment>
         <source>Was für ein denkwürdiger Tag! Die Zombies spielten keine Rolle mehr, nachdem {citizen1} zur Mittagszeit nackt auf der Mauer einmal um die Stadt rannte. Kommentar von {citizen2} dazu: "Der Anblick war nicht von schlechten Eltern."</source>
-        <target>¡Qué día tan memorable! Los zombis ya no importaban después de que {citizen1} corriera por la ciudad desnudo en la pared a la hora del almuerzo. Comentario de {citizen2}: "La vista no estaba mal".</target>
+        <target>¡Qué día tan memorable! Los zombis ya no importaban después de que {citizen1} corriera por el pueblo desnudo en la pared a la hora del almuerzo. Comentario de {citizen2}: "La vista no estaba mal".</target>
       </segment>
     </unit>
     <unit id="6iAHRm0">
@@ -15909,7 +15909,7 @@
       </notes>
       <segment>
         <source>Unser Katapult wird von dem vom Schicksal auserwählten Bürger {citizen} gesteuert. Sollte ihm etwas Schreckliches zustoßen, könnte dann ein neuer Bürger gewählt werden.</source>
-        <target>Nuestra catapulta está controlada por el ciudadano {ciudadano} elegido por el destino. Si le ocurriera algo terrible, se podría elegir un nuevo encargado.</target>
+        <target>Nuestra catapulta está a cargo del habitante {citizen} elegido por el destino. Si le ocurriese algo terrible, se podría elegir un nuevo encargado.</target>
       </segment>
     </unit>
     <unit id="qX1gDpX" name="Die Stadt ist zerstört! Flieht, irh Narren!">
@@ -23148,7 +23148,7 @@
       </notes>
       <segment>
         <source>Alarm (Bürger {citizen})</source>
-        <target>Alarm (Bürger {citizen})</target>
+        <target>Alarma (de {citizen})</target>
       </segment>
     </unit>
     <unit id="L_ADbyN">
@@ -23159,7 +23159,7 @@
       </notes>
       <segment>
         <source>{citizen} hat bei dir daheim den Alarm ausgelöst, als er (sie) um {time} versuchte bei dir einzubrechen!</source>
-        <target>{citizen} hat bei dir daheim den Alarm ausgelöst, als er (sie) um {time} versuchte bei dir einzubrechen!</target>
+        <target>¡El habitante {citizen} ha activado la Alarma Rudimentaria a las {time} mientas intentaba entrar a tu casa!</target>
       </segment>
     </unit>
     <unit id="CByaH.z" name="Als Ghul solltest du jeden Tag einen anderen Spieler auffressen.">
@@ -23230,7 +23230,7 @@
       </notes>
       <segment>
         <source>Halten wir kurz inne und gedenken unserem verlorenen Schamanen. Auf Wiedersehen, nutzloser Scharlatan! Wer ist motiviert, ihn zu ersetzen?</source>
-        <target>Un minuto de silencio por nuestro Chamán caído. ¡Hasta nunca charlatán inútil!</target>
+        <target>Un minuto de silencio por nuestro Chamán caído. ¡Hasta nunca, charlatán inútil!</target>
       </segment>
     </unit>
     <unit id="r1UYBsR">
@@ -23312,7 +23312,7 @@
       </notes>
       <segment>
         <source>Amüsant, &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} hat es nicht lange in der Stadt ausgehalt. Hängen auf dem öffentlichen Platz und Steinigung. Zivilisation ist schön!</source>
-        <target><![CDATA[<i class="dagger">†</i> {cadaver1} no duró mucho en este pueblo. <strong>Fue colgado</strong> y despúes <strong>apedreado</strong> en la plaza pública. ¡Si seguirmos así nos quedaremos sin vecinos!]]></target>
+        <target><![CDATA[<i class="dagger">†</i> {cadaver1} no duró mucho en este pueblo. <strong>Fue colgado</strong> y despúes <strong>apedreado</strong> en la plaza pública. ¡Si seguimos así nos quedaremos sin vecinos!]]></target>
       </segment>
     </unit>
     <unit id="ubNXQU3">
@@ -23362,7 +23362,7 @@
       </notes>
       <segment>
         <source>&lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} liegt seit gestern als vertrocknete Leiche in seinem Haus. Der Mangel an Wasser, was kann man erwarten. Manche Leute glauben immer noch, sie könnten darauf verzichten.</source>
-        <target><![CDATA[<i class="dagger">†</i> {cadaver1} no es más que un gran pedazo de carne seca. La falta de agua, fue fatal. Y pensar que algunos creen poder prescindir de ella...]]></target>
+        <target><![CDATA[<i class="dagger">†</i> {cadaver1} no es más que un gran pedazo de carne seca. La <strong>falta de agua</strong> fue fatal. Y pensar que algunos creen poder prescindir de ella...]]></target>
       </segment>
     </unit>
     <unit id="AEUoOt3">
@@ -23414,7 +23414,7 @@
       </notes>
       <segment>
         <source>Übrigens, Wassermangel ist teuer, {cadavers} die Bürger sind gestern in der Stadt ausgetrocknet. Oder haben sie "vergessen", ihre Ration zu nehmen? Stellt euch das mal vor!</source>
-        <target>La falta de agua es fatal, {cadavers} compañeros murieron literalmente disecados. ¿Habrán "olvidado" beber sus raciones de agua? Quién sabe.</target>
+        <target><![CDATA[La <strong>falta de agua</strong> es fatal, {cadavers} compañeros murieron literalmente disecados. ¿Habrán "olvidado" beber sus raciones de agua? Quién sabe.]]></target>
       </segment>
     </unit>
     <unit id="rsAiEQB">
@@ -23484,7 +23484,7 @@
       </notes>
       <segment>
         <source>Dieses geschwollene Ding an &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1}... nun, das ist &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1}. Seine Infektion verlief extrem virulent.</source>
-        <target><![CDATA[Esa cosa hinchada y apestosa en casa de <i class="dagger">†</i> {cadaver1},... pues es <i class="dagger">†</i> {cadaver1}. Su infección fue sorprendentemente virulenta.]]></target>
+        <target><![CDATA[Esa cosa hinchada y apestosa en casa de <i class="dagger">†</i> {cadaver1},... pues es <i class="dagger">†</i> {cadaver1}. Su <strong>infección</strong> fue sorprendentemente virulenta.]]></target>
       </segment>
     </unit>
     <unit id="ns8621y">
@@ -23504,7 +23504,7 @@
       </notes>
       <segment>
         <source>Ihre Haut begann sich zu schälen, aber sie machten sich keine allzu großen Gedanken darüber... {cadavers} Bürger starben letzte Nacht an einer Infektion.</source>
-        <target>Muchos no se preocuparon por ella, la subestimaron... Pero la infección acabó por llevarse a {cadavers} personas anoche.</target>
+        <target><![CDATA[Muchos no se preocuparon por ella, la subestimaron... Pero la <strong>infección</strong> acabó por llevarse a {cadavers} personas anoche]]>.</target>
       </segment>
     </unit>
     <unit id="Muq1Zer">
@@ -23684,7 +23684,7 @@
       </notes>
       <segment>
         <source>{citizen} hat an dem Bauprojekt {plan} mitgearbeitet (Sklaverei: +50% AP).</source>
-        <target>{citizen} hat an dem Bauprojekt {plan} mitgearbeitet (Sklaverei: +50% AP).</target>
+        <target>{citizen} ha trabajado en la construcción {plan} (Esclavitud: +50% PA).</target>
       </segment>
     </unit>
     <unit id="gtMSDSz" name="{citizen} hat das Gebäude {plan} repariert (Sklaverei: +50% AP).">
@@ -23695,7 +23695,7 @@
       </notes>
       <segment>
         <source>{citizen} hat das Gebäude {plan} repariert (Sklaverei: +50% AP).</source>
-        <target>{citizen} hat das Gebäude {plan} repariert (Sklaverei: +50% AP).</target>
+        <target>{citizen} ha reparado la construcción {plan} (Esclavitud: +50% PA).</target>
       </segment>
     </unit>
     <unit id="hq.m1hn" name="Ein Moderator hat deinen Thread &quot;{threadname}&quot; geschlossen. {link_post}">
@@ -23706,7 +23706,7 @@
       </notes>
       <segment>
         <source>Ein Moderator hat deinen Thread "{threadname}" geschlossen. {link_post}</source>
-        <target>Ein Moderator hat deinen Thread "{threadname}" geschlossen. {link_post}</target>
+        <target>Un moderador ha cerrado tu tema "{threadname}". {link_post}</target>
       </segment>
     </unit>
     <unit id="AEFBcgF">
@@ -23717,8 +23717,8 @@
       </notes>
       <segment>
         <source>Ein Moderator hat deinen Thread "{threadname}" als "Gelöst" markiert. {link_post}</source>
-        <target>Ein Moderator hat deinen Thread "{threadname}" als "Gelöst" markiert. {link_post}</target>
       </segment>
+      <target>Un moderador ha marcado tu tema "{threadname}" como "Resuelto". {link_post}</target>
     </unit>
     <unit id="4zy_n9Y" name="Funkgerät verwenden">
       <notes>
@@ -23728,7 +23728,7 @@
       </notes>
       <segment>
         <source>Funkgerät verwenden</source>
-        <target>Funkgerät verwenden</target>
+        <target>Abrir la mensajería</target>
       </segment>
     </unit>
     <unit id="ZUcAy0O" name="Gebäudeliste einblenden">
@@ -23739,7 +23739,7 @@
       </notes>
       <segment>
         <source>Gebäudeliste einblenden</source>
-        <target>Gebäudeliste einblenden</target>
+        <target>Mostrar construcciones</target>
       </segment>
     </unit>
     <unit id="tn37OGR">
@@ -23750,7 +23750,7 @@
       </notes>
       <segment>
         <source>&lt;strong&gt;{citizen} scheint von einer plötzlichen, unkontrollierbaren Panik ergriffen zu sein&lt;/strong&gt;! Es ist unmöglich, auch nur einen Schritt weiter zu gehen... seine &lt;strong&gt;Bewegung wurde unterbrochen&lt;/strong&gt;.</source>
-        <target><![CDATA[<strong>{citizen} scheint von einer plötzlichen, unkontrollierbaren Panik ergriffen zu sein</strong>! Es ist unmöglich, auch nur einen Schritt weiter zu gehen... seine <strong>Bewegung wurde unterbrochen</strong>.]]></target>
+        <target><![CDATA[A {citizen} le ha dado un ataque de pánico, se ha puesto a llorar y <strong>no ha sido capaz de avanzar</strong>.]]></target>
       </segment>
     </unit>
     <unit id="_yQk_x1">
@@ -23761,7 +23761,7 @@
       </notes>
       <segment>
         <source>Als du dich umschaust, &lt;strong&gt;überfällt dich eine plötzliche, unkontrollierbare Panik&lt;/strong&gt;! Es ist unmöglich, auch nur einen Schritt weiterzugehen.&lt;hr/&gt;Deine Bewegung wurde &lt;strong&gt;unterbrochen&lt;/strong&gt; und du hast &lt;strong&gt;1 AP&lt;/strong&gt; verloren.</source>
-        <target><![CDATA[Als du dich umschaust, <strong>überfällt dich eine plötzliche, unkontrollierbare Panik</strong>! Es ist unmöglich, auch nur einen Schritt weiterzugehen.<hr/>Deine Bewegung wurde <strong>unterbrochen</strong> und du hast <strong>1 AP</strong> verloren.]]></target>
+        <target><![CDATA[A {citizen} le ha dado un ataque de pánico, ha dado vueltas en círculos y <strong>no ha sido capaz de avanzar</strong>. Han perdido <strong>1PA</strong>.]]></target>
       </segment>
     </unit>
     <unit id="EKiagwt">
@@ -24468,7 +24468,7 @@
       </notes>
       <segment>
         <source>{shaman} hat {citizen} soeben mit seinen mystischen Schamanenkräften geheilt!</source>
-        <target>{shaman} hat {citizen} soeben mit seinen mystischen Schamanenkräften geheilt!</target>
+        <target>¡{shaman} ha curado a {citizen} utilizando sus poderes chamánicos!</target>
       </segment>
     </unit>
     <unit id="3W9UyPW" name="in der Nähe des Gemüsegartens">
@@ -25982,7 +25982,7 @@
       </notes>
       <segment>
         <source>Die Verbannten der Stadt wollten sich nicht länger unterdrücken lassen und haben eine Revolution angezettelt! Die bisherigen Anführer der Stadt wurden entmachtet und die Revolutionäre haben die Kontrolle übernommen.</source>
-        <target>¡Los desterrados de la ciudad ya no querían ser oprimidos y han empezado una revolución! Los líderes anteriores de la ciudad han sido expulsados y los revolucionarios han tomado el control.</target>
+        <target>¡Los desterrados del pueblo ya no querían ser oprimidos y han empezado una insurrección! Los líderes anteriores del pueblo han sido expulsados y los desterrados han tomado el control.</target>
       </segment>
     </unit>
     <unit id=".TChYJ9" name="Du bist nun frei.">
@@ -26002,7 +26002,7 @@
       </notes>
       <segment>
         <source>Erlöst von den Fesseln der Verbannung kannst du nun zusammen mit den anderen Revolutionären das Schicksal der Stadt bestimmen.</source>
-        <target>Liberado de las cadenas del destierro, ahora puedes determinar el destino de la ciudad junto con los otros revolucionarios.</target>
+        <target>Liberado de las cadenas del destierro, ahora puedes determinar el destino del pueblo junto con los otros insurrectos.</target>
       </segment>
     </unit>
     <unit id="CTl4Y7q" name="Du bist nun verbannt.">
@@ -26022,7 +26022,7 @@
       </notes>
       <segment>
         <source>Die Revolutionäre haben die Führung in der Stadt übernommen und die vormals freien Bürger erfahren nun selbst das bittere Schicksal der Verbannung.</source>
-        <target>Los revolucionarios han tomado el control de la ciudad y los ciudadanos previamente libres ahora están experimentando el amargo destino del destierro ellos mismos.</target>
+        <target>Los desterrados han tomado el control del pueblo y los habitantes previamente libres ahora están experimentando el amargo destino del destierro.</target>
       </segment>
     </unit>
     <unit id="NvYJXqK" name="Schau dir am besten gleich den {revolution_help} an.">
@@ -26042,7 +26042,7 @@
       </notes>
       <segment>
         <source>Verbannten-Ratgeber</source>
-        <target>Guía al Destierro</target>
+        <target>Guía de los desterrados</target>
       </segment>
     </unit>
     <unit id="6MOyLKz" name="Dort findest du alle Informationen über den Aufstand und dessen Folgen.">

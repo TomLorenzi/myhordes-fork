@@ -9415,7 +9415,7 @@
       </notes>
       <segment>
         <source>Hierfür hast du keinen Platz.</source>
-        <target>Hierfür hast du keinen Platz.</target>
+        <target>No tienes espacio para guardar el objeto.</target>
       </segment>
     </unit>
   </file>
