@@ -57,6 +57,11 @@ export class ReactIO {
         }
     }
 
+    public clearClientEvents(event: string) {
+        (this.dom_listeners[event]??[]).forEach( e => this.dom.removeEventListener(`_react_${event}`, e) );
+        delete this.listeners[event];
+    }
+
     public addClientEvent(event: string, callback: ReactIOEventListener) {
         const wrap_call = (e:CustomEvent) => callback(e.detail);
         if (typeof this.dom_listeners[event] === "undefined") this.dom_listeners[event] = [];
@@ -125,6 +130,23 @@ export default class Components {
         }
 
         parent.dispatchEvent(new CustomEvent('_react', { detail: {event, data} }));
+    }
+
+    clearEventListeners( parent: HTMLElement | string, event: string ) {
+        if (typeof parent === "string") parent = document.getElementById(parent);
+        if (!parent) return;
+
+        if (!parent.hasAttribute('x-react-mount')) {
+            console.error('Attempt to listen to a React event on something that is not a valid React mount point:', parent);
+            return;
+        }
+
+        if (!parent.hasAttribute('data-react')) {
+            console.error('Attempt to listen to a React event on non-initialized react mount point:', parent);
+            return;
+        }
+
+        this.io_registry[parent.dataset.react].clearClientEvents(event);
     }
 
     attachEventListener( parent: HTMLElement | string, event: string, callback: (object)=>void ) {

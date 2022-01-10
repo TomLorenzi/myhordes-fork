@@ -192,6 +192,7 @@
     {{ parent() }}
     <script>
         let movement_busy = false;
+        $.components.clearEventListeners('beyond-map', 'player-movement');
         $.components.attachEventListener('beyond-map', 'player-movement', m=>{
             if (movement_busy) return;
             movement_busy = true;
