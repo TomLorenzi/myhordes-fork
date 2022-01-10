@@ -23684,7 +23684,7 @@
       </notes>
       <segment>
         <source>{citizen} hat an dem Bauprojekt {plan} mitgearbeitet (Sklaverei: +50% AP).</source>
-        <target>{citizen} hat an dem Bauprojekt {plan} mitgearbeitet (Sklaverei: +50% AP).</target>
+        <target>{citizen} ha trabajado en la construcción {plan} (Esclavitud: +50% PA).</target>
       </segment>
     </unit>
     <unit id="gtMSDSz" name="{citizen} hat das Gebäude {plan} repariert (Sklaverei: +50% AP).">
@@ -23695,7 +23695,7 @@
       </notes>
       <segment>
         <source>{citizen} hat das Gebäude {plan} repariert (Sklaverei: +50% AP).</source>
-        <target>{citizen} hat das Gebäude {plan} repariert (Sklaverei: +50% AP).</target>
+        <target>{citizen} ha reparado la construcción {plan} (Esclavitud: +50% PA).</target>
       </segment>
     </unit>
     <unit id="hq.m1hn" name="Ein Moderator hat deinen Thread &quot;{threadname}&quot; geschlossen. {link_post}">
