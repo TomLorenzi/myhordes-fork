@@ -1040,6 +1040,7 @@ class SoulController extends CustomAbstractController
         $new_pw = $parser->trimmed('pw_new', '');
         $new_email = $parser->trimmed('email_new', '');
         $confirm_token = $parser->trimmed('email_token', '');
+        $message = [];
 
         if ($this->isGranted('ROLE_DUMMY') && !$this->isGranted( 'ROLE_CROW' ))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
@@ -1089,10 +1090,10 @@ class SoulController extends CustomAbstractController
             $user->setPendingValidation(null);
             $this->entity_manager->remove( $pending );
             $change = true;
+            $message[] = $this->translator->trans('Deine E-Mail-Adresse wurde erfolgreich geändert.', [], 'login');
         }
 
         if ($change){
-            $message = [];
             $this->entity_manager->persist($user);
             $this->entity_manager->flush();
 

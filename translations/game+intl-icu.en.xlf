@@ -554,7 +554,7 @@
     <unit id="QI_O4UJ" name="Verschüttete Ruine">
       <notes>
         <note category="german">Verschüttete Ruine</note>
-        <note category="from">php:///src/Controller/ExternalXML2Controller.php;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/map.html.twig</note>
+        <note category="from">php:///src/Controller/ExternalXML2Controller.php;php:///src/Controller/InventoryAwareController.php;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Verschüttete Ruine</source>
@@ -565,7 +565,7 @@
       <notes>
         <note category="german">Zone</note>
         <note category="state">new</note>
-        <note category="from">twig:///templates/ajax/admin/towns/map.html.twig;twig:///templates/ajax/game/map.html.twig</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php;twig:///templates/ajax/admin/towns/map.html.twig;twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Zone</source>
@@ -575,7 +575,7 @@
     <unit id="8Nqa1HE" name="Entfernung">
       <notes>
         <note category="german">Entfernung</note>
-        <note category="from">twig:///templates/ajax/admin/towns/map.html.twig;twig:///templates/ajax/game/map.html.twig</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php;twig:///templates/ajax/admin/towns/map.html.twig;twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Entfernung</source>
@@ -585,7 +585,7 @@
     <unit id="VasxdH5" name="Routen">
       <notes>
         <note category="german">Routen</note>
-        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php;twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Routen</source>
@@ -605,7 +605,7 @@
     <unit id="NqjEmUx" name="Karte">
       <notes>
         <note category="german">Karte</note>
-        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php;twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Karte</source>
@@ -7887,7 +7887,7 @@
       <notes>
         <note category="german">Position:</note>
         <note category="state">new</note>
-        <note category="from">twig:///templates/ajax/admin/towns/map.html.twig;twig:///templates/ajax/game/map.html.twig</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php;twig:///templates/ajax/admin/towns/map.html.twig;twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Position:</source>
@@ -11014,7 +11014,7 @@
     <unit id="W3jTpt9" name="Isolierte Zombies">
       <notes>
         <note category="german">Einzelner Zombie</note>
-        <note category="from">twig:///templates/ajax/admin/towns/map.html.twig;twig:///templates/ajax/game/map.html.twig</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php;twig:///templates/ajax/admin/towns/map.html.twig;twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Isolierte Zombies</source>
@@ -11024,7 +11024,7 @@
     <unit id="Yc0dhV4" name="Die Zombies verstümmeln">
       <notes>
         <note category="german">Zombiemeute</note>
-        <note category="from">twig:///templates/ajax/admin/towns/map.html.twig;twig:///templates/ajax/game/map.html.twig</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php;twig:///templates/ajax/admin/towns/map.html.twig;twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Die Zombies verstümmeln</source>
@@ -11034,7 +11034,7 @@
     <unit id="c8SXj_R" name="Horde der Zombies">
       <notes>
         <note category="german">Zombiehorde</note>
-        <note category="from">twig:///templates/ajax/admin/towns/map.html.twig;twig:///templates/ajax/game/map.html.twig</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php;twig:///templates/ajax/admin/towns/map.html.twig;twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Horde der Zombies</source>
@@ -11045,7 +11045,7 @@
       <notes>
         <note category="german">Mark.</note>
         <note category="state">new</note>
-        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php;twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Mark.</source>
@@ -21526,7 +21526,7 @@
     <unit id="uAj26XB" name="Schließen">
       <notes>
         <note category="german">Schließen</note>
-        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php;twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Schließen</source>
@@ -21537,7 +21537,7 @@
       <notes>
         <note category="german">Global</note>
         <note category="state">new</note>
-        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php;twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Global</source>
@@ -26187,7 +26187,7 @@
     </unit>
     <unit id="O.lyccv" name="Materialienverbrauch ansehen">
       <notes>
-        <note category="german">Materialienverbrauch ansehen</note>
+        <note category="german">Nur benötigte Materialien anzeigen</note>
         <note category="from">twig:///templates/ajax/game/town/construction.html.twig</note>
       </notes>
       <segment>

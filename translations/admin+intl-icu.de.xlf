@@ -2779,5 +2779,11 @@
         <target>Gruppentyp</target>
       </segment>
     </unit>
+    <unit id="MxCYTlN" name="Änderungen an '{appname}' speichern">
+      <segment>
+        <source>Änderungen an '{appname}' speichern</source>
+        <target>Änderungen an '{appname}' speichern</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
