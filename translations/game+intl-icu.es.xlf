@@ -8398,7 +8398,7 @@
       </notes>
       <segment>
         <source>Was für ein denkwürdiger Tag! Die Zombies spielten keine Rolle mehr, nachdem {citizen1} zur Mittagszeit nackt auf der Mauer einmal um die Stadt rannte. Kommentar von {citizen2} dazu: "Der Anblick war nicht von schlechten Eltern."</source>
-        <target>¡Qué día tan memorable! Los zombis ya no importaban después de que {citizen1} corriera por la ciudad desnudo en la pared a la hora del almuerzo. Comentario de {citizen2}: "La vista no estaba mal".</target>
+        <target>¡Qué día tan memorable! Los zombis ya no importaban después de que {citizen1} corriera por el pueblo desnudo en la pared a la hora del almuerzo. Comentario de {citizen2}: "La vista no estaba mal".</target>
       </segment>
     </unit>
     <unit id="6iAHRm0">
@@ -15909,7 +15909,7 @@
       </notes>
       <segment>
         <source>Unser Katapult wird von dem vom Schicksal auserwählten Bürger {citizen} gesteuert. Sollte ihm etwas Schreckliches zustoßen, könnte dann ein neuer Bürger gewählt werden.</source>
-        <target>Nuestra catapulta está controlada por el ciudadano {ciudadano} elegido por el destino. Si le ocurriera algo terrible, se podría elegir un nuevo encargado.</target>
+        <target>Nuestra catapulta está a cargo del habitante {citizen} elegido por el destino. Si le ocurriese algo terrible, se podría elegir un nuevo encargado.</target>
       </segment>
     </unit>
     <unit id="qX1gDpX" name="Die Stadt ist zerstört! Flieht, irh Narren!">
@@ -25982,7 +25982,7 @@
       </notes>
       <segment>
         <source>Die Verbannten der Stadt wollten sich nicht länger unterdrücken lassen und haben eine Revolution angezettelt! Die bisherigen Anführer der Stadt wurden entmachtet und die Revolutionäre haben die Kontrolle übernommen.</source>
-        <target>¡Los desterrados de la ciudad ya no querían ser oprimidos y han empezado una revolución! Los líderes anteriores de la ciudad han sido expulsados y los revolucionarios han tomado el control.</target>
+        <target>¡Los desterrados del pueblo ya no querían ser oprimidos y han empezado una insurrección! Los líderes anteriores del pueblo han sido expulsados y los desterrados han tomado el control.</target>
       </segment>
     </unit>
     <unit id=".TChYJ9" name="Du bist nun frei.">
@@ -26002,7 +26002,7 @@
       </notes>
       <segment>
         <source>Erlöst von den Fesseln der Verbannung kannst du nun zusammen mit den anderen Revolutionären das Schicksal der Stadt bestimmen.</source>
-        <target>Liberado de las cadenas del destierro, ahora puedes determinar el destino de la ciudad junto con los otros revolucionarios.</target>
+        <target>Liberado de las cadenas del destierro, ahora puedes determinar el destino del pueblo junto con los otros insurrectos.</target>
       </segment>
     </unit>
     <unit id="CTl4Y7q" name="Du bist nun verbannt.">
@@ -26022,7 +26022,7 @@
       </notes>
       <segment>
         <source>Die Revolutionäre haben die Führung in der Stadt übernommen und die vormals freien Bürger erfahren nun selbst das bittere Schicksal der Verbannung.</source>
-        <target>Los revolucionarios han tomado el control de la ciudad y los ciudadanos previamente libres ahora están experimentando el amargo destino del destierro ellos mismos.</target>
+        <target>Los desterrados han tomado el control del pueblo y los habitantes previamente libres ahora están experimentando el amargo destino del destierro.</target>
       </segment>
     </unit>
     <unit id="NvYJXqK" name="Schau dir am besten gleich den {revolution_help} an.">
@@ -26042,7 +26042,7 @@
       </notes>
       <segment>
         <source>Verbannten-Ratgeber</source>
-        <target>Guía al Destierro</target>
+        <target>Guía de los desterrados</target>
       </segment>
     </unit>
     <unit id="6MOyLKz" name="Dort findest du alle Informationen über den Aufstand und dessen Folgen.">
