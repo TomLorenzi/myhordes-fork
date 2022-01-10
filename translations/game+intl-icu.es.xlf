@@ -23144,7 +23144,6 @@
       <notes>
         <note category="german">Alarm (Bürger {citizen})</note>
         <note category="from">php:///src/Controller/Messages/MessageTownMessageController.php;php:///src/Controller/Town/TownHomeController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Alarm (Bürger {citizen})</source>
@@ -23155,7 +23154,6 @@
       <notes>
         <note category="german">{citizen} hat bei dir daheim den Alarm ausgelöst, als er (sie) um {time} versuchte bei dir einzubrechen!</note>
         <note category="from">php:///src/Controller/Messages/MessageTownMessageController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>{citizen} hat bei dir daheim den Alarm ausgelöst, als er (sie) um {time} versuchte bei dir einzubrechen!</source>
@@ -23504,7 +23502,7 @@
       </notes>
       <segment>
         <source>Ihre Haut begann sich zu schälen, aber sie machten sich keine allzu großen Gedanken darüber... {cadavers} Bürger starben letzte Nacht an einer Infektion.</source>
-        <target><![CDATA[Muchos no se preocuparon por ella, la subestimaron... Pero la <strong>infección</strong> acabó por llevarse a {cadavers} personas anoche]]>.</target>
+        <target><![CDATA[Muchos no se preocuparon por ella, la subestimaron... Pero la <strong>infección</strong> acabó por llevarse a {cadavers} personas anoche.]]></target>
       </segment>
     </unit>
     <unit id="Muq1Zer">
@@ -23680,7 +23678,6 @@
       <notes>
         <note category="german">{citizen} hat an dem Bauprojekt {plan} mitgearbeitet (Sklaverei: +50% AP).</note>
         <note category="from">db://LogEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>{citizen} hat an dem Bauprojekt {plan} mitgearbeitet (Sklaverei: +50% AP).</source>
@@ -23691,7 +23688,6 @@
       <notes>
         <note category="german">{citizen} hat das Gebäude {plan} repariert (Sklaverei: +50% AP).</note>
         <note category="from">db://LogEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>{citizen} hat das Gebäude {plan} repariert (Sklaverei: +50% AP).</source>
@@ -23702,7 +23698,6 @@
       <notes>
         <note category="german">Ein Moderator hat deinen Thread "{threadname}" geschlossen. {link_post}</note>
         <note category="from">db://LogEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ein Moderator hat deinen Thread "{threadname}" geschlossen. {link_post}</source>
@@ -23713,18 +23708,16 @@
       <notes>
         <note category="german">Ein Moderator hat deinen Thread "{threadname}" als "Gelöst" markiert. {link_post}</note>
         <note category="from">db://LogEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ein Moderator hat deinen Thread "{threadname}" als "Gelöst" markiert. {link_post}</source>
+        <target>Un moderador ha marcado tu tema "{threadname}" como "Resuelto". {link_post}</target>
       </segment>
-      <target>Un moderador ha marcado tu tema "{threadname}" como "Resuelto". {link_post}</target>
     </unit>
     <unit id="4zy_n9Y" name="Funkgerät verwenden">
       <notes>
         <note category="german">Funkgerät verwenden</note>
         <note category="from">twig:///templates/ajax/public/maintenance_attack.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Funkgerät verwenden</source>
@@ -23735,7 +23728,6 @@
       <notes>
         <note category="german">Gebäudeliste einblenden</note>
         <note category="from">twig:///templates/ajax/game/town/town.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Gebäudeliste einblenden</source>
@@ -23746,7 +23738,6 @@
       <notes>
         <note category="german">&lt;strong&gt;{citizen} scheint von einer plötzlichen, unkontrollierbaren Panik ergriffen zu sein&lt;/strong&gt;! Es ist unmöglich, auch nur einen Schritt weiter zu gehen... seine &lt;strong&gt;Bewegung wurde unterbrochen&lt;/strong&gt;.</note>
         <note category="from">db://LogEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>&lt;strong&gt;{citizen} scheint von einer plötzlichen, unkontrollierbaren Panik ergriffen zu sein&lt;/strong&gt;! Es ist unmöglich, auch nur einen Schritt weiter zu gehen... seine &lt;strong&gt;Bewegung wurde unterbrochen&lt;/strong&gt;.</source>
@@ -23757,7 +23748,6 @@
       <notes>
         <note category="german">Als du dich umschaust, &lt;strong&gt;überfällt dich eine plötzliche, unkontrollierbare Panik&lt;/strong&gt;! Es ist unmöglich, auch nur einen Schritt weiterzugehen.&lt;hr/&gt;Deine Bewegung wurde &lt;strong&gt;unterbrochen&lt;/strong&gt; und du hast &lt;strong&gt;1 AP&lt;/strong&gt; verloren.</note>
         <note category="from">php:///src/Controller/BeyondController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Als du dich umschaust, &lt;strong&gt;überfällt dich eine plötzliche, unkontrollierbare Panik&lt;/strong&gt;! Es ist unmöglich, auch nur einen Schritt weiterzugehen.&lt;hr/&gt;Deine Bewegung wurde &lt;strong&gt;unterbrochen&lt;/strong&gt; und du hast &lt;strong&gt;1 AP&lt;/strong&gt; verloren.</source>
@@ -24464,7 +24454,6 @@
       <notes>
         <note category="german">{shaman} hat {citizen} soeben mit seinen mystischen Schamanenkräften geheilt!</note>
         <note category="from">db://LogEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>{shaman} hat {citizen} soeben mit seinen mystischen Schamanenkräften geheilt!</source>

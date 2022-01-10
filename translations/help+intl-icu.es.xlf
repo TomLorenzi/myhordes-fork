@@ -7661,7 +7661,6 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
     <unit id="BfPtnDn">
       <notes>
         <note category="german">Alle deine Gegenstände werden &lt;strong&gt;in der Truhe&lt;/strong&gt; aufbewahrt. Klick auf einen &lt;strong&gt;Gegenstand&lt;/strong&gt;, um ihn mitzunehmen...</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
       </notes>
       <segment>
@@ -8618,7 +8617,6 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
         <note category="german">&lt;strong&gt;DEN SUPPORT KONTAKTIEREN:&lt;/strong&gt;
 Um Kontakt mit den Administratoren aufzunehmen, schreibe an die &lt;a x-group-connect="{oglink}" href="#"&gt;Offizielle Gruppe&lt;/a&gt; des Technischen Supports.</note>
         <note category="from">twig:///templates/ajax/help/getting_help.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>&lt;strong&gt;DEN SUPPORT KONTAKTIEREN:&lt;/strong&gt;

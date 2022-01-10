@@ -4271,7 +4271,6 @@
       <notes>
         <note category="german">Denke daran, dich ebenfalls aus deinem EternalTwin Account auszuloggen!</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Denke daran, dich ebenfalls aus deinem EternalTwin Account auszuloggen!</source>

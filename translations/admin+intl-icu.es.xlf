@@ -195,7 +195,6 @@
     <unit id="L65vsws" name="E-Mail">
       <notes>
         <note category="german">E-Mail</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
@@ -1619,7 +1618,6 @@
     <unit id="vDhaMLU" name="Öffnen">
       <notes>
         <note category="german">Öffnen</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/admin/reports/reports.html.twig</note>
       </notes>
       <segment>
@@ -3376,7 +3374,6 @@
     <unit id="OFylvr8" name="Anon.">
       <notes>
         <note category="german">Anon.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/admin/groups/list.html.twig</note>
       </notes>
       <segment>
@@ -4180,7 +4177,6 @@
       <notes>
         <note category="german">Dummy</note>
         <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Dummy</source>
@@ -4381,7 +4377,6 @@
       <notes>
         <note category="german">Gruppentyp</note>
         <note category="from">twig:///templates/ajax/admin/groups/edit.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Gruppentyp</source>

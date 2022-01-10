@@ -857,7 +857,6 @@
       <notes>
         <note category="german">Deine E-Mail-Adresse wurde erfolgreich geändert.</note>
         <note category="from">php:///src/Controller/Soul/SoulController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Deine E-Mail-Adresse wurde erfolgreich geändert.</source>
