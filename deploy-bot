@@ -156,8 +156,8 @@ echo "-> Updating symlink"
 ssh -t "${_SSH}" "ln -s \"${_NEW_VERSION}\" \"${REMOTE_PATH_ENTRYPOINT:?}__TMP\" && mv -Tf \"${REMOTE_PATH_ENTRYPOINT:?}__TMP\" \"${REMOTE_PATH_ENTRYPOINT:?}\""
 
 echo "-> Running migration..."
-ssh -t "${_SSH}" "cd \"${_NEW_VERSION}\" && ${_BIN_CONSOLE} app:migrate -u -r && ${_BIN_CONSOLE} app:migrate -p -v"
 ssh -t "${_SSH}" "chown -R ${REMOTE_WEBSERVER_USER}:${REMOTE_WEBSERVER_GROUP} \"${_NEW_VERSION}\" && chown -R ${REMOTE_WEBSERVER_USER}:${REMOTE_WEBSERVER_GROUP} \"${REMOTE_PATH_STORAGE}\""
+ssh -t "${_SSH}" "cd \"${REMOTE_PATH_ENTRYPOINT}\" && ${_BIN_CONSOLE} app:migrate -u -r && ${_BIN_CONSOLE} app:migrate -p -v"
 
 # Confirmation
 echo "Ready to activate the new installation at:"
