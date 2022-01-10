@@ -23148,7 +23148,7 @@
       </notes>
       <segment>
         <source>Alarm (Bürger {citizen})</source>
-        <target>Alarm (Bürger {citizen})</target>
+        <target>Alarma (de {citizen})</target>
       </segment>
     </unit>
     <unit id="L_ADbyN">
@@ -23159,7 +23159,7 @@
       </notes>
       <segment>
         <source>{citizen} hat bei dir daheim den Alarm ausgelöst, als er (sie) um {time} versuchte bei dir einzubrechen!</source>
-        <target>{citizen} hat bei dir daheim den Alarm ausgelöst, als er (sie) um {time} versuchte bei dir einzubrechen!</target>
+        <target>¡El habitante {citizen} ha activado la Alarma Rudimentaria a las {time} mientas intentaba entrar a tu casa!</target>
       </segment>
     </unit>
     <unit id="CByaH.z" name="Als Ghul solltest du jeden Tag einen anderen Spieler auffressen.">
