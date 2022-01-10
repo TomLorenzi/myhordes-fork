@@ -121,7 +121,7 @@ class UserFactory
         if ($user->getId() !== null) {
             $validation = $user->getPendingValidation();
             if ($validation && $validation->getType() !== $validationType) {
-                if ($validation->getType() !== UserPendingValidation::ChangeEmailValidation)
+                if ($validation->getType() === UserPendingValidation::ChangeEmailValidation)
                     $user->setPendingEmail(null);
                 $validation->setTime(new DateTime())->setType($validationType)->generatePKey();
             }
