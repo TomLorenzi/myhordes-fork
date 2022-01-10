@@ -23706,7 +23706,7 @@
       </notes>
       <segment>
         <source>Ein Moderator hat deinen Thread "{threadname}" geschlossen. {link_post}</source>
-        <target>Ein Moderator hat deinen Thread "{threadname}" geschlossen. {link_post}</target>
+        <target>Un moderador ha cerrado tu tema "{threadname}". {link_post}</target>
       </segment>
     </unit>
     <unit id="AEFBcgF">
@@ -23717,8 +23717,8 @@
       </notes>
       <segment>
         <source>Ein Moderator hat deinen Thread "{threadname}" als "Gelöst" markiert. {link_post}</source>
-        <target>Ein Moderator hat deinen Thread "{threadname}" als "Gelöst" markiert. {link_post}</target>
       </segment>
+      <target>Un moderador ha marcado tu tema "{threadname}" como "Resuelto". {link_post}</target>
     </unit>
     <unit id="4zy_n9Y" name="Funkgerät verwenden">
       <notes>
