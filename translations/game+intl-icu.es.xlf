@@ -24468,7 +24468,7 @@
       </notes>
       <segment>
         <source>{shaman} hat {citizen} soeben mit seinen mystischen Schamanenkräften geheilt!</source>
-        <target>{shaman} hat {citizen} soeben mit seinen mystischen Schamanenkräften geheilt!</target>
+        <target>¡{shaman} ha curado a {citizen} utilizando sus poderes chamánicos!</target>
       </segment>
     </unit>
     <unit id="3W9UyPW" name="in der Nähe des Gemüsegartens">
