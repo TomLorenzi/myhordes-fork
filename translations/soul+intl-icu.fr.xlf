@@ -2605,7 +2605,6 @@
     <unit id="G9tS6ug" name="Diese Sperre ist bis zu folgendem Zeitpunkt gültig:">
       <notes>
         <note category="german">Diese Sperre ist bis zu folgendem Zeitpunkt gültig:</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/acc_disabled.html.twig</note>
       </notes>
       <segment>
@@ -2620,7 +2619,7 @@
       </notes>
       <segment>
         <source>Wenn du der Meinung bist, fälschlicherweise gesperrt worden zu sein, kannst du dich im Weltforum melden.</source>
-        <target>Si tu penses avoir été banni à tort, tu peux te rendre dans le Nid des corbeaux (en bas de la page des forums).</target>
+        <target>Si vous pensez avoir été banni à tort, vous pouvez vous rendre dans le Nid des corbeaux (en bas de la page des forums).</target>
       </segment>
     </unit>
     <unit id="PBVB79s" name="Dein Account ist eingeschränkt!">
@@ -2756,7 +2755,6 @@
     <unit id="WPixbld" name="Spielen">
       <notes>
         <note category="german">Spielen</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
@@ -2767,7 +2765,6 @@
     <unit id="VNOZ2rq">
       <notes>
         <note category="german">Du kannst keinen Städten beitreten. Befindest du dich bereits in einer Stadt, kannst du dort keinerlei Aktionen mehr durchführen und keinen Stadtbildschirm aufrufen. Zudem verlierst du den Zugang zum Stadtforum.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
@@ -4302,11 +4299,10 @@
       <notes>
         <note category="german">Denke daran, dich ebenfalls aus deinem EternalTwin Account auszuloggen!</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Denke daran, dich ebenfalls aus deinem EternalTwin Account auszuloggen!</source>
-        <target>Denke daran, dich ebenfalls aus deinem EternalTwin Account auszuloggen!</target>
+        <target>N’oubliez pas de vous déconnecter également de votre compte EternalTwin !</target>
       </segment>
     </unit>
   </file>

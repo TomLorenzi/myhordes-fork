@@ -9441,11 +9441,10 @@
       <notes>
         <note category="german">Hierfür hast du keinen Platz.</note>
         <note category="from">db://Requirement</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Hierfür hast du keinen Platz.</source>
-        <target>Hierfür hast du keinen Platz.</target>
+        <target>Vous n'avez pas de place pour ça.</target>
       </segment>
     </unit>
   </file>

@@ -853,5 +853,16 @@
         <target>The player you've selected is not currently enrolled in the sponsorship program. Ask them to visit the "Friendship" page in their soul; this will automatically register them. Only then can you select them as your sponsor.</target>
       </segment>
     </unit>
+    <unit id="1itQsls" name="Deine E-Mail-Adresse wurde erfolgreich geändert.">
+      <notes>
+        <note category="german">Deine E-Mail-Adresse wurde erfolgreich geändert.</note>
+        <note category="from">php:///src/Controller/Soul/SoulController.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Deine E-Mail-Adresse wurde erfolgreich geändert.</source>
+        <target>Your email address has been changed successfully.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

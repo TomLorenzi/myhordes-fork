@@ -268,7 +268,7 @@
       <notes>
         <note category="german">Admin</note>
         <note category="state">new</note>
-        <note category="from">twig:///templates/ajax/admin/users/account.html.twig;twig:///templates/ajax/admin/users/all_index.html.twig</note>
+        <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php;twig:///templates/ajax/admin/users/account.html.twig;twig:///templates/ajax/admin/users/all_index.html.twig</note>
       </notes>
       <segment>
         <source>Admin</source>
@@ -4433,6 +4433,17 @@
       <segment>
         <source>Gruppentyp</source>
         <target>Group Type</target>
+      </segment>
+    </unit>
+    <unit id="MxCYTlN" name="Änderungen an '{appname}' speichern">
+      <notes>
+        <note category="german">Änderungen an {appname} speichern</note>
+        <note category="from">php:///src/Controller/Admin/AdminAppController.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Änderungen an '{appname}' speichern</source>
+        <target>Änderungen an '{appname}' speichern</target>
       </segment>
     </unit>
   </file>
