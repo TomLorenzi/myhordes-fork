@@ -23230,7 +23230,7 @@
       </notes>
       <segment>
         <source>Halten wir kurz inne und gedenken unserem verlorenen Schamanen. Auf Wiedersehen, nutzloser Scharlatan! Wer ist motiviert, ihn zu ersetzen?</source>
-        <target>Un minuto de silencio por nuestro Chamán caído. ¡Hasta nunca charlatán inútil!</target>
+        <target>Un minuto de silencio por nuestro Chamán caído. ¡Hasta nunca, charlatán inútil!</target>
       </segment>
     </unit>
     <unit id="r1UYBsR">
@@ -23312,7 +23312,7 @@
       </notes>
       <segment>
         <source>Amüsant, &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} hat es nicht lange in der Stadt ausgehalt. Hängen auf dem öffentlichen Platz und Steinigung. Zivilisation ist schön!</source>
-        <target><![CDATA[<i class="dagger">†</i> {cadaver1} no duró mucho en este pueblo. <strong>Fue colgado</strong> y despúes <strong>apedreado</strong> en la plaza pública. ¡Si seguirmos así nos quedaremos sin vecinos!]]></target>
+        <target><![CDATA[<i class="dagger">†</i> {cadaver1} no duró mucho en este pueblo. <strong>Fue colgado</strong> y despúes <strong>apedreado</strong> en la plaza pública. ¡Si seguimos así nos quedaremos sin vecinos!]]></target>
       </segment>
     </unit>
     <unit id="ubNXQU3">
@@ -23362,7 +23362,7 @@
       </notes>
       <segment>
         <source>&lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} liegt seit gestern als vertrocknete Leiche in seinem Haus. Der Mangel an Wasser, was kann man erwarten. Manche Leute glauben immer noch, sie könnten darauf verzichten.</source>
-        <target><![CDATA[<i class="dagger">†</i> {cadaver1} no es más que un gran pedazo de carne seca. La falta de agua, fue fatal. Y pensar que algunos creen poder prescindir de ella...]]></target>
+        <target><![CDATA[<i class="dagger">†</i> {cadaver1} no es más que un gran pedazo de carne seca. La <strong>falta de agua</strong> fue fatal. Y pensar que algunos creen poder prescindir de ella...]]></target>
       </segment>
     </unit>
     <unit id="AEUoOt3">
@@ -23414,7 +23414,7 @@
       </notes>
       <segment>
         <source>Übrigens, Wassermangel ist teuer, {cadavers} die Bürger sind gestern in der Stadt ausgetrocknet. Oder haben sie "vergessen", ihre Ration zu nehmen? Stellt euch das mal vor!</source>
-        <target>La falta de agua es fatal, {cadavers} compañeros murieron literalmente disecados. ¿Habrán "olvidado" beber sus raciones de agua? Quién sabe.</target>
+        <target><![CDATA[La <strong>falta de agua</strong> es fatal, {cadavers} compañeros murieron literalmente disecados. ¿Habrán "olvidado" beber sus raciones de agua? Quién sabe.]]></target>
       </segment>
     </unit>
     <unit id="rsAiEQB">
@@ -23484,7 +23484,7 @@
       </notes>
       <segment>
         <source>Dieses geschwollene Ding an &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1}... nun, das ist &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1}. Seine Infektion verlief extrem virulent.</source>
-        <target><![CDATA[Esa cosa hinchada y apestosa en casa de <i class="dagger">†</i> {cadaver1},... pues es <i class="dagger">†</i> {cadaver1}. Su infección fue sorprendentemente virulenta.]]></target>
+        <target><![CDATA[Esa cosa hinchada y apestosa en casa de <i class="dagger">†</i> {cadaver1},... pues es <i class="dagger">†</i> {cadaver1}. Su <strong>infección</strong> fue sorprendentemente virulenta.]]></target>
       </segment>
     </unit>
     <unit id="ns8621y">
@@ -23504,7 +23504,7 @@
       </notes>
       <segment>
         <source>Ihre Haut begann sich zu schälen, aber sie machten sich keine allzu großen Gedanken darüber... {cadavers} Bürger starben letzte Nacht an einer Infektion.</source>
-        <target>Muchos no se preocuparon por ella, la subestimaron... Pero la infección acabó por llevarse a {cadavers} personas anoche.</target>
+        <target><![CDATA[Muchos no se preocuparon por ella, la subestimaron... Pero la <strong>infección</strong> acabó por llevarse a {cadavers} personas anoche]]>.</target>
       </segment>
     </unit>
     <unit id="Muq1Zer">
