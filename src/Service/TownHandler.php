@@ -537,10 +537,7 @@ class TownHandler
         if (!$est) return [];
 
         $ratio = 1;
-        if ($this->getBuilding($town, 'item_tagger_#01')) {
-            $ratio *= 2;
-        }
-        if ($this->inventory_handler->countSpecificItems($town->getBank(), 'scope_#00', false, false) > 0) {
+        if ($this->getBuilding($town, 'item_tagger_#01') || $this->inventory_handler->countSpecificItems($town->getBank(), 'scope_#00', false, false) > 0) {
             $ratio *= 2;
         }
 
