@@ -16089,7 +16089,7 @@
       </notes>
       <segment>
         <source>Die Stadt ist nichts weiter als ein widerwärtiger Friedhof. Es war niemand hier, der den letzten Angriff der Zombies hätte aufhalten können: &lt;strong&gt;das Stadttor wurde aufgebrochen&lt;/strong&gt; und &lt;strong&gt;liegt nun in Trümmern&lt;/strong&gt;. {town} existiert nicht mehr...</source>
-        <target><![CDATA[El pueblo no es más que un cementerio repugnante. No había nadie aquí que pudiera haber detenido el último ataque de los zombis: <strong>la puerta del pueblo se abrió de golpe</strong> y <strong>ahora está en ruinas</strong>. {town} ya no existe...]]></target>
+        <target><![CDATA[El pueblo no es más que un cementerio repugnante. No había nadie aquí que pudiera haber detenido el último ataque de los zombis: <strong>el portal del pueblo se abrió de golpe</strong> y <strong>ahora está en ruinas</strong>. {town} ya no existe...]]></target>
       </segment>
     </unit>
     <unit id="V.GaRUl" name="Sind wir noch in der Alpha?">
@@ -19033,7 +19033,7 @@
       </notes>
       <segment>
         <source>Was ist letzte Nacht nur passiert? Du hast wohl zu heftig gefeiert. Als du die Stadtmauer erreichst, spürst du... Ja, ja, du bist in der Tat der Ausgewählte. Der Zweifel verschwindet, als du den Blick in Richtung des Stadttors lenkst: Ein wahnsinniges Verlangen nach Abenteuer und Entdeckungen überkommt dich, was eigentlich eher untypisch ist...</source>
-        <target>¿Qué pasó anoche? Probablemente festejaste demasiado. Cuando llegas a la muralla del pueblo, sientes... Sí, sí, de hecho eres el elegido. La duda desaparece cuando diriges tu mirada hacia la puerta del pueblo: estás abrumado por un loco deseo de aventura y descubrimiento, que en realidad es bastante atípico...</target>
+        <target>¿Qué pasó anoche? Probablemente festejaste demasiado. Cuando llegas a la muralla del pueblo, sientes... Sí, sí, de hecho eres el elegido. La duda desaparece cuando diriges tu mirada hacia el portal del pueblo: estás abrumado por un loco deseo de aventura y descubrimiento, que en realidad es bastante atípico...</target>
       </segment>
     </unit>
     <unit id="M_Sa.96" name="Du bist nun der Reiseleiter in der Außenwelt.">
@@ -20776,7 +20776,7 @@
       </notes>
       <segment>
         <source>Stadttor zerstört!</source>
-        <target>¡Puerta del pueblo destruida!</target>
+        <target>¡Portal destruido!</target>
       </segment>
     </unit>
     <unit id="i02hvai">
@@ -20786,7 +20786,7 @@
       </notes>
       <segment>
         <source>Das Stadttor wurde bei einem besonders furchtbaren Angriff aus den Angeln gerissen und in die Aussenwelt geschleudert. Du solltest dich heute Nacht besser nicht hier aufhalten, sonst wird diese Stadt dein Grab.</source>
-        <target>La puerta del pueblo fue arrancada de sus goznes en un ataque particularmente terrible y arrojada al ultramundo. Será mejor que no estés aquí esta noche o este pueblo será tu tumba.</target>
+        <target>El portal del pueblo ha sido arrancado de sus goznes y llevado al ultramundo durante un ataque aterrador. Será mejor que no estés aquí en la noche o este pueblo será tu tumba.</target>
       </segment>
     </unit>
     <unit id="omwkh4e">
@@ -20806,7 +20806,7 @@
       </notes>
       <segment>
         <source>Das Stadttor ist zerstört!</source>
-        <target>¡La puerta del pueblo está destruida!</target>
+        <target>¡El portal del pueblo está destruido!</target>
       </segment>
     </unit>
     <unit id="ixRzzXD">
@@ -22817,7 +22817,7 @@
       </notes>
       <segment>
         <source>Das Stadttor wurde bereits von einem anderen pflichtbewussten Bürger geschlossen.</source>
-        <target>La puerta del pueblo ya ha sido cerrada por otro habitante obediente.</target>
+        <target>El portal del pueblo ya ha sido cerrado por otro habitante obediente.</target>
       </segment>
     </unit>
     <unit id="ejlTArB">
