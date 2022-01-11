@@ -8862,7 +8862,7 @@
       </notes>
       <segment>
         <source>Du schluckst das {item}... Nur ein paar Sekunden später ergreift dich die Panik... Kalte Schweißausbrüche, Paranoia... Du rollst dich zu einem Ball zusammen, außer Atem, und wartest darauf, dass die Wirkung nachlässt... aber das passiert nicht.&lt;hr /&gt;Du bist &lt;strong&gt;vor Angst erstarrt&lt;/strong&gt;.</source>
-        <target><![CDATA[Te tragas el {item}... Solo unos segundos después entras en pánico... Sudores fríos, paranoia... Te acurrucas en una esquina, te quedas sin aliento y esperas a que los efectos desaparezcan... pero eso no sucede.<hr/> Estás <strong>congelado de miedo</strong>.]]></target>
+        <target><![CDATA[Te tragas el {item}... Solo unos segundos después entras en pánico... Sudores fríos, paranoia... Te acurrucas en una esquina, te quedas sin aliento y esperas a que los efectos desaparezcan... pero eso no sucede.<hr/> Estás <strong>Aterrorizado</strong>.]]></target>
       </segment>
     </unit>
     <unit id="3B3bDO.">
