@@ -23045,7 +23045,7 @@
       </notes>
       <segment>
         <source>Ein Moderator hat deinen Thread "{threadname}" in das Forum "{forumname}" verschoben. {link_post}</source>
-        <target>Ein Moderator hat deinen Thread "{threadname}" in das Forum "{forumname}" verschoben. {link_post}</target>
+        <target>Tu tema "{threadname}" ha sido desplazado al Foro "{forumname}" por un moderador. {link_post}</target>
       </segment>
     </unit>
     <unit id="d2ZHuaw" name="Deine aktuelle Situation erlaubt nicht, dass du diese Aktion durchführst.">
