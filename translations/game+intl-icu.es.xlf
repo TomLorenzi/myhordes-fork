@@ -7593,7 +7593,7 @@
       </notes>
       <segment>
         <source>Sie brachten die Leiche von {disposed} zum Kremato-Cue. Man bekommt {ration} Rationen davon...  Aber zu welchem Preis?</source>
-        <target>levas el cadáver de {disposed} al Cremato-Bar del pueblo. Gracias a ello recibes {ration} carnes humanas... Pero a qué precio?</target>
+        <target>Llevas el cadáver de {disposed} al Cremato-Bar del pueblo. Gracias a ello recibes {ration} carnes humanas... ¿Pero a qué costo?</target>
       </segment>
     </unit>
     <unit id="0i49zPL" name="In diesem Thread dreht sich alles um die Bank.">
