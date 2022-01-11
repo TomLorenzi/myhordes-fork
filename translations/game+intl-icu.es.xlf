@@ -23087,7 +23087,7 @@
       </notes>
       <segment>
         <source>&lt;strong&gt;Herzlichen Glückwunsch&lt;/strong&gt;, du hast Folgendes freigeschaltet: {list}</source>
-        <target><![CDATA[<strong>Herzlichen Glückwunsch</strong>, du hast Folgendes freigeschaltet: {list}]]></target>
+        <target><![CDATA[<strong>Enhorabuena</strong>, has desbloqueado las siguientes recompensas: {list}]]></target>
       </segment>
     </unit>
     <unit id=".ZhHPoH">
