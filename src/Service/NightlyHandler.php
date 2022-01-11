@@ -725,7 +725,7 @@ class NightlyHandler
                         $wounded_citizens[] = $ctz;
                         $this->crow->postAsPM($ctz, '', '', PrivateMessage::TEMPLATE_CROW_NIGHTWATCH_WOUND, $defBonus);
                     }
-                } elseif (!$this->town_handler->getBuilding($town, "small_cinema_#00", true) && !$this->town_handler->getBuilding($town, 'small_catapult3_#00', true)) {
+                } elseif (!$this->town_handler->getBuilding($town, 'small_catapult3_#00', true)) {
                     // Terror
                     if (!$this->citizen_handler->hasStatusEffect($ctz, $status_terror)) {
                         $this->citizen_handler->inflictStatus($ctz, $status_terror);
