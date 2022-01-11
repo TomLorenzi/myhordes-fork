@@ -8872,7 +8872,7 @@
       </notes>
       <segment>
         <source>Sofort bereust du, dieses {item} heruntergeschluckt zu haben... Das Produkt entpuppt sich als ein starkes Steroid für Tiere (die Art, die üblicherweise Pferden verabreicht wird). Deine APs wurden wiederhergestellt, aber du bist ab sofort &lt;strong&gt;drogenabhängig&lt;/strong&gt;!</source>
-        <target><![CDATA[Te arrepientes inmediatamente de haber tragado este {item}... El producto resulta ser un poderoso esteroide para animales (el tipo que comúnmente se administra a los caballos). Se han restaurado tus Puntos de Acción, ¡pero ahora eres un <strong>adicto</strong>!]]></target>
+        <target><![CDATA[Te arrepientes inmediatamente de haber tragado este {item}... El producto resulta ser un poderoso esteroide para animales (del tipo que comúnmente se administra a los caballos). Se han restaurado tus Puntos de Acción, ¡pero ahora eres un <strong>adicto</strong>!]]></target>
       </segment>
     </unit>
     <unit id="hh6kdGK">

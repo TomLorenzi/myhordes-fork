@@ -15489,7 +15489,7 @@
       </notes>
       <segment>
         <source>Die &lt;strong&gt;Explosion des {plan}&lt;/strong&gt; hat den ganzen Sektor in Mitleidenschaft gezogen! Das wird sicher Spuren hinterlassen ...</source>
-        <target><![CDATA[La <strong>explosión de los {plan}</strong> ha afectado a toda la región! Eso seguro dejará su marca...]]></target>
+        <target><![CDATA[¡La <strong>explosión de los {plan}</strong> ha afectado a toda la región! Eso seguro dejará su marca...]]></target>
       </segment>
     </unit>
     <unit id="YOWDgeT" name="Das Stadttor von &quot;{townname}&quot;">
@@ -23056,7 +23056,7 @@
       </notes>
       <segment>
         <source>Deine aktuelle Situation erlaubt nicht, dass du diese Aktion durchführst.</source>
-        <target>No puedes hacer realizar esta acción actualmente.</target>
+        <target>No puedes realizar esta acción actualmente.</target>
       </segment>
     </unit>
     <unit id="jlgyITW">
