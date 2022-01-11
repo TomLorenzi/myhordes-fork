@@ -15266,7 +15266,7 @@
       </notes>
       <segment>
         <source>Beruf</source>
-        <target>Profesión</target>
+        <target>Oficio</target>
       </segment>
     </unit>
     <unit id="UaAP3Pr" name="Anwesenheit">
@@ -15729,7 +15729,7 @@
       </notes>
       <segment>
         <source>Wiedergeburt: Wähle einen Beruf</source>
-        <target>Renacimiento: elige una profesión</target>
+        <target>Reencarnación: elige un oficio</target>
       </segment>
     </unit>
     <unit id="JPF0EfZ" name="Klick hier, um mehr über diesen Beruf zu erfahren...">
@@ -15739,7 +15739,7 @@
       </notes>
       <segment>
         <source>Klick hier, um mehr über diesen Beruf zu erfahren...</source>
-        <target>Haz click aquí para aprender más sobre esta profesión...</target>
+        <target>Haz click aquí para aprender más sobre este oficio...</target>
       </segment>
     </unit>
     <unit id="GErJWB." name="Zur zeit in der Stadt">
