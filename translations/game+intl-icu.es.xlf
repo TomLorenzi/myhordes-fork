@@ -21187,7 +21187,7 @@
       </notes>
       <segment>
         <source>Diese Note wird vom &lt;strong&gt;Komitee des guten Geschmacks der Stadt {townname}&lt;/strong&gt; vergeben.</source>
-        <target><![CDATA[Esta nota es otorgada por el <strong>Comité del Buen Gusto de Fosa Morada</strong>.]]></target>
+        <target><![CDATA[Esta nota es otorgada por el <strong>Comité del Buen Gusto de {townname}</strong>.]]></target>
       </segment>
     </unit>
     <unit id="Ng_nMhX">
