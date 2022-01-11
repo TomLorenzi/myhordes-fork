@@ -3103,7 +3103,7 @@
       </notes>
       <segment>
         <source>Hat jemand in letzter Zeit von {citizen} gehört? Er scheint verschwunden zu sein ...</source>
-        <target>Alguien ha oído algo de {citizen} recientemente? Parece como si hubiera desaparecido...</target>
+        <target>¿Alguien ha oído algo de {citizen} recientemente? Parece como si hubiera desaparecido...</target>
       </segment>
     </unit>
     <unit id="Z05vQEU">
