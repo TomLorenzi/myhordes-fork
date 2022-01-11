@@ -22667,7 +22667,7 @@
       </notes>
       <segment>
         <source>Du kannst kein(en) {item} per Post versenden.</source>
-        <target>No puede enviar un/una {artículo} por correo.</target>
+        <target>No puedes enviar el objeto {item} por correo.</target>
       </segment>
     </unit>
     <unit id="FWgGHVi">
