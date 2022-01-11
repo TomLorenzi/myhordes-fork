@@ -23056,7 +23056,7 @@
       </notes>
       <segment>
         <source>Deine aktuelle Situation erlaubt nicht, dass du diese Aktion durchführst.</source>
-        <target>Deine aktuelle Situation erlaubt nicht, dass du diese Aktion durchführst.</target>
+        <target>No puedes hacer realizar esta acción actualmente.</target>
       </segment>
     </unit>
     <unit id="jlgyITW">
