@@ -5243,7 +5243,7 @@
       </notes>
       <segment>
         <source>Jeder so zerstörte Gegenstand kostet dich {ap}.</source>
-        <target>Caba objeto arrojado te cuesta {ap}.</target>
+        <target>Cada objeto arrojado te cuesta {ap}.</target>
       </segment>
     </unit>
     <unit id="2MX9W.G" name="Du wurdest verbannt und kannst die Müllhalde daher nicht länger nutzen.">
@@ -8728,7 +8728,7 @@
       </notes>
       <segment>
         <source>Mit aller Gewalt greifst du {citizen} an! Du hast den Überraschungsmoment auf deiner Seite und am Ende trägt {citizen} eine schwere Verletzung davon.</source>
-        <target>¡Has atacado violentemente a {citizen}! La pelea fue tan brutal que heriste gravamente a ese povre tipo!</target>
+        <target>¡Has atacado violentamente a {citizen}! La pelea fue tan brutal que heriste gravemente a ese pobre tipo!</target>
       </segment>
     </unit>
     <unit id="1HduKoA">
