@@ -3113,7 +3113,7 @@
       </notes>
       <segment>
         <source>{citizen} hat dem Druck nicht länger standgehalten und sein Leben beendet: {cod}.</source>
-        <target>{citizen} ha sido débil y decidió terminar su miserable existencia: {cod}.</target>
+        <target>{citizen} ha sido débil y ha decidido terminar su miserable existencia: {cod}.</target>
       </segment>
     </unit>
     <unit id="dt4EPd2" name="Verrat! {citizen} ist gestorben: {cod}.">
