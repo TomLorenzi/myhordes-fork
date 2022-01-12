@@ -1273,5 +1273,38 @@
         <target>Servidor de origen del pueblo</target>
       </segment>
     </unit>
+    <unit id="IEVhx.8" name="ID der Picto">
+      <notes>
+        <note category="german">ID der Picto</note>
+        <note category="from">twig:///templates/ajax/public/apidocs.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>ID der Picto</source>
+        <target>ID der Picto</target>
+      </segment>
+    </unit>
+    <unit id="SbP2DN8" name="Wenn dieses Picto selten ist">
+      <notes>
+        <note category="german">Wenn dieses Picto selten ist</note>
+        <note category="from">twig:///templates/ajax/public/apidocs.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Wenn dieses Picto selten ist</source>
+        <target>Wenn dieses Picto selten ist</target>
+      </segment>
+    </unit>
+    <unit id="gJd8dvU" name="Wenn dieses Picto eine Gemeinschaftsauszeichnung ist">
+      <notes>
+        <note category="german">Wenn dieses Picto eine Gemeinschaftsauszeichnung ist</note>
+        <note category="from">twig:///templates/ajax/public/apidocs.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Wenn dieses Picto eine Gemeinschaftsauszeichnung ist</source>
+        <target>Wenn dieses Picto eine Gemeinschaftsauszeichnung ist</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

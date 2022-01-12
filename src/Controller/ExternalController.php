@@ -13,6 +13,7 @@ use App\Entity\ExternalApp;
 use App\Entity\GazetteEntryTemplate;
 use App\Entity\GazetteLogEntry;
 use App\Entity\ItemPrototype;
+use App\Entity\PictoPrototype;
 use App\Entity\Town;
 use App\Entity\User;
 use App\Entity\Zone;
@@ -146,12 +147,6 @@ class ExternalController extends InventoryAwareController {
                     ];
                 }
                 break;
-            case '':
-                $data = [
-                    "error"             => "server_error",
-                    "error_description" => "UnknownAction(default)"
-                ];
-                break;
             case 'status':
                 $data = [
                     "attack"   => $this->time_keeper->isDuringAttack(),
@@ -159,7 +154,16 @@ class ExternalController extends InventoryAwareController {
                 ];
                 break;
             case 'items':
-                $data = $this->getItemAPI();
+                $data = $this->getPrototypesAPI("items");
+                break;
+            case "buildings":
+                $data = $this->getPrototypesAPI("buildings");
+                break;
+            case "ruins":
+                $data = $this->getPrototypesAPI("ruins");
+                break;
+            case "pictos":
+                $data = $this->getPrototypesAPI("pictos");
                 break;
             case 'debug':
                 $data = $this->getDebugdata();
@@ -171,6 +175,12 @@ class ExternalController extends InventoryAwareController {
             case "map":
                 $data = $this->getMapAPI();
                 break;
+            default:
+                $data = [
+                    "error"             => "server_error",
+                    "error_description" => "UnknownAction(default)"
+                ];
+            break;
         }
 
         if (!empty($data)) {
@@ -243,7 +253,7 @@ class ExternalController extends InventoryAwareController {
         return $this->SURLL_parser();
     }
 
-    private function getItemAPI(): array {
+    private function getPrototypesAPI(string $entity): array {
         $fields = $this->getRequestParam('fields');
         $filter = $this->getRequestParam('filters');
         $langue = $this->getRequestParam('languages');
@@ -259,8 +269,17 @@ class ExternalController extends InventoryAwareController {
         if ($langue != false) {
             $this->langue = $this->SURLL_preparser($langue);
         }
+        switch($entity){
+            case "items":
+                return $this->getItemPrototypesData();
+            case "buildings":
+                return $this->getBuildingPrototypesData();
+            case "pictos":
+                return $this->getPictoPrototypesData();
+            case "ruins":
+                return [];
+        }
 
-        return $this->getItemsData();
     }
 
     private function getMapAPI(): array {
@@ -336,7 +355,6 @@ class ExternalController extends InventoryAwareController {
 
         return $this->getUserData($filters, $fields_user);
     }
-
 
     private function getArrayItem(Collection $collections, array $fields): array {
         $data = [];
@@ -520,6 +538,69 @@ class ExternalController extends InventoryAwareController {
                     }
                 }
                 $data[] = $data_building;
+            }
+        }
+
+        return $data;
+    }
+    private function getBuildingPrototypeData(BuildingPrototype $prototype, array $fields = []): array {
+        $data = [];
+
+        if (empty($fields)) {
+            $fields = ['id', 'img', 'name', 'desc', 'pa', 'breakable', 'def', 'temporary'];
+        }
+
+        foreach ($fields as $field) {
+            if (is_array($field)) {
+                foreach ($field as $ProtoFieldName => $ProtoFieldValue) {
+                    if ($ProtoFieldName == "resources") {
+                        $data[$ProtoFieldName] = $this->getResources($prototype, $ProtoFieldValue['fields'] ?? []);
+                    }
+                }
+            } else {
+                switch ($field) {
+                    case "id":
+                        $data[$field] = $prototype->getId();
+                        break;
+                    case "img":
+                        $data[$field] =
+                            $this->getIconPath($this->asset->getUrl("build/images/building/{$prototype->getIcon()}.gif"));
+                        break;
+                    case "name":
+                        $data[$field] = $this->getTranslate($prototype->getLabel(), 'buildings');
+                        break;
+                    case "desc":
+                        $data[$field] = $this->getTranslate($prototype->getDescription(), 'buildings');
+                        break;
+                    case "pa":
+                        $data[$field] = $prototype->getAp();
+                        break;
+                    case "maxLife":
+                        $data[$field] = $prototype->getHp();
+                        break;
+                    case "breakable":
+                        $data[$field] = !$prototype->getImpervious();
+                        break;
+                    case "def":
+                        $data[$field] = $prototype->getDefense();
+                        break;
+                    case "hasUpgrade":
+                        $data[$field] = !is_null($prototype->getUpgradeTexts());
+                        break;
+                    case "rarity":
+                        $data[$field] = $prototype->getBlueprint();
+                        break;
+                    case "temporary":
+                        $data[$field] = $prototype->getTemp();
+                        break;
+                    case "parent":
+                        $data[$field] =
+                            (!is_null($prototype->getParent())) ? $prototype->getParent()->getId() : 0;
+                        break;
+                    case "resources":
+                        $data[$field] = $this->getResources($prototype);
+                        break;
+                }
             }
         }
 
@@ -982,28 +1063,6 @@ class ExternalController extends InventoryAwareController {
             }
         }
 
-        return $data;
-    }
-
-    private function getItemsData(): array {
-        $data = [];
-        if (!empty($this->filters)) {
-            $filters = [];
-            foreach ($this->filters as $key => $val) {
-                if (is_string($val)) {
-                    $filters[] = $val;
-                }
-            }
-            $items = $this->entity_manager->getRepository(ItemPrototype::class)->findBy(['icon' => $filters]);
-        } else {
-            $items = $this->entity_manager->getRepository(ItemPrototype::class)->findAll();
-        }
-        /** @var ItemPrototype $ItemProto */
-        foreach ($items as $ItemProto) {
-            $idProto = $ItemProto->getId();
-
-            $data[$idProto] = $this->getItemData($ItemProto, $this->fields);
-        }
         return $data;
     }
 
@@ -1636,7 +1695,6 @@ class ExternalController extends InventoryAwareController {
         return $data;
     }
 
-
     private function getAuthorInformation(ExpeditionRoute $expedition): array {
         $data = [];
         $data['id'] = $expedition->getOwner()->getUser()->getId();
@@ -1782,6 +1840,107 @@ class ExternalController extends InventoryAwareController {
         }
     }
 
+    private function getPictoPrototypeData(PictoPrototype $prototype, array $fields = []): array {
+        $data = [];
+
+        if (empty($fields)) {
+            $fields = ['id', 'img', 'name', 'desc', 'community', 'rare'];
+        }
+
+        foreach ($fields as $field) {
+            switch ($field) {
+                case "id":
+                    $data[$field] = $prototype->getId();
+                    break;
+                case "img":
+                    $data[$field] =
+                        $this->getIconPath($this->asset->getUrl("build/images/pictos/{$prototype->getIcon()}.gif"));
+                    break;
+                case "name":
+                    $data[$field] = $this->getTranslate($prototype->getLabel(), 'game');
+                    break;
+                case "desc":
+                    $data[$field] = $this->getTranslate($prototype->getDescription(), 'game');
+                    break;
+                case "community":
+                    $data[$field] = $prototype->getCommunity();
+                    break;
+                case "rare":
+                    $data[$field] = $prototype->getRare();
+                    break;
+
+            }
+        }
+
+        return $data;
+    }
+
+    private function getItemPrototypesData(): array {
+        $data = [];
+        if (!empty($this->filters)) {
+            $filters = [];
+            foreach ($this->filters as $key => $val) {
+                if (is_string($val)) {
+                    $filters[] = $val;
+                }
+            }
+            $items = $this->entity_manager->getRepository(ItemPrototype::class)->findBy(['icon' => $filters]);
+        } else {
+            $items = $this->entity_manager->getRepository(ItemPrototype::class)->findAll();
+        }
+        /** @var ItemPrototype $ItemProto */
+        foreach ($items as $ItemProto) {
+            $idProto = $ItemProto->getId();
+
+            $data[$idProto] = $this->getItemData($ItemProto, $this->fields);
+        }
+        return $data;
+    }
+
+    private function getBuildingPrototypesData(): array {
+        $data = [];
+        if (!empty($this->filters)) {
+            $filters = [];
+            foreach ($this->filters as $key => $val) {
+                if (is_string($val)) {
+                    $filters[] = $val;
+                }
+            }
+            $buildings = $this->entity_manager->getRepository(BuildingPrototype::class)->findBy(['icon' => $filters]);
+        } else {
+            $buildings = $this->entity_manager->getRepository(BuildingPrototype::class)->findAll();
+        }
+        /** @var BuildingPrototype $proto */
+        foreach ($buildings as $proto) {
+            $idProto = $proto->getId();
+
+            $data[$idProto] = $this->getBuildingPrototypeData($proto, $this->fields);
+        }
+        return $data;
+    }
+
+    private function getPictoPrototypesData(): array {
+        $data = [];
+        if (!empty($this->filters)) {
+            $filters = [];
+            foreach ($this->filters as $key => $val) {
+                if (is_string($val)) {
+                    $filters[] = $val;
+                }
+            }
+            $buildings = $this->entity_manager->getRepository(PictoPrototype::class)->findBy(['icon' => $filters]);
+        } else {
+            $buildings = $this->entity_manager->getRepository(PictoPrototype::class)->findAll();
+        }
+        /** @var PictoPrototype $proto */
+        foreach ($buildings as $proto) {
+            $idProto = $proto->getId();
+
+            $data[$idProto] = $this->getPictoPrototypeData($proto, $this->fields);
+        }
+        return $data;
+    }
+
     private function getTranslate(string $id, string $domain, array $parameters = []) {
         $data = [];
         foreach ($this->langue as $lang) {
@@ -1889,5 +2048,3 @@ class ExternalController extends InventoryAwareController {
         return true;
     }
 }
-
-?>
