@@ -1000,9 +1000,9 @@ class ExternalController extends InventoryAwareController {
         }
         /** @var ItemPrototype $ItemProto */
         foreach ($items as $ItemProto) {
-            $icon = $ItemProto->getIcon();
+            $idProto = $ItemProto->getId();
 
-            $data[$icon] = $this->getItemData($ItemProto, $this->fields);
+            $data[$idProto] = $this->getItemData($ItemProto, $this->fields);
         }
         return $data;
     }
