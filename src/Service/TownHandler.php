@@ -547,7 +547,9 @@ class TownHandler
         $rand_backup = mt_rand(PHP_INT_MIN, PHP_INT_MAX);
         mt_srand($town->getDay() + $town->getId());
         $cc_offset = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_WT_OFFSET, 0);
+        dump($est->getCitizens()->count(), $ratio, $cc_offset);
         $this->calculate_offsets($offsetMin, $offsetMax, $est->getCitizens()->count() * $ratio + $cc_offset, $new_formula);
+        dump($offsetMin, $offsetMax);
 
         $min = round($est->getZombies() - ($est->getZombies() * $offsetMin / 100));
         $max = round($est->getZombies() + ($est->getZombies() * $offsetMax / 100));
@@ -626,7 +628,7 @@ class TownHandler
     }
 
     public function calculate_offsets(&$offsetMin, &$offsetMax, $nbRound, $new_formula){
-        for ($i = 0; $i < $nbRound; $i++) {
+        for ($i = 0; $i < min($nbRound, 24); $i++) {
             if ($offsetMin + $offsetMax > 10) {
                 $increase_min = $this->random->chance($offsetMin / ($offsetMin + $offsetMax));
                 $alter = $new_formula ? mt_rand(500, 2000) / 1000.0 : 1;
