@@ -761,6 +761,30 @@ class MigrateCommand extends Command
                     $b = true;
                 }
 
+                if ($cp->getCleanupType() === null && $cp->getCitizen() !== null && !$cp->getCitizen()->getAlive()) {
+                    if($cp->getCitizen()->getDisposed()) {
+                        $type = "";
+                        switch($cp->getCitizen()->getDisposed()){
+                            case Citizen::Thrown:
+                                $type = "garbage";
+                                break;
+                            case Citizen::Watered:
+                                $type = "water";
+                                break;
+                            case Citizen::Cooked:
+                                $type = "cook";
+                                break;
+                            case Citizen::Ghoul:
+                                $type = "ghoul";
+                                break;
+                        }
+                        $cp->setCleanupType($type);
+
+                        if ($cp->getCitizen()->getDisposedBy()->count() > 0)
+                            $cp->setCleanupUsername($cp->getCitizen()->getDisposedBy()[0]->getUser()->getName());
+                    }
+                }
+
                 return $b;
             });
 

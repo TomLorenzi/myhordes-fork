@@ -85,7 +85,7 @@ class ItemFixtures extends Fixture
         ['label' => 'Maschendrahtzaunstück', 'icon' => 'fence', 'category' => 'Furniture', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                      // -- ---
         ['label' => 'Verfluchter Teddybär', 'icon' => 'teddy', 'category' => 'Furniture', 'deco' =>1, 'heavy' =>false, 'watchpoint' => 0],                                 // In Out
         ['label' => 'Schnellgebauter Tisch', 'icon' => 'bureau', 'category' => 'Furniture', 'deco' =>2, 'heavy' =>true, 'watchpoint' => 23],                                // -- ---
-        ['label' => 'Leerer Automat', 'icon' => 'distri', 'category' => 'Furniture', 'deco' =>4, 'heavy' =>true, 'watchpoint' => 30],                                       // -- ---
+        ['label' => 'Leerer Automat', 'icon' => 'distri', 'category' => 'Furniture', 'deco' =>4, 'heavy' => false, 'watchpoint' => 30],                                       // -- ---
         ['label' => 'Unpersönliche Explodierende Fußmatte', 'icon' => 'trapma', 'category' => 'Furniture', 'deco' =>5, 'heavy' =>false, 'watchpoint' => 0, 'hideInForeignChest' => true],                // -- ---
         ['label' => 'Chuck-Figur', 'icon' => 'chudol', 'category' => 'Furniture', 'deco' =>15, 'heavy' =>false, 'watchpoint' => 0],                                        // -- ---
         ['label' => 'Verfluchte HiFi', 'icon' => 'hifiev', 'category' => 'Furniture', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                                      // -- ---
