@@ -1072,7 +1072,7 @@
       </notes>
       <segment>
         <source>Kartengröße</source>
-        <target>Kartengröße</target>
+        <target>Tamaño del mapa</target>
       </segment>
     </unit>
     <unit id="TCo5k8F" name="Automatisch">
@@ -1083,7 +1083,7 @@
       </notes>
       <segment>
         <source>Automatisch</source>
-        <target>Automatisch</target>
+        <target>Automático</target>
       </segment>
     </unit>
     <unit id="a0HGkUJ" name="Kleine Karte">
@@ -1094,7 +1094,7 @@
       </notes>
       <segment>
         <source>Kleine Karte</source>
-        <target>Kleine Karte</target>
+        <target>Mapa pequeño</target>
       </segment>
     </unit>
     <unit id="Pv2k4jm" name="Normale Karte">
@@ -1105,7 +1105,7 @@
       </notes>
       <segment>
         <source>Normale Karte</source>
-        <target>Normale Karte</target>
+        <target>Mapa mediano</target>
       </segment>
     </unit>
     <unit id="5pSNNaZ" name="Riesige Karte">
@@ -1116,7 +1116,7 @@
       </notes>
       <segment>
         <source>Riesige Karte</source>
-        <target>Riesige Karte</target>
+        <target>Mapa grande</target>
       </segment>
     </unit>
     <unit id="Fi9y5O9" name="Eigene Einstellung">
@@ -1127,7 +1127,7 @@
       </notes>
       <segment>
         <source>Eigene Einstellung</source>
-        <target>Eigene Einstellung</target>
+        <target>Configuración personalizada</target>
       </segment>
     </unit>
     <unit id="6m4Eofp" name="Exakte Kartengröße">
@@ -1138,7 +1138,7 @@
       </notes>
       <segment>
         <source>Exakte Kartengröße</source>
-        <target>Exakte Kartengröße</target>
+        <target>Tamaño exacto del mapa</target>
       </segment>
     </unit>
     <unit id="OpX8hPZ" name="Anzahl Ruinen">
@@ -1149,7 +1149,7 @@
       </notes>
       <segment>
         <source>Anzahl Ruinen</source>
-        <target>Anzahl Ruinen</target>
+        <target>Cantidad de ruinas</target>
       </segment>
     </unit>
     <unit id="iXjB0RG" name="Anzahl Begehbare Ruinen">
@@ -1160,7 +1160,7 @@
       </notes>
       <segment>
         <source>Anzahl Begehbare Ruinen</source>
-        <target>Anzahl Begehbare Ruinen</target>
+        <target>Cantidad de ruinas explorables</target>
       </segment>
     </unit>
     <unit id="tOEjYLQ" name="Position der Stadt">
@@ -1171,7 +1171,7 @@
       </notes>
       <segment>
         <source>Position der Stadt</source>
-        <target>Position der Stadt</target>
+        <target>Posición del pueblo</target>
       </segment>
     </unit>
     <unit id="hXA9n9R" name="Eher Zentral">
@@ -1182,7 +1182,7 @@
       </notes>
       <segment>
         <source>Eher Zentral</source>
-        <target>Eher Zentral</target>
+        <target>Casi Central</target>
       </segment>
     </unit>
     <unit id="uzMPtR4" name="Zentral">
@@ -1193,7 +1193,7 @@
       </notes>
       <segment>
         <source>Zentral</source>
-        <target>Zentral</target>
+        <target>Central</target>
       </segment>
     </unit>
     <unit id="Am_FKUL" name="Spielmodifikationen:">
@@ -1204,7 +1204,7 @@
       </notes>
       <segment>
         <source>Spielmodifikationen:</source>
-        <target>Spielmodifikationen:</target>
+        <target>Personalizaciones del juego:</target>
       </segment>
     </unit>
     <unit id="fz803_w" name="Raben-Optionen">
@@ -1215,7 +1215,7 @@
       </notes>
       <segment>
         <source>Raben-Optionen</source>
-        <target>Raben-Optionen</target>
+        <target>Opciones de Cuervo</target>
       </segment>
     </unit>
     <unit id="jRT25y3" name="Events">
