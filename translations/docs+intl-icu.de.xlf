@@ -781,5 +781,17 @@
         <target>Wenn dieses Picto eine Gemeinschaftsauszeichnung ist</target>
       </segment>
     </unit>
+    <unit id="NXHyE2A" name="ID der Ruine">
+      <segment>
+        <source>ID der Ruine</source>
+        <target>ID der Ruine</target>
+      </segment>
+    </unit>
+    <unit id="Ey80Aru" name="Erforschbare Ruine">
+      <segment>
+        <source>Erforschbare Ruine</source>
+        <target>Erforschbare Ruine</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
