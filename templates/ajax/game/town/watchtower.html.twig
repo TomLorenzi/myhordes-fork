@@ -104,7 +104,9 @@
                 {% endif %}
             </div>
             <div class="padded cell rw-12 center small">
-                <button {% if not z1[1] or not z1_av %}disabled{% endif%} x-predict-attack="1"><img alt="" src="{{ asset('build/images/building/item_electro.gif') }}" /> {{ 'Den morgigen Angriff berechnen'|trans({},'game') }}</button>
+                {% if z1[4] < 100 %}
+                    <button {% if not z1[1] or not z1_av %}disabled{% endif%} x-predict-attack="1"><img alt="" src="{{ asset('build/images/building/item_electro.gif') }}" /> {{ 'Den morgigen Angriff berechnen'|trans({},'game') }}</button>
+                {% endif %}
             </div>
             {% else %}
                 <div class="padded cell rw-12 center">
