@@ -5463,7 +5463,7 @@
       </notes>
       <segment>
         <source>Hausverbesserung</source>
-        <target>Trabajador hogareño</target>
+        <target>Mejoras en casa</target>
       </segment>
     </unit>
     <unit id="vvkmQ1Z">
@@ -5473,7 +5473,7 @@
       </notes>
       <segment>
         <source>Anzahl der Verbesserungen und Ausbauten, die du an deinem eigenem Haus vorgenommen hast.</source>
-        <target>Cantidad de pequeños trabajos hechos en casa.</target>
+        <target>Cantidad de mejoras hechas a tu vivienda.</target>
       </segment>
     </unit>
     <unit id="NXPKDs5" name="Handwerk">
