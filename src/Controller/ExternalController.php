@@ -14,9 +14,11 @@ use App\Entity\GazetteEntryTemplate;
 use App\Entity\GazetteLogEntry;
 use App\Entity\ItemPrototype;
 use App\Entity\PictoPrototype;
+use App\Entity\RuinZonePrototype;
 use App\Entity\Town;
 use App\Entity\User;
 use App\Entity\Zone;
+use App\Entity\ZonePrototype;
 use App\Entity\ZoneTag;
 use App\Service\ActionHandler;
 use App\Service\CitizenHandler;
@@ -277,9 +279,13 @@ class ExternalController extends InventoryAwareController {
             case "pictos":
                 return $this->getPictoPrototypesData();
             case "ruins":
-                return [];
+                return $this->getRuinPrototypesData();
+            default:
+                $data = [
+                    "error"             => "server_error",
+                    "error_description" => "UnknownEntity($entity)"
+                ];
         }
-
     }
 
     private function getMapAPI(): array {
@@ -1839,6 +1845,38 @@ class ExternalController extends InventoryAwareController {
         return $data;
     }
 
+    private function getRuinPrototypeData(ZonePrototype $prototype, array $fields = []): array {
+        $data = [];
+
+        if (empty($fields)) {
+            $fields = ['id', 'img', 'name', 'desc'];
+        }
+
+        foreach ($fields as $field) {
+            switch ($field) {
+                case "id":
+                    $data[$field] = $prototype->getId();
+                    break;
+                case "img":
+                    $data[$field] =
+                        $this->getIconPath($this->asset->getUrl("build/images/ruin/{$prototype->getIcon()}.gif"));
+                    break;
+                case "name":
+                    $data[$field] = $this->getTranslate($prototype->getLabel(), 'game');
+                    break;
+                case "desc":
+                    $data[$field] = $this->getTranslate($prototype->getExplorableDescription() ?? $prototype->getDescription(), 'game');
+                    break;
+                case "explorable":
+                    $data[$field] = $prototype->getExplorable();
+                    break;
+
+            }
+        }
+
+        return $data;
+    }
+
     private function getItemPrototypesData(): array {
         $data = [];
         if (!empty($this->filters)) {
@@ -1901,6 +1939,28 @@ class ExternalController extends InventoryAwareController {
             $idProto = $proto->getId();
 
             $data[$idProto] = $this->getPictoPrototypeData($proto, $this->fields);
+        }
+        return $data;
+    }
+
+    private function getRuinPrototypesData(): array {
+        $data = [];
+        if (!empty($this->filters)) {
+            $filters = [];
+            foreach ($this->filters as $key => $val) {
+                if (is_string($val)) {
+                    $filters[] = $val;
+                }
+            }
+            $buildings = $this->entity_manager->getRepository(ZonePrototype::class)->findBy(['icon' => $filters]);
+        } else {
+            $buildings = $this->entity_manager->getRepository(ZonePrototype::class)->findAll();
+        }
+        /** @var ZonePrototype $proto */
+        foreach ($buildings as $proto) {
+            $idProto = $proto->getId();
+
+            $data[$idProto] = $this->getRuinPrototypeData($proto, $this->fields);
         }
         return $data;
     }
