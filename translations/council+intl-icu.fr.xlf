@@ -198,7 +198,7 @@
       </notes>
       <segment>
         <source>Und was wäre, wenn wir wie üblich Strohhalme ziehen würden?</source>
-        <target>Et si on tirait au sort comme à chaque fois?</target>
+        <target>Et si on tirait au sort comme à chaque fois ?</target>
       </segment>
     </unit>
     <unit id="4WWP50H" name="Hört auf, mich anzugucken!">
@@ -1389,7 +1389,7 @@
       </notes>
       <segment>
         <source>Ruhe! Wir müssen dieses Treffen zu Ende bringen! Wir haben eine große Wüste zu erforschen und keinen Reiseleiter, der uns hilft!</source>
-        <target>Silence! Il faut qu'on se décide, le Guide de l'Outre-Monde étant essentiel à nos projets d'exploration.</target>
+        <target>Silence ! Il faut qu'on se décide, le Guide de l'Outre-Monde étant essentiel à nos projets d'exploration.</target>
       </segment>
     </unit>
     <unit id="ubadRyb" name="So, jetzt haben wir ganz offiziell einen neuen Reiseleiter bestimmt: {winner}!">
