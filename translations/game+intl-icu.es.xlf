@@ -3143,7 +3143,7 @@
       </notes>
       <segment>
         <source>{citizen} hat seinen letzten Atemzug getan: {cod}!</source>
-        <target>{citizen} resipró su último aliento: {cod}!</target>
+        <target>{citizen} nos ha dejado: {cod}!</target>
       </segment>
     </unit>
     <unit id="6TXzJgz" name="{citizen} hat das Stadtgebiet in Richtung {direction} verlassen.">

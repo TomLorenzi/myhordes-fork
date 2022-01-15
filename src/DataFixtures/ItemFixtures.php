@@ -331,7 +331,7 @@ class ItemFixtures extends Fixture
 		
 		['label' => 'Kassettenradio (ohne Strom)', 'icon' => 'radio_off', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                      // In Out
         ['label' => 'Streichholzschachtel', 'icon' => 'lights', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                     // -- ---
-        ['label' => 'Leuchtrakete', 'icon' => 'flare', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => -10],                                              // --
+        ['label' => 'Leuchtrakete', 'icon' => 'flare', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => -8],                                              // --
         ['label' => 'Starke Gewürze', 'icon' => 'spices', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                           // -- ---
         ['label' => 'Raketenpulver', 'icon' => 'powder', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                             // -- ---
         ['label' => 'Loses Werkzeug', 'icon' => 'repair_kit_part_raw', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                              // -- ---

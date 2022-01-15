@@ -268,7 +268,7 @@
       </notes>
       <segment>
         <source>Die letzte Anzeige hat das Fass zum Überlaufen gebracht. {citizen} wurde von den Bürgern der Stadt verbannt!</source>
-        <target>La dernière plainte a été celle de trop. {citizen} a été banni de la ville !</target>
+        <target>Les citoyens ont décidé de bannir {citizen} de la communauté !</target>
       </segment>
     </unit>
     <unit id="gaDgdbl" name="Du kannst die Stadt von hier aus nicht betreten.">
@@ -3090,7 +3090,7 @@
       </notes>
       <segment>
         <source>Verrat! {citizen} ist gestorben: {cod}.</source>
-        <target>{citizen} nous a quitté : {cod}.</target>
+        <target>{citizen} nous a quittés : {cod}.</target>
       </segment>
     </unit>
     <unit id="2UDexHy">
@@ -3110,7 +3110,7 @@
       </notes>
       <segment>
         <source>{citizen} hat seinen letzten Atemzug getan: {cod}!</source>
-        <target>{citizen} nous a quitté : {cod} !</target>
+        <target>{citizen} nous a quittés : {cod} !</target>
       </segment>
     </unit>
     <unit id="6TXzJgz" name="{citizen} hat das Stadtgebiet in Richtung {direction} verlassen.">

@@ -3160,7 +3160,7 @@
       </notes>
       <segment>
         <source>{citizen} hat seinen letzten Atemzug getan: {cod}!</source>
-        <target>{citizen} left us: {cod}!</target>
+        <target>{citizen} has been taken from us: {cod}!</target>
       </segment>
     </unit>
     <unit id="6TXzJgz" name="{citizen} hat das Stadtgebiet in Richtung {direction} verlassen.">
@@ -20993,7 +20993,7 @@
       </notes>
       <segment>
         <source>Dank des von der Stadt gebauten Kremato-Cue kannst du diese Leiche &lt;strong&gt;in Verpflegung umwandeln&lt;/strong&gt;. Aber willst du das wirklich tun?</source>
-        <target><![CDATA[Dank des von der Stadt gebauten Kremato-Cue kannst du diese Leiche <strong>in Verpflegung umwandeln</strong>. Aber willst du das wirklich tun?]]></target>
+        <target><![CDATA[Thanks to the Cremato-Cue having been built by the townspeople, you can <strong>transform this corpse into rations</strong>... But do you really want to ?]]></target>
       </segment>
     </unit>
     <unit id="JQAKEqq">
