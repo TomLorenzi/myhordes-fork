@@ -451,8 +451,14 @@ class MigrateCommand extends Command
         }
 
         if ($input->getOption('process-db-git')) {
+            if (file_exists( $this->kernel->getProjectDir() . '/.vslist' )) {
+                $output->writeln('Getting revision list from <info>.vslist</info>.');
+                $hashes = file($this->kernel->getProjectDir() . '/.vslist', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES );
+            } else {
+                $output->writeln('Getting revision list from <info>git</info>.');
+                $hashes = array_reverse( $this->helper->bin( 'git rev-list HEAD', $ret ) );
+            }
 
-            $hashes = array_reverse( $this->helper->bin( 'git rev-list HEAD', $ret ) );
             $output->writeln('Found <info>' . count($hashes) . '</info> installed patches.');
 
             $new = 0;

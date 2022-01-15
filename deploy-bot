@@ -41,6 +41,7 @@ echo "-> Fetching a fresh MyHordes installation..."
 git clone -b "${DEPLOY_BRANCH}" --single-branch "${DEPLOY_FROM}" "${_TEMP}" || { echo 'Failed!' ; exit 6; }
 printf "APP_ENV=%s\nAPP_SECRET=e3601fb7c31de7e24ed02e3a25d9b571\nDATABASE_URL=mysql://myhordes:myh0rd3s@db:3306/myhordes?serverVersion=5.7" "${DEPLOY_ENV:?}" > "${_TEMP}/.env"
 echo "deploybot" > "${_TEMP}/public/maintenance/.active"
+git --git-dir="${_TEMP}/.git" rev-list HEAD > "${_TEMP}/.vslist"
 
 _VNUM_FULL="$(git --git-dir="${_TEMP}/.git" describe --tags)"
 _VNUM_ABBR="$(git --git-dir="${_TEMP}/.git" describe --tags --abbrev=0)"
@@ -88,6 +89,7 @@ yarn --cwd "${_TEMP}" encore "${DEPLOY_ENV:?}" || { echo 'Failed!' ; exit 6; }
 
 echo "-> Removing unneeded files..."
 rm -rf "${_TEMP:?}/var"
+rm -rf "${_TEMP:?}/.git"
 rm -rf "${_TEMP:?}/.gitlab"
 rm -rf "${_TEMP:?}/config/packages/${DEPLOY_ENV:?}/app"
 rm -rf "${_TEMP:?}/node_modules"
