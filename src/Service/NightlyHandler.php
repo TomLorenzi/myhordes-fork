@@ -605,7 +605,8 @@ class NightlyHandler
         $cod = $this->entity_manager->getRepository(CauseOfDeath::class)->findOneBy(['ref' => CauseOfDeath::NightlyAttack]);
         $status_terror  = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy(['name' => 'terror']);
 
-        $has_kino = $this->town_handler->getBuilding($town, 'small_cinema_#00', true);
+        // Do not enable this effect for now until we know how it is handled on Hordes
+        $has_kino = false;//$this->town_handler->getBuilding($town, 'small_cinema_#00', true);
 
         // Day already advanced, let's get today's gazette!
         /** @var Gazette $gazette */
