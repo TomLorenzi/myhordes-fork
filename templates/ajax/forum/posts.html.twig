@@ -412,13 +412,13 @@
             form.append(sec_p)
 
             $.html.popup('{{ 'Unangemessenen Inhalt melden'|trans({},'global')|e('js') }}', form, null, [
-                [ '{{ 'Inhalt melden'|trans({},'global')|e('js') }}',  [ ['click', (e_sub,elem_sub) => {
+                [ '{{ 'Inhalt melden'|trans({},'global')|e('js') }}',  [ ['click', (e_sub, elem_sub) => {
                     const reason = document.querySelector('[name="report_reason"]:checked') ? parseInt(document.querySelector('[name="report_reason"]:checked').value) : 0;
                     const detail = document.querySelector('[name="report_details"]') ? document.querySelector('[name="report_details"]').value : '';
                     $.html.triggerPopupPop(elem_sub);
                     $.ajax.easySend( '{{ url('forum_report_post_controller', { 'fid': fid, 'tid': tid}) }}', {postId: parseInt( elem.getAttribute('x-post-id')), page: parseInt( elem.getAttribute('x-to-page')), reason: reason, details: detail }, reloadPage );
                 }] ] ],
-                [ '{{ 'Abbrechen'|trans({},'global')|e('js') }}', [ ['click', (e_sub,elem_sub) => $.html.triggerPopupPop(elem_sub)] ] ]
+                [ '{{ 'Abbrechen'|trans({},'global')|e('js') }}', [ ['click', (e_sub, elem_sub) => $.html.triggerPopupPop(elem_sub)] ] ]
             ] );
         });
 
@@ -436,11 +436,11 @@
                 form.append(select)
 
                 $.html.popup('{{ 'Thread verschieben'|trans({},'global')|e('js') }}', form, null, [
-                    [ '{{ 'Verschieben'|trans({},'global')|e('js') }}',  [ ['click', (e_sub,elem_sub) => {
+                    [ '{{ 'Verschieben'|trans({},'global')|e('js') }}',  [ ['click', (e_sub, elem_sub) => {
                         $.html.triggerPopupPop(elem_sub);
                         $.ajax.easySend( '{{ url('forum_thread_mod_controller', { 'fid': fid, 'tid': tid, 'mod': 'move'}) }}', {to: parseInt( select.value)}, reloadForum );
                     }] ] ],
-                    [ '{{ 'Abbrechen'|trans({},'global')|e('js') }}', [ ['click', (e_sub,elem_sub) => $.html.triggerPopupPop(elem_sub)] ] ]
+                    [ '{{ 'Abbrechen'|trans({},'global')|e('js') }}', [ ['click', (e_sub, elem_sub) => $.html.triggerPopupPop(elem_sub)] ] ]
                 ] );
             });
         {% endif %}
@@ -558,6 +558,7 @@
             {% endif %}
             const from_page = {{ current_page|e('js') }};
             const to_page = parseInt( elem.getAttribute('x-to-page') );
+            $.ajax.push_history('{{ path('forum_thread_view', {fid: fid, tid: tid}) }}/' + to_page);
             $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('forum_viewer_controller', {fid: fid, tid: tid}) }}', false, {page: to_page},
                 function() {
                     let scrollTo = null;
@@ -588,6 +589,8 @@
                     return;
                 if (to_page > {{ pages }})
                     to_page = {{ pages }};
+                if (to_page < 1) to_page = 1;
+                $.ajax.push_history('{{ path('forum_thread_view', {fid: fid, tid: tid}) }}/' + to_page);
                 $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('forum_viewer_controller', {fid: fid, tid: tid}) }}', false, {page: to_page});
             });
         } );

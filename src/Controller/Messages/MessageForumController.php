@@ -48,7 +48,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  */
 class MessageForumController extends MessageController
 {
-    private function default_forum_renderer(int $fid, int $tid, int $pid, EntityManagerInterface $em, JSONRequestParser $parser, CitizenHandler $ch): Response {
+    private function default_forum_renderer(int $fid, int $tid, int $pid, int $post_page, EntityManagerInterface $em, JSONRequestParser $parser, CitizenHandler $ch): Response {
         $num_per_page = 20;
 
         $user = $this->getUser();
@@ -137,6 +137,7 @@ class MessageForumController extends MessageController
             'permission' => $this->getPermissionObject( $permissions ),
             'select' => $tid,
             'jump' => $pid,
+            'post_page' => $post_page,
             'town' => $forum->getTown() ?? false,
             'pages' => $pages,
             'current_page' => $page,
@@ -170,21 +171,22 @@ class MessageForumController extends MessageController
      */
     public function forum(int $id, EntityManagerInterface $em, JSONRequestParser $p, CitizenHandler $ch): Response
     {
-        return $this->default_forum_renderer($id,-1,-1,$em, $p, $ch);
+        return $this->default_forum_renderer($id,-1,-1, -1, $em, $p, $ch);
     }
 
     /**
-     * @Route("jx/forum/{fid<\d+>}/{tid<\d+>}", name="forum_thread_view")
+     * @Route("jx/forum/{fid<\d+>}/{tid<\d+>}/{page<\d+>}", name="forum_thread_view")
      * @param int $fid
      * @param int $tid
+     * @param int $page
      * @param EntityManagerInterface $em
      * @param JSONRequestParser $p
      * @param CitizenHandler $ch
      * @return Response
      */
-    public function forum_thread(int $fid, int $tid, EntityManagerInterface $em, JSONRequestParser $p, CitizenHandler $ch): Response
+    public function forum_thread(int $fid, int $tid, EntityManagerInterface $em, JSONRequestParser $p, CitizenHandler $ch, int $page = -1): Response
     {
-        return $this->default_forum_renderer($fid,$tid,-1,$em,$p,$ch);
+        return $this->default_forum_renderer($fid,$tid,-1, $page, $em,$p,$ch);
     }
 
     /**
@@ -200,7 +202,7 @@ class MessageForumController extends MessageController
         /** @var Post $post */
         $post = $this->entity_manager->getRepository(Post::class)->find($pid);
 
-        return $this->default_forum_renderer($post ? $post->getThread()->getForum()->getId() : -1,$post ? $post->getThread()->getId() : -1,$post ? $pid : -1,$em,$p,$ch);
+        return $this->default_forum_renderer($post ? $post->getThread()->getForum()->getId() : -1,$post ? $post->getThread()->getId() : -1,$post ? $pid : -1, -1, $em,$p,$ch);
     }
 
     /**
