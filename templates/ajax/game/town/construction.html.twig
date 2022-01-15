@@ -56,11 +56,6 @@
         </div>
     {% endif %}
 
-    <div class="row">
-        <div class="small cell rw-12 right build-req-detail"><a href="#" id="toggle_constmode_short">{{ 'Materialienverbrauch ansehen'|trans({},'game') }}</a></div>
-        <div class="small cell rw-12 right build-req-short hidden"><a href="#" id="toggle_constmode_detail">{{ 'Normale Ansicht'|trans({},'game') }}</a></div>
-    </div>
-
     {% macro building_entry(building, buildable, n, dict, items, disable_all, workshopBonus, hpToAp, canvote, votedBuilding) %}
         {# @var building \App\Entity\Building #}
         <div class="row {% if not buildable %}locked{% elseif building.complete %}complete{% endif %} {% if building == votedBuilding %}voted{% endif %} {% if n > 0 %}lv-{{ min(n,6) }}{% else %}root{% endif %}">
@@ -203,10 +198,17 @@
         </ul>
     </div>
 
+    <div class="clear">
+        {% for building in root_cats %}
+            <div x-tab-group="buildings" x-tab-id="type_{{ building.prototype.icon }}" x-tab-target class="buildings type_{{ building.prototype.icon }}">{{ _self.building_entry(building, true, 0, dictionary, bank, banished and not slavery, workshopBonus, hpToAp, canvote, voted_building) }}</div>
+        {% endfor %}
+    </div>
 
-    {% for building in root_cats %}
-        <div x-tab-group="buildings" x-tab-id="type_{{ building.prototype.icon }}" x-tab-target class="buildings type_{{ building.prototype.icon }}">{{ _self.building_entry(building, true, 0, dictionary, bank, banished and not slavery, workshopBonus, hpToAp, canvote, voted_building) }}</div>
-    {% endfor %}
+    <div class="row">
+        <div class="small cell rw-12 right build-req-detail"><a href="#" id="toggle_constmode_short">{{ 'Materialienverbrauch ansehen'|trans({},'game') }}</a></div>
+        <div class="small cell rw-12 right build-req-short hidden"><a href="#" id="toggle_constmode_detail">{{ 'Normale Ansicht'|trans({},'game') }}</a></div>
+    </div>
+    <br />
 
     <div class="help">
     {{ 'Bauprojekte, die mit dem Symbol "<img alt="(!)" src="{path}" />" gekennzeichnet sind, können nur einmal verwendet werden. Sie werden nach dem Angriff der Zombiehorde wieder abgerissen. Wenn ihr wollt, könnt ihr sie morgen nochmal bauen.'|trans({"{path}": asset('build/images/icons/small_warning.gif')},'game')|raw }}  
