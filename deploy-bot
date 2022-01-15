@@ -41,6 +41,7 @@ echo "-> Fetching a fresh MyHordes installation..."
 git clone -b "${DEPLOY_BRANCH}" --single-branch "${DEPLOY_FROM}" "${_TEMP}" || { echo 'Failed!' ; exit 6; }
 printf "APP_ENV=%s\nAPP_SECRET=e3601fb7c31de7e24ed02e3a25d9b571\nDATABASE_URL=mysql://myhordes:myh0rd3s@db:3306/myhordes?serverVersion=5.7" "${DEPLOY_ENV:?}" > "${_TEMP}/.env"
 echo "deploybot" > "${_TEMP}/public/maintenance/.active"
+git --git-dir="${_TEMP}/.git" rev-list HEAD > "${_TEMP}/.vslist"
 
 _VNUM_FULL="$(git --git-dir="${_TEMP}/.git" describe --tags)"
 _VNUM_ABBR="$(git --git-dir="${_TEMP}/.git" describe --tags --abbrev=0)"
@@ -88,6 +89,7 @@ yarn --cwd "${_TEMP}" encore "${DEPLOY_ENV:?}" || { echo 'Failed!' ; exit 6; }
 
 echo "-> Removing unneeded files..."
 rm -rf "${_TEMP:?}/var"
+rm -rf "${_TEMP:?}/.git"
 rm -rf "${_TEMP:?}/.gitlab"
 rm -rf "${_TEMP:?}/config/packages/${DEPLOY_ENV:?}/app"
 rm -rf "${_TEMP:?}/node_modules"
@@ -156,8 +158,8 @@ echo "-> Updating symlink"
 ssh -t "${_SSH}" "ln -s \"${_NEW_VERSION}\" \"${REMOTE_PATH_ENTRYPOINT:?}__TMP\" && mv -Tf \"${REMOTE_PATH_ENTRYPOINT:?}__TMP\" \"${REMOTE_PATH_ENTRYPOINT:?}\""
 
 echo "-> Running migration..."
-ssh -t "${_SSH}" "cd \"${_NEW_VERSION}\" && ${_BIN_CONSOLE} app:migrate -u -r && ${_BIN_CONSOLE} app:migrate -p -v"
 ssh -t "${_SSH}" "chown -R ${REMOTE_WEBSERVER_USER}:${REMOTE_WEBSERVER_GROUP} \"${_NEW_VERSION}\" && chown -R ${REMOTE_WEBSERVER_USER}:${REMOTE_WEBSERVER_GROUP} \"${REMOTE_PATH_STORAGE}\""
+ssh -t "${_SSH}" "cd \"${REMOTE_PATH_ENTRYPOINT}\" && ${_BIN_CONSOLE} app:migrate -u -r && ${_BIN_CONSOLE} app:migrate -p -v"
 
 # Confirmation
 echo "Ready to activate the new installation at:"
@@ -171,6 +173,7 @@ then
 fi
 
 echo "-> Activating new installation"
+ssh -t "${_SSH}" "cd \"${REMOTE_PATH_ENTRYPOINT:?}\" && sleep 5s && ${_BIN_CONSOLE} cache:clear && rm -rf \"${REMOTE_PATH_STORAGE:?}/cache/${DEPLOY_ENV:?}\""
 ssh -t "${_SSH}" "cd \"${REMOTE_PATH_ENTRYPOINT:?}\" && ${_BIN_CONSOLE} app:migrate --maintenance off"
 
 echo "-> Removing temporary local data"

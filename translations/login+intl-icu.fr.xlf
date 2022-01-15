@@ -849,5 +849,15 @@
         <target>Le joueur mentionné comme parrain n’est pas inscrit au programme de parrainage. Demandez-lui de visiter la page « Parrainage » dans son âme; il sera alors automatiquement enregistré. Ce n’est qu’alors que vous pourrez le choisir comme parrain.</target>
       </segment>
     </unit>
+    <unit id="1itQsls" name="Deine E-Mail-Adresse wurde erfolgreich geändert.">
+      <notes>
+        <note category="german">Deine E-Mail-Adresse wurde erfolgreich geändert.</note>
+        <note category="from">php:///src/Controller/Soul/SoulController.php</note>
+      </notes>
+      <segment>
+        <source>Deine E-Mail-Adresse wurde erfolgreich geändert.</source>
+        <target>Votre addresse email a été changée avec succès.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

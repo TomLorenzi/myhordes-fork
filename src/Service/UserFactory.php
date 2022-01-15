@@ -118,8 +118,14 @@ class UserFactory
     public function ensureValidation(User $user, int $validationType, bool $regenerate = false): UserPendingValidation {
         /** @var UserPendingValidation $validation */
         $validation = null;
-        if ($user->getId() !== null)
-            $validation = $this->entity_manager->getRepository(UserPendingValidation::class)->findOneByUserAndType($user,$validationType);
+        if ($user->getId() !== null) {
+            $validation = $user->getPendingValidation();
+            if ($validation && $validation->getType() !== $validationType) {
+                if ($validation->getType() === UserPendingValidation::ChangeEmailValidation)
+                    $user->setPendingEmail(null);
+                $validation->setTime(new DateTime())->setType($validationType)->generatePKey();
+            }
+        }
         if ($validation === null) {
             $validation = new UserPendingValidation();
             $validation->setTime(new DateTime())->setType($validationType)->generatePKey( );

@@ -17,6 +17,7 @@ use App\Entity\FeatureUnlock;
 use App\Entity\FeatureUnlockPrototype;
 use App\Entity\FoundRolePlayText;
 use App\Entity\HeroSkillPrototype;
+use App\Entity\OfficialGroup;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
 use App\Entity\RememberMeTokens;
@@ -1039,11 +1040,12 @@ class SoulController extends CustomAbstractController
         $new_pw = $parser->trimmed('pw_new', '');
         $new_email = $parser->trimmed('email_new', '');
         $confirm_token = $parser->trimmed('email_token', '');
+        $message = [];
 
         if ($this->isGranted('ROLE_DUMMY') && !$this->isGranted( 'ROLE_CROW' ))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
-        if ($this->isGranted('ROLE_ETERNAL') && !empty($new_pw))
+        if ($this->isGranted('ROLE_ETERNAL') && $user->getPassword() === null && !empty($new_pw))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
         $change = false;
@@ -1085,12 +1087,13 @@ class SoulController extends CustomAbstractController
 
             $user->setEmail($user->getPendingEmail());
             $user->setPendingEmail(null);
+            $user->setPendingValidation(null);
             $this->entity_manager->remove( $pending );
             $change = true;
+            $message[] = $this->translator->trans('Deine E-Mail-Adresse wurde erfolgreich geändert.', [], 'login');
         }
 
         if ($change){
-            $message = [];
             $this->entity_manager->persist($user);
             $this->entity_manager->flush();
 
@@ -1407,7 +1410,10 @@ class SoulController extends CustomAbstractController
      */
     public function help_me(): Response
     {
-        return $this->render( 'ajax/help/shell.html.twig');
+        $support_groups = $this->entity_manager->getRepository(OfficialGroup::class)->findBy(['lang' => $this->getUserLanguage(), 'semantic' => OfficialGroup::SEMANTIC_SUPPORT]);
+        return $this->render( 'ajax/help/shell.html.twig', [
+            'support' => count($support_groups) === 1 ? $support_groups[0] : null
+        ]);
     }
 
     /**

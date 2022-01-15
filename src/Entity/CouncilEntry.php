@@ -35,7 +35,7 @@ class CouncilEntry
 
     /**
      * @ORM\ManyToOne(targetEntity=Town::class)
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=false, onDelete="CASCADE")
      */
     private $town;
 
@@ -46,7 +46,7 @@ class CouncilEntry
 
     /**
      * @ORM\ManyToOne(targetEntity=Citizen::class)
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\JoinColumn(nullable=true, onDelete="SET NULL")
      */
     private $citizen;
 

@@ -195,12 +195,11 @@
     <unit id="L65vsws" name="E-Mail">
       <notes>
         <note category="german">E-Mail</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>E-Mail</source>
-        <target>E-Mail</target>
+        <target>Correo electrónico</target>
       </segment>
     </unit>
     <unit id=".Dfg1PE" name="Validiert">
@@ -267,7 +266,7 @@
       <notes>
         <note category="german">Admin</note>
         <note category="state">new</note>
-        <note category="from">twig:///templates/ajax/admin/users/account.html.twig;twig:///templates/ajax/admin/users/all_index.html.twig</note>
+        <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php;twig:///templates/ajax/admin/users/account.html.twig;twig:///templates/ajax/admin/users/all_index.html.twig</note>
       </notes>
       <segment>
         <source>Admin</source>
@@ -427,7 +426,7 @@
     <unit id="awzJBNC" name="Users">
       <notes>
         <note category="german">Users</note>
-        <note category="from">php:///src/Controller/Admin/AdminActionController.php</note>
+        <note category="from">php:///src/Controller/Admin/AdminActionController.php;twig:///templates/ajax/admin/users/all_index.html.twig</note>
       </notes>
       <segment>
         <source>Users</source>
@@ -447,7 +446,7 @@
     <unit id="jA6UdTz" name="Zukunft">
       <notes>
         <note category="german">Zukunft</note>
-        <note category="from">php:///src/Controller/Admin/AdminActionController.php</note>
+        <note category="from">php:///src/Controller/Admin/AdminActionController.php;twig:///templates/ajax/admin/changelogs/changelogs.html.twig</note>
       </notes>
       <segment>
         <source>Zukunft</source>
@@ -1519,7 +1518,7 @@
     <unit id="TklQ7Ze" name="AntiSpam">
       <notes>
         <note category="german">AntiSpam</note>
-        <note category="from">php:///src/Controller/Admin/AdminActionController.php</note>
+        <note category="from">php:///src/Controller/Admin/AdminActionController.php;twig:///templates/ajax/admin/spam/domains.html.twig</note>
       </notes>
       <segment>
         <source>AntiSpam</source>
@@ -1619,12 +1618,11 @@
     <unit id="vDhaMLU" name="Öffnen">
       <notes>
         <note category="german">Öffnen</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/admin/reports/reports.html.twig</note>
       </notes>
       <segment>
         <source>Öffnen</source>
-        <target>Öffnen</target>
+        <target>Abrir</target>
       </segment>
     </unit>
     <unit id="Z7aWRoY" name="Dashboard">
@@ -1912,7 +1910,7 @@
     <unit id="i2H25l5" name="Foren-Mod.">
       <notes>
         <note category="german">Foren-Mod.</note>
-        <note category="from">php:///src/Controller/Admin/AdminActionController.php</note>
+        <note category="from">php:///src/Controller/Admin/AdminActionController.php;twig:///templates/ajax/admin/reports/reports.html.twig</note>
       </notes>
       <segment>
         <source>Foren-Mod.</source>
@@ -3376,12 +3374,11 @@
     <unit id="OFylvr8" name="Anon.">
       <notes>
         <note category="german">Anon.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/admin/groups/list.html.twig</note>
       </notes>
       <segment>
         <source>Anon.</source>
-        <target>Anon.</target>
+        <target>Anón.</target>
       </segment>
     </unit>
     <unit id="vBZ55s_" name="Mitglieder">
@@ -4139,7 +4136,7 @@
     <unit id="NSeveUs" name="Dateisystem">
       <notes>
         <note category="german">Dateisystem</note>
-        <note category="from">php:///src/Controller/Admin/AdminActionController.php</note>
+        <note category="from">php:///src/Controller/Admin/AdminActionController.php;twig:///templates/ajax/admin/files/list.html.twig</note>
       </notes>
       <segment>
         <source>Dateisystem</source>
@@ -4150,253 +4147,250 @@
       <notes>
         <note category="german">Alle User</note>
         <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig;twig:///templates/ajax/admin/users/listing_tabs.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Alle User</source>
-        <target>Alle User</target>
+        <target>Todos los usuarios</target>
       </segment>
     </unit>
     <unit id="HgoJZHL" name="Account-Zustand">
       <notes>
         <note category="german">Account-Zustand</note>
         <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Account-Zustand</source>
-        <target>Account-Zustand</target>
+        <target>Estado de la cuenta</target>
       </segment>
     </unit>
     <unit id="gWNFTze" name="Aktiv">
       <notes>
         <note category="german">Aktiv</note>
         <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Aktiv</source>
-        <target>Aktiv</target>
+        <target>Activa</target>
       </segment>
     </unit>
     <unit id="0mB6s81" name="Dummy">
       <notes>
         <note category="german">Dummy</note>
         <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Dummy</source>
-        <target>Dummy</target>
+        <target>Genérica</target>
       </segment>
     </unit>
     <unit id="Cpb7Uq8" name="Spezial">
       <notes>
         <note category="german">Spezial</note>
         <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Spezial</source>
-        <target>Spezial</target>
+        <target>Especial</target>
       </segment>
     </unit>
     <unit id="gkxS090" name="Zur Löschung vorgemerkt">
       <notes>
         <note category="german">Zur Löschung vorgemerkt</note>
         <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Zur Löschung vorgemerkt</source>
-        <target>Zur Löschung vorgemerkt</target>
+        <target>Eliminación pendiente</target>
       </segment>
     </unit>
     <unit id="03XcNUj" name="Gelöscht">
       <notes>
         <note category="german">Gelöscht</note>
         <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Gelöscht</source>
-        <target>Gelöscht</target>
+        <target>Eliminada</target>
       </segment>
     </unit>
     <unit id="nDFaBQH" name="Inkarnation">
       <notes>
         <note category="german">Inkarnation</note>
         <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Inkarnation</source>
-        <target>Inkarnation</target>
+        <target>Encarnación</target>
       </segment>
     </unit>
     <unit id="fvbnuSw" name="Zuletzt aktiv">
       <notes>
         <note category="german">Zuletzt aktiv</note>
         <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Zuletzt aktiv</source>
-        <target>Zuletzt aktiv</target>
+        <target>Última conexión</target>
       </segment>
     </unit>
     <unit id="JgjaqCv" name="Hauptseele">
       <notes>
         <note category="german">Hauptseele</note>
         <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Hauptseele</source>
-        <target>Hauptseele</target>
+        <target>Alma principal</target>
       </segment>
     </unit>
     <unit id=".Tw5sZN" name="Keine Hauptseele">
       <notes>
         <note category="german">Keine Hauptseele</note>
         <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Keine Hauptseele</source>
-        <target>Keine Hauptseele</target>
+        <target>Sin alma principal</target>
       </segment>
     </unit>
     <unit id="XiHvmIk" name="Verknüpfte Seele">
       <notes>
         <note category="german">Verknüpfte Seele</note>
         <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Verknüpfte Seele</source>
-        <target>Verknüpfte Seele</target>
+        <target>Alma vinculada</target>
       </segment>
     </unit>
     <unit id="zTu5fP6" name="Beliebige verknüpfte Seele">
       <notes>
         <note category="german">Beliebige verknüpfte Seele</note>
         <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Beliebige verknüpfte Seele</source>
-        <target>Beliebige verknüpfte Seele</target>
+        <target>Cualquier alma vinculada</target>
       </segment>
     </unit>
     <unit id="jnWkQ6z" name="Keine verknüpfte Seele">
       <notes>
         <note category="german">Keine verknüpfte Seele</note>
         <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Keine verknüpfte Seele</source>
-        <target>Keine verknüpfte Seele</target>
+        <target>Sin alma vinculada</target>
       </segment>
     </unit>
     <unit id="AUhHTVv" name="Accountbeschränkung">
       <notes>
         <note category="german">Accountbeschränkung</note>
         <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Accountbeschränkung</source>
-        <target>Accountbeschränkung</target>
+        <target>Restricción de cuenta</target>
       </segment>
     </unit>
     <unit id="1wv7teh" name="Nicht bestätigt">
       <notes>
         <note category="german">Nicht bestätigt</note>
         <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Nicht bestätigt</source>
-        <target>Nicht bestätigt</target>
+        <target>No confirmada</target>
       </segment>
     </unit>
     <unit id="Czy2T4z" name="Nicht aktiv">
       <notes>
         <note category="german">Nicht aktiv</note>
         <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Nicht aktiv</source>
-        <target>Nicht aktiv</target>
+        <target>Inactiva</target>
       </segment>
     </unit>
     <unit id="ADipz4Z" name="Rolle">
       <notes>
         <note category="german">Rolle</note>
         <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Rolle</source>
-        <target>Rolle</target>
+        <target>Rol</target>
       </segment>
     </unit>
     <unit id="h2jMPFO" name="Aktion bei Klick:">
       <notes>
         <note category="german">Aktion bei Klick:</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Aktion bei Klick:</source>
-        <target>Aktion bei Klick:</target>
+        <target>Acción en el clic:</target>
       </segment>
     </unit>
     <unit id="0G7SYAt" name="Verbleibe Zonengrabungen:">
       <notes>
         <note category="german">Verbleibe Zonengrabungen:</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Verbleibe Zonengrabungen:</source>
-        <target>Verbleibe Zonengrabungen:</target>
+        <target>Excavaciones restantes:</target>
       </segment>
     </unit>
     <unit id="Bcli6ap" name="Verbleibende Ruinengrabungen:">
       <notes>
         <note category="german">Verbleibende Ruinengrabungen:</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Verbleibende Ruinengrabungen:</source>
-        <target>Verbleibende Ruinengrabungen:</target>
+        <target>Búsquedas(en ruina) restantes:</target>
       </segment>
     </unit>
     <unit id="nOcPaSS" name="Zurzeit in der Stadt">
       <notes>
         <note category="german">Zurzeit in der Stadt</note>
         <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Zurzeit in der Stadt</source>
-        <target>Zurzeit in der Stadt</target>
+        <target>Actualmente en pueblo</target>
       </segment>
     </unit>
     <unit id="jPmvEEG" name="Eternal-Twin-Konto verlinkt">
       <notes>
         <note category="german">Eternal-Twin-Konto verlinkt</note>
         <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Eternal-Twin-Konto verlinkt</source>
-        <target>Eternal-Twin-Konto verlinkt</target>
+        <target>Cuenta de Eternaltwin vinculada</target>
+      </segment>
+    </unit>
+    <unit id="_VFidG8" name="Gruppentyp">
+      <notes>
+        <note category="german">Gruppentyp</note>
+        <note category="from">twig:///templates/ajax/admin/groups/edit.html.twig</note>
+      </notes>
+      <segment>
+        <source>Gruppentyp</source>
+        <target>Tipo de grupo</target>
+      </segment>
+    </unit>
+    <unit id="MxCYTlN" name="Änderungen an '{appname}' speichern">
+      <notes>
+        <note category="german">Änderungen an {appname} speichern</note>
+        <note category="from">php:///src/Controller/Admin/AdminAppController.php</note>
+      </notes>
+      <segment>
+        <source>Änderungen an '{appname}' speichern</source>
+        <target>Guardar cambios en '{appname}'</target>
       </segment>
     </unit>
   </file>

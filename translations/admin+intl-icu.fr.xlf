@@ -297,7 +297,7 @@
       <notes>
         <note category="german">Admin</note>
         <note category="state">new</note>
-        <note category="from">twig:///templates/ajax/admin/users/account.html.twig;twig:///templates/ajax/admin/users/all_index.html.twig</note>
+        <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php;twig:///templates/ajax/admin/users/account.html.twig;twig:///templates/ajax/admin/users/all_index.html.twig</note>
       </notes>
       <segment>
         <source>Admin</source>
@@ -662,7 +662,7 @@
     <unit id="awzJBNC" name="Users">
       <notes>
         <note category="german">Users</note>
-        <note category="from">php:///src/Controller/Admin/AdminActionController.php</note>
+        <note category="from">php:///src/Controller/Admin/AdminActionController.php;twig:///templates/ajax/admin/users/all_index.html.twig</note>
       </notes>
       <segment>
         <source>Users</source>
@@ -682,7 +682,7 @@
     <unit id="jA6UdTz" name="Zukunft">
       <notes>
         <note category="german">Zukunft</note>
-        <note category="from">php:///src/Controller/Admin/AdminActionController.php</note>
+        <note category="from">php:///src/Controller/Admin/AdminActionController.php;twig:///templates/ajax/admin/changelogs/changelogs.html.twig</note>
       </notes>
       <segment>
         <source>Zukunft</source>
@@ -1527,7 +1527,7 @@
       <notes>
         <note category="german">AntiSpam</note>
         <note category="state">new</note>
-        <note category="from">php:///src/Controller/Admin/AdminActionController.php</note>
+        <note category="from">php:///src/Controller/Admin/AdminActionController.php;twig:///templates/ajax/admin/spam/domains.html.twig</note>
       </notes>
       <segment>
         <source>AntiSpam</source>
@@ -1919,7 +1919,7 @@
     <unit id="i2H25l5" name="Foren-Mod.">
       <notes>
         <note category="german">Foren-Mod.</note>
-        <note category="from">php:///src/Controller/Admin/AdminActionController.php</note>
+        <note category="from">php:///src/Controller/Admin/AdminActionController.php;twig:///templates/ajax/admin/reports/reports.html.twig</note>
       </notes>
       <segment>
         <source>Foren-Mod.</source>
@@ -4151,7 +4151,7 @@
     <unit id="NSeveUs" name="Dateisystem">
       <notes>
         <note category="german">Dateisystem</note>
-        <note category="from">php:///src/Controller/Admin/AdminActionController.php</note>
+        <note category="from">php:///src/Controller/Admin/AdminActionController.php;twig:///templates/ajax/admin/files/list.html.twig</note>
       </notes>
       <segment>
         <source>Dateisystem</source>
@@ -4373,7 +4373,6 @@
       <notes>
         <note category="german">Zurzeit in der Stadt</note>
         <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Zurzeit in der Stadt</source>
@@ -4384,11 +4383,32 @@
       <notes>
         <note category="german">Eternal-Twin-Konto verlinkt</note>
         <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Eternal-Twin-Konto verlinkt</source>
         <target>Compte Eternal-Twin lié</target>
+      </segment>
+    </unit>
+    <unit id="_VFidG8" name="Gruppentyp">
+      <notes>
+        <note category="german">Gruppentyp</note>
+        <note category="from">twig:///templates/ajax/admin/groups/edit.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Gruppentyp</source>
+        <target>Gruppentyp</target>
+      </segment>
+    </unit>
+    <unit id="MxCYTlN" name="Änderungen an '{appname}' speichern">
+      <notes>
+        <note category="german">Änderungen an {appname} speichern</note>
+        <note category="from">php:///src/Controller/Admin/AdminAppController.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Änderungen an '{appname}' speichern</source>
+        <target>Änderungen an '{appname}' speichern</target>
       </segment>
     </unit>
   </file>

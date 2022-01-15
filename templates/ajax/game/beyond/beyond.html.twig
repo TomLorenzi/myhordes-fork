@@ -58,19 +58,11 @@
                 </div>
             {% endif %}
 
-            {% if map_data is defined %}
+            {% if map_public_json is defined %}
                 <div class="row">
                     <div class="cell background map-box rw-12">
-                            {% embed "ajax/game/map.html.twig" with {
-                                'default_zoom': 0,
-                                'default_show_zone': true,
-                                'allow_zone_view': true,
-                                'move': allow_movement,
-                                'in_town': false,
-                                'is_shaman': is_shaman,
-                                'map': map_data,
-                                'blocked': zone_blocked,
-                            } %}{% endembed %}
+                            <div id="beyond-map" x-react-mount="map" x-react-data="{{ map_public_json }}"></div>
+
                             <div class="zone-info link" x-ajax-href="{{ path('help', {'name': 'control_points'}) }}">
                                 <div class="row zone-cp note note-light">
                                     <div class="cell rw-5 left"><img src="{{ asset('build/images/icons/small_human.gif') }}" alt="CP" /> <span class="humans-cp">{% if zone.x != 0 or zone.y != 0 %}{% trans with {'{points}': zone_cp} from 'game' %}{points} Punkt(e){% endtrans %}{% else %}--{% endif %}</span></div>
@@ -199,13 +191,31 @@
 {% block js %}
     {{ parent() }}
     <script>
-        {% if map_data is defined %}
-            {% embed "scripts/map.js.twig" with {'map': map_data} %}{% endembed %}
-            let map = document.querySelector('.map_area');
-            map.addEventListener('zone-click', function(e) {
-                mark_zone(map,e.detail.x,e.detail.y,true);
-            });
-        {% endif %}
+        let movement_busy = false;
+        $.components.clearEventListeners('beyond-map', 'player-movement');
+        $.components.attachEventListener('beyond-map', 'player-movement', m=>{
+            if (movement_busy) return;
+            movement_busy = true;
+
+            let completed = false;
+            const complete = ()=>{
+                if (!completed) $.ajax.pop_renderblock();
+                completed = true;
+            }
+            setTimeout(complete, 1250)
+
+            $.ajax.push_renderblock().background().easySend( '{{ path('beyond_desert_move_controller') }}', m,
+                () => {
+                    movement_busy = false;
+                    $.ajax.background().load(null, '{{ path('beyond_dashboard') }}', true);
+                }, null, data => {
+                    movement_busy = false;
+                    complete();
+                    $.components.dispatchEvent('beyond-map', 'movement-reset', {});
+                    $.html.selectErrorMessage( data.error, null, c.errors, data );
+                }, true );
+        });
+
         {% if ruin_map_data is defined %}
             {% embed "scripts/ruin_map.js.twig" with {'map': ruin_map_data} %}{% endembed %}
         {% endif %}

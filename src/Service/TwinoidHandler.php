@@ -230,16 +230,13 @@ class TwinoidHandler
 
         $seasons = [];
         foreach ($data->getPastTowns() as $town) if ($tid_list[$town->getID()] === false) {
-
             if (!isset($seasons[$town->getSeason()])) {
-
                 $seasons[$town->getSeason()] = $this->em->getRepository(Season::class)->findOneBy(['number' => 0, 'subNumber' => $town->getSeason()]);
                 if ($seasons[$town->getSeason()] === null) {
                     $seasons[$town->getSeason()] = (new Season())
                         ->setNumber(0)->setSubNumber($town->getSeason());
                     $this->em->persist( $seasons[$town->getSeason()] );
                 }
-
             }
 
             $entry = $this->em->getRepository(TownRankingProxy::class)->findOneBy( ['imported' => true, 'baseID' => $town->getID(), 'language' => $lang] );
@@ -256,6 +253,8 @@ class TwinoidHandler
                     ->setV1($town->isOld());
             else $entry->setDays( max( $entry->getDays(), $town->getDay() ) );
 
+            dump($town);
+
             $entry->addCitizen(
                 (new CitizenRankingProxy())
                     ->setBaseID( $user->getId() )
@@ -270,15 +269,19 @@ class TwinoidHandler
                     ->setPoints( $town->getScore() )
                     ->setLimitedImport( $isPrimary && $isLimited )
                     ->setDisabled( $isPrimary && $isLimited )
+                    ->setCleanupUsername($town->getCleanup()['user'])
+                    ->setCleanupType($town->getCleanup()['type'])
             );
 
             $this->em->persist( $entry );
         } else {
             /** @var CitizenRankingProxy $entry */
             $entry = $this->em->getRepository(CitizenRankingProxy::class)->findOneBy( ['user' => $user, 'importID' => $town->getID(), 'importLang' => $lang] );
+            dump($town);
             if ($entry) {
                 $entry
-                    ->setComment( $town->getComment() )->setLastWords( $town->getMessage() )->setDay( $town->getSurvivedDays() )->setPoints( $town->getScore() )->setCod( $town->convertDeath() )
+                    ->setComment( $town->getComment() )->setLastWords( $town->getMessage() )->setDay( $town->getSurvivedDays() )->setPoints( $town->getScore() )->setCod( $town->convertDeath() )->setCleanupUsername($town->getCleanup()['user'])
+                    ->setCleanupType($town->getCleanup()['type'])
                     ->getTown()->setV1($town->isOld());
                 $this->em->persist( $entry );
             }

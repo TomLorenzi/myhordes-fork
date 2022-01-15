@@ -19,6 +19,7 @@ use App\Service\RandomGenerator;
 use App\Structures\MyHordesConf;
 use App\Translation\T;
 use Exception;
+use ReflectionClass;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -61,12 +62,15 @@ class AdminGroupController extends CustomAbstractController
         return $this->render( 'ajax/admin/groups/edit.html.twig', $this->addDefaultTwigArgs(null, [
             'current_group' => null,
             'members' => [],
-            'icon_max_size' => $this->conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_UPLOAD, 3145728)
+            'icon_max_size' => $this->conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_UPLOAD, 3145728),
+            'types' => (new ReflectionClass(OfficialGroup::class))->getConstants()
         ]));
     }
 
     /**
      * @Route("jx/admin/groups/{id<-?\d+>}", name="admin_group_edit")
+     * @param int $id
+     * @param PermissionHandler $perm
      * @return Response
      */
     public function group_edit(int $id, PermissionHandler $perm): Response
@@ -78,7 +82,8 @@ class AdminGroupController extends CustomAbstractController
         return $this->render( 'ajax/admin/groups/edit.html.twig', $this->addDefaultTwigArgs(null, [
             'current_group' => $group_meta,
             'members' => $perm->usersInGroup($group_meta->getUsergroup()),
-            'icon_max_size' => $this->conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_UPLOAD, 3145728)
+            'icon_max_size' => $this->conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_UPLOAD, 3145728),
+            'types' => (new ReflectionClass(OfficialGroup::class))->getConstants()
         ]));
     }
 
@@ -109,6 +114,7 @@ class AdminGroupController extends CustomAbstractController
         $group_meta
             ->setAnon( (bool)$parser->get('anon') )
             ->setLang( $parser->get('lang', 'multi', ['de','en','fr','es','multi']) )
+            ->setSemantic( $parser->get_int('type', 0) )
             ->setDescription($parser->get('desc'));
 
         $am = $parser->get_array('m_add');

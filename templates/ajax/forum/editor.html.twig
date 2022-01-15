@@ -550,7 +550,7 @@
 
                 $.html.popup(title, form, 'tag'+tag, [
                     [ '{{ 'Einfügen'|trans({},'global')|e('js') }}',  [ ['click', processModal] ] ],
-                    [ '{{ 'Abbrechen'|trans({},'global')|e('js') }}', [ ['click', (e,elem) => $.html.triggerPopupPop(elem)] ] ]
+                    [ '{{ 'Abbrechen'|trans({},'global')|e('js') }}', [ ['click', (e, elem) => $.html.triggerPopupPop(elem)] ] ]
                 ] );
 
                 if (!textInput.value || !urlInput) textInput.focus();
@@ -693,10 +693,11 @@
                                 {% if type == 'pm' or type == 'global' %}
                                     const rc = document.getElementById('pmidrecipient');
                                     if (rc) target_payload.recipient = rc.value;
-                                    let sent_items = document.querySelectorAll("#sent-items .item");
+                                    let sent_items = document.querySelectorAll("#sent-items .item[x-item-id]");
                                     if(sent_items.length > 0) {
                                         target_payload.items = [];
                                         for (let i = 0; i < sent_items.length; i++) {
+                                            console.log(sent_items[i]);
                                             target_payload.items.push(sent_items[i].attributes['x-item-id'].value);
                                         }
                                     }

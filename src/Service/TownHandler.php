@@ -537,10 +537,7 @@ class TownHandler
         if (!$est) return [];
 
         $ratio = 1;
-        if ($this->getBuilding($town, 'item_tagger_#01')) {
-            $ratio *= 2;
-        }
-        if ($this->inventory_handler->countSpecificItems($town->getBank(), 'scope_#00', false, false) > 0) {
+        if ($this->getBuilding($town, 'item_tagger_#01') || $this->inventory_handler->countSpecificItems($town->getBank(), 'scope_#00', false, false) > 0) {
             $ratio *= 2;
         }
 
@@ -629,7 +626,7 @@ class TownHandler
     }
 
     public function calculate_offsets(&$offsetMin, &$offsetMax, $nbRound, $new_formula){
-        for ($i = 0; $i < $nbRound; $i++) {
+        for ($i = 0; $i < min($nbRound, 24); $i++) {
             if ($offsetMin + $offsetMax > 10) {
                 $increase_min = $this->random->chance($offsetMin / ($offsetMin + $offsetMax));
                 $alter = $new_formula ? mt_rand(500, 2000) / 1000.0 : 1;

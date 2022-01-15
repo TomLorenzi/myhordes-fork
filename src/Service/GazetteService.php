@@ -717,8 +717,8 @@ class GazetteService
     static array $node_block_cache = [];
     static array $node_block_ord = [];
     public function generateCouncilNodeList(Town $town, int $day, int $rootNodeSemantic, array $citizenData, array $flags = []) {
-
         $cache_key = $town->getId() . '.' . $day;
+
         if (!isset(static::$node_block_cache[$cache_key])) static::$node_block_cache[$cache_key] = [];
         if (!isset(static::$node_block_ord[$cache_key]))   static::$node_block_ord[$cache_key] = 0;
 
@@ -883,5 +883,7 @@ class GazetteService
             $this->rand->pick($this->entity_manager->getRepository(CouncilEntryTemplate::class)->findBy(['semantic' => $rootNodeSemantic]), 1, true),
             null, [], $s, true
         );
+
+        static::$node_block_ord[$cache_key] = $ord;
     }
 }

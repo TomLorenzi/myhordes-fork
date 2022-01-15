@@ -554,7 +554,7 @@
     <unit id="QI_O4UJ" name="Verschüttete Ruine">
       <notes>
         <note category="german">Verschüttete Ruine</note>
-        <note category="from">php:///src/Controller/ExternalXML2Controller.php;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/map.html.twig</note>
+        <note category="from">php:///src/Controller/ExternalXML2Controller.php;php:///src/Controller/InventoryAwareController.php;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Verschüttete Ruine</source>
@@ -564,7 +564,7 @@
     <unit id="qKBuSla" name="Zone">
       <notes>
         <note category="german">Zone</note>
-        <note category="from">twig:///templates/ajax/admin/towns/map.html.twig;twig:///templates/ajax/game/map.html.twig</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php;twig:///templates/ajax/admin/towns/map.html.twig;twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Zone</source>
@@ -574,7 +574,7 @@
     <unit id="8Nqa1HE" name="Entfernung">
       <notes>
         <note category="german">Entfernung</note>
-        <note category="from">twig:///templates/ajax/admin/towns/map.html.twig;twig:///templates/ajax/game/map.html.twig</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php;twig:///templates/ajax/admin/towns/map.html.twig;twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Entfernung</source>
@@ -584,7 +584,7 @@
     <unit id="VasxdH5" name="Routen">
       <notes>
         <note category="german">Routen</note>
-        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php;twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Routen</source>
@@ -604,7 +604,7 @@
     <unit id="NqjEmUx" name="Karte">
       <notes>
         <note category="german">Karte</note>
-        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php;twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Karte</source>
@@ -2061,7 +2061,7 @@
       </notes>
       <segment>
         <source>Du kannst in einer neuen Stadt wiedergeboren werden und das so oft wie du möchtest. Sei erfinderisch, probiere verschiedene Optionen aus und finde deinen eigenen Spielstil!</source>
-        <target>Puedes reencarnarte en otro pueblo lejano cuantas veces quieras ¡Usa diferentes estrategias, experimenta!</target>
+        <target>Puedes reencarnarte en otro pueblo Leyenda cuantas veces quieras ¡Usa diferentes estrategias, experimenta!</target>
       </segment>
     </unit>
     <unit id="em6PCOi" name="Wiedergeboren werden">
@@ -3103,7 +3103,7 @@
       </notes>
       <segment>
         <source>Hat jemand in letzter Zeit von {citizen} gehört? Er scheint verschwunden zu sein ...</source>
-        <target>Alguien ha oído algo de {citizen} recientemente? Parece como si hubiera desaparecido...</target>
+        <target>¿Alguien ha oído algo de {citizen} recientemente? Parece como si hubiera desaparecido...</target>
       </segment>
     </unit>
     <unit id="Z05vQEU">
@@ -3113,7 +3113,7 @@
       </notes>
       <segment>
         <source>{citizen} hat dem Druck nicht länger standgehalten und sein Leben beendet: {cod}.</source>
-        <target>{citizen} ha sido débil y decidió terminar su miserable existencia: {cod}.</target>
+        <target>{citizen} ha sido débil y ha decidido terminar su miserable existencia: {cod}.</target>
       </segment>
     </unit>
     <unit id="dt4EPd2" name="Verrat! {citizen} ist gestorben: {cod}.">
@@ -3143,7 +3143,7 @@
       </notes>
       <segment>
         <source>{citizen} hat seinen letzten Atemzug getan: {cod}!</source>
-        <target>{citizen} resipró su último aliento: {cod}!</target>
+        <target>{citizen} nos ha dejado: {cod}!</target>
       </segment>
     </unit>
     <unit id="6TXzJgz" name="{citizen} hat das Stadtgebiet in Richtung {direction} verlassen.">
@@ -5243,7 +5243,7 @@
       </notes>
       <segment>
         <source>Jeder so zerstörte Gegenstand kostet dich {ap}.</source>
-        <target>Caba objeto arrojado te cuesta {ap}.</target>
+        <target>Cada objeto arrojado te cuesta {ap}.</target>
       </segment>
     </unit>
     <unit id="2MX9W.G" name="Du wurdest verbannt und kannst die Müllhalde daher nicht länger nutzen.">
@@ -5463,7 +5463,7 @@
       </notes>
       <segment>
         <source>Hausverbesserung</source>
-        <target>Trabajador hogareño</target>
+        <target>Mejoras en casa</target>
       </segment>
     </unit>
     <unit id="vvkmQ1Z">
@@ -5473,7 +5473,7 @@
       </notes>
       <segment>
         <source>Anzahl der Verbesserungen und Ausbauten, die du an deinem eigenem Haus vorgenommen hast.</source>
-        <target>Cantidad de pequeños trabajos hechos en casa.</target>
+        <target>Cantidad de mejoras hechas a tu vivienda.</target>
       </segment>
     </unit>
     <unit id="NXPKDs5" name="Handwerk">
@@ -7203,7 +7203,7 @@
       </notes>
       <segment>
         <source>Du bist völlig erschöpft... Ruh dich aus oder iss etwas, um wieder zu Kräften zu kommen!</source>
-        <target>Estás agotado... ¡Descansa un poco o aliméntate para recuperarte!</target>
+        <target>Estás Cansado... ¡Descansa un poco o aliméntate para recuperarte!</target>
       </segment>
     </unit>
     <unit id="PoxvW0_">
@@ -7593,7 +7593,7 @@
       </notes>
       <segment>
         <source>Sie brachten die Leiche von {disposed} zum Kremato-Cue. Man bekommt {ration} Rationen davon...  Aber zu welchem Preis?</source>
-        <target>levas el cadáver de {disposed} al Cremato-Bar del pueblo. Gracias a ello recibes {ration} carnes humanas... Pero a qué precio?</target>
+        <target>Llevas el cadáver de {disposed} al Cremato-Bar del pueblo. Gracias a ello recibes {ration} carnes humanas... ¿Pero a qué costo?</target>
       </segment>
     </unit>
     <unit id="0i49zPL" name="In diesem Thread dreht sich alles um die Bank.">
@@ -7799,7 +7799,7 @@
     <unit id="ZLNo.4B" name="Position:">
       <notes>
         <note category="german">Position:</note>
-        <note category="from">twig:///templates/ajax/admin/towns/map.html.twig;twig:///templates/ajax/game/map.html.twig</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php;twig:///templates/ajax/admin/towns/map.html.twig;twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Position:</source>
@@ -7930,11 +7930,10 @@
       <notes>
         <note category="german">Was geschieht mit dieser Leiche?</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Was geschieht mit dieser Leiche?</source>
-        <target>Was geschieht mit dieser Leiche?</target>
+        <target>¿Qué pasará con su cadáver?</target>
       </segment>
     </unit>
     <unit id="TauIpAZ">
@@ -8398,7 +8397,7 @@
       </notes>
       <segment>
         <source>Was für ein denkwürdiger Tag! Die Zombies spielten keine Rolle mehr, nachdem {citizen1} zur Mittagszeit nackt auf der Mauer einmal um die Stadt rannte. Kommentar von {citizen2} dazu: "Der Anblick war nicht von schlechten Eltern."</source>
-        <target>¡Qué día tan memorable! Los zombis ya no importaban después de que {citizen1} corriera por la ciudad desnudo en la pared a la hora del almuerzo. Comentario de {citizen2}: "La vista no estaba mal".</target>
+        <target>¡Qué día tan memorable! Los zombis ya no importaban después de que {citizen1} corriera por el pueblo desnudo en la pared a la hora del almuerzo. Comentario de {citizen2}: "La vista no estaba mal".</target>
       </segment>
     </unit>
     <unit id="6iAHRm0">
@@ -8728,7 +8727,7 @@
       </notes>
       <segment>
         <source>Mit aller Gewalt greifst du {citizen} an! Du hast den Überraschungsmoment auf deiner Seite und am Ende trägt {citizen} eine schwere Verletzung davon.</source>
-        <target>¡Has atacado violentemente a {citizen}! La pelea fue tan brutal que heriste gravamente a ese povre tipo!</target>
+        <target>¡Has atacado violentamente a {citizen}! La pelea fue tan brutal que heriste gravemente a ese pobre tipo!</target>
       </segment>
     </unit>
     <unit id="1HduKoA">
@@ -9568,7 +9567,7 @@
       </notes>
       <segment>
         <source>vor Angst erstarrt</source>
-        <target>congelado de miedo</target>
+        <target>Aterrorizado(s)</target>
       </segment>
     </unit>
     <unit id="MBMsiX2" name="Du wirst heute Nacht sterben!">
@@ -10998,7 +10997,7 @@
     <unit id="W3jTpt9" name="Isolierte Zombies">
       <notes>
         <note category="german">Einzelner Zombie</note>
-        <note category="from">twig:///templates/ajax/admin/towns/map.html.twig;twig:///templates/ajax/game/map.html.twig</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php;twig:///templates/ajax/admin/towns/map.html.twig;twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Isolierte Zombies</source>
@@ -11008,7 +11007,7 @@
     <unit id="Yc0dhV4" name="Die Zombies verstümmeln">
       <notes>
         <note category="german">Zombiemeute</note>
-        <note category="from">twig:///templates/ajax/admin/towns/map.html.twig;twig:///templates/ajax/game/map.html.twig</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php;twig:///templates/ajax/admin/towns/map.html.twig;twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Die Zombies verstümmeln</source>
@@ -11018,7 +11017,7 @@
     <unit id="c8SXj_R" name="Horde der Zombies">
       <notes>
         <note category="german">Zombiehorde</note>
-        <note category="from">twig:///templates/ajax/admin/towns/map.html.twig;twig:///templates/ajax/game/map.html.twig</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php;twig:///templates/ajax/admin/towns/map.html.twig;twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Horde der Zombies</source>
@@ -11028,7 +11027,7 @@
     <unit id="BtRmkSS" name="Mark.">
       <notes>
         <note category="german">Mark.</note>
-        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php;twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Mark.</source>
@@ -15266,7 +15265,7 @@
       </notes>
       <segment>
         <source>Beruf</source>
-        <target>Profesión</target>
+        <target>Oficio</target>
       </segment>
     </unit>
     <unit id="UaAP3Pr" name="Anwesenheit">
@@ -15484,12 +15483,11 @@
     <unit id="4itiz0J">
       <notes>
         <note category="german">Die &lt;strong&gt;Explosion des {plan}&lt;/strong&gt; hat den ganzen Sektor in Mitleidenschaft gezogen! Das wird sicher Spuren hinterlassen ...</note>
-        <note category="state">new</note>
         <note category="from">db://LogEntryTemplate</note>
       </notes>
       <segment>
         <source>Die &lt;strong&gt;Explosion des {plan}&lt;/strong&gt; hat den ganzen Sektor in Mitleidenschaft gezogen! Das wird sicher Spuren hinterlassen ...</source>
-        <target><![CDATA[Die <strong>Explosion des {plan}</strong> hat den ganzen Sektor in Mitleidenschaft gezogen! Das wird sicher Spuren hinterlassen ...]]></target>
+        <target><![CDATA[¡La <strong>explosión de los {plan}</strong> ha afectado a toda la región! Eso seguro dejará su marca...]]></target>
       </segment>
     </unit>
     <unit id="YOWDgeT" name="Das Stadttor von &quot;{townname}&quot;">
@@ -15729,7 +15727,7 @@
       </notes>
       <segment>
         <source>Wiedergeburt: Wähle einen Beruf</source>
-        <target>Renacimiento: elige una profesión</target>
+        <target>Reencarnación: elige un oficio</target>
       </segment>
     </unit>
     <unit id="JPF0EfZ" name="Klick hier, um mehr über diesen Beruf zu erfahren...">
@@ -15739,7 +15737,7 @@
       </notes>
       <segment>
         <source>Klick hier, um mehr über diesen Beruf zu erfahren...</source>
-        <target>Haz click aquí para aprender más sobre esta profesión...</target>
+        <target>Haz click aquí para aprender más sobre este oficio...</target>
       </segment>
     </unit>
     <unit id="GErJWB." name="Zur zeit in der Stadt">
@@ -15909,7 +15907,7 @@
       </notes>
       <segment>
         <source>Unser Katapult wird von dem vom Schicksal auserwählten Bürger {citizen} gesteuert. Sollte ihm etwas Schreckliches zustoßen, könnte dann ein neuer Bürger gewählt werden.</source>
-        <target>Nuestra catapulta está controlada por el ciudadano {ciudadano} elegido por el destino. Si le ocurriera algo terrible, se podría elegir un nuevo encargado.</target>
+        <target>Nuestra catapulta está a cargo del habitante {citizen} elegido por el destino. Si le ocurriese algo terrible, se podría elegir un nuevo encargado.</target>
       </segment>
     </unit>
     <unit id="qX1gDpX" name="Die Stadt ist zerstört! Flieht, irh Narren!">
@@ -16089,7 +16087,7 @@
       </notes>
       <segment>
         <source>Die Stadt ist nichts weiter als ein widerwärtiger Friedhof. Es war niemand hier, der den letzten Angriff der Zombies hätte aufhalten können: &lt;strong&gt;das Stadttor wurde aufgebrochen&lt;/strong&gt; und &lt;strong&gt;liegt nun in Trümmern&lt;/strong&gt;. {town} existiert nicht mehr...</source>
-        <target><![CDATA[El pueblo no es más que un cementerio repugnante. No había nadie aquí que pudiera haber detenido el último ataque de los zombis: <strong>la puerta del pueblo se abrió de golpe</strong> y <strong>ahora está en ruinas</strong>. {town} ya no existe...]]></target>
+        <target><![CDATA[El pueblo no es más que un cementerio repugnante. No había nadie aquí que pudiera haber detenido el último ataque de los zombis: <strong>el portal del pueblo se abrió de golpe</strong> y <strong>ahora está en ruinas</strong>. {town} ya no existe...]]></target>
       </segment>
     </unit>
     <unit id="V.GaRUl" name="Sind wir noch in der Alpha?">
@@ -17770,7 +17768,7 @@
       </notes>
       <segment>
         <source>{citizen1} verbrachten die ganze Nacht heulend in ihrem Haus, bis zu dem Punkt, dass jeder dachte, die Zombies würden Bürger-Steaks aus ihm machen. Es stellte sich heraus, dass sie gerade einen &lt;strong&gt;massiven Zusammenbruch&lt;/strong&gt; hatten. Letzte Nacht gab es keine Toten in der Stadt.</source>
-        <target><![CDATA[{citizen1} ha pasado la noche chillando en su casa, pensamos que un zombie se lo estaba comiendo por pedacitos. En realidad tenía una <strong>gran crisis de nervios</strong>. Fue solo eso, no hubieron muertos anoche.]]></target>
+        <target><![CDATA[{citizen1} ha pasado la noche chillando en su casa, pensamos que un zombie se lo estaba comiendo por pedacitos. En realidad tenía una <strong>gran crisis de nervios</strong>. Fue solo eso, no hubo muertos anoche.]]></target>
       </segment>
     </unit>
     <unit id="jq7dkW2">
@@ -19033,7 +19031,7 @@
       </notes>
       <segment>
         <source>Was ist letzte Nacht nur passiert? Du hast wohl zu heftig gefeiert. Als du die Stadtmauer erreichst, spürst du... Ja, ja, du bist in der Tat der Ausgewählte. Der Zweifel verschwindet, als du den Blick in Richtung des Stadttors lenkst: Ein wahnsinniges Verlangen nach Abenteuer und Entdeckungen überkommt dich, was eigentlich eher untypisch ist...</source>
-        <target>¿Qué pasó anoche? Probablemente festejaste demasiado. Cuando llegas a la muralla del pueblo, sientes... Sí, sí, de hecho eres el elegido. La duda desaparece cuando diriges tu mirada hacia la puerta del pueblo: estás abrumado por un loco deseo de aventura y descubrimiento, que en realidad es bastante atípico...</target>
+        <target>¿Qué pasó anoche? Probablemente festejaste demasiado. Cuando llegas a la muralla del pueblo, sientes... Sí, sí, de hecho eres el elegido. La duda desaparece cuando diriges tu mirada hacia el portal del pueblo: estás abrumado por un loco deseo de aventura y descubrimiento, que en realidad es bastante atípico...</target>
       </segment>
     </unit>
     <unit id="M_Sa.96" name="Du bist nun der Reiseleiter in der Außenwelt.">
@@ -20776,7 +20774,7 @@
       </notes>
       <segment>
         <source>Stadttor zerstört!</source>
-        <target>¡Puerta del pueblo destruida!</target>
+        <target>¡Portal destruido!</target>
       </segment>
     </unit>
     <unit id="i02hvai">
@@ -20786,7 +20784,7 @@
       </notes>
       <segment>
         <source>Das Stadttor wurde bei einem besonders furchtbaren Angriff aus den Angeln gerissen und in die Aussenwelt geschleudert. Du solltest dich heute Nacht besser nicht hier aufhalten, sonst wird diese Stadt dein Grab.</source>
-        <target>La puerta del pueblo fue arrancada de sus goznes en un ataque particularmente terrible y arrojada al ultramundo. Será mejor que no estés aquí esta noche o este pueblo será tu tumba.</target>
+        <target>El portal del pueblo ha sido arrancado de sus goznes y llevado al ultramundo durante un ataque aterrador. Será mejor que no estés aquí en la noche o este pueblo será tu tumba.</target>
       </segment>
     </unit>
     <unit id="omwkh4e">
@@ -20796,7 +20794,7 @@
       </notes>
       <segment>
         <source>Das passiert eben, wenn man eine Stadt ohne einen einzigen Einwohner zurücklässt.</source>
-        <target>Eso es lo que pasa cuando sales de un pueblo sin un solo habitante.</target>
+        <target>Esto es lo que pasa cuando se deja un a pueblo sin habitantes.</target>
       </segment>
     </unit>
     <unit id="WUioDKI" name="Das Stadttor ist zerstört!">
@@ -20806,7 +20804,7 @@
       </notes>
       <segment>
         <source>Das Stadttor ist zerstört!</source>
-        <target>¡La puerta del pueblo está destruida!</target>
+        <target>¡El portal del pueblo está destruido!</target>
       </segment>
     </unit>
     <unit id="ixRzzXD">
@@ -21187,7 +21185,7 @@
       </notes>
       <segment>
         <source>Diese Note wird vom &lt;strong&gt;Komitee des guten Geschmacks der Stadt {townname}&lt;/strong&gt; vergeben.</source>
-        <target><![CDATA[Esta nota es otorgada por el <strong>Comité del Buen Gusto de Fosa Morada</strong>.]]></target>
+        <target><![CDATA[Esta nota es otorgada por el <strong>Comité del Buen Gusto de {townname}</strong>.]]></target>
       </segment>
     </unit>
     <unit id="Ng_nMhX">
@@ -21486,7 +21484,7 @@
     <unit id="uAj26XB" name="Schließen">
       <notes>
         <note category="german">Schließen</note>
-        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php;twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Schließen</source>
@@ -21497,7 +21495,7 @@
       <notes>
         <note category="german">Global</note>
         <note category="state">new</note>
-        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php;twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Global</source>
@@ -22667,7 +22665,7 @@
       </notes>
       <segment>
         <source>Du kannst kein(en) {item} per Post versenden.</source>
-        <target>No puede enviar un/una {artículo} por correo.</target>
+        <target>No puedes enviar el objeto {item} por correo.</target>
       </segment>
     </unit>
     <unit id="FWgGHVi">
@@ -22817,7 +22815,7 @@
       </notes>
       <segment>
         <source>Das Stadttor wurde bereits von einem anderen pflichtbewussten Bürger geschlossen.</source>
-        <target>La puerta del pueblo ya ha sido cerrada por otro habitante obediente.</target>
+        <target>El portal del pueblo ya ha sido cerrado por otro habitante obediente.</target>
       </segment>
     </unit>
     <unit id="ejlTArB">
@@ -22916,11 +22914,10 @@
       <notes>
         <note category="german">Du bist der {rolename} dieser Stadt.</note>
         <note category="from">php:///src/DataFixtures/CitizenFixtures.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Du bist der {rolename} dieser Stadt.</source>
-        <target>Du bist der {rolename} dieser Stadt.</target>
+        <target>Eres el {rolename} del pueblo.</target>
       </segment>
     </unit>
     <unit id="0lP3VYZ">
@@ -23041,22 +23038,20 @@
       <notes>
         <note category="german">Ein Moderator hat deinen Thread "{threadname}" in das Forum "{forumname}" verschoben. {link_post}</note>
         <note category="from">db://LogEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ein Moderator hat deinen Thread "{threadname}" in das Forum "{forumname}" verschoben. {link_post}</source>
-        <target>Ein Moderator hat deinen Thread "{threadname}" in das Forum "{forumname}" verschoben. {link_post}</target>
+        <target>Tu tema "{threadname}" ha sido desplazado al Foro "{forumname}" por un moderador. {link_post}</target>
       </segment>
     </unit>
     <unit id="d2ZHuaw" name="Deine aktuelle Situation erlaubt nicht, dass du diese Aktion durchführst.">
       <notes>
         <note category="german">Deine aktuelle Situation erlaubt nicht, dass du diese Aktion durchführst.</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Deine aktuelle Situation erlaubt nicht, dass du diese Aktion durchführst.</source>
-        <target>Deine aktuelle Situation erlaubt nicht, dass du diese Aktion durchführst.</target>
+        <target>No puedes realizar esta acción actualmente.</target>
       </segment>
     </unit>
     <unit id="jlgyITW">
@@ -23083,11 +23078,10 @@
       <notes>
         <note category="german">&lt;strong&gt;Herzlichen Glückwunsch&lt;/strong&gt;, du hast Folgendes freigeschaltet: {list}</note>
         <note category="from">db://LogEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>&lt;strong&gt;Herzlichen Glückwunsch&lt;/strong&gt;, du hast Folgendes freigeschaltet: {list}</source>
-        <target><![CDATA[<strong>Herzlichen Glückwunsch</strong>, du hast Folgendes freigeschaltet: {list}]]></target>
+        <target><![CDATA[<strong>Enhorabuena</strong>, has desbloqueado las siguientes recompensas: {list}]]></target>
       </segment>
     </unit>
     <unit id=".ZhHPoH">
@@ -23144,22 +23138,20 @@
       <notes>
         <note category="german">Alarm (Bürger {citizen})</note>
         <note category="from">php:///src/Controller/Messages/MessageTownMessageController.php;php:///src/Controller/Town/TownHomeController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Alarm (Bürger {citizen})</source>
-        <target>Alarm (Bürger {citizen})</target>
+        <target>Alarma (de {citizen})</target>
       </segment>
     </unit>
     <unit id="L_ADbyN">
       <notes>
         <note category="german">{citizen} hat bei dir daheim den Alarm ausgelöst, als er (sie) um {time} versuchte bei dir einzubrechen!</note>
         <note category="from">php:///src/Controller/Messages/MessageTownMessageController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>{citizen} hat bei dir daheim den Alarm ausgelöst, als er (sie) um {time} versuchte bei dir einzubrechen!</source>
-        <target>{citizen} hat bei dir daheim den Alarm ausgelöst, als er (sie) um {time} versuchte bei dir einzubrechen!</target>
+        <target>¡El habitante {citizen} ha activado la Alarma Rudimentaria a las {time} mientas intentaba entrar a tu casa!</target>
       </segment>
     </unit>
     <unit id="CByaH.z" name="Als Ghul solltest du jeden Tag einen anderen Spieler auffressen.">
@@ -23230,7 +23222,7 @@
       </notes>
       <segment>
         <source>Halten wir kurz inne und gedenken unserem verlorenen Schamanen. Auf Wiedersehen, nutzloser Scharlatan! Wer ist motiviert, ihn zu ersetzen?</source>
-        <target>Un minuto de silencio por nuestro Chamán caído. ¡Hasta nunca charlatán inútil!</target>
+        <target>Un minuto de silencio por nuestro Chamán caído. ¡Hasta nunca, charlatán inútil!</target>
       </segment>
     </unit>
     <unit id="r1UYBsR">
@@ -23312,7 +23304,7 @@
       </notes>
       <segment>
         <source>Amüsant, &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} hat es nicht lange in der Stadt ausgehalt. Hängen auf dem öffentlichen Platz und Steinigung. Zivilisation ist schön!</source>
-        <target><![CDATA[<i class="dagger">†</i> {cadaver1} no duró mucho en este pueblo. <strong>Fue colgado</strong> y despúes <strong>apedreado</strong> en la plaza pública. ¡Si seguirmos así nos quedaremos sin vecinos!]]></target>
+        <target><![CDATA[<i class="dagger">†</i> {cadaver1} no duró mucho en este pueblo. <strong>Fue colgado</strong> y despúes <strong>apedreado</strong> en la plaza pública. ¡Si seguimos así nos quedaremos sin vecinos!]]></target>
       </segment>
     </unit>
     <unit id="ubNXQU3">
@@ -23362,7 +23354,7 @@
       </notes>
       <segment>
         <source>&lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} liegt seit gestern als vertrocknete Leiche in seinem Haus. Der Mangel an Wasser, was kann man erwarten. Manche Leute glauben immer noch, sie könnten darauf verzichten.</source>
-        <target><![CDATA[<i class="dagger">†</i> {cadaver1} no es más que un gran pedazo de carne seca. La falta de agua, fue fatal. Y pensar que algunos creen poder prescindir de ella...]]></target>
+        <target><![CDATA[<i class="dagger">†</i> {cadaver1} no es más que un gran pedazo de carne seca. La <strong>falta de agua</strong> fue fatal. Y pensar que algunos creen poder prescindir de ella...]]></target>
       </segment>
     </unit>
     <unit id="AEUoOt3">
@@ -23414,7 +23406,7 @@
       </notes>
       <segment>
         <source>Übrigens, Wassermangel ist teuer, {cadavers} die Bürger sind gestern in der Stadt ausgetrocknet. Oder haben sie "vergessen", ihre Ration zu nehmen? Stellt euch das mal vor!</source>
-        <target>La falta de agua es fatal, {cadavers} compañeros murieron literalmente disecados. ¿Habrán "olvidado" beber sus raciones de agua? Quién sabe.</target>
+        <target><![CDATA[La <strong>falta de agua</strong> es fatal, {cadavers} compañeros murieron literalmente disecados. ¿Habrán "olvidado" beber sus raciones de agua? Quién sabe.]]></target>
       </segment>
     </unit>
     <unit id="rsAiEQB">
@@ -23484,7 +23476,7 @@
       </notes>
       <segment>
         <source>Dieses geschwollene Ding an &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1}... nun, das ist &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1}. Seine Infektion verlief extrem virulent.</source>
-        <target><![CDATA[Esa cosa hinchada y apestosa en casa de <i class="dagger">†</i> {cadaver1},... pues es <i class="dagger">†</i> {cadaver1}. Su infección fue sorprendentemente virulenta.]]></target>
+        <target><![CDATA[Esa cosa hinchada y apestosa en casa de <i class="dagger">†</i> {cadaver1},... pues es <i class="dagger">†</i> {cadaver1}. Su <strong>infección</strong> fue sorprendentemente virulenta.]]></target>
       </segment>
     </unit>
     <unit id="ns8621y">
@@ -23504,7 +23496,7 @@
       </notes>
       <segment>
         <source>Ihre Haut begann sich zu schälen, aber sie machten sich keine allzu großen Gedanken darüber... {cadavers} Bürger starben letzte Nacht an einer Infektion.</source>
-        <target>Muchos no se preocuparon por ella, la subestimaron... Pero la infección acabó por llevarse a {cadavers} personas anoche.</target>
+        <target><![CDATA[Muchos no se preocuparon por ella, la subestimaron... Pero la <strong>infección</strong> acabó por llevarse a {cadavers} personas anoche.]]></target>
       </segment>
     </unit>
     <unit id="Muq1Zer">
@@ -23680,88 +23672,80 @@
       <notes>
         <note category="german">{citizen} hat an dem Bauprojekt {plan} mitgearbeitet (Sklaverei: +50% AP).</note>
         <note category="from">db://LogEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>{citizen} hat an dem Bauprojekt {plan} mitgearbeitet (Sklaverei: +50% AP).</source>
-        <target>{citizen} hat an dem Bauprojekt {plan} mitgearbeitet (Sklaverei: +50% AP).</target>
+        <target>{citizen} ha trabajado en la construcción {plan} (Esclavitud: +50% PA).</target>
       </segment>
     </unit>
     <unit id="gtMSDSz" name="{citizen} hat das Gebäude {plan} repariert (Sklaverei: +50% AP).">
       <notes>
         <note category="german">{citizen} hat das Gebäude {plan} repariert (Sklaverei: +50% AP).</note>
         <note category="from">db://LogEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>{citizen} hat das Gebäude {plan} repariert (Sklaverei: +50% AP).</source>
-        <target>{citizen} hat das Gebäude {plan} repariert (Sklaverei: +50% AP).</target>
+        <target>{citizen} ha reparado la construcción {plan} (Esclavitud: +50% PA).</target>
       </segment>
     </unit>
     <unit id="hq.m1hn" name="Ein Moderator hat deinen Thread &quot;{threadname}&quot; geschlossen. {link_post}">
       <notes>
         <note category="german">Ein Moderator hat deinen Thread "{threadname}" geschlossen. {link_post}</note>
         <note category="from">db://LogEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ein Moderator hat deinen Thread "{threadname}" geschlossen. {link_post}</source>
-        <target>Ein Moderator hat deinen Thread "{threadname}" geschlossen. {link_post}</target>
+        <target>Un moderador ha cerrado tu tema "{threadname}". {link_post}</target>
       </segment>
     </unit>
     <unit id="AEFBcgF">
       <notes>
         <note category="german">Ein Moderator hat deinen Thread "{threadname}" als "Gelöst" markiert. {link_post}</note>
         <note category="from">db://LogEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ein Moderator hat deinen Thread "{threadname}" als "Gelöst" markiert. {link_post}</source>
-        <target>Ein Moderator hat deinen Thread "{threadname}" als "Gelöst" markiert. {link_post}</target>
+        <target>Un moderador ha marcado tu tema "{threadname}" como "Resuelto". {link_post}</target>
       </segment>
     </unit>
     <unit id="4zy_n9Y" name="Funkgerät verwenden">
       <notes>
         <note category="german">Funkgerät verwenden</note>
         <note category="from">twig:///templates/ajax/public/maintenance_attack.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Funkgerät verwenden</source>
-        <target>Funkgerät verwenden</target>
+        <target>Abrir la mensajería</target>
       </segment>
     </unit>
     <unit id="ZUcAy0O" name="Gebäudeliste einblenden">
       <notes>
         <note category="german">Gebäudeliste einblenden</note>
         <note category="from">twig:///templates/ajax/game/town/town.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Gebäudeliste einblenden</source>
-        <target>Gebäudeliste einblenden</target>
+        <target>Mostrar construcciones</target>
       </segment>
     </unit>
     <unit id="tn37OGR">
       <notes>
         <note category="german">&lt;strong&gt;{citizen} scheint von einer plötzlichen, unkontrollierbaren Panik ergriffen zu sein&lt;/strong&gt;! Es ist unmöglich, auch nur einen Schritt weiter zu gehen... seine &lt;strong&gt;Bewegung wurde unterbrochen&lt;/strong&gt;.</note>
         <note category="from">db://LogEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>&lt;strong&gt;{citizen} scheint von einer plötzlichen, unkontrollierbaren Panik ergriffen zu sein&lt;/strong&gt;! Es ist unmöglich, auch nur einen Schritt weiter zu gehen... seine &lt;strong&gt;Bewegung wurde unterbrochen&lt;/strong&gt;.</source>
-        <target><![CDATA[<strong>{citizen} scheint von einer plötzlichen, unkontrollierbaren Panik ergriffen zu sein</strong>! Es ist unmöglich, auch nur einen Schritt weiter zu gehen... seine <strong>Bewegung wurde unterbrochen</strong>.]]></target>
+        <target><![CDATA[A {citizen} le ha dado un ataque de pánico, se ha puesto a llorar y <strong>no ha sido capaz de avanzar</strong>.]]></target>
       </segment>
     </unit>
     <unit id="_yQk_x1">
       <notes>
         <note category="german">Als du dich umschaust, &lt;strong&gt;überfällt dich eine plötzliche, unkontrollierbare Panik&lt;/strong&gt;! Es ist unmöglich, auch nur einen Schritt weiterzugehen.&lt;hr/&gt;Deine Bewegung wurde &lt;strong&gt;unterbrochen&lt;/strong&gt; und du hast &lt;strong&gt;1 AP&lt;/strong&gt; verloren.</note>
         <note category="from">php:///src/Controller/BeyondController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Als du dich umschaust, &lt;strong&gt;überfällt dich eine plötzliche, unkontrollierbare Panik&lt;/strong&gt;! Es ist unmöglich, auch nur einen Schritt weiterzugehen.&lt;hr/&gt;Deine Bewegung wurde &lt;strong&gt;unterbrochen&lt;/strong&gt; und du hast &lt;strong&gt;1 AP&lt;/strong&gt; verloren.</source>
-        <target><![CDATA[Als du dich umschaust, <strong>überfällt dich eine plötzliche, unkontrollierbare Panik</strong>! Es ist unmöglich, auch nur einen Schritt weiterzugehen.<hr/>Deine Bewegung wurde <strong>unterbrochen</strong> und du hast <strong>1 AP</strong> verloren.]]></target>
+        <target><![CDATA[A {citizen} le ha dado un ataque de pánico, ha dado vueltas en círculos y <strong>no ha sido capaz de avanzar</strong>. Han perdido <strong>1PA</strong>.]]></target>
       </segment>
     </unit>
     <unit id="EKiagwt">
@@ -24464,11 +24448,10 @@
       <notes>
         <note category="german">{shaman} hat {citizen} soeben mit seinen mystischen Schamanenkräften geheilt!</note>
         <note category="from">db://LogEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>{shaman} hat {citizen} soeben mit seinen mystischen Schamanenkräften geheilt!</source>
-        <target>{shaman} hat {citizen} soeben mit seinen mystischen Schamanenkräften geheilt!</target>
+        <target>¡{shaman} ha curado a {citizen} utilizando sus poderes chamánicos!</target>
       </segment>
     </unit>
     <unit id="3W9UyPW" name="in der Nähe des Gemüsegartens">
@@ -25120,15 +25103,15 @@
         <target>Getrocknete Blutlachen entwürdigten heute Morgen unsere stolze Stadt. Die Horde hat uns eine Lehre erteilt und uns gemahnt, in unseren Bemühungen nicht nachzulassen.</target>
       </segment>
     </unit>
-    <unit id="NmtcN7Z">
+    <unit id="Ud3QCGR">
       <notes>
-        <note category="german">Der entsetzliche Angriff letzte Nacht kostete das Leben von {cadavers} Menschen. Circa &lt;strong&gt;{attack} Zombies&lt;/strong&gt;! Die Gewalt, die bei diesem jüngsten Angriff zu beobachten war, lässt uns das Schlimmste erwarten...</note>
+        <note category="german">Der entsetzliche Angriff letzte Nacht kostete das Leben von {deaths} Menschen. Circa &lt;strong&gt;{attack} Zombies&lt;/strong&gt;! Die Gewalt, die bei diesem jüngsten Angriff zu beobachten war, lässt uns das Schlimmste erwarten...</note>
         <note category="from">db://GazetteEntryTemplate</note>
         <note category="state">new</note>
       </notes>
       <segment>
-        <source>Der entsetzliche Angriff letzte Nacht kostete das Leben von {cadavers} Menschen. Circa &lt;strong&gt;{attack} Zombies&lt;/strong&gt;! Die Gewalt, die bei diesem jüngsten Angriff zu beobachten war, lässt uns das Schlimmste erwarten...</source>
-        <target><![CDATA[Der entsetzliche Angriff letzte Nacht kostete das Leben von {cadavers} Menschen. Circa <strong>{attack} Zombies</strong>! Die Gewalt, die bei diesem jüngsten Angriff zu beobachten war, lässt uns das Schlimmste erwarten...]]></target>
+        <source>Der entsetzliche Angriff letzte Nacht kostete das Leben von {deaths} Menschen. Circa &lt;strong&gt;{attack} Zombies&lt;/strong&gt;! Die Gewalt, die bei diesem jüngsten Angriff zu beobachten war, lässt uns das Schlimmste erwarten...</source>
+        <target><![CDATA[Der entsetzliche Angriff letzte Nacht kostete das Leben von {deaths} Menschen. Circa <strong>{attack} Zombies</strong>! Die Gewalt, die bei diesem jüngsten Angriff zu beobachten war, lässt uns das Schlimmste erwarten...]]></target>
       </segment>
     </unit>
     <unit id="SHjFxml">
@@ -25166,7 +25149,7 @@
     </unit>
     <unit id="xpS6KNV">
       <notes>
-        <note category="german">Letzte Nacht war die Stadt von Zombies umzingelt! Einige schafften es, die Mauern zu durchbrechen, ein Zustrom, der uns {deaths} gute Leute kostete.</note>
+        <note category="german">Letzte Nacht war die Stadt {attack} von Zombies umzingelt! Einige schafften es, die Mauern zu durchbrechen, ein Zustrom, der uns {deaths} gute Leute kostete.</note>
         <note category="from">db://GazetteEntryTemplate</note>
         <note category="state">new</note>
       </notes>
@@ -25982,7 +25965,7 @@
       </notes>
       <segment>
         <source>Die Verbannten der Stadt wollten sich nicht länger unterdrücken lassen und haben eine Revolution angezettelt! Die bisherigen Anführer der Stadt wurden entmachtet und die Revolutionäre haben die Kontrolle übernommen.</source>
-        <target>¡Los desterrados de la ciudad ya no querían ser oprimidos y han empezado una revolución! Los líderes anteriores de la ciudad han sido expulsados y los revolucionarios han tomado el control.</target>
+        <target>¡Los desterrados del pueblo ya no querían ser oprimidos y han empezado una insurrección! Los líderes anteriores del pueblo han sido expulsados y los desterrados han tomado el control.</target>
       </segment>
     </unit>
     <unit id=".TChYJ9" name="Du bist nun frei.">
@@ -26002,7 +25985,7 @@
       </notes>
       <segment>
         <source>Erlöst von den Fesseln der Verbannung kannst du nun zusammen mit den anderen Revolutionären das Schicksal der Stadt bestimmen.</source>
-        <target>Liberado de las cadenas del destierro, ahora puedes determinar el destino de la ciudad junto con los otros revolucionarios.</target>
+        <target>Liberado de las cadenas del destierro, ahora puedes determinar el destino del pueblo junto con los otros insurrectos.</target>
       </segment>
     </unit>
     <unit id="CTl4Y7q" name="Du bist nun verbannt.">
@@ -26022,7 +26005,7 @@
       </notes>
       <segment>
         <source>Die Revolutionäre haben die Führung in der Stadt übernommen und die vormals freien Bürger erfahren nun selbst das bittere Schicksal der Verbannung.</source>
-        <target>Los revolucionarios han tomado el control de la ciudad y los ciudadanos previamente libres ahora están experimentando el amargo destino del destierro ellos mismos.</target>
+        <target>Los desterrados han tomado el control del pueblo y los habitantes previamente libres ahora están experimentando el amargo destino del destierro.</target>
       </segment>
     </unit>
     <unit id="NvYJXqK" name="Schau dir am besten gleich den {revolution_help} an.">
@@ -26042,7 +26025,7 @@
       </notes>
       <segment>
         <source>Verbannten-Ratgeber</source>
-        <target>Guía al Destierro</target>
+        <target>Guía de los desterrados</target>
       </segment>
     </unit>
     <unit id="6MOyLKz" name="Dort findest du alle Informationen über den Aufstand und dessen Folgen.">
@@ -26083,6 +26066,47 @@
       <segment>
         <source>Allen Widrigkeiten zum Trotz scheint es {citizen} gelungen zu sein, in der Zone etwas zu finden, mit dem er überleben kann...</source>
         <target>¿Quién lo hubiera creído?, {citizen} parece haber encontrado algo para sobrevivir...</target>
+      </segment>
+    </unit>
+    <unit id="sDajFXt">
+      <notes>
+        <note category="german">Nachrichten &lt;strong&gt;ohne Titel&lt;/strong&gt; oder &lt;strong&gt;Text&lt;/strong&gt; können nicht versendet werden.</note>
+        <note category="from">twig:///templates/scripts/errors/messages.txt.twig</note>
+      </notes>
+      <segment>
+        <source>Nachrichten &lt;strong&gt;ohne Titel&lt;/strong&gt; oder &lt;strong&gt;Text&lt;/strong&gt; können nicht versendet werden.</source>
+        <target><![CDATA[No puedes enviar un <strong>mensaje vacío</strong> o con el <strong>título vacío</strong>...]]></target>
+      </segment>
+    </unit>
+    <unit id="O.lyccv" name="Materialienverbrauch ansehen">
+      <notes>
+        <note category="german">Nur benötigte Materialien anzeigen</note>
+        <note category="from">twig:///templates/ajax/game/town/construction.html.twig</note>
+      </notes>
+      <segment>
+        <source>Materialienverbrauch ansehen</source>
+        <target>Activar la vista rápida</target>
+      </segment>
+    </unit>
+    <unit id="83UNHAB" name="Normale Ansicht">
+      <notes>
+        <note category="german">Normale Ansicht</note>
+        <note category="from">twig:///templates/ajax/game/town/construction.html.twig</note>
+      </notes>
+      <segment>
+        <source>Normale Ansicht</source>
+        <target>Activar la vista detallada</target>
+      </segment>
+    </unit>
+    <unit id="NmtcN7Z">
+      <notes>
+        <note category="german">Der entsetzliche Angriff letzte Nacht kostete das Leben von {cadavers} Menschen. Circa &lt;strong&gt;{attack} Zombies&lt;/strong&gt;! Die Gewalt, die bei diesem jüngsten Angriff zu beobachten war, lässt uns das Schlimmste erwarten...</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Der entsetzliche Angriff letzte Nacht kostete das Leben von {cadavers} Menschen. Circa &lt;strong&gt;{attack} Zombies&lt;/strong&gt;! Die Gewalt, die bei diesem jüngsten Angriff zu beobachten war, lässt uns das Schlimmste erwarten...</source>
+        <target><![CDATA[Der entsetzliche Angriff letzte Nacht kostete das Leben von {cadavers} Menschen. Circa <strong>{attack} Zombies</strong>! Die Gewalt, die bei diesem jüngsten Angriff zu beobachten war, lässt uns das Schlimmste erwarten...]]></target>
       </segment>
     </unit>
   </file>

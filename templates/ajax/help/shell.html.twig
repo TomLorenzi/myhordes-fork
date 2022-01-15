@@ -8,7 +8,11 @@
     <div class="row">
         <div class="padded-small map-box cell rw-4 rw-sm-12">
             <div class="row">
-           		<a class="support" href="https://gitlab.com/eternaltwin/myhordes/myhordes/-/issues" target="_blank"><em>{{ 'Brauchst du Hilfe?'|trans({},'help') }}</em>{{ 'Besuche unsere Technische Supportseite'|trans({},'help') }}</a>
+                {% if support is not defined or support is null %}
+           		    <a class="support" href="https://gitlab.com/eternaltwin/myhordes/myhordes/-/issues" target="_blank"><em>{{ 'Brauchst du Hilfe?'|trans({},'help') }}</em>{{ 'Besuche unsere Technische Supportseite'|trans({},'help') }}</a>
+                {% else %}
+                    <a class="support" x-group-connect="oglink_{{ support.id }}" href="#"><em>{{ 'Brauchst du Hilfe?'|trans({},'help') }}</em>{{ 'Besuche unsere Technische Supportseite'|trans({},'help') }}</a>
+                {% endif %}
                 <ul class="HelpList">
                     <li class="main {% if section == 'welcome' %}active{% endif %}">
                         <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="intro">
@@ -321,5 +325,13 @@
 {% block js %}
     {{ parent() }}
     <script>
+        $.html.addEventListenerAll('[x-group-connect]','click', (e,elem) => {
+            e.preventDefault();
+            const p = document.getElementById('postbox');
+            if (p) {
+                p.setAttribute('x-post-command', elem.getAttribute('x-group-connect'));
+                p.click();
+            } else alert('{{ 'Fehler beim Laden des Posteingangs.'|trans({},'global') }}')
+        })
     </script>
 {% endblock %}

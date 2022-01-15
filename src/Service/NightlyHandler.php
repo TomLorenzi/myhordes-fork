@@ -605,7 +605,8 @@ class NightlyHandler
         $cod = $this->entity_manager->getRepository(CauseOfDeath::class)->findOneBy(['ref' => CauseOfDeath::NightlyAttack]);
         $status_terror  = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy(['name' => 'terror']);
 
-        $has_kino = $this->town_handler->getBuilding($town, 'small_cinema_#00', true);
+        // Do not enable this effect for now until we know how it is handled on Hordes
+        $has_kino = false;//$this->town_handler->getBuilding($town, 'small_cinema_#00', true);
 
         // Day already advanced, let's get today's gazette!
         /** @var Gazette $gazette */
@@ -725,7 +726,7 @@ class NightlyHandler
                         $wounded_citizens[] = $ctz;
                         $this->crow->postAsPM($ctz, '', '', PrivateMessage::TEMPLATE_CROW_NIGHTWATCH_WOUND, $defBonus);
                     }
-                } elseif (!$this->town_handler->getBuilding($town, "small_cinema_#00", true)) {
+                } elseif (!$this->town_handler->getBuilding($town, 'small_catapult3_#00', true)) {
                     // Terror
                     if (!$this->citizen_handler->hasStatusEffect($ctz, $status_terror)) {
                         $this->citizen_handler->inflictStatus($ctz, $status_terror);

@@ -554,7 +554,7 @@
     <unit id="QI_O4UJ" name="Verschüttete Ruine">
       <notes>
         <note category="german">Verschüttete Ruine</note>
-        <note category="from">php:///src/Controller/ExternalXML2Controller.php;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/map.html.twig</note>
+        <note category="from">php:///src/Controller/ExternalXML2Controller.php;php:///src/Controller/InventoryAwareController.php;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Verschüttete Ruine</source>
@@ -565,7 +565,7 @@
       <notes>
         <note category="german">Zone</note>
         <note category="state">new</note>
-        <note category="from">twig:///templates/ajax/admin/towns/map.html.twig;twig:///templates/ajax/game/map.html.twig</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php;twig:///templates/ajax/admin/towns/map.html.twig;twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Zone</source>
@@ -575,7 +575,7 @@
     <unit id="8Nqa1HE" name="Entfernung">
       <notes>
         <note category="german">Entfernung</note>
-        <note category="from">twig:///templates/ajax/admin/towns/map.html.twig;twig:///templates/ajax/game/map.html.twig</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php;twig:///templates/ajax/admin/towns/map.html.twig;twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Entfernung</source>
@@ -585,7 +585,7 @@
     <unit id="VasxdH5" name="Routen">
       <notes>
         <note category="german">Routen</note>
-        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php;twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Routen</source>
@@ -605,7 +605,7 @@
     <unit id="NqjEmUx" name="Karte">
       <notes>
         <note category="german">Karte</note>
-        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php;twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Karte</source>
@@ -3160,7 +3160,7 @@
       </notes>
       <segment>
         <source>{citizen} hat seinen letzten Atemzug getan: {cod}!</source>
-        <target>{citizen} left us: {cod}!</target>
+        <target>{citizen} has been taken from us: {cod}!</target>
       </segment>
     </unit>
     <unit id="6TXzJgz" name="{citizen} hat das Stadtgebiet in Richtung {direction} verlassen.">
@@ -7887,7 +7887,7 @@
       <notes>
         <note category="german">Position:</note>
         <note category="state">new</note>
-        <note category="from">twig:///templates/ajax/admin/towns/map.html.twig;twig:///templates/ajax/game/map.html.twig</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php;twig:///templates/ajax/admin/towns/map.html.twig;twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Position:</source>
@@ -11014,7 +11014,7 @@
     <unit id="W3jTpt9" name="Isolierte Zombies">
       <notes>
         <note category="german">Einzelner Zombie</note>
-        <note category="from">twig:///templates/ajax/admin/towns/map.html.twig;twig:///templates/ajax/game/map.html.twig</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php;twig:///templates/ajax/admin/towns/map.html.twig;twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Isolierte Zombies</source>
@@ -11024,7 +11024,7 @@
     <unit id="Yc0dhV4" name="Die Zombies verstümmeln">
       <notes>
         <note category="german">Zombiemeute</note>
-        <note category="from">twig:///templates/ajax/admin/towns/map.html.twig;twig:///templates/ajax/game/map.html.twig</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php;twig:///templates/ajax/admin/towns/map.html.twig;twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Die Zombies verstümmeln</source>
@@ -11034,7 +11034,7 @@
     <unit id="c8SXj_R" name="Horde der Zombies">
       <notes>
         <note category="german">Zombiehorde</note>
-        <note category="from">twig:///templates/ajax/admin/towns/map.html.twig;twig:///templates/ajax/game/map.html.twig</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php;twig:///templates/ajax/admin/towns/map.html.twig;twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Horde der Zombies</source>
@@ -11045,7 +11045,7 @@
       <notes>
         <note category="german">Mark.</note>
         <note category="state">new</note>
-        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php;twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Mark.</source>
@@ -20988,12 +20988,11 @@
     <unit id="if9Rvma">
       <notes>
         <note category="german">Dank des von der Stadt gebauten Kremato-Cue kannst du diese Leiche &lt;strong&gt;in Verpflegung umwandeln&lt;/strong&gt;. Aber willst du das wirklich tun?</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Dank des von der Stadt gebauten Kremato-Cue kannst du diese Leiche &lt;strong&gt;in Verpflegung umwandeln&lt;/strong&gt;. Aber willst du das wirklich tun?</source>
-        <target><![CDATA[Dank des von der Stadt gebauten Kremato-Cue kannst du diese Leiche <strong>in Verpflegung umwandeln</strong>. Aber willst du das wirklich tun?]]></target>
+        <target><![CDATA[Thanks to the Cremato-Cue having been built by the townspeople, you can <strong>transform this corpse into rations</strong>... But do you really want to ?]]></target>
       </segment>
     </unit>
     <unit id="JQAKEqq">
@@ -21526,7 +21525,7 @@
     <unit id="uAj26XB" name="Schließen">
       <notes>
         <note category="german">Schließen</note>
-        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php;twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Schließen</source>
@@ -21537,7 +21536,7 @@
       <notes>
         <note category="german">Global</note>
         <note category="state">new</note>
-        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php;twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Global</source>
@@ -25211,15 +25210,15 @@
         <target>Getrocknete Blutlachen entwürdigten heute Morgen unsere stolze Stadt. Die Horde hat uns eine Lehre erteilt und uns gemahnt, in unseren Bemühungen nicht nachzulassen.</target>
       </segment>
     </unit>
-    <unit id="NmtcN7Z">
+    <unit id="Ud3QCGR">
       <notes>
-        <note category="german">Der entsetzliche Angriff letzte Nacht kostete das Leben von {cadavers} Menschen. Circa &lt;strong&gt;{attack} Zombies&lt;/strong&gt;! Die Gewalt, die bei diesem jüngsten Angriff zu beobachten war, lässt uns das Schlimmste erwarten...</note>
+        <note category="german">Der entsetzliche Angriff letzte Nacht kostete das Leben von {deaths} Menschen. Circa &lt;strong&gt;{attack} Zombies&lt;/strong&gt;! Die Gewalt, die bei diesem jüngsten Angriff zu beobachten war, lässt uns das Schlimmste erwarten...</note>
         <note category="from">db://GazetteEntryTemplate</note>
         <note category="state">new</note>
       </notes>
       <segment>
-        <source>Der entsetzliche Angriff letzte Nacht kostete das Leben von {cadavers} Menschen. Circa &lt;strong&gt;{attack} Zombies&lt;/strong&gt;! Die Gewalt, die bei diesem jüngsten Angriff zu beobachten war, lässt uns das Schlimmste erwarten...</source>
-        <target><![CDATA[Der entsetzliche Angriff letzte Nacht kostete das Leben von {cadavers} Menschen. Circa <strong>{attack} Zombies</strong>! Die Gewalt, die bei diesem jüngsten Angriff zu beobachten war, lässt uns das Schlimmste erwarten...]]></target>
+        <source>Der entsetzliche Angriff letzte Nacht kostete das Leben von {deaths} Menschen. Circa &lt;strong&gt;{attack} Zombies&lt;/strong&gt;! Die Gewalt, die bei diesem jüngsten Angriff zu beobachten war, lässt uns das Schlimmste erwarten...</source>
+        <target><![CDATA[Der entsetzliche Angriff letzte Nacht kostete das Leben von {deaths} Menschen. Circa <strong>{attack} Zombies</strong>! Die Gewalt, die bei diesem jüngsten Angriff zu beobachten war, lässt uns das Schlimmste erwarten...]]></target>
       </segment>
     </unit>
     <unit id="SHjFxml">
@@ -25257,13 +25256,12 @@
     </unit>
     <unit id="xpS6KNV">
       <notes>
-        <note category="german">Letzte Nacht war die Stadt von Zombies umzingelt! Einige schafften es, die Mauern zu durchbrechen, ein Zustrom, der uns {deaths} gute Leute kostete.</note>
+        <note category="german">Letzte Nacht war die Stadt {attack} von Zombies umzingelt! Einige schafften es, die Mauern zu durchbrechen, ein Zustrom, der uns {deaths} gute Leute kostete.</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Letzte Nacht war die Stadt von Zombies umzingelt! Einige schafften es, die Mauern zu durchbrechen, ein Zustrom, der uns {deaths} gute Leute kostete.</source>
-        <target>Letzte Nacht war die Stadt von Zombies umzingelt! Einige schafften es, die Mauern zu durchbrechen, ein Zustrom, der uns {deaths} gute Leute kostete.</target>
+        <target>There were roughly {attack} zombies surrounding the town last night ! Some managed to breach the walls, an influx which cost us {deaths} good people.</target>
       </segment>
     </unit>
     <unit id="U8GFvq9">
@@ -26174,6 +26172,47 @@
       <segment>
         <source>Allen Widrigkeiten zum Trotz scheint es {citizen} gelungen zu sein, in der Zone etwas zu finden, mit dem er überleben kann...</source>
         <target>Against all odds, {citizen} seems to have been able to find something in the zone to survive on...</target>
+      </segment>
+    </unit>
+    <unit id="sDajFXt">
+      <notes>
+        <note category="german">Nachrichten &lt;strong&gt;ohne Titel&lt;/strong&gt; oder &lt;strong&gt;Text&lt;/strong&gt; können nicht versendet werden.</note>
+        <note category="from">twig:///templates/scripts/errors/messages.txt.twig</note>
+      </notes>
+      <segment>
+        <source>Nachrichten &lt;strong&gt;ohne Titel&lt;/strong&gt; oder &lt;strong&gt;Text&lt;/strong&gt; können nicht versendet werden.</source>
+        <target><![CDATA[You cannot send an <strong>empty message</strong> or a message with <strong>no subject</strong>...]]></target>
+      </segment>
+    </unit>
+    <unit id="O.lyccv" name="Materialienverbrauch ansehen">
+      <notes>
+        <note category="german">Nur benötigte Materialien anzeigen</note>
+        <note category="from">twig:///templates/ajax/game/town/construction.html.twig</note>
+      </notes>
+      <segment>
+        <source>Materialienverbrauch ansehen</source>
+        <target>Only required materials</target>
+      </segment>
+    </unit>
+    <unit id="83UNHAB" name="Normale Ansicht">
+      <notes>
+        <note category="german">Normale Ansicht</note>
+        <note category="from">twig:///templates/ajax/game/town/construction.html.twig</note>
+      </notes>
+      <segment>
+        <source>Normale Ansicht</source>
+        <target>Normal view</target>
+      </segment>
+    </unit>
+    <unit id="NmtcN7Z">
+      <notes>
+        <note category="german">Der entsetzliche Angriff letzte Nacht kostete das Leben von {cadavers} Menschen. Circa &lt;strong&gt;{attack} Zombies&lt;/strong&gt;! Die Gewalt, die bei diesem jüngsten Angriff zu beobachten war, lässt uns das Schlimmste erwarten...</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Der entsetzliche Angriff letzte Nacht kostete das Leben von {cadavers} Menschen. Circa &lt;strong&gt;{attack} Zombies&lt;/strong&gt;! Die Gewalt, die bei diesem jüngsten Angriff zu beobachten war, lässt uns das Schlimmste erwarten...</source>
+        <target><![CDATA[Der entsetzliche Angriff letzte Nacht kostete das Leben von {cadavers} Menschen. Circa <strong>{attack} Zombies</strong>! Die Gewalt, die bei diesem jüngsten Angriff zu beobachten war, lässt uns das Schlimmste erwarten...]]></target>
       </segment>
     </unit>
   </file>

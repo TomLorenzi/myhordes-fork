@@ -451,8 +451,14 @@ class MigrateCommand extends Command
         }
 
         if ($input->getOption('process-db-git')) {
+            if (file_exists( $this->kernel->getProjectDir() . '/.vslist' )) {
+                $output->writeln('Getting revision list from <info>.vslist</info>.');
+                $hashes = file($this->kernel->getProjectDir() . '/.vslist', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES );
+            } else {
+                $output->writeln('Getting revision list from <info>git</info>.');
+                $hashes = array_reverse( $this->helper->bin( 'git rev-list HEAD', $ret ) );
+            }
 
-            $hashes = array_reverse( $this->helper->bin( 'git rev-list HEAD', $ret ) );
             $output->writeln('Found <info>' . count($hashes) . '</info> installed patches.');
 
             $new = 0;
@@ -759,6 +765,30 @@ class MigrateCommand extends Command
                 if ($cp->getTown()->getType() && $cp->getTown()->getType()->getName() === 'custom' && $cp->getPoints() > 0) {
                     $cp->setPoints(0);
                     $b = true;
+                }
+
+                if ($cp->getCleanupType() === null && $cp->getCitizen() !== null && !$cp->getCitizen()->getAlive()) {
+                    if($cp->getCitizen()->getDisposed()) {
+                        $type = "";
+                        switch($cp->getCitizen()->getDisposed()){
+                            case Citizen::Thrown:
+                                $type = "garbage";
+                                break;
+                            case Citizen::Watered:
+                                $type = "water";
+                                break;
+                            case Citizen::Cooked:
+                                $type = "cook";
+                                break;
+                            case Citizen::Ghoul:
+                                $type = "ghoul";
+                                break;
+                        }
+                        $cp->setCleanupType($type);
+
+                        if ($cp->getCitizen()->getDisposedBy()->count() > 0)
+                            $cp->setCleanupUsername($cp->getCitizen()->getDisposedBy()[0]->getUser()->getName());
+                    }
                 }
 
                 return $b;

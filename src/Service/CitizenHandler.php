@@ -765,7 +765,7 @@ class CitizenHandler
 
         $total = $item->getPrototype()->getWatchpoint();
         foreach ($bonus as $single)
-            $total += (int)floor( $item->getPrototype()->getWatchpoint() * $single );
+            $total = (int)floor( $total * (1.0+$single) );
 
         return $total;
     }

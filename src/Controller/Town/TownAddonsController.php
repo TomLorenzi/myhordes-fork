@@ -165,6 +165,16 @@ class TownAddonsController extends TownController
         if ($est->getCitizens()->contains($this->getActiveCitizen()))
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
+        $current_est = $this->town_handler->get_zombie_estimation($town, null, true);
+
+        if (!$this->town_handler->getBuilding($town, 'item_tagger_#02') && $current_est[0]->getEstimation() >= 1) {
+            // No next-day estimation and today's estimation is maxed
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+        } else if ($this->town_handler->getBuilding($town, 'item_tagger_#02') && $current_est[0]->getEstimation() >= 1 && $current_est[1]->getEstimation() >= 1) {
+            // Next-day estimation and all is maxed out
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+        }
+
         $est->addCitizen($this->getActiveCitizen());
 
         try {

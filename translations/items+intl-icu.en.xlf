@@ -9448,5 +9448,15 @@
         <target>You have to be more than 3 kilometers from the town to do that.</target>
       </segment>
     </unit>
+    <unit id="EPH5jLS" name="Hierfür hast du keinen Platz.">
+      <notes>
+        <note category="german">Hierfür hast du keinen Platz.</note>
+        <note category="from">db://Requirement</note>
+      </notes>
+      <segment>
+        <source>Hierfür hast du keinen Platz.</source>
+        <target>You have no room for this.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

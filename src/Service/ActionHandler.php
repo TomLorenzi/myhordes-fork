@@ -358,6 +358,11 @@ class ActionHandler
                             $current_state = min($current_state, Requirement::HideOnFail);
 
                         break;
+
+                    // Inventory space
+                    case 69:
+                        if ($citizen->getZone() === null && $this->inventory_handler->getFreeSize($citizen->getInventory()) <= 0 && $this->inventory_handler->getFreeSize($citizen->getHome()->getChest()) <= 0)
+                            $current_state = min($current_state, $this_state);
                 }
 
 

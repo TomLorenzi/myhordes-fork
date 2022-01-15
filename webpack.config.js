@@ -10,6 +10,8 @@ var local = [];
 try { local = require('./webpack.config.local'); } catch (e) {}
 
 Encore
+    // enable REACT
+    .enableReactPreset()
     // directory where compiled assets will be stored
     .setOutputPath( local.output_path ? local.output_path :  'public/build/')
     // public path used by the web server to access the output path

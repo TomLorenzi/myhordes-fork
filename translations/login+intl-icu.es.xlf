@@ -853,5 +853,15 @@
         <target>El jugador que indicaste actualmente no está registrado en el programa de Patrocinio. Pídele que vaya a la pestaña "Patrocinio" en su alma; esto lo registrará automáticamente. Solo entonces podrás elegirlo como tu Patrocinador.</target>
       </segment>
     </unit>
+    <unit id="1itQsls" name="Deine E-Mail-Adresse wurde erfolgreich geändert.">
+      <notes>
+        <note category="german">Deine E-Mail-Adresse wurde erfolgreich geändert.</note>
+        <note category="from">php:///src/Controller/Soul/SoulController.php</note>
+      </notes>
+      <segment>
+        <source>Deine E-Mail-Adresse wurde erfolgreich geändert.</source>
+        <target>Has cambiado tu correo electrónico correctamente.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

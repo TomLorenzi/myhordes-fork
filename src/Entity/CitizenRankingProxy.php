@@ -120,6 +120,16 @@ class CitizenRankingProxy
      */
     private $limitedImport = false;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $cleanup_type;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $cleanup_username;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -262,7 +272,8 @@ class CitizenRankingProxy
             ->setCitizen( $citizen )
             ->setComment( $citizen->getComment() )
             ->setLastWords( $citizen->getLastWords() )
-            ->setAlias($citizen->getAlias());
+            ->setAlias($citizen->getAlias())
+        ;
 
         if ($obj->getEnd() === null)
             $obj->setPoints( $citizen->getSurvivedDays() * ( $citizen->getSurvivedDays() + 1 ) / 2 );
@@ -270,8 +281,27 @@ class CitizenRankingProxy
         if ($obj->getBegin() === null) $obj->setBegin( new \DateTime('now') );
         if (!$citizen->getAlive() && $obj->getEnd() === null) $obj->setEnd( new \DateTime('now') );
         if (!$citizen->getAlive() && $obj->getCod() === null) $obj->setCod( $citizen->getCauseOfDeath() );
+        if (!$citizen->getAlive() && $citizen->getDisposed()) {
+            $type = null;
+            switch($citizen->getDisposed()){
+                case Citizen::Thrown:
+                    $type = "garbage";
+                    break;
+                case Citizen::Watered:
+                    $type = "water";
+                    break;
+                case Citizen::Cooked:
+                    $type = "cook";
+                    break;
+                case Citizen::Ghoul:
+                    $type = "ghoul";
+                    break;
+            }
+            $obj->setCleanupType($type);
 
-
+            if ($citizen->getDisposedBy()->count() > 0)
+                $obj->setCleanupUsername($citizen->getDisposedBy()[0]->getUser()->getName());
+        }
 
         return $obj;
     }
@@ -385,6 +415,30 @@ class CitizenRankingProxy
     public function setLimitedImport(bool $limitedImport): self
     {
         $this->limitedImport = $limitedImport;
+
+        return $this;
+    }
+
+    public function getCleanupType(): ?string
+    {
+        return $this->cleanup_type;
+    }
+
+    public function setCleanupType(?string $cleanup_type): self
+    {
+        $this->cleanup_type = $cleanup_type;
+
+        return $this;
+    }
+
+    public function getCleanupUsername(): ?string
+    {
+        return $this->cleanup_username;
+    }
+
+    public function setCleanupUsername(?string $cleanup_username): self
+    {
+        $this->cleanup_username = $cleanup_username;
 
         return $this;
     }

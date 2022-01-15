@@ -120,6 +120,7 @@ class TwinoidPayload
                     public function getDay():          int { return $this->_town['day'] ?? $this->_town['d']; }
                     public function getSurvivedDays(): int { return $this->_town['survival'] ?? $this->_town['d']; }
                     public function getID():           int { return $this->_town['mapId'] ?? $this->_town['id']; }
+                    public function getCleanup():    array { return $this->_town['cleanup'] ?? ['type' => null, 'user' => null]; }
 
                     public function getDeath():  int { return $this->_town['dtype'] ?? 0; }
                     public function isOld(): bool { return $this->_town['v1']; }

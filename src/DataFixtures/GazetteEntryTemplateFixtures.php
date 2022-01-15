@@ -471,13 +471,13 @@ class GazetteEntryTemplateFixtures extends Fixture
                 ['type'=>"num",'name'=>'deaths'],
             ],
         ],
-        ['text'=>'Der entsetzliche Angriff letzte Nacht kostete das Leben von {cadavers} Menschen. Circa <strong>{attack} Zombies</strong>! Die Gewalt, die bei diesem jüngsten Angriff zu beobachten war, lässt uns das Schlimmste erwarten...',
+        ['text'=>'Der entsetzliche Angriff letzte Nacht kostete das Leben von {deaths} Menschen. Circa <strong>{attack} Zombies</strong>! Die Gewalt, die bei diesem jüngsten Angriff zu beobachten war, lässt uns das Schlimmste erwarten...',
             'name'=>'gazetteTownMultiDeaths_012',
             'type'=>GazetteEntryTemplate::TypeGazetteMultiDeaths,
             'requirement'=>GazetteEntryTemplate::RequiresAttackDeaths,
             'fot' => GazetteEntryTemplate::FollowUpTypeBad,
             'variableTypes'=>[
-                ['type'=>"num",'name'=>'deaths'],
+                ['type'=>"num",'name'=>'cadavers'],
                 ['type'=>"num",'name'=>'attack'],
             ],
         ],
@@ -518,6 +518,7 @@ class GazetteEntryTemplateFixtures extends Fixture
             'fot' => GazetteEntryTemplate::FollowUpTypeBad,
             'variableTypes'=>[
                 ['type'=>"num",'name'=>'deaths'],
+                ['type'=>"num",'name'=>'attack'],
             ],
         ],
         ['text'=>'Aus unerklärlichen Gründen ist es gestern Nacht einer kleinen Zombiegruppe gelungen, die Stadt zu betreten. <strong>{deaths} Bürger</strong> mussten dafür mit ihrem Leben bezahlen.',

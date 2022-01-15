@@ -9,7 +9,7 @@
 {% block content %}
     {% set hour = "now"|date("G") %}
     <div class="row">
-        <div class="cell rw-12 town-banner town-banner-visit time-{{ hour }} {% if conf.isNightTime %}night{% endif %}"></div>
+        <div class="cell rw-12 town-banner town-banner-visit{% if not owner.alive%}-dead{% endif %} time-{{ hour }} {% if conf.isNightTime %}night{% endif %}"></div>
     </div>
 
     {% include 'ajax/game/town/citizen_list_headers.html.twig' with {owner_tab: owner, active_tab: 'owner'} %}

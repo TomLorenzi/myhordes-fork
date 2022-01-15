@@ -8607,5 +8607,18 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
         <target>Classements et saisons</target>
       </segment>
     </unit>
+    <unit id="r.WCNCm">
+      <notes>
+        <note category="german">&lt;strong&gt;DEN SUPPORT KONTAKTIEREN:&lt;/strong&gt;
+Um Kontakt mit den Administratoren aufzunehmen, schreibe an die &lt;a x-group-connect="{oglink}" href="#"&gt;Offizielle Gruppe&lt;/a&gt; des Technischen Supports.</note>
+        <note category="from">twig:///templates/ajax/help/getting_help.html.twig</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;DEN SUPPORT KONTAKTIEREN:&lt;/strong&gt;
+Um Kontakt mit den Administratoren aufzunehmen, schreibe an die &lt;a x-group-connect="{oglink}" href="#"&gt;Offizielle Gruppe&lt;/a&gt; des Technischen Supports.</source>
+        <target><![CDATA[<strong>CONTACTER LE SUPPORT:</strong>
+Pour contacter les administrateurs, écrivez au support technique <a x-group-connect="{oglink}" href="#">Groupe officiel</a>.]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>
