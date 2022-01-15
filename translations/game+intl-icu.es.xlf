@@ -2061,7 +2061,7 @@
       </notes>
       <segment>
         <source>Du kannst in einer neuen Stadt wiedergeboren werden und das so oft wie du möchtest. Sei erfinderisch, probiere verschiedene Optionen aus und finde deinen eigenen Spielstil!</source>
-        <target>Puedes reencarnarte en otro pueblo lejano cuantas veces quieras ¡Usa diferentes estrategias, experimenta!</target>
+        <target>Puedes reencarnarte en otro pueblo Leyenda cuantas veces quieras ¡Usa diferentes estrategias, experimenta!</target>
       </segment>
     </unit>
     <unit id="em6PCOi" name="Wiedergeboren werden">
@@ -3103,7 +3103,7 @@
       </notes>
       <segment>
         <source>Hat jemand in letzter Zeit von {citizen} gehört? Er scheint verschwunden zu sein ...</source>
-        <target>Alguien ha oído algo de {citizen} recientemente? Parece como si hubiera desaparecido...</target>
+        <target>¿Alguien ha oído algo de {citizen} recientemente? Parece como si hubiera desaparecido...</target>
       </segment>
     </unit>
     <unit id="Z05vQEU">
@@ -3113,7 +3113,7 @@
       </notes>
       <segment>
         <source>{citizen} hat dem Druck nicht länger standgehalten und sein Leben beendet: {cod}.</source>
-        <target>{citizen} ha sido débil y decidió terminar su miserable existencia: {cod}.</target>
+        <target>{citizen} ha sido débil y ha decidido terminar su miserable existencia: {cod}.</target>
       </segment>
     </unit>
     <unit id="dt4EPd2" name="Verrat! {citizen} ist gestorben: {cod}.">
@@ -5243,7 +5243,7 @@
       </notes>
       <segment>
         <source>Jeder so zerstörte Gegenstand kostet dich {ap}.</source>
-        <target>Caba objeto arrojado te cuesta {ap}.</target>
+        <target>Cada objeto arrojado te cuesta {ap}.</target>
       </segment>
     </unit>
     <unit id="2MX9W.G" name="Du wurdest verbannt und kannst die Müllhalde daher nicht länger nutzen.">
@@ -5463,7 +5463,7 @@
       </notes>
       <segment>
         <source>Hausverbesserung</source>
-        <target>Trabajador hogareño</target>
+        <target>Mejoras en casa</target>
       </segment>
     </unit>
     <unit id="vvkmQ1Z">
@@ -5473,7 +5473,7 @@
       </notes>
       <segment>
         <source>Anzahl der Verbesserungen und Ausbauten, die du an deinem eigenem Haus vorgenommen hast.</source>
-        <target>Cantidad de pequeños trabajos hechos en casa.</target>
+        <target>Cantidad de mejoras hechas a tu vivienda.</target>
       </segment>
     </unit>
     <unit id="NXPKDs5" name="Handwerk">
@@ -7203,7 +7203,7 @@
       </notes>
       <segment>
         <source>Du bist völlig erschöpft... Ruh dich aus oder iss etwas, um wieder zu Kräften zu kommen!</source>
-        <target>Estás agotado... ¡Descansa un poco o aliméntate para recuperarte!</target>
+        <target>Estás Cansado... ¡Descansa un poco o aliméntate para recuperarte!</target>
       </segment>
     </unit>
     <unit id="PoxvW0_">
@@ -7593,7 +7593,7 @@
       </notes>
       <segment>
         <source>Sie brachten die Leiche von {disposed} zum Kremato-Cue. Man bekommt {ration} Rationen davon...  Aber zu welchem Preis?</source>
-        <target>levas el cadáver de {disposed} al Cremato-Bar del pueblo. Gracias a ello recibes {ration} carnes humanas... Pero a qué precio?</target>
+        <target>Llevas el cadáver de {disposed} al Cremato-Bar del pueblo. Gracias a ello recibes {ration} carnes humanas... ¿Pero a qué costo?</target>
       </segment>
     </unit>
     <unit id="0i49zPL" name="In diesem Thread dreht sich alles um die Bank.">
@@ -7934,7 +7934,7 @@
       </notes>
       <segment>
         <source>Was geschieht mit dieser Leiche?</source>
-        <target>Was geschieht mit dieser Leiche?</target>
+        <target>¿Qué pasará con su cadáver?</target>
       </segment>
     </unit>
     <unit id="TauIpAZ">
@@ -8728,7 +8728,7 @@
       </notes>
       <segment>
         <source>Mit aller Gewalt greifst du {citizen} an! Du hast den Überraschungsmoment auf deiner Seite und am Ende trägt {citizen} eine schwere Verletzung davon.</source>
-        <target>¡Has atacado violentemente a {citizen}! La pelea fue tan brutal que heriste gravamente a ese povre tipo!</target>
+        <target>¡Has atacado violentamente a {citizen}! La pelea fue tan brutal que heriste gravemente a ese pobre tipo!</target>
       </segment>
     </unit>
     <unit id="1HduKoA">
@@ -9568,7 +9568,7 @@
       </notes>
       <segment>
         <source>vor Angst erstarrt</source>
-        <target>congelado de miedo</target>
+        <target>Aterrorizado(s)</target>
       </segment>
     </unit>
     <unit id="MBMsiX2" name="Du wirst heute Nacht sterben!">
@@ -15266,7 +15266,7 @@
       </notes>
       <segment>
         <source>Beruf</source>
-        <target>Profesión</target>
+        <target>Oficio</target>
       </segment>
     </unit>
     <unit id="UaAP3Pr" name="Anwesenheit">
@@ -15489,7 +15489,7 @@
       </notes>
       <segment>
         <source>Die &lt;strong&gt;Explosion des {plan}&lt;/strong&gt; hat den ganzen Sektor in Mitleidenschaft gezogen! Das wird sicher Spuren hinterlassen ...</source>
-        <target><![CDATA[Die <strong>Explosion des {plan}</strong> hat den ganzen Sektor in Mitleidenschaft gezogen! Das wird sicher Spuren hinterlassen ...]]></target>
+        <target><![CDATA[¡La <strong>explosión de los {plan}</strong> ha afectado a toda la región! Eso seguro dejará su marca...]]></target>
       </segment>
     </unit>
     <unit id="YOWDgeT" name="Das Stadttor von &quot;{townname}&quot;">
@@ -15729,7 +15729,7 @@
       </notes>
       <segment>
         <source>Wiedergeburt: Wähle einen Beruf</source>
-        <target>Renacimiento: elige una profesión</target>
+        <target>Reencarnación: elige un oficio</target>
       </segment>
     </unit>
     <unit id="JPF0EfZ" name="Klick hier, um mehr über diesen Beruf zu erfahren...">
@@ -15739,7 +15739,7 @@
       </notes>
       <segment>
         <source>Klick hier, um mehr über diesen Beruf zu erfahren...</source>
-        <target>Haz click aquí para aprender más sobre esta profesión...</target>
+        <target>Haz click aquí para aprender más sobre este oficio...</target>
       </segment>
     </unit>
     <unit id="GErJWB." name="Zur zeit in der Stadt">
@@ -16089,7 +16089,7 @@
       </notes>
       <segment>
         <source>Die Stadt ist nichts weiter als ein widerwärtiger Friedhof. Es war niemand hier, der den letzten Angriff der Zombies hätte aufhalten können: &lt;strong&gt;das Stadttor wurde aufgebrochen&lt;/strong&gt; und &lt;strong&gt;liegt nun in Trümmern&lt;/strong&gt;. {town} existiert nicht mehr...</source>
-        <target><![CDATA[El pueblo no es más que un cementerio repugnante. No había nadie aquí que pudiera haber detenido el último ataque de los zombis: <strong>la puerta del pueblo se abrió de golpe</strong> y <strong>ahora está en ruinas</strong>. {town} ya no existe...]]></target>
+        <target><![CDATA[El pueblo no es más que un cementerio repugnante. No había nadie aquí que pudiera haber detenido el último ataque de los zombis: <strong>el portal del pueblo se abrió de golpe</strong> y <strong>ahora está en ruinas</strong>. {town} ya no existe...]]></target>
       </segment>
     </unit>
     <unit id="V.GaRUl" name="Sind wir noch in der Alpha?">
@@ -17770,7 +17770,7 @@
       </notes>
       <segment>
         <source>{citizen1} verbrachten die ganze Nacht heulend in ihrem Haus, bis zu dem Punkt, dass jeder dachte, die Zombies würden Bürger-Steaks aus ihm machen. Es stellte sich heraus, dass sie gerade einen &lt;strong&gt;massiven Zusammenbruch&lt;/strong&gt; hatten. Letzte Nacht gab es keine Toten in der Stadt.</source>
-        <target><![CDATA[{citizen1} ha pasado la noche chillando en su casa, pensamos que un zombie se lo estaba comiendo por pedacitos. En realidad tenía una <strong>gran crisis de nervios</strong>. Fue solo eso, no hubieron muertos anoche.]]></target>
+        <target><![CDATA[{citizen1} ha pasado la noche chillando en su casa, pensamos que un zombie se lo estaba comiendo por pedacitos. En realidad tenía una <strong>gran crisis de nervios</strong>. Fue solo eso, no hubo muertos anoche.]]></target>
       </segment>
     </unit>
     <unit id="jq7dkW2">
@@ -19033,7 +19033,7 @@
       </notes>
       <segment>
         <source>Was ist letzte Nacht nur passiert? Du hast wohl zu heftig gefeiert. Als du die Stadtmauer erreichst, spürst du... Ja, ja, du bist in der Tat der Ausgewählte. Der Zweifel verschwindet, als du den Blick in Richtung des Stadttors lenkst: Ein wahnsinniges Verlangen nach Abenteuer und Entdeckungen überkommt dich, was eigentlich eher untypisch ist...</source>
-        <target>¿Qué pasó anoche? Probablemente festejaste demasiado. Cuando llegas a la muralla del pueblo, sientes... Sí, sí, de hecho eres el elegido. La duda desaparece cuando diriges tu mirada hacia la puerta del pueblo: estás abrumado por un loco deseo de aventura y descubrimiento, que en realidad es bastante atípico...</target>
+        <target>¿Qué pasó anoche? Probablemente festejaste demasiado. Cuando llegas a la muralla del pueblo, sientes... Sí, sí, de hecho eres el elegido. La duda desaparece cuando diriges tu mirada hacia el portal del pueblo: estás abrumado por un loco deseo de aventura y descubrimiento, que en realidad es bastante atípico...</target>
       </segment>
     </unit>
     <unit id="M_Sa.96" name="Du bist nun der Reiseleiter in der Außenwelt.">
@@ -20776,7 +20776,7 @@
       </notes>
       <segment>
         <source>Stadttor zerstört!</source>
-        <target>¡Puerta del pueblo destruida!</target>
+        <target>¡Portal destruido!</target>
       </segment>
     </unit>
     <unit id="i02hvai">
@@ -20786,7 +20786,7 @@
       </notes>
       <segment>
         <source>Das Stadttor wurde bei einem besonders furchtbaren Angriff aus den Angeln gerissen und in die Aussenwelt geschleudert. Du solltest dich heute Nacht besser nicht hier aufhalten, sonst wird diese Stadt dein Grab.</source>
-        <target>La puerta del pueblo fue arrancada de sus goznes en un ataque particularmente terrible y arrojada al ultramundo. Será mejor que no estés aquí esta noche o este pueblo será tu tumba.</target>
+        <target>El portal del pueblo ha sido arrancado de sus goznes y llevado al ultramundo durante un ataque aterrador. Será mejor que no estés aquí en la noche o este pueblo será tu tumba.</target>
       </segment>
     </unit>
     <unit id="omwkh4e">
@@ -20796,7 +20796,7 @@
       </notes>
       <segment>
         <source>Das passiert eben, wenn man eine Stadt ohne einen einzigen Einwohner zurücklässt.</source>
-        <target>Eso es lo que pasa cuando sales de un pueblo sin un solo habitante.</target>
+        <target>Esto es lo que pasa cuando se deja un a pueblo sin habitantes.</target>
       </segment>
     </unit>
     <unit id="WUioDKI" name="Das Stadttor ist zerstört!">
@@ -20806,7 +20806,7 @@
       </notes>
       <segment>
         <source>Das Stadttor ist zerstört!</source>
-        <target>¡La puerta del pueblo está destruida!</target>
+        <target>¡El portal del pueblo está destruido!</target>
       </segment>
     </unit>
     <unit id="ixRzzXD">
@@ -21187,7 +21187,7 @@
       </notes>
       <segment>
         <source>Diese Note wird vom &lt;strong&gt;Komitee des guten Geschmacks der Stadt {townname}&lt;/strong&gt; vergeben.</source>
-        <target><![CDATA[Esta nota es otorgada por el <strong>Comité del Buen Gusto de Fosa Morada</strong>.]]></target>
+        <target><![CDATA[Esta nota es otorgada por el <strong>Comité del Buen Gusto de {townname}</strong>.]]></target>
       </segment>
     </unit>
     <unit id="Ng_nMhX">
@@ -22667,7 +22667,7 @@
       </notes>
       <segment>
         <source>Du kannst kein(en) {item} per Post versenden.</source>
-        <target>No puede enviar un/una {artículo} por correo.</target>
+        <target>No puedes enviar el objeto {item} por correo.</target>
       </segment>
     </unit>
     <unit id="FWgGHVi">
@@ -22817,7 +22817,7 @@
       </notes>
       <segment>
         <source>Das Stadttor wurde bereits von einem anderen pflichtbewussten Bürger geschlossen.</source>
-        <target>La puerta del pueblo ya ha sido cerrada por otro habitante obediente.</target>
+        <target>El portal del pueblo ya ha sido cerrado por otro habitante obediente.</target>
       </segment>
     </unit>
     <unit id="ejlTArB">
@@ -22920,7 +22920,7 @@
       </notes>
       <segment>
         <source>Du bist der {rolename} dieser Stadt.</source>
-        <target>Du bist der {rolename} dieser Stadt.</target>
+        <target>Eres el {rolename} del pueblo.</target>
       </segment>
     </unit>
     <unit id="0lP3VYZ">
@@ -23045,7 +23045,7 @@
       </notes>
       <segment>
         <source>Ein Moderator hat deinen Thread "{threadname}" in das Forum "{forumname}" verschoben. {link_post}</source>
-        <target>Ein Moderator hat deinen Thread "{threadname}" in das Forum "{forumname}" verschoben. {link_post}</target>
+        <target>Tu tema "{threadname}" ha sido desplazado al Foro "{forumname}" por un moderador. {link_post}</target>
       </segment>
     </unit>
     <unit id="d2ZHuaw" name="Deine aktuelle Situation erlaubt nicht, dass du diese Aktion durchführst.">
@@ -23056,7 +23056,7 @@
       </notes>
       <segment>
         <source>Deine aktuelle Situation erlaubt nicht, dass du diese Aktion durchführst.</source>
-        <target>Deine aktuelle Situation erlaubt nicht, dass du diese Aktion durchführst.</target>
+        <target>No puedes realizar esta acción actualmente.</target>
       </segment>
     </unit>
     <unit id="jlgyITW">
@@ -23087,7 +23087,7 @@
       </notes>
       <segment>
         <source>&lt;strong&gt;Herzlichen Glückwunsch&lt;/strong&gt;, du hast Folgendes freigeschaltet: {list}</source>
-        <target><![CDATA[<strong>Herzlichen Glückwunsch</strong>, du hast Folgendes freigeschaltet: {list}]]></target>
+        <target><![CDATA[<strong>Enhorabuena</strong>, has desbloqueado las siguientes recompensas: {list}]]></target>
       </segment>
     </unit>
     <unit id=".ZhHPoH">

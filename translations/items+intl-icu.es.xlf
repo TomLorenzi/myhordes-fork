@@ -68,7 +68,7 @@
       </notes>
       <segment>
         <source>Du ziehst eine Karte... und stellst fest, dass dein Name darauf mit Blut geschrieben steht! Du erstarrst vor Schreck!</source>
-        <target><![CDATA[Lanzas una carta... ¡Y pegas un grito al descubrir que <strong>lleva tu nombre escrito con sangre</strong>! ¿Quién pudo hacerte esta broma de mal gusto?¡La impresión te deja <strong>aterrorizado</strong>]]></target>
+        <target><![CDATA[Lanzas una carta... ¡Y pegas un grito al descubrir que <strong>lleva tu nombre escrito con sangre</strong>! ¿Quién pudo hacerte esta broma de mal gusto? ¡La impresión te deja <strong>aterrorizado</strong>!]]></target>
       </segment>
     </unit>
     <unit id="NcJ93EV">
@@ -4385,7 +4385,7 @@
       </notes>
       <segment>
         <source>Eine große, solide Zeltplane, die auch noch wasserdicht ist. Sie eignet sich bestens dazu die Löcher in deinem Hausdach zu schließen. ANMERKUNG: Dieser Gegenstand ist für die Verbesserung deines Hauses zwingend vorgeschrieben.</source>
-        <target>Una tela muy resistente e impermeable. Ideal pasar la noche afuera (sin olvidar los bichos, zombies, enfermedades, tormentas y el frío). Aumenta tus posibilidades de sobrevivir al acampar, debes llevarla contigo para recibir el bonus.</target>
+        <target>Una tela muy resistente e impermeable. Ideal para pasar la noche afuera (sin olvidar los bichos, zombies, enfermedades, tormentas y el frío). Aumenta tus posibilidades de sobrevivir al acampar, debes llevarla contigo para recibir el bonus.</target>
       </segment>
     </unit>
     <unit id="GSxglCR">
@@ -8862,7 +8862,7 @@
       </notes>
       <segment>
         <source>Du schluckst das {item}... Nur ein paar Sekunden später ergreift dich die Panik... Kalte Schweißausbrüche, Paranoia... Du rollst dich zu einem Ball zusammen, außer Atem, und wartest darauf, dass die Wirkung nachlässt... aber das passiert nicht.&lt;hr /&gt;Du bist &lt;strong&gt;vor Angst erstarrt&lt;/strong&gt;.</source>
-        <target><![CDATA[Te tragas el {item}... Solo unos segundos después entras en pánico... Sudores fríos, paranoia... Te acurrucas en una esquina, te quedas sin aliento y esperas a que los efectos desaparezcan... pero eso no sucede.<hr/> Estás <strong>congelado de miedo</strong>.]]></target>
+        <target><![CDATA[Te tragas el {item}... Solo unos segundos después entras en pánico... Sudores fríos, paranoia... Te acurrucas en una esquina, te quedas sin aliento y esperas a que los efectos desaparezcan... pero eso no sucede.<hr/> Estás <strong>Aterrorizado</strong>.]]></target>
       </segment>
     </unit>
     <unit id="3B3bDO.">
@@ -8872,7 +8872,7 @@
       </notes>
       <segment>
         <source>Sofort bereust du, dieses {item} heruntergeschluckt zu haben... Das Produkt entpuppt sich als ein starkes Steroid für Tiere (die Art, die üblicherweise Pferden verabreicht wird). Deine APs wurden wiederhergestellt, aber du bist ab sofort &lt;strong&gt;drogenabhängig&lt;/strong&gt;!</source>
-        <target><![CDATA[Inmediatamente te arrepientes de haber tragado este {item}... El producto resulta ser un esteroide poderoso para animales (el tipo que comúnmente se administra a los caballos). Se han restaurado tus puntos de acceso, ¡pero ahora eres <strong>adicto</strong>!]]></target>
+        <target><![CDATA[Te arrepientes inmediatamente de haber tragado este {item}... El producto resulta ser un poderoso esteroide para animales (del tipo que comúnmente se administra a los caballos). Se han restaurado tus Puntos de Acción, ¡pero ahora eres un <strong>adicto</strong>!]]></target>
       </segment>
     </unit>
     <unit id="hh6kdGK">
@@ -8882,7 +8882,7 @@
       </notes>
       <segment>
         <source>Du schluckst die {item} hinunter. Nach einigen Minuten beginnt dein Kopf zu pochen und deine Nase beginnt zu bluten. Der Schmerz ist nicht unerträglich, aber er ist ziemlich unangenehm...</source>
-        <target>Tragas {item}. Después devarios minutos, Sientes un dolor latente en elcráneo y tu nariz se pone a sangrar. Nada importante, pero positivo tampoco...</target>
+        <target>Tragas {item}. Después de varios minutos, Sientes un dolor latente en el cráneo y tu nariz se pone a sangrar. Nada importante, pero positivo tampoco...</target>
       </segment>
     </unit>
     <unit id="poSLxEf">

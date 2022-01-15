@@ -818,7 +818,7 @@
       </notes>
       <segment>
         <source>Online</source>
-        <target>On-line</target>
+        <target>Conectado</target>
       </segment>
     </unit>
     <unit id="oXlHg6q" name="Offline">
@@ -828,7 +828,7 @@
       </notes>
       <segment>
         <source>Offline</source>
-        <target>Off-line</target>
+        <target>Desconectado</target>
       </segment>
     </unit>
     <unit id="MCyZNHk">
