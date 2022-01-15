@@ -4387,7 +4387,6 @@
       <notes>
         <note category="german">Änderungen an {appname} speichern</note>
         <note category="from">php:///src/Controller/Admin/AdminAppController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Änderungen an '{appname}' speichern</source>

@@ -24990,13 +24990,13 @@ cette violente opération...]]></target>
         <target><![CDATA[Il y avait du <strong>sang</strong> partout dans nos rues ce matin. Celui des victimes de cette nuit. La horde a franchi nos murs.]]></target>
       </segment>
     </unit>
-    <unit id="NmtcN7Z">
+    <unit id="Ud3QCGR">
       <notes>
-        <note category="german">Der entsetzliche Angriff letzte Nacht kostete das Leben von {cadavers} Menschen. Circa &lt;strong&gt;{attack} Zombies&lt;/strong&gt;! Die Gewalt, die bei diesem jüngsten Angriff zu beobachten war, lässt uns das Schlimmste erwarten...</note>
+        <note category="german">Der entsetzliche Angriff letzte Nacht kostete das Leben von {deaths} Menschen. Circa &lt;strong&gt;{attack} Zombies&lt;/strong&gt;! Die Gewalt, die bei diesem jüngsten Angriff zu beobachten war, lässt uns das Schlimmste erwarten...</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
-        <source>Der entsetzliche Angriff letzte Nacht kostete das Leben von {cadavers} Menschen. Circa &lt;strong&gt;{attack} Zombies&lt;/strong&gt;! Die Gewalt, die bei diesem jüngsten Angriff zu beobachten war, lässt uns das Schlimmste erwarten...</source>
+        <source>Der entsetzliche Angriff letzte Nacht kostete das Leben von {deaths} Menschen. Circa &lt;strong&gt;{attack} Zombies&lt;/strong&gt;! Die Gewalt, die bei diesem jüngsten Angriff zu beobachten war, lässt uns das Schlimmste erwarten...</source>
         <target><![CDATA[L'attaque terrible d'hier soir a coûté la vie à {cadavers} personnes. Pas loin de <strong>{attack} zombies</strong> ! La violence de ce nouvel assaut laisse présager le pire...]]></target>
       </segment>
     </unit>
@@ -25908,6 +25908,17 @@ cette violente opération...]]></target>
       <segment>
         <source>Normale Ansicht</source>
         <target>Vue normale</target>
+      </segment>
+    </unit>
+    <unit id="NmtcN7Z">
+      <notes>
+        <note category="german">Der entsetzliche Angriff letzte Nacht kostete das Leben von {cadavers} Menschen. Circa &lt;strong&gt;{attack} Zombies&lt;/strong&gt;! Die Gewalt, die bei diesem jüngsten Angriff zu beobachten war, lässt uns das Schlimmste erwarten...</note>
+        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Der entsetzliche Angriff letzte Nacht kostete das Leben von {cadavers} Menschen. Circa &lt;strong&gt;{attack} Zombies&lt;/strong&gt;! Die Gewalt, die bei diesem jüngsten Angriff zu beobachten war, lässt uns das Schlimmste erwarten...</source>
+        <target><![CDATA[Der entsetzliche Angriff letzte Nacht kostete das Leben von {cadavers} Menschen. Circa <strong>{attack} Zombies</strong>! Die Gewalt, die bei diesem jüngsten Angriff zu beobachten war, lässt uns das Schlimmste erwarten...]]></target>
       </segment>
     </unit>
   </file>
