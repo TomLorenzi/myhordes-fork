@@ -379,6 +379,9 @@
                     if (parent.children[i].classList.contains('hidden'))
                         parent.children[i].classList.remove('hidden');
                     else parent.children[i].classList.add('hidden');
+
+                const input = parent.querySelector('input[type="text"]');
+                if (input && input.clientWidth > 0) input.focus();
             });
             $.html.addEventListenerAll( '[x-forum-action="modal"]', 'click', function (e,elem) {
                 e.preventDefault();
