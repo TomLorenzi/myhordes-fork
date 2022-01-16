@@ -114,9 +114,8 @@ export default class Ajax {
             if (!frag_target) console.warn('Rendered HTML contains an invalid fragment target: ', frag_target, ' Discarding.')
             else {
                 const frag_doc = document.implementation.createHTMLDocument('');
-                let frag_children = fragment.children;
-                for (let i = 0; i < frag_children.length; i++)
-                    frag_doc.body.appendChild( frag_children[i] );
+                while (fragment.children.length > 0)
+                    frag_doc.body.appendChild( fragment.children.item(0) );
                 this.render( url, frag_target, frag_doc, false, false );
             }
             fragment.remove();
