@@ -258,10 +258,9 @@ class UserRepository extends ServiceEntityRepository implements UserLoaderInterf
             $sp = $qb->getQuery()->getSingleScalarResult();
         } catch (Exception $e) {
             $sp = 0;
-            throw $e;
         }
 
-        if ($sp === 0) {
+        if ($sp <= 0) {
             $place = -1;
             return;
         }

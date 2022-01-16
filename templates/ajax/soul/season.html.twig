@@ -192,7 +192,7 @@
                     <div class="note note-critical">{{ 'Es sind keine Spieler aufgelistet!'|trans({},'soul') }}</div> <!-- TODO: missing translation -->
                 {% endif %}
             </div>
-            {% if user_sp is defined and user_rank is defined and user_rank > 0 %}
+            {% if user_sp is defined and user_sp > 0 and user_rank is defined and user_rank > 0 %}
                 <div class="cell padded rw-12">
                     <div class="row">
                         <div class="cell ro-4 rw-4">
