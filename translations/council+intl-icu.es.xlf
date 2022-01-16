@@ -153,22 +153,20 @@
       <notes>
         <note category="german">Ich ich ich ich ich ich!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ich ich ich ich ich ich!</source>
-        <target>Ich ich ich ich ich ich!</target>
+        <target>¡Yo, yo, yo, yo y diez veces yo!</target>
       </segment>
     </unit>
     <unit id="dqDVcJz" name="Wie spät ist es eigentlich?">
       <notes>
         <note category="german">Wie spät ist es eigentlich?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wie spät ist es eigentlich?</source>
-        <target>Wie spät ist es eigentlich?</target>
+        <target>¿Alguien tiene hora?</target>
       </segment>
     </unit>
     <unit id="7YhW3AT" name="Können wir jetzt endlich jemanden auswählen? Ich will mich hinhauen!">
@@ -237,7 +235,6 @@
       <notes>
         <note category="german">+1 !</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>+1 !</source>
@@ -248,11 +245,10 @@
       <notes>
         <note category="german">Er stinkt nach Alkohol.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Er stinkt nach Alkohol.</source>
-        <target>Er stinkt nach Alkohol.</target>
+        <target>Huele a puro alcohol.</target>
       </segment>
     </unit>
     <unit id="WTKoEGz" name="Er stinkt wie die Rückseite einer...">
@@ -281,11 +277,10 @@
       <notes>
         <note category="german">Na das überrascht mich ja mal so gar nicht!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Na das überrascht mich ja mal so gar nicht!</source>
-        <target>Na das überrascht mich ja mal so gar nicht!</target>
+        <target>¡No me sorprende en lo más mínimo!</target>
       </segment>
     </unit>
     <unit id="MLp4iVc" name="Nun, ich stimme zu, dieser Job würde sehr gut zu ihm passen.">
@@ -590,11 +585,10 @@
       <notes>
         <note category="german">Ja, halt die Klappe, Shakespeare.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ja, halt die Klappe, Shakespeare.</source>
-        <target>Ja, halt die Klappe, Shakespeare.</target>
+        <target>Chúpate esa, Shakespeare.</target>
       </segment>
     </unit>
     <unit id="SLEghKA" name="Trottel.">
@@ -739,11 +733,10 @@
       <notes>
         <note category="german">Komm, lass gut sein.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Komm, lass gut sein.</source>
-        <target>Komm, lass gut sein.</target>
+        <target>¡Largo de aquí!</target>
       </segment>
     </unit>
     <unit id="8hKGyXg" name="Oh Mann! Der Einstein hier drüben hat seinen Strohhalm gefressen!">
@@ -790,22 +783,20 @@
       <notes>
         <note category="german">Ihr wisst, dass ... nun, .... wie ich schon sagte ... ahhhh, auf mich hört sowieso niemand.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ihr wisst, dass ... nun, .... wie ich schon sagte ... ahhhh, auf mich hört sowieso niemand.</source>
-        <target>Ihr wisst, dass ... nun, .... wie ich schon sagte ... ahhhh, auf mich hört sowieso niemand.</target>
+        <target>¿Sabes qué...? Bueno, iba a sugerir... Demonios, nadie me atiende de todos modos.</target>
       </segment>
     </unit>
     <unit id="w50Fsuo" name="Hat jemand etwas gesagt?">
       <notes>
         <note category="german">Hat jemand etwas gesagt?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Hat jemand etwas gesagt?</source>
-        <target>Hat jemand etwas gesagt?</target>
+        <target>¿Ha dicho alguien algo?</target>
       </segment>
     </unit>
     <unit id=".ZgFkP1" name="Was?">
