@@ -675,11 +675,10 @@
       <notes>
         <note category="german">Wir wählen aus wer gefressen wird, richtig?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wir wählen aus wer gefressen wird, richtig?</source>
-        <target>Wir wählen aus wer gefressen wird, richtig?</target>
+        <target>Entonces, ¿estamos decidiendo a quién se comerán el siguiente?</target>
       </segment>
     </unit>
     <unit id="h1_ruwI" name="Facepalm!">
@@ -716,11 +715,10 @@
       <notes>
         <note category="german">Wir hängen beide und fangen nochmal von vorne an!?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wir hängen beide und fangen nochmal von vorne an!?</source>
-        <target>Wir hängen beide und fangen nochmal von vorne an!?</target>
+        <target>Fácil, colgamos a los dos y repetimos.</target>
       </segment>
     </unit>
     <unit id="ne84XQY" name="Komm, lass gut sein.">
@@ -851,7 +849,6 @@
       <notes>
         <note category="german">Pfffffff</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Pfffffff</source>
@@ -946,11 +943,10 @@
       <notes>
         <note category="german">Aber wir brauchen einen Schamanen, das ist wichtig!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Aber wir brauchen einen Schamanen, das ist wichtig!</source>
-        <target>Aber wir brauchen einen Schamanen, das ist wichtig!</target>
+        <target>Pero necesitamos un chamán, ¡es importante!</target>
       </segment>
     </unit>
     <unit id="zaP8WPT" name="Er jagt mir eine Heidenangst ein!">
@@ -1215,11 +1211,10 @@
       <notes>
         <note category="german">Leck mich doch!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Leck mich doch!</source>
-        <target>Leck mich doch!</target>
+        <target>¡Largo de aquí!</target>
       </segment>
     </unit>
     <unit id="iAxh6_8" name="Gepriesen sei der Schamane!">
