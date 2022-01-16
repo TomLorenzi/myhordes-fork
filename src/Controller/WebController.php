@@ -92,7 +92,7 @@ class WebController extends CustomAbstractController
             'MisterD', 'Mondi', 'Schrödinger', 'Kitsune',
             'MOTZI', 'devwwm', 'tchekof', 'alonsopor', 'Termineitron',
             'Nayr', 'Rikrdo', 'Valedres', 'Yaken', 'Finne', 'Ross', 
-            'Elara'
+            'Elara', 'MisterSimple'
         ];
         shuffle($supporters);
 
