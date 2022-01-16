@@ -4186,7 +4186,7 @@
       </notes>
       <segment>
         <source>{num} Seelenpunkte, Platz {rank}</source>
-        <target>{num} puntos de alma, rango: {rank}°</target>
+        <target>{num} puntos de alma, posición: {rank}°</target>
       </segment>
     </unit>
   </file>

@@ -5,11 +5,10 @@
       <notes>
         <note category="german">Wieso darf hier überhaupt {mc} die Leitung übernehmen? Kann mir das mal jemand erklären?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wieso darf hier überhaupt {mc} die Leitung übernehmen? Kann mir das mal jemand erklären?</source>
-        <target>Wieso darf hier überhaupt {mc} die Leitung übernehmen? Kann mir das mal jemand erklären?</target>
+        <target>¿Por qué {mc} siempre lleva la voz cantante? ¡Eso es lo que quiero saber!</target>
       </segment>
     </unit>
     <unit id="J75btzA" name="Warum hat dieser nichtsnutzige {mc} überhaupt das Sagen!?">
@@ -402,11 +401,10 @@
       <notes>
         <note category="german">Es gibt nichts Schlimmeres, als einen Traum zu verfolgen, der nie in Erfüllung geht.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Es gibt nichts Schlimmeres, als einen Traum zu verfolgen, der nie in Erfüllung geht.</source>
-        <target>Es gibt nichts Schlimmeres, als einen Traum zu verfolgen, der nie in Erfüllung geht.</target>
+        <target>No hay nada peor que perseguir un sueño que nunca se hará realidad.</target>
       </segment>
     </unit>
     <unit id="NwexkJD" name="Solange ich das nicht bin geht mir das sowas von am Arsch vorbei!">
@@ -468,11 +466,10 @@
       <notes>
         <note category="german">Guter Witz!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Guter Witz!</source>
-        <target>Guter Witz!</target>
+        <target>¡Esa sí fue buena!</target>
       </segment>
     </unit>
     <unit id="mhCTVyN" name="looooooooool">
@@ -595,11 +592,10 @@
       <notes>
         <note category="german">Trottel.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Trottel.</source>
-        <target>Trottel.</target>
+        <target>Inepto.</target>
       </segment>
     </unit>
     <unit id="tqxDNeE" name="Zum Galgen mit ihm!">
@@ -690,22 +686,20 @@
       <notes>
         <note category="german">Facepalm!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Facepalm!</source>
-        <target>Facepalm!</target>
+        <target>¡Carajo!</target>
       </segment>
     </unit>
     <unit id="Gcjr1F4" name="Echt jetzt?">
       <notes>
         <note category="german">Echt jetzt?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Echt jetzt?</source>
-        <target>Echt jetzt?</target>
+        <target>¿En serio?</target>
       </segment>
     </unit>
     <unit id="c.u7PJS" name="Und was machen wir bei einem Gleichstand?">
@@ -932,22 +926,20 @@
       <notes>
         <note category="german">Ich hau den Zombies ganz einfach die Schädel ein, egal ob mit oder ohne Schamanen!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ich hau den Zombies ganz einfach die Schädel ein, egal ob mit oder ohne Schamanen!</source>
-        <target>Ich hau den Zombies ganz einfach die Schädel ein, egal ob mit oder ohne Schamanen!</target>
+        <target>¡Voy a cargarme los cráneos de los zombies con o sin chamán!</target>
       </segment>
     </unit>
     <unit id="0fWGtQG">
       <notes>
         <note category="german">Ja, das sehe ich auch so. Ich meine, selbst wenn er als Hexendoktor nichts taugt, sehe ich ihn gerne in diesem lächerlichen Kostüm!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ja, das sehe ich auch so. Ich meine, selbst wenn er als Hexendoktor nichts taugt, sehe ich ihn gerne in diesem lächerlichen Kostüm!</source>
-        <target>Ja, das sehe ich auch so. Ich meine, selbst wenn er als Hexendoktor nichts taugt, sehe ich ihn gerne in diesem lächerlichen Kostüm!</target>
+        <target>Sí, claro. Quiero decir, aunque no sea tan bueno como un hechicero, ¡adoro verlo con su estúpido traje!</target>
       </segment>
     </unit>
     <unit id="BRLf5.J" name="Aber wir brauchen einen Schamanen, das ist wichtig!">
@@ -997,11 +989,10 @@
       <notes>
         <note category="german">Ah, jetzt ist er durchgedreht. Die letzte Nacht auf der Wacht war wohl zu viel...</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ah, jetzt ist er durchgedreht. Die letzte Nacht auf der Wacht war wohl zu viel...</source>
-        <target>Ah, jetzt ist er durchgedreht. Die letzte Nacht auf der Wacht war wohl zu viel...</target>
+        <target>Aahhh, está hecho polvo...</target>
       </segment>
     </unit>
     <unit id="4LSQTAk" name="Er ist unser Vertreter im Jenseits und Herr über unsere verdammten Seelen!">
@@ -1028,11 +1019,10 @@
       <notes>
         <note category="german">Er ist eigentlich genau wie du, nur nützlicher.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Er ist eigentlich genau wie du, nur nützlicher.</source>
-        <target>Er ist eigentlich genau wie du, nur nützlicher.</target>
+        <target>Es como tú, pero más útil.</target>
       </segment>
     </unit>
     <unit id=".rCF9jV" name="Krasse Sache! Ein neuer Schamane!">
@@ -1194,22 +1184,20 @@
       <notes>
         <note category="german">Schaut doch mal, wie er schon jetzt angezogen ist... Wir werden den Unterschied gar nicht merken!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Schaut doch mal, wie er schon jetzt angezogen ist... Wir werden den Unterschied gar nicht merken!</source>
-        <target>Schaut doch mal, wie er schon jetzt angezogen ist... Wir werden den Unterschied gar nicht merken!</target>
+        <target>Mira lo que lleva puesto... ¡Nadie va a notar la diferencia!</target>
       </segment>
     </unit>
     <unit id="4qNAerO" name="Wenn wir so wählen, bist du der nächste Kandidat...">
       <notes>
         <note category="german">Wenn wir so wählen, bist du der nächste Kandidat...</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wenn wir so wählen, bist du der nächste Kandidat...</source>
-        <target>Wenn wir so wählen, bist du der nächste Kandidat...</target>
+        <target>Bien, si así es como estamos jugando, tú estás presentándote como el próximo candidato...</target>
       </segment>
     </unit>
     <unit id="EviZKaR" name="Mann, ich wollte die Vorstellung übernehmen!">
@@ -1577,11 +1565,10 @@
       <notes>
         <note category="german">Klar Einstein, Kopf oder Zahl zm eine Persion aus {_voted} auszuwählen.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Klar Einstein, Kopf oder Zahl zm eine Persion aus {_voted} auszuwählen.</source>
-        <target>Klar Einstein, Kopf oder Zahl zm eine Persion aus {_voted} auszuwählen.</target>
+        <target>Gran idea, cara o cruz para decidir entre {_voted}...</target>
       </segment>
     </unit>
     <unit id="bz7XUkS">
