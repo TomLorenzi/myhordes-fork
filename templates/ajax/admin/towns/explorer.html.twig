@@ -166,9 +166,7 @@
                                 {{ 'Zone'|trans({}, 'admin') }} <span id="zone_coords"></span>
                                 {{ item_creator(itemPrototypes, 'zone') }}
                             </div>
-                            <div id="zone_floor">
-
-                            </div>
+                            <div id="zone_floor"></div>
                             <div class="lightbox">
                                 <div class="row">
                                     <div class="cell padded">
@@ -339,7 +337,7 @@
                             </div>
                             {% for citizen in town.citizens|sort((a,b) => (a.alive == b.alive) ? ((a.alive) ? a.name|lower <=> b.name|lower : b.survivedDays <=> a.survivedDays) : b.alive <=> a.alive) %}
                                 {# @var \App\Entity\Citizen citizen  #}
-                                <div class="row-flex stretch pointer" style="max-height: 100px;">
+                                <div x-citizen-id="{{ citizen.id }}" class="row-flex stretch pointer citizen-main" style="max-height: 100px; overflow: hidden">
                                     <div class="cell rw-1">
                                     {% if citizen.alive %}
                                         <label><input type="checkbox" x-id="{{ citizen.id }}" x-target="rucksack" /></label>
@@ -425,6 +423,14 @@
                                             {% endif %}
                                             </span>
                                         {% endif %}
+                                    </div>
+                                </div>
+                                <div x-citizen-id="{{ citizen.id }}" class="row hidden citizen-details">
+                                    <div class="cell rw-12">
+                                        <div class="row">
+                                            <div class="padded cell rw-6"><div class="invTargetRucksack"></div></div>
+                                            <div class="padded cell rw-6"><div class="invTargetChest"></div></div>
+                                        </div>
                                     </div>
                                 </div>
                             {% endfor %}
@@ -922,6 +928,48 @@
 
         $.html.addEventListenerAll('#gazetteSelector', 'change', (e,elem) => {
             $.ajax.no_history().load( document.getElementById('gazette-target'), elem.value, false )
+        })
+
+        $.html.addEventListenerAll('.citizen-main[x-citizen-id]', 'click',  (e,elem) => {
+            if (e.target.tagName === 'INPUT') return;
+            const details = document.querySelector('.citizen-details[x-citizen-id="' + elem.getAttribute('x-citizen-id') + '"]');
+
+            if (details.classList.contains('hidden')) {
+                $.html.forEach('.citizen-details[x-citizen-id]', elem => elem.classList.add('hidden'));
+                details.classList.remove('hidden');
+
+                const refresh = () => {
+                    $.ajax.easySend('{{ url('get_citizen_infos', {id: town.id}) }}', {'citizen_id': elem.getAttribute('x-citizen-id')}, data => {
+                        document.querySelector('.citizen-details[x-citizen-id="' + elem.getAttribute('x-citizen-id') + '"] .invTargetRucksack').innerHTML = data.rucksack;
+                        document.querySelector('.citizen-details[x-citizen-id="' + elem.getAttribute('x-citizen-id') + '"] .invTargetRucksack .inventory').classList.add('rucksack');
+                        document.querySelector('.citizen-details[x-citizen-id="' + elem.getAttribute('x-citizen-id') + '"] .invTargetRucksack .inventory .title').innerText = '{{ 'Rucksack'|trans({},'game')|e('js') }}';
+
+                        document.querySelector('.citizen-details[x-citizen-id="' + elem.getAttribute('x-citizen-id') + '"] .invTargetChest').innerHTML = data.chest;
+                        document.querySelector('.citizen-details[x-citizen-id="' + elem.getAttribute('x-citizen-id') + '"] .invTargetChest .inventory').classList.add('chest');
+                        document.querySelector('.citizen-details[x-citizen-id="' + elem.getAttribute('x-citizen-id') + '"] .invTargetChest .inventory .title').innerText = '{{ 'Truhe'|trans({},'game')|e('js') }}';
+
+                        let items = document.querySelectorAll('.citizen-details[x-citizen-id="' + elem.getAttribute('x-citizen-id') + '"] .inventory .item:not(.locked)[x-item-id]');
+                        for (let i = 0; i < items.length; i++)
+                            items[i].addEventListener('click', function(ev) {
+                                let change = 'remove';
+                                const item_id = this.getAttribute('x-item-id');
+                                $.ajax.easySend('{{ path('admin_town_item', {id: town.id}) }}', {
+                                        item: item_id, change, qty: '1'
+                                    },
+                                    refresh
+                                );
+                            });
+                    });
+                };
+
+                refresh();
+
+
+            } else {
+                $.html.forEach('.citizen-details[x-citizen-id]', elem => elem.classList.add('hidden'));
+                document.querySelector(".citizen-details[x-citizen-id] .invTargetRucksack").innerHTML = '';
+                document.querySelector(".citizen-details[x-citizen-id] .invTargetChest").innerHTML = '';
+            }
         })
 
     </script>

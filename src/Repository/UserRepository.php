@@ -151,6 +151,30 @@ class UserRepository extends ServiceEntityRepository implements UserLoaderInterf
         return $qb->getQuery()->getResult();
     }
 
+    public function getGlobalSoulRankingUserStats( User $user, bool $myhordes_only, ?int &$sp, ?int &$place ) {
+        $sp = $myhordes_only ? ($user->getSoulPoints() ?? 0) : $user->getAllSoulPoints();
+
+        if ($sp <= 0) {
+            $place = -1;
+            return;
+        }
+
+        $all_points = $myhordes_only ? '(u.soulPoints)' : '(u.soulPoints + COALESCE(u.importedSoulPoints, 0))';
+
+        try {
+            $place = $this->createQueryBuilder('u')
+                    ->select('COUNT(u.id)')
+                    ->andWhere('u.email NOT LIKE :crow')->setParameter('crow', 'crow')
+                    ->andWhere('u.email NOT LIKE :anim')->setParameter('anim', 'anim')
+                    ->andWhere('u.email NOT LIKE :local')->setParameter('local', "%@localhost")
+                    ->andWhere('u.email != u.name')
+                    ->andWhere("$all_points > :own OR ($all_points = :own AND u.id > :uid)")->setParameter('own', max($sp,0))->setParameter('uid', $user->getId())
+                    ->getQuery()->getSingleScalarResult() + 1;
+        } catch (Exception $e) {
+            $place = -1;
+        }
+    }
+
     /**
      * @param bool $myhordes_only
      * @param array $skip
@@ -214,6 +238,58 @@ class UserRepository extends ServiceEntityRepository implements UserLoaderInterf
         if ($offset > 0) $qb->setFirstResult($offset);
 
         return $qb->getQuery()->getResult();
+    }
+
+    public function getSeasonSoulRankingUserStats( User $user, ?Season $season, ?int &$sp, ?int &$place ) {
+        try {
+            $qb = $this->createQueryBuilder('u')
+                ->select("SUM(r.points) as allPoints")
+                ->innerJoin('App:CitizenRankingProxy', 'r', Join::WITH, 'u.id = r.user')
+                ->innerJoin('App:TownRankingProxy', 't', Join::WITH, 'r.town = t.id')
+                ->andWhere('u.id = :uid')->setParameter('uid', $user->getId())
+                ->andWhere('r.points > 0')->andWhere( 'r.disabled = :false' )->andWhere( 'r.confirmed = :true' )
+                ->andWhere( 't.disabled = :false' )->andWhere( 't.event = :false' )
+                ->andWhere( 't.imported = :false' )
+                ->setParameter('false', false)->setParameter('true', true);
+
+            if ($season === null) $qb->andWhere('t.season IS NULL');
+            else $qb->andWhere('t.season = :season')->setParameter('season', $season);
+
+            $sp = $qb->getQuery()->getSingleScalarResult();
+        } catch (Exception $e) {
+            $sp = 0;
+            throw $e;
+        }
+
+        if ($sp === 0) {
+            $place = -1;
+            return;
+        }
+
+        $qb = $this->createQueryBuilder('u')
+            ->select('u.id')
+            ->innerJoin('App:CitizenRankingProxy', 'r', Join::WITH, 'u.id = r.user')
+            ->innerJoin('App:TownRankingProxy', 't', Join::WITH, 'r.town = t.id')
+            ->andWhere('u.email NOT LIKE :crow')->setParameter('crow', 'crow')
+            ->andWhere('u.email NOT LIKE :anim')->setParameter('anim', 'anim')
+            ->andWhere('u.email NOT LIKE :local')->setParameter('local', "%@localhost")
+            ->andWhere('u.email != u.name')
+            ->andWhere('r.points > 0')->andWhere( 'r.disabled = :false' )->andWhere( 'r.confirmed = :true' )
+            ->andWhere( 't.disabled = :false' )->andWhere( 't.event = :false' )
+            ->andWhere( 't.imported = :false' )
+            ->groupBy('u.id')
+            ->andHaving("SUM(r.points) > :own OR (SUM(r.points) = :own AND u.id > :uid)")->setParameter('own', max($sp,0))->setParameter('uid', $user->getId())
+            ->setParameter('false', false)->setParameter('true', true);
+
+        if ($season === null) $qb->andWhere('t.season IS NULL');
+        else $qb->andWhere('t.season = :season')->setParameter('season', $season);
+
+        try {
+            $place = count($qb->getQuery()->getScalarResult()) + 1;
+        } catch (Exception $e) {
+            $place = -1;
+        }
+
     }
 
     /**

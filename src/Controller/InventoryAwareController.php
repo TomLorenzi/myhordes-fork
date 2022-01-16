@@ -9,6 +9,7 @@ use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
 use App\Entity\CitizenHomeUpgrade;
 use App\Entity\CitizenHomeUpgradePrototype;
+use App\Entity\EventActivationMarker;
 use App\Entity\ExpeditionRoute;
 use App\Entity\FoundRolePlayText;
 use App\Entity\HelpNotificationMarker;
@@ -699,13 +700,15 @@ class InventoryAwareController extends CustomAbstractController
                             $hasExplodingDoormat = false;
 
                             if ($this->inventory_handler->countSpecificItems($citizen->getInventory(), "christmas_suit_full_#00") > 0){
-                                if($victim_home->getCitizen()->getAlive())
+                                if($victim_home->getCitizen()->getAlive()
+                                    && $this->entity_manager->getRepository(EventActivationMarker::class)->findOneBy(['town' => $citizen->getTown(), 'active' => true, 'event' => 'christmas']))
                                     $pictoName = "r_santac_#00";
                                 $isSanta = true;
                             }
 
                             if ($this->inventory_handler->countSpecificItems($citizen->getInventory(), "leprechaun_suit_#00") > 0){
-                                if($victim_home->getCitizen()->getAlive())
+                                if($victim_home->getCitizen()->getAlive()
+                                    && $this->entity_manager->getRepository(EventActivationMarker::class)->findOneBy(['town' => $citizen->getTown(), 'active' => true, 'event' => 'stpatrick']))
                                     $pictoName = "r_lepre_#00";
                                 $isLeprechaun = true;
                             }

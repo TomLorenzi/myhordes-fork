@@ -2589,5 +2589,17 @@
         <target>und andere.</target>
       </segment>
     </unit>
+    <unit id="POVV2jW" name="Deine Platzierung">
+      <segment>
+        <source>Deine Platzierung</source>
+        <target>Deine Platzierung</target>
+      </segment>
+    </unit>
+    <unit id="2JRm9.u" name="{num} Seelenpunkte, Platz {rank}">
+      <segment>
+        <source>{num} Seelenpunkte, Platz {rank}</source>
+        <target>{num} Seelenpunkte, Platz {rank}</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

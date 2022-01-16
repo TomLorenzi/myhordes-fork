@@ -23,6 +23,7 @@ use App\Entity\Item;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
 use App\Entity\Post;
+use App\Entity\RolePlayText;
 use App\Entity\RuinZone;
 use App\Entity\Season;
 use App\Entity\ShadowBan;
@@ -103,15 +104,14 @@ class MigrateCommand extends Command
             ['app:debug', ['--add-animactor' => true] ],
             ['app:migrate', ['--repair-permissions' => true] ],
         ],
-        'e01e6dea153f67d9a1d7f9f7f7d3c8b2eec5d5ed' => [ ['app:migrate', ['--repair-permissions' => true] ] ],
         'fae118acfc0041183dac9622c142cab01fb10d44' => [ ['app:migrate', ['--fix-forum-posts' => true] ] ],
         'bf6a46f2dc1451658809f55578debd83aca095d3' => [ ['app:migrate', ['--set-old-flag' => true] ] ],
         'f413fb8e0bf8b4f9733b4e00705625e000ff4bf6' => [ ['app:migrate', ['--update-all-sp' => true] ] ],
-        'a7fa0be81f35415ca3c2fc5810bdc53acd6331cc' => [ ['app:migrate', ['--prune-rp-texts' => true] ] ],
         '8e7d00f016648b180840f47544d98d337e5c0088' => [ ['app:migrate', ['--fix-ranking-survived-days' => true] ] ],
         'ffa2f28a35c5a34a0fbb26d8f478d5fc0f24679a' => [ ['app:migrate', ['--repair-permissions' => true] ] ],
         '0d37ad639bb89157ffa64eac0821ac490e063224' => [ ['app:migrate', ['--reassign-thread-tags' => true] ] ],
         'd669a5376c073ff8ede12330dbd3968346c78425' => [ ['app:migrate', ['--assign-official-tag' => true] ] ],
+        '9a573aed31d901434d2cc5992799ed1b5ee6683d' => [ ['app:migrate', ['--prune-rp-texts' => true] ] ],
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
@@ -1005,6 +1005,26 @@ class MigrateCommand extends Command
 
                     if ($earned < $earned_texts) foreach ($this->entity_manager->getRepository(FoundRolePlayText::class)->findBy(['user' => $user, 'imported' => false], ['datefound' => 'DESC'], $earned_texts - $earned) as $to_remove)
                         $this->entity_manager->remove( $to_remove );
+
+                    return true;
+                } elseif (($imported > $imported_texts) || ($earned > $earned_texts)) {
+
+                    $dif = ($imported + $earned) - ($imported_texts + $earned_texts);
+
+                    $texts = $this->entity_manager->getRepository(RolePlayText::class)->findAllByLangExcept(
+                        $user->getLanguage(), $this->entity_manager->getRepository(FoundRolePlayText::class)->findByUser($user)
+                    );
+                    if (count($texts) < $dif) $texts = $this->entity_manager->getRepository(RolePlayText::class)->findAllByLangExcept(
+                        null, $this->entity_manager->getRepository(FoundRolePlayText::class)->findByUser($user)
+                    );
+
+                    while ($dif > 0 && !empty($texts)) {
+                        $text = $this->randomizer->draw( $texts );
+                        $rp = (new FoundRolePlayText())->setUser($user)->setText($text)->setNew(true)->setDateFound(new \DateTime())->setImported( $imported > $imported_texts );
+                        $dif--;
+                        if ($imported > $imported_texts) $imported--;
+                        $user->addFoundText($rp);
+                    }
 
                     return true;
                 } else return false;

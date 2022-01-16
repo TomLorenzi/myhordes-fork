@@ -3703,5 +3703,15 @@
         <target>Sin bonificación particular</target>
       </segment>
     </unit>
+    <unit id="j_25xjC" name="Die Verteidigung der Stadt wird um 10% erhöht.">
+      <notes>
+        <note category="german">Die Verteidigung der Stadt wird um 10% erhöht.</note>
+        <note category="from">db://BuildingPrototype</note>
+      </notes>
+      <segment>
+        <source>Die Verteidigung der Stadt wird um 10% erhöht.</source>
+        <target>La defensa total del pueblo aumenta a 10%.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

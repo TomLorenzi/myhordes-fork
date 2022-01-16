@@ -154,6 +154,7 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
             ["name" => "Schokoladenkreuz",'desc' => 'Ein wunderschönes Kreuz aus Schokolade, an dem unliebsame (oder lästige) Mitbürger platziert werden können. Ist mal was "anderes" als die klassische Verbannung...', "temporary" => 0,"img" => "small_eastercross","vp" => 0,"ap" => 13, "hp" => 0,"bp" => 5,"rsc" => ["wood_beam_#00" => 1,"chain_#00" => 1,], "orderby" => 6],
             ["name" => "Schlachthof",'desc' => 'Ein Schlachthof, der direkt vor dem Stadttor errichtet wird und dessen Eingang zur Außenwelt zeigt. Schwierig ist eigentlich nur, jede Nacht einen Freiwilligen zu finden, der sich hineinstellt und so die Zombies anlockt.', "temporary" => 0,"img" => "small_slaughterhouse","vp" => 35,"ap" => 40, "hp" => 40,"bp" => 1,"rsc" => ["concrete_wall_#00" => 2,"metal_beam_#00" => 10,], "orderby" => 7],
             ["name" => "Pentagon",'maxLevel' => 2, 'desc' => 'Eine großangelegte Neuausrichtung aller Verteidigungsanlagen, um wirklich das Optimum herauszuholen (die Gesamtverteidigung der Stadt erhöht sich um 10%).', "temporary" => 0,"img" => "item_shield","vp" => 8,"ap" => 55, "hp" => 55,"bp" => 3,"rsc" => ["wood_beam_#00" => 5,"metal_beam_#00" => 10,], "orderby" => 8,
+                "lv0text" => 'Die Verteidigung der Stadt wird um 10% erhöht.',
                 "upgradeTexts" => [
                     'Die Verteidigung der Stadt wird um 12% erhöht.',
                     'Die Verteidigung der Stadt wird um 14% erhöht.'

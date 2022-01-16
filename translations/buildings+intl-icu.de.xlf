@@ -2245,5 +2245,11 @@
         <target>Kein besonderer Bonus</target>
       </segment>
     </unit>
+    <unit id="j_25xjC" name="Die Verteidigung der Stadt wird um 10% erhöht.">
+      <segment>
+        <source>Die Verteidigung der Stadt wird um 10% erhöht.</source>
+        <target>Die Verteidigung der Stadt wird um 10% erhöht.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

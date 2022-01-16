@@ -658,9 +658,11 @@ class SoulController extends CustomAbstractController
         if ($currentSeason === 'all' || $currentSeason === 'myh') {
             $ranking = $this->entity_manager->getRepository(User::class)->getGlobalSoulRankingPage($offset, $resultsPerPage, $currentSeason === 'myh');
             $pages = $this->entity_manager->getRepository(User::class)->countGlobalSoulRankings($currentSeason === 'myh');
+            $this->entity_manager->getRepository(User::class)->getGlobalSoulRankingUserStats($user, $currentSeason === 'myh', $user_sp, $user_rank);
         } else {
             $ranking = $this->entity_manager->getRepository(User::class)->getSeasonSoulRankingPage($offset, $resultsPerPage, $currentSeason);
             $pages = $this->entity_manager->getRepository(User::class)->countSeasonSoulRankings($currentSeason);
+            $this->entity_manager->getRepository(User::class)->getSeasonSoulRankingUserStats($user, $currentSeason, $user_sp, $user_rank);
         }
 
         //if (!$ranking || !$pages)
@@ -677,7 +679,9 @@ class SoulController extends CustomAbstractController
             'pages' => ceil($pages / $resultsPerPage),
             'townTypes' => $this->entity_manager->getRepository(TownClass::class)->findBy(['ranked' => true], ['orderBy' => 'ASC']),
             'offset' => $offset,
-            'user' => $user
+            'user' => $user,
+            'user_sp' => $user_sp,
+            'user_rank' => $user_rank
         ]) );
     }
 

@@ -4207,5 +4207,25 @@
         <target>and others.</target>
       </segment>
     </unit>
+    <unit id="POVV2jW" name="Deine Platzierung">
+      <notes>
+        <note category="german">Deine Platzierung</note>
+        <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
+      </notes>
+      <segment>
+        <source>Deine Platzierung</source>
+        <target>Your placement</target>
+      </segment>
+    </unit>
+    <unit id="2JRm9.u" name="{num} Seelenpunkte, Platz {rank}">
+      <notes>
+        <note category="german">{num} Seelenpunkte, Platz {rank}</note>
+        <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
+      </notes>
+      <segment>
+        <source>{num} Seelenpunkte, Platz {rank}</source>
+        <target>{num} soul points, rank {rank}</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -192,6 +192,18 @@
                     <div class="note note-critical">{{ 'Es sind keine Spieler aufgelistet!'|trans({},'soul') }}</div> <!-- TODO: missing translation -->
                 {% endif %}
             </div>
+            {% if user_sp is defined and user_rank is defined and user_rank > 0 %}
+                <div class="cell padded rw-12">
+                    <div class="row">
+                        <div class="cell ro-4 rw-4">
+                            <div class="note center">
+                                <b>{{ 'Deine Platzierung'|trans({},'global') }}</b><br/>
+                                <span>{{ '{num} Seelenpunkte, Platz {rank}'|trans({'num': '<b>' ~ user_sp ~ '</b>', 'rank': '<b>' ~ user_rank ~ '</b>'},'global')|raw }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
         {% endif %}
     </div>
     {% if seasons|length > 0 and soloType is not defined %}
