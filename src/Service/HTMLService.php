@@ -474,7 +474,7 @@ class HTMLService {
                     $p = $p->parentNode;
                 }
 
-                if (!$in_html) $handler($node);
+                if (!$in_html && $node) $handler($node);
             }
 
 
