@@ -1010,6 +1010,40 @@ class AdminTownController extends AdminActionController
     }
 
     /**
+     * @Route("/api/admin/town/{id}/get_citizen_infos", name="get_citizen_infos", requirements={"id"="\d+"})
+     * @Security("is_granted('ROLE_ADMIN')")
+     * Returns the floor of a given zone
+     * @param int $id Town ID
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function get_citizen_infos(int $id, JSONRequestParser  $parser): Response{
+        $town = $this->entity_manager->getRepository(Town::class)->find($id);
+        if (!$town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $citizen_id = $parser->get('citizen_id', -1);
+        $citizen = $this->entity_manager->getRepository(Citizen::class)->find($citizen_id);
+
+        if(!$citizen || $citizen->getTown() !== $town)
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $rucksack = $this->renderView("ajax/game/inventory.html.twig", [
+            'size' => $this->inventory_handler->getSize( $citizen->getInventory() ),
+            'items' => $citizen->getInventory()->getItems()
+        ]);
+
+        $chest = $this->renderView("ajax/game/inventory.html.twig", [
+            'size' => $this->inventory_handler->getSize( $citizen->getHome()->getChest() ),
+            'items' => $citizen->getHome()->getChest()->getItems()
+        ]);
+
+        return AjaxResponse::success(true, [
+            'rucksack' => $rucksack,
+            'chest' => $chest
+        ]);
+    }
+
+    /**
      * @Route("/api/admin/town/{id}/set_zone_digs", name="set_zone_digs", requirements={"id"="\d+"})
      * @Security("is_granted('ROLE_ADMIN')")
      * Returns the floor of a given zone
