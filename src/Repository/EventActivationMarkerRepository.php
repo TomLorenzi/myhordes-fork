@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\EventActivationMarker;
+use App\Entity\Town;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
