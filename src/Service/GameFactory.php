@@ -251,21 +251,21 @@ class GameFactory
 
         foreach ($conf->get(TownConf::CONF_BUILDINGS_UNLOCKED) as $str_prototype)
             if (!in_array($str_prototype, $conf->get(TownConf::CONF_DISABLED_BUILDINGS)))
-                $this->town_handler->addBuilding( $town, $this->entity_manager->getRepository(BuildingPrototype::class)->findOneByName( $str_prototype ) );
+                $this->town_handler->addBuilding( $town, $this->entity_manager->getRepository(BuildingPrototype::class)->findOneBy( ['name' => $str_prototype] ) );
 
         foreach ($conf->get(TownConf::CONF_BUILDINGS_CONSTRUCTED) as $str_prototype) {
             if (in_array($str_prototype, $conf->get(TownConf::CONF_DISABLED_BUILDINGS)))
                 continue;
 
             /** @var BuildingPrototype $proto */
-            $proto = $this->entity_manager->getRepository(BuildingPrototype::class)->findOneByName( $str_prototype );
+            $proto = $this->entity_manager->getRepository(BuildingPrototype::class)->findOneBy( ['name' => $str_prototype] );
             $b = $this->town_handler->addBuilding( $town, $proto );
             $b->setAp( $proto->getAp() )->setComplete( true )->setHp($proto->getHp());
         }
 
         $this->town_handler->calculate_zombie_attacks( $town, 3 );
 
-        $defaultTag = $this->entity_manager->getRepository(ZoneTag::class)->findOneByRef(0);
+        $defaultTag = $this->entity_manager->getRepository(ZoneTag::class)->findOneBy(['ref' => ZoneTag::TagNone]);
 
         $map_resolution = $this->getDefaultZoneResolution( $conf, $ox, $oy );
         for ($x = 0; $x < $map_resolution; $x++)
