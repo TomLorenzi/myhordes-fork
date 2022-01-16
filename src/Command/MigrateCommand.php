@@ -104,15 +104,14 @@ class MigrateCommand extends Command
             ['app:debug', ['--add-animactor' => true] ],
             ['app:migrate', ['--repair-permissions' => true] ],
         ],
-        'e01e6dea153f67d9a1d7f9f7f7d3c8b2eec5d5ed' => [ ['app:migrate', ['--repair-permissions' => true] ] ],
         'fae118acfc0041183dac9622c142cab01fb10d44' => [ ['app:migrate', ['--fix-forum-posts' => true] ] ],
         'bf6a46f2dc1451658809f55578debd83aca095d3' => [ ['app:migrate', ['--set-old-flag' => true] ] ],
         'f413fb8e0bf8b4f9733b4e00705625e000ff4bf6' => [ ['app:migrate', ['--update-all-sp' => true] ] ],
-        'a7fa0be81f35415ca3c2fc5810bdc53acd6331cc' => [ ['app:migrate', ['--prune-rp-texts' => true] ] ],
         '8e7d00f016648b180840f47544d98d337e5c0088' => [ ['app:migrate', ['--fix-ranking-survived-days' => true] ] ],
         'ffa2f28a35c5a34a0fbb26d8f478d5fc0f24679a' => [ ['app:migrate', ['--repair-permissions' => true] ] ],
         '0d37ad639bb89157ffa64eac0821ac490e063224' => [ ['app:migrate', ['--reassign-thread-tags' => true] ] ],
         'd669a5376c073ff8ede12330dbd3968346c78425' => [ ['app:migrate', ['--assign-official-tag' => true] ] ],
+        '9a573aed31d901434d2cc5992799ed1b5ee6683d' => [ ['app:migrate', ['--prune-rp-texts' => true] ] ],
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
