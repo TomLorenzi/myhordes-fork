@@ -17,11 +17,14 @@
     <style>
         body { background: #1b1b1b; color: white; }
         #log_target>code.legacy { margin: 4px 0 4px 20px; display: block }
-        #log_target>div { position: relative; font-family: monospace; padding: 2px 0 2px 400px; }
+        #log_target>div { position: relative; font-family: monospace; }
+        #log_target>div.type-plain { padding: 2px 0 2px 10px; }
+        #log_target>div:not(.type-plain) { padding: 2px 0 2px 400px; }
         #log_target>div:not(.spacer):hover, #log_target>code.legacy:hover { background: rgba(255,255,255,0.05); }
         #log_target>div.spacer { background: rgba(0,0,0,0.3); height: 5px; }
 
         #log_target>div.type-debug>div { opacity: 0.7 }
+        #log_target>div.type-plain::before { position: absolute; top: 0; left: 0; bottom: 0; width: 5px; content: " "; background: rgba(255,255,255,0.5); }
         #log_target>div.type-debug::before { position: absolute; top: 0; left: 0; bottom: 0; width: 5px; content: " "; background: rgba(255,255,255,0.5); }
         #log_target>div.type-info::before  { position: absolute; top: 0; left: 0; bottom: 0; width: 5px; content: " "; background: #15b8f3; }
         #log_target>div.type-error, #log_target>div.type-critical { background: #3d0000; }
@@ -69,7 +72,12 @@
 
             try {
                 const result = (/^\[(.*?)]\s(.*?)\.(.*?):\s(.*)\s[\[{](.*)[\]}]\s[\[{](.*)[\]}]$/).exec(line);
-                if (!result) continue;
+                if (!result) {
+                    const node = make_node('div', ['type-plain','from-raw']);
+                    node.append( make_node('div', 'message', line, true) );
+                    target.append(node);
+                    continue;
+                }
 
                 const node = make_node('div', ['type-' + result[3].toLowerCase(),'from-'+result[2]]);
 
