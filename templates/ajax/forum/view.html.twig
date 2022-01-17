@@ -174,7 +174,7 @@
                     {% endif %}
 
                     {% if pinned_threads %}
-                        {{ _self.display_thread_list(pinned_threads, forum.id, 'fa-thumbtack', 'Sticky'|trans({}, 'global'), select, jump, permission, town, post_page) }}
+                        {{ _self.display_thread_list(pinned_threads, forum.id, 'fa-thumbtack', 'Sticky'|trans({}, 'global'), select, jump, permission, town, false, false, post_page) }}
                         <br />
                     {% endif %}
 
