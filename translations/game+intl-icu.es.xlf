@@ -23071,7 +23071,7 @@
       </notes>
       <segment>
         <source>Die Anwesenheit des Geistigen Beistands unter den Nachtwächtern gibt ihnen jeweils einen Boost von {counsel} Verteidigung.</source>
-        <target>La presencia de Discurso motivador entre los centinelas otorga {counsel} defensas a cada uno.</target>
+        <target>El Discurso motivador de un centinela los inspira a matar 20 zombies más ({counsel} en total).</target>
       </segment>
     </unit>
     <unit id="vhwzs0L">
