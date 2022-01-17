@@ -459,7 +459,7 @@
       </notes>
       <segment>
         <source>ID-MyHordes</source>
-        <target>ID-MyHordes</target>
+        <target>ID de MyHordes</target>
       </segment>
     </unit>
     <unit id="C5c5hLx" name="universelle ID (zB: basic = Einwohner)">
@@ -469,7 +469,7 @@
       </notes>
       <segment>
         <source>universelle ID (zB: basic = Einwohner)</source>
-        <target>ID universal (zB: basic = Einwohner)</target>
+        <target>ID universal (Ej: basic = Habitante)</target>
       </segment>
     </unit>
     <unit id="I8Bzv3U" name="Der Name des Berufs">
@@ -539,7 +539,7 @@
       </notes>
       <segment>
         <source>Boolescher Wert, der angibt, dass sich die Stadt im Chaos befindet</source>
-        <target>Valor booleano que indica que el pueblo está sumido en el caos (true) o no (false).</target>
+        <target>Valor booleano que indica si el pueblo está sumido en el caos (true) o no (false).</target>
       </segment>
     </unit>
     <unit id="JHeixLc" name="Boolescher Wert, der besagt, ob die Stadt ein Pandemonium ist">
@@ -1200,7 +1200,7 @@
       </notes>
       <segment>
         <source>zB :</source>
-        <target>zB :</target>
+        <target>Ej :</target>
       </segment>
     </unit>
     <unit id="IHHHc2r" name="Beispiel">
@@ -1281,7 +1281,7 @@
       </notes>
       <segment>
         <source>ID der Picto</source>
-        <target>ID der Picto</target>
+        <target>ID del Icono</target>
       </segment>
     </unit>
     <unit id="SbP2DN8" name="Wenn dieses Picto selten ist">
@@ -1292,7 +1292,7 @@
       </notes>
       <segment>
         <source>Wenn dieses Picto selten ist</source>
-        <target>Wenn dieses Picto selten ist</target>
+        <target>Indica si el icono es raro (true) o no (false)</target>
       </segment>
     </unit>
     <unit id="gJd8dvU" name="Wenn dieses Picto eine Gemeinschaftsauszeichnung ist">
@@ -1303,7 +1303,7 @@
       </notes>
       <segment>
         <source>Wenn dieses Picto eine Gemeinschaftsauszeichnung ist</source>
-        <target>Wenn dieses Picto eine Gemeinschaftsauszeichnung ist</target>
+        <target>Indica si el icono es una recompensa de la comunidad</target>
       </segment>
     </unit>
     <unit id="NXHyE2A" name="ID der Ruine">
@@ -1314,7 +1314,7 @@
       </notes>
       <segment>
         <source>ID der Ruine</source>
-        <target>ID der Ruine</target>
+        <target>ID de la ruina</target>
       </segment>
     </unit>
     <unit id="Ey80Aru" name="Erforschbare Ruine">
@@ -1325,7 +1325,7 @@
       </notes>
       <segment>
         <source>Erforschbare Ruine</source>
-        <target>Erforschbare Ruine</target>
+        <target>Ruina explorable</target>
       </segment>
     </unit>
   </file>
