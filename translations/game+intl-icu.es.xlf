@@ -825,7 +825,7 @@
     <unit id="HMtmyP_" name="Rucksack">
       <notes>
         <note category="german">Rucksack</note>
-        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/beyond/ruin.html.twig;twig:///templates/ajax/game/game.html.twig;twig:///templates/ajax/game/town/bank.html.twig;twig:///templates/ajax/game/town/home.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/beyond/ruin.html.twig;twig:///templates/ajax/game/game.html.twig;twig:///templates/ajax/game/town/bank.html.twig;twig:///templates/ajax/game/town/home.html.twig</note>
       </notes>
       <segment>
         <source>Rucksack</source>
@@ -835,7 +835,7 @@
     <unit id="n__v7g9" name="Truhe">
       <notes>
         <note category="german">Truhe</note>
-        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_omniscience.html.twig;twig:///templates/ajax/game/town/home.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_omniscience.html.twig;twig:///templates/ajax/game/town/home.html.twig</note>
       </notes>
       <segment>
         <source>Truhe</source>

@@ -4183,7 +4183,6 @@
       <notes>
         <note category="german">Deine Platzierung</note>
         <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Deine Platzierung</source>
@@ -4194,7 +4193,6 @@
       <notes>
         <note category="german">{num} Seelenpunkte, Platz {rank}</note>
         <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>{num} Seelenpunkte, Platz {rank}</source>
