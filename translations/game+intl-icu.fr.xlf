@@ -19292,7 +19292,7 @@
       </notes>
       <segment>
         <source>Dieser Bürger möchte in die Stadt gebracht werden.</source>
-        <target>Ce citoyen souhaite retourner en ville.</target>
+        <target>Ce citoyen souhaite être ramené en ville.</target>
       </segment>
     </unit>
     <unit id="CIxCi9h">
@@ -22381,7 +22381,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Dieser Bürger gestattet dir nicht auf seine Gegenstände zuzugreifen.</source>
-        <target>Ce citoyen ne veut pas que vous touchiez à son sac.</target>
+        <target>Ce citoyen refuse que vous touchiez à ses objets.</target>
       </segment>
     </unit>
     <unit id="sxHlIDp">

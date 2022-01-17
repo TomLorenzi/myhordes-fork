@@ -2965,7 +2965,7 @@
       </notes>
       <segment>
         <source>Du kannst kein Icon ohne einen Titel wählen.</source>
-        <target>Du kannst kein Icon ohne einen Titel wählen.</target>
+        <target>You can't choose an icon without a title.</target>
       </segment>
     </unit>
     <unit id="wMIPplV" name="Statistiken">
