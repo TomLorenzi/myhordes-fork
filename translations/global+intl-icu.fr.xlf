@@ -4187,7 +4187,7 @@
       </notes>
       <segment>
         <source>Deine Platzierung</source>
-        <target>Deine Platzierung</target>
+        <target>Votre position</target>
       </segment>
     </unit>
     <unit id="2JRm9.u" name="{num} Seelenpunkte, Platz {rank}">
@@ -4198,7 +4198,7 @@
       </notes>
       <segment>
         <source>{num} Seelenpunkte, Platz {rank}</source>
-        <target>{num} Seelenpunkte, Platz {rank}</target>
+        <target>{num} points d'âme, position : {rank}</target>
       </segment>
     </unit>
   </file>
