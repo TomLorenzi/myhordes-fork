@@ -1892,7 +1892,7 @@ class ExternalController extends InventoryAwareController {
         }
         /** @var ItemPrototype $ItemProto */
         foreach ($items as $ItemProto) {
-            $idProto = $ItemProto->getId();
+            $idProto = $ItemProto->getName();
 
             $data[$idProto] = $this->getItemData($ItemProto, $this->fields);
         }
@@ -1914,7 +1914,7 @@ class ExternalController extends InventoryAwareController {
         }
         /** @var BuildingPrototype $proto */
         foreach ($buildings as $proto) {
-            $idProto = $proto->getId();
+            $idProto = $proto->getName();
 
             $data[$idProto] = $this->getBuildingPrototypeData($proto, $this->fields);
         }
@@ -1936,7 +1936,7 @@ class ExternalController extends InventoryAwareController {
         }
         /** @var PictoPrototype $proto */
         foreach ($buildings as $proto) {
-            $idProto = $proto->getId();
+            $idProto = $proto->getName();
 
             $data[$idProto] = $this->getPictoPrototypeData($proto, $this->fields);
         }
