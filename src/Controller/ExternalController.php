@@ -455,7 +455,7 @@ class ExternalController extends InventoryAwareController {
 
         foreach ($this->town->getCitizens() as $citizen) {
             if (!$citizen->getAlive()) {
-                $data[] = $this->getCadaversInformation($citizen, $fields);
+                $data[] = $this->getCadaversInformation($citizen->getRankingEntry(), $fields);
             }
         }
 
@@ -1648,7 +1648,6 @@ class ExternalController extends InventoryAwareController {
                                     $data_zone[$fieldName] = $this->getBuildingData($zone, $zoneOfUser, $fieldValues['fields']);
                                 }
                                 break;
-
                         }
                 } else {
                     switch ($field) {
@@ -1724,65 +1723,91 @@ class ExternalController extends InventoryAwareController {
         $data = [];
 
         foreach ($fields as $field) {
-            switch ($field) {
-                case "id":
-                    $data[$field] = $citizen->getUser()->getId();
-                    break;
-                case "twinId":
-                    $data[$field] = $citizen->getUser()->getTwinoidID();
-                    break;
-                case "mapId":
-                    $data[$field] = $citizen->getTown()->getId();
-                    break;
-                case "survival":
-                    $data[$field] = $citizen->getDay();
-                    break;
-                case "day":
-                    $data[$field] = $citizen->getTown()->getDays();
-                    break;
-                case "avatar":
-                    $has_avatar = $citizen->getUser()->getAvatar();
-                    if ($has_avatar) {
-                        $data[$field] = $this->generateUrl('app_web_avatar', ['uid'  => $citizen->getUser()->getId(),
-                                                                              'name' => $has_avatar->getFilename(),
-                                                                              'ext'  => $has_avatar->getFormat()
-                        ], UrlGenerator::ABSOLUTE_URL);
-                    } else {
-                        $data[$field] = false;
+            if(is_array($field)){
+                foreach ($field as $fieldName => $fieldValues)
+                    switch ($fieldName) {
+                        case "cleanup":
+                            $data[$fieldName] = $this->getCleanupInfos($citizen, $fieldValues['fields']);
+                            break;
                     }
+            } else {
+                switch ($field) {
+                    case "id":
+                        $data[$field] = $citizen->getUser()->getId();
+                        break;
+                    case "twinId":
+                        $data[$field] = $citizen->getUser()->getTwinoidID();
+                        break;
+                    case "mapId":
+                        $data[$field] = $citizen->getTown()->getId();
+                        break;
+                    case "survival":
+                        $data[$field] = $citizen->getDay();
+                        break;
+                    case "day":
+                        $data[$field] = $citizen->getTown()->getDays();
+                        break;
+                    case "avatar":
+                        $has_avatar = $citizen->getUser()->getAvatar();
+                        if ($has_avatar) {
+                            $data[$field] = $this->generateUrl('app_web_avatar', ['uid'  => $citizen->getUser()->getId(),
+                                'name' => $has_avatar->getFilename(),
+                                'ext'  => $has_avatar->getFormat()
+                            ], UrlGenerator::ABSOLUTE_URL);
+                        } else {
+                            $data[$field] = false;
+                        }
+                        break;
+                    case "name":
+                        $data[$field] = $citizen->getName();
+                        break;
+                    case "mapName":
+                        $data[$field] = $citizen->getTown()->getName();
+                        break;
+                    case "season":
+                        $data[$field] = ($citizen->getTown()->getSeason()) ?
+                            ($citizen->getTown()->getSeason()->getNumber() === 0) ? $citizen->getTown()->getSeason()->getSubNumber() :
+                                $citizen->getTown()->getSeason()->getNumber() : 0;
+                        break;
+                    case "dtype":
+                        $data[$field] = $citizen->getCod()->getRef();
+                        break;
+                    case "v1":
+                        $data[$field] = 0;
+                        break;
+                    case "score":
+                        $data[$field] = $citizen->getPoints();
+                        break;
+                    case "msg":
+                        $data[$field] = $citizen->getLastWords();
+                        break;
+                    case "comment":
+                        $data[$field] = $citizen->getComment();
+                        break;
+                    case "cleanup":
+                        $data['cleanup']['user'] = $citizen->getCleanupUsername();
+                        $data['cleanup']['type'] = $citizen->getCleanupType();
+                        break;
+                }
+            }
+        }
+        return $data;
+    }
+
+    private function getCleanupInfos(CitizenRankingProxy $citizen, array $fields): array{
+        $data = [];
+
+        foreach ($fields as $field){
+            switch($field) {
+                case "type":
+                    $data[$field] = $citizen->getCleanupType();
                     break;
-                case "name":
-                    $data[$field] = $citizen->getName();
-                    break;
-                case "mapName":
-                    $data[$field] = $citizen->getTown()->getName();
-                    break;
-                case "season":
-                    $data[$field] = ($citizen->getTown()->getSeason()) ?
-                        ($citizen->getTown()->getSeason()->getNumber() === 0) ? $citizen->getTown()->getSeason()->getSubNumber() :
-                            $citizen->getTown()->getSeason()->getNumber() : 0;
-                    break;
-                case "dtype":
-                    $data[$field] = $citizen->getCod()->getRef();
-                    break;
-                case "v1":
-                    $data[$field] = 0;
-                    break;
-                case "score":
-                    $data[$field] = $citizen->getPoints();
-                    break;
-                case "msg":
-                    $data[$field] = $citizen->getLastWords();
-                    break;
-                case "comment":
-                    $data[$field] = $citizen->getComment();
-                    break;
-                case "cleanup":
-                    $data['cleanup']['user'] = $citizen->getCleanupUsername();
-                    $data['cleanup']['type'] = $citizen->getCleanupType();
+                case "user":
+                    $data[$field] = $citizen->getCleanupUsername();
                     break;
             }
         }
+
         return $data;
     }
 
