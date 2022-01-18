@@ -198,7 +198,7 @@
                         <div class="cell ro-4 rw-4 ro-lg-3 rw-lg-6 ro-md-2 rw-md-8 ro-sm-0 rw-sm-12">
                             <div class="note center">
                                 <b>{{ 'Deine Platzierung'|trans({},'global') }}</b><br/>
-                                <span>{{ '{num} Seelenpunkte, Platz {rank}'|trans({'num': '<b>' ~ user_sp ~ '</b>', 'rank': '<b>' ~ user_rank ~ '</b>'},'global')|raw }}</span>
+                                <span>{{ '{num} Seelenpunkte, Platz {rank}'|trans({'num': '<b>' ~ user_sp ~ '</b>', 'rank': user_rank},'global')|raw }}</span>
                             </div>
                         </div>
                     </div>

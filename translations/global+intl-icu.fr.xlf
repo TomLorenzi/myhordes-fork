@@ -4196,7 +4196,7 @@
       </notes>
       <segment>
         <source>{num} Seelenpunkte, Platz {rank}</source>
-        <target>{num} points d'âme, position : {rank}</target>
+        <target><![CDATA[{num} points d'âme, position : <b>{rank, selectordinal, one {#er} other {#ème}}</b>]]></target>
       </segment>
     </unit>
   </file>
