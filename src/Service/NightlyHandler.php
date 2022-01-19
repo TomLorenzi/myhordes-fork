@@ -1462,7 +1462,8 @@ class NightlyHandler
 
             // Giving picto nightwatch if he's watcher
             $watch = $this->entity_manager->getRepository(CitizenWatch::class)->findWatchOfCitizenForADay($citizen, $town->getDay() - 1);
-            if($watch !== null){
+            if($watch !== null && !$watch->getSkipped()){
+                // You must be in town to be considered a watcher !
                 $this->picto_handler->give_picto($citizen, $picto_nightwatch);
             }
 
