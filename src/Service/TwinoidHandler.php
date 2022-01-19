@@ -253,8 +253,6 @@ class TwinoidHandler
                     ->setV1($town->isOld());
             else $entry->setDays( max( $entry->getDays(), $town->getDay() ) );
 
-            dump($town);
-
             $entry->addCitizen(
                 (new CitizenRankingProxy())
                     ->setBaseID( $user->getId() )
