@@ -2956,12 +2956,11 @@
     <unit id="DFJoP7h" name="Du kannst kein Icon ohne einen Titel wählen.">
       <notes>
         <note category="german">Du kannst kein Icon ohne einen Titel wählen.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Du kannst kein Icon ohne einen Titel wählen.</source>
-        <target>Du kannst kein Icon ohne einen Titel wählen.</target>
+        <target>Vous ne pouvez pas choisir une icône sans titre.</target>
       </segment>
     </unit>
     <unit id="wMIPplV" name="Statistiken">

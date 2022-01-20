@@ -192,10 +192,10 @@
                     <div class="note note-critical">{{ 'Es sind keine Spieler aufgelistet!'|trans({},'soul') }}</div> <!-- TODO: missing translation -->
                 {% endif %}
             </div>
-            {% if user_sp is defined and user_rank is defined and user_rank > 0 %}
+            {% if user_sp is defined and user_sp > 0 and user_rank is defined and user_rank > 0 %}
                 <div class="cell padded rw-12">
                     <div class="row">
-                        <div class="cell ro-4 rw-4">
+                        <div class="cell ro-4 rw-4 ro-lg-3 rw-lg-6 ro-md-2 rw-md-8 ro-sm-0 rw-sm-12">
                             <div class="note center">
                                 <b>{{ 'Deine Platzierung'|trans({},'global') }}</b><br/>
                                 <span>{{ '{num} Seelenpunkte, Platz {rank}'|trans({'num': '<b>' ~ user_sp ~ '</b>', 'rank': '<b>' ~ user_rank ~ '</b>'},'global')|raw }}</span>
@@ -241,12 +241,16 @@
     {% elseif (pages > 1) %}
         <div class="row-flex">
             <div class="padded cell left" {% if page <= 1 %}disabled{% endif %}>
-                <img alt="<<" src="{{ asset('build/images/icons/small_prev.gif') }}" />
-                <a href="#" x-ajax-sticky x-ajax-href="{{ path('soul_season_solo', {page: 1, season: virtualSeason ? currentSeason : (currentSeason ? currentSeason.id : 'c')}) }}">{{ 'Anfang'|trans({},'global') }}</a>
+                <a href="#" x-ajax-sticky x-ajax-href="{{ path('soul_season_solo', {page: 1, season: virtualSeason ? currentSeason : (currentSeason ? currentSeason.id : 'c')}) }}">
+                    <img alt="<<" src="{{ asset('build/images/icons/small_prev.gif') }}" />
+                    <span class="hide-sm">{{ 'Anfang'|trans({},'global') }}</span>
+                </a>
             </div>
             <div class="padded cell left" {% if page <= 1 %}disabled{% endif %}>
-                <img alt="<" src="{{ asset('build/images/icons/small_prev.gif') }}" />
-                <a href="#" x-ajax-sticky x-ajax-href="{{ path('soul_season_solo', {page: page - 1, season: virtualSeason ? currentSeason : (currentSeason ? currentSeason.id : 'c')}) }}">{{ 'Vorh.'|trans({},'global') }}</a>
+                <a href="#" x-ajax-sticky x-ajax-href="{{ path('soul_season_solo', {page: page - 1, season: virtualSeason ? currentSeason : (currentSeason ? currentSeason.id : 'c')}) }}">
+                    <img alt="<" src="{{ asset('build/images/icons/small_prev.gif') }}" />
+                    <span class="hide-sm">{{ 'Vorh.'|trans({},'global') }}</span>
+                </a>
             </div>
             <div class="padded cell grow-1 center">
                 <label><select id="pagination" class="small">
@@ -256,12 +260,16 @@
                 </select></label>
             </div>
             <div class="padded cell right" {% if page >= pages %}disabled{% endif %}>
-                <a href="#" x-ajax-sticky x-ajax-href="{{ path('soul_season_solo', {page: page + 1, season: virtualSeason ? currentSeason : (currentSeason ? currentSeason.id : 'c')}) }}">{{ 'Folg.'|trans({},'global') }}</a>
-                <img alt=">" src="{{ asset('build/images/icons/small_next.gif') }}" />
+                <a href="#" x-ajax-sticky x-ajax-href="{{ path('soul_season_solo', {page: page + 1, season: virtualSeason ? currentSeason : (currentSeason ? currentSeason.id : 'c')}) }}">
+                    <span class="hide-sm">{{ 'Folg.'|trans({},'global') }}</span>
+                    <img alt=">" src="{{ asset('build/images/icons/small_next.gif') }}" />
+                </a>
             </div>
             <div class="padded cell right" {% if page >= pages %}disabled{% endif %}>
-                <a href="#" x-ajax-sticky x-ajax-href="{{ path('soul_season_solo', {page: pages, season: virtualSeason ? currentSeason : (currentSeason ? currentSeason.id : 'c')}) }}">{{ 'Ende'|trans({},'global') }}</a>
-                <img alt=">" src="{{ asset('build/images/icons/small_next.gif') }}" />
+                <a href="#" x-ajax-sticky x-ajax-href="{{ path('soul_season_solo', {page: pages, season: virtualSeason ? currentSeason : (currentSeason ? currentSeason.id : 'c')}) }}">
+                    <span class="hide-sm">{{ 'Ende'|trans({},'global') }}</span>
+                    <img alt=">" src="{{ asset('build/images/icons/small_next.gif') }}" />
+                </a>
             </div>
         </div>
     {% endif %}

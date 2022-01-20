@@ -4183,22 +4183,20 @@
       <notes>
         <note category="german">Deine Platzierung</note>
         <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Deine Platzierung</source>
-        <target>Deine Platzierung</target>
+        <target>Votre position</target>
       </segment>
     </unit>
     <unit id="2JRm9.u" name="{num} Seelenpunkte, Platz {rank}">
       <notes>
         <note category="german">{num} Seelenpunkte, Platz {rank}</note>
         <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>{num} Seelenpunkte, Platz {rank}</source>
-        <target>{num} Seelenpunkte, Platz {rank}</target>
+        <target>{num} points d'âme, position : {rank}</target>
       </segment>
     </unit>
   </file>
