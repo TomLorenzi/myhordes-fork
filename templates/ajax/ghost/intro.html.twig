@@ -78,10 +78,12 @@
 
                                 {% if coa is not empty %}
                                     <div class="note">
-                                        {{ 'Wenn du eine Stadt betrittst, werden folgende Mitglieder deiner {coalition} dir folgen:'|trans({ coalition: coa_link },'ghost')|raw }}
+                                        {{ 'Wenn du eine Stadt betrittst, werden folgende Mitglieder deiner {coalition} dir folgen:'|trans({ coalition: coa_link },'ghost')|raw }}<br />
+                                        <ul class="list no-margin">
                                         {% for member in coa %}
-                                            <strong>{{ member.name }}</strong><br />
+                                            <li><strong>{{ member.name }}</strong></li>
                                         {% endfor %}
+                                        </ul>
                                     </div>
                                 {% endif %}
 
