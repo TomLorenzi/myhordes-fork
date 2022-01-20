@@ -25921,5 +25921,16 @@ cette violente opération...]]></target>
         <target><![CDATA[Der entsetzliche Angriff letzte Nacht kostete das Leben von {cadavers} Menschen. Circa <strong>{attack} Zombies</strong>! Die Gewalt, die bei diesem jüngsten Angriff zu beobachten war, lässt uns das Schlimmste erwarten...]]></target>
       </segment>
     </unit>
+    <unit id="Mv5rYXb">
+      <notes>
+        <note category="german">Der Empfänger scheint &lt;strong&gt;keinen freien Platz mehr in seiner Truhe&lt;/strong&gt; zu haben! Er kann darum den oder die mitgesendeten Gegenstände nicht empfangen. Sende ihm weniger Gegenstände oder bitte ihn etwas Platz in seiner Truhe zu machen.&lt;hr/&gt;Deine Nachricht &lt;strong&gt;wurde nicht gesendet&lt;/strong&gt;.</note>
+        <note category="from">twig:///templates/scripts/errors/inventory.txt.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Der Empfänger scheint &lt;strong&gt;keinen freien Platz mehr in seiner Truhe&lt;/strong&gt; zu haben! Er kann darum den oder die mitgesendeten Gegenstände nicht empfangen. Sende ihm weniger Gegenstände oder bitte ihn etwas Platz in seiner Truhe zu machen.&lt;hr/&gt;Deine Nachricht &lt;strong&gt;wurde nicht gesendet&lt;/strong&gt;.</source>
+        <target><![CDATA[Le destinataire semble <strong>ne plus avoir de place disponible dans son coffre</strong> ! Il ne pourra donc pas recevoir le ou les objets joints. Essayez d'envoyer moins d'objets à la fois, ou demandez-lui de libérer de l'espace.<hr/>Votre message <strong>n'a pas été envoyé</strong>.]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>
