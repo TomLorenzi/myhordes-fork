@@ -1037,9 +1037,14 @@ class AdminTownController extends AdminActionController
             'items' => $citizen->getHome()->getChest()->getItems()
         ]);
 
+        $pictos = $this->renderView("ajax/admin/towns/distinctions.html.twig", [
+            'pictos' => $this->entity_manager->getRepository(Picto::class)->findPictoByUserAndTown($citizen->getUser(), $citizen->getTown()),
+        ]);
+
         return AjaxResponse::success(true, [
             'rucksack' => $rucksack,
-            'chest' => $chest
+            'chest' => $chest,
+            'pictos' => $pictos,
         ]);
     }
 
