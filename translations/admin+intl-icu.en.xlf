@@ -4450,7 +4450,6 @@
       <notes>
         <note category="german">Diese Auszeichnung wird nicht verdient, wenn der Bürger heute Nacht stirbt.</note>
         <note category="from">twig:///templates/ajax/admin/towns/distinctions.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Diese Auszeichnung wird nicht verdient, wenn der Bürger heute Nacht stirbt.</source>
@@ -4461,7 +4460,6 @@
       <notes>
         <note category="german">Diese Auszeichnung wurde verdient.</note>
         <note category="from">twig:///templates/ajax/admin/towns/distinctions.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Diese Auszeichnung wurde verdient.</source>

@@ -26119,5 +26119,16 @@
         <target><![CDATA[¡El destinatario parece <strong>no tener espacio disponible en su baúl</strong>! No podrá recibir los objetos adjuntos. Intenta enviarle menos objetos a la vez, o pídele liberar algo de espacio.<hr/>Tu mensaje <strong>no ha sido enviado</strong>.]]></target>
       </segment>
     </unit>
+    <unit id="KFdlCI2" name="{leader} hat {escortee} heldenhaft zurück in die Stadt begleitet!">
+      <notes>
+        <note category="german">{leader} hat {escortee} heldenhaft zurück in die Stadt begleitet!</note>
+        <note category="from">db://LogEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>{leader} hat {escortee} heldenhaft zurück in die Stadt begleitet!</source>
+        <target>¡El valiente {leader} ha acompañado a {escortee} hasta el pueblo!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

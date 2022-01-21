@@ -16430,5 +16430,11 @@
         <target><![CDATA[Der Empfänger scheint <strong>keinen freien Platz mehr in seiner Truhe</strong> zu haben! Er kann darum den oder die mitgesendeten Gegenstände nicht empfangen. Sende ihm weniger Gegenstände oder bitte ihn etwas Platz in seiner Truhe zu machen.<hr/>Deine Nachricht <strong>wurde nicht gesendet</strong>.]]></target>
       </segment>
     </unit>
+    <unit id="KFdlCI2" name="{leader} hat {escortee} heldenhaft zurück in die Stadt begleitet!">
+      <segment>
+        <source>{leader} hat {escortee} heldenhaft zurück in die Stadt begleitet!</source>
+        <target>{leader} hat {escortee} heldenhaft zurück in die Stadt begleitet!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

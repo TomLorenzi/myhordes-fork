@@ -26225,5 +26225,26 @@
         <target><![CDATA[The receiver seems to have <strong>no more room in their chest</strong>. He can't receive the item(s) you have sent. Send fewer items or ask them to make some room in their chest.<hr/>Your message <strong>was not sent</strong>.]]></target>
       </segment>
     </unit>
+    <unit id="KFdlCI2" name="{leader} hat {escortee} heldenhaft zurück in die Stadt begleitet!">
+      <notes>
+        <note category="german">{leader} hat {escortee} heldenhaft zurück in die Stadt begleitet!</note>
+        <note category="from">db://LogEntryTemplate</note>
+      </notes>
+      <segment>
+        <source>{leader} hat {escortee} heldenhaft zurück in die Stadt begleitet!</source>
+        <target>The courageous {leader} escorted and brought {escortee} back to the town!</target>
+      </segment>
+    </unit>
+    <unit id="NJ.jiJV" name="{citizen} bedankt sich herzlich bei dir, dass du ihn nach Hause gebracht hast!">
+      <notes>
+        <note category="german">{citizen} bedankt sich herzlich bei dir, dass du ihn nach Hause gebracht hast!</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>{citizen} bedankt sich herzlich bei dir, dass du ihn nach Hause gebracht hast!</source>
+        <target>{citizen} thanks you wholeheartedly for taking them back to the town!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

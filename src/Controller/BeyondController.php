@@ -848,7 +848,6 @@ class BeyondController extends InventoryAwareController
         }
 
         foreach ($movers as $mover) {
-
             // Moving disables the dig timer
             if ($dig_timer = $mover->getCurrentDigTimer()) {
                 $dig_timer->setPassive(true);
@@ -946,6 +945,16 @@ class BeyondController extends InventoryAwareController
                         $this->entity_manager->persist($item);
                     }
                 }
+            }
+
+            if ($new_zone->isTownZone() && $mover->getEscortSettings() && $mover->getEscortSettings()->getForceDirectReturn()) {
+                // The citizen want to go back home. When we're on the town zone, make it go inside automatically
+                $mover->setZone(null);
+                $zone->removeCitizen($mover);
+                $this->addFlash('notice', $this->translator->trans("{citizen} bedankt sich herzlich bei dir, dass du ihn nach Hause gebracht hast!", ['{citizen}' => $mover->getName()], 'game'));
+                $this->entity_manager->persist($this->log->beyondEscortCitizenBackHome($mover, $mover->getEscortSettings()->getLeader()));
+                $this->entity_manager->remove($mover->getEscortSettings());
+                $mover->setEscortSettings(null);
             }
 
             $this->entity_manager->persist($mover);

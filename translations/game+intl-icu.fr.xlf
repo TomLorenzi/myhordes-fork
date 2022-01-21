@@ -25931,5 +25931,26 @@ cette violente opération...]]></target>
         <target><![CDATA[Le destinataire semble <strong>ne plus avoir de place disponible dans son coffre</strong> ! Il ne pourra donc pas recevoir le ou les objets joints. Essayez d'envoyer moins d'objets à la fois, ou demandez-lui de libérer de l'espace.<hr/>Votre message <strong>n'a pas été envoyé</strong>.]]></target>
       </segment>
     </unit>
+    <unit id="KFdlCI2" name="{leader} hat {escortee} heldenhaft zurück in die Stadt begleitet!">
+      <notes>
+        <note category="german">{leader} hat {escortee} heldenhaft zurück in die Stadt begleitet!</note>
+        <note category="from">db://LogEntryTemplate</note>
+      </notes>
+      <segment>
+        <source>{leader} hat {escortee} heldenhaft zurück in die Stadt begleitet!</source>
+        <target>Le courageux citoyen {leader} a escorté et ramené {escortee} jusqu'en ville !</target>
+      </segment>
+    </unit>
+    <unit id="NJ.jiJV" name="{citizen} bedankt sich herzlich bei dir, dass du ihn nach Hause gebracht hast!">
+      <notes>
+        <note category="german">{citizen} thanks you wholeheartedly for taking them back to the town!</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>{citizen} bedankt sich herzlich bei dir, dass du ihn nach Hause gebracht hast!</source>
+        <target>Le citoyen {citizen} vous remercie chaleureusement de l'avoir ramené en ville !</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
