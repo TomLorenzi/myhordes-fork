@@ -2275,7 +2275,7 @@
         <target>Jeder in der Bank abgelegte Verteidigungsgegenstand bringt der Stadt 1.5 Verteidigungspunkte zusätzlich ein.</target>
       </segment>
     </unit>
-    <unit id="ry7qbCw">
+    <unit id="0O20i7a" name="Die Stadt erhält nach dem nächsten Angriff einmalig 1 gewöhnliche Baupläne.">
       <segment>
         <source>Die Stadt erhält nach dem nächsten Angriff einmalig 1 gewöhnliche Baupläne.</source>
         <target>Die Stadt erhält nach dem nächsten Angriff einmalig 1 gewöhnliche Baupläne.</target>

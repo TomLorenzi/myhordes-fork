@@ -3755,7 +3755,7 @@
         <target>Each defence object in the bank gives 1.5 defence points to the town.</target>
       </segment>
     </unit>
-    <unit id="ry7qbCw">
+    <unit id="0O20i7a" name="Die Stadt erhält nach dem nächsten Angriff einmalig 1 gewöhnliche Baupläne.">
       <notes>
         <note category="german">Die Stadt erhält nach dem nächsten Angriff einmalig 1 gewöhnliche Baupläne.</note>
         <note category="from">db://BuildingPrototype</note>
@@ -3769,7 +3769,6 @@
       <notes>
         <note category="german">Der Wasserwerfer gibt 70 zusätzliche Verteidigungspunkte.</note>
         <note category="from">db://BuildingPrototype</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Der Wasserwerfer gibt 70 zusätzliche Verteidigungspunkte.</source>

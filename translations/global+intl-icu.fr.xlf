@@ -444,7 +444,7 @@
     <unit id="wMIPplV" name="Statistiken">
       <notes>
         <note category="german">Statistiken</note>
-        <note category="from">twig:///templates/ajax/soul/distinctions.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/towns/distinctions.html.twig;twig:///templates/ajax/soul/distinctions.html.twig</note>
       </notes>
       <segment>
         <source>Statistiken</source>
@@ -454,7 +454,7 @@
     <unit id="HPrVKwR" name="{points} Punkte">
       <notes>
         <note category="german">{points} Punkte</note>
-        <note category="from">twig:///templates/ajax/soul/distinctions.html.twig;twig:///templates/ajax/soul/me.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/towns/distinctions.html.twig;twig:///templates/ajax/soul/distinctions.html.twig;twig:///templates/ajax/soul/me.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
       </notes>
       <segment>
         <source>{points} Punkte</source>
@@ -474,7 +474,7 @@
     <unit id="LM1P67a" name="Dieser Spieler hat bisher noch keine Preise gewonnen...">
       <notes>
         <note category="german">Dieser Spieler hat bisher noch keine Preise gewonnen...</note>
-        <note category="from">twig:///templates/ajax/soul/distinctions.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/towns/distinctions.html.twig;twig:///templates/ajax/soul/distinctions.html.twig</note>
       </notes>
       <segment>
         <source>Dieser Spieler hat bisher noch keine Preise gewonnen...</source>
