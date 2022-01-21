@@ -8235,7 +8235,7 @@
         <target><![CDATA[Utilisant vos pouvoirs de héros, vous exterminez <strong>{kills} zombie(s)</strong> en face de vous !]]></target>
       </segment>
     </unit>
-    <unit id="Pd1i68n">
+    <unit id="BEKb9Uc">
       <notes>
         <note category="german">Du atmest tief durch und drückst den Rücken durch. Auf geht's! Ich werde nicht hier sterben!{hr}Du hast soeben Kraft getankt und &lt;strong&gt;{ap} neue AP erhalten&lt;/strong&gt;.</note>
         <note category="from">db://AffectMessage</note>

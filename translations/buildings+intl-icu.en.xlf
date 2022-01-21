@@ -708,7 +708,7 @@
       </notes>
       <segment>
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 100%.</source>
-        <target>The value of defensive objects in the bank is increased by 100%.</target>
+        <target>Each defence object in the bank gives 2 defence points to the town.</target>
       </segment>
     </unit>
     <unit id="GLo_FzK" name="Der Verteidigungsbonus von Gegenständen in der Bank steigt um 150%.">
@@ -718,7 +718,7 @@
       </notes>
       <segment>
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 150%.</source>
-        <target>The value of defensive objects in the bank is increased by 150%.</target>
+        <target>Each defence object in the bank gives 2.5 defence points to the town.</target>
       </segment>
     </unit>
     <unit id="l3tFIbP" name="Der Verteidigungsbonus von Gegenständen in der Bank steigt um 200%.">
@@ -728,7 +728,7 @@
       </notes>
       <segment>
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 200%.</source>
-        <target>The value of defensive objects in the bank is increased by 200%.</target>
+        <target>TEach defence object in the bank gives 3 defence points to the town.</target>
       </segment>
     </unit>
     <unit id="FXvZuCC" name="Der Verteidigungsbonus von Gegenständen in der Bank steigt um 250%.">
@@ -738,7 +738,7 @@
       </notes>
       <segment>
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 250%.</source>
-        <target>The value of defensive objects in the bank is increased by 250%.</target>
+        <target>Each defence object in the bank gives 3.5 defence points to the town.</target>
       </segment>
     </unit>
     <unit id="fPl.xwk" name="Der Verteidigungsbonus von Gegenständen in der Bank steigt um 300%.">
@@ -748,7 +748,7 @@
       </notes>
       <segment>
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 300%.</source>
-        <target>The value of defensive objects in the bank is increased by 300%.</target>
+        <target>Each defence object in the bank gives 4 defence points to the town.</target>
       </segment>
     </unit>
     <unit id="Vln90x5" name="Steinkanone">
@@ -3713,6 +3713,67 @@
       <segment>
         <source>Die Verteidigung der Stadt wird um 10% erhöht.</source>
         <target>The total defence of the town is permanently increased by 10%.</target>
+      </segment>
+    </unit>
+    <unit id="ds6jhOT" name="Der Verteidigungswert der Stadt steigt mit dem Großen Graben auf 10 Punkte.">
+      <notes>
+        <note category="german">Der Verteidigungswert der Stadt steigt mit dem Großen Graben auf 10 Punkte.</note>
+        <note category="from">db://BuildingPrototype</note>
+      </notes>
+      <segment>
+        <source>Der Verteidigungswert der Stadt steigt mit dem Großen Graben auf 10 Punkte.</source>
+        <target>The Great Pit gives an additional 10 defence points.</target>
+      </segment>
+    </unit>
+    <unit id="kA.md3H" name="Die entwicklungsfähige Stadtmauer bringt der Stadt 55 Verteidigungspunkte.">
+      <notes>
+        <note category="german">Die entwicklungsfähige Stadtmauer bringt der Stadt 55 Verteidigungspunkte.</note>
+        <note category="from">db://BuildingPrototype</note>
+      </notes>
+      <segment>
+        <source>Die entwicklungsfähige Stadtmauer bringt der Stadt 55 Verteidigungspunkte.</source>
+        <target>The upgraded great wall gives an additional 55 defence points.</target>
+      </segment>
+    </unit>
+    <unit id="g64XZZx" name="Der Brunnen wird einmalig mit 5 Rationen Wasser befüllt.">
+      <notes>
+        <note category="german">Der Brunnen wird einmalig mit 5 Rationen Wasser befüllt.</note>
+        <note category="from">db://BuildingPrototype</note>
+      </notes>
+      <segment>
+        <source>Der Brunnen wird einmalig mit 5 Rationen Wasser befüllt.</source>
+        <target>5 rations of water are added to the well (one time only)</target>
+      </segment>
+    </unit>
+    <unit id="11k2wgK">
+      <notes>
+        <note category="german">Jeder in der Bank abgelegte Verteidigungsgegenstand bringt der Stadt 1.5 Verteidigungspunkte zusätzlich ein.</note>
+        <note category="from">db://BuildingPrototype</note>
+      </notes>
+      <segment>
+        <source>Jeder in der Bank abgelegte Verteidigungsgegenstand bringt der Stadt 1.5 Verteidigungspunkte zusätzlich ein.</source>
+        <target>Each defence object in the bank gives 1.5 defence points to the town.</target>
+      </segment>
+    </unit>
+    <unit id="ry7qbCw">
+      <notes>
+        <note category="german">Die Stadt erhält nach dem nächsten Angriff einmalig 1 gewöhnliche Baupläne.</note>
+        <note category="from">db://BuildingPrototype</note>
+      </notes>
+      <segment>
+        <source>Die Stadt erhält nach dem nächsten Angriff einmalig 1 gewöhnliche Baupläne.</source>
+        <target>The Town will receive 1 common blueprints after the attack.</target>
+      </segment>
+    </unit>
+    <unit id="ELKPDDh" name="Der Wasserwerfer gibt 70 zusätzliche Verteidigungspunkte.">
+      <notes>
+        <note category="german">Der Wasserwerfer gibt 70 zusätzliche Verteidigungspunkte.</note>
+        <note category="from">db://BuildingPrototype</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Der Wasserwerfer gibt 70 zusätzliche Verteidigungspunkte.</source>
+        <target>Water Turrets gives an additional 70 defence points.</target>
       </segment>
     </unit>
   </file>
