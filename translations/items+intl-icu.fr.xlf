@@ -18,7 +18,7 @@
       </notes>
       <segment>
         <source>Wow, du hast einen Trippel geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</source>
-        <target><![CDATA[Bravo, vous obtenez un <strong>triplet</strong> ! Qu'est-ce qu'on s'amuse !{hr}Ça vous fait tellement plaisir que vous gagnez <strong>1 PA</strong>.]]></target>
+        <target><![CDATA[Bravo, vous obtenez un <strong>triplet</strong> ! Qu'est-ce qu'on s'amuse !<hr />Ça vous fait tellement plaisir que vous gagnez <strong>1 PA</strong>.]]></target>
       </segment>
     </unit>
     <unit id="rmGP8Al">
