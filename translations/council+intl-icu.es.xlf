@@ -26,11 +26,10 @@
       <notes>
         <note category="german">Noob!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Noob!</source>
-        <target>Noob!</target>
+        <target>¡Manco!</target>
       </segment>
     </unit>
     <unit id="hAxJLPM" name="Keine Freiwilligen?">
@@ -78,11 +77,10 @@
       <notes>
         <note category="german">Irgendwer?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Irgendwer?</source>
-        <target>Irgendwer?</target>
+        <target>¿Alguien?</target>
       </segment>
     </unit>
     <unit id="VL8W9ML">
@@ -141,11 +139,10 @@
       <notes>
         <note category="german">Lasst uns dieses langweilige Ritual abschaffen und einfach mich auswählen! Ihr wisst alle, dass ich der perfekte Kandidat bin!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Lasst uns dieses langweilige Ritual abschaffen und einfach mich auswählen! Ihr wisst alle, dass ich der perfekte Kandidat bin!</source>
-        <target>Lasst uns dieses langweilige Ritual abschaffen und einfach mich auswählen! Ihr wisst alle, dass ich der perfekte Kandidat bin!</target>
+        <target>¡Dejémonos de este estúpido ritual y escógeme de una vez, sabes que soy el adecuado!</target>
       </segment>
     </unit>
     <unit id="oFQsbia" name="Ich ich ich ich ich ich!">
@@ -203,11 +200,10 @@
       <notes>
         <note category="german">Und was wäre, wenn wir wie üblich Strohhalme ziehen würden?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Und was wäre, wenn wir wie üblich Strohhalme ziehen würden?</source>
-        <target>Und was wäre, wenn wir wie üblich Strohhalme ziehen würden?</target>
+        <target>¿Y si jugamos a la pajita más corta como siempre?</target>
       </segment>
     </unit>
     <unit id="4WWP50H" name="Hört auf, mich anzugucken!">
@@ -234,7 +230,6 @@
       <notes>
         <note category="german">+1 !</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>+1 !</source>
@@ -255,22 +250,20 @@
       <notes>
         <note category="german">Er stinkt wie die Rückseite einer...</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Er stinkt wie die Rückseite einer...</source>
-        <target>Er stinkt wie die Rückseite einer...</target>
+        <target>Huele igual que el trasero de un...</target>
       </segment>
     </unit>
     <unit id="eue71sD" name="Ich vertraue ihm nicht.">
       <notes>
         <note category="german">Ich vertraue ihm nicht.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ich vertraue ihm nicht.</source>
-        <target>Ich vertraue ihm nicht.</target>
+        <target>No confío en él.</target>
       </segment>
     </unit>
     <unit id="bSy0Arh" name="Na das überrascht mich ja mal so gar nicht!">
@@ -297,11 +290,10 @@
       <notes>
         <note category="german">Ach komm schon!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ach komm schon!</source>
-        <target>Ach komm schon!</target>
+        <target>¡Venga tiiio!</target>
       </segment>
     </unit>
     <unit id="2Gp8p57" name="Wir könnten ja auch warten, bis sich jemand anderes freiwillig meldet...">
@@ -319,11 +311,10 @@
       <notes>
         <note category="german">Es gehört sich nicht für andere zu sprechen, {parent}.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Es gehört sich nicht für andere zu sprechen, {parent}.</source>
-        <target>Es gehört sich nicht für andere zu sprechen, {parent}.</target>
+        <target>No es agradable hablar por otros {parent}.</target>
       </segment>
     </unit>
     <unit id="vxAkxDi" name="Typisch für dich {parent}, immer jemand anderen vorschicken!">
@@ -350,22 +341,20 @@
       <notes>
         <note category="german">Muss ich darauf antworten?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Muss ich darauf antworten?</source>
-        <target>Muss ich darauf antworten?</target>
+        <target>¿En serio he de responder a eso?</target>
       </segment>
     </unit>
     <unit id="_TP1xnb" name="Du warst schon immer feige! Hinter dem Rücken der anderen reden und so!">
       <notes>
         <note category="german">Du warst schon immer feige! Hinter dem Rücken der anderen reden und so!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Du warst schon immer feige! Hinter dem Rücken der anderen reden und so!</source>
-        <target>Du warst schon immer feige! Hinter dem Rücken der anderen reden und so!</target>
+        <target>¡Siempre fuiste un envidioso! ¡Hablando a espaldas de los demás, ojj!</target>
       </segment>
     </unit>
     <unit id="_.n36kV">
@@ -385,7 +374,7 @@
       </notes>
       <segment>
         <source>Solange nicht ich ausgewählt werde, bin ich zufrieden.</source>
-        <target>¡Mientras no sea yo me da lo mismo!</target>
+        <target>¡Mientras no me elijáis a mi seré feliz!</target>
       </segment>
     </unit>
     <unit id="fPuUkse">
@@ -412,22 +401,20 @@
       <notes>
         <note category="german">Solange ich das nicht bin geht mir das sowas von am Arsch vorbei!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Solange ich das nicht bin geht mir das sowas von am Arsch vorbei!</source>
-        <target>Solange ich das nicht bin geht mir das sowas von am Arsch vorbei!</target>
+        <target>¡Mientras no sea yo me vale queso!</target>
       </segment>
     </unit>
     <unit id="dr5XsqN" name="Solange ich das nicht bin, ist mir das völlig egal!">
       <notes>
         <note category="german">Solange ich das nicht bin, ist mir das völlig egal!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Solange ich das nicht bin, ist mir das völlig egal!</source>
-        <target>Solange ich das nicht bin, ist mir das völlig egal!</target>
+        <target>¡Mientras no sea yo me da lo mismo!</target>
       </segment>
     </unit>
     <unit id="9vOwPIF" name="Also, ich fange an zu glauben, dass es mir eigentlich egal ist...">
@@ -541,11 +528,10 @@
       <notes>
         <note category="german">Die Hoffnung stirbt zuletzt...</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Die Hoffnung stirbt zuletzt...</source>
-        <target>Die Hoffnung stirbt zuletzt...</target>
+        <target>La esperanza es lo último que se pierde...</target>
       </segment>
     </unit>
     <unit id="Stq69.1">
@@ -603,11 +589,10 @@
       <notes>
         <note category="german">Zum Galgen mit ihm!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Zum Galgen mit ihm!</source>
-        <target>Zum Galgen mit ihm!</target>
+        <target>Deprisa, ¡a la horca!</target>
       </segment>
     </unit>
     <unit id="zb3xBoU" name="Nimm einfach einen Strohhalm und bring es hinter dich!">
@@ -729,7 +714,7 @@
       </notes>
       <segment>
         <source>Komm, lass gut sein.</source>
-        <target>¡Largo de aquí!</target>
+        <target>¡Largo de aquí, cobarde!</target>
       </segment>
     </unit>
     <unit id="8hKGyXg" name="Oh Mann! Der Einstein hier drüben hat seinen Strohhalm gefressen!">
@@ -796,11 +781,10 @@
       <notes>
         <note category="german">Was?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Was?</source>
-        <target>Was?</target>
+        <target>¿Qué fue eso?</target>
       </segment>
     </unit>
     <unit id="kk_Nn0O">
@@ -903,22 +887,20 @@
       <notes>
         <note category="german">Unser Schamane, den wir alle sehr, sehr, sehr vermissen (lacht), ist kürzlich verstorben. Ich beantrage, dass wir über einen Nachfolger abstimmen.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Unser Schamane, den wir alle sehr, sehr, sehr vermissen (lacht), ist kürzlich verstorben. Ich beantrage, dass wir über einen Nachfolger abstimmen.</source>
-        <target>Unser Schamane, den wir alle sehr, sehr, sehr vermissen (lacht), ist kürzlich verstorben. Ich beantrage, dass wir über einen Nachfolger abstimmen.</target>
+        <target>Nuestro querido, queridísimo chamán al cual se le echa de menos (risas) ha muerto recientemente. Pienso que necesitamos votar al repuesto.</target>
       </segment>
     </unit>
     <unit id="hVDMvu3">
       <notes>
         <note category="german">Wir alle wissen ja, wie das enden wird, zumindest die meisten von uns... Wir sollten also einen neuen Schamanen wählen, damit er sich um unsere Seelen kümmern und den letzten ersetzen kann, der, wie ich sagen muss, ein verdammt guter Voodooman war!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wir alle wissen ja, wie das enden wird, zumindest die meisten von uns... Wir sollten also einen neuen Schamanen wählen, damit er sich um unsere Seelen kümmern und den letzten ersetzen kann, der, wie ich sagen muss, ein verdammt guter Voodooman war!</source>
-        <target>Wir alle wissen ja, wie das enden wird, zumindest die meisten von uns... Wir sollten also einen neuen Schamanen wählen, damit er sich um unsere Seelen kümmern und den letzten ersetzen kann, der, wie ich sagen muss, ein verdammt guter Voodooman war!</target>
+        <target>Ya todos sabemos como va a terminar esto, la mayoría al menos lo sabe... Por lo tanto os comento la elección de un nuevo chamán que cuide de nuestras almas y sustituya al último, el cual, ¡¡era un infierno!!</target>
       </segment>
     </unit>
     <unit id="UB7tInO">
@@ -955,11 +937,10 @@
       <notes>
         <note category="german">Er jagt mir eine Heidenangst ein!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Er jagt mir eine Heidenangst ein!</source>
-        <target>Er jagt mir eine Heidenangst ein!</target>
+        <target>¡Me asusta como la mierda!</target>
       </segment>
     </unit>
     <unit id="aThpqm." name="Kommt schon, so verzweifelt sind wir noch nicht!">
@@ -1149,22 +1130,20 @@
       <notes>
         <note category="german">Pff, der überlebt die Nacht doch eh nicht....</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Pff, der überlebt die Nacht doch eh nicht....</source>
-        <target>Pff, der überlebt die Nacht doch eh nicht....</target>
+        <target>Pff, él no sobrevivirá la noche...</target>
       </segment>
     </unit>
     <unit id="G4EPEqU" name="Lasst uns ihn aufhängen! Wer macht mit!?">
       <notes>
         <note category="german">Lasst uns ihn aufhängen! Wer macht mit!?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Lasst uns ihn aufhängen! Wer macht mit!?</source>
-        <target>Lasst uns ihn aufhängen! Wer macht mit!?</target>
+        <target>¡A la horca! ¿¡Es que nadie va a pensar en los niños!?</target>
       </segment>
     </unit>
     <unit id="UHErrpX" name="Wie buchstabiert man das eigentlich: Schamane oder Schamahne?">
