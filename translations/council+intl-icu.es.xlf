@@ -19,7 +19,7 @@
       </notes>
       <segment>
         <source>Warum hat dieser nichtsnutzige {mc} überhaupt das Sagen!?</source>
-        <target>Warum hat dieser nichtsnutzige {mc} überhaupt das Sagen!?</target>
+        <target>¿¡Por qué está el bueno para nada de {mc} dirigiendo las cosas de todos modos!?</target>
       </segment>
     </unit>
     <unit id="1MFe_hs" name="Noob!">
@@ -66,11 +66,10 @@
       <notes>
         <note category="german">Echt jetzt?!?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Echt jetzt?!?</source>
-        <target>Echt jetzt?!?</target>
+        <target>¿¡¿En serio?!?</target>
       </segment>
     </unit>
     <unit id="gOknNM0" name="Irgendwer?">
@@ -97,11 +96,10 @@
       <notes>
         <note category="german">Da Respekt für eine effektive Kommunikation unerlässlich ist, werde ich hier der Zeremonienmeister sein.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Da Respekt für eine effektive Kommunikation unerlässlich ist, werde ich hier der Zeremonienmeister sein.</source>
-        <target>Da Respekt für eine effektive Kommunikation unerlässlich ist, werde ich hier der Zeremonienmeister sein.</target>
+        <target>Siendo el respeto esencial para la efectiva comunicación, yo seré el maestro de ceremonias por aquí.</target>
       </segment>
     </unit>
     <unit id="AQHv0V8" name="Hört an, hört an!">
@@ -791,11 +789,10 @@
       <notes>
         <note category="german">...das Ziehen der Strohhalme findet in jugendlicher Unordnung statt, wobei jeder seinen Strohhalm mit dem des Nachbarn vergleicht...</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>...das Ziehen der Strohhalme findet in jugendlicher Unordnung statt, wobei jeder seinen Strohhalm mit dem des Nachbarn vergleicht...</source>
-        <target>...das Ziehen der Strohhalme findet in jugendlicher Unordnung statt, wobei jeder seinen Strohhalm mit dem des Nachbarn vergleicht...</target>
+        <target>...Jugárselo a la pajita más corta... Todo el mundo observando la de su compañero...</target>
       </segment>
     </unit>
     <unit id="q132Jbx" name="...">
@@ -816,7 +813,7 @@
       </notes>
       <segment>
         <source>...Und so beginnt das Strohhalmziehen...</source>
-        <target>"...Jugárselo a la pajita más corta... Todo el mundo observando la de su compañero... "</target>
+        <target>"...Y así ocurre la elección de las pajitas... "</target>
       </segment>
     </unit>
     <unit id="CZfaNRs" name="Er war sowieso schon ziemlich seltsam...">
@@ -1233,11 +1230,10 @@
       <notes>
         <note category="german">Wir brauchen einen neuen Reiseleiter für die Außenwelt im Eiltempo!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wir brauchen einen neuen Reiseleiter für die Außenwelt im Eiltempo!</source>
-        <target>Wir brauchen einen neuen Reiseleiter für die Außenwelt im Eiltempo!</target>
+        <target>¡Necesitamos un nuevo Guía al Ultramundo y rápido!</target>
       </segment>
     </unit>
     <unit id="ZDDlL.g">
@@ -1255,22 +1251,20 @@
       <notes>
         <note category="german">Mit Traurigkeit und einem gewissen Sinn für Ironie beklagen wir den Verlust unseres Reiseleiters...</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Mit Traurigkeit und einem gewissen Sinn für Ironie beklagen wir den Verlust unseres Reiseleiters...</source>
-        <target>Mit Traurigkeit und einem gewissen Sinn für Ironie beklagen wir den Verlust unseres Reiseleiters...</target>
+        <target>Es con tristeza, y un cierto sentido de ironía que lamentamos la pérdida de nuestro Guía...</target>
       </segment>
     </unit>
     <unit id="T29m76.">
       <notes>
         <note category="german">Unser Reiseleiter hat sich gestern Abend irgendwie verlaufen und kommt nicht mehr zurück! Wer möchte ihn also ersetzen?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Unser Reiseleiter hat sich gestern Abend irgendwie verlaufen und kommt nicht mehr zurück! Wer möchte ihn also ersetzen?</source>
-        <target>Unser Reiseleiter hat sich gestern Abend irgendwie verlaufen und kommt nicht mehr zurück! Wer möchte ihn also ersetzen?</target>
+        <target>¡Nuestro Guía de alguna forma logró perderse anoche, y no va a regresar! ¿Así que quién quiere reemplazarlo?</target>
       </segment>
     </unit>
     <unit id="6lJCfgu" name="Wir brauchen einen guten Reiseleiter. Eine gute Reiseleitung ist wichtig.">
@@ -1288,11 +1282,10 @@
       <notes>
         <note category="german">Es ist ziemlich offensichtlich, dass die Navigation nach den Sternen Schwachsinn ist!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Es ist ziemlich offensichtlich, dass die Navigation nach den Sternen Schwachsinn ist!</source>
-        <target>Es ist ziemlich offensichtlich, dass die Navigation nach den Sternen Schwachsinn ist!</target>
+        <target>¡Bastante obvio que navegar usando las estrellas es una tontería!</target>
       </segment>
     </unit>
     <unit id="6yO0s8L" name="Ich wäre gerne der Reiseleiter!">
@@ -1310,11 +1303,10 @@
       <notes>
         <note category="german">Was ist denn ein Speiseschreiter?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Was ist denn ein Speiseschreiter?</source>
-        <target>Was ist denn ein Speiseschreiter?</target>
+        <target>¿Qué es un gya de todos modos?</target>
       </segment>
     </unit>
     <unit id="1dUl0bh" name="Es sind die Individuen, die uns mit Sicherheit in den sicheren Tod führen...">
@@ -1332,11 +1324,10 @@
       <notes>
         <note category="german">Die sind wie du? Nur hübscher?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Die sind wie du? Nur hübscher?</source>
-        <target>Die sind wie du? Nur hübscher?</target>
+        <target>¿Es como tú? ¿Pero más atractivo?</target>
       </segment>
     </unit>
     <unit id="rzhwH8H" name="Sie sind wie dieser Hexendoktor, nur nützlicher!">
@@ -1354,11 +1345,10 @@
       <notes>
         <note category="german">Ich werde dich rächen, Kumpel! Du musst mir nur den Zombie bringen, der dich erwischt hat, dann wirst du schon sehen!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ich werde dich rächen, Kumpel! Du musst mir nur den Zombie bringen, der dich erwischt hat, dann wirst du schon sehen!</source>
-        <target>Ich werde dich rächen, Kumpel! Du musst mir nur den Zombie bringen, der dich erwischt hat, dann wirst du schon sehen!</target>
+        <target>¡Te vengaré amigo! ¡Solo tráiganme al zombie que te atrapó, ya verán!</target>
       </segment>
     </unit>
     <unit id="HaKENd3">
@@ -1376,11 +1366,10 @@
       <notes>
         <note category="german">Oh, Mann! Ich habe ihm gesagt, dass er nach Osten gehen muss!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Oh, Mann! Ich habe ihm gesagt, dass er nach Osten gehen muss!</source>
-        <target>Oh, Mann! Ich habe ihm gesagt, dass er nach Osten gehen muss!</target>
+        <target>¡Demonios! ¡Le dije que debía ir al este!</target>
       </segment>
     </unit>
     <unit id="paP0K3k" name="Eine neue Wahl zum Reiseleiter durch die Außenwelt!">
@@ -1420,22 +1409,20 @@
       <notes>
         <note category="german">Ruhe! Wir müssen dieses Treffen zu Ende bringen! Wir haben eine große Wüste zu erforschen und keinen Reiseleiter, der uns hilft!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ruhe! Wir müssen dieses Treffen zu Ende bringen! Wir haben eine große Wüste zu erforschen und keinen Reiseleiter, der uns hilft!</source>
-        <target>Ruhe! Wir müssen dieses Treffen zu Ende bringen! Wir haben eine große Wüste zu erforschen und keinen Reiseleiter, der uns hilft!</target>
+        <target>¡Silencio! ¡Debemos terminar esta reunión! ¡Tenemos todo un desierto para explorar y ningún Guía para ayudarnos!</target>
       </segment>
     </unit>
     <unit id="ubadRyb" name="So, jetzt haben wir ganz offiziell einen neuen Reiseleiter bestimmt: {winner}!">
       <notes>
         <note category="german">So, jetzt haben wir ganz offiziell einen neuen Reiseleiter bestimmt: {winner}!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>So, jetzt haben wir ganz offiziell einen neuen Reiseleiter bestimmt: {winner}!</source>
-        <target>So, jetzt haben wir ganz offiziell einen neuen Reiseleiter bestimmt: {winner}!</target>
+        <target>Así que ahora oficialmente tenemos a nuestro nuevo Guía al Ultramundo: ¡{winner}!</target>
       </segment>
     </unit>
     <unit id="Xxa1TBa" name="Hmmmm alles in allem wäre {voted} vielleicht die bessere Wahl gewesen...">
@@ -1453,11 +1440,10 @@
       <notes>
         <note category="german">Ich hoffe, er hält wenigstens ein paar Tage durch... Ich will nicht jeden verdammten Tag abstimmen müssen!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ich hoffe, er hält wenigstens ein paar Tage durch... Ich will nicht jeden verdammten Tag abstimmen müssen!</source>
-        <target>Ich hoffe, er hält wenigstens ein paar Tage durch... Ich will nicht jeden verdammten Tag abstimmen müssen!</target>
+        <target>Esperemos que dure algunos días... ¡No quiero estar votando cada maldito día!</target>
       </segment>
     </unit>
     <unit id="n6d.MSX" name="Weis der überhaupt, wie man aus der Stadt kommt?">
@@ -1530,11 +1516,10 @@
       <notes>
         <note category="german">{winner} wurde zum Reiseleiter gewählt. Hoffen wir, dass er uns aus diesem Schlamassel heraushelfen kann...</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>{winner} wurde zum Führer gewählt. Hoffen wir, dass er uns aus diesem Schlamassel heraushelfen kann...</source>
-        <target>{winner} wurde zum Führer gewählt. Hoffen wir, dass er uns aus diesem Schlamassel heraushelfen kann...</target>
+        <target>{winner} ha sido elegido como el Guía, esperemos que pueda ayudar a sacarnos de este lío...</target>
       </segment>
     </unit>
     <unit id="AraAi_U" name="Klar Einstein, Kopf oder Zahl zm eine Persion aus {_voted} auszuwählen.">
