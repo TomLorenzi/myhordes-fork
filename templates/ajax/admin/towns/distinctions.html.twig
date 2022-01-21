@@ -31,7 +31,7 @@
                             <div class="tooltip forum-tooltip">
                                 <h1>{{ picto.prototype.label|trans({}, 'game') }} ({{ picto.count }})</h1>
                                 <em>{{ picto.prototype.description|trans({}, 'game')}}</em>
-                                <p><strong{% if picto.persisted == 0 %} class="warning"{% endif %}>{% if picto.persisted == 0 %}{{ 'Diese Auszeichnung wird nicht verdient, wenn der Bürger heute Nacht stirbt.'|trans({}, 'admin') }}{% else %}{{ 'Diese Auszeichnung wurde verdient.'|trans({}, 'admin'}}{% endif %}</strong></p>
+                                <p><strong{% if picto.persisted == 0 %} class="warning"{% endif %}>{% if picto.persisted == 0 %}{{ 'Diese Auszeichnung wird nicht verdient, wenn der Bürger heute Nacht stirbt.'|trans({}, 'admin') }}{% else %}{{ 'Diese Auszeichnung wurde verdient.'|trans({}, 'admin')}}{% endif %}</strong></p>
                             </div>
                         </div>
                     {% endif %}
