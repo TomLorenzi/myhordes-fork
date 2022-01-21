@@ -239,7 +239,7 @@ class TownHandler
                 break;
             case "small_novlamps_#00":
                 // If the novelty lamps are built, it's effect must be applied immediately
-                $novlamp_status = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName('tg_novlamps');
+                $novlamp_status = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy(['name' => 'tg_novlamps']);
                 foreach ($town->getCitizens() as $citizen) {
                     if ($citizen->getAlive()) $this->citizen_handler->inflictStatus($citizen, $novlamp_status);
                     $this->entity_manager->persist($citizen);
@@ -250,9 +250,18 @@ class TownHandler
         }
 
         // If this is a child of fundament, give a picto
-        if($building->getPrototype()->getParent() !== null && $building->getPrototype()->getParent()->getName() === 'small_building_#00'){
-            $pictos[] = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => "r_wondrs_#00"]);
+        $parent = $building->getPrototype()->getParent();
+        while($parent != null) {
+            if ($parent->getName() === "small_building_#00") {
+                $pictos[] = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => "r_wondrs_#00"]);
+                break;
+            }
+            $parent = $parent->getParent();
         }
+
+        /*if($building->getPrototype()->getParent() !== null && $building->getPrototype()->getParent()->getName() === 'small_building_#00'){
+            $pictos[] = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => "r_wondrs_#00"]);
+        }*/
 
         foreach ($town->getCitizens() as $target_citizen) {
             if (!$target_citizen->getAlive()) continue;
