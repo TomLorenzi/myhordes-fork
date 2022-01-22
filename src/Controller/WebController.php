@@ -24,7 +24,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use App\Translation\T;
 use Psr\Cache\InvalidArgumentException;
-use Shivas\VersioningBundle\Service\VersionManager;
+use Shivas\VersioningBundle\Service\VersionManagerInterface as VersionManager;
 use Symfony\Component\HttpFoundation\HeaderUtils;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -70,9 +70,9 @@ class WebController extends CustomAbstractController
             $is_debug_version =
                 ($version->getMajor() < 1) ||
                 ($version->getPreRelease() && !(
-                    $version->getPreRelease() === 'rc' || substr($version->getPreRelease(), 0, 3) === 'rc.'
+                    $version->getPreRelease()->toString() === 'rc' || str_starts_with($version->getPreRelease()->toString(), 'rc.')
                 ));
-        } catch (InvalidArgumentException $e) {
+        } catch (\Exception $e) {
             $is_debug_version = false;
             $version = null;
         }

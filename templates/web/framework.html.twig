@@ -105,7 +105,7 @@
                         <div class="padded-small cell version shrink-0">
                             <div class="version-badge-global"><i class="fas fa-globe-europe"></i> <b>{{ version.major }}.{{ version.minor}}.{{ version.patch}}</b></div>
                             {% if version.isPreRelease %}
-                                {% set prerelease = version.preRelease|split('.') %}
+                                {% set prerelease = version.preRelease.toString|split('.') %}
                                 {% if prerelease|length > 0 %}
                                     <div class="version-badge-pre"><i class="fa fa-flask"></i> <i>{{ prerelease[0] }}</i> {{ prerelease[1] ?? '' }}</div>
                                     {% if prerelease|length > 3 %}

@@ -1,4 +1,7 @@
 {
+    "beberlei/assert": {
+        "version": "v3.3.2"
+    },
     "brainbox-et/etwin-api-client": {
         "version": "dev-master"
     },
@@ -672,5 +675,8 @@
     },
     "webmozart/assert": {
         "version": "1.8.0"
+    },
+    "wvsgnovize01/versioning-bundle": {
+        "version": "dev-master"
     }
 }

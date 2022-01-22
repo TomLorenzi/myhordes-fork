@@ -35,7 +35,7 @@ class CorePhpExtractor extends PhpExtractor
      *
      * @throws \InvalidArgumentException
      */
-    protected function canBeExtracted(string $file)
+    protected function canBeExtracted(string $file): bool
     {
         if (!$this->config->usePHP() || !parent::canBeExtracted($file)) return false;
 
@@ -198,7 +198,7 @@ class CorePhpExtractor extends PhpExtractor
     /**
      * {@inheritdoc}
      */
-    protected function extractFromDirectory($directory)
+    protected function extractFromDirectory($directory): iterable
     {
         $files = parent::extractFromDirectory($directory);
         return $files->filter(function(\SplFileInfo $file) {
