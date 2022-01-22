@@ -107,7 +107,7 @@ class TownHandler
 
             if ($close_ts !== null) {
                 $town->setDoor( false );
-                $this->entity_manager->persist( $this->log->doorControlAuto( $town, false, null) );
+                $this->entity_manager->persist( $this->log->doorControlAuto( $town, false, $close_ts) );
                 $changed = true;
             }
 
