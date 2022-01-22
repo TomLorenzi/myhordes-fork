@@ -4191,12 +4191,23 @@
     </unit>
     <unit id="2JRm9.u" name="{num} Seelenpunkte, Platz {rank}">
       <notes>
-        <note category="german">{num} Seelenpunkte, Platz {rank}</note>
+        <note category="german">{num} Seelenpunkte, Platz &lt;b&gt;{rank}&lt;/b&gt;</note>
         <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
       </notes>
       <segment>
         <source>{num} Seelenpunkte, Platz {rank}</source>
         <target><![CDATA[{num} points d'âme, position : <b>{rank, selectordinal, one {#er} other {#ème}}</b>]]></target>
+      </segment>
+    </unit>
+    <unit id="gFzfoeL" name="Zu meinem Eintrag springen">
+      <notes>
+        <note category="german">Zu meinem Eintrag springen</note>
+        <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Zu meinem Eintrag springen</source>
+        <target>Zu meinem Eintrag springen</target>
       </segment>
     </unit>
   </file>

@@ -25945,7 +25945,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">{citizen} thanks you wholeheartedly for taking them back to the town!</note>
         <note category="from">php:///src/Controller/BeyondController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>{citizen} bedankt sich herzlich bei dir, dass du ihn nach Hause gebracht hast!</source>

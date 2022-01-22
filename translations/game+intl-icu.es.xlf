@@ -26123,7 +26123,6 @@
       <notes>
         <note category="german">{leader} hat {escortee} heldenhaft zurück in die Stadt begleitet!</note>
         <note category="from">db://LogEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>{leader} hat {escortee} heldenhaft zurück in die Stadt begleitet!</source>

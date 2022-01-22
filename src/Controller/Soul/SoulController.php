@@ -681,7 +681,8 @@ class SoulController extends CustomAbstractController
             'offset' => $offset,
             'user' => $user,
             'user_sp' => $user_sp,
-            'user_rank' => $user_rank
+            'user_rank' => $user_rank,
+            'page_size' => $resultsPerPage,
         ]) );
     }
 

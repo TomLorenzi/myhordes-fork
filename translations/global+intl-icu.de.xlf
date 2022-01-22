@@ -2598,7 +2598,13 @@
     <unit id="2JRm9.u" name="{num} Seelenpunkte, Platz {rank}">
       <segment>
         <source>{num} Seelenpunkte, Platz {rank}</source>
-        <target>{num} Seelenpunkte, Platz {rank}</target>
+        <target><![CDATA[{num} Seelenpunkte, Platz <b>{rank}</b>]]></target>
+      </segment>
+    </unit>
+    <unit id="gFzfoeL" name="Zu meinem Eintrag springen">
+      <segment>
+        <source>Zu meinem Eintrag springen</source>
+        <target>Zu meinem Eintrag springen</target>
       </segment>
     </unit>
   </file>

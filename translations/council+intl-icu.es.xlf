@@ -15,7 +15,6 @@
       <notes>
         <note category="german">Warum hat dieser nichtsnutzige {mc} überhaupt das Sagen!?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Warum hat dieser nichtsnutzige {mc} überhaupt das Sagen!?</source>
@@ -228,6 +227,7 @@
       <notes>
         <note category="german">+1 !</note>
         <note category="from">db://CouncilEntryTemplate</note>
+        <note category="state">new</note>
       </notes>
       <segment>
         <source>+1 !</source>
