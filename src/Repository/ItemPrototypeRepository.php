@@ -5,7 +5,7 @@ namespace App\Repository;
 use App\Entity\ItemCategory;
 use App\Entity\ItemPrototype;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\ORM\NonUniqueResultException;
 
 /**

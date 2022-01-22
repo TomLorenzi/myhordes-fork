@@ -8,7 +8,7 @@ use App\Entity\Town;
 use App\Entity\TownLogEntry;
 use App\Entity\Zone;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\Persistence\ManagerRegistry;
 
 /**
  * @method TownLogEntry|null find($id, $lockMode = null, $lockVersion = null)
