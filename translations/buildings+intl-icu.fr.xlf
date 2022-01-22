@@ -2511,7 +2511,7 @@
       </notes>
       <segment>
         <source>Wie jeder weiß, wird eine Sprinkleranlage für gewöhnlich im Garten eingesetzt. Die wenigsten wissen jedoch, dass sie sich auch hervorragend gegen Zombiehorden eignet. Einziger Wermutstropfen: Die Anlage verbraucht relativ viel Wasser.</source>
-        <target>Traditionnellement utilisés dans un jardin, ils servent aussi de défense mortelle contre les Hordes… Ils tuent beaucoup de zombies, mais ils faut prévoir un stock d'eau important.</target>
+        <target>Traditionnellement utilisés dans un jardin, ils servent aussi de défense mortelle contre les Hordes… Ils tuent beaucoup de zombies, mais il faut prévoir un stock d'eau important.</target>
       </segment>
     </unit>
     <unit id=".VmOFiy">

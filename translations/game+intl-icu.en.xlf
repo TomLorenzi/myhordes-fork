@@ -19301,7 +19301,7 @@
       </notes>
       <segment>
         <source>Dieser Bürger möchte in die Stadt gebracht werden.</source>
-        <target>Dieser Bürger möchte in die Stadt gebracht werden.</target>
+        <target>This citizen wishes to be escorted back to town.</target>
       </segment>
     </unit>
     <unit id="SwbKwjj" name="Der Leichnam von {citizen} wurde nicht zerstört.">
@@ -22440,7 +22440,7 @@
       </notes>
       <segment>
         <source>Dieser Bürger gestattet dir nicht auf seine Gegenstände zuzugreifen.</source>
-        <target>Dieser Bürger gestattet dir nicht auf seine Gegenstände zuzugreifen.</target>
+        <target>This citizen will not allow you to touch his possessions.</target>
       </segment>
     </unit>
     <unit id="sxHlIDp">
