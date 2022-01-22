@@ -6,7 +6,7 @@ use App\Entity\FoundRolePlayText;
 use App\Entity\RolePlayText;
 use App\Entity\RolePlayTextPage;
 use Doctrine\Bundle\FixturesBundle\Fixture;
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\Console\Helper\ProgressBar;

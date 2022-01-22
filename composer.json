@@ -20,7 +20,6 @@
         "doctrine/doctrine-migrations-bundle": "^3.1",
         "doctrine/migrations": "^3.0",
         "doctrine/orm": "^2.7",
-        "gedmo/doctrine-extensions": "^2.4",
         "graphp/algorithms": "^0.8.2",
         "laminas/laminas-code": "^3.4",
         "phpdocumentor/reflection-docblock": "^5.2",
