@@ -375,8 +375,6 @@ class MessageGlobalPMController extends MessageController
 
         usort($entries, fn($a,$b) => $b['date'] <=> $a['date']);
 
-        dump($entries);
-
         return $this->render( 'ajax/pm/list.html.twig', $this->addDefaultTwigArgs(null, [
             'more' => count($entries) > $num,
             'entries' => array_slice($entries,0,$num)
