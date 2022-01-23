@@ -4312,7 +4312,7 @@
       </notes>
       <segment>
         <source>Du kannst deinen Spielernamen erst in {days} Tagen erneut ändern.</source>
-        <target>Du kannst deinen Spielernamen erst in {days} Tagen erneut ändern.</target>
+        <target>Vous pourrez changer de nom d'affichage {days, plural, =1 {demain} other {dans # jours}}.</target>
       </segment>
     </unit>
   </file>
