@@ -13,7 +13,7 @@
     {% endif %}
     
     {% if rucksack is defined %}
-        <ul x-ajax-href="{{ path('help', {'name': 'inventory'}) }}" class="rucksack pointer hide-sm {% if rucksack_size > 10 %}expanded{% endif %} {% if status is defined %}rucksack_status_union{% endif %}">
+        <ul x-ajax-href="{{ path('help', {'name': 'inventory'}) }}" class="rucksack pointer {% if rucksack_size > 10 %}expanded{% endif %} {% if status is defined %}rucksack_status_union{% endif %}">
             <li class="text">{{'Rucksack'|trans({}, 'game')}}</li>
             {% for item in rucksack.items|sort((a,b) => b.essential <=> a.essential ?: b.prototype.sort <=> a.prototype.sort ?: a.prototype.id <=> b.prototype.id ) %}
                 {% embed "ajax/game/item.html.twig" with {'item': item, 'no_id': true} %}{% endembed %}
