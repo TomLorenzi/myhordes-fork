@@ -68,7 +68,7 @@
                         </div>
                     </div>
                     <div class="padded cell rw-9 rw-md-8 rw-sm-12">
-                        <input {% if app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionProfileDisplayName')) or app.user.eternalID is not null %}disabled{% endif %} id="user_displayname" type="text" value="{% if app.user.displayName is not null %}{{ app.user.displayName }}{% else %}{{ app.user.name }}{% endif %}" />
+                        <input {% if app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionProfileDisplayName')) or app.user.eternalID is not null or next_name_change_days > 0 %}disabled{% endif %} id="user_displayname" type="text" value="{% if app.user.displayName is not null %}{{ app.user.displayName }}{% else %}{{ app.user.name }}{% endif %}" />
                     </div>
                     {% if app.user.eternalID is null and app.user.displayName is not null and app.user.displayName != app.user.username %}
                         <div class="padded cell ro-3 rw-9 ro-md-4 rw-md-8 ro-sm-0 rw-sm-12">
@@ -76,6 +76,9 @@
                                 {{ 'Um dich einzuloggen, musst du nach wie vor deinen <b>ursprünglichen Namen</b> verwenden: <i>{name}</i>.'|trans({name: app.user.username},'login')|raw }}
                             </div>
                         </div>
+                    {% endif %}
+                    {% if not app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionProfileDisplayName')) and app.user.eternalID is null and next_name_change_days > 0 %}
+                        <div class="padded cell rw-9 ro-3 rw-md-8 ro-md-4 rw-sm-12 ro-sm-0 small">{{ 'Du kannst deinen Spielernamen erst in {days} Tagen erneut ändern.'|trans({days: next_name_change_days}, 'soul') }}</div>
                     {% endif %}
                     <div id="name-warning-box" class="padded cell ro-3 rw-9 ro-md-4 rw-md-8 ro-sm-0 rw-sm-12 {% if app.user.eternalID is null %}hidden{% endif %}">
                         <div  class="note warning-box">

@@ -4304,5 +4304,16 @@
         <target>N’oubliez pas de vous déconnecter également de votre compte EternalTwin !</target>
       </segment>
     </unit>
+    <unit id="TMcIHTT" name="Du kannst deinen Spielernamen erst in {days} Tagen erneut ändern.">
+      <notes>
+        <note category="german">Du kannst deinen Spielernamen erst {days} erneut ändern.</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Du kannst deinen Spielernamen erst in {days} Tagen erneut ändern.</source>
+        <target>Du kannst deinen Spielernamen erst in {days} Tagen erneut ändern.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
