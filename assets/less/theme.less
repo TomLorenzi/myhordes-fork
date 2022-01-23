@@ -906,7 +906,6 @@ div.game-menu-area {
   &>div.game-bar {
    width: 100%; height: 32px; background: url("../img/background/bg_menu.jpg");
     box-shadow: 0 0 5px black; position: relative; z-index: 20;
-    border-top: 1px solid black; border-bottom: 1px solid black;
 
     &>div.header-stats {
         position: absolute;
@@ -938,15 +937,19 @@ div.game-menu-area {
     }
 
     &>ul,&>div.ulcont {
-      display: inline-block; padding: 0; margin: 0 3px;
+      display: inline-block; padding: 0; margin: 0;
       & li {display: inline-block; list-style: none;}
       &.text-menu {
+        background: url("../img/background/menu_metalbg.png") 0 0 repeat-x; height: 32px; padding-left: 32px; padding-right: 6px;
+        position: relative;
+        &:before { position: absolute; left: 0; top: -28px; height: 84px; width: 43px; pointer-events: none; content: " "; background: url("../img/game-bar/cog0.png") 0 0 no-repeat; }
+        &:after  { position: absolute; right: -43px; top: -14px; height: 53px; width: 57px; pointer-events: none; content: " "; background: url("../img/game-bar/cog1.png") 0 0 no-repeat; }
         &>li {
           padding: 2px 8px; background: rgba(0,0,0,0.3); font-weight: bold; color: @myhordes-smalltext;
           box-shadow: inset 0 0 4px rgba(0,0,0,0.6); border-radius: 4px; border: 1px solid rgba(0,0,0,0.3);
           cursor: pointer;
           &:hover {color: white}
-          &.burger-button { margin-top: 2px; }
+          &.burger-button { margin-top: 2px; position: relative; left: -20px }
           &.forum,&.town-dash,&.town-news,&.soul,&.help {
             filter: brightness(100%); -webkit-filter: brightness(100%); -moz-filter: brightness(100%); -o-filter: brightness(100%); -ms-filter: brightness(100%);
             width: 84px; margin-top: 7px; text-transform:uppercase; font-size: 1.0rem;
@@ -1021,7 +1024,7 @@ div.game-menu-area {
         color: @myhordes-smalltext; box-shadow: inset 0 0 4px rgba(0,0,0,0.9); border-radius: 4px; background: rgba(0,0,0,.5);
         float: right; font-size: .2rem; height: 30px;
         &>.text {
-          display: block; position: absolute; top: -1px; left: 7px; right: 0; margin-top: 0;
+          display: block; position: absolute; top: -1px; left: 7px; right: 0; margin-top: 0; z-index: 2;
           color: white; font-size: .8rem; font-variant: small-caps; text-shadow: 1px 1px 2px black;
         }
         &:not(.ap):not(.bp):not(.pm) {
@@ -1044,6 +1047,27 @@ div.game-menu-area {
             }
           }
           &:not(.expanded) .more { display: none }
+        }
+
+        &.rucksack_status_union {
+          border-radius: 0;
+          &.rucksack {
+            margin-left: 0; position: relative; overflow: visible;
+            &:not(.expanded),&:not(:hover) {
+              &:not(.civil) { background: url("../img/game-bar/panel_tr.png") 100% 0 no-repeat,url("../img/game-bar/panel_br.png") 100% 100% no-repeat,url("../img/game-bar/panel_t.png") 0 0 repeat-x,url("../img/game-bar/panel_r.png") 100% 0 repeat-y,url("../img/game-bar/panel_b.png") 0 100% repeat-x,url("../img/game-bar/background_sq.png") !important; };
+              &:before {
+                content: " "; z-index: 1; position: absolute; top: 0; left: -14px; width: 24px; bottom: 0; pointer-events: none;
+                background: url("../img/game-bar/fuse_t.png") 0 0 no-repeat, url("../img/game-bar/fuse_b.png") 0 100% no-repeat, url("../img/game-bar/fuse_m.png") 0 0 repeat-y;
+              }
+            }
+          }
+          &.status {
+            margin-right: 0; margin-left: 24px;
+            &:before {
+              content: " "; z-index: 1; position: absolute; top: 13px; left: -34px; width: 40px; height: 33px; pointer-events: none;
+              background: url("../img/game-bar/cog2.png") 0 0 no-repeat;
+            }
+          }
         }
 
         /*&.rucksack:before*/
@@ -1104,7 +1128,7 @@ span.defense-broken,div.defense-broken { .icon_div("../img/icons/small_def_broke
   margin-bottom: 20px; padding: 0 5px; position: relative; top: -2px; margin-left: -2px;
   &:not(.plain) {
     overflow: visible; border-bottom: 1px solid transparent;
-    background: url(../img/background/box/panel_02.png) right -4px top -7px no-repeat, url(../img/background/tabs-header.jpg) left / cover;
+    background: url(../img/background/box/panel_02t.png) right -4px top -7px no-repeat, url(../img/background/tabs-header.jpg) left / cover;
     &::before { position: absolute; content: " "; top: 0; left: 27px; right: 28px; height: 3px; background: url(../img/background/box/panel_01.png) 0 -6px repeat-x; }
     &::after { position: absolute; content: " "; bottom: -55px; top: 100%; left: 5px; right: 2px; background: url(../img/background/below_tabs_bg.gif) left top repeat-x; }
   }
