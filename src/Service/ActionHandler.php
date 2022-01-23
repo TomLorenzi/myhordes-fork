@@ -423,14 +423,14 @@ class ActionHandler
      * @param Citizen $citizen
      * @return EscortItemActionSet[]
      */
-    public function getAvailableItemEscortActions(Citizen $citizen ): array {
+    public function getAvailableItemEscortActions(Citizen $citizen, ?EscortActionGroup $limit = null ): array {
 
         $is_at_00 = $citizen->getZone() && $citizen->getZone()->isTownZone();
 
         $list = [];
         /** @var EscortActionGroup[] $escort_actions */
         $escort_actions = $this->entity_manager->getRepository(EscortActionGroup::class)->findAll();
-        foreach ($escort_actions as $escort_action) {
+        foreach ($escort_actions as $escort_action) if ($limit === null || $escort_action === $limit) {
 
             $struct = new EscortItemActionSet( $escort_action );
 

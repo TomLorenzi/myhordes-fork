@@ -71,4 +71,25 @@ class EscortItemActionSet
     public function getCrossedActions(Item $item): array {
         return $this->crossed_actions[$item->getId()] ?? [];
     }
+
+    /**
+     * @return array [?Item,?ItemAction]
+     */
+    public function getPrimaryAction(): array {
+        $sel_item = null; $sel_action = null; $p = -1;
+        /**
+         * @var int $item_id
+         * @var ItemAction $action
+         */
+        foreach ($this->available_actions as $item_id => $actions)
+            foreach ($actions as $action) {
+                if ($action->getPriority() > $p) {
+                    $sel_item = $this->items[$item_id];
+                    $sel_action = $action;
+                    $p = $action->getPriority();
+                }
+            }
+
+        return [$sel_item,$sel_action];
+    }
 }

@@ -105,6 +105,11 @@ class ItemAction implements NamedEntity
      */
     private $renderer;
 
+    /**
+     * @ORM\Column(type="smallint")
+     */
+    private $priority = 0;
+
     public function __construct()
     {
         $this->requirements = new ArrayCollection();
@@ -332,6 +337,18 @@ class ItemAction implements NamedEntity
     public function setRenderer(?string $renderer): self
     {
         $this->renderer = $renderer;
+
+        return $this;
+    }
+
+    public function getPriority(): ?int
+    {
+        return $this->priority;
+    }
+
+    public function setPriority(int $priority): self
+    {
+        $this->priority = $priority;
 
         return $this;
     }

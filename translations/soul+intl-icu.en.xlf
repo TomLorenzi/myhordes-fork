@@ -4315,5 +4315,16 @@
         <target>Remember, you also need to log out of your EternalTwin account!</target>
       </segment>
     </unit>
+    <unit id="TMcIHTT" name="Du kannst deinen Spielernamen erst in {days} Tagen erneut ändern.">
+      <notes>
+        <note category="german">Du kannst deinen Spielernamen erst {days} erneut ändern.</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Du kannst deinen Spielernamen erst in {days} Tagen erneut ändern.</source>
+        <target>You have to wait {days, plural, =1 {until tomorrow} other {for # days}} before you can change your display name again.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
