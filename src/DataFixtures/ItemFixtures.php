@@ -313,15 +313,15 @@ class ItemFixtures extends Fixture
         ['label' => 'Normaler Bauplan (ungewöhnlich)', 'icon' => 'bplan_u', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                          // In ---
         ['label' => 'Normaler Bauplan (selten)', 'icon' => 'bplan_r', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                // In ---
         ['label' => 'Normaler Bauplan (sehr selten!)', 'icon' => 'bplan_e', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                          // In ---
-        ['label' => 'Hotel-Bauplan (ungewöhnlich)', 'icon' => 'hbplan_u', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                            // In ---
-        ['label' => 'Hotel-Bauplan (selten)', 'icon' => 'hbplan_r', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                  // In ---
-        ['label' => 'Hotel-Bauplan (sehr selten!)', 'icon' => 'hbplan_e', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                            // In ---
+        ['label' => 'Hotel-Bauplan (ungewöhnlich)', 'icon' => 'mbplan_u', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                            // In ---
+        ['label' => 'Hotel-Bauplan (selten)', 'icon' => 'mbplan_r', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                  // In ---
+        ['label' => 'Hotel-Bauplan (sehr selten!)', 'icon' => 'mbplan_e', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                            // In ---
         ['label' => 'Bunker-Bauplan (ungewöhnlich)', 'icon' => 'bbplan_u', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                           // In ---
         ['label' => 'Bunker-Bauplan (selten)', 'icon' => 'bbplan_r', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                 // In ---
         ['label' => 'Bunker-Bauplan (sehr selten!)', 'icon' => 'bbplan_e', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                           // In ---
-        ['label' => 'Hospital-Bauplan (ungewöhnlich)', 'icon' => 'mbplan_u', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                         // In ---
-        ['label' => 'Hospital-Bauplan (selten)', 'icon' => 'mbplan_r', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                               // In ---
-        ['label' => 'Hospital-Bauplan (sehr selten!)', 'icon' => 'mbplan_e', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                         // In ---
+        ['label' => 'Hospital-Bauplan (ungewöhnlich)', 'icon' => 'hbplan_u', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                         // In ---
+        ['label' => 'Hospital-Bauplan (selten)', 'icon' => 'hbplan_r', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                               // In ---
+        ['label' => 'Hospital-Bauplan (sehr selten!)', 'icon' => 'hbplan_e', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                         // In ---
         ['label' => 'Verirrte Seele', 'icon' => 'soul_blue', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                         //
         ['label' => 'Gequälte Seele', 'icon' => 'soul_red', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                            //
         ['label' => 'Starke Seele', 'icon' => 'soul_yellow', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                            //
