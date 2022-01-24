@@ -1,4 +1,9 @@
 {% extends "ajax/ajax.html.twig" %}
+{% block title %}JSON API Doc{% endblock %}
+{% block menu_text %}
+   {{parent()}}
+   <li class="back-dash" x-ajax-href="{{ url('game_landing') }}">{{ 'Zum Spiel'|trans({},'global') }}</li>
+{% endblock %}
 {% block ajax %}
     <div id="api-docs" class="row api-docs">
         <div class="cell rw-12 padded">

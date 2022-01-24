@@ -77,7 +77,7 @@
                             {# @var town \src\Entity\TownRankingProxy #}
                             <div class="cell rw-1 season_entry_td center"><img src="{{ asset("build/images/lang/" ~ town.language ~".png") }}" alt="{{ town.language }}" /></div>
                             <div class="cell rw-1 season_entry_td center">{{ pos }}</div>
-                            <div class="cell rw-6 season_entry_td left"><div class="inline-block"><img x-town-details="{{ town.id }}" x-town-toggle="{{ town.id }}" class="pointer" alt="+" src="{{ asset('build/images/icons/small_more.gif') }}" /><div class="tooltip help">{{ 'Die Liste der eingeschriebenen Spieler ansehen.'|trans({},'game') }}</div></div> {{ town.name }}</div>
+                                <div class="cell rw-6 season_entry_td left"><div class="inline-block"><img x-town-details="{{ town.id }}" x-town-toggle="{{ town.id }}" class="pointer" alt="+" src="{{ asset('build/images/icons/small_more.gif') }}" alt-src="{{ asset('build/images/icons/small_less.gif') }}" /><div class="tooltip help">{{ 'Die Liste der eingeschriebenen Spieler ansehen.'|trans({},'game') }}</div></div> {{ town.name }}</div>
                             <div class="cell rw-2 season_entry_td center" style="color: #f0d79e">{{ town.days }}</div>
                             <div class="cell rw-2 season_entry_td center"><strong>{{ town.score }}</strong></div>
                         </div>
@@ -85,11 +85,10 @@
                             <div class="row-flex stretch season_entry_container" x-town-latest="">
                                 <div class="cell rw-1 center" style="border-right: 1px solid #7e4d2a;"></div>
                                 <div class="cell rw-7 ro-1">
-                                {% for denizen in town.citizens|sort((a,b) => b.day <=> a.day ?: b.end <=> a.end) %}
-                                {% if denizen.day == town.days %}
-                                    <a href="{{ path('soul_visit', {id: denizen.user.id}) }}"><b>{{ denizen.user.name }}</b></a> <span style="color: #f0d79e">({{ denizen.day }})</span>
-                                {% endif %}
+                                        {% for denizen in town.citizens|filter(a => a.day == town.days)|sort((a,b) => a.user.name|lower <=> b.user.name|lower) %}
+                                            <span {% if loop.index0 >= 5 %}x-default-display="hidden" class="hidden"{% endif %} x-town-list="{{ town.id }}"><a href="{{ path('soul_visit', {id: denizen.user.id}) }}"><b>{{ denizen.user.name }}</b></a> <span style="color: #f0d79e">({{ denizen.day }})</span></span>
                                 {% endfor %}
+                                        {% if town.citizens|filter(a => a.day == town.days)|length >4 %}<img x-town-toggle-list="{{ town.id }}" class="pointer" alt="+" src="{{ asset('build/images/icons/small_more.gif') }}" alt-src="{{ asset('build/images/icons/small_less.gif') }}" />{% endif %}
                                 </div>
                                 <div class="cell rw-4 center"></div>
                             </div>
@@ -151,7 +150,7 @@
                                     {% endif %}
                                 </option>
                             {% endfor %}
-                            <option value="a" {% if currentSeason == 'a' %}selected{% endif %}>{{'Alpha-Seelen'|trans({}, "soul")}}</option>
+                            <option value="a" {% if currentSeason is null %}selected{% endif %}>{{'Alpha-Seelen'|trans({}, "soul")}}</option>
                         </select>
                     </div>
                     <div class="cell rw-8">
@@ -198,7 +197,13 @@
                         <div class="cell ro-4 rw-4 ro-lg-3 rw-lg-6 ro-md-2 rw-md-8 ro-sm-0 rw-sm-12">
                             <div class="note center">
                                 <b>{{ 'Deine Platzierung'|trans({},'global') }}</b><br/>
-                                <span>{{ '{num} Seelenpunkte, Platz {rank}'|trans({'num': '<b>' ~ user_sp ~ '</b>', 'rank': '<b>' ~ user_rank ~ '</b>'},'global')|raw }}</span>
+                                <span>{{ '{num} Seelenpunkte, Platz {rank}'|trans({'num': '<b>' ~ user_sp ~ '</b>', 'rank': user_rank},'global')|raw }}</span>
+                                {% if page_size is defined %}
+                                    {% set link_page = (user_rank / page_size)|round(1,'ceil') %}
+                                    {% if link_page != page %}
+                                        <div><a href="#" x-ajax-href="{{ path('soul_season_solo', {page: link_page, season: virtualSeason ? currentSeason : (currentSeason ? currentSeason.id : 'c')}) }}">{{ 'Zu meinem Eintrag springen'|trans({},'global') }}</a></div>
+                                    {% endif %}
+                                {% endif %}
                             </div>
                         </div>
                     </div>
@@ -241,16 +246,12 @@
     {% elseif (pages > 1) %}
         <div class="row-flex">
             <div class="padded cell left" {% if page <= 1 %}disabled{% endif %}>
-                <a href="#" x-ajax-sticky x-ajax-href="{{ path('soul_season_solo', {page: 1, season: virtualSeason ? currentSeason : (currentSeason ? currentSeason.id : 'c')}) }}">
                     <img alt="<<" src="{{ asset('build/images/icons/small_prev.gif') }}" />
-                    <span class="hide-sm">{{ 'Anfang'|trans({},'global') }}</span>
-                </a>
+                <a href="#" x-ajax-sticky x-ajax-href="{{ path('soul_season_solo', {page: 1, season: virtualSeason ? currentSeason : (currentSeason ? currentSeason.id : 'c')}) }}">{{ 'Anfang'|trans({},'global') }}</a>
             </div>
             <div class="padded cell left" {% if page <= 1 %}disabled{% endif %}>
-                <a href="#" x-ajax-sticky x-ajax-href="{{ path('soul_season_solo', {page: page - 1, season: virtualSeason ? currentSeason : (currentSeason ? currentSeason.id : 'c')}) }}">
                     <img alt="<" src="{{ asset('build/images/icons/small_prev.gif') }}" />
-                    <span class="hide-sm">{{ 'Vorh.'|trans({},'global') }}</span>
-                </a>
+                <a href="#" x-ajax-sticky x-ajax-href="{{ path('soul_season_solo', {page: page - 1, season: virtualSeason ? currentSeason : (currentSeason ? currentSeason.id : 'c')}) }}">{{ 'Vorh.'|trans({},'global') }}</a>
             </div>
             <div class="padded cell grow-1 center">
                 <label><select id="pagination" class="small">
@@ -260,16 +261,12 @@
                 </select></label>
             </div>
             <div class="padded cell right" {% if page >= pages %}disabled{% endif %}>
-                <a href="#" x-ajax-sticky x-ajax-href="{{ path('soul_season_solo', {page: page + 1, season: virtualSeason ? currentSeason : (currentSeason ? currentSeason.id : 'c')}) }}">
-                    <span class="hide-sm">{{ 'Folg.'|trans({},'global') }}</span>
+                <a href="#" x-ajax-sticky x-ajax-href="{{ path('soul_season_solo', {page: page + 1, season: virtualSeason ? currentSeason : (currentSeason ? currentSeason.id : 'c')}) }}">{{ 'Folg.'|trans({},'global') }}</a>
                     <img alt=">" src="{{ asset('build/images/icons/small_next.gif') }}" />
-                </a>
             </div>
             <div class="padded cell right" {% if page >= pages %}disabled{% endif %}>
-                <a href="#" x-ajax-sticky x-ajax-href="{{ path('soul_season_solo', {page: pages, season: virtualSeason ? currentSeason : (currentSeason ? currentSeason.id : 'c')}) }}">
-                    <span class="hide-sm">{{ 'Ende'|trans({},'global') }}</span>
+                <a href="#" x-ajax-sticky x-ajax-href="{{ path('soul_season_solo', {page: pages, season: virtualSeason ? currentSeason : (currentSeason ? currentSeason.id : 'c')}) }}">{{ 'Ende'|trans({},'global') }}</a>
                     <img alt=">" src="{{ asset('build/images/icons/small_next.gif') }}" />
-                </a>
             </div>
         </div>
     {% endif %}
@@ -293,17 +290,43 @@
         } )
 
         $.html.addEventListenerAll( '[x-town-toggle]', 'click', function(e,elem) {
+            let old_src = elem.getAttribute('src');
+            let new_src = elem.getAttribute('alt-src');
+            elem.setAttribute('src', new_src);
+            elem.setAttribute('alt-src', old_src);
             const id = elem.getAttribute('x-town-toggle');
             document.querySelectorAll('[x-town-tohide="' + id + '"]').forEach(function( target ) {
+                // We hide all the other details
+                document.querySelectorAll('[x-town-tohide]:not([x-town-tohide="' + id + '"])').forEach(function(target2){
+                    if (!target2.classList.contains('hidden')) target2.classList.add('hidden');
+                });
+                if (target.classList.contains('hidden')) target.classList.remove('hidden');
+                else target.classList.add('hidden');
+            })
+            document.querySelectorAll('[x-town-latest=""]').forEach(function( target ) {
+                if (!target.classList.contains('hidden')) target.classList.add('hidden');
+                // opening and closing a town won't restore the x-town-latest, but not a problem imo !
+                // allows to display the rankings without it which is good
+                // Hordes works like this
+            })
+        } );
+
+        $.html.addEventListenerAll( '[x-town-toggle-list]', 'click', function(e,elem) {
+            let old_src = elem.getAttribute('src');
+            let new_src = elem.getAttribute('alt-src');
+            elem.setAttribute('src', new_src);
+            elem.setAttribute('alt-src', old_src);
+            const id = elem.getAttribute('x-town-toggle-list');
+            document.querySelectorAll('[x-town-list="' + id + '"][x-default-display="hidden"]').forEach(function( target ) {
                 if (target.classList.contains('hidden')) target.classList.remove('hidden');
                 else target.classList.add('hidden');
                 // todo: hide other town lists when selecting a new one ? hordes works this way
             })
-            document.querySelectorAll('[x-town-latest=""]').forEach(function( target ) {
+            /*document.querySelectorAll('[x-town-latest=""]').forEach(function( target ) {
                 if (!target.classList.contains('hidden')) target.classList.add('hidden');
-                // opening and closing a town won't restore the x-town-latest, but not a problem imo ! 
+                // opening and closing a town won't restore the x-town-latest, but not a problem imo !
                 // allows to display the rankings without it which is good
-            })
+            })*/
         } );
     </script>
 {% endblock %}

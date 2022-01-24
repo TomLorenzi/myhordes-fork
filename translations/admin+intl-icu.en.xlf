@@ -4446,5 +4446,25 @@
         <target>Änderungen an '{appname}' speichern</target>
       </segment>
     </unit>
+    <unit id="qc1ucL6" name="Diese Auszeichnung wird nicht verdient, wenn der Bürger heute Nacht stirbt.">
+      <notes>
+        <note category="german">Diese Auszeichnung wird nicht verdient, wenn der Bürger heute Nacht stirbt.</note>
+        <note category="from">twig:///templates/ajax/admin/towns/distinctions.html.twig</note>
+      </notes>
+      <segment>
+        <source>Diese Auszeichnung wird nicht verdient, wenn der Bürger heute Nacht stirbt.</source>
+        <target>This picto won't be earned if the citizen dies tonight.</target>
+      </segment>
+    </unit>
+    <unit id="WJg1nZp" name="Diese Auszeichnung wurde verdient.">
+      <notes>
+        <note category="german">Diese Auszeichnung wurde verdient.</note>
+        <note category="from">twig:///templates/ajax/admin/towns/distinctions.html.twig</note>
+      </notes>
+      <segment>
+        <source>Diese Auszeichnung wurde verdient.</source>
+        <target>This picto has been earned.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

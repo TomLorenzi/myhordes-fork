@@ -596,7 +596,9 @@ class MessageGlobalPMController extends MessageController
         /** @var GlobalPrivateMessage[] $sliced */
         $sliced = array_slice($messages, 0, $num);
 
-        $pinned =  $em->getRepository(GlobalPrivateMessage::class)->findOneBy(['receiverGroup' => $group, 'pinned' => true]);
+        $pinned = $last_id === 0
+            ? $em->getRepository(GlobalPrivateMessage::class)->findOneBy(['receiverGroup' => $group, 'pinned' => true])
+            : null;
 
         return $this->render( 'ajax/pm/conversation_group.html.twig', $this->addDefaultTwigArgs(null, [
             'gid' => $id,

@@ -781,5 +781,23 @@
         <target>Bitte geben Sie eine gültige Woche ein.</target>
       </segment>
     </unit>
+    <unit id="CQ0wfFa" name="This value is not a valid CSS color.">
+      <segment>
+        <source>This value is not a valid CSS color.</source>
+        <target>Dieser Wert ist keine gültige CSS-Farbe.</target>
+      </segment>
+    </unit>
+    <unit id="GAaG0KN" name="This value is not a valid CIDR notation.">
+      <segment>
+        <source>This value is not a valid CIDR notation.</source>
+        <target>Dieser Wert entspricht nicht der CIDR-Notation.</target>
+      </segment>
+    </unit>
+    <unit id="ddJy.XP" name="The value of the netmask should be between {{ min }} and {{ max }}.">
+      <segment>
+        <source>The value of the netmask should be between {{ min }} and {{ max }}.</source>
+        <target>Der Wert der Subnetzmaske sollte zwischen {{ min }} und {{ max }} liegen.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -1366,7 +1366,7 @@ class TownController extends InventoryAwareController
             $building->setHp($newHp);
             if($building->getPrototype()->getDefense() > 0) {
                 $newDef = min($building->getPrototype()->getDefense(), $building->getPrototype()->getDefense() * $building->getHp() / $building->getPrototype()->getHp());
-                $building->setDefense($newDef);
+                $building->setDefense((int)floor($newDef));
             }
         }
 

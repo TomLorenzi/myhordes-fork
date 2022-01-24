@@ -358,6 +358,7 @@ class InventoryHandler
     const ErrorEssentialItemBlocked = ErrorHelper::BaseInventoryErrors + 12;
     const ErrorTooManySouls         = ErrorHelper::BaseInventoryErrors + 13;
     const ErrorBankTheftFailed      = ErrorHelper::BaseInventoryErrors + 14;
+    const ErrorTargetChestFull      = ErrorHelper::BaseInventoryErrors + 15;
 
     const ModalityNone             = 0;
     const ModalityTamer            = 1;

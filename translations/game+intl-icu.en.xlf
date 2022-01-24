@@ -19296,12 +19296,11 @@
     <unit id="MIyP62V" name="Dieser Bürger möchte in die Stadt gebracht werden.">
       <notes>
         <note category="german">Dieser Bürger möchte in die Stadt gebracht werden.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
         <source>Dieser Bürger möchte in die Stadt gebracht werden.</source>
-        <target>Dieser Bürger möchte in die Stadt gebracht werden.</target>
+        <target>This citizen wishes to be escorted back to town.</target>
       </segment>
     </unit>
     <unit id="SwbKwjj" name="Der Leichnam von {citizen} wurde nicht zerstört.">
@@ -22436,11 +22435,10 @@
       <notes>
         <note category="german">Dieser Bürger gestattet dir nicht auf seine Gegenstände zuzugreifen.</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Dieser Bürger gestattet dir nicht auf seine Gegenstände zuzugreifen.</source>
-        <target>Dieser Bürger gestattet dir nicht auf seine Gegenstände zuzugreifen.</target>
+        <target>This citizen will not allow you to touch his possessions.</target>
       </segment>
     </unit>
     <unit id="sxHlIDp">
@@ -26213,6 +26211,36 @@
       <segment>
         <source>Der entsetzliche Angriff letzte Nacht kostete das Leben von {cadavers} Menschen. Circa &lt;strong&gt;{attack} Zombies&lt;/strong&gt;! Die Gewalt, die bei diesem jüngsten Angriff zu beobachten war, lässt uns das Schlimmste erwarten...</source>
         <target><![CDATA[Der entsetzliche Angriff letzte Nacht kostete das Leben von {cadavers} Menschen. Circa <strong>{attack} Zombies</strong>! Die Gewalt, die bei diesem jüngsten Angriff zu beobachten war, lässt uns das Schlimmste erwarten...]]></target>
+      </segment>
+    </unit>
+    <unit id="Mv5rYXb">
+      <notes>
+        <note category="german">Der Empfänger scheint &lt;strong&gt;keinen freien Platz mehr in seiner Truhe&lt;/strong&gt; zu haben! Er kann darum den oder die mitgesendeten Gegenstände nicht empfangen. Sende ihm weniger Gegenstände oder bitte ihn etwas Platz in seiner Truhe zu machen.&lt;hr/&gt;Deine Nachricht &lt;strong&gt;wurde nicht gesendet&lt;/strong&gt;.</note>
+        <note category="from">twig:///templates/scripts/errors/inventory.txt.twig</note>
+      </notes>
+      <segment>
+        <source>Der Empfänger scheint &lt;strong&gt;keinen freien Platz mehr in seiner Truhe&lt;/strong&gt; zu haben! Er kann darum den oder die mitgesendeten Gegenstände nicht empfangen. Sende ihm weniger Gegenstände oder bitte ihn etwas Platz in seiner Truhe zu machen.&lt;hr/&gt;Deine Nachricht &lt;strong&gt;wurde nicht gesendet&lt;/strong&gt;.</source>
+        <target><![CDATA[The receiver seems to have <strong>no more room in their chest</strong>. He can't receive the item(s) you have sent. Send fewer items or ask them to make some room in their chest.<hr/>Your message <strong>was not sent</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="KFdlCI2" name="{leader} hat {escortee} heldenhaft zurück in die Stadt begleitet!">
+      <notes>
+        <note category="german">{leader} hat {escortee} heldenhaft zurück in die Stadt begleitet!</note>
+        <note category="from">db://LogEntryTemplate</note>
+      </notes>
+      <segment>
+        <source>{leader} hat {escortee} heldenhaft zurück in die Stadt begleitet!</source>
+        <target>The courageous {leader} escorted and brought {escortee} back to the town!</target>
+      </segment>
+    </unit>
+    <unit id="NJ.jiJV" name="{citizen} bedankt sich herzlich bei dir, dass du ihn nach Hause gebracht hast!">
+      <notes>
+        <note category="german">{citizen} thanks you wholeheartedly for taking them back to the town!</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
+      </notes>
+      <segment>
+        <source>{citizen} bedankt sich herzlich bei dir, dass du ihn nach Hause gebracht hast!</source>
+        <target>{citizen} thanks you wholeheartedly for taking them back to the town!</target>
       </segment>
     </unit>
   </file>

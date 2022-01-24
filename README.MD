@@ -62,13 +62,6 @@ mysql -u hordes -p hordes_pwd hordes
 
 The first `hordes` is the db user, `hordes_pwd` is the username and the second `hordes` is the database name (following the previous example)
 
-### Using postgresql
-Install the following packages:
-* postgresql
-* php-pgsql
-
-You can also install pgAdmin to access the database.
-
 ## Cloning the project
 
 Clone the project inside any directory

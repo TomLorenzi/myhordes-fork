@@ -2785,5 +2785,17 @@
         <target>Änderungen an '{appname}' speichern</target>
       </segment>
     </unit>
+    <unit id="qc1ucL6" name="Diese Auszeichnung wird nicht verdient, wenn der Bürger heute Nacht stirbt.">
+      <segment>
+        <source>Diese Auszeichnung wird nicht verdient, wenn der Bürger heute Nacht stirbt.</source>
+        <target>Diese Auszeichnung wird nicht verdient, wenn der Bürger heute Nacht stirbt.</target>
+      </segment>
+    </unit>
+    <unit id="WJg1nZp" name="Diese Auszeichnung wurde verdient.">
+      <segment>
+        <source>Diese Auszeichnung wurde verdient.</source>
+        <target>Diese Auszeichnung wurde verdient.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

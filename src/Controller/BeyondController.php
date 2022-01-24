@@ -161,11 +161,12 @@ class BeyondController extends InventoryAwareController
 
         $rucksack_sizes = [];
         $escort_actions = [];
-        foreach ($this->getActiveCitizen()->getValidLeadingEscorts() as $escort)
-            if ($escort->getAllowInventoryAccess()) {
+        foreach ($this->getActiveCitizen()->getValidLeadingEscorts() as $escort) {
+            if ($escort->getAllowInventoryAccess())
                 $rucksack_sizes[ $escort->getCitizen()->getId() ] = $this->inventory_handler->getSize( $escort->getCitizen()->getInventory() );
-                $escort_actions[ $escort->getCitizen()->getId() ] = $this->action_handler->getAvailableItemEscortActions( $escort->getCitizen() );
-            }
+            $escort_actions[ $escort->getCitizen()->getId() ] = $this->action_handler->getAvailableItemEscortActions( $escort->getCitizen() );
+        }
+
 
         $zone_players = count($zone->getCitizens());
 
@@ -201,12 +202,12 @@ class BeyondController extends InventoryAwareController
             'rucksack_sizes' => $rucksack_sizes,
             'escort_actions' => $escort_actions,
             'can_explore' => $zone->getPrototype() && $zone->getPrototype()->getExplorable() &&
-                !$this->citizen_handler->hasStatusEffect( $this->getActiveCitizen(), ['infection','terror'] ) &&
+                !$this->citizen_handler->hasStatusEffect( $this->getActiveCitizen(), ['terror'] ) &&
                 !$this->citizen_handler->isWounded( $this->getActiveCitizen() ) &&
                 (!$blocked || $scout_movement) && !$zone->activeExplorerStats() && !$this->getActiveCitizen()->currentExplorerStats(),
             'exploration_blocked_wound'     => $zone->getPrototype() && $zone->getPrototype()->getExplorable() && $this->citizen_handler->isWounded( $this->getActiveCitizen() ),
             'exploration_blocked_blocked'   => $zone->getPrototype() && $zone->getPrototype()->getExplorable() && ($blocked && !$scout_movement),
-            'exploration_blocked_infection' => $zone->getPrototype() && $zone->getPrototype()->getExplorable() && $this->citizen_handler->hasStatusEffect( $this->getActiveCitizen(), 'infection' ),
+            'exploration_blocked_infection' => false,
             'exploration_blocked_terror'    => $zone->getPrototype() && $zone->getPrototype()->getExplorable() && $this->citizen_handler->hasStatusEffect( $this->getActiveCitizen(), 'terror' ),
             'exploration_blocked_in_use'    => $zone->getPrototype() && $zone->getPrototype()->getExplorable() && $zone->activeExplorerStats(),
             'exploration_blocked_already'   => $zone->getPrototype() && $zone->getPrototype()->getExplorable() && $this->getActiveCitizen()->currentExplorerStats(),
@@ -702,7 +703,7 @@ class BeyondController extends InventoryAwareController
 
         // Make sure the citizen is not wounded, has not already explored the ruin today and no one else is exploring
         // the ruin right now
-        if ($this->citizen_handler->isWounded( $citizen ) || $this->citizen_handler->hasStatusEffect( $citizen, ['infection', 'terror'] ) ||
+        if ($this->citizen_handler->isWounded( $citizen ) || $this->citizen_handler->hasStatusEffect( $citizen, ['terror'] ) ||
             $citizen->currentExplorerStats() || $citizen->getZone()->activeExplorerStats())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
@@ -848,7 +849,6 @@ class BeyondController extends InventoryAwareController
         }
 
         foreach ($movers as $mover) {
-
             // Moving disables the dig timer
             if ($dig_timer = $mover->getCurrentDigTimer()) {
                 $dig_timer->setPassive(true);
@@ -948,6 +948,16 @@ class BeyondController extends InventoryAwareController
                 }
             }
 
+            if ($new_zone->isTownZone() && $mover->getEscortSettings() && $mover->getEscortSettings()->getForceDirectReturn()) {
+                // The citizen want to go back home. When we're on the town zone, make it go inside automatically
+                $mover->setZone(null);
+                $zone->removeCitizen($mover);
+                $this->addFlash('notice', $this->translator->trans("{citizen} bedankt sich herzlich bei dir, dass du ihn nach Hause gebracht hast!", ['{citizen}' => $mover->getName()], 'game'));
+                $this->entity_manager->persist($this->log->beyondEscortCitizenBackHome($mover, $mover->getEscortSettings()->getLeader()));
+                $this->entity_manager->remove($mover->getEscortSettings());
+                $mover->setEscortSettings(null);
+            }
+
             $this->entity_manager->persist($mover);
         }
 
@@ -1011,17 +1021,36 @@ class BeyondController extends InventoryAwareController
 
         /** @var Citizen $citizen */
         $citizen = $this->entity_manager->getRepository(Citizen::class)->find( (int)$parser->get('citizen', -1) );
-        /** @var EscortActionGroup $esc_act */
-        $esc_act = $this->entity_manager->getRepository(EscortActionGroup::class)->find( (int)$parser->get('meta', -1) );
-        $action  = $this->entity_manager->getRepository(ItemAction::class)->find( (int)$parser->get('action', -1) );
+        if (!$citizen) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        if (!$citizen || !$esc_act || !$action) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-
-        if (!$citizen->getEscortSettings() || !$citizen->getEscortSettings()->getAllowInventoryAccess() ||
+        if (!$citizen->getEscortSettings() ||
             !$citizen->getEscortSettings()->getLeader() ||
             $citizen->getEscortSettings()->getLeader()->getId() !== $this->getActiveCitizen()->getId()
         ) return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
 
+        /** @var EscortActionGroup $esc_act */
+        $esc_act = $this->entity_manager->getRepository(EscortActionGroup::class)->find( (int)$parser->get('meta', -1) );
+        if (!$esc_act) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        if (!$citizen->getEscortSettings()->getAllowInventoryAccess()) {
+
+            if ($parser->get('item') !== 'p' || $parser->get('action') !== 'p')
+                return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
+
+            $groups = $this->action_handler->getAvailableItemEscortActions($citizen, $esc_act);
+            if (count($groups) !== 1) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+            list($item,$action) = $groups[0]->getPrimaryAction();
+            if (!$item || !$action) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+            $parser->inject('item', $item->getId());
+            $parser->inject('action', $action->getId());
+
+        } else {
+            $action  = $this->entity_manager->getRepository(ItemAction::class)->find( (int)$parser->get('action', -1) );
+        }
+
+        if (!$action) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         if (!$esc_act->getActions()->contains($action))
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
 

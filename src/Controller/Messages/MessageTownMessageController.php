@@ -148,7 +148,7 @@ class MessageTownMessageController extends MessageController
 
                 // Check inventory size
                 if ($this->inventory_handler->getFreeSize($recipient->getHome()->getChest()) < count($linked_items))
-                    return AjaxResponse::error(InventoryHandler::ErrorInventoryFull);
+                    return AjaxResponse::error(InventoryHandler::ErrorTargetChestFull);
             }
 
             // Special drunk handler

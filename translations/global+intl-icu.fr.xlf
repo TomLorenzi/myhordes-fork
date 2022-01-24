@@ -394,7 +394,7 @@
     <unit id="mbIzlHW" name="Zum Spiel">
       <notes>
         <note category="german">Zum Spiel</note>
-        <note category="from">twig:///templates/ajax/admin/apps/edit.html.twig;twig:///templates/ajax/admin/apps/list.html.twig;twig:///templates/ajax/admin/changelogs/changelogs.html.twig;twig:///templates/ajax/admin/dash.html.twig;twig:///templates/ajax/admin/files/list.html.twig;twig:///templates/ajax/admin/reports/reports.html.twig;twig:///templates/ajax/admin/spam/domains.html.twig;twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/towns/list.html.twig;twig:///templates/ajax/admin/towns/old_town_explorer.html.twig;twig:///templates/ajax/admin/towns/old_towns_list.html.twig;twig:///templates/ajax/admin/users/account.html.twig;twig:///templates/ajax/admin/users/all_index.html.twig;twig:///templates/ajax/forum/list.html.twig;twig:///templates/ajax/forum/search_wrapper.html.twig;twig:///templates/ajax/forum/view.html.twig;twig:///templates/ajax/game/newspaper.html.twig;twig:///templates/ajax/ghost/create_town.html.twig;twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/pm/proxy.html.twig;twig:///templates/ajax/public/disclaimer.html.twig;twig:///templates/ajax/soul/shell.html.twig;twig:///templates/ajax/soul/view_town_foreign.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/apps/edit.html.twig;twig:///templates/ajax/admin/apps/list.html.twig;twig:///templates/ajax/admin/changelogs/changelogs.html.twig;twig:///templates/ajax/admin/dash.html.twig;twig:///templates/ajax/admin/files/list.html.twig;twig:///templates/ajax/admin/reports/reports.html.twig;twig:///templates/ajax/admin/spam/domains.html.twig;twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/towns/list.html.twig;twig:///templates/ajax/admin/towns/old_town_explorer.html.twig;twig:///templates/ajax/admin/towns/old_towns_list.html.twig;twig:///templates/ajax/admin/users/account.html.twig;twig:///templates/ajax/admin/users/all_index.html.twig;twig:///templates/ajax/forum/list.html.twig;twig:///templates/ajax/forum/search_wrapper.html.twig;twig:///templates/ajax/forum/view.html.twig;twig:///templates/ajax/game/newspaper.html.twig;twig:///templates/ajax/ghost/create_town.html.twig;twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/pm/proxy.html.twig;twig:///templates/ajax/public/apidocs.html.twig;twig:///templates/ajax/public/disclaimer.html.twig;twig:///templates/ajax/soul/shell.html.twig;twig:///templates/ajax/soul/view_town_foreign.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
       </notes>
       <segment>
         <source>Zum Spiel</source>
@@ -444,7 +444,7 @@
     <unit id="wMIPplV" name="Statistiken">
       <notes>
         <note category="german">Statistiken</note>
-        <note category="from">twig:///templates/ajax/soul/distinctions.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/towns/distinctions.html.twig;twig:///templates/ajax/soul/distinctions.html.twig</note>
       </notes>
       <segment>
         <source>Statistiken</source>
@@ -454,7 +454,7 @@
     <unit id="HPrVKwR" name="{points} Punkte">
       <notes>
         <note category="german">{points} Punkte</note>
-        <note category="from">twig:///templates/ajax/soul/distinctions.html.twig;twig:///templates/ajax/soul/me.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/towns/distinctions.html.twig;twig:///templates/ajax/soul/distinctions.html.twig;twig:///templates/ajax/soul/me.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
       </notes>
       <segment>
         <source>{points} Punkte</source>
@@ -474,7 +474,7 @@
     <unit id="LM1P67a" name="Dieser Spieler hat bisher noch keine Preise gewonnen...">
       <notes>
         <note category="german">Dieser Spieler hat bisher noch keine Preise gewonnen...</note>
-        <note category="from">twig:///templates/ajax/soul/distinctions.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/towns/distinctions.html.twig;twig:///templates/ajax/soul/distinctions.html.twig</note>
       </notes>
       <segment>
         <source>Dieser Spieler hat bisher noch keine Preise gewonnen...</source>
@@ -4191,12 +4191,22 @@
     </unit>
     <unit id="2JRm9.u" name="{num} Seelenpunkte, Platz {rank}">
       <notes>
-        <note category="german">{num} Seelenpunkte, Platz {rank}</note>
+        <note category="german">{num} Seelenpunkte, Platz &lt;b&gt;{rank}&lt;/b&gt;</note>
         <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
       </notes>
       <segment>
         <source>{num} Seelenpunkte, Platz {rank}</source>
-        <target>{num} points d'âme, position : {rank}</target>
+        <target><![CDATA[{num} points d'âme, position : <b>{rank, selectordinal, one {#er} other {#ème}}</b>]]></target>
+      </segment>
+    </unit>
+    <unit id="gFzfoeL" name="Zu meinem Eintrag springen">
+      <notes>
+        <note category="german">Zu meinem Eintrag springen</note>
+        <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
+      </notes>
+      <segment>
+        <source>Zu meinem Eintrag springen</source>
+        <target>Aller à ma position</target>
       </segment>
     </unit>
   </file>

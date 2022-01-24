@@ -112,6 +112,7 @@ class MigrateCommand extends Command
         '0d37ad639bb89157ffa64eac0821ac490e063224' => [ ['app:migrate', ['--reassign-thread-tags' => true] ] ],
         'd669a5376c073ff8ede12330dbd3968346c78425' => [ ['app:migrate', ['--assign-official-tag' => true] ] ],
         '9a573aed31d901434d2cc5992799ed1b5ee6683d' => [ ['app:migrate', ['--prune-rp-texts' => true] ] ],
+        '8c54cbfaf95df7f65f94eff00e03ca3bdea95810' => [ ['app:migrate', ['--prune-rp-texts' => true] ] ],
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
@@ -973,7 +974,7 @@ class MigrateCommand extends Command
 
         if ($input->getOption('prune-rp-texts')) {
             $target_picto = null;
-            $this->helper->leChunk($output, User::class, 100, [], true, false, function(User $user) use (&$target_picto) {
+            $this->helper->leChunk($output, User::class, 100, [], true, false, function(User $user) use ($output, &$target_picto) {
                 $imported = $this->entity_manager->getRepository(Picto::class)->createQueryBuilder('i')
                     ->select('SUM(i.count)')
                     ->andWhere('i.user = :user')->setParameter('user', $user)->andWhere('i.prototype = :rp')->setParameter('rp', $target_picto)
@@ -995,7 +996,7 @@ class MigrateCommand extends Command
                 $earned_texts = $this->entity_manager->getRepository(FoundRolePlayText::class)->createQueryBuilder('r')
                     ->select('COUNT(r.id)')
                     ->andWhere('r.text IS NOT NULL')
-                    ->andWhere('r.user = :user')->setParameter('user', $user)->andWhere('r.imported = false')
+                    ->andWhere('r.user = :user')->setParameter('user', $user)->andWhere('r.imported = false OR r.imported IS NULL')
                     ->getQuery()->getSingleScalarResult() ?? 0;
 
                 if (($imported < $imported_texts) || ($earned < $earned_texts)) {
@@ -1003,8 +1004,15 @@ class MigrateCommand extends Command
                     if ($imported < $imported_texts) foreach ($this->entity_manager->getRepository(FoundRolePlayText::class)->findBy(['user' => $user, 'imported' => true], ['datefound' => 'DESC'], $imported_texts - $imported) as $to_remove)
                         $this->entity_manager->remove( $to_remove );
 
-                    if ($earned < $earned_texts) foreach ($this->entity_manager->getRepository(FoundRolePlayText::class)->findBy(['user' => $user, 'imported' => false], ['datefound' => 'DESC'], $earned_texts - $earned) as $to_remove)
+                    if ($earned < $earned_texts) foreach ($this->entity_manager->getRepository(FoundRolePlayText::class)->findBy(['user' => $user, 'imported' => false], ['datefound' => 'DESC'], $earned_texts - $earned) as $to_remove) {
                         $this->entity_manager->remove( $to_remove );
+                        $earned_texts--;
+                    }
+
+                    if ($earned < $earned_texts) foreach ($this->entity_manager->getRepository(FoundRolePlayText::class)->findBy(['user' => $user, 'imported' => null], ['datefound' => 'DESC'], $earned_texts - $earned) as $to_remove) {
+                        $this->entity_manager->remove( $to_remove );
+                        $earned_texts--;
+                    }
 
                     return true;
                 } elseif (($imported > $imported_texts) || ($earned > $earned_texts)) {

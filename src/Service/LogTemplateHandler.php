@@ -1660,6 +1660,19 @@ class LogTemplateHandler
             ->setCitizen( $citizen );
     }
 
+    public function beyondEscortCitizenBackHome( Citizen $citizen, Citizen $leader ): TownLogEntry {
+        $variables = array('escortee' => $citizen->getId(), 'leader' => $leader->getId());
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'beyondEscortCitizenBackHome']);
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $citizen->getTown() )
+            ->setDay( $citizen->getTown()->getDay() )
+            ->setTimestamp( new DateTime('now') )
+            ->setCitizen( $citizen );
+    }
+
     public function beyondEscortReleaseCitizen( Citizen $citizen, Citizen $target_citizen ): TownLogEntry {
         $variables = array('citizen' => $citizen->getId(), 'target_citizen' => $target_citizen->getId());
         $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'beyondEscortReleaseCitizen']);

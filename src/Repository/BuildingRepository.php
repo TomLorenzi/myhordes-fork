@@ -6,7 +6,7 @@ use App\Entity\Building;
 use App\Entity\BuildingPrototype;
 use App\Entity\Town;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\ORM\NonUniqueResultException;
 
 /**

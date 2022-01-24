@@ -112,15 +112,12 @@
         {% endif %}
 
         <b class="title {% if entry.system %}crow-note{% endif %}">{% if message_title_pre %}{{ message_title_pre }}<br />{% endif %}{{ entry.title }}</b>
-
         {% if message_type == 'f' %}
-            {% for message_partner in entry.users %}
-                {% if message_partner != entry.owner %}
-                    {% if loop.index0 < 5 %}
-                        <span class="author group-desc"><b class="sender">{{ message_partner.name }}</b></span>{% if loop.index0 < 4 and not loop.last %}, {% endif %}
-                    {% elseif loop.index0 == 5 %}
-                        <span class="author group-desc">{{ 'und andere.'|trans({},'global') }}</span>
-                    {% endif %}
+            {% for message_partner in entry.users|filter(u => u != entry.owner) %}
+                {% if loop.index0 < 5 %}
+                    <span class="author group-desc"><b class="sender">{{ message_partner.name }}</b></span>{% if loop.index0 < 4 and not loop.last %}, {% endif %}
+                {% elseif loop.index0 == 5 %}
+                    <span class="author group-desc">{{ 'und andere.'|trans({},'global') }}</span>
                 {% endif %}
             {% endfor %}
         {% elseif entry.system %}

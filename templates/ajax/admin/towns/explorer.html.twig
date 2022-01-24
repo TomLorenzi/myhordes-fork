@@ -430,6 +430,7 @@
                                         <div class="row">
                                             <div class="padded cell rw-6"><div class="invTargetRucksack"></div></div>
                                             <div class="padded cell rw-6"><div class="invTargetChest"></div></div>
+                                            <div class="padded cell rw-12 soul"><div class="invTargetPictos"></div></div>
                                         </div>
                                     </div>
                                 </div>
@@ -948,6 +949,11 @@
                         document.querySelector('.citizen-details[x-citizen-id="' + elem.getAttribute('x-citizen-id') + '"] .invTargetChest .inventory').classList.add('chest');
                         document.querySelector('.citizen-details[x-citizen-id="' + elem.getAttribute('x-citizen-id') + '"] .invTargetChest .inventory .title').innerText = '{{ 'Truhe'|trans({},'game')|e('js') }}';
 
+                        document.querySelector('.citizen-details[x-citizen-id="' + elem.getAttribute('x-citizen-id') + '"] .invTargetPictos').innerHTML = data.pictos;
+                        let tooltips = document.querySelectorAll('.citizen-details[x-citizen-id="' + elem.getAttribute('x-citizen-id') + '"] .invTargetPictos .tooltip');
+                        for(let i = 0 ; i < tooltips.length ; i++)
+                            $.html.handleTooltip(tooltips[i]);
+
                         let items = document.querySelectorAll('.citizen-details[x-citizen-id="' + elem.getAttribute('x-citizen-id') + '"] .inventory .item:not(.locked)[x-item-id]');
                         for (let i = 0; i < items.length; i++)
                             items[i].addEventListener('click', function(ev) {
@@ -961,14 +967,12 @@
                             });
                     });
                 };
-
                 refresh();
-
-
             } else {
                 $.html.forEach('.citizen-details[x-citizen-id]', elem => elem.classList.add('hidden'));
                 document.querySelector(".citizen-details[x-citizen-id] .invTargetRucksack").innerHTML = '';
                 document.querySelector(".citizen-details[x-citizen-id] .invTargetChest").innerHTML = '';
+                document.querySelector(".citizen-details[x-citizen-id] .invTargetPictos").innerHTML = '';
             }
         })
 

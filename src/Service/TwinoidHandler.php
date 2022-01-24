@@ -275,7 +275,6 @@ class TwinoidHandler
         } else {
             /** @var CitizenRankingProxy $entry */
             $entry = $this->em->getRepository(CitizenRankingProxy::class)->findOneBy( ['user' => $user, 'importID' => $town->getID(), 'importLang' => $lang] );
-            dump($town);
             if ($entry) {
                 $entry
                     ->setComment( $town->getComment() )->setLastWords( $town->getMessage() )->setDay( $town->getSurvivedDays() )->setPoints( $town->getScore() )->setCod( $town->convertDeath() )->setCleanupUsername($town->getCleanup()['user'])

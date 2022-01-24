@@ -4,7 +4,7 @@ namespace App\Repository;
 
 use App\Entity\ItemTargetDefinition;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\Persistence\ManagerRegistry;
 
 /**
  * @method ItemTargetDefinition|null find($id, $lockMode = null, $lockVersion = null)

@@ -2644,5 +2644,11 @@
         <target>Denke daran, dich ebenfalls aus deinem EternalTwin Account auszuloggen!</target>
       </segment>
     </unit>
+    <unit id="TMcIHTT" name="Du kannst deinen Spielernamen erst in {days} Tagen erneut ändern.">
+      <segment>
+        <source>Du kannst deinen Spielernamen erst in {days} Tagen erneut ändern.</source>
+        <target>Du kannst deinen Spielernamen erst {days, plural, =1 {ab morgen} other {in # Tagen}} erneut ändern.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
