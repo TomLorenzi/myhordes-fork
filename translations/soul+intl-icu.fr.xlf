@@ -4308,7 +4308,6 @@
       <notes>
         <note category="german">Du kannst deinen Spielernamen erst {days} erneut ändern.</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Du kannst deinen Spielernamen erst in {days} Tagen erneut ändern.</source>
