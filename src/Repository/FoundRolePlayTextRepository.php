@@ -69,6 +69,7 @@ class FoundRolePlayTextRepository extends ServiceEntityRepository
             ->andWhere('f.new = :new')
             ->setParameter('user', $user)
             ->setParameter('new', true)
+            ->setMaxResults(1)
             ->getQuery()
             ->getOneOrNullResult()
         ;
