@@ -105,11 +105,10 @@
       <notes>
         <note category="german">Hört an, hört an!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Hört an, hört an!</source>
-        <target>Hört an, hört an!</target>
+        <target>¡Escuchad, escuchad!</target>
       </segment>
     </unit>
     <unit id="cubT_FF">
@@ -1292,11 +1291,10 @@
       <notes>
         <note category="german">Ich wäre gerne der Reiseleiter!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ich wäre gerne der Reiseleiter!</source>
-        <target>Ich wäre gerne der Reiseleiter!</target>
+        <target>¡Me encantaría ser el Guía!</target>
       </segment>
     </unit>
     <unit id="e7G3y5u" name="Was ist denn ein Speiseschreiter?">
@@ -1313,11 +1311,10 @@
       <notes>
         <note category="german">Es sind die Individuen, die uns mit Sicherheit in den sicheren Tod führen...</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Es sind die Individuen, die uns mit Sicherheit in den sicheren Tod führen...</source>
-        <target>Es sind die Individuen, die uns mit Sicherheit in den sicheren Tod führen...</target>
+        <target>Es el individuo responsable de llevarnos a nuestra muerte segura...</target>
       </segment>
     </unit>
     <unit id="ymQHvdr" name="Die sind wie du? Nur hübscher?">
@@ -1334,11 +1331,10 @@
       <notes>
         <note category="german">Sie sind wie dieser Hexendoktor, nur nützlicher!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Sie sind wie dieser Hexendoktor, nur nützlicher!</source>
-        <target>Sie sind wie dieser Hexendoktor, nur nützlicher!</target>
+        <target>Es como el tipo médico brujo, ¡pero útil!</target>
       </segment>
     </unit>
     <unit id="MICBLvn">
@@ -1355,11 +1351,10 @@
       <notes>
         <note category="german">Ich bin ein bisschen traurig... Ich werde den Kerl und seinen klapprigen alten Kompass vermissen.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ich bin ein bisschen traurig... Ich werde den Kerl und seinen klapprigen alten Kompass vermissen.</source>
-        <target>Ich bin ein bisschen traurig... Ich werde den Kerl und seinen klapprigen alten Kompass vermissen.</target>
+        <target>Estoy un poco triste... Extrañaré a ese sujeto y su brújula vieja y poco fiable.</target>
       </segment>
     </unit>
     <unit id="ltxd4D." name="Oh, Mann! Ich habe ihm gesagt, dass er nach Osten gehen muss!">
@@ -1387,11 +1382,10 @@
       <notes>
         <note category="german">Nun, ich schlage vor, dass es unser lieber {voted} sein soll, er hat die malerischste kleine Hütte...</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Nun, ich schlage vor, dass es unser lieber {voted} sein soll, er hat die malerischste kleine Hütte...</source>
-        <target>Nun, ich schlage vor, dass es unser lieber {voted} sein soll, er hat die malerischste kleine Hütte...</target>
+        <target>Bueno, yo propongo que sea nuestro querido {voted}, tiene la casucha más pintoresca...</target>
       </segment>
     </unit>
     <unit id="ri0KMc5">
@@ -1429,11 +1423,10 @@
       <notes>
         <note category="german">Hmmmm alles in allem wäre {voted} vielleicht die bessere Wahl gewesen...</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Hmmmm alles in allem wäre {voted} vielleicht die bessere Wahl gewesen...</source>
-        <target>Hmmmm alles in allem wäre {voted} vielleicht die bessere Wahl gewesen...</target>
+        <target>Hmmmm considerando todas las cosas tal vez {voted} hubiera sido una mejor opción...</target>
       </segment>
     </unit>
     <unit id="guoEwH5">
@@ -1450,33 +1443,30 @@
       <notes>
         <note category="german">Weis der überhaupt, wie man aus der Stadt kommt?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Weis der überhaupt, wie man aus der Stadt kommt?</source>
-        <target>Weis der überhaupt, wie man aus der Stadt kommt?</target>
+        <target>¿Siquiera sabe cómo salir del pueblo?</target>
       </segment>
     </unit>
     <unit id="cR_BTCG" name="Und er dachte, er wäre vorher gut gewesen...">
       <notes>
         <note category="german">Und er dachte, er wäre vorher gut gewesen...</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Und er dachte, er wäre vorher gut gewesen...</source>
-        <target>Und er dachte, er wäre vorher gut gewesen...</target>
+        <target>Y pensó que era bueno antes...</target>
       </segment>
     </unit>
     <unit id="hi.rvw0">
       <notes>
         <note category="german">Jetzt sind wir zwar immer noch auf dem sprichwörtlichen Holzweg, aber wir haben zumindest einen Reiseleiter!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Jetzt sind wir zwar immer noch auf dem sprichwörtlichen Holzweg, aber wir haben zumindest einen Reiseleiter!</source>
-        <target>Jetzt sind wir zwar immer noch auf dem sprichwörtlichen Holzweg, aber wir haben zumindest einen Reiseleiter!</target>
+        <target>Ahora somos del arroyo proverbial, ¡pero tenemos un remo!</target>
       </segment>
     </unit>
     <unit id="m4YskUq" name="Hurra für den Reiseleiter!">
