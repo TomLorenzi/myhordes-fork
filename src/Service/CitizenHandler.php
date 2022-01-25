@@ -445,11 +445,14 @@ class CitizenHandler
         $citizen->setPm(max(0, $relative ? ($citizen->getPm() + $num) : max(0,$num) ) );
     }
 
-    public function deductAPBP(Citizen &$citizen, int $ap) {
-        if ($ap <= $citizen->getBp())
-            $this->setBP( $citizen, true, -$ap );
-        else {
+    public function deductAPBP(Citizen &$citizen, int $ap, int &$usedap = 0, int &$usedbp = 0) {
+        if ($ap <= $citizen->getBp()) {
+            $usedbp = $ap;
+            $this->setBP($citizen, true, -$ap);
+        } else {
             $ap -= $citizen->getBp();
+            $usedbp = $citizen->getBp();
+            $usedap = $ap;
             $this->setAP($citizen, true, -$ap);
             $this->setBP($citizen, false, 0);
         }

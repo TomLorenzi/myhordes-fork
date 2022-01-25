@@ -10663,7 +10663,15 @@
     <unit id="RcQH2Pr" name="Du hast dafür {count} Aktionspunkt(e) verbraucht.">
       <segment>
         <source>Du hast dafür {count} Aktionspunkt(e) verbraucht.</source>
-        <target>Du hast dafür {count} Aktionspunkt(e) verbraucht.</target>
+        <target>{ref__icu, select,
+          on {
+            {raw_count, plural,
+              one {Du hast dafür {count} Aktionspunkt verbraucht.}
+              other {Du hast dafür {count} Aktionspunkte verbraucht.}
+            }
+          }
+            other {Du hast dafür {count} Aktionspunkt(e) verbraucht.}
+          }</target>
       </segment>
     </unit>
     <unit id="lo3tdoY" name="Was für eine schreckliche Nacht!">
@@ -16434,6 +16442,27 @@
       <segment>
         <source>{leader} hat {escortee} heldenhaft zurück in die Stadt begleitet!</source>
         <target>{leader} hat {escortee} heldenhaft zurück in die Stadt begleitet!</target>
+      </segment>
+    </unit>
+    <unit id="NJ.jiJV" name="{citizen} bedankt sich herzlich bei dir, dass du ihn nach Hause gebracht hast!">
+      <segment>
+        <source>{citizen} bedankt sich herzlich bei dir, dass du ihn nach Hause gebracht hast!</source>
+        <target>{citizen} bedankt sich herzlich bei dir, dass du ihn nach Hause gebracht hast!</target>
+      </segment>
+    </unit>
+    <unit id="Yi60BMa" name="Du hast dafür {count} Baupunkt(e) verbraucht.">
+      <segment>
+        <source>Du hast dafür {count} Baupunkt(e) verbraucht.</source>
+        <target>{ref__icu, select,
+          on {
+            {raw_count, plural,
+                one {Du hast dafür {count} Baupunkt verbraucht.}
+                other {Du hast dafür {count} Baupunkte verbraucht.}
+              }
+            }
+          other {Du hast dafür {count} Baupunkt(e) verbraucht.}
+          }
+        </target>
       </segment>
     </unit>
   </file>

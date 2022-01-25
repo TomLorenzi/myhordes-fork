@@ -16531,7 +16531,15 @@
       </notes>
       <segment>
         <source>Du hast dafür {count} Aktionspunkt(e) verbraucht.</source>
-        <target>You have used {count} action point(s).</target>
+        <target>{ref__icu, select,
+            on {
+                {raw_count, plural,
+                    one {You have used {count} action point.}
+                    other {You have used {count} action points.}
+                }
+            }
+                other {You have used {count} action point(s).}
+            }</target>
       </segment>
     </unit>
     <unit id="lo3tdoY" name="Was für eine schreckliche Nacht!">
@@ -26241,6 +26249,26 @@
       <segment>
         <source>{citizen} bedankt sich herzlich bei dir, dass du ihn nach Hause gebracht hast!</source>
         <target>{citizen} thanks you wholeheartedly for taking them back to the town!</target>
+      </segment>
+    </unit>
+    <unit id="Yi60BMa" name="Du hast dafür {count} Baupunkt(e) verbraucht.">
+      <notes>
+        <note category="german">Du hast dafür {count} Baupunkt(e) verbraucht.</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Du hast dafür {count} Baupunkt(e) verbraucht.</source>
+        <target>{ref__icu, select,
+            on {
+                {raw_count, plural,
+                    one {You have used {count} construction point.}
+                    other {You have used {count} construction points.}
+                }
+            }
+            other {You have used {count} construction point(s).}
+        }
+        </target>
       </segment>
     </unit>
   </file>
