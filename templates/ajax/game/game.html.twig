@@ -15,12 +15,15 @@
     {% if rucksack is defined %}
         <ul x-ajax-href="{{ path('help', {'name': 'inventory'}) }}" class="rucksack pointer {% if rucksack_size > 10 %}expanded{% endif %} {% if status is defined %}rucksack_status_union{% endif %}">
             <li class="text">{{'Rucksack'|trans({}, 'game')}}</li>
+            {% set cc = 0 %}
             {% for item in rucksack.items|sort((a,b) => b.essential <=> a.essential ?: b.prototype.sort <=> a.prototype.sort ?: a.prototype.id <=> b.prototype.id ) %}
-                {% embed "ajax/game/item.html.twig" with {'item': item, 'no_id': true} %}{% endembed %}
+                {% embed "ajax/game/item.html.twig" with {'item': item, 'no_id': true, 'class': cc < 10 ? '' : 'over'} %}{% endembed %}
+                {% set cc = cc+1 %}
             {% endfor %}
             {% if rucksack.items|length < rucksack_size %}
                 {% for i in range(0, rucksack_size - rucksack.items|length - 1)%}
-                    <li class="free"></li>
+                    <li class="free {% if cc >= 10 %}over{% endif %}"></li>
+                    {% set cc = cc+1 %}
                 {% endfor %}
             {% endif %}
             <li class="more">
