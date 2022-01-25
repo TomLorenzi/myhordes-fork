@@ -25970,11 +25970,11 @@ cette violente opération...]]></target>
         <target>{ref__icu, select,
                 on {
                     {raw_count, plural,
-                        one {Vous avez utilisé {count} point de construction.}
-                        other {Vous avez utilisé {count} points de construction.}
+                        one {Vous avez utilisé {count} point de chantier.}
+                        other {Vous avez utilisé {count} points de chantier.}
                     }
                 }
-                other {Vous avez utilisé {count} point(s) de construction.}
+                other {Vous avez utilisé {count} point(s) de chantier.}
             }
         </target>
       </segment>
