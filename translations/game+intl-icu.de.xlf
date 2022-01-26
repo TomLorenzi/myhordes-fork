@@ -16465,5 +16465,17 @@
         </target>
       </segment>
     </unit>
+    <unit id="yHIMDic">
+      <segment>
+        <source>Du bist ein Ghul! Versuche auf keinen Fall, Wasser zu trinken, das wird am Ende nur zu einer Verletzung führen...</source>
+        <target>Du bist ein Ghul! Versuche auf keinen Fall, Wasser zu trinken, das wird am Ende nur zu einer Verletzung führen...</target>
+      </segment>
+    </unit>
+    <unit id="PuMKC_2" name="Lies die Hilfe zu Ghulen">
+      <segment>
+        <source>Lies die Hilfe zu Ghulen</source>
+        <target>Lies die Hilfe zu Ghulen</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
