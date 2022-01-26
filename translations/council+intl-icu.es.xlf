@@ -797,7 +797,6 @@
       <notes>
         <note category="german">...</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>...</source>
@@ -829,7 +828,6 @@
       <notes>
         <note category="german">Pfffffff</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Pfffffff</source>
