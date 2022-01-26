@@ -1482,4 +1482,61 @@ class SoulController extends CustomAbstractController
             'towns' => $lifes
         ]));
     }
+
+    /**
+     * @Route("api/soul/tooltip", name="soul_tooltip")
+     * @param int $id
+     * @param HTMLService $html
+     * @return Response
+     */
+    public function api_soul_tooltip(JSONRequestParser $parser, HTMLService $html) {
+        $id = $parser->get("id");
+        $user = $this->entity_manager->getRepository(User::class)->find($id);
+
+        if (!$user) {
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        }
+
+        $desc = $this->entity_manager->getRepository(UserDescription::class)->findOneBy(['user' => $user]);
+        $isFriend = $this->getUser()->getFriends()->contains($user);
+
+        return $this->render("ajax/soul/user_tooltip.html.twig", [
+            'user' => $user,
+            'userDesc' => $desc ? $html->prepareEmotes($desc->getText(), $this->getUser()) : null,
+            'isFriend' => $isFriend
+        ]);
+    }
+
+    /**
+     * @Route("api/soul/friend/{action}", name="soul_friend_control")
+     * @param int $id
+     * @param HTMLService $html
+     * @return Response
+     */
+    public function api_friend_control(int $action, JSONRequestParser $parser, HTMLService $html) {
+        if ($action !== 0 && $action !== 1) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $id = $parser->get("id");
+        $user = $this->entity_manager->getRepository(User::class)->find($id);
+
+        if (!$user) {
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        }
+
+        if($action)
+            $this->getUser()->addFriend($user);
+        else
+            $this->getUser()->removeFriend($user);
+
+        $this->entity_manager->persist($this->getUser());
+        $this->entity_manager->flush();
+
+        if($action){
+            $this->addFlash("notice", $this->translator->trans("Du hast {username} zu deinen Kontakten hinzugefügt!", ['{username}' => $user], "soul"));
+        } else {
+            $this->addFlash("notice", $this->translator->trans("Du hast {username} aus deinen Kontakten gelöscht!", ['{username}' => $user], "soul"));
+        }
+
+        return AjaxResponse::success();
+    }
 }

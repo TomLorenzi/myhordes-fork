@@ -3845,7 +3845,7 @@
     </unit>
     <unit id="OSdFB8R" name="Einen Blick ins Forum werfen.">
       <notes>
-        <note category="german">Einen Blick ins Forum werfen.</note>
+        <note category="german">Einen Blick ins Forum werfen</note>
         <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
       </notes>
       <segment>
@@ -3855,7 +3855,7 @@
     </unit>
     <unit id=".vMt2eO" name="Meine Ration Wasser im Brunnen entnehmen (optional).">
       <notes>
-        <note category="german">Meine Ration Wasser im Brunnen entnehmen (optional).</note>
+        <note category="german">Meine Ration Wasser im Brunnen entnehmen (optional)</note>
         <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
       </notes>
       <segment>
@@ -3865,7 +3865,7 @@
     </unit>
     <unit id="UgqaO9M" name="An der Angriffsabschätzung teilnehmen">
       <notes>
-        <note category="german">An der Angriffsabschätzung teilnehmen.</note>
+        <note category="german">An der Angriffsabschätzung teilnehmen</note>
         <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
       </notes>
       <segment>
@@ -3875,7 +3875,7 @@
     </unit>
     <unit id="h3w5_BE" name="Für ein Tagesprojekt abstimmen.">
       <notes>
-        <note category="german">Für ein Tagesprojekt abstimmen.</note>
+        <note category="german">Für ein Tagesprojekt abstimmen</note>
         <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
       </notes>
       <segment>
@@ -3885,7 +3885,7 @@
     </unit>
     <unit id="G7Kbsmc">
       <notes>
-        <note category="german">Auf der Baustelle arbeiten, in der Werkstatt arbeiten oder in die Außenwelt gehen (optional).</note>
+        <note category="german">Auf der Baustelle arbeiten, in der Werkstatt arbeiten oder in die Außenwelt gehen (optional)</note>
         <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
       </notes>
       <segment>
@@ -25982,7 +25982,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Du bist ein Ghul! Versuche auf keinen Fall, Wasser zu trinken, das wird am Ende nur zu einer Verletzung führen...</note>
         <note category="from">twig:///templates/ajax/game/beyond/beyond.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Du bist ein Ghul! Versuche auf keinen Fall, Wasser zu trinken, das wird am Ende nur zu einer Verletzung führen...</source>
@@ -25993,7 +25992,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Lies die Hilfe zu Ghulen</note>
         <note category="from">twig:///templates/ajax/game/beyond/beyond.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Lies die Hilfe zu Ghulen</source>

@@ -1,0 +1,74 @@
+$.html.addEventListenerAll(".username", "click", function(event){
+    event.stopPropagation();
+    event.preventDefault();
+    var source = event.target;
+    while (!source.getAttribute("x-user-id")) {
+        source = source.parentElement;
+    }
+    let target = document.getElementById("user-tooltip");
+    if(!target) {
+        target = document.createElement("div");
+        source.parentElement.appendChild(target);
+    }
+    target.setAttribute("id", "user-tooltip");
+    $.ajax.load(target, "{{ path('soul_tooltip') }}", false, {'id': source.getAttribute("x-user-id")}, function(){
+        addActions(source.getAttribute("x-user-id"), target, source);
+    });
+
+    document.addEventListener("click", (event) => {
+        if(event.target !== document.getElementById("user-tooltip") && !event.target.closest("#user-tooltip")) {
+            document.getElementById("user-tooltip").remove();
+        }
+    })
+})
+
+var addActions = function(user_id, target, source){
+    $.html.addEventListenerAll('a[x-action="block_user"]','click',(e,elem) => {
+        e.preventDefault();
+        if (confirm(
+            '{{ 'Wenn du diesen Spieler blockierst, kann er dir keine neuen Nachrichten schicken. Werdet ihr beide von einer dritten Person in eine Gruppennachricht hinzugefügt, so werden Beiträge des blockierten Spielers standartmäßig für dich versteckt.'|trans({},'global')|e('js') }}' +
+            '\n\n{{ 'Möchtest du fortfahren?'|trans({},'global')|e('js') }}'
+        ))
+            var url = '{{ path('soul_block_control', {id: 0, action: 1}) }}';
+            url = url.replace("0", user_id);
+            $.ajax.easySend( url, {},
+                function () {
+                    $.ajax.load(target, "{{ path('soul_tooltip') }}", false, {'id': user_id}, function(){
+                        addActions(user_id, target, source);
+                    });
+                } );
+    });
+
+    $.html.addEventListenerAll('a[x-action="unblock_user"]','click',(e,elem) => {
+        e.preventDefault();
+        if (confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
+            var url = '{{ path('soul_block_control', {id: 0, action: 0}) }}';
+            url = url.replace("0", user_id);
+            $.ajax.easySend( url, {},
+                function () {
+                    $.ajax.load(target, "{{ path('soul_tooltip') }}", false, {'id': user_id}, function(){
+                        addActions(user_id, target, source);
+                    });
+                });
+    });
+
+    $.html.addEventListenerAll('a[x-action="add-friend"]', 'click', (e, elem) => {
+        $.ajax.easySend( '{{ path('soul_friend_control', {action: 1}) }}', {'id': elem.getAttribute('x-friend-id')},
+            function () {
+                $.ajax.load(target, "{{ path('soul_tooltip') }}", false, {'id': user_id}, function(){
+                    addActions(user_id, target, source);
+                    source.classList.add("is-friend");
+                });
+            });
+    })
+
+    $.html.addEventListenerAll('a[x-action="remove-friend"]', 'click', (e, elem) => {
+        $.ajax.easySend( '{{ path('soul_friend_control', {action: 0}) }}', {'id': elem.getAttribute('x-friend-id')},
+            function () {
+                $.ajax.load(target, "{{ path('soul_tooltip') }}", false, {'id': user_id}, function(){
+                    addActions(user_id, target, source);
+                    source.classList.remove("is-friend");
+                });
+            });
+    })
+}
