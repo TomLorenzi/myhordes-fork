@@ -449,7 +449,7 @@ class SoulController extends CustomAbstractController
         return $this->render( 'ajax/soul/settings.html.twig', $this->addDefaultTwigArgs("soul_settings", [
             'et_ready' => $etwin->isReady(),
             'user_desc' => $user_desc ? $user_desc->getText() : null,
-            'next_name_change_days' => $user->getLastNameChange() ? max(0, (30 * 6) - $user->getLastNameChange()->diff(new DateTime())->days ) : 0,
+            'next_name_change_days' => $user->getLastNameChange() ? max(0, (30 * 4) - $user->getLastNameChange()->diff(new DateTime())->days ) : 0,
             'show_importer'     => $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_ENABLED, true),
             'importer_readonly' => $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_READONLY, false),
             'avatar_max_size' => [$a_max_size, $b_max_size,$this->conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_UPLOAD, 3145728)]
@@ -459,6 +459,7 @@ class SoulController extends CustomAbstractController
     /**
      * @Route("api/soul/settings/header", name="api_soul_header")
      * @param JSONRequestParser $parser
+     * @param HTMLService $html
      * @return Response
      */
     public function soul_set_header(JSONRequestParser $parser, HTMLService $html): Response {
@@ -487,7 +488,7 @@ class SoulController extends CustomAbstractController
         if ($name_change && !$this->user_handler->isNameValid($displayName))
             return AjaxResponse::error(self::ErrorUserEditUserName);
 
-        if ($name_change && $user->getLastNameChange() !== null && $user->getLastNameChange()->diff(new DateTime())->days < (30 * 6)) { // 6 months
+        if ($name_change && $user->getLastNameChange() !== null && $user->getLastNameChange()->diff(new DateTime())->days < (30 * 4)) { // 6 months
             return  AjaxResponse::error(self::ErrorUserEditTooSoon);
         }
         if ($name_change && $user->getEternalID() !== null)
