@@ -226,7 +226,6 @@
       <notes>
         <note category="german">+1 !</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>+1 !</source>
@@ -1270,11 +1269,10 @@
       <notes>
         <note category="german">Wir brauchen einen guten Reiseleiter. Eine gute Reiseleitung ist wichtig.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wir brauchen einen guten Reiseleiter. Eine gute Reiseleitung ist wichtig.</source>
-        <target>Wir brauchen einen guten Reiseleiter. Eine gute Reiseleitung ist wichtig.</target>
+        <target>Necesitas tener un buen guía. La buena dirección es importante.</target>
       </segment>
     </unit>
     <unit id="Xq2j_Nw">
@@ -1473,11 +1471,10 @@
       <notes>
         <note category="german">Hurra für den Reiseleiter!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Hurra für den Reiseleiter!</source>
-        <target>Hurra für den Reiseleiter!</target>
+        <target>¡Hurra por el Guía!</target>
       </segment>
     </unit>
     <unit id=".iT7jIz" name="Er hat schon vorher geprahlt.">
@@ -1570,11 +1567,10 @@
       <notes>
         <note category="german">Allen steht die Erschöpfung ins Gesicht geschrieben.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Allen steht die Erschöpfung ins Gesicht geschrieben.</source>
-        <target>Allen steht die Erschöpfung ins Gesicht geschrieben.</target>
+        <target>La fatiga por otro lado está al frente y al centro...</target>
       </segment>
     </unit>
     <unit id="OTSv8r.">
