@@ -4927,7 +4927,7 @@
       </notes>
       <segment>
         <source>Einen Blick ins Forum werfen.</source>
-        <target>Take a look at your town forum,</target>
+        <target>Take a look at your town forum</target>
       </segment>
     </unit>
     <unit id=".vMt2eO" name="Meine Ration Wasser im Brunnen entnehmen (optional).">
@@ -4937,7 +4937,7 @@
       </notes>
       <segment>
         <source>Meine Ration Wasser im Brunnen entnehmen (optional).</source>
-        <target>Collect your water ration at the well (optional),</target>
+        <target>Collect your water ration at the well (optional)</target>
       </segment>
     </unit>
     <unit id="UgqaO9M" name="An der Angriffsabschätzung teilnehmen">
@@ -4947,7 +4947,7 @@
       </notes>
       <segment>
         <source>An der Angriffsabschätzung teilnehmen</source>
-        <target>Help estimate the attack,</target>
+        <target>Help estimate the attack</target>
       </segment>
     </unit>
     <unit id="h3w5_BE" name="Für ein Tagesprojekt abstimmen.">
@@ -4957,7 +4957,7 @@
       </notes>
       <segment>
         <source>Für ein Tagesprojekt abstimmen.</source>
-        <target>Vote for today's upgrade project,</target>
+        <target>Vote for today's upgrade project</target>
       </segment>
     </unit>
     <unit id="G7Kbsmc">
@@ -4967,7 +4967,7 @@
       </notes>
       <segment>
         <source>Auf der Baustelle arbeiten, in der Werkstatt arbeiten oder in die Außenwelt gehen (optional).</source>
-        <target>Work at the construction sites, at the workshop, or go outside and scavenge (your choice).</target>
+        <target>Work at the construction sites, at the workshop, or go outside and scavenge (your choice)</target>
       </segment>
     </unit>
     <unit id="4tgoaqE" name="Heldentafel">

@@ -3850,7 +3850,7 @@
       </notes>
       <segment>
         <source>Einen Blick ins Forum werfen.</source>
-        <target>Jeter un œil au forum de votre ville.</target>
+        <target>Jeter un œil au forum de votre ville</target>
       </segment>
     </unit>
     <unit id=".vMt2eO" name="Meine Ration Wasser im Brunnen entnehmen (optional).">
@@ -3860,7 +3860,7 @@
       </notes>
       <segment>
         <source>Meine Ration Wasser im Brunnen entnehmen (optional).</source>
-        <target>Prendre mon eau au puits (optionnel).</target>
+        <target>Prendre mon eau au puits (optionnel)</target>
       </segment>
     </unit>
     <unit id="UgqaO9M" name="An der Angriffsabschätzung teilnehmen">
@@ -3880,7 +3880,7 @@
       </notes>
       <segment>
         <source>Für ein Tagesprojekt abstimmen.</source>
-        <target>Voter pour un projet du jour.</target>
+        <target>Voter pour un projet du jour</target>
       </segment>
     </unit>
     <unit id="G7Kbsmc">
@@ -3890,7 +3890,7 @@
       </notes>
       <segment>
         <source>Auf der Baustelle arbeiten, in der Werkstatt arbeiten oder in die Außenwelt gehen (optional).</source>
-        <target>Travailler au chantier, à l'atelier ou sortir (au choix).</target>
+        <target>Travailler au chantier, à l'atelier ou sortir (au choix)</target>
       </segment>
     </unit>
     <unit id="4tgoaqE" name="Heldentafel">
