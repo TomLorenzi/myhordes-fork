@@ -18,7 +18,7 @@
         <div class="link-block empty"></div>
         {% else %}
         <div class="link-block">
-            <a href="#">
+            <a class="link" x-action="send-pm" x-user-connect="ulink_{{ user.id }}">
                 <img src="{{ asset('build/images/icons/mail.png') }}" alt="" /><br />
                 {{ 'Schreiben'|trans({}, 'soul') }}
             </a>

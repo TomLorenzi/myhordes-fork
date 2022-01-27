@@ -1,6 +1,7 @@
 $.html.addEventListenerAll(".username", "click", function(event){
     event.stopPropagation();
     event.preventDefault();
+    console.log(event);
     var source = event.target;
     while (!source.getAttribute("x-user-id")) {
         source = source.parentElement;
@@ -14,12 +15,6 @@ $.html.addEventListenerAll(".username", "click", function(event){
     $.ajax.load(target, "{{ path('soul_tooltip') }}", false, {'id': source.getAttribute("x-user-id")}, function(){
         addActions(source.getAttribute("x-user-id"), target, source);
     });
-
-    document.addEventListener("click", (event) => {
-        if(event.target !== document.getElementById("user-tooltip") && !event.target.closest("#user-tooltip")) {
-            document.getElementById("user-tooltip").remove();
-        }
-    })
 })
 
 var addActions = function(user_id, target, source){
@@ -60,7 +55,7 @@ var addActions = function(user_id, target, source){
                     source.classList.add("is-friend");
                 });
             });
-    })
+    });
 
     $.html.addEventListenerAll('a[x-action="remove-friend"]', 'click', (e, elem) => {
         $.ajax.easySend( '{{ path('soul_friend_control', {action: 0}) }}', {'id': elem.getAttribute('x-friend-id')},
@@ -70,5 +65,22 @@ var addActions = function(user_id, target, source){
                     source.classList.remove("is-friend");
                 });
             });
-    })
+    });
+
+    $.html.addEventListenerAll('a[x-action="send-pm"]', 'click', (e, elem) => {
+        const p = document.getElementById('postbox');
+        if (p) {
+            p.setAttribute('x-post-command', elem.getAttribute('x-user-connect'));
+            p.click();
+        } else alert('{{ 'Fehler beim Laden des Posteingangs.'|trans({},'global') }}')
+    });
+
+    let removeTooltip = function(event) {
+        if(event.target !== document.getElementById("user-tooltip") && !event.target.closest("#user-tooltip")) {
+            document.getElementById("user-tooltip").remove();
+        }
+        document.removeEventListener("click", removeTooltip);
+    }
+
+    document.addEventListener("click", removeTooltip);
 }
