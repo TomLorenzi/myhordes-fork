@@ -1,7 +1,6 @@
 $.html.addEventListenerAll(".username", "click", function(event){
     event.stopPropagation();
     event.preventDefault();
-    console.log(event);
     var source = event.target;
     while (!source.getAttribute("x-user-id")) {
         source = source.parentElement;
@@ -9,11 +8,13 @@ $.html.addEventListenerAll(".username", "click", function(event){
     let target = document.getElementById("user-tooltip");
     if(!target) {
         target = document.createElement("div");
-        source.parentElement.appendChild(target);
+        document.getElementsByTagName("body")[0].appendChild(target);
     }
     target.setAttribute("id", "user-tooltip");
     $.ajax.load(target, "{{ path('soul_tooltip') }}", false, {'id': source.getAttribute("x-user-id")}, function(){
         addActions(source.getAttribute("x-user-id"), target, source);
+        target.style.top = (source.getBoundingClientRect().top + document.documentElement.scrollTop) + "px";
+        target.style.left = source.getBoundingClientRect().left + source.offsetWidth + "px";
     });
 })
 
@@ -76,8 +77,11 @@ var addActions = function(user_id, target, source){
     });
 
     let removeTooltip = function(event) {
-        if(event.target !== document.getElementById("user-tooltip") && !event.target.closest("#user-tooltip")) {
-            document.getElementById("user-tooltip").remove();
+        var tooltip = document.getElementById("user-tooltip");
+        if(tooltip) {
+            if(event.target !== tooltip && !event.target.closest("#user-tooltip")) {
+                tooltip.remove();
+            }
         }
         document.removeEventListener("click", removeTooltip);
     }
