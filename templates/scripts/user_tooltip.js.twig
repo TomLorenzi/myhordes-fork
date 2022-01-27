@@ -81,9 +81,9 @@ var addActions = function(user_id, target, source){
         if(tooltip) {
             if(event.target !== tooltip && !event.target.closest("#user-tooltip")) {
                 tooltip.remove();
+                document.removeEventListener("click", removeTooltip);
             }
         }
-        document.removeEventListener("click", removeTooltip);
     }
 
     document.addEventListener("click", removeTooltip);

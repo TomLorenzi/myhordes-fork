@@ -233,7 +233,7 @@
                         {% else %}
                             <div class="avatar small"><img alt="" src="{{ asset('build/images/forum/empty_avatar.gif') }}"></div>
                         {% endif %}
-                        <a class="link" href="{{ path('soul_visit', {id: post.owner.id}) }}"><b>{{ author_name }}</b></a> {{ post.translate ? ('') : (_self.icon_master(post.owner))}}<br />
+                        <span class="link username{% if app.user.friends.contains(post.owner) %} is-friend{% endif %}" x-user-id="{{ post.owner.id }}"><b>{{ author_name }}</b></span> {{ post.translate ? ('') : (_self.icon_master(post.owner))}}<br />
                         {% if post.owner.name == 'Der Rabe' %}
                             <span class="small"><i>{{ 'Ich beobachte euch...'|trans({},'game') }}</i></span>
                         {% elseif post.owner.activeTitle or post.owner.activeIcon %}
@@ -363,6 +363,7 @@
     {{ parent() }}
     {{ include('ajax/flash.html.twig') }}
     <script>
+        {{ include('scripts/user_tooltip.js.twig') }}
         const loadPage = function(page) {
             $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('forum_viewer_controller', {fid: fid, tid: tid}) }}', false, {page: page } );
         };
