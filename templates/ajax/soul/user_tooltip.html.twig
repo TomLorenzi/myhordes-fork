@@ -58,7 +58,7 @@
         {% if user.avatar is null %}
             <div class="no-avatar"><div class="cell rw-12 center">{{ user.name|slice(0,2) }}</div></div>
         {% else %}
-            <img alt="" src="{{ path('app_web_avatar', {'uid': user.id, 'name': user.avatar.smallName, 'ext': user.avatar.format}) }}">
+            <img alt="" src="{{ path('app_web_avatar', {'uid': user.id, 'name': user.avatar.filename, 'ext': user.avatar.format}) }}">
         {% endif %}
         </div>
     </div>
