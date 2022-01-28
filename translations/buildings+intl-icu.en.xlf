@@ -3602,7 +3602,7 @@
       </notes>
       <segment>
         <source>Die AP-Kosten aller Bauprojekte werden um 25% gesenkt. Erhöht die Effektivität von Reparaturen um zwei Punkte.</source>
-        <target>The building cost (AP) of all construction projects is reduced by 30%.</target>
+        <target>The building cost (AP) of all construction projects is reduced by 28%.</target>
       </segment>
     </unit>
     <unit id="OK7fp_k" name="Zaun (Haus)">
