@@ -16477,5 +16477,19 @@
         <target>Lies die Hilfe zu Ghulen</target>
       </segment>
     </unit>
+    <unit id="Ns.Fv2L">
+      <segment>
+        <source>Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur
+                            Verfügung.</source>
+        <target>Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur
+                            Verfügung.</target>
+      </segment>
+    </unit>
+    <unit id="boRvKwW" name="Hunger:">
+      <segment>
+        <source>Hunger:</source>
+        <target>Hunger:</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

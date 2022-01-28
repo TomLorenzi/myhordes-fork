@@ -4361,7 +4361,6 @@
       <notes>
         <note category="german">Du hast {username} zu deinen Kontakten hinzugefügt!</note>
         <note category="from">php:///src/Controller/Soul/SoulController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Du hast {username} zu deinen Kontakten hinzugefügt!</source>
@@ -4372,7 +4371,6 @@
       <notes>
         <note category="german">Du hast {username} aus deinen Kontakten gelöscht!</note>
         <note category="from">php:///src/Controller/Soul/SoulController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Du hast {username} aus deinen Kontakten gelöscht!</source>
