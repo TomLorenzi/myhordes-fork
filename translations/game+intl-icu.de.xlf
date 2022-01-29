@@ -3346,31 +3346,31 @@
     <unit id="OSdFB8R" name="Einen Blick ins Forum werfen.">
       <segment>
         <source>Einen Blick ins Forum werfen.</source>
-        <target>Einen Blick ins Forum werfen.</target>
+        <target>Einen Blick ins Forum werfen</target>
       </segment>
     </unit>
     <unit id=".vMt2eO" name="Meine Ration Wasser im Brunnen entnehmen (optional).">
       <segment>
         <source>Meine Ration Wasser im Brunnen entnehmen (optional).</source>
-        <target>Meine Ration Wasser im Brunnen entnehmen (optional).</target>
+        <target>Meine Ration Wasser im Brunnen entnehmen (optional)</target>
       </segment>
     </unit>
     <unit id="UgqaO9M" name="An der Angriffsabschätzung teilnehmen">
       <segment>
         <source>An der Angriffsabschätzung teilnehmen</source>
-        <target>An der Angriffsabschätzung teilnehmen.</target>
+        <target>An der Angriffsabschätzung teilnehmen</target>
       </segment>
     </unit>
     <unit id="h3w5_BE" name="Für ein Tagesprojekt abstimmen.">
       <segment>
         <source>Für ein Tagesprojekt abstimmen.</source>
-        <target>Für ein Tagesprojekt abstimmen.</target>
+        <target>Für ein Tagesprojekt abstimmen</target>
       </segment>
     </unit>
     <unit id="G7Kbsmc">
       <segment>
         <source>Auf der Baustelle arbeiten, in der Werkstatt arbeiten oder in die Außenwelt gehen (optional).</source>
-        <target>Auf der Baustelle arbeiten, in der Werkstatt arbeiten oder in die Außenwelt gehen (optional).</target>
+        <target>Auf der Baustelle arbeiten, in der Werkstatt arbeiten oder in die Außenwelt gehen (optional)</target>
       </segment>
     </unit>
     <unit id="4tgoaqE" name="Heldentafel">
@@ -10663,7 +10663,15 @@
     <unit id="RcQH2Pr" name="Du hast dafür {count} Aktionspunkt(e) verbraucht.">
       <segment>
         <source>Du hast dafür {count} Aktionspunkt(e) verbraucht.</source>
-        <target>Du hast dafür {count} Aktionspunkt(e) verbraucht.</target>
+        <target>{ref__icu, select,
+          on {
+            {raw_count, plural,
+              one {Du hast dafür {count} Aktionspunkt verbraucht.}
+              other {Du hast dafür {count} Aktionspunkte verbraucht.}
+            }
+          }
+            other {Du hast dafür {count} Aktionspunkt(e) verbraucht.}
+          }</target>
       </segment>
     </unit>
     <unit id="lo3tdoY" name="Was für eine schreckliche Nacht!">
@@ -16434,6 +16442,53 @@
       <segment>
         <source>{leader} hat {escortee} heldenhaft zurück in die Stadt begleitet!</source>
         <target>{leader} hat {escortee} heldenhaft zurück in die Stadt begleitet!</target>
+      </segment>
+    </unit>
+    <unit id="NJ.jiJV" name="{citizen} bedankt sich herzlich bei dir, dass du ihn nach Hause gebracht hast!">
+      <segment>
+        <source>{citizen} bedankt sich herzlich bei dir, dass du ihn nach Hause gebracht hast!</source>
+        <target>{citizen} bedankt sich herzlich bei dir, dass du ihn nach Hause gebracht hast!</target>
+      </segment>
+    </unit>
+    <unit id="Yi60BMa" name="Du hast dafür {count} Baupunkt(e) verbraucht.">
+      <segment>
+        <source>Du hast dafür {count} Baupunkt(e) verbraucht.</source>
+        <target>{ref__icu, select,
+          on {
+            {raw_count, plural,
+                one {Du hast dafür {count} Baupunkt verbraucht.}
+                other {Du hast dafür {count} Baupunkte verbraucht.}
+              }
+            }
+          other {Du hast dafür {count} Baupunkt(e) verbraucht.}
+          }
+        </target>
+      </segment>
+    </unit>
+    <unit id="yHIMDic">
+      <segment>
+        <source>Du bist ein Ghul! Versuche auf keinen Fall, Wasser zu trinken, das wird am Ende nur zu einer Verletzung führen...</source>
+        <target>Du bist ein Ghul! Versuche auf keinen Fall, Wasser zu trinken, das wird am Ende nur zu einer Verletzung führen...</target>
+      </segment>
+    </unit>
+    <unit id="PuMKC_2" name="Lies die Hilfe zu Ghulen">
+      <segment>
+        <source>Lies die Hilfe zu Ghulen</source>
+        <target>Lies die Hilfe zu Ghulen</target>
+      </segment>
+    </unit>
+    <unit id="Ns.Fv2L">
+      <segment>
+        <source>Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur
+                            Verfügung.</source>
+        <target>Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur
+                            Verfügung.</target>
+      </segment>
+    </unit>
+    <unit id="boRvKwW" name="Hunger:">
+      <segment>
+        <source>Hunger:</source>
+        <target>Hunger:</target>
       </segment>
     </unit>
   </file>

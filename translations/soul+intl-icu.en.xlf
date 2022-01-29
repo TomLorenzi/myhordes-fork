@@ -4325,5 +4325,95 @@
         <target>You have to wait {days, plural, =1 {until tomorrow} other {for # days}} before you can change your display name again.</target>
       </segment>
     </unit>
+    <unit id="JO.PmAR" name="Haus ansehen">
+      <notes>
+        <note category="german">Haus ansehen</note>
+        <note category="from">twig:///templates/ajax/soul/user_tooltip.html.twig</note>
+      </notes>
+      <segment>
+        <source>Haus ansehen</source>
+        <target>See their house</target>
+      </segment>
+    </unit>
+    <unit id="Ub5_T82" name="Profil auf MyHordes">
+      <notes>
+        <note category="german">Profil auf MyHordes</note>
+        <note category="from">twig:///templates/ajax/soul/user_tooltip.html.twig</note>
+      </notes>
+      <segment>
+        <source>Profil auf MyHordes</source>
+        <target>MyHordes Profile</target>
+      </segment>
+    </unit>
+    <unit id="Wodhw7O" name="Profil Eternal-Twin">
+      <notes>
+        <note category="german">Profil Eternal-Twin</note>
+        <note category="from">twig:///templates/ajax/soul/user_tooltip.html.twig</note>
+      </notes>
+      <segment>
+        <source>Profil Eternal-Twin</source>
+        <target>Eternal-Twin Profile</target>
+      </segment>
+    </unit>
+    <unit id="abqsDy0" name="Schreiben">
+      <notes>
+        <note category="german">Schreiben</note>
+        <note category="from">twig:///templates/ajax/soul/user_tooltip.html.twig</note>
+      </notes>
+      <segment>
+        <source>Schreiben</source>
+        <target>Send a message</target>
+      </segment>
+    </unit>
+    <unit id="ukvMJvG" name="Kontakt hinzufügen">
+      <notes>
+        <note category="german">Kontakt hinzufügen</note>
+        <note category="from">twig:///templates/ajax/soul/user_tooltip.html.twig</note>
+      </notes>
+      <segment>
+        <source>Kontakt hinzufügen</source>
+        <target>Add contact</target>
+      </segment>
+    </unit>
+    <unit id="C4p3DLl" name="Kontakt löschen">
+      <notes>
+        <note category="german">Kontakt löschen</note>
+        <note category="from">twig:///templates/ajax/soul/user_tooltip.html.twig</note>
+      </notes>
+      <segment>
+        <source>Kontakt löschen</source>
+        <target>Remove contact</target>
+      </segment>
+    </unit>
+    <unit id="t3wjndr" name="Dieser Spieler gehört nicht zu deinen Kontakten.">
+      <notes>
+        <note category="german">Dieser Spieler gehört nicht zu deinen Kontakten.</note>
+        <note category="from">twig:///templates/ajax/soul/user_tooltip.html.twig</note>
+      </notes>
+      <segment>
+        <source>Dieser Spieler gehört nicht zu deinen Kontakten.</source>
+        <target>This player is not one of your contacts.</target>
+      </segment>
+    </unit>
+    <unit id="5LUgK.g" name="Du hast {username} zu deinen Kontakten hinzugefügt!">
+      <notes>
+        <note category="german">Du hast {username} zu deinen Kontakten hinzugefügt!</note>
+        <note category="from">php:///src/Controller/Soul/SoulController.php</note>
+      </notes>
+      <segment>
+        <source>Du hast {username} zu deinen Kontakten hinzugefügt!</source>
+        <target>You have added {username} to your contacts  !</target>
+      </segment>
+    </unit>
+    <unit id="eBWT82h" name="Du hast {username} aus deinen Kontakten gelöscht!">
+      <notes>
+        <note category="german">Du hast {username} aus deinen Kontakten gelöscht!</note>
+        <note category="from">php:///src/Controller/Soul/SoulController.php</note>
+      </notes>
+      <segment>
+        <source>Du hast {username} aus deinen Kontakten gelöscht!</source>
+        <target>You have removed {username} from your contacts !</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

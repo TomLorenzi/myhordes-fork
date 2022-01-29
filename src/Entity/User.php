@@ -293,6 +293,11 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
      */
     private $noAutoFollowThreads = false;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=User::class)
+     */
+    private $friends;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -304,6 +309,7 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
         $this->connectionIdentifiers = new ArrayCollection();
         $this->connectionWhitelists = new ArrayCollection();
         $this->forumThreadSubscriptions = new ArrayCollection();
+        $this->friends = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -1181,6 +1187,30 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
     public function setNoAutoFollowThreads(bool $noAutoFollowThreads): self
     {
         $this->noAutoFollowThreads = $noAutoFollowThreads;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|self[]
+     */
+    public function getFriends(): Collection
+    {
+        return $this->friends;
+    }
+
+    public function addFriend(self $friend): self
+    {
+        if (!$this->friends->contains($friend)) {
+            $this->friends[] = $friend;
+        }
+
+        return $this;
+    }
+
+    public function removeFriend(self $friend): self
+    {
+        $this->friends->removeElement($friend);
 
         return $this;
     }

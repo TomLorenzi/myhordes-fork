@@ -114,7 +114,7 @@
                                             {% if town.open and not town.userInTown(app.user) %}
                                                 {% set found = true %}
                                                 <div class="row town-row">
-                                                    <div class="padded cell rw-1 rw-sm-2"><span class="language"><img src="{{ asset("build/images/lang/" ~ town.getLanguage ~".png") }}" alt="{{ town.getLanguage }}" /></span></div>
+                                                    <div class="padded cell rw-1 rw-sm-2"><span class="language"><img src="{{ asset("build/images/lang/" ~ town.getLanguage ~ ".png") }}" alt="{{ town.getLanguage }}" /></span></div>
                                                     <div class="padded cell rw-5">
                                                         {% if town.password is not null or town|whitelisted %}
                                                             <span>

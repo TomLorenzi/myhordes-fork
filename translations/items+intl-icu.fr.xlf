@@ -8649,12 +8649,11 @@
     <unit id="q2jfZzs">
       <notes>
         <note category="german">Gierig schluckst du deine Wasserration runter, ohne auch nur einen Tropfen zu verschwenden: aber das Ergebnis ist nicht, was du erwartet hast... Ohne Vorwarnung beginnt deine Kehle fürchterlich zu brennen und verursacht einen fürchterlich schmerzhaften Husten! Die sinkst auf die Knie und schnappst nach Luft. Als Ghul kannst du nicht länger Wasser konsumieren: &lt;strong&gt;du bist nun verletzt&lt;/strong&gt;.</note>
-        <note category="state">new</note>
         <note category="from">db://ItemAction</note>
       </notes>
       <segment>
         <source>Gierig schluckst du deine Wasserration runter, ohne auch nur einen Tropfen zu verschwenden: aber das Ergebnis ist nicht, was du erwartet hast... Ohne Vorwarnung beginnt deine Kehle fürchterlich zu brennen und verursacht einen fürchterlich schmerzhaften Husten! Die sinkst auf die Knie und schnappst nach Luft. Als Ghul kannst du nicht länger Wasser konsumieren: &lt;strong&gt;du bist nun verletzt&lt;/strong&gt;.</source>
-        <target><![CDATA[Gierig schluckst du deine Wasserration runter, ohne auch nur einen Tropfen zu verschwenden: aber das Ergebnis ist nicht, was du erwartet hast... Ohne Vorwarnung beginnt deine Kehle fürchterlich zu brennen und verursacht einen fürchterlich schmerzhaften Husten! Die sinkst auf die Knie und schnappst nach Luft. Als Ghul kannst du nicht länger Wasser konsumieren: <strong>du bist nun verletzt</strong>.]]></target>
+        <target><![CDATA[Vous avalez d'une traite votre ration : le résultat n'est pas du tout celui que vous imaginez... Sans crier gare, votre gorge vous brûle horriblement, provoquant une toux effroyable et douloureuse ! Vous tombez à genoux, le souffle coupé. Votre état de goule ne vous permet plus de consommer de l'eau : <strong>vous êtes maintenant blessé(e)</strong>.]]></target>
       </segment>
     </unit>
     <unit id="GUA4Vaf">

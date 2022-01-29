@@ -2415,7 +2415,7 @@
     <unit id="72h0.SN" name="Ghul">
       <notes>
         <note category="german">Ghul</note>
-        <note category="from">db://CitizenRole;db://CitizenStatus;twig:///templates/ajax/game/town/town.html.twig</note>
+        <note category="from">db://CitizenRole;db://CitizenStatus;twig:///templates/ajax/game/beyond/beyond.html.twig;twig:///templates/ajax/game/town/town.html.twig</note>
       </notes>
       <segment>
         <source>Ghul</source>
@@ -4922,52 +4922,52 @@
     </unit>
     <unit id="OSdFB8R" name="Einen Blick ins Forum werfen.">
       <notes>
-        <note category="german">Einen Blick ins Forum werfen.</note>
+        <note category="german">Einen Blick ins Forum werfen</note>
         <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
       </notes>
       <segment>
         <source>Einen Blick ins Forum werfen.</source>
-        <target>Take a look at your town forum,</target>
+        <target>Take a look at your town forum</target>
       </segment>
     </unit>
     <unit id=".vMt2eO" name="Meine Ration Wasser im Brunnen entnehmen (optional).">
       <notes>
-        <note category="german">Meine Ration Wasser im Brunnen entnehmen (optional).</note>
+        <note category="german">Meine Ration Wasser im Brunnen entnehmen (optional)</note>
         <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
       </notes>
       <segment>
         <source>Meine Ration Wasser im Brunnen entnehmen (optional).</source>
-        <target>Collect your water ration at the well (optional),</target>
+        <target>Collect your water ration at the well (optional)</target>
       </segment>
     </unit>
     <unit id="UgqaO9M" name="An der Angriffsabschätzung teilnehmen">
       <notes>
-        <note category="german">An der Angriffsabschätzung teilnehmen.</note>
+        <note category="german">An der Angriffsabschätzung teilnehmen</note>
         <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
       </notes>
       <segment>
         <source>An der Angriffsabschätzung teilnehmen</source>
-        <target>Help estimate the attack,</target>
+        <target>Help estimate the attack</target>
       </segment>
     </unit>
     <unit id="h3w5_BE" name="Für ein Tagesprojekt abstimmen.">
       <notes>
-        <note category="german">Für ein Tagesprojekt abstimmen.</note>
+        <note category="german">Für ein Tagesprojekt abstimmen</note>
         <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
       </notes>
       <segment>
         <source>Für ein Tagesprojekt abstimmen.</source>
-        <target>Vote for today's upgrade project,</target>
+        <target>Vote for today's upgrade project</target>
       </segment>
     </unit>
     <unit id="G7Kbsmc">
       <notes>
-        <note category="german">Auf der Baustelle arbeiten, in der Werkstatt arbeiten oder in die Außenwelt gehen (optional).</note>
+        <note category="german">Auf der Baustelle arbeiten, in der Werkstatt arbeiten oder in die Außenwelt gehen (optional)</note>
         <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
       </notes>
       <segment>
         <source>Auf der Baustelle arbeiten, in der Werkstatt arbeiten oder in die Außenwelt gehen (optional).</source>
-        <target>Work at the construction sites, at the workshop, or go outside and scavenge (your choice).</target>
+        <target>Work at the construction sites, at the workshop, or go outside and scavenge (your choice)</target>
       </segment>
     </unit>
     <unit id="4tgoaqE" name="Heldentafel">
@@ -16531,7 +16531,15 @@
       </notes>
       <segment>
         <source>Du hast dafür {count} Aktionspunkt(e) verbraucht.</source>
-        <target>You have used {count} action point(s).</target>
+        <target>{ref__icu, select,
+            on {
+                {raw_count, plural,
+                    one {You have used {count} action point.}
+                    other {You have used {count} action points.}
+                }
+            }
+                other {You have used {count} action point(s).}
+            }</target>
       </segment>
     </unit>
     <unit id="lo3tdoY" name="Was für eine schreckliche Nacht!">
@@ -18167,7 +18175,7 @@
     <unit id="r46mSI6" name="Du hast dich in einen {role} verwandelt!">
       <notes>
         <note category="german">Du hast dich in einen {role} verwandelt!</note>
-        <note category="from">twig:///templates/ajax/game/town/town.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/beyond/beyond.html.twig;twig:///templates/ajax/game/town/town.html.twig</note>
       </notes>
       <segment>
         <source>Du hast dich in einen {role} verwandelt!</source>
@@ -18177,7 +18185,7 @@
     <unit id="41EQiml" name="Erzähle niemandem davon oder du wirst sofort erschossen!">
       <notes>
         <note category="german">Erzähle niemandem davon oder du wirst sofort erschossen!</note>
-        <note category="from">twig:///templates/ajax/game/town/town.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/beyond/beyond.html.twig;twig:///templates/ajax/game/town/town.html.twig</note>
       </notes>
       <segment>
         <source>Erzähle niemandem davon oder du wirst sofort erschossen!</source>
@@ -18187,7 +18195,7 @@
     <unit id=".S3ibaS" name="Wie man als Ghul spielt ?">
       <notes>
         <note category="german">Wie man als Ghul spielt ?</note>
-        <note category="from">twig:///templates/ajax/game/town/town.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/beyond/beyond.html.twig;twig:///templates/ajax/game/town/town.html.twig</note>
       </notes>
       <segment>
         <source>Wie man als Ghul spielt ?</source>
@@ -26235,12 +26243,76 @@
     </unit>
     <unit id="NJ.jiJV" name="{citizen} bedankt sich herzlich bei dir, dass du ihn nach Hause gebracht hast!">
       <notes>
-        <note category="german">{citizen} thanks you wholeheartedly for taking them back to the town!</note>
+        <note category="german">{citizen} bedankt sich herzlich bei dir, dass du ihn nach Hause gebracht hast!</note>
         <note category="from">php:///src/Controller/BeyondController.php</note>
       </notes>
       <segment>
         <source>{citizen} bedankt sich herzlich bei dir, dass du ihn nach Hause gebracht hast!</source>
         <target>{citizen} thanks you wholeheartedly for taking them back to the town!</target>
+      </segment>
+    </unit>
+    <unit id="Yi60BMa" name="Du hast dafür {count} Baupunkt(e) verbraucht.">
+      <notes>
+        <note category="german">Du hast dafür {count} Baupunkt(e) verbraucht.</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
+      </notes>
+      <segment>
+        <source>Du hast dafür {count} Baupunkt(e) verbraucht.</source>
+        <target>{ref__icu, select,
+            on {
+                {raw_count, plural,
+                    one {You have used {count} construction point.}
+                    other {You have used {count} construction points.}
+                }
+            }
+            other {You have used {count} construction point(s).}
+        }
+        </target>
+      </segment>
+    </unit>
+    <unit id="yHIMDic">
+      <notes>
+        <note category="german">Du bist ein Ghul! Versuche auf keinen Fall, Wasser zu trinken, das wird am Ende nur zu einer Verletzung führen...</note>
+        <note category="from">twig:///templates/ajax/game/beyond/beyond.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du bist ein Ghul! Versuche auf keinen Fall, Wasser zu trinken, das wird am Ende nur zu einer Verletzung führen...</source>
+        <target>You are a GHOUL! whatever you do, don't go drinking any water or you'll end up wounded...</target>
+      </segment>
+    </unit>
+    <unit id="PuMKC_2" name="Lies die Hilfe zu Ghulen">
+      <notes>
+        <note category="german">Lies die Hilfe zu Ghulen</note>
+        <note category="from">twig:///templates/ajax/game/beyond/beyond.html.twig</note>
+      </notes>
+      <segment>
+        <source>Lies die Hilfe zu Ghulen</source>
+        <target>Read the help about Ghouls!</target>
+      </segment>
+    </unit>
+    <unit id="Ns.Fv2L">
+      <notes>
+        <note category="german">Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur
+                            Verfügung.</note>
+        <note category="from">twig:///templates/ajax/game/game.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur
+                            Verfügung.</source>
+        <target>Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur
+                            Verfügung.</target>
+      </segment>
+    </unit>
+    <unit id="boRvKwW" name="Hunger:">
+      <notes>
+        <note category="german">Hunger:</note>
+        <note category="from">twig:///templates/ajax/game/game.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Hunger:</source>
+        <target>Hunger:</target>
       </segment>
     </unit>
   </file>

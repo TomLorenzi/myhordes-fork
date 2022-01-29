@@ -2650,5 +2650,59 @@
         <target>Du kannst deinen Spielernamen erst {days, plural, =1 {ab morgen} other {in # Tagen}} erneut ändern.</target>
       </segment>
     </unit>
+    <unit id="JO.PmAR" name="Haus ansehen">
+      <segment>
+        <source>Haus ansehen</source>
+        <target>Haus ansehen</target>
+      </segment>
+    </unit>
+    <unit id="Ub5_T82" name="Profil auf MyHordes">
+      <segment>
+        <source>Profil auf MyHordes</source>
+        <target>Profil auf MyHordes</target>
+      </segment>
+    </unit>
+    <unit id="Wodhw7O" name="Profil Eternal-Twin">
+      <segment>
+        <source>Profil Eternal-Twin</source>
+        <target>Profil Eternal-Twin</target>
+      </segment>
+    </unit>
+    <unit id="abqsDy0" name="Schreiben">
+      <segment>
+        <source>Schreiben</source>
+        <target>Schreiben</target>
+      </segment>
+    </unit>
+    <unit id="ukvMJvG" name="Kontakt hinzufügen">
+      <segment>
+        <source>Kontakt hinzufügen</source>
+        <target>Kontakt hinzufügen</target>
+      </segment>
+    </unit>
+    <unit id="C4p3DLl" name="Kontakt löschen">
+      <segment>
+        <source>Kontakt löschen</source>
+        <target>Kontakt löschen</target>
+      </segment>
+    </unit>
+    <unit id="t3wjndr" name="Dieser Spieler gehört nicht zu deinen Kontakten.">
+      <segment>
+        <source>Dieser Spieler gehört nicht zu deinen Kontakten.</source>
+        <target>Dieser Spieler gehört nicht zu deinen Kontakten.</target>
+      </segment>
+    </unit>
+    <unit id="5LUgK.g" name="Du hast {username} zu deinen Kontakten hinzugefügt!">
+      <segment>
+        <source>Du hast {username} zu deinen Kontakten hinzugefügt!</source>
+        <target>Du hast {username} zu deinen Kontakten hinzugefügt!</target>
+      </segment>
+    </unit>
+    <unit id="eBWT82h" name="Du hast {username} aus deinen Kontakten gelöscht!">
+      <segment>
+        <source>Du hast {username} aus deinen Kontakten gelöscht!</source>
+        <target>Du hast {username} aus deinen Kontakten gelöscht!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -947,6 +947,19 @@ class MessageGlobalPMController extends MessageController
     }
 
     /**
+     * @Route("jx/pm/user_resolve", name="pm_user_resolve")
+     * @param EntityManagerInterface $em
+     * @return Response
+     */
+    public function editor_user_preview(JSONRequestParser $parser) {
+        if (!$parser->has('user')) return new Response("");
+        $user = $this->entity_manager->getRepository(User::class)->find($parser->get_int('user'));
+        if (!$user) return new Response("");
+
+        return $this->render( 'ajax/pm/user.html.twig', ['user' => $user]);
+    }
+
+    /**
      * @Route("jx/pm/create-editor", name="pm_thread_editor_controller")
      * @param EntityManagerInterface $em
      * @return Response
