@@ -479,7 +479,10 @@ class InventoryHandler
     public function placeItem( Citizen $citizen, Item $item, array $inventories, bool $force = false ): ?Inventory {
         $source = null;
         foreach ($inventories as $inventory)
-            if ($inventory && $this->transferItem( $citizen, $item, $source, $inventory, $force ? self::ModalityEnforcePlacement : self::ModalityNone ) === self::ErrorNone)
+            if ($inventory && $this->transferItem( $citizen, $item, $source, $inventory ) === self::ErrorNone)
+                return $inventory;
+        if ($force) foreach ($inventories as $inventory)
+            if ($inventory && $this->transferItem( $citizen, $item, $source, $inventory, self::ModalityEnforcePlacement ) === self::ErrorNone)
                 return $inventory;
         return null;
     }
