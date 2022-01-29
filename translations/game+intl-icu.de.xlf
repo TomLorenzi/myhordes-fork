@@ -16497,5 +16497,11 @@
         <target>Du hast dich in einen Ghul verwandelt! Verrate es niemandem und schau in der Hilfe nach, um mehr zu erfahren.</target>
       </segment>
     </unit>
+    <unit id="TUSDSgv">
+      <segment>
+        <source>Diese Anzeige zeigt an, wie &lt;strong&gt;hungrig&lt;/strong&gt; du als Ghul bist.&lt;br/&gt;&lt;strong&gt;Wenn die rote Grenze überschritten wird, stirbst du heute um Mitternacht!&lt;/strong&gt; Verschlinge einen Bürger (ideale Lösung) oder finde Menschenfleisch, um diesen Hunger zu verringern und zu überleben.</source>
+        <target><![CDATA[Diese Anzeige zeigt an, wie <strong>hungrig</strong> du als Ghul bist.<br/><strong>Wenn die rote Grenze überschritten wird, stirbst du heute um Mitternacht!</strong> Verschlinge einen Bürger (ideale Lösung) oder finde Menschenfleisch, um diesen Hunger zu verringern und zu überleben.]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -26223,5 +26223,15 @@
         <target>¡Te has convertido en un MUTANTE come-gente! No se lo digas a nadie y revisa la guía del juego para saber más...</target>
       </segment>
     </unit>
+    <unit id="TUSDSgv">
+      <notes>
+        <note category="german">Diese Anzeige zeigt an, wie &lt;strong&gt;hungrig&lt;/strong&gt; du als Ghul bist.&lt;br/&gt;&lt;strong&gt;Wenn die rote Grenze überschritten wird, stirbst du heute um Mitternacht!&lt;/strong&gt; Verschlinge einen Bürger (ideale Lösung) oder finde Menschenfleisch, um diesen Hunger zu verringern und zu überleben.</note>
+        <note category="from">twig:///templates/ajax/game/game.html.twig</note>
+      </notes>
+      <segment>
+        <source>Diese Anzeige zeigt an, wie &lt;strong&gt;hungrig&lt;/strong&gt; du als Ghul bist.&lt;br/&gt;&lt;strong&gt;Wenn die rote Grenze überschritten wird, stirbst du heute um Mitternacht!&lt;/strong&gt; Verschlinge einen Bürger (ideale Lösung) oder finde Menschenfleisch, um diesen Hunger zu verringern und zu überleben.</source>
+        <target><![CDATA[Esta barra indica el nivel de tu <strong>hambre</strong> como mutante.<strong><br />¡Si el límite rojo es sobrepasado, morirás esta noche!</strong> Devora a un habitante (solución ideal), o encuentra carne humana para sobrevivir.]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

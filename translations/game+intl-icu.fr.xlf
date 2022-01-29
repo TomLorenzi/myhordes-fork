@@ -26032,5 +26032,15 @@ cette violente opération...]]></target>
         <target>Vous avez été transformé(e) en GOULE ! N'en parlez à personne et consultez l'aide du jeu pour en savoir plus...</target>
       </segment>
     </unit>
+    <unit id="TUSDSgv">
+      <notes>
+        <note category="german">Diese Anzeige zeigt an, wie &lt;strong&gt;hungrig&lt;/strong&gt; du als Ghul bist.&lt;br/&gt;&lt;strong&gt;Wenn die rote Grenze überschritten wird, stirbst du heute um Mitternacht!&lt;/strong&gt; Verschlinge einen Bürger (ideale Lösung) oder finde Menschenfleisch, um diesen Hunger zu verringern und zu überleben.</note>
+        <note category="from">twig:///templates/ajax/game/game.html.twig</note>
+      </notes>
+      <segment>
+        <source>Diese Anzeige zeigt an, wie &lt;strong&gt;hungrig&lt;/strong&gt; du als Ghul bist.&lt;br/&gt;&lt;strong&gt;Wenn die rote Grenze überschritten wird, stirbst du heute um Mitternacht!&lt;/strong&gt; Verschlinge einen Bürger (ideale Lösung) oder finde Menschenfleisch, um diesen Hunger zu verringern und zu überleben.</source>
+        <target><![CDATA[Cette jauge indique l'état de votre <strong>faim</strong>, en tant que goule.<br /><strong>Si la limite rouge est dépassée, vous mourrez ce soir à minuit !</strong> Dévorez un citoyen (solution idéale), ou trouvez de la viande humaine pour réduire cette faim et survivre.]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

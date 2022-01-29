@@ -93,9 +93,12 @@
                         <div class="ghoul-hunger-bar {% if hunger > 40 %}warning{% endif %}" style="width: {{ min(100,hunger) }}%"></div>
                         <div class="ghoul-hunger-indicator" style="left: 40%"></div>
                     </div>
-                {% if hunger > 40 %}
-                    <div class="ghoul-message"><img src="{{ asset('build/images/icons/warning_anim.gif') }}" alt="/!\"> {{"Du wirst heute Nacht sterben!"|trans({}, 'game')}}</div>
-                {% endif %}
+                    {% if hunger > 40 %}
+                        <div class="ghoul-message"><img src="{{ asset('build/images/icons/warning_anim.gif') }}" alt="/!\"> {{"Du wirst heute Nacht sterben!"|trans({}, 'game')}}</div>
+                    {% endif %}
+                    <div class="tooltip help">
+                        {{ 'Diese Anzeige zeigt an, wie <strong>hungrig</strong> du als Ghul bist.<br/><strong>Wenn die rote Grenze überschritten wird, stirbst du heute um Mitternacht!</strong> Verschlinge einen Bürger (ideale Lösung) oder finde Menschenfleisch, um diesen Hunger zu verringern und zu überleben.'|trans({},'game')|raw }}
+                    </div>
                 </li>
             {% endif %}
         </ul>
