@@ -16503,5 +16503,11 @@
         <target><![CDATA[Diese Anzeige zeigt an, wie <strong>hungrig</strong> du als Ghul bist.<br/><strong>Wenn die rote Grenze überschritten wird, stirbst du heute um Mitternacht!</strong> Verschlinge einen Bürger (ideale Lösung) oder finde Menschenfleisch, um diesen Hunger zu verringern und zu überleben.]]></target>
       </segment>
     </unit>
+    <unit id="Hy1STmq" name="vollständig demoliert und wiederverwertet...">
+      <segment>
+        <source>vollständig demoliert und wiederverwertet...</source>
+        <target>vollständig demoliert und wiederverwertet...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

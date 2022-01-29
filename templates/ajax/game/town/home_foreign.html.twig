@@ -60,7 +60,13 @@
             <div class="cell {% if owner.user.avatar %}rw-9 rw-lg-8 rw-md-12{% else %}rw-12{% endif %}">
                 <div class="row">
                     <div class="cell rw-5 rw-lg-6"><span class="highlight">{{ 'Haus'|trans({},'game') }} :</span></div>
-                    <div class="cell rw-7 rw-lg-6"><img alt="" src="{{ asset('build/images/home/' ~ owner.home.prototype.icon ~ '.gif') }}" /> {{ owner.home.prototype.label|trans({},'buildings') }} {% if owner.alive %} [ + {{ owner.home.prototype.defense }} <img alt="" src="{{ asset('build/images/icons/def.gif') }}" /> ]{% endif %}</div>
+                    <div class="cell rw-7 rw-lg-6">
+                        {% if not owner.alive and owner.home.recycling >= 15 %}
+                            <img alt="" src="{{ asset('build/images/icons/home_recycled.gif') }}" /> {{ 'vollständig demoliert und wiederverwertet...'|trans({},'game') }}
+                        {% else %}
+                            <img alt="" src="{{ asset('build/images/home/' ~ owner.home.prototype.icon ~ '.gif') }}" /> {{ owner.home.prototype.label|trans({},'buildings') }} {% if owner.alive %} [ + {{ owner.home.prototype.defense }} <img alt="" src="{{ asset('build/images/icons/def.gif') }}" /> ]{% endif %}
+                        {% endif %}
+                    </div>
                 </div>
                 {% if owner.alive %}
                     <div class="row">

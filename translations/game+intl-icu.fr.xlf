@@ -26042,5 +26042,15 @@ cette violente opération...]]></target>
         <target><![CDATA[Cette jauge indique l'état de votre <strong>faim</strong>, en tant que goule.<br /><strong>Si la limite rouge est dépassée, vous mourrez ce soir à minuit !</strong> Dévorez un citoyen (solution idéale), ou trouvez de la viande humaine pour réduire cette faim et survivre.]]></target>
       </segment>
     </unit>
+    <unit id="Hy1STmq" name="vollständig demoliert und wiederverwertet...">
+      <notes>
+        <note category="german">vollständig demoliert und wiederverwertet...</note>
+        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+      </notes>
+      <segment>
+        <source>vollständig demoliert und wiederverwertet...</source>
+        <target>entièrement recyclée et démontée...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
