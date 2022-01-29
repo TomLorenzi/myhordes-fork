@@ -4193,11 +4193,10 @@
       <notes>
         <note category="german">Zu meinem Eintrag springen</note>
         <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Zu meinem Eintrag springen</source>
-        <target>Zu meinem Eintrag springen</target>
+        <target>Saltar a mi entrada</target>
       </segment>
     </unit>
   </file>
