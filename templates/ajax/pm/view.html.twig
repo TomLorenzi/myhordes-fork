@@ -206,7 +206,7 @@
         {% endif %}
         <div class="pm-message">
             <div class="pm-message-header"><img src="{{ asset('build/images/icons/small_user.gif') }}" alt=""> {{ user.name }}</div>
-            <div class="pm-message-content"><div id="pm-editor-preview"></div></div>
+            <div class="pm-message-content"><div translate="no" id="pm-editor-preview"></div></div>
             <div class="pm-message-footer">{{ 'Vorschau'|trans({},'global') }}</div>
         </div>
     </li>
@@ -492,14 +492,14 @@
                     form.append(sec_p)
 
                     $.html.popup('{{ 'Unangemessenen Inhalt melden'|trans({},'global')|e('js') }}', form, null, [
-                        [ '{{ 'Inhalt melden'|trans({},'global')|e('js') }}',  [ ['click', (e_sub,elem_sub) => {
+                        [ '{{ 'Inhalt melden'|trans({},'global')|e('js') }}',  [ ['click', (e_sub, elem_sub) => {
                             const reason = document.querySelector('[name="report_reason"]:checked') ? parseInt(document.querySelector('[name="report_reason"]:checked').value) : 0;
                             const detail = document.querySelector('[name="report_details"]') ? document.querySelector('[name="report_details"]').value : '';
 
                             $.html.triggerPopupPop(elem_sub);
                             $.ajax.easySend( elem.getAttribute('x-report-url'), {reason: reason, details: detail}, (data)=>{ if (data.msg) $.html.notice(data.msg); });
                         }] ] ],
-                        [ '{{ 'Abbrechen'|trans({},'global')|e('js') }}', [ ['click', (e_sub,elem_sub) => $.html.triggerPopupPop(elem_sub)] ] ]
+                        [ '{{ 'Abbrechen'|trans({},'global')|e('js') }}', [ ['click', (e_sub, elem_sub) => $.html.triggerPopupPop(elem_sub)] ] ]
                     ] );
                 });
                 $.html.addEventListenerAll('ul.group-conversation>li .pm-button[x-pin-url]', 'click', function(e,elem) {
