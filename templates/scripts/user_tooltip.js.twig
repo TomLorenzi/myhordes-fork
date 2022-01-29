@@ -11,10 +11,28 @@ $.html.addEventListenerAll(".username", "click", function(event){
         document.getElementsByTagName("body")[0].appendChild(target);
     }
     target.setAttribute("id", "user-tooltip");
-    $.ajax.load(target, "{{ path('soul_tooltip') }}", false, {'id': source.getAttribute("x-user-id")}, function(){
-        addActions(source.getAttribute("x-user-id"), target, source);
+    target.innerHTML = '<div class="center small"><img src="{{ asset('build/images/anims/loading.gif') }}" alt=""/></div>';
+
+    target.style.width = null;
+    if (source.getBoundingClientRect().left + source.offsetWidth + target.offsetWidth > window.innerWidth) {
+
+        const temp_left = Math.max(0,source.getBoundingClientRect().left + source.offsetWidth/2 - target.offsetWidth/2);
+        if (temp_left + target.offsetWidth > window.innerWidth) {
+            target.style.top = (source.getBoundingClientRect().top + document.documentElement.scrollTop + source.offsetHeight) + "px";
+            target.style.left = "0px";
+            target.style.width = '100%';
+        } else {
+            target.style.top = (source.getBoundingClientRect().top + document.documentElement.scrollTop + source.offsetHeight) + "px";
+            target.style.left = temp_left + "px";
+        }
+
+    } else {
         target.style.top = (source.getBoundingClientRect().top + document.documentElement.scrollTop) + "px";
         target.style.left = source.getBoundingClientRect().left + source.offsetWidth + "px";
+    }
+
+    $.ajax.background().load(target, "{{ path('soul_tooltip') }}", false, {'id': source.getAttribute("x-user-id")}, function(){
+        addActions(source.getAttribute("x-user-id"), target, source);
     });
 })
 
@@ -80,10 +98,10 @@ var addActions = function(user_id, target, source){
         } else alert('{{ 'Fehler beim Laden des Posteingangs.'|trans({},'global') }}')
     });
 
-    let removeTooltip = function(event) {
+    let removeTooltip = function(event,force=false) {
         var tooltip = document.getElementById("user-tooltip");
         if(tooltip) {
-            if(event.target !== tooltip && !event.target.closest("#user-tooltip")) {
+            if(event.target !== tooltip && (!event.target.closest("#user-tooltip") || force)) {
                 tooltip.remove();
                 document.removeEventListener("click", removeTooltip);
             }
@@ -91,4 +109,5 @@ var addActions = function(user_id, target, source){
     }
 
     document.addEventListener("click", removeTooltip);
+    $.html.addEventListenerAll('[x-ajax-href]', 'click', e => removeTooltip(e,true));
 }

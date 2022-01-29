@@ -17,11 +17,7 @@
                         {% endif %}
                         <h4 class="soul-name">
                             <img src="{{ asset('build/images/icons/small_ghost_red.gif') }}" alt="{{'Held'|trans({}, 'game')}}" />
-                            <a class="username {% if app.user.friends.contains(user) %}is-friend{% endif %}" x-user-id="{{ user.id }}">
-                                {% if user.name == 'Der Rabe' %}{{ 'Der Rabe'|trans({},'global') }}
-                                {% elseif user.name == 'Animateur-Team' %}{{ 'Animateur-Team'|trans({},'global') }}
-                                {% else %}{{ user.name }}{% endif %}
-                            </a>
+                            {% include 'ajax/soul/playername.html.twig' with {user: user, tag: 'a'} only %}
                         </h4>
                     </div>
                     <div class="tab tab-floater">

@@ -66,7 +66,10 @@
                                     </div>
                                 {% endif %}
                             {% endif %}
-                            <a class="link username undecorated{% if citizen == me%} citizen-label-name-me {% endif %}{% if app.user.friends.contains(citizen.user) %} is-friend{% endif %}" x-user-id="{{ citizen.user.id }}"><b class="citizen-name">{{ citizen.name }}</b></a>
+                            {% include 'ajax/soul/playername.html.twig' with {user: citizen.user, tag: 'a', additional_classes: [
+                                'undecorated',
+                                citizen == me ? 'citizen-label-name-me' : null,
+                            ]} only %}
                             {% if citizen.alive %}
                                 {% if citizen.banished %}
                                     <img alt="" src="{{ asset('build/images/icons/banished.gif') }}" />

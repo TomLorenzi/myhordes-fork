@@ -525,7 +525,6 @@ div#user-tooltip {
     border: 1px solid #ddab76;
     padding: 10px;
     width: 230px;
-    min-height: 100px;
     color: #1d2028;
     border-radius: 4px;
     font-size: 1rem;
@@ -577,7 +576,7 @@ div#user-tooltip {
         }
     }
 
-    .avatar {
+    .avatar,.avatarcrow {
         img {
             max-width: 50px !important;
         }
@@ -600,14 +599,18 @@ div#user-tooltip {
 
     div.userDesc {
         &::before {
-            margin-top: -10px;
-            left: 44px;
-            background-image: url("../../img/icons/arrowUp.png");
+            margin-top: -9px;
+            left: 32px;
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-bottom: 5px solid #79432b;
+            display: inline-block;
             content:" ";
-            width: 11px;
-            height: 11px;
             position: absolute;
         }
+        margin-top: 10px;
         font-weight: normal;
         border-radius: 4px;
         background-color: #79432b;

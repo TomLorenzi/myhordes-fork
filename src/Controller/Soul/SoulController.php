@@ -1500,10 +1500,22 @@ class SoulController extends CustomAbstractController
         $desc = $this->entity_manager->getRepository(UserDescription::class)->findOneBy(['user' => $user]);
         $isFriend = $this->getUser()->getFriends()->contains($user);
 
+        $is_dummy = $this->user_handler->hasRole($user,'ROLE_DUMMY');
+
+        if ($user->getEmail() !== null && !str_contains($user->getEmail(), '@'))
+            $is_dummy = true;
+
         return $this->render("ajax/soul/user_tooltip.html.twig", [
             'user' => $user,
             'userDesc' => $desc ? $html->prepareEmotes($desc->getText(), $this->getUser()) : null,
-            'isFriend' => $isFriend
+            'isFriend' => $isFriend,
+            'dummy' => $is_dummy,
+            'crow'   => $this->user_handler->hasRole($user,'ROLE_CROW'),
+            'admin'  => $this->user_handler->hasRole($user,'ROLE_ADMIN'),
+            'super'  => $this->user_handler->hasRole($user,'ROLE_SUPER'),
+            'oracle' => $this->user_handler->hasRole($user,'ROLE_ORACLE'),
+            'anim'   => $this->user_handler->hasRole($user,'ROLE_ANIMAC'),
+            'team'   => $this->user_handler->hasRole($user,'ROLE_TEAM'),
         ]);
     }
 
