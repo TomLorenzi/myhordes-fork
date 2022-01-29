@@ -9458,5 +9458,16 @@
         <target>You have no room for this.</target>
       </segment>
     </unit>
+    <unit id="gObW_J5">
+      <notes>
+        <note category="german">Du kannst dieses Serum nicht auf dich selbst anwenden, oder du wirst der beste Freund eines Ghuls...</note>
+        <note category="from">db://Requirement</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Du kannst dieses Serum nicht auf dich selbst anwenden, oder du wirst der beste Freund eines Ghuls...</source>
+        <target>Du kannst dieses Serum nicht auf dich selbst anwenden, oder du wirst der beste Freund eines Ghuls...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -9446,5 +9446,15 @@
         <target>Vous n'avez pas de place pour ça.</target>
       </segment>
     </unit>
+    <unit id="gObW_J5">
+      <notes>
+        <note category="german">Du kannst dieses Serum nicht auf dich selbst anwenden, oder du wirst der beste Freund eines Ghuls...</note>
+        <note category="from">db://Requirement</note>
+      </notes>
+      <segment>
+        <source>Du kannst dieses Serum nicht auf dich selbst anwenden, oder du wirst der beste Freund eines Ghuls...</source>
+        <target>Vous ne pouvez pas utiliser ce vaccin contre vous ou alors devenez le meilleur ami d'une goule...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
