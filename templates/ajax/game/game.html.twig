@@ -40,7 +40,7 @@
                 {% if not role.hidden %}
                     <li class="status{% if role.helpSection is not null %} link{% endif %}" {% if role.helpSection is not null %}x-ajax-href="{{ path('help', {'name': role.helpSection}) }}"{% endif %}>
                         <img src="{{ asset('build/images/roles/' ~ role.icon ~ '.gif') }}" alt="{{ role.label|trans({},'game') }}">
-                        <div class="tooltip help">
+                        <div class="tooltip item">
                             {{ (role.message ?? 'Du bist der {rolename} dieser Stadt.')|trans({'{rolename}': role.label|trans({}, 'game')}, 'game')}}
                         </div>
                     </li>
