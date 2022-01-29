@@ -20002,7 +20002,7 @@
     <unit id="jTUz2Oq" name="Ich beobachte euch...">
       <notes>
         <note category="german">Ich beobachte euch...</note>
-        <note category="from">twig:///templates/ajax/forum/posts.html.twig</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/soul/user_tooltip.html.twig</note>
       </notes>
       <segment>
         <source>Ich beobachte euch...</source>
@@ -26313,6 +26313,16 @@
       <segment>
         <source>Hunger:</source>
         <target>Hunger:</target>
+      </segment>
+    </unit>
+    <unit id="0BOngla">
+      <notes>
+        <note category="german">Du hast dich in einen Ghul verwandelt! Verrate es niemandem und schau in der Hilfe nach, um mehr zu erfahren.</note>
+        <note category="from">db://CitizenRole</note>
+      </notes>
+      <segment>
+        <source>Du hast dich in einen Ghul verwandelt! Verrate es niemandem und schau in der Hilfe nach, um mehr zu erfahren.</source>
+        <target>You have been transformed into a GHOUL! Don't tell anybody and consult the game help to find out more...</target>
       </segment>
     </unit>
   </file>

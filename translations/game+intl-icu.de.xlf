@@ -16491,5 +16491,11 @@
         <target>Hunger:</target>
       </segment>
     </unit>
+    <unit id="0BOngla">
+      <segment>
+        <source>Du hast dich in einen Ghul verwandelt! Verrate es niemandem und schau in der Hilfe nach, um mehr zu erfahren.</source>
+        <target>Du hast dich in einen Ghul verwandelt! Verrate es niemandem und schau in der Hilfe nach, um mehr zu erfahren.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
