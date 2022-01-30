@@ -486,7 +486,7 @@ class GameFactory
                     break;
             }
 
-            if (!$allowed) {
+            if (!$allowed && !$this->user_handler->checkFeatureUnlock( $user, 'f_sptkt', true )) {
                 $error = ErrorHelper::ErrorPermissionError;
                 return false;
             }

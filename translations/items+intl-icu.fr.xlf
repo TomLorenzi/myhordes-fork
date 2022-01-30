@@ -9456,5 +9456,27 @@
         <target>Vous ne pouvez pas utiliser ce vaccin contre vous ou alors devenez le meilleur ami d'une goule...</target>
       </segment>
     </unit>
+    <unit id="j.Nx9To" name="Eintrittskarte">
+      <notes>
+        <note category="german">Eintrittskarte</note>
+        <note category="from">db://FeatureUnlockPrototype</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Eintrittskarte</source>
+        <target>Eintrittskarte</target>
+      </segment>
+    </unit>
+    <unit id=".LeRrBD">
+      <notes>
+        <note category="german">Hiermit kannst du Städten beitreten, obwohl du die Mindestanzahl an Seelenpunkten noch nicht erreicht hast.</note>
+        <note category="from">db://FeatureUnlockPrototype</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Hiermit kannst du Städten beitreten, obwohl du die Mindestanzahl an Seelenpunkten noch nicht erreicht hast.</source>
+        <target>Hiermit kannst du Städten beitreten, obwohl du die Mindestanzahl an Seelenpunkten noch nicht erreicht hast.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

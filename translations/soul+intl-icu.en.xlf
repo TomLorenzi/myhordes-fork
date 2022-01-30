@@ -4419,7 +4419,6 @@
       <notes>
         <note category="german">Sozial</note>
         <note category="from">twig:///templates/ajax/soul/shell.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Sozial</source>
@@ -4430,7 +4429,6 @@
       <notes>
         <note category="german">Freundesliste</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Freundesliste</source>

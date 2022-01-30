@@ -4241,7 +4241,6 @@
       <notes>
         <note category="german">Hinweis</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Hinweis</source>
