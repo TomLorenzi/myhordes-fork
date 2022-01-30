@@ -2015,7 +2015,7 @@
     <unit id="Vlb5Lbe" name="Aktionen">
       <notes>
         <note category="german">Aktionen</note>
-        <note category="from">twig:///templates/ajax/soul/coalitions.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/coalitions.html.twig;twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Aktionen</source>
@@ -2606,7 +2606,7 @@
     <unit id="9DAxndj" name="Spieler">
       <notes>
         <note category="german">Spieler</note>
-        <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/season.html.twig</note>
       </notes>
       <segment>
         <source>Spieler</source>
@@ -4320,7 +4320,7 @@
     <unit id="abqsDy0" name="Schreiben">
       <notes>
         <note category="german">Schreiben</note>
-        <note category="from">twig:///templates/ajax/soul/user_tooltip.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/user_tooltip.html.twig</note>
       </notes>
       <segment>
         <source>Schreiben</source>
@@ -4330,7 +4330,7 @@
     <unit id="ukvMJvG" name="Kontakt hinzufügen">
       <notes>
         <note category="german">Kontakt hinzufügen</note>
-        <note category="from">twig:///templates/ajax/soul/user_tooltip.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/user_tooltip.html.twig</note>
       </notes>
       <segment>
         <source>Kontakt hinzufügen</source>
@@ -4340,7 +4340,7 @@
     <unit id="C4p3DLl" name="Kontakt löschen">
       <notes>
         <note category="german">Kontakt löschen</note>
-        <note category="from">twig:///templates/ajax/soul/user_tooltip.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/user_tooltip.html.twig</note>
       </notes>
       <segment>
         <source>Kontakt löschen</source>
@@ -4375,6 +4375,114 @@
       <segment>
         <source>Du hast {username} aus deinen Kontakten gelöscht!</source>
         <target>¡Ahora {username} ya no está en tus contactos!</target>
+      </segment>
+    </unit>
+    <unit id="Dm3TgUa" name="Sozial">
+      <notes>
+        <note category="german">Sozial</note>
+        <note category="from">twig:///templates/ajax/soul/shell.html.twig</note>
+      </notes>
+      <segment>
+        <source>Sozial</source>
+        <target>Social</target>
+      </segment>
+    </unit>
+    <unit id="I2eWURG" name="Freundesliste">
+      <notes>
+        <note category="german">Freundesliste</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Freundesliste</source>
+        <target>Freundesliste</target>
+      </segment>
+    </unit>
+    <unit id="_cSDjRl" name="Spieler werben">
+      <notes>
+        <note category="german">Spieler werben</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Spieler werben</source>
+        <target>Patrocinio</target>
+      </segment>
+    </unit>
+    <unit id="T6FFmLN" name="Wahrer Freund">
+      <notes>
+        <note category="german">Wahrer Freund</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Wahrer Freund</source>
+        <target>Wahrer Freund</target>
+      </segment>
+    </unit>
+    <unit id="aWNhyEI" name="Deine Freundesliste ist leer.">
+      <notes>
+        <note category="german">Deine Freundesliste ist leer.</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Deine Freundesliste ist leer.</source>
+        <target>Deine Freundesliste ist leer.</target>
+      </segment>
+    </unit>
+    <unit id="vHUeAVJ" name="Neue Freunde finden">
+      <notes>
+        <note category="german">Neue Freunde finden</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Neue Freunde finden</source>
+        <target>Neue Freunde finden</target>
+      </segment>
+    </unit>
+    <unit id="BTjlZxP" name="Gib hier den Nickname des Spielers ein, den du als Freund hinzufügen möchtest.">
+      <notes>
+        <note category="german">Gib hier den Nickname des Spielers ein, den du als Freund hinzufügen möchtest.</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Gib hier den Nickname des Spielers ein, den du als Freund hinzufügen möchtest.</source>
+        <target>Gib hier den Nickname des Spielers ein, den du als Freund hinzufügen möchtest.</target>
+      </segment>
+    </unit>
+    <unit id="BHCazk7" name="Spieler, die dich als Freund hinzugefügt haben">
+      <notes>
+        <note category="german">Spieler, die dich als Freund hinzugefügt haben</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Spieler, die dich als Freund hinzugefügt haben</source>
+        <target>Spieler, die dich als Freund hinzugefügt haben</target>
+      </segment>
+    </unit>
+    <unit id="xMippYH">
+      <notes>
+        <note category="german">Hier siehst du Spieler, die dich in ihre Freundesliste eingetragen haben. Wenn du möchtest, kannst du sie ebenfalls in deine Freundesliste eintragen.</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Hier siehst du Spieler, die dich in ihre Freundesliste eingetragen haben. Wenn du möchtest, kannst du sie ebenfalls in deine Freundesliste eintragen.</source>
+        <target>Hier siehst du Spieler, die dich in ihre Freundesliste eingetragen haben. Wenn du möchtest, kannst du sie ebenfalls in deine Freundesliste eintragen.</target>
+      </segment>
+    </unit>
+    <unit id="pPMWL8v">
+      <notes>
+        <note category="german">Du kannst verhindern, dass ein Spieler dich in seine Freundesliste aufnimmt, indem du ihn blockierst. Bedenke, dass er dich danach auch nicht mehr via über eine private Nachricht kontaktieren kann.</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Du kannst verhindern, dass ein Spieler dich in seine Freundesliste aufnimmt, indem du ihn blockierst. Bedenke, dass er dich danach auch nicht mehr via über eine private Nachricht kontaktieren kann.</source>
+        <target>Du kannst verhindern, dass ein Spieler dich in seine Freundesliste aufnimmt, indem du ihn blockierst. Bedenke, dass er dich danach auch nicht mehr via über eine private Nachricht kontaktieren kann.</target>
       </segment>
     </unit>
   </file>

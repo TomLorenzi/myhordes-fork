@@ -244,9 +244,11 @@ class SoulController extends CustomAbstractController
 
     /**
      * @Route("jx/soul/refer", name="soul_refer")
+     * @Route("jx/soul/contacts", name="soul_contacts")
+     * @param ConfMaster $conf
      * @return Response
      */
-    public function soul_refer(ConfMaster $conf): Response {
+    public function soul_refer(Request $request, ConfMaster $conf): Response {
         $refer = $this->entity_manager->getRepository(UserReferLink::class)->findOneBy(['user' => $this->getUser()]);
         if ($refer === null && !$this->user_handler->hasRole($this->getUser(), 'ROLE_DUMMY')) {
 
@@ -292,9 +294,14 @@ class SoulController extends CustomAbstractController
         }
 
         return $this->render( 'ajax/soul/refer.html.twig', $this->addDefaultTwigArgs("soul_refer", [
+            'tab' => $request->attributes->get('_route') === 'soul_refer' ? 'refer' : 'friends',
+
             'refer' => $refer,
             'sponsored' => $sponsored,
             'lang' => $this->getUserLanguage(),
+
+            'friends' => $this->getUser()->getFriends(),
+            'reverse_friends' => $this->entity_manager->getRepository(User::class)->findInverseFriends($this->getUser(), true),
 
             'coa' => $user_coalition,
             'coa_leader' => $user_coalition && $user_coalition->getAssociationLevel() === UserGroupAssociation::GroupAssociationLevelFounder,
@@ -320,6 +327,9 @@ class SoulController extends CustomAbstractController
         $searchSkip = $parser->get_array('exclude', []);
         // if ($url !== 'pm_manage_users' && $url !== 'plain') $searchSkip[] = $user->getId();
 
+        if ($url === 'soul_invite_friend')
+            $searchSkip = array_merge($searchSkip, $user->getFriends()->getValues(), [$user]);
+
         $selected_group = false;
         if ($url === 'town_add_users' && str_contains($searchName,',')) {
             $searchNames = explode(',', $searchName);
@@ -334,7 +344,7 @@ class SoulController extends CustomAbstractController
         $data = [
             'var' => $url,
             'single_entry' => $selected_group,
-            'users' => in_array($url, ['soul_visit','soul_invite_coalition','pm_manage_users','pm_add_users','town_add_users','plain','post_add_users']) ? $users : [],
+            'users' => in_array($url, ['soul_visit','soul_invite_coalition','soul_invite_friend','pm_manage_users','pm_add_users','town_add_users','plain','post_add_users']) ? $users : [],
             'route' => in_array($url, ['soul_visit','soul_invite_coalition']) ? $url : ''
         ];
 
@@ -1264,8 +1274,11 @@ class SoulController extends CustomAbstractController
         $is_blocked = $this->user_handler->checkRelation($this->getUser(), $target_user, SocialRelation::SocialRelationTypeBlock);
         if (($is_blocked && $action === 1) || (!$is_blocked && $action === 0)) return AjaxResponse::success();
 
-        if ($action === 1) $this->entity_manager->persist( (new SocialRelation())->setType( SocialRelation::SocialRelationTypeBlock )->setOwner( $this->getUser())->setRelated( $target_user ) );
-        else $this->entity_manager->remove( $this->entity_manager->getRepository( SocialRelation::class )->findOneBy( ['owner' => $this->getUser(), 'related' => $target_user, 'type' => SocialRelation::SocialRelationTypeBlock ] ) );
+        if ($action === 1) {
+            $this->entity_manager->persist((new SocialRelation())->setType(SocialRelation::SocialRelationTypeBlock)->setOwner($this->getUser())->setRelated($target_user));
+            $this->entity_manager->persist( $this->getUser()->removeFriend( $target_user ) );
+            $this->entity_manager->persist( $target_user->removeFriend( $this->getUser() ) );
+        } else $this->entity_manager->remove( $this->entity_manager->getRepository( SocialRelation::class )->findOneBy( ['owner' => $this->getUser(), 'related' => $target_user, 'type' => SocialRelation::SocialRelationTypeBlock ] ) );
 
         try {
             $this->entity_manager->flush();
@@ -1525,15 +1538,17 @@ class SoulController extends CustomAbstractController
      * @param HTMLService $html
      * @return Response
      */
-    public function api_friend_control(int $action, JSONRequestParser $parser, HTMLService $html) {
+    public function api_friend_control(int $action, JSONRequestParser $parser) {
         if ($action !== 0 && $action !== 1) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $id = $parser->get("id");
         $user = $this->entity_manager->getRepository(User::class)->find($id);
 
-        if (!$user) {
+        if (!$user || $this->user_handler->hasRole($user, 'ROLE_DUMMY') || !str_contains($user->getEmail(), '@'))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-        }
+
+        if ($action && $this->user_handler->checkRelation($this->getUser(), $user,SocialRelation::SocialRelationTypeBlock, true))
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
 
         if($action)
             $this->getUser()->addFriend($user);

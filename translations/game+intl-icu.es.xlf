@@ -10453,7 +10453,7 @@
     <unit id="fICCxje" name="Seine Seele ansehen">
       <notes>
         <note category="german">Seine Seele ansehen</note>
-        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Seine Seele ansehen</source>

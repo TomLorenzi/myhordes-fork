@@ -284,7 +284,7 @@
     <unit id="SOVZNkR" name="Bestätigen?">
       <notes>
         <note category="german">Bestätigen?</note>
-        <note category="from">twig:///templates/ajax/admin/changelogs/changelogs.html.twig;twig:///templates/ajax/admin/files/list.html.twig;twig:///templates/ajax/admin/reports/gpn-viewer.html.twig;twig:///templates/ajax/admin/reports/pn-viewer.html.twig;twig:///templates/ajax/admin/users/ban.html.twig;twig:///templates/ajax/admin/users/multi_index.html.twig;twig:///templates/ajax/admin/widget/controls.twig;twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/town/citizen_vote.html.twig;twig:///templates/ajax/game/town/construction.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/door.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/game/town/routes.html.twig;twig:///templates/ajax/game/town/town.html.twig;twig:///templates/ajax/game/town/well.html.twig;twig:///templates/ajax/ghost/create_town.html.twig;twig:///templates/ajax/pm/user_list.html.twig;twig:///templates/ajax/pm/view.html.twig;twig:///templates/ajax/soul/settings.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig;twig:///templates/ajax/soul/visit.html.twig;twig:///templates/scripts/actions.js.twig;twig:///templates/scripts/user_tooltip.js.twig</note>
+        <note category="from">twig:///templates/ajax/admin/changelogs/changelogs.html.twig;twig:///templates/ajax/admin/files/list.html.twig;twig:///templates/ajax/admin/reports/gpn-viewer.html.twig;twig:///templates/ajax/admin/reports/pn-viewer.html.twig;twig:///templates/ajax/admin/users/ban.html.twig;twig:///templates/ajax/admin/users/multi_index.html.twig;twig:///templates/ajax/admin/widget/controls.twig;twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/town/citizen_vote.html.twig;twig:///templates/ajax/game/town/construction.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/door.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/game/town/routes.html.twig;twig:///templates/ajax/game/town/town.html.twig;twig:///templates/ajax/game/town/well.html.twig;twig:///templates/ajax/ghost/create_town.html.twig;twig:///templates/ajax/pm/user_list.html.twig;twig:///templates/ajax/pm/view.html.twig;twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/settings.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig;twig:///templates/ajax/soul/visit.html.twig;twig:///templates/scripts/actions.js.twig;twig:///templates/scripts/user_tooltip.js.twig</note>
       </notes>
       <segment>
         <source>Bestätigen?</source>
@@ -2406,7 +2406,7 @@
     <unit id="PXyHpOf" name="Fehler beim Laden des Posteingangs.">
       <notes>
         <note category="german">Fehler beim Laden des Posteingangs.</note>
-        <note category="from">twig:///templates/ajax/forum/list.html.twig;twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/pm/proxy.html.twig;twig:///templates/scripts/user_tooltip.js.twig</note>
+        <note category="from">twig:///templates/ajax/forum/list.html.twig;twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/pm/proxy.html.twig;twig:///templates/ajax/soul/refer.html.twig;twig:///templates/scripts/user_tooltip.js.twig</note>
       </notes>
       <segment>
         <source>Fehler beim Laden des Posteingangs.</source>
@@ -4197,6 +4197,17 @@
       <segment>
         <source>Zu meinem Eintrag springen</source>
         <target>Saltar a mi entrada</target>
+      </segment>
+    </unit>
+    <unit id="LiAR2Wp" name="Hinweis">
+      <notes>
+        <note category="german">Hinweis</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Hinweis</source>
+        <target>Hinweis</target>
       </segment>
     </unit>
   </file>

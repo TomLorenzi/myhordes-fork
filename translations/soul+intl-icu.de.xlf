@@ -2704,5 +2704,65 @@
         <target>Du hast {username} aus deinen Kontakten gelöscht!</target>
       </segment>
     </unit>
+    <unit id="Dm3TgUa" name="Sozial">
+      <segment>
+        <source>Sozial</source>
+        <target>Sozial</target>
+      </segment>
+    </unit>
+    <unit id="I2eWURG" name="Freundesliste">
+      <segment>
+        <source>Freundesliste</source>
+        <target>Freundesliste</target>
+      </segment>
+    </unit>
+    <unit id="_cSDjRl" name="Spieler werben">
+      <segment>
+        <source>Spieler werben</source>
+        <target>Spieler werben</target>
+      </segment>
+    </unit>
+    <unit id="T6FFmLN" name="Wahrer Freund">
+      <segment>
+        <source>Wahrer Freund</source>
+        <target>Wahrer Freund</target>
+      </segment>
+    </unit>
+    <unit id="aWNhyEI" name="Deine Freundesliste ist leer.">
+      <segment>
+        <source>Deine Freundesliste ist leer.</source>
+        <target>Deine Freundesliste ist leer.</target>
+      </segment>
+    </unit>
+    <unit id="vHUeAVJ" name="Neue Freunde finden">
+      <segment>
+        <source>Neue Freunde finden</source>
+        <target>Neue Freunde finden</target>
+      </segment>
+    </unit>
+    <unit id="BTjlZxP" name="Gib hier den Nickname des Spielers ein, den du als Freund hinzufügen möchtest.">
+      <segment>
+        <source>Gib hier den Nickname des Spielers ein, den du als Freund hinzufügen möchtest.</source>
+        <target>Gib hier den Nickname des Spielers ein, den du als Freund hinzufügen möchtest.</target>
+      </segment>
+    </unit>
+    <unit id="BHCazk7" name="Spieler, die dich als Freund hinzugefügt haben">
+      <segment>
+        <source>Spieler, die dich als Freund hinzugefügt haben</source>
+        <target>Spieler, die dich als Freund hinzugefügt haben</target>
+      </segment>
+    </unit>
+    <unit id="xMippYH">
+      <segment>
+        <source>Hier siehst du Spieler, die dich in ihre Freundesliste eingetragen haben. Wenn du möchtest, kannst du sie ebenfalls in deine Freundesliste eintragen.</source>
+        <target>Hier siehst du Spieler, die dich in ihre Freundesliste eingetragen haben. Wenn du möchtest, kannst du sie ebenfalls in deine Freundesliste eintragen.</target>
+      </segment>
+    </unit>
+    <unit id="pPMWL8v">
+      <segment>
+        <source>Du kannst verhindern, dass ein Spieler dich in seine Freundesliste aufnimmt, indem du ihn blockierst. Bedenke, dass er dich danach auch nicht mehr via über eine private Nachricht kontaktieren kann.</source>
+        <target>Du kannst verhindern, dass ein Spieler dich in seine Freundesliste aufnimmt, indem du ihn blockierst. Bedenke, dass er dich danach auch nicht mehr via über eine private Nachricht kontaktieren kann.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
