@@ -4391,11 +4391,10 @@
       <notes>
         <note category="german">Freundesliste</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Freundesliste</source>
-        <target>Freundesliste</target>
+        <target>Lista de Amigos</target>
       </segment>
     </unit>
     <unit id="_cSDjRl" name="Spieler werben">
@@ -4412,77 +4411,70 @@
       <notes>
         <note category="german">Wahrer Freund</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wahrer Freund</source>
-        <target>Wahrer Freund</target>
+        <target>Amigo Verdadero</target>
       </segment>
     </unit>
     <unit id="aWNhyEI" name="Deine Freundesliste ist leer.">
       <notes>
         <note category="german">Deine Freundesliste ist leer.</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Deine Freundesliste ist leer.</source>
-        <target>Deine Freundesliste ist leer.</target>
+        <target>Tu lista de amigos está vacía.</target>
       </segment>
     </unit>
     <unit id="vHUeAVJ" name="Neue Freunde finden">
       <notes>
         <note category="german">Neue Freunde finden</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Neue Freunde finden</source>
-        <target>Neue Freunde finden</target>
+        <target>Encuentra nuevos amigos</target>
       </segment>
     </unit>
     <unit id="BTjlZxP" name="Gib hier den Nickname des Spielers ein, den du als Freund hinzufügen möchtest.">
       <notes>
         <note category="german">Gib hier den Nickname des Spielers ein, den du als Freund hinzufügen möchtest.</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Gib hier den Nickname des Spielers ein, den du als Freund hinzufügen möchtest.</source>
-        <target>Gib hier den Nickname des Spielers ein, den du als Freund hinzufügen möchtest.</target>
+        <target>Ingresa el nombre de un jugador que quieras agregar como amigo.</target>
       </segment>
     </unit>
     <unit id="BHCazk7" name="Spieler, die dich als Freund hinzugefügt haben">
       <notes>
         <note category="german">Spieler, die dich als Freund hinzugefügt haben</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Spieler, die dich als Freund hinzugefügt haben</source>
-        <target>Spieler, die dich als Freund hinzugefügt haben</target>
+        <target>Jugadores que te agregaron a su lista de amigos</target>
       </segment>
     </unit>
     <unit id="xMippYH">
       <notes>
         <note category="german">Hier siehst du Spieler, die dich in ihre Freundesliste eingetragen haben. Wenn du möchtest, kannst du sie ebenfalls in deine Freundesliste eintragen.</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Hier siehst du Spieler, die dich in ihre Freundesliste eingetragen haben. Wenn du möchtest, kannst du sie ebenfalls in deine Freundesliste eintragen.</source>
-        <target>Hier siehst du Spieler, die dich in ihre Freundesliste eingetragen haben. Wenn du möchtest, kannst du sie ebenfalls in deine Freundesliste eintragen.</target>
+        <target>Aquí puedes ver los jugadores que te han agregado a su lista de amigos. Si quieres, puedes agregarlos a tu lista de amigos también.</target>
       </segment>
     </unit>
     <unit id="pPMWL8v">
       <notes>
         <note category="german">Du kannst verhindern, dass ein Spieler dich in seine Freundesliste aufnimmt, indem du ihn blockierst. Bedenke, dass er dich danach auch nicht mehr via über eine private Nachricht kontaktieren kann.</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Du kannst verhindern, dass ein Spieler dich in seine Freundesliste aufnimmt, indem du ihn blockierst. Bedenke, dass er dich danach auch nicht mehr via über eine private Nachricht kontaktieren kann.</source>
-        <target>Du kannst verhindern, dass ein Spieler dich in seine Freundesliste aufnimmt, indem du ihn blockierst. Bedenke, dass er dich danach auch nicht mehr via über eine private Nachricht kontaktieren kann.</target>
+        <target>Puedes prevenir que un jugador te agregue a su lista de amigos al bloquearlo. Ten en cuenta que ya no podrá contactarte vía mensaje privado.</target>
       </segment>
     </unit>
   </file>

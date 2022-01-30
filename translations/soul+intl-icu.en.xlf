@@ -4512,7 +4512,7 @@
       </notes>
       <segment>
         <source>Du kannst verhindern, dass ein Spieler dich in seine Freundesliste aufnimmt, indem du ihn blockierst. Bedenke, dass er dich danach auch nicht mehr via über eine private Nachricht kontaktieren kann.</source>
-        <target>You can prevent a player from adding you to their friends list by blocking them. Keep in mind that he will no longer be able to contact you via private message.</target>
+        <target>You can prevent a player from adding you to their friends list by blocking them. Keep in mind that they will no longer be able to contact you via private message.</target>
       </segment>
     </unit>
   </file>
