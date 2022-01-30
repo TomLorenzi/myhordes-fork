@@ -419,4 +419,16 @@ class UserRepository extends ServiceEntityRepository implements UserLoaderInterf
             default: return null;
         }
     }
+
+    /**
+     * @return User[] Returns an array of User objects
+     */
+    public function findInverseFriends(User $user, bool $single_side_only = true): array
+    {
+        $inverse_friends = $this->createQueryBuilder('u')
+            ->andWhere(':user MEMBER OF u.friends')->setParameter('user', $user)
+            ->getQuery()->getResult();
+
+        return $single_side_only ? array_filter($inverse_friends, fn($i) => !$user->getFriends()->contains($i)) : $inverse_friends;
+    }
 }

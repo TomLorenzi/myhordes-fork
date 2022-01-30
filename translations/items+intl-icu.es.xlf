@@ -9417,5 +9417,38 @@
         <target>No tienes espacio para guardar el objeto.</target>
       </segment>
     </unit>
+    <unit id="gObW_J5">
+      <notes>
+        <note category="german">Du kannst dieses Serum nicht auf dich selbst anwenden, oder du wirst der beste Freund eines Ghuls...</note>
+        <note category="from">db://Requirement</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Du kannst dieses Serum nicht auf dich selbst anwenden, oder du wirst der beste Freund eines Ghuls...</source>
+        <target>Du kannst dieses Serum nicht auf dich selbst anwenden, oder du wirst der beste Freund eines Ghuls...</target>
+      </segment>
+    </unit>
+    <unit id="j.Nx9To" name="Eintrittskarte">
+      <notes>
+        <note category="german">Eintrittskarte</note>
+        <note category="from">db://FeatureUnlockPrototype</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Eintrittskarte</source>
+        <target>Eintrittskarte</target>
+      </segment>
+    </unit>
+    <unit id=".LeRrBD">
+      <notes>
+        <note category="german">Hiermit kannst du Städten beitreten, obwohl du die Mindestanzahl an Seelenpunkten noch nicht erreicht hast.</note>
+        <note category="from">db://FeatureUnlockPrototype</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Hiermit kannst du Städten beitreten, obwohl du die Mindestanzahl an Seelenpunkten noch nicht erreicht hast.</source>
+        <target>Hiermit kannst du Städten beitreten, obwohl du die Mindestanzahl an Seelenpunkten noch nicht erreicht hast.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

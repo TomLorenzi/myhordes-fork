@@ -2366,7 +2366,7 @@
     <unit id="72h0.SN" name="Ghul">
       <notes>
         <note category="german">Ghul</note>
-        <note category="from">db://CitizenRole;db://CitizenStatus;twig:///templates/ajax/game/town/town.html.twig</note>
+        <note category="from">db://CitizenRole;db://CitizenStatus;twig:///templates/ajax/game/beyond/beyond.html.twig;twig:///templates/ajax/game/town/town.html.twig</note>
       </notes>
       <segment>
         <source>Ghul</source>
@@ -3845,27 +3845,27 @@
     </unit>
     <unit id="OSdFB8R" name="Einen Blick ins Forum werfen.">
       <notes>
-        <note category="german">Einen Blick ins Forum werfen.</note>
+        <note category="german">Einen Blick ins Forum werfen</note>
         <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
       </notes>
       <segment>
         <source>Einen Blick ins Forum werfen.</source>
-        <target>Jeter un œil au forum de votre ville.</target>
+        <target>Jeter un œil au forum de votre ville</target>
       </segment>
     </unit>
     <unit id=".vMt2eO" name="Meine Ration Wasser im Brunnen entnehmen (optional).">
       <notes>
-        <note category="german">Meine Ration Wasser im Brunnen entnehmen (optional).</note>
+        <note category="german">Meine Ration Wasser im Brunnen entnehmen (optional)</note>
         <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
       </notes>
       <segment>
         <source>Meine Ration Wasser im Brunnen entnehmen (optional).</source>
-        <target>Prendre mon eau au puits (optionnel).</target>
+        <target>Prendre mon eau au puits (optionnel)</target>
       </segment>
     </unit>
     <unit id="UgqaO9M" name="An der Angriffsabschätzung teilnehmen">
       <notes>
-        <note category="german">An der Angriffsabschätzung teilnehmen.</note>
+        <note category="german">An der Angriffsabschätzung teilnehmen</note>
         <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
       </notes>
       <segment>
@@ -3875,22 +3875,22 @@
     </unit>
     <unit id="h3w5_BE" name="Für ein Tagesprojekt abstimmen.">
       <notes>
-        <note category="german">Für ein Tagesprojekt abstimmen.</note>
+        <note category="german">Für ein Tagesprojekt abstimmen</note>
         <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
       </notes>
       <segment>
         <source>Für ein Tagesprojekt abstimmen.</source>
-        <target>Voter pour un projet du jour.</target>
+        <target>Voter pour un projet du jour</target>
       </segment>
     </unit>
     <unit id="G7Kbsmc">
       <notes>
-        <note category="german">Auf der Baustelle arbeiten, in der Werkstatt arbeiten oder in die Außenwelt gehen (optional).</note>
+        <note category="german">Auf der Baustelle arbeiten, in der Werkstatt arbeiten oder in die Außenwelt gehen (optional)</note>
         <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
       </notes>
       <segment>
         <source>Auf der Baustelle arbeiten, in der Werkstatt arbeiten oder in die Außenwelt gehen (optional).</source>
-        <target>Travailler au chantier, à l'atelier ou sortir (au choix).</target>
+        <target>Travailler au chantier, à l'atelier ou sortir (au choix)</target>
       </segment>
     </unit>
     <unit id="4tgoaqE" name="Heldentafel">
@@ -9839,7 +9839,7 @@
     <unit id="fICCxje" name="Seine Seele ansehen">
       <notes>
         <note category="german">Seine Seele ansehen</note>
-        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Seine Seele ansehen</source>
@@ -16537,7 +16537,15 @@
       </notes>
       <segment>
         <source>Du hast dafür {count} Aktionspunkt(e) verbraucht.</source>
-        <target>{raw_count, plural, one {Vous avez utilisé {count} point d'action.} other {Vous avez utilisé {count} points d'action.}}</target>
+        <target>{ref__icu, select,
+                on {
+                    {raw_count, plural,
+                        one {Vous avez utilisé {count} point d'action.}
+                        other {Vous avez utilisé {count} points d'action.}
+                    }
+                }
+                other {Vous avez utilisé {count} point(s) d'action.}
+            }</target>
       </segment>
     </unit>
     <unit id="lo3tdoY" name="Was für eine schreckliche Nacht!">
@@ -17435,7 +17443,7 @@
     <unit id="r46mSI6" name="Du hast dich in einen {role} verwandelt!">
       <notes>
         <note category="german">Du hast dich in einen {role} verwandelt!</note>
-        <note category="from">twig:///templates/ajax/game/town/town.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/beyond/beyond.html.twig;twig:///templates/ajax/game/town/town.html.twig</note>
       </notes>
       <segment>
         <source>Du hast dich in einen {role} verwandelt!</source>
@@ -17445,7 +17453,7 @@
     <unit id="41EQiml" name="Erzähle niemandem davon oder du wirst sofort erschossen!">
       <notes>
         <note category="german">Erzähle niemandem davon oder du wirst sofort erschossen!</note>
-        <note category="from">twig:///templates/ajax/game/town/town.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/beyond/beyond.html.twig;twig:///templates/ajax/game/town/town.html.twig</note>
       </notes>
       <segment>
         <source>Erzähle niemandem davon oder du wirst sofort erschossen!</source>
@@ -17849,7 +17857,7 @@
     <unit id=".S3ibaS" name="Wie man als Ghul spielt ?">
       <notes>
         <note category="german">Wie man als Ghul spielt ?</note>
-        <note category="from">twig:///templates/ajax/game/town/town.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/beyond/beyond.html.twig;twig:///templates/ajax/game/town/town.html.twig</note>
       </notes>
       <segment>
         <source>Wie man als Ghul spielt ?</source>
@@ -19952,7 +19960,7 @@
     <unit id="jTUz2Oq" name="Ich beobachte euch...">
       <notes>
         <note category="german">Ich beobachte euch...</note>
-        <note category="from">twig:///templates/ajax/forum/posts.html.twig</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/soul/user_tooltip.html.twig</note>
       </notes>
       <segment>
         <source>Ich beobachte euch...</source>
@@ -25943,12 +25951,105 @@ cette violente opération...]]></target>
     </unit>
     <unit id="NJ.jiJV" name="{citizen} bedankt sich herzlich bei dir, dass du ihn nach Hause gebracht hast!">
       <notes>
-        <note category="german">{citizen} thanks you wholeheartedly for taking them back to the town!</note>
+        <note category="german">{citizen} bedankt sich herzlich bei dir, dass du ihn nach Hause gebracht hast!</note>
         <note category="from">php:///src/Controller/BeyondController.php</note>
       </notes>
       <segment>
         <source>{citizen} bedankt sich herzlich bei dir, dass du ihn nach Hause gebracht hast!</source>
         <target>Le citoyen {citizen} vous remercie chaleureusement de l'avoir ramené en ville !</target>
+      </segment>
+    </unit>
+    <unit id="Yi60BMa" name="Du hast dafür {count} Baupunkt(e) verbraucht.">
+      <notes>
+        <note category="german">Du hast dafür {count} Baupunkt(e) verbraucht.</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
+      </notes>
+      <segment>
+        <source>Du hast dafür {count} Baupunkt(e) verbraucht.</source>
+        <target>{ref__icu, select,
+                on {
+                    {raw_count, plural,
+                        one {Vous avez utilisé {count} point de chantier.}
+                        other {Vous avez utilisé {count} points de chantier.}
+                    }
+                }
+                other {Vous avez utilisé {count} point(s) de chantier.}
+            }
+        </target>
+      </segment>
+    </unit>
+    <unit id="yHIMDic">
+      <notes>
+        <note category="german">Du bist ein Ghul! Versuche auf keinen Fall, Wasser zu trinken, das wird am Ende nur zu einer Verletzung führen...</note>
+        <note category="from">twig:///templates/ajax/game/beyond/beyond.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du bist ein Ghul! Versuche auf keinen Fall, Wasser zu trinken, das wird am Ende nur zu einer Verletzung führen...</source>
+        <target>Vous êtes une GOULE ! N'essayez surtout pas de boire de l'eau, où vous finirez blessé...</target>
+      </segment>
+    </unit>
+    <unit id="PuMKC_2" name="Lies die Hilfe zu Ghulen">
+      <notes>
+        <note category="german">Lies die Hilfe zu Ghulen</note>
+        <note category="from">twig:///templates/ajax/game/beyond/beyond.html.twig</note>
+      </notes>
+      <segment>
+        <source>Lies die Hilfe zu Ghulen</source>
+        <target>Consultez l'aide sur les Goules !</target>
+      </segment>
+    </unit>
+    <unit id="Ns.Fv2L">
+      <notes>
+        <note category="german">Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur
+                            Verfügung.</note>
+        <note category="from">twig:///templates/ajax/game/game.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur
+                            Verfügung.</source>
+        <target>Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur
+                            Verfügung.</target>
+      </segment>
+    </unit>
+    <unit id="boRvKwW" name="Hunger:">
+      <notes>
+        <note category="german">Hunger:</note>
+        <note category="from">twig:///templates/ajax/game/game.html.twig</note>
+      </notes>
+      <segment>
+        <source>Hunger:</source>
+        <target>Voracité :</target>
+      </segment>
+    </unit>
+    <unit id="0BOngla">
+      <notes>
+        <note category="german">Du hast dich in einen Ghul verwandelt! Verrate es niemandem und schau in der Hilfe nach, um mehr zu erfahren.</note>
+        <note category="from">db://CitizenRole</note>
+      </notes>
+      <segment>
+        <source>Du hast dich in einen Ghul verwandelt! Verrate es niemandem und schau in der Hilfe nach, um mehr zu erfahren.</source>
+        <target>Vous avez été transformé(e) en GOULE ! N'en parlez à personne et consultez l'aide du jeu pour en savoir plus...</target>
+      </segment>
+    </unit>
+    <unit id="TUSDSgv">
+      <notes>
+        <note category="german">Diese Anzeige zeigt an, wie &lt;strong&gt;hungrig&lt;/strong&gt; du als Ghul bist.&lt;br/&gt;&lt;strong&gt;Wenn die rote Grenze überschritten wird, stirbst du heute um Mitternacht!&lt;/strong&gt; Verschlinge einen Bürger (ideale Lösung) oder finde Menschenfleisch, um diesen Hunger zu verringern und zu überleben.</note>
+        <note category="from">twig:///templates/ajax/game/game.html.twig</note>
+      </notes>
+      <segment>
+        <source>Diese Anzeige zeigt an, wie &lt;strong&gt;hungrig&lt;/strong&gt; du als Ghul bist.&lt;br/&gt;&lt;strong&gt;Wenn die rote Grenze überschritten wird, stirbst du heute um Mitternacht!&lt;/strong&gt; Verschlinge einen Bürger (ideale Lösung) oder finde Menschenfleisch, um diesen Hunger zu verringern und zu überleben.</source>
+        <target><![CDATA[Cette jauge indique l'état de votre <strong>faim</strong>, en tant que goule.<br /><strong>Si la limite rouge est dépassée, vous mourrez ce soir à minuit !</strong> Dévorez un citoyen (solution idéale), ou trouvez de la viande humaine pour réduire cette faim et survivre.]]></target>
+      </segment>
+    </unit>
+    <unit id="Hy1STmq" name="vollständig demoliert und wiederverwertet...">
+      <notes>
+        <note category="german">vollständig demoliert und wiederverwertet...</note>
+        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+      </notes>
+      <segment>
+        <source>vollständig demoliert und wiederverwertet...</source>
+        <target>entièrement recyclée et démontée...</target>
       </segment>
     </unit>
   </file>

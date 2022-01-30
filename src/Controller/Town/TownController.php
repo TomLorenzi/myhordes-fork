@@ -1322,7 +1322,8 @@ class TownController extends InventoryAwareController
         $ap_effect = floor( $ap * ( $slave_bonus ? 1.5 : 1 ) );
 
         // Deduct AP and increase completion of the building
-        $this->citizen_handler->deductAPBP( $citizen, $ap );
+        $usedap = $usedbp = 0;
+        $this->citizen_handler->deductAPBP( $citizen, $ap, $usedap, $usedbp);
 
         if($missing_ap <= 0 || $missing_ap - $ap <= 0){
             // Missing ap == 0, the building has been completed by the workshop upgrade.
@@ -1369,8 +1370,11 @@ class TownController extends InventoryAwareController
                 $building->setDefense((int)floor($newDef));
             }
         }
+        if($usedbp > 0)
+            $messages[] = $this->translator->trans("Du hast dafür {count} Baupunkt(e) verbraucht.", ['{count}' => "<strong>$usedbp</strong>", 'raw_count' => $usedbp], "game");
+        if($usedap > 0)
+            $messages[] = $this->translator->trans("Du hast dafür {count} Aktionspunkt(e) verbraucht.", ['{count}' => "<strong>$usedap</strong>", 'raw_count' => $usedap], "game");
 
-        $messages[] = $this->translator->trans("Du hast dafür {count} Aktionspunkt(e) verbraucht.", ['{count}' => "<strong>$ap</strong>", 'raw_count' => $ap], "game");
 
         if ($slave_bonus)
             $messages[] = $this->translator->trans("Die in das Gebäude investierten APs zählten <strong>50% mehr</strong> (Sklaverei).", [], "game");

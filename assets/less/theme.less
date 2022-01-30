@@ -1036,6 +1036,56 @@ div.game-menu-area {
             &.free { background: url("../img/small_empty_inv.gif") no-repeat; }
             &.item.broken { outline: 1px dotted #ff0000; }
           }
+          .status-ghoul {
+            position: absolute;
+            left: 0;
+            top: 26px;
+            padding: 4px;
+            background: #8f5e33;
+            color: @myhordes-smalltext;
+            border: 1px solid #af865a;
+            outline: 2px solid #442012;
+            float: right;
+            font-size: 0.9rem;
+            height: 32px !important;
+            text-transform: uppercase;
+            font-weight: bold;
+            &.warning {
+              height: 50px !important;
+            }
+            max-width: 165px;
+            .ghoul-hunger-container {
+              width: 150px;
+              display: inline-block;
+              height: 0;
+              overflow: visible;
+              .ghoul-hunger-background {
+                position: absolute;
+                left: 0;
+                right: 0;
+                height: 6px;
+                top: 20px;
+                background: #582921;
+                outline: 1px solid #ba9976;
+                margin: 0 3px 0 5px;
+              }
+              .ghoul-hunger-bar {
+                position: absolute;
+                left: 0;
+                height: 6px;
+                top: 20px;
+                background: #696486;
+                margin: 0 3px 0 5px;
+                &.warning { background: #bb6765; }
+                border-top: 1px inset black;
+              }
+              .ghoul-hunger-indicator {
+                position: absolute; background: red; height: 6px; width: 2px; top: 20px; margin: 0 2px;
+              }
+
+            }
+            .ghoul-message { text-transform: uppercase; font-size: 0.7rem; display: block; color: #ff5f5f; margin-top: 5px; }
+          }
         }
 
         &.rucksack {
@@ -1156,7 +1206,11 @@ span.defense-broken,div.defense-broken { .icon_div("../img/icons/small_def_broke
     .username { 
         text-decoration: none; background-color: #5C0000 !important; border-top: 1px solid #98341c !important;
         border-radius: 4px !important; padding-right: 5px !important; padding-left: 5px !important;
-        color: #f0d79e !important; font-weight: bold !important;
+        color: #f0d79e !important; font-weight: bold !important; cursor: pointer;
+        &.is-friend {
+          border-top: 1px solid #965c36 !important;
+          background-color: #7e4e2a !important;
+        }
       }
     }
 
@@ -1461,6 +1515,10 @@ ul.citizen-list li {
     padding-left: 5px !important;
     color: #f0d79e !important;
     font-weight: bold !important;
+    &.is-friend {
+      border-top: 1px solid #965c36;
+      background-color: #7e4e2a;
+    }
   }
 }
 
@@ -1603,23 +1661,6 @@ div.daily-attack {
 }
 &.avatar { border: 1px solid @myhordes-cell-header-background-color; }
 &.avatarcrow { border: 1px solid #cc3300; }
-
-.ghoul-hunger-container {
-  width: 100px; display: inline-block; height: 0; overflow: visible; margin: 0 3px; position: relative;
-  &>.ghoul-hunger-background {
-    position: absolute; left: 0; right: 0; height: 4px; top: -4px; background: black;
-  }
-  &>.ghoul-hunger-bar {
-    position: absolute; left: 0; height: 4px; top: -4px; background: #696486;
-    &.warning { background: #bb6765; }
-    box-shadow: 0 0 3px black;
-  }
-  &>.ghoul-hunger-indicator {
-    position: absolute; background: red; height: 4px; width: 3px; top: -4px;
-  }
-
-}
-.ghoul-message { text-transform: uppercase; font-size: 0.7rem; display: block; color: #ff5f5f; }
 
 select {
   font-size: 1.2rem;

@@ -3595,12 +3595,12 @@
     </unit>
     <unit id="JLugykh">
       <notes>
-        <note category="german">Die AP-Kosten aller Bauprojekte werden um 30% gesenkt. Erhöht die Effektivität von Reparaturen um zwei Punkte.</note>
+        <note category="german">Die AP-Kosten aller Bauprojekte werden um 28% gesenkt. Erhöht die Effektivität von Reparaturen um zwei Punkte.</note>
         <note category="from">db://BuildingPrototype</note>
       </notes>
       <segment>
         <source>Die AP-Kosten aller Bauprojekte werden um 25% gesenkt. Erhöht die Effektivität von Reparaturen um zwei Punkte.</source>
-        <target>Los costos en PA de todas las obras se reducen en 30%. Aumenta la efectividad de las reparaciones en dos puntos.</target>
+        <target>Los costos en PA de todas las obras se reducen en 28%. Aumenta la efectividad de las reparaciones en dos puntos.</target>
       </segment>
     </unit>
     <unit id="OK7fp_k" name="Zaun (Haus)">

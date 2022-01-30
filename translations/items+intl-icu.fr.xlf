@@ -3770,7 +3770,7 @@
       </notes>
       <segment>
         <source>Dopen</source>
-        <target>Doper</target>
+        <target>Lui donner un stéroïde</target>
       </segment>
     </unit>
     <unit id="9Wgu8lv" name="Wasser suchen">
@@ -7682,7 +7682,7 @@
       </notes>
       <segment>
         <source>Zur Bank schicken</source>
-        <target>Envoyer à la Banque</target>
+        <target>La banque de la ville</target>
       </segment>
     </unit>
     <unit id="khQvNdC" name="Zur Truhe schicken">
@@ -7692,7 +7692,7 @@
       </notes>
       <segment>
         <source>Zur Truhe schicken</source>
-        <target>Envoyer à votre coffre</target>
+        <target>Mon coffre personnel</target>
       </segment>
     </unit>
     <unit id="0qToQ7z">
@@ -8649,12 +8649,11 @@
     <unit id="q2jfZzs">
       <notes>
         <note category="german">Gierig schluckst du deine Wasserration runter, ohne auch nur einen Tropfen zu verschwenden: aber das Ergebnis ist nicht, was du erwartet hast... Ohne Vorwarnung beginnt deine Kehle fürchterlich zu brennen und verursacht einen fürchterlich schmerzhaften Husten! Die sinkst auf die Knie und schnappst nach Luft. Als Ghul kannst du nicht länger Wasser konsumieren: &lt;strong&gt;du bist nun verletzt&lt;/strong&gt;.</note>
-        <note category="state">new</note>
         <note category="from">db://ItemAction</note>
       </notes>
       <segment>
         <source>Gierig schluckst du deine Wasserration runter, ohne auch nur einen Tropfen zu verschwenden: aber das Ergebnis ist nicht, was du erwartet hast... Ohne Vorwarnung beginnt deine Kehle fürchterlich zu brennen und verursacht einen fürchterlich schmerzhaften Husten! Die sinkst auf die Knie und schnappst nach Luft. Als Ghul kannst du nicht länger Wasser konsumieren: &lt;strong&gt;du bist nun verletzt&lt;/strong&gt;.</source>
-        <target><![CDATA[Gierig schluckst du deine Wasserration runter, ohne auch nur einen Tropfen zu verschwenden: aber das Ergebnis ist nicht, was du erwartet hast... Ohne Vorwarnung beginnt deine Kehle fürchterlich zu brennen und verursacht einen fürchterlich schmerzhaften Husten! Die sinkst auf die Knie und schnappst nach Luft. Als Ghul kannst du nicht länger Wasser konsumieren: <strong>du bist nun verletzt</strong>.]]></target>
+        <target><![CDATA[Vous avalez d'une traite votre ration : le résultat n'est pas du tout celui que vous imaginez... Sans crier gare, votre gorge vous brûle horriblement, provoquant une toux effroyable et douloureuse ! Vous tombez à genoux, le souffle coupé. Votre état de goule ne vous permet plus de consommer de l'eau : <strong>vous êtes maintenant blessé(e)</strong>.]]></target>
       </segment>
     </unit>
     <unit id="GUA4Vaf">
@@ -9445,6 +9444,38 @@
       <segment>
         <source>Hierfür hast du keinen Platz.</source>
         <target>Vous n'avez pas de place pour ça.</target>
+      </segment>
+    </unit>
+    <unit id="gObW_J5">
+      <notes>
+        <note category="german">Du kannst dieses Serum nicht auf dich selbst anwenden, oder du wirst der beste Freund eines Ghuls...</note>
+        <note category="from">db://Requirement</note>
+      </notes>
+      <segment>
+        <source>Du kannst dieses Serum nicht auf dich selbst anwenden, oder du wirst der beste Freund eines Ghuls...</source>
+        <target>Vous ne pouvez pas utiliser ce vaccin contre vous ou alors devenez le meilleur ami d'une goule...</target>
+      </segment>
+    </unit>
+    <unit id="j.Nx9To" name="Eintrittskarte">
+      <notes>
+        <note category="german">Eintrittskarte</note>
+        <note category="from">db://FeatureUnlockPrototype</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Eintrittskarte</source>
+        <target>Eintrittskarte</target>
+      </segment>
+    </unit>
+    <unit id=".LeRrBD">
+      <notes>
+        <note category="german">Hiermit kannst du Städten beitreten, obwohl du die Mindestanzahl an Seelenpunkten noch nicht erreicht hast.</note>
+        <note category="from">db://FeatureUnlockPrototype</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Hiermit kannst du Städten beitreten, obwohl du die Mindestanzahl an Seelenpunkten noch nicht erreicht hast.</source>
+        <target>Hiermit kannst du Städten beitreten, obwohl du die Mindestanzahl an Seelenpunkten noch nicht erreicht hast.</target>
       </segment>
     </unit>
   </file>

@@ -536,12 +536,8 @@
                                         <img src="{{ asset('build/images/icons/player_offline.gif') }}" alt="{{ 'Offline'|trans({},'global') }}">
                                     {% endif %}
                                     <!-- <img alt="{{ other_citizen.profession.label|trans({}, 'game') }}" src="{{ asset('build/images/professions/' ~ other_citizen.profession.icon ~ '.gif') }}"> -->
-                                    <span class="username">
-                                    {% if other_citizen != citizen %}
-                                        <a target="_blank" href="{{ path('soul_visit', {id: other_citizen.user.id}) }}"><b>{{ other_citizen.name }}</b></a>
-                                    {% else %}
-                                        <b>{{ other_citizen.name }}</b>
-                                    {% endif %}
+                                    <div class="inline">
+                                        {% include 'ajax/soul/playername.html.twig' with {user: other_citizen.user} only %}
                                         <div class="tooltip normal">
                                             <span class="warning">{{ other_citizen.name }} : </span><br />
                                             <span class="jobName"><img alt="{{ other_citizen.profession.label|trans({}, 'game') }}" src="{{ asset('build/images/professions/' ~ other_citizen.profession.icon ~ '.gif') }}" /> {{ other_citizen.profession.label|trans({}, 'game') }}</span>  <br />
@@ -553,7 +549,7 @@
                                                 {% endif %}
                                             </em>
                                         </div>
-                                    </span>
+                                    </div>
                                 </div>
                                 <div class="padded cell rw-3">
                                     <ul class="status">
@@ -726,12 +722,8 @@
                                         <img src="{{ asset('build/images/icons/player_offline.gif') }}" alt="{{ 'Offline'|trans({},'global') }}">
                                     {% endif %}
                                     <!-- <img alt="{{ other_citizen.profession.label|trans({}, 'game') }}" src="{{ asset('build/images/professions/' ~ other_citizen.profession.icon ~ '.gif') }}"> -->
-                                    <span class="username">
-                                    {% if other_citizen != citizen %}
-                                        <a target="_blank" href="{{ path('soul_visit', {id: other_citizen.user.id}) }}"><b>{{ other_citizen.name }}</b></a>
-                                    {% else %}
-                                        <b>{{ other_citizen.name }}</b>
-                                    {% endif %}
+                                    <div class="inline">
+                                        {% include 'ajax/soul/playername.html.twig' with {user: other_citizen.user} only %}
                                         <div class="tooltip normal">
                                             <span class="warning">{{ other_citizen.name }} : </span><br />
                                             <span class="jobName"><img alt="{{ other_citizen.profession.label|trans({}, 'game') }}" src="{{ asset('build/images/professions/' ~ other_citizen.profession.icon ~ '.gif') }}" /> {{ other_citizen.profession.label|trans({}, 'game') }}</span>  <br />
@@ -743,7 +735,7 @@
                                                 {% endif %}
                                             </em>
                                         </div>
-                                    </span>
+                                    </div>
                                 </div>
                                 <div class="padded cell rw-4">
                                     <ul class="status">

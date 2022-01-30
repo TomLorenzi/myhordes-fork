@@ -52,7 +52,7 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
         ['name' => 'thirst1',                                          'label' => 'Durst', 'description' => 'Du bist durstig... Das passiert immer dann wenn du am Vortag nichts getrunken hast oder wenn du in der Wüste lange Strecken gelaufen bist...'],
         ['name' => 'thirst2',   'nw_def' => -10,                       'label' => 'Dehydriert', 'description' => 'Dein Durst hat ein kritisches Level erreicht! Trinke schnell etwas, oder du riskierst zu sterben!'],
         ['name' => 'drugged',   'nw_def' =>  10,                       'label' => 'Rauschzustand', 'description' => 'Du hast heute bereits Drogen konsumiert. Wenn du noch weitere Drogen nimmst, riskierst du eine Abhängigkeit!'],
-        ['name' => 'addict',    'nw_def' => 15, 'nw_death' =>  0.10,  'label' => 'Drogenabhängig', 'description' => 'Du musst jeden Tag Drogen einnehmen! Wenn du eines morgens aufwachst, ohne am Tag zuvor Drogen genommen zu haben, wirst du sterben!'],
+        ['name' => 'addict',    'nw_def' =>  15, 'nw_death' =>  0.10,  'label' => 'Drogenabhängig', 'description' => 'Du musst jeden Tag Drogen einnehmen! Wenn du eines morgens aufwachst, ohne am Tag zuvor Drogen genommen zu haben, wirst du sterben!'],
         ['name' => 'infection', 'nw_def' => -15, 'nw_death' =>  0.20,  'label' => 'Infektion', 'description' => 'Eine furchtbare Krankheit brennt sich durch dein Innerstes... Vielleicht eine Art Infektion? Das beste, was du jetzt tun kannst, ist die richtige Medizin einzunehmen... Wenn du hingegen nichts tust, hast du eine 50/50 Chance, morgen tot aufzuwachen.'],
         ['name' => 'drunk',     'nw_def' =>  20, 'nw_death' => -0.04,  'label' => 'Trunkenheit', 'description' => 'Du stehst unter dem Einfluss von ziemlich starkem Alkohol... Du kannst vorerst keinen weiteren Alkohol zu dir nehmen.'],
         ['name' => 'hungover',  'nw_def' => -15, 'nw_death' =>  0.05,  'label' => 'Kater', 'description' => 'Du hast furchtbare Kopfschmerzen... Keinesfalls kannst du heute weiteren Alkohol zu dir nehmen.'],
@@ -287,7 +287,7 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
     public static $role_data = [
         ['label' => 'Schamane'                    , 'vote' => true,  'icon' => 'shaman', 'name'=>'shaman', 'hidden' => false, 'secret' => false, 'help_section' => 'shaman' ],
         ['label' => 'Reiseleiter in der Außenwelt', 'vote' => true,  'icon' => 'guide',  'name'=>'guide' , 'hidden' => false, 'secret' => false, 'help_section' => 'guide_to_the_world_beyond' ],
-        ['label' => 'Ghul',                         'vote' => false, 'icon' => 'ghoul',  'name'=>'ghoul' , 'hidden' => false, 'secret' => true, 'message' => 'Du hast dich in einen Ghul verwandelt!', 'help_section' => 'ghouls' ],
+        ['label' => 'Ghul',                         'vote' => false, 'icon' => 'ghoul',  'name'=>'ghoul' , 'hidden' => false, 'secret' => true, 'message' => 'Du hast dich in einen Ghul verwandelt! Verrate es niemandem und schau in der Hilfe nach, um mehr zu erfahren.', 'help_section' => 'ghouls' ],
         ['label' => 'Katapult-Bediener',            'vote' => false, 'icon' => 'cata',   'name'=>'cata'  , 'hidden' => true,  'secret' => false ],
     ];
 

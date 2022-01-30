@@ -313,15 +313,15 @@ class ItemFixtures extends Fixture
         ['label' => 'Normaler Bauplan (ungewöhnlich)', 'icon' => 'bplan_u', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                          // In ---
         ['label' => 'Normaler Bauplan (selten)', 'icon' => 'bplan_r', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                // In ---
         ['label' => 'Normaler Bauplan (sehr selten!)', 'icon' => 'bplan_e', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                          // In ---
-        ['label' => 'Hotel-Bauplan (ungewöhnlich)', 'icon' => 'mbplan_u', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                            // In ---
-        ['label' => 'Hotel-Bauplan (selten)', 'icon' => 'mbplan_r', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                  // In ---
-        ['label' => 'Hotel-Bauplan (sehr selten!)', 'icon' => 'mbplan_e', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                            // In ---
+        ['label' => 'Hotel-Bauplan (ungewöhnlich)', 'icon' => 'hbplan_u', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                            // In ---
+        ['label' => 'Hotel-Bauplan (selten)', 'icon' => 'hbplan_r', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                  // In ---
+        ['label' => 'Hotel-Bauplan (sehr selten!)', 'icon' => 'hbplan_e', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                            // In ---
         ['label' => 'Bunker-Bauplan (ungewöhnlich)', 'icon' => 'bbplan_u', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                           // In ---
         ['label' => 'Bunker-Bauplan (selten)', 'icon' => 'bbplan_r', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                 // In ---
         ['label' => 'Bunker-Bauplan (sehr selten!)', 'icon' => 'bbplan_e', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                           // In ---
-        ['label' => 'Hospital-Bauplan (ungewöhnlich)', 'icon' => 'hbplan_u', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                         // In ---
-        ['label' => 'Hospital-Bauplan (selten)', 'icon' => 'hbplan_r', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                               // In ---
-        ['label' => 'Hospital-Bauplan (sehr selten!)', 'icon' => 'hbplan_e', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                         // In ---
+        ['label' => 'Hospital-Bauplan (ungewöhnlich)', 'icon' => 'mbplan_u', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                         // In ---
+        ['label' => 'Hospital-Bauplan (selten)', 'icon' => 'mbplan_r', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                               // In ---
+        ['label' => 'Hospital-Bauplan (sehr selten!)', 'icon' => 'mbplan_e', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                         // In ---
         ['label' => 'Verirrte Seele', 'icon' => 'soul_blue', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                         //
         ['label' => 'Gequälte Seele', 'icon' => 'soul_red', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                            //
         ['label' => 'Starke Seele', 'icon' => 'soul_yellow', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                            //
@@ -671,15 +671,15 @@ class ItemFixtures extends Fixture
         'prints_#01' => 'Einige der Zimmer sind wahre Flaschenhälse. Darum ist das das perfekte Werkzeug, um sich Zutritt zu verschaffen und den einen oder anderen nützlichen Gegenstand herauszuholen!', // Abdruck vom Schlagschlüssel
         'prints_#02' => 'Einige der Zimmer sind wahre Flaschenhälse. Darum ist das das perfekte Werkzeug, um sich Zutritt zu verschaffen und den einen oder anderen nützlichen Gegenstand herauszuholen!', // Abdruck vom Flaschenöffner
         'vagoul_#00' => 'Dieses extrem seltene Serum wurde durch der Untersuchung der DNA eines fast immunen Wesens gewonnen. Es hatte zuvor 3 Tage überlebt, obwohl es von einem Infizierten gebissen wurde. Mit dem Serum kann man einen Ghul wieder in einen normalen Menschen verwandeln.', // Ghul-Serum
-        'hbplan_u_#00' => 'Dieser Bauplan ermöglicht es, ein neues Gebäude in der Stadt zu bauen.', // Hospital-Bauplan (ungewöhnlich)
-        'hbplan_r_#00' => 'Dieser Bauplan ermöglicht es, ein neues Gebäude in der Stadt zu bauen.', // Hospital-Bauplan (selten)
-        'hbplan_e_#00' => 'Dieser Bauplan ermöglicht es, ein neues Gebäude in der Stadt zu bauen.', // Hospital-Bauplan (sehr selten!)
+        'hbplan_u_#00' => 'Dieser Bauplan ermöglicht es, ein neues Gebäude in der Stadt zu bauen.', // Hotel-Bauplan (ungewöhnlich)
+        'hbplan_r_#00' => 'Dieser Bauplan ermöglicht es, ein neues Gebäude in der Stadt zu bauen.', // Hotel-Bauplan (selten)
+        'hbplan_e_#00' => 'Dieser Bauplan ermöglicht es, ein neues Gebäude in der Stadt zu bauen.', // Hotel-Bauplan (sehr selten!)
         'bbplan_u_#00' => 'Dieser Bauplan ermöglicht es, ein neues Gebäude in der Stadt zu bauen.', // Bunker-Bauplan (ungewöhnlich)
         'bbplan_r_#00' => 'Dieser Bauplan ermöglicht es, ein neues Gebäude in der Stadt zu bauen.', // Bunker-Bauplan (selten)
         'bbplan_e_#00' => 'Dieser Bauplan ermöglicht es, ein neues Gebäude in der Stadt zu bauen.', // Bunker-Bauplan (sehr selten!)
-        'mbplan_u_#00' => 'Dieser Bauplan ermöglicht es, ein neues Gebäude in der Stadt zu bauen.', // Hotel-Bauplan (ungewöhnlich)
-        'mbplan_r_#00' => 'Dieser Bauplan ermöglicht es, ein neues Gebäude in der Stadt zu bauen.', // Hotel-Bauplan (selten)
-        'mbplan_e_#00' => 'Dieser Bauplan ermöglicht es, ein neues Gebäude in der Stadt zu bauen.', // Hotel-Bauplan (sehr selten!)
+        'mbplan_u_#00' => 'Dieser Bauplan ermöglicht es, ein neues Gebäude in der Stadt zu bauen.', // Hospital-Bauplan (ungewöhnlich)
+        'mbplan_r_#00' => 'Dieser Bauplan ermöglicht es, ein neues Gebäude in der Stadt zu bauen.', // Hospital-Bauplan (selten)
+        'mbplan_e_#00' => 'Dieser Bauplan ermöglicht es, ein neues Gebäude in der Stadt zu bauen.', // Hospital-Bauplan (sehr selten!)
         'soul_blue_#00' => 'Eine Schwache Seele. Einmal in der Bank abgelegt, kann ein Schamane sie nehmen und in eine starke Seele umwandeln. Sie kann einen Schamanen noch in vielen anderen Situationen nützen.', // Verirrte Seele
         'soul_yellow_#00' => 'Eine Starke Seele. Wurde von einem Schamanen aus einer Schwachen Seele hergestellt.', // Starke Seele
         'soul_red_#00' => 'Die Seele dieses Bürgers wurde schon zu lange ohne Rücksicht auf Rücksicht verlassen. Heute kommt dieses von Hass erfüllte Wesen, um die schlechten Vibes der Überseewelt zu nähren, ihr solltet euch schnell darum kümmern!', // Gefolterte Seele
