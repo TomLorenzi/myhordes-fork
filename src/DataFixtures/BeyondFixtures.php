@@ -749,9 +749,9 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
         ["label" => "Verlassener Bunker",'icon' => 'deserted_bunker',"camping" => 1,"min_dist" => 5, "max_dist" => 100, "chance" => 0, "explorable" => true,
             "explorable_skin" => 'bunker', "explorable_desc" => null,
             "drops" => [
-                array('item' => 'bbplan_u_#00','count' => 20),
-                array('item' => 'bbplan_r_#00','count' => 12),
-                array('item' => 'bbplan_e_#00','count' => 10),
+                array('item' => 'bbplan_u_#00','count' => 12),
+                array('item' => 'bbplan_r_#00','count' => 7),
+                array('item' => 'bbplan_e_#00','count' => 6),
                 array('item' => 'water_#00','count' => 4),
                 array('item' => 'concrete_wall_#00','count' => 21),
                 array('item' => 'wood_bad_#00','count' => 4),
