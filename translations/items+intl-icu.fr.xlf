@@ -3770,7 +3770,7 @@
       </notes>
       <segment>
         <source>Dopen</source>
-        <target>Doper</target>
+        <target>Lui donner un stéroïde</target>
       </segment>
     </unit>
     <unit id="9Wgu8lv" name="Wasser suchen">
@@ -7682,7 +7682,7 @@
       </notes>
       <segment>
         <source>Zur Bank schicken</source>
-        <target>Envoyer à la Banque</target>
+        <target>La banque de la ville</target>
       </segment>
     </unit>
     <unit id="khQvNdC" name="Zur Truhe schicken">
@@ -7692,7 +7692,7 @@
       </notes>
       <segment>
         <source>Zur Truhe schicken</source>
-        <target>Envoyer à votre coffre</target>
+        <target>Mon coffre personnel</target>
       </segment>
     </unit>
     <unit id="0qToQ7z">
