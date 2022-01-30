@@ -4423,7 +4423,7 @@
       </notes>
       <segment>
         <source>Freundesliste</source>
-        <target>Freundesliste</target>
+        <target>Amis</target>
       </segment>
     </unit>
     <unit id="_cSDjRl" name="Spieler werben">
@@ -4444,7 +4444,7 @@
       </notes>
       <segment>
         <source>Wahrer Freund</source>
-        <target>Wahrer Freund</target>
+        <target>Ami Mutuel</target>
       </segment>
     </unit>
     <unit id="aWNhyEI" name="Deine Freundesliste ist leer.">
@@ -4455,7 +4455,7 @@
       </notes>
       <segment>
         <source>Deine Freundesliste ist leer.</source>
-        <target>Deine Freundesliste ist leer.</target>
+        <target>Votre liste d'amis est vide.</target>
       </segment>
     </unit>
     <unit id="vHUeAVJ" name="Neue Freunde finden">
@@ -4466,7 +4466,7 @@
       </notes>
       <segment>
         <source>Neue Freunde finden</source>
-        <target>Neue Freunde finden</target>
+        <target>Chercher un ami</target>
       </segment>
     </unit>
     <unit id="BTjlZxP" name="Gib hier den Nickname des Spielers ein, den du als Freund hinzufügen möchtest.">
@@ -4477,7 +4477,7 @@
       </notes>
       <segment>
         <source>Gib hier den Nickname des Spielers ein, den du als Freund hinzufügen möchtest.</source>
-        <target>Gib hier den Nickname des Spielers ein, den du als Freund hinzufügen möchtest.</target>
+        <target>Entrez ici le pseudo du joueur que vous souhaitez ajouter en ami.</target>
       </segment>
     </unit>
     <unit id="BHCazk7" name="Spieler, die dich als Freund hinzugefügt haben">
@@ -4488,7 +4488,7 @@
       </notes>
       <segment>
         <source>Spieler, die dich als Freund hinzugefügt haben</source>
-        <target>Spieler, die dich als Freund hinzugefügt haben</target>
+        <target>Les joueurs qui vont ont ajouté en ami</target>
       </segment>
     </unit>
     <unit id="xMippYH">
@@ -4499,7 +4499,7 @@
       </notes>
       <segment>
         <source>Hier siehst du Spieler, die dich in ihre Freundesliste eingetragen haben. Wenn du möchtest, kannst du sie ebenfalls in deine Freundesliste eintragen.</source>
-        <target>Hier siehst du Spieler, die dich in ihre Freundesliste eingetragen haben. Wenn du möchtest, kannst du sie ebenfalls in deine Freundesliste eintragen.</target>
+        <target>Ici, vous pouvez voir les joueurs qui vous ont ajouté à leur liste d'amis. Si vous le souhaitez, vous pouvez faire de même.</target>
       </segment>
     </unit>
     <unit id="pPMWL8v">
@@ -4510,7 +4510,7 @@
       </notes>
       <segment>
         <source>Du kannst verhindern, dass ein Spieler dich in seine Freundesliste aufnimmt, indem du ihn blockierst. Bedenke, dass er dich danach auch nicht mehr via über eine private Nachricht kontaktieren kann.</source>
-        <target>Du kannst verhindern, dass ein Spieler dich in seine Freundesliste aufnimmt, indem du ihn blockierst. Bedenke, dass er dich danach auch nicht mehr via über eine private Nachricht kontaktieren kann.</target>
+        <target>Vous pouvez empêcher un joueur de vous ajouter à sa liste d'amis en le bloquant. Gardez à l'esprit qu'il ne pourra plus vous contacter via message privé par la suite.</target>
       </segment>
     </unit>
   </file>
