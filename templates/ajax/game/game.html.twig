@@ -86,7 +86,7 @@
                 </li>
             {% endif %}
             {% if roles|filter(r => r.name == "ghoul")|length > 0 %}
-                <li class="status-ghoul {% if hunger > 40 %}warning{% endif %} hide-md hide-sm">
+                <li class="status-ghoul {% if hunger > 40 %}warning{% endif %}">
                     {{ 'Hunger:'|trans({}, 'game') }}
                     <div class="ghoul-hunger-container">
                         <div class="ghoul-hunger-background"></div>
