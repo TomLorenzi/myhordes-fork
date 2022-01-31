@@ -18,6 +18,9 @@
         <div class="tab{% if admin_tab == "admin_users_pictos" %} selected{% endif %}">
             <div class="tab-link" x-ajax-href="{{ path('admin_users_pictos_view', { 'id': user.Id }) }}"><img src="{{ asset('build/images/pictos/r_heroac.gif') }}" alt="" /> <span class="hide-sm">{% trans from 'admin' %}Auszeichnungen{% endtrans %}</span></div>
         </div>
+        <div class="tab{% if admin_tab == "admin_users_social" %} selected{% endif %}">
+            <div class="tab-link" x-ajax-href="{{ path('admin_users_social_view', { 'id': user.Id }) }}"><img src="{{ asset('build/images/icons/small_referer.gif') }}" alt="" /> <span class="hide-sm">{% trans from 'admin' %}Sozial{% endtrans %}</span></div>
+        </div>
     </div>
 
 </div>

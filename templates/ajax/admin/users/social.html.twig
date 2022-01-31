@@ -1,0 +1,137 @@
+{% extends "ajax/ajax.html.twig" %}
+{% block title %}{% trans from 'admin' %}Sozial{% endtrans %}{%  endblock %}
+{% block menu_text %}
+    {{parent()}}
+    <li class="back-dash" x-ajax-href="{{ url('game_landing') }}">{{ 'Zum Spiel'|trans({},'global') }}</li>
+{% endblock %}
+{% block ajax %}
+    {# @var user \App\Entity\User#}
+    <div class="row soul">
+        <div class="cell padded header rw-12">
+            {% embed "ajax/admin/users/tabs.html.twig" %}{% endembed %}
+
+            <div class="row">
+                <div class="cell padded rw-12">
+                    <h5>{{ 'Freundesliste'|trans({}, 'admin') }}</h5>
+                    <div class="row-table">
+                        <div class="row header hide-sm">
+                            <div class="padded cell rw-1"></div>
+                            <div class="padded cell rw-5">{{ 'Spieler'|trans({},'soul') }}</div>
+                            <div class="padded cell rw-5 hide-md">{{ 'Seelenpunkte'|trans({},'soul') }}</div>
+                        </div>
+                        {% for entry in friends|sort((a,b) => (app.user in b.friends) <=> (app.user in a.friends) ?: a.id <=> b.id) %}
+                            <div class="row-flex wrap">
+                                <div class="padded cell rw-1 center">
+                                    {% if app.user in entry.friends %}
+                                        <img alt="<>" src="{{ asset('build/images/icons/star.gif') }}" title="{{ 'Wahrer Freund'|trans({},'soul') }}"/>
+                                    {% else %}
+                                        <img alt="" src="{{ asset('build/images/professions/void.gif') }}"/>
+                                    {% endif %}
+                                </div>
+                                <div class="padded cell factor-0" style="flex-basis: 90px; background: url('{{ entry.avatar ? path('app_web_avatar', {'uid': entry.id, 'name': entry.avatar.smallName, 'ext': entry.avatar.format}) : asset('build/images/forum/empty_avatar.gif') }}') center/cover no-repeat"></div>
+                                <div class="padded cell factor-1">{% include 'ajax/soul/playername.html.twig' with {user: entry} only %}</div>
+                                <div class="padded cell rw-5 hide-sm hide-md">{{ entry.soulPoints }}</div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                {% if reverse_friends is not empty %}
+                    <div class="padded cell rw-12">
+                        <h5>{{ 'Spieler, sie sich als Freund hinzugefügt haben'|trans({},'admin') }}</h5>
+                        <div class="row-table">
+                            <div class="row header hide-sm">
+                                <div class="padded cell rw-1">&nbsp;</div>
+                                <div class="padded cell rw-5">{{ 'Spieler'|trans({},'soul') }}</div>
+                                <div class="padded cell rw-5 hide-sm hide-md">{{ 'Seelenpunkte'|trans({},'soul') }}</div>
+                            </div>
+                            {% for entry in reverse_friends %}
+                                <div class="row-flex wrap">
+                                    <div class="padded cell rw-1">&nbsp;</div>
+                                    <div class="padded cell factor-0" style="flex-basis: 90px; background: url('{{ entry.avatar ? path('app_web_avatar', {'uid': entry.id, 'name': entry.avatar.smallName, 'ext': entry.avatar.format}) : asset('build/images/forum/empty_avatar.gif') }}') center/cover no-repeat"></div>
+                                    <div class="padded cell factor-1">{{ entry.name }}</div>
+                                    <div class="padded cell rw-5 hide-sm hide-md">{{ entry.soulPoints }}</div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+
+            <div class="row">
+                <div class="cell padded rw-12">
+                    <h5>{{ 'Spieler werben'|trans({}, 'admin') }}</h5>
+                    {% if sponsored is not empty %}
+                        <div class="padded cell rw-12">
+                            <div class="row-table">
+                                <div class="row header">
+                                    <div class="padded cell rw-4">{{ 'Geworbener Spieler'|trans({},'soul') }}</div>
+                                    <div class="padded cell rw-4">{{ 'Seelenpunkte'|trans({},'soul') }}</div>
+                                    <div class="padded cell rw-4">{{ 'Heldenerfahrung'|trans({},'soul') }}</div>
+                                </div>
+                                {% for entry in sponsored %}
+                                    <div class="row">
+                                        <div class="padded cell rw-4">
+                                            <img alt="" src="{{ asset('build/images/icons/small_ghost_red.gif') }}">
+                                            {% include 'ajax/soul/playername.html.twig' with {user: entry.user} only %}
+                                        </div>
+                                        <div class="padded cell rw-4">{{ entry.user.soulPoints }}</div>
+                                        <div class="padded cell rw-4">{{ entry.user.heroDaysSpent }}</div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="cell padded rw-12">
+                    <h5>{{ 'Blockierliste'|trans({}, 'admin') }}</h5>
+                    {% if blocked is not empty %}
+                        <div class="padded cell rw-12">
+                            <div class="row-table">
+                                <div class="row header">
+                                    <div class="padded cell rw-12">{{ 'Blockierter Spieler'|trans({},'soul') }}</div>
+                                </div>
+                                {% for entry in blocked %}
+                                    <div class="row">
+                                        <div class="padded cell rw-12">
+                                            <img alt="" src="{{ asset('build/images/icons/small_ghost_red.gif') }}">
+                                            {% include 'ajax/soul/playername.html.twig' with {user: entry.related} only %}
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% endif %}
+                    {% if blockers is not empty %}
+                        <div class="padded cell rw-12">
+                            <div class="row-table">
+                                <div class="row header">
+                                    <div class="padded cell rw-12">{{ 'Blockiert von'|trans({}, 'admin') }}</div>
+                                </div>
+                                {% for entry in blockers %}
+                                    <div class="row">
+                                        <div class="padded cell rw-12">
+                                            <img alt="" src="{{ asset('build/images/icons/small_ghost_red.gif') }}">
+                                            {% include 'ajax/soul/playername.html.twig' with {user: entry.related} only %}
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% embed "ajax/admin/users/footer.html.twig" %}{% endembed %}
+{% endblock %}
+{% block js %}
+    {{ parent() }}
+    <script>
+    </script>
+{% endblock %}

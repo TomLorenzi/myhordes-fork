@@ -1,5 +1,5 @@
 {% extends "ajax/soul/shell.html.twig" %}
-{% block title %}{{'Wir werden alle sterben: Sag es weiter!'|trans({}, 'game')}}{% endblock %}
+{% block title %}{{'Wir werden alle sterben: Sag es weiter!'|trans({}, 'game')|raw}}{% endblock %}
 {% block soul_content %}
     <div class="row">
 
@@ -10,6 +10,7 @@
                 <ul class="tabs plain" x-tab-group="social" x-tab-default="{{ tab }}" x-tab-control id="social_control">
                     <li class="tab" x-tab-id="friends"><div class="tab-link">{{ 'Freundesliste'|trans({},'soul') }}</div></li>
                     <li class="tab" x-tab-id="refer"><div class="tab-link">{{ 'Spieler werben'|trans({},'soul') }}</div></li>
+                    <li class="tab" x-tab-id="blocklist"><div class="tab-link">{{ 'Blockierliste'|trans({},'soul') }}</div></li>
                 </ul>
             </div>
         </div>
@@ -36,7 +37,7 @@
                                             {% endif %}
                                         </div>
                                         <div class="padded cell factor-0" style="flex-basis: 90px; background: url('{{ entry.avatar ? path('app_web_avatar', {'uid': entry.id, 'name': entry.avatar.smallName, 'ext': entry.avatar.format}) : asset('build/images/forum/empty_avatar.gif') }}') center/cover no-repeat"></div>
-                                        <div class="padded cell factor-1">{{ entry.name }}</div>
+                                        <div class="padded cell factor-1">{% include 'ajax/soul/playername.html.twig' with {user: entry} only %}</div>
                                         <div class="padded cell rw-3 hide-sm hide-md">{{ entry.soulPoints }}</div>
                                         <div class="padded cell rw-3 rw-sm-12 right">
                                             {% if app.user in entry.friends and coa is not null and not coa_full and coa_members[entry.id] is not defined %}
@@ -135,7 +136,7 @@
                                     <div class="row">
                                         <div class="padded cell rw-3">
                                             <img alt="" src="{{ asset('build/images/icons/small_ghost_red.gif') }}">
-                                            <a x-ajax-href="{{ path('soul_visit', {id: entry.user.id}) }}" class="link username">{{ entry.user.name }}</a>
+                                            {% include 'ajax/soul/playername.html.twig' with {user: entry.user} only %}
                                         </div>
                                         <div class="padded cell rw-3">{{ entry.user.soulPoints }}</div>
                                         <div class="padded cell rw-3">{{ entry.user.heroDaysSpent }}</div>
@@ -236,6 +237,34 @@
             </div>
         </div>
 
+        <div class="cell rw-12">
+            <div x-tab-group="social" x-tab-id="blocklist" x-tab-target>
+                <div class="row">
+                    {% if blocklist is not empty %}
+                        <div class="padded cell rw-12">
+                            <div class="row-table">
+                                <div class="row header">
+                                    <div class="padded cell rw-9">{{ 'Blockierter Spieler'|trans({},'soul') }}</div>
+                                    <div class="padded cell rw-3">{{ 'Aktionen'|trans({},'soul') }}</div>
+                                </div>
+                                {% for entry in blocklist %}
+                                    <div class="row">
+                                        <div class="padded cell rw-9">
+                                            <img alt="" src="{{ asset('build/images/icons/small_ghost_red.gif') }}">
+                                            {% include 'ajax/soul/playername.html.twig' with {user: entry.related} only %}
+                                        </div>
+                                        <div class="padded cell rw-3">
+                                            <a class="link inline small" x-action="soul_unblock_user" x-user-id="{{ entry.related.id }}">{{ 'Blockade aufheben'|trans({'{user}': entry.related.name},'global') }}</a>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
     </div>
 {% endblock %}
 
@@ -261,6 +290,17 @@
                 p.setAttribute('x-post-command', elem.getAttribute('x-ulink'));
                 p.click();
             } else alert('{{ 'Fehler beim Laden des Posteingangs.'|trans({},'global') }}')
+        });
+
+        $.html.addEventListenerAll('a[x-action="soul_unblock_user"]','click',(e,elem) => {
+            e.preventDefault();
+            if (confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
+                var url = '{{ path('soul_block_control', {id: 0, action: 0}) }}';
+            url = url.replace("0", elem.getAttribute("x-user-id"));
+            $.ajax.easySend( url, {},
+                function () {
+                    $.ajax.load(null, '{{ path('soul_contacts', {}) }}', true);
+                } );
         });
 
         let typingTimer, doneTypingInterval = 500;

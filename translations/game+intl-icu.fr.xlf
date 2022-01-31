@@ -20551,34 +20551,31 @@
     <unit id="wZJl7Bp" name="Deine Identität">
       <notes>
         <note category="german">Deine Identität</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/jobs.html.twig</note>
       </notes>
       <segment>
         <source>Deine Identität</source>
-        <target>Deine Identität</target>
+        <target>Votre identité</target>
       </segment>
     </unit>
     <unit id="0DPxQPn" name="Diese Stadt erlaubt es, einen Spitznamen zu tragen.">
       <notes>
         <note category="german">Diese Stadt erlaubt es, einen Spitznamen zu tragen.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/jobs.html.twig</note>
       </notes>
       <segment>
         <source>Diese Stadt erlaubt es, einen Spitznamen zu tragen.</source>
-        <target>Diese Stadt erlaubt es, einen Spitznamen zu tragen.</target>
+        <target>Cette ville autorise les alias.</target>
       </segment>
     </unit>
     <unit id="qYsZ1.g" name="Freilassen, um normalen Spielernamen zu verwenden.">
       <notes>
         <note category="german">Freilassen, um normalen Spielernamen zu verwenden.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/jobs.html.twig</note>
       </notes>
       <segment>
         <source>Freilassen, um normalen Spielernamen zu verwenden.</source>
-        <target>Freilassen, um normalen Spielernamen zu verwenden.</target>
+        <target>Laissez ce champ vide pour conserver votre nom habituel.</target>
       </segment>
     </unit>
     <unit id="G2mvpQw" name="Wir denken, der morgige Angriff wird ungefähr folgendermaßen aussehen:">

@@ -57,7 +57,7 @@
                 <div class="note note-important">{{ 'Dieser Spieler ist Mitglied des Entwickler-Teams von MyHordes.'|trans({},'global') }}</div>
             {% endif %}
 
-            {% if not user|is_granted('ROLE_CROW') %}
+            {% if not user|is_granted('ROLE_CROW') and app.user != user %}
                 <div class="row">
                     <div class="cell rw-12 right">
                         {% if not app.user|related(user,constant('App\\Entity\\SocialRelation::SocialRelationTypeBlock')) %}

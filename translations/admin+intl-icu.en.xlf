@@ -2575,7 +2575,7 @@
       <notes>
         <note category="german">Sozial</note>
         <note category="state">new</note>
-        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig;twig:///templates/ajax/admin/users/social.html.twig;twig:///templates/ajax/admin/users/tabs.html.twig</note>
       </notes>
       <segment>
         <source>Sozial</source>
@@ -4464,6 +4464,57 @@
       <segment>
         <source>Diese Auszeichnung wurde verdient.</source>
         <target>This picto has been earned.</target>
+      </segment>
+    </unit>
+    <unit id="I2eWURG" name="Freundesliste">
+      <notes>
+        <note category="german">Freundesliste</note>
+        <note category="from">twig:///templates/ajax/admin/users/social.html.twig</note>
+      </notes>
+      <segment>
+        <source>Freundesliste</source>
+        <target>Friend list</target>
+      </segment>
+    </unit>
+    <unit id="nQ9blbf" name="Spieler, sie sich als Freund hinzugefügt haben">
+      <notes>
+        <note category="german">Spieler, die sie/ihn als Freund hinzugefügt haben</note>
+        <note category="from">twig:///templates/ajax/admin/users/social.html.twig</note>
+      </notes>
+      <segment>
+        <source>Spieler, sie sich als Freund hinzugefügt haben</source>
+        <target>Players who added them to their friend list</target>
+      </segment>
+    </unit>
+    <unit id="_cSDjRl" name="Spieler werben">
+      <notes>
+        <note category="german">Spieler werben</note>
+        <note category="from">twig:///templates/ajax/admin/users/social.html.twig</note>
+      </notes>
+      <segment>
+        <source>Spieler werben</source>
+        <target>Sponsorship</target>
+      </segment>
+    </unit>
+    <unit id="b1moPIw" name="Blockierliste">
+      <notes>
+        <note category="german">Blockierliste</note>
+        <note category="from">twig:///templates/ajax/admin/users/social.html.twig</note>
+      </notes>
+      <segment>
+        <source>Blockierliste</source>
+        <target>Blocklist</target>
+      </segment>
+    </unit>
+    <unit id="6vRyig1" name="Blockiert von">
+      <notes>
+        <note category="german">Blockiert von</note>
+        <note category="from">twig:///templates/ajax/admin/users/social.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Blockiert von</source>
+        <target>Blocked by</target>
       </segment>
     </unit>
     <unit id="6B7S7TG" name="Bürger-Alias ​​ändern:">

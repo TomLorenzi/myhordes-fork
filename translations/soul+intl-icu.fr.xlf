@@ -2525,7 +2525,7 @@
     <unit id="9cNHWGl" name="Seelenpunkte">
       <notes>
         <note category="german">Seelenpunkte</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/season.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/users/social.html.twig;twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/season.html.twig</note>
       </notes>
       <segment>
         <source>Seelenpunkte</source>
@@ -2535,7 +2535,7 @@
     <unit id="9DAxndj" name="Spieler">
       <notes>
         <note category="german">Spieler</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/season.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/users/social.html.twig;twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/season.html.twig</note>
       </notes>
       <segment>
         <source>Spieler</source>
@@ -3036,7 +3036,7 @@
     <unit id="uK4jynd" name="Geworbener Spieler">
       <notes>
         <note category="german">Geworbener Spieler</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/users/social.html.twig;twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Geworbener Spieler</source>
@@ -3046,7 +3046,7 @@
     <unit id="4n2PgVx" name="Heldenerfahrung">
       <notes>
         <note category="german">Heldenerfahrung</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/users/social.html.twig;twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Heldenerfahrung</source>
@@ -4352,7 +4352,7 @@
       </notes>
       <segment>
         <source>Schreiben</source>
-        <target>Envoyer message</target>
+        <target>Envoyer un message</target>
       </segment>
     </unit>
     <unit id="ukvMJvG" name="Kontakt hinzufügen">
@@ -4419,11 +4419,10 @@
       <notes>
         <note category="german">Freundesliste</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Freundesliste</source>
-        <target>Freundesliste</target>
+        <target>Amis</target>
       </segment>
     </unit>
     <unit id="_cSDjRl" name="Spieler werben">
@@ -4439,78 +4438,91 @@
     <unit id="T6FFmLN" name="Wahrer Freund">
       <notes>
         <note category="german">Wahrer Freund</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
-        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/admin/users/social.html.twig;twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Wahrer Freund</source>
-        <target>Wahrer Freund</target>
+        <target>Ami Mutuel</target>
       </segment>
     </unit>
     <unit id="aWNhyEI" name="Deine Freundesliste ist leer.">
       <notes>
         <note category="german">Deine Freundesliste ist leer.</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Deine Freundesliste ist leer.</source>
-        <target>Deine Freundesliste ist leer.</target>
+        <target>Votre liste d'amis est vide.</target>
       </segment>
     </unit>
     <unit id="vHUeAVJ" name="Neue Freunde finden">
       <notes>
         <note category="german">Neue Freunde finden</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Neue Freunde finden</source>
-        <target>Neue Freunde finden</target>
+        <target>Chercher un ami</target>
       </segment>
     </unit>
     <unit id="BTjlZxP" name="Gib hier den Nickname des Spielers ein, den du als Freund hinzufügen möchtest.">
       <notes>
         <note category="german">Gib hier den Nickname des Spielers ein, den du als Freund hinzufügen möchtest.</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Gib hier den Nickname des Spielers ein, den du als Freund hinzufügen möchtest.</source>
-        <target>Gib hier den Nickname des Spielers ein, den du als Freund hinzufügen möchtest.</target>
+        <target>Entrez ici le pseudo du joueur que vous souhaitez ajouter en ami.</target>
       </segment>
     </unit>
     <unit id="BHCazk7" name="Spieler, die dich als Freund hinzugefügt haben">
       <notes>
         <note category="german">Spieler, die dich als Freund hinzugefügt haben</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Spieler, die dich als Freund hinzugefügt haben</source>
-        <target>Spieler, die dich als Freund hinzugefügt haben</target>
+        <target>Les joueurs qui vont ont ajouté en ami</target>
       </segment>
     </unit>
     <unit id="xMippYH">
       <notes>
         <note category="german">Hier siehst du Spieler, die dich in ihre Freundesliste eingetragen haben. Wenn du möchtest, kannst du sie ebenfalls in deine Freundesliste eintragen.</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Hier siehst du Spieler, die dich in ihre Freundesliste eingetragen haben. Wenn du möchtest, kannst du sie ebenfalls in deine Freundesliste eintragen.</source>
-        <target>Hier siehst du Spieler, die dich in ihre Freundesliste eingetragen haben. Wenn du möchtest, kannst du sie ebenfalls in deine Freundesliste eintragen.</target>
+        <target>Ici, vous pouvez voir les joueurs qui vous ont ajouté à leur liste d'amis. Si vous le souhaitez, vous pouvez faire de même.</target>
       </segment>
     </unit>
     <unit id="pPMWL8v">
       <notes>
         <note category="german">Du kannst verhindern, dass ein Spieler dich in seine Freundesliste aufnimmt, indem du ihn blockierst. Bedenke, dass er dich danach auch nicht mehr via über eine private Nachricht kontaktieren kann.</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Du kannst verhindern, dass ein Spieler dich in seine Freundesliste aufnimmt, indem du ihn blockierst. Bedenke, dass er dich danach auch nicht mehr via über eine private Nachricht kontaktieren kann.</source>
-        <target>Du kannst verhindern, dass ein Spieler dich in seine Freundesliste aufnimmt, indem du ihn blockierst. Bedenke, dass er dich danach auch nicht mehr via über eine private Nachricht kontaktieren kann.</target>
+        <target>Vous pouvez empêcher un joueur de vous ajouter à sa liste d'amis en le bloquant. Gardez à l'esprit qu'il ne pourra plus vous contacter via message privé par la suite.</target>
+      </segment>
+    </unit>
+    <unit id="b1moPIw" name="Blockierliste">
+      <notes>
+        <note category="german">Blockierliste</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Blockierliste</source>
+        <target>Liste noire</target>
+      </segment>
+    </unit>
+    <unit id="56y70st" name="Blockierter Spieler">
+      <notes>
+        <note category="german">Blockierter Spieler</note>
+        <note category="from">twig:///templates/ajax/admin/users/social.html.twig;twig:///templates/ajax/soul/refer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Blockierter Spieler</source>
+        <target>Joueurs bloqués</target>
       </segment>
     </unit>
   </file>

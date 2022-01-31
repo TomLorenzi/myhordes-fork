@@ -2797,6 +2797,36 @@
         <target>Diese Auszeichnung wurde verdient.</target>
       </segment>
     </unit>
+    <unit id="I2eWURG" name="Freundesliste">
+      <segment>
+        <source>Freundesliste</source>
+        <target>Freundesliste</target>
+      </segment>
+    </unit>
+    <unit id="nQ9blbf" name="Spieler, sie sich als Freund hinzugefügt haben">
+      <segment>
+        <source>Spieler, sie sich als Freund hinzugefügt haben</source>
+        <target>Spieler, die sie/ihn als Freund hinzugefügt haben</target>
+      </segment>
+    </unit>
+    <unit id="_cSDjRl" name="Spieler werben">
+      <segment>
+        <source>Spieler werben</source>
+        <target>Spieler werben</target>
+      </segment>
+    </unit>
+    <unit id="b1moPIw" name="Blockierliste">
+      <segment>
+        <source>Blockierliste</source>
+        <target>Blockierliste</target>
+      </segment>
+    </unit>
+    <unit id="6vRyig1" name="Blockiert von">
+      <segment>
+        <source>Blockiert von</source>
+        <target>Blockiert von</target>
+      </segment>
+    </unit>
     <unit id="6B7S7TG" name="Bürger-Alias ​​ändern:">
       <segment>
         <source>Bürger-Alias ​​ändern:</source>
