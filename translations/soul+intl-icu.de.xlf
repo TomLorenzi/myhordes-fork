@@ -2764,5 +2764,17 @@
         <target>Du kannst verhindern, dass ein Spieler dich in seine Freundesliste aufnimmt, indem du ihn blockierst. Bedenke, dass er dich danach auch nicht mehr via über eine private Nachricht kontaktieren kann.</target>
       </segment>
     </unit>
+    <unit id="b1moPIw" name="Blockierliste">
+      <segment>
+        <source>Blockierliste</source>
+        <target>Blockierliste</target>
+      </segment>
+    </unit>
+    <unit id="56y70st" name="Blockierter Spieler">
+      <segment>
+        <source>Blockierter Spieler</source>
+        <target>Blockierter Spieler</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -20551,7 +20551,6 @@
     <unit id="wZJl7Bp" name="Deine Identität">
       <notes>
         <note category="german">Deine Identität</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/jobs.html.twig</note>
       </notes>
       <segment>
@@ -20562,7 +20561,6 @@
     <unit id="0DPxQPn" name="Diese Stadt erlaubt es, einen Spitznamen zu tragen.">
       <notes>
         <note category="german">Diese Stadt erlaubt es, einen Spitznamen zu tragen.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/jobs.html.twig</note>
       </notes>
       <segment>
@@ -20573,7 +20571,6 @@
     <unit id="qYsZ1.g" name="Freilassen, um normalen Spielernamen zu verwenden.">
       <notes>
         <note category="german">Freilassen, um normalen Spielernamen zu verwenden.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/jobs.html.twig</note>
       </notes>
       <segment>

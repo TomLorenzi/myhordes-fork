@@ -9460,7 +9460,6 @@
       <notes>
         <note category="german">Eintrittskarte</note>
         <note category="from">db://FeatureUnlockPrototype</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Eintrittskarte</source>
@@ -9471,7 +9470,6 @@
       <notes>
         <note category="german">Hiermit kannst du Städten beitreten, obwohl du die Mindestanzahl an Seelenpunkten noch nicht erreicht hast.</note>
         <note category="from">db://FeatureUnlockPrototype</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Hiermit kannst du Städten beitreten, obwohl du die Mindestanzahl an Seelenpunkten noch nicht erreicht hast.</source>

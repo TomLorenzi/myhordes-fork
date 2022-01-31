@@ -4515,5 +4515,27 @@
         <target>You can prevent a player from adding you to their friends list by blocking them. Keep in mind that he will no longer be able to contact you via private message.</target>
       </segment>
     </unit>
+    <unit id="b1moPIw" name="Blockierliste">
+      <notes>
+        <note category="german">Blockierliste</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Blockierliste</source>
+        <target>Blocklist</target>
+      </segment>
+    </unit>
+    <unit id="56y70st" name="Blockierter Spieler">
+      <notes>
+        <note category="german">Blockierter Spieler</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Blockierter Spieler</source>
+        <target>Blocked player</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

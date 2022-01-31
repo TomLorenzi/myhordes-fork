@@ -303,6 +303,8 @@ class SoulController extends CustomAbstractController
             'friends' => $this->getUser()->getFriends(),
             'reverse_friends' => $this->entity_manager->getRepository(User::class)->findInverseFriends($this->getUser(), true),
 
+            'blocklist' => $this->entity_manager->getRepository( SocialRelation::class )->findBy( ['owner' => $this->getUser(), 'type' => SocialRelation::SocialRelationTypeBlock ] ),
+
             'coa' => $user_coalition,
             'coa_leader' => $user_coalition && $user_coalition->getAssociationLevel() === UserGroupAssociation::GroupAssociationLevelFounder,
             'coa_full' => $coa_full,
