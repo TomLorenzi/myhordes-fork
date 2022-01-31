@@ -844,7 +844,7 @@
     <unit id="BygLauq" name="Autor">
       <notes>
         <note category="german">Autor</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
       </notes>
       <segment>
@@ -935,7 +935,7 @@
     <unit id="jlAJmOo" name="Spoiler">
       <notes>
         <note category="german">Spoiler</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
       </notes>
       <segment>
@@ -2797,7 +2797,7 @@
     <unit id="yo6CbZw" name="Avatar">
       <notes>
         <note category="german">Avatar</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
@@ -3972,7 +3972,7 @@
       <notes>
         <note category="german">RP</note>
         <note category="from">db://ThreadTag</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>RP</source>
@@ -4203,11 +4203,10 @@
       <notes>
         <note category="german">Hinweis</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Hinweis</source>
-        <target>Hinweis</target>
+        <target>Aviso</target>
       </segment>
     </unit>
   </file>

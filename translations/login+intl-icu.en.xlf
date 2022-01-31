@@ -4,7 +4,7 @@
     <unit id="crJFns0" name="Dein Name muss mindestens { limit } Zeichen umfassen.">
       <notes>
         <note category="german">Dein Name muss mindestens {limit} Zeichen umfassen.</note>
-        <note category="from">php:///src/Controller/PublicController.php;twig:///templates/ajax/game/jobs.html.twig</note>
+        <note category="from">php:///src/Controller/PublicController.php;twig:///templates/ajax/admin/widget/controls.twig;twig:///templates/ajax/game/jobs.html.twig</note>
       </notes>
       <segment>
         <source>Dein Name muss mindestens { limit } Zeichen umfassen.</source>
@@ -14,7 +14,7 @@
     <unit id="VAaM7eo" name="Dein Name kann höchstens { limit } Zeichen umfassen.">
       <notes>
         <note category="german">Dein Name kann höchstens {limit} Zeichen umfassen.</note>
-        <note category="from">php:///src/Controller/PublicController.php;twig:///templates/ajax/game/jobs.html.twig</note>
+        <note category="from">php:///src/Controller/PublicController.php;twig:///templates/ajax/admin/widget/controls.twig;twig:///templates/ajax/game/jobs.html.twig</note>
       </notes>
       <segment>
         <source>Dein Name kann höchstens { limit } Zeichen umfassen.</source>
@@ -682,7 +682,7 @@
     <unit id="iGunNf8" name="Dein Name kann nur alphanumerische Zeichen enthalten.">
       <notes>
         <note category="german">Dein Name kann nur alphanumerische Zeichen enthalten.</note>
-        <note category="from">php:///src/Controller/PublicController.php;twig:///templates/ajax/game/jobs.html.twig</note>
+        <note category="from">php:///src/Controller/PublicController.php;twig:///templates/ajax/admin/widget/controls.twig;twig:///templates/ajax/game/jobs.html.twig</note>
       </notes>
       <segment>
         <source>Dein Name kann nur alphanumerische Zeichen enthalten.</source>
