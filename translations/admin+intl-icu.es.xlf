@@ -2542,7 +2542,7 @@
     <unit id="Dm3TgUa" name="Sozial">
       <notes>
         <note category="german">Sozial</note>
-        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig;twig:///templates/ajax/admin/users/social.html.twig;twig:///templates/ajax/admin/users/tabs.html.twig</note>
       </notes>
       <segment>
         <source>Sozial</source>
@@ -4413,6 +4413,50 @@
       <segment>
         <source>Diese Auszeichnung wurde verdient.</source>
         <target>Diese Auszeichnung wurde verdient.</target>
+      </segment>
+    </unit>
+    <unit id="I2eWURG" name="Freundesliste">
+      <notes>
+        <note category="german">Freundesliste</note>
+        <note category="from">twig:///templates/ajax/admin/users/social.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Freundesliste</source>
+        <target>Freundesliste</target>
+      </segment>
+    </unit>
+    <unit id="nQ9blbf" name="Spieler, sie sich als Freund hinzugefügt haben">
+      <notes>
+        <note category="german">Spieler, sie sich als Freund hinzugefügt haben</note>
+        <note category="from">twig:///templates/ajax/admin/users/social.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Spieler, sie sich als Freund hinzugefügt haben</source>
+        <target>Spieler, sie sich als Freund hinzugefügt haben</target>
+      </segment>
+    </unit>
+    <unit id="_cSDjRl" name="Spieler werben">
+      <notes>
+        <note category="german">Spieler werben</note>
+        <note category="from">twig:///templates/ajax/admin/users/social.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Spieler werben</source>
+        <target>Spieler werben</target>
+      </segment>
+    </unit>
+    <unit id="b1moPIw" name="Blockierliste">
+      <notes>
+        <note category="german">Blockierliste</note>
+        <note category="from">twig:///templates/ajax/admin/users/social.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Blockierliste</source>
+        <target>Blockierliste</target>
       </segment>
     </unit>
   </file>

@@ -2797,5 +2797,29 @@
         <target>Diese Auszeichnung wurde verdient.</target>
       </segment>
     </unit>
+    <unit id="I2eWURG" name="Freundesliste">
+      <segment>
+        <source>Freundesliste</source>
+        <target>Freundesliste</target>
+      </segment>
+    </unit>
+    <unit id="nQ9blbf" name="Spieler, sie sich als Freund hinzugefügt haben">
+      <segment>
+        <source>Spieler, sie sich als Freund hinzugefügt haben</source>
+        <target>Spieler, sie sich als Freund hinzugefügt haben</target>
+      </segment>
+    </unit>
+    <unit id="_cSDjRl" name="Spieler werben">
+      <segment>
+        <source>Spieler werben</source>
+        <target>Spieler werben</target>
+      </segment>
+    </unit>
+    <unit id="b1moPIw" name="Blockierliste">
+      <segment>
+        <source>Blockierliste</source>
+        <target>Blockierliste</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
