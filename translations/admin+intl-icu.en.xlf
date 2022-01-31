@@ -4470,7 +4470,6 @@
       <notes>
         <note category="german">Freundesliste</note>
         <note category="from">twig:///templates/ajax/admin/users/social.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Freundesliste</source>
@@ -4479,9 +4478,8 @@
     </unit>
     <unit id="nQ9blbf" name="Spieler, sie sich als Freund hinzugefügt haben">
       <notes>
-        <note category="german">Spieler, sie sich als Freund hinzugefügt haben</note>
+        <note category="german">Spieler, die sie/ihn als Freund hinzugefügt haben</note>
         <note category="from">twig:///templates/ajax/admin/users/social.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Spieler, sie sich als Freund hinzugefügt haben</source>
@@ -4492,7 +4490,6 @@
       <notes>
         <note category="german">Spieler werben</note>
         <note category="from">twig:///templates/ajax/admin/users/social.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Spieler werben</source>
@@ -4503,11 +4500,21 @@
       <notes>
         <note category="german">Blockierliste</note>
         <note category="from">twig:///templates/ajax/admin/users/social.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Blockierliste</source>
         <target>Blocklist</target>
+      </segment>
+    </unit>
+    <unit id="6vRyig1" name="Blockiert von">
+      <notes>
+        <note category="german">Blockiert von</note>
+        <note category="from">twig:///templates/ajax/admin/users/social.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Blockiert von</source>
+        <target>Blocked by</target>
       </segment>
     </unit>
   </file>

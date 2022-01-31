@@ -2821,5 +2821,11 @@
         <target>Blockierliste</target>
       </segment>
     </unit>
+    <unit id="6vRyig1" name="Blockiert von">
+      <segment>
+        <source>Blockiert von</source>
+        <target>Blockiert von</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
