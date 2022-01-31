@@ -4381,7 +4381,7 @@
     </unit>
     <unit id="jPmvEEG" name="Eternal-Twin-Konto verlinkt">
       <notes>
-        <note category="german">Eternal-Twin-Konto verlinkt</note>
+        <note category="german">EternalTwin-Konto verlinkt</note>
         <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
       </notes>
       <segment>

@@ -2776,5 +2776,11 @@
         <target>Blockierter Spieler</target>
       </segment>
     </unit>
+    <unit id="gqnWr8F" name="Deine Blockierliste ist leer.">
+      <segment>
+        <source>Deine Blockierliste ist leer.</source>
+        <target>Deine Blockierliste ist leer.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

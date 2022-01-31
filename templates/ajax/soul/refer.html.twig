@@ -261,6 +261,10 @@
                                 {% endfor %}
                             </div>
                         </div>
+                    {% else %}
+                        <div class="padded cell rw-12">
+                            {{ 'Deine Blockierliste ist leer.'|trans({}, 'soul') }}
+                        </div>
                     {% endif %}
                 </div>
             </div>
