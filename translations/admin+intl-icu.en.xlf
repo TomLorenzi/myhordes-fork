@@ -4510,7 +4510,6 @@
       <notes>
         <note category="german">Blockiert von</note>
         <note category="from">twig:///templates/ajax/admin/users/social.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Blockiert von</source>
@@ -4521,7 +4520,6 @@
       <notes>
         <note category="german">Bürger-Alias ​​ändern:</note>
         <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Bürger-Alias ​​ändern:</source>
@@ -4532,7 +4530,6 @@
       <notes>
         <note category="german">Kein Alias ​​angegeben</note>
         <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Kein Alias ​​angegeben</source>
@@ -4543,7 +4540,6 @@
       <notes>
         <note category="german">Bitte nicht für mehrere Bürger denselben Alias eingeben!</note>
         <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Bitte nicht für mehrere Bürger denselben Alias eingeben!</source>

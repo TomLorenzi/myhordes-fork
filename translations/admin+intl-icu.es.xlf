@@ -4470,5 +4470,38 @@
         <target>Blockiert von</target>
       </segment>
     </unit>
+    <unit id="6B7S7TG" name="Bürger-Alias ​​ändern:">
+      <notes>
+        <note category="german">Bürger-Alias ​​ändern:</note>
+        <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Bürger-Alias ​​ändern:</source>
+        <target>Bürger-Alias ​​ändern:</target>
+      </segment>
+    </unit>
+    <unit id="7.npMFZ" name="Kein Alias ​​angegeben">
+      <notes>
+        <note category="german">Kein Alias ​​angegeben</note>
+        <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Kein Alias ​​angegeben</source>
+        <target>Kein Alias ​​angegeben</target>
+      </segment>
+    </unit>
+    <unit id="u5LKixo" name="Bitte nicht für mehrere Bürger denselben Alias eingeben!">
+      <notes>
+        <note category="german">Bitte nicht für mehrere Bürger denselben Alias eingeben!</note>
+        <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Bitte nicht für mehrere Bürger denselben Alias eingeben!</source>
+        <target>Bitte nicht für mehrere Bürger denselben Alias eingeben!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

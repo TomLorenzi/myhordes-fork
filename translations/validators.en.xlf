@@ -1067,39 +1067,6 @@
         <target>This value should be a valid expression.</target>
       </segment>
     </unit>
-    <unit id="CQ0wfFa" name="This value is not a valid CSS color.">
-      <notes>
-        <note category="german">Dieser Wert ist keine gültige CSS-Farbe.</note>
-        <note category="from">[unused]</note>
-        <note category="state">new</note>
-      </notes>
-      <segment>
-        <source>This value is not a valid CSS color.</source>
-        <target>This value is not a valid CSS color.</target>
-      </segment>
-    </unit>
-    <unit id="GAaG0KN" name="This value is not a valid CIDR notation.">
-      <notes>
-        <note category="german">Dieser Wert entspricht nicht der CIDR-Notation.</note>
-        <note category="from">[unused]</note>
-        <note category="state">new</note>
-      </notes>
-      <segment>
-        <source>This value is not a valid CIDR notation.</source>
-        <target>This value is not a valid CIDR notation.</target>
-      </segment>
-    </unit>
-    <unit id="ddJy.XP" name="The value of the netmask should be between {{ min }} and {{ max }}.">
-      <notes>
-        <note category="german">Der Wert der Subnetzmaske sollte zwischen {{ min }} und {{ max }} liegen.</note>
-        <note category="from">[unused]</note>
-        <note category="state">new</note>
-      </notes>
-      <segment>
-        <source>The value of the netmask should be between {{ min }} and {{ max }}.</source>
-        <target>The value of the netmask should be between {{ min }} and {{ max }}.</target>
-      </segment>
-    </unit>
     <unit id=".SEaaBa" name="This form should not contain extra fields.">
       <notes>
         <note category="german">Dieses Formular sollte keine zusätzlichen Felder enthalten.</note>
@@ -1461,6 +1428,39 @@
       <segment>
         <source>Please enter a valid week.</source>
         <target>Please enter a valid week.</target>
+      </segment>
+    </unit>
+    <unit id="CQ0wfFa" name="This value is not a valid CSS color.">
+      <notes>
+        <note category="german">Dieser Wert ist keine gültige CSS-Farbe.</note>
+        <note category="from">[unused]</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>This value is not a valid CSS color.</source>
+        <target>This value is not a valid CSS color.</target>
+      </segment>
+    </unit>
+    <unit id="GAaG0KN" name="This value is not a valid CIDR notation.">
+      <notes>
+        <note category="german">Dieser Wert entspricht nicht der CIDR-Notation.</note>
+        <note category="from">[unused]</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>This value is not a valid CIDR notation.</source>
+        <target>This value is not a valid CIDR notation.</target>
+      </segment>
+    </unit>
+    <unit id="ddJy.XP" name="The value of the netmask should be between {{ min }} and {{ max }}.">
+      <notes>
+        <note category="german">Der Wert der Subnetzmaske sollte zwischen {{ min }} und {{ max }} liegen.</note>
+        <note category="from">[unused]</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>The value of the netmask should be between {{ min }} and {{ max }}.</source>
+        <target>The value of the netmask should be between {{ min }} and {{ max }}.</target>
       </segment>
     </unit>
     <unit id="QGP5tYq" name="This value should be of type {type}.">
