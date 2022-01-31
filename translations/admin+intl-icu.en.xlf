@@ -2054,7 +2054,7 @@
     <unit id="2OM.kVy" name="Änderungen an {appname} speichern">
       <notes>
         <note category="german">Änderungen an « {appname} » speichern</note>
-        <note category="from">php:///src/Controller/Admin/AdminAppController.php</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Änderungen an {appname} speichern</source>
@@ -4464,6 +4464,39 @@
       <segment>
         <source>Diese Auszeichnung wurde verdient.</source>
         <target>This picto has been earned.</target>
+      </segment>
+    </unit>
+    <unit id="6B7S7TG" name="Bürger-Alias ​​ändern:">
+      <notes>
+        <note category="german">Bürger-Alias ​​ändern:</note>
+        <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Bürger-Alias ​​ändern:</source>
+        <target>Changer citizen alias:</target>
+      </segment>
+    </unit>
+    <unit id="7.npMFZ" name="Kein Alias ​​angegeben">
+      <notes>
+        <note category="german">Kein Alias ​​angegeben</note>
+        <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Kein Alias ​​angegeben</source>
+        <target>No alias</target>
+      </segment>
+    </unit>
+    <unit id="u5LKixo" name="Bitte nicht für mehrere Bürger denselben Alias eingeben!">
+      <notes>
+        <note category="german">Bitte nicht für mehrere Bürger denselben Alias eingeben!</note>
+        <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Bitte nicht für mehrere Bürger denselben Alias eingeben!</source>
+        <target>Please do not give multiple citizen the same alias!</target>
       </segment>
     </unit>
   </file>

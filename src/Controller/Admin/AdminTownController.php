@@ -40,6 +40,7 @@ use App\Entity\Zone;
 use App\Response\AjaxResponse;
 use App\Service\CrowService;
 use App\Service\CitizenHandler;
+use App\Service\ConfMaster;
 use App\Service\ErrorHelper;
 use App\Service\GameFactory;
 use App\Service\GazetteService;
@@ -897,6 +898,59 @@ class AdminTownController extends AdminActionController
         }
 
         $this->entity_manager->flush();
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("/api/admin/town/{id}/alias", name="admin_alias_citizen", requirements={"id"="\d+"})
+     * @Security("is_granted('ROLE_ADMIN')")
+     * Change the Alias of a citizen
+     * @param int $id Town ID
+     * @param JSONRequestParser $parser
+     * @param ZoneHandler $handler
+     * @param TownHandler $townHandler
+     * @return Response
+     */
+    public function alias_citizen(int $id, JSONRequestParser $parser, ConfMaster $cf, TownHandler $townHandler): Response
+    {
+        /** @var Town $town */
+        $town = $this->entity_manager->getRepository(Town::class)->find($id);
+        if (!$town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $alias = $parser->trimmed('alias');
+        $targets = $parser->get_array('targets');
+        if ($alias != null && !$alias)
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        if (empty($targets))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        if (count($targets) > 1)
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        /** @var Citizen $citizen */
+        $citizen = $this->entity_manager->getRepository(Citizen::class)->find($targets[0]);
+
+        $town_conf = $cf->getTownConfiguration($citizen->getTown());
+
+        $citizen_alias_active = $town_conf->get(TownConf::CONF_FEATURE_CITIZEN_ALIAS, false);
+
+        if(!$citizen_alias_active)
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        if($alias == null) {
+            $citizen->setAlias(null);
+        } else {
+            $apply_result = $this->citizen_handler->applyAlias($citizen, $alias);
+            if($apply_result == -1) {
+                return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+            }
+        }
+        
+        try {
+            $this->entity_manager->persist( $citizen );
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
         return AjaxResponse::success();
     }
 

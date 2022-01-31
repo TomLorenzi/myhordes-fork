@@ -2797,5 +2797,23 @@
         <target>Diese Auszeichnung wurde verdient.</target>
       </segment>
     </unit>
+    <unit id="6B7S7TG" name="Bürger-Alias ​​ändern:">
+      <segment>
+        <source>Bürger-Alias ​​ändern:</source>
+        <target>Bürger-Alias ​​ändern:</target>
+      </segment>
+    </unit>
+    <unit id="7.npMFZ" name="Kein Alias ​​angegeben">
+      <segment>
+        <source>Kein Alias ​​angegeben</source>
+        <target>Kein Alias ​​angegeben</target>
+      </segment>
+    </unit>
+    <unit id="u5LKixo" name="Bitte nicht für mehrere Bürger denselben Alias eingeben!">
+      <segment>
+        <source>Bitte nicht für mehrere Bürger denselben Alias eingeben!</source>
+        <target>Bitte nicht für mehrere Bürger denselben Alias eingeben!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
