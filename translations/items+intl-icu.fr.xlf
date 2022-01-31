@@ -9464,7 +9464,7 @@
       </notes>
       <segment>
         <source>Eintrittskarte</source>
-        <target>Eintrittskarte</target>
+        <target>Laissez-passer</target>
       </segment>
     </unit>
     <unit id=".LeRrBD">
@@ -9475,7 +9475,7 @@
       </notes>
       <segment>
         <source>Hiermit kannst du Städten beitreten, obwohl du die Mindestanzahl an Seelenpunkten noch nicht erreicht hast.</source>
-        <target>Hiermit kannst du Städten beitreten, obwohl du die Mindestanzahl an Seelenpunkten noch nicht erreicht hast.</target>
+        <target>Ceci vous permet de rejoindre un ville indépendamment de votre nombre de points d'âme.</target>
       </segment>
     </unit>
   </file>
