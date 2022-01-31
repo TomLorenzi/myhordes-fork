@@ -25,7 +25,7 @@
                 <div class="cell factor-0 content-center-vertical">
                         <img alt="{{ citizen.infos.home.prototype.level }}" src="{{ asset('build/images/home/' ~ citizen.infos.home.prototype.icon ~ '.gif') }}" />
                 </div>
-                <div class="cell rw-4 rw-md-3 small citizen-box {% if citizen.infos == me%} citizen-box-name-me {% else %} citizen-box-name {% endif %} content-center-vertical">
+                <div class="cell rw-4 rw-md-3 small citizen-box {% if citizen.infos == me%} citizen-box-name-me {% else %} citizen-box-name {% endif %} content-center-vertical pl-1">
                     <span>
                         {% if citizen.infos.banished %}
                             <img alt="" src="{{ asset('build/images/icons/banished.gif') }}" />
