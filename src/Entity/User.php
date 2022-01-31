@@ -416,7 +416,7 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
     /**
      * @inheritDoc
      */
-    public function getRoles()
+    public function getRoles(): array
     {
         $roles = [];
         if ($this->pass === null && $this->getEternalID() === null) return $roles;
