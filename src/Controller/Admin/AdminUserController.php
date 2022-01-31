@@ -19,6 +19,7 @@ use App\Entity\ItemPrototype;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
 use App\Entity\Season;
+use App\Entity\SocialRelation;
 use App\Entity\Town;
 use App\Entity\TwinoidImport;
 use App\Entity\TwinoidImportPreview;
@@ -941,6 +942,25 @@ class AdminUserController extends AdminActionController
     }
 
     /**
+     * @Route("jx/admin/users/{id}/social/view", name="admin_users_social_view", requirements={"id"="\d+"})
+     * @param int $id
+     * @return Response
+     */
+    public function user_social_view(int $id): Response {
+        $user = $this->entity_manager->getRepository(User::class)->find($id);
+
+        return $this->render("ajax/admin/users/social.html.twig", $this->addDefaultTwigArgs("admin_users_social", [
+            "user" => $user,
+            "blocked" => $this->entity_manager->getRepository( SocialRelation::class )->findBy( ['owner' => $user, 'type' => SocialRelation::SocialRelationTypeBlock ] ),
+            "blockers" => $this->entity_manager->getRepository( SocialRelation::class )->findBy( ['related' => $user, 'type' => SocialRelation::SocialRelationTypeBlock ] ),
+            "sponsored" => array_filter(
+                $this->entity_manager->getRepository(UserSponsorship::class)->findBy(['sponsor' => $user]),
+                fn(UserSponsorship $s) => !$this->user_handler->hasRole($s->getUser(), 'ROLE_DUMMY') && $s->getUser()->getValidated()
+            ),
+            "friends" => $user->getFriends()
+        ]));
+    }
+    /**
      * @Route("api/admin/users/{id}/citizen/headshot", name="admin_users_citizen_headshot", requirements={"id"="\d+"})
      * @param int $id
      * @param AdminActionHandler $admh
@@ -1027,7 +1047,7 @@ class AdminUserController extends AdminActionController
     }
 
     /**
-     * @Route("/api/admin/users/{id}/picto/give", name="admin_user_give_picto", requirements={"id"="\d+"})
+     * @Route("api/admin/users/{id}/picto/give", name="admin_user_give_picto", requirements={"id"="\d+"})
      * @Security("is_granted('ROLE_CROW')")
      * @param int $id User ID
      * @param JSONRequestParser $parser The Request Parser
@@ -1079,7 +1099,7 @@ class AdminUserController extends AdminActionController
     }
 
     /**
-     * @Route("/api/admin/users/{id}/unique_award/manage", name="admin_user_manage_unique_award", requirements={"id"="\d+"})
+     * @Route("api/admin/users/{id}/unique_award/manage", name="admin_user_manage_unique_award", requirements={"id"="\d+"})
      * @Security("is_granted('ROLE_ADMIN')")
      * @param int $id User ID
      * @param JSONRequestParser $parser The Request Parser
@@ -1155,7 +1175,7 @@ class AdminUserController extends AdminActionController
     }
 
     /**
-     * @Route("/api/admin/users/{id}/comments/{cid}", name="admin_user_edit_comment", requirements={"id"="\d+","cid"="\d+"})
+     * @Route("api/admin/users/{id}/comments/{cid}", name="admin_user_edit_comment", requirements={"id"="\d+","cid"="\d+"})
      * @Security("is_granted('ROLE_ADMIN')")
      * @param int $id User ID
      * @param int $cid
@@ -1187,7 +1207,7 @@ class AdminUserController extends AdminActionController
     }
 
     /**
-     * @Route("/api/admin/users/{id}/feature/give", name="admin_user_give_feature", requirements={"id"="\d+"})
+     * @Route("api/admin/users/{id}/feature/give", name="admin_user_give_feature", requirements={"id"="\d+"})
      * @Security("is_granted('ROLE_ADMIN')")
      * @param int $id User ID
      * @param JSONRequestParser $parser The Request Parser
