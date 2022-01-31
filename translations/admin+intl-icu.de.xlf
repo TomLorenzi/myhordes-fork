@@ -2806,7 +2806,7 @@
     <unit id="nQ9blbf" name="Spieler, sie sich als Freund hinzugefügt haben">
       <segment>
         <source>Spieler, sie sich als Freund hinzugefügt haben</source>
-        <target>Spieler, sie sich als Freund hinzugefügt haben</target>
+        <target>Spieler, die sie/ihn als Freund hinzugefügt haben</target>
       </segment>
     </unit>
     <unit id="_cSDjRl" name="Spieler werben">
