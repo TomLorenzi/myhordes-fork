@@ -1202,16 +1202,7 @@ span.defense-broken,div.defense-broken { .icon_div("../img/icons/small_def_broke
   }
 
   h4.soul-name { 
-    margin: 8px 4px; display: inline-block; 
-    .username { 
-        text-decoration: none; background-color: #5C0000 !important; border-top: 1px solid #98341c !important;
-        border-radius: 4px !important; padding-right: 5px !important; padding-left: 5px !important;
-        color: #f0d79e !important; font-weight: bold !important; cursor: pointer;
-        &.is-friend {
-          border-top: 1px solid #965c36 !important;
-          background-color: #7e4e2a !important;
-        }
-      }
+    margin: 8px 4px; display: inline-block;
     }
 
   .tab {
@@ -1506,20 +1497,6 @@ div.tooltip {
 
 ul.citizen-list li {
   list-style: none; color: @myhordes-smalltext;
-  .username { 
-    text-decoration: none;
-    background-color: #5C0000 !important;
-    border-top: 1px solid #98341c !important;
-    border-radius: 4px !important;
-    padding-right: 5px !important;
-    padding-left: 5px !important;
-    color: #f0d79e !important;
-    font-weight: bold !important;
-    &.is-friend {
-      border-top: 1px solid #965c36;
-      background-color: #7e4e2a;
-    }
-  }
 }
 
 span.language {
@@ -1769,4 +1746,26 @@ div.welcome-teaser {
 span.tag {
   font-size: 0.95rem; text-shadow: 1px 1px 0 black; padding: 2px 4px; box-shadow: 0 0 2px black; margin: 1px 2px;
   border: 1px solid rgba(0,0,0,0.2); font-weight: bold; border-radius: 3px;
+}
+
+.username {
+  text-decoration: none;
+  background-color: #5C0000;
+  border-top: 1px solid #98341c;
+  border-radius: 4px;
+  padding-right: 5px;
+  padding-left: 5px;
+  color: @myhordes-button-color;
+  font-weight: bold;
+  box-shadow: 0px 0px 1px black;
+
+  &:hover {
+    border-top: 1px solid #490000;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.5), 0 0 1px black;
+  }
+
+  &.is-friend {
+    border-top: 1px solid #965c36;
+    background-color: #7e4e2a;
+  }
 }

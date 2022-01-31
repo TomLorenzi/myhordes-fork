@@ -37,7 +37,7 @@
                                             {% endif %}
                                         </div>
                                         <div class="padded cell factor-0" style="flex-basis: 90px; background: url('{{ entry.avatar ? path('app_web_avatar', {'uid': entry.id, 'name': entry.avatar.smallName, 'ext': entry.avatar.format}) : asset('build/images/forum/empty_avatar.gif') }}') center/cover no-repeat"></div>
-                                        <div class="padded cell factor-1">{{ entry.name }}</div>
+                                        <div class="padded cell factor-1">{% include 'ajax/soul/playername.html.twig' with {user: entry} only %}</div>
                                         <div class="padded cell rw-3 hide-sm hide-md">{{ entry.soulPoints }}</div>
                                         <div class="padded cell rw-3 rw-sm-12 right">
                                             {% if app.user in entry.friends and coa is not null and not coa_full and coa_members[entry.id] is not defined %}
@@ -136,7 +136,7 @@
                                     <div class="row">
                                         <div class="padded cell rw-3">
                                             <img alt="" src="{{ asset('build/images/icons/small_ghost_red.gif') }}">
-                                            <a x-ajax-href="{{ path('soul_visit', {id: entry.user.id}) }}" class="link username">{{ entry.user.name }}</a>
+                                            {% include 'ajax/soul/playername.html.twig' with {user: entry.user} only %}
                                         </div>
                                         <div class="padded cell rw-3">{{ entry.user.soulPoints }}</div>
                                         <div class="padded cell rw-3">{{ entry.user.heroDaysSpent }}</div>
@@ -251,10 +251,10 @@
                                     <div class="row">
                                         <div class="padded cell rw-9">
                                             <img alt="" src="{{ asset('build/images/icons/small_ghost_red.gif') }}">
-                                            <a x-ajax-href="{{ path('soul_visit', {id: entry.related.id}) }}" class="link username">{{ entry.related.name }}</a>
+                                            {% include 'ajax/soul/playername.html.twig' with {user: entry.related} only %}
                                         </div>
                                         <div class="padded cell rw-3">
-                                            <a class="link inline small" x-action="unblock_user" x-user-id="{{ entry.related.id }}">{{ 'Blockade aufheben'|trans({'{user}': entry.related.name},'global') }}</a>
+                                            <a class="link inline small" x-action="soul_unblock_user" x-user-id="{{ entry.related.id }}">{{ 'Blockade aufheben'|trans({'{user}': entry.related.name},'global') }}</a>
                                         </div>
                                     </div>
                                 {% endfor %}
@@ -292,7 +292,7 @@
             } else alert('{{ 'Fehler beim Laden des Posteingangs.'|trans({},'global') }}')
         });
 
-        $.html.addEventListenerAll('a[x-action="unblock_user"]','click',(e,elem) => {
+        $.html.addEventListenerAll('a[x-action="soul_unblock_user"]','click',(e,elem) => {
             e.preventDefault();
             if (confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
                 var url = '{{ path('soul_block_control', {id: 0, action: 0}) }}';
