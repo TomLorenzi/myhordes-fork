@@ -541,7 +541,7 @@ class CitizenHandler
             if (mb_strlen($alias) < 4 || mb_strlen($alias) > 22 || preg_match('/[^\w]/', $alias))
                 return -1;
 
-            $citizen->setAlias( "· {$alias}" );
+            $citizen->setAlias( "· {$alias}" ); // nbsp
 
             return 1;
         }
