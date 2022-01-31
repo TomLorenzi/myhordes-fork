@@ -9,36 +9,30 @@
             <span class="link" x-ajax-href="{{ path('soul_visit', {"id": user.id}) }}"><img src="{{ asset("build/images/icons/small_zombie.gif") }}" alt="" /> {{ 'Profil auf MyHordes'|trans({}, 'soul') }}</span>
             <div class="link-blocks">
                 {% if not user.eternalID is null %}
-                    <div class="link-block">
-                        <a href="https://eternal-twin.net/users/{{ user.eternalID }}">
+                    <a class="link-block" href="https://eternal-twin.net/users/{{ user.eternalID }}">
                             <img src="{{ asset('build/images/eternal-twin/icon_small.png') }}" alt="" /><br />
                             {{ 'Profil Eternal-Twin'|trans({}, 'soul') }}
-                        </a>
-                    </div>
+                    </a>
                 {% endif %}
                 {% if app.user == user %}
                     <div class="link-block empty"></div>
                     <div class="link-block empty"></div>
                 {% else %}
-                    <div class="link-block">
-                        <a class="link" x-action="send-pm" x-user-connect="ulink_{{ user.id }}">
-                            <img src="{{ asset('build/images/icons/mail.png') }}" alt="" /><br />
-                            {{ 'Schreiben'|trans({}, 'soul') }}
+                    <a class="link-block" x-action="send-pm" x-user-connect="ulink_{{ user.id }}">
+                        <img src="{{ asset('build/images/icons/mail.png') }}" alt="" /><br />
+                        {{ 'Schreiben'|trans({}, 'soul') }}
+                    </a>
+                    {% if not isFriend %}
+                        <a class="link-block" x-action="add-friend" x-friend-id="{{ user.id }}">
+                            <img src="{{ asset('build/images/icons/addContact.png') }}" alt="" /><br />
+                            {{ 'Kontakt hinzufügen'|trans({}, 'soul') }}
                         </a>
-                    </div>
-                    <div class="link-block">
-                        {% if not isFriend %}
-                            <a class="link" x-action="add-friend" x-friend-id="{{ user.id }}">
-                                <img src="{{ asset('build/images/icons/addContact.png') }}" alt="" /><br />
-                                {{ 'Kontakt hinzufügen'|trans({}, 'soul') }}
-                            </a>
-                        {% else %}
-                            <a class="link" x-action="remove-friend" x-friend-id="{{ user.id }}">
-                                <img src="{{ asset('build/images/icons/removeContact.png') }}" alt="" /><br />
-                                {{ 'Kontakt löschen'|trans({}, 'soul') }}
-                            </a>
-                        {% endif %}
-                    </div>
+                    {% else %}
+                        <a class="link-block" x-action="remove-friend" x-friend-id="{{ user.id }}">
+                            <img src="{{ asset('build/images/icons/removeContact.png') }}" alt="" /><br />
+                            {{ 'Kontakt löschen'|trans({}, 'soul') }}
+                        </a>
+                    {% endif %}
                 {% endif %}
                 {% if user.eternalID is null %}
                     <div class="link-block empty"></div>
@@ -90,7 +84,7 @@
                     <div class="rw-12">{{ 'Ich beobachte euch...'|trans({},'game') }}</div>
                 {% elseif not dummy %}
                     <div class="rw-12">{% if user.preferredPronoun == constant("\\App\\Entity\\User::PRONOUN_MALE") %}<img src="{{ asset('build/images/icons/male.png') }}" alt="{{ 'Männlich'|trans({},'global') }}" />{% elseif user.preferredPronoun == constant("\\App\\Entity\\User::PRONOUN_FEMALE") %}<img src="{{ asset('build/images/icons/female.png') }}" alt="{{ 'Weiblich'|trans({},'global') }}" />{% else %}--{% endif %}</div>
-                    <div class="rw-12">{% if user.language is null %}--{% else %}<img src="{{ asset("build/images/lang/" ~ user.language ~ "_small.png") }}" alt="{{ user.language }}" />{% endif %}</div>
+                    <div class="rw-12">{% if user.language is null %}--{% else %}<img src="{{ asset("build/images/lang/" ~ user.language ~ ".png") }}" alt="{{ user.language }}" />{% endif %}</div>
                 {% endif %}
             </div>
         </div>

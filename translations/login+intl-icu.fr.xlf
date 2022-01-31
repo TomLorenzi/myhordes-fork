@@ -614,7 +614,7 @@
       </notes>
       <segment>
         <source>Vielen Dank, dass du deinen MyHordes-Account {namecheck_mh} mit deinem EternalTwin-Account {namecheck_et} verknüpfst!</source>
-        <target>Merci d'avoir associé votre compte MyHordes {namecheck_mh} à votre compte Eternal-Twin {namecheck_et} !</target>
+        <target>Merci d'avoir associé votre compte MyHordes {namecheck_mh} à votre compte EternalTwin {namecheck_et} !</target>
       </segment>
     </unit>
     <unit id="7JD3pLt">

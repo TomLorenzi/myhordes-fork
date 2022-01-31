@@ -1510,7 +1510,7 @@
       </notes>
       <segment>
         <source>EternalTwin-Konto</source>
-        <target>Compte Eternal-Twin</target>
+        <target>Compte EternalTwin</target>
       </segment>
     </unit>
     <unit id="nz1fjZT" name="Sonstiges">
@@ -4386,7 +4386,7 @@
       </notes>
       <segment>
         <source>Eternal-Twin-Konto verlinkt</source>
-        <target>Compte Eternal-Twin lié</target>
+        <target>Compte EternalTwin lié</target>
       </segment>
     </unit>
     <unit id="_VFidG8" name="Gruppentyp">

@@ -147,7 +147,8 @@
                                                                     {% else %}
                                                                         <img src="{{ asset('build/images/professions/death.gif') }}" alt="{{ denizen.profession.label|trans({},'game') }}" />
                                                                     {% endif %}
-                                                                    <a class="link username" href="{{ path('soul_visit', {id: denizen.user.id}) }}">{{ denizen.user.name }}</a>
+
+                                                                    {% include 'ajax/soul/playername.html.twig' with {user: denizen.user, tag: 'a'} only %}
                                                                 </li>
                                                             {% endfor %}
                                                         </ul>
