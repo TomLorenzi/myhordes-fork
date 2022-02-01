@@ -50,7 +50,7 @@ class QuoteFixtures extends Fixture implements DependentFixtureInterface {
         ['name' => 'fr_031', 'content' => 'J\'aime bien m\'évader, changer de peau, rêver. En général je fais tout ça une fois décédé...', 'author' => '', 'lang' => 'fr'],
         ['name' => 'fr_032', 'content' => 'Je sais, je sais. La bouffe est pas terrible mais au moins elle bouge pas quand tu croques dedans.', 'author' => '', 'lang' => 'fr'],
         ['name' => 'fr_033', 'content' => 'Jeremy m\'a dit : tu vas voir on va bien les avoir. Ils ont bien rigolé quand ils l\'ont pendu par les pieds...', 'author' => '', 'lang' => 'fr'],
-        ['name' => 'fr_034', 'content' => 'Jerrycan quand j\'arrose les zombies ⇒ je ricane quand j\'arrose les zombies', 'author' => '', 'lang' => 'fr'],
+        ['name' => 'fr_034', 'content' => 'Jerrycan quand j\'arrose les zombie.⇒ je ricane quand j\'arrose les zombie', 'author' => '', 'lang' => 'fr'],
         ['name' => 'fr_035', 'content' => 'L\'âme se souvient. Souviens-t\'en !', 'author' => '', 'lang' => 'fr'],
         ['name' => 'fr_036', 'content' => 'La liberté se trouve dans la pastille blanche...', 'author' => '', 'lang' => 'fr'],
         ['name' => 'fr_037', 'content' => 'Le mode chaos, c\'est la cerise sur le tombeau...', 'author' => '', 'lang' => 'fr'],
