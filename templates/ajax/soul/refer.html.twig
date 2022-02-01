@@ -28,7 +28,7 @@
                                     <div class="padded cell rw-3 right">{{ 'Aktionen'|trans({},'soul') }}</div>
                                 </div>
                                 {# @var \App\Entity\User entry #}
-                                {% for entry in friends|sort((a,b) => (app.user in b.friends) <=> (app.user in a.friends) ?: a.id <=> b.id) %}
+                                {% for entry in friends|sort((a,b) => (app.user in b.friends) <=> (app.user in a.friends) ?: a.name <=> b.name) %}
                                     <div class="row-flex wrap">
                                         <div class="padded cell rw-1 center">
                                             {% if app.user in entry.friends %}
