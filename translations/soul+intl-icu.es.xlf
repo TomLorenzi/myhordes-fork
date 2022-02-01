@@ -4503,7 +4503,6 @@
       <notes>
         <note category="german">Deine Blockierliste ist leer.</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Deine Blockierliste ist leer.</source>
