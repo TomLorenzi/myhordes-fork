@@ -28,7 +28,7 @@
                                     <div class="padded cell rw-3 right">{{ 'Aktionen'|trans({},'soul') }}</div>
                                 </div>
                                 {# @var \App\Entity\User entry #}
-                                {% for entry in friends|sort((a,b) => (app.user in b.friends) <=> (app.user in a.friends) ?: a.name <=> b.name) %}
+                                {% for entry in friends|sort((a,b) => (app.user in b.friends) <=> (app.user in a.friends) ?: a.name|lower <=> b.name|lower) %}
                                     <div class="row-flex wrap">
                                         <div class="padded cell rw-1 center">
                                             {% if app.user in entry.friends %}
@@ -96,7 +96,7 @@
                                     <div class="padded cell rw-3 hide-sm hide-md">{{ 'Seelenpunkte'|trans({},'soul') }}</div>
                                     <div class="padded cell rw-3 right">{{ 'Aktionen'|trans({},'soul') }}</div>
                                 </div>
-                                {% for entry in reverse_friends|sort((a, b) => a.name <=> b.name) %}
+                                {% for entry in reverse_friends|sort((a, b) => a.name|lower <=> b.name|lower) %}
                                     <div class="row-flex wrap">
                                         <div class="padded cell rw-1">&nbsp;</div>
                                         <div class="padded cell factor-0" style="flex-basis: 90px; background: url('{{ entry.avatar ? path('app_web_avatar', {'uid': entry.id, 'name': entry.avatar.smallName, 'ext': entry.avatar.format}) : asset('build/images/forum/empty_avatar.gif') }}') center/cover no-repeat"></div>
@@ -133,7 +133,7 @@
                                     <div class="padded cell rw-3">{{ 'Heldenerfahrung'|trans({},'soul') }}</div>
                                     <div class="padded cell rw-3">{{ 'Koalition'|trans({},'soul') }}</div>
                                 </div>
-                                {% for entry in sponsored %}
+                                {% for entry in sponsored|sort((a, b) => a.user.name|lower <=> b.user.name|lower) %}
                                     <div class="row">
                                         <div class="padded cell rw-3">
                                             <img alt="" src="{{ asset('build/images/icons/small_ghost_red.gif') }}">
@@ -248,7 +248,7 @@
                                     <div class="padded cell rw-9">{{ 'Blockierter Spieler'|trans({},'soul') }}</div>
                                     <div class="padded cell rw-3">{{ 'Aktionen'|trans({},'soul') }}</div>
                                 </div>
-                                {% for entry in blocklist %}
+                                {% for entry in blocklist|sort((a, b) => a.related.name|lower <=> b.related.name|lower) %}
                                     <div class="row">
                                         <div class="padded cell rw-9">
                                             <img alt="" src="{{ asset('build/images/icons/small_ghost_red.gif') }}">

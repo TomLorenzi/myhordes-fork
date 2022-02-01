@@ -293,7 +293,7 @@ class SoulController extends CustomAbstractController
             $coa_full = count($all_users) >= $conf->getGlobalConf()->get(MyHordesConf::CONF_COA_MAX_NUM, 5);
         }
 
-        return $this->render( 'ajax/soul/refer.html.twig', $this->addDefaultTwigArgs("soul_refer", [
+        return $this->render( 'ajax/soul/social.html.twig', $this->addDefaultTwigArgs("soul_refer", [
             'tab' => $request->attributes->get('_route') === 'soul_refer' ? 'refer' : 'friends',
 
             'refer' => $refer,
