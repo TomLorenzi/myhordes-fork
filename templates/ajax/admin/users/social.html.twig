@@ -71,7 +71,7 @@
                                     <div class="padded cell rw-4">{{ 'Seelenpunkte'|trans({},'soul') }}</div>
                                     <div class="padded cell rw-4">{{ 'Heldenerfahrung'|trans({},'soul') }}</div>
                                 </div>
-                                {% for entry in sponsored %}
+                                {% for entry in sponsored|sort((a, b) => a.user.name <=> b.user.name %}
                                     <div class="row">
                                         <div class="padded cell rw-4">
                                             <img alt="" src="{{ asset('build/images/icons/small_ghost_red.gif') }}">
@@ -96,7 +96,7 @@
                                 <div class="row header">
                                     <div class="padded cell rw-12">{{ 'Blockierter Spieler'|trans({},'soul') }}</div>
                                 </div>
-                                {% for entry in blocked %}
+                                {% for entry in blocked|sort((a, b) => a.related.name <=> b.related.name %}
                                     <div class="row">
                                         <div class="padded cell rw-12">
                                             <img alt="" src="{{ asset('build/images/icons/small_ghost_red.gif') }}">
