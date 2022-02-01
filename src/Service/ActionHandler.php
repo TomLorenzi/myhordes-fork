@@ -907,7 +907,7 @@ class ActionHandler
 
                     switch ($item_spawn->getSpawnTarget()) {
                         case AffectItemSpawn::DropTargetFloor:
-                            $target = [ $floor_inventory, $citizen->getZone() ? null : $citizen->getTown()->getBank() ];
+                            $target = [ $floor_inventory, $citizen->getInventory(), $floor_inventory ];
                             $force = true;
                             break;
                         case AffectItemSpawn::DropTargetRucksack:
@@ -1743,7 +1743,7 @@ class ActionHandler
             return ErrorHelper::ErrorNoAP;
 
         $source_inv = in_array($recipe->getType(), [Recipe::WorkshopType, Recipe::WorkshopTypeShamanSpecific]) ? [ $t_inv ] : ($citizen->getZone() ? [$c_inv] : [$c_inv, $citizen->getHome()->getChest() ]);
-        $target_inv = in_array($recipe->getType(), [Recipe::WorkshopType, Recipe::WorkshopTypeShamanSpecific]) ? [ $t_inv ] : ($citizen->getZone() ? ($citizen->getZone()->getX() != 0 || $citizen->getZone()->getY() != 0 ? [$c_inv,$citizen->getZone()->getFloor()] : [$c_inv])  : [$c_inv, $citizen->getHome()->getChest(), $t_inv]);
+        $target_inv = in_array($recipe->getType(), [Recipe::WorkshopType, Recipe::WorkshopTypeShamanSpecific]) ? [ $t_inv ] : ($citizen->getZone() ? ($citizen->getZone()->getX() != 0 || $citizen->getZone()->getY() != 0 ? [$c_inv,$citizen->getZone()->getFloor()] : [$c_inv])  : [$c_inv, $citizen->getHome()->getChest()]);
 
         if (!in_array($recipe->getType(), [Recipe::WorkshopType, Recipe::WorkshopTypeShamanSpecific]) && $citizen->getZone() && $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_FLOOR_ASMBLY, false))
             $source_inv[] = $citizen->getZone()->getFloor();

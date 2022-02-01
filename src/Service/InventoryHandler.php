@@ -481,7 +481,7 @@ class InventoryHandler
         foreach ($inventories as $inventory)
             if ($inventory && $this->transferItem( $citizen, $item, $source, $inventory ) === self::ErrorNone)
                 return $inventory;
-        if ($force) foreach ($inventories as $inventory)
+        if ($force) foreach (array_reverse($inventories) as $inventory)
             if ($inventory && $this->transferItem( $citizen, $item, $source, $inventory, self::ModalityEnforcePlacement ) === self::ErrorNone)
                 return $inventory;
         return null;
