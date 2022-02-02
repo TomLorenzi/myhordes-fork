@@ -4,9 +4,12 @@
         {% if not dummy %}
             {# @var \App\Entity\User user #}
             {% if app.user.id != user.id and not app.user.activeCitizen is null and not user.activeCitizen is null and app.user.activeCitizen.town == user.activeCitizen.town and app.user.activeCitizen.zone is null %}
-                <span class="link" x-ajax-href="{{ path('town_visit', {"id": user.activeCitizen.id}) }}"><img src="{{ asset('build/images/icons/home.gif') }}" alt="" /> {{ 'Haus ansehen'|trans({}, 'soul') }}</span>
+            <span class="link" x-ajax-href="{{ path('town_visit', {"id": user.activeCitizen.id}) }}"><img src="{{ asset('build/images/icons/home.gif') }}" alt="" /> {{ 'Haus ansehen'|trans({}, 'soul') }}</span>
             {% endif %}
             <span class="link" x-ajax-href="{{ path('soul_visit', {"id": user.id}) }}"><img src="{{ asset("build/images/icons/small_zombie.gif") }}" alt="" /> {{ 'Profil auf MyHordes'|trans({}, 'soul') }}</span>
+            {% if is_granted("ROLE_CROW") %}
+            <span class="link" x-ajax-href="{{ path('admin_users_account_view', {id: user.id}) }}"><img alt="" src="{{ asset('build/images/icons/small_admin.gif') }}">{{ 'Admin Dashboard'|trans({},'admin') }}</span>
+            {% endif %}
             <div class="link-blocks">
                 {% if not user.eternalID is null %}
                     <a class="link-block" href="https://eternal-twin.net/users/{{ user.eternalID }}">
