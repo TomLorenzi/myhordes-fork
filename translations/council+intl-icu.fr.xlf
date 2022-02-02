@@ -78,7 +78,7 @@
       </notes>
       <segment>
         <source>Irgendwer?</source>
-        <target>Sait-on jamais, j'essaie, il y aurait quelqu'un de motivé?</target>
+        <target>Sait-on jamais, j'essaie, il y aurait quelqu'un de motivé ?</target>
       </segment>
     </unit>
     <unit id="VL8W9ML">
@@ -168,7 +168,7 @@
       </notes>
       <segment>
         <source>Können wir jetzt endlich jemanden auswählen? Ich will mich hinhauen!</source>
-        <target>On peut se décider rapidement, j'aimerais aller dormir !</target>
+        <target>On peut se décider rapidement, j'aimerais aller dormir.</target>
       </segment>
     </unit>
     <unit id="vJx7d.D" name="Wenn wir diesen Raum neu dekorieren würden...">
@@ -228,7 +228,7 @@
       </notes>
       <segment>
         <source>+1 !</source>
-        <target>+1</target>
+        <target>+1.</target>
       </segment>
     </unit>
     <unit id="ilWhApw" name="Er stinkt nach Alkohol.">
@@ -289,7 +289,7 @@
       </notes>
       <segment>
         <source>Ach komm schon!</source>
-        <target>Allez !</target>
+        <target>Ach komm schon!</target>
       </segment>
     </unit>
     <unit id="2Gp8p57" name="Wir könnten ja auch warten, bis sich jemand anderes freiwillig meldet...">
@@ -410,7 +410,7 @@
       </notes>
       <segment>
         <source>Solange ich das nicht bin, ist mir das völlig egal!</source>
-        <target>Tant que ce n'est pas moi, ça m'est égal !</target>
+        <target>Solange ich das nicht bin, ist mir das völlig egal!</target>
       </segment>
     </unit>
     <unit id="9vOwPIF" name="Also, ich fange an zu glauben, dass es mir eigentlich egal ist...">
@@ -421,7 +421,7 @@
       </notes>
       <segment>
         <source>Also, ich fange an zu glauben, dass es mir eigentlich egal ist...</source>
-        <target>Je commence à croire que ça m'est complètement égal, en fait...</target>
+        <target>Also, ich fange an zu glauben, dass es mir eigentlich egal ist...</target>
       </segment>
     </unit>
     <unit id="U1L7Trk" name="Ja, aber es ist entweder er oder jemand anderes.">
@@ -472,7 +472,7 @@
       </notes>
       <segment>
         <source>Ach, jetzt bist du einfach nur gemein. Meinst du nicht, dass er es schon schwer genug hat, wenn er so behindert ist und so?!</source>
-        <target>Là tu es juste méchant. Tu ne trouves pas qu'il a assez de mal comme ça, crétin comme il est ?!</target>
+        <target>Ach, jetzt bist du einfach nur gemein. Meinst du nicht, dass er es schon schwer genug hat, wenn er so behindert ist und so?!</target>
       </segment>
     </unit>
     <unit id="bsyvhN_" name="Also meiner Meinung nach passt das gut zu ihm.">
@@ -974,7 +974,7 @@
       </notes>
       <segment>
         <source>Er ist eigentlich genau wie du, nur interessanter.</source>
-        <target>En fait il est comme toi, mais en plus intéressant.</target>
+        <target>Er ist eigentlich genau wie du, nur interessanter.</target>
       </segment>
     </unit>
     <unit id="F4aGZOU" name="Er ist eigentlich genau wie du, nur nützlicher.">
@@ -1165,7 +1165,7 @@
       </notes>
       <segment>
         <source>Mann, ich wollte die Vorstellung übernehmen!</source>
-        <target>Purée, je voulais reprende l'idée !</target>
+        <target>Mann, ich wollte die Vorstellung übernehmen!</target>
       </segment>
     </unit>
     <unit id="01.aYA6" name="Leck mich doch!">
@@ -1186,7 +1186,7 @@
       </notes>
       <segment>
         <source>Gepriesen sei der Schamane!</source>
-        <target>Gloire au chaman !</target>
+        <target>Gepriesen sei der Schamane!</target>
       </segment>
     </unit>
     <unit id="Um.KsRt" name="Was ist ein Schaaaar Maaane?">
@@ -1247,7 +1247,7 @@
       </notes>
       <segment>
         <source>Unser Reiseleiter hat sich gestern Abend irgendwie verlaufen und kommt nicht mehr zurück! Wer möchte ihn also ersetzen?</source>
-        <target>Notre Guide de l'Outre-Monde a réussi à se perdre hier soir, et ne reviendra plus ! Qui voudrait le remplacer ?</target>
+        <target>Unser Reiseleiter hat sich gestern Abend irgendwie verlaufen und kommt nicht mehr zurück! Wer möchte ihn also ersetzen?</target>
       </segment>
     </unit>
     <unit id="6lJCfgu" name="Wir brauchen einen guten Reiseleiter. Eine gute Reiseleitung ist wichtig.">
@@ -1298,7 +1298,7 @@
       </notes>
       <segment>
         <source>Es sind die Individuen, die uns mit Sicherheit in den sicheren Tod führen...</source>
-        <target>C'est le gars qui va nous mener à une mort assurée...</target>
+        <target>Es sind die Individuen, die uns mit Sicherheit in den sicheren Tod führen...</target>
       </segment>
     </unit>
     <unit id="ymQHvdr" name="Die sind wie du? Nur hübscher?">
@@ -1309,7 +1309,7 @@
       </notes>
       <segment>
         <source>Die sind wie du? Nur hübscher?</source>
-        <target>Comme toi ? Mais en plus beau ?</target>
+        <target>Die sind wie du? Nur hübscher?</target>
       </segment>
     </unit>
     <unit id="rzhwH8H" name="Sie sind wie dieser Hexendoktor, nur nützlicher!">
@@ -1420,7 +1420,7 @@
       </notes>
       <segment>
         <source>Ich hoffe, er hält wenigstens ein paar Tage durch... Ich will nicht jeden verdammten Tag abstimmen müssen!</source>
-        <target>J'espère qu'il tiendra un jour ou deux...je ne veux pas devoir re-voter tous les jours !</target>
+        <target>Ich hoffe, er hält wenigstens ein paar Tage durch... Ich will nicht jeden verdammten Tag abstimmen müssen!</target>
       </segment>
     </unit>
     <unit id="n6d.MSX" name="Weis der überhaupt, wie man aus der Stadt kommt?">
@@ -1441,7 +1441,7 @@
       </notes>
       <segment>
         <source>Und er dachte, er wäre vorher gut gewesen...</source>
-        <target>Et il se croyait bon avant...</target>
+        <target>Und er dachte, er wäre vorher gut gewesen...</target>
       </segment>
     </unit>
     <unit id="hi.rvw0">
@@ -1452,7 +1452,7 @@
       </notes>
       <segment>
         <source>Jetzt sind wir zwar immer noch auf dem sprichwörtlichen Holzweg, aber wir haben zumindest einen Reiseleiter!</source>
-        <target>On est toujours sur la proverbiale "pente descendante", mais au moins on a un Guide !</target>
+        <target>Jetzt sind wir zwar immer noch auf dem sprichwörtlichen Holzweg, aber wir haben zumindest einen Reiseleiter!</target>
       </segment>
     </unit>
     <unit id="m4YskUq" name="Hurra für den Reiseleiter!">
@@ -1534,7 +1534,7 @@
       </notes>
       <segment>
         <source>Niemand ist mehr in der Stadt, keiner kann diese Versammlung halten, daher überspringen wir die Wahl zum Schamanen.</source>
-        <target>Il n'y a plus personne en ville pour cette réunion, alors nous passons l'élection du Chaman.</target>
+        <target>Niemand ist mehr in der Stadt, keiner kann diese Versammlung halten, daher überspringen wir die Wahl zum Schamanen.</target>
       </segment>
     </unit>
     <unit id="7IXrDK6">
@@ -1545,7 +1545,7 @@
       </notes>
       <segment>
         <source>Niemand ist mehr in der Stadt, keiner kann diese Versammlung halten, daher überspringen wir die Wahl zum Reiseleiter in der Außenwelt.</source>
-        <target>Il n'y a plus personne en ville pour cette réunion, alors nous passons l'élection du Guide de l'Outre-Monde.</target>
+        <target>Niemand ist mehr in der Stadt, keiner kann diese Versammlung halten, daher überspringen wir die Wahl zum Reiseleiter in der Außenwelt.</target>
       </segment>
     </unit>
     <unit id="kSlgIIW" name="Allen steht die Erschöpfung ins Gesicht geschrieben.">
@@ -1556,7 +1556,7 @@
       </notes>
       <segment>
         <source>Allen steht die Erschöpfung ins Gesicht geschrieben.</source>
-        <target>La fatigue se lit sur tous les visages. </target>
+        <target>Allen steht die Erschöpfung ins Gesicht geschrieben.</target>
       </segment>
     </unit>
     <unit id="OTSv8r.">
@@ -1567,7 +1567,7 @@
       </notes>
       <segment>
         <source>Wir ziehen Strohhalme, wie wir es immer machen. Der Kürzeste gewinnt. Kommt schon, kommt und zieht einen Stohhalm.</source>
-        <target> On le fait à la courte paille, comme toujours. La plus courte gagne. Allez, venez et tirez une paille.</target>
+        <target>Wir ziehen Strohhalme, wie wir es immer machen. Der Kürzeste gewinnt. Kommt schon, kommt und zieht einen Stohhalm.</target>
       </segment>
     </unit>
     <unit id="0LsI1XY">
@@ -1578,7 +1578,7 @@
       </notes>
       <segment>
         <source>OK, es sind nicht mehr viele von uns übrig, also lasst uns das schnell hinter uns bringen.</source>
-        <target>Bon, on n'est plus très nombreux, alors passons à la suite rapidement.</target>
+        <target>OK, es sind nicht mehr viele von uns übrig, also lasst uns das schnell hinter uns bringen.</target>
       </segment>
     </unit>
     <unit id="0fqtP6p">
