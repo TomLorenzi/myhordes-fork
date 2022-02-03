@@ -70,6 +70,7 @@ class GateKeeperSubscriber implements EventSubscriberInterface
         $this->authenticated = $authenticatedApiLimiter;
         $this->anonymous = $anonymousApiLimiter;
 
+
     }
 
     public function holdTheDoor(ControllerEvent $event) {
@@ -99,25 +100,29 @@ class GateKeeperSubscriber implements EventSubscriberInterface
         if ($gk_profile->rateLimited()) {
             // Find a way to get the rate limiters here
             $keys = $gk_profile->rateKeys();
-
+            $limiter = null;
             foreach ($keys as $key => $authName) {
                 $value = $event->getRequest()->get($key);
                 if($value == "") continue;
 
-                if(!empty($gk_profile->rateLimit)) break;
-
                 $limiter = $this->$authName->create($value);
-                /** @var LimiterInterface $limiter */
-                $rate = $limiter->consume(1);
-                $gk_profile->rateLimit = [
-                    'limit' => $rate->getLimit(),
-                    'remaining' => $rate->getRemainingTokens(),
-                    'retry_after' => $rate->getRetryAfter()->format('Y-m-d H:i:s')
-                ];
+                break;
+            }
 
-                if(!$rate->isAccepted()){
-                    throw new TooManyRequestsHttpException($rate->getRetryAfter()->format("Y-m-d H:i:s"), "Rate Limit Exceeded");
-                }
+            if($limiter == null){
+                $limiter = $this->anonymous;
+            }
+
+            /** @var LimiterInterface $limiter */
+            $rate = $limiter->consume(1);
+            $gk_profile->rateLimit = [
+                'limit' => $rate->getLimit(),
+                'remaining' => $rate->getRemainingTokens(),
+                'retry_after' => $rate->getRetryAfter()->format('Y-m-d H:i:s')
+            ];
+
+            if(!$rate->isAccepted()){
+                throw new TooManyRequestsHttpException($rate->getRetryAfter()->format("Y-m-d H:i:s"), "Rate Limit Exceeded");
             }
         }
 
