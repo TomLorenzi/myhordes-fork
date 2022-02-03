@@ -90,13 +90,13 @@ class CitizenHandler
 
     public function inflictWound( Citizen &$citizen ): ?CitizenStatus {
         if ($this->isWounded($citizen)) return null;
-        $ap_above_6 = $citizen->getAp() - $this->getMaxAP( $citizen );
+        // $ap_above_6 = $citizen->getAp() - $this->getMaxAP( $citizen );
         $citizen->addStatus( $status = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName(
             $this->random_generator->pick( ['wound1','wound2','wound3','wound4','wound5','wound6'] )
         ) );
         $citizen->addStatus($this->entity_manager->getRepository(CitizenStatus::class)->findOneByName('tg_meta_wound'));
-        if ($ap_above_6 >= 0)
-            $citizen->setAp( $this->getMaxAP( $citizen ) + $ap_above_6 );
+        // if ($ap_above_6 >= 0)
+        //    $citizen->setAp( $this->getMaxAP( $citizen ) + $ap_above_6 );
 
         $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName('r_wound_#00');
         $this->picto_handler->give_picto($citizen, $pictoPrototype);
