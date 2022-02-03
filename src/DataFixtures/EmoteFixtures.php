@@ -85,7 +85,7 @@ class EmoteFixtures extends Fixture {
         ['tag'=>':deco:', 'path'=>'build/images/emotes/deco.gif', 'isactive'=> true, 'requiresunlock'=> true, 'index'=> 59],
         ['tag'=>':buried:', 'path'=>'build/images/emotes/buried.gif', 'isactive'=> true, 'requiresunlock'=> true, 'index'=> 60],
         ['tag'=>':rptext:', 'path'=>'build/images/emotes/rptext.gif', 'isactive'=> true, 'requiresunlock'=> true, 'index'=> 61],
-        ['tag'=>':ban:', 'path'=>'build/images/emotes/ban.gif', 'isactive'=> true, 'requiresunlock'=> true, 'index'=> 62],
+        ['tag'=>':ban:', 'path'=>'build/images/emotes/ban.gif', 'isactive'=> true, 'requiresunlock'=> false, 'index'=> 62],
         ['tag'=>':extreme:', 'path'=>'build/images/emotes/extreme.gif', 'isactive'=> true, 'requiresunlock'=> true, 'index'=> 63],
         ['tag'=>':proscout:', 'path'=>'build/images/emotes/proscout.gif', 'isactive'=> true, 'requiresunlock'=> true, 'index'=> 64],
         ['tag'=>':proguard:', 'path'=>'build/images/emotes/proguard.gif', 'isactive'=> true, 'requiresunlock'=> true, 'index'=> 65],
