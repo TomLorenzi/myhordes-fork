@@ -480,7 +480,7 @@
       </notes>
       <segment>
         <source>MyHordes ist ein Teil des EternalTwin-Netzwerks. Wenn du einen EternalTwin-Account hast, kannst du MyHordes ohne zusätzliche Registrierung spielen!</source>
-        <target>MyHordes fait partie du réseau Eternal-Twin. Si vous avez un compte Eternal-Twin, vous pouvez jouer à MyHordes sans inscription supplémentaire !</target>
+        <target>MyHordes fait partie du réseau Eternaltwin. Si vous avez un compte Eternaltwin, vous pouvez jouer à MyHordes sans inscription supplémentaire !</target>
       </segment>
     </unit>
     <unit id="qo4M11k" name="Über EternalTwin einloggen">
@@ -520,7 +520,7 @@
       </notes>
       <segment>
         <source>Deine Seele bleibt bei der Verknüpfung mit EternalTwin selbstverständlich vollständig erhalten.</source>
-        <target>Votre âme sera bien sûr complètement préservée lorsque vous vous connecterez à Eternal-Twin.</target>
+        <target>Votre âme sera bien sûr complètement préservée lorsque vous vous connecterez à Eternaltwin.</target>
       </segment>
     </unit>
     <unit id="RG1kp2m" name="Über MyHordes einloggen">
@@ -614,7 +614,7 @@
       </notes>
       <segment>
         <source>Vielen Dank, dass du deinen MyHordes-Account {namecheck_mh} mit deinem EternalTwin-Account {namecheck_et} verknüpfst!</source>
-        <target>Merci d'avoir associé votre compte MyHordes {namecheck_mh} à votre compte Eternal-Twin {namecheck_et} !</target>
+        <target>Merci d'avoir associé votre compte MyHordes {namecheck_mh} à votre compte Eternaltwin {namecheck_et} !</target>
       </segment>
     </unit>
     <unit id="7JD3pLt">
