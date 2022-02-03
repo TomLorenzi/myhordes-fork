@@ -45,7 +45,6 @@ use Exception;
 use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\RateLimiter\RateLimiterFactory;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGenerator;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -117,8 +116,9 @@ class ExternalController extends InventoryAwareController {
      * @Route("/api/x/json/{type}", name="ext_json", methods={"GET", "POST"})
      * @param string $type
      * @return Response
+     * @GateKeeperProfile(rate_limited=true, rate_keys={"appkey": "authenticated"})
      */
-    public function api_json($type = '', RateLimiterFactory $authenticatedApiLimiter): Response {
+    public function api_json($type = ''): Response {
 
         $data = [];
 
@@ -139,16 +139,6 @@ class ExternalController extends InventoryAwareController {
         if ($this->time_keeper->isDuringAttack() && $type !== 'internalerror' && $type !== 'status') {
             $data = ["error" => "nightly_attack"];
             $type = 'internalerror';
-        }
-
-        $limiter = $authenticatedApiLimiter->create($APP_KEY);
-        $rate = $limiter->consume(1);
-        if (false === $rate->isAccepted()) {
-            $data = [
-                "error" => "rate_limit_exceeded",
-                "retry_after" => $rate->getRetryAfter()->format("Y-m-d H:i:s")
-            ];
-            $type = "internalerror";
         }
 
         switch ($type) {

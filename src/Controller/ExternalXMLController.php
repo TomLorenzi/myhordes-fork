@@ -26,8 +26,9 @@ class ExternalXMLController extends ExternalController {
     /**
      * @Route("api/x/xml", name="api_x_xml", defaults={"_format"="xml"}, methods={"GET","POST"})
      * @return Response
+     * @GateKeeperProfile(rate_limited=true, rate_keys={"appkey": "authenticated"})
      */
-    public function api_xml(RateLimiterFactory $authenticatedApiLimiter): Response {
+    public function api_xml(): Response {
         $request = Request::createFromGlobals();
 
         // Try POST data
@@ -49,14 +50,6 @@ class ExternalXMLController extends ExternalController {
         }
         if (trim($app_key) == '') {
             return $this->json(['Error' => 'Access denied', 'ErrorCode' => '403', 'ErrorMessage' => 'No user key found in request.']);
-        }
-
-        $limiter = $authenticatedApiLimiter->create($app_key);
-
-        $rate = $limiter->consume(1);
-
-        if (!$rate->isAccepted()){
-            return $this->json(['Error' => 'rate_limit_exceeded', 'ErrorCode' => '403', 'ErrorMessage' => "Rate limit exceeded. Retry after {$rate->getRetryAfter()->format("Y-m-d H:i:s")}"]);
         }
 
         // Get the app.

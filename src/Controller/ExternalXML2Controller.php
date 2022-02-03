@@ -52,7 +52,7 @@ class ExternalXML2Controller extends ExternalController {
      * @param bool $must_be_secure If the request must have an app_key
      * @return Response|User Error or the user linked to the user_key
      */
-    private function check_keys(RateLimiterFactory $authenticated, RateLimiterFactory $anonymous, $must_be_secure = false) {
+    private function check_keys($must_be_secure = false) {
         /** @var Request $request */
         $request = $this->container->get('request_stack')->getCurrentRequest();
 
@@ -70,20 +70,6 @@ class ExternalXML2Controller extends ExternalController {
         }
 
         $data = $this->getHeaders(null, $this->getRequestLanguage($request));
-
-        if(trim($app_key) == ''){
-            $limiter = $anonymous->create($user_key);
-        } else {
-            $limiter = $authenticated->create($app_key);
-        }
-
-        $rate = $limiter->consume(1);
-
-        if (!$rate->isAccepted()){
-            $data['error']['attributes'] = ['code' => "rate_limit_exceeded"];
-            $data['status']['attributes'] = ["retry_after" => $rate->getRetryAfter()->format("Y-m-d H:i:s")];
-            return new Response($this->arrayToXml( $data, '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
-        }
 
         if ($this->time_keeper->isDuringAttack()) {
             $data['error']['attributes'] = ['code' => "horde_attacking"];
@@ -130,9 +116,10 @@ class ExternalXML2Controller extends ExternalController {
     /**
      * @Route("api/x/v2/xml", name="api_x2_xml", defaults={"_format"="xml"}, methods={"GET","POST"})
      * @return Response The XML that contains the list of accessible enpoints
+     * @GateKeeperProfile(rate_limited=true, rate_keys={"appkey": "authenticated", "userkey": "anonymous"})
      */
-    public function api_xml(RateLimiterFactory $authenticatedApiLimiter, RateLimiterFactory $anonymousApiLimiter): Response {
-        $user = $this->check_keys($authenticatedApiLimiter, $anonymousApiLimiter, false);
+    public function api_xml(): Response {
+        $user = $this->check_keys(false);
 
         if($user instanceof Response)
             return $user;
@@ -162,9 +149,10 @@ class ExternalXML2Controller extends ExternalController {
      * Get the XML content for the soul of a user
      * @param Request $request The current HTTP Request
      * @return Response Return the XML content for the soul of the user
+     * @GateKeeperProfile(rate_limited=true, rate_keys={"appkey": "authenticated", "userkey": "anonymous"})
      */
     public function api_xml_user(Request $request, RateLimiterFactory $authenticatedApiLimiter, RateLimiterFactory $anonymousApiLimiter): Response {
-        $user = $this->check_keys($authenticatedApiLimiter, $anonymousApiLimiter, true);
+        $user = $this->check_keys(true);
 
         if($user instanceof Response)
             return $user;
@@ -321,9 +309,10 @@ class ExternalXML2Controller extends ExternalController {
      * Get the XML content for the town of a user
      * @param Request $request The current HTTP Request
      * @return Response
+     * @GateKeeperProfile(rate_limited=true, rate_keys={"appkey": "authenticated", "userkey": "anonymous"})
      */
     public function api_xml_town(Request $request, RateLimiterFactory $authenticatedApiLimiter, RateLimiterFactory $anonymousApiLimiter): Response {
-        $user = $this->check_keys($authenticatedApiLimiter, $anonymousApiLimiter, false);
+        $user = $this->check_keys(false);
 
         if($user instanceof Response)
             return $user;
@@ -812,9 +801,10 @@ class ExternalXML2Controller extends ExternalController {
      * Returns the lists of items currently used in the game
      * @param Request $request
      * @return Response
+     * @GateKeeperProfile(rate_limited=true, rate_keys={"appkey": "authenticated", "userkey": "anonymous"})
      */
     public function api_xml_items(Request $request, RateLimiterFactory $authenticatedApiLimiter, RateLimiterFactory $anonymousApiLimiter): Response {
-        $user = $this->check_keys($authenticatedApiLimiter, $anonymousApiLimiter, true);
+        $user = $this->check_keys(true);
 
         try {
             $now = new DateTime('now', new DateTimeZone('Europe/Paris'));
@@ -887,9 +877,10 @@ class ExternalXML2Controller extends ExternalController {
      * Returns the lists of buildings currently used in the game
      * @param Request $request
      * @return Response
+     * @GateKeeperProfile(rate_limited=true, rate_keys={"appkey": "authenticated", "userkey": "anonymous"})
      */
     public function api_xml_buildings(Request $request, RateLimiterFactory $authenticatedApiLimiter, RateLimiterFactory $anonymousApiLimiter): Response {
-        $user = $this->check_keys($authenticatedApiLimiter, $anonymousApiLimiter, true);
+        $user = $this->check_keys(true);
 
         try {
             $now = new DateTime('now', new DateTimeZone('Europe/Paris'));
@@ -959,9 +950,10 @@ class ExternalXML2Controller extends ExternalController {
      * Returns the lists of ruins currently used in the game
      * @param Request $request
      * @return Response
+     * @GateKeeperProfile(rate_limited=true, rate_keys={"appkey": "authenticated", "userkey": "anonymous"})
      */
     public function api_xml_ruins(Request $request, RateLimiterFactory $authenticatedApiLimiter, RateLimiterFactory $anonymousApiLimiter): Response {
-        $user = $this->check_keys($authenticatedApiLimiter, $anonymousApiLimiter, true);
+        $user = $this->check_keys(true);
 
         try {
             $now = new DateTime('now', new DateTimeZone('Europe/Paris'));
@@ -1026,9 +1018,10 @@ class ExternalXML2Controller extends ExternalController {
      * Returns the lists of pictos currently used in the game
      * @param Request $request
      * @return Response
+     * @GateKeeperProfile(rate_limited=true, rate_keys={"appkey": "authenticated", "userkey": "anonymous"})
      */
     public function api_xml_pictos(Request $request, RateLimiterFactory $authenticatedApiLimiter, RateLimiterFactory $anonymousApiLimiter): Response {
-        $user = $this->check_keys($authenticatedApiLimiter, $anonymousApiLimiter, true);
+        $user = $this->check_keys(true);
 
         try {
             $now = new DateTime('now', new DateTimeZone('Europe/Paris'));
@@ -1092,9 +1085,10 @@ class ExternalXML2Controller extends ExternalController {
      * Returns the lists of titles currently used in the game
      * @param Request $request
      * @return Response
+     * @GateKeeperProfile(rate_limited=true, rate_keys={"appkey": "authenticated", "userkey": "anonymous"})
      */
     public function api_xml_titles(Request $request, RateLimiterFactory $authenticatedApiLimiter, RateLimiterFactory $anonymousApiLimiter): Response {
-        $user = $this->check_keys($authenticatedApiLimiter, $anonymousApiLimiter, true);
+        $user = $this->check_keys(true);
 
         try {
             $now = new DateTime('now', new DateTimeZone('Europe/Paris'));
