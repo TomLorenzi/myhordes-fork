@@ -34,6 +34,8 @@ use Doctrine\Common\Collections\Criteria;
 use Exception;
 use Symfony\Component\Config\Util\Exception\InvalidXmlException;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\RateLimiter\Policy\Rate;
+use Symfony\Component\RateLimiter\RateLimiterFactory;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -50,7 +52,7 @@ class ExternalXML2Controller extends ExternalController {
      * @param bool $must_be_secure If the request must have an app_key
      * @return Response|User Error or the user linked to the user_key
      */
-    private function check_keys($must_be_secure = false) {
+    private function check_keys(RateLimiterFactory $authenticated, RateLimiterFactory $anonymous, $must_be_secure = false) {
         /** @var Request $request */
         $request = $this->container->get('request_stack')->getCurrentRequest();
 
@@ -68,6 +70,20 @@ class ExternalXML2Controller extends ExternalController {
         }
 
         $data = $this->getHeaders(null, $this->getRequestLanguage($request));
+
+        if(trim($app_key) == ''){
+            $limiter = $anonymous->create($user_key);
+        } else {
+            $limiter = $authenticated->create($app_key);
+        }
+
+        $rate = $limiter->consume(1);
+
+        if (!$rate->isAccepted()){
+            $data['error']['attributes'] = ['code' => "rate_limit_exceeded"];
+            $data['status']['attributes'] = ["retry_after" => $rate->getRetryAfter()->format("Y-m-d H:i:s")];
+            return new Response($this->arrayToXml( $data, '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
+        }
 
         if ($this->time_keeper->isDuringAttack()) {
             $data['error']['attributes'] = ['code' => "horde_attacking"];
@@ -112,14 +128,15 @@ class ExternalXML2Controller extends ExternalController {
     }
 
     /**
-     * @Route("/api/x/v2/xml", name="api_x2_xml", defaults={"_format"="xml"}, methods={"GET","POST"})
+     * @Route("api/x/v2/xml", name="api_x2_xml", defaults={"_format"="xml"}, methods={"GET","POST"})
      * @return Response The XML that contains the list of accessible enpoints
      */
-    public function api_xml(): Response {
-        $user = $this->check_keys();
+    public function api_xml(RateLimiterFactory $authenticatedApiLimiter, RateLimiterFactory $anonymousApiLimiter): Response {
+        $user = $this->check_keys($authenticatedApiLimiter, $anonymousApiLimiter, false);
 
         if($user instanceof Response)
             return $user;
+
         $endpoints = [];
         if ($this->isSecureRequest()) {
             $endpoints['user'] = $this->generateUrl('api_x2_xml_user', [], UrlGeneratorInterface::ABSOLUTE_URL);
@@ -141,13 +158,13 @@ class ExternalXML2Controller extends ExternalController {
     }
 
     /**
-     * @Route("/api/x/v2/xml/user", name="api_x2_xml_user", defaults={"_format"="xml"}, methods={"GET","POST"})
+     * @Route("api/x/v2/xml/user", name="api_x2_xml_user", defaults={"_format"="xml"}, methods={"GET","POST"})
      * Get the XML content for the soul of a user
      * @param Request $request The current HTTP Request
      * @return Response Return the XML content for the soul of the user
      */
-    public function api_xml_user(Request $request): Response {
-        $user = $this->check_keys(true);
+    public function api_xml_user(Request $request, RateLimiterFactory $authenticatedApiLimiter, RateLimiterFactory $anonymousApiLimiter): Response {
+        $user = $this->check_keys($authenticatedApiLimiter, $anonymousApiLimiter, true);
 
         if($user instanceof Response)
             return $user;
@@ -157,7 +174,6 @@ class ExternalXML2Controller extends ExternalController {
         } catch (Exception $e) {
             $now = date('Y-m-d H:i:s');
         }
-
 
         $language = $this->getRequestLanguage($request,$user);
         if($language !== 'all')
@@ -301,13 +317,13 @@ class ExternalXML2Controller extends ExternalController {
     }
 
     /**
-     * @Route("/api/x/v2/xml/town", name="api_x2_xml_town", defaults={"_format"="xml"}, methods={"GET","POST"})
+     * @Route("api/x/v2/xml/town", name="api_x2_xml_town", defaults={"_format"="xml"}, methods={"GET","POST"})
      * Get the XML content for the town of a user
      * @param Request $request The current HTTP Request
      * @return Response
      */
-    public function api_xml_town(Request $request): Response {
-        $user = $this->check_keys(false);
+    public function api_xml_town(Request $request, RateLimiterFactory $authenticatedApiLimiter, RateLimiterFactory $anonymousApiLimiter): Response {
+        $user = $this->check_keys($authenticatedApiLimiter, $anonymousApiLimiter, false);
 
         if($user instanceof Response)
             return $user;
@@ -792,13 +808,13 @@ class ExternalXML2Controller extends ExternalController {
     }
 
     /**
-     * @Route("/api/x/v2/xml/items", name="api_x2_xml_items", defaults={"_format"="xml"}, methods={"GET","POST"})
+     * @Route("api/x/v2/xml/items", name="api_x2_xml_items", defaults={"_format"="xml"}, methods={"GET","POST"})
      * Returns the lists of items currently used in the game
      * @param Request $request
      * @return Response
      */
-    public function api_xml_items(Request $request): Response {
-        $user = $this->check_keys(true);
+    public function api_xml_items(Request $request, RateLimiterFactory $authenticatedApiLimiter, RateLimiterFactory $anonymousApiLimiter): Response {
+        $user = $this->check_keys($authenticatedApiLimiter, $anonymousApiLimiter, true);
 
         try {
             $now = new DateTime('now', new DateTimeZone('Europe/Paris'));
@@ -867,13 +883,13 @@ class ExternalXML2Controller extends ExternalController {
     }
 
     /**
-     * @Route("/api/x/v2/xml/buildings", name="api_x2_xml_buildings", defaults={"_format"="xml"}, methods={"GET","POST"})
+     * @Route("api/x/v2/xml/buildings", name="api_x2_xml_buildings", defaults={"_format"="xml"}, methods={"GET","POST"})
      * Returns the lists of buildings currently used in the game
      * @param Request $request
      * @return Response
      */
-    public function api_xml_buildings(Request $request): Response {
-        $user = $this->check_keys(true);
+    public function api_xml_buildings(Request $request, RateLimiterFactory $authenticatedApiLimiter, RateLimiterFactory $anonymousApiLimiter): Response {
+        $user = $this->check_keys($authenticatedApiLimiter, $anonymousApiLimiter, true);
 
         try {
             $now = new DateTime('now', new DateTimeZone('Europe/Paris'));
@@ -939,13 +955,13 @@ class ExternalXML2Controller extends ExternalController {
     }
 
     /**
-     * @Route("/api/x/v2/xml/ruins", name="api_x2_xml_ruins", defaults={"_format"="xml"}, methods={"GET","POST"})
+     * @Route("api/x/v2/xml/ruins", name="api_x2_xml_ruins", defaults={"_format"="xml"}, methods={"GET","POST"})
      * Returns the lists of ruins currently used in the game
      * @param Request $request
      * @return Response
      */
-    public function api_xml_ruins(Request $request): Response {
-        $user = $this->check_keys(true);
+    public function api_xml_ruins(Request $request, RateLimiterFactory $authenticatedApiLimiter, RateLimiterFactory $anonymousApiLimiter): Response {
+        $user = $this->check_keys($authenticatedApiLimiter, $anonymousApiLimiter, true);
 
         try {
             $now = new DateTime('now', new DateTimeZone('Europe/Paris'));
@@ -1006,13 +1022,13 @@ class ExternalXML2Controller extends ExternalController {
     }
 
     /**
-     * @Route("/api/x/v2/xml/pictos", name="api_x2_xml_pictos", defaults={"_format"="xml"}, methods={"GET","POST"})
+     * @Route("api/x/v2/xml/pictos", name="api_x2_xml_pictos", defaults={"_format"="xml"}, methods={"GET","POST"})
      * Returns the lists of pictos currently used in the game
      * @param Request $request
      * @return Response
      */
-    public function api_xml_pictos(Request $request): Response {
-        $user = $this->check_keys(true);
+    public function api_xml_pictos(Request $request, RateLimiterFactory $authenticatedApiLimiter, RateLimiterFactory $anonymousApiLimiter): Response {
+        $user = $this->check_keys($authenticatedApiLimiter, $anonymousApiLimiter, true);
 
         try {
             $now = new DateTime('now', new DateTimeZone('Europe/Paris'));
@@ -1072,13 +1088,13 @@ class ExternalXML2Controller extends ExternalController {
     }
 
     /**
-     * @Route("/api/x/v2/xml/titles", name="api_x2_xml_titles", defaults={"_format"="xml"}, methods={"GET","POST"})
+     * @Route("api/x/v2/xml/titles", name="api_x2_xml_titles", defaults={"_format"="xml"}, methods={"GET","POST"})
      * Returns the lists of titles currently used in the game
      * @param Request $request
      * @return Response
      */
-    public function api_xml_titles(Request $request): Response {
-        $user = $this->check_keys(true);
+    public function api_xml_titles(Request $request, RateLimiterFactory $authenticatedApiLimiter, RateLimiterFactory $anonymousApiLimiter): Response {
+        $user = $this->check_keys($authenticatedApiLimiter, $anonymousApiLimiter, true);
 
         try {
             $now = new DateTime('now', new DateTimeZone('Europe/Paris'));
