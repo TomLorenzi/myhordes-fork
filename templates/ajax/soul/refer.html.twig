@@ -27,6 +27,7 @@
                                     <div class="padded cell rw-3 hide-md">{{ 'Seelenpunkte'|trans({},'soul') }}</div>
                                     <div class="padded cell rw-3 right">{{ 'Aktionen'|trans({},'soul') }}</div>
                                 </div>
+                                {# @var \App\Entity\User entry #}
                                 {% for entry in friends|sort((a,b) => (app.user in b.friends) <=> (app.user in a.friends) ?: a.id <=> b.id) %}
                                     <div class="row-flex wrap">
                                         <div class="padded cell rw-1 center">
@@ -38,7 +39,7 @@
                                         </div>
                                         <div class="padded cell factor-0" style="flex-basis: 90px; background: url('{{ entry.avatar ? path('app_web_avatar', {'uid': entry.id, 'name': entry.avatar.smallName, 'ext': entry.avatar.format}) : asset('build/images/forum/empty_avatar.gif') }}') center/cover no-repeat"></div>
                                         <div class="padded cell factor-1">{% include 'ajax/soul/playername.html.twig' with {user: entry} only %}</div>
-                                        <div class="padded cell rw-3 hide-sm hide-md">{{ entry.soulPoints }}</div>
+                                        <div class="padded cell rw-3 hide-sm hide-md">{{ entry.allSoulPoints }}</div>
                                         <div class="padded cell rw-3 rw-sm-12 right">
                                             {% if app.user in entry.friends and coa is not null and not coa_full and coa_members[entry.id] is not defined %}
                                                 <div class="inline pointer">
@@ -100,7 +101,7 @@
                                         <div class="padded cell rw-1">&nbsp;</div>
                                         <div class="padded cell factor-0" style="flex-basis: 90px; background: url('{{ entry.avatar ? path('app_web_avatar', {'uid': entry.id, 'name': entry.avatar.smallName, 'ext': entry.avatar.format}) : asset('build/images/forum/empty_avatar.gif') }}') center/cover no-repeat"></div>
                                         <div class="padded cell factor-1">{{ entry.name }}</div>
-                                        <div class="padded cell rw-3 hide-sm hide-md">{{ entry.soulPoints }}</div>
+                                        <div class="padded cell rw-3 hide-sm hide-md">{{ entry.allSoulPoints }}</div>
                                         <div class="padded cell rw-3 rw-sm-12 right">
                                             <div class="inline pointer">
                                                 <img x-friend-id="{{ entry.id }}" x-friend-control="1" src="{{ asset('build/images/icons/addContact.png') }}" alt="" />
@@ -138,7 +139,7 @@
                                             <img alt="" src="{{ asset('build/images/icons/small_ghost_red.gif') }}">
                                             {% include 'ajax/soul/playername.html.twig' with {user: entry.user} only %}
                                         </div>
-                                        <div class="padded cell rw-3">{{ entry.user.soulPoints }}</div>
+                                        <div class="padded cell rw-3">{{ entry.user.allSoulPoints }}</div>
                                         <div class="padded cell rw-3">{{ entry.user.heroDaysSpent }}</div>
                                         <div class="padded cell rw-3">
                                             {% if coa is null %}
@@ -259,6 +260,10 @@
                                     </div>
                                 {% endfor %}
                             </div>
+                        </div>
+                    {% else %}
+                        <div class="padded cell rw-12">
+                            <div class="small center">{{ 'Deine Blockierliste ist leer.'|trans({}, 'soul') }}</div>
                         </div>
                     {% endif %}
                 </div>

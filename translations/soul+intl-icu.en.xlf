@@ -4347,7 +4347,7 @@
     </unit>
     <unit id="Wodhw7O" name="Profil Eternal-Twin">
       <notes>
-        <note category="german">Profil Eternal-Twin</note>
+        <note category="german">Profil EternalTwin</note>
         <note category="from">twig:///templates/ajax/soul/user_tooltip.html.twig</note>
       </notes>
       <segment>
@@ -4533,6 +4533,17 @@
       <segment>
         <source>Blockierter Spieler</source>
         <target>Blocked player</target>
+      </segment>
+    </unit>
+    <unit id="gqnWr8F" name="Deine Blockierliste ist leer.">
+      <notes>
+        <note category="german">Deine Blockierliste ist leer.</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Deine Blockierliste ist leer.</source>
+        <target>Your blocklist is empty.</target>
       </segment>
     </unit>
   </file>
