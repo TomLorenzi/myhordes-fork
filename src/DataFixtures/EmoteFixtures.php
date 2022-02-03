@@ -61,7 +61,7 @@ class EmoteFixtures extends Fixture {
         ['tag'=>':arma:', 'path'=>'build/images/emotes/arma.gif', 'isactive'=> true, 'requiresunlock'=> false, 'index'=> 35],
         ['tag'=>':chat:', 'path'=>'build/images/emotes/chat.gif', 'isactive'=> true, 'requiresunlock'=> false, 'index'=> 36],
         ['tag'=>':calim:', 'path'=>'build/images/emotes/calim.gif', 'isactive'=> true, 'requiresunlock'=> false, 'index'=> 37],
-        ['tag'=>':xmas:', 'path'=>'build/images/emotes/xmas.gif', 'isactive'=> false, 'requiresunlock'=> false, 'index'=> 38],
+        ['tag'=>':xmas:', 'path'=>'build/images/emotes/xmas.gif', 'isactive'=> true, 'requiresunlock'=> false, 'index'=> 38],
         ['tag'=>':scout:', 'path'=>'build/images/emotes/scout.gif', 'isactive'=> true, 'requiresunlock'=> false, 'index'=> 39],
         ['tag'=>':scav:', 'path'=>'build/images/emotes/scav.gif', 'isactive'=> true, 'requiresunlock'=> false, 'index'=> 40],
         ['tag'=>':surv:', 'path'=>'build/images/emotes/surv.gif', 'isactive'=> true, 'requiresunlock'=> false, 'index'=> 41],
