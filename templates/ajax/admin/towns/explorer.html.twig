@@ -126,6 +126,7 @@
                                                     <option value="{{ url('admin_town_manage', {action: 'dbg_fill_town', id: town.id}) }}">{{ 'Stadt füllen'|trans({},'admin') }}</option>
                                                 {% endif %}
                                                 <option value="{{ url('admin_town_manage', {action: 'dbg_fill_bank', id: town.id}) }}">{{ 'Bank füllen'|trans({},'admin') }}</option>
+                                                <option value="{{ url('admin_town_manage', {action: 'dbg_empty_bank', id: town.id}) }}">{{ 'Bank leeren'|trans({},'admin') }}</option>
                                                 <option value="{{ url('admin_town_manage', {action: 'dbg_unlock_bank', id: town.id}) }}">{{ 'Banksperre aufheben'|trans({},'admin') }}</option>
                                                 <option value="{{ url('admin_town_manage', {action: 'dbg_hydrate', id: town.id}) }}">{{ 'Durst aufheben'|trans({},'admin') }}</option>
                                                 {% if ctz_engaged > 0 %}

@@ -418,7 +418,7 @@ class AdminTownController extends AdminActionController
         if (in_array($action, [
                 'release', 'quarantine', 'advance', 'nullify', 'pw_change',
                 'ex_del', 'ex_co+', 'ex_co-', 'ex_ref', 'ex_inf',
-                'dbg_fill_town', 'dbg_fill_bank', 'dbg_unlock_bank', 'dbg_hydrate', 'dbg_disengage', 'dbg_engage',
+                'dbg_fill_town', 'dbg_fill_bank', 'dgb_empty_bank', 'dbg_unlock_bank', 'dbg_hydrate', 'dbg_disengage', 'dbg_engage',
                 'dbg_set_well', 'dbg_unlock_buildings', 'dbg_map_progress', 'dbg_map_zombie_set', 'dbg_adv_days',
                 'dbg_set_attack', 'dbg_toggle_chaos', 'dbg_toggle_devas'
             ]) && !$this->isGranted('ROLE_ADMIN'))
@@ -537,6 +537,14 @@ class AdminTownController extends AdminActionController
                 $bank = $town->getBank();
                 foreach ($this->entity_manager->getRepository(ItemPrototype::class)->findAll() as $repo)
                     $this->inventory_handler->forceMoveItem( $bank, ($itemFactory->createItem( $repo ))->setCount(500) );
+
+                $this->entity_manager->persist( $bank );
+                break;
+
+            case 'dbg_empty_bank':
+                $bank = $town->getBank();
+                foreach ($bank->getItems() as $item)
+                    $this->inventory_handler->forceRemoveItem($item, $item->getCount());
 
                 $this->entity_manager->persist( $bank );
                 break;

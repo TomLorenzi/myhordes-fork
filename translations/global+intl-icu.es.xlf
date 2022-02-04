@@ -4211,7 +4211,7 @@
     </unit>
     <unit id="53MkB88" name="Diskussion aktualisieren">
       <notes>
-        <note category="german">Refresh the discussion</note>
+        <note category="german">Diskussion aktualisieren</note>
         <note category="from">twig:///templates/ajax/pm/view.html.twig</note>
       </notes>
       <segment>

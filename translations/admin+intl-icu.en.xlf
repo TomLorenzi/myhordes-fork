@@ -4546,5 +4546,16 @@
         <target>Please do not give multiple citizen the same alias!</target>
       </segment>
     </unit>
+    <unit id="NcKgihM" name="Bank leeren">
+      <notes>
+        <note category="german">Bank leeren</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Bank leeren</source>
+        <target>Empty the bank</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

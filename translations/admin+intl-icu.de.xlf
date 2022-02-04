@@ -2845,5 +2845,11 @@
         <target>Bitte nicht für mehrere Bürger denselben Alias eingeben!</target>
       </segment>
     </unit>
+    <unit id="NcKgihM" name="Bank leeren">
+      <segment>
+        <source>Bank leeren</source>
+        <target>Bank leeren</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
