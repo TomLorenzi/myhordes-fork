@@ -23,6 +23,7 @@ use App\Entity\CitizenWatch;
 use App\Entity\Complaint;
 use App\Entity\ComplaintReason;
 use App\Entity\CouncilEntry;
+use App\Entity\EventActivationMarker;
 use App\Entity\ExpeditionRoute;
 use App\Entity\HeroicActionPrototype;
 use App\Entity\Inventory;
@@ -756,6 +757,13 @@ class AdminTownController extends AdminActionController
 
         if($eventName !== "" && $eventName !== null){
             $townHandler->updateCurrentEvents($town, [$this->conf->getEvent($eventName)]);
+        } else {
+            $currentEvents = $this->conf->getCurrentEvents($town, $markers);
+            foreach ($markers as $marker) {
+                /** @var EventActivationMarker $marker */
+                $marker->setActive(false);
+                $this->entity_manager->persist($marker);
+            }
         }
 
         $this->entity_manager->persist($town);
