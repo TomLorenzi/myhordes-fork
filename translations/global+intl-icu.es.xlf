@@ -1786,7 +1786,7 @@
     <unit id="EX0EUAt" name="Kein">
       <notes>
         <note category="german">Kein</note>
-        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Kein</source>

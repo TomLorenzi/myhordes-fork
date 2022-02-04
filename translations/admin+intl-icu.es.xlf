@@ -3924,7 +3924,7 @@
     <unit id="OAGjXFG" name="Alle">
       <notes>
         <note category="german">Alle</note>
-        <note category="from">twig:///templates/ajax/admin/users/pictos.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/users/pictos.html.twig;twig:///templates/ajax/admin/widget/controls.twig</note>
       </notes>
       <segment>
         <source>Alle</source>
@@ -4507,11 +4507,21 @@
       <notes>
         <note category="german">Bank leeren</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Bank leeren</source>
         <target>Vaciar el almacén</target>
+      </segment>
+    </unit>
+    <unit id="u2ktkWy" name="Stadt-Event">
+      <notes>
+        <note category="german">Event of the town</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Stadt-Event</source>
+        <target>Stadt-Event</target>
       </segment>
     </unit>
   </file>
