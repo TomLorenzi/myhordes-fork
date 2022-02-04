@@ -2,7 +2,7 @@
 {% macro gen_attr(prefix,domain,name,value = null) %}x-{% if prefix is not empty %}{{ prefix }}-{% endif %}{{ domain }}-{{ name }}{% if value is not null %}="{{ value }}"{% endif %}{% endmacro %}
 
 <!-- <editor-fold desc="Item Creator Widget"> -->
-{% macro widget_item_creator(itemPrototypes, prefix = '') %}
+{% macro widget_item_creator(itemPrototypes, prefix = '', allow_all = false) %}
     <div class="lightbox">
         <div class="row">
             <div class="cell rw-12"><label for="{{ _self.gen_id(prefix,'itemwidget','select')}}">{{'Einen Gegenstand erzeugen:'|trans({}, 'admin')}}</label></div>
@@ -10,6 +10,9 @@
         <div class="row-flex">
             <div class="padded cell grow-1 shrink-1">
                 <select id="{{ _self.gen_id(prefix,'itemwidget','select')}}">
+                    {% if allow_all %}
+                    <option title="{{ 'Alle'|trans({}, 'admin') }}" value="all">{{ 'Alle'|trans({}, 'admin') }}</option>
+                    {% endif %}
                     {% for itemPrototype in itemPrototypes %}
                         <option title="{{ itemPrototype.name }}" value="{{itemPrototype.id}}">{{ itemPrototype.label|trans({}, 'items') }}</option>
                     {% endfor %}
@@ -38,7 +41,7 @@
     <script>
         $.html.addEventListenerAll('#{{ _self.gen_id(prefix,'itemwidget','spawn')}}', 'click', function(){
             const number = parseInt(document.getElementById("{{ _self.gen_id(prefix,'itemwidget','number')}}").value);
-            const item = parseInt(document.getElementById('{{ _self.gen_id(prefix,'itemwidget','select')}}').value);
+            const item = document.getElementById('{{ _self.gen_id(prefix,'itemwidget','select')}}').value;
 
             const conf = {
                 poison: document.getElementById('{{ _self.gen_id(prefix,'itemwidget','opt_poison')}}').checked,

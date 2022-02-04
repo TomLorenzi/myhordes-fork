@@ -320,7 +320,7 @@
                     </div>
                     <div class="padded cell rw-6 rw-md-12">
                         {% if is_granted("ROLE_ADMIN") %}
-                            {{ item_creator(itemPrototypes, 'bnk') }}
+                            {{ item_creator(itemPrototypes, 'bnk', true) }}
                         {% endif %}
                     </div>
                 </div>

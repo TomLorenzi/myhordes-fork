@@ -977,7 +977,7 @@ class AdminTownController extends AdminActionController
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
         if (!$town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        $prototype_id = $parser->get_int('prototype');
+        $prototype_id = $parser->get('prototype');
         $number = $parser->get_int('number');
         $targets = $parser->get_array('targets');
 
@@ -991,8 +991,15 @@ class AdminTownController extends AdminActionController
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         /** @var ItemPrototype $itemPrototype */
-        $itemPrototype = $this->entity_manager->getRepository(ItemPrototype::class)->find($prototype_id);
-        if (!$itemPrototype) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        if ($prototype_id == "all") {
+            $itemPrototype = $this->entity_manager->getRepository(ItemPrototype::class)->findAll();
+        } else {
+            $itemPrototype = $this->entity_manager->getRepository(ItemPrototype::class)->find($prototype_id);
+            if (!$itemPrototype) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        }
+
+        if (!is_array($itemPrototype))
+            $itemPrototype = [$itemPrototype];
 
         /** @var Inventory[] $inventories */
         $inventories = [];
@@ -1031,8 +1038,12 @@ class AdminTownController extends AdminActionController
         }
 
         foreach ($inventories as $inventory) {
-            for ($i = 0; $i < $number; $i++)
-                $handler->forceMoveItem($inventory, $itemFactory->createItem($itemPrototype->getName(), $broken, $poison)->setEssential($essential)->setHidden($hidden && $inventory->getZone()));
+            for ($i = 0; $i < $number; $i++) {
+                foreach ($itemPrototype as $proto) {
+                    $handler->forceMoveItem($inventory, $itemFactory->createItem($proto->getName(), $broken, $poison)->setEssential($essential)->setHidden($hidden && $inventory->getZone()));
+                }
+
+            }
             $this->entity_manager->persist($inventory);
         }
 
