@@ -153,11 +153,25 @@
                                                 {% endif %}
                                             </optgroup>
                                         {% endif %}
+
                                     {% endif %}
                                 </select>
                                 <div id="execute_button" class="button inline small">{{ 'Ausführen'|trans({},'admin') }}</div>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="padded cell rw-4 note note-lightest"><label for="activate-event">{{ 'Stadt-Event'|trans({},'admin') }}</label></div>
+                            <div class="padded cell rw-8">
+                                <select id="activate-event">
+                                    <option value="">{{ "Kein"|trans({}, 'global') }}</option>
+                                    {% for eventName,event in events %}
+                                        <option value="{{ eventName }}" x-param="{{ eventName }}" {% if current_event is not null and current_event[0].name == eventName %}selected{% endif %}>{{ event.conf.name|trans({}, 'game') }}</option>
+                                    {% endfor %}
+                                </select>
+                                <div id="set_event_button" class="button inline small">{{ 'Ausführen'|trans({},'admin') }}</div>
+                            </div>
+                        </div>
+
                     </div>
                     <div class="cell padded rw-6 rw-sm-12">
                         {% embed "ajax/admin/towns/map.html.twig" with {'default_zoom': 0, 'default_show_zone': false, 'allow_zone_view': false, 'map': map_data} %}
@@ -772,6 +786,9 @@
 
             document.getElementById('execute_button').addEventListener('click', function() {
                 fun_api_call(document.getElementById('administer-town').value,document.querySelector('#administer-town option:checked'));
+            });
+            document.getElementById('set_event_button').addEventListener('click', function() {
+                fun_api_call("{{ path('admin_town_set_event', {id: town.id}) }}", document.querySelector('#activate-event option:checked'));
             });
             $.html.addEventListenerAll('[x-api-trigger]', 'click', function(e,elem) {
                 fun_api_call(elem.getAttribute('x-api-trigger'),elem);

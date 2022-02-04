@@ -194,7 +194,6 @@ class GateKeeperSubscriber implements EventSubscriberInterface
 
     public function releaseTheDoor(ResponseEvent $event) {
         $gk_profile = $event->getRequest()->attributes->get('_GateKeeperProfile') ?? new GateKeeperProfile();
-        dump($gk_profile);
         if($gk_profile->rateLimited())
             $event->getResponse()->headers->add([
                 'X-RateLimit-Remaining' => $gk_profile->rateLimit()['remaining'],
