@@ -754,7 +754,7 @@ class AdminTownController extends AdminActionController
 
         $town->setManagedEvents($eventName !== "");
 
-        if($eventName !== ""){
+        if($eventName !== "" && $eventName !== null){
             $townHandler->updateCurrentEvents($town, [$this->conf->getEvent($eventName)]);
         }
 
