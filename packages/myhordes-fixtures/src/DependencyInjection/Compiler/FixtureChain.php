@@ -5,6 +5,8 @@ namespace MyHordes\Fixtures\DependencyInjection\Compiler;
 use MyHordes\Fixtures\Fixtures\AwardFeature;
 use MyHordes\Fixtures\Fixtures\AwardIcon;
 use MyHordes\Fixtures\Fixtures\AwardTitle;
+use MyHordes\Fixtures\Fixtures\Emote;
+use MyHordes\Fixtures\Fixtures\ForumThreadTag;
 use MyHordes\Fixtures\Fixtures\RolePlayText;
 use MyHordes\Fixtures\Fixtures\Ruin;
 use MyHordes\Fixtures\Fixtures\RuinRoom;
@@ -28,6 +30,8 @@ class FixtureChain implements CompilerPassInterface
             Ruin::class             => 'myhordes.fixtures.ruins.data',
             RuinRoom::class         => 'myhordes.fixtures.ruins.rooms',
             ZoneTag::class          => 'myhordes.fixtures.zones.tags',
+            Emote::class            => 'myhordes.fixtures.emotes',
+            ForumThreadTag::class   => 'myhordes.fixtures.forum.thread.tags',
         ];
 
 

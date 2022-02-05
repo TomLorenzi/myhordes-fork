@@ -34,3 +34,8 @@ services:
 
     MyHordes\Fixtures\Service\ZoneTagDataService:
       tags: [ { name: 'myhordes.fixtures.zones.tags', priority: 0 } ]
+
+    MyHordes\Fixtures\Service\EmoteDataService:
+      tags: [ { name: 'myhordes.fixtures.emotes', priority: 0 } ]
+    MyHordes\Fixtures\Service\ForumThreadTagDataService:
+      tags: [ { name: 'myhordes.fixtures.forum.thread.tags', priority: 0 } ]
