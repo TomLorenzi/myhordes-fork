@@ -274,7 +274,7 @@ class RuinDataService implements FixtureProcessorInterface {
                 'chest_#00' => 4,
                 'hmeat_#00' => 3,
             ], 'desc' => 'Diese Mineralienabbauzone trägt alle Merkmale eines schrecklichen Unglücks : der Hang scheint auf die Arbeiter, Maschinen und Gebäude darunter eingestürzt zu sein.'],
-            'ufo' => ["label" => "Ein seltsames kreisförmiges Gerät",'icon' => 'ufo',"camping" => 7,"min_dist" => 21, "max_dist" => 27, "chance" => 15, "drops" => [
+            'ufo' => ["label" => "Ein seltsames kreisförmiges Gerät",'icon' => 'ufo',"camping" => 7,"min_dist" => 21, "max_dist" => 28, "chance" => 15, "drops" => [
                 'metal_bad_#00' => 6,
                 'plate_raw_#00' => 2,
                 'iphone_#00' => 1,
@@ -475,7 +475,7 @@ class RuinDataService implements FixtureProcessorInterface {
                 'jerrycan_#00' => 6,
                 'engine_part_#00' => 5,
             ], 'desc' => 'Ein unterirdisches Parkhaus, das fast vollständig vom Sand begraben wurde - der ideale Ort, um alleine zu sterben. Niemand wird dich hören...'],
-            'tank' => ["label" => "Liegengebliebener Kampfpanzer",'icon' => 'tank',"camping" => 9,"min_dist" => 21, "max_dist" => 27, "chance" => 83, "drops" => [
+            'tank' => ["label" => "Liegengebliebener Kampfpanzer",'icon' => 'tank',"camping" => 9,"min_dist" => 21, "max_dist" => 28, "chance" => 83, "drops" => [
                 'chain_#00' => 20,
                 'home_def_#00' => 16,
                 'mecanism_#00' => 14,
@@ -544,7 +544,7 @@ class RuinDataService implements FixtureProcessorInterface {
                 'cigs_#00' => 1,
                 'lamp_#00' => 1,
                 'lens_#00' => 1,
-            ], 'desc' => 'What was once the local library is now a collection of several small houses. Today, the books are mostly torn or burnt, the ground is littered with torn pages and the shelves have been knocked over.'],
+            ], 'desc' => 'Was einst die örtliche Bibliothek war, ist heute eine Ansammlung von mehreren kleinen Häusern. Heute sind die Bücher größtenteils zerrissen oder verbrannt, der Boden ist mit zerrissenen Seiten übersät und die Regale sind umgestoßen worden.'],
             'emma' => ["label" => "Tante Emma Laden",'icon' => 'emma',"camping" => 7,"min_dist" => 8, "max_dist" => 11, "chance" => 913, "drops" => [
                 'cigs_#00' => 77,
                 'jerrycan_#00' => 75,
@@ -607,7 +607,7 @@ class RuinDataService implements FixtureProcessorInterface {
                 'food_armag_#00' => 4,
                 'cigs_#00' => 1,
             ], 'desc' => 'In dieses schöne Gebäude gingen die Menschen früher zur Arbeit. Pünktlichkeit und Dresscode waren Pflicht. Die tägliche Routine bestand darin, mit einer Gruppe unbekannter Kollegen Zielvorgaben zu erreichen und um sein eigenes Überleben zu kämpfen... Hhmmm, wenn du so drüber nachdenkst: So viel hat sich gar nicht geändert - bis auf den Dresscode vielleicht.'],
-            'villa' => ["label" => "Verfallene Villa",'icon' => 'villa',"camping" => 7,"min_dist" => 12, "max_dist" => 15, "chance" => 338, "drops" => [
+            'villa' => ["label" => "Verfallene Villa",'icon' => 'villa',"camping" => 7,"min_dist" => 3, "max_dist" => 6, "chance" => 338, "drops" => [
                 'can_#00' => 63,
                 'pile_#00' => 32,
                 'chest_citizen_#00' => 23,
@@ -739,9 +739,9 @@ class RuinDataService implements FixtureProcessorInterface {
             'deserted_bunker' => ["label" => "Verlassener Bunker",'icon' => 'deserted_bunker',"camping" => 1,"min_dist" => 5, "max_dist" => 100, "chance" => 0, "explorable" => true,
                 "explorable_skin" => 'bunker', "explorable_desc" => null,
                 "drops" => [
-                    'bbplan_u_#00' => 20,
-                    'bbplan_r_#00' => 12,
-                    'bbplan_e_#00' => 10,
+                    'bbplan_u_#00' => 12,
+                    'bbplan_r_#00' => 7,
+                    'bbplan_e_#00' => 6,
                     'water_#00' => 4,
                     'concrete_wall_#00' => 21,
                     'wood_bad_#00' => 4,
@@ -807,7 +807,10 @@ class RuinDataService implements FixtureProcessorInterface {
                     'bureau_#00' => 2,
                     'deco_box_#00' => 4,
                     'lamp_#00' => 4,
-                    'teddy_#01' => 4,
+                    'teddy_#01' => 2,
+                    'teddy_#00' => 2,
+                    'carpet_#00' => 2,
+                    'game_box_#00' => 2,
                 ], 'desc' => 'Diese heruntergekommene Gebäude scheint einmal ein Hotel gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...'],
             'deserted_hospital' => ["label" => "Verlassenes Hospital",'icon' => 'deserted_hospital',"camping" => 1,"min_dist" => 5, "max_dist" => 100, "chance" => 0, "explorable" => true,
                 "explorable_skin" => 'hospital', "explorable_desc" => null,

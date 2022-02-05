@@ -23,6 +23,7 @@ use App\Response\AjaxResponse;
 use App\Service\CitizenHandler;
 use App\Service\CrowService;
 use App\Service\ErrorHelper;
+use App\Service\HTMLService;
 use App\Service\JSONRequestParser;
 use App\Service\Locksmith;
 use App\Service\PictoHandler;
@@ -33,6 +34,8 @@ use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\QueryBuilder;
 use Exception;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
@@ -45,7 +48,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  */
 class MessageForumController extends MessageController
 {
-    private function default_forum_renderer(int $fid, int $tid, int $pid, EntityManagerInterface $em, JSONRequestParser $parser, CitizenHandler $ch): Response {
+    private function default_forum_renderer(int $fid, int $tid, int $pid, int $post_page, EntityManagerInterface $em, JSONRequestParser $parser, CitizenHandler $ch): Response {
         $num_per_page = 20;
 
         $user = $this->getUser();
@@ -134,6 +137,7 @@ class MessageForumController extends MessageController
             'permission' => $this->getPermissionObject( $permissions ),
             'select' => $tid,
             'jump' => $pid,
+            'post_page' => $post_page,
             'town' => $forum->getTown() ?? false,
             'pages' => $pages,
             'current_page' => $page,
@@ -167,21 +171,22 @@ class MessageForumController extends MessageController
      */
     public function forum(int $id, EntityManagerInterface $em, JSONRequestParser $p, CitizenHandler $ch): Response
     {
-        return $this->default_forum_renderer($id,-1,-1,$em, $p, $ch);
+        return $this->default_forum_renderer($id,-1,-1, -1, $em, $p, $ch);
     }
 
     /**
-     * @Route("jx/forum/{fid<\d+>}/{tid<\d+>}", name="forum_thread_view")
+     * @Route("jx/forum/{fid<\d+>}/{tid<\d+>}/{page<\d+>}", name="forum_thread_view")
      * @param int $fid
      * @param int $tid
+     * @param int $page
      * @param EntityManagerInterface $em
      * @param JSONRequestParser $p
      * @param CitizenHandler $ch
      * @return Response
      */
-    public function forum_thread(int $fid, int $tid, EntityManagerInterface $em, JSONRequestParser $p, CitizenHandler $ch): Response
+    public function forum_thread(int $fid, int $tid, EntityManagerInterface $em, JSONRequestParser $p, CitizenHandler $ch, int $page = -1): Response
     {
-        return $this->default_forum_renderer($fid,$tid,-1,$em,$p,$ch);
+        return $this->default_forum_renderer($fid,$tid,-1, $page, $em,$p,$ch);
     }
 
     /**
@@ -197,7 +202,7 @@ class MessageForumController extends MessageController
         /** @var Post $post */
         $post = $this->entity_manager->getRepository(Post::class)->find($pid);
 
-        return $this->default_forum_renderer($post ? $post->getThread()->getForum()->getId() : -1,$post ? $post->getThread()->getId() : -1,$post ? $pid : -1,$em,$p,$ch);
+        return $this->default_forum_renderer($post ? $post->getThread()->getForum()->getId() : -1,$post ? $post->getThread()->getId() : -1,$post ? $pid : -1, -1, $em,$p,$ch);
     }
 
     /**
@@ -238,9 +243,11 @@ class MessageForumController extends MessageController
         if (!$parser->has_all(['title','text'], true))
             return AjaxResponse::error(self::ErrorPostTitleTextMissing );
 
+        $town_citizen = $forum->getTown() ? $user->getCitizenFor( $forum->getTown() ) : null;
+        $is_heroic = !$forum->getTown() || ( $town_citizen && $town_citizen->getAlive() && $town_citizen->getProfession()->getHeroic() );
 
         $title = $parser->trimmed('title');
-        $tag   = $this->userHandler->hasSkill($user, 'writer') ? $parser->trimmed('tag') : null;
+        $tag   = ($this->userHandler->hasSkill($user, 'writer') && $is_heroic) ? $parser->trimmed('tag') : null;
         $text  = $parser->trimmed('text');
 
         if (empty($tag) || $tag === '-none-')
@@ -263,6 +270,13 @@ class MessageForumController extends MessageController
 
         if (mb_strlen($title) < 3 || mb_strlen($title) > 64)  return AjaxResponse::error( self::ErrorPostTitleLength );
         if (mb_strlen($text) < 2 || mb_strlen($text) > 16384) return AjaxResponse::error( self::ErrorPostTextLength );
+
+        if ($town_citizen)
+            $title = $this->html->htmlDistort( $title,
+                                            ($this->citizen_handler->hasStatusEffect($town_citizen, 'drunk') ? HTMLService::ModulationDrunk : HTMLService::ModulationNone) |
+                                            ($this->citizen_handler->hasStatusEffect($town_citizen, 'terror') ? HTMLService::ModulationTerror : HTMLService::ModulationNone) |
+                                            ($this->citizen_handler->hasStatusEffect($town_citizen, 'wound1') ? HTMLService::ModulationHead : HTMLService::ModulationNone)
+                , $town_citizen->getTown()->getRealLanguage() ?? $this->getUserLanguage(), $d );
 
         $thread = (new Thread())->setTitle( $title )->setTag($tag)->setOwner($user);
 
@@ -596,7 +610,11 @@ class MessageForumController extends MessageController
 
         if ($post === $thread->firstPost(true) && $parser->has('title',true) && !$thread->getTranslatable()) {
             $title = $parser->get('title');
-            $tag = $this->userHandler->hasSkill($user, 'writer') ? $parser->trimmed('tag') : null;
+
+            $town_citizen = $forum->getTown() ? $user->getCitizenFor( $forum->getTown() ) : null;
+            $is_heroic = !$forum->getTown() || ( $town_citizen && $town_citizen->getAlive() && $town_citizen->getProfession()->getHeroic() );
+
+            $tag = ($this->userHandler->hasSkill($user, 'writer') && $is_heroic) ? $parser->trimmed('tag') : null;
 
             if (empty($tag) || $tag === '-none-')
                 $tag = null;
@@ -610,6 +628,13 @@ class MessageForumController extends MessageController
             }
 
             if (mb_strlen($title) >= 3 && mb_strlen($title) <= 64) {
+                if ($town_citizen)
+                    $title = $this->html->htmlDistort( $title,
+                                                       ($this->citizen_handler->hasStatusEffect($town_citizen, 'drunk') ? HTMLService::ModulationDrunk : HTMLService::ModulationNone) |
+                                                       ($this->citizen_handler->hasStatusEffect($town_citizen, 'terror') ? HTMLService::ModulationTerror : HTMLService::ModulationNone) |
+                                                       ($this->citizen_handler->hasStatusEffect($town_citizen, 'wound1') ? HTMLService::ModulationHead : HTMLService::ModulationNone)
+                        , $town_citizen->getTown()->getRealLanguage() ?? $this->getUserLanguage(), $d );
+
                 $thread->setTitle($title)->setTag($tag);
                 $this->entity_manager->persist($thread);
             }
@@ -835,20 +860,12 @@ class MessageForumController extends MessageController
             return new Response('');
 
         $town = $forum->getTown();
+        $town_citizen = $town ? $user->getCitizenFor( $town ) : null;
 
-        if($town) {
-            // is there a O(1) method to find a user in a town ?
-            foreach ($town->getCitizens() as $citizen) {
-                if($citizen->getUser() === $user)
-                    $username = $citizen->getName();
-            }
-        }
-        // Not a town, or citizen wasn't found
-        if(!isset($username)) {
-            $username = $user->getName();
-        }
+        $username = $town_citizen ? $town_citizen->getName() : $user->getName();
+        $is_heroic = !$forum->getTown() || ( $town_citizen && $town_citizen->getAlive() && $town_citizen->getProfession()->getHeroic() );
 
-        $tags = $this->userHandler->hasSkill($user, 'writer') ? array_filter( $forum->getAllowedTags()->getValues(),
+        $tags = ($this->userHandler->hasSkill($user, 'writer') && $is_heroic) ? array_filter( $forum->getAllowedTags()->getValues(),
             fn(ThreadTag $tag) => $tag->getPermissionMap() === null || $this->perm->isPermitted( $permissions, $tag->getPermissionMap() )
         ) : [];
 
@@ -984,40 +1001,60 @@ class MessageForumController extends MessageController
         ] );
     }
 
-    public function forum_search(?Forum $default): Response {
+    public function forum_search(?Forum $default, ?string $query = null, ?int $user = null, ?bool $titles = null): Response {
+        if ($user !== null)
+            $user = $this->entity_manager->getRepository(User::class)->find($user);
+
         return $this->render( 'ajax/forum/search.html.twig', [
             'forums' => $this->perm->getForumsWithPermission($this->getUser()),
             'select' => $default ? $default->getId() : -1,
+            'user' => $user,
+            'query' => $query,
+            'titles' => (bool)$titles,
         ] );
     }
 
     /**
      * @Route("jx/forum/{fid<\d+>}/search", name="forum_id_search_controller")
      * @param int $fid
+     * @param JSONRequestParser $json
      * @return Response
      */
-    public function forum_search_id(int $fid): Response {
+    public function forum_search_id(int $fid, JSONRequestParser $json): Response {
         $forum = $this->entity_manager->getRepository(Forum::class)->find($fid);
         if (!$forum || !$this->perm->checkEffectivePermissions( $this->getUser(), $forum,ForumUsagePermissions::PermissionRead ))
-            return new Response('');
+            return new RedirectResponse($this->generateUrl( 'forum_all_search_controller' ));
 
-        return $this->forum_search($forum);
+        return $this->forum_search($forum, $json->get('query'), $json->get_int('user'), $json->get('titles'));
     }
 
     /**
      * @Route("jx/forum/global/search", name="forum_all_search_controller")
+     * @param JSONRequestParser $json
      * @return Response
      */
-    public function forum_search_all(): Response {
-        return $this->forum_search(null);
+    public function forum_search_all(JSONRequestParser $json): Response {
+        return $this->forum_search(null, $json->get('query'), $json->get_int('user'), $json->get('titles'));
     }
 
     /**
      * @Route("jx/forum/search", name="forum_search_wrapper_controller")
+     * @param Request $request
      * @return Response
      */
-    public function forum_search_wrapper(): Response {
-        return $this->render( 'ajax/forum/search_wrapper.html.twig' );
+    public function forum_search_wrapper(Request $request): Response {
+        $data = [
+            'forum'     => $request->query->get('f', null),
+            'user'      => $request->query->get('u', null),
+            'query'     => $request->query->get('q', null),
+            'opt_title' => $request->query->get('ot', null),
+        ];
+
+        $data['forum'] = $data['forum'] ? (int)$data['forum'] : null;
+        $data['user'] = $data['user'] ? (int)$data['user'] : null;
+        $data['opt_title'] = $data['opt_title'] === '1';
+
+        return $this->render( 'ajax/forum/search_wrapper.html.twig', $data);
     }
 
     /**
@@ -1051,21 +1088,13 @@ class MessageForumController extends MessageController
         }
 
         $town = $forum->getTown();
+        $town_citizen = $town ? $user->getCitizenFor( $town ) : null;
 
-        if($town) {
-            // is there a O(1) method to find a user in a town ?
-            foreach ($town->getCitizens() as $citizen) {
-                if($citizen->getUser() === $user)
-                    $username = $citizen->getName();
-            }
-        }
-        // Not a town, or citizen wasn't found
-        if(!isset($username)) {
-            $username = $user->getName();
-        }
+        $username = $town_citizen ? $town_citizen->getName() : $user->getName();
+        $is_heroic = !$forum->getTown() || ( $town_citizen && $town_citizen->getAlive() && $town_citizen->getProfession()->getHeroic() );
 
         if ($post !== null && $thread->firstPost(true) === $post && !$thread->getTranslatable())
-            $tags = $this->userHandler->hasSkill($user, 'writer') ? array_filter( $forum->getAllowedTags()->getValues(),
+            $tags = ($this->userHandler->hasSkill($user, 'writer') && $is_heroic) ? array_filter( $forum->getAllowedTags()->getValues(),
                 fn(ThreadTag $tag) => $tag->getPermissionMap() === null || $this->perm->isPermitted( $permissions, $tag->getPermissionMap() )
             ) : [];
         else $tags = [];

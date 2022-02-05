@@ -31,12 +31,15 @@
         {% endif %}
     {% endif %}
 
-    <h5 class="hide-sm">{{ 'Diskussionen rund um Bauprojekte'|trans({},'game') }}</h5>
-    <div class="forum-preview-container fix-height hide-sm">
-        <div id="forum-content">
-            <div class="center"><i class="fa fa-spin fa-circle-notch"></i> {{ 'Lade Forum...'|trans({},'game') }}</div>
+    <h5>{{ 'Diskussionen rund um Bauprojekte'|trans({},'game') }}</h5>
+    <div class="forum-preview-wrapper forum-preview-wrapper-construction">
+        <div class="forum-preview-container">
+            <div id="forum-content">
+                <div class="center"><i class="fa fa-spin fa-circle-notch"></i> {{ 'Lade Forum...'|trans({},'game') }}</div>
+            </div>
         </div>
     </div>
+
 
     <h5>{{ 'Vorhandene Bauprojekte'|trans({},'game') }}</h5>
     {% if canvote %}
@@ -135,13 +138,22 @@
                         {% if items[ itemgroup.prototype.id ] < itemgroup.chance %}
                             {% set res_ok = false %}
                         {% endif %}
-                        <div class="build-req">
-                            <img alt="" src="{{ asset('build/images/item/item_' ~ itemgroup.prototype.icon ~ '.gif' ) }}" />
-                            <span class="resource current {% if items[ itemgroup.prototype.id ] < itemgroup.chance %}low{% endif %}">{{ items[ itemgroup.prototype.id ] }}/</span><span class="resource needed">{{ itemgroup.chance }}</span>
-                            <div class="tooltip">
-                                {{ itemgroup.prototype.label|trans({}, 'items') }}
+                            <div class="build-req build-req-detail">
+                                <img alt="" src="{{ asset('build/images/item/item_' ~ itemgroup.prototype.icon ~ '.gif' ) }}" />
+                                <span class="resource current {% if items[ itemgroup.prototype.id ] < itemgroup.chance %}low{% endif %}">{{ items[ itemgroup.prototype.id ] }}/</span><span class="resource needed">{{ itemgroup.chance }}</span>
+                                <div class="tooltip">
+                                    {{ itemgroup.prototype.label|trans({}, 'items') }}
+                                </div>
                             </div>
-                        </div>
+                            {% if items[ itemgroup.prototype.id ] < itemgroup.chance %}
+                                <div class="build-req build-req-short hidden">
+                                    <img alt="" src="{{ asset('build/images/item/item_' ~ itemgroup.prototype.icon ~ '.gif' ) }}" />
+                                    <span class="resource needed">{{ itemgroup.chance - items[ itemgroup.prototype.id ] }}</span>
+                                    <div class="tooltip">
+                                        {{ itemgroup.prototype.label|trans({}, 'items') }}
+                                    </div>
+                                </div>
+                            {% endif %}
                     {% endfor %}
                 {% endif %}
             </div>
@@ -186,10 +198,17 @@
         </ul>
     </div>
 
+    <div class="clear">
+        {% for building in root_cats %}
+            <div x-tab-group="buildings" x-tab-id="type_{{ building.prototype.icon }}" x-tab-target class="buildings type_{{ building.prototype.icon }}">{{ _self.building_entry(building, true, 0, dictionary, bank, banished and not slavery, workshopBonus, hpToAp, canvote, voted_building) }}</div>
+        {% endfor %}
+    </div>
 
-    {% for building in root_cats %}
-        <div x-tab-group="buildings" x-tab-id="type_{{ building.prototype.icon }}" x-tab-target class="buildings type_{{ building.prototype.icon }}">{{ _self.building_entry(building, true, 0, dictionary, bank, banished and not slavery, workshopBonus, hpToAp, canvote, voted_building) }}</div>
-    {% endfor %}
+    <div class="row">
+        <div class="small cell rw-12 right build-req-detail"><a href="#" id="toggle_constmode_short">{{ 'Materialienverbrauch ansehen'|trans({},'game') }}</a></div>
+        <div class="small cell rw-12 right build-req-short hidden"><a href="#" id="toggle_constmode_detail">{{ 'Normale Ansicht'|trans({},'game') }}</a></div>
+    </div>
+    <br />
 
     <div class="help">
     {{ 'Bauprojekte, die mit dem Symbol "<img alt="(!)" src="{path}" />" gekennzeichnet sind, können nur einmal verwendet werden. Sie werden nach dem Angriff der Zombiehorde wieder abgerissen. Wenn ihr wollt, könnt ihr sie morgen nochmal bauen.'|trans({"{path}": asset('build/images/icons/small_warning.gif')},'game')|raw }}  
@@ -289,8 +308,28 @@
         }
 
         $.ajax.background().no_history().load( document.getElementById('forum-content'), '{{ path('forum_previewer_controller', {fid: town.forum.id, sem: constant('App\\Entity\\Thread::SEMANTIC_CONSTRUCTIONS') })|e('js') }}', false, {}, function() {
-            let container = document.querySelector('.forum-preview-container');
+            let container = document.querySelector('.forum-preview-wrapper');
             container.scrollTop = container.scrollHeight;
         } );
+
+        const update_view_mode = () => {
+            const short = $.client.config.showShortConstrList.get();
+            $.html.forEach('.build-req-detail', elem => elem.classList.toggle( 'hidden', short ));
+            $.html.forEach('.build-req-short',  elem => elem.classList.toggle( 'hidden', !short ));
+        }
+
+        update_view_mode();
+
+        $.html.addEventListenerAll('#toggle_constmode_short', 'click', e => {
+            e.preventDefault();
+            $.client.config.showShortConstrList.set(true);
+            update_view_mode();
+        });
+
+        $.html.addEventListenerAll('#toggle_constmode_detail', 'click', e => {
+            e.preventDefault();
+            $.client.config.showShortConstrList.set(false);
+            update_view_mode();
+        });
     </script>
 {% endblock %}

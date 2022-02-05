@@ -5,7 +5,7 @@ namespace App\Repository;
 use App\Entity\Citizen;
 use App\Entity\DigTimer;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\ORM\NonUniqueResultException;
 
 /**

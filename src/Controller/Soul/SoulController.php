@@ -17,6 +17,7 @@ use App\Entity\FeatureUnlock;
 use App\Entity\FeatureUnlockPrototype;
 use App\Entity\FoundRolePlayText;
 use App\Entity\HeroSkillPrototype;
+use App\Entity\OfficialGroup;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
 use App\Entity\RememberMeTokens;
@@ -243,9 +244,11 @@ class SoulController extends CustomAbstractController
 
     /**
      * @Route("jx/soul/refer", name="soul_refer")
+     * @Route("jx/soul/contacts", name="soul_contacts")
+     * @param ConfMaster $conf
      * @return Response
      */
-    public function soul_refer(ConfMaster $conf): Response {
+    public function soul_refer(Request $request, ConfMaster $conf): Response {
         $refer = $this->entity_manager->getRepository(UserReferLink::class)->findOneBy(['user' => $this->getUser()]);
         if ($refer === null && !$this->user_handler->hasRole($this->getUser(), 'ROLE_DUMMY')) {
 
@@ -291,9 +294,16 @@ class SoulController extends CustomAbstractController
         }
 
         return $this->render( 'ajax/soul/refer.html.twig', $this->addDefaultTwigArgs("soul_refer", [
+            'tab' => $request->attributes->get('_route') === 'soul_refer' ? 'refer' : 'friends',
+
             'refer' => $refer,
             'sponsored' => $sponsored,
             'lang' => $this->getUserLanguage(),
+
+            'friends' => $this->getUser()->getFriends(),
+            'reverse_friends' => $this->entity_manager->getRepository(User::class)->findInverseFriends($this->getUser(), true),
+
+            'blocklist' => $this->entity_manager->getRepository( SocialRelation::class )->findBy( ['owner' => $this->getUser(), 'type' => SocialRelation::SocialRelationTypeBlock ] ),
 
             'coa' => $user_coalition,
             'coa_leader' => $user_coalition && $user_coalition->getAssociationLevel() === UserGroupAssociation::GroupAssociationLevelFounder,
@@ -319,6 +329,9 @@ class SoulController extends CustomAbstractController
         $searchSkip = $parser->get_array('exclude', []);
         // if ($url !== 'pm_manage_users' && $url !== 'plain') $searchSkip[] = $user->getId();
 
+        if ($url === 'soul_invite_friend')
+            $searchSkip = array_merge($searchSkip, $user->getFriends()->getValues(), [$user]);
+
         $selected_group = false;
         if ($url === 'town_add_users' && str_contains($searchName,',')) {
             $searchNames = explode(',', $searchName);
@@ -333,7 +346,7 @@ class SoulController extends CustomAbstractController
         $data = [
             'var' => $url,
             'single_entry' => $selected_group,
-            'users' => in_array($url, ['soul_visit','soul_invite_coalition','pm_manage_users','pm_add_users','town_add_users','plain','post_add_users']) ? $users : [],
+            'users' => in_array($url, ['soul_visit','soul_invite_coalition','soul_invite_friend','pm_manage_users','pm_add_users','town_add_users','plain','post_add_users']) ? $users : [],
             'route' => in_array($url, ['soul_visit','soul_invite_coalition']) ? $url : ''
         ];
 
@@ -448,6 +461,7 @@ class SoulController extends CustomAbstractController
         return $this->render( 'ajax/soul/settings.html.twig', $this->addDefaultTwigArgs("soul_settings", [
             'et_ready' => $etwin->isReady(),
             'user_desc' => $user_desc ? $user_desc->getText() : null,
+            'next_name_change_days' => $user->getLastNameChange() ? max(0, (30 * 4) - $user->getLastNameChange()->diff(new DateTime())->days ) : 0,
             'show_importer'     => $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_ENABLED, true),
             'importer_readonly' => $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_READONLY, false),
             'avatar_max_size' => [$a_max_size, $b_max_size,$this->conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_UPLOAD, 3145728)]
@@ -457,6 +471,7 @@ class SoulController extends CustomAbstractController
     /**
      * @Route("api/soul/settings/header", name="api_soul_header")
      * @param JSONRequestParser $parser
+     * @param HTMLService $html
      * @return Response
      */
     public function soul_set_header(JSONRequestParser $parser, HTMLService $html): Response {
@@ -485,7 +500,7 @@ class SoulController extends CustomAbstractController
         if ($name_change && !$this->user_handler->isNameValid($displayName))
             return AjaxResponse::error(self::ErrorUserEditUserName);
 
-        if ($name_change && $user->getLastNameChange() !== null && $user->getLastNameChange()->diff(new DateTime())->days < (30 * 6)) { // 6 months
+        if ($name_change && $user->getLastNameChange() !== null && $user->getLastNameChange()->diff(new DateTime())->days < (30 * 4)) { // 6 months
             return  AjaxResponse::error(self::ErrorUserEditTooSoon);
         }
         if ($name_change && $user->getEternalID() !== null)
@@ -657,9 +672,11 @@ class SoulController extends CustomAbstractController
         if ($currentSeason === 'all' || $currentSeason === 'myh') {
             $ranking = $this->entity_manager->getRepository(User::class)->getGlobalSoulRankingPage($offset, $resultsPerPage, $currentSeason === 'myh');
             $pages = $this->entity_manager->getRepository(User::class)->countGlobalSoulRankings($currentSeason === 'myh');
+            $this->entity_manager->getRepository(User::class)->getGlobalSoulRankingUserStats($user, $currentSeason === 'myh', $user_sp, $user_rank);
         } else {
             $ranking = $this->entity_manager->getRepository(User::class)->getSeasonSoulRankingPage($offset, $resultsPerPage, $currentSeason);
             $pages = $this->entity_manager->getRepository(User::class)->countSeasonSoulRankings($currentSeason);
+            $this->entity_manager->getRepository(User::class)->getSeasonSoulRankingUserStats($user, $currentSeason, $user_sp, $user_rank);
         }
 
         //if (!$ranking || !$pages)
@@ -667,8 +684,8 @@ class SoulController extends CustomAbstractController
 
         return $this->render( 'ajax/soul/season.html.twig', $this->addDefaultTwigArgs("soul_season", [
             'seasons' => $seasons,
-            'currentSeason' => $currentSeason,
-            'virtualSeason' => is_string($currentSeason),
+            'currentSeason' => $seasonId === 'a' ? 'a' : $currentSeason,
+            'virtualSeason' => is_string($currentSeason) || $seasonId === 'a',
             'ranking' => $ranking,
             'currentType' => 0,
             'soloType' => 'soul',
@@ -676,7 +693,10 @@ class SoulController extends CustomAbstractController
             'pages' => ceil($pages / $resultsPerPage),
             'townTypes' => $this->entity_manager->getRepository(TownClass::class)->findBy(['ranked' => true], ['orderBy' => 'ASC']),
             'offset' => $offset,
-            'user' => $user
+            'user' => $user,
+            'user_sp' => $user_sp,
+            'user_rank' => $user_rank,
+            'page_size' => $resultsPerPage,
         ]) );
     }
 
@@ -1039,11 +1059,12 @@ class SoulController extends CustomAbstractController
         $new_pw = $parser->trimmed('pw_new', '');
         $new_email = $parser->trimmed('email_new', '');
         $confirm_token = $parser->trimmed('email_token', '');
+        $message = [];
 
         if ($this->isGranted('ROLE_DUMMY') && !$this->isGranted( 'ROLE_CROW' ))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
-        if ($this->isGranted('ROLE_ETERNAL') && !empty($new_pw))
+        if ($this->isGranted('ROLE_ETERNAL') && $user->getPassword() === null && !empty($new_pw))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
         $change = false;
@@ -1085,12 +1106,13 @@ class SoulController extends CustomAbstractController
 
             $user->setEmail($user->getPendingEmail());
             $user->setPendingEmail(null);
+            $user->setPendingValidation(null);
             $this->entity_manager->remove( $pending );
             $change = true;
+            $message[] = $this->translator->trans('Deine E-Mail-Adresse wurde erfolgreich geändert.', [], 'login');
         }
 
         if ($change){
-            $message = [];
             $this->entity_manager->persist($user);
             $this->entity_manager->flush();
 
@@ -1254,8 +1276,11 @@ class SoulController extends CustomAbstractController
         $is_blocked = $this->user_handler->checkRelation($this->getUser(), $target_user, SocialRelation::SocialRelationTypeBlock);
         if (($is_blocked && $action === 1) || (!$is_blocked && $action === 0)) return AjaxResponse::success();
 
-        if ($action === 1) $this->entity_manager->persist( (new SocialRelation())->setType( SocialRelation::SocialRelationTypeBlock )->setOwner( $this->getUser())->setRelated( $target_user ) );
-        else $this->entity_manager->remove( $this->entity_manager->getRepository( SocialRelation::class )->findOneBy( ['owner' => $this->getUser(), 'related' => $target_user, 'type' => SocialRelation::SocialRelationTypeBlock ] ) );
+        if ($action === 1) {
+            $this->entity_manager->persist((new SocialRelation())->setType(SocialRelation::SocialRelationTypeBlock)->setOwner($this->getUser())->setRelated($target_user));
+            $this->entity_manager->persist( $this->getUser()->removeFriend( $target_user ) );
+            $this->entity_manager->persist( $target_user->removeFriend( $this->getUser() ) );
+        } else $this->entity_manager->remove( $this->entity_manager->getRepository( SocialRelation::class )->findOneBy( ['owner' => $this->getUser(), 'related' => $target_user, 'type' => SocialRelation::SocialRelationTypeBlock ] ) );
 
         try {
             $this->entity_manager->flush();
@@ -1407,7 +1432,10 @@ class SoulController extends CustomAbstractController
      */
     public function help_me(): Response
     {
-        return $this->render( 'ajax/help/shell.html.twig');
+        $support_groups = $this->entity_manager->getRepository(OfficialGroup::class)->findBy(['lang' => $this->getUserLanguage(), 'semantic' => OfficialGroup::SEMANTIC_SUPPORT]);
+        return $this->render( 'ajax/help/shell.html.twig', [
+            'support' => count($support_groups) === 1 ? $support_groups[0] : null
+        ]);
     }
 
     /**
@@ -1468,5 +1496,76 @@ class SoulController extends CustomAbstractController
         return $this->render( 'ajax/soul/game_history.html.twig', $this->addDefaultTwigArgs('soul_me', [
             'towns' => $lifes
         ]));
+    }
+
+    /**
+     * @Route("api/soul/tooltip", name="soul_tooltip")
+     * @param int $id
+     * @param HTMLService $html
+     * @return Response
+     */
+    public function api_soul_tooltip(JSONRequestParser $parser, HTMLService $html) {
+        $id = $parser->get("id");
+        $user = $this->entity_manager->getRepository(User::class)->find($id);
+
+        if (!$user) {
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        }
+
+        $desc = $this->entity_manager->getRepository(UserDescription::class)->findOneBy(['user' => $user]);
+        $isFriend = $this->getUser()->getFriends()->contains($user);
+
+        $is_dummy = $this->user_handler->hasRole($user,'ROLE_DUMMY');
+
+        if ($user->getEmail() !== null && !str_contains($user->getEmail(), '@'))
+            $is_dummy = true;
+
+        return $this->render("ajax/soul/user_tooltip.html.twig", [
+            'user' => $user,
+            'userDesc' => $desc ? $html->prepareEmotes($desc->getText(), $this->getUser()) : null,
+            'isFriend' => $isFriend,
+            'dummy' => $is_dummy,
+            'crow'   => $this->user_handler->hasRole($user,'ROLE_CROW'),
+            'admin'  => $this->user_handler->hasRole($user,'ROLE_ADMIN'),
+            'super'  => $this->user_handler->hasRole($user,'ROLE_SUPER'),
+            'oracle' => $this->user_handler->hasRole($user,'ROLE_ORACLE'),
+            'anim'   => $this->user_handler->hasRole($user,'ROLE_ANIMAC'),
+            'team'   => $this->user_handler->hasRole($user,'ROLE_TEAM'),
+        ]);
+    }
+
+    /**
+     * @Route("api/soul/friend/{action}", name="soul_friend_control")
+     * @param int $id
+     * @param HTMLService $html
+     * @return Response
+     */
+    public function api_friend_control(int $action, JSONRequestParser $parser) {
+        if ($action !== 0 && $action !== 1) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $id = $parser->get("id");
+        $user = $this->entity_manager->getRepository(User::class)->find($id);
+
+        if (!$user || $this->user_handler->hasRole($user, 'ROLE_DUMMY') || !str_contains($user->getEmail(), '@'))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        if ($action && $this->user_handler->checkRelation($this->getUser(), $user,SocialRelation::SocialRelationTypeBlock, true))
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
+
+        if($action)
+            $this->getUser()->addFriend($user);
+        else
+            $this->getUser()->removeFriend($user);
+
+        $this->entity_manager->persist($this->getUser());
+        $this->entity_manager->flush();
+
+        if($action){
+            $this->addFlash("notice", $this->translator->trans("Du hast {username} zu deinen Kontakten hinzugefügt!", ['{username}' => $user], "soul"));
+        } else {
+            $this->addFlash("notice", $this->translator->trans("Du hast {username} aus deinen Kontakten gelöscht!", ['{username}' => $user], "soul"));
+        }
+
+        return AjaxResponse::success();
     }
 }

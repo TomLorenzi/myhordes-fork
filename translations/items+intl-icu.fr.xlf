@@ -18,7 +18,7 @@
       </notes>
       <segment>
         <source>Wow, du hast einen Trippel geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</source>
-        <target><![CDATA[Bravo, vous obtenez un <strong>triplet</strong> ! Qu'est-ce qu'on s'amuse !{hr}Ça vous fait tellement plaisir que vous gagnez <strong>1 PA</strong>.]]></target>
+        <target><![CDATA[Bravo, vous obtenez un <strong>triplet</strong> ! Qu'est-ce qu'on s'amuse !<hr />Ça vous fait tellement plaisir que vous gagnez <strong>1 PA</strong>.]]></target>
       </segment>
     </unit>
     <unit id="rmGP8Al">
@@ -228,7 +228,7 @@
       </notes>
       <segment>
         <source>Verstellbarer Schraubenschlüssel</source>
-        <target>Clef à Molette</target>
+        <target>Clé à Molette</target>
       </segment>
     </unit>
     <unit id="xKt9A2O" name="Schraubenzieher">
@@ -3539,7 +3539,7 @@
       </notes>
       <segment>
         <source>Der Text ist überschrieben mit {rp_text}. Du beginnst, ihn zu lesen&lt;t-rp_ok&gt;! Der Text wurde deinem Archiv hinzugefügt.&lt;/t-rp_ok&gt;&lt;t-rp_fail&gt;... Leider stellst du fest, dass du diesen Text bereits kennst.&lt;/t-rp_fail&gt;</source>
-        <target><![CDATA[Vous examinez ce recueil en détail... Vous y découvrez un texte apparemment intitulé « {rp_text} ». Vous le lisez avec la plus grande attention...{hr}<t-rp_ok><strong>Un nouveau document a été ajouté à vos écrits !</strong></t-rp_ok><t-rp_fail>Vous aviez déjà découvert cet écrit. Il ne vous rapportera donc pas de distinction supplémentaire.</t-rp_fail>]]></target>
+        <target><![CDATA[Vous examinez ce recueil en détail... Vous y découvrez un texte apparemment intitulé « {rp_text} ». Vous le lisez avec la plus grande attention...{hr}<t-rp_ok><strong>Un nouveau document a été ajouté à vos écrits !</strong></t-rp_ok><t-rp_fail>Vous aviez déjà découvert cet écrit. Il ne vous rapportera donc <strong>pas de distinction supplémentaire</strong>.</t-rp_fail>]]></target>
       </segment>
     </unit>
     <unit id="glkUAZ8" name="Werfen">
@@ -3770,7 +3770,7 @@
       </notes>
       <segment>
         <source>Dopen</source>
-        <target>Doper</target>
+        <target>Lui donner un stéroïde</target>
       </segment>
     </unit>
     <unit id="9Wgu8lv" name="Wasser suchen">
@@ -5640,7 +5640,7 @@
       </notes>
       <segment>
         <source>Bei dieser verbesserten Version des normalen Batteriewerfers 1-PDTG ist der PDTT Mark II-Druckregler schon eingebaut. Durch Feinjustierung der Schusskraft ist es manchmal sogar möglich die verschossene Batterie wieder einzusammeln.</source>
-        <target>Cette version améliorée du Lance-pile comporte un canon équipé d'un Calibrateur PDTT Mark II. En dosant précisément la puissance de tir, ce canon permet _parfois_ de récupérer la pile qui a été tirée.</target>
+        <target>Cette version améliorée du Lance-pile comporte un canon équipé d'un Calibrateur PDTT Mark II. En dosant précisément la puissance de tir, ce canon permet (parfois) de récupérer la pile qui a été tirée.</target>
       </segment>
     </unit>
     <unit id="BvZwvzY">
@@ -7682,7 +7682,7 @@
       </notes>
       <segment>
         <source>Zur Bank schicken</source>
-        <target>Envoyer à la Banque</target>
+        <target>La banque de la ville</target>
       </segment>
     </unit>
     <unit id="khQvNdC" name="Zur Truhe schicken">
@@ -7692,7 +7692,7 @@
       </notes>
       <segment>
         <source>Zur Truhe schicken</source>
-        <target>Envoyer à votre coffre</target>
+        <target>Mon coffre personnel</target>
       </segment>
     </unit>
     <unit id="0qToQ7z">
@@ -7812,7 +7812,7 @@
       </notes>
       <segment>
         <source>Logbuch Schokolade</source>
-        <target>Bûche en chocolat</target>
+        <target>Bûche de Noël</target>
       </segment>
     </unit>
     <unit id="WSBb1y.">
@@ -8057,7 +8057,7 @@
     </unit>
     <unit id="Mmr6mlb">
       <notes>
-        <note category="german">&lt;nt-fail&gt;Du hast einen Sandball in {citizen}s Gesicht geworfen.&lt;/nt-fail&gt;&lt;t-fail&gt;Hier ist niemand, auf den du den Sandball werfen könntest...&lt;/t-fail&gt;</note>
+        <note category="german">&lt;nt-fail&gt;Du hast einen Sandball in {citizen}s Gesicht geworfen.&lt;/nt-fail&gt;&lt;t-fail&gt;Hier ist niemand, auf den du den Sandball werfen könntest... (hier ist niemand, oder du hast in den letzten 30 Minuten schon einmal jeden getroffen)...&lt;/t-fail&gt;</note>
         <note category="from">db://ItemAction</note>
       </notes>
       <segment>
@@ -8235,14 +8235,14 @@
         <target><![CDATA[Utilisant vos pouvoirs de héros, vous exterminez <strong>{kills} zombie(s)</strong> en face de vous !]]></target>
       </segment>
     </unit>
-    <unit id="Pd1i68n">
+    <unit id="BEKb9Uc">
       <notes>
-        <note category="german">Du atmest tief durch und drückst den Rücken durch. Auf geht's! Ich werde nicht hier sterben!{hr}Du hast soeben Kraft getankt und &lt;strong&gt;6 neue AP erhalten&lt;/strong&gt;.</note>
+        <note category="german">Du atmest tief durch und drückst den Rücken durch. Auf geht's! Ich werde nicht hier sterben!{hr}Du hast soeben Kraft getankt und &lt;strong&gt;{ap} neue AP erhalten&lt;/strong&gt;.</note>
         <note category="from">db://AffectMessage</note>
       </notes>
       <segment>
-        <source>Du atmest tief durch und drückst den Rücken durch. Auf geht's! Ich werde nicht hier sterben!{hr}Du hast soeben Kraft getankt und &lt;strong&gt;6 neue AP erhalten&lt;/strong&gt;.</source>
-        <target><![CDATA[Vous prenez une profonde inspiration et secouez la tête. Bon ! C'est pas le moment de se laisser abattre !{hr}Vous avez <strong>régénéré vos 6 PA</strong>.]]></target>
+        <source>Du atmest tief durch und drückst den Rücken durch. Auf geht's! Ich werde nicht hier sterben!{hr}Du hast soeben Kraft getankt und &lt;strong&gt;{ap} neue AP erhalten&lt;/strong&gt;.</source>
+        <target><![CDATA[Vous prenez une profonde inspiration et secouez la tête. Bon ! C'est pas le moment de se laisser abattre !{hr}Vous avez <strong>régénéré vos {ap} PA</strong>.]]></target>
       </segment>
     </unit>
     <unit id="h_IEt7t">
@@ -8649,12 +8649,11 @@
     <unit id="q2jfZzs">
       <notes>
         <note category="german">Gierig schluckst du deine Wasserration runter, ohne auch nur einen Tropfen zu verschwenden: aber das Ergebnis ist nicht, was du erwartet hast... Ohne Vorwarnung beginnt deine Kehle fürchterlich zu brennen und verursacht einen fürchterlich schmerzhaften Husten! Die sinkst auf die Knie und schnappst nach Luft. Als Ghul kannst du nicht länger Wasser konsumieren: &lt;strong&gt;du bist nun verletzt&lt;/strong&gt;.</note>
-        <note category="state">new</note>
         <note category="from">db://ItemAction</note>
       </notes>
       <segment>
         <source>Gierig schluckst du deine Wasserration runter, ohne auch nur einen Tropfen zu verschwenden: aber das Ergebnis ist nicht, was du erwartet hast... Ohne Vorwarnung beginnt deine Kehle fürchterlich zu brennen und verursacht einen fürchterlich schmerzhaften Husten! Die sinkst auf die Knie und schnappst nach Luft. Als Ghul kannst du nicht länger Wasser konsumieren: &lt;strong&gt;du bist nun verletzt&lt;/strong&gt;.</source>
-        <target><![CDATA[Gierig schluckst du deine Wasserration runter, ohne auch nur einen Tropfen zu verschwenden: aber das Ergebnis ist nicht, was du erwartet hast... Ohne Vorwarnung beginnt deine Kehle fürchterlich zu brennen und verursacht einen fürchterlich schmerzhaften Husten! Die sinkst auf die Knie und schnappst nach Luft. Als Ghul kannst du nicht länger Wasser konsumieren: <strong>du bist nun verletzt</strong>.]]></target>
+        <target><![CDATA[Vous avalez d'une traite votre ration : le résultat n'est pas du tout celui que vous imaginez... Sans crier gare, votre gorge vous brûle horriblement, provoquant une toux effroyable et douloureuse ! Vous tombez à genoux, le souffle coupé. Votre état de goule ne vous permet plus de consommer de l'eau : <strong>vous êtes maintenant blessé(e)</strong>.]]></target>
       </segment>
     </unit>
     <unit id="GUA4Vaf">
@@ -9211,11 +9210,10 @@
       <notes>
         <note category="german">Gierig schluckt dieser Bürger seine Wasserration runter, ohne auch nur einen Tropfen zu verschwenden... Seine Zunge klebt ihm noch immer am Gaumen und sein Hals ist noch genauso trocken wie vorher.{hr}&lt;strong&gt;Da er davor schon dehydriert warst, hat er keine neuen APs erhalten.&lt;/strong&gt;</note>
         <note category="from">db://ItemAction</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Gierig schluckt dieser Bürger seine Wasserration runter, ohne auch nur einen Tropfen zu verschwenden... Seine Zunge klebt ihm noch immer am Gaumen und sein Hals ist noch genauso trocken wie vorher.{hr}&lt;strong&gt;Da er davor schon dehydriert warst, hat er keine neuen APs erhalten.&lt;/strong&gt;</source>
-        <target><![CDATA[Gierig schluckt dieser Bürger seine Wasserration runter, ohne auch nur einen Tropfen zu verschwenden... Seine Zunge klebt ihm noch immer am Gaumen und sein Hals ist noch genauso trocken wie vorher.{hr}<strong>Da er davor schon dehydriert warst, hat er keine neuen APs erhalten.</strong>]]></target>
+        <target><![CDATA[Ce citoyen avale sa ration d'eau goulûment, sans en laisser filer la moindre goutte... Sa gorge le brûle toujours autant, mais au moins, il n'est plus en train de se déshydrater...{hr}<strong>Il n'a pas régénéré ses PA car il était déshydraté.</strong>]]></target>
       </segment>
     </unit>
     <unit id="1mv8jxQ">
@@ -9396,6 +9394,86 @@
       <segment>
         <source>Erhalten:</source>
         <target>Obtenir :</target>
+      </segment>
+    </unit>
+    <unit id="yUEkyOu" name="Dir fällt kein Grund ein, dies zu tun...">
+      <notes>
+        <note category="german">Dir fällt kein Grund ein, dies zu tun...</note>
+        <note category="from">db://Requirement</note>
+      </notes>
+      <segment>
+        <source>Dir fällt kein Grund ein, dies zu tun...</source>
+        <target>Vous ne voyez pas pourquoi vous feriez ça...</target>
+      </segment>
+    </unit>
+    <unit id="4Exhdnj" name="Dies kannst du erst ab &lt;strong&gt;Tag 2&lt;/strong&gt; tun.">
+      <notes>
+        <note category="german">Dies kannst du erst ab &lt;strong&gt;Tag 2&lt;/strong&gt; tun.</note>
+        <note category="from">db://Requirement</note>
+      </notes>
+      <segment>
+        <source>Dies kannst du erst ab &lt;strong&gt;Tag 2&lt;/strong&gt; tun.</source>
+        <target><![CDATA[Vous ne pouvez pas faire cela avant le <strong>jour 2</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="u9sIc_x">
+      <notes>
+        <note category="german">Wenn du den Plan studieren willst, musst du in die relative Ruhe der Stadt zurückkehren.</note>
+        <note category="from">db://Requirement</note>
+      </notes>
+      <segment>
+        <source>Wenn du den Plan studieren willst, musst du in die relative Ruhe der Stadt zurückkehren.</source>
+        <target>Vous devez vous trouver au calme, en ville, pour étudier ce plan.</target>
+      </segment>
+    </unit>
+    <unit id="E62nAap" name="Du musst mindestens 3 Kilometer von der Stadt entfernt sein, um das zu tun.">
+      <notes>
+        <note category="german">Du musst mindestens 3 Kilometer von der Stadt entfernt sein, um das zu tun.</note>
+        <note category="from">db://Requirement</note>
+      </notes>
+      <segment>
+        <source>Du musst mindestens 3 Kilometer von der Stadt entfernt sein, um das zu tun.</source>
+        <target>Vous devez être éloigné de plus de 3 kilomètres de la ville, pour faire cela.</target>
+      </segment>
+    </unit>
+    <unit id="EPH5jLS" name="Hierfür hast du keinen Platz.">
+      <notes>
+        <note category="german">Hierfür hast du keinen Platz.</note>
+        <note category="from">db://Requirement</note>
+      </notes>
+      <segment>
+        <source>Hierfür hast du keinen Platz.</source>
+        <target>Vous n'avez pas de place pour ça.</target>
+      </segment>
+    </unit>
+    <unit id="gObW_J5">
+      <notes>
+        <note category="german">Du kannst dieses Serum nicht auf dich selbst anwenden, oder du wirst der beste Freund eines Ghuls...</note>
+        <note category="from">db://Requirement</note>
+      </notes>
+      <segment>
+        <source>Du kannst dieses Serum nicht auf dich selbst anwenden, oder du wirst der beste Freund eines Ghuls...</source>
+        <target>Vous ne pouvez pas utiliser ce vaccin contre vous ou alors devenez le meilleur ami d'une goule...</target>
+      </segment>
+    </unit>
+    <unit id="j.Nx9To" name="Eintrittskarte">
+      <notes>
+        <note category="german">Eintrittskarte</note>
+        <note category="from">db://FeatureUnlockPrototype</note>
+      </notes>
+      <segment>
+        <source>Eintrittskarte</source>
+        <target>Laissez-passer</target>
+      </segment>
+    </unit>
+    <unit id=".LeRrBD">
+      <notes>
+        <note category="german">Hiermit kannst du Städten beitreten, obwohl du die Mindestanzahl an Seelenpunkten noch nicht erreicht hast.</note>
+        <note category="from">db://FeatureUnlockPrototype</note>
+      </notes>
+      <segment>
+        <source>Hiermit kannst du Städten beitreten, obwohl du die Mindestanzahl an Seelenpunkten noch nicht erreicht hast.</source>
+        <target>Ceci vous permet de rejoindre un ville indépendamment de votre nombre de points d'âme.</target>
       </segment>
     </unit>
   </file>

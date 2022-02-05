@@ -2182,7 +2182,7 @@
     <unit id="JLugykh">
       <segment>
         <source>Die AP-Kosten aller Bauprojekte werden um 25% gesenkt. Erhöht die Effektivität von Reparaturen um zwei Punkte.</source>
-        <target>Die AP-Kosten aller Bauprojekte werden um 30% gesenkt. Erhöht die Effektivität von Reparaturen um zwei Punkte.</target>
+        <target>Die AP-Kosten aller Bauprojekte werden um 28% gesenkt. Erhöht die Effektivität von Reparaturen um zwei Punkte.</target>
       </segment>
     </unit>
     <unit id="OK7fp_k" name="Zaun (Haus)">
@@ -2243,6 +2243,48 @@
       <segment>
         <source>Kein besonderer Bonus</source>
         <target>Kein besonderer Bonus</target>
+      </segment>
+    </unit>
+    <unit id="j_25xjC" name="Die Verteidigung der Stadt wird um 10% erhöht.">
+      <segment>
+        <source>Die Verteidigung der Stadt wird um 10% erhöht.</source>
+        <target>Die Verteidigung der Stadt wird um 10% erhöht.</target>
+      </segment>
+    </unit>
+    <unit id="ds6jhOT" name="Der Verteidigungswert der Stadt steigt mit dem Großen Graben auf 10 Punkte.">
+      <segment>
+        <source>Der Verteidigungswert der Stadt steigt mit dem Großen Graben auf 10 Punkte.</source>
+        <target>Der Verteidigungswert der Stadt steigt mit dem Großen Graben auf 10 Punkte.</target>
+      </segment>
+    </unit>
+    <unit id="kA.md3H" name="Die entwicklungsfähige Stadtmauer bringt der Stadt 55 Verteidigungspunkte.">
+      <segment>
+        <source>Die entwicklungsfähige Stadtmauer bringt der Stadt 55 Verteidigungspunkte.</source>
+        <target>Die entwicklungsfähige Stadtmauer bringt der Stadt 55 Verteidigungspunkte.</target>
+      </segment>
+    </unit>
+    <unit id="g64XZZx" name="Der Brunnen wird einmalig mit 5 Rationen Wasser befüllt.">
+      <segment>
+        <source>Der Brunnen wird einmalig mit 5 Rationen Wasser befüllt.</source>
+        <target>Der Brunnen wird einmalig mit 5 Rationen Wasser befüllt.</target>
+      </segment>
+    </unit>
+    <unit id="11k2wgK">
+      <segment>
+        <source>Jeder in der Bank abgelegte Verteidigungsgegenstand bringt der Stadt 1.5 Verteidigungspunkte zusätzlich ein.</source>
+        <target>Jeder in der Bank abgelegte Verteidigungsgegenstand bringt der Stadt 1.5 Verteidigungspunkte zusätzlich ein.</target>
+      </segment>
+    </unit>
+    <unit id="0O20i7a" name="Die Stadt erhält nach dem nächsten Angriff einmalig 1 gewöhnliche Baupläne.">
+      <segment>
+        <source>Die Stadt erhält nach dem nächsten Angriff einmalig 1 gewöhnliche Baupläne.</source>
+        <target>Die Stadt erhält nach dem nächsten Angriff einmalig 1 gewöhnliche Baupläne.</target>
+      </segment>
+    </unit>
+    <unit id="ELKPDDh" name="Der Wasserwerfer gibt 70 zusätzliche Verteidigungspunkte.">
+      <segment>
+        <source>Der Wasserwerfer gibt 70 zusätzliche Verteidigungspunkte.</source>
+        <target>Der Wasserwerfer gibt 70 zusätzliche Verteidigungspunkte.</target>
       </segment>
     </unit>
   </file>

@@ -89,7 +89,7 @@ class FoundRolePlayText
     {
         $this->datefound = $datefound;
 
-        return this;
+        return $this;
     }
 
     public function getImported(): ?bool

@@ -18,7 +18,7 @@
       </notes>
       <segment>
         <source>Besuche unsere Technische Supportseite</source>
-        <target>Visite el sitio de soporte técnico</target>
+        <target>Contacta con el Soporte técnico</target>
       </segment>
     </unit>
     <unit id="FvwX8Vo" name="Die Außenwelt">
@@ -7661,12 +7661,11 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
     <unit id="BfPtnDn">
       <notes>
         <note category="german">Alle deine Gegenstände werden &lt;strong&gt;in der Truhe&lt;/strong&gt; aufbewahrt. Klick auf einen &lt;strong&gt;Gegenstand&lt;/strong&gt;, um ihn mitzunehmen...</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
       </notes>
       <segment>
         <source>Alle deine Gegenstände werden &lt;strong&gt;in der Truhe&lt;/strong&gt; aufbewahrt. Klick auf einen &lt;strong&gt;Gegenstand&lt;/strong&gt;, um ihn mitzunehmen...</source>
-        <target><![CDATA[Alle deine Gegenstände werden <strong>in der Truhe</strong> aufbewahrt. Klick auf einen <strong>Gegenstand</strong>, um ihn mitzunehmen...]]></target>
+        <target><![CDATA[Has depositado todos tus objetos en <strong>tu baúl personal</strong>. Haz clic en cualquier <strong>objeto</strong para llevarlo contigo...]]></target>
       </segment>
     </unit>
     <unit id="K56xxmf">
@@ -8611,6 +8610,19 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       <segment>
         <source>Ranglisten und Saisons</source>
         <target>Clasificación y temporadas</target>
+      </segment>
+    </unit>
+    <unit id="r.WCNCm">
+      <notes>
+        <note category="german">&lt;strong&gt;DEN SUPPORT KONTAKTIEREN:&lt;/strong&gt;
+Um Kontakt mit den Administratoren aufzunehmen, schreibe an die &lt;a x-group-connect="{oglink}" href="#"&gt;Offizielle Gruppe&lt;/a&gt; des Technischen Supports.</note>
+        <note category="from">twig:///templates/ajax/help/getting_help.html.twig</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;DEN SUPPORT KONTAKTIEREN:&lt;/strong&gt;
+Um Kontakt mit den Administratoren aufzunehmen, schreibe an die &lt;a x-group-connect="{oglink}" href="#"&gt;Offizielle Gruppe&lt;/a&gt; des Technischen Supports.</source>
+        <target><![CDATA[<strong>CONTACTA AL SOPORTE:</strong>
+Para ponerte en contacto con los administadores, escribe al <a x-group-connect="{oglink}" href="#">Grupo Oficial</a> de Soporte técnico.]]></target>
       </segment>
     </unit>
   </file>

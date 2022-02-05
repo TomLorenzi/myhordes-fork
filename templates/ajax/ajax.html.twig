@@ -46,7 +46,7 @@
     <div id="gma" class="game-menu-area">
         {% block gma %}
             <div class="game-bar">
-            {% block text_menu_content %}
+                {% block text_menu_content %}
                 <ul class="text-menu">
                     <li class="burger-button"><i class="fa fa-bars"></i></li>
                     {% if is_granted('ROLE_USER') %}
@@ -96,11 +96,11 @@
                     </li>
                 </ul>
             {% endblock %}
-            {% block menu_bar %}{% endblock %}
-        </div>
+                {% block menu_bar %}{% endblock %}
+            </div>
             <div class="game-dropdown hidden" style="height: 0">
-            {{ block('text_menu_content') }}
-        </div>
+                {{ block('text_menu_content') }}
+            </div>
         {% endblock %}
     </div>
     {% block ajax %}
@@ -110,6 +110,7 @@
     {{ parent() }}
     {{ include('ajax/flash.html.twig') }}
     <script>
+        {{ include('scripts/user_tooltip.js.twig') }}
         document.querySelector('#gma>.game-bar .burger-button').addEventListener('click', function() {
             let dropdown = document.querySelector('#gma>.game-dropdown');
             dropdown.classList.toggle('hidden');

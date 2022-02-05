@@ -8,6 +8,7 @@
 {% from "ajax/admin/widget/controls.twig" import widget_profession_control as profession_control, widget_profession_control_js as profession_control_js %}
 {% from "ajax/admin/widget/controls.twig" import widget_home_control as home_control, widget_home_control_js as home_control_js %}
 {% from "ajax/admin/widget/controls.twig" import widget_teleport_control as teleport_control, widget_teleport_control_js as teleport_control_js %}
+{% from "ajax/admin/widget/controls.twig" import widget_alias_control as alias_control, widget_alias_control_js as alias_control_js %}
 
 {% block title %}{% trans from 'admin' %}Bürger{% endtrans %}{%  endblock %}
 {% block ajax %}
@@ -48,7 +49,7 @@
                             {% endif %}
                         </div>
                         <div class="cell padded rw-12" {% if user_citizen is not null %}id="citizen_base_selector" x-id="{{ user_citizen.id }}"{% endif %}>
-                            <label><input disabled style="width: 25em;" value="{% if active %}{{ town.name }}{% if not alive %}{{ " -- " }}{{ 'TOD NICHT BESTÄTIGT'|trans({}, 'admin') }}{% endif %}{% else %}{{ "--" }}{% endif %}" /></label>
+                            <label><input disabled style="width: 100%;" value="{% if active %}{{ town.name }}{% if not alive %}{{ " -- " }}{{ 'TOD NICHT BESTÄTIGT'|trans({}, 'admin') }}{% endif %}{% else %}{{ "--" }}{% endif %}" /></label>
                         </div>
                         {% if active %}
                             {% if alive %}
@@ -72,6 +73,9 @@
                                     <div class="cell padded rw-6 rw-md-12">{{ status_control(citizenStati) }}</div>
                                     <div class="cell padded rw-6 rw-md-12">{{ role_control(citizenRoles) }}</div>
                                     <div class="cell padded rw-12">{{ home_control(user_citizen,home_upgrades) }}</div>
+                                    {% if town.conf and town.conf.features and town.conf.features.citizen_alias %}
+                                        <div class="cell padded rw-12">{{ alias_control(user_citizen) }}</div>
+                                    {% endif %}
                                 {% endif %}
                             {% else %}
                                 {% if is_granted("ROLE_ADMIN") %}
@@ -103,6 +107,7 @@
         {{ point_control_js('#citizen_base_selector', path('admin_town_alter_pp', {id: user_citizen.town.id}), path('admin_users_citizen_view', {id: user.id})) }}
         {{ profession_control_js('#citizen_base_selector', path('admin_modify_profession', {id: user_citizen.town.id}), path('admin_users_citizen_view', {id: user.id})) }}
         {{ teleport_control_js('#citizen_base_selector', path('admin_teleport_citizen', {id: user_citizen.town.id}), path('admin_users_citizen_view', {id: user.id})) }}
+        {{ alias_control_js('#citizen_base_selector', path('admin_alias_citizen', {id: user_citizen.town.id}), path('admin_users_citizen_view', {id: user.id})) }}
     {% endif %}
     <script>
         {% if is_granted("ROLE_ADMIN") %}

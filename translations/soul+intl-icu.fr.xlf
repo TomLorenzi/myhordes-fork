@@ -2005,7 +2005,7 @@
       </notes>
       <segment>
         <source>Es hat dich bisher noch niemand eingeladen.</source>
-        <target>Pour l'instant personne ne vous envoyé d'invitation.</target>
+        <target>Pour l'instant personne ne vous a envoyé d'invitation.</target>
       </segment>
     </unit>
     <unit id="3NHVIj9" name="Name">
@@ -2021,7 +2021,7 @@
     <unit id="Vlb5Lbe" name="Aktionen">
       <notes>
         <note category="german">Aktionen</note>
-        <note category="from">twig:///templates/ajax/soul/coalitions.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/coalitions.html.twig;twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Aktionen</source>
@@ -2525,7 +2525,7 @@
     <unit id="9cNHWGl" name="Seelenpunkte">
       <notes>
         <note category="german">Seelenpunkte</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/season.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/users/social.html.twig;twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/season.html.twig</note>
       </notes>
       <segment>
         <source>Seelenpunkte</source>
@@ -2535,7 +2535,7 @@
     <unit id="9DAxndj" name="Spieler">
       <notes>
         <note category="german">Spieler</note>
-        <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/users/social.html.twig;twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/season.html.twig</note>
       </notes>
       <segment>
         <source>Spieler</source>
@@ -2605,23 +2605,21 @@
     <unit id="G9tS6ug" name="Diese Sperre ist bis zu folgendem Zeitpunkt gültig:">
       <notes>
         <note category="german">Diese Sperre ist bis zu folgendem Zeitpunkt gültig:</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/acc_disabled.html.twig</note>
       </notes>
       <segment>
         <source>Diese Sperre ist bis zu folgendem Zeitpunkt gültig:</source>
-        <target>Diese Sperre ist bis zu folgendem Zeitpunkt gültig:</target>
+        <target>Ce bannissement sera actif jusqu’à la date suivante :</target>
       </segment>
     </unit>
     <unit id="gLe5bOG">
       <notes>
-        <note category="german">Wenn du der Meinung bist, fälschlicherweise gesperrt worden zu sein, kannst du dich im Weltforum melden.</note>
-        <note category="state">new</note>
+        <note category="german">Wenn du der Meinung bist, fälschlicherweise gesperrt worden zu sein, kannst du dich im Rabennest (unten auf der Forenübersicht) melden.</note>
         <note category="from">twig:///templates/ajax/soul/acc_disabled.html.twig</note>
       </notes>
       <segment>
         <source>Wenn du der Meinung bist, fälschlicherweise gesperrt worden zu sein, kannst du dich im Weltforum melden.</source>
-        <target>Wenn du der Meinung bist, fälschlicherweise gesperrt worden zu sein, kannst du dich im Weltforum melden.</target>
+        <target>Si vous pensez avoir été banni à tort, vous pouvez vous rendre dans le Nid des corbeaux (en bas de la page des forums).</target>
       </segment>
     </unit>
     <unit id="PBVB79s" name="Dein Account ist eingeschränkt!">
@@ -2757,23 +2755,21 @@
     <unit id="WPixbld" name="Spielen">
       <notes>
         <note category="german">Spielen</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Spielen</source>
-        <target>Spielen</target>
+        <target>Jouer</target>
       </segment>
     </unit>
     <unit id="VNOZ2rq">
       <notes>
         <note category="german">Du kannst keinen Städten beitreten. Befindest du dich bereits in einer Stadt, kannst du dort keinerlei Aktionen mehr durchführen und keinen Stadtbildschirm aufrufen. Zudem verlierst du den Zugang zum Stadtforum.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Du kannst keinen Städten beitreten. Befindest du dich bereits in einer Stadt, kannst du dort keinerlei Aktionen mehr durchführen und keinen Stadtbildschirm aufrufen. Zudem verlierst du den Zugang zum Stadtforum.</source>
-        <target>Du kannst keinen Städten beitreten. Befindest du dich bereits in einer Stadt, kannst du dort keinerlei Aktionen mehr durchführen und keinen Stadtbildschirm aufrufen. Zudem verlierst du den Zugang zum Stadtforum.</target>
+        <target>Vous ne pouvez pas rejoindre des villes. Si vous êtes déjà dans une ville, vous ne pouvez plus effectuer d’actions ou ouvrir une page de la ville. Vous perdrez également l’accès au Forum de la ville.</target>
       </segment>
     </unit>
     <unit id="wEtk74c">
@@ -2960,12 +2956,11 @@
     <unit id="DFJoP7h" name="Du kannst kein Icon ohne einen Titel wählen.">
       <notes>
         <note category="german">Du kannst kein Icon ohne einen Titel wählen.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Du kannst kein Icon ohne einen Titel wählen.</source>
-        <target>Du kannst kein Icon ohne einen Titel wählen.</target>
+        <target>Vous ne pouvez pas choisir une icône sans titre.</target>
       </segment>
     </unit>
     <unit id="wMIPplV" name="Statistiken">
@@ -3041,7 +3036,7 @@
     <unit id="uK4jynd" name="Geworbener Spieler">
       <notes>
         <note category="german">Geworbener Spieler</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/users/social.html.twig;twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Geworbener Spieler</source>
@@ -3051,7 +3046,7 @@
     <unit id="4n2PgVx" name="Heldenerfahrung">
       <notes>
         <note category="german">Heldenerfahrung</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/users/social.html.twig;twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Heldenerfahrung</source>
@@ -4193,99 +4188,90 @@
       <notes>
         <note category="german">Profil und Avatar</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Profil und Avatar</source>
-        <target>Profil und Avatar</target>
+        <target>Profil et Avatar</target>
       </segment>
     </unit>
     <unit id="HJpR2F4" name="Account und Sicherheit">
       <notes>
         <note category="german">Account und Sicherheit</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Account und Sicherheit</source>
-        <target>Account und Sicherheit</target>
+        <target>Compte et Sécurité</target>
       </segment>
     </unit>
     <unit id="dZH4JwY" name="Seelenimport">
       <notes>
         <note category="german">Seelenimport</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Seelenimport</source>
-        <target>Seelenimport</target>
+        <target>Importation d'âme</target>
       </segment>
     </unit>
     <unit id="JO3dcQu" name="Allgemein">
       <notes>
         <note category="german">Allgemein</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Allgemein</source>
-        <target>Allgemein</target>
+        <target>Général</target>
       </segment>
     </unit>
     <unit id="0x3hpcX" name="Browser">
       <notes>
         <note category="german">Browser</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Browser</source>
-        <target>Browser</target>
+        <target>Navigateur</target>
       </segment>
     </unit>
     <unit id="JeVu4ox" name="Erweitert">
       <notes>
         <note category="german">Erweitert</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Erweitert</source>
-        <target>Erweitert</target>
+        <target>Avancé</target>
       </segment>
     </unit>
     <unit id="h8KIsxl" name="Icon-Zoom auf mobilen Geräten">
       <notes>
         <note category="german">Icon-Zoom auf mobilen Geräten</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Icon-Zoom auf mobilen Geräten</source>
-        <target>Icon-Zoom auf mobilen Geräten</target>
+        <target>Zoom des icônes pour les appareils mobiles</target>
       </segment>
     </unit>
     <unit id="1kCprst">
       <notes>
         <note category="german">Um Items in deinem Rucksack und der Bank auf einem mobilen Gerät einfacher mit dem Finger auswählen zu können, kannst du deren Größe anpassen. Diese Einstellung betrifft nur mobile Geräte mit einem kleinen Bildschirm, beispielsweise Smartphones.</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Um Items in deinem Rucksack und der Bank auf einem mobilen Gerät einfacher mit dem Finger auswählen zu können, kannst du deren Größe anpassen. Diese Einstellung betrifft nur mobile Geräte mit einem kleinen Bildschirm, beispielsweise Smartphones.</source>
-        <target>Um Items in deinem Rucksack und der Bank auf einem mobilen Gerät einfacher mit dem Finger auswählen zu können, kannst du deren Größe anpassen. Diese Einstellung betrifft nur mobile Geräte mit einem kleinen Bildschirm, beispielsweise Smartphones.</target>
+        <target>Pour faciliter la sélection d'objets dans votre sac à dos et la banque avec votre doigt sur un appareil mobile, vous pouvez ajuster leur taille. Ce paramètre n’affecte que les appareils mobiles avec un petit écran, tels que les smartphones.</target>
       </segment>
     </unit>
     <unit id="HkoJZOT" name="Zoom deaktiviert">
       <notes>
         <note category="german">Zoom deaktiviert</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Zoom deaktiviert</source>
-        <target>Zoom deaktiviert</target>
+        <target>Zoom désactivé</target>
       </segment>
     </unit>
     <unit id="fDGQ_d2">
@@ -4306,6 +4292,247 @@
       <segment>
         <source>Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll. Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</source>
         <target>Sélectionnez la partie de votre photo de profil à utiliser pour l'affichage réduit. Déplacez la section avec la souris et agrandissez-la ou réduisez-la avec la molette de la souris.</target>
+      </segment>
+    </unit>
+    <unit id=".R_0uOZ" name="Denke daran, dich ebenfalls aus deinem EternalTwin Account auszuloggen!">
+      <notes>
+        <note category="german">Denke daran, dich ebenfalls aus deinem EternalTwin Account auszuloggen!</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>Denke daran, dich ebenfalls aus deinem EternalTwin Account auszuloggen!</source>
+        <target>N’oubliez pas de vous déconnecter également de votre compte EternalTwin !</target>
+      </segment>
+    </unit>
+    <unit id="TMcIHTT" name="Du kannst deinen Spielernamen erst in {days} Tagen erneut ändern.">
+      <notes>
+        <note category="german">Du kannst deinen Spielernamen erst {days} erneut ändern.</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du kannst deinen Spielernamen erst in {days} Tagen erneut ändern.</source>
+        <target>Vous pourrez changer de nom d'affichage {days, plural, =1 {demain} other {dans # jours}}.</target>
+      </segment>
+    </unit>
+    <unit id="JO.PmAR" name="Haus ansehen">
+      <notes>
+        <note category="german">Haus ansehen</note>
+        <note category="from">twig:///templates/ajax/soul/user_tooltip.html.twig</note>
+      </notes>
+      <segment>
+        <source>Haus ansehen</source>
+        <target>Voir sa maison</target>
+      </segment>
+    </unit>
+    <unit id="Ub5_T82" name="Profil auf MyHordes">
+      <notes>
+        <note category="german">Profil auf MyHordes</note>
+        <note category="from">twig:///templates/ajax/soul/user_tooltip.html.twig</note>
+      </notes>
+      <segment>
+        <source>Profil auf MyHordes</source>
+        <target>Profil MyHordes</target>
+      </segment>
+    </unit>
+    <unit id="Wodhw7O" name="Profil Eternal-Twin">
+      <notes>
+        <note category="german">Profil EternalTwin</note>
+        <note category="from">twig:///templates/ajax/soul/user_tooltip.html.twig</note>
+      </notes>
+      <segment>
+        <source>Profil Eternal-Twin</source>
+        <target>Profil Eternal-Twin</target>
+      </segment>
+    </unit>
+    <unit id="abqsDy0" name="Schreiben">
+      <notes>
+        <note category="german">Schreiben</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/user_tooltip.html.twig</note>
+      </notes>
+      <segment>
+        <source>Schreiben</source>
+        <target>Envoyer un message</target>
+      </segment>
+    </unit>
+    <unit id="ukvMJvG" name="Kontakt hinzufügen">
+      <notes>
+        <note category="german">Kontakt hinzufügen</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/user_tooltip.html.twig</note>
+      </notes>
+      <segment>
+        <source>Kontakt hinzufügen</source>
+        <target>Ajouter contact</target>
+      </segment>
+    </unit>
+    <unit id="C4p3DLl" name="Kontakt löschen">
+      <notes>
+        <note category="german">Kontakt löschen</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/user_tooltip.html.twig</note>
+      </notes>
+      <segment>
+        <source>Kontakt löschen</source>
+        <target>Retirer contact</target>
+      </segment>
+    </unit>
+    <unit id="t3wjndr" name="Dieser Spieler gehört nicht zu deinen Kontakten.">
+      <notes>
+        <note category="german">Dieser Spieler gehört nicht zu deinen Kontakten.</note>
+        <note category="from">twig:///templates/ajax/soul/user_tooltip.html.twig</note>
+      </notes>
+      <segment>
+        <source>Dieser Spieler gehört nicht zu deinen Kontakten.</source>
+        <target>Ce joueur ne fait pas partie de vos contacts.</target>
+      </segment>
+    </unit>
+    <unit id="5LUgK.g" name="Du hast {username} zu deinen Kontakten hinzugefügt!">
+      <notes>
+        <note category="german">Du hast {username} zu deinen Kontakten hinzugefügt!</note>
+        <note category="from">php:///src/Controller/Soul/SoulController.php</note>
+      </notes>
+      <segment>
+        <source>Du hast {username} zu deinen Kontakten hinzugefügt!</source>
+        <target>Vous avez ajouté {username} à vos contacts !</target>
+      </segment>
+    </unit>
+    <unit id="eBWT82h" name="Du hast {username} aus deinen Kontakten gelöscht!">
+      <notes>
+        <note category="german">Du hast {username} aus deinen Kontakten gelöscht!</note>
+        <note category="from">php:///src/Controller/Soul/SoulController.php</note>
+      </notes>
+      <segment>
+        <source>Du hast {username} aus deinen Kontakten gelöscht!</source>
+        <target>Vous avez retiré {username} de vos contacts !</target>
+      </segment>
+    </unit>
+    <unit id="Dm3TgUa" name="Sozial">
+      <notes>
+        <note category="german">Sozial</note>
+        <note category="from">twig:///templates/ajax/soul/shell.html.twig</note>
+      </notes>
+      <segment>
+        <source>Sozial</source>
+        <target>Social</target>
+      </segment>
+    </unit>
+    <unit id="I2eWURG" name="Freundesliste">
+      <notes>
+        <note category="german">Freundesliste</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Freundesliste</source>
+        <target>Amis</target>
+      </segment>
+    </unit>
+    <unit id="_cSDjRl" name="Spieler werben">
+      <notes>
+        <note category="german">Spieler werben</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Spieler werben</source>
+        <target>Parrainage</target>
+      </segment>
+    </unit>
+    <unit id="T6FFmLN" name="Wahrer Freund">
+      <notes>
+        <note category="german">Wahrer Freund</note>
+        <note category="from">twig:///templates/ajax/admin/users/social.html.twig;twig:///templates/ajax/soul/refer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Wahrer Freund</source>
+        <target>Ami Mutuel</target>
+      </segment>
+    </unit>
+    <unit id="aWNhyEI" name="Deine Freundesliste ist leer.">
+      <notes>
+        <note category="german">Deine Freundesliste ist leer.</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Deine Freundesliste ist leer.</source>
+        <target>Votre liste d'amis est vide.</target>
+      </segment>
+    </unit>
+    <unit id="vHUeAVJ" name="Neue Freunde finden">
+      <notes>
+        <note category="german">Neue Freunde finden</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Neue Freunde finden</source>
+        <target>Chercher un ami</target>
+      </segment>
+    </unit>
+    <unit id="BTjlZxP" name="Gib hier den Nickname des Spielers ein, den du als Freund hinzufügen möchtest.">
+      <notes>
+        <note category="german">Gib hier den Nickname des Spielers ein, den du als Freund hinzufügen möchtest.</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Gib hier den Nickname des Spielers ein, den du als Freund hinzufügen möchtest.</source>
+        <target>Entrez ici le pseudo du joueur que vous souhaitez ajouter en ami.</target>
+      </segment>
+    </unit>
+    <unit id="BHCazk7" name="Spieler, die dich als Freund hinzugefügt haben">
+      <notes>
+        <note category="german">Spieler, die dich als Freund hinzugefügt haben</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Spieler, die dich als Freund hinzugefügt haben</source>
+        <target>Les joueurs qui vont ont ajouté en ami</target>
+      </segment>
+    </unit>
+    <unit id="xMippYH">
+      <notes>
+        <note category="german">Hier siehst du Spieler, die dich in ihre Freundesliste eingetragen haben. Wenn du möchtest, kannst du sie ebenfalls in deine Freundesliste eintragen.</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Hier siehst du Spieler, die dich in ihre Freundesliste eingetragen haben. Wenn du möchtest, kannst du sie ebenfalls in deine Freundesliste eintragen.</source>
+        <target>Ici, vous pouvez voir les joueurs qui vous ont ajouté à leur liste d'amis. Si vous le souhaitez, vous pouvez faire de même.</target>
+      </segment>
+    </unit>
+    <unit id="pPMWL8v">
+      <notes>
+        <note category="german">Du kannst verhindern, dass ein Spieler dich in seine Freundesliste aufnimmt, indem du ihn blockierst. Bedenke, dass er dich danach auch nicht mehr via über eine private Nachricht kontaktieren kann.</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du kannst verhindern, dass ein Spieler dich in seine Freundesliste aufnimmt, indem du ihn blockierst. Bedenke, dass er dich danach auch nicht mehr via über eine private Nachricht kontaktieren kann.</source>
+        <target>Vous pouvez empêcher un joueur de vous ajouter à sa liste d'amis en le bloquant. Gardez à l'esprit qu'il ne pourra plus vous contacter via message privé par la suite.</target>
+      </segment>
+    </unit>
+    <unit id="b1moPIw" name="Blockierliste">
+      <notes>
+        <note category="german">Blockierliste</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Blockierliste</source>
+        <target>Liste noire</target>
+      </segment>
+    </unit>
+    <unit id="56y70st" name="Blockierter Spieler">
+      <notes>
+        <note category="german">Blockierter Spieler</note>
+        <note category="from">twig:///templates/ajax/admin/users/social.html.twig;twig:///templates/ajax/soul/refer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Blockierter Spieler</source>
+        <target>Joueurs bloqués</target>
+      </segment>
+    </unit>
+    <unit id="gqnWr8F" name="Deine Blockierliste ist leer.">
+      <notes>
+        <note category="german">Deine Blockierliste ist leer.</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Deine Blockierliste ist leer.</source>
+        <target>Votre liste noire est vide.</target>
       </segment>
     </unit>
   </file>

@@ -117,7 +117,7 @@ class GameFactory
                 ['Waterhole', 'Hospital', 'Training camp', 'Pony', 'No man\'s land', 'Court', 'Empire', 'Shithole', 'Brain', 'Rathole', 'Area', 'Camp', 'Garbage Mountain', 'Soul Catcher', 'Monarch', 'Rock', 'Fall', 'Forest', 'Torture Basement', 'District', 'Bunker', 'Table', 'Cough', 'Truck', 'Butchers', 'Zombie researchers', 'Figures', 'Guardians', 'Death songs', 'Conductor', 'Soldiers', 'Twins', 'Regions', 'Surface', 'Parasites', 'Developers', 'Skool'],
             ],
             [  // Suffixed
-                ['Ghoul bones', 'Songs', 'Pain', 'Screams', 'Rooms', 'Mob', 'Ghetto', 'Citizens', 'Legacy', 'Territory', 'Torture chamber', 'Alcohol Adulterator'],
+                ['Ghoul bones', 'Songs', 'Pain', 'Screams', 'Rooms', 'Mob', 'Ghetto', 'Citizens', 'Legacy', 'Territory', 'Torture chamber', 'Alcohol Adulterants'],
                 ['of Death', 'of Damnation', 'without Future', 'at the Abyss', 'of the Confused', 'without Ideas', 'of the Failures', 'of the Ghouls', 'of the Superheroes', 'of the Discouraged', 'of the Cheerful', 'of the Revolutionaries', 'of the Deepnight'],
             ],
         ],
@@ -251,21 +251,21 @@ class GameFactory
 
         foreach ($conf->get(TownConf::CONF_BUILDINGS_UNLOCKED) as $str_prototype)
             if (!in_array($str_prototype, $conf->get(TownConf::CONF_DISABLED_BUILDINGS)))
-                $this->town_handler->addBuilding( $town, $this->entity_manager->getRepository(BuildingPrototype::class)->findOneByName( $str_prototype ) );
+                $this->town_handler->addBuilding( $town, $this->entity_manager->getRepository(BuildingPrototype::class)->findOneBy( ['name' => $str_prototype] ) );
 
         foreach ($conf->get(TownConf::CONF_BUILDINGS_CONSTRUCTED) as $str_prototype) {
             if (in_array($str_prototype, $conf->get(TownConf::CONF_DISABLED_BUILDINGS)))
                 continue;
 
             /** @var BuildingPrototype $proto */
-            $proto = $this->entity_manager->getRepository(BuildingPrototype::class)->findOneByName( $str_prototype );
+            $proto = $this->entity_manager->getRepository(BuildingPrototype::class)->findOneBy( ['name' => $str_prototype] );
             $b = $this->town_handler->addBuilding( $town, $proto );
             $b->setAp( $proto->getAp() )->setComplete( true )->setHp($proto->getHp());
         }
 
         $this->town_handler->calculate_zombie_attacks( $town, 3 );
 
-        $defaultTag = $this->entity_manager->getRepository(ZoneTag::class)->findOneByRef(0);
+        $defaultTag = $this->entity_manager->getRepository(ZoneTag::class)->findOneBy(['ref' => ZoneTag::TagNone]);
 
         $map_resolution = $this->getDefaultZoneResolution( $conf, $ox, $oy );
         for ($x = 0; $x < $map_resolution; $x++)
@@ -486,7 +486,7 @@ class GameFactory
                     break;
             }
 
-            if (!$allowed) {
+            if (!$allowed && !$this->user_handler->checkFeatureUnlock( $user, 'f_sptkt', true )) {
                 $error = ErrorHelper::ErrorPermissionError;
                 return false;
             }

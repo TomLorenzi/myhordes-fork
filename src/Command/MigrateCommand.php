@@ -11,6 +11,7 @@ use App\Entity\Building;
 use App\Entity\Citizen;
 use App\Entity\CitizenRankingProxy;
 use App\Entity\CitizenStatus;
+use App\Entity\Complaint;
 use App\Entity\FeatureUnlock;
 use App\Entity\FeatureUnlockPrototype;
 use App\Entity\Forum;
@@ -22,10 +23,12 @@ use App\Entity\Item;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
 use App\Entity\Post;
+use App\Entity\RolePlayText;
 use App\Entity\RuinZone;
 use App\Entity\Season;
 use App\Entity\ShadowBan;
 use App\Entity\SpecialActionPrototype;
+use App\Entity\Thread;
 use App\Entity\ThreadTag;
 use App\Entity\Town;
 use App\Entity\TownLogEntry;
@@ -47,6 +50,7 @@ use App\Service\RandomGenerator;
 use App\Service\UserFactory;
 use App\Service\UserHandler;
 use App\Structures\TownConf;
+use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\Console\Command\Command;
@@ -100,14 +104,15 @@ class MigrateCommand extends Command
             ['app:debug', ['--add-animactor' => true] ],
             ['app:migrate', ['--repair-permissions' => true] ],
         ],
-        'e01e6dea153f67d9a1d7f9f7f7d3c8b2eec5d5ed' => [ ['app:migrate', ['--repair-permissions' => true] ] ],
         'fae118acfc0041183dac9622c142cab01fb10d44' => [ ['app:migrate', ['--fix-forum-posts' => true] ] ],
         'bf6a46f2dc1451658809f55578debd83aca095d3' => [ ['app:migrate', ['--set-old-flag' => true] ] ],
         'f413fb8e0bf8b4f9733b4e00705625e000ff4bf6' => [ ['app:migrate', ['--update-all-sp' => true] ] ],
-        'a7fa0be81f35415ca3c2fc5810bdc53acd6331cc' => [ ['app:migrate', ['--prune-rp-texts' => true] ] ],
         '8e7d00f016648b180840f47544d98d337e5c0088' => [ ['app:migrate', ['--fix-ranking-survived-days' => true] ] ],
         'ffa2f28a35c5a34a0fbb26d8f478d5fc0f24679a' => [ ['app:migrate', ['--repair-permissions' => true] ] ],
         '0d37ad639bb89157ffa64eac0821ac490e063224' => [ ['app:migrate', ['--reassign-thread-tags' => true] ] ],
+        'd669a5376c073ff8ede12330dbd3968346c78425' => [ ['app:migrate', ['--assign-official-tag' => true] ] ],
+        '9a573aed31d901434d2cc5992799ed1b5ee6683d' => [ ['app:migrate', ['--prune-rp-texts' => true] ] ],
+        '8c54cbfaf95df7f65f94eff00e03ca3bdea95810' => [ ['app:migrate', ['--prune-rp-texts' => true] ] ],
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
@@ -180,6 +185,7 @@ class MigrateCommand extends Command
             ->addOption('fix-forum-posts', null, InputOption::VALUE_NONE, 'Fix forum post content')
             ->addOption('fix-ranking-survived-days', null, InputOption::VALUE_NONE, 'Fix survived day count in rankings')
             ->addOption('reassign-thread-tags', null, InputOption::VALUE_NONE, 'Repairs ThreadTag assignment to forums')
+            ->addOption('assign-official-tag', null, InputOption::VALUE_NONE, 'Assign the Official tag in the Town forums')
 
             ->addOption('repair-permissions', null, InputOption::VALUE_NONE, 'Makes sure forum permissions and user groups are set up properly')
             ->addOption('migrate-oracles', null, InputOption::VALUE_NONE, 'Moves the Oracle role from account elevation to the special permissions flag')
@@ -446,8 +452,14 @@ class MigrateCommand extends Command
         }
 
         if ($input->getOption('process-db-git')) {
+            if (file_exists( $this->kernel->getProjectDir() . '/.vslist' )) {
+                $output->writeln('Getting revision list from <info>.vslist</info>.');
+                $hashes = file($this->kernel->getProjectDir() . '/.vslist', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES );
+            } else {
+                $output->writeln('Getting revision list from <info>git</info>.');
+                $hashes = array_reverse( $this->helper->bin( 'git rev-list HEAD', $ret ) );
+            }
 
-            $hashes = array_reverse( $this->helper->bin( 'git rev-list HEAD', $ret ) );
             $output->writeln('Found <info>' . count($hashes) . '</info> installed patches.');
 
             $new = 0;
@@ -722,6 +734,27 @@ class MigrateCommand extends Command
             return 0;
         }
 
+        if ($input->getOption('assign-official-tag')) {
+            $tag = $this->entity_manager->getRepository(ThreadTag::class)->findOneBy(['name' => 'official']);
+            $crow = $this->entity_manager->getRepository(User::class)->find(66);
+            $criteria = new Criteria();
+            $criteria->andWhere($criteria->expr()->neq('town', $null));
+            $townForums = $this->entity_manager->getRepository(Forum::class)->matching($criteria);
+            /** @var Forum $townForum */
+            foreach ($townForums as $townForum) {
+                $threads = $townForum->getThreads();
+                /** @var Thread $thread */
+                foreach ($threads as $thread) {
+                    if($thread->getOwner() !== $crow) continue;
+                    if($thread->getTag() === $tag) continue;
+                    $thread->setTag($tag);
+                    $this->entity_manager->persist($tag);
+                }
+            }
+
+            $this->entity_manager->flush();
+        }
+
         if ($input->getOption('repair-proxies')) {
             $this->helper->leChunk($output, CitizenRankingProxy::class, 1000, [], true, false, function(CitizenRankingProxy $cp): bool {
                 $b = false;
@@ -733,6 +766,30 @@ class MigrateCommand extends Command
                 if ($cp->getTown()->getType() && $cp->getTown()->getType()->getName() === 'custom' && $cp->getPoints() > 0) {
                     $cp->setPoints(0);
                     $b = true;
+                }
+
+                if ($cp->getCleanupType() === null && $cp->getCitizen() !== null && !$cp->getCitizen()->getAlive()) {
+                    if($cp->getCitizen()->getDisposed()) {
+                        $type = "";
+                        switch($cp->getCitizen()->getDisposed()){
+                            case Citizen::Thrown:
+                                $type = "garbage";
+                                break;
+                            case Citizen::Watered:
+                                $type = "water";
+                                break;
+                            case Citizen::Cooked:
+                                $type = "cook";
+                                break;
+                            case Citizen::Ghoul:
+                                $type = "ghoul";
+                                break;
+                        }
+                        $cp->setCleanupType($type);
+
+                        if ($cp->getCitizen()->getDisposedBy()->count() > 0)
+                            $cp->setCleanupUsername($cp->getCitizen()->getDisposedBy()[0]->getUser()->getName());
+                    }
                 }
 
                 return $b;
@@ -917,7 +974,7 @@ class MigrateCommand extends Command
 
         if ($input->getOption('prune-rp-texts')) {
             $target_picto = null;
-            $this->helper->leChunk($output, User::class, 100, [], true, false, function(User $user) use (&$target_picto) {
+            $this->helper->leChunk($output, User::class, 100, [], true, false, function(User $user) use ($output, &$target_picto) {
                 $imported = $this->entity_manager->getRepository(Picto::class)->createQueryBuilder('i')
                     ->select('SUM(i.count)')
                     ->andWhere('i.user = :user')->setParameter('user', $user)->andWhere('i.prototype = :rp')->setParameter('rp', $target_picto)
@@ -939,7 +996,7 @@ class MigrateCommand extends Command
                 $earned_texts = $this->entity_manager->getRepository(FoundRolePlayText::class)->createQueryBuilder('r')
                     ->select('COUNT(r.id)')
                     ->andWhere('r.text IS NOT NULL')
-                    ->andWhere('r.user = :user')->setParameter('user', $user)->andWhere('r.imported = false')
+                    ->andWhere('r.user = :user')->setParameter('user', $user)->andWhere('r.imported = false OR r.imported IS NULL')
                     ->getQuery()->getSingleScalarResult() ?? 0;
 
                 if (($imported < $imported_texts) || ($earned < $earned_texts)) {
@@ -947,8 +1004,35 @@ class MigrateCommand extends Command
                     if ($imported < $imported_texts) foreach ($this->entity_manager->getRepository(FoundRolePlayText::class)->findBy(['user' => $user, 'imported' => true], ['datefound' => 'DESC'], $imported_texts - $imported) as $to_remove)
                         $this->entity_manager->remove( $to_remove );
 
-                    if ($earned < $earned_texts) foreach ($this->entity_manager->getRepository(FoundRolePlayText::class)->findBy(['user' => $user, 'imported' => false], ['datefound' => 'DESC'], $earned_texts - $earned) as $to_remove)
+                    if ($earned < $earned_texts) foreach ($this->entity_manager->getRepository(FoundRolePlayText::class)->findBy(['user' => $user, 'imported' => false], ['datefound' => 'DESC'], $earned_texts - $earned) as $to_remove) {
                         $this->entity_manager->remove( $to_remove );
+                        $earned_texts--;
+                    }
+
+                    if ($earned < $earned_texts) foreach ($this->entity_manager->getRepository(FoundRolePlayText::class)->findBy(['user' => $user, 'imported' => null], ['datefound' => 'DESC'], $earned_texts - $earned) as $to_remove) {
+                        $this->entity_manager->remove( $to_remove );
+                        $earned_texts--;
+                    }
+
+                    return true;
+                } elseif (($imported > $imported_texts) || ($earned > $earned_texts)) {
+
+                    $dif = ($imported + $earned) - ($imported_texts + $earned_texts);
+
+                    $texts = $this->entity_manager->getRepository(RolePlayText::class)->findAllByLangExcept(
+                        $user->getLanguage(), $this->entity_manager->getRepository(FoundRolePlayText::class)->findByUser($user)
+                    );
+                    if (count($texts) < $dif) $texts = $this->entity_manager->getRepository(RolePlayText::class)->findAllByLangExcept(
+                        null, $this->entity_manager->getRepository(FoundRolePlayText::class)->findByUser($user)
+                    );
+
+                    while ($dif > 0 && !empty($texts)) {
+                        $text = $this->randomizer->draw( $texts );
+                        $rp = (new FoundRolePlayText())->setUser($user)->setText($text)->setNew(true)->setDateFound(new \DateTime())->setImported( $imported > $imported_texts );
+                        $dif--;
+                        if ($imported > $imported_texts) $imported--;
+                        $user->addFoundText($rp);
+                    }
 
                     return true;
                 } else return false;

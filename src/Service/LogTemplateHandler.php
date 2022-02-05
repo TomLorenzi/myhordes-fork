@@ -889,6 +889,19 @@ class LogTemplateHandler
             ->setZone( $citizen->getZone() );
     }
 
+    public function outsideDigSurvivalist( Citizen $citizen ): TownLogEntry {
+        $variables = array('citizen' => $citizen->getId());
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate( $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'outsideDigSurvivalist']) )
+            ->setVariables($variables)
+            ->setTown( $citizen->getTown() )
+            ->setDay( $citizen->getTown()->getDay() )
+            ->setTimestamp( new DateTime('now') )
+            ->setCitizen( $citizen )
+            ->setZone( $citizen->getZone() );
+    }
+
     public function outsideUncover( Citizen $citizen, int $count = 1, ?ItemPrototype $proto = null): TownLogEntry {
         if ($proto) {
             $variables = array('citizen' => $citizen->getId(), 'count' => $count, 'item' => $proto->getId());
@@ -1647,6 +1660,19 @@ class LogTemplateHandler
             ->setCitizen( $citizen );
     }
 
+    public function beyondEscortCitizenBackHome( Citizen $citizen, Citizen $leader ): TownLogEntry {
+        $variables = array('escortee' => $citizen->getId(), 'leader' => $leader->getId());
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'beyondEscortCitizenBackHome']);
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $citizen->getTown() )
+            ->setDay( $citizen->getTown()->getDay() )
+            ->setTimestamp( new DateTime('now') )
+            ->setCitizen( $citizen );
+    }
+
     public function beyondEscortReleaseCitizen( Citizen $citizen, Citizen $target_citizen ): TownLogEntry {
         $variables = array('citizen' => $citizen->getId(), 'target_citizen' => $target_citizen->getId());
         $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'beyondEscortReleaseCitizen']);
@@ -1811,12 +1837,14 @@ class LogTemplateHandler
             ->setTimestamp( new DateTime('now') );
     }
 
-    public function bankBanRecovery( Citizen $citizen, $items, $kill ): TownLogEntry {
+    public function bankBanRecovery( Citizen $citizen, $items, $gallows, $cage ): TownLogEntry {
         $variables = array('shunned' => $citizen->getId(),
             'list' => array_map( function($e) { if(array_key_exists('count', $e)) {return array('id' => $e['item']->getId(),'count' => $e['count']);}
             else { return array('id' => $e[0]->getId()); } }, $items ));
-        if ($kill)
+        if ($gallows)
             $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'bankBanRecoveryDeath']);
+        else if ($cage)
+            $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'bankBanRecoveryCage']);
         else
             $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'bankBanRecovery']);
         return (new TownLogEntry())

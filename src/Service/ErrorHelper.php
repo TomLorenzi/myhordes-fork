@@ -27,6 +27,8 @@ class ErrorHelper
 
     const BaseAvatarErrors        = 1300;
 
+    const BaseMessageErrors       = 1400;
+
     const ErrorInvalidRequest    = 1;
     const ErrorDatabaseException = 2;
     const ErrorInternalError     = 3;

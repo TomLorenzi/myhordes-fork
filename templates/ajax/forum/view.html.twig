@@ -8,7 +8,7 @@
 {# @var forum \App\Entity\Forum #}
 {# @var permission \App\Structures\ForumPermissionAccessor #}
 
-{% macro display_thread_list( list, fid, icon, title, select, jump, permission, town = false, add_seperators = false, paranoid = false ) %}
+{% macro display_thread_list( list, fid, icon, title, select, jump, permission, town = false, add_seperators = false, paranoid = false, post_page = -1 ) %}
     <div class="forum-note thread-list-{{ icon }}">
         <b><i class="fa {{ icon }}"></i> {{ title }}</b>
         {% set last_day = 'today'|to_date %}
@@ -18,6 +18,12 @@
                 {% set postUrlFg = path('forum_viewer_controller', {fid: fid, tid: thread.id, pid: jump }) %}
             {% else %}
                 {% set postUrlFg = postUrl %}
+            {% endif %}
+
+            {% if thread.id == select and post_page > 0 %}
+                {% set page_target = post_page %}
+            {% else %}
+                {% set page_target = -1 %}
             {% endif %}
 
             {% if add_seperators and thread.lastPost and last_day != thread.lastPost.date|date_modify('today') %}
@@ -30,7 +36,7 @@
                 </div></div>
             {% endif %}
 
-            <div class="row-flex stretch forum-thread {% if thread.new %}forum-thread-unread{% endif%}" x-public-route="{{ path('forum_thread_view', {fid: fid, tid: thread.id }) }}" {% if postUrl != postUrlFg %}x-post-source-next="{{ postUrlFg }}"{% endif%} x-post-source="{{ postUrl }}" x-thread-id="{{ thread.id }}">
+            <div class="row-flex stretch forum-thread {% if thread.new %}forum-thread-unread{% endif%}" x-public-route="{{ path('forum_thread_view', {fid: fid, tid: thread.id }) }}" {% if postUrl != postUrlFg %}x-post-source-next="{{ postUrlFg }}"{% endif%} {% if page_target > 0 %}x-post-page="{{ page_target }}" x-public-route-next="{{ path('forum_thread_view', {fid: fid, tid: thread.id, page: page_target }) }}"{% endif%} x-post-source="{{ postUrl }}" x-thread-id="{{ thread.id }}">
                 {# @var thread \App\Entity\Thread #}
                 <div class="padded cell factor-0 rw-1 status">
                     {% if thread.locked and not thread.solved %}
@@ -168,11 +174,11 @@
                     {% endif %}
 
                     {% if pinned_threads %}
-                        {{ _self.display_thread_list(pinned_threads, forum.id, 'fa-thumbtack', 'Sticky'|trans({}, 'global'), select, jump, permission, town) }}
+                        {{ _self.display_thread_list(pinned_threads, forum.id, 'fa-thumbtack', 'Sticky'|trans({}, 'global'), select, jump, permission, town, false, false, post_page) }}
                         <br />
                     {% endif %}
 
-                    {{ _self.display_thread_list(threads, forum.id, 'fa-scroll', forum.title, select, jump, permission, town, true, paranoid) }}
+                    {{ _self.display_thread_list(threads, forum.id, 'fa-scroll', forum.title, select, jump, permission, town, true, paranoid, post_page) }}
                     {% if pages > 1 %}
                         <div class="row">
                             <div class="cell rw-12 padded center">
@@ -248,11 +254,21 @@
             let load_url = elem.getAttribute('x-post-source');
             if (elem.getAttribute('x-post-source-next')) {
                 load_url = elem.getAttribute('x-post-source-next');
-                elem.setAttribute('x-post-source-next','');
+                elem.removeAttribute('x-post-source-next');
             }
 
-            $.ajax.no_history().load(document.getElementById('forum-content'), load_url, false, {}, get_forum_editor)
-            $.ajax.push_history(elem.getAttribute('x-public-route'));
+            let opts = {};
+            if (elem.hasAttribute('x-post-page')) {
+                opts.page = parseInt( elem.getAttribute('x-post-page') );
+                elem.removeAttribute('x-post-page');
+            }
+
+
+            $.ajax.no_history().load(document.getElementById('forum-content'), load_url, false, opts, get_forum_editor)
+            if (elem.hasAttribute('x-public-route-next')) {
+                $.ajax.push_history(elem.getAttribute('x-public-route-next'));
+                elem.removeAttribute('x-public-route-next');
+            } else $.ajax.push_history(elem.getAttribute('x-public-route'));
 
         });
 

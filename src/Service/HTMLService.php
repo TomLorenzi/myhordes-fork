@@ -145,6 +145,8 @@ class HTMLService {
         ]
     ];
 
+    protected const HTML_PLAIN_CONTENT = ['a','span.rpauthor','span.inline-code','code'];
+
     protected function getAllowedHTML(User $user, int $permissions, bool $extended = true, array $all_ext = []): array {
         $mods_enabled = ['core'];
         if ($extended) $mods_enabled[] = 'extended';
@@ -178,13 +180,13 @@ class HTMLService {
         return ['nodes' => $r, 'attribs' => $a];
     }
 
-    protected function htmlValidator( array $allowedNodes, ?DOMNode $node, ?int &$text_length = null, int $depth = 0 ): bool {
+    protected function htmlValidator( array $allowedNodes, ?DOMNode $node, ?int &$text_length = null, int $depth = 0, bool $child_nodes_forbidden = false ): bool {
         if (!$node || $depth > 32) return false;
         if ($text_length === null) $text_length = 0;
 
         if ($node->nodeType === XML_ELEMENT_NODE) {
 
-            $truncate_node = false;
+            $truncate_node = $child_nodes_forbidden;
 
             // Element not allowed.
             if (!in_array($node->nodeName, array_keys($allowedNodes['nodes'])) && !($depth === 0 && $node->nodeName === 'body'))
@@ -219,8 +221,15 @@ class HTMLService {
             foreach ( $node->childNodes as $child )
                 $children[] = $child;
 
+            $plain = $child_nodes_forbidden;
+            if (!$plain) {
+                if (in_array(strtolower($node->nodeName), static::HTML_PLAIN_CONTENT)) $plain = true;
+                else foreach (explode(' ', strtolower($node->getAttribute('class')) ?? '') as $class)
+                    if (in_array("{$node->nodeName}.{$class}", static::HTML_PLAIN_CONTENT)) $plain = true;
+            }
+
             foreach ( $children as $child )
-                if (!$this->htmlValidator( $allowedNodes, $child, $text_length, $depth+1 ))
+                if (!$this->htmlValidator( $allowedNodes, $child, $text_length, $depth+1, $plain ))
                     return false;
 
             if ($truncate_node && !$node->parentNode) return false;
@@ -237,6 +246,7 @@ class HTMLService {
 
         } elseif ($node->nodeType === XML_TEXT_NODE) {
             $text_length += mb_strlen($node->textContent);
+            if ($child_nodes_forbidden) $node->textContent = str_replace(':', ':​', $node->textContent);
             return true;
         }
         else return false;
@@ -474,7 +484,7 @@ class HTMLService {
                     $p = $p->parentNode;
                 }
 
-                if (!$in_html) $handler($node);
+                if (!$in_html && $node) $handler($node);
             }
 
 

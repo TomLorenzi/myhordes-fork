@@ -7,6 +7,7 @@ use App\Entity\ActionCounter;
 use App\Entity\Citizen;
 use App\Entity\CitizenProfession;
 use App\Entity\CauseOfDeath;
+use App\Entity\CouncilEntry;
 use App\Entity\HeroicActionPrototype;
 use App\Entity\HeroSkillPrototype;
 use App\Entity\ItemPrototype;
@@ -178,7 +179,10 @@ class GameController extends CustomAbstractController
             'log' => $show_register ? $this->renderLog( -1, null, false, null, 50 )->getContent() : "",
             'gazette' => $this->gazette_service->renderGazette($town),
             'citizensWithRole' => $citizensWithRole,
-            'town' => $town
+            'town' => $town,
+            'council' => array_map( fn(CouncilEntry $c) => [$this->gazette_service->parseCouncilLog( $c ), $c->getCitizen()], array_filter( $this->entity_manager->getRepository(CouncilEntry::class)->findBy(['town' => $town, 'day' => $town->getDay()], ['ord' => 'ASC']),
+                fn(CouncilEntry $c) => ($c->getTemplate() && $c->getTemplate()->getText() !== null)
+            ))
         ]));
     }
 
@@ -271,18 +275,11 @@ class GameController extends CustomAbstractController
         $town_conf = $cf->getTownConfiguration($citizen->getTown());
 
         $citizen_alias_active = $town_conf->get(TownConf::CONF_FEATURE_CITIZEN_ALIAS, false);
-
-        $selected_alias = $parser->trimmed('citizenalias', '');
-
-        if ($citizen_alias_active && !empty($selected_alias) && $selected_alias !== $citizen->getUser()->getName()) {
-
-            if (in_array($selected_alias, ['Der Rabe','DerRabe','Der_Rabe','DerRaabe','TheCrow']))
+        if($citizen_alias_active) {
+            $apply_result = $this->citizen_handler->applyAlias( $citizen, $parser->trimmed('citizenalias', '') );
+            if($apply_result == -1) {
                 return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-
-            if (mb_strlen($selected_alias) < 4 || mb_strlen($selected_alias) > 22 || preg_match('/[^\w]/', $selected_alias))
-                return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-
-            $citizen->setAlias( "· {$selected_alias}" );
+            }
         }
 
         $this->citizen_handler->applyProfession( $citizen, $new_profession );

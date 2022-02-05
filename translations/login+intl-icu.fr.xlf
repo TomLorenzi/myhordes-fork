@@ -4,7 +4,7 @@
     <unit id="crJFns0" name="Dein Name muss mindestens { limit } Zeichen umfassen.">
       <notes>
         <note category="german">Dein Name muss mindestens {limit} Zeichen umfassen.</note>
-        <note category="from">php:///src/Controller/PublicController.php;twig:///templates/ajax/game/jobs.html.twig</note>
+        <note category="from">php:///src/Controller/PublicController.php;twig:///templates/ajax/admin/widget/controls.twig;twig:///templates/ajax/game/jobs.html.twig</note>
       </notes>
       <segment>
         <source>Dein Name muss mindestens { limit } Zeichen umfassen.</source>
@@ -14,7 +14,7 @@
     <unit id="VAaM7eo" name="Dein Name kann höchstens { limit } Zeichen umfassen.">
       <notes>
         <note category="german">Dein Name kann höchstens {limit} Zeichen umfassen.</note>
-        <note category="from">php:///src/Controller/PublicController.php;twig:///templates/ajax/game/jobs.html.twig</note>
+        <note category="from">php:///src/Controller/PublicController.php;twig:///templates/ajax/admin/widget/controls.twig;twig:///templates/ajax/game/jobs.html.twig</note>
       </notes>
       <segment>
         <source>Dein Name kann höchstens { limit } Zeichen umfassen.</source>
@@ -680,7 +680,7 @@
     <unit id="iGunNf8" name="Dein Name kann nur alphanumerische Zeichen enthalten.">
       <notes>
         <note category="german">Dein Name kann nur alphanumerische Zeichen enthalten.</note>
-        <note category="from">php:///src/Controller/PublicController.php;twig:///templates/ajax/game/jobs.html.twig</note>
+        <note category="from">php:///src/Controller/PublicController.php;twig:///templates/ajax/admin/widget/controls.twig;twig:///templates/ajax/game/jobs.html.twig</note>
       </notes>
       <segment>
         <source>Dein Name kann nur alphanumerische Zeichen enthalten.</source>
@@ -847,6 +847,16 @@
       <segment>
         <source>Der eingegebene Spieler ist nicht für das Patenschafts-Programm registriert. Bitte ihn, die "Freundschaft"-Seite in seiner Seele aufzurufen; er wird dann automatisch registriert. Erst dann kannst du ihn als Sponsor auswählen.</source>
         <target>Le joueur mentionné comme parrain n’est pas inscrit au programme de parrainage. Demandez-lui de visiter la page « Parrainage » dans son âme; il sera alors automatiquement enregistré. Ce n’est qu’alors que vous pourrez le choisir comme parrain.</target>
+      </segment>
+    </unit>
+    <unit id="1itQsls" name="Deine E-Mail-Adresse wurde erfolgreich geändert.">
+      <notes>
+        <note category="german">Deine E-Mail-Adresse wurde erfolgreich geändert.</note>
+        <note category="from">php:///src/Controller/Soul/SoulController.php</note>
+      </notes>
+      <segment>
+        <source>Deine E-Mail-Adresse wurde erfolgreich geändert.</source>
+        <target>Votre addresse email a été changée avec succès.</target>
       </segment>
     </unit>
   </file>

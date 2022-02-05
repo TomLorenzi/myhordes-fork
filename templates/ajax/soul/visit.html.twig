@@ -1,5 +1,9 @@
 {% extends "ajax/game/game.html.twig" %}
 {% block title %}{{ user.name }}{% endblock %}
+{% block menu_text %}
+    {{parent()}}
+    <li class="back-dash" x-ajax-href="{{ url('game_landing') }}">{{ 'Zum Spiel'|trans({},'global') }}</li>
+{% endblock %}
 {% block ajax %}
     <div class="row soul">
         <div class="cell padded header rw-10 ro-1 rw-md-12 ro-md-0 edge-top-left">
@@ -7,15 +11,13 @@
                 <div class="tab-floater">
                     <div class="tab left inline">
                         {% if user.avatar %}
-                            <div class="avatar small ua-{{ user.id % 10 }}"><img alt="" src="{{ path('app_web_avatar', {'uid': user.id, 'name': user.avatar.smallName, 'ext': user.avatar.format}) }}"></div>
+                            <div class="avatar small ua-{{ user.id % 10 }}">
+                                <img alt="" src="{{ path('app_web_avatar', {'uid': user.id, 'name': user.avatar.smallName, 'ext': user.avatar.format}) }}">
+                            </div>
                         {% endif %}
                         <h4 class="soul-name">
                             <img src="{{ asset('build/images/icons/small_ghost_red.gif') }}" alt="{{'Held'|trans({}, 'game')}}" />
-                            <a class="username">
-                                {% if user.name == 'Der Rabe' %}{{ 'Der Rabe'|trans({},'global') }}
-                                {% elseif user.name == 'Animateur-Team' %}{{ 'Animateur-Team'|trans({},'global') }}
-                                {% else %}{{ user.name }}{% endif %}
-                            </a>
+                            {% include 'ajax/soul/playername.html.twig' with {user: user, tag: 'a'} only %}
                         </h4>
                     </div>
                     <div class="tab tab-floater">

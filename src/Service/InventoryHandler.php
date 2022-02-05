@@ -358,6 +358,7 @@ class InventoryHandler
     const ErrorEssentialItemBlocked = ErrorHelper::BaseInventoryErrors + 12;
     const ErrorTooManySouls         = ErrorHelper::BaseInventoryErrors + 13;
     const ErrorBankTheftFailed      = ErrorHelper::BaseInventoryErrors + 14;
+    const ErrorTargetChestFull      = ErrorHelper::BaseInventoryErrors + 15;
 
     const ModalityNone             = 0;
     const ModalityTamer            = 1;
@@ -382,7 +383,7 @@ class InventoryHandler
         if ($modality !== self::ModalityEnforcePlacement && ($to && ($max_size = $this->getSize($to)) > 0 && count($to->getItems()) >= $max_size ) ) return self::ErrorInventoryFull;
 
         // Check exp_b items already in inventory
-        if (!$allow_extra_bag){
+        if (!$allow_extra_bag && $modality !== self::ModalityEnforcePlacement){
             if (($type_to === self::TransferTypeRucksack || $type_to === self::TransferTypeEscort) &&
               (in_array($item->getPrototype()->getName(), ['bagxl_#00', 'bag_#00', 'cart_#00']) &&
               (
@@ -478,7 +479,10 @@ class InventoryHandler
     public function placeItem( Citizen $citizen, Item $item, array $inventories, bool $force = false ): ?Inventory {
         $source = null;
         foreach ($inventories as $inventory)
-            if ($inventory && $this->transferItem( $citizen, $item, $source, $inventory, $force ? self::ModalityEnforcePlacement : self::ModalityNone ) == self::ErrorNone)
+            if ($inventory && $this->transferItem( $citizen, $item, $source, $inventory ) === self::ErrorNone)
+                return $inventory;
+        if ($force) foreach (array_reverse($inventories) as $inventory)
+            if ($inventory && $this->transferItem( $citizen, $item, $source, $inventory, self::ModalityEnforcePlacement ) === self::ErrorNone)
                 return $inventory;
         return null;
     }

@@ -21,6 +21,11 @@ Wenn du beim <strong>Bezahlen</strong> Probleme hast, kannst du dich an uns wend
 <li>{{ '<strong>EINEN BUG MELDEN:</strong>
 Nutze bitte folgenden Link, wenn du uns einen Bug (technischen Fehler) melden möchtest: <a href={url_git}>Buglisten</a>.'|trans({'{url_git}': 'https://gitlab.com/eternaltwin/myhordes/myhordes/-/issues'},'help')|raw }}
 </li>
+{% if support is defined and support is not null %}
+<li>{{ '<strong>DEN SUPPORT KONTAKTIEREN:</strong>
+Um Kontakt mit den Administratoren aufzunehmen, schreibe an die <a x-group-connect="{oglink}" href="#">Offizielle Gruppe</a> des Technischen Supports.'|trans({'{oglink}': 'oglink_' ~ support.id},'help')|raw }}
+</li>
+{% endif %}
 {# <li>{{ 'Zu guter Letzt: Für sämtliche Anregungen und Fragen, die die <strong>MyHordes-Community</strong> betreffen, kannst dem <span x-ajax-href="{url_oracle}">Orakels</span> anschreiben.'|trans({},'help')|raw }}
 </li> #}
 </ul>

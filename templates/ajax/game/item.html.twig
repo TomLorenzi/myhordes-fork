@@ -1,5 +1,6 @@
 {# @var item \App\Entity\Item #}
 {% set classes = ['item'] %}
+{% if class is defined %}{% set classes = classes|merge([class]) %}{% endif %}
 {% if item.broken %}{% set classes = classes|merge(['broken']) %}{% endif %}
 {% if count is defined and count > 1 %}{% set classes = classes|merge(['counted']) %}{% endif %}
 {% if item.hidden %}{% set classes = classes|merge(['banished_hidden']) %}{% endif %}

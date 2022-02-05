@@ -8,7 +8,7 @@ use App\Entity\Award;
 use App\Entity\AwardPrototype;
 use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\ORM\NonUniqueResultException;
 
 /**

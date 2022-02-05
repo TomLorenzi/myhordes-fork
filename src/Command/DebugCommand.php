@@ -123,6 +123,7 @@ class DebugCommand extends Command
             ->addOption('all-events', null, InputOption::VALUE_OPTIONAL, 'Shows the current event. Can take a year value.', false)
 
             ->addOption('test-estim', null, InputOption::VALUE_REQUIRED, 'Takes all the citizens in the town and make them go into the watchtower', false)
+            ->addOption('keep-estims', null, InputOption::VALUE_NONE, 'If set, leaves the estimations in the DB')
         ;
     }
 
@@ -680,8 +681,8 @@ class DebugCommand extends Command
             }
 
             $table->render();
-
-            $est->getCitizens()->clear();
+            if(!$input->getOption('keep-estims'))
+                $est->getCitizens()->clear();
 
             $this->entity_manager->persist($est);
             $this->entity_manager->flush();

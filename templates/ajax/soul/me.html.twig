@@ -219,7 +219,7 @@
                     {'name': searchBox.value},
                     function () {
                         $.html.addEventListenerAll('#users-list>.users-list-entry>div', 'click', function (e, elem) {
-                            $.ajax.load(document.getElementById('content'), elem.getAttribute('x-soul-url'));
+                            $.ajax.load(document.getElementById('content'), elem.getAttribute('x-soul-url'), true);
                         })
                     }
                 );

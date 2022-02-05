@@ -264,7 +264,6 @@ class CitizenHandler
 
                 $this->entity_manager->persist( $cage );
                 $citizen->getHome()->setHoldsBody(false);
-                $citizen->setDisposed(Citizen::Ghoul);
                 $active = $cage;
             }
             $this->entity_manager->persist( $this->log->citizenDeath( $citizen, 0, null ) );
@@ -275,7 +274,10 @@ class CitizenHandler
             $this->inventory_handler->forceMoveItem( $citizen->getInventory(), $this->item_factory->createItem( 'poison_#00' ));
         }
 
-        if (!empty($itemsForLog)) $this->entity_manager->persist($this->log->bankBanRecovery($citizen, $itemsForLog, $kill));
+        if (!empty($itemsForLog))
+            $this->entity_manager->persist(
+                $this->log->bankBanRecovery($citizen, $itemsForLog, $active !== null && $active === $gallows, $active !== null && $active === $cage)
+            );
 
         return $action;
     }
@@ -443,11 +445,14 @@ class CitizenHandler
         $citizen->setPm(max(0, $relative ? ($citizen->getPm() + $num) : max(0,$num) ) );
     }
 
-    public function deductAPBP(Citizen &$citizen, int $ap) {
-        if ($ap <= $citizen->getBp())
-            $this->setBP( $citizen, true, -$ap );
-        else {
+    public function deductAPBP(Citizen &$citizen, int $ap, int &$usedap = 0, int &$usedbp = 0) {
+        if ($ap <= $citizen->getBp()) {
+            $usedbp = $ap;
+            $this->setBP($citizen, true, -$ap);
+        } else {
             $ap -= $citizen->getBp();
+            $usedbp = $citizen->getBp();
+            $usedap = $ap;
             $this->setAP($citizen, true, -$ap);
             $this->setBP($citizen, false, 0);
         }
@@ -518,6 +523,29 @@ class CitizenHandler
         if ($profession->getName() !== 'none')
             $this->entity_manager->persist( $this->log->citizenJoinProfession( $citizen ) );
 
+    }
+
+    /**
+     * Tries to apply an alias to the citizen.
+     * 
+     * @param Citizen $citizen
+     * @param string $alias
+     * @return int 1: Alias applied, 0: Alias not applied, -1: Error to report
+     */
+    public function applyAlias(Citizen &$citizen, string $alias) {
+        if (!empty($alias) && $alias !== $citizen->getUser()->getName()) {
+
+            if (in_array($alias, ['Der Rabe','DerRabe','Der_Rabe','DerRaabe','TheCrow', 'LeCorbeau', 'Le Corbeau', 'Le_Corbeau']))
+                return -1;
+
+            if (mb_strlen($alias) < 4 || mb_strlen($alias) > 22 || preg_match('/[^\w]/', $alias))
+                return -1;
+
+            $citizen->setAlias( "· {$alias}" );
+
+            return 1;
+        }
+        return 0;
     }
 
     public function getSoulpoints(Citizen $citizen): int {
@@ -763,7 +791,7 @@ class CitizenHandler
 
         $total = $item->getPrototype()->getWatchpoint();
         foreach ($bonus as $single)
-            $total += (int)floor( $item->getPrototype()->getWatchpoint() * $single );
+            $total = (int)floor( $total * (1.0+$single) );
 
         return $total;
     }

@@ -9,6 +9,7 @@ use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
 use App\Entity\CitizenHomeUpgrade;
 use App\Entity\CitizenHomeUpgradePrototype;
+use App\Entity\EventActivationMarker;
 use App\Entity\ExpeditionRoute;
 use App\Entity\FoundRolePlayText;
 use App\Entity\HelpNotificationMarker;
@@ -29,6 +30,7 @@ use App\Entity\RuinZone;
 use App\Entity\SpecialActionPrototype;
 use App\Entity\TownLogEntry;
 use App\Entity\Zone;
+use App\Entity\ZoneTag;
 use App\Response\AjaxResponse;
 use App\Service\ActionHandler;
 use App\Service\CitizenHandler;
@@ -49,7 +51,6 @@ use App\Structures\BankItem;
 use App\Structures\ItemRequest;
 use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
-use App\Translation\T;
 use Doctrine\ORM\AbstractQuery;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Query\Expr\Join;
@@ -112,6 +113,11 @@ class InventoryAwareController extends CustomAbstractController
         } else if ($this->citizen_handler->hasRole($this->getActiveCitizen(), 'guide') && !$this->getActiveCitizen()->hasSeenHelpNotification('guide')) {
             $this->addFlash('popup-shaman', $this->renderView('ajax/game/notifications/guide.html.twig'));
             $this->getActiveCitizen()->addHelpNotification( $this->entity_manager->getRepository(HelpNotificationMarker::class)->findOneByName('guide') );
+            $this->entity_manager->persist($this->getActiveCitizen());
+            $this->entity_manager->flush();
+        } else if ($this->getActiveCitizen()->getTown()->getInsurrectionProgress() >= 100 && !$this->getActiveCitizen()->hasSeenHelpNotification('insurrection') ) {
+            $this->addFlash('popup-insurrection', $this->renderView('ajax/game/notifications/insurrection.html.twig', ['revolutionist' => $this->getActiveCitizen()->hasStatus('tg_revolutionist')]));
+            $this->getActiveCitizen()->addHelpNotification( $this->entity_manager->getRepository(HelpNotificationMarker::class)->findOneByName('insurrection') );
             $this->entity_manager->persist($this->getActiveCitizen());
             $this->entity_manager->flush();
         }
@@ -621,6 +627,10 @@ class InventoryAwareController extends CustomAbstractController
 
             $has_hidden = false;
             foreach ($items as $current_item){
+                if($floor_up && ($this->citizen_handler->hasStatusEffect($target_citizen, 'tg_tomb') || $this->citizen_handler->hasStatusEffect($target_citizen, 'tg_hide'))) {
+                    $errors[] = InventoryHandler::ErrorTransferBlocked;
+                    break;
+                }
                 if ($current_item->getPrototype()->getName() == 'soul_red_#00' && $floor_up) {
                     // We pick a read soul in the World Beyond
                     if ( $target_citizen && !$this->citizen_handler->hasStatusEffect($target_citizen, "tg_shaman_immune") ) {
@@ -631,7 +641,7 @@ class InventoryAwareController extends CustomAbstractController
 
                         // The red soul vanishes too
                         $this->inventory_handler->forceRemoveItem($current_item);
-                    } elseif ($this->citizen_handler->hasStatusEffect($target_citizen, "tg_shaman_immune"))
+                    } elseif ( !$target_citizen->hasRole('shaman') && $target_citizen->getProfession()->getName() !== 'shaman' && $this->citizen_handler->hasStatusEffect($target_citizen, "tg_shaman_immune"))
                         $this->addFlash('notice', $this->translator->trans('Du nimmst diese wandernde Seele und betest, dass der Schamane weiß, wie man diesen Trank zubereitet! Und du überlebst! Was für ein Glück, du hätten keine müde Mark auf den Scharlatan gewettet.', [], "game"));
                 }
 
@@ -690,12 +700,16 @@ class InventoryAwareController extends CustomAbstractController
                             $hasExplodingDoormat = false;
 
                             if ($this->inventory_handler->countSpecificItems($citizen->getInventory(), "christmas_suit_full_#00") > 0){
-                                $pictoName = "r_santac_#00";
+                                if($victim_home->getCitizen()->getAlive()
+                                    && $this->entity_manager->getRepository(EventActivationMarker::class)->findOneBy(['town' => $citizen->getTown(), 'active' => true, 'event' => 'christmas']))
+                                    $pictoName = "r_santac_#00";
                                 $isSanta = true;
                             }
 
                             if ($this->inventory_handler->countSpecificItems($citizen->getInventory(), "leprechaun_suit_#00") > 0){
-                                $pictoName = "r_lepre_#00";
+                                if($victim_home->getCitizen()->getAlive()
+                                    && $this->entity_manager->getRepository(EventActivationMarker::class)->findOneBy(['town' => $citizen->getTown(), 'active' => true, 'event' => 'stpatrick']))
+                                    $pictoName = "r_lepre_#00";
                                 $isLeprechaun = true;
                             }
 
@@ -914,6 +928,176 @@ class InventoryAwareController extends CustomAbstractController
                 'map_x1' => $range_x[1],
                 'map_y0' => $range_y[0],
                 'map_y1' => $range_y[1],
+            ]
+        ];
+    }
+
+    public function get_public_map_blob( $displayType, $class = 'day' ): array {
+        $zones = []; $range_x = [PHP_INT_MAX,PHP_INT_MIN]; $range_y = [PHP_INT_MAX,PHP_INT_MIN];
+
+        $citizen_is_shaman =
+            ($this->citizen_handler->hasRole($this->getActiveCitizen(), 'shaman')
+                || $this->getActiveCitizen()->getProfession()->getName() == 'shaman');
+
+        $soul_zones_ids = $citizen_is_shaman
+            ? array_map(function(Zone $z) { return $z->getId(); },$this->zone_handler->getSoulZones( $this->getActiveCitizen()->getTown() ) )
+            : [];
+
+        $upgraded_map = $this->town_handler->getBuilding($this->getActiveCitizen()->getTown(), 'item_electro_#00', true) !== null;
+
+        $local_zones = [];
+        $citizen_zone = $this->getActiveCitizen()->getZone();
+
+        $scavenger_sense = $this->getActiveCitizen()->getProfession()->getName() === 'collec';
+        $scout_sense     = $this->getActiveCitizen()->getProfession()->getName() === 'hunter';
+
+        foreach ($this->getActiveCitizen()->getTown()->getZones() as $zone) {
+            $x = $zone->getX();
+            $y = $zone->getY();
+
+            $range_x = [ min($range_x[0], $x), max($range_x[1], $x) ];
+            $range_y = [ min($range_y[0], $y), max($range_y[1], $y) ];
+
+            $current_zone = ['x' => $x, 'y' => $y];
+            if ( in_array( $zone->getId(), $soul_zones_ids) )
+                $current_zone['s'] = true;
+
+            if ($citizen_zone !== null
+                && max( abs( $citizen_zone->getX() - $zone->getX() ), abs( $citizen_zone->getY() - $zone->getY() ) ) <= 2
+                && ( abs( $citizen_zone->getX() - $zone->getX() ) + abs( $citizen_zone->getY() - $zone->getY() ) ) < 4
+            ) $local_zones[] = $zone;
+
+            if ($zone->getDiscoveryStatus() <= Zone::DiscoveryStateNone) {
+                if ($current_zone['s'] ?? false)
+                    $zones[] = $current_zone;
+                continue;
+            }
+
+            $current_zone['t'] = $zone->getDiscoveryStatus() >= Zone::DiscoveryStateCurrent;
+            if ($zone->getDiscoveryStatus() >= Zone::DiscoveryStateCurrent) {
+                if ($zone->getZombieStatus() >= Zone::ZombieStateExact)
+                    $current_zone['z'] = $zone->getZombies();
+                if ($zone->getZombieStatus() >= Zone::ZombieStateEstimate) {
+                    if     ($zone->getZombies() == 0)                   $current_zone['d'] = 0;
+                    elseif ($zone->getZombies() <= 2)                   $current_zone['d'] = 1;
+                    elseif ($zone->getZombies() <= 5)                   $current_zone['d'] = 2;
+                    elseif ($zone->getZombies() <= 8 || !$upgraded_map) $current_zone['d'] = 3;
+                    else                                                $current_zone['d'] = 4;
+                }
+            }
+
+            if ($zone->isTownZone()) {
+                $current_zone['td'] = $this->getActiveCitizen()->getTown()->getDevastated();
+                $current_zone['r'] = [
+                    'n' => $this->getActiveCitizen()->getTown()->getName(),
+                    'b' => false,
+                    'e' => false,
+                ];
+            } elseif ($zone->getPrototype()) $current_zone['r'] = [
+                'n' => $zone->getBuryCount() > 0
+                    ? $this->translator->trans( 'Verschüttete Ruine', [], 'game' )
+                    : $this->translator->trans( $zone->getPrototype()->getLabel(), [], 'game' ),
+                'b' => $zone->getBuryCount() > 0,
+                'e' => $zone->getPrototype()->getExplorable()
+            ];
+
+            if ($this->getActiveCitizen()->getZone() === $zone) $current_zone['cc'] = true;
+
+            if (!$zone->isTownZone() && !$this->getActiveCitizen()->getVisitedZones()->contains( $zone ))
+                $current_zone['g'] = true;
+
+            if (!$zone->isTownZone() && $zone->getTag()) $current_zone['tg'] = $zone->getTag()->getRef();
+            if (!$zone->isTownZone() && $this->getActiveCitizen()->getZone() === null
+                && !$this->getActiveCitizen()->getTown()->getChaos()
+                && !$zone->getCitizens()->isEmpty())
+                $current_zone['c'] = array_map( fn(Citizen $c) => $c->getName(), $zone->getCitizens()->getValues() );
+            elseif ($zone->isTownZone())
+                $current_zone['co'] = count( array_filter( $this->getActiveCitizen()->getTown()->getCitizens()->getValues(), fn(Citizen $c) => $c->getAlive() && $c->getZone() === null ) );
+
+            $zones[] = $current_zone;
+        }
+
+        $all_tags = [];
+        $last = 0;
+        foreach ($this->entity_manager->getRepository(ZoneTag::class)->findBy([], ['ref' => 'ASC']) as $i => $tag) {
+            for (;$last <= $i-1;$last++) $all_tags[] = '';
+            $all_tags[] = $tag->getRef() !== ZoneTag::TagNone ? $this->translator->trans( $tag->getLabel(), [], 'game' ) : '';
+            $last++;
+        }
+
+        return [
+            'displayType' => $displayType,
+            'className' => $class,
+            'etag'  => time(),
+            'fx' => !$this->getActiveCitizen()->getUser()->getDisableFx(),
+            'map' => [
+                'geo' => [ 'x0' => $range_x[0], 'x1' => $range_x[1], 'y0' => $range_y[0], 'y1' => $range_y[1] ],
+                'zones' => $zones,
+                'local' => array_map( function(Zone $z) use ($citizen_zone,$scavenger_sense,$scout_sense) {
+                    $local = $citizen_zone === $z;
+                    $adjacent = ( abs( $citizen_zone->getX() - $z->getX() ) + abs( $citizen_zone->getY() - $z->getY() ) ) <= 1;
+                    $obj = [
+                        'xr' => $z->getX() - $citizen_zone->getX(), 'yr' => $z->getY() - $citizen_zone->getY(),
+                        'v' => $z->getDiscoveryStatus() > Zone::DiscoveryStateNone
+                    ];
+
+                    if ( $z->isTownZone() ) {
+                        $obj['r'] = $this->asset->getUrl('build/images/ruin/town.gif');
+                        if ($local) $obj['n'] = $this->getActiveCitizen()->getTown()->getName();
+                    } elseif ($z->getPrototype() && $z->getBuryCount() > 0) {
+                        $obj['r'] = $this->asset->getUrl('build/images/ruin/burried.gif');
+                        if ($local) $obj['n'] = $this->translator->trans( 'Verschüttete Ruine', [], 'game' );
+                    } elseif ($z->getPrototype()) {
+                        $obj['r'] = $this->asset->getUrl("build/images/ruin/{$z->getPrototype()->getIcon()}.gif");
+                        if ($local) $obj['n'] = $this->translator->trans( $z->getPrototype()->getLabel(), [], 'game' );
+                    }
+
+                    if (!$local && $adjacent && !$z->isTownZone()) {
+                        $obj['vv'] = $this->getActiveCitizen()->getVisitedZones()->contains($z);
+                        if ($scavenger_sense && $z->getDiscoveryStatus() > Zone::DiscoveryStateNone) {
+                            $obj['ss'] = $z->getDigs() > 0 || ($z->getPrototype() && $z->getRuinDigs() > 0);
+                            if (!$obj['ss']) $obj['se'] = 2;
+                        }
+                        if ($scout_sense) {
+                            $obj['sh'] = $z->getPersonalScoutEstimation($this->getActiveCitizen());
+                            $obj['se'] = $obj['sh'] >= 9 ? 2 : ($obj['sh'] >= 5 ? 1 : 0);
+                        }
+                    }
+
+                    if ($local) {
+                        $obj['x']  = $z->getX(); $obj['y'] = $z->getY();
+                        $obj['z']  = $z->getZombies();
+                        $obj['zc'] = max(0, $z->getInitialZombies() - $z->getZombies());
+                        $obj['c']  = $z->getCitizens()->count() + ($z->isTownZone()
+                            ? count( array_filter( $this->getActiveCitizen()->getTown()->getCitizens()->getValues(), fn(Citizen $c) => $c->getAlive() && $c->getZone() === null ) )
+                            : 0);
+                    }
+
+                    return $obj;
+                }, $local_zones )
+            ],
+            'routes' => array_map( fn(ExpeditionRoute $route) => [
+                'id' => $route->getId(),
+                'owner' => $route->getOwner()->getName(),
+                'length' => $route->getLength(),
+                'label' => $route->getLabel(),
+                'stops' => array_map( fn(array $stop) => ['x' => $stop[0], 'y' => $stop[1]], $route->getData() ),
+            ], $this->entity_manager->getRepository(ExpeditionRoute::class)->findByTown( $this->getActiveCitizen()->getTown() ) ),
+            'strings' => [
+                'zone' => $this->translator->trans('Zone', [], 'game'),
+                'distance' => $this->translator->trans('Entfernung', [], 'game'),
+                'danger' => [
+                    $this->translator->trans('Isolierte Zombies', [], 'game'),
+                    $this->translator->trans('Die Zombies verstümmeln', [], 'game'),
+                    $this->translator->trans('Horde der Zombies', [], 'game'),
+                ],
+                'tags' => array_values($all_tags),
+                'mark' => $this->translator->trans('Mark.', [], 'game'),
+                'global' => $this->translator->trans('Global', [], 'game'),
+                'routes' => $this->translator->trans('Routen', [], 'game'),
+                'map'    => $this->translator->trans('Karte', [], 'game'),
+                'close'  => $this->translator->trans('Schließen', [], 'game'),
+                'position' => $this->translator->trans('Position:', [], 'game'),
             ]
         ];
     }

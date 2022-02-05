@@ -10,7 +10,7 @@
                         <label for="search-query">{{'Suchbegriff'|trans({}, 'global')}}</label>
                     </div>
                     <div class="cell padded rw-9">
-                        <input type="text" id="search-query" name="search-query" placeholder="{{'Suchbegriffe eingeben'|trans({}, 'global')}}">
+                        <input type="text" id="search-query" name="search-query" placeholder="{{'Suchbegriffe eingeben'|trans({}, 'global')}}" {% if query %}value="{{ query }}"{% endif%} >
                     </div>
                 </div>
 
@@ -53,7 +53,7 @@
                         <label>{{'Optionen'|trans({}, 'global')}}</label>
                     </div>
                     <div class="cell padded rw-9">
-                        <label><input type="checkbox" id="search-opt-title" name="search-opt-title">{{'In Titeln suchen'|trans({}, 'global')}}</label>
+                        <label><input {% if titles %}checked{% endif %} type="checkbox" id="search-opt-title" name="search-opt-title">{{'In Titeln suchen'|trans({}, 'global')}}</label>
                     </div>
                 </div>
 
@@ -85,12 +85,18 @@
     {{ parent() }}
     {{ include('ajax/flash.html.twig') }}
     <script>
-        const doSearch = () => $.ajax.no_history().load( document.getElementById('search-results'), '{{ path('forum_query_controller')|e('js') }}', false, {
-            fid: parseInt(document.querySelector('#search-forum').value),
-            query: document.querySelector('#search-query').value,
-            opt_title: document.querySelector('#search-opt-title').checked ? 1 : 0,
-            user: document.querySelector('[x-selected-user]') ? parseInt(document.querySelector('[x-selected-user]').getAttribute('x-selected-user')) : -1
-        } );
+        const doSearch = () => {
+            const obj = {
+                fid: parseInt(document.querySelector('#search-forum').value),
+                query: document.querySelector('#search-query').value,
+                opt_title: document.querySelector('#search-opt-title').checked ? 1 : 0,
+                user: document.querySelector('[x-selected-user]') ? parseInt(document.querySelector('[x-selected-user]').getAttribute('x-selected-user')) : -1
+            }
+
+            const url = '{{ path('forum_search_wrapper_controller') }}?f=' + obj.fid + '&ot=' + obj.opt_title + '&u=' + obj.user + '&q=' + encodeURIComponent(obj.query);
+            if (url !== history.state) history.pushState( url, '', url );
+            $.ajax.no_history().load(document.getElementById('search-results'), '{{ path('forum_query_controller')|e('js') }}', false, obj)
+        };
 
         $.html.addEventListenerAll('#search-query', 'keydown', e => e.key === 'Enter' && doSearch());
 
@@ -151,5 +157,22 @@
             searchBox.addEventListener('focus', () => userSearchHandler());
             searchBox.addEventListener('blur', () => setTimeout( () => document.getElementById('users-list').innerHTML = '', 500));
         }
+
+        {% if user %}
+            const name = '{{ user.name|e('js') }}';
+            const uid = {{ user.id }};
+
+            let es = document.getElementById('search_selected_user');
+            es.style.display = null;
+            es.setAttribute('x-selected-user', uid);
+            es.querySelector('span').innerText = name;
+
+            let ss = document.getElementById('users-list-soul');
+            ss.style.display = 'none';
+        {% endif %}
+
+        {% if user or query %}
+            doSearch();
+        {% endif %}
     </script>
 {% endblock %}

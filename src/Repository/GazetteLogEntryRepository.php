@@ -8,7 +8,7 @@ use App\Entity\Gazette;
 use App\Entity\GazetteLogEntry;
 use App\Entity\TownLogEntry;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\Persistence\ManagerRegistry;
 
 /**
  * @method GazetteLogEntry|null find($id, $lockMode = null, $lockVersion = null)

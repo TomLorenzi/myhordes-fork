@@ -206,7 +206,7 @@
         {% endif %}
         <div class="pm-message">
             <div class="pm-message-header"><img src="{{ asset('build/images/icons/small_user.gif') }}" alt=""> {{ user.name }}</div>
-            <div class="pm-message-content"><div id="pm-editor-preview"></div></div>
+            <div class="pm-message-content"><div translate="no" id="pm-editor-preview"></div></div>
             <div class="pm-message-footer">{{ 'Vorschau'|trans({},'global') }}</div>
         </div>
     </li>
@@ -492,14 +492,14 @@
                     form.append(sec_p)
 
                     $.html.popup('{{ 'Unangemessenen Inhalt melden'|trans({},'global')|e('js') }}', form, null, [
-                        [ '{{ 'Inhalt melden'|trans({},'global')|e('js') }}',  [ ['click', (e_sub,elem_sub) => {
+                        [ '{{ 'Inhalt melden'|trans({},'global')|e('js') }}',  [ ['click', (e_sub, elem_sub) => {
                             const reason = document.querySelector('[name="report_reason"]:checked') ? parseInt(document.querySelector('[name="report_reason"]:checked').value) : 0;
                             const detail = document.querySelector('[name="report_details"]') ? document.querySelector('[name="report_details"]').value : '';
 
                             $.html.triggerPopupPop(elem_sub);
                             $.ajax.easySend( elem.getAttribute('x-report-url'), {reason: reason, details: detail}, (data)=>{ if (data.msg) $.html.notice(data.msg); });
                         }] ] ],
-                        [ '{{ 'Abbrechen'|trans({},'global')|e('js') }}', [ ['click', (e_sub,elem_sub) => $.html.triggerPopupPop(elem_sub)] ] ]
+                        [ '{{ 'Abbrechen'|trans({},'global')|e('js') }}', [ ['click', (e_sub, elem_sub) => $.html.triggerPopupPop(elem_sub)] ] ]
                     ] );
                 });
                 $.html.addEventListenerAll('ul.group-conversation>li .pm-button[x-pin-url]', 'click', function(e,elem) {
@@ -757,7 +757,7 @@
             {% if command is not empty %}
                 {% set command = command|split('_') %}
                 {% if command|length == 2 %}
-                    {% if command[0] == 'oglink' %}
+                    {% if command[0] == 'oglink' or command[0] == 'ulink' %}
 
                         setTimeout(() => {
                             let editor = document.getElementById('global-pm-forum-editor');
@@ -778,7 +778,11 @@
                             document.getElementById('pm-og-info-container').innerHTML = '';
                             document.getElementById('pm-og-info-container').appendChild($.html.createElement('<i class="fa fa-pulse fa-spinner" />'))
                             document.getElementById('pm-og-display').classList.remove('hidden');
+                            {% if command[0] == 'oglink' %}
                             $.ajax.background().load( document.getElementById('pm-og-info-container'), '{{ url('pm_og_resolve') }}', false, {og: '{{ command[1]|e('js') }}'});
+                            {% elseif command[0] == 'ulink' %}
+                            $.ajax.background().load( document.getElementById('pm-og-info-container'), '{{ url('pm_user_resolve') }}', false, {user: '{{ command[1]|e('js') }}'});
+                            {% endif %}
 
                             document.getElementById('pm-forum-editor-container').classList.remove('hidden');
                             document.getElementById('pm-forum-editor-header').innerHTML = '<i class="fa fa-spin fa-circle-notch"></i> {{ 'Wird geladen...'|trans({},'global')|e('js') }}';
@@ -788,16 +792,30 @@
                             document.getElementById('post-office-mobile-wrapper').classList.add('panel-2');
                             $.html.forEach('.pm-conversation-list>li.selected', e => e.classList.remove('selected'));
 
-                            if (editor) $.ajax.background().load( editor, '{{ url('pm_og_thread_editor_controller') }}', false, {}, function() {
-                                document.getElementById('pm-forum-editor-header').innerText = '{{ 'Eine offizielle Gruppe kontaktieren'|trans({},'global') }}';
+                            if (editor){
+                                {% if command[0] == 'oglink' %}
+                                $.ajax.background().load( editor, '{{ url('pm_og_thread_editor_controller') }}', false, {}, function() {
+                                    document.getElementById('pm-forum-editor-header').innerText = '{{ 'Eine offizielle Gruppe kontaktieren'|trans({},'global') }}';
+                                    document.getElementById('gpm-forum-content-container').classList.remove('hidden');
+                                    document.getElementById('pm-new-thread-controls').classList.remove('hidden');
 
-                                document.getElementById('gpm-forum-content-container').classList.remove('hidden');
-                                document.getElementById('pm-new-thread-controls').classList.remove('hidden');
+                                    $.html.forEach('#global-pm-forum-editor-title', e => e.focus());
+                                } );
+                                {% elseif command[0] == 'ulink' %}
+                                $.ajax.background().load( editor, '{{ url('pm_thread_editor_controller') }}', false, {}, function() {
+                                    document.getElementById('pm-forum-editor-header').innerText = '{{ 'Neuer Post'|trans({},'global') }}';
+                                    document.getElementById('gpm-forum-content-container').classList.remove('hidden');
+                                    document.getElementById('pm-new-thread-controls').classList.remove('hidden');
+                                    let li = document.createElement("li");
+                                    li.setAttribute("x-soul-id", "{{ command[1]|e('js') }}");
+                                    console.log(li);
+                                    document.getElementById("pm-selected-users").appendChild(li);
 
-                                $.html.forEach('#global-pm-forum-editor-title', e => e.focus());
-                            } );
+                                    $.html.forEach('#global-pm-forum-editor-title', e => e.focus());
+                                } );
+                                {% endif %}
+                            }
                         }, 10);
-
                     {% endif %}
                 {% endif %}
             {% endif %}

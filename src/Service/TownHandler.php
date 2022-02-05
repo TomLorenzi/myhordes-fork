@@ -107,7 +107,7 @@ class TownHandler
 
             if ($close_ts !== null) {
                 $town->setDoor( false );
-                $this->entity_manager->persist( $this->log->doorControlAuto( $town, false, null) );
+                $this->entity_manager->persist( $this->log->doorControlAuto( $town, false, $close_ts) );
                 $changed = true;
             }
 
@@ -239,7 +239,7 @@ class TownHandler
                 break;
             case "small_novlamps_#00":
                 // If the novelty lamps are built, it's effect must be applied immediately
-                $novlamp_status = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName('tg_novlamps');
+                $novlamp_status = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy(['name' => 'tg_novlamps']);
                 foreach ($town->getCitizens() as $citizen) {
                     if ($citizen->getAlive()) $this->citizen_handler->inflictStatus($citizen, $novlamp_status);
                     $this->entity_manager->persist($citizen);
@@ -250,9 +250,18 @@ class TownHandler
         }
 
         // If this is a child of fundament, give a picto
-        if($building->getPrototype()->getParent() !== null && $building->getPrototype()->getParent()->getName() === 'small_building_#00'){
-            $pictos[] = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => "r_wondrs_#00"]);
+        $parent = $building->getPrototype()->getParent();
+        while($parent != null) {
+            if ($parent->getName() === "small_building_#00") {
+                $pictos[] = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => "r_wondrs_#00"]);
+                break;
+            }
+            $parent = $parent->getParent();
         }
+
+        /*if($building->getPrototype()->getParent() !== null && $building->getPrototype()->getParent()->getName() === 'small_building_#00'){
+            $pictos[] = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => "r_wondrs_#00"]);
+        }*/
 
         foreach ($town->getCitizens() as $target_citizen) {
             if (!$target_citizen->getAlive()) continue;
@@ -537,10 +546,7 @@ class TownHandler
         if (!$est) return [];
 
         $ratio = 1;
-        if ($this->getBuilding($town, 'item_tagger_#01')) {
-            $ratio *= 2;
-        }
-        if ($this->inventory_handler->countSpecificItems($town->getBank(), 'scope_#00', false, false) > 0) {
+        if ($this->getBuilding($town, 'item_tagger_#01') || $this->inventory_handler->countSpecificItems($town->getBank(), 'scope_#00', false, false) > 0) {
             $ratio *= 2;
         }
 
@@ -594,11 +600,8 @@ class TownHandler
             $min2 = round($est->getZombies() - ($est->getZombies() * $offsetMin / 100));
             $max2 = round($est->getZombies() + ($est->getZombies() * $offsetMax / 100));
 
-            /*$min2 = round($min2, 2 - strlen(strval($min2)));
-            $max2 = round($max2, 2 - strlen(strval($max2)));*/
-
-            $min2 = round($min2 / 25) * 25;
-            $max2 = round($max2 / 25) * 25;
+            $min2 = floor($min2 / 25) * 25;
+            $max2 = ceil($max2 / 25) * 25;
 
             $soulFactor = min(1 + (0.04 * $this->get_red_soul_count($town)), (float)$this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_RED_SOUL_FACTOR, 1.2));
 
@@ -632,7 +635,7 @@ class TownHandler
     }
 
     public function calculate_offsets(&$offsetMin, &$offsetMax, $nbRound, $new_formula){
-        for ($i = 0; $i < $nbRound; $i++) {
+        for ($i = 0; $i < min($nbRound, 24); $i++) {
             if ($offsetMin + $offsetMax > 10) {
                 $increase_min = $this->random->chance($offsetMin / ($offsetMin + $offsetMax));
                 $alter = $new_formula ? mt_rand(500, 2000) / 1000.0 : 1;
@@ -875,7 +878,7 @@ class TownHandler
         $constructionBonus = 0;
         $repairBonus = 0;
         if (($workshop = $this->getBuilding($town, "small_refine_#00")) !== null) {
-            $constructionBonus = 0.06 * $workshop->getLevel();
+            $constructionBonus = min(0.06 * $workshop->getLevel(), 0.28);
             if ($workshop->getLevel() >= 4) {
                 $repairBonus = $workshop->getLevel() - 3;
             }

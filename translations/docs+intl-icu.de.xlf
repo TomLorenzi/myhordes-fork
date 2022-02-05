@@ -763,5 +763,35 @@
         <target>Herkunfts-Server der Stadt</target>
       </segment>
     </unit>
+    <unit id="IEVhx.8" name="ID der Picto">
+      <segment>
+        <source>ID der Picto</source>
+        <target>ID der Picto</target>
+      </segment>
+    </unit>
+    <unit id="SbP2DN8" name="Wenn dieses Picto selten ist">
+      <segment>
+        <source>Wenn dieses Picto selten ist</source>
+        <target>Wenn dieses Picto selten ist</target>
+      </segment>
+    </unit>
+    <unit id="gJd8dvU" name="Wenn dieses Picto eine Gemeinschaftsauszeichnung ist">
+      <segment>
+        <source>Wenn dieses Picto eine Gemeinschaftsauszeichnung ist</source>
+        <target>Wenn dieses Picto eine Gemeinschaftsauszeichnung ist</target>
+      </segment>
+    </unit>
+    <unit id="NXHyE2A" name="ID der Ruine">
+      <segment>
+        <source>ID der Ruine</source>
+        <target>ID der Ruine</target>
+      </segment>
+    </unit>
+    <unit id="Ey80Aru" name="Erforschbare Ruine">
+      <segment>
+        <source>Erforschbare Ruine</source>
+        <target>Erforschbare Ruine</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

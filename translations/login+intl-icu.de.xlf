@@ -525,5 +525,11 @@
         <target>Der eingegebene Spieler ist nicht für das Patenschafts-Programm registriert. Bitte ihn, die "Freundschaft"-Seite in seiner Seele aufzurufen; er wird dann automatisch registriert. Erst dann kannst du ihn als Sponsor auswählen.</target>
       </segment>
     </unit>
+    <unit id="1itQsls" name="Deine E-Mail-Adresse wurde erfolgreich geändert.">
+      <segment>
+        <source>Deine E-Mail-Adresse wurde erfolgreich geändert.</source>
+        <target>Deine E-Mail-Adresse wurde erfolgreich geändert.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

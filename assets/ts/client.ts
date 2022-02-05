@@ -6,6 +6,7 @@ class Config {
 
     private client: Client;
 
+    public showShortConstrList:   conf<boolean>;
     public notificationAsPopup:   conf<boolean>;
     public usePostBackup:         conf<boolean>;
     public autoParseLinks:        conf<boolean>;
@@ -22,6 +23,7 @@ class Config {
     constructor(c:Client) {
         this.client = c;
 
+        this.showShortConstrList   = this.makeConf<boolean>('showShortConstrList', false);
         this.notificationAsPopup   = this.makeConf<boolean>('notifAsPopup', false);
         this.usePostBackup         = this.makeConf<boolean>('useEditorCache', true);
         this.autoParseLinks        = this.makeConf<boolean>('autoParseLinks', true);

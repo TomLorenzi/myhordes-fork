@@ -20,25 +20,29 @@
         </div>
         {% for citizen in citizens|sort((a,b) => (a.infos.alive == b.infos.alive) ? ((a.infos.alive) ? a.infos.name|lower <=> b.infos.name|lower : b.infos.survivedDays <=> a.infos.survivedDays) : b.infos.alive <=> a.infos.alive) %}
             {% if citizen.infos.alive %}
-            <div class="row {% if citizen.infos == me%} me{% endif %}" x-ajax-href="{{ path('town_visit', {id: citizen.infos.id}) }}">
-                <div class="padded cell rw-1 rw-md-2">
+            <div class="row-flex stretch{% if citizen.infos == me%} me{% endif %}">
+                <div class="cell factor-0 citizen-{{ citizen.infos.alive ? (citizen.infos.online ? 'online' : 'offline') : 'dead' }}" style="flex-basis: 8px;" x-ajax-href="{{ path('town_visit', {id: citizen.infos.id}) }}">&nbsp;</div>
+                <div class="cell factor-0 content-center-vertical">
                         <img alt="{{ citizen.infos.home.prototype.level }}" src="{{ asset('build/images/home/' ~ citizen.infos.home.prototype.icon ~ '.gif') }}" />
                 </div>
-                <div class="padded cell rw-3 rw-md-3 small">
+                <div class="cell rw-4 rw-md-3 small citizen-box {% if citizen.infos == me%} citizen-box-name-me {% else %} citizen-box-name {% endif %} content-center-vertical pl-05">
                     <span>
+                        {% if citizen.infos.banished %}
+                            <img alt="" src="{{ asset('build/images/icons/banished.gif') }}" />
+                        {% endif %}
+                        <img alt="{{ citizen.infos.profession.label|trans({},'game') }}" src="{{ asset('build/images/professions/' ~ citizen.infos.profession.icon ~ '.gif') }}" />
+                        {% include 'ajax/soul/playername.html.twig' with {user: citizen.infos.user, tag: 'a', additional_classes: [
+                            'undecorated',
+                            citizen.infos == me ? 'citizen-label-name-me' : null,
+                        ]} only %}
                         {% if citizen.infos.profession.heroic %}
                             <img alt="" src="{{ asset('build/images/professions/hero.gif') }}" />
                         {% else %}
                             <img alt="" src="{{ asset('build/images/professions/void.gif') }}" />
                         {% endif %}
-                        {% if citizen.infos.banished %}
-                            <img alt="" src="{{ asset('build/images/icons/banished.gif') }}" />
-                        {% endif %}
-                        <img alt="{{ citizen.infos.profession.label|trans({},'game') }}" src="{{ asset('build/images/professions/' ~ citizen.infos.profession.icon ~ '.gif') }}" />
-                        <b>{{ citizen.infos.name }}</b>
                     </span>
                 </div>
-                <div class="padded cell rw-4 rw-md-2 small">
+                <div class="cell rw-4 rw-md-2 small citizen-box content-center-horizontal content-center-vertical">
                     {% if not hidden[citizen.infos.id] %}
                         {% if citizen.infos.home.chest.items|length == 0 %}
                             <em>{{ 'Leere Truhe'|trans({},'game') }}</em>
@@ -56,10 +60,10 @@
                     {% endif %}
 
                 </div>
-                <div class="padded cell rw-2 rd-md-1 small">
+                <div class="cell rw-2 rd-md-1 small citizen-box content-center-horizontal content-center-vertical">
                     {{ citizen.soulPoint }} {{ 'Punkt(e)'|trans({},'game') }}
                 </div>
-                <div class="padded cell rw-2 small center">
+                <div class="cell rw-2 small citizen-box content-center-horizontal content-center-vertical">
                 {% if citizen.omniscienceLevel > 0 %}
                     {% for i in range(1, citizen.omniscienceLevel) %}<img src="{{ asset('build/images/icons/small_new.gif') }}" alt="*" />{% endfor %}
                 {% endif %}

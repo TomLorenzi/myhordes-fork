@@ -443,7 +443,7 @@ class HTMLConverterFromBlocks {
                 case 'span':
                     if (block.hasClass('quoteauthor')) {
                         if (peek && peek.nodeName === 'blockquote') {
-                            ret += quotespace ? '' : HTMLConverterFromBlocks.wrapBlock( nextBlock(), 'quote', block.nodeText )
+                            ret += quotespace ? '' : HTMLConverterFromBlocks.wrapBlock( nextBlock(), 'quote', block.nodeText + (block.getAttribute('x-id') ? (':' + block.getAttribute('x-id')) : '') )
                         }
                     } else if (block.hasClass('rpauthor')) {
                         if (peek && peek.nodeName === 'div' && peek.hasClass('rpText')) {

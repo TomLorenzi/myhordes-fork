@@ -5330,5 +5330,13 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
         <target>Ranglisten und Saisons</target>
       </segment>
     </unit>
+    <unit id="r.WCNCm">
+      <segment>
+        <source>&lt;strong&gt;DEN SUPPORT KONTAKTIEREN:&lt;/strong&gt;
+Um Kontakt mit den Administratoren aufzunehmen, schreibe an die &lt;a x-group-connect="{oglink}" href="#"&gt;Offizielle Gruppe&lt;/a&gt; des Technischen Supports.</source>
+        <target><![CDATA[<strong>DEN SUPPORT KONTAKTIEREN:</strong>
+Um Kontakt mit den Administratoren aufzunehmen, schreibe an die <a x-group-connect="{oglink}" href="#">Offizielle Gruppe</a> des Technischen Supports.]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

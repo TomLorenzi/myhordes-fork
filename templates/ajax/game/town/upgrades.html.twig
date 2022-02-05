@@ -30,10 +30,12 @@
         </div>
     {% endif %}
 
-    <h5 class="hide-sm">{{ 'Diskussionen rund um die Verbesserung des Tages'|trans({},'game') }}</h5>
-    <div class="forum-preview-container fix-height hide-sm">
-        <div id="forum-content">
-            <div class="center"><i class="fa fa-spin fa-circle-notch"></i> {{ 'Lade Forum...'|trans({},'game') }}</div>
+    <h5>{{ 'Diskussionen rund um die Verbesserung des Tages'|trans({},'game') }}</h5>
+    <div class="forum-preview-wrapper forum-preview-wrapper-upgrades">
+        <div class="forum-preview-container">
+            <div id="forum-content">
+                <div class="center"><i class="fa fa-spin fa-circle-notch"></i> {{ 'Lade Forum...'|trans({},'game') }}</div>
+            </div>
         </div>
     </div>
 
@@ -42,7 +44,7 @@
         {% for building in buildings %}
             {# @var building \App\Entity\Building #}
             <div class="row {% if building.level >= 1 %}complete{% endif %}">
-                <div class="padded cell rw-10 rw-md-12">
+                <div class="padded cell rw-9 rw-md-12">
                     <strong>{{ building.prototype.label|trans({},'buildings') }}{% if building.level > 0 %} ({% trans with {'{lv}': building.level} from 'game' %}Level {lv}{% endtrans %}/{{building.prototype.maxLevel}}){% endif %}</strong>
                     {% if building.prototype.upgradeTexts %}
                         <p>
@@ -63,7 +65,7 @@
                         {% endif %}
                     {% endif %}
                 </div>
-                <div class="padded cell rw-2 rw-md-12">
+                <div class="padded cell rw-3 rw-md-12">
                     {% if building.level >= building.prototype.maxLevel %}
                         <p><i>{% trans from 'game' %}Max. Level{% endtrans %}</i></p>
                     {% else %}
@@ -103,7 +105,7 @@
                     } );
             });
         $.ajax.background().no_history().load( document.getElementById('forum-content'), '{{ path('forum_previewer_controller', {fid: town.forum.id, sem: constant('App\\Entity\\Thread::SEMANTIC_DAILYVOTE') })|e('js') }}', false, {}, function() {
-            let container = document.querySelector('.forum-preview-container');
+            let container = document.querySelector('.forum-preview-wrapper');
             container.scrollTop = container.scrollHeight;
         } );
     </script>

@@ -37,7 +37,7 @@
                         <div class="avatar small ua-{{ random(0,9) }}"><img alt="" src="{{ asset('build/images/forum/empty_avatar.gif') }}"></div>
                     {% endif %}
                     <b>{{ author_name }}</b>
-                    <div class="found-in">{{ post.searchForum.title }} <i class="fa fa-caret-right"></i> <a x-ajax-href="{{ path('forum_jump_view', {pid: post.id}) }}" x-ajax-target="#content">{{ post.thread.translatable ? post.thread.title|trans({},'game') : post.thread.title }}</a></div>
+                    <div class="found-in">{{ post.searchForum.title }} <i class="fa fa-caret-right"></i> <a x-ajax-href="{{ path('forum_jump_view', {pid: post.id}) }}" x-ajax-transient x-ajax-target="#content" >{{ post.thread.translatable ? post.thread.title|trans({},'game') : post.thread.title }}</a></div>
                 </div>
                 <div class="forum-post-content">
                     {{ post.translate ? (post.text|trans({},'game')|raw) : (post.text|raw) }}

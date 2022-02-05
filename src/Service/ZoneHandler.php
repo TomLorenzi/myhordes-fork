@@ -364,6 +364,13 @@ class ZoneHandler
             $ret_str[] = $this->trans->trans("Diese Zone ist leergesucht. Du wirst hier keine wertvollen Gegenstände mehr finden können.", [], "game");
         }
 
+        if ($active && $active->getProfession()->getName() === 'collec')
+            foreach ([[1,0],[-1,0],[0,1],[0,-1]] as $n) {
+                $nzone = $this->entity_manager->getRepository(Zone::class)->findOneByPosition($zone->getTown(),$zone->getX() + $n[0], $zone->getY() + $n[1]);
+                if ($nzone && !$nzone->getCitizens()->isEmpty()) $this->updateZone($nzone,$up_to,null);
+            }
+
+
         $ret_str = array_unique($ret_str);
 
         return empty($ret_str) ? null : implode('<hr />', $ret_str);

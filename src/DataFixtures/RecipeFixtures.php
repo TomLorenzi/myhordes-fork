@@ -22,6 +22,7 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
     protected static $building_data = [
         ["name" => "Verstärkte Stadtmauer",'desc' => 'Verbessert die Stadtverteidigung erheblich.', "temporary" => 0,"img" => "small_wallimprove","vp" => 30,"ap" => 30, "hp" => 30,"bp" => 0,"rsc" => ["wood2_#00" => 15,"metal_#00" => 5,], "orderby" => 0, "children" => [
             ["name" => "Großer Graben",'desc' => 'Der Große Graben ist eine sehr wirkungsvolle Verteidigungsmaßnahme, die sich insbesondere auf lange Sicht auszahlt. Der Graben lässt sich mit allerhand Dingen füllen.', "maxLevel" => 5,"temporary" => 0,"img" => "small_gather","vp" => 10,"ap" => 80, "hp" => 80,"bp" => 0,"rsc" => [], "orderby" => 0,
+                "lv0text" => 'Der Verteidigungswert der Stadt steigt mit dem Großen Graben auf 10 Punkte.',
                 "upgradeTexts" => [
                     'Der Verteidigungsbonus des Grabens steigt dauerhaft um 13.',
                     'Der Verteidigungsbonus des Grabens steigt dauerhaft um 21.',
@@ -45,6 +46,7 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
                     ["name" => "Dritte Schicht", 'desc' => 'Eine dritte Schicht über der bestehenden Mauer bietet noch besseren Schutz gegen untote Eindringlinge.',"temporary" => 0,"img" => "item_plate","vp" => 100,"ap" => 65, "hp" => 65,"bp" => 2,"rsc" => ["metal_#00" => 30,"plate_#00" => 5,"metal_beam_#00" => 5,], "orderby" => 0],
                 ]],
                 ["name" => "Entwicklungsfähige Stadtmauer", 'desc' => 'Die Stadtmauer wird mit einem Eisengestell verstärkt und kann ab sofort jeden Tag ganz leicht um ein Stück erweitert werden!',"maxLevel" => 5,"temporary" => 0,"img" => "item_home_def","vp" => 55,"ap" => 65, "hp" => 65,"bp" => 3,"rsc" => ["wood2_#00" => 5,"metal_#00" => 20,"concrete_wall_#00" => 1,], "orderby" => 2,
+                    'lv0text' => "Die entwicklungsfähige Stadtmauer bringt der Stadt 55 Verteidigungspunkte.",
                     "upgradeTexts" => [
                         'Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 30.',
                         'Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 35.',
@@ -72,6 +74,7 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
         ]],
 
         ["name" => "Pumpe",'desc' => 'Die Pumpe ist die Grundvoraussetzung für alle auf Wasser basierenden Konstruktionen! Darüber hinaus steigert sie die Wasserergiebigkeit des Brunnens um ein Vielfaches.', "maxLevel" => 5,"temporary" => 0,"img" => "small_water","vp" => 0,"ap" => 25, "hp" => 0,"bp" => 0,"rsc" => ["metal_#00" => 8,"tube_#00" => 1,], "orderby" => 1, "impervious" => true,
+            "lv0text" => 'Der Brunnen wird einmalig mit 5 Rationen Wasser befüllt.',
             "upgradeTexts" => [
                 'Der Brunnen der Stadt wird einmalig um 20 Rationen Wasser aufgefüllt',
                 'Der Brunnen der Stadt wird einmalig um 20 Rationen Wasser aufgefüllt',
@@ -97,6 +100,7 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
                 ["name" => "Dusche",'desc' => 'Nein, ganz ehrlich, dieser... dieser... Geruch ist einfach nicht auszuhalten: Nimm eine Dusche. Sofort!', "temporary" => 0,"img" => "small_shower","vp" => 0,"ap" => 25, "hp" => 25,"bp" => 2,"rsc" => ["water_#00" => 5,"wood2_#00" => 4,"metal_#00" => 1,"tube_#00" => 1,], "orderby" => 3],
             ]],
             ["name" => "Wasserturm","maxLevel" => 5,'desc' => 'Mit dieser revolutionären Verteidigungsanlage ist die Stadt imstande, große Wasserdampfwolken zu erzeugen. Ein wohlig-warmes Dampfbad wird den vor den Stadtmauern herumlungernden Zombies gut tun und sie grundlegend "reinigen". Die Leistung kann mit ein wenig Feintuning noch gesteigert werden.', "temporary" => 0,"img" => "item_tube","vp" => 70,"ap" => 60, "hp" => 60,"bp" => 3,"rsc" => ["water_#00" => 40,"tube_#00" => 7,"metal_beam_#00" => 10,], "orderby" => 4,
+                "lv0text" => "Der Wasserwerfer gibt 70 zusätzliche Verteidigungspunkte.",
                 "upgradeTexts" => [
                     'Der Wasserturm verbraucht beim nächtlichen Angriff 2 Rationen Wasser und steigert seinen Verteidigungswert dafür um 56.',
                     'Der Wasserturm verbraucht beim nächtlichen Angriff 4 Rationen Wasser und steigert seinen Verteidigungswert dafür um 112.',
@@ -126,6 +130,7 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
                 'Die AP-Kosten aller Bauprojekte werden um 25% gesenkt. Erhöht die Effektivität von Reparaturen um zwei Punkte.',
             ], "children" => [
             ["name" => "Verteidigungsanlage","maxLevel" => 5,'desc' => 'Für diese raffiniert durchdachte Anlage können alle Arten von Platten (z.B. Blech) verwendet werden. Jeder in der Bank abgelegte Verteidigungsgegenstand steuert zusätzliche Verteidigungspunkte bei!', "temporary" => 0,"img" => "item_meca_parts","vp" => 0,"ap" => 50, "hp" => 50,"bp" => 0,"rsc" => ["meca_parts_#00" => 4,"wood_beam_#00" => 8,"metal_beam_#00" => 8,], "orderby" => 0,
+                "lv0text" => 'Jeder in der Bank abgelegte Verteidigungsgegenstand bringt der Stadt 1.5 Verteidigungspunkte zusätzlich ein.',
                 "upgradeTexts" => [
                     'Der Verteidigungsbonus von Gegenständen in der Bank steigt um 100%.',
                     'Der Verteidigungsbonus von Gegenständen in der Bank steigt um 150%.',
@@ -144,6 +149,7 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
             ["name" => "Kreischende Sägen",'desc' => 'Ein paar geschickt hergestelle Kreissägen, die durch ein ausgeklügeltes Gummizugsystem bewegt werden. Der schrille Rotationslärm erinnert seltsamerweise an einen menschlichen Schrei...', "temporary" => 0,"img" => "small_saw","vp" => 45,"ap" => 65, "hp" => 65,"bp" => 0,"rsc" => ["meca_parts_#00" => 3,"metal_#00" => 5,"rustine_#00" => 3,"metal_beam_#00" => 2,], "orderby" => 4],
             ["name" => "Baustellenbuch",'desc' => 'Mit diesem Register erhältst du eine bessere Übersicht zu allen aktuellen Konstruktionen samt der dafür benötigten Materialien.', "temporary" => 0,"img" => "item_rp_book2","vp" => 0,"ap" => 15, "hp" => 0,"bp" => 0,"rsc" => ["table_#00" => 1,], "orderby" => 5, "impervious" => true, "children" => [
                 ["name" => "Bauhaus","maxLevel" => 3,'desc' => 'Wenn sich intelligente Leute abends beim Feuer unterhalten, können großartige Erfindungen dabei herauskommen. Zumindest wenn sie vorher ein Bauhaus errichtet haben. Dieses Bauwerk gibt der Stadt täglich einen (gewöhnlichen) Bauplan.', "temporary" => 0,"img" => "small_refine","vp" => 0,"ap" => 75, "hp" => 0,"bp" => 0,"rsc" => ["drug_#00" => 1,"vodka_#00" => 1,"wood_beam_#00" => 10,],
+                "lv0text" => "Die Stadt erhält nach dem nächsten Angriff einmalig 1 gewöhnliche Baupläne.",
                 "upgradeTexts" => [
                     'Die Stadt erhält nach dem nächsten Angriff einmalig 4 gewöhnliche Baupläne sowie - möglicherweise - eine nette Überraschung.',
                     'Die Stadt erhält nach dem nächsten Angriff einmalig 2 gewöhnliche und 2 ungewöhnliche Baupläne sowie - möglicherweise - eine nette Überraschung.',
@@ -154,6 +160,7 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
             ["name" => "Schokoladenkreuz",'desc' => 'Ein wunderschönes Kreuz aus Schokolade, an dem unliebsame (oder lästige) Mitbürger platziert werden können. Ist mal was "anderes" als die klassische Verbannung...', "temporary" => 0,"img" => "small_eastercross","vp" => 0,"ap" => 13, "hp" => 0,"bp" => 5,"rsc" => ["wood_beam_#00" => 1,"chain_#00" => 1,], "orderby" => 6],
             ["name" => "Schlachthof",'desc' => 'Ein Schlachthof, der direkt vor dem Stadttor errichtet wird und dessen Eingang zur Außenwelt zeigt. Schwierig ist eigentlich nur, jede Nacht einen Freiwilligen zu finden, der sich hineinstellt und so die Zombies anlockt.', "temporary" => 0,"img" => "small_slaughterhouse","vp" => 35,"ap" => 40, "hp" => 40,"bp" => 1,"rsc" => ["concrete_wall_#00" => 2,"metal_beam_#00" => 10,], "orderby" => 7],
             ["name" => "Pentagon",'maxLevel' => 2, 'desc' => 'Eine großangelegte Neuausrichtung aller Verteidigungsanlagen, um wirklich das Optimum herauszuholen (die Gesamtverteidigung der Stadt erhöht sich um 10%).', "temporary" => 0,"img" => "item_shield","vp" => 8,"ap" => 55, "hp" => 55,"bp" => 3,"rsc" => ["wood_beam_#00" => 5,"metal_beam_#00" => 10,], "orderby" => 8,
+                "lv0text" => 'Die Verteidigung der Stadt wird um 10% erhöht.',
                 "upgradeTexts" => [
                     'Die Verteidigung der Stadt wird um 12% erhöht.',
                     'Die Verteidigung der Stadt wird um 14% erhöht.'

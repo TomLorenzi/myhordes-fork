@@ -97,6 +97,12 @@
       flex-basis: 50%;
     }
   }
+  .forum-preview-wrapper {
+    max-height: 360px;
+    &.forum-preview-wrapper-bank {
+      min-height: 360px;
+    }
+  }
 }
 @media (max-width: (@screen-medium-threshold - 1)) and (min-width: @screen-small-threshold) {
   .hide-@{screen-medium} {display: none !important;};
@@ -111,6 +117,12 @@
   ul.actions>li, ul.special_actions>li, ul.heroic_actions>li {
     &>div.targets { left: 0; right: 0; top: 100%; }
   }
+  .forum-preview-wrapper {
+    max-height: 180px;
+    &.forum-preview-wrapper-bank {
+      min-height: 180px;
+    }
+  }
 }
 @media (max-width: (@screen-small-threshold - 1)) {
   .hide-@{screen-small} {display: none !important;};
@@ -124,18 +136,26 @@
   }
   button, .button { padding-top: 16px; padding-bottom: 16px; margin-top: 8px; margin-bottom: 8px; }
 
+  .rucksack_status_union.rucksack {
+    &:before {
+      left: 0 !important;
+      background: url("../img/game-bar/panel_tl.png") 0 0 no-repeat,url("../img/game-bar/panel_bl.png") 0 100% no-repeat,url("../img/game-bar/panel_l.png") 0 0 repeat-y !important;
+    };
+  }
+
   body:not(.icon-zoom-1-00) ul.inventory {
     &.rucksack { background: url("../img/background/inventory/inv_bag.gif") no-repeat top left/cover;  }
     & > li {
       &.title { margin: 5px; display: inline-flex; align-items: center }
       &:not(.title):not(.category) {
-        margin: 5px;
+        margin: 5px; text-align: center;
         &.item.counted {
           position: relative;
           & > span:not(:first-child) {
             background: rgba(0,0,0,0.75); padding: 1px 3px; border-radius: 2px; position: absolute; right: -5px; bottom: -5px;
           }
         }
+        &.item img { image-rendering: pixelated }
       }
     }
   }
@@ -144,28 +164,28 @@
     &.title { height: 22px !important; }
     &:not(.title):not(.category) {
       height: 22px !important;  width: 22px !important;
-      &.item img { width: 20px; height: auto; }
+      &.item img { width: auto; height: 20px; }
     }
   }
   body.icon-zoom-1-50 ul.inventory > li {
     &.title { height: 26px !important; }
     &:not(.title):not(.category) {
       height: 26px !important;  width: 26px !important;
-      &.item img { width: 24px; height: auto; }
+      &.item img { width: auto; height: 24px; }
     }
   }
   body.icon-zoom-1-75 ul.inventory > li {
     &.title { height: 30px !important; }
     &:not(.title):not(.category) {
       height: 30px !important;  width: 30px !important;
-      &.item img { width: 28px; height: auto; }
+      &.item img { width: auto; height: 28px; }
     }
   }
   body.icon-zoom-2-00 ul.inventory > li {
     &.title { height: 34px !important; }
     &:not(.title):not(.category) {
       height: 34px !important;  width: 34px !important;
-      &.item img { width: 32px; height: auto; }
+      &.item img { width: auto; height: 32px; }
     }
   }
 
@@ -173,10 +193,53 @@
     padding-top: 16px; padding-bottom: 16px; &>img:first-child { top: 19px; }
     &>div.targets {
       left: 0; right: 0; top: 100%;
-      &>ul>li { padding: 16px; }
+      &>ul>li { padding: 16px; margin: 8px; }
       & *[x-close-for] { display: inline-block; padding: 16px; }
     }
   }
+
+  body:not(.icon-zoom-1-00) {
+    ul.actions>li, ul.special_actions>li, ul.heroic_actions>li {
+      &>div.targets>ul>li img { image-rendering: pixelated }
+    }
+  }
+
+  body.icon-zoom-1-25 {
+    ul.actions>li, ul.special_actions>li, ul.heroic_actions>li {
+      &>div.targets>ul>li {
+        padding: 12px;
+        img { width: auto; height: 20px; }
+      }
+    }
+  }
+
+  body.icon-zoom-1-50 {
+    ul.actions>li, ul.special_actions>li, ul.heroic_actions>li {
+      &>div.targets>ul>li {
+        padding: 8px;
+        img { width: auto; height: 24px; }
+      }
+    }
+  }
+
+  body.icon-zoom-1-75 {
+    ul.actions>li, ul.special_actions>li, ul.heroic_actions>li {
+      &>div.targets>ul>li {
+        padding: 4px;
+        img { width: auto; height: 28px; }
+      }
+    }
+  }
+
+  body.icon-zoom-2-00 {
+    ul.actions>li, ul.special_actions>li, ul.heroic_actions>li {
+      &>div.targets>ul>li {
+        padding: 0;
+        img { width: auto; height: 32px; }
+      }
+    }
+  }
+
   .row > .cell.town-addons {
     flex-wrap: nowrap;
     & > .town-addon {
@@ -217,6 +280,15 @@
   div[x-conditional-help="beyond_half_ap"] {
     position: fixed; top: 50px; left: 10px; right: 10px; width: auto;
     &:before {display: none}
+  }
+
+  .forum-preview-wrapper {
+    .forum-preview-container { border: none; }
+
+    &.forum-preview-wrapper-bank {
+      min-height: 0;
+      .forum-preview-container { position: unset; top: 0; left: 0; right: 0; bottom: 0; }
+    }
   }
 }
 

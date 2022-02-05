@@ -1,0 +1,45 @@
+<div class="distinctions">
+
+    <div class="distinctions-head center">
+        {% if plain is not defined or not plain %}
+            {{ 'Statistiken'|trans({}, 'global') }}
+        {% endif %}
+    </div>
+
+    {% if points is defined %}
+        <div class="distinctions-points">
+            {{ '{points} Punkte'|trans({'{points}':points}, 'global') }}
+        </div>
+    {% endif %}
+    <div class="distinctions-list center">
+        {% if pictos|length == 0 %}
+            <div class="list empty">
+                {{ 'Dieser Spieler hat bisher noch keine Preise gewonnen...'|trans({}, 'global') }}
+            </div>
+        {% else %}
+            <div class="list">
+                {% for picto in pictos %}
+                    {# @var picto \App\Entity\Picto #}
+                    {% if picto.count > 0 %}
+                        <div class="picto{% if picto.prototype.rare %} rare{% endif %}{% if picto.persisted == 0 %} not-persisted{% else %} persisted{% endif %}">
+                            <div>
+                                <img alt="" src="{{  asset('build/images/pictos/' ~ picto.prototype.icon ~ '.gif') }}" /><br />
+                                <div class="counter">
+                                    {% for number in picto.count|split('') %}<span class="count" num="{{number}}">{{number}}</span>{% endfor %}
+                                </div>
+                            </div>
+                            <div class="tooltip forum-tooltip">
+                                <h1>{{ picto.prototype.label|trans({}, 'game') }} ({{ picto.count }})</h1>
+                                <em>{{ picto.prototype.description|trans({}, 'game')}}</em>
+                                <p><strong{% if picto.persisted == 0 %} class="warning"{% endif %}>{% if picto.persisted == 0 %}{{ 'Diese Auszeichnung wird nicht verdient, wenn der Bürger heute Nacht stirbt.'|trans({}, 'admin') }}{% else %}{{ 'Diese Auszeichnung wurde verdient.'|trans({}, 'admin')}}{% endif %}</strong></p>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+    <div class="distinctions-foot">
+        &nbsp;
+    </div>
+</div>

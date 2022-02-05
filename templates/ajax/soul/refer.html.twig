@@ -1,119 +1,275 @@
 {% extends "ajax/soul/shell.html.twig" %}
-{% block title %}{{'Die verfluchten Schriften'|trans({}, 'game')}}{% endblock %}
+{% block title %}{{'Wir werden alle sterben: Sag es weiter!'|trans({}, 'game')|raw}}{% endblock %}
 {% block soul_content %}
     <div class="row">
+
         <div class="cell rw-12 center friend hide-md hide-sm"> </div>
 
-        {% if sponsored is not empty %}
-            <div class="padded cell rw-12">
-                <div class="row-table">
-                    <div class="row header">
-                        <div class="padded cell rw-3">{{ 'Geworbener Spieler'|trans({},'soul') }}</div>
-                        <div class="padded cell rw-3">{{ 'Seelenpunkte'|trans({},'soul') }}</div>
-                        <div class="padded cell rw-3">{{ 'Heldenerfahrung'|trans({},'soul') }}</div>
-                        <div class="padded cell rw-3">{{ 'Koalition'|trans({},'soul') }}</div>
-                    </div>
-                    {% for entry in sponsored %}
-                        <div class="row">
-                            <div class="padded cell rw-3">
-                                <img alt="" src="{{ asset('build/images/icons/small_ghost_red.gif') }}">
-                                <a x-ajax-href="{{ path('soul_visit', {id: entry.user.id}) }}" class="link username">{{ entry.user.name }}</a>
-                            </div>
-                            <div class="padded cell rw-3">{{ entry.user.soulPoints }}</div>
-                            <div class="padded cell rw-3">{{ entry.user.heroDaysSpent }}</div>
-                            <div class="padded cell rw-3">
-                                {% if coa is null %}
-                                    <span class="small"><i>{{ 'Du hast keine Koalition.'|trans({},'soul') }}</i></span>
-                                {% elseif coa_full %}
-                                    <span class="small"><i>{{ 'Kein freier Platz'|trans({},'soul') }}</i></span>
-                                {% elseif coa_members[entry.user.id] is defined %}
-                                    {% if coa_members[entry.user.id] == constant('App\\Entity\\UserGroupAssociation::GroupAssociationTypeCoalitionMember') or coa_members[entry.user.id] == constant('App\\Entity\\UserGroupAssociation::GroupAssociationTypeCoalitionMemberInactive') %}
-                                        <span class="small"><i>{{ 'Koalitionsmitglied'|trans({},'soul') }}</i></span>
-                                    {% elseif coa_members[entry.user.id] == constant('App\\Entity\\UserGroupAssociation::GroupAssociationTypeCoalitionInvitation') %}
-                                        <span class="small"><i>{{ 'Noch nicht bestätigt...'|trans({},'soul') }}</i></span>
-                                    {% endif %}
-                                {% else %}
-                                    <button x-to-coa="{{ path('soul_invite_coalition', {id: entry.user.id}) }}">{{ 'Koalitionseinladung'|trans({},'soul') }}</button>
-                                {% endif %}
-
-                            </div>
-                        </div>
-                    {% endfor %}
-                </div>
-            </div>
-        {% endif %}
-
         <div class="padded cell rw-12">
-
-            <h5>{{ 'Die Freundschaftswerbung'|trans({},'soul') }}</h5>
-            {{ 'Wenn ihr neue Spieler zu "MyHordes" einladet, erhaltet ihr zahlreiche Vorteile!'|trans({},'soul') }}
-            <div class="lightbox">
-                <ul class="hordes-bullets">
-                    <li><b>???</b> <span class="small"><i>{{ 'Lass dich überraschen!'|trans({},'soul') }}</i></span></li>
-                    <li>{{ 'Du kannst nach Anmeldung des geworbenen Spielers sofort mit ihm in einer Koalition spielen.'|trans({},'soul') }}</li>
-                    <li>{{ random([
-                        'Du bekommst einen frischen jugendlichen Teint und einen Babypopo.'|trans({},'soul'),
-                        'Du bekommst straffere Brüste.'|trans({},'soul'),
-                        'Bekämpft wirksam deinen Körpergeruch. Deine Mitbürger werden es dir danken!'|trans({},'soul'),
-                        'Du wirst angenehm nach Orangenblüten duften.'|trans({},'soul'),
-                        'Du wirst ein respektierter und angesehener Bürger deiner Gemeinschaft.'|trans({},'soul'),
-                        'Deine natürlichen Abwehrkräfte werden gestärkt.'|trans({},'soul'),
-                        'Du bekommst stahlharte Waschbrettbauchmuskeln.'|trans({},'soul'),
-                        'Du hast eine gute Tat vollbracht.'|trans({},'soul'),
-                        'Die Leute auf der Straße werden sich nach dir umdrehen.'|trans({},'soul'),
-                        'Stärkt dein Zahnfleisch und deine Zähne.'|trans({},'soul'),
-                        'Gib dir das beruhigende Gefühl etwas Gutes getan zu haben.'|trans({},'soul'),
-                        'Du bekommst einen frischen Atem - schnell und effektiv.'|trans({},'soul'),
-                        'Die Zombies werden dich lieben, dass du für Nachschub sorgst. ;)'|trans({},'soul'),
-                        'Das andere Geschlecht wird dir nicht widerstehen können.'|trans({},'soul'),
-                        'Verleiht deinem Haar einen seidigen Glanz und stärkt deine Kopfhaut.'|trans({},'soul'),
-                        ]) }} <a class="help-button"><div class="tooltip help">{{ 'Dieser Vorteil ist von Mal zu Mal verschieden.'|trans({},'soul') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></li>
+            <div class="tab-floater">
+                <ul class="tabs plain" x-tab-group="social" x-tab-default="{{ tab }}" x-tab-control id="social_control">
+                    <li class="tab" x-tab-id="friends"><div class="tab-link">{{ 'Freundesliste'|trans({},'soul') }}</div></li>
+                    <li class="tab" x-tab-id="refer"><div class="tab-link">{{ 'Spieler werben'|trans({},'soul') }}</div></li>
+                    <li class="tab" x-tab-id="blocklist"><div class="tab-link">{{ 'Blockierliste'|trans({},'soul') }}</div></li>
                 </ul>
             </div>
         </div>
 
-        <div class="padded cell rw-12">
-            {% if refer is null %}
-                <div class="note note-warning">{{ 'Die Freundschaftswerbung kann für deinen Account nicht aktiviert werden. Bitte kontaktiere einen Administrator für weitere Informationen.'|trans({},'soul') }}</div>
-            {% elseif not refer.active %}
-                <div class="note note-warning">{{ 'Die Freundschaftswerbung ist für deinen Account gesperrt.'|trans({},'soul') }}</div>
-            {% else %}
-                <h5>{{ 'Wie funktioniert das genau?'|trans({},'soul') }}</h5>
-                {{ 'Du kannst aus mehreren Methoden wählen:'|trans({},'soul') }}
-                <div class="lightbox">
-                    <ul class="hordes-bullets">
-                        <li>
-                            {{ 'Versende einen Einladungs-Link:'|trans({},'soul') }}
-                            <div class="row"><div class="cell ro-2 rw-8 ro-lg-1 rw-lg-10 ro-md-0 rw-md-12"><div class="note"><code>{{ url('app_web_refer_incoming', {name: refer.name}) }}</code></div></div></div>
-                        </li>
-                        <li><b class="emph">{{ 'oder'|trans({},'soul') }}</b> {{ 'Sag dem geworbenen Spieler, dass er bei der Anmeldung im Feld "Pate" deinen Namen eintragen soll:'|trans({},'soul') }} <b>{{ refer.name }}</b></li>
-                        <li>
-                            <b class="emph">{{ 'oder'|trans({},'soul') }}</b> {{ 'Verwende einen der hier unten angezeigten Banner für deine E-Mail Signatur, auf Facebook oder in deinem Lieblingsforum (Wenn sich jemand über deinen Banner anmeldet, wirst du automatisch als Pate eingetragen!).'|trans({},'soul') }}
-                            <div class="row">
-                                <div class="cell ro-2 rw-8 ro-lg-1 rw-lg-10 ro-md-0 rw-md-12">
-                                    <div class="note">
-                                        <div class="center"><img alt="ref1" src="{{ asset('build/ext/ref/r1' ~ lang ~ '.gif') }}"></div>
-                                        <h5>{{ 'HTML Code'|trans({},'soul') }}</h5>
-                                        <code class="text-wrap-all">&lt;a href="{{ url('app_web_refer_incoming', {name: refer.name}) }}"&gt;&lt;img style="border:0;" src="{{ absolute_url(asset('build/ext/ref/r1' ~ lang ~ '.gif')) }}" alt=""/&gt;&lt;/a&gt;</code>
-                                        <h5>{{ 'BBCode'|trans({},'soul') }}</h5>
-                                        <code class="text-wrap-all">[url={{ url('app_web_refer_incoming', {name: refer.name}) }}][img]{{ absolute_url(asset('build/ext/ref/r1' ~ lang ~ '.gif')) }}[/img][/url] </code>
-                                    </div>
+        <div class="cell rw-12">
+            <div x-tab-group="social" x-tab-id="friends" x-tab-target>
+                <div class="row">
+                    {% if friends is not empty %}
+                        <div class="padded cell rw-12">
+                            <div class="row-table">
+                                <div class="row header hide-sm">
+                                    <div class="padded cell rw-1"></div>
+                                    <div class="padded cell rw-5">{{ 'Spieler'|trans({},'soul') }}</div>
+                                    <div class="padded cell rw-3 hide-md">{{ 'Seelenpunkte'|trans({},'soul') }}</div>
+                                    <div class="padded cell rw-3 right">{{ 'Aktionen'|trans({},'soul') }}</div>
                                 </div>
-                                <div class="cell ro-2 rw-8 ro-lg-1 rw-lg-10 ro-md-0 rw-md-12">
-                                    <div class="note">
-                                        <div class="center"><img alt="ref1" src="{{ asset('build/ext/ref/r2.gif') }}"></div>
-                                        <h5>{{ 'HTML Code'|trans({},'soul') }}</h5>
-                                        <code class="text-wrap-all">&lt;a href="{{ url('app_web_refer_incoming', {name: refer.name}) }}"&gt;&lt;img style="border:0;" src="{{ absolute_url(asset('build/ext/ref/r2.gif')) }}" alt=""/&gt;&lt;/a&gt;</code>
-                                        <h5>{{ 'BBCode'|trans({},'soul') }}</h5>
-                                        <code class="text-wrap-all">[url={{ url('app_web_refer_incoming', {name: refer.name}) }}][img]{{ absolute_url(asset('build/ext/ref/r2.gif')) }}[/img][/url] </code>
+                                {# @var \App\Entity\User entry #}
+                                {% for entry in friends|sort((a,b) => (app.user in b.friends) <=> (app.user in a.friends) ?: a.id <=> b.id) %}
+                                    <div class="row-flex wrap">
+                                        <div class="padded cell rw-1 center">
+                                            {% if app.user in entry.friends %}
+                                                <img alt="<>" src="{{ asset('build/images/icons/star.gif') }}" title="{{ 'Wahrer Freund'|trans({},'soul') }}"/>
+                                            {% else %}
+                                                <img alt="" src="{{ asset('build/images/professions/void.gif') }}"/>
+                                            {% endif %}
+                                        </div>
+                                        <div class="padded cell factor-0" style="flex-basis: 90px; background: url('{{ entry.avatar ? path('app_web_avatar', {'uid': entry.id, 'name': entry.avatar.smallName, 'ext': entry.avatar.format}) : asset('build/images/forum/empty_avatar.gif') }}') center/cover no-repeat"></div>
+                                        <div class="padded cell factor-1">{% include 'ajax/soul/playername.html.twig' with {user: entry} only %}</div>
+                                        <div class="padded cell rw-3 hide-sm hide-md">{{ entry.allSoulPoints }}</div>
+                                        <div class="padded cell rw-3 rw-sm-12 right">
+                                            {% if app.user in entry.friends and coa is not null and not coa_full and coa_members[entry.id] is not defined %}
+                                                <div class="inline pointer">
+                                                    <img x-contacts="1" x-to-coa="{{ path('soul_invite_coalition', {id: entry.id}) }}" src="{{ asset('build/images/icons/escort_on.gif') }}" alt="" />
+                                                    <div class="tooltip">{{ 'Koalitionseinladung'|trans({}, 'soul') }}</div>
+                                                </div>
+                                            {% endif %}
+                                            <div class="inline pointer">
+                                                <img x-ulink="ulink_{{ entry.id }}" src="{{ asset('build/images/icons/mail.png') }}" alt="" />
+                                                <div class="tooltip">{{ 'Schreiben'|trans({}, 'soul') }}</div>
+                                            </div>
+                                            <div class="inline pointer">
+                                                <img x-friend-id="{{ entry.id }}" x-friend-control="0" src="{{ asset('build/images/icons/removeContact.png') }}" alt="" />
+                                                <div class="tooltip">{{ 'Kontakt löschen'|trans({}, 'soul') }}</div>
+                                            </div>
+                                            <div class="inline pointer">
+                                                <img x-ajax-href="{{ path('soul_visit', {id: entry.id}) }}" alt="" src="{{ asset('build/images/icons/small_ghost_red.gif') }}">
+                                                <div class="tooltip">{{'Seine Seele ansehen'|trans({ref: entry}, 'game')}}</div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
+                                {% endfor %}
                             </div>
-                        </li>
-                    </ul>
+                        </div>
+                    {% else %}
+                        <div class="padded cell rw-12">
+                            <div class="small center">{{ 'Deine Freundesliste ist leer.'|trans({}, 'soul') }}</div>
+                        </div>
+                    {% endif %}
                 </div>
-            {% endif %}
+
+                <div class="row">
+                    <div class="padded cell rw-12">
+                        <div id="users-list-soul">
+                            <h5>{{ 'Neue Freunde finden'|trans({},'soul') }}</h5>
+                            <div><label><input type="text" id="users-search" style="margin-top: 5px" /></label><div class="tooltip help">{{ 'Gib hier den Nickname des Spielers ein, den du als Freund hinzufügen möchtest.'|trans({},'soul')|raw }}</div></div>
+                            <div id="users-list"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    {% if reverse_friends is not empty %}
+                        <div class="padded cell rw-12">
+                            <h5>{{ 'Spieler, die dich als Freund hinzugefügt haben'|trans({},'soul') }}</h5>
+                            <div class="help">
+                                {{ 'Hier siehst du Spieler, die dich in ihre Freundesliste eingetragen haben. Wenn du möchtest, kannst du sie ebenfalls in deine Freundesliste eintragen.'|trans({},'soul') }}<br/>
+                                <b>{{ 'Hinweis'|trans({},'global') }}: </b> {{ 'Du kannst verhindern, dass ein Spieler dich in seine Freundesliste aufnimmt, indem du ihn blockierst. Bedenke, dass er dich danach auch nicht mehr via über eine private Nachricht kontaktieren kann.'|trans({},'soul') }}
+                            </div>
+                            <div class="row-table">
+                                <div class="row header hide-sm">
+                                    <div class="padded cell rw-1">&nbsp;</div>
+                                    <div class="padded cell rw-5">{{ 'Spieler'|trans({},'soul') }}</div>
+                                    <div class="padded cell rw-3 hide-sm hide-md">{{ 'Seelenpunkte'|trans({},'soul') }}</div>
+                                    <div class="padded cell rw-3 right">{{ 'Aktionen'|trans({},'soul') }}</div>
+                                </div>
+                                {% for entry in reverse_friends %}
+                                    <div class="row-flex wrap">
+                                        <div class="padded cell rw-1">&nbsp;</div>
+                                        <div class="padded cell factor-0" style="flex-basis: 90px; background: url('{{ entry.avatar ? path('app_web_avatar', {'uid': entry.id, 'name': entry.avatar.smallName, 'ext': entry.avatar.format}) : asset('build/images/forum/empty_avatar.gif') }}') center/cover no-repeat"></div>
+                                        <div class="padded cell factor-1">{{ entry.name }}</div>
+                                        <div class="padded cell rw-3 hide-sm hide-md">{{ entry.allSoulPoints }}</div>
+                                        <div class="padded cell rw-3 rw-sm-12 right">
+                                            <div class="inline pointer">
+                                                <img x-friend-id="{{ entry.id }}" x-friend-control="1" src="{{ asset('build/images/icons/addContact.png') }}" alt="" />
+                                                <div class="tooltip">{{ 'Kontakt hinzufügen'|trans({}, 'soul') }}</div>
+                                            </div>
+                                            <div class="inline pointer">
+                                                <img x-ajax-href="{{ path('soul_visit', {id: entry.id}) }}" alt="" src="{{ asset('build/images/icons/small_ghost_red.gif') }}">
+                                                <div class="tooltip">{{'Seine Seele ansehen'|trans({ref: entry}, 'game')}}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
         </div>
+
+        <div class="cell rw-12">
+            <div x-tab-group="social" x-tab-id="refer" x-tab-target>
+                <div class="row">
+                    {% if sponsored is not empty %}
+                        <div class="padded cell rw-12">
+                            <div class="row-table">
+                                <div class="row header">
+                                    <div class="padded cell rw-3">{{ 'Geworbener Spieler'|trans({},'soul') }}</div>
+                                    <div class="padded cell rw-3">{{ 'Seelenpunkte'|trans({},'soul') }}</div>
+                                    <div class="padded cell rw-3">{{ 'Heldenerfahrung'|trans({},'soul') }}</div>
+                                    <div class="padded cell rw-3">{{ 'Koalition'|trans({},'soul') }}</div>
+                                </div>
+                                {% for entry in sponsored %}
+                                    <div class="row">
+                                        <div class="padded cell rw-3">
+                                            <img alt="" src="{{ asset('build/images/icons/small_ghost_red.gif') }}">
+                                            {% include 'ajax/soul/playername.html.twig' with {user: entry.user} only %}
+                                        </div>
+                                        <div class="padded cell rw-3">{{ entry.user.allSoulPoints }}</div>
+                                        <div class="padded cell rw-3">{{ entry.user.heroDaysSpent }}</div>
+                                        <div class="padded cell rw-3">
+                                            {% if coa is null %}
+                                                <span class="small"><i>{{ 'Du hast keine Koalition.'|trans({},'soul') }}</i></span>
+                                            {% elseif coa_full %}
+                                                <span class="small"><i>{{ 'Kein freier Platz'|trans({},'soul') }}</i></span>
+                                            {% elseif coa_members[entry.user.id] is defined %}
+                                                {% if coa_members[entry.user.id] == constant('App\\Entity\\UserGroupAssociation::GroupAssociationTypeCoalitionMember') or coa_members[entry.user.id] == constant('App\\Entity\\UserGroupAssociation::GroupAssociationTypeCoalitionMemberInactive') %}
+                                                    <span class="small"><i>{{ 'Koalitionsmitglied'|trans({},'soul') }}</i></span>
+                                                {% elseif coa_members[entry.user.id] == constant('App\\Entity\\UserGroupAssociation::GroupAssociationTypeCoalitionInvitation') %}
+                                                    <span class="small"><i>{{ 'Noch nicht bestätigt...'|trans({},'soul') }}</i></span>
+                                                {% endif %}
+                                            {% else %}
+                                                <button x-to-coa="{{ path('soul_invite_coalition', {id: entry.user.id}) }}">{{ 'Koalitionseinladung'|trans({},'soul') }}</button>
+                                            {% endif %}
+
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    <div class="padded cell rw-12">
+
+                        <h5>{{ 'Die Freundschaftswerbung'|trans({},'soul') }}</h5>
+                        {{ 'Wenn ihr neue Spieler zu "MyHordes" einladet, erhaltet ihr zahlreiche Vorteile!'|trans({},'soul') }}
+                        <div class="lightbox">
+                            <ul class="hordes-bullets">
+                                <li><b>???</b> <span class="small"><i>{{ 'Lass dich überraschen!'|trans({},'soul') }}</i></span></li>
+                                <li>{{ 'Du kannst nach Anmeldung des geworbenen Spielers sofort mit ihm in einer Koalition spielen.'|trans({},'soul') }}</li>
+                                <li>{{ random([
+                                        'Du bekommst einen frischen jugendlichen Teint und einen Babypopo.'|trans({},'soul'),
+                                        'Du bekommst straffere Brüste.'|trans({},'soul'),
+                                        'Bekämpft wirksam deinen Körpergeruch. Deine Mitbürger werden es dir danken!'|trans({},'soul'),
+                                        'Du wirst angenehm nach Orangenblüten duften.'|trans({},'soul'),
+                                        'Du wirst ein respektierter und angesehener Bürger deiner Gemeinschaft.'|trans({},'soul'),
+                                        'Deine natürlichen Abwehrkräfte werden gestärkt.'|trans({},'soul'),
+                                        'Du bekommst stahlharte Waschbrettbauchmuskeln.'|trans({},'soul'),
+                                        'Du hast eine gute Tat vollbracht.'|trans({},'soul'),
+                                        'Die Leute auf der Straße werden sich nach dir umdrehen.'|trans({},'soul'),
+                                        'Stärkt dein Zahnfleisch und deine Zähne.'|trans({},'soul'),
+                                        'Gib dir das beruhigende Gefühl etwas Gutes getan zu haben.'|trans({},'soul'),
+                                        'Du bekommst einen frischen Atem - schnell und effektiv.'|trans({},'soul'),
+                                        'Die Zombies werden dich lieben, dass du für Nachschub sorgst. ;)'|trans({},'soul'),
+                                        'Das andere Geschlecht wird dir nicht widerstehen können.'|trans({},'soul'),
+                                        'Verleiht deinem Haar einen seidigen Glanz und stärkt deine Kopfhaut.'|trans({},'soul'),
+                                    ]) }} <a class="help-button"><div class="tooltip help">{{ 'Dieser Vorteil ist von Mal zu Mal verschieden.'|trans({},'soul') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="padded cell rw-12">
+                        {% if refer is null %}
+                            <div class="note note-warning">{{ 'Die Freundschaftswerbung kann für deinen Account nicht aktiviert werden. Bitte kontaktiere einen Administrator für weitere Informationen.'|trans({},'soul') }}</div>
+                        {% elseif not refer.active %}
+                            <div class="note note-warning">{{ 'Die Freundschaftswerbung ist für deinen Account gesperrt.'|trans({},'soul') }}</div>
+                        {% else %}
+                            <h5>{{ 'Wie funktioniert das genau?'|trans({},'soul') }}</h5>
+                            {{ 'Du kannst aus mehreren Methoden wählen:'|trans({},'soul') }}
+                            <div class="lightbox">
+                                <ul class="hordes-bullets">
+                                    <li>
+                                        {{ 'Versende einen Einladungs-Link:'|trans({},'soul') }}
+                                        <div class="row"><div class="cell ro-2 rw-8 ro-lg-1 rw-lg-10 ro-md-0 rw-md-12"><div class="note"><code>{{ url('app_web_refer_incoming', {name: refer.name}) }}</code></div></div></div>
+                                    </li>
+                                    <li><b class="emph">{{ 'oder'|trans({},'soul') }}</b> {{ 'Sag dem geworbenen Spieler, dass er bei der Anmeldung im Feld "Pate" deinen Namen eintragen soll:'|trans({},'soul') }} <b>{{ refer.name }}</b></li>
+                                    <li>
+                                        <b class="emph">{{ 'oder'|trans({},'soul') }}</b> {{ 'Verwende einen der hier unten angezeigten Banner für deine E-Mail Signatur, auf Facebook oder in deinem Lieblingsforum (Wenn sich jemand über deinen Banner anmeldet, wirst du automatisch als Pate eingetragen!).'|trans({},'soul') }}
+                                        <div class="row">
+                                            <div class="cell ro-2 rw-8 ro-lg-1 rw-lg-10 ro-md-0 rw-md-12">
+                                                <div class="note">
+                                                    <div class="center"><img alt="ref1" src="{{ asset('build/ext/ref/r1' ~ lang ~ '.gif') }}"></div>
+                                                    <h5>{{ 'HTML Code'|trans({},'soul') }}</h5>
+                                                    <code class="text-wrap-all">&lt;a href="{{ url('app_web_refer_incoming', {name: refer.name}) }}"&gt;&lt;img style="border:0;" src="{{ absolute_url(asset('build/ext/ref/r1' ~ lang ~ '.gif')) }}" alt=""/&gt;&lt;/a&gt;</code>
+                                                    <h5>{{ 'BBCode'|trans({},'soul') }}</h5>
+                                                    <code class="text-wrap-all">[url={{ url('app_web_refer_incoming', {name: refer.name}) }}][img]{{ absolute_url(asset('build/ext/ref/r1' ~ lang ~ '.gif')) }}[/img][/url] </code>
+                                                </div>
+                                            </div>
+                                            <div class="cell ro-2 rw-8 ro-lg-1 rw-lg-10 ro-md-0 rw-md-12">
+                                                <div class="note">
+                                                    <div class="center"><img alt="ref1" src="{{ asset('build/ext/ref/r2.gif') }}"></div>
+                                                    <h5>{{ 'HTML Code'|trans({},'soul') }}</h5>
+                                                    <code class="text-wrap-all">&lt;a href="{{ url('app_web_refer_incoming', {name: refer.name}) }}"&gt;&lt;img style="border:0;" src="{{ absolute_url(asset('build/ext/ref/r2.gif')) }}" alt=""/&gt;&lt;/a&gt;</code>
+                                                    <h5>{{ 'BBCode'|trans({},'soul') }}</h5>
+                                                    <code class="text-wrap-all">[url={{ url('app_web_refer_incoming', {name: refer.name}) }}][img]{{ absolute_url(asset('build/ext/ref/r2.gif')) }}[/img][/url] </code>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cell rw-12">
+            <div x-tab-group="social" x-tab-id="blocklist" x-tab-target>
+                <div class="row">
+                    {% if blocklist is not empty %}
+                        <div class="padded cell rw-12">
+                            <div class="row-table">
+                                <div class="row header">
+                                    <div class="padded cell rw-9">{{ 'Blockierter Spieler'|trans({},'soul') }}</div>
+                                    <div class="padded cell rw-3">{{ 'Aktionen'|trans({},'soul') }}</div>
+                                </div>
+                                {% for entry in blocklist %}
+                                    <div class="row">
+                                        <div class="padded cell rw-9">
+                                            <img alt="" src="{{ asset('build/images/icons/small_ghost_red.gif') }}">
+                                            {% include 'ajax/soul/playername.html.twig' with {user: entry.related} only %}
+                                        </div>
+                                        <div class="padded cell rw-3">
+                                            <a class="link inline small" x-action="soul_unblock_user" x-user-id="{{ entry.related.id }}">{{ 'Blockade aufheben'|trans({'{user}': entry.related.name},'global') }}</a>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% else %}
+                        <div class="padded cell rw-12">
+                            <div class="small center">{{ 'Deine Blockierliste ist leer.'|trans({}, 'soul') }}</div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
     </div>
 {% endblock %}
 
@@ -121,7 +277,79 @@
     {{parent()}}
     <script>
         $.html.addEventListenerAll('[x-to-coa]', 'click', (e,elem) => {
-            $.ajax.easySend(elem.getAttribute('x-to-coa'), {}, () => $.ajax.load(null, '{{ path('soul_refer') }}'));
+            $.ajax.easySend(elem.getAttribute('x-to-coa'), {}, () => $.ajax.load(null, elem.hasAttribute('x-contacts') ? '{{ path('soul_contacts') }}' : '{{ path('soul_refer') }}'));
         })
+        $.html.addEventListenerAll('[x-friend-control="0"][x-friend-id]', 'click', (e,elem) => {
+            if (confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}')) $.ajax.easySend( '{{ path('soul_friend_control', {action: 0}) }}', {'id': elem.getAttribute('x-friend-id')},
+                () => $.ajax.load(null, '{{ path('soul_contacts') }}')
+            );
+        });
+        $.html.addEventListenerAll('[x-friend-control="1"][x-friend-id]', 'click', (e,elem) => {
+            $.ajax.easySend( '{{ path('soul_friend_control', {action: 1}) }}', {'id': elem.getAttribute('x-friend-id')},
+                () => $.ajax.load(null, '{{ path('soul_contacts') }}')
+            );
+        });
+        $.html.addEventListenerAll('[x-ulink]', 'click', (e, elem) => {
+            const p = document.getElementById('postbox');
+            if (p) {
+                p.setAttribute('x-post-command', elem.getAttribute('x-ulink'));
+                p.click();
+            } else alert('{{ 'Fehler beim Laden des Posteingangs.'|trans({},'global') }}')
+        });
+
+        $.html.addEventListenerAll('a[x-action="soul_unblock_user"]','click',(e,elem) => {
+            e.preventDefault();
+            if (confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
+                var url = '{{ path('soul_block_control', {id: 0, action: 0}) }}';
+            url = url.replace("0", elem.getAttribute("x-user-id"));
+            $.ajax.easySend( url, {},
+                function () {
+                    $.ajax.load(null, '{{ path('soul_contacts', {}) }}', true);
+                } );
+        });
+
+        let typingTimer, doneTypingInterval = 500;
+        let searchBox = document.getElementById('users-search');
+
+        const userSearchHandler = function() {
+            if (searchBox.value.length >= 3)
+                $.ajax.background().load(
+                    document.getElementById('users-list'),
+                    '{{ path('users_fuzzyfind', {url: 'soul_invite_friend'}) }}',
+                    false,
+                    {'name': searchBox.value},
+                    function () {
+                        $.html.addEventListenerAll('#users-list>.users-list-entry>div', 'click', function (e,elem) {
+                            $.ajax.easySend( '{{ path('soul_friend_control', {action: 1}) }}', {'id': elem.getAttribute('x-soul-id')},
+                                () => $.ajax.load(null, '{{ path('soul_contacts') }}')
+                            );
+                        })
+                    }
+                );
+            else document.getElementById('users-list').innerHTML = '';
+        };
+
+        const userSearchHandlerUp = function () {
+            clearTimeout(typingTimer);
+            typingTimer = setTimeout(userSearchHandler, doneTypingInterval);
+        };
+
+        const userSearchHandlerDown = function () {
+            clearTimeout(typingTimer);
+        };
+
+        if (searchBox) {
+            searchBox.addEventListener('keyup', userSearchHandlerUp);
+            searchBox.addEventListener('keydown', userSearchHandlerDown);
+            searchBox.addEventListener('focus', () => userSearchHandler());
+            searchBox.addEventListener('blur', () => setTimeout( () => document.getElementById('users-list').innerHTML = '', 500));
+        }
+
+        document.getElementById('social_control').addEventListener('tab-switch', e => {
+            switch (e.detail.tab) {
+                case 'friends': history.pushState( '{{ path('soul_contacts') }}', '', '{{ path('soul_contacts') }}' ); break;
+                case 'refer':   history.pushState( '{{ path('soul_refer') }}', '', '{{ path('soul_refer') }}' ); break;
+            }
+        });
     </script>
 {% endblock %}

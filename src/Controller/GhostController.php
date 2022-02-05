@@ -512,7 +512,17 @@ class GhostController extends CustomAbstractController
 
     public function getUserTownClassAccess(MyHordesConf $conf, ?User $user = null): array {
         $user = $user ?? $this->getUser();
+
+        if ($this->user_handler->checkFeatureUnlock( $user, 'f_sptkt', false ))
+            return [
+                'small' => true,
+                'remote' => true,
+                'panda' => true,
+                'custom' => true,
+            ];
+
         $sp = $this->user_handler->fetchSoulPoints($user);
+
         return [
             'small' =>
                 ($sp < $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_REMOTE, 100 )

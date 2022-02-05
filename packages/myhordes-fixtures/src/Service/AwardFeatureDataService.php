@@ -14,6 +14,7 @@ class AwardFeatureDataService implements FixtureProcessorInterface {
             'f_glory' => [ 'icon' => 'f_glory' , 'label' => 'Ruhm',                         'desc' =>  'Als Champion kannst du deinen Nachrichten im Forum zusätzliche Authorität verleihen.'],
             'f_cam'   => [ 'icon' => 'f_cam'   , 'label' => 'Kamera aus Vorkriegs-Tagen',   'desc' =>  'Diese nostalgische Knipse aus dem letzten Jahrhundert wirkt, als hätte sie schon Aberhunderten Leuten die Netzhaut verbrannt. Ihr schwacher Blitz könnte dich aus brenzligen Situationen retten, wenn du Zombies damit blendest!'],
             'f_alarm' => [ 'icon' => 'f_alarm' , 'label' => 'Kreischender Wecker',          'desc' =>  'Es gibt morges doch nichts schöner, als einen lauten Wecker, der dein Trommelfell schön stimuliert.'],
+            'f_sptkt' => [ 'icon' => 'f_sptkt' , 'label' => 'Eintrittskarte',               'desc' =>  'Hiermit kannst du Städten beitreten, obwohl du die Mindestanzahl an Seelenpunkten noch nicht erreicht hast.'],
         ]);
     }
 }

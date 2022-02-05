@@ -31,12 +31,10 @@
                         <img alt="" src="{{ asset('build/images/icons/small_user.gif') }}" />
                         <span class="hide-md hide-sm">{{ 'Profil und Avatar'|trans({},'soul') }}</span>
                     </div></li>
-                    {% if not is_granted('ROLE_ETERNAL') %}
-                        <li class="tab" x-tab-id="security"><div class="tab-link">
-                            <img alt="" src="{{ asset('build/images/icons/lock.gif') }}" />
-                            <span class="hide-md hide-sm">{{ 'Account und Sicherheit'|trans({},'soul') }}</span>
-                        </div></li>
-                    {% endif %}
+                    <li class="tab" x-tab-id="security"><div class="tab-link">
+                        <img alt="" src="{{ asset('build/images/icons/lock.gif') }}" />
+                        <span class="hide-md hide-sm">{{ 'Account und Sicherheit'|trans({},'soul') }}</span>
+                    </div></li>
                     {% if show_importer %}
                         <li class="tab" x-tab-id="soul-import"><div class="tab-link">
                             <img alt="" src="{{ asset('build/images/icons/small_ghost_red.gif') }}" />
@@ -70,7 +68,7 @@
                         </div>
                     </div>
                     <div class="padded cell rw-9 rw-md-8 rw-sm-12">
-                        <input {% if app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionProfileDisplayName')) or app.user.eternalID is not null %}disabled{% endif %} id="user_displayname" type="text" value="{% if app.user.displayName is not null %}{{ app.user.displayName }}{% else %}{{ app.user.name }}{% endif %}" />
+                        <input {% if app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionProfileDisplayName')) or app.user.eternalID is not null or next_name_change_days > 0 %}disabled{% endif %} id="user_displayname" type="text" value="{% if app.user.displayName is not null %}{{ app.user.displayName }}{% else %}{{ app.user.name }}{% endif %}" />
                     </div>
                     {% if app.user.eternalID is null and app.user.displayName is not null and app.user.displayName != app.user.username %}
                         <div class="padded cell ro-3 rw-9 ro-md-4 rw-md-8 ro-sm-0 rw-sm-12">
@@ -78,6 +76,9 @@
                                 {{ 'Um dich einzuloggen, musst du nach wie vor deinen <b>ursprünglichen Namen</b> verwenden: <i>{name}</i>.'|trans({name: app.user.username},'login')|raw }}
                             </div>
                         </div>
+                    {% endif %}
+                    {% if not app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionProfileDisplayName')) and app.user.eternalID is null and next_name_change_days > 0 %}
+                        <div class="padded cell rw-9 ro-3 rw-md-8 ro-md-4 rw-sm-12 ro-sm-0 small">{{ 'Du kannst deinen Spielernamen erst in {days} Tagen erneut ändern.'|trans({days: next_name_change_days}, 'soul') }}</div>
                     {% endif %}
                     <div id="name-warning-box" class="padded cell ro-3 rw-9 ro-md-4 rw-md-8 ro-sm-0 rw-sm-12 {% if app.user.eternalID is null %}hidden{% endif %}">
                         <div  class="note warning-box">
@@ -296,8 +297,7 @@
                 </div>
             </div>
 
-            {% if not is_granted('ROLE_ETERNAL') %}
-                <div x-tab-target x-tab-group="user-settings-tabs" x-tab-id="security">
+            <div x-tab-target x-tab-group="user-settings-tabs" x-tab-id="security">
                     <h5>{{ 'Login und Sicherheit'|trans({},'soul') }}</h5>
                     <div class="row">
                         <div class="cell padded rw-4 rw-sm-12">
@@ -345,19 +345,27 @@
                             </div>
                         </div>
                     {% endif %}
-                    <div class="row">
-                        <div class="cell padded rw-4 rw-sm-12">
-                            <div class="note note-lightest">{% trans from 'soul' %}Passwort ändern{% endtrans %}</div>
-                        </div>
-                        <div class="cell rw-8 rw-sm-12">
-                            <div class="row">
-                                <div class="cell padded rw-6"><label><input id="app_pw_change_new1" placeholder="{{ 'Neues Passwort'|trans({},'soul') }}" type="password" value="" /></label></div>
-                                <div class="cell padded rw-6"><label><input id="app_pw_change_new2" placeholder="{{ 'Neues Passwort wiederholen'|trans({},'soul') }}" type="password" value="" /></label></div>
-                                <div class="cell padded rw-6"><label><input id="app_pw_change_old" placeholder="{{ 'Aktuelles Passwort'|trans({},'soul') }}" type="password" value="" /></label></div>
-                                <div class="cell padded rw-6"><button id="acc_ch_details">{{ 'Account-Infos aktualisieren'|trans({},'soul') }}</button></div>
+                    {% if app.user.password is not null %}
+                        <div class="row">
+                            <div class="cell padded rw-4 rw-sm-12">
+                                <div class="note note-lightest">{% trans from 'soul' %}Passwort ändern{% endtrans %}</div>
+                            </div>
+                            <div class="cell rw-8 rw-sm-12">
+                                <div class="row">
+                                    <div class="cell padded rw-6"><label><input id="app_pw_change_new1" placeholder="{{ 'Neues Passwort'|trans({},'soul') }}" type="password" value="" /></label></div>
+                                    <div class="cell padded rw-6"><label><input id="app_pw_change_new2" placeholder="{{ 'Neues Passwort wiederholen'|trans({},'soul') }}" type="password" value="" /></label></div>
+                                    <div class="cell padded rw-6"><label><input id="app_pw_change_old" placeholder="{{ 'Aktuelles Passwort'|trans({},'soul') }}" type="password" value="" /></label></div>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    {% endif %}
+                    {% if app.user.password is not null or app.user.pendingEmail is null %}
+                        <div class="row">
+                            <div class="padded cell rw-8 ro-4 rw-sm-12 ro-sm-0">
+                                <button id="acc_ch_details">{{ 'Account-Infos aktualisieren'|trans({},'soul') }}</button>
+                            </div>
+                        </div>
+                    {% endif %}
                     <br />
                     <div class="row">
                         <div class="cell padded rw-4 rw-sm-12">
@@ -366,18 +374,23 @@
                         <div class="cell padded rw-8 rw-sm-12">
                             <button id="acc_unremember_me">{{ 'Auf allen Browsern & Geräten abmelden'|trans({},'soul') }}</button>
                             <p class="small">{% trans from 'soul' %}Hiermit kannst du dich von allen Geräten und Browsern abmelden, auf denen du aktuell eingeloggt bist. Die "Login merken" Funktion wird hierdurch ebenfalls auf den betroffenen Geräten deaktiviert.{% endtrans %}</p>
+                            {% if is_granted('ROLE_ETERNAL') %}
+                                <div class="note note-warning">{{ 'Denke daran, dich ebenfalls aus deinem EternalTwin Account auszuloggen!'|trans({},'soul') }}</div>
+                            {% endif %}
                         </div>
                     </div>
-                    <h5>{{ 'Account löschen'|trans({},'soul') }}</h5>
-                    <div class="row">
-                        <div class="padded cell rw-4">
-                            <div class="note note-lightest"><label for="acc_del_input">{{ 'Aktuelles Passwort'|trans({},'login') }}</label></div>
+
+                    {% if not is_granted('ROLE_ETERNAL') %}
+                        <h5>{{ 'Account löschen'|trans({},'soul') }}</h5>
+                        <div class="row">
+                            <div class="padded cell rw-4">
+                                <div class="note note-lightest"><label for="acc_del_input">{{ 'Aktuelles Passwort'|trans({},'login') }}</label></div>
+                            </div>
+                            <div class="padded cell rw-4"><input id="acc_del_input" type="password" /></div>
+                            <div class="padded cell rw-4"><button id="acc_del_btn"><i class="fa fa-trash"></i> {{ 'Meinen Account löschen'|trans({},'soul') }}</button></div>
                         </div>
-                        <div class="padded cell rw-4"><input id="acc_del_input" type="password" /></div>
-                        <div class="padded cell rw-4"><button id="acc_del_btn"><i class="fa fa-trash"></i> {{ 'Meinen Account löschen'|trans({},'soul') }}</button></div>
-                    </div>
+                    {% endif %}
                 </div>
-            {% endif %}
 
             {% if show_importer %}
                 <div x-tab-target x-tab-group="user-settings-tabs" x-tab-id="soul-import">
@@ -614,15 +627,15 @@
 
         $.html.addEventListenerAll('#acc_ch_details', 'click', function(e) {
             e.preventDefault();
-            let pw_old = document.getElementById('app_pw_change_old').value;
-            let pw_new1 = document.getElementById('app_pw_change_new1').value;
-            let pw_new2 = document.getElementById('app_pw_change_new2').value;
-            let email_new1 = document.getElementById('app_email_change_new1').value;
-            let email_new2 = document.getElementById('app_email_change_new2').value;
+            let pw_old  = document.getElementById('app_pw_change_old')?.value ?? '';
+            let pw_new1 = document.getElementById('app_pw_change_new1')?.value ?? '';
+            let pw_new2 = document.getElementById('app_pw_change_new2')?.value ?? '';
+            let email_new1 = document.getElementById('app_email_change_new1')?.value ?? '';
+            let email_new2 = document.getElementById('app_email_change_new2')?.value ?? '';
 
             let email_token = '';
             {% if app.user.pendingEmail is not null %}
-            email_token = document.getElementById('email_validation_token').value;
+                email_token = document.getElementById('email_validation_token').value;
             {% endif %}
 
             if (pw_new1 !== '' && pw_new1 !== pw_new2) {

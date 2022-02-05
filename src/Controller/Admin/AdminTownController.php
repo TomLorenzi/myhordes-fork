@@ -22,6 +22,7 @@ use App\Entity\CitizenVote;
 use App\Entity\CitizenWatch;
 use App\Entity\Complaint;
 use App\Entity\ComplaintReason;
+use App\Entity\CouncilEntry;
 use App\Entity\ExpeditionRoute;
 use App\Entity\HeroicActionPrototype;
 use App\Entity\Inventory;
@@ -39,6 +40,7 @@ use App\Entity\Zone;
 use App\Response\AjaxResponse;
 use App\Service\CrowService;
 use App\Service\CitizenHandler;
+use App\Service\ConfMaster;
 use App\Service\ErrorHelper;
 use App\Service\GameFactory;
 use App\Service\GazetteService;
@@ -293,6 +295,9 @@ class AdminTownController extends AdminActionController
             'availBuldings' => $inTown,
             'votes' => $votes,
             'gazette' => $gazetteService->renderGazette( $town, $town->getDay(), true),
+            'council' => array_map( fn(CouncilEntry $c) => [$gazetteService->parseCouncilLog( $c ), $c->getCitizen()], array_filter( $this->entity_manager->getRepository(CouncilEntry::class)->findBy(['town' => $town, 'day' => $town->getDay()], ['ord' => 'ASC']),
+                fn(CouncilEntry $c) => ($c->getTemplate() && $c->getTemplate()->getText() !== null)
+            )),
             'blackboards' => $this->entity_manager->getRepository(BlackboardEdit::class)->findBy([ 'town' => $town ], ['time' => 'DESC'], 100),
         ], $this->get_map_blob($town))));
     }
@@ -310,6 +315,9 @@ class AdminTownController extends AdminActionController
 
         return $this->render('ajax/game/gazette_widget.html.twig', [
             'gazette' => $gazetteService->renderGazette( $town, $day, true ),
+            'council' => array_map( fn(CouncilEntry $c) => [$gazetteService->parseCouncilLog( $c ), $c->getCitizen()], array_filter( $this->entity_manager->getRepository(CouncilEntry::class)->findBy(['town' => $town, 'day' => $day], ['ord' => 'ASC']),
+                fn(CouncilEntry $c) => ($c->getTemplate() && $c->getTemplate()->getText() !== null)
+            ))
         ]);
     }
 
@@ -894,6 +902,59 @@ class AdminTownController extends AdminActionController
     }
 
     /**
+     * @Route("/api/admin/town/{id}/alias", name="admin_alias_citizen", requirements={"id"="\d+"})
+     * @Security("is_granted('ROLE_ADMIN')")
+     * Change the Alias of a citizen
+     * @param int $id Town ID
+     * @param JSONRequestParser $parser
+     * @param ZoneHandler $handler
+     * @param TownHandler $townHandler
+     * @return Response
+     */
+    public function alias_citizen(int $id, JSONRequestParser $parser, ConfMaster $cf, TownHandler $townHandler): Response
+    {
+        /** @var Town $town */
+        $town = $this->entity_manager->getRepository(Town::class)->find($id);
+        if (!$town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $alias = $parser->trimmed('alias');
+        $targets = $parser->get_array('targets');
+        if ($alias != null && !$alias)
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        if (empty($targets))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        if (count($targets) > 1)
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        /** @var Citizen $citizen */
+        $citizen = $this->entity_manager->getRepository(Citizen::class)->find($targets[0]);
+
+        $town_conf = $cf->getTownConfiguration($citizen->getTown());
+
+        $citizen_alias_active = $town_conf->get(TownConf::CONF_FEATURE_CITIZEN_ALIAS, false);
+
+        if(!$citizen_alias_active)
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        if($alias == null) {
+            $citizen->setAlias(null);
+        } else {
+            $apply_result = $this->citizen_handler->applyAlias($citizen, $alias);
+            if($apply_result == -1) {
+                return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+            }
+        }
+        
+        try {
+            $this->entity_manager->persist( $citizen );
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+        return AjaxResponse::success();
+    }
+
+    /**
      * @Route("/api/admin/town/{id}/spawn_item", name="admin_spawn_item", requirements={"id"="\d+"})
      * @Security("is_granted('ROLE_ADMIN')")
      * Add or remove an item from the bank
@@ -999,6 +1060,45 @@ class AdminTownController extends AdminActionController
             'view' => $view,
             'zone_digs' => $zone->getDigs(),
             'ruin_digs' => $zone->getPrototype() !== null ? $zone->getRuinDigs() : 0
+        ]);
+    }
+
+    /**
+     * @Route("/api/admin/town/{id}/get_citizen_infos", name="get_citizen_infos", requirements={"id"="\d+"})
+     * @Security("is_granted('ROLE_ADMIN')")
+     * Returns the floor of a given zone
+     * @param int $id Town ID
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function get_citizen_infos(int $id, JSONRequestParser  $parser): Response{
+        $town = $this->entity_manager->getRepository(Town::class)->find($id);
+        if (!$town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $citizen_id = $parser->get('citizen_id', -1);
+        $citizen = $this->entity_manager->getRepository(Citizen::class)->find($citizen_id);
+
+        if(!$citizen || $citizen->getTown() !== $town)
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $rucksack = $this->renderView("ajax/game/inventory.html.twig", [
+            'size' => $this->inventory_handler->getSize( $citizen->getInventory() ),
+            'items' => $citizen->getInventory()->getItems()
+        ]);
+
+        $chest = $this->renderView("ajax/game/inventory.html.twig", [
+            'size' => $this->inventory_handler->getSize( $citizen->getHome()->getChest() ),
+            'items' => $citizen->getHome()->getChest()->getItems()
+        ]);
+
+        $pictos = $this->renderView("ajax/admin/towns/distinctions.html.twig", [
+            'pictos' => $this->entity_manager->getRepository(Picto::class)->findPictoByUserAndTown($citizen->getUser(), $citizen->getTown()),
+        ]);
+
+        return AjaxResponse::success(true, [
+            'rucksack' => $rucksack,
+            'chest' => $chest,
+            'pictos' => $pictos,
         ]);
     }
 

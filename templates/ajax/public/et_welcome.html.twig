@@ -78,12 +78,10 @@
                                 {{ 'Deine Seele bleibt bei der Verknüpfung mit EternalTwin selbstverständlich vollständig erhalten.'|trans({},'login') }}
                                 {{ 'Wenn du fortfahren möchtest, gib bitte ein letztes Mal dein MyHordes-Passwort ein und klicke auf "Verknüpfen".'|trans({},'login') }}
                                 <br /><br />
-                                <form>
-                                    <div class="row">
-                                        <div class="cell padded-small rw-4 rw-md-12"><b><label for="login-password">{% trans from 'login' %}Passwort{% endtrans %}</label></b></div>
-                                        <div class="cell padded-small rw-8 rw-md-12"><input name="login_pass" id="login-password" type="password" /></div>
-                                    </div>
-                                </form>
+                                <div class="row">
+                                    <div class="cell padded-small rw-4 rw-md-12"><b><label for="login-password">{% trans from 'login' %}Passwort{% endtrans %}</label></b></div>
+                                    <div class="cell padded-small rw-8 rw-md-12"><input name="login_pass" id="login-password" type="password" /></div>
+                                </div>
                             </div>
 
                         {% endif %}

@@ -650,11 +650,13 @@ class UserHandler
         $active = false;
 
         $valid_members = [];
+        $timeout = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_COA_MAX_DAYS_INACTIVITY) * 86400;
+
         foreach ($all_coalition_members as $member)
             if (
                 $member->getAssociationType() === UserGroupAssociation::GroupAssociationTypeCoalitionMember &&
                 $member->getUser()->getLastActionTimestamp() !== null &&
-                $member->getUser()->getLastActionTimestamp()->getTimestamp() > (time() - 432000) &&
+                ($timeout <= 0 || $member->getUser()->getLastActionTimestamp()->getTimestamp() > (time() - $timeout)) &&
                 $member->getUser()->getActiveCitizen() === null &&
                 !$this->getConsecutiveDeathLock($member->getUser())
             ) {
@@ -709,12 +711,13 @@ class UserHandler
     }
 
     protected array $_relation_cache = [];
-    public function checkRelation( User $user, User $relation, int $type ) {
+    public function checkRelation( User $user, User $relation, int $type, bool $any_direction = false ) {
         if ($user === $relation) return false;
         $key = "{$user->getId()}:{$relation->getId()}:{$type}";
-        return
+        return (
             $this->_relation_cache[$key] ??
-            ( $this->_relation_cache[$key] = (bool)$this->entity_manager->getRepository(SocialRelation::class)->findOneBy(['owner' => $user, 'related' => $relation, 'type' => $type]) );
+            ( $this->_relation_cache[$key] = (bool)$this->entity_manager->getRepository(SocialRelation::class)->findOneBy(['owner' => $user, 'related' => $relation, 'type' => $type]) )
+        ) || ($any_direction && $this->checkRelation($relation, $user, $type, false));
     }
 
     public function checkFeatureUnlock(User $user, $feature, bool $deduct): bool {

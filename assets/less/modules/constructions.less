@@ -12,11 +12,8 @@
 }
 
 div.buildings {
-  padding: 0;
+  padding: 0; margin-top: 32px;
   font-size: 1.2rem;
-  &:not(:first-child) {
-    margin: 32px 0;
-  }
   border: 1px solid @myhordes-smalltext;
   border-bottom: 2px solid @myhordes-cell-header-text-color;
   .lv_list(@max,@n:1) when (@n <= @max) {

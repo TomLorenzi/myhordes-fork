@@ -31,6 +31,12 @@ class JSONRequestParser
         return $this->data !== null;
     }
 
+    public function inject( string $key, $data ): void {
+        $this->data[$key] = $data;
+        $this->deep_trim($data);
+        $this->trimmed_data[$key] = $data;
+    }
+
     public function has( string $key, bool $not_empty = false ): bool {
         return isset( $this->data[$key] ) && ( !$not_empty || !empty( $this->data[$key] ) );
     }

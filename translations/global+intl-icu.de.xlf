@@ -2559,5 +2559,53 @@
         <target>Schon gewusst? Bei vielen Aktionen wird auf mobilen Geräten zunächst ein Hilfetext eingeblendet. Wenn du die Aktion durchführen möchtest, musst du die Aktion erneut antippen. Wenn du es eilig hast und lieber keine Hilfetexte sehen möchtest, kannst du dieses Verhalten kannst du in deinen Seeleneinstellungen über die Einstellung "Tooltips auf mobilen Geräten durch antippen anzeigen" deaktivieren.</target>
       </segment>
     </unit>
+    <unit id="eJvIel0" name="Offiziell">
+      <segment>
+        <source>Offiziell</source>
+        <target>Offiziell</target>
+      </segment>
+    </unit>
+    <unit id="Ehx7Tyt">
+      <segment>
+        <source>Wir MÜSSEN Verteidigungsanlagen bauen. Falls Ressourcen dafür fehlen, geh in die Außenwelt (die Wüste außerhalb der Stadt) und suche danach.</source>
+        <target>Wir MÜSSEN Verteidigungsanlagen bauen. Falls Ressourcen dafür fehlen, geh in die Außenwelt (die Wüste außerhalb der Stadt) und suche danach.</target>
+      </segment>
+    </unit>
+    <unit id="nsoY7Vf" name="{n} neue Beiträge in">
+      <segment>
+        <source>{n} neue Beiträge in</source>
+        <target>{n} neue Beiträge in</target>
+      </segment>
+    </unit>
+    <unit id="o_0krUA" name="{n} oder mehr neue Beiträge in">
+      <segment>
+        <source>{n} oder mehr neue Beiträge in</source>
+        <target>{n} oder mehr neue Beiträge in</target>
+      </segment>
+    </unit>
+    <unit id=".YY5QFh" name="und andere.">
+      <segment>
+        <source>und andere.</source>
+        <target>und andere.</target>
+      </segment>
+    </unit>
+    <unit id="POVV2jW" name="Deine Platzierung">
+      <segment>
+        <source>Deine Platzierung</source>
+        <target>Deine Platzierung</target>
+      </segment>
+    </unit>
+    <unit id="2JRm9.u" name="{num} Seelenpunkte, Platz {rank}">
+      <segment>
+        <source>{num} Seelenpunkte, Platz {rank}</source>
+        <target><![CDATA[{num} Seelenpunkte, Platz <b>{rank}</b>]]></target>
+      </segment>
+    </unit>
+    <unit id="gFzfoeL" name="Zu meinem Eintrag springen">
+      <segment>
+        <source>Zu meinem Eintrag springen</source>
+        <target>Zu meinem Eintrag springen</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

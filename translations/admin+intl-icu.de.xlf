@@ -2761,5 +2761,89 @@
         <target>Verbleibende Ruinengrabungen:</target>
       </segment>
     </unit>
+    <unit id="nOcPaSS" name="Zurzeit in der Stadt">
+      <segment>
+        <source>Zurzeit in der Stadt</source>
+        <target>Zurzeit in der Stadt</target>
+      </segment>
+    </unit>
+    <unit id="jPmvEEG" name="Eternal-Twin-Konto verlinkt">
+      <segment>
+        <source>Eternal-Twin-Konto verlinkt</source>
+        <target>Eternal-Twin-Konto verlinkt</target>
+      </segment>
+    </unit>
+    <unit id="_VFidG8" name="Gruppentyp">
+      <segment>
+        <source>Gruppentyp</source>
+        <target>Gruppentyp</target>
+      </segment>
+    </unit>
+    <unit id="MxCYTlN" name="Änderungen an '{appname}' speichern">
+      <segment>
+        <source>Änderungen an '{appname}' speichern</source>
+        <target>Änderungen an '{appname}' speichern</target>
+      </segment>
+    </unit>
+    <unit id="qc1ucL6" name="Diese Auszeichnung wird nicht verdient, wenn der Bürger heute Nacht stirbt.">
+      <segment>
+        <source>Diese Auszeichnung wird nicht verdient, wenn der Bürger heute Nacht stirbt.</source>
+        <target>Diese Auszeichnung wird nicht verdient, wenn der Bürger heute Nacht stirbt.</target>
+      </segment>
+    </unit>
+    <unit id="WJg1nZp" name="Diese Auszeichnung wurde verdient.">
+      <segment>
+        <source>Diese Auszeichnung wurde verdient.</source>
+        <target>Diese Auszeichnung wurde verdient.</target>
+      </segment>
+    </unit>
+    <unit id="I2eWURG" name="Freundesliste">
+      <segment>
+        <source>Freundesliste</source>
+        <target>Freundesliste</target>
+      </segment>
+    </unit>
+    <unit id="nQ9blbf" name="Spieler, sie sich als Freund hinzugefügt haben">
+      <segment>
+        <source>Spieler, sie sich als Freund hinzugefügt haben</source>
+        <target>Spieler, die sie/ihn als Freund hinzugefügt haben</target>
+      </segment>
+    </unit>
+    <unit id="_cSDjRl" name="Spieler werben">
+      <segment>
+        <source>Spieler werben</source>
+        <target>Spieler werben</target>
+      </segment>
+    </unit>
+    <unit id="b1moPIw" name="Blockierliste">
+      <segment>
+        <source>Blockierliste</source>
+        <target>Blockierliste</target>
+      </segment>
+    </unit>
+    <unit id="6vRyig1" name="Blockiert von">
+      <segment>
+        <source>Blockiert von</source>
+        <target>Blockiert von</target>
+      </segment>
+    </unit>
+    <unit id="6B7S7TG" name="Bürger-Alias ​​ändern:">
+      <segment>
+        <source>Bürger-Alias ​​ändern:</source>
+        <target>Bürger-Alias ​​ändern:</target>
+      </segment>
+    </unit>
+    <unit id="7.npMFZ" name="Kein Alias ​​angegeben">
+      <segment>
+        <source>Kein Alias ​​angegeben</source>
+        <target>Kein Alias ​​angegeben</target>
+      </segment>
+    </unit>
+    <unit id="u5LKixo" name="Bitte nicht für mehrere Bürger denselben Alias eingeben!">
+      <segment>
+        <source>Bitte nicht für mehrere Bürger denselben Alias eingeben!</source>
+        <target>Bitte nicht für mehrere Bürger denselben Alias eingeben!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

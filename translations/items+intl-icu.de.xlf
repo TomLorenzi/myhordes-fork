@@ -5017,12 +5017,6 @@
         <target>Du hast {item} getrunken, aber scheinbar geschieht nichts...</target>
       </segment>
     </unit>
-    <unit id="r4cpVVY" name="Du hast einen Sandball in {citizen}s Gesicht geworfen.">
-      <segment>
-        <source>Du hast einen Sandball in {citizen}s Gesicht geworfen.</source>
-        <target>Du hast einen Sandball in {citizen}s Gesicht geworfen.</target>
-      </segment>
-    </unit>
     <unit id="_2J5LX7" name="Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter.">
       <segment>
         <source>Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter.</source>
@@ -5038,7 +5032,7 @@
     <unit id="Mmr6mlb">
       <segment>
         <source>&lt;nt-fail&gt;Du hast einen Sandball in {citizen}s Gesicht geworfen.&lt;/nt-fail&gt;&lt;t-fail&gt;Hier ist niemand, auf den du den Sandball werfen könntest...&lt;/t-fail&gt;</source>
-        <target><![CDATA[<nt-fail>Du hast einen Sandball in {citizen}s Gesicht geworfen.</nt-fail><t-fail>Hier ist niemand, auf den du den Sandball werfen könntest...</t-fail>]]></target>
+        <target><![CDATA[<nt-fail>Du hast einen Sandball in {citizen}s Gesicht geworfen.</nt-fail><t-fail>Hier ist niemand, auf den du den Sandball werfen könntest... (hier ist niemand, oder du hast in den letzten 30 Minuten schon einmal jeden getroffen)...</t-fail>]]></target>
       </segment>
     </unit>
     <unit id="WvhcAeX">
@@ -5143,10 +5137,10 @@
         <target><![CDATA[Mit Hilfe deiner übermenschlichen Heldenkräfte hast du <strong>{kills} Zombie(s)</strong> platt gemacht!]]></target>
       </segment>
     </unit>
-    <unit id="Pd1i68n">
+    <unit id="BEKb9Uc">
       <segment>
-        <source>Du atmest tief durch und drückst den Rücken durch. Auf geht's! Ich werde nicht hier sterben!{hr}Du hast soeben Kraft getankt und &lt;strong&gt;6 neue AP erhalten&lt;/strong&gt;.</source>
-        <target><![CDATA[Du atmest tief durch und drückst den Rücken durch. Auf geht's! Ich werde nicht hier sterben!{hr}Du hast soeben Kraft getankt und <strong>6 neue AP erhalten</strong>.]]></target>
+        <source>Du atmest tief durch und drückst den Rücken durch. Auf geht's! Ich werde nicht hier sterben!{hr}Du hast soeben Kraft getankt und &lt;strong&gt;{ap} neue AP erhalten&lt;/strong&gt;.</source>
+        <target><![CDATA[Du atmest tief durch und drückst den Rücken durch. Auf geht's! Ich werde nicht hier sterben!{hr}Du hast soeben Kraft getankt und <strong>{ap} neue AP erhalten</strong>.]]></target>
       </segment>
     </unit>
     <unit id="wMM0fB9">
@@ -5837,6 +5831,54 @@
       <segment>
         <source>Erhalten:</source>
         <target>Erhalten:</target>
+      </segment>
+    </unit>
+    <unit id="yUEkyOu" name="Dir fällt kein Grund ein, dies zu tun...">
+      <segment>
+        <source>Dir fällt kein Grund ein, dies zu tun...</source>
+        <target>Dir fällt kein Grund ein, dies zu tun...</target>
+      </segment>
+    </unit>
+    <unit id="4Exhdnj" name="Dies kannst du erst ab &lt;strong&gt;Tag 2&lt;/strong&gt; tun.">
+      <segment>
+        <source>Dies kannst du erst ab &lt;strong&gt;Tag 2&lt;/strong&gt; tun.</source>
+        <target><![CDATA[Dies kannst du erst ab <strong>Tag 2</strong> tun.]]></target>
+      </segment>
+    </unit>
+    <unit id="u9sIc_x">
+      <segment>
+        <source>Wenn du den Plan studieren willst, musst du in die relative Ruhe der Stadt zurückkehren.</source>
+        <target>Wenn du den Plan studieren willst, musst du in die relative Ruhe der Stadt zurückkehren.</target>
+      </segment>
+    </unit>
+    <unit id="E62nAap" name="Du musst mindestens 3 Kilometer von der Stadt entfernt sein, um das zu tun.">
+      <segment>
+        <source>Du musst mindestens 3 Kilometer von der Stadt entfernt sein, um das zu tun.</source>
+        <target>Du musst mindestens 3 Kilometer von der Stadt entfernt sein, um das zu tun.</target>
+      </segment>
+    </unit>
+    <unit id="EPH5jLS" name="Hierfür hast du keinen Platz.">
+      <segment>
+        <source>Hierfür hast du keinen Platz.</source>
+        <target>Hierfür hast du keinen Platz.</target>
+      </segment>
+    </unit>
+    <unit id="gObW_J5">
+      <segment>
+        <source>Du kannst dieses Serum nicht auf dich selbst anwenden, oder du wirst der beste Freund eines Ghuls...</source>
+        <target>Du kannst dieses Serum nicht auf dich selbst anwenden, oder du wirst der beste Freund eines Ghuls...</target>
+      </segment>
+    </unit>
+    <unit id="j.Nx9To" name="Eintrittskarte">
+      <segment>
+        <source>Eintrittskarte</source>
+        <target>Eintrittskarte</target>
+      </segment>
+    </unit>
+    <unit id=".LeRrBD">
+      <segment>
+        <source>Hiermit kannst du Städten beitreten, obwohl du die Mindestanzahl an Seelenpunkten noch nicht erreicht hast.</source>
+        <target>Hiermit kannst du Städten beitreten, obwohl du die Mindestanzahl an Seelenpunkten noch nicht erreicht hast.</target>
       </segment>
     </unit>
   </file>

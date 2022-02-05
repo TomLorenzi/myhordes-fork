@@ -68,7 +68,7 @@
       </notes>
       <segment>
         <source>Du ziehst eine Karte... und stellst fest, dass dein Name darauf mit Blut geschrieben steht! Du erstarrst vor Schreck!</source>
-        <target><![CDATA[Lanzas una carta... ¡Y pegas un grito al descubrir que <strong>lleva tu nombre escrito con sangre</strong>! ¿Quién pudo hacerte esta broma de mal gusto?¡La impresión te deja <strong>aterrorizado</strong>]]></target>
+        <target><![CDATA[Lanzas una carta... ¡Y pegas un grito al descubrir que <strong>lleva tu nombre escrito con sangre</strong>! ¿Quién pudo hacerte esta broma de mal gusto? ¡La impresión te deja <strong>aterrorizado</strong>!]]></target>
       </segment>
     </unit>
     <unit id="NcJ93EV">
@@ -3824,7 +3824,7 @@
       </notes>
       <segment>
         <source>Immer noch besser als das Zeug, was die Köche in der Stadt zubereiten....</source>
-        <target><![CDATA[Sales en busca de alimentos en los alrededores...{hr}Después de varios largos minutos de búsqueda, terminas por encontrar <strong>un puñado de gusanos gordos y viscosos que se enredan entre sí</strong>. La guía es clara al respecto: ¡son comestibles! <strong>Los devoras antes de que se te escapen de las manos y de la boca</strong>.{hr}<strong>Has recuperado todos tus PA.</strong>]]></target>
+        <target><![CDATA[Sales en busca de alimentos en los alrededores...<hr/>Después de varios largos minutos de búsqueda, terminas por encontrar <strong>un puñado de gusanos gordos y viscosos que se enredan entre sí</strong>. La guía es clara al respecto: ¡son comestibles! <strong>Los devoras antes de que se te escapen de las manos y de la boca</strong>.<hr/><strong>Has recuperado todos tus PA.</strong>]]></target>
       </segment>
     </unit>
     <unit id="Kl2AzsC" name="Du ziehst eine Karte... es ist: {color} {value}.">
@@ -4385,7 +4385,7 @@
       </notes>
       <segment>
         <source>Eine große, solide Zeltplane, die auch noch wasserdicht ist. Sie eignet sich bestens dazu die Löcher in deinem Hausdach zu schließen. ANMERKUNG: Dieser Gegenstand ist für die Verbesserung deines Hauses zwingend vorgeschrieben.</source>
-        <target>Una tela muy resistente e impermeable. Ideal pasar la noche afuera (sin olvidar los bichos, zombies, enfermedades, tormentas y el frío). Aumenta tus posibilidades de sobrevivir al acampar, debes llevarla contigo para recibir el bonus.</target>
+        <target>Una tela muy resistente e impermeable. Ideal para pasar la noche afuera (sin olvidar los bichos, zombies, enfermedades, tormentas y el frío). Aumenta tus posibilidades de sobrevivir al acampar, debes llevarla contigo para recibir el bonus.</target>
       </segment>
     </unit>
     <unit id="GSxglCR">
@@ -6916,7 +6916,7 @@
       </notes>
       <segment>
         <source>&lt;t-bp_ok&gt;Du liest den {item} und stellst fest, dass es sich um einen Plan für {bp_spawn} handelt.&lt;/t-bp_ok&gt;&lt;t-bp_parent&gt;{hr}Dafür ist das Bauprojekt {bp_parent} nötig.&lt;/t-bp_parent&gt;&lt;t-bp_fail&gt;Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...&lt;/t-bp_fail&gt;</source>
-        <target><![CDATA[<t-bp_ok>¡Examinando el plano, te das cuenta de que describe detalladamente la construcción de {bp_spawn}! Colocas esa información en el panel de las construcciones.</t-bp_ok><t-bp_parent>{hr}Ese proyecto requiere primeramente la construcción : {bp_parent}.</t-bp_parent><t-bp_fail><strong>¡Tu pueblo ya ha liberado todas las construcciones de esta categoría!</strong> Por lo tanto este {item} es inútil y decides tirarlo.</t-bp_fail>]]></target>
+        <target><![CDATA[<t-bp_ok>¡Examinando el plano, te das cuenta de que describe detalladamente la construcción de {bp_spawn}! Colocas esa información en el panel de las construcciones.</t-bp_ok><t-bp_parent>{hr}Ese proyecto requiere primeramente la construcción: {bp_parent}.</t-bp_parent><t-bp_fail><strong>¡Tu pueblo ya ha liberado todas las construcciones de esta categoría!</strong> Por lo tanto este {item} es inútil y decides tirarlo.</t-bp_fail>]]></target>
       </segment>
     </unit>
     <unit id="V2fAVB5" name="Aufbauen">
@@ -8067,12 +8067,12 @@
     </unit>
     <unit id="Mmr6mlb">
       <notes>
-        <note category="german">&lt;nt-fail&gt;Du hast einen Sandball in {citizen}s Gesicht geworfen.&lt;/nt-fail&gt;&lt;t-fail&gt;Hier ist niemand, auf den du den Sandball werfen könntest...&lt;/t-fail&gt;</note>
+        <note category="german">&lt;nt-fail&gt;Du hast einen Sandball in {citizen}s Gesicht geworfen.&lt;/nt-fail&gt;&lt;t-fail&gt;Hier ist niemand, auf den du den Sandball werfen könntest... (hier ist niemand, oder du hast in den letzten 30 Minuten schon einmal jeden getroffen)...&lt;/t-fail&gt;</note>
         <note category="from">db://ItemAction</note>
       </notes>
       <segment>
         <source>&lt;nt-fail&gt;Du hast einen Sandball in {citizen}s Gesicht geworfen.&lt;/nt-fail&gt;&lt;t-fail&gt;Hier ist niemand, auf den du den Sandball werfen könntest...&lt;/t-fail&gt;</source>
-        <target><![CDATA[<nt-fail>Lanzaste una Bola de arena a la cara de {citizen}.</nt-fail><t-fail>No hay nadie aquí a quien tirarle la Bola de arena.</t-fail>]]></target>
+        <target><![CDATA[<nt-fail>Lanzaste una Bola de arena a la cara de {citizen}.</nt-fail><t-fail>No hay nadie aquí a quien tirarle la Bola de arena. (no hay nadie aquí, o ya les pegaste a todos hace 30 minutos o menos)...</t-fail>]]></target>
       </segment>
     </unit>
     <unit id="DJF1Mzv">
@@ -8225,14 +8225,14 @@
         <target><![CDATA[¡Con tu fuerza de Héroe y tus puños, hiciste pedazos a <strong>{kills} Zombie(s)</strong>!]]></target>
       </segment>
     </unit>
-    <unit id="Pd1i68n">
+    <unit id="BEKb9Uc">
       <notes>
-        <note category="german">Du atmest tief durch und drückst den Rücken durch. Auf geht's! Ich werde nicht hier sterben!{hr}Du hast soeben Kraft getankt und &lt;strong&gt;6 neue AP erhalten&lt;/strong&gt;.</note>
+        <note category="german">Du atmest tief durch und drückst den Rücken durch. Auf geht's! Ich werde nicht hier sterben!{hr}Du hast soeben Kraft getankt und &lt;strong&gt;{ap} neue AP erhalten&lt;/strong&gt;.</note>
         <note category="from">db://AffectMessage</note>
       </notes>
       <segment>
-        <source>Du atmest tief durch und drückst den Rücken durch. Auf geht's! Ich werde nicht hier sterben!{hr}Du hast soeben Kraft getankt und &lt;strong&gt;6 neue AP erhalten&lt;/strong&gt;.</source>
-        <target><![CDATA[Toma algo de aire y date unas palmadas en la cara. ¡No es momento para darte por vencido!{hr}Has <strong>regenerado tus 6 PA</strong>.]]></target>
+        <source>Du atmest tief durch und drückst den Rücken durch. Auf geht's! Ich werde nicht hier sterben!{hr}Du hast soeben Kraft getankt und &lt;strong&gt;{ap} neue AP erhalten&lt;/strong&gt;.</source>
+        <target><![CDATA[Toma algo de aire y date unas palmadas en la cara. ¡No es momento para darte por vencido!{hr}Has <strong>regenerado tus {ap} PA</strong>.]]></target>
       </segment>
     </unit>
     <unit id="wMM0fB9">
@@ -8862,7 +8862,7 @@
       </notes>
       <segment>
         <source>Du schluckst das {item}... Nur ein paar Sekunden später ergreift dich die Panik... Kalte Schweißausbrüche, Paranoia... Du rollst dich zu einem Ball zusammen, außer Atem, und wartest darauf, dass die Wirkung nachlässt... aber das passiert nicht.&lt;hr /&gt;Du bist &lt;strong&gt;vor Angst erstarrt&lt;/strong&gt;.</source>
-        <target><![CDATA[Te tragas el {item}... Solo unos segundos después entras en pánico... Sudores fríos, paranoia... Te acurrucas en una esquina, te quedas sin aliento y esperas a que los efectos desaparezcan... pero eso no sucede.<hr/> Estás <strong>congelado de miedo</strong>.]]></target>
+        <target><![CDATA[Te tragas el {item}... Solo unos segundos después entras en pánico... Sudores fríos, paranoia... Te acurrucas en una esquina, te quedas sin aliento y esperas a que los efectos desaparezcan... pero eso no sucede.<hr/> Estás <strong>Aterrorizado</strong>.]]></target>
       </segment>
     </unit>
     <unit id="3B3bDO.">
@@ -8872,7 +8872,7 @@
       </notes>
       <segment>
         <source>Sofort bereust du, dieses {item} heruntergeschluckt zu haben... Das Produkt entpuppt sich als ein starkes Steroid für Tiere (die Art, die üblicherweise Pferden verabreicht wird). Deine APs wurden wiederhergestellt, aber du bist ab sofort &lt;strong&gt;drogenabhängig&lt;/strong&gt;!</source>
-        <target><![CDATA[Inmediatamente te arrepientes de haber tragado este {item}... El producto resulta ser un esteroide poderoso para animales (el tipo que comúnmente se administra a los caballos). Se han restaurado tus puntos de acceso, ¡pero ahora eres <strong>adicto</strong>!]]></target>
+        <target><![CDATA[Te arrepientes inmediatamente de haber tragado este {item}... El producto resulta ser un poderoso esteroide para animales (del tipo que comúnmente se administra a los caballos). Se han restaurado tus Puntos de Acción, ¡pero ahora eres un <strong>adicto</strong>!]]></target>
       </segment>
     </unit>
     <unit id="hh6kdGK">
@@ -8882,7 +8882,7 @@
       </notes>
       <segment>
         <source>Du schluckst die {item} hinunter. Nach einigen Minuten beginnt dein Kopf zu pochen und deine Nase beginnt zu bluten. Der Schmerz ist nicht unerträglich, aber er ist ziemlich unangenehm...</source>
-        <target>Tragas {item}. Después devarios minutos, Sientes un dolor latente en elcráneo y tu nariz se pone a sangrar. Nada importante, pero positivo tampoco...</target>
+        <target>Tragas {item}. Después de varios minutos, Sientes un dolor latente en el cráneo y tu nariz se pone a sangrar. Nada importante, pero positivo tampoco...</target>
       </segment>
     </unit>
     <unit id="poSLxEf">
@@ -8902,7 +8902,7 @@
       </notes>
       <segment>
         <source>Du hast {target} mit {item} kombiniert und {target} erzeugt.{hr}Achtung: Du hast {target} vergiftet. Es ist &lt;strong&gt;nahezu unmöglich, es vom Original zu unterscheiden&lt;/strong&gt;, sei also vorsichtig... Es liegt ganz an dir, was du damit jetzt tun möchtest.</source>
-        <target><![CDATA[Combinó {target} con {item} y creó {target}. {Hr} Advertencia: envenenó {target}. Es <strong>casi imposible diferenciarlo del original</strong>, así que tenga cuidado... depende de usted lo que quiera hacer con él ahora.]]></target>
+        <target><![CDATA[Combinaste {target} con {item} y creaste {target}. {Hr} Atención, ¡has envenenado {target}! Y es <strong>casi imposible distinguir este objeto del original</strong>, debes ser prudente... Aunque tienes la libertad de hacer lo que te parezca "justo".]]></target>
       </segment>
     </unit>
     <unit id="i.fN8wb" name="Zeuge der großen Verseuchung">
@@ -9363,7 +9363,89 @@
       </notes>
       <segment>
         <source>Erhalten:</source>
-        <target>Obtener :</target>
+        <target>Obtener:</target>
+      </segment>
+    </unit>
+    <unit id="yUEkyOu" name="Dir fällt kein Grund ein, dies zu tun...">
+      <notes>
+        <note category="german">Dir fällt kein Grund ein, dies zu tun...</note>
+        <note category="from">db://Requirement</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Dir fällt kein Grund ein, dies zu tun...</source>
+        <target>Dir fällt kein Grund ein, dies zu tun...</target>
+      </segment>
+    </unit>
+    <unit id="4Exhdnj" name="Dies kannst du erst ab &lt;strong&gt;Tag 2&lt;/strong&gt; tun.">
+      <notes>
+        <note category="german">Dies kannst du erst ab &lt;strong&gt;Tag 2&lt;/strong&gt; tun.</note>
+        <note category="from">db://Requirement</note>
+      </notes>
+      <segment>
+        <source>Dies kannst du erst ab &lt;strong&gt;Tag 2&lt;/strong&gt; tun.</source>
+        <target><![CDATA[Es demasiado pronto para morir de esa forma. Debes esperar al menos hasta el <strong>Día 2</strong> para intentarlo.]]></target>
+      </segment>
+    </unit>
+    <unit id="u9sIc_x">
+      <notes>
+        <note category="german">Wenn du den Plan studieren willst, musst du in die relative Ruhe der Stadt zurückkehren.</note>
+        <note category="from">db://Requirement</note>
+      </notes>
+      <segment>
+        <source>Wenn du den Plan studieren willst, musst du in die relative Ruhe der Stadt zurückkehren.</source>
+        <target>Debes encontrarte cómodo, en el pueblo, para estudiar ese plano.</target>
+      </segment>
+    </unit>
+    <unit id="E62nAap" name="Du musst mindestens 3 Kilometer von der Stadt entfernt sein, um das zu tun.">
+      <notes>
+        <note category="german">Du musst mindestens 3 Kilometer von der Stadt entfernt sein, um das zu tun.</note>
+        <note category="from">db://Requirement</note>
+      </notes>
+      <segment>
+        <source>Du musst mindestens 3 Kilometer von der Stadt entfernt sein, um das zu tun.</source>
+        <target>Para hacer esto debes estar a más de 3 kilómetros del pueblo.</target>
+      </segment>
+    </unit>
+    <unit id="EPH5jLS" name="Hierfür hast du keinen Platz.">
+      <notes>
+        <note category="german">Hierfür hast du keinen Platz.</note>
+        <note category="from">db://Requirement</note>
+      </notes>
+      <segment>
+        <source>Hierfür hast du keinen Platz.</source>
+        <target>No tienes espacio para guardar el objeto.</target>
+      </segment>
+    </unit>
+    <unit id="gObW_J5">
+      <notes>
+        <note category="german">Du kannst dieses Serum nicht auf dich selbst anwenden, oder du wirst der beste Freund eines Ghuls...</note>
+        <note category="from">db://Requirement</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Du kannst dieses Serum nicht auf dich selbst anwenden, oder du wirst der beste Freund eines Ghuls...</source>
+        <target>Du kannst dieses Serum nicht auf dich selbst anwenden, oder du wirst der beste Freund eines Ghuls...</target>
+      </segment>
+    </unit>
+    <unit id="j.Nx9To" name="Eintrittskarte">
+      <notes>
+        <note category="german">Eintrittskarte</note>
+        <note category="from">db://FeatureUnlockPrototype</note>
+      </notes>
+      <segment>
+        <source>Eintrittskarte</source>
+        <target>Boleto de admisión</target>
+      </segment>
+    </unit>
+    <unit id=".LeRrBD">
+      <notes>
+        <note category="german">Hiermit kannst du Städten beitreten, obwohl du die Mindestanzahl an Seelenpunkten noch nicht erreicht hast.</note>
+        <note category="from">db://FeatureUnlockPrototype</note>
+      </notes>
+      <segment>
+        <source>Hiermit kannst du Städten beitreten, obwohl du die Mindestanzahl an Seelenpunkten noch nicht erreicht hast.</source>
+        <target>Esto te permite unirte a ciudades aunque no hayas alcanzado el número mínimo de puntos de alma.</target>
       </segment>
     </unit>
   </file>

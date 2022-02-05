@@ -2,6 +2,7 @@
   "compilerOptions": {
     "sourceMap": true,
     "downlevelIteration": true,
-    "lib": ["dom", "ScriptHost","es2018","es2020.string"]
+    "lib": ["dom", "ScriptHost","es2018","es2020.string"],
+    "jsx": "react"
   }
 }

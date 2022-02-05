@@ -44,6 +44,7 @@ use App\Entity\RequireConf;
 use App\Entity\RequireCounter;
 use App\Entity\RequireCP;
 use App\Entity\RequireDay;
+use App\Entity\RequireEvent;
 use App\Entity\RequireHome;
 use App\Entity\RequireItem;
 use App\Entity\RequireLocation;
@@ -93,7 +94,10 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'not_profession_tech'    => [ 'type' => Requirement::HideOnFail,  'collection' => [ 'status' => [ 'profession' => 'tech', 'enabled' => false ] ]],
             'role_shaman'            => [ 'type' => Requirement::HideOnFail,  'collection' => [ 'status' => [ 'role' => 'shaman', 'enabled' => true ] ]],
             'role_ghoul'             => [ 'type' => Requirement::HideOnFail,  'collection' => [ 'status' => [ 'role' => 'ghoul', 'enabled' => true ] ]],
+            'role_ghoul_serum'       => [ 'type' => Requirement::MessageOnFail,  'collection' => [ 'status' => [ 'role' => 'ghoul', 'enabled' => true ] ], 'text' => 'Du kannst dieses Serum nicht auf dich selbst anwenden, oder du wirst der beste Freund eines Ghuls...'],
             'not_role_ghoul'         => [ 'type' => Requirement::HideOnFail,  'collection' => [ 'status' => [ 'role' => 'ghoul', 'enabled' => false ] ]],
+
+            'during_christmas'       => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'event' => ['name' => 'christmas' ] ], 'text_key' => 'not_in_event'],
 
             'no_bonus_ap'    => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'ap' => [ 'min' => 0, 'max' => 0,  'relative' => true ] ], 'text_key' => 'already_full_ap'],
             'no_full_ap'     => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'ap' => [ 'min' => 0, 'max' => -1, 'relative' => true ] ], 'text_key' => 'already_full_ap'],
@@ -140,6 +144,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'not_drunk'    => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'drunk' ] ]],
             'not_hungover' => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'hungover' ] ]],
 
+            'room_for_item' =>  [ 'type' => Requirement::MessageOnFail, 'collection' => ['custom' => [69] ], 'text' => 'Hierfür hast du keinen Platz.'],
+
             'have_can_opener'            => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'item' => [ 'item' => null, 'prop' => 'can_opener' ] ], 'text' => 'Du hast nichts, mit dem du dieses Ding aufbekommen könntest..' ],
             'have_box_opener'            => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'item' => [ 'item' => null, 'prop' => 'box_opener' ] ], 'text' => 'Du hast nichts, mit dem du dieses Ding aufbekommen könntest..' ],
             'have_parcel_opener'         => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'item' => [ 'item' => null, 'prop' => 'parcel_opener' ] ],      'text' => 'Du hast nichts, mit dem du dieses Ding aufbekommen könntest..' ],
@@ -179,9 +185,10 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'must_be_outside_or_exploring' => [ 'type' => Requirement::HideOnFail,    'collection' => [ 'location' => [ RequireLocation::LocationOutsideOrExploring ] ]],
             'must_be_exploring'            => [ 'type' => Requirement::HideOnFail,    'collection' => [ 'location' => [ RequireLocation::LocationExploring ] ]],
             'must_be_inside'               => [ 'type' => Requirement::HideOnFail,    'collection' => [ 'location' => [ RequireLocation::LocationInTown  ] ]],
+            'must_be_inside_bp'            => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'location' => [ RequireLocation::LocationInTown  ] ], 'text' => 'Wenn du den Plan studieren willst, musst du in die relative Ruhe der Stadt zurückkehren.'],
             'must_be_at_buried_ruin'       => [ 'type' => Requirement::CrossOnFail,   'collection' => [ 'location' => [ RequireLocation::LocationOutsideBuried ] ]],
             'must_be_outside_not_at_doors' => [ 'type' => Requirement::HideOnFail,    'collection' => [ 'location' => [ 'min' => 1 ] ] ],
-            'must_be_outside_3km'          => [ 'type' => Requirement::HideOnFail,    'collection' => [ 'location' => [ 'min' => 3 ] ] ],
+            'must_be_outside_3km'          => [ 'type' => Requirement::CrossOnFail,   'collection' => [ 'location' => [ 'min' => 3 ] ],  'text' => 'Du musst mindestens 3 Kilometer von der Stadt entfernt sein, um das zu tun.'],
             'must_be_outside_within_11km'  => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'location' => [ 'max' => 11 ] ], 'text' => 'Hierfür bist du zu weit von der Stadt entfernt ...'],
 
             'must_have_zombies'   => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'zombies' => [ 'min' => 1, 'block' => null  ] ], 'text' => 'Zum Glück sind hier keine Zombies...'],
@@ -240,7 +247,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'must_not_be_tombed' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_tomb' ] ] ],
             'must_be_hidden' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'status' => [ 'enabled' => true, 'status' => 'tg_hide' ] ] ],
             'must_be_tombed' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'status' => [ 'enabled' => true, 'status' => 'tg_tomb' ] ] ],
-            'not_before_day_2' => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'day' => [ 'min' => 2, 'max' => 99 ] ] ],
+            'not_before_day_2' => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'day' => [ 'min' => 2, 'max' => 99 ] ], 'text' => 'Dies kannst du erst ab <strong>Tag 2</strong> tun.' ],
 
             'must_be_day' => [ 'collection' =>    [ 'custom' => [1] ] ],
             'must_be_night'  => [ 'collection' => [ 'custom' => [2] ] ],
@@ -455,8 +462,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 'xmas_1'  => [ 'rp_letter_#00' ],
                 'matbox'  => [ 'wood2_#00', 'metal_#00' ],
 
-                'metalbox'  => [ 'drug_#00', 'bandage_#00', /*'vodka_de_#00',*/ 'vodka_#00', ['explo_#00', 2], 'lights_#00', 'drug_hero_#00', 'rhum_#00' ],
-                'metalbox2' => [ ['watergun_opt_part_#00',2], ['pilegun_upkit_#00',2], ['pocket_belt_#00',2], ['cutcut_#00',2], ['chainsaw_part_#00',2], ['mixergun_part_#00',2], 'big_pgun_part_#00', ['lawn_part_#00',2] ],
+                'metalbox'  => [ 'what' => ['drug_#00', 'bandage_#00', /*'vodka_de_#00',*/ 'vodka_#00', ['explo_#00', 2], 'lights_#00', 'drug_hero_#00', 'rhum_#00'], 'where' => AffectItemSpawn::DropTargetRucksack ],
+                'metalbox2' => [ 'what' => [['watergun_opt_part_#00',2], ['pilegun_upkit_#00',2], ['pocket_belt_#00',2], ['cutcut_#00',2], ['chainsaw_part_#00',2], ['mixergun_part_#00',2], 'big_pgun_part_#00', ['lawn_part_#00',2]], 'where' => AffectItemSpawn::DropTargetRucksack],
                 'catbox'    => [ 'poison_part_#00', 'pet_cat_#00', 'angryc_#00' ],
                 'toolbox'   => [ 'pile_#00', ['meca_parts_#00', 2], 'rustine_#00', 'tube_#00', 'pharma_#00', ['explo_#00', 2], 'lights_#00' ],
                 'foodbox'   => [ 'food_bag_#00', 'can_#00', 'meat_#00', 'hmeat_#00', ['vegetable_#00', 2] ],
@@ -466,7 +473,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 'proj'   => [ 'lens_#00' ],
                 'empty_battery' => [ 'what' => ['pile_broken_#00'], 'where' => AffectItemSpawn::DropTargetFloor ],
                 'battery' => [ 'what' => ['pile_#00'], 'where' => AffectItemSpawn::DropTargetFloor ],
-                'safe'  => [ ['watergun_opt_part_#00',10], ['big_pgun_part_#00',5], ['lawn_part_#00',10], ['chainsaw_part_#00',10], ['mixergun_part_#00',10], ['cutcut_#00',10], ['pilegun_upkit_#00',10], ['book_gen_letter_#00',5], ['pocket_belt_#00',15], ['meca_parts_#00',10] ],
+                'safe'  => [ 'what' => [['watergun_opt_part_#00',10], ['big_pgun_part_#00',5], ['lawn_part_#00',10], ['chainsaw_part_#00',10], ['mixergun_part_#00',10], ['cutcut_#00',10], ['pilegun_upkit_#00',10], ['book_gen_letter_#00',5], ['pocket_belt_#00',15], ['meca_parts_#00',10]], 'where' => AffectItemSpawn::DropTargetRucksack ],
                 'asafe' => [ 'bplan_e_#00' ],
 
                 'lab_fail_drugs'    => [ 'what' => ['drug_#00', 'xanax_#00', 'drug_random_#00', 'drug_water_#00', 'water_cleaner_#00'], "where" => AffectItemSpawn::DropTargetFloor  ],
@@ -537,11 +544,11 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
         ],
 
         'actions' => [
-            'water_tl0'  => [ 'label' => 'Trinken', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'not_role_ghoul', 'no_full_ap', 'drink_cross', 'drink_tl0a', 'drink_tl0b' ], 'result' => ['contaminated_zone_infect', 'reset_thirst_counter', 'drink_ap_1',                'consume_item' ], 'escort_message_key' => 'escort_water_drink' ],
-            'water_tl1a' => [ 'label' => 'Trinken', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'not_role_ghoul',               'drink_hide',  'drink_tl1'                ], 'result' => ['contaminated_zone_infect', 'reset_thirst_counter', 'drink_ap_1', 'drink_ap_2',  'consume_item' ], 'escort_message_key' => 'escort_water_drink' ],
-            'water_tl1b' => [ 'label' => 'Trinken', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'not_role_ghoul',               'drink_rhide', 'drink_tl1'                ], 'result' => ['contaminated_zone_infect', 'reset_thirst_counter',               'drink_ap_2',  'consume_item' ], 'escort_message_key' => 'escort_water_drink' ],
-            'water_tl2'  => [ 'label' => 'Trinken', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'not_role_ghoul',                              'drink_tl2'                ], 'result' => ['contaminated_zone_infect', 'reset_thirst_counter',               'drink_no_ap', 'consume_item' ], 'escort_message_key' => 'escort_water_drink_dehydration', 'message_key' => 'water_drink_dehydration' ],
-            'water_g'    => [ 'label' => 'Trinken', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'role_ghoul', 'is_not_wounded', 'drink_cross' ], 'result' => [ 'inflict_wound', 'consume_item' ], 'message_key' => 'water_drink_ghoul' ],
+            'water_tl0'  => [ 'label' => 'Trinken', 'priority' => 1, 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'not_role_ghoul', 'no_full_ap', 'drink_cross', 'drink_tl0a', 'drink_tl0b' ], 'result' => ['contaminated_zone_infect', 'reset_thirst_counter', 'drink_ap_1',                'consume_item' ], 'escort_message_key' => 'escort_water_drink' ],
+            'water_tl1a' => [ 'label' => 'Trinken', 'priority' => 1, 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'not_role_ghoul',               'drink_hide',  'drink_tl1'                ], 'result' => ['contaminated_zone_infect', 'reset_thirst_counter', 'drink_ap_1', 'drink_ap_2',  'consume_item' ], 'escort_message_key' => 'escort_water_drink' ],
+            'water_tl1b' => [ 'label' => 'Trinken', 'priority' => 1, 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'not_role_ghoul',               'drink_rhide', 'drink_tl1'                ], 'result' => ['contaminated_zone_infect', 'reset_thirst_counter',               'drink_ap_2',  'consume_item' ], 'escort_message_key' => 'escort_water_drink' ],
+            'water_tl2'  => [ 'label' => 'Trinken', 'priority' => 1, 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'not_role_ghoul',                              'drink_tl2'                ], 'result' => ['contaminated_zone_infect', 'reset_thirst_counter',               'drink_no_ap', 'consume_item' ], 'escort_message_key' => 'escort_water_drink_dehydration', 'message_key' => 'water_drink_dehydration' ],
+            'water_g'    => [ 'label' => 'Trinken', 'priority' => 1, 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'role_ghoul', 'is_not_wounded', 'drink_cross' ], 'result' => [ 'inflict_wound', 'consume_item' ], 'message_key' => 'water_drink_ghoul' ],
 
             'potion_tl0a'        => [ 'label' => 'Trinken', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'not_role_ghoul', 'not_yet_immune',               'drink_hide',  'drink_tl0a', 'drink_tl0b'  ], 'result' => [ 'contaminated_zone_infect', 'reset_thirst_counter', 'drink_ap_1',                'consume_item', ['group' => 'g_immune_90'], ], 'message' => 'Du hast soeben den mystischen Trank getrunken. Hoffen wir, dass dieser Schamane weiß, was er tut...', 'escort_message' => 'Der Bürger hat den mystischen Trank in einem Zug ausgetrunken. Hoffen wir, dass dieser Schamane weiß, was er tut...' ],
             'potion_tl0b'        => [ 'label' => 'Trinken', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'not_role_ghoul', 'not_yet_immune',               'drink_rhide', 'drink_tl0a', 'drink_tl0b'  ], 'result' => [ 'contaminated_zone_infect', 'reset_thirst_counter',                              'consume_item', ['group' => 'g_immune_90'], ], 'message' => 'Du hast soeben den mystischen Trank getrunken. Hoffen wir, dass dieser Schamane weiß, was er tut...', 'escort_message' => 'Der Bürger hat den mystischen Trank in einem Zug ausgetrunken. Hoffen wir, dass dieser Schamane weiß, was er tut...' ],
@@ -557,23 +564,23 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'potion_tl2_immune'  => [ 'label' => 'Trinken', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'not_role_ghoul', 'immune',                                      'drink_tl2'                ], 'result' => [ 'contaminated_zone_infect', 'reset_thirst_counter',               'drink_no_ap', 'consume_item', ['group' => 'g_immune_90'], ], 'message' => 'Tja, Vertrauen ist gut, Kontrolle ist besser... Ja, du wurdest bereits geschützt!', 'escort_message' => 'Der Bürger hat den mystischen Trank in einem Zug ausgetrunken. Hoffen wir, dass dieser Schamane weiß, was er tut...' ],
             'potion_g_immune'    => [ 'label' => 'Trinken', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'role_ghoul', 'immune', 'drink_cross' ], 'result' => [ 'inflict_wound', 'consume_item', ['group' => 'g_immune_90'], ], 'message' => 'Tja, Vertrauen ist gut, Kontrolle ist besser... Ja, du wurdest bereits geschützt!' ],
 
-            'watercan3_tl0'  => [ 'label' => 'Trinken', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'not_role_ghoul', 'no_full_ap', 'drink_cross', 'drink_tl0a', 'drink_tl0b' ], 'result' => [ 'contaminated_zone_infect', 'reset_thirst_counter', 'drink_ap_1',                'produce_watercan2' ], 'escort_message_key' => 'escort_water_drink' ],
-            'watercan3_tl1a' => [ 'label' => 'Trinken', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'not_role_ghoul',               'drink_hide',  'drink_tl1'                ], 'result' => [ 'contaminated_zone_infect', 'reset_thirst_counter', 'drink_ap_1', 'drink_ap_2',  'produce_watercan2' ], 'escort_message_key' => 'escort_water_drink' ],
-            'watercan3_tl1b' => [ 'label' => 'Trinken', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'not_role_ghoul',               'drink_rhide', 'drink_tl1'                ], 'result' => [ 'contaminated_zone_infect', 'reset_thirst_counter',               'drink_ap_2',  'produce_watercan2' ], 'escort_message_key' => 'escort_water_drink' ],
-            'watercan3_tl2'  => [ 'label' => 'Trinken', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'not_role_ghoul',                              'drink_tl2'                ], 'result' => [ 'contaminated_zone_infect', 'reset_thirst_counter',               'drink_no_ap', 'produce_watercan2' ], 'escort_message_key' => 'escort_water_drink_dehydration', 'message_key' => 'water_drink_dehydration' ],
-            'watercan3_g'    => [ 'label' => 'Trinken', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'role_ghoul', 'is_not_wounded', 'drink_cross' ], 'result' => [ 'inflict_wound', 'produce_watercan2' ], 'message_key' => 'water_drink_ghoul' ],
+            'watercan3_tl0'  => [ 'label' => 'Trinken', 'priority' => 4, 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'not_role_ghoul', 'no_full_ap', 'drink_cross', 'drink_tl0a', 'drink_tl0b' ], 'result' => [ 'contaminated_zone_infect', 'reset_thirst_counter', 'drink_ap_1',                'produce_watercan2' ], 'escort_message_key' => 'escort_water_drink' ],
+            'watercan3_tl1a' => [ 'label' => 'Trinken', 'priority' => 4, 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'not_role_ghoul',               'drink_hide',  'drink_tl1'                ], 'result' => [ 'contaminated_zone_infect', 'reset_thirst_counter', 'drink_ap_1', 'drink_ap_2',  'produce_watercan2' ], 'escort_message_key' => 'escort_water_drink' ],
+            'watercan3_tl1b' => [ 'label' => 'Trinken', 'priority' => 4, 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'not_role_ghoul',               'drink_rhide', 'drink_tl1'                ], 'result' => [ 'contaminated_zone_infect', 'reset_thirst_counter',               'drink_ap_2',  'produce_watercan2' ], 'escort_message_key' => 'escort_water_drink' ],
+            'watercan3_tl2'  => [ 'label' => 'Trinken', 'priority' => 4, 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'not_role_ghoul',                              'drink_tl2'                ], 'result' => [ 'contaminated_zone_infect', 'reset_thirst_counter',               'drink_no_ap', 'produce_watercan2' ], 'escort_message_key' => 'escort_water_drink_dehydration', 'message_key' => 'water_drink_dehydration' ],
+            'watercan3_g'    => [ 'label' => 'Trinken', 'priority' => 4, 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'role_ghoul', 'is_not_wounded', 'drink_cross' ], 'result' => [ 'inflict_wound', 'produce_watercan2' ], 'message_key' => 'water_drink_ghoul' ],
 
-            'watercan2_tl0'  => [ 'label' => 'Trinken', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'not_role_ghoul', 'no_full_ap', 'drink_cross', 'drink_tl0a', 'drink_tl0b' ], 'result' => [ 'contaminated_zone_infect', 'reset_thirst_counter', 'drink_ap_1',                'produce_watercan1' ], 'escort_message_key' => 'escort_water_drink' ],
-            'watercan2_tl1a' => [ 'label' => 'Trinken', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'not_role_ghoul',               'drink_hide',  'drink_tl1'                ], 'result' => [ 'contaminated_zone_infect', 'reset_thirst_counter', 'drink_ap_1', 'drink_ap_2',  'produce_watercan1' ], 'escort_message_key' => 'escort_water_drink' ],
-            'watercan2_tl1b' => [ 'label' => 'Trinken', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'not_role_ghoul',               'drink_rhide', 'drink_tl1'                ], 'result' => [ 'contaminated_zone_infect', 'reset_thirst_counter',               'drink_ap_2',  'produce_watercan1' ], 'escort_message_key' => 'escort_water_drink' ],
-            'watercan2_tl2'  => [ 'label' => 'Trinken', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'not_role_ghoul',                              'drink_tl2'                ], 'result' => [ 'contaminated_zone_infect', 'reset_thirst_counter',               'drink_no_ap', 'produce_watercan1' ], 'escort_message_key' => 'escort_water_drink_dehydration', 'message_key' => 'water_drink_dehydration' ],
-            'watercan2_g'    => [ 'label' => 'Trinken', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'role_ghoul', 'is_not_wounded', 'drink_cross' ], 'result' => [ 'inflict_wound', 'produce_watercan1' ], 'message_key' => 'water_drink_ghoul' ],
+            'watercan2_tl0'  => [ 'label' => 'Trinken', 'priority' => 3, 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'not_role_ghoul', 'no_full_ap', 'drink_cross', 'drink_tl0a', 'drink_tl0b' ], 'result' => [ 'contaminated_zone_infect', 'reset_thirst_counter', 'drink_ap_1',                'produce_watercan1' ], 'escort_message_key' => 'escort_water_drink' ],
+            'watercan2_tl1a' => [ 'label' => 'Trinken', 'priority' => 3, 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'not_role_ghoul',               'drink_hide',  'drink_tl1'                ], 'result' => [ 'contaminated_zone_infect', 'reset_thirst_counter', 'drink_ap_1', 'drink_ap_2',  'produce_watercan1' ], 'escort_message_key' => 'escort_water_drink' ],
+            'watercan2_tl1b' => [ 'label' => 'Trinken', 'priority' => 3, 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'not_role_ghoul',               'drink_rhide', 'drink_tl1'                ], 'result' => [ 'contaminated_zone_infect', 'reset_thirst_counter',               'drink_ap_2',  'produce_watercan1' ], 'escort_message_key' => 'escort_water_drink' ],
+            'watercan2_tl2'  => [ 'label' => 'Trinken', 'priority' => 3, 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'not_role_ghoul',                              'drink_tl2'                ], 'result' => [ 'contaminated_zone_infect', 'reset_thirst_counter',               'drink_no_ap', 'produce_watercan1' ], 'escort_message_key' => 'escort_water_drink_dehydration', 'message_key' => 'water_drink_dehydration' ],
+            'watercan2_g'    => [ 'label' => 'Trinken', 'priority' => 3, 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'role_ghoul', 'is_not_wounded', 'drink_cross' ], 'result' => [ 'inflict_wound', 'produce_watercan1' ], 'message_key' => 'water_drink_ghoul' ],
 
-            'watercan1_tl0'  => [ 'label' => 'Trinken', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'not_role_ghoul', 'no_full_ap', 'drink_cross', 'drink_tl0a', 'drink_tl0b' ], 'result' => [ 'contaminated_zone_infect', 'reset_thirst_counter', 'drink_ap_1',                'produce_watercan0' ], 'escort_message_key' => 'escort_water_drink' ],
-            'watercan1_tl1a' => [ 'label' => 'Trinken', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'not_role_ghoul',               'drink_hide',  'drink_tl1'                ], 'result' => [ 'contaminated_zone_infect', 'reset_thirst_counter', 'drink_ap_1', 'drink_ap_2',  'produce_watercan0' ], 'escort_message_key' => 'escort_water_drink' ],
-            'watercan1_tl1b' => [ 'label' => 'Trinken', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'not_role_ghoul',               'drink_rhide', 'drink_tl1'                ], 'result' => [ 'contaminated_zone_infect', 'reset_thirst_counter',               'drink_ap_2',  'produce_watercan0' ], 'escort_message_key' => 'escort_water_drink' ],
-            'watercan1_tl2'  => [ 'label' => 'Trinken', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'not_role_ghoul',                              'drink_tl2'                ], 'result' => [ 'contaminated_zone_infect', 'reset_thirst_counter',               'drink_no_ap', 'produce_watercan0' ], 'escort_message_key' => 'escort_water_drink_dehydration', 'message_key' => 'water_drink_dehydration' ],
-            'watercan1_g'    => [ 'label' => 'Trinken', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'role_ghoul', 'is_not_wounded', 'drink_cross' ], 'result' => [ 'inflict_wound', 'produce_watercan0' ], 'message_key' => 'water_drink_ghoul' ],
+            'watercan1_tl0'  => [ 'label' => 'Trinken', 'priority' => 2, 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'not_role_ghoul', 'no_full_ap', 'drink_cross', 'drink_tl0a', 'drink_tl0b' ], 'result' => [ 'contaminated_zone_infect', 'reset_thirst_counter', 'drink_ap_1',                'produce_watercan0' ], 'escort_message_key' => 'escort_water_drink' ],
+            'watercan1_tl1a' => [ 'label' => 'Trinken', 'priority' => 2, 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'not_role_ghoul',               'drink_hide',  'drink_tl1'                ], 'result' => [ 'contaminated_zone_infect', 'reset_thirst_counter', 'drink_ap_1', 'drink_ap_2',  'produce_watercan0' ], 'escort_message_key' => 'escort_water_drink' ],
+            'watercan1_tl1b' => [ 'label' => 'Trinken', 'priority' => 2, 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'not_role_ghoul',               'drink_rhide', 'drink_tl1'                ], 'result' => [ 'contaminated_zone_infect', 'reset_thirst_counter',               'drink_ap_2',  'produce_watercan0' ], 'escort_message_key' => 'escort_water_drink' ],
+            'watercan1_tl2'  => [ 'label' => 'Trinken', 'priority' => 2, 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'not_role_ghoul',                              'drink_tl2'                ], 'result' => [ 'contaminated_zone_infect', 'reset_thirst_counter',               'drink_no_ap', 'produce_watercan0' ], 'escort_message_key' => 'escort_water_drink_dehydration', 'message_key' => 'water_drink_dehydration' ],
+            'watercan1_g'    => [ 'label' => 'Trinken', 'priority' => 2, 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'role_ghoul', 'is_not_wounded', 'drink_cross' ], 'result' => [ 'inflict_wound', 'produce_watercan0' ], 'message_key' => 'water_drink_ghoul' ],
 
             'water_no_effect' => [ 'label' => 'Trinken', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ ], 'result' => [ 'contaminated_zone_infect', 'consume_item' ], 'message' => 'Du hast {item} getrunken, aber scheinbar geschieht nichts...'  ],
 
@@ -591,7 +598,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'can_t2'    => [ 'label' => 'Öffnen (1 BP)', 'at00' => true, 'meta' => [ 'profession_tech', 'not_have_can_opener_hd', 'min_1_cp' ], 'result' => [ 'minus_1cp', [ 'item' => [ 'consume' => false, 'morph' => 'can_open_#00' ] ] ], 'message_key' => 'container_open' ],
 
             'eat_6ap'   => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'no_full_ap' ], 'result' => [ 'contaminated_zone_infect', 'eat_ap6', 'consume_item' ], 'escort_message_key' => 'escort_food_eat' ],
-            'eat_7ap'   => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'no_full_ap' ], 'result' => [ 'contaminated_zone_infect', 'eat_ap7', 'consume_item' ], 'escort_message_key' => 'escort_food_eat' ],
+            'eat_7ap'   => [ 'label' => 'Essen', 'priority' => 1, 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'no_full_ap' ], 'result' => [ 'contaminated_zone_infect', 'eat_ap7', 'consume_item' ], 'escort_message_key' => 'escort_food_eat' ],
 
             'drug_xana1' => [ 'label' => 'Einsetzen', 'cover' => true, 'at00' => true, 'allow_when_terrorized' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1', 'must_be_terrorized_hd' ],  'result' => [ 'contaminated_zone_infect', 'drug_any', 'unterrorize', 'consume_item' ], 'message_key' => 'drug_xanax' ],
             'drug_xana2' => [ 'label' => 'Einsetzen', 'cover' => true, 'at00' => true, 'allow_when_terrorized' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_2', 'must_be_terrorized_hd' ],  'result' => [ 'contaminated_zone_infect', 'drug_addict', 'unterrorize', 'consume_item' ], 'message_key' => 'drug_xanax' ],
@@ -663,8 +670,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'drug_rand_xmas'  => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap' ], 'result' => [ 'contaminated_zone_infect', 'consume_item', ['picto' => ['r_cobaye_#00']], ['group' => [
                 [ ['plus_ap8_30', ['message' => ['text' => 'Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter.']]], 22 ],
                 [ ['plus_ap8_30', 'drug_addict_no_msg', ['message' => ['text' => 'Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem <strong>starken psychoaktiven Gift!</strong><t-stat-up-addict>{hr}Du bist jetzt ein Süchtiger!</t-stat-up-addict>']]], 13 ],
-                [ ['plus_ap8_30', 'terrorize', ['message' => ['text' => 'Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem <strong>starken psychoaktiven Gift!</strong><t-stat-up-terror>{hr}Du bist vor Angst erstarrt!</t-stat-up-terror>']]], 57 ],
-                [ ['plus_ap8_30', 'infect_no_msg', ['message' => ['text' => 'Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem <strong>starken psychoaktiven Gift!</strong><t-stat-up-infection>{hr}Du bist jetzt infiziert!</t-stat-up-infection>']]], 29 ],
+                [ ['plus_ap8_30', 'terrorize', ['message' => ['text' => 'Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem <strong>starken psychoaktiven Gift!</strong><t-stat-up-terror>{hr}Du bist vor Angst erstarrt!</t-stat-up-terror>']]], 58 ],
+                [ ['plus_ap8_30', 'infect_no_msg', ['message' => ['text' => 'Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem <strong>starken psychoaktiven Gift!</strong><t-stat-up-infection>{hr}Du bist jetzt infiziert!</t-stat-up-infection>']]], 5 ],
                 [ ['death_poison'], 2 ],
             ]] ] ] ,
 
@@ -681,8 +688,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'open_abox'     => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands'], 'result' => [ 'consume_item', [ 'spawn' => [ 'bplan_r_#00' ] ] ], 'message_key' => 'container_open' ],
             'open_cbox'     => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands'], 'result' => [ 'consume_item', [ 'spawn' => [ ['bplan_c_#00',50], ['bplan_u_#00',35], ['bplan_r_#00',10], ['bplan_e_#00',5]] ] ], 'message_key' => 'container_open_cbox' ],
 
-            'open_matbox3'   => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands'], 'result' => [ [ 'item' => [ 'consume' => false, 'morph' => 'rsc_pack_2_#00' ],  'spawn' => 'matbox' ] ], 'message_key' => 'container_open_not_empty' ],
-            'open_matbox2'   => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands'], 'result' => [ [ 'item' => [ 'consume' => false, 'morph' => 'rsc_pack_1_#00' ],  'spawn' => 'matbox' ] ], 'message_key' => 'container_open_not_empty' ],
+            'open_matbox3'   => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands','room_for_item'], 'result' => [ [ 'item' => [ 'consume' => false, 'morph' => 'rsc_pack_2_#00' ],  'spawn' => 'matbox' ] ], 'message_key' => 'container_open_not_empty' ],
+            'open_matbox2'   => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands','room_for_item'], 'result' => [ [ 'item' => [ 'consume' => false, 'morph' => 'rsc_pack_1_#00' ],  'spawn' => 'matbox' ] ], 'message_key' => 'container_open_not_empty' ],
             'open_matbox1'   => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands'], 'result' => [ 'consume_item', [ 'spawn' => 'matbox' ] ], 'message_key' => 'container_open_empty' ],
 
             'open_xmasbox3'  => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands'], 'result' => [ [ 'item' => [ 'consume' => false, 'morph' => 'chest_christmas_2_#00' ],  'spawn' => 'xmas_3' ] ], 'message_key' => 'container_open_not_empty' ],
@@ -728,7 +735,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'load_radio'     => [ 'label' => 'Laden', 'at00' => true, 'meta' => [ 'have_battery' ], 'result' => [ 'consume_battery', [ 'item' => [ 'consume' => false, 'morph' => 'radio_on_#00' ] ] ], 'message_key' => 'item_load' ],
             'load_emt'       => [ 'label' => 'Laden', 'at00' => true, 'meta' => [ 'have_battery' ], 'result' => [ 'consume_battery', [ 'item' => [ 'consume' => false, 'morph' => 'sport_elec_#00' ] ] ], 'message_key' => 'item_load' ],
 
-            'light_cig' => [ 'label' => 'Rauchen', 'allow_when_terrorized' => true, 'meta' => [ 'have_matches', 'must_be_terrorized' ], 'result' => [ ['group' => [ [['do_nothing'],20], [['consume_matches'],80]]], ['group' => [ [['do_nothing'],90], [['consume_item'],10]]], 'unterrorize' ], 'message' => 'Du zündest eine Zigarette an. Der Rauch lässt dich kräftig Husten, vermutlich weil du daran nicht gewöhnt bist... Nach ein paar Minuten <strong>gelingt es dir dich zu beruhigen</strong>. Dieser Kurze Moment des Friedens ermöglicht lässt dich deinen Kummer vergessen und bringt dich zurück in die Wirklichkeit.<hr />Du drückst den Stummel auf dem Boden aus und bist bereit für einen weiteren Tag des Überlebens.!<t-consumed><hr />Dir fällt auf dass <strong>die Packung leer ist</strong>!</t-consumed><t-item-consumed>Das war dein <strong>letztes Streichholz</strong>... Es wird schwer sein, jetzt noch eine Zigarette anzuzünden.</t-item-consumed>' ],
+            'light_cig' => [ 'label' => 'Rauchen', 'meta' => [ 'have_matches', 'must_be_terrorized' ], 'result' => [ ['group' => [ [['do_nothing'],20], [['consume_matches'],80]]], ['group' => [ [['do_nothing'],90], [['consume_item'],10]]], 'unterrorize' ], 'message' => 'Du zündest eine Zigarette an. Der Rauch lässt dich kräftig Husten, vermutlich weil du daran nicht gewöhnt bist... Nach ein paar Minuten <strong>gelingt es dir dich zu beruhigen</strong>. Dieser Kurze Moment des Friedens ermöglicht lässt dich deinen Kummer vergessen und bringt dich zurück in die Wirklichkeit.<hr />Du drückst den Stummel auf dem Boden aus und bist bereit für einen weiteren Tag des Überlebens.!<t-consumed><hr />Dir fällt auf dass <strong>die Packung leer ist</strong>!</t-consumed><t-item-consumed>Das war dein <strong>letztes Streichholz</strong>... Es wird schwer sein, jetzt noch eine Zigarette anzuzünden.</t-item-consumed>' ],
 
             'fill_jsplash'   => [ 'label' => 'Befüllen', 'at00' => true, 'meta' => [ 'have_canister' ], 'result' => [ 'consume_jerrycan', [ 'item' => [ 'consume' => false, 'morph' => 'jerrygun_#00' ] ] ], 'message_key' => 'item_fill' ],
 
@@ -802,22 +809,22 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'throw_boomfruit'       => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ 'consume_item', ['zombies' => [ 'min' => 5, 'max' =>  9 ]] ], 'message_key' => 'weapon_use' ],
             'throw_jerrygun'        => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ 'kill_1_zombie', ['group' => 'g_empty_jerrygun', 'message' => ['text' => '<nt-morphed>Gute Nachrichten: Es ist noch Wasser im Kanister!</nt-morphed><t-morphed><strong>Der Kanister ist LEER</strong>!</t-morphed>']]] ],
 
-            'bp_generic_1'          => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside' ], 'result' => [ 'consume_item', ['bp' => [1] ] ], 'message_key' => 'read_blueprint' ],
-            'bp_generic_2'          => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside' ], 'result' => [ 'consume_item', ['bp' => [2] ] ], 'message_key' => 'read_blueprint' ],
-            'bp_generic_3'          => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside' ], 'result' => [ 'consume_item', ['bp' => [3] ] ], 'message_key' => 'read_blueprint' ],
-            'bp_generic_4'          => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside' ], 'result' => [ 'consume_item', ['bp' => [4] ] ], 'message_key' => 'read_blueprint' ],
+            'bp_generic_1'          => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', ['bp' => [1] ] ], 'message_key' => 'read_blueprint' ],
+            'bp_generic_2'          => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', ['bp' => [2] ] ], 'message_key' => 'read_blueprint' ],
+            'bp_generic_3'          => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', ['bp' => [3] ] ], 'message_key' => 'read_blueprint' ],
+            'bp_generic_4'          => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', ['bp' => [4] ] ], 'message_key' => 'read_blueprint' ],
 
-            'bp_hotel_2'    => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside' ], 'result' => [ 'consume_item', ['bp' => ['small_bamba_#00', 'small_catapult3_#00','small_howlingbait_#00', 'small_trash_#01', 'small_trash_#02', 'small_trash_#04', 'small_court_#00', 'item_plate_#03'] ] ],                     'message_key' => 'read_blueprint' ],
-            'bp_hotel_3'    => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside' ], 'result' => [ 'consume_item', ['bp' => ['small_sprinkler_#00', 'item_digger_#00', 'item_shield_#00', 'small_city_up_#00', 'small_falsecity_#00', 'small_lastchance_#00', 'small_lighthouse_#00', 'small_strategy_#00', 'small_valve_#00'] ] ], 'message_key' => 'read_blueprint' ],
-            'bp_hotel_4'    => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside' ], 'result' => [ 'consume_item', ['bp' => ['small_cinema_#00', 'small_derrick_#01', 'small_trash_#06', 'small_castle_#00', 'small_coffin_#00'] ] ],                                              'message_key' => 'read_blueprint' ],
+            'bp_hotel_2'    => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', ['bp' => ['small_bamba_#00', 'small_catapult3_#00','small_howlingbait_#00', 'small_trash_#01', 'small_trash_#02', 'small_trash_#04', 'small_court_#00', 'item_plate_#03'] ] ],                     'message_key' => 'read_blueprint' ],
+            'bp_hotel_3'    => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', ['bp' => ['small_sprinkler_#00', 'item_digger_#00', 'item_shield_#00', 'small_city_up_#00', 'small_falsecity_#00', 'small_lastchance_#00', 'small_lighthouse_#00', 'small_strategy_#00', 'small_valve_#00'] ] ], 'message_key' => 'read_blueprint' ],
+            'bp_hotel_4'    => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', ['bp' => ['small_cinema_#00', 'small_derrick_#01', 'small_trash_#06', 'small_castle_#00', 'small_coffin_#00'] ] ],                                              'message_key' => 'read_blueprint' ],
 
-            'bp_bunker_2'   => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside' ], 'result' => [ 'consume_item', ['bp' => ['item_bgrenade_#00', 'item_bgrenade_#01', 'small_trash_#03', 'small_trash_#05', 'small_watercanon_#00', 'small_tourello_#00', 'small_armor_#00'] ] ],                                             'message_key' => 'read_blueprint' ],
-            'bp_bunker_3'   => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside' ], 'result' => [ 'consume_item', ['bp' => ['item_home_def_#00', 'item_tube_#00', 'small_labyrinth_#00', 'small_eden_#00', 'small_rocket_#00', 'small_rocketperf_#00', 'small_trashclean_#00', 'small_valve_#00', 'item_jerrycan_#01'] ] ], 'message_key' => 'read_blueprint' ],
-            'bp_bunker_4'   => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside' ], 'result' => [ 'consume_item', ['bp' => ['small_waterdetect_#00', 'small_arma_#00', 'small_slave_#00', 'small_trash_#06', 'small_wheel_#00'] ] ],                                                                                         'message_key' => 'read_blueprint' ],
+            'bp_bunker_2'   => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', ['bp' => ['item_bgrenade_#00', 'item_bgrenade_#01', 'small_trash_#03', 'small_trash_#05', 'small_watercanon_#00', 'small_tourello_#00', 'small_armor_#00'] ] ],                                             'message_key' => 'read_blueprint' ],
+            'bp_bunker_3'   => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', ['bp' => ['item_home_def_#00', 'item_tube_#00', 'small_labyrinth_#00', 'small_eden_#00', 'small_rocket_#00', 'small_rocketperf_#00', 'small_trashclean_#00', 'small_valve_#00', 'item_jerrycan_#01'] ] ], 'message_key' => 'read_blueprint' ],
+            'bp_bunker_4'   => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', ['bp' => ['small_waterdetect_#00', 'small_arma_#00', 'small_slave_#00', 'small_trash_#06', 'small_wheel_#00'] ] ],                                                                                         'message_key' => 'read_blueprint' ],
 
-            'bp_hospital_2' => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside' ], 'result' => [ 'consume_item', ['bp' => ['small_ikea_#00', 'item_hmeat_#00', 'small_tourello_#00', 'small_watchmen_#00'] ] ],                                                                            'message_key' => 'read_blueprint' ],
-            'bp_hospital_3' => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside' ], 'result' => [ 'consume_item', ['bp' => ['item_digger_#00', 'item_jerrycan_#01', 'item_shield_#00', 'small_appletree_#00', 'small_chicken_#00', 'small_infirmary_#00', 'small_trashclean_#00', 'small_lighthouse_#00', 'small_rocketperf_#00'] ] ], 'message_key' => 'read_blueprint' ],
-            'bp_hospital_4' => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside' ], 'result' => [ 'consume_item', ['bp' => ['small_strategy_#01', 'small_balloon_#00', 'small_crow_#00', 'small_derrick_#01', 'small_pmvbig_#00'] ] ],                                                                                               'message_key' => 'read_blueprint' ],
+            'bp_hospital_2' => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', ['bp' => ['small_ikea_#00', 'item_hmeat_#00', 'small_tourello_#00', 'small_watchmen_#00'] ] ],                                                                            'message_key' => 'read_blueprint' ],
+            'bp_hospital_3' => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', ['bp' => ['item_digger_#00', 'item_jerrycan_#01', 'item_shield_#00', 'small_appletree_#00', 'small_chicken_#00', 'small_infirmary_#00', 'small_trashclean_#00', 'small_lighthouse_#00', 'small_rocketperf_#00'] ] ], 'message_key' => 'read_blueprint' ],
+            'bp_hospital_4' => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside_bp' ], 'result' => [ 'consume_item', ['bp' => ['small_strategy_#01', 'small_balloon_#00', 'small_crow_#00', 'small_derrick_#01', 'small_pmvbig_#00'] ] ],                                                                                               'message_key' => 'read_blueprint' ],
 
             'read_rp' => [ 'label' => 'Lesen', 'cover' => false, 'at00' => true, 'meta' => [], 'result' => [ 'consume_item', 'find_rp' ], 'message' => 'Der Text ist überschrieben mit {rp_text}. Du beginnst, ihn zu lesen<t-rp_ok>! Der Text wurde deinem Archiv hinzugefügt.</t-rp_ok><t-rp_fail>... Leider stellst du fest, dass du diesen Text bereits kennst.</t-rp_fail>' ],
             'read_rp_cover' => [ 'label' => 'Lesen', 'cover' => true, 'at00' => true, 'meta' => [], 'result' => [ 'consume_item', 'find_rp' ], 'message' => 'Der Text ist überschrieben mit {rp_text}. Du beginnst, ihn zu lesen<t-rp_ok>! Der Text wurde deinem Archiv hinzugefügt.</t-rp_ok><t-rp_fail>... Leider stellst du fest, dass du diesen Text bereits kennst.</t-rp_fail>' ],
@@ -871,14 +878,14 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'eat_cadaver_1' => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'no_full_ap', 'not_role_ghoul' ], 'result' => [ 'contaminated_zone_infect', 'eat_ap6', ['picto' => ['r_cannib_#00'], 'item' => ['consume' => false, 'morph' => 'cadaver_remains_#00'] ], ['group' => [ [ 'infect', 1 ], ['become_ghoul_5', 9] ]] ] ],
             'eat_cadaver_2' => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'role_ghoul' ],     'result' => [ 'contaminated_zone_infect', 'eat_ap6_silent', ['picto' => ['r_cannib_#00'], 'item' => ['consume' => false, 'morph' => 'cadaver_remains_#00'], 'status' => 'satisfy_ghoul_30' ] ], 'message_key' => 'eat_human_meat_ghoul' ],
 
-            'ghoul_serum' => [ 'label' => 'Einnehmen', 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'role_ghoul' ], 'result' => [ 'consume_item', ['status' => 'heal_ghoul' ] ], 'message' => 'Unglaublich! Die ganze Gier, die dich innerlich aufgefressen hat, verschwindet langsam. Ist es wirklich möglich, dass du wieder ein Mensch geworden bist?' ],
+            'ghoul_serum' => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'role_ghoul_serum' ], 'result' => [ 'consume_item', ['status' => 'heal_ghoul' ] ], 'message' => 'Unglaublich! Die ganze Gier, die dich innerlich aufgefressen hat, verschwindet langsam. Ist es wirklich möglich, dass du wieder ein Mensch geworden bist?' ],
 
-            'cuddle_teddy_1' => [ 'label' => 'Knuddeln', 'allow_when_terrorized' => true, 'meta' => [ 'must_be_terrorized', [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_teddy' ] ]] ], 'result' => [ [ 'status' => [ 'from' => null, 'to' => 'tg_teddy' ], 'group' => [ ['do_nothing', 1], ['unterrorize', 1] ] ] ], 'message' => 'Du drückst den {item} eng an deine Brust... <t-stat-down-terror>Tränen laufen über deine Wange, als du an die Hölle denkst, in der du lebst. Nach ein paar Minuten fühlst du dich besser!</t-stat-down-terror><nt-stat-down-terror>Aber nichts geschieht!</nt-stat-down-terror>' ],
+            'cuddle_teddy_1' => [ 'label' => 'Knuddeln', 'meta' => [ 'must_be_terrorized', [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_teddy' ] ]] ], 'result' => [ [ 'status' => [ 'from' => null, 'to' => 'tg_teddy' ], 'group' => [ ['do_nothing', 1], ['unterrorize', 1] ] ] ], 'message' => 'Du drückst den {item} eng an deine Brust... <t-stat-down-terror>Tränen laufen über deine Wange, als du an die Hölle denkst, in der du lebst. Nach ein paar Minuten fühlst du dich besser!</t-stat-down-terror><nt-stat-down-terror>Aber nichts geschieht!</nt-stat-down-terror>' ],
             'cuddle_teddy_2' => [ 'label' => 'Knuddeln', 'meta' => [ 'must_not_be_terrorized' ], 'result' => [ 'terrorize' ], 'message' => 'Du drückst den {item} eng an deine Brust... <t-stat-up-terror>Panik steigt in dir auf!</t-stat-up-terror><nt-stat-up-terror>Aber nichts geschieht!</nt-stat-up-terror>' ],
 
             'clean_clothes' => [ 'label' => 'Reinigen (Kleidung)', 'meta' => [ 'must_be_inside' ], 'result' => [ [ 'status' => [ 'from' => null, 'to' => 'tg_clothes', 'counter' => ActionCounter::ActionTypeClothes ], 'item' => ['consume' => false, 'morph' => 'basic_suit_#00'] ] ], 'message' => 'Du nimmst dir ein paar Minuten, um deine {item} zu reinigen. Du schrubbst sorgfältig die Blutflecken ab und flickst ein paar kleine Löcher.' ],
 
-            'flash_photo_3' => [ 'label' => 'Benutzen', 'meta' => [ 'must_be_outside_not_at_doors', 'must_have_zombies', 'must_be_blocked' ], 'result' => [ ['item' => ['consume' => false, 'morph' => 'photo_2_#00'] ,   'zone' => ['escape' => 120] ] ],  'message_key' => 'escape_item_camera' ],
+            'flash_photo_3' => [ 'label' => 'Benutzen', 'meta' => [ 'must_be_outside_not_at_doors', 'must_have_zombies', 'must_be_blocked' ], 'result' => [ ['item' => ['consume' => false, 'morph' => 'photo_2_#00'] ,   'group' => [ [['do_nothing'], 1], [[ ['zone' => ['escape' => 120] ]], 99]] ] ],  'message_key' => 'escape_item_camera' ],
             'flash_photo_2' => [ 'label' => 'Benutzen', 'meta' => [ 'must_be_outside_not_at_doors', 'must_have_zombies', 'must_be_blocked' ], 'result' => [ ['item' => ['consume' => false, 'morph' => 'photo_1_#00'] ,   'group' => [ [['do_nothing'], 30], [[ ['zone' => ['escape' => 60] ]], 60]] ] ],   'message_key' => 'escape_item_camera' ],
             'flash_photo_1' => [ 'label' => 'Benutzen', 'meta' => [ 'must_be_outside_not_at_doors', 'must_have_zombies', 'must_be_blocked' ], 'result' => [ ['item' => ['consume' => false, 'morph' => 'photo_off_#00'] , 'group' => [ [['do_nothing'], 60], [[ ['zone' => ['escape' => 30] ]], 30]] ] ],   'message_key' => 'escape_item_camera' ],
 
@@ -893,8 +900,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'hero_tamer_2b'  => [ 'label' => 'Zur Truhe schicken', 'at00' => true, 'renderer' => 'tamer_dog_popup', 'meta' => [ 'must_be_outside_or_exploring' ], 'result' => [ 'hero_tamer_2b' ], 'confirm' => true, 'message' => '<t-fail><t-no-room>Deine Truhe kann nicht <strong>{items_count} Gegenstände</strong> aufnehmen: er hat <strong>{size} Platz(e)</strong> übrig.</t-no-room><t-door-closed>Das Stadttor ist geschlossen...</t-door-closed><t-no-items>{tamer_dog} kann nichts mitnehmen, da du <strong>nichts im Rucksack hast</strong>.</t-no-items></t-fail><nt-fail>Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}Genau wie du es gewünscht hast, <strong>hat er alles zur Truhe in deinem Haus gebracht</strong>.{hr}Braver Junge!</nt-fail>' ],
             'hero_tamer_3'   => [ 'label' => 'Dopen',              'at00' => true, 'renderer' => 'tamer_dog_popup', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_drug' ], 'result' => [ 'consume_drug', 'hero_tamer_3' ], 'message' => 'Du gibst deinem {tamer_dog} {items_consume}, die er gierig hinunterschlingt.{hr}Es vergeht keine Minute bis die Drogen Wirkung zeigen: Dein Fifi hat nun leuchtende Augen, ein glänzendes Fell und einen wedelnden Schwanz.' ],
 
-            'hero_surv_1' => [ 'label' => 'Wasser suchen', 'renderer' => 'survivalist_popup', 'meta' => [ 'must_be_outside_3km', 'not_yet_sbook' ],                         'result' => [ 'contaminated_zone_infect', 'hero_surv_0', 'hero_surv_1' ], 'message' => '{casino}' ],
-            'hero_surv_2' => [ 'label' => 'Essen suchen',  'renderer' => 'survivalist_popup', 'meta' => [ 'no_full_ap', 'must_be_outside_3km', 'not_yet_sbook', 'eat_ap' ], 'result' => [ 'contaminated_zone_infect', 'hero_surv_0', 'hero_surv_2' ], 'message' => '{casino}' ],
+            'hero_surv_1' => [ 'label' => 'Wasser suchen', 'renderer' => 'survivalist_popup', 'meta' => [ 'must_be_outside', 'must_be_outside_3km', 'not_yet_sbook' ],                         'result' => [ 'contaminated_zone_infect', 'hero_surv_0', 'hero_surv_1' ], 'message' => '{casino}' ],
+            'hero_surv_2' => [ 'label' => 'Essen suchen',  'renderer' => 'survivalist_popup', 'meta' => [ 'must_be_outside', 'no_full_ap', 'must_be_outside_3km', 'not_yet_sbook', 'eat_ap' ], 'result' => [ 'contaminated_zone_infect', 'hero_surv_0', 'hero_surv_2' ], 'message' => '{casino}' ],
 
             'hero_hunter_1' => [ 'label' => 'Tarnen', 'at00' => true, 'meta' => [ 'must_be_outside', [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'zombies' => [ 'min' => 0, 'block' => false, 'temp' => true ] ], 'text' => 'Das kannst die <strong>Tarnkleidung</strong> nicht verwenden, solange die Zombies diese Zone kontrollieren!'] ], 'result' => [ 'hero_hunter' ], 'message' => 'Du bist ab sofort getarnt.' ],
             'hero_hunter_2' => [ 'label' => 'Tarnen', 'at00' => true, 'meta' => [ 'must_be_inside' ], 'result' => [ 'hero_hunter' ], 'message' => 'Du bist nun getarnt.' ],
@@ -903,11 +910,11 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'hero_generic_find'         => [ 'label' => 'Fund', 'tooltip' => 'Wie durch ein Wunder treibst du einen nützlichen Gegenstand auf.', 'cover' => true, 'at00' => true, 'target' => ['type' => ItemTargetDefinition::ItemTypeSelectionType, 'property' => 'hero_find'], 'meta' => [ 'not_yet_hero' ], 'result' => [ 'hero_act', 'spawn_target', ['message' => ['text' => 'So was nennt man wohl <strong>Glück</strong>! <t-inside>Du hast soeben {items_spawn} in einem Abfallberg neben deinem Haus gefunden!</t-inside><t-outside>Du hast soeben {items_spawn} im Wüstensand gefunden!</t-outside> Genau das, was du gebraucht hast!']] ] ],
             'hero_generic_find_lucky'   => [ 'label' => 'Schönes Fundstück', 'tooltip' => 'Wie durch ein Wunder treibst du einen nützlichen Gegenstand auf.', 'cover' => true, 'at00' => true, 'target' => ['type' => ItemTargetDefinition::ItemTypeSelectionType, 'property' => 'hero_find_lucky'], 'meta' => [ 'not_yet_hero' ], 'result' => [ 'hero_act', 'spawn_target', ['message' => ['text' => 'So was nennt man wohl <strong>Glück</strong>! <t-inside>Du hast soeben {items_spawn} in einem Abfallberg neben deinem Haus gefunden!</t-inside><t-outside>Du hast soeben {items_spawn} im Wüstensand gefunden!</t-outside> Genau das, was du gebraucht hast!']] ] ],
             'hero_generic_punch'        => [ 'label' => 'Wildstyle Uppercut', 'tooltip' => 'Damit kannst du mit einem Schlag 2 Zombies umbringen!', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_yet_hero'], 'result' => [ 'hero_act', ['zombies' => 'kill_2z'], ['message' => [ 'text' => 'Mit Hilfe deiner übermenschlichen Heldenkräfte hast du <strong>{kills} Zombie(s)</strong> platt gemacht!' ]] ] ],
-            'hero_generic_ap'           => [ 'label' => 'Zweite Lunge', 'tooltip' => 'Stellt deine AP wieder her und beseitigt deine Müdigkeit.', 'cover' => true, 'at00' => true, 'meta' => [ 'no_full_ap_msg', 'not_yet_hero'], 'result' => [ 'hero_act', 'just_ap6', ['message' => ['text' => 'Du atmest tief durch und drückst den Rücken durch. Auf geht\'s! Ich werde nicht hier sterben!{hr}Du hast soeben Kraft getankt und <strong>6 neue AP erhalten</strong>.']] ] ],
+            'hero_generic_ap'           => [ 'label' => 'Zweite Lunge', 'tooltip' => 'Stellt deine AP wieder her und beseitigt deine Müdigkeit.', 'cover' => true, 'at00' => true, 'meta' => [ 'no_full_ap_msg', 'not_yet_hero'], 'result' => [ 'hero_act', 'just_ap6', ['message' => ['text' => 'Du atmest tief durch und drückst den Rücken durch. Auf geht\'s! Ich werde nicht hier sterben!{hr}Du hast soeben Kraft getankt und <strong>{ap} neue AP erhalten</strong>.']] ] ],
             'hero_generic_immune'       => [ 'label' => 'Den Tod besiegen', 'tooltip' => 'Beim nächsten Angriff wird der Durst-, Infektions- und Abhängigkeitszustand außer Kraft gesetzt.', 'cover' => true, 'at00' => true, 'meta' => [ 'not_yet_hero'], 'result' => [ 'hero_act', 'hero_immune', ['message' => ['text' => 'Du versucht nochmal alle deine Kräfte für heute Abend zu mobilisieren. Die Anspannung steht dir ins Gesicht geschrieben. Du schwitzt und deine Hände zittern.{hr}Beim heutigen Angriff wirst du weder weder Durst, noch Krankheitssymptome (Infektion), noch Entzugserscheinungen verspüren.']] ] ],
             'hero_generic_rescue'       => [ 'label' => 'Rettung', 'tooltip' => 'Du bringst einen anderen Spieler nach Hause (dieser darf max. 2 Felder von der Stadt entfernt sein).', 'confirm' => true, 'confirmMsg' => 'Möchtest du {target} heimbringen?' ,'target' => ['type' => ItemTargetDefinition::ItemHeroicRescueType], 'meta' => [ 'must_be_inside', 'not_yet_hero'], 'result' => [ 'hero_act', ['custom' => [9]] ], 'message' => 'Du hast {citizen} auf heldenhafte Weise in die Stadt gebracht!' ],
 
-            'throw_sandball' => [ 'label' => 'Werfen', /* 'target' => ['type' => ItemTargetDefinition::ItemCitizenOnZoneSBType], */ 'meta' => [ 'must_be_outside'], 'result' => [ ['custom' => [20]] ], 'message' => '<nt-fail>Du hast einen Sandball in {citizen}s Gesicht geworfen.</nt-fail><t-fail>Hier ist niemand, auf den du den Sandball werfen könntest...</t-fail>' ],
+            'throw_sandball' => [ 'label' => 'Werfen', /* 'target' => ['type' => ItemTargetDefinition::ItemCitizenOnZoneSBType], */ 'meta' => [ 'must_be_outside', 'during_christmas'], 'result' => [ ['custom' => [20]] ], 'message' => '<nt-fail>Du hast einen Sandball in {citizen}s Gesicht geworfen.</nt-fail><t-fail>Hier ist niemand, auf den du den Sandball werfen könntest...</t-fail>' ],
 
             'special_armag'        => [ 'label' => 'Durchgang in Kraft', 'tooltip_key' => 'heroic_arma_tooltip', 'allow_when_terrorized' => true, 'meta' => [ 'must_be_outside', 'must_be_blocked' ],   'result' => [ ['group' => [ [['do_nothing', ['message' => ['text_key' => 'heroic_arma_fail']]], 50], [[ ['zone' => ['escape' => 600] ], ['zombies' => 'kill_1z'], ['message' => ['text_key' => 'heroic_arma_success']] ], 50]]] ] ],
             'special_armag_d'      => [ 'label' => 'Durchgang in Kraft', 'tooltip_key' => 'heroic_arma_tooltip', 'allow_when_terrorized' => true, 'meta' => [ 'must_be_outside', 'must_be_blocked', 'must_be_day'],   'result' => [ ['group' => [ [['do_nothing', ['message' => ['text_key' => 'heroic_arma_fail']]], 50], [[ ['zone' => ['escape' => 600] ], ['zombies' => 'kill_1z'], ['message' => ['text_key' => 'heroic_arma_success']] ], 50]]] ] ],
@@ -1455,6 +1462,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
         'eat_human_meat' => '<nt-stat-up-infection><nt-role-up-ghoul>Nach ein paar Sekunden spürst du den furchtbaren Nachgeschmack...</nt-role-up-ghoul></nt-stat-up-infection>',
         'eat_human_meat_ghoul' => 'Es ist nicht so appetitlich wie ein <strong>schöner, frischer, zappelnder Mensch</strong>, aber es erfüllt seinen Zweck und lässt den <strong>Hunger</strong> ein wenig nachlassen.... Zum Glück ist das Fleisch ziemlich zart, sonst wäre diese Mahlzeit furchtbar gewesen.<hr/>Nach ein paar Sekunden spürst du den furchtbaren Nachgeschmack...',
+
+        'not_in_event' => 'Dir fällt kein Grund ein, dies zu tun...'
     ];
     
     private $entityManager;
@@ -1551,6 +1560,9 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                     case 'day':
                         $requirement->setDay( $this->process_day_requirement( $manager, $out, $sub_cache[$sub_id], $sub_req, $sub_data ) );
                         break;
+                    case 'event':
+                        $requirement->setEvent( $this->process_event_requirement( $manager, $out, $sub_cache[$sub_id], $sub_req, $sub_data ) );
+                        break;
                     case 'custom':
                         $requirement->setCustom( $sub_data[0] );
                         break;
@@ -1645,6 +1657,33 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             $requirement->setName( $id )->setMin( $data['min'] )->setMax( $data['max'] );
             $manager->persist( $cache[$id] = $requirement );
         } else $out->writeln( "\t\t\t<comment>Skip</comment> condition <info>day/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
+
+        return $cache[$id];
+    }
+
+    /**
+     * @param ObjectManager $manager
+     * @param ConsoleOutputInterface $out
+     * @param array $cache
+     * @param string $id
+     * @param array $data
+     * @return RequireEvent
+     * @throws Exception
+     */
+    private function process_event_requirement(
+        ObjectManager $manager, ConsoleOutputInterface $out,
+        array &$cache, string $id, array $data): RequireEvent
+    {
+        if (!isset($cache[$id])) {
+            $requirement = $manager->getRepository(RequireEvent::class)->findOneBy(['name' => $id]);
+            if ($requirement) $out->writeln( "\t\t\t<comment>Update</comment> condition <info>event/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
+            else {
+                $requirement = new RequireEvent();
+                $out->writeln( "\t\t\t<comment>Create</comment> condition <info>event/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
+            }
+            $requirement->setName( $id )->setEventName( $data['name'] );
+            $manager->persist( $cache[$id] = $requirement );
+        } else $out->writeln( "\t\t\t<comment>Skip</comment> condition <info>event/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
 
         return $cache[$id];
     }
@@ -2368,7 +2407,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 $count =  is_array($actual_data[0]) ? $actual_data[0][1] : 1;
                 $prototype = $manager->getRepository(ItemPrototype::class)->findOneBy(['name' => $name]);
                 if (!$prototype) throw new Exception('Item prototype not found: ' . $name);
-                $result->setPrototype( $prototype )->setCount( $count )->setSpawnTarget($target);
+                $result->setItemGroup(null)->setPrototype( $prototype )->setCount( $count )->setSpawnTarget($target);
             } else {
                 $g_name = "efg_{$id}";
                 $group = $manager->getRepository( ItemGroup::class )->findOneBy(['name' => $g_name]);
@@ -2386,7 +2425,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                     $group->addEntry( (new ItemGroupEntry())->setChance($c)->setPrototype( $prototype ) );
                 }
 
-                $result->setItemGroup( $group )->setCount( 1 )->setSpawnTarget($target);
+                $result->setPrototype(null)->setItemGroup( $group )->setCount( 1 )->setSpawnTarget($target);
                 $manager->persist( $group );
             }
 
@@ -2687,6 +2726,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             }
 
             $new_action->setName( $action )->setLabel( $data['label'] )->setRenderer( $data['renderer'] ?? null )->clearRequirements()->clearResults()
+                ->setPriority( $data['priority'] ?? 0 )
                 ->setMessage( isset($data['message_key']) ? static::$message_keys[$data['message_key']] : ($data['message'] ?? null) )
                 ->setEscortMessage( isset($data['escort_message_key']) ? static::$message_keys[$data['escort_message_key']] : ($data['escort_message'] ?? null) )
                 ->setConfirm( $data['confirm'] ?? false )

@@ -1,7 +1,7 @@
 {% extends "ajax/ajax.html.twig" %}
 {% block title %}{% if current_group is null %}{{ 'Neue Gruppe'|trans({}, 'admin') }}{% else %}{{ 'Gruppe "{group}"'|trans({'{group}': current_group.usergroup.name}, "admin")|raw }}{% endif %}{% endblock %}
 {% block ajax %}
-    {# @var current_season \App\Entity\Season #}
+    {# @var current_group \App\Entity\OfficialGroup #}
     <div class="row">
         <div class="padded cell rw-12">
 
@@ -13,7 +13,18 @@
                     <div class="cell padded rw-4">
                         <select id="group-lang">
                             {% for lang in ['de','fr','en','es','multi'] %}
-                                <option value="{{ lang }}">{{ lang }}</option>
+                                <option value="{{ lang }}"{% if current_group is not null and current_group.lang == lang %} selected{% endif %}>{{ lang }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="cell padded rw-4 note note-lightest"><label for="group-semantic">{{ 'Gruppentyp'|trans({},'admin') }}</label></div>
+                    <div class="cell padded rw-4">
+                        <select id="group-semantic">
+                            {% for label, value in types %}
+                                <option value="{{ value }}"{% if current_group is not null and current_group.semantic == value %} selected{% endif %}>{{ label }}</option>
                             {% endfor %}
                         </select>
                     </div>
@@ -189,6 +200,7 @@
 
             const payload = {
                 name: document.getElementById('group-name').value,
+                type: document.getElementById('group-semantic').value,
                 desc: document.getElementById('group-desc').value,
                 lang: document.getElementById('group-lang').value,
                 anon: document.getElementById('group-anon').checked,

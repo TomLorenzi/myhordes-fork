@@ -5995,7 +5995,7 @@
       </notes>
       <segment>
         <source>Viele seltsame Gestalten haben diese stinkende Mütze schon getragen, und trotzdem geht dein Herz auf, als du sie aufsetzt.</source>
-        <target>A hat which have been used as a nest by several generations of pigeons and other malodourous wildlife. The interior lining of dried droppings gives it a strange texture... and makes your head itch when you put it on.</target>
+        <target>A hat which have been used as a nest by several generations of pigeons and other malodorous wildlife. The interior lining of dried droppings gives it a strange texture... and makes your head itch when you put it on.</target>
       </segment>
     </unit>
     <unit id="5tx1Ts1">
@@ -8073,12 +8073,12 @@
     </unit>
     <unit id="Mmr6mlb">
       <notes>
-        <note category="german">&lt;nt-fail&gt;Du hast einen Sandball in {citizen}s Gesicht geworfen.&lt;/nt-fail&gt;&lt;t-fail&gt;Hier ist niemand, auf den du den Sandball werfen könntest...&lt;/t-fail&gt;</note>
+        <note category="german">&lt;nt-fail&gt;Du hast einen Sandball in {citizen}s Gesicht geworfen.&lt;/nt-fail&gt;&lt;t-fail&gt;Hier ist niemand, auf den du den Sandball werfen könntest... (hier ist niemand, oder du hast in den letzten 30 Minuten schon einmal jeden getroffen)...&lt;/t-fail&gt;</note>
         <note category="from">db://ItemAction</note>
       </notes>
       <segment>
         <source>&lt;nt-fail&gt;Du hast einen Sandball in {citizen}s Gesicht geworfen.&lt;/nt-fail&gt;&lt;t-fail&gt;Hier ist niemand, auf den du den Sandball werfen könntest...&lt;/t-fail&gt;</source>
-        <target><![CDATA[<nt-fail>You threw a sandball in {citizen}'s face.</nt-fail><t-fail>There is no one here to throw the sandball...</t-fail>]]></target>
+        <target><![CDATA[<nt-fail>You threw a sandball in {citizen}'s face.</nt-fail><t-fail>There is no one here to throw the sandball... (there is no one here, or you have already hit everyone 30 minutes or less ago)...</t-fail>]]></target>
       </segment>
     </unit>
     <unit id="WvhcAeX">
@@ -8245,14 +8245,14 @@
         <target><![CDATA[Using your Heroic powers, you have exterminated <strong>{kills} Zombie(s)</strong>!]]></target>
       </segment>
     </unit>
-    <unit id="Pd1i68n">
+    <unit id="BEKb9Uc">
       <notes>
-        <note category="german">Du atmest tief durch und drückst den Rücken durch. Auf geht's! Ich werde nicht hier sterben!{hr}Du hast soeben Kraft getankt und &lt;strong&gt;6 neue AP erhalten&lt;/strong&gt;.</note>
+        <note category="german">Du atmest tief durch und drückst den Rücken durch. Auf geht's! Ich werde nicht hier sterben!{hr}Du hast soeben Kraft getankt und &lt;strong&gt;{ap} neue AP erhalten&lt;/strong&gt;.</note>
         <note category="from">db://AffectMessage</note>
       </notes>
       <segment>
-        <source>Du atmest tief durch und drückst den Rücken durch. Auf geht's! Ich werde nicht hier sterben!{hr}Du hast soeben Kraft getankt und &lt;strong&gt;6 neue AP erhalten&lt;/strong&gt;.</source>
-        <target><![CDATA[You take a deep breath and shake your head. Come on! This is no time to give up!{hr}Your 6 AP <strong>have been restored</strong>.]]></target>
+        <source>Du atmest tief durch und drückst den Rücken durch. Auf geht's! Ich werde nicht hier sterben!{hr}Du hast soeben Kraft getankt und &lt;strong&gt;{ap} neue AP erhalten&lt;/strong&gt;.</source>
+        <target><![CDATA[You take a deep breath and shake your head. Come on! This is no time to give up!{hr}Your {ap} AP <strong>have been restored</strong>.]]></target>
       </segment>
     </unit>
     <unit id="wMM0fB9">
@@ -9406,6 +9406,87 @@
       <segment>
         <source>Erhalten:</source>
         <target>Obtain:</target>
+      </segment>
+    </unit>
+    <unit id="yUEkyOu" name="Dir fällt kein Grund ein, dies zu tun...">
+      <notes>
+        <note category="german">Dir fällt kein Grund ein, dies zu tun...</note>
+        <note category="from">db://Requirement</note>
+      </notes>
+      <segment>
+        <source>Dir fällt kein Grund ein, dies zu tun...</source>
+        <target>You don't see why you would do this...</target>
+      </segment>
+    </unit>
+    <unit id="4Exhdnj" name="Dies kannst du erst ab &lt;strong&gt;Tag 2&lt;/strong&gt; tun.">
+      <notes>
+        <note category="german">Dies kannst du erst ab &lt;strong&gt;Tag 2&lt;/strong&gt; tun.</note>
+        <note category="from">db://Requirement</note>
+      </notes>
+      <segment>
+        <source>Dies kannst du erst ab &lt;strong&gt;Tag 2&lt;/strong&gt; tun.</source>
+        <target><![CDATA[You cannot do this before <strong>day 2</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="u9sIc_x">
+      <notes>
+        <note category="german">Wenn du den Plan studieren willst, musst du in die relative Ruhe der Stadt zurückkehren.</note>
+        <note category="from">db://Requirement</note>
+      </notes>
+      <segment>
+        <source>Wenn du den Plan studieren willst, musst du in die relative Ruhe der Stadt zurückkehren.</source>
+        <target>To study the plans, head back to the relative calm of the town.</target>
+      </segment>
+    </unit>
+    <unit id="E62nAap" name="Du musst mindestens 3 Kilometer von der Stadt entfernt sein, um das zu tun.">
+      <notes>
+        <note category="german">Du musst mindestens 3 Kilometer von der Stadt entfernt sein, um das zu tun.</note>
+        <note category="from">db://Requirement</note>
+      </notes>
+      <segment>
+        <source>Du musst mindestens 3 Kilometer von der Stadt entfernt sein, um das zu tun.</source>
+        <target>You have to be more than 3 kilometers from the town to do that.</target>
+      </segment>
+    </unit>
+    <unit id="EPH5jLS" name="Hierfür hast du keinen Platz.">
+      <notes>
+        <note category="german">Hierfür hast du keinen Platz.</note>
+        <note category="from">db://Requirement</note>
+      </notes>
+      <segment>
+        <source>Hierfür hast du keinen Platz.</source>
+        <target>You have no room for this.</target>
+      </segment>
+    </unit>
+    <unit id="gObW_J5">
+      <notes>
+        <note category="german">Du kannst dieses Serum nicht auf dich selbst anwenden, oder du wirst der beste Freund eines Ghuls...</note>
+        <note category="from">db://Requirement</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Du kannst dieses Serum nicht auf dich selbst anwenden, oder du wirst der beste Freund eines Ghuls...</source>
+        <target>Du kannst dieses Serum nicht auf dich selbst anwenden, oder du wirst der beste Freund eines Ghuls...</target>
+      </segment>
+    </unit>
+    <unit id="j.Nx9To" name="Eintrittskarte">
+      <notes>
+        <note category="german">Eintrittskarte</note>
+        <note category="from">db://FeatureUnlockPrototype</note>
+      </notes>
+      <segment>
+        <source>Eintrittskarte</source>
+        <target>Admission ticket</target>
+      </segment>
+    </unit>
+    <unit id=".LeRrBD">
+      <notes>
+        <note category="german">Hiermit kannst du Städten beitreten, obwohl du die Mindestanzahl an Seelenpunkten noch nicht erreicht hast.</note>
+        <note category="from">db://FeatureUnlockPrototype</note>
+      </notes>
+      <segment>
+        <source>Hiermit kannst du Städten beitreten, obwohl du die Mindestanzahl an Seelenpunkten noch nicht erreicht hast.</source>
+        <target>This allows you to join cities even though you haven't reached the minimum number of soul points.</target>
       </segment>
     </unit>
   </file>

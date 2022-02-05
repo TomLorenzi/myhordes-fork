@@ -268,7 +268,7 @@
       <notes>
         <note category="german">Admin</note>
         <note category="state">new</note>
-        <note category="from">twig:///templates/ajax/admin/users/account.html.twig;twig:///templates/ajax/admin/users/all_index.html.twig</note>
+        <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php;twig:///templates/ajax/admin/users/account.html.twig;twig:///templates/ajax/admin/users/all_index.html.twig</note>
       </notes>
       <segment>
         <source>Admin</source>
@@ -664,7 +664,7 @@
       <notes>
         <note category="german">Users</note>
         <note category="state">new</note>
-        <note category="from">php:///src/Controller/Admin/AdminActionController.php</note>
+        <note category="from">php:///src/Controller/Admin/AdminActionController.php;twig:///templates/ajax/admin/users/all_index.html.twig</note>
       </notes>
       <segment>
         <source>Users</source>
@@ -684,7 +684,7 @@
     <unit id="jA6UdTz" name="Zukunft">
       <notes>
         <note category="german">Zukunft</note>
-        <note category="from">php:///src/Controller/Admin/AdminActionController.php</note>
+        <note category="from">php:///src/Controller/Admin/AdminActionController.php;twig:///templates/ajax/admin/changelogs/changelogs.html.twig</note>
       </notes>
       <segment>
         <source>Zukunft</source>
@@ -1529,7 +1529,7 @@
       <notes>
         <note category="german">AntiSpam</note>
         <note category="state">new</note>
-        <note category="from">php:///src/Controller/Admin/AdminActionController.php</note>
+        <note category="from">php:///src/Controller/Admin/AdminActionController.php;twig:///templates/ajax/admin/spam/domains.html.twig</note>
       </notes>
       <segment>
         <source>AntiSpam</source>
@@ -1924,7 +1924,7 @@
     <unit id="i2H25l5" name="Foren-Mod.">
       <notes>
         <note category="german">Foren-Mod.</note>
-        <note category="from">php:///src/Controller/Admin/AdminActionController.php</note>
+        <note category="from">php:///src/Controller/Admin/AdminActionController.php;twig:///templates/ajax/admin/reports/reports.html.twig</note>
       </notes>
       <segment>
         <source>Foren-Mod.</source>
@@ -2054,7 +2054,7 @@
     <unit id="2OM.kVy" name="Änderungen an {appname} speichern">
       <notes>
         <note category="german">Änderungen an « {appname} » speichern</note>
-        <note category="from">php:///src/Controller/Admin/AdminAppController.php</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Änderungen an {appname} speichern</source>
@@ -2575,7 +2575,7 @@
       <notes>
         <note category="german">Sozial</note>
         <note category="state">new</note>
-        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig;twig:///templates/ajax/admin/users/social.html.twig;twig:///templates/ajax/admin/users/tabs.html.twig</note>
       </notes>
       <segment>
         <source>Sozial</source>
@@ -4187,7 +4187,7 @@
     <unit id="NSeveUs" name="Dateisystem">
       <notes>
         <note category="german">Dateisystem</note>
-        <note category="from">php:///src/Controller/Admin/AdminActionController.php</note>
+        <note category="from">php:///src/Controller/Admin/AdminActionController.php;twig:///templates/ajax/admin/files/list.html.twig</note>
       </notes>
       <segment>
         <source>Dateisystem</source>
@@ -4403,6 +4403,147 @@
       <segment>
         <source>Verbleibende Ruinengrabungen:</source>
         <target>Ruin digs left:</target>
+      </segment>
+    </unit>
+    <unit id="nOcPaSS" name="Zurzeit in der Stadt">
+      <notes>
+        <note category="german">Zurzeit in der Stadt</note>
+        <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
+      </notes>
+      <segment>
+        <source>Zurzeit in der Stadt</source>
+        <target>Currently in town</target>
+      </segment>
+    </unit>
+    <unit id="jPmvEEG" name="Eternal-Twin-Konto verlinkt">
+      <notes>
+        <note category="german">EternalTwin-Konto verlinkt</note>
+        <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
+      </notes>
+      <segment>
+        <source>Eternal-Twin-Konto verlinkt</source>
+        <target>Linked Eternal-Twin account</target>
+      </segment>
+    </unit>
+    <unit id="_VFidG8" name="Gruppentyp">
+      <notes>
+        <note category="german">Gruppentyp</note>
+        <note category="from">twig:///templates/ajax/admin/groups/edit.html.twig</note>
+      </notes>
+      <segment>
+        <source>Gruppentyp</source>
+        <target>Group Type</target>
+      </segment>
+    </unit>
+    <unit id="MxCYTlN" name="Änderungen an '{appname}' speichern">
+      <notes>
+        <note category="german">Änderungen an {appname} speichern</note>
+        <note category="from">php:///src/Controller/Admin/AdminAppController.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Änderungen an '{appname}' speichern</source>
+        <target>Änderungen an '{appname}' speichern</target>
+      </segment>
+    </unit>
+    <unit id="qc1ucL6" name="Diese Auszeichnung wird nicht verdient, wenn der Bürger heute Nacht stirbt.">
+      <notes>
+        <note category="german">Diese Auszeichnung wird nicht verdient, wenn der Bürger heute Nacht stirbt.</note>
+        <note category="from">twig:///templates/ajax/admin/towns/distinctions.html.twig</note>
+      </notes>
+      <segment>
+        <source>Diese Auszeichnung wird nicht verdient, wenn der Bürger heute Nacht stirbt.</source>
+        <target>This picto won't be earned if the citizen dies tonight.</target>
+      </segment>
+    </unit>
+    <unit id="WJg1nZp" name="Diese Auszeichnung wurde verdient.">
+      <notes>
+        <note category="german">Diese Auszeichnung wurde verdient.</note>
+        <note category="from">twig:///templates/ajax/admin/towns/distinctions.html.twig</note>
+      </notes>
+      <segment>
+        <source>Diese Auszeichnung wurde verdient.</source>
+        <target>This picto has been earned.</target>
+      </segment>
+    </unit>
+    <unit id="I2eWURG" name="Freundesliste">
+      <notes>
+        <note category="german">Freundesliste</note>
+        <note category="from">twig:///templates/ajax/admin/users/social.html.twig</note>
+      </notes>
+      <segment>
+        <source>Freundesliste</source>
+        <target>Friend list</target>
+      </segment>
+    </unit>
+    <unit id="nQ9blbf" name="Spieler, sie sich als Freund hinzugefügt haben">
+      <notes>
+        <note category="german">Spieler, die sie/ihn als Freund hinzugefügt haben</note>
+        <note category="from">twig:///templates/ajax/admin/users/social.html.twig</note>
+      </notes>
+      <segment>
+        <source>Spieler, sie sich als Freund hinzugefügt haben</source>
+        <target>Players who added them to their friend list</target>
+      </segment>
+    </unit>
+    <unit id="_cSDjRl" name="Spieler werben">
+      <notes>
+        <note category="german">Spieler werben</note>
+        <note category="from">twig:///templates/ajax/admin/users/social.html.twig</note>
+      </notes>
+      <segment>
+        <source>Spieler werben</source>
+        <target>Sponsorship</target>
+      </segment>
+    </unit>
+    <unit id="b1moPIw" name="Blockierliste">
+      <notes>
+        <note category="german">Blockierliste</note>
+        <note category="from">twig:///templates/ajax/admin/users/social.html.twig</note>
+      </notes>
+      <segment>
+        <source>Blockierliste</source>
+        <target>Blocklist</target>
+      </segment>
+    </unit>
+    <unit id="6vRyig1" name="Blockiert von">
+      <notes>
+        <note category="german">Blockiert von</note>
+        <note category="from">twig:///templates/ajax/admin/users/social.html.twig</note>
+      </notes>
+      <segment>
+        <source>Blockiert von</source>
+        <target>Blocked by</target>
+      </segment>
+    </unit>
+    <unit id="6B7S7TG" name="Bürger-Alias ​​ändern:">
+      <notes>
+        <note category="german">Bürger-Alias ​​ändern:</note>
+        <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
+      </notes>
+      <segment>
+        <source>Bürger-Alias ​​ändern:</source>
+        <target>Changer citizen alias:</target>
+      </segment>
+    </unit>
+    <unit id="7.npMFZ" name="Kein Alias ​​angegeben">
+      <notes>
+        <note category="german">Kein Alias ​​angegeben</note>
+        <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
+      </notes>
+      <segment>
+        <source>Kein Alias ​​angegeben</source>
+        <target>No alias</target>
+      </segment>
+    </unit>
+    <unit id="u5LKixo" name="Bitte nicht für mehrere Bürger denselben Alias eingeben!">
+      <notes>
+        <note category="german">Bitte nicht für mehrere Bürger denselben Alias eingeben!</note>
+        <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
+      </notes>
+      <segment>
+        <source>Bitte nicht für mehrere Bürger denselben Alias eingeben!</source>
+        <target>Please do not give multiple citizen the same alias!</target>
       </segment>
     </unit>
   </file>

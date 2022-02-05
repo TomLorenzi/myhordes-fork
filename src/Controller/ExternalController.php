@@ -13,9 +13,12 @@ use App\Entity\ExternalApp;
 use App\Entity\GazetteEntryTemplate;
 use App\Entity\GazetteLogEntry;
 use App\Entity\ItemPrototype;
+use App\Entity\PictoPrototype;
+use App\Entity\RuinZonePrototype;
 use App\Entity\Town;
 use App\Entity\User;
 use App\Entity\Zone;
+use App\Entity\ZonePrototype;
 use App\Entity\ZoneTag;
 use App\Service\ActionHandler;
 use App\Service\CitizenHandler;
@@ -132,6 +135,11 @@ class ExternalController extends InventoryAwareController {
             $type = 'internalerror';
         }
 
+        if ($this->time_keeper->isDuringAttack() && $type !== 'internalerror' && $type !== 'status') {
+            $data = ["error" => "nightly_attack"];
+            $type = 'internalerror';
+        }
+
         switch ($type) {
             case 'internalerror':
                 if (empty($data)) {
@@ -141,12 +149,6 @@ class ExternalController extends InventoryAwareController {
                     ];
                 }
                 break;
-            case '':
-                $data = [
-                    "error"             => "server_error",
-                    "error_description" => "UnknownAction(default)"
-                ];
-                break;
             case 'status':
                 $data = [
                     "attack"   => $this->time_keeper->isDuringAttack(),
@@ -154,7 +156,16 @@ class ExternalController extends InventoryAwareController {
                 ];
                 break;
             case 'items':
-                $data = $this->getItemAPI();
+                $data = $this->getPrototypesAPI("items");
+                break;
+            case "buildings":
+                $data = $this->getPrototypesAPI("buildings");
+                break;
+            case "ruins":
+                $data = $this->getPrototypesAPI("ruins");
+                break;
+            case "pictos":
+                $data = $this->getPrototypesAPI("pictos");
                 break;
             case 'debug':
                 $data = $this->getDebugdata();
@@ -166,6 +177,12 @@ class ExternalController extends InventoryAwareController {
             case "map":
                 $data = $this->getMapAPI();
                 break;
+            default:
+                $data = [
+                    "error"             => "server_error",
+                    "error_description" => "UnknownAction(default)"
+                ];
+            break;
         }
 
         if (!empty($data)) {
@@ -238,7 +255,7 @@ class ExternalController extends InventoryAwareController {
         return $this->SURLL_parser();
     }
 
-    private function getItemAPI(): array {
+    private function getPrototypesAPI(string $entity): array {
         $fields = $this->getRequestParam('fields');
         $filter = $this->getRequestParam('filters');
         $langue = $this->getRequestParam('languages');
@@ -254,8 +271,21 @@ class ExternalController extends InventoryAwareController {
         if ($langue != false) {
             $this->langue = $this->SURLL_preparser($langue);
         }
-
-        return $this->getItemsData();
+        switch($entity){
+            case "items":
+                return $this->getItemPrototypesData();
+            case "buildings":
+                return $this->getBuildingPrototypesData();
+            case "pictos":
+                return $this->getPictoPrototypesData();
+            case "ruins":
+                return $this->getRuinPrototypesData();
+            default:
+                $data = [
+                    "error"             => "server_error",
+                    "error_description" => "UnknownEntity($entity)"
+                ];
+        }
     }
 
     private function getMapAPI(): array {
@@ -331,7 +361,6 @@ class ExternalController extends InventoryAwareController {
 
         return $this->getUserData($filters, $fields_user);
     }
-
 
     private function getArrayItem(Collection $collections, array $fields): array {
         $data = [];
@@ -421,12 +450,12 @@ class ExternalController extends InventoryAwareController {
         $data = [];
 
         if (empty($fields)) {
-            $fields = ['id', 'survial', 'avatar', 'name'];
+            $fields = ['id', 'survival', 'avatar', 'name'];
         }
 
         foreach ($this->town->getCitizens() as $citizen) {
             if (!$citizen->getAlive()) {
-                $data[] = $this->getCadaversInformation($citizen, $fields);
+                $data[] = $this->getCadaversInformation($citizen->getRankingEntry(), $fields);
             }
         }
 
@@ -515,6 +544,69 @@ class ExternalController extends InventoryAwareController {
                     }
                 }
                 $data[] = $data_building;
+            }
+        }
+
+        return $data;
+    }
+    private function getBuildingPrototypeData(BuildingPrototype $prototype, array $fields = []): array {
+        $data = [];
+
+        if (empty($fields)) {
+            $fields = ['id', 'img', 'name', 'desc', 'pa', 'breakable', 'def', 'temporary'];
+        }
+
+        foreach ($fields as $field) {
+            if (is_array($field)) {
+                foreach ($field as $ProtoFieldName => $ProtoFieldValue) {
+                    if ($ProtoFieldName == "resources") {
+                        $data[$ProtoFieldName] = $this->getResources($prototype, $ProtoFieldValue['fields'] ?? []);
+                    }
+                }
+            } else {
+                switch ($field) {
+                    case "id":
+                        $data[$field] = $prototype->getId();
+                        break;
+                    case "img":
+                        $data[$field] =
+                            $this->getIconPath($this->asset->getUrl("build/images/building/{$prototype->getIcon()}.gif"));
+                        break;
+                    case "name":
+                        $data[$field] = $this->getTranslate($prototype->getLabel(), 'buildings');
+                        break;
+                    case "desc":
+                        $data[$field] = $this->getTranslate($prototype->getDescription(), 'buildings');
+                        break;
+                    case "pa":
+                        $data[$field] = $prototype->getAp();
+                        break;
+                    case "maxLife":
+                        $data[$field] = $prototype->getHp();
+                        break;
+                    case "breakable":
+                        $data[$field] = !$prototype->getImpervious();
+                        break;
+                    case "def":
+                        $data[$field] = $prototype->getDefense();
+                        break;
+                    case "hasUpgrade":
+                        $data[$field] = !is_null($prototype->getUpgradeTexts());
+                        break;
+                    case "rarity":
+                        $data[$field] = $prototype->getBlueprint();
+                        break;
+                    case "temporary":
+                        $data[$field] = $prototype->getTemp();
+                        break;
+                    case "parent":
+                        $data[$field] =
+                            (!is_null($prototype->getParent())) ? $prototype->getParent()->getId() : 0;
+                        break;
+                    case "resources":
+                        $data[$field] = $this->getResources($prototype);
+                        break;
+                }
             }
         }
 
@@ -980,28 +1072,6 @@ class ExternalController extends InventoryAwareController {
         return $data;
     }
 
-    private function getItemsData(): array {
-        $data = [];
-        if (!empty($this->filters)) {
-            $filters = [];
-            foreach ($this->filters as $key => $val) {
-                if (is_string($val)) {
-                    $filters[] = $val;
-                }
-            }
-            $items = $this->entity_manager->getRepository(ItemPrototype::class)->findBy(['icon' => $filters]);
-        } else {
-            $items = $this->entity_manager->getRepository(ItemPrototype::class)->findAll();
-        }
-        /** @var ItemPrototype $ItemProto */
-        foreach ($items as $ItemProto) {
-            $icon = $ItemProto->getIcon();
-
-            $data[$icon] = $this->getItemData($ItemProto, $this->fields);
-        }
-        return $data;
-    }
-
     private function getJobData(Citizen $citizen, array $fields = []): array {
 
         if (empty($fields)) {
@@ -1219,8 +1289,8 @@ class ExternalController extends InventoryAwareController {
                         case "regenDir":
                             /* if Searchtower build small_gather_#02 */
                             $buildSearchtower = ($this->town_handler->getBuilding($this->town, 'small_gather_#02', true)) ? true : false;
-                            if($buildSearchtower){
-                                $regenDir = 'invalid direction';
+                            if($buildSearchtower && $gazette['windDirection']){
+                                $regenDir = "invalid direction";
                                 switch ($gazette['windDirection']){
                                     case Zone::DirectionNorthWest:
                                         $regenDir = $this->getTranslate('Nordwesten','game');
@@ -1298,18 +1368,19 @@ class ExternalController extends InventoryAwareController {
 
             // This does not work; getCadaversInformation requires a Citizen, not a CitizenRankingProxy
             // Commenting it out until it is fixed to prevent crashes
-            /*if($pastLife->getCitizen() != null){
-                $data_town = $this->getCadaversInformation($pastLife->getUser()->getCitizens(),$fields);
-                if(in_array('origin',$fields)){
-                    $codeOrigin = '';
-                    if($pastLife->getTown()->getImported()){
-                        $codeOrigin = $mainAccount . "-" . ($pastLife->getTown()->getSeason()) ? ($pastLife->getTown()->getSeason()->getNumber() === 0) ? $pastLife->getTown()->getSeason()->getSubNumber() : $pastLife->getTown()->getSeason()->getNumber() : 0;
-                    }
-                    $data_town['origin'] = $codeOrigin;
+            $data_town = $this->getCadaversInformation($pastLife, $fields);
+            if(in_array('origin',$fields)){
+                $codeOrigin = '';
+                if($pastLife->getTown()->getImported()){
+                    $codeOrigin = $mainAccount . "-" .
+                        ($pastLife->getTown()->getSeason() ?
+                            ($pastLife->getTown()->getSeason()->getNumber() === 0 ?
+                                $pastLife->getTown()->getSeason()->getSubNumber() : $pastLife->getTown()->getSeason()->getNumber()) : 0);
                 }
+                $data_town['origin'] = $codeOrigin;
+            }
 
-                $data[] = $data_town;
-            }*/
+            $data[] = $data_town;
 
         }
 
@@ -1577,7 +1648,6 @@ class ExternalController extends InventoryAwareController {
                                     $data_zone[$fieldName] = $this->getBuildingData($zone, $zoneOfUser, $fieldValues['fields']);
                                 }
                                 break;
-
                         }
                 } else {
                     switch ($field) {
@@ -1631,7 +1701,6 @@ class ExternalController extends InventoryAwareController {
         return $data;
     }
 
-
     private function getAuthorInformation(ExpeditionRoute $expedition): array {
         $data = [];
         $data['id'] = $expedition->getOwner()->getUser()->getId();
@@ -1650,55 +1719,40 @@ class ExternalController extends InventoryAwareController {
         return $data;
     }
 
-    private function getCadaversInformation(Citizen $citizen, array $fields): array {
+    private function getCadaversInformation(CitizenRankingProxy $citizen, array $fields): array {
         $data = [];
 
-        if ($citizen->getDisposed() != null) {
-            $type = "unknown";
-            switch ($citizen->getDisposed()) {
-                case Citizen::Thrown:
-                    $type = 'garbage';
-                    break;
-                case Citizen::Watered:
-                    $type = 'water';
-                    break;
-                case Citizen::Cooked:
-                    $type = "cook";
-                    break;
-                case Citizen::Ghoul:
-                    $type = "ghoul";
-                    break;
-            }
-        }
-
         foreach ($fields as $field) {
-            if (is_array($field)) {
-                if (key($field) == "cleanup" && $citizen->getDisposed() != null) {
-                    $data['cleanup']['user'] =
-                        $citizen->getDisposedBy()->count() > 0 ? $citizen->getDisposedBy()[0]->getName() : '';
-                    $data['cleanup']['type'] = $type;
-                }
-
+            if(is_array($field)){
+                foreach ($field as $fieldName => $fieldValues)
+                    switch ($fieldName) {
+                        case "cleanup":
+                            $data[$fieldName] = $this->getCleanupInfos($citizen, $fieldValues['fields']);
+                            break;
+                    }
             } else {
                 switch ($field) {
                     case "id":
                         $data[$field] = $citizen->getUser()->getId();
                         break;
+                    case "twinId":
+                        $data[$field] = $citizen->getUser()->getTwinoidID();
+                        break;
                     case "mapId":
                         $data[$field] = $citizen->getTown()->getId();
                         break;
                     case "survival":
-                        $data[$field] = $citizen->getSurvivedDays();
+                        $data[$field] = $citizen->getDay();
                         break;
                     case "day":
-                        $data[$field] = $citizen->getTown()->getDay();
+                        $data[$field] = $citizen->getTown()->getDays();
                         break;
                     case "avatar":
                         $has_avatar = $citizen->getUser()->getAvatar();
                         if ($has_avatar) {
                             $data[$field] = $this->generateUrl('app_web_avatar', ['uid'  => $citizen->getUser()->getId(),
-                                                                                  'name' => $has_avatar->getFilename(),
-                                                                                  'ext'  => $has_avatar->getFormat()
+                                'name' => $has_avatar->getFilename(),
+                                'ext'  => $has_avatar->getFormat()
                             ], UrlGenerator::ABSOLUTE_URL);
                         } else {
                             $data[$field] = false;
@@ -1716,22 +1770,13 @@ class ExternalController extends InventoryAwareController {
                                 $citizen->getTown()->getSeason()->getNumber() : 0;
                         break;
                     case "dtype":
-                        $data[$field] = $citizen->getCauseOfDeath()->getRef();
+                        $data[$field] = $citizen->getCod()->getRef();
                         break;
                     case "v1":
                         $data[$field] = 0;
                         break;
                     case "score":
-                        /**
-                         * @var CitizenRankingProxy $pastLifeThisTown
-                         */
-                        $pastLifeThisTown =
-                            $this->entity_manager->getRepository(CitizenRankingProxy::class)->findOneBy(['user' => $citizen->getUser(),
-                                                                                                         'town' => $this->town
-                                                                                                        ]);
-                        if ($pastLifeThisTown) {
-                            $data[$field] = $pastLifeThisTown->getPoints();
-                        }
+                        $data[$field] = $citizen->getPoints();
                         break;
                     case "msg":
                         $data[$field] = $citizen->getLastWords();
@@ -1739,17 +1784,30 @@ class ExternalController extends InventoryAwareController {
                     case "comment":
                         $data[$field] = $citizen->getComment();
                         break;
-                    case "cleanUp":
-                        if ($citizen->getDisposed() != null) {
-                            $data['cleanup']['user'] =
-                                $citizen->getDisposedBy()->count() > 0 ? $citizen->getDisposedBy()[0]->getName() : '';
-                            $data['cleanup']['type'] = $type;
-                        }
+                    case "cleanup":
+                        $data['cleanup']['user'] = $citizen->getCleanupUsername();
+                        $data['cleanup']['type'] = $citizen->getCleanupType();
                         break;
                 }
             }
-
         }
+        return $data;
+    }
+
+    private function getCleanupInfos(CitizenRankingProxy $citizen, array $fields): array{
+        $data = [];
+
+        foreach ($fields as $field){
+            switch($field) {
+                case "type":
+                    $data[$field] = $citizen->getCleanupType();
+                    break;
+                case "user":
+                    $data[$field] = $citizen->getCleanupUsername();
+                    break;
+            }
+        }
+
         return $data;
     }
 
@@ -1775,6 +1833,161 @@ class ExternalController extends InventoryAwareController {
             $this->yTown = $offset['y'];
             return [];
         }
+    }
+
+    private function getPictoPrototypeData(PictoPrototype $prototype, array $fields = []): array {
+        $data = [];
+
+        if (empty($fields)) {
+            $fields = ['id', 'img', 'name', 'desc', 'community', 'rare'];
+        }
+
+        foreach ($fields as $field) {
+            switch ($field) {
+                case "id":
+                    $data[$field] = $prototype->getId();
+                    break;
+                case "img":
+                    $data[$field] =
+                        $this->getIconPath($this->asset->getUrl("build/images/pictos/{$prototype->getIcon()}.gif"));
+                    break;
+                case "name":
+                    $data[$field] = $this->getTranslate($prototype->getLabel(), 'game');
+                    break;
+                case "desc":
+                    $data[$field] = $this->getTranslate($prototype->getDescription(), 'game');
+                    break;
+                case "community":
+                    $data[$field] = $prototype->getCommunity();
+                    break;
+                case "rare":
+                    $data[$field] = $prototype->getRare();
+                    break;
+
+            }
+        }
+
+        return $data;
+    }
+
+    private function getRuinPrototypeData(ZonePrototype $prototype, array $fields = []): array {
+        $data = [];
+
+        if (empty($fields)) {
+            $fields = ['id', 'img', 'name', 'desc'];
+        }
+
+        foreach ($fields as $field) {
+            switch ($field) {
+                case "id":
+                    $data[$field] = $prototype->getId();
+                    break;
+                case "img":
+                    $data[$field] =
+                        $this->getIconPath($this->asset->getUrl("build/images/ruin/{$prototype->getIcon()}.gif"));
+                    break;
+                case "name":
+                    $data[$field] = $this->getTranslate($prototype->getLabel(), 'game');
+                    break;
+                case "desc":
+                    $data[$field] = $this->getTranslate($prototype->getExplorableDescription() ?? $prototype->getDescription(), 'game');
+                    break;
+                case "explorable":
+                    $data[$field] = $prototype->getExplorable();
+                    break;
+
+            }
+        }
+
+        return $data;
+    }
+
+    private function getItemPrototypesData(): array {
+        $data = [];
+        if (!empty($this->filters)) {
+            $filters = [];
+            foreach ($this->filters as $key => $val) {
+                if (is_string($val)) {
+                    $filters[] = $val;
+                }
+            }
+            $items = $this->entity_manager->getRepository(ItemPrototype::class)->findBy(['icon' => $filters]);
+        } else {
+            $items = $this->entity_manager->getRepository(ItemPrototype::class)->findAll();
+        }
+        /** @var ItemPrototype $ItemProto */
+        foreach ($items as $ItemProto) {
+            $idProto = $ItemProto->getName();
+
+            $data[$idProto] = $this->getItemData($ItemProto, $this->fields);
+        }
+        return $data;
+    }
+
+    private function getBuildingPrototypesData(): array {
+        $data = [];
+        if (!empty($this->filters)) {
+            $filters = [];
+            foreach ($this->filters as $key => $val) {
+                if (is_string($val)) {
+                    $filters[] = $val;
+                }
+            }
+            $buildings = $this->entity_manager->getRepository(BuildingPrototype::class)->findBy(['icon' => $filters]);
+        } else {
+            $buildings = $this->entity_manager->getRepository(BuildingPrototype::class)->findAll();
+        }
+        /** @var BuildingPrototype $proto */
+        foreach ($buildings as $proto) {
+            $idProto = $proto->getName();
+
+            $data[$idProto] = $this->getBuildingPrototypeData($proto, $this->fields);
+        }
+        return $data;
+    }
+
+    private function getPictoPrototypesData(): array {
+        $data = [];
+        if (!empty($this->filters)) {
+            $filters = [];
+            foreach ($this->filters as $key => $val) {
+                if (is_string($val)) {
+                    $filters[] = $val;
+                }
+            }
+            $buildings = $this->entity_manager->getRepository(PictoPrototype::class)->findBy(['icon' => $filters]);
+        } else {
+            $buildings = $this->entity_manager->getRepository(PictoPrototype::class)->findAll();
+        }
+        /** @var PictoPrototype $proto */
+        foreach ($buildings as $proto) {
+            $idProto = $proto->getName();
+
+            $data[$idProto] = $this->getPictoPrototypeData($proto, $this->fields);
+        }
+        return $data;
+    }
+
+    private function getRuinPrototypesData(): array {
+        $data = [];
+        if (!empty($this->filters)) {
+            $filters = [];
+            foreach ($this->filters as $key => $val) {
+                if (is_string($val)) {
+                    $filters[] = $val;
+                }
+            }
+            $buildings = $this->entity_manager->getRepository(ZonePrototype::class)->findBy(['icon' => $filters]);
+        } else {
+            $buildings = $this->entity_manager->getRepository(ZonePrototype::class)->findAll();
+        }
+        /** @var ZonePrototype $proto */
+        foreach ($buildings as $proto) {
+            $idProto = $proto->getId();
+
+            $data[$idProto] = $this->getRuinPrototypeData($proto, $this->fields);
+        }
+        return $data;
     }
 
     private function getTranslate(string $id, string $domain, array $parameters = []) {
@@ -1884,5 +2097,3 @@ class ExternalController extends InventoryAwareController {
         return true;
     }
 }
-
-?>

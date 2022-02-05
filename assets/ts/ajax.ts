@@ -114,9 +114,8 @@ export default class Ajax {
             if (!frag_target) console.warn('Rendered HTML contains an invalid fragment target: ', frag_target, ' Discarding.')
             else {
                 const frag_doc = document.implementation.createHTMLDocument('');
-                let frag_children = fragment.children;
-                for (let i = 0; i < frag_children.length; i++)
-                    frag_doc.body.appendChild( frag_children[i] );
+                while (fragment.children.length > 0)
+                    frag_doc.body.appendChild( fragment.children.item(0) );
                 this.render( url, frag_target, frag_doc, false, false );
             }
             fragment.remove();
@@ -126,6 +125,10 @@ export default class Ajax {
         let content_source = result_document.querySelectorAll('html>body>:not(script):not(x-message)');
         let style_source = result_document.querySelectorAll('html>head>style');
         let script_source = result_document.querySelectorAll('script');
+        let react_mounts = {}
+        $.html.forEach('[id][x-react-mount]', c => {
+            react_mounts[c.id] = c;
+        }, result_document)
 
         // Merge flash messages
         let message_stack_changed = true, flash_source = null;
@@ -154,8 +157,24 @@ export default class Ajax {
         let ajax_intention = ajax_html_elem ? ajax_html_elem.getAttribute('x-ajax-intention') : 'inline';
         ajax_intention = ajax_intention ? ajax_intention :  'native';
 
-        // Clear the target
+        // React container cache
+        let container_cache = {};
+
+        // Clear the tooltips
         $.html.clearTooltips( target );
+
+        // Save react mounts
+        $.html.forEach( '[id][x-react-mount]', c => {
+            if (react_mounts[c.id]) {
+                if (react_mounts[c.id].getAttribute('x-react-data'))
+                    c.setAttribute( 'x-react-data', react_mounts[c.id].getAttribute('x-react-data') )
+                react_mounts[c.id].parentElement.insertBefore( c, react_mounts[c.id] );
+                react_mounts[c.id].remove();
+                react_mounts[c.id] = c;
+            } else $.components.degenerate( c );
+        }, target );
+
+        // Clear the target
         {let c; while ((c = target.firstChild)) target.removeChild(c);}
 
         let ajax_instance = this;
@@ -181,8 +200,8 @@ export default class Ajax {
                     }
 
                     let no_scroll = buttons[b].hasAttribute('x-ajax-sticky');
-
-                    ajax_instance.load( load_target, buttons[b].getAttribute('x-ajax-href'), true, {}, () => {
+                    let no_history = buttons[b].hasAttribute('x-ajax-transient');
+                    ajax_instance.load( load_target, buttons[b].getAttribute('x-ajax-href'), !no_history, {}, () => {
                         if (!no_scroll) window.scrollTo(0, 0);
                     } )
                 }, {once: true, capture: true});
@@ -259,6 +278,12 @@ export default class Ajax {
                 $.html.handleTooltip( <HTMLElement>tooltips[t] );
             target.appendChild( content_source[i] );
         }
+        Object.entries(react_mounts).forEach(entry => {
+            const component = <HTMLElement>entry[1];
+            let data = component.hasAttribute('x-react-data') ? JSON.parse(component.getAttribute('x-react-data')) : {};
+            component.removeAttribute('x-react-data');
+            $.components.generate( component, component.getAttribute('x-react-mount'), data );
+        });
 
         for (let i = 0; i < script_source.length; i++)
             try {
@@ -282,6 +307,7 @@ export default class Ajax {
             bubbles: true, cancelable: true
         }));
 
+        $.components.prune();
         $.html.restoreTutorialStage();
     }
 
@@ -296,11 +322,11 @@ export default class Ajax {
         if (!(target = this.prepareTarget( target ))) return;
         url = this.prepareURL(url);
 
-        const no_hist    = this.fetch_no_history();
+        const no_hist    = this.fetch_no_history() || !push_history;
         const no_loader  = this.fetch_no_loader();
         const no_error  = this.fetch_soft_fail();
 
-        if (push_history) this.push_history(url);
+        if (!no_hist) this.push_history(url);
         let this_promise;
         document.dispatchEvent( new CustomEvent('mh-navigation-begin', {detail: {url: url, post: data, node: target, complete: new Promise((resolve,reject) => {
             this_promise = [resolve,reject]

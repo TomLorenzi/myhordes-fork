@@ -2022,7 +2022,7 @@
     <unit id="Vlb5Lbe" name="Aktionen">
       <notes>
         <note category="german">Aktionen</note>
-        <note category="from">twig:///templates/ajax/soul/coalitions.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/coalitions.html.twig;twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Aktionen</source>
@@ -2556,23 +2556,21 @@
     <unit id="G9tS6ug" name="Diese Sperre ist bis zu folgendem Zeitpunkt gültig:">
       <notes>
         <note category="german">Diese Sperre ist bis zu folgendem Zeitpunkt gültig:</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/acc_disabled.html.twig</note>
       </notes>
       <segment>
         <source>Diese Sperre ist bis zu folgendem Zeitpunkt gültig:</source>
-        <target>Diese Sperre ist bis zu folgendem Zeitpunkt gültig:</target>
+        <target>This ban will be active until the following date:</target>
       </segment>
     </unit>
     <unit id="gLe5bOG">
       <notes>
-        <note category="german">Wenn du der Meinung bist, fälschlicherweise gesperrt worden zu sein, kannst du dich im Weltforum melden.</note>
-        <note category="state">new</note>
+        <note category="german">Wenn du der Meinung bist, fälschlicherweise gesperrt worden zu sein, kannst du dich im Rabennest (unten auf der Forenübersicht) melden.</note>
         <note category="from">twig:///templates/ajax/soul/acc_disabled.html.twig</note>
       </notes>
       <segment>
         <source>Wenn du der Meinung bist, fälschlicherweise gesperrt worden zu sein, kannst du dich im Weltforum melden.</source>
-        <target>Wenn du der Meinung bist, fälschlicherweise gesperrt worden zu sein, kannst du dich im Weltforum melden.</target>
+        <target>If you think you have been wrongly banned, you can report it in the Crows's Nest (at the bottom of the forum overview).</target>
       </segment>
     </unit>
     <unit id="4KXz4lN" name="ALLE SAISONS">
@@ -2588,7 +2586,7 @@
     <unit id="9cNHWGl" name="Seelenpunkte">
       <notes>
         <note category="german">Seelenpunkte</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/season.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/users/social.html.twig;twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/season.html.twig</note>
       </notes>
       <segment>
         <source>Seelenpunkte</source>
@@ -2618,7 +2616,7 @@
     <unit id="9DAxndj" name="Spieler">
       <notes>
         <note category="german">Spieler</note>
-        <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/users/social.html.twig;twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/season.html.twig</note>
       </notes>
       <segment>
         <source>Spieler</source>
@@ -2758,23 +2756,21 @@
     <unit id="WPixbld" name="Spielen">
       <notes>
         <note category="german">Spielen</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Spielen</source>
-        <target>Spielen</target>
+        <target>Play</target>
       </segment>
     </unit>
     <unit id="VNOZ2rq">
       <notes>
         <note category="german">Du kannst keinen Städten beitreten. Befindest du dich bereits in einer Stadt, kannst du dort keinerlei Aktionen mehr durchführen und keinen Stadtbildschirm aufrufen. Zudem verlierst du den Zugang zum Stadtforum.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Du kannst keinen Städten beitreten. Befindest du dich bereits in einer Stadt, kannst du dort keinerlei Aktionen mehr durchführen und keinen Stadtbildschirm aufrufen. Zudem verlierst du den Zugang zum Stadtforum.</source>
-        <target>Du kannst keinen Städten beitreten. Befindest du dich bereits in einer Stadt, kannst du dort keinerlei Aktionen mehr durchführen und keinen Stadtbildschirm aufrufen. Zudem verlierst du den Zugang zum Stadtforum.</target>
+        <target>You can't join towns. If you are already in a town, you can no longer perform any actions or open a town's page. You'll also lose access to the Town Forum.</target>
       </segment>
     </unit>
     <unit id="wEtk74c">
@@ -2964,12 +2960,11 @@
     <unit id="DFJoP7h" name="Du kannst kein Icon ohne einen Titel wählen.">
       <notes>
         <note category="german">Du kannst kein Icon ohne einen Titel wählen.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Du kannst kein Icon ohne einen Titel wählen.</source>
-        <target>Du kannst kein Icon ohne einen Titel wählen.</target>
+        <target>You can't choose an icon without a title.</target>
       </segment>
     </unit>
     <unit id="wMIPplV" name="Statistiken">
@@ -3045,7 +3040,7 @@
     <unit id="uK4jynd" name="Geworbener Spieler">
       <notes>
         <note category="german">Geworbener Spieler</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/users/social.html.twig;twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Geworbener Spieler</source>
@@ -3055,7 +3050,7 @@
     <unit id="4n2PgVx" name="Heldenerfahrung">
       <notes>
         <note category="german">Heldenerfahrung</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/users/social.html.twig;twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Heldenerfahrung</source>
@@ -4308,6 +4303,247 @@
       <segment>
         <source>Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll. Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</source>
         <target>Select which part of your profile picture should be used for the reduced display. Move the section with the mouse and enlarge or reduce it with the mouse wheel.</target>
+      </segment>
+    </unit>
+    <unit id=".R_0uOZ" name="Denke daran, dich ebenfalls aus deinem EternalTwin Account auszuloggen!">
+      <notes>
+        <note category="german">Denke daran, dich ebenfalls aus deinem EternalTwin Account auszuloggen!</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>Denke daran, dich ebenfalls aus deinem EternalTwin Account auszuloggen!</source>
+        <target>Remember, you also need to log out of your EternalTwin account!</target>
+      </segment>
+    </unit>
+    <unit id="TMcIHTT" name="Du kannst deinen Spielernamen erst in {days} Tagen erneut ändern.">
+      <notes>
+        <note category="german">Du kannst deinen Spielernamen erst {days} erneut ändern.</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du kannst deinen Spielernamen erst in {days} Tagen erneut ändern.</source>
+        <target>You have to wait {days, plural, =1 {until tomorrow} other {for # days}} before you can change your display name again.</target>
+      </segment>
+    </unit>
+    <unit id="JO.PmAR" name="Haus ansehen">
+      <notes>
+        <note category="german">Haus ansehen</note>
+        <note category="from">twig:///templates/ajax/soul/user_tooltip.html.twig</note>
+      </notes>
+      <segment>
+        <source>Haus ansehen</source>
+        <target>See their house</target>
+      </segment>
+    </unit>
+    <unit id="Ub5_T82" name="Profil auf MyHordes">
+      <notes>
+        <note category="german">Profil auf MyHordes</note>
+        <note category="from">twig:///templates/ajax/soul/user_tooltip.html.twig</note>
+      </notes>
+      <segment>
+        <source>Profil auf MyHordes</source>
+        <target>MyHordes Profile</target>
+      </segment>
+    </unit>
+    <unit id="Wodhw7O" name="Profil Eternal-Twin">
+      <notes>
+        <note category="german">Profil EternalTwin</note>
+        <note category="from">twig:///templates/ajax/soul/user_tooltip.html.twig</note>
+      </notes>
+      <segment>
+        <source>Profil Eternal-Twin</source>
+        <target>Eternal-Twin Profile</target>
+      </segment>
+    </unit>
+    <unit id="abqsDy0" name="Schreiben">
+      <notes>
+        <note category="german">Schreiben</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/user_tooltip.html.twig</note>
+      </notes>
+      <segment>
+        <source>Schreiben</source>
+        <target>Send a message</target>
+      </segment>
+    </unit>
+    <unit id="ukvMJvG" name="Kontakt hinzufügen">
+      <notes>
+        <note category="german">Kontakt hinzufügen</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/user_tooltip.html.twig</note>
+      </notes>
+      <segment>
+        <source>Kontakt hinzufügen</source>
+        <target>Add contact</target>
+      </segment>
+    </unit>
+    <unit id="C4p3DLl" name="Kontakt löschen">
+      <notes>
+        <note category="german">Kontakt löschen</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/user_tooltip.html.twig</note>
+      </notes>
+      <segment>
+        <source>Kontakt löschen</source>
+        <target>Remove contact</target>
+      </segment>
+    </unit>
+    <unit id="t3wjndr" name="Dieser Spieler gehört nicht zu deinen Kontakten.">
+      <notes>
+        <note category="german">Dieser Spieler gehört nicht zu deinen Kontakten.</note>
+        <note category="from">twig:///templates/ajax/soul/user_tooltip.html.twig</note>
+      </notes>
+      <segment>
+        <source>Dieser Spieler gehört nicht zu deinen Kontakten.</source>
+        <target>This player is not one of your contacts.</target>
+      </segment>
+    </unit>
+    <unit id="5LUgK.g" name="Du hast {username} zu deinen Kontakten hinzugefügt!">
+      <notes>
+        <note category="german">Du hast {username} zu deinen Kontakten hinzugefügt!</note>
+        <note category="from">php:///src/Controller/Soul/SoulController.php</note>
+      </notes>
+      <segment>
+        <source>Du hast {username} zu deinen Kontakten hinzugefügt!</source>
+        <target>You have added {username} to your contacts  !</target>
+      </segment>
+    </unit>
+    <unit id="eBWT82h" name="Du hast {username} aus deinen Kontakten gelöscht!">
+      <notes>
+        <note category="german">Du hast {username} aus deinen Kontakten gelöscht!</note>
+        <note category="from">php:///src/Controller/Soul/SoulController.php</note>
+      </notes>
+      <segment>
+        <source>Du hast {username} aus deinen Kontakten gelöscht!</source>
+        <target>You have removed {username} from your contacts !</target>
+      </segment>
+    </unit>
+    <unit id="Dm3TgUa" name="Sozial">
+      <notes>
+        <note category="german">Sozial</note>
+        <note category="from">twig:///templates/ajax/soul/shell.html.twig</note>
+      </notes>
+      <segment>
+        <source>Sozial</source>
+        <target>Social</target>
+      </segment>
+    </unit>
+    <unit id="I2eWURG" name="Freundesliste">
+      <notes>
+        <note category="german">Freundesliste</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Freundesliste</source>
+        <target>Friend List</target>
+      </segment>
+    </unit>
+    <unit id="_cSDjRl" name="Spieler werben">
+      <notes>
+        <note category="german">Spieler werben</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Spieler werben</source>
+        <target>Sponsorship</target>
+      </segment>
+    </unit>
+    <unit id="T6FFmLN" name="Wahrer Freund">
+      <notes>
+        <note category="german">Wahrer Freund</note>
+        <note category="from">twig:///templates/ajax/admin/users/social.html.twig;twig:///templates/ajax/soul/refer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Wahrer Freund</source>
+        <target>True Friend</target>
+      </segment>
+    </unit>
+    <unit id="aWNhyEI" name="Deine Freundesliste ist leer.">
+      <notes>
+        <note category="german">Deine Freundesliste ist leer.</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Deine Freundesliste ist leer.</source>
+        <target>Your friend list is empty.</target>
+      </segment>
+    </unit>
+    <unit id="vHUeAVJ" name="Neue Freunde finden">
+      <notes>
+        <note category="german">Neue Freunde finden</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Neue Freunde finden</source>
+        <target>Find new friends</target>
+      </segment>
+    </unit>
+    <unit id="BTjlZxP" name="Gib hier den Nickname des Spielers ein, den du als Freund hinzufügen möchtest.">
+      <notes>
+        <note category="german">Gib hier den Nickname des Spielers ein, den du als Freund hinzufügen möchtest.</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Gib hier den Nickname des Spielers ein, den du als Freund hinzufügen möchtest.</source>
+        <target>Enter the name of a player you want to add as a friend.</target>
+      </segment>
+    </unit>
+    <unit id="BHCazk7" name="Spieler, die dich als Freund hinzugefügt haben">
+      <notes>
+        <note category="german">Spieler, die dich als Freund hinzugefügt haben</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Spieler, die dich als Freund hinzugefügt haben</source>
+        <target>Players who added you to their friend list</target>
+      </segment>
+    </unit>
+    <unit id="xMippYH">
+      <notes>
+        <note category="german">Hier siehst du Spieler, die dich in ihre Freundesliste eingetragen haben. Wenn du möchtest, kannst du sie ebenfalls in deine Freundesliste eintragen.</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Hier siehst du Spieler, die dich in ihre Freundesliste eingetragen haben. Wenn du möchtest, kannst du sie ebenfalls in deine Freundesliste eintragen.</source>
+        <target>Here you can see players who have added you to their friends list. If you want, you can add them to your friends list as well.</target>
+      </segment>
+    </unit>
+    <unit id="pPMWL8v">
+      <notes>
+        <note category="german">Du kannst verhindern, dass ein Spieler dich in seine Freundesliste aufnimmt, indem du ihn blockierst. Bedenke, dass er dich danach auch nicht mehr via über eine private Nachricht kontaktieren kann.</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du kannst verhindern, dass ein Spieler dich in seine Freundesliste aufnimmt, indem du ihn blockierst. Bedenke, dass er dich danach auch nicht mehr via über eine private Nachricht kontaktieren kann.</source>
+        <target>You can prevent a player from adding you to their friends list by blocking them. Keep in mind that they will no longer be able to contact you via private message.</target>
+      </segment>
+    </unit>
+    <unit id="b1moPIw" name="Blockierliste">
+      <notes>
+        <note category="german">Blockierliste</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Blockierliste</source>
+        <target>Blocklist</target>
+      </segment>
+    </unit>
+    <unit id="56y70st" name="Blockierter Spieler">
+      <notes>
+        <note category="german">Blockierter Spieler</note>
+        <note category="from">twig:///templates/ajax/admin/users/social.html.twig;twig:///templates/ajax/soul/refer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Blockierter Spieler</source>
+        <target>Blocked player</target>
+      </segment>
+    </unit>
+    <unit id="gqnWr8F" name="Deine Blockierliste ist leer.">
+      <notes>
+        <note category="german">Deine Blockierliste ist leer.</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Deine Blockierliste ist leer.</source>
+        <target>Your blocklist is empty.</target>
       </segment>
     </unit>
   </file>

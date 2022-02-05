@@ -39,9 +39,9 @@
                 {% if (zeds_today[3] >= wtt) and zeds_today[0] %}
                     {% if def < zeds_today[1] %}
                          <span class="warning">
-                            {{'Unsere Verteidigung ist nicht stark genug, um dem Angriff heute Nacht standzuhalten.'|trans({}, 'game')}}
+                            {{'Unsere Verteidigung ist nicht stark genug, um dem Angriff heute Nacht standzuhalten.'|trans({}, 'game')}} <a class="help-button"><div class="tooltip help">{{ 'Wir MÜSSEN Verteidigungsanlagen bauen. Falls Ressourcen dafür fehlen, geh in die Außenwelt (die Wüste außerhalb der Stadt) und suche danach.'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a>
                             {% if has_battlement %}
-                            <div x-ajax-href="{{ path('town_nightwatch') }}" class="link">{{ 'Du kannst helfen und dich der heutigen Nachtwache anschließen!'|trans({}, 'game') }}</div>
+                                <div x-ajax-href="{{ path('town_nightwatch') }}" class="link">{{ 'Du kannst helfen und dich der heutigen Nachtwache anschließen!'|trans({}, 'game') }}</div>
                             {% endif %}
                         </span>
                     {% elseif def >= zeds_today[1] and def < zeds_today[2] %}
@@ -88,32 +88,32 @@
             <h5>{{ 'Meine täglichen Aufgaben'|trans({}, 'game')}} {{ help_btn(('Du weißt nicht, was du tun sollst? Folge den Empfehlungen hier unten :)'|trans({},'global'))) }}</h5>
             <ul class="overview-checklist">
                 {% if is_dehydrated %}
-                    <li>{{ 'Trinken (Oder du stirbst heute Nacht)'|trans({}, 'game') }}</li>
+                    <li>{{ 'Trinken (Oder du stirbst heute Nacht)'|trans({}, 'game') }},</li>
                 {% endif %}
-                <li x-ajax-href="{{ url('forum_town_redirect') }}" {% if has_visited_forum %} class="checked"{% endif %}>{{ 'Einen Blick ins Forum werfen.'|trans({}, 'game') }}</li>
+                <li x-ajax-href="{{ url('forum_town_redirect') }}" {% if has_visited_forum %} class="checked"{% endif %}>{{ 'Einen Blick ins Forum werfen.'|trans({}, 'game') }},</li>
                 {% if town.well > 0 %}
-                <li x-ajax-href="{{ path('town_well') }}" {% if active_citizen.specificActionCounterValue(constant('App\\Entity\\ActionCounter::ActionTypeWell')) > 0 %} class="checked"{% endif %}>{{ 'Meine Ration Wasser im Brunnen entnehmen (optional).'|trans({}, 'game') }}</li>
+                <li x-ajax-href="{{ path('town_well') }}" {% if active_citizen.specificActionCounterValue(constant('App\\Entity\\ActionCounter::ActionTypeWell')) > 0 %} class="checked"{% endif %}>{{ 'Meine Ration Wasser im Brunnen entnehmen (optional).'|trans({}, 'game') }},</li>
                 {% endif %}
                 {% if new_message %}
-                    <li x-ajax-href="{{ path('town_house', {tab: 'messages', subtab: 'received'}) }}">{{ 'Meine Nachrichten lesen.'|trans({}, 'game') }} <img src="{{ asset("build/images/icons/anim_icon_mail.gif") }}" alt="" /> </li>
+                    <li x-ajax-href="{{ path('town_house', {tab: 'messages', subtab: 'received'}) }}">{{ 'Meine Nachrichten lesen.'|trans({}, 'game') }} <img src="{{ asset("build/images/icons/anim_icon_mail.gif") }}" alt="" />,</li>
                 {% endif %}
                 {% if new_coa_message %}
-                    <li x-ajax-href="{{ path('soul_coalitions') }}">{{ 'Die letzten Nachrichten meiner Koalition lesen.'|trans({}, 'game') }} <img src="{{ asset("build/images/icons/anim_icon_mail.gif") }}" alt="" /> </li>
+                    <li x-ajax-href="{{ path('soul_coalitions') }}">{{ 'Die letzten Nachrichten meiner Koalition lesen.'|trans({}, 'game') }} <img src="{{ asset("build/images/icons/anim_icon_mail.gif") }}" alt="" />,</li>
                 {% endif %}
                 {% for name,role in votes_needed %}
                     {% if role %}
                     <li x-ajax-href="{{ path('town_citizen_vote', {roleId: role.id}) }}" {% if has_voted[role.name] %}class="checked"{% endif %}>
-                        {{ 'Den {rolename} wählen'|trans({'{rolename}': role.label|trans({}, 'game')}, 'game') }}
+                        {{ 'Den {rolename} wählen'|trans({'{rolename}': role.label|trans({}, 'game')}, 'game') }},
                     </li>
                     {% endif %}
                 {% endfor %}
-                {% if has_watchtower %}<li x-ajax-href="{{ path('town_watchtower') }}" {% if has_estimated %} class="checked"{% endif %}>{{ 'An der Angriffsabschätzung teilnehmen'|trans({}, 'game') }}</li>{% endif %}
-                {% if not town.devastated and has_levelable_building %}<li x-ajax-href="{{ path('town_upgrades') }}" {% if active_citizen.dailyUpgradeVote %} class="checked"{% endif %}>{{ 'Für ein Tagesprojekt abstimmen.'|trans({}, 'game') }}</li>{% endif %}
-				{% if display_home_upgrade %}<li{% if has_upgraded_house %} class="checked"{% endif %} x-ajax-href="{{ path('town_house', {'tab': 'build' }) }}">{{ 'Mein Haus ausbauen'|trans({}, 'game') }}.</li>{% endif %}
-                {% if citizen.banished %}<li{% if not can_do_insurrection %} class="checked"{% endif %}>{{ 'Einen Aufstand der Verbannten vorbereiten (optional).'|trans({}, 'game') }}</li>{% endif %}
-                <li{% if has_been_active %} class="checked"{% endif %}>{{ 'Auf der Baustelle arbeiten, in der Werkstatt arbeiten oder in die Außenwelt gehen (optional).'|trans({}, 'game') }}</li>
+                {% if has_watchtower %}<li x-ajax-href="{{ path('town_watchtower') }}" {% if has_estimated %} class="checked"{% endif %}>{{ 'An der Angriffsabschätzung teilnehmen'|trans({}, 'game') }},</li>{% endif %}
+                {% if not town.devastated and has_levelable_building and not citizen.banished %}<li x-ajax-href="{{ path('town_upgrades') }}" {% if active_citizen.dailyUpgradeVote %} class="checked"{% endif %}>{{ 'Für ein Tagesprojekt abstimmen.'|trans({}, 'game') }},</li>{% endif %}
+				{% if display_home_upgrade %}<li{% if has_upgraded_house %} class="checked"{% endif %} x-ajax-href="{{ path('town_house', {'tab': 'build' }) }}">{{ 'Mein Haus ausbauen'|trans({}, 'game') }},</li>{% endif %}
+                {% if citizen.banished %}<li{% if not can_do_insurrection %} class="checked"{% endif %}>{{ 'Einen Aufstand der Verbannten vorbereiten (optional).'|trans({}, 'game') }},</li>{% endif %}
+                <li{% if has_been_active %} class="checked"{% endif %}>{{ 'Auf der Baustelle arbeiten, in der Werkstatt arbeiten oder in die Außenwelt gehen (optional).'|trans({}, 'game') }}{% if additional_bullet_points|length > 0 %},{% else %}.{% endif %}</li>
                 {% for message, checked in additional_bullet_points %}
-                    <li {% if checked %}class="checked"{% endif %}>{{ message|trans({},'game') }}</li>
+                    <li {% if checked %}class="checked"{% endif %}>{{ message|trans({},'game') }}{% if loop.last %}.{% else %},{% endif %}</li>
                 {% endfor %}
             </ul>
 

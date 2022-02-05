@@ -1626,7 +1626,7 @@
     <unit id="gLe5bOG">
       <segment>
         <source>Wenn du der Meinung bist, fälschlicherweise gesperrt worden zu sein, kannst du dich im Weltforum melden.</source>
-        <target>Wenn du der Meinung bist, fälschlicherweise gesperrt worden zu sein, kannst du dich im Weltforum melden.</target>
+        <target>Wenn du der Meinung bist, fälschlicherweise gesperrt worden zu sein, kannst du dich im Rabennest (unten auf der Forenübersicht) melden.</target>
       </segment>
     </unit>
     <unit id="PBVB79s" name="Dein Account ist eingeschränkt!">
@@ -2636,6 +2636,150 @@
       <segment>
         <source>Details</source>
         <target>Details</target>
+      </segment>
+    </unit>
+    <unit id=".R_0uOZ" name="Denke daran, dich ebenfalls aus deinem EternalTwin Account auszuloggen!">
+      <segment>
+        <source>Denke daran, dich ebenfalls aus deinem EternalTwin Account auszuloggen!</source>
+        <target>Denke daran, dich ebenfalls aus deinem EternalTwin Account auszuloggen!</target>
+      </segment>
+    </unit>
+    <unit id="TMcIHTT" name="Du kannst deinen Spielernamen erst in {days} Tagen erneut ändern.">
+      <segment>
+        <source>Du kannst deinen Spielernamen erst in {days} Tagen erneut ändern.</source>
+        <target>Du kannst deinen Spielernamen erst {days, plural, =1 {ab morgen} other {in # Tagen}} erneut ändern.</target>
+      </segment>
+    </unit>
+    <unit id="JO.PmAR" name="Haus ansehen">
+      <segment>
+        <source>Haus ansehen</source>
+        <target>Haus ansehen</target>
+      </segment>
+    </unit>
+    <unit id="Ub5_T82" name="Profil auf MyHordes">
+      <segment>
+        <source>Profil auf MyHordes</source>
+        <target>Profil auf MyHordes</target>
+      </segment>
+    </unit>
+    <unit id="Wodhw7O" name="Profil Eternal-Twin">
+      <segment>
+        <source>Profil Eternal-Twin</source>
+        <target>Profil Eternal-Twin</target>
+      </segment>
+    </unit>
+    <unit id="abqsDy0" name="Schreiben">
+      <segment>
+        <source>Schreiben</source>
+        <target>Schreiben</target>
+      </segment>
+    </unit>
+    <unit id="ukvMJvG" name="Kontakt hinzufügen">
+      <segment>
+        <source>Kontakt hinzufügen</source>
+        <target>Kontakt hinzufügen</target>
+      </segment>
+    </unit>
+    <unit id="C4p3DLl" name="Kontakt löschen">
+      <segment>
+        <source>Kontakt löschen</source>
+        <target>Kontakt löschen</target>
+      </segment>
+    </unit>
+    <unit id="t3wjndr" name="Dieser Spieler gehört nicht zu deinen Kontakten.">
+      <segment>
+        <source>Dieser Spieler gehört nicht zu deinen Kontakten.</source>
+        <target>Dieser Spieler gehört nicht zu deinen Kontakten.</target>
+      </segment>
+    </unit>
+    <unit id="5LUgK.g" name="Du hast {username} zu deinen Kontakten hinzugefügt!">
+      <segment>
+        <source>Du hast {username} zu deinen Kontakten hinzugefügt!</source>
+        <target>Du hast {username} zu deinen Kontakten hinzugefügt!</target>
+      </segment>
+    </unit>
+    <unit id="eBWT82h" name="Du hast {username} aus deinen Kontakten gelöscht!">
+      <segment>
+        <source>Du hast {username} aus deinen Kontakten gelöscht!</source>
+        <target>Du hast {username} aus deinen Kontakten gelöscht!</target>
+      </segment>
+    </unit>
+    <unit id="Dm3TgUa" name="Sozial">
+      <segment>
+        <source>Sozial</source>
+        <target>Sozial</target>
+      </segment>
+    </unit>
+    <unit id="I2eWURG" name="Freundesliste">
+      <segment>
+        <source>Freundesliste</source>
+        <target>Freundesliste</target>
+      </segment>
+    </unit>
+    <unit id="_cSDjRl" name="Spieler werben">
+      <segment>
+        <source>Spieler werben</source>
+        <target>Spieler werben</target>
+      </segment>
+    </unit>
+    <unit id="T6FFmLN" name="Wahrer Freund">
+      <segment>
+        <source>Wahrer Freund</source>
+        <target>Wahrer Freund</target>
+      </segment>
+    </unit>
+    <unit id="aWNhyEI" name="Deine Freundesliste ist leer.">
+      <segment>
+        <source>Deine Freundesliste ist leer.</source>
+        <target>Deine Freundesliste ist leer.</target>
+      </segment>
+    </unit>
+    <unit id="vHUeAVJ" name="Neue Freunde finden">
+      <segment>
+        <source>Neue Freunde finden</source>
+        <target>Neue Freunde finden</target>
+      </segment>
+    </unit>
+    <unit id="BTjlZxP" name="Gib hier den Nickname des Spielers ein, den du als Freund hinzufügen möchtest.">
+      <segment>
+        <source>Gib hier den Nickname des Spielers ein, den du als Freund hinzufügen möchtest.</source>
+        <target>Gib hier den Nickname des Spielers ein, den du als Freund hinzufügen möchtest.</target>
+      </segment>
+    </unit>
+    <unit id="BHCazk7" name="Spieler, die dich als Freund hinzugefügt haben">
+      <segment>
+        <source>Spieler, die dich als Freund hinzugefügt haben</source>
+        <target>Spieler, die dich als Freund hinzugefügt haben</target>
+      </segment>
+    </unit>
+    <unit id="xMippYH">
+      <segment>
+        <source>Hier siehst du Spieler, die dich in ihre Freundesliste eingetragen haben. Wenn du möchtest, kannst du sie ebenfalls in deine Freundesliste eintragen.</source>
+        <target>Hier siehst du Spieler, die dich in ihre Freundesliste eingetragen haben. Wenn du möchtest, kannst du sie ebenfalls in deine Freundesliste eintragen.</target>
+      </segment>
+    </unit>
+    <unit id="pPMWL8v">
+      <segment>
+        <source>Du kannst verhindern, dass ein Spieler dich in seine Freundesliste aufnimmt, indem du ihn blockierst. Bedenke, dass er dich danach auch nicht mehr via über eine private Nachricht kontaktieren kann.</source>
+        <target>Du kannst verhindern, dass ein Spieler dich in seine Freundesliste aufnimmt, indem du ihn blockierst. Bedenke, dass er dich danach auch nicht mehr via über eine private Nachricht kontaktieren kann.</target>
+      </segment>
+    </unit>
+    <unit id="b1moPIw" name="Blockierliste">
+      <segment>
+        <source>Blockierliste</source>
+        <target>Blockierliste</target>
+      </segment>
+    </unit>
+    <unit id="56y70st" name="Blockierter Spieler">
+      <segment>
+        <source>Blockierter Spieler</source>
+        <target>Blockierter Spieler</target>
+      </segment>
+    </unit>
+    <unit id="gqnWr8F" name="Deine Blockierliste ist leer.">
+      <segment>
+        <source>Deine Blockierliste ist leer.</source>
+        <target>Deine Blockierliste ist leer.</target>
       </segment>
     </unit>
   </file>

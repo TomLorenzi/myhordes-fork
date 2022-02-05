@@ -12,6 +12,7 @@ use App\Entity\ForumUsagePermissions;
 use App\Entity\GlobalPrivateMessage;
 use App\Entity\OfficialGroup;
 use App\Entity\OfficialGroupMessageLink;
+use App\Entity\Post;
 use App\Entity\SocialRelation;
 use App\Entity\User;
 use App\Entity\UserGroup;
@@ -284,6 +285,18 @@ class MessageGlobalPMController extends MessageController
         }
 
         foreach ($subscriptions as $subscription) {
+            $user_cache = [$this->getUser()];
+            $users = array_filter( array_reverse( array_map( fn(Post $p) => $p->getOwner(), array_filter(
+                $this->entity_manager->getRepository(Post::class)->findBy(['thread' => $subscription->getThread()], ['date' => 'DESC'], $subscription->getNum()),
+                fn(Post $p) => !$p->getHidden() && $p->getOwner() !== $this->getUser(),
+            ))), function (User $u) use (&$user_cache) {
+                if (in_array($u, $user_cache)) return false;
+                $user_cache[] = $u;
+                return true;
+            });
+
+            $users[] = $this->getUser();
+
             $entries[] = [
                 'obj'    => $subscription->getThread(),
                 'date'   => new DateTime(),
@@ -297,7 +310,7 @@ class MessageGlobalPMController extends MessageController
                 'count'  => $subscription->getNum(),
                 'unread' => $subscription->getNum(),
                 'owner'  => $this->getUser(),
-                'users'  => [$this->getUser()]
+                'users'  => $users
             ];
         }
     }
@@ -583,7 +596,9 @@ class MessageGlobalPMController extends MessageController
         /** @var GlobalPrivateMessage[] $sliced */
         $sliced = array_slice($messages, 0, $num);
 
-        $pinned =  $em->getRepository(GlobalPrivateMessage::class)->findOneBy(['receiverGroup' => $group, 'pinned' => true]);
+        $pinned = $last_id === 0
+            ? $em->getRepository(GlobalPrivateMessage::class)->findOneBy(['receiverGroup' => $group, 'pinned' => true])
+            : null;
 
         return $this->render( 'ajax/pm/conversation_group.html.twig', $this->addDefaultTwigArgs(null, [
             'gid' => $id,
@@ -929,6 +944,19 @@ class MessageGlobalPMController extends MessageController
         if (!$group) return new Response("");
 
         return $this->render( 'ajax/pm/og.html.twig', ['group' => $group]);
+    }
+
+    /**
+     * @Route("jx/pm/user_resolve", name="pm_user_resolve")
+     * @param EntityManagerInterface $em
+     * @return Response
+     */
+    public function editor_user_preview(JSONRequestParser $parser) {
+        if (!$parser->has('user')) return new Response("");
+        $user = $this->entity_manager->getRepository(User::class)->find($parser->get_int('user'));
+        if (!$user) return new Response("");
+
+        return $this->render( 'ajax/pm/user.html.twig', ['user' => $user]);
     }
 
     /**

@@ -6,7 +6,7 @@ use App\Entity\FoundRolePlayText;
 use App\Entity\RolePlayText;
 use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\ORM\NonUniqueResultException;
 
 /**
@@ -69,6 +69,7 @@ class FoundRolePlayTextRepository extends ServiceEntityRepository
             ->andWhere('f.new = :new')
             ->setParameter('user', $user)
             ->setParameter('new', true)
+            ->setMaxResults(1)
             ->getQuery()
             ->getOneOrNullResult()
         ;

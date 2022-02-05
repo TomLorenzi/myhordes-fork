@@ -1,0 +1,110 @@
+{% extends "ajax/ajax_plain.html.twig" %}
+{% block ajax_base %}
+    <div>
+        {% if not dummy %}
+            {# @var \App\Entity\User user #}
+            {% if app.user.id != user.id and not app.user.activeCitizen is null and not user.activeCitizen is null and app.user.activeCitizen.town == user.activeCitizen.town and app.user.activeCitizen.zone is null %}
+                <span class="link" x-ajax-href="{{ path('town_visit', {"id": user.activeCitizen.id}) }}"><img src="{{ asset('build/images/icons/home.gif') }}" alt="" /> {{ 'Haus ansehen'|trans({}, 'soul') }}</span>
+            {% endif %}
+            <span class="link" x-ajax-href="{{ path('soul_visit', {"id": user.id}) }}"><img src="{{ asset("build/images/icons/small_zombie.gif") }}" alt="" /> {{ 'Profil auf MyHordes'|trans({}, 'soul') }}</span>
+            <div class="link-blocks">
+                {% if not user.eternalID is null %}
+                    <div class="link-block">
+                        <a href="https://eternal-twin.net/users/{{ user.eternalID }}">
+                            <img src="{{ asset('build/images/eternal-twin/icon_small.png') }}" alt="" /><br />
+                            {{ 'Profil Eternal-Twin'|trans({}, 'soul') }}
+                        </a>
+                    </div>
+                {% endif %}
+                {% if app.user == user %}
+                    <div class="link-block empty"></div>
+                    <div class="link-block empty"></div>
+                {% else %}
+                    <div class="link-block">
+                        <a class="link" x-action="send-pm" x-user-connect="ulink_{{ user.id }}">
+                            <img src="{{ asset('build/images/icons/mail.png') }}" alt="" /><br />
+                            {{ 'Schreiben'|trans({}, 'soul') }}
+                        </a>
+                    </div>
+                    <div class="link-block">
+                        {% if not isFriend %}
+                            <a class="link" x-action="add-friend" x-friend-id="{{ user.id }}">
+                                <img src="{{ asset('build/images/icons/addContact.png') }}" alt="" /><br />
+                                {{ 'Kontakt hinzufügen'|trans({}, 'soul') }}
+                            </a>
+                        {% else %}
+                            <a class="link" x-action="remove-friend" x-friend-id="{{ user.id }}">
+                                <img src="{{ asset('build/images/icons/removeContact.png') }}" alt="" /><br />
+                                {{ 'Kontakt löschen'|trans({}, 'soul') }}
+                            </a>
+                        {% endif %}
+                    </div>
+                {% endif %}
+                {% if user.eternalID is null %}
+                    <div class="link-block empty"></div>
+                {% endif %}
+            </div>
+
+            {% if super %}
+                <div class="note note-important">{{ 'Dieser Spieler ist ein Administrator auf diesem Server.'|trans({},'global') }}</div>
+            {% elseif admin %}
+                <div class="note note-important">{{ 'Dieser Spieler ist ein Entwickler von MyHordes.'|trans({},'global') }}</div>
+            {% elseif oracle %}
+                <div class="note note-important">{{ 'Dieser Spieler ist ein Orakel auf MyHordes.'|trans({},'global') }}</div>
+            {% elseif anim %}
+                <div class="note note-important">{{ 'Dieser Spieler ist ein Animateur auf MyHordes.'|trans({},'global') }}</div>
+            {% elseif team %}
+                <div class="note note-important">{{ 'Dieser Spieler ist Mitglied des Entwickler-Teams von MyHordes.'|trans({},'global') }}</div>
+            {% endif %}
+
+            {% if not user|is_granted('ROLE_CROW') and app.user != user %}
+                <div class="row">
+                    <div class="cell rw-12 right">
+                        {% if not app.user|related(user,constant('App\\Entity\\SocialRelation::SocialRelationTypeBlock')) %}
+                            <a class="link inline small" x-action="block_user">{{ 'Spieler blockieren'|trans({'{user}': user.name},'global') }}</a>
+                        {% else %}
+                            <a class="link inline small" x-action="unblock_user">{{ 'Blockade aufheben'|trans({'{user}': user.name},'global') }}</a>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endif %}
+
+            <hr class="dashed" />
+        {% endif %}
+        <div class="row">
+            <div class="cell rw-4">
+                {% if crow and dummy %}
+                    <div class="avatarcrow"><img alt="" src="{{ asset('build/images/forum/crow/crow.' ~ (app.request.locale|e('html_attr')|split('_', 2))[0] ~ '.png') }}"></div>
+                {% else %}
+                    <div class="avatar">
+                        {% if user.avatar is null %}
+                            <div class="no-avatar"><div class="cell rw-12 center">{{ user.name|slice(0,2) }}</div></div>
+                        {% else %}
+                            <img alt="" src="{{ path('app_web_avatar', {'uid': user.id, 'name': user.avatar.filename, 'ext': user.avatar.format}) }}">
+                        {% endif %}
+                    </div>
+                {% endif %}
+            </div>
+            <div class="cell rw-8 row user-infos">
+                {% if crow and dummy %}
+                    <div class="rw-12">{{ 'Ich beobachte euch...'|trans({},'game') }}</div>
+                {% elseif not dummy %}
+                    <div class="rw-12">{% if user.preferredPronoun == constant("\\App\\Entity\\User::PRONOUN_MALE") %}<img src="{{ asset('build/images/icons/male.png') }}" alt="{{ 'Männlich'|trans({},'global') }}" />{% elseif user.preferredPronoun == constant("\\App\\Entity\\User::PRONOUN_FEMALE") %}<img src="{{ asset('build/images/icons/female.png') }}" alt="{{ 'Weiblich'|trans({},'global') }}" />{% else %}--{% endif %}</div>
+                    <div class="rw-12">{% if user.language is null %}--{% else %}<img src="{{ asset("build/images/lang/" ~ user.language ~ "_small.png") }}" alt="{{ user.language }}" />{% endif %}</div>
+                {% endif %}
+            </div>
+        </div>
+        {% if not userDesc is null and userDesc != "" %}
+            <div class="row">
+                <div class="userDesc">
+                    {{ userDesc|raw }}
+                </div>
+            </div>
+        {% endif %}
+        {% if not isFriend and app.user != user and not dummy %}
+            <div class="friend-relation not-friend mt-1">{{ 'Dieser Spieler gehört nicht zu deinen Kontakten.'|trans({}, 'soul') }}</div>
+        {% endif %}
+    </div>
+
+    {{ include('ajax/flash.html.twig') }}
+{% endblock %}

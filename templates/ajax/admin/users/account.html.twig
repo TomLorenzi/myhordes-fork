@@ -1,5 +1,9 @@
 {% extends "ajax/ajax.html.twig" %}
 {% block title %}{% trans from 'admin' %}Account{% endtrans %}{%  endblock %}
+{% block menu_text %}
+    {{parent()}}
+    <li class="back-dash" x-ajax-href="{{ url('game_landing') }}">{{ 'Zum Spiel'|trans({},'global') }}</li>
+{% endblock %}
 {% block ajax %}
     {# @var user \App\Entity\User#}
 
@@ -295,7 +299,9 @@
                             {{ 'EternalTwin-Konto'|trans({}, 'admin') }}
                         </div>
                         <div class="cell padded rw-3 rw-sm-12">
-                            {{ user.eternalID ?? '-' }}
+                            {% if user.eternalID is not null %}
+                                <a target="_blank" href="https://eternal-twin.net/users/{{ user.eternalID }}"><i class="fa fa-external-link-alt"></i> {{ user.eternalID }}</a><br />
+                            {% else %} - {% endif %}
                         </div>
                         <div class="cell padded rw-3 rw-sm-12 note note-lightest">
                             {{ 'Twinoid-Konto'|trans({}, 'admin') }}

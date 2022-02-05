@@ -53,7 +53,13 @@
         {% set message_type    = 'd' %}
     {% elseif entry.obj|instance_of('App\\Entity\\Thread') %}
         {% set message_id        = entry.obj.id %}
-        {% set message_title_pre = 'Neuer Beitrag in'|trans({},'global') %}
+        {% if entry.count <= 1 %}
+            {% set message_title_pre = 'Neuer Beitrag in'|trans({},'global') %}
+        {% elseif entry.count < 10 %}
+            {% set message_title_pre = '{n} neue Beiträge in'|trans({n: entry.count},'global') %}
+        {% else %}
+            {% set message_title_pre = '{n} oder mehr neue Beiträge in'|trans({n: entry.count},'global') %}
+        {% endif %}
         {% set endpoint_hardlink = path('forum_thread_view', {fid: entry.obj.forum.id, tid: entry.obj.id}) %}
         {% set message_type      = 'f' %}
     {% endif %}
@@ -106,8 +112,15 @@
         {% endif %}
 
         <b class="title {% if entry.system %}crow-note{% endif %}">{% if message_title_pre %}{{ message_title_pre }}<br />{% endif %}{{ entry.title }}</b>
-
-        {% if entry.system %}
+        {% if message_type == 'f' %}
+            {% for message_partner in entry.users|filter(u => u != entry.owner) %}
+                {% if loop.index0 < 5 %}
+                    <span class="author group-desc"><b class="sender">{{ message_partner.name }}</b></span>{% if loop.index0 < 4 and not loop.last %}, {% endif %}
+                {% elseif loop.index0 == 5 %}
+                    <span class="author group-desc">{{ 'und andere.'|trans({},'global') }}</span>
+                {% endif %}
+            {% endfor %}
+        {% elseif entry.system %}
             <span class="author crow-note">{{ 'Der Rabe'|trans({},'global') }}</span>
         {% elseif entry.official is not null and app.user not in entry.users %}
             {% for message_partner in entry.users %}
@@ -115,7 +128,7 @@
             {% endfor %}
         {% elseif entry.official is not null %}
             <span class="author group-desc"><b class="sender" style="color: #ddab76">[ {{ entry.official.usergroup.name }} ]</b></span>
-        {% elseif entry.users|length > 2 and entry.owner != app.user %}
+        {% elseif entry.users|length > 2 and entry.owner != app.user and not entry.owner is null %}
             <span class="author group-desc"><b class="sender">{{ entry.owner.name }}</b>, {{ '{n} Teilnehmer'|trans({'{n}': entry.users|length},'global') }}</span>
         {% elseif entry.users|length > 2 %}
             <span class="author group-desc">{{ '{n} Teilnehmer'|trans({'{n}': entry.users|length},'global') }}</span>

@@ -85,7 +85,7 @@ class ItemFixtures extends Fixture
         ['label' => 'Maschendrahtzaunstück', 'icon' => 'fence', 'category' => 'Furniture', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                      // -- ---
         ['label' => 'Verfluchter Teddybär', 'icon' => 'teddy', 'category' => 'Furniture', 'deco' =>1, 'heavy' =>false, 'watchpoint' => 0],                                 // In Out
         ['label' => 'Schnellgebauter Tisch', 'icon' => 'bureau', 'category' => 'Furniture', 'deco' =>2, 'heavy' =>true, 'watchpoint' => 23],                                // -- ---
-        ['label' => 'Leerer Automat', 'icon' => 'distri', 'category' => 'Furniture', 'deco' =>4, 'heavy' =>true, 'watchpoint' => 30],                                       // -- ---
+        ['label' => 'Leerer Automat', 'icon' => 'distri', 'category' => 'Furniture', 'deco' =>4, 'heavy' => false, 'watchpoint' => 30],                                       // -- ---
         ['label' => 'Unpersönliche Explodierende Fußmatte', 'icon' => 'trapma', 'category' => 'Furniture', 'deco' =>5, 'heavy' =>false, 'watchpoint' => 0, 'hideInForeignChest' => true],                // -- ---
         ['label' => 'Chuck-Figur', 'icon' => 'chudol', 'category' => 'Furniture', 'deco' =>15, 'heavy' =>false, 'watchpoint' => 0],                                        // -- ---
         ['label' => 'Verfluchte HiFi', 'icon' => 'hifiev', 'category' => 'Furniture', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                                      // -- ---
@@ -331,7 +331,7 @@ class ItemFixtures extends Fixture
 		
 		['label' => 'Kassettenradio (ohne Strom)', 'icon' => 'radio_off', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                      // In Out
         ['label' => 'Streichholzschachtel', 'icon' => 'lights', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                     // -- ---
-        ['label' => 'Leuchtrakete', 'icon' => 'flare', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => -10],                                              // --
+        ['label' => 'Leuchtrakete', 'icon' => 'flare', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => -8],                                              // --
         ['label' => 'Starke Gewürze', 'icon' => 'spices', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                           // -- ---
         ['label' => 'Raketenpulver', 'icon' => 'powder', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                             // -- ---
         ['label' => 'Loses Werkzeug', 'icon' => 'repair_kit_part_raw', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                              // -- ---
@@ -840,9 +840,9 @@ class ItemFixtures extends Fixture
         'lawn_#00'                   => [ 'weapon', 'nw_armory' ],
         'torch_off_#00'              => [ 'impoundable', 'weapon', 'nw_armory' ],
         'iphone_#00'                 => [ 'impoundable', 'weapon', 'nw_armory' ],
-        'machine_1_#00'              => [ 'esc_fixed', 'nw_ikea', 'nw_armory' ],
-        'machine_2_#00'              => [ 'esc_fixed', 'nw_ikea', 'nw_armory' ],
-        'machine_3_#00'              => [ 'esc_fixed', 'nw_ikea', 'nw_armory' ],
+        'machine_1_#00'              => [ 'esc_fixed', 'nw_ikea', 'nw_armory', 'impoundable' ],
+        'machine_2_#00'              => [ 'esc_fixed', 'nw_ikea', 'nw_armory', 'impoundable' ],
+        'machine_3_#00'              => [ 'esc_fixed', 'nw_ikea', 'nw_armory', 'impoundable' ],
         'disinfect_#00'              => [ 'impoundable', 'drug' ],
         'drug_#00'                   => [ 'can_poison', 'impoundable', 'drug' ],
         'drug_hero_#00'              => [ 'impoundable', 'drug', 'esc_fixed' ],
@@ -934,12 +934,17 @@ class ItemFixtures extends Fixture
         'rlaunc_#00'                 => [ 'nw_armory' ],
         'repair_one_#00'             => [ 'hero_find_lucky' ],
         'electro_box_#00'            => [ 'hero_find_lucky' ],
-        'christmas_candy_#00'        => [ 'can_cook' ],
+        'christmas_candy_#00'        => [ 'food', 'can_cook' ],
         'omg_this_will_kill_you_#00' => [ 'can_cook' ],
         'chidol_#00'                 => [ 'prevent_terror' ],
         'maglite_1_#00'              => [ 'prevent_night' ],
         'maglite_2_#00'              => [ 'prevent_night' ],
         'wood_xmas_#00'              => [ 'food' ],
+        'christmas_suit_full_#00'    => [ 'impoundable' ],
+        'christmas_suit_1_#00'    => [ 'impoundable' ],
+        'christmas_suit_2_#00'    => [ 'impoundable' ],
+        'christmas_suit_3_#00'    => [ 'impoundable' ],
+        'leprechaun_suit_#00'    => [ 'impoundable' ],
     ];
 
     public static $item_groups = [

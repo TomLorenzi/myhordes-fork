@@ -31,6 +31,7 @@ use App\Entity\LogEntryTemplate;
 use App\Entity\PictoPrototype;
 use App\Entity\Recipe;
 use App\Entity\RequireDay;
+use App\Entity\RequireEvent;
 use App\Entity\RequireLocation;
 use App\Entity\Requirement;
 use App\Entity\Result;
@@ -301,6 +302,21 @@ class ActionHandler
                 }
             }
 
+            if ($eventReq = $meta_requirement->getEvent()) {
+                /** @var RequireEvent $eventReq */
+                $events = $this->conf->getCurrentEvents($citizen->getTown(), $markers);
+                $found = false;
+                foreach ($events as $event) {
+                    if ($event->name() == $eventReq->getEventName() && $event->active()) {
+                        $found = true;
+                        break;
+                    }
+                }
+                if(!$found) {
+                    $current_state = min( $current_state, $this_state );
+                }
+            }
+
             if ($meta_requirement->getCustom())
                 switch ($meta_requirement->getCustom()) {
 
@@ -342,6 +358,11 @@ class ActionHandler
                             $current_state = min($current_state, Requirement::HideOnFail);
 
                         break;
+
+                    // Inventory space
+                    case 69:
+                        if ($citizen->getZone() === null && $this->inventory_handler->getFreeSize($citizen->getInventory()) <= 0 && $this->inventory_handler->getFreeSize($citizen->getHome()->getChest()) <= 0)
+                            $current_state = min($current_state, $this_state);
                 }
 
 
@@ -402,14 +423,14 @@ class ActionHandler
      * @param Citizen $citizen
      * @return EscortItemActionSet[]
      */
-    public function getAvailableItemEscortActions(Citizen $citizen ): array {
+    public function getAvailableItemEscortActions(Citizen $citizen, ?EscortActionGroup $limit = null ): array {
 
         $is_at_00 = $citizen->getZone() && $citizen->getZone()->isTownZone();
 
         $list = [];
         /** @var EscortActionGroup[] $escort_actions */
         $escort_actions = $this->entity_manager->getRepository(EscortActionGroup::class)->findAll();
-        foreach ($escort_actions as $escort_action) {
+        foreach ($escort_actions as $escort_action) if ($limit === null || $escort_action === $limit) {
 
             $struct = new EscortItemActionSet( $escort_action );
 
@@ -860,9 +881,9 @@ class ActionHandler
                         if ($target_result->getPoison() !== null) $target->setPoison( $target_result->getPoison() );
                     }
                 } elseif (is_a($target, ItemPrototype::class)) {
-                    if ( ($target->getHeavy() && $this->inventory_handler->countHeavyItems( $citizen->getInventory() ) > 0) || $this->inventory_handler->getFreeSize($citizen->getInventory()) <= 0 )
-                        $execute_info_cache['message'][] = $this->translator->trans('Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...', [], 'game');
-                    if ($this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $target ), [ $citizen->getInventory(), $floor_inventory, $citizen->getZone() ? null : $citizen->getTown()->getBank() ])) {
+                    if ($i = $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $target ), [ $citizen->getInventory(), $floor_inventory, $citizen->getZone() ? null : $citizen->getTown()->getBank() ])) {
+                        if ($i !== $citizen->getInventory())
+                            $execute_info_cache['message'][] = $this->translator->trans('Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...', [], 'game');
                         $execute_info_cache['items_spawn'][] = $target;
                         if(!$citizen->getZone())
                             $tags[] = "inside";
@@ -886,14 +907,16 @@ class ActionHandler
 
                     switch ($item_spawn->getSpawnTarget()) {
                         case AffectItemSpawn::DropTargetFloor:
-                            $target = [ $floor_inventory, $citizen->getZone() ? null : $citizen->getTown()->getBank() ];
+                            $target = [ $floor_inventory, $citizen->getInventory(), $floor_inventory ];
                             $force = true;
                             break;
                         case AffectItemSpawn::DropTargetRucksack:
                             $target = [ $citizen->getInventory() ];
+                            $force = true;
+                            break;
                         case AffectItemSpawn::DropTargetDefault:
                         default:
-                            $target = $execute_info_cache['source_inv'] !== null ? [$execute_info_cache['source_inv']] : [ $citizen->getInventory(), $floor_inventory, $citizen->getZone() ? null : $citizen->getTown()->getBank() ];
+                            $target = [$execute_info_cache['source_inv'] ?? null, $citizen->getInventory(), $floor_inventory, $citizen->getZone() ? null : $citizen->getTown()->getBank() ];
                             break;
                     }
 
@@ -1083,7 +1106,7 @@ class ActionHandler
                 elseif ($text) {
                     $tags[] = 'rp_ok';
                     $foundrp = new FoundRolePlayText();
-                    $foundrp->setUser($citizen->getUser())->setText($text)->setNew(true);
+                    $foundrp->setUser($citizen->getUser())->setText($text)->setNew(true)->setDateFound(new DateTime());
                     $citizen->getUser()->getFoundTexts()->add($foundrp);
 
                     $this->entity_manager->persist($foundrp);
@@ -1287,6 +1310,7 @@ class ActionHandler
                                 $execute_info_cache['ap'] += ( $citizen->getAp() - $old_ap );
                             }
 
+                            $this->entity_manager->persist( $this->log->outsideDigSurvivalist( $citizen ) );
                             $execute_info_cache['casino'] = $this->translator->trans($drink ? 'Äußerst erfrischend, und sogar mit einer leichten Note von Cholera.' : 'Immer noch besser als das Zeug, was die Köche in der Stadt zubereiten....', [], 'items');
 
                         } else $execute_info_cache['casino'] = $this->translator->trans('Trotz intensiver Suche hast du nichts verwertbares gefunden...', [], 'items');
@@ -1305,7 +1329,6 @@ class ActionHandler
                         if (!$jumper) break;
                         $zone = $jumper->getZone();
                         if (!$zone) break;
-                        $others_are_here = $zone->getCitizens()->count() > 0;
 
                         $this->zone_handler->updateZone( $zone );
                         $cp_ok = $this->zone_handler->check_cp( $zone );
@@ -1344,6 +1367,7 @@ class ActionHandler
                             if ($others_are_here) $this->entity_manager->persist( $this->log->outsideMove( $jumper, $zone, $zero_zone, true ) );
                             $this->entity_manager->persist( $this->log->outsideMove( $jumper, $zero_zone, $zone, false ) );
                         }*/
+                        $others_are_here = $zone->getCitizens()->count() > 0;
                         if ( ($result->getCustom() === 8) && $others_are_here )
                             $this->entity_manager->persist( $this->log->heroicReturnLog( $citizen, $zone ) );
                         if ( $result->getCustom() === 9 )
@@ -1495,17 +1519,14 @@ class ActionHandler
                         if ($target === null) {
                             // Hordes-like - there is no target, there is only ZUUL
                             $list = $citizen->getZone()->getCitizens()->filter( function(Citizen $c) use ($citizen): bool {
-                                return $c->getAlive() && $c !== $citizen && ($c->getSpecificActionCounter(ActionCounter::ActionTypeSandballHit)->getLast() === null || $c->getSpecificActionCounter(ActionCounter::ActionTypeSandballHit)->getLast()->getTimestamp() < (time() - 1800));
+                                return $c->getAlive() && $c !== $citizen && ($c->getSpecificActionCounter(ActionCounter::ActionTypeSandballHit, $citizen->getId())->getLast() === null || $c->getSpecificActionCounter(ActionCounter::ActionTypeSandballHit, $citizen->getId())->getLast()->getTimestamp() < (time() - 1800));
                             } )->getValues();
                             $sandball_target = $this->random_generator->pick( $list );
 
                         } else $sandball_target = $target;
 
-                        /** @var EventActivationMarker[] $eam */
-                        $eam = $this->entity_manager->getRepository(EventActivationMarker::class)->findBy(['citizen' => $citizen, 'active' => true]);
-                        $b = false;
-                        foreach ($eam as $m) if ($m->getEvent() === 'christmas') $b = true;
-                        if (!$b) $sandball_target = null;
+                        if (!$this->entity_manager->getRepository(EventActivationMarker::class)->findOneBy(['town' => $citizen->getTown(), 'active' => true, 'event' => 'christmas']))
+                            $sandball_target = null;
 
                         if ($sandball_target !== null) {
                             $this->picto_handler->give_picto($citizen, 'r_sandb_#00');
@@ -1514,7 +1535,7 @@ class ActionHandler
                             $execute_info_cache['items_consume'][] = $item->getPrototype();
 
                             $execute_info_cache['citizen'] = $sandball_target;
-                            $sandball_target->getSpecificActionCounter(ActionCounter::ActionTypeSandballHit)->increment();
+                            $sandball_target->getSpecificActionCounter(ActionCounter::ActionTypeSandballHit, $citizen->getId())->increment();
 
                             $hurt = !$this->citizen_handler->isWounded($sandball_target) && $this->random_generator->chance( $town_conf->get(TownConf::CONF_MODIFIER_SANDBALL_NASTYNESS, 0.0) );
                             if ($hurt) $this->citizen_handler->inflictWound($sandball_target);
@@ -1722,7 +1743,7 @@ class ActionHandler
             return ErrorHelper::ErrorNoAP;
 
         $source_inv = in_array($recipe->getType(), [Recipe::WorkshopType, Recipe::WorkshopTypeShamanSpecific]) ? [ $t_inv ] : ($citizen->getZone() ? [$c_inv] : [$c_inv, $citizen->getHome()->getChest() ]);
-        $target_inv = in_array($recipe->getType(), [Recipe::WorkshopType, Recipe::WorkshopTypeShamanSpecific]) ? [ $t_inv ] : ($citizen->getZone() ? ($citizen->getZone()->getX() != 0 || $citizen->getZone()->getY() != 0 ? [$c_inv,$citizen->getZone()->getFloor()] : [$c_inv])  : [$c_inv, $citizen->getHome()->getChest(), $t_inv]);
+        $target_inv = in_array($recipe->getType(), [Recipe::WorkshopType, Recipe::WorkshopTypeShamanSpecific]) ? [ $t_inv ] : ($citizen->getZone() ? ($citizen->getZone()->getX() != 0 || $citizen->getZone()->getY() != 0 ? [$c_inv,$citizen->getZone()->getFloor()] : [$c_inv])  : [$c_inv, $citizen->getHome()->getChest()]);
 
         if (!in_array($recipe->getType(), [Recipe::WorkshopType, Recipe::WorkshopTypeShamanSpecific]) && $citizen->getZone() && $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_FLOOR_ASMBLY, false))
             $source_inv[] = $citizen->getZone()->getFloor();
