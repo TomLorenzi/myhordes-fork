@@ -39,3 +39,20 @@ services:
       tags: [ { name: 'myhordes.fixtures.emotes', priority: 0 } ]
     MyHordes\Fixtures\Service\ForumThreadTagDataService:
       tags: [ { name: 'myhordes.fixtures.forum.thread.tags', priority: 0 } ]
+
+    MyHordes\Fixtures\Service\CitizenProfessionDataService:
+      tags: [ { name: 'myhordes.fixtures.citizen.professions', priority: 0 } ]
+    MyHordes\Fixtures\Service\CitizenStatusDataService:
+      tags: [ { name: 'myhordes.fixtures.citizen.status', priority: 0 } ]
+    MyHordes\Fixtures\Service\CitizenRoleDataService:
+      tags: [ { name: 'myhordes.fixtures.citizen.roles', priority: 0 } ]
+    MyHordes\Fixtures\Service\CitizenNotificationMarkerDataService:
+      tags: [ { name: 'myhordes.fixtures.citizen.notifications', priority: 0 } ]
+    MyHordes\Fixtures\Service\CitizenDeathDataService:
+      tags: [ { name: 'myhordes.fixtures.citizen.deaths', priority: 0 } ]
+    MyHordes\Fixtures\Service\CitizenHomeLevelDataService:
+      tags: [ { name: 'myhordes.fixtures.citizen.home.levels', priority: 0 } ]
+    MyHordes\Fixtures\Service\CitizenHomeUpgradeDataService:
+      tags: [ { name: 'myhordes.fixtures.citizen.home.upgrades', priority: 0 } ]
+    MyHordes\Fixtures\Service\CitizenComplaintDataService:
+      tags: [ { name: 'myhordes.fixtures.citizen.complaints', priority: 0 } ]

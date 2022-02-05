@@ -5,6 +5,14 @@ namespace MyHordes\Fixtures\DependencyInjection\Compiler;
 use MyHordes\Fixtures\Fixtures\AwardFeature;
 use MyHordes\Fixtures\Fixtures\AwardIcon;
 use MyHordes\Fixtures\Fixtures\AwardTitle;
+use MyHordes\Fixtures\Fixtures\CitizenComplaint;
+use MyHordes\Fixtures\Fixtures\CitizenDeath;
+use MyHordes\Fixtures\Fixtures\CitizenHomeLevel;
+use MyHordes\Fixtures\Fixtures\CitizenHomeUpgrade;
+use MyHordes\Fixtures\Fixtures\CitizenNotificationMarker;
+use MyHordes\Fixtures\Fixtures\CitizenProfession;
+use MyHordes\Fixtures\Fixtures\CitizenRole;
+use MyHordes\Fixtures\Fixtures\CitizenStatus;
 use MyHordes\Fixtures\Fixtures\Emote;
 use MyHordes\Fixtures\Fixtures\ForumThreadTag;
 use MyHordes\Fixtures\Fixtures\RolePlayText;
@@ -22,17 +30,33 @@ class FixtureChain implements CompilerPassInterface
     {
         // List of interfaces
         $interfaces = [
-            Town::class             => 'myhordes.fixtures.town',
-            RolePlayText::class     => 'myhordes.fixtures.rp_texts',
-            AwardTitle::class       => 'myhordes.fixtures.awards.titles',
-            AwardIcon::class        => 'myhordes.fixtures.awards.icons',
-            AwardFeature::class     => 'myhordes.fixtures.awards.features',
-            Ruin::class             => 'myhordes.fixtures.ruins.data',
-            RuinRoom::class         => 'myhordes.fixtures.ruins.rooms',
-            ZoneTag::class          => 'myhordes.fixtures.zones.tags',
-            Emote::class            => 'myhordes.fixtures.emotes',
-            ForumThreadTag::class   => 'myhordes.fixtures.forum.thread.tags',
+            Town::class                      => 'myhordes.fixtures.town',
+            RolePlayText::class              => 'myhordes.fixtures.rp_texts',
+            AwardTitle::class                => 'myhordes.fixtures.awards.titles',
+            AwardIcon::class                 => 'myhordes.fixtures.awards.icons',
+            AwardFeature::class              => 'myhordes.fixtures.awards.features',
+            Ruin::class                      => 'myhordes.fixtures.ruins.data',
+            RuinRoom::class                  => 'myhordes.fixtures.ruins.rooms',
+            ZoneTag::class                   => 'myhordes.fixtures.zones.tags',
+            Emote::class                     => 'myhordes.fixtures.emotes',
+            ForumThreadTag::class            => 'myhordes.fixtures.forum.thread.tags',
+            CitizenProfession::class         => 'myhordes.fixtures.citizen.professions',
+            CitizenStatus::class             => 'myhordes.fixtures.citizen.status',
+            CitizenRole::class               => 'myhordes.fixtures.citizen.roles',
+            CitizenNotificationMarker::class => 'myhordes.fixtures.citizen.notifications',
+            CitizenDeath::class              => 'myhordes.fixtures.citizen.deaths',
+            CitizenHomeLevel::class          => 'myhordes.fixtures.citizen.home.levels',
+            CitizenHomeUpgrade::class        => 'myhordes.fixtures.citizen.home.upgrades',
+            CitizenComplaint::class          => 'myhordes.fixtures.citizen.complaints',
         ];
+
+        /**
+
+        MyHordes\Fixtures\Service\CitizenHomeUpgradeDataService:
+        tags: [ { name: 'myhordes.fixtures.citizen.home.upgrades', priority: 0 } ]
+        MyHordes\Fixtures\Service\CitizenComplaintDataService:
+        tags: [ { name: 'myhordes.fixtures.citizen.complaints', priority: 0 } ]
+         */
 
 
         foreach ($interfaces as $class => $tag) {
