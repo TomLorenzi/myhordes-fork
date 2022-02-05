@@ -462,7 +462,7 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
     /**
      * @inheritDoc
      */
-    public function isEqualTo(UserInterface $user) {
+    public function isEqualTo(UserInterface $user): bool {
         if (!$this->getPassword() === null && $this->eternalID === null) return false;
 
         /** @var User $user */
