@@ -3690,7 +3690,7 @@
       </notes>
       <segment>
         <source>Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 2km um die Stadt negiert.</source>
-        <target>La reducción de las posibilidades de búsqueda nocturna se anula en un radio de 2 km alrededor del pueblo</target>
+        <target>La reducción de las posibilidades de búsqueda nocturna se anula en un radio de 2 km alrededor del pueblo.</target>
       </segment>
     </unit>
     <unit id="i9EymZs" name="Kein besonderer Bonus">
@@ -3700,7 +3700,7 @@
       </notes>
       <segment>
         <source>Kein besonderer Bonus</source>
-        <target>Sin bonificación particular</target>
+        <target>Sin bonificación particular.</target>
       </segment>
     </unit>
     <unit id="j_25xjC" name="Die Verteidigung der Stadt wird um 10% erhöht.">
@@ -3760,7 +3760,7 @@
       </notes>
       <segment>
         <source>Die Stadt erhält nach dem nächsten Angriff einmalig 1 gewöhnliche Baupläne.</source>
-        <target>El pueblo recibirá 1 planos comunes después del ataque</target>
+        <target>El pueblo recibirá 1 plano común después de cada ataque.</target>
       </segment>
     </unit>
     <unit id="ELKPDDh" name="Der Wasserwerfer gibt 70 zusätzliche Verteidigungspunkte.">
