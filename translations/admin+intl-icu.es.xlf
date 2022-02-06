@@ -4401,7 +4401,7 @@
       </notes>
       <segment>
         <source>Diese Auszeichnung wird nicht verdient, wenn der Bürger heute Nacht stirbt.</source>
-        <target>Diese Auszeichnung wird nicht verdient, wenn der Bürger heute Nacht stirbt.</target>
+        <target>Esta distinción no se otorgará si el habitante muere esta noche.</target>
       </segment>
     </unit>
     <unit id="WJg1nZp" name="Diese Auszeichnung wurde verdient.">
@@ -4412,7 +4412,7 @@
       </notes>
       <segment>
         <source>Diese Auszeichnung wurde verdient.</source>
-        <target>Diese Auszeichnung wurde verdient.</target>
+        <target>Se ha otorgado la distinción.</target>
       </segment>
     </unit>
     <unit id="I2eWURG" name="Freundesliste">
