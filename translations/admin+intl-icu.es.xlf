@@ -4423,7 +4423,7 @@
       </notes>
       <segment>
         <source>Freundesliste</source>
-        <target>Freundesliste</target>
+        <target>Lista de amigos</target>
       </segment>
     </unit>
     <unit id="nQ9blbf" name="Spieler, sie sich als Freund hinzugefügt haben">
@@ -4434,7 +4434,7 @@
       </notes>
       <segment>
         <source>Spieler, sie sich als Freund hinzugefügt haben</source>
-        <target>Spieler, sie sich als Freund hinzugefügt haben</target>
+        <target>Jugadores que lo añadieron a su lista de amigos</target>
       </segment>
     </unit>
     <unit id="_cSDjRl" name="Spieler werben">
@@ -4445,7 +4445,7 @@
       </notes>
       <segment>
         <source>Spieler werben</source>
-        <target>Spieler werben</target>
+        <target>Patrocinio</target>
       </segment>
     </unit>
     <unit id="b1moPIw" name="Blockierliste">
@@ -4456,7 +4456,7 @@
       </notes>
       <segment>
         <source>Blockierliste</source>
-        <target>Blockierliste</target>
+        <target>Lista de bloqueados</target>
       </segment>
     </unit>
     <unit id="6vRyig1" name="Blockiert von">
@@ -4467,7 +4467,7 @@
       </notes>
       <segment>
         <source>Blockiert von</source>
-        <target>Blockiert von</target>
+        <target>Bloqueado por</target>
       </segment>
     </unit>
     <unit id="6B7S7TG" name="Bürger-Alias ​​ändern:">
