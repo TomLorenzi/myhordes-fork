@@ -4474,7 +4474,7 @@
       </notes>
       <segment>
         <source>Du kannst verhindern, dass ein Spieler dich in seine Freundesliste aufnimmt, indem du ihn blockierst. Bedenke, dass er dich danach auch nicht mehr via über eine private Nachricht kontaktieren kann.</source>
-        <target>Puedes prevenir que un jugador te agregue a su lista de amigos al bloquearlo. Ten en cuenta que ya no podrá contactarte vía mensaje privado.</target>
+        <target>Puedes impedir que un jugador te agregue a su lista de contactos al bloquearlo. Ten en cuenta que ya no podrán contactarse vía mensaje privado.</target>
       </segment>
     </unit>
     <unit id="b1moPIw" name="Blockierliste">
@@ -4485,7 +4485,7 @@
       </notes>
       <segment>
         <source>Blockierliste</source>
-        <target>Blockierliste</target>
+        <target>Lista de bloqueados</target>
       </segment>
     </unit>
     <unit id="56y70st" name="Blockierter Spieler">
@@ -4496,7 +4496,7 @@
       </notes>
       <segment>
         <source>Blockierter Spieler</source>
-        <target>Blockierter Spieler</target>
+        <target>Jugadores bloqueados</target>
       </segment>
     </unit>
     <unit id="gqnWr8F" name="Deine Blockierliste ist leer.">
@@ -4507,7 +4507,7 @@
       </notes>
       <segment>
         <source>Deine Blockierliste ist leer.</source>
-        <target>Tu lista negra está vacía.</target>
+        <target>No has bloqueado a nadie.</target>
       </segment>
     </unit>
   </file>
