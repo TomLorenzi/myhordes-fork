@@ -4284,7 +4284,7 @@
       </notes>
       <segment>
         <source>Du kannst deinen Spielernamen erst in {days} Tagen erneut ändern.</source>
-        <target>Debes esperar {days, plural, =1 {a mañana} other {# días}} antes de que puedas volver a cambiar tu nombre de nuevo.</target>
+        <target>Debes esperar {days, plural, =1 {a mañana} other {# días}} antes de que puedas volver a cambiar tu nombre.</target>
       </segment>
     </unit>
     <unit id="JO.PmAR" name="Haus ansehen">
