@@ -21,6 +21,7 @@ use App\Service\ErrorHelper;
 use App\Service\InventoryHandler;
 use App\Service\JSONRequestParser;
 use App\Service\TownHandler;
+use App\Structures\TownConf;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Common\Collections\Criteria;
 use Exception;
@@ -350,7 +351,9 @@ class TownHomeController extends TownController
 
         // Create log & persist
         try {
-            $em->persist( $this->log->homeUpgrade( $citizen ) );
+            if (!$this->conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_MODIFIER_HIDE_HOME_UPGRADE, false))
+                $em->persist( $this->log->homeUpgrade( $citizen ) );
+
             $em->persist($home);
             $em->persist($citizen);
             $em->flush();
