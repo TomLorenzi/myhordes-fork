@@ -23169,7 +23169,7 @@
       </notes>
       <segment>
         <source>Die Anwesenheit des Geistigen Beistands unter den Nachtwächtern gibt ihnen jeweils einen Boost von {counsel} Verteidigung.</source>
-        <target>The presence of Psychadelic Spiritual Counsel among the Watchmen gives them a {counsel} defense boost each.</target>
+        <target>The presence of Psychadelic Spiritual Counsel among the Watchmen gives a {counsel} defense boost to the town.</target>
       </segment>
     </unit>
     <unit id="vhwzs0L">
