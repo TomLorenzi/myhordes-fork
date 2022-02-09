@@ -24952,7 +24952,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Die Zombies haben sich nicht mit Nettigkeiten aufgehalten... alles, was von &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} noch übrig ist ist ein Kieferknochen sowie verschiedene Organe, die {location} gefunden wurden. Kommt schon, lächelt mal wieder! Er war das einzige Opfer, stellt euch mal vor es hätte auch noch &lt;strong&gt;{citizen1}&lt;/strong&gt; getroffen!</source>
-        <target><![CDATA[Les zombies n'ont pas fait dans la dentelle hier soir... De <i class="dagger">†</i> {cadaver1}, il ne reste qu'une mâchoire et quelques organes broyés retrouvés [location]. Allez, on sourit ! C'est la seule victime, ça aurait pu être <strong>{citizen1}</strong> !]]></target>
+        <target><![CDATA[Les zombies n'ont pas fait dans la dentelle hier soir... De <i class="dagger">†</i> {cadaver1}, il ne reste qu'une mâchoire et quelques organes broyés retrouvés {location}. Allez, on sourit ! C'est la seule victime, ça aurait pu être <strong>{citizen1}</strong> !]]></target>
       </segment>
     </unit>
     <unit id="BmxV3XO">
