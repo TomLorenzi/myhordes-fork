@@ -22928,7 +22928,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Einen Aufstand der Verbannten vorbereiten (optional).</source>
-        <target>préparer une insurrection de bannis (optionnel)</target>
+        <target>Préparer une insurrection de bannis (optionnel)</target>
       </segment>
     </unit>
     <unit id="gfklKsJ" name="Du bist der {rolename} dieser Stadt.">
