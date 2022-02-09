@@ -200,7 +200,7 @@ class MigrateCommand extends Command
         ;
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $null = null;
         if ($m = $input->getOption('maintenance')) {
