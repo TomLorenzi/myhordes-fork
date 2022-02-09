@@ -10663,7 +10663,7 @@
       </notes>
       <segment>
         <source>Mithilfe des {item} hast du die Tür aufgeschlossen!</source>
-        <target>Avec {item}, vous avez déverrouillé la porte !</target>
+        <target>Vous avez réussi à dévérouiller la porte, mais la {item}, elle par contre, semble foutue...</target>
       </segment>
     </unit>
     <unit id="DswnobJ" name="{z} Zombies blockieren den Weg!">
@@ -10773,7 +10773,7 @@
       </notes>
       <segment>
         <source>Du benötigst {item}, um diese Tür zu öffnen.</source>
-        <target>Vous avez besoin de {item} pour ouvrir cette porte.</target>
+        <target>Pour ouvrir cette porte il vous faudrait quelque chose ressemblant à une {item}.</target>
       </segment>
     </unit>
     <unit id="Zc9wwO7" name="Verbesserung des Tages (building)">
