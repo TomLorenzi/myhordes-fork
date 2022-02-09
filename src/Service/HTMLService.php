@@ -396,14 +396,12 @@ class HTMLService {
                 } elseif (is_numeric($id))
                     $target_user = $this->entity_manager->getRepository(User::class)->find($id);
 
-                if ($target_user === null)
-                    $user_ref->textContent = '???';
-                else {
+                if ($target_user === null) {
+                    $user_ref->setAttribute('class', $user_ref->getAttribute('class') . ' raw');
+                } else {
                     $user_ref->textContent = "@​::un:{$target_user->getId()}";
                     $user_ref->setAttribute('x-user-id', $target_user->getId());
                     $user_ref->setAttribute('class', $user_ref->getAttribute('class') . ' username');
-                    /*$user_ref->setAttribute('x-ajax-href', "@​::up:{$target_user->getId()}");
-                    $user_ref->setAttribute('x-ajax-target', "default");*/
                 }
             },
 
