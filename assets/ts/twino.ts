@@ -256,7 +256,7 @@ class TwinoConverterToBlocks {
                 else blocks.push( new TwinoInterimBlock(nodeContent, 'div', match.nodeType(), [['x-nested','1']]) );
                 changed = true; break;
             case 'code': blocks.push( new TwinoInterimBlock(nodeContent, 'pre', [], [ ['x-raw','1'] ]) ); changed = true; break;
-            case 'quote':
+            case 'quote':case 'cite':
                 if ( match.nodeInfo() ) {
                     let split = match.nodeInfo().split(':');
                     blocks.push( new TwinoInterimBlock('', 'div', 'clear') );
