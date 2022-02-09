@@ -692,16 +692,26 @@ class MigrateCommand extends Command
         if ($input->getOption('fix-forum-posts')) {
             $posts = $this->entity_manager->getRepository(Post::class)->findAll();
             foreach ($posts as $post) {
-                if (!preg_match('/<div class="cref" x-id="([0-9]+)" x-ajax-href="(@[a-z0-9: ​]+)">/', $post->getText()))
-                    continue;
+                if (preg_match('/<div class="cref" x-id="([0-9]+)" x-ajax-href="(@[a-z0-9: ​]+)" x-ajax-target="default">/', $post->getText())) {
+                    $text = $post->getText();
+                    while (preg_match('/<div class="cref" x-id="([0-9]+)" x-ajax-href="(@[a-z0-9: ​]+)" x-ajax-target="default">/', $text))
+                        $text = preg_replace('/<div class="cref" x-id="([0-9]+)" x-ajax-href="(@[a-z0-9: ​]+)" x-ajax-target="default">/', "<div class=\"username\" x-user-id=\"$1\">", $text);
 
-                $text = $post->getText();
-                while (preg_match('/<div class="cref" x-id="([0-9]+)" x-ajax-href="(@[a-z0-9: ​]+)">/', $text))
-                    $text = preg_replace('/<div class="cref" x-id="([0-9]+)" x-ajax-href="(@[a-z0-9: ​]+)">/', "<div class=\"cref\" x-id=\"$1\" x-ajax-href=\"$2\" x-ajax-target=\"default\">", $text);
+                    $post->setText($text);
+                    $this->entity_manager->persist($post);
+                }
 
-                $post->setText($text);
-                $this->entity_manager->persist($post);
+                if (preg_match('/<span class="quoteauthor" x-id="([0-9]+)" x-ajax-href="(@[a-z0-9: ​]+)" x-ajax-target="default">/', $post->getText())) {
+                    $text = $post->getText();
+                    while (preg_match('/<span class="quoteauthor" x-id="([0-9]+)" x-ajax-href="(@[a-z0-9: ​]+)" x-ajax-target="default">/', $text))
+                        $text = preg_replace('/<span class="quoteauthor" x-id="([0-9]+)" x-ajax-href="(@[a-z0-9: ​]+)" x-ajax-target="default">/', "<span class=\"username quoteauthor\" x-user-id=\"$1\">", $text);
+
+                    $post->setText($text);
+                    $this->entity_manager->persist($post);
+                }
             }
+
+            $this->entity_manager->flush();
 
             return 0;
         }

@@ -400,9 +400,10 @@ class HTMLService {
                     $user_ref->textContent = '???';
                 else {
                     $user_ref->textContent = "@​::un:{$target_user->getId()}";
-                    $user_ref->setAttribute('x-id', $target_user->getId());
-                    $user_ref->setAttribute('x-ajax-href', "@​::up:{$target_user->getId()}");
-                    $user_ref->setAttribute('x-ajax-target', "default");
+                    $user_ref->setAttribute('x-user-id', $target_user->getId());
+                    $user_ref->setAttribute('class', $user_ref->getAttribute('class') . ' username');
+                    /*$user_ref->setAttribute('x-ajax-href', "@​::up:{$target_user->getId()}");
+                    $user_ref->setAttribute('x-ajax-target', "default");*/
                 }
             },
 
