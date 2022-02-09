@@ -2782,5 +2782,11 @@
         <target>Deine Blockierliste ist leer.</target>
       </segment>
     </unit>
+    <unit id="WNMDzBG" name="Dieses MyHordes-Konto wurde gelöscht.">
+      <segment>
+        <source>Dieses MyHordes-Konto wurde gelöscht.</source>
+        <target>Dieses MyHordes-Konto wurde gelöscht.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

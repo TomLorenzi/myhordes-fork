@@ -4515,7 +4515,7 @@
     </unit>
     <unit id="u2ktkWy" name="Stadt-Event">
       <notes>
-        <note category="german">Event of the town</note>
+        <note category="german">Stadt-Event</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
         <note category="state">new</note>
       </notes>

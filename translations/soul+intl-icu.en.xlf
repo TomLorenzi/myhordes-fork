@@ -4545,5 +4545,16 @@
         <target>Your blocklist is empty.</target>
       </segment>
     </unit>
+    <unit id="WNMDzBG" name="Dieses MyHordes-Konto wurde gelöscht.">
+      <notes>
+        <note category="german">Dieses MyHordes-Konto wurde gelöscht.</note>
+        <note category="from">twig:///templates/ajax/soul/user_tooltip.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Dieses MyHordes-Konto wurde gelöscht.</source>
+        <target>This MyHordes account has been deleted.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

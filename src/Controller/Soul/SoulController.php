@@ -1520,11 +1520,14 @@ class SoulController extends CustomAbstractController
         if ($user->getEmail() !== null && !str_contains($user->getEmail(), '@'))
             $is_dummy = true;
 
+        $is_deleted = strstr($user->getName(), '$ deleted') !== false;
+
         return $this->render("ajax/soul/user_tooltip.html.twig", [
             'user' => $user,
             'userDesc' => $desc ? $html->prepareEmotes($desc->getText(), $this->getUser()) : null,
             'isFriend' => $isFriend,
             'dummy' => $is_dummy,
+            'is_deleted' => $is_deleted,
             'crow'   => $this->user_handler->hasRole($user,'ROLE_CROW'),
             'admin'  => $this->user_handler->hasRole($user,'ROLE_ADMIN'),
             'super'  => $this->user_handler->hasRole($user,'ROLE_SUPER'),

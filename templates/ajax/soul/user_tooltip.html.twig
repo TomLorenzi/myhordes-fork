@@ -1,6 +1,9 @@
 {% extends "ajax/ajax_plain.html.twig" %}
 {% block ajax_base %}
     <div>
+        {% if is_deleted %}
+            <strong class="warning">{{ 'Dieses MyHordes-Konto wurde gelöscht.'|trans({}, 'soul') }}</strong>
+        {% else %}
         {% if not dummy %}
             {# @var \App\Entity\User user #}
             {% if app.user.id != user.id and not app.user.activeCitizen is null and not user.activeCitizen is null and app.user.activeCitizen.town == user.activeCitizen.town and app.user.activeCitizen.zone is null %}
@@ -100,6 +103,7 @@
         {% endif %}
         {% if not isFriend and app.user != user and not dummy %}
             <div class="friend-relation not-friend mt-1">{{ 'Dieser Spieler gehört nicht zu deinen Kontakten.'|trans({}, 'soul') }}</div>
+        {% endif %}
         {% endif %}
     </div>
 

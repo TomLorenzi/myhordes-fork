@@ -4534,5 +4534,16 @@
         <target>Votre liste noire est vide.</target>
       </segment>
     </unit>
+    <unit id="WNMDzBG" name="Dieses MyHordes-Konto wurde gelöscht.">
+      <notes>
+        <note category="german">This MyHordes account has been deleted.</note>
+        <note category="from">twig:///templates/ajax/soul/user_tooltip.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Dieses MyHordes-Konto wurde gelöscht.</source>
+        <target>Le compte MyHordes de ce joueur n'existe plus.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
