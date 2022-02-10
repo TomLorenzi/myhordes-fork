@@ -923,7 +923,7 @@
       </notes>
       <segment>
         <source>Er jagt mir eine Heidenangst ein!</source>
-        <target>Moi il me fout la trouille le chaman!</target>
+        <target>Moi il me fout la trouille le chaman !</target>
       </segment>
     </unit>
     <unit id="aThpqm." name="Kommt schon, so verzweifelt sind wir noch nicht!">
@@ -1074,7 +1074,7 @@
       </notes>
       <segment>
         <source>Nun, da das erledigt ist, haben wir einen neuen Schamanen bekommen: {winner}!</source>
-        <target>Bon eh bien qu'il en soit ainsi, nous avons donc notre nouveau Chaman : {winner}!</target>
+        <target>Bon eh bien qu'il en soit ainsi, nous avons donc notre nouveau Chaman : {winner} !</target>
       </segment>
     </unit>
     <unit id="TtiG0cq">
@@ -1588,7 +1588,7 @@
       </notes>
       <segment>
         <source>Hm hm ... Ich will ja kein Spielverderber sein, aber wir sind noch nicht wirklich fertig...</source>
-        <target>Hum hum... Je veux pas faire le rabat-joie, mais on en a pas vraiment terminé encore...	</target>
+        <target>Hum hum... Je veux pas faire le rabat-joie, mais on en a pas vraiment terminé encore...</target>
       </segment>
     </unit>
   </file>
