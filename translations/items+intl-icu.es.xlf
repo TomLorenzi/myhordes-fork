@@ -9425,7 +9425,7 @@
       </notes>
       <segment>
         <source>Du kannst dieses Serum nicht auf dich selbst anwenden, oder du wirst der beste Freund eines Ghuls...</source>
-        <target>Du kannst dieses Serum nicht auf dich selbst anwenden, oder du wirst der beste Freund eines Ghuls...</target>
+        <target>No puedes aplicar la vacuna sobre ti mismo, te volverías el mejor amigo de un mutante...</target>
       </segment>
     </unit>
     <unit id="j.Nx9To" name="Eintrittskarte">
@@ -9445,7 +9445,7 @@
       </notes>
       <segment>
         <source>Hiermit kannst du Städten beitreten, obwohl du die Mindestanzahl an Seelenpunkten noch nicht erreicht hast.</source>
-        <target>Esto te permite unirte a ciudades aunque no hayas alcanzado el número mínimo de puntos de alma.</target>
+        <target>Esto te permite unirte a pueblos aunque no hayas alcanzado el número mínimo de puntos de alma necesarios.</target>
       </segment>
     </unit>
   </file>

@@ -4401,7 +4401,7 @@
       </notes>
       <segment>
         <source>Diese Auszeichnung wird nicht verdient, wenn der Bürger heute Nacht stirbt.</source>
-        <target>Diese Auszeichnung wird nicht verdient, wenn der Bürger heute Nacht stirbt.</target>
+        <target>Esta distinción no se otorgará si el habitante muere esta noche.</target>
       </segment>
     </unit>
     <unit id="WJg1nZp" name="Diese Auszeichnung wurde verdient.">
@@ -4412,7 +4412,7 @@
       </notes>
       <segment>
         <source>Diese Auszeichnung wurde verdient.</source>
-        <target>Diese Auszeichnung wurde verdient.</target>
+        <target>Se ha otorgado la distinción.</target>
       </segment>
     </unit>
     <unit id="I2eWURG" name="Freundesliste">
@@ -4423,7 +4423,7 @@
       </notes>
       <segment>
         <source>Freundesliste</source>
-        <target>Freundesliste</target>
+        <target>Lista de amigos</target>
       </segment>
     </unit>
     <unit id="nQ9blbf" name="Spieler, sie sich als Freund hinzugefügt haben">
@@ -4434,7 +4434,7 @@
       </notes>
       <segment>
         <source>Spieler, sie sich als Freund hinzugefügt haben</source>
-        <target>Spieler, sie sich als Freund hinzugefügt haben</target>
+        <target>Jugadores que lo añadieron a su lista de amigos</target>
       </segment>
     </unit>
     <unit id="_cSDjRl" name="Spieler werben">
@@ -4445,7 +4445,7 @@
       </notes>
       <segment>
         <source>Spieler werben</source>
-        <target>Spieler werben</target>
+        <target>Patrocinio</target>
       </segment>
     </unit>
     <unit id="b1moPIw" name="Blockierliste">
@@ -4456,7 +4456,7 @@
       </notes>
       <segment>
         <source>Blockierliste</source>
-        <target>Blockierliste</target>
+        <target>Lista de bloqueados</target>
       </segment>
     </unit>
     <unit id="6vRyig1" name="Blockiert von">
@@ -4467,7 +4467,7 @@
       </notes>
       <segment>
         <source>Blockiert von</source>
-        <target>Blockiert von</target>
+        <target>Bloqueado por</target>
       </segment>
     </unit>
     <unit id="6B7S7TG" name="Bürger-Alias ​​ändern:">
@@ -4478,7 +4478,7 @@
       </notes>
       <segment>
         <source>Bürger-Alias ​​ändern:</source>
-        <target>Bürger-Alias ​​ändern:</target>
+        <target>Cambiar apodo del habitante:</target>
       </segment>
     </unit>
     <unit id="7.npMFZ" name="Kein Alias ​​angegeben">
@@ -4489,7 +4489,7 @@
       </notes>
       <segment>
         <source>Kein Alias ​​angegeben</source>
-        <target>Kein Alias ​​angegeben</target>
+        <target>Sin apodo definido</target>
       </segment>
     </unit>
     <unit id="u5LKixo" name="Bitte nicht für mehrere Bürger denselben Alias eingeben!">
@@ -4500,7 +4500,7 @@
       </notes>
       <segment>
         <source>Bitte nicht für mehrere Bürger denselben Alias eingeben!</source>
-        <target>Bitte nicht für mehrere Bürger denselben Alias eingeben!</target>
+        <target>¡Por favor, no utilices el mismo apodo para diferentes habitantes!</target>
       </segment>
     </unit>
   </file>

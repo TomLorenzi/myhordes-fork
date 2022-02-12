@@ -4284,7 +4284,7 @@
       </notes>
       <segment>
         <source>Du kannst deinen Spielernamen erst in {days} Tagen erneut ändern.</source>
-        <target>Debes esperar {days, plural, =1 {a mañana} other {# días}} antes de que puedas volver a cambiar tu nombre de nuevo.</target>
+        <target>Debes esperar {days, plural, =1 {a mañana} other {# días}} antes de que puedas volver a cambiar tu nombre.</target>
       </segment>
     </unit>
     <unit id="JO.PmAR" name="Haus ansehen">
@@ -4314,7 +4314,7 @@
       </notes>
       <segment>
         <source>Profil Eternal-Twin</source>
-        <target>Perfil Eternal-Twin</target>
+        <target>Perfil Eternaltwin</target>
       </segment>
     </unit>
     <unit id="abqsDy0" name="Schreiben">
@@ -4394,7 +4394,7 @@
       </notes>
       <segment>
         <source>Freundesliste</source>
-        <target>Lista de Amigos</target>
+        <target>Lista de contactos</target>
       </segment>
     </unit>
     <unit id="_cSDjRl" name="Spieler werben">
@@ -4414,7 +4414,7 @@
       </notes>
       <segment>
         <source>Wahrer Freund</source>
-        <target>Amigo Verdadero</target>
+        <target>Amigo</target>
       </segment>
     </unit>
     <unit id="aWNhyEI" name="Deine Freundesliste ist leer.">
@@ -4424,7 +4424,7 @@
       </notes>
       <segment>
         <source>Deine Freundesliste ist leer.</source>
-        <target>Tu lista de amigos está vacía.</target>
+        <target>Tu lista de contactos está vacía.</target>
       </segment>
     </unit>
     <unit id="vHUeAVJ" name="Neue Freunde finden">
@@ -4444,7 +4444,7 @@
       </notes>
       <segment>
         <source>Gib hier den Nickname des Spielers ein, den du als Freund hinzufügen möchtest.</source>
-        <target>Ingresa el nombre de un jugador que quieras agregar como amigo.</target>
+        <target>Ingresa el nombre de algún jugador que quieras agregar como contacto.</target>
       </segment>
     </unit>
     <unit id="BHCazk7" name="Spieler, die dich als Freund hinzugefügt haben">
@@ -4454,7 +4454,7 @@
       </notes>
       <segment>
         <source>Spieler, die dich als Freund hinzugefügt haben</source>
-        <target>Jugadores que te agregaron a su lista de amigos</target>
+        <target>Jugadores que te agregaron a su lista de contactos</target>
       </segment>
     </unit>
     <unit id="xMippYH">
@@ -4464,7 +4464,7 @@
       </notes>
       <segment>
         <source>Hier siehst du Spieler, die dich in ihre Freundesliste eingetragen haben. Wenn du möchtest, kannst du sie ebenfalls in deine Freundesliste eintragen.</source>
-        <target>Aquí puedes ver los jugadores que te han agregado a su lista de amigos. Si quieres, puedes agregarlos a tu lista de amigos también.</target>
+        <target>Aquí puedes ver los jugadores que te han agregado a su lista de contactos. Si quieres, puedes agregarlos a tu lista de contactos también(y así seréis amigos).</target>
       </segment>
     </unit>
     <unit id="pPMWL8v">
@@ -4474,7 +4474,7 @@
       </notes>
       <segment>
         <source>Du kannst verhindern, dass ein Spieler dich in seine Freundesliste aufnimmt, indem du ihn blockierst. Bedenke, dass er dich danach auch nicht mehr via über eine private Nachricht kontaktieren kann.</source>
-        <target>Puedes prevenir que un jugador te agregue a su lista de amigos al bloquearlo. Ten en cuenta que ya no podrá contactarte vía mensaje privado.</target>
+        <target>Puedes impedir que un jugador te agregue a su lista de contactos al bloquearlo. Ten en cuenta que ya no podrán contactarse vía mensaje privado.</target>
       </segment>
     </unit>
     <unit id="b1moPIw" name="Blockierliste">
@@ -4485,7 +4485,7 @@
       </notes>
       <segment>
         <source>Blockierliste</source>
-        <target>Blockierliste</target>
+        <target>Lista de bloqueados</target>
       </segment>
     </unit>
     <unit id="56y70st" name="Blockierter Spieler">
@@ -4496,7 +4496,7 @@
       </notes>
       <segment>
         <source>Blockierter Spieler</source>
-        <target>Blockierter Spieler</target>
+        <target>Jugadores bloqueados</target>
       </segment>
     </unit>
     <unit id="gqnWr8F" name="Deine Blockierliste ist leer.">
@@ -4507,7 +4507,7 @@
       </notes>
       <segment>
         <source>Deine Blockierliste ist leer.</source>
-        <target>Tu lista negra está vacía.</target>
+        <target>No has bloqueado a nadie.</target>
       </segment>
     </unit>
   </file>
