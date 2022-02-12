@@ -16517,5 +16517,11 @@
         <target>Dieser Bürger wurde aus der Gemeinschaft verbannt.</target>
       </segment>
     </unit>
+    <unit id="r2vaFFk" name="Du musst für deine Beschwerde eine Begründung angeben.">
+      <segment>
+        <source>Du musst für deine Beschwerde eine Begründung angeben.</source>
+        <target>Du musst für deine Beschwerde eine Begründung angeben.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

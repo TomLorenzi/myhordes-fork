@@ -26062,5 +26062,15 @@ cette violente opération...]]></target>
         <target>Ce citoyen a été banni de la communauté.</target>
       </segment>
     </unit>
+    <unit id="r2vaFFk" name="Du musst für deine Beschwerde eine Begründung angeben.">
+      <notes>
+        <note category="german">Du musst für deine Beschwerde eine Begründung angeben.</note>
+        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du musst für deine Beschwerde eine Begründung angeben.</source>
+        <target>Vous devez entrer une raison pour cette dénonciation.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

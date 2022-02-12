@@ -26361,5 +26361,15 @@
         <target>Dieser Bürger wurde aus der Gemeinschaft verbannt.</target>
       </segment>
     </unit>
+    <unit id="r2vaFFk" name="Du musst für deine Beschwerde eine Begründung angeben.">
+      <notes>
+        <note category="german">Du musst für deine Beschwerde eine Begründung angeben.</note>
+        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du musst für deine Beschwerde eine Begründung angeben.</source>
+        <target>You must provide a reason for your complaint.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
