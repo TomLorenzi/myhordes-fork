@@ -4438,7 +4438,7 @@
       </notes>
       <segment>
         <source>Freundesliste</source>
-        <target>Liste d'ami</target>
+        <target>Liste d'amis</target>
       </segment>
     </unit>
     <unit id="nQ9blbf" name="Spieler, sie sich als Freund hinzugefügt haben">
@@ -4448,7 +4448,7 @@
       </notes>
       <segment>
         <source>Spieler, sie sich als Freund hinzugefügt haben</source>
-        <target>Joueurs qui l'ont ajouté à leur liste d'ami</target>
+        <target>Joueurs qui l'ont ajouté à leur liste d'amis</target>
       </segment>
     </unit>
     <unit id="_cSDjRl" name="Spieler werben">
