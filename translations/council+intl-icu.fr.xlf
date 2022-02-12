@@ -48,7 +48,7 @@
       </notes>
       <segment>
         <source>Ein Versuch kann ja nicht schaden, vielleicht ist hier jemand wirklich verrückt genug dafür?</source>
-        <target>Chacun à la fois, je sais qu'il y a beaucoup de volontaires, mais un seul pourra avoir le rôle!</target>
+        <target>Chacun à la fois, je sais qu'il y a beaucoup de volontaires, mais un seul pourra avoir le rôle !</target>
       </segment>
     </unit>
     <unit id="cCVN.vz" name="Okay... Freiwillige vor?">
@@ -58,7 +58,7 @@
       </notes>
       <segment>
         <source>Okay... Freiwillige vor?</source>
-        <target>Donc... Y a t'il un volontaire ?</target>
+        <target>Donc... y a t-il un volontaire ?</target>
       </segment>
     </unit>
     <unit id="WXO1984" name="Echt jetzt?!?">
@@ -78,7 +78,7 @@
       </notes>
       <segment>
         <source>Irgendwer?</source>
-        <target>Sait-on jamais, j'essaie, il y aurait quelqu'un de motivé?</target>
+        <target>Sait-on jamais, j'essaie, il y aurait quelqu'un de motivé ?</target>
       </segment>
     </unit>
     <unit id="VL8W9ML">
@@ -108,7 +108,7 @@
       </notes>
       <segment>
         <source>Hört an, hört an!</source>
-        <target>Oyé Oyé.</target>
+        <target>Oyez oyez.</target>
       </segment>
     </unit>
     <unit id="cubT_FF">
@@ -168,7 +168,7 @@
       </notes>
       <segment>
         <source>Können wir jetzt endlich jemanden auswählen? Ich will mich hinhauen!</source>
-        <target>On peut se décider rapidement, j'aimerai aller dormir</target>
+        <target>On peut se décider rapidement, j'aimerais aller dormir.</target>
       </segment>
     </unit>
     <unit id="vJx7d.D" name="Wenn wir diesen Raum neu dekorieren würden...">
@@ -178,7 +178,7 @@
       </notes>
       <segment>
         <source>Wenn wir diesen Raum neu dekorieren würden...</source>
-        <target>Moi j'aimerai bien refaire la déco de cette pièce</target>
+        <target>Moi j'aimerais bien refaire la déco de cette pièce...</target>
       </segment>
     </unit>
     <unit id="5HXRieY" name="Ich hab Hunger!">
@@ -188,7 +188,7 @@
       </notes>
       <segment>
         <source>Ich hab Hunger!</source>
-        <target>J'ai faim....</target>
+        <target>J'ai faim...</target>
       </segment>
     </unit>
     <unit id="3gLNMkB" name="Und was wäre, wenn wir wie üblich Strohhalme ziehen würden?">
@@ -208,7 +208,7 @@
       </notes>
       <segment>
         <source>Hört auf, mich anzugucken!</source>
-        <target>Ne cherches plus, je suis là !</target>
+        <target>Ne cherchez plus, je suis là !</target>
       </segment>
     </unit>
     <unit id="Up1qhvk" name="Hat jemand gerade einen Jugendlichen vorbeigehen sehen?">
@@ -218,7 +218,7 @@
       </notes>
       <segment>
         <source>Hat jemand gerade einen Jugendlichen vorbeigehen sehen?</source>
-        <target>Quelqu'un a vu passer un bichon?</target>
+        <target>Quelqu'un a vu passer un bichon ?</target>
       </segment>
     </unit>
     <unit id="by47yGF" name="+1 !">
@@ -228,7 +228,7 @@
       </notes>
       <segment>
         <source>+1 !</source>
-        <target>+1</target>
+        <target>+1.</target>
       </segment>
     </unit>
     <unit id="ilWhApw" name="Er stinkt nach Alkohol.">
@@ -268,7 +268,7 @@
       </notes>
       <segment>
         <source>Na das überrascht mich ja mal so gar nicht!</source>
-        <target>Voilà qui ne m'étonne pas!</target>
+        <target>Voilà qui ne m'étonne pas !</target>
       </segment>
     </unit>
     <unit id="MLp4iVc" name="Nun, ich stimme zu, dieser Job würde sehr gut zu ihm passen.">
@@ -329,7 +329,7 @@
       </notes>
       <segment>
         <source>Ja, ich habe genug von seinen Spielchen! Hängen wir ihn auf!</source>
-        <target>J'en ai marre de ses conneries à celui-là, on le pend?</target>
+        <target>J'en ai marre de ses conneries à celui-là, on le pend ?</target>
       </segment>
     </unit>
     <unit id="MBAkUEo" name="Muss ich darauf antworten?">
@@ -379,7 +379,7 @@
       </notes>
       <segment>
         <source>Ich möchte euch sagen, wie wenig mich das alles interessiert, aber ich habe keine Lust dazu.</source>
-        <target>J'ai envie de dire à quel point je me fou de tout ça, mais je vais me retenir.</target>
+        <target>J'ai envie de dire à quel point je me fous de tout ça, mais je vais me retenir.</target>
       </segment>
     </unit>
     <unit id="MNAVDhi">
@@ -399,7 +399,7 @@
       </notes>
       <segment>
         <source>Solange ich das nicht bin geht mir das sowas von am Arsch vorbei!</source>
-        <target>J'ai tendance à penser que je m'en fou en fait.</target>
+        <target>J'ai tendance à penser que je m'en fous en fait.</target>
       </segment>
     </unit>
     <unit id="dr5XsqN" name="Solange ich das nicht bin, ist mir das völlig egal!">
@@ -460,7 +460,7 @@
       </notes>
       <segment>
         <source>looooooooool</source>
-        <target>héhé.</target>
+        <target>Héhé.</target>
       </segment>
     </unit>
     <unit id="titJTLi">
@@ -491,7 +491,7 @@
       </notes>
       <segment>
         <source>Lasst uns hiermit nicht herumalbern!</source>
-        <target>Non faut pas déconner non plus</target>
+        <target>Non faut pas déconner non plus.</target>
       </segment>
     </unit>
     <unit id="T0PPdf1">
@@ -641,7 +641,7 @@
       </notes>
       <segment>
         <source>Hast du denn eine Münze?</source>
-        <target>Tu as une pièce toi?</target>
+        <target>Tu as une pièce toi ?</target>
       </segment>
     </unit>
     <unit id="9D3oGZ0" name="Wir wählen aus wer gefressen wird, richtig?">
@@ -651,7 +651,7 @@
       </notes>
       <segment>
         <source>Wir wählen aus wer gefressen wird, richtig?</source>
-        <target>On choisit pour savoir qui, qui, qui serait mangé? (air de comptine 'un petit navire')</target>
+        <target>On choisit pour savoir qui, qui, qui sera mangé ? (air de comptine 'un petit navire')</target>
       </segment>
     </unit>
     <unit id="h1_ruwI" name="Facepalm!">
@@ -751,7 +751,7 @@
       </notes>
       <segment>
         <source>Ihr wisst, dass ... nun, .... wie ich schon sagte ... ahhhh, auf mich hört sowieso niemand.</source>
-        <target>Vous savez que... mais... je disais... oh et puis y'a jamais personne qui m'écoute</target>
+        <target>Vous savez que... mais... je disais... oh et puis y'a jamais personne qui m'écoute.</target>
       </segment>
     </unit>
     <unit id="w50Fsuo" name="Hat jemand etwas gesagt?">
@@ -761,7 +761,7 @@
       </notes>
       <segment>
         <source>Hat jemand etwas gesagt?</source>
-        <target>Quelqu'un à parlé?</target>
+        <target>Quelqu'un a parlé?</target>
       </segment>
     </unit>
     <unit id=".ZgFkP1" name="Was?">
@@ -822,7 +822,7 @@
       </notes>
       <segment>
         <source>Pfffffff</source>
-        <target>Pfffffff</target>
+        <target>Pfffffff.</target>
       </segment>
     </unit>
     <unit id="ATHuxoo">
@@ -832,7 +832,7 @@
       </notes>
       <segment>
         <source>Solange er zumindest ein paar Tage durchhält... Ich möchte dieses Treffen nicht jeden Morgen wiederholen müssen!</source>
-        <target>Pourvu qu'il survive quelques jours, pas envie de me refaire cette réunion tous les 4 matins!</target>
+        <target>Pourvu qu'il survive quelques jours, pas envie de me refaire cette réunion tous les 4 matins !</target>
       </segment>
     </unit>
     <unit id="SghNFwc" name="Ich wusste es!">
@@ -852,7 +852,7 @@
       </notes>
       <segment>
         <source>Der erste Punkt auf der Tagesordnung ist die Wahl eines neuen Scharlatans, ich meine, ähm, Schamanen! Ja, einen Schamanen... Ich meine, jede verzweifelte Stadt braucht einen Schamanen, nicht wahr?</source>
-        <target>A l'ordre du jour, nous devons élire un charlatan... humm... un chaman. Toute ville dans le désespoir se doit bien d'en avoir un n'est-ce pas?</target>
+        <target>A l'ordre du jour, nous devons élire un charlatan... humm... un chaman. Toute ville dans le désespoir se doit bien d'en avoir un n'est-ce pas ?</target>
       </segment>
     </unit>
     <unit id="vA.sKAt">
@@ -862,7 +862,7 @@
       </notes>
       <segment>
         <source>Da unser Schamane heute Nacht von uns gegangen ist, müssen wir jetzt einen Ersatz wählen.</source>
-        <target>Notre chaman nous ayant quitté cette nuit, il nous faut en choisir un autre dès à présent.</target>
+        <target>Notre chaman nous ayant quittés cette nuit, il nous faut en choisir un autre dès à présent.</target>
       </segment>
     </unit>
     <unit id="MkDFsuH">
@@ -892,7 +892,7 @@
       </notes>
       <segment>
         <source>Ich hau den Zombies ganz einfach die Schädel ein, egal ob mit oder ohne Schamanen!</source>
-        <target>Moi je vais casser du zombi, chaman ou pas chaman !</target>
+        <target>Moi je vais casser du zombie, chaman ou pas chaman !</target>
       </segment>
     </unit>
     <unit id="0fWGtQG">
@@ -922,7 +922,7 @@
       </notes>
       <segment>
         <source>Er jagt mir eine Heidenangst ein!</source>
-        <target>Moi il me fou la trouille le chaman!</target>
+        <target>Moi il me fout la trouille le chaman !</target>
       </segment>
     </unit>
     <unit id="aThpqm." name="Kommt schon, so verzweifelt sind wir noch nicht!">
@@ -932,7 +932,7 @@
       </notes>
       <segment>
         <source>Kommt schon, so verzweifelt sind wir noch nicht!</source>
-        <target>Enfin on est pas encore désespérés à ce point hein !</target>
+        <target>Enfin on n'est pas encore désespérés à ce point hein !</target>
       </segment>
     </unit>
     <unit id="rNmTTZf" name="Was genau ist überhaupt ein Schamane?">
@@ -962,7 +962,7 @@
       </notes>
       <segment>
         <source>Er ist unser Vertreter im Jenseits und Herr über unsere verdammten Seelen!</source>
-        <target>Notre représentant avec l'au-delà, le maître de nos âmes damnées!</target>
+        <target>Notre représentant avec l'au-delà, le maître de nos âmes damnées !</target>
       </segment>
     </unit>
     <unit id="oESTMxm" name="Er ist eigentlich genau wie du, nur interessanter.">
@@ -1033,7 +1033,7 @@
       </notes>
       <segment>
         <source>Kann man gleichzeitig Ghul und Schamane sein?</source>
-        <target>On peut-être goule et chaman ?</target>
+        <target>On peut être goule et chaman ?</target>
       </segment>
     </unit>
     <unit id="p93KBVz">
@@ -1053,7 +1053,7 @@
       </notes>
       <segment>
         <source>Mit so einem Kopf wird er den bösen Blick auf sich ziehen!</source>
-        <target>Nous il va nous attirer le mauvais œil avec la tête qu'il a.</target>
+        <target>Il va nous attirer le mauvais œil avec la tête qu'il a.</target>
       </segment>
     </unit>
     <unit id="U9adg.L">
@@ -1063,7 +1063,7 @@
       </notes>
       <segment>
         <source>Ruhe! Wir müssen dieses Treffen zum Ende bringen! Immerhin haben wir eine Stadt zu verteidigen! Der Schamane ist sowieso nur hier, um uns Hoffnung zu machen</source>
-        <target>Silence! Bon allez, faut qu'on avance, on a une ville à s'occuper. Le Chaman est censé juste être là pour nous redonner de l'espoir !</target>
+        <target>Silence ! Bon allez, faut qu'on avance, on a une ville dont il faut s'occuper. Le Chaman est censé juste être là pour nous redonner de l'espoir !</target>
       </segment>
     </unit>
     <unit id="2exkO3j" name="Nun, da das erledigt ist, haben wir einen neuen Schamanen bekommen: {winner}!">
@@ -1073,7 +1073,7 @@
       </notes>
       <segment>
         <source>Nun, da das erledigt ist, haben wir einen neuen Schamanen bekommen: {winner}!</source>
-        <target>Bon et bien qu'il en soit ainsi, nous avons donc notre nouveau Chaman : {winner}!</target>
+        <target>Bon eh bien qu'il en soit ainsi, nous avons donc notre nouveau Chaman : {winner} !</target>
       </segment>
     </unit>
     <unit id="TtiG0cq">
@@ -1133,7 +1133,7 @@
       </notes>
       <segment>
         <source>Wie buchstabiert man das eigentlich: Schamane oder Schamahne?</source>
-        <target>Ça s'écrit comment chaman ou shaman?</target>
+        <target>Ça s'écrit comment : chaman ou shaman ?</target>
       </segment>
     </unit>
     <unit id="tARf0rq">
@@ -1225,7 +1225,7 @@
       </notes>
       <segment>
         <source>Da unser geliebter Reiseleiter in der Außenwelt uns heute Nacht verlassen hat, müssen wir ab sofort einen neuen wählen.</source>
-        <target>Notre Guide de l'Outre-Monde aimé nous ayant quitté cette nuit, il nous faut en choisir un autre dès à présent.</target>
+        <target>Notre Guide de l'Outre-Monde bien-aimé nous ayant quittés cette nuit, il nous faut en choisir un autre dès à présent.</target>
       </segment>
     </unit>
     <unit id="fOYoWJh">
@@ -1235,7 +1235,7 @@
       </notes>
       <segment>
         <source>Mit Traurigkeit und einem gewissen Sinn für Ironie beklagen wir den Verlust unseres Reiseleiters...</source>
-        <target>C'est avec tristesse et une certaine forme d'amusement que notre Guide de l'Outre-Monde nous a quittés cette nuit. Je propose donc de lui trouver un remplaçant</target>
+        <target>C'est avec tristesse et une certaine forme d'amusement que notre Guide de l'Outre-Monde nous a quittés cette nuit. Je propose donc de lui trouver un remplaçant.</target>
       </segment>
     </unit>
     <unit id="T29m76.">
@@ -1276,7 +1276,7 @@
       </notes>
       <segment>
         <source>Ich wäre gerne der Reiseleiter!</source>
-        <target>Moi j'adorerai être Guide</target>
+        <target>Moi j'adorerais être Guide !</target>
       </segment>
     </unit>
     <unit id="e7G3y5u" name="Was ist denn ein Speiseschreiter?">
@@ -1587,7 +1587,7 @@
       </notes>
       <segment>
         <source>Hm hm ... Ich will ja kein Spielverderber sein, aber wir sind noch nicht wirklich fertig...</source>
-        <target>Hum hum... Je veux pas faire le rabat joie, mais on en a pas vraiment terminé encore...	</target>
+        <target>Hum hum... Je veux pas faire le rabat-joie, mais on en a pas vraiment terminé encore...</target>
       </segment>
     </unit>
   </file>
