@@ -26036,11 +26036,20 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Du hast {item} gefunden, als du die schmutzigen Ecken dieses elenden Ortes durchsucht hast!</note>
         <note category="from">php:///src/Controller/ExplorationController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Du hast {item} gefunden, als du die schmutzigen Ecken dieses elenden Ortes durchsucht hast!</source>
         <target>Vous trouvez {item} en fouillant dans les recoins de cette pièce sordide.</target>
+      </segment>
+    </unit>
+    <unit id="GtMVIRi" name="Diese Aktion kannst du erst morgen erneut versuchen.">
+      <notes>
+        <note category="german">Diese Aktion kannst du erst morgen erneut versuchen.</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+      </notes>
+      <segment>
+        <source>Diese Aktion kannst du erst morgen erneut versuchen.</source>
+        <target>Cette action ne pourra pas être tentée à nouveau avant demain.</target>
       </segment>
     </unit>
   </file>

@@ -434,11 +434,19 @@
                     {% endif %}
                     <h5>{% trans from 'game' %}Meine Aktionen{% endtrans %}</h5>
                     {% if banished or town_chaos %}
-                        <button {% if lock_trash %}disabled{% endif%} id="trash_button">
-                            <img alt="" src="{{ asset('build/images/icons/small_ban.gif') }}" />
-                            {{ 'Müll durchwühlen'|trans({},'game') }} (<div class="ap">1</div>)
-                            <div class="tooltip help">{{ 'Bürger, die aus einer Stadt verbannt wurden, haben das Recht, den weggeworfenen Müll der Stadt nach Gegenständen zu durchsuchen, die für sie nützlich sein könnten...'|trans({},'game')|raw }}</div>
-                        </button>
+                        <div style="margin-bottom: 5px;">
+                            <button {% if lock_trash %}disabled{% endif%} id="trash_button">
+                                <img alt="" src="{{ asset('build/images/icons/small_ban.gif') }}" />
+                                {{ 'Müll durchwühlen'|trans({},'game') }} (<div class="ap">1</div>)
+                                <div class="tooltip help">{{ 'Bürger, die aus einer Stadt verbannt wurden, haben das Recht, den weggeworfenen Müll der Stadt nach Gegenständen zu durchsuchen, die für sie nützlich sein könnten...'|trans({},'game')|raw }}</div>
+                            </button>
+                            {% if lock_trash %}
+                                <div class="tooltip help">
+                                    {{ 'Diese Aktion kannst du erst morgen erneut versuchen.'|trans({},'game') }}
+                                </div>
+                            {% endif%}
+                        </div>
+
                     {% endif %}
                 {% endif %}
 
