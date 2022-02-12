@@ -26072,5 +26072,15 @@ cette violente opération...]]></target>
         <target>Vous devez entrer une raison pour cette dénonciation.</target>
       </segment>
     </unit>
+    <unit id="2pxefje">
+      <notes>
+        <note category="german">Du suchst dir besser eine Beschäftigung aus, denn es gilt: Ohne Job, kein Leben. Wozu bist du denn sonst gut? Die Gemeinschaft, der du angehören wirst, braucht jede Art von Personen. Die Zusammenarbeit mit den anderen wird zweifelsohne deine Überlebensdauer entscheidend beeinflussen...</note>
+        <note category="from">twig:///templates/ajax/game/jobs.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du suchst dir besser eine Beschäftigung aus, denn es gilt: Ohne Job, kein Leben. Wozu bist du denn sonst gut? Die Gemeinschaft, der du angehören wirst, braucht jede Art von Personen. Die Zusammenarbeit mit den anderen wird zweifelsohne deine Überlebensdauer entscheidend beeinflussen...</source>
+        <target>Il vaut mieux choisir une bonne occupation : en effet pas d'existence sans occupation. Sinon à quoi servirez-vous ? La communauté que vous rejoignez a besoin de tous types de personnes. C'est certainement l'effort collectif qui déterminera en grande partie votre temps de survie...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

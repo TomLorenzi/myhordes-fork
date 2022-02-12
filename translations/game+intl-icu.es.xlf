@@ -26282,5 +26282,15 @@
         <target>Debes ingresar una razón para esta denuncia.</target>
       </segment>
     </unit>
+    <unit id="2pxefje">
+      <notes>
+        <note category="german">Du suchst dir besser eine Beschäftigung aus, denn es gilt: Ohne Job, kein Leben. Wozu bist du denn sonst gut? Die Gemeinschaft, der du angehören wirst, braucht jede Art von Personen. Die Zusammenarbeit mit den anderen wird zweifelsohne deine Überlebensdauer entscheidend beeinflussen...</note>
+        <note category="from">twig:///templates/ajax/game/jobs.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du suchst dir besser eine Beschäftigung aus, denn es gilt: Ohne Job, kein Leben. Wozu bist du denn sonst gut? Die Gemeinschaft, der du angehören wirst, braucht jede Art von Personen. Die Zusammenarbeit mit den anderen wird zweifelsohne deine Überlebensdauer entscheidend beeinflussen...</source>
+        <target>Más te vale elegir un buen oficio. Si no eres útil a la comunidad, ¿entonces para qué sirves? El pueblo require de gente con habilidades. El trabajo colectivo determinará en gran parte tu supervivencia...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
