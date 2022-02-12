@@ -83,7 +83,7 @@ class UserInfoCommand extends Command
             ->addOption('remove-custom-award', null,  InputOption::VALUE_REQUIRED, 'Removes a new custom award title from a user.');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         if ($userid = $input->getArgument('UserID')) {
             /** @var User $user */

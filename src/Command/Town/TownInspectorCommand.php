@@ -178,7 +178,7 @@ class TownInspectorCommand extends Command
         return 0;
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $no_info = $input->getOption('no-info');
 

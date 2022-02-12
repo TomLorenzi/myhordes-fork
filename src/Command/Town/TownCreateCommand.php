@@ -60,7 +60,7 @@ class TownCreateCommand extends Command
             ->addOption('simulate', null, InputOption::VALUE_NONE, 'Only simulates town creation.');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $simulate = $input->getOption('simulate');
 

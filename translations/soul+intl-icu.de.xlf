@@ -2665,7 +2665,7 @@
     <unit id="Wodhw7O" name="Profil Eternal-Twin">
       <segment>
         <source>Profil Eternal-Twin</source>
-        <target>Profil Eternaltwin</target>
+        <target>Profil EternalTwin</target>
       </segment>
     </unit>
     <unit id="abqsDy0" name="Schreiben">
@@ -2780,6 +2780,12 @@
       <segment>
         <source>Deine Blockierliste ist leer.</source>
         <target>Deine Blockierliste ist leer.</target>
+      </segment>
+    </unit>
+    <unit id="WNMDzBG" name="Dieses MyHordes-Konto wurde gelöscht.">
+      <segment>
+        <source>Dieses MyHordes-Konto wurde gelöscht.</source>
+        <target>Dieses MyHordes-Konto wurde gelöscht.</target>
       </segment>
     </unit>
   </file>

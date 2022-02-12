@@ -49,6 +49,10 @@ class ConfMaster
             : (new EventConf())->complete());
     }
 
+    public function getAllEvents(): array {
+        return $this->events;
+    }
+
     public function getEventSchedule(array $trigger, DateTime $curDate, ?DateTime &$begin = null, ?DateTime &$end = null): bool {
         $begin = $end = null;
         if (empty($trigger['type'])) return false;

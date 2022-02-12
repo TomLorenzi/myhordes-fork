@@ -69,7 +69,7 @@ class CitizenInspectorCommand extends Command
         ;
     }
 
-    protected function info(Citizen &$citizen, OutputInterface $output) {
+    protected function info(Citizen &$citizen, OutputInterface $output): int {
         $output->writeln("<info>{$citizen->getUser()->getUsername()}</info> is a citizen of '<info>{$citizen->getTown()->getName()}</info>'.");
 
         $output->writeln('<comment>Citizen info</comment>');
@@ -94,7 +94,7 @@ class CitizenInspectorCommand extends Command
         return 0;
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         /** @var Citizen $citizen */
         $citizen = $this->helper->resolve_string($input->getArgument('CitizenID'), Citizen::class, 'Citizen', $this->getHelper('question'), $input, $output);

@@ -2770,7 +2770,7 @@
     <unit id="jPmvEEG" name="Eternal-Twin-Konto verlinkt">
       <segment>
         <source>Eternal-Twin-Konto verlinkt</source>
-        <target>Eternaltwin-Konto verlinkt</target>
+        <target>EternalTwin-Konto verlinkt</target>
       </segment>
     </unit>
     <unit id="_VFidG8" name="Gruppentyp">
@@ -2843,6 +2843,18 @@
       <segment>
         <source>Bitte nicht für mehrere Bürger denselben Alias eingeben!</source>
         <target>Bitte nicht für mehrere Bürger denselben Alias eingeben!</target>
+      </segment>
+    </unit>
+    <unit id="NcKgihM" name="Bank leeren">
+      <segment>
+        <source>Bank leeren</source>
+        <target>Bank leeren</target>
+      </segment>
+    </unit>
+    <unit id="u2ktkWy" name="Stadt-Event">
+      <segment>
+        <source>Stadt-Event</source>
+        <target>Stadt-Event</target>
       </segment>
     </unit>
   </file>

@@ -856,7 +856,7 @@
     <unit id="ZtFgVEb" name="Admin Dashboard">
       <notes>
         <note category="german">Admin Dashboard</note>
-        <note category="from">twig:///templates/ajax/admin/dash.html.twig;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/public/maintenance_attack.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/dash.html.twig;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/public/maintenance_attack.html.twig;twig:///templates/ajax/soul/user_tooltip.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
       </notes>
       <segment>
         <source>Admin Dashboard</source>
@@ -3973,7 +3973,7 @@
     <unit id="OAGjXFG" name="Alle">
       <notes>
         <note category="german">Alle</note>
-        <note category="from">twig:///templates/ajax/admin/users/pictos.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/users/pictos.html.twig;twig:///templates/ajax/admin/widget/controls.twig</note>
       </notes>
       <segment>
         <source>Alle</source>
@@ -4422,7 +4422,7 @@
       </notes>
       <segment>
         <source>Eternal-Twin-Konto verlinkt</source>
-        <target>Linked Eternaltwin account</target>
+        <target>Linked EternalTwin account</target>
       </segment>
     </unit>
     <unit id="_VFidG8" name="Gruppentyp">
@@ -4544,6 +4544,26 @@
       <segment>
         <source>Bitte nicht für mehrere Bürger denselben Alias eingeben!</source>
         <target>Please do not give multiple citizen the same alias!</target>
+      </segment>
+    </unit>
+    <unit id="NcKgihM" name="Bank leeren">
+      <notes>
+        <note category="german">Bank leeren</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Bank leeren</source>
+        <target>Empty the bank</target>
+      </segment>
+    </unit>
+    <unit id="u2ktkWy" name="Stadt-Event">
+      <notes>
+        <note category="german">Stadt-Event</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Stadt-Event</source>
+        <target>Town Event</target>
       </segment>
     </unit>
   </file>

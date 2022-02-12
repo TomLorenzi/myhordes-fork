@@ -116,6 +116,7 @@ class ExternalController extends InventoryAwareController {
      * @Route("/api/x/json/{type}", name="ext_json", methods={"GET", "POST"})
      * @param string $type
      * @return Response
+     * @GateKeeperProfile(rate_limited=true, rate_keys={"appkey": "authenticated"})
      */
     public function api_json($type = ''): Response {
 

@@ -15,7 +15,7 @@ $.html.addEventListenerAll(".username", "click", function(event){
 
     target.style.width = null;
     if (source.getBoundingClientRect().left + source.offsetWidth + target.offsetWidth > window.innerWidth) {
-
+    console.log("if");
         const temp_left = Math.max(0,source.getBoundingClientRect().left + source.offsetWidth/2 - target.offsetWidth/2);
         if (temp_left + target.offsetWidth > window.innerWidth) {
             target.style.top = (source.getBoundingClientRect().top + document.documentElement.scrollTop + source.offsetHeight) + "px";
@@ -28,7 +28,7 @@ $.html.addEventListenerAll(".username", "click", function(event){
 
     } else {
         target.style.top = (source.getBoundingClientRect().top + document.documentElement.scrollTop) + "px";
-        target.style.left = source.getBoundingClientRect().left + source.offsetWidth + "px";
+        target.style.left = source.getBoundingClientRect().left + source.offsetWidth + 5 + "px";
     }
 
     $.ajax.background().load(target, "{{ path('soul_tooltip') }}", false, {'id': source.getAttribute("x-user-id")}, function(){

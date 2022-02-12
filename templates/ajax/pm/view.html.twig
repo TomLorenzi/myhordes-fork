@@ -75,6 +75,12 @@
                         </div>
                         <div class="forum-button-bar" style="font-size: 0.8em">
                             <div class="row-flex wrap">
+                                <div class="cell">
+                                    <div x-pm-action="refresh-single" class="pm-button" id="refresh-single-button">
+                                        <i class="fa fa-sync"></i>
+                                        <div class="tooltip">{{ 'Diskussion aktualisieren'|trans({}, 'global') }}</div>
+                                    </div>
+                                </div>
                                 {% if not app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionGlobalCommunication')) %}
                                     <div class="cell">
                                         <div x-pm-action="answer-single" class="pm-button" id="new-answer-single-button">
@@ -330,6 +336,7 @@
                         ['x-block'   , 'block-sender'],
                         ['x-archive' , 'archive-single'],
                         ['x-restore' , 'restore-single'],
+                        ['x-endpoint', 'refresh-single']
                     ];
 
                     button_conf.forEach((conf) => {
@@ -750,6 +757,10 @@
                 $.ajax.easySend(selected_thread.getAttribute('x-restore'), {}, function() {
                     $.ajax.load( document.getElementById('post-office-content'), '{{ path('pm_view')|e('js') }}' );
                 });
+            });
+
+            $.html.addEventListenerAll('[x-pm-action="refresh-single"]', 'click', function(){
+                document.querySelector("ul.pm-conversation-list>li[x-title][x-endpoint].selected").click()
             });
 
             $.msg.setFetchRK({{ rk }});

@@ -127,7 +127,7 @@ class DebugCommand extends Command
         ;
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         if ($input->getOption('add-debug-users') | $input->getOption('add-crow') | $input->getOption('add-animactor')) {
 

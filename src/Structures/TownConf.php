@@ -88,6 +88,7 @@ class TownConf extends Conf
     const CONF_MODIFIER_AUTOGHOUL_FROM       = 'modifiers.ghoul_infection_begin';
     const CONF_MODIFIER_DAYTIME_RANGE        = 'modifiers.daytime.range';
     const CONF_MODIFIER_DAYTIME_INVERT       = 'modifiers.daytime.invert';
+    const CONF_MODIFIER_HIDE_HOME_UPGRADE    = 'modifiers.hide_home_upgrade';
 
     const CONF_FEATURE_CAMPING         = 'features.camping';
     const CONF_FEATURE_NIGHTMODE       = 'features.nightmode';
