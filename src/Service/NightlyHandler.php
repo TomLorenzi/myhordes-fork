@@ -375,7 +375,7 @@ class NightlyHandler
 
                 switch ($this->upgraded_building->getPrototype()->getName()) {
                     case 'small_refine_#01':
-                        $spawn_default_blueprint = false;
+                        $spawn_default_blueprint = $this->upgraded_building->getLevel() === 1;
                         $bps = [
                             ['bplan_c_#00' => 1],
                             ['bplan_c_#00' => 4],
