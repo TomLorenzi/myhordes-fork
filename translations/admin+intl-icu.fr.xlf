@@ -1430,7 +1430,7 @@
       </notes>
       <segment>
         <source>EternalTwin-Integration</source>
-        <target>Intégration Eternaltwin</target>
+        <target>Intégration EternalTwin</target>
       </segment>
     </unit>
     <unit id="OkyzTP2" name="In lokalen Account umwandeln">
@@ -1480,7 +1480,7 @@
       </notes>
       <segment>
         <source>Von EternalTwin verwaltet</source>
-        <target>Géré par Eternaltwin</target>
+        <target>Géré par EternalTwin</target>
       </segment>
     </unit>
     <unit id="uCT9EnO" name="Nur für Administratoren sichtbar">
