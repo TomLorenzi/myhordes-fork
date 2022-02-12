@@ -8543,7 +8543,7 @@
       </notes>
       <segment>
         <source>Du kannst heute keine weiteren Beschwerden vorbringen.</source>
-        <target>Vous ne pouvez plus déposer de plaintes aujourd'hui.</target>
+        <target><![CDATA[Vous avez déjà fait cela aujourd'hui (max : <strong>4 fois par jour</strong>)... Attendez <strong>demain</strong> pour recommencer.]]></target>
       </segment>
     </unit>
     <unit id="R67MR0Q" name="Der {rolename} der Stadt ist {username}">
