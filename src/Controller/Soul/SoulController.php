@@ -1489,7 +1489,7 @@ class SoulController extends CustomAbstractController
         $lifes = $this->getUser()->getPastLifes()->getValues();
         usort($lifes, fn(CitizenRankingProxy $b, CitizenRankingProxy $a) =>
             ($a->getTown()->getSeason() ? $a->getTown()->getSeason()->getNumber() : 0) <=> ($b->getTown()->getSeason() ? $b->getTown()->getSeason()->getNumber() : 0) ?:
-            ($a->getTown()->getSeason() ? $a->getTown()->getSeason()->getSubNumber() : 100) <=> ($b->getTown()->getSeason() ? $b->getTown()->getSeason()->getSubNumber() : 100) ?:
+            ($a->getTown()->getSeason() ? $a->getTown()->getSeason()->getSubNumber() : 15) <=> ($b->getTown()->getSeason() ? $b->getTown()->getSeason()->getSubNumber() : 15) ?:
             ($a->getImportID() ?? 0) <=> ($b->getImportID() ?? 0) ?:
             $a->getID() <=> $b->getID()
         );
