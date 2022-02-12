@@ -913,6 +913,7 @@ class ItemFixtures extends Fixture
         'pocket_belt_#00'            => [ 'esc_fixed' ],
         'bag_#00'                    => [ 'esc_fixed' ],
         'bagxl_#00'                  => [ 'esc_fixed' ],
+        'cart_#00'                  => [ 'esc_fixed' ],
         'radius_mk2_#00'             => [ 'esc_fixed' ],
         'rp_book_#00'                => [ 'esc_fixed' ],
         'rp_book_#01'                => [ 'esc_fixed' ],
