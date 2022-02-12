@@ -72,7 +72,12 @@
                             ]} only %}
                             {% if citizen.alive %}
                                 {% if citizen.banished %}
-                                    <img alt="" src="{{ asset('build/images/icons/banished.gif') }}" />
+                                    <div class="inline">
+                                        <img alt="" src="{{ asset('build/images/icons/banished.gif') }}" />
+                                        <div class="tooltip help">
+                                            {{ 'Dieser Bürger wurde aus der Gemeinschaft verbannt.'|trans({},'game') }}
+                                        </div>
+                                    </div>
                                 {% endif %}
                                 {% if citizen.profession.heroic %}
                                     <img alt="" src="{{ asset('build/images/professions/hero.gif') }}" />

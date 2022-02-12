@@ -26261,5 +26261,16 @@
         <target>Diese Aktion kannst du erst morgen erneut versuchen.</target>
       </segment>
     </unit>
+    <unit id="i8PEylr" name="Dieser Bürger wurde aus der Gemeinschaft verbannt.">
+      <notes>
+        <note category="german">Dieser Bürger wurde aus der Gemeinschaft verbannt.</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_omniscience.html.twig;twig:///templates/ajax/game/town/citizen_vote.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger wurde aus der Gemeinschaft verbannt.</source>
+        <target>Dieser Bürger wurde aus der Gemeinschaft verbannt.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

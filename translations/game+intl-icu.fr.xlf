@@ -26052,5 +26052,15 @@ cette violente opération...]]></target>
         <target>Cette action ne pourra pas être tentée à nouveau avant demain.</target>
       </segment>
     </unit>
+    <unit id="i8PEylr" name="Dieser Bürger wurde aus der Gemeinschaft verbannt.">
+      <notes>
+        <note category="german">Dieser Bürger wurde aus der Gemeinschaft verbannt.</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_omniscience.html.twig;twig:///templates/ajax/game/town/citizen_vote.html.twig</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger wurde aus der Gemeinschaft verbannt.</source>
+        <target>Ce citoyen a été banni de la communauté.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

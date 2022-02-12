@@ -28,7 +28,12 @@
                 <div class="cell rw-4 rw-md-3 small citizen-box {% if citizen.infos == me%} citizen-box-name-me {% else %} citizen-box-name {% endif %} content-center-vertical pl-05">
                     <span>
                         {% if citizen.infos.banished %}
-                            <img alt="" src="{{ asset('build/images/icons/banished.gif') }}" />
+                            <div class="inline">
+                                <img alt="" src="{{ asset('build/images/icons/banished.gif') }}" />
+                                <div class="tooltip help">
+                                    {{ 'Dieser Bürger wurde aus der Gemeinschaft verbannt.'|trans({},'game') }}
+                                </div>
+                            </div>
                         {% endif %}
                         <img alt="{{ citizen.infos.profession.label|trans({},'game') }}" src="{{ asset('build/images/professions/' ~ citizen.infos.profession.icon ~ '.gif') }}" />
                         {% include 'ajax/soul/playername.html.twig' with {user: citizen.infos.user, tag: 'a', additional_classes: [

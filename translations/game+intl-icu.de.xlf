@@ -16511,5 +16511,11 @@
         <target>Diese Aktion kannst du erst morgen erneut versuchen.</target>
       </segment>
     </unit>
+    <unit id="i8PEylr" name="Dieser Bürger wurde aus der Gemeinschaft verbannt.">
+      <segment>
+        <source>Dieser Bürger wurde aus der Gemeinschaft verbannt.</source>
+        <target>Dieser Bürger wurde aus der Gemeinschaft verbannt.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
