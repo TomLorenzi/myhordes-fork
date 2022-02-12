@@ -684,15 +684,18 @@ class HTMLService {
         return $this->emote_cache;
     }
 
-    public function prepareEmotes(string $str, User $user = null): string {
+    public function prepareEmotes(string $str, User $user = null, Town $town_context = null): string {
         $emotes = $this->get_emotes(false, $user);
-        return preg_replace_callback('/@(?:​|%E2%80%8B)::(\w+):(\d+)/i', function(array $m) {
+        return preg_replace_callback('/@(?:​|%E2%80%8B)::(\w+):(\d+)/i', function(array $m) use ($town_context) {
             [, $type, $id] = $m;
             switch ($type) {
                 case 'un':case 'up':
                     $target_user = $this->entity_manager->getRepository(User::class)->find((int)$id);
+                    $target_citizen = $town_context ? $target_user->getCitizenFor($town_context) : null;
                     if ($target_user === null) return '';
-                    return $type === 'un' ? $target_user->getName() : $this->router->generate('soul_visit', ['id' => $target_user->getId()]);
+                    return $type === 'un'
+                        ? ($target_citizen ? $target_citizen->getName() : $target_user->getName())
+                        : $this->router->generate('soul_visit', ['id' => $target_user->getId()]);
                 case 'dom':
                     return (int)$id === 0 ? mb_substr($this->router->generate('home', [], UrlGeneratorInterface::ABSOLUTE_URL), 0,-1) : '';
                 default: return '';
