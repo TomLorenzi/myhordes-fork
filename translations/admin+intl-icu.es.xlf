@@ -1417,7 +1417,7 @@
     </unit>
     <unit id="V1ukt7Z" name="EternalTwin-Integration">
       <notes>
-        <note category="german">EternalTwin-Integration</note>
+        <note category="german">Eternaltwin-Integration</note>
         <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
@@ -1467,7 +1467,7 @@
     </unit>
     <unit id="OaKjJho" name="Von EternalTwin verwaltet">
       <notes>
-        <note category="german">Von EternalTwin verwaltet</note>
+        <note category="german">Von Eternaltwin verwaltet</note>
         <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
@@ -1497,7 +1497,7 @@
     </unit>
     <unit id="L0eG_iZ" name="EternalTwin-Konto">
       <notes>
-        <note category="german">EternalTwin-Konto</note>
+        <note category="german">Eternaltwin-Konto</note>
         <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
@@ -4365,7 +4365,7 @@
     </unit>
     <unit id="jPmvEEG" name="Eternal-Twin-Konto verlinkt">
       <notes>
-        <note category="german">EternalTwin-Konto verlinkt</note>
+        <note category="german">Eternaltwin-Konto verlinkt</note>
         <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
       </notes>
       <segment>
@@ -4397,7 +4397,6 @@
       <notes>
         <note category="german">Diese Auszeichnung wird nicht verdient, wenn der Bürger heute Nacht stirbt.</note>
         <note category="from">twig:///templates/ajax/admin/towns/distinctions.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Diese Auszeichnung wird nicht verdient, wenn der Bürger heute Nacht stirbt.</source>
@@ -4408,7 +4407,6 @@
       <notes>
         <note category="german">Diese Auszeichnung wurde verdient.</note>
         <note category="from">twig:///templates/ajax/admin/towns/distinctions.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Diese Auszeichnung wurde verdient.</source>
@@ -4419,7 +4417,6 @@
       <notes>
         <note category="german">Freundesliste</note>
         <note category="from">twig:///templates/ajax/admin/users/social.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Freundesliste</source>
@@ -4430,7 +4427,6 @@
       <notes>
         <note category="german">Spieler, die sie/ihn als Freund hinzugefügt haben</note>
         <note category="from">twig:///templates/ajax/admin/users/social.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Spieler, sie sich als Freund hinzugefügt haben</source>
@@ -4441,7 +4437,6 @@
       <notes>
         <note category="german">Spieler werben</note>
         <note category="from">twig:///templates/ajax/admin/users/social.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Spieler werben</source>
@@ -4452,7 +4447,6 @@
       <notes>
         <note category="german">Blockierliste</note>
         <note category="from">twig:///templates/ajax/admin/users/social.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Blockierliste</source>
@@ -4463,7 +4457,6 @@
       <notes>
         <note category="german">Blockiert von</note>
         <note category="from">twig:///templates/ajax/admin/users/social.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Blockiert von</source>
@@ -4474,7 +4467,6 @@
       <notes>
         <note category="german">Bürger-Alias ​​ändern:</note>
         <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Bürger-Alias ​​ändern:</source>
@@ -4485,7 +4477,6 @@
       <notes>
         <note category="german">Kein Alias ​​angegeben</note>
         <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Kein Alias ​​angegeben</source>
@@ -4496,7 +4487,6 @@
       <notes>
         <note category="german">Bitte nicht für mehrere Bürger denselben Alias eingeben!</note>
         <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Bitte nicht für mehrere Bürger denselben Alias eingeben!</source>

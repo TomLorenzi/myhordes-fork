@@ -7477,7 +7477,7 @@
     <unit id="jIaT.gH">
       <notes>
         <note category="german">Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...</note>
-        <note category="from">php:///src/Controller/BeyondController.php;php:///src/Service/ActionHandler.php;php:///src/Service/ZoneHandler.php</note>
+        <note category="from">php:///src/Controller/BeyondController.php;php:///src/Controller/ExplorationController.php;php:///src/Service/ActionHandler.php;php:///src/Service/ZoneHandler.php</note>
       </notes>
       <segment>
         <source>Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...</source>
@@ -26192,7 +26192,6 @@
         <note category="german">Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur
                             Verfügung.</note>
         <note category="from">twig:///templates/ajax/game/game.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur
@@ -26238,6 +26237,17 @@
       <segment>
         <source>vollständig demoliert und wiederverwertet...</source>
         <target>enteramente destrozada y reciclada...</target>
+      </segment>
+    </unit>
+    <unit id="Tf_X4.E">
+      <notes>
+        <note category="german">Du hast {item} gefunden, als du die schmutzigen Ecken dieses elenden Ortes durchsucht hast!</note>
+        <note category="from">php:///src/Controller/ExplorationController.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Du hast {item} gefunden, als du die schmutzigen Ecken dieses elenden Ortes durchsucht hast!</source>
+        <target>Du hast {item} gefunden, als du die schmutzigen Ecken dieses elenden Ortes durchsucht hast!</target>
       </segment>
     </unit>
   </file>

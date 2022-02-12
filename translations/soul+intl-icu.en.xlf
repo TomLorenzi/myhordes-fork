@@ -1830,7 +1830,7 @@
     </unit>
     <unit id="clP2Rxk" name="EternalTwin-Nutzer">
       <notes>
-        <note category="german">EternalTwin-Nutzer</note>
+        <note category="german">Eternaltwin-Nutzer</note>
         <note category="from">twig:///templates/ajax/soul/badges.html.twig</note>
       </notes>
       <segment>
@@ -1840,7 +1840,7 @@
     </unit>
     <unit id="0T9At.g">
       <notes>
-        <note category="german">Dieser Spieler verwendet einen EternalTwin-Account. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!</note>
+        <note category="german">Dieser Spieler verwendet einen Eternaltwin-Account. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!</note>
         <note category="from">twig:///templates/ajax/soul/badges.html.twig</note>
       </notes>
       <segment>
@@ -1860,7 +1860,7 @@
     </unit>
     <unit id="wstj04z" name="MyHordes ist ein stolzer Bestandteil des EternalTwin-Netzwerkes!">
       <notes>
-        <note category="german">MyHordes ist ein stolzer Bestandteil des EternalTwin-Netzwerkes!</note>
+        <note category="german">MyHordes ist ein stolzer Bestandteil des Eternaltwin-Netzwerkes!</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
@@ -1870,7 +1870,7 @@
     </unit>
     <unit id="WVIMH8t">
       <notes>
-        <note category="german">Um MyHordes auch in Zukunft weiter spielen zu können, musst du deinen alten MyHordes-Account mit einem EternalTwin-Account verknüpfen.</note>
+        <note category="german">Um MyHordes auch in Zukunft weiter spielen zu können, musst du deinen alten MyHordes-Account mit einem Eternaltwin-Account verknüpfen.</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
@@ -1880,7 +1880,7 @@
     </unit>
     <unit id="CACKQCH" name="EternalTwin-Account verknüpfen">
       <notes>
-        <note category="german">EternalTwin-Account verknüpfen</note>
+        <note category="german">Eternaltwin-Account verknüpfen</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
@@ -3009,7 +3009,7 @@
     </unit>
     <unit id="JbPwhWn">
       <notes>
-        <note category="german">Wir sind ein Teil des EternalTwin-Projektes, welches es sich zur Aufgabe gemacht hat die Browserspiele von MotionTwin am Leben zu erhalten.</note>
+        <note category="german">Wir sind ein Teil des Eternaltwin-Projektes, welches es sich zur Aufgabe gemacht hat die Browserspiele von MotionTwin am Leben zu erhalten.</note>
         <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
       </notes>
       <segment>
@@ -3029,7 +3029,7 @@
     </unit>
     <unit id="E6_xVpY">
       <notes>
-        <note category="german">Wenn dir MyHordes gefällt und du uns unterstützen möchtest, kannst du dies mit einer Spende an das EternalTwin Projekt tun.</note>
+        <note category="german">Wenn dir MyHordes gefällt und du uns unterstützen möchtest, kannst du dies mit einer Spende an das Eternaltwin Projekt tun.</note>
         <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
       </notes>
       <segment>
@@ -3581,7 +3581,7 @@
     </unit>
     <unit id="7aH8vQI" name="Bitte ändere deinen Anzeigenamen auf EternalTwin.">
       <notes>
-        <note category="german">Bitte ändere deinen Anzeigenamen auf EternalTwin.</note>
+        <note category="german">Bitte ändere deinen Anzeigenamen auf Eternaltwin.</note>
         <note category="from">twig:///templates/scripts/errors/profile.txt.twig</note>
       </notes>
       <segment>
@@ -3591,7 +3591,7 @@
     </unit>
     <unit id="4DFz5Xa">
       <notes>
-        <note category="german">Du kannst deinen Spielernamen nicht ändern, weil du einen zugehörigen Eternal Twin Account hast. Du musst zu deinem Eternal Twin-Konto gehen, um deinen Spielernamen zu ändern.</note>
+        <note category="german">Du kannst deinen Spielernamen nicht ändern, weil du einen zugehörigen Eternaltwin-Account hast. Du musst zu deinem Eternal Twin-Konto gehen, um deinen Spielernamen zu ändern.</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
@@ -4307,7 +4307,7 @@
     </unit>
     <unit id=".R_0uOZ" name="Denke daran, dich ebenfalls aus deinem EternalTwin Account auszuloggen!">
       <notes>
-        <note category="german">Denke daran, dich ebenfalls aus deinem EternalTwin Account auszuloggen!</note>
+        <note category="german">Denke daran, dich ebenfalls aus deinem Eternaltwin-Account auszuloggen!</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
@@ -4347,7 +4347,7 @@
     </unit>
     <unit id="Wodhw7O" name="Profil Eternal-Twin">
       <notes>
-        <note category="german">Profil EternalTwin</note>
+        <note category="german">Profil Eternaltwin</note>
         <note category="from">twig:///templates/ajax/soul/user_tooltip.html.twig</note>
       </notes>
       <segment>
@@ -4549,7 +4549,6 @@
       <notes>
         <note category="german">Dieses MyHordes-Konto wurde gelöscht.</note>
         <note category="from">twig:///templates/ajax/soul/user_tooltip.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Dieses MyHordes-Konto wurde gelöscht.</source>

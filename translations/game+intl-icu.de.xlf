@@ -16499,5 +16499,11 @@
         <target>vollständig demoliert und wiederverwertet...</target>
       </segment>
     </unit>
+    <unit id="Tf_X4.E">
+      <segment>
+        <source>Du hast {item} gefunden, als du die schmutzigen Ecken dieses elenden Ortes durchsucht hast!</source>
+        <target>Du hast {item} gefunden, als du die schmutzigen Ecken dieses elenden Ortes durchsucht hast!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

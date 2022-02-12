@@ -329,15 +329,15 @@ class ExplorationController extends InventoryAwareController implements HookedIn
             $noPlaceLeftMsg = "";
             // $inventoryDest = $this->inventory_handler->placeItem($citizen, $item, [$citizen->getInventory(), $ruinZone->getRoomFloor()]);
             $inventoryDest = $this->inventory_handler->placeItem($citizen, $item, [$citizen->getInventory(), $ruinZone->getFloor()]);
-            //if ($inventoryDest === $ruinZone->getFloor())
-            //    $noPlaceLeftMsg = "<hr />" . $this->translator->trans('Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...', [], 'game');
+            if ($inventoryDest === $ruinZone->getFloor())
+                $noPlaceLeftMsg = "<hr />" . $this->translator->trans('Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...', [], 'game');
 
             $this->entity_manager->persist($item);
             $this->entity_manager->persist($citizen->getInventory());
             // $this->entity_manager->persist($ruinZone->getRoomFloor());
             $this->entity_manager->persist($ruinZone->getFloor());
 
-            $this->addFlash( 'notice', $this->translator->trans( 'Nach einigen Anstrengungen hast du folgendes gefunden: {item}!', [
+            $this->addFlash( 'notice', $this->translator->trans( 'Du hast {item} gefunden, als du die schmutzigen Ecken dieses elenden Ortes durchsucht hast!', [
                     '{item}' => "<span class='tool'><img alt='' src='{$this->asset->getUrl( 'build/images/item/item_' . $prototype->getIcon() . '.gif' )}'> {$this->translator->trans($prototype->getLabel(), [], 'items')}</span>"
                 ], 'game' ) . "$noPlaceLeftMsg");
         } else $this->addFlash( 'notice', $this->translator->trans( 'Trotz all deiner Anstrengungen hast du hier leider nichts gefunden ...', [], 'game' ));

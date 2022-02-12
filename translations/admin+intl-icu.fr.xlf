@@ -1425,7 +1425,7 @@
     </unit>
     <unit id="V1ukt7Z" name="EternalTwin-Integration">
       <notes>
-        <note category="german">EternalTwin-Integration</note>
+        <note category="german">Eternaltwin-Integration</note>
         <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
@@ -1475,7 +1475,7 @@
     </unit>
     <unit id="OaKjJho" name="Von EternalTwin verwaltet">
       <notes>
-        <note category="german">Von EternalTwin verwaltet</note>
+        <note category="german">Von Eternaltwin verwaltet</note>
         <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
@@ -1505,7 +1505,7 @@
     </unit>
     <unit id="L0eG_iZ" name="EternalTwin-Konto">
       <notes>
-        <note category="german">EternalTwin-Konto</note>
+        <note category="german">Eternaltwin-Konto</note>
         <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
@@ -4381,7 +4381,7 @@
     </unit>
     <unit id="jPmvEEG" name="Eternal-Twin-Konto verlinkt">
       <notes>
-        <note category="german">EternalTwin-Konto verlinkt</note>
+        <note category="german">Eternaltwin-Konto verlinkt</note>
         <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
       </notes>
       <segment>
