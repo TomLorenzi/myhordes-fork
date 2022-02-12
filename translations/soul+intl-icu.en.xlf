@@ -1835,7 +1835,7 @@
       </notes>
       <segment>
         <source>EternalTwin-Nutzer</source>
-        <target>EternalTwin users</target>
+        <target>Eternaltwin users</target>
       </segment>
     </unit>
     <unit id="0T9At.g">
@@ -1865,7 +1865,7 @@
       </notes>
       <segment>
         <source>MyHordes ist ein stolzer Bestandteil des EternalTwin-Netzwerkes!</source>
-        <target>MyHordes is a proud part of the EternalTwin network!</target>
+        <target>MyHordes is a proud part of the Eternaltwin network!</target>
       </segment>
     </unit>
     <unit id="WVIMH8t">
@@ -1875,7 +1875,7 @@
       </notes>
       <segment>
         <source>Um MyHordes auch in Zukunft weiter spielen zu können, musst du deinen alten MyHordes-Account mit einem EternalTwin-Account verknüpfen.</source>
-        <target>In order to be able to continue playing MyHordes in the future, you have to link your old MyHordes account to an EternalTwin account.</target>
+        <target>In order to be able to continue playing MyHordes in the future, you have to link your old MyHordes account to an Eternaltwin account.</target>
       </segment>
     </unit>
     <unit id="CACKQCH" name="EternalTwin-Account verknüpfen">
@@ -1885,7 +1885,7 @@
       </notes>
       <segment>
         <source>EternalTwin-Account verknüpfen</source>
-        <target>Link your EternalTwin account</target>
+        <target>Link your Eternaltwin account</target>
       </segment>
     </unit>
     <unit id="zlGVYh_" name="{name}'s Koalition">
@@ -3014,7 +3014,7 @@
       </notes>
       <segment>
         <source>Wir sind ein Teil des EternalTwin-Projektes, welches es sich zur Aufgabe gemacht hat die Browserspiele von MotionTwin am Leben zu erhalten.</source>
-        <target>We are a part of the EternalTwin project, which is dedicated to keeping the MotionTwin browser games alive.</target>
+        <target>We are a part of the Eternaltwin project, which is dedicated to keeping the MotionTwin browser games alive.</target>
       </segment>
     </unit>
     <unit id="GLZ2E_L">
@@ -3034,7 +3034,7 @@
       </notes>
       <segment>
         <source>Wenn dir MyHordes gefällt und du uns unterstützen möchtest, kannst du dies mit einer Spende an das EternalTwin Projekt tun.</source>
-        <target>If you like MyHordes and want to support us, you can do so by donating to the EternalTwin project.</target>
+        <target>If you like MyHordes and want to support us, you can do so by donating to the Eternaltwin project.</target>
       </segment>
     </unit>
     <unit id="uK4jynd" name="Geworbener Spieler">
@@ -4312,7 +4312,7 @@
       </notes>
       <segment>
         <source>Denke daran, dich ebenfalls aus deinem EternalTwin Account auszuloggen!</source>
-        <target>Remember, you also need to log out of your EternalTwin account!</target>
+        <target>Remember, you also need to log out of your Eternaltwin account!</target>
       </segment>
     </unit>
     <unit id="TMcIHTT" name="Du kannst deinen Spielernamen erst in {days} Tagen erneut ändern.">
@@ -4352,7 +4352,7 @@
       </notes>
       <segment>
         <source>Profil Eternal-Twin</source>
-        <target>EternalTwin Profile</target>
+        <target>Eternaltwin Profile</target>
       </segment>
     </unit>
     <unit id="abqsDy0" name="Schreiben">

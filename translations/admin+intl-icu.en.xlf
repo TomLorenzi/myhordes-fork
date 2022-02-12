@@ -1431,7 +1431,7 @@
       </notes>
       <segment>
         <source>EternalTwin-Integration</source>
-        <target>EternalTwin integration</target>
+        <target>Eternaltwin integration</target>
       </segment>
     </unit>
     <unit id="OkyzTP2" name="In lokalen Account umwandeln">
@@ -1482,7 +1482,7 @@
       </notes>
       <segment>
         <source>Von EternalTwin verwaltet</source>
-        <target>Administered by EternalTwin</target>
+        <target>Administered by Eternaltwin</target>
       </segment>
     </unit>
     <unit id="uCT9EnO" name="Nur für Administratoren sichtbar">
@@ -1512,7 +1512,7 @@
       </notes>
       <segment>
         <source>EternalTwin-Konto</source>
-        <target>EternalTwin account</target>
+        <target>Eternaltwin account</target>
       </segment>
     </unit>
     <unit id="nz1fjZT" name="Sonstiges">
@@ -4422,7 +4422,7 @@
       </notes>
       <segment>
         <source>Eternal-Twin-Konto verlinkt</source>
-        <target>Linked EternalTwin account</target>
+        <target>Linked Eternaltwin account</target>
       </segment>
     </unit>
     <unit id="_VFidG8" name="Gruppentyp">

@@ -481,7 +481,7 @@
       </notes>
       <segment>
         <source>MyHordes ist ein Teil des EternalTwin-Netzwerks. Wenn du einen EternalTwin-Account hast, kannst du MyHordes ohne zusätzliche Registrierung spielen!</source>
-        <target>MyHordes is a part of the EternalTwin network. If you have an EternalTwin account, you can play MyHordes without additional registration!</target>
+        <target>MyHordes is a part of the Eternaltwin network. If you have an Eternaltwin account, you can play MyHordes without additional registration!</target>
       </segment>
     </unit>
     <unit id="qo4M11k" name="Über EternalTwin einloggen">
@@ -491,7 +491,7 @@
       </notes>
       <segment>
         <source>Über EternalTwin einloggen</source>
-        <target>Log in via EternalTwin</target>
+        <target>Log in via Eternaltwin</target>
       </segment>
     </unit>
     <unit id="LiGRhEI">
@@ -511,7 +511,7 @@
       </notes>
       <segment>
         <source>Dies wird nicht für immer möglich sein. Wir raten dir, deinen alten MyHordes-Account so bald wie möglich mit EternalTwin zu verknüpfen.</source>
-        <target>This will not be possible forever. We advise you to link your old MyHordes account to EternalTwin as soon as possible.</target>
+        <target>This will not be possible forever. We advise you to link your old MyHordes account to Eternaltwin as soon as possible.</target>
       </segment>
     </unit>
     <unit id="uT6i9yH">
@@ -521,7 +521,7 @@
       </notes>
       <segment>
         <source>Deine Seele bleibt bei der Verknüpfung mit EternalTwin selbstverständlich vollständig erhalten.</source>
-        <target>Of course, your soul will remain completely intact when you link your account to EternalTwin.</target>
+        <target>Of course, your soul will remain completely intact when you link your account to Eternaltwin.</target>
       </segment>
     </unit>
     <unit id="RG1kp2m" name="Über MyHordes einloggen">
@@ -541,7 +541,7 @@
       </notes>
       <segment>
         <source>Verknüpfung mit EternalTwin</source>
-        <target>Link to EternalTwin</target>
+        <target>Link to Eternaltwin</target>
       </segment>
     </unit>
     <unit id="sndALWW" name="Gleich kanns losgehen!">
@@ -566,7 +566,7 @@
                                     &lt;i&gt;abbrechen&lt;/i&gt; und dich zuerst mit deinem alten MyHordes-Account einloggen. Du kannst deinen
                                     EternalTwin-Account in den Einstellungen mit deinem MyHordes-Account verknüpfen.</source>
         <target><![CDATA[<strong>Warning:</strong> If you already have a MyHordes account, you should
-                                    <i>cancel</i>, log in with your existing account and link your EternalTwin account in your account settings.]]></target>
+                                    <i>cancel</i>, log in with your existing account and link your Eternaltwin account in your account settings.]]></target>
       </segment>
     </unit>
     <unit id="zHOj.3O" name="Los geht's!">
@@ -616,7 +616,7 @@
       </notes>
       <segment>
         <source>Vielen Dank, dass du deinen MyHordes-Account {namecheck_mh} mit deinem EternalTwin-Account {namecheck_et} verknüpfst!</source>
-        <target>Thank you for linking your MyHordes account {namecheck_mh} to your EternalTwin account {namecheck_et}!</target>
+        <target>Thank you for linking your MyHordes account {namecheck_mh} to your Eternaltwin account {namecheck_et}!</target>
       </segment>
     </unit>
     <unit id="7JD3pLt">
@@ -626,7 +626,7 @@
       </notes>
       <segment>
         <source>Nach der Verknüpfung kannst du dich nur noch über EternalTwin in MyHordes anmelden. Deine alten Zugangsdaten werden ungültig.</source>
-        <target>After linking you can only log in to MyHordes via EternalTwin. Your old login data will become invalid.</target>
+        <target>After linking you can only log in to MyHordes via Eternaltwin. Your old login data will become invalid.</target>
       </segment>
     </unit>
     <unit id="r.jGoXw">
@@ -737,7 +737,7 @@
       </notes>
       <segment>
         <source>Bevor du mit deinem EternalTwin-Account spielen kannst, brauchen wir noch ein paar zusätzliche Informationen von dir.</source>
-        <target>Before you can play with your EternalTwin account, we need some additional information from you.</target>
+        <target>Before you can play with your Eternaltwin account, we need some additional information from you.</target>
       </segment>
     </unit>
     <unit id="wmjJuDK">
@@ -830,7 +830,7 @@
       </notes>
       <segment>
         <source>Du hast deinen Anzeigenamen auf EternalTwin geändert. Wir haben diese Änderung soeben für dich übernommen!</source>
-        <target>You've changed your display name on EternalTwin. We've updated your profile to reflect this change.</target>
+        <target>You've changed your display name on Eternaltwin. We've updated your profile to reflect this change.</target>
       </segment>
     </unit>
     <unit id="OUS.MDw">
@@ -840,7 +840,7 @@
       </notes>
       <segment>
         <source>Dein EternalTwin-Benutzername enthält Elemente, die auf MyHordes nicht gestattet sind. Bitte ändere deinen Namen auf EternalTwin, um dich auf MyHordes anmelden zu können.</source>
-        <target>Your EternalTwin display name contains elements that are not allowed on MyHordes. To log in with your EternalTwin account, you must change its display name.</target>
+        <target>Your Eternaltwin display name contains elements that are not allowed on MyHordes. To log in with your Eternaltwin account, you must change its display name.</target>
       </segment>
     </unit>
     <unit id=".gp.m4T">

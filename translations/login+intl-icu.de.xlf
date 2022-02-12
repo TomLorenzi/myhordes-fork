@@ -294,13 +294,13 @@
     <unit id="wPXsZnE">
       <segment>
         <source>MyHordes ist ein Teil des EternalTwin-Netzwerks. Wenn du einen EternalTwin-Account hast, kannst du MyHordes ohne zusätzliche Registrierung spielen!</source>
-        <target>MyHordes ist ein Teil des EternalTwin-Netzwerks. Wenn du einen EternalTwin-Account hast, kannst du MyHordes ohne zusätzliche Registrierung spielen!</target>
+        <target>MyHordes ist ein Teil des Eternaltwin-Netzwerks. Wenn du einen Eternaltwin-Account hast, kannst du MyHordes ohne zusätzliche Registrierung spielen!</target>
       </segment>
     </unit>
     <unit id="qo4M11k" name="Über EternalTwin einloggen">
       <segment>
         <source>Über EternalTwin einloggen</source>
-        <target>Über EternalTwin einloggen</target>
+        <target>Über Eternaltwin einloggen</target>
       </segment>
     </unit>
     <unit id="LiGRhEI">
@@ -312,13 +312,13 @@
     <unit id="ho.WxzI">
       <segment>
         <source>Dies wird nicht für immer möglich sein. Wir raten dir, deinen alten MyHordes-Account so bald wie möglich mit EternalTwin zu verknüpfen.</source>
-        <target>Dies wird nicht für immer möglich sein. Wir raten dir, deinen alten MyHordes-Account so bald wie möglich mit EternalTwin zu verknüpfen.</target>
+        <target>Dies wird nicht für immer möglich sein. Wir raten dir, deinen alten MyHordes-Account so bald wie möglich mit Eternaltwin zu verknüpfen.</target>
       </segment>
     </unit>
     <unit id="uT6i9yH">
       <segment>
         <source>Deine Seele bleibt bei der Verknüpfung mit EternalTwin selbstverständlich vollständig erhalten.</source>
-        <target>Deine Seele bleibt bei der Verknüpfung mit EternalTwin selbstverständlich vollständig erhalten.</target>
+        <target>Deine Seele bleibt bei der Verknüpfung mit Eternaltwin selbstverständlich vollständig erhalten.</target>
       </segment>
     </unit>
     <unit id="RG1kp2m" name="Über MyHordes einloggen">
@@ -330,7 +330,7 @@
     <unit id="CvfPvDp" name="Verknüpfung mit EternalTwin">
       <segment>
         <source>Verknüpfung mit EternalTwin</source>
-        <target>Verknüpfung mit EternalTwin</target>
+        <target>Verknüpfung mit Eternaltwin</target>
       </segment>
     </unit>
     <unit id="sndALWW" name="Gleich kanns losgehen!">
@@ -342,7 +342,7 @@
     <unit id="NYi.sD7">
       <segment>
         <source>Dank deines EternalTwin-Account kannst du ohne vorherige Registrierung MyHordes spielen!</source>
-        <target>Dank deines EternalTwin-Account kannst du ohne vorherige Registrierung MyHordes spielen!</target>
+        <target>Dank deines Eternaltwin-Account kannst du ohne vorherige Registrierung MyHordes spielen!</target>
       </segment>
     </unit>
     <unit id="zK1Sfzm">
@@ -352,7 +352,7 @@
                                     EternalTwin-Account in den Einstellungen mit deinem MyHordes-Account verknüpfen.</source>
         <target><![CDATA[<strong>Achtung:</strong> Du hast bereits einen MyHordes-Account? Dann solltest du jetzt
                                     <i>abbrechen</i> und dich zuerst mit deinem alten MyHordes-Account einloggen. Du kannst deinen
-                                    EternalTwin-Account in den Einstellungen mit deinem MyHordes-Account verknüpfen.]]></target>
+                                    Eternaltwin-Account in den Einstellungen mit deinem MyHordes-Account verknüpfen.]]></target>
       </segment>
     </unit>
     <unit id="zHOj.3O" name="Los geht's!">
@@ -382,13 +382,13 @@
     <unit id="p_2G6pv">
       <segment>
         <source>Vielen Dank, dass du deinen MyHordes-Account {namecheck_mh} mit deinem EternalTwin-Account {namecheck_et} verknüpfst!</source>
-        <target>Vielen Dank, dass du deinen MyHordes-Account {namecheck_mh} mit deinem EternalTwin-Account {namecheck_et} verknüpfst!</target>
+        <target>Vielen Dank, dass du deinen MyHordes-Account {namecheck_mh} mit deinem Eternaltwin-Account {namecheck_et} verknüpfst!</target>
       </segment>
     </unit>
     <unit id="7JD3pLt">
       <segment>
         <source>Nach der Verknüpfung kannst du dich nur noch über EternalTwin in MyHordes anmelden. Deine alten Zugangsdaten werden ungültig.</source>
-        <target>Nach der Verknüpfung kannst du dich nur noch über EternalTwin in MyHordes anmelden. Deine alten Zugangsdaten werden ungültig.</target>
+        <target>Nach der Verknüpfung kannst du dich nur noch über Eternaltwin in MyHordes anmelden. Deine alten Zugangsdaten werden ungültig.</target>
       </segment>
     </unit>
     <unit id="r.jGoXw">
@@ -454,7 +454,7 @@
     <unit id="uQUHCC6">
       <segment>
         <source>Bevor du mit deinem EternalTwin-Account spielen kannst, brauchen wir noch ein paar zusätzliche Informationen von dir.</source>
-        <target>Bevor du mit deinem EternalTwin-Account spielen kannst, brauchen wir noch ein paar zusätzliche Informationen von dir.</target>
+        <target>Bevor du mit deinem Eternaltwin-Account spielen kannst, brauchen wir noch ein paar zusätzliche Informationen von dir.</target>
       </segment>
     </unit>
     <unit id="wmjJuDK">
@@ -510,13 +510,13 @@
     <unit id="1zpAcv.">
       <segment>
         <source>Du hast deinen Anzeigenamen auf EternalTwin geändert. Wir haben diese Änderung soeben für dich übernommen!</source>
-        <target>Du hast deinen Anzeigenamen auf EternalTwin geändert. Wir haben diese Änderung soeben für dich übernommen!</target>
+        <target>Du hast deinen Anzeigenamen auf Eternaltwin geändert. Wir haben diese Änderung soeben für dich übernommen!</target>
       </segment>
     </unit>
     <unit id="OUS.MDw">
       <segment>
         <source>Dein EternalTwin-Benutzername enthält Elemente, die auf MyHordes nicht gestattet sind. Bitte ändere deinen Namen auf EternalTwin, um dich auf MyHordes anmelden zu können.</source>
-        <target>Dein EternalTwin-Benutzername enthält Elemente, die auf MyHordes nicht gestattet sind. Bitte ändere deinen Namen auf EternalTwin, um dich auf MyHordes anmelden zu können.</target>
+        <target>Dein Eternaltwin-Benutzername enthält Elemente, die auf MyHordes nicht gestattet sind. Bitte ändere deinen Namen auf EternalTwin, um dich auf MyHordes anmelden zu können.</target>
       </segment>
     </unit>
     <unit id=".gp.m4T">

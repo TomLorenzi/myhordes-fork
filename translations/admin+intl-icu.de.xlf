@@ -970,7 +970,7 @@
     <unit id="V1ukt7Z" name="EternalTwin-Integration">
       <segment>
         <source>EternalTwin-Integration</source>
-        <target>EternalTwin-Integration</target>
+        <target>Eternaltwin-Integration</target>
       </segment>
     </unit>
     <unit id="OkyzTP2" name="In lokalen Account umwandeln">
@@ -1000,7 +1000,7 @@
     <unit id="OaKjJho" name="Von EternalTwin verwaltet">
       <segment>
         <source>Von EternalTwin verwaltet</source>
-        <target>Von EternalTwin verwaltet</target>
+        <target>Von Eternaltwin verwaltet</target>
       </segment>
     </unit>
     <unit id="uCT9EnO" name="Nur für Administratoren sichtbar">
@@ -1018,7 +1018,7 @@
     <unit id="L0eG_iZ" name="EternalTwin-Konto">
       <segment>
         <source>EternalTwin-Konto</source>
-        <target>EternalTwin-Konto</target>
+        <target>Eternaltwin-Konto</target>
       </segment>
     </unit>
     <unit id="nz1fjZT" name="Sonstiges">
@@ -2770,7 +2770,7 @@
     <unit id="jPmvEEG" name="Eternal-Twin-Konto verlinkt">
       <segment>
         <source>Eternal-Twin-Konto verlinkt</source>
-        <target>EternalTwin-Konto verlinkt</target>
+        <target>Eternaltwin-Konto verlinkt</target>
       </segment>
     </unit>
     <unit id="_VFidG8" name="Gruppentyp">

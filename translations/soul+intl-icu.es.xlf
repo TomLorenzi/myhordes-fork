@@ -1829,7 +1829,7 @@
       </notes>
       <segment>
         <source>EternalTwin-Nutzer</source>
-        <target>Usuario de EternalTwin</target>
+        <target>Usuario de Eternaltwin</target>
       </segment>
     </unit>
     <unit id="0T9At.g">
@@ -1839,7 +1839,7 @@
       </notes>
       <segment>
         <source>Dieser Spieler verwendet einen EternalTwin-Account. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!</source>
-        <target>Éste jugador está utilizando una cuenta de EternalTwin. Nos alegramos de poder darle la bienvenida a MyHordes!</target>
+        <target>Éste jugador está utilizando una cuenta de Eternaltwin. Nos alegramos de poder darle la bienvenida a MyHordes!</target>
       </segment>
     </unit>
     <unit id="XRvl7w0">
@@ -1859,7 +1859,7 @@
       </notes>
       <segment>
         <source>MyHordes ist ein stolzer Bestandteil des EternalTwin-Netzwerkes!</source>
-        <target>MyHordes es una orgullosa parte de la Red EternalTwin!</target>
+        <target>MyHordes es una orgullosa parte de la Red Eternaltwin!</target>
       </segment>
     </unit>
     <unit id="WVIMH8t">
@@ -1869,7 +1869,7 @@
       </notes>
       <segment>
         <source>Um MyHordes auch in Zukunft weiter spielen zu können, musst du deinen alten MyHordes-Account mit einem EternalTwin-Account verknüpfen.</source>
-        <target>Para poder seguir jugando a MyHordes en un futuro, debes de enlazar tu cuenta de MyHordes con una cuenta de EternalTwin.</target>
+        <target>Para poder seguir jugando a MyHordes en un futuro, debes de enlazar tu cuenta de MyHordes con una cuenta de Eternaltwin.</target>
       </segment>
     </unit>
     <unit id="CACKQCH" name="EternalTwin-Account verknüpfen">
@@ -1879,7 +1879,7 @@
       </notes>
       <segment>
         <source>EternalTwin-Account verknüpfen</source>
-        <target>Enlazar cuenta de EternalTwin</target>
+        <target>Enlazar cuenta de Eternaltwin</target>
       </segment>
     </unit>
     <unit id="zlGVYh_" name="{name}'s Koalition">
@@ -2990,7 +2990,7 @@
       </notes>
       <segment>
         <source>Wir sind ein Teil des EternalTwin-Projektes, welches es sich zur Aufgabe gemacht hat die Browserspiele von MotionTwin am Leben zu erhalten.</source>
-        <target>Somos parte del proyecto EternalTwin, que se ha propuesto la tarea de mantener vivos los juegos de navegador de MotionTwin.</target>
+        <target>Somos parte del proyecto Eternaltwin, que se ha propuesto la tarea de mantener vivos los juegos de navegador de MotionTwin.</target>
       </segment>
     </unit>
     <unit id="GLZ2E_L">
@@ -3010,7 +3010,7 @@
       </notes>
       <segment>
         <source>Wenn dir MyHordes gefällt und du uns unterstützen möchtest, kannst du dies mit einer Spende an das EternalTwin Projekt tun.</source>
-        <target>Si te gusta MyHordes y quieres apoyarnos, puedes hacerlo con una donación al proyecto EternalTwin.</target>
+        <target>Si te gusta MyHordes y quieres apoyarnos, puedes hacerlo con una donación al proyecto Eternaltwin.</target>
       </segment>
     </unit>
     <unit id="uK4jynd" name="Geworbener Spieler">
@@ -3551,7 +3551,7 @@
       </notes>
       <segment>
         <source>Bitte ändere deinen Anzeigenamen auf EternalTwin.</source>
-        <target>Cambia tu nombre visible en EternalTwin.</target>
+        <target>Cambia tu nombre visible en Eternaltwin.</target>
       </segment>
     </unit>
     <unit id="4DFz5Xa">
@@ -4274,7 +4274,7 @@
       </notes>
       <segment>
         <source>Denke daran, dich ebenfalls aus deinem EternalTwin Account auszuloggen!</source>
-        <target>¡Recuerda, también debes cerrar sesión en tu cuenta de EternalTwin!</target>
+        <target>¡Recuerda, también debes cerrar sesión en tu cuenta de Eternaltwin!</target>
       </segment>
     </unit>
     <unit id="TMcIHTT" name="Du kannst deinen Spielernamen erst in {days} Tagen erneut ändern.">
@@ -4314,7 +4314,7 @@
       </notes>
       <segment>
         <source>Profil Eternal-Twin</source>
-        <target>Perfil EternalTwin</target>
+        <target>Perfil Eternaltwin</target>
       </segment>
     </unit>
     <unit id="abqsDy0" name="Schreiben">
