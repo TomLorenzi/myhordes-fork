@@ -230,7 +230,7 @@
                         {% else %}
                             <div class="avatar small"><img alt="" src="{{ asset('build/images/forum/empty_avatar.gif') }}"></div>
                         {% endif %}
-                        {% include 'ajax/soul/playername.html.twig' with {user: post.owner} only %}{{ post.translate ? ('') : (_self.icon_master(post.owner))}}<br />
+                        {% include 'ajax/soul/playername.html.twig' with {user: post.owner, globalSpace: post.thread.forum.town is null} only %}{{ post.translate ? ('') : (_self.icon_master(post.owner))}}<br />
                         {% if post.owner.name == 'Der Rabe' %}
                             <span class="small"><i>{{ 'Ich beobachte euch...'|trans({},'game') }}</i></span>
                         {% elseif post.owner.activeTitle or post.owner.activeIcon %}
@@ -283,7 +283,7 @@
                     {% endif %}
 
 
-                    <div class="forum-post-content" x-post-content-id="{{ post.id }}" x-post-content-author-id="{{ post.owner.id }}" x-post-content-author="{% include 'ajax/soul/playername.html.twig' with {user: post.owner, plain: true} only %}">
+                    <div class="forum-post-content" x-post-content-id="{{ post.id }}" x-post-content-author-id="{{ post.owner.id }}" x-post-content-author="{% include 'ajax/soul/playername.html.twig' with {user: post.owner, plain: true, globalSpace: post.thread.forum.town is null} only %}">
                         {{ post.translate ? (post.text|trans({},'game')|raw) : (post.text|raw) }}
                         {% if not post.translate and paranoid and post.owner.name != 'Der Rabe' %}
                             {% set mode = (app.user.id + post.id + post.owner.id) % 12 %}

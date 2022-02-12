@@ -3,7 +3,7 @@
     {% if alt_name is not defined or not alt_name %}
         {% if user.name == 'Der Rabe' %}{% set display_name = 'Der Rabe'|trans({},'global') %}
         {% elseif user.name == 'Animateur-Team' %}{% set display_name = 'Animateur-Team'|trans({},'global') %}
-        {% else %}{% set display_name = (app.user and app.user.activeCitizen and user.activeCitizen and app.user.activeCitizen.town == user.activeCitizen.town) ? user.activeCitizen.name : user.name %}{% endif %}
+        {% else %}{% set display_name = (app.user and app.user.activeCitizen and user.activeCitizen and app.user.activeCitizen.town == user.activeCitizen.town and ( globalSpace is not defined or not globalSpace )) ? user.activeCitizen.name : user.name %}{% endif %}
     {% else %}
         {% set display_name = alt_name %}
     {% endif %}
