@@ -4577,7 +4577,7 @@
       </notes>
       <segment>
         <source>Ihr Vertreter vor Ihrer Haustür. Die Zombies stimmten diesem Konzept voll und ganz zu, wenn man die Krallenspuren auf den Polstern der Kabine und die überall versprühten menschlichen Überreste bemerkt.</source>
-        <target>Ihr Vertreter vor Ihrer Haustür. Die Zombies stimmten diesem Konzept voll und ganz zu, wenn man die Krallenspuren auf den Polstern der Kabine und die überall versprühten menschlichen Überreste bemerkt.</target>
+        <target>Your representative on your doorstep. The zombies thoroughly approved of this concept if you notice the claw marks on the upholstery in the cab and the human remains sprayed everywhere.</target>
       </segment>
     </unit>
     <unit id="9TPFQ6o">
@@ -23169,7 +23169,7 @@
       </notes>
       <segment>
         <source>Die Anwesenheit des Geistigen Beistands unter den Nachtwächtern gibt ihnen jeweils einen Boost von {counsel} Verteidigung.</source>
-        <target>The presence of Psychadelic Spiritual Counsel among the Watchmen gives them a {counsel} defense boost each.</target>
+        <target>The presence of Psychadelic Spiritual Counsel among the Watchmen gives a {counsel} defense boost.</target>
       </segment>
     </unit>
     <unit id="vhwzs0L">

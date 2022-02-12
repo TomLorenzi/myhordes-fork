@@ -404,7 +404,7 @@ bin/console doctrine:schema:update --force
 bin/console doctrine:fixtures:load --append
 ```
 
-### Start the local Eternal-Twin server
+### Start the local Eternaltwin server
 ```bash
 yarn run etwin
 # Or start it in the background

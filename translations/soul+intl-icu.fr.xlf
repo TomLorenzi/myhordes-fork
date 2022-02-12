@@ -3959,7 +3959,7 @@
       </notes>
       <segment>
         <source>Die maximale Größe der Bilddatei, die du für deinen Avatar hochladen kannst, beträgt &lt;b&gt;{size}&lt;/b&gt;.</source>
-        <target><![CDATA[La taille maximale de l'image que vous pouvez télécharger pour votre avatar est de <b>{size}</b>..]]></target>
+        <target><![CDATA[La taille maximale de l'image que vous pouvez télécharger pour votre avatar est de <b>{size}</b>.]]></target>
       </segment>
     </unit>
     <unit id="U8MXhPw">
@@ -4341,7 +4341,7 @@
       </notes>
       <segment>
         <source>Profil Eternal-Twin</source>
-        <target>Profil Eternal-Twin</target>
+        <target>Profil Eternaltwin</target>
       </segment>
     </unit>
     <unit id="abqsDy0" name="Schreiben">

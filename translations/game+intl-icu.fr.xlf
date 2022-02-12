@@ -8543,7 +8543,7 @@
       </notes>
       <segment>
         <source>Du kannst heute keine weiteren Beschwerden vorbringen.</source>
-        <target>Vous ne pouvez plus déposer de plaintes aujourd'hui.</target>
+        <target><![CDATA[Vous avez déjà fait cela aujourd'hui (max : <strong>4 fois par jour</strong>)... Attendez <strong>demain</strong> pour recommencer.]]></target>
       </segment>
     </unit>
     <unit id="R67MR0Q" name="Der {rolename} der Stadt ist {username}">
@@ -10663,7 +10663,7 @@
       </notes>
       <segment>
         <source>Mithilfe des {item} hast du die Tür aufgeschlossen!</source>
-        <target>Avec {item}, vous avez déverrouillé la porte !</target>
+        <target>Vous avez réussi à dévérouiller la porte, mais la {item}, elle par contre, semble foutue...</target>
       </segment>
     </unit>
     <unit id="DswnobJ" name="{z} Zombies blockieren den Weg!">
@@ -10773,7 +10773,7 @@
       </notes>
       <segment>
         <source>Du benötigst {item}, um diese Tür zu öffnen.</source>
-        <target>Vous avez besoin de {item} pour ouvrir cette porte.</target>
+        <target>Pour ouvrir cette porte il vous faudrait quelque chose ressemblant à une {item}.</target>
       </segment>
     </unit>
     <unit id="Zc9wwO7" name="Verbesserung des Tages (building)">
@@ -22426,7 +22426,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Dieser Bürger wurde aus der Gemeinschaft verbannt; er hat nicht länger Zugang zu den Gebäuden der Stadt, mit Ausnahme des Brunnens (wobei er auf eine Ration pro Tag eingeschränkt ist).</source>
-        <target>Ce citoyen a été banni de la communauté : il ne pourra plus avoir accès aux dispositifs de la ville, à l'exception du puits (limité toutefois à la ration quotidienne, sans supplémentaire).</target>
+        <target>Ce citoyen a été banni de la communauté : il ne pourra plus avoir accès aux dispositifs de la ville, à l'exception du puits (limité toutefois à la ration quotidienne, sans prise supplémentaire).</target>
       </segment>
     </unit>
     <unit id="Xrx5c_.">
@@ -22928,7 +22928,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Einen Aufstand der Verbannten vorbereiten (optional).</source>
-        <target>préparer une insurrection de bannis (optionnel)</target>
+        <target>Préparer une insurrection de bannis (optionnel)</target>
       </segment>
     </unit>
     <unit id="gfklKsJ" name="Du bist der {rolename} dieser Stadt.">
@@ -24952,7 +24952,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Die Zombies haben sich nicht mit Nettigkeiten aufgehalten... alles, was von &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} noch übrig ist ist ein Kieferknochen sowie verschiedene Organe, die {location} gefunden wurden. Kommt schon, lächelt mal wieder! Er war das einzige Opfer, stellt euch mal vor es hätte auch noch &lt;strong&gt;{citizen1}&lt;/strong&gt; getroffen!</source>
-        <target><![CDATA[Les zombies n'ont pas fait dans la dentelle hier soir... De <i class="dagger">†</i> {cadaver1}, il ne reste qu'une mâchoire et quelques organes broyés retrouvés [location]. Allez, on sourit ! C'est la seule victime, ça aurait pu être <strong>{citizen1}</strong> !]]></target>
+        <target><![CDATA[Les zombies n'ont pas fait dans la dentelle hier soir... De <i class="dagger">†</i> {cadaver1}, il ne reste qu'une mâchoire et quelques organes broyés retrouvés {location}. Allez, on sourit ! C'est la seule victime, ça aurait pu être <strong>{citizen1}</strong> !]]></target>
       </segment>
     </unit>
     <unit id="BmxV3XO">
