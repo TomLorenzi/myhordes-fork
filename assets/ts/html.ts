@@ -1,12 +1,46 @@
 import {Const, Global} from "./defaults";
 
 import TwinoAlikeParser from "./twino"
+import {DOMElement} from "react";
 
 declare var $: Global;
 declare var c: Const;
 
 interface elementHandler { (element: HTMLElement, index: number): void }
 interface eventListener { (e: Event, element: HTMLElement, index: number): void }
+
+class _SearchTableColumnProps {
+
+    private readonly _name: string;
+    private readonly _fq_name: string;
+    private readonly _numeric: boolean;
+
+    constructor( table: HTMLElement, name: string ) {
+        let fq = "";
+        name.split('-').forEach( c => fq += (c.substr(0,1).toUpperCase() + c.substr(1).toLowerCase()) );
+
+        this._name = name;
+        this._fq_name = fq;
+        this._numeric = typeof table.dataset['searchProp' + this._fq_name + "AttrNumeric"] !== "undefined";
+    }
+
+    get name(): string { return this._name; }
+    get fullyQualifiedName(): string { return "searchProp" + this._fq_name; }
+    get isNumeric(): boolean { return this._numeric; }
+
+    get sortAscFunction(): (a: HTMLElement, b: HTMLElement) => number {
+        if (this.isNumeric) return (a: HTMLElement, b: HTMLElement) => (parseFloat(a.dataset[this.fullyQualifiedName]) - parseFloat(b.dataset[this.fullyQualifiedName])) || (parseInt(a.dataset['searchRow']) - parseInt(b.dataset['searchRow']));
+        else return (a: HTMLElement, b: HTMLElement) => a.dataset[this.fullyQualifiedName].localeCompare( b.dataset[this.fullyQualifiedName] ) || (parseInt(a.dataset['searchRow']) - parseInt(b.dataset['searchRow']));
+    }
+
+    get sortDescFunction(): (a: HTMLElement, b: HTMLElement) => number {
+        return (a: HTMLElement, b: HTMLElement) => -this.sortAscFunction(a,b);
+    }
+
+    filterFunction(query: string): (a: HTMLElement) => boolean {
+        return query === '' ? (()=>true) : ((a: HTMLElement) => a.dataset[this.fullyQualifiedName].toLowerCase().includes(query.toLowerCase()));
+    }
+}
 
 export default class HTML {
 
@@ -515,5 +549,110 @@ export default class HTML {
     validateEmail(email: string): boolean {
         const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(String(email).toLowerCase());
+    }
+
+    makeSearchTable( table: HTMLElement ) {
+        // Search tables need data-search-table and data-search-props attributes
+        // If search-tablle-processed is set, then this table has already been processed an should be ignored
+        if (!table.dataset['searchTable'] || !table.dataset['searchProps'] || table.dataset['searchTableProcessed'] === '1') return;
+
+        // Set processed flag
+        table.dataset['searchTableProcessed'] = '1';
+
+        // Column translation
+        let columns: { [key: string]: _SearchTableColumnProps } = {};
+        const makeColumn = c => columns[c] = new _SearchTableColumnProps(table,c);
+        const extractSearchProp = (a,s) => table.querySelectorAll('[data-' + a + ']').forEach((e: HTMLElement) => columns[e.dataset[s]] = makeColumn(e.dataset[s]));
+        table.dataset['searchProps'].split(',').forEach( col => {
+            if (col === 'auto')
+                [
+                    ['search-column','searchColumn'],
+                    ['search-agent', 'searchAgent']
+                ].forEach( conf => extractSearchProp(conf[0],conf[1]) );
+            else columns[col] = makeColumn(col);
+        } );
+
+        let rows: Array<HTMLElement> = [], sorted_rows: Array<HTMLElement> = [];
+        let row_container = null;
+
+        // Catalog all rows, correct their properties if they are missing / invalid
+        table.querySelectorAll('[data-search-row]').forEach( (row: HTMLElement) => {
+
+            const closest_container = row.parentElement;
+            if (closest_container === null || typeof closest_container.dataset['searchContainer'] === "undefined") {
+                console.warn( 'Table "' + table.dataset['searchTable'] + "', Row " + row.dataset['searchRow'] + ": Not located within a search container! Ignoring row.");
+                return;
+            }
+
+            if (row_container === null) row_container = closest_container;
+            else if (row_container !== closest_container) {
+                console.warn( 'Table "' + table.dataset['searchTable'] + "', Row " + row.dataset['searchRow'] + ": Inconsistent row container. Moving the row to the correct container.");
+                row_container.appendChild( row );
+            }
+
+            rows[ parseInt( row.dataset['searchRow'] ) ] = row;
+            for (const [,col] of Object.entries(columns)) {
+                if (typeof row.dataset[col.fullyQualifiedName] === "undefined") {
+                    row.dataset[col.fullyQualifiedName] = col.isNumeric ? '0' : '';
+                    console.warn( 'Table "' + table.dataset['searchTable'] + "', Row " + row.dataset['searchRow'] + ": Missing property '" + col.name + "'. Inferring '" + row.dataset[col.fullyQualifiedName] + "'."  )
+                } else if ( col.isNumeric && isNaN(parseFloat( row.dataset[col.fullyQualifiedName] )) ) {
+                    const before = row.dataset[col.fullyQualifiedName];
+                    row.dataset[col.fullyQualifiedName] = '0';
+                    console.warn( 'Table "' + table.dataset['searchTable'] + "', Row " + row.dataset['searchRow'] + ": Invalid numeric property '" + col.name + "' ('" + before + "'). Inferring '" + row.dataset[col.fullyQualifiedName] + "'."  )
+                }
+            }
+        });
+
+        const renderTableRows = ( list: Array<HTMLElement>, filter: boolean = false ) => {
+            if (filter) rows.forEach(elem => elem.classList.add('hidden'));
+            list.forEach(elem => {
+                row_container.appendChild(elem);
+                if (filter) elem.classList.remove('hidden');
+            })
+        }
+
+        sorted_rows = [...rows];
+
+        // Add events for sort columns
+        table.querySelectorAll('[data-search-column]').forEach( (elem: HTMLElement) => {
+            if (typeof columns[elem.dataset['searchColumn']] === "undefined") return;
+
+            elem.dataset['originalText'] = elem.innerHTML;
+            elem.dataset['sortSetting'] = '';
+
+            const column = columns[elem.dataset['searchColumn']];
+            elem.addEventListener('click', () => {
+                const setting = elem.dataset['sortSetting'];
+
+                table.querySelectorAll('[data-search-column]').forEach( (inner: HTMLElement) => {
+                    inner.dataset['sortSetting'] = '';
+                    inner.innerHTML = inner.dataset['originalText'];
+                } );
+
+                if (setting === '') {
+                    renderTableRows(sorted_rows = [...rows].sort(column.sortAscFunction));
+                    elem.dataset['sortSetting'] = '1';
+                    elem.innerHTML = '<i class="fa fa-caret-up"></i>&nbsp;' + elem.dataset['originalText'];
+                } else if (setting === '1') {
+                    renderTableRows(sorted_rows = [...rows].sort(column.sortDescFunction));
+                    elem.dataset['sortSetting'] = '-1';
+                    elem.innerHTML = '<i class="fa fa-caret-down"></i>&nbsp;' + elem.dataset['originalText'];
+                } else {
+                    renderTableRows(sorted_rows = [...rows]);
+                    elem.dataset['sortSetting'] = '';
+                    elem.innerHTML = elem.dataset['originalText'];
+                }
+            })
+        } );
+
+        // Add events for filter input
+        table.querySelectorAll('input[data-search-agent]').forEach( (elem: HTMLInputElement) => {
+            if (typeof columns[elem.dataset['searchAgent']] === "undefined") return;
+
+            const column = columns[elem.dataset['searchAgent']];
+            elem.addEventListener('input', () => {
+                renderTableRows(sorted_rows.filter( column.filterFunction( elem.value ) ), true );
+            });
+        } );
     }
 }

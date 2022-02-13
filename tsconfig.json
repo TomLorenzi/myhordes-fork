@@ -2,6 +2,8 @@
   "compilerOptions": {
     "sourceMap": true,
     "downlevelIteration": true,
+    "target": "es6",
+    "moduleResolution": "node",
     "lib": ["dom", "ScriptHost","es2018","es2020.string"],
     "jsx": "react"
   }
