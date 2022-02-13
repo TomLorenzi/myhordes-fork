@@ -7183,7 +7183,6 @@ Nutze bitte folgenden Link, wenn du uns einen Bug (technischen Fehler) melden m√
     <unit id="xWlFPqr" name="etc...">
       <notes>
         <note category="german">etc...</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/help/quarantined_towns.html.twig</note>
       </notes>
       <segment>
