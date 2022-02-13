@@ -5021,7 +5021,7 @@
       </notes>
       <segment>
         <source>Es ist nicht möglich, unsere Situation angesichts des Angriffs von heute Abend genau einzuschätzen.</source>
-        <target><![CDATA[Nuestras defensas <strong>podrían</strong> resistir parcialmente al ataque de esta noche.]]></target>
+        <target>¡No tenemos idea de la cantidad de zombies que se aproximan!</target>
       </segment>
     </unit>
     <unit id="aVClbc0" name="Meine täglichen Aufgaben">
