@@ -9424,7 +9424,7 @@
       </notes>
       <segment>
         <source>Du kannst dieses Serum nicht auf dich selbst anwenden, oder du wirst der beste Freund eines Ghuls...</source>
-        <target>No puedes aplicar la vacuna sobre ti mismo, te volverías el mejor amigo de un mutante...</target>
+        <target>No puedes usar esa vacuna en ti, o conviértete en el mejor amigo de un mutante...</target>
       </segment>
     </unit>
     <unit id="j.Nx9To" name="Eintrittskarte">
