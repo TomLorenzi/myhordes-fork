@@ -8892,7 +8892,7 @@
       </notes>
       <segment>
         <source>Um dieses Wasser trinkbar zu machen, brauchst du &lt;strong&gt;irgendein Reinigungsmittel&lt;/strong&gt; oder deine Stadt muss über einen &lt;strong&gt;Wasserreiniger&lt;/strong&gt; verfügen. Die zweite Variante ist nicht verfügbar, wenn Du verbannt bist.</source>
-        <target><![CDATA[Para que esta agua sea potable, necesitas <strong>algún producto de limpieza</strong> o tu pueblo necesita tener un <strong>purificador de agua</strong>. La segunda opcion no está disponible si estás desterrado.]]></target>
+        <target><![CDATA[Para potabilizar esta agua, necesitas <strong>algún producto de limpieza</strong> o tu pueblo necesita tener un <strong>purificador de agua</strong>. La segunda opcion no está disponible si estás desterrado.]]></target>
       </segment>
     </unit>
     <unit id="LB_nTi3">
