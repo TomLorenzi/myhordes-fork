@@ -7912,7 +7912,7 @@
       </notes>
       <segment>
         <source>Du wirfst eine Rauchbombe in diese Zone und ein Großes Durcheinander bricht aus!{hr}Deine &lt;strong&gt;nächste Bewegungsaktion&lt;/strong&gt; wird night in das Register eingetragen, wenn sie &lt;strong&gt;innerhalb von 1 Minute&lt;/strong&gt; erfolgt.</source>
-        <target><![CDATA[Lanzas la bomba de humo en el área, causando una gran confusión.{hr}Tu <strong>próxima acción</strong> no será vista en el registro si la llevas a cabo <strong>en los próximos 60 segundos</strong>.]]></target>
+        <target><![CDATA[¡Lanzas tu bomba de humo en la zona, sembrando la más grande confusión!{hr}Tu <strong>próximo desplazamiento</strong> no quedará anotado en el registro si la llevas a cabo <strong>en los próximos 60 segundos</strong>.]]></target>
       </segment>
     </unit>
     <unit id="gN7yVQC" name="Durchgang in Kraft">
