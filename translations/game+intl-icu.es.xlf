@@ -26145,7 +26145,7 @@
       </notes>
       <segment>
         <source>{citizen} bedankt sich herzlich bei dir, dass du ihn nach Hause gebracht hast!</source>
-        <target>{citizen} bedankt sich herzlich bei dir, dass du ihn nach Hause gebracht hast!</target>
+        <target>El habitante {citizen} te agradece profundamente haberle llevado al pueblo.</target>
       </segment>
     </unit>
     <unit id="Yi60BMa" name="Du hast dafür {count} Baupunkt(e) verbraucht.">
