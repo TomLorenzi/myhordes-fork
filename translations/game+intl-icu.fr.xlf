@@ -8430,7 +8430,7 @@
       </notes>
       <segment>
         <source>{citizen} hat folgendes hergestellt: {list2}; dabei wurden folgende Gegenstände verbraucht: {list1}.</source>
-        <target>{citizen} a produit : {list2} à partir de : {list1}.</target>
+        <target>{citizen} a produit {list2} à l'Atelier (à partir de : {list1}).</target>
       </segment>
     </unit>
     <unit id="6ymR84s">
