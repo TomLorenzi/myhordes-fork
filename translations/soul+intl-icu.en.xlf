@@ -1721,7 +1721,7 @@
     <unit id="1xiOB2G" name="Seele suchen">
       <notes>
         <note category="german">Seele suchen</note>
-        <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/me.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Seele suchen</source>

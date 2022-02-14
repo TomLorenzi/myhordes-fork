@@ -1595,6 +1595,7 @@
       <notes>
         <note category="german">Altar</note>
         <note category="from">db://BuildingPrototype</note>
+        <note category="state">new</note>
       </notes>
       <segment>
         <source>Altar</source>
@@ -2085,6 +2086,7 @@
       <notes>
         <note category="german">Hammam</note>
         <note category="from">db://BuildingPrototype</note>
+        <note category="state">new</note>
       </notes>
       <segment>
         <source>Hammam</source>

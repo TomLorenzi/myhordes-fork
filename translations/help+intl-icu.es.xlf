@@ -7184,6 +7184,7 @@ Nutze bitte folgenden Link, wenn du uns einen Bug (technischen Fehler) melden m√
       <notes>
         <note category="german">etc...</note>
         <note category="from">twig:///templates/ajax/help/quarantined_towns.html.twig</note>
+        <note category="state">new</note>
       </notes>
       <segment>
         <source>etc...</source>
