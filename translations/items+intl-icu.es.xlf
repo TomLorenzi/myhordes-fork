@@ -7912,7 +7912,7 @@
       </notes>
       <segment>
         <source>Du wirfst eine Rauchbombe in diese Zone und ein Großes Durcheinander bricht aus!{hr}Deine &lt;strong&gt;nächste Bewegungsaktion&lt;/strong&gt; wird night in das Register eingetragen, wenn sie &lt;strong&gt;innerhalb von 1 Minute&lt;/strong&gt; erfolgt.</source>
-        <target><![CDATA[Lanzas la bomba de humo en el área, causando una gran confusión.{hr}Tu <strong>próxima acción</strong> no será vista en el registro si la llevas a cabo <strong>en los próximos 60 segundos</strong>.]]></target>
+        <target><![CDATA[¡Lanzas tu bomba de humo en la zona, sembrando la más grande confusión!{hr}Tu <strong>próximo desplazamiento</strong> no quedará anotado en el registro si la llevas a cabo <strong>en los próximos 60 segundos</strong>.]]></target>
       </segment>
     </unit>
     <unit id="gN7yVQC" name="Durchgang in Kraft">
@@ -8892,7 +8892,7 @@
       </notes>
       <segment>
         <source>Um dieses Wasser trinkbar zu machen, brauchst du &lt;strong&gt;irgendein Reinigungsmittel&lt;/strong&gt; oder deine Stadt muss über einen &lt;strong&gt;Wasserreiniger&lt;/strong&gt; verfügen. Die zweite Variante ist nicht verfügbar, wenn Du verbannt bist.</source>
-        <target><![CDATA[Para que esta agua sea potable, necesitas <strong>algún producto de limpieza</strong> o tu pueblo necesita tener un <strong>purificador de agua</strong>. La segunda opcion no está disponible si estás desterrado.]]></target>
+        <target><![CDATA[Para potabilizar esta agua, necesitas <strong>algún producto de limpieza</strong> o tu pueblo necesita tener un <strong>purificador de agua</strong>. La segunda opcion no está disponible si estás desterrado.]]></target>
       </segment>
     </unit>
     <unit id="LB_nTi3">
@@ -9374,7 +9374,7 @@
       </notes>
       <segment>
         <source>Dir fällt kein Grund ein, dies zu tun...</source>
-        <target>Dir fällt kein Grund ein, dies zu tun...</target>
+        <target>No tienes razón para hacer eso...</target>
       </segment>
     </unit>
     <unit id="4Exhdnj" name="Dies kannst du erst ab &lt;strong&gt;Tag 2&lt;/strong&gt; tun.">
@@ -9424,7 +9424,7 @@
       </notes>
       <segment>
         <source>Du kannst dieses Serum nicht auf dich selbst anwenden, oder du wirst der beste Freund eines Ghuls...</source>
-        <target>No puedes aplicar la vacuna sobre ti mismo, te volverías el mejor amigo de un mutante...</target>
+        <target>No puedes usar esa vacuna en ti, o conviértete en el mejor amigo de un mutante...</target>
       </segment>
     </unit>
     <unit id="j.Nx9To" name="Eintrittskarte">

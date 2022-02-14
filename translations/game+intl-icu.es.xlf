@@ -5021,7 +5021,7 @@
       </notes>
       <segment>
         <source>Es ist nicht möglich, unsere Situation angesichts des Angriffs von heute Abend genau einzuschätzen.</source>
-        <target><![CDATA[Nuestras defensas <strong>podrían</strong> resistir parcialmente al ataque de esta noche.]]></target>
+        <target>¡No tenemos idea de la cantidad de zombies que se aproximan!</target>
       </segment>
     </unit>
     <unit id="aVClbc0" name="Meine täglichen Aufgaben">
@@ -26145,7 +26145,7 @@
       </notes>
       <segment>
         <source>{citizen} bedankt sich herzlich bei dir, dass du ihn nach Hause gebracht hast!</source>
-        <target>{citizen} bedankt sich herzlich bei dir, dass du ihn nach Hause gebracht hast!</target>
+        <target>El habitante {citizen} te agradece profundamente haberle llevado al pueblo.</target>
       </segment>
     </unit>
     <unit id="Yi60BMa" name="Du hast dafür {count} Baupunkt(e) verbraucht.">
@@ -26247,7 +26247,7 @@
       </notes>
       <segment>
         <source>Du hast {item} gefunden, als du die schmutzigen Ecken dieses elenden Ortes durchsucht hast!</source>
-        <target>Du hast {item} gefunden, als du die schmutzigen Ecken dieses elenden Ortes durchsucht hast!</target>
+        <target>El temor te hace un nudo en las tripas mientras exploras esta ruina... Pero no habrá sido en vano porque acabas de encontrar algo: {item}</target>
       </segment>
     </unit>
     <unit id="GtMVIRi" name="Diese Aktion kannst du erst morgen erneut versuchen.">
