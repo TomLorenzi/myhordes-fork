@@ -107,7 +107,7 @@
                                                 {% else %}
                                                     <div class="inline-block"><img src="{{ asset("build/images/death/inside.gif") }}" alt="" /> <div class="tooltip">{{ 'In der Stadt gestorben'|trans({}, 'soul') }}</div></div>
                                                 {% endif %}
-                                                <a class="link username" href="{{ path('soul_visit', {id: denizen.user.id}) }}">{{ denizen.user.name }}</a>
+                                                {% include 'ajax/soul/playername.html.twig' with {user: denizen.user} only %}
                                             </div>
                                             <div class="cell padded rw-1" style="color:#f8eacb">{{ denizen.day }}</div>
                                             <div class="cell padded rw-4"><em>{{ denizen.lastWords|replace({'{gotKilled}': '...der Mörder .. ist.. IST.. AAARGHhh..'|trans({},'game')}) }}</em></div>
@@ -182,7 +182,9 @@
                         <div class="row-flex stretch season_entry_solo{% if player.id == user.id %} played{% endif %}{% if pos <= 5 %} top5{% else %} top5plus{% endif %}">
                             <div class="cell rw-1 season_entry_td center soul_season_flag"><img src="{% if player.language %} {{ asset("build/images/lang/" ~ player.language ~".png") }} {% else %} {{ asset("build/images/lang/multi.png") }} {% endif %}" alt="{{ user.language }}" /></div>
                             <div class="cell rw-1 season_entry_td center">{{ pos }}</div>
-                            <div class="cell rw-6 season_entry_td left soul_season_name"><a class="link" href="{{ path('soul_visit', {id: player.id}) }}">{{ player.name }}</a></div>
+                            <div class="cell rw-6 season_entry_td left soul_season_name">
+                                {% include 'ajax/soul/playername.html.twig' with {user: player} only %}
+                            </div>
                             <div class="cell rw-4 season_entry_td center soul_season_points">{{ points }}</div>
                         </div>
                     {% endfor %}
