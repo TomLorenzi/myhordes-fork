@@ -85,10 +85,12 @@
                             <div class="row-flex stretch season_entry_container" x-town-latest="">
                                 <div class="cell rw-1 center" style="border-right: 1px solid #7e4d2a;"></div>
                                 <div class="cell rw-7 ro-1">
-                                        {% for denizen in town.citizens|filter(a => a.day == town.days)|sort((a,b) => a.user.name|lower <=> b.user.name|lower) %}
-                                            <span {% if loop.index0 >= 5 %}x-default-display="hidden" class="hidden"{% endif %} x-town-list="{{ town.id }}"><a href="{{ path('soul_visit', {id: denizen.user.id}) }}"><b>{{ denizen.user.name }}</b></a> <span style="color: #f0d79e">({{ denizen.day }})</span></span>
-                                {% endfor %}
-                                        {% if town.citizens|filter(a => a.day == town.days)|length >4 %}<img x-town-toggle-list="{{ town.id }}" class="pointer" alt="+" src="{{ asset('build/images/icons/small_more.gif') }}" alt-src="{{ asset('build/images/icons/small_less.gif') }}" />{% endif %}
+                                    {% for denizen in town.citizens|filter(a => a.day == town.days)|sort((a,b) => a.user.name|lower <=> b.user.name|lower) %}
+                                        <span class="small">
+                                        {% include 'ajax/soul/playername.html.twig' with {user: denizen.user, additional_classes: ['undecorated']} only %} <span style="color: #f0d79e">({{ denizen.day }})</span>
+                                        </span>
+                                    {% endfor %}
+                                    {% if town.citizens|filter(a => a.day == town.days)|length >4 %}<img x-town-toggle-list="{{ town.id }}" class="pointer" alt="+" src="{{ asset('build/images/icons/small_more.gif') }}" alt-src="{{ asset('build/images/icons/small_less.gif') }}" />{% endif %}
                                 </div>
                                 <div class="cell rw-4 center"></div>
                             </div>
