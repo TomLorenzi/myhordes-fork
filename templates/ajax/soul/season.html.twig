@@ -185,7 +185,9 @@
                             <div class="cell rw-1 season_entry_td center soul_season_flag"><img src="{% if player.language %} {{ asset("build/images/lang/" ~ player.language ~".png") }} {% else %} {{ asset("build/images/lang/multi.png") }} {% endif %}" alt="{{ user.language }}" /></div>
                             <div class="cell rw-1 season_entry_td center">{{ pos }}</div>
                             <div class="cell rw-6 season_entry_td left soul_season_name">
-                                {% include 'ajax/soul/playername.html.twig' with {user: player, additional_classes: ['undecorated']} only %}
+                                {% set extra_class="" %}
+                                {% if pos > 5 %}{% set extra_class = 'small' %}{% endif %}
+                                {% include 'ajax/soul/playername.html.twig' with {user: player, additional_classes: ['undecorated', extra_class]} only %}
                             </div>
                             <div class="cell rw-4 season_entry_td center soul_season_points">{{ points }}</div>
                         </div>
