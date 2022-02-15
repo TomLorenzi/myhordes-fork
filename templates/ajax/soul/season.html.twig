@@ -88,7 +88,7 @@
                                     {% for denizen in town.citizens|filter(a => a.day == town.days)|sort((a,b) => a.user.name|lower <=> b.user.name|lower) %}
                                         <span class="small">
                                         {% include 'ajax/soul/playername.html.twig' with {user: denizen.user, additional_classes: ['undecorated']} only %} <span style="color: #f0d79e">({{ denizen.day }})</span>
-                                        </span>
+                                        </span>{% if not loop.last %},{% endif %}
                                     {% endfor %}
                                     {% if town.citizens|filter(a => a.day == town.days)|length >4 %}<img x-town-toggle-list="{{ town.id }}" class="pointer" alt="+" src="{{ asset('build/images/icons/small_more.gif') }}" alt-src="{{ asset('build/images/icons/small_less.gif') }}" />{% endif %}
                                 </div>
