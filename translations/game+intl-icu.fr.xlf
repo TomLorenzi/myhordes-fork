@@ -10760,7 +10760,7 @@
       </notes>
       <segment>
         <source>Du benötigst {item}, um diese Tür zu öffnen.</source>
-        <target>Pour ouvrir cette porte il vous faudrait quelque chose ressemblant à une {item}.</target>
+        <target>Pour ouvrir cette porte il vous faudrait quelque chose ressemblant à un(e) {item}.</target>
       </segment>
     </unit>
     <unit id="Zc9wwO7" name="Verbesserung des Tages (building)">
