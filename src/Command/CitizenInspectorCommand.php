@@ -169,7 +169,11 @@ class CitizenInspectorCommand extends Command
             }
 
             $output->writeln( "Removing status '<info>{$status->getName()}</info>'.\n" );
-            $citizen->removeStatus( $status );
+
+            if(in_array( $status->getName(), ['tg_meta_wound','wound1','wound2','wound3','wound4','wound5','wound6'] ))
+                $this->citizenHandler->healWound($citizen);
+            else
+                $citizen->removeStatus( $status );
 
             $updated = true;
         }
