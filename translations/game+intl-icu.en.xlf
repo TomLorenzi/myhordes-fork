@@ -10635,7 +10635,7 @@
       </notes>
       <segment>
         <source>Du benötigst {item}, um diese Tür zu öffnen.</source>
-        <target>You need {item} to open this door.</target>
+        <target>To open this door, you'll need something that looks a bit like {item}.</target>
       </segment>
     </unit>
     <unit id="pniaLp." name="Mithilfe des {item} hast du die Tür aufgeschlossen!">
@@ -10645,7 +10645,7 @@
       </notes>
       <segment>
         <source>Mithilfe des {item} hast du die Tür aufgeschlossen!</source>
-        <target>You unlocked the door with the {item}!</target>
+        <target>You have managed to unlock the door, however, the {item}, looks busted...</target>
       </segment>
     </unit>
     <unit id="ZcFLHOU" name="Sauerstoff">
