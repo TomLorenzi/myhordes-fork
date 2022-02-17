@@ -46,7 +46,7 @@
                                             {% endif %}
                                         </div>
                                         <div class="padded cell factor-0" style="flex-basis: 90px; background: url('{{ entry.avatar ? path('app_web_avatar', {'uid': entry.id, 'name': entry.avatar.smallName, 'ext': entry.avatar.format}) : asset('build/images/forum/empty_avatar.gif') }}') center/cover no-repeat"></div>
-                                        <div class="padded cell factor-1">{% include 'ajax/soul/playername.html.twig' with {user: entry} only %}</div>
+                                        <div class="padded cell factor-1">{% include 'ajax/soul/playername.html.twig' with {user: entry,  additional_classes: ['undecorated']} only %}</div>
                                         <div class="padded cell rw-3 hide-sm hide-md">{{ entry.allSoulPoints }}</div>
                                         <div class="padded cell rw-3 rw-sm-12 right">
                                             {% if app.user in entry.friends and coa is not null and not coa_full and coa_members[entry.id] is not defined %}
@@ -113,10 +113,10 @@
                                     <div class="padded cell rw-3 right">{{ 'Aktionen'|trans({},'soul') }}</div>
                                 </div>
                                 {% for entry in reverse_friends|sort((a, b) => a.name|lower <=> b.name|lower) %}
-                                    <div class="row-flex wrap" data-search-row="{{ loop.index0 }}" data-search-prop-name="{% include 'ajax/soul/playername.html.twig' with {user: entry, plain: true} only %}" data-search-prop-sp="{{ entry.allSoulPoints }}">
+                                    <div class="row-flex wrap" data-search-row="{{ loop.index0 }}" data-search-prop-name="{% include 'ajax/soul/playername.html.twig' with {user: entry, plain: true,  additional_classes: ['undecorated']} only %}" data-search-prop-sp="{{ entry.allSoulPoints }}">
                                         <div class="padded cell rw-1">&nbsp;</div>
                                         <div class="padded cell factor-0" style="flex-basis: 90px; background: url('{{ entry.avatar ? path('app_web_avatar', {'uid': entry.id, 'name': entry.avatar.smallName, 'ext': entry.avatar.format}) : asset('build/images/forum/empty_avatar.gif') }}') center/cover no-repeat"></div>
-                                        <div class="padded cell factor-1">{{ entry.name }}</div>
+                                        <div class="padded cell factor-1">{% include 'ajax/soul/playername.html.twig' with {user: entry,  additional_classes: ['undecorated']} only %}</div>
                                         <div class="padded cell rw-3 hide-sm hide-md">{{ entry.allSoulPoints }}</div>
                                         <div class="padded cell rw-3 rw-sm-12 right">
                                             <div class="inline pointer">
@@ -153,7 +153,7 @@
                                     <div class="row">
                                         <div class="padded cell rw-3">
                                             <img alt="" src="{{ asset('build/images/icons/small_ghost_red.gif') }}">
-                                            {% include 'ajax/soul/playername.html.twig' with {user: entry.user} only %}
+                                            {% include 'ajax/soul/playername.html.twig' with {user: entry.user,  additional_classes: ['undecorated']} only %}
                                         </div>
                                         <div class="padded cell rw-3">{{ entry.user.allSoulPoints }}</div>
                                         <div class="padded cell rw-3">{{ entry.user.heroDaysSpent }}</div>
@@ -268,7 +268,7 @@
                                     <div class="row">
                                         <div class="padded cell rw-9">
                                             <img alt="" src="{{ asset('build/images/icons/small_ghost_red.gif') }}">
-                                            {% include 'ajax/soul/playername.html.twig' with {user: entry.related} only %}
+                                            {% include 'ajax/soul/playername.html.twig' with {user: entry.related,  additional_classes: ['undecorated']} only %}
                                         </div>
                                         <div class="padded cell rw-3">
                                             <a class="link inline small" x-action="soul_unblock_user" x-user-id="{{ entry.related.id }}">{{ 'Blockade aufheben'|trans({'{user}': entry.related.name},'global') }}</a>
