@@ -1659,7 +1659,7 @@ class AdminTownController extends AdminActionController
         $number = $parser->get_int('num', 6);
 
         $control = $parser->get_int('control', 0);
-        if (!in_array($point, [-1,0,1])) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        if (!in_array($control, [-1,0,1])) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $targets = $parser->get_array('targets');
 
