@@ -3,9 +3,10 @@ import * as React from "react";
 import {
     LocalControlProps,
     LocalZone,
-    LocalZoneProps,
-    MapControlProps, MapCoordinate,
+    MapCoordinate,
 } from "./typedef";
+
+import {useRef} from "react";
 
 type ZoneControlArrowProps = {
     direction: string;
@@ -104,14 +105,27 @@ const ZoneControlParent = ( props: LocalControlProps ) => {
         }
     }
 
+    const _rev_rotation = useRef(null);
+
     let marker_rotation = null;
     if (props.marker && typeof props.planes["0"].x !== "undefined") {
         const d_x = props.marker.x - props.planes["0"].x - props.dx;
         const d_y = props.planes["0"].y - props.marker.y + props.dy;
 
         if (d_x !== 0 || d_y !== 0) {
-            const angle = Math.round(Math.acos( d_y / Math.sqrt( d_x*d_x + d_y*d_y ) ) * 57.2957795);
-            marker_rotation = { transform: `rotate(${((d_x > 0) ? 360 - angle : angle)}deg)` }
+            let angle = Math.round(Math.acos( d_y / Math.sqrt( d_x*d_x + d_y*d_y ) ) * 57.2957795);
+            if (d_x > 0) angle = 360 - angle;
+
+            if (_rev_rotation.current !== null && Math.abs( _rev_rotation.current - angle ) >= 180) {
+                const rot_count = Math.floor(_rev_rotation.current / 360.0);
+                angle = [
+                    angle + (rot_count - 1) * 360,
+                    angle + (rot_count    ) * 360,
+                    angle + (rot_count + 1) * 360,
+                ].sort( (a,b) => Math.abs( _rev_rotation.current - a) - Math.abs( _rev_rotation.current - b) )[0];
+            }
+
+            marker_rotation = { transform: `rotate(${_rev_rotation.current = angle}deg)` }
         }
     }
 
