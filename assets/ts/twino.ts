@@ -443,7 +443,8 @@ class HTMLConverterFromBlocks {
                 case 'span':
                     if (block.hasClass('quoteauthor')) {
                         if (peek && peek.nodeName === 'blockquote') {
-                            ret += quotespace ? '' : HTMLConverterFromBlocks.wrapBlock( nextBlock(), 'quote', block.nodeText + (block.getAttribute('x-id') ? (':' + block.getAttribute('x-id')) : '') )
+                            const xid = block.getAttribute('x-user-id') ?? block.getAttribute('x-id');
+                            ret += quotespace ? '' : HTMLConverterFromBlocks.wrapBlock( nextBlock(), 'quote', (xid ? block.nodeText.replace(/\W/,'') : block.nodeText) + (xid ? (':' + xid) : '') )
                         }
                     } else if (block.hasClass('rpauthor')) {
                         if (peek && peek.nodeName === 'div' && peek.hasClass('rpText')) {
@@ -460,9 +461,8 @@ class HTMLConverterFromBlocks {
                     break;
                 case 'div':
                     if (block.hasClass('cref')) {
-                        let id = '';
-                        block.nodeAttribs.forEach((value => { if (value[0] == 'x-id') id = value[1]; }))
-                        ret += '@' + block.nodeText + ( id !== '' ? (':' + id) : '' );
+                        let id = block.getAttribute('x-user-id') ?? block.getAttribute('x-id');
+                        ret += '@' + ( id ? block.nodeText.replace(/\W/,'') : block.nodeText) + ( id ? (':' + id) : '' );
                     } else if (block.hasClass('spoiler'))
                         ret += HTMLConverterFromBlocks.wrapBlock( block, 'spoiler' )
                     else if (block.hasClass('sideNote'))
