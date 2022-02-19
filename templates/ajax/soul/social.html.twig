@@ -32,7 +32,7 @@
                                     {% endif %}
                                     <div data-search-column="friend" class="padded cell rw-1 pointer">&nbsp;</div>
                                     <div class="padded cell rw-5"><span data-search-column="name" class="pointer">{{ 'Spieler'|trans({},'soul') }}</span></div>
-                                    <div class="padded cell rw-3 hide-md"><span data-search-column="sp" class="pointer">{{ 'Seelenpunkte'|trans({},'soul') }}</span></div>
+                                    <div class="padded cell rw-3 hide-md"><span data-search-column="sp" data-search-invert class="pointer">{{ 'Seelenpunkte'|trans({},'soul') }}</span></div>
                                     <div class="padded cell rw-3 right">{{ 'Aktionen'|trans({},'soul') }}</div>
                                 </div>
                                 {# @var \App\Entity\User entry #}
@@ -109,7 +109,7 @@
                                     {% endif %}
                                     <div class="padded cell rw-1">&nbsp;</div>
                                     <div class="padded cell rw-5"><span data-search-column="name" class="pointer">{{ 'Spieler'|trans({},'soul') }}</span></div>
-                                    <div class="padded cell rw-3 hide-md"><span data-search-column="sp" class="pointer">{{ 'Seelenpunkte'|trans({},'soul') }}</span></div>
+                                    <div class="padded cell rw-3 hide-md"><span data-search-column="sp" data-search-invert class="pointer">{{ 'Seelenpunkte'|trans({},'soul') }}</span></div>
                                     <div class="padded cell rw-3 right">{{ 'Aktionen'|trans({},'soul') }}</div>
                                 </div>
                                 {% for entry in reverse_friends|sort((a, b) => a.name|lower <=> b.name|lower) %}

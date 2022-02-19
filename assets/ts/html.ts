@@ -692,14 +692,16 @@ export default class HTML {
                     inner.innerHTML = inner.dataset['originalText'];
                 } );
 
+                const sortInvert = typeof elem.dataset['searchInvert'] !== "undefined";
+
                 if (setting === '') {
-                    renderTableRows(sorted_rows = [...rows].sort(column.sortAscFunction));
+                    renderTableRows(sorted_rows = [...rows].sort(sortInvert ? column.sortDescFunction : column.sortAscFunction));
                     elem.dataset['sortSetting'] = '1';
-                    elem.innerHTML = '<i class="fa fa-caret-up"></i>&nbsp;' + elem.dataset['originalText'];
+                    elem.innerHTML = (sortInvert ? '<i class="fa fa-caret-down"></i>' : '<i class="fa fa-caret-up"></i>') + '&nbsp;' + elem.dataset['originalText'];
                 } else if (setting === '1') {
-                    renderTableRows(sorted_rows = [...rows].sort(column.sortDescFunction));
+                    renderTableRows(sorted_rows = [...rows].sort(sortInvert ? column.sortAscFunction : column.sortDescFunction));
                     elem.dataset['sortSetting'] = '-1';
-                    elem.innerHTML = '<i class="fa fa-caret-down"></i>&nbsp;' + elem.dataset['originalText'];
+                    elem.innerHTML = (sortInvert ? '<i class="fa fa-caret-up"></i>' : '<i class="fa fa-caret-down"></i>') + '&nbsp;' + elem.dataset['originalText'];
                 } else {
                     renderTableRows(sorted_rows = [...rows]);
                     elem.dataset['sortSetting'] = '';
