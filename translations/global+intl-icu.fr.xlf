@@ -3038,7 +3038,7 @@
       </notes>
       <segment>
         <source>{user} blockieren</source>
-        <target>bloquer {user}</target>
+        <target>Bloquer {user}</target>
       </segment>
     </unit>
     <unit id="cIrelgU">
