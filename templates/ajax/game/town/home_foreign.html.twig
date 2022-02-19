@@ -442,9 +442,11 @@
                     if(document.getElementById("reason"))
                         reason = parseInt(document.getElementById("reason").value);
 
-                    if (reason === 0)
+                    const severity = parseInt(complainButtons[i].getAttribute('x-complaint-severity'));
+
+                    if (reason === 0 && severity !== 0)
                         $.html.error(' {{ 'Du musst für deine Beschwerde eine Begründung angeben.'|trans({},'game') }} ');
-                    else $.ajax.easySend( '{{ path('town_visit_complain_controller', {id: owner.id}) }}', {severity: parseInt(complainButtons[i].getAttribute('x-complaint-severity')), reason},
+                    else $.ajax.easySend( '{{ path('town_visit_complain_controller', {id: owner.id}) }}', {severity, reason},
                         function () {
                             $.ajax.load(null, '{{ path('town_visit', {id: owner.id}) }}', true);
                         } );
