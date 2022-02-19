@@ -26256,7 +26256,7 @@
       </notes>
       <segment>
         <source>Diese Aktion kannst du erst morgen erneut versuchen.</source>
-        <target>Diese Aktion kannst du erst morgen erneut versuchen.</target>
+        <target>Podrás realizar esta acción nuevamente mañana.</target>
       </segment>
     </unit>
     <unit id="i8PEylr" name="Dieser Bürger wurde aus der Gemeinschaft verbannt.">
@@ -26267,7 +26267,7 @@
       </notes>
       <segment>
         <source>Dieser Bürger wurde aus der Gemeinschaft verbannt.</source>
-        <target>Dieser Bürger wurde aus der Gemeinschaft verbannt.</target>
+        <target>Este habitante ha sido desterrado por la comunidad.</target>
       </segment>
     </unit>
     <unit id="r2vaFFk" name="Du musst für deine Beschwerde eine Begründung angeben.">
