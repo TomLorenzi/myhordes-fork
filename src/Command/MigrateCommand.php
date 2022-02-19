@@ -523,7 +523,7 @@ class MigrateCommand extends Command
                 foreach ($input->getOption('trans-file') as $file_name)
                     $this->conf_trans->addMatchedFileName($file_name);
 
-                $command = $this->getApplication()->find('translation:update');
+                $command = $this->getApplication()->find('translation:extract');
 
                 $output->writeln("Now working on translations for <info>{$lang}</info>...");
                 $input = new ArrayInput([
