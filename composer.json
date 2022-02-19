@@ -4,7 +4,7 @@
     "name": "etwin/myhordes",
     "description": "",
     "require": {
-        "php": ">=8.0",
+        "php": ">=8.1",
         "ext-ctype": "*",
         "ext-dom": "*",
         "ext-iconv": "*",
@@ -21,7 +21,7 @@
         "doctrine/migrations": "^3.0",
         "doctrine/orm": "^2.7",
         "graphp/algorithms": "^0.8.2",
-        "laminas/laminas-code": "^3.4",
+        "laminas/laminas-code": "^4.5",
         "phpdocumentor/reflection-docblock": "^5.2",
         "sensio/framework-extra-bundle": "^6.2",
         "wvsgnovize01/versioning-bundle": "dev-master",
