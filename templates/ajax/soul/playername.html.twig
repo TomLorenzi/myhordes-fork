@@ -9,7 +9,7 @@
     {% endif %}
     {# @var \App\Entity\User user #}
     {% if plain is not defined or not plain %}
-        {% set default_classes = ['username','link'] %}
+        {% set default_classes = ['username'] %}
         {% if app.user and app.user.friends.contains(user) %}{% set default_classes = default_classes|merge(['is-friend']) %}{% endif %}
         {% if additional_classes is defined %}{% set default_classes = default_classes|merge(additional_classes|filter(v=>v)) %}{% endif %}
 

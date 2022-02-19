@@ -123,7 +123,7 @@
                     </div>
                 </span>
                     {% endif %}
-                    <span class="link" x-ajax-href="{{ path('soul_visit', {id: citizen.user.id}) }}">{{citizen.user.name}}</span>
+                    {% include 'ajax/soul/playername.html.twig' with {user: citizen.user} only %}
                 </div>
                 <div class="padded cell rw-4 rw-lg-3 hide-sm">
                     {% if is_granted("ROLE_CROW") and citizen.limitedImport %}
