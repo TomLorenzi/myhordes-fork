@@ -42,6 +42,11 @@ class _SearchTableColumnProps {
     }
 }
 
+class HTMLInitParams {
+    userPopupEndpoint: string;
+    userPopupLoadingAnimation: string;
+}
+
 export default class HTML {
 
     twinoParser: TwinoAlikeParser;
@@ -52,10 +57,16 @@ export default class HTML {
     private title_timer: number = null;
     private title_alt: boolean = false;
 
+    private initParams: HTMLInitParams = null;
+
     constructor() { this.twinoParser = new TwinoAlikeParser(); }
 
     init(): void {
         document.getElementById('modal-backdrop').addEventListener('pop', () => this.nextPopup())
+    }
+
+    setInitParams( params: HTMLInitParams ): void {
+        this.initParams = params;
     }
 
     forEach( query: string, handler: elementHandler, parent: HTMLElement|Document = null ): number {
@@ -412,6 +423,58 @@ export default class HTML {
             parent.addEventListener('touchend',     fun_tooltip_hide);
         }
     };
+
+    handleUserPopup( element: HTMLElement ): void {
+        element.addEventListener( 'click', (event) => {
+            event.stopPropagation();
+            event.preventDefault();
+
+            while (!element.getAttribute("x-user-id")) {
+                element = element.parentElement;
+            }
+            let target = document.getElementById("user-tooltip");
+            if(!target) {
+                target = document.createElement("div");
+                document.getElementsByTagName("body")[0].appendChild(target);
+            }
+            target.setAttribute("id", "user-tooltip");
+            target.innerHTML = '<div class="center small"><img src="' + this.initParams.userPopupLoadingAnimation + '" alt=""/></div>';
+
+            target.style.width = null;
+            if (element.getBoundingClientRect().left + element.offsetWidth + target.offsetWidth > window.innerWidth) {
+
+                const temp_left = Math.max(0,element.getBoundingClientRect().left + element.offsetWidth/2 - element.offsetWidth/2);
+                if (temp_left + target.offsetWidth > window.innerWidth) {
+                    target.style.top = (element.getBoundingClientRect().top + document.documentElement.scrollTop + element.offsetHeight) + "px";
+                    if ( window.innerWidth < target.offsetWidth ) {
+                        target.style.left = "0px";
+                        target.style.width = '100%';
+                    } else
+                        target.style.left = Math.floor(window.innerWidth - target.offsetWidth) + 'px';
+
+                } else {
+                    target.style.top = (element.getBoundingClientRect().top + document.documentElement.scrollTop + element.offsetHeight) + "px";
+                    target.style.left = temp_left + "px";
+                }
+
+            } else {
+                target.style.top = (element.getBoundingClientRect().top + document.documentElement.scrollTop) + "px";
+                target.style.left = element.getBoundingClientRect().left + element.offsetWidth + 5 + "px";
+            }
+
+            const removeTooltip = function(event,force=false) {
+                if(event.target !== target && (!event.target.closest("#user-tooltip") || force)) {
+                    target.remove();
+                    document.removeEventListener("click", removeTooltip);
+                }
+            }
+
+            document.addEventListener("click", removeTooltip);
+            $.ajax.background().load(target, this.initParams.userPopupEndpoint, false, {'id': element.getAttribute("x-user-id")}, () => {
+                $.html.addEventListenerAll('[x-ajax-href]', 'click', e => removeTooltip(e,true));
+            });
+        })
+    }
 
     addLoadStack( num: number = 1): void {
         let loadzone = document.getElementById('loadzone');

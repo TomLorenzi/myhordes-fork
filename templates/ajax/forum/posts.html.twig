@@ -360,7 +360,6 @@
     {{ parent() }}
     {{ include('ajax/flash.html.twig') }}
     <script>
-        {{ include('scripts/user_tooltip.js.twig') }}
         const loadPage = function(page) {
             $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('forum_viewer_controller', {fid: fid, tid: tid}) }}', false, {page: page } );
         };
