@@ -295,6 +295,8 @@ export default class Ajax {
 
         $.html.handleTabNavigation(target);
 
+        target.querySelectorAll('[data-search-table]').forEach( (table: HTMLElement) => $.html.makeSearchTable(table) );
+
         for (let i = 0; i < flash_source.length; i++)
             $.html.message( flash_source[i].getAttribute('x-label'), flash_source[i].innerHTML );
 

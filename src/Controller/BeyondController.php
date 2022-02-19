@@ -161,11 +161,12 @@ class BeyondController extends InventoryAwareController
 
         $rucksack_sizes = [];
         $escort_actions = [];
-        foreach ($this->getActiveCitizen()->getValidLeadingEscorts() as $escort)
-            if ($escort->getAllowInventoryAccess()) {
+        foreach ($this->getActiveCitizen()->getValidLeadingEscorts() as $escort) {
+            if ($escort->getAllowInventoryAccess())
                 $rucksack_sizes[ $escort->getCitizen()->getId() ] = $this->inventory_handler->getSize( $escort->getCitizen()->getInventory() );
-                $escort_actions[ $escort->getCitizen()->getId() ] = $this->action_handler->getAvailableItemEscortActions( $escort->getCitizen() );
-            }
+            $escort_actions[ $escort->getCitizen()->getId() ] = $this->action_handler->getAvailableItemEscortActions( $escort->getCitizen() );
+        }
+
 
         $zone_players = count($zone->getCitizens());
 
@@ -1020,17 +1021,36 @@ class BeyondController extends InventoryAwareController
 
         /** @var Citizen $citizen */
         $citizen = $this->entity_manager->getRepository(Citizen::class)->find( (int)$parser->get('citizen', -1) );
-        /** @var EscortActionGroup $esc_act */
-        $esc_act = $this->entity_manager->getRepository(EscortActionGroup::class)->find( (int)$parser->get('meta', -1) );
-        $action  = $this->entity_manager->getRepository(ItemAction::class)->find( (int)$parser->get('action', -1) );
+        if (!$citizen) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        if (!$citizen || !$esc_act || !$action) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-
-        if (!$citizen->getEscortSettings() || !$citizen->getEscortSettings()->getAllowInventoryAccess() ||
+        if (!$citizen->getEscortSettings() ||
             !$citizen->getEscortSettings()->getLeader() ||
             $citizen->getEscortSettings()->getLeader()->getId() !== $this->getActiveCitizen()->getId()
         ) return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
 
+        /** @var EscortActionGroup $esc_act */
+        $esc_act = $this->entity_manager->getRepository(EscortActionGroup::class)->find( (int)$parser->get('meta', -1) );
+        if (!$esc_act) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        if (!$citizen->getEscortSettings()->getAllowInventoryAccess()) {
+
+            if ($parser->get('item') !== 'p' || $parser->get('action') !== 'p')
+                return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
+
+            $groups = $this->action_handler->getAvailableItemEscortActions($citizen, $esc_act);
+            if (count($groups) !== 1) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+            list($item,$action) = $groups[0]->getPrimaryAction();
+            if (!$item || !$action) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+            $parser->inject('item', $item->getId());
+            $parser->inject('action', $action->getId());
+
+        } else {
+            $action  = $this->entity_manager->getRepository(ItemAction::class)->find( (int)$parser->get('action', -1) );
+        }
+
+        if (!$action) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         if (!$esc_act->getActions()->contains($action))
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
 

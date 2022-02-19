@@ -434,11 +434,19 @@
                     {% endif %}
                     <h5>{% trans from 'game' %}Meine Aktionen{% endtrans %}</h5>
                     {% if banished or town_chaos %}
-                        <button {% if lock_trash %}disabled{% endif%} id="trash_button">
-                            <img alt="" src="{{ asset('build/images/icons/small_ban.gif') }}" />
-                            {{ 'Müll durchwühlen'|trans({},'game') }} (<div class="ap">1</div>)
-                            <div class="tooltip help">{{ 'Bürger, die aus einer Stadt verbannt wurden, haben das Recht, den weggeworfenen Müll der Stadt nach Gegenständen zu durchsuchen, die für sie nützlich sein könnten...'|trans({},'game')|raw }}</div>
-                        </button>
+                        <div style="margin-bottom: 5px;">
+                            <button {% if lock_trash %}disabled{% endif%} id="trash_button">
+                                <img alt="" src="{{ asset('build/images/icons/small_ban.gif') }}" />
+                                {{ 'Müll durchwühlen'|trans({},'game') }} (<div class="ap">1</div>)
+                                <div class="tooltip help">{{ 'Bürger, die aus einer Stadt verbannt wurden, haben das Recht, den weggeworfenen Müll der Stadt nach Gegenständen zu durchsuchen, die für sie nützlich sein könnten...'|trans({},'game')|raw }}</div>
+                            </button>
+                            {% if lock_trash %}
+                                <div class="tooltip help">
+                                    {{ 'Diese Aktion kannst du erst morgen erneut versuchen.'|trans({},'game') }}
+                                </div>
+                            {% endif%}
+                        </div>
+
                     {% endif %}
                 {% endif %}
 
@@ -536,12 +544,8 @@
                                         <img src="{{ asset('build/images/icons/player_offline.gif') }}" alt="{{ 'Offline'|trans({},'global') }}">
                                     {% endif %}
                                     <!-- <img alt="{{ other_citizen.profession.label|trans({}, 'game') }}" src="{{ asset('build/images/professions/' ~ other_citizen.profession.icon ~ '.gif') }}"> -->
-                                    <span class="username">
-                                    {% if other_citizen != citizen %}
-                                        <a target="_blank" href="{{ path('soul_visit', {id: other_citizen.user.id}) }}"><b>{{ other_citizen.name }}</b></a>
-                                    {% else %}
-                                        <b>{{ other_citizen.name }}</b>
-                                    {% endif %}
+                                    <div class="inline">
+                                        {% include 'ajax/soul/playername.html.twig' with {user: other_citizen.user} only %}
                                         <div class="tooltip normal">
                                             <span class="warning">{{ other_citizen.name }} : </span><br />
                                             <span class="jobName"><img alt="{{ other_citizen.profession.label|trans({}, 'game') }}" src="{{ asset('build/images/professions/' ~ other_citizen.profession.icon ~ '.gif') }}" /> {{ other_citizen.profession.label|trans({}, 'game') }}</span>  <br />
@@ -553,7 +557,7 @@
                                                 {% endif %}
                                             </em>
                                         </div>
-                                    </span>
+                                    </div>
                                 </div>
                                 <div class="padded cell rw-3">
                                     <ul class="status">
@@ -605,12 +609,18 @@
                                     <div class="ap small">{{ other_citizen.ap }}</div>
                                 </div>
                                 <div class="padded cell rw-3 right">
-                                    {% if other_citizen.escortSettings.allowInventoryAccess and allow_floor_access %}
+                                    {% if allow_floor_access %}
                                         {% for escort_action in escort_actions[other_citizen.id] %}
                                             {# @var \App\Structures\EscortItemActionSet escort_action #}
-                                            <button {% if not escort_action.hasAvailableActions %}disabled{% endif%} class="small inline" x-escort-meta-group x-escort-meta-action="{{ escort_action.group.id }}" x-citizen="{{ other_citizen.id }}" ><img alt="" src="{{ asset('build/images/actions/' ~ escort_action.group.icon ~ '.gif') }}" style="margin-right: 0;" />
-                                                {% if escort_action.group.tooltip is not null %}<div class="tooltip">{{ escort_action.group.tooltip|trans({'{citizen}': other_citizen.name},'items') }}</div>{% endif %}
-                                            </button>
+                                            {% if other_citizen.escortSettings.allowInventoryAccess %}
+                                                <button {% if not escort_action.hasAvailableActions %}disabled{% endif%} class="small inline" x-escort-meta-group="{{ other_citizen.escortSettings.allowInventoryAccess ? '1' : '0' }}" x-escort-meta-action="{{ escort_action.group.id }}" x-citizen="{{ other_citizen.id }}" ><img alt="" src="{{ asset('build/images/actions/' ~ escort_action.group.icon ~ '.gif') }}" style="margin-right: 0;" />
+                                                    {% if escort_action.group.tooltip is not null %}<div class="tooltip">{{ escort_action.group.tooltip|trans({'{citizen}': other_citizen.name},'items') }}</div>{% endif %}
+                                                </button>
+                                            {% elseif escort_action.hasAvailableActions %}
+                                                <button class="small inline" x-escort-meta-action="{{ escort_action.group.id }}" x-citizen="{{ other_citizen.id }}" x-provoking-id="p" x-action-id="p" x-action-confirm="1"><img alt="" src="{{ asset('build/images/actions/' ~ escort_action.group.icon ~ '.gif') }}" style="margin-right: 0;" />
+                                                    {% if escort_action.group.tooltip is not null %}<div class="tooltip">{{ escort_action.group.tooltip|trans({'{citizen}': other_citizen.name},'items') }}</div>{% endif %}
+                                                </button>
+                                            {% endif %}
                                         {% endfor %}
                                     {% endif %}
                                     {% if zone.x != 0 or zone.y != 0 %}
@@ -635,7 +645,7 @@
                                         <div class="tooltip">{{ '{citizen} sagen mir nicht mehr zu folgen.'|trans({'{citizen}': other_citizen.name},'game') }}</div>
                                     </button>
 
-                                    {% if escort_actions[other_citizen.id] is defined %}
+                                    {% if escort_actions[other_citizen.id] is defined and other_citizen.escortSettings.allowInventoryAccess %}
                                         {% for escort_action in escort_actions[other_citizen.id] %}
                                             {# @var \App\Structures\EscortItemActionSet escort_action #}
                                             <div class="tooltip-dummy hidden _ec _ec_{{ other_citizen.id }}_{{ escort_action.group.id }}">
@@ -720,12 +730,8 @@
                                         <img src="{{ asset('build/images/icons/player_offline.gif') }}" alt="{{ 'Offline'|trans({},'global') }}">
                                     {% endif %}
                                     <!-- <img alt="{{ other_citizen.profession.label|trans({}, 'game') }}" src="{{ asset('build/images/professions/' ~ other_citizen.profession.icon ~ '.gif') }}"> -->
-                                    <span class="username">
-                                    {% if other_citizen != citizen %}
-                                        <a target="_blank" href="{{ path('soul_visit', {id: other_citizen.user.id}) }}"><b>{{ other_citizen.name }}</b></a>
-                                    {% else %}
-                                        <b>{{ other_citizen.name }}</b>
-                                    {% endif %}
+                                    <div class="inline">
+                                        {% include 'ajax/soul/playername.html.twig' with {user: other_citizen.user} only %}
                                         <div class="tooltip normal">
                                             <span class="warning">{{ other_citizen.name }} : </span><br />
                                             <span class="jobName"><img alt="{{ other_citizen.profession.label|trans({}, 'game') }}" src="{{ asset('build/images/professions/' ~ other_citizen.profession.icon ~ '.gif') }}" /> {{ other_citizen.profession.label|trans({}, 'game') }}</span>  <br />
@@ -737,7 +743,7 @@
                                                 {% endif %}
                                             </em>
                                         </div>
-                                    </span>
+                                    </div>
                                 </div>
                                 <div class="padded cell rw-4">
                                     <ul class="status">
@@ -1047,7 +1053,7 @@
         );
 
         handleActions(
-            document.querySelectorAll('._ec [x-action-id][x-provoking-id][x-citizen][x-escort-meta-action]:not([disabled])'),
+            document.querySelectorAll('._ec [x-action-id][x-provoking-id][x-citizen][x-escort-meta-action]:not([disabled]), [x-action-id="p"][x-provoking-id="p"][x-citizen][x-escort-meta-action]'),
             '{{ path('beyond_desert_escort_action_controller') }}', '{{ path('beyond_dashboard') }}', document.getElementById('beyond_desert_content')
         );
 

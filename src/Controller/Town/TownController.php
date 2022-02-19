@@ -399,7 +399,7 @@ class TownController extends InventoryAwareController
 
         return $this->render( 'ajax/game/town/home_foreign.html.twig', $this->addDefaultTwigArgs('citizens', [
             'owner' => $c,
-            'can_attack' => !$this->getActiveCitizen()->getBanished() && !$this->citizen_handler->isTired($this->getActiveCitizen()) && $this->getActiveCitizen()->getAp() >= 5,
+            'can_attack' => !$this->getActiveCitizen()->getBanished() && !$this->citizen_handler->isTired($this->getActiveCitizen()) && $this->getActiveCitizen()->getAp() >= $this->getTownConf()->get( TownConf::CONF_MODIFIER_ATTACK_AP, 5 ),
             'can_devour' => !$this->getActiveCitizen()->getBanished() && $this->getActiveCitizen()->hasRole('ghoul'),
             'caught_chance' => $cc,
             'allow_devour' => !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_ghoul_eat'),
@@ -1322,7 +1322,8 @@ class TownController extends InventoryAwareController
         $ap_effect = floor( $ap * ( $slave_bonus ? 1.5 : 1 ) );
 
         // Deduct AP and increase completion of the building
-        $this->citizen_handler->deductAPBP( $citizen, $ap );
+        $usedap = $usedbp = 0;
+        $this->citizen_handler->deductAPBP( $citizen, $ap, $usedap, $usedbp);
 
         if($missing_ap <= 0 || $missing_ap - $ap <= 0){
             // Missing ap == 0, the building has been completed by the workshop upgrade.
@@ -1366,11 +1367,14 @@ class TownController extends InventoryAwareController
             $building->setHp($newHp);
             if($building->getPrototype()->getDefense() > 0) {
                 $newDef = min($building->getPrototype()->getDefense(), $building->getPrototype()->getDefense() * $building->getHp() / $building->getPrototype()->getHp());
-                $building->setDefense($newDef);
+                $building->setDefense((int)floor($newDef));
             }
         }
+        if($usedbp > 0)
+            $messages[] = $this->translator->trans("Du hast dafür {count} Baupunkt(e) verbraucht.", ['{count}' => "<strong>$usedbp</strong>", 'raw_count' => $usedbp], "game");
+        if($usedap > 0)
+            $messages[] = $this->translator->trans("Du hast dafür {count} Aktionspunkt(e) verbraucht.", ['{count}' => "<strong>$usedap</strong>", 'raw_count' => $usedap], "game");
 
-        $messages[] = $this->translator->trans("Du hast dafür {count} Aktionspunkt(e) verbraucht.", ['{count}' => "<strong>$ap</strong>", 'raw_count' => $ap], "game");
 
         if ($slave_bonus)
             $messages[] = $this->translator->trans("Die in das Gebäude investierten APs zählten <strong>50% mehr</strong> (Sklaverei).", [], "game");

@@ -708,7 +708,7 @@
       </notes>
       <segment>
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 100%.</source>
-        <target>Cada objeto de defensa en el Almacén aporta 2 puntos de defensa adicionales al pueblo.</target>
+        <target>Cada objeto de defensa en el Almacén aporta 2 puntos de defensa al pueblo.</target>
       </segment>
     </unit>
     <unit id="GLo_FzK" name="Der Verteidigungsbonus von Gegenständen in der Bank steigt um 150%.">
@@ -718,7 +718,7 @@
       </notes>
       <segment>
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 150%.</source>
-        <target>Cada objeto de defensa en el Almacén aporta 2.5 puntos de defensa adicionales al pueblo.</target>
+        <target>Cada objeto de defensa en el Almacén aporta 2.5 puntos de defensa al pueblo.</target>
       </segment>
     </unit>
     <unit id="l3tFIbP" name="Der Verteidigungsbonus von Gegenständen in der Bank steigt um 200%.">
@@ -728,7 +728,7 @@
       </notes>
       <segment>
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 200%.</source>
-        <target>Cada objeto de defensa en el Almacén aporta 3 puntos de defensa adicionales al pueblo.</target>
+        <target>Cada objeto de defensa en el Almacén aporta 3 puntos de defensa al pueblo.</target>
       </segment>
     </unit>
     <unit id="FXvZuCC" name="Der Verteidigungsbonus von Gegenständen in der Bank steigt um 250%.">
@@ -738,7 +738,7 @@
       </notes>
       <segment>
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 250%.</source>
-        <target>Cada objeto de defensa en el Almacén aporta 3.5 puntos de defensa adicionales al pueblo.</target>
+        <target>Cada objeto de defensa en el Almacén aporta 3.5 puntos de defensa al pueblo.</target>
       </segment>
     </unit>
     <unit id="fPl.xwk" name="Der Verteidigungsbonus von Gegenständen in der Bank steigt um 300%.">
@@ -748,7 +748,7 @@
       </notes>
       <segment>
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 300%.</source>
-        <target>Cada objeto de defensa en el Almacén aporta 4 puntos de defensa adicionales al pueblo.</target>
+        <target>Cada objeto de defensa en el Almacén aporta 4 puntos de defensa al pueblo.</target>
       </segment>
     </unit>
     <unit id="Vln90x5" name="Steinkanone">
@@ -1594,8 +1594,8 @@
     <unit id="MwGqzqF" name="Altar">
       <notes>
         <note category="german">Altar</note>
-        <note category="state">new</note>
         <note category="from">db://BuildingPrototype</note>
+        <note category="state">new</note>
       </notes>
       <segment>
         <source>Altar</source>
@@ -2085,8 +2085,8 @@
     <unit id="Pnjrt1t" name="Hammam">
       <notes>
         <note category="german">Hammam</note>
-        <note category="state">new</note>
         <note category="from">db://BuildingPrototype</note>
+        <note category="state">new</note>
       </notes>
       <segment>
         <source>Hammam</source>
@@ -3595,12 +3595,12 @@
     </unit>
     <unit id="JLugykh">
       <notes>
-        <note category="german">Die AP-Kosten aller Bauprojekte werden um 30% gesenkt. Erhöht die Effektivität von Reparaturen um zwei Punkte.</note>
+        <note category="german">Die AP-Kosten aller Bauprojekte werden um 28% gesenkt. Erhöht die Effektivität von Reparaturen um zwei Punkte.</note>
         <note category="from">db://BuildingPrototype</note>
       </notes>
       <segment>
         <source>Die AP-Kosten aller Bauprojekte werden um 25% gesenkt. Erhöht die Effektivität von Reparaturen um zwei Punkte.</source>
-        <target>Los costos en PA de todas las obras se reducen en 30%. Aumenta la efectividad de las reparaciones en dos puntos.</target>
+        <target>Los costos en PA de todas las obras se reducen en 28%. Aumenta la efectividad de las reparaciones en dos puntos.</target>
       </segment>
     </unit>
     <unit id="OK7fp_k" name="Zaun (Haus)">
@@ -3690,7 +3690,7 @@
       </notes>
       <segment>
         <source>Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 2km um die Stadt negiert.</source>
-        <target>La reducción de las posibilidades de búsqueda nocturna se anula en un radio de 2 km alrededor del pueblo</target>
+        <target>La reducción de las posibilidades de búsqueda nocturna se anula en un radio de 2 km alrededor del pueblo.</target>
       </segment>
     </unit>
     <unit id="i9EymZs" name="Kein besonderer Bonus">
@@ -3700,7 +3700,7 @@
       </notes>
       <segment>
         <source>Kein besonderer Bonus</source>
-        <target>Sin bonificación particular</target>
+        <target>Sin bonificación particular.</target>
       </segment>
     </unit>
     <unit id="j_25xjC" name="Die Verteidigung der Stadt wird um 10% erhöht.">
@@ -3750,7 +3750,7 @@
       </notes>
       <segment>
         <source>Jeder in der Bank abgelegte Verteidigungsgegenstand bringt der Stadt 1.5 Verteidigungspunkte zusätzlich ein.</source>
-        <target>Cada objeto de defensa en el Almacén aporta 1.5 puntos de defensa adicionales al pueblo.</target>
+        <target>Cada objeto de defensa en el Almacén aporta 1.5 puntos de defensa al pueblo.</target>
       </segment>
     </unit>
     <unit id="0O20i7a" name="Die Stadt erhält nach dem nächsten Angriff einmalig 1 gewöhnliche Baupläne.">
@@ -3760,7 +3760,7 @@
       </notes>
       <segment>
         <source>Die Stadt erhält nach dem nächsten Angriff einmalig 1 gewöhnliche Baupläne.</source>
-        <target>El pueblo recibirá 1 planos comunes después del ataque</target>
+        <target>El pueblo recibirá 1 plano común después de cada ataque.</target>
       </segment>
     </unit>
     <unit id="ELKPDDh" name="Der Wasserwerfer gibt 70 zusätzliche Verteidigungspunkte.">
@@ -3770,7 +3770,7 @@
       </notes>
       <segment>
         <source>Der Wasserwerfer gibt 70 zusätzliche Verteidigungspunkte.</source>
-        <target>Los sistemas de riego apportan 70 puntos de defensa.</target>
+        <target>Los sistemas de riego aportan 70 puntos de defensa.</target>
       </segment>
     </unit>
   </file>

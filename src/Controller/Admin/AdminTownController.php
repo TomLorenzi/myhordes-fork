@@ -23,6 +23,7 @@ use App\Entity\CitizenWatch;
 use App\Entity\Complaint;
 use App\Entity\ComplaintReason;
 use App\Entity\CouncilEntry;
+use App\Entity\EventActivationMarker;
 use App\Entity\ExpeditionRoute;
 use App\Entity\HeroicActionPrototype;
 use App\Entity\Inventory;
@@ -40,6 +41,7 @@ use App\Entity\Zone;
 use App\Response\AjaxResponse;
 use App\Service\CrowService;
 use App\Service\CitizenHandler;
+use App\Service\ConfMaster;
 use App\Service\ErrorHelper;
 use App\Service\GameFactory;
 use App\Service\GazetteService;
@@ -298,6 +300,8 @@ class AdminTownController extends AdminActionController
                 fn(CouncilEntry $c) => ($c->getTemplate() && $c->getTemplate()->getText() !== null)
             )),
             'blackboards' => $this->entity_manager->getRepository(BlackboardEdit::class)->findBy([ 'town' => $town ], ['time' => 'DESC'], 100),
+            'events' => $this->conf->getAllEvents(),
+            'current_event' => $this->conf->getCurrentEvents($town)
         ], $this->get_map_blob($town))));
     }
 
@@ -417,7 +421,7 @@ class AdminTownController extends AdminActionController
         if (in_array($action, [
                 'release', 'quarantine', 'advance', 'nullify', 'pw_change',
                 'ex_del', 'ex_co+', 'ex_co-', 'ex_ref', 'ex_inf',
-                'dbg_fill_town', 'dbg_fill_bank', 'dbg_unlock_bank', 'dbg_hydrate', 'dbg_disengage', 'dbg_engage',
+                'dbg_fill_town', 'dbg_fill_bank', 'dgb_empty_bank', 'dbg_unlock_bank', 'dbg_hydrate', 'dbg_disengage', 'dbg_engage',
                 'dbg_set_well', 'dbg_unlock_buildings', 'dbg_map_progress', 'dbg_map_zombie_set', 'dbg_adv_days',
                 'dbg_set_attack', 'dbg_toggle_chaos', 'dbg_toggle_devas'
             ]) && !$this->isGranted('ROLE_ADMIN'))
@@ -536,6 +540,14 @@ class AdminTownController extends AdminActionController
                 $bank = $town->getBank();
                 foreach ($this->entity_manager->getRepository(ItemPrototype::class)->findAll() as $repo)
                     $this->inventory_handler->forceMoveItem( $bank, ($itemFactory->createItem( $repo ))->setCount(500) );
+
+                $this->entity_manager->persist( $bank );
+                break;
+
+            case 'dbg_empty_bank':
+                $bank = $town->getBank();
+                foreach ($bank->getItems() as $item)
+                    $this->inventory_handler->forceRemoveItem($item, $item->getCount());
 
                 $this->entity_manager->persist( $bank );
                 break;
@@ -729,6 +741,37 @@ class AdminTownController extends AdminActionController
     }
 
     /**
+     * @Route("api/admin/town/{id}/set_event", name="admin_town_set_event", requirements={"id"="\d+"})
+     * @param int $id The ID of the town
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function admin_town_set_event(int $id, JSONRequestParser $parser, TownHandler $townHandler): Response {
+        /** @var Town $town */
+        $town = $this->entity_manager->getRepository(Town::class)->find($id);
+        if (!$town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $eventName = $parser->get('param');
+
+        $town->setManagedEvents($eventName !== "");
+
+        if($eventName !== "" && $eventName !== null){
+            $townHandler->updateCurrentEvents($town, [$this->conf->getEvent($eventName)]);
+        } else {
+            $currentEvents = $this->conf->getCurrentEvents($town, $markers);
+            foreach ($markers as $marker) {
+                /** @var EventActivationMarker $marker */
+                $marker->setActive(false);
+                $this->entity_manager->persist($marker);
+            }
+        }
+
+        $this->entity_manager->persist($town);
+        $this->entity_manager->flush();
+
+        return AjaxResponse::success();
+    }
+    /**
      * @Route("api/admin/town/new", name="admin_new_town")
      * @param JSONRequestParser $parser
      * @param GameFactory $gameFactory
@@ -774,7 +817,7 @@ class AdminTownController extends AdminActionController
     }
 
     /**
-     * @Route("/api/admin/town/{id}/item", name="admin_town_item", requirements={"id"="\d+"})
+     * @Route("api/admin/town/{id}/item", name="admin_town_item", requirements={"id"="\d+"})
      * @Security("is_granted('ROLE_ADMIN')")
      * Add or remove an item from the bank
      * @param int $id Town ID
@@ -812,7 +855,7 @@ class AdminTownController extends AdminActionController
     }
 
     /**
-     * @Route("/api/admin/town/{id}/teleport", name="admin_teleport_citizen", requirements={"id"="\d+"})
+     * @Route("api/admin/town/{id}/teleport", name="admin_teleport_citizen", requirements={"id"="\d+"})
      * @Security("is_granted('ROLE_ADMIN')")
      * Add or remove an item from the bank
      * @param int $id Town ID
@@ -901,7 +944,60 @@ class AdminTownController extends AdminActionController
     }
 
     /**
-     * @Route("/api/admin/town/{id}/spawn_item", name="admin_spawn_item", requirements={"id"="\d+"})
+     * @Route("api/admin/town/{id}/alias", name="admin_alias_citizen", requirements={"id"="\d+"})
+     * @Security("is_granted('ROLE_ADMIN')")
+     * Change the Alias of a citizen
+     * @param int $id Town ID
+     * @param JSONRequestParser $parser
+     * @param ZoneHandler $handler
+     * @param TownHandler $townHandler
+     * @return Response
+     */
+    public function alias_citizen(int $id, JSONRequestParser $parser, ConfMaster $cf, TownHandler $townHandler): Response
+    {
+        /** @var Town $town */
+        $town = $this->entity_manager->getRepository(Town::class)->find($id);
+        if (!$town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $alias = $parser->trimmed('alias');
+        $targets = $parser->get_array('targets');
+        if ($alias != null && !$alias)
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        if (empty($targets))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        if (count($targets) > 1)
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        /** @var Citizen $citizen */
+        $citizen = $this->entity_manager->getRepository(Citizen::class)->find($targets[0]);
+
+        $town_conf = $cf->getTownConfiguration($citizen->getTown());
+
+        $citizen_alias_active = $town_conf->get(TownConf::CONF_FEATURE_CITIZEN_ALIAS, false);
+
+        if(!$citizen_alias_active)
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        if($alias == null) {
+            $citizen->setAlias(null);
+        } else {
+            $apply_result = $this->citizen_handler->applyAlias($citizen, $alias);
+            if($apply_result == -1) {
+                return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+            }
+        }
+        
+        try {
+            $this->entity_manager->persist( $citizen );
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/admin/town/{id}/spawn_item", name="admin_spawn_item", requirements={"id"="\d+"})
      * @Security("is_granted('ROLE_ADMIN')")
      * Add or remove an item from the bank
      * @param int $id Town ID
@@ -915,7 +1011,7 @@ class AdminTownController extends AdminActionController
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
         if (!$town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        $prototype_id = $parser->get_int('prototype');
+        $prototype_id = $parser->get('prototype');
         $number = $parser->get_int('number');
         $targets = $parser->get_array('targets');
 
@@ -929,8 +1025,15 @@ class AdminTownController extends AdminActionController
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         /** @var ItemPrototype $itemPrototype */
-        $itemPrototype = $this->entity_manager->getRepository(ItemPrototype::class)->find($prototype_id);
-        if (!$itemPrototype) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        if ($prototype_id == "all") {
+            $itemPrototype = $this->entity_manager->getRepository(ItemPrototype::class)->findAll();
+        } else {
+            $itemPrototype = $this->entity_manager->getRepository(ItemPrototype::class)->find($prototype_id);
+            if (!$itemPrototype) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        }
+
+        if (!is_array($itemPrototype))
+            $itemPrototype = [$itemPrototype];
 
         /** @var Inventory[] $inventories */
         $inventories = [];
@@ -969,8 +1072,12 @@ class AdminTownController extends AdminActionController
         }
 
         foreach ($inventories as $inventory) {
-            for ($i = 0; $i < $number; $i++)
-                $handler->forceMoveItem($inventory, $itemFactory->createItem($itemPrototype->getName(), $broken, $poison)->setEssential($essential)->setHidden($hidden && $inventory->getZone()));
+            for ($i = 0; $i < $number; $i++) {
+                foreach ($itemPrototype as $proto) {
+                    $handler->forceMoveItem($inventory, $itemFactory->createItem($proto->getName(), $broken, $poison)->setEssential($essential)->setHidden($hidden && $inventory->getZone()));
+                }
+
+            }
             $this->entity_manager->persist($inventory);
         }
 
@@ -980,7 +1087,7 @@ class AdminTownController extends AdminActionController
     }
 
     /**
-     * @Route("/api/admin/town/{id}/get_zone_infos", name="get_zone_infos", requirements={"id"="\d+"})
+     * @Route("api/admin/town/{id}/get_zone_infos", name="get_zone_infos", requirements={"id"="\d+"})
      * @Security("is_granted('ROLE_ADMIN')")
      * Returns the floor of a given zone
      * @param int $id Town ID
@@ -1010,7 +1117,7 @@ class AdminTownController extends AdminActionController
     }
 
     /**
-     * @Route("/api/admin/town/{id}/get_citizen_infos", name="get_citizen_infos", requirements={"id"="\d+"})
+     * @Route("api/admin/town/{id}/get_citizen_infos", name="get_citizen_infos", requirements={"id"="\d+"})
      * @Security("is_granted('ROLE_ADMIN')")
      * Returns the floor of a given zone
      * @param int $id Town ID
@@ -1049,7 +1156,7 @@ class AdminTownController extends AdminActionController
     }
 
     /**
-     * @Route("/api/admin/town/{id}/set_zone_digs", name="set_zone_digs", requirements={"id"="\d+"})
+     * @Route("api/admin/town/{id}/set_zone_digs", name="set_zone_digs", requirements={"id"="\d+"})
      * @Security("is_granted('ROLE_ADMIN')")
      * Returns the floor of a given zone
      * @param int $id Town ID
@@ -1082,7 +1189,7 @@ class AdminTownController extends AdminActionController
     }
 
     /**
-     * @Route("/api/admin/town/{id}/modify_prof", name="admin_modify_profession", requirements={"id"="\d+"})
+     * @Route("api/admin/town/{id}/modify_prof", name="admin_modify_profession", requirements={"id"="\d+"})
      * @Security("is_granted('ROLE_ADMIN')")
      * Changes the profession of citizens
      * @param int $id Town ID
@@ -1128,7 +1235,7 @@ class AdminTownController extends AdminActionController
     }
 
     /**
-     * @Route("/api/admin/town/{tid}/event-tag/{act}", name="admin_town_event_tag_control", requirements={"tid"="\d+","act"="\d+"})
+     * @Route("api/admin/town/{tid}/event-tag/{act}", name="admin_town_event_tag_control", requirements={"tid"="\d+","act"="\d+"})
      * @Security("is_granted('ROLE_ADMIN')")
      * @param int $tid
      * @param int $act
@@ -1147,7 +1254,7 @@ class AdminTownController extends AdminActionController
     }
 
     /**
-     * @Route("/api/admin/town/{tid}/unrank/{act}", name="admin_town_town_ranking_control", requirements={"tid"="\d+","act"="\d+"})
+     * @Route("api/admin/town/{tid}/unrank/{act}", name="admin_town_town_ranking_control", requirements={"tid"="\d+","act"="\d+"})
      * @Security("is_granted('ROLE_ADMIN')")
      * @param int $tid
      * @param int $act
@@ -1177,7 +1284,7 @@ class AdminTownController extends AdminActionController
     }
 
     /**
-     * @Route("/api/admin/town/{tid}/unrank_single/{cid}/{act}", name="admin_town_citizen_ranking_control", requirements={"tid"="\d+","cid"="\d+","act"="\d+"})
+     * @Route("api/admin/town/{tid}/unrank_single/{cid}/{act}", name="admin_town_citizen_ranking_control", requirements={"tid"="\d+","cid"="\d+","act"="\d+"})
      * @Security("is_granted('ROLE_ADMIN')")
      * @param int $tid
      * @param int $cid
@@ -1211,7 +1318,7 @@ class AdminTownController extends AdminActionController
     }
 
     /**
-     * @Route("/api/admin/town/{id}/picto/give", name="admin_town_give_picto", requirements={"id"="\d+"})
+     * @Route("api/admin/town/{id}/picto/give", name="admin_town_give_picto", requirements={"id"="\d+"})
      * @Security("is_granted('ROLE_ADMIN')")
      * Give picto to all citizens of a town
      * @param int $id Town ID
@@ -1265,7 +1372,7 @@ class AdminTownController extends AdminActionController
     }
 
     /**
-     * @Route("/api/admin/town/{id}/home/manage", name="admin_town_manage_home", requirements={"id"="\d+"})
+     * @Route("api/admin/town/{id}/home/manage", name="admin_town_manage_home", requirements={"id"="\d+"})
      * @Security("is_granted('ROLE_ADMIN')")
      * Give or take status from selected citizens of a town
      * @param int $id Town ID
@@ -1351,7 +1458,7 @@ class AdminTownController extends AdminActionController
     }
 
     /**
-     * @Route("/api/admin/town/{id}/status/manage", name="admin_town_manage_status", requirements={"id"="\d+"})
+     * @Route("api/admin/town/{id}/status/manage", name="admin_town_manage_status", requirements={"id"="\d+"})
      * @Security("is_granted('ROLE_ADMIN')")
      * Give or take status from selected citizens of a town
      * @param int $id Town ID
@@ -1493,7 +1600,7 @@ class AdminTownController extends AdminActionController
     }
 
     /**
-     * @Route("/api/admin/town/{id}/role/manage", name="admin_town_manage_role", requirements={"id"="\d+"})
+     * @Route("api/admin/town/{id}/role/manage", name="admin_town_manage_role", requirements={"id"="\d+"})
      * @Security("is_granted('ROLE_ADMIN')")
      * Give or take role from selected citizens of a town
      * @param int $id Town ID
@@ -1534,7 +1641,7 @@ class AdminTownController extends AdminActionController
     }
 
     /**
-     * @Route("/api/admin/town/{id}/pp/alter", name="admin_town_alter_pp", requirements={"id"="\d+"})
+     * @Route("api/admin/town/{id}/pp/alter", name="admin_town_alter_pp", requirements={"id"="\d+"})
      * @Security("is_granted('ROLE_ADMIN')")
      * Change AP/CP/MP of selected citizens of a town
      * @param int $id Town ID
@@ -1581,7 +1688,7 @@ class AdminTownController extends AdminActionController
     }
 
     /**
-     * @Route("/api/admin/town/{id}/buildings/add", name="admin_town_add_building", requirements={"id"="\d+"})
+     * @Route("api/admin/town/{id}/buildings/add", name="admin_town_add_building", requirements={"id"="\d+"})
      * @Security("is_granted('ROLE_ADMIN')")
      * Add a building to the town
      * @param int $id ID of the town
@@ -1615,7 +1722,7 @@ class AdminTownController extends AdminActionController
     }
 
     /**
-     * @Route("/api/admin/town/{id}/buildings/set-ap", name="admin_town_set_building_ap", requirements={"id"="\d+"})
+     * @Route("api/admin/town/{id}/buildings/set-ap", name="admin_town_set_building_ap", requirements={"id"="\d+"})
      * @Security("is_granted('ROLE_ADMIN')")
      * Set AP to a building of a town
      * @param int $id ID of the town
@@ -1665,7 +1772,7 @@ class AdminTownController extends AdminActionController
     }
 
     /**
-     * @Route("/api/admin/town/{id}/buildings/set-hp", name="admin_town_set_building_hp", requirements={"id"="\d+"})
+     * @Route("api/admin/town/{id}/buildings/set-hp", name="admin_town_set_building_hp", requirements={"id"="\d+"})
      * @Security("is_granted('ROLE_ADMIN')")
      * Set HP to a building of a town
      * @param int $id ID of the town

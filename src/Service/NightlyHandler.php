@@ -375,7 +375,7 @@ class NightlyHandler
 
                 switch ($this->upgraded_building->getPrototype()->getName()) {
                     case 'small_refine_#01':
-                        $spawn_default_blueprint = false;
+                        $spawn_default_blueprint = $this->upgraded_building->getLevel() === 1;
                         $bps = [
                             ['bplan_c_#00' => 1],
                             ['bplan_c_#00' => 4],
@@ -430,7 +430,7 @@ class NightlyHandler
 
         $db = [
             'small_appletree_#00'      => [ 'apple_#00' => mt_rand(3,5) ],
-            'item_vegetable_tasty_#00' => [ 'vegetable_#00' => !$has_fertilizer ? mt_rand(4,8) : mt_rand(6,8), 'vegetable_tasty_#00' => !$has_fertilizer ? mt_rand(0,2) : mt_rand(3,5) ],
+            'item_vegetable_tasty_#00' => [ 'vegetable_#00' => !$has_fertilizer ? mt_rand(4,7) : mt_rand(6,8), 'vegetable_tasty_#00' => !$has_fertilizer ? mt_rand(0,2) : mt_rand(3,5) ],
             'item_bgrenade_#01'        => [ 'boomfruit_#00' => !$has_fertilizer ? mt_rand(3,7) : mt_rand(5,8) ],
             'small_chicken_#00'        => [ 'egg_#00' => 3 ],
         ];

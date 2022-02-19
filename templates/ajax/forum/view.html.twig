@@ -102,28 +102,13 @@
                     {% endif %}
                     </div>
                     <div class="author">
-                    {% set last_post = thread.lastPost %}
-                    {% if last_post and last_post.owner %}
-                        {% if last_post.owner.name == 'Der Rabe' %}
-                            {{ 'Der Rabe'|trans({},'global') }}
-                        {% elseif last_post.owner.name == 'Animateur-Team' %}
-                            {{ 'Animateur-Team'|trans({},'global') }}
+                        {% if thread.lastPost and thread.lastPost.owner %}
+                            {% include 'ajax/soul/playername.html.twig' with {user: thread.lastPost.owner, plain: true, globalSpace: thread.forum.town is null} only %}
+                        {% elseif thread.owner %}
+                            {% include 'ajax/soul/playername.html.twig' with {user: thread.owner, plain: true, globalSpace: thread.forum.town is null} only %}
                         {% else %}
-                            {% set name = town and last_post.owner.citizenFor(town) ? last_post.owner.citizenFor(town).name : last_post.owner.name %}
-                            {{ name }}
-                        {% endif %}
-                    {% elseif thread.owner %}
-                        {% if thread.owner.name == 'Der Rabe' %}
                             {{ 'Der Rabe'|trans({},'global') }}
-                        {% elseif thread.owner.name == 'Animateur-Team' %}
-                            {{ 'Animateur-Team'|trans({},'global') }}
-                        {% else %}
-                            {% set name = town and thread.owner.citizenFor(town) ? thread.owner.citizenFor(town).name : thread.owner.name %}
-                            {{ name }}
                         {% endif %}
-                    {% else %}
-                        {{ 'Der Rabe'|trans({},'global') }}
-                    {% endif %}
                     </div>
                 </div>
             </div>

@@ -259,8 +259,8 @@
     <unit id="pySO60X" name="Normal">
       <notes>
         <note category="german">Normal</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+        <note category="state">new</note>
       </notes>
       <segment>
         <source>Normal</source>

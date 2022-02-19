@@ -2114,25 +2114,23 @@
         <target>Desterrado</target>
       </segment>
     </unit>
-    <unit id="IV3fj_Y">
+    <unit id="UfxaKkh">
       <notes>
         <note category="german">Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur Verfügung.</note>
         <note category="from">twig:///templates/ajax/game/game.html.twig</note>
       </notes>
       <segment>
-        <source>Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur
-                        Verfügung.</source>
+        <source>Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur Verfügung.</source>
         <target><![CDATA[Ahora eres un <strong>paria</strong>, y no tienes acceso a las herramientas comunitarias en el pueblo: almacén, construcciones, portal, etc.]]></target>
       </segment>
     </unit>
-    <unit id="Qc.QL70">
+    <unit id="kB7aA6d">
       <notes>
         <note category="german">Je nachdem, welchen Beruf du auswählst, stehen dir unterschiedliche Aktionen und Spielweisen in dieser Stadt zur Verfügung.</note>
         <note category="from">twig:///templates/ajax/game/jobs.html.twig</note>
       </notes>
       <segment>
-        <source>Je nachdem, welchen Beruf du auswählst, stehen dir unterschiedliche Aktionen und Spielweisen in
-                dieser Stadt zur Verfügung.</source>
+        <source>Je nachdem, welchen Beruf du auswählst, stehen dir unterschiedliche Aktionen und Spielweisen in dieser Stadt zur Verfügung.</source>
         <target>Según el oficio que hayas elegido tendrás diferentes acciones y estilos de juego disponibles durante este pueblo.</target>
       </segment>
     </unit>
@@ -2399,7 +2397,7 @@
     <unit id="72h0.SN" name="Ghul">
       <notes>
         <note category="german">Ghul</note>
-        <note category="from">db://CitizenRole;db://CitizenStatus;twig:///templates/ajax/game/town/town.html.twig</note>
+        <note category="from">db://CitizenRole;db://CitizenStatus;twig:///templates/ajax/game/beyond/beyond.html.twig;twig:///templates/ajax/game/town/town.html.twig</note>
       </notes>
       <segment>
         <source>Ghul</source>
@@ -5023,7 +5021,7 @@
       </notes>
       <segment>
         <source>Es ist nicht möglich, unsere Situation angesichts des Angriffs von heute Abend genau einzuschätzen.</source>
-        <target><![CDATA[Nuestras defensas <strong>podrían</strong> resistir parcialmente al ataque de esta noche.]]></target>
+        <target>¡No tenemos idea de la cantidad de zombies que se aproximan!</target>
       </segment>
     </unit>
     <unit id="aVClbc0" name="Meine täglichen Aufgaben">
@@ -5038,47 +5036,47 @@
     </unit>
     <unit id="OSdFB8R" name="Einen Blick ins Forum werfen.">
       <notes>
-        <note category="german">Einen Blick ins Forum werfen.</note>
+        <note category="german">Einen Blick ins Forum werfen</note>
         <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
       </notes>
       <segment>
         <source>Einen Blick ins Forum werfen.</source>
-        <target>Coordina con tus vecinos en el Foro.</target>
+        <target>Coordina con tus vecinos en el Foro</target>
       </segment>
     </unit>
     <unit id=".vMt2eO" name="Meine Ration Wasser im Brunnen entnehmen (optional).">
       <notes>
-        <note category="german">Meine Ration Wasser im Brunnen entnehmen (optional).</note>
+        <note category="german">Meine Ration Wasser im Brunnen entnehmen (optional)</note>
         <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
       </notes>
       <segment>
         <source>Meine Ration Wasser im Brunnen entnehmen (optional).</source>
-        <target>Toma tu ración de agua en el pozo (opcional).</target>
+        <target>Toma tu ración de agua en el pozo (opcional)</target>
       </segment>
     </unit>
     <unit id="UgqaO9M" name="An der Angriffsabschätzung teilnehmen">
       <notes>
-        <note category="german">An der Angriffsabschätzung teilnehmen.</note>
+        <note category="german">An der Angriffsabschätzung teilnehmen</note>
         <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
       </notes>
       <segment>
         <source>An der Angriffsabschätzung teilnehmen</source>
-        <target>Participa en el pronóstico del ataque.</target>
+        <target>Participa en el pronóstico del ataque</target>
       </segment>
     </unit>
     <unit id="h3w5_BE" name="Für ein Tagesprojekt abstimmen.">
       <notes>
-        <note category="german">Für ein Tagesprojekt abstimmen.</note>
+        <note category="german">Für ein Tagesprojekt abstimmen</note>
         <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
       </notes>
       <segment>
         <source>Für ein Tagesprojekt abstimmen.</source>
-        <target>Vota por el proyecto del día.</target>
+        <target>Vota por el proyecto del día</target>
       </segment>
     </unit>
     <unit id="G7Kbsmc">
       <notes>
-        <note category="german">Auf der Baustelle arbeiten, in der Werkstatt arbeiten oder in die Außenwelt gehen (optional).</note>
+        <note category="german">Auf der Baustelle arbeiten, in der Werkstatt arbeiten oder in die Außenwelt gehen (optional)</note>
         <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
       </notes>
       <segment>
@@ -7479,7 +7477,7 @@
     <unit id="jIaT.gH">
       <notes>
         <note category="german">Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...</note>
-        <note category="from">php:///src/Controller/BeyondController.php;php:///src/Service/ActionHandler.php;php:///src/Service/ZoneHandler.php</note>
+        <note category="from">php:///src/Controller/BeyondController.php;php:///src/Controller/ExplorationController.php;php:///src/Service/ActionHandler.php;php:///src/Service/ZoneHandler.php</note>
       </notes>
       <segment>
         <source>Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...</source>
@@ -10453,7 +10451,7 @@
     <unit id="fICCxje" name="Seine Seele ansehen">
       <notes>
         <note category="german">Seine Seele ansehen</note>
-        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Seine Seele ansehen</source>
@@ -16497,7 +16495,17 @@
       </notes>
       <segment>
         <source>Du hast dafür {count} Aktionspunkt(e) verbraucht.</source>
-        <target>Has utilizado {count} punto(s) de acción.</target>
+        <target>
+            {ref__icu, select,
+                on {
+                    {raw_count, plural,
+                        one {Has utilizado {count} punto de acción.}
+                        other {Has utilizado {count} puntos de acción.}
+                    }
+                }
+                other {Has utilizado {count} punto(s) de acción.}
+            }
+            </target>
       </segment>
     </unit>
     <unit id="lo3tdoY" name="Was für eine schreckliche Nacht!">
@@ -18135,7 +18143,7 @@
     <unit id="r46mSI6" name="Du hast dich in einen {role} verwandelt!">
       <notes>
         <note category="german">Du hast dich in einen {role} verwandelt!</note>
-        <note category="from">twig:///templates/ajax/game/town/town.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/beyond/beyond.html.twig;twig:///templates/ajax/game/town/town.html.twig</note>
       </notes>
       <segment>
         <source>Du hast dich in einen {role} verwandelt!</source>
@@ -18145,7 +18153,7 @@
     <unit id="41EQiml" name="Erzähle niemandem davon oder du wirst sofort erschossen!">
       <notes>
         <note category="german">Erzähle niemandem davon oder du wirst sofort erschossen!</note>
-        <note category="from">twig:///templates/ajax/game/town/town.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/beyond/beyond.html.twig;twig:///templates/ajax/game/town/town.html.twig</note>
       </notes>
       <segment>
         <source>Erzähle niemandem davon oder du wirst sofort erschossen!</source>
@@ -18155,7 +18163,7 @@
     <unit id=".S3ibaS" name="Wie man als Ghul spielt ?">
       <notes>
         <note category="german">Wie man als Ghul spielt ?</note>
-        <note category="from">twig:///templates/ajax/game/town/town.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/beyond/beyond.html.twig;twig:///templates/ajax/game/town/town.html.twig</note>
       </notes>
       <segment>
         <source>Wie man als Ghul spielt ?</source>
@@ -19949,7 +19957,7 @@
     <unit id="jTUz2Oq" name="Ich beobachte euch...">
       <notes>
         <note category="german">Ich beobachte euch...</note>
-        <note category="from">twig:///templates/ajax/forum/posts.html.twig</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/soul/user_tooltip.html.twig</note>
       </notes>
       <segment>
         <source>Ich beobachte euch...</source>
@@ -22365,7 +22373,7 @@
       </notes>
       <segment>
         <source>Dieser Bürger gestattet dir nicht auf seine Gegenstände zuzugreifen.</source>
-        <target>Este habitante no te permite acceder a sus artículos.</target>
+        <target>Este habitante no desea que toques sus objetos.</target>
       </segment>
     </unit>
     <unit id="sxHlIDp">
@@ -25931,7 +25939,7 @@
     <unit id="dAly6Ww" name="Wir werden alle sterben: Sag es weiter!">
       <notes>
         <note category="german">Wir werden alle sterben: Sag es weiter!</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Wir werden alle sterben: Sag es weiter!</source>
@@ -26127,6 +26135,159 @@
       <segment>
         <source>{leader} hat {escortee} heldenhaft zurück in die Stadt begleitet!</source>
         <target>¡El valiente {leader} ha acompañado a {escortee} hasta el pueblo!</target>
+      </segment>
+    </unit>
+    <unit id="NJ.jiJV" name="{citizen} bedankt sich herzlich bei dir, dass du ihn nach Hause gebracht hast!">
+      <notes>
+        <note category="german">{citizen} bedankt sich herzlich bei dir, dass du ihn nach Hause gebracht hast!</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
+      </notes>
+      <segment>
+        <source>{citizen} bedankt sich herzlich bei dir, dass du ihn nach Hause gebracht hast!</source>
+        <target>El habitante {citizen} te agradece profundamente haberle llevado al pueblo.</target>
+      </segment>
+    </unit>
+    <unit id="Yi60BMa" name="Du hast dafür {count} Baupunkt(e) verbraucht.">
+      <notes>
+        <note category="german">Du hast dafür {count} Baupunkt(e) verbraucht.</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
+      </notes>
+      <segment>
+        <source>Du hast dafür {count} Baupunkt(e) verbraucht.</source>
+        <target>{ref__icu, select,
+            on {
+                {raw_count, plural,
+                    one {Has utilizado {count} punto de construcción.}
+                    other {Has utilizado {count} puntos de construcción.}
+                }
+            }
+            other {Has utilizado {count} punto(s) de construcción.}
+        }
+        </target>
+      </segment>
+    </unit>
+    <unit id="yHIMDic">
+      <notes>
+        <note category="german">Du bist ein Ghul! Versuche auf keinen Fall, Wasser zu trinken, das wird am Ende nur zu einer Verletzung führen...</note>
+        <note category="from">twig:///templates/ajax/game/beyond/beyond.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du bist ein Ghul! Versuche auf keinen Fall, Wasser zu trinken, das wird am Ende nur zu einer Verletzung führen...</source>
+        <target>¡Eres un MUTANTE! No vayas a beber agua, o terminarás herido...</target>
+      </segment>
+    </unit>
+    <unit id="PuMKC_2" name="Lies die Hilfe zu Ghulen">
+      <notes>
+        <note category="german">Lies die Hilfe zu Ghulen</note>
+        <note category="from">twig:///templates/ajax/game/beyond/beyond.html.twig</note>
+      </notes>
+      <segment>
+        <source>Lies die Hilfe zu Ghulen</source>
+        <target>Consulta la ayuda sobre los mutantes</target>
+      </segment>
+    </unit>
+    <unit id="Ns.Fv2L">
+      <notes>
+        <note category="german">Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur
+                            Verfügung.</note>
+        <note category="from">twig:///templates/ajax/game/game.html.twig</note>
+      </notes>
+      <segment>
+        <source>Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur
+                            Verfügung.</source>
+        <target><![CDATA[Ahora eres un <strong>paria</strong>, y no tienes acceso a las herramientas comunitarias en el pueblo: almacén, construcciones, portal, etc.]]></target>
+      </segment>
+    </unit>
+    <unit id="boRvKwW" name="Hunger:">
+      <notes>
+        <note category="german">Hunger:</note>
+        <note category="from">twig:///templates/ajax/game/game.html.twig</note>
+      </notes>
+      <segment>
+        <source>Hunger:</source>
+        <target>Voracidad:</target>
+      </segment>
+    </unit>
+    <unit id="0BOngla">
+      <notes>
+        <note category="german">Du hast dich in einen Ghul verwandelt! Verrate es niemandem und schau in der Hilfe nach, um mehr zu erfahren.</note>
+        <note category="from">db://CitizenRole</note>
+      </notes>
+      <segment>
+        <source>Du hast dich in einen Ghul verwandelt! Verrate es niemandem und schau in der Hilfe nach, um mehr zu erfahren.</source>
+        <target>¡Te has convertido en un MUTANTE come-gente! No se lo digas a nadie y revisa la guía del juego para saber más...</target>
+      </segment>
+    </unit>
+    <unit id="TUSDSgv">
+      <notes>
+        <note category="german">Diese Anzeige zeigt an, wie &lt;strong&gt;hungrig&lt;/strong&gt; du als Ghul bist.&lt;br/&gt;&lt;strong&gt;Wenn die rote Grenze überschritten wird, stirbst du heute um Mitternacht!&lt;/strong&gt; Verschlinge einen Bürger (ideale Lösung) oder finde Menschenfleisch, um diesen Hunger zu verringern und zu überleben.</note>
+        <note category="from">twig:///templates/ajax/game/game.html.twig</note>
+      </notes>
+      <segment>
+        <source>Diese Anzeige zeigt an, wie &lt;strong&gt;hungrig&lt;/strong&gt; du als Ghul bist.&lt;br/&gt;&lt;strong&gt;Wenn die rote Grenze überschritten wird, stirbst du heute um Mitternacht!&lt;/strong&gt; Verschlinge einen Bürger (ideale Lösung) oder finde Menschenfleisch, um diesen Hunger zu verringern und zu überleben.</source>
+        <target><![CDATA[Esta barra indica el nivel de tu <strong>hambre</strong> como mutante.<strong><br />¡Si el límite rojo es sobrepasado, morirás esta noche!</strong> Devora a un habitante (solución ideal), o encuentra carne humana para sobrevivir.]]></target>
+      </segment>
+    </unit>
+    <unit id="Hy1STmq" name="vollständig demoliert und wiederverwertet...">
+      <notes>
+        <note category="german">vollständig demoliert und wiederverwertet...</note>
+        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+      </notes>
+      <segment>
+        <source>vollständig demoliert und wiederverwertet...</source>
+        <target>enteramente destrozada y reciclada...</target>
+      </segment>
+    </unit>
+    <unit id="Tf_X4.E">
+      <notes>
+        <note category="german">Du hast {item} gefunden, als du die schmutzigen Ecken dieses elenden Ortes durchsucht hast!</note>
+        <note category="from">php:///src/Controller/ExplorationController.php</note>
+      </notes>
+      <segment>
+        <source>Du hast {item} gefunden, als du die schmutzigen Ecken dieses elenden Ortes durchsucht hast!</source>
+        <target>El temor te hace un nudo en las tripas mientras exploras esta ruina... Pero no habrá sido en vano porque acabas de encontrar algo: {item}</target>
+      </segment>
+    </unit>
+    <unit id="GtMVIRi" name="Diese Aktion kannst du erst morgen erneut versuchen.">
+      <notes>
+        <note category="german">Diese Aktion kannst du erst morgen erneut versuchen.</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Diese Aktion kannst du erst morgen erneut versuchen.</source>
+        <target>Podrás realizar esta acción nuevamente mañana.</target>
+      </segment>
+    </unit>
+    <unit id="i8PEylr" name="Dieser Bürger wurde aus der Gemeinschaft verbannt.">
+      <notes>
+        <note category="german">Dieser Bürger wurde aus der Gemeinschaft verbannt.</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_omniscience.html.twig;twig:///templates/ajax/game/town/citizen_vote.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger wurde aus der Gemeinschaft verbannt.</source>
+        <target>Este habitante ha sido desterrado por la comunidad.</target>
+      </segment>
+    </unit>
+    <unit id="r2vaFFk" name="Du musst für deine Beschwerde eine Begründung angeben.">
+      <notes>
+        <note category="german">Du musst für deine Beschwerde eine Begründung angeben.</note>
+        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du musst für deine Beschwerde eine Begründung angeben.</source>
+        <target>Debes ingresar una razón para esta denuncia.</target>
+      </segment>
+    </unit>
+    <unit id="2pxefje">
+      <notes>
+        <note category="german">Du suchst dir besser eine Beschäftigung aus, denn es gilt: Ohne Job, kein Leben. Wozu bist du denn sonst gut? Die Gemeinschaft, der du angehören wirst, braucht jede Art von Personen. Die Zusammenarbeit mit den anderen wird zweifelsohne deine Überlebensdauer entscheidend beeinflussen...</note>
+        <note category="from">twig:///templates/ajax/game/jobs.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du suchst dir besser eine Beschäftigung aus, denn es gilt: Ohne Job, kein Leben. Wozu bist du denn sonst gut? Die Gemeinschaft, der du angehören wirst, braucht jede Art von Personen. Die Zusammenarbeit mit den anderen wird zweifelsohne deine Überlebensdauer entscheidend beeinflussen...</source>
+        <target>Más te vale elegir un buen oficio. Si no eres útil a la comunidad, ¿entonces para qué sirves? El pueblo require de gente con habilidades. El trabajo colectivo determinará en gran parte tu supervivencia...</target>
       </segment>
     </unit>
   </file>

@@ -536,7 +536,7 @@ class GazetteEntryTemplateFixtures extends Fixture
             'requirement'=>GazetteEntryTemplate::RequiresAttackDeathsC1,
             'fot' => GazetteEntryTemplate::FollowUpTypeBad,
             'variableTypes'=>[
-                ['type'=>"num",'name'=>'deaths'],
+                ['type'=>"num",'name'=>'cadavers'],
                 ['type'=>"citizen",'name'=>'citizen1'],
             ],
         ],

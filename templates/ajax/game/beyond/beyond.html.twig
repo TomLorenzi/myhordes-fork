@@ -61,6 +61,13 @@
             {% if map_public_json is defined %}
                 <div class="row">
                     <div class="cell background map-box rw-12">
+                        {% if citizen.hasRole('ghoul') %}
+                            <div class="green-note warning-box">
+                                <img src="{{ asset('build/images/status/status_ghoul.gif') }}" alt=""> {{'Du hast dich in einen {role} verwandelt!'|trans({'{role}': '<strong>' ~ 'Ghul'|trans({},'game') ~ '</strong>'}, 'game')|raw}}<br />
+                                <em>{{ "Erzähle niemandem davon oder du wirst sofort erschossen!"|trans({}, 'game') }}</em><br />
+                                {{ help_lnk('Wie man als Ghul spielt ?'|trans({},'game'), 'help', {'name' : 'ghouls'}) }}
+                            </div>
+                        {% endif %}
                             <div id="beyond-map" x-react-mount="map" x-react-data="{{ map_public_json }}"></div>
 
                             <div class="zone-info link" x-ajax-href="{{ path('help', {'name': 'control_points'}) }}">
@@ -152,6 +159,12 @@
                                     {% endif %}
                                 </div>
                             {% endif %}
+                        {% if citizen.hasRole('ghoul') %}
+                            <div class="help">
+                                {{'Du bist ein Ghul! Versuche auf keinen Fall, Wasser zu trinken, das wird am Ende nur zu einer Verletzung führen...'|trans({}, 'game')}}<br />
+                                {{ help_lnk('Lies die Hilfe zu Ghulen'|trans({}, 'game'), 'help', {'name': 'ghouls'}) }}
+                            </div>
+                        {% endif %}
                         </div>
                 </div>
             {% endif %}

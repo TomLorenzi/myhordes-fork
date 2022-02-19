@@ -5863,5 +5863,23 @@
         <target>Hierfür hast du keinen Platz.</target>
       </segment>
     </unit>
+    <unit id="gObW_J5">
+      <segment>
+        <source>Du kannst dieses Serum nicht auf dich selbst anwenden, oder du wirst der beste Freund eines Ghuls...</source>
+        <target>Du kannst dieses Serum nicht auf dich selbst anwenden, oder du wirst der beste Freund eines Ghuls...</target>
+      </segment>
+    </unit>
+    <unit id="j.Nx9To" name="Eintrittskarte">
+      <segment>
+        <source>Eintrittskarte</source>
+        <target>Eintrittskarte</target>
+      </segment>
+    </unit>
+    <unit id=".LeRrBD">
+      <segment>
+        <source>Hiermit kannst du Städten beitreten, obwohl du die Mindestanzahl an Seelenpunkten noch nicht erreicht hast.</source>
+        <target>Hiermit kannst du Städten beitreten, obwohl du die Mindestanzahl an Seelenpunkten noch nicht erreicht hast.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

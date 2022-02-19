@@ -30,6 +30,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\HttpKernel\EventListener\AbstractSessionListener;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
@@ -236,8 +237,9 @@ class WebController extends CustomAbstractController
         );
         $response->headers->set('Content-Disposition', $disposition);
         $response->headers->set('Content-Type', "image/{$ext}");
-        $response->headers->set('Cache-Control', ['public','max-age=157680000','immutable']);
-        $response->headers->set('ETag', $name);
+        $response
+            ->setPublic()->setMaxAge(157680000)->setImmutable()
+            ->headers->set(AbstractSessionListener::NO_AUTO_CACHE_CONTROL_HEADER, 'true');
         return $response;
     }
 

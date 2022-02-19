@@ -13,14 +13,17 @@
     {% endif %}
     
     {% if rucksack is defined %}
-        <ul x-ajax-href="{{ path('help', {'name': 'inventory'}) }}" class="rucksack pointer {% if rucksack_size > 10 %}expanded{% endif %}">
+        <ul x-ajax-href="{{ path('help', {'name': 'inventory'}) }}" class="rucksack pointer {% if rucksack_size > 10 %}expanded{% endif %} {% if status is defined %}rucksack_status_union{% endif %}">
             <li class="text">{{'Rucksack'|trans({}, 'game')}}</li>
+            {% set cc = 0 %}
             {% for item in rucksack.items|sort((a,b) => b.essential <=> a.essential ?: b.prototype.sort <=> a.prototype.sort ?: a.prototype.id <=> b.prototype.id ) %}
-                {% embed "ajax/game/item.html.twig" with {'item': item, 'no_id': true} %}{% endembed %}
+                {% embed "ajax/game/item.html.twig" with {'item': item, 'no_id': true, 'class': cc < 10 ? '' : 'over'} %}{% endembed %}
+                {% set cc = cc+1 %}
             {% endfor %}
             {% if rucksack.items|length < rucksack_size %}
                 {% for i in range(0, rucksack_size - rucksack.items|length - 1)%}
-                    <li class="free"></li>
+                    <li class="free {% if cc >= 10 %}over{% endif %}"></li>
+                    {% set cc = cc+1 %}
                 {% endfor %}
             {% endif %}
             <li class="more">
@@ -30,8 +33,29 @@
     {% endif %}
 
     {% if status is defined %}
-        <ul class="status link" x-ajax-href="{{ path('help', {'name': 'health'}) }}">
+        <ul class="status link {% if rucksack is defined %}rucksack_status_union{% endif %}" x-ajax-href="{{ path('help', {'name': 'health'}) }}">
             <li class="text">{{'Status'|trans({}, 'game')}}</li>
+            {% for role in roles %}
+                {# @var role \App\Entity\CitizenRole #}
+                {% if not role.hidden %}
+                    <li class="status{% if role.helpSection is not null %} link{% endif %}" {% if role.helpSection is not null %}x-ajax-href="{{ path('help', {'name': role.helpSection}) }}"{% endif %}>
+                        <img src="{{ asset('build/images/roles/' ~ role.icon ~ '.gif') }}" alt="{{ role.label|trans({},'game') }}">
+                        <div class="tooltip item">
+                            {{ (role.message ?? 'Du bist der {rolename} dieser Stadt.')|trans({'{rolename}': role.label|trans({}, 'game')}, 'game')}}
+                        </div>
+                    </li>
+                {% endif %}
+            {% endfor %}
+            {% if banished %}
+                <li class="status"><img src="{{ asset('build/images/icons/banished.gif') }}" alt="{{ 'Verbannt'|trans({},'game') }}">
+                    <div class="tooltip normal">
+                        <b>{{ 'Verbannt'|trans({},'game') }}</b><br />
+                        {% trans from 'game' %}
+                            Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur Verfügung.
+                        {% endtrans %}
+                    </div>
+                </li>
+            {% endif %}
             {% for stat in status %}
                 {# @var stat \App\Entity\CitizenStatus #}
                 {% if not stat.hidden %}
@@ -60,7 +84,24 @@
                     </div>
                 </li>
             {% endif %}
+            {% if roles|filter(r => r.name == "ghoul")|length > 0 %}
+                <li class="status-ghoul {% if hunger > 40 %}warning{% endif %}">
+                    {{ 'Hunger:'|trans({}, 'game') }}
+                    <div class="ghoul-hunger-container">
+                        <div class="ghoul-hunger-background"></div>
+                        <div class="ghoul-hunger-bar {% if hunger > 40 %}warning{% endif %}" style="width: {{ min(100,hunger) }}%"></div>
+                        <div class="ghoul-hunger-indicator" style="left: 40%"></div>
+                    </div>
+                    {% if hunger > 40 %}
+                        <div class="ghoul-message"><img src="{{ asset('build/images/icons/warning_anim.gif') }}" alt="/!\"> {{"Du wirst heute Nacht sterben!"|trans({}, 'game')}}</div>
+                    {% endif %}
+                    <div class="tooltip help">
+                        {{ 'Diese Anzeige zeigt an, wie <strong>hungrig</strong> du als Ghul bist.<br/><strong>Wenn die rote Grenze überschritten wird, stirbst du heute um Mitternacht!</strong> Verschlinge einen Bürger (ideale Lösung) oder finde Menschenfleisch, um diesen Hunger zu verringern und zu überleben.'|trans({},'game')|raw }}
+                    </div>
+                </li>
+            {% endif %}
         </ul>
+
     {% endif %}
 
     {% if (ap is defined and max_ap is defined) or (bp is defined and max_bp is defined and max_bp > 0) or (pm is defined and max_pm is defined and max_pm > 0) %}
@@ -121,53 +162,5 @@
         {% endif %}
 
     </div>
-    {% endif %}
-    {% if (banished is defined and banished) or (roles is defined and roles|length > 0) %}
-        <ul class="ulcont">
-            {% for role in roles %}
-                {# @var role \App\Entity\CitizenRole #}
-                {% if not role.hidden %}
-                    <li class="status{% if role.helpSection is not null %} link{% endif %}" {% if role.helpSection is not null %}x-ajax-href="{{ path('help', {'name': role.helpSection}) }}"{% endif %}>
-                        <img src="{{ asset('build/images/roles/' ~ role.icon ~ '.gif') }}" alt="{{ role.label|trans({},'game') }}">
-                        {% if role.name == 'ghoul' %}
-                            <div class="ghoul-hunger-container hide-sm">
-                                <div class="ghoul-hunger-background"></div>
-                                <div class="ghoul-hunger-bar {% if hunger > 40 %}warning{% endif %}" style="width: {{ min(100,hunger) }}%"></div>
-                                <div class="ghoul-hunger-indicator" style="left: 40%"></div>
-                            </div>
-                            {% if hunger > 40 %}
-                                <div class="ghoul-message hide-sm"><img src="{{ asset('build/images/icons/warning_anim.gif') }}" alt="/!\"> {{"Du wirst heute Nacht sterben!"|trans({}, 'game')}}</div>
-                            {% endif %}
-                        {% endif %}
-
-                        <div class="tooltip help">
-                            {{ (role.message ?? 'Du bist der {rolename} dieser Stadt.')|trans({'{rolename}': role.label|trans({}, 'game')}, 'game')}}
-                            {% if role.name == 'ghoul' %}
-                            <br />
-                            <div class="ghoul-hunger-container hide-md hide-lg hide-desktop">
-                                <div class="ghoul-hunger-background"></div>
-                                <div class="ghoul-hunger-bar {% if hunger > 40 %}warning{% endif %}" style="width: {{ min(100,hunger) }}%"></div>
-                                <div class="ghoul-hunger-indicator" style="left: 40%"></div>
-                            </div>
-                            {% if hunger > 40 %}
-                                <div class="ghoul-message hide-lg hide-desktop"><img src="{{ asset('build/images/icons/warning_anim.gif') }}" alt="/!\"> {{"Du wirst heute Nacht sterben!"|trans({}, 'game')}}</div>
-                            {% endif %}
-                            {% endif %}
-                        </div>
-                    </li>
-                {% endif %}
-            {% endfor %}
-            {% if banished %}
-            <li class="status"><img src="{{ asset('build/images/icons/banished.gif') }}" alt="{{ 'Verbannt'|trans({},'game') }}">
-                <div class="tooltip normal">
-                    <b>{{ 'Verbannt'|trans({},'game') }}</b><br />
-                    {% trans from 'game' %}
-                        Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur
-                        Verfügung.
-                    {% endtrans %}
-                </div>
-            </li>
-            {% endif %}
-        </ul>
     {% endif %}
 {% endblock %}

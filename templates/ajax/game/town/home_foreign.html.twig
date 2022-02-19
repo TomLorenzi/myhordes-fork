@@ -60,7 +60,13 @@
             <div class="cell {% if owner.user.avatar %}rw-9 rw-lg-8 rw-md-12{% else %}rw-12{% endif %}">
                 <div class="row">
                     <div class="cell rw-5 rw-lg-6"><span class="highlight">{{ 'Haus'|trans({},'game') }} :</span></div>
-                    <div class="cell rw-7 rw-lg-6"><img alt="" src="{{ asset('build/images/home/' ~ owner.home.prototype.icon ~ '.gif') }}" /> {{ owner.home.prototype.label|trans({},'buildings') }} {% if owner.alive %} [ + {{ owner.home.prototype.defense }} <img alt="" src="{{ asset('build/images/icons/def.gif') }}" /> ]{% endif %}</div>
+                    <div class="cell rw-7 rw-lg-6">
+                        {% if not owner.alive and owner.home.recycling >= 15 %}
+                            <img alt="" src="{{ asset('build/images/icons/home_recycled.gif') }}" /> {{ 'vollständig demoliert und wiederverwertet...'|trans({},'game') }}
+                        {% else %}
+                            <img alt="" src="{{ asset('build/images/home/' ~ owner.home.prototype.icon ~ '.gif') }}" /> {{ owner.home.prototype.label|trans({},'buildings') }} {% if owner.alive %} [ + {{ owner.home.prototype.defense }} <img alt="" src="{{ asset('build/images/icons/def.gif') }}" /> ]{% endif %}
+                        {% endif %}
+                    </div>
                 </div>
                 {% if owner.alive %}
                     <div class="row">
@@ -434,8 +440,11 @@
                 complainButtons[i].addEventListener('click', function() {
                     let reason = 0;
                     if(document.getElementById("reason"))
-                        reason = document.getElementById("reason").value;
-                    $.ajax.easySend( '{{ path('town_visit_complain_controller', {id: owner.id}) }}', {severity: parseInt(complainButtons[i].getAttribute('x-complaint-severity')), reason: reason},
+                        reason = parseInt(document.getElementById("reason").value);
+
+                    if (reason === 0)
+                        $.html.error(' {{ 'Du musst für deine Beschwerde eine Begründung angeben.'|trans({},'game') }} ');
+                    else $.ajax.easySend( '{{ path('town_visit_complain_controller', {id: owner.id}) }}', {severity: parseInt(complainButtons[i].getAttribute('x-complaint-severity')), reason},
                         function () {
                             $.ajax.load(null, '{{ path('town_visit', {id: owner.id}) }}', true);
                         } );

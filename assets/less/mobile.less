@@ -136,6 +136,13 @@
   }
   button, .button { padding-top: 16px; padding-bottom: 16px; margin-top: 8px; margin-bottom: 8px; }
 
+  .rucksack_status_union.rucksack {
+    &:before {
+      left: 0 !important;
+      background: url("../img/game-bar/panel_tl.png") 0 0 no-repeat,url("../img/game-bar/panel_bl.png") 0 100% no-repeat,url("../img/game-bar/panel_l.png") 0 0 repeat-y !important;
+    };
+  }
+
   body:not(.icon-zoom-1-00) ul.inventory {
     &.rucksack { background: url("../img/background/inventory/inv_bag.gif") no-repeat top left/cover;  }
     & > li {

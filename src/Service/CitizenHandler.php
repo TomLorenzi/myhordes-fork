@@ -90,13 +90,13 @@ class CitizenHandler
 
     public function inflictWound( Citizen &$citizen ): ?CitizenStatus {
         if ($this->isWounded($citizen)) return null;
-        $ap_above_6 = $citizen->getAp() - $this->getMaxAP( $citizen );
+        // $ap_above_6 = $citizen->getAp() - $this->getMaxAP( $citizen );
         $citizen->addStatus( $status = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName(
             $this->random_generator->pick( ['wound1','wound2','wound3','wound4','wound5','wound6'] )
         ) );
         $citizen->addStatus($this->entity_manager->getRepository(CitizenStatus::class)->findOneByName('tg_meta_wound'));
-        if ($ap_above_6 >= 0)
-            $citizen->setAp( $this->getMaxAP( $citizen ) + $ap_above_6 );
+        // if ($ap_above_6 >= 0)
+        //    $citizen->setAp( $this->getMaxAP( $citizen ) + $ap_above_6 );
 
         $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName('r_wound_#00');
         $this->picto_handler->give_picto($citizen, $pictoPrototype);
@@ -445,11 +445,14 @@ class CitizenHandler
         $citizen->setPm(max(0, $relative ? ($citizen->getPm() + $num) : max(0,$num) ) );
     }
 
-    public function deductAPBP(Citizen &$citizen, int $ap) {
-        if ($ap <= $citizen->getBp())
-            $this->setBP( $citizen, true, -$ap );
-        else {
+    public function deductAPBP(Citizen &$citizen, int $ap, int &$usedap = 0, int &$usedbp = 0) {
+        if ($ap <= $citizen->getBp()) {
+            $usedbp = $ap;
+            $this->setBP($citizen, true, -$ap);
+        } else {
             $ap -= $citizen->getBp();
+            $usedbp = $citizen->getBp();
+            $usedap = $ap;
             $this->setAP($citizen, true, -$ap);
             $this->setBP($citizen, false, 0);
         }
@@ -520,6 +523,29 @@ class CitizenHandler
         if ($profession->getName() !== 'none')
             $this->entity_manager->persist( $this->log->citizenJoinProfession( $citizen ) );
 
+    }
+
+    /**
+     * Tries to apply an alias to the citizen.
+     * 
+     * @param Citizen $citizen
+     * @param string $alias
+     * @return int 1: Alias applied, 0: Alias not applied, -1: Error to report
+     */
+    public function applyAlias(Citizen &$citizen, string $alias) {
+        if (!empty($alias) && $alias !== $citizen->getUser()->getName()) {
+
+            if (in_array($alias, ['Der Rabe','DerRabe','Der_Rabe','DerRaabe','TheCrow', 'LeCorbeau', 'Le Corbeau', 'Le_Corbeau']))
+                return -1;
+
+            if (mb_strlen($alias) < 4 || mb_strlen($alias) > 22 || preg_match('/[^\w]/', $alias))
+                return -1;
+
+            $citizen->setAlias( "· {$alias}" ); // nbsp
+
+            return 1;
+        }
+        return 0;
     }
 
     public function getSoulpoints(Citizen $citizen): int {

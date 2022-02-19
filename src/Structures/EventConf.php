@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class EventConf extends Conf
 {
+    const EVENT_NAME = 'name';
     const EVENT_PRIORITY = 'priority';
 
     const EVENT_CSS = 'css';

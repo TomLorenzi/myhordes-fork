@@ -85,7 +85,7 @@ class SchedulerCommand extends Command
      * @return int
      * @throws Exception
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $this->execute_clear($input,$output);
         $this->execute_add($input,$output);

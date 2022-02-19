@@ -2,7 +2,7 @@
 {% macro gen_attr(prefix,domain,name,value = null) %}x-{% if prefix is not empty %}{{ prefix }}-{% endif %}{{ domain }}-{{ name }}{% if value is not null %}="{{ value }}"{% endif %}{% endmacro %}
 
 <!-- <editor-fold desc="Item Creator Widget"> -->
-{% macro widget_item_creator(itemPrototypes, prefix = '') %}
+{% macro widget_item_creator(itemPrototypes, prefix = '', allow_all = false) %}
     <div class="lightbox">
         <div class="row">
             <div class="cell rw-12"><label for="{{ _self.gen_id(prefix,'itemwidget','select')}}">{{'Einen Gegenstand erzeugen:'|trans({}, 'admin')}}</label></div>
@@ -10,6 +10,9 @@
         <div class="row-flex">
             <div class="padded cell grow-1 shrink-1">
                 <select id="{{ _self.gen_id(prefix,'itemwidget','select')}}">
+                    {% if allow_all %}
+                    <option title="{{ 'Alle'|trans({}, 'admin') }}" value="all">{{ 'Alle'|trans({}, 'admin') }}</option>
+                    {% endif %}
                     {% for itemPrototype in itemPrototypes %}
                         <option title="{{ itemPrototype.name }}" value="{{itemPrototype.id}}">{{ itemPrototype.label|trans({}, 'items') }}</option>
                     {% endfor %}
@@ -38,7 +41,7 @@
     <script>
         $.html.addEventListenerAll('#{{ _self.gen_id(prefix,'itemwidget','spawn')}}', 'click', function(){
             const number = parseInt(document.getElementById("{{ _self.gen_id(prefix,'itemwidget','number')}}").value);
-            const item = parseInt(document.getElementById('{{ _self.gen_id(prefix,'itemwidget','select')}}').value);
+            const item = document.getElementById('{{ _self.gen_id(prefix,'itemwidget','select')}}').value;
 
             const conf = {
                 poison: document.getElementById('{{ _self.gen_id(prefix,'itemwidget','opt_poison')}}').checked,
@@ -645,6 +648,64 @@
 
             $.ajax.easySend('{{ api_url }}', {
                     target: 'proto', dif: 1, id: parseInt(elem.getAttribute('{{ _self.gen_attr(prefix,'homewidget','home-upgrade-create')}}')), citizen: targets
+                }, () => $.ajax.load(null, '{{ load_url }}', true)
+            );
+        });
+    </script>
+{% endmacro %}
+<!-- </editor-fold> -->
+
+<!-- <editor-fold desc="Alias Manager Widget"> -->
+{% macro widget_alias_control(citizen, prefix = '') %}
+    {# @var citizen \App\Entity\Citizen #}
+    <div class="lightbox">
+        <div class="row">
+            <div class="padded cell rw-12">{{'Bürger-Alias ​​ändern:'|trans({}, 'admin')}}</div>
+        </div>
+        <div class="row-flex">
+            <div class="padded cell grow-1 shrink-1"><label><input id="{{ _self.gen_id(prefix,'aliaswidget','alias-change')}}" type="text" placeholder="{{'Kein Alias ​​angegeben'|trans({}, 'admin')}}" value="{{ citizen.alias[2:] }}" /></label></div>
+            <div class="padded cell grow-0 shrink-0"><button x-control="0"  id="{{ _self.gen_id(prefix,'aliaswidget','set')}}"> <i class="fa fa-hand-point-down"></i><div class="tooltip">{{'Setzen'|trans({}, 'admin')}}</div></button></div>
+            <div class="padded cell grow-0 shrink-0"><button x-control="-1" id="{{ _self.gen_id(prefix,'aliaswidget','take')}}"><i class="fa fa-minus"></i><div class="tooltip">{{'Abziehen'|trans({}, 'admin')}}</div></button></div>
+        </div>
+    </div>
+{% endmacro %}
+{% macro widget_alias_control_js(selector, api_url, load_url, prefix = '') %}
+    <script>
+        $.html.addEventListenerAll('#{{ _self.gen_id(prefix,'aliaswidget','set')}},#{{ _self.gen_id(prefix,'aliaswidget','take')}}','click', function(e,elem){
+            const alias_field = document.getElementById('{{ _self.gen_id(prefix,'aliaswidget','alias-change')}}');
+            let alias = alias_field.value;
+
+            if(parseInt(elem.getAttribute('x-control')) == -1) {
+                alias = null;
+                alias_field.value = null;
+            } else {
+                if (alias.length < 4) {
+                    $.html.error('{{ 'Dein Name muss mindestens { limit } Zeichen umfassen.'|trans({'{{ limit }}': '4'},'login')|e('js') }}');
+                    return;
+                }
+                if (alias.length > 22) {
+                    $.html.error('{{ 'Dein Name kann höchstens { limit } Zeichen umfassen.'|trans({'{{ limit }}': '22'},'login')|e('js') }}');
+                    return;
+                }
+                if (alias.match(/[^\w]/)) {
+                    $.html.error('{{ 'Dein Name kann nur alphanumerische Zeichen enthalten.'|trans({},'login')|e('js') }}');
+                    return;
+                }
+            }
+            
+            let targets = [];
+            document.querySelectorAll('{{ selector|e('js') }}').forEach( element => targets.push(parseInt(element.getAttribute('x-id'))) );
+            if (targets.length === 0) {
+                $.html.error('{{ 'Kein Bürger ausgewählt!'|trans({}, 'admin') }}');
+                return;
+            }
+            if (targets.length > 1) {
+                $.html.error('{{ 'Bitte nicht für mehrere Bürger denselben Alias eingeben!'|trans({}, 'admin') }}');
+                return;
+            }
+
+            $.ajax.easySend('{{ api_url }}', {
+                    alias: alias, targets: targets
                 }, () => $.ajax.load(null, '{{ load_url }}', true)
             );
         });
