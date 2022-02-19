@@ -15,12 +15,16 @@ $.html.addEventListenerAll(".username", "click", function(event){
 
     target.style.width = null;
     if (source.getBoundingClientRect().left + source.offsetWidth + target.offsetWidth > window.innerWidth) {
-    console.log("if");
+
         const temp_left = Math.max(0,source.getBoundingClientRect().left + source.offsetWidth/2 - target.offsetWidth/2);
         if (temp_left + target.offsetWidth > window.innerWidth) {
             target.style.top = (source.getBoundingClientRect().top + document.documentElement.scrollTop + source.offsetHeight) + "px";
-            target.style.left = "0px";
-            target.style.width = '100%';
+            if ( window.innerWidth < target.offsetWidth ) {
+                target.style.left = "0px";
+                target.style.width = '100%';
+            } else
+                target.style.left = Math.floor(window.innerWidth - target.offsetWidth) + 'px';
+
         } else {
             target.style.top = (source.getBoundingClientRect().top + document.documentElement.scrollTop + source.offsetHeight) + "px";
             target.style.left = temp_left + "px";
