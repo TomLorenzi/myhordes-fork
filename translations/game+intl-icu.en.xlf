@@ -26381,5 +26381,15 @@
         <target>Choosing a good profession is of paramount importance: in fact, without a profession you can't survive. What will you do? The community you are joining needs all kinds of people and the most important factor affecting how long you survive is the amount of teamwork going into the town...</target>
       </segment>
     </unit>
+    <unit id="FwB1Mvm" name="Mit dem richtigen Schlüssel kannst du diese Tür öffnen.">
+      <notes>
+        <note category="german">Mit dem richtigen Schlüssel kannst du diese Tür öffnen.</note>
+        <note category="from">twig:///templates/ajax/game/beyond/ruin.html.twig</note>
+      </notes>
+      <segment>
+        <source>Mit dem richtigen Schlüssel kannst du diese Tür öffnen.</source>
+        <target>You can open this door if you have the right key.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

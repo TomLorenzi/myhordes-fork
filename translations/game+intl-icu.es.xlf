@@ -26252,7 +26252,6 @@
       <notes>
         <note category="german">Diese Aktion kannst du erst morgen erneut versuchen.</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Diese Aktion kannst du erst morgen erneut versuchen.</source>
@@ -26263,7 +26262,6 @@
       <notes>
         <note category="german">Dieser Bürger wurde aus der Gemeinschaft verbannt.</note>
         <note category="from">twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_omniscience.html.twig;twig:///templates/ajax/game/town/citizen_vote.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Dieser Bürger wurde aus der Gemeinschaft verbannt.</source>
@@ -26288,6 +26286,17 @@
       <segment>
         <source>Du suchst dir besser eine Beschäftigung aus, denn es gilt: Ohne Job, kein Leben. Wozu bist du denn sonst gut? Die Gemeinschaft, der du angehören wirst, braucht jede Art von Personen. Die Zusammenarbeit mit den anderen wird zweifelsohne deine Überlebensdauer entscheidend beeinflussen...</source>
         <target>Más te vale elegir un buen oficio. Si no eres útil a la comunidad, ¿entonces para qué sirves? El pueblo require de gente con habilidades. El trabajo colectivo determinará en gran parte tu supervivencia...</target>
+      </segment>
+    </unit>
+    <unit id="FwB1Mvm" name="Mit dem richtigen Schlüssel kannst du diese Tür öffnen.">
+      <notes>
+        <note category="german">Mit dem richtigen Schlüssel kannst du diese Tür öffnen.</note>
+        <note category="from">twig:///templates/ajax/game/beyond/ruin.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Mit dem richtigen Schlüssel kannst du diese Tür öffnen.</source>
+        <target>Mit dem richtigen Schlüssel kannst du diese Tür öffnen.</target>
       </segment>
     </unit>
   </file>
