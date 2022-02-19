@@ -1144,8 +1144,8 @@
     <unit id="qrK4heb" name="Infos">
       <notes>
         <note category="german">Infos</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
+        <note category="state">new</note>
       </notes>
       <segment>
         <source>Infos</source>
@@ -1715,7 +1715,7 @@
     <unit id="1xiOB2G" name="Seele suchen">
       <notes>
         <note category="german">Seele suchen</note>
-        <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/me.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Seele suchen</source>
@@ -2405,8 +2405,8 @@
     <unit id="J6NchKS" name="Pos.">
       <notes>
         <note category="german">Pos.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
+        <note category="state">new</note>
       </notes>
       <segment>
         <source>Pos.</source>
@@ -3376,8 +3376,8 @@
     <unit id="GOqvgvj" name="BBCode">
       <notes>
         <note category="german">BBCode</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
+        <note category="state">new</note>
       </notes>
       <segment>
         <source>BBCode</source>

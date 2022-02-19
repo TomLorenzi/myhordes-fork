@@ -1594,8 +1594,8 @@
     <unit id="MwGqzqF" name="Altar">
       <notes>
         <note category="german">Altar</note>
-        <note category="state">new</note>
         <note category="from">db://BuildingPrototype</note>
+        <note category="state">new</note>
       </notes>
       <segment>
         <source>Altar</source>
@@ -2085,8 +2085,8 @@
     <unit id="Pnjrt1t" name="Hammam">
       <notes>
         <note category="german">Hammam</note>
-        <note category="state">new</note>
         <note category="from">db://BuildingPrototype</note>
+        <note category="state">new</note>
       </notes>
       <segment>
         <source>Hammam</source>

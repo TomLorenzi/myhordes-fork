@@ -784,8 +784,8 @@
     <unit id="VKDowX6" name="Error">
       <notes>
         <note category="german">Fehler</note>
-        <note category="state">new</note>
         <note category="from">twig:///vendor/symfony/twig-bridge/Resources/views/Form/bootstrap_4_layout.html.twig</note>
+        <note category="state">new</note>
       </notes>
       <segment>
         <source>Error</source>
