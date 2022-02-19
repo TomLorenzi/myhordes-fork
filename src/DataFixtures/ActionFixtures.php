@@ -325,6 +325,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'plus_4ap'     => [ 'ap' => 'plus_4' ],
             'plus_2ap'     => [ 'ap' => 'plus_2' ],
             'plus_2ap_7'   => [ 'ap' => 'plus_2_7' ],
+            'to_ap5'       => [ 'ap' => 'to_5' ],
             'just_ap6'     => [ 'ap' => 'to_max_plus_0' ],
             'just_ap7'     => [ 'ap' => 'to_max_plus_1' ],
             'just_ap8'     => [ 'ap' => 'to_max_plus_2' ],
@@ -394,6 +395,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
         'results' => [
             'ap' => [
+                'to_5'          => [ 'max' => true,  'num' => 5, 'bonus' => 5 ],
                 'to_max_plus_0' => [ 'max' => true,  'num' => 0 ],
                 'to_max_plus_1' => [ 'max' => true,  'num' => 1 ],
                 'to_max_plus_2' => [ 'max' => true,  'num' => 2 ],
@@ -629,7 +631,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'cyanide'    => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'not_before_day_2' ], 'result' => [ 'contaminated_zone_infect', 'cyanide', 'consume_item' ] ],
 
             'bandage' => [ 'label' => 'Verbinden', 'at00' => true, 'meta' => [ 'is_wounded', 'is_not_bandaged' ], 'result' => [ 'heal_wound', 'consume_item', 'add_bandage' ], 'message' => 'So, zur Desinfektion nur noch draufspucken und hopp: Sieht wie neu aus!' ],
-            'emt'     => [ 'label' => 'Einsetzen', 'at00' => true, 'meta' => [ 'is_not_wounded' ], 'result' => [ 'just_ap6', 'inflict_wound', ['item' => [ 'consume' => false, 'morph' => 'sport_elec_empty_#00' ]], ['picto' => ['r_maso_#00']] ], 'message' => 'Es geht doch nichts über einen schönen Stromstoß in die Wirbelsäule, um so richtig wach zu werden! Aber irgendwie riecht es jetzt hier nach verbranntem Fleisch...' ],
+            'emt'     => [ 'label' => 'Einsetzen', 'at00' => true, 'meta' => [ 'is_not_wounded' ], 'result' => [ 'to_ap5', 'inflict_wound', ['item' => [ 'consume' => false, 'morph' => 'sport_elec_empty_#00' ]], ['picto' => ['r_maso_#00']] ], 'message' => 'Es geht doch nichts über einen schönen Stromstoß in die Wirbelsäule, um so richtig wach zu werden! Aber irgendwie riecht es jetzt hier nach verbranntem Fleisch...' ],
 
             'drug_rand_1'  => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1' ], 'result' => [ 'contaminated_zone_infect', 'consume_item', ['picto' => ['r_cobaye_#00']], ['group' => [
                 [ ['drug_any', 'just_ap6', ['message' => [ 'text_key' => 'drug_normal_ap' ]]], 119 ],
