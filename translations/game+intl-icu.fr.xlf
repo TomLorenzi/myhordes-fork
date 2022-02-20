@@ -10550,7 +10550,7 @@
       </notes>
       <segment>
         <source>Diese Fähigkeit wurde noch nicht freigeschaltet...</source>
-        <target>Capacité non-débloquée...</target>
+        <target>Capacité non débloquée...</target>
       </segment>
     </unit>
     <unit id="pV4nX2l" name="Fähigkeit">
