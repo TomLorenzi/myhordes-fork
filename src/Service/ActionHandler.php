@@ -756,9 +756,9 @@ class ActionHandler
             if ($ap = $result->getAp()) {
                 $old_ap = $citizen->getAp();
                 if ($ap->getMax()) {
-                    $to = $ap->getBonus() ?: ($this->citizen_handler->getMaxAP($citizen) + $ap->getAp());
+                    $to = $this->citizen_handler->getMaxAP($citizen) + $ap->getAp();
                     $this->citizen_handler->setAP( $citizen, false, max( $old_ap, $to ), null );
-                } else $this->citizen_handler->setAP( $citizen, true, $ap->getAp(), $ap->getAp() < 0 ? null : $ap->getBonus() );
+                } else $this->citizen_handler->setAP( $citizen, true, $ap->getAp(), $ap->getAp() < 0 ? null :$ap->getBonus() );
 
                 $execute_info_cache['ap'] += ( $citizen->getAp() - $old_ap );
                 $tags[] = 'ap-up';
