@@ -11,7 +11,6 @@ use Doctrine\ORM\NonUniqueResultException;
 /**
  * @method ItemPrototype|null find($id, $lockMode = null, $lockVersion = null)
  * @method ItemPrototype|null findOneBy(array $criteria, array $orderBy = null)
- * @method ItemPrototype[]    findAll()
  * @method ItemPrototype[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
 class ItemPrototypeRepository extends ServiceEntityRepository
@@ -34,8 +33,8 @@ class ItemPrototypeRepository extends ServiceEntityRepository
         }
     }
 
-    public function findAll() {
-        return $this->findBy(array(), array("id" => "ASC"));
+    public function findAll(): array {
+        return $this->findBy([], array("id" => "ASC"));
     }
 
 
