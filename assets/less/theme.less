@@ -890,7 +890,7 @@ div.game-menu-area {
 
   &>div.game-dropdown {
     &.hidden { pointer-events: none; opacity: 0; }
-    position: relative; z-index: 11; width: 100%; top: 0; display: block; background: @myhordes-panel-box-bg;
+    position: absolute; z-index: 11; width: 100%; top: 37px; display: block; background: @myhordes-panel-box-bg;
     box-shadow: 0 0 5px black; transition: height 0.4s ease, opacity 0.4s ease; overflow: hidden;
     &>ul.text-menu {
       padding: 10px; margin: 0;
@@ -905,7 +905,7 @@ div.game-menu-area {
 
   &>div.game-bar {
    width: 100%; height: 32px; background: url("../img/background/bg_menu.jpg");
-    box-shadow: 0 0 5px black; position: relative; z-index: 20;
+    box-shadow: 0 0 5px black; position: relative;
 
     &>div.header-stats {
         position: absolute;
@@ -933,7 +933,13 @@ div.game-menu-area {
 
     &>div.ulcont {
       display: inline-block; padding: 0; margin: 0; float: right;
-      position: relative; z-index: 1;
+      position: relative; z-index: 20;
+
+      &.fix-left {
+        position: absolute; top: 100%; left: 0; float: none; margin-top: 12px !important; margin-left: 10px;
+        &>div { display: inline-block; &+div { margin-left: 4px; } }
+        z-index: 1;
+      }
     }
 
     &>ul,&>div.ulcont {
@@ -944,7 +950,7 @@ div.game-menu-area {
         background: url("../img/background/menu_metalbg.png") 0 0 repeat-x; height: 32px; padding-left: 32px; padding-right: 6px;
         position: relative;
         &:before { position: absolute; left: 0; top: -28px; height: 84px; width: 43px; pointer-events: none; content: " "; background: url("../img/game-bar/cog0.png") 0 0 no-repeat; }
-        &:after  { position: absolute; right: -43px; top: -14px; height: 53px; width: 57px; pointer-events: none; content: " "; background: url("../img/game-bar/cog1.png") 0 0 no-repeat; }
+        &:after  { position: absolute; right: -43px; top: -14px; height: 53px; width: 57px; pointer-events: none; z-index: 20; content: " "; background: url("../img/game-bar/cog1.png") 0 0 no-repeat; }
         &>li {
           padding: 2px 8px; background: rgba(0,0,0,0.3); font-weight: bold; color: @myhordes-smalltext;
           box-shadow: inset 0 0 4px rgba(0,0,0,0.6); border-radius: 4px; border: 1px solid rgba(0,0,0,0.3);
@@ -952,12 +958,12 @@ div.game-menu-area {
           &:hover {color: white}
           &.burger-button { margin-top: 2px; position: relative; left: -20px }
           &.forum,&.town-dash,&.town-news,&.soul,&.help {
-            filter: brightness(100%); -webkit-filter: brightness(100%); -moz-filter: brightness(100%); -o-filter: brightness(100%); -ms-filter: brightness(100%);
+            filter: brightness(100%);
             width: 84px; margin-top: 7px; text-transform:uppercase; font-size: 1.0rem;
             font-weight: bold; color: #FFFFCA; text-align: center;
             position: relative;
             &:hover {
-            filter: brightness(140%); -webkit-filter: brightness(140%); -moz-filter: brightness(140%); -o-filter: brightness(140%); -ms-filter: brightness(140%);
+            filter: brightness(140%);
             color: #FFFFCA;
             }
             &:after {
@@ -1015,7 +1021,7 @@ div.game-menu-area {
             b.red { color: #ff5f5f
             }
             list-style: none; color: @myhordes-smalltext; padding: 0;
-            &:before { line-height: 0; vertical-align: top; margin-right: 4px; }
+            &:before { line-height: 0; vertical-align: top; margin-right: 4px; display: inline-block; width: 16px; }
           }
         }
       }
@@ -1054,37 +1060,6 @@ div.game-menu-area {
               height: 50px !important;
             }
             max-width: 165px;
-            .ghoul-hunger-container {
-              width: 150px;
-              display: inline-block;
-              height: 0;
-              overflow: visible;
-              .ghoul-hunger-background {
-                position: absolute;
-                left: 0;
-                right: 0;
-                height: 6px;
-                top: 20px;
-                background: #582921;
-                outline: 1px solid #ba9976;
-                margin: 0 3px 0 5px;
-              }
-              .ghoul-hunger-bar {
-                position: absolute;
-                left: 0;
-                height: 6px;
-                top: 20px;
-                background: #696486;
-                margin: 0 3px 0 5px;
-                &.warning { background: #bb6765; }
-                border-top: 1px inset black;
-              }
-              .ghoul-hunger-indicator {
-                position: absolute; background: red; height: 6px; width: 2px; top: 20px; margin: 0 2px;
-              }
-
-            }
-            .ghoul-message { text-transform: uppercase; font-size: 0.7rem; display: block; color: #ff5f5f; margin-top: 5px; }
           }
         }
 
@@ -1098,6 +1073,9 @@ div.game-menu-area {
             }
           }
           &:not(.expanded) .more { display: none }
+          &.fix-bottom {
+            position: absolute !important; top: 100%; right: 0; float: none;
+          }
         }
 
         &.rucksack_status_union {
@@ -1115,9 +1093,9 @@ div.game-menu-area {
             }
           }
           &.status {
-            margin-right: 0; margin-left: 24px;
+            margin-right: 0; margin-left: 32px;
             &:before {
-              content: " "; z-index: 1; position: absolute; top: 13px; left: -34px; width: 40px; height: 33px; pointer-events: none;
+              content: " "; z-index: 20; position: absolute; top: 13px; left: -34px; width: 40px; height: 33px; pointer-events: none;
               background: url("../img/game-bar/cog2.png") 0 0 no-repeat;
             }
           }
@@ -1136,6 +1114,44 @@ div.game-menu-area {
     }
   }
 }
+
+.ghoul-hunger-container {
+  width: 150px;
+  display: inline-block;
+  height: 0;
+  overflow: visible;
+  .ghoul-hunger-background {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 6px;
+    top: 20px;
+    background: #582921;
+    outline: 1px solid #ba9976;
+    margin: 0 3px 0 5px;
+  }
+  .ghoul-hunger-bar {
+    position: absolute;
+    left: 0;
+    height: 6px;
+    top: 20px;
+    background: #696486;
+    margin: 0 3px 0 5px;
+    &.warning { background: #bb6765; }
+    border-top: 1px inset black;
+  }
+  .ghoul-hunger-indicator {
+    position: absolute; background: red; height: 6px; width: 2px; top: 20px; margin: 0 2px;
+  }
+
+  &.in-tooltip {
+    display: block;
+    height: 12px;
+    position: relative;
+    .ghoul-hunger-background, .ghoul-hunger-bar, .ghoul-hunger-indicator { top: 3px; }
+  }
+}
+.ghoul-message { text-transform: uppercase; font-size: 0.7rem; display: block; color: #ff5f5f; margin-top: 5px; }
 
 .icon_div(@url,@align,@left) {
   display: inline-block;

@@ -55,7 +55,7 @@ window.addEventListener('popstate', function(event) {
 
 const resize_game_menu = function() {
     let game_menu = document.querySelector('#gma');
-    let game_menu_elems = document.querySelectorAll('#gma>div.game-bar>ul:not(.clock)');
+    let game_menu_elems = document.querySelectorAll('#gma>div.game-bar>*:not(.clock)');
     let game_menu_burger = document.querySelector('#gma>div.game-bar>ul.text-menu>li.burger-button');
     let game_menu_hide = document.querySelectorAll('#gma>div.game-bar>ul.text-menu>li:not(.burger-button)');
 
@@ -84,6 +84,32 @@ const resize_game_menu = function() {
             dropdown.style.height = '0px'
         }
     }
+
+    let ap_counter = document.querySelector('#gma>div.game-bar>div.ulcont');
+    if (ap_counter) {
+        ap_counter.classList.remove('fix-left');
+        if (ap_counter.offsetLeft < 120 || ap_counter.offsetTop > 10)
+            ap_counter.classList.add('fix-left');
+    }
+
+    let rucksack = document.querySelector('#gma>div.game-bar>ul.rucksack');
+    let status = document.querySelector('#gma>div.game-bar>ul.status');
+    let ghoul = document.querySelector('#gma>div.game-bar>ul.status>.status-ghoul');
+    if (rucksack && status) {
+        rucksack.classList.remove('fix-bottom');
+        if (ghoul) {
+            ghoul.classList.remove('hidden');
+            document.querySelectorAll('#gma .alt-hunger-bar').forEach( e => e.classList.add('hidden') );
+        }
+        if (status.offsetLeft < 156 || status.offsetTop > 10) {
+            rucksack.classList.add('fix-bottom');
+            ap_counter.classList.add('fix-left');
+            if (ghoul) {
+                ghoul.classList.add('hidden');
+                document.querySelectorAll('#gma .alt-hunger-bar').forEach( e => e.classList.remove('hidden') );
+            }
+        }
+    }
 };
 
 const resize_map = function() {
@@ -99,3 +125,4 @@ const resizer = function() {
     //console.log(game_menu.offsetWidth, content_width, game_menu.offsetWidth - content_width);
 };
 window.addEventListener("resize", resizer);
+window.addEventListener('load', resizer, {once: true});
