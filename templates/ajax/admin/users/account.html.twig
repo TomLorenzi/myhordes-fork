@@ -100,9 +100,7 @@
                                         <optgroup label="{{ 'Sicherheit'|trans({},'admin') }}">
                                             <option value="{{ url('admin_users_account_manage', {action: 'initiate_pw_reset', id: user.id}) }}">{{ 'Passwort-Reset auslösen'|trans({},'admin') }}</option>
                                             <option value="{{ url('admin_users_account_manage', {action: 'enforce_pw_reset', id: user.id}) }}">{{ 'Passwort-Reset erzwingen'|trans({},'admin') }}</option>
-                                            {% if user.eternalID is null %}
-                                                <option value="{{ url('admin_users_account_manage', {action: 'overwrite_pw', id: user.id}) }}" x-query="{{ 'Neues Passwort eingeben.'|trans({},'admin') }}">{{ 'Neues Passwort setzen'|trans({},'admin') }}</option>
-                                            {% endif %}
+                                            <option value="{{ url('admin_users_account_manage', {action: 'overwrite_pw', id: user.id}) }}" x-query="{{ 'Neues Passwort eingeben.'|trans({},'admin') }}">{{ 'Neues Passwort setzen'|trans({},'admin') }}</option>
                                         </optgroup>
                                         <optgroup label="{{ 'Berechtigungen'|trans({},'admin') }}">
                                             {% for role in user_handler.admin_validRoles %}

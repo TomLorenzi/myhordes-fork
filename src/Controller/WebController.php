@@ -230,6 +230,9 @@ class WebController extends CustomAbstractController
     }
 
     private function image_output($data, string $name, string $ext): Response {
+        // HEIC images should be referred to as AVIF towards the browser
+        if ($ext === 'heic') $ext = 'avif';
+
         $response = new Response(stream_get_contents( $data ));
         $disposition = HeaderUtils::makeDisposition(
             HeaderUtils::DISPOSITION_INLINE,

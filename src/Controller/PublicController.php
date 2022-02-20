@@ -238,6 +238,7 @@ class PublicController extends CustomAbstractController
             if($user && $error === UserFactory::ErrorNone) {
                 try {
                     $this->entity_manager->persist($user);
+                    $this->entity_manager->persist($user->getPendingValidation());
                     $this->entity_manager->flush();
                 } catch (Exception $e) {
                     return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
