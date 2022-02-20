@@ -15,7 +15,7 @@ class GameFactoryTest extends KernelTestCase
         ]);
 
         // (2) use static::getContainer() to access the service container
-        $container = self::$container;
+        $container = static::getContainer();
 
         // (3) run some service & test the result
         /** @var GameFactory $gameFactory */
