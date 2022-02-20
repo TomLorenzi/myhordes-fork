@@ -1743,7 +1743,7 @@ class TownController extends InventoryAwareController
 
                 if ($last !== null) {
                     if ($last[0] !== $x && $last[1] !== $y) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-                    if ($last[0] === $x && $last[1] === $y) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+                    if ($last[0] === $x && $last[1] === $y) continue;
                     $ap += (abs($last[0] - $x) + abs($last[1] - $y));
                 }
 
