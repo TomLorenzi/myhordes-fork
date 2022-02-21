@@ -19,7 +19,7 @@
                             <div class="padded cell rw-5">{{ 'Spieler'|trans({},'soul') }}</div>
                             <div class="padded cell rw-5 hide-md">{{ 'Seelenpunkte'|trans({},'soul') }}</div>
                         </div>
-                        {% for entry in friends|sort((a,b) => (app.user in b.friends) <=> (app.user in a.friends) ?: a.name|lower <=> b.name|lower) %}
+                        {% for entry in friends|sort((a,b) => (user in b.friends) <=> (user in a.friends) ?: a.name|lower <=> b.name|lower) %}
                             <div class="row-flex wrap">
                                 <div class="padded cell rw-1 center">
                                     {% if app.user in entry.friends %}
