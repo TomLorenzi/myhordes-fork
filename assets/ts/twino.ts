@@ -1,5 +1,9 @@
 interface emoteResolver { (name: string): [string|null,string] }
 
+import {Const, Global} from "./defaults";
+declare var c: Const;
+declare var $: Global;
+
 class TwinoClientOptions {
     public readonly autoLinks?: boolean;
 }
@@ -365,7 +369,33 @@ class TwinoConverterToBlocks {
             case '@':
                 let id = match.nodeInfo() ? match.nodeInfo() : 'auto';
                 let name = match.nodeContent() ? match.nodeContent() : ('user #' + id)
+                // Ajax request here, to add the username class & co
+                if ($.html.twinoParser.Request !== null) {
+                    clearTimeout($.html.twinoParser.Request);
+                }
+
                 blocks.push( new TwinoInterimBlock( name, 'div', 'cref', [['x-a',id]]) );
+                $.html.twinoParser.Request = setTimeout(function(){
+                    if ($.html.twinoParser.AjaxUrl !== '') {
+                        let elem = document.querySelector('#' + $.html.twinoParser.textEditor + ' div.cref[x-a="' + id + '"]');
+                        elem.textContent = "...";
+                        $.ajax.easySend($.html.twinoParser.AjaxUrl, {
+                            'name': id === 'auto' ? name : id
+                        }, function(data){
+                            data.success;
+                            if ((data as any).exists) {
+                                elem.classList.add("username");
+                                elem.setAttribute("x-user-id", (data as any).id);
+                                elem.textContent = (data as any).displayName;
+                                $.html.handleUserPopup(<HTMLElement>elem);
+                            } else {
+                                elem.textContent = name;
+                            }
+                            clearTimeout($.html.twinoParser.Request);
+                            $.html.twinoParser.Request = null;
+                        });
+                    }
+                }, 1000);
                 break;
             default: blocks.push( new TwinoInterimBlock( match.raw() ) ); break;
         }
@@ -510,6 +540,9 @@ export default class TwinoAlikeParser {
 
     public readonly OpModeRaw   = 0x1;
     public readonly OpModeQuote = 0x2;
+    public AjaxUrl = "";
+    public Request = null;
+    public textEditor = null;
 
     private static lego(blocks: Array<TwinoInterimBlock>, elem: HTMLElement): void {
         for (let i = 0; i < blocks.length; i++) {
