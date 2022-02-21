@@ -22734,7 +22734,7 @@
       </notes>
       <segment>
         <source>Du hast keine Seelenpunkte gewonnen (am ersten Tag gestorben).</source>
-        <target>Du hast keine Seelenpunkte gewonnen (am ersten Tag gestorben).</target>
+        <target>You haven't earned any points (died on day 1).</target>
       </segment>
     </unit>
     <unit id="5kMswLn">
