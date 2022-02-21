@@ -375,8 +375,8 @@ class PublicController extends CustomAbstractController
                     } catch (Exception $e) {
                         return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
                     }
-                    $token = new UsernamePasswordToken($user, null, 'main', $user->getRoles());
-                    $this->get('security.token_storage')->setToken($token);
+                    $token = new UsernamePasswordToken($user, 'main', $user->getRoles());
+                    $this->container->get('security.token_storage')->setToken($token);
 
                     return AjaxResponse::success( 'validation');
 
@@ -718,8 +718,8 @@ class PublicController extends CustomAbstractController
             if ($factory->validateUser( $user, $parser->trimmed('validate'), $error )) {
 
                 if ($this->getUser()) {
-                    $token = new UsernamePasswordToken($user, null, 'main', $user->getRoles());
-                    $this->get('security.token_storage')->setToken($token);
+                    $token = new UsernamePasswordToken($user, 'main', $user->getRoles());
+                    $this->container->get('security.token_storage')->setToken($token);
                 }
 
                 return new AjaxResponse( ['success' => true] );
