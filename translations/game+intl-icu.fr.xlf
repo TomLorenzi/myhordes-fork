@@ -11248,10 +11248,7 @@
         <source>Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
                             zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
                             werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</source>
-        <target>Les Points de Chantiers peuvent être utilisés à l'Atelier et pour la construction des Chantiers,
-                            où ils comptent comme des points d'action. Si possible, les points de chantiers sont toujours
-                            utilisés à la place des points d'action. Gardez à l'esprit que les points de
-                            chantiers ne peuvent pas être utilisés lorsque vous êtes épuisé !</target>
+        <target>Ces points sont exclusivement destinés à la construction des chantiers dans la ville.</target>
       </segment>
     </unit>
     <unit id="swizrYC" name="Erschöpft">
