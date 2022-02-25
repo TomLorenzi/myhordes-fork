@@ -8430,7 +8430,7 @@
       </notes>
       <segment>
         <source>{citizen} hat folgendes hergestellt: {list2}; dabei wurden folgende Gegenstände verbraucht: {list1}.</source>
-        <target>{citizen} a produit {list2} à l'Atelier (à partir de : {list1}).</target>
+        <target>{citizen} a produit {list2} à l'Atelier (à partir de {list1}).</target>
       </segment>
     </unit>
     <unit id="6ymR84s">
@@ -9800,7 +9800,7 @@
       </notes>
       <segment>
         <source>Meine Nachrichten lesen.</source>
-        <target>Lire mon courrier.</target>
+        <target>Lire mon courrier</target>
       </segment>
     </unit>
     <unit id="bYjLN7a" name="Draußen">
@@ -10550,7 +10550,7 @@
       </notes>
       <segment>
         <source>Diese Fähigkeit wurde noch nicht freigeschaltet...</source>
-        <target>Capacité non-débloquée...</target>
+        <target>Capacité non débloquée...</target>
       </segment>
     </unit>
     <unit id="pV4nX2l" name="Fähigkeit">
@@ -11248,10 +11248,7 @@
         <source>Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
                             zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
                             werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</source>
-        <target>Les Points de Chantiers peuvent être utilisés à l'Atelier et pour la construction des Chantiers,
-                            où ils comptent comme des points d'action. Si possible, les points de chantiers sont toujours
-                            utilisés à la place des points d'action. Gardez à l'esprit que les points de
-                            chantiers ne peuvent pas être utilisés lorsque vous êtes épuisé !</target>
+        <target>Ces points sont exclusivement destinés à la construction des chantiers dans la ville.</target>
       </segment>
     </unit>
     <unit id="swizrYC" name="Erschöpft">
@@ -15040,7 +15037,7 @@
       </notes>
       <segment>
         <source>Die letzten Nachrichten meiner Koalition lesen.</source>
-        <target>Lire les derniers messages de ma coalition.</target>
+        <target>Lire les derniers messages de ma coalition</target>
       </segment>
     </unit>
     <unit id="8DkmL.j" name="Dieses Bauprojekt wurde bereits abgeschlossen.">
