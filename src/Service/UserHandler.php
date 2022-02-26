@@ -263,7 +263,7 @@ class UserHandler
         return $points;
     }
 
-    public function computePictoUnlocks(User $user) {
+    public function computePictoUnlocks(User $user): void {
 
         $cache = [];
 

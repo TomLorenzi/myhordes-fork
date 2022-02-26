@@ -233,7 +233,9 @@ class DeathHandler
             $this->picto_handler->give_validated_picto($citizen, $pictoDeath);
         }
 
-        $sp = $this->citizen_handler->getSoulpoints($citizen);
+        if (!$this->conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_FEATURE_GIVE_SOULPOINTS, true))
+            $sp = 0;
+        else $sp = $this->citizen_handler->getSoulpoints($citizen);
         
         if($sp > 0)
             $this->picto_handler->give_validated_picto($citizen, "r_ptame_#00", $sp);
