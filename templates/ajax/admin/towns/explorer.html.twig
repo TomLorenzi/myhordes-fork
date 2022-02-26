@@ -57,6 +57,8 @@
                         {{ _self.valuelist('Typ'|trans({},'admin'),        town.type.label|trans({},'game')) }}
                         {{ _self.valuelist('Ersteller'|trans({},'admin'),  town.creator != null ? town.creator.name : '--') }}
                         {{ _self.valuelist('Population'|trans({},'admin'), town.population) }}
+                        {{ _self.valuelist('Bürger'|trans({},'admin'),     town.citizens|length) }}
+                        {{ _self.valuelist('Koalitionen'|trans({},'admin'),town.coalizedCitizenCount) }}
                         {{ _self.valuelist('Saison'|trans({},'admin'),     town.season ? town.season.number : '--') }}
                         {{ _self.valuelist('Tag'|trans({},'admin'),        town.day) }}
                         {{ _self.valuelist('Offen'|trans({},'admin'),      town.open ? (town.password ? 'Passwort-geschützt'|trans({},'admin') : true) : false ) }}

@@ -15821,7 +15821,7 @@
     <unit id="JAkgM4Z" name="Kleine Koalitionen">
       <notes>
         <note category="german">Kleine Koalitionen</note>
-        <note category="from">twig:///templates/ajax/soul/coalitions.html.twig</note>
+        <note category="from">twig:///templates/ajax/ghost/intro.html.twig;twig:///templates/ajax/soul/coalitions.html.twig</note>
       </notes>
       <segment>
         <source>Kleine Koalitionen</source>
@@ -26297,6 +26297,17 @@
       <segment>
         <source>Mit dem richtigen Schlüssel kannst du diese Tür öffnen.</source>
         <target>Mit dem richtigen Schlüssel kannst du diese Tür öffnen.</target>
+      </segment>
+    </unit>
+    <unit id="4j6vPUP">
+      <notes>
+        <note category="german">Gibt an, wie viele Bürger diese Stadt gemeinsam mit einer Koalition betreten haben. Es werden sowohl Spieler gezählt die automatisch mit ihrer Koalition beitreten als auch solche, die manuell anderen Spielern aus ihrer Koalition folgen.</note>
+        <note category="from">twig:///templates/ajax/ghost/intro.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Gibt an, wie viele Bürger diese Stadt gemeinsam mit einer Koalition betreten haben. Es werden sowohl Spieler gezählt die automatisch mit ihrer Koalition beitreten als auch solche, die manuell anderen Spielern aus ihrer Koalition folgen.</source>
+        <target>Gibt an, wie viele Bürger diese Stadt gemeinsam mit einer Koalition betreten haben. Es werden sowohl Spieler gezählt die automatisch mit ihrer Koalition beitreten als auch solche, die manuell anderen Spielern aus ihrer Koalition folgen.</target>
       </segment>
     </unit>
   </file>

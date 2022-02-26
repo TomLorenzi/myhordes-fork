@@ -563,13 +563,23 @@ class GameFactory
                 ->setPrototype( $this->entity_manager->getRepository( CitizenHomePrototype::class )->findOneBy(['level' => 0]) )
             ;
 
-            $citizen = new Citizen();
+            $joining_user->addCitizen( $citizen = new Citizen() );
             $citizen->setUser( $joining_user )
                 ->setTown( $town )
                 ->setInventory( new Inventory() )
                 ->setHome( $home )
                 ->setCauseOfDeath( $this->entity_manager->getRepository( CauseOfDeath::class )->findOneBy( ['ref' => CauseOfDeath::Unknown] ) )
                 ->setHasSeenGazette( true );
+
+            // Check for other coalition members
+            foreach ($this->user_handler->getAllOtherCoalitionMembers( $joining_user ) as $coa_member) {
+                $coa_citizen = $coa_member->getCitizenFor($town);
+                if ($coa_citizen) {
+                    $this->entity_manager->persist( $coa_citizen->setCoalized(true) );
+                    $citizen->setCoalized( true );
+                }
+            }
+
             (new Inventory())->setCitizen( $citizen );
             $this->citizen_handler->inflictStatus( $citizen, 'clean' );
 

@@ -2857,5 +2857,11 @@
         <target>Stadt-Event</target>
       </segment>
     </unit>
+    <unit id="JSVSGLb" name="Koalitionen">
+      <segment>
+        <source>Koalitionen</source>
+        <target>Koalitionen</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

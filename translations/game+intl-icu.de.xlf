@@ -16535,5 +16535,11 @@
         <target>Mit dem richtigen Schlüssel kannst du diese Tür öffnen.</target>
       </segment>
     </unit>
+    <unit id="4j6vPUP">
+      <segment>
+        <source>Gibt an, wie viele Bürger diese Stadt gemeinsam mit einer Koalition betreten haben. Es werden sowohl Spieler gezählt die automatisch mit ihrer Koalition beitreten als auch solche, die manuell anderen Spielern aus ihrer Koalition folgen.</source>
+        <target>Gibt an, wie viele Bürger diese Stadt gemeinsam mit einer Koalition betreten haben. Es werden sowohl Spieler gezählt die automatisch mit ihrer Koalition beitreten als auch solche, die manuell anderen Spielern aus ihrer Koalition folgen.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

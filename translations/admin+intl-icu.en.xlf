@@ -4566,5 +4566,15 @@
         <target>Town Event</target>
       </segment>
     </unit>
+    <unit id="JSVSGLb" name="Koalitionen">
+      <notes>
+        <note category="german">Koalitionen</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Koalitionen</source>
+        <target>Coalitions</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

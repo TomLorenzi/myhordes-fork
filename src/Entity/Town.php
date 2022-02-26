@@ -598,6 +598,13 @@ class Town
         return false;
     }
 
+    public function getCoalizedCitizenCount(): int {
+        $c = 0;
+        foreach ($this->getCitizens() as $citizen)
+            if ($citizen->getCoalized()) $c++;
+        return $c;
+    }
+
     /**
      * @return Collection|CitizenWatch[]
      */
