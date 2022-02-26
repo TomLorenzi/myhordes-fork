@@ -61,9 +61,9 @@
                 <div class="row">
                     <div class="cell rw-12 right">
                         {% if not app.user|related(user,constant('App\\Entity\\SocialRelation::SocialRelationTypeBlock')) %}
-                            <a class="link inline small" x-action="block_user">{{ 'Spieler blockieren'|trans({'{user}': user.name},'global') }}</a>
+                            <a class="link inline small" x-friend-id="{{ user.id }}" x-action="block_user">{{ 'Spieler blockieren'|trans({'{user}': user.name},'global') }}</a>
                         {% else %}
-                            <a class="link inline small" x-action="unblock_user">{{ 'Blockade aufheben'|trans({'{user}': user.name},'global') }}</a>
+                            <a class="link inline small" x-friend-id="{{ user.id }}" x-action="unblock_user">{{ 'Blockade aufheben'|trans({'{user}': user.name},'global') }}</a>
                         {% endif %}
                     </div>
                 </div>
@@ -110,8 +110,28 @@
     {{ include('ajax/flash.html.twig') }}
 
     <script>
+        var addActions = function(user_id, target, source){
+            $.html.addEventListenerAll('a[x-action="block_user"]','click',(e,elem) => {
+                e.preventDefault();
+                if (confirm(
+                    '{{ 'Wenn du diesen Spieler blockierst, kann er dir keine neuen Nachrichten schicken. Werdet ihr beide von einer dritten Person in eine Gruppennachricht hinzugefügt, so werden Beiträge des blockierten Spielers standartmäßig für dich versteckt.'|trans({},'global')|e('js') }}' +
+                    '\n\n{{ 'Möchtest du fortfahren?'|trans({},'global')|e('js') }}'
+                ))
+                var url = '{{ path('soul_block_control', {id: 0, action: 1}) }}';
+                url = url.replace("0", user_id);
+                $.ajax.easySend( url, {},
+                    function () {
+                        $.ajax.load(target, "{{ path('soul_tooltip') }}", false, {'id': user_id}, function(){
+                            addActions(user_id, target, source);
+                        });
+                    } );
+            });
+        };
+
         $.html.addEventListenerAll('#user-tooltip a[x-action="block_user"]','click',(e,elem) => {
             e.preventDefault();
+            let source = event.target;
+            let user_id = elem.getAttribute('x-friend-id');
             if (confirm(
                 '{{ 'Wenn du diesen Spieler blockierst, kann er dir keine neuen Nachrichten schicken. Werdet ihr beide von einer dritten Person in eine Gruppennachricht hinzugefügt, so werden Beiträge des blockierten Spielers standartmäßig für dich versteckt.'|trans({},'global')|e('js') }}' +
                 '\n\n{{ 'Möchtest du fortfahren?'|trans({},'global')|e('js') }}'
@@ -128,6 +148,8 @@
 
         $.html.addEventListenerAll('#user-tooltip a[x-action="unblock_user"]','click',(e,elem) => {
             e.preventDefault();
+            let source = event.target;
+            let user_id = elem.getAttribute('x-friend-id');
             if (confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
                 var url = '{{ path('soul_block_control', {id: 0, action: 0}) }}';
             url = url.replace("0", user_id);
@@ -140,7 +162,9 @@
         });
 
         $.html.addEventListenerAll('#user-tooltip a[x-action="add-friend"]', 'click', (e, elem) => {
-            $.ajax.easySend( '{{ path('soul_friend_control', {action: 1}) }}', {'id': elem.getAttribute('x-friend-id')},
+            let source = event.target;
+            let user_id = elem.getAttribute('x-friend-id');
+            $.ajax.easySend( '{{ path('soul_friend_control', {action: 1}) }}', {'id': user_id},
                 function () {
                     $.ajax.load(target, "{{ path('soul_tooltip') }}", false, {'id': user_id}, function(){
                         addActions(user_id, target, source);
@@ -152,7 +176,9 @@
         });
 
         $.html.addEventListenerAll('#user-tooltip a[x-action="remove-friend"]', 'click', (e, elem) => {
-            $.ajax.easySend( '{{ path('soul_friend_control', {action: 0}) }}', {'id': elem.getAttribute('x-friend-id')},
+            let source = event.target;
+            let user_id = elem.getAttribute('x-friend-id');
+            $.ajax.easySend( '{{ path('soul_friend_control', {action: 0}) }}', {'id': user_id},
                 function () {
                     $.ajax.load(target, "{{ path('soul_tooltip') }}", false, {'id': user_id}, function(){
                         addActions(user_id, target, source);
