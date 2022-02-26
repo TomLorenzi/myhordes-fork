@@ -11224,7 +11224,7 @@
         <source>Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
                             zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
                             werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</source>
-        <target>Building points can be used in the workshop and on construction sites, where they count like action points. If possible, building points are always used first before action points are used. Keep in mind that building points cannot be used when you are exhausted!</target>
+        <target>These points can ONLY be used for construction projects in town.</target>
       </segment>
     </unit>
     <unit id="Xo4xhxR" name="Die Stadt wird erst starten, wenn sie &lt;strong&gt;{population} Bürger hat&lt;/strong&gt;.">
@@ -22734,7 +22734,7 @@
       </notes>
       <segment>
         <source>Du hast keine Seelenpunkte gewonnen (am ersten Tag gestorben).</source>
-        <target>Du hast keine Seelenpunkte gewonnen (am ersten Tag gestorben).</target>
+        <target>You haven't earned any points (died on day 1).</target>
       </segment>
     </unit>
     <unit id="5kMswLn">

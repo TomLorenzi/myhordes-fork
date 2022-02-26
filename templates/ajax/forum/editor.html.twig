@@ -331,6 +331,9 @@
                 {% endfor %}
                 {% endif %}
 
+                $.html.twinoParser.AjaxUrl = "{{path('user_exists') }}";
+                $.html.twinoParser.textEditor = "{{ preview_name }}";
+
                 $.html.twinoParser.parseTo( node_transfer_source.value, get_preview(), function(s) {
                     switch (s) {
                         case ':)': s = ':smile:';    break;

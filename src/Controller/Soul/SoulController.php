@@ -54,7 +54,9 @@ use DateTime;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
+use PHPUnit\Util\Json;
 use Symfony\Component\Asset\Packages;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
@@ -353,6 +355,32 @@ class SoulController extends CustomAbstractController
         if ($url === 'pm_add_users') $data['gid'] = $parser->get_int('group', 0);
 
         return $this->render( 'ajax/soul/users_list.html.twig', $data);
+    }
+
+    /**
+     * @Route("jx/soul/exists", name="user_exists")
+     * @GateKeeperProfile(allow_during_attack=true,record_user_activity=false)
+     */
+    public function users_exists(JSONRequestParser $parser): Response {
+
+        dump($parser->all());
+        if (!$parser->has_all(['name'], true))
+            return new JsonResponse(['exists' => false, 'id' => '']);
+
+        $searchName = $parser->get('name');
+        if(is_numeric($searchName)) {
+            dump("is integer");
+            $user = $this->entity_manager->getRepository(User::class)->find($searchName);
+        } else {
+            $user = $this->entity_manager->getRepository(User::class)->findOneByNameOrDisplayName(trim($searchName));
+        }
+
+        return new JsonResponse ([
+            'success' => true,
+            'exists' => $user !== null,
+            'id' => $user !== null ? $user->getId() : '',
+            'displayName' => $user !== null ? $user->getName() : null
+        ]);
     }
 
 

@@ -958,7 +958,7 @@ class AdminUserController extends AdminActionController
                 fn(UserSponsorship $s) => !$this->user_handler->hasRole($s->getUser(), 'ROLE_DUMMY') && $s->getUser()->getValidated()
             ),
             "friends" => $user->getFriends(),
-            'reverse_friends' => $this->entity_manager->getRepository(User::class)->findInverseFriends($this->getUser(), true),
+            'reverse_friends' => $this->entity_manager->getRepository(User::class)->findInverseFriends($user, true),
         ]));
     }
     /**

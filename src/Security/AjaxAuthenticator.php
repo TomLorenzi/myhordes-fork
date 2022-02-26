@@ -42,7 +42,7 @@ class AjaxAuthenticator extends RememberMeSupportingAuthenticator implements Aut
     /**
      * @inheritDoc
      */
-    public function start(Request $request, AuthenticationException $authException = null)
+    public function start(Request $request, AuthenticationException $authException = null): Response
     {
         if (!$request->isXmlHttpRequest())
             return new RedirectResponse($this->url_generator->generate('initial_landing'));

@@ -18,7 +18,7 @@ class HeroSkillPrototypeRepository extends ServiceEntityRepository
         parent::__construct($registry, HeroSkillPrototype::class);
     }
 
-    public function findAll() {
+    public function findAll(): array {
         return $this->createQueryBuilder('h')
             ->orderBy('h.daysNeeded', 'ASC')
             ->addOrderBy('h.id', 'ASC')
