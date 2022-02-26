@@ -698,14 +698,16 @@ export default class TwinoAlikeParser {
                 while (result = /\b((?:https?|ftps?):\/\/[^\s{}[\]<>]*)\b/g.exec( str )) {
                     found = true;
 
+                    let trailing_slash = str.substr(result.index + result[0].length, 1) === '/';
+
                     let a = document.createElement('a');
-                    a.setAttribute('href', result[0]);
-                    a.innerText = result[0];
+                    a.setAttribute('href', result[0] + (trailing_slash ? '/' : ''));
+                    a.innerText = result[0] + (trailing_slash ? '/' : '');
 
                     elem.parentElement.insertBefore( document.createTextNode( str.slice(0,result.index) ), elem );
                     elem.parentElement.insertBefore( a, elem );
 
-                    str = str.slice(result.index + result[0].length);
+                    str = str.slice(result.index + result[0].length + (trailing_slash ? 1 : 0));
                 }
 
                 if (found) {
