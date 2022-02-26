@@ -449,6 +449,9 @@ class TownController extends InventoryAwareController
         if ($id === $this->getActiveCitizen()->getId())
             return $this->redirect($this->generateUrl('town_house_log_controller'));
 
+        if ($this->getActiveCitizen()->getZone())
+            return $this->renderLog((int)$parser->get('day', -1), null, false, -1, 0);
+
         /** @var Citizen $c */
         $c = $this->entity_manager->getRepository(Citizen::class)->find( $id );
         if (!$c || $c->getTown()->getId() !== $this->getActiveCitizen()->getTown()->getId())
@@ -870,6 +873,8 @@ class TownController extends InventoryAwareController
      * @return Response
      */
     public function log_well_api(JSONRequestParser $parser): Response {
+        if ($this->getActiveCitizen()->getZone())
+            return $this->renderLog((int)$parser->get('day', -1), null, false, -1, 0);
         return $this->renderLog((int)$parser->get('day', -1), null, false, LogEntryTemplate::TypeWell, null);
     }
 
@@ -1022,6 +1027,8 @@ class TownController extends InventoryAwareController
      * @return Response
      */
     public function log_bank_api(JSONRequestParser $parser): Response {
+        if ($this->getActiveCitizen()->getZone())
+            return $this->renderLog((int)$parser->get('day', -1), null, false, -1, 0);
         return $this->renderLog((int)$parser->get('day', -1), null, false, LogEntryTemplate::TypeBank, null);
     }
 
@@ -1507,6 +1514,8 @@ class TownController extends InventoryAwareController
      * @return Response
      */
     public function log_constructions_api(JSONRequestParser $parser): Response {
+        if ($this->getActiveCitizen()->getZone())
+            return $this->renderLog((int)$parser->get('day', -1), null, false, -1, 0);
         return $this->renderLog((int)$parser->get('day', -1), null, false, LogEntryTemplate::TypeConstruction, null);
     }
 
@@ -1662,6 +1671,8 @@ class TownController extends InventoryAwareController
      * @return Response
      */
     public function log_door_api(JSONRequestParser $parser): Response {
+        if ($this->getActiveCitizen()->getZone())
+            return $this->renderLog((int)$parser->get('day', -1), null, false, -1, 0);
         return $this->renderLog((int)$parser->get('day', -1), null, false, LogEntryTemplate::TypeDoor, null);
     }
 

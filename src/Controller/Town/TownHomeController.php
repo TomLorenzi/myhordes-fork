@@ -224,6 +224,8 @@ class TownHomeController extends TownController
      * @return Response
      */
     public function log_house_api(JSONRequestParser $parser): Response {
+        if ($this->getActiveCitizen()->getZone())
+            return $this->renderLog((int)$parser->get('day', -1), null, false, -1, 0);
         return $this->renderLog((int)$parser->get('day', -1), $this->getActiveCitizen(), false, null, null);
     }
 

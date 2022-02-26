@@ -244,6 +244,8 @@ class TownAddonsController extends TownController
      * @return Response
      */
     public function log_workshop_api(JSONRequestParser $parser): Response {
+        if ($this->getActiveCitizen()->getZone())
+            return $this->renderLog((int)$parser->get('day', -1), null, false, -1, 0);
         return $this->renderLog((int)$parser->get('day', -1), null, false, LogEntryTemplate::TypeWorkshop, null);
     }
 
@@ -447,6 +449,8 @@ class TownAddonsController extends TownController
      * @return Response
      */
     public function log_dump_api(JSONRequestParser $parser): Response {
+        if ($this->getActiveCitizen()->getZone())
+            return $this->renderLog((int)$parser->get('day', -1), null, false, -1, 0);
         return $this->renderLog((int)$parser->get('day', -1), null, false, LogEntryTemplate::TypeDump, null);
     }
 
@@ -644,6 +648,8 @@ class TownAddonsController extends TownController
      * @return Response
      */
     public function log_catapult_api(JSONRequestParser $parser): Response {
+        if ($this->getActiveCitizen()->getZone())
+            return $this->renderLog((int)$parser->get('day', -1), null, false, -1, 0);
         return $this->renderLog((int)$parser->get('day', -1), null, false, LogEntryTemplate::TypeCatapult, null);
     }
 

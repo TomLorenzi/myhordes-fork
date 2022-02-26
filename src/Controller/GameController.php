@@ -192,6 +192,9 @@ class GameController extends CustomAbstractController
      * @return Response
      */
     public function log_newspaper_api(JSONRequestParser $parser): Response {
+        if ($this->getActiveCitizen()->getZone())
+            return $this->renderLog((int)$parser->get('day', -1), null, false, -1, 0);
+
         $citizen_id = $parser->get('citizen', -1);
         $citizen = null;
         if($citizen_id > 0) {
