@@ -2788,5 +2788,17 @@
         <target>Dieses MyHordes-Konto wurde gelöscht.</target>
       </segment>
     </unit>
+    <unit id="Vh7f_Zm" name="Gegenstände in der Bank nach Anzahl sortieren">
+      <segment>
+        <source>Gegenstände in der Bank nach Anzahl sortieren</source>
+        <target>Gegenstände in der Bank nach Anzahl sortieren</target>
+      </segment>
+    </unit>
+    <unit id="YpH8nkB">
+      <segment>
+        <source>Standartmäßig sortiert MyHordes Gegenstände in der Bank nach ihrem Typ. Aktiviere diese Option, wenn du die Sortierung von DieVerdammten bevorzugst, bei der Gegenstände primär nach ihrer Anzahl sortiert werden.</source>
+        <target>Standartmäßig sortiert MyHordes Gegenstände in der Bank nach ihrem Typ. Aktiviere diese Option, wenn du die Sortierung von DieVerdammten bevorzugst, bei der Gegenstände primär nach ihrer Anzahl sortiert werden.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

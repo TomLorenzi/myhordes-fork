@@ -4517,5 +4517,27 @@
         <target>La cuenta MyHordes de este jugador ya no existe.</target>
       </segment>
     </unit>
+    <unit id="Vh7f_Zm" name="Gegenstände in der Bank nach Anzahl sortieren">
+      <notes>
+        <note category="german">Gegenstände in der Bank nach Anzahl sortieren</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Gegenstände in der Bank nach Anzahl sortieren</source>
+        <target>Gegenstände in der Bank nach Anzahl sortieren</target>
+      </segment>
+    </unit>
+    <unit id="YpH8nkB">
+      <notes>
+        <note category="german">Standartmäßig sortiert MyHordes Gegenstände in der Bank nach ihrem Typ. Aktiviere diese Option, wenn du die Sortierung von DieVerdammten bevorzugst, bei der Gegenstände primär nach ihrer Anzahl sortiert werden.</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Standartmäßig sortiert MyHordes Gegenstände in der Bank nach ihrem Typ. Aktiviere diese Option, wenn du die Sortierung von DieVerdammten bevorzugst, bei der Gegenstände primär nach ihrer Anzahl sortiert werden.</source>
+        <target>Standartmäßig sortiert MyHordes Gegenstände in der Bank nach ihrem Typ. Aktiviere diese Option, wenn du die Sortierung von DieVerdammten bevorzugst, bei der Gegenstände primär nach ihrer Anzahl sortiert werden.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

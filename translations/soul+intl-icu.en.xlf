@@ -4555,5 +4555,25 @@
         <target>This MyHordes account has been deleted.</target>
       </segment>
     </unit>
+    <unit id="Vh7f_Zm" name="Gegenstände in der Bank nach Anzahl sortieren">
+      <notes>
+        <note category="german">Gegenstände in der Bank nach Anzahl sortieren</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>Gegenstände in der Bank nach Anzahl sortieren</source>
+        <target>Sort bank items by count</target>
+      </segment>
+    </unit>
+    <unit id="YpH8nkB">
+      <notes>
+        <note category="german">Standartmäßig sortiert MyHordes Gegenstände in der Bank nach ihrem Typ. Aktiviere diese Option, wenn du die Sortierung von DieVerdammten bevorzugst, bei der Gegenstände primär nach ihrer Anzahl sortiert werden.</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>Standartmäßig sortiert MyHordes Gegenstände in der Bank nach ihrem Typ. Aktiviere diese Option, wenn du die Sortierung von DieVerdammten bevorzugst, bei der Gegenstände primär nach ihrer Anzahl sortiert werden.</source>
+        <target>By default, the bank in MyHordes is sorted by item type. If you prefer the sorting that was used in Die2Nite, where items were primarily sorted by their count, activate this setting.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

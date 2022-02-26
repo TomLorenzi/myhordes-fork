@@ -357,7 +357,11 @@ class InventoryAwareController extends CustomAbstractController
             ->leftJoin('App:ItemPrototype', 'p', Join::WITH, 'i.prototype = p.id')
             ->leftJoin('App:ItemCategory', 'c', Join::WITH, 'p.category = c.id')
             ->leftJoin('App:ItemCategory', 'cr', Join::WITH, 'c.parent = cr.id')
-            ->addOrderBy('c.ordering','ASC')
+            ->addOrderBy('c.ordering','ASC');
+
+        if ($this->getUser()->getClassicBankSort()) $qb->addOrderBy('n', 'DESC');
+
+        $qb
             ->addOrderBy('p.icon', 'DESC')
             ->addOrderBy('i.id', 'ASC');
 
@@ -380,7 +384,7 @@ class InventoryAwareController extends CustomAbstractController
         return $final;
     }
 
-    public function generic_devour_api(Citizen $aggressor, Citizen $victim) {
+    public function generic_devour_api(Citizen $aggressor, Citizen $victim): AjaxResponse {
         if ($aggressor->getId() === $victim->getId())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
