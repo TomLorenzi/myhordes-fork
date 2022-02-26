@@ -689,6 +689,17 @@ class ActionHandler
         else
             $floor_inventory = $ruinZone->getFloor();
 
+        $sort_result_list = function(array &$results) {
+            usort( $results, function(Result $a, Result $b) {
+                // Results with custom code are handled first
+                if (($a->getCustom() === null) !== ($b->getCustom() === null)) return $b->getCustom() ? 1 : -1;
+                // Results with status effects are handled second
+                if (($a->getStatus() === null) !== ($b->getStatus() === null)) return $b->getStatus() ? 1 : -1;
+                // Everything else is handled in "random" order
+                return $a->getId() - $b->getId();
+            } );
+        };
+
         $execute_result = function(Result $result) use ($citizen, &$item, &$target, &$action, &$message, &$remove, &$execute_result, &$execute_info_cache, &$tags, &$kill_by_poison, &$spread_poison, $town_conf, &$floor_inventory, &$ruinZone, $escort_mode) {
             /** @var Citizen $citizen */
             if ($status = $result->getStatus()) {
@@ -1609,11 +1620,6 @@ class ActionHandler
                     $this->citizen_handler->inflictStatus( $citizen, 'terror' );
             }
 
-            if ($result_group = $result->getResultGroup()) {
-                $r = $this->random_generator->pickResultsFromGroup( $result_group );
-                foreach ($r as $sub_result) $execute_result( $sub_result );
-            }
-
             if($result->getMessage()){
 
                 if ($result->getMessage()->getEscort() === null || $result->getMessage()->getEscort() === $escort_mode) {
@@ -1629,16 +1635,21 @@ class ActionHandler
             return self::ErrorNone;
         };
 
-        foreach ($action->getResults() as $result) {
-            $res = $execute_result($result); // Here, we process AffectMessages AND $kill_by_poison var
-            if($res !== self::ErrorNone)
-                return $res;
+        $results = $action->getResults()->getValues();
+        foreach ($action->getResults() as $result) if ($result_group = $result->getResultGroup()) {
+            $r = $this->random_generator->pickResultsFromGroup( $result_group );
+            foreach ($r as $sub_result) $results[] = $sub_result;
+        }
+
+        $sort_result_list($results);
+        foreach ($results as $result) {
+            $res = $execute_result($result);
+            if($res !== self::ErrorNone) return $res;
         }
 
         if ($spread_poison) $item->setPoison( true );
         if ($kill_by_poison && $citizen->getAlive()) {
             $this->death_handler->kill( $citizen, CauseOfDeath::Poison, $r );
-            foreach ($r as $r_entry) $remove[] = $r_entry;
             $this->entity_manager->persist( $this->log->citizenDeath( $citizen ) );
         }
 

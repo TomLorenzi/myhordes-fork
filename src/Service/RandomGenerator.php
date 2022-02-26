@@ -32,7 +32,7 @@ class RandomGenerator
      * @param bool $force_array
      * @return mixed|array|null
      */
-    function pick( array $a, int $num = 1, bool $force_array = false ) {
+    function pick( array $a, int $num = 1, bool $force_array = false ): mixed {
         if     ($num <=  0 || empty($a)) return $force_array ? [] : null;
         elseif ($num === 1) return $force_array ? [$a[ array_rand($a, 1) ]] : $a[ array_rand($a, 1) ];
         elseif (count($a) === 1) return array_values($a);
@@ -46,7 +46,7 @@ class RandomGenerator
      * @param bool $force_array
      * @return mixed|array|null
      */
-    function draw( array &$a, int $num = 1, bool $force_array = false ) {
+    function draw( array &$a, int $num = 1, bool $force_array = false ): mixed {
         $pick = $this->pick( $a, $num, $force_array );
         foreach ((is_array($pick) ? $pick : [$pick]) as $picked) {
             $index = array_search( $picked, $a, true );
@@ -103,7 +103,7 @@ class RandomGenerator
     function pickItemPrototypeFromGroup(ItemGroup $g): ?ItemPrototype {
         /** @var ItemGroupEntry|null $result */
         $result = $this->pickEntryFromRandomGroup($g);
-        return $result ? $result->getPrototype() : null;
+        return $result?->getPrototype();
     }
 
     function resolveChance( $group, $principal ): float {
@@ -129,12 +129,12 @@ class RandomGenerator
 
     /**
      * @param AffectResultGroup $g
-     * @return Result[]
+     * @return Result[]|null
      */
     function pickResultsFromGroup(AffectResultGroup $g): ?array {
         /** @var AffectResultGroupEntry|null $result */
         $result = $this->pickEntryFromRandomGroup($g);
-        return $result ? $result->getResults()->getValues() : null;
+        return $result?->getResults()->getValues();
     }
 
     /**
