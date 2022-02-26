@@ -751,6 +751,21 @@ export default class TwinoAlikeParser {
             marked_nodes[i].removeAttribute('x-nested');
         }
 
+        const delete_empty = ( tag: HTMLElement ): boolean => {
+            if (tag.nodeType !== Node.ELEMENT_NODE) return false;
+
+            if (
+                (tag as HTMLElement).tagName === 'BR' ||
+                ((tag as HTMLElement).tagName === 'P' && !(tag as HTMLElement).innerHTML.match(/\S/))
+            ) {
+                c.remove();
+                return true;
+            } else return false;
+        }
+
+        do { c = container_node.firstChild; } while (delete_empty(c));
+        do { c = container_node.lastChild; }  while (delete_empty(c));
+
         while ((c = container_node.firstChild))
             target.appendChild(c);
     }
