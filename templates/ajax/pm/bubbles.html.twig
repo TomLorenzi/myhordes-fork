@@ -123,9 +123,13 @@
         {% elseif entry.system %}
             <span class="author crow-note">{{ 'Der Rabe'|trans({},'global') }}</span>
         {% elseif entry.official is not null and app.user not in entry.users %}
-            {% for message_partner in entry.users %}
-                <span class="author group-desc"><b class="sender">{{ message_partner.name }}</b></span>
-            {% endfor %}
+            {% if (entry.users|length < 5) %}
+                {% for message_partner in entry.users %}
+                    <span class="author group-desc"><b class="sender">{{ message_partner.name }}</b></span>
+                {% endfor %}
+            {% else %}
+                <span class="author group-desc">{{ '{n} Teilnehmer'|trans({n: entry.users|length},'global') }}</span>
+            {% endif %}
         {% elseif entry.official is not null %}
             <span class="author group-desc"><b class="sender" style="color: #ddab76">[ {{ entry.official.usergroup.name }} ]</b></span>
         {% elseif entry.users|length > 2 and entry.owner != app.user and not entry.owner is null %}
