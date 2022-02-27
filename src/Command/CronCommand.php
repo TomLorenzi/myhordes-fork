@@ -16,6 +16,7 @@ use App\Service\CommandHelper;
 use App\Service\ConfMaster;
 use App\Service\CrowService;
 use App\Service\GameFactory;
+use App\Service\GameProfilerService;
 use App\Service\GazetteService;
 use App\Service\Locksmith;
 use App\Service\NightlyHandler;
@@ -56,13 +57,15 @@ class CronCommand extends Command
     private CrowService $crowService;
     private CommandHelper $helper;
     private ParameterBagInterface $params;
+    private GameProfilerService $gps;
 
     private array $db;
 
     public function __construct(array $db,
                                 EntityManagerInterface $em, NightlyHandler $nh, Locksmith $ls, Translator $translator,
                                 ConfMaster $conf, AntiCheatService $acs, GameFactory $gf, UserHandler $uh, GazetteService $gs,
-                                TownHandler $th, CrowService $cs, CommandHelper $helper, ParameterBagInterface $params)
+                                TownHandler $th, CrowService $cs, CommandHelper $helper, ParameterBagInterface $params,
+                                GameProfilerService $gps)
     {
         $this->entityManager = $em;
         $this->night = $nh;
@@ -78,6 +81,7 @@ class CronCommand extends Command
         $this->crowService = $cs;
         $this->helper = $helper;
         $this->params = $params;
+        $this->gps = $gps;
 
         $this->db = $db;
         parent::__construct();
@@ -256,6 +260,9 @@ class CronCommand extends Command
                 $current = $count[$lang][$type] ?? 0;
                 while ($current < $min) {
                     $this->entityManager->persist($newTown = $this->gameFactory->createTown(null, $lang, null, $type));
+                    $this->entityManager->flush();
+
+                    $this->gps->recordTownCreated( $newTown, null, 'cron' );
                     $this->entityManager->flush();
 
                     $current_events = $this->conf_master->getCurrentEvents();

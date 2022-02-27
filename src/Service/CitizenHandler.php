@@ -39,10 +39,11 @@ class CitizenHandler
     private ContainerInterface $container;
     private UserHandler $user_handler;
     private ConfMaster $conf;
+    private GameProfilerService $gps;
 
     public function __construct(EntityManagerInterface $em, RandomGenerator $g, InventoryHandler $ih,
                                 PictoHandler $ph, ItemFactory $if, LogTemplateHandler $lh, ContainerInterface $c, UserHandler $uh,
-                                ConfMaster $conf )
+                                ConfMaster $conf, GameProfilerService $gps )
     {
         $this->entity_manager = $em;
         $this->random_generator = $g;
@@ -53,6 +54,7 @@ class CitizenHandler
         $this->container = $c;
         $this->user_handler = $uh;
         $this->conf = $conf;
+        $this->gps = $gps;
     }
 
     /**
@@ -249,6 +251,7 @@ class CitizenHandler
 
                 // The chocolate cross gets destroyed
                 $gallows->setComplete(false)->setAp(0)->setDefense(0)->setHp(0);
+                $this->gps->recordBuildingCollapsed( $gallows->getPrototype(), $citizen->getTown() );
                 $active = $gallows;
             } elseif ($gallows) {
                 $this->container->get(DeathHandler::class)->kill( $citizen, CauseOfDeath::Hanging, $rem );
@@ -256,6 +259,7 @@ class CitizenHandler
 
                 // The gallows gets destroyed
                 $gallows->setComplete(false)->setAp(0)->setDefense(0)->setHp(0);
+                $this->gps->recordBuildingCollapsed( $gallows->getPrototype(), $citizen->getTown() );
                 $active = $gallows;
             } elseif ($cage) {
                 $this->container->get(DeathHandler::class)->kill( $citizen, CauseOfDeath::FleshCage, $rem );
@@ -512,7 +516,12 @@ class CitizenHandler
             }
         }
 
+        $prev = $citizen->getProfession();
         $citizen->setProfession( $profession );
+
+        if ($prev->getName() === 'none')
+            $this->gps->recordCitizenProfessionSelected( $citizen );
+        else $this->gps->recordCitizenCitizenProfessionChanged( $citizen, $prev );
 
         if ($profession->getName() === 'tech')
             $this->setBP($citizen,false, $this->getMaxBP( $citizen ),0);

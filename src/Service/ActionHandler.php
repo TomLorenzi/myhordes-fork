@@ -52,28 +52,29 @@ use Symfony\Component\Asset\Packages;
 
 class ActionHandler
 {
-    private $entity_manager;
-    private $status_factory;
-    private $citizen_handler;
-    private $death_handler;
-    private $inventory_handler;
-    private $random_generator;
-    private $item_factory;
-    private $translator;
-    private $game_factory;
-    private $town_handler;
-    private $zone_handler;
-    private $picto_handler;
-    private $assets;
-    private $log;
-    private $conf;
-    private $maze;
+    private EntityManagerInterface $entity_manager;
+    private StatusFactory $status_factory;
+    private CitizenHandler $citizen_handler;
+    private DeathHandler $death_handler;
+    private InventoryHandler $inventory_handler;
+    private RandomGenerator $random_generator;
+    private ItemFactory $item_factory;
+    private TranslatorInterface $translator;
+    private GameFactory $game_factory;
+    private TownHandler $town_handler;
+    private ZoneHandler $zone_handler;
+    private PictoHandler $picto_handler;
+    private Packages $assets;
+    private LogTemplateHandler $log;
+    private ConfMaster $conf;
+    private MazeMaker $maze;
+    private GameProfilerService $gps;
 
 
     public function __construct(
         EntityManagerInterface $em, StatusFactory $sf, CitizenHandler $ch, InventoryHandler $ih, DeathHandler $dh,
         RandomGenerator $rg, ItemFactory $if, TranslatorInterface $ti, GameFactory $gf, Packages $am, TownHandler $th,
-        ZoneHandler $zh, PictoHandler $ph, LogTemplateHandler $lt, ConfMaster $conf, MazeMaker $mm)
+        ZoneHandler $zh, PictoHandler $ph, LogTemplateHandler $lt, ConfMaster $conf, MazeMaker $mm, GameProfilerService $gps)
     {
         $this->entity_manager = $em;
         $this->status_factory = $sf;
@@ -91,6 +92,7 @@ class ActionHandler
         $this->log = $lt;
         $this->conf = $conf;
         $this->maze = $mm;
+        $this->gps = $gps;
     }
 
     const ActionValidityNone = 1;
@@ -818,6 +820,7 @@ class ActionHandler
                         $tags[] = 'bp_ok';
                         $execute_info_cache['bp_spawn'][] = $pick;
                         $this->entity_manager->persist( $this->log->constructionsNewSite( $citizen, $pick ) );
+                        $this->gps->recordBuildingDiscovered( $pick, $town, $citizen, 'action' );
                         if($pick->getParent()){
                             $tags[] = 'bp_parent';
                             $parent = $pick->getParent();
@@ -1774,6 +1777,7 @@ class ActionHandler
 
         $new_item = $this->random_generator->pickItemPrototypeFromGroup( $recipe->getResult() );
         $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $new_item ) , $target_inv, true );
+        $this->gps->recordRecipeExecuted( $recipe, $citizen, $new_item );
 
         if (in_array($recipe->getType(), [Recipe::WorkshopType, Recipe::WorkshopTypeShamanSpecific]))
             $this->entity_manager->persist( $this->log->workshopConvert( $citizen, array_map( function(Item $e) { return array($e->getPrototype()); }, $items  ), array([$new_item]) ) );

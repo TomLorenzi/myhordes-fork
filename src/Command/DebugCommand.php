@@ -23,6 +23,7 @@ use App\Service\CommandHelper;
 use App\Service\ConfMaster;
 use App\Service\ErrorHelper;
 use App\Service\GameFactory;
+use App\Service\GameProfilerService;
 use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
 use App\Service\RandomGenerator;
@@ -68,11 +69,12 @@ class DebugCommand extends Command
     private CommandHelper $helper;
     private TwinoidHandler $twin;
     private UserHandler $user_handler;
+    private GameProfilerService $gps;
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
                                 RandomGenerator $rg, CitizenHandler $ch, Translator $translator, InventoryHandler $ih,
                                 ItemFactory $if, UserPasswordHasherInterface $passwordEncoder, ConfMaster $c,
-                                TownHandler $th, CommandHelper $h, TwinoidHandler $t, UserHandler $uh)
+                                TownHandler $th, CommandHelper $h, TwinoidHandler $t, UserHandler $uh, GameProfilerService $gps)
     {
         $this->kernel = $kernel;
 
@@ -89,6 +91,7 @@ class DebugCommand extends Command
         $this->helper = $h;
         $this->twin = $t;
         $this->user_handler = $uh;
+        $this->gps = $gps;
 
         parent::__construct();
     }
@@ -287,10 +290,11 @@ class DebugCommand extends Command
                         $citizen = null;
                     }
 
+                    $all = [];
                     if (!$citizen) {
                         $citizen = $this->entity_manager->getRepository(Citizen::class)->findInTown($user, $town);
                         if ($citizen) $citizen->setActive(true);
-                        else $citizen = $this->game_factory->createCitizen($town, $user, $error);
+                        else $citizen = $this->game_factory->createCitizen($town, $user, $error, $all);
                     } else continue;
 
                     if (!$citizen) continue;
@@ -304,6 +308,13 @@ class DebugCommand extends Command
 
                     $this->entity_manager->persist($town);
                     $this->entity_manager->persist($citizen);
+                    $this->entity_manager->flush();
+
+                    foreach ( $all as $joined_citizen ) {
+                        $this->gps->recordCitizenJoined( $joined_citizen, 'debug' );
+                        if ($citizen->getProfession()->getName() !== 'none')
+                            $this->gps->recordCitizenProfessionSelected( $joined_citizen );
+                    }
                     $this->entity_manager->flush();
 
                     $ii = $i + $town->getCitizenCount() + 1;
@@ -332,59 +343,6 @@ class DebugCommand extends Command
                 }
             }
 
-            // Ensure we still have an open town after filling it with dumb users
-            
-            $openTowns = $this->entity_manager->getRepository(Town::class)->findOpenTown();
-            $count = array(
-                "fr" => array(
-                    "remote" => 0,
-                    "panda" => 0,
-                    "small" => 0
-                ),
-                "de" => array(
-                    "remote" => 0,
-                    "panda" => 0,
-                    "small" => 0
-                ),
-                "en" => array(
-                    "remote" => 0,
-                    "panda" => 0,
-                    "small" => 0
-                ),
-                "es" => array(
-                    "remote" => 0,
-                    "panda" => 0,
-                    "small" => 0
-                ),
-                "multi" => array(
-                    "remote" => 100,
-                    "panda" => 100,
-                    "small" => 100
-                ),
-            );
-            foreach ($openTowns as $openTown) {
-                if($openTown->getType()->getName() === 'custom') continue;
-                $count[$openTown->getLanguage()][$openTown->getType()->getName()]++;
-            }
-
-            $current_events = $this->conf->getCurrentEvents();
-            foreach ($count as $townLang => $array) {
-                foreach ($array as $townClass => $openCount) {
-                    if($openCount < 1){
-                        $newTown = $this->game_factory->createTown(null, $townLang, null, $townClass);
-                        $this->entity_manager->persist($newTown);
-                        $this->entity_manager->flush();
-
-                        if (!$newTown->getManagedEvents() && !empty(array_filter($current_events, fn(EventConf $e) => $e->active())))  {
-                            if (!$this->townHandler->updateCurrentEvents($newTown, $current_events))
-                                $this->entity_manager->clear();
-                            else {
-                                $this->entity_manager->persist($newTown);
-                            }
-                        }
-                    }
-                }
-            }
             $this->entity_manager->flush();
         }
 

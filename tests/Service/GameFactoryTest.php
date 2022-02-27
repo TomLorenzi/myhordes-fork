@@ -2,6 +2,7 @@
 namespace App\Tests\Service;
 
 use App\Service\GameFactory;
+use App\Service\GameProfilerService;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\Translation\Translator;
 

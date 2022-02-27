@@ -63,11 +63,12 @@ class GameFactory
 
     const ErrorTownNoCoaRoom         = ErrorHelper::BaseTownSelectionErrors + 5;
     const ErrorMemberBlocked         = ErrorHelper::BaseTownSelectionErrors + 6;
+    private GameProfilerService $gps;
 
     public function __construct(ConfMaster $conf,
         EntityManagerInterface $em, GameValidator $v, Locksmith $l, ItemFactory $if, TownHandler $th,
         StatusFactory $sf, RandomGenerator $rg, InventoryHandler $ih, CitizenHandler $ch, ZoneHandler $zh, LogTemplateHandler $lh,
-        TranslatorInterface $translator, MazeMaker $mm, CrowService $crow, PermissionHandler $perm, UserHandler $uh)
+        TranslatorInterface $translator, MazeMaker $mm, CrowService $crow, PermissionHandler $perm, UserHandler $uh, GameProfilerService $gps)
     {
         $this->entity_manager = $em;
         $this->validator = $v;
@@ -86,6 +87,7 @@ class GameFactory
         $this->maze_maker = $mm;
         $this->crow = $crow;
         $this->perm = $perm;
+        $this->gps = $gps;
     }
 
     private static array $town_name_snippets = [
@@ -245,13 +247,22 @@ class GameFactory
             ->setBank( new Inventory() )
             ->setWell( mt_rand( $conf->get(TownConf::CONF_WELL_MIN, 0), $conf->get(TownConf::CONF_WELL_MAX, 0) ) );
 
+        $town->setRankingEntry( TownRankingProxy::fromTown( $town ) );
+
         foreach ($this->entity_manager->getRepository(BuildingPrototype::class)->findProspectivePrototypes($town, 0) as $prototype)
-            if (!in_array($prototype->getName(), $conf->get(TownConf::CONF_DISABLED_BUILDINGS)))
-                $this->town_handler->addBuilding( $town, $prototype );
+            if (!in_array($prototype->getName(), $conf->get(TownConf::CONF_DISABLED_BUILDINGS))) {
+                $this->town_handler->addBuilding($town, $prototype);
+                $this->gps->recordBuildingDiscovered( $prototype, $town, null, 'always' );
+            }
 
         foreach ($conf->get(TownConf::CONF_BUILDINGS_UNLOCKED) as $str_prototype)
-            if (!in_array($str_prototype, $conf->get(TownConf::CONF_DISABLED_BUILDINGS)))
-                $this->town_handler->addBuilding( $town, $this->entity_manager->getRepository(BuildingPrototype::class)->findOneBy( ['name' => $str_prototype] ) );
+            if (!in_array($str_prototype, $conf->get(TownConf::CONF_DISABLED_BUILDINGS))) {
+                $prototype = $this->entity_manager->getRepository(BuildingPrototype::class)->findOneBy(['name' => $str_prototype]);
+                if ($prototype) {
+                    $this->town_handler->addBuilding($town, $prototype);
+                    $this->gps->recordBuildingDiscovered( $prototype, $town, null, 'config' );
+                }
+            }
 
         foreach ($conf->get(TownConf::CONF_BUILDINGS_CONSTRUCTED) as $str_prototype) {
             if (in_array($str_prototype, $conf->get(TownConf::CONF_DISABLED_BUILDINGS)))
@@ -261,6 +272,7 @@ class GameFactory
             $proto = $this->entity_manager->getRepository(BuildingPrototype::class)->findOneBy( ['name' => $str_prototype] );
             $b = $this->town_handler->addBuilding( $town, $proto );
             $b->setAp( $proto->getAp() )->setComplete( true )->setHp($proto->getHp());
+            $this->gps->recordBuildingConstructed( $proto, $town, null, 'config' );
         }
 
         $this->town_handler->calculate_zombie_attacks( $town, 3 );
@@ -657,6 +669,7 @@ class GameFactory
         if ($town->isOpen() && !$town->getCitizens()->isEmpty()) return false;
 
         $this->updateTownScore($town);
+        $this->gps->recordTownEnded($town);
         $this->entity_manager->remove($town);
         return true;
     }

@@ -7,6 +7,7 @@ use App\Entity\TownClass;
 use App\Entity\Zone;
 use App\Service\ConfMaster;
 use App\Service\GameFactory;
+use App\Service\GameProfilerService;
 use App\Service\GameValidator;
 use App\Service\Locksmith;
 use App\Service\TownHandler;
@@ -32,10 +33,11 @@ class TownCreateCommand extends Command
     private ConfMaster $conf;
     private TownHandler $townHandler;
     private Translator $trans;
+    private GameProfilerService $gps;
 
 
     public function __construct(EntityManagerInterface $em, GameFactory $f, GameValidator $v, ConfMaster $conf,
-                                TownHandler $th,  Translator $translator)
+                                TownHandler $th,  Translator $translator, GameProfilerService $gps)
     {
         $this->entityManager = $em;
         $this->gameFactory = $f;
@@ -43,6 +45,7 @@ class TownCreateCommand extends Command
         $this->conf = $conf;
         $this->townHandler = $th;
         $this->trans = $translator;
+        $this->gps = $gps;
         parent::__construct();
     }
 
@@ -85,6 +88,8 @@ class TownCreateCommand extends Command
             $output->write('Persisting ... ');
             try {
                 $this->entityManager->persist( $town );
+                $this->entityManager->flush();
+                $this->gps->recordTownCreated( $town, null, 'cli' );
                 $this->entityManager->flush();
             } catch (Exception $e) {
                 $output->writeln('<error>Failed!</error>');

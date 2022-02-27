@@ -44,6 +44,7 @@ use App\Service\CitizenHandler;
 use App\Service\ConfMaster;
 use App\Service\ErrorHelper;
 use App\Service\GameFactory;
+use App\Service\GameProfilerService;
 use App\Service\GazetteService;
 use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
@@ -409,7 +410,7 @@ class AdminTownController extends AdminActionController
      * @param TownHandler $townHandler
      * @return Response
      */
-    public function town_manager(int $id, string $action, ItemFactory $itemFactory, RandomGenerator $random, NightlyHandler $night, GameFactory $gameFactory, CrowService $crowService, KernelInterface $kernel, JSONRequestParser $parser, TownHandler $townHandler): Response
+    public function town_manager(int $id, string $action, ItemFactory $itemFactory, RandomGenerator $random, NightlyHandler $night, GameFactory $gameFactory, CrowService $crowService, KernelInterface $kernel, JSONRequestParser $parser, TownHandler $townHandler, GameProfilerService $gps): Response
     {
         /** @var Town $town */
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
@@ -531,6 +532,11 @@ class AdminTownController extends AdminActionController
                     $this->citizen_handler->applyProfession($citizen, $pro);
                     $this->entity_manager->persist($citizen);
                     $this->entity_manager->persist($town);
+
+                    $gps->recordCitizenJoined($citizen, 'debug');
+                    if ($citizen->getProfession()->getName() !== 'none')
+                        $gps->recordCitizenProfessionSelected( $citizen );
+
                     $this->entity_manager->flush();
                 }
 
@@ -579,7 +585,10 @@ class AdminTownController extends AdminActionController
                 do {
                     $possible = array_filter( $this->entity_manager->getRepository(BuildingPrototype::class)->findProspectivePrototypes( $town ), fn(BuildingPrototype $p) => $p->getBlueprint() === null || $p->getBlueprint() < 5 );
                     $found = !empty($possible);
-                    foreach ($possible as $proto) $townHandler->addBuilding( $town, $proto );
+                    foreach ($possible as $proto) {
+                        $townHandler->addBuilding($town, $proto);
+                        $gps->recordBuildingDiscovered( $proto, $town, null, 'debug' );
+                    }
                 } while ($found);
                 $this->entity_manager->persist( $town );
                 break;
@@ -778,7 +787,7 @@ class AdminTownController extends AdminActionController
      * @param TownHandler $townHandler
      * @return Response
      */
-    public function add_default_town( JSONRequestParser $parser, GameFactory $gameFactory, TownHandler $townHandler): Response {
+    public function add_default_town( JSONRequestParser $parser, GameFactory $gameFactory, TownHandler $townHandler, GameProfilerService $gps): Response {
 
         $town_name = $parser->get('name', null) ?: null;
         $town_type = $parser->get('type', '');
@@ -797,6 +806,8 @@ class AdminTownController extends AdminActionController
 
         try {
             $this->entity_manager->persist( $town );
+            $this->entity_manager->flush();
+            $gps->recordTownCreated( $town, $this->getUser(), 'manual' );
             $this->entity_manager->flush();
         } catch (Exception $e) {
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
@@ -1696,7 +1707,7 @@ class AdminTownController extends AdminActionController
      * @param TownHandler $th The town handler
      * @return Response
      */
-    public function town_add_building(int $id, JSONRequestParser $parser, TownHandler $th)
+    public function town_add_building(int $id, JSONRequestParser $parser, TownHandler $th, GameProfilerService $gps)
     {
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
         if (!$town) {
@@ -1714,6 +1725,7 @@ class AdminTownController extends AdminActionController
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $th->addBuilding($town, $proto);
+        $gps->recordBuildingDiscovered( $proto, $town, null, 'debug' );
 
         $this->entity_manager->persist($town);
         $this->entity_manager->flush();
@@ -1730,7 +1742,7 @@ class AdminTownController extends AdminActionController
      * @param TownHandler $th The town handler
      * @return Response
      */
-    public function town_set_building_ap(int $id, JSONRequestParser $parser, TownHandler $th)
+    public function town_set_building_ap(int $id, JSONRequestParser $parser, TownHandler $th, GameProfilerService $gps)
     {
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
         if (!$town) {
@@ -1759,9 +1771,11 @@ class AdminTownController extends AdminActionController
         if ($building->getAp() >= $building->getPrototype()->getAp()) {
             $building->setComplete(true);
             $th->triggerBuildingCompletion($town, $building);
+            $gps->recordBuildingConstructed( $building->getPrototype(), $town, null, 'debug' );
         } elseif ($building->getAp() <= 0) {
             $building->setComplete(false);
             $th->destroy_building($town, $building);
+            $gps->recordBuildingDestroyed( $building->getPrototype(), $town, 'debug' );
         }
 
         $this->entity_manager->persist($building);
@@ -1780,7 +1794,7 @@ class AdminTownController extends AdminActionController
      * @param TownHandler $th The town handler
      * @return Response
      */
-    public function town_set_building_hp(int $id, JSONRequestParser $parser, TownHandler $th)
+    public function town_set_building_hp(int $id, JSONRequestParser $parser, TownHandler $th, GameProfilerService $gps)
     {
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
         if (!$town) {
@@ -1815,6 +1829,7 @@ class AdminTownController extends AdminActionController
         if ($building->getHp() <= 0) {
             $building->setComplete(false);
             $th->destroy_building($town, $building);
+            $gps->recordBuildingDestroyed( $building->getPrototype(), $town, 'debug' );
         }
 
         $this->entity_manager->persist($building);

@@ -14,6 +14,7 @@ use App\Service\CrowService;
 use App\Service\DeathHandler;
 use App\Service\ErrorHelper;
 use App\Service\GameFactory;
+use App\Service\GameProfilerService;
 use App\Service\InventoryHandler;
 use App\Service\PictoHandler;
 use App\Service\ItemFactory;
@@ -300,10 +301,10 @@ class ExplorationController extends InventoryAwareController implements HookedIn
 
     /**
      * @Route("api/beyond/explore/scavenge", name="beyond_ruin_scavenge_controller")
-     * @param InventoryHandler $handler
+     * @param GameProfilerService $gps
      * @return Response
      */
-    public function scavenge_explore_api(InventoryHandler $handler): Response {
+    public function scavenge_explore_api(GameProfilerService $gps): Response {
         $citizen = $this->getActiveCitizen();
         $ex = $citizen->activeExplorerStats();
         $ruinZone = $this->getCurrentRuinZone();
@@ -326,6 +327,7 @@ class ExplorationController extends InventoryAwareController implements HookedIn
 
         if ($prototype) {
             $item = $this->item_factory->createItem($prototype, false, $prototype->hasProperty("found_poisoned") ? $this->random_generator->chance(0.90) : false);
+            $gps->recordItemFound( $prototype, $citizen, $ruinZone->getZone()->getPrototype() );
             $noPlaceLeftMsg = "";
             // $inventoryDest = $this->inventory_handler->placeItem($citizen, $item, [$citizen->getInventory(), $ruinZone->getRoomFloor()]);
             $inventoryDest = $this->inventory_handler->placeItem($citizen, $item, [$citizen->getInventory(), $ruinZone->getFloor()]);

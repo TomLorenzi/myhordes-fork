@@ -35,6 +35,7 @@ use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
 use App\Service\BankAntiAbuseService;
 use App\Service\ConfMaster;
+use App\Service\GameProfilerService;
 use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
 use App\Service\JSONRequestParser;
@@ -1240,7 +1241,7 @@ class TownController extends InventoryAwareController
      * @param JSONRequestParser $parser
      * @return Response
      */
-    public function construction_build_api(JSONRequestParser $parser): Response {
+    public function construction_build_api(JSONRequestParser $parser, GameProfilerService $gps): Response {
         // Get citizen & town
         $citizen = $this->getActiveCitizen();
         $town = $citizen->getTown();
@@ -1332,6 +1333,10 @@ class TownController extends InventoryAwareController
         $usedap = $usedbp = 0;
         $this->citizen_handler->deductAPBP( $citizen, $ap, $usedap, $usedbp);
 
+        if ($was_completed)
+            $gps->recordBuildingRepairInvested( $building->getPrototype(), $town, $citizen, $usedap, $usedbp );
+        else $gps->recordBuildingConstructionInvested( $building->getPrototype(), $town, $citizen, $usedap, $usedbp );
+
         if($missing_ap <= 0 || $missing_ap - $ap <= 0){
             // Missing ap == 0, the building has been completed by the workshop upgrade.
             $building->setAp($building->getPrototype()->getAp());
@@ -1347,6 +1352,7 @@ class TownController extends InventoryAwareController
                 $messages[] = $this->translator->trans("Du hast am Bauprojekt {plan} mitgeholfen.", ["{plan}" => "<strong>" . $this->translator->trans($building->getPrototype()->getLabel(), [], 'buildings') . "</strong>"], 'game');
             } else {
                 $messages[] = $this->translator->trans("Hurra! Folgendes Gebäude wurde fertiggestellt: {plan}!", ['{plan}' => "<strong>" . $this->translator->trans($building->getPrototype()->getLabel(), [], 'buildings') . "</strong>"], 'game');
+                $gps->recordBuildingConstructed( $building->getPrototype(), $town, $citizen, 'manual' );
             }
         }
 

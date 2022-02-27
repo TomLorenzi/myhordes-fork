@@ -67,11 +67,12 @@ class NightlyHandler
     private UserHandler $user_handler;
     private GameFactory $game_factory;
     private GazetteService $gazette_service;
+    private GameProfilerService $gps;
 
     public function __construct(EntityManagerInterface $em, LoggerInterface $log, CitizenHandler $ch, InventoryHandler $ih,
                               RandomGenerator $rg, DeathHandler $dh, TownHandler $th, ZoneHandler $zh, PictoHandler $ph,
                               ItemFactory $if, LogTemplateHandler $lh, ConfMaster $conf, ActionHandler $ah, MazeMaker $maze,
-                              CrowService $crow, UserHandler $uh, GameFactory $gf, GazetteService $gs)
+                              CrowService $crow, UserHandler $uh, GameFactory $gf, GazetteService $gs, GameProfilerService $gps)
     {
         $this->entity_manager = $em;
         $this->citizen_handler = $ch;
@@ -91,6 +92,7 @@ class NightlyHandler
         $this->user_handler = $uh;
         $this->game_factory = $gf;
         $this->gazette_service = $gs;
+        $this->gps = $gps;
     }
 
     private function check_town(Town $town): bool {
@@ -266,6 +268,7 @@ class NightlyHandler
 
         if ($reactor) {
             $damages = mt_rand(50, 125);
+            $this->gps->recordBuildingDamaged( $reactor->getPrototype(), $town, min( $damages, $reactor->getHp() ) );
             $reactor->setHp(max(0, $reactor->getHp() - $damages));
 
             $newDef = round(max(0, $reactor->getPrototype()->getDefense() * $reactor->getHp() / $reactor->getPrototype()->getHp()));
@@ -279,6 +282,7 @@ class NightlyHandler
                 $gazette = $town->findGazette( $town->getDay(), true );
                 $this->deferred_log_entries[] = $this->logTemplates->constructionsDestroy($town, $reactor->getPrototype(), $damages );
                 $this->town_handler->destroy_building($town, $reactor);
+                $this->gps->recordBuildingDestroyed( $reactor->getPrototype(), $town, 'attack' );
 
                 $this->log->debug("The reactor is destroyed. Everybody dies !");
 
@@ -817,6 +821,8 @@ class NightlyHandler
                 $this->log->info("The <info>{$target->getPrototype()->getLabel()}</info> has taken <info>$realDamage</info> damages.");
                 $target->setHp(max(0, $target->getHp() - $realDamage));
 
+                $this->gps->recordBuildingDamaged( $target->getPrototype(), $town, $realDamage );
+
                 if($target->getPrototype()->getDefense() > 0){
                     $newDef = round(max(0, $target->getPrototype()->getDefense() * $target->getHp() / $target->getPrototype()->getHp()));
                     $this->log->debug("It now has <info>$newDef</info> defense...");
@@ -827,6 +833,7 @@ class NightlyHandler
                     $this->log->info("<info>{$target->getPrototype()->getLabel()}</info> is now destroyed !");
                     $this->entity_manager->persist($this->logTemplates->constructionsDestroy($town, $target->getPrototype(), $realDamage ));
                     $this->town_handler->destroy_building($town, $target);
+                    $this->gps->recordBuildingDestroyed( $target->getPrototype(), $town, 'attack' );
                 } else {
                     $this->entity_manager->persist($this->logTemplates->constructionsDamage($town, $target->getPrototype(), $realDamage ));
                 }
@@ -991,6 +998,7 @@ class NightlyHandler
         $this->log->info('Inflicting damages to buildings after the attack');
         $fireworks = $this->town_handler->getBuilding($town, 'small_fireworks_#00');
         if($fireworks){
+            $this->gps->recordBuildingDamaged( $fireworks->getPrototype(), $town, min( 20, $fireworks->getHp() ) );
             $fireworks->setHp(max(0, $fireworks->getHp() - 20));
 
             $this->log->debug("The <info>fireworks</info> has taken <info>20</info> damages...");
@@ -1004,6 +1012,7 @@ class NightlyHandler
                 $this->entity_manager->persist($this->logTemplates->fireworkExplosion($town, $fireworks->getPrototype()));
 
                 $this->town_handler->destroy_building($town, $fireworks);
+                $this->gps->recordBuildingDestroyed( $fireworks->getPrototype(), $town, 'attack' );
 
                 $this->log->debug("The fireworks are destroyed. Half of citizens in town gets infected !");
 
@@ -1043,6 +1052,7 @@ class NightlyHandler
                 $this->log->debug("Destroying building <info>{$b->getPrototype()->getLabel()}</info> as it is a temp building.");
                 $this->entity_manager->persist( $this->logTemplates->nightlyAttackDestroyBuilding($town, $b));
                 $b->setComplete(false)->setAp(0);
+                $this->gps->recordBuildingCollapsed( $b->getPrototype(), $town );
             }
             $b->setTempDefenseBonus(0);
         }
