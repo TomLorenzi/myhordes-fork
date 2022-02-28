@@ -26097,7 +26097,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Gibt an, wie viele Bürger diese Stadt gemeinsam mit einer Koalition betreten haben. Es werden sowohl Spieler gezählt die automatisch mit ihrer Koalition beitreten als auch solche, die manuell anderen Spielern aus ihrer Koalition folgen.</source>
-        <target>Gibt an, wie viele Bürger diese Stadt gemeinsam mit einer Koalition betreten haben. Es werden sowohl Spieler gezählt die automatisch mit ihrer Koalition beitreten als auch solche, die manuell anderen Spielern aus ihrer Koalition folgen.</target>
+        <target>Ce compteur montre combien de citoyens ont rejoint cette ville avec leur coalition. Il compte à la fois les citoyens qui se joignent automatiquement à leur coalition ainsi que les citoyens qui les suivent manuellement en ville.</target>
       </segment>
     </unit>
   </file>
