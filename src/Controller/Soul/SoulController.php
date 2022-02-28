@@ -363,13 +363,11 @@ class SoulController extends CustomAbstractController
      */
     public function users_exists(JSONRequestParser $parser): Response {
 
-        dump($parser->all());
         if (!$parser->has_all(['name'], true))
             return new JsonResponse(['exists' => false, 'id' => '']);
 
         $searchName = $parser->get('name');
         if(is_numeric($searchName)) {
-            dump("is integer");
             $user = $this->entity_manager->getRepository(User::class)->find($searchName);
         } else {
             $user = $this->entity_manager->getRepository(User::class)->findOneByNameOrDisplayName(trim($searchName));
