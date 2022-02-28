@@ -40,7 +40,7 @@ class GameProfilerService {
     }
 
     private function version_gate( Town $town, GameProfileEntryType $type ): bool {
-        if ($this->env === 'dev') return true;
+        if ($this->env === 'dev') return $this->resolve_town($town) !== null;
         return (int)($this->resolve_town($town)?->getProfilerVersion()) >= $type->version();
     }
 
