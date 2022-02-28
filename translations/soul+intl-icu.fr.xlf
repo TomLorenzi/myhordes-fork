@@ -4552,7 +4552,7 @@
       </notes>
       <segment>
         <source>Gegenstände in der Bank nach Anzahl sortieren</source>
-        <target>Gegenstände in der Bank nach Anzahl sortieren</target>
+        <target>Trier les objets de la banque par quantité</target>
       </segment>
     </unit>
     <unit id="YpH8nkB">
@@ -4563,7 +4563,7 @@
       </notes>
       <segment>
         <source>Standartmäßig sortiert MyHordes Gegenstände in der Bank nach ihrem Typ. Aktiviere diese Option, wenn du die Sortierung von DieVerdammten bevorzugst, bei der Gegenstände primär nach ihrer Anzahl sortiert werden.</source>
-        <target>Standartmäßig sortiert MyHordes Gegenstände in der Bank nach ihrem Typ. Aktiviere diese Option, wenn du die Sortierung von DieVerdammten bevorzugst, bei der Gegenstände primär nach ihrer Anzahl sortiert werden.</target>
+        <target>Par défaut, la banque dans MyHordes est triée par type d’objet. Si vous préférez le tri utilisé sur Hordes, où les éléments étaient principalement triés en fonction de leur quantité, activez ce paramètre.</target>
       </segment>
     </unit>
   </file>
