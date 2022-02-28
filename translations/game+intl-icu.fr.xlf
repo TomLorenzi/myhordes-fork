@@ -26093,7 +26093,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Gibt an, wie viele Bürger diese Stadt gemeinsam mit einer Koalition betreten haben. Es werden sowohl Spieler gezählt die automatisch mit ihrer Koalition beitreten als auch solche, die manuell anderen Spielern aus ihrer Koalition folgen.</note>
         <note category="from">twig:///templates/ajax/ghost/intro.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Gibt an, wie viele Bürger diese Stadt gemeinsam mit einer Koalition betreten haben. Es werden sowohl Spieler gezählt die automatisch mit ihrer Koalition beitreten als auch solche, die manuell anderen Spielern aus ihrer Koalition folgen.</source>

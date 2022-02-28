@@ -519,7 +519,7 @@ class CitizenHandler
         $prev = $citizen->getProfession();
         $citizen->setProfession( $profession );
 
-        if ($prev->getName() === 'none')
+        if (!$prev || $prev->getName() === 'none')
             $this->gps->recordCitizenProfessionSelected( $citizen );
         else $this->gps->recordCitizenCitizenProfessionChanged( $citizen, $prev );
 

@@ -4535,7 +4535,6 @@
       <notes>
         <note category="german">Koalitionen</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Koalitionen</source>
@@ -4557,7 +4556,6 @@
       <notes>
         <note category="german">Nicht installiert</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Nicht installiert</source>
