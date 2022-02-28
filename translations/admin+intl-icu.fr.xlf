@@ -4539,7 +4539,7 @@
       </notes>
       <segment>
         <source>Koalitionen</source>
-        <target>Koalitionen</target>
+        <target>Coalitions</target>
       </segment>
     </unit>
     <unit id="hR.qIOi" name="Profiler">
@@ -4561,7 +4561,7 @@
       </notes>
       <segment>
         <source>Nicht installiert</source>
-        <target>Nicht installiert</target>
+        <target>Non installé</target>
       </segment>
     </unit>
   </file>
