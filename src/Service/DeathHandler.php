@@ -185,33 +185,9 @@ class DeathHandler
         if ($citizen->getSurvivedDays()) {
             // Job picto
             $job = $citizen->getProfession();
-            if($job->getHeroic()){
-                $nameOfPicto = "";
-                switch($job->getName()){
-                    case "collec":
-                        $nameOfPicto = "r_jcolle_#00";
-                        break;
-                    case "guardian":
-                        $nameOfPicto = "r_jguard_#00";
-                        break;
-                    case "hunter":
-                        $nameOfPicto = "r_jrangr_#00";
-                        break;
-                    case "tamer":
-                        $nameOfPicto = "r_jtamer_#00";
-                        break;
-                    case "tech":
-                        $nameOfPicto = "r_jtech_#00";
-                        break;
-                    case "survivalist":
-                        $nameOfPicto = "r_jermit_#00";
-                        break;
-                }
-
-                if($nameOfPicto != "") {
-                    $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => $nameOfPicto]);
-                    $this->picto_handler->give_validated_picto($citizen, $pictoPrototype, $citizen->getDayOfDeath() - 1);
-                }
+            if($job->getHeroic() && $job->getPictoName() !== null){
+                $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => $job->getPictoName()]);
+                $this->picto_handler->give_validated_picto($citizen, $pictoPrototype, $citizen->getDayOfDeath() - 1);
             }
 
             // Clean picto

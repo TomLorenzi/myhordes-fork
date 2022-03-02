@@ -161,6 +161,7 @@ class EmoteFixtures extends Fixture {
         ['tag'=>':rrefer:', 'path'=>'build/images/emotes/rrefer.gif', 'isactive'=> true, 'requiresunlock'=> true, 'index'=> 135],
         ['tag'=>':noob:', 'path'=>'build/images/emotes/noob.gif', 'isactive'=> true, 'requiresunlock'=> true, 'index'=> 136],
         ['tag'=>':explor:', 'path'=>'build/images/emotes/exploration.gif', 'isactive'=> true, 'requiresunlock'=> false, 'index'=> 137],
+        ['tag'=>':wound:', 'path'=>'build/images/emotes/wound.gif', 'isactive'=> true, 'requiresunlock'=> false, 'index'=> 138],
     ];
 
     protected static $tag_data = [
