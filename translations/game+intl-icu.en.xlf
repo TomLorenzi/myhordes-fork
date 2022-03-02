@@ -22730,7 +22730,6 @@
       <notes>
         <note category="german">Du hast keine Seelenpunkte gewonnen (am ersten Tag gestorben).</note>
         <note category="from">twig:///templates/ajax/soul/death.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Du hast keine Seelenpunkte gewonnen (am ersten Tag gestorben).</source>

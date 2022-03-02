@@ -2863,5 +2863,17 @@
         <target>Koalitionen</target>
       </segment>
     </unit>
+    <unit id="hR.qIOi" name="Profiler">
+      <segment>
+        <source>Profiler</source>
+        <target>Profiler</target>
+      </segment>
+    </unit>
+    <unit id="Y67xIUn" name="Nicht installiert">
+      <segment>
+        <source>Nicht installiert</source>
+        <target>Nicht installiert</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

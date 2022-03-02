@@ -4535,11 +4535,31 @@
       <notes>
         <note category="german">Koalitionen</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Koalitionen</source>
-        <target>Koalitionen</target>
+        <target>Coalitions</target>
+      </segment>
+    </unit>
+    <unit id="hR.qIOi" name="Profiler">
+      <notes>
+        <note category="german">Profiler</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Profiler</source>
+        <target>Profiler</target>
+      </segment>
+    </unit>
+    <unit id="Y67xIUn" name="Nicht installiert">
+      <notes>
+        <note category="german">Nicht installiert</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Nicht installiert</source>
+        <target>Non installé</target>
       </segment>
     </unit>
   </file>
