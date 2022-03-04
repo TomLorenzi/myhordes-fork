@@ -1479,8 +1479,11 @@ class ExternalController extends InventoryAwareController {
                 case "id":
                     $user_data[$field] = $user->getId();
                     break;
-                case "twinoidID":
+                case "twinId":
                     $user_data[$field] = $user->getTwinoidID();
+                    break;
+                case "etwinId":
+                    $user_data[$field] = $user->getEternalID();
                     break;
                 case "name":
                     $user_data[$field] = $user->getName();
@@ -1738,6 +1741,9 @@ class ExternalController extends InventoryAwareController {
                         break;
                     case "twinId":
                         $data[$field] = $citizen->getUser()->getTwinoidID();
+                        break;
+                    case "etwinId":
+                        $data[$field] = $citizen->getUser()->getEternalID();
                         break;
                     case "mapId":
                         $data[$field] = $citizen->getTown()->getId();
