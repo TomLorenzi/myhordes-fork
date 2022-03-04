@@ -103,20 +103,15 @@ class GateKeeperSubscriber implements EventSubscriberInterface
             $limiter = null;
             foreach ($keys as $key => $authName) {
                 $value = $event->getRequest()->get($key);
-                dump($key);
-                dump($value);
                 if($value === "" or $value === null) continue;
 
                 $limiter = $this->$authName->create($value);
-                dump($key);
                 break;
             }
 
             if($limiter == null){
                 $limiter = $this->anonymous->create($event->getRequest()->getClientIp());
             }
-
-            dump($limiter);
 
             /** @var LimiterInterface $limiter */
             $rate = $limiter->consume(1);

@@ -336,7 +336,7 @@ class ExternalController extends InventoryAwareController {
         if (count($user_ids) <= 0) {
             return ["error" => "invalid_userids"];
         }
-        
+
         $datas = [];
         foreach ($user_ids as $user_id) {
             $datas[] = $this->getUserAPI("user", $user_id);
