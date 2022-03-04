@@ -10485,7 +10485,7 @@
       </notes>
       <segment>
         <source>Du hast permanent um 5% bessere Chancen auf der Nachtwache.</source>
-        <target>You always have 5% better chances at Night Watch.</target>
+        <target>Decreases penalty on successive watches.</target>
       </segment>
     </unit>
     <unit id="HYbv76Z">
