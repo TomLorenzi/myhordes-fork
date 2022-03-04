@@ -15687,7 +15687,7 @@
     </unit>
     <unit id="VP5Pzpa" name="Verbessrung des Tages">
       <notes>
-        <note category="german">Verbessrung des Tages</note>
+        <note category="german">Verbesserung des Tages</note>
         <note category="from">twig:///templates/ajax/game/town/upgrades.html.twig</note>
       </notes>
       <segment>

@@ -4597,5 +4597,25 @@
         <target>Not installed</target>
       </segment>
     </unit>
+    <unit id="pACkzCf" name="Persönliche Beschreibung:">
+      <notes>
+        <note category="german">Persönliche Beschreibung:</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Persönliche Beschreibung:</source>
+        <target>Personal description:</target>
+      </segment>
+    </unit>
+    <unit id="O9RB2q8" name="Letzte Worte:">
+      <notes>
+        <note category="german">Letzte Worte:</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Letzte Worte:</source>
+        <target>Last words:</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
