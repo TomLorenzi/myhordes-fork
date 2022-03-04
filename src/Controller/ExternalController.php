@@ -175,6 +175,9 @@ class ExternalController extends InventoryAwareController {
             case "me":
                 $data = $this->getUserAPI($type);
                 break;
+            case "users":
+                $data = $this->getUsersAPI($type);
+                break;
             case "map":
                 $data = $this->getMapAPI();
                 break;
@@ -323,8 +326,26 @@ class ExternalController extends InventoryAwareController {
         }
     }
 
-    private function getUserAPI(string $type): array {
+    private function getUsersAPI(): array {
+        $retourUserKey = $this->getUserKey();
+        if (!empty($retourUserKey)) {
+            return $retourUserKey;
+        }
 
+        $user_ids = explode(",", $this->getRequestParam('ids'));
+        if (count($user_ids) <= 0) {
+            return ["error" => "invalid_userids"];
+        }
+        
+        $datas = [];
+        foreach ($user_ids as $user_id) {
+            $datas[] = $this->getUserAPI("user", $user_id);
+        }
+
+        return $datas;
+    }
+
+    private function getUserAPI(string $type, int $id = -1): array {
         $retourUserKey = $this->getUserKey();
         if (!empty($retourUserKey)) {
             return $retourUserKey;
@@ -333,11 +354,11 @@ class ExternalController extends InventoryAwareController {
         if ($type === "me") {
             $filters = [$this->user->getId()];
         } else {
-            $user_id = intval($this->getRequestParam('id'));
+            $user_id = ($id === -1) ? intval($this->getRequestParam('id')) : $id;
             if ($user_id != false || $user_id > 0) {
                 $filters = [$user_id];
             } else {
-                return ["error" => "invalid_userid"];
+                return ["error" => "invalid_userid", 'id' => $user_id];
             }
         }
         $fields = $this->getRequestParam('fields');
@@ -1456,7 +1477,6 @@ class ExternalController extends InventoryAwareController {
 
         }
 
-
         return $data;
     }
 
@@ -1488,6 +1508,9 @@ class ExternalController extends InventoryAwareController {
                 case "name":
                     $user_data[$field] = $user->getName();
                     break;
+                case "locale":
+                    $user_data[$field] = $user->getLanguage();
+                    break;
                 case "avatar":
                     $has_avatar = $user->getAvatar();
                     if ($has_avatar) {
@@ -1503,6 +1526,15 @@ class ExternalController extends InventoryAwareController {
                     break;
                 case "playedMaps":
                     $user_data[$field] = $this->getPlayedMapData($user);
+                    break;
+                case "contacts":
+                    if($user === $this->getUser()) {
+                        $friends = [];
+                        foreach ($user->getFriends() as $friend) {
+                            $friends[] = $this->getUserData([$friend->getId()], $fields);
+                        }
+                        $user_data[$field] = $friends;
+                    }
                     break;
             }
             if ($current_citizen) {
