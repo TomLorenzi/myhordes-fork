@@ -169,21 +169,6 @@ class CronCommand extends Command
                 $i++;
 
                 if (!empty($failures)) {
-                    // Send mail
-                    if ($fmt) mail(
-                        $fmt,
-                        "MH-FatalMail {$town_id} {$schedule_id}",
-                        "-- Automatic Report --\r\n\r\n" .
-                        "Fatal Error during nightly attack on MyHordes\r\n\r\n" .
-                        "Unable to process town `{$town_id}`\r\n\r\n" .
-                        implode("\r\n", $failures),
-                        [
-                            'MIME-Version' => '1.0',
-                            'Content-type' => 'text/plain; charset=UTF-8',
-                            'From' => $fms
-                        ]
-                    );
-
                     // If we exceed the number of allowed processing tries, quarantine the town
                     if (count($failures) >= $try_limit) {
                         $town = $this->entityManager->getRepository(Town::class)->find($town_id);

@@ -69,8 +69,6 @@ class GateKeeperSubscriber implements EventSubscriberInterface
         $this->citizenHandler = $ch;
         $this->authenticated = $authenticatedApiLimiter;
         $this->anonymous = $anonymousApiLimiter;
-
-
     }
 
     public function holdTheDoor(ControllerEvent $event) {

@@ -33,6 +33,7 @@ use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
 use App\Translation\T;
 use Doctrine\ORM\EntityManagerInterface;
+use PHPUnit\Util\Exception;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 class GameFactory
@@ -246,6 +247,8 @@ class GameFactory
             ->setLanguage( $language )
             ->setBank( new Inventory() )
             ->setWell( mt_rand( $conf->get(TownConf::CONF_WELL_MIN, 0), $conf->get(TownConf::CONF_WELL_MAX, 0) ) );
+
+        throw new Exception('Stuff is broken, yo!');
 
         foreach ($this->entity_manager->getRepository(BuildingPrototype::class)->findProspectivePrototypes($town, 0) as $prototype)
             if (!in_array($prototype->getName(), $conf->get(TownConf::CONF_DISABLED_BUILDINGS))) {
