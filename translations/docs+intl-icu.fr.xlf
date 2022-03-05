@@ -1321,5 +1321,25 @@
         <target>Ruine explorable</target>
       </segment>
     </unit>
+    <unit id="X.6NX4Q" name="Die Eternaltwin-ID, wenn er sein Konto verknüpft hat">
+      <notes>
+        <note category="german">Die Eternaltwin-ID, wenn er sein Konto verknüpft hat</note>
+        <note category="from">twig:///templates/ajax/public/apidocs.html.twig</note>
+      </notes>
+      <segment>
+        <source>Die Eternaltwin-ID, wenn er sein Konto verknüpft hat</source>
+        <target>L'ID Eternaltwin s'il a lié son compte</target>
+      </segment>
+    </unit>
+    <unit id="DsWqhTO" name="Eternaltwin-ID des Spielers">
+      <notes>
+        <note category="german">Eternaltwin-ID des Spielers</note>
+        <note category="from">twig:///templates/ajax/public/apidocs.html.twig</note>
+      </notes>
+      <segment>
+        <source>Eternaltwin-ID des Spielers</source>
+        <target>ID Eternaltwin du joueur</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

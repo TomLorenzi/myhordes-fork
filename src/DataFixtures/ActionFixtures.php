@@ -2932,7 +2932,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
     /**
      * @inheritDoc
      */
-    public function getDependencies()
+    public function getDependencies(): array
     {
         return [ ItemFixtures::class, RecipeFixtures::class, CitizenFixtures::class ];
     }

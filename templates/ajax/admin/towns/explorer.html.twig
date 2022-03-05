@@ -441,6 +441,19 @@
                                             {% endif %}
                                             </span>
                                         {% endif %}
+                                        {% if citizen.home.description is not null or citizen.lastWords is not null %}
+                                        <div>
+                                            <img src="{{ asset('build/images/forum/r_forum.gif') }}" alt="" />
+                                            <div class="tooltip normal">
+                                                {% if citizen.home.description is not null and citizen.home.description != '' %}
+                                                {{ 'Persönliche Beschreibung:'|trans({},'admin') }} {{ citizen.home.description }}<br />
+                                                {% endif %}
+                                                {% if not citizen.alive and citizen.lastWords is not null and citizen.lastWords != '' %}
+                                                    {{ "Letzte Worte:"|trans({}, 'admin') }} {{ citizen.lastWords }}
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                        {% endif %}
                                     </div>
                                 </div>
                                 <div x-citizen-id="{{ citizen.id }}" class="row hidden citizen-details">

@@ -2875,5 +2875,23 @@
         <target>Nicht installiert</target>
       </segment>
     </unit>
+    <unit id="rDme7TT" name="Nachricht:">
+      <segment>
+        <source>Nachricht:</source>
+        <target>Nachricht:</target>
+      </segment>
+    </unit>
+    <unit id="pACkzCf" name="Persönliche Beschreibung:">
+      <segment>
+        <source>Persönliche Beschreibung:</source>
+        <target>Persönliche Beschreibung:</target>
+      </segment>
+    </unit>
+    <unit id="O9RB2q8" name="Letzte Worte:">
+      <segment>
+        <source>Letzte Worte:</source>
+        <target>Letzte Worte:</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
