@@ -10,10 +10,10 @@ use App\Entity\GameProfilerEntry;
 use App\Entity\ItemPrototype;
 use App\Entity\Recipe;
 use App\Entity\Town;
-use App\Entity\TownRankingProxy;
 use App\Entity\User;
 use App\Entity\ZonePrototype;
 use App\Enum\GameProfileEntryType;
+use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 
 class GameProfilerService {
@@ -29,33 +29,29 @@ class GameProfilerService {
         $this->confMaster = $conf;
     }
 
-    private function resolve_town( Town $town ): ?TownRankingProxy {
-        if ($town->getRankingEntry()) return $town->getRankingEntry();
-        return $this->em->getRepository( TownRankingProxy::class )->findOneBy([ 'town' => $town ]);
-    }
-
     private function resolve_citizen( Citizen $citizen ): ?CitizenRankingProxy {
         if ($citizen->getRankingEntry()) return $citizen->getRankingEntry();
         return $this->em->getRepository( CitizenRankingProxy::class )->findOneBy([ 'citizen' => $citizen ]);
     }
 
     private function version_gate( Town $town, GameProfileEntryType $type ): bool {
-        if ($this->env === 'dev') return $this->resolve_town($town) !== null;
-        return (int)($this->resolve_town($town)?->getProfilerVersion()) >= $type->version();
+        if ($this->env === 'dev') return true;
+        return $town->getProfilerVersion() >= $type->version();
     }
 
     private function init( GameProfileEntryType $type, Town $town, ?Citizen $citizen = null ): ?GameProfilerEntry {
         if (!$this->version_gate( $town, $type )) return null;
         return (new GameProfilerEntry())
-            ->setTown( $this->resolve_town( $town ) )
+            ->setTown( $town->getRankingEntry() )
+            ->setTempTown( $town->getRankingEntry() === null ? $town : null )
             ->setCitizen( $citizen ? $this->resolve_citizen( $citizen ) : null )
             ->setType( $type->value )
-            ->setTimestamp( new \DateTime() )
+            ->setTimestamp( new DateTime() )
             ->setVersion( GameProfileEntryType::latest_version() )
             ->setDay( $town->getDay() );
     }
 
-    private function maybe_persist( ?GameProfilerEntry $entry ) {
+    private function maybe_persist( ?GameProfilerEntry $entry ): void {
         if ($entry) $this->em->persist( $entry );
     }
 

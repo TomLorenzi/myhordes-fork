@@ -247,8 +247,6 @@ class GameFactory
             ->setBank( new Inventory() )
             ->setWell( mt_rand( $conf->get(TownConf::CONF_WELL_MIN, 0), $conf->get(TownConf::CONF_WELL_MAX, 0) ) );
 
-        //$town->setRankingEntry( TownRankingProxy::fromTown( $town ) );
-
         foreach ($this->entity_manager->getRepository(BuildingPrototype::class)->findProspectivePrototypes($town, 0) as $prototype)
             if (!in_array($prototype->getName(), $conf->get(TownConf::CONF_DISABLED_BUILDINGS))) {
                 $this->town_handler->addBuilding($town, $prototype);

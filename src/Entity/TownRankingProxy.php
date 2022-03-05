@@ -298,7 +298,7 @@ class TownRankingProxy
         $a = false;
         foreach ($town->getCitizens() as $c) if ($c->getAlive()) $a = true;
 
-        $obj = (($update && $town->getRankingEntry()) ? $town->getRankingEntry() : (new TownRankingProxy())->setProfilerVersion( GameProfileEntryType::latest_version() ))
+        $obj = (($update && $town->getRankingEntry()) ? $town->getRankingEntry() : (new TownRankingProxy())->setProfilerVersion( $town->getProfilerVersion() ))
             ->setBaseID( $town->getId() )
             ->setName( $town->getName() )
             ->setSeason( $town->getSeason() ?? null )

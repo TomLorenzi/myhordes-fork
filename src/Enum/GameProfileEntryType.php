@@ -25,8 +25,7 @@ enum GameProfileEntryType: int {
     case ItemFound = 15;
 
     public static function latest_version(): int {
-        return 0; // Disable for now
-        //return 1;
+        return 1;
     }
 
     public function version(): int {

@@ -3,10 +3,13 @@
 namespace App\Entity;
 
 use App\Repository\GameProfilerEntryRepository;
+use Doctrine\ORM\Event\LifecycleEventArgs;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\ORMException;
 
 /**
  * @ORM\Entity(repositoryClass=GameProfilerEntryRepository::class)
+ * @ORM\HasLifecycleCallbacks()
  */
 class GameProfilerEntry
 {
@@ -34,7 +37,7 @@ class GameProfilerEntry
 
     /**
      * @ORM\ManyToOne(targetEntity=TownRankingProxy::class)
-     * @ORM\JoinColumn(nullable=false, onDelete="CASCADE")
+     * @ORM\JoinColumn(nullable=true, onDelete="CASCADE")
      */
     private $town;
 
@@ -62,6 +65,12 @@ class GameProfilerEntry
      * @ORM\Column(type="json", nullable=true)
      */
     private $data = [];
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Town::class)
+     * @ORM\JoinColumn(nullable=true, onDelete="CASCADE")
+     */
+    private $temp_town;
 
     public function getId(): ?int
     {
@@ -174,5 +183,35 @@ class GameProfilerEntry
         $this->data = $data;
 
         return $this;
+    }
+
+    public function getTempTown(): ?Town
+    {
+        return $this->temp_town;
+    }
+
+    public function setTempTown(?Town $temp_town): self
+    {
+        $this->temp_town = $temp_town;
+
+        return $this;
+    }
+
+    /**
+     * @ORM\PostPersist()
+     * @param LifecycleEventArgs $args
+     * @throws ORMException
+     */
+    public function lifeCycle_postPersist(LifecycleEventArgs $args): void
+    {
+        if ($this->town === null) {
+            $this->setTown( $this->getTempTown()?->getRankingEntry() );
+            $this->setTempTown( null );
+
+            if ($this->town === null) $args->getEntityManager()->remove($this);
+            else $args->getEntityManager()->persist($this);
+
+            $args->getEntityManager()->flush();
+        }
     }
 }

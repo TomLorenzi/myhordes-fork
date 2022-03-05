@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Enum\GameProfileEntryType;
 use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -176,12 +177,17 @@ class Town
     /**
      * @ORM\Column(type="integer")
      */
-    private $insurrectionProgress = 0;
+    private int $insurrectionProgress = 0;
 
     /**
      * @ORM\Column(type="boolean")
      */
-    private $managedEvents = false;
+    private bool $managedEvents = false;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private int $profilerVersion = 0;
 
     public function __construct()
     {
@@ -192,6 +198,7 @@ class Town
         $this->citizenWatches = new ArrayCollection();
         $this->_townLogEntries = new ArrayCollection();
         $this->gazettes = new ArrayCollection();
+        $this->profilerVersion = GameProfileEntryType::latest_version();
     }
 
     public function getId(): ?int
@@ -653,7 +660,8 @@ class Town
      * @param LifecycleEventArgs $args
      * @throws ORMException
      */
-    public function lifeCycle_postPersist(LifecycleEventArgs $args) {
+    public function lifeCycle_postPersist(LifecycleEventArgs $args): void
+    {
         $args->getEntityManager()->persist( TownRankingProxy::fromTown( $this ) );
         if ($this->getForum()) {
             $args->getEntityManager()->persist( $g = (new UserGroup())->setName("[town:{$this->getId()}]")->setType(UserGroup::GroupTownInhabitants)->setRef1($this->getId()) );
@@ -794,6 +802,18 @@ class Town
     public function setManagedEvents(bool $managedEvents): self
     {
         $this->managedEvents = $managedEvents;
+
+        return $this;
+    }
+
+    public function getProfilerVersion(): ?int
+    {
+        return $this->profilerVersion;
+    }
+
+    public function setProfilerVersion(int $profilerVersion): self
+    {
+        $this->profilerVersion = $profilerVersion;
 
         return $this;
     }
