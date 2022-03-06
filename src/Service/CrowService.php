@@ -2,6 +2,7 @@
 
 namespace App\Service;
 
+use App\Entity\AdminReport;
 use App\Entity\Award;
 use App\Entity\Citizen;
 use App\Entity\Forum;
@@ -13,11 +14,13 @@ use App\Entity\PrivateMessageThread;
 use App\Entity\Thread;
 use App\Entity\ThreadTag;
 use App\Entity\User;
-use App\Structures\TownConf;
+use App\Structures\MyHordesConf;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\Finder\Glob;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class CrowService {
     const ModerationActionDomainForum = 1;
@@ -39,14 +42,23 @@ class CrowService {
     const ModerationActionSolve = 7;
 
     private EntityManagerInterface $em;
+    private UrlGeneratorInterface $url_generator;
+    private ConfMaster $conf;
+    private ?string $report_path;
+    private TranslatorInterface $trans;
+
 
     private function getCrowAccount(): User {
         return $this->em->getRepository(User::class)->find(66);
     }
 
-    public function __construct(EntityManagerInterface $em)
+    public function __construct(EntityManagerInterface $em, ParameterBagInterface $params, ConfMaster $conf, UrlGeneratorInterface $url_generator, TranslatorInterface $trans )
     {
         $this->em = $em;
+        $this->conf = $conf;
+        $this->trans = $trans;
+        $this->url_generator = $url_generator;
+        $this->report_path = "{$params->get('kernel.project_dir')}/var/reports";
     }
 
     /**
@@ -245,4 +257,113 @@ class CrowService {
             ->setSender( $this->getCrowAccount() )
             ->setSeen( false );
     }
+
+
+    /**
+     * @param string $text
+     * @param GlobalPrivateMessage|Post|PrivateMessage $object
+     * @param AdminReport $report
+     * @return void
+     */
+    public function triggerExternalModNotification(string $text, Post|GlobalPrivateMessage|PrivateMessage $object, AdminReport $report, ?string $note = null ): void {
+
+        $endpoint = $this->conf->getGlobalConf()->get( MyHordesConf::CONF_MOD_MAIL_DCHOOK );
+
+        if ($endpoint) {
+
+            $id = md5(get_class( $object ) . '##' . $object->getId() . "##" . $report->getId());
+            $report_path = "{$this->report_path}/{$id}/discord";
+
+            $user = match ( get_class($object) ) {
+                Post::class => $object->getOwner(),
+                PrivateMessage::class => $object->getOwner()?->getUser(),
+                GlobalPrivateMessage::class => $object->getSender(),
+                default => null
+            };
+
+            $complaint_list = [
+                'Keinen Grund angeben','Cheating','Flooding oder Spam','Verwendung einer anderen als der Stadtsprache',
+                'Beleidigungen / Unangemessener Ausdruck','Pornographie','Hassrede','Verbreitung persönlicher Informationen',
+                'Verletzung von Copyright','Aufruf zu Gesetzesverstößen','Ermutigung von Selbstmord oder Selbstverletzung'
+            ];
+
+            if (!file_exists($report_path)) {
+
+                global $kernel;
+                $html = $kernel->getContainer()->get(HTMLService::class);
+
+                $message_embed = [
+                    'color' => 16733440,
+                    'title' => match ( get_class($object) ) {
+                        Post::class => $object->getThread()->getTitle(),
+                        PrivateMessage::class => $object->getPrivateMessageThread()->getTitle(),
+                        GlobalPrivateMessage::class => $object->getReceiverGroup()->getName(),
+                        default => 'untitled'
+                    },
+                    'description' => match ( get_class($object) ) {
+                        Post::class => strip_tags( str_replace('<br/>', "\n", $html->prepareEmotes( $object->getText() ) ) ),
+                        PrivateMessage::class => strip_tags( str_replace('<br/>', "\n", $html->prepareEmotes( $object->getText() ) ) ),
+                        GlobalPrivateMessage::class => strip_tags( str_replace('<br/>', "\n", $html->prepareEmotes( $object->getText() ) ) ),
+                        default => 'no content'
+                    },
+                    'url' => match ( get_class($object) ) {
+                        Post::class => $this->url_generator->generate( 'forum_jump_view', [ 'pid' => $object->getId() ], UrlGeneratorInterface::ABSOLUTE_URL ),
+                        PrivateMessage::class, GlobalPrivateMessage::class => $this->url_generator->generate('admin_reports', [ 'tab' => 'reports' ], UrlGeneratorInterface::ABSOLUTE_URL ),
+                        default => 'no content'
+                    },
+                ];
+
+                if ($user) $message_embed['author'] = [
+                    'name' => $user->getName(),
+                    'url' => $this->url_generator->generate( 'admin_users_account_view', ['id' => $user->getId()], UrlGeneratorInterface::ABSOLUTE_URL )
+                ];
+                if ($user?->getAvatar())
+                    $message_embed['author']['icon_url'] = $this->url_generator->generate( 'app_web_avatar', ['uid' => $user->getId(), 'name' => $user->getAvatar()->getFilename(), 'ext' => $user->getAvatar()->getFormat()],UrlGeneratorInterface::ABSOLUTE_URL );
+
+                if ($report->getReason() >= 0 && $report->getReason() < count($complaint_list))
+                    $reason = $this->trans->trans( $complaint_list[$report->getReason()], [], 'global', 'en' );
+                else $reason = $this->trans->trans( 'Keinen Grund angeben', [], 'global', 'en' );
+
+                $report_embed = [
+                    'color' => 6947071,
+                    'title' => $reason,
+                    'description' => $report->getDetails() ?? 'No description',
+                ];
+
+                if ($report->getSourceUser()) $report_embed['author'] = [
+                    'name' => $report->getSourceUser()->getName(),
+                    'url' => $this->url_generator->generate( 'admin_users_account_view', ['id' => $report->getSourceUser()->getId()], UrlGeneratorInterface::ABSOLUTE_URL )
+                ];
+                if ($report->getSourceUser()?->getAvatar())
+                    $report_embed['author']['icon_url'] = $this->url_generator->generate( 'app_web_avatar', ['uid' => $report->getSourceUser()->getId(), 'name' => $report->getSourceUser()->getAvatar()->getFilename(), 'ext' => $report->getSourceUser()->getAvatar()->getFormat()], UrlGeneratorInterface::ABSOLUTE_URL );
+
+                $payload = [
+                    'content' => ":loudspeaker: **{$text}**" . ($note ? "\n{$note}" : '') . "\n\n",
+                    'embeds' => [ $message_embed, $report_embed ]
+                ];
+
+                $curl = curl_init();
+                curl_setopt_array($curl, [
+                    CURLOPT_VERBOSE => false,
+                    CURLOPT_RETURNTRANSFER => true,
+                    CURLOPT_POST => true,
+                    CURLOPT_URL => $endpoint,
+                    CURLOPT_TIMEOUT => 5,
+                    CURLOPT_POSTFIELDS => [
+                        'payload_json' => new \CURLStringFile( json_encode( $payload ), null, 'application/json' ),
+                    ],
+                ]);
+
+                $response = curl_exec($curl);
+                $status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+
+                if (!($response === false || $status < 200 || $status > 299))
+                    file_put_contents( $report_path, "".time() );
+
+            }
+
+        }
+
+    }
+
 }

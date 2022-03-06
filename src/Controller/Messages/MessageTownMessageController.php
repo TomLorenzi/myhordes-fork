@@ -17,6 +17,7 @@ use App\Entity\PrivateMessageThread;
 use App\Entity\Town;
 use App\Entity\User;
 use App\Response\AjaxResponse;
+use App\Service\CrowService;
 use App\Service\ErrorHelper;
 use App\Service\InventoryHandler;
 use App\Service\JSONRequestParser;
@@ -404,7 +405,7 @@ class MessageTownMessageController extends MessageController
      * @param TranslatorInterface $ti
      * @return Response
      */
-    public function pm_report_api(JSONRequestParser $parser, EntityManagerInterface $em, TranslatorInterface $ti): Response {
+    public function pm_report_api(JSONRequestParser $parser, EntityManagerInterface $em, TranslatorInterface $ti, CrowService $crow): Response {
         $user = $this->getUser();
 
         $id = $parser->get('pmid', null);
@@ -435,6 +436,10 @@ class MessageTownMessageController extends MessageController
 
         $em->persist($newReport);
         $em->flush();
+
+        try {
+            $crow->triggerExternalModNotification( 'A town PM has been reported.', $post, $newReport );
+        } catch (\Throwable $e) {}
 
         $message = $ti->trans('Du hast die Nachricht von {username} dem Raben gemeldet. Wer weiß, vielleicht wird {username} heute Nacht stääärben...', ['{username}' => '<span>' . $post->getOwner()->getName() . '</span>'], 'game');
         $this->addFlash('notice', $message);
