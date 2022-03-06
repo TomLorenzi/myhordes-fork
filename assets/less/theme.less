@@ -264,44 +264,10 @@ x-message {
       &.map-box {background: @myhordes-panel-border-box, @myhordes-panel-box-bg; color: @myhordes-panel-color;}
 
       &.fact {
-        color: white; height: 43px; margin-bottom: -25px; z-index: 1;
-        background: url('../img/background/footer_zombie.gif') 0 0 no-repeat; text-align: right; font-size: 1.2rem;
+        color: white; margin-bottom: -25px; z-index: 1; min-height: 43px;
+        background: url('../img/background/footer_zombie.gif') bottom left no-repeat; text-align: right; font-size: 1.2rem;
         text-shadow: 0 1px 1px black, 0 -1px 1px black, 1px 0 1px black, -1px 0 1px black, 1px 1px 1px black, -1px -1px 1px black, -1px 1px 1px black, 1px -1px 1px black;
         .author { font-weight: bold; color: #fdcb70; }
-        &.scrolling {overflow: hidden;white-space: nowrap;}
-        #scroll-text {
-          /* animation properties */
-          -moz-transform: translateX(100%);
-          -webkit-transform: translateX(100%);
-          transform: translateX(100%);
-
-          -moz-animation: my-animation 15s linear infinite;
-          -webkit-animation: my-animation 15s linear infinite;
-          animation: my-animation 15s linear infinite;
-        }
-        /* for Firefox */
-        @-moz-keyframes my-animation {
-          from { -moz-transform: translateX(100%); }
-          to { -moz-transform: translateX(-100%); }
-        }
-        /* for Chrome */
-        @-webkit-keyframes my-animation {
-          from { -webkit-transform: translateX(100%); }
-          to { -webkit-transform: translateX(-100%); }
-        }
-
-        @keyframes my-animation {
-          from {
-            -moz-transform: translateX(100%);
-            -webkit-transform: translateX(100%);
-            transform: translateX(100%);
-          }
-          to {
-            -moz-transform: translateX(-100%);
-            -webkit-transform: translateX(-100%);
-            transform: translateX(-100%);
-          }
-        }
       }
     }
 
