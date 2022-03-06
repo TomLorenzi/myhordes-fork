@@ -6,12 +6,9 @@ namespace App\Service;
 
 use App\Controller\Town\TownController;
 use App\Entity\Citizen;
-use App\Entity\CitizenHome;
 use App\Entity\CitizenHomeUpgrade;
 use App\Entity\CitizenHomeUpgradePrototype;
-use App\Entity\CitizenProfession;
 use App\Entity\CitizenStatus;
-use App\Entity\HeroSkillPrototype;
 use App\Entity\Inventory;
 use App\Entity\Item;
 use App\Entity\ItemGroup;
@@ -23,7 +20,6 @@ use App\Structures\ItemRequest;
 use Doctrine\ORM\AbstractQuery;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\NonUniqueResultException;
-use Doctrine\ORM\NoResultException;
 use Doctrine\ORM\Query\Expr\Join;
 use Doctrine\ORM\UnexpectedResultException;
 use Exception;
@@ -481,7 +477,7 @@ class InventoryHandler
         foreach ($inventories as $inventory)
             if ($inventory && $this->transferItem( $citizen, $item, $source, $inventory ) === self::ErrorNone)
                 return $inventory;
-        if ($force) foreach ($inventories as $inventory)
+        if ($force) foreach (array_reverse($inventories) as $inventory)
             if ($inventory && $this->transferItem( $citizen, $item, $source, $inventory, self::ModalityEnforcePlacement ) === self::ErrorNone)
                 return $inventory;
         return null;

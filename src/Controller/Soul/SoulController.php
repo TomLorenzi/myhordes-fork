@@ -54,7 +54,9 @@ use DateTime;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
+use PHPUnit\Util\Json;
 use Symfony\Component\Asset\Packages;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
@@ -293,7 +295,7 @@ class SoulController extends CustomAbstractController
             $coa_full = count($all_users) >= $conf->getGlobalConf()->get(MyHordesConf::CONF_COA_MAX_NUM, 5);
         }
 
-        return $this->render( 'ajax/soul/refer.html.twig', $this->addDefaultTwigArgs("soul_refer", [
+        return $this->render( 'ajax/soul/social.html.twig', $this->addDefaultTwigArgs("soul_refer", [
             'tab' => $request->attributes->get('_route') === 'soul_refer' ? 'refer' : 'friends',
 
             'refer' => $refer,
@@ -302,6 +304,8 @@ class SoulController extends CustomAbstractController
 
             'friends' => $this->getUser()->getFriends(),
             'reverse_friends' => $this->entity_manager->getRepository(User::class)->findInverseFriends($this->getUser(), true),
+
+            'blocklist' => $this->entity_manager->getRepository( SocialRelation::class )->findBy( ['owner' => $this->getUser(), 'type' => SocialRelation::SocialRelationTypeBlock ] ),
 
             'coa' => $user_coalition,
             'coa_leader' => $user_coalition && $user_coalition->getAssociationLevel() === UserGroupAssociation::GroupAssociationLevelFounder,
@@ -351,6 +355,30 @@ class SoulController extends CustomAbstractController
         if ($url === 'pm_add_users') $data['gid'] = $parser->get_int('group', 0);
 
         return $this->render( 'ajax/soul/users_list.html.twig', $data);
+    }
+
+    /**
+     * @Route("jx/soul/exists", name="user_exists")
+     * @GateKeeperProfile(allow_during_attack=true,record_user_activity=false)
+     */
+    public function users_exists(JSONRequestParser $parser): Response {
+
+        if (!$parser->has_all(['name'], true))
+            return new JsonResponse(['exists' => false, 'id' => '']);
+
+        $searchName = $parser->get('name');
+        if(is_numeric($searchName)) {
+            $user = $this->entity_manager->getRepository(User::class)->find($searchName);
+        } else {
+            $user = $this->entity_manager->getRepository(User::class)->findOneByNameOrDisplayName(trim($searchName));
+        }
+
+        return new JsonResponse ([
+            'success' => true,
+            'exists' => $user !== null,
+            'id' => $user !== null ? $user->getId() : '',
+            'displayName' => $user !== null ? $user->getName() : null
+        ]);
     }
 
 
@@ -894,7 +922,8 @@ class SoulController extends CustomAbstractController
         $user->setPreferSmallAvatars( (bool)$parser->get('sma', false) );
         $user->setDisableFx( (bool)$parser->get('disablefx', false) );
         $user->setUseICU( (bool)$parser->get('useicu', false) );
-        $user->setNoAutoFollowThreads( !(bool)$parser->get('autofollow', true) );
+        $user->setNoAutoFollowThreads( !$parser->get('autofollow', true) );
+        $user->setClassicBankSort( (bool)$parser->get('clasort', false) );
         $this->entity_manager->persist( $user );
         $this->entity_manager->flush();
 
@@ -1394,6 +1423,7 @@ class SoulController extends CustomAbstractController
         return $this->render( 'ajax/soul/death.html.twig', [
             'citizen' => $nextDeath,
             'sp' => $nextDeath->getPoints(),
+            'day' => $nextDeath->getDay(),
             'pictos' => $pictosWonDuringTown,
             'gazette' => $canSeeGazette,
             'denied_pictos' => $pictosNotWonDuringTown
@@ -1487,7 +1517,7 @@ class SoulController extends CustomAbstractController
         $lifes = $this->getUser()->getPastLifes()->getValues();
         usort($lifes, fn(CitizenRankingProxy $b, CitizenRankingProxy $a) =>
             ($a->getTown()->getSeason() ? $a->getTown()->getSeason()->getNumber() : 0) <=> ($b->getTown()->getSeason() ? $b->getTown()->getSeason()->getNumber() : 0) ?:
-            ($a->getTown()->getSeason() ? $a->getTown()->getSeason()->getSubNumber() : 100) <=> ($b->getTown()->getSeason() ? $b->getTown()->getSeason()->getSubNumber() : 100) ?:
+            ($a->getTown()->getSeason() ? $a->getTown()->getSeason()->getSubNumber() : 15) <=> ($b->getTown()->getSeason() ? $b->getTown()->getSeason()->getSubNumber() : 15) ?:
             ($a->getImportID() ?? 0) <=> ($b->getImportID() ?? 0) ?:
             $a->getID() <=> $b->getID()
         );
@@ -1518,11 +1548,14 @@ class SoulController extends CustomAbstractController
         if ($user->getEmail() !== null && !str_contains($user->getEmail(), '@'))
             $is_dummy = true;
 
+        $is_deleted = strstr($user->getName(), '$ deleted') !== false;
+
         return $this->render("ajax/soul/user_tooltip.html.twig", [
             'user' => $user,
             'userDesc' => $desc ? $html->prepareEmotes($desc->getText(), $this->getUser()) : null,
             'isFriend' => $isFriend,
             'dummy' => $is_dummy,
+            'is_deleted' => $is_deleted,
             'crow'   => $this->user_handler->hasRole($user,'ROLE_CROW'),
             'admin'  => $this->user_handler->hasRole($user,'ROLE_ADMIN'),
             'super'  => $this->user_handler->hasRole($user,'ROLE_SUPER'),

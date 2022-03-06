@@ -110,7 +110,6 @@
     {{ parent() }}
     {{ include('ajax/flash.html.twig') }}
     <script>
-        {{ include('scripts/user_tooltip.js.twig') }}
         document.querySelector('#gma>.game-bar .burger-button').addEventListener('click', function() {
             let dropdown = document.querySelector('#gma>.game-dropdown');
             dropdown.classList.toggle('hidden');

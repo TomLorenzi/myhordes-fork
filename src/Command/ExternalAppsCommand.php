@@ -49,7 +49,7 @@ class ExternalAppsCommand extends Command
     }
 
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $id = $input->getArgument('ExternalAppId');
         $table = new Table($output);

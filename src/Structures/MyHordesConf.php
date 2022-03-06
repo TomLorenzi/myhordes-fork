@@ -19,6 +19,7 @@ class MyHordesConf extends Conf
 
     const CONF_FATAL_MAIL_TARGET = 'fatalmail.target';
     const CONF_FATAL_MAIL_SOURCE = 'fatalmail.source';
+    const CONF_FATAL_MAIL_DCHOOK = 'fatalmail.discord';
 
     const CONF_TWINOID_SK = 'twinoid.sk';
     const CONF_TWINOID_ID = 'twinoid.id';

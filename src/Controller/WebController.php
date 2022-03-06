@@ -24,12 +24,13 @@ use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use App\Translation\T;
 use Psr\Cache\InvalidArgumentException;
-use Shivas\VersioningBundle\Service\VersionManager;
+use Shivas\VersioningBundle\Service\VersionManagerInterface as VersionManager;
 use Symfony\Component\HttpFoundation\HeaderUtils;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\HttpKernel\EventListener\AbstractSessionListener;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
@@ -70,9 +71,9 @@ class WebController extends CustomAbstractController
             $is_debug_version =
                 ($version->getMajor() < 1) ||
                 ($version->getPreRelease() && !(
-                    $version->getPreRelease() === 'rc' || substr($version->getPreRelease(), 0, 3) === 'rc.'
+                    $version->getPreRelease()->toString() === 'rc' || str_starts_with($version->getPreRelease()->toString(), 'rc.')
                 ));
-        } catch (InvalidArgumentException $e) {
+        } catch (\Exception $e) {
             $is_debug_version = false;
             $version = null;
         }
@@ -229,6 +230,9 @@ class WebController extends CustomAbstractController
     }
 
     private function image_output($data, string $name, string $ext): Response {
+        // HEIC images should be referred to as AVIF towards the browser
+        if ($ext === 'heic') $ext = 'avif';
+
         $response = new Response(stream_get_contents( $data ));
         $disposition = HeaderUtils::makeDisposition(
             HeaderUtils::DISPOSITION_INLINE,
@@ -236,8 +240,9 @@ class WebController extends CustomAbstractController
         );
         $response->headers->set('Content-Disposition', $disposition);
         $response->headers->set('Content-Type', "image/{$ext}");
-        $response->headers->set('Cache-Control', ['public','max-age=157680000','immutable']);
-        $response->headers->set('ETag', $name);
+        $response
+            ->setPublic()->setMaxAge(157680000)->setImmutable()
+            ->headers->set(AbstractSessionListener::NO_AUTO_CACHE_CONTROL_HEADER, 'true');
         return $response;
     }
 

@@ -845,11 +845,11 @@ class TownHandler
 
     /**
      * @param Town $town
-     * @param CitizenRole|string $role
+     * @param string|CitizenRole $role
      * @param bool $duringNightly
      * @return bool
      */
-    public function is_vote_needed(Town $town, $role, bool $duringNightly = false): bool {
+    public function is_vote_needed(Town $town, CitizenRole|string $role, bool $duringNightly = false): bool {
         // No votes needed before the town is full or during chaos
         if ($town->getChaos() || $town->isOpen()) return false;
 
@@ -867,7 +867,10 @@ class TownHandler
         /** @var Citizen $last_one */
         $last_one = $this->entity_manager->getRepository(Citizen::class)->findLastOneByRoleAndTown($role, $town);
         if ($last_one) {
-            if ($last_one->getAlive() || ($last_one->getDayOfDeath() >= ($town->getDay() - $limit)))     // Skip vote if the last citizen with this role died the previous day
+            if ($last_one->getAlive()) return false;
+            // Re-election when the role dies during attack: Next day; otherwise, one penalty day
+            $DoD = $last_one->getCauseOfDeath()->getRef() === CauseOfDeath::NightlyAttack ? ($last_one->getDayOfDeath() - 1) : ($last_one->getDayOfDeath() + 1);
+            if ($DoD >= ($town->getDay() - $limit))
                 return false;
 
         }

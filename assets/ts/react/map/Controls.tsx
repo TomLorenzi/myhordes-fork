@@ -30,7 +30,7 @@ const MapControls = ( props: MapControlProps ) => {
                 <div className="row">
                     <div className="float-left">
                         { props.showZoneViewerButtons && (
-                            <button onClick={()=>props.wrapDispatcher({showViewer: true})}
+                            <button onClick={()=>props.wrapDispatcher({showViewer: true, showPanel: false})}
                                 className="small inline map_button map_button_left">
                                 <div>{ props.strings.close }</div>
                             </button>

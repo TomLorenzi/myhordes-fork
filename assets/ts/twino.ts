@@ -1,5 +1,9 @@
 interface emoteResolver { (name: string): [string|null,string] }
 
+import {Const, Global} from "./defaults";
+declare var c: Const;
+declare var $: Global;
+
 class TwinoClientOptions {
     public readonly autoLinks?: boolean;
 }
@@ -256,7 +260,7 @@ class TwinoConverterToBlocks {
                 else blocks.push( new TwinoInterimBlock(nodeContent, 'div', match.nodeType(), [['x-nested','1']]) );
                 changed = true; break;
             case 'code': blocks.push( new TwinoInterimBlock(nodeContent, 'pre', [], [ ['x-raw','1'] ]) ); changed = true; break;
-            case 'quote':
+            case 'quote':case 'cite':
                 if ( match.nodeInfo() ) {
                     let split = match.nodeInfo().split(':');
                     blocks.push( new TwinoInterimBlock('', 'div', 'clear') );
@@ -365,7 +369,33 @@ class TwinoConverterToBlocks {
             case '@':
                 let id = match.nodeInfo() ? match.nodeInfo() : 'auto';
                 let name = match.nodeContent() ? match.nodeContent() : ('user #' + id)
+                // Ajax request here, to add the username class & co
+                if ($.html.twinoParser.Request !== null) {
+                    clearTimeout($.html.twinoParser.Request);
+                }
+
                 blocks.push( new TwinoInterimBlock( name, 'div', 'cref', [['x-a',id]]) );
+                $.html.twinoParser.Request = setTimeout(function(){
+                    if ($.html.twinoParser.AjaxUrl !== '') {
+                        let elem = document.querySelector('#' + $.html.twinoParser.textEditor + ' div.cref[x-a="' + id + '"]');
+                        elem.textContent = "...";
+                        $.ajax.easySend($.html.twinoParser.AjaxUrl, {
+                            'name': id === 'auto' ? name : id
+                        }, function(data){
+                            data.success;
+                            if ((data as any).exists) {
+                                elem.classList.add("username");
+                                elem.setAttribute("x-user-id", (data as any).id);
+                                elem.textContent = (data as any).displayName;
+                                $.html.handleUserPopup(<HTMLElement>elem);
+                            } else {
+                                elem.textContent = name;
+                            }
+                            clearTimeout($.html.twinoParser.Request);
+                            $.html.twinoParser.Request = null;
+                        });
+                    }
+                }, 1000);
                 break;
             default: blocks.push( new TwinoInterimBlock( match.raw() ) ); break;
         }
@@ -443,7 +473,8 @@ class HTMLConverterFromBlocks {
                 case 'span':
                     if (block.hasClass('quoteauthor')) {
                         if (peek && peek.nodeName === 'blockquote') {
-                            ret += quotespace ? '' : HTMLConverterFromBlocks.wrapBlock( nextBlock(), 'quote', block.nodeText + (block.getAttribute('x-id') ? (':' + block.getAttribute('x-id')) : '') )
+                            const xid = block.getAttribute('x-user-id') ?? block.getAttribute('x-id');
+                            ret += quotespace ? '' : HTMLConverterFromBlocks.wrapBlock( nextBlock(), 'quote', (xid ? block.nodeText.replace(/\W/,'') : block.nodeText) + (xid ? (':' + xid) : '') )
                         }
                     } else if (block.hasClass('rpauthor')) {
                         if (peek && peek.nodeName === 'div' && peek.hasClass('rpText')) {
@@ -460,9 +491,8 @@ class HTMLConverterFromBlocks {
                     break;
                 case 'div':
                     if (block.hasClass('cref')) {
-                        let id = '';
-                        block.nodeAttribs.forEach((value => { if (value[0] == 'x-id') id = value[1]; }))
-                        ret += '@' + block.nodeText + ( id !== '' ? (':' + id) : '' );
+                        let id = block.getAttribute('x-user-id') ?? block.getAttribute('x-id');
+                        ret += '@' + ( id ? block.nodeText.replace(/\W/,'') : block.nodeText) + ( id ? (':' + id) : '' );
                     } else if (block.hasClass('spoiler'))
                         ret += HTMLConverterFromBlocks.wrapBlock( block, 'spoiler' )
                     else if (block.hasClass('sideNote'))
@@ -510,6 +540,9 @@ export default class TwinoAlikeParser {
 
     public readonly OpModeRaw   = 0x1;
     public readonly OpModeQuote = 0x2;
+    public AjaxUrl = "";
+    public Request = null;
+    public textEditor = null;
 
     private static lego(blocks: Array<TwinoInterimBlock>, elem: HTMLElement): void {
         for (let i = 0; i < blocks.length; i++) {
@@ -698,14 +731,16 @@ export default class TwinoAlikeParser {
                 while (result = /\b((?:https?|ftps?):\/\/[^\s{}[\]<>]*)\b/g.exec( str )) {
                     found = true;
 
+                    let trailing_slash = str.substr(result.index + result[0].length, 1) === '/';
+
                     let a = document.createElement('a');
-                    a.setAttribute('href', result[0]);
-                    a.innerText = result[0];
+                    a.setAttribute('href', result[0] + (trailing_slash ? '/' : ''));
+                    a.innerText = result[0] + (trailing_slash ? '/' : '');
 
                     elem.parentElement.insertBefore( document.createTextNode( str.slice(0,result.index) ), elem );
                     elem.parentElement.insertBefore( a, elem );
 
-                    str = str.slice(result.index + result[0].length);
+                    str = str.slice(result.index + result[0].length + (trailing_slash ? 1 : 0));
                 }
 
                 if (found) {
@@ -748,6 +783,21 @@ export default class TwinoAlikeParser {
             marked_nodes[i].removeAttribute('x-raw');
             marked_nodes[i].removeAttribute('x-nested');
         }
+
+        const delete_empty = ( tag: HTMLElement ): boolean => {
+            if (tag.nodeType !== Node.ELEMENT_NODE) return false;
+
+            if (
+                (tag as HTMLElement).tagName === 'BR' ||
+                ((tag as HTMLElement).tagName === 'P' && !(tag as HTMLElement).innerHTML.match(/\S/))
+            ) {
+                c.remove();
+                return true;
+            } else return false;
+        }
+
+        do { c = container_node.firstChild; } while (delete_empty(c));
+        do { c = container_node.lastChild; }  while (delete_empty(c));
 
         while ((c = container_node.firstChild))
             target.appendChild(c);

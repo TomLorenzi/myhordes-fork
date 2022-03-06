@@ -400,7 +400,7 @@ class UserRepository extends ServiceEntityRepository implements UserLoaderInterf
     /**
      * @inheritDoc
      */
-    public function loadUserByUsername(string $username)
+    public function loadUserByUsername(string $username): ?User
     {
         $components = explode('::', $username, 2);
         list( $domain, $name ) = count($components) === 2 ? $components : ['myh',$components[0]];
@@ -418,6 +418,11 @@ class UserRepository extends ServiceEntityRepository implements UserLoaderInterf
                 return $token ? $token->getUser() : null;
             default: return null;
         }
+    }
+
+    public function loadUserByIdentifier(string $identifier): ?User
+    {
+        return $this->loadUserByUsername($identifier);
     }
 
     /**

@@ -12,8 +12,8 @@ use Doctrine\ORM\EntityManagerInterface;
 
 class TimeKeeperService
 {
-    private $entity_manager;
-    private $env;
+    private EntityManagerInterface $entity_manager;
+    private string $env;
 
     public function __construct(EntityManagerInterface $em, string $env)
     {

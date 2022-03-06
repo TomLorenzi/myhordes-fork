@@ -6814,27 +6814,14 @@
         <target>Total de créatures mort-vivantes que vous avez renvoyées sous terre par n'importe quel moyen.</target>
       </segment>
     </unit>
-    <unit id="IV3fj_Y">
-      <notes>
-        <note category="german">Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur Verfügung.</note>
-        <note category="from">twig:///templates/ajax/game/game.html.twig</note>
-      </notes>
-      <segment>
-        <source>Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur
-                        Verfügung.</source>
-        <target>Votre ville a décidé de vous bannir. Certaines actions ne sont plus disponibles pour vous.</target>
-      </segment>
-    </unit>
-    <unit id="Qc.QL70">
+    <unit id="kB7aA6d">
       <notes>
         <note category="german">Je nachdem, welchen Beruf du auswählst, stehen dir unterschiedliche Aktionen und Spielweisen in dieser Stadt zur Verfügung.</note>
         <note category="from">twig:///templates/ajax/game/jobs.html.twig</note>
       </notes>
       <segment>
-        <source>Je nachdem, welchen Beruf du auswählst, stehen dir unterschiedliche Aktionen und Spielweisen in
-                dieser Stadt zur Verfügung.</source>
-        <target>Selon la profession que vous choisissez, différentes actions et styles de jeu sont disponibles
-                dans cette ville.</target>
+        <source>Je nachdem, welchen Beruf du auswählst, stehen dir unterschiedliche Aktionen und Spielweisen in dieser Stadt zur Verfügung.</source>
+        <target>Selon la profession que vous choisissez, différentes actions et styles de jeu sont disponibles dans cette ville.</target>
       </segment>
     </unit>
     <unit id="yrqg0t2">
@@ -7979,7 +7966,7 @@
     <unit id="jIaT.gH">
       <notes>
         <note category="german">Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...</note>
-        <note category="from">php:///src/Controller/BeyondController.php;php:///src/Service/ActionHandler.php;php:///src/Service/ZoneHandler.php</note>
+        <note category="from">php:///src/Controller/BeyondController.php;php:///src/Controller/ExplorationController.php;php:///src/Service/ActionHandler.php;php:///src/Service/ZoneHandler.php</note>
       </notes>
       <segment>
         <source>Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...</source>
@@ -8443,7 +8430,7 @@
       </notes>
       <segment>
         <source>{citizen} hat folgendes hergestellt: {list2}; dabei wurden folgende Gegenstände verbraucht: {list1}.</source>
-        <target>{citizen} a produit : {list2} à partir de : {list1}.</target>
+        <target>{citizen} a produit {list2} à l'Atelier (à partir de {list1}).</target>
       </segment>
     </unit>
     <unit id="6ymR84s">
@@ -8543,7 +8530,7 @@
       </notes>
       <segment>
         <source>Du kannst heute keine weiteren Beschwerden vorbringen.</source>
-        <target>Vous ne pouvez plus déposer de plaintes aujourd'hui.</target>
+        <target><![CDATA[Vous avez déjà fait cela aujourd'hui (max : <strong>4 fois par jour</strong>)... Attendez <strong>demain</strong> pour recommencer.]]></target>
       </segment>
     </unit>
     <unit id="R67MR0Q" name="Der {rolename} der Stadt ist {username}">
@@ -9813,7 +9800,7 @@
       </notes>
       <segment>
         <source>Meine Nachrichten lesen.</source>
-        <target>Lire mon courrier.</target>
+        <target>Lire mon courrier</target>
       </segment>
     </unit>
     <unit id="bYjLN7a" name="Draußen">
@@ -9839,7 +9826,7 @@
     <unit id="fICCxje" name="Seine Seele ansehen">
       <notes>
         <note category="german">Seine Seele ansehen</note>
-        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Seine Seele ansehen</source>
@@ -10563,7 +10550,7 @@
       </notes>
       <segment>
         <source>Diese Fähigkeit wurde noch nicht freigeschaltet...</source>
-        <target>Capacité non-débloquée...</target>
+        <target>Capacité non débloquée...</target>
       </segment>
     </unit>
     <unit id="pV4nX2l" name="Fähigkeit">
@@ -10663,7 +10650,7 @@
       </notes>
       <segment>
         <source>Mithilfe des {item} hast du die Tür aufgeschlossen!</source>
-        <target>Avec {item}, vous avez déverrouillé la porte !</target>
+        <target>Vous avez réussi à dévérouiller la porte, mais la {item}, elle par contre, semble foutue...</target>
       </segment>
     </unit>
     <unit id="DswnobJ" name="{z} Zombies blockieren den Weg!">
@@ -10773,7 +10760,7 @@
       </notes>
       <segment>
         <source>Du benötigst {item}, um diese Tür zu öffnen.</source>
-        <target>Vous avez besoin de {item} pour ouvrir cette porte.</target>
+        <target>Pour ouvrir cette porte il vous faudrait quelque chose ressemblant à un(e) {item}.</target>
       </segment>
     </unit>
     <unit id="Zc9wwO7" name="Verbesserung des Tages (building)">
@@ -11261,10 +11248,7 @@
         <source>Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
                             zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
                             werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</source>
-        <target>Les Points de Chantiers peuvent être utilisés à l'Atelier et pour la construction des Chantiers,
-                            où ils comptent comme des points d'action. Si possible, les points de chantiers sont toujours
-                            utilisés à la place des points d'action. Gardez à l'esprit que les points de
-                            chantiers ne peuvent pas être utilisés lorsque vous êtes épuisé !</target>
+        <target>Ces points sont exclusivement destinés à la construction des chantiers dans la ville.</target>
       </segment>
     </unit>
     <unit id="swizrYC" name="Erschöpft">
@@ -15053,7 +15037,7 @@
       </notes>
       <segment>
         <source>Die letzten Nachrichten meiner Koalition lesen.</source>
-        <target>Lire les derniers messages de ma coalition.</target>
+        <target>Lire les derniers messages de ma coalition</target>
       </segment>
     </unit>
     <unit id="8DkmL.j" name="Dieses Bauprojekt wurde bereits abgeschlossen.">
@@ -15481,7 +15465,7 @@
     <unit id="JAkgM4Z" name="Kleine Koalitionen">
       <notes>
         <note category="german">Kleine Koalitionen</note>
-        <note category="from">twig:///templates/ajax/soul/coalitions.html.twig</note>
+        <note category="from">twig:///templates/ajax/ghost/intro.html.twig;twig:///templates/ajax/soul/coalitions.html.twig</note>
       </notes>
       <segment>
         <source>Kleine Koalitionen</source>
@@ -15600,7 +15584,7 @@
     </unit>
     <unit id="VP5Pzpa" name="Verbessrung des Tages">
       <notes>
-        <note category="german">Verbessrung des Tages</note>
+        <note category="german">Verbesserung des Tages</note>
         <note category="from">twig:///templates/ajax/game/town/upgrades.html.twig</note>
       </notes>
       <segment>
@@ -16026,7 +16010,7 @@
       </notes>
       <segment>
         <source>Katapultregister</source>
-        <target>Katapultregister</target>
+        <target>Catapulte</target>
       </segment>
     </unit>
     <unit id="XhfFUUF" name="Bitte wähle einen Gegenstand.">
@@ -19720,7 +19704,7 @@
       </notes>
       <segment>
         <source>Kein Event:</source>
-        <target>Aucun évènement:</target>
+        <target>Aucun évènement :</target>
       </segment>
     </unit>
     <unit id="nHRZ69P" name="Startet die Stadt ohne Event-Inhalte">
@@ -20551,34 +20535,31 @@
     <unit id="wZJl7Bp" name="Deine Identität">
       <notes>
         <note category="german">Deine Identität</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/jobs.html.twig</note>
       </notes>
       <segment>
         <source>Deine Identität</source>
-        <target>Deine Identität</target>
+        <target>Votre identité</target>
       </segment>
     </unit>
     <unit id="0DPxQPn" name="Diese Stadt erlaubt es, einen Spitznamen zu tragen.">
       <notes>
         <note category="german">Diese Stadt erlaubt es, einen Spitznamen zu tragen.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/jobs.html.twig</note>
       </notes>
       <segment>
         <source>Diese Stadt erlaubt es, einen Spitznamen zu tragen.</source>
-        <target>Diese Stadt erlaubt es, einen Spitznamen zu tragen.</target>
+        <target>Cette ville autorise les alias.</target>
       </segment>
     </unit>
     <unit id="qYsZ1.g" name="Freilassen, um normalen Spielernamen zu verwenden.">
       <notes>
         <note category="german">Freilassen, um normalen Spielernamen zu verwenden.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/jobs.html.twig</note>
       </notes>
       <segment>
         <source>Freilassen, um normalen Spielernamen zu verwenden.</source>
-        <target>Freilassen, um normalen Spielernamen zu verwenden.</target>
+        <target>Laissez ce champ vide pour conserver votre nom habituel.</target>
       </segment>
     </unit>
     <unit id="G2mvpQw" name="Wir denken, der morgige Angriff wird ungefähr folgendermaßen aussehen:">
@@ -22259,7 +22240,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Profi-Fotograph</source>
-        <target>Photographe professionnel</target>
+        <target>Photographe de guerre</target>
       </segment>
     </unit>
     <unit id="Uy1Rmg9" name="Du beginst jede neue Stadt mit einer Kamera aus Vorkriegstagen.">
@@ -22429,7 +22410,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Dieser Bürger wurde aus der Gemeinschaft verbannt; er hat nicht länger Zugang zu den Gebäuden der Stadt, mit Ausnahme des Brunnens (wobei er auf eine Ration pro Tag eingeschränkt ist).</source>
-        <target>Ce citoyen a été banni de la communauté : il ne pourra plus avoir accès aux dispositifs de la ville, à l'exception du puits (limité toutefois à la ration quotidienne, sans supplémentaire).</target>
+        <target>Ce citoyen a été banni de la communauté : il ne pourra plus avoir accès aux dispositifs de la ville, à l'exception du puits (limité toutefois à la ration quotidienne, sans prise supplémentaire).</target>
       </segment>
     </unit>
     <unit id="Xrx5c_.">
@@ -22931,7 +22912,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Einen Aufstand der Verbannten vorbereiten (optional).</source>
-        <target>préparer une insurrection de bannis (optionnel)</target>
+        <target>Préparer une insurrection de bannis (optionnel)</target>
       </segment>
     </unit>
     <unit id="gfklKsJ" name="Du bist der {rolename} dieser Stadt.">
@@ -24955,7 +24936,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Die Zombies haben sich nicht mit Nettigkeiten aufgehalten... alles, was von &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} noch übrig ist ist ein Kieferknochen sowie verschiedene Organe, die {location} gefunden wurden. Kommt schon, lächelt mal wieder! Er war das einzige Opfer, stellt euch mal vor es hätte auch noch &lt;strong&gt;{citizen1}&lt;/strong&gt; getroffen!</source>
-        <target><![CDATA[Les zombies n'ont pas fait dans la dentelle hier soir... De <i class="dagger">†</i> {cadaver1}, il ne reste qu'une mâchoire et quelques organes broyés retrouvés [location]. Allez, on sourit ! C'est la seule victime, ça aurait pu être <strong>{citizen1}</strong> !]]></target>
+        <target><![CDATA[Les zombies n'ont pas fait dans la dentelle hier soir... De <i class="dagger">†</i> {cadaver1}, il ne reste qu'une mâchoire et quelques organes broyés retrouvés {location}. Allez, on sourit ! C'est la seule victime, ça aurait pu être <strong>{citizen1}</strong> !]]></target>
       </segment>
     </unit>
     <unit id="BmxV3XO">
@@ -25751,7 +25732,7 @@ cette violente opération...]]></target>
     <unit id="dAly6Ww" name="Wir werden alle sterben: Sag es weiter!">
       <notes>
         <note category="german">Wir werden alle sterben: Sag es weiter!</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Wir werden alle sterben: Sag es weiter!</source>
@@ -25998,18 +25979,14 @@ cette violente opération...]]></target>
         <target>Consultez l'aide sur les Goules !</target>
       </segment>
     </unit>
-    <unit id="Ns.Fv2L">
+    <unit id="UfxaKkh">
       <notes>
-        <note category="german">Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur
-                            Verfügung.</note>
+        <note category="german">Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur Verfügung.</note>
         <note category="from">twig:///templates/ajax/game/game.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
-        <source>Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur
-                            Verfügung.</source>
-        <target>Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur
-                            Verfügung.</target>
+        <source>Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur Verfügung.</source>
+        <target>Votre ville a décidé de vous bannir. Certaines actions ne sont plus disponibles pour vous.</target>
       </segment>
     </unit>
     <unit id="boRvKwW" name="Hunger:">
@@ -26050,6 +26027,76 @@ cette violente opération...]]></target>
       <segment>
         <source>vollständig demoliert und wiederverwertet...</source>
         <target>entièrement recyclée et démontée...</target>
+      </segment>
+    </unit>
+    <unit id="Tf_X4.E">
+      <notes>
+        <note category="german">Du hast {item} gefunden, als du die schmutzigen Ecken dieses elenden Ortes durchsucht hast!</note>
+        <note category="from">php:///src/Controller/ExplorationController.php</note>
+      </notes>
+      <segment>
+        <source>Du hast {item} gefunden, als du die schmutzigen Ecken dieses elenden Ortes durchsucht hast!</source>
+        <target>Vous trouvez {item} en fouillant dans les recoins de cette pièce sordide.</target>
+      </segment>
+    </unit>
+    <unit id="GtMVIRi" name="Diese Aktion kannst du erst morgen erneut versuchen.">
+      <notes>
+        <note category="german">Diese Aktion kannst du erst morgen erneut versuchen.</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+      </notes>
+      <segment>
+        <source>Diese Aktion kannst du erst morgen erneut versuchen.</source>
+        <target>Cette action ne pourra pas être tentée à nouveau avant demain.</target>
+      </segment>
+    </unit>
+    <unit id="i8PEylr" name="Dieser Bürger wurde aus der Gemeinschaft verbannt.">
+      <notes>
+        <note category="german">Dieser Bürger wurde aus der Gemeinschaft verbannt.</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_omniscience.html.twig;twig:///templates/ajax/game/town/citizen_vote.html.twig</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger wurde aus der Gemeinschaft verbannt.</source>
+        <target>Ce citoyen a été banni de la communauté.</target>
+      </segment>
+    </unit>
+    <unit id="r2vaFFk" name="Du musst für deine Beschwerde eine Begründung angeben.">
+      <notes>
+        <note category="german">Du musst für deine Beschwerde eine Begründung angeben.</note>
+        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du musst für deine Beschwerde eine Begründung angeben.</source>
+        <target>Vous devez entrer une raison pour cette dénonciation.</target>
+      </segment>
+    </unit>
+    <unit id="2pxefje">
+      <notes>
+        <note category="german">Du suchst dir besser eine Beschäftigung aus, denn es gilt: Ohne Job, kein Leben. Wozu bist du denn sonst gut? Die Gemeinschaft, der du angehören wirst, braucht jede Art von Personen. Die Zusammenarbeit mit den anderen wird zweifelsohne deine Überlebensdauer entscheidend beeinflussen...</note>
+        <note category="from">twig:///templates/ajax/game/jobs.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du suchst dir besser eine Beschäftigung aus, denn es gilt: Ohne Job, kein Leben. Wozu bist du denn sonst gut? Die Gemeinschaft, der du angehören wirst, braucht jede Art von Personen. Die Zusammenarbeit mit den anderen wird zweifelsohne deine Überlebensdauer entscheidend beeinflussen...</source>
+        <target>Il vaut mieux choisir une bonne occupation : en effet pas d'existence sans occupation. Sinon à quoi servirez-vous ? La communauté que vous rejoignez a besoin de tous types de personnes. C'est certainement l'effort collectif qui déterminera en grande partie votre temps de survie...</target>
+      </segment>
+    </unit>
+    <unit id="FwB1Mvm" name="Mit dem richtigen Schlüssel kannst du diese Tür öffnen.">
+      <notes>
+        <note category="german">Mit dem richtigen Schlüssel kannst du diese Tür öffnen.</note>
+        <note category="from">twig:///templates/ajax/game/beyond/ruin.html.twig</note>
+      </notes>
+      <segment>
+        <source>Mit dem richtigen Schlüssel kannst du diese Tür öffnen.</source>
+        <target>Vous pouvez ouvrir cette porte si vous avez la bonne clé avec vous.</target>
+      </segment>
+    </unit>
+    <unit id="4j6vPUP">
+      <notes>
+        <note category="german">Gibt an, wie viele Bürger diese Stadt gemeinsam mit einer Koalition betreten haben. Es werden sowohl Spieler gezählt die automatisch mit ihrer Koalition beitreten als auch solche, die manuell anderen Spielern aus ihrer Koalition folgen.</note>
+        <note category="from">twig:///templates/ajax/ghost/intro.html.twig</note>
+      </notes>
+      <segment>
+        <source>Gibt an, wie viele Bürger diese Stadt gemeinsam mit einer Koalition betreten haben. Es werden sowohl Spieler gezählt die automatisch mit ihrer Koalition beitreten als auch solche, die manuell anderen Spielern aus ihrer Koalition folgen.</source>
+        <target>Ce compteur montre combien de citoyens ont rejoint cette ville avec leur coalition. Il compte à la fois les citoyens qui se joignent automatiquement à leur coalition ainsi que les citoyens qui les suivent manuellement en ville.</target>
       </segment>
     </unit>
   </file>

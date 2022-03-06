@@ -34,6 +34,8 @@ use Doctrine\Common\Collections\Criteria;
 use Exception;
 use Symfony\Component\Config\Util\Exception\InvalidXmlException;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\RateLimiter\Policy\Rate;
+use Symfony\Component\RateLimiter\RateLimiterFactory;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -112,14 +114,16 @@ class ExternalXML2Controller extends ExternalController {
     }
 
     /**
-     * @Route("/api/x/v2/xml", name="api_x2_xml", defaults={"_format"="xml"}, methods={"GET","POST"})
+     * @Route("api/x/v2/xml", name="api_x2_xml", defaults={"_format"="xml"}, methods={"GET","POST"})
      * @return Response The XML that contains the list of accessible enpoints
+     * @GateKeeperProfile(rate_limited=true, rate_keys={"appkey": "authenticated", "userkey": "anonymous"})
      */
     public function api_xml(): Response {
-        $user = $this->check_keys();
+        $user = $this->check_keys(false);
 
         if($user instanceof Response)
             return $user;
+
         $endpoints = [];
         if ($this->isSecureRequest()) {
             $endpoints['user'] = $this->generateUrl('api_x2_xml_user', [], UrlGeneratorInterface::ABSOLUTE_URL);
@@ -141,12 +145,13 @@ class ExternalXML2Controller extends ExternalController {
     }
 
     /**
-     * @Route("/api/x/v2/xml/user", name="api_x2_xml_user", defaults={"_format"="xml"}, methods={"GET","POST"})
+     * @Route("api/x/v2/xml/user", name="api_x2_xml_user", defaults={"_format"="xml"}, methods={"GET","POST"})
      * Get the XML content for the soul of a user
      * @param Request $request The current HTTP Request
      * @return Response Return the XML content for the soul of the user
+     * @GateKeeperProfile(rate_limited=true, rate_keys={"appkey": "authenticated", "userkey": "anonymous"})
      */
-    public function api_xml_user(Request $request): Response {
+    public function api_xml_user(Request $request, RateLimiterFactory $authenticatedApiLimiter, RateLimiterFactory $anonymousApiLimiter): Response {
         $user = $this->check_keys(true);
 
         if($user instanceof Response)
@@ -157,7 +162,6 @@ class ExternalXML2Controller extends ExternalController {
         } catch (Exception $e) {
             $now = date('Y-m-d H:i:s');
         }
-
 
         $language = $this->getRequestLanguage($request,$user);
         if($language !== 'all')
@@ -301,12 +305,13 @@ class ExternalXML2Controller extends ExternalController {
     }
 
     /**
-     * @Route("/api/x/v2/xml/town", name="api_x2_xml_town", defaults={"_format"="xml"}, methods={"GET","POST"})
+     * @Route("api/x/v2/xml/town", name="api_x2_xml_town", defaults={"_format"="xml"}, methods={"GET","POST"})
      * Get the XML content for the town of a user
      * @param Request $request The current HTTP Request
      * @return Response
+     * @GateKeeperProfile(rate_limited=true, rate_keys={"appkey": "authenticated", "userkey": "anonymous"})
      */
-    public function api_xml_town(Request $request): Response {
+    public function api_xml_town(Request $request, RateLimiterFactory $authenticatedApiLimiter, RateLimiterFactory $anonymousApiLimiter): Response {
         $user = $this->check_keys(false);
 
         if($user instanceof Response)
@@ -792,12 +797,13 @@ class ExternalXML2Controller extends ExternalController {
     }
 
     /**
-     * @Route("/api/x/v2/xml/items", name="api_x2_xml_items", defaults={"_format"="xml"}, methods={"GET","POST"})
+     * @Route("api/x/v2/xml/items", name="api_x2_xml_items", defaults={"_format"="xml"}, methods={"GET","POST"})
      * Returns the lists of items currently used in the game
      * @param Request $request
      * @return Response
+     * @GateKeeperProfile(rate_limited=true, rate_keys={"appkey": "authenticated", "userkey": "anonymous"})
      */
-    public function api_xml_items(Request $request): Response {
+    public function api_xml_items(Request $request, RateLimiterFactory $authenticatedApiLimiter, RateLimiterFactory $anonymousApiLimiter): Response {
         $user = $this->check_keys(true);
 
         try {
@@ -867,12 +873,13 @@ class ExternalXML2Controller extends ExternalController {
     }
 
     /**
-     * @Route("/api/x/v2/xml/buildings", name="api_x2_xml_buildings", defaults={"_format"="xml"}, methods={"GET","POST"})
+     * @Route("api/x/v2/xml/buildings", name="api_x2_xml_buildings", defaults={"_format"="xml"}, methods={"GET","POST"})
      * Returns the lists of buildings currently used in the game
      * @param Request $request
      * @return Response
+     * @GateKeeperProfile(rate_limited=true, rate_keys={"appkey": "authenticated", "userkey": "anonymous"})
      */
-    public function api_xml_buildings(Request $request): Response {
+    public function api_xml_buildings(Request $request, RateLimiterFactory $authenticatedApiLimiter, RateLimiterFactory $anonymousApiLimiter): Response {
         $user = $this->check_keys(true);
 
         try {
@@ -939,12 +946,13 @@ class ExternalXML2Controller extends ExternalController {
     }
 
     /**
-     * @Route("/api/x/v2/xml/ruins", name="api_x2_xml_ruins", defaults={"_format"="xml"}, methods={"GET","POST"})
+     * @Route("api/x/v2/xml/ruins", name="api_x2_xml_ruins", defaults={"_format"="xml"}, methods={"GET","POST"})
      * Returns the lists of ruins currently used in the game
      * @param Request $request
      * @return Response
+     * @GateKeeperProfile(rate_limited=true, rate_keys={"appkey": "authenticated", "userkey": "anonymous"})
      */
-    public function api_xml_ruins(Request $request): Response {
+    public function api_xml_ruins(Request $request, RateLimiterFactory $authenticatedApiLimiter, RateLimiterFactory $anonymousApiLimiter): Response {
         $user = $this->check_keys(true);
 
         try {
@@ -1006,12 +1014,13 @@ class ExternalXML2Controller extends ExternalController {
     }
 
     /**
-     * @Route("/api/x/v2/xml/pictos", name="api_x2_xml_pictos", defaults={"_format"="xml"}, methods={"GET","POST"})
+     * @Route("api/x/v2/xml/pictos", name="api_x2_xml_pictos", defaults={"_format"="xml"}, methods={"GET","POST"})
      * Returns the lists of pictos currently used in the game
      * @param Request $request
      * @return Response
+     * @GateKeeperProfile(rate_limited=true, rate_keys={"appkey": "authenticated", "userkey": "anonymous"})
      */
-    public function api_xml_pictos(Request $request): Response {
+    public function api_xml_pictos(Request $request, RateLimiterFactory $authenticatedApiLimiter, RateLimiterFactory $anonymousApiLimiter): Response {
         $user = $this->check_keys(true);
 
         try {
@@ -1072,12 +1081,13 @@ class ExternalXML2Controller extends ExternalController {
     }
 
     /**
-     * @Route("/api/x/v2/xml/titles", name="api_x2_xml_titles", defaults={"_format"="xml"}, methods={"GET","POST"})
+     * @Route("api/x/v2/xml/titles", name="api_x2_xml_titles", defaults={"_format"="xml"}, methods={"GET","POST"})
      * Returns the lists of titles currently used in the game
      * @param Request $request
      * @return Response
+     * @GateKeeperProfile(rate_limited=true, rate_keys={"appkey": "authenticated", "userkey": "anonymous"})
      */
-    public function api_xml_titles(Request $request): Response {
+    public function api_xml_titles(Request $request, RateLimiterFactory $authenticatedApiLimiter, RateLimiterFactory $anonymousApiLimiter): Response {
         $user = $this->check_keys(true);
 
         try {

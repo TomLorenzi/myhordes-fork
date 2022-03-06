@@ -448,20 +448,6 @@ ul.coa-users {
             display: block;
             margin-bottom: 0.3em;
         }
-        .username { 
-            text-decoration: none;
-            background-color: #5C0000;
-            border-top: 1px solid #98341c;
-            border-radius: 4px;
-            padding-right: 5px;
-            padding-left: 5px;
-            color: #f0d79e;
-            font-weight: bold;
-            &.is-friend {
-                border-top: 1px solid #965c36;
-                background-color: #7e4e2a;
-            }
-        }
     }
 }
 
@@ -548,7 +534,7 @@ div#user-tooltip {
     div.link-blocks {
         margin-top: 10px;
         text-align: center;
-        div.link-block {
+        .link-block {
             background-color: #79432b;
             color: #f0d79e;
             margin: 0 1px 1px 0;
@@ -562,6 +548,13 @@ div#user-tooltip {
             overflow: hidden;
             font-weight: bold;
             border-radius: 2px;
+            text-decoration: none;
+            &:hover {
+                background-color: #996739;
+                color: white;
+                cursor: pointer;
+            }
+
             img {
                 width: 16px;
                 height: 16px;
@@ -569,9 +562,6 @@ div#user-tooltip {
             &.empty {
                 border: 1px dashed #ddab76;
                 background: none;
-            }
-            a {
-                text-decoration: none;
             }
         }
     }
@@ -595,6 +585,9 @@ div#user-tooltip {
 
     div.user-infos {
         color: #f0d79e;
+        img {
+            height: 16px;
+        }
     }
 
     div.userDesc {

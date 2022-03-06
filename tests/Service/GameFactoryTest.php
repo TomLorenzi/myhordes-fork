@@ -2,6 +2,7 @@
 namespace App\Tests\Service;
 
 use App\Service\GameFactory;
+use App\Service\GameProfilerService;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\Translation\Translator;
 
@@ -15,7 +16,7 @@ class GameFactoryTest extends KernelTestCase
         ]);
 
         // (2) use static::getContainer() to access the service container
-        $container = self::$container;
+        $container = static::getContainer();
 
         // (3) run some service & test the result
         /** @var GameFactory $gameFactory */

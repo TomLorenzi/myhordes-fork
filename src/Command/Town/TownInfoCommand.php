@@ -40,7 +40,7 @@ class TownInfoCommand extends Command
             ->addOption('type', 't', InputOption::VALUE_REQUIRED, 'Town type [all, ' . implode(', ', $this->gameValidator->getValidTownTypes()) . '], default is \'all\'');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $type = $input->getOption('type') ?: 'all';
         if ($type !== 'all' && !in_array($type, $this->getValidTownTypes())) {

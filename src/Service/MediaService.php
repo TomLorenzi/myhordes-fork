@@ -54,17 +54,15 @@ class MediaService {
             if (!in_array($im_image->getImageFormat(), ['GIF', 'JPEG', 'BMP', 'PNG', 'WEBP']))
                 return self::ErrorInputUnsupported;
 
-            if ($im_image->getImageFormat() === 'GIF') {
-                $im_image = $im_image->coalesceImages();
-                $im_image->resetImagePage('0x0');
-                $im_image->setFirstIterator();
+            $im_image = $im_image->coalesceImages();
+            $im_image->resetImagePage('0x0');
+            $im_image->setFirstIterator();
 
-                // RGB is not widely supported in GIF images; when the image may claim it is RGB this is most likely an
-                // error, so we disregard the RGB definition and overwrite it as sRGB
-                if ($im_image->getImageColorspace() === Imagick::COLORSPACE_RGB)
-                    foreach ($im_image as $frame)
-                        $frame->setImageColorspace(Imagick::COLORSPACE_SRGB);
-            }
+            // RGB is not widely supported in GIF images; when the image may claim it is RGB this is most likely an
+            // error, so we disregard the RGB definition and overwrite it as sRGB
+            if ($im_image->getImageFormat() === 'GIF' && $im_image->getImageColorspace() === Imagick::COLORSPACE_RGB)
+                foreach ($im_image as $frame)
+                    $frame->setImageColorspace(Imagick::COLORSPACE_SRGB);
 
             $width = $w = $im_image->getImageWidth();
             $height = $h = $im_image->getImageHeight();
@@ -78,15 +76,17 @@ class MediaService {
                         return self:: ErrorProcessingFailed;
                 }
 
-
-            if ($im_image->getImageFormat() === 'GIF')
-                $im_image->setFirstIterator();
+            $im_image->setFirstIterator();
 
             $width = $im_image->getImageWidth();
             $height = $im_image->getImageHeight();
 
             if ($compress)
                 switch ($im_image->getImageFormat()) {
+                    case 'WEBP':
+                        $im_image->setImageCompressionQuality(90);
+                        $im_image->setOption('webp:method', '6');
+                        break;
                     case 'JPEG':
                         $im_image->setImageCompressionQuality(90);
                         break;

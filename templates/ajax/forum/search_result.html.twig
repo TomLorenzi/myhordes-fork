@@ -12,10 +12,6 @@
             {% if post.owner.name == 'Der Rabe' %}{% set variant = 'crow' %}
             {% elseif post.type != "USER" and post.type is not null %}{% set variant = post.type|lower %}{% endif %}
 
-            {% set author_name = town is defined and post.owner.citizenFor(town) ? post.owner.citizenFor(town).name : post.owner.name %}
-            {% if post.owner.name == 'Der Rabe' %}{% set author_name = 'Der Rabe'|trans({},'global') %}
-            {% elseif post.owner.name == 'Animateur-Team' %}{% set author_name = 'Animateur-Team'|trans({},'global') %}{% endif %}
-
             <div class="forum-post {% if variant is not null %}forum-post-variant-{{ variant }}{% endif %} forum-post-search-result" id="{{post.id}}">
                 <div class="forum-post-header {% if variant is not null %}header-variant-{{ variant }}{% endif %}">
                     <i>
@@ -36,7 +32,7 @@
                     {% else %}
                         <div class="avatar small ua-{{ random(0,9) }}"><img alt="" src="{{ asset('build/images/forum/empty_avatar.gif') }}"></div>
                     {% endif %}
-                    <b>{{ author_name }}</b>
+                    {% include 'ajax/soul/playername.html.twig' with {user: post.owner, globalSpace: post.thread.forum.town is null} only %}
                     <div class="found-in">{{ post.searchForum.title }} <i class="fa fa-caret-right"></i> <a x-ajax-href="{{ path('forum_jump_view', {pid: post.id}) }}" x-ajax-transient x-ajax-target="#content" >{{ post.thread.translatable ? post.thread.title|trans({},'game') : post.thread.title }}</a></div>
                 </div>
                 <div class="forum-post-content">

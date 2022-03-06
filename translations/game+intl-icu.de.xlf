@@ -1410,7 +1410,7 @@
         <source>Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
                     zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
                     werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</source>
-        <target>Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</target>
+        <target>Diese Punkte können ausschließlich auf den Baustellen der Stadt eingesetzt werden.</target>
       </segment>
     </unit>
     <unit id="6UFJBEW" name="Verbannt">
@@ -1419,17 +1419,15 @@
         <target>Verbannt</target>
       </segment>
     </unit>
-    <unit id="IV3fj_Y">
+    <unit id="UfxaKkh">
       <segment>
-        <source>Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur
-                        Verfügung.</source>
+        <source>Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur Verfügung.</source>
         <target>Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur Verfügung.</target>
       </segment>
     </unit>
-    <unit id="Qc.QL70">
+    <unit id="kB7aA6d">
       <segment>
-        <source>Je nachdem, welchen Beruf du auswählst, stehen dir unterschiedliche Aktionen und Spielweisen in
-                dieser Stadt zur Verfügung.</source>
+        <source>Je nachdem, welchen Beruf du auswählst, stehen dir unterschiedliche Aktionen und Spielweisen in dieser Stadt zur Verfügung.</source>
         <target>Je nachdem, welchen Beruf du auswählst, stehen dir unterschiedliche Aktionen und Spielweisen in dieser Stadt zur Verfügung.</target>
       </segment>
     </unit>
@@ -10082,7 +10080,7 @@
     <unit id="VP5Pzpa" name="Verbessrung des Tages">
       <segment>
         <source>Verbessrung des Tages</source>
-        <target>Verbessrung des Tages</target>
+        <target>Verbesserung des Tages</target>
       </segment>
     </unit>
     <unit id="fh_ltq7" name="Die Bank">
@@ -16477,14 +16475,6 @@
         <target>Lies die Hilfe zu Ghulen</target>
       </segment>
     </unit>
-    <unit id="Ns.Fv2L">
-      <segment>
-        <source>Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur
-                            Verfügung.</source>
-        <target>Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur
-                            Verfügung.</target>
-      </segment>
-    </unit>
     <unit id="boRvKwW" name="Hunger:">
       <segment>
         <source>Hunger:</source>
@@ -16507,6 +16497,48 @@
       <segment>
         <source>vollständig demoliert und wiederverwertet...</source>
         <target>vollständig demoliert und wiederverwertet...</target>
+      </segment>
+    </unit>
+    <unit id="Tf_X4.E">
+      <segment>
+        <source>Du hast {item} gefunden, als du die schmutzigen Ecken dieses elenden Ortes durchsucht hast!</source>
+        <target>Du hast {item} gefunden, als du die schmutzigen Ecken dieses elenden Ortes durchsucht hast!</target>
+      </segment>
+    </unit>
+    <unit id="GtMVIRi" name="Diese Aktion kannst du erst morgen erneut versuchen.">
+      <segment>
+        <source>Diese Aktion kannst du erst morgen erneut versuchen.</source>
+        <target>Diese Aktion kannst du erst morgen erneut versuchen.</target>
+      </segment>
+    </unit>
+    <unit id="i8PEylr" name="Dieser Bürger wurde aus der Gemeinschaft verbannt.">
+      <segment>
+        <source>Dieser Bürger wurde aus der Gemeinschaft verbannt.</source>
+        <target>Dieser Bürger wurde aus der Gemeinschaft verbannt.</target>
+      </segment>
+    </unit>
+    <unit id="r2vaFFk" name="Du musst für deine Beschwerde eine Begründung angeben.">
+      <segment>
+        <source>Du musst für deine Beschwerde eine Begründung angeben.</source>
+        <target>Du musst für deine Beschwerde eine Begründung angeben.</target>
+      </segment>
+    </unit>
+    <unit id="2pxefje">
+      <segment>
+        <source>Du suchst dir besser eine Beschäftigung aus, denn es gilt: Ohne Job, kein Leben. Wozu bist du denn sonst gut? Die Gemeinschaft, der du angehören wirst, braucht jede Art von Personen. Die Zusammenarbeit mit den anderen wird zweifelsohne deine Überlebensdauer entscheidend beeinflussen...</source>
+        <target>Du suchst dir besser eine Beschäftigung aus, denn es gilt: Ohne Job, kein Leben. Wozu bist du denn sonst gut? Die Gemeinschaft, der du angehören wirst, braucht jede Art von Personen. Die Zusammenarbeit mit den anderen wird zweifelsohne deine Überlebensdauer entscheidend beeinflussen...</target>
+      </segment>
+    </unit>
+    <unit id="FwB1Mvm" name="Mit dem richtigen Schlüssel kannst du diese Tür öffnen.">
+      <segment>
+        <source>Mit dem richtigen Schlüssel kannst du diese Tür öffnen.</source>
+        <target>Mit dem richtigen Schlüssel kannst du diese Tür öffnen.</target>
+      </segment>
+    </unit>
+    <unit id="4j6vPUP">
+      <segment>
+        <source>Gibt an, wie viele Bürger diese Stadt gemeinsam mit einer Koalition betreten haben. Es werden sowohl Spieler gezählt die automatisch mit ihrer Koalition beitreten als auch solche, die manuell anderen Spielern aus ihrer Koalition folgen.</source>
+        <target>Gibt an, wie viele Bürger diese Stadt gemeinsam mit einer Koalition betreten haben. Es werden sowohl Spieler gezählt die automatisch mit ihrer Koalition beitreten als auch solche, die manuell anderen Spielern aus ihrer Koalition folgen.</target>
       </segment>
     </unit>
   </file>

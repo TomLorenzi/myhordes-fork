@@ -17,6 +17,7 @@ use App\Service\CitizenHandler;
 use App\Service\ConfMaster;
 use App\Service\ErrorHelper;
 use App\Service\GameFactory;
+use App\Service\GameProfilerService;
 use App\Service\InventoryHandler;
 use App\Service\JSONRequestParser;
 use App\Service\LogTemplateHandler;
@@ -41,10 +42,12 @@ class GhostController extends CustomAbstractController
 {
     private UserHandler $user_handler;
     const ErrorWrongTownPassword          = ErrorHelper::BaseGhostErrors + 1;
+    private GameProfilerService $gps;
 
-    public function __construct(EntityManagerInterface $em, UserHandler $uh, TimeKeeperService $tk, TranslatorInterface $translator, ConfMaster $conf, CitizenHandler $ch, InventoryHandler $ih)
+    public function __construct(EntityManagerInterface $em, UserHandler $uh, TimeKeeperService $tk, TranslatorInterface $translator, ConfMaster $conf, CitizenHandler $ch, InventoryHandler $ih, GameProfilerService $gps)
     {
         parent::__construct($conf, $em, $tk, $ch, $ih, $translator);
+        $this->gps = $gps;
         $this->user_handler = $uh;
     }
 
@@ -359,6 +362,8 @@ class GhostController extends CustomAbstractController
 
         try {
             $em->flush();
+            $this->gps->recordTownCreated( $town, $user, 'custom' );
+            $em->flush();
         } catch (Exception $e) {
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
@@ -399,11 +404,13 @@ class GhostController extends CustomAbstractController
         }
 
         if ($incarnated) {
-            $citizen = $gf->createCitizen($town, $user, $error);
+            $citizen = $gf->createCitizen($town, $user, $error, $all);
             if (!$citizen) return AjaxResponse::error($error);
             try {
                 $em->persist($citizen);
                 $em->flush();
+                foreach ($all as $new_citizen)
+                    $this->gps->recordCitizenJoined( $new_citizen, $new_citizen === $citizen ? 'create' : 'follow' );
             } catch (Exception $e) {
               return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
             }
@@ -470,8 +477,8 @@ class GhostController extends CustomAbstractController
         }
 
         try {
-            /*foreach ($all as $new_citizen)
-                $this->entity_manager->persist( $log->citizenJoin( $new_citizen ) );*/
+            foreach ($all as $new_citizen)
+                $this->gps->recordCitizenJoined( $new_citizen, $new_citizen === $citizen ? 'join' : 'follow' );
             $this->entity_manager->flush();
         }
         catch (Exception $e) {

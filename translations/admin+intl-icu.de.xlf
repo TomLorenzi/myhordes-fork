@@ -970,7 +970,7 @@
     <unit id="V1ukt7Z" name="EternalTwin-Integration">
       <segment>
         <source>EternalTwin-Integration</source>
-        <target>EternalTwin-Integration</target>
+        <target>Eternaltwin-Integration</target>
       </segment>
     </unit>
     <unit id="OkyzTP2" name="In lokalen Account umwandeln">
@@ -1000,7 +1000,7 @@
     <unit id="OaKjJho" name="Von EternalTwin verwaltet">
       <segment>
         <source>Von EternalTwin verwaltet</source>
-        <target>Von EternalTwin verwaltet</target>
+        <target>Von Eternaltwin verwaltet</target>
       </segment>
     </unit>
     <unit id="uCT9EnO" name="Nur für Administratoren sichtbar">
@@ -1018,7 +1018,7 @@
     <unit id="L0eG_iZ" name="EternalTwin-Konto">
       <segment>
         <source>EternalTwin-Konto</source>
-        <target>EternalTwin-Konto</target>
+        <target>Eternaltwin-Konto</target>
       </segment>
     </unit>
     <unit id="nz1fjZT" name="Sonstiges">
@@ -2770,7 +2770,7 @@
     <unit id="jPmvEEG" name="Eternal-Twin-Konto verlinkt">
       <segment>
         <source>Eternal-Twin-Konto verlinkt</source>
-        <target>Eternal-Twin-Konto verlinkt</target>
+        <target>Eternaltwin-Konto verlinkt</target>
       </segment>
     </unit>
     <unit id="_VFidG8" name="Gruppentyp">
@@ -2795,6 +2795,102 @@
       <segment>
         <source>Diese Auszeichnung wurde verdient.</source>
         <target>Diese Auszeichnung wurde verdient.</target>
+      </segment>
+    </unit>
+    <unit id="I2eWURG" name="Freundesliste">
+      <segment>
+        <source>Freundesliste</source>
+        <target>Freundesliste</target>
+      </segment>
+    </unit>
+    <unit id="nQ9blbf" name="Spieler, sie sich als Freund hinzugefügt haben">
+      <segment>
+        <source>Spieler, sie sich als Freund hinzugefügt haben</source>
+        <target>Spieler, die sie/ihn als Freund hinzugefügt haben</target>
+      </segment>
+    </unit>
+    <unit id="_cSDjRl" name="Spieler werben">
+      <segment>
+        <source>Spieler werben</source>
+        <target>Spieler werben</target>
+      </segment>
+    </unit>
+    <unit id="b1moPIw" name="Blockierliste">
+      <segment>
+        <source>Blockierliste</source>
+        <target>Blockierliste</target>
+      </segment>
+    </unit>
+    <unit id="6vRyig1" name="Blockiert von">
+      <segment>
+        <source>Blockiert von</source>
+        <target>Blockiert von</target>
+      </segment>
+    </unit>
+    <unit id="6B7S7TG" name="Bürger-Alias ​​ändern:">
+      <segment>
+        <source>Bürger-Alias ​​ändern:</source>
+        <target>Bürger-Alias ​​ändern:</target>
+      </segment>
+    </unit>
+    <unit id="7.npMFZ" name="Kein Alias ​​angegeben">
+      <segment>
+        <source>Kein Alias ​​angegeben</source>
+        <target>Kein Alias ​​angegeben</target>
+      </segment>
+    </unit>
+    <unit id="u5LKixo" name="Bitte nicht für mehrere Bürger denselben Alias eingeben!">
+      <segment>
+        <source>Bitte nicht für mehrere Bürger denselben Alias eingeben!</source>
+        <target>Bitte nicht für mehrere Bürger denselben Alias eingeben!</target>
+      </segment>
+    </unit>
+    <unit id="NcKgihM" name="Bank leeren">
+      <segment>
+        <source>Bank leeren</source>
+        <target>Bank leeren</target>
+      </segment>
+    </unit>
+    <unit id="u2ktkWy" name="Stadt-Event">
+      <segment>
+        <source>Stadt-Event</source>
+        <target>Stadt-Event</target>
+      </segment>
+    </unit>
+    <unit id="JSVSGLb" name="Koalitionen">
+      <segment>
+        <source>Koalitionen</source>
+        <target>Koalitionen</target>
+      </segment>
+    </unit>
+    <unit id="hR.qIOi" name="Profiler">
+      <segment>
+        <source>Profiler</source>
+        <target>Profiler</target>
+      </segment>
+    </unit>
+    <unit id="Y67xIUn" name="Nicht installiert">
+      <segment>
+        <source>Nicht installiert</source>
+        <target>Nicht installiert</target>
+      </segment>
+    </unit>
+    <unit id="rDme7TT" name="Nachricht:">
+      <segment>
+        <source>Nachricht:</source>
+        <target>Nachricht:</target>
+      </segment>
+    </unit>
+    <unit id="pACkzCf" name="Persönliche Beschreibung:">
+      <segment>
+        <source>Persönliche Beschreibung:</source>
+        <target>Persönliche Beschreibung:</target>
+      </segment>
+    </unit>
+    <unit id="O9RB2q8" name="Letzte Worte:">
+      <segment>
+        <source>Letzte Worte:</source>
+        <target>Letzte Worte:</target>
       </segment>
     </unit>
   </file>

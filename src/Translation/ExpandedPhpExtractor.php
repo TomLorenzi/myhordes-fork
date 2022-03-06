@@ -257,7 +257,7 @@ class ExpandedPhpExtractor extends PhpExtractor
      *
      * @throws \InvalidArgumentException
      */
-    protected function canBeExtracted(string $file)
+    protected function canBeExtracted(string $file): bool
     {
         if (!$this->config->usePHP() || !parent::canBeExtracted($file)) return false;
         if ($this->config->useFileNameMatching() && in_array(basename($file),$this->config->matchingFileNames()))
@@ -275,7 +275,7 @@ class ExpandedPhpExtractor extends PhpExtractor
     /**
      * {@inheritdoc}
      */
-    protected function extractFromDirectory($directory)
+    protected function extractFromDirectory($directory): iterable
     {
         $files = parent::extractFromDirectory($directory);
         return $files->filter(function(\SplFileInfo $file) {

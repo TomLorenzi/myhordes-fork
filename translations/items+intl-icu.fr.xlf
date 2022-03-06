@@ -7702,7 +7702,7 @@
       </notes>
       <segment>
         <source>&lt;nt-any-escape&gt;Ein stumpfes Klicken ertönt und ein wenig grünlicher Rauch entschwebt der {item} ...&lt;/nt-any-escape&gt;&lt;t-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet stolpern sie umher und sind nicht länger in der Lage, dich zu finden.&lt;/t-escape&gt;&lt;t-reverse-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.&lt;/t-reverse-escape&gt;</source>
-        <target><![CDATA[<nt-any-escape>Une sorte de bruit mou se fait entendre et une petite fumée verdâtre s'échappe de {item} ... Ça n'a pas l'air d'avoir fonctionné. Galère...</nt-any-escape><t-escape>Vous déclenchez {item} ... Le violent flash lumineux sème la panique dans les rangs de zombies ! Aveuglés, ils titubent en tous sens, sans réussir à vous localiser. Vous devriez profiter de cette occasion pour vous échapper.</t-escape><t-reverse-escape>Vous déclenchez {item} ... Le violent flash lumineux sème la panique dans les rangs de zombies ! Aveuglés, les {zombies} zombies s'enfuient.</t-reverse-escape>]]></target>
+        <target><![CDATA[<nt-any-escape>Une sorte de bruit mou se fait entendre et une petite fumée verdâtre s'échappe de {item} ... Ça n'a pas l'air d'avoir fonctionné. Galère...</nt-any-escape><t-escape>Vous déclenchez {item} ... Le violent flash lumineux sème la panique dans les rangs de zombies ! Aveuglés, ils titubent en tous sens, sans réussir à vous localiser. Vous devriez profiter de cette occasion pour vous échapper.</t-escape><t-reverse-escape>Vous déclenchez {item} ... Le violent flash lumineux sème la panique dans les rangs de zombies ! Aveuglés, {zombies} zombie(s) part(ent) se réfugier dans un endroit plus au calme un peu plus loin.</t-reverse-escape>]]></target>
       </segment>
     </unit>
     <unit id="ybdsMNt">
@@ -9460,22 +9460,20 @@
       <notes>
         <note category="german">Eintrittskarte</note>
         <note category="from">db://FeatureUnlockPrototype</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Eintrittskarte</source>
-        <target>Eintrittskarte</target>
+        <target>Laissez-passer</target>
       </segment>
     </unit>
     <unit id=".LeRrBD">
       <notes>
         <note category="german">Hiermit kannst du Städten beitreten, obwohl du die Mindestanzahl an Seelenpunkten noch nicht erreicht hast.</note>
         <note category="from">db://FeatureUnlockPrototype</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Hiermit kannst du Städten beitreten, obwohl du die Mindestanzahl an Seelenpunkten noch nicht erreicht hast.</source>
-        <target>Hiermit kannst du Städten beitreten, obwohl du die Mindestanzahl an Seelenpunkten noch nicht erreicht hast.</target>
+        <target>Ceci vous permet de rejoindre un ville indépendamment de votre nombre de points d'âme.</target>
       </segment>
     </unit>
   </file>

@@ -35,6 +35,7 @@ use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
 use App\Service\BankAntiAbuseService;
 use App\Service\ConfMaster;
+use App\Service\GameProfilerService;
 use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
 use App\Service\JSONRequestParser;
@@ -399,7 +400,7 @@ class TownController extends InventoryAwareController
 
         return $this->render( 'ajax/game/town/home_foreign.html.twig', $this->addDefaultTwigArgs('citizens', [
             'owner' => $c,
-            'can_attack' => !$this->getActiveCitizen()->getBanished() && !$this->citizen_handler->isTired($this->getActiveCitizen()) && $this->getActiveCitizen()->getAp() >= 5,
+            'can_attack' => !$this->getActiveCitizen()->getBanished() && !$this->citizen_handler->isTired($this->getActiveCitizen()) && $this->getActiveCitizen()->getAp() >= $this->getTownConf()->get( TownConf::CONF_MODIFIER_ATTACK_AP, 5 ),
             'can_devour' => !$this->getActiveCitizen()->getBanished() && $this->getActiveCitizen()->hasRole('ghoul'),
             'caught_chance' => $cc,
             'allow_devour' => !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_ghoul_eat'),
@@ -448,6 +449,9 @@ class TownController extends InventoryAwareController
     public function log_visit_api(int $id, JSONRequestParser $parser): Response {
         if ($id === $this->getActiveCitizen()->getId())
             return $this->redirect($this->generateUrl('town_house_log_controller'));
+
+        if ($this->getActiveCitizen()->getZone())
+            return $this->renderLog((int)$parser->get('day', -1), null, false, -1, 0);
 
         /** @var Citizen $c */
         $c = $this->entity_manager->getRepository(Citizen::class)->find( $id );
@@ -870,6 +874,8 @@ class TownController extends InventoryAwareController
      * @return Response
      */
     public function log_well_api(JSONRequestParser $parser): Response {
+        if ($this->getActiveCitizen()->getZone())
+            return $this->renderLog((int)$parser->get('day', -1), null, false, -1, 0);
         return $this->renderLog((int)$parser->get('day', -1), null, false, LogEntryTemplate::TypeWell, null);
     }
 
@@ -1022,6 +1028,8 @@ class TownController extends InventoryAwareController
      * @return Response
      */
     public function log_bank_api(JSONRequestParser $parser): Response {
+        if ($this->getActiveCitizen()->getZone())
+            return $this->renderLog((int)$parser->get('day', -1), null, false, -1, 0);
         return $this->renderLog((int)$parser->get('day', -1), null, false, LogEntryTemplate::TypeBank, null);
     }
 
@@ -1233,7 +1241,7 @@ class TownController extends InventoryAwareController
      * @param JSONRequestParser $parser
      * @return Response
      */
-    public function construction_build_api(JSONRequestParser $parser): Response {
+    public function construction_build_api(JSONRequestParser $parser, GameProfilerService $gps): Response {
         // Get citizen & town
         $citizen = $this->getActiveCitizen();
         $town = $citizen->getTown();
@@ -1325,6 +1333,10 @@ class TownController extends InventoryAwareController
         $usedap = $usedbp = 0;
         $this->citizen_handler->deductAPBP( $citizen, $ap, $usedap, $usedbp);
 
+        if ($was_completed)
+            $gps->recordBuildingRepairInvested( $building->getPrototype(), $town, $citizen, $usedap, $usedbp );
+        else $gps->recordBuildingConstructionInvested( $building->getPrototype(), $town, $citizen, $usedap, $usedbp );
+
         if($missing_ap <= 0 || $missing_ap - $ap <= 0){
             // Missing ap == 0, the building has been completed by the workshop upgrade.
             $building->setAp($building->getPrototype()->getAp());
@@ -1340,6 +1352,7 @@ class TownController extends InventoryAwareController
                 $messages[] = $this->translator->trans("Du hast am Bauprojekt {plan} mitgeholfen.", ["{plan}" => "<strong>" . $this->translator->trans($building->getPrototype()->getLabel(), [], 'buildings') . "</strong>"], 'game');
             } else {
                 $messages[] = $this->translator->trans("Hurra! Folgendes Gebäude wurde fertiggestellt: {plan}!", ['{plan}' => "<strong>" . $this->translator->trans($building->getPrototype()->getLabel(), [], 'buildings') . "</strong>"], 'game');
+                $gps->recordBuildingConstructed( $building->getPrototype(), $town, $citizen, 'manual' );
             }
         }
 
@@ -1507,6 +1520,8 @@ class TownController extends InventoryAwareController
      * @return Response
      */
     public function log_constructions_api(JSONRequestParser $parser): Response {
+        if ($this->getActiveCitizen()->getZone())
+            return $this->renderLog((int)$parser->get('day', -1), null, false, -1, 0);
         return $this->renderLog((int)$parser->get('day', -1), null, false, LogEntryTemplate::TypeConstruction, null);
     }
 
@@ -1662,6 +1677,8 @@ class TownController extends InventoryAwareController
      * @return Response
      */
     public function log_door_api(JSONRequestParser $parser): Response {
+        if ($this->getActiveCitizen()->getZone())
+            return $this->renderLog((int)$parser->get('day', -1), null, false, -1, 0);
         return $this->renderLog((int)$parser->get('day', -1), null, false, LogEntryTemplate::TypeDoor, null);
     }
 
@@ -1743,7 +1760,7 @@ class TownController extends InventoryAwareController
 
                 if ($last !== null) {
                     if ($last[0] !== $x && $last[1] !== $y) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-                    if ($last[0] === $x && $last[1] === $y) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+                    if ($last[0] === $x && $last[1] === $y) continue;
                     $ap += (abs($last[0] - $x) + abs($last[1] - $y));
                 }
 

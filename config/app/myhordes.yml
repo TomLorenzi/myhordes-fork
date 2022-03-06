@@ -23,6 +23,7 @@ parameters:
     fatalmail:
       target: ~
       source: ~
+      discord: ~
     domains: []
     urls: []
     twinoid:

@@ -12,6 +12,7 @@ use DateTimeZone;
 use Exception;
 use SimpleXMLElement;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\RateLimiter\RateLimiterFactory;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -23,8 +24,9 @@ use Symfony\Component\HttpFoundation\Request;
 class ExternalXMLController extends ExternalController {
 
     /**
-     * @Route("/api/x/xml", name="api_x_xml", defaults={"_format"="xml"}, methods={"GET","POST"})
+     * @Route("api/x/xml", name="api_x_xml", defaults={"_format"="xml"}, methods={"GET","POST"})
      * @return Response
+     * @GateKeeperProfile(rate_limited=true, rate_keys={"appkey": "authenticated"})
      */
     public function api_xml(): Response {
         $request = Request::createFromGlobals();

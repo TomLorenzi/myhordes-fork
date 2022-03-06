@@ -1158,13 +1158,13 @@
     <unit id="clP2Rxk" name="EternalTwin-Nutzer">
       <segment>
         <source>EternalTwin-Nutzer</source>
-        <target>EternalTwin-Nutzer</target>
+        <target>Eternaltwin-Nutzer</target>
       </segment>
     </unit>
     <unit id="0T9At.g">
       <segment>
         <source>Dieser Spieler verwendet einen EternalTwin-Account. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!</source>
-        <target>Dieser Spieler verwendet einen EternalTwin-Account. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!</target>
+        <target>Dieser Spieler verwendet einen Eternaltwin-Account. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!</target>
       </segment>
     </unit>
     <unit id="XRvl7w0">
@@ -1176,19 +1176,19 @@
     <unit id="wstj04z" name="MyHordes ist ein stolzer Bestandteil des EternalTwin-Netzwerkes!">
       <segment>
         <source>MyHordes ist ein stolzer Bestandteil des EternalTwin-Netzwerkes!</source>
-        <target>MyHordes ist ein stolzer Bestandteil des EternalTwin-Netzwerkes!</target>
+        <target>MyHordes ist ein stolzer Bestandteil des Eternaltwin-Netzwerkes!</target>
       </segment>
     </unit>
     <unit id="WVIMH8t">
       <segment>
         <source>Um MyHordes auch in Zukunft weiter spielen zu können, musst du deinen alten MyHordes-Account mit einem EternalTwin-Account verknüpfen.</source>
-        <target>Um MyHordes auch in Zukunft weiter spielen zu können, musst du deinen alten MyHordes-Account mit einem EternalTwin-Account verknüpfen.</target>
+        <target>Um MyHordes auch in Zukunft weiter spielen zu können, musst du deinen alten MyHordes-Account mit einem Eternaltwin-Account verknüpfen.</target>
       </segment>
     </unit>
     <unit id="CACKQCH" name="EternalTwin-Account verknüpfen">
       <segment>
         <source>EternalTwin-Account verknüpfen</source>
-        <target>EternalTwin-Account verknüpfen</target>
+        <target>Eternaltwin-Account verknüpfen</target>
       </segment>
     </unit>
     <unit id="zlGVYh_" name="{name}'s Koalition">
@@ -1862,7 +1862,7 @@
     <unit id="JbPwhWn">
       <segment>
         <source>Wir sind ein Teil des EternalTwin-Projektes, welches es sich zur Aufgabe gemacht hat die Browserspiele von MotionTwin am Leben zu erhalten.</source>
-        <target>Wir sind ein Teil des EternalTwin-Projektes, welches es sich zur Aufgabe gemacht hat die Browserspiele von MotionTwin am Leben zu erhalten.</target>
+        <target>Wir sind ein Teil des Eternaltwin-Projektes, welches es sich zur Aufgabe gemacht hat die Browserspiele von MotionTwin am Leben zu erhalten.</target>
       </segment>
     </unit>
     <unit id="GLZ2E_L">
@@ -1874,7 +1874,7 @@
     <unit id="E6_xVpY">
       <segment>
         <source>Wenn dir MyHordes gefällt und du uns unterstützen möchtest, kannst du dies mit einer Spende an das EternalTwin Projekt tun.</source>
-        <target>Wenn dir MyHordes gefällt und du uns unterstützen möchtest, kannst du dies mit einer Spende an das EternalTwin Projekt tun.</target>
+        <target>Wenn dir MyHordes gefällt und du uns unterstützen möchtest, kannst du dies mit einer Spende an das Eternaltwin Projekt tun.</target>
       </segment>
     </unit>
     <unit id="uK4jynd" name="Geworbener Spieler">
@@ -2204,13 +2204,13 @@
     <unit id="7aH8vQI" name="Bitte ändere deinen Anzeigenamen auf EternalTwin.">
       <segment>
         <source>Bitte ändere deinen Anzeigenamen auf EternalTwin.</source>
-        <target>Bitte ändere deinen Anzeigenamen auf EternalTwin.</target>
+        <target>Bitte ändere deinen Anzeigenamen auf Eternaltwin.</target>
       </segment>
     </unit>
     <unit id="4DFz5Xa">
       <segment>
         <source>Du kannst deinen Spielernamen nicht ändern, weil du einen zugehörigen Eternal Twin Account hast. Du musst zu deinem Eternal Twin-Konto gehen, um deinen Spielernamen zu ändern.</source>
-        <target>Du kannst deinen Spielernamen nicht ändern, weil du einen zugehörigen Eternal Twin Account hast. Du musst zu deinem Eternal Twin-Konto gehen, um deinen Spielernamen zu ändern.</target>
+        <target>Du kannst deinen Spielernamen nicht ändern, weil du einen zugehörigen Eternaltwin-Account hast. Du musst zu deinem Eternal Twin-Konto gehen, um deinen Spielernamen zu ändern.</target>
       </segment>
     </unit>
     <unit id=".NQ7ahe">
@@ -2641,7 +2641,7 @@
     <unit id=".R_0uOZ" name="Denke daran, dich ebenfalls aus deinem EternalTwin Account auszuloggen!">
       <segment>
         <source>Denke daran, dich ebenfalls aus deinem EternalTwin Account auszuloggen!</source>
-        <target>Denke daran, dich ebenfalls aus deinem EternalTwin Account auszuloggen!</target>
+        <target>Denke daran, dich ebenfalls aus deinem Eternaltwin-Account auszuloggen!</target>
       </segment>
     </unit>
     <unit id="TMcIHTT" name="Du kannst deinen Spielernamen erst in {days} Tagen erneut ändern.">
@@ -2665,7 +2665,7 @@
     <unit id="Wodhw7O" name="Profil Eternal-Twin">
       <segment>
         <source>Profil Eternal-Twin</source>
-        <target>Profil Eternal-Twin</target>
+        <target>Profil Eternaltwin</target>
       </segment>
     </unit>
     <unit id="abqsDy0" name="Schreiben">
@@ -2762,6 +2762,42 @@
       <segment>
         <source>Du kannst verhindern, dass ein Spieler dich in seine Freundesliste aufnimmt, indem du ihn blockierst. Bedenke, dass er dich danach auch nicht mehr via über eine private Nachricht kontaktieren kann.</source>
         <target>Du kannst verhindern, dass ein Spieler dich in seine Freundesliste aufnimmt, indem du ihn blockierst. Bedenke, dass er dich danach auch nicht mehr via über eine private Nachricht kontaktieren kann.</target>
+      </segment>
+    </unit>
+    <unit id="b1moPIw" name="Blockierliste">
+      <segment>
+        <source>Blockierliste</source>
+        <target>Blockierliste</target>
+      </segment>
+    </unit>
+    <unit id="56y70st" name="Blockierter Spieler">
+      <segment>
+        <source>Blockierter Spieler</source>
+        <target>Blockierter Spieler</target>
+      </segment>
+    </unit>
+    <unit id="gqnWr8F" name="Deine Blockierliste ist leer.">
+      <segment>
+        <source>Deine Blockierliste ist leer.</source>
+        <target>Deine Blockierliste ist leer.</target>
+      </segment>
+    </unit>
+    <unit id="WNMDzBG" name="Dieses MyHordes-Konto wurde gelöscht.">
+      <segment>
+        <source>Dieses MyHordes-Konto wurde gelöscht.</source>
+        <target>Dieses MyHordes-Konto wurde gelöscht.</target>
+      </segment>
+    </unit>
+    <unit id="Vh7f_Zm" name="Gegenstände in der Bank nach Anzahl sortieren">
+      <segment>
+        <source>Gegenstände in der Bank nach Anzahl sortieren</source>
+        <target>Gegenstände in der Bank nach Anzahl sortieren</target>
+      </segment>
+    </unit>
+    <unit id="YpH8nkB">
+      <segment>
+        <source>Standartmäßig sortiert MyHordes Gegenstände in der Bank nach ihrem Typ. Aktiviere diese Option, wenn du die Sortierung von DieVerdammten bevorzugst, bei der Gegenstände primär nach ihrer Anzahl sortiert werden.</source>
+        <target>Standartmäßig sortiert MyHordes Gegenstände in der Bank nach ihrem Typ. Aktiviere diese Option, wenn du die Sortierung von DieVerdammten bevorzugst, bei der Gegenstände primär nach ihrer Anzahl sortiert werden.</target>
       </segment>
     </unit>
   </file>

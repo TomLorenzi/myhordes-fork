@@ -284,6 +284,11 @@ class Citizen
      */
     private $visitedZones;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $coalized = false;
+
     public function __construct()
     {
         $this->status = new ArrayCollection();
@@ -1310,6 +1315,18 @@ class Citizen
     public function removeVisitedZone(Zone $visitedZone): self
     {
         $this->visitedZones->removeElement($visitedZone);
+
+        return $this;
+    }
+
+    public function getCoalized(): ?bool
+    {
+        return $this->coalized;
+    }
+
+    public function setCoalized(bool $coalized): self
+    {
+        $this->coalized = $coalized;
 
         return $this;
     }

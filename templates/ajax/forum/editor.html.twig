@@ -331,6 +331,9 @@
                 {% endfor %}
                 {% endif %}
 
+                $.html.twinoParser.AjaxUrl = "{{path('user_exists') }}";
+                $.html.twinoParser.textEditor = "{{ preview_name }}";
+
                 $.html.twinoParser.parseTo( node_transfer_source.value, get_preview(), function(s) {
                     switch (s) {
                         case ':)': s = ':smile:';    break;
@@ -822,7 +825,7 @@
                                 const selected = node_transfer_source.value.substr( node_transfer_source.selectionStart,  node_transfer_source.selectionEnd - node_transfer_source.selectionStart );
                                 const after = node_transfer_source.value.substr( node_transfer_source.selectionEnd );
 
-                                const node = '@' + elem.getAttribute('x-soul-name') + ':' + elem.getAttribute('x-soul-id');
+                                const node = '@' + elem.getAttribute('x-soul-name').replace(/\W/,'') + ':' + elem.getAttribute('x-soul-id');
 
                                 node_transfer_source.value = before + node + after;
                                 node_transfer_source.setSelectionRange( before.length, before.length + node.length );

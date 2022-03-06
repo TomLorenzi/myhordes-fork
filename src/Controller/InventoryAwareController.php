@@ -357,7 +357,11 @@ class InventoryAwareController extends CustomAbstractController
             ->leftJoin('App:ItemPrototype', 'p', Join::WITH, 'i.prototype = p.id')
             ->leftJoin('App:ItemCategory', 'c', Join::WITH, 'p.category = c.id')
             ->leftJoin('App:ItemCategory', 'cr', Join::WITH, 'c.parent = cr.id')
-            ->addOrderBy('c.ordering','ASC')
+            ->addOrderBy('c.ordering','ASC');
+
+        if ($this->getUser()->getClassicBankSort()) $qb->addOrderBy('n', 'DESC');
+
+        $qb
             ->addOrderBy('p.icon', 'DESC')
             ->addOrderBy('i.id', 'ASC');
 
@@ -380,7 +384,7 @@ class InventoryAwareController extends CustomAbstractController
         return $final;
     }
 
-    public function generic_devour_api(Citizen $aggressor, Citizen $victim) {
+    public function generic_devour_api(Citizen $aggressor, Citizen $victim): AjaxResponse {
         if ($aggressor->getId() === $victim->getId())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
@@ -755,7 +759,7 @@ class InventoryAwareController extends CustomAbstractController
                                 } elseif ($this->random_generator->chance(0.5) || !$victim_home->getCitizen()->getAlive()) {
                                     if ($victim_home->getCitizen()->getAlive()){
                                         $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), $citizen, $current_item->getPrototype(), $steal_up, false, $current_item->getBroken() ) );
-                                        $this->addFlash( 'notice', $this->translator->trans('Mist, dein Einbruch bei {victim} ist aufgeflogen...', ['{victim}' => $this->log->wrap($victim_home->getCitizen()->getName())], 'game') );
+                                        $this->addFlash( 'notice', $this->translator->trans('Der Diebstahl, den du gerade begangen hast, wurde bemerkt! Die Bürger werden gewarnt, dass du den(die,das) {item} bei {victim} gestohlen hast.', ['victim' => $victim_home->getCitizen()->getName(), '{item}' => "<strong><img alt='' src='{$this->asset->getUrl( "build/images/item/item_{$current_item->getPrototype()->getIcon()}.gif" )}'> {$this->translator->trans($current_item->getPrototype()->getLabel(),[],'items')}</strong>"], 'game'));
                                     } else {
                                         $this->entity_manager->persist( $this->log->townLoot( $victim_home->getCitizen(), $citizen, $current_item->getPrototype(), $steal_up, false, $current_item->getBroken() ) );
                                         $this->addFlash( 'notice', $this->translator->trans('Du hast dir folgenden Gegenstand unter den Nagel gerissen: {item}. Dein kleiner Hausbesuch bei † {victim} ist allerdings aufgeflogen...<hr /><strong>Dieser Gegenstand wurde in deiner Truhe abgelegt.</strong>', ['{item}' => $this->log->wrap($this->log->iconize($current_item)), '{victim}' => $victim_home->getCitizen()->getName()], 'game') );

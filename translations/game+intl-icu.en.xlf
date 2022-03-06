@@ -2129,25 +2129,23 @@
         <target>Shunned</target>
       </segment>
     </unit>
-    <unit id="IV3fj_Y">
+    <unit id="UfxaKkh">
       <notes>
         <note category="german">Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur Verfügung.</note>
         <note category="from">twig:///templates/ajax/game/game.html.twig</note>
       </notes>
       <segment>
-        <source>Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur
-                        Verfügung.</source>
+        <source>Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur Verfügung.</source>
         <target>Citizens decided to shun you from the community. Some actions aren't available for you anymore.</target>
       </segment>
     </unit>
-    <unit id="Qc.QL70">
+    <unit id="kB7aA6d">
       <notes>
         <note category="german">Je nachdem, welchen Beruf du auswählst, stehen dir unterschiedliche Aktionen und Spielweisen in dieser Stadt zur Verfügung.</note>
         <note category="from">twig:///templates/ajax/game/jobs.html.twig</note>
       </notes>
       <segment>
-        <source>Je nachdem, welchen Beruf du auswählst, stehen dir unterschiedliche Aktionen und Spielweisen in
-                dieser Stadt zur Verfügung.</source>
+        <source>Je nachdem, welchen Beruf du auswählst, stehen dir unterschiedliche Aktionen und Spielweisen in dieser Stadt zur Verfügung.</source>
         <target>According to your chosen profession, you will have different actions and gameplays available during this town.</target>
       </segment>
     </unit>
@@ -4572,12 +4570,11 @@
     <unit id="ViudDKu">
       <notes>
         <note category="german">Ihr Vertreter vor Ihrer Haustür. Die Zombies stimmten diesem Konzept voll und ganz zu, wenn man die Krallenspuren auf den Polstern der Kabine und die überall versprühten menschlichen Überreste bemerkt.</note>
-        <note category="state">new</note>
         <note category="from">db://ZonePrototype</note>
       </notes>
       <segment>
         <source>Ihr Vertreter vor Ihrer Haustür. Die Zombies stimmten diesem Konzept voll und ganz zu, wenn man die Krallenspuren auf den Polstern der Kabine und die überall versprühten menschlichen Überreste bemerkt.</source>
-        <target>Ihr Vertreter vor Ihrer Haustür. Die Zombies stimmten diesem Konzept voll und ganz zu, wenn man die Krallenspuren auf den Polstern der Kabine und die überall versprühten menschlichen Überreste bemerkt.</target>
+        <target>Your representative on your doorstep. The zombies thoroughly approved of this concept if you notice the claw marks on the upholstery in the cab and the human remains sprayed everywhere.</target>
       </segment>
     </unit>
     <unit id="9TPFQ6o">
@@ -7586,7 +7583,7 @@
     <unit id="jIaT.gH">
       <notes>
         <note category="german">Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...</note>
-        <note category="from">php:///src/Controller/BeyondController.php;php:///src/Service/ActionHandler.php;php:///src/Service/ZoneHandler.php</note>
+        <note category="from">php:///src/Controller/BeyondController.php;php:///src/Controller/ExplorationController.php;php:///src/Service/ActionHandler.php;php:///src/Service/ZoneHandler.php</note>
       </notes>
       <segment>
         <source>Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...</source>
@@ -9754,7 +9751,7 @@
     <unit id="fICCxje" name="Seine Seele ansehen">
       <notes>
         <note category="german">Seine Seele ansehen</note>
-        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Seine Seele ansehen</source>
@@ -10488,7 +10485,7 @@
       </notes>
       <segment>
         <source>Du hast permanent um 5% bessere Chancen auf der Nachtwache.</source>
-        <target>You always have 5% better chances at Night Watch.</target>
+        <target>Decreases penalty on successive watches.</target>
       </segment>
     </unit>
     <unit id="HYbv76Z">
@@ -10638,7 +10635,7 @@
       </notes>
       <segment>
         <source>Du benötigst {item}, um diese Tür zu öffnen.</source>
-        <target>You need {item} to open this door.</target>
+        <target>To open this door, you'll need something that looks a bit like {item}.</target>
       </segment>
     </unit>
     <unit id="pniaLp." name="Mithilfe des {item} hast du die Tür aufgeschlossen!">
@@ -10648,7 +10645,7 @@
       </notes>
       <segment>
         <source>Mithilfe des {item} hast du die Tür aufgeschlossen!</source>
-        <target>You unlocked the door with the {item}!</target>
+        <target>You have managed to unlock the door, however, the {item} looks busted...</target>
       </segment>
     </unit>
     <unit id="ZcFLHOU" name="Sauerstoff">
@@ -11227,7 +11224,7 @@
         <source>Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
                             zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
                             werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</source>
-        <target>Building points can be used in the workshop and on construction sites, where they count like action points. If possible, building points are always used first before action points are used. Keep in mind that building points cannot be used when you are exhausted!</target>
+        <target>These points can ONLY be used for construction projects in town.</target>
       </segment>
     </unit>
     <unit id="Xo4xhxR" name="Die Stadt wird erst starten, wenn sie &lt;strong&gt;{population} Bürger hat&lt;/strong&gt;.">
@@ -15690,7 +15687,7 @@
     </unit>
     <unit id="VP5Pzpa" name="Verbessrung des Tages">
       <notes>
-        <note category="german">Verbessrung des Tages</note>
+        <note category="german">Verbesserung des Tages</note>
         <note category="from">twig:///templates/ajax/game/town/upgrades.html.twig</note>
       </notes>
       <segment>
@@ -16044,7 +16041,7 @@
     <unit id="JAkgM4Z" name="Kleine Koalitionen">
       <notes>
         <note category="german">Kleine Koalitionen</note>
-        <note category="from">twig:///templates/ajax/soul/coalitions.html.twig</note>
+        <note category="from">twig:///templates/ajax/ghost/intro.html.twig;twig:///templates/ajax/soul/coalitions.html.twig</note>
       </notes>
       <segment>
         <source>Kleine Koalitionen</source>
@@ -22733,11 +22730,10 @@
       <notes>
         <note category="german">Du hast keine Seelenpunkte gewonnen (am ersten Tag gestorben).</note>
         <note category="from">twig:///templates/ajax/soul/death.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Du hast keine Seelenpunkte gewonnen (am ersten Tag gestorben).</source>
-        <target>Du hast keine Seelenpunkte gewonnen (am ersten Tag gestorben).</target>
+        <target>You haven't earned any points (died on day 1).</target>
       </segment>
     </unit>
     <unit id="5kMswLn">
@@ -23169,7 +23165,7 @@
       </notes>
       <segment>
         <source>Die Anwesenheit des Geistigen Beistands unter den Nachtwächtern gibt ihnen jeweils einen Boost von {counsel} Verteidigung.</source>
-        <target>The presence of Psychadelic Spiritual Counsel among the Watchmen gives them a {counsel} defense boost each.</target>
+        <target>The presence of Psychadelic Spiritual Counsel among the Watchmen gives a {counsel} defense boost.</target>
       </segment>
     </unit>
     <unit id="vhwzs0L">
@@ -26043,7 +26039,7 @@
     <unit id="dAly6Ww" name="Wir werden alle sterben: Sag es weiter!">
       <notes>
         <note category="german">Wir werden alle sterben: Sag es weiter!</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Wir werden alle sterben: Sag es weiter!</source>
@@ -26290,20 +26286,6 @@
         <target>Read the help about Ghouls!</target>
       </segment>
     </unit>
-    <unit id="Ns.Fv2L">
-      <notes>
-        <note category="german">Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur
-                            Verfügung.</note>
-        <note category="from">twig:///templates/ajax/game/game.html.twig</note>
-        <note category="state">new</note>
-      </notes>
-      <segment>
-        <source>Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur
-                            Verfügung.</source>
-        <target>Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur
-                            Verfügung.</target>
-      </segment>
-    </unit>
     <unit id="boRvKwW" name="Hunger:">
       <notes>
         <note category="german">Hunger:</note>
@@ -26344,6 +26326,78 @@
       <segment>
         <source>vollständig demoliert und wiederverwertet...</source>
         <target>completely dismantled and recycled...</target>
+      </segment>
+    </unit>
+    <unit id="Tf_X4.E">
+      <notes>
+        <note category="german">Du hast {item} gefunden, als du die schmutzigen Ecken dieses elenden Ortes durchsucht hast!</note>
+        <note category="from">php:///src/Controller/ExplorationController.php</note>
+      </notes>
+      <segment>
+        <source>Du hast {item} gefunden, als du die schmutzigen Ecken dieses elenden Ortes durchsucht hast!</source>
+        <target>You have found {item} whilst searching the dingy corners of this wretched place!</target>
+      </segment>
+    </unit>
+    <unit id="GtMVIRi" name="Diese Aktion kannst du erst morgen erneut versuchen.">
+      <notes>
+        <note category="german">Diese Aktion kannst du erst morgen erneut versuchen.</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Diese Aktion kannst du erst morgen erneut versuchen.</source>
+        <target>Diese Aktion kannst du erst morgen erneut versuchen.</target>
+      </segment>
+    </unit>
+    <unit id="i8PEylr" name="Dieser Bürger wurde aus der Gemeinschaft verbannt.">
+      <notes>
+        <note category="german">Dieser Bürger wurde aus der Gemeinschaft verbannt.</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_omniscience.html.twig;twig:///templates/ajax/game/town/citizen_vote.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger wurde aus der Gemeinschaft verbannt.</source>
+        <target>Dieser Bürger wurde aus der Gemeinschaft verbannt.</target>
+      </segment>
+    </unit>
+    <unit id="r2vaFFk" name="Du musst für deine Beschwerde eine Begründung angeben.">
+      <notes>
+        <note category="german">Du musst für deine Beschwerde eine Begründung angeben.</note>
+        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du musst für deine Beschwerde eine Begründung angeben.</source>
+        <target>You must provide a reason for your complaint.</target>
+      </segment>
+    </unit>
+    <unit id="2pxefje">
+      <notes>
+        <note category="german">Du suchst dir besser eine Beschäftigung aus, denn es gilt: Ohne Job, kein Leben. Wozu bist du denn sonst gut? Die Gemeinschaft, der du angehören wirst, braucht jede Art von Personen. Die Zusammenarbeit mit den anderen wird zweifelsohne deine Überlebensdauer entscheidend beeinflussen...</note>
+        <note category="from">twig:///templates/ajax/game/jobs.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du suchst dir besser eine Beschäftigung aus, denn es gilt: Ohne Job, kein Leben. Wozu bist du denn sonst gut? Die Gemeinschaft, der du angehören wirst, braucht jede Art von Personen. Die Zusammenarbeit mit den anderen wird zweifelsohne deine Überlebensdauer entscheidend beeinflussen...</source>
+        <target>Choosing a good profession is of paramount importance: in fact, without a profession you can't survive. What will you do? The community you are joining needs all kinds of people and the most important factor affecting how long you survive is the amount of teamwork going into the town...</target>
+      </segment>
+    </unit>
+    <unit id="FwB1Mvm" name="Mit dem richtigen Schlüssel kannst du diese Tür öffnen.">
+      <notes>
+        <note category="german">Mit dem richtigen Schlüssel kannst du diese Tür öffnen.</note>
+        <note category="from">twig:///templates/ajax/game/beyond/ruin.html.twig</note>
+      </notes>
+      <segment>
+        <source>Mit dem richtigen Schlüssel kannst du diese Tür öffnen.</source>
+        <target>You can open this door if you have the right key.</target>
+      </segment>
+    </unit>
+    <unit id="4j6vPUP">
+      <notes>
+        <note category="german">Gibt an, wie viele Bürger diese Stadt gemeinsam mit einer Koalition betreten haben. Es werden sowohl Spieler gezählt die automatisch mit ihrer Koalition beitreten als auch solche, die manuell anderen Spielern aus ihrer Koalition folgen.</note>
+        <note category="from">twig:///templates/ajax/ghost/intro.html.twig</note>
+      </notes>
+      <segment>
+        <source>Gibt an, wie viele Bürger diese Stadt gemeinsam mit einer Koalition betreten haben. Es werden sowohl Spieler gezählt die automatisch mit ihrer Koalition beitreten als auch solche, die manuell anderen Spielern aus ihrer Koalition folgen.</source>
+        <target>Shows how many citizens have joined this town together with their coalition. It counts both citizens joining automatically with their coalition as well as citizens manually following them into town.</target>
       </segment>
     </unit>
   </file>

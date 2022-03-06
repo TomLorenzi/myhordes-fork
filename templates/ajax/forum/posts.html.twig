@@ -230,7 +230,7 @@
                         {% else %}
                             <div class="avatar small"><img alt="" src="{{ asset('build/images/forum/empty_avatar.gif') }}"></div>
                         {% endif %}
-                        {% include 'ajax/soul/playername.html.twig' with {user: post.owner} only %}{{ post.translate ? ('') : (_self.icon_master(post.owner))}}<br />
+                        {% include 'ajax/soul/playername.html.twig' with {user: post.owner, globalSpace: post.thread.forum.town is null} only %}{{ post.translate ? ('') : (_self.icon_master(post.owner))}}<br />
                         {% if post.owner.name == 'Der Rabe' %}
                             <span class="small"><i>{{ 'Ich beobachte euch...'|trans({},'game') }}</i></span>
                         {% elseif post.owner.activeTitle or post.owner.activeIcon %}
@@ -283,7 +283,7 @@
                     {% endif %}
 
 
-                    <div class="forum-post-content" x-post-content-id="{{ post.id }}" x-post-content-author-id="{{ post.owner.id }}" x-post-content-author="{% include 'ajax/soul/playername.html.twig' with {user: post.owner, plain: true} only %}">
+                    <div class="forum-post-content" x-post-content-id="{{ post.id }}" x-post-content-author-id="{{ post.owner.id }}" x-post-content-author="{% include 'ajax/soul/playername.html.twig' with {user: post.owner, plain: true, globalSpace: post.thread.forum.town is null} only %}">
                         {{ post.translate ? (post.text|trans({},'game')|raw) : (post.text|raw) }}
                         {% if not post.translate and paranoid and post.owner.name != 'Der Rabe' %}
                             {% set mode = (app.user.id + post.id + post.owner.id) % 12 %}
@@ -360,7 +360,6 @@
     {{ parent() }}
     {{ include('ajax/flash.html.twig') }}
     <script>
-        {{ include('scripts/user_tooltip.js.twig') }}
         const loadPage = function(page) {
             $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('forum_viewer_controller', {fid: fid, tid: tid}) }}', false, {page: page } );
         };
@@ -466,7 +465,7 @@
 
                 if(textEditor.value !== '' && !textEditor.value.endsWith("\n")) textEditor.value += "\n";
 
-                textEditor.value += (quote ? (author ? ('[quote=' + author + (author_id > 0 ? (':' + author_id) : '') + ']') : '[quote]') : '') + $.html.twinoParser.parseFrom( content.innerHTML, $.html.twinoParser.OpModeQuote ) + (quote ? '[/quote]' : '') + "\n";
+                textEditor.value += (quote ? (author ? ('[quote=' + (author_id > 0 ? author.replace(/\W/, '') : author) + (author_id > 0 ? (':' + author_id) : '') + ']') : '[quote]') : '') + $.html.twinoParser.parseFrom( content.innerHTML, $.html.twinoParser.OpModeQuote ) + (quote ? '[/quote]' : '') + "\n";
                 textEditor.dispatchEvent(new Event('input', {bubbles: true,cancelable: true}));
                 textEditor.focus();
             };

@@ -105,7 +105,7 @@
                         <div class="padded-small cell version shrink-0">
                             <div class="version-badge-global"><i class="fas fa-globe-europe"></i> <b>{{ version.major }}.{{ version.minor}}.{{ version.patch}}</b></div>
                             {% if version.isPreRelease %}
-                                {% set prerelease = version.preRelease|split('.') %}
+                                {% set prerelease = version.preRelease.toString|split('.') %}
                                 {% if prerelease|length > 0 %}
                                     <div class="version-badge-pre"><i class="fa fa-flask"></i> <i>{{ prerelease[0] }}</i> {{ prerelease[1] ?? '' }}</div>
                                     {% if prerelease|length > 3 %}
@@ -129,7 +129,7 @@
                         <br /><br />
                         {{ 'MyHordes ist <i>Open Source</i> und jeder ist zur <b>Mitwirkung</b> eingeladen. Du findest den Quellcode bei {gitlab}.'|trans({'gitlab': '<a href="https://gitlab.com/eternaltwin/myhordes/myhordes/-/issues">Gitlab</a>'},'global')|raw }}
                         <br /><br />
-                        {{ 'MyHordes ist ein Teil des {etwin} Projekts, du kannst uns auf {opencollective} mit einer Spende unterstützen.'|trans({'etwin': '<a href="https://eternal-twin.net">Eternaltwin</a>', 'opencollective': '<a href="https://opencollective.com/eternaltwin">OpenCollective</a>'},'global')|raw }}
+                        {{ 'MyHordes ist ein Teil des {etwin} Projekts, du kannst uns auf {opencollective} mit einer Spende unterstützen.'|trans({'etwin': '<a href="https://eternal-twin.net">EternalTwin</a>', 'opencollective': '<a href="https://opencollective.com/eternaltwin">OpenCollective</a>'},'global')|raw }}
                     </div>
                 </div>
             </div>
@@ -183,6 +183,11 @@
             },
             'taptut': '{{ 'Schon gewusst? Bei vielen Aktionen wird auf mobilen Geräten zunächst ein Hilfetext eingeblendet. Wenn du die Aktion durchführen möchtest, musst du die Aktion erneut antippen. Wenn du es eilig hast und lieber keine Hilfetexte sehen möchtest, kannst du dieses Verhalten kannst du in deinen Seeleneinstellungen über die Einstellung "Tooltips auf mobilen Geräten durch antippen anzeigen" deaktivieren.'|trans({},'global')|e('js') }}'
         };
+
+        $.html.setInitParams({
+            userPopupEndpoint: '{{ path('soul_tooltip') }}',
+            userPopupLoadingAnimation: '{{ asset('build/images/anims/loading.gif') }}'
+        })
 
         $.html.addEventListenerAll('#post-office','click', function(e,elem) {
             if (e.target !== elem) return;

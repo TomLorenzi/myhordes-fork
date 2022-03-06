@@ -865,7 +865,7 @@
     <unit id="ZtFgVEb" name="Admin Dashboard">
       <notes>
         <note category="german">Admin Dashboard</note>
-        <note category="from">twig:///templates/ajax/admin/dash.html.twig;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/public/maintenance_attack.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/dash.html.twig;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/public/maintenance_attack.html.twig;twig:///templates/ajax/soul/user_tooltip.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
       </notes>
       <segment>
         <source>Admin Dashboard</source>
@@ -1425,12 +1425,12 @@
     </unit>
     <unit id="V1ukt7Z" name="EternalTwin-Integration">
       <notes>
-        <note category="german">EternalTwin-Integration</note>
+        <note category="german">Eternaltwin-Integration</note>
         <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>EternalTwin-Integration</source>
-        <target>Intégration Eternal-Twin</target>
+        <target>Intégration Eternaltwin</target>
       </segment>
     </unit>
     <unit id="OkyzTP2" name="In lokalen Account umwandeln">
@@ -1475,12 +1475,12 @@
     </unit>
     <unit id="OaKjJho" name="Von EternalTwin verwaltet">
       <notes>
-        <note category="german">Von EternalTwin verwaltet</note>
+        <note category="german">Von Eternaltwin verwaltet</note>
         <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Von EternalTwin verwaltet</source>
-        <target>Géré par Eternal-Twin</target>
+        <target>Géré par Eternaltwin</target>
       </segment>
     </unit>
     <unit id="uCT9EnO" name="Nur für Administratoren sichtbar">
@@ -1505,12 +1505,12 @@
     </unit>
     <unit id="L0eG_iZ" name="EternalTwin-Konto">
       <notes>
-        <note category="german">EternalTwin-Konto</note>
+        <note category="german">Eternaltwin-Konto</note>
         <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>EternalTwin-Konto</source>
-        <target>Compte Eternal-Twin</target>
+        <target>Compte Eternaltwin</target>
       </segment>
     </unit>
     <unit id="nz1fjZT" name="Sonstiges">
@@ -2554,7 +2554,7 @@
     <unit id="Dm3TgUa" name="Sozial">
       <notes>
         <note category="german">Sozial</note>
-        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig;twig:///templates/ajax/admin/users/social.html.twig;twig:///templates/ajax/admin/users/tabs.html.twig</note>
       </notes>
       <segment>
         <source>Sozial</source>
@@ -3938,7 +3938,7 @@
     <unit id="OAGjXFG" name="Alle">
       <notes>
         <note category="german">Alle</note>
-        <note category="from">twig:///templates/ajax/admin/users/pictos.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/users/pictos.html.twig;twig:///templates/ajax/admin/widget/controls.twig</note>
       </notes>
       <segment>
         <source>Alle</source>
@@ -4381,12 +4381,12 @@
     </unit>
     <unit id="jPmvEEG" name="Eternal-Twin-Konto verlinkt">
       <notes>
-        <note category="german">Eternal-Twin-Konto verlinkt</note>
+        <note category="german">Eternaltwin-Konto verlinkt</note>
         <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
       </notes>
       <segment>
         <source>Eternal-Twin-Konto verlinkt</source>
-        <target>Compte Eternal-Twin lié</target>
+        <target>Compte Eternaltwin lié</target>
       </segment>
     </unit>
     <unit id="_VFidG8" name="Gruppentyp">
@@ -4429,6 +4429,157 @@
       <segment>
         <source>Diese Auszeichnung wurde verdient.</source>
         <target>Ce picto a été gagné.</target>
+      </segment>
+    </unit>
+    <unit id="I2eWURG" name="Freundesliste">
+      <notes>
+        <note category="german">Freundesliste</note>
+        <note category="from">twig:///templates/ajax/admin/users/social.html.twig</note>
+      </notes>
+      <segment>
+        <source>Freundesliste</source>
+        <target>Liste d'amis</target>
+      </segment>
+    </unit>
+    <unit id="nQ9blbf" name="Spieler, sie sich als Freund hinzugefügt haben">
+      <notes>
+        <note category="german">Spieler, die sie/ihn als Freund hinzugefügt haben</note>
+        <note category="from">twig:///templates/ajax/admin/users/social.html.twig</note>
+      </notes>
+      <segment>
+        <source>Spieler, sie sich als Freund hinzugefügt haben</source>
+        <target>Joueurs qui l'ont ajouté à leur liste d'amis</target>
+      </segment>
+    </unit>
+    <unit id="_cSDjRl" name="Spieler werben">
+      <notes>
+        <note category="german">Spieler werben</note>
+        <note category="from">twig:///templates/ajax/admin/users/social.html.twig</note>
+      </notes>
+      <segment>
+        <source>Spieler werben</source>
+        <target>Parrainage</target>
+      </segment>
+    </unit>
+    <unit id="b1moPIw" name="Blockierliste">
+      <notes>
+        <note category="german">Blockierliste</note>
+        <note category="from">twig:///templates/ajax/admin/users/social.html.twig</note>
+      </notes>
+      <segment>
+        <source>Blockierliste</source>
+        <target>Liste noire</target>
+      </segment>
+    </unit>
+    <unit id="6vRyig1" name="Blockiert von">
+      <notes>
+        <note category="german">Blockiert von</note>
+        <note category="from">twig:///templates/ajax/admin/users/social.html.twig</note>
+      </notes>
+      <segment>
+        <source>Blockiert von</source>
+        <target>Bloqué par</target>
+      </segment>
+    </unit>
+    <unit id="6B7S7TG" name="Bürger-Alias ​​ändern:">
+      <notes>
+        <note category="german">Bürger-Alias ​​ändern:</note>
+        <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
+      </notes>
+      <segment>
+        <source>Bürger-Alias ​​ändern:</source>
+        <target>Modifier l'alias du citoyen:</target>
+      </segment>
+    </unit>
+    <unit id="7.npMFZ" name="Kein Alias ​​angegeben">
+      <notes>
+        <note category="german">Kein Alias ​​angegeben</note>
+        <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
+      </notes>
+      <segment>
+        <source>Kein Alias ​​angegeben</source>
+        <target>Aucun alias défini</target>
+      </segment>
+    </unit>
+    <unit id="u5LKixo" name="Bitte nicht für mehrere Bürger denselben Alias eingeben!">
+      <notes>
+        <note category="german">Bitte nicht für mehrere Bürger denselben Alias eingeben!</note>
+        <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
+      </notes>
+      <segment>
+        <source>Bitte nicht für mehrere Bürger denselben Alias eingeben!</source>
+        <target>Merci de ne pas définir le même alias pour plusieurs citoyens !</target>
+      </segment>
+    </unit>
+    <unit id="NcKgihM" name="Bank leeren">
+      <notes>
+        <note category="german">Bank leeren</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Bank leeren</source>
+        <target>Vider la banque</target>
+      </segment>
+    </unit>
+    <unit id="u2ktkWy" name="Stadt-Event">
+      <notes>
+        <note category="german">Stadt-Event</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Stadt-Event</source>
+        <target>Évènement de la ville</target>
+      </segment>
+    </unit>
+    <unit id="JSVSGLb" name="Koalitionen">
+      <notes>
+        <note category="german">Koalitionen</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Koalitionen</source>
+        <target>Coalitions</target>
+      </segment>
+    </unit>
+    <unit id="hR.qIOi" name="Profiler">
+      <notes>
+        <note category="german">Profiler</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Profiler</source>
+        <target>Profiler</target>
+      </segment>
+    </unit>
+    <unit id="Y67xIUn" name="Nicht installiert">
+      <notes>
+        <note category="german">Nicht installiert</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Nicht installiert</source>
+        <target>Non installé</target>
+      </segment>
+    </unit>
+    <unit id="pACkzCf" name="Persönliche Beschreibung:">
+      <notes>
+        <note category="german">Persönliche Beschreibung:</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Persönliche Beschreibung:</source>
+        <target>Description personnelle :</target>
+      </segment>
+    </unit>
+    <unit id="O9RB2q8" name="Letzte Worte:">
+      <notes>
+        <note category="german">Letzte Worte:</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Letzte Worte:</source>
+        <target>Dernières paroles :</target>
       </segment>
     </unit>
   </file>

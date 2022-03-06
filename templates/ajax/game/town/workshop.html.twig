@@ -58,10 +58,10 @@
             <div class="padded cell rw-6 hide-desktop hide-lg">
                 {% trans from 'game' %}Umwandlung{% endtrans %}
             </div>
-            <div class="padded cell rw-3 hide-sm hide-md left">
+            <div class="padded cell rw-2 hide-sm hide-md center">
                 {% trans from 'game' %}Material{% endtrans %}
             </div>
-            <div class="padded cell rw-3 hide-sm hide-md left">
+            <div class="padded cell rw-4 hide-sm hide-md center">
                 {% trans from 'game' %}Hergestellter Gegenstand{% endtrans %}
             </div>
             <div class="padded cell rw-1">
@@ -95,11 +95,11 @@
                     <div class="padded cell rw-4 grow-0 shrink-0 left" style="overflow: hidden">
                         {% if recipe.result.entries|length > 1 %}
                             <span class="small hide-desktop hide-lg">?</span>
-                            <span class="small hide-md hide-sm" style="display: block; text-overflow: ellipsis; white-space: nowrap; overflow: hidden">{% trans from 'game' %}Zufälliger Gegenstand{% endtrans %}</span>
+                            <span class="small hide-md hide-sm" style="display: block; margin-top: 4px; text-overflow: ellipsis; white-space: nowrap; overflow: hidden">{% trans from 'game' %}Zufälliger Gegenstand{% endtrans %}</span>
                         {% else %}
                             <img class="hide-desktop hide-lg" src="{{ asset('build/images/item/item_' ~ recipe.result.entries[0].prototype.icon ~ '.gif') }}" alt="{{ recipe.result.entries[0].prototype.label|trans({},'items') }}" />
-                            <span class="icon hide-md hide-sm" style="display: block; text-overflow: ellipsis; white-space: nowrap; overflow: hidden">
-                                    <img src="{{ asset('build/images/item/item_' ~ recipe.result.entries[0].prototype.icon ~ '.gif') }}" alt="{{ recipe.result.entries[0].prototype.label|trans({},'items') }}" />
+                            <span class="icon hide-md hide-sm" style="display: block; margin-top: 4px; text-overflow: ellipsis; white-space: nowrap; overflow: hidden">
+                                    <img style="vertical-align: bottom" src="{{ asset('build/images/item/item_' ~ recipe.result.entries[0].prototype.icon ~ '.gif') }}" alt="{{ recipe.result.entries[0].prototype.label|trans({},'items') }}" />
                                     {{ recipe.result.entries[0].prototype.label|trans({},'items') }}
                                 </span>
                         {% endif %}

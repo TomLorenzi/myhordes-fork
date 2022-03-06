@@ -81,7 +81,6 @@
 {% block js %}
     {{ parent() }}
     <script>
-        {{ include('scripts/user_tooltip.js.twig') }}
         $.html.forEach('.forum-post-content ul.poll', element => {
             element.parentElement.insertBefore($.html.createElement('<div class="clear" />'),element);
             element.parentElement.insertBefore($.html.createElement('<div class="note note-warning" />', '{{ 'Umfragen können an dieser Stelle nicht angezeigt werden. Bitte besuche das Forum.'|trans({},'global') }}'),element);

@@ -173,7 +173,7 @@ then
 fi
 
 echo "-> Activating new installation"
-ssh -t "${_SSH}" "service php7.4-fpm restart"
+ssh -t "${_SSH}" "service php8.1-fpm restart"
 ssh -t "${_SSH}" "cd \"${REMOTE_PATH_ENTRYPOINT:?}\" && sleep 5s && ${_BIN_CONSOLE} cache:clear && rm -rf \"${REMOTE_PATH_STORAGE:?}/cache/${DEPLOY_ENV:?}\""
 ssh -t "${_SSH}" "cd \"${REMOTE_PATH_ENTRYPOINT:?}\" && ${_BIN_CONSOLE} app:migrate --maintenance off"
 

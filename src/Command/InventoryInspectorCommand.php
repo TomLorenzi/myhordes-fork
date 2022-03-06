@@ -95,7 +95,7 @@ class InventoryInspectorCommand extends Command
         return 0;
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         /** @var Inventory $inventory */
         $inventory = $this->helper->resolve_string($input->getArgument('InventoryID'), Inventory::class, 'Inventory', $this->getHelper('question'), $input, $output);

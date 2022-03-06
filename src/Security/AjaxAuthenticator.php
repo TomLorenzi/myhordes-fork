@@ -20,7 +20,6 @@ use Symfony\Component\Security\Http\Authenticator\AbstractAuthenticator;
 use Symfony\Component\Security\Http\Authenticator\Passport\Badge\UserBadge;
 use Symfony\Component\Security\Http\Authenticator\Passport\Credentials\PasswordCredentials;
 use Symfony\Component\Security\Http\Authenticator\Passport\Passport;
-use Symfony\Component\Security\Http\Authenticator\Passport\PassportInterface;
 use Symfony\Component\Security\Http\EntryPoint\AuthenticationEntryPointInterface;
 
 class AjaxAuthenticator extends RememberMeSupportingAuthenticator implements AuthenticationEntryPointInterface
@@ -43,7 +42,7 @@ class AjaxAuthenticator extends RememberMeSupportingAuthenticator implements Aut
     /**
      * @inheritDoc
      */
-    public function start(Request $request, AuthenticationException $authException = null)
+    public function start(Request $request, AuthenticationException $authException = null): Response
     {
         if (!$request->isXmlHttpRequest())
             return new RedirectResponse($this->url_generator->generate('initial_landing'));
@@ -93,7 +92,7 @@ class AjaxAuthenticator extends RememberMeSupportingAuthenticator implements Aut
     }
 
 
-    public function authenticate(Request $request): PassportInterface
+    public function authenticate(Request $request): Passport
     {
         return new Passport(
             new UserBadge( "myh::{$this->request_parser->trimmed('login_user', null)}" ),
