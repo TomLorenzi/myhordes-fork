@@ -200,6 +200,21 @@ class TwinoRegexResult {
 
 }
 
+type playerCacheEntry = {
+    exists: boolean,
+    id: number,
+    displayName: string,
+    queryName: string
+}
+
+type playerCacheObject = {
+    id: { [id: number]: playerCacheEntry }
+    name: { [name: string]: playerCacheEntry }
+};
+
+const playerCache: playerCacheObject = { id: {}, name: {}};
+let playerCacheRefreshing: number = null;
+
 class TwinoConverterToBlocks {
 
     public static rangeBlocks( match: TwinoRegexResult, parents: Array<HTMLElement> ): [boolean,Array<TwinoInterimBlock>] {
@@ -369,33 +384,15 @@ class TwinoConverterToBlocks {
             case '@':
                 let id = match.nodeInfo() ? match.nodeInfo() : 'auto';
                 let name = match.nodeContent() ? match.nodeContent() : ('user #' + id)
-                // Ajax request here, to add the username class & co
-                if ($.html.twinoParser.Request !== null) {
-                    clearTimeout($.html.twinoParser.Request);
+
+                blocks.push( new TwinoInterimBlock( name, 'div', 'cref', [['x-a',id], ['x-qi',match.nodeInfo() ?? ''], ['x-qn',match.nodeContent() ?? '']]) );
+
+                if ( match.nodeInfo() ) {
+                    if (!playerCache.id[match.nodeInfo()]) playerCache.id[match.nodeInfo()] = null;
+                } else if ( match.nodeContent() ) {
+                    if (!playerCache.name[match.nodeContent()]) playerCache.name[match.nodeContent()] = null;
                 }
 
-                blocks.push( new TwinoInterimBlock( name, 'div', 'cref', [['x-a',id]]) );
-                $.html.twinoParser.Request = setTimeout(function(){
-                    if ($.html.twinoParser.AjaxUrl !== '') {
-                        let elem = document.querySelector('#' + $.html.twinoParser.textEditor + ' div.cref[x-a="' + id + '"]');
-                        elem.textContent = "...";
-                        $.ajax.easySend($.html.twinoParser.AjaxUrl, {
-                            'name': id === 'auto' ? name : id
-                        }, function(data){
-                            data.success;
-                            if ((data as any).exists) {
-                                elem.classList.add("username");
-                                elem.setAttribute("x-user-id", (data as any).id);
-                                elem.textContent = (data as any).displayName;
-                                $.html.handleUserPopup(<HTMLElement>elem);
-                            } else {
-                                elem.textContent = name;
-                            }
-                            clearTimeout($.html.twinoParser.Request);
-                            $.html.twinoParser.Request = null;
-                        });
-                    }
-                }, 1000);
                 break;
             default: blocks.push( new TwinoInterimBlock( match.raw() ) ); break;
         }
@@ -541,8 +538,6 @@ export default class TwinoAlikeParser {
     public readonly OpModeRaw   = 0x1;
     public readonly OpModeQuote = 0x2;
     public AjaxUrl = "";
-    public Request = null;
-    public textEditor = null;
 
     private static lego(blocks: Array<TwinoInterimBlock>, elem: HTMLElement): void {
         for (let i = 0; i < blocks.length; i++) {
@@ -748,13 +743,36 @@ export default class TwinoAlikeParser {
                     else elem.textContent = str;
                 }
             }
-        }
-         else {
+        } else {
             if (elem.hasAttribute( 'x-raw' )) return;
             let children = elem.childNodes;
             for (let i = 0; i < children.length; i++)
                 this.postprocessDOM( children[i] as HTMLElement, options )
         }
+    }
+
+    private static processPlayerNames( target: HTMLElement ) {
+        console.log(target, target.querySelectorAll( '[x-qi][x-qn]' ));
+        target.querySelectorAll( '[x-qi][x-qn]' ).forEach( (elem:HTMLElement) => {
+            const player_data =
+                ( elem.getAttribute('x-qi' ) ? playerCache.id[elem.getAttribute('x-qi' )] : null ) ??
+                ( elem.getAttribute('x-qn' ) ? playerCache.name[elem.getAttribute('x-qn' )] : null ) ?? null;
+
+            if (player_data && player_data.exists) {
+                elem.classList.add("username");
+                elem.setAttribute("x-user-id", player_data.id);
+                elem.textContent = player_data.displayName;
+                elem.removeAttribute('x-qi');
+                elem.removeAttribute('x-qn');
+                $.html.handleUserPopup(<HTMLElement>elem);
+            } else if (player_data === null) {
+                elem.classList.add("username");
+                elem.innerHTML = '<i class="fa fa-pulse fa-spinner"></i>'
+            } else {
+                elem.classList.add("username");
+                elem.textContent = '???';
+            }
+        } );
     }
 
     parseTo( text: string, target: HTMLElement, resolver: emoteResolver, options: TwinoClientOptions = {} ): void {
@@ -784,8 +802,8 @@ export default class TwinoAlikeParser {
             marked_nodes[i].removeAttribute('x-nested');
         }
 
-        const delete_empty = ( tag: HTMLElement ): boolean => {
-            if (tag.nodeType !== Node.ELEMENT_NODE) return false;
+        const delete_empty = ( tag: HTMLElement|null ): boolean => {
+            if (!tag || tag.nodeType !== Node.ELEMENT_NODE) return false;
 
             if (
                 (tag as HTMLElement).tagName === 'BR' ||
@@ -798,6 +816,31 @@ export default class TwinoAlikeParser {
 
         do { c = container_node.firstChild; } while (delete_empty(c));
         do { c = container_node.lastChild; }  while (delete_empty(c));
+
+        TwinoAlikeParser.processPlayerNames( container_node );
+        if (playerCacheRefreshing) window.clearTimeout(playerCacheRefreshing);
+        if ($.html.twinoParser.AjaxUrl !== '') {
+            const missing_ids: Array<number> = Object.entries( playerCache.id ).filter( ([,cache]) => cache === null ).map( ([id]) => parseInt(id) );
+            const missing_names: Array<string> = Object.entries( playerCache.name ).filter( ([,cache]) => cache === null ).map( ([name]) => name );
+
+            if (missing_ids.length > 0 || missing_names.length > 0) {
+                playerCacheRefreshing = window.setTimeout(() => {
+                    $.ajax.background().easySend($.html.twinoParser.AjaxUrl, {
+                        names: missing_names, ids: missing_ids
+                    }, (data) => {
+
+                        (data as unknown as { data: Array<playerCacheEntry> })?.data?.forEach( player => {
+                            playerCache.id[ player.id ] = playerCache.name[ player.queryName ] = player;
+                        } );
+
+                        missing_ids.forEach( id => { if (!playerCache.id[id]) delete playerCache.id[id] } );
+                        missing_names.forEach( name => { if (!playerCache.name[name]) delete playerCache.name[name] } );
+                        playerCacheRefreshing = null;
+                        TwinoAlikeParser.processPlayerNames( target );
+                    }, {}, () => playerCacheRefreshing = null);
+                }, 1000);
+            }
+        }
 
         while ((c = container_node.firstChild))
             target.appendChild(c);

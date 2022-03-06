@@ -362,23 +362,25 @@ class SoulController extends CustomAbstractController
      * @GateKeeperProfile(allow_during_attack=true,record_user_activity=false)
      */
     public function users_exists(JSONRequestParser $parser): Response {
+        $return = [];
 
-        if (!$parser->has_all(['name'], true))
-            return new JsonResponse(['exists' => false, 'id' => '']);
+        $add = function(?User $u, string $name, int $id) use (&$return) {
+            $return[] =
+                [
+                    'exists' => $u !== null,
+                    'id' => $u?->getId() ?? $id,
+                    'displayName' => $u?->getName() ?? $name,
+                    'queryName' => $name
+                ];
+        };
 
-        $searchName = $parser->get('name');
-        if(is_numeric($searchName)) {
-            $user = $this->entity_manager->getRepository(User::class)->find($searchName);
-        } else {
-            $user = $this->entity_manager->getRepository(User::class)->findOneByNameOrDisplayName(trim($searchName));
-        }
+        foreach ( $parser->get_array( 'names', [] ) as $name )
+           $add( $this->entity_manager->getRepository(User::class)->findOneByNameOrDisplayName( trim($name) ), $name, -1 );
 
-        return new JsonResponse ([
-            'success' => true,
-            'exists' => $user !== null,
-            'id' => $user !== null ? $user->getId() : '',
-            'displayName' => $user !== null ? $user->getName() : null
-        ]);
+        foreach ( $parser->get_array( 'ids', [] ) as $id )
+            $add( $this->entity_manager->getRepository(User::class)->find( (int)$id ), '', $id );
+
+        return AjaxResponse::success( true, ['data' => $return] );
     }
 
 
