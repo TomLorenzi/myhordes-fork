@@ -62,6 +62,7 @@ class ExceptionSubscriber implements EventSubscriberInterface
             $curl = curl_init();
             curl_setopt_array($curl, [
                 CURLOPT_VERBOSE => false,
+                CURLOPT_RETURNTRANSFER => true,
                 CURLOPT_POST => true,
                 CURLOPT_URL => $this->discordEndpoint,
                 CURLOPT_TIMEOUT => 5,
