@@ -374,10 +374,10 @@ class SoulController extends CustomAbstractController
                 ];
         };
 
-        foreach ( $parser->get_array( 'names', [] ) as $name )
+        foreach ( array_slice( $parser->get_array( 'names', [] ), 0, 100 ) as $name )
            $add( $this->entity_manager->getRepository(User::class)->findOneByNameOrDisplayName( trim($name) ), $name, -1 );
 
-        foreach ( $parser->get_array( 'ids', [] ) as $id )
+        foreach ( array_slice( $parser->get_array( 'ids', [] ), 0, 100 ) as $id )
             $add( $this->entity_manager->getRepository(User::class)->find( (int)$id ), '', $id );
 
         return AjaxResponse::success( true, ['data' => $return] );
