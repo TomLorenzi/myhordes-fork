@@ -137,7 +137,7 @@ class DeathHandler
                 $this->entity_manager->remove($homeIntrusion);
         }
 
-        if($citizen->getBanished()){
+        if($citizen->getBanished() && !in_array( $cod->getRef(), [ CauseOfDeath::ChocolateCross, CauseOfDeath::Hanging, CauseOfDeath::FleshCage ] )){
             $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem('banned_note_#00'), [$citizen->getHome()->getChest()], true);
         }
 
