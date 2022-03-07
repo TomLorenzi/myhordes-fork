@@ -16541,5 +16541,11 @@
         <target>Gibt an, wie viele Bürger diese Stadt gemeinsam mit einer Koalition betreten haben. Es werden sowohl Spieler gezählt die automatisch mit ihrer Koalition beitreten als auch solche, die manuell anderen Spielern aus ihrer Koalition folgen.</target>
       </segment>
     </unit>
+    <unit id="clpTyQQ" name="Du hast keine Seelenpunkte gewonnen.">
+      <segment>
+        <source>Du hast keine Seelenpunkte gewonnen.</source>
+        <target>Du hast keine Seelenpunkte gewonnen.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

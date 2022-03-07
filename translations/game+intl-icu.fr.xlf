@@ -16005,7 +16005,6 @@
     <unit id="vKTmXMp" name="Katapultregister">
       <notes>
         <note category="german">Katapultregister</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/catapult.html.twig</note>
       </notes>
       <segment>
@@ -26097,6 +26096,17 @@ cette violente opération...]]></target>
       <segment>
         <source>Gibt an, wie viele Bürger diese Stadt gemeinsam mit einer Koalition betreten haben. Es werden sowohl Spieler gezählt die automatisch mit ihrer Koalition beitreten als auch solche, die manuell anderen Spielern aus ihrer Koalition folgen.</source>
         <target>Ce compteur montre combien de citoyens ont rejoint cette ville avec leur coalition. Il compte à la fois les citoyens qui se joignent automatiquement à leur coalition ainsi que les citoyens qui les suivent manuellement en ville.</target>
+      </segment>
+    </unit>
+    <unit id="clpTyQQ" name="Du hast keine Seelenpunkte gewonnen.">
+      <notes>
+        <note category="german">Du hast keine Seelenpunkte gewonnen.</note>
+        <note category="from">twig:///templates/ajax/soul/death.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Du hast keine Seelenpunkte gewonnen.</source>
+        <target>Du hast keine Seelenpunkte gewonnen.</target>
       </segment>
     </unit>
   </file>

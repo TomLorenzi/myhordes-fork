@@ -3755,7 +3755,6 @@
       <notes>
         <note category="german">Dies ist eine Event-Stadt.</note>
         <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Dies ist eine Event-Stadt.</source>

@@ -26400,5 +26400,16 @@
         <target>Shows how many citizens have joined this town together with their coalition. It counts both citizens joining automatically with their coalition as well as citizens manually following them into town.</target>
       </segment>
     </unit>
+    <unit id="clpTyQQ" name="Du hast keine Seelenpunkte gewonnen.">
+      <notes>
+        <note category="german">Du hast keine Seelenpunkte gewonnen.</note>
+        <note category="from">twig:///templates/ajax/soul/death.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Du hast keine Seelenpunkte gewonnen.</source>
+        <target>Du hast keine Seelenpunkte gewonnen.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
