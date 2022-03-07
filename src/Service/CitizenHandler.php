@@ -215,8 +215,10 @@ class CitizenHandler
             $kill = true;
 
         if ($action) {
-            if (!$citizen->getBanished() && !$kill) $this->entity_manager->persist( $this->log->citizenBanish( $citizen ) );
-            $citizen->setBanished( true );
+            if (!$citizen->getBanished() && !$kill) {
+                $this->entity_manager->persist($this->log->citizenBanish($citizen));
+                $citizen->setBanished(true);
+            }
 
             if ($citizen->hasRole('cata'))
                 $citizen->removeRole($this->entity_manager->getRepository(CitizenRole::class)->findOneBy(['name' => 'cata']));

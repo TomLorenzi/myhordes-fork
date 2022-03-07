@@ -18,6 +18,7 @@ use App\Entity\User;
 use App\Entity\UserGroup;
 use App\Entity\UserGroupAssociation;
 use App\Response\AjaxResponse;
+use App\Service\CrowService;
 use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
 use App\Service\LogTemplateHandler;
@@ -1292,7 +1293,7 @@ class MessageGlobalPMController extends MessageController
      * @param TranslatorInterface $ti
      * @return Response
      */
-    public function report_post_api(int $pid, EntityManagerInterface $em, TranslatorInterface $ti, JSONRequestParser $parser): Response {
+    public function report_post_api(int $pid, EntityManagerInterface $em, TranslatorInterface $ti, JSONRequestParser $parser, CrowService $crow): Response {
         $user = $this->getUser();
 
         $message = $em->getRepository( GlobalPrivateMessage::class )->find( $pid );
@@ -1331,6 +1332,10 @@ class MessageGlobalPMController extends MessageController
         } catch (Exception $e) {
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
+
+        try {
+            $crow->triggerExternalModNotification( 'A global PM has been reported.', $message, $newReport );
+        } catch (\Throwable $e) {}
 
         return AjaxResponse::success( true, ['msg' => $ti->trans('Du hast die Nachricht von {username} dem Raben gemeldet. Wer weiß, vielleicht wird {username} heute Nacht stääärben...', ['{username}' => '<span>' . $message->getSender()->getName() . '</span>'], 'game')]);
     }
