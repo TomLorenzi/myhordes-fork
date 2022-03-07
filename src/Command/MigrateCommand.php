@@ -312,7 +312,7 @@ class MigrateCommand extends Command
                 return 2;
             }
 
-            if (!$this->helper->capsule( 'doctrine:fixtures:load', $output )) {
+            if (!$this->helper->capsule( 'doctrine:fixtures:load --append', $output )) {
                 $output->writeln("<error>Unable to update fixtures.</error>");
                 return 3;
             }
