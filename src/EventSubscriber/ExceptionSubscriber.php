@@ -3,18 +3,15 @@
 
 namespace App\EventSubscriber;
 
-use App\Annotations\GateKeeperProfile;
 use App\Service\ConfMaster;
 use App\Structures\MyHordesConf;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\HttpKernel\Event\ControllerEvent;
 use Symfony\Component\HttpKernel\Event\ExceptionEvent;
-use Symfony\Component\HttpKernel\Event\ResponseEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
-use Symfony\Config\Twig\GlobalConfig;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 use Throwable;
 
 class ExceptionSubscriber implements EventSubscriberInterface
@@ -41,6 +38,8 @@ class ExceptionSubscriber implements EventSubscriberInterface
     }
 
     public function onKernelException(ExceptionEvent $event) {
+
+        if (is_a( $event->getThrowable(), HttpException::classs )) return;
 
         $error_id = md5( $event->getThrowable()->getFile() . "@" . $event->getThrowable()->getLine() . '@' . $this->version );
         $report_path = "{$this->report_path}/{$error_id}/";
@@ -94,7 +93,7 @@ class ExceptionSubscriber implements EventSubscriberInterface
                                            "/confidential\n/label ~Bug ~High ~Automatic"
                                        )
                                        ->attach( $event->getThrowable()->getTraceAsString(), 'stack.txt', 'text/plain' ) );
-                //file_put_contents( $mail_file, "".time() );
+                file_put_contents( $mail_file, "".time() );
             } catch (Throwable $e) {}
         }
 
