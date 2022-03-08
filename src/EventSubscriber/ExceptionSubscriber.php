@@ -58,24 +58,27 @@ class ExceptionSubscriber implements EventSubscriberInterface
                     "See attached stack trace for more information."
             ];
 
-            $curl = curl_init();
-            curl_setopt_array($curl, [
-                CURLOPT_VERBOSE => false,
-                CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_POST => true,
-                CURLOPT_URL => $this->discordEndpoint,
-                CURLOPT_TIMEOUT => 5,
-                CURLOPT_POSTFIELDS => [
-                    'payload_json' => new \CURLStringFile( json_encode( $payload, JSON_FORCE_OBJECT ), null, 'application/json' ),
-                    'files[0]'  => new \CURLStringFile( $event->getThrowable()->getTraceAsString(), 'stack.txt', 'text/plain' ),
-                ],
-            ]);
+            try {
+                $curl = curl_init();
+                curl_setopt_array($curl, [
+                    CURLOPT_VERBOSE => false,
+                    CURLOPT_RETURNTRANSFER => true,
+                    CURLOPT_POST => true,
+                    CURLOPT_URL => $this->discordEndpoint,
+                    CURLOPT_TIMEOUT => 5,
+                    CURLOPT_POSTFIELDS => [
+                        'payload_json' => new \CURLStringFile( json_encode( $payload, JSON_FORCE_OBJECT ), null, 'application/json' ),
+                        'files[0]'  => new \CURLStringFile( $event->getThrowable()->getTraceAsString(), 'stack.txt', 'text/plain' ),
+                    ],
+                ]);
 
-            $response = curl_exec($curl);
-            $status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+                $response = curl_exec($curl);
+                $status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 
-            if (!($response === false || $status < 200 || $status > 299))
-                file_put_contents( $discord_file, "".time() );
+                if (!($response === false || $status < 200 || $status > 299))
+                    file_put_contents( $discord_file, "".time() );
+            } catch (Throwable $e) {}
+
         }
 
         if ($this->gitlabIssueMail['from'] && $this->gitlabIssueMail['to'] && !file_exists($mail_file)) {
