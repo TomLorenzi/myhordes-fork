@@ -39,7 +39,7 @@ class ExceptionSubscriber implements EventSubscriberInterface
 
     public function onKernelException(ExceptionEvent $event) {
 
-        if (is_a( $event->getThrowable(), HttpException::classs )) return;
+        if (is_a( $event->getThrowable(), HttpException::class )) return;
 
         $error_id = md5( $event->getThrowable()->getFile() . "@" . $event->getThrowable()->getLine() . '@' . $this->version );
         $report_path = "{$this->report_path}/{$error_id}/";
