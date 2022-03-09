@@ -337,6 +337,13 @@ class ExternalController extends InventoryAwareController {
             return ["error" => "invalid_userids"];
         }
 
+        // Check input sanity (expecting an int list)
+        foreach ($user_ids as $user_id) {
+            if(!is_int($user_id)) {
+                return ["error" => "invalid_userid", 'id' => $user_id];
+            }
+        }
+
         $datas = [];
         foreach ($user_ids as $user_id) {
             $datas[] = $this->getUserAPI("user", $user_id);
