@@ -346,7 +346,7 @@ class ExternalController extends InventoryAwareController {
 
         $datas = [];
         foreach ($user_ids as $user_id) {
-            $datas[] = $this->getUserAPI("user", $user_id);
+            $datas[] = $this->getUserAPI("user", intval($user_id));
         }
 
         return $datas;
