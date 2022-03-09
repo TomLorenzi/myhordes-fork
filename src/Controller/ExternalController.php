@@ -339,7 +339,7 @@ class ExternalController extends InventoryAwareController {
 
         // Check input sanity (expecting an int list)
         foreach ($user_ids as $user_id) {
-            if(!is_int($user_id)) {
+            if(!is_numeric($user_id)) {
                 return ["error" => "invalid_userid", 'id' => $user_id];
             }
         }
