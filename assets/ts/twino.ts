@@ -303,7 +303,7 @@ class TwinoConverterToBlocks {
                     blocks.push( new TwinoInterimBlock(match.raw()) );
                     break;
                 }
-                blocks.push( new TwinoInterimBlock(nodeContent, 'a', match.nodeType(), [ ['href', match.nodeInfo()], ['target', '_blank'], ['x-raw','1'] ]) );
+                blocks.push( new TwinoInterimBlock(nodeContent, 'a', match.nodeType(), [ ['href', match.nodeInfo()], ['target', '_blank'], ['x-raw','1'], ['x-raw-emotes', '1'] ]) );
                 changed = true;
                 break;
             case 'bad': case 'big':
@@ -334,7 +334,7 @@ class TwinoConverterToBlocks {
                 if (nested) blocks.push( new TwinoInterimBlock(nodeContent) )
                 else {
                     if ( match.nodeInfo() )
-                        blocks.push( new TwinoInterimBlock(match.nodeInfo(), 'span', 'rpauthor', [['x-raw','1']]) );
+                        blocks.push( new TwinoInterimBlock(match.nodeInfo(), 'span', 'rpauthor', [['x-raw','1'], ['x-raw-emotes','1']]) );
                     blocks.push( new TwinoInterimBlock(nodeContent, 'div', 'rpText', [['x-nested','1']]) );
                 }
                 changed = true; break;
@@ -475,7 +475,7 @@ class HTMLConverterFromBlocks {
                     if (block.hasClass('quoteauthor')) {
                         if (peek && peek.nodeName === 'blockquote') {
                             const xid = block.getAttribute('x-user-id') ?? block.getAttribute('x-id');
-                            ret += quotespace ? '' : HTMLConverterFromBlocks.wrapBlock( nextBlock(), 'quote', (xid ? block.nodeText.replace(/\W/,'') : block.nodeText) + (xid ? (':' + xid) : '') )
+                            ret += quotespace ? '' : HTMLConverterFromBlocks.wrapBlock( nextBlock(), 'quote', (xid ? block.nodeText.replace(/\W+/,'') : block.nodeText) + (xid ? (':' + xid) : '') )
                         }
                     } else if (block.hasClass('rpauthor')) {
                         if (peek && peek.nodeName === 'div' && peek.hasClass('rpText')) {
@@ -668,7 +668,7 @@ export default class TwinoAlikeParser {
 
             TwinoAlikeParser.lego(blocks,elem);
         } else {
-            if (elem.hasAttribute( 'x-raw' )) return;
+            if (elem.hasAttribute( 'x-raw' ) && !elem.hasAttribute( 'x-raw-emotes' )) return;
             let children = elem.childNodes;
             for (let i = 0; i < children.length; i++)
                 TwinoAlikeParser.parseEmotes(children[i] as HTMLElement, resolver);

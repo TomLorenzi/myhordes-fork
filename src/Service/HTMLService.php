@@ -145,7 +145,8 @@ class HTMLService {
         ]
     ];
 
-    protected const HTML_PLAIN_CONTENT = ['a','span.rpauthor','span.inline-code','code'];
+    protected const HTML_PLAIN_CONTENT = ['span.inline-code','code'];
+    protected const HTML_PLAIN_CONTENT_WITH_EMOTES = ['a','span.rpauthor'];
 
     protected function getAllowedHTML(User $user, int $permissions, bool $extended = true, array $all_ext = []): array {
         $mods_enabled = ['core'];
@@ -180,7 +181,7 @@ class HTMLService {
         return ['nodes' => $r, 'attribs' => $a];
     }
 
-    protected function htmlValidator( array $allowedNodes, ?DOMNode $node, ?int &$text_length = null, int $depth = 0, bool $child_nodes_forbidden = false ): bool {
+    protected function htmlValidator( array $allowedNodes, ?DOMNode $node, ?int &$text_length = null, int $depth = 0, bool $child_nodes_forbidden = false, bool $emotes_explicitly_allowed = false ): bool {
         if (!$node || $depth > 32) return false;
         if ($text_length === null) $text_length = 0;
 
@@ -222,14 +223,23 @@ class HTMLService {
                 $children[] = $child;
 
             $plain = $child_nodes_forbidden;
+            $emotes_allowed = $emotes_explicitly_allowed;
             if (!$plain) {
-                if (in_array(strtolower($node->nodeName), static::HTML_PLAIN_CONTENT)) $plain = true;
+                if (in_array(strtolower($node->nodeName), static::HTML_PLAIN_CONTENT)) $emotes_explicitly_allowed = !($plain = true);
                 else foreach (explode(' ', strtolower($node->getAttribute('class')) ?? '') as $class)
-                    if (in_array("{$node->nodeName}.{$class}", static::HTML_PLAIN_CONTENT)) $plain = true;
+                    if (in_array("{$node->nodeName}.{$class}", static::HTML_PLAIN_CONTENT)) $emotes_explicitly_allowed = !($plain = true);
+
+
+            }
+
+            if ($plain && !$emotes_explicitly_allowed) {
+                if (in_array(strtolower($node->nodeName), static::HTML_PLAIN_CONTENT_WITH_EMOTES)) $emotes_allowed = true;
+                else foreach (explode(' ', strtolower($node->getAttribute('class')) ?? '') as $class)
+                    if (in_array("{$node->nodeName}.{$class}", static::HTML_PLAIN_CONTENT_WITH_EMOTES)) $emotes_allowed = true;
             }
 
             foreach ( $children as $child )
-                if (!$this->htmlValidator( $allowedNodes, $child, $text_length, $depth+1, $plain ))
+                if (!$this->htmlValidator( $allowedNodes, $child, $text_length, $depth+1, $plain, $emotes_allowed ))
                     return false;
 
             if ($truncate_node && !$node->parentNode) return false;
@@ -246,7 +256,7 @@ class HTMLService {
 
         } elseif ($node->nodeType === XML_TEXT_NODE) {
             $text_length += mb_strlen($node->textContent);
-            if ($child_nodes_forbidden) $node->textContent = str_replace(':', ':​', $node->textContent);
+            if ($child_nodes_forbidden && !$emotes_explicitly_allowed) $node->textContent = str_replace(':', ':​', $node->textContent);
             return true;
         }
         else return false;
