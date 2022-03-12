@@ -3740,7 +3740,7 @@
       </notes>
       <segment>
         <source>Du drückst den {item} eng an deine Brust... &lt;t-stat-down-terror&gt;Tränen laufen über deine Wange, als du an die Hölle denkst, in der du lebst. Nach ein paar Minuten fühlst du dich besser!&lt;/t-stat-down-terror&gt;&lt;nt-stat-down-terror&gt;Aber nichts geschieht!&lt;/nt-stat-down-terror&gt;</source>
-        <target><![CDATA[Vous appuyez {item} près de votre poitrine... <t-stat-down-terror>Des larmes coulent sur vos joues en pensant à l'enfer dans lequel vous vivez. Après quelques minutes, vous vous sentirez mieux !</t-stat-down-terror><nt-stat-down-terror>Mais rien ne se passe!</nt-stat-down-terror>]]></target>
+        <target><![CDATA[Vous serez {item} très fort contre vous... <t-stat-down-terror>Rapidement, les larmes vous viennent aux yeux. Les nerfs... Vous éclatez en sanglot tandis que vous prenez conscience de l'enfer dans lequel vous vivez...<hr />Après quelques minutes vous vous sentez un peu mieux... </t-stat-down-terror><nt-stat-down-terror><strong>Mais rien ne vient.</strong> Vous vous sentez même encore plus triste qu'avant. A quoi bon continuer à "vivre" après tout?</nt-stat-down-terror>]]></target>
       </segment>
     </unit>
     <unit id="4TKj72Z">
