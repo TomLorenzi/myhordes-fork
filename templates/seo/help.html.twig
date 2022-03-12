@@ -1,0 +1,307 @@
+{% extends "seo/framework.html.twig" %}
+{% block content %}
+    <div class="row">
+        <div class="padded-small map-box cell rw-4 rw-sm-12">
+            <div class="row">
+                <a class="support" href="https://gitlab.com/eternaltwin/myhordes/myhordes/-/issues" target="_blank"><em>{{ 'Brauchst du Hilfe?'|trans({},'help') }}</em>{{ 'Besuche unsere Technische Supportseite'|trans({},'help') }}</a>
+                <ul class="HelpList">
+                    <li class="main {% if section == 'welcome' %}active{% endif %}">
+                        <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="intro">
+                        <a href="{{ url('help', {'name': 'welcome'}) }}">{{ 'MyHordes?'|trans({},'help') }}</a>
+                    </li>
+                    <li class="main {% if section == 'world_beyond' %}active{% endif %}">
+                        <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="outer">
+                        <a href="{{ url('help', {'name': 'world_beyond'}) }}">{{ 'Die Außenwelt'|trans({},'help') }}</a>
+                    </li>
+                    <li class="sublist">
+                        <ul>
+                            <li class="{% if section == 'getting_around' %}active{% endif %}">
+                                <img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move">
+                                <a href="{{ url('help', {'name': 'getting_around'}) }}">{{ 'Sich bewegen'|trans({},'help') }}</a>
+                            </li>
+                            <li class="{% if section == 'map' %}active{% endif %}">
+                                <img src="{{ asset('build/images/icons/item_map.gif') }}" alt="map">
+                                <a href="{{ url('help', {'name': 'map'}) }}">{{ 'Die Karte'|trans({},'help') }}</a>
+                            </li>
+                            <li class="{% if section == 'exploring_and_scavenging' %}active{% endif %}">
+                                <img src="{{ asset('build/images/icons/small_gather.gif') }}" alt="explore">
+                                <a href="{{ url('help', {'name': 'exploring_and_scavenging'}) }}">{{ 'Erkunden und Graben'|trans({},'help') }}</a>
+                            </li>
+                            <li class="{% if section == 'depleted_zones' %}active{% endif %}">
+                                <img src="{{ asset('build/images/icons/Small_broken.gif') }}" alt="depleted">
+                                <a href="{{ url('help', {'name': 'depleted_zones'}) }}">{{ 'Abgesuchte Zonen'|trans({},'help') }}</a>
+                            </li>
+                            <li class="{% if section == 'control_points' %}active{% endif %}">
+                                <img src="{{ asset('build/images/beyond/equal.gif') }}" alt="dom">
+                                <a href="{{ url('help', {'name': 'control_points'}) }}">{{ 'Die Kontrollpunkte'|trans({},'help') }}</a>
+                            </li>
+                            <li class="{% if section == 'escort_mode' %}active{% endif %}">
+                                <img src="{{ asset('build/images/icons/small_move.gif') }}" alt="escort">
+                                <a href="{{ url('help', {'name': 'escort_mode'}) }}">{{ 'Der Eskortenmodus'|trans({},'help') }}</a>
+                            </li>
+                            <li class="{% if section == 'fighting_the_hordes_in_the_world_beyond' %}active{% endif %}">
+                                <img src="{{ asset('build/images/item/item_cutcut.gif') }}" alt="fight">
+                                <a href="{{ url('help', {'name': 'fighting_the_hordes_in_the_world_beyond'}) }}">{{ 'Zombies im Freien bekämpfen'|trans({},'help') }}</a>
+                            </li>
+                            <li class="{% if section == 'the_night' %}active{% endif %}">
+                                <img src="{{ asset('build/images/pictos/r_doutsd.gif') }}" alt="night">
+                                <a href="{{ url('help', {'name': 'the_night'}) }}">{{ 'Nachts'|trans({},'help') }}</a>
+                            </li>
+                            <li class="{% if section == 'extreme_camping' %}active{% endif %}">
+                                <img src="{{ asset('build/images/status/status_camper.gif') }}" alt="camp">
+                                <a href="{{ url('help', {'name': 'extreme_camping'}) }}">{{ 'Wildes Campen'|trans({},'help') }}</a>
+                            </li>
+                            <li class="{% if section == 'ruin_exploration' %}active{% endif %}">
+                                <img src="{{ asset('build/images/icons/small_exploration.gif') }}" alt="explo">
+                                <a href="{{ url('help', {'name': 'ruin_exploration'}) }}">{{ 'Gebäude untersuchen'|trans({},'help') }}</a>
+                            </li>
+                            <li class="{% if section == 'lost_souls' %}active{% endif %}">
+                                <img src="{{ asset('build/images/item/item_soul_blue.gif') }}" alt="soul">
+                                <a href="{{ url('help', {'name': 'lost_souls'}) }}" style="margin-left: 5px">{{ 'Verlorene Seelen'|trans({},'help') }}</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="main {% if section == 'about_you' %}active{% endif %}">
+                        <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="player">
+                        <a href="{{ url('help', {'name': 'about_you'}) }}">{{ 'Du'|trans({},'help') }}</a>
+                    </li>
+
+                    <li class="sublist">
+                        <ul>
+                            <li class="{% if section == 'health' %}active{% endif %}">
+                                <img src="{{ asset('build/images/status/status_tired.gif') }}" alt="status">
+                                <a href="{{ url('help', {'name': 'health'}) }}">{{ 'Dein Gesundheitszustand'|trans({},'help') }}</a>
+                            </li>
+                            <li class="{% if section == 'inventory' %}active{% endif %}">
+                                <img src="{{ asset('build/images/item/item_bag.gif') }}" alt="inv">
+                                <a href="{{ url('help', {'name': 'inventory'}) }}">{{ 'Inventar'|trans({},'help') }}</a>
+                            </li>
+                            <li class="{% if section == 'your_soul' %}active{% endif %}">
+                                <img src="{{ asset('build/images/icons/small_ghost_blue.gif') }}" alt="ghost">
+                                <a href="{{ url('help', {'name': 'your_soul'}) }}">{{ 'Deine Seele'|trans({},'help') }}</a>
+                            </li>
+                            <li class="{% if section == 'death_and_soul_points' %}active{% endif %}">
+                                <img src="{{ asset('build/images/professions/death.gif') }}" alt="death">
+                                <a href="{{ url('help', {'name': 'death_and_soul_points'}) }}">{{ 'Der Tod und deine Seelenpunkte'|trans({},'help') }}</a>
+                            </li>
+                            <li class="{% if section == 'last_man_standing' %}active{% endif %}">
+                                <img src="{{ asset('build/images/pictos/r_surlst.gif') }}" alt="lastOne">
+                                <a href="{{ url('help', {'name': 'last_man_standing'}) }}">{{ 'Der letzte Tod'|trans({},'help') }}</a>
+                            </li>
+                            <li class="{% if section == 'hero_mode' %}active{% endif %}">
+                                <img src="{{ asset('build/images/icons/star.gif') }}" alt="hero">
+                                <a href="{{ url('help', {'name': 'hero_mode'}) }}">{{ 'Heldenmodus'|trans({},'help') }}</a>
+                            </li>
+                            <li class="{% if section == 'coalitions' %}active{% endif %}">
+                                <img src="{{ asset('build/images/pictos/r_surgrp.gif') }}" alt="team">
+                                <a href="{{ url('help', {'name': 'coalitions'}) }}">{{ 'Kleine Koalitionen'|trans({},'help') }}</a>
+                            </li>
+                            <li class="{% if section == 'house_and_work' %}active{% endif %}">
+                                <img src="{{ asset('build/images/pictos/r_hbuild.gif') }}" alt="homeUpgrade">
+                                <a href="{{ url('help', {'name': 'house_and_work'}) }}">{{ 'Haus &amp; Hausarbeiten'|trans({},'help') }}</a>
+                            </li>
+                            <li class="{% if section == 'ghouls' %}active{% endif %}">
+                                <img src="{{ asset('build/images/roles/ghoul.gif') }}" alt="ghoul">
+                                <a href="{{ url('help', {'name': 'ghouls'}) }}">{{ 'Ghule'|trans({},'help') }}</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="main {% if section == 'jobs' %}active{% endif %}">
+                        <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="jobs">
+                        <a href="{{ url('help', {'name': 'jobs'}) }}">{{ 'Die Berufe'|trans({},'help') }}</a>
+                    </li>
+
+                    <li class="sublist">
+                        <ul>
+                            <li class="{% if section == 'basic' %}active{% endif %}">
+                                <img src="{{ asset('build/images/professions/basic.gif') }}" alt="job_basic">
+                                <a href="{{ url('help', {'name': 'basic'}) }}">{{ 'Einwohner'|trans({},'help') }}</a>
+                            </li>
+                            <li class="{% if section == 'collec' %}active{% endif %}">
+                                <img src="{{ asset('build/images/professions/dig.gif') }}" alt="job_collec">
+                                <a href="{{ url('help', {'name': 'collec'}) }}">{{ 'Buddler'|trans({},'help') }}</a>
+                            </li>
+                            <li class="{% if section == 'hunter' %}active{% endif %}">
+                                <img src="{{ asset('build/images/professions/vest.gif') }}" alt="job_eclair">
+                                <a href="{{ url('help', {'name': 'hunter'}) }}">{{ 'Aufklärer'|trans({},'help') }}</a>
+                            </li>
+                            <li class="{% if section == 'guardian' %}active{% endif %}">
+                                <img src="{{ asset('build/images/professions/shield.gif') }}" alt="job_guardian">
+                                <a href="{{ url('help', {'name': 'guardian'}) }}">{{ 'Wächter'|trans({},'help') }}</a>
+                            </li>
+                            <li class="{% if section == 'survivalist' %}active{% endif %}">
+                                <img src="{{ asset('build/images/professions/book.gif') }}" alt="job_hunter">
+                                <a href="{{ url('help', {'name': 'survivalist'}) }}">{{ 'Einsiedler'|trans({},'help') }}</a>
+                            </li>
+                            <li class="{% if section == 'tamer' %}active{% endif %}">
+                                <img src="{{ asset('build/images/professions/tamer.gif') }}" alt="job_tamer">
+                                <a href="{{ url('help', {'name': 'tamer'}) }}">{{ 'Dompteur'|trans({},'help') }}</a>
+                            </li>
+                            <li class="{% if section == 'tech' %}active{% endif %}">
+                                <img src="{{ asset('build/images/professions/tech.gif') }}" alt="job_tech">
+                                <a href="{{ url('help', {'name': 'tech'}) }}">{{ 'Techniker'|trans({},'help') }}</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="main {% if section == 'town_roles' %}active{% endif %}">
+                        <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="roles">
+                        <a href="{{ url('help', {'name': 'town_roles'}) }}">{{ 'Die Rollen'|trans({},'help') }}</a>
+                    </li>
+
+                    <li class="sublist">
+                        <ul>
+                            <li class="{% if section == 'shaman' %}active{% endif %}">
+                                <img src="{{ asset('build/images/roles/shaman.gif') }}" alt="role_shaman">
+                                <a href="{{ url('help', {'name': 'shaman'}) }}">{{ 'Shamane'|trans({},'help') }}</a>
+                            </li>
+                            <li class="{% if section == 'guide_to_the_world_beyond' %}active{% endif %}">
+                                <img src="{{ asset('build/images/roles/guide.gif') }}" alt="role_guide">
+                                <a href="{{ url('help', {'name': 'guide_to_the_world_beyond'}) }}">{{ 'Der Reiseleiter in der Außenwelt'|trans({},'help') }}</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="main {% if section == 'welcome_to_the_town' %}active{% endif %}">
+                        <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="city">
+                        <a href="{{ url('help', {'name': 'welcome_to_the_town'}) }}">{{ 'Herzlich willkommen in der Stadt'|trans({},'help') }}</a>
+                    </li>
+
+                    <li class="sublist">
+                        <ul>
+                            <li class="{% if section == 'the_community' %}active{% endif %}">
+                                <img src="{{ asset('build/images/icons/small_world.gif') }}" alt="demo">
+                                <a href="{{ url('help', {'name': 'the_community'}) }}">{{ 'Die Gemeinschaft'|trans({},'help') }}</a>
+                            </li>
+                            <li class="{% if section == 'constructing_new_buildings' %}active{% endif %}">
+                                <img src="{{ asset('build/images/icons/home.gif') }}" alt="votes">
+                                <a href="{{ url('help', {'name': 'constructing_new_buildings'}) }}">{{ 'Neue Gebäude bauen'|trans({},'help') }}</a>
+                            </li>
+                            <li class="{% if section == 'blueprints' %}active{% endif %}">
+                                <img src="{{ asset('build/images/item/item_bplan_u.gif') }}" alt="bplans">
+                                <a href="{{ url('help', {'name': 'blueprints'}) }}">{{ 'Baupläne'|trans({},'help') }}</a>
+                            </li>
+                            <li class="{% if section == 'daily_upgrades' %}active{% endif %}">
+                                <img src="{{ asset('build/images/building/small_city_up.gif') }}" alt="upgrades">
+                                <a href="{{ url('help', {'name': 'daily_upgrades'}) }}">{{ 'Weiterentwicklung des Tages'|trans({},'help') }}</a>
+                            </li>
+                            <li class="{% if section == 'the_attack_of_the_hordes' %}active{% endif %}">
+                                <img src="{{ asset('build/images/log/night.gif') }}" alt="attack">
+                                <a href="{{ url('help', {'name': 'the_attack_of_the_hordes'}) }}">{{ 'Der Angriff der Zombiehorde'|trans({},'help') }}</a>
+                            </li>
+                            <li class="{% if section == 'the_watchmen' %}active{% endif %}">
+                                <img src="{{ asset('build/images/professions/water_soldier.gif') }}" alt="guard">
+                                <a href="{{ url('help', {'name': 'the_watchmen'}) }}">{{ 'Die Nachtwächter'|trans({},'help') }}</a>
+                            </li>
+                            <li class="{% if section == 'crimes_and_punishment' %}active{% endif %}">
+                                <img src="{{ asset('build/images/icons/small_star.gif') }}" alt="justice">
+                                <a href="{{ url('help', {'name': 'crimes_and_punishment'}) }}">{{ 'Recht und Gesetz'|trans({},'help') }}</a>
+                            </li>
+                            <li class="{% if section == 'shunned_citizens' %}active{% endif %}">
+                                <img src="{{ asset('build/images/icons/small_ban.gif') }}" alt="banned">
+                                <a href="{{ url('help', {'name': 'shunned_citizens'}) }}">{{ 'Die Verbannten'|trans({},'help') }}</a>
+                            </li>
+                            <li class="{% if section == 'chaos' %}active{% endif %}">
+                                <img src="{{ asset('build/images/professions/death.gif') }}" alt="chaos">
+                                <a href="{{ url('help', {'name': 'chaos'}) }}">{{ 'Das Chaos'|trans({},'help') }}</a>
+                            </li>
+                            <li class="{% if section == 'catapult' %}active{% endif %}">
+                                <img src="{{ asset('build/images/item/item_courroie.gif') }}" alt="catapult">
+                                <a href="{{ url('help', {'name': 'catapult'}) }}">{{ 'Das Katapult'|trans({},'help') }}</a>
+                            </li>
+                            <li class="{% if section == 'towns_in_nondistantregions' %}active{% endif %}">
+                                <img src="{{ asset('build/images/building/small_falsecity.gif') }}" alt="rne">
+                                <a href="{{ url('help', {'name': 'towns_in_nondistantregions'}) }}">{{ 'Kleine Karten'|trans({},'help') }}</a>
+                            </li>
+                            <li class="{% if section == 'devastated_town' %}active{% endif %}">
+                                <img src="{{ asset('build/images/item/item_out_def_broken.gif') }}" alt="devast">
+                                <a href="{{ url('help', {'name': 'devastated_town'}) }}">{{ 'Zerstörte Stadt'|trans({},'help') }}</a>
+                            </li>
+                            <li class="{% if section == 'hardcore_towns' %}active{% endif %}">
+                                <img src="{{ asset('build/images/icons/small_arma.gif') }}" alt="hardcore">
+                                <a href="{{ url('help', {'name': 'hardcore_towns'}) }}">{{ 'Städte des Pandämoniums'|trans({},'help') }}</a>
+                            </li>
+                            <li class="{% if section == 'private_towns' %}active{% endif %}">
+                                <img src="{{ asset('build/images/item/item_chair.gif') }}" alt="customMap">
+                                <a href="{{ url('help', {'name': 'private_towns'}) }}">{{ 'Privatstädte'|trans({},'help') }}</a>
+                            </li>
+                            <li class="{% if section == 'roleplay_options' %}active{% endif %}">
+                                <img src="{{ asset('build/images/item/item_dice.gif') }}" alt="rp">
+                                <a href="{{ url('help', {'name': 'roleplay_options'}) }}">{{ 'Rollenspieloptionen'|trans({},'help') }}</a>
+                            </li>
+                            <li class="{% if section == 'seasons_and_rankings' %}active{% endif %}">
+                                <img src="{{ asset('build/images/forum/coin.png') }}" alt="seasons">
+                                <a href="{{ url('help', {'name': 'seasons_and_rankings'}) }}">{{ 'Saisons und Ranglisten'|trans({},'help') }}</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="main {% if section == 'support' %}active{% endif %}">
+                        <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="st">
+                        <a href="{{ url('help', {'name': 'support'}) }}">{{ 'Support'|trans({},'help') }}</a>
+                    </li>
+
+                    <li class="sublist">
+                        <ul>
+                            {# <li class="">
+                                <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="browser">
+                                <span class="link">{{ '1- Überprüfe deinen Browser'|trans({},'help') }}</span>
+                            </li>
+                            <li class="">
+                                <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="parasites">
+                                <span class="link">{{ '2- Überprüfe sonstige installierte Programme'|trans({},'help') }}</span>
+                            </li> #}
+                            <li class="{% if section == 'getting_help' %}active{% endif %}">
+                                <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="contact">
+                                <a href="{{ url('help', {'name': 'getting_help'}) }}">{{ 'Hier erhältst du Hilfe'|trans({},'help') }}</a>
+                            </li>
+                            <li class="{% if section == 'choosing_a_good_password' %}active{% endif %}">
+                                <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="pass">
+                                <a href="{{ url('help', {'name': 'choosing_a_good_password'}) }}">{{ 'Wie wähle ich ein sicheres Passwort?'|trans({},'help') }}</a>
+                            </li>
+                            <li class="{% if section == 'quarantined_towns' %}active{% endif %}">
+                                <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="quarantine">
+                                <a href="{{ url('help', {'name': 'quarantined_towns'}) }}">{{ 'Stadt unter Quarantäne'|trans({},'help') }}</a>
+                            </li>
+                            <li class="{% if section == 'i_m_annoyed' %}active{% endif %}">
+                                <img src="{{ asset('build/images/icons/small_calim.gif') }}" alt="report">
+                                <a href="{{ url('help', {'name': 'i_m_annoyed'}) }}">{{ 'Fehlverhalten melden'|trans({},'help') }}</a>
+                            </li>
+                            <li class="{% if section == 'about_accountsitting' %}active{% endif %}">
+                                <img src="{{ asset('build/images/icons/small_warning.gif') }}" alt="sitting">
+                                <a href="{{ url('help', {'name': 'about_accountsitting'}) }}">{{ 'Zum Thema \'Sitting\'...'|trans({},'help') }}</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="main {% if section == 'support' %}active{% endif %}">
+                        <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="st">
+                        <span>{{ 'Für Community-Entwickler'|trans({},'help') }}</span>
+                    </li>
+
+                    <li class="sublist">
+                        <ul>
+                            <li class="{% if section == 'use_of_external_sites' %}active{% endif %}">
+                                <img src="{{ asset('build/images/icons/small_archive.gif') }}" alt="extern">
+                                <a href="{{ url('help', {'name': 'use_of_external_sites'}) }}">{{ 'Externe Webseiten und Anwendungen'|trans({},'help') }}</a>
+                            </li>
+                            <li class="{% if section == 'use_of_external_scripts' %}active{% endif %}">
+                                <img src="{{ asset('build/images/icons/small_more.gif') }}" alt="scripts">
+                                <a href="{{ url('help', {'name': 'use_of_external_scripts'}) }}">{{ 'Externe Scripte'|trans({},'help') }}</a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                </ul>
+			</div>
+        </div>
+        <div class="padded cell rw-8 rw-sm-12">
+            <div class="row help-content">
+                {{ content|raw }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
