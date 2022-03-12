@@ -257,6 +257,10 @@ class TwinoConverterToBlocks {
                 if (nested) blocks.push( new TwinoInterimBlock(nodeContent) )
                 else blocks.push( new TwinoInterimBlock(nodeContent, match.nodeType(), [], [['x-nested','1']]) );
                 changed = true; break;
+            case '.':
+                if (nested) blocks.push( new TwinoInterimBlock(nodeContent) )
+                else blocks.push( new TwinoInterimBlock(nodeContent, 'span', ['.'], [['x-nested','1']]) );
+                changed = true; break;
             case 'poll':
                 if (nested) blocks.push( new TwinoInterimBlock(nodeContent) )
                 else blocks.push( new TwinoInterimBlock(nodeContent, 'ul', ['poll'], [['x-nested','1']]) );
@@ -271,8 +275,8 @@ class TwinoConverterToBlocks {
             case '//': blocks.push( new TwinoInterimBlock(nodeContent, 'i') ); changed = true; break;
             case '--': blocks.push( new TwinoInterimBlock(nodeContent, 's') ); changed = true; break;
             case 'spoiler':
-                if (nested) blocks.push( new TwinoInterimBlock(nodeContent) )
-                else blocks.push( new TwinoInterimBlock(nodeContent, 'div', match.nodeType(), [['x-nested','1']]) );
+                if (nested) blocks.push( new TwinoInterimBlock('[.]' + nodeContent + '[/.]') )
+                else blocks.push( new TwinoInterimBlock('[.]' + nodeContent + '[/.]', 'div', match.nodeType(), [['x-nested','1']]) );
                 changed = true; break;
             case 'code': blocks.push( new TwinoInterimBlock(nodeContent, 'pre', [], [ ['x-raw','1'] ]) ); changed = true; break;
             case 'quote':case 'cite':
