@@ -3743,7 +3743,7 @@
       </notes>
       <segment>
         <source>Du drückst den {item} eng an deine Brust... &lt;t-stat-down-terror&gt;Tränen laufen über deine Wange, als du an die Hölle denkst, in der du lebst. Nach ein paar Minuten fühlst du dich besser!&lt;/t-stat-down-terror&gt;&lt;nt-stat-down-terror&gt;Aber nichts geschieht!&lt;/nt-stat-down-terror&gt;</source>
-        <target><![CDATA[Du drückst den {item} eng an deine Brust... <t-stat-down-terror>Tränen laufen über deine Wange, als du an die Hölle denkst, in der du lebst. Nach ein paar Minuten fühlst du dich besser!</t-stat-down-terror><nt-stat-down-terror>Aber nichts geschieht!</nt-stat-down-terror>]]></target>
+        <target><![CDATA[You hold the {item} tight to your chest... <t-stat-down-terror>Tears quickly begin to well in your eyes. The stress... You let out an audible sob when you consider the hell in which you live...<hr />After a few minutes you feel a bit better...</t-stat-down-terror><nt-stat-down-terror><strong>Nothing happens.</strong> You feel even sadder than before. What's the point in continuing a "life" like this?</nt-stat-down-terror>]]></target>
       </segment>
     </unit>
     <unit id="4TKj72Z">
@@ -3754,7 +3754,7 @@
       </notes>
       <segment>
         <source>Du drückst den {item} eng an deine Brust... &lt;t-stat-up-terror&gt;Panik steigt in dir auf!&lt;/t-stat-up-terror&gt;&lt;nt-stat-up-terror&gt;Aber nichts geschieht!&lt;/nt-stat-up-terror&gt;</source>
-        <target><![CDATA[Du drückst den {item} eng an deine Brust... <t-stat-up-terror>Panik steigt in dir auf!</t-stat-up-terror><nt-stat-up-terror>Aber nichts geschieht!</nt-stat-up-terror>]]></target>
+        <target><![CDATA[You hold the {item} tight to your chest... <t-stat-up-terror>Panic arises in you!<hr />You are now <strong>terrorised</strong> !</t-stat-up-terror><nt-stat-up-terror>But nothing happens!</nt-stat-up-terror>]]></target>
       </segment>
     </unit>
     <unit id="kp6Ik3m" name="Rauchen">
@@ -6915,7 +6915,7 @@
       </notes>
       <segment>
         <source>&lt;t-bp_ok&gt;Du liest den {item} und stellst fest, dass es sich um einen Plan für {bp_spawn} handelt.&lt;/t-bp_ok&gt;&lt;t-bp_parent&gt;{hr}Dafür ist das Bauprojekt {bp_parent} nötig.&lt;/t-bp_parent&gt;&lt;t-bp_fail&gt;Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...&lt;/t-bp_fail&gt;</source>
-        <target><![CDATA[<t-bp_ok>After examining the {item}, you realise that it shows precisely how to build the {bp_spawn}!{hr}You record this new information in the construction site section.</t-bp_ok><t-bp_parent>{hr}This project requires the {bp_parent} to be built first.</t-bp_parent><t-bp_fail>You read the {item} but you do not understand a word of what is written...</t-bp_fail>]]></target>
+        <target><![CDATA[<t-bp_ok>After examining the {item}, you realise that it shows precisely how to build the {bp_spawn}!{hr}You record this new information in the construction site section.</t-bp_ok><t-bp_parent>{hr}This project requires the {bp_parent} to be built first.</t-bp_parent><t-bp_fail><strong>Your town has already unlocked all construction projects in this category!</strong>{hr}This plan is therefore useless, so you decide to throw it away.</t-bp_fail>]]></target>
       </segment>
     </unit>
     <unit id="V2fAVB5" name="Aufbauen">
