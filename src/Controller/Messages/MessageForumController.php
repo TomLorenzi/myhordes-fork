@@ -511,7 +511,7 @@ class MessageForumController extends MessageController
             $em->persist($thread);
             $em->persist($forum);
 
-            $this->commit_post_with_polls($em,$post,$polls);
+            $this->commit_post_with_polls($em,$post,$polls ?? []);
 
         } catch (Exception $e) {
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
@@ -702,7 +702,10 @@ class MessageForumController extends MessageController
             $paranoid = $ch->hasStatusEffect($user->getActiveCitizen(),'tg_paranoid');
         else $paranoid = false;
 
-        foreach ($posts as $post) $post->setText( $this->html->prepareEmotes( $post->getText(), $this->getUser() ) );
+        foreach ($posts as $post)
+            /** @var Post $post */
+            $post->setText( $this->html->prepareEmotes( $post->getText(), $this->getUser(), $post->getThread()->getForum()->getTown() ) );
+
         return $this->render( 'ajax/forum/posts_small.html.twig', [
             'posts' => $posts,
             'town' => $forum->getTown() ? $forum->getTown() : false,
@@ -812,7 +815,9 @@ class MessageForumController extends MessageController
 
         if ($flush) try { $em->flush(); } catch (Exception $e) {}
 
-        foreach ($posts as &$post) $post->setText( $this->html->prepareEmotes( $post->getText(), $user ) );
+        foreach ($posts as $post)
+            /** @var Post $post */
+            $post->setText( $this->html->prepareEmotes( $post->getText(), $user, $post->getThread()->getForum()->getTown() ) );
 
         // Check for paranoia
         if ($forum->getTown() && $user->getActiveCitizen() && $user->getActiveCitizen()->getTown() === $forum->getTown())
@@ -992,7 +997,9 @@ class MessageForumController extends MessageController
         $result = array_slice($result, 0, 25);
 
         foreach ($in as &$in_entry) $in_entry = str_replace('█', '', $in_entry);
-        foreach ($result as $post) $post->setText( $this->html->prepareEmotes( $post->getText() ) );
+        foreach ($result as $post)
+            /** @var Post $post */
+            $post->setText( $this->html->prepareEmotes( $post->getText(), $this->getUser(), $post->getThread()->getForum()->getTown() ) );
 
         return $this->render( 'ajax/forum/search_result.html.twig', [
             'posts' => $result,
@@ -1413,7 +1420,7 @@ class MessageForumController extends MessageController
      * @param TranslatorInterface $ti
      * @return Response
      */
-    public function report_post_api(int $fid, int $tid, JSONRequestParser $parser, EntityManagerInterface $em, TranslatorInterface $ti): Response {
+    public function report_post_api(int $fid, int $tid, JSONRequestParser $parser, EntityManagerInterface $em, TranslatorInterface $ti, CrowService $crow): Response {
         if (!$parser->has('postId'))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
@@ -1455,6 +1462,11 @@ class MessageForumController extends MessageController
         } catch (Exception $e) {
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
+
+        try {
+            $crow->triggerExternalModNotification( "A forum message has been reported.", $post, $newReport, "This is report #{$post->getAdminReports()->count()}." );
+        } catch (\Throwable $e) {}
+
         $message = $ti->trans('Du hast die Nachricht von {username} dem Raben gemeldet. Wer weiß, vielleicht wird {username} heute Nacht stääärben...', ['{username}' => '<span>' . $post->getOwner()->getName() . '</span>'], 'game');
         $this->addFlash('notice', $message);
         return AjaxResponse::success( );

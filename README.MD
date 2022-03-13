@@ -10,7 +10,7 @@ The rest of the project, is under [AGPL3 license](https://spdx.org/licenses/AGPL
 * zip
 * unzip
 * imagemagick
-* php (>=7.4)
+* php (>=8.1)
 * php-xml
 * php-intl
 * php-zip
@@ -404,7 +404,7 @@ bin/console doctrine:schema:update --force
 bin/console doctrine:fixtures:load --append
 ```
 
-### Start the local Eternal-Twin server
+### Start the local Eternaltwin server
 ```bash
 yarn run etwin
 # Or start it in the background
@@ -568,7 +568,7 @@ These two rules do not interfere with each other; even with the same IP address.
 
 ## Troubleshooting
 
-### Fatal Error: composer.lock was created for PHP version 7.4 or higher but the current PHP version is X.X.XX
+### Fatal Error: composer.lock was created for PHP version 8.1 or higher but the current PHP version is X.X.XX
 
 This means apache2 is using the wrong module for PHP. You can disable any PHP version it is using by using this command (for example for PHP 7.3):
 ```bash
@@ -577,7 +577,7 @@ a2dismod php7.3
 
 Then enable the correct PHP version:
 ```bash
-a2enmod php7.4
+a2enmod php8.1
 ```
 
 And restart apache2:

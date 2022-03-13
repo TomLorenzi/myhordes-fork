@@ -475,22 +475,22 @@
     </unit>
     <unit id="wPXsZnE">
       <notes>
-        <note category="german">MyHordes ist ein Teil des EternalTwin-Netzwerks. Wenn du einen EternalTwin-Account hast, kannst du MyHordes ohne zusätzliche Registrierung spielen!</note>
+        <note category="german">MyHordes ist ein Teil des Eternaltwin-Netzwerks. Wenn du einen Eternaltwin-Account hast, kannst du MyHordes ohne zusätzliche Registrierung spielen!</note>
         <note category="from">twig:///templates/ajax/public/login.html.twig</note>
       </notes>
       <segment>
         <source>MyHordes ist ein Teil des EternalTwin-Netzwerks. Wenn du einen EternalTwin-Account hast, kannst du MyHordes ohne zusätzliche Registrierung spielen!</source>
-        <target>MyHordes fait partie du réseau Eternal-Twin. Si vous avez un compte Eternal-Twin, vous pouvez jouer à MyHordes sans inscription supplémentaire !</target>
+        <target>MyHordes fait partie du réseau Eternaltwin. Si vous avez un compte Eternaltwin, vous pouvez jouer à MyHordes sans inscription supplémentaire !</target>
       </segment>
     </unit>
     <unit id="qo4M11k" name="Über EternalTwin einloggen">
       <notes>
-        <note category="german">Über EternalTwin einloggen</note>
+        <note category="german">Über Eternaltwin einloggen</note>
         <note category="from">twig:///templates/ajax/public/login.html.twig;twig:///templates/ajax/public/login_legacy.html.twig;twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Über EternalTwin einloggen</source>
-        <target>Connectez-vous via EternalTwin</target>
+        <target>Connectez-vous via Eternaltwin</target>
       </segment>
     </unit>
     <unit id="LiGRhEI">
@@ -505,22 +505,22 @@
     </unit>
     <unit id="ho.WxzI">
       <notes>
-        <note category="german">Dies wird nicht für immer möglich sein. Wir raten dir, deinen alten MyHordes-Account so bald wie möglich mit EternalTwin zu verknüpfen.</note>
+        <note category="german">Dies wird nicht für immer möglich sein. Wir raten dir, deinen alten MyHordes-Account so bald wie möglich mit Eternaltwin zu verknüpfen.</note>
         <note category="from">twig:///templates/ajax/public/login.html.twig</note>
       </notes>
       <segment>
         <source>Dies wird nicht für immer möglich sein. Wir raten dir, deinen alten MyHordes-Account so bald wie möglich mit EternalTwin zu verknüpfen.</source>
-        <target>Cela ne sera pas possible pour toujours. Nous vous conseillons de lier votre ancien compte MyHordes à EternalTwin dès que possible.</target>
+        <target>Cela ne sera pas possible pour toujours. Nous vous conseillons de lier votre ancien compte MyHordes à Eternaltwin dès que possible.</target>
       </segment>
     </unit>
     <unit id="uT6i9yH">
       <notes>
-        <note category="german">Deine Seele bleibt bei der Verknüpfung mit EternalTwin selbstverständlich vollständig erhalten.</note>
+        <note category="german">Deine Seele bleibt bei der Verknüpfung mit Eternaltwin selbstverständlich vollständig erhalten.</note>
         <note category="from">twig:///templates/ajax/public/et_welcome.html.twig;twig:///templates/ajax/public/login.html.twig;twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Deine Seele bleibt bei der Verknüpfung mit EternalTwin selbstverständlich vollständig erhalten.</source>
-        <target>Votre âme sera bien sûr complètement préservée lorsque vous vous connecterez à Eternal-Twin.</target>
+        <target>Votre âme sera bien sûr complètement préservée lorsque vous vous connecterez à Eternaltwin.</target>
       </segment>
     </unit>
     <unit id="RG1kp2m" name="Über MyHordes einloggen">
@@ -535,12 +535,12 @@
     </unit>
     <unit id="CvfPvDp" name="Verknüpfung mit EternalTwin">
       <notes>
-        <note category="german">Verknüpfung mit EternalTwin</note>
+        <note category="german">Verknüpfung mit Eternaltwin</note>
         <note category="from">twig:///templates/ajax/public/et_welcome.html.twig</note>
       </notes>
       <segment>
         <source>Verknüpfung mit EternalTwin</source>
-        <target>Lien avec EternalTwin</target>
+        <target>Lien avec Eternaltwin</target>
       </segment>
     </unit>
     <unit id="sndALWW" name="Gleich kanns losgehen!">
@@ -553,17 +553,17 @@
         <target>Nous pouvons commencer tout de suite !</target>
       </segment>
     </unit>
-    <unit id="zK1Sfzm">
+    <unit id="8uEgpj3">
       <notes>
         <note category="german">&lt;strong&gt;Achtung:&lt;/strong&gt; Du hast bereits einen MyHordes-Account? Dann solltest du jetzt
                                     &lt;i&gt;abbrechen&lt;/i&gt; und dich zuerst mit deinem alten MyHordes-Account einloggen. Du kannst deinen
-                                    EternalTwin-Account in den Einstellungen mit deinem MyHordes-Account verknüpfen.</note>
+                                    Eternaltwin-Account in den Einstellungen mit deinem MyHordes-Account verknüpfen.</note>
         <note category="from">twig:///templates/ajax/public/et_welcome.html.twig</note>
       </notes>
       <segment>
         <source>&lt;strong&gt;Achtung:&lt;/strong&gt; Du hast bereits einen MyHordes-Account? Dann solltest du jetzt
                                     &lt;i&gt;abbrechen&lt;/i&gt; und dich zuerst mit deinem alten MyHordes-Account einloggen. Du kannst deinen
-                                    EternalTwin-Account in den Einstellungen mit deinem MyHordes-Account verknüpfen.</source>
+                                    Eternaltwin-Account in den Einstellungen mit deinem MyHordes-Account verknüpfen.</source>
         <target><![CDATA[<strong>Attention :</strong> avez-vous déjà un compte MyHordes? Alors vous devriez maintenant <i>annuler la connexion</i> et vous connecter d'abord avec votre ancien compte MyHordes. Vous pouvez lier votre compte EternalTwin à votre compte MyHordes dans les paramètres.]]></target>
       </segment>
     </unit>
@@ -609,22 +609,22 @@
     </unit>
     <unit id="p_2G6pv">
       <notes>
-        <note category="german">Vielen Dank, dass du deinen MyHordes-Account {namecheck_mh} mit deinem EternalTwin-Account {namecheck_et} verknüpfst!</note>
+        <note category="german">Vielen Dank, dass du deinen MyHordes-Account {namecheck_mh} mit deinem Eternaltwin-Account {namecheck_et} verknüpfst!</note>
         <note category="from">twig:///templates/ajax/public/et_welcome.html.twig</note>
       </notes>
       <segment>
         <source>Vielen Dank, dass du deinen MyHordes-Account {namecheck_mh} mit deinem EternalTwin-Account {namecheck_et} verknüpfst!</source>
-        <target>Merci d'avoir associé votre compte MyHordes {namecheck_mh} à votre compte Eternal-Twin {namecheck_et} !</target>
+        <target>Merci d'avoir associé votre compte MyHordes {namecheck_mh} à votre compte Eternaltwin {namecheck_et} !</target>
       </segment>
     </unit>
     <unit id="7JD3pLt">
       <notes>
-        <note category="german">Nach der Verknüpfung kannst du dich nur noch über EternalTwin in MyHordes anmelden. Deine alten Zugangsdaten werden ungültig.</note>
+        <note category="german">Nach der Verknüpfung kannst du dich nur noch über Eternaltwin in MyHordes anmelden. Deine alten Zugangsdaten werden ungültig.</note>
         <note category="from">twig:///templates/ajax/public/et_welcome.html.twig</note>
       </notes>
       <segment>
         <source>Nach der Verknüpfung kannst du dich nur noch über EternalTwin in MyHordes anmelden. Deine alten Zugangsdaten werden ungültig.</source>
-        <target>Après le lien, vous ne pouvez vous connecter à MyHordes que via EternalTwin. Vos anciennes données d'accès seront invalides.</target>
+        <target>Après le lien, vous ne pouvez vous connecter à MyHordes que via Eternaltwin. Vos anciennes données d'accès seront invalides.</target>
       </segment>
     </unit>
     <unit id="r.jGoXw">
@@ -729,12 +729,12 @@
     </unit>
     <unit id="uQUHCC6">
       <notes>
-        <note category="german">Bevor du mit deinem EternalTwin-Account spielen kannst, brauchen wir noch ein paar zusätzliche Informationen von dir.</note>
+        <note category="german">Bevor du mit deinem Eternaltwin-Account spielen kannst, brauchen wir noch ein paar zusätzliche Informationen von dir.</note>
         <note category="from">twig:///templates/ajax/public/et_welcome.html.twig</note>
       </notes>
       <segment>
         <source>Bevor du mit deinem EternalTwin-Account spielen kannst, brauchen wir noch ein paar zusätzliche Informationen von dir.</source>
-        <target>Avant de pouvoir jouer avec votre compte EternalTwin, nous avons besoin de quelques informations supplémentaires de votre part.</target>
+        <target>Avant de pouvoir jouer avec votre compte Eternaltwin, nous avons besoin de quelques informations supplémentaires de votre part.</target>
       </segment>
     </unit>
     <unit id="wmjJuDK">
@@ -821,22 +821,22 @@
     </unit>
     <unit id="1zpAcv.">
       <notes>
-        <note category="german">Du hast deinen Anzeigenamen auf EternalTwin geändert. Wir haben diese Änderung soeben für dich übernommen!</note>
+        <note category="german">Du hast deinen Anzeigenamen auf Eternaltwin geändert. Wir haben diese Änderung soeben für dich übernommen!</note>
         <note category="from">php:///src/Controller/PublicController.php</note>
       </notes>
       <segment>
         <source>Du hast deinen Anzeigenamen auf EternalTwin geändert. Wir haben diese Änderung soeben für dich übernommen!</source>
-        <target>Vous avez changé votre nom d’affichage sur EternalTwin. Nous venons de prendre en compte ce changement !</target>
+        <target>Vous avez changé votre nom d’affichage sur Eternaltwin. Nous venons de prendre en compte ce changement !</target>
       </segment>
     </unit>
     <unit id="OUS.MDw">
       <notes>
-        <note category="german">Dein EternalTwin-Benutzername enthält Elemente, die auf MyHordes nicht gestattet sind. Bitte ändere deinen Namen auf EternalTwin, um dich auf MyHordes anmelden zu können.</note>
+        <note category="german">Dein Eternaltwin-Benutzername enthält Elemente, die auf MyHordes nicht gestattet sind. Bitte ändere deinen Namen auf EternalTwin, um dich auf MyHordes anmelden zu können.</note>
         <note category="from">php:///src/Controller/PublicController.php</note>
       </notes>
       <segment>
         <source>Dein EternalTwin-Benutzername enthält Elemente, die auf MyHordes nicht gestattet sind. Bitte ändere deinen Namen auf EternalTwin, um dich auf MyHordes anmelden zu können.</source>
-        <target>Votre nom d’utilisateur EternalTwin contient des éléments qui ne sont pas autorisés sur MyHordes. Veuillez changer votre nom sur EternalTwin pour vous connecter à MyHordes.</target>
+        <target>Votre nom d’utilisateur Eternaltwin contient des éléments qui ne sont pas autorisés sur MyHordes. Veuillez changer votre nom sur Eternaltwin pour vous connecter à MyHordes.</target>
       </segment>
     </unit>
     <unit id=".gp.m4T">
@@ -857,6 +857,23 @@
       <segment>
         <source>Deine E-Mail-Adresse wurde erfolgreich geändert.</source>
         <target>Votre addresse email a été changée avec succès.</target>
+      </segment>
+    </unit>
+    <unit id="zK1Sfzm">
+      <notes>
+        <note category="german">&lt;strong&gt;Achtung:&lt;/strong&gt; Du hast bereits einen MyHordes-Account? Dann solltest du jetzt
+                                    &lt;i&gt;abbrechen&lt;/i&gt; und dich zuerst mit deinem alten MyHordes-Account einloggen. Du kannst deinen
+                                    Eternaltwin-Account in den Einstellungen mit deinem MyHordes-Account verknüpfen.</note>
+        <note category="from">twig:///templates/ajax/public/et_welcome.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Achtung:&lt;/strong&gt; Du hast bereits einen MyHordes-Account? Dann solltest du jetzt
+                                    &lt;i&gt;abbrechen&lt;/i&gt; und dich zuerst mit deinem alten MyHordes-Account einloggen. Du kannst deinen
+                                    EternalTwin-Account in den Einstellungen mit deinem MyHordes-Account verknüpfen.</source>
+        <target><![CDATA[<strong>Achtung:</strong> Du hast bereits einen MyHordes-Account? Dann solltest du jetzt
+                                    <i>abbrechen</i> und dich zuerst mit deinem alten MyHordes-Account einloggen. Du kannst deinen
+                                    EternalTwin-Account in den Einstellungen mit deinem MyHordes-Account verknüpfen.]]></target>
       </segment>
     </unit>
   </file>

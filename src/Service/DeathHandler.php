@@ -20,21 +20,22 @@ use Doctrine\ORM\EntityManagerInterface;
 
 class DeathHandler
 {
-    private $entity_manager;
-    private $item_factory;
-    private $inventory_handler;
-    private $citizen_handler;
-    private $zone_handler;
-    private $picto_handler;
-    private $log;
-    private $random_generator;
-    private $conf;
-    private $perm;
+    private EntityManagerInterface $entity_manager;
+    private ItemFactory $item_factory;
+    private InventoryHandler $inventory_handler;
+    private CitizenHandler $citizen_handler;
+    private ZoneHandler $zone_handler;
+    private PictoHandler $picto_handler;
+    private LogTemplateHandler $log;
+    private RandomGenerator $random_generator;
+    private ConfMaster $conf;
+    private PermissionHandler $perm;
+    private GameProfilerService $gps;
 
     public function __construct(
         EntityManagerInterface $em, ZoneHandler $zh, InventoryHandler $ih, CitizenHandler $ch,
         ItemFactory $if, LogTemplateHandler $lt, PictoHandler $ph, RandomGenerator $rg, ConfMaster $conf,
-        PermissionHandler $perm)
+        PermissionHandler $perm, GameProfilerService $gps)
     {
         $this->entity_manager = $em;
         $this->inventory_handler = $ih;
@@ -46,6 +47,7 @@ class DeathHandler
         $this->random_generator = $rg;
         $this->conf = $conf;
         $this->perm = $perm;
+        $this->gps = $gps;
     }
 
     /**
@@ -141,6 +143,7 @@ class DeathHandler
 
         $citizen->setCauseOfDeath($cod);
         $citizen->setAlive(false);
+        $this->gps->recordCitizenDied($citizen);
 
         if ($citizen->getTown()->getDay() <= 3) {
             $cdm = $this->entity_manager->getRepository(ConsecutiveDeathMarker::class)->findOneBy( ['user' => $citizen->getUser()] )
@@ -182,33 +185,9 @@ class DeathHandler
         if ($citizen->getSurvivedDays()) {
             // Job picto
             $job = $citizen->getProfession();
-            if($job->getHeroic()){
-                $nameOfPicto = "";
-                switch($job->getName()){
-                    case "collec":
-                        $nameOfPicto = "r_jcolle_#00";
-                        break;
-                    case "guardian":
-                        $nameOfPicto = "r_jguard_#00";
-                        break;
-                    case "hunter":
-                        $nameOfPicto = "r_jrangr_#00";
-                        break;
-                    case "tamer":
-                        $nameOfPicto = "r_jtamer_#00";
-                        break;
-                    case "tech":
-                        $nameOfPicto = "r_jtech_#00";
-                        break;
-                    case "survivalist":
-                        $nameOfPicto = "r_jermit_#00";
-                        break;
-                }
-
-                if($nameOfPicto != "") {
-                    $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => $nameOfPicto]);
-                    $this->picto_handler->give_validated_picto($citizen, $pictoPrototype, $citizen->getDayOfDeath() - 1);
-                }
+            if($job->getHeroic() && $job->getPictoName() !== null){
+                $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => $job->getPictoName()]);
+                $this->picto_handler->give_validated_picto($citizen, $pictoPrototype, $citizen->getDayOfDeath() - 1);
             }
 
             // Clean picto
@@ -233,7 +212,9 @@ class DeathHandler
             $this->picto_handler->give_validated_picto($citizen, $pictoDeath);
         }
 
-        $sp = $this->citizen_handler->getSoulpoints($citizen);
+        if (!$this->conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_FEATURE_GIVE_SOULPOINTS, true))
+            $sp = 0;
+        else $sp = $this->citizen_handler->getSoulpoints($citizen);
         
         if($sp > 0)
             $this->picto_handler->give_validated_picto($citizen, "r_ptame_#00", $sp);

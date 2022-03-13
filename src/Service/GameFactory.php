@@ -33,6 +33,7 @@ use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
 use App\Translation\T;
 use Doctrine\ORM\EntityManagerInterface;
+use PHPUnit\Util\Exception;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 class GameFactory
@@ -63,11 +64,12 @@ class GameFactory
 
     const ErrorTownNoCoaRoom         = ErrorHelper::BaseTownSelectionErrors + 5;
     const ErrorMemberBlocked         = ErrorHelper::BaseTownSelectionErrors + 6;
+    private GameProfilerService $gps;
 
     public function __construct(ConfMaster $conf,
         EntityManagerInterface $em, GameValidator $v, Locksmith $l, ItemFactory $if, TownHandler $th,
         StatusFactory $sf, RandomGenerator $rg, InventoryHandler $ih, CitizenHandler $ch, ZoneHandler $zh, LogTemplateHandler $lh,
-        TranslatorInterface $translator, MazeMaker $mm, CrowService $crow, PermissionHandler $perm, UserHandler $uh)
+        TranslatorInterface $translator, MazeMaker $mm, CrowService $crow, PermissionHandler $perm, UserHandler $uh, GameProfilerService $gps)
     {
         $this->entity_manager = $em;
         $this->validator = $v;
@@ -86,6 +88,7 @@ class GameFactory
         $this->maze_maker = $mm;
         $this->crow = $crow;
         $this->perm = $perm;
+        $this->gps = $gps;
     }
 
     private static array $town_name_snippets = [
@@ -246,12 +249,19 @@ class GameFactory
             ->setWell( mt_rand( $conf->get(TownConf::CONF_WELL_MIN, 0), $conf->get(TownConf::CONF_WELL_MAX, 0) ) );
 
         foreach ($this->entity_manager->getRepository(BuildingPrototype::class)->findProspectivePrototypes($town, 0) as $prototype)
-            if (!in_array($prototype->getName(), $conf->get(TownConf::CONF_DISABLED_BUILDINGS)))
-                $this->town_handler->addBuilding( $town, $prototype );
+            if (!in_array($prototype->getName(), $conf->get(TownConf::CONF_DISABLED_BUILDINGS))) {
+                $this->town_handler->addBuilding($town, $prototype);
+                $this->gps->recordBuildingDiscovered( $prototype, $town, null, 'always' );
+            }
 
         foreach ($conf->get(TownConf::CONF_BUILDINGS_UNLOCKED) as $str_prototype)
-            if (!in_array($str_prototype, $conf->get(TownConf::CONF_DISABLED_BUILDINGS)))
-                $this->town_handler->addBuilding( $town, $this->entity_manager->getRepository(BuildingPrototype::class)->findOneBy( ['name' => $str_prototype] ) );
+            if (!in_array($str_prototype, $conf->get(TownConf::CONF_DISABLED_BUILDINGS))) {
+                $prototype = $this->entity_manager->getRepository(BuildingPrototype::class)->findOneBy(['name' => $str_prototype]);
+                if ($prototype) {
+                    $this->town_handler->addBuilding($town, $prototype);
+                    $this->gps->recordBuildingDiscovered( $prototype, $town, null, 'config' );
+                }
+            }
 
         foreach ($conf->get(TownConf::CONF_BUILDINGS_CONSTRUCTED) as $str_prototype) {
             if (in_array($str_prototype, $conf->get(TownConf::CONF_DISABLED_BUILDINGS)))
@@ -261,6 +271,7 @@ class GameFactory
             $proto = $this->entity_manager->getRepository(BuildingPrototype::class)->findOneBy( ['name' => $str_prototype] );
             $b = $this->town_handler->addBuilding( $town, $proto );
             $b->setAp( $proto->getAp() )->setComplete( true )->setHp($proto->getHp());
+            $this->gps->recordBuildingConstructed( $proto, $town, null, 'config' );
         }
 
         $this->town_handler->calculate_zombie_attacks( $town, 3 );
@@ -422,7 +433,7 @@ class GameFactory
         foreach ($town->getZones() as $zone) $zone->setStartZombies( $zone->getZombies() );
 
         $town->setForum((new Forum())->setTitle($town->getName()));
-        foreach ($this->entity_manager->getRepository(ThreadTag::class)->findBy(['name' => ['help','rp']]) as $tag)
+        foreach ($this->entity_manager->getRepository(ThreadTag::class)->findBy(['name' => ['help','rp','event','dsc_disc','dsc_guide','dsc_orga']]) as $tag)
             $town->getForum()->addAllowedTag($tag);
 
         $this->crow->postToForum( $town->getForum(),
@@ -563,13 +574,23 @@ class GameFactory
                 ->setPrototype( $this->entity_manager->getRepository( CitizenHomePrototype::class )->findOneBy(['level' => 0]) )
             ;
 
-            $citizen = new Citizen();
+            $joining_user->addCitizen( $citizen = new Citizen() );
             $citizen->setUser( $joining_user )
                 ->setTown( $town )
                 ->setInventory( new Inventory() )
                 ->setHome( $home )
                 ->setCauseOfDeath( $this->entity_manager->getRepository( CauseOfDeath::class )->findOneBy( ['ref' => CauseOfDeath::Unknown] ) )
                 ->setHasSeenGazette( true );
+
+            // Check for other coalition members
+            foreach ($this->user_handler->getAllOtherCoalitionMembers( $joining_user ) as $coa_member) {
+                $coa_citizen = $coa_member->getCitizenFor($town);
+                if ($coa_citizen) {
+                    $this->entity_manager->persist( $coa_citizen->setCoalized(true) );
+                    $citizen->setCoalized( true );
+                }
+            }
+
             (new Inventory())->setCitizen( $citizen );
             $this->citizen_handler->inflictStatus( $citizen, 'clean' );
 
@@ -647,6 +668,7 @@ class GameFactory
         if ($town->isOpen() && !$town->getCitizens()->isEmpty()) return false;
 
         $this->updateTownScore($town);
+        $this->gps->recordTownEnded($town);
         $this->entity_manager->remove($town);
         return true;
     }

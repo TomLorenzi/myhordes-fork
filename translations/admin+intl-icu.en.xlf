@@ -856,7 +856,7 @@
     <unit id="ZtFgVEb" name="Admin Dashboard">
       <notes>
         <note category="german">Admin Dashboard</note>
-        <note category="from">twig:///templates/ajax/admin/dash.html.twig;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/public/maintenance_attack.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/dash.html.twig;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/public/maintenance_attack.html.twig;twig:///templates/ajax/soul/user_tooltip.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
       </notes>
       <segment>
         <source>Admin Dashboard</source>
@@ -1426,12 +1426,12 @@
     </unit>
     <unit id="V1ukt7Z" name="EternalTwin-Integration">
       <notes>
-        <note category="german">EternalTwin-Integration</note>
+        <note category="german">Eternaltwin-Integration</note>
         <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>EternalTwin-Integration</source>
-        <target>EternalTwin integration</target>
+        <target>Eternaltwin integration</target>
       </segment>
     </unit>
     <unit id="OkyzTP2" name="In lokalen Account umwandeln">
@@ -1477,12 +1477,12 @@
     </unit>
     <unit id="OaKjJho" name="Von EternalTwin verwaltet">
       <notes>
-        <note category="german">Von EternalTwin verwaltet</note>
+        <note category="german">Von Eternaltwin verwaltet</note>
         <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Von EternalTwin verwaltet</source>
-        <target>Administered by EternalTwin</target>
+        <target>Administered by Eternaltwin</target>
       </segment>
     </unit>
     <unit id="uCT9EnO" name="Nur für Administratoren sichtbar">
@@ -1507,12 +1507,12 @@
     </unit>
     <unit id="L0eG_iZ" name="EternalTwin-Konto">
       <notes>
-        <note category="german">EternalTwin-Konto</note>
+        <note category="german">Eternaltwin-Konto</note>
         <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>EternalTwin-Konto</source>
-        <target>EternalTwin account</target>
+        <target>Eternaltwin account</target>
       </segment>
     </unit>
     <unit id="nz1fjZT" name="Sonstiges">
@@ -3973,7 +3973,7 @@
     <unit id="OAGjXFG" name="Alle">
       <notes>
         <note category="german">Alle</note>
-        <note category="from">twig:///templates/ajax/admin/users/pictos.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/users/pictos.html.twig;twig:///templates/ajax/admin/widget/controls.twig</note>
       </notes>
       <segment>
         <source>Alle</source>
@@ -4417,12 +4417,12 @@
     </unit>
     <unit id="jPmvEEG" name="Eternal-Twin-Konto verlinkt">
       <notes>
-        <note category="german">EternalTwin-Konto verlinkt</note>
+        <note category="german">Eternaltwin-Konto verlinkt</note>
         <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
       </notes>
       <segment>
         <source>Eternal-Twin-Konto verlinkt</source>
-        <target>Linked Eternal-Twin account</target>
+        <target>Linked Eternaltwin account</target>
       </segment>
     </unit>
     <unit id="_VFidG8" name="Gruppentyp">
@@ -4544,6 +4544,97 @@
       <segment>
         <source>Bitte nicht für mehrere Bürger denselben Alias eingeben!</source>
         <target>Please do not give multiple citizen the same alias!</target>
+      </segment>
+    </unit>
+    <unit id="NcKgihM" name="Bank leeren">
+      <notes>
+        <note category="german">Bank leeren</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Bank leeren</source>
+        <target>Empty the bank</target>
+      </segment>
+    </unit>
+    <unit id="u2ktkWy" name="Stadt-Event">
+      <notes>
+        <note category="german">Stadt-Event</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Stadt-Event</source>
+        <target>Town Event</target>
+      </segment>
+    </unit>
+    <unit id="JSVSGLb" name="Koalitionen">
+      <notes>
+        <note category="german">Koalitionen</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Koalitionen</source>
+        <target>Coalitions</target>
+      </segment>
+    </unit>
+    <unit id="hR.qIOi" name="Profiler">
+      <notes>
+        <note category="german">Profiler</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Profiler</source>
+        <target>Profiler</target>
+      </segment>
+    </unit>
+    <unit id="Y67xIUn" name="Nicht installiert">
+      <notes>
+        <note category="german">Nicht installiert</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Nicht installiert</source>
+        <target>Not installed</target>
+      </segment>
+    </unit>
+    <unit id="pACkzCf" name="Persönliche Beschreibung:">
+      <notes>
+        <note category="german">Persönliche Beschreibung:</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Persönliche Beschreibung:</source>
+        <target>Personal description:</target>
+      </segment>
+    </unit>
+    <unit id="O9RB2q8" name="Letzte Worte:">
+      <notes>
+        <note category="german">Letzte Worte:</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Letzte Worte:</source>
+        <target>Last words:</target>
+      </segment>
+    </unit>
+    <unit id="yEnN9xu" name="Stadtnamen regenerieren">
+      <notes>
+        <note category="german">Stadtnamen regenerieren</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Stadtnamen regenerieren</source>
+        <target>Regenerate town name</target>
+      </segment>
+    </unit>
+    <unit id="cUEl3DK" name="Sprache wechseln">
+      <notes>
+        <note category="german">Sprache wechseln</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Sprache wechseln</source>
+        <target>Change language</target>
       </segment>
     </unit>
   </file>

@@ -173,35 +173,35 @@
         };
 
         {% if can_go_out %}
-        handleDoor( document.getElementById('door_opener'), 'open' );
-        handleDoor( document.getElementById('door_closer'), 'close' );
+            handleDoor( document.getElementById('door_opener'), 'open' );
+            handleDoor( document.getElementById('door_closer'), 'close' );
 
-        document.getElementById('door_exit').addEventListener('click', function() {
-            $.ajax.easySend( '{{ path('town_door_exit_controller') }}', {},
-                function () {
-                    $.ajax.load(null, '{{ path('game_landing') }}', true);
-                } );
-        });
+            document.getElementById('door_exit').addEventListener('click', function() {
+                $.ajax.easySend( '{{ path('town_door_exit_controller') }}', {},
+                    function () {
+                        $.ajax.load(null, '{{ path('game_landing') }}', true);
+                    } );
+            });
 
-        {% if show_ventilation and allow_ventilation %}
-        document.getElementById('door_exit_hero').addEventListener('click', function() {
-            $.ajax.easySend( '{{ path('town_door_exit_controller', {'special': 'hero'}) }}', {},
-                function () {
-                    $.ajax.load(null, '{{ path('game_landing') }}', true);
-                } );
-        });
-        {% endif %}
+            {% if show_ventilation and allow_ventilation %}
+                document.getElementById('door_exit_hero').addEventListener('click', function() {
+                    $.ajax.easySend( '{{ path('town_door_exit_controller', {'special': 'hero'}) }}', {},
+                        function () {
+                            $.ajax.load(null, '{{ path('game_landing') }}', true);
+                        } );
+                });
+            {% endif %}
         {% endif %}
 
         {% if show_sneaky %}
-        document.getElementById('door_exit_sneak').addEventListener('click', function() {
-            if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
-                return;
-            $.ajax.easySend( '{{ path('town_door_exit_controller', {'special': 'sneak'}) }}', {},
-                function () {
-                    $.ajax.load(null, '{{ path('game_landing') }}', true);
-                } );
-        });
+            $.html.addEventListenerAll( '#door_exit_sneak', 'click', () => {
+                if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
+                    return;
+                $.ajax.easySend( '{{ path('town_door_exit_controller', {'special': 'sneak'}) }}', {},
+                    function () {
+                        $.ajax.load(null, '{{ path('game_landing') }}', true);
+                    } );
+            } );
         {% endif %}
     </script>
 {% endblock %}

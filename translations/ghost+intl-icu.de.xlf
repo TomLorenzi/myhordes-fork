@@ -1105,5 +1105,17 @@
         <target>Wenn du eine Stadt betrittst, werden folgende Mitglieder deiner {coalition} dir folgen:</target>
       </segment>
     </unit>
+    <unit id="pGytwu3">
+      <segment>
+        <source>Die Sprache dieser Stadt stimmt nicht mit deiner Spracheinstellung überein. Wenn du dieser Stadt beitrittst, musst du im Stadtforum die Sprache der Stadt verwenden.</source>
+        <target>Die Sprache dieser Stadt stimmt nicht mit deiner Spracheinstellung überein. Wenn du dieser Stadt beitrittst, musst du im Stadtforum die Sprache der Stadt verwenden.</target>
+      </segment>
+    </unit>
+    <unit id="xdlAaLd">
+      <segment>
+        <source>Die Verwendung einer anderen Sprache im Stadtforum kann zu Sanktionen seitens der Moderation führen!</source>
+        <target>Die Verwendung einer anderen Sprache im Stadtforum kann zu Sanktionen seitens der Moderation führen!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

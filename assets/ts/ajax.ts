@@ -269,13 +269,9 @@ export default class Ajax {
                 $.html.handleCountdown( countdowns[c] );
             }
 
-            let current_time = content_source[i].querySelectorAll("*[x-current-time]");
-            for (let c = 0; c < current_time.length; c++)
-                $.html.handleCurrentTime( current_time[c],  parseInt(current_time[c].getAttribute('x-current-time')) );
-
-            let tooltips = content_source[i].querySelectorAll('div.tooltip');
-            for (let t = 0; t < tooltips.length; t++)
-                $.html.handleTooltip( <HTMLElement>tooltips[t] );
+            content_source[i].querySelectorAll('*[x-current-time]').forEach( elem => $.html.handleCurrentTime( <HTMLElement>elem, parseInt(elem.getAttribute('x-current-time')) ))
+            content_source[i].querySelectorAll('div.tooltip')      .forEach( elem => $.html.handleTooltip( <HTMLElement>elem ))
+            content_source[i].querySelectorAll('.username')        .forEach( elem => $.html.handleUserPopup( <HTMLElement>elem ))
             target.appendChild( content_source[i] );
         }
         Object.entries(react_mounts).forEach(entry => {
@@ -294,6 +290,8 @@ export default class Ajax {
             }
 
         $.html.handleTabNavigation(target);
+
+        target.querySelectorAll('[data-search-table]').forEach( (table: HTMLElement) => $.html.makeSearchTable(table) );
 
         for (let i = 0; i < flash_source.length; i++)
             $.html.message( flash_source[i].getAttribute('x-label'), flash_source[i].innerHTML );

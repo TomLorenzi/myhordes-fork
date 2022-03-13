@@ -13,6 +13,7 @@ use App\Entity\Zone;
 use App\Service\CommandHelper;
 use App\Service\ConfMaster;
 use App\Service\GameFactory;
+use App\Service\GameProfilerService;
 use App\Service\MazeMaker;
 use App\Service\NightlyHandler;
 use App\Service\TownHandler;
@@ -40,8 +41,9 @@ class TownInspectorCommand extends Command
     private Translator $trans;
     private CommandHelper $helper;
     private ConfMaster $conf;
+    private GameProfilerService $gps;
 
-    public function __construct(EntityManagerInterface $em, GameFactory $gf, ZoneHandler $zh, TownHandler $th, NightlyHandler $nh, Translator $translator, MazeMaker $maker, CommandHelper $ch, ConfMaster $conf)
+    public function __construct(EntityManagerInterface $em, GameFactory $gf, ZoneHandler $zh, TownHandler $th, NightlyHandler $nh, Translator $translator, MazeMaker $maker, CommandHelper $ch, ConfMaster $conf, GameProfilerService $gps)
     {
         $this->entityManager = $em;
         $this->gameFactory = $gf;
@@ -52,6 +54,7 @@ class TownInspectorCommand extends Command
         $this->mazeMaker = $maker;
         $this->helper = $ch;
         $this->conf = $conf;
+        $this->gps = $gps;
         parent::__construct();
     }
 
@@ -178,7 +181,7 @@ class TownInspectorCommand extends Command
         return 0;
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $no_info = $input->getOption('no-info');
 
@@ -225,7 +228,10 @@ class TownInspectorCommand extends Command
             do {
                 $possible = $this->entityManager->getRepository(BuildingPrototype::class)->findProspectivePrototypes( $town );
                 $changes |= ($found = !empty($possible));
-                foreach ($possible as $proto) $this->townHandler->addBuilding( $town, $proto );
+                foreach ($possible as $proto) {
+                    $this->townHandler->addBuilding($town, $proto);
+                    $this->gps->recordBuildingDiscovered( $proto, $town, null, 'debug' );
+                }
                 $output->writeln("Added <comment>" . count($possible) . "</comment> buildings.");
             } while ($found);
             $this->entityManager->persist( $town );
@@ -245,7 +251,8 @@ class TownInspectorCommand extends Command
                         $changed = true;
                         $changes = true;
                         $built++;
-                        $this->entityManager->persist( $building ); 
+                        $this->entityManager->persist( $building );
+                        $this->gps->recordBuildingConstructed( $building->getPrototype(), $town, null, 'debug' );
                     }
                 }
             } while ($changed);

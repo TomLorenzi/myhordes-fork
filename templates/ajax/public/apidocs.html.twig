@@ -78,6 +78,7 @@
    name: <span class="string">String</span>,                   // {{ 'Spielername'|trans({},'docs') }}
    isGhost: <span class="bool">Bool</span>,                  // {{ 'ob der Spieler verkörpert ist (false) oder nicht (true)'|trans({},'docs') }}
    twinId: <span class="int">Int</span>,                    // {{ 'Die Twinoid-ID, wenn er sein Konto verknüpft hat'|trans({},'docs') }}
+   etwinId: <span class="int">Int</span>,                   // {{ 'Die Eternaltwin-ID, wenn er sein Konto verknüpft hat'|trans({},'docs') }}
    mapId: <span class="int">Int</span>,                     // {{ 'So verkörpert die ID seiner Stadt'|trans({},'docs') }}
    map: <a class="custom">&lt;Map&gt;</a>,                     // {{ 'Wenn verkörpert, eine Instanz von Map'|trans({},'docs') }}
    homeMessage: <span class="string">String</span>,            // {{ 'Persönlicher Text (über die Seele)'|trans({},'docs') }}
@@ -209,6 +210,7 @@
 <a class="entity">&lt;Cadaver&gt;</a> {
    id: <span class="int">Int</span>,                        // {{ 'Spieler ID'|trans({},'docs') }}
    twinId: <span class="int">Int</span>,                    // {{ 'Twinoid-ID des Spielers'|trans({},'docs') }}
+   etwinId: <span class="int">Int</span>,                   // {{ 'Eternaltwin-ID des Spielers'|trans({},'docs') }}
    mapId: <span class="int">Int</span>,                     // {{ 'Karten-ID'|trans({},'docs') }}
    survival: <span class="int">Int</span>,                  // {{ 'Anzahl der Tage überlebt'|trans({},'docs') }}
    day: <span class="int">Int</span>,                       // {{ 'Kartentag'|trans({},'docs') }}

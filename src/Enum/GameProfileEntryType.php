@@ -1,0 +1,37 @@
+<?php
+
+namespace App\Enum;
+
+enum GameProfileEntryType: int {
+
+    case TownCreated = 1;
+    case TownEnded   = 2;
+
+    case CitizenJoined = 3;
+    case CitizenProfessionSelected = 4;
+    case CitizenDied = 5;
+    case CitizenProfessionChanged = 6;
+
+    case BuildingDiscovered = 7;
+    case BuildingConstructionInvested = 8;
+    case BuildingConstructed = 9;
+    case BuildingRepairInvested = 10;
+    case BuildingCollapsed = 11;
+    case BuildingDamaged = 12;
+    case BuildingDestroyed = 13;
+
+    case RecipeExecuted = 14;
+
+    case ItemFound = 15;
+
+    public static function latest_version(): int {
+        return 1;
+    }
+
+    public function version(): int {
+        if ( $this->value <= 15 ) return 1;
+        else return PHP_INT_MAX;
+    }
+
+
+}

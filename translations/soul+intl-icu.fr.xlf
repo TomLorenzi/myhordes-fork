@@ -585,7 +585,7 @@
     <unit id="lJGEo3w" name="Koalition">
       <notes>
         <note category="german">Koalition</note>
-        <note category="from">twig:///templates/ajax/ghost/intro.html.twig;twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/shell.html.twig</note>
+        <note category="from">twig:///templates/ajax/ghost/intro.html.twig;twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/shell.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Koalition</source>
@@ -1720,7 +1720,7 @@
     <unit id="1xiOB2G" name="Seele suchen">
       <notes>
         <note category="german">Seele suchen</note>
-        <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/me.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Seele suchen</source>
@@ -1829,22 +1829,22 @@
     </unit>
     <unit id="clP2Rxk" name="EternalTwin-Nutzer">
       <notes>
-        <note category="german">EternalTwin-Nutzer</note>
+        <note category="german">Eternaltwin-Nutzer</note>
         <note category="from">twig:///templates/ajax/soul/badges.html.twig</note>
       </notes>
       <segment>
         <source>EternalTwin-Nutzer</source>
-        <target>Utilisateur EternalTwin</target>
+        <target>Utilisateur Eternaltwin</target>
       </segment>
     </unit>
     <unit id="0T9At.g">
       <notes>
-        <note category="german">Dieser Spieler verwendet einen EternalTwin-Account. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!</note>
+        <note category="german">Dieser Spieler verwendet einen Eternaltwin-Account. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!</note>
         <note category="from">twig:///templates/ajax/soul/badges.html.twig</note>
       </notes>
       <segment>
         <source>Dieser Spieler verwendet einen EternalTwin-Account. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!</source>
-        <target>Ce joueur utilise un compte EternalTwin. Nous avons hâte de l'accueillir sur MyHordes !</target>
+        <target>Ce joueur utilise un compte Eternaltwin. Nous avons hâte de l'accueillir sur MyHordes !</target>
       </segment>
     </unit>
     <unit id="XRvl7w0">
@@ -1860,32 +1860,32 @@
     </unit>
     <unit id="wstj04z" name="MyHordes ist ein stolzer Bestandteil des EternalTwin-Netzwerkes!">
       <notes>
-        <note category="german">MyHordes ist ein stolzer Bestandteil des EternalTwin-Netzwerkes!</note>
+        <note category="german">MyHordes ist ein stolzer Bestandteil des Eternaltwin-Netzwerkes!</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>MyHordes ist ein stolzer Bestandteil des EternalTwin-Netzwerkes!</source>
-        <target>MyHordes est une fière partie du réseau EternalTwin !</target>
+        <target>MyHordes est une fière partie du réseau Eternaltwin !</target>
       </segment>
     </unit>
     <unit id="WVIMH8t">
       <notes>
-        <note category="german">Um MyHordes auch in Zukunft weiter spielen zu können, musst du deinen alten MyHordes-Account mit einem EternalTwin-Account verknüpfen.</note>
+        <note category="german">Um MyHordes auch in Zukunft weiter spielen zu können, musst du deinen alten MyHordes-Account mit einem Eternaltwin-Account verknüpfen.</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Um MyHordes auch in Zukunft weiter spielen zu können, musst du deinen alten MyHordes-Account mit einem EternalTwin-Account verknüpfen.</source>
-        <target>Afin de pouvoir continuer à jouer à MyHordes à l’avenir, vous devez lier votre ancien compte MyHordes à un compte EternalTwin.</target>
+        <target>Afin de pouvoir continuer à jouer à MyHordes à l’avenir, vous devez lier votre ancien compte MyHordes à un compte Eternaltwin.</target>
       </segment>
     </unit>
     <unit id="CACKQCH" name="EternalTwin-Account verknüpfen">
       <notes>
-        <note category="german">EternalTwin-Account verknüpfen</note>
+        <note category="german">Eternaltwin-Account verknüpfen</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>EternalTwin-Account verknüpfen</source>
-        <target>Lier votre compte EternalTwin</target>
+        <target>Lier votre compte Eternaltwin</target>
       </segment>
     </unit>
     <unit id="zlGVYh_" name="{name}'s Koalition">
@@ -2021,7 +2021,7 @@
     <unit id="Vlb5Lbe" name="Aktionen">
       <notes>
         <note category="german">Aktionen</note>
-        <note category="from">twig:///templates/ajax/soul/coalitions.html.twig;twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/coalitions.html.twig;twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Aktionen</source>
@@ -2525,7 +2525,7 @@
     <unit id="9cNHWGl" name="Seelenpunkte">
       <notes>
         <note category="german">Seelenpunkte</note>
-        <note category="from">twig:///templates/ajax/admin/users/social.html.twig;twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/season.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/users/social.html.twig;twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/season.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Seelenpunkte</source>
@@ -2535,7 +2535,7 @@
     <unit id="9DAxndj" name="Spieler">
       <notes>
         <note category="german">Spieler</note>
-        <note category="from">twig:///templates/ajax/admin/users/social.html.twig;twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/season.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/users/social.html.twig;twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/season.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Spieler</source>
@@ -3005,12 +3005,12 @@
     </unit>
     <unit id="JbPwhWn">
       <notes>
-        <note category="german">Wir sind ein Teil des EternalTwin-Projektes, welches es sich zur Aufgabe gemacht hat die Browserspiele von MotionTwin am Leben zu erhalten.</note>
+        <note category="german">Wir sind ein Teil des Eternaltwin-Projektes, welches es sich zur Aufgabe gemacht hat die Browserspiele von MotionTwin am Leben zu erhalten.</note>
         <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
       </notes>
       <segment>
         <source>Wir sind ein Teil des EternalTwin-Projektes, welches es sich zur Aufgabe gemacht hat die Browserspiele von MotionTwin am Leben zu erhalten.</source>
-        <target>Nous faisons partie du projet EternalTwin qui s’est donné pour mission de maintenir en vie les jeux web de MotionTwin.</target>
+        <target>Nous faisons partie du projet Eternaltwin qui s’est donné pour mission de maintenir en vie les jeux web de MotionTwin.</target>
       </segment>
     </unit>
     <unit id="GLZ2E_L">
@@ -3025,18 +3025,18 @@
     </unit>
     <unit id="E6_xVpY">
       <notes>
-        <note category="german">Wenn dir MyHordes gefällt und du uns unterstützen möchtest, kannst du dies mit einer Spende an das EternalTwin Projekt tun.</note>
+        <note category="german">Wenn dir MyHordes gefällt und du uns unterstützen möchtest, kannst du dies mit einer Spende an das Eternaltwin Projekt tun.</note>
         <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
       </notes>
       <segment>
         <source>Wenn dir MyHordes gefällt und du uns unterstützen möchtest, kannst du dies mit einer Spende an das EternalTwin Projekt tun.</source>
-        <target>Si vous aimez MyHordes et que vous souhaitez nous soutenir, vous pouvez le faire en faisant un don au projet EternalTwin.</target>
+        <target>Si vous aimez MyHordes et que vous souhaitez nous soutenir, vous pouvez le faire en faisant un don au projet Eternaltwin.</target>
       </segment>
     </unit>
     <unit id="uK4jynd" name="Geworbener Spieler">
       <notes>
         <note category="german">Geworbener Spieler</note>
-        <note category="from">twig:///templates/ajax/admin/users/social.html.twig;twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/users/social.html.twig;twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Geworbener Spieler</source>
@@ -3046,7 +3046,7 @@
     <unit id="4n2PgVx" name="Heldenerfahrung">
       <notes>
         <note category="german">Heldenerfahrung</note>
-        <note category="from">twig:///templates/ajax/admin/users/social.html.twig;twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/users/social.html.twig;twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Heldenerfahrung</source>
@@ -3056,7 +3056,7 @@
     <unit id="QGRs.s1" name="Du hast keine Koalition.">
       <notes>
         <note category="german">Du hast keine Koalition.</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Du hast keine Koalition.</source>
@@ -3066,7 +3066,7 @@
     <unit id="nnaWQyL" name="Kein freier Platz">
       <notes>
         <note category="german">Kein freier Platz</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Kein freier Platz</source>
@@ -3076,7 +3076,7 @@
     <unit id="vOzFwXw" name="Koalitionsmitglied">
       <notes>
         <note category="german">Koalitionsmitglied</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Koalitionsmitglied</source>
@@ -3086,7 +3086,7 @@
     <unit id="2.dDOzw" name="Noch nicht bestätigt...">
       <notes>
         <note category="german">Noch nicht bestätigt...</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Noch nicht bestätigt...</source>
@@ -3096,7 +3096,7 @@
     <unit id="yf4a0g_" name="Koalitionseinladung">
       <notes>
         <note category="german">Koalitionseinladung</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Koalitionseinladung</source>
@@ -3106,7 +3106,7 @@
     <unit id="IDuEdUg" name="Die Freundschaftswerbung">
       <notes>
         <note category="german">Die Freundschaftswerbung</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Die Freundschaftswerbung</source>
@@ -3116,7 +3116,7 @@
     <unit id="m5DCahY" name="Wenn ihr neue Spieler zu &quot;MyHordes&quot; einladet, erhaltet ihr zahlreiche Vorteile!">
       <notes>
         <note category="german">Wenn ihr neue Spieler zu "MyHordes" einladet, erhaltet ihr zahlreiche Vorteile!</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Wenn ihr neue Spieler zu "MyHordes" einladet, erhaltet ihr zahlreiche Vorteile!</source>
@@ -3126,7 +3126,7 @@
     <unit id="hWsy49U" name="Lass dich überraschen!">
       <notes>
         <note category="german">Lass dich überraschen!</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Lass dich überraschen!</source>
@@ -3136,7 +3136,7 @@
     <unit id="xfA2CXp">
       <notes>
         <note category="german">Du kannst nach Anmeldung des geworbenen Spielers sofort mit ihm in einer Koalition spielen.</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Du kannst nach Anmeldung des geworbenen Spielers sofort mit ihm in einer Koalition spielen.</source>
@@ -3146,7 +3146,7 @@
     <unit id="phHRy7R" name="Du bekommst einen frischen jugendlichen Teint und einen Babypopo.">
       <notes>
         <note category="german">Du bekommst einen frischen jugendlichen Teint und einen Babypopo.</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Du bekommst einen frischen jugendlichen Teint und einen Babypopo.</source>
@@ -3156,7 +3156,7 @@
     <unit id="yR7_2mq" name="Du bekommst straffere Brüste.">
       <notes>
         <note category="german">Du bekommst straffere Brüste.</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Du bekommst straffere Brüste.</source>
@@ -3166,7 +3166,7 @@
     <unit id="DmEId2H" name="Bekämpft wirksam deinen Körpergeruch. Deine Mitbürger werden es dir danken!">
       <notes>
         <note category="german">Bekämpft wirksam deinen Körpergeruch. Deine Mitbürger werden es dir danken!</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Bekämpft wirksam deinen Körpergeruch. Deine Mitbürger werden es dir danken!</source>
@@ -3176,7 +3176,7 @@
     <unit id="0vm9fA_" name="Du wirst angenehm nach Orangenblüten duften.">
       <notes>
         <note category="german">Du wirst angenehm nach Orangenblüten duften.</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Du wirst angenehm nach Orangenblüten duften.</source>
@@ -3186,7 +3186,7 @@
     <unit id="9dCZIYd" name="Du wirst ein respektierter und angesehener Bürger deiner Gemeinschaft.">
       <notes>
         <note category="german">Du wirst ein respektierter und angesehener Bürger deiner Gemeinschaft.</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Du wirst ein respektierter und angesehener Bürger deiner Gemeinschaft.</source>
@@ -3196,7 +3196,7 @@
     <unit id="lmPRBJ0" name="Deine natürlichen Abwehrkräfte werden gestärkt.">
       <notes>
         <note category="german">Deine natürlichen Abwehrkräfte werden gestärkt.</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Deine natürlichen Abwehrkräfte werden gestärkt.</source>
@@ -3206,7 +3206,7 @@
     <unit id="sPSRoTg" name="Du bekommst stahlharte Waschbrettbauchmuskeln.">
       <notes>
         <note category="german">Du bekommst stahlharte Waschbrettbauchmuskeln.</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Du bekommst stahlharte Waschbrettbauchmuskeln.</source>
@@ -3216,7 +3216,7 @@
     <unit id="23cz.bn" name="Du hast eine gute Tat vollbracht.">
       <notes>
         <note category="german">Du hast eine gute Tat vollbracht.</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Du hast eine gute Tat vollbracht.</source>
@@ -3226,7 +3226,7 @@
     <unit id="nlq39Ht" name="Die Leute auf der Straße werden sich nach dir umdrehen.">
       <notes>
         <note category="german">Die Leute auf der Straße werden sich nach dir umdrehen.</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Die Leute auf der Straße werden sich nach dir umdrehen.</source>
@@ -3236,7 +3236,7 @@
     <unit id="bRBEaOX" name="Stärkt dein Zahnfleisch und deine Zähne.">
       <notes>
         <note category="german">Stärkt dein Zahnfleisch und deine Zähne.</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Stärkt dein Zahnfleisch und deine Zähne.</source>
@@ -3246,7 +3246,7 @@
     <unit id="ekcviFN" name="Gib dir das beruhigende Gefühl etwas Gutes getan zu haben.">
       <notes>
         <note category="german">Gib dir das beruhigende Gefühl etwas Gutes getan zu haben.</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Gib dir das beruhigende Gefühl etwas Gutes getan zu haben.</source>
@@ -3256,7 +3256,7 @@
     <unit id="rrVNfDl" name="Du bekommst einen frischen Atem - schnell und effektiv.">
       <notes>
         <note category="german">Du bekommst einen frischen Atem - schnell und effektiv.</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Du bekommst einen frischen Atem - schnell und effektiv.</source>
@@ -3266,7 +3266,7 @@
     <unit id="2rVePUl" name="Die Zombies werden dich lieben, dass du für Nachschub sorgst. ;)">
       <notes>
         <note category="german">Die Zombies werden dich lieben, dass du für Nachschub sorgst. ;)</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Die Zombies werden dich lieben, dass du für Nachschub sorgst. ;)</source>
@@ -3276,7 +3276,7 @@
     <unit id="mkKr7.Y" name="Das andere Geschlecht wird dir nicht widerstehen können.">
       <notes>
         <note category="german">Das andere Geschlecht wird dir nicht widerstehen können.</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Das andere Geschlecht wird dir nicht widerstehen können.</source>
@@ -3286,7 +3286,7 @@
     <unit id="Sz2KR6B" name="Verleiht deinem Haar einen seidigen Glanz und stärkt deine Kopfhaut.">
       <notes>
         <note category="german">Verleiht deinem Haar einen seidigen Glanz und stärkt deine Kopfhaut.</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Verleiht deinem Haar einen seidigen Glanz und stärkt deine Kopfhaut.</source>
@@ -3296,7 +3296,7 @@
     <unit id=".BIUTzQ" name="Dieser Vorteil ist von Mal zu Mal verschieden.">
       <notes>
         <note category="german">Dieser Vorteil ist von Mal zu Mal verschieden.</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Dieser Vorteil ist von Mal zu Mal verschieden.</source>
@@ -3306,7 +3306,7 @@
     <unit id="BkMtMYQ">
       <notes>
         <note category="german">Die Freundschaftswerbung kann für deinen Account nicht aktiviert werden. Bitte kontaktiere einen Administrator für weitere Informationen.</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Die Freundschaftswerbung kann für deinen Account nicht aktiviert werden. Bitte kontaktiere einen Administrator für weitere Informationen.</source>
@@ -3316,7 +3316,7 @@
     <unit id="t7p0F21" name="Die Freundschaftswerbung ist für deinen Account gesperrt.">
       <notes>
         <note category="german">Die Freundschaftswerbung ist für deinen Account gesperrt.</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Die Freundschaftswerbung ist für deinen Account gesperrt.</source>
@@ -3326,7 +3326,7 @@
     <unit id="d3BbIrK" name="Wie funktioniert das genau?">
       <notes>
         <note category="german">Wie funktioniert das genau?</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Wie funktioniert das genau?</source>
@@ -3336,7 +3336,7 @@
     <unit id="fXK1bMa" name="Du kannst aus mehreren Methoden wählen:">
       <notes>
         <note category="german">Du kannst aus mehreren Methoden wählen:</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Du kannst aus mehreren Methoden wählen:</source>
@@ -3346,7 +3346,7 @@
     <unit id="e60hBsn" name="Versende einen Einladungs-Link:">
       <notes>
         <note category="german">Versende einen Einladungs-Link:</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Versende einen Einladungs-Link:</source>
@@ -3356,7 +3356,7 @@
     <unit id="uB2Vk6P" name="oder">
       <notes>
         <note category="german">oder</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>oder</source>
@@ -3366,7 +3366,7 @@
     <unit id="oIxZIjf">
       <notes>
         <note category="german">Sag dem geworbenen Spieler, dass er bei der Anmeldung im Feld "Pate" deinen Namen eintragen soll:</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Sag dem geworbenen Spieler, dass er bei der Anmeldung im Feld "Pate" deinen Namen eintragen soll:</source>
@@ -3376,7 +3376,7 @@
     <unit id="meMyGfH">
       <notes>
         <note category="german">Verwende einen der hier unten angezeigten Banner für deine E-Mail Signatur, auf Facebook oder in deinem Lieblingsforum (Wenn sich jemand über deinen Banner anmeldet, wirst du automatisch als Pate eingetragen!).</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Verwende einen der hier unten angezeigten Banner für deine E-Mail Signatur, auf Facebook oder in deinem Lieblingsforum (Wenn sich jemand über deinen Banner anmeldet, wirst du automatisch als Pate eingetragen!).</source>
@@ -3386,7 +3386,7 @@
     <unit id="fUGf6MZ" name="HTML Code">
       <notes>
         <note category="german">HTML Code</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>HTML Code</source>
@@ -3397,7 +3397,7 @@
       <notes>
         <note category="german">BBCode</note>
         <note category="state">new</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>BBCode</source>
@@ -3568,17 +3568,17 @@
     </unit>
     <unit id="7aH8vQI" name="Bitte ändere deinen Anzeigenamen auf EternalTwin.">
       <notes>
-        <note category="german">Bitte ändere deinen Anzeigenamen auf EternalTwin.</note>
+        <note category="german">Bitte ändere deinen Anzeigenamen auf Eternaltwin.</note>
         <note category="from">twig:///templates/scripts/errors/profile.txt.twig</note>
       </notes>
       <segment>
         <source>Bitte ändere deinen Anzeigenamen auf EternalTwin.</source>
-        <target>Vous devez utiliser votre compte EternalTwin pour changer votre nom d'affichage.</target>
+        <target>Vous devez utiliser votre compte Eternaltwin pour changer votre nom d'affichage.</target>
       </segment>
     </unit>
     <unit id="4DFz5Xa">
       <notes>
-        <note category="german">Du kannst deinen Spielernamen nicht ändern, weil du einen zugehörigen Eternal Twin Account hast. Du musst zu deinem Eternal Twin-Konto gehen, um deinen Spielernamen zu ändern.</note>
+        <note category="german">Du kannst deinen Spielernamen nicht ändern, weil du einen zugehörigen Eternaltwin-Account hast. Du musst zu deinem Eternal Twin-Konto gehen, um deinen Spielernamen zu ändern.</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
@@ -3755,11 +3755,10 @@
       <notes>
         <note category="german">Dies ist eine Event-Stadt.</note>
         <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Dies ist eine Event-Stadt.</source>
-        <target>Dies ist eine Event-Stadt.</target>
+        <target>C’est une ville événement.</target>
       </segment>
     </unit>
     <unit id="mupnQII" name="Animateur">
@@ -3959,7 +3958,7 @@
       </notes>
       <segment>
         <source>Die maximale Größe der Bilddatei, die du für deinen Avatar hochladen kannst, beträgt &lt;b&gt;{size}&lt;/b&gt;.</source>
-        <target><![CDATA[La taille maximale de l'image que vous pouvez télécharger pour votre avatar est de <b>{size}</b>..]]></target>
+        <target><![CDATA[La taille maximale de l'image que vous pouvez télécharger pour votre avatar est de <b>{size}</b>.]]></target>
       </segment>
     </unit>
     <unit id="U8MXhPw">
@@ -4296,12 +4295,12 @@
     </unit>
     <unit id=".R_0uOZ" name="Denke daran, dich ebenfalls aus deinem EternalTwin Account auszuloggen!">
       <notes>
-        <note category="german">Denke daran, dich ebenfalls aus deinem EternalTwin Account auszuloggen!</note>
+        <note category="german">Denke daran, dich ebenfalls aus deinem Eternaltwin-Account auszuloggen!</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Denke daran, dich ebenfalls aus deinem EternalTwin Account auszuloggen!</source>
-        <target>N’oubliez pas de vous déconnecter également de votre compte EternalTwin !</target>
+        <target>N’oubliez pas de vous déconnecter également de votre compte Eternaltwin !</target>
       </segment>
     </unit>
     <unit id="TMcIHTT" name="Du kannst deinen Spielernamen erst in {days} Tagen erneut ändern.">
@@ -4336,18 +4335,18 @@
     </unit>
     <unit id="Wodhw7O" name="Profil Eternal-Twin">
       <notes>
-        <note category="german">Profil EternalTwin</note>
+        <note category="german">Profil Eternaltwin</note>
         <note category="from">twig:///templates/ajax/soul/user_tooltip.html.twig</note>
       </notes>
       <segment>
         <source>Profil Eternal-Twin</source>
-        <target>Profil Eternal-Twin</target>
+        <target>Profil Eternaltwin</target>
       </segment>
     </unit>
     <unit id="abqsDy0" name="Schreiben">
       <notes>
         <note category="german">Schreiben</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/user_tooltip.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig;twig:///templates/ajax/soul/user_tooltip.html.twig</note>
       </notes>
       <segment>
         <source>Schreiben</source>
@@ -4357,7 +4356,7 @@
     <unit id="ukvMJvG" name="Kontakt hinzufügen">
       <notes>
         <note category="german">Kontakt hinzufügen</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/user_tooltip.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig;twig:///templates/ajax/soul/user_tooltip.html.twig</note>
       </notes>
       <segment>
         <source>Kontakt hinzufügen</source>
@@ -4367,7 +4366,7 @@
     <unit id="C4p3DLl" name="Kontakt löschen">
       <notes>
         <note category="german">Kontakt löschen</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/user_tooltip.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig;twig:///templates/ajax/soul/user_tooltip.html.twig</note>
       </notes>
       <segment>
         <source>Kontakt löschen</source>
@@ -4417,7 +4416,7 @@
     <unit id="I2eWURG" name="Freundesliste">
       <notes>
         <note category="german">Freundesliste</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Freundesliste</source>
@@ -4427,7 +4426,7 @@
     <unit id="_cSDjRl" name="Spieler werben">
       <notes>
         <note category="german">Spieler werben</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Spieler werben</source>
@@ -4437,7 +4436,7 @@
     <unit id="T6FFmLN" name="Wahrer Freund">
       <notes>
         <note category="german">Wahrer Freund</note>
-        <note category="from">twig:///templates/ajax/admin/users/social.html.twig;twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/users/social.html.twig;twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Wahrer Freund</source>
@@ -4447,7 +4446,7 @@
     <unit id="aWNhyEI" name="Deine Freundesliste ist leer.">
       <notes>
         <note category="german">Deine Freundesliste ist leer.</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Deine Freundesliste ist leer.</source>
@@ -4457,7 +4456,7 @@
     <unit id="vHUeAVJ" name="Neue Freunde finden">
       <notes>
         <note category="german">Neue Freunde finden</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Neue Freunde finden</source>
@@ -4467,7 +4466,7 @@
     <unit id="BTjlZxP" name="Gib hier den Nickname des Spielers ein, den du als Freund hinzufügen möchtest.">
       <notes>
         <note category="german">Gib hier den Nickname des Spielers ein, den du als Freund hinzufügen möchtest.</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Gib hier den Nickname des Spielers ein, den du als Freund hinzufügen möchtest.</source>
@@ -4477,7 +4476,7 @@
     <unit id="BHCazk7" name="Spieler, die dich als Freund hinzugefügt haben">
       <notes>
         <note category="german">Spieler, die dich als Freund hinzugefügt haben</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Spieler, die dich als Freund hinzugefügt haben</source>
@@ -4487,7 +4486,7 @@
     <unit id="xMippYH">
       <notes>
         <note category="german">Hier siehst du Spieler, die dich in ihre Freundesliste eingetragen haben. Wenn du möchtest, kannst du sie ebenfalls in deine Freundesliste eintragen.</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Hier siehst du Spieler, die dich in ihre Freundesliste eingetragen haben. Wenn du möchtest, kannst du sie ebenfalls in deine Freundesliste eintragen.</source>
@@ -4497,7 +4496,7 @@
     <unit id="pPMWL8v">
       <notes>
         <note category="german">Du kannst verhindern, dass ein Spieler dich in seine Freundesliste aufnimmt, indem du ihn blockierst. Bedenke, dass er dich danach auch nicht mehr via über eine private Nachricht kontaktieren kann.</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Du kannst verhindern, dass ein Spieler dich in seine Freundesliste aufnimmt, indem du ihn blockierst. Bedenke, dass er dich danach auch nicht mehr via über eine private Nachricht kontaktieren kann.</source>
@@ -4507,7 +4506,7 @@
     <unit id="b1moPIw" name="Blockierliste">
       <notes>
         <note category="german">Blockierliste</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Blockierliste</source>
@@ -4517,7 +4516,7 @@
     <unit id="56y70st" name="Blockierter Spieler">
       <notes>
         <note category="german">Blockierter Spieler</note>
-        <note category="from">twig:///templates/ajax/admin/users/social.html.twig;twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/users/social.html.twig;twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Blockierter Spieler</source>
@@ -4527,12 +4526,41 @@
     <unit id="gqnWr8F" name="Deine Blockierliste ist leer.">
       <notes>
         <note category="german">Deine Blockierliste ist leer.</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
-        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Deine Blockierliste ist leer.</source>
         <target>Votre liste noire est vide.</target>
+      </segment>
+    </unit>
+    <unit id="WNMDzBG" name="Dieses MyHordes-Konto wurde gelöscht.">
+      <notes>
+        <note category="german">Dieses MyHordes-Konto wurde gelöscht.</note>
+        <note category="from">twig:///templates/ajax/soul/user_tooltip.html.twig</note>
+      </notes>
+      <segment>
+        <source>Dieses MyHordes-Konto wurde gelöscht.</source>
+        <target>Le compte MyHordes de ce joueur n'existe plus.</target>
+      </segment>
+    </unit>
+    <unit id="Vh7f_Zm" name="Gegenstände in der Bank nach Anzahl sortieren">
+      <notes>
+        <note category="german">Gegenstände in der Bank nach Anzahl sortieren</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>Gegenstände in der Bank nach Anzahl sortieren</source>
+        <target>Trier les objets de la banque par quantité</target>
+      </segment>
+    </unit>
+    <unit id="YpH8nkB">
+      <notes>
+        <note category="german">Standartmäßig sortiert MyHordes Gegenstände in der Bank nach ihrem Typ. Aktiviere diese Option, wenn du die Sortierung von DieVerdammten bevorzugst, bei der Gegenstände primär nach ihrer Anzahl sortiert werden.</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>Standartmäßig sortiert MyHordes Gegenstände in der Bank nach ihrem Typ. Aktiviere diese Option, wenn du die Sortierung von DieVerdammten bevorzugst, bei der Gegenstände primär nach ihrer Anzahl sortiert werden.</source>
+        <target>Par défaut, la banque dans MyHordes est triée par type d’objet. Si vous préférez le tri utilisé sur Hordes, où les éléments étaient principalement triés en fonction de leur quantité, activez ce paramètre.</target>
       </segment>
     </unit>
   </file>

@@ -285,7 +285,7 @@ class LogTemplateHandler
                     $transParams['{'.$typeEntry['name'].'}'] = $wrap_fun( $this->iconize( $this->fetchVariableObject( $typeEntry['type'], $variables[$typeEntry['name']] ), $typeEntry['type'] === 'profession', $variables['broken'] ?? false ), $typeEntry['type'] === 'professionFull' ? 'jobName': '' );
                 }
             }
-            catch (Exception $e) {
+            catch (Exception|\Error $e) {
                 $transParams['{'.$typeEntry['name'].'}'] = "_error_";
             }
         }

@@ -111,6 +111,7 @@ parameters:
         daytime:
           range: [7,18]
           invert: false
+        hide_home_upgrade: false
 
       features:
         camping: true
@@ -218,6 +219,7 @@ parameters:
         red_soul_max_factor: 666
         sandball_nastyness: 0.85
         ghoul_infection_begin: 2
+        hide_home_upgrade: true
 
       features:
         last_death:

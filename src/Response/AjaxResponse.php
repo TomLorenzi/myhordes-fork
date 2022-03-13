@@ -45,7 +45,7 @@ class AjaxResponse extends JsonResponse
         return isset($data['success']);
     }
 
-    protected function update()
+    protected function update(): static
     {
         $r = parent::update();
         switch ($this->control) {

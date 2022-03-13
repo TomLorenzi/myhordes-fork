@@ -39,10 +39,11 @@ class CitizenHandler
     private ContainerInterface $container;
     private UserHandler $user_handler;
     private ConfMaster $conf;
+    private GameProfilerService $gps;
 
     public function __construct(EntityManagerInterface $em, RandomGenerator $g, InventoryHandler $ih,
                                 PictoHandler $ph, ItemFactory $if, LogTemplateHandler $lh, ContainerInterface $c, UserHandler $uh,
-                                ConfMaster $conf )
+                                ConfMaster $conf, GameProfilerService $gps )
     {
         $this->entity_manager = $em;
         $this->random_generator = $g;
@@ -53,6 +54,7 @@ class CitizenHandler
         $this->container = $c;
         $this->user_handler = $uh;
         $this->conf = $conf;
+        $this->gps = $gps;
     }
 
     /**
@@ -90,13 +92,13 @@ class CitizenHandler
 
     public function inflictWound( Citizen &$citizen ): ?CitizenStatus {
         if ($this->isWounded($citizen)) return null;
-        $ap_above_6 = $citizen->getAp() - $this->getMaxAP( $citizen );
+        // $ap_above_6 = $citizen->getAp() - $this->getMaxAP( $citizen );
         $citizen->addStatus( $status = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName(
             $this->random_generator->pick( ['wound1','wound2','wound3','wound4','wound5','wound6'] )
         ) );
         $citizen->addStatus($this->entity_manager->getRepository(CitizenStatus::class)->findOneByName('tg_meta_wound'));
-        if ($ap_above_6 >= 0)
-            $citizen->setAp( $this->getMaxAP( $citizen ) + $ap_above_6 );
+        // if ($ap_above_6 >= 0)
+        //    $citizen->setAp( $this->getMaxAP( $citizen ) + $ap_above_6 );
 
         $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName('r_wound_#00');
         $this->picto_handler->give_picto($citizen, $pictoPrototype);
@@ -213,8 +215,10 @@ class CitizenHandler
             $kill = true;
 
         if ($action) {
-            if (!$citizen->getBanished() && !$kill) $this->entity_manager->persist( $this->log->citizenBanish( $citizen ) );
-            $citizen->setBanished( true );
+            if (!$citizen->getBanished() && !$kill) {
+                $this->entity_manager->persist($this->log->citizenBanish($citizen));
+                $citizen->setBanished(true);
+            }
 
             if ($citizen->hasRole('cata'))
                 $citizen->removeRole($this->entity_manager->getRepository(CitizenRole::class)->findOneBy(['name' => 'cata']));
@@ -249,6 +253,7 @@ class CitizenHandler
 
                 // The chocolate cross gets destroyed
                 $gallows->setComplete(false)->setAp(0)->setDefense(0)->setHp(0);
+                $this->gps->recordBuildingCollapsed( $gallows->getPrototype(), $citizen->getTown() );
                 $active = $gallows;
             } elseif ($gallows) {
                 $this->container->get(DeathHandler::class)->kill( $citizen, CauseOfDeath::Hanging, $rem );
@@ -256,6 +261,7 @@ class CitizenHandler
 
                 // The gallows gets destroyed
                 $gallows->setComplete(false)->setAp(0)->setDefense(0)->setHp(0);
+                $this->gps->recordBuildingCollapsed( $gallows->getPrototype(), $citizen->getTown() );
                 $active = $gallows;
             } elseif ($cage) {
                 $this->container->get(DeathHandler::class)->kill( $citizen, CauseOfDeath::FleshCage, $rem );
@@ -512,7 +518,12 @@ class CitizenHandler
             }
         }
 
+        $prev = $citizen->getProfession();
         $citizen->setProfession( $profession );
+
+        if (!$prev || $prev->getName() === 'none')
+            $this->gps->recordCitizenProfessionSelected( $citizen );
+        else $this->gps->recordCitizenCitizenProfessionChanged( $citizen, $prev );
 
         if ($profession->getName() === 'tech')
             $this->setBP($citizen,false, $this->getMaxBP( $citizen ),0);
@@ -541,7 +552,7 @@ class CitizenHandler
             if (mb_strlen($alias) < 4 || mb_strlen($alias) > 22 || preg_match('/[^\w]/', $alias))
                 return -1;
 
-            $citizen->setAlias( "· {$alias}" );
+            $citizen->setAlias( "· {$alias}" ); // nbsp
 
             return 1;
         }

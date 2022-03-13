@@ -25,7 +25,12 @@
                         <img alt="{{ citizen.profession.label|trans({},'game') }}" src="{{ asset('build/images/professions/' ~ citizen.profession.icon ~ '.gif') }}" />
                         <b>{{ citizen.name }}</b>
                         {% if citizen.banished %}
-                            <img alt="" src="{{ asset('build/images/icons/banished.gif') }}" />
+                            <div class="inline">
+                                <img alt="" src="{{ asset('build/images/icons/banished.gif') }}" />
+                                <div class="tooltip help">
+                                    {{ 'Dieser Bürger wurde aus der Gemeinschaft verbannt.'|trans({},'game') }}
+                                </div>
+                            </div>
                         {% endif %}
                         {% if citizen.profession.heroic %}
                             <img alt="" src="{{ asset('build/images/professions/hero.gif') }}" />

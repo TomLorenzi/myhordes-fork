@@ -146,7 +146,7 @@ class CustomAbstractController extends AbstractController {
     {
         $this->enrichParameter($parameters);
 
-        $twig = $this->get('twig');
+        $twig = $this->container->get('twig');
         $template = $twig->load( $view );
         $args = $twig->mergeGlobals( $parameters );
 

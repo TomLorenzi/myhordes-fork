@@ -480,6 +480,12 @@
                                     {{help_btn("Ist diese Option aktiviert, abonnierst du automatisch allen Threads, die du selbst erstellt hast. Du kannst das Abonnement deiner Threads jederzeit manuell beenden."|trans({}, 'soul'))}}
                                 </div>
                             </div>
+                            <div class="padded cell rw-12">
+                                <div class="note note-lightest">
+                                    <input x-setting {% if app.user.classicBankSort %}checked{% endif%} type="checkbox" id="setting_classic_bank_sort">&nbsp;<label for="setting_classic_bank_sort">{{'Gegenstände in der Bank nach Anzahl sortieren'|trans({}, 'soul')}}</label>
+                                    {{help_btn("Standartmäßig sortiert MyHordes Gegenstände in der Bank nach ihrem Typ. Aktiviere diese Option, wenn du die Sortierung von DieVerdammten bevorzugst, bei der Gegenstände primär nach ihrer Anzahl sortiert werden."|trans({}, 'soul'))}}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -719,6 +725,7 @@
                     disablefx: document.getElementById('setting_disable_fx').checked,
                     useicu: document.getElementById('setting_use_icu').checked,
                     autofollow: document.getElementById('setting_auto_follow').checked,
+                    clasort: document.getElementById('setting_classic_bank_sort').checked,
                 },
                 function () {
                     $.ajax.load(null, '{{ path('soul_settings') }}', true);

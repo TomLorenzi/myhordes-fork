@@ -3,10 +3,6 @@
 
 namespace App\Security;
 
-use App\Entity\User;
-use EternalTwinClient\Object\User as ETwinUser;
-use Symfony\Component\HttpFoundation\Cookie;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,7 +10,7 @@ use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
 use Symfony\Component\Security\Http\Authenticator\AbstractAuthenticator;
 use Symfony\Component\Security\Http\Authenticator\Passport\Badge\UserBadge;
-use Symfony\Component\Security\Http\Authenticator\Passport\PassportInterface;
+use Symfony\Component\Security\Http\Authenticator\Passport\Passport;
 use Symfony\Component\Security\Http\Authenticator\Passport\SelfValidatingPassport;
 
 class RememberMeAuthenticator extends AbstractAuthenticator
@@ -45,7 +41,7 @@ class RememberMeAuthenticator extends AbstractAuthenticator
         return new RedirectResponse( $request->getRequestUri() );
     }
 
-    public function authenticate(Request $request): PassportInterface
+    public function authenticate(Request $request): Passport
     {
         return new SelfValidatingPassport(
             new UserBadge( "tkn::{$request->cookies->get('myhordes_remember_me', null)}" ),

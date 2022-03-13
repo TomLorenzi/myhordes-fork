@@ -11,9 +11,11 @@
             <div class="death_footer">
                 {% if not citizen.disabled and not citizen.town.disabled %}
                     {% if sp > 0 %}
-                    {{ 'Du hast {sp} Seelenpunkte gewonnen!'|trans({'{sp}':sp},'game') }}
-                    {% else %}
+                        {{ 'Du hast {sp} Seelenpunkte gewonnen!'|trans({'{sp}':sp},'game') }}
+                    {% elseif (day <= 1) %}
                         {{ 'Du hast keine Seelenpunkte gewonnen (am ersten Tag gestorben).'|trans({},'game') }}
+                    {% else %}
+                        {{ 'Du hast keine Seelenpunkte gewonnen.'|trans({},'game') }}
                     {% endif %}
                 {% endif %}
             </div>

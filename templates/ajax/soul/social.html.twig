@@ -20,16 +20,24 @@
                 <div class="row">
                     {% if friends is not empty %}
                         <div class="padded cell rw-12">
-                            <div class="row-table">
+                            <div class="row-table" data-search-table="friends" data-search-container data-search-props="auto" data-search-prop-friend-attr-numeric data-search-prop-sp-attr-numeric>
                                 <div class="row header hide-sm">
-                                    <div class="padded cell rw-1"></div>
-                                    <div class="padded cell rw-5">{{ 'Spieler'|trans({},'soul') }}</div>
-                                    <div class="padded cell rw-3 hide-md">{{ 'Seelenpunkte'|trans({},'soul') }}</div>
+                                    {% if friends|length > 10  %}
+                                        <div class="cell rw-12">
+                                            <div class="row">
+                                                <div class="padded cell rw-5"><input data-search-agent="name" id="friendlist_search" type="text" placeholder="{{ 'Seele suchen'|trans({},'soul') }}"  /></div>
+                                                <div class="padded cell rw-7"><label for="friendlist_search"><i class="fa fa-search"></i></label></div>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                    <div data-search-column="friend" class="padded cell rw-1 pointer">&nbsp;</div>
+                                    <div class="padded cell rw-5"><span data-search-column="name" class="pointer">{{ 'Spieler'|trans({},'soul') }}</span></div>
+                                    <div class="padded cell rw-3 hide-md"><span data-search-column="sp" data-search-invert class="pointer">{{ 'Seelenpunkte'|trans({},'soul') }}</span></div>
                                     <div class="padded cell rw-3 right">{{ 'Aktionen'|trans({},'soul') }}</div>
                                 </div>
                                 {# @var \App\Entity\User entry #}
-                                {% for entry in friends|sort((a,b) => (app.user in b.friends) <=> (app.user in a.friends) ?: a.id <=> b.id) %}
-                                    <div class="row-flex wrap">
+                                {% for entry in friends|sort((a,b) => (app.user in b.friends) <=> (app.user in a.friends) ?: a.name|lower <=> b.name|lower) %}
+                                    <div class="row-flex wrap" data-search-row="{{ loop.index0 }}" data-search-prop-friend="{{ app.user in entry.friends ? "1" : "0" }}" data-search-prop-name="{% include 'ajax/soul/playername.html.twig' with {user: entry, plain: true} only %}" data-search-prop-sp="{{ entry.allSoulPoints }}">
                                         <div class="padded cell rw-1 center">
                                             {% if app.user in entry.friends %}
                                                 <img alt="<>" src="{{ asset('build/images/icons/star.gif') }}" title="{{ 'Wahrer Freund'|trans({},'soul') }}"/>
@@ -38,7 +46,7 @@
                                             {% endif %}
                                         </div>
                                         <div class="padded cell factor-0" style="flex-basis: 90px; background: url('{{ entry.avatar ? path('app_web_avatar', {'uid': entry.id, 'name': entry.avatar.smallName, 'ext': entry.avatar.format}) : asset('build/images/forum/empty_avatar.gif') }}') center/cover no-repeat"></div>
-                                        <div class="padded cell factor-1">{% include 'ajax/soul/playername.html.twig' with {user: entry} only %}</div>
+                                        <div class="padded cell factor-1">{% include 'ajax/soul/playername.html.twig' with {user: entry,  additional_classes: ['undecorated']} only %}</div>
                                         <div class="padded cell rw-3 hide-sm hide-md">{{ entry.allSoulPoints }}</div>
                                         <div class="padded cell rw-3 rw-sm-12 right">
                                             {% if app.user in entry.friends and coa is not null and not coa_full and coa_members[entry.id] is not defined %}
@@ -89,18 +97,26 @@
                                 {{ 'Hier siehst du Spieler, die dich in ihre Freundesliste eingetragen haben. Wenn du möchtest, kannst du sie ebenfalls in deine Freundesliste eintragen.'|trans({},'soul') }}<br/>
                                 <b>{{ 'Hinweis'|trans({},'global') }}: </b> {{ 'Du kannst verhindern, dass ein Spieler dich in seine Freundesliste aufnimmt, indem du ihn blockierst. Bedenke, dass er dich danach auch nicht mehr via über eine private Nachricht kontaktieren kann.'|trans({},'soul') }}
                             </div>
-                            <div class="row-table">
+                            <div class="row-table" data-search-table="reverse-friends" data-search-container data-search-props="auto" data-search-prop-sp-attr-numeric>
                                 <div class="row header hide-sm">
+                                    {% if reverse_friends|length > 10 %}
+                                        <div class="cell rw-12">
+                                            <div class="row">
+                                                <div class="padded cell rw-5"><input data-search-agent="name" id="friendlist_search" type="text" placeholder="{{ 'Seele suchen'|trans({},'soul') }}"  /></div>
+                                                <div class="padded cell rw-7"><label for="friendlist_search"><i class="fa fa-search"></i></label></div>
+                                            </div>
+                                        </div>
+                                    {% endif %}
                                     <div class="padded cell rw-1">&nbsp;</div>
-                                    <div class="padded cell rw-5">{{ 'Spieler'|trans({},'soul') }}</div>
-                                    <div class="padded cell rw-3 hide-sm hide-md">{{ 'Seelenpunkte'|trans({},'soul') }}</div>
+                                    <div class="padded cell rw-5"><span data-search-column="name" class="pointer">{{ 'Spieler'|trans({},'soul') }}</span></div>
+                                    <div class="padded cell rw-3 hide-md"><span data-search-column="sp" data-search-invert class="pointer">{{ 'Seelenpunkte'|trans({},'soul') }}</span></div>
                                     <div class="padded cell rw-3 right">{{ 'Aktionen'|trans({},'soul') }}</div>
                                 </div>
-                                {% for entry in reverse_friends %}
-                                    <div class="row-flex wrap">
+                                {% for entry in reverse_friends|sort((a, b) => a.name|lower <=> b.name|lower) %}
+                                    <div class="row-flex wrap" data-search-row="{{ loop.index0 }}" data-search-prop-name="{% include 'ajax/soul/playername.html.twig' with {user: entry, plain: true,  additional_classes: ['undecorated']} only %}" data-search-prop-sp="{{ entry.allSoulPoints }}">
                                         <div class="padded cell rw-1">&nbsp;</div>
                                         <div class="padded cell factor-0" style="flex-basis: 90px; background: url('{{ entry.avatar ? path('app_web_avatar', {'uid': entry.id, 'name': entry.avatar.smallName, 'ext': entry.avatar.format}) : asset('build/images/forum/empty_avatar.gif') }}') center/cover no-repeat"></div>
-                                        <div class="padded cell factor-1">{{ entry.name }}</div>
+                                        <div class="padded cell factor-1">{% include 'ajax/soul/playername.html.twig' with {user: entry,  additional_classes: ['undecorated']} only %}</div>
                                         <div class="padded cell rw-3 hide-sm hide-md">{{ entry.allSoulPoints }}</div>
                                         <div class="padded cell rw-3 rw-sm-12 right">
                                             <div class="inline pointer">
@@ -133,11 +149,11 @@
                                     <div class="padded cell rw-3">{{ 'Heldenerfahrung'|trans({},'soul') }}</div>
                                     <div class="padded cell rw-3">{{ 'Koalition'|trans({},'soul') }}</div>
                                 </div>
-                                {% for entry in sponsored %}
+                                {% for entry in sponsored|sort((a, b) => a.user.name|lower <=> b.user.name|lower) %}
                                     <div class="row">
                                         <div class="padded cell rw-3">
                                             <img alt="" src="{{ asset('build/images/icons/small_ghost_red.gif') }}">
-                                            {% include 'ajax/soul/playername.html.twig' with {user: entry.user} only %}
+                                            {% include 'ajax/soul/playername.html.twig' with {user: entry.user,  additional_classes: ['undecorated']} only %}
                                         </div>
                                         <div class="padded cell rw-3">{{ entry.user.allSoulPoints }}</div>
                                         <div class="padded cell rw-3">{{ entry.user.heroDaysSpent }}</div>
@@ -248,11 +264,11 @@
                                     <div class="padded cell rw-9">{{ 'Blockierter Spieler'|trans({},'soul') }}</div>
                                     <div class="padded cell rw-3">{{ 'Aktionen'|trans({},'soul') }}</div>
                                 </div>
-                                {% for entry in blocklist %}
+                                {% for entry in blocklist|sort((a, b) => a.related.name|lower <=> b.related.name|lower) %}
                                     <div class="row">
                                         <div class="padded cell rw-9">
                                             <img alt="" src="{{ asset('build/images/icons/small_ghost_red.gif') }}">
-                                            {% include 'ajax/soul/playername.html.twig' with {user: entry.related} only %}
+                                            {% include 'ajax/soul/playername.html.twig' with {user: entry.related,  additional_classes: ['undecorated']} only %}
                                         </div>
                                         <div class="padded cell rw-3">
                                             <a class="link inline small" x-action="soul_unblock_user" x-user-id="{{ entry.related.id }}">{{ 'Blockade aufheben'|trans({'{user}': entry.related.name},'global') }}</a>

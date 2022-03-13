@@ -43,11 +43,12 @@ class ZoneHandler
     private ConfMaster $conf;
     private Packages $asset;
     private TownHandler $town_handler;
+    private GameProfilerService $gps;
 
     public function __construct(
         EntityManagerInterface $em, ItemFactory $if, LogTemplateHandler $lh, TranslatorInterface $t,
         StatusFactory $sf, RandomGenerator $rg, InventoryHandler $ih, CitizenHandler $ch, PictoHandler $ph, Packages $a,
-        ConfMaster $conf, TownHandler $th)
+        ConfMaster $conf, TownHandler $th, GameProfilerService $gps)
     {
         $this->entity_manager = $em;
         $this->item_factory = $if;
@@ -61,6 +62,7 @@ class ZoneHandler
         $this->asset = $a;
         $this->conf = $conf;
         $this->town_handler = $th;
+        $this->gps = $gps;
     }
 
     public function updateRuinZone(?RuinExplorerStats $ex): ?string {
@@ -298,6 +300,7 @@ class ZoneHandler
                     }
 
                     $item = $this->item_factory->createItem($item_prototype);
+                    $this->gps->recordItemFound( $item_prototype, $current_citizen, null );
                     if ($inventoryDest = $this->inventory_handler->placeItem( $current_citizen, $item, [ $current_citizen->getInventory(), $executable_timer->getZone()->getFloor() ] )) {
                         if($inventoryDest->getId() === $executable_timer->getZone()->getFloor()->getId()){
                             $this->entity_manager->persist($this->log->beyondItemLog($current_citizen, $item->getPrototype(), true));

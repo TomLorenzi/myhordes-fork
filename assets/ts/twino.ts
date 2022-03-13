@@ -1,5 +1,9 @@
 interface emoteResolver { (name: string): [string|null,string] }
 
+import {Const, Global} from "./defaults";
+declare var c: Const;
+declare var $: Global;
+
 class TwinoClientOptions {
     public readonly autoLinks?: boolean;
 }
@@ -196,6 +200,21 @@ class TwinoRegexResult {
 
 }
 
+type playerCacheEntry = {
+    exists: boolean,
+    id: number,
+    displayName: string,
+    queryName: string
+}
+
+type playerCacheObject = {
+    id: { [id: number]: playerCacheEntry }
+    name: { [name: string]: playerCacheEntry }
+};
+
+const playerCache: playerCacheObject = { id: {}, name: {}};
+let playerCacheRefreshing: number = null;
+
 class TwinoConverterToBlocks {
 
     public static rangeBlocks( match: TwinoRegexResult, parents: Array<HTMLElement> ): [boolean,Array<TwinoInterimBlock>] {
@@ -238,6 +257,10 @@ class TwinoConverterToBlocks {
                 if (nested) blocks.push( new TwinoInterimBlock(nodeContent) )
                 else blocks.push( new TwinoInterimBlock(nodeContent, match.nodeType(), [], [['x-nested','1']]) );
                 changed = true; break;
+            case '.':
+                if (nested) blocks.push( new TwinoInterimBlock(nodeContent) )
+                else blocks.push( new TwinoInterimBlock(nodeContent, 'span', ['.'], [['x-nested','1']]) );
+                changed = true; break;
             case 'poll':
                 if (nested) blocks.push( new TwinoInterimBlock(nodeContent) )
                 else blocks.push( new TwinoInterimBlock(nodeContent, 'ul', ['poll'], [['x-nested','1']]) );
@@ -252,11 +275,11 @@ class TwinoConverterToBlocks {
             case '//': blocks.push( new TwinoInterimBlock(nodeContent, 'i') ); changed = true; break;
             case '--': blocks.push( new TwinoInterimBlock(nodeContent, 's') ); changed = true; break;
             case 'spoiler':
-                if (nested) blocks.push( new TwinoInterimBlock(nodeContent) )
-                else blocks.push( new TwinoInterimBlock(nodeContent, 'div', match.nodeType(), [['x-nested','1']]) );
+                if (nested) blocks.push( new TwinoInterimBlock('[.]' + nodeContent + '[/.]') )
+                else blocks.push( new TwinoInterimBlock('[.]' + nodeContent + '[/.]', 'div', match.nodeType(), [['x-nested','1']]) );
                 changed = true; break;
             case 'code': blocks.push( new TwinoInterimBlock(nodeContent, 'pre', [], [ ['x-raw','1'] ]) ); changed = true; break;
-            case 'quote':
+            case 'quote':case 'cite':
                 if ( match.nodeInfo() ) {
                     let split = match.nodeInfo().split(':');
                     blocks.push( new TwinoInterimBlock('', 'div', 'clear') );
@@ -280,7 +303,7 @@ class TwinoConverterToBlocks {
                     blocks.push( new TwinoInterimBlock(match.raw()) );
                     break;
                 }
-                blocks.push( new TwinoInterimBlock(nodeContent, 'a', match.nodeType(), [ ['href', match.nodeInfo()], ['target', '_blank'], ['x-raw','1'] ]) );
+                blocks.push( new TwinoInterimBlock(nodeContent, 'a', match.nodeType(), [ ['href', match.nodeInfo()], ['target', '_blank'], ['x-raw','1'], ['x-raw-emotes', '1'] ]) );
                 changed = true;
                 break;
             case 'bad': case 'big':
@@ -311,7 +334,7 @@ class TwinoConverterToBlocks {
                 if (nested) blocks.push( new TwinoInterimBlock(nodeContent) )
                 else {
                     if ( match.nodeInfo() )
-                        blocks.push( new TwinoInterimBlock(match.nodeInfo(), 'span', 'rpauthor', [['x-raw','1']]) );
+                        blocks.push( new TwinoInterimBlock(match.nodeInfo(), 'span', 'rpauthor', [['x-raw','1'], ['x-raw-emotes','1']]) );
                     blocks.push( new TwinoInterimBlock(nodeContent, 'div', 'rpText', [['x-nested','1']]) );
                 }
                 changed = true; break;
@@ -365,7 +388,15 @@ class TwinoConverterToBlocks {
             case '@':
                 let id = match.nodeInfo() ? match.nodeInfo() : 'auto';
                 let name = match.nodeContent() ? match.nodeContent() : ('user #' + id)
-                blocks.push( new TwinoInterimBlock( name, 'div', 'cref', [['x-a',id]]) );
+
+                blocks.push( new TwinoInterimBlock( name, 'div', 'cref', [['x-a',id], ['x-qi',match.nodeInfo() ?? ''], ['x-qn',match.nodeContent() ?? '']]) );
+
+                if ( match.nodeInfo() ) {
+                    if (!playerCache.id[match.nodeInfo()]) playerCache.id[match.nodeInfo()] = null;
+                } else if ( match.nodeContent() ) {
+                    if (!playerCache.name[match.nodeContent()]) playerCache.name[match.nodeContent()] = null;
+                }
+
                 break;
             default: blocks.push( new TwinoInterimBlock( match.raw() ) ); break;
         }
@@ -443,7 +474,8 @@ class HTMLConverterFromBlocks {
                 case 'span':
                     if (block.hasClass('quoteauthor')) {
                         if (peek && peek.nodeName === 'blockquote') {
-                            ret += quotespace ? '' : HTMLConverterFromBlocks.wrapBlock( nextBlock(), 'quote', block.nodeText + (block.getAttribute('x-id') ? (':' + block.getAttribute('x-id')) : '') )
+                            const xid = block.getAttribute('x-user-id') ?? block.getAttribute('x-id');
+                            ret += quotespace ? '' : HTMLConverterFromBlocks.wrapBlock( nextBlock(), 'quote', (xid ? block.nodeText.replace(/\W+/,'') : block.nodeText) + (xid ? (':' + xid) : '') )
                         }
                     } else if (block.hasClass('rpauthor')) {
                         if (peek && peek.nodeName === 'div' && peek.hasClass('rpText')) {
@@ -460,9 +492,8 @@ class HTMLConverterFromBlocks {
                     break;
                 case 'div':
                     if (block.hasClass('cref')) {
-                        let id = '';
-                        block.nodeAttribs.forEach((value => { if (value[0] == 'x-id') id = value[1]; }))
-                        ret += '@' + block.nodeText + ( id !== '' ? (':' + id) : '' );
+                        let id = block.getAttribute('x-user-id') ?? block.getAttribute('x-id');
+                        ret += '@' + ( id ? block.nodeText.replace(/\W/,'') : block.nodeText) + ( id ? (':' + id) : '' );
                     } else if (block.hasClass('spoiler'))
                         ret += HTMLConverterFromBlocks.wrapBlock( block, 'spoiler' )
                     else if (block.hasClass('sideNote'))
@@ -510,6 +541,7 @@ export default class TwinoAlikeParser {
 
     public readonly OpModeRaw   = 0x1;
     public readonly OpModeQuote = 0x2;
+    public AjaxUrl = "";
 
     private static lego(blocks: Array<TwinoInterimBlock>, elem: HTMLElement): void {
         for (let i = 0; i < blocks.length; i++) {
@@ -636,7 +668,7 @@ export default class TwinoAlikeParser {
 
             TwinoAlikeParser.lego(blocks,elem);
         } else {
-            if (elem.hasAttribute( 'x-raw' )) return;
+            if (elem.hasAttribute( 'x-raw' ) && !elem.hasAttribute( 'x-raw-emotes' )) return;
             let children = elem.childNodes;
             for (let i = 0; i < children.length; i++)
                 TwinoAlikeParser.parseEmotes(children[i] as HTMLElement, resolver);
@@ -644,25 +676,74 @@ export default class TwinoAlikeParser {
     }
 
     private static preprocessText( s: string ): string {
-        let lines: Array<string> = s.split( '\n' );
+        s = s.replace( /(\S)(\[\*]|\[1])/gi, '$1\n$2' );
 
+        let lines: Array<string> = s.split( '\n' );
         let m: Array<string>;
 
         let ulmode = false, olmode = false;
+
+        const splitpos = s => {
+            let i = 0;
+            let offset = 0;
+
+            let next_open   = 0;
+            let next_closed = 0;
+
+            do {
+                next_open = s.slice(offset).search( /\[[^/]/gi );
+                next_closed = s.slice(offset).search( /\[\//gi );
+
+                if (next_open >= 0 && next_closed >= 0 && next_open < next_closed) {
+                    offset += next_open + 1;
+                    ++i;
+                } else if (next_open >= 0 && next_closed >= 0 && next_open > next_closed) {
+                    if (i > 0) {
+                        --i;
+                        offset += next_closed + 1;
+                    } else return offset + next_closed;
+                } else if ( next_open >= 0 && next_closed < 0 )
+                    return offset + next_closed;
+                else if ( next_open < 0 && next_closed >= 0 ) {
+                    if (i > 0) {
+                        --i;
+                        offset += next_closed + 1;
+                    } else return offset + next_closed;
+                } else return -1;
+            } while (next_open >= 0 || next_closed >= 0)
+
+            return -1;
+        }
 
         for (let i = 0; i < lines.length; i++) {
 
             //UL
             if ((m = lines[i].match(/^\s*?(?:\[\*]|\s\*\s)\s*(.*?)$/m))) {
                 if (olmode) { lines.splice(i,0,'[/ol]'); olmode = false; i++ }
-                lines[i] = '[li]' + m[1] + '[/li]';
+
+                const splicepos = splitpos(m[1]);
+                if (splicepos < 0) lines[i] = '[li]' + m[1] + '[/li]';
+                else {
+                    lines[i] = '[li]' + m[1].slice(0,splicepos) + '[/li][/ul]' + m[1].slice(splicepos);
+                    ulmode = false;
+                    continue;
+                }
+
                 if (!ulmode) { lines.splice(i,0,'[ul]'); ulmode = true; i++ }
                 continue;
             } else if (ulmode) { lines.splice(i,0,'[/ul]'); ulmode = false; i++; }
 
             //OL
             if ((m = lines[i].match(/^\s*?\[0]\s*(.*?)$/m))) {
-                lines[i] = '[li]' + m[1] + '[/li]';
+
+                const splicepos = splitpos(m[1]);
+                if (splicepos < 0) lines[i] = '[li]' + m[1] + '[/li]';
+                else {
+                    lines[i] = '[li]' + m[1].slice(0,splicepos) + '[/li][/ol]' + m[1].slice(splicepos);
+                    olmode = false;
+                    continue;
+                }
+
                 if (!olmode) { lines.splice(i,0,'[ol]'); olmode = true; i++ }
                 continue;
             } else if (olmode) { lines.splice(i,0,'[/ol]'); olmode = false; i++; }
@@ -698,14 +779,16 @@ export default class TwinoAlikeParser {
                 while (result = /\b((?:https?|ftps?):\/\/[^\s{}[\]<>]*)\b/g.exec( str )) {
                     found = true;
 
+                    let trailing_slash = str.substr(result.index + result[0].length, 1) === '/';
+
                     let a = document.createElement('a');
-                    a.setAttribute('href', result[0]);
-                    a.innerText = result[0];
+                    a.setAttribute('href', result[0] + (trailing_slash ? '/' : ''));
+                    a.innerText = result[0] + (trailing_slash ? '/' : '');
 
                     elem.parentElement.insertBefore( document.createTextNode( str.slice(0,result.index) ), elem );
                     elem.parentElement.insertBefore( a, elem );
 
-                    str = str.slice(result.index + result[0].length);
+                    str = str.slice(result.index + result[0].length + (trailing_slash ? 1 : 0));
                 }
 
                 if (found) {
@@ -713,13 +796,36 @@ export default class TwinoAlikeParser {
                     else elem.textContent = str;
                 }
             }
-        }
-         else {
+        } else {
             if (elem.hasAttribute( 'x-raw' )) return;
             let children = elem.childNodes;
             for (let i = 0; i < children.length; i++)
                 this.postprocessDOM( children[i] as HTMLElement, options )
         }
+    }
+
+    private static processPlayerNames( target: HTMLElement ) {
+        console.log(target, target.querySelectorAll( '[x-qi][x-qn]' ));
+        target.querySelectorAll( '[x-qi][x-qn]' ).forEach( (elem:HTMLElement) => {
+            const player_data =
+                ( elem.getAttribute('x-qi' ) ? playerCache.id[elem.getAttribute('x-qi' )] : null ) ??
+                ( elem.getAttribute('x-qn' ) ? playerCache.name[elem.getAttribute('x-qn' )] : null ) ?? null;
+
+            if (player_data && player_data.exists) {
+                elem.classList.add("username");
+                elem.setAttribute("x-user-id", player_data.id);
+                elem.textContent = player_data.displayName;
+                elem.removeAttribute('x-qi');
+                elem.removeAttribute('x-qn');
+                $.html.handleUserPopup(<HTMLElement>elem);
+            } else if (player_data === null) {
+                elem.classList.add("username");
+                elem.innerHTML = '<i class="fa fa-pulse fa-spinner"></i>'
+            } else {
+                elem.classList.add("username");
+                elem.textContent = '???';
+            }
+        } );
     }
 
     parseTo( text: string, target: HTMLElement, resolver: emoteResolver, options: TwinoClientOptions = {} ): void {
@@ -747,6 +853,46 @@ export default class TwinoAlikeParser {
         for (let i = 0; i < marked_nodes.length; i++) {
             marked_nodes[i].removeAttribute('x-raw');
             marked_nodes[i].removeAttribute('x-nested');
+        }
+
+        const delete_empty = ( tag: HTMLElement|null ): boolean => {
+            if (!tag || tag.nodeType !== Node.ELEMENT_NODE) return false;
+
+            if (
+                (tag as HTMLElement).tagName === 'BR' ||
+                ((tag as HTMLElement).tagName === 'P' && !(tag as HTMLElement).innerHTML.match(/\S/))
+            ) {
+                c.remove();
+                return true;
+            } else return false;
+        }
+
+        do { c = container_node.firstChild; } while (delete_empty(c));
+        do { c = container_node.lastChild; }  while (delete_empty(c));
+
+        TwinoAlikeParser.processPlayerNames( container_node );
+        if (playerCacheRefreshing) window.clearTimeout(playerCacheRefreshing);
+        if ($.html.twinoParser.AjaxUrl !== '') {
+            const missing_ids: Array<number> = Object.entries( playerCache.id ).filter( ([,cache]) => cache === null ).map( ([id]) => parseInt(id) );
+            const missing_names: Array<string> = Object.entries( playerCache.name ).filter( ([,cache]) => cache === null ).map( ([name]) => name );
+
+            if (missing_ids.length > 0 || missing_names.length > 0) {
+                playerCacheRefreshing = window.setTimeout(() => {
+                    $.ajax.background().easySend($.html.twinoParser.AjaxUrl, {
+                        names: missing_names, ids: missing_ids
+                    }, (data) => {
+
+                        (data as unknown as { data: Array<playerCacheEntry> })?.data?.forEach( player => {
+                            playerCache.id[ player.id ] = playerCache.name[ player.queryName ] = player;
+                        } );
+
+                        missing_ids.forEach( id => { if (!playerCache.id[id]) delete playerCache.id[id] } );
+                        missing_names.forEach( name => { if (!playerCache.name[name]) delete playerCache.name[name] } );
+                        playerCacheRefreshing = null;
+                        TwinoAlikeParser.processPlayerNames( target );
+                    }, {}, () => playerCacheRefreshing = null);
+                }, 1000);
+            }
         }
 
         while ((c = container_node.firstChild))

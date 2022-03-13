@@ -2607,5 +2607,11 @@
         <target>Zu meinem Eintrag springen</target>
       </segment>
     </unit>
+    <unit id="53MkB88" name="Diskussion aktualisieren">
+      <segment>
+        <source>Diskussion aktualisieren</source>
+        <target>Diskussion aktualisieren</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

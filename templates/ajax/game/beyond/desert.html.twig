@@ -434,11 +434,19 @@
                     {% endif %}
                     <h5>{% trans from 'game' %}Meine Aktionen{% endtrans %}</h5>
                     {% if banished or town_chaos %}
-                        <button {% if lock_trash %}disabled{% endif%} id="trash_button">
-                            <img alt="" src="{{ asset('build/images/icons/small_ban.gif') }}" />
-                            {{ 'Müll durchwühlen'|trans({},'game') }} (<div class="ap">1</div>)
-                            <div class="tooltip help">{{ 'Bürger, die aus einer Stadt verbannt wurden, haben das Recht, den weggeworfenen Müll der Stadt nach Gegenständen zu durchsuchen, die für sie nützlich sein könnten...'|trans({},'game')|raw }}</div>
-                        </button>
+                        <div style="margin-bottom: 5px;">
+                            <button {% if lock_trash %}disabled{% endif%} id="trash_button">
+                                <img alt="" src="{{ asset('build/images/icons/small_ban.gif') }}" />
+                                {{ 'Müll durchwühlen'|trans({},'game') }} (<div class="ap">1</div>)
+                                <div class="tooltip help">{{ 'Bürger, die aus einer Stadt verbannt wurden, haben das Recht, den weggeworfenen Müll der Stadt nach Gegenständen zu durchsuchen, die für sie nützlich sein könnten...'|trans({},'game')|raw }}</div>
+                            </button>
+                            {% if lock_trash %}
+                                <div class="tooltip help">
+                                    {{ 'Diese Aktion kannst du erst morgen erneut versuchen.'|trans({},'game') }}
+                                </div>
+                            {% endif%}
+                        </div>
+
                     {% endif %}
                 {% endif %}
 
@@ -820,9 +828,9 @@
             <div class="row">
                 <h5><span class="float-right link" x-ajax-sticky x-ajax-href='{{ path('beyond_dashboard') }}'>{{'Aktualisierung'|trans({}, 'game')}}</span>{{ 'Zonenregister'|trans({},'game') }} <a class="help-button"><div class="tooltip help">{{ 'Beachte: Alle hier geschriebenen Nachrichten gehen verloren, wenn alle Bürger die Zone verlassen.'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></h5>
                 <div class="cell rw-12">
-                    <div class="row">
-                        <div class="padded cell rw-10 rw-lg-10 rw-md-9 rw-sm-8"><input id="beyond_chat" type="text" placeholder="{{ 'Deine Nachricht'|trans({},'global') }}" /></div>
-                        <div class="padded cell rw-2 rw-lg-2 rw-md-3 rw-sm-4"><button id="chat_button">{{ 'Senden'|trans({},'game') }}</button></div>
+                    <div class="row-flex">
+                        <div class="padded cell grow-1"><label><input id="beyond_chat" type="text" placeholder="{{ 'Deine Nachricht'|trans({},'global') }}" /></label></div>
+                        <div class="padded cell grow-0"><button id="chat_button">{{ 'Senden'|trans({},'game') }}</button></div>
                     </div>
 
                 </div>

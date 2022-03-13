@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Enum\GameProfileEntryType;
 use App\Repository\TownRankingProxyRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -110,6 +111,11 @@ class TownRankingProxy
      * @ORM\Column(type="boolean")
      */
     private $event = false;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $profilerVersion = 0;
 
     public function __construct()
     {
@@ -292,7 +298,7 @@ class TownRankingProxy
         $a = false;
         foreach ($town->getCitizens() as $c) if ($c->getAlive()) $a = true;
 
-        $obj = (($update && $town->getRankingEntry()) ? $town->getRankingEntry() : new TownRankingProxy())
+        $obj = (($update && $town->getRankingEntry()) ? $town->getRankingEntry() : (new TownRankingProxy())->setProfilerVersion( $town->getProfilerVersion() ))
             ->setBaseID( $town->getId() )
             ->setName( $town->getName() )
             ->setSeason( $town->getSeason() ?? null )
@@ -388,6 +394,18 @@ class TownRankingProxy
     public function setEvent(bool $event): self
     {
         $this->event = $event;
+
+        return $this;
+    }
+
+    public function getProfilerVersion(): ?int
+    {
+        return $this->profilerVersion;
+    }
+
+    public function setProfilerVersion(int $profilerVersion): self
+    {
+        $this->profilerVersion = $profilerVersion;
 
         return $this;
     }

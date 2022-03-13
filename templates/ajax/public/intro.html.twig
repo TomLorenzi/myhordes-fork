@@ -50,9 +50,5 @@
         </div>
         <div class="cell rw-5 rw-lg-12 hide-lg hide-md hide-sm manual-background"><div class="welcome-teaser teaser-{{ random(10)+1 }}"><span>MyHordes</span></div></div>
     </div>
-    <div class="row">
-        <div class="cell rw-12 fact" style="padding-left: 35px;">
-            {{ fact.content }} - <span class="author"> {{ fact.author }}</span>
-        </div>
-    </div>
+    {% include "ajax/public/fact.html.twig" with {fact: fact} %}
 {% endblock %}

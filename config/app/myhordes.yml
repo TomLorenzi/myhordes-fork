@@ -20,9 +20,12 @@ parameters:
     anti-grief:
       min-sp: 20
       reg-limit: 2
+    modmail:
+      discord: ~
     fatalmail:
       target: ~
       source: ~
+      discord: ~
     domains: []
     urls: []
     twinoid:

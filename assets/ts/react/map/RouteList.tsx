@@ -1,17 +1,8 @@
 import * as React from "react";
 
 import {
-    MapGeometry,
-    MapOverviewParentProps,
-    MapOverviewParentState, MapRouteListProps, MapRouteListState,
-    MapZone,
-    RuntimeMapSettings,
-    RuntimeMapStrings
+    MapRouteListProps,
 } from "./typedef";
-
-export type MapRouteListStateAction = {
-    id?: number | boolean
-}
 
 const MapRouteList = ( props: MapRouteListProps ) => {
 

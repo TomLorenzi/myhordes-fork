@@ -47,7 +47,7 @@ class EmoteDataService implements FixtureProcessorInterface {
             ['tag'=>':arma:', 'path'=>'build/images/emotes/arma.gif', 'isactive'=> true, 'requiresunlock'=> false, 'index'=> 35],
             ['tag'=>':chat:', 'path'=>'build/images/emotes/chat.gif', 'isactive'=> true, 'requiresunlock'=> false, 'index'=> 36],
             ['tag'=>':calim:', 'path'=>'build/images/emotes/calim.gif', 'isactive'=> true, 'requiresunlock'=> false, 'index'=> 37],
-            ['tag'=>':xmas:', 'path'=>'build/images/emotes/xmas.gif', 'isactive'=> false, 'requiresunlock'=> false, 'index'=> 38],
+            ['tag'=>':xmas:', 'path'=>'build/images/emotes/xmas.gif', 'isactive'=> true, 'requiresunlock'=> false, 'index'=> 38],
             ['tag'=>':scout:', 'path'=>'build/images/emotes/scout.gif', 'isactive'=> true, 'requiresunlock'=> false, 'index'=> 39],
             ['tag'=>':scav:', 'path'=>'build/images/emotes/scav.gif', 'isactive'=> true, 'requiresunlock'=> false, 'index'=> 40],
             ['tag'=>':surv:', 'path'=>'build/images/emotes/surv.gif', 'isactive'=> true, 'requiresunlock'=> false, 'index'=> 41],
@@ -71,7 +71,7 @@ class EmoteDataService implements FixtureProcessorInterface {
             ['tag'=>':deco:', 'path'=>'build/images/emotes/deco.gif', 'isactive'=> true, 'requiresunlock'=> true, 'index'=> 59],
             ['tag'=>':buried:', 'path'=>'build/images/emotes/buried.gif', 'isactive'=> true, 'requiresunlock'=> true, 'index'=> 60],
             ['tag'=>':rptext:', 'path'=>'build/images/emotes/rptext.gif', 'isactive'=> true, 'requiresunlock'=> true, 'index'=> 61],
-            ['tag'=>':ban:', 'path'=>'build/images/emotes/ban.gif', 'isactive'=> true, 'requiresunlock'=> true, 'index'=> 62],
+            ['tag'=>':ban:', 'path'=>'build/images/emotes/ban.gif', 'isactive'=> true, 'requiresunlock'=> false, 'index'=> 62],
             ['tag'=>':extreme:', 'path'=>'build/images/emotes/extreme.gif', 'isactive'=> true, 'requiresunlock'=> true, 'index'=> 63],
             ['tag'=>':proscout:', 'path'=>'build/images/emotes/proscout.gif', 'isactive'=> true, 'requiresunlock'=> true, 'index'=> 64],
             ['tag'=>':proguard:', 'path'=>'build/images/emotes/proguard.gif', 'isactive'=> true, 'requiresunlock'=> true, 'index'=> 65],
@@ -147,6 +147,7 @@ class EmoteDataService implements FixtureProcessorInterface {
             ['tag'=>':rrefer:', 'path'=>'build/images/emotes/rrefer.gif', 'isactive'=> true, 'requiresunlock'=> true, 'index'=> 135],
             ['tag'=>':noob:', 'path'=>'build/images/emotes/noob.gif', 'isactive'=> true, 'requiresunlock'=> true, 'index'=> 136],
             ['tag'=>':explor:', 'path'=>'build/images/emotes/exploration.gif', 'isactive'=> true, 'requiresunlock'=> false, 'index'=> 137],
+            ['tag'=>':wound:', 'path'=>'build/images/emotes/wound.gif', 'isactive'=> true, 'requiresunlock'=> false, 'index'=> 138],
         ]);
     }
 }

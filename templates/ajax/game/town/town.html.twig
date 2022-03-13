@@ -249,7 +249,7 @@
                             </div>
                         {% elseif can_do_insurrection %}
                             <div class="banished-info">
-                                <button id="do_insurrection"><img alt="" src="{{ asset('build/images/actions/insurrect.gif') }}" /> {{'Auf den Aufstand hinarbeiten'|trans({}, 'game')}}</button>
+                                <button id="do_insurrection">{{'Auf den Aufstand hinarbeiten'|trans({}, 'game')}}</button>
                                 {{ help_lnk('Aufstand der Verbannten'|trans({},'help'), 'help', {'name': 'shunned_citizens'}) }}
                             </div>
                         {% endif %}

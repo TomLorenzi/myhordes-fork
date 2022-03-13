@@ -263,7 +263,7 @@ class UserHandler
         return $points;
     }
 
-    public function computePictoUnlocks(User $user) {
+    public function computePictoUnlocks(User $user): void {
 
         $cache = [];
 
@@ -666,6 +666,26 @@ class UserHandler
 
 
         return $active ? $valid_members : [];
+    }
+
+    /**
+     * @param User $user
+     * @return User[]
+     */
+    public function getAllOtherCoalitionMembers(User $user): array {
+        /** @var UserGroupAssociation|null $user_coalition */
+        $user_coalition = $this->entity_manager->getRepository(UserGroupAssociation::class)->findOneBy( [
+            'user' => $user,
+            'associationType' => [UserGroupAssociation::GroupAssociationTypeCoalitionMember, UserGroupAssociation::GroupAssociationTypeCoalitionMemberInactive]
+        ]);
+
+        /** @var UserGroupAssociation[] $all_coalition_members */
+        $all_coalition_members = $user_coalition ? $this->entity_manager->getRepository(UserGroupAssociation::class)->findBy( [
+            'association' => $user_coalition->getAssociation(),
+            'associationType' => [UserGroupAssociation::GroupAssociationTypeCoalitionMember, UserGroupAssociation::GroupAssociationTypeCoalitionMemberInactive]
+        ]) : [];
+
+        return array_filter( array_map( fn(UserGroupAssociation $ua) => $ua->getUser(), $all_coalition_members ), fn(User $u) => $u !== $user );
     }
 
     public function getActiveRestrictions(User $user): int {

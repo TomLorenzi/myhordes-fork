@@ -298,6 +298,11 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
      */
     private $friends;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $classicBankSort = false;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -322,7 +327,7 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
         return $this->name;
     }
 
-    public function getUserIdentifier(): ?string {
+    public function getUserIdentifier(): string {
         return $this->getUsername();
     }
 
@@ -1211,6 +1216,18 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
     public function removeFriend(self $friend): self
     {
         $this->friends->removeElement($friend);
+
+        return $this;
+    }
+
+    public function getClassicBankSort(): ?bool
+    {
+        return $this->classicBankSort;
+    }
+
+    public function setClassicBankSort(bool $classicBankSort): self
+    {
+        $this->classicBankSort = $classicBankSort;
 
         return $this;
     }

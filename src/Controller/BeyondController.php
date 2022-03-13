@@ -32,6 +32,7 @@ use App\Service\CrowService;
 use App\Service\DeathHandler;
 use App\Service\ErrorHelper;
 use App\Service\GameFactory;
+use App\Service\GameProfilerService;
 use App\Service\HTMLService;
 use App\Service\InventoryHandler;
 use App\Service\PictoHandler;
@@ -450,13 +451,11 @@ class BeyondController extends InventoryAwareController
 
     /**
      * @Route("api/beyond/trash", name="beyond_trash_controller", condition="")
-     * @param JSONRequestParser $parser
      * @param InventoryHandler $handler
-     * @param ItemFactory $factory
-     * @param PictoHandler $picto_handler
+     * @param GameProfilerService $gps
      * @return Response
      */
-    public function trash_api(JSONRequestParser $parser, InventoryHandler $handler, ItemFactory $factory): Response {
+    public function trash_api(InventoryHandler $handler, GameProfilerService $gps): Response {
 
         if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
@@ -484,6 +483,7 @@ class BeyondController extends InventoryAwareController
             return AjaxResponse::error(ErrorHelper::ErrorInternalError);
 
         $item = $this->item_factory->createItem($proto);
+        $gps->recordItemFound( $proto, $citizen, null, 'trash' );
 
         if (($error = $handler->transferItem(
             $citizen,
@@ -628,9 +628,11 @@ class BeyondController extends InventoryAwareController
 
         $movers = [];
         $movers[] = $citizen;
-        if ($special === 'normal-escort' || ($special === 'normal' && $distance > 0))
-            foreach ($citizen->getValidLeadingEscorts() as $escort)
-                $movers[] = $escort->getCitizen();
+        if ($special === 'normal-escort' || ($special === 'normal' && $distance > 0) || $special === 'hero')
+            foreach ($citizen->getValidLeadingEscorts() as $escort) {
+                if ($special !== 'hero' || $escort->getCitizen()->getProfession()->getHeroic())
+                    $movers[] = $escort->getCitizen();
+            }
         else
             foreach ($citizen->getValidLeadingEscorts() as $escort)
                 $escort->getCitizen()->getEscortSettings()->setLeader(null);
@@ -1340,7 +1342,7 @@ class BeyondController extends InventoryAwareController
      * @Route("api/beyond/desert/scavenge", name="beyond_desert_scavenge_controller")
      * @return Response
      */
-    public function desert_scavenge_api(): Response {
+    public function desert_scavenge_api(GameProfilerService $gps): Response {
         if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         $citizen = $this->getActiveCitizen();
@@ -1387,6 +1389,7 @@ class BeyondController extends InventoryAwareController
             $prototype = $group ? $this->random_generator->pickItemPrototypeFromGroup( $group, $this->getTownConf() ) : null;
             if ($prototype) {
                 $item = $this->item_factory->createItem( $prototype );
+                $gps->recordItemFound( $prototype, $citizen, $zone->getPrototype() );
                 $noPlaceLeftMsg = "";
                 if ($item) {
                     $inventoryDest = $this->inventory_handler->placeItem( $citizen, $item, [ $citizen->getInventory(), $zone->getFloor() ] );

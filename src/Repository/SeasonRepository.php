@@ -18,7 +18,7 @@ class SeasonRepository extends ServiceEntityRepository
         parent::__construct($registry, Season::class);
     }
 
-    public function findAll()
+    public function findAll(): array
     {
         return $this->findBy([],['number' => 'DESC','subNumber' => 'DESC']);
     }

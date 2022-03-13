@@ -793,5 +793,17 @@
         <target>Erforschbare Ruine</target>
       </segment>
     </unit>
+    <unit id="X.6NX4Q" name="Die Eternaltwin-ID, wenn er sein Konto verknüpft hat">
+      <segment>
+        <source>Die Eternaltwin-ID, wenn er sein Konto verknüpft hat</source>
+        <target>Die Eternaltwin-ID, wenn er sein Konto verknüpft hat</target>
+      </segment>
+    </unit>
+    <unit id="DsWqhTO" name="Eternaltwin-ID des Spielers">
+      <segment>
+        <source>Eternaltwin-ID des Spielers</source>
+        <target>Eternaltwin-ID des Spielers</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

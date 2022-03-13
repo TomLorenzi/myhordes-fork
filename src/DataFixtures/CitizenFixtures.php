@@ -100,7 +100,8 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
                 ->setLabel( $entry['label'] )
                 ->setIcon( $entry['icon'] )
                 ->setHeroic( $entry['hero'] )
-                ->setDescription( $entry['desc']);
+                ->setDescription( $entry['desc'])
+                ->setPictoName( $entry['picto'] ?? null );
 
             foreach ( $entry['items'] as $p_item ) {
                 $i = $manager->getRepository(ItemPrototype::class)->findOneBy( ['name' => $p_item] );
@@ -110,7 +111,7 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
 
             foreach ( $entry['items_alt'] as $p_item ) {
                 $i = $manager->getRepository(ItemPrototype::class)->findOneBy( ['name' => $p_item] );
-                if (!$i) throw new Exception('Item prototype not found: ' . $p_item);
+                if (!$i) throw new Exception('Alt Item prototype not found: ' . $p_item);
                 $entity->addAltProfessionItem($i);
             }
 
@@ -432,7 +433,7 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
 
     }
 
-    public function getDependencies()
+    public function getDependencies(): array
     {
         return [ RecipeFixtures::class, ItemFixtures::class ];
     }

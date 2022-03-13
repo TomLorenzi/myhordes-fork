@@ -52,28 +52,29 @@ use Symfony\Component\Asset\Packages;
 
 class ActionHandler
 {
-    private $entity_manager;
-    private $status_factory;
-    private $citizen_handler;
-    private $death_handler;
-    private $inventory_handler;
-    private $random_generator;
-    private $item_factory;
-    private $translator;
-    private $game_factory;
-    private $town_handler;
-    private $zone_handler;
-    private $picto_handler;
-    private $assets;
-    private $log;
-    private $conf;
-    private $maze;
+    private EntityManagerInterface $entity_manager;
+    private StatusFactory $status_factory;
+    private CitizenHandler $citizen_handler;
+    private DeathHandler $death_handler;
+    private InventoryHandler $inventory_handler;
+    private RandomGenerator $random_generator;
+    private ItemFactory $item_factory;
+    private TranslatorInterface $translator;
+    private GameFactory $game_factory;
+    private TownHandler $town_handler;
+    private ZoneHandler $zone_handler;
+    private PictoHandler $picto_handler;
+    private Packages $assets;
+    private LogTemplateHandler $log;
+    private ConfMaster $conf;
+    private MazeMaker $maze;
+    private GameProfilerService $gps;
 
 
     public function __construct(
         EntityManagerInterface $em, StatusFactory $sf, CitizenHandler $ch, InventoryHandler $ih, DeathHandler $dh,
         RandomGenerator $rg, ItemFactory $if, TranslatorInterface $ti, GameFactory $gf, Packages $am, TownHandler $th,
-        ZoneHandler $zh, PictoHandler $ph, LogTemplateHandler $lt, ConfMaster $conf, MazeMaker $mm)
+        ZoneHandler $zh, PictoHandler $ph, LogTemplateHandler $lt, ConfMaster $conf, MazeMaker $mm, GameProfilerService $gps)
     {
         $this->entity_manager = $em;
         $this->status_factory = $sf;
@@ -91,6 +92,7 @@ class ActionHandler
         $this->log = $lt;
         $this->conf = $conf;
         $this->maze = $mm;
+        $this->gps = $gps;
     }
 
     const ActionValidityNone = 1;
@@ -689,6 +691,17 @@ class ActionHandler
         else
             $floor_inventory = $ruinZone->getFloor();
 
+        $sort_result_list = function(array &$results) {
+            usort( $results, function(Result $a, Result $b) {
+                // Results with custom code are handled first
+                if (($a->getCustom() === null) !== ($b->getCustom() === null)) return $b->getCustom() ? 1 : -1;
+                // Results with status effects are handled second
+                if (($a->getStatus() === null) !== ($b->getStatus() === null)) return $b->getStatus() ? 1 : -1;
+                // Everything else is handled in "random" order
+                return $a->getId() - $b->getId();
+            } );
+        };
+
         $execute_result = function(Result $result) use ($citizen, &$item, &$target, &$action, &$message, &$remove, &$execute_result, &$execute_info_cache, &$tags, &$kill_by_poison, &$spread_poison, $town_conf, &$floor_inventory, &$ruinZone, $escort_mode) {
             /** @var Citizen $citizen */
             if ($status = $result->getStatus()) {
@@ -807,6 +820,7 @@ class ActionHandler
                         $tags[] = 'bp_ok';
                         $execute_info_cache['bp_spawn'][] = $pick;
                         $this->entity_manager->persist( $this->log->constructionsNewSite( $citizen, $pick ) );
+                        $this->gps->recordBuildingDiscovered( $pick, $town, $citizen, 'action' );
                         if($pick->getParent()){
                             $tags[] = 'bp_parent';
                             $parent = $pick->getParent();
@@ -1609,11 +1623,6 @@ class ActionHandler
                     $this->citizen_handler->inflictStatus( $citizen, 'terror' );
             }
 
-            if ($result_group = $result->getResultGroup()) {
-                $r = $this->random_generator->pickResultsFromGroup( $result_group );
-                foreach ($r as $sub_result) $execute_result( $sub_result );
-            }
-
             if($result->getMessage()){
 
                 if ($result->getMessage()->getEscort() === null || $result->getMessage()->getEscort() === $escort_mode) {
@@ -1629,16 +1638,21 @@ class ActionHandler
             return self::ErrorNone;
         };
 
-        foreach ($action->getResults() as $result) {
-            $res = $execute_result($result); // Here, we process AffectMessages AND $kill_by_poison var
-            if($res !== self::ErrorNone)
-                return $res;
+        $results = $action->getResults()->getValues();
+        foreach ($action->getResults() as $result) if ($result_group = $result->getResultGroup()) {
+            $r = $this->random_generator->pickResultsFromGroup( $result_group );
+            foreach ($r as $sub_result) $results[] = $sub_result;
+        }
+
+        $sort_result_list($results);
+        foreach ($results as $result) {
+            $res = $execute_result($result);
+            if($res !== self::ErrorNone) return $res;
         }
 
         if ($spread_poison) $item->setPoison( true );
         if ($kill_by_poison && $citizen->getAlive()) {
             $this->death_handler->kill( $citizen, CauseOfDeath::Poison, $r );
-            foreach ($r as $r_entry) $remove[] = $r_entry;
             $this->entity_manager->persist( $this->log->citizenDeath( $citizen ) );
         }
 
@@ -1763,6 +1777,7 @@ class ActionHandler
 
         $new_item = $this->random_generator->pickItemPrototypeFromGroup( $recipe->getResult(), $this->conf->getTownConfiguration( $citizen->getTown() ) );
         $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $new_item ) , $target_inv, true );
+        $this->gps->recordRecipeExecuted( $recipe, $citizen, $new_item );
 
         if (in_array($recipe->getType(), [Recipe::WorkshopType, Recipe::WorkshopTypeShamanSpecific]))
             $this->entity_manager->persist( $this->log->workshopConvert( $citizen, array_map( function(Item $e) { return array($e->getPrototype()); }, $items  ), array([$new_item]) ) );

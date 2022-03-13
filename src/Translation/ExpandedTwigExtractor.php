@@ -64,7 +64,7 @@ class ExpandedTwigExtractor extends TwigExtractor
      *
      * @throws \InvalidArgumentException
      */
-    protected function canBeExtracted(string $file)
+    protected function canBeExtracted(string $file): bool
     {
         if (!$this->config->useTwig() || !parent::canBeExtracted($file)) return false;
         return !$this->config->useFileNameMatching() || in_array(basename($file),$this->config->matchingFileNames());

@@ -65,7 +65,7 @@ class ExpandedDumper extends XliffFileDumper
 
     }
 
-    public function formatCatalogue(MessageCatalogue $messages, $domain, array $options = [])
+    public function formatCatalogue(MessageCatalogue $messages, $domain, array $options = []): string
     {
         $options['xliff_version'] = '2.0';
         $this->preprocess($messages, $domain);

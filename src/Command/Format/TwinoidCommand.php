@@ -154,7 +154,7 @@ class TwinoidCommand extends Command
         foreach ($flat as $entry) $output->writeln($entry);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
 
         $data = [];

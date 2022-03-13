@@ -65,6 +65,11 @@ class CitizenProfession implements NamedEntity
      */
     private $description;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $picto_name;
+
     public function __construct()
     {
         $this->professionItems = new ArrayCollection();
@@ -184,6 +189,18 @@ class CitizenProfession implements NamedEntity
     public function setDescription(string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getPictoName(): ?string
+    {
+        return $this->picto_name;
+    }
+
+    public function setPictoName(?string $picto_name): self
+    {
+        $this->picto_name = $picto_name;
 
         return $this;
     }
