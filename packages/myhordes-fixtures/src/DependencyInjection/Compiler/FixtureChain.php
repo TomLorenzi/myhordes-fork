@@ -17,6 +17,7 @@ use MyHordes\Fixtures\Fixtures\CouncilEntry;
 use MyHordes\Fixtures\Fixtures\Emote;
 use MyHordes\Fixtures\Fixtures\ForumThreadTag;
 use MyHordes\Fixtures\Fixtures\GazetteEntry;
+use MyHordes\Fixtures\Fixtures\HeroSkill;
 use MyHordes\Fixtures\Fixtures\RolePlayText;
 use MyHordes\Fixtures\Fixtures\Ruin;
 use MyHordes\Fixtures\Fixtures\RuinRoom;
@@ -52,16 +53,8 @@ class FixtureChain implements CompilerPassInterface
             CitizenComplaint::class          => 'myhordes.fixtures.citizen.complaints',
             GazetteEntry::class              => 'myhordes.fixtures.gazettes',
             CouncilEntry::class              => 'myhordes.fixtures.councils',
+            HeroSkill::class                 => 'myhordes.fixtures.heroskills',
         ];
-
-        /**
-
-        MyHordes\Fixtures\Service\CitizenHomeUpgradeDataService:
-        tags: [ { name: 'myhordes.fixtures.citizen.home.upgrades', priority: 0 } ]
-        MyHordes\Fixtures\Service\CitizenComplaintDataService:
-        tags: [ { name: 'myhordes.fixtures.citizen.complaints', priority: 0 } ]
-         */
-
 
         foreach ($interfaces as $class => $tag) {
             // always first check if the service is defined

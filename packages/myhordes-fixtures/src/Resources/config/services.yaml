@@ -61,3 +61,6 @@ services:
       tags: [ { name: 'myhordes.fixtures.gazettes', priority: 0 } ]
     MyHordes\Fixtures\Service\CouncilDataService:
       tags: [ { name: 'myhordes.fixtures.councils', priority: 0 } ]
+
+    MyHordes\Fixtures\Service\HeroSkillDataService:
+      tags: [ { name: 'myhordes.fixtures.heroskills', priority: 0 } ]
