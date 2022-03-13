@@ -77,6 +77,10 @@
             <div class="cell rw-12 padded">
                 <div class="button small inline" id="event">{{ 'Als Event-Stadt markieren'|trans({},'admin') }}</div>
                 <div class="button small inline" id="unrank">{{ 'Diese Stadt aus dem Ranking ausschließen'|trans({},'admin') }}</div>
+                {% if not town.imported %}
+                    <div class="button small inline" id="relang">{{ 'Sprache wechseln'|trans({},'admin') }}</div>
+                    <div class="button small inline" id="rename">{{ 'Stadtnamen regenerieren'|trans({},'admin') }}</div>
+                {% endif %}
             </div>
         </div>
     {% endif %}
@@ -187,6 +191,19 @@
                 if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}')) return;
                 $.ajax.easySend('{{ path('admin_town_town_ranking_control', {tid: town.id, act: 1}) }}', {}, () => $.ajax.load(null, '{{ return_to|e('js') }}'));
             });
+
+            {% if not town.imported %}
+                $.html.addEventListenerAll('#rename', 'click', (e,elem) => {
+                    if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}')) return;
+                    $.ajax.easySend('{{ path('admin_town_town_lang_control', {tid: town.id}) }}', {lang: '{{ town.language|e('js') }}', rename: true}, () => $.ajax.load(null, '{{ return_to|e('js') }}'));
+                });
+
+                $.html.addEventListenerAll('#relang', 'click', (e,elem) => {
+                    const new_lang = prompt( '{{ 'Sprache wechseln'|trans({},'admin')|e('js') }}', '{{ town.language|e('js') }}' )
+                    if (!new_lang) return;
+                    $.ajax.easySend('{{ path('admin_town_town_lang_control', {tid: town.id}) }}', {lang: new_lang, rename: false}, () => $.ajax.load(null, '{{ return_to|e('js') }}'));
+                });
+            {% endif %}
 
             $.html.addEventListenerAll('#unrank_redact', 'click', (e,elem) => {
                 if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}')) return;
