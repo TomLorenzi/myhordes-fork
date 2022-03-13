@@ -18,6 +18,7 @@ use MyHordes\Fixtures\Fixtures\Emote;
 use MyHordes\Fixtures\Fixtures\ForumThreadTag;
 use MyHordes\Fixtures\Fixtures\GazetteEntry;
 use MyHordes\Fixtures\Fixtures\HeroSkill;
+use MyHordes\Fixtures\Fixtures\HordesFact;
 use MyHordes\Fixtures\Fixtures\RolePlayText;
 use MyHordes\Fixtures\Fixtures\Ruin;
 use MyHordes\Fixtures\Fixtures\RuinRoom;
@@ -54,6 +55,7 @@ class FixtureChain implements CompilerPassInterface
             GazetteEntry::class              => 'myhordes.fixtures.gazettes',
             CouncilEntry::class              => 'myhordes.fixtures.councils',
             HeroSkill::class                 => 'myhordes.fixtures.heroskills',
+            HordesFact::class                => 'myhordes.fixtures.hordesfact',
         ];
 
         foreach ($interfaces as $class => $tag) {

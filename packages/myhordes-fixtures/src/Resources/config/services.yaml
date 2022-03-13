@@ -64,3 +64,6 @@ services:
 
     MyHordes\Fixtures\Service\HeroSkillDataService:
       tags: [ { name: 'myhordes.fixtures.heroskills', priority: 0 } ]
+
+    MyHordes\Fixtures\Service\HordesFactDataService:
+      tags: [ { name: 'myhordes.fixtures.hordesfact', priority: 0 } ]
