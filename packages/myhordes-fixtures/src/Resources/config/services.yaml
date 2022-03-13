@@ -56,3 +56,8 @@ services:
       tags: [ { name: 'myhordes.fixtures.citizen.home.upgrades', priority: 0 } ]
     MyHordes\Fixtures\Service\CitizenComplaintDataService:
       tags: [ { name: 'myhordes.fixtures.citizen.complaints', priority: 0 } ]
+
+    MyHordes\Fixtures\Service\GazetteDataService:
+      tags: [ { name: 'myhordes.fixtures.gazettes', priority: 0 } ]
+    MyHordes\Fixtures\Service\CouncilDataService:
+      tags: [ { name: 'myhordes.fixtures.councils', priority: 0 } ]

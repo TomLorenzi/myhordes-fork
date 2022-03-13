@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b91d3262d642bccb7edfbef47fcd5df5",
+    "content-hash": "a29b8fc0c56fee99d84622a269cece0a",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -2068,6 +2068,40 @@
                 }
             ],
             "time": "2021-10-01T21:08:31+00:00"
+        },
+        {
+            "name": "myhordes/fixtures",
+            "version": "dev-override-item-groups",
+            "dist": {
+                "type": "path",
+                "url": "packages/myhordes-fixtures",
+                "reference": "04c7d24cb1f142f3f641443bb05d0f67a942da6a"
+            },
+            "require": {
+                "etwin/myhordes": "@dev",
+                "php": ">=8.1",
+                "symfony/framework-bundle": "6.0.*",
+                "symfony/yaml": "6.0.*"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "MyHordes\\Fixtures\\": "src/"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Benjamin Behrendt",
+                    "email": "wvsgnovize@gmail.com"
+                }
+            ],
+            "description": "The base MyHordes fixture package.",
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "nikolaposa/version",
@@ -10385,7 +10419,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "wvsgnovize01/versioning-bundle": 20
+        "wvsgnovize01/versioning-bundle": 20,
+        "myhordes/fixtures": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
@@ -10397,7 +10432,8 @@
         "ext-intl": "*",
         "ext-json": "*",
         "ext-libxml": "*",
-        "ext-simplexml": "*"
+        "ext-simplexml": "*",
+        "ext-curl": "*"
     },
     "platform-dev": [],
     "plugin-api-version": "2.2.0"

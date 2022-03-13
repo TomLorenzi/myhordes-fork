@@ -13,8 +13,10 @@ use MyHordes\Fixtures\Fixtures\CitizenNotificationMarker;
 use MyHordes\Fixtures\Fixtures\CitizenProfession;
 use MyHordes\Fixtures\Fixtures\CitizenRole;
 use MyHordes\Fixtures\Fixtures\CitizenStatus;
+use MyHordes\Fixtures\Fixtures\CouncilEntry;
 use MyHordes\Fixtures\Fixtures\Emote;
 use MyHordes\Fixtures\Fixtures\ForumThreadTag;
+use MyHordes\Fixtures\Fixtures\GazetteEntry;
 use MyHordes\Fixtures\Fixtures\RolePlayText;
 use MyHordes\Fixtures\Fixtures\Ruin;
 use MyHordes\Fixtures\Fixtures\RuinRoom;
@@ -48,6 +50,8 @@ class FixtureChain implements CompilerPassInterface
             CitizenHomeLevel::class          => 'myhordes.fixtures.citizen.home.levels',
             CitizenHomeUpgrade::class        => 'myhordes.fixtures.citizen.home.upgrades',
             CitizenComplaint::class          => 'myhordes.fixtures.citizen.complaints',
+            GazetteEntry::class              => 'myhordes.fixtures.gazettes',
+            CouncilEntry::class              => 'myhordes.fixtures.councils',
         ];
 
         /**

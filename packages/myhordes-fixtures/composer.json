@@ -11,9 +11,9 @@
     ],
     "minimum-stability": "dev",
     "require": {
-      "php": ">=7.4",
-      "symfony/framework-bundle": "5.4.*",
-      "symfony/yaml": "5.4.*",
+      "php": ">=8.1",
+      "symfony/framework-bundle": "6.0.*",
+      "symfony/yaml": "6.0.*",
       "etwin/myhordes": "@dev"
     },
     "autoload": {
