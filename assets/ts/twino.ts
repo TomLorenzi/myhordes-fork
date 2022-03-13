@@ -676,25 +676,74 @@ export default class TwinoAlikeParser {
     }
 
     private static preprocessText( s: string ): string {
-        let lines: Array<string> = s.split( '\n' );
+        s = s.replace( /(\S)(\[\*]|\[1])/gi, '$1\n$2' );
 
+        let lines: Array<string> = s.split( '\n' );
         let m: Array<string>;
 
         let ulmode = false, olmode = false;
+
+        const splitpos = s => {
+            let i = 0;
+            let offset = 0;
+
+            let next_open   = 0;
+            let next_closed = 0;
+
+            do {
+                next_open = s.slice(offset).search( /\[[^/]/gi );
+                next_closed = s.slice(offset).search( /\[\//gi );
+
+                if (next_open >= 0 && next_closed >= 0 && next_open < next_closed) {
+                    offset += next_open + 1;
+                    ++i;
+                } else if (next_open >= 0 && next_closed >= 0 && next_open > next_closed) {
+                    if (i > 0) {
+                        --i;
+                        offset += next_closed + 1;
+                    } else return offset + next_closed;
+                } else if ( next_open >= 0 && next_closed < 0 )
+                    return offset + next_closed;
+                else if ( next_open < 0 && next_closed >= 0 ) {
+                    if (i > 0) {
+                        --i;
+                        offset += next_closed + 1;
+                    } else return offset + next_closed;
+                } else return -1;
+            } while (next_open >= 0 || next_closed >= 0)
+
+            return -1;
+        }
 
         for (let i = 0; i < lines.length; i++) {
 
             //UL
             if ((m = lines[i].match(/^\s*?(?:\[\*]|\s\*\s)\s*(.*?)$/m))) {
                 if (olmode) { lines.splice(i,0,'[/ol]'); olmode = false; i++ }
-                lines[i] = '[li]' + m[1] + '[/li]';
+
+                const splicepos = splitpos(m[1]);
+                if (splicepos < 0) lines[i] = '[li]' + m[1] + '[/li]';
+                else {
+                    lines[i] = '[li]' + m[1].slice(0,splicepos) + '[/li][/ul]' + m[1].slice(splicepos);
+                    ulmode = false;
+                    continue;
+                }
+
                 if (!ulmode) { lines.splice(i,0,'[ul]'); ulmode = true; i++ }
                 continue;
             } else if (ulmode) { lines.splice(i,0,'[/ul]'); ulmode = false; i++; }
 
             //OL
             if ((m = lines[i].match(/^\s*?\[0]\s*(.*?)$/m))) {
-                lines[i] = '[li]' + m[1] + '[/li]';
+
+                const splicepos = splitpos(m[1]);
+                if (splicepos < 0) lines[i] = '[li]' + m[1] + '[/li]';
+                else {
+                    lines[i] = '[li]' + m[1].slice(0,splicepos) + '[/li][/ol]' + m[1].slice(splicepos);
+                    olmode = false;
+                    continue;
+                }
+
                 if (!olmode) { lines.splice(i,0,'[ol]'); olmode = true; i++ }
                 continue;
             } else if (olmode) { lines.splice(i,0,'[/ol]'); olmode = false; i++; }
