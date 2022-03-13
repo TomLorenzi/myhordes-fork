@@ -433,7 +433,7 @@ class GameFactory
         foreach ($town->getZones() as $zone) $zone->setStartZombies( $zone->getZombies() );
 
         $town->setForum((new Forum())->setTitle($town->getName()));
-        foreach ($this->entity_manager->getRepository(ThreadTag::class)->findBy(['name' => ['help','rp']]) as $tag)
+        foreach ($this->entity_manager->getRepository(ThreadTag::class)->findBy(['name' => ['help','rp','event','dsc_disc','dsc_guide','dsc_orga']]) as $tag)
             $town->getForum()->addAllowedTag($tag);
 
         $this->crow->postToForum( $town->getForum(),

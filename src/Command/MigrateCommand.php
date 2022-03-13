@@ -733,9 +733,8 @@ class MigrateCommand extends Command
             $this->helper->leChunk($output, Forum::class, 2, [], true, true, function(Forum $forum) use($all_tags):bool {
 
                 $forum->getAllowedTags()->clear();
-                $tag_list = [];
 
-                if ($forum->getTown()) $tag_list = ['help','rp'];
+                if ($forum->getTown()) $tag_list = ['help','rp','event','dsc_disc','dsc_guide','dsc_orga'];
                 else $tag_list = array_map(fn(ThreadTag $t) => $t->getName(), $all_tags);
 
                 foreach ($all_tags as $tag) if (in_array($tag->getName(), $tag_list)) $forum->addAllowedTag($tag);
