@@ -26119,5 +26119,16 @@ cette violente opération...]]></target>
         <target>Cet objet a entre temps été récupéré par un autre joueur.</target>
       </segment>
     </unit>
+    <unit id="hu7NaWX">
+      <notes>
+        <note category="german">Ein Moderator hat den Namen einer Stadt geändert, in der du mitgespielt hast. Alter Name: "{townOld}". Neuer Name: "{townNew}"</note>
+        <note category="from">db://LogEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Ein Moderator hat den Namen einer Stadt geändert, in der du mitgespielt hast. Alter Name: "{townOld}". Neuer Name: "{townNew}"</source>
+        <target>Ein Moderator hat den Namen einer Stadt geändert, in der du mitgespielt hast. Alter Name: "{townOld}". Neuer Name: "{townNew}"</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -491,11 +491,15 @@ class AdminTownController extends AdminActionController
                 $this->entity_manager->persist($town);
                 break;
             case 'dice_name':
+                $old_name = $town->getName();
                 $new_name = $gameFactory->createTownName( $town->getLanguage() );
                 $town->setName( $new_name );
                 $town->getRankingEntry()->setName( $new_name );
                 $this->entity_manager->persist($town);
                 $this->entity_manager->persist($town->getRankingEntry());
+                foreach ($town->getCitizens() as $citizen)
+                    $this->entity_manager->persist($this->crow_service->createPM_moderation( $citizen->getUser(), CrowService::ModerationActionDomainRanking, CrowService::ModerationActionTargetGameName, CrowService::ModerationActionEdit, $town, $old_name ));
+
                 break;
             case 'dbg_disengage':
                 foreach ($town->getCitizens() as $citizen)
@@ -1367,11 +1371,15 @@ class AdminTownController extends AdminActionController
             $town_proxy->setLanguage( $lang );
             $town_proxy->getTown()?->setLanguage($lang);
         }
-        
+
         if ($rename) {
+            $old_name = $town_proxy->getName( );
             $name = $gameFactory->createTownName( $lang );
             $town_proxy->setName( $name );
             $town_proxy->getTown()?->setName($name);
+
+            foreach ($town_proxy->getCitizens() as $citizen)
+                $this->entity_manager->persist($this->crow_service->createPM_moderation( $citizen->getUser(), CrowService::ModerationActionDomainRanking, CrowService::ModerationActionTargetGameName, CrowService::ModerationActionEdit, $town_proxy, $old_name ));
         }
 
         $this->entity_manager->persist($town_proxy);
