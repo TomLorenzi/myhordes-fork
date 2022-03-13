@@ -384,7 +384,7 @@
     <unit id="lUcvZQo" name="Hilfe">
       <notes>
         <note category="german">Hilfe</note>
-        <note category="from">db://ThreadTag;php:///src/Controller/GameController.php;php:///src/Service/GazetteService.php;php:///src/Twig/Extensions.php;twig:///templates/ajax/ajax.html.twig;twig:///templates/ajax/forum/editor.html.twig;twig:///templates/ajax/game/beyond/beyond.html.twig;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/jobs.html.twig;twig:///templates/ajax/game/newspaper.html.twig;twig:///templates/ajax/game/town/bank.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/dump.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/game/town/town.html.twig;twig:///templates/ajax/ghost/create_town.html.twig;twig:///templates/ajax/pm/bubbles.html.twig;twig:///templates/ajax/public/disclaimer.html.twig;twig:///templates/ajax/soul/coalitions.html.twig;twig:///templates/ajax/soul/me.html.twig;twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/season.html.twig;twig:///templates/ajax/soul/settings.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
+        <note category="from">db://ThreadTag;php:///src/Controller/GameController.php;php:///src/Service/GazetteService.php;php:///src/Twig/Extensions.php;twig:///templates/ajax/ajax.html.twig;twig:///templates/ajax/forum/editor.html.twig;twig:///templates/ajax/game/beyond/beyond.html.twig;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/jobs.html.twig;twig:///templates/ajax/game/newspaper.html.twig;twig:///templates/ajax/game/town/bank.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/dump.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/game/town/town.html.twig;twig:///templates/ajax/ghost/create_town.html.twig;twig:///templates/ajax/pm/bubbles.html.twig;twig:///templates/ajax/public/disclaimer.html.twig;twig:///templates/ajax/soul/coalitions.html.twig;twig:///templates/ajax/soul/me.html.twig;twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/season.html.twig;twig:///templates/ajax/soul/settings.html.twig;twig:///templates/ajax/soul/social.html.twig;twig:///templates/seo/welcome.html.twig</note>
       </notes>
       <segment>
         <source>Hilfe</source>
@@ -3657,7 +3657,7 @@
     <unit id="MNOavAj" name="Das Zombie Survival Game!">
       <notes>
         <note category="german">Das Zombie Survival Game!</note>
-        <note category="from">twig:///templates/web/framework.html.twig;twig:///templates/web/pm-host.html.twig</note>
+        <note category="from">twig:///templates/seo/framework.html.twig;twig:///templates/web/framework.html.twig;twig:///templates/web/pm-host.html.twig</note>
       </notes>
       <segment>
         <source>Das Zombie Survival Game!</source>
@@ -3737,7 +3737,7 @@
     <unit id="rtPvko.">
       <notes>
         <note category="german">Dies ist ein Fan-Projekt für die Spiele {dv}, {d2n}, {hordes} und {zn} von &lt;b&gt;MotionTwin&lt;/b&gt;.</note>
-        <note category="from">twig:///templates/web/framework.html.twig</note>
+        <note category="from">twig:///templates/seo/framework.html.twig;twig:///templates/web/framework.html.twig</note>
       </notes>
       <segment>
         <source>Dies ist ein Fan-Projekt für die Spiele {dv}, {d2n}, {hordes} und {zn} von &lt;b&gt;MotionTwin&lt;/b&gt;.</source>
@@ -3747,7 +3747,7 @@
     <unit id="XQQqX1B">
       <notes>
         <note category="german">All Grafiken stammen aus diesen Spielen, wenn nicht explizit anders angegeben, und sind damit Eigentum von &lt;b&gt;MotionTwin&lt;/b&gt;</note>
-        <note category="from">twig:///templates/web/framework.html.twig</note>
+        <note category="from">twig:///templates/seo/framework.html.twig;twig:///templates/web/framework.html.twig</note>
       </notes>
       <segment>
         <source>All Grafiken stammen aus diesen Spielen, wenn nicht explizit anders angegeben, und sind damit Eigentum von &lt;b&gt;MotionTwin&lt;/b&gt;</source>
@@ -3757,7 +3757,7 @@
     <unit id="3DaiPcH">
       <notes>
         <note category="german">MyHordes ist &lt;i&gt;Open Source&lt;/i&gt; und jeder ist zur &lt;b&gt;Mitwirkung&lt;/b&gt; eingeladen. Du findest den Quellcode bei {gitlab}.</note>
-        <note category="from">twig:///templates/web/framework.html.twig</note>
+        <note category="from">twig:///templates/seo/framework.html.twig;twig:///templates/web/framework.html.twig</note>
       </notes>
       <segment>
         <source>MyHordes ist &lt;i&gt;Open Source&lt;/i&gt; und jeder ist zur &lt;b&gt;Mitwirkung&lt;/b&gt; eingeladen. Du findest den Quellcode bei {gitlab}.</source>
@@ -3767,7 +3767,7 @@
     <unit id="nWYafS5">
       <notes>
         <note category="german">MyHordes ist ein Teil des {etwin} Projekts, du kannst uns auf {opencollective} mit einer Spende unterstützen.</note>
-        <note category="from">twig:///templates/web/framework.html.twig</note>
+        <note category="from">twig:///templates/seo/framework.html.twig;twig:///templates/web/framework.html.twig</note>
       </notes>
       <segment>
         <source>MyHordes ist ein Teil des {etwin} Projekts, du kannst uns auf {opencollective} mit einer Spende unterstützen.</source>
@@ -3777,7 +3777,7 @@
     <unit id="yyNYNPS" name="Programmierung">
       <notes>
         <note category="german">Programmierung</note>
-        <note category="from">twig:///templates/web/framework.html.twig</note>
+        <note category="from">twig:///templates/seo/framework.html.twig;twig:///templates/web/framework.html.twig</note>
       </notes>
       <segment>
         <source>Programmierung</source>
@@ -3787,7 +3787,7 @@
     <unit id="q_Mqx8l" name="Danke an">
       <notes>
         <note category="german">Danke an</note>
-        <note category="from">twig:///templates/web/framework.html.twig</note>
+        <note category="from">twig:///templates/seo/framework.html.twig;twig:///templates/web/framework.html.twig</note>
       </notes>
       <segment>
         <source>Danke an</source>

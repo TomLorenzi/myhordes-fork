@@ -1656,7 +1656,7 @@
     <unit id="Inm9E03" name="Stadt">
       <notes>
         <note category="german">Stadt</note>
-        <note category="from">twig:///templates/ajax/soul/season.html.twig;twig:///templates/ajax/soul/town_list.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/soul/season.html.twig;twig:///templates/ajax/soul/town_list.html.twig</note>
       </notes>
       <segment>
         <source>Stadt</source>
