@@ -13,6 +13,8 @@ use App\Entity\PrivateMessage;
 use App\Entity\PrivateMessageThread;
 use App\Entity\Thread;
 use App\Entity\ThreadTag;
+use App\Entity\Town;
+use App\Entity\TownRankingProxy;
 use App\Entity\User;
 use App\Structures\MyHordesConf;
 use DateTime;
@@ -27,11 +29,13 @@ class CrowService {
     const ModerationActionDomainTownPM = 2;
     const ModerationActionDomainGlobalPM = 3;
     const ModerationActionDomainAccount = 101;
+    const ModerationActionDomainRanking = 201;
 
     const ModerationActionTargetThread = 1;
     const ModerationActionTargetPost = 2;
     const ModerationActionTargetForumBan = 101;
     const ModerationActionTargetGameBan = 102;
+    const ModerationActionTargetGameName = 201;
 
     const ModerationActionEdit = 1;
     const ModerationActionDelete = 2;
@@ -238,6 +242,16 @@ class CrowService {
                     default: return null;
                 }
                 $data = [ 'reason' => $reason, 'duration' => $object ?? -1 ];
+                break;
+            }
+
+            case self::ModerationActionDomainRanking: {
+                if (!is_a($object, Town::class) && !is_a($object, TownRankingProxy::class)) return null;
+                switch ("{$target}.{$action}") {
+                    case self::ModerationActionTargetGameName .'.'. self::ModerationActionEdit: $name = 'gpm_mod_townNameChange'; break;
+                    default: return null;
+                }
+                $data = [ 'townOld' => $reason, 'townNew' => $object->getName() ];
                 break;
             }
 

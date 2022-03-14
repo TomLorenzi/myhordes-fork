@@ -3738,7 +3738,6 @@
     <unit id="Lbcs1jO">
       <notes>
         <note category="german">Du drückst den {item} eng an deine Brust... &lt;t-stat-down-terror&gt;Tränen laufen über deine Wange, als du an die Hölle denkst, in der du lebst. Nach ein paar Minuten fühlst du dich besser!&lt;/t-stat-down-terror&gt;&lt;nt-stat-down-terror&gt;Aber nichts geschieht!&lt;/nt-stat-down-terror&gt;</note>
-        <note category="state">new</note>
         <note category="from">db://ItemAction</note>
       </notes>
       <segment>
@@ -3749,7 +3748,6 @@
     <unit id="4TKj72Z">
       <notes>
         <note category="german">Du drückst den {item} eng an deine Brust... &lt;t-stat-up-terror&gt;Panik steigt in dir auf!&lt;/t-stat-up-terror&gt;&lt;nt-stat-up-terror&gt;Aber nichts geschieht!&lt;/nt-stat-up-terror&gt;</note>
-        <note category="state">new</note>
         <note category="from">db://ItemAction</note>
       </notes>
       <segment>

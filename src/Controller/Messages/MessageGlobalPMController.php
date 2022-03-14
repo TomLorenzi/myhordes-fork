@@ -601,6 +601,12 @@ class MessageGlobalPMController extends MessageController
             ? $em->getRepository(GlobalPrivateMessage::class)->findOneBy(['receiverGroup' => $group, 'pinned' => true])
             : null;
 
+        if ($pinned)  {
+            $rendered = false;
+            foreach ($messages as $message) if ($message === $pinned) $rendered = true;
+            if (!$rendered) $pinned->setText( $this->html->prepareEmotes( $pinned->getText(), $this->getUser() ) );
+        }
+
         return $this->render( 'ajax/pm/conversation_group.html.twig', $this->addDefaultTwigArgs(null, [
             'gid' => $id,
             'owner' => $group_association->getAssociationLevel() === UserGroupAssociation::GroupAssociationLevelFounder,

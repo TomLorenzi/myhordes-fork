@@ -4,7 +4,7 @@
     <unit id="a66OWC." name="Willkommen bei MyHordes">
       <notes>
         <note category="german">Willkommen bei MyHordes</note>
-        <note category="from">twig:///templates/ajax/public/intro.html.twig</note>
+        <note category="from">twig:///templates/ajax/public/intro.html.twig;twig:///templates/seo/welcome.html.twig</note>
       </notes>
       <segment>
         <source>Willkommen bei MyHordes</source>
@@ -104,7 +104,7 @@
     <unit id="P9PTDGu">
       <notes>
         <note category="german">MyHordes ist eine von der Community entwickelte offene Implementierung des Browser-Spiels "Die Verdammten" und seine anderen Versionen von {motiontwin}.</note>
-        <note category="from">twig:///templates/ajax/public/intro.html.twig</note>
+        <note category="from">twig:///templates/ajax/public/intro.html.twig;twig:///templates/seo/welcome.html.twig</note>
       </notes>
       <segment>
         <source>MyHordes ist eine von der Community entwickelte offene Implementierung des Browser-Spiels "Die Verdammten" und seine anderen Versionen von {motiontwin}.</source>
@@ -114,7 +114,7 @@
     <unit id="JyLklnq">
       <notes>
         <note category="german">Ziel des Projektes ist es, eine Version von "Die Verdammten" und seinen anderen Versionen zu erschaffen, die nicht nur nach der Flash-Abschaltung im Jahr 2020 funktionsfähig ist, sondern auch weiterentwickelt und mit neuen Inhalten versorgt werden kann.</note>
-        <note category="from">twig:///templates/ajax/public/intro.html.twig</note>
+        <note category="from">twig:///templates/ajax/public/intro.html.twig;twig:///templates/seo/welcome.html.twig</note>
       </notes>
       <segment>
         <source>Ziel des Projektes ist es, eine Version von "Die Verdammten" und seinen anderen Versionen zu erschaffen, die nicht nur nach der Flash-Abschaltung im Jahr 2020 funktionsfähig ist, sondern auch weiterentwickelt und mit neuen Inhalten versorgt werden kann.</source>
@@ -124,7 +124,7 @@
     <unit id="psTpKgc">
       <notes>
         <note category="german">Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus "Die Verdammten" und seine anderen Versionen und sind damit Eigentum von {motiontwin}.</note>
-        <note category="from">twig:///templates/ajax/public/intro.html.twig;twig:///templates/ajax/public/privacy.html.twig</note>
+        <note category="from">twig:///templates/ajax/public/intro.html.twig;twig:///templates/ajax/public/privacy.html.twig;twig:///templates/seo/welcome.html.twig</note>
       </notes>
       <segment>
         <source>Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus "Die Verdammten" und seine anderen Versionen und sind damit Eigentum von {motiontwin}.</source>

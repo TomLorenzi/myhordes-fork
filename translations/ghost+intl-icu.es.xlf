@@ -1724,5 +1724,27 @@
         <target>Cuando entres a un pueblo, los siguientes miembros de tu {coalition} reencarnarán contigo:</target>
       </segment>
     </unit>
+    <unit id="pGytwu3">
+      <notes>
+        <note category="german">Die Sprache dieser Stadt stimmt nicht mit deiner Spracheinstellung überein. Wenn du dieser Stadt beitrittst, musst du im Stadtforum die Sprache der Stadt verwenden.</note>
+        <note category="from">twig:///templates/ajax/ghost/intro.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Die Sprache dieser Stadt stimmt nicht mit deiner Spracheinstellung überein. Wenn du dieser Stadt beitrittst, musst du im Stadtforum die Sprache der Stadt verwenden.</source>
+        <target>Die Sprache dieser Stadt stimmt nicht mit deiner Spracheinstellung überein. Wenn du dieser Stadt beitrittst, musst du im Stadtforum die Sprache der Stadt verwenden.</target>
+      </segment>
+    </unit>
+    <unit id="xdlAaLd">
+      <notes>
+        <note category="german">Die Verwendung einer anderen Sprache im Stadtforum kann zu Sanktionen seitens der Moderation führen!</note>
+        <note category="from">twig:///templates/ajax/ghost/intro.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Die Verwendung einer anderen Sprache im Stadtforum kann zu Sanktionen seitens der Moderation führen!</source>
+        <target>Die Verwendung einer anderen Sprache im Stadtforum kann zu Sanktionen seitens der Moderation führen!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

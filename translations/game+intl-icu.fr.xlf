@@ -1656,7 +1656,7 @@
     <unit id="Inm9E03" name="Stadt">
       <notes>
         <note category="german">Stadt</note>
-        <note category="from">twig:///templates/ajax/soul/season.html.twig;twig:///templates/ajax/soul/town_list.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/soul/season.html.twig;twig:///templates/ajax/soul/town_list.html.twig</note>
       </notes>
       <segment>
         <source>Stadt</source>
@@ -26107,6 +26107,27 @@ cette violente opération...]]></target>
       <segment>
         <source>Du hast keine Seelenpunkte gewonnen.</source>
         <target>Du hast keine Seelenpunkte gewonnen.</target>
+      </segment>
+    </unit>
+    <unit id="DAZTSgM" name="Ein anderer Bürger hat sich in der Zwischenzeit diesen Gegenstand geschnappt.">
+      <notes>
+        <note category="german">Ein anderer Bürger hat sich in der Zwischenzeit diesen Gegenstand geschnappt.</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
+      </notes>
+      <segment>
+        <source>Ein anderer Bürger hat sich in der Zwischenzeit diesen Gegenstand geschnappt.</source>
+        <target>Cet objet a entre temps été récupéré par un autre joueur.</target>
+      </segment>
+    </unit>
+    <unit id="hu7NaWX">
+      <notes>
+        <note category="german">Ein Moderator hat den Namen einer Stadt geändert, in der du mitgespielt hast. Alter Name: "{townOld}". Neuer Name: "{townNew}"</note>
+        <note category="from">db://LogEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Ein Moderator hat den Namen einer Stadt geändert, in der du mitgespielt hast. Alter Name: "{townOld}". Neuer Name: "{townNew}"</source>
+        <target>Ein Moderator hat den Namen einer Stadt geändert, in der du mitgespielt hast. Alter Name: "{townOld}". Neuer Name: "{townNew}"</target>
       </segment>
     </unit>
   </file>

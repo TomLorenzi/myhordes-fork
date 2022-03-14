@@ -511,7 +511,7 @@ class MessageForumController extends MessageController
             $em->persist($thread);
             $em->persist($forum);
 
-            $this->commit_post_with_polls($em,$post,$polls);
+            $this->commit_post_with_polls($em,$post,$polls ?? []);
 
         } catch (Exception $e) {
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
