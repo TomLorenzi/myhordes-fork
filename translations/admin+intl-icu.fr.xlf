@@ -4590,7 +4590,7 @@
       </notes>
       <segment>
         <source>Stadtnamen regenerieren</source>
-        <target>Stadtnamen regenerieren</target>
+        <target>Régénérer un nom de ville</target>
       </segment>
     </unit>
     <unit id="cUEl3DK" name="Sprache wechseln">
@@ -4601,7 +4601,7 @@
       </notes>
       <segment>
         <source>Sprache wechseln</source>
-        <target>Sprache wechseln</target>
+        <target>Changer la langue</target>
       </segment>
     </unit>
   </file>
