@@ -4586,7 +4586,6 @@
       <notes>
         <note category="german">Stadtnamen regenerieren</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Stadtnamen regenerieren</source>
@@ -4597,7 +4596,6 @@
       <notes>
         <note category="german">Sprache wechseln</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Sprache wechseln</source>

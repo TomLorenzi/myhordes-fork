@@ -1723,7 +1723,6 @@
       <notes>
         <note category="german">Die Sprache dieser Stadt stimmt nicht mit deiner Spracheinstellung überein. Wenn du dieser Stadt beitrittst, musst du im Stadtforum die Sprache der Stadt verwenden.</note>
         <note category="from">twig:///templates/ajax/ghost/intro.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Die Sprache dieser Stadt stimmt nicht mit deiner Spracheinstellung überein. Wenn du dieser Stadt beitrittst, musst du im Stadtforum die Sprache der Stadt verwenden.</source>
@@ -1734,7 +1733,6 @@
       <notes>
         <note category="german">Die Verwendung einer anderen Sprache im Stadtforum kann zu Sanktionen seitens der Moderation führen!</note>
         <note category="from">twig:///templates/ajax/ghost/intro.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Die Verwendung einer anderen Sprache im Stadtforum kann zu Sanktionen seitens der Moderation führen!</source>
