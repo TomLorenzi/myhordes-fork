@@ -26127,7 +26127,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Ein Moderator hat den Namen einer Stadt geändert, in der du mitgespielt hast. Alter Name: "{townOld}". Neuer Name: "{townNew}"</source>
-        <target>Ein Moderator hat den Namen einer Stadt geändert, in der du mitgespielt hast. Alter Name: "{townOld}". Neuer Name: "{townNew}"</target>
+        <target>Un modérateur a changé le nom d'une ville dans laquelle vous avez joué. Ancien nom : "{townOld}". Nouveau nom : "{townNew}"</target>
       </segment>
     </unit>
   </file>
