@@ -260,7 +260,7 @@
       <notes>
         <note category="german">Normal</note>
         <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Normal</source>
@@ -1728,22 +1728,20 @@
       <notes>
         <note category="german">Die Sprache dieser Stadt stimmt nicht mit deiner Spracheinstellung überein. Wenn du dieser Stadt beitrittst, musst du im Stadtforum die Sprache der Stadt verwenden.</note>
         <note category="from">twig:///templates/ajax/ghost/intro.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Die Sprache dieser Stadt stimmt nicht mit deiner Spracheinstellung überein. Wenn du dieser Stadt beitrittst, musst du im Stadtforum die Sprache der Stadt verwenden.</source>
-        <target>Die Sprache dieser Stadt stimmt nicht mit deiner Spracheinstellung überein. Wenn du dieser Stadt beitrittst, musst du im Stadtforum die Sprache der Stadt verwenden.</target>
+        <target>El lenguaje de este pueblo no coincide con la configuración de lenguaje de tu alma. Al unirte a este pueblo, aceptas solo usar el lenguaje del pueblo cuando te comuniques con otros jugadores.</target>
       </segment>
     </unit>
     <unit id="xdlAaLd">
       <notes>
         <note category="german">Die Verwendung einer anderen Sprache im Stadtforum kann zu Sanktionen seitens der Moderation führen!</note>
         <note category="from">twig:///templates/ajax/ghost/intro.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Die Verwendung einer anderen Sprache im Stadtforum kann zu Sanktionen seitens der Moderation führen!</source>
-        <target>Die Verwendung einer anderen Sprache im Stadtforum kann zu Sanktionen seitens der Moderation führen!</target>
+        <target>¡Usar otros lenguajes puede resultar en sanciones de la moderación!</target>
       </segment>
     </unit>
   </file>
