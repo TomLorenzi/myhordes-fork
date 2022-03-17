@@ -15202,7 +15202,7 @@
       </notes>
       <segment>
         <source>Leprechaun wurde gesehen, wie er den {item} von {victim} stahl!</source>
-        <target>Leprechaun wurde gesehen, wie er den {item} von {victim} stahl!</target>
+        <target>Leprechaun was seen stealing the {item} from {victim}!</target>
       </segment>
     </unit>
     <unit id="4itiz0J">
