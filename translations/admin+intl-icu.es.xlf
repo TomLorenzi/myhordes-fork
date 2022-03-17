@@ -4573,5 +4573,27 @@
         <target>Últimas palabras:</target>
       </segment>
     </unit>
+    <unit id="yEnN9xu" name="Stadtnamen regenerieren">
+      <notes>
+        <note category="german">Stadtnamen regenerieren</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Stadtnamen regenerieren</source>
+        <target>Stadtnamen regenerieren</target>
+      </segment>
+    </unit>
+    <unit id="cUEl3DK" name="Sprache wechseln">
+      <notes>
+        <note category="german">Sprache wechseln</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Sprache wechseln</source>
+        <target>Sprache wechseln</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

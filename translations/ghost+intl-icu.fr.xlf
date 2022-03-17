@@ -1719,5 +1719,25 @@
         <target>Lorsque vous rejoignez une ville, le ou les membres de votre {coalition} suivants vous accompagneront :</target>
       </segment>
     </unit>
+    <unit id="pGytwu3">
+      <notes>
+        <note category="german">Die Sprache dieser Stadt stimmt nicht mit deiner Spracheinstellung überein. Wenn du dieser Stadt beitrittst, musst du im Stadtforum die Sprache der Stadt verwenden.</note>
+        <note category="from">twig:///templates/ajax/ghost/intro.html.twig</note>
+      </notes>
+      <segment>
+        <source>Die Sprache dieser Stadt stimmt nicht mit deiner Spracheinstellung überein. Wenn du dieser Stadt beitrittst, musst du im Stadtforum die Sprache der Stadt verwenden.</source>
+        <target>La langue de cette ville ne correspond pas à votre langue paramétrée. Lorsque vous rejoindrez cette ville, vous devrez utiliser la langue de la ville dans le forum de la ville.</target>
+      </segment>
+    </unit>
+    <unit id="xdlAaLd">
+      <notes>
+        <note category="german">Die Verwendung einer anderen Sprache im Stadtforum kann zu Sanktionen seitens der Moderation führen!</note>
+        <note category="from">twig:///templates/ajax/ghost/intro.html.twig</note>
+      </notes>
+      <segment>
+        <source>Die Verwendung einer anderen Sprache im Stadtforum kann zu Sanktionen seitens der Moderation führen!</source>
+        <target>L'utilisation d'une autre langue dans le forum de la ville peut entraîner des sanctions de la part d'un modérateur !</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

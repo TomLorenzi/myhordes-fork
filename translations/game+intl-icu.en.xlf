@@ -1682,7 +1682,7 @@
     <unit id="Inm9E03" name="Stadt">
       <notes>
         <note category="german">Stadt</note>
-        <note category="from">twig:///templates/ajax/soul/season.html.twig;twig:///templates/ajax/soul/town_list.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/soul/season.html.twig;twig:///templates/ajax/soul/town_list.html.twig</note>
       </notes>
       <segment>
         <source>Stadt</source>
@@ -17405,12 +17405,11 @@
     <unit id="8yLsMnc">
       <notes>
         <note category="german">Keine Ahnung. &lt;strong&gt;Der leblose Körper ist spurlos verschwunden...&lt;/strong&gt; Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Keine Ahnung. &lt;strong&gt;Der leblose Körper ist spurlos verschwunden...&lt;/strong&gt; Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?</source>
-        <target><![CDATA[Keine Ahnung. <strong>Der leblose Körper ist spurlos verschwunden...</strong> Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?]]></target>
+        <target><![CDATA[No idea! <strong>The body has disappeared without trace...</strong> They must be rotting somewhere outside... Perhaps they'll get back up and visit you during the night.]]></target>
       </segment>
     </unit>
     <unit id=".7eWye." name="Legendärer Dompteur">
@@ -26398,6 +26397,37 @@
       <segment>
         <source>Gibt an, wie viele Bürger diese Stadt gemeinsam mit einer Koalition betreten haben. Es werden sowohl Spieler gezählt die automatisch mit ihrer Koalition beitreten als auch solche, die manuell anderen Spielern aus ihrer Koalition folgen.</source>
         <target>Shows how many citizens have joined this town together with their coalition. It counts both citizens joining automatically with their coalition as well as citizens manually following them into town.</target>
+      </segment>
+    </unit>
+    <unit id="clpTyQQ" name="Du hast keine Seelenpunkte gewonnen.">
+      <notes>
+        <note category="german">Du hast keine Seelenpunkte gewonnen.</note>
+        <note category="from">twig:///templates/ajax/soul/death.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Du hast keine Seelenpunkte gewonnen.</source>
+        <target>Du hast keine Seelenpunkte gewonnen.</target>
+      </segment>
+    </unit>
+    <unit id="DAZTSgM" name="Ein anderer Bürger hat sich in der Zwischenzeit diesen Gegenstand geschnappt.">
+      <notes>
+        <note category="german">Ein anderer Bürger hat sich in der Zwischenzeit diesen Gegenstand geschnappt.</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
+      </notes>
+      <segment>
+        <source>Ein anderer Bürger hat sich in der Zwischenzeit diesen Gegenstand geschnappt.</source>
+        <target>This object has since been collected by another player.</target>
+      </segment>
+    </unit>
+    <unit id="hu7NaWX">
+      <notes>
+        <note category="german">Ein Moderator hat den Namen einer Stadt geändert, in der du mitgespielt hast. Alter Name: "{townOld}". Neuer Name: "{townNew}"</note>
+        <note category="from">db://LogEntryTemplate</note>
+      </notes>
+      <segment>
+        <source>Ein Moderator hat den Namen einer Stadt geändert, in der du mitgespielt hast. Alter Name: "{townOld}". Neuer Name: "{townNew}"</source>
+        <target>A moderator edited the name of a town you've been a part of. Old name: "{townOld}". New name: "{townNew}"</target>
       </segment>
     </unit>
   </file>

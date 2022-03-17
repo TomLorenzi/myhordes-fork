@@ -248,8 +248,6 @@ class GameFactory
             ->setBank( new Inventory() )
             ->setWell( mt_rand( $conf->get(TownConf::CONF_WELL_MIN, 0), $conf->get(TownConf::CONF_WELL_MAX, 0) ) );
 
-        throw new Exception('Stuff is broken, yo!');
-
         foreach ($this->entity_manager->getRepository(BuildingPrototype::class)->findProspectivePrototypes($town, 0) as $prototype)
             if (!in_array($prototype->getName(), $conf->get(TownConf::CONF_DISABLED_BUILDINGS))) {
                 $this->town_handler->addBuilding($town, $prototype);
@@ -435,7 +433,7 @@ class GameFactory
         foreach ($town->getZones() as $zone) $zone->setStartZombies( $zone->getZombies() );
 
         $town->setForum((new Forum())->setTitle($town->getName()));
-        foreach ($this->entity_manager->getRepository(ThreadTag::class)->findBy(['name' => ['help','rp']]) as $tag)
+        foreach ($this->entity_manager->getRepository(ThreadTag::class)->findBy(['name' => ['help','rp','event','dsc_disc','dsc_guide','dsc_orga']]) as $tag)
             $town->getForum()->addAllowedTag($tag);
 
         $this->crow->postToForum( $town->getForum(),

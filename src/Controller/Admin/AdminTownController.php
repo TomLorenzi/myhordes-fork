@@ -172,6 +172,7 @@ class AdminTownController extends AdminActionController
      */
     public function town_explorer(int $id, ?string $tab, GazetteService $gazetteService): Response
     {
+        /** @var Town $town */
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
         if ($town === null) $this->redirect($this->generateUrl('admin_town_list'));
 
@@ -277,6 +278,16 @@ class AdminTownController extends AdminActionController
                               'citizen' => $town->getCitizens()->getValues(),
                           ], ['timestamp' => 'DESC']));
 
+        $langs = [];
+        $langs_alive = [];
+        foreach ($town->getCitizens() as $citizen) {
+            $lang = $citizen->getUser()->getLanguage() ?? 'multi';
+            if (!isset($langs[$lang]))
+                $langs[$lang] = $langs_alive[$lang] = 0;
+            $langs[$lang]++;
+            if ($citizen->getActive()) $langs_alive[$lang]++;
+        }
+
         return $this->render('ajax/admin/towns/explorer.html.twig', $this->addDefaultTwigArgs(null, array_merge([
             'town' => $town,
             'conf' => $this->conf->getTownConfiguration($town),
@@ -302,7 +313,10 @@ class AdminTownController extends AdminActionController
             )),
             'blackboards' => $this->entity_manager->getRepository(BlackboardEdit::class)->findBy([ 'town' => $town ], ['time' => 'DESC'], 100),
             'events' => $this->conf->getAllEvents(),
-            'current_event' => $this->conf->getCurrentEvents($town)
+            'current_event' => $this->conf->getCurrentEvents($town),
+            'citizen_langs' => $langs,
+            'citizen_langs_alive' => $langs_alive,
+            'langs' => ['de','en','fr','es','multi']
         ], $this->get_map_blob($town))));
     }
 
@@ -421,7 +435,7 @@ class AdminTownController extends AdminActionController
 
         if (in_array($action, [
                 'release', 'quarantine', 'advance', 'nullify', 'pw_change',
-                'ex_del', 'ex_co+', 'ex_co-', 'ex_ref', 'ex_inf',
+                'ex_del', 'ex_co+', 'ex_co-', 'ex_ref', 'ex_inf', 'dice_name',
                 'dbg_fill_town', 'dbg_fill_bank', 'dgb_empty_bank', 'dbg_unlock_bank', 'dbg_hydrate', 'dbg_disengage', 'dbg_engage',
                 'dbg_set_well', 'dbg_unlock_buildings', 'dbg_map_progress', 'dbg_map_zombie_set', 'dbg_adv_days',
                 'dbg_set_attack', 'dbg_toggle_chaos', 'dbg_toggle_devas'
@@ -475,6 +489,17 @@ class AdminTownController extends AdminActionController
                 $town->setWordsOfHeroes("");
                 $this->entity_manager->persist((new BlackboardEdit())->setText("")->setTime(new \DateTime())->setTown($town)->setUser($this->getUser()));
                 $this->entity_manager->persist($town);
+                break;
+            case 'dice_name':
+                $old_name = $town->getName();
+                $new_name = $gameFactory->createTownName( $town->getLanguage() );
+                $town->setName( $new_name );
+                $town->getRankingEntry()->setName( $new_name );
+                $this->entity_manager->persist($town);
+                $this->entity_manager->persist($town->getRankingEntry());
+                foreach ($town->getCitizens() as $citizen)
+                    $this->entity_manager->persist($this->crow_service->createPM_moderation( $citizen->getUser(), CrowService::ModerationActionDomainRanking, CrowService::ModerationActionTargetGameName, CrowService::ModerationActionEdit, $town, $old_name ));
+
                 break;
             case 'dbg_disengage':
                 foreach ($town->getCitizens() as $citizen)
@@ -753,6 +778,7 @@ class AdminTownController extends AdminActionController
      * @Route("api/admin/town/{id}/set_event", name="admin_town_set_event", requirements={"id"="\d+"})
      * @param int $id The ID of the town
      * @param JSONRequestParser $parser
+     * @param TownHandler $townHandler
      * @return Response
      */
     public function admin_town_set_event(int $id, JSONRequestParser $parser, TownHandler $townHandler): Response {
@@ -780,11 +806,38 @@ class AdminTownController extends AdminActionController
 
         return AjaxResponse::success();
     }
+
+    /**
+     * @Route("api/admin/town/{id}/set_lang", name="admin_town_set_lang", requirements={"id"="\d+"})
+     * @param int $id The ID of the town
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function admin_town_set_lang(int $id, JSONRequestParser $parser): Response {
+        /** @var Town $town */
+        $town = $this->entity_manager->getRepository(Town::class)->find($id);
+        if (!$town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $newLang = $parser->get('param');
+        if (!in_array( $newLang, [ 'de', 'es', 'en', 'fr', 'multi' ] ))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $town->setLanguage( $newLang );
+        $town->getRankingEntry()->setLanguage( $newLang );
+
+        $this->entity_manager->persist($town);
+        $this->entity_manager->persist($town->getRankingEntry());
+        $this->entity_manager->flush();
+
+        return AjaxResponse::success();
+    }
+
     /**
      * @Route("api/admin/town/new", name="admin_new_town")
      * @param JSONRequestParser $parser
      * @param GameFactory $gameFactory
      * @param TownHandler $townHandler
+     * @param GameProfilerService $gps
      * @return Response
      */
     public function add_default_town( JSONRequestParser $parser, GameFactory $gameFactory, TownHandler $townHandler, GameProfilerService $gps): Response {
@@ -1291,6 +1344,48 @@ class AdminTownController extends AdminActionController
 
 
         $this->entity_manager->flush();
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/admin/town/{tid}/relang", name="admin_town_town_lang_control", requirements={"tid"="\d+","act"="\d+"})
+     * @Security("is_granted('ROLE_ADMIN')")
+     * @param int $tid
+     * @param JSONRequestParser $parser
+     * @param GameFactory $gameFactory
+     * @return Response
+     */
+    public function switch_town_lang(int $tid, JSONRequestParser $parser, GameFactory $gameFactory): Response
+    {
+        /** @var TownRankingProxy $town_proxy */
+        $town_proxy = $this->entity_manager->getRepository(TownRankingProxy::class)->find($tid);
+        if (!$town_proxy || $town_proxy->getImported()) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $lang = $parser->get('lang');
+        $rename = $parser->get( 'rename' );
+
+        if ($lang !== ($town_proxy->getLanguage() ?? '') && !in_array( $lang, ['de','en','fr','es','multi'] ))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        if ($lang !== ($town_proxy->getLanguage() ?? '')) {
+            $town_proxy->setLanguage( $lang );
+            $town_proxy->getTown()?->setLanguage($lang);
+        }
+
+        if ($rename) {
+            $old_name = $town_proxy->getName( );
+            $name = $gameFactory->createTownName( $lang );
+            $town_proxy->setName( $name );
+            $town_proxy->getTown()?->setName($name);
+
+            foreach ($town_proxy->getCitizens() as $citizen)
+                $this->entity_manager->persist($this->crow_service->createPM_moderation( $citizen->getUser(), CrowService::ModerationActionDomainRanking, CrowService::ModerationActionTargetGameName, CrowService::ModerationActionEdit, $town_proxy, $old_name ));
+        }
+
+        $this->entity_manager->persist($town_proxy);
+        if ($town_proxy->getTown()) $this->entity_manager->persist($town_proxy->getTown());
+        $this->entity_manager->flush();
+
         return AjaxResponse::success();
     }
 

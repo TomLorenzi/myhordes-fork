@@ -21,6 +21,7 @@ use App\Entity\ComplaintReason;
 use App\Entity\ExpeditionRoute;
 use App\Entity\ForumThreadSubscription;
 use App\Entity\HomeIntrusion;
+use App\Entity\Item;
 use App\Entity\ItemProperty;
 use App\Entity\ItemPrototype;
 use App\Entity\LogEntryTemplate;
@@ -1040,6 +1041,16 @@ class TownController extends InventoryAwareController
      * @return Response
      */
     public function item_bank_api(JSONRequestParser $parser, InventoryHandler $handler): Response {
+        $item_id = $parser->get_int('item', -1);
+        $direction = $parser->get('direction', '');
+
+        if ($item_id > 0 && $direction === 'up') {
+            /** @var Item $i */
+            $i = $this->entity_manager->getRepository(Item::class)->find( $item_id );
+            if ($i && !$this->getActiveCitizen()->getTown()->getBank()->getItems()->contains( $i ))
+                return AjaxResponse::errorMessage( $this->translator->trans( 'Ein anderer Bürger hat sich in der Zwischenzeit diesen Gegenstand geschnappt.', [], 'game' ) );
+        }
+
         $up_inv   = $this->getActiveCitizen()->getInventory();
         $down_inv = $this->getActiveCitizen()->getTown()->getBank();
 

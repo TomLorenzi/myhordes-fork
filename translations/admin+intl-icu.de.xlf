@@ -2893,5 +2893,17 @@
         <target>Letzte Worte:</target>
       </segment>
     </unit>
+    <unit id="yEnN9xu" name="Stadtnamen regenerieren">
+      <segment>
+        <source>Stadtnamen regenerieren</source>
+        <target>Stadtnamen regenerieren</target>
+      </segment>
+    </unit>
+    <unit id="cUEl3DK" name="Sprache wechseln">
+      <segment>
+        <source>Sprache wechseln</source>
+        <target>Sprache wechseln</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

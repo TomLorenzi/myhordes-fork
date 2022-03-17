@@ -18,6 +18,7 @@ use App\Entity\User;
 use App\Entity\UserGroup;
 use App\Entity\UserGroupAssociation;
 use App\Response\AjaxResponse;
+use App\Service\CrowService;
 use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
 use App\Service\LogTemplateHandler;
@@ -599,6 +600,12 @@ class MessageGlobalPMController extends MessageController
         $pinned = $last_id === 0
             ? $em->getRepository(GlobalPrivateMessage::class)->findOneBy(['receiverGroup' => $group, 'pinned' => true])
             : null;
+
+        if ($pinned)  {
+            $rendered = false;
+            foreach ($messages as $message) if ($message === $pinned) $rendered = true;
+            if (!$rendered) $pinned->setText( $this->html->prepareEmotes( $pinned->getText(), $this->getUser() ) );
+        }
 
         return $this->render( 'ajax/pm/conversation_group.html.twig', $this->addDefaultTwigArgs(null, [
             'gid' => $id,
@@ -1292,7 +1299,7 @@ class MessageGlobalPMController extends MessageController
      * @param TranslatorInterface $ti
      * @return Response
      */
-    public function report_post_api(int $pid, EntityManagerInterface $em, TranslatorInterface $ti, JSONRequestParser $parser): Response {
+    public function report_post_api(int $pid, EntityManagerInterface $em, TranslatorInterface $ti, JSONRequestParser $parser, CrowService $crow): Response {
         $user = $this->getUser();
 
         $message = $em->getRepository( GlobalPrivateMessage::class )->find( $pid );
@@ -1331,6 +1338,10 @@ class MessageGlobalPMController extends MessageController
         } catch (Exception $e) {
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
+
+        try {
+            $crow->triggerExternalModNotification( 'A global PM has been reported.', $message, $newReport );
+        } catch (\Throwable $e) {}
 
         return AjaxResponse::success( true, ['msg' => $ti->trans('Du hast die Nachricht von {username} dem Raben gemeldet. Wer weiß, vielleicht wird {username} heute Nacht stääärben...', ['{username}' => '<span>' . $message->getSender()->getName() . '</span>'], 'game')]);
     }

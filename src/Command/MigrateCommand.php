@@ -114,6 +114,7 @@ class MigrateCommand extends Command
         '9a573aed31d901434d2cc5992799ed1b5ee6683d' => [ ['app:migrate', ['--prune-rp-texts' => true] ] ],
         '8c54cbfaf95df7f65f94eff00e03ca3bdea95810' => [ ['app:migrate', ['--prune-rp-texts' => true] ] ],
         'c25ec1d6d328d9d3bc03dda9d9bb34873a56484d' => [ ['app:migrate', ['--fix-forum-posts' => true] ] ],
+        '049ee184a6e5e2ecb5599a8fc7aa2a8b15948d36' => [ ['app:migrate', ['--reassign-thread-tags' => true] ] ],
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
@@ -312,7 +313,7 @@ class MigrateCommand extends Command
                 return 2;
             }
 
-            if (!$this->helper->capsule( 'doctrine:fixtures:load', $output )) {
+            if (!$this->helper->capsule( 'doctrine:fixtures:load --append', $output )) {
                 $output->writeln("<error>Unable to update fixtures.</error>");
                 return 3;
             }
@@ -733,9 +734,8 @@ class MigrateCommand extends Command
             $this->helper->leChunk($output, Forum::class, 2, [], true, true, function(Forum $forum) use($all_tags):bool {
 
                 $forum->getAllowedTags()->clear();
-                $tag_list = [];
 
-                if ($forum->getTown()) $tag_list = ['help','rp'];
+                if ($forum->getTown()) $tag_list = ['help','rp','event','dsc_disc','dsc_guide','dsc_orga'];
                 else $tag_list = array_map(fn(ThreadTag $t) => $t->getName(), $all_tags);
 
                 foreach ($all_tags as $tag) if (in_array($tag->getName(), $tag_list)) $forum->addAllowedTag($tag);

@@ -15,7 +15,7 @@
     <li class="back-dash" x-ajax-href="{{ url('game_landing') }}">{{ 'Zum Spiel'|trans({},'global') }}</li>
 {% endblock %}
 {% block ajax %}
-    {% macro valuelist(prop,val) %}
+    {% macro valuelist(prop,val,raw = false) %}
         <div class="row">
             <div class="padded cell rw-4 note note-lightest">{{ prop }}</div>
             <div class="padded cell rw-8">
@@ -23,6 +23,8 @@
                     {{ 'Ja'|trans({},'admin') }}
                 {% elseif val is same as(false)  %}
                     {{ 'Nein'|trans({},'admin') }}
+                {% elseif raw %}
+                    {{ val|raw }}
                 {% else %}
                     {{ val }}
                 {% endif %}
@@ -53,8 +55,8 @@
                     <div class="cell padded rw-6 rw-sm-12">
                         {{ _self.valuelist('ID'|trans({},'admin'),         town.id) }}
                         {{ _self.valuelist('Stadtname'|trans({},'admin'),  town.name) }}
-                        {{ _self.valuelist('Sprache'|trans({},'admin'),    town.language) }}
                         {{ _self.valuelist('Typ'|trans({},'admin'),        town.type.label|trans({},'game')) }}
+                        {{ _self.valuelist('Sprache'|trans({},'admin'),    '<img style="width: 24px" src="' ~ asset("build/images/lang/" ~ town.language ~ ".png") ~ '" alt="" />', true  ) }}
                         {{ _self.valuelist('Ersteller'|trans({},'admin'),  town.creator != null ? town.creator.name : '--') }}
                         {{ _self.valuelist('Population'|trans({},'admin'), town.population) }}
                         {{ _self.valuelist('Bürger'|trans({},'admin'),     town.citizens|length) }}
@@ -90,6 +92,7 @@
                                     {% endif %}
                                     <optgroup label="{{ 'Verwaltung'|trans({},'admin') }}">
                                         {% if is_granted("ROLE_ADMIN") %}
+                                            <option value="{{ url('admin_town_manage', {action: 'dice_name', id: town.id}) }}">{{ 'Stadtnamen regenerieren'|trans({},'admin') }}</option>
                                             <option x-alt-url="{{ path('admin_town_list') }}" value="{{ url('admin_town_manage', {action: 'nullify', id: town.id}) }}">{{ 'Annulieren'|trans({},'admin') }}</option>
                                             {% if town.open %}
                                                 {% if town.password is not null %}
@@ -172,6 +175,19 @@
                                     {% endfor %}
                                 </select>
                                 <div id="set_event_button" class="button inline small">{{ 'Ausführen'|trans({},'admin') }}</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="padded cell rw-4 note note-lightest"><label for="switch-language">{{ 'Sprache wechseln'|trans({},'admin') }}</label></div>
+                            <div class="padded cell rw-8">
+                                <select id="switch-language">
+                                    {% for lang in langs %}
+                                        {% if lang != town.language %}
+                                            <option x-param="{{ lang }}" value="{{ lang }}">{{ lang }}</option>
+                                        {% endif %}
+                                    {% endfor %}
+                                </select>
+                                <div id="set_language_button" class="button inline small">{{ 'Ausführen'|trans({},'admin') }}</div>
                             </div>
                         </div>
 
@@ -404,6 +420,13 @@
                                             <div class="tooltip normal">{{ widget_citizen(citizen) }}</div>
                                         {% endif %}
                                     </div>
+                                    <div style="align-self: center" class="cell factor-0">
+                                        {% if citizen.user.language is null %}
+                                            <img style="width: 16px" class="float-right" src="{{ asset("build/images/lang/multi.png") }}" alt="multi" />
+                                        {% else %}
+                                            <img style="width: 16px" class="float-right" src="{{ asset("build/images/lang/" ~ citizen.user.language ~ ".png") }}" alt="{{ citizen.user.language }}" />
+                                        {% endif %}
+                                    </div>
                                     <div class="cell factor-0 rw-sm-0 avatar ua-{{ random(0,9) }}" style="flex-basis: 90px; background: url('{{ citizen.user.avatar ? path('app_web_avatar', {'uid': citizen.user.id, 'name': citizen.user.avatar.smallName, 'ext': citizen.user.avatar.format}) : asset('build/images/forum/empty_avatar.gif') }}') center/cover no-repeat;" x-ajax-href="{{ url('admin_users_citizen_view', {id: citizen.user.id}) }}">&nbsp;</div>
                                     <div class="cell factor-0 citizen-{{ citizen.alive ? (citizen.online ? 'online' : 'offline') : 'dead' }}" style="flex-basis: 8px;" x-ajax-href="{{ url('admin_users_citizen_view', {id: citizen.user.id}) }}">&nbsp;</div>
                                     
@@ -435,24 +458,22 @@
                                         {% if citizen.alive %}
                                             <span class="zone">
                                             {% if citizen.zone %}
-                                            [{{citizen.zone.x}},{{citizen.zone.y}}]
-                                            {% else %}
-                                            [{{'In der Stadt'|trans({}, 'admin')}}]
+                                                [{{citizen.zone.x}},{{citizen.zone.y}}]
                                             {% endif %}
                                             </span>
                                         {% endif %}
                                         {% if citizen.home.description is not null or citizen.lastWords is not null %}
-                                        <div>
-                                            <img src="{{ asset('build/images/forum/r_forum.gif') }}" alt="" />
-                                            <div class="tooltip normal">
-                                                {% if citizen.home.description is not null and citizen.home.description != '' %}
-                                                {{ 'Persönliche Beschreibung:'|trans({},'admin') }} {{ citizen.home.description }}<br />
-                                                {% endif %}
-                                                {% if not citizen.alive and citizen.lastWords is not null and citizen.lastWords != '' %}
-                                                    {{ "Letzte Worte:"|trans({}, 'admin') }} {{ citizen.lastWords }}
-                                                {% endif %}
+                                            <div>
+                                                <img src="{{ asset('build/images/forum/r_forum.gif') }}" alt="" />
+                                                <div class="tooltip normal">
+                                                    {% if citizen.home.description is not null and citizen.home.description != '' %}
+                                                    {{ 'Persönliche Beschreibung:'|trans({},'admin') }} {{ citizen.home.description }}<br />
+                                                    {% endif %}
+                                                    {% if not citizen.alive and citizen.lastWords is not null and citizen.lastWords != '' %}
+                                                        {{ "Letzte Worte:"|trans({}, 'admin') }} {{ citizen.lastWords }}
+                                                    {% endif %}
+                                                </div>
                                             </div>
-                                        </div>
                                         {% endif %}
                                     </div>
                                 </div>
@@ -464,6 +485,20 @@
                                             <div class="padded cell rw-12 soul"><div class="invTargetPictos"></div></div>
                                         </div>
                                     </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <div class="row-flex v-center space">
+                            <div class="padded cell factor-0 center">
+                                <img src="{{ asset("build/images/lang/" ~ town.language ~ ".png") }}" alt="{{ town.language }}" /><br/>
+                                {{ 'Stadt'|trans({}, 'game') }}
+                            </div>
+                            <div class="cell factor-1"></div>
+                            {% for lang, count in citizen_langs_alive %}
+                                <div class="padded cell factor-0 center">
+                                    <img src="{{ asset("build/images/lang/" ~ lang ~ ".png") }}" alt="{{ lang }}" /><br/>
+                                    <b>{{ count }}</b><br />
+                                    <span class="small">{{ citizen_langs[lang] }}</span>
                                 </div>
                             {% endfor %}
                         </div>
@@ -805,6 +840,9 @@
             });
             document.getElementById('set_event_button').addEventListener('click', function() {
                 fun_api_call("{{ path('admin_town_set_event', {id: town.id}) }}", document.querySelector('#activate-event option:checked'));
+            });
+            document.getElementById('set_language_button').addEventListener('click', function() {
+                fun_api_call("{{ path('admin_town_set_lang', {id: town.id}) }}", document.querySelector('#switch-language option:checked'));
             });
             $.html.addEventListenerAll('[x-api-trigger]', 'click', function(e,elem) {
                 fun_api_call(elem.getAttribute('x-api-trigger'),elem);

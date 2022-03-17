@@ -1667,7 +1667,7 @@
     <unit id="Inm9E03" name="Stadt">
       <notes>
         <note category="german">Stadt</note>
-        <note category="from">twig:///templates/ajax/soul/season.html.twig;twig:///templates/ajax/soul/town_list.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/soul/season.html.twig;twig:///templates/ajax/soul/town_list.html.twig</note>
       </notes>
       <segment>
         <source>Stadt</source>
@@ -26303,11 +26303,42 @@
       <notes>
         <note category="german">Gibt an, wie viele Bürger diese Stadt gemeinsam mit einer Koalition betreten haben. Es werden sowohl Spieler gezählt die automatisch mit ihrer Koalition beitreten als auch solche, die manuell anderen Spielern aus ihrer Koalition folgen.</note>
         <note category="from">twig:///templates/ajax/ghost/intro.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Gibt an, wie viele Bürger diese Stadt gemeinsam mit einer Koalition betreten haben. Es werden sowohl Spieler gezählt die automatisch mit ihrer Koalition beitreten als auch solche, die manuell anderen Spielern aus ihrer Koalition folgen.</source>
         <target>Muestra cuántos ciudadanos se han unido a este pueblo junto con su alianza. Cuenta tanto ciudadanos que se unen automáticamente con su alianza como ciudadanos siguiéndolos manualmente al pueblo.</target>
+      </segment>
+    </unit>
+    <unit id="clpTyQQ" name="Du hast keine Seelenpunkte gewonnen.">
+      <notes>
+        <note category="german">Du hast keine Seelenpunkte gewonnen.</note>
+        <note category="from">twig:///templates/ajax/soul/death.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Du hast keine Seelenpunkte gewonnen.</source>
+        <target>Du hast keine Seelenpunkte gewonnen.</target>
+      </segment>
+    </unit>
+    <unit id="DAZTSgM" name="Ein anderer Bürger hat sich in der Zwischenzeit diesen Gegenstand geschnappt.">
+      <notes>
+        <note category="german">Ein anderer Bürger hat sich in der Zwischenzeit diesen Gegenstand geschnappt.</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
+      </notes>
+      <segment>
+        <source>Ein anderer Bürger hat sich in der Zwischenzeit diesen Gegenstand geschnappt.</source>
+        <target>Este objeto fue recogido por otro jugador.</target>
+      </segment>
+    </unit>
+    <unit id="hu7NaWX">
+      <notes>
+        <note category="german">Ein Moderator hat den Namen einer Stadt geändert, in der du mitgespielt hast. Alter Name: "{townOld}". Neuer Name: "{townNew}"</note>
+        <note category="from">db://LogEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Ein Moderator hat den Namen einer Stadt geändert, in der du mitgespielt hast. Alter Name: "{townOld}". Neuer Name: "{townNew}"</source>
+        <target>Ein Moderator hat den Namen einer Stadt geändert, in der du mitgespielt hast. Alter Name: "{townOld}". Neuer Name: "{townNew}"</target>
       </segment>
     </unit>
   </file>

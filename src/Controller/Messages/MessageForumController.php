@@ -511,7 +511,7 @@ class MessageForumController extends MessageController
             $em->persist($thread);
             $em->persist($forum);
 
-            $this->commit_post_with_polls($em,$post,$polls);
+            $this->commit_post_with_polls($em,$post,$polls ?? []);
 
         } catch (Exception $e) {
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
@@ -1420,7 +1420,7 @@ class MessageForumController extends MessageController
      * @param TranslatorInterface $ti
      * @return Response
      */
-    public function report_post_api(int $fid, int $tid, JSONRequestParser $parser, EntityManagerInterface $em, TranslatorInterface $ti): Response {
+    public function report_post_api(int $fid, int $tid, JSONRequestParser $parser, EntityManagerInterface $em, TranslatorInterface $ti, CrowService $crow): Response {
         if (!$parser->has('postId'))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
@@ -1462,6 +1462,11 @@ class MessageForumController extends MessageController
         } catch (Exception $e) {
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
+
+        try {
+            $crow->triggerExternalModNotification( "A forum message has been reported.", $post, $newReport, "This is report #{$post->getAdminReports()->count()}." );
+        } catch (\Throwable $e) {}
+
         $message = $ti->trans('Du hast die Nachricht von {username} dem Raben gemeldet. Wer weiß, vielleicht wird {username} heute Nacht stääärben...', ['{username}' => '<span>' . $post->getOwner()->getName() . '</span>'], 'game');
         $this->addFlash('notice', $message);
         return AjaxResponse::success( );

@@ -3,18 +3,15 @@
 
 namespace App\EventSubscriber;
 
-use App\Annotations\GateKeeperProfile;
 use App\Service\ConfMaster;
 use App\Structures\MyHordesConf;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\HttpKernel\Event\ControllerEvent;
 use Symfony\Component\HttpKernel\Event\ExceptionEvent;
-use Symfony\Component\HttpKernel\Event\ResponseEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
-use Symfony\Config\Twig\GlobalConfig;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 use Throwable;
 
 class ExceptionSubscriber implements EventSubscriberInterface
@@ -42,6 +39,8 @@ class ExceptionSubscriber implements EventSubscriberInterface
 
     public function onKernelException(ExceptionEvent $event) {
 
+        if (is_a( $event->getThrowable(), HttpException::class )) return;
+
         $error_id = md5( $event->getThrowable()->getFile() . "@" . $event->getThrowable()->getLine() . '@' . $this->version );
         $report_path = "{$this->report_path}/{$error_id}/";
 
@@ -59,23 +58,27 @@ class ExceptionSubscriber implements EventSubscriberInterface
                     "See attached stack trace for more information."
             ];
 
-            $curl = curl_init();
-            curl_setopt_array($curl, [
-                CURLOPT_VERBOSE => false,
-                CURLOPT_POST => true,
-                CURLOPT_URL => $this->discordEndpoint,
-                CURLOPT_TIMEOUT => 5,
-                CURLOPT_POSTFIELDS => [
-                    'payload_json' => new \CURLStringFile( json_encode( $payload, JSON_FORCE_OBJECT ), null, 'application/json' ),
-                    'files[0]'  => new \CURLStringFile( $event->getThrowable()->getTraceAsString(), 'stack.txt', 'text/plain' ),
-                ],
-            ]);
+            try {
+                $curl = curl_init();
+                curl_setopt_array($curl, [
+                    CURLOPT_VERBOSE => false,
+                    CURLOPT_RETURNTRANSFER => true,
+                    CURLOPT_POST => true,
+                    CURLOPT_URL => $this->discordEndpoint,
+                    CURLOPT_TIMEOUT => 5,
+                    CURLOPT_POSTFIELDS => [
+                        'payload_json' => new \CURLStringFile( json_encode( $payload, JSON_FORCE_OBJECT ), null, 'application/json' ),
+                        'files[0]'  => new \CURLStringFile( $event->getThrowable()->getTraceAsString(), 'stack.txt', 'text/plain' ),
+                    ],
+                ]);
 
-            $response = curl_exec($curl);
-            $status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+                $response = curl_exec($curl);
+                $status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 
-            if (!($response === false || $status < 200 || $status > 299))
-                file_put_contents( $discord_file, "".time() );
+                if (!($response === false || $status < 200 || $status > 299))
+                    file_put_contents( $discord_file, "".time() );
+            } catch (Throwable $e) {}
+
         }
 
         if ($this->gitlabIssueMail['from'] && $this->gitlabIssueMail['to'] && !file_exists($mail_file)) {
@@ -93,7 +96,7 @@ class ExceptionSubscriber implements EventSubscriberInterface
                                            "/confidential\n/label ~Bug ~High ~Automatic"
                                        )
                                        ->attach( $event->getThrowable()->getTraceAsString(), 'stack.txt', 'text/plain' ) );
-                //file_put_contents( $mail_file, "".time() );
+                file_put_contents( $mail_file, "".time() );
             } catch (Throwable $e) {}
         }
 
