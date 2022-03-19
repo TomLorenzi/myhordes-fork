@@ -16559,5 +16559,11 @@
         <target>Ein Moderator hat den Namen einer Stadt geändert, in der du mitgespielt hast. Alter Name: "{townOld}". Neuer Name: "{townNew}"</target>
       </segment>
     </unit>
+    <unit id="cokluf." name="Mysteriöser Fremder">
+      <segment>
+        <source>Mysteriöser Fremder</source>
+        <target>Mysteriöser Fremder</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

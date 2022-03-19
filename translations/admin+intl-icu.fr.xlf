@@ -4602,5 +4602,27 @@
         <target>Changer la langue</target>
       </segment>
     </unit>
+    <unit id="jupu8vs" name="Fremder">
+      <notes>
+        <note category="german">Fremder</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Fremder</source>
+        <target>Fremder</target>
+      </segment>
+    </unit>
+    <unit id="bHjGkUb" name="Mysteriösen Fremden aktivieren">
+      <notes>
+        <note category="german">Mysteriösen Fremden aktivieren</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Mysteriösen Fremden aktivieren</source>
+        <target>Mysteriösen Fremden aktivieren</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

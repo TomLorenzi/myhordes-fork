@@ -451,6 +451,7 @@ class TownHandler
 
     public function calculate_town_def( Town &$town, ?TownDefenseSummary &$summary = null ): int {
         $summary = new TownDefenseSummary();
+        $summary->base_defense += $town->getStrangerPower();
 
         $f_house_def = 0.0;
         $summary->guardian_defense = 0;

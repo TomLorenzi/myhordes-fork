@@ -584,7 +584,7 @@
     </unit>
     <unit id="VasxdH5" name="Routen">
       <notes>
-        <note category="german">Routen</note>
+        <note category="german">Expeditionen</note>
         <note category="from">php:///src/Controller/InventoryAwareController.php;twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
@@ -3857,7 +3857,7 @@
     <unit id="IYYfo2O" name="Unbekannte Todesursache">
       <notes>
         <note category="german">Unbekannte Todesursache</note>
-        <note category="from">db://CauseOfDeath;twig:///templates/ajax/soul/view_town_content.html.twig</note>
+        <note category="from">db://CauseOfDeath;twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
       </notes>
       <segment>
         <source>Unbekannte Todesursache</source>
@@ -15197,7 +15197,6 @@
     <unit id="3GHNz5u" name="Leprechaun wurde gesehen, wie er den {item} von {victim} stahl!">
       <notes>
         <note category="german">Leprechaun wurde gesehen, wie er den {item} von {victim} stahl!</note>
-        <note category="state">new</note>
         <note category="from">db://LogEntryTemplate</note>
       </notes>
       <segment>
@@ -26428,6 +26427,16 @@
       <segment>
         <source>Ein Moderator hat den Namen einer Stadt geändert, in der du mitgespielt hast. Alter Name: "{townOld}". Neuer Name: "{townNew}"</source>
         <target>A moderator edited the name of a town you've been a part of. Old name: "{townOld}". New name: "{townNew}"</target>
+      </segment>
+    </unit>
+    <unit id="cokluf." name="Mysteriöser Fremder">
+      <notes>
+        <note category="german">Mysteriöser Fremder</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig</note>
+      </notes>
+      <segment>
+        <source>Mysteriöser Fremder</source>
+        <target>Mysterious Stranger</target>
       </segment>
     </unit>
   </file>
