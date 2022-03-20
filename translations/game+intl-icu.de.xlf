@@ -16601,5 +16601,17 @@
         <target>Du solltest anfangen, Vorbereitungen für die Verteidigung der Stadt zu treffen.</target>
       </segment>
     </unit>
+    <unit id="MpMKNqM">
+      <segment>
+        <source>Dank deines Kostüms konntest du {item} von {victim} stehlen, &lt;strong&gt;ohne erkannt zu werden&lt;/strong&gt;.&lt;hr/&gt;Ho ho ho.</source>
+        <target><![CDATA[Dank deines Kostüms konntest du {item} von {victim} stehlen, <strong>ohne erkannt zu werden</strong>.<hr/>Ho ho ho.]]></target>
+      </segment>
+    </unit>
+    <unit id="tKtk0pS">
+      <segment>
+        <source>Dank deines Kostüms konntest du {item} von {victim} stehlen, &lt;strong&gt;ohne erkannt zu werden&lt;/strong&gt;.&lt;hr/&gt;Was für ein guter Morgen!</source>
+        <target><![CDATA[Dank deines Kostüms konntest du {item} von {victim} stehlen, <strong>ohne erkannt zu werden</strong>.<hr/>Was für ein guter Morgen!]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

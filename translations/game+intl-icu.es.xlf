@@ -26417,5 +26417,25 @@
         <target>Du solltest anfangen, Vorbereitungen für die Verteidigung der Stadt zu treffen.</target>
       </segment>
     </unit>
+    <unit id="MpMKNqM">
+      <notes>
+        <note category="german">Dank deines Kostüms konntest du {item} von {victim} stehlen, &lt;strong&gt;ohne erkannt zu werden&lt;/strong&gt;.&lt;hr/&gt;Ho ho ho.</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php</note>
+      </notes>
+      <segment>
+        <source>Dank deines Kostüms konntest du {item} von {victim} stehlen, &lt;strong&gt;ohne erkannt zu werden&lt;/strong&gt;.&lt;hr/&gt;Ho ho ho.</source>
+        <target><![CDATA[Gracias a tu <strong>disfraz</strong>, lograste arrebatarle {item} a {victim} <strong>y nadie vio nada</strong>.<hr />Ho ho ho.]]></target>
+      </segment>
+    </unit>
+    <unit id="tKtk0pS">
+      <notes>
+        <note category="german">Dank deines Kostüms konntest du {item} von {victim} stehlen, &lt;strong&gt;ohne erkannt zu werden&lt;/strong&gt;.&lt;hr/&gt;Was für ein guter Morgen!</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php</note>
+      </notes>
+      <segment>
+        <source>Dank deines Kostüms konntest du {item} von {victim} stehlen, &lt;strong&gt;ohne erkannt zu werden&lt;/strong&gt;.&lt;hr/&gt;Was für ein guter Morgen!</source>
+        <target><![CDATA[Gracias a tu <strong>disfraz</strong>, lograste arrebatarle {item} a {victim} <strong>y nadie vio nada</strong>.<hr />¡Buenos días para ti!]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -26133,7 +26133,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Mysteriöser Fremder</note>
         <note category="from">twig:///templates/ajax/game/town/citizen.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Mysteriöser Fremder</source>
@@ -26198,6 +26197,26 @@ cette violente opération...]]></target>
       <segment>
         <source>Du solltest anfangen, Vorbereitungen für die Verteidigung der Stadt zu treffen.</source>
         <target>Vous devriez commencer à préparer les défenses de la ville !</target>
+      </segment>
+    </unit>
+    <unit id="MpMKNqM">
+      <notes>
+        <note category="german">Dank deines Kostüms konntest du {item} von {victim} stehlen, &lt;strong&gt;ohne erkannt zu werden&lt;/strong&gt;.&lt;hr/&gt;Ho ho ho.</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php</note>
+      </notes>
+      <segment>
+        <source>Dank deines Kostüms konntest du {item} von {victim} stehlen, &lt;strong&gt;ohne erkannt zu werden&lt;/strong&gt;.&lt;hr/&gt;Ho ho ho.</source>
+        <target><![CDATA[Grâce à votre <strong>costume</strong>, vous avez pu voler {item} à {victim} sans être vu(e).<hr />Hô hô hô.]]></target>
+      </segment>
+    </unit>
+    <unit id="tKtk0pS">
+      <notes>
+        <note category="german">Dank deines Kostüms konntest du {item} von {victim} stehlen, &lt;strong&gt;ohne erkannt zu werden&lt;/strong&gt;.&lt;hr/&gt;Was für ein guter Morgen!</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php</note>
+      </notes>
+      <segment>
+        <source>Dank deines Kostüms konntest du {item} von {victim} stehlen, &lt;strong&gt;ohne erkannt zu werden&lt;/strong&gt;.&lt;hr/&gt;Was für ein guter Morgen!</source>
+        <target><![CDATA[Grâce à votre <strong>costume</strong>, vous avez réussi à voler {item} à {victime} <strong>et personne n’a vu quoi que ce soit</strong>.<hr />Bonne matinée à toi !]]></target>
       </segment>
     </unit>
   </file>
