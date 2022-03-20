@@ -26140,5 +26140,65 @@ cette violente opération...]]></target>
         <target>Mysteriöser Fremder</target>
       </segment>
     </unit>
+    <unit id="nWjbqz8" name="Die Horde kommt!">
+      <notes>
+        <note category="german">Die Horde kommt!</note>
+        <note category="from">twig:///templates/ajax/game/notifications/stranger.html.twig</note>
+      </notes>
+      <segment>
+        <source>Die Horde kommt!</source>
+        <target>La horde arrive !</target>
+      </segment>
+    </unit>
+    <unit id="rxUjiVx">
+      <notes>
+        <note category="german">Ein fauliger Geruch liegt in der Luft und du hörst ein immer lauter werdendes Stöhnen in der Ferne...</note>
+        <note category="from">twig:///templates/ajax/game/notifications/stranger.html.twig</note>
+      </notes>
+      <segment>
+        <source>Ein fauliger Geruch liegt in der Luft und du hörst ein immer lauter werdendes Stöhnen in der Ferne...</source>
+        <target>Une odeur putride flotte dans l'air et vous entendez des gémissements de plus en plus forts au loin...</target>
+      </segment>
+    </unit>
+    <unit id="4xBohtt">
+      <notes>
+        <note category="german">Die Zeichen sind klar; eine Horde von Zombies bewegt sich schlurfend auf die Stadt zu. Du schätzt, dass sie um Mitternacht eintreffen wird.</note>
+        <note category="from">twig:///templates/ajax/game/notifications/stranger.html.twig</note>
+      </notes>
+      <segment>
+        <source>Die Zeichen sind klar; eine Horde von Zombies bewegt sich schlurfend auf die Stadt zu. Du schätzt, dass sie um Mitternacht eintreffen wird.</source>
+        <target>Les signes sont clairs : une horde de zombies se dirige vers la ville ! Vous estimez qu'elle sera là vers minuit.</target>
+      </segment>
+    </unit>
+    <unit id="awC3BNG">
+      <notes>
+        <note category="german">Außerdem berichten unsere Späher, dass sie einen Mysteriösen Fremden in der Umgebung der Stadt gesichtet haben...</note>
+        <note category="from">twig:///templates/ajax/game/notifications/stranger.html.twig</note>
+      </notes>
+      <segment>
+        <source>Außerdem berichten unsere Späher, dass sie einen Mysteriösen Fremden in der Umgebung der Stadt gesichtet haben...</source>
+        <target>De plus, nos éclaireurs signalent avoir repéré un mystérieux étranger dans les environs de la ville...</target>
+      </segment>
+    </unit>
+    <unit id="N2bzV9x">
+      <notes>
+        <note category="german">Heute Nacht wird ein Angriff stattfinden, selbst wenn die Stadt noch keine Einwohnerzahl von {population} erreicht hat.</note>
+        <note category="from">twig:///templates/ajax/game/notifications/stranger.html.twig</note>
+      </notes>
+      <segment>
+        <source>Heute Nacht wird ein Angriff stattfinden, selbst wenn die Stadt noch keine Einwohnerzahl von {population} erreicht hat.</source>
+        <target>Il y aura une attaque ce soir, même si la ville n'a pas atteint {population} citoyens.</target>
+      </segment>
+    </unit>
+    <unit id="07BtizJ" name="Du solltest anfangen, Vorbereitungen für die Verteidigung der Stadt zu treffen.">
+      <notes>
+        <note category="german">Du solltest anfangen, Vorbereitungen für die Verteidigung der Stadt zu treffen.</note>
+        <note category="from">twig:///templates/ajax/game/notifications/stranger.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du solltest anfangen, Vorbereitungen für die Verteidigung der Stadt zu treffen.</source>
+        <target>Vous devriez commencer à préparer les défenses de la ville !</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

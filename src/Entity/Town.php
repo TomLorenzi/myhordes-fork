@@ -199,6 +199,11 @@ class Town
      */
     private $strangerEnabled = false;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $forceStartAhead = false;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -853,6 +858,18 @@ class Town
     public function setStrangerEnabled(bool $strangerEnabled): self
     {
         $this->strangerEnabled = $strangerEnabled;
+
+        return $this;
+    }
+
+    public function getForceStartAhead(): ?bool
+    {
+        return $this->forceStartAhead;
+    }
+
+    public function setForceStartAhead(bool $forceStartAhead): self
+    {
+        $this->forceStartAhead = $forceStartAhead;
 
         return $this;
     }

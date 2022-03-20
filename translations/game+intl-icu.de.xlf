@@ -16565,5 +16565,41 @@
         <target>Mysteriöser Fremder</target>
       </segment>
     </unit>
+    <unit id="nWjbqz8" name="Die Horde kommt!">
+      <segment>
+        <source>Die Horde kommt!</source>
+        <target>Die Horde kommt!</target>
+      </segment>
+    </unit>
+    <unit id="rxUjiVx">
+      <segment>
+        <source>Ein fauliger Geruch liegt in der Luft und du hörst ein immer lauter werdendes Stöhnen in der Ferne...</source>
+        <target>Ein fauliger Geruch liegt in der Luft und du hörst ein immer lauter werdendes Stöhnen in der Ferne...</target>
+      </segment>
+    </unit>
+    <unit id="4xBohtt">
+      <segment>
+        <source>Die Zeichen sind klar; eine Horde von Zombies bewegt sich schlurfend auf die Stadt zu. Du schätzt, dass sie um Mitternacht eintreffen wird.</source>
+        <target>Die Zeichen sind klar; eine Horde von Zombies bewegt sich schlurfend auf die Stadt zu. Du schätzt, dass sie um Mitternacht eintreffen wird.</target>
+      </segment>
+    </unit>
+    <unit id="awC3BNG">
+      <segment>
+        <source>Außerdem berichten unsere Späher, dass sie einen Mysteriösen Fremden in der Umgebung der Stadt gesichtet haben...</source>
+        <target>Außerdem berichten unsere Späher, dass sie einen Mysteriösen Fremden in der Umgebung der Stadt gesichtet haben...</target>
+      </segment>
+    </unit>
+    <unit id="N2bzV9x">
+      <segment>
+        <source>Heute Nacht wird ein Angriff stattfinden, selbst wenn die Stadt noch keine Einwohnerzahl von {population} erreicht hat.</source>
+        <target>Heute Nacht wird ein Angriff stattfinden, selbst wenn die Stadt noch keine Einwohnerzahl von {population} erreicht hat.</target>
+      </segment>
+    </unit>
+    <unit id="07BtizJ" name="Du solltest anfangen, Vorbereitungen für die Verteidigung der Stadt zu treffen.">
+      <segment>
+        <source>Du solltest anfangen, Vorbereitungen für die Verteidigung der Stadt zu treffen.</source>
+        <target>Du solltest anfangen, Vorbereitungen für die Verteidigung der Stadt zu treffen.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

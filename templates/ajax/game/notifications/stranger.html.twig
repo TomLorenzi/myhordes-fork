@@ -1,0 +1,23 @@
+<div class="inner-notification-header">
+    <img class="float-left" alt="" src="{{ asset('build/images/background/popup/feist.gif') }}">
+    <strong>{{ 'Die Horde kommt!'|trans({},'game') }}</strong>
+</div>
+<div class="inner-notification-content">
+    <p class="small">
+        {% trans from 'game' %}
+            Ein fauliger Geruch liegt in der Luft und du hörst ein immer lauter werdendes Stöhnen in der Ferne...
+        {% endtrans %}<br />
+        {% trans from 'game' %}
+            Die Zeichen sind klar; eine Horde von Zombies bewegt sich schlurfend auf die Stadt zu. Du schätzt, dass sie um Mitternacht eintreffen wird.
+        {% endtrans %}<br />
+        <i>{% trans from 'game' %}
+            Außerdem berichten unsere Späher, dass sie einen Mysteriösen Fremden in der Umgebung der Stadt gesichtet haben...
+        {% endtrans %}</i>
+    </p>
+    <p>
+        <b>{{ 'Heute Nacht wird ein Angriff stattfinden, selbst wenn die Stadt noch keine Einwohnerzahl von {population} erreicht hat.'|trans({population: population},'game') }}</b>
+        {% trans from 'game' %}
+            Du solltest anfangen, Vorbereitungen für die Verteidigung der Stadt zu treffen.
+        {% endtrans %}
+    </p>
+</div>
