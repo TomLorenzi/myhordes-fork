@@ -16613,5 +16613,11 @@
         <target><![CDATA[Dank deines Kostüms konntest du {item} von {victim} stehlen, <strong>ohne erkannt zu werden</strong>.<hr/>Was für ein guter Morgen!]]></target>
       </segment>
     </unit>
+    <unit id="etOQTse">
+      <segment>
+        <source>Du kannst diese Aktion nicht durchführen, während in der Stadt &lt;strong&gt;Chaos&lt;/strong&gt; herrscht.</source>
+        <target><![CDATA[Du kannst diese Aktion nicht durchführen, während in der Stadt <strong>Chaos</strong> herrscht.]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

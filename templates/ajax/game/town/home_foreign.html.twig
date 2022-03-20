@@ -357,9 +357,7 @@
                             {% if chest.items|length > 0 or hidden %}
                                 <button x-action-id="enablesteal"><img src="{{asset('build/images/icons/home.gif')}}" alt="" /> {{'Einen Gegenstand stehlen'|trans({}, 'game')}}</button>
                             {% endif %}
-                            {% if not owner.town.chaos %}
-                                <button x-action-id="enablesneak">{{'Einen Gegenstand hinterlassen'|trans({}, 'game')}}</button>
-                            {% endif %}
+                            <button x-action-id="enablesneak">{{'Einen Gegenstand hinterlassen'|trans({}, 'game')}}</button>
                         {% endif %}
 
                     {% endif %}
@@ -505,8 +503,14 @@
                 if (ev.target.getAttribute('x-action-id') == "enablesteal") {
                     msg = "{{ 'Bist du sicher, dass du hier einbrechen und einen Gegenstand stehlen willst?'|trans({},'game')|e('js') }}";
                 } else if (ev.target.getAttribute('x-action-id') == "enablesneak") {
-                    msg = "{{ 'Bist du sicher, dass du hier einbrechen und einen Gegenstand hinterlassen willst?'|trans({},'game')|e('js') }}";
+                    {% if not owner.town.chaos %}
+                        msg = "{{ 'Bist du sicher, dass du hier einbrechen und einen Gegenstand hinterlassen willst?'|trans({},'game')|e('js') }}";
+                    {% else %}
+                        $.html.error('{{ 'Du kannst diese Aktion nicht durchführen, während in der Stadt <strong>Chaos</strong> herrscht.'|trans({},'game')|e('js') }}');
+                        return
+                    {% endif %}
                 }
+
                 if (msg && !confirm(msg))
                     return;
 

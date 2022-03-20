@@ -26519,5 +26519,16 @@
         <target><![CDATA[Thanks to your <strong>costume</strong>, you managed to swipe the {item} from {victim} <strong>and nobody saw a thing</strong>.<hr />Top o' the mornin' to ye!]]></target>
       </segment>
     </unit>
+    <unit id="etOQTse">
+      <notes>
+        <note category="german">Du kannst diese Aktion nicht durchführen, während in der Stadt &lt;strong&gt;Chaos&lt;/strong&gt; herrscht.</note>
+        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Du kannst diese Aktion nicht durchführen, während in der Stadt &lt;strong&gt;Chaos&lt;/strong&gt; herrscht.</source>
+        <target><![CDATA[Du kannst diese Aktion nicht durchführen, während in der Stadt <strong>Chaos</strong> herrscht.]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

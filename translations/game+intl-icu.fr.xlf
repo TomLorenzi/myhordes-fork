@@ -26219,5 +26219,15 @@ cette violente opération...]]></target>
         <target><![CDATA[Grâce à votre <strong>costume</strong>, vous avez réussi à voler {item} à {victime} <strong>et personne n’a vu quoi que ce soit</strong>.<hr />Bonne matinée à toi !]]></target>
       </segment>
     </unit>
+    <unit id="etOQTse">
+      <notes>
+        <note category="german">Du kannst diese Aktion nicht durchführen, während in der Stadt &lt;strong&gt;Chaos&lt;/strong&gt; herrscht.</note>
+        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du kannst diese Aktion nicht durchführen, während in der Stadt &lt;strong&gt;Chaos&lt;/strong&gt; herrscht.</source>
+        <target><![CDATA[Il est impossible de faire cela en période de <strong>chaos</strong> !]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>
