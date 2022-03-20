@@ -584,7 +584,7 @@
     </unit>
     <unit id="VasxdH5" name="Routen">
       <notes>
-        <note category="german">Routen</note>
+        <note category="german">Expeditionen</note>
         <note category="from">php:///src/Controller/InventoryAwareController.php;twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
@@ -4066,7 +4066,7 @@
     <unit id="IYYfo2O" name="Unbekannte Todesursache">
       <notes>
         <note category="german">Unbekannte Todesursache</note>
-        <note category="from">db://CauseOfDeath;twig:///templates/ajax/soul/view_town_content.html.twig</note>
+        <note category="from">db://CauseOfDeath;twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
       </notes>
       <segment>
         <source>Unbekannte Todesursache</source>
@@ -26123,11 +26123,120 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Ein Moderator hat den Namen einer Stadt geändert, in der du mitgespielt hast. Alter Name: "{townOld}". Neuer Name: "{townNew}"</note>
         <note category="from">db://LogEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ein Moderator hat den Namen einer Stadt geändert, in der du mitgespielt hast. Alter Name: "{townOld}". Neuer Name: "{townNew}"</source>
-        <target>Ein Moderator hat den Namen einer Stadt geändert, in der du mitgespielt hast. Alter Name: "{townOld}". Neuer Name: "{townNew}"</target>
+        <target>Un modérateur a changé le nom d'une ville dans laquelle vous avez joué. Ancien nom : "{townOld}". Nouveau nom : "{townNew}"</target>
+      </segment>
+    </unit>
+    <unit id="cokluf." name="Mysteriöser Fremder">
+      <notes>
+        <note category="german">Mysteriöser Fremder</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig</note>
+      </notes>
+      <segment>
+        <source>Mysteriöser Fremder</source>
+        <target>Mystérieux étranger</target>
+      </segment>
+    </unit>
+    <unit id="nWjbqz8" name="Die Horde kommt!">
+      <notes>
+        <note category="german">Die Horde kommt!</note>
+        <note category="from">twig:///templates/ajax/game/notifications/stranger.html.twig</note>
+      </notes>
+      <segment>
+        <source>Die Horde kommt!</source>
+        <target>La horde arrive !</target>
+      </segment>
+    </unit>
+    <unit id="rxUjiVx">
+      <notes>
+        <note category="german">Ein fauliger Geruch liegt in der Luft und du hörst ein immer lauter werdendes Stöhnen in der Ferne...</note>
+        <note category="from">twig:///templates/ajax/game/notifications/stranger.html.twig</note>
+      </notes>
+      <segment>
+        <source>Ein fauliger Geruch liegt in der Luft und du hörst ein immer lauter werdendes Stöhnen in der Ferne...</source>
+        <target>Une odeur putride flotte dans l'air et vous entendez des gémissements de plus en plus forts au loin...</target>
+      </segment>
+    </unit>
+    <unit id="4xBohtt">
+      <notes>
+        <note category="german">Die Zeichen sind klar; eine Horde von Zombies bewegt sich schlurfend auf die Stadt zu. Du schätzt, dass sie um Mitternacht eintreffen wird.</note>
+        <note category="from">twig:///templates/ajax/game/notifications/stranger.html.twig</note>
+      </notes>
+      <segment>
+        <source>Die Zeichen sind klar; eine Horde von Zombies bewegt sich schlurfend auf die Stadt zu. Du schätzt, dass sie um Mitternacht eintreffen wird.</source>
+        <target>Les signes sont clairs : une horde de zombies se dirige vers la ville ! Vous estimez qu'elle sera là vers minuit.</target>
+      </segment>
+    </unit>
+    <unit id="awC3BNG">
+      <notes>
+        <note category="german">Außerdem berichten unsere Späher, dass sie einen Mysteriösen Fremden in der Umgebung der Stadt gesichtet haben...</note>
+        <note category="from">twig:///templates/ajax/game/notifications/stranger.html.twig</note>
+      </notes>
+      <segment>
+        <source>Außerdem berichten unsere Späher, dass sie einen Mysteriösen Fremden in der Umgebung der Stadt gesichtet haben...</source>
+        <target>De plus, nos éclaireurs signalent avoir repéré un mystérieux étranger dans les environs de la ville...</target>
+      </segment>
+    </unit>
+    <unit id="N2bzV9x">
+      <notes>
+        <note category="german">Heute Nacht wird ein Angriff stattfinden, selbst wenn die Stadt noch keine Einwohnerzahl von {population} erreicht hat.</note>
+        <note category="from">twig:///templates/ajax/game/notifications/stranger.html.twig</note>
+      </notes>
+      <segment>
+        <source>Heute Nacht wird ein Angriff stattfinden, selbst wenn die Stadt noch keine Einwohnerzahl von {population} erreicht hat.</source>
+        <target>Il y aura une attaque ce soir, même si la ville n'a pas atteint {population} citoyens.</target>
+      </segment>
+    </unit>
+    <unit id="07BtizJ" name="Du solltest anfangen, Vorbereitungen für die Verteidigung der Stadt zu treffen.">
+      <notes>
+        <note category="german">Du solltest anfangen, Vorbereitungen für die Verteidigung der Stadt zu treffen.</note>
+        <note category="from">twig:///templates/ajax/game/notifications/stranger.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du solltest anfangen, Vorbereitungen für die Verteidigung der Stadt zu treffen.</source>
+        <target>Vous devriez commencer à préparer les défenses de la ville !</target>
+      </segment>
+    </unit>
+    <unit id="MpMKNqM">
+      <notes>
+        <note category="german">Dank deines Kostüms konntest du {item} von {victim} stehlen, &lt;strong&gt;ohne erkannt zu werden&lt;/strong&gt;.&lt;hr/&gt;Ho ho ho.</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php</note>
+      </notes>
+      <segment>
+        <source>Dank deines Kostüms konntest du {item} von {victim} stehlen, &lt;strong&gt;ohne erkannt zu werden&lt;/strong&gt;.&lt;hr/&gt;Ho ho ho.</source>
+        <target><![CDATA[Grâce à votre <strong>costume</strong>, vous avez pu voler {item} à {victim} sans être vu(e).<hr />Hô hô hô.]]></target>
+      </segment>
+    </unit>
+    <unit id="tKtk0pS">
+      <notes>
+        <note category="german">Dank deines Kostüms konntest du {item} von {victim} stehlen, &lt;strong&gt;ohne erkannt zu werden&lt;/strong&gt;.&lt;hr/&gt;Was für ein guter Morgen!</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php</note>
+      </notes>
+      <segment>
+        <source>Dank deines Kostüms konntest du {item} von {victim} stehlen, &lt;strong&gt;ohne erkannt zu werden&lt;/strong&gt;.&lt;hr/&gt;Was für ein guter Morgen!</source>
+        <target><![CDATA[Grâce à votre <strong>costume</strong>, vous avez réussi à voler {item} à {victime} <strong>et personne n’a vu quoi que ce soit</strong>.<hr />Bonne matinée à toi !]]></target>
+      </segment>
+    </unit>
+    <unit id="etOQTse">
+      <notes>
+        <note category="german">Du kannst diese Aktion nicht durchführen, während in der Stadt &lt;strong&gt;Chaos&lt;/strong&gt; herrscht.</note>
+        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du kannst diese Aktion nicht durchführen, während in der Stadt &lt;strong&gt;Chaos&lt;/strong&gt; herrscht.</source>
+        <target><![CDATA[Il est impossible de faire cela en période de <strong>chaos</strong> !]]></target>
+      </segment>
+    </unit>
+    <unit id="niUF_zZ">
+      <notes>
+        <note category="german">Du kannst keinen Bürger bestehlen, dem &lt;strong&gt;du heute einen Gegenstand per Post&lt;/strong&gt; gesendet hast (Missbrauchschutz).</note>
+        <note category="from">twig:///templates/scripts/errors/inventory.txt.twig</note>
+      </notes>
+      <segment>
+        <source>Du kannst keinen Bürger bestehlen, dem &lt;strong&gt;du heute einen Gegenstand per Post&lt;/strong&gt; gesendet hast (Missbrauchschutz).</source>
+        <target><![CDATA[Vous ne pouvez pas cambrioler un citoyen <strong>à qui vous avez envoyé un objet par courrier aujourd'hui</strong> (mesure anti-abus).]]></target>
       </segment>
     </unit>
   </file>

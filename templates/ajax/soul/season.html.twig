@@ -54,16 +54,16 @@
             <div class="cell padded rw-12">
                 {% if towns|length > 0 %}
                 <div class="row-flex header">
-                    <div class="cell padded rw-1 center">
+                    <div class="cell padded rw-1 rw-sm-0 center">
                         {{'Lang.'|trans({}, 'soul')}}
                     </div>
-                    <div class="cell padded rw-1 center">
+                    <div class="cell padded rw-1 rw-sm-0 center">
                         {{'Pos.'|trans({}, 'soul')}}
                     </div>
-                    <div class="cell padded rw-6 center">
+                    <div class="cell padded rw-6 rw-sm-10 center">
                         {{'Stadt'|trans({}, 'game')}}
                     </div>
-                    <div class="cell padded rw-2 center">
+                    <div class="cell padded rw-2 rw-sm-0 center">
                         {{'Überlebte Tage'|trans({}, 'soul')}}
                     </div>
                     <div class="cell padded rw-2 center">
@@ -75,7 +75,7 @@
                     {% for town in towns %}
                         <div class="row-flex stretch season_entry {% if pos is not odd %}even{% endif %} {% if played[town.id] is defined %}played{% endif %}">
                             {# @var town \src\Entity\TownRankingProxy #}
-                            <div class="cell rw-1 season_entry_td center"><img src="{{ asset("build/images/lang/" ~ town.language ~".png") }}" alt="{{ town.language }}" /></div>
+                            <div class="cell rw-1 season_entry_td center"><img class="fit" style="max-width: 32px;" src="{{ asset("build/images/lang/" ~ town.language ~".png") }}" alt="{{ town.language }}" /></div>
                             <div class="cell rw-1 season_entry_td center">{{ pos }}</div>
                                 <div class="cell rw-6 season_entry_td left"><div class="inline-block"><img x-town-details="{{ town.id }}" x-town-toggle="{{ town.id }}" class="pointer" alt="+" src="{{ asset('build/images/icons/small_more.gif') }}" alt-src="{{ asset('build/images/icons/small_less.gif') }}" /><div class="tooltip help">{{ 'Die Liste der eingeschriebenen Spieler ansehen.'|trans({},'game') }}</div></div> {{ town.name }}</div>
                             <div class="cell rw-2 season_entry_td center" style="color: #f0d79e">{{ town.days }}</div>
@@ -97,13 +97,13 @@
                         {% endif %}
                         <div x-town-tohide="{{ town.id }}" class="row-flex stretch season_entry_container hidden" style="background-color: #5c2b20">
                             <div class="cell rw-1" style="border-right: 1px solid #7e4d2a;"></div>
-                            <div class="cell rw-1"></div>
-                            <div x-town-details="{{ town.id }}" class="cell rw-8">
+                            <div class="cell rw-1 rw-md-0"></div>
+                            <div x-town-details="{{ town.id }}" class="cell rw-8 rw-md-11">
                                 <ul class="citizen-list">
                                     {% for denizen in town.citizens|sort((a,b) => b.day <=> a.day ?: b.end <=> a.end) %}
                                         {# @var denizen \App\Entity\CitizenRankingProxy #}
-                                        <li class="row" style="border-bottom: 1px dashed #ddab76;{% if denizen.user.id == user.id %}background-color: #3b3249;{% endif %}">
-                                            <div class="cell padded rw-4">
+                                        <li class="row-flex wrap" style="border-bottom: 1px dashed #ddab76;{% if denizen.user.id == user.id %}background-color: #3b3249;{% endif %}">
+                                            <div class="cell padded rw-4 rw-sm-10">
                                                 {% if denizen.cod.ref == constant("App\\Entity\\CauseOfDeath::Vanished") %}
                                                     <div class="inline-block"><img src="{{ asset("build/images/death/outside.gif") }}" alt="" /> <div class="tooltip">{{ 'Draußen gestorben'|trans({}, 'soul') }}</div></div>
                                                 {% else %}
@@ -111,14 +111,14 @@
                                                 {% endif %}
                                                 {% include 'ajax/soul/playername.html.twig' with {user: denizen.user, additional_classes: ['undecorated']} only %}
                                             </div>
-                                            <div class="cell padded rw-1" style="color:#f8eacb">{{ denizen.day }}</div>
-                                            <div class="cell padded rw-4"><em>{{ denizen.lastWords|replace({'{gotKilled}': '...der Mörder .. ist.. IST.. AAARGHhh..'|trans({},'game')}) }}</em></div>
+                                            <div class="cell padded rw-1 rw-sm-2" style="color:#f8eacb">{{ denizen.day }}</div>
+                                            <div class="cell padded rw-4 rw-md-7 rw-sm-12"><em>{{ denizen.lastWords|replace({'{gotKilled}': '...der Mörder .. ist.. IST.. AAARGHhh..'|trans({},'game')}) }}</em></div>
                                         </li>
                                     {% endfor %}
                                 </ul>
                                 <div class="right"><span class="small pointer" x-town-toggle="{{ town.id }}">{{ 'Schließen'|trans({},'global') }}</span></div>
                             </div>
-                            <div class="cell rw-2"></div>
+                            <div class="cell rw-2 rw-md-0"></div>
                         </div>
                         <!-- to compensate even/odd coloring (2 rows per town makes them all even and it's incorrect, so we need 3) -->
                         <!-- (also helps with a border issue) -->

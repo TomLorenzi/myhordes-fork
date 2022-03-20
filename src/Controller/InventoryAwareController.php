@@ -120,6 +120,11 @@ class InventoryAwareController extends CustomAbstractController
             $this->getActiveCitizen()->addHelpNotification( $this->entity_manager->getRepository(HelpNotificationMarker::class)->findOneByName('insurrection') );
             $this->entity_manager->persist($this->getActiveCitizen());
             $this->entity_manager->flush();
+        } else if ($this->getActiveCitizen()->getTown()->getForceStartAhead() && !$this->getActiveCitizen()->hasSeenHelpNotification('stranger') ) {
+            $this->addFlash('popup-stranger', $this->renderView('ajax/game/notifications/stranger.html.twig', ['population' => $this->getActiveCitizen()->getTown()->getPopulation()]));
+            $this->getActiveCitizen()->addHelpNotification( $this->entity_manager->getRepository(HelpNotificationMarker::class)->findOneByName('stranger') );
+            $this->entity_manager->persist($this->getActiveCitizen());
+            $this->entity_manager->flush();
         }
         return true;
     }
@@ -627,6 +632,9 @@ class InventoryAwareController extends CustomAbstractController
             $item_count = count($items);
             $dead = false;
 
+            if ($steal_up === true && $citizen->getSpecificActionCounterValue(ActionCounter::ActionTypeSendPMItem, $inv_source->getHome()->getCitizen()->getId()) > 0)
+                return AjaxResponse::error(InventoryHandler::ErrorTransferStealPMBlock);
+
             $target_citizen = $inv_target->getCitizen() ?? $inv_source->getCitizen() ?? $citizen;
 
             $has_hidden = false;
@@ -747,7 +755,7 @@ class InventoryAwareController extends CustomAbstractController
                                     );
                                 } elseif ($isSanta || $isLeprechaun) {
                                     $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), null, $current_item->getPrototype(), $steal_up, $isSanta, $current_item->getBroken(), $isLeprechaun ) );
-                                    $this->addFlash( 'notice', $this->translator->trans('Dank deines Kostüms konntest du {item} von {victim} stehlen, ohne erkannt zu werden', [
+                                    $this->addFlash( 'notice', $this->translator->trans($isSanta ? 'Dank deines Kostüms konntest du {item} von {victim} stehlen, <strong>ohne erkannt zu werden</strong>.<hr/>Ho ho ho.' : 'Dank deines Kostüms konntest du {item} von {victim} stehlen, <strong>ohne erkannt zu werden</strong>.<hr/>Was für ein guter Morgen!', [
                                         '{victim}' => $victim_home->getCitizen()->getName(),
                                         '{item}' => $this->log->wrap($this->log->iconize($current_item))], 'game') );
                                 } elseif ($alarm)

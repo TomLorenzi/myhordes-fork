@@ -146,8 +146,6 @@ class CronCommand extends Command
 
             $try_limit = $this->conf->get(MyHordesConf::CONF_NIGHTLY_RETRIES, 3);
             $schedule_id = $s->getId();
-            $fmt = $this->conf->get(MyHordesConf::CONF_FATAL_MAIL_TARGET, null);
-            $fms = $this->conf->get(MyHordesConf::CONF_FATAL_MAIL_SOURCE, 'fatalmail@localhost');
 
             $town_ids = array_column($this->entityManager->createQueryBuilder()
                 ->select('t.id')
@@ -309,8 +307,13 @@ class CronCommand extends Command
 
         try {
             /** @var Town $town */
-            $last_op = 'pre';
+            $last_op = 'fst';
+            if ($town->isOpen() && $town->getForceStartAhead()) {
+                $town->setForceStartAhead( false );
+                $this->gameFactory->enableStranger( $town );
+            }
 
+            $last_op = 'pre';
             if ($this->night->advance_day($town, $town_events = $this->conf_master->getCurrentEvents( $town ))) {
 
                 foreach ($this->night->get_cleanup_container() as $c) $this->entityManager->remove($c);
@@ -349,7 +352,14 @@ class CronCommand extends Command
                 $limit = (int)$town_conf->get( TownConf::CONF_CLOSE_TOWN_AFTER, -1 );
                 $grace = (int)$town_conf->get( TownConf::CONF_CLOSE_TOWN_GRACE, 40 );
 
-                if ($town->isOpen() && !$town->getCitizens()->isEmpty() && $limit >= 0 && $town->getDayWithoutAttack() > $limit && $town->getCitizenCount() < $grace) {
+                $stranger_day   = (int)$town_conf->get( TownConf::CONF_STRANGER_TOWN_AFTER, -1 );
+                $stranger_limit = (int)$town_conf->get( TownConf::CONF_STRANGER_TOWN_MIN, 0 );
+
+                if ($town->isOpen() && $town->getAliveCitizenCount() > 0 && !$town->getCitizens()->isEmpty() && $stranger_day >= 0 && $town->getDayWithoutAttack() > $stranger_day && $town->getCitizenCount() >= $stranger_limit && $town->getCitizenCount() < $grace) {
+                    $last_op = 'strg';
+                    $town->setForceStartAhead(true);
+                    $this->entityManager->persist($town);
+                } elseif ($town->isOpen() && $town->getAliveCitizenCount() > 0 && !$town->getCitizens()->isEmpty() && $limit >= 0 && $town->getDayWithoutAttack() > $limit && $town->getCitizenCount() < $grace) {
                     $last_op = 'del';
                     foreach ($town->getCitizens() as $citizen)
                         $this->entityManager->persist(

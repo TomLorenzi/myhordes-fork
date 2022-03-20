@@ -163,10 +163,14 @@ class LogTemplateHandler
 
                 // ICU-aware
                 if ($typeEntry['type'] === 'citizen') {
-                    $transParams[$typeEntry['name']] = $this->fetchVariableObject( $typeEntry['type'], $variables[$typeEntry['name']] );
+                    if ( $variables[$typeEntry['name']] === -141089 )
+                        $transParams[$typeEntry['name']] = $this->trans->trans( 'Mysteriöser Fremder', [], 'game' );
+                    else $transParams[$typeEntry['name']] = $this->fetchVariableObject( $typeEntry['type'], $variables[$typeEntry['name']] );
                     $transParams["{$typeEntry['name']}__tag"] = 'span';
                 } elseif ($typeEntry['type'] === 'profession' || $typeEntry['type'] === 'professionFull') {
-                    $transParams[$typeEntry['name']] = $this->iconize( $this->fetchVariableObject( $typeEntry['type'], $variables[$typeEntry['name']] ), $typeEntry['type'] === 'profession', $variables['broken'] ?? false, $reference_citizen );
+                    if ( $variables[$typeEntry['name']] === -141089 )
+                        $transParams[$typeEntry['name']] = "<img alt='' src='{$this->asset->getUrl( "build/images/professions/stranger.gif" )}' />" . ( $typeEntry['type'] === 'profession' ? '' : ' ???' );
+                    else $transParams[$typeEntry['name']] = $this->iconize( $this->fetchVariableObject( $typeEntry['type'], $variables[$typeEntry['name']] ), $typeEntry['type'] === 'profession', $variables['broken'] ?? false, $reference_citizen );
                     $transParams["{$typeEntry['name']}__tag"] = 'span';
                     if ($typeEntry['type'] === 'professionFull') $transParams["{$typeEntry['name']}__class"] = 'jobName';
                 }
@@ -309,6 +313,18 @@ class LogTemplateHandler
             ->setCitizen( $citizen );
     }
 
+    public function strangerBankItemLog( Town $town, ItemPrototype $item ): TownLogEntry {
+        $variables = array('citizen' => -141089, 'item' => $item->getId(), 'broken' => false);
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'bankGive']);
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $town )
+            ->setDay( $town->getDay() )
+            ->setTimestamp( new DateTime('now') );
+    }
+
     public function bankItemStealLog( Citizen $citizen, ItemPrototype $item, bool $anonymous, bool $broken = false ): TownLogEntry {
         if ($anonymous) {
             $variables = array('item' => $item->getId(), 'broken' => $broken);
@@ -429,6 +445,17 @@ class LogTemplateHandler
             ->setCitizen( $citizen );
     }
 
+    public function strangerConstructionsInvest( Town $town, BuildingPrototype $proto ): TownLogEntry {
+        $variables = array('citizen' => -141089, 'plan' => $proto->getId());
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'constructionsInvest']);
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $town )
+            ->setDay( $town->getDay() )
+            ->setTimestamp( new DateTime('now') );
+    }
+
     public function constructionsInvestAP( Citizen $citizen, BuildingPrototype $proto, int $ap ): TownLogEntry {
         $variables = array('citizen' => $citizen->getId(), 'plan' => $proto->getId(), 'ap' => $ap);
         $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'constructionsInvestAP']);
@@ -451,6 +478,17 @@ class LogTemplateHandler
             ->setDay( $citizen->getTown()->getDay() )
             ->setTimestamp( new DateTime('now') )
             ->setCitizen( $citizen );
+    }
+
+    public function strangerConstructionsInvestRepair( Town $town, BuildingPrototype $proto ): TownLogEntry {
+        $variables = array('citizen' => -141089, 'plan' => $proto->getId());
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'constructionsInvestRepair']);
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $town )
+            ->setDay( $town->getDay() )
+            ->setTimestamp( new DateTime('now') );
     }
 
     public function constructionsInvestRepairAP( Citizen $citizen, BuildingPrototype $proto, int $ap ): TownLogEntry {
@@ -678,6 +716,18 @@ class LogTemplateHandler
             ->setCitizen( $citizen );
     }
 
+    public function strangerJoinProfession( Town $town ): TownLogEntry {
+        $variables = array('citizen' => -141089, 'profession' => -141089);
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'citizenJoinProfession']);
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $town )
+            ->setDay( $town->getDay() )
+            ->setTimestamp( new DateTime('now') );
+    }
+
     public function citizenZombieAttackRepelled( Citizen $citizen, int $def, int $zombies ): TownLogEntry {
         $variables = array('citizen' => $citizen->getId(), 'num' => $zombies);
         $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'citizenZombieAttackRepelled']);
@@ -744,6 +794,19 @@ class LogTemplateHandler
             ->setTimestamp( new DateTime('now') )
             ->setCitizen( $citizen )
             ->setZone( $zone );
+    }
+
+    public function strangerDeath( Town $town ): TownLogEntry {
+
+        $variables = array('citizen' => -141089, 'cod' => $this->entity_manager->getRepository(CauseOfDeath::class)->findOneBy( ['ref' => CauseOfDeath::Unknown] )->getId());
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'citizenDeathDefault']);
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $town )
+            ->setDay( $town->getDay() )
+            ->setTimestamp( new DateTime('now') );
     }
 
     public function citizenDeathOnWatch( Citizen $citizen, int $zombies = 0, ?Zone $zone = null, ?int $day = null ): TownLogEntry {

@@ -18,6 +18,7 @@ use App\Entity\GazetteLogEntry;
 use App\Entity\HeroicActionPrototype;
 use App\Entity\Inventory;
 use App\Entity\Item;
+use App\Entity\ItemGroup;
 use App\Entity\ItemInfoAttachment;
 use App\Entity\ItemPrototype;
 use App\Entity\HeroSkillPrototype;
@@ -126,6 +127,130 @@ class NightlyHandler
         if (!$skip_log) $this->entity_manager->persist( $this->logTemplates->citizenDeath( $citizen, $zombies, null, $day ) );
         foreach ($rr as $r) $this->cleanup[] = $r;
         if ($skip_reanimation) $this->skip_reanimation[] = $citizen->getId();
+    }
+
+    private function stage0_stranger(Town $town) {
+        $stranger_ap = $town->getStrangerPower() * 6 + mt_rand( 0, $town->getStrangerPower() * 3 );
+        $this->log->debug( "The stranger's power of <info>{$town->getStrangerPower()}</info> grants him <info>{$stranger_ap} AP</info>." );
+
+        // Partition zones
+        $close_zones = []; $medium_zones = []; $far_zones = [];
+        foreach ( $town->getZones() as $zone )
+            if     ($zone->getApDistance() <= 1) $close_zones[] = $zone;
+            elseif ($zone->getApDistance() <= 6) $medium_zones[] = $zone;
+            elseif ($zone->getApDistance() <= 9) $far_zones[] = $zone;
+
+        $ap_for_digging = max(0, min(mt_rand( floor($stranger_ap * 0.4), ceil( $stranger_ap * 0.6 ) ), $stranger_ap));
+        $ap_for_building = $stranger_ap - $ap_for_digging;
+        $this->log->debug( "The stranger will use <info>{$ap_for_digging} AP</info> for scavenging and <info>{$ap_for_building} AP</info> on the construction site." );
+
+        // Digging
+        $empty_group = $this->entity_manager->getRepository(ItemGroup::class)->findOneBy(['name' => 'empty_dig']);
+        $base_group = $this->entity_manager->getRepository(ItemGroup::class)->findOneBy(['name' => 'base_dig']);
+        $items_found = [];
+
+        for ($i = 0; $i < $ap_for_digging; $i++) {
+            /** @var Zone $zone */
+            $zone = $this->random->pick( $this->random->pickEntryFromRawRandomArray( [ [$close_zones, 1], [$medium_zones, 2], [$far_zones, 1] ] ) );
+            if ($zone && $zone->getDigs() > 0 && $this->random->chance( 0.6 )) {
+                $items_found[] = $this->random->pickItemPrototypeFromGroup( $base_group );
+                $zone->setDigs( $zone->getDigs() - 1 );
+            } elseif ($zone && $zone->getDigs() <= 0 && $this->random->chance( 0.3 ))
+                $items_found[] = $this->random->pickItemPrototypeFromGroup( $empty_group );
+        }
+
+        $this->log->debug( 'The stranger has found <info>' . count($items_found) . '</info> items.' );
+        foreach ($items_found as $item) {
+            $this->inventory_handler->forceMoveItem( $town->getBank(), $this->item_factory->createItem($item) );
+            $this->entity_manager->persist( $this->logTemplates->strangerBankItemLog( $town, $item ) );
+        }
+
+        // Building
+        $all_res = [];
+        foreach ($town->getBank()->getItems() as $bank_item) {
+            if (!isset( $all_res[ $bank_item->getPrototype()->getName() ] ))
+                $all_res[ $bank_item->getPrototype()->getName() ] = 0;
+
+            if (!$bank_item->getBroken() && !$bank_item->getPoison())
+                $all_res[ $bank_item->getPrototype()->getName() ] += $bank_item->getCount();
+        }
+
+
+        $repair_sites = [];
+        $available_sites = [];
+        $enable_log = $this->town_handler->getBuilding($town, 'item_rp_book2_#00', true);
+        foreach ($town->getBuildings() as $building) {
+            if ($building->getComplete() && $building->getHp() < $building->getPrototype()->getHp()) {
+                $repair_sites[] = $building;
+            } elseif ($building->getComplete() || $building->getAp() >= ($building->getPrototype()->getAp() - 1)) continue;
+
+            // Check if all parent buildings are completed
+            $parents_complete = true;
+            $current = $building->getPrototype();
+            while ($parent = $current->getParent()) {
+                if (!$this->town_handler->getBuilding($town, $parent, true))
+                    $parents_complete = false;
+                $current = $parent;
+            }
+            if (!$parents_complete) continue;
+
+            // Get all resources needed for this building
+            $res = [];
+            if (!$building->getComplete() && $building->getPrototype()->getResources())
+                foreach ($building->getPrototype()->getResources()->getEntries() as $entry)
+                    if (!isset($res[ $entry->getPrototype()->getName() ]))
+                        $res[ $entry->getPrototype()->getName() ] = new ItemRequest( $entry->getPrototype()->getName(), $entry->getChance(), false, false, false );
+                    else $res[ $entry->getPrototype()->getName() ]->addCount( $entry->getChance() );
+
+            // If the building needs resources, check if they are present in the bank; otherwise fail
+            $has_res = true;
+            foreach ($res as $key => $resource) if ($resource->getCount() > 0)
+                if (!isset($all_res[ $key ]) || $all_res[$key] < $resource->getCount())
+                    $has_res = false;
+
+            if ($has_res) $available_sites[] = $building;
+        }
+
+        shuffle($repair_sites);
+        foreach ($repair_sites as $building) if ($ap_for_building > 0) {
+            $required = ceil(($building->getPrototype()->getHp() - $building->getHp()) / 2);
+            $invest = min( $required, $ap_for_building );
+
+            if ($invest > 0) {
+                $building->setHp( min($building->getHp() + 2 * $invest, $building->getPrototype()->getHp()) );
+                $this->log->debug( "The stranger invests <info>{$invest} AP</info> into repairing <info>{$building->getPrototype()->getLabel()} AP</info>." );
+                if ($enable_log) $this->entity_manager->persist( $this->logTemplates->strangerConstructionsInvestRepair( $town, $building ) );
+            }
+
+            $ap_for_building -= $invest;
+        }
+
+        if ($ap_for_building > 0) {
+            $order_cache = [];
+            foreach ($town->getCitizens() as $citizen) if ($citizen->getActive() && $citizen->getBuildingVote()) {
+                $bid = $citizen->getBuildingVote()->getBuilding()->getId();
+                if (!isset($order_cache[$bid])) $order_cache[$bid] = 0;
+                $order_cache[$bid]++;
+            }
+
+            shuffle($available_sites);
+            usort( $available_sites, fn(Building $a, Building $b) => ( $order_cache[$b->getId()] ?? 0 ) <=> ( $order_cache[$a->getId()] ?? 0 ) );
+
+            foreach ($available_sites as $building) if ($ap_for_building > 0) {
+
+                $required = $building->getPrototype()->getAp() - $building->getAp() ;
+                $invest = min( $required - 1, $ap_for_building );
+
+                if ($invest > 0) {
+                    $building->setAp( min($building->getAp() + $invest, $building->getPrototype()->getAp() - 1) );
+                    $this->log->debug( "The stranger invests <info>{$invest} AP</info> into constructing <info>{$building->getPrototype()->getLabel()} AP</info>." );
+                    if ($enable_log) $this->entity_manager->persist( $this->logTemplates->strangerConstructionsInvest( $town, $building ) );
+                }
+
+                $ap_for_building -= $invest;
+            }
+        }
+
     }
 
     private function stage1_prepare(Town $town) {
@@ -1653,6 +1778,13 @@ class NightlyHandler
         }
     }
 
+    private function stage4_stranger(Town $town) {
+        $town->setStrangerPower( max(0, $town->getStrangerPower() - max(1, ceil($town->getStrangerPower() * 0.2))) );
+
+        $this->log->info("Reducing the stranger's power to <info>{$town->getStrangerPower()}</info> ...");
+        if ($town->getStrangerPower() <= 0) $this->entity_manager->persist( $this->logTemplates->strangerDeath( $town ) );
+    }
+
     /**
      * @param Town $town
      * @param EventConf[] $events
@@ -1671,6 +1803,11 @@ class NightlyHandler
         foreach ($events as $event) $event->hook_nightly_pre($town);
 
         $this->town_handler->triggerAlways( $town, true );
+
+        if ($town->getStrangerPower() > 0) {
+            $this->log->info('Entering <comment>The Stranger\'s Phase</comment>');
+            $this->stage0_stranger($town);
+        }
 
         $this->log->info('Entering <comment>Phase 1</comment> - Pre-attack processing');
         $this->stage1_prepare($town);
@@ -1698,6 +1835,11 @@ class NightlyHandler
         $this->stage3_items($town);
         $this->stage3_pictos($town);
         $this->stage3_building_effects($town);
+
+        if ($town->getStrangerPower() > 0) {
+            $this->log->info('Entering <comment>The Second Stranger\'s Phase</comment>');
+            $this->stage4_stranger($town);
+        }
 
         foreach ($events as $event) $event->hook_nightly_post($town);
 

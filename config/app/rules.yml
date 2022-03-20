@@ -5,6 +5,8 @@ parameters:
 
       open_town_limit: 7
       open_town_grace: 30
+      stranger_day_limit: -1
+      stranger_citizen_limit: 0
       lock_door_until_full: false
 
       well:       { min: 90, max: 180 }
@@ -145,6 +147,9 @@ parameters:
           base_dig: 'base_dig_test'
 
     small:
+      stranger_day_limit: 1
+      stranger_citizen_limit: 10
+
       map:  { min: 12, max: 14, margin: 0.25 }
       ruins: 7
       explorable_ruins: 0

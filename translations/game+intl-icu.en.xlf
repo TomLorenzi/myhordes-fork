@@ -584,7 +584,7 @@
     </unit>
     <unit id="VasxdH5" name="Routen">
       <notes>
-        <note category="german">Routen</note>
+        <note category="german">Expeditionen</note>
         <note category="from">php:///src/Controller/InventoryAwareController.php;twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
@@ -3857,7 +3857,7 @@
     <unit id="IYYfo2O" name="Unbekannte Todesursache">
       <notes>
         <note category="german">Unbekannte Todesursache</note>
-        <note category="from">db://CauseOfDeath;twig:///templates/ajax/soul/view_town_content.html.twig</note>
+        <note category="from">db://CauseOfDeath;twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
       </notes>
       <segment>
         <source>Unbekannte Todesursache</source>
@@ -4394,7 +4394,7 @@
       </notes>
       <segment>
         <source>Mitten auf einem völlig verfallenen Platz befindet sich ein großer Gartenschuppen. Die Tür gibt leicht nach und gibt den Blick frei auf einen riesigen Raum voller Regale und allerlei Werkzeug.</source>
-        <target>In the middle of a completely derelict square, you find a sizeable garden shed. The door gives way easilty, revealing a vast space full of shelf units and all kinds of tools.</target>
+        <target>In the middle of a completely derelict square, you find a sizeable garden shed. The door gives way easily, revealing a vast space full of shelf units and all kinds of tools.</target>
       </segment>
     </unit>
     <unit id="pzQEC77">
@@ -15197,12 +15197,11 @@
     <unit id="3GHNz5u" name="Leprechaun wurde gesehen, wie er den {item} von {victim} stahl!">
       <notes>
         <note category="german">Leprechaun wurde gesehen, wie er den {item} von {victim} stahl!</note>
-        <note category="state">new</note>
         <note category="from">db://LogEntryTemplate</note>
       </notes>
       <segment>
         <source>Leprechaun wurde gesehen, wie er den {item} von {victim} stahl!</source>
-        <target>Leprechaun wurde gesehen, wie er den {item} von {victim} stahl!</target>
+        <target>Leprechaun was seen stealing the {item} from {victim}!</target>
       </segment>
     </unit>
     <unit id="4itiz0J">
@@ -26428,6 +26427,117 @@
       <segment>
         <source>Ein Moderator hat den Namen einer Stadt geändert, in der du mitgespielt hast. Alter Name: "{townOld}". Neuer Name: "{townNew}"</source>
         <target>A moderator edited the name of a town you've been a part of. Old name: "{townOld}". New name: "{townNew}"</target>
+      </segment>
+    </unit>
+    <unit id="cokluf." name="Mysteriöser Fremder">
+      <notes>
+        <note category="german">Mysteriöser Fremder</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig</note>
+      </notes>
+      <segment>
+        <source>Mysteriöser Fremder</source>
+        <target>Mysterious Stranger</target>
+      </segment>
+    </unit>
+    <unit id="nWjbqz8" name="Die Horde kommt!">
+      <notes>
+        <note category="german">Die Horde kommt!</note>
+        <note category="from">twig:///templates/ajax/game/notifications/stranger.html.twig</note>
+      </notes>
+      <segment>
+        <source>Die Horde kommt!</source>
+        <target>The horde is coming!</target>
+      </segment>
+    </unit>
+    <unit id="rxUjiVx">
+      <notes>
+        <note category="german">Ein fauliger Geruch liegt in der Luft und du hörst ein immer lauter werdendes Stöhnen in der Ferne...</note>
+        <note category="from">twig:///templates/ajax/game/notifications/stranger.html.twig</note>
+      </notes>
+      <segment>
+        <source>Ein fauliger Geruch liegt in der Luft und du hörst ein immer lauter werdendes Stöhnen in der Ferne...</source>
+        <target>There's a foul smell in the air and you hear an increasingly loud groaning noise in the distance....</target>
+      </segment>
+    </unit>
+    <unit id="4xBohtt">
+      <notes>
+        <note category="german">Die Zeichen sind klar; eine Horde von Zombies bewegt sich schlurfend auf die Stadt zu. Du schätzt, dass sie um Mitternacht eintreffen wird.</note>
+        <note category="from">twig:///templates/ajax/game/notifications/stranger.html.twig</note>
+      </notes>
+      <segment>
+        <source>Die Zeichen sind klar; eine Horde von Zombies bewegt sich schlurfend auf die Stadt zu. Du schätzt, dass sie um Mitternacht eintreffen wird.</source>
+        <target>The signs are clear; a horde of zombies is shuffling towards the town. You estimate that it will arrive here at midnight.</target>
+      </segment>
+    </unit>
+    <unit id="awC3BNG">
+      <notes>
+        <note category="german">Außerdem berichten unsere Späher, dass sie einen Mysteriösen Fremden in der Umgebung der Stadt gesichtet haben...</note>
+        <note category="from">twig:///templates/ajax/game/notifications/stranger.html.twig</note>
+      </notes>
+      <segment>
+        <source>Außerdem berichten unsere Späher, dass sie einen Mysteriösen Fremden in der Umgebung der Stadt gesichtet haben...</source>
+        <target>Also, our scouts report that they have spotted a mysterious stranger in the vicinity of the town...</target>
+      </segment>
+    </unit>
+    <unit id="N2bzV9x">
+      <notes>
+        <note category="german">Heute Nacht wird ein Angriff stattfinden, selbst wenn die Stadt noch keine Einwohnerzahl von {population} erreicht hat.</note>
+        <note category="from">twig:///templates/ajax/game/notifications/stranger.html.twig</note>
+      </notes>
+      <segment>
+        <source>Heute Nacht wird ein Angriff stattfinden, selbst wenn die Stadt noch keine Einwohnerzahl von {population} erreicht hat.</source>
+        <target>There will be an attack tonight, even if the town has not yet reached a population of {population}.</target>
+      </segment>
+    </unit>
+    <unit id="07BtizJ" name="Du solltest anfangen, Vorbereitungen für die Verteidigung der Stadt zu treffen.">
+      <notes>
+        <note category="german">Du solltest anfangen, Vorbereitungen für die Verteidigung der Stadt zu treffen.</note>
+        <note category="from">twig:///templates/ajax/game/notifications/stranger.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du solltest anfangen, Vorbereitungen für die Verteidigung der Stadt zu treffen.</source>
+        <target>You should start making preparations to defend the town!</target>
+      </segment>
+    </unit>
+    <unit id="MpMKNqM">
+      <notes>
+        <note category="german">Dank deines Kostüms konntest du {item} von {victim} stehlen, &lt;strong&gt;ohne erkannt zu werden&lt;/strong&gt;.&lt;hr/&gt;Ho ho ho.</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php</note>
+      </notes>
+      <segment>
+        <source>Dank deines Kostüms konntest du {item} von {victim} stehlen, &lt;strong&gt;ohne erkannt zu werden&lt;/strong&gt;.&lt;hr/&gt;Ho ho ho.</source>
+        <target><![CDATA[Thanks to your <strong>costume</strong>, you managed to swipe the {item} from {victim} <strong>and nobody saw a thing</strong>.<hr />Ho ho ho.]]></target>
+      </segment>
+    </unit>
+    <unit id="tKtk0pS">
+      <notes>
+        <note category="german">Dank deines Kostüms konntest du {item} von {victim} stehlen, &lt;strong&gt;ohne erkannt zu werden&lt;/strong&gt;.&lt;hr/&gt;Was für ein guter Morgen!</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php</note>
+      </notes>
+      <segment>
+        <source>Dank deines Kostüms konntest du {item} von {victim} stehlen, &lt;strong&gt;ohne erkannt zu werden&lt;/strong&gt;.&lt;hr/&gt;Was für ein guter Morgen!</source>
+        <target><![CDATA[Thanks to your <strong>costume</strong>, you managed to swipe the {item} from {victim} <strong>and nobody saw a thing</strong>.<hr />Top o' the mornin' to ye!]]></target>
+      </segment>
+    </unit>
+    <unit id="etOQTse">
+      <notes>
+        <note category="german">Du kannst diese Aktion nicht durchführen, während in der Stadt &lt;strong&gt;Chaos&lt;/strong&gt; herrscht.</note>
+        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Du kannst diese Aktion nicht durchführen, während in der Stadt &lt;strong&gt;Chaos&lt;/strong&gt; herrscht.</source>
+        <target><![CDATA[Du kannst diese Aktion nicht durchführen, während in der Stadt <strong>Chaos</strong> herrscht.]]></target>
+      </segment>
+    </unit>
+    <unit id="niUF_zZ">
+      <notes>
+        <note category="german">Du kannst keinen Bürger bestehlen, dem &lt;strong&gt;du heute einen Gegenstand per Post&lt;/strong&gt; gesendet hast (Missbrauchschutz).</note>
+        <note category="from">twig:///templates/scripts/errors/inventory.txt.twig</note>
+      </notes>
+      <segment>
+        <source>Du kannst keinen Bürger bestehlen, dem &lt;strong&gt;du heute einen Gegenstand per Post&lt;/strong&gt; gesendet hast (Missbrauchschutz).</source>
+        <target><![CDATA[You cannot rob a citizen <strong>if you have sent them an object today</strong> (anti-abuse measure).]]></target>
       </segment>
     </unit>
   </file>

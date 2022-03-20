@@ -60,6 +60,9 @@
                         {{ _self.valuelist('Ersteller'|trans({},'admin'),  town.creator != null ? town.creator.name : '--') }}
                         {{ _self.valuelist('Population'|trans({},'admin'), town.population) }}
                         {{ _self.valuelist('Bürger'|trans({},'admin'),     town.citizens|length) }}
+                        {% if town.strangerEnabled %}
+                            {{ _self.valuelist('Fremder'|trans({},'admin'),     town.strangerPower) }}
+                        {% endif %}
                         {{ _self.valuelist('Koalitionen'|trans({},'admin'),town.coalizedCitizenCount) }}
                         {{ _self.valuelist('Saison'|trans({},'admin'),     town.season ? town.season.number : '--') }}
                         {{ _self.valuelist('Profiler'|trans({},'admin'),   town.rankingEntry.profilerVersion > 0 ? ('v'~town.rankingEntry.profilerVersion) : ('Nicht installiert'|trans({},'admin'))) }}
@@ -129,6 +132,7 @@
                                                     {% endif %}
                                                 {% endfor %}
                                                 {% if town.population > town.citizenCount %}
+                                                    <option value="{{ url('admin_town_manage', {action: 'dbg_enable_stranger', id: town.id}) }}">{{ 'Mysteriösen Fremden aktivieren'|trans({},'admin') }}</option>
                                                     <option value="{{ url('admin_town_manage', {action: 'dbg_fill_town', id: town.id}) }}">{{ 'Stadt füllen'|trans({},'admin') }}</option>
                                                 {% endif %}
                                                 <option value="{{ url('admin_town_manage', {action: 'dbg_fill_bank', id: town.id}) }}">{{ 'Bank füllen'|trans({},'admin') }}</option>

@@ -355,6 +355,7 @@ class InventoryHandler
     const ErrorTooManySouls         = ErrorHelper::BaseInventoryErrors + 13;
     const ErrorBankTheftFailed      = ErrorHelper::BaseInventoryErrors + 14;
     const ErrorTargetChestFull      = ErrorHelper::BaseInventoryErrors + 15;
+    const ErrorTransferStealPMBlock = ErrorHelper::BaseInventoryErrors + 16;
 
     const ModalityNone             = 0;
     const ModalityTamer            = 1;

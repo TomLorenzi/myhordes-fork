@@ -388,7 +388,7 @@
     <unit id="VasxdH5" name="Routen">
       <segment>
         <source>Routen</source>
-        <target>Routen</target>
+        <target>Expeditionen</target>
       </segment>
     </unit>
     <unit id="wkJT.qQ" name="Stadttor">
@@ -16557,6 +16557,72 @@
       <segment>
         <source>Ein Moderator hat den Namen einer Stadt geändert, in der du mitgespielt hast. Alter Name: "{townOld}". Neuer Name: "{townNew}"</source>
         <target>Ein Moderator hat den Namen einer Stadt geändert, in der du mitgespielt hast. Alter Name: "{townOld}". Neuer Name: "{townNew}"</target>
+      </segment>
+    </unit>
+    <unit id="cokluf." name="Mysteriöser Fremder">
+      <segment>
+        <source>Mysteriöser Fremder</source>
+        <target>Mysteriöser Fremder</target>
+      </segment>
+    </unit>
+    <unit id="nWjbqz8" name="Die Horde kommt!">
+      <segment>
+        <source>Die Horde kommt!</source>
+        <target>Die Horde kommt!</target>
+      </segment>
+    </unit>
+    <unit id="rxUjiVx">
+      <segment>
+        <source>Ein fauliger Geruch liegt in der Luft und du hörst ein immer lauter werdendes Stöhnen in der Ferne...</source>
+        <target>Ein fauliger Geruch liegt in der Luft und du hörst ein immer lauter werdendes Stöhnen in der Ferne...</target>
+      </segment>
+    </unit>
+    <unit id="4xBohtt">
+      <segment>
+        <source>Die Zeichen sind klar; eine Horde von Zombies bewegt sich schlurfend auf die Stadt zu. Du schätzt, dass sie um Mitternacht eintreffen wird.</source>
+        <target>Die Zeichen sind klar; eine Horde von Zombies bewegt sich schlurfend auf die Stadt zu. Du schätzt, dass sie um Mitternacht eintreffen wird.</target>
+      </segment>
+    </unit>
+    <unit id="awC3BNG">
+      <segment>
+        <source>Außerdem berichten unsere Späher, dass sie einen Mysteriösen Fremden in der Umgebung der Stadt gesichtet haben...</source>
+        <target>Außerdem berichten unsere Späher, dass sie einen Mysteriösen Fremden in der Umgebung der Stadt gesichtet haben...</target>
+      </segment>
+    </unit>
+    <unit id="N2bzV9x">
+      <segment>
+        <source>Heute Nacht wird ein Angriff stattfinden, selbst wenn die Stadt noch keine Einwohnerzahl von {population} erreicht hat.</source>
+        <target>Heute Nacht wird ein Angriff stattfinden, selbst wenn die Stadt noch keine Einwohnerzahl von {population} erreicht hat.</target>
+      </segment>
+    </unit>
+    <unit id="07BtizJ" name="Du solltest anfangen, Vorbereitungen für die Verteidigung der Stadt zu treffen.">
+      <segment>
+        <source>Du solltest anfangen, Vorbereitungen für die Verteidigung der Stadt zu treffen.</source>
+        <target>Du solltest anfangen, Vorbereitungen für die Verteidigung der Stadt zu treffen.</target>
+      </segment>
+    </unit>
+    <unit id="MpMKNqM">
+      <segment>
+        <source>Dank deines Kostüms konntest du {item} von {victim} stehlen, &lt;strong&gt;ohne erkannt zu werden&lt;/strong&gt;.&lt;hr/&gt;Ho ho ho.</source>
+        <target><![CDATA[Dank deines Kostüms konntest du {item} von {victim} stehlen, <strong>ohne erkannt zu werden</strong>.<hr/>Ho ho ho.]]></target>
+      </segment>
+    </unit>
+    <unit id="tKtk0pS">
+      <segment>
+        <source>Dank deines Kostüms konntest du {item} von {victim} stehlen, &lt;strong&gt;ohne erkannt zu werden&lt;/strong&gt;.&lt;hr/&gt;Was für ein guter Morgen!</source>
+        <target><![CDATA[Dank deines Kostüms konntest du {item} von {victim} stehlen, <strong>ohne erkannt zu werden</strong>.<hr/>Was für ein guter Morgen!]]></target>
+      </segment>
+    </unit>
+    <unit id="etOQTse">
+      <segment>
+        <source>Du kannst diese Aktion nicht durchführen, während in der Stadt &lt;strong&gt;Chaos&lt;/strong&gt; herrscht.</source>
+        <target><![CDATA[Du kannst diese Aktion nicht durchführen, während in der Stadt <strong>Chaos</strong> herrscht.]]></target>
+      </segment>
+    </unit>
+    <unit id="niUF_zZ">
+      <segment>
+        <source>Du kannst keinen Bürger bestehlen, dem &lt;strong&gt;du heute einen Gegenstand per Post&lt;/strong&gt; gesendet hast (Missbrauchschutz).</source>
+        <target><![CDATA[Du kannst keinen Bürger bestehlen, dem <strong>du heute einen Gegenstand per Post</strong> gesendet hast (Missbrauchschutz).]]></target>
       </segment>
     </unit>
   </file>

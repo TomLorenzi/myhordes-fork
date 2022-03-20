@@ -610,8 +610,14 @@ class PublicController extends CustomAbstractController
                 return AjaxResponse::error( SoulController::ErrorETwinImportProfileInUse );
 
             $myhordes_user->setEternalID( $etwin_user->getID() );
-            if ($etwin_user->getDisplayName() !== $myhordes_user->getUsername())
+            if ($etwin_user->getDisplayName() !== $myhordes_user->getUsername()) {
+                $history = $myhordes_user->getNameHistory() ?? [];
+                if(!in_array($myhordes_user->getName(), $history))
+                    $history[] = $myhordes_user->getName();
+                $myhordes_user->setNameHistory(array_filter(array_unique($history)));
                 $myhordes_user->setDisplayName( $etwin_user->getDisplayName() );
+            }
+
 
             $this->entity_manager->persist($myhordes_user);
             try {

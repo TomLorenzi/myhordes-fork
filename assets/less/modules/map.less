@@ -933,7 +933,7 @@ div.react_map_area {
         margin-top: -5px; vertical-align: top;
         padding: 2px;
         height: 16px;
-        max-width: 51px;
+        max-width: 70px;
         overflow: visible;
         font-size: 13px;
         font-variant:normal;
@@ -943,16 +943,19 @@ div.react_map_area {
           font-size: 10px;
         }
         div {
-          transform: scale(0.7, 1.15);
+          transform: scale(0.7, 1.05);
           margin-top: -4px;
-          margin-left: -5px;
+          margin-left: -10px;
+          margin-right: -10px;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
         &:first-child { margin-left: 2px; padding-left: 2px }
         &:last-child { margin-right: 2px; padding-left: 1px }
         &.map-icon { padding-left: 20px; background: url('../../img/icons/item_map.gif') 3px -2px no-repeat, url(../../img/background/bg_button.gif) center / cover no-repeat; }
         &.hide-tags { background: url('../../img/icons/tickOff.gif') 3px -2px no-repeat, url(../../img/background/bg_button.gif) center / cover no-repeat; }
         &.show-tags { background: url('../../img/icons/tickOn.gif') 3px -2px no-repeat, url(../../img/background/bg_button.gif) center / cover no-repeat; }
-        &.hide-tags,&.show-tags { padding-left: 14px; }
+        &.hide-tags,&.show-tags { padding-left: 18px; padding-right: 8px; }
       }
     }
   }

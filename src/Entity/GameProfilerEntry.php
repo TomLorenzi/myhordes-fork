@@ -43,6 +43,7 @@ class GameProfilerEntry
 
     /**
      * @ORM\ManyToOne(targetEntity=CitizenRankingProxy::class)
+     * @ORM\JoinColumn(nullable=true, onDelete="CASCADE")
      */
     private $citizen;
 

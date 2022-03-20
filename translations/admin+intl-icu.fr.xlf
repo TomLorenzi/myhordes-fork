@@ -4586,22 +4586,40 @@
       <notes>
         <note category="german">Stadtnamen regenerieren</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Stadtnamen regenerieren</source>
-        <target>Stadtnamen regenerieren</target>
+        <target>Régénérer un nom de ville</target>
       </segment>
     </unit>
     <unit id="cUEl3DK" name="Sprache wechseln">
       <notes>
         <note category="german">Sprache wechseln</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Sprache wechseln</source>
-        <target>Sprache wechseln</target>
+        <target>Changer la langue</target>
+      </segment>
+    </unit>
+    <unit id="jupu8vs" name="Fremder">
+      <notes>
+        <note category="german">Fremder</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Fremder</source>
+        <target>Étranger</target>
+      </segment>
+    </unit>
+    <unit id="bHjGkUb" name="Mysteriösen Fremden aktivieren">
+      <notes>
+        <note category="german">Mysteriösen Fremden aktivieren</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Mysteriösen Fremden aktivieren</source>
+        <target>Activer le mystérieux étranger</target>
       </segment>
     </unit>
   </file>

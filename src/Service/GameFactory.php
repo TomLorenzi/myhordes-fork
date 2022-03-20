@@ -680,4 +680,14 @@ class GameFactory
         $this->entity_manager->remove($town);
         return true;
     }
+
+    public function enableStranger(Town $town): bool {
+        if (!$town->isOpen()) return false;
+
+        $town->setStrangerPower( $town->getPopulation() - $town->getCitizenCount() );
+        $town->setPopulation( $town->getCitizenCount() );
+        $this->entity_manager->persist( $town );
+        $this->entity_manager->persist( $this->log->strangerJoinProfession( $town ) );
+        return true;
+    }
 }

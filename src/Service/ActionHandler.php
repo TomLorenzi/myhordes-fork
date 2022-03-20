@@ -693,10 +693,10 @@ class ActionHandler
 
         $sort_result_list = function(array &$results) {
             usort( $results, function(Result $a, Result $b) {
-                // Results with custom code are handled first
-                if (($a->getCustom() === null) !== ($b->getCustom() === null)) return $b->getCustom() ? 1 : -1;
-                // Results with status effects are handled second
+                // Results with status effects are handled first
                 if (($a->getStatus() === null) !== ($b->getStatus() === null)) return $b->getStatus() ? 1 : -1;
+                // Results with custom code are handled second
+                if (($a->getCustom() === null) !== ($b->getCustom() === null)) return $b->getCustom() ? 1 : -1;
                 // Everything else is handled in "random" order
                 return $a->getId() - $b->getId();
             } );

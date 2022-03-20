@@ -52,7 +52,7 @@ class CustomAbstractController extends AbstractController {
         return in_array($l, ['en','de','es','fr']) ? $l : 'de';
     }
 
-    private static $flash_message_count = 0;
+    private static int $flash_message_count = 0;
     protected function addFlash(string $type, $message): void
     {
         parent::addFlash( $type, [$message,++self::$flash_message_count] );

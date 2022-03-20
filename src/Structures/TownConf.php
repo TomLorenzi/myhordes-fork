@@ -11,6 +11,8 @@ class TownConf extends Conf
 
     const CONF_CLOSE_TOWN_AFTER      = 'open_town_limit';
     const CONF_CLOSE_TOWN_GRACE      = 'open_town_grace';
+    const CONF_STRANGER_TOWN_AFTER   = 'stranger_day_limit';
+    const CONF_STRANGER_TOWN_MIN     = 'stranger_citizen_limit';
     const CONF_LOCK_UNTIL_FULL       = 'lock_door_until_full';
 
     const CONF_WELL_MIN              = 'well.min';
