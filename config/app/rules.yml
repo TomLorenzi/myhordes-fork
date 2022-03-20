@@ -142,7 +142,7 @@ parameters:
       disabled_buildings: ['small_vaudoudoll_#00', 'small_bokorsword_#00', 'small_spiritmirage_#00','small_holyrain_#00']
       
     small:
-      stranger_day_limit: 2
+      stranger_day_limit: 1
       stranger_citizen_limit: 10
 
       map:  { min: 12, max: 14, margin: 0.25 }
