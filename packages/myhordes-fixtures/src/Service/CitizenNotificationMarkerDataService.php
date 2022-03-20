@@ -12,7 +12,8 @@ class CitizenNotificationMarkerDataService implements FixtureProcessorInterface 
             'ghoul',
             'shaman',
             'guide',
-            'insurrection'
+            'insurrection',
+            'stranger'
         ]);
     }
 }
