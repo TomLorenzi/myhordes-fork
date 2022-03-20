@@ -758,6 +758,9 @@ class TownController extends InventoryAwareController
 
             if ($this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_steal') && !$this->getActiveCitizen()->getTown()->getChaos())
                 return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
+
+            if ($action > 0 && $this->getActiveCitizen()->getSpecificActionCounterValue(ActionCounter::ActionTypeSendPMItem, $victim->getId()) > 0)
+                return AjaxResponse::error(InventoryHandler::ErrorTransferStealPMBlock);
         }
 
         foreach ($this->entity_manager->getRepository(HomeIntrusion::class)->findBy(['intruder' => $this->getActiveCitizen()]) as $other_intrusion)

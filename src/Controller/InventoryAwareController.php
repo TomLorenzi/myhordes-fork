@@ -632,6 +632,9 @@ class InventoryAwareController extends CustomAbstractController
             $item_count = count($items);
             $dead = false;
 
+            if ($steal_up === true && $citizen->getSpecificActionCounterValue(ActionCounter::ActionTypeSendPMItem, $inv_source->getHome()->getCitizen()->getId()) > 0)
+                return AjaxResponse::error(InventoryHandler::ErrorTransferStealPMBlock);
+
             $target_citizen = $inv_target->getCitizen() ?? $inv_source->getCitizen() ?? $citizen;
 
             $has_hidden = false;

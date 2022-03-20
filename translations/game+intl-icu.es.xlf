@@ -26448,5 +26448,15 @@
         <target><![CDATA[Du kannst diese Aktion nicht durchführen, während in der Stadt <strong>Chaos</strong> herrscht.]]></target>
       </segment>
     </unit>
+    <unit id="niUF_zZ">
+      <notes>
+        <note category="german">Du kannst keinen Bürger bestehlen, dem &lt;strong&gt;du heute einen Gegenstand per Post&lt;/strong&gt; gesendet hast (Missbrauchschutz).</note>
+        <note category="from">twig:///templates/scripts/errors/inventory.txt.twig</note>
+      </notes>
+      <segment>
+        <source>Du kannst keinen Bürger bestehlen, dem &lt;strong&gt;du heute einen Gegenstand per Post&lt;/strong&gt; gesendet hast (Missbrauchschutz).</source>
+        <target><![CDATA[No puedes robar <strong>a quien has enviado un objeto por correo hoy</strong> (Medida anti-abusos).]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -16619,5 +16619,11 @@
         <target><![CDATA[Du kannst diese Aktion nicht durchführen, während in der Stadt <strong>Chaos</strong> herrscht.]]></target>
       </segment>
     </unit>
+    <unit id="niUF_zZ">
+      <segment>
+        <source>Du kannst keinen Bürger bestehlen, dem &lt;strong&gt;du heute einen Gegenstand per Post&lt;/strong&gt; gesendet hast (Missbrauchschutz).</source>
+        <target><![CDATA[Du kannst keinen Bürger bestehlen, dem <strong>du heute einen Gegenstand per Post</strong> gesendet hast (Missbrauchschutz).]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>
