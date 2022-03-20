@@ -936,11 +936,15 @@ ul.subscriptions {
   }
 }
 
-.infoThread {  
-  background-color: #5C0000 !important;
-  border: 1px solid #ddab76 !important;
-  outline: 2px solid #5c2b20 !important;
-  margin-bottom: 10px;
+.infoThread, .infoSolvedThread {
+  font-size: 1rem; padding: 3px 3px 3px 25px; background-repeat: no-repeat; background-position: 3px 3px;
+  &.infoThread { background-color: #5C0000; border: 1px solid #ddab76; outline: 2px solid #5c2b20; background-image: url(../../img/icons/lock.gif); }
+  &.infoSolvedThread { background-color: #4e505f; color: white; box-shadow: 0 0 2px black; background-image: url(../../img/icons/done.png); }
+}
+
+.infoThread {
+
+
 }
 
 .thread-tag {
