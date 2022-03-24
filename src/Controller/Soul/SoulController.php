@@ -1115,6 +1115,9 @@ class SoulController extends CustomAbstractController
         }
 
         if (!empty($new_email)) {
+            if ($this->entity_manager->getRepository(User::class)->findOneByMail( $new_email )) {
+                return AjaxResponse::error(UserFactory::ErrorMailExists);
+            }
             $user->setPendingEmail($new_email);
             if (!$this->user_factory->announceValidationToken($this->user_factory->ensureValidation($user, UserPendingValidation::ChangeEmailValidation, true)))
                 return AjaxResponse::error(ErrorHelper::ErrorSendingEmail);
