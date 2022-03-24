@@ -21438,7 +21438,7 @@
       </notes>
       <segment>
         <source>Es wurde eine Rauchbombe eingesetzt!</source>
-        <target>Es wurde eine Rauchbombe eingesetzt!</target>
+        <target>A smoke grenade has been used!</target>
       </segment>
     </unit>
     <unit id="gDPIj.n" name="Ein neuer Bürger ist in der Stadt angekommen: {citizen} ({profession}).">
