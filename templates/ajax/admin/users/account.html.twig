@@ -357,7 +357,25 @@
                                 {% for list in user.connectionWhitelists %}
                                     {% for other_user in list.users %}
                                         {% if other_user.id != user.id %}
-                                            <div>{{ other_user.name }} <span class="pointer" x-unwhitelist="{{ other_user.id }}"><i class="fa fa-trash"></i></span></div>
+                                            <div>
+                                                {{ other_user.name }} <span class="pointer" x-unwhitelist="{{ other_user.id }}"><i class="fa fa-trash"></i></span>
+                                                <div class="tooltip">
+                                                    <div>
+                                                        {% if list.creator %}
+                                                            <b>{{ 'Whitelist von {admin}'|trans({admin: list.creator.name},'admin') }}</b>
+                                                        {% else %}
+                                                            {{ 'Whitelist hat keinen Autor'|trans({},'admin') }}
+                                                        {% endif %}
+                                                    </div>
+                                                    <div>
+                                                        {% if list.reason is not empty %}
+                                                            <i>{{ list.reason }}</i>
+                                                        {% else %}
+                                                            {{ 'Whitelist hat keine Notiz'|trans({},'admin') }}
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
+                                            </div>
                                         {% endif %}
                                     {% endfor %}
                                 {% endfor %}
@@ -390,10 +408,16 @@
                     if (q_param === null) return;
                 }
 
+                let reason = null;
+                if (confirmation === 'WHITELIST') {
+                    reason = prompt('{{ 'Notiz'|trans({},'admin') }}');
+                    if (!reason) return;
+                }
+
                 if (confirmation && !confirm( "{{ 'Bitte bestätige folgende Aktion:'|trans({},'admin')|e('js') }}\n" + confirmation + ( q_param === null ? '' : ("\n" + q_param) ) ))
                     return;
 
-                $.ajax.easySend( document.getElementById('administer-user').value, {param: q_param},
+                $.ajax.easySend( document.getElementById('administer-user').value, confirmation === 'WHITELIST' ? { param: { ids: [q_param], reason } } : {param: q_param},
                     function () {
                         $.ajax.load(null, '{{ path('admin_users_account_view', {id: user.id}) }}', true);
                     } );

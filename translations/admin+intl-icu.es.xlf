@@ -4564,5 +4564,49 @@
         <target>Mysteriösen Fremden aktivieren</target>
       </segment>
     </unit>
+    <unit id="dLSH2dI" name="Notiz">
+      <notes>
+        <note category="german">Notiz</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig;twig:///templates/ajax/admin/users/multi_index.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Notiz</source>
+        <target>Notiz</target>
+      </segment>
+    </unit>
+    <unit id="NgKjlhH" name="Whitelist von {admin}">
+      <notes>
+        <note category="german">Whitelist von {admin}</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Whitelist von {admin}</source>
+        <target>Whitelist von {admin}</target>
+      </segment>
+    </unit>
+    <unit id="ExwOTyG" name="Whitelist hat keinen Autor">
+      <notes>
+        <note category="german">Whitelist hat keinen Autor</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Whitelist hat keinen Autor</source>
+        <target>Whitelist hat keinen Autor</target>
+      </segment>
+    </unit>
+    <unit id="iOIM36J" name="Whitelist hat keine Notiz">
+      <notes>
+        <note category="german">Whitelist hat keine Notiz</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Whitelist hat keine Notiz</source>
+        <target>Whitelist hat keine Notiz</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

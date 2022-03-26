@@ -68,11 +68,17 @@
                         } );
             });
         $.html.addEventListenerAll('[x-whitelist][x-api-endpoint]', 'click', function(e,elem) {
-            if ((!elem.hasAttribute('x-whitelist-alt') || e.ctrlKey) && confirm("{{ 'Bestätigen?'|trans({},'global')|e('js') }}\nWHITELIST"))
-                $.ajax.easySend( elem.getAttribute('x-api-endpoint'), {param: elem.getAttribute('x-whitelist').split('|')},
+            if (!elem.hasAttribute('x-whitelist-alt') || e.ctrlKey) {
+                const reason = prompt('{{ 'Notiz'|trans({},'admin') }}');
+                if (!reason) return;
+                $.ajax.easySend( elem.getAttribute('x-api-endpoint'), {param: {
+                            reason, ids: elem.getAttribute('x-whitelist').split('|'),
+                        }},
                     function () {
                         $.ajax.load(null, '{{ path('admin_users') }}', true);
                     } );
+            }
+
         });
         $.html.addEventListenerAll('[x-whitelist][x-whitelist-alt][x-api-endpoint]', 'click', function(e,elem) {
             if (!e.ctrlKey) window.open(elem.getAttribute('x-whitelist-alt'),'_blank');

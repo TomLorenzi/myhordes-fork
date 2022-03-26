@@ -24,6 +24,16 @@ class ConnectionWhitelist
      */
     private $users;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class)
+     */
+    private $creator;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $reason;
+
     public function __construct()
     {
         $this->users = new ArrayCollection();
@@ -56,6 +66,30 @@ class ConnectionWhitelist
         if ($this->users->contains($user)) {
             $this->users->removeElement($user);
         }
+
+        return $this;
+    }
+
+    public function getCreator(): ?User
+    {
+        return $this->creator;
+    }
+
+    public function setCreator(?User $creator): self
+    {
+        $this->creator = $creator;
+
+        return $this;
+    }
+
+    public function getReason(): ?string
+    {
+        return $this->reason;
+    }
+
+    public function setReason(?string $reason): self
+    {
+        $this->reason = $reason;
 
         return $this;
     }
