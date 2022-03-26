@@ -511,7 +511,7 @@ class NightlyHandler
                             ['bplan_c_#00' => 2,'bplan_u_#00' => 2],
                             ['bplan_u_#00' => 2,'bplan_r_#00' => 2],
                         ];
-                        $opt_bp = [null,'bplan_c_#00','bplan_r_#00','bplan_e_#00'];
+                        $opt_bp = [null,null,'bplan_r_#00','bplan_e_#00'];
 
                         $plans = [];
                         foreach ($bps[$this->upgraded_building->getLevel()] as $id => $count) {
