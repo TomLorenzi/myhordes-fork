@@ -92,8 +92,14 @@
                         {% for subscription in subscriptions|reverse %}
                             {# @var subscription \App\Entity\ForumThreadSubscription #}
                             <li class="{{ subscription.num > 0 ? 'new' : '' }}">
-                                <span x-ajax-href="{{ path('forum_thread_view', {fid: subscription.thread.forum.id, tid: subscription.thread.id}) }}" >{{ subscription.thread.translatable ? subscription.thread.title|trans({},'game') : subscription.thread.title }}</span>
-                                <img x-unsubscribe-api="{{ path('forum_thread_unsubscribe_controller', {fid: subscription.thread.forum.id, tid: subscription.thread.id}) }}" alt="X" src="{{ asset('build/images/icons/small_remove.gif') }}" />
+                                <div class="row-flex">
+                                    <div class="cell grow-1">
+                                        <span x-ajax-href="{{ path('forum_thread_view', {fid: subscription.thread.forum.id, tid: subscription.thread.id}) }}" >{{ subscription.thread.translatable ? subscription.thread.title|trans({},'game') : subscription.thread.title }}</span>
+                                    </div>
+                                    <div class="pointer">
+                                        <img x-unsubscribe-api="{{ path('forum_thread_unsubscribe_controller', {fid: subscription.thread.forum.id, tid: subscription.thread.id}) }}" alt="X" src="{{ asset('build/images/icons/small_remove.gif') }}" />
+                                    </div>
+                                </div>
                             </li>
                         {% endfor %}
                     </ul>
