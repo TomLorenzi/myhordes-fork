@@ -4537,5 +4537,25 @@
         <target>Por defecto, el almacén en MyHordes es ordenado por tipo de objeto. Si prefieres el orden que era usado en Die2Nite, donde los objetos eran principalmente ordenados por su cantidad, activa esta configuración.</target>
       </segment>
     </unit>
+    <unit id="M3EjxBc" name="Herzlichen Glückwunsch, du hast soeben eine Koalition erstellt!">
+      <notes>
+        <note category="german">Herzlichen Glückwunsch, du hast soeben eine Koalition erstellt!</note>
+        <note category="from">twig:///templates/ajax/soul/coalitions.html.twig</note>
+      </notes>
+      <segment>
+        <source>Herzlichen Glückwunsch, du hast soeben eine Koalition erstellt!</source>
+        <target>¡Felicitaciones, acabas de crear tu alianza!</target>
+      </segment>
+    </unit>
+    <unit id="boIaRAS" name="Du hast hiermit die Koalition verlassen.">
+      <notes>
+        <note category="german">Du hast hiermit die Koalition verlassen.</note>
+        <note category="from">twig:///templates/ajax/soul/coalitions.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du hast hiermit die Koalition verlassen.</source>
+        <target>Has salido de la alianza.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

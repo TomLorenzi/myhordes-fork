@@ -2807,7 +2807,6 @@
     <unit id="_33rQU1" name="Durch deinen Weggang hast du deine Koalition soeben aufgelöst.">
       <notes>
         <note category="german">Durch deinen Weggang hast du deine Koalition soeben aufgelöst.</note>
-        <note category="state">new</note>
         <note category="from">php:///src/Controller/Soul/SoulCoalitionController.php</note>
       </notes>
       <segment>
@@ -4573,6 +4572,26 @@
       <segment>
         <source>Standartmäßig sortiert MyHordes Gegenstände in der Bank nach ihrem Typ. Aktiviere diese Option, wenn du die Sortierung von DieVerdammten bevorzugst, bei der Gegenstände primär nach ihrer Anzahl sortiert werden.</source>
         <target>By default, the bank in MyHordes is sorted by item type. If you prefer the sorting that was used in Die2Nite, where items were primarily sorted by their count, activate this setting.</target>
+      </segment>
+    </unit>
+    <unit id="M3EjxBc" name="Herzlichen Glückwunsch, du hast soeben eine Koalition erstellt!">
+      <notes>
+        <note category="german">Herzlichen Glückwunsch, du hast soeben eine Koalition erstellt!</note>
+        <note category="from">twig:///templates/ajax/soul/coalitions.html.twig</note>
+      </notes>
+      <segment>
+        <source>Herzlichen Glückwunsch, du hast soeben eine Koalition erstellt!</source>
+        <target>Congratulations, you have successfully created a coalition!</target>
+      </segment>
+    </unit>
+    <unit id="boIaRAS" name="Du hast hiermit die Koalition verlassen.">
+      <notes>
+        <note category="german">Du hast hiermit die Koalition verlassen.</note>
+        <note category="from">twig:///templates/ajax/soul/coalitions.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du hast hiermit die Koalition verlassen.</source>
+        <target>You have left the coalition.</target>
       </segment>
     </unit>
   </file>

@@ -21433,7 +21433,6 @@
     <unit id="cEtAFQ0" name="Es wurde eine Rauchbombe eingesetzt!">
       <notes>
         <note category="german">Es wurde eine Rauchbombe eingesetzt!</note>
-        <note category="state">new</note>
         <note category="from">db://LogEntryTemplate</note>
       </notes>
       <segment>
@@ -26523,7 +26522,6 @@
       <notes>
         <note category="german">Du kannst diese Aktion nicht durchführen, während in der Stadt &lt;strong&gt;Chaos&lt;/strong&gt; herrscht.</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Du kannst diese Aktion nicht durchführen, während in der Stadt &lt;strong&gt;Chaos&lt;/strong&gt; herrscht.</source>

@@ -2800,5 +2800,17 @@
         <target>Standartmäßig sortiert MyHordes Gegenstände in der Bank nach ihrem Typ. Aktiviere diese Option, wenn du die Sortierung von DieVerdammten bevorzugst, bei der Gegenstände primär nach ihrer Anzahl sortiert werden.</target>
       </segment>
     </unit>
+    <unit id="M3EjxBc" name="Herzlichen Glückwunsch, du hast soeben eine Koalition erstellt!">
+      <segment>
+        <source>Herzlichen Glückwunsch, du hast soeben eine Koalition erstellt!</source>
+        <target>Herzlichen Glückwunsch, du hast soeben eine Koalition erstellt!</target>
+      </segment>
+    </unit>
+    <unit id="boIaRAS" name="Du hast hiermit die Koalition verlassen.">
+      <segment>
+        <source>Du hast hiermit die Koalition verlassen.</source>
+        <target>Du hast hiermit die Koalition verlassen.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

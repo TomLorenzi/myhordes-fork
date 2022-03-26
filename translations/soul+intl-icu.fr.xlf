@@ -4563,5 +4563,25 @@
         <target>Par défaut, la banque dans MyHordes est triée par type d’objet. Si vous préférez le tri utilisé sur Hordes, où les éléments étaient principalement triés en fonction de leur quantité, activez ce paramètre.</target>
       </segment>
     </unit>
+    <unit id="M3EjxBc" name="Herzlichen Glückwunsch, du hast soeben eine Koalition erstellt!">
+      <notes>
+        <note category="german">Herzlichen Glückwunsch, du hast soeben eine Koalition erstellt!</note>
+        <note category="from">twig:///templates/ajax/soul/coalitions.html.twig</note>
+      </notes>
+      <segment>
+        <source>Herzlichen Glückwunsch, du hast soeben eine Koalition erstellt!</source>
+        <target>Félicitations, vous venez de créer votre coalition !</target>
+      </segment>
+    </unit>
+    <unit id="boIaRAS" name="Du hast hiermit die Koalition verlassen.">
+      <notes>
+        <note category="german">Du hast hiermit die Koalition verlassen.</note>
+        <note category="from">twig:///templates/ajax/soul/coalitions.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du hast hiermit die Koalition verlassen.</source>
+        <target>Vous avez quitté la coalition.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
