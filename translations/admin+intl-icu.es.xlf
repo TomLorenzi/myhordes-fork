@@ -865,36 +865,6 @@
         <target>Panel de contol del Administrator</target>
       </segment>
     </unit>
-    <unit id="aZibx3x" name="Server-Log herunterladen">
-      <notes>
-        <note category="german">Server-Log herunterladen</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Server-Log herunterladen</source>
-        <target>Descargar los registros del servidor</target>
-      </segment>
-    </unit>
-    <unit id="yvg6S11" name="Server-Log ansehen">
-      <notes>
-        <note category="german">Server-Log ansehen</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Server-Log ansehen</source>
-        <target>Ver los registros del servidor</target>
-      </segment>
-    </unit>
-    <unit id="UYFKH.u" name="Server-Log löschen">
-      <notes>
-        <note category="german">Server-Log löschen</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Server-Log löschen</source>
-        <target>Limpiar los registros del servidor</target>
-      </segment>
-    </unit>
     <unit id="LzfXrql" name="Geplante Angriffe">
       <notes>
         <note category="german">Geplante Angriffe</note>
@@ -1746,16 +1716,6 @@
         <target>Cofre vacío</target>
       </segment>
     </unit>
-    <unit id="fV5wxwj" name="In der Stadt">
-      <notes>
-        <note category="german">In der Stadt</note>
-        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
-      </notes>
-      <segment>
-        <source>In der Stadt</source>
-        <target>En el pueblo</target>
-      </segment>
-    </unit>
     <unit id="I5qOX6_" name="Anwendung">
       <notes>
         <note category="german">Anwendung</note>
@@ -2040,7 +2000,7 @@
     <unit id="2OM.kVy" name="Änderungen an {appname} speichern">
       <notes>
         <note category="german">Änderungen an « {appname} » speichern</note>
-        <note category="from">php:///src/Controller/Admin/AdminAppController.php</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Änderungen an {appname} speichern</source>
@@ -2095,17 +2055,6 @@
       <segment>
         <source>Anwendung "{external_app}"</source>
         <target>Solicitar "{external_app}"</target>
-      </segment>
-    </unit>
-    <unit id="IeSesrK" name="Log">
-      <notes>
-        <note category="german">Log</note>
-        <note category="state">new</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Log</source>
-        <target>Log</target>
       </segment>
     </unit>
     <unit id="tAQPtd4" name="Einen Status auswählen:">
@@ -4546,7 +4495,7 @@
     <unit id="rDme7TT" name="Nachricht:">
       <notes>
         <note category="german">Nachricht:</note>
-        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Nachricht:</source>

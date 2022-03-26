@@ -7,18 +7,6 @@
         <target>{victim}s Alarmanlage hat die halbe Stadt aufgeweckt und dich zu Tode erschreckt!</target>
       </segment>
     </unit>
-    <unit id="fXVvoov" name="Mist, dein Einbruch bei {victim} ist aufgeflogen...">
-      <segment>
-        <source>Mist, dein Einbruch bei {victim} ist aufgeflogen...</source>
-        <target>Mist, dein Einbruch bei {victim} ist aufgeflogen...</target>
-      </segment>
-    </unit>
-    <unit id="ITvthhv" name="Sehr gut, niemand hat dich bei deinem Einbruch bei {victim} beobachtet.">
-      <segment>
-        <source>Sehr gut, niemand hat dich bei deinem Einbruch bei {victim} beobachtet.</source>
-        <target>Sehr gut, niemand hat dich bei deinem Einbruch bei {victim} beobachtet.</target>
-      </segment>
-    </unit>
     <unit id="kwtIuD9" name="Deine Route wurde gespeichert.">
       <segment>
         <source>Deine Route wurde gespeichert.</source>
@@ -275,12 +263,6 @@
       <segment>
         <source>Hierfür brauchst du klares Wasser (keine Kanister)!</source>
         <target>Hierfür brauchst du klares Wasser (keine Kanister)!</target>
-      </segment>
-    </unit>
-    <unit id="TEo9cyt" name="Das Tor ist bereits geschlossen.">
-      <segment>
-        <source>Das Tor ist bereits geschlossen.</source>
-        <target>Das Tor ist bereits geschlossen.</target>
       </segment>
     </unit>
     <unit id="JsP4vsH" name="Das Tor ist bereits offen.">
@@ -1232,12 +1214,6 @@
       <segment>
         <source>Gegen einen Zombie kämpfen!</source>
         <target>Gegen einen Zombie kämpfen!</target>
-      </segment>
-    </unit>
-    <unit id="seBLTh9" name="Diese Zone">
-      <segment>
-        <source>Diese Zone</source>
-        <target>Diese Zone</target>
       </segment>
     </unit>
     <unit id="X_hg9YY" name="Es muss noch aufgeräumt werden">
@@ -4481,12 +4457,6 @@
         <target>Beim Durchsuchen der Ruine merkst du, dass es nichts mehr zu finden gibt. Leider...</target>
       </segment>
     </unit>
-    <unit id="3bnerbg">
-      <segment>
-        <source>Dank deines Kostüms konntest du {item} von {victim} stehlen, ohne erkannt zu werden</source>
-        <target>Dank deines Kostüms konntest du {item} von {victim} stehlen, ohne erkannt zu werden</target>
-      </segment>
-    </unit>
     <unit id="xHllIMc" name="Stunde(n)">
       <segment>
         <source>Stunde(n)</source>
@@ -5447,12 +5417,6 @@
       <segment>
         <source>Du hast hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist erst morgen wieder möglich.</source>
         <target>Du hast hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist erst morgen wieder möglich.</target>
-      </segment>
-    </unit>
-    <unit id="qNbvdyn" name="Du hast dich in einen Ghul verwandelt!">
-      <segment>
-        <source>Du hast dich in einen Ghul verwandelt!</source>
-        <target>Du hast dich in einen Ghul verwandelt!</target>
       </segment>
     </unit>
     <unit id="0qSqWvb" name="{citizen} hat einen Bauplan für {plan} gefunden.">
@@ -7225,22 +7189,10 @@
         <target>Heute Morgen ist kein Artikel erschienen...</target>
       </segment>
     </unit>
-    <unit id="z3Y3jVt" name="Anonyme Beschwerde">
-      <segment>
-        <source>Anonyme Beschwerde</source>
-        <target>Anonyme Beschwerde</target>
-      </segment>
-    </unit>
     <unit id="FpBbhAk" name="Es wurde eine neue anonyme Beschwerde gegen dich eingelegt: &quot;{reason}&quot;">
       <segment>
         <source>Es wurde eine neue anonyme Beschwerde gegen dich eingelegt: "{reason}"</source>
         <target>Es wurde eine neue anonyme Beschwerde gegen dich eingelegt: "{reason}"</target>
-      </segment>
-    </unit>
-    <unit id="1VFuVbv" name="Beschwerde zurückgezogen">
-      <segment>
-        <source>Beschwerde zurückgezogen</source>
-        <target>Beschwerde zurückgezogen</target>
       </segment>
     </unit>
     <unit id="4JD3nCw" name="Es gibt gute Nachrichten! Folgende Beschwerde wurde zurückgezogen: &quot;{reason}&quot;">
@@ -11840,12 +11792,6 @@
       <segment>
         <source>Wir konnte alle Zombies erfolgreich abwehren. Die Nachtwätcher haben eine saubere Arbeit geleistet!</source>
         <target>Wir konnte alle Zombies erfolgreich abwehren. Die Nachtwätcher haben eine saubere Arbeit geleistet!</target>
-      </segment>
-    </unit>
-    <unit id="7d1x6jh" name="Die Zombies haben beim Angriff {list} zerstört.">
-      <segment>
-        <source>Die Zombies haben beim Angriff {list} zerstört.</source>
-        <target>Die Zombies haben beim Angriff {list} zerstört.</target>
       </segment>
     </unit>
     <unit id="oGFad6j" name="Es ist kein Nachtwächter da, um die Stadt zu verteidigen.">

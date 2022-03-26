@@ -873,36 +873,6 @@
         <target>This login is only for Administrators!</target>
       </segment>
     </unit>
-    <unit id="aZibx3x" name="Server-Log herunterladen">
-      <notes>
-        <note category="german">Server-Log herunterladen</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Server-Log herunterladen</source>
-        <target>Download server logs</target>
-      </segment>
-    </unit>
-    <unit id="yvg6S11" name="Server-Log ansehen">
-      <notes>
-        <note category="german">Server-Log ansehen</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Server-Log ansehen</source>
-        <target>View server logs</target>
-      </segment>
-    </unit>
-    <unit id="UYFKH.u" name="Server-Log löschen">
-      <notes>
-        <note category="german">Server-Log löschen</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Server-Log löschen</source>
-        <target>Clear server logs</target>
-      </segment>
-    </unit>
     <unit id="LzfXrql" name="Geplante Angriffe">
       <notes>
         <note category="german">Geplante Angriffe</note>
@@ -1759,16 +1729,6 @@
         <target>Empty chest</target>
       </segment>
     </unit>
-    <unit id="fV5wxwj" name="In der Stadt">
-      <notes>
-        <note category="german">In der Stadt</note>
-        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
-      </notes>
-      <segment>
-        <source>In der Stadt</source>
-        <target>Inside the town</target>
-      </segment>
-    </unit>
     <unit id="I5qOX6_" name="Anwendung">
       <notes>
         <note category="german">Anwendung</note>
@@ -2109,17 +2069,6 @@
       <segment>
         <source>Anwendung "{external_app}"</source>
         <target>Application "{external_app}"</target>
-      </segment>
-    </unit>
-    <unit id="IeSesrK" name="Log">
-      <notes>
-        <note category="german">Log</note>
-        <note category="state">new</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Log</source>
-        <target>Log</target>
       </segment>
     </unit>
     <unit id="tAQPtd4" name="Einen Status auswählen:">

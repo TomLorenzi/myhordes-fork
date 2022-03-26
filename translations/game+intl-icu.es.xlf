@@ -4,31 +4,11 @@
     <unit id="hzf0c1L">
       <notes>
         <note category="german">{victim}s Alarmanlage hat die halbe Stadt aufgeweckt und dich zu Tode erschreckt!</note>
-        <note category="from">php:///src/Controller/InventoryAwareController.php</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>{victim}s Alarmanlage hat die halbe Stadt aufgeweckt und dich zu Tode erschreckt!</source>
         <target>¡Has activado el sistema de alarma instalado en casa de {victim}s! Ahora todo el pueblo está al corriente de tu intrusión.</target>
-      </segment>
-    </unit>
-    <unit id="fXVvoov" name="Mist, dein Einbruch bei {victim} ist aufgeflogen...">
-      <notes>
-        <note category="german">Mist, dein Einbruch bei {victim} ist aufgeflogen...</note>
-        <note category="from">php:///src/Controller/InventoryAwareController.php</note>
-      </notes>
-      <segment>
-        <source>Mist, dein Einbruch bei {victim} ist aufgeflogen...</source>
-        <target>Oops... ¡Tu irrupción en la Casa de {victim} ha sido descubierta!</target>
-      </segment>
-    </unit>
-    <unit id="ITvthhv" name="Sehr gut, niemand hat dich bei deinem Einbruch bei {victim} beobachtet.">
-      <notes>
-        <note category="german">Sehr gut, niemand hat dich bei deinem Einbruch bei {victim} beobachtet.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Sehr gut, niemand hat dich bei deinem Einbruch bei {victim} beobachtet.</source>
-        <target>Muy bien, nadie te vio irrumpir en la Casa de {victim} ¡Qué hábil eres, eh!.</target>
       </segment>
     </unit>
     <unit id="kwtIuD9" name="Deine Route wurde gespeichert.">
@@ -399,16 +379,6 @@
       <segment>
         <source>Hierfür brauchst du klares Wasser (keine Kanister)!</source>
         <target>Debes tener agua pura (no un bidón por ejemplo) en tu mochila.</target>
-      </segment>
-    </unit>
-    <unit id="TEo9cyt" name="Das Tor ist bereits geschlossen.">
-      <notes>
-        <note category="german">Das Tor ist bereits geschlossen.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Das Tor ist bereits geschlossen.</source>
-        <target>El Gran Portal ya está cerrado.</target>
       </segment>
     </unit>
     <unit id="JsP4vsH" name="Das Tor ist bereits offen.">
@@ -1842,16 +1812,6 @@
       <segment>
         <source>Gegen einen Zombie kämpfen!</source>
         <target>Luchar contra un Zombie</target>
-      </segment>
-    </unit>
-    <unit id="seBLTh9" name="Diese Zone">
-      <notes>
-        <note category="german">Diese Zone</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Diese Zone</source>
-        <target>Sector</target>
       </segment>
     </unit>
     <unit id="X_hg9YY" name="Es muss noch aufgeräumt werden">
@@ -3437,7 +3397,7 @@
     <unit id="LQgPbVT" name="Nordosten">
       <notes>
         <note category="german">Nordosten</note>
-        <note category="from">php:///src/Controller/GameController.php;php:///src/Service/GazetteService.php;twig:///templates/ajax/game/beyond/beyond.html.twig</note>
+        <note category="from">php:///src/Service/GazetteService.php;twig:///templates/ajax/game/beyond/beyond.html.twig</note>
       </notes>
       <segment>
         <source>Nordosten</source>
@@ -3447,7 +3407,7 @@
     <unit id="R9OI7Nm" name="Nordwesten">
       <notes>
         <note category="german">Nordwesten</note>
-        <note category="from">php:///src/Controller/GameController.php;php:///src/Service/GazetteService.php;twig:///templates/ajax/game/beyond/beyond.html.twig</note>
+        <note category="from">php:///src/Service/GazetteService.php;twig:///templates/ajax/game/beyond/beyond.html.twig</note>
       </notes>
       <segment>
         <source>Nordwesten</source>
@@ -3457,7 +3417,7 @@
     <unit id="dOCvO1b" name="Norden">
       <notes>
         <note category="german">Norden</note>
-        <note category="from">php:///src/Controller/GameController.php;php:///src/Service/GazetteService.php;twig:///templates/ajax/game/beyond/beyond.html.twig</note>
+        <note category="from">php:///src/Service/GazetteService.php;twig:///templates/ajax/game/beyond/beyond.html.twig</note>
       </notes>
       <segment>
         <source>Norden</source>
@@ -3467,7 +3427,7 @@
     <unit id="ac.6Rc5" name="Südosten">
       <notes>
         <note category="german">Südosten</note>
-        <note category="from">php:///src/Controller/GameController.php;php:///src/Service/GazetteService.php;twig:///templates/ajax/game/beyond/beyond.html.twig</note>
+        <note category="from">php:///src/Service/GazetteService.php;twig:///templates/ajax/game/beyond/beyond.html.twig</note>
       </notes>
       <segment>
         <source>Südosten</source>
@@ -3477,7 +3437,7 @@
     <unit id="YE0v6eT" name="Südwesten">
       <notes>
         <note category="german">Südwesten</note>
-        <note category="from">php:///src/Controller/GameController.php;php:///src/Service/GazetteService.php;twig:///templates/ajax/game/beyond/beyond.html.twig</note>
+        <note category="from">php:///src/Service/GazetteService.php;twig:///templates/ajax/game/beyond/beyond.html.twig</note>
       </notes>
       <segment>
         <source>Südwesten</source>
@@ -3487,7 +3447,7 @@
     <unit id="qxvJIc." name="Süden">
       <notes>
         <note category="german">Süden</note>
-        <note category="from">php:///src/Controller/GameController.php;php:///src/Service/GazetteService.php;twig:///templates/ajax/game/beyond/beyond.html.twig</note>
+        <note category="from">php:///src/Service/GazetteService.php;twig:///templates/ajax/game/beyond/beyond.html.twig</note>
       </notes>
       <segment>
         <source>Süden</source>
@@ -3497,7 +3457,7 @@
     <unit id="xMKWHhf" name="Osten">
       <notes>
         <note category="german">Osten</note>
-        <note category="from">php:///src/Controller/GameController.php;php:///src/Service/GazetteService.php;twig:///templates/ajax/game/beyond/beyond.html.twig</note>
+        <note category="from">php:///src/Service/GazetteService.php;twig:///templates/ajax/game/beyond/beyond.html.twig</note>
       </notes>
       <segment>
         <source>Osten</source>
@@ -3507,7 +3467,7 @@
     <unit id="jdRT5Z5" name="Westen">
       <notes>
         <note category="german">Westen</note>
-        <note category="from">php:///src/Controller/GameController.php;php:///src/Service/GazetteService.php;twig:///templates/ajax/game/beyond/beyond.html.twig</note>
+        <note category="from">php:///src/Service/GazetteService.php;twig:///templates/ajax/game/beyond/beyond.html.twig</note>
       </notes>
       <segment>
         <source>Westen</source>
@@ -4887,7 +4847,7 @@
     <unit id="Q9LWBP_" name="Nach einigen Anstrengungen hast du folgendes gefunden: {item}!">
       <notes>
         <note category="german">Nach einigen Anstrengungen hast du folgendes gefunden: {item}!</note>
-        <note category="from">php:///src/Controller/ExplorationController.php;php:///src/Service/ZoneHandler.php</note>
+        <note category="from">php:///src/Service/ZoneHandler.php</note>
       </notes>
       <segment>
         <source>Nach einigen Anstrengungen hast du folgendes gefunden: {item}!</source>
@@ -6884,16 +6844,6 @@
         <target>Recorriendo cada rincón de las ruinas descubres que allí no hay nada que te pueda servir. Qué lástima...</target>
       </segment>
     </unit>
-    <unit id="3bnerbg">
-      <notes>
-        <note category="german">Dank deines Kostüms konntest du {item} von {victim} stehlen, ohne erkannt zu werden</note>
-        <note category="from">php:///src/Controller/InventoryAwareController.php</note>
-      </notes>
-      <segment>
-        <source>Dank deines Kostüms konntest du {item} von {victim} stehlen, ohne erkannt zu werden</source>
-        <target>¡Gracias a tu disfraz logras robar {item} a {victim} sin ser descubierto!</target>
-      </segment>
-    </unit>
     <unit id="xHllIMc" name="Stunde(n)">
       <notes>
         <note category="german">Stunde(n)</note>
@@ -8217,16 +8167,6 @@
         <target>¿Qué dices?</target>
       </segment>
     </unit>
-    <unit id="qNbvdyn" name="Du hast dich in einen Ghul verwandelt!">
-      <notes>
-        <note category="german">Du hast dich in einen Ghul verwandelt!</note>
-        <note category="from">db://CitizenRole</note>
-      </notes>
-      <segment>
-        <source>Du hast dich in einen Ghul verwandelt!</source>
-        <target>¡Te has convertido en un Mutante!</target>
-      </segment>
-    </unit>
     <unit id="0qSqWvb" name="{citizen} hat einen Bauplan für {plan} gefunden.">
       <notes>
         <note category="german">{citizen} hat einen Bauplan für {plan} gefunden.</note>
@@ -9031,7 +8971,7 @@
     <unit id="Tj4dAlQ" name="Umdrehen">
       <notes>
         <note category="german">Umdrehen</note>
-        <note category="from">twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/gazette_widget.html.twig</note>
       </notes>
       <segment>
         <source>Umdrehen</source>
@@ -10451,7 +10391,7 @@
     <unit id="fICCxje" name="Seine Seele ansehen">
       <notes>
         <note category="german">Seine Seele ansehen</note>
-        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Seine Seele ansehen</source>
@@ -10781,21 +10721,11 @@
     <unit id="mjwvinZ" name="Heute Morgen ist kein Artikel erschienen...">
       <notes>
         <note category="german">Heute Morgen ist kein Artikel erschienen...</note>
-        <note category="from">php:///src/Controller/GameController.php;php:///src/Service/GazetteService.php</note>
+        <note category="from">php:///src/Service/GazetteService.php</note>
       </notes>
       <segment>
         <source>Heute Morgen ist kein Artikel erschienen...</source>
         <target>No hay noticias hoy...</target>
-      </segment>
-    </unit>
-    <unit id="z3Y3jVt" name="Anonyme Beschwerde">
-      <notes>
-        <note category="german">Anonyme Beschwerde</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Anonyme Beschwerde</source>
-        <target>Denuncia Anónima</target>
       </segment>
     </unit>
     <unit id="FpBbhAk" name="Es wurde eine neue anonyme Beschwerde gegen dich eingelegt: &quot;{reason}&quot;">
@@ -10806,16 +10736,6 @@
       <segment>
         <source>Es wurde eine neue anonyme Beschwerde gegen dich eingelegt: "{reason}"</source>
         <target>Has recibido una nueva denuncia anónima: "{reason}"</target>
-      </segment>
-    </unit>
-    <unit id="1VFuVbv" name="Beschwerde zurückgezogen">
-      <notes>
-        <note category="german">Beschwerde zurückgezogen</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Beschwerde zurückgezogen</source>
-        <target>Denuncia Retirada</target>
       </segment>
     </unit>
     <unit id="4JD3nCw" name="Es gibt gute Nachrichten! Folgende Beschwerde wurde zurückgezogen: &quot;{reason}&quot;">
@@ -11195,7 +11115,7 @@
     <unit id="Xo4xhxR" name="Die Stadt wird erst starten, wenn sie &lt;strong&gt;{population} Bürger hat&lt;/strong&gt;.">
       <notes>
         <note category="german">Die Stadt wird erst starten, wenn sie &lt;strong&gt;{population} Bürger hat&lt;/strong&gt;.</note>
-        <note category="from">php:///src/Controller/GameController.php;php:///src/Service/GazetteService.php</note>
+        <note category="from">php:///src/Service/GazetteService.php</note>
       </notes>
       <segment>
         <source>Die Stadt wird erst starten, wenn sie &lt;strong&gt;{population} Bürger hat&lt;/strong&gt;.</source>
@@ -11872,7 +11792,7 @@
     <unit id="JZddhDT">
       <notes>
         <note category="german">Fangt schon mal an zu beten, Bürger - die Zombies werden um Mitternacht angreifen!</note>
-        <note category="from">php:///src/Controller/GameController.php;php:///src/Service/GazetteService.php</note>
+        <note category="from">php:///src/Service/GazetteService.php</note>
       </notes>
       <segment>
         <source>Fangt schon mal an zu beten, Bürger - die Zombies werden um Mitternacht angreifen!</source>
@@ -15149,7 +15069,7 @@
     <unit id="OhpvQec" name="im Nordwesten">
       <notes>
         <note category="german">im Nordwesten</note>
-        <note category="from">php:///src/Controller/GameController.php;php:///src/Service/GazetteService.php;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="from">php:///src/Service/GazetteService.php;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/gazette_widget.html.twig</note>
       </notes>
       <segment>
         <source>im Nordwesten</source>
@@ -15159,7 +15079,7 @@
     <unit id="dHF9hg3" name="im Norden">
       <notes>
         <note category="german">im Norden</note>
-        <note category="from">php:///src/Controller/GameController.php;php:///src/Service/GazetteService.php;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="from">php:///src/Service/GazetteService.php;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/gazette_widget.html.twig</note>
       </notes>
       <segment>
         <source>im Norden</source>
@@ -15169,7 +15089,7 @@
     <unit id="8VW_Ac6" name="im Nordosten">
       <notes>
         <note category="german">im Nordosten</note>
-        <note category="from">php:///src/Controller/GameController.php;php:///src/Service/GazetteService.php;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="from">php:///src/Service/GazetteService.php;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/gazette_widget.html.twig</note>
       </notes>
       <segment>
         <source>im Nordosten</source>
@@ -15179,7 +15099,7 @@
     <unit id="CGH7WpP" name="im Westen">
       <notes>
         <note category="german">im Westen</note>
-        <note category="from">php:///src/Controller/GameController.php;php:///src/Service/GazetteService.php;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="from">php:///src/Service/GazetteService.php;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/gazette_widget.html.twig</note>
       </notes>
       <segment>
         <source>im Westen</source>
@@ -15189,7 +15109,7 @@
     <unit id="GrDc37F" name="im Osten">
       <notes>
         <note category="german">im Osten</note>
-        <note category="from">php:///src/Controller/GameController.php;php:///src/Service/GazetteService.php;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="from">php:///src/Service/GazetteService.php;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/gazette_widget.html.twig</note>
       </notes>
       <segment>
         <source>im Osten</source>
@@ -15199,7 +15119,7 @@
     <unit id="luEGXBn" name="im Südwesten">
       <notes>
         <note category="german">im Südwesten</note>
-        <note category="from">php:///src/Controller/GameController.php;php:///src/Service/GazetteService.php;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="from">php:///src/Service/GazetteService.php;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/gazette_widget.html.twig</note>
       </notes>
       <segment>
         <source>im Südwesten</source>
@@ -15209,7 +15129,7 @@
     <unit id="UpG6M6C" name="im Süden">
       <notes>
         <note category="german">im Süden</note>
-        <note category="from">php:///src/Controller/GameController.php;php:///src/Service/GazetteService.php;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="from">php:///src/Service/GazetteService.php;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/gazette_widget.html.twig</note>
       </notes>
       <segment>
         <source>im Süden</source>
@@ -15219,7 +15139,7 @@
     <unit id="G2GbQ43" name="im Südosten">
       <notes>
         <note category="german">im Südosten</note>
-        <note category="from">php:///src/Controller/GameController.php;php:///src/Service/GazetteService.php;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="from">php:///src/Service/GazetteService.php;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/gazette_widget.html.twig</note>
       </notes>
       <segment>
         <source>im Südosten</source>
@@ -15801,7 +15721,7 @@
     <unit id="aGs0YSI" name="Die verfluchten Schriften">
       <notes>
         <note category="german">Die verfluchten Schriften</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/rps.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/rps.html.twig</note>
       </notes>
       <segment>
         <source>Die verfluchten Schriften</source>
@@ -18458,16 +18378,6 @@
       <segment>
         <source>Wir konnte alle Zombies erfolgreich abwehren. Die Nachtwätcher haben eine saubere Arbeit geleistet!</source>
         <target>Ningún zombie pudo pasar. ¡Los centinelas han defendido el pueblo con uñas y dientes!</target>
-      </segment>
-    </unit>
-    <unit id="7d1x6jh" name="Die Zombies haben beim Angriff {list} zerstört.">
-      <notes>
-        <note category="german">Die Zombies haben beim Angriff {list} zerstört.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Die Zombies haben beim Angriff {list} zerstört.</source>
-        <target>Los Zombies destruyeron {list} durante el ataque.</target>
       </segment>
     </unit>
     <unit id="oGFad6j" name="Es ist kein Nachtwächter da, um die Stadt zu verteidigen.">
@@ -23792,7 +23702,7 @@
     <unit id="1catDqP">
       <notes>
         <note category="german">&lt;strong&gt;{citizen1}&lt;/strong&gt; soll heute Morgen die Leiche von &lt;strong&gt;† {cadaver1}&lt;/strong&gt; inmitten einer Baustelle gefunden haben. Laut diesem Bürger handelte es sich um einen Selbstmord.... Nur konnte &lt;strong&gt;{citizen1}&lt;/strong&gt; uns das Messer, das im Rücken der Leiche steckte, nicht erklären...</note>
-        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>&lt;strong&gt;{citizen1}&lt;/strong&gt; soll heute Morgen die Leiche von &lt;strong&gt;† {cadaver1}&lt;/strong&gt; inmitten einer Baustelle gefunden haben. Laut diesem Bürger handelte es sich um einen Selbstmord.... Nur konnte &lt;strong&gt;{citizen1}&lt;/strong&gt; uns das Messer, das im Rücken der Leiche steckte, nicht erklären...</source>
@@ -25939,7 +25849,7 @@
     <unit id="dAly6Ww" name="Wir werden alle sterben: Sag es weiter!">
       <notes>
         <note category="german">Wir werden alle sterben: Sag es weiter!</note>
-        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/social.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
         <source>Wir werden alle sterben: Sag es weiter!</source>
@@ -26109,7 +26019,7 @@
     <unit id="NmtcN7Z">
       <notes>
         <note category="german">Der entsetzliche Angriff letzte Nacht kostete das Leben von {cadavers} Menschen. Circa &lt;strong&gt;{attack} Zombies&lt;/strong&gt;! Die Gewalt, die bei diesem jüngsten Angriff zu beobachten war, lässt uns das Schlimmste erwarten...</note>
-        <note category="from">db://GazetteEntryTemplate</note>
+        <note category="from">[unused]</note>
         <note category="state">new</note>
       </notes>
       <segment>
@@ -26184,18 +26094,6 @@
       <segment>
         <source>Lies die Hilfe zu Ghulen</source>
         <target>Consulta la ayuda sobre los mutantes</target>
-      </segment>
-    </unit>
-    <unit id="Ns.Fv2L">
-      <notes>
-        <note category="german">Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur
-                            Verfügung.</note>
-        <note category="from">twig:///templates/ajax/game/game.html.twig</note>
-      </notes>
-      <segment>
-        <source>Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur
-                            Verfügung.</source>
-        <target><![CDATA[Ahora eres un <strong>paria</strong>, y no tienes acceso a las herramientas comunitarias en el pueblo: almacén, construcciones, portal, etc.]]></target>
       </segment>
     </unit>
     <unit id="boRvKwW" name="Hunger:">
@@ -26343,7 +26241,7 @@
     <unit id="cokluf." name="Mysteriöser Fremder">
       <notes>
         <note category="german">Mysteriöser Fremder</note>
-        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php;twig:///templates/ajax/game/town/citizen.html.twig</note>
         <note category="state">new</note>
       </notes>
       <segment>

@@ -1895,12 +1895,6 @@
         <target>Du hast keine Koalition.</target>
       </segment>
     </unit>
-    <unit id="ljPPYyM" name="Du bist nicht Anführer deiner Koalition.">
-      <segment>
-        <source>Du bist nicht Anführer deiner Koalition.</source>
-        <target>Du bist nicht Anführer deiner Koalition.</target>
-      </segment>
-    </unit>
     <unit id="nnaWQyL" name="Kein freier Platz">
       <segment>
         <source>Kein freier Platz</source>

@@ -613,24 +613,6 @@
         <target>Admin Dashboard</target>
       </segment>
     </unit>
-    <unit id="aZibx3x" name="Server-Log herunterladen">
-      <segment>
-        <source>Server-Log herunterladen</source>
-        <target>Server-Log herunterladen</target>
-      </segment>
-    </unit>
-    <unit id="yvg6S11" name="Server-Log ansehen">
-      <segment>
-        <source>Server-Log ansehen</source>
-        <target>Server-Log ansehen</target>
-      </segment>
-    </unit>
-    <unit id="UYFKH.u" name="Server-Log löschen">
-      <segment>
-        <source>Server-Log löschen</source>
-        <target>Server-Log löschen</target>
-      </segment>
-    </unit>
     <unit id="LzfXrql" name="Geplante Angriffe">
       <segment>
         <source>Geplante Angriffe</source>
@@ -1171,12 +1153,6 @@
         <target>Leere Truhe</target>
       </segment>
     </unit>
-    <unit id="fV5wxwj" name="In der Stadt">
-      <segment>
-        <source>In der Stadt</source>
-        <target>In der Stadt</target>
-      </segment>
-    </unit>
     <unit id="I5qOX6_" name="Anwendung">
       <segment>
         <source>Anwendung</source>
@@ -1385,12 +1361,6 @@
       <segment>
         <source>Anwendung "{external_app}"</source>
         <target>Anwendung "{external_app}"</target>
-      </segment>
-    </unit>
-    <unit id="IeSesrK" name="Log">
-      <segment>
-        <source>Log</source>
-        <target>Log</target>
       </segment>
     </unit>
     <unit id="GYf8Lr5" name="Eine Auszeichnungen auswählen:">

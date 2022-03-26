@@ -7289,16 +7289,6 @@
         <target>Preparar un Estimulante</target>
       </segment>
     </unit>
-    <unit id="0V2NUu6" name="In deinem Labor hast du {items_consume} in {items_spawn} umgewandelt.">
-      <notes>
-        <note category="german">In deinem Labor hast du {items_consume} in {items_spawn} umgewandelt.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>In deinem Labor hast du {items_consume} in {items_spawn} umgewandelt.</source>
-        <target><![CDATA[Mueles el contenido de {items_consume} sobre la mesa y haces una mezcla con todo lo que tienes a la vista... Lo dejas reposar. Te ha quedado <strong>buenísimo</strong>: ¡Ahora tienes {items_spawn}!]]></target>
-      </segment>
-    </unit>
     <unit id="z79RBPW" name="Kochen">
       <notes>
         <note category="german">Kochen</note>
@@ -9233,16 +9223,6 @@
       <segment>
         <source>Ja, klar... Du hast ihn schon hunderte Male gesehen, das Thema ändert sich auch nicht allzu sehr, aber trotzdem: Es geht nichts über einen guten Zombie-Film zur Entspannung.&lt;t-stat-down-terror&gt;&lt;hr /&gt;Diese seltsam fernen Schreie des Schreckens haben dir den Kopf gerade gerückt: &lt;strong&gt;Du hast deine Angst abgeschüttelt&lt;/strong&gt;.&lt;/t-stat-down-terror&gt;</source>
         <target><![CDATA[Sí, por supuesto... lo has visto cientos de veces, el tema no cambia demasiado, pero aún así: no hay nada como una buena película de zombis para relajarse. <t-stat-down-terror><hr />Esos gritos de horror extrañamente distantes te han enderezado la cabeza: <strong>Te has quitado el miedo</strong>.</t-stat-down-terror>]]></target>
-      </segment>
-    </unit>
-    <unit id="zBL2Qmm">
-      <notes>
-        <note category="german">Du greifst einen Zombie mit {item} an, aber er &lt;strong&gt;geht einfach nicht zu Boden&lt;/strong&gt; und kommt weiter auf dich zu.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Du greifst einen Zombie mit {item} an, aber er &lt;strong&gt;geht einfach nicht zu Boden&lt;/strong&gt; und kommt weiter auf dich zu.</source>
-        <target><![CDATA[Atacas a un zombi con {item}, pero <strong>simplemente no cae</strong> y sigue viniendo hacia ti.]]></target>
       </segment>
     </unit>
     <unit id="Loi4Bfp" name="Verbessert die Verteidigung und verhindert Diebstähle">

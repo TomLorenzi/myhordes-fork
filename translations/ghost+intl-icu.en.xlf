@@ -986,26 +986,6 @@
         <target>The town gates cannot be opened until the city is full.</target>
       </segment>
     </unit>
-    <unit id="8UBVWFJ" name="Betapropin steht nicht zur Verfügung.">
-      <notes>
-        <note category="german">Betapropin steht nicht zur Verfügung.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Betapropin steht nicht zur Verfügung.</source>
-        <target>Betapropine is not available.</target>
-      </segment>
-    </unit>
-    <unit id="QjQvnlj" name="Beta-Funktionen deaktivieren">
-      <notes>
-        <note category="german">Beta-Funktionen deaktivieren</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Beta-Funktionen deaktivieren</source>
-        <target>Disable Beta features</target>
-      </segment>
-    </unit>
     <unit id="VoOkBZ0" name="Ein Mitglied deiner Koalition kann dieser Stadt nicht beitreten.">
       <notes>
         <note category="german">Ein Mitglied deiner Koalition kann dieser Stadt nicht beitreten.</note>
