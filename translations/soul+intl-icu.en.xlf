@@ -2812,7 +2812,7 @@
       </notes>
       <segment>
         <source>Durch deinen Weggang hast du deine Koalition soeben aufgelöst.</source>
-        <target>Durch deinen Weggang hast du deine Koalition soeben aufgelöst.</target>
+        <target>By leaving, you have just dissolved your coalition.</target>
       </segment>
     </unit>
     <unit id="pxDv8GV" name="Möchtest du diese Koalition verlassen und somit auflösen?">

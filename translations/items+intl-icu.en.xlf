@@ -9134,7 +9134,7 @@
       </notes>
       <segment>
         <source>Sorgfältig befestigst du bei dir daheim ein(e) {item}. So und das hält jetzt, so viel steht schon mal fest.{hr}Dieser Gegenstand gibt deinem Haus permament &lt;strong&gt;{home_defense} zusätzliche Verteidigungspunkt(e).&lt;/strong&gt;</source>
-        <target><![CDATA[You install the {item} in your house. There's no way that thing is going anywhere, but that's kinda the point...{hr}This object permanently adds <strong>{home_defense} defence points</strong> to your house.]]></target>
+        <target><![CDATA[You install the {item} in your house. There's no way that thing is going anywhere, but that's kinda the point...{hr}This object permanently adds <strong>{home_defense} defence point</strong> to your house.]]></target>
       </segment>
     </unit>
     <unit id="H.4hGj8" name="Du hast bereits volle AP.">
