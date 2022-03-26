@@ -132,15 +132,17 @@ class WebController extends CustomAbstractController
     }
 
     /**
-     * @Route("/pm", name="home_pm")
+     * @Route("/pm/{com}", name="home_pm")
+     * @param string $com
      * @return Response
      */
-    public function standalone_pm(): Response
+    public function standalone_pm(string $com = null): Response
     {
         if ($r = $this->handleDomainRedirection()) return $r;
         if (!$this->isGranted('ROLE_USER'))
             return $this->redirect($this->generateUrl('home'));
-        return $this->render( 'web/pm-host.html.twig', [] );
+
+        return $this->render( 'web/pm-host.html.twig', $com ? ['command' => $com] : [] );
     }
 
     /**

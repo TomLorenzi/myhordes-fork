@@ -6,12 +6,10 @@ use App\Annotations\GateKeeperProfile;
 use App\Controller\CustomAbstractController;
 use App\Entity\AccountRestriction;
 use App\Entity\Announcement;
-use App\Entity\AntiSpamDomains;
 use App\Entity\Award;
 use App\Entity\CauseOfDeath;
 use App\Entity\Changelog;
 use App\Entity\CitizenRankingProxy;
-use App\Entity\Complaint;
 use App\Entity\ExternalApp;
 use App\Entity\FeatureUnlock;
 use App\Entity\FeatureUnlockPrototype;
@@ -48,15 +46,11 @@ use App\Service\CitizenHandler;
 use App\Service\InventoryHandler;
 use App\Service\TimeKeeperService;
 use App\Structures\MyHordesConf;
-use App\Structures\TownConf;
-use App\Translation\T;
 use DateTime;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
-use PHPUnit\Util\Json;
 use Symfony\Component\Asset\Packages;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
@@ -1290,6 +1284,7 @@ class SoulController extends CustomAbstractController
 
     /**
      * @Route("api/soul/{id}/block/{action}", name="soul_block_control", requirements={"id"="\d+", "action"="\d+"})
+     * @GateKeeperProfile(allow_during_attack=true)
      * @param int $id
      * @param int $action
      * @return Response
@@ -1533,11 +1528,12 @@ class SoulController extends CustomAbstractController
 
     /**
      * @Route("api/soul/tooltip", name="soul_tooltip")
+     * @GateKeeperProfile(allow_during_attack=true)
      * @param int $id
      * @param HTMLService $html
      * @return Response
      */
-    public function api_soul_tooltip(JSONRequestParser $parser, HTMLService $html) {
+    public function api_soul_tooltip(JSONRequestParser $parser, HTMLService $html, TimeKeeperService $timeKeeper) {
         $id = $parser->get("id");
         $user = $this->entity_manager->getRepository(User::class)->find($id);
 
@@ -1561,6 +1557,7 @@ class SoulController extends CustomAbstractController
             'isFriend' => $isFriend,
             'dummy' => $is_dummy,
             'is_deleted' => $is_deleted,
+            'during_attack' => $timeKeeper->isDuringAttack(),
             'crow'   => $this->user_handler->hasRole($user,'ROLE_CROW'),
             'admin'  => $this->user_handler->hasRole($user,'ROLE_ADMIN'),
             'super'  => $this->user_handler->hasRole($user,'ROLE_SUPER'),
@@ -1572,6 +1569,7 @@ class SoulController extends CustomAbstractController
 
     /**
      * @Route("api/soul/friend/{action}", name="soul_friend_control")
+     * @GateKeeperProfile(allow_during_attack=true)
      * @param int $id
      * @param HTMLService $html
      * @return Response
