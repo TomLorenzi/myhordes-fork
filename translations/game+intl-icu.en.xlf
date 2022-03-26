@@ -26527,7 +26527,7 @@
       </notes>
       <segment>
         <source>Du kannst diese Aktion nicht durchführen, während in der Stadt &lt;strong&gt;Chaos&lt;/strong&gt; herrscht.</source>
-        <target><![CDATA[Du kannst diese Aktion nicht durchführen, während in der Stadt <strong>Chaos</strong> herrscht.]]></target>
+        <target><![CDATA[It is impossible to do this in times of  <strong>Chaos</strong>.]]></target>
       </segment>
     </unit>
     <unit id="niUF_zZ">
