@@ -26447,5 +26447,15 @@
         <target><![CDATA[You cannot rob a citizen <strong>if you have sent them an object today</strong> (anti-abuse measure).]]></target>
       </segment>
     </unit>
+    <unit id="JlsrGdD" name="auf {coa_invite} antworten">
+      <notes>
+        <note category="german">auf {coa_invite} antworten</note>
+        <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
+      </notes>
+      <segment>
+        <source>auf {coa_invite} antworten</source>
+        <target>reply to {coa_invite}</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

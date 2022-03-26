@@ -2806,5 +2806,11 @@
         <target>Du hast hiermit die Koalition verlassen.</target>
       </segment>
     </unit>
+    <unit id="T1AF293" name="Koalitionseinladungen">
+      <segment>
+        <source>Koalitionseinladungen</source>
+        <target>Koalitionseinladungen</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -16571,5 +16571,11 @@
         <target><![CDATA[Du kannst keinen Bürger bestehlen, dem <strong>du heute einen Gegenstand per Post</strong> gesendet hast (Missbrauchschutz).]]></target>
       </segment>
     </unit>
+    <unit id="JlsrGdD" name="auf {coa_invite} antworten">
+      <segment>
+        <source>auf {coa_invite} antworten</source>
+        <target>auf {coa_invite} antworten</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

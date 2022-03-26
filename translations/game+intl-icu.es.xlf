@@ -26356,5 +26356,15 @@
         <target><![CDATA[No puedes robar <strong>a quien has enviado un objeto por correo hoy</strong> (Medida anti-abusos).]]></target>
       </segment>
     </unit>
+    <unit id="JlsrGdD" name="auf {coa_invite} antworten">
+      <notes>
+        <note category="german">auf {coa_invite} antworten</note>
+        <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
+      </notes>
+      <segment>
+        <source>auf {coa_invite} antworten</source>
+        <target>responde a {coa_invite} de coalición</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -97,6 +97,7 @@
                 {% if new_message %}
                     <li x-ajax-href="{{ path('town_house', {tab: 'messages', subtab: 'received'}) }}">{{ 'Meine Nachrichten lesen.'|trans({}, 'game') }} <img src="{{ asset("build/images/icons/anim_icon_mail.gif") }}" alt="" />,</li>
                 {% endif %}
+                {% if has_pending_coa_invite %}<li>{{ 'auf {coa_invite} antworten'|trans({'coa_invite': '<a x-ajax-href="' ~ path('soul_coalitions') ~ '">' ~ 'Koalitionseinladungen'|trans({},'soul') ~ '</a>'}, 'game')|raw }},</li>{% endif %}
                 {% if new_coa_message %}
                     <li x-ajax-href="{{ path('soul_coalitions') }}">{{ 'Die letzten Nachrichten meiner Koalition lesen.'|trans({}, 'game') }} <img src="{{ asset("build/images/icons/anim_icon_mail.gif") }}" alt="" />,</li>
                 {% endif %}

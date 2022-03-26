@@ -32,6 +32,7 @@ use App\Entity\ShoutboxReadMarker;
 use App\Entity\SpecialActionPrototype;
 use App\Entity\Town;
 use App\Entity\User;
+use App\Entity\UserGroupAssociation;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
 use App\Service\BankAntiAbuseService;
@@ -239,6 +240,16 @@ class TownController extends InventoryAwareController
         foreach ($this->conf->getCurrentEvents($town) as $e)
             $e->hook_dashboard($town, $additional_bullets, $additional_situation);
 
+        $user_coalition = $this->entity_manager->getRepository(UserGroupAssociation::class)->findOneBy( [
+            'user' => $this->getActiveCitizen()->getUser(),
+            'associationType' => [UserGroupAssociation::GroupAssociationTypeCoalitionMember, UserGroupAssociation::GroupAssociationTypeCoalitionMemberInactive]
+        ]);
+
+        $user_invitations = $user_coalition ? [] : $this->entity_manager->getRepository(UserGroupAssociation::class)->findBy( [
+            'user' => $this->getActiveCitizen()->getUser(),
+            'associationType' => UserGroupAssociation::GroupAssociationTypeCoalitionInvitation
+        ]);
+
         return $this->render( 'ajax/game/town/dashboard.html.twig', $this->addDefaultTwigArgs(null, [
             'town' => $town,
             'def' => $this->town_handler->calculate_town_def($town, $defSummary),
@@ -257,6 +268,7 @@ class TownController extends InventoryAwareController
             'has_estimated' => $has_estimated,
             'has_visited_forum' => $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_chk_forum'),
             'has_been_active' => $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), ['tg_chk_workshop', 'tg_chk_movewb', 'tg_chk_build']),
+            'has_pending_coa_invite' => !empty($user_invitations),
             'display_home_upgrade' => $display_home_upgrade,
             'has_upgraded_house' => $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_home_upgrade'),
             'can_edit_blackboard' => $can_edit_blackboard,

@@ -26149,5 +26149,15 @@ cette violente opération...]]></target>
         <target><![CDATA[Vous ne pouvez pas cambrioler un citoyen <strong>à qui vous avez envoyé un objet par courrier aujourd'hui</strong> (mesure anti-abus).]]></target>
       </segment>
     </unit>
+    <unit id="JlsrGdD" name="auf {coa_invite} antworten">
+      <notes>
+        <note category="german">auf {coa_invite} antworten</note>
+        <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
+      </notes>
+      <segment>
+        <source>auf {coa_invite} antworten</source>
+        <target>répondre à {coa_invite} en coalition</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

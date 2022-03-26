@@ -4547,5 +4547,15 @@
         <target>Has salido de la alianza.</target>
       </segment>
     </unit>
+    <unit id="T1AF293" name="Koalitionseinladungen">
+      <notes>
+        <note category="german">Koalitionseinladungen</note>
+        <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
+      </notes>
+      <segment>
+        <source>Koalitionseinladungen</source>
+        <target>las invitaciones</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
