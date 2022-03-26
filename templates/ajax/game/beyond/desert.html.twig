@@ -510,15 +510,21 @@
                         {% endif %}
                     {% endif %}
 
-                    <h5>{{"Zonenmarkierer"|trans({}, 'game')}} <a class="help-button"><div class="tooltip help">{{ 'Der Markierer ist auf der Karte für ALLE Bürger sichtbar. Benutze ihn, um der Gemeinschaft Informationen über eine bestimmte Zone mitzuteilen.'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></h5>
-                    {% if not zone.tag is null and zone.tag.ref > 0 %}
-                        <img src="{{ asset("build/images/tags/" ~ zone.tag.icon ~ ".gif") }}" />
-                    {% endif %}
-                    <select id="zone-marker">
-                        {% for tag in zone_tags %}
-                            <option value="{{tag.ref}}" {% if tag == zone.tag %}selected{% endif %}>{{tag.label|trans({}, 'game')}}</option>
-                        {% endfor %}
-                    </select>
+                    <h5><label for="zone-marker">{{"Zonenmarkierer"|trans({}, 'game')}}</label> <a class="help-button"><div class="tooltip help">{{ 'Der Markierer ist auf der Karte für ALLE Bürger sichtbar. Benutze ihn, um der Gemeinschaft Informationen über eine bestimmte Zone mitzuteilen.'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></h5>
+                    <div class="row-flex v-center">
+                        {% if not zone.tag is null and zone.tag.ref > 0 %}
+                            <div class="cell"><img alt="{{ zone.tag.icon }}" src="{{ asset("build/images/tags/" ~ zone.tag.icon ~ ".gif") }}" style="margin-right: 5px;" /></div>
+                        {% endif %}
+                        <div class="cell grow-1">
+                            <select id="zone-marker" class="full-width">
+                                {% for tag in zone_tags %}
+                                    <option value="{{tag.ref}}" {% if tag == zone.tag %}selected{% endif %}>{{tag.label|trans({}, 'game')}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                    </div>
+
                 </div>
             {% endif %}
         </div>
@@ -537,7 +543,7 @@
                         {# @var other_citizen \App\Entity\Citizen #}
                         {% if other_citizen.escortSettings is not null and other_citizen.escortSettings.leader == citizen %}
                             <div class="row beyond-escort-on">
-                                <div class="padded cell rw-4 citizen-box">
+                                <div class="padded cell rw-4 rw-lg-5 rw-md-4 rw-sm-5 citizen-box">
                                     {% if other_citizen.online %}
                                         <img src="{{ asset('build/images/icons/player_online.gif') }}" alt="{{ 'Online'|trans({},'global') }}">
                                     {% else %}
@@ -559,7 +565,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="padded cell rw-3">
+                                <div class="padded cell rw-3 rw-lg-4 rw-md-3 rw-sm-4">
                                     <ul class="status">
                                         {% if zone.x != 0 or zone.y != 0 %}
                                             {% if not other_citizen.digging %}
@@ -605,10 +611,10 @@
                                         {% endfor %}
                                     </ul>
                                 </div>
-                                <div class="padded cell rw-2">
+                                <div class="padded cell rw-2 rw-lg-3 rw-md-2 rw-sm-3">
                                     <div class="ap small">{{ other_citizen.ap }}</div>
                                 </div>
-                                <div class="padded cell rw-3 right">
+                                <div class="padded cell rw-3 rw-lg-12 rw-md-3 rw-sm-12 right">
                                     {% if allow_floor_access %}
                                         {% for escort_action in escort_actions[other_citizen.id] %}
                                             {# @var \App\Structures\EscortItemActionSet escort_action #}
@@ -670,7 +676,7 @@
                                 </div>
 
                                 {% if other_citizen.escortSettings.allowInventoryAccess %}
-                                    <div class="padded cell ro-4 rw-8">
+                                    <div class="padded cell ro-4 rw-8 ro-lg-0 rw-lg-12">
                                         {% embed "ajax/game/inventory.html.twig" with {'size': rucksack_sizes[other_citizen.id], 'items': other_citizen.inventory.items, 'escort': other_citizen.id, 'plus': allow_floor_access and floorItems is not empty, 'owner': other_citizen, 'sort': true} %}
                                             {% block class %}rucksack-escort{% endblock %}
                                         {% endembed %}
@@ -723,7 +729,7 @@
                         {# @var other_citizen \App\Entity\Citizen #}
                         {% if other_citizen.escortSettings is null or other_citizen.escortSettings.leader != citizen %}
                             <div class="row beyond-escort-off">
-                                <div class="padded cell rw-4 citizen-box">
+                                <div class="padded cell rw-4 rw-lg-6 rw-md-4 rw-sm-9 citizen-box">
                                     {% if other_citizen.online %}
                                         <img src="{{ asset('build/images/icons/player_online.gif') }}" alt="{{ 'Online'|trans({},'global') }}">
                                     {% else %}
@@ -745,7 +751,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="padded cell rw-4">
+                                <div class="padded cell rw-4 rw-lg-2 rw-md-4 rw-sm-3">
                                     <ul class="status">
                                         {% if other_citizen.camping %}
                                             <li class="status"><img src="{{ asset('build/images/status/status_camper.gif') }}" alt="{{ 'Camping'|trans({},'game') }}">
@@ -775,7 +781,7 @@
                                         {% endif %}
                                     </ul>
                                 </div>
-                                <div class="padded cell rw-4 right">
+                                <div class="padded cell rw-4 rw-sm-12 right">
                                     {% if not other_citizen.activeExplorerStats and other_citizen != citizen %}
                                         <button {% if not can_attack_citizen or citizen_hidden %}disabled{% endif %} x-attack-citizen="{{ path('beyond_desert_attack_citizen_controller', {cid: other_citizen.id}) }}" class="small inline"><img alt="" src="{{ asset('build/images/icons/fist.gif') }}" style="margin-right: 0;" />
                                             <div class="tooltip">{{ '{citizen} angreifen. Diese Aktion kostet dich {ap}.'|trans({'{citizen}': other_citizen.name,'{ap}': '<div class="ap">' ~ conf.get(constant('App\\Structures\\TownConf::CONF_MODIFIER_ATTACK_AP'),5) ~ '</div>'},'game')|raw }}</div>
@@ -828,7 +834,7 @@
             <div class="row">
                 <h5><span class="float-right link" x-ajax-sticky x-ajax-href='{{ path('beyond_dashboard') }}'>{{'Aktualisierung'|trans({}, 'game')}}</span>{{ 'Zonenregister'|trans({},'game') }} <a class="help-button"><div class="tooltip help">{{ 'Beachte: Alle hier geschriebenen Nachrichten gehen verloren, wenn alle Bürger die Zone verlassen.'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></h5>
                 <div class="cell rw-12">
-                    <div class="row-flex">
+                    <div class="row-flex v-center">
                         <div class="padded cell grow-1"><label><input id="beyond_chat" type="text" placeholder="{{ 'Deine Nachricht'|trans({},'global') }}" /></label></div>
                         <div class="padded cell grow-0"><button id="chat_button">{{ 'Senden'|trans({},'game') }}</button></div>
                     </div>
