@@ -625,25 +625,33 @@ ul.subscriptions {
 }
 
 .forum-preview-wrapper {
-  position: relative; overflow-y: auto; overflow-x: hidden;
+  position: relative; overflow: hidden;
   .forum-preview-container {
     overflow: auto; font-size: 0.8em;
 
     .forum-post-header .post-note { display: none; }
     .forum-post-content {
-      padding-bottom: 4px;
       p { margin: 2px 0; }
     }
   }
 
-  &:not(.forum-preview-wrapper-bank) {
-    max-height: 500px;
+  &:not(.forum-preview-wrapper-bank) .forum-posts {
+    overflow-x: hidden; overflow-y: auto;
+    margin-bottom: 4px;
+    max-height: max( 33vh, 200px );
   }
 
   &.forum-preview-wrapper-bank {
     min-height: 100%;
     .forum-preview-container {
-      position: absolute; left: 3px; top: 3px; right: 3px; bottom: 3px;
+      position: absolute; left: 3px; top: 3px; right: 3px; bottom: 3px; overflow: hidden;
+      #forum-content {
+        position: absolute; left: 0; top: 0; right: 0; bottom: 0;
+        &>.row-flex {
+          max-height: 100%;
+          .forum-posts { overflow-x: hidden; overflow-y: auto; padding-bottom: 4px; }
+        }
+      }
     }
   }
 }
