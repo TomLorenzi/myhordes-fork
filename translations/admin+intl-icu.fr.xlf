@@ -4579,7 +4579,7 @@
       </notes>
       <segment>
         <source>Notiz</source>
-        <target>Notiz</target>
+        <target>Note</target>
       </segment>
     </unit>
     <unit id="NgKjlhH" name="Whitelist von {admin}">
@@ -4590,7 +4590,7 @@
       </notes>
       <segment>
         <source>Whitelist von {admin}</source>
-        <target>Whitelist von {admin}</target>
+        <target>Liste blanche de {admin}</target>
       </segment>
     </unit>
     <unit id="ExwOTyG" name="Whitelist hat keinen Autor">
@@ -4601,7 +4601,7 @@
       </notes>
       <segment>
         <source>Whitelist hat keinen Autor</source>
-        <target>Whitelist hat keinen Autor</target>
+        <target>La liste blanche n’a pas de créateur</target>
       </segment>
     </unit>
     <unit id="iOIM36J" name="Whitelist hat keine Notiz">
@@ -4612,7 +4612,7 @@
       </notes>
       <segment>
         <source>Whitelist hat keine Notiz</source>
-        <target>Whitelist hat keine Notiz</target>
+        <target>La liste blanche n’a pas de note</target>
       </segment>
     </unit>
   </file>
