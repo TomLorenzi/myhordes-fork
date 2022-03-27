@@ -26,6 +26,7 @@
         "etwin": "etwin"
     },
     "dependencies": {
+        "@ruffle-rs/ruffle": "0.1.0-nightly.2022.3.27",
         "latest-createjs": "^1.0.24",
         "prop-types": "^15.8.0",
         "react": "^17.0.2",

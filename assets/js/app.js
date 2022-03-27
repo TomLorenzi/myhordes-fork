@@ -1,6 +1,4 @@
 // LESS files
-import attack from "./attack";
-
 require('../less/theme.less');
 require('../less/grid.less');
 require('../less/mixins.less');
@@ -23,7 +21,9 @@ import Components from "../ts/react";
 const matchAll = require('string.prototype.matchall');
 matchAll.shim();
 
-require("./attack");
+require("@ruffle-rs/ruffle");
+window.RufflePlayer.config.publicPath = "/build/ruffle";
+window.RufflePlayer.config.contextMenu = false;
 
 // Get the base URL
 const base_node = document.getElementsByTagName('base');

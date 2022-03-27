@@ -1591,10 +1591,12 @@ div.daily-attack {
   margin: 0 auto;
   max-width: 442px;
   div.content {
-    .animation {
-      margin: 0;
-      video {
-        max-width: 100%;
+
+    div[data-ruffle-swf] {
+      overflow: hidden;
+      >* {
+        width: 100% !important; height: auto !important;
+        aspect-ratio: 440/120;
       }
     }
 
