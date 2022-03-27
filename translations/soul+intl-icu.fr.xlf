@@ -4583,5 +4583,16 @@
         <target>mes invitations</target>
       </segment>
     </unit>
+    <unit id="b08S1Ac" name="Standartmäßig die erweiterte Editor-Ansicht für PNs verwenden">
+      <notes>
+        <note category="german">Standartmäßig die erweiterte Editor-Ansicht für PNs verwenden</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Standartmäßig die erweiterte Editor-Ansicht für PNs verwenden</source>
+        <target>Standartmäßig die erweiterte Editor-Ansicht für PNs verwenden</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -298,8 +298,13 @@
         (function() {
 
             {% if type == 'global-pm' or type == 'numb' %}
-                $.html.forEach('#{{ type }}-forum-editor *[x-extended]', elem => elem.classList.add('hidden') );
-                $.html.forEach('#{{ type }}-forum-editor *[x-non-extended]', elem => elem.classList.remove('hidden') );
+                if ($.client.config.advancedPMEditor.get()) {
+                    $.html.forEach('#{{ type }}-forum-editor *[x-extended]', elem => elem.classList.remove('hidden'));
+                    $.html.forEach('#{{ type }}-forum-editor *[x-non-extended]', elem => elem.classList.add('hidden'));
+                } else {
+                    $.html.forEach('#{{ type }}-forum-editor *[x-extended]', elem => elem.classList.add('hidden'));
+                    $.html.forEach('#{{ type }}-forum-editor *[x-non-extended]', elem => elem.classList.remove('hidden'));
+                }
             {% else %}
                 $.html.forEach('#{{ type }}-forum-editor *[x-extended]', elem => elem.classList.remove('hidden') );
                 $.html.forEach('#{{ type }}-forum-editor *[x-non-extended]', elem => elem.classList.add('hidden') );

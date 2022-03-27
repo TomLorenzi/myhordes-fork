@@ -8,6 +8,7 @@ class Config {
 
     public showShortConstrList:   conf<boolean>;
     public notificationAsPopup:   conf<boolean>;
+    public advancedPMEditor:      conf<boolean>;
     public usePostBackup:         conf<boolean>;
     public autoParseLinks:        conf<boolean>;
     public twoTapTooltips:        conf<boolean>;
@@ -25,6 +26,7 @@ class Config {
 
         this.showShortConstrList   = this.makeConf<boolean>('showShortConstrList', false);
         this.notificationAsPopup   = this.makeConf<boolean>('notifAsPopup', false);
+        this.advancedPMEditor      = this.makeConf<boolean>('advancedPMEditor', false);
         this.usePostBackup         = this.makeConf<boolean>('useEditorCache', true);
         this.autoParseLinks        = this.makeConf<boolean>('autoParseLinks', true);
         this.twoTapTooltips        = this.makeConf<boolean>('twoTapTooltips', false);

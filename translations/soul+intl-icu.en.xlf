@@ -4584,5 +4584,15 @@
         <target>my coalition invitations</target>
       </segment>
     </unit>
+    <unit id="b08S1Ac" name="Standartmäßig die erweiterte Editor-Ansicht für PNs verwenden">
+      <notes>
+        <note category="german">Standartmäßig die erweiterte Editor-Ansicht für PNs verwenden</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>Standartmäßig die erweiterte Editor-Ansicht für PNs verwenden</source>
+        <target>Use the advanced editor view for PMs by default</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
