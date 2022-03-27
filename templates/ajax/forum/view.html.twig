@@ -26,8 +26,8 @@
                 {% set page_target = -1 %}
             {% endif %}
 
-            {% if add_seperators and thread.lastPost and last_day != thread.lastPost.date|date_modify('today') %}
-                {% set last_day = thread.lastPost.date|date_modify('today') %}
+            {% if add_seperators and thread.lastPost(thread.hidden??false) and last_day != thread.lastPost(thread.hidden??false).date|date_modify('today') %}
+                {% set last_day = thread.lastPost(thread.hidden??false).date|date_modify('today') %}
                 <div class="row forum-separator"><div class="cell rw-12 padded-small">
                     {% if last_day >= 'today'|to_date %}{{ 'Heute'|trans({},'global') }}
                     {% elseif last_day >= 'yesterday'|to_date %}{{ 'Gestern'|trans({},'global') }}
