@@ -29,7 +29,7 @@
                 </div>
             </div>
             <div class="cell padded rw-6 rw-md-8 rw-sm-12">
-                <button x-confirm="{{ 'Du möchtest deine eigene Koalition erstellen?'|trans({},'soul') }}" x-api-endpoint="{{ path('soul_create_coalition') }}">{{ 'Meine Koalition erstellen'|trans({},'soul') }}</button>
+                <button x-confirm="{{ 'Du möchtest deine eigene Koalition erstellen?'|trans({},'soul') }}" x-api-endpoint="{{ path('soul_create_coalition') }}" data-success-message="{{ 'Herzlichen Glückwunsch, du hast soeben eine Koalition erstellt!'|trans({},'soul') }}">{{ 'Meine Koalition erstellen'|trans({},'soul') }}</button>
             </div>
             <div class="cell rw-12 padded">
                 <h5>{{ 'Einer existierenden Koalition beitreten'|trans({},'soul') }}</h5>
@@ -168,7 +168,7 @@
                 {% if membership.associationLevel == constant('App\\Entity\\UserGroupAssociation::GroupAssociationLevelFounder') %}
                     <button x-confirm="{{ 'Möchtest du diese Koalition verlassen und somit auflösen?'|trans({},'soul') }}" x-api-endpoint="{{ path('soul_leave_coalition', {'coalition': membership.id}) }}">{{ 'Verlassen UND auflösen'|trans({},'soul') }}</button>
                 {% else %}
-                    <button x-confirm="{{ 'Möchtest du diese Koalition verlassen?'|trans({},'soul') }}" x-api-endpoint="{{ path('soul_leave_coalition', {'coalition': membership.id}) }}">{{ 'Verlassen'|trans({},'soul') }}</button>
+                    <button x-confirm="{{ 'Möchtest du diese Koalition verlassen?'|trans({},'soul') }}" x-api-endpoint="{{ path('soul_leave_coalition', {'coalition': membership.id}) }}" data-success-message="{{ 'Du hast hiermit die Koalition verlassen.'|trans({}, 'soul') }}">{{ 'Verlassen'|trans({},'soul') }}</button>
                 {% endif %}
                 <span class="small"></span>
             </div>
@@ -227,6 +227,7 @@
             if (!cn || confirm(cn))
                 $.ajax.easySend( elem.getAttribute('x-api-endpoint'), {},
                     function () {
+                        if (elem.dataset.successMessage) $.html.notice(elem.dataset.successMessage);
                         $.ajax.load(null, '{{ path('soul_coalitions') }}', true);
                     } );
         });

@@ -1895,12 +1895,6 @@
         <target>Du hast keine Koalition.</target>
       </segment>
     </unit>
-    <unit id="ljPPYyM" name="Du bist nicht Anführer deiner Koalition.">
-      <segment>
-        <source>Du bist nicht Anführer deiner Koalition.</source>
-        <target>Du bist nicht Anführer deiner Koalition.</target>
-      </segment>
-    </unit>
     <unit id="nnaWQyL" name="Kein freier Platz">
       <segment>
         <source>Kein freier Platz</source>
@@ -2798,6 +2792,30 @@
       <segment>
         <source>Standartmäßig sortiert MyHordes Gegenstände in der Bank nach ihrem Typ. Aktiviere diese Option, wenn du die Sortierung von DieVerdammten bevorzugst, bei der Gegenstände primär nach ihrer Anzahl sortiert werden.</source>
         <target>Standartmäßig sortiert MyHordes Gegenstände in der Bank nach ihrem Typ. Aktiviere diese Option, wenn du die Sortierung von DieVerdammten bevorzugst, bei der Gegenstände primär nach ihrer Anzahl sortiert werden.</target>
+      </segment>
+    </unit>
+    <unit id="M3EjxBc" name="Herzlichen Glückwunsch, du hast soeben eine Koalition erstellt!">
+      <segment>
+        <source>Herzlichen Glückwunsch, du hast soeben eine Koalition erstellt!</source>
+        <target>Herzlichen Glückwunsch, du hast soeben eine Koalition erstellt!</target>
+      </segment>
+    </unit>
+    <unit id="boIaRAS" name="Du hast hiermit die Koalition verlassen.">
+      <segment>
+        <source>Du hast hiermit die Koalition verlassen.</source>
+        <target>Du hast hiermit die Koalition verlassen.</target>
+      </segment>
+    </unit>
+    <unit id="T1AF293" name="Koalitionseinladungen">
+      <segment>
+        <source>Koalitionseinladungen</source>
+        <target>Koalitionseinladungen</target>
+      </segment>
+    </unit>
+    <unit id="b08S1Ac" name="Standartmäßig die erweiterte Editor-Ansicht für PNs verwenden">
+      <segment>
+        <source>Standartmäßig die erweiterte Editor-Ansicht für PNs verwenden</source>
+        <target>Standartmäßig die erweiterte Editor-Ansicht für PNs verwenden</target>
       </segment>
     </unit>
   </file>

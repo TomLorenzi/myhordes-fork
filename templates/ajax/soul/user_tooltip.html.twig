@@ -5,13 +5,15 @@
             <strong class="warning">{{ 'Dieses MyHordes-Konto wurde gelöscht.'|trans({}, 'soul') }}</strong>
         {% else %}
         {% if not dummy %}
-            {# @var \App\Entity\User user #}
-            {% if app.user.id != user.id and not app.user.activeCitizen is null and not user.activeCitizen is null and app.user.activeCitizen.town == user.activeCitizen.town and app.user.activeCitizen.zone is null %}
-            <span class="link" x-ajax-href="{{ path('town_visit', {"id": user.activeCitizen.id}) }}"><img src="{{ asset('build/images/icons/home.gif') }}" alt="" /> {{ 'Haus ansehen'|trans({}, 'soul') }}</span>
+            {% if not during_attack %}
+                {# @var \App\Entity\User user #}
+                {% if app.user.id != user.id and not app.user.activeCitizen is null and not user.activeCitizen is null and app.user.activeCitizen.town == user.activeCitizen.town and app.user.activeCitizen.zone is null %}
+                    <span class="link" x-ajax-href="{{ path('town_visit', {"id": user.activeCitizen.id}) }}"><img src="{{ asset('build/images/icons/home.gif') }}" alt="" /> {{ 'Haus ansehen'|trans({}, 'soul') }}</span>
+                {% endif %}
+                <span class="link" x-ajax-href="{{ path('soul_visit', {"id": user.id}) }}"><img src="{{ asset("build/images/icons/small_zombie.gif") }}" alt="" /> {{ 'Profil auf MyHordes'|trans({}, 'soul') }}</span>
             {% endif %}
-            <span class="link" x-ajax-href="{{ path('soul_visit', {"id": user.id}) }}"><img src="{{ asset("build/images/icons/small_zombie.gif") }}" alt="" /> {{ 'Profil auf MyHordes'|trans({}, 'soul') }}</span>
             {% if is_granted("ROLE_CROW") %}
-            <span class="link" x-ajax-href="{{ path('admin_users_account_view', {id: user.id}) }}"><img alt="" src="{{ asset('build/images/icons/small_admin.gif') }}">{{ 'Admin Dashboard'|trans({},'admin') }}</span>
+                <span class="link" x-ajax-href="{{ path('admin_users_account_view', {id: user.id}) }}"><img alt="" src="{{ asset('build/images/icons/small_admin.gif') }}">{{ 'Admin Dashboard'|trans({},'admin') }}</span>
             {% endif %}
             <div class="link-blocks">
                 {% if not user.eternalID is null %}
@@ -110,24 +112,6 @@
     {{ include('ajax/flash.html.twig') }}
 
     <script>
-        var addActions = function(user_id, target, source){
-            $.html.addEventListenerAll('a[x-action="block_user"]','click',(e,elem) => {
-                e.preventDefault();
-                if (confirm(
-                    '{{ 'Wenn du diesen Spieler blockierst, kann er dir keine neuen Nachrichten schicken. Werdet ihr beide von einer dritten Person in eine Gruppennachricht hinzugefügt, so werden Beiträge des blockierten Spielers standartmäßig für dich versteckt.'|trans({},'global')|e('js') }}' +
-                    '\n\n{{ 'Möchtest du fortfahren?'|trans({},'global')|e('js') }}'
-                ))
-                var url = '{{ path('soul_block_control', {id: 0, action: 1}) }}';
-                url = url.replace("0", user_id);
-                $.ajax.easySend( url, {},
-                    function () {
-                        $.ajax.load(target, "{{ path('soul_tooltip') }}", false, {'id': user_id}, function(){
-                            addActions(user_id, target, source);
-                        });
-                    } );
-            });
-        };
-
         $.html.addEventListenerAll('#user-tooltip a[x-action="block_user"]','click',(e,elem) => {
             e.preventDefault();
             let source = event.target;
@@ -140,9 +124,7 @@
             url = url.replace("0", user_id);
             $.ajax.easySend( url, {},
                 function () {
-                    $.ajax.load(target, "{{ path('soul_tooltip') }}", false, {'id': user_id}, function(){
-                        addActions(user_id, target, source);
-                    });
+                    $.ajax.load(target, "{{ path('soul_tooltip') }}", false, {'id': user_id});
                 } );
         });
 
@@ -155,9 +137,7 @@
             url = url.replace("0", user_id);
             $.ajax.easySend( url, {},
                 function () {
-                    $.ajax.load(target, "{{ path('soul_tooltip') }}", false, {'id': user_id}, function(){
-                        addActions(user_id, target, source);
-                    });
+                    $.ajax.load(target, "{{ path('soul_tooltip') }}", false, {'id': user_id});
                 });
         });
 
@@ -167,7 +147,6 @@
             $.ajax.easySend( '{{ path('soul_friend_control', {action: 1}) }}', {'id': user_id},
                 function () {
                     $.ajax.load(target, "{{ path('soul_tooltip') }}", false, {'id': user_id}, function(){
-                        addActions(user_id, target, source);
                         let userElements = document.querySelectorAll('.username[x-user-id="' + user_id + '"]');
                         for(let i = 0 ; i < userElements.length ; i++)
                             userElements[i].classList.add("is-friend");
@@ -181,7 +160,6 @@
             $.ajax.easySend( '{{ path('soul_friend_control', {action: 0}) }}', {'id': user_id},
                 function () {
                     $.ajax.load(target, "{{ path('soul_tooltip') }}", false, {'id': user_id}, function(){
-                        addActions(user_id, target, source);
                         let userElements = document.querySelectorAll('.username[x-user-id="' + user_id + '"]');
                         for(let i = 0 ; i < userElements.length ; i++)
                             userElements[i].classList.remove("is-friend");
@@ -190,11 +168,17 @@
         });
 
         $.html.addEventListenerAll('#user-tooltip a[x-action="send-pm"]', 'click', (e, elem) => {
-            const p = document.getElementById('postbox');
-            if (p) {
-                p.setAttribute('x-post-command', elem.getAttribute('x-user-connect'));
-                p.click();
-            } else alert('{{ 'Fehler beim Laden des Posteingangs.'|trans({},'global') }}')
+            if (document.body.dataset.host === 'pm') {
+                window.location.href = '{{ path('home_pm') }}/' + elem.getAttribute('x-user-connect');
+            } else {
+                const p = document.getElementById('postbox');
+                if (p) {
+                    p.setAttribute('x-post-command', elem.getAttribute('x-user-connect'));
+                    p.click();
+                } else alert('{{ 'Fehler beim Laden des Posteingangs.'|trans({},'global') }}')
+            }
+
+
         });
     </script>
 {% endblock %}

@@ -115,6 +115,8 @@ class MessageForumController extends MessageController
                 $thread->setNew();
         }
 
+        usort( $threads, fn(Thread $a, Thread $b) => $b->lastPost( $show_hidden_threads )?->getDate() <=> $a->lastPost( $show_hidden_threads )?->getDate() );
+
         if ( $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionListThreads ) ) {
             $pinned_threads = $em->getRepository(Thread::class)->findPinnedByForum($forum, null, null, $show_hidden_threads);
         } elseif ( $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate ) ) {

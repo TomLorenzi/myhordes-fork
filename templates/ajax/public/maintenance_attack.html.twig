@@ -2,25 +2,18 @@
 {% block text_menu_content %}
 {% endblock %}
 {% block ajax %}
+
     <div class="daily-attack row">
         <div class="content" id="canvas_container" style="overflow: hidden;">
-            <div class="animation">
-                <div id="animation_container" style="background-color:rgba(97, 45, 32, 1.00)">
-                    <canvas id="canvas" style="display: block; width: 100%; background-color:rgba(97, 45, 32, 1.00);"></canvas>
-                    <div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; position: absolute; left: 0; top: 0; right: 0; bottom: 0; display: block;">
-                    </div>
-                </div>
-            </div>
-            <p class="justify">
+            <div class="attack_swf" data-ruffle-swf="{{ asset('build/flash/attack.swf') }}"></div>
                 {% trans from 'ghost' %}
                     <p>
                     Deine Stadt wird gerade von den Zombies <strong>angegriffen</strong>! Du hörst wie sie <strong>grunzend</strong> gegen eure Hütten schlagen. Dazwischen immer wieder <strong>Hilferufe</strong> und Schreie... Sie scheinen überall zu sein...
                     </p>
                     <p>
-                    Was tust du, solange der Angriff tobt?               
+                    Was tust du, solange der Angriff tobt?
                     </p>
                 {% endtrans %}
-            </p>
             <p><button x-ajax-href="{{ path('initial_landing') }}">{{ button_texts[0] }}</button></p>
             <p><button x-ajax-href="{{ path('initial_landing') }}">{{ button_texts[1] }}</button></p>
             {% if app.user %}
@@ -47,48 +40,5 @@
     </div>
 {% endblock %}
 {% block js %}
-    <script>
-        document.getElementById("gma").style.display = "none";
-        var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
-        function init() {
-            canvas = document.getElementById("canvas");
-            anim_container = document.getElementById("animation_container");
-            dom_overlay_container = document.getElementById("dom_overlay_container");
-            var comp=AdobeAn.getComposition("7AABF79FCD83E4468DF64867E8D1326A");
-            var lib=comp.getLibrary();
-            var loader = new createjs.LoadQueue(false);
-            loader.addEventListener("fileload", function(evt){handleFileLoad(evt,comp)});
-            loader.addEventListener("complete", function(evt){handleComplete(evt,comp)});
-            var lib=comp.getLibrary();
-            loader.loadManifest(lib.properties.manifest);
-        }
-        function handleFileLoad(evt, comp) {
-            var images=comp.getImages();    
-            if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }    
-        }
-        function handleComplete(evt,comp) {
-            //This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
-            var lib=comp.getLibrary();
-            var ss=comp.getSpriteSheet();
-            var queue = evt.target;
-            var ssMetadata = lib.ssMetadata;
-            for(i=0; i<ssMetadata.length; i++) {
-                ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
-            }
-            exportRoot = new lib.attack_as3_HTML5Canvas();
-            window.stage = new lib.Stage(canvas);  
-            //Registers the "tick" event listener.
-            fnStartAnimation = function() {
-                window.stage.addChild(exportRoot);
-                createjs.Ticker.framerate = lib.properties.fps;
-                createjs.Ticker.addEventListener("tick", window.stage);
-            }       
-            //Code to support hidpi screens and responsive scaling.
-            AdobeAn.makeResponsive(true,'width',false,2,[canvas,anim_container,dom_overlay_container],document.getElementById('canvas_container'));
-            AdobeAn.compositionLoaded(lib.properties.id);
-            fnStartAnimation();
-        }
-
-        document.onload = init();
-    </script>
+    <script></script>
 {% endblock %}

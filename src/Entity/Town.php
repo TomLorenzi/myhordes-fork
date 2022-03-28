@@ -189,6 +189,21 @@ class Town
      */
     private int $profilerVersion = 0;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $strangerPower = 0;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $strangerEnabled = false;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $forceStartAhead = false;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -814,6 +829,47 @@ class Town
     public function setProfilerVersion(int $profilerVersion): self
     {
         $this->profilerVersion = $profilerVersion;
+
+        return $this;
+    }
+
+    public function getStrangerPower(): ?int
+    {
+        return $this->strangerPower;
+    }
+
+    public function setStrangerPower(int $strangerPower): self
+    {
+        $this->strangerPower = max(0, $strangerPower);
+        if ($strangerPower > 0) $this->setStrangerEnabled(true);
+
+        return $this;
+    }
+
+    public function getStrangers(): int {
+        return $this->getStrangerPower() > 0 ? 1 : 0;
+    }
+
+    public function getStrangerEnabled(): ?bool
+    {
+        return $this->strangerEnabled;
+    }
+
+    public function setStrangerEnabled(bool $strangerEnabled): self
+    {
+        $this->strangerEnabled = $strangerEnabled;
+
+        return $this;
+    }
+
+    public function getForceStartAhead(): ?bool
+    {
+        return $this->forceStartAhead;
+    }
+
+    public function setForceStartAhead(bool $forceStartAhead): self
+    {
+        $this->forceStartAhead = $forceStartAhead;
 
         return $this;
     }

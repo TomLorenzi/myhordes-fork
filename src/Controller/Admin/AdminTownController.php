@@ -438,7 +438,7 @@ class AdminTownController extends AdminActionController
                 'ex_del', 'ex_co+', 'ex_co-', 'ex_ref', 'ex_inf', 'dice_name',
                 'dbg_fill_town', 'dbg_fill_bank', 'dgb_empty_bank', 'dbg_unlock_bank', 'dbg_hydrate', 'dbg_disengage', 'dbg_engage',
                 'dbg_set_well', 'dbg_unlock_buildings', 'dbg_map_progress', 'dbg_map_zombie_set', 'dbg_adv_days',
-                'dbg_set_attack', 'dbg_toggle_chaos', 'dbg_toggle_devas'
+                'dbg_set_attack', 'dbg_toggle_chaos', 'dbg_toggle_devas', 'dbg_enable_stranger'
             ]) && !$this->isGranted('ROLE_ADMIN'))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
@@ -760,7 +760,10 @@ class AdminTownController extends AdminActionController
                     default: break;
                 }
 
+            case 'dbg_enable_stranger':
+                $gameFactory->enableStranger( $town );
                 break;
+
             default:
                 return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         }

@@ -81,7 +81,7 @@ class TwinoRegexResult {
 
         switch (type) {
             case TwinoRegexResult.TypeShortBB: return /(?:([^\w\s]){2})([\s\S]*?)\1{2}/gm;
-            case TwinoRegexResult.TypeInset:   return /{([a-zA-Z]+)}|{([a-zA-Z]+),([\w,]*)}|{([a-zA-Z]+)(\d+)}|\B@([\S]*):(\d+)\b|\B@([\w_-]*)(?::(\d+))?\b/g;
+            case TwinoRegexResult.TypeInset:   return /{([a-zA-Z]+)}|{([a-zA-Z]+),([\w,]*)}|{([a-zA-Z]+)(\d+)}|(?:\B|\b)@([\w_-]*)(?::(\d+))?(?:\B|\b)/g;
             case TwinoRegexResult.TypeEmote:   return /(?::(\w+?):)|([:;].)/g;
             default: throw Error( 'No regex defined for this type of TRR!' )
         }
@@ -805,7 +805,6 @@ export default class TwinoAlikeParser {
     }
 
     private static processPlayerNames( target: HTMLElement ) {
-        console.log(target, target.querySelectorAll( '[x-qi][x-qn]' ));
         target.querySelectorAll( '[x-qi][x-qn]' ).forEach( (elem:HTMLElement) => {
             const player_data =
                 ( elem.getAttribute('x-qi' ) ? playerCache.id[elem.getAttribute('x-qi' )] : null ) ??

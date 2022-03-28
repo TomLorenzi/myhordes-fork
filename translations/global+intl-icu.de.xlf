@@ -451,12 +451,6 @@
         <target>Sticky</target>
       </segment>
     </unit>
-    <unit id="8WE8vgC" name="Rabe">
-      <segment>
-        <source>Rabe</source>
-        <target>Rabe</target>
-      </segment>
-    </unit>
     <unit id="nCT0Wn6" name="Dev">
       <segment>
         <source>Dev</source>
@@ -2515,12 +2509,6 @@
       <segment>
         <source>SALC</source>
         <target>SALC</target>
-      </segment>
-    </unit>
-    <unit id="VsuA962" name="Tag (optional)">
-      <segment>
-        <source>Tag (optional)</source>
-        <target>Tag (optional)</target>
       </segment>
     </unit>
     <unit id="QOv5Ovj" name="Projekt">

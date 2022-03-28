@@ -109,13 +109,17 @@
             </div>
         </div>
         {% if first_buttons %}<br />{% endif %}
-        <div class="center {% if locked %}infoThread{% endif %}">
-            {% if locked and not solved %}
-                <img alt="" src="{{ asset('build/images/icons/lock.gif') }}" /> {{ 'Diese Diskussion ist beendet.'|trans({},'global') }}
-            {% endif %}
-            {% if locked and solved %}
-                <img alt="" src="{{ asset('build/images/icons/done.png') }}" /> {{ 'Diese Diskussion ist als gelöst markiert (oder der Anlass hat sich mittlerweile erledigt).'|trans({},'global') }}
-            {% endif %}
+        <div class="row">
+            <div class="cell padded rw-8 ro-2">
+                <div class="{% if locked and not solved %}infoThread{% endif %} {% if locked and solved %}infoSolvedThread{% endif %}">
+                    {% if locked and not solved %}
+                        {{ 'Diese Diskussion ist beendet.'|trans({},'global') }}
+                    {% endif %}
+                    {% if locked and solved %}
+                        {{ 'Diese Diskussion ist als gelöst markiert (oder der Anlass hat sich mittlerweile erledigt).'|trans({},'global') }}
+                    {% endif %}
+                </div>
+            </div>
         </div>
     {% endblock %}
     {% set first_buttons = false %}

@@ -135,7 +135,7 @@ class MessageTownMessageController extends MessageController
                     if($recipient->getZone())
                         return AjaxResponse::error(self::ErrorPMItemChaosOut);
                     else {
-                        $counter = $sender->getSpecificActionCounter(ActionCounter::ActionTypeSendPMItem);
+                        $counter = $sender->getSpecificActionCounter(ActionCounter::ActionTypeSendPMItem, 0);
                         if($counter->getCount() > 3)
                             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
                         else if ($counter->getCount() + count($linked_items) > 3)
@@ -212,6 +212,12 @@ class MessageTownMessageController extends MessageController
             foreach ($linked_items as $item) {
                 $items_prototype[] = $item->getPrototype()->getId();
                 $this->inventory_handler->forceMoveItem($recipient->getHome()->getChest(), $item);
+            }
+
+            if ( !empty($items_prototype) ) {
+                $personal_counter = $sender->getSpecificActionCounter(ActionCounter::ActionTypeSendPMItem, $recipient->getId());
+                $personal_counter->increment();
+                $em->persist($personal_counter);
             }
 
             $post->setItems($items_prototype);

@@ -468,12 +468,14 @@ class AdminUserController extends AdminActionController
                 break;
 
             case 'whitelist':
-                if ($user->getConnectionWhitelists()->isEmpty()) $user->getConnectionWhitelists()->add( $wl = new ConnectionWhitelist() );
-                else $wl = $user->getConnectionWhitelists()->getValues()[0];
 
-                $wl->addUser($user);
-                if (!is_array($param)) $param = [$param];
-                foreach ($param as $other_user_id) {
+                if (!is_array($param)) $param = ['reason' => null, 'ids' => [$param]];
+                elseif (!isset($param['ids'])) $param = ['reason' => null, 'ids' => $param];
+                ['reason' => $reason, 'ids' => $ids] = $param;
+
+                $user->getConnectionWhitelists()->add( ($wl = new ConnectionWhitelist())->addUser($user)->setReason( $reason )->setCreator( $this->getUser() ) );
+
+                foreach ($ids as $other_user_id) {
                     /** @var User $other_user */
                     $other_user = $this->entity_manager->getRepository(User::class)->find($other_user_id);
                     if (!$other_user) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );

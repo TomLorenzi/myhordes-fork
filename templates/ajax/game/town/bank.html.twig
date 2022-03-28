@@ -94,7 +94,7 @@
         );
 
         $.ajax.background().no_history().load( document.getElementById('forum-content'), '{{ path('forum_previewer_controller', {fid: town.forum.id, sem: constant('App\\Entity\\Thread::SEMANTIC_BANK') })|e('js') }}', false, {}, function() {
-            let container = document.querySelector('.forum-preview-container');
+            let container = document.querySelector('.forum-posts');
             container.scrollTop = container.scrollHeight;
         } );
 

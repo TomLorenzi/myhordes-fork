@@ -8,6 +8,11 @@ interface navigationPromiseCallback { (any): void }
 declare var c: Const;
 declare var $: Global;
 
+declare global {
+    interface Window { RufflePlayer: any; }
+}
+window.RufflePlayer = window.RufflePlayer || {};
+
 export default class Ajax {
 
     private readonly base: string;
@@ -267,6 +272,14 @@ export default class Ajax {
                 if ( countdowns[c].getAttribute('x-on-expire') === 'reload' )
                     countdowns[c].addEventListener('expire', function() { ajax_instance.load( target, url ) });
                 $.html.handleCountdown( countdowns[c] );
+            }
+
+            let ruffle_targets = content_source[i].querySelectorAll('*[data-ruffle-swf]');
+            for (let c = 0; c < ruffle_targets.length; c++) {
+                let ruffle = window.RufflePlayer.newest();
+                let player = ruffle.createPlayer();
+                ruffle_targets[c].appendChild(player);
+                player.load((ruffle_targets[c] as HTMLElement).dataset.ruffleSwf);
             }
 
             content_source[i].querySelectorAll('*[x-current-time]').forEach( elem => $.html.handleCurrentTime( <HTMLElement>elem, parseInt(elem.getAttribute('x-current-time')) ))

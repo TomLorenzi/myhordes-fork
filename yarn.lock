@@ -1214,6 +1214,11 @@
     error-stack-parser "^2.0.0"
     string-width "^2.0.0"
 
+"@ruffle-rs/ruffle@0.1.0-nightly.2022.3.27":
+  version "0.1.0-nightly.2022.3.27"
+  resolved "https://registry.yarnpkg.com/@ruffle-rs/ruffle/-/ruffle-0.1.0-nightly.2022.3.27.tgz#1e681ecd017611f089ff814e5143f93f64beb35a"
+  integrity sha512-nVUOw6GFMY+IuQTFyO6HpwR9Qh/rAk4WfR1x+08v82yi8Yz5BE9YOgCz6cwQyvktzy1kGaX5QetzRz+dZMlygA==
+
 "@symfony/webpack-encore@^1.6.1":
   version "1.6.1"
   resolved "https://registry.npmjs.org/@symfony/webpack-encore/-/webpack-encore-1.6.1.tgz"

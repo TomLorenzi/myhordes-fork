@@ -613,24 +613,6 @@
         <target>Admin Dashboard</target>
       </segment>
     </unit>
-    <unit id="aZibx3x" name="Server-Log herunterladen">
-      <segment>
-        <source>Server-Log herunterladen</source>
-        <target>Server-Log herunterladen</target>
-      </segment>
-    </unit>
-    <unit id="yvg6S11" name="Server-Log ansehen">
-      <segment>
-        <source>Server-Log ansehen</source>
-        <target>Server-Log ansehen</target>
-      </segment>
-    </unit>
-    <unit id="UYFKH.u" name="Server-Log löschen">
-      <segment>
-        <source>Server-Log löschen</source>
-        <target>Server-Log löschen</target>
-      </segment>
-    </unit>
     <unit id="LzfXrql" name="Geplante Angriffe">
       <segment>
         <source>Geplante Angriffe</source>
@@ -1171,12 +1153,6 @@
         <target>Leere Truhe</target>
       </segment>
     </unit>
-    <unit id="fV5wxwj" name="In der Stadt">
-      <segment>
-        <source>In der Stadt</source>
-        <target>In der Stadt</target>
-      </segment>
-    </unit>
     <unit id="I5qOX6_" name="Anwendung">
       <segment>
         <source>Anwendung</source>
@@ -1385,12 +1361,6 @@
       <segment>
         <source>Anwendung "{external_app}"</source>
         <target>Anwendung "{external_app}"</target>
-      </segment>
-    </unit>
-    <unit id="IeSesrK" name="Log">
-      <segment>
-        <source>Log</source>
-        <target>Log</target>
       </segment>
     </unit>
     <unit id="GYf8Lr5" name="Eine Auszeichnungen auswählen:">
@@ -2903,6 +2873,42 @@
       <segment>
         <source>Sprache wechseln</source>
         <target>Sprache wechseln</target>
+      </segment>
+    </unit>
+    <unit id="jupu8vs" name="Fremder">
+      <segment>
+        <source>Fremder</source>
+        <target>Fremder</target>
+      </segment>
+    </unit>
+    <unit id="bHjGkUb" name="Mysteriösen Fremden aktivieren">
+      <segment>
+        <source>Mysteriösen Fremden aktivieren</source>
+        <target>Mysteriösen Fremden aktivieren</target>
+      </segment>
+    </unit>
+    <unit id="dLSH2dI" name="Notiz">
+      <segment>
+        <source>Notiz</source>
+        <target>Notiz</target>
+      </segment>
+    </unit>
+    <unit id="NgKjlhH" name="Whitelist von {admin}">
+      <segment>
+        <source>Whitelist von {admin}</source>
+        <target>Whitelist von {admin}</target>
+      </segment>
+    </unit>
+    <unit id="ExwOTyG" name="Whitelist hat keinen Autor">
+      <segment>
+        <source>Whitelist hat keinen Autor</source>
+        <target>Whitelist hat keinen Autor</target>
+      </segment>
+    </unit>
+    <unit id="iOIM36J" name="Whitelist hat keine Notiz">
+      <segment>
+        <source>Whitelist hat keine Notiz</source>
+        <target>Whitelist hat keine Notiz</target>
       </segment>
     </unit>
   </file>

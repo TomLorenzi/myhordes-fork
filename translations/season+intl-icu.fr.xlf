@@ -112,17 +112,6 @@
         <target>Saison 0.0</target>
       </segment>
     </unit>
-    <unit id="IkgbXUH" name="Saison {number}.{subnumber}">
-      <notes>
-        <note category="german">Saison {number}.{subnumber}</note>
-        <note category="state">new</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Saison {number}.{subnumber}</source>
-        <target>Saison {number}.{subnumber}</target>
-      </segment>
-    </unit>
     <unit id="ZahwwoN" name="Saison 0.12">
       <notes>
         <note category="german">Saison 0.12</note>

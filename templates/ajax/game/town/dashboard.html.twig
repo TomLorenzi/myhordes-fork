@@ -97,6 +97,7 @@
                 {% if new_message %}
                     <li x-ajax-href="{{ path('town_house', {tab: 'messages', subtab: 'received'}) }}">{{ 'Meine Nachrichten lesen.'|trans({}, 'game') }} <img src="{{ asset("build/images/icons/anim_icon_mail.gif") }}" alt="" />,</li>
                 {% endif %}
+                {% if has_pending_coa_invite %}<li>{{ 'auf {coa_invite} antworten'|trans({'coa_invite': '<a x-ajax-href="' ~ path('soul_coalitions') ~ '">' ~ 'Koalitionseinladungen'|trans({},'soul') ~ '</a>'}, 'game')|raw }},</li>{% endif %}
                 {% if new_coa_message %}
                     <li x-ajax-href="{{ path('soul_coalitions') }}">{{ 'Die letzten Nachrichten meiner Koalition lesen.'|trans({}, 'game') }} <img src="{{ asset("build/images/icons/anim_icon_mail.gif") }}" alt="" />,</li>
                 {% endif %}
@@ -124,7 +125,7 @@
                         <li>{{ 'Stadttyp:'|trans({}, 'game') }} <strong>{{ town.type.label|trans({}, 'game') }}</strong></li>
                         <li>{{ 'Stadttor:'|trans({}, 'game') }} <strong class="{% if(town.door) %}warning{% endif %}">{% if(town.door and town.devastated) %} {{ 'ZERSTÖRT!!'|trans({}, 'game')}} {% elseif (town.door) %} {{ 'Offen!'|trans({}, 'game')}} {% else %} {{'Geschlossen'|trans({}, 'game')}} {% endif %}</strong></li>
                         <li>{{ 'Wasservorräte:'|trans({}, 'game') }} <strong>{{ town.well}}</strong> <img src="{{ asset('build/images/item/item_water.gif') }}" />{% if town.well < 15 %} <span class="warning">(<img src="{{ asset('build/images/icons/small_warning.gif') }}" alt="" /> {{ 'Gefahr'|trans({}, 'game') }})</span>{% endif %}</li>
-                        <li>{{ 'Einwohner am Leben:'|trans({}, 'game') }} <strong>{{ living_citizens }}</strong> <img src="{{ asset('build/images/icons/small_human.gif') }}" /></li>
+                        <li>{{ 'Einwohner am Leben:'|trans({}, 'game') }} <strong>{{ living_citizens + town.strangers }}</strong> <img src="{{ asset('build/images/icons/small_human.gif') }}" /></li>
                         <li>{{ 'Geschätzter Angriff :'|trans({}, 'game') }} <strong>{% if (zeds_today[3] >= wtt) and zeds_today[0] %}{{ zeds_today[1] }} - {{ zeds_today[2] }}{% else %}{{ 'Unbekannt'|trans({}, 'game')}}{% endif %}</strong> <img src="{{ asset('build/images/icons/small_zombie.gif') }}" /></li>
                         {% for message, checked in additional_situation_points %}
                             <li>

@@ -15,7 +15,7 @@
     {% endif %}
     {% if item.essential %}<div class="item-tag item-tag-essential">{{ 'Berufsgegenstand'|trans({},'items') }}</div>{% endif %}
     {% if item.prototype.heavy %}<div class="item-tag item-tag-heavy">{{ 'Schwerer Gegenstand'|trans({},'items') }}</div>{% endif %}
-    {% if item.prototype.deco > 0 %}<div class="item-tag item-tag-deco">{{ 'Einrichtungsgegenstand'|trans({},'items') }}</div>{% endif %}
+    {% if item.prototype.deco > 0 or item.prototype.hasProperty('deco') %}<div class="item-tag item-tag-deco">{{ 'Einrichtungsgegenstand'|trans({},'items') }}</div>{% endif %}
     {% if item.prototype.hasProperty('defence') %}<div class="item-tag item-tag-defense">{{ 'Verteidigungsgegenstand'|trans({},'items') }}</div>{% endif %}
     {% if item.prototype.hasProperty('weapon') %}<div class="item-tag item-tag-weapon">{{ 'Waffe'|trans({},'items') }}</div>{% endif %}
     {% if item.prototype.watchpoint != 0 %}<div class="item-tag item-tag-weapon">{{ 'Nachtwache-Waffen'|trans({},'items') }} <em>({{'{watchpoint} pkt attacke'|trans({'{watchpoint}': (virtual ? item.prototype : item)|watchpoint},'items')}})</em></div>{% endif %}

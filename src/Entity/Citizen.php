@@ -816,9 +816,9 @@ class Citizen
         return $this;
     }
 
-    public function getSpecificActionCounterValue( int $type ): int {
+    public function getSpecificActionCounterValue( int $type, ?int $ref = null ): int {
         foreach ($this->getActionCounters() as $c)
-            if ($c->getType() === $type) return $c->getCount();
+            if ($c->getType() === $type && ($ref === null || $c->getReferenceID() === $ref)) return $c->getCount();
         return 0;
     }
 

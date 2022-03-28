@@ -978,26 +978,6 @@
         <target>La porte de la ville ne peut pas être ouverte tant que la ville n'est pas pleine.</target>
       </segment>
     </unit>
-    <unit id="8UBVWFJ" name="Betapropin steht nicht zur Verfügung.">
-      <notes>
-        <note category="german">Betapropin steht nicht zur Verfügung.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Betapropin steht nicht zur Verfügung.</source>
-        <target>La bêtapropine n'est pas disponible.</target>
-      </segment>
-    </unit>
-    <unit id="QjQvnlj" name="Beta-Funktionen deaktivieren">
-      <notes>
-        <note category="german">Beta-Funktionen deaktivieren</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Beta-Funktionen deaktivieren</source>
-        <target>Désactiver les fonctionnalités bêta</target>
-      </segment>
-    </unit>
     <unit id="VoOkBZ0" name="Ein Mitglied deiner Koalition kann dieser Stadt nicht beitreten.">
       <notes>
         <note category="german">Ein Mitglied deiner Koalition kann dieser Stadt nicht beitreten.</note>

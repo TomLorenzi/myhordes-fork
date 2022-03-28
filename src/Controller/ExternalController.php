@@ -113,6 +113,15 @@ class ExternalController extends InventoryAwareController {
     }
 
     /**
+     * @Route("/api/x/json/status", priority=1, name="ext_json_status", methods={"GET", "POST"})
+     * @return Response
+     * @GateKeeperProfile(rate_limited=false)
+     */
+    public function api_json_status(): Response {
+        return $this->api_json( 'status' );
+    }
+
+    /**
      * @Route("/api/x/json/{type}", name="ext_json", methods={"GET", "POST"})
      * @param string $type
      * @return Response

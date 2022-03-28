@@ -209,7 +209,7 @@ x-message {
       text-align: left; padding: 3px;
     }
 
-    &.popup-ghoul, &.popup-shaman, &.popup-insurrection {
+    &.popup-ghoul, &.popup-shaman, &.popup-insurrection, &.popup-stranger {
 
       background: #79393a;
       &>div#modal-content {
@@ -272,11 +272,12 @@ x-message {
     }
 
     .flavour-quote {
-      color: #513c2d; padding: 0 !important; font-size: 1.1rem; width: 200px; font-weight: bold;
-      background: url('../img/background/flavor_bg.jpg') 0 41px repeat-y; float: right; font-style: italic;
-
-      .quote-head { background: url('../img/background/flavor_header.jpg') left top no-repeat; padding: 12px 8px; min-height: 55px; }
-      .quote-foot { background: url('../img/background/flavor_footer.jpg') left bottom no-repeat; }
+      color: #513c2d; font-size: 1.1rem; width: 200px; font-weight: bold;
+      padding: 12px 8px; min-height: 55px; float: right; font-style: italic;
+      background:
+              url('../img/background/flavor_header.jpg') left top no-repeat,
+              url('../img/background/flavor_footer.jpg') left bottom no-repeat,
+              url('../img/background/flavor_bg.jpg') 0 41px repeat-y;
     }
 
     &>.row.external-app>.cell, &>.row.external-app>.cell-small {
@@ -1009,7 +1010,7 @@ div.game-menu-area {
           color: lighten(#7c2727, 10%);
           font-variant: small-caps;
         }
-        &>li:nth-child(5) { top: -5px; right: -3px; }
+        &>li:nth-child(5) { top: -6px; right: 0px; }
       }
 
       &.ulcont {
@@ -1036,6 +1037,7 @@ div.game-menu-area {
         }
         &:not(.ap):not(.bp):not(.pm) {
           &:not(.civil) { min-width: 64px; background: url("../img/game-bar/panel_tl.png") 0 0 no-repeat,url("../img/game-bar/panel_tr.png") 100% 0 no-repeat,url("../img/game-bar/panel_bl.png") 0 100% no-repeat,url("../img/game-bar/panel_br.png") 100% 100% no-repeat,url("../img/game-bar/panel_t.png") 0 0 repeat-x,url("../img/game-bar/panel_l.png") 0 0 repeat-y,url("../img/game-bar/panel_r.png") 100% 0 repeat-y,url("../img/game-bar/panel_b.png") 0 100% repeat-x,url("../img/game-bar/background_sq.png"); };
+          &.rucksack { z-index: 2 }
           &>li:not(.text) {
             height: 18px; margin-top: 6px; vertical-align: bottom;
             &.free,&.item {width: 16px;}
@@ -1550,8 +1552,9 @@ div.item-addendum {
 }
 
 div.item-tag {
-  font-size: 1.1rem; text-align: center; padding: 2px; background: #022142; border: 1px solid #011d37;
+  font-size: 1.1rem; /*text-align: center;*/ padding: 2px; background: #022142; border: 1px solid #011d37;
   position: relative; color: @myhordes-smalltext; height: 18px; margin-top: 3px;
+  padding-left: 20px;
   &:after {position: absolute; display: block; content: " "; height: 16px; width: 16px; top: 0; left: 1px; }
   &.item-tag-deco:after { background: url("../img/item/cat_deco.gif") center/contain no-repeat }
   &.item-tag-defense:after { background: url("../img/item/cat_def.gif") center/contain no-repeat }
@@ -1588,10 +1591,12 @@ div.daily-attack {
   margin: 0 auto;
   max-width: 442px;
   div.content {
-    .animation {
-      margin: 0;
-      video {
-        max-width: 100%;
+
+    div[data-ruffle-swf] {
+      overflow: hidden;
+      >* {
+        width: 100% !important; height: auto !important;
+        aspect-ratio: 440/120;
       }
     }
 

@@ -872,36 +872,6 @@
         <target>Tableau de bord administrateur</target>
       </segment>
     </unit>
-    <unit id="aZibx3x" name="Server-Log herunterladen">
-      <notes>
-        <note category="german">Server-Log herunterladen</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Server-Log herunterladen</source>
-        <target>Télécharger le journal du serveur</target>
-      </segment>
-    </unit>
-    <unit id="yvg6S11" name="Server-Log ansehen">
-      <notes>
-        <note category="german">Server-Log ansehen</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Server-Log ansehen</source>
-        <target>Afficher le journal du serveur</target>
-      </segment>
-    </unit>
-    <unit id="UYFKH.u" name="Server-Log löschen">
-      <notes>
-        <note category="german">Server-Log löschen</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Server-Log löschen</source>
-        <target>Effacer le journal du serveur</target>
-      </segment>
-    </unit>
     <unit id="LzfXrql" name="Geplante Angriffe">
       <notes>
         <note category="german">Geplante Angriffe</note>
@@ -1744,16 +1714,6 @@
         <target>Coffre vide</target>
       </segment>
     </unit>
-    <unit id="fV5wxwj" name="In der Stadt">
-      <notes>
-        <note category="german">In der Stadt</note>
-        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
-      </notes>
-      <segment>
-        <source>In der Stadt</source>
-        <target>En ville</target>
-      </segment>
-    </unit>
     <unit id="id10hEL" name="Apps">
       <notes>
         <note category="german">Apps</note>
@@ -2069,7 +2029,7 @@
     <unit id="2OM.kVy" name="Änderungen an {appname} speichern">
       <notes>
         <note category="german">Änderungen an « {appname} » speichern</note>
-        <note category="from">php:///src/Controller/Admin/AdminAppController.php</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Änderungen an {appname} speichern</source>
@@ -2104,17 +2064,6 @@
       <segment>
         <source>Anwendungen</source>
         <target>Applications</target>
-      </segment>
-    </unit>
-    <unit id="IeSesrK" name="Log">
-      <notes>
-        <note category="german">Log</note>
-        <note category="state">new</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Log</source>
-        <target>Log</target>
       </segment>
     </unit>
     <unit id="tAQPtd4" name="Einen Status auswählen:">
@@ -4600,6 +4549,70 @@
       <segment>
         <source>Sprache wechseln</source>
         <target>Changer la langue</target>
+      </segment>
+    </unit>
+    <unit id="jupu8vs" name="Fremder">
+      <notes>
+        <note category="german">Fremder</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Fremder</source>
+        <target>Étranger</target>
+      </segment>
+    </unit>
+    <unit id="bHjGkUb" name="Mysteriösen Fremden aktivieren">
+      <notes>
+        <note category="german">Mysteriösen Fremden aktivieren</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Mysteriösen Fremden aktivieren</source>
+        <target>Activer le mystérieux étranger</target>
+      </segment>
+    </unit>
+    <unit id="dLSH2dI" name="Notiz">
+      <notes>
+        <note category="german">Notiz</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig;twig:///templates/ajax/admin/users/multi_index.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Notiz</source>
+        <target>Note</target>
+      </segment>
+    </unit>
+    <unit id="NgKjlhH" name="Whitelist von {admin}">
+      <notes>
+        <note category="german">Whitelist von {admin}</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Whitelist von {admin}</source>
+        <target>Liste blanche de {admin}</target>
+      </segment>
+    </unit>
+    <unit id="ExwOTyG" name="Whitelist hat keinen Autor">
+      <notes>
+        <note category="german">Whitelist hat keinen Autor</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Whitelist hat keinen Autor</source>
+        <target>La liste blanche n’a pas de créateur</target>
+      </segment>
+    </unit>
+    <unit id="iOIM36J" name="Whitelist hat keine Notiz">
+      <notes>
+        <note category="german">Whitelist hat keine Notiz</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Whitelist hat keine Notiz</source>
+        <target>La liste blanche n’a pas de note</target>
       </segment>
     </unit>
   </file>

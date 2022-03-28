@@ -195,6 +195,58 @@
                 {% endif %}
             </div>
         {% endfor %}
+        {% if town.strangerEnabled %}
+            <div class="row-flex stretch" style="max-height: 100px;">
+                <div class="cell factor-0 avatar ua-{{ random(0,9) }} hide-mobile" style="flex-basis: 90px; background: url('{{ asset('build/images/forum/empty_avatar.gif') }}') center/cover no-repeat;">&nbsp;</div>
+                <div class="cell factor-0 citizen-{{ town.strangerPower > 0 ? 'online' : 'dead' }}" style="flex-basis: 8px;">&nbsp;</div>
+
+                <div class="padded cell rw-4 factor-1 small content-center-vertical citizen-box citizen-box-name">
+                    <div>
+                        <div>
+                            {% if town.strangerPower > 0 %}
+                                <img alt="" src="{{ asset('build/images/professions/stranger.gif') }}" />
+                            {% else %}
+                                <img alt="{{ 'Tot!'|trans({},'game') }}" src="{{ asset('build/images/professions/death.gif') }}" />
+                                {% if citizen.home.recycling >= 15 %}
+                                    <img alt="{{ 'Tot!'|trans({},'game') }}" src="{{ asset('build/images/icons/home_recycled.gif') }}" />
+                                {% endif %}
+                            {% endif %}
+                            <a class="username undecorated">{{ 'Mysteriöser Fremder'|trans({}, 'game') }}</a>
+                        </div>
+                        <div class="hide-desktop small-citizen-defense">
+                            {% if town.strangerPower > 0 %}
+                                <img alt="" src="{{ asset('build/images/professions/void.gif') }}" />
+                                <span class="citizen-defense"> -- </span>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% if town.strangerPower > 0 %}
+                    <div class="padded cell rw-8 hide-md factor-2 small citizen-box"></div>
+                    <div class="padded cell factor-0 citizen-box hide-lg hide-md hide-sm" style="flex-basis: 80px">
+                        <img alt="" src="{{ asset('build/images/professions/void.gif') }}" />
+                        <span class="citizen-defense"> -- </span>
+                    </div>
+                    <div class="padded cell factor-0 small right citizen-box location" style="flex-basis: 80px;">
+                        {{ "In der Stadt"|trans({},'game') }}
+                    </div>
+                {% else %}
+                    <div class="padded cell rw-8 hide-md factor-2 small citizen-box">
+                        <em>{{ 'Leere Truhe'|trans({},'game') }}</em>
+                        <ul class="inventory borderless"></ul>
+                        <div class="tooltip normal">
+                            <strong class="warning">{{'Todesursache'|trans({}, 'game')}}</strong> : {{ 'Unbekannte Todesursache'|trans({}, "game") }}
+                        </div>
+                    </div>
+                    <div class="padded cell factor-0 small citizen-box hide-lg hide-md hide-sm" style="flex-basis: 160px;">
+                        <span>{{ 'Dieser Bürger hat keine letzten Worte hinterlassen ...'|trans({}, 'game') }}</span>
+                    </div>
+                    <div class="padded cell factor-0 small citizen-box hide-desktop" style="flex-basis: 80px;">
+                        <span>{{ 'Dieser Bürger hat keine letzten Worte hinterlassen ...'|trans({}, 'game') }}</span>
+                    </div>
+                {% endif %}
+            </div>
+        {% endif %}
     </div>
 
     <div class="row">
@@ -208,6 +260,12 @@
                 <em>{{ elem[1].label|trans({},'game') }}</em> x {{ elem[0] }}
             </span>
         {% endfor %}
+        {% if town.strangerPower > 0 %}
+            <span class="prof">
+                <img alt="" src="{{ asset('build/images/professions/stranger.gif') }}" />
+                <em>???</em> x {{ town.strangers }}
+            </span>
+        {% endif %}
         {#
         {% if death_count > 0 %}
             <span class="prof">
@@ -217,7 +275,7 @@
         {% endif %}
         #}
         <span class="prof">
-            <img alt="" src="{{ asset('build/images/icons/small_human.gif') }}" /> <span class="citizen_count">{{ "{citizens} Bürger"|trans({ '{citizens}': citizens|length - death_count }, 'game') }} {% if death_count > 0 %}<em>(+ {{ '{deads} Tot'|trans({'{deads}': death_count},'game') }})</em>{% endif %}</span>
+            <img alt="" src="{{ asset('build/images/icons/small_human.gif') }}" /> <span class="citizen_count">{{ "{citizens} Bürger"|trans({ '{citizens}': citizens|length + town.strangers - death_count }, 'game') }} {% if death_count > 0 %}<em>(+ {{ '{deads} Tot'|trans({'{deads}': death_count},'game') }})</em>{% endif %}</span>
         </span>
     </div>
 

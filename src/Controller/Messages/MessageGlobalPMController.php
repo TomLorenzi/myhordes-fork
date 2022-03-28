@@ -208,8 +208,7 @@ class MessageGlobalPMController extends MessageController
 
         foreach ($group_associations as $association) {
 
-            $last_post_date = new DateTime();
-            $last_post_date->setTimestamp($association->getAssociation()->getRef2());
+
 
             $official_meta = $this->entity_manager->getRepository(OfficialGroupMessageLink::class)->findOneBy(['messageGroup' => $association->getAssociation()]);
 
@@ -220,6 +219,15 @@ class MessageGlobalPMController extends MessageController
             ]);
 
             $read_only = $association->getAssociationType() === UserGroupAssociation::GroupAssociationTypePrivateMessageMemberInactive;
+
+            $last_post_date = new DateTime();
+            if ($read_only) {
+                $last_readable = $this->entity_manager->getRepository(GlobalPrivateMessage::class)->find( $association->getRef4() );
+                $last_post_date->setTimestamp((!$last_readable || $last_readable->getReceiverGroup() !== $association->getAssociation())
+                    ? $association->getAssociation()->getRef2()
+                    : $last_readable->getTimestamp()->getTimestamp()
+                );
+            } else $last_post_date->setTimestamp($association->getAssociation()->getRef2());
 
             $entries[] = [
                 'obj'    => $association,
@@ -600,6 +608,8 @@ class MessageGlobalPMController extends MessageController
         $pinned = $last_id === 0
             ? $em->getRepository(GlobalPrivateMessage::class)->findOneBy(['receiverGroup' => $group, 'pinned' => true])
             : null;
+
+        if ($read_only && $pinned?->getId() > $group_association->getRef4()) $pinned = null;
 
         if ($pinned)  {
             $rendered = false;
