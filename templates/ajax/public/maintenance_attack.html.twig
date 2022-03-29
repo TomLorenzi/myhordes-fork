@@ -5,7 +5,9 @@
 
     <div class="daily-attack row">
         <div class="content" id="canvas_container" style="overflow: hidden;">
-            <div class="attack_swf" data-ruffle-swf="{{ asset('build/flash/attack.swf') }}" data-ruffle-vars="lang={{ (app.request.locale|e('html_attr')|split('_', 2))[0] }}&amp;data=null"></div>
+
+            <div class="attack_swf" {% if attack_running %}data-ruffle-swf="{{ asset('build/flash/attack.swf') }}"{% else %}data-ruffle-swf="{{ asset('build/flash/desert.swf') }}"{% endif%} data-ruffle-vars="lang={{ (app.request.locale|e('html_attr')|split('_', 2))[0] }}&amp;data=null"></div>
+            {% if attack_running %}
                 {% trans from 'ghost' %}
                     <p>
                     Deine Stadt wird gerade von den Zombies <strong>angegriffen</strong>! Du hörst wie sie <strong>grunzend</strong> gegen eure Hütten schlagen. Dazwischen immer wieder <strong>Hilferufe</strong> und Schreie... Sie scheinen überall zu sein...
@@ -14,8 +16,12 @@
                     Was tust du, solange der Angriff tobt?
                     </p>
                 {% endtrans %}
-            <p><button x-ajax-href="{{ path('initial_landing') }}">{{ button_texts[0] }}</button></p>
-            <p><button x-ajax-href="{{ path('initial_landing') }}">{{ button_texts[1] }}</button></p>
+            {% else %}
+                <p>This text has not been fetched yet. Come back later to find out what will be written there !</p>
+                <p><strong>You're not ready for what's coming...</strong></p>
+            {% endif %}
+            <p><button x-action="refresh">{{ button_texts[0] }}</button></p>
+            <p><button x-action="refresh">{{ button_texts[1] }}</button></p>
             {% if app.user %}
             <p><a href="{{ path('home_pm') }}" target="_self"><button>{{ 'Funkgerät verwenden'|trans({}, 'game') }}</button></p></a>
             {% endif %}
@@ -40,5 +46,12 @@
     </div>
 {% endblock %}
 {% block js %}
-    <script></script>
+    <script>
+        let btns = document.querySelectorAll('button[x-action="refresh"]');
+        for(let i = 0 ; i < btns.length; i++) {
+            btns[i].addEventListener('click', function(){
+                $.ajax.load(null, '{{ path('maintenance_attack') }}', false, {'refresh': 1});
+            })
+        }
+    </script>
 {% endblock %}
