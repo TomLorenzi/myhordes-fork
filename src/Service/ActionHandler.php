@@ -1222,7 +1222,7 @@ class ActionHandler
                             // Don't give AP if already full
                             if($target_citizen->getAp() >= $this->citizen_handler->getMaxAP($target_citizen))
                                 continue;
-                            else if ($this->citizen_handler->hasStatusEffect($target_citizen, ['drunk','drugged'], false)) {
+                            else if ($this->citizen_handler->hasStatusEffect($target_citizen, ['drunk', 'drugged', 'addict'], false)) {
                                 $this->citizen_handler->setAP($target_citizen, true, 2, 0);
                                 $count+=2;
                             } else {
