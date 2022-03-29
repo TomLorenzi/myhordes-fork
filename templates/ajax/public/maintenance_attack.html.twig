@@ -16,12 +16,13 @@
                     Was tust du, solange der Angriff tobt?
                     </p>
                 {% endtrans %}
+                <p><button x-action="refresh">{{ button_texts[0] }}</button></p>
+                <p><button x-action="refresh">{{ button_texts[1] }}</button></p>
             {% else %}
                 <p>This text has not been fetched yet. Come back later to find out what will be written there !</p>
                 <p><strong>You're not ready for what's coming...</strong></p>
+                <p><button x-action="refresh">{{ button_texts[0] }}</button></p>
             {% endif %}
-            <p><button x-action="refresh">{{ button_texts[0] }}</button></p>
-            <p><button x-action="refresh">{{ button_texts[1] }}</button></p>
             {% if app.user %}
             <p><a href="{{ path('home_pm') }}" target="_self"><button>{{ 'Funkgerät verwenden'|trans({}, 'game') }}</button></p></a>
             {% endif %}
