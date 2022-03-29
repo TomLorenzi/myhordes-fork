@@ -522,7 +522,7 @@ class ZoneHandler
             if ($zone->getX() === 0 && $zone->getY() === 0) continue;
 
             $zombies = max( 0, $zone_db[$zone->getX()][$zone->getY()] );
-            $zone->setZombies( max(0, $zombies - $despair_db[$zone->getX()][$zone->getY()] ));
+            $zone->setZombies( max(0, floor($zombies - $despair_db[$zone->getX()][$zone->getY()] )));
             $zone->setInitialZombies( $zombies );
         }
 
