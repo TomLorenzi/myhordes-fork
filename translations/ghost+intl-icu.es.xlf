@@ -117,7 +117,7 @@
                     Deine Stadt wird gerade von den Zombies &lt;strong&gt;angegriffen&lt;/strong&gt;! Du hörst wie sie &lt;strong&gt;grunzend&lt;/strong&gt; gegen eure Hütten schlagen. Dazwischen immer wieder &lt;strong&gt;Hilferufe&lt;/strong&gt; und Schreie... Sie scheinen überall zu sein...
                     &lt;/p&gt;
                     &lt;p&gt;
-                    Was tust du, solange der Angriff tobt?               
+                    Was tust du, solange der Angriff tobt?
                     &lt;/p&gt;</note>
         <note category="from">twig:///templates/ajax/public/maintenance_attack.html.twig</note>
       </notes>
@@ -126,13 +126,13 @@
                     Deine Stadt wird gerade von den Zombies &lt;strong&gt;angegriffen&lt;/strong&gt;! Du hörst wie sie &lt;strong&gt;grunzend&lt;/strong&gt; gegen eure Hütten schlagen. Dazwischen immer wieder &lt;strong&gt;Hilferufe&lt;/strong&gt; und Schreie... Sie scheinen überall zu sein...
                     &lt;/p&gt;
                     &lt;p&gt;
-                    Was tust du, solange der Angriff tobt?               
+                    Was tust du, solange der Angriff tobt?
                     &lt;/p&gt;</source>
         <target><![CDATA[<p>
                     ¡Tu pueblo está siendo <strong>atacado</strong> por una turba de zombies! <strong>Llegan de todas partes y se meten en las casas</strong>. Entre los gritos de pánico de tus compañeros y los <strong>gruñidos hambrientos</strong> de esos monstruos... ¡la <strong>zombinoia</strong> se apodera de ti!
                     </p>
                     <p>
-                    ¿<strong>Morirás devorado</strong> esta noche?               
+                    ¿<strong>Morirás devorado</strong> esta noche?
                     </p>]]></target>
       </segment>
     </unit>

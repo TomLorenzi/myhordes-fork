@@ -5,7 +5,7 @@
 
     <div class="daily-attack row">
         <div class="content" id="canvas_container" style="overflow: hidden;">
-            <div class="attack_swf" data-ruffle-swf="{{ asset('build/flash/attack.swf') }}"></div>
+            <div class="attack_swf" data-ruffle-swf="{{ asset('build/flash/attack.swf') }}" data-ruffle-vars="lang={{ (app.request.locale|e('html_attr')|split('_', 2))[0] }}&amp;data=null"></div>
                 {% trans from 'ghost' %}
                     <p>
                     Deine Stadt wird gerade von den Zombies <strong>angegriffen</strong>! Du hörst wie sie <strong>grunzend</strong> gegen eure Hütten schlagen. Dazwischen immer wieder <strong>Hilferufe</strong> und Schreie... Sie scheinen überall zu sein...
