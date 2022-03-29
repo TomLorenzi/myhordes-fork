@@ -8272,7 +8272,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Es wäre vielleicht nicht verkehrt etwas &lt;strong&gt;Proviant&lt;/strong&gt; (Nahrung und/oder Wasser) einzupacken, bevor du die Stadt verlässt... Gehe dazu in den Bereich &lt;strong&gt;Mein Zuhause&lt;/strong&gt;.</source>
-        <target><![CDATA[It would be a better idea to take some <strong>provisions</strong> with you (food anc/or water) before you go... Go to the <strong>My House</strong> area to load up.]]></target>
+        <target><![CDATA[It would be a better idea to take some <strong>provisions</strong> with you (food and/or water) before you go... Go to the <strong>My House</strong> area to load up.]]></target>
       </segment>
     </unit>
     <unit id="YWDgwY8" name="Externe Scripte">
