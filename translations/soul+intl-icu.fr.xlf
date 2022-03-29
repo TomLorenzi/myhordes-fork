@@ -2650,7 +2650,7 @@
       </notes>
       <segment>
         <source>In Foren posten</source>
-        <target>In Foren posten</target>
+        <target>Ecrire dans les forums</target>
       </segment>
     </unit>
     <unit id="uNF4FkZ" name="Du verlierst die Schreibrechte im Stadtforum sowie allen Weltforen.">
@@ -2661,7 +2661,7 @@
       </notes>
       <segment>
         <source>Du verlierst die Schreibrechte im Stadtforum sowie allen Weltforen.</source>
-        <target>Du verlierst die Schreibrechte im Stadtforum sowie allen Weltforen.</target>
+        <target>Vous perdez les droits d’écriture dans le forum de la ville ainsi que dans tous les forums mondiaux.</target>
       </segment>
     </unit>
     <unit id="AHcu..1" name="Kommunikation in der Stadt">
