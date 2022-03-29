@@ -66,7 +66,6 @@ class TwinoRegexResult {
         this.length = match[0].length;
 
         if (this.type === TwinoRegexResult.TypeInset) {
-
             if      (this.match[1] !== undefined) this.type = TwinoRegexResult.TypeInsetA;
             else if (this.match[2] !== undefined) this.type = TwinoRegexResult.TypeInsetB;
             else if (this.match[4] !== undefined) this.type = TwinoRegexResult.TypeInsetC;
@@ -81,7 +80,7 @@ class TwinoRegexResult {
 
         switch (type) {
             case TwinoRegexResult.TypeShortBB: return /(?:([^\w\s]){2})([\s\S]*?)\1{2}/gm;
-            case TwinoRegexResult.TypeInset:   return /{([a-zA-Z]+)}|{([a-zA-Z]+),([\w,]*)}|{([a-zA-Z]+)(\d+)}|(?:\B|\b)@([\w_-]*)(?::(\d+))?(?:\B|\b)/g;
+            case TwinoRegexResult.TypeInset:   return /{([a-zA-Z]+)}|{([a-zA-Z]+),([\w,]*)}|{([a-zA-Z]+)(\d+)}|(?:\B|\b)@([\w_-]+)(?::(\d+))?(?:\B|\b)|(?:\B|\b)@(?::(\d+))(?:\B|\b)/g;
             case TwinoRegexResult.TypeEmote:   return /(?::(\w+?):)|([:;].)/g;
             default: throw Error( 'No regex defined for this type of TRR!' )
         }
@@ -192,7 +191,7 @@ class TwinoRegexResult {
             case TwinoRegexResult.TypeInsetD:
                 return this.match[7] ?? null;
             case TwinoRegexResult.TypeInsetD2:
-                return this.match[9] ?? null;
+                return this.match[8] ?? null;
             default:
                 throw new Error('Attempt to access node info of a TRR not supporting additional node information.');
         }
