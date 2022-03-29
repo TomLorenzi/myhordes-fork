@@ -2645,7 +2645,6 @@
     <unit id="IHRCYe1" name="In Foren posten">
       <notes>
         <note category="german">In Foren posten</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
@@ -2656,7 +2655,6 @@
     <unit id="uNF4FkZ" name="Du verlierst die Schreibrechte im Stadtforum sowie allen Weltforen.">
       <notes>
         <note category="german">Du verlierst die Schreibrechte im Stadtforum sowie allen Weltforen.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
@@ -4587,7 +4585,6 @@
       <notes>
         <note category="german">Standartmäßig die erweiterte Editor-Ansicht für PNs verwenden</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Standartmäßig die erweiterte Editor-Ansicht für PNs verwenden</source>
