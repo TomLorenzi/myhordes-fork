@@ -28,7 +28,7 @@
       </notes>
       <segment>
         <source>Dein Text muss mindestens 2 Zeichen lang sein.</source>
-        <target>Votre texte doit contenir au moins 2 charactères.</target>
+        <target>Votre texte doit contenir au moins 2 caractères.</target>
       </segment>
     </unit>
     <unit id="1rA34oT" name="Dein Titel muss zwischen 3 und 64 Zeichen lang sein.">
@@ -38,7 +38,7 @@
       </notes>
       <segment>
         <source>Dein Titel muss zwischen 3 und 64 Zeichen lang sein.</source>
-        <target>Votre titre doit contenir entre 3 et 64 charactères.</target>
+        <target>Votre titre doit contenir entre 3 et 64 caractères.</target>
       </segment>
     </unit>
     <unit id="3r067AY" name="Kommunikationsfehler.">
