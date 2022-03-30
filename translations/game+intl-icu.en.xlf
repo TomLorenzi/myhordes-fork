@@ -6535,7 +6535,7 @@
       </notes>
       <segment>
         <source>Anzahl der Aktionspunkte, die du in Reparaturen auf der Baustelle gesteckt hast.</source>
-        <target>Action Points invested ni the ongoing repairs of buildings.</target>
+        <target>Action Points invested in the ongoing repairs of buildings.</target>
       </segment>
     </unit>
     <unit id="tRxlExf" name="Textsammler">
