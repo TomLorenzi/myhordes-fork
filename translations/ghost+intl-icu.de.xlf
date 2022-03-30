@@ -1105,5 +1105,29 @@
         <target>Die Verwendung einer anderen Sprache im Stadtforum kann zu Sanktionen seitens der Moderation führen!</target>
       </segment>
     </unit>
+    <unit id="L1PDlgY">
+      <segment>
+        <source>Die verhungerte &lt;strong&gt;Zombiehorde&lt;/strong&gt; ist diese Nacht über deine Stadt hereingebrochen!</source>
+        <target><![CDATA[Die verhungerte <strong>Zombiehorde</strong> ist diese Nacht über deine Stadt hereingebrochen!]]></target>
+      </segment>
+    </unit>
+    <unit id="rW9LI_4" name="Die &quot;gute&quot; Nachricht: Du bist noch &lt;strong&gt;am Leben&lt;/strong&gt;...">
+      <segment>
+        <source>Die "gute" Nachricht: Du bist noch &lt;strong&gt;am Leben&lt;/strong&gt;...</source>
+        <target><![CDATA[Die "gute" Nachricht: Du bist noch <strong>am Leben</strong>...]]></target>
+      </segment>
+    </unit>
+    <unit id="p4fRg2j" name="Sein Zuhause verlassen...">
+      <segment>
+        <source>Sein Zuhause verlassen...</source>
+        <target>Sein Zuhause verlassen...</target>
+      </segment>
+    </unit>
+    <unit id="tU0K6oe" name="Zur Partieauswahl zurückkehren">
+      <segment>
+        <source>Zur Partieauswahl zurückkehren</source>
+        <target>Zur Partieauswahl zurückkehren</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

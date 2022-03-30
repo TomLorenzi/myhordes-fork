@@ -19,9 +19,17 @@
                 <p><button x-action="refresh">{{ button_texts[0] }}</button></p>
                 <p><button x-action="refresh">{{ button_texts[1] }}</button></p>
             {% else %}
-                <p>This text has not been fetched yet. Come back later to find out what will be written there !</p>
-                <p><strong>You're not ready for what's coming...</strong></p>
-                <p><button x-action="refresh">{{ button_texts[0] }}</button></p>
+                <p>{% trans from 'ghost' %}Die verhungerte <strong>Zombiehorde</strong> ist diese Nacht über deine Stadt hereingebrochen!{% endtrans %}</p>
+                <p>{% trans from 'ghost' %}Die "gute" Nachricht: Du bist noch <strong>am Leben</strong>...{% endtrans %}</p>
+                <p>
+                    <button x-ajax-href="{{ path("game_landing") }}">
+                        {% if app.user and app.user.activeCitizen %}
+                            {{ 'Sein Zuhause verlassen...'|trans({}, 'ghost') }}
+                        {% else %}
+                            {{ 'Zur Partieauswahl zurückkehren'|trans({}, 'ghost') }}
+                        {% endif %}
+                    </button>
+                </p>
             {% endif %}
             {% if app.user %}
             <p><a href="{{ path('home_pm') }}" target="_self"><button>{{ 'Funkgerät verwenden'|trans({}, 'game') }}</button></p></a>

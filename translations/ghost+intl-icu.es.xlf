@@ -1724,5 +1724,47 @@
         <target>¡Usar otros lenguajes puede resultar en sanciones de la moderación!</target>
       </segment>
     </unit>
+    <unit id="L1PDlgY">
+      <notes>
+        <note category="german">Die verhungerte &lt;strong&gt;Zombiehorde&lt;/strong&gt; ist diese Nacht über deine Stadt hereingebrochen!</note>
+        <note category="from">twig:///templates/ajax/public/maintenance_attack.html.twig</note>
+      </notes>
+      <segment>
+        <source>Die verhungerte &lt;strong&gt;Zombiehorde&lt;/strong&gt; ist diese Nacht über deine Stadt hereingebrochen!</source>
+        <target><![CDATA[<strong>Era inevitable</strong>, ¡los muertos vivientes han ingresado al pueblo!]]></target>
+      </segment>
+    </unit>
+    <unit id="rW9LI_4" name="Die &quot;gute&quot; Nachricht: Du bist noch &lt;strong&gt;am Leben&lt;/strong&gt;...">
+      <notes>
+        <note category="german">Die "gute" Nachricht: Du bist noch &lt;strong&gt;am Leben&lt;/strong&gt;...</note>
+        <note category="from">twig:///templates/ajax/public/maintenance_attack.html.twig</note>
+      </notes>
+      <segment>
+        <source>Die "gute" Nachricht: Du bist noch &lt;strong&gt;am Leben&lt;/strong&gt;...</source>
+        <target><![CDATA[De milagro <strong>pasaron junto a tu casa, golpearon las paredes y siguieron su camino</strong>. Te salvaste de morir... al menos por esta vez.]]></target>
+      </segment>
+    </unit>
+    <unit id="p4fRg2j" name="Sein Zuhause verlassen...">
+      <notes>
+        <note category="german">Sein Zuhause verlassen...</note>
+        <note category="from">twig:///templates/ajax/public/maintenance_attack.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Sein Zuhause verlassen...</source>
+        <target>Salir de tu casa.</target>
+      </segment>
+    </unit>
+    <unit id="tU0K6oe" name="Zur Partieauswahl zurückkehren">
+      <notes>
+        <note category="german">Zur Partieauswahl zurückkehren</note>
+        <note category="from">twig:///templates/ajax/public/maintenance_attack.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Zur Partieauswahl zurückkehren</source>
+        <target>Ir a la elección de partidas</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
