@@ -1723,7 +1723,6 @@
       <notes>
         <note category="german">Die verhungerte &lt;strong&gt;Zombiehorde&lt;/strong&gt; ist diese Nacht über deine Stadt hereingebrochen!</note>
         <note category="from">twig:///templates/ajax/public/maintenance_attack.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Die verhungerte &lt;strong&gt;Zombiehorde&lt;/strong&gt; ist diese Nacht über deine Stadt hereingebrochen!</source>
@@ -1734,7 +1733,6 @@
       <notes>
         <note category="german">Die "gute" Nachricht: Du bist noch &lt;strong&gt;am Leben&lt;/strong&gt;...</note>
         <note category="from">twig:///templates/ajax/public/maintenance_attack.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Die "gute" Nachricht: Du bist noch &lt;strong&gt;am Leben&lt;/strong&gt;...</source>
@@ -1743,9 +1741,8 @@
     </unit>
     <unit id="p4fRg2j" name="Sein Zuhause verlassen...">
       <notes>
-        <note category="german">Sein Zuhause verlassen...</note>
+        <note category="german">Dein Zuhause verlassen...</note>
         <note category="from">twig:///templates/ajax/public/maintenance_attack.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Sein Zuhause verlassen...</source>
@@ -1756,7 +1753,6 @@
       <notes>
         <note category="german">Zur Partieauswahl zurückkehren</note>
         <note category="from">twig:///templates/ajax/public/maintenance_attack.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Zur Partieauswahl zurückkehren</source>

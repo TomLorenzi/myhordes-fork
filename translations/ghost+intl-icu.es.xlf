@@ -1746,9 +1746,8 @@
     </unit>
     <unit id="p4fRg2j" name="Sein Zuhause verlassen...">
       <notes>
-        <note category="german">Sein Zuhause verlassen...</note>
+        <note category="german">Dein Zuhause verlassen...</note>
         <note category="from">twig:///templates/ajax/public/maintenance_attack.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Sein Zuhause verlassen...</source>
@@ -1759,7 +1758,6 @@
       <notes>
         <note category="german">Zur Partieauswahl zurückkehren</note>
         <note category="from">twig:///templates/ajax/public/maintenance_attack.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Zur Partieauswahl zurückkehren</source>
