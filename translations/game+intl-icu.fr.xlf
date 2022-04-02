@@ -3250,7 +3250,7 @@
       </notes>
       <segment>
         <source>HALTET DEN DIEB! {actor} ist bei {victim} eingebrochen und hat {item} gestohlen!</source>
-        <target>ARRÊTEZ LE VOLEUR ! {actor} a été aperçu(e) volant {item} à {victim} !</target>
+        <target>{actor} a été aperçu(e) volant {item} à {victim} !</target>
       </segment>
     </unit>
     <unit id="sro4b8z">
