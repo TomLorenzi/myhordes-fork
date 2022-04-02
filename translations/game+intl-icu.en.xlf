@@ -26464,7 +26464,7 @@
       </notes>
       <segment>
         <source>&lt;strong&gt;Du brauchst für diese Aktion {ap} Aktionspunkt(e)&lt;/strong&gt;. &lt;hr /&gt;Trink oder iss etwas, oder nimm eine Droge, ansonsten muss du bis &lt;strong&gt;morgen&lt;/strong&gt; warten.</source>
-        <target><![CDATA[<strong>You need {ap} ction points to do this</strong>. <hr />Drink, eat or drug yourself to restore points, or wait until <strong>tomorrow</strong>.]]></target>
+        <target><![CDATA[<strong>You need {ap} action points to do this</strong>. <hr />Drink, eat or drug yourself to restore points, or wait until <strong>tomorrow</strong>.]]></target>
       </segment>
     </unit>
   </file>
