@@ -155,6 +155,8 @@ class SeoController extends CustomAbstractController
      */
     public function seo_redirect(Request $request, string $lang, string $any): Response
     {
-        return $this->redirect( "{$request->getScheme()}://{$request->getHost()}/jx/{$any}" );
+        return trim($any)
+            ? $this->redirect( "{$request->getScheme()}://{$request->getHost()}/jx/{$any}" )
+            : $this->redirect( "{$request->getScheme()}://{$request->getHost()}/" );
     }
 }
