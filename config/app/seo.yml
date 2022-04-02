@@ -1,2 +1,2 @@
 parameters:
-  seobots: "/aolbuild|baidu|bingbot|msnbot|duckduckgo|googlebot|teoma|slurp|yandex|firefox/i"
+  seobots: "/aolbuild|baidu|bingbot|msnbot|duckduckgo|googlebot|teoma|slurp|yandex/i"
