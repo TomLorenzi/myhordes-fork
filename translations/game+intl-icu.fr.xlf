@@ -26163,7 +26163,6 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">&lt;strong&gt;Du brauchst für diese Aktion {ap} Aktionspunkt(e)&lt;/strong&gt;. &lt;hr /&gt;Trink oder iss etwas, oder nimm eine Droge, ansonsten muss du bis &lt;strong&gt;morgen&lt;/strong&gt; warten.</note>
         <note category="from">twig:///templates/ajax/game/town/construction.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>&lt;strong&gt;Du brauchst für diese Aktion {ap} Aktionspunkt(e)&lt;/strong&gt;. &lt;hr /&gt;Trink oder iss etwas, oder nimm eine Droge, ansonsten muss du bis &lt;strong&gt;morgen&lt;/strong&gt; warten.</source>
