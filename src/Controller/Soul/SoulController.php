@@ -1535,7 +1535,7 @@ class SoulController extends CustomAbstractController
      */
     public function api_soul_tooltip(JSONRequestParser $parser, HTMLService $html, TimeKeeperService $timeKeeper) {
         $id = $parser->get("id");
-        $user = $this->entity_manager->getRepository(User::class)->find($id);
+        $user = $id ? $this->entity_manager->getRepository(User::class)->find($id) : null;
 
         if (!$user) {
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
