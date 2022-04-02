@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html prefix="og: http://ogp.me/ns#" lang="{{ app.request.locale|e('html_attr') }}" class="lang-base-{{ (app.request.locale|e('html_attr')|split('_', 2))[0] }}">
 <head>
+
+    {% set page_title = (title ?? block('title') ?? null) is not null ? ('MyHordes - ' ~ (title ?? block('title'))) : 'MyHordes' %}
+
     {% block html_head %}
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <meta charset="UTF-8" />
@@ -12,16 +15,26 @@
         <base target="_self" href="{{ app.request.getBaseURL() }}">
 
         <!-- Set OG tags for Social Network Ads :] -->
-        <meta property="og:title" content="MyHordes">
+        <meta property="og:title" content="{{ page_title }}">
         <meta property="og:description" content="{{ 'Das Zombie Survival Game!'|trans({}, 'global')}}">
         <meta property="og:image" content="{{ absolute_url(asset('build/images/favicon.ico')) }}">
         <meta property="og:url" content="{{ app.request.uri }}">
         <meta property="og:type" content="website">
-        <meta property="og:locale" content="de_DE" />
-        <meta property="og:locale:alternate" content="fr_FR" />
-        <meta property="og:locale:alternate" content="es_ES" />
-        <meta property="og:locale:alternate" content="en_US" />
+        {% for short, long in all_languages %}
+            <meta property="og:locale{% if short != app.request.locale %}:alternate{% endif %}" content="{{ long }}" />
+        {% endfor %}
         <meta property="og:image" content="{{ absolute_url(asset('build/images/myhordes-og.png')) }}" />
+
+        {% if in_other_languages is defined and in_other_languages is not empty %}
+            <!-- Content in other languages -->
+            {% for lang, route in in_other_languages %}
+                <link rel="alternate" hreflang="{{ lang }}" href="{{ route }}" />
+            {% endfor %}
+            {% if in_other_languages['en'] is defined %}
+                <link rel="alternate" hreflang="x-default" href="{{ in_other_languages['en'] }}" />
+            {% endif %}
+        {% endif %}
+
 
         <!-- Load CSS -->
         {{ encore_entry_link_tags('app') }}
@@ -30,11 +43,7 @@
         <link rel="shortcut icon" href="{{ absolute_url(asset('build/images/favicon.ico')) }}" sizes="310x310">
 
         <!-- Set page title -->
-        {% if block('title') is defined %}
-            <title>MyHordes - {{ block('title') }}</title>
-        {% else %}
-            <title>MyHordes</title>
-        {% endif %}
+        <title>{{ page_title }}</title>
     {% endblock %}
 </head>
 <body class="offline_body">
