@@ -18,6 +18,9 @@
                 {% endtrans %}
                 <p><button x-action="refresh">{{ button_texts[0] }}</button></p>
                 <p><button x-action="refresh">{{ button_texts[1] }}</button></p>
+                {% if app.user %}
+                    <p><a href="{{ path('home_pm') }}" target="_self"><button>{{ 'Funkgerät verwenden'|trans({}, 'game') }}</button></a></p>
+                {% endif %}
             {% else %}
                 <p>{% trans from 'ghost' %}Die verhungerte <strong>Zombiehorde</strong> ist diese Nacht über deine Stadt hereingebrochen!{% endtrans %}</p>
                 <p>{% trans from 'ghost' %}Die "gute" Nachricht: Du bist noch <strong>am Leben</strong>...{% endtrans %}</p>
@@ -31,27 +34,26 @@
                     </button>
                 </p>
             {% endif %}
-            {% if app.user %}
-            <p><a href="{{ path('home_pm') }}" target="_self"><button>{{ 'Funkgerät verwenden'|trans({}, 'game') }}</button></p></a>
-            {% endif %}
         </div>
 
-        <div class="infos">
-            <h2>{{'Was hat das zu bedeuten?'|trans({}, 'ghost')}}</h2>
-            <img style="max-width: 100%;" src="{{ asset('build/images/server.png')}}" alt="" class="art">
-            <p>{{'Die Verdammten wird gerade von den Zombies überfallen! Es ist der tägliche Angriff!'|trans({}, 'ghost')}}</p>
-            <p>{{'Registrierung sowie Log-in sind zur Zeit nicht möglich... Die Seite müsste gegen 00.30 wieder erreichbar sein.'|trans({}, 'ghost')}}</p>
-            <p><em>{{'Und ja, es wird Tote geben...'|trans({}, 'ghost')}}</em></p>
-        </div>
+        {% if attack_running %}
+            <div class="infos">
+                <h2>{{'Was hat das zu bedeuten?'|trans({}, 'ghost')}}</h2>
+                <img style="max-width: 100%;" src="{{ asset('build/images/server.png')}}" alt="" class="art">
+                <p>{{'Die Verdammten wird gerade von den Zombies überfallen! Es ist der tägliche Angriff!'|trans({}, 'ghost')}}</p>
+                <p>{{'Registrierung sowie Log-in sind zur Zeit nicht möglich... Die Seite müsste gegen 00.30 wieder erreichbar sein.'|trans({}, 'ghost')}}</p>
+                <p><em>{{'Und ja, es wird Tote geben...'|trans({}, 'ghost')}}</em></p>
+            </div>
 
-        <div class="right">
-            <br />
-            {% if is_granted('ROLE_CROW') %}
-            <span class="small pointer" x-ajax-href="{{ path('admin_dashboard') }}">{{ 'Admin Dashboard'|trans({},'admin') }}</span>
-            {% else %}
-            <span style="cursor: default; opacity: 0;" class="small pointer" x-ajax-href="{{ path('admin_dashboard') }}">{{ 'Admin Dashboard'|trans({},'admin') }}</span>
-            {% endif %}
-        </div>
+            <div class="right">
+                <br />
+                {% if is_granted('ROLE_CROW') %}
+                    <span class="small pointer" x-ajax-href="{{ path('admin_dashboard') }}">{{ 'Admin Dashboard'|trans({},'admin') }}</span>
+                {% else %}
+                    <span style="cursor: default; opacity: 0;" class="small pointer" x-ajax-href="{{ path('admin_dashboard') }}">{{ 'Admin Dashboard'|trans({},'admin') }}</span>
+                {% endif %}
+            </div>
+        {% endif %}
     </div>
 {% endblock %}
 {% block js %}
