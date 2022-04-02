@@ -481,10 +481,10 @@ class CitizenHandler
             if (!empty($this->inventory_handler->fetchSpecificItems(
                 $citizen->getInventory(), [new ItemRequest( 'car_door_#00' )]
             ))) $base += 1;
-        }
 
-        if ($citizen->hasRole('guide'))
-            $base += $citizen->getZone() ? $citizen->getZone()->getCitizens()->count() : 0;
+            if ($citizen->hasRole('guide'))
+                $base += $citizen->getZone() ? $citizen->getZone()->getCitizens()->count() : 0;
+        }
 
         return $base;
     }
