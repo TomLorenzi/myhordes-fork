@@ -148,7 +148,7 @@
       </notes>
       <segment>
         <source>Spielhilfe</source>
-        <target>Guide</target>
+        <target>En savoir plus...</target>
       </segment>
     </unit>
     <unit id="qF4Y0UE" name="Mehr erfahren">
@@ -270,7 +270,7 @@
       </notes>
       <segment>
         <source>Das Online-Spiel &lt;strong&gt;MyHordes&lt;/strong&gt; ist ein kooperatives Survival Game, das in einer postapokalyptischen Welt voller Zombies spielt.</source>
-        <target><![CDATA[Das Online-Spiel <strong>MyHordes</strong> ist ein kooperatives Survival Game, das in einer postapokalyptischen Welt voller Zombies spielt.]]></target>
+        <target><![CDATA[<strong>MyHordes</strong> est un jeu web gratuit de survie dans un monde hostile peuplé de zombies.]]></target>
       </segment>
     </unit>
     <unit id="aHx5_0M" name="Das Prinzip">
@@ -281,7 +281,7 @@
       </notes>
       <segment>
         <source>Das Prinzip</source>
-        <target>Das Prinzip</target>
+        <target>Le Principe</target>
       </segment>
     </unit>
     <unit id="zGrG7ky">
@@ -292,7 +292,7 @@
       </notes>
       <segment>
         <source>Die Welt nach der Apokalypse: Die Zivilisation, wie wir sie kannten, ist nicht mehr. Die letzten Menschen verschanzen sich in Städten und haben nur ein Ziel: Überleben. Du bist einer von 40 Bürgern und musst in einer von Zombies umzingelten Stadt jeden Tag um dein Überleben kämpfen. Ziel des Spiels ist es, allein oder in der Gruppe so lange wie möglich zu überleben.</source>
-        <target>Die Welt nach der Apokalypse: Die Zivilisation, wie wir sie kannten, ist nicht mehr. Die letzten Menschen verschanzen sich in Städten und haben nur ein Ziel: Überleben. Du bist einer von 40 Bürgern und musst in einer von Zombies umzingelten Stadt jeden Tag um dein Überleben kämpfen. Ziel des Spiels ist es, allein oder in der Gruppe so lange wie möglich zu überleben.</target>
+        <target>Les joueurs (ou Citoyens) sont regroupés dans de petites villes et ont pour tâche de s'organiser chaque jour pour tenir le plus longtemps possible face aux attaques des zombies... Le dernier survivant deviendra le Héros de la ville. Vous disposez d'une liberté quasi totale et vous pouvez choisir votre propre voie, à tout moment !</target>
       </segment>
     </unit>
     <unit id="pq8uFuf" name="Die Gemeinschaft">
@@ -303,7 +303,7 @@
       </notes>
       <segment>
         <source>Die Gemeinschaft</source>
-        <target>Die Gemeinschaft</target>
+        <target>La Communauté</target>
       </segment>
     </unit>
     <unit id="sHU2tJq">
@@ -314,7 +314,7 @@
       </notes>
       <segment>
         <source>Kooperation und Kommunikation stehen im Mittelpunkt von "MyHordes". Wenn ihr lange überleben wollt, müsst ihr zusammenarbeiten. Ganz egal, ob ihr euch leiden könnt oder nicht. Wer sich nicht an vereinbarte Regeln hält, kann verbannt und sogar gehängt werden. Ihr müsst euch absprechen und eure knappen Ressourcen bestmöglich nutzen. Jede Stadt stellt dabei ihre eigenen Regeln auf, denn bei "MyHordes" gilt das Motto:</source>
-        <target>Kooperation und Kommunikation stehen im Mittelpunkt von "MyHordes". Wenn ihr lange überleben wollt, müsst ihr zusammenarbeiten. Ganz egal, ob ihr euch leiden könnt oder nicht. Wer sich nicht an vereinbarte Regeln hält, kann verbannt und sogar gehängt werden. Ihr müsst euch absprechen und eure knappen Ressourcen bestmöglich nutzen. Jede Stadt stellt dabei ihre eigenen Regeln auf, denn bei "MyHordes" gilt das Motto:</target>
+        <target>La coopération et la communication sont au cœur de MyHordes. Si vous voulez survivre longtemps, vous devez travailler ensemble. Peu importe si vous vous supportez ou non. Ceux qui ne respectent pas les règles convenues peuvent être bannis et même pendus par leurs concitoyens. Vous devez vous concerter et utiliser au mieux vos maigres ressources. Chaque ville établit ses propres règles. La devise est :</target>
       </segment>
     </unit>
     <unit id="LCWHLh6" name="Es gilt nur die Moral, die du selbst wählst!">
@@ -325,7 +325,7 @@
       </notes>
       <segment>
         <source>Es gilt nur die Moral, die du selbst wählst!</source>
-        <target>Es gilt nur die Moral, die du selbst wählst!</target>
+        <target>Moins de morale, plus de Violence !</target>
       </segment>
     </unit>
     <unit id="99_ihUC" name="Der Ablauf">
@@ -336,7 +336,7 @@
       </notes>
       <segment>
         <source>Der Ablauf</source>
-        <target>Der Ablauf</target>
+        <target>Le Déroulement</target>
       </segment>
     </unit>
     <unit id="FSHax6l">
@@ -347,7 +347,7 @@
       </notes>
       <segment>
         <source>Mit Aktionspunkten hast du jeden Tag eine bestimmte Anzahl an Aktionen. Durch Essen, Trinken oder die Einnahme von Drogen kannst du deine Aktionspunkte wieder auffüllen. Nutze deine Aktionspunkte mit Bedacht! Du kannst in die Wüste zu gehen und nach Gegenständen und Rohstoffen für den Bau von Verteidigungsbauten suchen. Oder du hilft in der Werkstatt oder auf der Baustelle. Jeden Tag um Mitternacht greift eine immer größer werdende Zombiehorde an. Überlebt eure Stadt dieses Angriff, beginnt ein neuer Tag und der tägliche Kampf ums Überleben geht in eine weitere Runde.</source>
-        <target>Mit Aktionspunkten hast du jeden Tag eine bestimmte Anzahl an Aktionen. Durch Essen, Trinken oder die Einnahme von Drogen kannst du deine Aktionspunkte wieder auffüllen. Nutze deine Aktionspunkte mit Bedacht! Du kannst in die Wüste zu gehen und nach Gegenständen und Rohstoffen für den Bau von Verteidigungsbauten suchen. Oder du hilft in der Werkstatt oder auf der Baustelle. Jeden Tag um Mitternacht greift eine immer größer werdende Zombiehorde an. Überlebt eure Stadt dieses Angriff, beginnt ein neuer Tag und der tägliche Kampf ums Überleben geht in eine weitere Runde.</target>
+        <target>Les points d'action permettent d'effectuer un certain nombre d'actions chaque jour. En mangeant, en buvant ou en prenant des drogues, vous pouvez regagner des points d'action. Utilisez vos points d'action à bon escient ! Vous pouvez aller dans le désert et chercher des objets et des matières premières pour construire des bâtiments défensifs. Vous pouvez aussi aider à l'atelier ou aux chantiers. Chaque jour à minuit, une horde de zombies de plus en plus conséquente passe à l'attaque. Si votre ville y survit, une nouvelle journée commence et la lutte quotidienne pour la survie se poursuit.</target>
       </segment>
     </unit>
     <unit id="gbIBFaz" name="Das Ende">
@@ -358,7 +358,7 @@
       </notes>
       <segment>
         <source>Das Ende</source>
-        <target>Das Ende</target>
+        <target>La Fin</target>
       </segment>
     </unit>
     <unit id="qLs76Lr">
@@ -369,7 +369,7 @@
       </notes>
       <segment>
         <source>Je besser ihr euch absprecht, desto länger überlebt eure Stadt. Doch ihr Schicksal ist unausweichlich und bereits besiegelt. Der Tod ist Teil von "MyHordes". Doch mit jeder gespielten Stadt lernst du mehr über das Spiel und darüber wie eine erfolgreiche Gemeinschaft funktioniert. Und vielleicht auch über dich... Die erfolgreichsten Städte und Spieler erscheinen in einer Saison-Rangliste.</source>
-        <target>Je besser ihr euch absprecht, desto länger überlebt eure Stadt. Doch ihr Schicksal ist unausweichlich und bereits besiegelt. Der Tod ist Teil von "MyHordes". Doch mit jeder gespielten Stadt lernst du mehr über das Spiel und darüber wie eine erfolgreiche Gemeinschaft funktioniert. Und vielleicht auch über dich... Die erfolgreichsten Städte und Spieler erscheinen in einer Saison-Rangliste.</target>
+        <target>Plus vous serez organisés, plus votre ville survivra longtemps. Mais votre destin est inéluctable et déjà scellé, la mort fait partie intégrante de MyHordes. Cependant, avec chaque ville jouée, vous en apprendrez plus sur le jeu et peut-être aussi sur vous-même... Les villes et les joueurs les plus performants apparaissent dans un classement de saison.</target>
       </segment>
     </unit>
     <unit id="y3NV_XP" name="Der Preis">
@@ -380,7 +380,7 @@
       </notes>
       <segment>
         <source>Der Preis</source>
-        <target>Der Preis</target>
+        <target>Le Prix</target>
       </segment>
     </unit>
     <unit id="16s1JAU">
@@ -391,7 +391,7 @@
       </notes>
       <segment>
         <source>Das Spielen von "MyHordes" ist &lt;strong&gt;komplett kostenlos&lt;/strong&gt;! Es gibt keine kostenpflichtigen Zusatzinhalte, kosmetische Boni oder Spielfortschritts-Beschleuniger. Wir setzen zudem keine Werbung oder Tracking ein. Wenn dir "MyHordes" gefällt hast du die Möglichkeit, für den Weiterbetrieb zu spenden - du erhälst hierfür (außer unserer ewigen Dankbarkeit) jedoch keinerlei Spielboni.</source>
-        <target><![CDATA[Das Spielen von "MyHordes" ist <strong>komplett kostenlos</strong>! Es gibt keine kostenpflichtigen Zusatzinhalte, kosmetische Boni oder Spielfortschritts-Beschleuniger. Wir setzen zudem keine Werbung oder Tracking ein. Wenn dir "MyHordes" gefällt hast du die Möglichkeit, für den Weiterbetrieb zu spenden - du erhälst hierfür (außer unserer ewigen Dankbarkeit) jedoch keinerlei Spielboni.]]></target>
+        <target><![CDATA[MyHordes est <strong>entièrement gratuit</strong>! Il n'y a pas de contenu supplémentaire payant, de bonus cosmétiques ou d'accélérateurs de progression. Nous n'utilisons pas non plus de publicité ou de tracking. Si vous appréciez MyHordes, vous avez la possibilité de faire un don pour le maintenir en activité.]]></target>
       </segment>
     </unit>
     <unit id="EKiBP8V" name="Weitere Informationen">
