@@ -40,7 +40,7 @@ class AnnouncementRepository extends ServiceEntityRepository
         return $qb->getQuery()->getResult();
     }
 
-    public function findLatestByLang(string $lang): Announcement
+    public function findLatestByLang(string $lang): ?Announcement
     {
         return $this->createQueryBuilder('a')
             ->andWhere('a.lang = :lang')->setParameter('lang', $lang)
