@@ -1,0 +1,54 @@
+{% extends "ajax/ajax.html.twig" %}
+{% block ajax %}
+    <div class="row">
+        <div class="cell padded rw-10 ro-1 rw-lg-12 ro-lg-0">
+            <h1 class="page-head">{{ 'Das Online-Spiel <strong>MyHordes</strong> ist ein kooperatives Survival Game, das in einer postapokalyptischen Welt voller Zombies spielt.'|trans({},'welcome')|raw }}</h1>
+
+            <h2 class="page-head">MyHordes</h2>
+            <p class="about-paragraph">
+                <img class="float-left" alt="" src="{{ asset('build/images/help/nightCamping.png') }}">
+                {{ 'MyHordes ist eine von der Community entwickelte offene Implementierung des Browser-Spiels "Die Verdammten" und seine anderen Versionen von {motiontwin}.'|trans({'{motiontwin}':'<b>MotionTwin</b>'},'welcome')|raw }}
+                <br />
+                {{ 'Ziel des Projektes ist es, eine Version von "Die Verdammten" und seinen anderen Versionen zu erschaffen, die nicht nur nach der Flash-Abschaltung im Jahr 2020 funktionsfähig ist, sondern auch weiterentwickelt und mit neuen Inhalten versorgt werden kann.'|trans({},'welcome') }}
+                <br />
+                {{ 'Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus "Die Verdammten" und seine anderen Versionen und sind damit Eigentum von {motiontwin}.'|trans({'{motiontwin}':'<b>MotionTwin</b>'},'welcome')|raw }}
+            </p>
+
+            <h2 class="page-head">{{ 'Das Prinzip'|trans({},'welcome') }}</h2>
+            <p class="about-paragraph">
+                <img class="float-right" alt="" src="{{ asset('build/images/help/intro_equip.gif') }}">
+                {{ 'Die Welt nach der Apokalypse: Die Zivilisation, wie wir sie kannten, ist nicht mehr. Die letzten Menschen verschanzen sich in Städten und haben nur ein Ziel: Überleben. Du bist einer von 40 Bürgern und musst in einer von Zombies umzingelten Stadt jeden Tag um dein Überleben kämpfen. Ziel des Spiels ist es, allein oder in der Gruppe so lange wie möglich zu überleben.'|trans({},'welcome') }}
+            </p>
+
+            <h2 class="page-head">{{ 'Die Gemeinschaft'|trans({},'welcome') }}</h2>
+
+            <p class="about-paragraph">
+                <img class="float-left" alt="" src="{{ asset('build/images/help/intro_help.gif') }}">
+                {{ 'Kooperation und Kommunikation stehen im Mittelpunkt von "MyHordes". Wenn ihr lange überleben wollt, müsst ihr zusammenarbeiten. Ganz egal, ob ihr euch leiden könnt oder nicht. Wer sich nicht an vereinbarte Regeln hält, kann verbannt und sogar gehängt werden. Ihr müsst euch absprechen und eure knappen Ressourcen bestmöglich nutzen. Jede Stadt stellt dabei ihre eigenen Regeln auf, denn bei "MyHordes" gilt das Motto:'|trans({},'welcome') }}
+                <strong>{{ 'Es gilt nur die Moral, die du selbst wählst!'|trans({},'welcome') }}</strong>
+            </p>
+
+            <h2 class="page-head">{{ 'Der Ablauf'|trans({},'welcome') }}</h2>
+            <p class="about-paragraph">
+                <img class="float-right" alt="" src="{{ asset('build/images/help/intro_fight.gif') }}">
+                {{ 'Mit Aktionspunkten hast du jeden Tag eine bestimmte Anzahl an Aktionen. Durch Essen, Trinken oder die Einnahme von Drogen kannst du deine Aktionspunkte wieder auffüllen. Nutze deine Aktionspunkte mit Bedacht! Du kannst in die Wüste zu gehen und nach Gegenständen und Rohstoffen für den Bau von Verteidigungsbauten suchen. Oder du hilft in der Werkstatt oder auf der Baustelle. Jeden Tag um Mitternacht greift eine immer größer werdende Zombiehorde an. Überlebt eure Stadt dieses Angriff, beginnt ein neuer Tag und der tägliche Kampf ums Überleben geht in eine weitere Runde.'|trans({},'welcome') }}
+            </p>
+
+            <h2 class="page-head">{{ 'Das Ende'|trans({},'welcome') }}</h2>
+            <p class="about-paragraph">
+                <img class="float-left" alt="" src="{{ asset('build/images/help/attack.png') }}">
+                {{ 'Je besser ihr euch absprecht, desto länger überlebt eure Stadt. Doch ihr Schicksal ist unausweichlich und bereits besiegelt. Der Tod ist Teil von "MyHordes". Doch mit jeder gespielten Stadt lernst du mehr über das Spiel und darüber wie eine erfolgreiche Gemeinschaft funktioniert. Und vielleicht auch über dich... Die erfolgreichsten Städte und Spieler erscheinen in einer Saison-Rangliste.'|trans({},'welcome') }}
+            </p>
+
+            <h2 class="page-head">{{ 'Der Preis'|trans({},'welcome') }}</h2>
+            <p class="about-paragraph">
+                <img class="float-right" alt="" src="{{ asset('build/images/help/city.gif') }}">
+                {{ 'Das Spielen von "MyHordes" ist <strong>komplett kostenlos</strong>! Es gibt keine kostenpflichtigen Zusatzinhalte, kosmetische Boni oder Spielfortschritts-Beschleuniger. Wir setzen zudem keine Werbung oder Tracking ein. Wenn dir "MyHordes" gefällt hast du die Möglichkeit, für den Weiterbetrieb zu spenden - du erhälst hierfür (außer unserer ewigen Dankbarkeit) jedoch keinerlei Spielboni.'|trans({},'welcome')|raw }}
+            </p>
+
+            <h2 class="page-head">{{ 'Weitere Informationen'|trans({},'welcome') }}</h2>
+            <button x-ajax-href="{{ path('help') }}">{{ 'Spielhilfe'|trans({},'welcome') }}</button>
+        </div>
+    </div>
+    {% include "ajax/public/fact.html.twig" with {fact: fact} %}
+{% endblock %}

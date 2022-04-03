@@ -1,0 +1,41 @@
+{% extends "ajax/ajax.html.twig" %}
+{% block ajax %}
+    <div class="row">
+        <div class="cell padded rw-10 ro-1 rw-lg-12 ro-lg-0">
+            <h1 class="page-head">{{ 'Update {version} - {title}'|trans({version: current.version, title: current.title},'welcome') }}</h1>
+            <div class="soul">
+                <div class="news">
+                    <div class="forum-post">
+                        <div class="forum-post-content content">
+                            {{ current.text|raw }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="cell rw-6 ro-3 rw-md-10 ro-md-1 rw-sm-12 ro-sm-12">
+                            <div class="changelog-box small center">
+                                <div><label for="version_select">{{ 'Die letzten Updates ansehen:'|trans({},'welcome') }}</label></div>
+                                <select id="version_select">
+                                    {% for update in all %}
+                                        <option {% if update.id == current.id %}selected{% endif %} value="{{ path('public_changelog', { id: update.id }) }}">{{ update.version }} - {{ update.title }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include "ajax/public/fact.html.twig" with {fact: fact} %}
+{% endblock %}
+{% block js %}
+    {{ parent() }}
+    <script>
+        (()=>{
+            document.querySelector('#version_select').addEventListener('change', e=>{
+                $.ajax.load(null, e.target.value, true);
+            })
+        })();
+    </script>
+{% endblock %}

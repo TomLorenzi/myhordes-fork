@@ -23,7 +23,7 @@
   .hide-mobile {display: none !important;};
   body {background: black;}
   #wrapper, div.game-menu-area, footer { width: 100%; }
-
+  #wrapper.attract > #header .attract_button { background-image: url("../img/background/bg_attract_button_detached.png") }
   div.town-header {
     &:before { display: none; }
     &.hardcore {
@@ -123,6 +123,7 @@
       min-height: 180px;
     }
   }
+  h4.preview-header { width: 100%; left: 0; padding: 4px; }
 }
 @media (max-width: (@screen-small-threshold - 1)) {
   .hide-@{screen-small} {display: none !important;};
@@ -135,6 +136,9 @@
     }
   }
   button, .button { padding-top: 16px; padding-bottom: 16px; margin-top: 8px; margin-bottom: 8px; }
+
+  h4.preview-header { width: 100%; left: 0; padding: 4px; }
+  .about-paragraph img { max-width: 100%; width: 100% }
 
   .rucksack_status_union.rucksack {
     &:before {
