@@ -270,7 +270,7 @@
       </notes>
       <segment>
         <source>Das Online-Spiel &lt;strong&gt;MyHordes&lt;/strong&gt; ist ein kooperatives Survival Game, das in einer postapokalyptischen Welt voller Zombies spielt.</source>
-        <target><![CDATA[<strong>MyHordes</strong> est un jeu web gratuit de survie dans un monde hostile peuplé de zombies.]]></target>
+        <target><![CDATA[<strong>MyHordes</strong> est un jeu de survie dans un monde hostile peuplé de zombies.]]></target>
       </segment>
     </unit>
     <unit id="aHx5_0M" name="Das Prinzip">
