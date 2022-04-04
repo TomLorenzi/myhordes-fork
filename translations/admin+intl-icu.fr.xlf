@@ -4575,7 +4575,6 @@
       <notes>
         <note category="german">Notiz</note>
         <note category="from">twig:///templates/ajax/admin/users/account.html.twig;twig:///templates/ajax/admin/users/multi_index.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Notiz</source>
@@ -4586,7 +4585,6 @@
       <notes>
         <note category="german">Whitelist von {admin}</note>
         <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Whitelist von {admin}</source>
@@ -4597,7 +4595,6 @@
       <notes>
         <note category="german">Whitelist hat keinen Autor</note>
         <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Whitelist hat keinen Autor</source>
@@ -4608,11 +4605,20 @@
       <notes>
         <note category="german">Whitelist hat keine Notiz</note>
         <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Whitelist hat keine Notiz</source>
         <target>La liste blanche n’a pas de note</target>
+      </segment>
+    </unit>
+    <unit id="l1Pew6d" name="Alle bannen">
+      <notes>
+        <note category="german">Alle bannen</note>
+        <note category="from">twig:///templates/ajax/admin/users/multi_index.html.twig</note>
+      </notes>
+      <segment>
+        <source>Alle bannen</source>
+        <target>Bannir tous</target>
       </segment>
     </unit>
   </file>

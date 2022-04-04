@@ -279,7 +279,11 @@ export default class Ajax {
                 let ruffle = window.RufflePlayer.newest();
                 let player = ruffle.createPlayer();
                 ruffle_targets[c].appendChild(player);
-                player.load((ruffle_targets[c] as HTMLElement).dataset.ruffleSwf);
+                player.load({
+                        url: (ruffle_targets[c] as HTMLElement).dataset.ruffleSwf,
+                        parameters: (ruffle_targets[c] as HTMLElement).dataset.ruffleVars ?? ''
+                    }
+                );
             }
 
             content_source[i].querySelectorAll('*[x-current-time]').forEach( elem => $.html.handleCurrentTime( <HTMLElement>elem, parseInt(elem.getAttribute('x-current-time')) ))

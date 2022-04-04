@@ -449,22 +449,36 @@ class AdminUserController extends AdminActionController
             case 'shadow':
                 if (empty($param)) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
-                $this->entity_manager->persist(
-                    (new AccountRestriction())
-                        ->setUser($user)
-                        ->setActive(true)
-                        ->setConfirmed(true)
-                        ->setPublicReason($param)
-                        ->setOriginalDuration(-1)
-                        ->setExpires(null)
-                        ->setModerator( $this->getUser() )
-                        ->addConfirmedBy( $this->getUser() )
-                        ->setCreated( new \DateTime() )
-                        ->setRestriction( AccountRestriction::RestrictionGameplay )
-                );
+                if (!is_array($param)) $param = ['reason' => $param, 'ids' => [$user->getId()]];
+                elseif (!isset($param['reason'])) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+                elseif (!isset($param['ids'])) $param['ids'] = [$user->getId()];
 
-                $n = $crow->createPM_moderation( $user, CrowService::ModerationActionDomainAccount, CrowService::ModerationActionTargetGameBan, CrowService::ModerationActionImpose, -1, $param );
-                if ($n) $this->entity_manager->persist($n);
+                if (!in_array( $user->getId(), $param['ids'] )) $param['ids'][] = $user->getId();
+                ['reason' => $reason, 'ids' => $ids] = $param;
+
+                foreach ($ids as $other_user_id) {
+                    /** @var User $other_user */
+                    $other_user = $this->entity_manager->getRepository(User::class)->find($other_user_id);
+                    if (!$other_user) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+                    $this->entity_manager->persist(
+                        (new AccountRestriction())
+                            ->setUser( $other_user )
+                            ->setActive(true)
+                            ->setConfirmed(true)
+                            ->setPublicReason($reason)
+                            ->setOriginalDuration(-1)
+                            ->setExpires(null)
+                            ->setModerator($this->getUser())
+                            ->addConfirmedBy($this->getUser())
+                            ->setCreated(new \DateTime())
+                            ->setRestriction(AccountRestriction::RestrictionGameplay)
+                    );
+
+                    $n = $crow->createPM_moderation( $other_user, CrowService::ModerationActionDomainAccount, CrowService::ModerationActionTargetGameBan, CrowService::ModerationActionImpose, -1, $reason );
+                    if ($n) $this->entity_manager->persist($n);
+                }
+
                 break;
 
             case 'whitelist':

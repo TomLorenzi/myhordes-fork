@@ -22,8 +22,14 @@ const matchAll = require('string.prototype.matchall');
 matchAll.shim();
 
 require("@ruffle-rs/ruffle");
-window.RufflePlayer.config.publicPath = "/build/ruffle";
-window.RufflePlayer.config.contextMenu = false;
+window.RufflePlayer.config = {
+    "publicPath": "/build/ruffle",
+    "contextMenu": "false",
+    "autoplay": "on",
+    'unmuteOverlay': "hidden"
+}
+/*window.RufflePlayer.config.publicPath = "/build/ruffle";
+window.RufflePlayer.config.contextMenu = false;*/
 
 // Get the base URL
 const base_node = document.getElementsByTagName('base');

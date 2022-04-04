@@ -14,7 +14,7 @@
 
                     <div class="row">
                         <div class="cell rw-12 right">
-                                <a href="{{ path('help') }}"><button class="inline hide-sm">{% trans from 'global' %}Hilfe{% endtrans %}</button></a>
+                                <a href="{{ path( 'seo_help_lang', {lang: app.request.locale} ) }}"><button class="inline hide-sm">{% trans from 'global' %}Hilfe{% endtrans %}</button></a>
                         </div>
                     </div>
 

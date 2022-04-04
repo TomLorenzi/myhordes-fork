@@ -4648,5 +4648,15 @@
         <target>Whitelist has no note</target>
       </segment>
     </unit>
+    <unit id="l1Pew6d" name="Alle bannen">
+      <notes>
+        <note category="german">Alle bannen</note>
+        <note category="from">twig:///templates/ajax/admin/users/multi_index.html.twig</note>
+      </notes>
+      <segment>
+        <source>Alle bannen</source>
+        <target>Ban all</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

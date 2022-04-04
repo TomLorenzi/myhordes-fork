@@ -3250,7 +3250,7 @@
       </notes>
       <segment>
         <source>HALTET DEN DIEB! {actor} ist bei {victim} eingebrochen und hat {item} gestohlen!</source>
-        <target>ARRÊTEZ LE VOLEUR ! {actor} a été aperçu(e) volant {item} à {victim} !</target>
+        <target>{actor} a été aperçu(e) volant {item} à {victim} !</target>
       </segment>
     </unit>
     <unit id="sro4b8z">
@@ -26157,6 +26157,16 @@ cette violente opération...]]></target>
       <segment>
         <source>auf {coa_invite} antworten</source>
         <target>répondre à {coa_invite} en coalition</target>
+      </segment>
+    </unit>
+    <unit id="HPWqmw7">
+      <notes>
+        <note category="german">&lt;strong&gt;Du brauchst für diese Aktion {ap} Aktionspunkt(e)&lt;/strong&gt;. &lt;hr /&gt;Trink oder iss etwas, oder nimm eine Droge, ansonsten muss du bis &lt;strong&gt;morgen&lt;/strong&gt; warten.</note>
+        <note category="from">twig:///templates/ajax/game/town/construction.html.twig</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Du brauchst für diese Aktion {ap} Aktionspunkt(e)&lt;/strong&gt;. &lt;hr /&gt;Trink oder iss etwas, oder nimm eine Droge, ansonsten muss du bis &lt;strong&gt;morgen&lt;/strong&gt; warten.</source>
+        <target><![CDATA[<strong>Il vous faut {ap} point(s) d'action pour faire ceci</strong>. <hr />Buvez, mangez ou droguez-vous pour en récupérer, ou attendez <strong>demain</strong>.]]></target>
       </segment>
     </unit>
   </file>

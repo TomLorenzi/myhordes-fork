@@ -2646,7 +2646,6 @@
     <unit id="IHRCYe1" name="In Foren posten">
       <notes>
         <note category="german">In Foren posten</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
@@ -2657,7 +2656,6 @@
     <unit id="uNF4FkZ" name="Du verlierst die Schreibrechte im Stadtforum sowie allen Weltforen.">
       <notes>
         <note category="german">Du verlierst die Schreibrechte im Stadtforum sowie allen Weltforen.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>

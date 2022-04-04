@@ -85,5 +85,191 @@
         <target>Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus "Die Verdammten" und seine anderen Versionen und sind damit Eigentum von {motiontwin}.</target>
       </segment>
     </unit>
+    <unit id="W1FZFzZ">
+      <segment>
+        <source>MyHordes ist ein &lt;strong&gt;kooperatives Zombie-Survival-Game&lt;/strong&gt; in einer postapokalyptischen Welt voller &lt;strong&gt;Untoter&lt;/strong&gt;! Spiele in der Gemeinschaft oder überlebe als Einzelgänger...</source>
+        <target><![CDATA[MyHordes ist ein <strong>kooperatives Zombie-Survival-Game</strong> in einer postapokalyptischen Welt voller <strong>Untoter</strong>! Spiele in der Gemeinschaft oder überlebe als Einzelgänger...]]></target>
+      </segment>
+    </unit>
+    <unit id="3Q.JU78" name="Spielhilfe">
+      <segment>
+        <source>Spielhilfe</source>
+        <target>Spielhilfe</target>
+      </segment>
+    </unit>
+    <unit id="qF4Y0UE" name="Mehr erfahren">
+      <segment>
+        <source>Mehr erfahren</source>
+        <target>Mehr erfahren</target>
+      </segment>
+    </unit>
+    <unit id="gCXvKfm" name="Letztes Update ({version})">
+      <segment>
+        <source>Letztes Update ({version})</source>
+        <target>Letztes Update ({version})</target>
+      </segment>
+    </unit>
+    <unit id="UeqnRAf" name="Übersicht:">
+      <segment>
+        <source>Übersicht:</source>
+        <target>Übersicht:</target>
+      </segment>
+    </unit>
+    <unit id="wlTRMs_" name="Alles Wissenswerte über deine Stadt erfährst du jeden Tag im &quot;Leichsblatt&quot;...">
+      <segment>
+        <source>Alles Wissenswerte über deine Stadt erfährst du jeden Tag im "Leichsblatt"...</source>
+        <target>Alles Wissenswerte über deine Stadt erfährst du jeden Tag im "Leichsblatt"...</target>
+      </segment>
+    </unit>
+    <unit id="wGyzZMF">
+      <segment>
+        <source>Du kannst deinen Nachbarn nicht leiden? Besuche ihn daheim und hinterlasse eine anonyme Anzeige. Mit etwas Glück baumelt er vielleicht schon bald am Galgen. Ja, auch das gehört zu MyHordes.</source>
+        <target>Du kannst deinen Nachbarn nicht leiden? Besuche ihn daheim und hinterlasse eine anonyme Anzeige. Mit etwas Glück baumelt er vielleicht schon bald am Galgen. Ja, auch das gehört zu MyHordes.</target>
+      </segment>
+    </unit>
+    <unit id="h01z8tm">
+      <segment>
+        <source>Bei "MyHordes" darfst du dich in der Wüste austoben und "Such das Stöckchen" spielen. Ab und zu musst du dabei auch den schlürfenden toten Fleischsäcken aus dem Weg gehen.</source>
+        <target>Bei "MyHordes" darfst du dich in der Wüste austoben und "Such das Stöckchen" spielen. Ab und zu musst du dabei auch den schlürfenden toten Fleischsäcken aus dem Weg gehen.</target>
+      </segment>
+    </unit>
+    <unit id="ro4b2iF">
+      <segment>
+        <source>Daheim ist es doch immer noch am schönsten! Mit deinem eigenen Drogenlabor kannst du die ganze Stadt so richtig auf Trab bringen.</source>
+        <target>Daheim ist es doch immer noch am schönsten! Mit deinem eigenen Drogenlabor kannst du die ganze Stadt so richtig auf Trab bringen.</target>
+      </segment>
+    </unit>
+    <unit id="jtA.j4T">
+      <segment>
+        <source>Sterben gehört in "MyHordes" zum Alltag und ist nichts Außergewöhnliches. Doch deine Seele kann das Erlebte nicht vergessen...</source>
+        <target>Sterben gehört in "MyHordes" zum Alltag und ist nichts Außergewöhnliches. Doch deine Seele kann das Erlebte nicht vergessen...</target>
+      </segment>
+    </unit>
+    <unit id="MYhSiLu">
+      <segment>
+        <source>Die Bank: Ein Ort gegenseitigen Vertrauens. Und ein Segen für Diebe, die die Leichtgläubigkeit ihrer Nachbarn missbrauchen wollen. Auf welcher Seite willst du spielen?</source>
+        <target>Die Bank: Ein Ort gegenseitigen Vertrauens. Und ein Segen für Diebe, die die Leichtgläubigkeit ihrer Nachbarn missbrauchen wollen. Auf welcher Seite willst du spielen?</target>
+      </segment>
+    </unit>
+    <unit id="H9ZffoW" name="Nachrichten">
+      <segment>
+        <source>Nachrichten</source>
+        <target>Nachrichten</target>
+      </segment>
+    </unit>
+    <unit id="Oc09MmC" name="Weiterlesen">
+      <segment>
+        <source>Weiterlesen</source>
+        <target>Weiterlesen</target>
+      </segment>
+    </unit>
+    <unit id="sFZmH_I">
+      <segment>
+        <source>Das Online-Spiel &lt;strong&gt;MyHordes&lt;/strong&gt; ist ein kooperatives Survival Game, das in einer postapokalyptischen Welt voller Zombies spielt.</source>
+        <target><![CDATA[Das Online-Spiel <strong>MyHordes</strong> ist ein kooperatives Survival Game, das in einer postapokalyptischen Welt voller Zombies spielt.]]></target>
+      </segment>
+    </unit>
+    <unit id="aHx5_0M" name="Das Prinzip">
+      <segment>
+        <source>Das Prinzip</source>
+        <target>Das Prinzip</target>
+      </segment>
+    </unit>
+    <unit id="zGrG7ky">
+      <segment>
+        <source>Die Welt nach der Apokalypse: Die Zivilisation, wie wir sie kannten, ist nicht mehr. Die letzten Menschen verschanzen sich in Städten und haben nur ein Ziel: Überleben. Du bist einer von 40 Bürgern und musst in einer von Zombies umzingelten Stadt jeden Tag um dein Überleben kämpfen. Ziel des Spiels ist es, allein oder in der Gruppe so lange wie möglich zu überleben.</source>
+        <target>Die Welt nach der Apokalypse: Die Zivilisation, wie wir sie kannten, ist nicht mehr. Die letzten Menschen verschanzen sich in Städten und haben nur ein Ziel: Überleben. Du bist einer von 40 Bürgern und musst in einer von Zombies umzingelten Stadt jeden Tag um dein Überleben kämpfen. Ziel des Spiels ist es, allein oder in der Gruppe so lange wie möglich zu überleben.</target>
+      </segment>
+    </unit>
+    <unit id="pq8uFuf" name="Die Gemeinschaft">
+      <segment>
+        <source>Die Gemeinschaft</source>
+        <target>Die Gemeinschaft</target>
+      </segment>
+    </unit>
+    <unit id="sHU2tJq">
+      <segment>
+        <source>Kooperation und Kommunikation stehen im Mittelpunkt von "MyHordes". Wenn ihr lange überleben wollt, müsst ihr zusammenarbeiten. Ganz egal, ob ihr euch leiden könnt oder nicht. Wer sich nicht an vereinbarte Regeln hält, kann verbannt und sogar gehängt werden. Ihr müsst euch absprechen und eure knappen Ressourcen bestmöglich nutzen. Jede Stadt stellt dabei ihre eigenen Regeln auf, denn bei "MyHordes" gilt das Motto:</source>
+        <target>Kooperation und Kommunikation stehen im Mittelpunkt von "MyHordes". Wenn ihr lange überleben wollt, müsst ihr zusammenarbeiten. Ganz egal, ob ihr euch leiden könnt oder nicht. Wer sich nicht an vereinbarte Regeln hält, kann verbannt und sogar gehängt werden. Ihr müsst euch absprechen und eure knappen Ressourcen bestmöglich nutzen. Jede Stadt stellt dabei ihre eigenen Regeln auf, denn bei "MyHordes" gilt das Motto:</target>
+      </segment>
+    </unit>
+    <unit id="LCWHLh6" name="Es gilt nur die Moral, die du selbst wählst!">
+      <segment>
+        <source>Es gilt nur die Moral, die du selbst wählst!</source>
+        <target>Es gilt nur die Moral, die du selbst wählst!</target>
+      </segment>
+    </unit>
+    <unit id="99_ihUC" name="Der Ablauf">
+      <segment>
+        <source>Der Ablauf</source>
+        <target>Der Ablauf</target>
+      </segment>
+    </unit>
+    <unit id="FSHax6l">
+      <segment>
+        <source>Mit Aktionspunkten hast du jeden Tag eine bestimmte Anzahl an Aktionen. Durch Essen, Trinken oder die Einnahme von Drogen kannst du deine Aktionspunkte wieder auffüllen. Nutze deine Aktionspunkte mit Bedacht! Du kannst in die Wüste zu gehen und nach Gegenständen und Rohstoffen für den Bau von Verteidigungsbauten suchen. Oder du hilft in der Werkstatt oder auf der Baustelle. Jeden Tag um Mitternacht greift eine immer größer werdende Zombiehorde an. Überlebt eure Stadt dieses Angriff, beginnt ein neuer Tag und der tägliche Kampf ums Überleben geht in eine weitere Runde.</source>
+        <target>Mit Aktionspunkten hast du jeden Tag eine bestimmte Anzahl an Aktionen. Durch Essen, Trinken oder die Einnahme von Drogen kannst du deine Aktionspunkte wieder auffüllen. Nutze deine Aktionspunkte mit Bedacht! Du kannst in die Wüste zu gehen und nach Gegenständen und Rohstoffen für den Bau von Verteidigungsbauten suchen. Oder du hilft in der Werkstatt oder auf der Baustelle. Jeden Tag um Mitternacht greift eine immer größer werdende Zombiehorde an. Überlebt eure Stadt dieses Angriff, beginnt ein neuer Tag und der tägliche Kampf ums Überleben geht in eine weitere Runde.</target>
+      </segment>
+    </unit>
+    <unit id="gbIBFaz" name="Das Ende">
+      <segment>
+        <source>Das Ende</source>
+        <target>Das Ende</target>
+      </segment>
+    </unit>
+    <unit id="qLs76Lr">
+      <segment>
+        <source>Je besser ihr euch absprecht, desto länger überlebt eure Stadt. Doch ihr Schicksal ist unausweichlich und bereits besiegelt. Der Tod ist Teil von "MyHordes". Doch mit jeder gespielten Stadt lernst du mehr über das Spiel und darüber wie eine erfolgreiche Gemeinschaft funktioniert. Und vielleicht auch über dich... Die erfolgreichsten Städte und Spieler erscheinen in einer Saison-Rangliste.</source>
+        <target>Je besser ihr euch absprecht, desto länger überlebt eure Stadt. Doch ihr Schicksal ist unausweichlich und bereits besiegelt. Der Tod ist Teil von "MyHordes". Doch mit jeder gespielten Stadt lernst du mehr über das Spiel und darüber wie eine erfolgreiche Gemeinschaft funktioniert. Und vielleicht auch über dich... Die erfolgreichsten Städte und Spieler erscheinen in einer Saison-Rangliste.</target>
+      </segment>
+    </unit>
+    <unit id="y3NV_XP" name="Der Preis">
+      <segment>
+        <source>Der Preis</source>
+        <target>Der Preis</target>
+      </segment>
+    </unit>
+    <unit id="16s1JAU">
+      <segment>
+        <source>Das Spielen von "MyHordes" ist &lt;strong&gt;komplett kostenlos&lt;/strong&gt;! Es gibt keine kostenpflichtigen Zusatzinhalte, kosmetische Boni oder Spielfortschritts-Beschleuniger. Wir setzen zudem keine Werbung oder Tracking ein. Wenn dir "MyHordes" gefällt hast du die Möglichkeit, für den Weiterbetrieb zu spenden - du erhälst hierfür (außer unserer ewigen Dankbarkeit) jedoch keinerlei Spielboni.</source>
+        <target><![CDATA[Das Spielen von "MyHordes" ist <strong>komplett kostenlos</strong>! Es gibt keine kostenpflichtigen Zusatzinhalte, kosmetische Boni oder Spielfortschritts-Beschleuniger. Wir setzen zudem keine Werbung oder Tracking ein. Wenn dir "MyHordes" gefällt hast du die Möglichkeit, für den Weiterbetrieb zu spenden - du erhälst hierfür (außer unserer ewigen Dankbarkeit) jedoch keinerlei Spielboni.]]></target>
+      </segment>
+    </unit>
+    <unit id="EKiBP8V" name="Weitere Informationen">
+      <segment>
+        <source>Weitere Informationen</source>
+        <target>Weitere Informationen</target>
+      </segment>
+    </unit>
+    <unit id="jVU7uus" name="Update {version} - {title}">
+      <segment>
+        <source>Update {version} - {title}</source>
+        <target>Update {version} - {title}</target>
+      </segment>
+    </unit>
+    <unit id="QndETcb" name="Die letzten Updates ansehen:">
+      <segment>
+        <source>Die letzten Updates ansehen:</source>
+        <target>Die letzten Updates ansehen:</target>
+      </segment>
+    </unit>
+    <unit id="kiD.2mD" name="Neuigkeiten bei MyHordes">
+      <segment>
+        <source>Neuigkeiten bei MyHordes</source>
+        <target>Neuigkeiten bei MyHordes</target>
+      </segment>
+    </unit>
+    <unit id=".5j3wzq" name="Spielen!">
+      <segment>
+        <source>Spielen!</source>
+        <target>Spielen!</target>
+      </segment>
+    </unit>
+    <unit id="4E0kxSs" name="Startseite">
+      <segment>
+        <source>Startseite</source>
+        <target>Startseite</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

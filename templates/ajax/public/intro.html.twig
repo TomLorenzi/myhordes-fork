@@ -1,28 +1,62 @@
 {% extends "ajax/ajax.html.twig" %}
-{% block menu_bar %}
-    {% if not app.user %}
-        <div class="header-stats">
-            <ul>
-                <li><span class='count'>{{deadCitizenCount|number_format(0, ',', ' ')}}</span> {{'Bürger gestorben'|trans({}, 'welcome')}}</li>
-                <li><span class='count'>{{zombiesKilled|number_format(0, ',', ' ')}}</span> {{'Zombies gekillt'|trans({}, 'welcome')}}</li>
-                <li><span class='count'>{{canibalismCount|number_format(0, ',', ' ')}}</span> {{'Akte von Kannibalismus'|trans({}, 'welcome')}}</li>
-                <li class="end-stat">{{'Und das wird kaum besser werden...'|trans({}, 'welcome')}}</li>
-            </ul>
-        </div>
-    {% endif %}
-{% endblock %}
 {% block ajax %}
+    <div class="header-stats">
+        <ul>
+            <li><span class='count'>{{deadCitizenCount|number_format(0, ',', ' ')}}</span> {{'Bürger gestorben'|trans({}, 'welcome')}}</li>
+            <li><span class='count'>{{zombiesKilled|number_format(0, ',', ' ')}}</span> {{'Zombies gekillt'|trans({}, 'welcome')}}</li>
+            <li><span class='count'>{{canibalismCount|number_format(0, ',', ' ')}}</span> {{'Akte von Kannibalismus'|trans({}, 'welcome')}}</li>
+            <li class="end-stat">{{'Und das wird kaum besser werden...'|trans({}, 'welcome')}}</li>
+        </ul>
+    </div>
     <div class="row-flex v-center">
         <div class="cell padded header rw-7 rw-lg-12 manual-background">
-
             <div class="row">
-                <div class="padded cell background header ro-1 rw-10 ro-md-0 rw-md-12">
-                    <h4>{% trans from 'welcome' %}Willkommen bei MyHordes{% endtrans %}</h4>
-                    <p class="justify">
-                        {{ 'MyHordes ist eine von der Community entwickelte offene Implementierung des Browser-Spiels "Die Verdammten" und seine anderen Versionen von {motiontwin}.'|trans({'{motiontwin}':'<b>MotionTwin</b>'},'welcome')|raw }}
-                        <br />
-                        {{ 'Ziel des Projektes ist es, eine Version von "Die Verdammten" und seinen anderen Versionen zu erschaffen, die nicht nur nach der Flash-Abschaltung im Jahr 2020 funktionsfähig ist, sondern auch weiterentwickelt und mit neuen Inhalten versorgt werden kann.'|trans({},'welcome') }}
-                    </p>
+                <div class="cell background trailer rw-12">
+                     <div class="row-flex v-center">
+                        <div class="cell flex-shrink-0">
+                            <div class="panic"></div>
+                        </div>
+                        <div class="cell flex-grow-1 teaser">
+                            {{ 'MyHordes ist ein <strong>kooperatives Zombie-Survival-Game</strong> in einer postapokalyptischen Welt voller <strong>Untoter</strong>! Spiele in der Gemeinschaft oder überlebe als Einzelgänger...'|trans({},'welcome')|raw }}
+                        </div>
+                    </div>
+                    <div class="row-flex wrap">
+                        <div class="padded-small cell rw-7 rw-md-12">
+                            <video width="800" height="600" class="full-width auto-height" poster="{{ asset('build/images/hordes-trailer-preview.jpg') }}" controls>
+                                <source src="{{ asset('build/mov/hordes_trailer.mp4') }}" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="padded cell rw-5 rw-md-12">
+                            <div class="pointer teaser-link" x-ajax-href="{{ path('help') }}"><img alt="" src="{{ asset('build/images/icons/small_help.gif') }}" /> <span>{{ 'Spielhilfe'|trans({},'welcome') }}</span></div>
+                            <div class="pointer teaser-link" x-ajax-href="{{ path('public_about') }}"><img alt="" src="{{ asset('build/images/item/item_rp_book2.gif') }}" /> <span>{{ 'Mehr erfahren'|trans({},'welcome') }}</span></div>
+                            {% if lastChangelog is not null %}
+                                <div class="pointer teaser-link" x-ajax-href="{{ path('public_changelog', {id: lastChangelog.id}) }}"><img alt="" src="{{ asset('build/images/building/small_arma.gif') }}" /> <span>{{ 'Letztes Update ({version})'|trans({'version': lastChangelog.version},'welcome') }}</span></div>
+                            {% endif %}
+
+                            <h4 class="preview-header">{{ 'Übersicht:'|trans({},'welcome') }}</h4>
+
+                            <div class="row-flex wrap preview-images h-center">
+                                <div class="padded cell">
+                                    <img class="pointer" alt="" src="{{ asset('build/images/promo/' ~ lang ~ '/offline_screen1_small.jpg') }}" data-full-url="{{ asset('build/images/promo/' ~ lang ~ '/offline_screen1.jpg') }}" data-description="{{ 'Alles Wissenswerte über deine Stadt erfährst du jeden Tag im "Leichsblatt"...'|trans({},'welcome') }}">
+                                </div>
+                                <div class="padded cell">
+                                    <img class="pointer" alt="" src="{{ asset('build/images/promo/' ~ lang ~ '/offline_screen2_small.jpg') }}" data-full-url="{{ asset('build/images/promo/' ~ lang ~ '/offline_screen2.jpg') }}" data-description="{{ 'Du kannst deinen Nachbarn nicht leiden? Besuche ihn daheim und hinterlasse eine anonyme Anzeige. Mit etwas Glück baumelt er vielleicht schon bald am Galgen. Ja, auch das gehört zu MyHordes.'|trans({},'welcome') }}">
+                                </div>
+                                <div class="padded cell">
+                                    <img class="pointer" alt="" src="{{ asset('build/images/promo/' ~ lang ~ '/offline_screen3_small.jpg') }}" data-full-url="{{ asset('build/images/promo/' ~ lang ~ '/offline_screen3.jpg') }}" data-description="{{ 'Bei "MyHordes" darfst du dich in der Wüste austoben und "Such das Stöckchen" spielen. Ab und zu musst du dabei auch den schlürfenden toten Fleischsäcken aus dem Weg gehen.'|trans({},'welcome') }}">
+                                </div>
+                                <div class="padded cell">
+                                    <img class="pointer" alt="" src="{{ asset('build/images/promo/' ~ lang ~ '/offline_screen4_small.jpg') }}" data-full-url="{{ asset('build/images/promo/' ~ lang ~ '/offline_screen4.jpg') }}" data-description="{{ 'Daheim ist es doch immer noch am schönsten! Mit deinem eigenen Drogenlabor kannst du die ganze Stadt so richtig auf Trab bringen.'|trans({},'welcome') }}">
+                                </div>
+                                <div class="padded cell">
+                                    <img class="pointer" alt="" src="{{ asset('build/images/promo/' ~ lang ~ '/offline_screen5_small.jpg') }}" data-full-url="{{ asset('build/images/promo/' ~ lang ~ '/offline_screen5.jpg') }}" data-description="{{ 'Sterben gehört in "MyHordes" zum Alltag und ist nichts Außergewöhnliches. Doch deine Seele kann das Erlebte nicht vergessen...'|trans({},'welcome') }}">
+                                </div>
+                                <div class="padded cell">
+                                    <img class="pointer" alt="" src="{{ asset('build/images/promo/' ~ lang ~ '/offline_screen6_small.jpg') }}" data-full-url="{{ asset('build/images/promo/' ~ lang ~ '/offline_screen6.jpg') }}" data-description="{{ 'Die Bank: Ein Ort gegenseitigen Vertrauens. Und ein Segen für Diebe, die die Leichtgläubigkeit ihrer Nachbarn missbrauchen wollen. Auf welcher Seite willst du spielen?'|trans({},'welcome') }}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="row">
                         <div class="cell rw-12 right">
@@ -32,23 +66,115 @@
                             {% elseif is_granted('ROLE_REGISTERED') %}
                                 <button x-ajax-href="{{ path('public_validate') }}" class="inline hide-sm">{% trans from 'welcome' %}Account validieren{% endtrans %}</button>
                                 <button x-ajax-href="{{ path('public_validate') }}" class="hide-desktop hide-lg hide-md">{% trans from 'welcome' %}Account validieren{% endtrans %}</button>
-                            {% else %}
-                                <button x-ajax-href="{{ path('public_login') }}" class="inline hide-sm">{% trans from 'welcome' %}Zum Login{% endtrans %}</button>
-                                <button x-ajax-href="{{ path('public_login') }}" class="hide-desktop hide-lg hide-md">{% trans from 'welcome' %}Zum Login{% endtrans %}</button>
                             {% endif %}
                         </div>
                     </div>
-
-                    <p>
-                        {{ 'Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus "Die Verdammten" und seine anderen Versionen und sind damit Eigentum von {motiontwin}.'|trans({'{motiontwin}':'<b>MotionTwin</b>'},'welcome')|raw }}
-                    </p>
                 </div>
             </div>
 
-
+            {% if lastNews %}
+                <div class="row">
+                    <div class="cell background map-box rw-12 header">
+                        <h4 class="small">{{ 'Nachrichten'|trans({},'welcome') }}</h4>
+                        <div class="pm-message-content news-preview">
+                            <div class="header">
+                                <h3>{{ lastNews.title }}</h3>
+                                <span>{{ lastNews.timestamp|format_datetime('medium', 'short') }}</span>
+                            </div>
+                            <div class="article">
+                                {{ lastNews.text|raw }}
+                            </div>
+                            <div class="right"><a href="#" x-ajax-href="{{ path('public_news') }}">{{ 'Weiterlesen'|trans({},'welcome') }}</a></div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
 
         </div>
         <div class="cell rw-5 rw-lg-12 hide-lg hide-md hide-sm manual-background"><div class="welcome-teaser teaser-{{ random(10)+1 }}"><span>MyHordes</span></div></div>
     </div>
     {% include "ajax/public/fact.html.twig" with {fact: fact} %}
+{% endblock %}
+{% block js %}
+    {{ parent() }}
+    <script>
+        (()=>{
+            let currentFocusImg = null;
+            let currentBackDrop = null;
+            $.html.addEventListenerAll('.preview-images img', 'click', (e,elem) => {
+                let totalTop = 0, totalLeft = 0;
+                let current = elem;
+                do {
+                    totalTop += current.offsetTop;
+                    totalLeft += current.offsetLeft;
+                    current = current.offsetParent;
+                } while (current);
+
+                if (currentFocusImg) currentFocusImg.remove();
+                if (currentBackDrop) currentBackDrop.remove();
+
+                currentFocusImg = document.createElement('div');
+                currentFocusImg.style.left = totalLeft + 'px';
+                currentFocusImg.style.top = totalTop + 'px';
+                currentFocusImg.style.width = elem.clientWidth + 'px';
+                currentFocusImg.style.height = elem.clientHeight + 'px';
+                currentFocusImg.className = 'gallery'
+                document.body.append( currentFocusImg );
+
+                currentBackDrop = document.createElement('div');
+                currentBackDrop.className = 'gallery-backdrop'
+                document.body.append( currentBackDrop );
+
+                currentFocusImg.onclick = () => {
+                    if (currentFocusImg) {
+                        currentFocusImg.style.transitionDelay = '0.5s';
+                        currentFocusImg.style.left = totalLeft + 'px';
+                        currentFocusImg.style.top = totalTop + 'px';
+                        currentFocusImg.style.width = elem.clientWidth + 'px';
+                        currentFocusImg.style.height = elem.clientHeight + 'px';
+
+                        description.style.transitionDelay = '0s';
+                        description.style.transform = 'scaleY(0)';
+
+                        if (currentBackDrop) {
+                            currentBackDrop.style.transitionDelay = '0.5s';
+                            currentBackDrop.style.backgroundColor = 'transparent';
+                        }
+
+                        window.setTimeout( () => {
+                            currentFocusImg.remove();
+                            currentFocusImg = null;
+                            currentBackDrop.remove();
+                            currentBackDrop = null;
+                        }, 1500 )
+                    }
+                }
+
+                let description = document.createElement('div');
+                description.innerHTML = '<div>' + elem.dataset.description + '</div>';
+                description.style.transform = 'scaleY(0)';
+
+                let image = document.createElement('img');
+                image.onload = () => {
+                    if (currentFocusImg) {
+                        currentFocusImg.style.left = '0';
+                        currentFocusImg.style.top = '0';
+                        currentFocusImg.style.width = '100%';
+                        currentFocusImg.style.height = '100%';
+                        description.style.transform = 'scaleY(1)';
+                        window.setTimeout( () => {
+                            description.firstChild.style.width = image.clientWidth + 'px';
+                        }, 1000 )
+                    }
+
+                    if (currentBackDrop) currentBackDrop.style.backgroundColor = 'rgba(0,0,0,0.6)';
+                }
+                image.src = elem.dataset.fullUrl;
+
+                currentFocusImg.append(image);
+                currentFocusImg.append(description);
+
+            });
+        })();
+    </script>
 {% endblock %}

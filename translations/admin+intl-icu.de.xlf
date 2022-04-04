@@ -2911,5 +2911,11 @@
         <target>Whitelist hat keine Notiz</target>
       </segment>
     </unit>
+    <unit id="l1Pew6d" name="Alle bannen">
+      <segment>
+        <source>Alle bannen</source>
+        <target>Alle bannen</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

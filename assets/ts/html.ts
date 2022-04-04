@@ -62,7 +62,7 @@ export default class HTML {
     constructor() { this.twinoParser = new TwinoAlikeParser(); }
 
     init(): void {
-        document.getElementById('modal-backdrop').addEventListener('pop', () => this.nextPopup())
+        document.getElementById('modal-backdrop')?.addEventListener('pop', () => this.nextPopup())
     }
 
     setInitParams( params: HTMLInitParams ): void {
