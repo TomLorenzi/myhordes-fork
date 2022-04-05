@@ -2,8 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\Announcement;
 use App\Entity\AntiSpamDomains;
 use App\Controller\Soul\SoulController;
+use App\Entity\Changelog;
 use App\Entity\Citizen;
 use App\Entity\CitizenRankingProxy;
 use App\Entity\HordesFact;
@@ -18,6 +20,7 @@ use App\Exception\DynamicAjaxResetException;
 use App\Service\ConfMaster;
 use App\Service\ErrorHelper;
 use App\Service\EternalTwinHandler;
+use App\Service\HTMLService;
 use App\Service\JSONRequestParser;
 use App\Service\UserFactory;
 use App\Response\AjaxResponse;
@@ -750,7 +753,59 @@ class PublicController extends CustomAbstractController
      */
     public function welcome(): Response
     {
-        return $this->render('ajax/public/intro.html.twig', $this->addDefaultTwigArgs());
+        $lang = $this->getUserLanguage();
+        return $this->render('ajax/public/intro.html.twig', $this->addDefaultTwigArgs(null, [
+            'lang' => $lang,
+            'lastChangelog' => $this->entity_manager->getRepository(Changelog::class)->findLatestByLang( $lang ),
+            'lastNews' => $this->entity_manager->getRepository(Announcement::class)->findLatestByLang( $lang )
+        ]));
+    }
+
+    /**
+     * @Route("jx/public/about", name="public_about")
+     * @return Response
+     */
+    public function about(): Response
+    {
+        return $this->render('ajax/public/about.html.twig', $this->addDefaultTwigArgs());
+    }
+
+    /**
+     * @Route("jx/public/changelog/{id}", name="public_changelog", requirements={"id"="\d+"})
+     * @param int $id
+     * @return Response
+     */
+    public function changelog(int $id = -1): Response
+    {
+        $lang = $this->getUserLanguage();
+
+        $changelog = $this->entity_manager->getRepository(Changelog::class)->find( $id );
+        if (!$changelog || $changelog->getLang() !== $lang) {
+            $changelog = $this->entity_manager->getRepository(Changelog::class)->findLatestByLang($lang);
+            return $changelog
+                ? $this->redirectToRoute('public_changelog', ['id' => $changelog->getId()])
+                : $this->redirectToRoute( 'public_welcome' );
+        }
+
+        return $this->render('ajax/public/changelogs.html.twig', $this->addDefaultTwigArgs(null, [
+            'latest' => $this->entity_manager->getRepository(Changelog::class)->findLatestByLang($lang),
+            'current' => $changelog,
+            'all' => $this->entity_manager->getRepository(Changelog::class)->findByLang( $lang )
+        ]));
+    }
+
+    /**
+     * @Route("jx/public/news", name="public_news")
+     * @return Response
+     */
+    public function news(HTMLService $html): Response
+    {
+        $lang = $this->getUserLanguage();
+        return $this->render('ajax/public/news.html.twig', $this->addDefaultTwigArgs(null, [
+            'all' => array_map( function(Announcement $a) use (&$html) {
+                return $a->setText( $html->prepareEmotes( $a->getText(), $a->getSender() ) );
+            }, $this->entity_manager->getRepository(Announcement::class)->findByLang($lang, [], 5))
+        ]));
     }
 
     /**

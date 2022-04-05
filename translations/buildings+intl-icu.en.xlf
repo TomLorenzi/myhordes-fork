@@ -1931,7 +1931,7 @@
       </notes>
       <segment>
         <source>Ein in dein Wohnzimmer geschaufeltes Loch dient dir als Versuchsküche für deine pharmazeutischen Experimente.</source>
-        <target>A small hole which smells of camphor and death, right in the middle of your 'living room'. However, you can carry out your chemistry experiments in peace here (each level increases the chances of obtaining a powerful drug by 33%.)...</target>
+        <target>A small hole which smells of camphor and death, right in the middle of your 'living room'. However, you can carry out your chemistry experiments in peace here (each level increases the chances of obtaining a powerful drug by 25%.)...</target>
       </segment>
     </unit>
     <unit id="qeyHLmY" name="Küche">

@@ -4604,5 +4604,16 @@
         <target>Lista blanca sin nota</target>
       </segment>
     </unit>
+    <unit id="l1Pew6d" name="Alle bannen">
+      <notes>
+        <note category="german">Alle bannen</note>
+        <note category="from">twig:///templates/ajax/admin/users/multi_index.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Alle bannen</source>
+        <target>Alle bannen</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

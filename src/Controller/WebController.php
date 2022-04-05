@@ -82,7 +82,7 @@ class WebController extends CustomAbstractController
         return null;
     }
 
-    private function render_web_framework(string $ajax_landing): Response {
+    private function render_web_framework(string $ajax_landing, $allow_attract_page = false): Response {
         try {
             $version = $this->version_manager->getVersion();
             $is_debug_version =
@@ -101,7 +101,7 @@ class WebController extends CustomAbstractController
         $supporters = self::$supporters;
         shuffle($supporters);
 
-        return $this->render( 'web/framework.html.twig', [
+        return $this->render( ($this->getUser() || !$allow_attract_page) ? 'web/framework.html.twig' : 'web/attract.html.twig', [
             'version' => $version, 'debug' => $is_debug_version, 'env' => $this->kernel->getEnvironment(),
             'devs' => $devs,
             'supporters' => $supporters,
@@ -115,7 +115,7 @@ class WebController extends CustomAbstractController
      */
     public function framework(): Response
     {
-        return $this->handleDomainRedirection() ?? $this->render_web_framework($this->generateUrl('initial_landing'));
+        return $this->handleDomainRedirection() ?? $this->render_web_framework($this->generateUrl('initial_landing'), true);
     }
 
     /**
@@ -133,7 +133,7 @@ class WebController extends CustomAbstractController
 
     /**
      * @Route("/pm/{com}", name="home_pm")
-     * @param string $com
+     * @param string|null $com
      * @return Response
      */
     public function standalone_pm(string $com = null): Response
@@ -148,6 +148,7 @@ class WebController extends CustomAbstractController
     /**
      * @Route("gateway/eternal-twin", name="gateway-etwin")
      * @param EternalTwinHandler $etwin
+     * @param SessionInterface $session
      * @return Response
      */
     public function gateway_etwin(EternalTwinHandler $etwin, SessionInterface $session): Response {
@@ -183,6 +184,7 @@ class WebController extends CustomAbstractController
 
     /**
      * @Route("/twinoid", name="twinoid_auth_endpoint")
+     * @param ConfMaster $conf
      * @return Response
      */
     public function framework_import(ConfMaster $conf): Response
@@ -215,6 +217,7 @@ class WebController extends CustomAbstractController
     /**
      * @Route("/jx/{ajax}",requirements={"ajax"=".+"},condition="!request.isXmlHttpRequest()")
      * @param string $ajax
+     * @param Request $q
      * @return Response
      */
     public function loader(string $ajax, Request $q): Response
@@ -225,7 +228,24 @@ class WebController extends CustomAbstractController
                 $bag[] = urlencode($p) . '=' . urlencode($v);
             $bag = '?' . implode('&',$bag);
         } else $bag = '';
-        return $this->handleDomainRedirection() ?? $this->render_web_framework(Request::createFromGlobals()->getBasePath() . "/jx/{$ajax}{$bag}");
+
+        $whitelisted = function($s): bool {
+            if (in_array( $s, [
+                'public/welcome',
+                'public/about',
+                'public/news'
+            ] )) return true;
+
+            foreach ([
+                'help',
+                'public/changelog'
+            ] as $item)
+                if ($s === $item || str_starts_with( $s, "$item/" )) return true;
+
+            return false;
+        };
+
+        return $this->handleDomainRedirection() ?? $this->render_web_framework(Request::createFromGlobals()->getBasePath() . "/jx/{$ajax}{$bag}", $whitelisted( $ajax ));
     }
 
     private function check_cache(string $name): ?Response {

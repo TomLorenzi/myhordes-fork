@@ -97,19 +97,19 @@
         <target>Deine Seele genügt den Anforderungen für diesen Stadttypen.</target>
       </segment>
     </unit>
-    <unit id="AwZY28C">
+    <unit id="3mY3e0U">
       <segment>
         <source>&lt;p&gt;
                     Deine Stadt wird gerade von den Zombies &lt;strong&gt;angegriffen&lt;/strong&gt;! Du hörst wie sie &lt;strong&gt;grunzend&lt;/strong&gt; gegen eure Hütten schlagen. Dazwischen immer wieder &lt;strong&gt;Hilferufe&lt;/strong&gt; und Schreie... Sie scheinen überall zu sein...
                     &lt;/p&gt;
                     &lt;p&gt;
-                    Was tust du, solange der Angriff tobt?               
+                    Was tust du, solange der Angriff tobt?
                     &lt;/p&gt;</source>
         <target><![CDATA[<p>
                     Deine Stadt wird gerade von den Zombies <strong>angegriffen</strong>! Du hörst wie sie <strong>grunzend</strong> gegen eure Hütten schlagen. Dazwischen immer wieder <strong>Hilferufe</strong> und Schreie... Sie scheinen überall zu sein...
                     </p>
                     <p>
-                    Was tust du, solange der Angriff tobt?               
+                    Was tust du, solange der Angriff tobt?
                     </p>]]></target>
       </segment>
     </unit>
@@ -1103,6 +1103,30 @@
       <segment>
         <source>Die Verwendung einer anderen Sprache im Stadtforum kann zu Sanktionen seitens der Moderation führen!</source>
         <target>Die Verwendung einer anderen Sprache im Stadtforum kann zu Sanktionen seitens der Moderation führen!</target>
+      </segment>
+    </unit>
+    <unit id="L1PDlgY">
+      <segment>
+        <source>Die verhungerte &lt;strong&gt;Zombiehorde&lt;/strong&gt; ist diese Nacht über deine Stadt hereingebrochen!</source>
+        <target><![CDATA[Die verhungerte <strong>Zombiehorde</strong> ist diese Nacht über deine Stadt hereingebrochen!]]></target>
+      </segment>
+    </unit>
+    <unit id="rW9LI_4" name="Die &quot;gute&quot; Nachricht: Du bist noch &lt;strong&gt;am Leben&lt;/strong&gt;...">
+      <segment>
+        <source>Die "gute" Nachricht: Du bist noch &lt;strong&gt;am Leben&lt;/strong&gt;...</source>
+        <target><![CDATA[Die "gute" Nachricht: Du bist noch <strong>am Leben</strong>...]]></target>
+      </segment>
+    </unit>
+    <unit id="p4fRg2j" name="Sein Zuhause verlassen...">
+      <segment>
+        <source>Sein Zuhause verlassen...</source>
+        <target>Dein Zuhause verlassen...</target>
+      </segment>
+    </unit>
+    <unit id="tU0K6oe" name="Zur Partieauswahl zurückkehren">
+      <segment>
+        <source>Zur Partieauswahl zurückkehren</source>
+        <target>Zur Partieauswahl zurückkehren</target>
       </segment>
     </unit>
   </file>

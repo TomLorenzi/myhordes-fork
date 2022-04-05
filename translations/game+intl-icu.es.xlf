@@ -26366,5 +26366,15 @@
         <target>responde a {coa_invite} de coalición</target>
       </segment>
     </unit>
+    <unit id="HPWqmw7">
+      <notes>
+        <note category="german">&lt;strong&gt;Du brauchst für diese Aktion {ap} Aktionspunkt(e)&lt;/strong&gt;. &lt;hr /&gt;Trink oder iss etwas, oder nimm eine Droge, ansonsten muss du bis &lt;strong&gt;morgen&lt;/strong&gt; warten.</note>
+        <note category="from">twig:///templates/ajax/game/town/construction.html.twig</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Du brauchst für diese Aktion {ap} Aktionspunkt(e)&lt;/strong&gt;. &lt;hr /&gt;Trink oder iss etwas, oder nimm eine Droge, ansonsten muss du bis &lt;strong&gt;morgen&lt;/strong&gt; warten.</source>
+        <target><![CDATA[<strong>Necesitas {ap} punto(s) de acción para hacer eso</strong>. <hr />Bebe, come o toma un estimulante para recuperarte o espera hasta <strong>mañana</strong>.]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

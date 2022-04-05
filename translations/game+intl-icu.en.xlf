@@ -6535,7 +6535,7 @@
       </notes>
       <segment>
         <source>Anzahl der Aktionspunkte, die du in Reparaturen auf der Baustelle gesteckt hast.</source>
-        <target>Action Points invested ni the ongoing repairs of buildings.</target>
+        <target>Action Points invested in the ongoing repairs of buildings.</target>
       </segment>
     </unit>
     <unit id="tRxlExf" name="Textsammler">
@@ -26455,6 +26455,16 @@
       <segment>
         <source>auf {coa_invite} antworten</source>
         <target>reply to {coa_invite}</target>
+      </segment>
+    </unit>
+    <unit id="HPWqmw7">
+      <notes>
+        <note category="german">&lt;strong&gt;Du brauchst für diese Aktion {ap} Aktionspunkt(e)&lt;/strong&gt;. &lt;hr /&gt;Trink oder iss etwas, oder nimm eine Droge, ansonsten muss du bis &lt;strong&gt;morgen&lt;/strong&gt; warten.</note>
+        <note category="from">twig:///templates/ajax/game/town/construction.html.twig</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Du brauchst für diese Aktion {ap} Aktionspunkt(e)&lt;/strong&gt;. &lt;hr /&gt;Trink oder iss etwas, oder nimm eine Droge, ansonsten muss du bis &lt;strong&gt;morgen&lt;/strong&gt; warten.</source>
+        <target><![CDATA[<strong>You need {ap} action points to do this</strong>. <hr />Drink, eat or drug yourself to restore points, or wait until <strong>tomorrow</strong>.]]></target>
       </segment>
     </unit>
   </file>

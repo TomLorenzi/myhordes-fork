@@ -5,7 +5,9 @@
 
     <div class="daily-attack row">
         <div class="content" id="canvas_container" style="overflow: hidden;">
-            <div class="attack_swf" data-ruffle-swf="{{ asset('build/flash/attack.swf') }}"></div>
+
+            <div class="attack_swf" {% if attack_running %}data-ruffle-swf="{{ asset('build/flash/attack.swf') }}"{% else %}data-ruffle-swf="{{ asset('build/flash/desert.swf') }}"{% endif%} data-ruffle-vars="lang={{ (app.request.locale|e('html_attr')|split('_', 2))[0] }}&amp;data=null"></div>
+            {% if attack_running %}
                 {% trans from 'ghost' %}
                     <p>
                     Deine Stadt wird gerade von den Zombies <strong>angegriffen</strong>! Du hörst wie sie <strong>grunzend</strong> gegen eure Hütten schlagen. Dazwischen immer wieder <strong>Hilferufe</strong> und Schreie... Sie scheinen überall zu sein...
@@ -14,31 +16,53 @@
                     Was tust du, solange der Angriff tobt?
                     </p>
                 {% endtrans %}
-            <p><button x-ajax-href="{{ path('initial_landing') }}">{{ button_texts[0] }}</button></p>
-            <p><button x-ajax-href="{{ path('initial_landing') }}">{{ button_texts[1] }}</button></p>
-            {% if app.user %}
-            <p><a href="{{ path('home_pm') }}" target="_self"><button>{{ 'Funkgerät verwenden'|trans({}, 'game') }}</button></p></a>
-            {% endif %}
-        </div>
-
-        <div class="infos">
-            <h2>{{'Was hat das zu bedeuten?'|trans({}, 'ghost')}}</h2>
-            <img style="max-width: 100%;" src="{{ asset('build/images/server.png')}}" alt="" class="art">
-            <p>{{'Die Verdammten wird gerade von den Zombies überfallen! Es ist der tägliche Angriff!'|trans({}, 'ghost')}}</p>
-            <p>{{'Registrierung sowie Log-in sind zur Zeit nicht möglich... Die Seite müsste gegen 00.30 wieder erreichbar sein.'|trans({}, 'ghost')}}</p>
-            <p><em>{{'Und ja, es wird Tote geben...'|trans({}, 'ghost')}}</em></p>
-        </div>
-
-        <div class="right">
-            <br />
-            {% if is_granted('ROLE_CROW') %}
-            <span class="small pointer" x-ajax-href="{{ path('admin_dashboard') }}">{{ 'Admin Dashboard'|trans({},'admin') }}</span>
+                <p><button x-action="refresh">{{ button_texts[0] }}</button></p>
+                <p><button x-action="refresh">{{ button_texts[1] }}</button></p>
+                {% if app.user %}
+                    <p><a href="{{ path('home_pm') }}" target="_self"><button>{{ 'Funkgerät verwenden'|trans({}, 'game') }}</button></a></p>
+                {% endif %}
             {% else %}
-            <span style="cursor: default; opacity: 0;" class="small pointer" x-ajax-href="{{ path('admin_dashboard') }}">{{ 'Admin Dashboard'|trans({},'admin') }}</span>
+                <p>{% trans from 'ghost' %}Die verhungerte <strong>Zombiehorde</strong> ist diese Nacht über deine Stadt hereingebrochen!{% endtrans %}</p>
+                <p>{% trans from 'ghost' %}Die "gute" Nachricht: Du bist noch <strong>am Leben</strong>...{% endtrans %}</p>
+                <p>
+                    <button x-ajax-href="{{ path("game_landing") }}">
+                        {% if app.user and app.user.activeCitizen %}
+                            {{ 'Sein Zuhause verlassen...'|trans({}, 'ghost') }}
+                        {% else %}
+                            {{ 'Zur Partieauswahl zurückkehren'|trans({}, 'ghost') }}
+                        {% endif %}
+                    </button>
+                </p>
             {% endif %}
         </div>
+
+        {% if attack_running %}
+            <div class="infos">
+                <h2>{{'Was hat das zu bedeuten?'|trans({}, 'ghost')}}</h2>
+                <img style="max-width: 100%;" src="{{ asset('build/images/server.png')}}" alt="" class="art">
+                <p>{{'Die Verdammten wird gerade von den Zombies überfallen! Es ist der tägliche Angriff!'|trans({}, 'ghost')}}</p>
+                <p>{{'Registrierung sowie Log-in sind zur Zeit nicht möglich... Die Seite müsste gegen 00.30 wieder erreichbar sein.'|trans({}, 'ghost')}}</p>
+                <p><em>{{'Und ja, es wird Tote geben...'|trans({}, 'ghost')}}</em></p>
+            </div>
+
+            <div class="right">
+                <br />
+                {% if is_granted('ROLE_CROW') %}
+                    <span class="small pointer" x-ajax-href="{{ path('admin_dashboard') }}">{{ 'Admin Dashboard'|trans({},'admin') }}</span>
+                {% else %}
+                    <span style="cursor: default; opacity: 0;" class="small pointer" x-ajax-href="{{ path('admin_dashboard') }}">{{ 'Admin Dashboard'|trans({},'admin') }}</span>
+                {% endif %}
+            </div>
+        {% endif %}
     </div>
 {% endblock %}
 {% block js %}
-    <script></script>
+    <script>
+        let btns = document.querySelectorAll('button[x-action="refresh"]');
+        for(let i = 0 ; i < btns.length; i++) {
+            btns[i].addEventListener('click', function(){
+                $.ajax.load(null, '{{ path('maintenance_attack') }}', false, {'refresh': 1});
+            })
+        }
+    </script>
 {% endblock %}

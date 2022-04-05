@@ -2646,23 +2646,21 @@
     <unit id="IHRCYe1" name="In Foren posten">
       <notes>
         <note category="german">In Foren posten</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>In Foren posten</source>
-        <target>In Foren posten</target>
+        <target>Post in forums</target>
       </segment>
     </unit>
     <unit id="uNF4FkZ" name="Du verlierst die Schreibrechte im Stadtforum sowie allen Weltforen.">
       <notes>
         <note category="german">Du verlierst die Schreibrechte im Stadtforum sowie allen Weltforen.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Du verlierst die Schreibrechte im Stadtforum sowie allen Weltforen.</source>
-        <target>Du verlierst die Schreibrechte im Stadtforum sowie allen Weltforen.</target>
+        <target>You lose the writing rights in the town forum as well as all world forums.</target>
       </segment>
     </unit>
     <unit id="AHcu..1" name="Kommunikation in der Stadt">

@@ -16577,5 +16577,11 @@
         <target>auf {coa_invite} antworten</target>
       </segment>
     </unit>
+    <unit id="HPWqmw7">
+      <segment>
+        <source>&lt;strong&gt;Du brauchst für diese Aktion {ap} Aktionspunkt(e)&lt;/strong&gt;. &lt;hr /&gt;Trink oder iss etwas, oder nimm eine Droge, ansonsten muss du bis &lt;strong&gt;morgen&lt;/strong&gt; warten.</source>
+        <target><![CDATA[<strong>Du brauchst für diese Aktion {ap} Aktionspunkt(e)</strong>. <hr />Trink oder iss etwas, oder nimm eine Droge, ansonsten muss du bis <strong>morgen</strong> warten.]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

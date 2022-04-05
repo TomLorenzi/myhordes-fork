@@ -1,0 +1,25 @@
+{% extends "ajax/ajax.html.twig" %}
+{% block ajax %}
+    <div class="row">
+        <div class="cell padded rw-10 ro-1 rw-lg-12 ro-lg-0">
+            <h1 class="page-head">{{ 'Neuigkeiten bei MyHordes'|trans({},'welcome') }}</h1>
+            <div class="soul">
+                <div class="news">
+                    {% for current in all %}
+                        <div class="forum-post news-preview" style="padding: 5px;">
+                            <div class="header">
+                                <h3>{{ current.title }}</h3>
+                                <span>{{ current.timestamp|format_datetime('medium', 'short') }}</span>
+                            </div>
+
+                            <div class="pm-message-content">
+                                {{ current.text|raw }}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include "ajax/public/fact.html.twig" with {fact: fact} %}
+{% endblock %}

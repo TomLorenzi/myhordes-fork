@@ -10,6 +10,11 @@ imports:
 
 twig:
     globals:
+        all_languages:
+          de: 'de_DE'
+          en: 'en_US'
+          fr: 'fr_FR'
+          es: 'es_ES'
         user_handler: '@App\Service\UserHandler'
 
 services:

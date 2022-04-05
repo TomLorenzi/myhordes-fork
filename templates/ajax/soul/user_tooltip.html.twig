@@ -177,8 +177,25 @@
                     p.click();
                 } else alert('{{ 'Fehler beim Laden des Posteingangs.'|trans({},'global') }}')
             }
+        });
 
-
+        $.html.addEventListenerAll('#user-tooltip [x-ajax-href]', 'click', (e, elem) => {
+            if (document.body.dataset.host === 'pm') {
+                window.location.href = elem.getAttribute('x-ajax-href');
+                e.preventDefault();
+                e.cancelBubble = true;
+            } else {
+                let post = document.getElementById('post-office');
+                if (post) {
+                    post.classList.remove('visible');
+                    document.body.style.overflow = null;
+                    $.msg.togglePing(true);
+                    $.msg.toggleFetch(false);
+                    $.msg.restoreFetchEndpoint();
+                    $.msg.setFetchRK(null);
+                    $.msg.execute();
+                }
+            }
         });
     </script>
 {% endblock %}

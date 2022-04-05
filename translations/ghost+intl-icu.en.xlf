@@ -111,13 +111,13 @@
         <target>Do you want to enter the terrible world of MyHordes as a citizen of {town_name}</target>
       </segment>
     </unit>
-    <unit id="AwZY28C">
+    <unit id="3mY3e0U">
       <notes>
         <note category="german">&lt;p&gt;
                     Deine Stadt wird gerade von den Zombies &lt;strong&gt;angegriffen&lt;/strong&gt;! Du hörst wie sie &lt;strong&gt;grunzend&lt;/strong&gt; gegen eure Hütten schlagen. Dazwischen immer wieder &lt;strong&gt;Hilferufe&lt;/strong&gt; und Schreie... Sie scheinen überall zu sein...
                     &lt;/p&gt;
                     &lt;p&gt;
-                    Was tust du, solange der Angriff tobt?               
+                    Was tust du, solange der Angriff tobt?
                     &lt;/p&gt;</note>
         <note category="from">twig:///templates/ajax/public/maintenance_attack.html.twig</note>
       </notes>
@@ -126,13 +126,13 @@
                     Deine Stadt wird gerade von den Zombies &lt;strong&gt;angegriffen&lt;/strong&gt;! Du hörst wie sie &lt;strong&gt;grunzend&lt;/strong&gt; gegen eure Hütten schlagen. Dazwischen immer wieder &lt;strong&gt;Hilferufe&lt;/strong&gt; und Schreie... Sie scheinen überall zu sein...
                     &lt;/p&gt;
                     &lt;p&gt;
-                    Was tust du, solange der Angriff tobt?               
+                    Was tust du, solange der Angriff tobt?
                     &lt;/p&gt;</source>
         <target><![CDATA[<p>
                     Hordes of zombies are <strong>attacking</strong> your town! They are everywhere, you hear citizens <strong>screaming</strong> in the night, the attackers clashing noisily against sheet metal... Hungry <strong>groaning</strong> from the starving masses... What's going to become of it?!
                     </p>
                     <p>
-                    Are you going to <strong>die2nite</strong>?!              
+                    Are you going to <strong>die2nite</strong>?!
                     </p>]]></target>
       </segment>
     </unit>
@@ -1726,6 +1726,46 @@
       <segment>
         <source>Die Verwendung einer anderen Sprache im Stadtforum kann zu Sanktionen seitens der Moderation führen!</source>
         <target>Using other languages may result in sanctions from the moderation!</target>
+      </segment>
+    </unit>
+    <unit id="L1PDlgY">
+      <notes>
+        <note category="german">Die verhungerte &lt;strong&gt;Zombiehorde&lt;/strong&gt; ist diese Nacht über deine Stadt hereingebrochen!</note>
+        <note category="from">twig:///templates/ajax/public/maintenance_attack.html.twig</note>
+      </notes>
+      <segment>
+        <source>Die verhungerte &lt;strong&gt;Zombiehorde&lt;/strong&gt; ist diese Nacht über deine Stadt hereingebrochen!</source>
+        <target><![CDATA[Last night, <strong>Hordes</strong> of starving zombies descended on your town!]]></target>
+      </segment>
+    </unit>
+    <unit id="rW9LI_4" name="Die &quot;gute&quot; Nachricht: Du bist noch &lt;strong&gt;am Leben&lt;/strong&gt;...">
+      <notes>
+        <note category="german">Die "gute" Nachricht: Du bist noch &lt;strong&gt;am Leben&lt;/strong&gt;...</note>
+        <note category="from">twig:///templates/ajax/public/maintenance_attack.html.twig</note>
+      </notes>
+      <segment>
+        <source>Die "gute" Nachricht: Du bist noch &lt;strong&gt;am Leben&lt;/strong&gt;...</source>
+        <target><![CDATA[The "good news" is that you appear to still be <strong>alive</strong>... For the time being at least...]]></target>
+      </segment>
+    </unit>
+    <unit id="p4fRg2j" name="Sein Zuhause verlassen...">
+      <notes>
+        <note category="german">Dein Zuhause verlassen...</note>
+        <note category="from">twig:///templates/ajax/public/maintenance_attack.html.twig</note>
+      </notes>
+      <segment>
+        <source>Sein Zuhause verlassen...</source>
+        <target>Back into the fray...</target>
+      </segment>
+    </unit>
+    <unit id="tU0K6oe" name="Zur Partieauswahl zurückkehren">
+      <notes>
+        <note category="german">Zur Partieauswahl zurückkehren</note>
+        <note category="from">twig:///templates/ajax/public/maintenance_attack.html.twig</note>
+      </notes>
+      <segment>
+        <source>Zur Partieauswahl zurückkehren</source>
+        <target>Return to game selection</target>
       </segment>
     </unit>
   </file>
