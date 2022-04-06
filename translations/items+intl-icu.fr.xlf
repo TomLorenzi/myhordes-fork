@@ -7250,7 +7250,7 @@
       </notes>
       <segment>
         <source>&lt;t-zone&gt;Du hast eine neue Ruine auf {zone} entdeckt!&lt;/t-zone&gt;&lt;nt-zone&gt;Es scheint, als gäbe es nichts mehr zu entdecken ...&lt;/nt-zone&gt;</source>
-        <target><![CDATA[<t-zone>Vous avez découvert une nouvelle ruine sur {zone} !</t-zone><nt-zone>Il semble qu'il n'y ait plus rien à découvrir...</nt-zone>]]></target>
+        <target><![CDATA[<t-zone>Vous avez révélé un nouveau bâtiment aux coordonnées {zone} !</t-zone><nt-zone>Il semble qu'il n'y ait plus rien à découvrir...</nt-zone>]]></target>
       </segment>
     </unit>
     <unit id="zI0j8nd" name="Wasserwaffen füllen">
