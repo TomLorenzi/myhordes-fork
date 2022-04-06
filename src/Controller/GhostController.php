@@ -520,7 +520,7 @@ class GhostController extends CustomAbstractController
     public function getUserTownClassAccess(MyHordesConf $conf, ?User $user = null): array {
         $user = $user ?? $this->getUser();
 
-        if ($this->user_handler->checkFeatureUnlock( $user, 'f_sptkt', false ))
+        if ($this->user_handler->checkFeatureUnlock( $user, 'f_sptkt', false ) || $user->getRightsElevation() >= User::USER_LEVEL_CROW)
             return [
                 'small' => true,
                 'remote' => true,
