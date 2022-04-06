@@ -755,11 +755,11 @@ class InventoryAwareController extends CustomAbstractController
                                     );
                                 } elseif ($isSanta || $isLeprechaun) {
                                     $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), null, $current_item->getPrototype(), $steal_up, $isSanta, $current_item->getBroken(), $isLeprechaun ) );
+                                    $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), $citizen, $current_item->getPrototype(), $steal_up, false, $current_item->getBroken(), false )->setAdminOnly(true) );
                                     $this->addFlash( 'notice', $this->translator->trans($isSanta ? 'Dank deines Kostüms konntest du {item} von {victim} stehlen, <strong>ohne erkannt zu werden</strong>.<hr/>Ho ho ho.' : 'Dank deines Kostüms konntest du {item} von {victim} stehlen, <strong>ohne erkannt zu werden</strong>.<hr/>Was für ein guter Morgen!', [
                                         '{victim}' => $victim_home->getCitizen()->getName(),
                                         '{item}' => $this->log->wrap($this->log->iconize($current_item))], 'game') );
-                                } elseif ($alarm)
-                                {
+                                } elseif ($alarm) {
                                     $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), $citizen, $current_item->getPrototype(), $steal_up, false, $current_item->getBroken() ) );
                                     $this->addFlash( 'notice', $this->translator->trans('Der Diebstahl, den du gerade begangen hast, wurde bemerkt! Die Bürger werden gewarnt, dass du den(die,das) {item} bei {victim} gestohlen hast.', ['victim' => $victim_home->getCitizen()->getName(), '{item}' => "<strong><img alt='' src='{$this->asset->getUrl( "build/images/item/item_{$current_item->getPrototype()->getIcon()}.gif" )}'> {$this->translator->trans($current_item->getPrototype()->getLabel(),[],'items')}</strong>"], 'game'));
                                     //$this->citizen_handler->inflictStatus( $citizen, 'terror' );
