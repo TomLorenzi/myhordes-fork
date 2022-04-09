@@ -38,7 +38,13 @@ class RememberMeAuthenticator extends AbstractAuthenticator
      */
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $providerKey): ?Response
     {
-        return new RedirectResponse( $request->getRequestUri() );
+        if ($request->isXmlHttpRequest() && str_starts_with( $request->getPathInfo(), '/jx/' ))
+            return new Response( '', 200, [
+                'X-AJAX-Control' => 'navigate',
+                'X-AJAX-Navigate' => "{$request->getScheme()}://{$request->getHost()}{$request->getPathInfo()}"
+            ] );
+
+        else return new RedirectResponse( $request->getRequestUri() );
     }
 
     public function authenticate(Request $request): Passport

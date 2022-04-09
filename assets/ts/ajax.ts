@@ -356,6 +356,9 @@ export default class Ajax {
                 case 'reset':
                     window.location.href = ajax_instance.base;
                     return;
+                case 'navigate':
+                    window.location.href = this.getResponseHeader('X-AJAX-Navigate') ?? ajax_instance.base;
+                    return;
                 case 'reload':
                     window.location.reload();
                     return;
@@ -432,6 +435,9 @@ export default class Ajax {
             switch ( this.getResponseHeader('X-AJAX-Control') ) {
                 case 'reset':
                     window.location.href = base;
+                    return;
+                case 'navigate':
+                    window.location.href = this.getResponseHeader('X-AJAX-Navigate') ?? base;
                     return;
                 case 'reload':
                     window.location.reload();
