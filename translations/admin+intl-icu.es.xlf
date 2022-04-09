@@ -4608,11 +4608,10 @@
       <notes>
         <note category="german">Alle bannen</note>
         <note category="from">twig:///templates/ajax/admin/users/multi_index.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Alle bannen</source>
-        <target>Alle bannen</target>
+        <target>Bannear todos</target>
       </segment>
     </unit>
   </file>
