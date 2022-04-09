@@ -20694,12 +20694,12 @@
     <unit id="sXukPwK" name="Immerhin wurden alle Bürger aus der Stadt geschleudert...">
       <notes>
         <note category="german">Immerhin wurden alle Bürger aus der Stadt geschleudert...</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
         <note category="from">twig:///templates/ajax/game/gazette_widget.html.twig</note>
       </notes>
       <segment>
         <source>Immerhin wurden alle Bürger aus der Stadt geschleudert...</source>
-        <target>Immerhin wurden alle Bürger aus der Stadt geschleudert...</target>
+        <target>Après tout, tous les citoyens de la ville ont été vaporisés...</target>
       </segment>
     </unit>
     <unit id="InNTsjR">
