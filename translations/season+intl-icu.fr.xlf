@@ -104,7 +104,6 @@
     <unit id="ffgTaDr" name="Saison 0.0">
       <notes>
         <note category="german">Saison 0.0</note>
-        <note category="state">new</note>
         <note category="from">db://Season</note>
       </notes>
       <segment>
@@ -155,7 +154,6 @@
     <unit id="znXJy5h" name="Saison 1.">
       <notes>
         <note category="german">Saison 1.</note>
-        <note category="state">new</note>
         <note category="from">[unused]</note>
       </notes>
       <segment>
@@ -167,7 +165,6 @@
       <notes>
         <note category="german">Beta</note>
         <note category="from">db://Season</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Saison 0.15</source>
