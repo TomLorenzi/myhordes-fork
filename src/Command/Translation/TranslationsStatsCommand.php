@@ -77,7 +77,16 @@ class TranslationsStatsCommand extends Command
             $file_loader = $this->container->get('translation.tools.loader');
             $de_messages = $file_loader->load( $de_file, 'de', $domain );
 
-            $total_messages['TOTAL'] += ($total_messages[$domain] = count( $de_messages->all($domain) ));
+            $total_messages[$domain] = 0;
+            foreach ( array_keys( $de_messages->all($domain) ) as $key ) {
+                $used = true;
+                foreach ( ($de_messages->getMetadata($key, $domain)['notes'] ?? []) as $note )
+                    if ($note['category'] === 'from' && $note['content'] === '[unused]')
+                        $used = false;
+                if ($used) $total_messages[$domain]++;
+            }
+
+            $total_messages['TOTAL'] += $total_messages[$domain];
 
             foreach (['en','fr','es'] as $lang) {
 
@@ -92,10 +101,15 @@ class TranslationsStatsCommand extends Command
                 $states = [];
                 foreach ( array_keys( $messages->all($domain) ) as $key ) {
                     $state = 'translated';
-                    foreach ( ($messages->getMetadata($key, $domain)['notes'] ?? []) as $note )
+                    $used = true;
+                    foreach ( ($messages->getMetadata($key, $domain)['notes'] ?? []) as $note ) {
                         if ($note['category'] === 'state')
                             $state = $note['content'] ?: 'translated';
+                        if ($note['category'] === 'from' && $note['content'] === '[unused]')
+                            $used = false;
+                    }
 
+                    if (!$used) continue;
                     $known_states[$state] = true;
 
                     if (!isset($states[$state])) $states[$state] = 1;
@@ -127,6 +141,9 @@ class TranslationsStatsCommand extends Command
 
                 $table->addRow( array_merge([ $domain ], array_map( function($lang) use ($domain,$state,&$stats,&$total_messages) {
                     $matching = min(100,round(100 * ($stats[$domain][$lang][$state] ?? 0) / $total_messages[$domain]));
+                    if (($stats[$domain][$lang][$state] ?? 0) < $total_messages[$domain]) $matching = min(99, $matching);
+                    if (($stats[$domain][$lang][$state] ?? 0) > 0) $matching = max(1, $matching);
+
 
                     $col = $state === 'translated' ? $matching : (100 - $matching);
 
