@@ -149,8 +149,8 @@ class TranslationsStatsCommand extends Command
 
                     if ($col >= 100) $color = 'bright-blue';
                     elseif ($col >= 90) $color = 'bright-green';
-                    elseif ($col >= 75) $color = 'bright-yellow';
-                    elseif ($col >= 50) $color = 'yellow';
+                    elseif ($col >= 75) $color = 'yellow';
+                    elseif ($col >= 50) $color = 'bright-yellow';
                     elseif ($col >= 30) $color = 'bright-red';
                     else                $color = 'red';
 
