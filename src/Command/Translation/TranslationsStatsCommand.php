@@ -100,6 +100,11 @@ class TranslationsStatsCommand extends Command
 
                     if (!isset($states[$state])) $states[$state] = 1;
                     else $states[$state]++;
+
+                    if ($state === 'madeup') {
+                        if (!isset($states['translated'])) $states['translated'] = 1;
+                        else $states['translated']++;
+                    }
                 }
 
                 $stats[$domain][$lang] = $states;
