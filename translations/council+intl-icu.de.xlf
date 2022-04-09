@@ -892,7 +892,7 @@
     <unit id="AraAi_U" name="Klar Einstein, Kopf oder Zahl zm eine Persion aus {_voted} auszuwählen.">
       <segment>
         <source>Klar Einstein, Kopf oder Zahl zm eine Persion aus {_voted} auszuwählen.</source>
-        <target>Klar Einstein, Kopf oder Zahl zm eine Persion aus {_voted} auszuwählen.</target>
+        <target>Klar Einstein, Kopf oder Zahl um eine Persion aus {_voted} auszuwählen.</target>
       </segment>
     </unit>
     <unit id="bz7XUkS">

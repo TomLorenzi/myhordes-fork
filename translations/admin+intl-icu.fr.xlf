@@ -125,6 +125,7 @@
       <notes>
         <note category="german">Foren</note>
         <note category="from">twig:///templates/ajax/admin/reports/reports.html.twig;twig:///templates/ajax/admin/users/ban.html.twig</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Forum</source>
@@ -225,6 +226,7 @@
       <notes>
         <note category="german">E-Mail</note>
         <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>E-Mail</source>
@@ -295,6 +297,7 @@
       <notes>
         <note category="german">Admin</note>
         <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php;twig:///templates/ajax/admin/users/account.html.twig;twig:///templates/ajax/admin/users/all_index.html.twig</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Admin</source>
@@ -435,6 +438,7 @@
       <notes>
         <note category="german">ID</note>
         <note category="from">twig:///templates/ajax/admin/reports/reports.html.twig;twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/towns/list.html.twig;twig:///templates/ajax/admin/towns/old_town_explorer.html.twig;twig:///templates/ajax/admin/towns/old_towns_list.html.twig;twig:///templates/ajax/admin/users/all_index.html.twig</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>ID</source>
@@ -475,6 +479,7 @@
       <notes>
         <note category="german">Population</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/towns/old_town_explorer.html.twig</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Population</source>
@@ -485,6 +490,7 @@
       <notes>
         <note category="german">Saison</note>
         <note category="from">twig:///templates/ajax/admin/seasons/edit.html.twig;twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/towns/old_town_explorer.html.twig</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Saison</source>
@@ -515,6 +521,7 @@
       <notes>
         <note category="german">Chaos</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Chaos</source>
@@ -605,6 +612,7 @@
       <notes>
         <note category="german">Pop.</note>
         <note category="from">twig:///templates/ajax/admin/towns/list.html.twig;twig:///templates/ajax/admin/towns/old_towns_list.html.twig</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Pop.</source>
@@ -695,6 +703,7 @@
       <notes>
         <note category="german">Version</note>
         <note category="from">twig:///templates/ajax/admin/changelogs/changelogs.html.twig</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Version</source>
@@ -735,6 +744,7 @@
       <notes>
         <note category="german">Position</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Position</source>
@@ -755,6 +765,7 @@
       <notes>
         <note category="german">Zombies</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Zombies</source>
@@ -1125,6 +1136,7 @@
       <notes>
         <note category="german">Profil</note>
         <note category="from">twig:///templates/ajax/admin/users/account.html.twig;twig:///templates/ajax/admin/users/ban.html.twig</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Profil</source>
@@ -1705,6 +1717,7 @@
       <notes>
         <note category="german">Apps</note>
         <note category="from">php:///src/Controller/Admin/AdminActionController.php</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Apps</source>
@@ -1765,6 +1778,7 @@
       <notes>
         <note category="german">URL</note>
         <note category="from">twig:///templates/ajax/admin/apps/edit.html.twig;twig:///templates/ajax/public/disclaimer.html.twig</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>URL</source>
@@ -2145,6 +2159,7 @@
       <notes>
         <note category="german">Saisons</note>
         <note category="from">php:///src/Controller/Admin/AdminActionController.php</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Saisons</source>
@@ -2215,6 +2230,7 @@
       <notes>
         <note category="german">Saison "{season}"</note>
         <note category="from">twig:///templates/ajax/admin/seasons/edit.html.twig</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Saison "{season}"</source>
@@ -2285,6 +2301,7 @@
       <notes>
         <note category="german">Changelogs</note>
         <note category="from">twig:///templates/ajax/admin/changelogs/changelogs.html.twig</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Changelogs</source>
@@ -2395,6 +2412,7 @@
       <notes>
         <note category="german">Info</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/users/account.html.twig;twig:///templates/ajax/admin/users/ban.html.twig</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Info</source>
@@ -2525,6 +2543,7 @@
       <notes>
         <note category="german">Org.</note>
         <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Org.</source>
@@ -2815,6 +2834,7 @@
       <notes>
         <note category="german">Zone</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Zone</source>
@@ -2945,6 +2965,7 @@
       <notes>
         <note category="german">Avatar</note>
         <note category="from">twig:///templates/ajax/admin/groups/edit.html.twig;twig:///templates/ajax/admin/users/account.html.twig;twig:///templates/ajax/admin/users/ban.html.twig</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Avatar</source>
@@ -3315,6 +3336,7 @@
       <notes>
         <note category="german">Anon.</note>
         <note category="from">twig:///templates/ajax/admin/groups/list.html.twig</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Anon.</source>
@@ -3875,6 +3897,7 @@
       <notes>
         <note category="german">MyHordes</note>
         <note category="from">twig:///templates/ajax/admin/users/pictos.html.twig</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>MyHordes</source>
@@ -3945,6 +3968,7 @@
       <notes>
         <note category="german">Kernel</note>
         <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Kernel</source>
@@ -4045,6 +4069,7 @@
       <notes>
         <note category="german">Tags</note>
         <note category="from">twig:///templates/ajax/admin/files/list.html.twig</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Tags</source>
@@ -4466,6 +4491,7 @@
       <notes>
         <note category="german">Profiler</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Profiler</source>

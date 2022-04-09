@@ -105,6 +105,7 @@
       <notes>
         <note category="german">Saison 0.0</note>
         <note category="from">db://Season</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Saison 0.0</source>
@@ -155,6 +156,7 @@
       <notes>
         <note category="german">Saison 1.</note>
         <note category="from">[unused]</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Saison 1.</source>
@@ -165,6 +167,7 @@
       <notes>
         <note category="german">Beta</note>
         <note category="from">db://Season</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Saison 0.15</source>

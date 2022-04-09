@@ -525,6 +525,7 @@
       <notes>
         <note category="german">Support</note>
         <note category="from">twig:///templates/ajax/help/seasons_and_rankings.html.twig;twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/help/support.html.twig;twig:///templates/seo/help.html.twig</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Support</source>
@@ -6354,6 +6355,7 @@ Die Punkte für den Titel "Spiritueller Führer" kumulieren sich mit jedem Tag. 
       <notes>
         <note category="german">etc.</note>
         <note category="from">twig:///templates/ajax/help/towns_in_nondistantregions.html.twig</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>etc.</source>
@@ -7181,6 +7183,7 @@ Nutze bitte folgenden Link, wenn du uns einen Bug (technischen Fehler) melden m�
       <notes>
         <note category="german">etc...</note>
         <note category="from">twig:///templates/ajax/help/quarantined_towns.html.twig</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>etc...</source>

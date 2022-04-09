@@ -227,6 +227,7 @@
       <notes>
         <note category="german">Normal</note>
         <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Normal</source>
@@ -1181,6 +1182,7 @@
       <notes>
         <note category="german">Events</note>
         <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Events</source>

@@ -505,6 +505,7 @@
       <notes>
         <note category="german">Saison</note>
         <note category="from">twig:///templates/ajax/soul/game_history.html.twig;twig:///templates/ajax/soul/town_list.html.twig</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Saison</source>
@@ -745,6 +746,7 @@
       <notes>
         <note category="german">Dev</note>
         <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Dev</source>
@@ -775,6 +777,7 @@
       <notes>
         <note category="german">Papier</note>
         <note category="from">php:///src/Service/HTMLService.php</note>
+        <note category="state">new</note>
       </notes>
       <segment>
         <source>Papier</source>
@@ -925,6 +928,7 @@
       <notes>
         <note category="german">Spoiler</note>
         <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Spoiler</source>
@@ -1165,6 +1169,7 @@
       <notes>
         <note category="german">Version</note>
         <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Version</source>
@@ -1785,6 +1790,7 @@
       <notes>
         <note category="german">Code</note>
         <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Code</source>
@@ -2786,6 +2792,7 @@
       <notes>
         <note category="german">Avatar</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Avatar</source>
@@ -2846,6 +2853,7 @@
       <notes>
         <note category="german">via {group_inbox}</note>
         <note category="from">twig:///templates/ajax/pm/bubbles.html.twig</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>via {group_inbox}</source>
@@ -4001,6 +4009,7 @@
       <notes>
         <note category="german">Guide</note>
         <note category="from">db://ThreadTag</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Guide</source>

@@ -1045,6 +1045,7 @@
       <notes>
         <note category="german">Scanner</note>
         <note category="from">db://BuildingPrototype</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Scanner</source>
@@ -1155,6 +1156,7 @@
       <notes>
         <note category="german">Guerilla</note>
         <note category="from">db://BuildingPrototype</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Guerilla</source>
@@ -1875,6 +1877,7 @@
       <notes>
         <note category="german">Bunker</note>
         <note category="from">db://CitizenHomePrototype</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Bunker</source>
