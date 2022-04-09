@@ -241,7 +241,7 @@ x-message {
     box-shadow: none; background: none; backdrop-filter: drop-shadow(0 0 20px black);
     div.header-stats {
       position: absolute;
-      top: 0px;
+      top: 0px; pointer-events: none;
       right: 15px;
       &>ul {
         list-style: none;
@@ -297,8 +297,8 @@ x-message {
     .deco_logo {
       background-image: url("../img/attract/deco_logo_01_de.png");
       background-repeat: no-repeat;
-      width: 300px;
-      height: 144px;
+      width: 300px; height: 144px; position: relative; top: 12px;
+
     }
 
     .back-dash {
@@ -1061,7 +1061,7 @@ div.game-menu-area {
 
     &>div.header-stats {
         position: absolute;
-        top: -130px;
+        top: -130px; pointer-events: none;
         right: 15px;
         &>ul {
           list-style: none;
