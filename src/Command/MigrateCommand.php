@@ -115,6 +115,7 @@ class MigrateCommand extends Command
         '8c54cbfaf95df7f65f94eff00e03ca3bdea95810' => [ ['app:migrate', ['--prune-rp-texts' => true] ] ],
         'c25ec1d6d328d9d3bc03dda9d9bb34873a56484d' => [ ['app:migrate', ['--fix-forum-posts' => true] ] ],
         '049ee184a6e5e2ecb5599a8fc7aa2a8b15948d36' => [ ['app:migrate', ['--reassign-thread-tags' => true] ] ],
+        '7fb1baba0c40004b02a556175a73edfa170bdeff' => [ ['app:migrate', ['--calculate-score' => true] ] ],
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
