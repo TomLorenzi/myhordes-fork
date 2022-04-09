@@ -118,7 +118,7 @@
                                             {# @var town \App\Entity\Town #}
                                             {% if town.open and not town.userInTown(app.user) %}
                                                 {% set found = true %}
-                                                <div class="row-flex wrap town-row v-center">
+                                                <div class="row-flex wrap-sm town-row v-center">
                                                     <div class="padded cell rw-1 rw-sm-2"><span class="language"><img src="{{ asset("build/images/lang/" ~ town.getLanguage ~ ".png") }}" alt="{{ town.getLanguage }}" /></span></div>
                                                     <div class="padded cell rw-4 rw-sm-10">
                                                         {% if town.password is not null or town|whitelisted %}
@@ -147,16 +147,18 @@
                                                     </div>
                                                     <div class="padded cell rw-2 rw-sm-12">
                                                         {% if cdm_level != 2 %}
-                                                            <button {% if joinable and (not town|whitelisted or town|whitelisted(app.user)) %}x-coa-restricted="{{ (coa is not empty and (town|whitelisted or town.password)) ? 1 : 0 }}" x-coa-discard="{{ coa|filter( member => not town|openFor(member) )|map( member => member.name )|join(';') }}" x-town-lang="{{ town.getLanguage }}" x-town-id="{{ town.id }}" x-town-name="{{ town.getName }}" x-town-locked="{% if town.password is not null %}1{% else %}0{% endif %}" {% else %}disabled="disabled" title="{{ 'Deine Seele genügt den Anforderungen für diesen Stadttypen.'|trans({}, 'ghost') }}"{% endif %}>
-                                                                {{ 'Beitreten'|trans({}, 'ghost') }}
+                                                            <button class="spaced-icon" {% if joinable and (not town|whitelisted or town|whitelisted(app.user)) %}x-coa-restricted="{{ (coa is not empty and (town|whitelisted or town.password)) ? 1 : 0 }}" x-coa-discard="{{ coa|filter( member => not town|openFor(member) )|map( member => member.name )|join(';') }}" x-town-lang="{{ town.getLanguage }}" x-town-id="{{ town.id }}" x-town-name="{{ town.getName }}" x-town-locked="{% if town.password is not null %}1{% else %}0{% endif %}" {% else %}disabled="disabled" title="{{ 'Deine Seele genügt den Anforderungen für diesen Stadttypen.'|trans({}, 'ghost') }}"{% endif %}>
+                                                                <div>{{ 'Beitreten'|trans({}, 'ghost') }}</div>
                                                                 {% if town.language != 'multi' and town.language != app.user.language %}
-                                                                    <div class="inline float-right">
+                                                                    <div>
                                                                         <img alt="!" src="{{ asset('build/images/icons/warning_anim.gif') }}" />
                                                                         <div class="tooltip">
                                                                             {{ 'Die Sprache dieser Stadt stimmt nicht mit deiner Spracheinstellung überein. Wenn du dieser Stadt beitrittst, musst du im Stadtforum die Sprache der Stadt verwenden.'|trans({},'ghost') }}<br/>
                                                                             <b>{{ 'Die Verwendung einer anderen Sprache im Stadtforum kann zu Sanktionen seitens der Moderation führen!'|trans({},'ghost') }}</b>
                                                                         </div>
                                                                     </div>
+                                                                {% else %}
+                                                                    <div><img style="opacity: 0" alt="" src="{{ asset('build/images/icons/warning_anim.gif') }}" /></div>
                                                                 {% endif %}
                                                             </button>
                                                         {% endif %}
