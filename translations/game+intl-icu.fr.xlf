@@ -15995,12 +15995,12 @@
     <unit id=".SXRDqM" name="Einen zufälligen Bürger als Katapult-Bediener auslosen">
       <notes>
         <note category="german">Einen zufälligen Bürger als Katapult-Bediener auslosen</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
         <note category="from">twig:///templates/ajax/game/town/catapult.html.twig</note>
       </notes>
       <segment>
         <source>Einen zufälligen Bürger als Katapult-Bediener auslosen</source>
-        <target>Einen zufälligen Bürger als Katapult-Bediener auslosen</target>
+        <target>Designer un citoyen au hasard en tant que responsable de la catapulte</target>
       </segment>
     </unit>
     <unit id="k9pQbZw" name="inmitten eines unentwirrbaren Trümmerhaufens">
