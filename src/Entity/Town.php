@@ -691,6 +691,7 @@ class Town
      * @throws ORMException
      */
     public function lifeCycle_preRemove(LifecycleEventArgs $args) {
+        $args->getEntityManager()->persist( TownRankingProxy::fromTown( $this, true ) );
         $g = $args->getEntityManager()->getRepository(UserGroup::class)->findOneBy( ['type' => UserGroup::GroupTownInhabitants, 'ref1' => $this->getId()] );
         if ($g) $args->getEntityManager()->remove($g);
     }
