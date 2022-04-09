@@ -1105,7 +1105,7 @@
       <notes>
         <note category="german">Pfff...</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Pfff...</source>
@@ -2188,11 +2188,11 @@
       <notes>
         <note category="german">einen Haufen Ramsch</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
       </notes>
       <segment>
         <source>einen Haufen Ramsch</source>
-        <target>einen Haufen Ramsch</target>
+        <target>un tas de déchets</target>
       </segment>
     </unit>
     <unit id="XIAzZXP">
