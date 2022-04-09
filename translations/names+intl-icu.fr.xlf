@@ -1935,12 +1935,12 @@
     <unit id="zyCSipi" name="Sie wollen dich hängen">
       <notes>
         <note category="german">Sie wollen dich hängen</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
         <note category="from">twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Sie wollen dich hängen</source>
-        <target>Sie wollen dich hängen</target>
+        <target>Ils veulent vous pendre</target>
       </segment>
     </unit>
     <unit id="Iikq2RH" name="Sie werden dich umbringen">
