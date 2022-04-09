@@ -2974,7 +2974,7 @@
     <unit id="lIXVQdW" name="LSD">
       <notes>
         <note category="german">LSD</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">db://ItemPrototype</note>
       </notes>
       <segment>
@@ -3555,7 +3555,7 @@
     <unit id="UWEMZ3x" name="{casino}">
       <notes>
         <note category="german">{casino}</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">db://ItemAction</note>
       </notes>
       <segment>
@@ -7376,7 +7376,7 @@
     <unit id="txP7Qji" name="Vodka Marinostov">
       <notes>
         <note category="german">Vodka Marinostov</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">db://ItemPrototype</note>
       </notes>
       <segment>
@@ -7487,7 +7487,7 @@
     <unit id="82FCAix" name="Dame">
       <notes>
         <note category="german">Dame</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">php:///src/Service/HTMLService.php</note>
       </notes>
       <segment>
@@ -8418,7 +8418,7 @@
     <unit id="W0wWbGS" name="Guiness">
       <notes>
         <note category="german">Guiness</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">db://ItemPrototype</note>
       </notes>
       <segment>
