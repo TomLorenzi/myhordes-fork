@@ -9466,5 +9466,15 @@
         <target>This allows you to join cities even though you haven't reached the minimum number of soul points.</target>
       </segment>
     </unit>
+    <unit id="zMlo9nG">
+      <notes>
+        <note category="german">Du bist &lt;strong&gt;zu weit von der Stadt entfernt&lt;/strong&gt;, um diese Fähigkeit benutzen zu können! Genauer gesagt bist du {km_from_town} km entfernt. Die maximale Entfernung darf höchstens 11 km betragen.</note>
+        <note category="from">db://Requirement</note>
+      </notes>
+      <segment>
+        <source>Du bist &lt;strong&gt;zu weit von der Stadt entfernt&lt;/strong&gt;, um diese Fähigkeit benutzen zu können! Genauer gesagt bist du {km_from_town} km entfernt. Die maximale Entfernung darf höchstens 11 km betragen.</source>
+        <target><![CDATA[You are currently <strong>too far from the town to use this power</strong>! You are {km_from_town} km away, and the maximum distance is 11 km.</div>]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

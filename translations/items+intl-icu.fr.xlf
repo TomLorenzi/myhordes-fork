@@ -9454,5 +9454,15 @@
         <target>Ceci vous permet de rejoindre un ville indépendamment de votre nombre de points d'âme.</target>
       </segment>
     </unit>
+    <unit id="zMlo9nG">
+      <notes>
+        <note category="german">Du bist &lt;strong&gt;zu weit von der Stadt entfernt&lt;/strong&gt;, um diese Fähigkeit benutzen zu können! Genauer gesagt bist du {km_from_town} km entfernt. Die maximale Entfernung darf höchstens 11 km betragen.</note>
+        <note category="from">db://Requirement</note>
+      </notes>
+      <segment>
+        <source>Du bist &lt;strong&gt;zu weit von der Stadt entfernt&lt;/strong&gt;, um diese Fähigkeit benutzen zu können! Genauer gesagt bist du {km_from_town} km entfernt. Die maximale Entfernung darf höchstens 11 km betragen.</source>
+        <target><![CDATA[Vous êtes <strong>trop loin de la ville pour pouvoir utiliser ce pouvoir</strong> ! Vous êtes à {km_from_town}km tandis que la distance maximale est de 11km.]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -9426,5 +9426,15 @@
         <target>Esto te permite unirte a pueblos aunque no hayas alcanzado el número mínimo de puntos de alma necesarios.</target>
       </segment>
     </unit>
+    <unit id="zMlo9nG">
+      <notes>
+        <note category="german">Du bist &lt;strong&gt;zu weit von der Stadt entfernt&lt;/strong&gt;, um diese Fähigkeit benutzen zu können! Genauer gesagt bist du {km_from_town} km entfernt. Die maximale Entfernung darf höchstens 11 km betragen.</note>
+        <note category="from">db://Requirement</note>
+      </notes>
+      <segment>
+        <source>Du bist &lt;strong&gt;zu weit von der Stadt entfernt&lt;/strong&gt;, um diese Fähigkeit benutzen zu können! Genauer gesagt bist du {km_from_town} km entfernt. Die maximale Entfernung darf höchstens 11 km betragen.</source>
+        <target><![CDATA[¡Estás <strong>demasiado lejos del pueblo para utilizar este poder</strong>! Estás a {km_from_town}km cuando la distancia máxima es de 11km.</div>]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

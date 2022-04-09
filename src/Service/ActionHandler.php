@@ -109,6 +109,7 @@ class ActionHandler
 
         $evaluate_info_cache = [
             'missing_items' => [],
+            'user' => $citizen
         ];
 
         $messages = [];
@@ -371,6 +372,7 @@ class ActionHandler
             if ($current_state < $last_state) {
                 $thisMessage = $meta_requirement->getFailureText() ? $this->translator->trans( $meta_requirement->getFailureText(), [
                     '{items_required}' => $this->wrap_concat($evaluate_info_cache['missing_items']),
+                    '{km_from_town}'   => $evaluate_info_cache['user']?->getZone()?->getDistance() ?? 0,
                     '{hr}'             => "<hr />",
                 ], 'items' ) : null;
 
@@ -1696,6 +1698,7 @@ class ActionHandler
                     '{size}'          => $execute_info_cache['size'],
                     '{home_storage}'  => $execute_info_cache['home_storage'],
                     '{home_defense}'  => $execute_info_cache['home_defense'],
+                    '{km_from_town}'  => $execute_info_cache['user']?->getZone()?->getDistance() ?? 0
 	            ];
 
                 // How many indexes we need for array placeholders seeks
