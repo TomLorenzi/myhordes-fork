@@ -255,7 +255,6 @@
       <notes>
         <note category="german">Weiterlesen</note>
         <note category="from">twig:///templates/ajax/public/intro.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Weiterlesen</source>
@@ -416,7 +415,6 @@
       <notes>
         <note category="german">Neuigkeiten bei MyHordes</note>
         <note category="from">twig:///templates/ajax/public/news.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Neuigkeiten bei MyHordes</source>
