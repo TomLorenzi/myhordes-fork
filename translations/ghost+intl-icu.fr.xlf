@@ -226,7 +226,6 @@
     <unit id="pySO60X" name="Normal">
       <notes>
         <note category="german">Normal</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
@@ -1181,7 +1180,6 @@
     <unit id="jRT25y3" name="Events">
       <notes>
         <note category="german">Events</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
