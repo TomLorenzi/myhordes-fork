@@ -4,7 +4,7 @@
     <unit id="5av5KpC" name="Saison 0.14">
       <notes>
         <note category="german">Saison 0.14</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">db://Season</note>
       </notes>
       <segment>
@@ -145,7 +145,7 @@
     <unit id="ffgTaDr" name="Saison 0.0">
       <notes>
         <note category="german">Saison 0.0</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">db://Season</note>
       </notes>
       <segment>
