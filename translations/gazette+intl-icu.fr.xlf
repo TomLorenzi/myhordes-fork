@@ -628,7 +628,7 @@
       </notes>
       <segment>
         <source>Mehrere Brandherde wurden im Reaktorkern gesichtet, bevor er komplett in Flammen aufging. Kurz danach wurde das gesamte Gebiet von einem grünen Blitz vollkommen verwüstet. Die wenigen Überlebenden sind innerhalb nur weniger Sekunden an Strahlenkrankheit gestorben. Was für ein Ende!</source>
-        <target>Plusieurs incendies se sont déclarés au coeur de notre Réacteur avant que ce dernier ne s'embrase totalement. Puis un grand flash vert a balayé et empoisonné toute la région. Il n'a fallu que quelques secondes aux rares survivants pour périr irradiés. Un beau final !</target>
+        <target><![CDATA[Plusieurs incendies se sont déclarés au cœur de notre <strong>Réacteur</strong> avant que ce dernier ne s'embrase totalement. Puis un grand flash vert a balayé et empoisonné toute la région. Il n'a fallu que <strong>quelques secondes</strong> aux rares survivants pour <strong>périr irradiés.</strong> Un beau final ! ]]></target>
       </segment>
     </unit>
     <unit id="Lx3BlQN">
