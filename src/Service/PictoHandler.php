@@ -110,7 +110,7 @@ class PictoHandler
             } else if ($this->conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_MODIFIER_STRICT_PICTOS, false) && $citizen->getUser()->getAllSoulPoints() >= 100) {
                 if($citizen->getSurvivedDays() < 7 && ($citizen->getCauseOfDeath() === null || $citizen->getCauseOfDeath()->getRef() === CauseOfDeath::Unknown))
                     $persistPicto = true;
-                else if($citizen->getSurvivedDays() == 7 && $citizen->getCauseOfDeath() !== null && $citizen->getCauseOfDeath()->getRef() === CauseOfDeath::NightlyAttack)
+                else if($citizen->getSurvivedDays() === 7 && $citizen->getCauseOfDeath()?->getRef() === CauseOfDeath::NightlyAttack)
                     $persistPicto = true;
                 else if ($citizen->getSurvivedDays() > 7)
                     $persistPicto = true;
