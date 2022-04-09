@@ -504,7 +504,6 @@
     <unit id="fmZlI_I" name="Saison">
       <notes>
         <note category="german">Saison</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/game_history.html.twig;twig:///templates/ajax/soul/town_list.html.twig</note>
       </notes>
       <segment>
@@ -745,7 +744,6 @@
     <unit id="nCT0Wn6" name="Dev">
       <notes>
         <note category="german">Dev</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
       </notes>
       <segment>
@@ -776,7 +774,6 @@
     <unit id="vXPlKOG" name="Papier">
       <notes>
         <note category="german">Papier</note>
-        <note category="state">new</note>
         <note category="from">php:///src/Service/HTMLService.php</note>
       </notes>
       <segment>
@@ -927,7 +924,6 @@
     <unit id="jlAJmOo" name="Spoiler">
       <notes>
         <note category="german">Spoiler</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
       </notes>
       <segment>
@@ -1168,7 +1164,6 @@
     <unit id="3RZ5Bd4" name="Version">
       <notes>
         <note category="german">Version</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
       </notes>
       <segment>
@@ -1789,7 +1784,6 @@
     <unit id="NA9GMDP" name="Code">
       <notes>
         <note category="german">Code</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
       </notes>
       <segment>
@@ -1960,12 +1954,12 @@
     <unit id="M4kyeVr" name="Die Seite wird von Horden von Zombies belagert!">
       <notes>
         <note category="german">Die Seite wird von Horden von Zombies belagert!</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
         <note category="from">php:///src/Controller/ExternalXML2Controller.php</note>
       </notes>
       <segment>
         <source>Die Seite wird von Horden von Zombies belagert!</source>
-        <target>Die Seite wird von Horden von Zombies belagert!</target>
+        <target>Le site est assiégé par des hordes de zombies !</target>
       </segment>
     </unit>
     <unit id="2gahlEk" name="Spielhilfe:">
@@ -2101,12 +2095,11 @@
     <unit id="ST5ILqV" name="1 Minute">
       <notes>
         <note category="german">1 Minute</note>
-        <note category="state">new</note>
         <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>1 Minute</source>
-        <target>1 Minute</target>
+        <target>1 minute</target>
       </segment>
     </unit>
     <unit id="OTEy7hr" name="{n} Sekunden">
@@ -2792,7 +2785,6 @@
     <unit id="yo6CbZw" name="Avatar">
       <notes>
         <note category="german">Avatar</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
@@ -2853,7 +2845,6 @@
     <unit id="jQrj982" name="via {group_inbox}">
       <notes>
         <note category="german">via {group_inbox}</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/pm/bubbles.html.twig</note>
       </notes>
       <segment>
@@ -4010,7 +4001,6 @@
       <notes>
         <note category="german">Guide</note>
         <note category="from">db://ThreadTag</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Guide</source>
