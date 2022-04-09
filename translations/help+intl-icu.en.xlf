@@ -8618,5 +8618,16 @@ Um Kontakt mit den Administratoren aufzunehmen, schreibe an die &lt;a x-group-co
 To contact the server administrators, write a message to the <a x-group-connect="{oglink}" href="#">official Tech Support group</a>.]]></target>
       </segment>
     </unit>
+    <unit id="K56xxmf">
+      <notes>
+        <note category="german">Ausgerüstete Gegenstände werden in deinem &lt;strong&gt;Rucksack&lt;/strong&gt; aufbewahrt.</note>
+        <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Ausgerüstete Gegenstände werden in deinem &lt;strong&gt;Rucksack&lt;/strong&gt; aufbewahrt.</source>
+        <target><![CDATA[Ausgerüstete Gegenstände werden in deinem <strong>Rucksack</strong> aufbewahrt.]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>
