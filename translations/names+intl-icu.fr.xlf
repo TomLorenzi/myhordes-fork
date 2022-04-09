@@ -1324,12 +1324,12 @@
     <unit id="6w7BxUc" name="Bordeaux Grace">
       <notes>
         <note category="german">Bordeaux Grace</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
         <source>Bordeaux Grace</source>
-        <target>Bordeaux Grace</target>
+        <target>Bordeaux grace</target>
       </segment>
     </unit>
     <unit id="6es1Zyz" name="George und Ralph Kinderkrankenhaus">
