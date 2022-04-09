@@ -560,6 +560,8 @@
             const from_page = {{ current_page|e('js') }};
             const to_page = parseInt( elem.getAttribute('x-to-page') );
             $.ajax.push_history('{{ path('forum_thread_view', {fid: fid, tid: tid}) }}/' + to_page);
+            $.html.forEach('.forum-reload-button', e => e.setAttribute('x-ajax-href', '{{ path('forum_thread_view', {fid: fid, tid: tid}) }}/' + to_page));
+
             $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('forum_viewer_controller', {fid: fid, tid: tid}) }}', false, {page: to_page},
                 function() {
                     let scrollTo = null;
