@@ -363,7 +363,7 @@
     </unit>
     <unit id="wcIksDz" name="Admin">
       <notes>
-        <note category="from">twig:///templates/ajax/admin/users/account.html.twig;twig:///templates/ajax/admin/users/all_index.html.twig</note>
+        <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php;twig:///templates/ajax/admin/users/account.html.twig;twig:///templates/ajax/admin/users/all_index.html.twig</note>
       </notes>
       <segment>
         <source>Admin</source>
@@ -525,7 +525,7 @@
     </unit>
     <unit id="awzJBNC" name="Users">
       <notes>
-        <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig</note>
+        <note category="from">php:///src/Controller/Admin/AdminActionController.php;twig:///templates/ajax/admin/users/all_index.html.twig</note>
       </notes>
       <segment>
         <source>Users</source>
@@ -534,7 +534,7 @@
     </unit>
     <unit id="h7YL9VW" name="Städte">
       <notes>
-        <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
+        <note category="from">php:///src/Controller/Admin/AdminActionController.php;twig:///templates/ajax/admin/widget/controls.twig</note>
       </notes>
       <segment>
         <source>Städte</source>
@@ -543,7 +543,7 @@
     </unit>
     <unit id="jA6UdTz" name="Zukunft">
       <notes>
-        <note category="from">twig:///templates/ajax/admin/changelogs/changelogs.html.twig</note>
+        <note category="from">php:///src/Controller/Admin/AdminActionController.php;twig:///templates/ajax/admin/changelogs/changelogs.html.twig</note>
       </notes>
       <segment>
         <source>Zukunft</source>
@@ -687,7 +687,7 @@
     </unit>
     <unit id="DNyzXO8" name="Angriff">
       <notes>
-        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+        <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php;twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Angriff</source>
@@ -1002,7 +1002,7 @@
     </unit>
     <unit id="yu8TLDr" name="Du hast dich umgebracht.">
       <notes>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/AdminActionHandler.php</note>
       </notes>
       <segment>
         <source>Du hast dich umgebracht.</source>
@@ -1011,7 +1011,7 @@
     </unit>
     <unit id="xkgfKms" name="Du gehörst keiner Stadt an.">
       <notes>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/AdminActionHandler.php</note>
       </notes>
       <segment>
         <source>Du gehörst keiner Stadt an.</source>
@@ -1515,7 +1515,7 @@
     </unit>
     <unit id="TklQ7Ze" name="AntiSpam">
       <notes>
-        <note category="from">twig:///templates/ajax/admin/spam/domains.html.twig</note>
+        <note category="from">php:///src/Controller/Admin/AdminActionController.php;twig:///templates/ajax/admin/spam/domains.html.twig</note>
       </notes>
       <segment>
         <source>AntiSpam</source>
@@ -1614,7 +1614,7 @@
     </unit>
     <unit id="Z7aWRoY" name="Dashboard">
       <notes>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Admin/AdminActionController.php</note>
       </notes>
       <segment>
         <source>Dashboard</source>
@@ -1641,7 +1641,7 @@
     </unit>
     <unit id="id10hEL" name="Apps">
       <notes>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Admin/AdminActionController.php</note>
       </notes>
       <segment>
         <source>Apps</source>
@@ -1866,7 +1866,7 @@
     </unit>
     <unit id="i2H25l5" name="Foren-Mod.">
       <notes>
-        <note category="from">twig:///templates/ajax/admin/reports/reports.html.twig</note>
+        <note category="from">php:///src/Controller/Admin/AdminActionController.php;twig:///templates/ajax/admin/reports/reports.html.twig</note>
       </notes>
       <segment>
         <source>Foren-Mod.</source>
@@ -1983,7 +1983,7 @@
     </unit>
     <unit id="F_ijNEI" name="Neue Anwendung registrieren">
       <notes>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Admin/AdminAppController.php</note>
       </notes>
       <segment>
         <source>Neue Anwendung registrieren</source>
@@ -2082,7 +2082,7 @@
     </unit>
     <unit id="S1OmuJB" name="Saisons">
       <notes>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Admin/AdminActionController.php</note>
       </notes>
       <segment>
         <source>Saisons</source>
@@ -2091,7 +2091,7 @@
     </unit>
     <unit id="wWE.yC2" name="Neue Saison">
       <notes>
-        <note category="from">twig:///templates/ajax/admin/seasons/edit.html.twig</note>
+        <note category="from">php:///src/Controller/Admin/AdminSeasonController.php;twig:///templates/ajax/admin/seasons/edit.html.twig</note>
       </notes>
       <segment>
         <source>Neue Saison</source>
@@ -3207,7 +3207,7 @@
     </unit>
     <unit id="j9J2yMz" name="Gruppen">
       <notes>
-        <note category="from">twig:///templates/ajax/admin/groups/list.html.twig</note>
+        <note category="from">php:///src/Controller/Admin/AdminActionController.php;twig:///templates/ajax/admin/groups/list.html.twig</note>
       </notes>
       <segment>
         <source>Gruppen</source>
@@ -3783,7 +3783,7 @@
     </unit>
     <unit id="inFhWaa" name="Kernel">
       <notes>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php</note>
       </notes>
       <segment>
         <source>Kernel</source>
@@ -3792,7 +3792,7 @@
     </unit>
     <unit id="wcEAnT8" name="Update">
       <notes>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php</note>
       </notes>
       <segment>
         <source>Update</source>
@@ -3801,7 +3801,7 @@
     </unit>
     <unit id="J2.6H7T" name="Unbekannt">
       <notes>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php</note>
       </notes>
       <segment>
         <source>Unbekannt</source>
@@ -3810,7 +3810,7 @@
     </unit>
     <unit id="OdO2n.0" name="Täglich">
       <notes>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php</note>
       </notes>
       <segment>
         <source>Täglich</source>
@@ -3819,7 +3819,7 @@
     </unit>
     <unit id="1LsNnOC" name="Wöchentlich">
       <notes>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php</note>
       </notes>
       <segment>
         <source>Wöchentlich</source>
@@ -3828,7 +3828,7 @@
     </unit>
     <unit id=".QA57M1" name="Monatlich">
       <notes>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php</note>
       </notes>
       <segment>
         <source>Monatlich</source>
@@ -3837,7 +3837,7 @@
     </unit>
     <unit id="lhysqm5" name="Manuell">
       <notes>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php</note>
       </notes>
       <segment>
         <source>Manuell</source>
@@ -3846,7 +3846,7 @@
     </unit>
     <unit id="Iv9Lj0S" name="Nicht komprimiert">
       <notes>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php</note>
       </notes>
       <segment>
         <source>Nicht komprimiert</source>
@@ -3900,7 +3900,7 @@
     </unit>
     <unit id="NSeveUs" name="Dateisystem">
       <notes>
-        <note category="from">twig:///templates/ajax/admin/files/list.html.twig</note>
+        <note category="from">php:///src/Controller/Admin/AdminActionController.php;twig:///templates/ajax/admin/files/list.html.twig</note>
       </notes>
       <segment>
         <source>Dateisystem</source>
@@ -4125,7 +4125,7 @@
     </unit>
     <unit id="MxCYTlN" name="Änderungen an '{appname}' speichern">
       <notes>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Admin/AdminAppController.php</note>
       </notes>
       <segment>
         <source>Änderungen an '{appname}' speichern</source>

@@ -3,7 +3,7 @@
   <file id="mail.de">
     <unit id="M_25pDW" name="Account validieren">
       <notes>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/UserFactory.php</note>
       </notes>
       <segment>
         <source>Account validieren</source>
@@ -12,7 +12,7 @@
     </unit>
     <unit id="bGFqxj8" name="Passwort zurücksetzen">
       <notes>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/UserFactory.php</note>
       </notes>
       <segment>
         <source>Passwort zurücksetzen</source>
@@ -81,7 +81,7 @@
     </unit>
     <unit id="8PZ98mx" name="E-Mail Validierung">
       <notes>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/UserFactory.php</note>
       </notes>
       <segment>
         <source>E-Mail Validierung</source>

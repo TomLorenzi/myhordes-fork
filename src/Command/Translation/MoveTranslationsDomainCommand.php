@@ -18,6 +18,7 @@ use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\Translation\Dumper\FileDumper;
 use Symfony\Component\Translation\Loader\FileLoader;
 use Symfony\Component\Translation\MessageCatalogue;
+use Symfony\Component\Translation\MessageCatalogueInterface;
 
 class MoveTranslationsDomainCommand extends Command
 {
@@ -69,7 +70,7 @@ class MoveTranslationsDomainCommand extends Command
 
         $messages = $file_loader->load( $file, 'de', $domain );
 
-        $format_source = fn($s) => str_replace(['twig://', 'db://', 'php://'],['<fg=bright-yellow>TWIG</> ', '<fg=bright-green>DB</> ', '<fg=yellow>TWIG</> ', '<fg=bright-blue>PHP</> '], $s);
+        $format_source = fn($s) => str_replace(['twig://', 'db://', 'php://'],['<fg=bright-yellow>TWIG</> ', '<fg=bright-green>DB</> ', '<fg=bright-blue>PHP</> '], $s);
 
         $filters = $input->getOption('match');
         if (empty($filters)) $output->writeln('Moving messages from <info>$domain</info> to <info>$target</info>.');
@@ -83,13 +84,10 @@ class MoveTranslationsDomainCommand extends Command
             else {
                 $sources = [];
                 foreach ( ($messages->getMetadata($key, $domain)['notes'] ?? []) as $note )
-                    if ($note['category'] === 'from')
+                    if ($note['category'] === 'from' && $note['content'] !== '[unused]')
                         $sources = array_merge( $sources, explode(';', $note['content']) );
 
-                if (empty($sources)) {
-                    $move_keys[] = $key;
-                    continue;
-                }
+                if (empty($sources)) continue;
 
                 $hit = [];
                 $miss = [];
@@ -109,11 +107,11 @@ class MoveTranslationsDomainCommand extends Command
             $table->setHeaders(['Message', 'Blocking source']);
 
             foreach ($ambiguous as $message => $entry)
-                $table->addRow([ mb_strlen($message) > 64 ? (mb_substr($message, 0, 63) . '…') : $message, str_replace(['twig://', 'db://', 'php://'],['<fg=bright-yellow>TWIG</> ', '<fg=bright-green>DB</> ', '<fg=yellow>TWIG</> ', '<fg=bright-blue>PHP</> '], implode("\n", $entry)) ]);
+                $table->addRow([ mb_strlen($message) > 64 ? (mb_substr($message, 0, 63) . '…') : $message, $format_source(implode("\n", $entry)) ]);
 
             $table->render();
 
-            $output->writeln('The <fg=red>' . count($move_keys) . '</> messages above match the given filter, but are also used from an additional, unmatched source. <fg=red>These entries will be ignored going forward!</>');
+            $output->writeln('The <fg=red>' . count($ambiguous) . '</> messages above match the given filter, but are also used from an additional, unmatched source. <fg=red>These entries will be ignored going forward!</>');
         }
 
         $output->writeln('Found <info>' . count($move_keys) . '</info> translation entries to move.');
@@ -123,35 +121,38 @@ class MoveTranslationsDomainCommand extends Command
 
         foreach (['de','en','fr','es'] as $lang) {
             $output->write("Loading <comment>$lang</comment> catalogue files... ");
-            $icu_file  = "{$this->param->get('kernel.project_dir')}/translations/{$domain}+intl-icu.{$lang}.xlf";
-            $base_file = "{$this->param->get('kernel.project_dir')}/translations/{$domain}.{$lang}.xlf";
+            $in_icu_file  = "{$this->param->get('kernel.project_dir')}/translations/{$domain}+intl-icu.{$lang}.xlf";
+            $in_base_file = "{$this->param->get('kernel.project_dir')}/translations/{$domain}.{$lang}.xlf";
 
-            $input_file = file_exists($icu_file) ? $icu_file : ( file_exists( $base_file ) ? $base_file : null );
+            $input_file = file_exists($in_icu_file) ? $in_icu_file : ( file_exists( $in_base_file ) ? $in_base_file : null );
             if ($input_file === null) throw new Exception('Could not load message catalog for ' . $lang);
             $input_catalogue = $file_loader->load( $input_file, $lang, $domain );
 
-            $icu_file  = "{$this->param->get('kernel.project_dir')}/translations/{$target}+intl-icu.{$lang}.xlf";
-            $base_file = "{$this->param->get('kernel.project_dir')}/translations/{$target}.{$lang}.xlf";
+            $out_icu_file  = "{$this->param->get('kernel.project_dir')}/translations/{$target}+intl-icu.{$lang}.xlf";
+            $out_base_file = "{$this->param->get('kernel.project_dir')}/translations/{$target}.{$lang}.xlf";
 
-            $output_file = file_exists($base_file) ? $base_file : $icu_file;
+            $output_file = file_exists($out_base_file) ? $base_file : $out_icu_file;
             $out_catalogue = file_exists($output_file) ? $file_loader->load( $output_file, $lang, $domain ) : new MessageCatalogue($lang,[]);
             $output->writeln("<info>OK!</info>");
 
+            $final_domain = file_exists( $in_icu_file  )   ? ($domain . MessageCatalogueInterface::INTL_DOMAIN_SUFFIX) : $domain;
+            $final_target = !file_exists( $out_base_file ) ? ($target . MessageCatalogueInterface::INTL_DOMAIN_SUFFIX) : $target;
+
             $output->write("Adding messages to the <comment>$target/$lang</comment> catalogue... ");
             foreach ($move_keys as $key) {
-                $out_catalogue->set($key, $input_catalogue->get($key, $domain), $target);
-                $out_catalogue->setMetadata( $key, $input_catalogue->getMetadata( $key, $domain ), $target );
+                $out_catalogue->set($key, $input_catalogue->get($key, $domain), $final_target);
+                $out_catalogue->setMetadata( $key, $input_catalogue->getMetadata( $key, $domain ), $final_target );
             }
-            $file_dumper->dump( $out_catalogue, ['xliff_version' => '2.0'] );
+            $file_dumper->dump( $out_catalogue, ['path' => "{$this->param->get('kernel.project_dir')}/translations"] );
             $output->writeln("<info>OK!</info>");
 
             $output->write("Removing messages from the <comment>$domain/$lang</comment> catalogue... ");
             $clean_catalogue = new MessageCatalogue($lang,[]);
             foreach ($input_catalogue->all($domain) as $key => $message) if (!in_array( $key, $move_keys )) {
-                $clean_catalogue->set( $key, $message, $domain );
-                $clean_catalogue->setMetadata( $key, $input_catalogue->getMetadata( $key, $domain ), $domain );
+                $clean_catalogue->set( $key, $message, $final_domain );
+                $clean_catalogue->setMetadata( $key, $input_catalogue->getMetadata( $key, $domain ), $final_domain );
             }
-            $file_dumper->dump( $clean_catalogue, ['xliff_version' => '2.0'] );
+            $file_dumper->dump( $clean_catalogue, ['path' => "{$this->param->get('kernel.project_dir')}/translations"] );
             $output->writeln("<info>OK!</info>");
         }
 

@@ -3,7 +3,7 @@
   <file id="login.de">
     <unit id="crJFns0" name="Dein Name muss mindestens { limit } Zeichen umfassen.">
       <notes>
-        <note category="from">twig:///templates/ajax/admin/widget/controls.twig;twig:///templates/ajax/game/jobs.html.twig</note>
+        <note category="from">php:///src/Controller/PublicController.php;twig:///templates/ajax/admin/widget/controls.twig;twig:///templates/ajax/game/jobs.html.twig</note>
       </notes>
       <segment>
         <source>Dein Name muss mindestens { limit } Zeichen umfassen.</source>
@@ -12,7 +12,7 @@
     </unit>
     <unit id="VAaM7eo" name="Dein Name kann höchstens { limit } Zeichen umfassen.">
       <notes>
-        <note category="from">twig:///templates/ajax/admin/widget/controls.twig;twig:///templates/ajax/game/jobs.html.twig</note>
+        <note category="from">php:///src/Controller/PublicController.php;twig:///templates/ajax/admin/widget/controls.twig;twig:///templates/ajax/game/jobs.html.twig</note>
       </notes>
       <segment>
         <source>Dein Name kann höchstens { limit } Zeichen umfassen.</source>
@@ -21,7 +21,7 @@
     </unit>
     <unit id="WvW8_JI" name="Die eingegebene E-Mail Adresse ist nicht gültig.">
       <notes>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/PublicController.php</note>
       </notes>
       <segment>
         <source>Die eingegebene E-Mail Adresse ist nicht gültig.</source>
@@ -30,7 +30,7 @@
     </unit>
     <unit id="6UV8ek7" name="Die eingegebenen E-Mail Adressen stimmen nicht überein.">
       <notes>
-        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="from">php:///src/Controller/PublicController.php;twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Die eingegebenen E-Mail Adressen stimmen nicht überein.</source>
@@ -39,7 +39,7 @@
     </unit>
     <unit id="jz03..f" name="Dein Passwort muss mindestens { limit } Zeichen umfassen.">
       <notes>
-        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="from">php:///src/Controller/PublicController.php;twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Dein Passwort muss mindestens { limit } Zeichen umfassen.</source>
@@ -48,7 +48,7 @@
     </unit>
     <unit id="OK9eVbg" name="Die eingegebenen Passwörter stimmen nicht überein.">
       <notes>
-        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="from">php:///src/Controller/PublicController.php;twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Die eingegebenen Passwörter stimmen nicht überein.</source>
@@ -57,7 +57,7 @@
     </unit>
     <unit id="o5ZFZh6" name="Der Validierungscode muss { limit } Zeichen umfassen.">
       <notes>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/PublicController.php</note>
       </notes>
       <segment>
         <source>Der Validierungscode muss { limit } Zeichen umfassen.</source>
@@ -311,7 +311,7 @@
     </unit>
     <unit id="ZJtAei3">
       <notes>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Soul/SoulController.php</note>
       </notes>
       <segment>
         <source>Dein Passwort wurde erfolgreich geändert. Bitte logge dich mit deinem neuen Passwort ein.</source>
@@ -320,7 +320,7 @@
     </unit>
     <unit id="MO7x7sr">
       <notes>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Soul/SoulController.php</note>
       </notes>
       <segment>
         <source>Auf wiedersehen, {name}. Wir werden dich vermissen und hoffen, dass du vielleicht doch noch einmal zurück kommst.</source>
@@ -428,7 +428,7 @@
     </unit>
     <unit id="B0ZNAR." name="Fehler bei der Datenübertragung.">
       <notes>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/PublicController.php</note>
       </notes>
       <segment>
         <source>Fehler bei der Datenübertragung.</source>
@@ -549,7 +549,7 @@
     </unit>
     <unit id="2WaNcqR" name="Dein Account wurde erfolgreich verknüpft!">
       <notes>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/PublicController.php</note>
       </notes>
       <segment>
         <source>Dein Account wurde erfolgreich verknüpft!</source>
@@ -603,7 +603,7 @@
     </unit>
     <unit id="7Nk4Nxa" name="Willkommen zurück! Dein Account ist nicht länger zur Löschung vorgemerkt.">
       <notes>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/PublicController.php</note>
       </notes>
       <segment>
         <source>Willkommen zurück! Dein Account ist nicht länger zur Löschung vorgemerkt.</source>
@@ -621,7 +621,7 @@
     </unit>
     <unit id="jUZA576" name="Du wurdest erfolgreich von allen Geräten abgemeldet.">
       <notes>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Soul/SoulController.php</note>
       </notes>
       <segment>
         <source>Du wurdest erfolgreich von allen Geräten abgemeldet.</source>
@@ -630,7 +630,7 @@
     </unit>
     <unit id="iGunNf8" name="Dein Name kann nur alphanumerische Zeichen enthalten.">
       <notes>
-        <note category="from">twig:///templates/ajax/admin/widget/controls.twig;twig:///templates/ajax/game/jobs.html.twig</note>
+        <note category="from">php:///src/Controller/PublicController.php;twig:///templates/ajax/admin/widget/controls.twig;twig:///templates/ajax/game/jobs.html.twig</note>
       </notes>
       <segment>
         <source>Dein Name kann nur alphanumerische Zeichen enthalten.</source>
@@ -639,7 +639,7 @@
     </unit>
     <unit id="6zAO87a">
       <notes>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/PublicController.php</note>
       </notes>
       <segment>
         <source>Der eingegebene Pate ist ungültig. Um dich ohne einen Paten anzumelden, lasse das Feld frei.</source>
@@ -713,7 +713,7 @@
     </unit>
     <unit id="y2_Gamb">
       <notes>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Soul/SoulController.php</note>
       </notes>
       <segment>
         <source>Deine E-Mail Adresse wurde geändert. Bitte validiere die neue Adresse, damit du sie verwenden kannst.</source>
@@ -758,7 +758,7 @@
     </unit>
     <unit id="1zpAcv.">
       <notes>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/PublicController.php</note>
       </notes>
       <segment>
         <source>Du hast deinen Anzeigenamen auf EternalTwin geändert. Wir haben diese Änderung soeben für dich übernommen!</source>
@@ -767,7 +767,7 @@
     </unit>
     <unit id="OUS.MDw">
       <notes>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/PublicController.php</note>
       </notes>
       <segment>
         <source>Dein EternalTwin-Benutzername enthält Elemente, die auf MyHordes nicht gestattet sind. Bitte ändere deinen Namen auf EternalTwin, um dich auf MyHordes anmelden zu können.</source>
@@ -776,7 +776,7 @@
     </unit>
     <unit id=".gp.m4T">
       <notes>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/PublicController.php</note>
       </notes>
       <segment>
         <source>Der eingegebene Spieler ist nicht für das Patenschafts-Programm registriert. Bitte ihn, die "Freundschaft"-Seite in seiner Seele aufzurufen; er wird dann automatisch registriert. Erst dann kannst du ihn als Sponsor auswählen.</source>
@@ -785,7 +785,7 @@
     </unit>
     <unit id="1itQsls" name="Deine E-Mail-Adresse wurde erfolgreich geändert.">
       <notes>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Soul/SoulController.php</note>
       </notes>
       <segment>
         <source>Deine E-Mail-Adresse wurde erfolgreich geändert.</source>

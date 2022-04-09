@@ -408,7 +408,7 @@
     </unit>
     <unit id="q8r8gtq" name="Titel">
       <notes>
-        <note category="from">twig:///templates/ajax/soul/rps.html.twig</note>
+        <note category="from">php:///src/Structures/TwinoidPayload.php;twig:///templates/ajax/soul/rps.html.twig</note>
       </notes>
       <segment>
         <source>Titel</source>
@@ -1787,7 +1787,7 @@
     </unit>
     <unit id="zlGVYh_" name="{name}'s Koalition">
       <notes>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Soul/SoulCoalitionController.php</note>
       </notes>
       <segment>
         <source>{name}'s Koalition</source>
@@ -1796,7 +1796,7 @@
     </unit>
     <unit id="j8VraNU" name="Herzlichen Glückwunsch, du bist der Koalition soeben beigetreten!">
       <notes>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Soul/SoulCoalitionController.php</note>
       </notes>
       <segment>
         <source>Herzlichen Glückwunsch, du bist der Koalition soeben beigetreten!</source>
@@ -2597,7 +2597,7 @@
     </unit>
     <unit id="_33rQU1" name="Durch deinen Weggang hast du deine Koalition soeben aufgelöst.">
       <notes>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Soul/SoulCoalitionController.php</note>
       </notes>
       <segment>
         <source>Durch deinen Weggang hast du deine Koalition soeben aufgelöst.</source>
@@ -3717,7 +3717,7 @@
     </unit>
     <unit id="o1q81tr" name="Icon">
       <notes>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Structures/TwinoidPayload.php</note>
       </notes>
       <segment>
         <source>Icon</source>
@@ -4023,7 +4023,7 @@
     </unit>
     <unit id="5LUgK.g" name="Du hast {username} zu deinen Kontakten hinzugefügt!">
       <notes>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Soul/SoulController.php</note>
       </notes>
       <segment>
         <source>Du hast {username} zu deinen Kontakten hinzugefügt!</source>
@@ -4032,7 +4032,7 @@
     </unit>
     <unit id="eBWT82h" name="Du hast {username} aus deinen Kontakten gelöscht!">
       <notes>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Soul/SoulController.php</note>
       </notes>
       <segment>
         <source>Du hast {username} aus deinen Kontakten gelöscht!</source>

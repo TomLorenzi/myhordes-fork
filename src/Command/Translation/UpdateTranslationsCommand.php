@@ -103,6 +103,7 @@ class UpdateTranslationsCommand extends Command
         $langs = ($lang === 'all') ? ['en', 'fr', 'es', 'de'] : [$lang];
         if (count($langs) === 1) {
 
+            $this->conf_trans->setConfigured(true);
             if ($input->getOption('disable-db')) $this->conf_trans->setDatabaseSearch(false);
             if ($input->getOption('disable-php')) $this->conf_trans->setPHPSearch(false);
             if ($input->getOption('disable-twig')) $this->conf_trans->setTwigSearch(false);
