@@ -26126,7 +26126,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Dank deines Kostüms konntest du {item} von {victim} stehlen, &lt;strong&gt;ohne erkannt zu werden&lt;/strong&gt;.&lt;hr/&gt;Was für ein guter Morgen!</source>
-        <target><![CDATA[Grâce à votre <strong>costume</strong>, vous avez réussi à voler {item} à {victime} <strong>et personne n’a vu quoi que ce soit</strong>.<hr />Bonne matinée à toi !]]></target>
+        <target><![CDATA[Grâce à votre <strong>costume</strong>, vous avez réussi à voler {item} à {victim} <strong>et personne n’a vu quoi que ce soit</strong>.<hr />Bonne matinée à toi !]]></target>
       </segment>
     </unit>
     <unit id="etOQTse">
