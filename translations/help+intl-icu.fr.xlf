@@ -524,7 +524,6 @@
     <unit id="vpGUC3n" name="Support">
       <notes>
         <note category="german">Support</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/help/seasons_and_rankings.html.twig;twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/help/support.html.twig;twig:///templates/seo/help.html.twig</note>
       </notes>
       <segment>
@@ -6354,7 +6353,6 @@ Die Punkte für den Titel "Spiritueller Führer" kumulieren sich mit jedem Tag. 
     <unit id="QbOHqWF" name="etc.">
       <notes>
         <note category="german">etc.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/help/towns_in_nondistantregions.html.twig</note>
       </notes>
       <segment>
@@ -7182,7 +7180,6 @@ Nutze bitte folgenden Link, wenn du uns einen Bug (technischen Fehler) melden m�
     <unit id="xWlFPqr" name="etc...">
       <notes>
         <note category="german">etc...</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/help/quarantined_towns.html.twig</note>
       </notes>
       <segment>

@@ -1896,7 +1896,7 @@
       </notes>
       <segment>
         <source>In dieser Zone graben</source>
-        <target>Search</target>
+        <target>Search the area</target>
       </segment>
     </unit>
     <unit id="K5c71RM" name="Nächste automatische Ausgrabung:">
@@ -15707,12 +15707,12 @@
     <unit id=".SXRDqM" name="Einen zufälligen Bürger als Katapult-Bediener auslosen">
       <notes>
         <note category="german">Einen zufälligen Bürger als Katapult-Bediener auslosen</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
         <note category="from">twig:///templates/ajax/game/town/catapult.html.twig</note>
       </notes>
       <segment>
         <source>Einen zufälligen Bürger als Katapult-Bediener auslosen</source>
-        <target>Einen zufälligen Bürger als Katapult-Bediener auslosen</target>
+        <target>Pick a random citizen as a catapult operator</target>
       </segment>
     </unit>
     <unit id="c8o8Cvb" name="Zu verschickender Gegenstand:">

@@ -15389,7 +15389,7 @@
       </notes>
       <segment>
         <source>Kleine Koalitionen</source>
-        <target>Petites coalitions</target>
+        <target>Ciotyens coalisés</target>
       </segment>
     </unit>
     <unit id="aGs0YSI" name="Die verfluchten Schriften">
@@ -15995,12 +15995,12 @@
     <unit id=".SXRDqM" name="Einen zufälligen Bürger als Katapult-Bediener auslosen">
       <notes>
         <note category="german">Einen zufälligen Bürger als Katapult-Bediener auslosen</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
         <note category="from">twig:///templates/ajax/game/town/catapult.html.twig</note>
       </notes>
       <segment>
         <source>Einen zufälligen Bürger als Katapult-Bediener auslosen</source>
-        <target>Einen zufälligen Bürger als Katapult-Bediener auslosen</target>
+        <target>Designer un citoyen au hasard en tant que responsable de la catapulte</target>
       </segment>
     </unit>
     <unit id="k9pQbZw" name="inmitten eines unentwirrbaren Trümmerhaufens">
@@ -19782,12 +19782,12 @@
     <unit id="91d4rG_" name="Du kannst keine Gegenstände verstecken, solange jemand zuschaut ...">
       <notes>
         <note category="german">Du kannst keine Gegenstände verstecken, solange jemand zuschaut ...</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
         <note category="from">php:///src/Controller/BeyondController.php</note>
       </notes>
       <segment>
         <source>Du kannst keine Gegenstände verstecken, solange jemand zuschaut ...</source>
-        <target>Du kannst keine Gegenstände verstecken, solange jemand zuschaut ...</target>
+        <target>Vous ne pouvez pas cacher d'objets pendant que quelqu’un regarde...</target>
       </segment>
     </unit>
     <unit id="wyxCVNs" name="Du hast keine Gegenstände, die du verstecken könntest.">
@@ -22456,22 +22456,22 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Ein oder mehrere Gegenstände wurden in dieser Zone von einem verbannten Bürger versteckt.</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
       </notes>
       <segment>
         <source>Ein oder mehrere Gegenstände wurden in dieser Zone von einem verbannten Bürger versteckt.</source>
-        <target>Ein oder mehrere Gegenstände wurden in dieser Zone von einem verbannten Bürger versteckt.</target>
+        <target>Un ou plusieurs objets ont été cachés dans cette zone par un citoyen banni.</target>
       </segment>
     </unit>
     <unit id="6WlIVqN">
       <notes>
         <note category="german">Nur verbannte Bürger können Gegenstände sehen und aufheben, wenn diese von anderen verbannten Bürgern versteckt wurden.</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
       </notes>
       <segment>
         <source>Nur verbannte Bürger können Gegenstände sehen und aufheben, wenn diese von anderen verbannten Bürgern versteckt wurden.</source>
-        <target>Nur verbannte Bürger können Gegenstände sehen und aufheben, wenn diese von anderen verbannten Bürgern versteckt wurden.</target>
+        <target>Seuls les citoyens bannis peuvent voir et ramasser des objets s’ils ont été cachés par d’autres citoyens bannis.</target>
       </segment>
     </unit>
     <unit id="kVCmkiM" name="Barhändiger Stripper">
@@ -23739,11 +23739,11 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Es gab gestern ein großes Stadtfest. &lt;strong&gt;&lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} wurde gehängt&lt;/strong&gt;. Endlich mal was los hier!</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
       </notes>
       <segment>
         <source>Es gab gestern ein großes Stadtfest. &lt;strong&gt;&lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} wurde gehängt&lt;/strong&gt;. Endlich mal was los hier!</source>
-        <target><![CDATA[Es gab gestern ein großes Stadtfest. <strong><i class="dagger">†</i> {cadaver1} wurde gehängt</strong>. Endlich mal was los hier!]]></target>
+        <target><![CDATA[Il y a eu un grand festival en ville hier. <strong><i class="dagger">†</i> {cadaver1} a été pendu</strong>. Enfin quelque chose se passe ici !]]></target>
       </segment>
     </unit>
     <unit id="SXSdY4m">
@@ -24730,11 +24730,11 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">einen Steinhaufen</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
       </notes>
       <segment>
         <source>einen Steinhaufen</source>
-        <target>einen Steinhaufen</target>
+        <target>un tas de pierres</target>
       </segment>
     </unit>
     <unit id="bZcA9Gg" name="einen Haufen Ramsch">
@@ -25812,11 +25812,11 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Der entsetzliche Angriff letzte Nacht kostete das Leben von {cadavers} Menschen. Circa &lt;strong&gt;{attack} Zombies&lt;/strong&gt;! Die Gewalt, die bei diesem jüngsten Angriff zu beobachten war, lässt uns das Schlimmste erwarten...</note>
         <note category="from">[unused]</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
       </notes>
       <segment>
         <source>Der entsetzliche Angriff letzte Nacht kostete das Leben von {cadavers} Menschen. Circa &lt;strong&gt;{attack} Zombies&lt;/strong&gt;! Die Gewalt, die bei diesem jüngsten Angriff zu beobachten war, lässt uns das Schlimmste erwarten...</source>
-        <target><![CDATA[Der entsetzliche Angriff letzte Nacht kostete das Leben von {cadavers} Menschen. Circa <strong>{attack} Zombies</strong>! Die Gewalt, die bei diesem jüngsten Angriff zu beobachten war, lässt uns das Schlimmste erwarten...]]></target>
+        <target><![CDATA[L’horrible attaque de la nuit dernière a coûté la vie à des citoyens : {cadavres}. Autour de <strong>{attaque} Zombies</strong> ! La violence observée dans cette dernière attaque nous fait nous attendre au pire...]]></target>
       </segment>
     </unit>
     <unit id="Mv5rYXb">
@@ -26012,11 +26012,11 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Du hast keine Seelenpunkte gewonnen.</note>
         <note category="from">twig:///templates/ajax/soul/death.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
       </notes>
       <segment>
         <source>Du hast keine Seelenpunkte gewonnen.</source>
-        <target>Du hast keine Seelenpunkte gewonnen.</target>
+        <target>Vous n’avez pas gagné de points d’âme.</target>
       </segment>
     </unit>
     <unit id="DAZTSgM" name="Ein anderer Bürger hat sich in der Zwischenzeit diesen Gegenstand geschnappt.">
