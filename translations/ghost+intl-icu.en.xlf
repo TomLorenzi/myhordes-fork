@@ -111,13 +111,13 @@
         <target>Do you want to enter the terrible world of MyHordes as a citizen of {town_name}</target>
       </segment>
     </unit>
-    <unit id="AwZY28C">
+    <unit id="3mY3e0U">
       <notes>
         <note category="german">&lt;p&gt;
                     Deine Stadt wird gerade von den Zombies &lt;strong&gt;angegriffen&lt;/strong&gt;! Du hörst wie sie &lt;strong&gt;grunzend&lt;/strong&gt; gegen eure Hütten schlagen. Dazwischen immer wieder &lt;strong&gt;Hilferufe&lt;/strong&gt; und Schreie... Sie scheinen überall zu sein...
                     &lt;/p&gt;
                     &lt;p&gt;
-                    Was tust du, solange der Angriff tobt?               
+                    Was tust du, solange der Angriff tobt?
                     &lt;/p&gt;</note>
         <note category="from">twig:///templates/ajax/public/maintenance_attack.html.twig</note>
       </notes>
@@ -126,13 +126,13 @@
                     Deine Stadt wird gerade von den Zombies &lt;strong&gt;angegriffen&lt;/strong&gt;! Du hörst wie sie &lt;strong&gt;grunzend&lt;/strong&gt; gegen eure Hütten schlagen. Dazwischen immer wieder &lt;strong&gt;Hilferufe&lt;/strong&gt; und Schreie... Sie scheinen überall zu sein...
                     &lt;/p&gt;
                     &lt;p&gt;
-                    Was tust du, solange der Angriff tobt?               
+                    Was tust du, solange der Angriff tobt?
                     &lt;/p&gt;</source>
         <target><![CDATA[<p>
                     Hordes of zombies are <strong>attacking</strong> your town! They are everywhere, you hear citizens <strong>screaming</strong> in the night, the attackers clashing noisily against sheet metal... Hungry <strong>groaning</strong> from the starving masses... What's going to become of it?!
                     </p>
                     <p>
-                    Are you going to <strong>die2nite</strong>?!              
+                    Are you going to <strong>die2nite</strong>?!
                     </p>]]></target>
       </segment>
     </unit>
@@ -986,26 +986,6 @@
         <target>The town gates cannot be opened until the city is full.</target>
       </segment>
     </unit>
-    <unit id="8UBVWFJ" name="Betapropin steht nicht zur Verfügung.">
-      <notes>
-        <note category="german">Betapropin steht nicht zur Verfügung.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Betapropin steht nicht zur Verfügung.</source>
-        <target>Betapropine is not available.</target>
-      </segment>
-    </unit>
-    <unit id="QjQvnlj" name="Beta-Funktionen deaktivieren">
-      <notes>
-        <note category="german">Beta-Funktionen deaktivieren</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Beta-Funktionen deaktivieren</source>
-        <target>Disable Beta features</target>
-      </segment>
-    </unit>
     <unit id="VoOkBZ0" name="Ein Mitglied deiner Koalition kann dieser Stadt nicht beitreten.">
       <notes>
         <note category="german">Ein Mitglied deiner Koalition kann dieser Stadt nicht beitreten.</note>
@@ -1746,6 +1726,66 @@
       <segment>
         <source>Die Verwendung einer anderen Sprache im Stadtforum kann zu Sanktionen seitens der Moderation führen!</source>
         <target>Using other languages may result in sanctions from the moderation!</target>
+      </segment>
+    </unit>
+    <unit id="L1PDlgY">
+      <notes>
+        <note category="german">Die verhungerte &lt;strong&gt;Zombiehorde&lt;/strong&gt; ist diese Nacht über deine Stadt hereingebrochen!</note>
+        <note category="from">twig:///templates/ajax/public/maintenance_attack.html.twig</note>
+      </notes>
+      <segment>
+        <source>Die verhungerte &lt;strong&gt;Zombiehorde&lt;/strong&gt; ist diese Nacht über deine Stadt hereingebrochen!</source>
+        <target><![CDATA[Last night, <strong>Hordes</strong> of starving zombies descended on your town!]]></target>
+      </segment>
+    </unit>
+    <unit id="rW9LI_4" name="Die &quot;gute&quot; Nachricht: Du bist noch &lt;strong&gt;am Leben&lt;/strong&gt;...">
+      <notes>
+        <note category="german">Die "gute" Nachricht: Du bist noch &lt;strong&gt;am Leben&lt;/strong&gt;...</note>
+        <note category="from">twig:///templates/ajax/public/maintenance_attack.html.twig</note>
+      </notes>
+      <segment>
+        <source>Die "gute" Nachricht: Du bist noch &lt;strong&gt;am Leben&lt;/strong&gt;...</source>
+        <target><![CDATA[The "good news" is that you appear to still be <strong>alive</strong>... For the time being at least...]]></target>
+      </segment>
+    </unit>
+    <unit id="p4fRg2j" name="Sein Zuhause verlassen...">
+      <notes>
+        <note category="german">Dein Zuhause verlassen...</note>
+        <note category="from">twig:///templates/ajax/public/maintenance_attack.html.twig</note>
+      </notes>
+      <segment>
+        <source>Sein Zuhause verlassen...</source>
+        <target>Back into the fray...</target>
+      </segment>
+    </unit>
+    <unit id="tU0K6oe" name="Zur Partieauswahl zurückkehren">
+      <notes>
+        <note category="german">Zur Partieauswahl zurückkehren</note>
+        <note category="from">twig:///templates/ajax/public/maintenance_attack.html.twig</note>
+      </notes>
+      <segment>
+        <source>Zur Partieauswahl zurückkehren</source>
+        <target>Return to game selection</target>
+      </segment>
+    </unit>
+    <unit id="CJDUJAE" name="Beide Schamanen-Modi sind gleichzeitig aktiviert (experimentell!).">
+      <notes>
+        <note category="german">Beide Schamanen-Modi sind gleichzeitig aktiviert (experimentell!).</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+      </notes>
+      <segment>
+        <source>Beide Schamanen-Modi sind gleichzeitig aktiviert (experimentell!).</source>
+        <target>Both shaman modes are enabled at the same time (experimental!).</target>
+      </segment>
+    </unit>
+    <unit id="RcOw7GN" name="Kombiniert">
+      <notes>
+        <note category="german">Kombiniert</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+      </notes>
+      <segment>
+        <source>Kombiniert</source>
+        <target>Combined</target>
       </segment>
     </unit>
   </file>

@@ -237,22 +237,91 @@ x-message {
   position: relative; margin: 0 auto; padding: 0; width: @myhordes-content-width; overflow: visible;
   background: @myhordes-content-background; box-shadow: 0 0 20px black;
 
+  &.attract {
+    box-shadow: none; background: none; backdrop-filter: drop-shadow(0 0 20px black);
+    div.header-stats {
+      position: absolute;
+      top: 0px; pointer-events: none;
+      right: 15px;
+      &>ul {
+        list-style: none;
+        font-variant: small-caps;
+        font-weight: bolder;
+        color: #fdcb70;
+        text-shadow: 0px 1px 1px black, 0px -1px 1px black, 1px 0px 1px black, -1px 0px 1px black, 1px 1px 1px black, -1px -1px 1px black, -1px 1px 1px black, 1px -1px 1px black;
+        text-align: right;
+        font-size: 1.3rem;
+        font-style: italic;
+        &>li {
+          span {
+            font-size: 1.8rem;
+          }
+          &.end-stat {
+            color: white;
+          }
+        }
+      }
+    }
+  }
+
   &>#header {
     &>#header-reload-area { position: absolute; left: 0; top: 0; height: 141px; width: 100%; cursor: pointer; }
     background: @myhordes-content-header-background; height: @myhordes-content-header-height;
     margin: 0 0 @myhordes-content-header-margin;
   }
 
+  &.attract > #header {
+    background-image: url("../img/background/bg_attract_header.png"); position: relative;
+    .attract_button {
+      position: absolute; width: 260px; height: 117px; top: 82px; left: calc(50% - 130px);
+      background: url("../img/background/bg_attract_button.png") center no-repeat;
+      &::after {
+        position: absolute; width: 100%; height: 38px; top: 0; background: url("../img/background/electrik.gif") center no-repeat;
+        content: " ";
+      }
+
+      a {
+        display: block; position: absolute; width: 137px; height: 46px; top: 50px; left: 62px; background: url("../img/background/deco_jouerBt.gif") center no-repeat; text-decoration: none;
+        span {
+          text-align: center; text-transform: uppercase; font-size: 19pt; padding-top: 5px; display: block;
+          font-weight: bolder; text-shadow: 0 2px 0 #94361b, 0 -2px 0 #94361b, 2px 0 0 #94361b, -2px 0 0 #94361b, 2px 2px 0 #94361b, -2px -2px 0 #94361b, -2px 2px 0 #94361b;
+        }
+        &:hover { filter: brightness(110%) }
+        &:active {
+          background-image: url("../img/background/deco_jouerBt2.gif");
+          span { padding-top: 10px; }
+        }
+      }
+    }
+
+    .deco_logo {
+      background-image: url("../img/attract/deco_logo_01_de.png");
+      background-repeat: no-repeat;
+      width: 300px; height: 144px; position: relative; top: 12px;
+
+    }
+
+    .back-dash {
+      background: #00000000; color: #f0d79e; box-shadow: inset 0 0 4px #00000000; border: 1px solid #00000000;
+      position: absolute; top: 188px; left: -8px; width: 117px; height: 37px;
+      padding-top: 9.5px; padding-left: 26px; cursor: pointer;
+      font-size: 1.0rem; font-weight: normal; font-variant: small-caps;
+      background-image: url("../img/game-bar/back_button.png");
+      &:hover { background-image: url("../img/game-bar/back_button_hover.png"); padding-top: 10.5px; }
+    }
+  }
+
   &>#content {
+
     margin: 0 5px 0 @myhordes-left-padding;
     &>.row:not(.external-app)>.cell:not(.manual-background),&>noscript>.row>.cell, & .cell.background,&>.row:not(.external-app)>.cell-small:not(.manual-background),&>noscript>.row>.cell-small, & .cell-small.background {
 
       &.header>h4:first-child {
         &+*::before { content: " "; display: block; height: 24px; }
         position: absolute; left: 0; top: 0; right: 0; background: @myhordes-cell-header-background-color; margin: 0;
-        color: @myhordes-cell-header-text-color; padding: 5px;
+        color: @myhordes-cell-header-text-color;
         box-shadow: 0 0 3px black, inset 0 0 3px lighten(@myhordes-cell-header-background-color, 20%);
-        font-variant: small-caps;
+        font-variant: small-caps; padding: 4px;
       }
 
       &.padded       { padding: 12px + @myhordes-grid-padsize; }
@@ -478,11 +547,93 @@ x-message {
     }
   }
 
+  &.attract > #content {
+    background: @myhordes-content-background; margin: 12px 0 0 0; padding: 0 5px 18px 19px;
+    #gma { display: none }
+  }
+
   &::after {
     content: " "; display: block; position: relative;
     bottom: -@myhordes-content-footer-height;
     background: @myhordes-content-footer-background; height: @myhordes-content-footer-height;
   }
+
+  &.attract::after { bottom: 3px; }
+}
+
+.trailer {
+  .panic {
+    height: 86px; width: 62px; background: url("../img/panique_anim.gif") bottom right no-repeat, url("../img/zombie_anim.gif") top left no-repeat;
+  }
+
+  video { border: 1px solid #f0d79e; background-color: black; box-shadow: 0 0 4px black; position: relative; z-index: 1; }
+
+  .teaser {
+    padding: 5px 18px; font-weight: bold; color: #f0d79e; letter-spacing: -.2px;
+    font-size: 1.6rem; line-height: 1.6rem; text-align: justify;
+    strong { color: #f8eacb }
+  }
+
+  .teaser-link {
+    color: #f0d79e; text-transform: uppercase; font-weight: bold; font-size: 8pt;
+    &>span { text-decoration: underline }
+    &:hover>span { color: white; }
+    &+.teaser-link { margin-top: 4px; }
+  }
+}
+
+.news-preview {
+  font-size: 12px;
+  .header {
+    margin-bottom: 16px;
+    & > h3 { color: #ddab76; font-size: 17px; margin: 0}
+    & > span { font-size:  10px; opacity: 0.9; }
+  }
+  .article {
+    max-height: 120px; overflow: hidden; margin-bottom: 20px; position: relative; line-height: 12px;
+    &::after { position: absolute; bottom: 0; left: 0; width: 100%; height: 60px; content: " "; font-weight: bold; background: linear-gradient(0deg, rgba(105,62,41,1) 0%, rgba(105,62,41,0) 100%); }
+  }
+}
+
+.preview-images img { border: 1px solid #f0d79e;  }
+
+h4.preview-header {
+  background: #5c2b20; font-size: 13px;
+  margin: 8px 0; color: #f0d79e; box-shadow: 0 0 3px black, inset 0 0 3px #a84e3a;
+  font-variant: small-caps; width: calc(100% + 32px); position: relative; left: -32px; padding: 4px 4px 4px 32px;
+}
+
+.gallery {
+  z-index: 9999;
+  position: absolute; transition: all 1.0s ease-in-out;
+  display: flex; justify-content: center; align-items: center; flex-direction: column;
+  &>img { max-width: 100%; border: 1px solid #f0d79e; }
+  &>div { max-width: 100%; height: 0; overflow: visible; transition: all 0.5s ease-in-out;
+    transition-delay: 1s; border: 1px solid black;
+    &> div { padding: 4px; text-align: center; background-color: black; color: white }
+  }
+}
+
+.gallery-backdrop {
+  z-index: 9998; left: 0; top: 0; height: 100%; width: 100%;
+  position: absolute; transition: background-color 1.0s ease-in-out;
+  background-color: transparent;
+}
+
+
+.about-paragraph {
+  font-size: 10pt; line-height: 11pt; color: #f0d79e; text-align: justify;
+  strong { color: white; font-weight: bold; }
+  img {
+    border: 1px solid #f0d79e; box-shadow: 0 0 4px black; max-width: 155px;
+    &.float-left { margin: 0 16px 4px 0; }
+    &.float-right { margin: 0 0 4px 16px; }
+  }
+}
+
+.changelog-box {
+  background: #5c2b20; padding: 6px; border: 1px solid #704328;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); margin-bottom: 10px;
 }
 
 .warning {
@@ -648,7 +799,7 @@ button, *.button, *.modal-button {
   &:active { border-bottom-width: 1px; border-top-width: 2px; }
   &.inline { padding: 0 5px 0; }
 
-  &:not(.inline) { display: block; width: 100%; }
+  &:not(.inline) { &:not(.spaced-icon) { display: block; } width: 100%; }
 
   &.small {
     font-size: 1rem; padding: 2px 6px; display: inline-block; min-height: 0; margin:0;
@@ -683,7 +834,7 @@ input[type='text'],input[type='number'],input[type='password'],input[type='email
   &:not(textarea) { background: @myhordes-input-background; }
   &:not(input)    { background: @myhordes-input-text-background; resize: vertical; max-width: 100%; min-height: 250px; }
   border: 1px solid @myhordes-input-border; height: 25px;
-  &:not(.inline) { display: block; width: 100%; }
+  &:not(.inline) { &:not(.spaced-icon) { display: block; } width: 100%; }
   &:focus { outline-color: @myhordes-input-border; }
   &:invalid,&.invalid { box-shadow: 0 0 4px red; }
 }
@@ -910,7 +1061,7 @@ div.game-menu-area {
 
     &>div.header-stats {
         position: absolute;
-        top: -130px;
+        top: -130px; pointer-events: none;
         right: 15px;
         &>ul {
           list-style: none;
@@ -1010,7 +1161,7 @@ div.game-menu-area {
           color: lighten(#7c2727, 10%);
           font-variant: small-caps;
         }
-        &>li:nth-child(5) { top: -5px; right: -3px; }
+        &>li:nth-child(5) { top: -6px; right: 0px; }
       }
 
       &.ulcont {
@@ -1552,8 +1703,9 @@ div.item-addendum {
 }
 
 div.item-tag {
-  font-size: 1.1rem; text-align: center; padding: 2px; background: #022142; border: 1px solid #011d37;
+  font-size: 1.1rem; /*text-align: center;*/ padding: 2px; background: #022142; border: 1px solid #011d37;
   position: relative; color: @myhordes-smalltext; height: 18px; margin-top: 3px;
+  padding-left: 20px;
   &:after {position: absolute; display: block; content: " "; height: 16px; width: 16px; top: 0; left: 1px; }
   &.item-tag-deco:after { background: url("../img/item/cat_deco.gif") center/contain no-repeat }
   &.item-tag-defense:after { background: url("../img/item/cat_def.gif") center/contain no-repeat }
@@ -1590,10 +1742,12 @@ div.daily-attack {
   margin: 0 auto;
   max-width: 442px;
   div.content {
-    .animation {
-      margin: 0;
-      video {
-        max-width: 100%;
+
+    div[data-ruffle-swf] {
+      overflow: hidden;
+      >* {
+        width: 100% !important; height: auto !important;
+        aspect-ratio: 440/120;
       }
     }
 
@@ -1782,6 +1936,7 @@ span.tag {
 }
 
 .username {
+  word-break: break-all;
   text-decoration: none;
   background-color: #5C0000;
   border-top: 1px solid #98341c;

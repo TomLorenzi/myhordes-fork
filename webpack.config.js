@@ -26,6 +26,23 @@ Encore
             : 'images/[path][name].[contenthash:8].[ext]',
     })
     .copyFiles({
+        from: 'assets/video',
+        to: (typeof(local.hash_filenames) !== 'undefined' && !local.hash_filenames)
+            ? 'mov/[path][name].[ext]'
+            : 'mov/[path][name].[contenthash:8].[ext]',
+    })
+    .copyFiles({
+        from: 'assets/swf',
+        to: (typeof(local.hash_filenames) !== 'undefined' && !local.hash_filenames)
+            ? 'flash/[path][name].[ext]'
+            : 'flash/[path][name].[contenthash:8].[ext]',
+    })
+    .copyFiles({
+        from: 'node_modules/@ruffle-rs/ruffle',
+        pattern: /.*\.(js|wasm)$/,
+        to: 'ruffle/[path][name].[ext]'
+    })
+    .copyFiles({
         from: 'assets/ext',
         to: 'ext/[path][name].[ext]'
     })

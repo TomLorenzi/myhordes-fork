@@ -23,7 +23,7 @@
   .hide-mobile {display: none !important;};
   body {background: black;}
   #wrapper, div.game-menu-area, footer { width: 100%; }
-
+  #wrapper.attract > #header .attract_button { background-image: url("../img/background/bg_attract_button_detached.png") }
   div.town-header {
     &:before { display: none; }
     &.hardcore {
@@ -123,6 +123,7 @@
       min-height: 180px;
     }
   }
+  h4.preview-header { width: 100%; left: 0; padding: 4px; }
 }
 @media (max-width: (@screen-small-threshold - 1)) {
   .hide-@{screen-small} {display: none !important;};
@@ -136,11 +137,18 @@
   }
   button, .button { padding-top: 16px; padding-bottom: 16px; margin-top: 8px; margin-bottom: 8px; }
 
+  h4.preview-header { width: 100%; left: 0; padding: 4px; }
+  .about-paragraph img { max-width: 100%; width: 100% }
+
   .rucksack_status_union.rucksack {
     &:before {
       left: 0 !important;
       background: url("../img/game-bar/panel_tl.png") 0 0 no-repeat,url("../img/game-bar/panel_bl.png") 0 100% no-repeat,url("../img/game-bar/panel_l.png") 0 0 repeat-y !important;
     };
+  }
+
+  .soul .news .content {
+    padding: 5px; background: #5c2b20; min-height: auto;
   }
 
   body:not(.icon-zoom-1-00) ul.inventory {
@@ -286,7 +294,7 @@
     .forum-preview-container { border: none; }
 
     &.forum-preview-wrapper-bank {
-      min-height: 0;
+      min-height: max( 33vh, 120px );
       .forum-preview-container { position: unset; top: 0; left: 0; right: 0; bottom: 0; }
     }
   }

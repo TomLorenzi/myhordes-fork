@@ -8,6 +8,11 @@ interface navigationPromiseCallback { (any): void }
 declare var c: Const;
 declare var $: Global;
 
+declare global {
+    interface Window { RufflePlayer: any; }
+}
+window.RufflePlayer = window.RufflePlayer || {};
+
 export default class Ajax {
 
     private readonly base: string;
@@ -269,6 +274,18 @@ export default class Ajax {
                 $.html.handleCountdown( countdowns[c] );
             }
 
+            let ruffle_targets = content_source[i].querySelectorAll('*[data-ruffle-swf]');
+            for (let c = 0; c < ruffle_targets.length; c++) {
+                let ruffle = window.RufflePlayer.newest();
+                let player = ruffle.createPlayer();
+                ruffle_targets[c].appendChild(player);
+                player.load({
+                        url: (ruffle_targets[c] as HTMLElement).dataset.ruffleSwf,
+                        parameters: (ruffle_targets[c] as HTMLElement).dataset.ruffleVars ?? ''
+                    }
+                );
+            }
+
             content_source[i].querySelectorAll('*[x-current-time]').forEach( elem => $.html.handleCurrentTime( <HTMLElement>elem, parseInt(elem.getAttribute('x-current-time')) ))
             content_source[i].querySelectorAll('div.tooltip')      .forEach( elem => $.html.handleTooltip( <HTMLElement>elem ))
             content_source[i].querySelectorAll('.username')        .forEach( elem => $.html.handleUserPopup( <HTMLElement>elem ))
@@ -338,6 +355,9 @@ export default class Ajax {
             switch ( this.getResponseHeader('X-AJAX-Control') ) {
                 case 'reset':
                     window.location.href = ajax_instance.base;
+                    return;
+                case 'navigate':
+                    window.location.href = this.getResponseHeader('X-AJAX-Navigate') ?? ajax_instance.base;
                     return;
                 case 'reload':
                     window.location.reload();
@@ -415,6 +435,9 @@ export default class Ajax {
             switch ( this.getResponseHeader('X-AJAX-Control') ) {
                 case 'reset':
                     window.location.href = base;
+                    return;
+                case 'navigate':
+                    window.location.href = this.getResponseHeader('X-AJAX-Navigate') ?? base;
                     return;
                 case 'reload':
                     window.location.reload();

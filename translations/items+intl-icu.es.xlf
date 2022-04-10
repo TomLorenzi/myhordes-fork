@@ -7289,16 +7289,6 @@
         <target>Preparar un Estimulante</target>
       </segment>
     </unit>
-    <unit id="0V2NUu6" name="In deinem Labor hast du {items_consume} in {items_spawn} umgewandelt.">
-      <notes>
-        <note category="german">In deinem Labor hast du {items_consume} in {items_spawn} umgewandelt.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>In deinem Labor hast du {items_consume} in {items_spawn} umgewandelt.</source>
-        <target><![CDATA[Mueles el contenido de {items_consume} sobre la mesa y haces una mezcla con todo lo que tienes a la vista... Lo dejas reposar. Te ha quedado <strong>buenísimo</strong>: ¡Ahora tienes {items_spawn}!]]></target>
-      </segment>
-    </unit>
     <unit id="z79RBPW" name="Kochen">
       <notes>
         <note category="german">Kochen</note>
@@ -8487,12 +8477,12 @@
     </unit>
     <unit id="P9ubaaO" name="Schwarzer Zervixschleim">
       <notes>
-        <note category="german">Schwarzer Zervixschleim</note>
+        <note category="german">Schwarzer Nackenwirbelschleim</note>
         <note category="from">db://ItemPrototype</note>
       </notes>
       <segment>
         <source>Schwarzer Zervixschleim</source>
-        <target>Exudación Cervical Negra</target>
+        <target>Moco de cuello negro</target>
       </segment>
     </unit>
     <unit id="M3k3jYb">
@@ -9235,16 +9225,6 @@
         <target><![CDATA[Sí, por supuesto... lo has visto cientos de veces, el tema no cambia demasiado, pero aún así: no hay nada como una buena película de zombis para relajarse. <t-stat-down-terror><hr />Esos gritos de horror extrañamente distantes te han enderezado la cabeza: <strong>Te has quitado el miedo</strong>.</t-stat-down-terror>]]></target>
       </segment>
     </unit>
-    <unit id="zBL2Qmm">
-      <notes>
-        <note category="german">Du greifst einen Zombie mit {item} an, aber er &lt;strong&gt;geht einfach nicht zu Boden&lt;/strong&gt; und kommt weiter auf dich zu.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Du greifst einen Zombie mit {item} an, aber er &lt;strong&gt;geht einfach nicht zu Boden&lt;/strong&gt; und kommt weiter auf dich zu.</source>
-        <target><![CDATA[Atacas a un zombi con {item}, pero <strong>simplemente no cae</strong> y sigue viniendo hacia ti.]]></target>
-      </segment>
-    </unit>
     <unit id="Loi4Bfp" name="Verbessert die Verteidigung und verhindert Diebstähle">
       <notes>
         <note category="german">Verbessert die Verteidigung und verhindert Diebstähle</note>
@@ -9444,6 +9424,16 @@
       <segment>
         <source>Hiermit kannst du Städten beitreten, obwohl du die Mindestanzahl an Seelenpunkten noch nicht erreicht hast.</source>
         <target>Esto te permite unirte a pueblos aunque no hayas alcanzado el número mínimo de puntos de alma necesarios.</target>
+      </segment>
+    </unit>
+    <unit id="zMlo9nG">
+      <notes>
+        <note category="german">Du bist &lt;strong&gt;zu weit von der Stadt entfernt&lt;/strong&gt;, um diese Fähigkeit benutzen zu können! Genauer gesagt bist du {km_from_town} km entfernt. Die maximale Entfernung darf höchstens 11 km betragen.</note>
+        <note category="from">db://Requirement</note>
+      </notes>
+      <segment>
+        <source>Du bist &lt;strong&gt;zu weit von der Stadt entfernt&lt;/strong&gt;, um diese Fähigkeit benutzen zu können! Genauer gesagt bist du {km_from_town} km entfernt. Die maximale Entfernung darf höchstens 11 km betragen.</source>
+        <target><![CDATA[¡Estás <strong>demasiado lejos del pueblo para utilizar este poder</strong>! Estás a {km_from_town}km cuando la distancia máxima es de 11km.</div>]]></target>
       </segment>
     </unit>
   </file>

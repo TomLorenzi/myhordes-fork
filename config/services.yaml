@@ -10,6 +10,11 @@ imports:
 
 twig:
     globals:
+        all_languages:
+          de: 'de_DE'
+          en: 'en_US'
+          fr: 'fr_FR'
+          es: 'es_ES'
         user_handler: '@App\Service\UserHandler'
 
 services:
@@ -46,6 +51,14 @@ services:
         public: true
     App\Service\HTMLService:
         public: true
+
+    # This aliases the classes used by the translation tool commands
+    translation.tools.loader:
+      alias: 'translation.loader.xliff'
+      public: true
+    translation.tools.dumper:
+      alias: 'translation.dumper.xliff'
+      public: true
 
     # controllers are imported separately to make sure services can be injected
     # as action arguments even if you don't extend any base controller class

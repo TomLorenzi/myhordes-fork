@@ -358,7 +358,7 @@ module.exports = {
 Edit these settings to fit your environment.
 
 ### If you have found an untranslatable string
-Add `T::__('text','domain')` in the PHP file you found it, or `{{ 'text'|trans({},'domain')` , then run the `bin/console app:migrate -t fr` cmdlet to update FR location (available languages : fr, en, de, es and 'all' to update all languages at once)
+Add `T::__('text','domain')` in the PHP file you found it, or `{{ 'text'|trans({},'domain')` , then run the `bin/console app:translation:update fr` cmdlet to update FR location (available languages : fr, en, de, es and 'all' to update all languages at once)
 
 ### How to add a missing RP text
 Go to your soul, and go read the first page of the RP text. Then, open your Web Console (CTRL+MAJ+I).
@@ -437,24 +437,38 @@ Note : if you want to reactivate the bank lock or modify the values, you'll just
 
 # Various commands
 
+## Move translation strings between domains
+
+If you want to move translation entries from one domain to another (for example, from `game` to `gazette`), you can use
+the following command:
+```
+app:translation:move-domain <source domain> <target domain> --match <source file>
+```
+This will move all translations coming from `source file` from `source domain` to `target domain`. You can find out the
+source file of a specific translation from the `from` note within the translation files. There can be multiple `--match`
+entries with this command.
+
+Please note that translations entries coming from **multiple** sources are only moved if **all of their sources** are
+indicated using `--match`.
+
 ## Create the crow account and 79 other test accounts
 It will also create 80 debug accounts in case there are none.
 ```
 bin/console app:debug --add-crow
 ```
 
-# Create a new town
+## Create a new town
 Available languages : fr, en, de, es, multi
 ```
 bin/console app:town:create remote 40 <en,fr,de,es,multi>
 ```
 
-### Fill town with citizens
+## Fill town with citizens
 ```
 bin/console app:debug --fill-town <town.id>
 ```
 
-### CronJob
+## CronJob
 
 MyHordes requires a special command to be executed regularly to function properly, for example to run the nightly 
 attack. To create a cron job on your server, run
@@ -473,7 +487,7 @@ Explanation:
 - `cd /MyHordes;` : Replace `/MyHordes` with the path to the root of your cloned project. This puts the script's scope in this directory.
 - `bin/console app:cron` : This tells the cron job to call the MyHordes cron handler.
 
-#### Schedule an attack
+## Schedule an attack
 By default, MyHordes runs its attack at midnight. However, the time point of the very first attack must be specified manually.
 
 Schedule an attack at the next midnight:
@@ -482,7 +496,7 @@ bin/console app:schedule --add "tomorrow"
 ```
 Schedule the attack now:
 
-### Administration
+## Administration
 
 The console offers many more possibilities. For example, you can fill a town with test users with :
 

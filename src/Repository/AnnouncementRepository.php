@@ -40,6 +40,15 @@ class AnnouncementRepository extends ServiceEntityRepository
         return $qb->getQuery()->getResult();
     }
 
+    public function findLatestByLang(string $lang): ?Announcement
+    {
+        return $this->createQueryBuilder('a')
+            ->andWhere('a.lang = :lang')->setParameter('lang', $lang)
+            ->orderBy('a.timestamp', 'DESC')
+            ->setMaxResults( 1 )
+            ->getQuery()->getOneOrNullResult();
+    }
+
     public function countUnreadByUser(User $user, string $lang)
     {
         $qb = $this->createQueryBuilder('a')->select('COUNT(a.id)')

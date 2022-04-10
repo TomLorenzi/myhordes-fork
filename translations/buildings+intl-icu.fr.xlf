@@ -1044,8 +1044,8 @@
     <unit id="cdTPlT5" name="Scanner">
       <notes>
         <note category="german">Scanner</note>
-        <note category="state">new</note>
         <note category="from">db://BuildingPrototype</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Scanner</source>
@@ -1155,8 +1155,8 @@
     <unit id="CZ3TwGn" name="Guerilla">
       <notes>
         <note category="german">Guerilla</note>
-        <note category="state">new</note>
         <note category="from">db://BuildingPrototype</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Guerilla</source>
@@ -1876,8 +1876,8 @@
     <unit id="TLVi.09" name="Bunker">
       <notes>
         <note category="german">Bunker</note>
-        <note category="state">new</note>
         <note category="from">db://CitizenHomePrototype</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Bunker</source>
@@ -2351,7 +2351,7 @@
       </notes>
       <segment>
         <source>Diese Verbesserung ist nicht der ganz große Wurf, aber sie erfüllt ihren Zweck: Sie verhindert, dass du zu schnell stirbst.</source>
-        <target>Ce n'est pas spécialement évolué, mais ça fait son office : vous empêcher de mourrir trop vite.</target>
+        <target>Ce n'est pas spécialement évolué, mais ça fait son office : vous empêcher de mourir trop vite.</target>
       </segment>
     </unit>
     <unit id="wwPL56w" name="Simpel aber stabil: Was will man mehr?">

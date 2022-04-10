@@ -2130,12 +2130,12 @@ class ExternalController extends InventoryAwareController {
         $request = Request::createFromGlobals();
 
         // Try POST data
-        $app_key = trim($request->query->get('appkey'));
+        $app_key = trim($request->query->get('appkey') ?? '');
 
         // Symfony 5 has a bug on treating request data.
         // If POST didn't work, access GET data.
         if ($app_key == '') {
-            $app_key = trim($request->request->get('appkey'));
+            $app_key = trim($request->request->get('appkey') ?? '');
         }
 
         if ($app_key == '') {

@@ -176,7 +176,7 @@ class GhostController extends CustomAbstractController
                 'citizen_alias' => $crow_permissions && $parser->get('citizenalias', false),
 
                 'ghoul_mode'    => $ghoulmode,
-                'shaman'        => $parser->get('shamanMode', 'normal', ['normal','job','none']),
+                'shaman'        => $parser->get('shamanMode', 'normal', ['normal','job','none','both']),
                 'shun'          => (bool)$parser->get('shun', true),
                 'nightmode'     => $nightmode !== 'none',
                 'camping'       => (bool)$parser->get('camp', true),
@@ -290,9 +290,9 @@ class GhostController extends CustomAbstractController
 
         if ($nightmode !== 'myhordes') $disabled_builds[] = 'small_novlamps_#00';
 
-        if($customConf['features']['shaman'] == "normal" || $customConf['features']['shaman'] == "none")
+        if($customConf['features']['shaman'] === "normal" || $customConf['features']['shaman'] === "none")
             $disabled_jobs[] = 'shaman';
-        else if ($customConf['features']['shaman'] == "job" || $customConf['features']['shaman'] == "none")
+        else if ($customConf['features']['shaman'] === "job" || $customConf['features']['shaman'] === "none")
             $disabled_roles[] = 'shaman';
 
         if ($crow_permissions) {
@@ -323,14 +323,14 @@ class GhostController extends CustomAbstractController
             $disabled_builds[] = 'small_trashclean_#00';
         }
 
-        if ($customConf['features']['shaman'] !== 'job') {
+        if ($customConf['features']['shaman'] !== 'job' && $customConf['features']['shaman'] !== 'both') {
             $disabled_builds[] = 'small_vaudoudoll_#00';
             $disabled_builds[] = 'small_bokorsword_#00';
             $disabled_builds[] = 'small_spiritmirage_#00';
             $disabled_builds[] = 'small_holyrain_#00';
         }
 
-        if ($customConf['features']['shaman'] !== 'normal')
+        if ($customConf['features']['shaman'] !== 'normal' && $customConf['features']['shaman'] !== 'both')
             $disabled_builds[] = 'small_spa4souls_#00';
 
         if ($nightwatch !== 'normal')
@@ -520,7 +520,7 @@ class GhostController extends CustomAbstractController
     public function getUserTownClassAccess(MyHordesConf $conf, ?User $user = null): array {
         $user = $user ?? $this->getUser();
 
-        if ($this->user_handler->checkFeatureUnlock( $user, 'f_sptkt', false ))
+        if ($this->user_handler->checkFeatureUnlock( $user, 'f_sptkt', false ) || $user->getRightsElevation() >= User::USER_LEVEL_CROW)
             return [
                 'small' => true,
                 'remote' => true,

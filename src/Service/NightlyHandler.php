@@ -244,7 +244,7 @@ class NightlyHandler
                 if ($invest > 0) {
                     $building->setAp( min($building->getAp() + $invest, $building->getPrototype()->getAp() - 1) );
                     $this->log->debug( "The stranger invests <info>{$invest} AP</info> into constructing <info>{$building->getPrototype()->getLabel()} AP</info>." );
-                    if ($enable_log) $this->entity_manager->persist( $this->logTemplates->strangerConstructionsInvest( $town, $building ) );
+                    if ($enable_log) $this->entity_manager->persist( $this->logTemplates->strangerConstructionsInvest( $town, $building->getPrototype() ) );
                 }
 
                 $ap_for_building -= $invest;
@@ -511,7 +511,7 @@ class NightlyHandler
                             ['bplan_c_#00' => 2,'bplan_u_#00' => 2],
                             ['bplan_u_#00' => 2,'bplan_r_#00' => 2],
                         ];
-                        $opt_bp = [null,'bplan_c_#00','bplan_r_#00','bplan_e_#00'];
+                        $opt_bp = [null,null,'bplan_r_#00','bplan_e_#00'];
 
                         $plans = [];
                         foreach ($bps[$this->upgraded_building->getLevel()] as $id => $count) {
@@ -1501,7 +1501,7 @@ class NightlyHandler
         }
         $this->log->debug("Recovered <info>{$reco_counter[0]}</info>/<info>{$reco_counter[1]}</info> zones." );
 
-        if($this->conf->getTownConfiguration($town)->get( TownConf::CONF_FEATURE_SHAMAN_MODE, 'normal' ) == 'normal') {
+        if ($this->conf->getTownConfiguration($town)->is( TownConf::CONF_FEATURE_SHAMAN_MODE, ['normal','both'], 'normal' )) {
             $this->log->debug("Processing <info>souls</info> mutations.");
 
             $blue_souls = $this->inventory_handler->getAllItems($town, 'soul_blue_#00');

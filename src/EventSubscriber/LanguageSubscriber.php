@@ -12,6 +12,15 @@ use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInt
 class LanguageSubscriber implements EventSubscriberInterface
 {
     public function onKernelRequest(RequestEvent $event) {
+        if (!$event->getRequest()->isXmlHttpRequest()) {
+            [,$first_path_segment] = explode( '/', $event->getRequest()->getPathInfo() );
+            if (in_array($first_path_segment, ['de','en','es','fr'])) {
+                $event->getRequest()->setLocale( $first_path_segment );
+                $event->getRequest()->getSession()->set('_user_lang',$first_path_segment);
+                return;
+            }
+        }
+
         // try to see if the locale has been set as a _locale routing parameter
         if ($locale = $event->getRequest()->attributes->get('_locale')) {
             $event->getRequest()->getSession()->set('_locale', $locale);

@@ -7233,7 +7233,7 @@
       </notes>
       <segment>
         <source>&lt;t-zone&gt;Du hast eine neue Ruine auf {zone} entdeckt!&lt;/t-zone&gt;&lt;nt-zone&gt;Es scheint, als gäbe es nichts mehr zu entdecken ...&lt;/nt-zone&gt;</source>
-        <target><![CDATA[<t-zone>You have discovered a new ruin on {zone}!</t-zone><nt-zone>It seems like there is nothing left to discover ...</nt-zone>]]></target>
+        <target><![CDATA[<t-zone>You have revealed a new building at the following co-ordinates: {zone}!</t-zone><nt-zone>It seems like there is nothing left to discover ...</nt-zone>]]></target>
       </segment>
     </unit>
     <unit id="zI0j8nd" name="Wasserwaffen füllen">
@@ -7284,16 +7284,6 @@
       <segment>
         <source>Droge herstellen</source>
         <target>Manufacture drug</target>
-      </segment>
-    </unit>
-    <unit id="0V2NUu6" name="In deinem Labor hast du {items_consume} in {items_spawn} umgewandelt.">
-      <notes>
-        <note category="german">In deinem Labor hast du {items_consume} in {items_spawn} umgewandelt.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>In deinem Labor hast du {items_consume} in {items_spawn} umgewandelt.</source>
-        <target>You grind the contents of {items_consume} on the table and mix it with anything and everything that comes to hand... then let it infuse. You have obtained {items_spawn}.</target>
       </segment>
     </unit>
     <unit id="z79RBPW" name="Kochen">
@@ -7924,7 +7914,7 @@
       </notes>
       <segment>
         <source>Durchgang in Kraft</source>
-        <target>Break Trough</target>
+        <target>Break Through</target>
       </segment>
     </unit>
     <unit id="KXx_GUV" name="Den Shamane wählen">
@@ -8506,12 +8496,12 @@
     </unit>
     <unit id="P9ubaaO" name="Schwarzer Zervixschleim">
       <notes>
-        <note category="german">Schwarzer Zervixschleim</note>
+        <note category="german">Schwarzer Nackenwirbelschleim</note>
         <note category="from">db://ItemPrototype</note>
       </notes>
       <segment>
         <source>Schwarzer Zervixschleim</source>
-        <target>Black Cervical Oozing</target>
+        <target>Black Neck Ooze</target>
       </segment>
     </unit>
     <unit id="M3k3jYb">
@@ -9134,7 +9124,7 @@
       </notes>
       <segment>
         <source>Sorgfältig befestigst du bei dir daheim ein(e) {item}. So und das hält jetzt, so viel steht schon mal fest.{hr}Dieser Gegenstand gibt deinem Haus permament &lt;strong&gt;{home_defense} zusätzliche Verteidigungspunkt(e).&lt;/strong&gt;</source>
-        <target><![CDATA[You install the {item} in your house. There's no way that thing is going anywhere, but that's kinda the point...{hr}This object permanently adds <strong>{home_defense} defence points</strong> to your house.]]></target>
+        <target><![CDATA[You install the {item} in your house. There's no way that thing is going anywhere, but that's kinda the point...{hr}This object permanently adds <strong>{home_defense} defence point</strong> to your house.]]></target>
       </segment>
     </unit>
     <unit id="H.4hGj8" name="Du hast bereits volle AP.">
@@ -9197,17 +9187,6 @@
       <segment>
         <source>Die Batterie wurde beim Aufprall vollständig zerstört.</source>
         <target><![CDATA[The battery seems to have been ill-suited for firing... It is now <strong>useless</strong>!]]></target>
-      </segment>
-    </unit>
-    <unit id="zBL2Qmm">
-      <notes>
-        <note category="german">Du greifst einen Zombie mit {item} an, aber er &lt;strong&gt;geht einfach nicht zu Boden&lt;/strong&gt; und kommt weiter auf dich zu.</note>
-        <note category="from">[unused]</note>
-        <note category="state">new</note>
-      </notes>
-      <segment>
-        <source>Du greifst einen Zombie mit {item} an, aber er &lt;strong&gt;geht einfach nicht zu Boden&lt;/strong&gt; und kommt weiter auf dich zu.</source>
-        <target><![CDATA[Du greifst einen Zombie mit {item} an, aber er <strong>geht einfach nicht zu Boden</strong> und kommt weiter auf dich zu.]]></target>
       </segment>
     </unit>
     <unit id="TNGA5Rl">
@@ -9485,6 +9464,16 @@
       <segment>
         <source>Hiermit kannst du Städten beitreten, obwohl du die Mindestanzahl an Seelenpunkten noch nicht erreicht hast.</source>
         <target>This allows you to join cities even though you haven't reached the minimum number of soul points.</target>
+      </segment>
+    </unit>
+    <unit id="zMlo9nG">
+      <notes>
+        <note category="german">Du bist &lt;strong&gt;zu weit von der Stadt entfernt&lt;/strong&gt;, um diese Fähigkeit benutzen zu können! Genauer gesagt bist du {km_from_town} km entfernt. Die maximale Entfernung darf höchstens 11 km betragen.</note>
+        <note category="from">db://Requirement</note>
+      </notes>
+      <segment>
+        <source>Du bist &lt;strong&gt;zu weit von der Stadt entfernt&lt;/strong&gt;, um diese Fähigkeit benutzen zu können! Genauer gesagt bist du {km_from_town} km entfernt. Die maximale Entfernung darf höchstens 11 km betragen.</source>
+        <target><![CDATA[You are currently <strong>too far from the town to use this power</strong>! You are {km_from_town} km away, and the maximum distance is 11 km.</div>]]></target>
       </segment>
     </unit>
   </file>

@@ -26,8 +26,8 @@
                 {% set page_target = -1 %}
             {% endif %}
 
-            {% if add_seperators and thread.lastPost and last_day != thread.lastPost.date|date_modify('today') %}
-                {% set last_day = thread.lastPost.date|date_modify('today') %}
+            {% if add_seperators and thread.lastPost(thread.hidden??false) and last_day != thread.lastPost(thread.hidden??false).date|date_modify('today') %}
+                {% set last_day = thread.lastPost(thread.hidden??false).date|date_modify('today') %}
                 <div class="row forum-separator"><div class="cell rw-12 padded-small">
                     {% if last_day >= 'today'|to_date %}{{ 'Heute'|trans({},'global') }}
                     {% elseif last_day >= 'yesterday'|to_date %}{{ 'Gestern'|trans({},'global') }}
@@ -53,9 +53,9 @@
                             {% if paranoid and thread.owner and thread.owner != app.user %}
                                 {% set mode = (app.user.id + thread.id + thread.owner.id) % 12 %}
                                 {% if mode == 0 %}
-                                    {{ 'Hängt {user}!'|trans({'{user}': app.user.name},'game') }}
+                                    {{ 'Hängt {user}!'|trans({'{user}': app.user.activeCitizen.alias ?? app.user.name},'game') }}
                                 {% elseif mode == 1 %}
-                                    {{ '{user} wir kriegen dich!'|trans({'{user}': app.user.name},'game') }}
+                                    {{ '{user} wir kriegen dich!'|trans({'{user}': app.user.activeCitizen.alias ?? app.user.name},'game') }}
                                 {% else %}
                                     {{ thread.title }}
                                 {% endif %}
@@ -129,7 +129,12 @@
                         </div>
                         <div class="forum-button-bar">
                             <div x-ajax-href="{{ url('forum_list') }}" class="forum-button"><img alt="" src="{{ asset('build/images/forum/back.png') }}" /><div class="tooltip forum-tooltip">{{ 'Zurück'|trans({},'global') }}</div></div>
-                            <div x-ajax-href="{{ url('forum_view', {id: forum.id}) }}" class="forum-button"><img alt="" src="{{ asset('build/images/forum/refresh.png') }}" /><div class="tooltip forum-tooltip">{{ 'Liste der Themen aktualisieren'|trans({},'global') }}</div></div>
+                            {% if select > 0 %}
+                                <div x-ajax-href="{{ url('forum_thread_view', {fid: forum.id, tid: select, page: post_page}) }}" class="forum-button forum-reload-button"><img alt="" src="{{ asset('build/images/forum/refresh.png') }}" /><div class="tooltip forum-tooltip">{{ 'Liste der Themen aktualisieren'|trans({},'global') }}{{ select }}</div></div>
+                            {% else%}
+                                <div x-ajax-href="{{ url('forum_view', {id: forum.id}) }}" class="forum-button forum-reload-button"><img alt="" src="{{ asset('build/images/forum/refresh.png') }}" /><div class="tooltip forum-tooltip">{{ 'Liste der Themen aktualisieren'|trans({},'global') }}</div></div>
+                            {%endif%}
+
                             {% if not permission.only_mod_access %}
                                 <div x-forum-action="search" class="forum-button"><img alt="" src="{{ asset('build/images/forum/search.png') }}" /><div class="tooltip forum-tooltip">{{ 'Nachrichten suchen'|trans({},'global') }}</div></div>
                             {% endif %}
@@ -253,7 +258,10 @@
             if (elem.hasAttribute('x-public-route-next')) {
                 $.ajax.push_history(elem.getAttribute('x-public-route-next'));
                 elem.removeAttribute('x-public-route-next');
-            } else $.ajax.push_history(elem.getAttribute('x-public-route'));
+            } else {
+                $.ajax.push_history(elem.getAttribute('x-public-route'));
+                $.html.forEach('.forum-reload-button', e => e.setAttribute('x-ajax-href', elem.getAttribute('x-public-route')));
+            }
 
         });
 

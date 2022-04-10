@@ -34,6 +34,17 @@ h1.page-head {
 	clear: both;
 }
 
+h2.page-head {
+  height: 17px; padding: 0; margin: 15px 0 5px;
+  color: #ddab76; font-size: 1.2rem; line-height: 17px;
+  text-transform: uppercase; border-bottom: 2px solid #ddab76;
+  background-image: url("../img/help/h2.gif");
+  background-repeat: repeat-x; background-position: left bottom;
+  clear: both;
+}
+
+.page-head > strong { color: white }
+
 *[disabled] { pointer-events: none; filter: saturate(0%) contrast(50%) brightness(110%); }
 *.no-interaction { pointer-events: none; }
 
@@ -86,9 +97,12 @@ div.band {
 .relative { position: relative }
 
 .full-height {height: 100%}
+.auto-height {height: auto}
+.full-width {width: 100%}
 .max-height {max-height: 100%}
 
 .text-wrap-all { word-break: break-all; }
+.text-wrap-none { word-break: keep-all; }
 
 button.button-dropdown-button, div.button.button-dropdown-button, div.forum-button.button-dropdown-button {
   position: relative; overflow: visible; display: inline-block; width: auto;
@@ -101,6 +115,8 @@ button.button-dropdown-button, div.button.button-dropdown-button, div.forum-butt
     display: block;
   }
 }
+
+.spaced-icon { display: flex; align-items: center; justify-content: space-between; column-gap: 5px; }
 
 .clear {clear: both;}
 

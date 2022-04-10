@@ -5,7 +5,7 @@
       <notes>
         <note category="german">letter</note>
         <note category="from">twig:///templates/ajax/forum/editor.html.twig;twig:///templates/ajax/help/roleplay_options.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>letter</source>
@@ -16,7 +16,7 @@
       <notes>
         <note category="german">consonant</note>
         <note category="from">twig:///templates/ajax/forum/editor.html.twig;twig:///templates/ajax/help/roleplay_options.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>consonant</source>
@@ -27,7 +27,7 @@
       <notes>
         <note category="german">vowel</note>
         <note category="from">twig:///templates/ajax/forum/editor.html.twig;twig:///templates/ajax/help/roleplay_options.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>vowel</source>
@@ -38,7 +38,7 @@
       <notes>
         <note category="german">ssp</note>
         <note category="from">twig:///templates/ajax/forum/editor.html.twig;twig:///templates/ajax/help/roleplay_options.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>rps</source>
@@ -49,7 +49,7 @@
       <notes>
         <note category="german">zk</note>
         <note category="from">twig:///templates/ajax/forum/editor.html.twig;twig:///templates/ajax/help/roleplay_options.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>coin</source>
@@ -60,7 +60,7 @@
       <notes>
         <note category="german">karte</note>
         <note category="from">twig:///templates/ajax/forum/editor.html.twig;twig:///templates/ajax/help/roleplay_options.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>card</source>
@@ -71,7 +71,7 @@
       <notes>
         <note category="german">einwohner</note>
         <note category="from">twig:///templates/ajax/forum/editor.html.twig;twig:///templates/ajax/help/roleplay_options.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>rnduser</source>

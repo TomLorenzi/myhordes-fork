@@ -706,7 +706,7 @@ class MessageGlobalPMController extends MessageController
                 $this->entity_manager->flush();
             } catch (\Exception $e) {}
 
-        $announce->setText( $this->html->prepareEmotes( $announce->getText(), $this->getUser() ) );
+        $announce->setText( $this->html->prepareEmotes( $announce->getText(), $announce->getSender() ) );
 
         return $this->render( 'ajax/pm/announcement.html.twig', $this->addDefaultTwigArgs(null, [
             'announcements' => [$announce],
@@ -726,6 +726,7 @@ class MessageGlobalPMController extends MessageController
         $skip = $parser->get_array('skip');
         $num = max(1,min(10,$parser->get_int('num', 5)));
 
+        /** @var Announcement[] $announces */
         $announces = $em->getRepository( Announcement::class )->findByLang($this->getUserLanguage(), $skip, $num + 1 );
 
         $sliced = array_slice($announces, 0, $num);
@@ -745,10 +746,10 @@ class MessageGlobalPMController extends MessageController
             } catch (\Exception $e) {}
 
         foreach ($sliced as $announce)
-            $announce->setText( $this->html->prepareEmotes( $announce->getText(), $this->getUser() ) );
+            $announce->setText( $this->html->prepareEmotes( $announce->getText(), $announce->getSender() ) );
 
         return $this->render( 'ajax/pm/announcement.html.twig', $this->addDefaultTwigArgs(null, [
-            'announcements' => $announces,
+            'announcements' => $sliced,
             'new' => $new,
             'more' => count($announces) > $num
         ] ));

@@ -645,7 +645,7 @@ class GameFactory
      * @param Town|TownRankingProxy $town
      * @return void
      */
-    public function updateTownScore($town): void {
+    public function updateTownScore(TownRankingProxy|Town $town): void {
         $score = 0;
         $lastDay = 0;
 

@@ -66,4 +66,10 @@ class Conf
     public function getSubKey(string $key, string $subKey, $default = null) {
         return $this->flat["{$key}.{$subKey}"] ?? $default;
     }
+
+    public function is(string $key, $values, $default = null): bool {
+        return is_array( $values )
+            ? in_array( $this->get($key,$default), $values )
+            : $this->get($key,$default) === $values;
+    }
 }

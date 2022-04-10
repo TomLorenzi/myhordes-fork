@@ -44,6 +44,19 @@ class ChangelogRepository extends ServiceEntityRepository
         }
     }
 
+    public function findLatestByLang($lang): ?Changelog{
+        try {
+            return $this->createQueryBuilder('c')
+                ->andWhere('c.lang = :lang')
+                ->setParameter('lang', $lang)
+                ->orderBy('c.date', 'DESC')
+                ->setMaxResults(1)
+                ->getQuery()->getOneOrNullResult();
+        } catch (Exception $e) {
+            return null;
+        }
+    }
+
     // /**
     //  * @return Changelog[] Returns an array of Changelog objects
     //  */

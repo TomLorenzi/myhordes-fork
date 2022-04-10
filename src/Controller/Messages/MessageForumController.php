@@ -115,7 +115,7 @@ class MessageForumController extends MessageController
                 $thread->setNew();
         }
 
-        usort( $threads, fn(Thread $a, Thread $b) => $b->lastPost()?->getDate() <=> $a->lastPost()?->getDate() );
+        usort( $threads, fn(Thread $a, Thread $b) => $b->lastPost( $show_hidden_threads )?->getDate() <=> $a->lastPost( $show_hidden_threads )?->getDate() );
 
         if ( $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionListThreads ) ) {
             $pinned_threads = $em->getRepository(Thread::class)->findPinnedByForum($forum, null, null, $show_hidden_threads);
@@ -310,7 +310,7 @@ class MessageForumController extends MessageController
             $em->persist($thread);
             $em->persist($forum);
 
-            $this->commit_post_with_polls($em,$post,$polls);
+            $this->commit_post_with_polls($em,$post,$polls ?? []);
         } catch (Exception $e) {
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
@@ -666,7 +666,7 @@ class MessageForumController extends MessageController
 
         try {
 
-            $this->commit_post_with_polls($em,$post,$polls);
+            $this->commit_post_with_polls($em,$post,$polls ?? []);
 
         } catch (Exception $e) {
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);

@@ -68,7 +68,7 @@ const MapControls = ( props: MapControlProps ) => {
                         </button>
                         { props.showRoutes && (
                             <button
-                                className="small inline map_button map_button_right"
+                                className="small inline map_button map_button_right route_button"
                                 onClick={()=>props.wrapDispatcher({showPanel: !props.showRoutesPanel})}
                             >
                                 <div>{props.strings.routes}</div>

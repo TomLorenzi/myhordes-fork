@@ -57,8 +57,8 @@ class ExternalXML2Controller extends ExternalController {
         $request = $this->container->get('request_stack')->getCurrentRequest();
 
         // Try POST data
-        $app_key = $request->query->get('appkey');
-        $user_key = $request->query->get('userkey');
+        $app_key = $request->query->get('appkey') ?? '';
+        $user_key = $request->query->get('userkey') ?? '';
 
         // Symfony 5 has a bug on treating request data.
         // If POST didn't work, access GET data.

@@ -6,6 +6,7 @@ use App\Annotations\GateKeeperProfile;
 use App\Entity\Citizen;
 use App\Entity\CitizenRankingProxy;
 use App\Entity\User;
+use App\Service\JSONRequestParser;
 use App\Service\RandomGenerator;
 use App\Service\TimeKeeperService;
 use App\Service\UserHandler;
@@ -63,9 +64,9 @@ class LandingController extends CustomAbstractController
      * @param RandomGenerator $rand
      * @return Response
      */
-    public function maintenance_attack(EntityManagerInterface $em, TimeKeeperService $tk, RandomGenerator $rand): Response
+    public function maintenance_attack(EntityManagerInterface $em, TimeKeeperService $tk, RandomGenerator $rand, JSONRequestParser $parser): Response
     {
-        if (!$tk->isDuringAttack())
+        if (!$tk->isDuringAttack() && !$parser->has('refresh'))
             return $this->redirect($this->generateUrl('initial_landing'));
 
         $attack_messages = [
@@ -92,7 +93,7 @@ class LandingController extends CustomAbstractController
 
         $button_texts = $rand->pick($attack_messages, 2);
 
-        return $this->render( 'ajax/public/maintenance_attack.html.twig', ['button_texts' => $button_texts] );
+        return $this->render( 'ajax/public/maintenance_attack.html.twig', ['button_texts' => $button_texts, 'attack_running' => $tk->isDuringAttack()] );
     }
 
 

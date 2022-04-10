@@ -1044,7 +1044,7 @@
     <unit id="cdTPlT5" name="Scanner">
       <notes>
         <note category="german">Scanner</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">db://BuildingPrototype</note>
       </notes>
       <segment>
@@ -1595,7 +1595,7 @@
     <unit id="MwGqzqF" name="Altar">
       <notes>
         <note category="german">Altar</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">db://BuildingPrototype</note>
       </notes>
       <segment>
@@ -1646,7 +1646,7 @@
     <unit id="3zCLWcZ" name="Labyrinth">
       <notes>
         <note category="german">Labyrinth</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">db://BuildingPrototype</note>
       </notes>
       <segment>
@@ -1931,7 +1931,7 @@
       </notes>
       <segment>
         <source>Ein in dein Wohnzimmer geschaufeltes Loch dient dir als Versuchsküche für deine pharmazeutischen Experimente.</source>
-        <target>A small hole which smells of camphor and death, right in the middle of your 'living room'. However, you can carry out your chemistry experiments in peace here (each level increases the chances of obtaining a powerful drug by 33%.)...</target>
+        <target>A small hole which smells of camphor and death, right in the middle of your 'living room'. However, you can carry out your chemistry experiments in peace here (each level increases the chances of obtaining a powerful drug by 25%.)...</target>
       </segment>
     </unit>
     <unit id="qeyHLmY" name="Küche">
@@ -2087,7 +2087,7 @@
     <unit id="Pnjrt1t" name="Hammam">
       <notes>
         <note category="german">Hammam</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">db://BuildingPrototype</note>
       </notes>
       <segment>

@@ -178,10 +178,12 @@ class GateKeeperSubscriber implements EventSubscriberInterface
                     throw new DynamicAjaxResetException($event->getRequest());
             }
 
-            $citizen->setLastActionTimestamp(time());
-            $this->em->persist($citizen);
+            try {
+                $citizen->setLastActionTimestamp(time());
+                $this->em->persist($citizen);
+                $this->em->flush();
+            } catch (\Throwable $t) {}
 
-            $this->em->flush();
 
             // Execute before() on HookedControllers
             if ($gk_profile->executeHook() && $controller instanceof HookedInterfaceController)
