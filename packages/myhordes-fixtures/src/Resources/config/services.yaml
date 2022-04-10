@@ -67,6 +67,8 @@ services:
 
     MyHordes\Fixtures\Service\HordesFactDataService:
       tags: [ { name: 'myhordes.fixtures.hordesfact', priority: 0 } ]
+    MyHordes\Fixtures\Service\QuoteDataService:
+      tags: [ { name: 'myhordes.fixtures.quotes', priority: 0 } ]
 
     MyHordes\Fixtures\Service\BuildingDataService:
       tags: [ { name: 'myhordes.fixtures.buildings', priority: 0 } ]
