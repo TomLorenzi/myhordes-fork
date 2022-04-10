@@ -62,4 +62,10 @@ class Conf
     public function get(string $key, $default = null) {
         return $this->flat[$key] ?? $default;
     }
+
+    public function is(string $key, $values, $default = null): bool {
+        return is_array( $values )
+            ? in_array( $this->get($key,$default), $values )
+            : $this->get($key,$default) === $values;
+    }
 }

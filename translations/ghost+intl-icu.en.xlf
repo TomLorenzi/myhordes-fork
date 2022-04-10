@@ -1768,5 +1768,25 @@
         <target>Return to game selection</target>
       </segment>
     </unit>
+    <unit id="CJDUJAE" name="Beide Schamanen-Modi sind gleichzeitig aktiviert (experimentell!).">
+      <notes>
+        <note category="german">Beide Schamanen-Modi sind gleichzeitig aktiviert (experimentell!).</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+      </notes>
+      <segment>
+        <source>Beide Schamanen-Modi sind gleichzeitig aktiviert (experimentell!).</source>
+        <target>Both shaman modes are enabled at the same time (experimental!).</target>
+      </segment>
+    </unit>
+    <unit id="RcOw7GN" name="Kombiniert">
+      <notes>
+        <note category="german">Kombiniert</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+      </notes>
+      <segment>
+        <source>Kombiniert</source>
+        <target>Combined</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -1501,7 +1501,7 @@ class NightlyHandler
         }
         $this->log->debug("Recovered <info>{$reco_counter[0]}</info>/<info>{$reco_counter[1]}</info> zones." );
 
-        if($this->conf->getTownConfiguration($town)->get( TownConf::CONF_FEATURE_SHAMAN_MODE, 'normal' ) == 'normal') {
+        if ($this->conf->getTownConfiguration($town)->is( TownConf::CONF_FEATURE_SHAMAN_MODE, ['normal','both'], 'normal' )) {
             $this->log->debug("Processing <info>souls</info> mutations.");
 
             $blue_souls = $this->inventory_handler->getAllItems($town, 'soul_blue_#00');

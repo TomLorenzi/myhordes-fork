@@ -1759,5 +1759,27 @@
         <target>Revenir au choix des parties</target>
       </segment>
     </unit>
+    <unit id="CJDUJAE" name="Beide Schamanen-Modi sind gleichzeitig aktiviert (experimentell!).">
+      <notes>
+        <note category="german">Beide Schamanen-Modi sind gleichzeitig aktiviert (experimentell!).</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Beide Schamanen-Modi sind gleichzeitig aktiviert (experimentell!).</source>
+        <target>Beide Schamanen-Modi sind gleichzeitig aktiviert (experimentell!).</target>
+      </segment>
+    </unit>
+    <unit id="RcOw7GN" name="Kombiniert">
+      <notes>
+        <note category="german">Kombiniert</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Kombiniert</source>
+        <target>Kombiniert</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
