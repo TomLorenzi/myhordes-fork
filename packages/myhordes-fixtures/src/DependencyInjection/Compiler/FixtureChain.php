@@ -2,6 +2,7 @@
 
 namespace MyHordes\Fixtures\DependencyInjection\Compiler;
 
+use MyHordes\Fixtures\Fixtures\Action;
 use MyHordes\Fixtures\Fixtures\AwardFeature;
 use MyHordes\Fixtures\Fixtures\AwardIcon;
 use MyHordes\Fixtures\Fixtures\AwardTitle;
@@ -68,6 +69,7 @@ class FixtureChain implements CompilerPassInterface
             Picto::class                     => 'myhordes.fixtures.pictos',
             Permission::class                => 'myhordes.fixtures.permissions',
             Log::class                       => 'myhordes.fixtures.logs',
+            Action::class                    => 'myhordes.fixtures.actions',
         ];
 
         foreach ($interfaces as $class => $tag) {

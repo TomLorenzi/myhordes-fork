@@ -83,3 +83,6 @@ services:
 
     MyHordes\Fixtures\Service\LogDataService:
       tags: [ { name: 'myhordes.fixtures.logs', priority: 0 } ]
+
+    MyHordes\Fixtures\Service\ActionDataService:
+      tags: [ { name: 'myhordes.fixtures.actions', priority: 0 } ]

@@ -26,7 +26,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
 
     private ZoneTagFixture $zone_tag_data;
 
-    private $entityManager;
+    private EntityManagerInterface $entityManager;
 
     public function __construct(EntityManagerInterface $em, Ruin $ruin_data, RuinRoom $ruin_room_data, ZoneTagFixture $zone_tag_data)
     {
