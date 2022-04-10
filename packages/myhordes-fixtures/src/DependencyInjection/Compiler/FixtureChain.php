@@ -21,6 +21,10 @@ use MyHordes\Fixtures\Fixtures\ForumThreadTag;
 use MyHordes\Fixtures\Fixtures\GazetteEntry;
 use MyHordes\Fixtures\Fixtures\HeroSkill;
 use MyHordes\Fixtures\Fixtures\HordesFact;
+use MyHordes\Fixtures\Fixtures\Item;
+use MyHordes\Fixtures\Fixtures\ItemCategory;
+use MyHordes\Fixtures\Fixtures\ItemGroup;
+use MyHordes\Fixtures\Fixtures\ItemProperty;
 use MyHordes\Fixtures\Fixtures\Log;
 use MyHordes\Fixtures\Fixtures\Permission;
 use MyHordes\Fixtures\Fixtures\Picto;
@@ -70,6 +74,10 @@ class FixtureChain implements CompilerPassInterface
             Permission::class                => 'myhordes.fixtures.permissions',
             Log::class                       => 'myhordes.fixtures.logs',
             Action::class                    => 'myhordes.fixtures.actions',
+            Item::class                      => 'myhordes.fixtures.items.list',
+            ItemCategory::class              => 'myhordes.fixtures.items.categories',
+            ItemGroup::class                 => 'myhordes.fixtures.items.groups',
+            ItemProperty::class              => 'myhordes.fixtures.items.properties',
         ];
 
         foreach ($interfaces as $class => $tag) {

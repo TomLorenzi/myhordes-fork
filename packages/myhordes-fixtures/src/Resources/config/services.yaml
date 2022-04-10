@@ -62,6 +62,15 @@ services:
     MyHordes\Fixtures\Service\CitizenComplaintDataService:
       tags: [ { name: 'myhordes.fixtures.citizen.complaints', priority: 0 } ]
 
+    MyHordes\Fixtures\Service\ItemDataService:
+      tags: [ { name: 'myhordes.fixtures.items.list', priority: 0 } ]
+    MyHordes\Fixtures\Service\ItemCategoryDataService:
+      tags: [ { name: 'myhordes.fixtures.items.categories', priority: 0 } ]
+    MyHordes\Fixtures\Service\ItemGroupDataService:
+      tags: [ { name: 'myhordes.fixtures.items.groups', priority: 0 } ]
+    MyHordes\Fixtures\Service\ItemPropertyDataService:
+      tags: [ { name: 'myhordes.fixtures.items.properties', priority: 0 } ]
+
     MyHordes\Fixtures\Service\GazetteDataService:
       tags: [ { name: 'myhordes.fixtures.gazettes', priority: 0 } ]
     MyHordes\Fixtures\Service\CouncilDataService:
