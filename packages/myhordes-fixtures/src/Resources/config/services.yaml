@@ -80,3 +80,6 @@ services:
 
     MyHordes\Fixtures\Service\RecipeDataService:
       tags: [ { name: 'myhordes.fixtures.recipes', priority: 0 } ]
+
+    MyHordes\Fixtures\Service\LogDataService:
+      tags: [ { name: 'myhordes.fixtures.logs', priority: 0 } ]

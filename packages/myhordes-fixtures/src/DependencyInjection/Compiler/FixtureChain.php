@@ -20,6 +20,7 @@ use MyHordes\Fixtures\Fixtures\ForumThreadTag;
 use MyHordes\Fixtures\Fixtures\GazetteEntry;
 use MyHordes\Fixtures\Fixtures\HeroSkill;
 use MyHordes\Fixtures\Fixtures\HordesFact;
+use MyHordes\Fixtures\Fixtures\Log;
 use MyHordes\Fixtures\Fixtures\Permission;
 use MyHordes\Fixtures\Fixtures\Picto;
 use MyHordes\Fixtures\Fixtures\Quote;
@@ -66,6 +67,7 @@ class FixtureChain implements CompilerPassInterface
             Quote::class                     => 'myhordes.fixtures.quotes',
             Picto::class                     => 'myhordes.fixtures.pictos',
             Permission::class                => 'myhordes.fixtures.permissions',
+            Log::class                       => 'myhordes.fixtures.logs',
         ];
 
         foreach ($interfaces as $class => $tag) {

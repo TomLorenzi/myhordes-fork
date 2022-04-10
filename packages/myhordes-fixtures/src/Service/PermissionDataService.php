@@ -2,7 +2,6 @@
 
 namespace MyHordes\Fixtures\Service;
 
-use App\Entity\Recipe;
 use App\Entity\UserGroup;
 use MyHordes\Fixtures\Interfaces\FixtureProcessorInterface;
 
