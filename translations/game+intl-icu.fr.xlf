@@ -23085,5 +23085,16 @@ cette violente opération...]]></target>
         <target><![CDATA[<strong>Il vous faut {ap} point(s) d'action pour faire ceci</strong>. <hr />Buvez, mangez ou droguez-vous pour en récupérer, ou attendez <strong>demain</strong>.]]></target>
       </segment>
     </unit>
+    <unit id="s023j63" name="Was für eine Katastrophe! {num} Wasserrationnen fehlen!">
+      <notes>
+        <note category="german">Was für eine Katastrophe! {num} Wasserrationnen fehlen!</note>
+        <note category="from">db://LogEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Was für eine Katastrophe! {num} Wasserrationnen fehlen!</source>
+        <target>Quel désastre ! {num} rations d'eau ont disparu !</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

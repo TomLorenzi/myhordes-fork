@@ -23173,5 +23173,16 @@
         <target><![CDATA[<strong>You need {ap} action points to do this</strong>. <hr />Drink, eat or drug yourself to restore points, or wait until <strong>tomorrow</strong>.]]></target>
       </segment>
     </unit>
+    <unit id="s023j63" name="Was für eine Katastrophe! {num} Wasserrationnen fehlen!">
+      <notes>
+        <note category="german">Was für eine Katastrophe! {num} Wasserrationnen fehlen!</note>
+        <note category="from">db://LogEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Was für eine Katastrophe! {num} Wasserrationnen fehlen!</source>
+        <target>What a disaster! {num} water rations are gone!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

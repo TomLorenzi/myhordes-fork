@@ -21917,5 +21917,14 @@
         <target><![CDATA[<strong>Du brauchst für diese Aktion {ap} Aktionspunkt(e)</strong>. <hr />Trink oder iss etwas, oder nimm eine Droge, ansonsten muss du bis <strong>morgen</strong> warten.]]></target>
       </segment>
     </unit>
+    <unit id="s023j63" name="Was für eine Katastrophe! {num} Wasserrationnen fehlen!">
+      <notes>
+        <note category="from">db://LogEntryTemplate</note>
+      </notes>
+      <segment>
+        <source>Was für eine Katastrophe! {num} Wasserrationnen fehlen!</source>
+        <target>Was für eine Katastrophe! {num} Wasserrationnen fehlen!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
