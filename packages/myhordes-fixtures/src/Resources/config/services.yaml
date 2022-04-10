@@ -14,6 +14,9 @@ services:
     MyHordes\Fixtures\Fixtures\:
       resource: '../../../src/Fixtures/*'
 
+    MyHordes\Fixtures\Service\PermissionDataService:
+      tags: [ { name: 'myhordes.fixtures.permissions', priority: 0 } ]
+
     MyHordes\Fixtures\Service\TownDataService:
       tags: [ { name: 'myhordes.fixtures.town', priority: 0 } ]
 
