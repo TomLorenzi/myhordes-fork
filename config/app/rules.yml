@@ -142,9 +142,8 @@ parameters:
       disabled_buildings: ['small_vaudoudoll_#00', 'small_bokorsword_#00', 'small_spiritmirage_#00','small_holyrain_#00']
 
       overrides:
-        item_groups:
-          empty_dig: 'empty_dig_test'
-          base_dig: 'base_dig_test'
+        named_drops: []
+        item_groups: []
 
     small:
       stranger_day_limit: 1

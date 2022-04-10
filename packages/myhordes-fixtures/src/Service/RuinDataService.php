@@ -78,6 +78,8 @@ class RuinDataService implements FixtureProcessorInterface {
                 'drug_#00' => 12,
                 'fungus_#00' => 3,
                 'vodka_#00' => 2,
+            ], 'namedDrops' => [
+                'with_dirty_bandage' => [ 'add' => [] ]
             ], 'desc' => 'Die menschlichen Überreste, die in der Auffahrt liegen gehören den ehemaligen Patienten dieses improvisierten Krankenhauses. Schwer zu sagen, wie viele Menschen hier beim abendlichen Angriff gestorben sind... Wenn du die Anzahl der Arme durch zwei teilst, vielleicht bekommst du dann eine grobe Schätzung?'],
             'aerodrome' => ["label" => "Altes Flugfeld",'icon' => 'aerodrome',"camping" => 7,"min_dist" => 12, "max_dist" => 15, "chance" => 129, "drops" => [
                 'metal_beam_#00' => 62,
