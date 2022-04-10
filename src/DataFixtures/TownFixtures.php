@@ -13,7 +13,7 @@ use Symfony\Component\Console\Output\ConsoleOutputInterface;
 
 class TownFixtures extends Fixture
 {
-    private $entityManager;
+    private EntityManagerInterface $entityManager;
 
     private Town $town_class_data;
 

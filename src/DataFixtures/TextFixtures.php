@@ -18,7 +18,7 @@ class TextFixtures extends Fixture
 {
     private RolePlayTextFixtures $rp_text_data;
 
-    private $entityManager;
+    private EntityManagerInterface $entityManager;
 
     public function __construct(EntityManagerInterface $em, RolePlayTextFixtures $tx)
     {

@@ -5,6 +5,7 @@ namespace MyHordes\Fixtures\DependencyInjection\Compiler;
 use MyHordes\Fixtures\Fixtures\AwardFeature;
 use MyHordes\Fixtures\Fixtures\AwardIcon;
 use MyHordes\Fixtures\Fixtures\AwardTitle;
+use MyHordes\Fixtures\Fixtures\Building;
 use MyHordes\Fixtures\Fixtures\CitizenComplaint;
 use MyHordes\Fixtures\Fixtures\CitizenDeath;
 use MyHordes\Fixtures\Fixtures\CitizenHomeLevel;
@@ -19,6 +20,7 @@ use MyHordes\Fixtures\Fixtures\ForumThreadTag;
 use MyHordes\Fixtures\Fixtures\GazetteEntry;
 use MyHordes\Fixtures\Fixtures\HeroSkill;
 use MyHordes\Fixtures\Fixtures\HordesFact;
+use MyHordes\Fixtures\Fixtures\Recipe;
 use MyHordes\Fixtures\Fixtures\RolePlayText;
 use MyHordes\Fixtures\Fixtures\Ruin;
 use MyHordes\Fixtures\Fixtures\RuinRoom;
@@ -56,6 +58,8 @@ class FixtureChain implements CompilerPassInterface
             CouncilEntry::class              => 'myhordes.fixtures.councils',
             HeroSkill::class                 => 'myhordes.fixtures.heroskills',
             HordesFact::class                => 'myhordes.fixtures.hordesfact',
+            Building::class                  => 'myhordes.fixtures.buildings',
+            Recipe::class                    => 'myhordes.fixtures.recipes',
         ];
 
         foreach ($interfaces as $class => $tag) {
