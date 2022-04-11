@@ -1763,7 +1763,7 @@
       <notes>
         <note category="german">Beide Schamanen-Modi sind gleichzeitig aktiviert (experimentell!).</note>
         <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Beide Schamanen-Modi sind gleichzeitig aktiviert (experimentell!).</source>
@@ -1774,7 +1774,7 @@
       <notes>
         <note category="german">Kombiniert</note>
         <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Kombiniert</source>
