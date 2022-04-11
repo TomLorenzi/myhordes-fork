@@ -2974,7 +2974,7 @@
     <unit id="lIXVQdW" name="LSD">
       <notes>
         <note category="german">LSD</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">db://ItemPrototype</note>
       </notes>
       <segment>
@@ -3555,7 +3555,7 @@
     <unit id="UWEMZ3x" name="{casino}">
       <notes>
         <note category="german">{casino}</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">db://ItemAction</note>
       </notes>
       <segment>
@@ -7250,7 +7250,7 @@
       </notes>
       <segment>
         <source>&lt;t-zone&gt;Du hast eine neue Ruine auf {zone} entdeckt!&lt;/t-zone&gt;&lt;nt-zone&gt;Es scheint, als gäbe es nichts mehr zu entdecken ...&lt;/nt-zone&gt;</source>
-        <target><![CDATA[<t-zone>Vous avez découvert une nouvelle ruine sur {zone} !</t-zone><nt-zone>Il semble qu'il n'y ait plus rien à découvrir...</nt-zone>]]></target>
+        <target><![CDATA[<t-zone>Vous avez révélé un nouveau bâtiment aux coordonnées {zone} !</t-zone><nt-zone>Il semble qu'il n'y ait plus rien à découvrir...</nt-zone>]]></target>
       </segment>
     </unit>
     <unit id="zI0j8nd" name="Wasserwaffen füllen">
@@ -7376,7 +7376,7 @@
     <unit id="txP7Qji" name="Vodka Marinostov">
       <notes>
         <note category="german">Vodka Marinostov</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">db://ItemPrototype</note>
       </notes>
       <segment>
@@ -7487,7 +7487,7 @@
     <unit id="82FCAix" name="Dame">
       <notes>
         <note category="german">Dame</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">php:///src/Service/HTMLService.php</note>
       </notes>
       <segment>
@@ -8418,7 +8418,7 @@
     <unit id="W0wWbGS" name="Guiness">
       <notes>
         <note category="german">Guiness</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">db://ItemPrototype</note>
       </notes>
       <segment>
@@ -8649,12 +8649,12 @@
     <unit id="GUA4Vaf">
       <notes>
         <note category="german">Schlechte Nachrichten, du hättest das nicht herunterschlucken sollen... du hast dir eine Infektion eingefangen!</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
         <note category="from">php:///src/Service/ActionHandler.php</note>
       </notes>
       <segment>
         <source>Schlechte Nachrichten, du hättest das nicht herunterschlucken sollen... du hast dir eine Infektion eingefangen!</source>
-        <target>Schlechte Nachrichten, du hättest das nicht herunterschlucken sollen... du hast dir eine Infektion eingefangen!</target>
+        <target>Mauvaise nouvelle, vous n'auriez peut-être pas dû l'avaler... Vous avez été infecté(e) !</target>
       </segment>
     </unit>
     <unit id="gf4WieX">
@@ -8810,12 +8810,12 @@
     <unit id="S3AHAPf" name="Hierfür brauchst du mindestens 5 AP.">
       <notes>
         <note category="german">Hierfür brauchst du mindestens 5 AP.</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
         <note category="from">db://Requirement</note>
       </notes>
       <segment>
         <source>Hierfür brauchst du mindestens 5 AP.</source>
-        <target>Hierfür brauchst du mindestens 5 AP.</target>
+        <target>Pour faire cela, vous avez besoin d’au moins 5 PA.</target>
       </segment>
     </unit>
     <unit id="ndUWcPR" name="Deine unselige Infektion wurde kuriert!">
@@ -8831,12 +8831,12 @@
     <unit id="793QxjT" name="Hierfür brauchst du mindestens 1 PM.">
       <notes>
         <note category="german">Hierfür brauchst du mindestens 1 MP.</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
         <note category="from">db://Requirement</note>
       </notes>
       <segment>
         <source>Hierfür brauchst du mindestens 1 PM.</source>
-        <target>Hierfür brauchst du mindestens 1 PM.</target>
+        <target>Pour faire cela, vous avez besoin d’au moins 1 MP.</target>
       </segment>
     </unit>
     <unit id="42uqd50">
@@ -9137,22 +9137,21 @@
       <notes>
         <note category="german">Expedition</note>
         <note category="from">db://ItemCategory</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Expedition</source>
-        <target>Expedition</target>
+        <target>Expédition</target>
       </segment>
     </unit>
     <unit id="TWuwK4M" name="Angriff und Verteidigung">
       <notes>
         <note category="german">Angriff und Verteidigung</note>
         <note category="from">db://ItemCategory</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
       </notes>
       <segment>
         <source>Angriff und Verteidigung</source>
-        <target>Angriff und Verteidigung</target>
+        <target>Attaque et défense</target>
       </segment>
     </unit>
     <unit id="5MlxE2I" name="Gegenstand verwenden">
@@ -9453,6 +9452,16 @@
       <segment>
         <source>Hiermit kannst du Städten beitreten, obwohl du die Mindestanzahl an Seelenpunkten noch nicht erreicht hast.</source>
         <target>Ceci vous permet de rejoindre un ville indépendamment de votre nombre de points d'âme.</target>
+      </segment>
+    </unit>
+    <unit id="zMlo9nG">
+      <notes>
+        <note category="german">Du bist &lt;strong&gt;zu weit von der Stadt entfernt&lt;/strong&gt;, um diese Fähigkeit benutzen zu können! Genauer gesagt bist du {km_from_town} km entfernt. Die maximale Entfernung darf höchstens 11 km betragen.</note>
+        <note category="from">db://Requirement</note>
+      </notes>
+      <segment>
+        <source>Du bist &lt;strong&gt;zu weit von der Stadt entfernt&lt;/strong&gt;, um diese Fähigkeit benutzen zu können! Genauer gesagt bist du {km_from_town} km entfernt. Die maximale Entfernung darf höchstens 11 km betragen.</source>
+        <target><![CDATA[Vous êtes <strong>trop loin de la ville pour pouvoir utiliser ce pouvoir</strong> ! Vous êtes à {km_from_town}km tandis que la distance maximale est de 11km.]]></target>
       </segment>
     </unit>
   </file>

@@ -241,7 +241,7 @@ x-message {
     box-shadow: none; background: none; backdrop-filter: drop-shadow(0 0 20px black);
     div.header-stats {
       position: absolute;
-      top: 0px;
+      top: 0px; pointer-events: none;
       right: 15px;
       &>ul {
         list-style: none;
@@ -297,8 +297,8 @@ x-message {
     .deco_logo {
       background-image: url("../img/attract/deco_logo_01_de.png");
       background-repeat: no-repeat;
-      width: 300px;
-      height: 144px;
+      width: 300px; height: 144px; position: relative; top: 12px;
+
     }
 
     .back-dash {
@@ -799,7 +799,7 @@ button, *.button, *.modal-button {
   &:active { border-bottom-width: 1px; border-top-width: 2px; }
   &.inline { padding: 0 5px 0; }
 
-  &:not(.inline) { display: block; width: 100%; }
+  &:not(.inline) { &:not(.spaced-icon) { display: block; } width: 100%; }
 
   &.small {
     font-size: 1rem; padding: 2px 6px; display: inline-block; min-height: 0; margin:0;
@@ -834,7 +834,7 @@ input[type='text'],input[type='number'],input[type='password'],input[type='email
   &:not(textarea) { background: @myhordes-input-background; }
   &:not(input)    { background: @myhordes-input-text-background; resize: vertical; max-width: 100%; min-height: 250px; }
   border: 1px solid @myhordes-input-border; height: 25px;
-  &:not(.inline) { display: block; width: 100%; }
+  &:not(.inline) { &:not(.spaced-icon) { display: block; } width: 100%; }
   &:focus { outline-color: @myhordes-input-border; }
   &:invalid,&.invalid { box-shadow: 0 0 4px red; }
 }
@@ -1061,7 +1061,7 @@ div.game-menu-area {
 
     &>div.header-stats {
         position: absolute;
-        top: -130px;
+        top: -130px; pointer-events: none;
         right: 15px;
         &>ul {
           list-style: none;
@@ -1936,6 +1936,7 @@ span.tag {
 }
 
 .username {
+  word-break: break-all;
   text-decoration: none;
   background-color: #5C0000;
   border-top: 1px solid #98341c;

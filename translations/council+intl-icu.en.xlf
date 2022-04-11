@@ -1496,7 +1496,7 @@
     </unit>
     <unit id="AraAi_U" name="Klar Einstein, Kopf oder Zahl zm eine Persion aus {_voted} auszuwählen.">
       <notes>
-        <note category="german">Klar Einstein, Kopf oder Zahl zm eine Persion aus {_voted} auszuwählen.</note>
+        <note category="german">Klar Einstein, Kopf oder Zahl um eine Persion aus {_voted} auszuwählen.</note>
         <note category="from">db://CouncilEntryTemplate</note>
       </notes>
       <segment>

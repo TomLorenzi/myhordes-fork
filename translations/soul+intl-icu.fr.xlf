@@ -64,8 +64,8 @@
     <unit id="aXUvIxO" name="News">
       <notes>
         <note category="german">News</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/news.html.twig;twig:///templates/ajax/soul/shell.html.twig</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>News</source>
@@ -595,8 +595,8 @@
     <unit id="ecnmnEm" name="Saison {season}">
       <notes>
         <note category="german">Saison {season}</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/shell.html.twig</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Saison {season}</source>
@@ -796,8 +796,8 @@
     <unit id="fmZlI_I" name="Saison">
       <notes>
         <note category="german">Saison</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Saison</source>
@@ -1147,8 +1147,8 @@
     <unit id="qrK4heb" name="Infos">
       <notes>
         <note category="german">Infos</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Infos</source>
@@ -1318,8 +1318,8 @@
     <unit id="004l4O7" name="Saison {n}">
       <notes>
         <note category="german">Saison {n}</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig;twig:///templates/ajax/soul/season.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Saison {n}</source>
@@ -1850,12 +1850,11 @@
     <unit id="XRvl7w0">
       <notes>
         <note category="german">Das angegebene Profil kann nicht importiert werden, da es bereits einem anderen MyHordes-Konto zugeordnet ist.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/scripts/errors/profile.txt.twig</note>
       </notes>
       <segment>
         <source>Das angegebene Profil kann nicht importiert werden, da es bereits einem anderen MyHordes-Konto zugeordnet ist.</source>
-        <target>Das angegebene Profil kann nicht importiert werden, da es bereits einem anderen MyHordes-Konto zugeordnet ist.</target>
+        <target>Le profil spécifié ne peut pas être importé car il est déjà associé à un autre compte MyHordes.</target>
       </segment>
     </unit>
     <unit id="wstj04z" name="MyHordes ist ein stolzer Bestandteil des EternalTwin-Netzwerkes!">
@@ -2401,8 +2400,8 @@
     <unit id="ERZwBql" name="Saison {number}">
       <notes>
         <note category="german">Saison {number}</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Saison {number}</source>
@@ -2412,8 +2411,8 @@
     <unit id="J6NchKS" name="Pos.">
       <notes>
         <note category="german">Pos.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Pos.</source>
@@ -2423,8 +2422,8 @@
     <unit id="OOWkbLx" name="Score">
       <notes>
         <note category="german">Score</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Score</source>
@@ -2444,8 +2443,8 @@
     <unit id="5VYoVVK" name="Lang.">
       <notes>
         <note category="german">Lang.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Lang.</source>
@@ -2665,89 +2664,81 @@
     <unit id="AHcu..1" name="Kommunikation in der Stadt">
       <notes>
         <note category="german">Kommunikation in der Stadt</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Kommunikation in der Stadt</source>
-        <target>Kommunikation in der Stadt</target>
+        <target>Communication dans la ville</target>
       </segment>
     </unit>
     <unit id="6yvyO_B">
       <notes>
         <note category="german">Du kannst keine Stadtnachrichten schreiben sowie das Schwarze Brett oder den Zonenchat verwenden.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Du kannst keine Stadtnachrichten schreiben sowie das Schwarze Brett oder den Zonenchat verwenden.</source>
-        <target>Du kannst keine Stadtnachrichten schreiben sowie das Schwarze Brett oder den Zonenchat verwenden.</target>
+        <target>Vous ne pouvez pas écrire de messages dans la ville ou utiliser le tableau noir ou le chat de zone.</target>
       </segment>
     </unit>
     <unit id="74vPalP" name="Stadtübergreifende Kommunikation">
       <notes>
         <note category="german">Stadtübergreifende Kommunikation</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Stadtübergreifende Kommunikation</source>
-        <target>Stadtübergreifende Kommunikation</target>
+        <target>Communication interville</target>
       </segment>
     </unit>
     <unit id="EKVv6mi" name="Du kannst keine Nachrichten über das Nachrichtenzentrum versenden.">
       <notes>
         <note category="german">Du kannst keine Nachrichten über das Nachrichtenzentrum versenden.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Du kannst keine Nachrichten über das Nachrichtenzentrum versenden.</source>
-        <target>Du kannst keine Nachrichten über das Nachrichtenzentrum versenden.</target>
+        <target>Vous ne pouvez pas envoyer de messages via le Centre de messagerie.</target>
       </segment>
     </unit>
     <unit id="4L8kPem" name="Kommentare">
       <notes>
         <note category="german">Kommentare</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Kommentare</source>
-        <target>Kommentare</target>
+        <target>Commentaires</target>
       </segment>
     </unit>
     <unit id="wY7rEv4" name="Du kannst keine Letzten Worte übermitteln und keine Stadtkommentare verfassen.">
       <notes>
         <note category="german">Du kannst keine Letzten Worte übermitteln und keine Stadtkommentare verfassen.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Du kannst keine Letzten Worte übermitteln und keine Stadtkommentare verfassen.</source>
-        <target>Du kannst keine Letzten Worte übermitteln und keine Stadtkommentare verfassen.</target>
+        <target>Vous ne pouvez pas transmettre de derniers mots ou écrire des commentaires sur la ville.</target>
       </segment>
     </unit>
     <unit id="cnYKFrt" name="Gruppenorganisation">
       <notes>
         <note category="german">Gruppenorganisation</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Gruppenorganisation</source>
-        <target>Gruppenorganisation</target>
+        <target>Organisation de groupe</target>
       </segment>
     </unit>
     <unit id="hzqTzKz" name="Du kannst keine Kleinen Koalitionen gründen oder ihnen beitreten.">
       <notes>
         <note category="german">Du kannst keine Kleinen Koalitionen gründen oder ihnen beitreten.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Du kannst keine Kleinen Koalitionen gründen oder ihnen beitreten.</source>
-        <target>Du kannst keine Kleinen Koalitionen gründen oder ihnen beitreten.</target>
+        <target>Vous ne pouvez pas former ou rejoindre de petites coalitions.</target>
       </segment>
     </unit>
     <unit id="WPixbld" name="Spielen">
@@ -2783,12 +2774,11 @@
     <unit id="cKxZipz" name="Dauerhafte Beschränkung">
       <notes>
         <note category="german">Dauerhafte Beschränkung</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Dauerhafte Beschränkung</source>
-        <target>Dauerhafte Beschränkung</target>
+        <target>Limitation permanente</target>
       </segment>
     </unit>
     <unit id="hP.wuNt" name="Ende der Beschränkung: {date}">
@@ -3394,8 +3384,8 @@
     <unit id="GOqvgvj" name="BBCode">
       <notes>
         <note category="german">BBCode</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/social.html.twig</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>BBCode</source>
@@ -3435,23 +3425,21 @@
     <unit id="vsOyofZ" name="Schwarzes Brett">
       <notes>
         <note category="german">Schwarzes Brett</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Schwarzes Brett</source>
-        <target>Schwarzes Brett</target>
+        <target>Tableau noir</target>
       </segment>
     </unit>
     <unit id="Q2jvlBg" name="Du kannst das Schwarze Brett nicht verwenden.">
       <notes>
         <note category="german">Du kannst das Schwarze Brett nicht verwenden.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Du kannst das Schwarze Brett nicht verwenden.</source>
-        <target>Du kannst das Schwarze Brett nicht verwenden.</target>
+        <target>Vous ne pouvez pas utiliser le tableau noir.</target>
       </segment>
     </unit>
     <unit id="TTWCiLb" name="Neue Übersetzungen verwenden">
@@ -4043,22 +4031,20 @@
       <notes>
         <note category="german">Icon</note>
         <note category="from">php:///src/Structures/TwinoidPayload.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Icon</source>
-        <target>Icon</target>
+        <target>Icône</target>
       </segment>
     </unit>
     <unit id="2LtMDJ7">
       <notes>
         <note category="german">Diese Einschränkung betrifft alle Spieler, die auf MyHordes bereits &lt;b&gt;mehr als {threshold} Städte&lt;/b&gt; nach dem Ende der Alpha-Phase gespielt haben.</note>
         <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Diese Einschränkung betrifft alle Spieler, die auf MyHordes bereits &lt;b&gt;mehr als {threshold} Städte&lt;/b&gt; nach dem Ende der Alpha-Phase gespielt haben.</source>
-        <target><![CDATA[Diese Einschränkung betrifft alle Spieler, die auf MyHordes bereits <b>mehr als {threshold} Städte</b> nach dem Ende der Alpha-Phase gespielt haben.]]></target>
+        <target><![CDATA[Cette restriction s’applique à tous les joueurs qui ont déjà joué dans <b>plus de {seuil} villes</b> sur MyHordes après la fin de la phase alpha.]]></target>
       </segment>
     </unit>
     <unit id="VmJxB06">

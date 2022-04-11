@@ -1670,17 +1670,18 @@ class BeyondController extends InventoryAwareController
 
     /**
      * @Route("api/beyond/desert/rain", name="beyond_desert_shaman_rain")
-     * @param JSONRequestParser $parser
      * @return Response
      */
-    public function desert_shaman_rain(JSONRequestParser $parser): Response {
+    public function desert_shaman_rain(): Response {
         if (!$this->activeCitizenCanAct())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
         $citizen = $this->getActiveCitizen();
 
+        if (!$citizen->hasRole('shaman') && $citizen->getProfession()->getName() !== "shaman")
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
         
         // Forbidden if not shaman
-        if(($citizen->hasRole('shaman') && $citizen->getPM() < 3)) {
+        if($citizen->hasRole('shaman') && $citizen->getProfession()->getName() !== "shaman" && $citizen->getPM() < 3) {
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
         } else if ($citizen->getProfession()->getName() == "shaman") {
             if($citizen->getAp() < 1){
@@ -1719,9 +1720,9 @@ class BeyondController extends InventoryAwareController
             }
         }
         
-        if ($citizen->hasRole('shaman')) {
+        if ($citizen->hasRole('shaman') && $citizen->getPM() >= 3) {
             $citizen->setPM($citizen->getPM() - 3);
-        } else if ($citizen->getProfession()->getName() == "shaman") {
+        } else if ($citizen->getProfession()->getName() === "shaman") {
             $citizen->setAp($citizen->getAp() - 1);
             $soul = $this->inventory_handler->fetchSpecificItems($citizen->getInventory(), [new ItemRequest("soul_blue_#00")]);
             if (!empty($soul)) $this->inventory_handler->forceRemoveItem(array_pop($soul));

@@ -7233,7 +7233,7 @@
       </notes>
       <segment>
         <source>&lt;t-zone&gt;Du hast eine neue Ruine auf {zone} entdeckt!&lt;/t-zone&gt;&lt;nt-zone&gt;Es scheint, als gäbe es nichts mehr zu entdecken ...&lt;/nt-zone&gt;</source>
-        <target><![CDATA[<t-zone>You have discovered a new ruin on {zone}!</t-zone><nt-zone>It seems like there is nothing left to discover ...</nt-zone>]]></target>
+        <target><![CDATA[<t-zone>You have revealed a new building at the following co-ordinates: {zone}!</t-zone><nt-zone>It seems like there is nothing left to discover ...</nt-zone>]]></target>
       </segment>
     </unit>
     <unit id="zI0j8nd" name="Wasserwaffen füllen">
@@ -9464,6 +9464,16 @@
       <segment>
         <source>Hiermit kannst du Städten beitreten, obwohl du die Mindestanzahl an Seelenpunkten noch nicht erreicht hast.</source>
         <target>This allows you to join cities even though you haven't reached the minimum number of soul points.</target>
+      </segment>
+    </unit>
+    <unit id="zMlo9nG">
+      <notes>
+        <note category="german">Du bist &lt;strong&gt;zu weit von der Stadt entfernt&lt;/strong&gt;, um diese Fähigkeit benutzen zu können! Genauer gesagt bist du {km_from_town} km entfernt. Die maximale Entfernung darf höchstens 11 km betragen.</note>
+        <note category="from">db://Requirement</note>
+      </notes>
+      <segment>
+        <source>Du bist &lt;strong&gt;zu weit von der Stadt entfernt&lt;/strong&gt;, um diese Fähigkeit benutzen zu können! Genauer gesagt bist du {km_from_town} km entfernt. Die maximale Entfernung darf höchstens 11 km betragen.</source>
+        <target><![CDATA[You are currently <strong>too far from the town to use this power</strong>! You are {km_from_town} km away, and the maximum distance is 11 km.</div>]]></target>
       </segment>
     </unit>
   </file>

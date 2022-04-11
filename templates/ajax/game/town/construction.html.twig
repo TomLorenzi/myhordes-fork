@@ -235,7 +235,7 @@
 
             valid = ap >= 0 && ap <= {{ app.user.activeCitizen.ap + app.user.activeCitizen.bp }};
             if (!valid) {
-                $.html.error('{{ '<strong>Du brauchst für diese Aktion {ap} Aktionspunkt(e)</strong>. <hr />Trink oder iss etwas, oder nimm eine Droge, ansonsten muss du bis <strong>morgen</strong> warten.'|trans({},'game')|raw }}'.replace('{ap}', '' + ap))
+                $.html.error('{{ '<strong>Du brauchst für diese Aktion {ap} Aktionspunkt(e)</strong>. <hr />Trink oder iss etwas, oder nimm eine Droge, ansonsten muss du bis <strong>morgen</strong> warten.'|trans({},'game')|e('js') }}'.replace('{ap}', '' + ap))
                 return;
             }
 
