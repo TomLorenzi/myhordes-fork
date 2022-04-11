@@ -1767,7 +1767,7 @@
       </notes>
       <segment>
         <source>Beide Schamanen-Modi sind gleichzeitig aktiviert (experimentell!).</source>
-        <target>Beide Schamanen-Modi sind gleichzeitig aktiviert (experimentell!).</target>
+        <target>Les deux modes chaman sont activés en même temps (expérimental !).</target>
       </segment>
     </unit>
     <unit id="RcOw7GN" name="Kombiniert">
@@ -1778,7 +1778,7 @@
       </notes>
       <segment>
         <source>Kombiniert</source>
-        <target>Kombiniert</target>
+        <target>Combiné</target>
       </segment>
     </unit>
   </file>
