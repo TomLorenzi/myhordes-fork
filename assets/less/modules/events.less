@@ -79,7 +79,16 @@ body.stpatrick {
 }
 
 body.easter {
-    #wrapper>#header { background: url(../../img/background/header_easter_de.png); }
+    #wrapper {
+        >#header { background: url(../../img/background/header_easter_de.png); }
+        #content {
+            div.game-menu-area > div.game-bar > ul.clock > li:nth-child(2),
+            div.game-menu-area > div.game-bar > div.ulcont.clock > li:nth-child(2) {
+                text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+            }
+        }
+    }
+
 }
 
 body.halloween {
