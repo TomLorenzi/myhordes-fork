@@ -14,10 +14,10 @@
             {% if citizensWithRole|length > 0 %}
             <h5>{{ 'Stadtrat'|trans({}, 'game') }}</h5>
             <div id="gazette-role-list">
-            {% for citizenWithRole in citizensWithRole %}
-                {% for role in citizenWithRole.roles %}
-                    {% if not role.secret and not role.hidden %}
-                        <p><img alt="•" src="{{ asset('build/images/icons/small_middot.gif') }}" />{{ "Der {rolename} der Stadt ist {username}"|trans({'rolename': role.label|trans({'ref': citizenWithRole}, 'game'), 'username': citizenWithRole, 'username__tag': 'strong', 'rolename__tag': 'strong'} , 'game')|raw }}</p>
+            {% for roleId, array in citizensWithRole %}
+                {% for citizen in array.citizens %}
+                    {% if not array.role.secret and not array.role.hidden %}
+                        <p><img alt="•" src="{{ asset('build/images/icons/small_middot.gif') }}" />{{ "Der {rolename} der Stadt ist {username}"|trans({'rolename': array.role.label|trans({'ref': citizen}, 'game'), 'username': citizen, 'username__tag': 'strong', 'rolename__tag': 'strong'} , 'game')|raw }}</p>
                     {% endif %}
                 {% endfor %}
             {% endfor %}
@@ -26,6 +26,7 @@
 
             <div class="row">
                 <div class="cell padded rw-4">
+                    {% if show_register %}
                     <h5>{{ 'Das Register filtern'|trans({}, 'game') }}</h5>
                     <div class="note row">
                         <label for="citizen-filter" class="cell rw-4 rw-sm-12">{{ 'Bürger:'|trans({}, 'game') }}</label>
@@ -50,6 +51,7 @@
                             <option value="{{ constant('App\\Entity\\LogEntryTemplate::TypeNightly') }}">{{ 'Zombieangriff (newspaper)'|trans({}, 'game') }}</option>
                         </select>
                     </div>
+                    {% endif %}
                 </div>
                 <div class="cell padded rw-8">
                     <h5>{{ 'Stadtregister'|trans({},'game') }}</h5>
