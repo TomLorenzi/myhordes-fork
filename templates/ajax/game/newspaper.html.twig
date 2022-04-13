@@ -92,14 +92,14 @@
                 };
 
                 document.getElementById("citizen-filter").addEventListener('change', function(){
-                    let control_tab = log_boxes[i].querySelector( '.log-day-select .tab' );
-                    let   cur = parseInt(control_tab.getAttribute( 'x-page-current' ));
+                    let control_tab = log_boxes[i].querySelector( '.log-day-select .tab.current' );
+                    let   cur = parseInt(control_tab.getAttribute( 'x-day' ));
                     fun_refresh(cur);
                 });
 
                 document.getElementById("category-filter").addEventListener('change', function(){
-                    let control_tab = log_boxes[i].querySelector( '.log-day-select .tab' );
-                    let cur = parseInt(control_tab.getAttribute( 'x-page-current' ));
+                    let control_tab = log_boxes[i].querySelector( '.log-day-select .tab.current' );
+                    let cur = parseInt(control_tab.getAttribute( 'x-day' ));
                     fun_refresh(cur);
                 });
             }
