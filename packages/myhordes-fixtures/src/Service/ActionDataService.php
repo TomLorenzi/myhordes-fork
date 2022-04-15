@@ -9,6 +9,7 @@ use App\Entity\ItemAction;
 use App\Entity\ItemTargetDefinition;
 use App\Entity\RequireLocation;
 use App\Entity\Requirement;
+use App\Enum\ItemPoisonType;
 use App\Structures\TownConf;
 use MyHordes\Fixtures\Interfaces\FixtureProcessorInterface;
 
@@ -239,7 +240,8 @@ class ActionDataService implements FixtureProcessorInterface {
                 'spawn_target'    => [ 'target' => [ 'consume' => false, 'morph' => null, 'break' => null, 'poison' => null ] ],
                 'consume_target'  => [ 'target' => [ 'consume' => true, 'morph' => null, 'break' => null, 'poison' => null ] ],
                 'repair_target'   => [ 'target' => [ 'consume' => false, 'morph' => null, 'break' => false, 'poison' => null ] ],
-                'poison_target'   => [ 'target' => [ 'consume' => false, 'morph' => null, 'break' => null, 'poison' => true  ] ],
+                'poison_target'   => [ 'target' => [ 'consume' => false, 'morph' => null, 'break' => null, 'poison' => ItemPoisonType::Deadly  ] ],
+                'poison_infect_target'   => [ 'target' => [ 'consume' => false, 'morph' => null, 'break' => null, 'poison' => ItemPoisonType::Infectious  ] ],
 
                 'drink_ap_1'  => [ 'status' => 'add_has_drunk', 'ap' => 'to_max_plus_0' ],
                 'drink_ap_2'  => [ 'status' => 'remove_thirst' ],
@@ -805,6 +807,7 @@ class ActionDataService implements FixtureProcessorInterface {
                 'repair_1' => [ 'label' => 'Reparieren mit', 'at00' => true, 'target' => ['broken' => true], 'meta' => [ 'min_1_ap', 'not_tired', 'is_not_wounded_hands' ], 'result' => [ 'minus_1ap', 'consume_item', 'repair_target', ['picto' => ['r_repair_#00'] ] ], 'message' => 'Du hast das {item} verbraucht, um damit {target} zu reparieren. Dabei hast du {minus_ap} AP eingesetzt.' ],
                 'repair_2' => [ 'label' => 'Reparieren mit', 'at00' => true, 'target' => ['broken' => true], 'meta' => [ 'min_1_ap', 'not_tired', 'is_not_wounded_hands' ], 'result' => [ 'minus_1ap', ['item' => ['consume' => false, 'morph' => 'repair_kit_part_#00'], 'picto' => ['r_repair_#00'] ], 'repair_target' ], 'message' => 'Du hast das {item} verbraucht, um damit {target} zu reparieren. Dabei hast du {minus_ap} AP eingesetzt.' ],
                 'poison_1' => [ 'label' => 'Vergiften mit', 'at00' => true,  'target' => ['type' => ItemTargetDefinition::ItemSelectionTypePoison, 'property' => 'can_poison', 'poison' => false], 'meta' => [ ],               'result' => [ 'consume_item', 'poison_target' ], 'message' => 'Du hast {target} mit {item} kombiniert und {target} erzeugt.{hr}Achtung: Du hast {target} vergiftet. Es ist <strong>nahezu unmöglich, es vom Original zu unterscheiden</strong>, sei also vorsichtig... Es liegt ganz an dir, was du damit jetzt tun möchtest.' ],
+                'poison_2' => [ 'label' => 'Vergiften mit', 'at00' => true,  'target' => ['type' => ItemTargetDefinition::ItemSelectionTypePoison, 'property' => 'can_poison', 'poison' => false], 'meta' => [ ],               'result' => [ 'consume_item', 'poison_infect_target' ], 'message' => 'Du hast {target} mit {item} kombiniert und {target} erzeugt.{hr}Achtung: Du hast {target} vergiftet. Es ist <strong>nahezu unmöglich, es vom Original zu unterscheiden</strong>, sei also vorsichtig... Es liegt ganz an dir, was du damit jetzt tun möchtest.' ],
 
                 'zonemarker_1' => [ 'label' => 'Einsetzen', 'cover' => true, 'at00' => true, 'meta' => [ ], 'result' => [ 'consume_item', 'zonemarker' ], 'message' => 'Mithilfe des {item} hast du die Umgebung gescannt.' ],
                 'zonemarker_2' => [ 'label' => 'Einsetzen', 'cover' => true, 'at00' => true, 'meta' => [ ], 'result' => [ ['group' => [ ['do_nothing', 2], [ [['item' => ['consume' => false, 'morph' => 'radius_mk2_part_#00'] ]], 1 ] ]], 'zonemarker' ], 'message' => 'Mithilfe des {item} hast du die Umgebung gescannt.' ],
@@ -1207,6 +1210,7 @@ class ActionDataService implements FixtureProcessorInterface {
                 'repair_one_#00' => ['repair_1'],
                 'repair_kit_#00' => ['repair_2'],
                 'poison_#00'     => ['poison_1'],
+                'infect_poison_#00' => ['poison_2'],
 
                 'tagger_#00'         => ['zonemarker_1'],
                 'radius_mk2_#00'     => ['zonemarker_2'],

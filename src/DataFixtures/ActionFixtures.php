@@ -55,6 +55,7 @@ use App\Entity\RequireZombiePresence;
 use App\Entity\RequireZone;
 use App\Entity\Result;
 use App\Entity\SpecialActionPrototype;
+use App\Enum\ItemPoisonType;
 use App\Structures\TownConf;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
@@ -972,9 +973,11 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
             if ($morph_to && $data['consume']) throw new Exception('Item effects cannot morph and consume at the same time!');
 
+            if (($data['poison'] ?? null) === true) $data['poison'] = ItemPoisonType::Deadly;
+            if (($data['poison'] ?? null) === false) $data['poison'] = ItemPoisonType::None;
             $result->setName( $id )->setConsume( $data['consume'] )->setMorph( $morph_to )
-                ->setBreak( isset($data['break']) ? $data['break'] : null )
-                ->setPoison( isset($data['poison']) ? $data['poison'] : null );
+                ->setBreak( $data['break'] ?? null )
+                ->setPoison( $data['poison'] ?? null );
             $manager->persist( $cache[$id] = $result );
         } else $out->writeln( "\t\t\t<comment>Skip</comment> effect <info>item/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
         

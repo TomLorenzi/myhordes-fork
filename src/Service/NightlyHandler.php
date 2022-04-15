@@ -171,7 +171,7 @@ class NightlyHandler
             if (!isset( $all_res[ $bank_item->getPrototype()->getName() ] ))
                 $all_res[ $bank_item->getPrototype()->getName() ] = 0;
 
-            if (!$bank_item->getBroken() && !$bank_item->getPoison())
+            if (!$bank_item->getBroken() && !$bank_item->getPoison()->poisoned())
                 $all_res[ $bank_item->getPrototype()->getName() ] += $bank_item->getCount();
         }
 

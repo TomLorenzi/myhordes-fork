@@ -37,7 +37,6 @@ class ItemFixtures extends Fixture
 
     protected function insert_item_categories(ObjectManager $manager, ConsoleOutputInterface $out) {
         $item_category_data = $this->item_category_data->data();
-        $item_prototype_properties = $this->item_property_data->data();
 
         // Mark all entries as "not imported"
         $changed = true;
@@ -104,8 +103,8 @@ class ItemFixtures extends Fixture
     }
 
     protected function insert_item_prototypes(ObjectManager $manager, ConsoleOutputInterface $out) {
-
         $item_prototype_data = $this->item_data->data();
+        $item_prototype_properties = $this->item_property_data->data();
 
         $out->writeln( '<comment>Item prototypes: ' . count($item_prototype_data['items']) . ' fixture entries available.</comment>' );
 

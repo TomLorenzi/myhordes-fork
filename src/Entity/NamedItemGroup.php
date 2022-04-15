@@ -5,7 +5,6 @@ namespace App\Entity;
 use App\Enum\ArrayMergeDirective;
 use App\Repository\NamedItemGroupRepository;
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\ORM\Mapping\Column;
 
 /**
  * @ORM\Entity(repositoryClass=NamedItemGroupRepository::class)
@@ -30,7 +29,9 @@ class NamedItemGroup
      */
     private $itemGroup;
 
-    #[Column(type: 'integer', enumType: ArrayMergeDirective::class)]
+    /**
+     * @ORM\Column(type="integer", enumType=ArrayMergeDirective::class)
+     */
     private ArrayMergeDirective $operator = ArrayMergeDirective::Overwrite;
 
     public function getId(): ?int

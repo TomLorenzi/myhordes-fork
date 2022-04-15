@@ -326,7 +326,7 @@ class ExplorationController extends InventoryAwareController implements HookedIn
         $ruinZone->setDigs( $ruinZone->getDigs() + 1 );
 
         if ($prototype) {
-            $item = $this->item_factory->createItem($prototype, false, $prototype->hasProperty("found_poisoned") ? $this->random_generator->chance(0.90) : false);
+            $item = $this->item_factory->createItem($prototype, false, $prototype->hasProperty("found_poisoned") && $this->random_generator->chance(0.90));
             $gps->recordItemFound( $prototype, $citizen, $ruinZone->getZone()->getPrototype() );
             $noPlaceLeftMsg = "";
             // $inventoryDest = $this->inventory_handler->placeItem($citizen, $item, [$citizen->getInventory(), $ruinZone->getRoomFloor()]);

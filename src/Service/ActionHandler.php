@@ -39,6 +39,7 @@ use App\Entity\RolePlayText;
 use App\Entity\RuinZone;
 use App\Entity\TownLogEntry;
 use App\Entity\Zone;
+use App\Enum\ItemPoisonType;
 use App\Structures\EscortItemActionSet;
 use App\Structures\ItemRequest;
 use App\Structures\MyHordesConf;
@@ -543,7 +544,7 @@ class ActionHandler
                 if (!is_a( $target, Item::class )) return false;
                 if ($definition->getHeavy() !== null && $target->getPrototype()->getHeavy() !== $definition->getHeavy()) return false;
                 if ($definition->getBroken() !== null && $target->getBroken() !== $definition->getBroken()) return false;
-                if ($definition->getPoison() !== null && $target->getPoison() !== $definition->getPoison()) return false;
+                if ($definition->getPoison() !== null && $target->getPoison()->poisoned() !== $definition->getPoison()) return false;
                 if ($definition->getPrototype() !== null && $target->getPrototype()->getId() !== $definition->getPrototype()->getId()) return false;
                 if ($definition->getTag() !== null && !$target->getPrototype()->getProperties()->contains($definition->getTag())) return false;
                 break;
@@ -624,8 +625,9 @@ class ActionHandler
         $remove = [];
         $tags = [];
 
-        $kill_by_poison = $item && $item->getPoison() && ($action->getPoisonHandler() & ItemAction::PoisonHandlerConsume);
-        $spread_poison = false;
+        $kill_by_poison   = $item && ($item->getPoison() === ItemPoisonType::Deadly) && ($action->getPoisonHandler() & ItemAction::PoisonHandlerConsume);
+        $infect_by_poison = $item && ($item->getPoison() === ItemPoisonType::Infectious) && ($action->getPoisonHandler() & ItemAction::PoisonHandlerConsume);
+        $spread_poison = ItemPoisonType::None;
 
         $town_conf = $this->conf->getTownConfiguration( $citizen->getTown() );
 
@@ -704,7 +706,7 @@ class ActionHandler
             } );
         };
 
-        $execute_result = function(Result $result) use ($citizen, &$item, &$target, &$action, &$message, &$remove, &$execute_result, &$execute_info_cache, &$tags, &$kill_by_poison, &$spread_poison, $town_conf, &$floor_inventory, &$ruinZone, $escort_mode) {
+        $execute_result = function(Result $result) use ($citizen, &$item, &$target, &$action, &$message, &$remove, &$execute_result, &$execute_info_cache, &$tags, &$kill_by_poison, &$infect_by_poison, &$spread_poison, $town_conf, &$floor_inventory, &$ruinZone, $escort_mode) {
             /** @var Citizen $citizen */
             if ($status = $result->getStatus()) {
                 if ($status->getResetThirstCounter())
@@ -958,9 +960,10 @@ class ActionHandler
 
                 foreach ($items as $consume_item) {
 
-                    if ($consume_item->getPoison()) {
-                        if ($action->getPoisonHandler() & ItemAction::PoisonHandlerConsume) $kill_by_poison = true;
-                        if ($action->getPoisonHandler() & ItemAction::PoisonHandlerTransgress) $spread_poison = $town_conf->get( TownConf::CONF_MODIFIER_POISON_TRANS, false );
+                    if ($consume_item->getPoison()->poisoned()) {
+                        if ($consume_item->getPoison() === ItemPoisonType::Deadly && ($action->getPoisonHandler() & ItemAction::PoisonHandlerConsume) > 0) $kill_by_poison = true;
+                        if ($consume_item->getPoison() === ItemPoisonType::Infectious && ($action->getPoisonHandler() & ItemAction::PoisonHandlerConsume) > 0) $infect_by_poison = true;
+                        if ($action->getPoisonHandler() & ItemAction::PoisonHandlerTransgress) $spread_poison = $town_conf->get( TownConf::CONF_MODIFIER_POISON_TRANS, false ) ? $consume_item->getPoison() : ItemPoisonType::None;
                     }
 
                     $this->inventory_handler->forceRemoveItem( $consume_item );
@@ -1652,14 +1655,14 @@ class ActionHandler
             if($res !== self::ErrorNone) return $res;
         }
 
-        if ($spread_poison) $item->setPoison( true );
+        if ($spread_poison->poisoned()) $item->setPoison( $spread_poison );
         if ($kill_by_poison && $citizen->getAlive()) {
             $this->death_handler->kill( $citizen, CauseOfDeath::Poison, $r );
             $this->entity_manager->persist( $this->log->citizenDeath( $citizen ) );
-        }
-
-        if ($kill_by_poison) {
             $execute_info_cache['message'] = [];
+        }
+        if ($infect_by_poison) {
+            $this->citizen_handler->inflictStatus( $citizen, 'infection' );
         }
 
         if(!empty($execute_info_cache['message'])) {
