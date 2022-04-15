@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="en-US-POSIX" trgLang="fr">
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="de" trgLang="fr">
   <file id="gazette.fr">
     <unit id="IuJ39ML">
       <notes>
@@ -628,7 +628,7 @@
       </notes>
       <segment>
         <source>Mehrere Brandherde wurden im Reaktorkern gesichtet, bevor er komplett in Flammen aufging. Kurz danach wurde das gesamte Gebiet von einem grünen Blitz vollkommen verwüstet. Die wenigen Überlebenden sind innerhalb nur weniger Sekunden an Strahlenkrankheit gestorben. Was für ein Ende!</source>
-        <target>Plusieurs incendies se sont déclarés au coeur de notre Réacteur avant que ce dernier ne s'embrase totalement. Puis un grand flash vert a balayé et empoisonné toute la région. Il n'a fallu que quelques secondes aux rares survivants pour périr irradiés. Un beau final !</target>
+        <target><![CDATA[Plusieurs incendies se sont déclarés au cœur de notre <strong>Réacteur</strong> avant que ce dernier ne s'embrase totalement. Puis un grand flash vert a balayé et empoisonné toute la région. Il n'a fallu que <strong>quelques secondes</strong> aux rares survivants pour <strong>périr irradiés.</strong> Un beau final ! ]]></target>
       </segment>
     </unit>
     <unit id="Lx3BlQN">
@@ -1105,7 +1105,7 @@
       <notes>
         <note category="german">Pfff...</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Pfff...</source>
@@ -2188,11 +2188,11 @@
       <notes>
         <note category="german">einen Haufen Ramsch</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
       </notes>
       <segment>
         <source>einen Haufen Ramsch</source>
-        <target>einen Haufen Ramsch</target>
+        <target>un tas de déchets</target>
       </segment>
     </unit>
     <unit id="XIAzZXP">

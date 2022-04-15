@@ -44,8 +44,10 @@ class TranslationsStatsCommand extends Command
     protected function configure()
     {
         $this
-            ->setDescription('Translation stats')
+            ->setDescription('Displays translation statistics.')
             ->setHelp('Translation stats.')
+
+            ->addOption('absolute', 'a', InputOption::VALUE_NONE, 'Displays the absolute number of missing translations instead of a percentage.')
         ;
     }
 
@@ -63,6 +65,8 @@ class TranslationsStatsCommand extends Command
         $stats = [];
         $total_messages = ['TOTAL' => 0];
 
+        $display_absolute = $input->getOption('absolute');
+
         foreach ($known_domains as $domain) $stats[$domain] = [];
         $stats['TOTAL'] = [];
 
@@ -77,7 +81,16 @@ class TranslationsStatsCommand extends Command
             $file_loader = $this->container->get('translation.tools.loader');
             $de_messages = $file_loader->load( $de_file, 'de', $domain );
 
-            $total_messages['TOTAL'] += ($total_messages[$domain] = count( $de_messages->all($domain) ));
+            $total_messages[$domain] = 0;
+            foreach ( array_keys( $de_messages->all($domain) ) as $key ) {
+                $used = true;
+                foreach ( ($de_messages->getMetadata($key, $domain)['notes'] ?? []) as $note )
+                    if ($note['category'] === 'from' && $note['content'] === '[unused]')
+                        $used = false;
+                if ($used) $total_messages[$domain]++;
+            }
+
+            $total_messages['TOTAL'] += $total_messages[$domain];
 
             foreach (['en','fr','es'] as $lang) {
 
@@ -92,10 +105,15 @@ class TranslationsStatsCommand extends Command
                 $states = [];
                 foreach ( array_keys( $messages->all($domain) ) as $key ) {
                     $state = 'translated';
-                    foreach ( ($messages->getMetadata($key, $domain)['notes'] ?? []) as $note )
+                    $used = true;
+                    foreach ( ($messages->getMetadata($key, $domain)['notes'] ?? []) as $note ) {
                         if ($note['category'] === 'state')
                             $state = $note['content'] ?: 'translated';
+                        if ($note['category'] === 'from' && $note['content'] === '[unused]')
+                            $used = false;
+                    }
 
+                    if (!$used) continue;
                     $known_states[$state] = true;
 
                     if (!isset($states[$state])) $states[$state] = 1;
@@ -121,24 +139,30 @@ class TranslationsStatsCommand extends Command
         foreach ( array_keys($known_states) as $state ) {
 
             $table = new Table($output);
-            $table->setHeaders([mb_strtoupper( $state ), '[ FR ]', '[ EN ]', '[ ES ]' ]);
+            $table->setHeaders( $display_absolute ? [mb_strtoupper( $state ), '[ DE ]', '[ FR ]', '[ EN ]', '[ ES ]' ] : [mb_strtoupper( $state ), '[ FR ]', '[ EN ]', '[ ES ]' ]);
 
             foreach ($known_domains as $domain) {
 
-                $table->addRow( array_merge([ $domain ], array_map( function($lang) use ($domain,$state,&$stats,&$total_messages) {
-                    $matching = min(100,round(100 * ($stats[$domain][$lang][$state] ?? 0) / $total_messages[$domain]));
+                $table->addRow( array_merge([ $domain ], array_map( function($lang) use ($domain,$state,$display_absolute,&$stats,&$total_messages) {
+                    $total = $lang === 'de' ? $total_messages[$domain] : ($stats[$domain][$lang][$state] ?? 0);
+                    $matching = min(100,round(100 * $total / $total_messages[$domain]));
+                    if ($total < $total_messages[$domain]) $matching = min(99, $matching);
+                    if ($total > 0) $matching = max(1, $matching);
+
 
                     $col = $state === 'translated' ? $matching : (100 - $matching);
+                    $display = $display_absolute ? $total : "$matching%";
 
-                    if ($col >= 100) $color = 'bright-blue';
-                    elseif ($col >= 90) $color = 'bright-green';
-                    elseif ($col >= 75) $color = 'bright-yellow';
-                    elseif ($col >= 50) $color = 'yellow';
-                    elseif ($col >= 30) $color = 'bright-red';
-                    else                $color = 'red';
+                    if ($lang === 'de')  $color = 'bright-white';
+                    elseif ($col >= 100) $color = 'bright-blue';
+                    elseif ($col >= 90)  $color = 'bright-green';
+                    elseif ($col >= 75)  $color = 'yellow';
+                    elseif ($col >= 50)  $color = 'bright-yellow';
+                    elseif ($col >= 30)  $color = 'bright-red';
+                    else                 $color = 'red';
 
-                    return "<fg=$color>{$matching}%</>";
-                }, ['fr','en','es'])) );
+                    return "<fg=$color>{$display}</>";
+                }, $display_absolute ? ['de', 'fr','en','es'] : ['fr','en','es'])) );
 
             }
 

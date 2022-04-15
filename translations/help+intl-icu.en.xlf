@@ -484,7 +484,7 @@
     <unit id="vpGUC3n" name="Support">
       <notes>
         <note category="german">Support</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/help/seasons_and_rankings.html.twig;twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/help/support.html.twig;twig:///templates/seo/help.html.twig</note>
       </notes>
       <segment>
@@ -1243,7 +1243,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du {img_tired} &lt
     <unit id="rTyffgm" name="MyHordes?">
       <notes>
         <note category="german">MyHordes?</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/help/welcome.html.twig;twig:///templates/seo/help.html.twig</note>
       </notes>
       <segment>
@@ -2624,7 +2624,7 @@ Die in diesen Stunden erlittene panische &lt;strong&gt;Angst&lt;/strong&gt; ist 
     <unit id="UTfIdgy" name="Clean">
       <notes>
         <note category="german">Clean</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/help/health.html.twig</note>
       </notes>
       <segment>
@@ -7179,7 +7179,7 @@ Nutze bitte folgenden Link, wenn du uns einen Bug (technischen Fehler) melden m�
     <unit id="xWlFPqr" name="etc...">
       <notes>
         <note category="german">etc...</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/help/quarantined_towns.html.twig</note>
       </notes>
       <segment>
@@ -7657,12 +7657,12 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
     <unit id="BfPtnDn">
       <notes>
         <note category="german">Alle deine Gegenstände werden &lt;strong&gt;in der Truhe&lt;/strong&gt; aufbewahrt. Klick auf einen &lt;strong&gt;Gegenstand&lt;/strong&gt;, um ihn mitzunehmen...</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
         <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
       </notes>
       <segment>
         <source>Alle deine Gegenstände werden &lt;strong&gt;in der Truhe&lt;/strong&gt; aufbewahrt. Klick auf einen &lt;strong&gt;Gegenstand&lt;/strong&gt;, um ihn mitzunehmen...</source>
-        <target><![CDATA[Alle deine Gegenstände werden <strong>in der Truhe</strong> aufbewahrt. Klick auf einen <strong>Gegenstand</strong>, um ihn mitzunehmen...]]></target>
+        <target><![CDATA[All your items are kept <strong>in the chest</strong>. Click on an <strong>item</strong> to take it with you...]></target>
       </segment>
     </unit>
     <unit id="K56xxmf">
@@ -8616,6 +8616,17 @@ Um Kontakt mit den Administratoren aufzunehmen, schreibe an die &lt;a x-group-co
 Um Kontakt mit den Administratoren aufzunehmen, schreibe an die &lt;a x-group-connect="{oglink}" href="#"&gt;Offizielle Gruppe&lt;/a&gt; des Technischen Supports.</source>
         <target><![CDATA[<strong>CONTACT THE SUPPORT:</strong>
 To contact the server administrators, write a message to the <a x-group-connect="{oglink}" href="#">official Tech Support group</a>.]]></target>
+      </segment>
+    </unit>
+    <unit id="K56xxmf">
+      <notes>
+        <note category="german">Ausgerüstete Gegenstände werden in deinem &lt;strong&gt;Rucksack&lt;/strong&gt; aufbewahrt.</note>
+        <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
+        <note category="state">madeup</note>
+      </notes>
+      <segment>
+        <source>Ausgerüstete Gegenstände werden in deinem &lt;strong&gt;Rucksack&lt;/strong&gt; aufbewahrt.</source>
+        <target><![CDATA[Equipped items are stored in your <strong>backpack</strong>.]]></target>
       </segment>
     </unit>
   </file>

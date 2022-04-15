@@ -173,11 +173,12 @@
                             <label for="rules">{{'Spezialregeln'|trans({}, 'ghost')}}</label>
                         </div>
                         <div class="cell padded rw-9 rw-md-6 rw-sm-12">
-                            <select id="rules" name="rules" multiple x-payload="rules">
+                            <select id="rules" name="rules" multiple size="5" x-payload="rules">
                                 <option value="none" title="{{'Keine Spezialregeln'|trans({}, 'ghost')}}" selected>{{'Keine'|trans({}, 'ghost')}}</option>
                                 <option value="nobuilding" title="{{'Kein Gebäude ist zu Beginn freigeschaltet. Alle müssen in der Aussenwelt gefunden werden!'|trans({}, 'ghost')}}">{{'Keine Startgebäude'|trans({}, 'ghost')}}</option>
                                 <option value="poison" title="{{'Jedes Essen und jede Droge, die du zu dir nimmst, birgt ein geringes Infektionsrisiko.'|trans({}, 'ghost')}}">{{'Kontaminierte Zone'|trans({}, 'ghost')}}</option>
                                 <option value="beta" title="{{'Jeder Spieler erhält 1x Betapropin beim Start der Stadt.'|trans({}, 'ghost')}}">{{'Beta-Funktionen aktivieren'|trans({}, 'ghost')}}</option>
+                                <option value="with-toxin" title="{{'Ermöglicht es, in begehbaren Ruinen den Gegenstand "Blutdurchtränkter Verband" zu finden, aus dem Toxin hergestellt werden kann.'|trans({}, 'ghost')}}">{{'Toxin aktivieren'|trans({}, 'ghost')}}</option>
                             </select>
                         </div>
                     </div>
@@ -297,6 +298,9 @@
                             <select name="shamanMode" id="shamanMode" x-payload="shamanMode">
                                 <option value="normal" title="{{'Der Schamane wird gewählt und die Seelen werden gequält.'|trans({}, 'ghost')}}">{{'Normal'|trans({}, 'ghost')}}</option>
                                 <option value="job" title="{{'Der Schamane ist ein Beruf, die Seelen werden in der Werkstatt verwandelt.'|trans({}, 'ghost')}}">{{'Job'|trans({}, 'ghost')}}</option>
+                                {% if is_granted('ROLE_CROW') %}
+                                    <option value="both" title="{{'Beide Schamanen-Modi sind gleichzeitig aktiviert (experimentell!).'|trans({}, 'ghost')}}">{{'Kombiniert'|trans({}, 'ghost')}}</option>
+                                {% endif %}
                                 <option value="none" title="{{'Der Schamane und die Seelen werden deaktiviert.'|trans({}, 'ghost')}}">{{'Deaktiviert'|trans({}, 'ghost')}}</option>
                             </select>
                         </div>
@@ -495,7 +499,7 @@
         fun_link_help('nightMode','helpNightMode');
         fun_link_help('nightTime','helpNightTime');
         fun_link_help('shamanMode','helpShaman', v => {
-            if (document.getElementById('shaman')) document.getElementById('shaman').checked = (v === 'job')
+            if (document.getElementById('shaman')) document.getElementById('shaman').checked = (v === 'job' || v === 'both')
         });
 
         $.html.addEventListenerAll('#nightTimeBegin', 'change', function() {

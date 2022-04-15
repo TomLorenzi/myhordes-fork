@@ -1684,5 +1684,41 @@
         <target>Zur Partieauswahl zurückkehren</target>
       </segment>
     </unit>
+    <unit id="CJDUJAE" name="Beide Schamanen-Modi sind gleichzeitig aktiviert (experimentell!).">
+      <notes>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+      </notes>
+      <segment>
+        <source>Beide Schamanen-Modi sind gleichzeitig aktiviert (experimentell!).</source>
+        <target>Beide Schamanen-Modi sind gleichzeitig aktiviert (experimentell!).</target>
+      </segment>
+    </unit>
+    <unit id="RcOw7GN" name="Kombiniert">
+      <notes>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+      </notes>
+      <segment>
+        <source>Kombiniert</source>
+        <target>Kombiniert</target>
+      </segment>
+    </unit>
+    <unit id="NZdQf3X">
+      <notes>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+      </notes>
+      <segment>
+        <source>Ermöglicht es, in begehbaren Ruinen den Gegenstand "Blutdurchtränkter Verband" zu finden, aus dem Toxin hergestellt werden kann.</source>
+        <target>Ermöglicht es, in begehbaren Ruinen den Gegenstand "Blutdurchtränkter Verband" zu finden, aus dem Toxin hergestellt werden kann.</target>
+      </segment>
+    </unit>
+    <unit id="m9UhkBU" name="Toxin aktivieren">
+      <notes>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+      </notes>
+      <segment>
+        <source>Toxin aktivieren</source>
+        <target>Toxin aktivieren</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -1254,7 +1254,7 @@
     <unit id="3IZqzXd" name="Bill S. Preston Memorial Hospital">
       <notes>
         <note category="german">Bill S. Preston Memorial Hospital</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
@@ -1325,7 +1325,7 @@
     <unit id="6w7BxUc" name="Bordeaux Grace">
       <notes>
         <note category="german">Bordeaux Grace</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
@@ -1346,7 +1346,7 @@
     <unit id="bLVHCVX" name="Charlton Eston Hotel">
       <notes>
         <note category="german">Charlton Eston Hotel</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
@@ -1397,7 +1397,7 @@
     <unit id=".tqLOvU" name="Terminal Hotel">
       <notes>
         <note category="german">Terminal Hotel</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
@@ -1408,7 +1408,7 @@
     <unit id="UJ.NcUe" name="Hotel Von Otto">
       <notes>
         <note category="german">Hotel Von Otto</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
@@ -1419,7 +1419,7 @@
     <unit id="4iY4V5c" name="S+M B+B">
       <notes>
         <note category="german">S+M B+B</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
@@ -1460,7 +1460,7 @@
     <unit id="QAgPWD4" name="Chez Clem Hotel">
       <notes>
         <note category="german">Chez Clem Hotel</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
@@ -1481,7 +1481,7 @@
     <unit id="3ElP164" name="Hostel Partout">
       <notes>
         <note category="german">Hostel Partout</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
@@ -1512,7 +1512,7 @@
     <unit id="iPCSevb" name="Hotel Venga">
       <notes>
         <note category="german">Hotel Venga</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
@@ -1573,7 +1573,7 @@
     <unit id="6TfqhRy" name="Fallout Shelter">
       <notes>
         <note category="german">Fallout Shelter</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
@@ -1674,7 +1674,7 @@
     <unit id="9tYl8RU" name="Zum Schlafen Reichts Motel">
       <notes>
         <note category="german">Zum Schlafen Reichts Motel</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>

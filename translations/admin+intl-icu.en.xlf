@@ -4658,5 +4658,25 @@
         <target>Ban all</target>
       </segment>
     </unit>
+    <unit id="LAYDoJI" name="Tödlich">
+      <notes>
+        <note category="german">Tödlich</note>
+        <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
+      </notes>
+      <segment>
+        <source>Tödlich</source>
+        <target>Deadly</target>
+      </segment>
+    </unit>
+    <unit id="acvlWFC" name="Infektiös">
+      <notes>
+        <note category="german">Infektiös</note>
+        <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
+      </notes>
+      <segment>
+        <source>Infektiös</source>
+        <target>Infectious</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

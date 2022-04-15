@@ -692,12 +692,12 @@
     <unit id="6zAO87a">
       <notes>
         <note category="german">Der eingegebene Pate ist ungültig. Um dich ohne einen Paten anzumelden, lasse das Feld frei.</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">php:///src/Controller/PublicController.php</note>
       </notes>
       <segment>
         <source>Der eingegebene Pate ist ungültig. Um dich ohne einen Paten anzumelden, lasse das Feld frei.</source>
-        <target>Der eingegebene Pate ist ungültig. Um dich ohne einen Paten anzumelden, lasse das Feld frei.</target>
+        <target>The entered sponsor is invalid. To register without a sponsor, leave the field blank.</target>
       </segment>
     </unit>
     <unit id="e_EqP86" name="Pate">

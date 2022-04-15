@@ -18,6 +18,15 @@ monolog:
             level: debug
             max_files: 14
             channels: [ "admin" ]
+        deprecation:
+            type: rotating_file
+            max_files: 14
+            path: "%kernel.logs_dir%/%kernel.environment%.deprecations.log"
+        deprecation_filter:
+            type: filter
+            handler: deprecation
+            max_level: info
+            channels: ["php"]
         # uncomment to get logging in your browser
         # you may have to allow bigger header sizes in your Web server configuration
         #firephp:

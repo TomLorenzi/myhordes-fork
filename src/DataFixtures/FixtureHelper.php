@@ -20,11 +20,16 @@ class FixtureHelper extends Fixture
         }
         else $group->getEntries()->clear();
 
-        foreach ($data as $entry) {
-            $pt = $manager->getRepository(ItemPrototype::class)->findOneBy(['name' => $entry['item']]);
+        foreach ($data as $key => $entry) {
+            if (is_array($entry))
+                list($name,$count) = [$entry['item'],$entry['count']];
+            else list($name,$count) = [$key,$entry];
+
+            $pt = $manager->getRepository(ItemPrototype::class)->findOneBy(['name' => $name]);
+            if ($pt === null) throw new \Exception("Cannot locate item prototype '$name'!");
             $group->addEntry(
                 (new ItemGroupEntry())
-                    ->setChance( (int)$entry['count'] )
+                    ->setChance( (int)$count )
                     ->setPrototype( $pt )
             );
         }

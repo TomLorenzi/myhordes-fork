@@ -685,7 +685,7 @@ class InventoryAwareController extends CustomAbstractController
                             if($floor_up && $current_item->getPrototype()->getName() == 'soul_blue_#00' && $current_item->getFirstPick()) {
                                 $current_item->setFirstPick(false);
                                 // In the "Job" version of the shaman, the one that pick a blue soul for the 1st time gets the "r_collec" picto
-                                if ($this->getTownConf()->get(TownConf::CONF_FEATURE_SHAMAN_MODE, "normal") === "job")
+                                if ($this->getTownConf()->is(TownConf::CONF_FEATURE_SHAMAN_MODE, ['job', 'both'], "normal"))
                                     $this->picto_handler->give_picto($target_citizen, "r_collec2_#00");
                                 $this->entity_manager->persist($current_item);
                             }
@@ -1365,7 +1365,7 @@ class InventoryAwareController extends CustomAbstractController
 
         $escort_mode = $base_citizen !== null;
         if ( !$item || !$action || $item->getBroken() ) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-        if ( $escort_mode && $item->getPoison() ) return AjaxResponse::error( BeyondController::ErrorEscortActionRefused );
+        if ( $escort_mode && $item->getPoison()->poisoned() ) return AjaxResponse::error( BeyondController::ErrorEscortActionRefused );
         $citizen = $base_citizen ?? $this->getActiveCitizen();
 
         $zone = $citizen->getZone();

@@ -1,0 +1,97 @@
+# This file is the entry point to configure your own services.
+# Files in the packages/ subdirectory configure your dependencies.
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
+parameters:
+
+services:
+    # default configuration for services in *this* file
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+    MyHordes\Fixtures\Fixtures\:
+      resource: '../../../src/Fixtures/*'
+
+    MyHordes\Fixtures\Service\PermissionDataService:
+      tags: [ { name: 'myhordes.fixtures.permissions', priority: 0 } ]
+
+    MyHordes\Fixtures\Service\TownDataService:
+      tags: [ { name: 'myhordes.fixtures.town', priority: 0 } ]
+
+    MyHordes\Fixtures\Service\RolePlayTextDataService:
+      tags: [ { name: 'myhordes.fixtures.rp_texts', priority: 0 } ]
+
+    MyHordes\Fixtures\Service\PictoDataService:
+      tags: [ { name: 'myhordes.fixtures.pictos', priority: 0 } ]
+    MyHordes\Fixtures\Service\AwardTitleDataService:
+      tags: [ { name: 'myhordes.fixtures.awards.titles', priority: 0 } ]
+    MyHordes\Fixtures\Service\AwardIconDataService:
+      tags: [ { name: 'myhordes.fixtures.awards.icons', priority: 0 } ]
+    MyHordes\Fixtures\Service\AwardFeatureDataService:
+      tags: [ { name: 'myhordes.fixtures.awards.features', priority: 0 } ]
+
+    MyHordes\Fixtures\Service\RuinDataService:
+      tags: [ { name: 'myhordes.fixtures.ruins.data', priority: 0 } ]
+    MyHordes\Fixtures\Service\RuinRoomDataService:
+      tags: [ { name: 'myhordes.fixtures.ruins.rooms', priority: 0 } ]
+
+    MyHordes\Fixtures\Service\ZoneTagDataService:
+      tags: [ { name: 'myhordes.fixtures.zones.tags', priority: 0 } ]
+
+    MyHordes\Fixtures\Service\EmoteDataService:
+      tags: [ { name: 'myhordes.fixtures.emotes', priority: 0 } ]
+    MyHordes\Fixtures\Service\ForumThreadTagDataService:
+      tags: [ { name: 'myhordes.fixtures.forum.thread.tags', priority: 0 } ]
+
+    MyHordes\Fixtures\Service\CitizenProfessionDataService:
+      tags: [ { name: 'myhordes.fixtures.citizen.professions', priority: 0 } ]
+    MyHordes\Fixtures\Service\CitizenStatusDataService:
+      tags: [ { name: 'myhordes.fixtures.citizen.status', priority: 0 } ]
+    MyHordes\Fixtures\Service\CitizenRoleDataService:
+      tags: [ { name: 'myhordes.fixtures.citizen.roles', priority: 0 } ]
+    MyHordes\Fixtures\Service\CitizenNotificationMarkerDataService:
+      tags: [ { name: 'myhordes.fixtures.citizen.notifications', priority: 0 } ]
+    MyHordes\Fixtures\Service\CitizenDeathDataService:
+      tags: [ { name: 'myhordes.fixtures.citizen.deaths', priority: 0 } ]
+    MyHordes\Fixtures\Service\CitizenHomeLevelDataService:
+      tags: [ { name: 'myhordes.fixtures.citizen.home.levels', priority: 0 } ]
+    MyHordes\Fixtures\Service\CitizenHomeUpgradeDataService:
+      tags: [ { name: 'myhordes.fixtures.citizen.home.upgrades', priority: 0 } ]
+    MyHordes\Fixtures\Service\CitizenComplaintDataService:
+      tags: [ { name: 'myhordes.fixtures.citizen.complaints', priority: 0 } ]
+
+    MyHordes\Fixtures\Service\ItemDataService:
+      tags: [ { name: 'myhordes.fixtures.items.list', priority: 0 } ]
+    MyHordes\Fixtures\Service\ItemCategoryDataService:
+      tags: [ { name: 'myhordes.fixtures.items.categories', priority: 0 } ]
+    MyHordes\Fixtures\Service\ItemGroupDataService:
+      tags: [ { name: 'myhordes.fixtures.items.groups', priority: 0 } ]
+    MyHordes\Fixtures\Service\ItemPropertyDataService:
+      tags: [ { name: 'myhordes.fixtures.items.properties', priority: 0 } ]
+
+    MyHordes\Fixtures\Service\GazetteDataService:
+      tags: [ { name: 'myhordes.fixtures.gazettes', priority: 0 } ]
+    MyHordes\Fixtures\Service\CouncilDataService:
+      tags: [ { name: 'myhordes.fixtures.councils', priority: 0 } ]
+
+    MyHordes\Fixtures\Service\HeroSkillDataService:
+      tags: [ { name: 'myhordes.fixtures.heroskills', priority: 0 } ]
+
+    MyHordes\Fixtures\Service\HordesFactDataService:
+      tags: [ { name: 'myhordes.fixtures.hordesfact', priority: 0 } ]
+    MyHordes\Fixtures\Service\QuoteDataService:
+      tags: [ { name: 'myhordes.fixtures.quotes', priority: 0 } ]
+
+    MyHordes\Fixtures\Service\BuildingDataService:
+      tags: [ { name: 'myhordes.fixtures.buildings', priority: 0 } ]
+
+    MyHordes\Fixtures\Service\RecipeDataService:
+      tags: [ { name: 'myhordes.fixtures.recipes', priority: 0 } ]
+
+    MyHordes\Fixtures\Service\LogDataService:
+      tags: [ { name: 'myhordes.fixtures.logs', priority: 0 } ]
+
+    MyHordes\Fixtures\Service\ActionDataService:
+      tags: [ { name: 'myhordes.fixtures.actions', priority: 0 } ]

@@ -171,7 +171,7 @@ class NightlyHandler
             if (!isset( $all_res[ $bank_item->getPrototype()->getName() ] ))
                 $all_res[ $bank_item->getPrototype()->getName() ] = 0;
 
-            if (!$bank_item->getBroken() && !$bank_item->getPoison())
+            if (!$bank_item->getBroken() && !$bank_item->getPoison()->poisoned())
                 $all_res[ $bank_item->getPrototype()->getName() ] += $bank_item->getCount();
         }
 
@@ -1320,7 +1320,14 @@ class NightlyHandler
         }
 
         if($town->getDevastated()){
-            $this->log->debug("Town is devastated, nothing to do.");
+            // Each day as devastated, the town lose water as zombies are entering town.
+            $d = min($town->getWell(), rand(20, 40));
+            
+            if($d > 0){
+                $this->log->debug("Town is devastated, the zombies entering town removed <info>{$d} water rations</info> from the well.");
+                $this->entity_manager->persist($this->logTemplates->nightlyDevastationAttackWell($d, $town));
+                $town->setWell($town->getWell() - $d);
+            }
         } else {
             $this->log->debug("Town is not yet devastated, and has <info>$aliveCitizen</info> alive citizens (including <info>$aliveCitizenInTown</info> in town)");
 
@@ -1501,7 +1508,7 @@ class NightlyHandler
         }
         $this->log->debug("Recovered <info>{$reco_counter[0]}</info>/<info>{$reco_counter[1]}</info> zones." );
 
-        if($this->conf->getTownConfiguration($town)->get( TownConf::CONF_FEATURE_SHAMAN_MODE, 'normal' ) == 'normal') {
+        if ($this->conf->getTownConfiguration($town)->is( TownConf::CONF_FEATURE_SHAMAN_MODE, ['normal','both'], 'normal' )) {
             $this->log->debug("Processing <info>souls</info> mutations.");
 
             $blue_souls = $this->inventory_handler->getAllItems($town, 'soul_blue_#00');

@@ -319,14 +319,14 @@ class ExplorationController extends InventoryAwareController implements HookedIn
         $chances = 1.0 / ( 1.0 + ( $d / max( 1, $this->getTownConf()->get(TownConf::CONF_EXPLORABLES_ITEM_RATE, 11) - ($d/3.0) ) ) );
 
         if ($this->random_generator->chance( $chances )) {
-            $group = $ruinZone->getZone()->getPrototype()->getDrops();
-            $prototype = $group ? $this->random_generator->pickItemPrototypeFromGroup( $group ) : null;
+            $group = $ruinZone->getZone()->getPrototype()->getDropByNames( $this->getTownConf()->get( TownConf::CONF_OVERRIDE_NAMED_DROPS, [] ) );
+            $prototype = $group ? $this->random_generator->pickItemPrototypeFromGroup( $group, $this->getTownConf() ) : null;
         }
 
         $ruinZone->setDigs( $ruinZone->getDigs() + 1 );
 
         if ($prototype) {
-            $item = $this->item_factory->createItem($prototype, false, $prototype->hasProperty("found_poisoned") ? $this->random_generator->chance(0.90) : false);
+            $item = $this->item_factory->createItem($prototype, false, $prototype->hasProperty("found_poisoned") && $this->random_generator->chance(0.90));
             $gps->recordItemFound( $prototype, $citizen, $ruinZone->getZone()->getPrototype() );
             $noPlaceLeftMsg = "";
             // $inventoryDest = $this->inventory_handler->placeItem($citizen, $item, [$citizen->getInventory(), $ruinZone->getRoomFloor()]);

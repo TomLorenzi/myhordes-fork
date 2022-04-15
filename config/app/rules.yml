@@ -140,7 +140,11 @@ parameters:
       disabled_jobs: ['shaman']
       disabled_roles: []
       disabled_buildings: ['small_vaudoudoll_#00', 'small_bokorsword_#00', 'small_spiritmirage_#00','small_holyrain_#00']
-      
+
+      overrides:
+        named_drops: []
+        item_groups: []
+
     small:
       stranger_day_limit: 1
       stranger_citizen_limit: 10

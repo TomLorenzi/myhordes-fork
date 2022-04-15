@@ -534,7 +534,7 @@
     <unit id="qKBuSla" name="Zone">
       <notes>
         <note category="german">Zone</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">php:///src/Controller/InventoryAwareController.php;twig:///templates/ajax/admin/towns/map.html.twig;twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
@@ -735,7 +735,7 @@
     <unit id="8N0dl_g" name="Zombies">
       <notes>
         <note category="german">Zombies</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/town/watchtower.html.twig</note>
       </notes>
       <segment>
@@ -4136,7 +4136,7 @@
     <unit id="CT0T_bH" name="Strangulation">
       <notes>
         <note category="german">Strangulation</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">db://CauseOfDeath</note>
       </notes>
       <segment>
@@ -7491,7 +7491,7 @@
     <unit id="wVNJv3." name="Camping">
       <notes>
         <note category="german">Camping</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
@@ -11407,7 +11407,7 @@
     <unit id="oDsiHGx" name="???">
       <notes>
         <note category="german">???</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">db://CauseOfDeath</note>
       </notes>
       <segment>
@@ -13868,7 +13868,7 @@
     <unit id="KZqJU6f" name="I see dead people 0_0">
       <notes>
         <note category="german">I see dead people 0_0</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">db://AwardPrototype</note>
       </notes>
       <segment>
@@ -13949,7 +13949,7 @@
     <unit id="zoS8PK1" name="Open-chakra">
       <notes>
         <note category="german">Open-chakra</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">db://AwardPrototype</note>
       </notes>
       <segment>
@@ -14030,7 +14030,7 @@
     <unit id="RtVs3Hp" name="Où est Larchi ?">
       <notes>
         <note category="german">Wo ist Larchi?</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">db://AwardPrototype</note>
       </notes>
       <segment>
@@ -14091,7 +14091,7 @@
     <unit id="k._y0h1" name="Holy F***ing Iceberg">
       <notes>
         <note category="german">Holy F***ing Iceberg</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">db://AwardPrototype</note>
       </notes>
       <segment>
@@ -14292,7 +14292,7 @@
     <unit id="NbdbHur" name="RadioactiveMan">
       <notes>
         <note category="german">RadioactiveMan</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">db://AwardPrototype</note>
       </notes>
       <segment>
@@ -14683,7 +14683,7 @@
     <unit id="1YdiLSd" name="Bonus">
       <notes>
         <note category="german">Bonus</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
       </notes>
       <segment>
@@ -14704,7 +14704,7 @@
     <unit id="X7RHtVg" name="UFC">
       <notes>
         <note category="german">UFC</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">db://PictoPrototype</note>
       </notes>
       <segment>
@@ -16114,7 +16114,7 @@
     <unit id="HB_a6_1" name="Muad'Dib">
       <notes>
         <note category="german">Muad'Dib</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">db://AwardPrototype</note>
       </notes>
       <segment>
@@ -16415,7 +16415,7 @@
     <unit id="WAptaqe" name="Edit Piaf">
       <notes>
         <note category="german">Edit Piaf</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">db://AwardPrototype</note>
       </notes>
       <segment>
@@ -16776,7 +16776,7 @@
     <unit id="tz.x2ip" name="Bruce Campbell">
       <notes>
         <note category="german">Bruce Campbell</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">db://AwardPrototype</note>
       </notes>
       <segment>
@@ -16917,7 +16917,7 @@
     <unit id="A9.RjsE" name="Lucky 7">
       <notes>
         <note category="german">Lucky 7</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">db://AwardPrototype</note>
       </notes>
       <segment>
@@ -16928,7 +16928,7 @@
     <unit id="29D05i3" name="Money for Nothing">
       <notes>
         <note category="german">Money for Nothing</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">db://AwardPrototype</note>
       </notes>
       <segment>
@@ -16979,7 +16979,7 @@
     <unit id="Y7BDALO" name="Internet Explorer">
       <notes>
         <note category="german">Internet Explorer</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">db://AwardPrototype</note>
       </notes>
       <segment>
@@ -17750,7 +17750,7 @@
     <unit id="DqKvoHz">
       <notes>
         <note category="german">Cette maison est &lt;strong&gt;protégée&lt;/strong&gt; (verrou ou autre...) et ne peut être cambriolée.</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
@@ -19019,7 +19019,7 @@
     <unit id="5kvPhGt" name="St. Patrick">
       <notes>
         <note category="german">St. Patrick</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
@@ -19040,7 +19040,7 @@
     <unit id="BJVmtrE" name="Halloween">
       <notes>
         <note category="german">Halloween</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
@@ -19051,7 +19051,7 @@
     <unit id="9mZMqtI" name="Armageddon">
       <notes>
         <note category="german">Armageddon</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
@@ -19453,7 +19453,7 @@
     <unit id="ybPDgkf" name="Total">
       <notes>
         <note category="german">Total</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
@@ -20694,12 +20694,12 @@
     <unit id="sXukPwK" name="Immerhin wurden alle Bürger aus der Stadt geschleudert...">
       <notes>
         <note category="german">Immerhin wurden alle Bürger aus der Stadt geschleudert...</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
         <note category="from">twig:///templates/ajax/game/gazette_widget.html.twig</note>
       </notes>
       <segment>
         <source>Immerhin wurden alle Bürger aus der Stadt geschleudert...</source>
-        <target>Immerhin wurden alle Bürger aus der Stadt geschleudert...</target>
+        <target>Après tout, tous les citoyens de la ville ont été vaporisés...</target>
       </segment>
     </unit>
     <unit id="InNTsjR">
@@ -20788,7 +20788,7 @@
     <unit id="olizD4j" name="Global">
       <notes>
         <note category="german">Global</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">php:///src/Controller/InventoryAwareController.php;twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
@@ -20971,7 +20971,7 @@
                         other {Si vous estimez que {citizen} a <strong>mal agi</strong>, utilisez la dénonciation.<br />Si plusieurs citoyens font de même, il pourra être lourdement <strong>sanctionné</strong> par la communauté !}
                     }
                 }
-                other {Si vous estimez que citizen a <strong>mal agi</strong>, utilisez la dénonciation.<br />Si plusieurs citoyens font de même, il(elle) pourra être lourdement <strong>sanctionné(e)</strong> par la communauté !}
+                other {Si vous estimez que {citizen} a <strong>mal agi</strong>, utilisez la dénonciation.<br />Si plusieurs citoyens font de même, il(elle) pourra être lourdement <strong>sanctionné(e)</strong> par la communauté !}
             }
         ]]></target>
       </segment>
@@ -23083,6 +23083,16 @@ cette violente opération...]]></target>
       <segment>
         <source>&lt;strong&gt;Du brauchst für diese Aktion {ap} Aktionspunkt(e)&lt;/strong&gt;. &lt;hr /&gt;Trink oder iss etwas, oder nimm eine Droge, ansonsten muss du bis &lt;strong&gt;morgen&lt;/strong&gt; warten.</source>
         <target><![CDATA[<strong>Il vous faut {ap} point(s) d'action pour faire ceci</strong>. <hr />Buvez, mangez ou droguez-vous pour en récupérer, ou attendez <strong>demain</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="s023j63" name="Was für eine Katastrophe! {num} Wasserrationnen fehlen!">
+      <notes>
+        <note category="german">Was für eine Katastrophe! {num} Wasserrationnen fehlen!</note>
+        <note category="from">db://LogEntryTemplate</note>
+      </notes>
+      <segment>
+        <source>Was für eine Katastrophe! {num} Wasserrationnen fehlen!</source>
+        <target>Quel désastre ! {num} rations d'eau ont disparu !</target>
       </segment>
     </unit>
   </file>

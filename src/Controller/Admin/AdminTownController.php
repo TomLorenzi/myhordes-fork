@@ -38,6 +38,7 @@ use App\Entity\TownRankingProxy;
 use App\Entity\User;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
+use App\Enum\ItemPoisonType;
 use App\Response\AjaxResponse;
 use App\Service\CrowService;
 use App\Service\CitizenHandler;
@@ -1084,6 +1085,7 @@ class AdminTownController extends AdminActionController
 
         $conf = $parser->get_array('conf');
         $poison = $conf['poison'] ?? false;
+        if ($poison > 1) $poison = ItemPoisonType::from( $poison );
         $broken = $conf['broken'] ?? false;
         $essential = $conf['essential'] ?? false;
         $hidden = $conf['hidden'] ?? false;
