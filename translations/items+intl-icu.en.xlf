@@ -9480,7 +9480,7 @@
       <notes>
         <note category="german">Toxin</note>
         <note category="from">db://ItemPrototype</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Toxin</source>
@@ -9491,11 +9491,10 @@
       <notes>
         <note category="german">Du hältst das Fläschchen an deine Nase....WOOOW! Der Gestank alleine könnte ein Pferd töten.</note>
         <note category="from">db://ItemPrototype</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Du hältst das Fläschchen an deine Nase....WOOOW! Der Gestank alleine könnte ein Pferd töten.</source>
-        <target>Du hältst das Fläschchen an deine Nase....WOOOW! Der Gestank alleine könnte ein Pferd töten.</target>
+        <target>You bring the vial close to your nose and take a whiff. Whew! The smell alone is enough to kill a horse. </target>
       </segment>
     </unit>
   </file>

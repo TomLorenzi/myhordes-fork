@@ -1786,5 +1786,27 @@
         <target>Kombiniert</target>
       </segment>
     </unit>
+    <unit id="NZdQf3X">
+      <notes>
+        <note category="german">Ermöglicht es, in begehbaren Ruinen den Gegenstand "Blutdurchtränkter Verband" zu finden, aus dem Toxin hergestellt werden kann.</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Ermöglicht es, in begehbaren Ruinen den Gegenstand "Blutdurchtränkter Verband" zu finden, aus dem Toxin hergestellt werden kann.</source>
+        <target>Ermöglicht es, in begehbaren Ruinen den Gegenstand "Blutdurchtränkter Verband" zu finden, aus dem Toxin hergestellt werden kann.</target>
+      </segment>
+    </unit>
+    <unit id="m9UhkBU" name="Toxin aktivieren">
+      <notes>
+        <note category="german">Toxin aktivieren</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Toxin aktivieren</source>
+        <target>Toxin aktivieren</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

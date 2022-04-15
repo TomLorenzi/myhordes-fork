@@ -9468,22 +9468,20 @@
       <notes>
         <note category="german">Toxin</note>
         <note category="from">db://ItemPrototype</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Toxin</source>
-        <target>Toxin</target>
+        <target>Toxine</target>
       </segment>
     </unit>
     <unit id="bGL408X">
       <notes>
         <note category="german">Du hältst das Fläschchen an deine Nase....WOOOW! Der Gestank alleine könnte ein Pferd töten.</note>
         <note category="from">db://ItemPrototype</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Du hältst das Fläschchen an deine Nase....WOOOW! Der Gestank alleine könnte ein Pferd töten.</source>
-        <target>Du hältst das Fläschchen an deine Nase....WOOOW! Der Gestank alleine könnte ein Pferd töten.</target>
+        <target>La fiole contient du sang infecté et quelques autres produits. reste à trouver un truc comestible dans lequel la verser.</target>
       </segment>
     </unit>
   </file>

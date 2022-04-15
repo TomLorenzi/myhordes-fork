@@ -23177,7 +23177,6 @@
       <notes>
         <note category="german">Was für eine Katastrophe! {num} Wasserrationnen fehlen!</note>
         <note category="from">db://LogEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Was für eine Katastrophe! {num} Wasserrationnen fehlen!</source>
