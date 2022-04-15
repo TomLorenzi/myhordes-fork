@@ -108,7 +108,7 @@ class RandomGenerator
     }
 
     function pickItemPrototypeFromGroup(ItemGroup $g, ?TownConf $tc = null): ?ItemPrototype {
-        if ($tc && ($replace = $tc->getSubKey(TownConf::CONF_OVERRIDE_ITEM_GROUP, $g->getName())) )
+        if ($tc && $g->getName() && ($replace = $tc->getSubKey(TownConf::CONF_OVERRIDE_ITEM_GROUP, $g->getName())) )
             return $this->pickItemPrototypeFromGroup( $this->em->getRepository(ItemGroup::class)->findOneByName($replace), $tc );
 
         /** @var ItemGroupEntry|null $result */

@@ -36,13 +36,13 @@ class ItemGroup implements RandomGroup
 
     public function __clone()
     {
-        $this->id = null;
-        $cache = [];
-        foreach ($this->entries as $entry)
-            $cache[] = clone $entry;
-        $this->getEntries()->clear();
-        foreach ( $cache as $entry )
-            $this->getEntries()->add( $entry );
+        if ($this->id) {
+            $this->id = null;
+            $cache = new ArrayCollection();
+            foreach ($this->getEntries() as $entry)
+                $cache->add( clone $entry );
+            $this->entries = $cache;
+        }
     }
 
     public function getId(): ?int

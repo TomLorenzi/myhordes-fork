@@ -67,6 +67,12 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
             ->setExplorableDescription( $entry['explorable_desc'] ?? $entry['desc'] ?? null )
             ;
 
+            foreach ($entity->getNamedDrops() as $existing_drop)
+                if (!in_array( $existing_drop->getName(), array_keys( $entry['namedDrops'] ?? [] ) )) {
+                    $entity->getNamedDrops()->removeElement( $existing_drop );
+                    $this->entityManager->remove( $existing_drop );
+                }
+
             foreach ( ($entry['namedDrops'] ?? []) as $key => $namedDropConfig ) {
                 $namedEntity = null;
                 foreach ($entity->getNamedDrops() as $drop)
@@ -80,12 +86,6 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
                     ->setItemGroup( FixtureHelper::createItemGroup( $manager, 'zp_drop_' . $key . '_' . substr(md5($entry['label']),0, 24), $namedDropConfig['drops'] ) )
                 );
             }
-
-            foreach ($entity->getNamedDrops() as $drop)
-                if (!in_array( $drop->getName(), array_keys( $entry['namedDrops'] ?? [] ) )) {
-                    $entity->getNamedDrops()->removeElement( $drop );
-                    $this->entityManager->remove( $drop );
-                }
 
             $manager->persist( $entity );
 
