@@ -148,7 +148,7 @@
       </notes>
       <segment>
         <source>Konservendose</source>
-        <target>Boîte de Conserve</target>
+        <target>Boîte de conserve</target>
       </segment>
     </unit>
     <unit id="hKs7t5v" name="Offene Konservendose">
@@ -158,7 +158,7 @@
       </notes>
       <segment>
         <source>Offene Konservendose</source>
-        <target>Boîte de Conserve ouverte</target>
+        <target>Boîte de conserve ouverte</target>
       </segment>
     </unit>
     <unit id="4DdrCY0" name="Batteriewerfer 1-PDTG (geladen)">
