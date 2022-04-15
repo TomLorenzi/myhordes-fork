@@ -20971,7 +20971,7 @@
                         other {Si vous estimez que {citizen} a <strong>mal agi</strong>, utilisez la dénonciation.<br />Si plusieurs citoyens font de même, il pourra être lourdement <strong>sanctionné</strong> par la communauté !}
                     }
                 }
-                other {Si vous estimez que citizen a <strong>mal agi</strong>, utilisez la dénonciation.<br />Si plusieurs citoyens font de même, il(elle) pourra être lourdement <strong>sanctionné(e)</strong> par la communauté !}
+                other {Si vous estimez que {citizen} a <strong>mal agi</strong>, utilisez la dénonciation.<br />Si plusieurs citoyens font de même, il(elle) pourra être lourdement <strong>sanctionné(e)</strong> par la communauté !}
             }
         ]]></target>
       </segment>
