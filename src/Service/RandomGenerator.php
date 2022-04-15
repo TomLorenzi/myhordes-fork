@@ -15,9 +15,16 @@ use App\Entity\ZonePrototype;
 use App\Interfaces\RandomEntry;
 use App\Interfaces\RandomGroup;
 use App\Structures\PropertyFilter;
+use App\Structures\TownConf;
+use Doctrine\ORM\EntityManagerInterface;
 
 class RandomGenerator
 {
+    private EntityManagerInterface $em;
+
+    function __construct(EntityManagerInterface $em) {
+        $this->em = $em;
+    }
 
     function chance(float $c): bool {
         if ($c >= 1.0)     return true;
@@ -100,7 +107,10 @@ class RandomGenerator
         return $this->pickEntryFromRandomArray( $g->getEntries()->getValues() );
     }
 
-    function pickItemPrototypeFromGroup(ItemGroup $g): ?ItemPrototype {
+    function pickItemPrototypeFromGroup(ItemGroup $g, ?TownConf $tc = null): ?ItemPrototype {
+        if ($tc && $g->getName() && ($replace = $tc->getSubKey(TownConf::CONF_OVERRIDE_ITEM_GROUP, $g->getName())) )
+            return $this->pickItemPrototypeFromGroup( $this->em->getRepository(ItemGroup::class)->findOneByName($replace), $tc );
+
         /** @var ItemGroupEntry|null $result */
         $result = $this->pickEntryFromRandomGroup($g);
         return $result?->getPrototype();

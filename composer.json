@@ -55,11 +55,13 @@
         "twig/extra-bundle": "^2.12|^3.0",
         "twig/intl-extra": "^3.0",
         "twig/twig": "^2.12|^3.0",
+        "myhordes/fixtures": "@dev",
         "ext-curl": "*"
     },
     "require-dev": {
         "dama/doctrine-test-bundle": "^6.6",
         "phpunit/phpunit": "^9.5",
+        "rector/rector": "^0.12.20",
         "symfony/browser-kit": "6.0.*",
         "symfony/css-selector": "6.0.*",
         "symfony/debug-bundle": "6.0.*",
@@ -76,6 +78,10 @@
       {
         "type": "vcs",
         "url":  "https://github.com/wvsgnovize01/versioning-bundle.git"
+      },
+      {
+        "type": "path",
+        "url": "packages/*"
       }
     ],
     "config": {

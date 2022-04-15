@@ -196,6 +196,10 @@ class GhostController extends CustomAbstractController
                 'give_soulpoints' => $crow_permissions ? (bool)$parser->get('soulpoints', false) : false,
             ],
 
+            'overrides' => [
+                'named_drops' => []
+            ],
+
             'modifiers' => [
                 'strict_picto_distribution' => $crow_permissions ? (bool)$parser->get('strict_pictos', false) : false,
                 'daytime' => [
@@ -278,6 +282,9 @@ class GhostController extends CustomAbstractController
                 break;
             case 'beta':
                 $customConf['initial_chest'][] = 'beta_drug_#00';
+                break;
+            case 'with-toxin':
+                $customConf['overrides']['named_drops'][] = 'with-toxin';
                 break;
         }
 

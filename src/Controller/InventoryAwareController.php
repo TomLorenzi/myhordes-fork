@@ -1365,7 +1365,7 @@ class InventoryAwareController extends CustomAbstractController
 
         $escort_mode = $base_citizen !== null;
         if ( !$item || !$action || $item->getBroken() ) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-        if ( $escort_mode && $item->getPoison() ) return AjaxResponse::error( BeyondController::ErrorEscortActionRefused );
+        if ( $escort_mode && $item->getPoison()->poisoned() ) return AjaxResponse::error( BeyondController::ErrorEscortActionRefused );
         $citizen = $base_citizen ?? $this->getActiveCitizen();
 
         $zone = $citizen->getZone();

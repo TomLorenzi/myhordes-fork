@@ -16,6 +16,7 @@ use App\Entity\ItemProperty;
 use App\Entity\ItemPrototype;
 use App\Entity\RuinZone;
 use App\Entity\Town;
+use App\Enum\ItemPoisonType;
 use App\Structures\ItemRequest;
 use Doctrine\ORM\AbstractQuery;
 use Doctrine\ORM\EntityManagerInterface;
@@ -97,7 +98,7 @@ class InventoryHandler
             return $this->entity_manager->createQueryBuilder()->select('i')->from('App:Item', 'i')
                 ->where('i.inventory = :inv')->setParameter('inv', $inv)
                 ->andWhere('i.id != :id')->setParameter( 'id', $item->getId() ?? -1 )
-                ->andWhere('i.poison = :p')->setParameter('p', $item->getPoison())
+                ->andWhere('i.poison = :p')->setParameter('p', $item->getPoison()->value)
                 ->andWhere('i.broken = :b')->setParameter('b', $item->getBroken())
                 ->andWhere('i.essential = :e')->setParameter('e', $item->getEssential())
                 ->andWhere('i.prototype = :proto')->setParameter('proto', $item->getPrototype())
@@ -202,7 +203,7 @@ class InventoryHandler
 
             if (!empty($return)) $qb->andWhere('i.id NOT IN (:found)')->setParameter('found', $return);
             if ($request->filterBroken()) $qb->andWhere('i.broken = :isb')->setParameter('isb', $request->getBroken());
-            if ($request->filterPoison()) $qb->andWhere('i.poison = :isp')->setParameter('isp', $request->getPoison());
+            if ($request->filterPoison()) $qb->andWhere($request->getPoison() ? 'i.poison != :isp' : 'i.poison = :isp')->setParameter('isp', ItemPoisonType::None->value);
 
             $result = $qb->getQuery()->getResult(AbstractQuery::HYDRATE_SCALAR);
 
