@@ -172,13 +172,30 @@ class GameController extends CustomAbstractController
         $this->entity_manager->persist($citizen);
         $this->entity_manager->flush();
 
+        $citizenRoleList = [];
+        /** @var Citizen $citizen */
+        foreach ($citizensWithRole as $citizen) {
+            foreach ($citizen->getRoles() as $role) {
+                if(isset($citizenRoleList[$role->getId()])) {
+                    $citizenRoleList[$role->getId()]['citizens'][] = $citizen;
+                } else {
+                    $citizenRoleList[$role->getId()] = [
+                        'role' => $role,
+                        'citizens' => [
+                            $citizen
+                        ]
+                    ];
+                }
+            }
+        }
+
         return $this->render( 'ajax/game/newspaper.html.twig', $this->addDefaultTwigArgs(null, [
             'show_register'  => $show_register,
             'show_town_link'  => $in_town,
             'day' => $town->getDay(),
             'log' => $show_register ? $this->renderLog( -1, null, false, null, 50 )->getContent() : "",
             'gazette' => $this->gazette_service->renderGazette($town),
-            'citizensWithRole' => $citizensWithRole,
+            'citizensWithRole' => $citizenRoleList,
             'town' => $town,
             'council' => array_map( fn(CouncilEntry $c) => [$this->gazette_service->parseCouncilLog( $c ), $c->getCitizen()], array_filter( $this->entity_manager->getRepository(CouncilEntry::class)->findBy(['town' => $town, 'day' => $town->getDay()], ['ord' => 'ASC']),
                 fn(CouncilEntry $c) => ($c->getTemplate() && $c->getTemplate()->getText() !== null)
