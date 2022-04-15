@@ -26,6 +26,7 @@ class FixtureHelper extends Fixture
             else list($name,$count) = [$key,$entry];
 
             $pt = $manager->getRepository(ItemPrototype::class)->findOneBy(['name' => $name]);
+            if ($pt === null) throw new \Exception("Cannot locate item prototype '$name'!");
             $group->addEntry(
                 (new ItemGroupEntry())
                     ->setChance( (int)$count )

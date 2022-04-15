@@ -405,7 +405,7 @@ class ActionDataService implements FixtureProcessorInterface {
                 ],
 
                 'spawn' => [
-                    'xmas_dv' => [ ['omg_this_will_kill_you_#00', 8], ['pocket_belt_#00', 8], ['christmas_candy_#00', 8], 'rp_scroll_#00', 'rp_manual_#00', 'rp_sheets_#00', 'rp_letter_#00', 'rp_scroll_#00', 'rp_book_#00', 'rp_book_#01', 'rp_book2_#00' ],
+                    'xmas_dv' => [ ['omg_this_will_kill_you_#00', 8], ['pocket_belt_#00', 8], ['christmas_candy_#00', 8], 'rp_manual_#00', 'rp_sheets_#00', 'rp_letter_#00', 'rp_scroll_#00', 'rp_book_#00', 'rp_book_#01', 'rp_book2_#00' ],
                     'xmas_3'  => [ 'omg_this_will_kill_you_#00' ],
                     'xmas_2'  => [ 'christmas_candy_#00' ],
                     'xmas_1'  => [ 'rp_letter_#00' ],

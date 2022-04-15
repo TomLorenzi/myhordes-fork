@@ -20,18 +20,29 @@ class ItemGroup implements RandomGroup
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=32)
+     * @ORM\Column(type="string", length=64)
      */
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\ItemGroupEntry", mappedBy="itemGroup", orphanRemoval=true, cascade={"persist"}, fetch="EAGER")
+     * @ORM\OneToMany(targetEntity="App\Entity\ItemGroupEntry", mappedBy="itemGroup", orphanRemoval=true, cascade={"persist", "detach"}, fetch="EAGER")
      */
     private $entries;
 
     public function __construct()
     {
         $this->entries = new ArrayCollection();
+    }
+
+    public function __clone()
+    {
+        $this->id = null;
+        $cache = [];
+        foreach ($this->entries as $entry)
+            $cache[] = clone $entry;
+        $this->getEntries()->clear();
+        foreach ( $cache as $entry )
+            $this->getEntries()->add( $entry );
     }
 
     public function getId(): ?int
@@ -75,6 +86,14 @@ class ItemGroup implements RandomGroup
             if ($entry->getPrototype()->getName() === $item_prototype_name)
                 return $entry;
         return null;
+    }
+
+    public function toArray(): array {
+        $array = [];
+        foreach ($this->entries as $entry)
+            /** @var ItemGroupEntry $entry */
+            $array[ $entry->getPrototype()->getName() ] = $entry;
+        return $array;
     }
 
     public function removeEntry(ItemGroupEntry $entry): self

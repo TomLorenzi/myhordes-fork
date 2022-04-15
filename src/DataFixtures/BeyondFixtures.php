@@ -3,9 +3,11 @@
 namespace App\DataFixtures;
 
 use App\Entity\ItemPrototype;
+use App\Entity\NamedItemGroup;
 use App\Entity\RuinZonePrototype;
 use App\Entity\ZonePrototype;
 use App\Entity\ZoneTag;
+use App\Enum\ArrayMergeDirective;
 use MyHordes\Fixtures\Fixtures\ZoneTag as ZoneTagFixture;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
@@ -64,6 +66,27 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
             ->setExplorableSkin( $entry['explorable_skin'] ?? 'bunker' )
             ->setExplorableDescription( $entry['explorable_desc'] ?? $entry['desc'] ?? null )
             ;
+
+            foreach ( ($entry['namedDrops'] ?? []) as $key => $namedDropConfig ) {
+                $namedEntity = null;
+                foreach ($entity->getNamedDrops() as $drop)
+                    if ($drop->getName() === $key) $namedEntity = $drop;
+
+                if ($namedEntity === null)
+                    $entity->addNamedDrop( $namedEntity = (new NamedItemGroup())->setName( $key ) );
+
+                $this->entityManager->persist($namedEntity
+                    ->setOperator( $namedDropConfig['operator'] ?? ArrayMergeDirective::Overwrite )
+                    ->setItemGroup( FixtureHelper::createItemGroup( $manager, 'zp_drop_' . $key . '_' . substr(md5($entry['label']),0, 24), $namedDropConfig['drops'] ) )
+                );
+            }
+
+            foreach ($entity->getNamedDrops() as $drop)
+                if (!in_array( $drop->getName(), array_keys( $entry['namedDrops'] ?? [] ) )) {
+                    $entity->getNamedDrops()->removeElement( $drop );
+                    $this->entityManager->remove( $drop );
+                }
+
             $manager->persist( $entity );
 
             // Set table entry

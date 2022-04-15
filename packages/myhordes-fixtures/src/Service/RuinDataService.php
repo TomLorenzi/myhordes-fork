@@ -2,6 +2,7 @@
 
 namespace MyHordes\Fixtures\Service;
 
+use App\Enum\ArrayMergeDirective;
 use MyHordes\Fixtures\Interfaces\FixtureProcessorInterface;
 
 class RuinDataService implements FixtureProcessorInterface {
@@ -78,8 +79,6 @@ class RuinDataService implements FixtureProcessorInterface {
                 'drug_#00' => 12,
                 'fungus_#00' => 3,
                 'vodka_#00' => 2,
-            ], 'namedDrops' => [
-                'with_dirty_bandage' => [ 'add' => [] ]
             ], 'desc' => 'Die menschlichen Überreste, die in der Auffahrt liegen gehören den ehemaligen Patienten dieses improvisierten Krankenhauses. Schwer zu sagen, wie viele Menschen hier beim abendlichen Angriff gestorben sind... Wenn du die Anzahl der Arme durch zwei teilst, vielleicht bekommst du dann eine grobe Schätzung?'],
             'aerodrome' => ["label" => "Altes Flugfeld",'icon' => 'aerodrome',"camping" => 7,"min_dist" => 12, "max_dist" => 15, "chance" => 129, "drops" => [
                 'metal_beam_#00' => 62,
@@ -734,7 +733,7 @@ class RuinDataService implements FixtureProcessorInterface {
                 'drug_#00' => 17,
                 'jerrycan_#00' => 16,
                 'can_opener_#00' => 13,
-                array('item' => 'vodka_#00','count' => 10)
+                'vodka_#00' => 10,
             ], 'desc' => 'Es sieht eigentlich nicht mehr wie eine Bar aus, aber das halb im Sand vergrabene Schild und das Vorhandensein einiger zerbrochener Optiken lassen keinen großen Zweifel aufkommen. Die meisten Flaschen sind zerbrochen, aber Sie können hier mit ziemlicher Sicherheit etwas Nützliches finden...'],
 
             // Explorable Ruins.
@@ -777,6 +776,10 @@ class RuinDataService implements FixtureProcessorInterface {
                     'bumpKey_#00' => 3,
                     'repair_kit_part_raw_#00' => 2,
                     'classicKey_#00' => 3,
+                ], 'namedDrops' => [
+                    'with-toxin' => [ 'operator' => ArrayMergeDirective::Append, 'drops' => [
+                        'infect_poison_part_#00' => 10
+                    ] ]
                 ], 'desc' => 'Diese heruntergekommene Gebäude scheint einmal ein Bunker gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...'],
             'deserted_hotel' => ["label" => "Verlassenes Hotel",'icon' => 'deserted_hotel',"camping" => 1,"min_dist" => 5, "max_dist" => 100, "chance" => 0, "explorable" => true,
                 "explorable_skin" => 'hotel', "explorable_desc" => null,
@@ -813,6 +816,10 @@ class RuinDataService implements FixtureProcessorInterface {
                     'teddy_#00' => 2,
                     'carpet_#00' => 2,
                     'game_box_#00' => 2,
+                ], 'namedDrops' => [
+                    'with-toxin' => [ 'operator' => ArrayMergeDirective::Append, 'drops' => [
+                        'infect_poison_part_#00' => 5
+                    ] ]
                 ], 'desc' => 'Diese heruntergekommene Gebäude scheint einmal ein Hotel gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...'],
             'deserted_hospital' => ["label" => "Verlassenes Hospital",'icon' => 'deserted_hospital',"camping" => 1,"min_dist" => 5, "max_dist" => 100, "chance" => 0, "explorable" => true,
                 "explorable_skin" => 'hospital', "explorable_desc" => null,
@@ -842,6 +849,10 @@ class RuinDataService implements FixtureProcessorInterface {
                     'bed_#00' => 2,
                     'bumpKey_#00' => 3,
                     'vagoul_#00' => 3,
+                ], 'namedDrops' => [
+                    'with-toxin' => [ 'operator' => ArrayMergeDirective::Append, 'drops' => [
+                        'infect_poison_part_#00' => 15
+                    ] ]
                 ], 'desc' => 'Diese heruntergekommene Gebäude scheint einmal ein Hospital gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...'],
         ]);
     }

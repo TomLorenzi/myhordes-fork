@@ -2,9 +2,12 @@
 
 namespace App\Entity;
 
+use App\Enum\ArrayMergeDirective;
 use App\Interfaces\RandomEntry;
+use App\Interfaces\RandomGroup;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\Table;
 use Doctrine\ORM\Mapping\UniqueConstraint;
@@ -252,15 +255,25 @@ class ZonePrototype implements RandomEntry
     }
 
     public function getDropByName( string $name ): ?ItemGroup {
-        foreach ( $this->getNamedDrops() as $drop )
-            if ($drop->getName() === $name) return $drop->getItemGroup();
-        return $this->getDrops();
+        return $this->getDropByNames( [$name] );
     }
 
     public function getDropByNames( array $names ): ?ItemGroup {
+        $base_drop = $this->getDrops();
+        $matched = [];
         foreach ( $names as $name)
             foreach ( $this->getNamedDrops() as $drop )
-                if ($drop->getName() === $name) return $drop->getItemGroup();
-        return $this->getDrops();
+                if ($drop->getName() === $name) $matched[] = $drop;
+
+        if (empty($matched)) return $base_drop;
+        $live = (clone $base_drop)->toArray();
+
+        foreach ($matched as $match)
+            $live = $match->getOperator()->apply( $live, (clone $match->getItemGroup())->toArray() );
+
+        $return = new ItemGroup();
+        foreach ( $live as $entry ) $return->addEntry( $entry );
+
+        return $return;
     }
 }

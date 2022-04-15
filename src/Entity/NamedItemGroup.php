@@ -2,8 +2,10 @@
 
 namespace App\Entity;
 
+use App\Enum\ArrayMergeDirective;
 use App\Repository\NamedItemGroupRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\Column;
 
 /**
  * @ORM\Entity(repositoryClass=NamedItemGroupRepository::class)
@@ -15,18 +17,21 @@ class NamedItemGroup
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private ?int $id = null;
 
     /**
      * @ORM\Column(type="string", length=64)
      */
-    private $name;
+    private string $name = '';
 
     /**
-     * @ORM\ManyToOne(targetEntity=ItemGroup::class)
+     * @ORM\ManyToOne(targetEntity=ItemGroup::class, fetch="EAGER", cascade={"persist","remove"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $itemGroup;
+
+    #[Column(type: 'integer', enumType: ArrayMergeDirective::class)]
+    private ArrayMergeDirective $operator = ArrayMergeDirective::Overwrite;
 
     public function getId(): ?int
     {
@@ -53,6 +58,18 @@ class NamedItemGroup
     public function setItemGroup(?ItemGroup $itemGroup): self
     {
         $this->itemGroup = $itemGroup;
+
+        return $this;
+    }
+
+    public function getOperator(): ?ArrayMergeDirective
+    {
+        return $this->operator;
+    }
+
+    public function setOperator(ArrayMergeDirective $operator): self
+    {
+        $this->operator = $operator;
 
         return $this;
     }

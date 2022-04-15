@@ -392,6 +392,7 @@ class ItemDataService implements FixtureProcessorInterface {
                 ['label' => 'Hurlingstock', 'icon' => 'hurling_stick', 'category' => 'Weapon', 'deco' => 0, 'heavy' => false, 'watchpoint' => 0],
                 ['label' => 'Guiness', 'icon' => 'guiness', 'category' => 'Food', 'deco' => 0, 'heavy' => false, 'watchpoint' => 0],
                 ['label' => 'Schwarzer Zervixschleim', 'icon' => 'april_drug', 'category' => 'Drug', 'deco' => 0, 'heavy' => false, 'watchpoint' => 0],
+                ['label' => 'Toxin', 'icon' => 'infect_poison', 'category' => 'Misc', 'deco' => 0, 'heavy' => false, 'watchpoint' => 0],
             ],
 
             'descriptions' => [
@@ -748,7 +749,8 @@ class ItemDataService implements FixtureProcessorInterface {
                 'alarm_on_#00' => 'Es gibt morges doch nichts schöner, als einen lauten Wecker, der dein Trommelfell schön stimuliert. Funktioniert einwandfrei.',
                 'hurling_stick_#00' => 'Ein kleiner Ratschlag. Wenn du schon den falschen Kampf wählst... dann wähle wenigstens die richtige Waffe.',
                 'guiness_#00' => 'Nichts ist besser als ein Pint des schwarzen Zeugs, um Poesie, Lachen und ähm, den Kampf gegen die Zombies zu inspirieren... *Genehmigt von Charlie Sheen',
-                'april_drug_#00' => 'Ein Gift welches bei der Einnahme EXTREM virulent wirkt, wenn man dem Etikett Glauben schenken darf: Die Ingestion des Zervixschleim führt zu Tod, spontaner Verbrennung, Explosion der Lunge und zum Austritt des Gehirns aus allen Körperöffnungen. Aber nicht unbedingt in dieser Reihenfolge.'
+                'april_drug_#00' => 'Ein Gift welches bei der Einnahme EXTREM virulent wirkt, wenn man dem Etikett Glauben schenken darf: Die Ingestion des Zervixschleim führt zu Tod, spontaner Verbrennung, Explosion der Lunge und zum Austritt des Gehirns aus allen Körperöffnungen. Aber nicht unbedingt in dieser Reihenfolge.',
+                'item_infect_poison_#00' => 'Du hältst das Fläschchen an deine Nase....WOOOW! Der Gestank alleine könnte ein Pferd töten.'
             ],
         ]);
     }
