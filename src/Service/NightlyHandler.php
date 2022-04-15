@@ -1320,7 +1320,14 @@ class NightlyHandler
         }
 
         if($town->getDevastated()){
-            $this->log->debug("Town is devastated, nothing to do.");
+            // Each day as devastated, the town lose water as zombies are entering town.
+            $d = min($town->getWell(), rand(20, 40));
+            
+            if($d > 0){
+                $this->log->debug("Town is devastated, the zombies entering town removed <info>{$d} water rations</info> from the well.");
+                $this->entity_manager->persist($this->logTemplates->nightlyDevastationAttackWell($d, $town));
+                $town->setWell($town->getWell() - $d);
+            }
         } else {
             $this->log->debug("Town is not yet devastated, and has <info>$aliveCitizen</info> alive citizens (including <info>$aliveCitizenInTown</info> in town)");
 

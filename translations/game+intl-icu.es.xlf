@@ -23093,5 +23093,16 @@
         <target><![CDATA[<strong>Necesitas {ap} punto(s) de acción para hacer eso</strong>. <hr />Bebe, come o toma un estimulante para recuperarte o espera hasta <strong>mañana</strong>.]]></target>
       </segment>
     </unit>
+    <unit id="s023j63" name="Was für eine Katastrophe! {num} Wasserrationnen fehlen!">
+      <notes>
+        <note category="german">Was für eine Katastrophe! {num} Wasserrationnen fehlen!</note>
+        <note category="from">db://LogEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Was für eine Katastrophe! {num} Wasserrationnen fehlen!</source>
+        <target>¡Qué desastre! ¡Faltan {num} raciones de agua!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
