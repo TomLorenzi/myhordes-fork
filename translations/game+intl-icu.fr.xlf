@@ -10560,7 +10560,7 @@
       </notes>
       <segment>
         <source>Du hast bereits etwas gegessen und getrunken. Dir bleiben nur noch Drogen und Alkohol!</source>
-        <target>Vous avez déjà mangé et bu quelque chose. Il ne vous reste que de la drogue et de l'alcool !</target>
+        <target>Vous avez déjà mangé et bu quelque chose. Il ne vous reste que la drogue ou l'alcool pour soulager votre épuisement !</target>
       </segment>
     </unit>
     <unit id="00Lc7om">
@@ -22791,7 +22791,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Du bist ein Ghul! Versuche auf keinen Fall, Wasser zu trinken, das wird am Ende nur zu einer Verletzung führen...</source>
-        <target>Vous êtes une GOULE ! N'essayez surtout pas de boire de l'eau, où vous finirez blessé...</target>
+        <target>Vous êtes une GOULE ! N'essayez surtout pas de boire de l'eau ou vous finirez blessé...</target>
       </segment>
     </unit>
     <unit id="PuMKC_2" name="Lies die Hilfe zu Ghulen">
@@ -23093,6 +23093,17 @@ cette violente opération...]]></target>
       <segment>
         <source>Was für eine Katastrophe! {num} Wasserrationnen fehlen!</source>
         <target>Quel désastre ! {num} rations d'eau ont disparu !</target>
+      </segment>
+    </unit>
+    <unit id="apksrtK" name="Du hast bereits etwas gegessen. Dir bleiben nur noch Drogen und Alkohol!">
+      <notes>
+        <note category="german">Du hast bereits etwas gegessen. Dir bleiben nur noch Drogen und Alkohol!</note>
+        <note category="from">twig:///templates/ajax/game/beyond/beyond.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Du hast bereits etwas gegessen. Dir bleiben nur noch Drogen und Alkohol!</source>
+        <target>Vous avez déjà mangé quelque chose. Il ne vous reste que la drogue ou l'alcool pour soulager votre épuisement !</target>
       </segment>
     </unit>
   </file>

@@ -21926,5 +21926,14 @@
         <target>Was für eine Katastrophe! {num} Wasserrationnen fehlen!</target>
       </segment>
     </unit>
+    <unit id="apksrtK" name="Du hast bereits etwas gegessen. Dir bleiben nur noch Drogen und Alkohol!">
+      <notes>
+        <note category="from">twig:///templates/ajax/game/beyond/beyond.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du hast bereits etwas gegessen. Dir bleiben nur noch Drogen und Alkohol!</source>
+        <target>Du hast bereits etwas gegessen. Dir bleiben nur noch Drogen und Alkohol!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
