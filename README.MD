@@ -582,7 +582,7 @@ These two rules do not interfere with each other; even with the same IP address.
 
 ## Troubleshooting
 
-### Commands not working becauses of PHP version not up to date
+### Commands not working because of PHP version not up to date
 
 If certain commands don't work, it might be because of your PHP version being too old. As said in the requirements, you need PHP 8.1. 
 
