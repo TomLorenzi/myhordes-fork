@@ -1789,7 +1789,7 @@
       </notes>
       <segment>
         <source>Ermöglicht es, in begehbaren Ruinen den Gegenstand "Blutdurchtränkter Verband" zu finden, aus dem Toxin hergestellt werden kann.</source>
-        <target>Ermöglicht es, in begehbaren Ruinen den Gegenstand "Blutdurchtränkter Verband" zu finden, aus dem Toxin hergestellt werden kann.</target>
+        <target>Permet aux joueurs de trouver l’objet « Pansement ensanglanté » dans des ruines, qui peut être utilisé pour créer des toxines.</target>
       </segment>
     </unit>
     <unit id="m9UhkBU" name="Toxin aktivieren">
@@ -1800,7 +1800,7 @@
       </notes>
       <segment>
         <source>Toxin aktivieren</source>
-        <target>Toxin aktivieren</target>
+        <target>Activer la toxine</target>
       </segment>
     </unit>
   </file>
