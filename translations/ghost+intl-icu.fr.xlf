@@ -1785,7 +1785,7 @@
       <notes>
         <note category="german">Ermöglicht es, in begehbaren Ruinen den Gegenstand "Blutdurchtränkter Verband" zu finden, aus dem Toxin hergestellt werden kann.</note>
         <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Ermöglicht es, in begehbaren Ruinen den Gegenstand "Blutdurchtränkter Verband" zu finden, aus dem Toxin hergestellt werden kann.</source>
@@ -1796,7 +1796,7 @@
       <notes>
         <note category="german">Toxin aktivieren</note>
         <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Toxin aktivieren</source>
