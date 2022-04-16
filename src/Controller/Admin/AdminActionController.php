@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Annotations\AdminLogProfile;
 use App\Controller\CustomAbstractController;
 use App\Entity\AttackSchedule;
 use App\Entity\Inventory;
@@ -11,6 +12,7 @@ use App\Entity\User;
 use App\Entity\Town;
 use App\Entity\TownLogEntry;
 use App\Response\AjaxResponse;
+use App\Service\AdminLog;
 use App\Service\CitizenHandler;
 use App\Service\ConfMaster;
 use App\Service\CrowService;
@@ -21,15 +23,9 @@ use App\Service\LogTemplateHandler;
 use App\Service\TimeKeeperService;
 use App\Service\UserHandler;
 use App\Service\ZoneHandler;
-use App\Structures\BankItem;
 use App\Translation\T;
-use DirectoryIterator;
-use Doctrine\ORM\AbstractQuery;
 use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\ORM\Query\Expr\Join;
 use Exception;
-use Psr\Log\LoggerInterface;
-use SplFileInfo;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
@@ -47,7 +43,7 @@ class AdminActionController extends CustomAbstractController
     protected ZoneHandler $zone_handler;
     protected UserHandler $user_handler;
     protected CrowService $crow_service;
-    protected LoggerInterface $logger;
+    protected AdminLog $logger;
 
     public static function getAdminActions(): array {
         return [
@@ -71,7 +67,7 @@ class AdminActionController extends CustomAbstractController
         ];
     }
 
-    public function __construct(EntityManagerInterface $em, ConfMaster $conf, LogTemplateHandler $lth, TranslatorInterface $translator, ZoneHandler $zh, TimeKeeperService $tk, CitizenHandler $ch, InventoryHandler $ih, UserHandler $uh, CrowService $crow, LoggerInterface $adminLogger)
+    public function __construct(EntityManagerInterface $em, ConfMaster $conf, LogTemplateHandler $lth, TranslatorInterface $translator, ZoneHandler $zh, TimeKeeperService $tk, CitizenHandler $ch, InventoryHandler $ih, UserHandler $uh, CrowService $crow, AdminLog $adminLogger)
     {
         parent::__construct($conf, $em, $tk, $ch, $ih, $translator);
         $this->logTemplateHandler = $lth;

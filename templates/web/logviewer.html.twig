@@ -36,6 +36,7 @@
 
         #log_target>div>div.message>info  { color: greenyellow }
         #log_target>div>div.message>debug { color: yellow }
+        #log_target>div>div.message>comment { color: yellow }
 
         #log_target>div>div.code { margin: 2px 0; padding: 0 0 0 15px; position: relative; color: rgba(255,255,255,0.5); }
         #log_target>div>div.code:before { position: absolute; top: 0; left: 5px; content: "❯"; color: white; }
@@ -56,7 +57,25 @@
 
             const n = document.createElement(tag);
             for (let i = 0; i < cls.length; i++) n.classList.add(cls[i]);
-            if (content !== null && html) n.innerHTML = content;
+            if (content !== null && html) {
+                n.innerHTML = content;
+                let change = false;
+                do {
+                    change = false;
+                    n.querySelectorAll('*').forEach(n => {
+                        if (n.tagName.slice(0,3) === 'FG=') {
+                            change = true;
+                            let nn = document.createElement('span');
+                            nn.style.color = n.tagName.slice(3);
+                            nn.innerHTML = n.innerHTML;
+                            console.log(n.innerHTML);
+                            n.parentElement.insertBefore( nn, n );
+                            n.remove();
+                        }
+                    });
+                } while (change);
+                console.log();
+            }
             else if (content !== null && !html) n.innerText = content;
             return n;
         }

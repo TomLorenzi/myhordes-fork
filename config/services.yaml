@@ -79,10 +79,14 @@ services:
           - { name: monolog.logger, channel: night }
 
     # Admins controllers should have their own log channel
-    App\Controller\Admin\:
-        resource: '../src/Controller/Admin'
-        tags:
-          - { name: monolog.logger, channel: admin }
+    # App\Controller\Admin\:
+    #     resource: '../src/Controller/Admin'
+    #     tags:
+    #       - { name: monolog.logger, channel: admin }
+    App\Service\AdminLog:
+      public: true
+      tags:
+        - { name: monolog.logger, channel: admin }
 
     App\Command\DebugCommand:
         arguments:
