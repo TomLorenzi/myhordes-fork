@@ -4622,7 +4622,7 @@
       <notes>
         <note category="german">Tödlich</note>
         <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Tödlich</source>
@@ -4633,7 +4633,7 @@
       <notes>
         <note category="german">Infektiös</note>
         <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Infektiös</source>
