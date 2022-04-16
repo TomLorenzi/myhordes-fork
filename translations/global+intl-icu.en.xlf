@@ -664,7 +664,7 @@
     <unit id="Em1EFUR" name="Moderation">
       <notes>
         <note category="german">Moderation</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/ajax.html.twig;twig:///templates/ajax/forum/view.html.twig</note>
       </notes>
       <segment>
@@ -785,7 +785,7 @@
     <unit id="nCT0Wn6" name="Dev">
       <notes>
         <note category="german">Dev</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
       </notes>
       <segment>
@@ -796,7 +796,7 @@
     <unit id="h0cXaFP" name="Sticky">
       <notes>
         <note category="german">Sticky</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/forum/view.html.twig</note>
       </notes>
       <segment>
@@ -807,7 +807,7 @@
     <unit id="DSG9UgI" name="Online">
       <notes>
         <note category="german">Online</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
@@ -818,7 +818,7 @@
     <unit id="oXlHg6q" name="Offline">
       <notes>
         <note category="german">Offline</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
@@ -929,7 +929,7 @@
     <unit id="jlAJmOo" name="Spoiler">
       <notes>
         <note category="german">Spoiler</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
       </notes>
       <segment>
@@ -1170,7 +1170,7 @@
     <unit id="3RZ5Bd4" name="Version">
       <notes>
         <note category="german">Version</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
       </notes>
       <segment>
@@ -1301,7 +1301,7 @@
     <unit id="pqMtvFY" name="Link">
       <notes>
         <note category="german">Link</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/forum/posts.html.twig</note>
       </notes>
       <segment>
@@ -1773,7 +1773,7 @@
     <unit id="NA9GMDP" name="Code">
       <notes>
         <note category="german">Code</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
       </notes>
       <segment>
@@ -2118,7 +2118,7 @@
     <unit id="ST5ILqV" name="1 Minute">
       <notes>
         <note category="german">1 Minute</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
@@ -2813,7 +2813,7 @@
     <unit id="yo6CbZw" name="Avatar">
       <notes>
         <note category="german">Avatar</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
@@ -2874,7 +2874,7 @@
     <unit id="jQrj982" name="via {group_inbox}">
       <notes>
         <note category="german">via {group_inbox}</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/pm/bubbles.html.twig</note>
       </notes>
       <segment>
@@ -3428,7 +3428,7 @@
       <notes>
         <note category="german">(optional)</note>
         <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>(optional)</source>
@@ -4037,7 +4037,7 @@
       <notes>
         <note category="german">Guide</note>
         <note category="from">db://ThreadTag</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Guide</source>
