@@ -199,6 +199,7 @@ class GazetteDataService implements FixtureProcessorInterface {
                 'variableTypes'=>[
                     ['type'=>"citizen",'name'=>'citizen1'],
                     ['type'=>"transString",'name'=>'animal'],
+                    ['type'=>"transString",'name'=>'mascot'],
                 ],
             ],
             ['text'=>'Das mysteriöse Verschwinden unserer Stadtziege {mascot} hat heute morgen die Stadt in helle Aufruhr versetzt. Einige behaupten, dass es sich um einen Racheakt handle (der Name <strong>{citizen1}</strong> wurde öfters genannt). Wir bitten alle Einwohner, keine Gerüchte in die Welt zu setzen, solange die Untersuchungen nicht abgeschlossen sind.',

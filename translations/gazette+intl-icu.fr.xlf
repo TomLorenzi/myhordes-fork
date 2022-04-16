@@ -2202,7 +2202,7 @@
       </notes>
       <segment>
         <source>&lt;strong&gt;{citizen1}s&lt;/strong&gt; {animal} wurde heute Morgen in mehrere Stücke zerfetzt aufgefunden. Ein Stück wurde sogar aus dem Brunnen gefischt. Das erklärt auch den seltsamen Geschmack der Wasserrationen von heute Morgen...</source>
-        <target>{animal} que je-ne-sais-plus-qui avait baptisé {citizen1} a été retrouvé ce matin en deux morceaux. L'un était dans le puits. Le goût bizarre des rations de ce matin viendrait de là...</target>
+        <target>{animal} que je-ne-sais-plus-qui avait baptisé {mascot} a été retrouvé ce matin en deux morceaux. L'un était dans le puits. Le goût bizarre des rations de ce matin viendrait de là...</target>
       </segment>
     </unit>
     <unit id="BKXfX1n">
@@ -2532,7 +2532,7 @@
       </notes>
       <segment>
         <source>Und was ist mit dem Tor? Macht das niemand zu? Sollen wir wirklich alle draufgehen?</source>
-        <target><![CDATA[Et alors, la <strong>porte</strong> ? Personne ne la ferme ? Vous voulez vraiment qu'on y passe <strong>tous</strong> ?!]]></target>
+        <target><![CDATA[Et alors, la <strong>porte</strong> ? Personne ne la ferme ? Vous voulez vraiment qu'on y passe <strong>tous</strong> ?!]]></target>
       </segment>
     </unit>
     <unit id="qB4hB1O">
@@ -2632,7 +2632,7 @@
       </notes>
       <segment>
         <source>Besser hätten wir es nicht hinbekommen können! Das Stadttor wurde um {randomHour} Uhr geöffnet und blieb danach offen. Resultat: {deaths} Bürger endeten als Zombiemahlzeit.</source>
-        <target>Le summum de l'inefficacité ! Les portes ont été ouvertes vers [hour]h, mais jamais refermées ensuite. C'est bien dommage pour les {deaths} citoyens bouffés cette nuit en ville.</target>
+        <target>Le summum de l'inefficacité ! Les portes ont été ouvertes vers [hour]h, mais jamais refermées ensuite. C'est bien dommage pour les {deaths} citoyens bouffés cette nuit en ville.</target>
       </segment>
     </unit>
     <unit id="eYZvu8g">
