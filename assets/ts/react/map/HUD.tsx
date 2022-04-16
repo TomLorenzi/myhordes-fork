@@ -59,28 +59,37 @@ const ZoneControlParent = ( props: LocalControlProps ) => {
     
     if (typeof props.planes["0"].x !== "undefined" && typeof props.planes["0"].y !== "undefined" && (props.activeRoute?.stops ?? []).length > 0) {
         const zone = props.planes["0"] as MapCoordinate;
+        const stops = props.activeRoute.stops;
+
         // Check if we're on route
-        props.activeRoute.stops.forEach( (co,i) => {
+        stops.forEach( (co,i) => {
             if (i > 0) {
-                if (co.x === zone.x && between(co.y,props.activeRoute.stops[i-1].y,zone.y)) {
+                if (co.x === zone.x && between(co.y,stops[i-1].y,zone.y)) {
                     if (zone.y < co.y) routeDirectionCache.n = m = true;
                     if (zone.y > co.y) routeDirectionCache.s = m = true;
                 }
-                if (co.y === zone.y && between(co.x,props.activeRoute.stops[i-1].x,zone.x)) {
+                if (co.y === zone.y && between(co.x,stops[i-1].x,zone.x)) {
                     if (zone.x < co.x) routeDirectionCache.e = m = true;
                     if (zone.x > co.x) routeDirectionCache.w = m = true;
                 }
             }
         } )
+
+        // Check if we're on the last stop of route. In this case, we won't show next direction.
+        // (direction for simple routes on last stop we'll be shown because we'll find out that we're on a route)
+        let onLastRouteStop = false;
+        if (stops[stops.length - 1].x === zone.x && stops[stops.length - 1].y === zone.y) {
+            onLastRouteStop = true;
+        }
         
-        // We're not on route. Try to find the way back
-        if (!m) {
+        // We're not on route and it's not the last stop. Try to find the way back
+        if (!m && !onLastRouteStop) {
 
             let d = null; let closest = null;
 
             // Find the closest route point
-            props.activeRoute.stops.forEach( (co,index)=> {
-                if (index > 0) move( props.activeRoute.stops[index-1], props.activeRoute.stops[index], co => {
+           stops.forEach( (co,index)=> {
+                if (index > 0) move( stops[index-1], stops[index], co => {
                     const dt = distance(co,zone);
                     if (d === null || dt <= d) { d = dt; closest = co; }
                 } );
