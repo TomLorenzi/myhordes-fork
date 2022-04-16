@@ -84,7 +84,7 @@
     <unit id="0FJ_Sz1" name="Logout">
       <notes>
         <note category="german">Logout</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/game/game.html.twig</note>
       </notes>
       <segment>
@@ -565,7 +565,7 @@
     <unit id="3RZ5Bd4" name="Version">
       <notes>
         <note category="german">Version</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/soul/future.html.twig</note>
       </notes>
       <segment>
@@ -696,7 +696,7 @@
     <unit id="Oh71xYO" name="Twinoid Application ID">
       <notes>
         <note category="german">Twinoid Application ID</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
       </notes>
       <segment>
@@ -707,7 +707,7 @@
     <unit id="GT7Cwam" name="Twinoid Secret Key">
       <notes>
         <note category="german">Twinoid Secret Key</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
       </notes>
       <segment>
@@ -1148,7 +1148,7 @@
     <unit id="qrK4heb" name="Infos">
       <notes>
         <note category="german">Infos</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
@@ -1259,7 +1259,7 @@
     <unit id="cTrAfF8" name="Name &amp; Infos">
       <notes>
         <note category="german">Name &amp; Infos</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
@@ -1630,7 +1630,7 @@
     <unit id="59PnafP" name="Administrator">
       <notes>
         <note category="german">Administrator</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/soul/badges.html.twig</note>
       </notes>
       <segment>
@@ -2011,7 +2011,7 @@
     <unit id="3NHVIj9" name="Name">
       <notes>
         <note category="german">Name</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/soul/coalitions.html.twig</note>
       </notes>
       <segment>
@@ -2412,7 +2412,7 @@
     <unit id="J6NchKS" name="Pos.">
       <notes>
         <note category="german">Pos.</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
       </notes>
       <segment>
@@ -2423,7 +2423,7 @@
     <unit id="OOWkbLx" name="Score">
       <notes>
         <note category="german">Score</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
       </notes>
       <segment>
@@ -2444,7 +2444,7 @@
     <unit id="5VYoVVK" name="Lang.">
       <notes>
         <note category="german">Lang.</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
       </notes>
       <segment>
@@ -3387,7 +3387,7 @@
     <unit id="fUGf6MZ" name="HTML Code">
       <notes>
         <note category="german">HTML Code</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
@@ -3398,7 +3398,7 @@
     <unit id="GOqvgvj" name="BBCode">
       <notes>
         <note category="german">BBCode</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
@@ -4044,7 +4044,7 @@
       <notes>
         <note category="german">Icon</note>
         <note category="from">php:///src/Structures/TwinoidPayload.php</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Icon</source>
