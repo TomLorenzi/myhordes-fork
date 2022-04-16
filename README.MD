@@ -582,6 +582,23 @@ These two rules do not interfere with each other; even with the same IP address.
 
 ## Troubleshooting
 
+### Commands not working becauses of PHP version not up to date
+
+If certain commands don't work, it might be because of your PHP version being too old. As said in the requirements, you need PHP 8.1. 
+
+You can check your current version of PHP with this command :
+```
+php --version
+```
+
+If you need to update your PHP, use the following commands : 
+```
+sudo apt install software-properties-common && sudo add-apt-repository ppa:ondrej/php -y
+sudo apt update
+sudo apt upgrade -y
+```
+You can then check again if you have the correct version with the same `php --version` command.
+
 ### Fatal Error: composer.lock was created for PHP version 8.1 or higher but the current PHP version is X.X.XX
 
 This means apache2 is using the wrong module for PHP. You can disable any PHP version it is using by using this command (for example for PHP 7.3):
