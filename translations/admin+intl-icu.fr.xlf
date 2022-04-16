@@ -4626,7 +4626,7 @@
       </notes>
       <segment>
         <source>Tödlich</source>
-        <target>Tödlich</target>
+        <target>Mortel</target>
       </segment>
     </unit>
     <unit id="acvlWFC" name="Infektiös">
@@ -4637,7 +4637,7 @@
       </notes>
       <segment>
         <source>Infektiös</source>
-        <target>Infektiös</target>
+        <target>Infectieux</target>
       </segment>
     </unit>
   </file>
