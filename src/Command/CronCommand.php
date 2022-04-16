@@ -4,12 +4,10 @@
 namespace App\Command;
 
 
+use App\Entity\Announcement;
 use App\Entity\AttackSchedule;
-use App\Entity\Citizen;
-use App\Entity\Picto;
-use App\Entity\ThreadReadMarker;
+use App\Entity\EventAnnouncementMarker;
 use App\Entity\Town;
-use App\Entity\TownLogEntry;
 use App\Entity\User;
 use App\Service\AntiCheatService;
 use App\Service\CommandHelper;
@@ -34,15 +32,17 @@ use Symfony\Bundle\FrameworkBundle\Translation\Translator;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Helper\ProgressBar;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
+use Symfony\Component\HttpKernel\KernelInterface;
+use Twig\Environment;
 
 class CronCommand extends Command
 {
     protected static $defaultName = 'app:cron';
 
+    private KernelInterface $kernel;
     private EntityManagerInterface $entityManager;
     private NightlyHandler $night;
     private Locksmith $locksmith;
@@ -58,15 +58,19 @@ class CronCommand extends Command
     private CommandHelper $helper;
     private ParameterBagInterface $params;
     private GameProfilerService $gps;
+    private ContainerInterface $container;
+    private Environment $twig;
 
     private array $db;
 
-    public function __construct(array $db,
+    public function __construct(array $db, KernelInterface $kernel, Environment $twig,
                                 EntityManagerInterface $em, NightlyHandler $nh, Locksmith $ls, Translator $translator,
                                 ConfMaster $conf, AntiCheatService $acs, GameFactory $gf, UserHandler $uh, GazetteService $gs,
                                 TownHandler $th, CrowService $cs, CommandHelper $helper, ParameterBagInterface $params,
-                                GameProfilerService $gps)
+                                GameProfilerService $gps, ContainerInterface $container)
     {
+        $this->kernel = $kernel;
+        $this->twig = $twig;
         $this->entityManager = $em;
         $this->night = $nh;
         $this->locksmith = $ls;
@@ -82,6 +86,7 @@ class CronCommand extends Command
         $this->helper = $helper;
         $this->params = $params;
         $this->gps = $gps;
+        $this->container = $container;
 
         $this->db = $db;
         parent::__construct();
@@ -217,6 +222,75 @@ class CronCommand extends Command
         return true;
     }
 
+    protected function module_event_notifications(): bool {
+        $now = new DateTime('now');
+        $span_end =  (new DateTime('now'))->modify('+8days');
+        $schedule = array_filter($this->conf_master->getAllScheduledEvents(
+            $now,
+            (new DateTime('now'))->modify('+1min')
+        ), function($s) use ($now, $span_end) {
+            [, $date, $beginning] = $s;
+            return $beginning && $date > $now && $date < $span_end;
+        });
+
+        if (empty($schedule)) return false;
+        $the_crow = $this->entityManager->getRepository(User::class)->find(66);
+
+        if (!$the_crow) return false;
+
+        foreach ($schedule as $entry) {
+
+            $marker = $this->entityManager->getRepository( EventAnnouncementMarker::class )->findOneBy(['name' => $entry[0], 'identifier' => $entry[1]->getTimestamp()]);
+            if ($marker || !file_exists( "{$this->kernel->getProjectDir()}/templates/event/{$entry[0]}" )) continue;
+
+            /**
+             * @var DateTime $begin
+             * @var DateTime $end
+             */
+            if ($this->conf_master->getEventScheduleByName( $entry[0], $now, $begin, $end )) continue;
+            if ($begin === null || $end === null) continue;
+
+
+            $lang_fallback_path = ['en','fr','de','es'];
+            $lang_mapping = [];
+            foreach (['en','fr','de','es'] as $lang)
+                if (file_exists( "{$this->kernel->getProjectDir()}/templates/event/{$entry[0]}/$lang.html.twig" ))
+                    $lang_mapping[$lang] = $lang;
+                else foreach ($lang_fallback_path as $fallback)
+                    if (file_exists( "{$this->kernel->getProjectDir()}/templates/event/{$entry[0]}/$fallback.html.twig" )) {
+                        $lang_mapping[$lang] = $fallback;
+                        break;
+                    }
+
+            $vars = [
+                'year' => $begin->format('Y'),
+                'date_begin' => $begin,
+                'date_end' => $end
+            ];
+
+            foreach ( $lang_mapping as $lang => $mapping ) try {
+                $template = $this->twig->load( "event/{$entry[0]}/$mapping.html.twig" );
+                $announcement = (new Announcement())
+                    ->setTitle( strip_tags( $template->renderBlock('title', $vars) ) )
+                    ->setText( $template->renderBlock('content', $vars) )
+                    ->setTimestamp( new DateTime() )
+                    ->setLang( $lang )
+                    ->setSender( $the_crow );
+
+                $this->entityManager->persist($announcement);
+
+            } catch(\Throwable $t) {echo $t->getMessage();}
+
+            $this->entityManager->persist( (new EventAnnouncementMarker())
+                ->setName( $entry[0] )
+                ->setIdentifier( $entry[1]->getTimestamp() )
+            );
+        }
+
+        $this->entityManager->flush();
+        return true;
+    }
+
     protected function module_ensure_towns(): bool {
         // Let's check if there is enough opened town
         $openTowns = $this->entityManager->getRepository(Town::class)->findOpenTown();
@@ -281,6 +355,10 @@ class CronCommand extends Command
 
         $town_maker_ran = $this->module_ensure_towns();
         $output->writeln( "Town creator: <info>" . ($town_maker_ran ? 'Complete' : 'Not scheduled') . "</info>", OutputInterface::VERBOSITY_VERBOSE );
+
+        $event_notifier_ran = $this->module_event_notifications();
+        $output->writeln( "Event notifications: <info>" . ($event_notifier_ran ? 'Complete' : 'Not scheduled') . "</info>", OutputInterface::VERBOSITY_VERBOSE );
+
 
         return 0;
     }
