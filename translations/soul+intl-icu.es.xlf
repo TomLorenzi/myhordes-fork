@@ -1145,11 +1145,11 @@
       <notes>
         <note category="german">Infos</note>
         <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Infos</source>
-        <target>Infos</target>
+        <target>Noticias</target>
       </segment>
     </unit>
     <unit id="y.oO3aD" name="Todesart">
@@ -2406,7 +2406,7 @@
       <notes>
         <note category="german">Pos.</note>
         <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Pos.</source>
@@ -3377,7 +3377,7 @@
       <notes>
         <note category="german">BBCode</note>
         <note category="from">twig:///templates/ajax/soul/social.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>BBCode</source>
