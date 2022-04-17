@@ -4648,7 +4648,7 @@
       </notes>
       <segment>
         <source>AP zum Freilegen der Ruine:</source>
-        <target>AP zum Freilegen der Ruine:</target>
+        <target>PA pour découvrir la ruine:</target>
       </segment>
     </unit>
     <unit id="CbDV2Yg" name="Camping-Ausbaulevel:">
@@ -4659,7 +4659,7 @@
       </notes>
       <segment>
         <source>Camping-Ausbaulevel:</source>
-        <target>Camping-Ausbaulevel:</target>
+        <target>Niveau du camping :</target>
       </segment>
     </unit>
     <unit id="NgXFePi" name="Basis:">
@@ -4670,7 +4670,7 @@
       </notes>
       <segment>
         <source>Basis:</source>
-        <target>Basis:</target>
+        <target>Base :</target>
       </segment>
     </unit>
   </file>
