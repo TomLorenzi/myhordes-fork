@@ -2515,12 +2515,12 @@
     <unit id="MJMhV5L" name="Kleine Stadt">
       <notes>
         <note category="german">Kleine Stadt</note>
-        <note category="state">new</note>
+        <note category="state">translations</note>
         <note category="from">db://TownClass</note>
       </notes>
       <segment>
         <source>Kleine Stadt</source>
-        <target>Kleine Stadt</target>
+        <target>Small Towns</target>
       </segment>
     </unit>
     <unit id="bElrYkF" name="Entfernte Regionen">
@@ -2666,89 +2666,89 @@
     <unit id="AHcu..1" name="Kommunikation in der Stadt">
       <notes>
         <note category="german">Kommunikation in der Stadt</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Kommunikation in der Stadt</source>
-        <target>Kommunikation in der Stadt</target>
+        <target>Communication in Town</target>
       </segment>
     </unit>
     <unit id="6yvyO_B">
       <notes>
         <note category="german">Du kannst keine Stadtnachrichten schreiben sowie das Schwarze Brett oder den Zonenchat verwenden.</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Du kannst keine Stadtnachrichten schreiben sowie das Schwarze Brett oder den Zonenchat verwenden.</source>
-        <target>Du kannst keine Stadtnachrichten schreiben sowie das Schwarze Brett oder den Zonenchat verwenden.</target>
+        <target>You can't write messages in the city or use the blackboard or zone chat.</target>
       </segment>
     </unit>
     <unit id="74vPalP" name="Stadtübergreifende Kommunikation">
       <notes>
         <note category="german">Stadtübergreifende Kommunikation</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Stadtübergreifende Kommunikation</source>
-        <target>Stadtübergreifende Kommunikation</target>
+        <target>Intertown communication</target>
       </segment>
     </unit>
     <unit id="EKVv6mi" name="Du kannst keine Nachrichten über das Nachrichtenzentrum versenden.">
       <notes>
         <note category="german">Du kannst keine Nachrichten über das Nachrichtenzentrum versenden.</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Du kannst keine Nachrichten über das Nachrichtenzentrum versenden.</source>
-        <target>Du kannst keine Nachrichten über das Nachrichtenzentrum versenden.</target>
+        <target>You cannot send messages through the message center.</target>
       </segment>
     </unit>
     <unit id="4L8kPem" name="Kommentare">
       <notes>
         <note category="german">Kommentare</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Kommentare</source>
-        <target>Kommentare</target>
+        <target>Comments</target>
       </segment>
     </unit>
     <unit id="wY7rEv4" name="Du kannst keine Letzten Worte übermitteln und keine Stadtkommentare verfassen.">
       <notes>
         <note category="german">Du kannst keine Letzten Worte übermitteln und keine Stadtkommentare verfassen.</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Du kannst keine Letzten Worte übermitteln und keine Stadtkommentare verfassen.</source>
-        <target>Du kannst keine Letzten Worte übermitteln und keine Stadtkommentare verfassen.</target>
+        <target>You can't write final words or comments about the city.</target>
       </segment>
     </unit>
     <unit id="cnYKFrt" name="Gruppenorganisation">
       <notes>
         <note category="german">Gruppenorganisation</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Gruppenorganisation</source>
-        <target>Gruppenorganisation</target>
+        <target>Group organization</target>
       </segment>
     </unit>
     <unit id="hzqTzKz" name="Du kannst keine Kleinen Koalitionen gründen oder ihnen beitreten.">
       <notes>
         <note category="german">Du kannst keine Kleinen Koalitionen gründen oder ihnen beitreten.</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Du kannst keine Kleinen Koalitionen gründen oder ihnen beitreten.</source>
-        <target>Du kannst keine Kleinen Koalitionen gründen oder ihnen beitreten.</target>
+        <target>You can't form or join coalitions.</target>
       </segment>
     </unit>
     <unit id="WPixbld" name="Spielen">
@@ -2784,12 +2784,12 @@
     <unit id="cKxZipz" name="Dauerhafte Beschränkung">
       <notes>
         <note category="german">Dauerhafte Beschränkung</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Dauerhafte Beschränkung</source>
-        <target>Dauerhafte Beschränkung</target>
+        <target>Permanent limitation</target>
       </segment>
     </unit>
     <unit id="hP.wuNt" name="Ende der Beschränkung: {date}">
@@ -2815,23 +2815,23 @@
     <unit id="pxDv8GV" name="Möchtest du diese Koalition verlassen und somit auflösen?">
       <notes>
         <note category="german">Möchtest du diese Koalition verlassen und somit auflösen?</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/soul/coalitions.html.twig</note>
       </notes>
       <segment>
         <source>Möchtest du diese Koalition verlassen und somit auflösen?</source>
-        <target>Möchtest du diese Koalition verlassen und somit auflösen?</target>
+        <target>Confirm that you wish to quit and dissolve the coalition?</target>
       </segment>
     </unit>
     <unit id="TDZXLoY" name="Möchtest du diese Koalition verlassen?">
       <notes>
         <note category="german">Möchtest du diese Koalition verlassen?</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/soul/coalitions.html.twig</note>
       </notes>
       <segment>
         <source>Möchtest du diese Koalition verlassen?</source>
-        <target>Möchtest du diese Koalition verlassen?</target>
+        <target>Confirm that you wish to quit the coalition?</target>
       </segment>
     </unit>
     <unit id="e5CjO7g" name="Ändern des Avatars">
