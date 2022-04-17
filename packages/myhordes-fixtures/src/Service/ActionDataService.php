@@ -482,7 +482,7 @@ class ActionDataService implements FixtureProcessorInterface {
                     'g_kill_2z_80' => [[['do_nothing_attack'], 20], [['kill_2_zombie'], 80]],
                     'g_immune_90' => [[['do_nothing'], 10], [['give_shaman_immune'], 90]],
 
-                    'g_empty_jerrygun'  => [[['do_nothing'], 85], [['empty_jerrygun'], 15]],
+                    'g_empty_jerrygun'  => [[['do_nothing'], 80], [['empty_jerrygun'], 20]], /* based on 192 test */
                 ],
 
                 'zombies' => [
