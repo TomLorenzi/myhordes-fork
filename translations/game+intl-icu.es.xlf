@@ -23103,5 +23103,15 @@
         <target>¡Qué desastre! ¡Faltan {num} raciones de agua!</target>
       </segment>
     </unit>
+    <unit id="p_HShwl" name="Neutraler Status">
+      <notes>
+        <note category="german">Neutraler Status</note>
+        <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
+      </notes>
+      <segment>
+        <source>Neutraler Status</source>
+        <target>Estado neutral</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

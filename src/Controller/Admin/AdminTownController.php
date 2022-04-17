@@ -1192,7 +1192,10 @@ class AdminTownController extends AdminActionController
         return AjaxResponse::success(true, [
             'view' => $view,
             'zone_digs' => $zone->getDigs(),
-            'ruin_digs' => $zone->getPrototype() !== null ? $zone->getRuinDigs() : 0
+            'ruin_digs' => $zone->getPrototype() !== null ? $zone->getRuinDigs() : 0,
+            'ruin_bury' => $zone->getBuryCount(),
+            'camp_levl' => $zone->getImprovementLevel(),
+            'ruin_camp' => $zone->getPrototype()?->getCampingLevel()
         ]);
     }
 
@@ -1237,7 +1240,7 @@ class AdminTownController extends AdminActionController
     }
 
     /**
-     * @Route("api/admin/town/{id}/set_zone_digs", name="set_zone_digs", requirements={"id"="\d+"})
+     * @Route("api/admin/town/{id}/set_zone_attribs", name="set_zone_attribs", requirements={"id"="\d+"})
      * @AdminLogProfile(enabled=true)
      * @Security("is_granted('ROLE_ADMIN')")
      * Returns the floor of a given zone
@@ -1245,7 +1248,7 @@ class AdminTownController extends AdminActionController
      * @param JSONRequestParser $parser
      * @return Response
      */
-    public function set_zone_digs(int $id, JSONRequestParser  $parser): Response{
+    public function set_zone_attribs(int $id, JSONRequestParser  $parser): Response{
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
         if (!$town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
@@ -1256,14 +1259,28 @@ class AdminTownController extends AdminActionController
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $target = $parser->get("target");
-        $digs = $parser->get('digs', 0);
-        if($digs < 0)
-            $digs = 0;
-        if ($target == "zone"){
-           $zone->setDigs($digs);
-        } else if ($target == 'ruin' && $zone->getPrototype() !== null) {
-           $zone->setRuinDigs($digs);
+        $value = $parser->get_num('value', 0);
+
+        switch ($target) {
+            case 'zone':
+                $zone->setDigs( max(0, $value) );
+                break;
+            case 'ruin':
+                if (!$zone->getPrototype())
+                    return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+                $zone->setRuinDigs( max(0, $value) );
+                break;
+            case 'bury':
+                if (!$zone->getPrototype())
+                    return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+                $zone->setBuryCount( max(0, $value) );
+                break;
+            case 'camp':
+                $zone->setImprovementLevel( max(0, $value) );
+                break;
+            default: return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         }
+
         $this->entity_manager->persist($zone);
         $this->entity_manager->flush();
 
@@ -1723,6 +1740,21 @@ class AdminTownController extends AdminActionController
                 $this->entity_manager->persist($est);
 
                 break;
+            case '_rst_':
+                if ($control)
+                    foreach ($citizens as $citizen) {
+                        $locked = $citizen->hasStatus( 'tg_stats_locked' );
+                        if ($locked)
+                            $this->citizen_handler->removeStatus( $citizen, 'tg_stats_locked' );
+
+                        foreach ($citizen->getStatus() as $status)
+                            if (!$status->getHidden()) $this->citizen_handler->removeStatus( $citizen, $status );
+
+                        if ($locked) $this->citizen_handler->inflictStatus( $citizen, 'tg_stats_locked' );
+                        $this->entity_manager->persist($citizen);
+                    }
+
+                break;
             default: return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         }
@@ -1746,7 +1778,7 @@ class AdminTownController extends AdminActionController
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
         if (!$town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        if (in_array($parser->get('role'), ['_ban_','_esc_','_nw_','_sh_','_wt_'] ))
+        if (in_array($parser->get('role'), ['_ban_','_esc_','_nw_','_sh_','_wt_','_rst_'] ))
             return $this->town_manage_pseudo_role($town,$parser,$handler);
 
         $role_id = $parser->get_int('role');

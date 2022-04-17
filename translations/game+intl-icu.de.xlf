@@ -21926,5 +21926,14 @@
         <target>Was für eine Katastrophe! {num} Wasserrationnen fehlen!</target>
       </segment>
     </unit>
+    <unit id="p_HShwl" name="Neutraler Status">
+      <notes>
+        <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
+      </notes>
+      <segment>
+        <source>Neutraler Status</source>
+        <target>Neutraler Status</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

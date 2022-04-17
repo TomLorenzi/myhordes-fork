@@ -23095,5 +23095,15 @@ cette violente opération...]]></target>
         <target>Quel désastre ! {num} rations d'eau ont disparu !</target>
       </segment>
     </unit>
+    <unit id="p_HShwl" name="Neutraler Status">
+      <notes>
+        <note category="german">Neutraler Status</note>
+        <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
+      </notes>
+      <segment>
+        <source>Neutraler Status</source>
+        <target>Statut neutre</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
