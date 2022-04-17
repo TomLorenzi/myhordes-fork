@@ -585,17 +585,17 @@ class ActionDataService implements FixtureProcessorInterface {
                 'emt'     => [ 'label' => 'Einsetzen', 'at00' => true, 'meta' => [ 'is_not_wounded' ], 'result' => [ 'just_ap6', 'inflict_wound', ['item' => [ 'consume' => false, 'morph' => 'sport_elec_empty_#00' ]], ['picto' => ['r_maso_#00']] ], 'message' => 'Es geht doch nichts über einen schönen Stromstoß in die Wirbelsäule, um so richtig wach zu werden! Aber irgendwie riecht es jetzt hier nach verbranntem Fleisch...' ],
 
                 'drug_rand_1'  => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1' ], 'result' => [ 'contaminated_zone_infect', 'consume_item', ['picto' => ['r_cobaye_#00']], ['group' => [
-                    [ ['drug_any', 'just_ap6', ['message' => [ 'text_key' => 'drug_normal_ap' ]]], 119 ],
-                    [ ['drug_any', 'terrorize', ['message' => [ 'text_key' => 'drug_terror' ]]], 66 ],
-                    [ ['drug_any', 'drug_addict', 'just_ap7', ['message' => [ 'text_key' => 'drug_addict_ap' ]]], 65 ],
-                    [ ['do_nothing', ['message' => [ 'text_key' => 'drug_no_effect' ]]], 58 ],
+                    [ ['drug_any', 'just_ap6', ['message' => [ 'text_key' => 'drug_normal_ap' ]]], 40 ],
+                    [ ['drug_any', 'terrorize', ['message' => [ 'text_key' => 'drug_terror' ]]], 20 ],
+                    [ ['drug_any', 'drug_addict', 'just_ap7', ['message' => [ 'text_key' => 'drug_addict_ap' ]]], 20 ],
+                    [ ['do_nothing', ['message' => [ 'text_key' => 'drug_no_effect' ]]], 20 ],
                 ]] ] ] ,
                 'drug_rand_2'  => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_2' ], 'result' => [ 'contaminated_zone_infect', 'consume_item', ['picto' => ['r_cobaye_#00']], ['group' => [
-                    [ ['drug_addict', 'just_ap6', ['message' => [ 'text_key' => 'drug_normal_ap' ]]], 119 ],
-                    [ ['drug_addict', 'terrorize', ['message' => [ 'text_key' => 'drug_terror' ]]], 66 ],
-                    [ ['drug_addict', 'just_ap7', ['message' => [ 'text_key' => 'drug_addict_ap' ]]], 65 ],
-                    [ ['do_nothing', ['message' => [ 'text_key' => 'drug_no_effect' ]]], 58 ],
-                ]] ] ] ,
+                    [ ['drug_addict', 'just_ap6', ['message' => [ 'text_key' => 'drug_normal_ap' ]]], 40 ],
+                    [ ['drug_addict', 'terrorize', ['message' => [ 'text_key' => 'drug_terror' ]]], 20 ],
+                    [ ['drug_addict', 'just_ap7', ['message' => [ 'text_key' => 'drug_addict_ap' ]]], 20 ],
+                    [ ['do_nothing', ['message' => [ 'text_key' => 'drug_no_effect' ]]], 20 ],
+                ]] ] ] , /* Unlabelled drugs, based on Igloo stats (1 894 test) */
                 'drug_lsd_1'  => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1' ], 'result' => [ 'contaminated_zone_infect', 'consume_item', ['picto' => ['r_cobaye_#00']], ['group' => [
                     [ ['drug_any', 'just_ap6', ['message' => [ 'text_key' => 'drug_normal_ap' ]]], 1 ],
                     [ ['drug_any', 'terrorize', ['message' => [ 'text_key' => 'drug_terror' ]]], 1 ],
