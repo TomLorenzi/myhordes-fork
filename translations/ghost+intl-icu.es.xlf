@@ -1772,7 +1772,7 @@
       </notes>
       <segment>
         <source>Beide Schamanen-Modi sind gleichzeitig aktiviert (experimentell!).</source>
-        <target>Beide Schamanen-Modi sind gleichzeitig aktiviert (experimentell!).</target>
+        <target>Ambos tipos de Chamán estarían habilitados al mismo tiempo (¡Experimental!).</target>
       </segment>
     </unit>
     <unit id="RcOw7GN" name="Kombiniert">
@@ -1783,7 +1783,7 @@
       </notes>
       <segment>
         <source>Kombiniert</source>
-        <target>Kombiniert</target>
+        <target>Combinados</target>
       </segment>
     </unit>
     <unit id="NZdQf3X">
@@ -1794,7 +1794,7 @@
       </notes>
       <segment>
         <source>Ermöglicht es, in begehbaren Ruinen den Gegenstand "Blutdurchtränkter Verband" zu finden, aus dem Toxin hergestellt werden kann.</source>
-        <target>Ermöglicht es, in begehbaren Ruinen den Gegenstand "Blutdurchtränkter Verband" zu finden, aus dem Toxin hergestellt werden kann.</target>
+        <target>Permitir a los jugadores encontrar el objeto "Tirita ensangrentada", que se puede utilizar para crear una Toxina.</target>
       </segment>
     </unit>
     <unit id="m9UhkBU" name="Toxin aktivieren">
@@ -1805,7 +1805,7 @@
       </notes>
       <segment>
         <source>Toxin aktivieren</source>
-        <target>Toxin aktivieren</target>
+        <target>Habilitar Toxina</target>
       </segment>
     </unit>
   </file>
