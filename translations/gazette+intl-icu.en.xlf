@@ -1936,7 +1936,6 @@
       <notes>
         <note category="german">Drops</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Drops</source>
@@ -1947,7 +1946,6 @@
       <notes>
         <note category="german">Whitie</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Whitie</source>
@@ -1958,7 +1956,6 @@
       <notes>
         <note category="german">Fettwanst</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Fettwanst</source>
@@ -1969,7 +1966,6 @@
       <notes>
         <note category="german">Gizmo</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Gizmo</source>
@@ -1980,7 +1976,6 @@
       <notes>
         <note category="german">Romero</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Romero</source>
@@ -1991,7 +1986,6 @@
       <notes>
         <note category="german">Krümel</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Krümel</source>
@@ -2002,7 +1996,6 @@
       <notes>
         <note category="german">Trolli</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Trolli</source>
@@ -2013,7 +2006,6 @@
       <notes>
         <note category="german">Warpie</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Warpie</source>
@@ -2024,7 +2016,6 @@
       <notes>
         <note category="german">Panda</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Panda</source>
@@ -2035,7 +2026,6 @@
       <notes>
         <note category="german">Urmel</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Urmel</source>
@@ -2046,7 +2036,6 @@
       <notes>
         <note category="german">Nuffi</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Nuffi</source>
@@ -2057,7 +2046,6 @@
       <notes>
         <note category="german">Kampfzwerg</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Kampfzwerg</source>
@@ -2068,7 +2056,6 @@
       <notes>
         <note category="german">Brummbrumm</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Brummbrumm</source>
@@ -2079,7 +2066,6 @@
       <notes>
         <note category="german">Quälgeist</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Quälgeist</source>
@@ -2090,7 +2076,6 @@
       <notes>
         <note category="german">Wuschel</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wuschel</source>
@@ -2101,7 +2086,6 @@
       <notes>
         <note category="german">Ratte</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ratte</source>
@@ -2112,7 +2096,6 @@
       <notes>
         <note category="german">Ziege</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ziege</source>
@@ -2123,7 +2106,6 @@
       <notes>
         <note category="german">Pudel</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Pudel</source>
@@ -2134,7 +2116,6 @@
       <notes>
         <note category="german">Hamster</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Hamster</source>
@@ -2145,7 +2126,6 @@
       <notes>
         <note category="german">Köter</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Köter</source>
@@ -2156,7 +2136,6 @@
       <notes>
         <note category="german">Schwein</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Schwein</source>
@@ -2167,7 +2146,6 @@
       <notes>
         <note category="german">Erdmännchen</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Erdmännchen</source>
@@ -2178,7 +2156,6 @@
       <notes>
         <note category="german">Wasserschwein</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wasserschwein</source>
@@ -2189,7 +2166,6 @@
       <notes>
         <note category="german">Sumpfschildkröte</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Sumpfschildkröte</source>
@@ -2200,7 +2176,6 @@
       <notes>
         <note category="german">Kätzchen</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Kätzchen</source>
@@ -2321,7 +2296,6 @@
       <notes>
         <note category="german">&lt;strong&gt;{citizen1}s&lt;/strong&gt; {animal} wurde heute Morgen in mehrere Stücke zerfetzt aufgefunden. Ein Stück wurde sogar aus dem Brunnen gefischt. Das erklärt auch den seltsamen Geschmack der Wasserrationen von heute Morgen...</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>&lt;strong&gt;{citizen1}s&lt;/strong&gt; {animal} wurde heute Morgen in mehrere Stücke zerfetzt aufgefunden. Ein Stück wurde sogar aus dem Brunnen gefischt. Das erklärt auch den seltsamen Geschmack der Wasserrationen von heute Morgen...</source>

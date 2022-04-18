@@ -23117,7 +23117,6 @@
       <notes>
         <note category="german">Du hast bereits etwas gegessen. Dir bleiben nur noch Drogen und Alkohol!</note>
         <note category="from">twig:///templates/ajax/game/beyond/beyond.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Du hast bereits etwas gegessen. Dir bleiben nur noch Drogen und Alkohol!</source>
