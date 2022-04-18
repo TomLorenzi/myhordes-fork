@@ -4546,7 +4546,6 @@
       <notes>
         <note category="german">Fremder</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Fremder</source>
@@ -4557,7 +4556,6 @@
       <notes>
         <note category="german">Mysteriösen Fremden aktivieren</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Mysteriösen Fremden aktivieren</source>
