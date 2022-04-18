@@ -4550,7 +4550,7 @@
       </notes>
       <segment>
         <source>Fremder</source>
-        <target>Fremder</target>
+        <target>Extraño</target>
       </segment>
     </unit>
     <unit id="bHjGkUb" name="Mysteriösen Fremden aktivieren">
@@ -4561,7 +4561,7 @@
       </notes>
       <segment>
         <source>Mysteriösen Fremden aktivieren</source>
-        <target>Mysteriösen Fremden aktivieren</target>
+        <target>Activar al Extraño Misterioso</target>
       </segment>
     </unit>
     <unit id="dLSH2dI" name="Notiz">
