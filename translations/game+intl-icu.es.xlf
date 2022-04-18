@@ -22921,7 +22921,7 @@
       </notes>
       <segment>
         <source>Gibt an, wie viele Bürger diese Stadt gemeinsam mit einer Koalition betreten haben. Es werden sowohl Spieler gezählt die automatisch mit ihrer Koalition beitreten als auch solche, die manuell anderen Spielern aus ihrer Koalition folgen.</source>
-        <target>Muestra cuántos ciudadanos se han unido a este pueblo junto con su alianza. Cuenta tanto ciudadanos que se unen automáticamente con su alianza como ciudadanos siguiéndolos manualmente al pueblo.</target>
+        <target>Indica la cantidad de habitantes que se han unido a este pueblo junto con su alianza. Cuenta tanto habitantos que se unieron automáticamente con su alianza como aquellos que los siguieron manualmente al pueblo.</target>
       </segment>
     </unit>
     <unit id="clpTyQQ" name="Du hast keine Seelenpunkte gewonnen.">
