@@ -22952,7 +22952,7 @@
       </notes>
       <segment>
         <source>Ein Moderator hat den Namen einer Stadt geändert, in der du mitgespielt hast. Alter Name: "{townOld}". Neuer Name: "{townNew}"</source>
-        <target>Un Moderador editó el nombre de un pueblo del cual has sido parte. Nombre viejo: "{townOld}". Nombre nuevo: "{townNew}"</target>
+        <target>Un Moderador cambió el nombre de un pueblo en el que encarnaste. Nombre anterior: "{townOld}". Nombre actual: "{townNew}"</target>
       </segment>
     </unit>
     <unit id="cokluf." name="Mysteriöser Fremder">
