@@ -193,7 +193,7 @@ class LogTemplateHandler
                     $transParams['{'.$typeEntry['name'].'}'] = $wrap_fun($variables[$typeEntry['name']] ?? 0);
                 }
                 elseif ($typeEntry['type'] === 'transString') {
-                    $transParams['{'.$typeEntry['name'].'}'] = $wrap_fun( $this->trans->trans($variables[$typeEntry['name']], [], 'game') );
+                    $transParams['{'.$typeEntry['name'].'}'] = $wrap_fun( $this->trans->trans($variables[$typeEntry['name']], [], $typeEntry['from'] ?? 'game') );
                 }
                 elseif ($typeEntry['type'] === 'dogname') {
                     $transParams['{'.$typeEntry['name'].'}'] = $wrap_fun( self::generateDogName((int)$variables[$typeEntry['name']], $this->trans) );
