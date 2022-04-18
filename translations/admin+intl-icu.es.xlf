@@ -4622,7 +4622,7 @@
       </notes>
       <segment>
         <source>Tödlich</source>
-        <target>Tödlich</target>
+        <target>Mortal</target>
       </segment>
     </unit>
     <unit id="acvlWFC" name="Infektiös">
@@ -4633,7 +4633,7 @@
       </notes>
       <segment>
         <source>Infektiös</source>
-        <target>Infektiös</target>
+        <target>Infeccioso</target>
       </segment>
     </unit>
     <unit id="Hth8_wv" name="AP zum Freilegen der Ruine:">
