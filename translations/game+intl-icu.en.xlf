@@ -23173,5 +23173,35 @@
         <target><![CDATA[<strong>You need {ap} action points to do this</strong>. <hr />Drink, eat or drug yourself to restore points, or wait until <strong>tomorrow</strong>.]]></target>
       </segment>
     </unit>
+    <unit id="s023j63" name="Was für eine Katastrophe! {num} Wasserrationnen fehlen!">
+      <notes>
+        <note category="german">Was für eine Katastrophe! {num} Wasserrationnen fehlen!</note>
+        <note category="from">db://LogEntryTemplate</note>
+      </notes>
+      <segment>
+        <source>Was für eine Katastrophe! {num} Wasserrationnen fehlen!</source>
+        <target>What a disaster! {num} water rations are gone!</target>
+      </segment>
+    </unit>
+    <unit id="p_HShwl" name="Neutraler Status">
+      <notes>
+        <note category="german">Neutraler Status</note>
+        <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
+      </notes>
+      <segment>
+        <source>Neutraler Status</source>
+        <target>Neutral Status</target>
+      </segment>
+    </unit>
+    <unit id="apksrtK" name="Du hast bereits etwas gegessen. Dir bleiben nur noch Drogen und Alkohol!">
+      <notes>
+        <note category="german">Du hast bereits etwas gegessen. Dir bleiben nur noch Drogen und Alkohol!</note>
+        <note category="from">twig:///templates/ajax/game/beyond/beyond.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du hast bereits etwas gegessen. Dir bleiben nur noch Drogen und Alkohol!</source>
+        <target>You have already eaten something. You only have drugs and alcohol left!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

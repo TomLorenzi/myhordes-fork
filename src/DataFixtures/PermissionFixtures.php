@@ -7,37 +7,32 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\DBAL\Exception;
 use Doctrine\ORM\EntityManagerInterface;
+use MyHordes\Fixtures\Fixtures\Permission;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\Console\Output\ConsoleOutputInterface;
 
 class PermissionFixtures extends Fixture
 {
-    public static $base_group_data = [
-        ['name'=>'[users]',      'type'=> UserGroup::GroupTypeDefaultUserGroup],
-        ['name'=>'[elevated]',   'type'=> UserGroup::GroupTypeDefaultElevatedGroup],
-        ['name'=>'[oracles]',    'type'=> UserGroup::GroupTypeDefaultOracleGroup],
-        ['name'=>'[mods]',       'type'=> UserGroup::GroupTypeDefaultModeratorGroup],
-        ['name'=>'[admins]',     'type'=> UserGroup::GroupTypeDefaultAdminGroup],
-        ['name'=>'[animaction]', 'type'=> UserGroup::GroupTypeDefaultAnimactorGroup],
-    ];
+    private EntityManagerInterface $entityManager;
+    private Permission $permission_data;
 
-    private $entityManager;
-
-    public function __construct(EntityManagerInterface $em)
+    public function __construct(EntityManagerInterface $em, Permission $permission_data)
     {
         $this->entityManager = $em;
+        $this->permission_data = $permission_data;
     }
 
     protected function insert_base_user_groups(ObjectManager $manager, ConsoleOutputInterface $out) {
-        $out->writeln( '<comment>User Groups: ' . count(static::$base_group_data) . ' fixture entries available.</comment>' );
+        $base_group_data = $this->permission_data->data();
+        $out->writeln( '<comment>User Groups: ' . count($base_group_data) . ' fixture entries available.</comment>' );
 
         // Set up console
         $progress = new ProgressBar( $out->section() );
-        $progress->start( count(static::$base_group_data) );
+        $progress->start( count($base_group_data) );
 
         // Iterate over all entries
-        foreach (static::$base_group_data as $entry) {
+        foreach ($base_group_data as $entry) {
             // Get existing entry, or create new one
             $entity = null;
             $entities = $this->entityManager->getRepository(UserGroup::class)->findBy(['type' => $entry['type']]);

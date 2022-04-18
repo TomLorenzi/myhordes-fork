@@ -113,12 +113,14 @@ class CitizenHandler
 
     /**
      * @param Citizen $citizen
-     * @param CitizenStatus|string $status
+     * @param string|CitizenStatus $status
      * @return bool
      */
-    public function inflictStatus( Citizen $citizen, $status ): bool {
+    public function inflictStatus(Citizen $citizen, CitizenStatus|string $status ): bool {
         if (is_string( $status )) $status = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName($status);
         if (!$status) return false;
+
+        if ( $this->hasStatusEffect($citizen, 'tg_stats_locked') ) return false;
 
         if (in_array( $status->getName(), ['tg_meta_wound','wound1','wound2','wound3','wound4','wound5','wound6'] )) {
             $this->inflictWound($citizen);
@@ -161,6 +163,9 @@ class CitizenHandler
     public function removeStatus( Citizen &$citizen, $status ): bool {
         if (is_string( $status )) $status = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName($status);
         if (!$status) return false;
+
+        if ( $this->hasStatusEffect($citizen, 'tg_stats_locked') && $status->getName() !== 'tg_stats_locked' )
+            return false;
 
         if (in_array( $status->getName(), ['tg_meta_wound','wound1','wound2','wound3','wound4','wound5','wound6'] )) {
             $this->healWound($citizen);

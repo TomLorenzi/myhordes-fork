@@ -143,7 +143,18 @@
                                     {% endtrans %}
                                 </div>
                             {% endif %}
-                            {% if tired %}
+                            {% if tired and citizen.hasRole('ghoul') %}
+                                <div class="help">
+                                    {{'Du bist'|trans({}, 'game')}} <img src="{{asset('build/images/status/status_tired.gif')}}" /> <strong>{{'Erschöpft'|trans({}, 'game')}}</strong> <a class="help-button"><div class="tooltip help">{{ 'Wenn du nichts zur Hand hast, um deine Erschöpfung zu lindern, dann bitte im Forum um Hilfe...'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a><br />
+                                    <span class="small">
+                                    {{'Ratschlag:'|trans({}, 'game')}}</span>
+                                    {% if status_info.can_eat %}
+                                        {{'Du kannst etwas essen, um deine Erschöpfung zu lindern.'|trans({}, 'game')}}
+                                    {% else %}
+                                        {{'Du hast bereits etwas gegessen. Dir bleiben nur noch Drogen und Alkohol!'|trans({}, 'game')}}
+                                    {% endif %}
+                                </div>
+                            {% elseif tired %}
                                 <div class="help">
                                     {{'Du bist'|trans({}, 'game')}} <img src="{{asset('build/images/status/status_tired.gif')}}" /> <strong>{{'Erschöpft'|trans({}, 'game')}}</strong> <a class="help-button"><div class="tooltip help">{{ 'Wenn du nichts zur Hand hast, um deine Erschöpfung zu lindern, dann bitte im Forum um Hilfe...'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a><br />
                                     <span class="small">

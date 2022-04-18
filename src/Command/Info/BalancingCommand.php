@@ -48,10 +48,11 @@ class BalancingCommand extends Command
             ->addArgument('what', InputArgument::REQUIRED, 'What would you like to know? [item-spawnrate]')
             ->addArgument('for',  InputArgument::OPTIONAL, 'What object would you like to know about?')
 
+            ->addOption('named-drop', null, InputOption::VALUE_IS_ARRAY | InputOption::VALUE_OPTIONAL, 'Adds a named drop overwrite to the resolver.')
         ;
     }
 
-    protected function executeItemDroprate(ItemPrototype $itemPrototype, SymfonyStyle $io): int {
+    protected function executeItemDroprate(ItemPrototype $itemPrototype, array $named, SymfonyStyle $io): int {
         $fun_filter = fn($e) => $e[1] > 0.0;
 
         $fun_beautify = fn($e) => [$e[0], round($e[1] * 100, $e[1] < 0.01 ? 4 : ( $e[1] < 0.1 ? 2 : 1) ) . '%'];
@@ -60,8 +61,8 @@ class BalancingCommand extends Command
             return [$name,$this->rand->resolveChance( $this->em->getRepository(ItemGroup::class)->findOneByName($name),$itemPrototype )];
         };
 
-        $fun_by_ruin = function (ZonePrototype $z) use ($itemPrototype) {
-            return [$z->getLabel(),$this->rand->resolveChance( $z->getDrops(), $itemPrototype )];
+        $fun_by_ruin = function (ZonePrototype $z) use ($named, $itemPrototype) {
+            return [$z->getLabel(),$this->rand->resolveChance( $z->getDropByNames($named), $itemPrototype )];
         };
 
         $io->title("Item Drop Rates for <info>{$itemPrototype->getLabel()}</info>");
@@ -109,12 +110,9 @@ class BalancingCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        switch ($input->getArgument('what')) {
-            case 'item-spawnrate':
-                return $this->executeItemDroprate( $this->getPrincipal(ItemPrototype::class, 'Item Prototype', $input, $output), new SymfonyStyle($input,$output) );
-            default: throw new \Exception('Unknown topic.');
-        }
-
-        return 0;
+        return match ($input->getArgument('what')) {
+            'item-spawnrate' => $this->executeItemDroprate($this->getPrincipal(ItemPrototype::class, 'Item Prototype', $input, $output), $input->getOption('named-drop') ?? [], new SymfonyStyle($input, $output)),
+            default => throw new \Exception('Unknown topic.'),
+        };
     }
 }

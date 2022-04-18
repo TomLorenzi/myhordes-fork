@@ -4618,5 +4618,60 @@
         <target>Bannir tous</target>
       </segment>
     </unit>
+    <unit id="LAYDoJI" name="Tödlich">
+      <notes>
+        <note category="german">Tödlich</note>
+        <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Tödlich</source>
+        <target>Mortel</target>
+      </segment>
+    </unit>
+    <unit id="acvlWFC" name="Infektiös">
+      <notes>
+        <note category="german">Infektiös</note>
+        <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Infektiös</source>
+        <target>Infectieux</target>
+      </segment>
+    </unit>
+    <unit id="Hth8_wv" name="AP zum Freilegen der Ruine:">
+      <notes>
+        <note category="german">AP zum Freilegen der Ruine:</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>AP zum Freilegen der Ruine:</source>
+        <target>PA pour découvrir la ruine :</target>
+      </segment>
+    </unit>
+    <unit id="CbDV2Yg" name="Camping-Ausbaulevel:">
+      <notes>
+        <note category="german">Camping-Ausbaulevel:</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Camping-Ausbaulevel:</source>
+        <target>Niveau du camping :</target>
+      </segment>
+    </unit>
+    <unit id="NgXFePi" name="Basis:">
+      <notes>
+        <note category="german">Basis:</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Basis:</source>
+        <target>Base :</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

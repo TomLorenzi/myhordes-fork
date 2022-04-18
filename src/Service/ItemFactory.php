@@ -6,6 +6,7 @@ namespace App\Service;
 
 use App\Entity\Item;
 use App\Entity\ItemPrototype;
+use App\Enum\ItemPoisonType;
 use Doctrine\ORM\EntityManagerInterface;
 
 class ItemFactory
@@ -23,12 +24,15 @@ class ItemFactory
      * @param bool $poison
      * @return Item|null
      */
-    public function createItem( $prototype, bool $broken = false, bool $poison = false ) {
+    public function createItem( $prototype, bool $broken = false, ItemPoisonType|bool $poison = false ) {
 
         $prototype = is_string( $prototype )
             ? $this->entity_manager->getRepository( ItemPrototype::class )->findOneByName( $prototype )
             : ( is_a( $prototype, ItemPrototype::class ) ? $prototype : null );
         if (!$prototype) return null;
+
+        if ($poison === true) $poison = ItemPoisonType::Deadly;
+        if ($poison === false) $poison = ItemPoisonType::None;
 
         $item = new Item();
         $item

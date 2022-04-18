@@ -2,7 +2,12 @@
 
 namespace App\Entity;
 
+use App\Enum\ArrayMergeDirective;
 use App\Interfaces\RandomEntry;
+use App\Interfaces\RandomGroup;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\Table;
 use Doctrine\ORM\Mapping\UniqueConstraint;
@@ -38,7 +43,7 @@ class ZonePrototype implements RandomEntry
     private $campingLevel;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\ItemGroup", cascade={"persist","remove"})
+     * @ORM\ManyToOne(targetEntity="App\Entity\ItemGroup", fetch="EXTRA_LAZY", cascade={"persist","remove"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $drops;
@@ -77,6 +82,16 @@ class ZonePrototype implements RandomEntry
      * @ORM\Column(type="text", nullable=true)
      */
     private $explorableDescription;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=NamedItemGroup::class, fetch="EXTRA_LAZY")
+     */
+    private $namedDrops;
+
+    public function __construct()
+    {
+        $this->namedDrops = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -213,5 +228,52 @@ class ZonePrototype implements RandomEntry
         $this->explorableDescription = $explorableDescription;
 
         return $this;
+    }
+
+    /**
+     * @return Collection<int, NamedItemGroup>
+     */
+    public function getNamedDrops(): Collection
+    {
+        return $this->namedDrops;
+    }
+
+    public function addNamedDrop(NamedItemGroup $namedDrop): self
+    {
+        if (!$this->namedDrops->contains($namedDrop)) {
+            $this->namedDrops[] = $namedDrop;
+        }
+
+        return $this;
+    }
+
+    public function removeNamedDrop(NamedItemGroup $namedDrop): self
+    {
+        $this->namedDrops->removeElement($namedDrop);
+
+        return $this;
+    }
+
+    public function getDropByName( string $name ): ?ItemGroup {
+        return $this->getDropByNames( [$name] );
+    }
+
+    public function getDropByNames( array $names ): ?ItemGroup {
+        $base_drop = $this->getDrops();
+        $matched = [];
+        foreach ( $names as $name)
+            foreach ( $this->getNamedDrops() as $drop )
+                if ($drop->getName() === $name) $matched[] = $drop;
+
+        if (empty($matched)) return $base_drop;
+        $live = (clone $base_drop)->toArray();
+
+        foreach ($matched as $match)
+            $live = $match->getOperator()->apply( $live, (clone $match->getItemGroup())->toArray() );
+
+        $return = new ItemGroup();
+        foreach ( $live as $entry ) $return->addEntry( $entry );
+
+        return $return;
     }
 }

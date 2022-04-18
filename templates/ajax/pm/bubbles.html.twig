@@ -177,7 +177,7 @@
                 {% else %}
                     <div class="pm-avatar row-flex v-center"><div class="cell rw-12 center">{{ announcement.sender.name|slice(0,2) }}</div></div>
                 {% endif %}
-                <span class="pm-announcement-sender"><span class="hide-md">{{ announcement.sender.name }}</span></span>
+                <span class="pm-announcement-sender"><span class="hide-md">{% include 'ajax/soul/playername.html.twig' with {user: announcement.sender, plain: true} only %}</span></span>
                 <span class="pm-announcement-date float-right">{% if announcement.timestamp >= "today"|to_date %}
                     {{ 'Heute um'|trans({},'global') }} {{ announcement.timestamp|format_datetime('none', 'short') }}
                 {% elseif announcement.timestamp >= "yesterday"|to_date %}

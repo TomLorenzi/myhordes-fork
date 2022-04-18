@@ -193,7 +193,7 @@ class LogTemplateHandler
                     $transParams['{'.$typeEntry['name'].'}'] = $wrap_fun($variables[$typeEntry['name']] ?? 0);
                 }
                 elseif ($typeEntry['type'] === 'transString') {
-                    $transParams['{'.$typeEntry['name'].'}'] = $wrap_fun( $this->trans->trans($variables[$typeEntry['name']], [], 'game') );
+                    $transParams['{'.$typeEntry['name'].'}'] = $wrap_fun( $this->trans->trans($variables[$typeEntry['name']], [], $typeEntry['from'] ?? 'game') );
                 }
                 elseif ($typeEntry['type'] === 'dogname') {
                     $transParams['{'.$typeEntry['name'].'}'] = $wrap_fun( self::generateDogName((int)$variables[$typeEntry['name']], $this->trans) );
@@ -1085,6 +1085,18 @@ class LogTemplateHandler
             ->setDay( $zombie->getTown()->getDay() )
             ->setTimestamp( new DateTime('now') )
             ->setCitizen( $zombie );
+    }
+
+    public function nightlyDevastationAttackWell(int $units, Town $town): TownLogEntry {
+        $variables = array('num' => $units);
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'nightlyDevastationAttackWell']);
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown($town)
+            ->setDay($town->getDay())
+            ->setTimestamp(new DateTime('now'));
     }
 
     public function nightlyInternalAttackStart(Town $town): TownLogEntry {

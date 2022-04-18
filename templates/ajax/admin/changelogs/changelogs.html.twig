@@ -19,25 +19,25 @@
                 <div x-tab-group="admin-announcements" x-tab-id="changelog" x-tab-target>
                 <div class="row-table">
                     <div class="row header">
-                        <div class="cell padded rw-6 rw-sm-12">
+                        <div class="cell padded rw-8 rw-lg-6 rw-sm-12">
                             <span>{{ "Titel" |trans({}, 'admin') }}</span>
                         </div>
-                        <div class="cell padded rw-2 rw-sm-12">
+                        <div class="cell padded rw-1 rw-lg-2 hide-sm">
                             <span>{{ "Version" |trans({}, 'admin') }}</span>
                         </div>
-                        <div class="cell padded rw-2 rw-sm-12">
+                        <div class="cell padded rw-1 rw-lg-2 hide-sm">
                             <span>{{ "Sprache" |trans({}, 'admin') }}</span>
                         </div>
                     </div>
                     {% for new in news %}
                         <div class="row">
-                            <div class="cell padded rw-6 rw-sm-12">
+                            <div class="cell padded rw-8 rw-lg-6 rw-sm-12">
                                 {{ new.title }}
                             </div>
-                            <div class="cell padded rw-2 rw-sm-12">
+                            <div class="cell padded rw-1 rw-lg-2 rw-sm-8">
                                 <span>{{ new.version }}</span>
                             </div>
-                            <div class="cell padded rw-2 rw-sm-12">
+                            <div class="cell padded rw-1 rw-lg-2 rw-sm-4">
                                 <span>{{ new.lang }}</span>
                             </div>
                         </div>
@@ -45,7 +45,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="cell padded rw-3">
+                    <div class="cell padded rw-3 rw-md-6 rw-sm-12">
                         <button id="new_changelog">
                             {{'Neue Update'|trans({}, 'admin')}}
                         </button>
@@ -62,7 +62,7 @@
                         <div class="cell padded rw-8 rw-sm-12">
                             <span>{{ "Titel" |trans({}, 'admin') }}</span>
                         </div>
-                        <div class="cell padded rw-2 rw-sm-12">
+                        <div class="cell padded rw-2 hide-sm">
                             <span>{{ "Sprache" |trans({}, 'admin') }}</span>
                         </div>
                     </div>
@@ -84,7 +84,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="cell padded rw-3">
+                    <div class="cell padded rw-3 rw-md-6 rw-sm-12">
                         <button id="new_announce">
                             {{'Neue Ankündigung'|trans({}, 'admin')}}
                         </button>

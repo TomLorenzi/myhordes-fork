@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Annotations\AdminLogProfile;
 use App\Annotations\GateKeeperProfile;
 use App\Entity\AntiSpamDomains;
 use App\Response\AjaxResponse;
@@ -46,6 +47,7 @@ class AdminSpamController extends AdminActionController
 
     /**
      * @Route("api/admin/spam/domains/add", name="admin_add_spam_domain")
+     * @AdminLogProfile(enabled=true)
      * @param JSONRequestParser $parser
      * @return Response
      */
@@ -79,6 +81,7 @@ class AdminSpamController extends AdminActionController
 
     /**
      * @Route("api/admin/spam/domains/remove", name="admin_remove_spam_domain")
+     * @AdminLogProfile(enabled=true)
      * @param JSONRequestParser $parser
      * @return Response
      */

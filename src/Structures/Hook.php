@@ -123,7 +123,7 @@ class Hook
     }
 
     /**
-     * For easter, we enable the chocolate cross once the event begins
+     * For easter, we disable the chocolate cross once the event ends
      *
      * @param Town $town
      * @return bool

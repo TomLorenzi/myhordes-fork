@@ -4,122 +4,122 @@
     <unit id="27WnKMI" name="URL anfordern">
       <notes>
         <note category="german">Anforderungs-URL</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/public/apidocs.html.twig</note>
       </notes>
       <segment>
         <source>URL anfordern</source>
-        <target>URL anfordern</target>
+        <target>Request URL</target>
       </segment>
     </unit>
     <unit id="cQsNuV4" name="Rückgabetyp">
       <notes>
         <note category="german">Rückgabetyp</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/public/apidocs.html.twig</note>
       </notes>
       <segment>
         <source>Rückgabetyp</source>
-        <target>Rückgabetyp</target>
+        <target>Return type</target>
       </segment>
     </unit>
     <unit id="Yzze0ZL" name="&quot;true&quot;, wenn der Angriff ausgeführt wird">
       <notes>
         <note category="german">"true", wenn der Angriff ausgeführt wird</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/public/apidocs.html.twig</note>
       </notes>
       <segment>
         <source>"true", wenn der Angriff ausgeführt wird</source>
-        <target>"true", wenn der Angriff ausgeführt wird</target>
+        <target>"true', when the attack is in progress</target>
       </segment>
     </unit>
     <unit id="mw_nuOf" name="&quot;true&quot;, wenn das Spiel gewartet wird">
       <notes>
         <note category="german">"true", wenn das Spiel gewartet wird</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/public/apidocs.html.twig</note>
       </notes>
       <segment>
         <source>"true", wenn das Spiel gewartet wird</source>
-        <target>"true", wenn das Spiel gewartet wird</target>
+        <target>"true", when the game is under maintenance</target>
       </segment>
     </unit>
     <unit id="b_mVDDt" name="Spielkarten-ID">
       <notes>
         <note category="german">Spiel-ID</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/public/apidocs.html.twig</note>
       </notes>
       <segment>
         <source>Spielkarten-ID</source>
-        <target>Spielkarten-ID</target>
+        <target>Game card ID</target>
       </segment>
     </unit>
     <unit id="x3kQEe2" name="Serverzeit">
       <notes>
         <note category="german">Serverzeit</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/public/apidocs.html.twig</note>
       </notes>
       <segment>
         <source>Serverzeit</source>
-        <target>Serverzeit</target>
+        <target>Server time</target>
       </segment>
     </unit>
     <unit id="jb3MjHh" name="Kartenbreite">
       <notes>
         <note category="german">Kartenbreite</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/public/apidocs.html.twig</note>
       </notes>
       <segment>
         <source>Kartenbreite</source>
-        <target>Kartenbreite</target>
+        <target>Map width</target>
       </segment>
     </unit>
     <unit id="VWs0Y67" name="Kartenhöhe">
       <notes>
         <note category="german">Kartenhöhe</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/public/apidocs.html.twig</note>
       </notes>
       <segment>
         <source>Kartenhöhe</source>
-        <target>Kartenhöhe</target>
+        <target>Map height</target>
       </segment>
     </unit>
     <unit id="CWyvqQv" name="Wenn es einen Aufstand gibt">
       <notes>
         <note category="german">Wenn es einen Aufstand gibt</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/public/apidocs.html.twig</note>
       </notes>
       <segment>
         <source>Wenn es einen Aufstand gibt</source>
-        <target>Wenn es einen Aufstand gibt</target>
+        <target>If there is an insurrection</target>
       </segment>
     </unit>
     <unit id="XhYRokz" name="Bonuspunkte">
       <notes>
         <note category="german">Bonuspunkte</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/public/apidocs.html.twig</note>
       </notes>
       <segment>
         <source>Bonuspunkte</source>
-        <target>Bonuspunkte</target>
+        <target>Bonus points</target>
       </segment>
     </unit>
     <unit id="_TdUTyc" name="Stadttag">
       <notes>
         <note category="german">Stadttag</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/public/apidocs.html.twig</note>
       </notes>
       <segment>
         <source>Stadttag</source>
-        <target>Stadttag</target>
+        <target>Town day</target>
       </segment>
     </unit>
     <unit id="XS6yW8K" name="Boolescher Wert, der angibt, ob die Stadt privat ist oder nicht">

@@ -240,6 +240,7 @@ export default class HTML {
         const show_secs   = !element.getAttribute('x-countdown-no-seconds');
         const force_hours =  element.getAttribute('x-countdown-force-hours');
         const custom_handler = element.getAttribute('x-countdown-handler');
+        const clock = element.getAttribute('countdown-clock');
         let interval = element.getAttribute('x-countdown-interval');
         if (!interval) interval = '1000';
 
@@ -262,9 +263,11 @@ export default class HTML {
 
             if (custom_handler === 'pre' || custom_handler === 'handle') element.dispatchEvent(new CustomEvent('countdown', {detail: [seconds, h, m, s]}));
             if (!custom_handler || custom_handler === 'pre' || custom_handler === 'post') {
+                // If we hide seconds, we round at display.
                 element.innerHTML = html +
-                    ((h > 0 || force_hours) ? (h + ':') : '') +
-                    ((h > 0 || force_hours) ? (m > 9 ? m : ('0' + m)) : m) +
+                    (clock ? '~' : '') +
+                    (((show_secs ? h : (m + 1) === 60 ? (h + 1) : h) > 0 || force_hours) ? ((show_secs ? h : (m + 1) === 60 ? (h + 1) : h) + ':') : '') +
+                    (((show_secs ? h : (m + 1) === 60 ? (h + 1) : h) > 0 || force_hours) ? ((show_secs ? m : (m + 1) === 60 ? 0 : (m + 1)) > 9 ? (show_secs ? m : (m + 1) === 60 ? 0 : (m + 1)) : ('0' + (show_secs ? m : (m + 1) === 60 ? 0 : (m + 1)))) : (show_secs ? m : (m + 1) === 60 ? 0 : (m + 1))) +
                     (show_secs ? (':' + (s > 9 ? s : ('0' + s))) : '');
             }
             if (custom_handler === 'post') element.dispatchEvent(new CustomEvent('countdown', {detail: [seconds, h, m, s]}));

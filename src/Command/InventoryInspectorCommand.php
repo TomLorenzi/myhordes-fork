@@ -9,6 +9,7 @@ use App\Entity\ItemPrototype;
 use App\Entity\Recipe;
 use App\Entity\Town;
 use App\Entity\TownClass;
+use App\Enum\ItemPoisonType;
 use App\Service\CommandHelper;
 use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
@@ -88,7 +89,7 @@ class InventoryInspectorCommand extends Command
                 $item->getPrototype()->getName(),
                 $item->getPrototype()->getLabel(),
                 (int)$item->getBroken(),
-                (int)$item->getPoison()
+                $item->getPoison()->name
             ]);
         $table->render();
 
@@ -118,7 +119,7 @@ class InventoryInspectorCommand extends Command
             $output->writeln( "Spawning <info>{$input->getOption('number')}</info> instances of '<info>{$spawn->getLabel()}</info>'.\n" );
 
             for ($i = 0; $i < $input->getOption('number'); $i++) {
-                $this->inventoryHandler->forceMoveItem($inventory, $this->itemFactory->createItem($spawn->getName(), (bool)$input->getOption('set-broken'), (bool)$input->getOption('set-poison')));
+                $this->inventoryHandler->forceMoveItem($inventory, $this->itemFactory->createItem($spawn->getName(), (bool)$input->getOption('set-broken'), ItemPoisonType::from( $input->getOption('set-poison'))));
                 $this->entityManager->flush();
             }
 

@@ -61,8 +61,8 @@ parameters:
     easter:
       trigger:
         type: easter
-        before: 4
-        after: 4
+        before: 1
+        after: 2
       conf:
         name: 'Ostern'
         priority: 103

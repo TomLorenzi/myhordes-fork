@@ -102,12 +102,14 @@
             <div class="row {% if citizen.user.id == app.user.id or citizen.user.id == user.id %}me{% endif %}">
                 <div class="padded cell rw-1 rw-lg-2 rw-md-3 rw-sm-4">{{citizen.day}}</div>
                 <div class="padded cell rw-1 rw-lg-2 rw-md-3 rw-sm-4 town-points bold">
-                    {% if not citizen.disabled and not town.disabled %}
+                    {% if not citizen.disabled and not town.disabled and not town.event %}
                         +{{sp}}
                     {% elseif is_granted('ROLE_CROW') %}
-                        <div style="{% if citizen.disabled %}color: {% if citizen.limitedImport %}rosybrown{% else %}red{% endif %};{% endif %} {% if town.disabled %}opacity: 0.5;{% endif %}">+{{sp}}</div>
-                    {% elseif not (citizen.disabled and not citizen.limitedImport) and not town.disabled %}
+                        <div style="{% if citizen.disabled %}color: {% if citizen.limitedImport %}rosybrown{% else %}red{% endif %};{% endif %} {% if town.disabled or town.event %}opacity: 0.5;{% endif %}">+{{sp}}</div>
+                    {% elseif not (citizen.disabled and not citizen.limitedImport) and not town.disabled and not town.event %}
                         +{{sp}}
+                    {% else %}
+                        +0
                     {% endif %}
                     {% if is_granted('ROLE_CROW') %}
                         {% if not citizen.disabled %}

@@ -264,7 +264,7 @@
     <unit id="rdcUdHR" name="Machete">
       <notes>
         <note category="german">Machete</note>
-        <note category="state">new</note>
+        <note category="state">Translated</note>
         <note category="from">db://ItemPrototype</note>
       </notes>
       <segment>
@@ -445,7 +445,7 @@
     <unit id="sloU8r6" name="Motor">
       <notes>
         <note category="german">Motor</note>
-        <note category="state">new</note>
+        <note category="state">Translated</note>
         <note category="from">db://ItemPrototype</note>
       </notes>
       <segment>
@@ -816,7 +816,7 @@
     <unit id="E_mYVPX" name="Twinoid 500mg">
       <notes>
         <note category="german">Twinoid 500mg</note>
-        <note category="state">new</note>
+        <note category="state">Translated</note>
         <note category="from">db://ItemPrototype</note>
       </notes>
       <segment>
@@ -1697,7 +1697,7 @@
     <unit id="BY3bv3L" name="Radius Mark II">
       <notes>
         <note category="german">Radius Mark II</note>
-        <note category="state">new</note>
+        <note category="state">Translated</note>
         <note category="from">db://ItemPrototype</note>
       </notes>
       <segment>
@@ -2968,7 +2968,7 @@
     <unit id="lIXVQdW" name="LSD">
       <notes>
         <note category="german">LSD</note>
-        <note category="state">new</note>
+        <note category="state">Translated</note>
         <note category="from">db://ItemPrototype</note>
       </notes>
       <segment>
@@ -3549,7 +3549,7 @@
     <unit id="UWEMZ3x" name="{casino}">
       <notes>
         <note category="german">{casino}</note>
-        <note category="state">new</note>
+        <note category="state">Translated</note>
         <note category="from">db://ItemAction</note>
       </notes>
       <segment>
@@ -3920,7 +3920,7 @@
     <unit id="RL1s_tI" name="{action}: {item}">
       <notes>
         <note category="german">{action}: {item}</note>
-        <note category="state">new</note>
+        <note category="state">Translated</note>
         <note category="from">twig:///templates/ajax/game/actions.html.twig</note>
       </notes>
       <segment>
@@ -9434,6 +9434,28 @@
       <segment>
         <source>Du bist &lt;strong&gt;zu weit von der Stadt entfernt&lt;/strong&gt;, um diese Fähigkeit benutzen zu können! Genauer gesagt bist du {km_from_town} km entfernt. Die maximale Entfernung darf höchstens 11 km betragen.</source>
         <target><![CDATA[¡Estás <strong>demasiado lejos del pueblo para utilizar este poder</strong>! Estás a {km_from_town}km cuando la distancia máxima es de 11km.</div>]]></target>
+      </segment>
+    </unit>
+    <unit id="dOYBNiy" name="Toxin">
+      <notes>
+        <note category="german">Toxin</note>
+        <note category="from">db://ItemPrototype</note>
+        <note category="state">Translated</note>
+      </notes>
+      <segment>
+        <source>Toxin</source>
+        <target>Toxina</target>
+      </segment>
+    </unit>
+    <unit id="bGL408X">
+      <notes>
+        <note category="german">Du hältst das Fläschchen an deine Nase....WOOOW! Der Gestank alleine könnte ein Pferd töten.</note>
+        <note category="from">db://ItemPrototype</note>
+        <note category="state">Translated</note>
+      </notes>
+      <segment>
+        <source>Du hältst das Fläschchen an deine Nase....WOOOW! Der Gestank alleine könnte ein Pferd töten.</source>
+        <target>Acercas la sustancia a tu nariz y la hueles un poco... Puajjj! Parece que podría matar incluso a un caballo.</target>
       </segment>
     </unit>
   </file>

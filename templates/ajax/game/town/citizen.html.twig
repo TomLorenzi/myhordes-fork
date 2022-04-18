@@ -26,10 +26,73 @@
             </div>
             <div class="padded cell rw-2 rw-lg-3 rw-md-5 right">{{ 'Draußen?'|trans({},'game') }}</div>
         </div>
-        {% for citizenInfo in citizens|sort((a,b) => (a.citizen.alive == b.citizen.alive) ? ((a.citizen.alive) ? (a.citizen.alias != null ? a.citizen.alias[2:] : a.citizen.name)|lower <=> (b.citizen.alias != null ? b.citizen.alias[2:] : b.citizen.name)|lower : b.citizen.survivedDays <=> a.citizen.survivedDays) : b.citizen.alive <=> a.citizen.alive) %}
-            {% set citizen = citizenInfo.citizen %}
-            {# @var \App\Entity\Citizen citizen  #}
-            <div class="row-flex stretch pointer{% if citizen == me%} me{% endif %}" style="max-height: 100px;">
+
+        {% set wrapped_citizens = citizens %}
+        {% if town.strangerEnabled %}
+            {% set wrapped_citizens = wrapped_citizens|merge([{
+                'stranger': true,
+                'citizen': { 'alive': town.strangerPower > 0, 'alias': null, 'name': 'Mysteriöser Fremder'|trans({}, 'game'), 'survivedDays': 0 }
+            }]) %}
+        {% endif %}
+
+        {% for citizenInfo in wrapped_citizens|sort((a,b) => (a.citizen.alive == b.citizen.alive) ? ((a.citizen.alive) ? (a.citizen.alias != null ? a.citizen.alias[2:] : a.citizen.name)|lower <=> (b.citizen.alias != null ? b.citizen.alias[2:] : b.citizen.name)|lower : b.citizen.survivedDays <=> a.citizen.survivedDays) : b.citizen.alive <=> a.citizen.alive) %}
+            {% if citizenInfo['stranger'] is defined %}
+                {% if town.strangerEnabled %}
+                    <div class="row-flex stretch" style="max-height: 100px;">
+                        <div class="cell factor-0 avatar ua-{{ random(0,9) }} hide-mobile" style="flex-basis: 90px; background: url('{{ asset('build/images/forum/empty_avatar.gif') }}') center/cover no-repeat;">&nbsp;</div>
+                        <div class="cell factor-0 citizen-{{ town.strangerPower > 0 ? 'online' : 'dead' }}" style="flex-basis: 8px;">&nbsp;</div>
+
+                        <div class="padded cell rw-4 factor-1 small content-center-vertical citizen-box citizen-box-name">
+                            <div>
+                                <div>
+                                    {% if town.strangerPower > 0 %}
+                                        <img alt="" src="{{ asset('build/images/professions/stranger.gif') }}" />
+                                    {% else %}
+                                        <img alt="{{ 'Tot!'|trans({},'game') }}" src="{{ asset('build/images/professions/death.gif') }}" />
+                                        {% if citizen.home.recycling >= 15 %}
+                                            <img alt="{{ 'Tot!'|trans({},'game') }}" src="{{ asset('build/images/icons/home_recycled.gif') }}" />
+                                        {% endif %}
+                                    {% endif %}
+                                    <a class="username undecorated" style="word-break: break-word">{{ 'Mysteriöser Fremder'|trans({}, 'game') }}</a>
+                                </div>
+                                <div class="hide-desktop small-citizen-defense">
+                                    {% if town.strangerPower > 0 %}
+                                        <img alt="" src="{{ asset('build/images/professions/void.gif') }}" />
+                                        <span class="citizen-defense"> -- </span>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        {% if town.strangerPower > 0 %}
+                            <div class="padded cell rw-8 hide-md factor-2 small citizen-box"></div>
+                            <div class="padded cell factor-0 citizen-box hide-lg hide-md hide-sm" style="flex-basis: 80px">
+                                <img alt="" src="{{ asset('build/images/professions/void.gif') }}" />
+                                <span class="citizen-defense"> -- </span>
+                            </div>
+                            <div class="padded cell factor-0 small right citizen-box location" style="flex-basis: 80px;">
+                                {{ "In der Stadt"|trans({},'game') }}
+                            </div>
+                        {% else %}
+                            <div class="padded cell rw-8 hide-md factor-2 small citizen-box">
+                                <em>{{ 'Leere Truhe'|trans({},'game') }}</em>
+                                <ul class="inventory borderless"></ul>
+                                <div class="tooltip normal">
+                                    <strong class="warning">{{'Todesursache'|trans({}, 'game')}}</strong> : {{ 'Unbekannte Todesursache'|trans({}, "game") }}
+                                </div>
+                            </div>
+                            <div class="padded cell factor-0 small citizen-box hide-lg hide-md hide-sm" style="flex-basis: 160px;">
+                                <span>{{ 'Dieser Bürger hat keine letzten Worte hinterlassen ...'|trans({}, 'game') }}</span>
+                            </div>
+                            <div class="padded cell factor-0 small citizen-box hide-desktop" style="flex-basis: 80px;">
+                                <span>{{ 'Dieser Bürger hat keine letzten Worte hinterlassen ...'|trans({}, 'game') }}</span>
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endif %}
+            {% else %}
+                {% set citizen = citizenInfo.citizen %}
+                {# @var \App\Entity\Citizen citizen  #}
+                <div class="row-flex stretch pointer{% if citizen == me%} me{% endif %}" style="max-height: 100px;">
                 <div class="cell factor-0 avatar ua-{{ random(0,9) }} hide-mobile" style="flex-basis: 90px; background: url('{{ citizen.user.avatar ? path('app_web_avatar', {'uid': citizen.user.id, 'name': citizen.user.avatar.smallName, 'ext': citizen.user.avatar.format}) : asset('build/images/forum/empty_avatar.gif') }}') center/cover no-repeat;" x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}">&nbsp;</div>
                 <div class="cell factor-0 citizen-{{ citizen.alive ? (citizen.online ? 'online' : 'offline') : 'dead' }}" style="flex-basis: 8px;" x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}">&nbsp;</div>
                 
@@ -194,59 +257,8 @@
                     </div>
                 {% endif %}
             </div>
+            {% endif %}
         {% endfor %}
-        {% if town.strangerEnabled %}
-            <div class="row-flex stretch" style="max-height: 100px;">
-                <div class="cell factor-0 avatar ua-{{ random(0,9) }} hide-mobile" style="flex-basis: 90px; background: url('{{ asset('build/images/forum/empty_avatar.gif') }}') center/cover no-repeat;">&nbsp;</div>
-                <div class="cell factor-0 citizen-{{ town.strangerPower > 0 ? 'online' : 'dead' }}" style="flex-basis: 8px;">&nbsp;</div>
-
-                <div class="padded cell rw-4 factor-1 small content-center-vertical citizen-box citizen-box-name">
-                    <div>
-                        <div>
-                            {% if town.strangerPower > 0 %}
-                                <img alt="" src="{{ asset('build/images/professions/stranger.gif') }}" />
-                            {% else %}
-                                <img alt="{{ 'Tot!'|trans({},'game') }}" src="{{ asset('build/images/professions/death.gif') }}" />
-                                {% if citizen.home.recycling >= 15 %}
-                                    <img alt="{{ 'Tot!'|trans({},'game') }}" src="{{ asset('build/images/icons/home_recycled.gif') }}" />
-                                {% endif %}
-                            {% endif %}
-                            <a class="username undecorated">{{ 'Mysteriöser Fremder'|trans({}, 'game') }}</a>
-                        </div>
-                        <div class="hide-desktop small-citizen-defense">
-                            {% if town.strangerPower > 0 %}
-                                <img alt="" src="{{ asset('build/images/professions/void.gif') }}" />
-                                <span class="citizen-defense"> -- </span>
-                            {% endif %}
-                        </div>
-                    </div>
-                </div>
-                {% if town.strangerPower > 0 %}
-                    <div class="padded cell rw-8 hide-md factor-2 small citizen-box"></div>
-                    <div class="padded cell factor-0 citizen-box hide-lg hide-md hide-sm" style="flex-basis: 80px">
-                        <img alt="" src="{{ asset('build/images/professions/void.gif') }}" />
-                        <span class="citizen-defense"> -- </span>
-                    </div>
-                    <div class="padded cell factor-0 small right citizen-box location" style="flex-basis: 80px;">
-                        {{ "In der Stadt"|trans({},'game') }}
-                    </div>
-                {% else %}
-                    <div class="padded cell rw-8 hide-md factor-2 small citizen-box">
-                        <em>{{ 'Leere Truhe'|trans({},'game') }}</em>
-                        <ul class="inventory borderless"></ul>
-                        <div class="tooltip normal">
-                            <strong class="warning">{{'Todesursache'|trans({}, 'game')}}</strong> : {{ 'Unbekannte Todesursache'|trans({}, "game") }}
-                        </div>
-                    </div>
-                    <div class="padded cell factor-0 small citizen-box hide-lg hide-md hide-sm" style="flex-basis: 160px;">
-                        <span>{{ 'Dieser Bürger hat keine letzten Worte hinterlassen ...'|trans({}, 'game') }}</span>
-                    </div>
-                    <div class="padded cell factor-0 small citizen-box hide-desktop" style="flex-basis: 80px;">
-                        <span>{{ 'Dieser Bürger hat keine letzten Worte hinterlassen ...'|trans({}, 'game') }}</span>
-                    </div>
-                {% endif %}
-            </div>
-        {% endif %}
     </div>
 
     <div class="row">

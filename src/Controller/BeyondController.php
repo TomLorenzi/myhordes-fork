@@ -478,7 +478,7 @@ class BeyondController extends InventoryAwareController
         $good = $this->random_generator->chance(0.125);
 
         $item_group = $this->entity_manager->getRepository(ItemGroup::class)->findOneBy(['name' => $good ? 'trash_good' : 'trash_bad']);
-        $proto = $this->random_generator->pickItemPrototypeFromGroup( $item_group );
+        $proto = $this->random_generator->pickItemPrototypeFromGroup( $item_group, $this->getTownConf() );
         if (!$proto)
             return AjaxResponse::error(ErrorHelper::ErrorInternalError);
 
@@ -702,6 +702,10 @@ class BeyondController extends InventoryAwareController
     public function ruin_enter_api() {
         if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
         $citizen = $this->getActiveCitizen();
+
+        // Make sure the ruin is explorable
+        if (!$citizen->getZone()?->getPrototype()?->getExplorable())
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         // Make sure the citizen is not wounded, has not already explored the ruin today and no one else is exploring
         // the ruin right now
@@ -1380,13 +1384,14 @@ class BeyondController extends InventoryAwareController
 
             if (!empty($event_confs)) $event_conf = $this->random_generator->pick( $event_confs );
 
+            $named_groups = $this->getTownConf()->get( TownConf::CONF_OVERRIDE_NAMED_DROPS, [] );
             $group = $event_conf
                 ? ( $this->random_generator->chance($event_conf['chance'])
                     ? $this->entity_manager->getRepository(ItemGroup::class)->findOneBy(['name' => $event_conf['group']])
-                    : $zone->getPrototype()->getDrops() )
-                : $zone->getPrototype()->getDrops();
+                    : $zone->getPrototype()->getDropByNames( $named_groups ) )
+                : $zone->getPrototype()->getDropByNames( $named_groups );
 
-            $prototype = $group ? $this->random_generator->pickItemPrototypeFromGroup( $group ) : null;
+            $prototype = $group ? $this->random_generator->pickItemPrototypeFromGroup( $group, $this->getTownConf() ) : null;
             if ($prototype) {
                 $item = $this->item_factory->createItem( $prototype );
                 $gps->recordItemFound( $prototype, $citizen, $zone->getPrototype() );

@@ -121,7 +121,8 @@
             }
         });
         {% if custom_css is defined and custom_css != '' %}
-            document.body.classList.add('{{ custom_css }}');
+            if (!document.body.classList.contains('page-attract'))
+                document.body.classList.add('{{ custom_css }}');
         {% endif %}
         
         {% if block('title') is defined %}

@@ -1,0 +1,5 @@
+{% block title%}Weihnachten {{ year }}!{% endblock %}
+{% block content %}
+    Wirf Sandbälle, stell dir ein rot-weißes Kostüm zusammen, versuche, Leberschäden zu vermeiden... Ertrinke in Freude und
+    schlechten Gerüchen. <b>Weihnachten ist im Anmarsch</b> und wird vom {{ date_begin|format_datetime('medium', 'none', '', null, 'gregorian', 'de') }} bis zum {{ date_end|format_datetime('medium', 'none', '', null, 'gregorian', 'de') }} andauern.
+{% endblock %}

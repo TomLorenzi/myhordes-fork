@@ -4375,5 +4375,50 @@
         <target>Alle bannen</target>
       </segment>
     </unit>
+    <unit id="LAYDoJI" name="Tödlich">
+      <notes>
+        <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
+      </notes>
+      <segment>
+        <source>Tödlich</source>
+        <target>Tödlich</target>
+      </segment>
+    </unit>
+    <unit id="acvlWFC" name="Infektiös">
+      <notes>
+        <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
+      </notes>
+      <segment>
+        <source>Infektiös</source>
+        <target>Infektiös</target>
+      </segment>
+    </unit>
+    <unit id="Hth8_wv" name="AP zum Freilegen der Ruine:">
+      <notes>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+      </notes>
+      <segment>
+        <source>AP zum Freilegen der Ruine:</source>
+        <target>AP zum Freilegen der Ruine:</target>
+      </segment>
+    </unit>
+    <unit id="CbDV2Yg" name="Camping-Ausbaulevel:">
+      <notes>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Camping-Ausbaulevel:</source>
+        <target>Camping-Ausbaulevel:</target>
+      </segment>
+    </unit>
+    <unit id="NgXFePi" name="Basis:">
+      <notes>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Basis:</source>
+        <target>Basis:</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -4,45 +4,45 @@
     <unit id="5av5KpC" name="Saison 0.14">
       <notes>
         <note category="german">Saison 0.14</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">db://Season</note>
       </notes>
       <segment>
         <source>Saison 0.14</source>
-        <target>Saison 0.14</target>
+        <target>Temporada 0.14</target>
       </segment>
     </unit>
     <unit id="MKuQjMi" name="Saison 0.13">
       <notes>
         <note category="german">Saison 0.13</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">db://Season</note>
       </notes>
       <segment>
         <source>Saison 0.13</source>
-        <target>Saison 0.13</target>
+        <target>Temporada 0.13</target>
       </segment>
     </unit>
     <unit id="ZahwwoN" name="Saison 0.12">
       <notes>
         <note category="german">Saison 0.12</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">db://Season</note>
       </notes>
       <segment>
         <source>Saison 0.12</source>
-        <target>Saison 0.12</target>
+        <target>Temporada 0.12</target>
       </segment>
     </unit>
     <unit id="Qb8gU6v" name="Saison 0.11">
       <notes>
         <note category="german">Mysteriöse Saison</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">db://Season</note>
       </notes>
       <segment>
         <source>Saison 0.11</source>
-        <target>Saison 0.11</target>
+        <target>Temporada 0.11</target>
       </segment>
     </unit>
     <unit id="1_E.ytA" name="Saison 0.10">
@@ -148,23 +148,23 @@
     <unit id="ffgTaDr" name="Saison 0.0">
       <notes>
         <note category="german">Saison 0.0</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">db://Season</note>
       </notes>
       <segment>
         <source>Saison 0.0</source>
-        <target>Saison 0.0</target>
+        <target>Temporada 0.0</target>
       </segment>
     </unit>
     <unit id="PicVFb9" name="Saison 0.15">
       <notes>
         <note category="german">Beta</note>
         <note category="from">db://Season</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Saison 0.15</source>
-        <target>Saison 0.15</target>
+        <target>Temporada 0.15</target>
       </segment>
     </unit>
   </file>

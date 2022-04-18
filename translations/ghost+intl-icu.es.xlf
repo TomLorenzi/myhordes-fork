@@ -1768,22 +1768,40 @@
       <notes>
         <note category="german">Beide Schamanen-Modi sind gleichzeitig aktiviert (experimentell!).</note>
         <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Beide Schamanen-Modi sind gleichzeitig aktiviert (experimentell!).</source>
-        <target>Beide Schamanen-Modi sind gleichzeitig aktiviert (experimentell!).</target>
+        <target>Ambos tipos de Chamán estarían habilitados al mismo tiempo (¡Experimental!).</target>
       </segment>
     </unit>
     <unit id="RcOw7GN" name="Kombiniert">
       <notes>
         <note category="german">Kombiniert</note>
         <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Kombiniert</source>
-        <target>Kombiniert</target>
+        <target>Combinados</target>
+      </segment>
+    </unit>
+    <unit id="NZdQf3X">
+      <notes>
+        <note category="german">Ermöglicht es, in begehbaren Ruinen den Gegenstand "Blutdurchtränkter Verband" zu finden, aus dem Toxin hergestellt werden kann.</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+      </notes>
+      <segment>
+        <source>Ermöglicht es, in begehbaren Ruinen den Gegenstand "Blutdurchtränkter Verband" zu finden, aus dem Toxin hergestellt werden kann.</source>
+        <target>Permitir a los jugadores encontrar el objeto "Tirita ensangrentada", que se puede utilizar para crear una Toxina.</target>
+      </segment>
+    </unit>
+    <unit id="m9UhkBU" name="Toxin aktivieren">
+      <notes>
+        <note category="german">Toxin aktivieren</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+      </notes>
+      <segment>
+        <source>Toxin aktivieren</source>
+        <target>Habilitar Toxina</target>
       </segment>
     </unit>
   </file>

@@ -1,0 +1,5 @@
+{% block title%}La Navidad {{ year }} !{% endblock %}
+{% block content %}
+    ¡Arroja bolas de arena, prepara un disfraz blanco y rojo, evita un ataque al hígado... Muere feliz y entre malos olores!
+    <b>¡La navidad de acerca!</b> Y durará desde el {{ date_begin|format_datetime('medium', 'none', '', null, 'gregorian', 'es') }} hasta el {{ date_end|format_datetime('medium', 'none', '', null, 'gregorian', 'es') }}.
+{% endblock %}

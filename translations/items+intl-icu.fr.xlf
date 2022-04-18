@@ -148,7 +148,7 @@
       </notes>
       <segment>
         <source>Konservendose</source>
-        <target>Boîte de Conserve</target>
+        <target>Boîte de conserve</target>
       </segment>
     </unit>
     <unit id="hKs7t5v" name="Offene Konservendose">
@@ -158,7 +158,7 @@
       </notes>
       <segment>
         <source>Offene Konservendose</source>
-        <target>Boîte de Conserve ouverte</target>
+        <target>Boîte de conserve ouverte</target>
       </segment>
     </unit>
     <unit id="4DdrCY0" name="Batteriewerfer 1-PDTG (geladen)">
@@ -9271,7 +9271,7 @@
       </notes>
       <segment>
         <source>Du zündest eine Zigarette an. Der Rauch lässt dich kräftig Husten, vermutlich weil du daran nicht gewöhnt bist... Nach ein paar Minuten &lt;strong&gt;gelingt es dir dich zu beruhigen&lt;/strong&gt;. Dieser Kurze Moment des Friedens ermöglicht lässt dich deinen Kummer vergessen und bringt dich zurück in die Wirklichkeit.&lt;hr /&gt;Du drückst den Stummel auf dem Boden aus und bist bereit für einen weiteren Tag des Überlebens.!&lt;t-consumed&gt;&lt;hr /&gt;Dir fällt auf dass &lt;strong&gt;die Packung leer ist&lt;/strong&gt;!&lt;/t-consumed&gt;&lt;t-item-consumed&gt;Das war dein &lt;strong&gt;letztes Streichholz&lt;/strong&gt;... Es wird schwer sein, jetzt noch eine Zigarette anzuzünden.&lt;/t-item-consumed&gt;</source>
-        <target><![CDATA[Vous allumez une cigarette. La fumée vous fait violemment tousser, le manque d'habitude sans doute... Après quelques minutes, <strong>vous finissez par vous calmer</strong>. Ce petit moment de répit vous aide à faire le vide et à relativiser un peu sur votre sort.<hr />Vous écrasez le mégot au sol, de nouveau prêt(e) à en découdre !<t-consumed><hr />Dir fällt auf dass <strong>die Packung leer ist</strong>!</t-consumed><t-item-consumed><hr/>C'était votre <strong>dernière allumette</strong>... Ça va être coton de se griller une autre cigarette maintenant.</t-item-consumed>]]></target>
+        <target><![CDATA[Vous allumez une cigarette. La fumée vous fait violemment tousser, le manque d'habitude sans doute... Après quelques minutes, <strong>vous finissez par vous calmer</strong>. Ce petit moment de répit vous aide à faire le vide et à relativiser un peu sur votre sort.<hr />Vous écrasez le mégot au sol, de nouveau prêt(e) à en découdre !<t-consumed><hr />Vous remarquez que <strong>le paquet est vide</strong> !</t-consumed><t-item-consumed><hr/>C'était votre <strong>dernière allumette</strong>... Ça va être coton de se griller une autre cigarette maintenant.</t-item-consumed>]]></target>
       </segment>
     </unit>
     <unit id="X33MW_7" name="Verbessert die Verteidigung">
@@ -9462,6 +9462,26 @@
       <segment>
         <source>Du bist &lt;strong&gt;zu weit von der Stadt entfernt&lt;/strong&gt;, um diese Fähigkeit benutzen zu können! Genauer gesagt bist du {km_from_town} km entfernt. Die maximale Entfernung darf höchstens 11 km betragen.</source>
         <target><![CDATA[Vous êtes <strong>trop loin de la ville pour pouvoir utiliser ce pouvoir</strong> ! Vous êtes à {km_from_town}km tandis que la distance maximale est de 11km.]]></target>
+      </segment>
+    </unit>
+    <unit id="dOYBNiy" name="Toxin">
+      <notes>
+        <note category="german">Toxin</note>
+        <note category="from">db://ItemPrototype</note>
+      </notes>
+      <segment>
+        <source>Toxin</source>
+        <target>Toxine</target>
+      </segment>
+    </unit>
+    <unit id="bGL408X">
+      <notes>
+        <note category="german">Du hältst das Fläschchen an deine Nase....WOOOW! Der Gestank alleine könnte ein Pferd töten.</note>
+        <note category="from">db://ItemPrototype</note>
+      </notes>
+      <segment>
+        <source>Du hältst das Fläschchen an deine Nase....WOOOW! Der Gestank alleine könnte ein Pferd töten.</source>
+        <target>La fiole contient du sang infecté et quelques autres produits. reste à trouver un truc comestible dans lequel la verser.</target>
       </segment>
     </unit>
   </file>
