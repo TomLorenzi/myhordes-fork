@@ -221,41 +221,47 @@ class GazetteService
         foreach ($g->getVariableTypes() as ['name' => $name])
             switch ($name) {
                 case 'poison':
-                    $variables['poison'] =  $this->translator->trans( $this->rand->pick( ['Arsen','Cyanolin','Neurotwinin','Rizin',
-                                                                                            'Botulinumtoxin','Virunoir','Chlorotwinat',
-                                                                                            'Kaliumchlorid','Kurare','Zyanid (poison)',
-                                                                                            'Phenol','Ponasulfat'] ), [], 'gazette' );
+                    $variables['poison'] = $this->rand->pick( [
+                        T::__('Arsen','gazette'),T::__('Cyanolin','gazette'),T::__('Neurotwinin','gazette'),
+                        T::__('Rizin','gazette'),T::__('Botulinumtoxin','gazette'),T::__('Virunoir','gazette'),
+                        T::__('Chlorotwinat','gazette'),T::__('Kaliumchlorid','gazette'),T::__('Kurare','gazette'),
+                        T::__('Zyanid (poison)','gazette'),T::__('Phenol','gazette'),T::__('Ponasulfat','gazette')
+                    ] );
                     break;
                 case 'location':
-                    $variables['location'] = $this->translator->trans( $this->rand->pick( ['in der Nähe des Gemüsegartens',
-                                                                                            'in der Nähe der südlichen Stadtmauer',
-                                                                                            'am Stadttor', 'am Aussichtsturm',
-                                                                                            'am westlichen Flügel der Stadt',
-                                                                                            'an der nördlichen Stadtmauer',
-                                                                                            'an unserer schwach gesicherten Flanke',
-                                                                                            'in der Nähe des Brunnens',
-                                                                                            'an der östlichen Stadtmauer',
-                                                                                            'in der Stadtmauer am Stadttor'
-                                                                                            ] ), [], 'gazette' );
+                    $variables['location'] = $this->rand->pick( [
+                        T::__('in der Nähe des Gemüsegartens','gazette'),T::__('in der Nähe der südlichen Stadtmauer','gazette'),
+                        T::__('am Stadttor','gazette'),T::__('am Aussichtsturm','gazette'),
+                        T::__('am westlichen Flügel der Stadt','gazette'),T::__('an der nördlichen Stadtmauer','gazette'),
+                        T::__('an unserer schwach gesicherten Flanke','gazette'),T::__('in der Nähe des Brunnens','gazette'),
+                        T::__('an der östlichen Stadtmauer','gazette'),T::__('in der Stadtmauer am Stadttor','gazette'),
+                    ] );
                     break;
                 case 'mascot':
-                    $variables['mascot'] = $this->translator->trans( $this->rand->pick( ['Drops','Whitie','Fettwanst','Gizmo','Romero',
-                                                                                        'Krümel','Trolli','Warpie','Panda','Urmel',
-                                                                                        'Nuffi','Kampfzwerg','Brummbrumm','Quälgeist',
-                                                                                        'Wuschel'] ), [], 'gazette' );
+                    $variables['mascot'] = $this->rand->pick( [
+                        T::__('Drops','gazette'),T::__('Whitie','gazette'),T::__('Fettwanst','gazette'),
+                        T::__('Gizmo','gazette'),T::__('Romero','gazette'),T::__('Krümel','gazette'),
+                        T::__('Trolli','gazette'),T::__('Warpie','gazette'),T::__('Panda','gazette'),
+                        T::__('Urmel','gazette'),T::__('Nuffi','gazette'),T::__('Kampfzwerg','gazette'),
+                        T::__('Brummbrumm','gazette'),T::__('Quälgeist','gazette'),T::__('Wuschel','gazette'),
+                    ] );
                     break;
                 case 'animal':
-                    $variables['animal'] = $this->translator->trans( $this->rand->pick( ['Ratte','Ziege','Pudel','Hamster','Köter',
-                                                                                        'Schwein','Erdmännchen','Wasserschwein',
-                                                                                        'Sumpfschildkröte','Kätzchen'] ), [], 'gazette' );
+                    $variables['animal'] = $this->rand->pick( [
+                        T::__('Ratte','gazette'),T::__('Ziege','gazette'),T::__('Pudel','gazette'),
+                        T::__('Hamster','gazette'),T::__('Köter','gazette'),T::__('Schwein','gazette'),
+                        T::__('Erdmännchen','gazette'),T::__('Wasserschwein','gazette'),T::__('Sumpfschildkröte','gazette'),
+                        T::__('Kätzchen','gazette'),
+                    ] );
                     break;
                 case 'item':
-                    $variables['item'] = $this->translator->trans( $this->rand->pick( ['einen Haufen Gerümpel ','einen Holzstapel ',
-                                                                                        'einen Haufen Schrott','einen toter Baumstamm',
-                                                                                        'eine vergessene Leiter','einen Berg von Kisten',
-                                                                                        'einen Turm aus Trümmern','einen Haufen Plunder',
-                                                                                        'einen Steinhaufen','einen Haufen Ramsch'] ),
-                                                                                        [], 'gazette' );
+                    $variables['item'] = $this->rand->pick( [
+                        T::__('einen Haufen Gerümpel ','gazette'),T::__('einen Holzstapel ','gazette'),
+                        T::__('einen Haufen Schrott','gazette'),T::__('einen toter Baumstamm','gazette'),
+                        T::__('eine vergessene Leiter','gazette'),T::__('einen Berg von Kisten','gazette'),
+                        T::__('einen Turm aus Trümmern','gazette'),T::__('einen Haufen Plunder','gazette'),
+                        T::__('einen Steinhaufen','gazette'),T::__('einen Haufen Ramsch','gazette'),
+                    ] );
                     break;
                 case 'random':
                     $variables['random'] = mt_rand(15,99);
