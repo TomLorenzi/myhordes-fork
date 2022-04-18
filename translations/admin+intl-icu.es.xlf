@@ -4550,7 +4550,7 @@
       </notes>
       <segment>
         <source>Fremder</source>
-        <target>Fremder</target>
+        <target>Extraño</target>
       </segment>
     </unit>
     <unit id="bHjGkUb" name="Mysteriösen Fremden aktivieren">
@@ -4561,7 +4561,7 @@
       </notes>
       <segment>
         <source>Mysteriösen Fremden aktivieren</source>
-        <target>Mysteriösen Fremden aktivieren</target>
+        <target>Activar al Extraño Misterioso</target>
       </segment>
     </unit>
     <unit id="dLSH2dI" name="Notiz">
@@ -4591,7 +4591,7 @@
       </notes>
       <segment>
         <source>Whitelist hat keinen Autor</source>
-        <target>Lista blanca sin creador</target>
+        <target>Lista blanca sin Autor</target>
       </segment>
     </unit>
     <unit id="iOIM36J" name="Whitelist hat keine Notiz">
@@ -4611,7 +4611,7 @@
       </notes>
       <segment>
         <source>Alle bannen</source>
-        <target>Bannear todos</target>
+        <target>Banear a todos</target>
       </segment>
     </unit>
     <unit id="LAYDoJI" name="Tödlich">

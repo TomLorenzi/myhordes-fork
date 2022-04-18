@@ -4514,7 +4514,7 @@
       </notes>
       <segment>
         <source>Gegenstände in der Bank nach Anzahl sortieren</source>
-        <target>Ordenar objetos del almacén por cantidad</target>
+        <target>Ordenar los objetos del almacén por cantidad.</target>
       </segment>
     </unit>
     <unit id="YpH8nkB">
@@ -4524,7 +4524,7 @@
       </notes>
       <segment>
         <source>Standartmäßig sortiert MyHordes Gegenstände in der Bank nach ihrem Typ. Aktiviere diese Option, wenn du die Sortierung von DieVerdammten bevorzugst, bei der Gegenstände primär nach ihrer Anzahl sortiert werden.</source>
-        <target>Por defecto, el almacén en MyHordes es ordenado por tipo de objeto. Si prefieres el orden que era usado en Die2Nite, donde los objetos eran principalmente ordenados por su cantidad, activa esta configuración.</target>
+        <target>Por defecto, el almacén en MyHordes ordena los objetos según su tipo. Activa esta configuración si prefieres el orden que era usado en Die2Nite, donde los objetos eran principalmente ordenados según su cantidad.</target>
       </segment>
     </unit>
     <unit id="M3EjxBc" name="Herzlichen Glückwunsch, du hast soeben eine Koalition erstellt!">
@@ -4564,7 +4564,7 @@
       </notes>
       <segment>
         <source>Standartmäßig die erweiterte Editor-Ansicht für PNs verwenden</source>
-        <target>Usar la vista avanzada del editor para MDs por defecto</target>
+        <target>Usar por defecto el editor avanzado de texto en los MP</target>
       </segment>
     </unit>
   </file>
