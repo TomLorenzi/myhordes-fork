@@ -23113,5 +23113,16 @@
         <target>Estado neutral</target>
       </segment>
     </unit>
+    <unit id="apksrtK" name="Du hast bereits etwas gegessen. Dir bleiben nur noch Drogen und Alkohol!">
+      <notes>
+        <note category="german">Du hast bereits etwas gegessen. Dir bleiben nur noch Drogen und Alkohol!</note>
+        <note category="from">twig:///templates/ajax/game/beyond/beyond.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Du hast bereits etwas gegessen. Dir bleiben nur noch Drogen und Alkohol!</source>
+        <target>Ya has comido. ¡Todo lo que te queda son las drogas y el alcohol!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
