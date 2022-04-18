@@ -51,6 +51,7 @@ class WebController extends CustomAbstractController
         'Niklas "<i>Choreas</i>" Kosanke',
         'Christopher "<i>Vander</i>" Chalfant',
         'Connor "<i>Dylan57</i>" Ottermann',
+        'Ryan "<i>Nayr</i>" Nayrovic',
     ];
 
     public static array $supporters = [
