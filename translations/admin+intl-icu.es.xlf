@@ -4620,7 +4620,7 @@
       </notes>
       <segment>
         <source>Tödlich</source>
-        <target>Tödlich</target>
+        <target>Mortal</target>
       </segment>
     </unit>
     <unit id="acvlWFC" name="Infektiös">
@@ -4631,7 +4631,7 @@
       </notes>
       <segment>
         <source>Infektiös</source>
-        <target>Infektiös</target>
+        <target>Infeccioso</target>
       </segment>
     </unit>
     <unit id="Hth8_wv" name="AP zum Freilegen der Ruine:">
@@ -4642,7 +4642,7 @@
       </notes>
       <segment>
         <source>AP zum Freilegen der Ruine:</source>
-        <target>AP zum Freilegen der Ruine:</target>
+        <target>PA para desenterrar la ruina:</target>
       </segment>
     </unit>
     <unit id="CbDV2Yg" name="Camping-Ausbaulevel:">
@@ -4653,7 +4653,7 @@
       </notes>
       <segment>
         <source>Camping-Ausbaulevel:</source>
-        <target>Camping-Ausbaulevel:</target>
+        <target>Nivel de acampe:</target>
       </segment>
     </unit>
     <unit id="NgXFePi" name="Basis:">
@@ -4664,7 +4664,7 @@
       </notes>
       <segment>
         <source>Basis:</source>
-        <target>Basis:</target>
+        <target>Base:</target>
       </segment>
     </unit>
   </file>
