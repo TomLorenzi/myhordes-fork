@@ -22928,7 +22928,7 @@
       <notes>
         <note category="german">Du hast keine Seelenpunkte gewonnen.</note>
         <note category="from">twig:///templates/ajax/soul/death.html.twig</note>
-        <note category="state">Translated</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Du hast keine Seelenpunkte gewonnen.</source>
