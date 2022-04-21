@@ -3955,7 +3955,7 @@
       <notes>
         <note category="german">Kernel</note>
         <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Kernel</source>
@@ -4546,22 +4546,20 @@
       <notes>
         <note category="german">Fremder</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Fremder</source>
-        <target>Fremder</target>
+        <target>Extraño</target>
       </segment>
     </unit>
     <unit id="bHjGkUb" name="Mysteriösen Fremden aktivieren">
       <notes>
         <note category="german">Mysteriösen Fremden aktivieren</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Mysteriösen Fremden aktivieren</source>
-        <target>Mysteriösen Fremden aktivieren</target>
+        <target>Activar al Extraño Misterioso</target>
       </segment>
     </unit>
     <unit id="dLSH2dI" name="Notiz">
@@ -4591,7 +4589,7 @@
       </notes>
       <segment>
         <source>Whitelist hat keinen Autor</source>
-        <target>Lista blanca sin creador</target>
+        <target>Lista blanca sin Autor</target>
       </segment>
     </unit>
     <unit id="iOIM36J" name="Whitelist hat keine Notiz">
@@ -4611,7 +4609,7 @@
       </notes>
       <segment>
         <source>Alle bannen</source>
-        <target>Bannear todos</target>
+        <target>Banear a todos</target>
       </segment>
     </unit>
     <unit id="LAYDoJI" name="Tödlich">
@@ -4622,7 +4620,7 @@
       </notes>
       <segment>
         <source>Tödlich</source>
-        <target>Tödlich</target>
+        <target>Mortal</target>
       </segment>
     </unit>
     <unit id="acvlWFC" name="Infektiös">
@@ -4633,7 +4631,40 @@
       </notes>
       <segment>
         <source>Infektiös</source>
-        <target>Infektiös</target>
+        <target>Infeccioso</target>
+      </segment>
+    </unit>
+    <unit id="Hth8_wv" name="AP zum Freilegen der Ruine:">
+      <notes>
+        <note category="german">AP zum Freilegen der Ruine:</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>AP zum Freilegen der Ruine:</source>
+        <target>PA para desenterrar la ruina:</target>
+      </segment>
+    </unit>
+    <unit id="CbDV2Yg" name="Camping-Ausbaulevel:">
+      <notes>
+        <note category="german">Camping-Ausbaulevel:</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Camping-Ausbaulevel:</source>
+        <target>Nivel de acampe:</target>
+      </segment>
+    </unit>
+    <unit id="NgXFePi" name="Basis:">
+      <notes>
+        <note category="german">Basis:</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Basis:</source>
+        <target>Base:</target>
       </segment>
     </unit>
   </file>

@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Annotations\AdminLogProfile;
 use App\Annotations\GateKeeperProfile;
 use App\Entity\AdminReport;
 use App\Entity\ForumModerationSnippet;
@@ -93,6 +94,7 @@ class AdminForumController extends AdminActionController
 
     /**
      * @Route("api/admin/forum/reports/clear", name="admin_reports_clear")
+     * @AdminLogProfile(enabled=true)
      * @param JSONRequestParser $parser
      * @param AdminActionHandler $admh
      * @return Response
@@ -105,7 +107,7 @@ class AdminForumController extends AdminActionController
         $user = $this->getUser();
         $postId = $parser->get('postId');
         if ($admh->clearReports($user->getId(), $postId)){
-            $this->logger->info("Admin <info>{$this->getUser()->getName()}</info> cleared reports");
+            $this->logger->invoke("Admin <info>{$this->getUser()->getName()}</info> cleared reports");
             return AjaxResponse::success();
         }
         return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
@@ -113,6 +115,7 @@ class AdminForumController extends AdminActionController
 
     /**
      * @Route("api/admin/forum/reports/moderate-pm", name="admin_reports_mod_pm")
+     * @AdminLogProfile(enabled=true)
      * @param JSONRequestParser $parser
      * @param PermissionHandler $perm
      * @param CrowService $crow
@@ -174,6 +177,7 @@ class AdminForumController extends AdminActionController
 
     /**
      * @Route("api/admin/forum/reports/moderate-gpm", name="admin_reports_mod_gpm")
+     * @AdminLogProfile(enabled=true)
      * @param JSONRequestParser $parser
      * @param CrowService $crow
      * @return Response
@@ -230,6 +234,7 @@ class AdminForumController extends AdminActionController
 
     /**
      * @Route("api/admin/forum/reports/snippet/add", name="admin_reports_add_snippet")
+     * @AdminLogProfile(enabled=true)
      * @param JSONRequestParser $parser
      * @return Response
      */
@@ -262,6 +267,7 @@ class AdminForumController extends AdminActionController
 
     /**
      * @Route("api/admin/forum/reports/snippet/remove/{id<\d+>}", name="admin_reports_remove_snippet")
+     * @AdminLogProfile(enabled=true)
      * @param int $id
      * @return Response
      */

@@ -207,7 +207,7 @@
                             <div id="zone_floor"></div>
                             <div class="lightbox">
                                 <div class="row">
-                                    <div class="cell padded">
+                                    <div class="cell rw-12 padded">
                                         <label for="zone_digs">{{ 'Verbleibe Zonengrabungen:'|trans({}, 'admin') }}</label>
                                     </div>
                                     <div class="cell padded">
@@ -218,7 +218,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="cell padded">
+                                    <div class="cell rw-12 padded">
                                         <label for="ruin_digs">{{ 'Verbleibende Ruinengrabungen:'|trans({}, 'admin') }}</label>
                                     </div>
                                     <div class="cell padded">
@@ -226,6 +226,28 @@
                                     </div>
                                     <div class="cell padded">
                                         <button id="ruin_dig_set" class="inline"><i class="fa fa-hand-point-down"></i><div class="tooltip">{{'Setzen'|trans({}, 'admin')}}</div></button><br />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="cell rw-12 padded">
+                                        <label for="ruin_bury">{{ 'AP zum Freilegen der Ruine:'|trans({}, 'admin') }}</label>
+                                    </div>
+                                    <div class="cell padded">
+                                        <input type="number" id="ruin_bury" class="inline" />
+                                    </div>
+                                    <div class="cell padded">
+                                        <button id="ruin_bury_set" class="inline"><i class="fa fa-hand-point-down"></i><div class="tooltip">{{'Setzen'|trans({}, 'admin')}}</div></button><br />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="cell rw-12 padded">
+                                        <label for="ruin_camp_level">{{ 'Camping-Ausbaulevel:'|trans({}, 'admin') }}<div class="small hidden" id="ruin_camp_base">{{ 'Basis:'|trans({}, 'admin') }} <span></span></div></label>
+                                    </div>
+                                    <div class="cell padded">
+                                        <input type="number" step="0.1" id="ruin_camp_level" class="inline" />
+                                    </div>
+                                    <div class="cell padded">
+                                        <button id="ruin_camp_level_set" class="inline"><i class="fa fa-hand-point-down"></i><div class="tooltip">{{'Setzen'|trans({}, 'admin')}}</div></button><br />
                                     </div>
                                 </div>
                             </div>
@@ -368,10 +390,33 @@
                     <div class="cell padded rw-6 rw-md-12">
                         <div class="row-table citizens-list">
                             <div class="row header">
-                                <div class="padded cell rw-1">{{'Rucksack'|trans({}, 'admin')|slice(0,1)}}<div class="tooltip help">{{'Rucksack'|trans({}, 'admin')}}</div></div>
-                                <div class="padded cell rw-1">{{'Truhe'|trans({}, 'admin')|slice(0,1)}}<div class="tooltip help">{{'Truhe'|trans({}, 'admin')}}</div></div>
-                                <div class="padded cell rw-1">{{'Zone'|trans({}, 'admin')|slice(0,1)}}<div class="tooltip help">{{'Zone'|trans({}, 'admin')}}</div></div>
-                                <div class="padded cell left rw-9">{{ 'Bürger'|trans({},'game') }}</div>
+                                <div class="padded cell rw-1">
+                                    <label class="pointer">
+                                        {{'Rucksack'|trans({}, 'admin')|slice(0,1)}}
+                                        <input class="hidden" type="checkbox" x-all="1" x-target="rucksack" />
+                                    </label>
+                                    <div class="tooltip help">{{'Rucksack'|trans({}, 'admin')}}</div>
+                                </div>
+                                <div class="padded cell rw-1">
+                                    <label class="pointer">
+                                        {{'Truhe'|trans({}, 'admin')|slice(0,1)}}
+                                        <input class="hidden" type="checkbox" x-all="1" x-target="chest" />
+                                    </label>
+                                    <div class="tooltip help">{{'Truhe'|trans({}, 'admin')}}</div>
+                                </div>
+                                <div class="padded cell rw-1">
+                                    <label class="pointer">
+                                        {{'Zone'|trans({}, 'admin')|slice(0,1)}}
+                                        <input class="hidden" type="checkbox" x-all="1" x-target="zone" />
+                                    </label>
+                                    <div class="tooltip help">{{'Zone'|trans({}, 'admin')}}</div>
+                                </div>
+                                <div class="padded cell left rw-9">
+                                    <label class="pointer">
+                                        {{ 'Bürger'|trans({},'game') }}
+                                        <input class="hidden" type="checkbox" x-all="1" x-target="status" />
+                                    </label>
+                                </div>
                             </div>
                             {% for citizen in town.citizens|sort((a,b) => (a.alive == b.alive) ? ((a.alive) ? a.name|lower <=> b.name|lower : b.survivedDays <=> a.survivedDays) : b.alive <=> a.alive) %}
                                 {# @var \App\Entity\Citizen citizen  #}
@@ -806,20 +851,24 @@
 {% block js %}
     {{ parent() }}
     {% if is_granted("ROLE_ADMIN") %}
-        {{ item_creator_js('input[x-target="rucksack"]:checked,input[x-target="chest"]:checked,input[x-target="zone"]:checked', path('admin_spawn_item', {id: town.id}), path('admin_town_explorer', {id: town.id, tab: "citizens"}), 'ctz') }}
-        {{ item_creator_js('[x-target="bank"]', path('admin_spawn_item', {id: town.id}), path('admin_town_explorer', {id: town.id, tab: "bank"}), 'bnk') }}
-        {{ item_creator_js('[x-target="zone"]', path('admin_spawn_item', {id: town.id}), path('admin_town_explorer', {id: town.id, tab: "dash"}), 'zone') }}
-        {{ teleport_control_js('input[x-target="status"]:checked', path('admin_teleport_citizen', {id: town.id}), path('admin_town_explorer', {id: town.id, tab: "citizens"})) }}
+        {{ item_creator_js('input[x-id][x-target="rucksack"]:checked,input[x-id][x-target="chest"]:checked,input[x-id][x-target="zone"]:checked', path('admin_spawn_item', {id: town.id}), path('admin_town_explorer', {id: town.id, tab: "citizens"}), 'ctz') }}
+        {{ item_creator_js('[x-id][x-target="bank"]', path('admin_spawn_item', {id: town.id}), path('admin_town_explorer', {id: town.id, tab: "bank"}), 'bnk') }}
+        {{ item_creator_js('[x-id][x-target="zone"]', path('admin_spawn_item', {id: town.id}), path('admin_town_explorer', {id: town.id, tab: "dash"}), 'zone') }}
+        {{ teleport_control_js('input[x-id][x-target="status"]:checked', path('admin_teleport_citizen', {id: town.id}), path('admin_town_explorer', {id: town.id, tab: "citizens"})) }}
         {{ picto_creator_js(path('admin_town_give_picto', {id: town.id}), path('admin_town_explorer', {id: town.id, tab: "citizens"})) }}
-        {{ status_control_js('input[x-target="status"]:checked', path('admin_town_manage_status', {id: town.id}), path('admin_town_explorer', {id: town.id, tab: "citizens"})) }}
-        {{ role_control_js('input[x-target="status"]:checked', path('admin_town_manage_role', {id: town.id}), path('admin_town_explorer', {id: town.id, tab: "citizens"})) }}
-        {{ point_control_js('input[x-target="status"]:checked', path('admin_town_alter_pp', {id: town.id}), path('admin_town_explorer', {id: town.id, tab: "citizens"})) }}
-        {{ profession_control_js('input[x-target="status"]:checked', path('admin_modify_profession', {id: town.id}), path('admin_town_explorer', {id: town.id, tab: "citizens"})) }}
+        {{ status_control_js('input[x-id][x-target="status"]:checked', path('admin_town_manage_status', {id: town.id}), path('admin_town_explorer', {id: town.id, tab: "citizens"})) }}
+        {{ role_control_js('input[x-id][x-target="status"]:checked', path('admin_town_manage_role', {id: town.id}), path('admin_town_explorer', {id: town.id, tab: "citizens"})) }}
+        {{ point_control_js('input[x-id][x-target="status"]:checked', path('admin_town_alter_pp', {id: town.id}), path('admin_town_explorer', {id: town.id, tab: "citizens"})) }}
+        {{ profession_control_js('input[x-id][x-target="status"]:checked', path('admin_modify_profession', {id: town.id}), path('admin_town_explorer', {id: town.id, tab: "citizens"})) }}
     {% endif %}
     <script>
         {% embed "scripts/log.js.twig" %}{% endembed %}
 
         (function() {
+
+            $.html.addEventListenerAll('input[x-all][x-target]', 'click', (e,elem) => {
+                $.html.forEach( 'input[x-id][x-target="' + elem.getAttribute('x-target') + '"]', c => c.checked = elem.checked );
+            });
 
             let fun_api_call = function(api_url, elem) {
                 if (!api_url) return;
@@ -974,20 +1023,38 @@
 
                         document.getElementById("zone_digs").value = data.zone_digs;
                         document.getElementById("ruin_digs").value = data.ruin_digs;
+                        document.getElementById("ruin_bury").value = data.ruin_bury;
+                        document.getElementById("ruin_camp_level").value = data.camp_levl;
+                        document.querySelector("#ruin_camp_base>span").innerText = data.ruin_camp;
+                        document.getElementById("ruin_camp_base").classList.toggle('hidden', data.ruin_camp === null);
                     });
                 });
             }
 
             let set_zone_digs = document.getElementById("zone_dig_set");
             if(set_zone_digs) set_zone_digs.addEventListener('click', function(){
-                $.ajax.easySend('{{ path('set_zone_digs', {'id': town.id}) }}', {'target': 'zone', 'zone_id': document.getElementById("dash_zone_generator").getAttribute('x-id'), 'digs': document.getElementById('zone_digs').value }, function(){
+                $.ajax.easySend('{{ path('set_zone_attribs', {'id': town.id}) }}', {'target': 'zone', 'zone_id': document.getElementById("dash_zone_generator").getAttribute('x-id'), 'value': document.getElementById('zone_digs').value }, function(){
                     $.ajax.load(null, '{{ path('admin_town_explorer', {id: town.id, tab: "dash"}) }}', true);
                 })
             })
 
             let set_ruin_digs = document.getElementById("ruin_dig_set");
             if(set_ruin_digs) set_ruin_digs.addEventListener('click', function(){
-                $.ajax.easySend('{{ path('set_zone_digs', {'id': town.id}) }}', {'target': 'ruin', 'zone_id': document.getElementById("dash_zone_generator").getAttribute('x-id'), 'digs': document.getElementById('ruin_digs').value }, function(){
+                $.ajax.easySend('{{ path('set_zone_attribs', {'id': town.id}) }}', {'target': 'ruin', 'zone_id': document.getElementById("dash_zone_generator").getAttribute('x-id'), 'value': document.getElementById('ruin_digs').value }, function(){
+                    $.ajax.load(null, '{{ path('admin_town_explorer', {id: town.id, tab: "dash"}) }}', true);
+                })
+            })
+
+            let set_ruin_bury = document.getElementById("ruin_bury_set");
+            if(set_ruin_bury) set_ruin_bury.addEventListener('click', function(){
+                $.ajax.easySend('{{ path('set_zone_attribs', {'id': town.id}) }}', {'target': 'bury', 'zone_id': document.getElementById("dash_zone_generator").getAttribute('x-id'), 'value': document.getElementById('ruin_bury').value }, function(){
+                    $.ajax.load(null, '{{ path('admin_town_explorer', {id: town.id, tab: "dash"}) }}', true);
+                })
+            })
+
+            let set_ruin_camp = document.getElementById("ruin_camp_level_set");
+            if(set_ruin_camp) set_ruin_camp.addEventListener('click', function(){
+                $.ajax.easySend('{{ path('set_zone_attribs', {'id': town.id}) }}', {'target': 'camp', 'zone_id': document.getElementById("dash_zone_generator").getAttribute('x-id'), 'value': document.getElementById('ruin_camp_level').value }, function(){
                     $.ajax.load(null, '{{ path('admin_town_explorer', {id: town.id, tab: "dash"}) }}', true);
                 })
             })

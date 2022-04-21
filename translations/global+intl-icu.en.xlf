@@ -664,7 +664,7 @@
     <unit id="Em1EFUR" name="Moderation">
       <notes>
         <note category="german">Moderation</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/ajax.html.twig;twig:///templates/ajax/forum/view.html.twig</note>
       </notes>
       <segment>
@@ -785,7 +785,7 @@
     <unit id="nCT0Wn6" name="Dev">
       <notes>
         <note category="german">Dev</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
       </notes>
       <segment>
@@ -796,7 +796,7 @@
     <unit id="h0cXaFP" name="Sticky">
       <notes>
         <note category="german">Sticky</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/forum/view.html.twig</note>
       </notes>
       <segment>
@@ -807,7 +807,7 @@
     <unit id="DSG9UgI" name="Online">
       <notes>
         <note category="german">Online</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
@@ -818,7 +818,7 @@
     <unit id="oXlHg6q" name="Offline">
       <notes>
         <note category="german">Offline</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
@@ -929,7 +929,7 @@
     <unit id="jlAJmOo" name="Spoiler">
       <notes>
         <note category="german">Spoiler</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
       </notes>
       <segment>
@@ -1170,7 +1170,7 @@
     <unit id="3RZ5Bd4" name="Version">
       <notes>
         <note category="german">Version</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
       </notes>
       <segment>
@@ -1301,7 +1301,7 @@
     <unit id="pqMtvFY" name="Link">
       <notes>
         <note category="german">Link</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/forum/posts.html.twig</note>
       </notes>
       <segment>
@@ -1773,7 +1773,7 @@
     <unit id="NA9GMDP" name="Code">
       <notes>
         <note category="german">Code</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
       </notes>
       <segment>
@@ -1824,45 +1824,45 @@
     <unit id="zF4ERQG" name="Diese Kosten können durch den Aufbau der &lt;strong&gt;Müll für Alle&lt;/strong&gt;.">
       <notes>
         <note category="german">Diese Kosten können durch den Aufbau der &lt;strong&gt;Müll für Alle&lt;/strong&gt;.</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
         <note category="from">twig:///templates/ajax/game/town/dump.html.twig</note>
       </notes>
       <segment>
         <source>Diese Kosten können durch den Aufbau der &lt;strong&gt;Müll für Alle&lt;/strong&gt;.</source>
-        <target><![CDATA[Diese Kosten können durch den Aufbau der <strong>Müll für Alle</strong>.]]></target>
+        <target><![CDATA[This cost can be reduced by building an <strong>Free dump</strong>.]]></target>
       </segment>
     </unit>
     <unit id="BC_uip5" name="Ausblenden">
       <notes>
         <note category="german">Ausblenden</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/admin/reports/gpn-viewer.html.twig;twig:///templates/ajax/admin/reports/pn-viewer.html.twig;twig:///templates/ajax/pm/bubbles.html.twig</note>
       </notes>
       <segment>
         <source>Ausblenden</source>
-        <target>Ausblenden</target>
+        <target>Hide</target>
       </segment>
     </unit>
     <unit id="UzZ7xlJ" name="Nachricht">
       <notes>
         <note category="german">Nachricht</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/admin/reports/gpn-viewer.html.twig;twig:///templates/ajax/admin/reports/pn-viewer.html.twig</note>
       </notes>
       <segment>
         <source>Nachricht</source>
-        <target>Nachricht</target>
+        <target>Your message</target>
       </segment>
     </unit>
     <unit id="dJK8aO8" name="Ausb.+Nachr.">
       <notes>
         <note category="german">Ausb.+Nachr.</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/admin/reports/gpn-viewer.html.twig;twig:///templates/ajax/admin/reports/pn-viewer.html.twig</note>
       </notes>
       <segment>
         <source>Ausb.+Nachr.</source>
-        <target>Ausb.+Nachr.</target>
+        <target>Hide + Message</target>
       </segment>
     </unit>
     <unit id="k30IQ7V">
@@ -1878,78 +1878,78 @@
     <unit id="aGhiyb5" name="Entwickler-Einstellungen">
       <notes>
         <note category="german">Entwickler-Einstellungen</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/public/disclaimer.html.twig</note>
       </notes>
       <segment>
         <source>Entwickler-Einstellungen</source>
-        <target>Entwickler-Einstellungen</target>
+        <target>Developer settings</target>
       </segment>
     </unit>
     <unit id="kSLdLqi" name="Als Entwickler dieser Webseite kannst du hier einige Einstellungen anpassen.">
       <notes>
         <note category="german">Als Entwickler dieser Webseite kannst du hier einige Einstellungen anpassen.</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/public/disclaimer.html.twig</note>
       </notes>
       <segment>
         <source>Als Entwickler dieser Webseite kannst du hier einige Einstellungen anpassen.</source>
-        <target>Als Entwickler dieser Webseite kannst du hier einige Einstellungen anpassen.</target>
+        <target>As developer of this website, you can adjust some settings here.</target>
       </segment>
     </unit>
     <unit id="8uGl2Hb" name="Diese E-Mail Adresse wird als Kontakt-Adresse angezeigt.">
       <notes>
         <note category="german">Diese E-Mail Adresse wird als Kontakt-Adresse angezeigt.</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/public/disclaimer.html.twig</note>
       </notes>
       <segment>
         <source>Diese E-Mail Adresse wird als Kontakt-Adresse angezeigt.</source>
-        <target>Diese E-Mail Adresse wird als Kontakt-Adresse angezeigt.</target>
+        <target>This email address will be displayed as the contact address.</target>
       </segment>
     </unit>
     <unit id="1iip6iA">
       <notes>
         <note category="german">Dies ist die URL, zu der Spieler weitergeleitet werden, wenn sie auf den Link klicken.</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/public/disclaimer.html.twig</note>
       </notes>
       <segment>
         <source>Dies ist die URL, zu der Spieler weitergeleitet werden, wenn sie auf den Link klicken.</source>
-        <target>Dies ist die URL, zu der Spieler weitergeleitet werden, wenn sie auf den Link klicken.</target>
+        <target>This is the URL to which players will be directed when they click on the link.</target>
       </segment>
     </unit>
     <unit id="sZ8ns1I" name="Mit diesem Schlüssel authentifiziert sich deine Webseite gegenüber MyHordes.">
       <notes>
         <note category="german">Mit diesem Schlüssel authentifiziert sich deine Webseite gegenüber MyHordes.</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/public/disclaimer.html.twig</note>
       </notes>
       <segment>
         <source>Mit diesem Schlüssel authentifiziert sich deine Webseite gegenüber MyHordes.</source>
-        <target>Mit diesem Schlüssel authentifiziert sich deine Webseite gegenüber MyHordes.</target>
+        <target>Your website uses this key to authenticate to MyHordes.</target>
       </segment>
     </unit>
     <unit id="r1SbraZ">
       <notes>
         <note category="german">Du darfst ihn keinesfalls weitergeben oder öffentlich verfügbar machen, beispielsweise in einem Code-Repository.</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/public/disclaimer.html.twig</note>
       </notes>
       <segment>
         <source>Du darfst ihn keinesfalls weitergeben oder öffentlich verfügbar machen, beispielsweise in einem Code-Repository.</source>
-        <target>Du darfst ihn keinesfalls weitergeben oder öffentlich verfügbar machen, beispielsweise in einem Code-Repository.</target>
+        <target>You cannot distribute it or make it public, for example in a code repository.</target>
       </segment>
     </unit>
     <unit id="hnZ6._r">
       <notes>
         <note category="german">Wenn du den Verdacht hast, dass dein Schlüssel kompromittiert wurde, kannst du einen neuen Schlüssel anfordern.</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/public/disclaimer.html.twig</note>
       </notes>
       <segment>
         <source>Wenn du den Verdacht hast, dass dein Schlüssel kompromittiert wurde, kannst du einen neuen Schlüssel anfordern.</source>
-        <target>Wenn du den Verdacht hast, dass dein Schlüssel kompromittiert wurde, kannst du einen neuen Schlüssel anfordern.</target>
+        <target>If you think your key has been compromised, you can request a new key.</target>
       </segment>
     </unit>
     <unit id="toM7RSy" name="Alle Foren">
@@ -1965,23 +1965,23 @@
     <unit id="56Kf42Z">
       <notes>
         <note category="german">Als &lt;strong&gt;Ausgestoßener&lt;/strong&gt; stehen dir die Gemeinschaftsaktionen der Stadt nicht länger zur Verfügung: Bank, Baustelle, Tor, etc...</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
         <note category="from">twig:///templates/ajax/game/town/town.html.twig</note>
       </notes>
       <segment>
         <source>Als &lt;strong&gt;Ausgestoßener&lt;/strong&gt; stehen dir die Gemeinschaftsaktionen der Stadt nicht länger zur Verfügung: Bank, Baustelle, Tor, etc...</source>
-        <target><![CDATA[Als <strong>Ausgestoßener</strong> stehen dir die Gemeinschaftsaktionen der Stadt nicht länger zur Verfügung: Bank, Baustelle, Tor, etc...]]></target>
+        <target><![CDATA[As a <strong>paria</strong>, you no longer have access to the town's community tools: bank, construction sites, door, etc.]]></target>
       </segment>
     </unit>
     <unit id="M4kyeVr" name="Die Seite wird von Horden von Zombies belagert!">
       <notes>
         <note category="german">Die Seite wird von Horden von Zombies belagert!</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
         <note category="from">php:///src/Controller/ExternalXML2Controller.php</note>
       </notes>
       <segment>
         <source>Die Seite wird von Horden von Zombies belagert!</source>
-        <target>Die Seite wird von Horden von Zombies belagert!</target>
+        <target>The site is besieged by hordes of zombies!</target>
       </segment>
     </unit>
     <unit id="2gahlEk" name="Spielhilfe:">
@@ -2027,12 +2027,12 @@
     <unit id="mDTAh7E" name="Du bist vor Angst erstarrt...">
       <notes>
         <note category="german">Du bist vor Angst erstarrt...</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
         <note category="from">twig:///templates/scripts/errors/generic.txt.twig</note>
       </notes>
       <segment>
         <source>Du bist vor Angst erstarrt...</source>
-        <target>Du bist vor Angst erstarrt...</target>
+        <target>You are frozen in fear...</target>
       </segment>
     </unit>
     <unit id="BFjRnfU" name="Nachrichten des Raben">
@@ -2118,7 +2118,7 @@
     <unit id="ST5ILqV" name="1 Minute">
       <notes>
         <note category="german">1 Minute</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
@@ -2479,34 +2479,34 @@
     <unit id="hWzJnYc" name="und">
       <notes>
         <note category="german">und</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">php:///src/Controller/InventoryAwareController.php</note>
       </notes>
       <segment>
         <source>und</source>
-        <target>und</target>
+        <target>and</target>
       </segment>
     </unit>
     <unit id="dotZmBq" name="HINWEIS: Diese Aktion ist nur in der Stadt möglich.">
       <notes>
         <note category="german">HINWEIS: Diese Aktion ist nur in der Stadt möglich.</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
         <note category="from">php:///src/EventSubscriber/GateKeeperSubscriber.php</note>
       </notes>
       <segment>
         <source>HINWEIS: Diese Aktion ist nur in der Stadt möglich.</source>
-        <target>HINWEIS: Diese Aktion ist nur in der Stadt möglich.</target>
+        <target>NOTE: This action is only possible in the town.</target>
       </segment>
     </unit>
     <unit id="GnItekT" name="HINWEIS: Diese Aktion ist nur in Übersee möglich.">
       <notes>
         <note category="german">HINWEIS: Diese Aktion ist nur in der Außenwelt möglich.</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
         <note category="from">php:///src/EventSubscriber/GateKeeperSubscriber.php</note>
       </notes>
       <segment>
         <source>HINWEIS: Diese Aktion ist nur in Übersee möglich.</source>
-        <target>HINWEIS: Diese Aktion ist nur in Übersee möglich.</target>
+        <target>NOTE: This action is only possible in the World Beyond.</target>
       </segment>
     </unit>
     <unit id="u9UzAKC" name="Neuer Beitrag in">
@@ -2742,12 +2742,12 @@
     <unit id="qplNLmy" name="Bitte wähle die Art der Beschränkung.">
       <notes>
         <note category="german">Bitte wähle die Art der Beschränkung.</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
       </notes>
       <segment>
         <source>Bitte wähle die Art der Beschränkung.</source>
-        <target>Bitte wähle die Art der Beschränkung.</target>
+        <target>Please choose the type of restriction.</target>
       </segment>
     </unit>
     <unit id="sYDz8ku" name="Wer?">
@@ -2813,7 +2813,7 @@
     <unit id="yo6CbZw" name="Avatar">
       <notes>
         <note category="german">Avatar</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
@@ -2874,7 +2874,7 @@
     <unit id="jQrj982" name="via {group_inbox}">
       <notes>
         <note category="german">via {group_inbox}</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/pm/bubbles.html.twig</note>
       </notes>
       <segment>
@@ -2915,12 +2915,12 @@
     <unit id="r7op6WZ">
       <notes>
         <note category="german">Es ist nicht erlaubt, im Chaos-Modus einen Gegenstand an einen Bürger zu senden, der sich außerhalb der Stadt befindet.</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
         <note category="from">twig:///templates/scripts/errors/forum.txt.twig</note>
       </notes>
       <segment>
         <source>Es ist nicht erlaubt, im Chaos-Modus einen Gegenstand an einen Bürger zu senden, der sich außerhalb der Stadt befindet.</source>
-        <target>Es ist nicht erlaubt, im Chaos-Modus einen Gegenstand an einen Bürger zu senden, der sich außerhalb der Stadt befindet.</target>
+        <target>You do not have the right to send an object to a citizen out of the town in chaos mode.</target>
       </segment>
     </unit>
     <unit id="Ot4PwfY" name="Pin entfernen">
@@ -3428,7 +3428,7 @@
       <notes>
         <note category="german">(optional)</note>
         <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>(optional)</source>
@@ -4037,7 +4037,7 @@
       <notes>
         <note category="german">Guide</note>
         <note category="from">db://ThreadTag</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Guide</source>

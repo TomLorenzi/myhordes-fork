@@ -219,7 +219,7 @@
     <unit id="pySO60X" name="Normal">
       <notes>
         <note category="german">Normal</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
@@ -460,7 +460,7 @@
     <unit id="dhtPmmZ" name="Exploration:">
       <notes>
         <note category="german">Exploration:</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
@@ -541,7 +541,7 @@
     <unit id="Ip2o27i" name="Camping:">
       <notes>
         <note category="german">Camping:</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
@@ -772,7 +772,7 @@
     <unit id="rWF6D91" name="Job">
       <notes>
         <note category="german">Job</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
@@ -1179,18 +1179,18 @@
     <unit id="fz803_w" name="Raben-Optionen">
       <notes>
         <note category="german">Raben-Optionen</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Raben-Optionen</source>
-        <target>Raben-Optionen</target>
+        <target>Crow options</target>
       </segment>
     </unit>
     <unit id="jRT25y3" name="Events">
       <notes>
         <note category="german">Events</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>

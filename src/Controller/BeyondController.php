@@ -703,6 +703,10 @@ class BeyondController extends InventoryAwareController
         if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
         $citizen = $this->getActiveCitizen();
 
+        // Make sure the ruin is explorable
+        if (!$citizen->getZone()?->getPrototype()?->getExplorable())
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
         // Make sure the citizen is not wounded, has not already explored the ruin today and no one else is exploring
         // the ruin right now
         if ($this->citizen_handler->isWounded( $citizen ) || $this->citizen_handler->hasStatusEffect( $citizen, ['terror'] ) ||

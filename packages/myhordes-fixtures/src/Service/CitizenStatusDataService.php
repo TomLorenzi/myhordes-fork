@@ -76,6 +76,7 @@ class CitizenStatusDataService implements FixtureProcessorInterface {
             ['name' => 'tg_meta_ginfect'],
             ['name' => 'tg_spirit_guide'],
             ['name' => 'tg_revolutionist'],
+            ['name' => 'tg_stats_locked'],
         ]);
     }
 }

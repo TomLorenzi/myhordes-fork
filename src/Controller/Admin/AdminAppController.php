@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Annotations\AdminLogProfile;
 use App\Annotations\GateKeeperProfile;
 use App\Entity\ExternalApp;
 use App\Entity\User;
@@ -64,6 +65,7 @@ class AdminAppController extends AdminActionController
 
     /**
      * @Route("api/admin/apps/toggle/{id<\d+>}", name="admin_toggle_ext_app")
+     * @AdminLogProfile(enabled=true)
      * @param int $id
      * @param JSONRequestParser $parser
      * @return Response
@@ -83,13 +85,14 @@ class AdminAppController extends AdminActionController
             AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
         }
 
-        $this->logger->info("Admin <info>{$this->getUser()->getName()}</info> <debug>" . ($app->getActive() ? 'activated' : 'deactivated') . "</debug> app <info>{$app->getName()}</info>");
+        $this->logger->invoke("Admin <info>{$this->getUser()->getName()}</info> <debug>" . ($app->getActive() ? 'activated' : 'deactivated') . "</debug> app <info>{$app->getName()}</info>");
 
         return AjaxResponse::success();
     }
 
     /**
      * @Route("api/admin/apps/register/{id<-?\d+>}", name="admin_update_ext_app")
+     * @AdminLogProfile(enabled=true)
      * @param int $id
      * @param JSONRequestParser $parser
      * @param RandomGenerator $rand
@@ -153,7 +156,7 @@ class AdminAppController extends AdminActionController
         }
 
         if($old_app !== null) {
-            $this->logger->info("Admin <info>{$this->getUser()->getName()}</info> updated app <info>{$app->getName()}</info> infos", [
+            $this->logger->invoke("Admin <info>{$this->getUser()->getName()}</info> updated app <info>{$app->getName()}</info> infos", [
                 'name' => "{$old_app->getName()} => {$app->getName()}",
                 'contact' => "{$old_app->getContact()} => {$app->getContact()}",
                 'url' => "{$old_app->getUrl()} => {$app->getUrl()}",
@@ -162,7 +165,7 @@ class AdminAppController extends AdminActionController
                 'link_only' => "{$old_app->getLinkOnly()} => {$app->getLinkOnly()}",
             ]);
         } else {
-            $this->logger->info("Admin <info>{$this->getUser()->getName()}</info> created app <info>{$app->getName()}</info> infos", [
+            $this->logger->invoke("Admin <info>{$this->getUser()->getName()}</info> created app <info>{$app->getName()}</info> infos", [
                 'name' => $app->getName(),
                 'contact' => $app->getContact(),
                 'url' => $app->getUrl(),

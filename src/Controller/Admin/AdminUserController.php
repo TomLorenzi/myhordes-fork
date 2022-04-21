@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Annotations\AdminLogProfile;
 use App\Annotations\GateKeeperProfile;
 use App\Entity\AccountRestriction;
 use App\Entity\Award;
@@ -242,6 +243,7 @@ class AdminUserController extends AdminActionController
 
     /**
      * @Route("api/admin/users/{id}/account/do/{action}/{param}", name="admin_users_account_manage", requirements={"id"="\d+"})
+     * @AdminLogProfile(enabled=true)
      * @param int $id
      * @param string $action
      * @param JSONRequestParser $parser
@@ -714,6 +716,7 @@ class AdminUserController extends AdminActionController
 
     /**
      * @Route("api/admin/users/{uid}/ban/{bid}/confirm", name="admin_users_ban_confirm", requirements={"uid"="\d+","bid"="\d+"})
+     * @AdminLogProfile(enabled=true)
      * @param int $uid
      * @param int $bid
      * @return Response
@@ -742,6 +745,7 @@ class AdminUserController extends AdminActionController
 
     /**
      * @Route("api/admin/users/{uid}/ban/{bid}/disable", name="admin_users_ban_disable", requirements={"uid"="\d+","bid"="\d+"})
+     * @AdminLogProfile(enabled=true)
      * @param int $uid
      * @param int $bid
      * @return Response
@@ -776,6 +780,7 @@ class AdminUserController extends AdminActionController
 
     /**
      * @Route("api/admin/users/{id}/ban", name="admin_users_ban", requirements={"id"="\d+"})
+     * @AdminLogProfile(enabled=true)
      * @param int $id
      * @param JSONRequestParser $parser
      * @return Response
@@ -828,6 +833,7 @@ class AdminUserController extends AdminActionController
 
     /**
      * @Route("api/admin/users/{id}/ban/lift", name="admin_users_ban_lift", requirements={"id"="\d+"})
+     * @AdminLogProfile(enabled=true)
      * @return Response
      */
     public function users_ban_lift(int $id, AdminActionHandler $admh): Response
@@ -836,25 +842,6 @@ class AdminUserController extends AdminActionController
             return AjaxResponse::success();
 
         return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
-    }
-
-    /**
-     * @Route("api/admin/users/find", name="admin_users_find")
-     * @param JSONRequestParser $parser
-     * @param EntityManagerInterface $em
-     * @return Response
-     */
-    public function users_find(JSONRequestParser $parser, EntityManagerInterface $em): Response
-    {
-        if (!$parser->has_all(['name'], true))
-            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-        $searchName = $parser->get('name');
-        $user = $em->getRepository(User::class)->findOneBy(array('name' => $searchName));
-        
-        if (isset($user))
-            return AjaxResponse::success( true, ['url' => $this->generateUrl('admin_users_ban_view', ['id' => $user->getId()])] );
-
-        return AjaxResponse::error(ErrorHelper::ErrorInternalError);
     }
 
     /**
@@ -979,6 +966,7 @@ class AdminUserController extends AdminActionController
     }
     /**
      * @Route("api/admin/users/{id}/citizen/headshot", name="admin_users_citizen_headshot", requirements={"id"="\d+"})
+     * @AdminLogProfile(enabled=true)
      * @param int $id
      * @param AdminActionHandler $admh
      * @return Response
@@ -993,6 +981,7 @@ class AdminUserController extends AdminActionController
 
     /**
      * @Route("api/admin/users/{id}/citizen/engagement/{cid}", name="admin_users_citizen_engage", requirements={"id"="\d+","cid"="\d+"})
+     * @AdminLogProfile(enabled=true)
      * @param int $id
      * @param int $cid
      * @return Response
@@ -1018,6 +1007,7 @@ class AdminUserController extends AdminActionController
 
     /**
      * @Route("api/admin/users/{id}/citizen/confirm_death", name="admin_users_citizen_confirm_death", requirements={"id"="\d+"})
+     * @AdminLogProfile(enabled=true)
      * @return Response
      */
     public function users_citizen_confirm_death(int $id, AdminActionHandler $admh): Response
@@ -1065,6 +1055,7 @@ class AdminUserController extends AdminActionController
 
     /**
      * @Route("api/admin/users/{id}/picto/give", name="admin_user_give_picto", requirements={"id"="\d+"})
+     * @AdminLogProfile(enabled=true)
      * @Security("is_granted('ROLE_CROW')")
      * @param int $id User ID
      * @param JSONRequestParser $parser The Request Parser
@@ -1117,6 +1108,7 @@ class AdminUserController extends AdminActionController
 
     /**
      * @Route("api/admin/users/{id}/unique_award/manage", name="admin_user_manage_unique_award", requirements={"id"="\d+"})
+     * @AdminLogProfile(enabled=true)
      * @Security("is_granted('ROLE_ADMIN')")
      * @param int $id User ID
      * @param JSONRequestParser $parser The Request Parser
@@ -1193,6 +1185,7 @@ class AdminUserController extends AdminActionController
 
     /**
      * @Route("api/admin/users/{id}/comments/{cid}", name="admin_user_edit_comment", requirements={"id"="\d+","cid"="\d+"})
+     * @AdminLogProfile(enabled=true)
      * @Security("is_granted('ROLE_ADMIN')")
      * @param int $id User ID
      * @param int $cid
@@ -1225,6 +1218,7 @@ class AdminUserController extends AdminActionController
 
     /**
      * @Route("api/admin/users/{id}/feature/give", name="admin_user_give_feature", requirements={"id"="\d+"})
+     * @AdminLogProfile(enabled=true)
      * @Security("is_granted('ROLE_ADMIN')")
      * @param int $id User ID
      * @param JSONRequestParser $parser The Request Parser

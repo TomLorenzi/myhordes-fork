@@ -198,7 +198,8 @@ class GazetteDataService implements FixtureProcessorInterface {
                 'requirement'=>GazetteEntryTemplate::RequiresOneCitizen,
                 'variableTypes'=>[
                     ['type'=>"citizen",'name'=>'citizen1'],
-                    ['type'=>"transString",'name'=>'animal'],
+                    ['type'=>"transString",'from'=>'gazette','name'=>'animal'],
+                    ['type'=>"transString",'from'=>'gazette','name'=>'mascot'],
                 ],
             ],
             ['text'=>'Das mysteriöse Verschwinden unserer Stadtziege {mascot} hat heute morgen die Stadt in helle Aufruhr versetzt. Einige behaupten, dass es sich um einen Racheakt handle (der Name <strong>{citizen1}</strong> wurde öfters genannt). Wir bitten alle Einwohner, keine Gerüchte in die Welt zu setzen, solange die Untersuchungen nicht abgeschlossen sind.',
@@ -207,7 +208,7 @@ class GazetteDataService implements FixtureProcessorInterface {
                 'requirement'=>GazetteEntryTemplate::RequiresOneCitizen,
                 'variableTypes'=>[
                     ['type'=>"citizen",'name'=>'citizen1'],
-                    ['type'=>"transString",'name'=>'mascot'],
+                    ['type'=>"transString",'from'=>'gazette','name'=>'mascot'],
                 ],
             ],
             ['text'=>'Die Zombieabwehr gestern war ein Kinderspiel. Heute wird das schon schwieriger werden, denn unsere "Freunde" werden noch hungriger sein...',
@@ -222,8 +223,8 @@ class GazetteDataService implements FixtureProcessorInterface {
                 'requirement'=>GazetteEntryTemplate::RequiresOneCitizen,
                 'variableTypes'=>[
                     ['type'=>"citizen",'name'=>'citizen1'],
-                    ['type'=>"transString",'name'=>'mascot'],
-                    ['type'=>"transString",'name'=>'animal'],
+                    ['type'=>"transString",'from'=>'gazette','name'=>'mascot'],
+                    ['type'=>"transString",'from'=>'gazette','name'=>'animal'],
                 ],
             ],
 
@@ -325,7 +326,7 @@ class GazetteDataService implements FixtureProcessorInterface {
                 'variableTypes'=>[
                     ['type'=>"citizen",'name'=>'cadaver1'],
                     ['type'=>"citizen",'name'=>'citizen1'],
-                    ['type'=>"transString",'name'=>'location'],
+                    ['type'=>"transString",'from'=>'gazette','name'=>'location'],
                 ],
             ],
             ['text'=>'Niemand kennt den Grund dafür, aber es scheint, dass <i class="dagger">†</i> {cadaver1} letzte Nacht den Verstand verloren hat. Mehrere Bürger berichten, sie hätten ihn während des Angriffs nackt draußen herumlaufen sehen! Das eine erklärt das andere...',
@@ -484,8 +485,8 @@ class GazetteDataService implements FixtureProcessorInterface {
                 'fot' => GazetteEntryTemplate::FollowUpTypeBad,
                 'variableTypes'=>[
                     ['type'=>"num",'name'=>'deaths'],
-                    ['type'=>"transString",'name'=>'location'],
-                    ['type'=>"transString",'name'=>'item'],
+                    ['type'=>"transString",'from'=>'gazette','name'=>'location'],
+                    ['type'=>"transString",'from'=>'gazette','name'=>'item'],
                 ],
             ],
             ['text'=>'Unsere Verteidigungen waren gestern zu knapp: Ein kleiner Zombietrupp hat unsere Stadt {location} betreten und {deaths} Bürger gemetzelt.',
@@ -495,7 +496,7 @@ class GazetteDataService implements FixtureProcessorInterface {
                 'fot' => GazetteEntryTemplate::FollowUpTypeBad,
                 'variableTypes'=>[
                     ['type'=>"num",'name'=>'deaths'],
-                    ['type'=>"transString",'name'=>'location'],
+                    ['type'=>"transString",'from'=>'gazette','name'=>'location'],
                 ],
             ],
             ['text'=>'Die abgebissenen Gliedmaßen und aus den Bäuchen quellenden Eingeweide unserer {deaths} Mitbürger sprechen eine klare Sprache: Wir müssen schnellstens unsere Verteidigung verbessern...',
@@ -563,7 +564,7 @@ class GazetteDataService implements FixtureProcessorInterface {
                 'fot' => GazetteEntryTemplate::FollowUpTypeBad,
                 'variableTypes'=>[
                     ['type'=>"num",'name'=>'deaths'],
-                    ['type'=>"transString",'name'=>'location'],
+                    ['type'=>"transString",'from'=>'gazette','name'=>'location'],
                 ],
             ],
 
@@ -604,8 +605,8 @@ class GazetteDataService implements FixtureProcessorInterface {
                 'fot' => GazetteEntryTemplate::FollowUpTypeDoubt,
                 'variableTypes'=>[
                     ['type'=>"citizen",'name'=>'citizen1'],
-                    ['type'=>"transString",'name'=>'mascot'],
-                    ['type'=>"transString",'name'=>'animal'],
+                    ['type'=>"transString",'from'=>'gazette','name'=>'mascot'],
+                    ['type'=>"transString",'from'=>'gazette','name'=>'animal'],
                 ],
             ],
             ['text'=>'Es sieht so aus, als ob gestern Tag der offenen Tür in der Stadt war: <strong>{deaths} Tote</strong>! Ein großes Dankeschön an <strong>{citizen1}</strong>, der die Tore geöffnet hat, <strong>und dann vergessen hat, sie wieder zu schließen</strong>! Worauf wartet ihr noch, bevor ihr ihn verbannt?!',
@@ -1306,7 +1307,7 @@ class GazetteDataService implements FixtureProcessorInterface {
                 'requirement'=>GazetteEntryTemplate::RequiresOneCadaver,
                 'fot' => GazetteEntryTemplate::FollowUpTypeDoubt,
                 'variableTypes'=>[
-                    ['type'=>"transString",'name'=>'poison'],
+                    ['type'=>"transString",'from'=>'gazette','name'=>'poison'],
                     ['type'=>"citizen",'name'=>'cadaver1'],
                 ],
             ],
@@ -1325,7 +1326,7 @@ class GazetteDataService implements FixtureProcessorInterface {
                 'requirement'=>GazetteEntryTemplate::RequiresOneCadaver,
                 'fot' => GazetteEntryTemplate::FollowUpTypeDoubt,
                 'variableTypes'=>[
-                    ['type'=>"transString",'name'=>'poison'],
+                    ['type'=>"transString",'from'=>'gazette','name'=>'poison'],
                     ['type'=>"citizen",'name'=>'cadaver1'],
                     ['type'=>"citizen",'name'=>'cadaver1'],
                 ],
@@ -1336,7 +1337,7 @@ class GazetteDataService implements FixtureProcessorInterface {
                 'requirement'=>GazetteEntryTemplate::RequiresOneCadaver,
                 'fot' => GazetteEntryTemplate::FollowUpTypeDoubt,
                 'variableTypes'=>[
-                    ['type'=>"transString",'name'=>'poison'],
+                    ['type'=>"transString",'from'=>'gazette','name'=>'poison'],
                     ['type'=>"citizen",'name'=>'cadaver1'],
                 ],
             ],
@@ -1355,7 +1356,7 @@ class GazetteDataService implements FixtureProcessorInterface {
                 'requirement'=>GazetteEntryTemplate::RequiresOneCadaver,
                 'fot' => GazetteEntryTemplate::FollowUpTypeDoubt,
                 'variableTypes'=>[
-                    ['type'=>"transString",'name'=>'poison'],
+                    ['type'=>"transString",'from'=>'gazette','name'=>'poison'],
                     ['type'=>"citizen",'name'=>'cadaver1'],
                 ],
             ],
@@ -1756,7 +1757,7 @@ class GazetteDataService implements FixtureProcessorInterface {
                 'variableTypes'=>[
                     ['type'=>"num",'name'=>'cadavers'],
                     ['type'=>"citizen", 'name'=>'citizen1'],
-                    ['type'=>"transString", 'name'=>'location'],
+                    ['type'=>"transString",'from'=>'gazette', 'name'=>'location'],
                 ],
             ],
             ['text'=>'Unsere Gemeinschaft ist ein wenig geschrumpft. {cadavers} Einwohner haben es gestern Nacht nicht mehr rechtzeitig heim geschafft.',

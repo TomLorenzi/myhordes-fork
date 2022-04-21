@@ -22911,7 +22911,7 @@
       </notes>
       <segment>
         <source>Mit dem richtigen Schlüssel kannst du diese Tür öffnen.</source>
-        <target>Mit dem richtigen Schlüssel kannst du diese Tür öffnen.</target>
+        <target>Podrás abrir esta puerta si tienes la llave adecuada.</target>
       </segment>
     </unit>
     <unit id="4j6vPUP">
@@ -22921,18 +22921,18 @@
       </notes>
       <segment>
         <source>Gibt an, wie viele Bürger diese Stadt gemeinsam mit einer Koalition betreten haben. Es werden sowohl Spieler gezählt die automatisch mit ihrer Koalition beitreten als auch solche, die manuell anderen Spielern aus ihrer Koalition folgen.</source>
-        <target>Muestra cuántos ciudadanos se han unido a este pueblo junto con su alianza. Cuenta tanto ciudadanos que se unen automáticamente con su alianza como ciudadanos siguiéndolos manualmente al pueblo.</target>
+        <target>Indica la cantidad de habitantes que se han unido a este pueblo junto con su alianza. Cuenta tanto habitantos que se unieron automáticamente con su alianza como aquellos que los siguieron manualmente al pueblo.</target>
       </segment>
     </unit>
     <unit id="clpTyQQ" name="Du hast keine Seelenpunkte gewonnen.">
       <notes>
         <note category="german">Du hast keine Seelenpunkte gewonnen.</note>
         <note category="from">twig:///templates/ajax/soul/death.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Du hast keine Seelenpunkte gewonnen.</source>
-        <target>Du hast keine Seelenpunkte gewonnen.</target>
+        <target>No has ganado ningún Punto de Alma (por haber muerto el primer día).</target>
       </segment>
     </unit>
     <unit id="DAZTSgM" name="Ein anderer Bürger hat sich in der Zwischenzeit diesen Gegenstand geschnappt.">
@@ -22952,7 +22952,7 @@
       </notes>
       <segment>
         <source>Ein Moderator hat den Namen einer Stadt geändert, in der du mitgespielt hast. Alter Name: "{townOld}". Neuer Name: "{townNew}"</source>
-        <target>Un Moderador editó el nombre de un pueblo del cual has sido parte. Nombre viejo: "{townOld}". Nombre nuevo: "{townNew}"</target>
+        <target>Un Moderador cambió el nombre de un pueblo en el que encarnaste. Nombre anterior: "{townOld}". Nombre actual: "{townNew}"</target>
       </segment>
     </unit>
     <unit id="cokluf." name="Mysteriöser Fremder">
@@ -22963,7 +22963,7 @@
       </notes>
       <segment>
         <source>Mysteriöser Fremder</source>
-        <target>Mysteriöser Fremder</target>
+        <target>Extraño Misterioso</target>
       </segment>
     </unit>
     <unit id="nWjbqz8" name="Die Horde kommt!">
@@ -23080,7 +23080,7 @@
       </notes>
       <segment>
         <source>auf {coa_invite} antworten</source>
-        <target>responde a {coa_invite} de coalición</target>
+        <target>responde a la {coa_invite} de alianza</target>
       </segment>
     </unit>
     <unit id="HPWqmw7">
@@ -23101,6 +23101,26 @@
       <segment>
         <source>Was für eine Katastrophe! {num} Wasserrationnen fehlen!</source>
         <target>¡Qué desastre! ¡Faltan {num} raciones de agua!</target>
+      </segment>
+    </unit>
+    <unit id="p_HShwl" name="Neutraler Status">
+      <notes>
+        <note category="german">Neutraler Status</note>
+        <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
+      </notes>
+      <segment>
+        <source>Neutraler Status</source>
+        <target>Estado neutral</target>
+      </segment>
+    </unit>
+    <unit id="apksrtK" name="Du hast bereits etwas gegessen. Dir bleiben nur noch Drogen und Alkohol!">
+      <notes>
+        <note category="german">Du hast bereits etwas gegessen. Dir bleiben nur noch Drogen und Alkohol!</note>
+        <note category="from">twig:///templates/ajax/game/beyond/beyond.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du hast bereits etwas gegessen. Dir bleiben nur noch Drogen und Alkohol!</source>
+        <target>Ya has comido. ¡Todo lo que te queda son las drogas y el alcohol!</target>
       </segment>
     </unit>
   </file>

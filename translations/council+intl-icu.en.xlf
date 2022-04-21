@@ -862,11 +862,11 @@
       <notes>
         <note category="german">Da unser Schamane heute Nacht von uns gegangen ist, müssen wir jetzt einen Ersatz wählen.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
       </notes>
       <segment>
         <source>Da unser Schamane heute Nacht von uns gegangen ist, müssen wir jetzt einen Ersatz wählen.</source>
-        <target>Da unser Schamane heute Nacht von uns gegangen ist, müssen wir jetzt einen Ersatz wählen.</target>
+        <target>Our shaman having left us tonight, we must choose another one now.</target>
       </segment>
     </unit>
     <unit id="MkDFsuH">
@@ -1223,11 +1223,11 @@
       <notes>
         <note category="german">Da unser geliebter Reiseleiter in der Außenwelt uns heute Nacht verlassen hat, müssen wir ab sofort einen neuen wählen.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
       </notes>
       <segment>
         <source>Da unser geliebter Reiseleiter in der Außenwelt uns heute Nacht verlassen hat, müssen wir ab sofort einen neuen wählen.</source>
-        <target>Da unser geliebter Reiseleiter in der Außenwelt uns heute Nacht verlassen hat, müssen wir ab sofort einen neuen wählen.</target>
+        <target>Our beloved Guide to the World Beyond having left us tonight, we must choose another one now.</target>
       </segment>
     </unit>
     <unit id="fOYoWJh">
@@ -1354,11 +1354,11 @@
       <notes>
         <note category="german">Eine neue Wahl zum Reiseleiter durch die Außenwelt!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
       </notes>
       <segment>
         <source>Eine neue Wahl zum Reiseleiter durch die Außenwelt!</source>
-        <target>Eine neue Wahl zum Reiseleiter durch die Außenwelt!</target>
+        <target>Nice a new election of Guide to the World Beyond !</target>
       </segment>
     </unit>
     <unit id="FlSSQki">
@@ -1375,11 +1375,11 @@
       <notes>
         <note category="german">Ich schlage vor, dass es nicht {voted} sein sollte, da es eine zu wichtige Rolle ist, um ein solches Risiko einzugehen.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
       </notes>
       <segment>
         <source>Ich schlage vor, dass es nicht {voted} sein sollte, da es eine zu wichtige Rolle ist, um ein solches Risiko einzugehen.</source>
-        <target>Ich schlage vor, dass es nicht {voted} sein sollte, da es eine zu wichtige Rolle ist, um ein solches Risiko einzugehen.</target>
+        <target>I propose that it is not {voted}, it is too important a role to take such a risk.</target>
       </segment>
     </unit>
     <unit id="TYBoxV_">
@@ -1466,22 +1466,22 @@
       <notes>
         <note category="german">Er hat schon vorher geprahlt.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
       </notes>
       <segment>
         <source>Er hat schon vorher geprahlt.</source>
-        <target>Er hat schon vorher geprahlt.</target>
+        <target>And he was already bragging before...</target>
       </segment>
     </unit>
     <unit id="FERl5T6" name="Wir sind sowas von im Ar...">
       <notes>
         <note category="german">Wir sind sowas von im Ar...</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
       </notes>
       <segment>
         <source>Wir sind sowas von im Ar...</source>
-        <target>Wir sind sowas von im Ar...</target>
+        <target>Well we're screwed...</target>
       </segment>
     </unit>
     <unit id="ilZ07q2">
@@ -1508,22 +1508,22 @@
       <notes>
         <note category="german">Gut, alles was ich jetzt noch zu tun habe ist mich selbst zum Schamanen zu wählen. Endlich gibt es mal ein einstimmiges Ergebnis.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
       </notes>
       <segment>
         <source>Gut, alles was ich jetzt noch zu tun habe ist mich selbst zum Schamanen zu wählen. Endlich gibt es mal ein einstimmiges Ergebnis.</source>
-        <target>Gut, alles was ich jetzt noch zu tun habe ist mich selbst zum Schamanen zu wählen. Endlich gibt es mal ein einstimmiges Ergebnis.</target>
+        <target>Well, all I have to do is elect myself as Shaman, for once there is unanimity!</target>
       </segment>
     </unit>
     <unit id="a1vKnRs">
       <notes>
         <note category="german">Gut, wenn niemand etwas dagegen einzuwenden hat, dann ernenne ich mich hiermit selbst zum Reiseleiter in der Außenwelt!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
       </notes>
       <segment>
         <source>Gut, wenn niemand etwas dagegen einzuwenden hat, dann ernenne ich mich hiermit selbst zum Reiseleiter in der Außenwelt!</source>
-        <target>Gut, wenn niemand etwas dagegen einzuwenden hat, dann ernenne ich mich hiermit selbst zum Reiseleiter in der Außenwelt!</target>
+        <target>Well, since everyone agrees, I pronounce myself Guide to the World Beyond.</target>
       </segment>
     </unit>
     <unit id="wa_fviX">
@@ -1580,11 +1580,11 @@
       <notes>
         <note category="german">Hm hm ... Ich will ja kein Spielverderber sein, aber wir sind noch nicht wirklich fertig...</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
       </notes>
       <segment>
         <source>Hm hm ... Ich will ja kein Spielverderber sein, aber wir sind noch nicht wirklich fertig...</source>
-        <target>Hm hm ... Ich will ja kein Spielverderber sein, aber wir sind noch nicht wirklich fertig...</target>
+        <target>Hum hum... I don't want to do the joy-flap, but we're not really done yet...</target>
       </segment>
     </unit>
   </file>

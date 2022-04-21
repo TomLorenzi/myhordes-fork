@@ -1664,7 +1664,7 @@
     <unit id="9tYl8RU" name="Zum Schlafen Reichts Motel">
       <notes>
         <note category="german">Zum Schlafen Reichts Motel</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>

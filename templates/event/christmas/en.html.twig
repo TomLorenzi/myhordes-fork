@@ -1,0 +1,5 @@
+{% block title%}Christmas {{ year }}!{% endblock %}
+{% block content %}
+    Throw sand balls, assemble red and white costumes, don't have a liver attack ... Die in joy and bad smells.
+    <b>Christmas is coming !</b> And it will last from {{ date_begin|format_datetime('medium', 'none', '', null, 'gregorian', 'en') }} to {{ date_end|format_datetime('medium', 'none', '', null, 'gregorian', 'en') }}.
+{% endblock %}

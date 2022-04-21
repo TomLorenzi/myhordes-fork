@@ -1,0 +1,5 @@
+{% block title%}Noël {{ year }} !{% endblock %}
+{% block content %}
+    Lancez des boules de sable, assemblez des costumes rouges et blancs, n'ayez pas de crise de foie ... Mourez dans la joie
+    et les mauvaises odeurs. <b>Noël arrive !</b> Et cela durera du {{ date_begin|format_datetime('medium', 'none', '', null, 'gregorian', 'fr') }} au {{ date_end|format_datetime('medium', 'none', '', null, 'gregorian', 'fr') }}.
+{% endblock %}

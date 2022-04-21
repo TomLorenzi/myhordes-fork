@@ -1936,275 +1936,250 @@
       <notes>
         <note category="german">Drops</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Drops</source>
-        <target>Drops</target>
+        <target>Toast</target>
       </segment>
     </unit>
     <unit id="1BKWK3G" name="Whitie">
       <notes>
         <note category="german">Whitie</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Whitie</source>
-        <target>Whitie</target>
+        <target>Ernie</target>
       </segment>
     </unit>
     <unit id="FuPKQSG" name="Fettwanst">
       <notes>
         <note category="german">Fettwanst</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Fettwanst</source>
-        <target>Fettwanst</target>
+        <target>Click</target>
       </segment>
     </unit>
     <unit id="8wISp9n" name="Gizmo">
       <notes>
         <note category="german">Gizmo</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Gizmo</source>
-        <target>Gizmo</target>
+        <target>Frank</target>
       </segment>
     </unit>
     <unit id="M8G8Yog" name="Romero">
       <notes>
         <note category="german">Romero</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Romero</source>
-        <target>Romero</target>
+        <target>Vartan</target>
       </segment>
     </unit>
     <unit id="DA7kWwn" name="Krümel">
       <notes>
         <note category="german">Krümel</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Krümel</source>
-        <target>Krümel</target>
+        <target>Luath</target>
       </segment>
     </unit>
     <unit id="dacOMI_" name="Trolli">
       <notes>
         <note category="german">Trolli</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Trolli</source>
-        <target>Trolli</target>
+        <target>Chas</target>
       </segment>
     </unit>
     <unit id="mtgJWTb" name="Warpie">
       <notes>
         <note category="german">Warpie</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Warpie</source>
-        <target>Warpie</target>
+        <target>Gigantor</target>
       </segment>
     </unit>
     <unit id="99nqfzm" name="Panda">
       <notes>
         <note category="german">Panda</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Panda</source>
-        <target>Panda</target>
+        <target>Murphy</target>
       </segment>
     </unit>
     <unit id="3NW1TAO" name="Urmel">
       <notes>
         <note category="german">Urmel</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Urmel</source>
-        <target>Urmel</target>
+        <target>Sheba</target>
       </segment>
     </unit>
     <unit id="wOZq8ar" name="Nuffi">
       <notes>
         <note category="german">Nuffi</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Nuffi</source>
-        <target>Nuffi</target>
+        <target>Carwash</target>
       </segment>
     </unit>
     <unit id="uxGIgrQ" name="Kampfzwerg">
       <notes>
         <note category="german">Kampfzwerg</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Kampfzwerg</source>
-        <target>Kampfzwerg</target>
+        <target>Bernard</target>
       </segment>
     </unit>
     <unit id="IciG2nh" name="Brummbrumm">
       <notes>
         <note category="german">Brummbrumm</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Brummbrumm</source>
-        <target>Brummbrumm</target>
+        <target>Trousers</target>
       </segment>
     </unit>
     <unit id="FV3hUsg" name="Quälgeist">
       <notes>
         <note category="german">Quälgeist</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Quälgeist</source>
-        <target>Quälgeist</target>
+        <target>Christian</target>
       </segment>
     </unit>
     <unit id="JaIWQ12" name="Wuschel">
       <notes>
         <note category="german">Wuschel</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wuschel</source>
-        <target>Wuschel</target>
+        <target>K'mere</target>
       </segment>
     </unit>
     <unit id="RnbnUa2" name="Ratte">
       <notes>
         <note category="german">Ratte</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ratte</source>
-        <target>Ratte</target>
+        <target>abnormally large rat</target>
       </segment>
     </unit>
     <unit id="JaPFGad" name="Ziege">
       <notes>
         <note category="german">Ziege</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ziege</source>
-        <target>Ziege</target>
+        <target>terrapin</target>
       </segment>
     </unit>
     <unit id="pOPXT6h" name="Pudel">
       <notes>
         <note category="german">Pudel</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Pudel</source>
-        <target>Pudel</target>
+        <target>labradoodle</target>
       </segment>
     </unit>
     <unit id="MZpPqBp" name="Hamster">
       <notes>
         <note category="german">Hamster</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Hamster</source>
-        <target>Hamster</target>
+        <target>fat hamster</target>
       </segment>
     </unit>
     <unit id="zd.g_kB" name="Köter">
       <notes>
         <note category="german">Köter</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Köter</source>
-        <target>Köter</target>
+        <target>alaskan malamute</target>
       </segment>
     </unit>
     <unit id="rLUU1dx" name="Schwein">
       <notes>
         <note category="german">Schwein</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Schwein</source>
-        <target>Schwein</target>
+        <target>pot-bellied pig</target>
       </segment>
     </unit>
     <unit id="kZlFNSy" name="Erdmännchen">
       <notes>
         <note category="german">Erdmännchen</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Erdmännchen</source>
-        <target>Erdmännchen</target>
+        <target>capybara</target>
       </segment>
     </unit>
     <unit id="RNrqQOQ" name="Wasserschwein">
       <notes>
         <note category="german">Wasserschwein</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wasserschwein</source>
-        <target>Wasserschwein</target>
+        <target>meerkat</target>
       </segment>
     </unit>
     <unit id="NP2C_HM" name="Sumpfschildkröte">
       <notes>
         <note category="german">Sumpfschildkröte</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Sumpfschildkröte</source>
-        <target>Sumpfschildkröte</target>
+        <target>toyger</target>
       </segment>
     </unit>
     <unit id="i2s2Kep" name="Kätzchen">
       <notes>
         <note category="german">Kätzchen</note>
         <note category="from">php:///src/Service/GazetteService.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Kätzchen</source>
-        <target>Kätzchen</target>
+        <target>kitten</target>
       </segment>
     </unit>
     <unit id="F6ZgJYM" name="einen Haufen Gerümpel ">
@@ -2321,11 +2296,10 @@
       <notes>
         <note category="german">&lt;strong&gt;{citizen1}s&lt;/strong&gt; {animal} wurde heute Morgen in mehrere Stücke zerfetzt aufgefunden. Ein Stück wurde sogar aus dem Brunnen gefischt. Das erklärt auch den seltsamen Geschmack der Wasserrationen von heute Morgen...</note>
         <note category="from">db://GazetteEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>&lt;strong&gt;{citizen1}s&lt;/strong&gt; {animal} wurde heute Morgen in mehrere Stücke zerfetzt aufgefunden. Ein Stück wurde sogar aus dem Brunnen gefischt. Das erklärt auch den seltsamen Geschmack der Wasserrationen von heute Morgen...</source>
-        <target><![CDATA[<strong>{citizen1}s</strong> {animal} wurde heute Morgen in mehrere Stücke zerfetzt aufgefunden. Ein Stück wurde sogar aus dem Brunnen gefischt. Das erklärt auch den seltsamen Geschmack der Wasserrationen von heute Morgen...]]></target>
+        <target>The {animal} which was christened {mascot} by someone or other was found cut in half this morning. One half was found in the well, which explains the strange-tasting rations today...</target>
       </segment>
     </unit>
     <unit id="BKXfX1n">

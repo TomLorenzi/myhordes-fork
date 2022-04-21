@@ -49,6 +49,11 @@ class ConfMaster
             : (new EventConf())->complete());
     }
 
+    public function getEventScheduleByName(string $name, DateTime $curDate, ?DateTime &$begin = null, ?DateTime &$end = null): bool {
+        if (!isset($this->events[$name]) || !isset($this->events[$name]['trigger'])) return false;
+        return $this->getEventSchedule( $this->events[$name]['trigger'], $curDate, $begin, $end );
+    }
+
     public function getAllEvents(): array {
         return $this->events;
     }
