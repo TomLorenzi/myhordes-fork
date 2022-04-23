@@ -23227,7 +23227,6 @@
       <notes>
         <note category="german">Ein Moderator hat eine Beschränkung für deinen Account aufgehoben.&lt;br/&gt;Art der Beschränkung: &lt;b&gt;{type}&lt;/b&gt;</note>
         <note category="from">db://LogEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ein Moderator hat eine Beschränkung für deinen Account aufgehoben.&lt;br/&gt;Art der Beschränkung: &lt;b&gt;{type}&lt;/b&gt;</source>
