@@ -1764,5 +1764,67 @@
         <target>Ir a la elección de partidas</target>
       </segment>
     </unit>
+    <unit id="CJDUJAE" name="Beide Schamanen-Modi sind gleichzeitig aktiviert (experimentell!).">
+      <notes>
+        <note category="german">Beide Schamanen-Modi sind gleichzeitig aktiviert (experimentell!).</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+      </notes>
+      <segment>
+        <source>Beide Schamanen-Modi sind gleichzeitig aktiviert (experimentell!).</source>
+        <target>Ambos tipos de Chamán estarían habilitados al mismo tiempo (¡Experimental!).</target>
+      </segment>
+    </unit>
+    <unit id="RcOw7GN" name="Kombiniert">
+      <notes>
+        <note category="german">Kombiniert</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+      </notes>
+      <segment>
+        <source>Kombiniert</source>
+        <target>Combinados</target>
+      </segment>
+    </unit>
+    <unit id="NZdQf3X">
+      <notes>
+        <note category="german">Ermöglicht es, in begehbaren Ruinen den Gegenstand "Blutdurchtränkter Verband" zu finden, aus dem Toxin hergestellt werden kann.</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+      </notes>
+      <segment>
+        <source>Ermöglicht es, in begehbaren Ruinen den Gegenstand "Blutdurchtränkter Verband" zu finden, aus dem Toxin hergestellt werden kann.</source>
+        <target>Permitir a los jugadores encontrar el objeto "Tirita ensangrentada", que se puede utilizar para crear una Toxina.</target>
+      </segment>
+    </unit>
+    <unit id="m9UhkBU" name="Toxin aktivieren">
+      <notes>
+        <note category="german">Toxin aktivieren</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+      </notes>
+      <segment>
+        <source>Toxin aktivieren</source>
+        <target>Habilitar Toxina</target>
+      </segment>
+    </unit>
+    <unit id="o1TozmB">
+      <notes>
+        <note category="german">Ist diese Option aktiviert, haben frisch in Ghule verwandelte Bürger bereits Hunger.</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Ist diese Option aktiviert, haben frisch in Ghule verwandelte Bürger bereits Hunger.</source>
+        <target>Ist diese Option aktiviert, haben frisch in Ghule verwandelte Bürger bereits Hunger.</target>
+      </segment>
+    </unit>
+    <unit id="v7CDf.f" name="Hungrige Ghule">
+      <notes>
+        <note category="german">Hungrige Ghule</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Hungrige Ghule</source>
+        <target>Hungrige Ghule</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -84,7 +84,7 @@
     <unit id="0FJ_Sz1" name="Logout">
       <notes>
         <note category="german">Logout</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/game/game.html.twig</note>
       </notes>
       <segment>
@@ -565,7 +565,7 @@
     <unit id="3RZ5Bd4" name="Version">
       <notes>
         <note category="german">Version</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/soul/future.html.twig</note>
       </notes>
       <segment>
@@ -696,7 +696,7 @@
     <unit id="Oh71xYO" name="Twinoid Application ID">
       <notes>
         <note category="german">Twinoid Application ID</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
       </notes>
       <segment>
@@ -707,7 +707,7 @@
     <unit id="GT7Cwam" name="Twinoid Secret Key">
       <notes>
         <note category="german">Twinoid Secret Key</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
       </notes>
       <segment>
@@ -1148,7 +1148,7 @@
     <unit id="qrK4heb" name="Infos">
       <notes>
         <note category="german">Infos</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
@@ -1259,7 +1259,7 @@
     <unit id="cTrAfF8" name="Name &amp; Infos">
       <notes>
         <note category="german">Name &amp; Infos</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
@@ -1630,7 +1630,7 @@
     <unit id="59PnafP" name="Administrator">
       <notes>
         <note category="german">Administrator</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/soul/badges.html.twig</note>
       </notes>
       <segment>
@@ -2011,7 +2011,7 @@
     <unit id="3NHVIj9" name="Name">
       <notes>
         <note category="german">Name</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/soul/coalitions.html.twig</note>
       </notes>
       <segment>
@@ -2412,7 +2412,7 @@
     <unit id="J6NchKS" name="Pos.">
       <notes>
         <note category="german">Pos.</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
       </notes>
       <segment>
@@ -2423,7 +2423,7 @@
     <unit id="OOWkbLx" name="Score">
       <notes>
         <note category="german">Score</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
       </notes>
       <segment>
@@ -2444,7 +2444,7 @@
     <unit id="5VYoVVK" name="Lang.">
       <notes>
         <note category="german">Lang.</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
       </notes>
       <segment>
@@ -2515,12 +2515,11 @@
     <unit id="MJMhV5L" name="Kleine Stadt">
       <notes>
         <note category="german">Kleine Stadt</note>
-        <note category="state">new</note>
         <note category="from">db://TownClass</note>
       </notes>
       <segment>
         <source>Kleine Stadt</source>
-        <target>Kleine Stadt</target>
+        <target>Small Towns</target>
       </segment>
     </unit>
     <unit id="bElrYkF" name="Entfernte Regionen">
@@ -2666,89 +2665,89 @@
     <unit id="AHcu..1" name="Kommunikation in der Stadt">
       <notes>
         <note category="german">Kommunikation in der Stadt</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Kommunikation in der Stadt</source>
-        <target>Kommunikation in der Stadt</target>
+        <target>Communication in Town</target>
       </segment>
     </unit>
     <unit id="6yvyO_B">
       <notes>
         <note category="german">Du kannst keine Stadtnachrichten schreiben sowie das Schwarze Brett oder den Zonenchat verwenden.</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Du kannst keine Stadtnachrichten schreiben sowie das Schwarze Brett oder den Zonenchat verwenden.</source>
-        <target>Du kannst keine Stadtnachrichten schreiben sowie das Schwarze Brett oder den Zonenchat verwenden.</target>
+        <target>You can't write messages in the city or use the blackboard or zone chat.</target>
       </segment>
     </unit>
     <unit id="74vPalP" name="Stadtübergreifende Kommunikation">
       <notes>
         <note category="german">Stadtübergreifende Kommunikation</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Stadtübergreifende Kommunikation</source>
-        <target>Stadtübergreifende Kommunikation</target>
+        <target>Intertown communication</target>
       </segment>
     </unit>
     <unit id="EKVv6mi" name="Du kannst keine Nachrichten über das Nachrichtenzentrum versenden.">
       <notes>
         <note category="german">Du kannst keine Nachrichten über das Nachrichtenzentrum versenden.</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Du kannst keine Nachrichten über das Nachrichtenzentrum versenden.</source>
-        <target>Du kannst keine Nachrichten über das Nachrichtenzentrum versenden.</target>
+        <target>You cannot send messages through the message center.</target>
       </segment>
     </unit>
     <unit id="4L8kPem" name="Kommentare">
       <notes>
         <note category="german">Kommentare</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Kommentare</source>
-        <target>Kommentare</target>
+        <target>Comments</target>
       </segment>
     </unit>
     <unit id="wY7rEv4" name="Du kannst keine Letzten Worte übermitteln und keine Stadtkommentare verfassen.">
       <notes>
         <note category="german">Du kannst keine Letzten Worte übermitteln und keine Stadtkommentare verfassen.</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Du kannst keine Letzten Worte übermitteln und keine Stadtkommentare verfassen.</source>
-        <target>Du kannst keine Letzten Worte übermitteln und keine Stadtkommentare verfassen.</target>
+        <target>You can't write final words or comments about the city.</target>
       </segment>
     </unit>
     <unit id="cnYKFrt" name="Gruppenorganisation">
       <notes>
         <note category="german">Gruppenorganisation</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Gruppenorganisation</source>
-        <target>Gruppenorganisation</target>
+        <target>Group organization</target>
       </segment>
     </unit>
     <unit id="hzqTzKz" name="Du kannst keine Kleinen Koalitionen gründen oder ihnen beitreten.">
       <notes>
         <note category="german">Du kannst keine Kleinen Koalitionen gründen oder ihnen beitreten.</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Du kannst keine Kleinen Koalitionen gründen oder ihnen beitreten.</source>
-        <target>Du kannst keine Kleinen Koalitionen gründen oder ihnen beitreten.</target>
+        <target>You can't form or join coalitions.</target>
       </segment>
     </unit>
     <unit id="WPixbld" name="Spielen">
@@ -2784,12 +2783,12 @@
     <unit id="cKxZipz" name="Dauerhafte Beschränkung">
       <notes>
         <note category="german">Dauerhafte Beschränkung</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Dauerhafte Beschränkung</source>
-        <target>Dauerhafte Beschränkung</target>
+        <target>Permanent limitation</target>
       </segment>
     </unit>
     <unit id="hP.wuNt" name="Ende der Beschränkung: {date}">
@@ -2815,23 +2814,23 @@
     <unit id="pxDv8GV" name="Möchtest du diese Koalition verlassen und somit auflösen?">
       <notes>
         <note category="german">Möchtest du diese Koalition verlassen und somit auflösen?</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/soul/coalitions.html.twig</note>
       </notes>
       <segment>
         <source>Möchtest du diese Koalition verlassen und somit auflösen?</source>
-        <target>Möchtest du diese Koalition verlassen und somit auflösen?</target>
+        <target>Confirm that you wish to quit and dissolve the coalition?</target>
       </segment>
     </unit>
     <unit id="TDZXLoY" name="Möchtest du diese Koalition verlassen?">
       <notes>
         <note category="german">Möchtest du diese Koalition verlassen?</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/soul/coalitions.html.twig</note>
       </notes>
       <segment>
         <source>Möchtest du diese Koalition verlassen?</source>
-        <target>Möchtest du diese Koalition verlassen?</target>
+        <target>Confirm that you wish to quit the coalition?</target>
       </segment>
     </unit>
     <unit id="e5CjO7g" name="Ändern des Avatars">
@@ -3387,7 +3386,7 @@
     <unit id="fUGf6MZ" name="HTML Code">
       <notes>
         <note category="german">HTML Code</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
@@ -3398,7 +3397,7 @@
     <unit id="GOqvgvj" name="BBCode">
       <notes>
         <note category="german">BBCode</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/soul/social.html.twig</note>
       </notes>
       <segment>
@@ -4044,7 +4043,7 @@
       <notes>
         <note category="german">Icon</note>
         <note category="from">php:///src/Structures/TwinoidPayload.php</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Icon</source>
@@ -4590,6 +4589,136 @@
       <segment>
         <source>Standartmäßig die erweiterte Editor-Ansicht für PNs verwenden</source>
         <target>Use the advanced editor view for PMs by default</target>
+      </segment>
+    </unit>
+    <unit id="A5iJ0g0" name="Deine MyHordes-Seele zurücksetzen">
+      <notes>
+        <note category="german">Deine MyHordes-Seele zurücksetzen</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
+      </notes>
+      <segment>
+        <source>Deine MyHordes-Seele zurücksetzen</source>
+        <target>Reset your MyHordes soul</target>
+      </segment>
+    </unit>
+    <unit id="y9khXik">
+      <notes>
+        <note category="german">Wenn du eine Seele trotz der Import-Einstränkungen vollständig importieren möchtest, hast du &lt;b&gt;einmalig&lt;/b&gt; die Option, deine MyHordes-Seele zurückzusetzen.</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
+      </notes>
+      <segment>
+        <source>Wenn du eine Seele trotz der Import-Einstränkungen vollständig importieren möchtest, hast du &lt;b&gt;einmalig&lt;/b&gt; die Option, deine MyHordes-Seele zurückzusetzen.</source>
+        <target><![CDATA[If you want to fully import a soul despite the import restrictions, you have a <b>one-time</b> option to reset your MyHordes soul.]]></target>
+      </segment>
+    </unit>
+    <unit id="dsL.BQg" name="Folgende Aspekte deiner Seele sind von diesem Reset &lt;b&gt;betroffen&lt;/b&gt;:">
+      <notes>
+        <note category="german">Folgende Aspekte deiner Seele sind von diesem Reset &lt;b&gt;betroffen&lt;/b&gt;:</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
+      </notes>
+      <segment>
+        <source>Folgende Aspekte deiner Seele sind von diesem Reset &lt;b&gt;betroffen&lt;/b&gt;:</source>
+        <target><![CDATA[The following aspects of your soul are <b>affected</b> by this reset:]]></target>
+      </segment>
+    </unit>
+    <unit id="RPTgSwQ" name="Deine nach dem Ende der Alpha-Phase auf MyHordes erworbenen Seelenpunkte">
+      <notes>
+        <note category="german">Deine nach dem Ende der Alpha-Phase auf MyHordes erworbenen Seelenpunkte</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
+      </notes>
+      <segment>
+        <source>Deine nach dem Ende der Alpha-Phase auf MyHordes erworbenen Seelenpunkte</source>
+        <target>Your soul points earned after the end of the alpha phase on MyHordes</target>
+      </segment>
+    </unit>
+    <unit id="wRK8LRh">
+      <notes>
+        <note category="german">Deine nach dem Ende der Alpha-Phase im Rahmen von Städten erworbenen Auszeichnungen (einschließlich Ranking-Auszeichnungen, die am Ende einer Saison vergeben werden!)</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
+      </notes>
+      <segment>
+        <source>Deine nach dem Ende der Alpha-Phase im Rahmen von Städten erworbenen Auszeichnungen (einschließlich Ranking-Auszeichnungen, die am Ende einer Saison vergeben werden!)</source>
+        <target>Your distinctions earned in cities after the end of the alpha phase (including ranking distinctions given at the end of a season!)</target>
+      </segment>
+    </unit>
+    <unit id="qGQ4apv" name="Folgende Aspekte deiner Seele sind von diesem Reset &lt;b&gt;nicht betroffen&lt;/b&gt;:">
+      <notes>
+        <note category="german">Folgende Aspekte deiner Seele sind von diesem Reset &lt;b&gt;nicht betroffen&lt;/b&gt;:</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
+      </notes>
+      <segment>
+        <source>Folgende Aspekte deiner Seele sind von diesem Reset &lt;b&gt;nicht betroffen&lt;/b&gt;:</source>
+        <target><![CDATA[The following aspects of your soul are <b>not affected</b> by this reset:]]></target>
+      </segment>
+    </unit>
+    <unit id="YT57JhK">
+      <notes>
+        <note category="german">Die Liste deiner bisher auf MyHordes gespielten Städte mit allen angehängten Informationen (Todesart, letzte Worte, überlebte Tage, etc)</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
+      </notes>
+      <segment>
+        <source>Die Liste deiner bisher auf MyHordes gespielten Städte mit allen angehängten Informationen (Todesart, letzte Worte, überlebte Tage, etc)</source>
+        <target>The list of your cities played on MyHordes so far with all attached information (cause of death, last words, days survived, etc).</target>
+      </segment>
+    </unit>
+    <unit id="VUNm4fP" name="Spezielle Auszeichnungen, wie beispielsweise die Alpha-Auszeichnung">
+      <notes>
+        <note category="german">Spezielle Auszeichnungen, wie beispielsweise die Alpha-Auszeichnung</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
+      </notes>
+      <segment>
+        <source>Spezielle Auszeichnungen, wie beispielsweise die Alpha-Auszeichnung</source>
+        <target>Special distinctions, such as the Alpha distinction</target>
+      </segment>
+    </unit>
+    <unit id="gYtpBfG" name="Gegenstände in deinem spiritueller Rucksack">
+      <notes>
+        <note category="german">Gegenstände in deinem spiritueller Rucksack</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
+      </notes>
+      <segment>
+        <source>Gegenstände in deinem spiritueller Rucksack</source>
+        <target>Items in your spiritual backpack</target>
+      </segment>
+    </unit>
+    <unit id="E2LwrUJ" name="Deine gespielten Heldentage">
+      <notes>
+        <note category="german">Deine gespielten Heldentage</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
+      </notes>
+      <segment>
+        <source>Deine gespielten Heldentage</source>
+        <target>The number of days you played as a hero</target>
+      </segment>
+    </unit>
+    <unit id="K1yAZOB" name="Seelenpunkte oder Auszeichnungen, die du importiert hast">
+      <notes>
+        <note category="german">Seelenpunkte oder Auszeichnungen, die du importiert hast</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
+      </notes>
+      <segment>
+        <source>Seelenpunkte oder Auszeichnungen, die du importiert hast</source>
+        <target>Soul points or distinctions that you have imported</target>
+      </segment>
+    </unit>
+    <unit id="VEBXP0O" name="Meine Seele zurücksetzen">
+      <notes>
+        <note category="german">Meine Seele zurücksetzen</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
+      </notes>
+      <segment>
+        <source>Meine Seele zurücksetzen</source>
+        <target>Reset my soul</target>
+      </segment>
+    </unit>
+    <unit id="ZCrhTK8">
+      <notes>
+        <note category="german">Bitte bestätige, dass du deine Seele zurücksetzen möchtest. Du kannst diese Aktion NUR EIN MAL ausführen. Diese Aktion KANN NICHT RÜCKGÄNGIG GEMACHT WERDEN!</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
+      </notes>
+      <segment>
+        <source>Bitte bestätige, dass du deine Seele zurücksetzen möchtest. Du kannst diese Aktion NUR EIN MAL ausführen. Diese Aktion KANN NICHT RÜCKGÄNGIG GEMACHT WERDEN!</source>
+        <target>Please confirm that you want to reset your soul. You can perform this action ONLY ONCE. This action CANNOT BE REVERSED!</target>
       </segment>
     </unit>
   </file>

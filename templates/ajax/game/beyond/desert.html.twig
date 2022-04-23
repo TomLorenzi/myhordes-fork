@@ -339,7 +339,7 @@
                         {% endif %}
 
                         {% if zone.prototype %}
-                            {% if zone.prototype.explorable %}
+                            {% if zone.prototype.explorable and zone.buryCount == 0 %}
                                 <button id="enter_ruin_button"  >
                                     <img class="icon left" alt="" src="{{ asset('build/images/icons/planner.gif') }}" />
                                     {% trans with {'{ruin}': zone.prototype.label|trans({},'game')} from 'game'  %}{ruin} betreten{% endtrans %}

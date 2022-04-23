@@ -99,6 +99,9 @@
     {{ parent() }}
     <script>
         (()=>{
+            if (!document.body.classList.contains('page-attract'))
+                window.location.href = $.ajax.getBaseURL();
+
             let currentFocusImg = null;
             let currentBackDrop = null;
             $.html.addEventListenerAll('.preview-images img', 'click', (e,elem) => {

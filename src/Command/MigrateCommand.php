@@ -69,13 +69,11 @@ class MigrateCommand extends Command
 {
     protected static $defaultName = 'app:migrate';
 
-    private $kernel;
+    private KernelInterface $kernel;
 
     private GameFactory $game_factory;
     private EntityManagerInterface $entity_manager;
-    private CitizenHandler $citizen_handler;
     private RandomGenerator $randomizer;
-    private InventoryHandler $inventory_handler;
     private ConfMaster $conf;
     private MazeMaker $maze;
     private ParameterBagInterface $param;
@@ -83,8 +81,6 @@ class MigrateCommand extends Command
     private UserFactory $user_factory;
     private PermissionHandler $perm;
     private CommandHelper $helper;
-
-    private TranslationConfigGlobal $conf_trans;
 
     protected static $git_script_repository = [
         'ce5c1810ee2bde2c10cc694e80955b110bbed010' => [ ['app:migrate', ['--calculate-score' => true] ] ],
@@ -115,28 +111,25 @@ class MigrateCommand extends Command
         '8c54cbfaf95df7f65f94eff00e03ca3bdea95810' => [ ['app:migrate', ['--prune-rp-texts' => true] ] ],
         'c25ec1d6d328d9d3bc03dda9d9bb34873a56484d' => [ ['app:migrate', ['--fix-forum-posts' => true] ] ],
         '049ee184a6e5e2ecb5599a8fc7aa2a8b15948d36' => [ ['app:migrate', ['--reassign-thread-tags' => true] ] ],
+        '7fb1baba0c40004b02a556175a73edfa170bdeff' => [ ['app:migrate', ['--calculate-score' => true] ] ],
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
-                                RandomGenerator $rg, CitizenHandler $ch, InventoryHandler $ih, ConfMaster $conf,
+                                RandomGenerator $rg, ConfMaster $conf,
                                 MazeMaker $maze, ParameterBagInterface $params, UserHandler $uh, PermissionHandler $p,
-                                UserFactory $uf, TranslationConfigGlobal $conf_trans, CommandHelper $helper)
+                                UserFactory $uf, CommandHelper $helper)
     {
         $this->kernel = $kernel;
 
         $this->game_factory = $gf;
         $this->entity_manager = $em;
         $this->randomizer = $rg;
-        $this->citizen_handler = $ch;
-        $this->inventory_handler = $ih;
         $this->conf = $conf;
         $this->maze = $maze;
         $this->param = $params;
         $this->user_handler = $uh;
         $this->perm = $p;
         $this->user_factory = $uf;
-
-        $this->conf_trans = $conf_trans;
 
         $this->helper = $helper;
 
@@ -169,12 +162,6 @@ class MigrateCommand extends Command
             ->addOption('update-db', 'u', InputOption::VALUE_NONE, 'Creates and performs a doctrine migration, updates fixtures.')
             ->addOption('recover', 'r',   InputOption::VALUE_NONE, 'When used together with --update-db, will clear all previous migrations and try again after an error.')
             ->addOption('process-db-git', 'p',   InputOption::VALUE_NONE, 'Processes triggers for automated database actions')
-
-            ->addOption('update-trans', 't', InputOption::VALUE_REQUIRED, 'Updates all translation files for a single language')
-            ->addOption('trans-file', null, InputOption::VALUE_IS_ARRAY | InputOption::VALUE_OPTIONAL, 'Limits translations to specific files', [])
-            ->addOption('trans-disable-php', null, InputOption::VALUE_NONE, 'Disables translation of PHP files')
-            ->addOption('trans-disable-db', null, InputOption::VALUE_NONE, 'Disables translation of database content')
-            ->addOption('trans-disable-twig', null, InputOption::VALUE_NONE, 'Disables translation of twig files')
 
             ->addOption('calculate-score', null, InputOption::VALUE_NONE, 'Recalculate the score for each ended town')
             ->addOption('build-forum-search-index', null, InputOption::VALUE_NONE, 'Initializes search structures for the forum')
@@ -512,74 +499,6 @@ class MigrateCommand extends Command
 
             return 0;
         }
-
-        if ($lang = $input->getOption('update-trans')) {
-
-            $langs = ($lang === 'all') ? ['en','fr','es','de'] : [$lang];
-            if (count($langs) === 1) {
-
-                if ($input->getOption('trans-disable-db')) $this->conf_trans->setDatabaseSearch(false);
-                if ($input->getOption('trans-disable-php')) $this->conf_trans->setPHPSearch(false);
-                if ($input->getOption('trans-disable-twig')) $this->conf_trans->setTwigSearch(false);
-                foreach ($input->getOption('trans-file') as $file_name)
-                    $this->conf_trans->addMatchedFileName($file_name);
-
-                $command = $this->getApplication()->find('translation:extract');
-
-                $output->writeln("Now working on translations for <info>{$lang}</info>...");
-                $input = new ArrayInput([
-                    'locale' => $lang,
-                    '--force' => true,
-                    '--sort' => 'asc',
-                    '--format' => 'xlf',
-                    '--prefix' => '',
-                ]);
-                $input->setInteractive(false);
-                try {
-                    $command->run($input, $output);
-                } catch (Exception $e) {
-                    $output->writeln("Error: <error>{$e->getMessage()}</error>");
-                    return 1;
-                }
-
-            } elseif (extension_loaded('pthreads')) {
-                $output->writeln("Using pthreads !");
-                $threads = [];
-                foreach ($langs as $current_lang) {
-
-                    $com = "app:migrate -t $current_lang";
-                    if ($input->getOption('trans-disable-db')) $com .= " --trans-disable-db";
-                    if ($input->getOption('trans-disable-php')) $com .= " --trans-disable-php";
-                    if ($input->getOption('trans-disable-twig')) $com .= " --trans-disable-twig";
-                    foreach ($input->getOption('trans-file') as $file_name)
-                        $com .= " --trans-file $file_name";
-
-                    $threads[] = new class(function () use ($com,$output) {
-                        $this->helper->capsule($com, $output);
-                    }) extends \Worker {
-                        private $_f;
-                        public function __construct(callable $fun) { $this->_f = $fun; }
-                        public function run() { ($this->_f)(); }
-                    };
-                }
-
-                foreach ($threads as $thread) $thread->start();
-                foreach ($threads as $thread) $thread->join();
-            } else foreach ($langs as $current_lang) {
-                $com = "app:migrate -t $current_lang";
-                if ($input->getOption('trans-disable-db')) $com .= " --trans-disable-db";
-                if ($input->getOption('trans-disable-php')) $com .= " --trans-disable-php";
-                if ($input->getOption('trans-disable-twig')) $com .= " --trans-disable-twig";
-                foreach ($input->getOption('trans-file') as $file_name)
-                    $com .= " --trans-file $file_name";
-
-                $this->helper->capsule($com, $output);
-            }
-
-
-            return 0;
-        }
-
 
         if ($input->getOption('calculate-score')) {
             $this->helper->leChunk($output, TownRankingProxy::class, 5000, ['imported' => false], true, true, function(TownRankingProxy $town) {

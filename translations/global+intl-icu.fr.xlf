@@ -504,8 +504,8 @@
     <unit id="fmZlI_I" name="Saison">
       <notes>
         <note category="german">Saison</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/game_history.html.twig;twig:///templates/ajax/soul/town_list.html.twig</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Saison</source>
@@ -745,8 +745,8 @@
     <unit id="nCT0Wn6" name="Dev">
       <notes>
         <note category="german">Dev</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Dev</source>
@@ -776,8 +776,8 @@
     <unit id="vXPlKOG" name="Papier">
       <notes>
         <note category="german">Papier</note>
-        <note category="state">new</note>
         <note category="from">php:///src/Service/HTMLService.php</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Papier</source>
@@ -927,8 +927,8 @@
     <unit id="jlAJmOo" name="Spoiler">
       <notes>
         <note category="german">Spoiler</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Spoiler</source>
@@ -1168,8 +1168,8 @@
     <unit id="3RZ5Bd4" name="Version">
       <notes>
         <note category="german">Version</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Version</source>
@@ -1743,7 +1743,7 @@
       </notes>
       <segment>
         <source>Folgende Bürger sind wahlweise: &lt;ul&gt;&lt;li&gt;auf ihrer Todesanzeigeseite (sie haben ihren Tod noch nicht bestätigt),&lt;/li&gt;&lt;li&gt;bereits im Spiel,&lt;/li&gt;&lt;li&gt;sie haben sich entschieden, nicht automatisch einer Stadt und ihrer Koalition anzugehören.&lt;/li&gt;&lt;li&gt;oder, sie haben sich seit über 5 Tagen nicht mehr angemeldet.&lt;/li&gt;&lt;/ul&gt;</source>
-        <target><![CDATA[Les citoyens suivants sont : <ul><li>soit sur leur page de Mort (ils n\'ont pas validé leur décès),</li><li>soit déjà en jeu,</li><li>soit ils ont choisi de ne pas rejoindre automatiquement une ville avec le reste de la coalition.</li><li>non reconnectés depuis plus de 5 jours.</li></ul>]]></target>
+        <target><![CDATA[Les citoyens suivants sont : <ul><li>soit sur leur page de mort (ils n'ont pas validé leur décès),</li><li>soit déjà en jeu,</li><li>soit ils ont choisi de ne pas rejoindre automatiquement une ville avec le reste de la coalition.</li><li>non reconnectés depuis plus de 5 jours.</li></ul>]]></target>
       </segment>
     </unit>
     <unit id="Dhx3Fbp">
@@ -1789,8 +1789,8 @@
     <unit id="NA9GMDP" name="Code">
       <notes>
         <note category="german">Code</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Code</source>
@@ -1924,7 +1924,7 @@
       </notes>
       <segment>
         <source>Du darfst ihn keinesfalls weitergeben oder öffentlich verfügbar machen, beispielsweise in einem Code-Repository.</source>
-        <target>Vous ne pouvez pas la distribuer ou la rendre public, par exemple dans un référentiel de code.</target>
+        <target>Vous ne pouvez pas la distribuer ou la rendre publique, par exemple dans un référentiel de code.</target>
       </segment>
     </unit>
     <unit id="hnZ6._r">
@@ -1960,12 +1960,12 @@
     <unit id="M4kyeVr" name="Die Seite wird von Horden von Zombies belagert!">
       <notes>
         <note category="german">Die Seite wird von Horden von Zombies belagert!</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
         <note category="from">php:///src/Controller/ExternalXML2Controller.php</note>
       </notes>
       <segment>
         <source>Die Seite wird von Horden von Zombies belagert!</source>
-        <target>Die Seite wird von Horden von Zombies belagert!</target>
+        <target>Le site est assiégé par des hordes de zombies !</target>
       </segment>
     </unit>
     <unit id="2gahlEk" name="Spielhilfe:">
@@ -2101,12 +2101,11 @@
     <unit id="ST5ILqV" name="1 Minute">
       <notes>
         <note category="german">1 Minute</note>
-        <note category="state">new</note>
         <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>1 Minute</source>
-        <target>1 Minute</target>
+        <target>1 minute</target>
       </segment>
     </unit>
     <unit id="OTEy7hr" name="{n} Sekunden">
@@ -2792,8 +2791,8 @@
     <unit id="yo6CbZw" name="Avatar">
       <notes>
         <note category="german">Avatar</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Avatar</source>
@@ -2853,8 +2852,8 @@
     <unit id="jQrj982" name="via {group_inbox}">
       <notes>
         <note category="german">via {group_inbox}</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/pm/bubbles.html.twig</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>via {group_inbox}</source>
@@ -4010,7 +4009,7 @@
       <notes>
         <note category="german">Guide</note>
         <note category="from">db://ThreadTag</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Guide</source>

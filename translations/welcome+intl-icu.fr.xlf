@@ -255,11 +255,10 @@
       <notes>
         <note category="german">Weiterlesen</note>
         <note category="from">twig:///templates/ajax/public/intro.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Weiterlesen</source>
-        <target>Weiterlesen</target>
+        <target>Lire la suite</target>
       </segment>
     </unit>
     <unit id="sFZmH_I">
@@ -379,7 +378,7 @@
       </notes>
       <segment>
         <source>Das Spielen von "MyHordes" ist &lt;strong&gt;komplett kostenlos&lt;/strong&gt;! Es gibt keine kostenpflichtigen Zusatzinhalte, kosmetische Boni oder Spielfortschritts-Beschleuniger. Wir setzen zudem keine Werbung oder Tracking ein. Wenn dir "MyHordes" gefällt hast du die Möglichkeit, für den Weiterbetrieb zu spenden - du erhälst hierfür (außer unserer ewigen Dankbarkeit) jedoch keinerlei Spielboni.</source>
-        <target><![CDATA[MyHordes est <strong>entièrement gratuit</strong>! Il n'y a pas de contenu supplémentaire payant, de bonus cosmétiques ou d'accélérateurs de progression. Nous n'utilisons pas non plus de publicité ou de tracking. Si vous appréciez MyHordes, vous avez la possibilité de faire un don pour le maintenir en activité.]]></target>
+        <target><![CDATA[MyHordes est <strong>entièrement gratuit</strong> ! Il n'y a pas de contenu supplémentaire payant, de bonus cosmétiques ou d'accélérateurs de progression. Nous n'utilisons pas non plus de publicité ou de tracking. Si vous appréciez MyHordes, vous avez la possibilité de faire un don pour le maintenir en activité.]]></target>
       </segment>
     </unit>
     <unit id="EKiBP8V" name="Weitere Informationen">
@@ -416,11 +415,10 @@
       <notes>
         <note category="german">Neuigkeiten bei MyHordes</note>
         <note category="from">twig:///templates/ajax/public/news.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Neuigkeiten bei MyHordes</source>
-        <target>Neuigkeiten bei MyHordes</target>
+        <target>Actualités de MyHordes</target>
       </segment>
     </unit>
     <unit id=".5j3wzq" name="Spielen!">

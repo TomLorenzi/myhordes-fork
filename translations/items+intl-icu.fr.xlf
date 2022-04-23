@@ -148,7 +148,7 @@
       </notes>
       <segment>
         <source>Konservendose</source>
-        <target>Boîte de Conserve</target>
+        <target>Boîte de conserve</target>
       </segment>
     </unit>
     <unit id="hKs7t5v" name="Offene Konservendose">
@@ -158,7 +158,7 @@
       </notes>
       <segment>
         <source>Offene Konservendose</source>
-        <target>Boîte de Conserve ouverte</target>
+        <target>Boîte de conserve ouverte</target>
       </segment>
     </unit>
     <unit id="4DdrCY0" name="Batteriewerfer 1-PDTG (geladen)">
@@ -2974,7 +2974,7 @@
     <unit id="lIXVQdW" name="LSD">
       <notes>
         <note category="german">LSD</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">db://ItemPrototype</note>
       </notes>
       <segment>
@@ -3555,7 +3555,7 @@
     <unit id="UWEMZ3x" name="{casino}">
       <notes>
         <note category="german">{casino}</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">db://ItemAction</note>
       </notes>
       <segment>
@@ -7250,7 +7250,7 @@
       </notes>
       <segment>
         <source>&lt;t-zone&gt;Du hast eine neue Ruine auf {zone} entdeckt!&lt;/t-zone&gt;&lt;nt-zone&gt;Es scheint, als gäbe es nichts mehr zu entdecken ...&lt;/nt-zone&gt;</source>
-        <target><![CDATA[<t-zone>Vous avez découvert une nouvelle ruine sur {zone} !</t-zone><nt-zone>Il semble qu'il n'y ait plus rien à découvrir...</nt-zone>]]></target>
+        <target><![CDATA[<t-zone>Vous avez révélé un nouveau bâtiment aux coordonnées {zone} !</t-zone><nt-zone>Il semble qu'il n'y ait plus rien à découvrir...</nt-zone>]]></target>
       </segment>
     </unit>
     <unit id="zI0j8nd" name="Wasserwaffen füllen">
@@ -7376,7 +7376,7 @@
     <unit id="txP7Qji" name="Vodka Marinostov">
       <notes>
         <note category="german">Vodka Marinostov</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">db://ItemPrototype</note>
       </notes>
       <segment>
@@ -7487,7 +7487,7 @@
     <unit id="82FCAix" name="Dame">
       <notes>
         <note category="german">Dame</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">php:///src/Service/HTMLService.php</note>
       </notes>
       <segment>
@@ -8418,7 +8418,7 @@
     <unit id="W0wWbGS" name="Guiness">
       <notes>
         <note category="german">Guiness</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">db://ItemPrototype</note>
       </notes>
       <segment>
@@ -8623,7 +8623,7 @@
       </notes>
       <segment>
         <source>Der Bürger hat das Wasser in einem Zug ausgetrunken. Das tut gut!</source>
-        <target>Le citoyen avale d'une traite votre ration d'eau... Ça fait du bien !</target>
+        <target>Le citoyen avale d'une traite sa ration d'eau... Ça fait du bien !</target>
       </segment>
     </unit>
     <unit id="sRDEqVL">
@@ -8649,12 +8649,12 @@
     <unit id="GUA4Vaf">
       <notes>
         <note category="german">Schlechte Nachrichten, du hättest das nicht herunterschlucken sollen... du hast dir eine Infektion eingefangen!</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
         <note category="from">php:///src/Service/ActionHandler.php</note>
       </notes>
       <segment>
         <source>Schlechte Nachrichten, du hättest das nicht herunterschlucken sollen... du hast dir eine Infektion eingefangen!</source>
-        <target>Schlechte Nachrichten, du hättest das nicht herunterschlucken sollen... du hast dir eine Infektion eingefangen!</target>
+        <target>Mauvaise nouvelle, vous n'auriez peut-être pas dû l'avaler... Vous avez été infecté(e) !</target>
       </segment>
     </unit>
     <unit id="gf4WieX">
@@ -8810,12 +8810,12 @@
     <unit id="S3AHAPf" name="Hierfür brauchst du mindestens 5 AP.">
       <notes>
         <note category="german">Hierfür brauchst du mindestens 5 AP.</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
         <note category="from">db://Requirement</note>
       </notes>
       <segment>
         <source>Hierfür brauchst du mindestens 5 AP.</source>
-        <target>Hierfür brauchst du mindestens 5 AP.</target>
+        <target>Pour faire cela, vous avez besoin d’au moins 5 PA.</target>
       </segment>
     </unit>
     <unit id="ndUWcPR" name="Deine unselige Infektion wurde kuriert!">
@@ -8831,12 +8831,12 @@
     <unit id="793QxjT" name="Hierfür brauchst du mindestens 1 PM.">
       <notes>
         <note category="german">Hierfür brauchst du mindestens 1 MP.</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
         <note category="from">db://Requirement</note>
       </notes>
       <segment>
         <source>Hierfür brauchst du mindestens 1 PM.</source>
-        <target>Hierfür brauchst du mindestens 1 PM.</target>
+        <target>Pour faire cela, vous avez besoin d’au moins 1 MP.</target>
       </segment>
     </unit>
     <unit id="42uqd50">
@@ -9137,22 +9137,21 @@
       <notes>
         <note category="german">Expedition</note>
         <note category="from">db://ItemCategory</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Expedition</source>
-        <target>Expedition</target>
+        <target>Expédition</target>
       </segment>
     </unit>
     <unit id="TWuwK4M" name="Angriff und Verteidigung">
       <notes>
         <note category="german">Angriff und Verteidigung</note>
         <note category="from">db://ItemCategory</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
       </notes>
       <segment>
         <source>Angriff und Verteidigung</source>
-        <target>Angriff und Verteidigung</target>
+        <target>Attaque et défense</target>
       </segment>
     </unit>
     <unit id="5MlxE2I" name="Gegenstand verwenden">
@@ -9272,7 +9271,7 @@
       </notes>
       <segment>
         <source>Du zündest eine Zigarette an. Der Rauch lässt dich kräftig Husten, vermutlich weil du daran nicht gewöhnt bist... Nach ein paar Minuten &lt;strong&gt;gelingt es dir dich zu beruhigen&lt;/strong&gt;. Dieser Kurze Moment des Friedens ermöglicht lässt dich deinen Kummer vergessen und bringt dich zurück in die Wirklichkeit.&lt;hr /&gt;Du drückst den Stummel auf dem Boden aus und bist bereit für einen weiteren Tag des Überlebens.!&lt;t-consumed&gt;&lt;hr /&gt;Dir fällt auf dass &lt;strong&gt;die Packung leer ist&lt;/strong&gt;!&lt;/t-consumed&gt;&lt;t-item-consumed&gt;Das war dein &lt;strong&gt;letztes Streichholz&lt;/strong&gt;... Es wird schwer sein, jetzt noch eine Zigarette anzuzünden.&lt;/t-item-consumed&gt;</source>
-        <target><![CDATA[Vous allumez une cigarette. La fumée vous fait violemment tousser, le manque d'habitude sans doute... Après quelques minutes, <strong>vous finissez par vous calmer</strong>. Ce petit moment de répit vous aide à faire le vide et à relativiser un peu sur votre sort.<hr />Vous écrasez le mégot au sol, de nouveau prêt(e) à en découdre !<t-consumed><hr />Dir fällt auf dass <strong>die Packung leer ist</strong>!</t-consumed><t-item-consumed><hr/>C'était votre <strong>dernière allumette</strong>... Ça va être coton de se griller une autre cigarette maintenant.</t-item-consumed>]]></target>
+        <target><![CDATA[Vous allumez une cigarette. La fumée vous fait violemment tousser, le manque d'habitude sans doute... Après quelques minutes, <strong>vous finissez par vous calmer</strong>. Ce petit moment de répit vous aide à faire le vide et à relativiser un peu sur votre sort.<hr />Vous écrasez le mégot au sol, de nouveau prêt(e) à en découdre !<t-consumed><hr />Vous remarquez que <strong>le paquet est vide</strong> !</t-consumed><t-item-consumed><hr/>C'était votre <strong>dernière allumette</strong>... Ça va être coton de se griller une autre cigarette maintenant.</t-item-consumed>]]></target>
       </segment>
     </unit>
     <unit id="X33MW_7" name="Verbessert die Verteidigung">
@@ -9453,6 +9452,36 @@
       <segment>
         <source>Hiermit kannst du Städten beitreten, obwohl du die Mindestanzahl an Seelenpunkten noch nicht erreicht hast.</source>
         <target>Ceci vous permet de rejoindre un ville indépendamment de votre nombre de points d'âme.</target>
+      </segment>
+    </unit>
+    <unit id="zMlo9nG">
+      <notes>
+        <note category="german">Du bist &lt;strong&gt;zu weit von der Stadt entfernt&lt;/strong&gt;, um diese Fähigkeit benutzen zu können! Genauer gesagt bist du {km_from_town} km entfernt. Die maximale Entfernung darf höchstens 11 km betragen.</note>
+        <note category="from">db://Requirement</note>
+      </notes>
+      <segment>
+        <source>Du bist &lt;strong&gt;zu weit von der Stadt entfernt&lt;/strong&gt;, um diese Fähigkeit benutzen zu können! Genauer gesagt bist du {km_from_town} km entfernt. Die maximale Entfernung darf höchstens 11 km betragen.</source>
+        <target><![CDATA[Vous êtes <strong>trop loin de la ville pour pouvoir utiliser ce pouvoir</strong> ! Vous êtes à {km_from_town}km tandis que la distance maximale est de 11km.]]></target>
+      </segment>
+    </unit>
+    <unit id="dOYBNiy" name="Toxin">
+      <notes>
+        <note category="german">Toxin</note>
+        <note category="from">db://ItemPrototype</note>
+      </notes>
+      <segment>
+        <source>Toxin</source>
+        <target>Toxine</target>
+      </segment>
+    </unit>
+    <unit id="bGL408X">
+      <notes>
+        <note category="german">Du hältst das Fläschchen an deine Nase....WOOOW! Der Gestank alleine könnte ein Pferd töten.</note>
+        <note category="from">db://ItemPrototype</note>
+      </notes>
+      <segment>
+        <source>Du hältst das Fläschchen an deine Nase....WOOOW! Der Gestank alleine könnte ein Pferd töten.</source>
+        <target>La fiole contient du sang infecté et quelques autres produits. reste à trouver un truc comestible dans lequel la verser.</target>
       </segment>
     </unit>
   </file>

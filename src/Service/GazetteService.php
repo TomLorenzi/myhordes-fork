@@ -44,7 +44,7 @@ class GazetteService
 
     }
 
-    protected function parseLog( $template, array $variables, $lowercase = false, $domain = 'game' ): String {
+    protected function parseLog( $template, array $variables, $lowercase = false, $domain = 'gazette' ): String {
         $variableTypes = $template->getVariableTypes();
         $transParams = $this->log->parseTransParams($variableTypes, $variables);
 
@@ -69,19 +69,19 @@ class GazetteService
         $flavour = [
             GazetteEntryTemplate::FollowUpTypeDoubt => [
                 null,
-                $this->translator->trans('Nun, das sage ich...', [],'game'),
-                $this->translator->trans('Das ist doch Unsinn...', [], 'game'),
-                $this->translator->trans('Die einen sagen dies, die anderen das...', [], 'game'),
-                $this->translator->trans('Ich sags ja nur...', [], 'game'),
-                $this->translator->trans('Komm schon, glaub mir.', [], 'game'),
+                $this->translator->trans('Nun, das sage ich...', [],'gazette'),
+                $this->translator->trans('Das ist doch Unsinn...', [], 'gazette'),
+                $this->translator->trans('Die einen sagen dies, die anderen das...', [], 'gazette'),
+                $this->translator->trans('Ich sags ja nur...', [], 'gazette'),
+                $this->translator->trans('Komm schon, glaub mir.', [], 'gazette'),
             ],
             GazetteEntryTemplate::FollowUpTypeBad => [
                 null,
-                $this->translator->trans('Was für eine Organisation...', [], 'game'),
-                $this->translator->trans('Wir werden nicht lange durchhalten, das sage ich euch.', [], 'game'),
-                $this->translator->trans('Noch so eine Nacht und wir werden nicht mehr hier sein, um über so etwas zu reden.', [], 'game'),
-                $this->translator->trans('Das war knapp.', [], 'game'),
-                $this->translator->trans('Pfff...', [], 'game'),
+                $this->translator->trans('Was für eine Organisation...', [], 'gazette'),
+                $this->translator->trans('Wir werden nicht lange durchhalten, das sage ich euch.', [], 'gazette'),
+                $this->translator->trans('Noch so eine Nacht und wir werden nicht mehr hier sein, um über so etwas zu reden.', [], 'gazette'),
+                $this->translator->trans('Das war knapp.', [], 'gazette'),
+                $this->translator->trans('Pfff...', [], 'gazette'),
             ],
         ];
         $txt = $this->parseLog($gazetteLogEntry->getTemplate(), $gazetteLogEntry->getVariables(), $lowercase);
@@ -222,45 +222,45 @@ class GazetteService
             switch ($name) {
                 case 'poison':
                     $variables['poison'] = $this->rand->pick( [
-                        T::__('Arsen','game'),T::__('Cyanolin','game'),T::__('Neurotwinin','game'),
-                        T::__('Rizin','game'),T::__('Botulinumtoxin','game'),T::__('Virunoir','game'),
-                        T::__('Chlorotwinat','game'),T::__('Kaliumchlorid','game'),T::__('Kurare','game'),
-                        T::__('Zyanid (poison)','game'),T::__('Phenol','game'),T::__('Ponasulfat','game')
+                        T::__('Arsen','gazette'),T::__('Cyanolin','gazette'),T::__('Neurotwinin','gazette'),
+                        T::__('Rizin','gazette'),T::__('Botulinumtoxin','gazette'),T::__('Virunoir','gazette'),
+                        T::__('Chlorotwinat','gazette'),T::__('Kaliumchlorid','gazette'),T::__('Kurare','gazette'),
+                        T::__('Zyanid (poison)','gazette'),T::__('Phenol','gazette'),T::__('Ponasulfat','gazette')
                     ] );
                     break;
                 case 'location':
                     $variables['location'] = $this->rand->pick( [
-                        T::__('in der Nähe des Gemüsegartens','game'),T::__('in der Nähe der südlichen Stadtmauer','game'),
-                        T::__('am Stadttor','game'),T::__('am Aussichtsturm','game'),
-                        T::__('am westlichen Flügel der Stadt','game'),T::__('an der nördlichen Stadtmauer','game'),
-                        T::__('an unserer schwach gesicherten Flanke','game'),T::__('in der Nähe des Brunnens','game'),
-                        T::__('an der östlichen Stadtmauer','game'),T::__('in der Stadtmauer am Stadttor','game'),
+                        T::__('in der Nähe des Gemüsegartens','gazette'),T::__('in der Nähe der südlichen Stadtmauer','gazette'),
+                        T::__('am Stadttor','gazette'),T::__('am Aussichtsturm','gazette'),
+                        T::__('am westlichen Flügel der Stadt','gazette'),T::__('an der nördlichen Stadtmauer','gazette'),
+                        T::__('an unserer schwach gesicherten Flanke','gazette'),T::__('in der Nähe des Brunnens','gazette'),
+                        T::__('an der östlichen Stadtmauer','gazette'),T::__('in der Stadtmauer am Stadttor','gazette'),
                     ] );
                     break;
                 case 'mascot':
                     $variables['mascot'] = $this->rand->pick( [
-                        T::__('Drops','game'),T::__('Whitie','game'),T::__('Fettwanst','game'),
-                        T::__('Gizmo','game'),T::__('Romero','game'),T::__('Krümel','game'),
-                        T::__('Trolli','game'),T::__('Warpie','game'),T::__('Panda','game'),
-                        T::__('Urmel','game'),T::__('Nuffi','game'),T::__('Kampfzwerg','game'),
-                        T::__('Brummbrumm','game'),T::__('Quälgeist','game'),T::__('Wuschel','game'),
+                        T::__('Drops','gazette'),T::__('Whitie','gazette'),T::__('Fettwanst','gazette'),
+                        T::__('Gizmo','gazette'),T::__('Romero','gazette'),T::__('Krümel','gazette'),
+                        T::__('Trolli','gazette'),T::__('Warpie','gazette'),T::__('Panda','gazette'),
+                        T::__('Urmel','gazette'),T::__('Nuffi','gazette'),T::__('Kampfzwerg','gazette'),
+                        T::__('Brummbrumm','gazette'),T::__('Quälgeist','gazette'),T::__('Wuschel','gazette'),
                     ] );
                     break;
                 case 'animal':
                     $variables['animal'] = $this->rand->pick( [
-                        T::__('Ratte','game'),T::__('Ziege','game'),T::__('Pudel','game'),
-                        T::__('Hamster','game'),T::__('Köter','game'),T::__('Schwein','game'),
-                        T::__('Erdmännchen','game'),T::__('Wasserschwein','game'),T::__('Sumpfschildkröte','game'),
-                        T::__('Kätzchen','game'),
+                        T::__('Ratte','gazette'),T::__('Ziege','gazette'),T::__('Pudel','gazette'),
+                        T::__('Hamster','gazette'),T::__('Köter','gazette'),T::__('Schwein','gazette'),
+                        T::__('Erdmännchen','gazette'),T::__('Wasserschwein','gazette'),T::__('Sumpfschildkröte','gazette'),
+                        T::__('Kätzchen','gazette'),
                     ] );
                     break;
                 case 'item':
                     $variables['item'] = $this->rand->pick( [
-                        T::__('einen Haufen Gerümpel ','game'),T::__('einen Holzstapel ','game'),
-                        T::__('einen Haufen Schrott','game'),T::__('einen toter Baumstamm','game'),
-                        T::__('eine vergessene Leiter','game'),T::__('einen Berg von Kisten','game'),
-                        T::__('einen Turm aus Trümmern','game'),T::__('einen Haufen Plunder','game'),
-                        T::__('einen Steinhaufen','game'),T::__('einen Haufen Ramsch','game'),
+                        T::__('einen Haufen Gerümpel ','gazette'),T::__('einen Holzstapel ','gazette'),
+                        T::__('einen Haufen Schrott','gazette'),T::__('einen toter Baumstamm','gazette'),
+                        T::__('eine vergessene Leiter','gazette'),T::__('einen Berg von Kisten','gazette'),
+                        T::__('einen Turm aus Trümmern','gazette'),T::__('einen Haufen Plunder','gazette'),
+                        T::__('einen Steinhaufen','gazette'),T::__('einen Haufen Ramsch','gazette'),
                     ] );
                     break;
                 case 'random':
@@ -631,33 +631,33 @@ class GazetteService
         $wind = '';
 
         if ($day === 1) {
-            $text = "<p>" . $this->translator->trans('Heute Morgen ist kein Artikel erschienen...', [], 'game') . "</p>";
+            $text = "<p>" . $this->translator->trans('Heute Morgen ist kein Artikel erschienen...', [], 'gazette') . "</p>";
             if ($town->isOpen()){
-                $text .= "<p>" . $this->translator->trans('Die Stadt wird erst starten, wenn sie <strong>{population} Bürger hat</strong>.', ['{population}' => $town->getPopulation()], 'game') . "</p>" . "<a class='help-button'>" . "<div class='tooltip help'>" . $this->translator->trans("Falls sich dieser Zustand auch um Mitternacht noch nicht geändert hat, findet kein Zombieangriff statt. Der Tag wird dann künstlich verlängert.", [], 'global') . "</div>" . $this->translator->trans("Hilfe", [], 'global') . "</a>";
+                $text .= "<p>" . $this->translator->trans('Die Stadt wird erst starten, wenn sie <strong>{population} Bürger hat</strong>.', ['{population}' => $town->getPopulation()], 'gazette') . "</p>" . "<a class='help-button'>" . "<div class='tooltip help'>" . $this->translator->trans("Falls sich dieser Zustand auch um Mitternacht noch nicht geändert hat, findet kein Zombieangriff statt. Der Tag wird dann künstlich verlängert.", [], 'global') . "</div>" . $this->translator->trans("Hilfe", [], 'global') . "</a>";
             } else {
-                $text .= $this->translator->trans('Fangt schon mal an zu beten, Bürger - die Zombies werden um Mitternacht angreifen!', [], 'game');
+                $text .= $this->translator->trans('Fangt schon mal an zu beten, Bürger - die Zombies werden um Mitternacht angreifen!', [], 'gazette');
             }
         } else {
             $gazette_logs = $this->entity_manager->getRepository(GazetteLogEntry::class)->findBy(['gazette' => $gazette]);
             $num = 0;
 
             $in_between = [
-                T::__('Eilmeldung:', 'game'),
-                T::__('Liebe Bürgerinnen und Bürger,', 'game'),
-                T::__('Neue Nachrichten:', 'game'),
-                T::__('Eine kleine Anekdote:', 'game'),
-                T::__('Das muss hier auch noch erzählt werden:', 'game'),
-                T::__('Folgendes:', 'game'),
-                T::__('Das Neueste aus der Gerüchteküche:', 'game'),
-                T::__('Die Gerüchteküche brodelt mal wieder:', 'game'),
-                T::__('Klatsch und Tratsch:', 'game'),
-                T::__('Aktuelles in Kürze:', 'game'),
-                T::__('WICHTIG:', 'game'),
-                T::__('Hinweis an die Bevölkerung:', 'game'),
-                T::__('Zur Aufheiterung:', 'game'),
-                T::__('Gut zu wissen:', 'game'),
-                T::__('Mal was anderes:', 'game'),
-                T::__('Das neueste Geschwätz:', 'game'),
+                T::__('Eilmeldung:', 'gazette'),
+                T::__('Liebe Bürgerinnen und Bürger,', 'gazette'),
+                T::__('Neue Nachrichten:', 'gazette'),
+                T::__('Eine kleine Anekdote:', 'gazette'),
+                T::__('Das muss hier auch noch erzählt werden:', 'gazette'),
+                T::__('Folgendes:', 'gazette'),
+                T::__('Das Neueste aus der Gerüchteküche:', 'gazette'),
+                T::__('Die Gerüchteküche brodelt mal wieder:', 'gazette'),
+                T::__('Klatsch und Tratsch:', 'gazette'),
+                T::__('Aktuelles in Kürze:', 'gazette'),
+                T::__('WICHTIG:', 'gazette'),
+                T::__('Hinweis an die Bevölkerung:', 'gazette'),
+                T::__('Zur Aufheiterung:', 'gazette'),
+                T::__('Gut zu wissen:', 'gazette'),
+                T::__('Mal was anderes:', 'gazette'),
+                T::__('Das neueste Geschwätz:', 'gazette'),
             ];
             $in_between_mod = (ceil(count($in_between)/10) + 1) * 10;
 
@@ -672,7 +672,7 @@ class GazetteService
                     if ($num === 2)
                         $inbetween = $in_between[$log->getId() % $in_between_mod] ?? '';
                     else $inbetween = '';
-                    $text .= '<p>' . ($inbetween !== '' ? ($this->translator->trans($inbetween,[],'game') . ' ') : '') . $this->parseGazetteLog($log, $inbetween !== '') . '</p>';
+                    $text .= '<p>' . ($inbetween !== '' ? ($this->translator->trans($inbetween,[],'gazette') . ' ') : '') . $this->parseGazetteLog($log, $inbetween !== '') . '</p>';
                 } else
                     $wind = $this->parseGazetteLog($log);
             }

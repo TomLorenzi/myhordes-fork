@@ -1325,22 +1325,20 @@
       <notes>
         <note category="german">Die Eternaltwin-ID, wenn er sein Konto verknüpft hat</note>
         <note category="from">twig:///templates/ajax/public/apidocs.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Die Eternaltwin-ID, wenn er sein Konto verknüpft hat</source>
-        <target>Die Eternaltwin-ID, wenn er sein Konto verknüpft hat</target>
+        <target>El ID de Eternaltwin, si ha vinculado su cuenta</target>
       </segment>
     </unit>
     <unit id="DsWqhTO" name="Eternaltwin-ID des Spielers">
       <notes>
         <note category="german">Eternaltwin-ID des Spielers</note>
         <note category="from">twig:///templates/ajax/public/apidocs.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Eternaltwin-ID des Spielers</source>
-        <target>Eternaltwin-ID des Spielers</target>
+        <target>El ID de Eternaltwin del jugador</target>
       </segment>
     </unit>
   </file>

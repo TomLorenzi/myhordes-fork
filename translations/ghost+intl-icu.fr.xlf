@@ -226,8 +226,8 @@
     <unit id="pySO60X" name="Normal">
       <notes>
         <note category="german">Normal</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Normal</source>
@@ -1181,8 +1181,8 @@
     <unit id="jRT25y3" name="Events">
       <notes>
         <note category="german">Events</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Events</source>
@@ -1757,6 +1757,72 @@
       <segment>
         <source>Zur Partieauswahl zurückkehren</source>
         <target>Revenir au choix des parties</target>
+      </segment>
+    </unit>
+    <unit id="CJDUJAE" name="Beide Schamanen-Modi sind gleichzeitig aktiviert (experimentell!).">
+      <notes>
+        <note category="german">Beide Schamanen-Modi sind gleichzeitig aktiviert (experimentell!).</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Beide Schamanen-Modi sind gleichzeitig aktiviert (experimentell!).</source>
+        <target>Les deux modes chaman sont activés en même temps (expérimental !).</target>
+      </segment>
+    </unit>
+    <unit id="RcOw7GN" name="Kombiniert">
+      <notes>
+        <note category="german">Kombiniert</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Kombiniert</source>
+        <target>Combiné</target>
+      </segment>
+    </unit>
+    <unit id="NZdQf3X">
+      <notes>
+        <note category="german">Ermöglicht es, in begehbaren Ruinen den Gegenstand "Blutdurchtränkter Verband" zu finden, aus dem Toxin hergestellt werden kann.</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Ermöglicht es, in begehbaren Ruinen den Gegenstand "Blutdurchtränkter Verband" zu finden, aus dem Toxin hergestellt werden kann.</source>
+        <target>Permet aux joueurs de trouver l’objet « Pansement ensanglanté » dans des ruines, qui peut être utilisé pour créer des toxines.</target>
+      </segment>
+    </unit>
+    <unit id="m9UhkBU" name="Toxin aktivieren">
+      <notes>
+        <note category="german">Toxin aktivieren</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Toxin aktivieren</source>
+        <target>Activer la toxine</target>
+      </segment>
+    </unit>
+    <unit id="o1TozmB">
+      <notes>
+        <note category="german">Ist diese Option aktiviert, haben frisch in Ghule verwandelte Bürger bereits Hunger.</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Ist diese Option aktiviert, haben frisch in Ghule verwandelte Bürger bereits Hunger.</source>
+        <target>Ist diese Option aktiviert, haben frisch in Ghule verwandelte Bürger bereits Hunger.</target>
+      </segment>
+    </unit>
+    <unit id="v7CDf.f" name="Hungrige Ghule">
+      <notes>
+        <note category="german">Hungrige Ghule</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Hungrige Ghule</source>
+        <target>Hungrige Ghule</target>
       </segment>
     </unit>
   </file>

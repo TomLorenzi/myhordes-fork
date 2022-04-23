@@ -4,6 +4,13 @@ namespace App\Entity;
 
 use App\Interfaces\RandomEntry;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\Table;
+use Doctrine\ORM\Mapping\UniqueConstraint;
+
+// TODO: Add next update
+//* @Table(uniqueConstraints={
+// *     @UniqueConstraint(name="item_group_entry_assoc_unique",columns={"prototype_id","item_group_id"})
+// * })
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ItemGroupEntryRepository")

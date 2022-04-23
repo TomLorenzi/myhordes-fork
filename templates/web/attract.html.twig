@@ -36,10 +36,10 @@
         <title>MyHordes</title>
     {% endblock %}
 </head>
-<body onclick class="offline_body">
+<body onclick class="offline_body page-attract">
 <div id="wrapper" class="attract">
     <div id="header">
-        <div class="deco_logo"></div>
+        <div class="deco_logo pointer"></div>
         <div class="attract_button">
             <a href="{{ url('public_login') }}" target="_self"><span>{{ 'Spielen!'|trans({},'welcome') }}</span></a>
         </div>
@@ -139,6 +139,9 @@
 </footer>
 <script>
     (function() {
+        document.querySelector('.deco_logo').addEventListener('click', () => {
+            window.location.href = $.ajax.getBaseURL();
+        })
         document.querySelector('.back-dash').addEventListener('click', () => {
             $.ajax.load(null, '{{ path('public_welcome') }}', true);
         })

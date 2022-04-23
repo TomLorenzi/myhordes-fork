@@ -219,7 +219,7 @@
     <unit id="pySO60X" name="Normal">
       <notes>
         <note category="german">Normal</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
@@ -460,7 +460,7 @@
     <unit id="dhtPmmZ" name="Exploration:">
       <notes>
         <note category="german">Exploration:</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
@@ -541,7 +541,7 @@
     <unit id="Ip2o27i" name="Camping:">
       <notes>
         <note category="german">Camping:</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
@@ -772,7 +772,7 @@
     <unit id="rWF6D91" name="Job">
       <notes>
         <note category="german">Job</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
@@ -1179,18 +1179,18 @@
     <unit id="fz803_w" name="Raben-Optionen">
       <notes>
         <note category="german">Raben-Optionen</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Raben-Optionen</source>
-        <target>Raben-Optionen</target>
+        <target>Crow options</target>
       </segment>
     </unit>
     <unit id="jRT25y3" name="Events">
       <notes>
         <note category="german">Events</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
@@ -1766,6 +1766,66 @@
       <segment>
         <source>Zur Partieauswahl zurückkehren</source>
         <target>Return to game selection</target>
+      </segment>
+    </unit>
+    <unit id="CJDUJAE" name="Beide Schamanen-Modi sind gleichzeitig aktiviert (experimentell!).">
+      <notes>
+        <note category="german">Beide Schamanen-Modi sind gleichzeitig aktiviert (experimentell!).</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+      </notes>
+      <segment>
+        <source>Beide Schamanen-Modi sind gleichzeitig aktiviert (experimentell!).</source>
+        <target>Both shaman modes are enabled at the same time (experimental!).</target>
+      </segment>
+    </unit>
+    <unit id="RcOw7GN" name="Kombiniert">
+      <notes>
+        <note category="german">Kombiniert</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+      </notes>
+      <segment>
+        <source>Kombiniert</source>
+        <target>Combined</target>
+      </segment>
+    </unit>
+    <unit id="NZdQf3X">
+      <notes>
+        <note category="german">Ermöglicht es, in begehbaren Ruinen den Gegenstand "Blutdurchtränkter Verband" zu finden, aus dem Toxin hergestellt werden kann.</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+      </notes>
+      <segment>
+        <source>Ermöglicht es, in begehbaren Ruinen den Gegenstand "Blutdurchtränkter Verband" zu finden, aus dem Toxin hergestellt werden kann.</source>
+        <target>Enables players to find the item "Bloody Dressing" within explorable ruins, which can be used to create toxin.</target>
+      </segment>
+    </unit>
+    <unit id="m9UhkBU" name="Toxin aktivieren">
+      <notes>
+        <note category="german">Toxin aktivieren</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+      </notes>
+      <segment>
+        <source>Toxin aktivieren</source>
+        <target>Enable toxin</target>
+      </segment>
+    </unit>
+    <unit id="o1TozmB">
+      <notes>
+        <note category="german">Ist diese Option aktiviert, haben frisch in Ghule verwandelte Bürger bereits Hunger.</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+      </notes>
+      <segment>
+        <source>Ist diese Option aktiviert, haben frisch in Ghule verwandelte Bürger bereits Hunger.</source>
+        <target>When enables, newly transformed ghouls start with a bit of hunger...</target>
+      </segment>
+    </unit>
+    <unit id="v7CDf.f" name="Hungrige Ghule">
+      <notes>
+        <note category="german">Hungrige Ghule</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+      </notes>
+      <segment>
+        <source>Hungrige Ghule</source>
+        <target>Hungry Ghouls</target>
       </segment>
     </unit>
   </file>

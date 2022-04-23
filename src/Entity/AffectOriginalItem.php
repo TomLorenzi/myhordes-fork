@@ -2,7 +2,9 @@
 
 namespace App\Entity;
 
+use App\Enum\ItemPoisonType;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\Table;
 use Doctrine\ORM\Mapping\UniqueConstraint;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -44,9 +46,9 @@ class AffectOriginalItem
     private $break;
 
     /**
-     * @ORM\Column(type="boolean", nullable=true)
+     * @ORM\Column(type="integer", nullable=true, enumType=ItemPoisonType::class)
      */
-    private $poison;
+    private ?ItemPoisonType $poison = null;
 
     public function getId(): ?int
     {
@@ -101,12 +103,12 @@ class AffectOriginalItem
         return $this;
     }
 
-    public function getPoison(): ?bool
+    public function getPoison(): ?ItemPoisonType
     {
         return $this->poison;
     }
 
-    public function setPoison(?bool $poison): self
+    public function setPoison(?ItemPoisonType $poison): self
     {
         $this->poison = $poison;
 

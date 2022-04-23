@@ -285,11 +285,11 @@
       <notes>
         <note category="german">Ach komm schon!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
       </notes>
       <segment>
         <source>Ach komm schon!</source>
-        <target>Ach komm schon!</target>
+        <target>Allez !</target>
       </segment>
     </unit>
     <unit id="2Gp8p57" name="Wir könnten ja auch warten, bis sich jemand anderes freiwillig meldet...">
@@ -416,11 +416,11 @@
       <notes>
         <note category="german">Also, ich fange an zu glauben, dass es mir eigentlich egal ist...</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
       </notes>
       <segment>
         <source>Also, ich fange an zu glauben, dass es mir eigentlich egal ist...</source>
-        <target>Also, ich fange an zu glauben, dass es mir eigentlich egal ist...</target>
+        <target>Donc, je commence à croire que je ne m’en soucie pas vraiment...</target>
       </segment>
     </unit>
     <unit id="U1L7Trk" name="Ja, aber es ist entweder er oder jemand anderes.">
@@ -467,11 +467,11 @@
       <notes>
         <note category="german">Ach, jetzt bist du einfach nur gemein. Meinst du nicht, dass er es schon schwer genug hat, wenn er so behindert ist und so?!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
       </notes>
       <segment>
         <source>Ach, jetzt bist du einfach nur gemein. Meinst du nicht, dass er es schon schwer genug hat, wenn er so behindert ist und so?!</source>
-        <target>Ach, jetzt bist du einfach nur gemein. Meinst du nicht, dass er es schon schwer genug hat, wenn er so behindert ist und so?!</target>
+        <target>Oh, maintenant vous êtes juste méchants. Ne pensez-vous pas qu’il a déjà assez de difficultés en étant handicapé et tout le reste ?!</target>
       </segment>
     </unit>
     <unit id="bsyvhN_" name="Also meiner Meinung nach passt das gut zu ihm.">
@@ -968,11 +968,11 @@
       <notes>
         <note category="german">Er ist eigentlich genau wie du, nur interessanter.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
       </notes>
       <segment>
         <source>Er ist eigentlich genau wie du, nur interessanter.</source>
-        <target>Er ist eigentlich genau wie du, nur interessanter.</target>
+        <target>Il est en fait comme vous, seulement plus intéressant.</target>
       </segment>
     </unit>
     <unit id="F4aGZOU" name="Er ist eigentlich genau wie du, nur nützlicher.">
@@ -1159,11 +1159,11 @@
       <notes>
         <note category="german">Mann, ich wollte die Vorstellung übernehmen!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
       </notes>
       <segment>
         <source>Mann, ich wollte die Vorstellung übernehmen!</source>
-        <target>Mann, ich wollte die Vorstellung übernehmen!</target>
+        <target>Mec, je voulais reprendre l’idée !</target>
       </segment>
     </unit>
     <unit id="01.aYA6" name="Leck mich doch!">
@@ -1180,11 +1180,11 @@
       <notes>
         <note category="german">Gepriesen sei der Schamane!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
       </notes>
       <segment>
         <source>Gepriesen sei der Schamane!</source>
-        <target>Gepriesen sei der Schamane!</target>
+        <target>Gloire au chaman !</target>
       </segment>
     </unit>
     <unit id="Um.KsRt" name="Was ist ein Schaaaar Maaane?">
@@ -1241,11 +1241,11 @@
       <notes>
         <note category="german">Unser Reiseleiter hat sich gestern Abend irgendwie verlaufen und kommt nicht mehr zurück! Wer möchte ihn also ersetzen?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
       </notes>
       <segment>
         <source>Unser Reiseleiter hat sich gestern Abend irgendwie verlaufen und kommt nicht mehr zurück! Wer möchte ihn also ersetzen?</source>
-        <target>Unser Reiseleiter hat sich gestern Abend irgendwie verlaufen und kommt nicht mehr zurück! Wer möchte ihn also ersetzen?</target>
+        <target>Notre guide s’est perdu hier soir et ne reviendra pas ! Alors, qui veut le remplacer ?</target>
       </segment>
     </unit>
     <unit id="6lJCfgu" name="Wir brauchen einen guten Reiseleiter. Eine gute Reiseleitung ist wichtig.">
@@ -1292,22 +1292,22 @@
       <notes>
         <note category="german">Es sind die Individuen, die uns mit Sicherheit in den sicheren Tod führen...</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
       </notes>
       <segment>
         <source>Es sind die Individuen, die uns mit Sicherheit in den sicheren Tod führen...</source>
-        <target>Es sind die Individuen, die uns mit Sicherheit in den sicheren Tod führen...</target>
+        <target>Ce sont les individus qui ne manqueront pas de nous conduire à une mort certaine...</target>
       </segment>
     </unit>
     <unit id="ymQHvdr" name="Die sind wie du? Nur hübscher?">
       <notes>
         <note category="german">Die sind wie du? Nur hübscher?</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
       </notes>
       <segment>
         <source>Die sind wie du? Nur hübscher?</source>
-        <target>Die sind wie du? Nur hübscher?</target>
+        <target>Ils sont comme vous ? Juste en plus joli ?</target>
       </segment>
     </unit>
     <unit id="rzhwH8H" name="Sie sind wie dieser Hexendoktor, nur nützlicher!">
@@ -1414,11 +1414,11 @@
       <notes>
         <note category="german">Ich hoffe, er hält wenigstens ein paar Tage durch... Ich will nicht jeden verdammten Tag abstimmen müssen!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
       </notes>
       <segment>
         <source>Ich hoffe, er hält wenigstens ein paar Tage durch... Ich will nicht jeden verdammten Tag abstimmen müssen!</source>
-        <target>Ich hoffe, er hält wenigstens ein paar Tage durch... Ich will nicht jeden verdammten Tag abstimmen müssen!</target>
+        <target>J’espère qu’il durera au moins quelques jours... Je ne veux pas avoir à voter tous les jours !</target>
       </segment>
     </unit>
     <unit id="n6d.MSX" name="Weis der überhaupt, wie man aus der Stadt kommt?">
@@ -1435,22 +1435,22 @@
       <notes>
         <note category="german">Und er dachte, er wäre vorher gut gewesen...</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
       </notes>
       <segment>
         <source>Und er dachte, er wäre vorher gut gewesen...</source>
-        <target>Und er dachte, er wäre vorher gut gewesen...</target>
+        <target>Et il pensait qu’il avait été bon avant...</target>
       </segment>
     </unit>
     <unit id="hi.rvw0">
       <notes>
         <note category="german">Jetzt sind wir zwar immer noch auf dem sprichwörtlichen Holzweg, aber wir haben zumindest einen Reiseleiter!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
       </notes>
       <segment>
         <source>Jetzt sind wir zwar immer noch auf dem sprichwörtlichen Holzweg, aber wir haben zumindest einen Reiseleiter!</source>
-        <target>Jetzt sind wir zwar immer noch auf dem sprichwörtlichen Holzweg, aber wir haben zumindest einen Reiseleiter!</target>
+        <target>Maintenant, nous sommes toujours sur la mauvaise voie proverbiale, mais nous avons au moins un guide !</target>
       </segment>
     </unit>
     <unit id="m4YskUq" name="Hurra für den Reiseleiter!">
@@ -1470,7 +1470,7 @@
       </notes>
       <segment>
         <source>Er hat schon vorher geprahlt.</source>
-        <target>Déjà qu'il se la racontait avant..</target>
+        <target>Déjà qu'il se la racontait avant...</target>
       </segment>
     </unit>
     <unit id="FERl5T6" name="Wir sind sowas von im Ar...">
@@ -1495,13 +1495,13 @@
     </unit>
     <unit id="AraAi_U" name="Klar Einstein, Kopf oder Zahl zm eine Persion aus {_voted} auszuwählen.">
       <notes>
-        <note category="german">Klar Einstein, Kopf oder Zahl zm eine Persion aus {_voted} auszuwählen.</note>
+        <note category="german">Klar Einstein, Kopf oder Zahl um eine Persion aus {_voted} auszuwählen.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
       </notes>
       <segment>
         <source>Klar Einstein, Kopf oder Zahl zm eine Persion aus {_voted} auszuwählen.</source>
-        <target>Klar Einstein, Kopf oder Zahl zm eine Persion aus {_voted} auszuwählen.</target>
+        <target>Clairement Einstein, tête ou nombre pour sélectionner une personne dans {_voted}.</target>
       </segment>
     </unit>
     <unit id="bz7XUkS">
@@ -1528,55 +1528,55 @@
       <notes>
         <note category="german">Niemand ist mehr in der Stadt, keiner kann diese Versammlung halten, daher überspringen wir die Wahl zum Schamanen.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
       </notes>
       <segment>
         <source>Niemand ist mehr in der Stadt, keiner kann diese Versammlung halten, daher überspringen wir die Wahl zum Schamanen.</source>
-        <target>Niemand ist mehr in der Stadt, keiner kann diese Versammlung halten, daher überspringen wir die Wahl zum Schamanen.</target>
+        <target>Il n'y a plus personne en ville, personne ne peut tenir cette réunion, alors nous sautons l’élection du chaman.</target>
       </segment>
     </unit>
     <unit id="7IXrDK6">
       <notes>
         <note category="german">Niemand ist mehr in der Stadt, keiner kann diese Versammlung halten, daher überspringen wir die Wahl zum Reiseleiter in der Außenwelt.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
       </notes>
       <segment>
         <source>Niemand ist mehr in der Stadt, keiner kann diese Versammlung halten, daher überspringen wir die Wahl zum Reiseleiter in der Außenwelt.</source>
-        <target>Niemand ist mehr in der Stadt, keiner kann diese Versammlung halten, daher überspringen wir die Wahl zum Reiseleiter in der Außenwelt.</target>
+        <target>Il n'y a plus personne en ville, personne ne peut tenir cette réunion, alors nous sautons l’élection du guide.</target>
       </segment>
     </unit>
     <unit id="kSlgIIW" name="Allen steht die Erschöpfung ins Gesicht geschrieben.">
       <notes>
         <note category="german">Allen steht die Erschöpfung ins Gesicht geschrieben.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
       </notes>
       <segment>
         <source>Allen steht die Erschöpfung ins Gesicht geschrieben.</source>
-        <target>Allen steht die Erschöpfung ins Gesicht geschrieben.</target>
+        <target>L’épuisement est écrit sur les visages de tout le monde.</target>
       </segment>
     </unit>
     <unit id="OTSv8r.">
       <notes>
         <note category="german">Wir ziehen Strohhalme, wie wir es immer machen. Der Kürzeste gewinnt. Kommt schon, kommt und zieht einen Stohhalm.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
       </notes>
       <segment>
         <source>Wir ziehen Strohhalme, wie wir es immer machen. Der Kürzeste gewinnt. Kommt schon, kommt und zieht einen Stohhalm.</source>
-        <target>Wir ziehen Strohhalme, wie wir es immer machen. Der Kürzeste gewinnt. Kommt schon, kommt und zieht einen Stohhalm.</target>
+        <target>Nous tirons à la courte paille, comme nous le faisons toujours. Le plus court gagne. Venez, venez et tirez une paille.</target>
       </segment>
     </unit>
     <unit id="0LsI1XY">
       <notes>
         <note category="german">OK, es sind nicht mehr viele von uns übrig, also lasst uns das schnell hinter uns bringen.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
       </notes>
       <segment>
         <source>OK, es sind nicht mehr viele von uns übrig, also lasst uns das schnell hinter uns bringen.</source>
-        <target>OK, es sind nicht mehr viele von uns übrig, also lasst uns das schnell hinter uns bringen.</target>
+        <target>OK, il n’y a plus beaucoup d’entre nous, alors passons à autre chose rapidement.</target>
       </segment>
     </unit>
     <unit id="0fqtP6p">

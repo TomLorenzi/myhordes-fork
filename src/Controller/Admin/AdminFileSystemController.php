@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Annotations\AdminLogProfile;
 use App\Annotations\GateKeeperProfile;
 use App\Controller\CustomAbstractController;
 use App\Response\AjaxResponse;
@@ -133,6 +134,7 @@ class AdminFileSystemController extends AdminActionController
 
     /**
      * @Route("admin/fs/log/fetch/{a}/{f}", name="admin_log", condition="!request.isXmlHttpRequest()")
+     * @AdminLogProfile(enabled=true)
      * @param ParameterBagInterface $params
      * @param string $a
      * @param string $f
@@ -165,6 +167,7 @@ class AdminFileSystemController extends AdminActionController
 
     /**
      * @Route("admin/fs/backup/fetch/{f}", name="admin_backup", condition="!request.isXmlHttpRequest()")
+     * @AdminLogProfile(enabled=true)
      * @param ParameterBagInterface $params
      * @param string $f
      * @return Response
@@ -180,13 +183,14 @@ class AdminFileSystemController extends AdminActionController
         $path = new SplFileInfo($f);
         if (!$path->isFile() || !in_array(strtolower($path->getExtension()), ['sql','xz','gzip','bz2']) || !str_starts_with( $path->getRealPath(), $spl_core_path->getRealPath() )) return new Response('', 404);
 
-        $this->logger->info("Admin <info>{$this->getUser()->getName()}</info> downloaded backup <debug>{$f}</debug>");
+        $this->logger->invoke("Admin <info>{$this->getUser()->getName()}</info> downloaded backup <debug>{$f}</debug>");
 
         return $this->file($path->getRealPath(), $path->getFilename(), ResponseHeaderBag::DISPOSITION_ATTACHMENT);
     }
 
     /**
      * @Route("api/admin/fs/log/delete/{f}", name="api_admin_clear_log")
+     * @AdminLogProfile(enabled=true)
      * @param ParameterBagInterface $params
      * @param string $f
      * @return Response
@@ -203,13 +207,14 @@ class AdminFileSystemController extends AdminActionController
         if ($path->isFile() && strtolower($path->getExtension()) !== 'log' && str_starts_with( $path->getRealPath(), $spl_core_path->getRealPath() ))
             unlink($path->getRealPath());
 
-        $this->logger->info("Admin <info>{$this->getUser()->getName()}</info> deleted log <debug>{$f}</debug>");
+        $this->logger->invoke("Admin <info>{$this->getUser()->getName()}</info> deleted log <debug>{$f}</debug>");
 
         return AjaxResponse::success();
     }
 
     /**
      * @Route("api/admin/fs/backup/delete/{f}", name="api_admin_clear_backup")
+     * @AdminLogProfile(enabled=true)
      * @param ParameterBagInterface $params
      * @param string $f
      * @return Response
@@ -226,7 +231,7 @@ class AdminFileSystemController extends AdminActionController
         if ($path->isFile() && in_array(strtolower($path->getExtension()), ['sql','xz','gzip','bz2']) && str_starts_with( $path->getRealPath(), $spl_core_path->getRealPath() ))
             unlink($path->getRealPath());
 
-        $this->logger->info("Admin <info>{$this->getUser()->getName()}</info> deleted backup <debug>{$f}</debug>");
+        $this->logger->invoke("Admin <info>{$this->getUser()->getName()}</info> deleted backup <debug>{$f}</debug>");
 
         return AjaxResponse::success();
     }

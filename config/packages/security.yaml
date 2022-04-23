@@ -16,7 +16,7 @@ security:
             lazy: true
             logout:
                 path: auto_logout
-                target: initial_landing
+                target: /
 
             custom_authenticators:
               - App\Security\AjaxAuthenticator

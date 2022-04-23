@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Annotations\AdminLogProfile;
 use App\Annotations\GateKeeperProfile;
 use App\Entity\AccountRestriction;
 use App\Entity\Award;
@@ -20,6 +21,7 @@ use App\Entity\Picto;
 use App\Entity\PictoPrototype;
 use App\Entity\Season;
 use App\Entity\SocialRelation;
+use App\Entity\SoulResetMarker;
 use App\Entity\Town;
 use App\Entity\TwinoidImport;
 use App\Entity\TwinoidImportPreview;
@@ -232,7 +234,7 @@ class AdminUserController extends AdminActionController
             'user' => $user,
             'user_desc' => $desc ? $html->prepareEmotes($desc->getText(), $this->getUser()) : null,
             'validations' => $validations,
-
+            'count_reset' => $this->entity_manager->getRepository(SoulResetMarker::class)->count(['user' => $user]),
             'ref' => $this->entity_manager->getRepository(UserReferLink::class)->findOneBy(['user' => $user]),
             'spon'          => $this->entity_manager->getRepository(UserSponsorship::class)->findOneBy(['user' => $user]),
             'spon_active'   => array_filter( $all_sponsored, fn(UserSponsorship $s) => !$this->user_handler->hasRole($s->getUser(), 'ROLE_DUMMY') &&  $s->getUser()->getValidated() ),
@@ -242,6 +244,7 @@ class AdminUserController extends AdminActionController
 
     /**
      * @Route("api/admin/users/{id}/account/do/{action}/{param}", name="admin_users_account_manage", requirements={"id"="\d+"})
+     * @AdminLogProfile(enabled=true)
      * @param int $id
      * @param string $action
      * @param JSONRequestParser $parser
@@ -269,7 +272,7 @@ class AdminUserController extends AdminActionController
         if (in_array($action, [
             'delete_token', 'invalidate', 'validate', 'twin_full_reset', 'twin_main_reset', 'twin_main_full_import', 'delete', 'rename',
             'shadow', 'whitelist', 'unwhitelist', 'etwin_reset', 'overwrite_pw', 'initiate_pw_reset',
-            'enforce_pw_reset', 'change_mail', 'ref_rename', 'ref_disable', 'ref_enable', 'set_sponsor'
+            'enforce_pw_reset', 'change_mail', 'ref_rename', 'ref_disable', 'ref_enable', 'set_sponsor', 'mh_unreset'
         ]) && !$this->isGranted('ROLE_ADMIN'))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
@@ -478,6 +481,22 @@ class AdminUserController extends AdminActionController
                     $n = $crow->createPM_moderation( $other_user, CrowService::ModerationActionDomainAccount, CrowService::ModerationActionTargetGameBan, CrowService::ModerationActionImpose, -1, $reason );
                     if ($n) $this->entity_manager->persist($n);
                 }
+
+                break;
+
+            case 'mh_unreset':
+
+                foreach ($this->entity_manager->getRepository(SoulResetMarker::class)->findBy(['user' => $user]) as $marker) {
+                    $marker->getRanking()->setDisabled(false);
+                    foreach ($this->entity_manager->getRepository(Picto::class)->findBy(['townEntry' => $marker->getRanking()->getTown(), 'user' => $user]) as $picto)
+                        $this->entity_manager->persist( $picto->setDisabled(false) );
+                    $this->entity_manager->persist($marker->getRanking());
+                    $marker->getRanking()->setResetMarker(null);
+                    $this->entity_manager->remove($marker);
+                }
+
+                $this->entity_manager->flush();
+                $this->entity_manager->persist($user->setSoulPoints( $this->user_handler->fetchSoulPoints( $user, false ) ));
 
                 break;
 
@@ -705,15 +724,22 @@ class AdminUserController extends AdminActionController
         }
 
         $a->setConfirmed(true)->setExpires( $a->getOriginalDuration() < 0 ? null : (new \DateTime())->setTimestamp( time() + $a->getOriginalDuration() ) );
-        if ($a->getRestriction() & AccountRestriction::RestrictionSocial)
+        if ($a->getRestriction() === AccountRestriction::RestrictionGameplay)
+            $this->entity_manager->persist($this->crow_service->createPM_moderation( $a->getUser(), CrowService::ModerationActionDomainAccount, CrowService::ModerationActionTargetGameBan, CrowService::ModerationActionImpose, $a->getOriginalDuration() < 0 ? null : $a->getOriginalDuration(), $a->getPublicReason() ));
+        elseif ($a->getRestriction() === AccountRestriction::RestrictionForum)
             $this->entity_manager->persist($this->crow_service->createPM_moderation( $a->getUser(), CrowService::ModerationActionDomainAccount, CrowService::ModerationActionTargetForumBan, CrowService::ModerationActionImpose, $a->getOriginalDuration() < 0 ? null : $a->getOriginalDuration(), $a->getPublicReason() ));
-        if ($a->getRestriction() & AccountRestriction::RestrictionGameplay)
-            $this->entity_manager->persist($this->crow_service->createPM_moderation( $a->getUser(), CrowService::ModerationActionDomainAccount, CrowService::ModerationActionTargetGameBan, CrowService::ModerationActionRevoke, -1, $a->getPublicReason() ));
+        else
+            $this->entity_manager->persist($this->crow_service->createPM_moderation( $a->getUser(), CrowService::ModerationActionDomainAccount, CrowService::ModerationActionTargetAnyBan, CrowService::ModerationActionImpose, [
+                'mask' => $a->getRestriction(),
+                'duration' => $a->getOriginalDuration() < 0 ? null : $a->getOriginalDuration(),
+                'old_duration' => 0,
+            ], $a->getPublicReason() ));
         return true;
     }
 
     /**
      * @Route("api/admin/users/{uid}/ban/{bid}/confirm", name="admin_users_ban_confirm", requirements={"uid"="\d+","bid"="\d+"})
+     * @AdminLogProfile(enabled=true)
      * @param int $uid
      * @param int $bid
      * @return Response
@@ -742,6 +768,7 @@ class AdminUserController extends AdminActionController
 
     /**
      * @Route("api/admin/users/{uid}/ban/{bid}/disable", name="admin_users_ban_disable", requirements={"uid"="\d+","bid"="\d+"})
+     * @AdminLogProfile(enabled=true)
      * @param int $uid
      * @param int $bid
      * @return Response
@@ -765,6 +792,67 @@ class AdminUserController extends AdminActionController
         $a->setActive(false)->setInternalReason($a->getInternalReason() . " ~ [DISABLED BY {$this->getUser()->getName()}]");
         $this->entity_manager->persist($a);
 
+        if ($a->getRestriction() === AccountRestriction::RestrictionGameplay)
+            $this->entity_manager->persist($this->crow_service->createPM_moderation( $a->getUser(), CrowService::ModerationActionDomainAccount, CrowService::ModerationActionTargetGameBan, CrowService::ModerationActionRevoke, 0, '' ));
+        elseif ($a->getRestriction() === AccountRestriction::RestrictionForum)
+            $this->entity_manager->persist($this->crow_service->createPM_moderation( $a->getUser(), CrowService::ModerationActionDomainAccount, CrowService::ModerationActionTargetForumBan, CrowService::ModerationActionRevoke, 0, '' ));
+        else
+            $this->entity_manager->persist($this->crow_service->createPM_moderation( $a->getUser(), CrowService::ModerationActionDomainAccount, CrowService::ModerationActionTargetAnyBan, CrowService::ModerationActionRevoke, [
+                'mask' => $a->getRestriction(),
+                'duration' => 0,
+                'old_duration' => $a->getOriginalDuration() < 0 ? null : $a->getOriginalDuration(),
+            ], $a->getPublicReason() ));
+
+        try {
+            $this->entity_manager->flush();
+        } catch (\Exception $e) {
+            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+        }
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/admin/users/{uid}/ban/{bid}/modify", name="admin_users_ban_modify", requirements={"uid"="\d+","bid"="\d+"})
+     * @AdminLogProfile(enabled=true)
+     * @param int $uid
+     * @param int $bid
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function users_modify_ban(int $uid, int $bid, JSONRequestParser $parser): Response
+    {
+        $a = $this->entity_manager->getRepository(AccountRestriction::class)->find($bid);
+        if ($a === null || $a->getUser()->getId() !== $uid) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        if (!$parser->has('duration', true)) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        if (!$this->user_handler->hasRole( $this->getUser(), 'ROLE_ADMIN' )) return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+
+        if (!$a->getActive() || $a->getExpires() && $a->getExpires() < new \DateTime()) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $is_super_confirmed = false;
+        foreach ($a->getConfirmedBy() as $confirmer)
+            if ($this->user_handler->hasRole($confirmer, 'ROLE_SUPER')) $is_super_confirmed = true;
+
+        if ($is_super_confirmed && !$this->user_handler->hasRole( $this->getUser(), 'ROLE_SUPER' )) return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+
+        $old_duration = $a->getOriginalDuration();
+        $a->setOriginalDuration( $parser->get_int('duration') );
+
+        if ($old_duration >= 0) $a->setExpires( $a->getOriginalDuration() < 0 ? null : (new \DateTime())->setTimestamp( $a->getExpires()->getTimestamp() - $old_duration + $a->getOriginalDuration() ) );
+        else $a->setExpires( (new \DateTime())->setTimestamp( $a->getCreated()->getTimestamp() + $a->getOriginalDuration() ) );
+        $this->entity_manager->persist($a);
+
+        if ($a->getRestriction() === AccountRestriction::RestrictionGameplay)
+            $this->entity_manager->persist($this->crow_service->createPM_moderation( $a->getUser(), CrowService::ModerationActionDomainAccount, CrowService::ModerationActionTargetGameBan, CrowService::ModerationActionEdit, 0, '' ));
+        elseif ($a->getRestriction() === AccountRestriction::RestrictionForum)
+            $this->entity_manager->persist($this->crow_service->createPM_moderation( $a->getUser(), CrowService::ModerationActionDomainAccount, CrowService::ModerationActionTargetForumBan, CrowService::ModerationActionEdit, 0, '' ));
+        else
+            $this->entity_manager->persist($this->crow_service->createPM_moderation( $a->getUser(), CrowService::ModerationActionDomainAccount, CrowService::ModerationActionTargetAnyBan, CrowService::ModerationActionEdit, [
+                'mask' => $a->getRestriction(),
+                'duration' => $a->getOriginalDuration() < 0 ? null : $a->getOriginalDuration(),
+                'old_duration' => $old_duration,
+            ], $a->getPublicReason() ));
+
         try {
             $this->entity_manager->flush();
         } catch (\Exception $e) {
@@ -776,6 +864,7 @@ class AdminUserController extends AdminActionController
 
     /**
      * @Route("api/admin/users/{id}/ban", name="admin_users_ban", requirements={"id"="\d+"})
+     * @AdminLogProfile(enabled=true)
      * @param int $id
      * @param JSONRequestParser $parser
      * @return Response
@@ -828,6 +917,7 @@ class AdminUserController extends AdminActionController
 
     /**
      * @Route("api/admin/users/{id}/ban/lift", name="admin_users_ban_lift", requirements={"id"="\d+"})
+     * @AdminLogProfile(enabled=true)
      * @return Response
      */
     public function users_ban_lift(int $id, AdminActionHandler $admh): Response
@@ -836,25 +926,6 @@ class AdminUserController extends AdminActionController
             return AjaxResponse::success();
 
         return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
-    }
-
-    /**
-     * @Route("api/admin/users/find", name="admin_users_find")
-     * @param JSONRequestParser $parser
-     * @param EntityManagerInterface $em
-     * @return Response
-     */
-    public function users_find(JSONRequestParser $parser, EntityManagerInterface $em): Response
-    {
-        if (!$parser->has_all(['name'], true))
-            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-        $searchName = $parser->get('name');
-        $user = $em->getRepository(User::class)->findOneBy(array('name' => $searchName));
-        
-        if (isset($user))
-            return AjaxResponse::success( true, ['url' => $this->generateUrl('admin_users_ban_view', ['id' => $user->getId()])] );
-
-        return AjaxResponse::error(ErrorHelper::ErrorInternalError);
     }
 
     /**
@@ -979,6 +1050,7 @@ class AdminUserController extends AdminActionController
     }
     /**
      * @Route("api/admin/users/{id}/citizen/headshot", name="admin_users_citizen_headshot", requirements={"id"="\d+"})
+     * @AdminLogProfile(enabled=true)
      * @param int $id
      * @param AdminActionHandler $admh
      * @return Response
@@ -993,6 +1065,7 @@ class AdminUserController extends AdminActionController
 
     /**
      * @Route("api/admin/users/{id}/citizen/engagement/{cid}", name="admin_users_citizen_engage", requirements={"id"="\d+","cid"="\d+"})
+     * @AdminLogProfile(enabled=true)
      * @param int $id
      * @param int $cid
      * @return Response
@@ -1018,6 +1091,7 @@ class AdminUserController extends AdminActionController
 
     /**
      * @Route("api/admin/users/{id}/citizen/confirm_death", name="admin_users_citizen_confirm_death", requirements={"id"="\d+"})
+     * @AdminLogProfile(enabled=true)
      * @return Response
      */
     public function users_citizen_confirm_death(int $id, AdminActionHandler $admh): Response
@@ -1065,6 +1139,7 @@ class AdminUserController extends AdminActionController
 
     /**
      * @Route("api/admin/users/{id}/picto/give", name="admin_user_give_picto", requirements={"id"="\d+"})
+     * @AdminLogProfile(enabled=true)
      * @Security("is_granted('ROLE_CROW')")
      * @param int $id User ID
      * @param JSONRequestParser $parser The Request Parser
@@ -1117,6 +1192,7 @@ class AdminUserController extends AdminActionController
 
     /**
      * @Route("api/admin/users/{id}/unique_award/manage", name="admin_user_manage_unique_award", requirements={"id"="\d+"})
+     * @AdminLogProfile(enabled=true)
      * @Security("is_granted('ROLE_ADMIN')")
      * @param int $id User ID
      * @param JSONRequestParser $parser The Request Parser
@@ -1193,6 +1269,7 @@ class AdminUserController extends AdminActionController
 
     /**
      * @Route("api/admin/users/{id}/comments/{cid}", name="admin_user_edit_comment", requirements={"id"="\d+","cid"="\d+"})
+     * @AdminLogProfile(enabled=true)
      * @Security("is_granted('ROLE_ADMIN')")
      * @param int $id User ID
      * @param int $cid
@@ -1225,6 +1302,7 @@ class AdminUserController extends AdminActionController
 
     /**
      * @Route("api/admin/users/{id}/feature/give", name="admin_user_give_feature", requirements={"id"="\d+"})
+     * @AdminLogProfile(enabled=true)
      * @Security("is_granted('ROLE_ADMIN')")
      * @param int $id User ID
      * @param JSONRequestParser $parser The Request Parser

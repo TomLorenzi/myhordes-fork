@@ -184,16 +184,16 @@ class ZoneHandler
                 if ($timer->getTimestamp() < $up_to) {
 
                     $factor = 1.0;
-                    if ($timer->getCitizen()->getProfession()->getName() === 'collec') $factor += 0.3;
-                    if ($this->citizen_handler->hasStatusEffect( $timer->getCitizen(), 'camper' )) $factor += 0.1;
-                    if ($this->citizen_handler->hasStatusEffect( $timer->getCitizen(), 'wound5' )) $factor -= 0.3; // Totally arbitrary
-                    if ($this->citizen_handler->hasStatusEffect( $timer->getCitizen(), 'drunk'  )) $factor -= 0.3; // Totally arbitrary
+                    if ($timer->getCitizen()->getProfession()->getName() === 'collec') $factor += 0.2; // based on 769 search made as scavenger
+                    if ($this->citizen_handler->hasStatusEffect( $timer->getCitizen(), 'camper' )) $factor += 0.1; // if we use gathered stats, this value should be around 0.15
+                    if ($this->citizen_handler->hasStatusEffect( $timer->getCitizen(), 'wound5' )) $factor -= 0.5; // based on 30 searchs made with eye injury
+                    if ($this->citizen_handler->hasStatusEffect( $timer->getCitizen(), 'drunk'  )) $factor -= 0.2; // based on 51 search made while being drunk
                     // if ($conf->isNightMode($timer->getTimestamp()) && $this->inventory_handler->countSpecificItems($zone->getFloor(), 'prevent_night', true) == 0) $factor -= 0.2;
 
                     if ($conf->isNightMode($timer->getTimestamp())) {
 
                         // If there are items that prevent night mode present, the night malus is set to 0
-                        $night_mode_malue = ($this->inventory_handler->countSpecificItems($zone->getFloor(), 'prevent_night', true) == 0) ? 0.2 : 0.0;
+                        $night_mode_malue = ($this->inventory_handler->countSpecificItems($zone->getFloor(), 'prevent_night', true) == 0) ? 0.25 : 0.0; // based on 733 searchs made during night
 
                         if ($timer->getCitizen()->hasStatus('tg_novlamps')) {
                             // Night mode is active, but so are the Novelty Lamps; we must check if they apply
@@ -266,13 +266,13 @@ class ZoneHandler
                         $item_prototype = null;
                         break;
                     case 0:
-                        $item_prototype = $this->random_generator->pickItemPrototypeFromGroup( $empty_group );
+                        $item_prototype = $this->random_generator->pickItemPrototypeFromGroup( $empty_group, $conf );
                         break;
                     case 1:
-                        $item_prototype = $this->random_generator->pickItemPrototypeFromGroup( $base_group );
+                        $item_prototype = $this->random_generator->pickItemPrototypeFromGroup( $base_group, $conf );
                         break;
                     case 2:
-                        $item_prototype = $this->random_generator->pickItemPrototypeFromGroup( $event_group ?? $base_group );
+                        $item_prototype = $this->random_generator->pickItemPrototypeFromGroup( $event_group ?? $base_group, $conf );
                         break;
                     default:
                         $item_prototype = null;

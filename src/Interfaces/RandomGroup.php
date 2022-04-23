@@ -7,7 +7,7 @@ use Doctrine\Common\Collections\Collection;
 interface RandomGroup {
 
     /**
-     * @return Collection|RandomEntry[]
+     * @return Collection<RandomEntry>
      */
     public function getEntries(): Collection;
 

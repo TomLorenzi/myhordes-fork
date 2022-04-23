@@ -2,7 +2,9 @@
 
 namespace App\Entity;
 
+use App\Enum\ItemPoisonType;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\Column;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ItemRepository")
@@ -22,9 +24,9 @@ class Item
     private $broken;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="integer", enumType=ItemPoisonType::class)
      */
-    private $poison;
+    private ItemPoisonType $poison = ItemPoisonType::None;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\ItemPrototype", fetch="EAGER")
@@ -75,12 +77,12 @@ class Item
         return $this;
     }
 
-    public function getPoison(): ?bool
+    public function getPoison(): ItemPoisonType
     {
         return $this->poison;
     }
 
-    public function setPoison(bool $poison): self
+    public function setPoison(ItemPoisonType $poison): self
     {
         $this->poison = $poison;
 

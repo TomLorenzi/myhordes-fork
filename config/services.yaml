@@ -52,6 +52,14 @@ services:
     App\Service\HTMLService:
         public: true
 
+    # This aliases the classes used by the translation tool commands
+    translation.tools.loader:
+      alias: 'translation.loader.xliff'
+      public: true
+    translation.tools.dumper:
+      alias: 'translation.dumper.xliff'
+      public: true
+
     # controllers are imported separately to make sure services can be injected
     # as action arguments even if you don't extend any base controller class
     App\Controller\:
@@ -71,10 +79,14 @@ services:
           - { name: monolog.logger, channel: night }
 
     # Admins controllers should have their own log channel
-    App\Controller\Admin\:
-        resource: '../src/Controller/Admin'
-        tags:
-          - { name: monolog.logger, channel: admin }
+    # App\Controller\Admin\:
+    #     resource: '../src/Controller/Admin'
+    #     tags:
+    #       - { name: monolog.logger, channel: admin }
+    App\Service\AdminLog:
+      public: true
+      tags:
+        - { name: monolog.logger, channel: admin }
 
     App\Command\DebugCommand:
         arguments:
