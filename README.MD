@@ -599,21 +599,11 @@ sudo apt upgrade -y
 ```
 You can then check again if you have the correct version with the same `php --version` command.
 
-### Fatal Error: composer.lock was created for PHP version 8.1 or higher but the current PHP version is X.X.XX
+### Fatal Error: composer.lock was created for PHP version 8.1 or higher but the current PHP version is X.X.XX / Composer detected issues in your platform: Your Composer dependencies require a PHP version ">=8.1.0".
 
-This means apache2 is using the wrong module for PHP. You can disable any PHP version it is using by using this command (for example for PHP 7.3):
-```bash
-a2dismod php7.3
+This means apache2 is using the wrong module for PHP. You can upgrade the PHP version by using this command (for example for PHP 7.4) :
 ```
-
-Then enable the correct PHP version:
-```bash
-a2enmod php8.1
-```
-
-And restart apache2:
-```bash
-service apache2 restart
+sudo a2dismod php7.4 ; sudo a2enmod php8.1 ; sudo service apache2 restart 
 ```
 
 ### Session data file is not created by your uid
