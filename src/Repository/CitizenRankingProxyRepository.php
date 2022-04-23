@@ -49,7 +49,27 @@ class CitizenRankingProxyRepository extends ServiceEntityRepository
         }
     }
 
-    public function countNonAlphaTowns(User $user, ?\DateTime $from = null): int {
+    public function getNonAlphaTowns(User $user, ?\DateTime $from = null, $skip_redacted = false) {
+        try {
+            $qb = $this->createQueryBuilder('c')
+                ->join('c.town', 't')
+                ->andWhere('c.user = :user')->setParameter('user', $user)
+                ->andWhere('t.season IS NOT NULL')
+                ->andWhere('t.imported = false');
+
+            if ( $from !== null )
+                $qb->andWhere('c.end IS NOT NULL AND c.end >= :from')->setParameter('from', $from);
+
+            if ($skip_redacted)
+                $qb->andWhere('c.disabled = false')->andWhere('t.disabled = false');
+
+            return $qb->getQuery()->getResult();
+        } catch (Exception $e) {
+            return [];
+        }
+    }
+
+    public function countNonAlphaTowns(User $user, ?\DateTime $from = null, $skip_redacted = false): int {
         try {
             $qb = $this->createQueryBuilder('c')
                 ->select('COUNT(c.id)')
@@ -60,6 +80,9 @@ class CitizenRankingProxyRepository extends ServiceEntityRepository
 
             if ( $from !== null )
                 $qb->andWhere('c.end IS NOT NULL AND c.end >= :from')->setParameter('from', $from);
+
+            if ($skip_redacted)
+                $qb->andWhere('c.disabled = false')->andWhere('t.disabled = false');
 
             return $qb->getQuery()->getSingleScalarResult();
         } catch (Exception $e) {

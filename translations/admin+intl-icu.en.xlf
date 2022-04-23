@@ -4708,5 +4708,35 @@
         <target>Base:</target>
       </segment>
     </unit>
+    <unit id=".EtG8c." name="MyHordes-Seele wiederherstellen">
+      <notes>
+        <note category="german">MyHordes-Seele wiederherstellen</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
+      </notes>
+      <segment>
+        <source>MyHordes-Seele wiederherstellen</source>
+        <target>Restore MyHordes soul</target>
+      </segment>
+    </unit>
+    <unit id="Qgq13W4" name="Seele zurückgesetzt">
+      <notes>
+        <note category="german">Seele zurückgesetzt</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
+      </notes>
+      <segment>
+        <source>Seele zurückgesetzt</source>
+        <target>Soul reset</target>
+      </segment>
+    </unit>
+    <unit id="WCGHAE6" name="{num} Städte betroffen">
+      <notes>
+        <note category="german">{num} Städte betroffen</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
+      </notes>
+      <segment>
+        <source>{num} Städte betroffen</source>
+        <target>{num} towns affected</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

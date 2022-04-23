@@ -4420,5 +4420,32 @@
         <target>Basis:</target>
       </segment>
     </unit>
+    <unit id=".EtG8c." name="MyHordes-Seele wiederherstellen">
+      <notes>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
+      </notes>
+      <segment>
+        <source>MyHordes-Seele wiederherstellen</source>
+        <target>MyHordes-Seele wiederherstellen</target>
+      </segment>
+    </unit>
+    <unit id="Qgq13W4" name="Seele zurückgesetzt">
+      <notes>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
+      </notes>
+      <segment>
+        <source>Seele zurückgesetzt</source>
+        <target>Seele zurückgesetzt</target>
+      </segment>
+    </unit>
+    <unit id="WCGHAE6" name="{num} Städte betroffen">
+      <notes>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
+      </notes>
+      <segment>
+        <source>{num} Städte betroffen</source>
+        <target>{num} Städte betroffen</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

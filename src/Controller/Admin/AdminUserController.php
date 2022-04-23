@@ -21,6 +21,7 @@ use App\Entity\Picto;
 use App\Entity\PictoPrototype;
 use App\Entity\Season;
 use App\Entity\SocialRelation;
+use App\Entity\SoulResetMarker;
 use App\Entity\Town;
 use App\Entity\TwinoidImport;
 use App\Entity\TwinoidImportPreview;
@@ -233,7 +234,7 @@ class AdminUserController extends AdminActionController
             'user' => $user,
             'user_desc' => $desc ? $html->prepareEmotes($desc->getText(), $this->getUser()) : null,
             'validations' => $validations,
-
+            'count_reset' => $this->entity_manager->getRepository(SoulResetMarker::class)->count(['user' => $user]),
             'ref' => $this->entity_manager->getRepository(UserReferLink::class)->findOneBy(['user' => $user]),
             'spon'          => $this->entity_manager->getRepository(UserSponsorship::class)->findOneBy(['user' => $user]),
             'spon_active'   => array_filter( $all_sponsored, fn(UserSponsorship $s) => !$this->user_handler->hasRole($s->getUser(), 'ROLE_DUMMY') &&  $s->getUser()->getValidated() ),
@@ -271,7 +272,7 @@ class AdminUserController extends AdminActionController
         if (in_array($action, [
             'delete_token', 'invalidate', 'validate', 'twin_full_reset', 'twin_main_reset', 'twin_main_full_import', 'delete', 'rename',
             'shadow', 'whitelist', 'unwhitelist', 'etwin_reset', 'overwrite_pw', 'initiate_pw_reset',
-            'enforce_pw_reset', 'change_mail', 'ref_rename', 'ref_disable', 'ref_enable', 'set_sponsor'
+            'enforce_pw_reset', 'change_mail', 'ref_rename', 'ref_disable', 'ref_enable', 'set_sponsor', 'mh_unreset'
         ]) && !$this->isGranted('ROLE_ADMIN'))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
@@ -480,6 +481,22 @@ class AdminUserController extends AdminActionController
                     $n = $crow->createPM_moderation( $other_user, CrowService::ModerationActionDomainAccount, CrowService::ModerationActionTargetGameBan, CrowService::ModerationActionImpose, -1, $reason );
                     if ($n) $this->entity_manager->persist($n);
                 }
+
+                break;
+
+            case 'mh_unreset':
+
+                foreach ($this->entity_manager->getRepository(SoulResetMarker::class)->findBy(['user' => $user]) as $marker) {
+                    $marker->getRanking()->setDisabled(false);
+                    foreach ($this->entity_manager->getRepository(Picto::class)->findBy(['townEntry' => $marker->getRanking()->getTown(), 'user' => $user]) as $picto)
+                        $this->entity_manager->persist( $picto->setDisabled(false) );
+                    $this->entity_manager->persist($marker->getRanking());
+                    $marker->getRanking()->setResetMarker(null);
+                    $this->entity_manager->remove($marker);
+                }
+
+                $this->entity_manager->flush();
+                $this->entity_manager->persist($user->setSoulPoints( $this->user_handler->fetchSoulPoints( $user, false ) ));
 
                 break;
 

@@ -1449,6 +1449,10 @@ class AdminTownController extends AdminActionController
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $citizen_proxy->setDisabled( $act !== 0 );
+        if (!$citizen_proxy->getDisabled() && $citizen_proxy->getResetMarker()) {
+            $this->entity_manager->remove( $citizen_proxy->getResetMarker() );
+            $citizen_proxy->setResetMarker(null);
+        }
         $this->entity_manager->persist($citizen_proxy);
         $this->entity_manager->flush();
 
