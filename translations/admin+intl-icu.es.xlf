@@ -4616,7 +4616,6 @@
       <notes>
         <note category="german">Tödlich</note>
         <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Tödlich</source>
@@ -4627,7 +4626,6 @@
       <notes>
         <note category="german">Infektiös</note>
         <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Infektiös</source>
@@ -4638,7 +4636,6 @@
       <notes>
         <note category="german">AP zum Freilegen der Ruine:</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>AP zum Freilegen der Ruine:</source>
@@ -4649,7 +4646,6 @@
       <notes>
         <note category="german">Camping-Ausbaulevel:</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Camping-Ausbaulevel:</source>
@@ -4660,7 +4656,6 @@
       <notes>
         <note category="german">Basis:</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Basis:</source>

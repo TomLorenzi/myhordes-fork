@@ -707,10 +707,16 @@ class AdminUserController extends AdminActionController
         }
 
         $a->setConfirmed(true)->setExpires( $a->getOriginalDuration() < 0 ? null : (new \DateTime())->setTimestamp( time() + $a->getOriginalDuration() ) );
-        if ($a->getRestriction() & AccountRestriction::RestrictionSocial)
+        if ($a->getRestriction() === AccountRestriction::RestrictionGameplay)
+            $this->entity_manager->persist($this->crow_service->createPM_moderation( $a->getUser(), CrowService::ModerationActionDomainAccount, CrowService::ModerationActionTargetGameBan, CrowService::ModerationActionImpose, $a->getOriginalDuration() < 0 ? null : $a->getOriginalDuration(), $a->getPublicReason() ));
+        elseif ($a->getRestriction() === AccountRestriction::RestrictionForum)
             $this->entity_manager->persist($this->crow_service->createPM_moderation( $a->getUser(), CrowService::ModerationActionDomainAccount, CrowService::ModerationActionTargetForumBan, CrowService::ModerationActionImpose, $a->getOriginalDuration() < 0 ? null : $a->getOriginalDuration(), $a->getPublicReason() ));
-        if ($a->getRestriction() & AccountRestriction::RestrictionGameplay)
-            $this->entity_manager->persist($this->crow_service->createPM_moderation( $a->getUser(), CrowService::ModerationActionDomainAccount, CrowService::ModerationActionTargetGameBan, CrowService::ModerationActionRevoke, -1, $a->getPublicReason() ));
+        else
+            $this->entity_manager->persist($this->crow_service->createPM_moderation( $a->getUser(), CrowService::ModerationActionDomainAccount, CrowService::ModerationActionTargetAnyBan, CrowService::ModerationActionImpose, [
+                'mask' => $a->getRestriction(),
+                'duration' => $a->getOriginalDuration() < 0 ? null : $a->getOriginalDuration(),
+                'old_duration' => 0,
+            ], $a->getPublicReason() ));
         return true;
     }
 
@@ -768,6 +774,67 @@ class AdminUserController extends AdminActionController
 
         $a->setActive(false)->setInternalReason($a->getInternalReason() . " ~ [DISABLED BY {$this->getUser()->getName()}]");
         $this->entity_manager->persist($a);
+
+        if ($a->getRestriction() === AccountRestriction::RestrictionGameplay)
+            $this->entity_manager->persist($this->crow_service->createPM_moderation( $a->getUser(), CrowService::ModerationActionDomainAccount, CrowService::ModerationActionTargetGameBan, CrowService::ModerationActionRevoke, 0, '' ));
+        elseif ($a->getRestriction() === AccountRestriction::RestrictionForum)
+            $this->entity_manager->persist($this->crow_service->createPM_moderation( $a->getUser(), CrowService::ModerationActionDomainAccount, CrowService::ModerationActionTargetForumBan, CrowService::ModerationActionRevoke, 0, '' ));
+        else
+            $this->entity_manager->persist($this->crow_service->createPM_moderation( $a->getUser(), CrowService::ModerationActionDomainAccount, CrowService::ModerationActionTargetAnyBan, CrowService::ModerationActionRevoke, [
+                'mask' => $a->getRestriction(),
+                'duration' => 0,
+                'old_duration' => $a->getOriginalDuration() < 0 ? null : $a->getOriginalDuration(),
+            ], $a->getPublicReason() ));
+
+        try {
+            $this->entity_manager->flush();
+        } catch (\Exception $e) {
+            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+        }
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/admin/users/{uid}/ban/{bid}/modify", name="admin_users_ban_modify", requirements={"uid"="\d+","bid"="\d+"})
+     * @AdminLogProfile(enabled=true)
+     * @param int $uid
+     * @param int $bid
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function users_modify_ban(int $uid, int $bid, JSONRequestParser $parser): Response
+    {
+        $a = $this->entity_manager->getRepository(AccountRestriction::class)->find($bid);
+        if ($a === null || $a->getUser()->getId() !== $uid) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        if (!$parser->has('duration', true)) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        if (!$this->user_handler->hasRole( $this->getUser(), 'ROLE_ADMIN' )) return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+
+        if (!$a->getActive() || $a->getExpires() && $a->getExpires() < new \DateTime()) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $is_super_confirmed = false;
+        foreach ($a->getConfirmedBy() as $confirmer)
+            if ($this->user_handler->hasRole($confirmer, 'ROLE_SUPER')) $is_super_confirmed = true;
+
+        if ($is_super_confirmed && !$this->user_handler->hasRole( $this->getUser(), 'ROLE_SUPER' )) return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+
+        $old_duration = $a->getOriginalDuration();
+        $a->setOriginalDuration( $parser->get_int('duration') );
+
+        if ($old_duration >= 0) $a->setExpires( $a->getOriginalDuration() < 0 ? null : (new \DateTime())->setTimestamp( $a->getExpires()->getTimestamp() - $old_duration + $a->getOriginalDuration() ) );
+        else $a->setExpires( (new \DateTime())->setTimestamp( $a->getCreated()->getTimestamp() + $a->getOriginalDuration() ) );
+        $this->entity_manager->persist($a);
+
+        if ($a->getRestriction() === AccountRestriction::RestrictionGameplay)
+            $this->entity_manager->persist($this->crow_service->createPM_moderation( $a->getUser(), CrowService::ModerationActionDomainAccount, CrowService::ModerationActionTargetGameBan, CrowService::ModerationActionEdit, 0, '' ));
+        elseif ($a->getRestriction() === AccountRestriction::RestrictionForum)
+            $this->entity_manager->persist($this->crow_service->createPM_moderation( $a->getUser(), CrowService::ModerationActionDomainAccount, CrowService::ModerationActionTargetForumBan, CrowService::ModerationActionEdit, 0, '' ));
+        else
+            $this->entity_manager->persist($this->crow_service->createPM_moderation( $a->getUser(), CrowService::ModerationActionDomainAccount, CrowService::ModerationActionTargetAnyBan, CrowService::ModerationActionEdit, [
+                'mask' => $a->getRestriction(),
+                'duration' => $a->getOriginalDuration() < 0 ? null : $a->getOriginalDuration(),
+                'old_duration' => $old_duration,
+            ], $a->getPublicReason() ));
 
         try {
             $this->entity_manager->flush();
