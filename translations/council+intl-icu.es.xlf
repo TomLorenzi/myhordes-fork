@@ -185,11 +185,11 @@
       <notes>
         <note category="german">Ich hab Hunger!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
       </notes>
       <segment>
         <source>Ich hab Hunger!</source>
-        <target>Ich hab Hunger!</target>
+        <target>¡Tengo hambre!</target>
       </segment>
     </unit>
     <unit id="3gLNMkB" name="Und was wäre, wenn wir wie üblich Strohhalme ziehen würden?">
@@ -226,7 +226,7 @@
       <notes>
         <note category="german">+1 !</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>+1 !</source>
@@ -297,11 +297,11 @@
       <notes>
         <note category="german">Wir könnten ja auch warten, bis sich jemand anderes freiwillig meldet...</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Wir könnten ja auch warten, bis sich jemand anderes freiwillig meldet...</source>
-        <target>Wir könnten ja auch warten, bis sich jemand anderes freiwillig meldet...</target>
+        <target>Siempre podemos esperar a que alguien se ofrezca como voluntario...</target>
       </segment>
     </unit>
     <unit id="Gq50BBF" name="Es gehört sich nicht für andere zu sprechen, {parent}.">
@@ -418,33 +418,33 @@
       <notes>
         <note category="german">Also, ich fange an zu glauben, dass es mir eigentlich egal ist...</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
       </notes>
       <segment>
         <source>Also, ich fange an zu glauben, dass es mir eigentlich egal ist...</source>
-        <target>Also, ich fange an zu glauben, dass es mir eigentlich egal ist...</target>
+        <target>Estoy empezando a pensar que en verdad no me importa un bledo...</target>
       </segment>
     </unit>
     <unit id="U1L7Trk" name="Ja, aber es ist entweder er oder jemand anderes.">
       <notes>
         <note category="german">Ja, aber es ist entweder er oder jemand anderes.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
       </notes>
       <segment>
         <source>Ja, aber es ist entweder er oder jemand anderes.</source>
-        <target>Ja, aber es ist entweder er oder jemand anderes.</target>
+        <target>Sí, pero es él o alguien más.</target>
       </segment>
     </unit>
     <unit id="Z.n3M.1" name="Yeah!">
       <notes>
         <note category="german">Yeah!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
       </notes>
       <segment>
         <source>Yeah!</source>
-        <target>Yeah!</target>
+        <target>¡Sí!</target>
       </segment>
     </unit>
     <unit id="y1hhPuS" name="Guter Witz!">
@@ -472,11 +472,11 @@
       <notes>
         <note category="german">Ach, jetzt bist du einfach nur gemein. Meinst du nicht, dass er es schon schwer genug hat, wenn er so behindert ist und so?!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
       </notes>
       <segment>
         <source>Ach, jetzt bist du einfach nur gemein. Meinst du nicht, dass er es schon schwer genug hat, wenn er so behindert ist und so?!</source>
-        <target>Ach, jetzt bist du einfach nur gemein. Meinst du nicht, dass er es schon schwer genug hat, wenn er so behindert ist und so?!</target>
+        <target>Oh ahora solo estás siendo malo. ¡¿No crees que ya lo tiene muy jodido estando así de discapacitado y todo?!</target>
       </segment>
     </unit>
     <unit id="bsyvhN_" name="Also meiner Meinung nach passt das gut zu ihm.">
@@ -1370,11 +1370,11 @@
       <notes>
         <note category="german">Eine neue Wahl zum Reiseleiter durch die Außenwelt!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Eine neue Wahl zum Reiseleiter durch die Außenwelt!</source>
-        <target>Eine neue Wahl zum Reiseleiter durch die Außenwelt!</target>
+        <target>¡Una nueva elección del Guía al Ultramundo!</target>
       </segment>
     </unit>
     <unit id="FlSSQki">
@@ -1391,11 +1391,11 @@
       <notes>
         <note category="german">Ich schlage vor, dass es nicht {voted} sein sollte, da es eine zu wichtige Rolle ist, um ein solches Risiko einzugehen.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Ich schlage vor, dass es nicht {voted} sein sollte, da es eine zu wichtige Rolle ist, um ein solches Risiko einzugehen.</source>
-        <target>Ich schlage vor, dass es nicht {voted} sein sollte, da es eine zu wichtige Rolle ist, um ein solches Risiko einzugehen.</target>
+        <target>Yo propongo que no sea {voted}, es un rol demasiado importante como para tomar tal riesgo.</target>
       </segment>
     </unit>
     <unit id="TYBoxV_">
@@ -1482,22 +1482,22 @@
       <notes>
         <note category="german">Er hat schon vorher geprahlt.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Er hat schon vorher geprahlt.</source>
-        <target>Er hat schon vorher geprahlt.</target>
+        <target>Y ya estaba presumiendo antes...</target>
       </segment>
     </unit>
     <unit id="FERl5T6" name="Wir sind sowas von im Ar...">
       <notes>
         <note category="german">Wir sind sowas von im Ar...</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Wir sind sowas von im Ar...</source>
-        <target>Wir sind sowas von im Ar...</target>
+        <target>Bueno, estamos jodidos...</target>
       </segment>
     </unit>
     <unit id="ilZ07q2">
@@ -1524,44 +1524,44 @@
       <notes>
         <note category="german">Gut, alles was ich jetzt noch zu tun habe ist mich selbst zum Schamanen zu wählen. Endlich gibt es mal ein einstimmiges Ergebnis.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
       </notes>
       <segment>
         <source>Gut, alles was ich jetzt noch zu tun habe ist mich selbst zum Schamanen zu wählen. Endlich gibt es mal ein einstimmiges Ergebnis.</source>
-        <target>Gut, alles was ich jetzt noch zu tun habe ist mich selbst zum Schamanen zu wählen. Endlich gibt es mal ein einstimmiges Ergebnis.</target>
+        <target>Bueno, todo lo que debo hacer es elegirme a mí mismo como Chamán, ¡por una vez hay unanimidad!</target>
       </segment>
     </unit>
     <unit id="a1vKnRs">
       <notes>
         <note category="german">Gut, wenn niemand etwas dagegen einzuwenden hat, dann ernenne ich mich hiermit selbst zum Reiseleiter in der Außenwelt!</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Gut, wenn niemand etwas dagegen einzuwenden hat, dann ernenne ich mich hiermit selbst zum Reiseleiter in der Außenwelt!</source>
-        <target>Gut, wenn niemand etwas dagegen einzuwenden hat, dann ernenne ich mich hiermit selbst zum Reiseleiter in der Außenwelt!</target>
+        <target>Bueno, ya que todos están de acuerdo, me pronuncio a mí mismo Guía al Ultramundo.</target>
       </segment>
     </unit>
     <unit id="wa_fviX">
       <notes>
         <note category="german">Niemand ist mehr in der Stadt, keiner kann diese Versammlung halten, daher überspringen wir die Wahl zum Schamanen.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
       </notes>
       <segment>
         <source>Niemand ist mehr in der Stadt, keiner kann diese Versammlung halten, daher überspringen wir die Wahl zum Schamanen.</source>
-        <target>Niemand ist mehr in der Stadt, keiner kann diese Versammlung halten, daher überspringen wir die Wahl zum Schamanen.</target>
+        <target>No hay nadie en el pueblo, nadie para celebrar esta asamblea, así que hoy vamos a saltearnos la elección del Chamán.</target>
       </segment>
     </unit>
     <unit id="7IXrDK6">
       <notes>
         <note category="german">Niemand ist mehr in der Stadt, keiner kann diese Versammlung halten, daher überspringen wir die Wahl zum Reiseleiter in der Außenwelt.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Niemand ist mehr in der Stadt, keiner kann diese Versammlung halten, daher überspringen wir die Wahl zum Reiseleiter in der Außenwelt.</source>
-        <target>Niemand ist mehr in der Stadt, keiner kann diese Versammlung halten, daher überspringen wir die Wahl zum Reiseleiter in der Außenwelt.</target>
+        <target>No hay nadie en el pueblo, nadie para celebrar esta asamblea, así que hoy vamos a saltearnos la elección del Guía al Ultramundo.</target>
       </segment>
     </unit>
     <unit id="kSlgIIW" name="Allen steht die Erschöpfung ins Gesicht geschrieben.">
@@ -1571,40 +1571,38 @@
       </notes>
       <segment>
         <source>Allen steht die Erschöpfung ins Gesicht geschrieben.</source>
-        <target>La fatiga por otro lado está al frente y al centro...</target>
+        <target>La fatiga, por otro lado, está clara en tus carnes...</target>
       </segment>
     </unit>
     <unit id="OTSv8r.">
       <notes>
         <note category="german">Wir ziehen Strohhalme, wie wir es immer machen. Der Kürzeste gewinnt. Kommt schon, kommt und zieht einen Stohhalm.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wir ziehen Strohhalme, wie wir es immer machen. Der Kürzeste gewinnt. Kommt schon, kommt und zieht einen Stohhalm.</source>
-        <target>Wir ziehen Strohhalme, wie wir es immer machen. Der Kürzeste gewinnt. Kommt schon, kommt und zieht einen Stohhalm.</target>
+        <target>Haremos el desempate como lo hacemos normalmente. ¡El de la pajita más corta lo consigue!. ¡Venga, coge una!</target>
       </segment>
     </unit>
     <unit id="0LsI1XY">
       <notes>
         <note category="german">OK, es sind nicht mehr viele von uns übrig, also lasst uns das schnell hinter uns bringen.</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>OK, es sind nicht mehr viele von uns übrig, also lasst uns das schnell hinter uns bringen.</source>
-        <target>OK, es sind nicht mehr viele von uns übrig, also lasst uns das schnell hinter uns bringen.</target>
+        <target>De acuerdo, no quedamos demasiados, así que terminemos con esto de una vez.</target>
       </segment>
     </unit>
     <unit id="0fqtP6p">
       <notes>
         <note category="german">Hm hm ... Ich will ja kein Spielverderber sein, aber wir sind noch nicht wirklich fertig...</note>
         <note category="from">db://CouncilEntryTemplate</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
       </notes>
       <segment>
         <source>Hm hm ... Ich will ja kein Spielverderber sein, aber wir sind noch nicht wirklich fertig...</source>
-        <target>Hm hm ... Ich will ja kein Spielverderber sein, aber wir sind noch nicht wirklich fertig...</target>
+        <target>Hm hm... No quiero ser un aguafiestas, pero aún no hemos terminado...</target>
       </segment>
     </unit>
   </file>
