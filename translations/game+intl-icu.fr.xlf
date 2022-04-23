@@ -8360,7 +8360,16 @@
       </notes>
       <segment>
         <source>{num} Zombies haben vergeblich versucht, in das Haus von {citizen} einzudringen.</source>
-        <target>{num} zombies ont tenté sans succès d'entrer dans la maison de {citizen}.</target>
+        <target>
+          {ref__icu, select,
+            on {
+              {num, plural,
+                =1 {# zombie a tenté sans succès d'entrer dans la maison de {citizen}.}
+                other {# zombies ont tenté sans succès d'entrer dans la maison de {citizen}.}
+                }
+              }
+           other { {num} zombies ont tenté sans succès d'entrer dans la maison de {citizen}.} 
+          }</target>
       </segment>
     </unit>
     <unit id="O1hJcxB" name="{citizen} wurde von {num} Zombies zerfleischt!">
