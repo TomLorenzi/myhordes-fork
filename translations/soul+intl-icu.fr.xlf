@@ -4581,7 +4581,7 @@
       <notes>
         <note category="german">Deine MyHordes-Seele zurücksetzen</note>
         <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Deine MyHordes-Seele zurücksetzen</source>
@@ -4592,7 +4592,7 @@
       <notes>
         <note category="german">Wenn du eine Seele trotz der Import-Einstränkungen vollständig importieren möchtest, hast du &lt;b&gt;einmalig&lt;/b&gt; die Option, deine MyHordes-Seele zurückzusetzen.</note>
         <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Wenn du eine Seele trotz der Import-Einstränkungen vollständig importieren möchtest, hast du &lt;b&gt;einmalig&lt;/b&gt; die Option, deine MyHordes-Seele zurückzusetzen.</source>
@@ -4603,7 +4603,7 @@
       <notes>
         <note category="german">Folgende Aspekte deiner Seele sind von diesem Reset &lt;b&gt;betroffen&lt;/b&gt;:</note>
         <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Folgende Aspekte deiner Seele sind von diesem Reset &lt;b&gt;betroffen&lt;/b&gt;:</source>
@@ -4614,7 +4614,7 @@
       <notes>
         <note category="german">Deine nach dem Ende der Alpha-Phase auf MyHordes erworbenen Seelenpunkte</note>
         <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Deine nach dem Ende der Alpha-Phase auf MyHordes erworbenen Seelenpunkte</source>
@@ -4625,7 +4625,7 @@
       <notes>
         <note category="german">Deine nach dem Ende der Alpha-Phase im Rahmen von Städten erworbenen Auszeichnungen (einschließlich Ranking-Auszeichnungen, die am Ende einer Saison vergeben werden!)</note>
         <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Deine nach dem Ende der Alpha-Phase im Rahmen von Städten erworbenen Auszeichnungen (einschließlich Ranking-Auszeichnungen, die am Ende einer Saison vergeben werden!)</source>
@@ -4636,7 +4636,7 @@
       <notes>
         <note category="german">Folgende Aspekte deiner Seele sind von diesem Reset &lt;b&gt;nicht betroffen&lt;/b&gt;:</note>
         <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Folgende Aspekte deiner Seele sind von diesem Reset &lt;b&gt;nicht betroffen&lt;/b&gt;:</source>
@@ -4647,7 +4647,7 @@
       <notes>
         <note category="german">Die Liste deiner bisher auf MyHordes gespielten Städte mit allen angehängten Informationen (Todesart, letzte Worte, überlebte Tage, etc)</note>
         <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Die Liste deiner bisher auf MyHordes gespielten Städte mit allen angehängten Informationen (Todesart, letzte Worte, überlebte Tage, etc)</source>
@@ -4658,7 +4658,7 @@
       <notes>
         <note category="german">Spezielle Auszeichnungen, wie beispielsweise die Alpha-Auszeichnung</note>
         <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Spezielle Auszeichnungen, wie beispielsweise die Alpha-Auszeichnung</source>
@@ -4669,7 +4669,7 @@
       <notes>
         <note category="german">Gegenstände in deinem spiritueller Rucksack</note>
         <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Gegenstände in deinem spiritueller Rucksack</source>
@@ -4680,7 +4680,7 @@
       <notes>
         <note category="german">Deine gespielten Heldentage</note>
         <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Deine gespielten Heldentage</source>
@@ -4691,7 +4691,7 @@
       <notes>
         <note category="german">Seelenpunkte oder Auszeichnungen, die du importiert hast</note>
         <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Seelenpunkte oder Auszeichnungen, die du importiert hast</source>
@@ -4702,7 +4702,7 @@
       <notes>
         <note category="german">Meine Seele zurücksetzen</note>
         <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Meine Seele zurücksetzen</source>
@@ -4713,7 +4713,7 @@
       <notes>
         <note category="german">Bitte bestätige, dass du deine Seele zurücksetzen möchtest. Du kannst diese Aktion NUR EIN MAL ausführen. Diese Aktion KANN NICHT RÜCKGÄNGIG GEMACHT WERDEN!</note>
         <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Bitte bestätige, dass du deine Seele zurücksetzen möchtest. Du kannst diese Aktion NUR EIN MAL ausführen. Diese Aktion KANN NICHT RÜCKGÄNGIG GEMACHT WERDEN!</source>
