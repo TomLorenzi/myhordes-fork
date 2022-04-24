@@ -436,7 +436,7 @@ class MessageForumController extends MessageController
 
         $mod_post = false;
         if (!$this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionCreatePost )) {
-            if ($thread->hasReportedPosts() && $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate ) )
+            if ($thread->hasReportedPosts(false) && $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate ) )
                 $mod_post = true;
             else return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
         }
@@ -583,7 +583,7 @@ class MessageForumController extends MessageController
 
         $permission = $this->perm->getEffectivePermissions($user, $thread->getForum());
 
-        $mod_permissions = $thread->hasReportedPosts() && $this->perm->isPermitted($permission, ForumUsagePermissions::PermissionModerate);
+        $mod_permissions = $thread->hasReportedPosts(false) && $this->perm->isPermitted($permission, ForumUsagePermissions::PermissionModerate);
 
         if ($post->getOwner()->getId() === 66 && !$this->perm->isPermitted($permission, ForumUsagePermissions::PermissionPostAsCrow | ForumUsagePermissions::PermissionEditPost))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
@@ -744,7 +744,7 @@ class MessageForumController extends MessageController
             return new Response('');
 
         if (!$this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionReadThreads )) {
-            if (!$thread->hasReportedPosts() || !$this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate ) )
+            if (!$thread->hasReportedPosts(false) || !$this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate ) )
                 return new Response('', 200, ['X-AJAX-Control' => 'reload']);
         }
 
@@ -1083,7 +1083,7 @@ class MessageForumController extends MessageController
 
         $permissions = $this->perm->getEffectivePermissions( $user, $thread->getForum() );
         if (!$this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionCreatePost )) {
-            if (!$thread->hasReportedPosts() || !$this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate ) )
+            if (!$thread->hasReportedPosts(false) || !$this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate ) )
                 return new Response('');
         }
 
