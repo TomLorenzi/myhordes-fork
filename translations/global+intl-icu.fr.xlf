@@ -4212,11 +4212,11 @@
       <notes>
         <note category="german">Support-Postfach</note>
         <note category="from">twig:///templates/ajax/pm/view.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Support-Postfach</source>
-        <target>Support-Postfach</target>
+        <target>Support</target>
       </segment>
     </unit>
   </file>
