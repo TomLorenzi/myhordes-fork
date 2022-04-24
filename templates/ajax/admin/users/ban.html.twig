@@ -14,17 +14,17 @@
                     {% else %}
                         <div class="row-table">
                             <div class="row header">
-                                <div class="cell rw-2 padded">{{ "Info" |trans({}, 'admin') }}</div>
-                                <div class="cell rw-2 padded">{{ "Autor" |trans({}, 'admin') }}</div>
-                                <div class="cell rw-2 padded">{{ "Bestätigt von" |trans({}, 'admin') }}</div>
-                                <div class="cell rw-2 padded">{{ "Datum" |trans({}, 'admin') }}</div>
-                                <div class="cell rw-2 padded">{{ "Dauer" |trans({}, 'admin') }}</div>
-                                <div class="cell rw-2 padded">{{ "Endet" |trans({}, 'admin') }}</div>
+                                <div class="cell rw-2 rw-md-0 padded">{{ "Info" |trans({}, 'admin') }}</div>
+                                <div class="cell rw-2 ro-md-2 rw-md-5 padded">{{ "Autor" |trans({}, 'admin') }}</div>
+                                <div class="cell rw-2 rw-md-5 padded">{{ "Bestätigt von" |trans({}, 'admin') }}</div>
+                                <div class="cell rw-2 hide-md hide-sm padded">{{ "Datum" |trans({}, 'admin') }}</div>
+                                <div class="cell rw-2 hide-md hide-sm padded">{{ "Dauer" |trans({}, 'admin') }}</div>
+                                <div class="cell rw-2 hide-md hide-sm padded">{{ "Endet" |trans({}, 'admin') }}</div>
                             </div>
                             {% for restriction in existing %}
                                 {# @var restriction \App\Entity\AccountRestriction #}
                                 <div class="row">
-                                    <div class="cell rw-2 padded">
+                                    <div class="cell rw-2 rw-sm-3 padded">
                                         {% if restriction.active %}
                                             {% if not restriction.confirmed %}
                                                 <div class="inline-block">
@@ -81,8 +81,9 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="cell rw-2 padded">{% if restriction.moderator|is_granted('ROLE_ADMIN') %}<img alt="[ADM]" src="{{ asset('build/images/icons/small_admin.gif') }}"> {% endif %}{{ restriction.moderator.name }}</div>
-                                    <div class="cell rw-2 padded">
+                                    <div class="cell rw-2 rw-md-5 rw-sm-4 padded">{% if restriction.moderator|is_granted('ROLE_ADMIN') %}<img alt="[ADM]" src="{{ asset('build/images/icons/small_admin.gif') }}"> {% endif %}{{ restriction.moderator.name }}</div>
+                                    <div class="cell rw-2 rw-md-5 padded">
+                                        {% if restriction.confirmedBy|filter(c => c != restriction.moderator) is empty %}<div>-</div>{% endif %}
                                         {% for confirmer in restriction.confirmedBy %}
                                             {% if confirmer != restriction.moderator %}<div>{% if confirmer|is_granted('ROLE_ADMIN') %}<img alt="[ADM]" src="{{ asset('build/images/icons/small_admin.gif') }}"> {% endif %}{{ confirmer.name }}</div>{% endif %}
                                         {% endfor %}
@@ -90,8 +91,8 @@
                                             <button x-confirm-url="{{ path('admin_users_ban_confirm', {bid: restriction.id, uid: user.id}) }}"><img src="{{ asset('build/images/icons/escort_on.gif') }}"> {{ 'Bestätigen'|trans({},'admin') }}</button>
                                         {% endif %}
                                     </div>
-                                    <div class="cell rw-2 padded"><span class="small">{{ restriction.created|format_datetime('medium', 'short') }}</span></div>
-                                    <div class="cell rw-2 padded">
+                                    <div class="cell rw-2 rw-md-4 rw-sm-6 padded"><span class="small">{{ restriction.created|format_datetime('medium', 'short') }}</span></div>
+                                    <div class="cell rw-2 rw-md-4 rw-sm-6 padded">
                                         {% if is_granted('ROLE_ADMIN') and restriction.active %}
                                             <span class="small pointer" data-toggle-duration-for="{{ restriction.id }}">
                                                 {% if restriction.originalDuration < 0 %}<b>∞</b>{% else %}{{ '{d} Tage'|trans({'{d}': (restriction.originalDuration/86400)|round},'admin') }}{% endif %}
@@ -113,7 +114,7 @@
                                             </span>
                                         {% endif %}
                                     </div>
-                                    <div class="cell rw-2 padded">
+                                    <div class="cell rw-2 rw-md-4 rw-sm-6 padded">
                                         {% if restriction.originalDuration > 0 and restriction.expires is not null %}<span class="small">{{ restriction.expires|format_datetime('medium', 'short') }}</span>{% endif %}
                                     </div>
                                 </div>
@@ -181,7 +182,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="cell rw-4"><button id="add_rest_button">{{ 'Hinzufügen'|trans({},'admin') }}</button></div>
+                        <div class="cell rw-4 rw-md-6 rw-sm-12"><button id="add_rest_button">{{ 'Hinzufügen'|trans({},'admin') }}</button></div>
                     </div>
                 </div>
 
