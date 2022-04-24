@@ -1815,7 +1815,7 @@
       </notes>
       <segment>
         <source>Ist diese Option aktiviert, haben frisch in Ghule verwandelte Bürger bereits Hunger.</source>
-        <target>When enables, newly transformed ghouls start with a bit of hunger...</target>
+        <target>When enabled, newly transformed ghouls start with a bit of hunger...</target>
       </segment>
     </unit>
     <unit id="v7CDf.f" name="Hungrige Ghule">
