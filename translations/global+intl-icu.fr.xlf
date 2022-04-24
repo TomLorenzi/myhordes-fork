@@ -4223,11 +4223,11 @@
       <notes>
         <note category="german">Du hast diese Aktion bereits zu oft durchgeführt. Warte eine Weile und versuche es dann erneut.</note>
         <note category="from">twig:///templates/scripts/errors/generic.txt.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Du hast diese Aktion bereits zu oft durchgeführt. Warte eine Weile und versuche es dann erneut.</source>
-        <target>Du hast diese Aktion bereits zu oft durchgeführt. Warte eine Weile und versuche es dann erneut.</target>
+        <target>Vous avez effectué cette action trop de fois. Attendez un peu, puis réessayez.</target>
       </segment>
     </unit>
   </file>
