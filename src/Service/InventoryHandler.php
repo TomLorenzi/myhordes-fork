@@ -94,6 +94,8 @@ class InventoryHandler
     }
 
     public function findStackPrototype( Inventory $inv, Item $item ): ?Item {
+        // Items with the <individual> tag cannot stack
+        if ($item->getPrototype()->getIndividual()) return null;
         try {
             return $this->entity_manager->createQueryBuilder()->select('i')->from('App:Item', 'i')
                 ->where('i.inventory = :inv')->setParameter('inv', $inv)
