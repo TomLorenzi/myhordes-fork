@@ -137,7 +137,7 @@ class MessageGlobalPMController extends MessageController
 
                 /** @var UserGroupAssociation $group_association */
                 $group_association = $em->getRepository(UserGroupAssociation::class)->findOneBy(['user' => $this->getUser(), 'associationType' =>
-                    [UserGroupAssociation::GroupAssociationTypePrivateMessageMember, UserGroupAssociation::GroupAssociationTypeOfficialGroupMessageMember],
+                    [UserGroupAssociation::GroupAssociationTypePrivateMessageMember],
                 'association' => $group]);
                 if (!$group_association) break;
 
@@ -361,16 +361,22 @@ class MessageGlobalPMController extends MessageController
     public function pm_load_list(EntityManagerInterface $em, JSONRequestParser $p, string $set = 'inbox'): Response {
         $entries = [];
 
-        if (!in_array($set,['inbox','archive'])) return new Response('');
+        if (!in_array($set,['inbox','archive','support'])) return new Response('');
+
+        $group_filter = match($set) {
+            'support' => [ UserGroupAssociation::GroupAssociationTypeOfficialGroupMessageMember ],
+            'archive' => [ UserGroupAssociation::GroupAssociationTypePrivateMessageMember, UserGroupAssociation::GroupAssociationTypePrivateMessageMemberInactive, UserGroupAssociation::GroupAssociationTypeOfficialGroupMessageMember ],
+            'inbox'   => [ UserGroupAssociation::GroupAssociationTypePrivateMessageMember, UserGroupAssociation::GroupAssociationTypePrivateMessageMemberInactive ],
+            default   => []
+        };
 
         $skip = $p->get_array('skip');
         $num = max(5,min(30,$p->get_int('num', 30)));
 
         $query = $p->get('filter');
 
-        $this->render_group_associations( $em->getRepository(UserGroupAssociation::class)->findByUserAssociation($this->getUser(), [
-            UserGroupAssociation::GroupAssociationTypePrivateMessageMember, UserGroupAssociation::GroupAssociationTypePrivateMessageMemberInactive, UserGroupAssociation::GroupAssociationTypeOfficialGroupMessageMember
-        ], $skip['g'] ?? [], $num+1, $set === 'archive', $query), $entries );
+        $this->render_group_associations( $em->getRepository(UserGroupAssociation::class)->findByUserAssociation($this->getUser(), $group_filter,
+                $skip['g'] ?? [], $num+1, $set === 'archive', $query), $entries );
 
         $this->render_announcements( $em->getRepository(Announcement::class)->findByLang($this->getUserLanguage(),
                                                                                          $skip['a'] ?? [], $num+1, $set === 'archive', $query), $entries );

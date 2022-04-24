@@ -4199,5 +4199,16 @@
         <target>Actualizar la conversación</target>
       </segment>
     </unit>
+    <unit id="kmZd3k9" name="Support-Postfach">
+      <notes>
+        <note category="german">Support-Postfach</note>
+        <note category="from">twig:///templates/ajax/pm/view.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Support-Postfach</source>
+        <target>Support-Postfach</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
