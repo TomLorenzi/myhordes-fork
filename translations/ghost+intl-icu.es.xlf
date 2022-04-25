@@ -1201,7 +1201,7 @@
       </notes>
       <segment>
         <source>Der Nachtmodus ist aktiviert und die Straßenbeleuchtung ist verfügbar.</source>
-        <target>El modo nocturno está activado y Luces públicas están disponibles.</target>
+        <target>El modo nocturno está activado y Alumbrado Público está disponible.</target>
       </segment>
     </unit>
     <unit id="JeVu4ox" name="Erweitert">
@@ -1221,7 +1221,7 @@
       </notes>
       <segment>
         <source>Der Nachtmodus ist aktiviert. Die Straßenbeleuchtung steht nicht zur Verfügung.</source>
-        <target>El modo nocturno está activado. Luces públicas no está disponible.</target>
+        <target>El modo nocturno está activado pero Alumbrado Público no está disponible.</target>
       </segment>
     </unit>
     <unit id="1dCs8Np" name="Der Nachtmodus ist deaktiviert.">
