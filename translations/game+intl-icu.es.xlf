@@ -308,7 +308,7 @@
       </notes>
       <segment>
         <source>Du kannst auf dieser Zone nicht graben.</source>
-        <target>¡Es imposible hacer esto en una zona controlada por los zombies!</target>
+        <target>No puedes excavar en esta zona.</target>
       </segment>
     </unit>
     <unit id="Wevnltm" name="Deine Nachricht muss zwischen 2 und 256 Zeichen haben.">
