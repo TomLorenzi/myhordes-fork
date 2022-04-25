@@ -23129,7 +23129,7 @@
       </notes>
       <segment>
         <source>Ein Moderator hat eine Beschränkung für deinen Account festgelegt, da du gegen eine oder mehrere unserer Verhaltensregeln verstoßen hast.&lt;br/&gt;Art der Beschränkung: &lt;b&gt;{type}&lt;/b&gt;&lt;br/&gt;Grund: &lt;i&gt;{reason}&lt;/i&gt;&lt;br /&gt;Dauer: &lt;i&gt;{duration}&lt;/i&gt;</source>
-        <target><![CDATA[Ein Moderator hat eine Beschränkung für deinen Account festgelegt, da du gegen eine oder mehrere unserer Verhaltensregeln verstoßen hast.<br/>Art der Beschränkung: <b>{type}</b><br/>Grund: <i>{reason}</i><br />Dauer: <i>{duration}</i>]]></target>
+        <target><![CDATA[Un moderador ha restringido tu cuenta debido a que incumpliste por lo menos una de nuestras reglas de conducta.<br/>Restricción: <b>{type}</b><br/>Razón: <i>{reason}</i><br />Duración: <i>{duration}</i>]]></target>
       </segment>
     </unit>
     <unit id="MZuvd1.">
@@ -23140,7 +23140,7 @@
       </notes>
       <segment>
         <source>Ein Moderator hat die Dauer einer Beschränkung, die für deinen Account festgelegt war, geändert.&lt;br/&gt;Art der Beschränkung: &lt;b&gt;{type}&lt;/b&gt;&lt;br/&gt;Alte Dauer: &lt;i&gt;{old_duration}&lt;/i&gt;&lt;br /&gt;Neue Dauer: &lt;i&gt;{duration}&lt;/i&gt;</source>
-        <target><![CDATA[Ein Moderator hat die Dauer einer Beschränkung, die für deinen Account festgelegt war, geändert.<br/>Art der Beschränkung: <b>{type}</b><br/>Alte Dauer: <i>{old_duration}</i><br />Neue Dauer: <i>{duration}</i>]]></target>
+        <target><![CDATA[Un moderador ha cambiado la duración de una restricción impuesta sobre tu cuenta.<br/>Restricción: <b>{type}</b><br/>Duración anterior: <i>{old_duration}</i><br />Duración actual: <i>{duration}</i>]]></target>
       </segment>
     </unit>
     <unit id="RZ4FfGa">
@@ -23151,7 +23151,7 @@
       </notes>
       <segment>
         <source>Ein Moderator hat eine Beschränkung für deinen Account aufgehoben.&lt;br/&gt;Art der Beschränkung: &lt;b&gt;{type}&lt;/b&gt;</source>
-        <target><![CDATA[Ein Moderator hat eine Beschränkung für deinen Account aufgehoben.<br/>Art der Beschränkung: <b>{type}</b>]]></target>
+        <target><![CDATA[Un moderador ha quitado una restricción impuesta sobre tu cuenta.<br/>Restricción: <b>{type}</b>]]></target>
       </segment>
     </unit>
   </file>
