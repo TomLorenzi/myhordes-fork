@@ -21238,7 +21238,7 @@
       </notes>
       <segment>
         <source>&lt;strong&gt;Das Stadttor ist geschlossen&lt;/strong&gt;, eine Rückkehr ist nicht möglich!</source>
-        <target><![CDATA[<strong>Das Stadttor ist geschlossen</strong>, eine Rückkehr ist nicht möglich!]]></target>
+        <target><![CDATA[¡<strong>El portal del pueblo está cerrado</strong>, no puedes regresar!]]></target>
       </segment>
     </unit>
     <unit id="im0eaJb">
