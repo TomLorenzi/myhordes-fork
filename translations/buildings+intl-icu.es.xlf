@@ -1368,7 +1368,7 @@
       </notes>
       <segment>
         <source>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 3km um die Stadt aufhalten.</source>
-        <target>Cada mañana, detecta todos los zombies a 3 km del pueblo.</target>
+        <target>Cada mañana, revela todas las zonas a 3 km del pueblo.</target>
       </segment>
     </unit>
     <unit id="NZeNsxy">
@@ -1378,7 +1378,7 @@
       </notes>
       <segment>
         <source>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 6km um die Stadt aufhalten.</source>
-        <target>Cada mañana, detecta todos los zombies a 6 km del pueblo.</target>
+        <target>Cada mañana, revela todas las zonas a 6 km del pueblo.</target>
       </segment>
     </unit>
     <unit id="wGZu2sa">
@@ -1388,7 +1388,7 @@
       </notes>
       <segment>
         <source>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten.</source>
-        <target>Cada mañana, detecta todos los zombies a 10 km del pueblo.</target>
+        <target>Cada mañana, revela todas las zonas a 10 km del pueblo.</target>
       </segment>
     </unit>
     <unit id="h1r5RdI">
@@ -1398,7 +1398,7 @@
       </notes>
       <segment>
         <source>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten. Bürger im Umkreis von 1km um die Stadt können ohne AP-Verbrauch die Stadt betreten.</source>
-        <target>Detecta zombies a 10 km + permite ingresar gratuitamente a los habitantes a 1km del pueblo.</target>
+        <target>Revela las zonas a 10 km y además permite ingresar gratuitamente a los habitantes que se encuentren a 1km del pueblo.</target>
       </segment>
     </unit>
     <unit id="N0sOdNf">
@@ -1408,7 +1408,7 @@
       </notes>
       <segment>
         <source>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten. Bürger im Umkreis von 2km um die Stadt können ohne AP-Verbrauch die Stadt betreten.</source>
-        <target>Detecta zombies a 10 km + permite ingresar gratuitamente a los habitantes a 2km del pueblo.</target>
+        <target>Revela las zonas a 10 km y además permite ingresar gratuitamente a los habitantes que se encuentren a 2km del pueblo.</target>
       </segment>
     </unit>
     <unit id="2B9BF5F" name="Bohrturm">
