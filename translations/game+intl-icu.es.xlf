@@ -8625,7 +8625,7 @@
       </notes>
       <segment>
         <source>Diese Bürger hat hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist erst morgen wieder möglich.</source>
-        <target>Este habitante ya ha escarbado aquí. La próxima excavación será posible mañana.</target>
+        <target>Este habitante ya ha escarbado aquí. Mañana podrá hacerlo nuevamente.</target>
       </segment>
     </unit>
     <unit id="QOTB3sR" name="Dieser Bürger wird aktuell von {leader} eskortiert.">
