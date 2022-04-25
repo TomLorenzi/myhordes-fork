@@ -7451,7 +7451,7 @@
       </notes>
       <segment>
         <source>Herzlichen Glückwunsch, die Zone ist vollständig freigelegt worden! Du kannst nun mit der Suche nach Gegenständen im: {ruin} beginnen!</source>
-        <target><![CDATA[¡Felicitaciones, la zona ha sido despejada! Puedes <strong>comenzar a desenterrar</strong> lo que se escondía allí: ¡{ruin}!]]></target>
+        <target><![CDATA[¡Felicitaciones, la zona ha sido despejada! Finalmente <strong>has descubierto</strong> lo que se escondía allí: ¡{ruin}!]]></target>
       </segment>
     </unit>
     <unit id="dpgWUqk" name="Du hast {count} Aktionspunkt(e) benutzt.">
