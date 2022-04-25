@@ -1811,7 +1811,7 @@
       </notes>
       <segment>
         <source>Ist diese Option aktiviert, haben frisch in Ghule verwandelte Bürger bereits Hunger.</source>
-        <target>Cuando está activado, los mutantes recién transformados empiezan con un poco de hambre...</target>
+        <target>Cuando esta opción está activada, los mutantes recién transformados empezarán con un poco de voracidad...</target>
       </segment>
     </unit>
     <unit id="v7CDf.f" name="Hungrige Ghule">
@@ -1821,7 +1821,7 @@
       </notes>
       <segment>
         <source>Hungrige Ghule</source>
-        <target>Mutantes Hambrientos</target>
+        <target>Voracidad inicial</target>
       </segment>
     </unit>
   </file>
