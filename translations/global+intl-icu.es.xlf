@@ -1820,7 +1820,7 @@
       </notes>
       <segment>
         <source>Diese Kosten können durch den Aufbau der &lt;strong&gt;Müll für Alle&lt;/strong&gt;.</source>
-        <target><![CDATA[Este costo puede reducirse con la construcción <strong>Vertedero libre</strong>.]]></target>
+        <target><![CDATA[Este costo puede reducirse con la construcción <strong>Vertedero gratuito</strong>.]]></target>
       </segment>
     </unit>
     <unit id="BC_uip5" name="Ausblenden">
