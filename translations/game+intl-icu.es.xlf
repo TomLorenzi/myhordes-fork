@@ -859,7 +859,7 @@
       </notes>
       <segment>
         <source>Du hast {num} anonyme Anzeige(n).</source>
-        <target><![CDATA[Has recibido <strong>{num} denuncias</strong> anónimas. ¡Si acumulas 8 denuncias, serás desterrado!]]></target>
+        <target><![CDATA[Has recibido <strong>{num} denuncia(s)</strong> anónima(s). ¡Si acumulas 8 denuncias, serás desterrado!]]></target>
       </segment>
     </unit>
     <unit id="0drragL">
