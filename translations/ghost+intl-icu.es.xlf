@@ -1711,7 +1711,7 @@
       </notes>
       <segment>
         <source>Die Sprache dieser Stadt stimmt nicht mit deiner Spracheinstellung überein. Wenn du dieser Stadt beitrittst, musst du im Stadtforum die Sprache der Stadt verwenden.</source>
-        <target>El lenguaje de este pueblo no coincide con la configuración de lenguaje de tu alma. Al unirte a este pueblo, aceptas solo usar el lenguaje del pueblo cuando te comuniques con otros jugadores.</target>
+        <target>El idioma de este pueblo no coincide con la configuración de idioma de tu alma. Al unirte a este pueblo, aceptas solo usar el idioma del pueblo cuando te comuniques con otros jugadores.</target>
       </segment>
     </unit>
     <unit id="xdlAaLd">
@@ -1721,7 +1721,7 @@
       </notes>
       <segment>
         <source>Die Verwendung einer anderen Sprache im Stadtforum kann zu Sanktionen seitens der Moderation führen!</source>
-        <target>¡Usar otros lenguajes puede resultar en sanciones de la moderación!</target>
+        <target>¡Usar otros idiomas puede resultar en sanciones de la moderación!</target>
       </segment>
     </unit>
     <unit id="L1PDlgY">

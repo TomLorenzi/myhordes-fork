@@ -2144,7 +2144,7 @@
       </notes>
       <segment>
         <source>Bürger nach Sprache</source>
-        <target>Habitantes por lenguaje</target>
+        <target>Habitantes por idioma</target>
       </segment>
     </unit>
     <unit id="gvDyCm1" name="Geöffnet">
@@ -4539,7 +4539,7 @@
       </notes>
       <segment>
         <source>Sprache wechseln</source>
-        <target>Cambiar lenguaje</target>
+        <target>Cambiar el Idioma</target>
       </segment>
     </unit>
     <unit id="jupu8vs" name="Fremder">
