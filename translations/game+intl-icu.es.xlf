@@ -21863,7 +21863,7 @@
       </notes>
       <segment>
         <source>Für die vollständige Instandsetzung dieses Gebäudes sind noch {remaining} AP erforderlich.</source>
-        <target>Para la reparación completa de este edificio, se requieren {remaining} AP.</target>
+        <target>Para reparar completamente este edificio, aún tenemos que invertir {remaining} PA.</target>
       </segment>
     </unit>
     <unit id="Plqho0r" name="Niemand ist in der Nähe der Stadt (maximal 2 Felder).">
