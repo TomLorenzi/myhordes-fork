@@ -1201,7 +1201,7 @@
       </notes>
       <segment>
         <source>Der Nachtmodus ist aktiviert und die Straßenbeleuchtung ist verfügbar.</source>
-        <target>El modo nocturno está activado y Luces públicas están disponibles.</target>
+        <target>El modo nocturno está activado y Alumbrado Público está disponible.</target>
       </segment>
     </unit>
     <unit id="JeVu4ox" name="Erweitert">
@@ -1221,7 +1221,7 @@
       </notes>
       <segment>
         <source>Der Nachtmodus ist aktiviert. Die Straßenbeleuchtung steht nicht zur Verfügung.</source>
-        <target>El modo nocturno está activado. Luces públicas no está disponible.</target>
+        <target>El modo nocturno está activado pero Alumbrado Público no está disponible.</target>
       </segment>
     </unit>
     <unit id="1dCs8Np" name="Der Nachtmodus ist deaktiviert.">
@@ -1711,7 +1711,7 @@
       </notes>
       <segment>
         <source>Die Sprache dieser Stadt stimmt nicht mit deiner Spracheinstellung überein. Wenn du dieser Stadt beitrittst, musst du im Stadtforum die Sprache der Stadt verwenden.</source>
-        <target>El lenguaje de este pueblo no coincide con la configuración de lenguaje de tu alma. Al unirte a este pueblo, aceptas solo usar el lenguaje del pueblo cuando te comuniques con otros jugadores.</target>
+        <target>El idioma de este pueblo no coincide con la configuración de idioma de tu alma. Al unirte a este pueblo, aceptas solo usar el idioma del pueblo cuando te comuniques con otros jugadores.</target>
       </segment>
     </unit>
     <unit id="xdlAaLd">
@@ -1721,7 +1721,7 @@
       </notes>
       <segment>
         <source>Die Verwendung einer anderen Sprache im Stadtforum kann zu Sanktionen seitens der Moderation führen!</source>
-        <target>¡Usar otros lenguajes puede resultar en sanciones de la moderación!</target>
+        <target>¡Usar otros idiomas puede resultar en sanciones de la moderación!</target>
       </segment>
     </unit>
     <unit id="L1PDlgY">
@@ -1811,7 +1811,7 @@
       </notes>
       <segment>
         <source>Ist diese Option aktiviert, haben frisch in Ghule verwandelte Bürger bereits Hunger.</source>
-        <target>Cuando está activado, los mutantes recién transformados empiezan con un poco de hambre...</target>
+        <target>Cuando esta opción está activada, los mutantes recién transformados empezarán con un poco de voracidad...</target>
       </segment>
     </unit>
     <unit id="v7CDf.f" name="Hungrige Ghule">
@@ -1821,7 +1821,7 @@
       </notes>
       <segment>
         <source>Hungrige Ghule</source>
-        <target>Mutantes Hambrientos</target>
+        <target>Voracidad inicial</target>
       </segment>
     </unit>
   </file>

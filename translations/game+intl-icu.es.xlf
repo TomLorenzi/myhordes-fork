@@ -308,7 +308,7 @@
       </notes>
       <segment>
         <source>Du kannst auf dieser Zone nicht graben.</source>
-        <target>¡Es imposible hacer esto en una zona controlada por los zombies!</target>
+        <target>No puedes excavar en esta zona.</target>
       </segment>
     </unit>
     <unit id="Wevnltm" name="Deine Nachricht muss zwischen 2 und 256 Zeichen haben.">
@@ -859,7 +859,7 @@
       </notes>
       <segment>
         <source>Du hast {num} anonyme Anzeige(n).</source>
-        <target><![CDATA[Has recibido <strong>{num} denuncias</strong> anónimas. ¡Si acumulas 8 denuncias, serás desterrado!]]></target>
+        <target><![CDATA[Has recibido <strong>{num} denuncia(s)</strong> anónima(s). ¡Si acumulas 8 denuncias, serás desterrado!]]></target>
       </segment>
     </unit>
     <unit id="0drragL">
@@ -939,7 +939,7 @@
       </notes>
       <segment>
         <source>Mein Haus ausbauen</source>
-        <target>Mejora mi casa</target>
+        <target>Mejora tu casa (opcional)</target>
       </segment>
     </unit>
     <unit id="J53z_38">
@@ -5261,7 +5261,7 @@
       </notes>
       <segment>
         <source>Du kannst keine Aktionen ausführen, während du dich versteckst.</source>
-        <target>Todas las acciones que suelen estar disponibles fuera del pueblo se desactivan cuando te escondes.</target>
+        <target>Todas las acciones realizables en el exterior han sido desactivadas mientras estés escondido.</target>
       </segment>
     </unit>
     <unit id="rSInXr8" name="Du kannst dich nicht fortbewegen während du versteckt bist.">
@@ -7121,7 +7121,7 @@
       </notes>
       <segment>
         <source>Du hast die letzte Nacht in der Kälte der Außenwelt verbracht. Dabei konntest du die Windrichtung und den Marsch der Zombiehorde beobachten. Damit bist du für den Rest des Tages in der Lage, erfolgreicher Gegenstände zu finden.</source>
-        <target>Pasaste la última noche fuera, soportando el frío del Ultramundo. Fuiste capaz de observar los áridos vientos desérticos y el movimiento de las hordas de zombis. Gracias a la agudeza de tus observaciones hoy gozarás de un bonus al excavar.</target>
+        <target>Pasaste la última noche fuera, soportando el frío del Ultramundo. Fuiste capaz de observar los áridos vientos desérticos y el movimiento de las turbas de zombies. Gracias a la agudeza de tus observaciones hoy gozarás de un bonus en tus excavaciones.</target>
       </segment>
     </unit>
     <unit id="yuD1sSM">
@@ -7391,7 +7391,7 @@
       </notes>
       <segment>
         <source>Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.</source>
-        <target>Obtendrás un plano de obras si pasas la noche aquí.</target>
+        <target><![CDATA[Obtendrás un <strong>plano de obras</strong> si acampas en este edificio.]]></target>
       </segment>
     </unit>
     <unit id="XZI.RVp" name="Hier wurde bereits ein Bauplan gefunden.">
@@ -7401,7 +7401,7 @@
       </notes>
       <segment>
         <source>Hier wurde bereits ein Bauplan gefunden.</source>
-        <target>Este edificio ya fue inspeccionado por otro jugador y no contiene ningún plano de obras...</target>
+        <target><![CDATA[Este edificio ya fue inspeccionado por otro jugador y no contiene ningún <strong>plano de obras</strong>...]]></target>
       </segment>
     </unit>
     <unit id="WPZOeLX">
@@ -7451,7 +7451,7 @@
       </notes>
       <segment>
         <source>Herzlichen Glückwunsch, die Zone ist vollständig freigelegt worden! Du kannst nun mit der Suche nach Gegenständen im: {ruin} beginnen!</source>
-        <target><![CDATA[¡Felicitaciones, la zona ha sido despejada! Puedes <strong>comenzar a desenterrar</strong> lo que se escondía allí: ¡{ruin}!]]></target>
+        <target><![CDATA[¡Felicitaciones, la zona ha sido despejada! Finalmente <strong>has descubierto</strong> lo que se escondía allí: ¡{ruin}!]]></target>
       </segment>
     </unit>
     <unit id="dpgWUqk" name="Du hast {count} Aktionspunkt(e) benutzt.">
@@ -8013,7 +8013,7 @@
       </notes>
       <segment>
         <source>Bürger in dieser Zone</source>
-        <target>Habitantes en el sector</target>
+        <target>Habitantes presentes</target>
       </segment>
     </unit>
     <unit id="wVNJv3." name="Camping">
@@ -8625,7 +8625,7 @@
       </notes>
       <segment>
         <source>Diese Bürger hat hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist erst morgen wieder möglich.</source>
-        <target>Este habitante ya ha escarbado aquí. La próxima excavación será posible mañana.</target>
+        <target>Este habitante ya ha escarbado aquí. Mañana podrá hacerlo nuevamente.</target>
       </segment>
     </unit>
     <unit id="QOTB3sR" name="Dieser Bürger wird aktuell von {leader} eskortiert.">
@@ -19992,7 +19992,7 @@
       </notes>
       <segment>
         <source>Dieser Bürger hat sich für heute Nacht hier versteckt.</source>
-        <target>Este habitante se ha estado escondiendo aquí esta noche.</target>
+        <target>Este habitante está escondido para pasar la noche aquí</target>
       </segment>
     </unit>
     <unit id="PEGlllX">
@@ -21238,7 +21238,7 @@
       </notes>
       <segment>
         <source>&lt;strong&gt;Das Stadttor ist geschlossen&lt;/strong&gt;, eine Rückkehr ist nicht möglich!</source>
-        <target><![CDATA[<strong>Das Stadttor ist geschlossen</strong>, eine Rückkehr ist nicht möglich!]]></target>
+        <target><![CDATA[¡<strong>El portal del pueblo está cerrado</strong>, no puedes regresar!]]></target>
       </segment>
     </unit>
     <unit id="im0eaJb">
@@ -21863,7 +21863,7 @@
       </notes>
       <segment>
         <source>Für die vollständige Instandsetzung dieses Gebäudes sind noch {remaining} AP erforderlich.</source>
-        <target>Para la reparación completa de este edificio, se requieren {remaining} AP.</target>
+        <target>Para reparar completamente este edificio, aún tenemos que invertir {remaining} PA.</target>
       </segment>
     </unit>
     <unit id="Plqho0r" name="Niemand ist in der Nähe der Stadt (maximal 2 Felder).">
@@ -21933,7 +21933,7 @@
       </notes>
       <segment>
         <source>Du hast keine Seelenpunkte gewonnen (am ersten Tag gestorben).</source>
-        <target>No ha ganado ningún punto de alma (murió el primer día).</target>
+        <target>No has ganado ningún Punto de Alma (por haber muerto el primer día)..</target>
       </segment>
     </unit>
     <unit id="5kMswLn">
@@ -22931,7 +22931,7 @@
       </notes>
       <segment>
         <source>Du hast keine Seelenpunkte gewonnen.</source>
-        <target>No has ganado ningún Punto de Alma (por haber muerto el primer día).</target>
+        <target>No has ganado ningún Punto de Alma.</target>
       </segment>
     </unit>
     <unit id="DAZTSgM" name="Ein anderer Bürger hat sich in der Zwischenzeit diesen Gegenstand geschnappt.">
@@ -23129,7 +23129,7 @@
       </notes>
       <segment>
         <source>Ein Moderator hat eine Beschränkung für deinen Account festgelegt, da du gegen eine oder mehrere unserer Verhaltensregeln verstoßen hast.&lt;br/&gt;Art der Beschränkung: &lt;b&gt;{type}&lt;/b&gt;&lt;br/&gt;Grund: &lt;i&gt;{reason}&lt;/i&gt;&lt;br /&gt;Dauer: &lt;i&gt;{duration}&lt;/i&gt;</source>
-        <target><![CDATA[Ein Moderator hat eine Beschränkung für deinen Account festgelegt, da du gegen eine oder mehrere unserer Verhaltensregeln verstoßen hast.<br/>Art der Beschränkung: <b>{type}</b><br/>Grund: <i>{reason}</i><br />Dauer: <i>{duration}</i>]]></target>
+        <target><![CDATA[Un moderador ha restringido tu cuenta debido a que incumpliste por lo menos una de nuestras reglas de conducta.<br/>Restricción: <b>{type}</b><br/>Razón: <i>{reason}</i><br />Duración: <i>{duration}</i>]]></target>
       </segment>
     </unit>
     <unit id="MZuvd1.">
@@ -23140,7 +23140,7 @@
       </notes>
       <segment>
         <source>Ein Moderator hat die Dauer einer Beschränkung, die für deinen Account festgelegt war, geändert.&lt;br/&gt;Art der Beschränkung: &lt;b&gt;{type}&lt;/b&gt;&lt;br/&gt;Alte Dauer: &lt;i&gt;{old_duration}&lt;/i&gt;&lt;br /&gt;Neue Dauer: &lt;i&gt;{duration}&lt;/i&gt;</source>
-        <target><![CDATA[Ein Moderator hat die Dauer einer Beschränkung, die für deinen Account festgelegt war, geändert.<br/>Art der Beschränkung: <b>{type}</b><br/>Alte Dauer: <i>{old_duration}</i><br />Neue Dauer: <i>{duration}</i>]]></target>
+        <target><![CDATA[Un moderador ha cambiado la duración de una restricción impuesta sobre tu cuenta.<br/>Restricción: <b>{type}</b><br/>Duración anterior: <i>{old_duration}</i><br />Duración actual: <i>{duration}</i>]]></target>
       </segment>
     </unit>
     <unit id="RZ4FfGa">
@@ -23151,7 +23151,7 @@
       </notes>
       <segment>
         <source>Ein Moderator hat eine Beschränkung für deinen Account aufgehoben.&lt;br/&gt;Art der Beschränkung: &lt;b&gt;{type}&lt;/b&gt;</source>
-        <target><![CDATA[Ein Moderator hat eine Beschränkung für deinen Account aufgehoben.<br/>Art der Beschränkung: <b>{type}</b>]]></target>
+        <target><![CDATA[Un moderador ha quitado una restricción impuesta sobre tu cuenta.<br/>Restricción: <b>{type}</b>]]></target>
       </segment>
     </unit>
   </file>

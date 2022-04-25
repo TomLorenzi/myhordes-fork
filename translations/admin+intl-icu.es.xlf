@@ -2144,7 +2144,7 @@
       </notes>
       <segment>
         <source>Bürger nach Sprache</source>
-        <target>Habitantes por lenguaje</target>
+        <target>Habitantes por idioma</target>
       </segment>
     </unit>
     <unit id="gvDyCm1" name="Geöffnet">
@@ -4529,7 +4529,7 @@
       </notes>
       <segment>
         <source>Stadtnamen regenerieren</source>
-        <target>Regenerar nombre del pueblo</target>
+        <target>Regenerar el nombre del pueblo</target>
       </segment>
     </unit>
     <unit id="cUEl3DK" name="Sprache wechseln">
@@ -4539,7 +4539,7 @@
       </notes>
       <segment>
         <source>Sprache wechseln</source>
-        <target>Cambiar lenguaje</target>
+        <target>Cambiar el Idioma</target>
       </segment>
     </unit>
     <unit id="jupu8vs" name="Fremder">

@@ -1368,7 +1368,7 @@
       </notes>
       <segment>
         <source>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 3km um die Stadt aufhalten.</source>
-        <target>Cada mañana, detecta todos los zombies a 3 km del pueblo.</target>
+        <target>Cada mañana, revela todas las zonas a 3 km del pueblo.</target>
       </segment>
     </unit>
     <unit id="NZeNsxy">
@@ -1378,7 +1378,7 @@
       </notes>
       <segment>
         <source>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 6km um die Stadt aufhalten.</source>
-        <target>Cada mañana, detecta todos los zombies a 6 km del pueblo.</target>
+        <target>Cada mañana, revela todas las zonas a 6 km del pueblo.</target>
       </segment>
     </unit>
     <unit id="wGZu2sa">
@@ -1388,7 +1388,7 @@
       </notes>
       <segment>
         <source>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten.</source>
-        <target>Cada mañana, detecta todos los zombies a 10 km del pueblo.</target>
+        <target>Cada mañana, revela todas las zonas a 10 km del pueblo.</target>
       </segment>
     </unit>
     <unit id="h1r5RdI">
@@ -1398,7 +1398,7 @@
       </notes>
       <segment>
         <source>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten. Bürger im Umkreis von 1km um die Stadt können ohne AP-Verbrauch die Stadt betreten.</source>
-        <target>Detecta zombies a 10 km + permite ingresar gratuitamente a los habitantes a 1km del pueblo.</target>
+        <target>Revela las zonas a 10 km y además permite ingresar gratuitamente a los habitantes que se encuentren a 1km del pueblo.</target>
       </segment>
     </unit>
     <unit id="N0sOdNf">
@@ -1408,7 +1408,7 @@
       </notes>
       <segment>
         <source>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten. Bürger im Umkreis von 2km um die Stadt können ohne AP-Verbrauch die Stadt betreten.</source>
-        <target>Detecta zombies a 10 km + permite ingresar gratuitamente a los habitantes a 2km del pueblo.</target>
+        <target>Revela las zonas a 10 km y además permite ingresar gratuitamente a los habitantes que se encuentren a 2km del pueblo.</target>
       </segment>
     </unit>
     <unit id="2B9BF5F" name="Bohrturm">
@@ -1528,7 +1528,7 @@
       </notes>
       <segment>
         <source>Müll für Alle</source>
-        <target>Vertedero libre</target>
+        <target>Vertedero gratuito</target>
       </segment>
     </unit>
     <unit id="NNvtYXk" name="Waffenabfall">
@@ -2310,7 +2310,7 @@
       </notes>
       <segment>
         <source>Ein simpler Verteidigungsgegenstand, aber du wirst ihn zu schätzen wissen, wenn dein Ex-Nachbar Kevo versuchen sollte, an deinem Gehirn rumzuknabbern..</source>
-        <target>Puede parecer muy simple pero estarás contento de tener uno cuando, Carlos, tu antiguo vecino, venga para comerte los sesos.</target>
+        <target>Puede parecer muy simple pero estarás contento de tener uno cuando BOSSU, tu antiguo vecino, venga para comerte los sesos.</target>
       </segment>
     </unit>
     <unit id="Wv2Tkzm">
@@ -2580,7 +2580,7 @@
       </notes>
       <segment>
         <source>Ein selbstgebauer Raketenwerfer feuert in den Boden: Denk mal drüber nach! Der Legende nach wollte der geistige Vater dieses Bauprojekts eigentlich den "Rocket Jump" erfinden. Egal, +60 Rationen Wasser werden so zum Brunnen hinzugefügt.</source>
-        <target>La innovación: apunta hacia el suelo. Surgió como muchos inventos de un error. Alguien quiso salir del pueblo propulsado por un cohete, la máquina giró hacia abajo y terminó con la cabeza metida en un río subterráneo.'</target>
+        <target>La innovación: apunta hacia el suelo. Surgió como muchos inventos de un error. Alguien quiso salir del pueblo propulsado por un cohete, la máquina giró hacia abajo y terminó con la cabeza metida en un río subterráneo.</target>
       </segment>
     </unit>
     <unit id="Fec.c3L">
