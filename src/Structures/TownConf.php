@@ -101,6 +101,7 @@ class TownConf extends Conf
     const CONF_FEATURE_XML             = 'features.xml_feed';
     const CONF_FEATURE_CITIZEN_ALIAS   = 'features.citizen_alias';
     const CONF_FEATURE_GHOUL_MODE      = 'features.ghoul_mode';
+    const CONF_FEATURE_GHOULS_HUNGRY   = 'features.hungry_ghouls';
     const CONF_FEATURE_ALL_POISON      = 'features.all_poison';
     const CONF_FEATURE_SHUN            = 'features.shun';
     const CONF_FEATURE_NIGHTWATCH      = 'features.nightwatch.enabled';

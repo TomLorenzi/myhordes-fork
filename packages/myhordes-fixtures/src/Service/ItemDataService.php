@@ -304,10 +304,10 @@ class ItemDataService implements FixtureProcessorInterface {
                 ['label' => 'Hospital-Bauplan (ungewöhnlich)', 'icon' => 'mbplan_u', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                         // In ---
                 ['label' => 'Hospital-Bauplan (selten)', 'icon' => 'mbplan_r', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                               // In ---
                 ['label' => 'Hospital-Bauplan (sehr selten!)', 'icon' => 'mbplan_e', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                         // In ---
-                ['label' => 'Verirrte Seele', 'icon' => 'soul_blue', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                         //
-                ['label' => 'Gequälte Seele', 'icon' => 'soul_red', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                            //
-                ['label' => 'Starke Seele', 'icon' => 'soul_yellow', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                            //
-                ['label' => 'Schwache Seele', 'icon' => 'soul_blue', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                         //
+                ['label' => 'Verirrte Seele', 'icon' => 'soul_blue', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0, 'unstackable' => true],                                         //
+                ['label' => 'Gequälte Seele', 'icon' => 'soul_red', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0, 'unstackable' => true],                                            //
+                ['label' => 'Starke Seele', 'icon' => 'soul_yellow', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0, 'unstackable' => true],                                            //
+                ['label' => 'Schwache Seele', 'icon' => 'soul_blue', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0, 'unstackable' => true],                                         //
                 ['label' => 'Ein Etikett', 'icon' => 'rp_scroll', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                            // In Out
 
 

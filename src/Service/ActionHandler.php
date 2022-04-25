@@ -717,10 +717,10 @@ class ActionHandler
 
                 if ($status->getCitizenHunger()) {
                     $ghoul_mode = $this->conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_FEATURE_GHOUL_MODE, 'normal');
-                    if ($status->getForced() || !in_array($ghoul_mode, ['bloodthirst','airbnb']))
+                    $hungry_ghouls = $this->conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_FEATURE_GHOULS_HUNGRY, false);
+                    if (($hungry_ghouls || $citizen->hasRole('ghoul')) && ($status->getForced() || !in_array($ghoul_mode, ['bloodthirst','airbnb'])))
                         $citizen->setGhulHunger( max(0,$citizen->getGhulHunger() + $status->getCitizenHunger()) );
                 }
-
 
                 if ($status->getRole() !== null && $status->getRoleAdd() !== null) {
                     if ($status->getRoleAdd()) {

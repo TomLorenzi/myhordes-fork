@@ -4567,5 +4567,135 @@
         <target>Usar por defecto el editor avanzado de texto en los MP</target>
       </segment>
     </unit>
+    <unit id="A5iJ0g0" name="Deine MyHordes-Seele zurücksetzen">
+      <notes>
+        <note category="german">Deine MyHordes-Seele zurücksetzen</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
+      </notes>
+      <segment>
+        <source>Deine MyHordes-Seele zurücksetzen</source>
+        <target>Reiniciar tu alma de MyHordes</target>
+      </segment>
+    </unit>
+    <unit id="y9khXik">
+      <notes>
+        <note category="german">Wenn du eine Seele trotz der Import-Einstränkungen vollständig importieren möchtest, hast du &lt;b&gt;einmalig&lt;/b&gt; die Option, deine MyHordes-Seele zurückzusetzen.</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
+      </notes>
+      <segment>
+        <source>Wenn du eine Seele trotz der Import-Einstränkungen vollständig importieren möchtest, hast du &lt;b&gt;einmalig&lt;/b&gt; die Option, deine MyHordes-Seele zurückzusetzen.</source>
+        <target><![CDATA[Si quieres importar enteramente un alma a pesar de las restricciones para importar, tienes la opción de <b>una sola vez</b> de reiniciar tu alma de MyHordes.]]></target>
+      </segment>
+    </unit>
+    <unit id="dsL.BQg" name="Folgende Aspekte deiner Seele sind von diesem Reset &lt;b&gt;betroffen&lt;/b&gt;:">
+      <notes>
+        <note category="german">Folgende Aspekte deiner Seele sind von diesem Reset &lt;b&gt;betroffen&lt;/b&gt;:</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
+      </notes>
+      <segment>
+        <source>Folgende Aspekte deiner Seele sind von diesem Reset &lt;b&gt;betroffen&lt;/b&gt;:</source>
+        <target><![CDATA[Los siguientes aspectos de tu alma <b>son afectados</b> por este reinicio:]]></target>
+      </segment>
+    </unit>
+    <unit id="RPTgSwQ" name="Deine nach dem Ende der Alpha-Phase auf MyHordes erworbenen Seelenpunkte">
+      <notes>
+        <note category="german">Deine nach dem Ende der Alpha-Phase auf MyHordes erworbenen Seelenpunkte</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
+      </notes>
+      <segment>
+        <source>Deine nach dem Ende der Alpha-Phase auf MyHordes erworbenen Seelenpunkte</source>
+        <target>Tus puntos de alma obtenidos luego del fin de la fase alfa en MyHordes</target>
+      </segment>
+    </unit>
+    <unit id="wRK8LRh">
+      <notes>
+        <note category="german">Deine nach dem Ende der Alpha-Phase im Rahmen von Städten erworbenen Auszeichnungen (einschließlich Ranking-Auszeichnungen, die am Ende einer Saison vergeben werden!)</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
+      </notes>
+      <segment>
+        <source>Deine nach dem Ende der Alpha-Phase im Rahmen von Städten erworbenen Auszeichnungen (einschließlich Ranking-Auszeichnungen, die am Ende einer Saison vergeben werden!)</source>
+        <target>Tus distinciones obtenidas en pueblos luego del fin de la fase alfa (¡incluyendo distinciones de la clasificación dadas al final de una temporada!)</target>
+      </segment>
+    </unit>
+    <unit id="qGQ4apv" name="Folgende Aspekte deiner Seele sind von diesem Reset &lt;b&gt;nicht betroffen&lt;/b&gt;:">
+      <notes>
+        <note category="german">Folgende Aspekte deiner Seele sind von diesem Reset &lt;b&gt;nicht betroffen&lt;/b&gt;:</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
+      </notes>
+      <segment>
+        <source>Folgende Aspekte deiner Seele sind von diesem Reset &lt;b&gt;nicht betroffen&lt;/b&gt;:</source>
+        <target><![CDATA[Los siguientes aspectos de tu alma <b>no son afectados</b> por este reinicio:]]></target>
+      </segment>
+    </unit>
+    <unit id="YT57JhK">
+      <notes>
+        <note category="german">Die Liste deiner bisher auf MyHordes gespielten Städte mit allen angehängten Informationen (Todesart, letzte Worte, überlebte Tage, etc)</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
+      </notes>
+      <segment>
+        <source>Die Liste deiner bisher auf MyHordes gespielten Städte mit allen angehängten Informationen (Todesart, letzte Worte, überlebte Tage, etc)</source>
+        <target>La lista de tus pueblos jugados en MyHordes hasta ahora con toda la información adjunta (causa de muerte, últimas palabras, días sobrevividos, etc).</target>
+      </segment>
+    </unit>
+    <unit id="VUNm4fP" name="Spezielle Auszeichnungen, wie beispielsweise die Alpha-Auszeichnung">
+      <notes>
+        <note category="german">Spezielle Auszeichnungen, wie beispielsweise die Alpha-Auszeichnung</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
+      </notes>
+      <segment>
+        <source>Spezielle Auszeichnungen, wie beispielsweise die Alpha-Auszeichnung</source>
+        <target>Distinciones especiales, como la distinción Alfa</target>
+      </segment>
+    </unit>
+    <unit id="gYtpBfG" name="Gegenstände in deinem spiritueller Rucksack">
+      <notes>
+        <note category="german">Gegenstände in deinem spiritueller Rucksack</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
+      </notes>
+      <segment>
+        <source>Gegenstände in deinem spiritueller Rucksack</source>
+        <target>Objetos en tu mochila espiritual</target>
+      </segment>
+    </unit>
+    <unit id="E2LwrUJ" name="Deine gespielten Heldentage">
+      <notes>
+        <note category="german">Deine gespielten Heldentage</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
+      </notes>
+      <segment>
+        <source>Deine gespielten Heldentage</source>
+        <target>El número de días que jugaste como un héroe</target>
+      </segment>
+    </unit>
+    <unit id="K1yAZOB" name="Seelenpunkte oder Auszeichnungen, die du importiert hast">
+      <notes>
+        <note category="german">Seelenpunkte oder Auszeichnungen, die du importiert hast</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
+      </notes>
+      <segment>
+        <source>Seelenpunkte oder Auszeichnungen, die du importiert hast</source>
+        <target>Puntos de alma o distinciones que has importado</target>
+      </segment>
+    </unit>
+    <unit id="VEBXP0O" name="Meine Seele zurücksetzen">
+      <notes>
+        <note category="german">Meine Seele zurücksetzen</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
+      </notes>
+      <segment>
+        <source>Meine Seele zurücksetzen</source>
+        <target>Reiniciar mi alma</target>
+      </segment>
+    </unit>
+    <unit id="ZCrhTK8">
+      <notes>
+        <note category="german">Bitte bestätige, dass du deine Seele zurücksetzen möchtest. Du kannst diese Aktion NUR EIN MAL ausführen. Diese Aktion KANN NICHT RÜCKGÄNGIG GEMACHT WERDEN!</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
+      </notes>
+      <segment>
+        <source>Bitte bestätige, dass du deine Seele zurücksetzen möchtest. Du kannst diese Aktion NUR EIN MAL ausführen. Diese Aktion KANN NICHT RÜCKGÄNGIG GEMACHT WERDEN!</source>
+        <target>Por favor confirma que quieres reiniciar tu alma. Solo puedes realizar esta acción UNA VEZ. ¡Esta acción NO PUEDE SER REVERTIDA!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

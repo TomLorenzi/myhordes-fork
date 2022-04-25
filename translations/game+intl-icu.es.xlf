@@ -22907,7 +22907,6 @@
       <notes>
         <note category="german">Mit dem richtigen Schlüssel kannst du diese Tür öffnen.</note>
         <note category="from">twig:///templates/ajax/game/beyond/ruin.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Mit dem richtigen Schlüssel kannst du diese Tür öffnen.</source>
@@ -22928,7 +22927,7 @@
       <notes>
         <note category="german">Du hast keine Seelenpunkte gewonnen.</note>
         <note category="from">twig:///templates/ajax/soul/death.html.twig</note>
-        <note category="state">Translated</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Du hast keine Seelenpunkte gewonnen.</source>
@@ -22959,7 +22958,6 @@
       <notes>
         <note category="german">Mysteriöser Fremder</note>
         <note category="from">php:///src/Service/LogTemplateHandler.php;twig:///templates/ajax/game/town/citizen.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Mysteriöser Fremder</source>
@@ -23117,11 +23115,43 @@
       <notes>
         <note category="german">Du hast bereits etwas gegessen. Dir bleiben nur noch Drogen und Alkohol!</note>
         <note category="from">twig:///templates/ajax/game/beyond/beyond.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Du hast bereits etwas gegessen. Dir bleiben nur noch Drogen und Alkohol!</source>
         <target>Ya has comido. ¡Todo lo que te queda son las drogas y el alcohol!</target>
+      </segment>
+    </unit>
+    <unit id="LVLAweZ">
+      <notes>
+        <note category="german">Ein Moderator hat eine Beschränkung für deinen Account festgelegt, da du gegen eine oder mehrere unserer Verhaltensregeln verstoßen hast.&lt;br/&gt;Art der Beschränkung: &lt;b&gt;{type}&lt;/b&gt;&lt;br/&gt;Grund: &lt;i&gt;{reason}&lt;/i&gt;&lt;br /&gt;Dauer: &lt;i&gt;{duration}&lt;/i&gt;</note>
+        <note category="from">db://LogEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Ein Moderator hat eine Beschränkung für deinen Account festgelegt, da du gegen eine oder mehrere unserer Verhaltensregeln verstoßen hast.&lt;br/&gt;Art der Beschränkung: &lt;b&gt;{type}&lt;/b&gt;&lt;br/&gt;Grund: &lt;i&gt;{reason}&lt;/i&gt;&lt;br /&gt;Dauer: &lt;i&gt;{duration}&lt;/i&gt;</source>
+        <target><![CDATA[Ein Moderator hat eine Beschränkung für deinen Account festgelegt, da du gegen eine oder mehrere unserer Verhaltensregeln verstoßen hast.<br/>Art der Beschränkung: <b>{type}</b><br/>Grund: <i>{reason}</i><br />Dauer: <i>{duration}</i>]]></target>
+      </segment>
+    </unit>
+    <unit id="MZuvd1.">
+      <notes>
+        <note category="german">Ein Moderator hat die Dauer einer Beschränkung, die für deinen Account festgelegt war, geändert.&lt;br/&gt;Art der Beschränkung: &lt;b&gt;{type}&lt;/b&gt;&lt;br/&gt;Alte Dauer: &lt;i&gt;{old_duration}&lt;/i&gt;&lt;br /&gt;Neue Dauer: &lt;i&gt;{duration}&lt;/i&gt;</note>
+        <note category="from">db://LogEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Ein Moderator hat die Dauer einer Beschränkung, die für deinen Account festgelegt war, geändert.&lt;br/&gt;Art der Beschränkung: &lt;b&gt;{type}&lt;/b&gt;&lt;br/&gt;Alte Dauer: &lt;i&gt;{old_duration}&lt;/i&gt;&lt;br /&gt;Neue Dauer: &lt;i&gt;{duration}&lt;/i&gt;</source>
+        <target><![CDATA[Ein Moderator hat die Dauer einer Beschränkung, die für deinen Account festgelegt war, geändert.<br/>Art der Beschränkung: <b>{type}</b><br/>Alte Dauer: <i>{old_duration}</i><br />Neue Dauer: <i>{duration}</i>]]></target>
+      </segment>
+    </unit>
+    <unit id="RZ4FfGa">
+      <notes>
+        <note category="german">Ein Moderator hat eine Beschränkung für deinen Account aufgehoben.&lt;br/&gt;Art der Beschränkung: &lt;b&gt;{type}&lt;/b&gt;</note>
+        <note category="from">db://LogEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Ein Moderator hat eine Beschränkung für deinen Account aufgehoben.&lt;br/&gt;Art der Beschränkung: &lt;b&gt;{type}&lt;/b&gt;</source>
+        <target><![CDATA[Ein Moderator hat eine Beschränkung für deinen Account aufgehoben.<br/>Art der Beschränkung: <b>{type}</b>]]></target>
       </segment>
     </unit>
   </file>

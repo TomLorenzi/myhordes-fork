@@ -114,8 +114,9 @@
                     {% if is_granted('ROLE_CROW') %}
                         {% if not citizen.disabled %}
                             <img x-action="unrank" x-endpoint="{{ path('admin_town_citizen_ranking_control', {tid: town.id, cid: citizen.id, act: 1}) }}" class="pointer" src="{{ asset('build/images/icons/small_remove.gif') }}" alt="del" />
-                        {% else %}
+                        {% elseif citizen.disabled and (citizen.resetMarker is null or is_granted('ROLE_ADMIN')) %}
                             <img x-action="unrank" x-endpoint="{{ path('admin_town_citizen_ranking_control', {tid: town.id, cid: citizen.id, act: 0}) }}" class="pointer" src="{{ asset('build/images/icons/small_back.gif') }}" alt="re" />
+                            {% if citizen.resetMarker is not null %}<span class="small">[R]</span>{% endif %}
                         {% endif %}
                     {% endif %}
                 </div>

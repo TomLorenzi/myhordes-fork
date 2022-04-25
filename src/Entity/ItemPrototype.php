@@ -102,6 +102,11 @@ class ItemPrototype implements NamedEntity
      */
     private $deco_text;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $individual = false;
+
     public function __construct()
     {
         $this->properties = new ArrayCollection();
@@ -323,6 +328,18 @@ class ItemPrototype implements NamedEntity
     public function setDecoText(?string $deco_text): self
     {
         $this->deco_text = $deco_text;
+
+        return $this;
+    }
+
+    public function getIndividual(): ?bool
+    {
+        return $this->individual;
+    }
+
+    public function setIndividual(bool $individual): self
+    {
+        $this->individual = $individual;
 
         return $this;
     }

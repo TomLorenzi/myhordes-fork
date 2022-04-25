@@ -126,6 +126,7 @@ parameters:
         xml_feed: true
         citizen_alias: false
         ghoul_mode: normal
+        hungry_ghouls: false
         all_poison: false
         shun: true
         nightwatch:

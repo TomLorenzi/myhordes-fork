@@ -3,6 +3,8 @@
 namespace App\Controller\Soul;
 
 use App\Entity\CitizenRankingProxy;
+use App\Entity\Picto;
+use App\Entity\SoulResetMarker;
 use App\Entity\TwinoidImport;
 use App\Entity\TwinoidImportPreview;
 use App\Entity\User;
@@ -48,7 +50,7 @@ class SoulImportController extends SoulController
 
             $limited = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_LIMITED, false) && (
                 $user->getSoulPoints() > $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_SP_THRESHOLD, -1) ||
-                $this->entity_manager->getRepository(CitizenRankingProxy::class)->countNonAlphaTowns($user, $town_cutoff) > $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_TW_THRESHOLD, -1)
+                $this->entity_manager->getRepository(CitizenRankingProxy::class)->countNonAlphaTowns($user, $town_cutoff, true) > $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_TW_THRESHOLD, -1)
             );
 
             return $this->render( 'ajax/soul/import_preview.html.twig', $this->addDefaultTwigArgs("soul_settings", [
@@ -62,6 +64,13 @@ class SoulImportController extends SoulController
             if ($town_cutoff > 0) $town_cutoff = (new DateTime())->setTimestamp($town_cutoff);
             else $town_cutoff = null;
 
+            $is_limited = $conf->get(MyHordesConf::CONF_IMPORT_LIMITED, false) && (
+                    $user->getSoulPoints() > $conf->get(MyHordesConf::CONF_IMPORT_SP_THRESHOLD, -1) ||
+                    $this->entity_manager->getRepository(CitizenRankingProxy::class)->countNonAlphaTowns($user, $town_cutoff, true) > $conf->get(MyHordesConf::CONF_IMPORT_TW_THRESHOLD, -1)
+                );
+
+            $can_reset = $is_limited && $this->entity_manager->getRepository(SoulResetMarker::class)->count(['user' => $user]) === 0;
+
             return $this->render('ajax/soul/import.html.twig', $this->addDefaultTwigArgs("soul_settings", [
                 'services' => ['www.hordes.fr' => 'Hordes', 'www.die2nite.com' => 'Die2Nite', 'www.dieverdammten.de' => 'Die Verdammten', 'www.zombinoia.com' => 'Zombinoia'],
                 'code' => $code, 'need_sk' => !$twin->hasBuiltInTwinoidAccess(),
@@ -71,10 +80,8 @@ class SoulImportController extends SoulController
                 'limited_import' => $conf->get(MyHordesConf::CONF_IMPORT_LIMITED, false),
                 'limited_import_threshold' => $conf->get(MyHordesConf::CONF_IMPORT_SP_THRESHOLD, -1),
                 'limited_import_town_threshold' => $conf->get(MyHordesConf::CONF_IMPORT_TW_THRESHOLD, -1),
-                'is_limited' => $conf->get(MyHordesConf::CONF_IMPORT_LIMITED, false) && (
-                        $user->getSoulPoints() > $conf->get(MyHordesConf::CONF_IMPORT_SP_THRESHOLD, -1) ||
-                        $this->entity_manager->getRepository(CitizenRankingProxy::class)->countNonAlphaTowns($user, $town_cutoff) > $conf->get(MyHordesConf::CONF_IMPORT_TW_THRESHOLD, -1)
-                    )
+                'is_limited' => $is_limited,
+                'can_reset' => $can_reset
             ]));
     }
 
@@ -103,7 +110,7 @@ class SoulImportController extends SoulController
 
         $limited = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_LIMITED, false) && (
             $user->getSoulPoints() > $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_SP_THRESHOLD, -1) ||
-            $this->entity_manager->getRepository(CitizenRankingProxy::class)->countNonAlphaTowns($user, $town_cutoff) > $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_TW_THRESHOLD, -1)
+            $this->entity_manager->getRepository(CitizenRankingProxy::class)->countNonAlphaTowns($user, $town_cutoff, true) > $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_TW_THRESHOLD, -1)
         );
 
         return $this->render( 'ajax/soul/import_preview.html.twig', $this->addDefaultTwigArgs("soul_settings", [
@@ -305,7 +312,7 @@ class SoulImportController extends SoulController
 
         if ($limit &&
             $user->getSoulPoints() <= $conf->get(MyHordesConf::CONF_IMPORT_SP_THRESHOLD, -1) &&
-            $this->entity_manager->getRepository(CitizenRankingProxy::class)->countNonAlphaTowns($user, $town_cutoff) <= $conf->get(MyHordesConf::CONF_IMPORT_TW_THRESHOLD, -1)
+            $this->entity_manager->getRepository(CitizenRankingProxy::class)->countNonAlphaTowns($user, $town_cutoff, true) <= $conf->get(MyHordesConf::CONF_IMPORT_TW_THRESHOLD, -1)
         )
             $limit = false;
 
@@ -345,4 +352,54 @@ class SoulImportController extends SoulController
         } else return AjaxResponse::error(ErrorHelper::ErrorInternalError);
     }
 
+    /**
+     * @Route("api/soul/import-soft-reset", name="soul_import_soft_reset_api")
+     * @return Response
+     */
+    public function soul_soft_reset(): Response
+    {
+        $conf = $this->conf->getGlobalConf();
+
+        if (!$conf->get(MyHordesConf::CONF_IMPORT_ENABLED, true) || $conf->get(MyHordesConf::CONF_IMPORT_READONLY, false))
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
+
+        $user = $this->getUser();
+
+        $town_cutoff = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_TW_CUTOFF, -1);
+        if ($town_cutoff > 0) $town_cutoff = (new DateTime())->setTimestamp($town_cutoff);
+        else $town_cutoff = null;
+
+        $limited = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_LIMITED, false) && (
+                $user->getSoulPoints() > $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_SP_THRESHOLD, -1) ||
+                $this->entity_manager->getRepository(CitizenRankingProxy::class)->countNonAlphaTowns($user, $town_cutoff, true) > $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_TW_THRESHOLD, -1)
+            );
+
+        $can_reset = $limited && $this->entity_manager->getRepository(SoulResetMarker::class)->count(['user' => $user]) === 0;
+        if (!$can_reset) return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
+
+        /** @var CitizenRankingProxy $ranking */
+        foreach ($this->entity_manager->getRepository(CitizenRankingProxy::class)->getNonAlphaTowns($user, $town_cutoff, false) as $ranking)
+            if (!$ranking->getDisabled()) {
+                $this->entity_manager->persist($ranking->setDisabled(true));
+                foreach ($this->entity_manager->getRepository(Picto::class)->findBy(['townEntry' => $ranking->getTown(), 'user' => $user]) as $picto)
+                    $this->entity_manager->persist( $picto->setDisabled(true) );
+                $this->entity_manager->persist( (new SoulResetMarker())->setUser( $user )->setRanking( $ranking ) );
+            }
+
+        try {
+            $this->entity_manager->flush();
+            $user->setSoulPoints( $this->user_handler->fetchSoulPoints( $user, false ) );
+            $this->entity_manager->persist($user);
+            $this->entity_manager->flush();
+
+            $this->user_handler->computePictoUnlocks($user);
+            $this->entity_manager->persist($user);
+            $this->entity_manager->flush();
+
+        } catch (Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException );
+        }
+
+        return AjaxResponse::success();
+    }
 }

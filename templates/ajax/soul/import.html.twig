@@ -107,7 +107,30 @@
                     </div>
                 {% endfor %}
             {% endif %}
-
+            {% if can_reset and not read_only %}
+                <h5>{{ 'Deine MyHordes-Seele zurücksetzen'|trans({},'soul') }}</h5>
+                <div class="note">
+                    <div>
+                        {{ 'Wenn du eine Seele trotz der Import-Einstränkungen vollständig importieren möchtest, hast du <b>einmalig</b> die Option, deine MyHordes-Seele zurückzusetzen.'|trans({},'soul')|raw }}<br/><br/>
+                        {{ 'Folgende Aspekte deiner Seele sind von diesem Reset <b>betroffen</b>:'|trans({},'soul')|raw }}
+                        <ul>
+                            <li>{{ 'Deine nach dem Ende der Alpha-Phase auf MyHordes erworbenen Seelenpunkte'|trans({},'soul') }}</li>
+                            <li>{{ 'Deine nach dem Ende der Alpha-Phase im Rahmen von Städten erworbenen Auszeichnungen (einschließlich Ranking-Auszeichnungen, die am Ende einer Saison vergeben werden!)'|trans({},'soul') }}</li>
+                        </ul>
+                        {{ 'Folgende Aspekte deiner Seele sind von diesem Reset <b>nicht betroffen</b>:'|trans({},'soul')|raw }}
+                        <ul>
+                            <li>{{ 'Die Liste deiner bisher auf MyHordes gespielten Städte mit allen angehängten Informationen (Todesart, letzte Worte, überlebte Tage, etc)'|trans({},'soul') }}</li>
+                            <li>{{ 'Spezielle Auszeichnungen, wie beispielsweise die Alpha-Auszeichnung'|trans({},'soul') }}</li>
+                            <li>{{ 'Gegenstände in deinem spiritueller Rucksack'|trans({},'soul') }}</li>
+                            <li>{{ 'Deine gespielten Heldentage'|trans({},'soul') }}</li>
+                            <li>{{ 'Seelenpunkte oder Auszeichnungen, die du importiert hast'|trans({},'soul') }}</li>
+                        </ul>
+                        <div class="row">
+                            <button id="reset_soul_button" class="small inline float-right">{{ 'Meine Seele zurücksetzen'|trans({},'soul') }}</button>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
         </div>
     </div>
 {% endblock %}
@@ -196,6 +219,17 @@
                         } )
                 });
             {% endif %}
+        {% endif %}
+
+        {% if can_reset and not read_only %}
+            $.html.addEventListenerAll('#reset_soul_button', 'click', () => {
+                if (!confirm('{{ 'Bitte bestätige, dass du deine Seele zurücksetzen möchtest. Du kannst diese Aktion NUR EIN MAL ausführen. Diese Aktion KANN NICHT RÜCKGÄNGIG GEMACHT WERDEN!'|trans({},'soul')|e('js') }}'))
+                    return;
+
+                $.ajax.easySend('{{ url('soul_import_soft_reset_api') }}', {}, () => {
+                    $.ajax.load(null, '{{ url('soul_import') }}', true, );
+                })
+            })
         {% endif %}
     </script>
 {% endblock %}

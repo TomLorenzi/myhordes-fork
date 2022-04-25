@@ -56,6 +56,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\RateLimiter\RateLimiterFactory;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Validator\Constraints\Date;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -1848,7 +1849,7 @@ class TownController extends InventoryAwareController
      * @param JSONRequestParser $parser
      * @return Response
      */
-    public function dashboard_save_wordofheroes_api(JSONRequestParser $parser): Response {
+    public function dashboard_save_wordofheroes_api(JSONRequestParser $parser, RateLimiterFactory $blackboardEditSlideLimiter, RateLimiterFactory $blackboardEditFixedLimiter ): Response {
         if (!$this->getTownConf()->get(TownConf::CONF_FEATURE_WORDS_OF_HEROS, false) || !$this->getActiveCitizen()->getProfession()->getHeroic())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable);
 
@@ -1862,6 +1863,12 @@ class TownController extends InventoryAwareController
 
         // Get town
         $town = $this->getActiveCitizen()->getTown();
+
+        // Rate Limiting
+        if (
+            !$blackboardEditFixedLimiter->create( $this->getActiveCitizen()->getId() )->consume(1)->isAccepted() ||
+            !$blackboardEditSlideLimiter->create( $this->getActiveCitizen()->getId() )->consume(1)->isAccepted() )
+            return AjaxResponse::error( ErrorHelper::ErrorRateLimited);
 
         // No need to update WoH is there is no change
         if ($town->getWordsOfHeroes() === $new_words_of_heroes) return AjaxResponse::success();

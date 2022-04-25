@@ -261,22 +261,13 @@ class ZoneHandler
                 $executable_timer->setDigCache(null);
             else foreach ($executable_timer->getDigCache() as $time => $mode) {
 
-                switch ($mode) {
-                    case -1:
-                        $item_prototype = null;
-                        break;
-                    case 0:
-                        $item_prototype = $this->random_generator->pickItemPrototypeFromGroup( $empty_group, $conf );
-                        break;
-                    case 1:
-                        $item_prototype = $this->random_generator->pickItemPrototypeFromGroup( $base_group, $conf );
-                        break;
-                    case 2:
-                        $item_prototype = $this->random_generator->pickItemPrototypeFromGroup( $event_group ?? $base_group, $conf );
-                        break;
-                    default:
-                        $item_prototype = null;
-                }
+                $item_prototype = match ($mode) {
+                    -1 => null,
+                    0 => $this->random_generator->pickItemPrototypeFromGroup($empty_group, $conf),
+                    1 => $this->random_generator->pickItemPrototypeFromGroup($base_group, $conf),
+                    2 => $this->random_generator->pickItemPrototypeFromGroup($event_group ?? $base_group, $conf),
+                    default => null,
+                };
 
                 $zone_update = true;
 
@@ -317,9 +308,9 @@ class ZoneHandler
                     $this->entity_manager->persist( $this->log->outsideDig( $current_citizen, $item_prototype, (new DateTime())->setTimestamp($time) ) );
                 }
 
-                // Banished citizen's stach check
+                // Banished citizen's stash check
                 if(!$executable_timer->getCitizen()->getBanished() && $this->hasHiddenItem($executable_timer->getZone()) && $this->random_generator->chance(0.05)){
-                    $items = $timer->getZone()->getFloor()->getItems();
+                    $items = $executable_timer->getZone()->getFloor()->getItems();
                     $itemsproto = array_map( function($e) {return $e->getPrototype(); }, $items->toArray() );
                     if ($active && $current_citizen->getEscortSettings() && $current_citizen->getEscortSettings()->getLeader() && $current_citizen->getEscortSettings()->getLeader() === $active)
                         $ret_str[] = $this->trans->trans('Beim Graben ist {citizen} auf eine Art... geheimes Versteck mit {items} gestoßen! Es wurde vermutlich von einem verbannten Mitbürger angelegt...', ['{items}' => $wrap($itemsproto), '{citizen}' => $current_citizen ], 'game');
@@ -396,7 +387,7 @@ class ZoneHandler
             $total_zombies += $zone->getZombies();
             $killedZombies += ($zone->getInitialZombies() - $zone->getZombies());
 
-            $despair = max(0,( $zone->getInitialZombies() - $zone->getZombies() - 1 ) / 2);
+            $despair = floor(max(0,( $zone->getInitialZombies() - $zone->getZombies() - 1 ) / 2));
             if (!isset($zone_db[$zone->getX()])) $zone_db[$zone->getX()] = [];
             $zone_db[$zone->getX()][$zone->getY()] = $zone->getZombies();
             $despair_db[$zone->getX()][$zone->getY()] = $despair;

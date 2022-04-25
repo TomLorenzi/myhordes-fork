@@ -1325,7 +1325,6 @@
       <notes>
         <note category="german">Die Eternaltwin-ID, wenn er sein Konto verknüpft hat</note>
         <note category="from">twig:///templates/ajax/public/apidocs.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Die Eternaltwin-ID, wenn er sein Konto verknüpft hat</source>
@@ -1336,7 +1335,6 @@
       <notes>
         <note category="german">Eternaltwin-ID des Spielers</note>
         <note category="from">twig:///templates/ajax/public/apidocs.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Eternaltwin-ID des Spielers</source>

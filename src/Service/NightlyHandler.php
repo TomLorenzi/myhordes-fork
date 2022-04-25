@@ -1311,11 +1311,13 @@ class NightlyHandler
                 $this->entity_manager->persist($alarm[0]);
             }
 
-            if ($this->citizen_handler->hasStatusEffect($citizen, 'tg_air_infected')) {
+            if ($this->citizen_handler->hasStatusEffect($citizen, 'tg_air_infected') && !$citizen->hasRole('ghoul')) {
                 $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> has been infected by the <info>airborne ghoul disease</info>!: Turning them into a <info>ghoul</info>!");
                 $this->citizen_handler->removeStatus($citizen, 'tg_air_infected');
                 $this->citizen_handler->addRole($citizen, 'ghoul');
                 $this->citizen_handler->inflictStatus($citizen, 'tg_air_ghoul');
+                if ($this->conf->getTownConfiguration( $town )->get( TownConf::CONF_FEATURE_GHOULS_HUNGRY, false ))
+                    $citizen->setGhulHunger(45);
             }
         }
 
