@@ -1803,5 +1803,27 @@
         <target>Activer la toxine</target>
       </segment>
     </unit>
+    <unit id="o1TozmB">
+      <notes>
+        <note category="german">Ist diese Option aktiviert, haben frisch in Ghule verwandelte Bürger bereits Hunger.</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Ist diese Option aktiviert, haben frisch in Ghule verwandelte Bürger bereits Hunger.</source>
+        <target>Si cette option est activée, les goules nouvellement transformées commencent avec un peu de voracité...</target>
+      </segment>
+    </unit>
+    <unit id="v7CDf.f" name="Hungrige Ghule">
+      <notes>
+        <note category="german">Hungrige Ghule</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Hungrige Ghule</source>
+        <target>Goules affamées</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

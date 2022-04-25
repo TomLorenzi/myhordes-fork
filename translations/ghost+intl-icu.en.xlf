@@ -1808,5 +1808,25 @@
         <target>Enable toxin</target>
       </segment>
     </unit>
+    <unit id="o1TozmB">
+      <notes>
+        <note category="german">Ist diese Option aktiviert, haben frisch in Ghule verwandelte Bürger bereits Hunger.</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+      </notes>
+      <segment>
+        <source>Ist diese Option aktiviert, haben frisch in Ghule verwandelte Bürger bereits Hunger.</source>
+        <target>When enabled, newly transformed ghouls start with a bit of hunger...</target>
+      </segment>
+    </unit>
+    <unit id="v7CDf.f" name="Hungrige Ghule">
+      <notes>
+        <note category="german">Hungrige Ghule</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+      </notes>
+      <segment>
+        <source>Hungrige Ghule</source>
+        <target>Hungry Ghouls</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

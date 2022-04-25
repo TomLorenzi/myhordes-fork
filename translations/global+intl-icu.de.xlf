@@ -3900,5 +3900,23 @@
         <target>Diskussion aktualisieren</target>
       </segment>
     </unit>
+    <unit id="kmZd3k9" name="Support-Postfach">
+      <notes>
+        <note category="from">twig:///templates/ajax/pm/view.html.twig</note>
+      </notes>
+      <segment>
+        <source>Support-Postfach</source>
+        <target>Support-Postfach</target>
+      </segment>
+    </unit>
+    <unit id="l1ILLYu">
+      <notes>
+        <note category="from">twig:///templates/scripts/errors/generic.txt.twig</note>
+      </notes>
+      <segment>
+        <source>Du hast diese Aktion bereits zu oft durchgeführt. Warte eine Weile und versuche es dann erneut.</source>
+        <target>Du hast diese Aktion bereits zu oft durchgeführt. Warte eine Weile und versuche es dann erneut.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

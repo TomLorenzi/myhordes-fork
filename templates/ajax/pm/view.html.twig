@@ -39,8 +39,11 @@
 
                 <div class="cell grow-0">
                     <ul class="tabs plain" x-tab-group="gpm-inbox" x-tab-control id="gpm-inbox-control">
-                        <li class="tab" x-tab-id="inbox"><div class="tab-link"><img  src="{{ asset("build/images/icons/small_mail.gif") }}" alt="" /> {{ 'Posteingang'|trans({},'global') }}</div></li>
-                        <li class="tab" x-tab-id="archive"><div class="tab-link"><img src="{{ asset("build/images/icons/small_archive.gif") }}" alt="" /> {{ 'Archiv'|trans({},'global') }}</div></li>
+                        <li class="tab" x-tab-id="inbox"><div class="tab-link"><img  src="{{ asset("build/images/icons/small_mail.gif") }}" alt="" /><span class="hide-sm hide-md hide-lg hide-elg"> {{ 'Posteingang'|trans({},'global') }}</span></div></li>
+                        {% if official_groups is not empty %}
+                            <li class="tab" x-tab-id="support"><div class="tab-link"><img  src="{{ asset("build/images/icons/small_star.gif") }}" alt="" /><span class="hide-sm hide-md hide-lg hide-elg"> {{ 'Support-Postfach'|trans({},'global') }}</span></div></li>
+                        {% endif %}
+                        <li class="tab" x-tab-id="archive"><div class="tab-link"><img src="{{ asset("build/images/icons/small_archive.gif") }}" alt="" /><span class="hide-sm hide-md hide-lg hide-elg"> {{ 'Archiv'|trans({},'global') }}</span></div></li>
                     </ul>
                     <div class="row-flex hidden" id="conv_search_bar">
                         <div class="padded cell"><label for="conv_list_filter"><i class="fa fa-search"></i></label></div>
@@ -293,6 +296,9 @@
             document.getElementById('gpm-inbox-control').addEventListener('tab-switch', (e) => {
                 switch (e.detail.tab) {
                     case 'inbox'  : core_list_path = '{{ path('pm_list', {set: 'inbox'}) }}'; break;
+                    {% if official_groups is not empty %}
+                        case 'support': core_list_path = '{{ path('pm_list', {set: 'support'}) }}'; break;
+                    {% endif %}
                     case 'archive': core_list_path = '{{ path('pm_list', {set: 'archive'}) }}'; break;
                 }
                 init_conv_list();

@@ -261,11 +261,11 @@ class Thread
         return $pages;
     }
 
-    public function hasReportedPosts(): bool
+    public function hasReportedPosts($unseen = true): bool
     {
         $criteria = Criteria::create();
         $criteria->where(Criteria::expr()->gt('reported', 0));
-        return $this->posts->matching($criteria)->filter(fn(Post $p) => !$p->getAdminReports(true)->isEmpty())->count() > 0;
+        return $this->posts->matching($criteria)->filter(fn(Post $p) => !$p->getAdminReports($unseen)->isEmpty())->count() > 0;
         //foreach ($this->posts as $post) if (count($post->getAdminReports(true)) > 0) return true;
         //return false;
     }

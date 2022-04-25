@@ -1158,7 +1158,7 @@
     <unit id="bC01IWH" name="Löschen">
       <notes>
         <note category="german">Löschen</note>
-        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/users/account.html.twig;twig:///templates/ajax/admin/widget/controls.twig</note>
+        <note category="from">twig:///templates/ajax/admin/reports/reports.html.twig;twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/users/account.html.twig;twig:///templates/ajax/admin/widget/controls.twig</note>
       </notes>
       <segment>
         <source>Löschen</source>
@@ -2144,7 +2144,7 @@
       </notes>
       <segment>
         <source>Bürger nach Sprache</source>
-        <target>Habitantes por lenguaje</target>
+        <target>Habitantes por idioma</target>
       </segment>
     </unit>
     <unit id="gvDyCm1" name="Geöffnet">
@@ -4529,7 +4529,7 @@
       </notes>
       <segment>
         <source>Stadtnamen regenerieren</source>
-        <target>Regenerar nombre del pueblo</target>
+        <target>Regenerar el nombre del pueblo</target>
       </segment>
     </unit>
     <unit id="cUEl3DK" name="Sprache wechseln">
@@ -4539,7 +4539,7 @@
       </notes>
       <segment>
         <source>Sprache wechseln</source>
-        <target>Cambiar lenguaje</target>
+        <target>Cambiar el Idioma</target>
       </segment>
     </unit>
     <unit id="jupu8vs" name="Fremder">
@@ -4616,55 +4616,127 @@
       <notes>
         <note category="german">Tödlich</note>
         <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Tödlich</source>
-        <target>Tödlich</target>
+        <target>Mortal</target>
       </segment>
     </unit>
     <unit id="acvlWFC" name="Infektiös">
       <notes>
         <note category="german">Infektiös</note>
         <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Infektiös</source>
-        <target>Infektiös</target>
+        <target>Infeccioso</target>
       </segment>
     </unit>
     <unit id="Hth8_wv" name="AP zum Freilegen der Ruine:">
       <notes>
         <note category="german">AP zum Freilegen der Ruine:</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>AP zum Freilegen der Ruine:</source>
-        <target>AP zum Freilegen der Ruine:</target>
+        <target>PA para desenterrar la ruina:</target>
       </segment>
     </unit>
     <unit id="CbDV2Yg" name="Camping-Ausbaulevel:">
       <notes>
         <note category="german">Camping-Ausbaulevel:</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Camping-Ausbaulevel:</source>
-        <target>Camping-Ausbaulevel:</target>
+        <target>Nivel de acampe:</target>
       </segment>
     </unit>
     <unit id="NgXFePi" name="Basis:">
       <notes>
         <note category="german">Basis:</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Basis:</source>
-        <target>Basis:</target>
+        <target>Base:</target>
+      </segment>
+    </unit>
+    <unit id=".EtG8c." name="MyHordes-Seele wiederherstellen">
+      <notes>
+        <note category="german">MyHordes-Seele wiederherstellen</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>MyHordes-Seele wiederherstellen</source>
+        <target>MyHordes-Seele wiederherstellen</target>
+      </segment>
+    </unit>
+    <unit id="Qgq13W4" name="Seele zurückgesetzt">
+      <notes>
+        <note category="german">Seele zurückgesetzt</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Seele zurückgesetzt</source>
+        <target>Seele zurückgesetzt</target>
+      </segment>
+    </unit>
+    <unit id="WCGHAE6" name="{num} Städte betroffen">
+      <notes>
+        <note category="german">{num} Städte betroffen</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>{num} Städte betroffen</source>
+        <target>{num} Städte betroffen</target>
+      </segment>
+    </unit>
+    <unit id="D_SOjKp" name="Du siehst aktuell gelöschte Meldungen.">
+      <notes>
+        <note category="german">Du siehst aktuell gelöschte Meldungen.</note>
+        <note category="from">twig:///templates/ajax/admin/reports/reports.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Du siehst aktuell gelöschte Meldungen.</source>
+        <target>Du siehst aktuell gelöschte Meldungen.</target>
+      </segment>
+    </unit>
+    <unit id="KIO8WN8" name="Zurück zur Meldungsübersicht">
+      <notes>
+        <note category="german">Zurück zur Meldungsübersicht</note>
+        <note category="from">twig:///templates/ajax/admin/reports/reports.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Zurück zur Meldungsübersicht</source>
+        <target>Zurück zur Meldungsübersicht</target>
+      </segment>
+    </unit>
+    <unit id="mP7gm7N" name="Möchtest du bereits gelöschte Meldungen durchsuchen?">
+      <notes>
+        <note category="german">Möchtest du bereits gelöschte Meldungen durchsuchen?</note>
+        <note category="from">twig:///templates/ajax/admin/reports/reports.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Möchtest du bereits gelöschte Meldungen durchsuchen?</source>
+        <target>Möchtest du bereits gelöschte Meldungen durchsuchen?</target>
+      </segment>
+    </unit>
+    <unit id="V5OxsLs" name="Zum Papierkorb">
+      <notes>
+        <note category="german">Zum Papierkorb</note>
+        <note category="from">twig:///templates/ajax/admin/reports/reports.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Zum Papierkorb</source>
+        <target>Zum Papierkorb</target>
       </segment>
     </unit>
   </file>

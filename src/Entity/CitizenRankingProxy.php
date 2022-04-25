@@ -130,6 +130,11 @@ class CitizenRankingProxy
      */
     private $cleanup_username;
 
+    /**
+     * @ORM\OneToOne(targetEntity=SoulResetMarker::class, mappedBy="ranking", cascade={"persist", "remove"})
+     */
+    private $resetMarker;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -439,6 +444,23 @@ class CitizenRankingProxy
     public function setCleanupUsername(?string $cleanup_username): self
     {
         $this->cleanup_username = $cleanup_username;
+
+        return $this;
+    }
+
+    public function getResetMarker(): ?SoulResetMarker
+    {
+        return $this->resetMarker;
+    }
+
+    public function setResetMarker(?SoulResetMarker $resetMarker): self
+    {
+        // set the owning side of the relation if necessary
+        if ($resetMarker?->getRanking() !== $this) {
+            $resetMarker?->setRanking($this);
+        }
+
+        $this->resetMarker = $resetMarker;
 
         return $this;
     }
