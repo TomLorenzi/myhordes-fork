@@ -21933,7 +21933,7 @@
       </notes>
       <segment>
         <source>Du hast keine Seelenpunkte gewonnen (am ersten Tag gestorben).</source>
-        <target>No ha ganado ningún punto de alma (murió el primer día).</target>
+        <target>No has ganado ningún Punto de Alma (por haber muerto el primer día)..</target>
       </segment>
     </unit>
     <unit id="5kMswLn">
@@ -22931,7 +22931,7 @@
       </notes>
       <segment>
         <source>Du hast keine Seelenpunkte gewonnen.</source>
-        <target>No has ganado ningún Punto de Alma (por haber muerto el primer día).</target>
+        <target>No has ganado ningún Punto de Alma.</target>
       </segment>
     </unit>
     <unit id="DAZTSgM" name="Ein anderer Bürger hat sich in der Zwischenzeit diesen Gegenstand geschnappt.">
