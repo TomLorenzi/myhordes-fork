@@ -28,7 +28,7 @@ build:
   stage: build
   script:
     # Add NodeJS repo
-    - curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+    - curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
     # - apt update -yqq
     # Installing some dependancies
     - apt install -yqq git imagemagick curl unzip nodejs
