@@ -418,15 +418,6 @@ class AdminTownController extends AdminActionController
      * @AdminLogProfile(enabled=true)
      * @param int $id The ID of the town
      * @param string $action The action to perform
-     * @param ItemFactory $itemFactory
-     * @param RandomGenerator $random
-     * @param NightlyHandler $night
-     * @param GameFactory $gameFactory
-     * @param CrowService $crowService
-     * @param KernelInterface $kernel
-     * @param JSONRequestParser $parser
-     * @param TownHandler $townHandler
-     * @return Response
      */
     public function town_manager(int $id, string $action, ItemFactory $itemFactory, RandomGenerator $random, NightlyHandler $night, GameFactory $gameFactory, CrowService $crowService, KernelInterface $kernel, JSONRequestParser $parser, TownHandler $townHandler, GameProfilerService $gps): Response
     {
@@ -446,7 +437,7 @@ class AdminTownController extends AdminActionController
             ]) && !$this->isGranted('ROLE_ADMIN'))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
-        $this->logger->invoke("[town_manager] Admin <info>{$this->getUser()->getName()}</info> did the action <info>$action</info> in the town <info>{$town->getName()}</info> (id: {$town->getId()}");
+        $this->logger->invoke("[town_manager] Admin <info>{$this->getUser()->getName()}</info> did the action <info>$action</info> in the town <info>{$town->getName()}</info> (id: {$town->getId()})");
 
         $param = $parser->get('param');
 
@@ -798,9 +789,13 @@ class AdminTownController extends AdminActionController
 
         $town->setManagedEvents($eventName !== "");
 
+
+
         if($eventName !== "" && $eventName !== null){
+            $this->logger->invoke("[admin_town_set_event] Admin <info>{$this->getUser()->getName()}</info> enabled the event <info>$eventName</info> in the town <info>{$town->getName()}</info> (id: {$town->getId()})");
             $townHandler->updateCurrentEvents($town, [$this->conf->getEvent($eventName)]);
         } else {
+            $this->logger->invoke("[admin_town_set_event] Admin <info>{$this->getUser()->getName()}</info> disabled the events in the town <info>{$town->getName()}</info> (id: {$town->getId()})");
             $currentEvents = $this->conf->getCurrentEvents($town, $markers);
             foreach ($markers as $marker) {
                 /** @var EventActivationMarker $marker */
