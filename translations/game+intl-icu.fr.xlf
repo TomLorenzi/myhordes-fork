@@ -8363,9 +8363,9 @@
         <target>
           {ref__icu, select,
             on {
-              {num, plural,
-                =1 {# zombie a tenté sans succès d'entrer dans la maison de {citizen}.}
-                other {# zombies ont tenté sans succès d'entrer dans la maison de {citizen}.}
+              {raw_num, plural,
+                =1 {{num} zombie a tenté sans succès d'entrer dans la maison de {citizen}.}
+                other {{num} zombies ont tenté sans succès d'entrer dans la maison de {citizen}.}
                 }
               }
            other { {num} zombies ont tenté sans succès d'entrer dans la maison de {citizen}.} 
