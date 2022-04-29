@@ -192,6 +192,8 @@ class LogTemplateHandler
                 }
                 elseif ($typeEntry['type'] === 'num' || $typeEntry['type'] === 'string') {
                     $transParams['{'.$typeEntry['name'].'}'] = $wrap_fun($variables[$typeEntry['name']] ?? 0);
+                    if($typeEntry['type'] === 'num')
+                        $transParams['{raw_'.$typeEntry['name'].'}'] = $variables[$typeEntry['name']];
                 }
                 elseif ($typeEntry['type'] === 'transString') {
                     $transParams['{'.$typeEntry['name'].'}'] = $wrap_fun( $this->trans->trans($variables[$typeEntry['name']], [], $typeEntry['from'] ?? 'game') );
