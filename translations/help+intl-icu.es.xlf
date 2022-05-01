@@ -1877,7 +1877,7 @@ bekommst du zusätzlich eine seltene Auszeichnung (lies dazu auch den folgenden 
       <segment>
         <source>&lt;strong&gt;Du erhältst eine seltene Auszeichnung&lt;/strong&gt;: Für jede Nacht, die du draußen überlebst während die Stadt schon zerstört ist, 
 bekommst du zusätzlich eine seltene Auszeichnung (lies dazu auch den folgenden Abschnitt: &lt;i&gt;"Auszeichnung: Camper im Jenseits"&lt;/i&gt;).</source>
-        <target><![CDATA[<strong>Otra distinción rara</strong>: Por cada noche que resistas mientras que el pueblo ha sido devastado, recibirás, una distinción especial (Ver el capítulo: <i>"Distinción: Campista del Más Allá"</i>).]]></target>
+        <target><![CDATA[<strong>Otra Distinción rara</strong>: Por cada noche que resistas mientras que el pueblo ha sido devastado, recibirás, una Distinción especial (Ver el capítulo: <i>"Distinción: Campista del Más Allá"</i>).]]></target>
       </segment>
     </unit>
     <unit id="sMhdxRS" name="Wie kann ich draußen campen?">
@@ -2209,7 +2209,7 @@ sind &lt;strong&gt;nicht auf 90%&lt;/strong&gt; beschränkt.</source>
       </notes>
       <segment>
         <source>Für jede Nacht, die du draußen überlebt hast, als die Stadt schon &lt;span x-ajax-href={url_devast}&gt;zerstört&lt;/span&gt; war, bekommst du zusätzlich zu der normalen Auszeichnung, eine &lt;strong&gt;besonders seltene Auszeichnung&lt;/strong&gt;.</source>
-        <target><![CDATA[Por cada noche que los campistas sobrevivan mientras que el pueblo ha sido <span x-ajax-href={url_devast}>devastado</span> recibirán una <strong>distinción especial</strong>.]]></target>
+        <target><![CDATA[Por cada noche que los campistas sobrevivan mientras que el pueblo ha sido <span x-ajax-href={url_devast}>devastado</span> recibirán una <strong>Distinción especial</strong>.]]></target>
       </segment>
     </unit>
     <unit id="x56srvE">
@@ -2219,7 +2219,7 @@ sind &lt;strong&gt;nicht auf 90%&lt;/strong&gt; beschränkt.</source>
       </notes>
       <segment>
         <source>Um diese Auszeichnung zu erhalten, muss die Stadt mindestens &lt;strong&gt;10 volle Tage&lt;/strong&gt; überlebt haben.</source>
-        <target><![CDATA[Sin embargo, el pueblo debe haber resistido <strong>10 días completos como mínimo</strong> para que esta distinción sea entregada.]]></target>
+        <target><![CDATA[Sin embargo, el pueblo debe haber resistido <strong>10 días completos como mínimo</strong> para que esta Distinción sea entregada.]]></target>
       </segment>
     </unit>
     <unit id="XQ0dCN1">
@@ -2938,7 +2938,7 @@ Leider ist es unmöglich, Karten von diesen Gebäuden aufzustöbern. Aber es bes
       </notes>
       <segment>
         <source>Deine Seele ist der rote Faden des Spiels. In ihr werden all deine gemachten Erfahrungen und Auszeichnungen gesammelt. Außerdem wird dort auch dein aktueller Listenplatz in der Seelenrangliste angezeigt.</source>
-        <target>Tu alma es el hilo conductor que enlaza todas tus encarnaciones. Ella guarda en su memoria todas tus vidas pasadas, tu posición en la Gran Clasificación y tus distinciones.</target>
+        <target>Tu alma es el hilo conductor que enlaza todas tus encarnaciones. Ella guarda en su memoria todas tus vidas pasadas, tu posición en la Gran Clasificación y tus Distinciones.</target>
       </segment>
     </unit>
     <unit id="27FD0EG" name="Die Auszeichnungen">
@@ -2948,7 +2948,7 @@ Leider ist es unmöglich, Karten von diesen Gebäuden aufzustöbern. Aber es bes
       </notes>
       <segment>
         <source>Die Auszeichnungen</source>
-        <target>Las distinciones</target>
+        <target>Las Distinciones</target>
       </segment>
     </unit>
     <unit id="_1Ab7yD">
@@ -2958,7 +2958,7 @@ Leider ist es unmöglich, Karten von diesen Gebäuden aufzustöbern. Aber es bes
       </notes>
       <segment>
         <source>Nach jedem Tod erhältst für bestimmte Taten oder Erfolge ein paar Auszeichungen. Dies wird unter anderem gezählt: Anzahl der getöteten Zombies, Anzahl der seltenen gefundenen Gegenstände, Anzahl der APs, die du in Baustellen investiert hast...</source>
-        <target>Cada vez que mueres, recibes distinciones por los logros que alcanzas a lo largo del juego: cantidad de zombies eliminados, objetos raros encontrados, etc.</target>
+        <target>Cada vez que mueres, recibes Distinciones por los logros que alcanzas a lo largo del juego: cantidad de zombies eliminados, objetos raros encontrados, etc.</target>
       </segment>
     </unit>
     <unit id="wCuacLL">
@@ -2978,7 +2978,7 @@ Leider ist es unmöglich, Karten von diesen Gebäuden aufzustöbern. Aber es bes
       </notes>
       <segment>
         <source>&lt;strong&gt;Achtung:&lt;/strong&gt; Alle am letzten Tag erworbenen Auszeichungen werden nicht gezählt (Manche Auszeichungen, wie die Verbannung oder die Todesart sind davon ausgenommen.).</source>
-        <target><![CDATA[<strong>Cuidado:</strong> Si mueres, no recibirás distinciones por tus logros del último día (con excepción de algunas, como las distinciones de muerte, por ejemplo.).]]></target>
+        <target><![CDATA[<strong>Cuidado:</strong> Si mueres, no recibirás Distinciones por tus logros del último día (con excepción de algunas, como las Distinciones de muerte, por ejemplo.).]]></target>
       </segment>
     </unit>
     <unit id="LiN0qWx">
@@ -2990,7 +2990,7 @@ Wenn du in einer "Kleinen Karte" spielst und &lt;strong&gt;100 Seelenpunkte oder
       <segment>
         <source>Die Grundregel lautet: Ab dem 5. Tag werden dir alle Auszeichnungen gutgeschrieben.
 Wenn du in einer "Kleinen Karte" spielst und &lt;strong&gt;100 Seelenpunkte oder mehr hast&lt;/strong&gt;, werden Auszeichnungen erst ab Tag 8 vergeben!</source>
-        <target><![CDATA[Sin embargo, desde el día 5, esta regla ya no se aplica: ganarás siempre todas tus distinciones. En un pueblo amateur, <strong>tan pronto como tienes 100 puntos de alma</strong>, ninguna distinción es validada antes del octavo día.]]></target>
+        <target><![CDATA[Sin embargo, desde el día 5, esta regla ya no se aplica: ganarás siempre todas tus Distinciones. En un pueblo amateur, <strong>tan pronto como tienes 100 puntos de alma</strong>, ninguna Distinción es validada antes del octavo día.]]></target>
       </segment>
     </unit>
     <unit id="LoWYOXM" name="Die Titel">
@@ -3020,7 +3020,7 @@ Wenn du in einer "Kleinen Karte" spielst und &lt;strong&gt;100 Seelenpunkte oder
       </notes>
       <segment>
         <source>Beispiel: Für jeden erledigten Zombie erhältst du die Auszeichung "Erlegte Zombies". Sobald du 100 Untote umgebracht hast erscheint der Titel "Brutalo" in deinem Profil! Je mehr Zombies du danach tötest, desto besser wird dein Titel.</source>
-        <target>Ejemplo: Recibes la distinción "Zombies eliminados" por la cantidad de muertos vivientes que elimines. ¡Cuando llegues a 100, un título especial aparece en tu Nexus! Sigue ganando distinciones para que nuevos títulos aparezcan.</target>
+        <target>Ejemplo: Recibes la Distinción "Zombies eliminados" por la cantidad de muertos vivientes que elimines. ¡Cuando llegues a 100, un título especial aparece en tu Nexus! Sigue ganando distinciones para que nuevos títulos aparezcan.</target>
       </segment>
     </unit>
     <unit id="33cFnv8">
@@ -3289,7 +3289,7 @@ Dein überlebter Tag wird gezählt! &lt;em&gt;Wenn du zum Beispiel in der Nacht 
       </notes>
       <segment>
         <source>Im Spiel gibt es eine ganz besondere Auszeichung, die den besten (oder hinterhältigsten) Bürgern vorbehalten ist: &lt;strong&gt;Der letzte Tod!&lt;/strong&gt;</source>
-        <target><![CDATA[Existe una distinción muy particular en el juego, que recompensa a los jugadores que hayan sobresalido por su resistencia (o su bajeza): <strong>¡El Último Habitante!</strong>]]></target>
+        <target><![CDATA[Existe una Distinción muy particular en el juego, que recompensa a los jugadores que hayan sobresalido por su resistencia (o su bajeza): <strong>¡El Último Habitante!</strong>]]></target>
       </segment>
     </unit>
     <unit id="kNwp_aT" name="Um die Auszeichung zu erhalten, müssen drei Regeln beachtet werden:">
@@ -3299,7 +3299,7 @@ Dein überlebter Tag wird gezählt! &lt;em&gt;Wenn du zum Beispiel in der Nacht 
       </notes>
       <segment>
         <source>Um die Auszeichung zu erhalten, müssen drei Regeln beachtet werden:</source>
-        <target>Pero, para ganar esta distinción existen 3 condiciones:</target>
+        <target>Pero, para ganar esta Distinción existen 3 condiciones:</target>
       </segment>
     </unit>
     <unit id="IPmacZS">
@@ -3339,7 +3339,7 @@ Dein überlebter Tag wird gezählt! &lt;em&gt;Wenn du zum Beispiel in der Nacht 
       </notes>
       <segment>
         <source>Dementsprechend können &lt;strong&gt;Selbstmörder, Bürger die am letzten Abend in Folge einer Dehydratation sterben oder Spieler, die in der Außenwelt umkommen&lt;/strong&gt;, diese Auszeichnung nicht bekommen.</source>
-        <target><![CDATA[De esta manera, <strong>un habitante que se suicida, muere deshidratado la noche anterior o en el Ultramundo, no ganará esta distinción.</strong>]]></target>
+        <target><![CDATA[De esta manera, <strong>un habitante que se suicida, muere deshidratado la noche anterior o en el Ultramundo, no ganará esta Distinción.</strong>]]></target>
       </segment>
     </unit>
     <unit id="NbJkxgg">
@@ -3349,7 +3349,7 @@ Dein überlebter Tag wird gezählt! &lt;em&gt;Wenn du zum Beispiel in der Nacht 
       </notes>
       <segment>
         <source>Bürger, die beim letzten Angriff auf die Stadt draußen gecampt haben, können die Auszeichnung auch nicht bekommen.</source>
-        <target>Igualmente, un habitante que acampa en el Ultramundo la noche de la destrucción de su pueblo, no recibirá esta distinción.</target>
+        <target>Igualmente, un habitante que acampa en el Ultramundo la noche de la destrucción de su pueblo, no recibirá esta Distinción.</target>
       </segment>
     </unit>
     <unit id="QbzljWZ">
@@ -3359,7 +3359,7 @@ Dein überlebter Tag wird gezählt! &lt;em&gt;Wenn du zum Beispiel in der Nacht 
       </notes>
       <segment>
         <source>Falls mehrere Bürger beim letzten Zombieangriff in der Stadt noch am Leben sind, bestimmt sich &lt;strong&gt;der letzte Tote&lt;/strong&gt; nach dem Zufallsprinzip.</source>
-        <target><![CDATA[El último superviviente será seleccionado de manera totalmente aleatoria <strong>y recibirá la distinción "El Último Habitante".</strong>]]></target>
+        <target><![CDATA[El último superviviente será seleccionado de manera totalmente aleatoria <strong>y recibirá la Distinción "El Último Habitante".</strong>]]></target>
       </segment>
     </unit>
     <unit id="C0Rhk.N" name="Vorteile der altgedienten Helden">
@@ -6296,7 +6296,7 @@ Diese Städte sind darum auch weniger schwer und eine Stadt verfügt z.B. bereit
       </notes>
       <segment>
         <source>Im Gegenzug kann man sich ab dem ersten Tag Punkte für den Titel &lt;strong&gt;Spiritueller Führer&lt;/strong&gt; verdienen.</source>
-        <target><![CDATA[Una distinción será para ti el primer día: <strong>"El Guía Espiritual"</strong>.]]></target>
+        <target><![CDATA[Una Distinción será para ti el primer día: <strong>"El Guía Espiritual"</strong>.]]></target>
       </segment>
     </unit>
     <unit id="mPhdr0f">
@@ -6540,7 +6540,7 @@ Die Punkte für den Titel "Spiritueller Führer" kumulieren sich mit jedem Tag. 
       </notes>
       <segment>
         <source>Der Letzte Tod bringt eine besondere Auszeichnung ein.</source>
-        <target>La distinción El Último en Morir te da una distinción especial suplementaria!</target>
+        <target>¡La Distinción El Último Habitante te da una Distinción especial suplementaria!</target>
       </segment>
     </unit>
     <unit id="Dlzg59c">
@@ -6700,7 +6700,7 @@ Die Punkte für den Titel "Spiritueller Führer" kumulieren sich mit jedem Tag. 
       </notes>
       <segment>
         <source>Letzter Tod: Durch Sterben in einer Privatstadt kann man nicht den Titel "letzter Tod" erwerben.</source>
-        <target>El Último en Morir: Morir en un pueblo privado no da derecho a esta distinción.</target>
+        <target>El Último Habitante: Morir en un pueblo privado no da derecho a esta Distinción.</target>
       </segment>
     </unit>
     <unit id="CaiCpvn">
@@ -6963,7 +6963,7 @@ in die Rangliste aufgenommen. Kleine Städte oder Privatstädte werden nicht ins
       </notes>
       <segment>
         <source>Die Sieger erhalten eine einzigartige &lt;strong&gt;Auszeichung&lt;/strong&gt; und einen dazugehörenden &lt;strong&gt;Titel&lt;/strong&gt;.</source>
-        <target><![CDATA[Reciben una <strong>distinción</strong> especial y <strong>un título</strong> asociado.]]></target>
+        <target><![CDATA[Reciben una <strong>Distinción</strong> especial y <strong>un título</strong> asociado.]]></target>
       </segment>
     </unit>
     <unit id="E.TO49m">
@@ -6983,7 +6983,7 @@ in die Rangliste aufgenommen. Kleine Städte oder Privatstädte werden nicht ins
       </notes>
       <segment>
         <source>Alle Bürger, die in einer Stadt gelebt haben, die es am Ende der Saison in die Rangliste geschafft hat, erhalten eine &lt;strong&gt;andere Auszeichung&lt;/strong&gt; als die Bürger der ersten Stadt. Dabei erhält &lt;strong&gt;jede&lt;/strong&gt; ranglistengeführte Stadt eine Auszeichung.</source>
-        <target><![CDATA[Los habitantes que hayan participado en un pueblo presente en la clasificación recibirán también <strong>otra distinción especial</strong> (una por <strong>cada</strong> pueblo en la tabla).]]></target>
+        <target><![CDATA[Los habitantes que hayan participado en un pueblo presente en la clasificación recibirán también <strong>otra Distinción especial</strong> (una por <strong>cada</strong> pueblo en la tabla).]]></target>
       </segment>
     </unit>
     <unit id="lqIYe85">
