@@ -21612,7 +21612,7 @@
       </notes>
       <segment>
         <source>Du erhälst einen Bauplan wenn Du in diesem Gebäude campst, aber du musst zunächst die Zone aufräumen.</source>
-        <target>Se le dará un plano cuando acampe en este edificio, pero primero debe despejar la zona.</target>
+        <target>Podrías obtener un plano de obras acampando aquí, pero antes habría que despejar la zona.</target>
       </segment>
     </unit>
     <unit id="O_a3lwS" name="(seit {num} Stunden herrscht völlige Flaute)">
