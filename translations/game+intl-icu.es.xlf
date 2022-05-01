@@ -7391,7 +7391,7 @@
       </notes>
       <segment>
         <source>Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.</source>
-        <target><![CDATA[Obtendrás un <strong>plano de obras</strong> si acampas en este edificio.]]></target>
+        <target><![CDATA[Obtendrás un plano de obras si acampas en este edificio.]]></target>
       </segment>
     </unit>
     <unit id="XZI.RVp" name="Hier wurde bereits ein Bauplan gefunden.">
@@ -7401,7 +7401,7 @@
       </notes>
       <segment>
         <source>Hier wurde bereits ein Bauplan gefunden.</source>
-        <target><![CDATA[Este edificio ya fue inspeccionado por otro jugador y no contiene ningún <strong>plano de obras</strong>...]]></target>
+        <target><![CDATA[Este edificio ya fue inspeccionado por otro jugador y no contiene ningún plano de obras...]]></target>
       </segment>
     </unit>
     <unit id="WPZOeLX">
