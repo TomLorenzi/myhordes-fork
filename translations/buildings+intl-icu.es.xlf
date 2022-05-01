@@ -3390,7 +3390,7 @@
       </notes>
       <segment>
         <source>Nicht mehr als ein Akt der Verzweiflung! Alle Gegenstände in der Bank werden zerstört und bringen jeweils +1 vorübergehende Verteidigung.</source>
-        <target>Es el colmo de la desesperación. Todos los objetos del Almacén serán destruidos y darán +1 punto de defensa temporal a cada uno.</target>
+        <target>Es el colmo de la desesperación. Todos los objetos del Almacén serán destruidos y cada uno dará +1 punto de defensa temporal.</target>
       </segment>
     </unit>
     <unit id="G1W3bpP">
