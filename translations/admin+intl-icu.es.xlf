@@ -4703,7 +4703,7 @@
       </notes>
       <segment>
         <source>Du siehst aktuell gelöschte Meldungen.</source>
-        <target>Du siehst aktuell gelöschte Meldungen.</target>
+        <target>Estás viendo reportes eliminados.</target>
       </segment>
     </unit>
     <unit id="KIO8WN8" name="Zurück zur Meldungsübersicht">
@@ -4714,7 +4714,7 @@
       </notes>
       <segment>
         <source>Zurück zur Meldungsübersicht</source>
-        <target>Zurück zur Meldungsübersicht</target>
+        <target>Volver a la vista general</target>
       </segment>
     </unit>
     <unit id="mP7gm7N" name="Möchtest du bereits gelöschte Meldungen durchsuchen?">
@@ -4725,7 +4725,7 @@
       </notes>
       <segment>
         <source>Möchtest du bereits gelöschte Meldungen durchsuchen?</source>
-        <target>Möchtest du bereits gelöschte Meldungen durchsuchen?</target>
+        <target>¿Quieres buscar entre los reportes eliminados?</target>
       </segment>
     </unit>
     <unit id="V5OxsLs" name="Zum Papierkorb">
@@ -4736,7 +4736,7 @@
       </notes>
       <segment>
         <source>Zum Papierkorb</source>
-        <target>Zum Papierkorb</target>
+        <target>Abrir la papelera de reciclaje</target>
       </segment>
     </unit>
   </file>
