@@ -4670,7 +4670,7 @@
       </notes>
       <segment>
         <source>MyHordes-Seele wiederherstellen</source>
-        <target>MyHordes-Seele wiederherstellen</target>
+        <target>Reiniciar el alma de MyHordes</target>
       </segment>
     </unit>
     <unit id="Qgq13W4" name="Seele zurückgesetzt">
@@ -4681,7 +4681,7 @@
       </notes>
       <segment>
         <source>Seele zurückgesetzt</source>
-        <target>Seele zurückgesetzt</target>
+        <target>Reinicio de alma</target>
       </segment>
     </unit>
     <unit id="WCGHAE6" name="{num} Städte betroffen">
@@ -4692,7 +4692,7 @@
       </notes>
       <segment>
         <source>{num} Städte betroffen</source>
-        <target>{num} Städte betroffen</target>
+        <target>{num} Pueblos afectados</target>
       </segment>
     </unit>
     <unit id="D_SOjKp" name="Du siehst aktuell gelöschte Meldungen.">
