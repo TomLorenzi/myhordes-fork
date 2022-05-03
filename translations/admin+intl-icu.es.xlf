@@ -4666,7 +4666,7 @@
       <notes>
         <note category="german">MyHordes-Seele wiederherstellen</note>
         <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>MyHordes-Seele wiederherstellen</source>
@@ -4677,7 +4677,7 @@
       <notes>
         <note category="german">Seele zurückgesetzt</note>
         <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Seele zurückgesetzt</source>
@@ -4688,7 +4688,7 @@
       <notes>
         <note category="german">{num} Städte betroffen</note>
         <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>{num} Städte betroffen</source>
@@ -4699,7 +4699,7 @@
       <notes>
         <note category="german">Du siehst aktuell gelöschte Meldungen.</note>
         <note category="from">twig:///templates/ajax/admin/reports/reports.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Du siehst aktuell gelöschte Meldungen.</source>
@@ -4710,7 +4710,7 @@
       <notes>
         <note category="german">Zurück zur Meldungsübersicht</note>
         <note category="from">twig:///templates/ajax/admin/reports/reports.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Zurück zur Meldungsübersicht</source>
@@ -4721,7 +4721,7 @@
       <notes>
         <note category="german">Möchtest du bereits gelöschte Meldungen durchsuchen?</note>
         <note category="from">twig:///templates/ajax/admin/reports/reports.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Möchtest du bereits gelöschte Meldungen durchsuchen?</source>
@@ -4732,7 +4732,7 @@
       <notes>
         <note category="german">Zum Papierkorb</note>
         <note category="from">twig:///templates/ajax/admin/reports/reports.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Zum Papierkorb</source>
