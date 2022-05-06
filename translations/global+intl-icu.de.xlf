@@ -3918,5 +3918,14 @@
         <target>Du hast diese Aktion bereits zu oft durchgeführt. Warte eine Weile und versuche es dann erneut.</target>
       </segment>
     </unit>
+    <unit id="Zk.GHM6">
+      <notes>
+        <note category="from">twig:///templates/ajax/forum/view.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du moderierst dieses Forum, verfügst aber nicht über Leserechte. Es werden dir nur Threads angezeigt, in denen mindestens ein Post gemeldet wurde.</source>
+        <target>Du moderierst dieses Forum, verfügst aber nicht über Leserechte. Es werden dir nur Threads angezeigt, in denen mindestens ein Post gemeldet wurde.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

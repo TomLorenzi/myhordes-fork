@@ -4221,5 +4221,16 @@
         <target>Estás intentando volver a hacer esto demasiado pronto. Inténtalo de nuevo en unos minutos.</target>
       </segment>
     </unit>
+    <unit id="Zk.GHM6">
+      <notes>
+        <note category="german">Du moderierst dieses Forum, verfügst aber nicht über Leserechte. Es werden dir nur Threads angezeigt, in denen mindestens ein Post gemeldet wurde.</note>
+        <note category="from">twig:///templates/ajax/forum/view.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Du moderierst dieses Forum, verfügst aber nicht über Leserechte. Es werden dir nur Threads angezeigt, in denen mindestens ein Post gemeldet wurde.</source>
+        <target>Du moderierst dieses Forum, verfügst aber nicht über Leserechte. Es werden dir nur Threads angezeigt, in denen mindestens ein Post gemeldet wurde.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

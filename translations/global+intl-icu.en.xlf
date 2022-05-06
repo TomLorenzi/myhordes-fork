@@ -4256,5 +4256,15 @@
         <target>You've performed this action too often. Wait for a bit and then try again.</target>
       </segment>
     </unit>
+    <unit id="Zk.GHM6">
+      <notes>
+        <note category="german">Du moderierst dieses Forum, verfügst aber nicht über Leserechte. Es werden dir nur Threads angezeigt, in denen mindestens ein Post gemeldet wurde.</note>
+        <note category="from">twig:///templates/ajax/forum/view.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du moderierst dieses Forum, verfügst aber nicht über Leserechte. Es werden dir nur Threads angezeigt, in denen mindestens ein Post gemeldet wurde.</source>
+        <target>You are moderating this forum, but you do not have reading rights. You will only see threads where at least one post has been reported.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
