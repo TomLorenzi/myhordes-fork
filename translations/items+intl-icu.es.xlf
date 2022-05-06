@@ -3533,7 +3533,7 @@
       </notes>
       <segment>
         <source>Der Text ist überschrieben mit {rp_text}. Du beginnst, ihn zu lesen&lt;t-rp_ok&gt;! Der Text wurde deinem Archiv hinzugefügt.&lt;/t-rp_ok&gt;&lt;t-rp_fail&gt;... Leider stellst du fest, dass du diesen Text bereits kennst.&lt;/t-rp_fail&gt;</source>
-        <target><![CDATA[Examinas minuciosamente {item} ... Descubres dentro un texto titulado "{rp_text}". Lo lees con mucha atención...{hr}<t-rp_ok><strong>¡Un nuevo documento ha sido agregado a tus Escritos!</strong></t-rp_ok><t-rp_fail>Ya habías descubierto esos escritos. Por lo tanto <strong>no recibirás una distinción adicional</strong>.</t-rp_fail>]]></target>
+        <target><![CDATA[Examinas minuciosamente {item} ... Descubres dentro un texto titulado "{rp_text}". Lo lees con mucha atención...{hr}<t-rp_ok><strong>¡Un nuevo documento ha sido agregado a tus Escritos!</strong></t-rp_ok><t-rp_fail>Ya habías descubierto esos escritos. Por lo tanto <strong>no recibirás una Distinción adicional</strong>.</t-rp_fail>]]></target>
       </segment>
     </unit>
     <unit id="glkUAZ8" name="Werfen">
