@@ -56,38 +56,61 @@ export default class Client {
 
     public config: Config;
 
+    public static DomainScavenger = [true,true,true];
+    public static DomainDaily     = [true,true,false];
+    public static DomainTown      = [true,false,false];
+    public static DomainUser      = [false,false,false];
+
+    private pSession = 0;
+    private vSession = [0,0,0];
+
     constructor() { this.config = new Config(this); }
 
-    private static key( name: string, group: string|null ): string {
-        return 'myh.' + (group === null ? 'default' : group) + '.' + name;
+    private key( name: string, group: string|null ): string {
+        return (group !== 'config' ? 'myh:' + this.pSession : 'myh') + '.' + (group === null ? 'default' : group) + '.' + name;
     }
 
-    private static get_var(storage: Storage, name: string, group: string|null = null, default_value: any = null ): any | null {
-        const item = storage.getItem( this.key( name, group ) );
+    private get_var(storage: Storage, name: string, group: string|null = null, default_value: any, mask: Array<boolean> ): any | null {
+        const key = this.key( name, group );
+        const item = storage.getItem( key );
         if (item === null) return default_value;
         try {
-            return JSON.parse(item);
+            let object = JSON.parse(item);
+            if (typeof object === "object" && object.domain && object.value) {
+                const mask_fits = this.vSession.reduce( (validator,v,i) => !mask[i] || object.domain[i] === v ? validator : false, true );
+                console.log(name,group,mask_fits,object.domain,this.vSession,mask);
+                if (mask_fits) return object.value;
+                else {
+                    storage.removeItem( key );
+                    return default_value;
+                }
+            } else return object;
         } catch (e) {
-            return item;
+            return default_value;
         }
     }
 
-    private static set_var( storage: Storage, name: string, group: string|null, value: any ): boolean {
+    private set_var( storage: Storage, name: string, group: string|null, value: any ): boolean {
         try {
             if (value === null)
                 storage.removeItem( this.key( name, group ) );
-            storage.setItem( this.key( name, group ), JSON.stringify(value) );
+            storage.setItem( this.key( name, group ), JSON.stringify({domain: this.vSession, value}) );
             return true;
         } catch (e) {
             return false;
         }
     }
 
-    set( name: string, group: string|null, value: any, session_only: boolean ): boolean {
-        return Client.set_var( session_only ? window.sessionStorage : window.localStorage, name, group, value );
+    setSessionDomain( persistent: number, volatile1: number, volatile2: number, volatile3: number ): void {
+        this.pSession = persistent;
+        this.vSession = [ volatile1, volatile2, volatile3 ];
     }
 
-    get( name: string, group: string|null = null, default_value: any = null ): any {
-        return Client.get_var( window.sessionStorage, name, group, Client.get_var( localStorage, name, group, default_value ) );
+    set( name: string, group: string|null, value: any, session_only: boolean ): boolean {
+        return this.set_var( session_only ? window.sessionStorage : window.localStorage, name, group, value );
+    }
+
+    get( name: string, group: string|null = null, default_value: any = null, mask: Array<boolean> = Client.DomainUser ): any {
+        return this.get_var( window.sessionStorage, name, group, this.get_var( localStorage, name, group, default_value, mask ), mask );
     }
 }

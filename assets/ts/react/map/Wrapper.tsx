@@ -13,6 +13,7 @@ import MapControls from "./Controls";
 import {useEffect, useRef} from "react";
 import {Global} from "../../defaults";
 import LocalZoneView from "./ZoneView";
+import Client from "../../client";
 
 declare var $: Global;
 
@@ -55,7 +56,7 @@ const processRoute = (route: MapCoordinate[], complex: boolean) => {
 }
 
 export const MapWrapper = ( props: ReactDataMapCore ) => {
-    let mk = $.client.get('marker','routes',null);
+    let mk = $.client.get('marker','routes',null, Client.DomainScavenger);
     if (!mk) mk = undefined;
     else mk = {x: mk[0] ?? 0, y: mk[1] ?? 0}
 
@@ -111,9 +112,9 @@ export const MapWrapper = ( props: ReactDataMapCore ) => {
 
         return new_state;
     }, {
-        markEnabled: $.client.get('map', 'tags', 'hide') === 'show',
-        globalEnabled: $.client.get('map', 'global', 'hide') === 'show' || props.data.displayType.split('-')[0] !== 'beyond',
-        activeRoute: $.client.get('current','routes', null) ?? undefined,
+        markEnabled: $.client.get('map', 'tags', 'hide', Client.DomainScavenger) === 'show',
+        globalEnabled: $.client.get('map', 'global', 'hide', Client.DomainScavenger) === 'show' || props.data.displayType.split('-')[0] !== 'beyond',
+        activeRoute: $.client.get('current','routes', null, Client.DomainDaily) ?? undefined,
         activeZone: mk,
 
         showPanel: false,
