@@ -218,7 +218,7 @@
             const coa_restriction = elem.getAttribute('x-coa-restricted') === '1';
             const coa_discard = elem.getAttribute('x-coa-discard') ? elem.getAttribute('x-coa-discard').split(';') : [];
 
-            if (user_lang && town_lang && user_lang.split('_')[0] !== town_lang.split('_')[0]) {
+            if (user_lang && town_lang && user_lang.split('_')[0] !== town_lang.split('_')[0] && town_lang !== 'multi') {
                 const user_lang_rep = window.c.langs[user_lang.split('_')[0]] ? window.c.langs[user_lang.split('_')[0]] : user_lang;
                 const town_lang_rep = window.c.langs[town_lang.split('_')[0]] ? window.c.langs[town_lang.split('_')[0]] : town_lang;
                 let message =
