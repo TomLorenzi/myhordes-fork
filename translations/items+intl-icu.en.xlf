@@ -9497,5 +9497,15 @@
         <target>You bring the vial close to your nose and take a whiff. Whew! The smell alone is enough to kill a horse. </target>
       </segment>
     </unit>
+    <unit id="Dkrg9_A">
+      <notes>
+        <note category="german">So viel zum Survivalbuch. Kein Wunder, dass dieses Buch nicht über die Grundstufe hinausgekommen ist... Du hast absolut nichts gefunden, aber das wusstest du wahrscheinlich schon.</note>
+        <note category="from">php:///src/Service/ActionHandler.php</note>
+      </notes>
+      <segment>
+        <source>So viel zum Survivalbuch. Kein Wunder, dass dieses Buch nicht über die Grundstufe hinausgekommen ist... Du hast absolut nichts gefunden, aber das wusstest du wahrscheinlich schon.</source>
+        <target>So much for the survival book. Hardly surprising that this book didn't go beyond the elementary stages... No wonder Junior Woodchuck only wrote one book - he probably starved to death in a desert somewhere. You have found absolutely nothing, but you probably knew that already.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

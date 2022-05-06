@@ -158,7 +158,7 @@
                     {% if permission.only_mod_access %}
                         <div class="forum-control">
                             <b><i class="fa fa-exclamation"></i> {{ 'Moderation'|trans({},'global') }}</b>
-                            <div class="pad">{{ 'Du moderierst dieses Forum, verfügst aber nicht über Leserechte. Es werden dir nur Threads angezeigt, in denen mindestens ein Post gemeldet wurde.' }}</div>
+                            <div class="pad">{{ 'Du moderierst dieses Forum, verfügst aber nicht über Leserechte. Es werden dir nur Threads angezeigt, in denen mindestens ein Post gemeldet wurde.'|trans({}, 'global') }}</div>
                         </div>
                         <br />
                     {% endif %}
@@ -231,7 +231,9 @@
                 $.html.forEach('[x-thread-id]', element => element.classList.remove('selected'))
                 let viewer = document.getElementById('forum-content');
                 {let c; while ((c = viewer.firstChild)) viewer.removeChild(c);}
-                $.ajax.no_history().load( viewer, '{{ url('forum_id_search_controller', {fid: forum.id}) }}', false )
+                $.ajax.no_history().load( viewer, '{{ url('forum_id_search_controller', {fid: forum.id}) }}', false, null, () => {
+                    document.getElementById('search-query').focus();
+                } )
             });
         {% endif %}
 

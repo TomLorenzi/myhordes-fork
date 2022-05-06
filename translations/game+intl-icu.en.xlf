@@ -19909,12 +19909,12 @@
     <unit id="G2mvpQw" name="Wir denken, der morgige Angriff wird ungefähr folgendermaßen aussehen:">
       <notes>
         <note category="german">Wir denken, der morgige Angriff wird ungefähr folgendermaßen aussehen:</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/game/town/watchtower.html.twig</note>
       </notes>
       <segment>
         <source>Wir denken, der morgige Angriff wird ungefähr folgendermaßen aussehen:</source>
-        <target>Wir denken, der morgige Angriff wird ungefähr folgendermaßen aussehen:</target>
+        <target>We reckon that tomorrow's attack will involve somewhere between :</target>
       </segment>
     </unit>
     <unit id="BIzSHqq" name="Erforschung einer beengten Ruine in erstickender Atmosphäre">
