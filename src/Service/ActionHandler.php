@@ -448,7 +448,7 @@ class ActionHandler
                         else if ($mode >= self::ActionValidityCrossed) $struct->addAction( $action, $item, false );
                     }
 
-            if ($struct->hasActions()) $list[] = $struct;
+            $list[] = $struct;
         }
 
         return $list;
