@@ -1058,7 +1058,7 @@
       </notes>
       <segment>
         <source>{c} Auszeichnungen</source>
-        <target>{c} Premios</target>
+        <target>{c} Distinciones</target>
       </segment>
     </unit>
     <unit id="Vq0_2Ri" name="{c} Auszeichnungs-Typen, {cc} davon selten">
@@ -1068,7 +1068,7 @@
       </notes>
       <segment>
         <source>{c} Auszeichnungs-Typen, {cc} davon selten</source>
-        <target>{c} Tipos de premios y {cc} que son raros</target>
+        <target>{c} Tipos de Distinciones y {cc} que son raras</target>
       </segment>
     </unit>
     <unit id="7A2DFcs" name="{c} Auszeichnungs-Typen">
@@ -1078,7 +1078,7 @@
       </notes>
       <segment>
         <source>{c} Auszeichnungs-Typen</source>
-        <target>{c} Tipos de premios</target>
+        <target>{c} Tipos de Distinciones</target>
       </segment>
     </unit>
     <unit id="OGd6rRz" name="{num} unbekannte Auszeichnungen!">
@@ -1088,7 +1088,7 @@
       </notes>
       <segment>
         <source>{num} unbekannte Auszeichnungen!</source>
-        <target>{num} premios desconocidos!</target>
+        <target>¡{num} Distinciones desconocidas!</target>
       </segment>
     </unit>
     <unit id="304pJcq" name="Keine Auszeichnungen">
@@ -1098,7 +1098,7 @@
       </notes>
       <segment>
         <source>Keine Auszeichnungen</source>
-        <target>Sin premios</target>
+        <target>Sin Distinciones</target>
       </segment>
     </unit>
     <unit id="QfF3ttL" name="{c} Tage als Held">
@@ -1189,7 +1189,7 @@
       </notes>
       <segment>
         <source>Auszeichnungen</source>
-        <target>Premios</target>
+        <target>Distinciones</target>
       </segment>
     </unit>
     <unit id="D8ATKTz">
@@ -1199,7 +1199,7 @@
       </notes>
       <segment>
         <source>Hier werden dir die Auszeichnungen angezeigt, welche du im Laufe der Zeit verdient hast.</source>
-        <target>Aquí puedes ver los premios que has ganado a lo largo del tiempo.</target>
+        <target>Aquí puedes ver las Distinciones que has ganado a lo largo del tiempo.</target>
       </segment>
     </unit>
     <unit id="mxKbILU" name="Auszeichnung">
@@ -1209,7 +1209,7 @@
       </notes>
       <segment>
         <source>Auszeichnung</source>
-        <target>Premio</target>
+        <target>Distinción</target>
       </segment>
     </unit>
     <unit id="cXTeIrr" name="Anzahl">
@@ -1359,7 +1359,7 @@
       </notes>
       <segment>
         <source>Unbekannte Auszeichnung</source>
-        <target>Premio desconocido</target>
+        <target>Distinción desconocida</target>
       </segment>
     </unit>
     <unit id="Pu6LW8D" name="Du hast bisher keine Seelen importiert.">
@@ -1509,7 +1509,7 @@
       </notes>
       <segment>
         <source>Seelenpunkte, Auszeichnungen und Heldenerfahrung von dieser Seele können in dein MyHordes-Profil importiert werden.</source>
-        <target>Los puntos de alma, los premios y la experiencia de héroe de esta alma se pueden importar a tu perfil de MyHordes.</target>
+        <target>Los puntos de alma, las Distinciones y la experiencia de héroe de esta alma se pueden importar a tu perfil de MyHordes.</target>
       </segment>
     </unit>
     <unit id=".NldYpW" name="Dies ist nicht deine Hauptseele.">
@@ -1529,7 +1529,7 @@
       </notes>
       <segment>
         <source>Seelenpunkte, Auszeichnungen und Heldenerfahrung können nur von deiner Hauptseele in dein MyHordes-Profil importiert werden.</source>
-        <target>Los puntos de alma, los premios y la experiencia de héroe solo se pueden importar de tu alma principal a tu perfil de MyHordes.</target>
+        <target>Los puntos de alma, las Distinciones y la experiencia de héroe solo se pueden importar de tu alma principal a tu perfil de MyHordes.</target>
       </segment>
     </unit>
     <unit id="ujVgB2r" name="Möchtest du diese Seele zu deiner Hauptseele erklären?">
@@ -1549,7 +1549,7 @@
       </notes>
       <segment>
         <source>Seelenpunkte, Auszeichnungen und Heldenerfahrung können nur von einer Seele importiert werden - deiner Hauptseele. Überlege dir deine Entscheidung gut, denn du kannst die Wahl deiner Hauptseele später nicht mehr ändern!</source>
-        <target>Los puntos de alma, los premios y la experiencia de héroe solo pueden ser importados por un alma: tu alma principal. Piensa cuidadosamente en tu decisión, ¡porque no podrás cambiar la elección de tu alma principal más tarde!</target>
+        <target>Los puntos de alma, las Distinciones y la experiencia de héroe solo pueden ser importados por un alma: tu alma principal. Piensa cuidadosamente en tu decisión, ¡porque no podrás cambiar la elección de tu alma principal más tarde!</target>
       </segment>
     </unit>
     <unit id="DJ.7w.9">
@@ -3764,7 +3764,7 @@
       </notes>
       <segment>
         <source>Auf MyHordes erworbene Auszeichnungen</source>
-        <target>Premios ganados en MyHordes</target>
+        <target>Distinciones ganadas en MyHordes</target>
       </segment>
     </unit>
     <unit id="hohD1vV" name="Importierte Auszeichnungen">
@@ -3814,7 +3814,7 @@
       </notes>
       <segment>
         <source>Alte Auszeichnungen</source>
-        <target>Logros Antiguos</target>
+        <target>Distinciones Antiguas</target>
       </segment>
     </unit>
     <unit id="lc.3X.C">
@@ -3824,7 +3824,7 @@
       </notes>
       <segment>
         <source>In der Vergangenheit importierte Seelenpunkte, Auszeichnungen und Heldenerfahrung von dieser Seele sind deinem MyHordes-Profil gutgeschrieben worden. Neu hinzu gekommene Seelenpunkte, Auszeichnungen und Heldenerfahrung werden jedoch nur in einem gesonderten Bereich deiner Seele angezeigt.</source>
-        <target>Los puntos de alma, los premios y los dias de héroe importados de esta alma en el pasado se han acreditado en su perfil de MyHordes. Sin embargo, los puntos de alma, los premios y los dias de héroe recién agregados solo se muestran en un área separada de su alma.</target>
+        <target>Los puntos de alma, las Distinciones y los dias de héroe importados de esta alma en el pasado se han acreditado en su perfil de MyHordes. Sin embargo, los puntos de alma, las Distinciones y los dias de héroe recién agregados solo se muestran en un área separada de su alma.</target>
       </segment>
     </unit>
     <unit id="l.Sx3SK">
@@ -3844,7 +3844,7 @@
       </notes>
       <segment>
         <source>Da du bereits Punkte auf MyHordes gesammelt hast, kannst du nicht länger Seelenpunkte, Auszeichnungen und Heldenerfahrung von einer importierten Seele übernehmen.</source>
-        <target>Como ya ha ganado puntos en MyHordes, ya no puede obtener puntos de alma, premios y experiencia de héroe de un alma importada.</target>
+        <target>Como ya ha ganado puntos en MyHordes, ya no puede obtener puntos de alma, Distinciones y experiencia de héroe de un alma importada.</target>
       </segment>
     </unit>
     <unit id="qDPKzOI" name="Achtung, der Seelenimport unterliegt aktuell zusätzlichen Einschränkungen.">
@@ -3884,7 +3884,7 @@
       </notes>
       <segment>
         <source>Es werden nach wie vor alle Informationen aus deiner importierten Seele auf MyHordes gespeichert. Durch den Import &lt;b&gt;neu&lt;/b&gt; gewonnene Auszeichnungen, SP oder Heldenerfahrung wird jedoch &lt;b&gt;nur noch in einem gesonderten Bereich&lt;/b&gt; auf deiner MH-Seele angezeigt.</source>
-        <target><![CDATA[Toda la información de su alma importada todavía se guarda en MyHordes. Sin embargo, los premios, puntos de alma o dias de héroe obtenidos a través de la importación <b>nuevo</b>, <b>solo se mostrarán en un área separada</b> de su alma MH.]]></target>
+        <target><![CDATA[Toda la información de su alma importada todavía se guarda en MyHordes. Sin embargo, las Distinciones, puntos de alma o dias de héroe obtenidos a través de la importación <b>nuevo</b>, <b>solo se mostrarán en un área separada</b> de su alma MH.]]></target>
       </segment>
     </unit>
     <unit id="FgytNDj" name="Du kannst deine Seele aktuell &lt;b&gt;ohne Einschränkungen&lt;/b&gt; importieren.">
@@ -4044,7 +4044,7 @@
       </notes>
       <segment>
         <source>Diese Einschränkung betrifft alle Spieler, die auf MyHordes bereits &lt;b&gt;mehr als {thresholdS} Seelenpunkte&lt;/b&gt; gesammelt oder &lt;b&gt;mehr als {thresholdT} Städte&lt;/b&gt; nach dem Ende der Alpha-Phase gespielt haben.</source>
-        <target><![CDATA[Esta restricción afecta a todos los jugadores que ya han obtenido <b>más de {thresholdS} Puntos de alma</b> o hayan jugado <b>más de {thresholdT} Pueblos</b> después del final de la fase Alfa.]]></target>
+        <target><![CDATA[Esta restricción afecta a todos los jugadores que ya han obtenido <b>más de {thresholdS} puntos de alma</b> o hayan jugado <b>más de {thresholdT} Pueblos</b> después del final de la fase Alfa.]]></target>
       </segment>
     </unit>
     <unit id=".RTSS25" name="Zurück zur Kartei von {player}">
@@ -4614,7 +4614,7 @@
       </notes>
       <segment>
         <source>Deine nach dem Ende der Alpha-Phase im Rahmen von Städten erworbenen Auszeichnungen (einschließlich Ranking-Auszeichnungen, die am Ende einer Saison vergeben werden!)</source>
-        <target>Tus distinciones obtenidas en pueblos después del fin de la fase Alfa (¡Incluso las distinciones por la clasificación al final de la temporada!)</target>
+        <target>Tus Distinciones obtenidas en pueblos después del fin de la fase Alfa (¡Incluso las Distinciones por la clasificación al final de la temporada!)</target>
       </segment>
     </unit>
     <unit id="qGQ4apv" name="Folgende Aspekte deiner Seele sind von diesem Reset &lt;b&gt;nicht betroffen&lt;/b&gt;:">
@@ -4644,7 +4644,7 @@
       </notes>
       <segment>
         <source>Spezielle Auszeichnungen, wie beispielsweise die Alpha-Auszeichnung</source>
-        <target>Las distinciones especiales, como la distinción Alfa</target>
+        <target>Las Distinciones especiales, como la Distinción Alfa</target>
       </segment>
     </unit>
     <unit id="gYtpBfG" name="Gegenstände in deinem spiritueller Rucksack">
@@ -4674,7 +4674,7 @@
       </notes>
       <segment>
         <source>Seelenpunkte oder Auszeichnungen, die du importiert hast</source>
-        <target>Los puntos de alma o las distinciones que hayas importado</target>
+        <target>Los puntos de alma o las Distinciones que hayas importado</target>
       </segment>
     </unit>
     <unit id="VEBXP0O" name="Meine Seele zurücksetzen">
