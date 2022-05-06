@@ -626,6 +626,8 @@
             $.html.addEventListenerAll('[x-pm-action="search"]', 'click', function () {
                 document.getElementById('conv_search_bar').classList.toggle('hidden');
                 document.getElementById('conv_list_filter').value = '';
+                if (!document.getElementById('conv_search_bar').classList.contains('hidden'))
+                    document.getElementById('conv_list_filter').focus();
                 filter_function();
             });
 
