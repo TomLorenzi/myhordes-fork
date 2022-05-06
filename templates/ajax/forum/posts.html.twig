@@ -128,11 +128,11 @@
             <div class="row">
                 <div id="pagenav-{{ id }}" class="cell rw-12 padded center">
                     {% if current_page > 1 %}
-                        <div class="forum-button" x-forum-action="post-pager" x-to-page="1"><i class="fa fa-fast-backward"></i></div>
-                        <div class="forum-button" x-forum-action="post-pager" x-to-page="{{ current_page - 1 }}"><i class="fa fa-backward"></i></div>
+                        <div class="forum-button" x-forum-action="post-pager" x-to-page="1"><img alt="" src="{{ asset('build/images/icons/small_prev.gif') }}" /></div>
+                        <div class="forum-button" x-forum-action="post-pager" x-to-page="{{ current_page - 1 }}"><img alt="" src="{{ asset('build/images/icons/small_moveleft.gif') }}" /></div>
                     {% else %}
-                        <div class="forum-button-disabled"><i class="fa fa-fast-backward"></i></div>
-                        <div class="forum-button-disabled"><i class="fa fa-backward"></i></div>
+                        <div class="forum-button-disabled"><img alt="" src="{{ asset('build/images/icons/small_prev.gif') }}" /></div>
+                        <div class="forum-button-disabled"><img alt="" src="{{ asset('build/images/icons/small_moveleft.gif') }}" /></div>
                     {% endif %}
                     <div class="forum-button" x-forum-action="post-select-page">
                         {{ 'Seite {page}/{pages}'|trans({'{page}': '<span class="current_page_marker">&nbsp;' ~ current_page ~ '</span>', '{pages}': pages},'global')|raw }}
@@ -141,11 +141,11 @@
                         </div>
                     </div>
                     {% if current_page < pages %}
-                        <div class="forum-button" x-forum-action="post-pager" x-to-page="{{ current_page + 1 }}"><i class="fa fa-forward"></i></div>
-                        <div class="forum-button" x-forum-action="post-pager" x-to-page="{{ pages }}"><i class="fa fa-fast-forward"></i></div>
+                        <div class="forum-button" x-forum-action="post-pager" x-to-page="{{ current_page + 1 }}"><img alt="" src="{{ asset('build/images/icons/small_move.gif') }}" /></div>
+                        <div class="forum-button" x-forum-action="post-pager" x-to-page="{{ pages }}"><img alt="" src="{{ asset('build/images/icons/small_next.gif') }}" /></div>
                     {% else %}
-                        <div class="forum-button-disabled"><i class="fa fa-forward"></i></div>
-                        <div class="forum-button-disabled"><i class="fa fa-fast-forward"></i></div>
+                        <div class="forum-button-disabled"><img alt="" src="{{ asset('build/images/icons/small_move.gif') }}" /></div>
+                        <div class="forum-button-disabled"><img alt="" src="{{ asset('build/images/icons/small_next.gif') }}" /></div>
                     {% endif %}
                 </div>
             </div>
