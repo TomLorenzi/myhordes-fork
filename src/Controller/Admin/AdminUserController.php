@@ -1056,7 +1056,7 @@ class AdminUserController extends AdminActionController
      * @return Response
      */
     public function users_citizen_headshot(int $id, AdminActionHandler $admh): Response
-    {                
+    {
         if ($admh->headshot($this->getUser()->getId(), $id))
             return AjaxResponse::success();
 

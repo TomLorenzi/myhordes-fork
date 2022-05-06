@@ -1711,24 +1711,26 @@ class NightlyHandler
                     $last_mc = $partition['_mc'][0];
 
                 } else $last_mc = null;
-
+                $semantic = null;
                 switch ($role->getName()) {
                     case 'shaman':
                         if ($valid_citizens === 1)
-                            $this->gazette_service->generateCouncilNodeList( $town, $town->getDay(), CouncilEntryTemplate::CouncilNodeRootShamanSingle, $partition, $flags );
+                            $semantic = CouncilEntryTemplate::CouncilNodeRootShamanSingle;
                         elseif ( $valid_citizens < 10 )
-                            $this->gazette_service->generateCouncilNodeList( $town, $town->getDay(), CouncilEntryTemplate::CouncilNodeRootShamanFew, $partition, $flags );
-                        else $this->gazette_service->generateCouncilNodeList( $town, $town->getDay(), $this->entity_manager->getRepository(Citizen::class)->findLastOneByRoleAndTown($role, $town) ? CouncilEntryTemplate::CouncilNodeRootShamanNext : CouncilEntryTemplate::CouncilNodeRootShamanFirst, $partition, $flags );
+                            $semantic = CouncilEntryTemplate::CouncilNodeRootShamanFew;
+                        else
+                            $semantic = $this->entity_manager->getRepository(Citizen::class)->findLastOneByRoleAndTown($role, $town) ? CouncilEntryTemplate::CouncilNodeRootShamanNext : CouncilEntryTemplate::CouncilNodeRootShamanFirst;
                         break;
                     case 'guide':
                         if ($valid_citizens === 1)
-                            $this->gazette_service->generateCouncilNodeList( $town, $town->getDay(), CouncilEntryTemplate::CouncilNodeRootGuideSingle, $partition, $flags );
+                            $semantic = CouncilEntryTemplate::CouncilNodeRootGuideSingle;
                         elseif ( $valid_citizens < 10 )
-                            $this->gazette_service->generateCouncilNodeList( $town, $town->getDay(), CouncilEntryTemplate::CouncilNodeRootGuideFew, $partition, $flags );
-                        else $this->gazette_service->generateCouncilNodeList( $town, $town->getDay(), $this->entity_manager->getRepository(Citizen::class)->findLastOneByRoleAndTown($role, $town) ? CouncilEntryTemplate::CouncilNodeRootGuideNext : CouncilEntryTemplate::CouncilNodeRootGuideFirst, $partition, $flags );
+                            $semantic = CouncilEntryTemplate::CouncilNodeRootGuideFew;
+                        else
+                            $semantic = $this->entity_manager->getRepository(Citizen::class)->findLastOneByRoleAndTown($role, $town) ? CouncilEntryTemplate::CouncilNodeRootGuideNext : CouncilEntryTemplate::CouncilNodeRootGuideFirst;
                         break;
                 }
-
+                $this->gazette_service->generateCouncilNodeList( $town, $town->getDay(), $semantic, $partition, $flags );
             } else {
                 switch ($role->getName()) {
                     case 'shaman':

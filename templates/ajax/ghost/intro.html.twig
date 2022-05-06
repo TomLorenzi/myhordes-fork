@@ -106,21 +106,21 @@
                                     <div class="row-table">
                                         <div class="row-flex header bottom small">
                                             <div class="padded cell rw-1">&nbsp;</div>
-                                            <div class="padded cell rw-4 hide-sm">{% trans from 'ghost' %}Stadtname{% endtrans %}</div>
+                                            <div class="padded cell rw-6 hide-sm">{% trans from 'ghost' %}Stadtname{% endtrans %}</div>
                                             <div class="padded cell rw-2 hide-sm">{% trans from 'game' %}Bürger{% endtrans %}</div>
-                                            <div class="padded cell rw-2 hide-sm">
-                                                {% trans from 'game' %}Kleine Koalitionen{% endtrans %}<br/>
+                                            <div class="padded cell rw-3 hide-sm">
+                                                {% trans from 'game' %}Kleine Koalitionen{% endtrans %}
                                                 {{ help_btn('Gibt an, wie viele Bürger diese Stadt gemeinsam mit einer Koalition betreten haben. Es werden sowohl Spieler gezählt die automatisch mit ihrer Koalition beitreten als auch solche, die manuell anderen Spielern aus ihrer Koalition folgen.'|trans({},'game')) }}
                                             </div>
-                                            <div class="padded cell rw-3 hide-sm right">{% trans from 'ghost' %}Aktionen{% endtrans %}</div>
+                                            {# <div class="padded cell rw-3 hide-sm right">{% trans from 'ghost' %}Aktionen{% endtrans %}</div> #}
                                         </div>
                                         {% for town in townClass.towns %}
                                             {# @var town \App\Entity\Town #}
                                             {% if town.open and not town.userInTown(app.user) %}
                                                 {% set found = true %}
-                                                <div class="row-flex wrap-sm town-row v-center">
+                                                <div class="row-flex wrap town-row v-center">
                                                     <div class="padded cell rw-1 rw-sm-2"><span class="language"><img src="{{ asset("build/images/lang/" ~ town.getLanguage ~ ".png") }}" alt="{{ town.getLanguage }}" /></span></div>
-                                                    <div class="padded cell rw-4 rw-sm-10">
+                                                    <div class="padded cell rw-6 rw-sm-10">
                                                         {% if town.password is not null or town|whitelisted %}
                                                             <span>
                                                                 <img src="{{ asset('build/images/item/item_lock.gif') }}" alt="Verrouillé" />
@@ -130,7 +130,23 @@
                                                                 </div>
                                                             </span>
                                                         {% endif %}
-                                                        {{ town.getName }}
+                                                            {% if cdm_level != 2 %}
+                                                                <a {% if joinable and (not town|whitelisted or town|whitelisted(app.user)) %}x-coa-restricted="{{ (coa is not empty and (town|whitelisted or town.password)) ? 1 : 0 }}" x-coa-discard="{{ coa|filter( member => not town|openFor(member) )|map( member => member.name )|join(';') }}" x-town-lang="{{ town.getLanguage }}" x-town-id="{{ town.id }}" x-town-name="{{ town.name }}" x-town-locked="{% if town.password is not null %}1{% else %}0{% endif %}" {% else %}disabled="disabled" title="{{ 'Deine Seele genügt den Anforderungen für diesen Stadttypen.'|trans({}, 'ghost') }}"{% endif %}>
+                                                                    <span class="link">{{ town.name }}</span>
+                                                                    {% if town.language != 'multi' and town.language != app.user.language %}
+                                                                            <img alt="!" src="{{ asset('build/images/icons/warning_anim.gif') }}" />
+                                                                            <div class="tooltip">
+                                                                                {{ 'Die Sprache dieser Stadt stimmt nicht mit deiner Spracheinstellung überein. Wenn du dieser Stadt beitrittst, musst du im Stadtforum die Sprache der Stadt verwenden.'|trans({},'ghost') }}<br/>
+                                                                                <b>{{ 'Die Verwendung einer anderen Sprache im Stadtforum kann zu Sanktionen seitens der Moderation führen!'|trans({},'ghost') }}</b>
+                                                                            </div>
+                                                                    {% else %}
+                                                                        <img style="opacity: 0" alt="" src="{{ asset('build/images/icons/warning_anim.gif') }}" />
+                                                                    {% endif %}
+                                                                </a>
+                                                            {% else %}
+                                                                {{ town.name }}
+                                                            {% endif %}
+
                                                         {% if town.rankingEntry.event %}
                                                             <div class="small"><i>{{ 'Event-Stadt'|trans({},'ghost') }}</i> {{ help_btn('Dies ist eine Event-Stadt, sie wird nach ihrem Ende nicht im Ranking erscheinen. Möglicherweise gelten unübliche Regeln für diese Stadt.'|trans({}, 'ghost')) }}</div>
                                                         {% endif %}
@@ -141,26 +157,6 @@
                                                         {% if town.citizens|length > 0 %}
                                                             <img x-town-details="{{ town.id }}" x-town-toggle="{{ town.id }}" class="pointer" alt="+" src="{{ asset('build/images/icons/small_more.gif') }}" />
                                                             <div class="tooltip help">{{ 'Die Liste der eingeschriebenen Spieler ansehen.'|trans({},'game') }}</div>
-                                                        {% else %}
-                                                            &nbsp;
-                                                        {% endif %}
-                                                    </div>
-                                                    <div class="padded cell rw-2 rw-sm-12">
-                                                        {% if cdm_level != 2 %}
-                                                            <button class="spaced-icon" {% if joinable and (not town|whitelisted or town|whitelisted(app.user)) %}x-coa-restricted="{{ (coa is not empty and (town|whitelisted or town.password)) ? 1 : 0 }}" x-coa-discard="{{ coa|filter( member => not town|openFor(member) )|map( member => member.name )|join(';') }}" x-town-lang="{{ town.getLanguage }}" x-town-id="{{ town.id }}" x-town-name="{{ town.getName }}" x-town-locked="{% if town.password is not null %}1{% else %}0{% endif %}" {% else %}disabled="disabled" title="{{ 'Deine Seele genügt den Anforderungen für diesen Stadttypen.'|trans({}, 'ghost') }}"{% endif %}>
-                                                                <div>{{ 'Beitreten'|trans({}, 'ghost') }}</div>
-                                                                {% if town.language != 'multi' and town.language != app.user.language %}
-                                                                    <div>
-                                                                        <img alt="!" src="{{ asset('build/images/icons/warning_anim.gif') }}" />
-                                                                        <div class="tooltip">
-                                                                            {{ 'Die Sprache dieser Stadt stimmt nicht mit deiner Spracheinstellung überein. Wenn du dieser Stadt beitrittst, musst du im Stadtforum die Sprache der Stadt verwenden.'|trans({},'ghost') }}<br/>
-                                                                            <b>{{ 'Die Verwendung einer anderen Sprache im Stadtforum kann zu Sanktionen seitens der Moderation führen!'|trans({},'ghost') }}</b>
-                                                                        </div>
-                                                                    </div>
-                                                                {% else %}
-                                                                    <div><img style="opacity: 0" alt="" src="{{ asset('build/images/icons/warning_anim.gif') }}" /></div>
-                                                                {% endif %}
-                                                            </button>
                                                         {% endif %}
                                                     </div>
                                                     <div x-town-details="{{ town.id }}" class="padded cell rw-12 hidden" style="background-color: #3b3249;">
@@ -213,7 +209,7 @@
             })
         } );
 
-        $.html.addEventListenerAll( 'button[x-town-id][x-town-lang]', 'click', function(e,elem) {
+        $.html.addEventListenerAll( 'a[x-town-id][x-town-lang]', 'click', function(e,elem) {
             e.preventDefault();
             const user_lang = '{{ app.request.locale|e('js') }}';
             const town_lang = elem.getAttribute('x-town-lang');
