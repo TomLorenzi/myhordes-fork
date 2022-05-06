@@ -76,10 +76,9 @@ export default class Client {
         if (item === null) return default_value;
         try {
             let object = JSON.parse(item);
-            if (typeof object === "object" && object.domain && object.value) {
-                const mask_fits = this.vSession.reduce( (validator,v,i) => !mask[i] || object.domain[i] === v ? validator : false, true );
-                console.log(name,group,mask_fits,object.domain,this.vSession,mask);
-                if (mask_fits) return object.value;
+            if (typeof object === "object" && typeof object.domain !== "undefined" && typeof object.value !== "undefined") {
+                if (this.vSession.reduce( (validator,v,i) => !mask[i] || object.domain[i] === v ? validator : false, true ))
+                    return object.value;
                 else {
                     storage.removeItem( key );
                     return default_value;
