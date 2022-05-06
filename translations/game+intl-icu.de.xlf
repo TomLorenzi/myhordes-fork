@@ -21971,5 +21971,14 @@
         <target><![CDATA[Ein Moderator hat eine Beschränkung für deinen Account aufgehoben.<br/>Art der Beschränkung: <b>{type}</b>]]></target>
       </segment>
     </unit>
+    <unit id="l_hkK1Y" name="{citizen} wollte das Gebiet säubern, aber ohne Erfolg.">
+      <notes>
+        <note category="from">db://LogEntryTemplate</note>
+      </notes>
+      <segment>
+        <source>{citizen} wollte das Gebiet säubern, aber ohne Erfolg.</source>
+        <target>{citizen} wollte das Gebiet säubern, aber ohne Erfolg.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
