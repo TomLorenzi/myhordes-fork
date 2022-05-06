@@ -4234,11 +4234,11 @@
       <notes>
         <note category="german">Du moderierst dieses Forum, verfügst aber nicht über Leserechte. Es werden dir nur Threads angezeigt, in denen mindestens ein Post gemeldet wurde.</note>
         <note category="from">twig:///templates/ajax/forum/view.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Du moderierst dieses Forum, verfügst aber nicht über Leserechte. Es werden dir nur Threads angezeigt, in denen mindestens ein Post gemeldet wurde.</source>
-        <target>Du moderierst dieses Forum, verfügst aber nicht über Leserechte. Es werden dir nur Threads angezeigt, in denen mindestens ein Post gemeldet wurde.</target>
+        <target>Vous modérez ce forum, mais n’avez pas de droits de lecture. Vous ne verrez que les sujets où au moins un message a été signalé.</target>
       </segment>
     </unit>
   </file>
