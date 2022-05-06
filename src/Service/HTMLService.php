@@ -696,15 +696,26 @@ class HTMLService {
 
     public function prepareEmotes(string $str, User $user = null, Town $town_context = null): string {
         $emotes = $this->get_emotes(false, $user);
-        return preg_replace_callback('/@(?:​|%E2%80%8B)::(\w+):(\d+)/i', function(array $m) use ($town_context) {
+
+        $fixed_account_translators = [
+            66 => 'Der Rabe',
+            67 => 'Animateur-Team',
+        ];
+
+        return preg_replace_callback('/@(?:​|%E2%80%8B)::(\w+):(\d+)/i', function(array $m) use ($town_context, $fixed_account_translators) {
             [, $type, $id] = $m;
             switch ($type) {
                 case 'un':case 'up':
                     $target_user = $this->entity_manager->getRepository(User::class)->find((int)$id);
                     $target_citizen = $town_context ? $target_user->getCitizenFor($town_context) : null;
                     if ($target_user === null) return '';
+
+                    $name_fixed = ($fixed_account_translators[$target_user->getId()] ?? null)
+                        ? $this->translator->trans($fixed_account_translators[$target_user->getId()], [], 'global')
+                        : null;
+
                     return $type === 'un'
-                        ? ($target_citizen ? $target_citizen->getName() : $target_user->getName())
+                        ? $name_fixed ?? ($target_citizen ? $target_citizen->getName() : $target_user->getName())
                         : $this->router->generate('soul_visit', ['id' => $target_user->getId()]);
                 case 'dom':
                     return (int)$id === 0 ? mb_substr($this->router->generate('home', [], UrlGeneratorInterface::ABSOLUTE_URL), 0,-1) : '';
