@@ -378,10 +378,10 @@ class MessageGlobalPMController extends MessageController
         $this->render_group_associations( $em->getRepository(UserGroupAssociation::class)->findByUserAssociation($this->getUser(), $group_filter,
                 $skip['g'] ?? [], $num+1, $set === 'archive', $query), $entries );
 
-        $this->render_announcements( $em->getRepository(Announcement::class)->findByLang($this->getUserLanguage(),
+        if ($set !== 'support')
+            $this->render_announcements( $em->getRepository(Announcement::class)->findByLang($this->getUserLanguage(),
                                                                                          $skip['a'] ?? [], $num+1, $set === 'archive', $query), $entries );
-
-        if ($set !== 'archive' && $query === null) {
+        if ($set === 'inbox' && $query === null) {
 
             if (empty($skip['d'])) $this->render_directNotifications($this->entity_manager->getRepository(GlobalPrivateMessage::class)->getDirectPMsByUser($this->getUser(), 0, 1), $entries);
             $this->render_forumNotifications($entries, $skip['f'] ?? [] );

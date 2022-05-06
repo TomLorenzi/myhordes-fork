@@ -355,15 +355,24 @@ class SoulController extends CustomAbstractController
      * @Route("jx/soul/exists", name="user_exists")
      * @GateKeeperProfile(allow_during_attack=true,record_user_activity=false)
      */
-    public function users_exists(JSONRequestParser $parser): Response {
+    public function users_exists(JSONRequestParser $parser, TranslatorInterface $translator): Response {
         $return = [];
 
-        $add = function(?User $u, string $name, int $id) use (&$return) {
+        $fixed_account_translators = [
+            66 => 'Der Rabe',
+            67 => 'Animateur-Team',
+        ];
+
+        $add = function(?User $u, string $name, int $id) use (&$return, &$translator, &$fixed_account_translators) {
+            $name_fixed = ($fixed_account_translators[$u?->getId() ?? -1] ?? null)
+                ? $translator->trans($fixed_account_translators[$u?->getId() ?? -1], [], 'global')
+                : null;
+
             $return[] =
                 [
                     'exists' => $u !== null,
                     'id' => $u?->getId() ?? $id,
-                    'displayName' => $u?->getName() ?? $name,
+                    'displayName' => $name_fixed ?? $u?->getName() ?? $name,
                     'queryName' => $name
                 ];
         };

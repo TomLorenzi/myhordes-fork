@@ -1991,7 +1991,7 @@
       </notes>
       <segment>
         <source>Du hast folgende Auszeichnungen verliehen bekommen:</source>
-        <target>Has ganado las distinciones:</target>
+        <target>Has ganado las Distinciones:</target>
       </segment>
     </unit>
     <unit id="RcinBjy" name="Begrüße den Tod wie es sich gehört...">
@@ -6901,7 +6901,7 @@
       </notes>
       <segment>
         <source>Wenn du eine zusätzliche Nacht geblieben wärst, hättest du auch die folgenden Preise gewinnen können:</source>
-        <target>Si hubieras resisitido una noche extra, habrías ganado las siguientes distinciones:</target>
+        <target>Si hubieras resisitido una noche extra, habrías ganado las siguientes Distinciones:</target>
       </segment>
     </unit>
     <unit id="uBjALnI" name="Mein Rucksack">
@@ -7391,7 +7391,7 @@
       </notes>
       <segment>
         <source>Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.</source>
-        <target><![CDATA[Obtendrás un <strong>plano de obras</strong> si acampas en este edificio.]]></target>
+        <target>Obtendrás un plano de obras si acampas en este edificio.</target>
       </segment>
     </unit>
     <unit id="XZI.RVp" name="Hier wurde bereits ein Bauplan gefunden.">
@@ -7401,7 +7401,7 @@
       </notes>
       <segment>
         <source>Hier wurde bereits ein Bauplan gefunden.</source>
-        <target><![CDATA[Este edificio ya fue inspeccionado por otro jugador y no contiene ningún <strong>plano de obras</strong>...]]></target>
+        <target>Este edificio ya fue inspeccionado por otro jugador y no contiene ningún plano de obras...</target>
       </segment>
     </unit>
     <unit id="WPZOeLX">
@@ -8865,7 +8865,7 @@
       </notes>
       <segment>
         <source>Eine äußerst seltene Auszeichnung, die den Seelen vorbehalten ist, die das große Harmagedon des Universums von Die Verdammten erlebt haben!</source>
-        <target>¡Un premio extremadamente raro reservado para las almas que presenciaron El Gran Armagedón!</target>
+        <target>¡Una Distinción extremadamente rara reservado para las almas que presenciaron El Gran Armagedón!</target>
       </segment>
     </unit>
     <unit id="i.fN8wb" name="Zeuge der großen Verseuchung">
@@ -8885,7 +8885,7 @@
       </notes>
       <segment>
         <source>Äußerst seltene Marke, die für Seelen reserviert ist, die die Große Kontamination von Die Verdammten erlebt haben!</source>
-        <target>¡Distinición extremadamente rara reservada para las almas que presenciaron La Gran Contaminación!</target>
+        <target>¡Distinción extremadamente rara reservada para las almas que presenciaron La Gran Contaminación!</target>
       </segment>
     </unit>
     <unit id="kaJx_.U" name="{citizen} hat das Gebäude {plan} repariert und dabei {ap} ausgegeben.">
@@ -10996,7 +10996,7 @@
       </notes>
       <segment>
         <source>Diese seltene Auszeichnung haben nur jene Verdammten erhalten, die an der Schlacht der Berufe teilgenommen haben.</source>
-        <target>Una distinción muy rara, otorgada solo a los pocos intrépidos que participaron en el primer Choque de Héroes.</target>
+        <target>Una Distinción muy rara, otorgada solo a los pocos intrépidos que participaron en el primer Choque de Héroes.</target>
       </segment>
     </unit>
     <unit id="jgy_VVR" name="Shock of heroes">
@@ -11036,7 +11036,7 @@
       </notes>
       <segment>
         <source>Auszeichnung für den größten Helden, der während des Shock of Heroes Events am längsten überlebt hat. Du bist nun eine Legende der Außenwelt!</source>
-        <target>Esta distinción es entregada a un solo hombre, aquel que cumplió con su destino legendario y mantuvo a la muerte fuera de su camino en el Choque de Héroes.</target>
+        <target>Esta Distinción es entregada a un solo hombre, aquel que cumplió con su destino legendario y mantuvo a la muerte fuera de su camino en el Choque de Héroes.</target>
       </segment>
     </unit>
     <unit id="Ycwc7kf">
@@ -11296,7 +11296,7 @@
       </notes>
       <segment>
         <source>Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von 'MyHordes' vorbehalten ist. Drogen sind nicht gut.</source>
-        <target>Una distinción extremadamente rara, otorgada solo a los primeros habitantes de 'MyHordes'. Las drogas no son buenas.</target>
+        <target>Una Distinción extremadamente rara, otorgada solo a los primeros habitantes de 'MyHordes'. Las drogas no son buenas.</target>
       </segment>
     </unit>
     <unit id="CFjOf1p">
@@ -15435,7 +15435,7 @@
       </notes>
       <segment>
         <source>Dies ist eine äußerst seltene Belohnung, die den ersten MyHordes-Spielern vorbehalten ist, die das Finale mit großem F erlebt haben.</source>
-        <target>Esta es una distinción extremadamente rara reservada a los primeros jugadores de MyHordes, quienes presenciaron el final, uno con F mayúscula.</target>
+        <target>Esta es una Distinción extremadamente rara reservada a los primeros jugadores de MyHordes, quienes presenciaron el final, uno con F mayúscula.</target>
       </segment>
     </unit>
     <unit id="d5d0_u_">
@@ -21087,7 +21087,7 @@
       </notes>
       <segment>
         <source>Dieses Leben wird aus den Annalen der Geschichte getilgt. Du erhälst weder Seelenpunkte noch Auszeichnungen.</source>
-        <target>Esta vida se borra de los anales de la historia. No recibe puntos de alma ni premios.</target>
+        <target>Esta vida se borra de los anales de la historia. No recibe puntos de alma ni Distinciones.</target>
       </segment>
     </unit>
     <unit id="gLhMShO" name="Das wird dir in Zukunft schlaflose Nächte bereiten!">
@@ -21492,7 +21492,7 @@
       </notes>
       <segment>
         <source>Auszeichnungsdetails</source>
-        <target>Detalles del premio</target>
+        <target>Detalles de la Distinción</target>
       </segment>
     </unit>
     <unit id="N.42Sjo" name="Trinken (Oder du stirbst heute Nacht)">
@@ -21612,7 +21612,7 @@
       </notes>
       <segment>
         <source>Du erhälst einen Bauplan wenn Du in diesem Gebäude campst, aber du musst zunächst die Zone aufräumen.</source>
-        <target>Se le dará un plano cuando acampe en este edificio, pero primero debe despejar la zona.</target>
+        <target>Podrías obtener un plano de obras acampando aquí, pero antes habría que despejar la zona.</target>
       </segment>
     </unit>
     <unit id="O_a3lwS" name="(seit {num} Stunden herrscht völlige Flaute)">
@@ -23148,6 +23148,17 @@
       <segment>
         <source>Ein Moderator hat eine Beschränkung für deinen Account aufgehoben.&lt;br/&gt;Art der Beschränkung: &lt;b&gt;{type}&lt;/b&gt;</source>
         <target><![CDATA[Un moderador ha quitado una restricción impuesta sobre tu cuenta.<br/>Restricción: <b>{type}</b>]]></target>
+      </segment>
+    </unit>
+    <unit id="l_hkK1Y" name="{citizen} wollte das Gebiet säubern, aber ohne Erfolg.">
+      <notes>
+        <note category="german">{citizen} wollte das Gebiet säubern, aber ohne Erfolg.</note>
+        <note category="from">db://LogEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>{citizen} wollte das Gebiet säubern, aber ohne Erfolg.</source>
+        <target>{citizen} wollte das Gebiet säubern, aber ohne Erfolg.</target>
       </segment>
     </unit>
   </file>

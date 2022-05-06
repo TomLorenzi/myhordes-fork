@@ -416,14 +416,12 @@ class InventoryAwareController extends CustomAbstractController
             $notes[] = $this->translator->trans( 'Mit weit aufgerissenem Maul stürzt du dich auf {citizen}. Unter der Wucht deiner brutalen Schläge und Tritte sackt er ziemlich schnell zusammen.', ['{citizen}' => $victim->getName()], 'game' );
             $notes[] = $this->translator->trans( 'Mit ein paar unschönen Tritten gegen seinen Kopf vergewisserst du dich, dass er garantiert nicht mehr aufstehen wird. Na los! Bring deinen Job zuende und verspeise ihn!', [], 'game' );
 
-            $give_ap = 6;
+            $give_ap = 7;
 
             if ($aggressor->getZone()) {
                 $this->entity_manager->persist($this->log->citizenBeyondGhoulAttack($aggressor, $victim, true));
                 $this->entity_manager->persist($this->log->citizenBeyondGhoulAttack($aggressor, $victim, false));
             } else {
-                $give_ap = 7;
-
                 $cc = 0;
                 foreach ($aggressor->getTown()->getCitizens() as $c)
                     if ($c->getAlive() && !$c->getZone() && $c->getId() !== $aggressor->getId() && $c->getId() !== $victim->getId()) $cc++;

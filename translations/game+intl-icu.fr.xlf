@@ -23157,5 +23157,15 @@ cette violente opération...]]></target>
         <target><![CDATA[Un modérateur a supprimé une restriction sur votre compte.<br/> Limitation : <b>{type}</b>]]></target>
       </segment>
     </unit>
+    <unit id="l_hkK1Y" name="{citizen} wollte das Gebiet säubern, aber ohne Erfolg.">
+      <notes>
+        <note category="german">{citizen} wollte das Gebiet säubern, aber ohne Erfolg.</note>
+        <note category="from">db://LogEntryTemplate</note>
+      </notes>
+      <segment>
+        <source>{citizen} wollte das Gebiet säubern, aber ohne Erfolg.</source>
+        <target>{citizen} a souhaité purifier la zone, mais sans succès.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

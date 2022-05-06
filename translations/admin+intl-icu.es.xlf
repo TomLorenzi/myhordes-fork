@@ -4349,7 +4349,7 @@
       </notes>
       <segment>
         <source>Diese Auszeichnung wird nicht verdient, wenn der Bürger heute Nacht stirbt.</source>
-        <target>Esta distinción no se otorgará si el habitante muere esta noche.</target>
+        <target>Esta Distinción no se otorgará si el habitante muere esta noche.</target>
       </segment>
     </unit>
     <unit id="WJg1nZp" name="Diese Auszeichnung wurde verdient.">
@@ -4359,7 +4359,7 @@
       </notes>
       <segment>
         <source>Diese Auszeichnung wurde verdient.</source>
-        <target>Se ha otorgado la distinción.</target>
+        <target>Se ha otorgado la Distinción.</target>
       </segment>
     </unit>
     <unit id="I2eWURG" name="Freundesliste">
@@ -4666,77 +4666,77 @@
       <notes>
         <note category="german">MyHordes-Seele wiederherstellen</note>
         <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>MyHordes-Seele wiederherstellen</source>
-        <target>MyHordes-Seele wiederherstellen</target>
+        <target>Reiniciar el alma de MyHordes</target>
       </segment>
     </unit>
     <unit id="Qgq13W4" name="Seele zurückgesetzt">
       <notes>
         <note category="german">Seele zurückgesetzt</note>
         <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Seele zurückgesetzt</source>
-        <target>Seele zurückgesetzt</target>
+        <target>Reinicio de alma</target>
       </segment>
     </unit>
     <unit id="WCGHAE6" name="{num} Städte betroffen">
       <notes>
         <note category="german">{num} Städte betroffen</note>
         <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>{num} Städte betroffen</source>
-        <target>{num} Städte betroffen</target>
+        <target>{num} Pueblos afectados</target>
       </segment>
     </unit>
     <unit id="D_SOjKp" name="Du siehst aktuell gelöschte Meldungen.">
       <notes>
         <note category="german">Du siehst aktuell gelöschte Meldungen.</note>
         <note category="from">twig:///templates/ajax/admin/reports/reports.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Du siehst aktuell gelöschte Meldungen.</source>
-        <target>Du siehst aktuell gelöschte Meldungen.</target>
+        <target>Estás viendo reportes eliminados.</target>
       </segment>
     </unit>
     <unit id="KIO8WN8" name="Zurück zur Meldungsübersicht">
       <notes>
         <note category="german">Zurück zur Meldungsübersicht</note>
         <note category="from">twig:///templates/ajax/admin/reports/reports.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Zurück zur Meldungsübersicht</source>
-        <target>Zurück zur Meldungsübersicht</target>
+        <target>Volver a la vista general</target>
       </segment>
     </unit>
     <unit id="mP7gm7N" name="Möchtest du bereits gelöschte Meldungen durchsuchen?">
       <notes>
         <note category="german">Möchtest du bereits gelöschte Meldungen durchsuchen?</note>
         <note category="from">twig:///templates/ajax/admin/reports/reports.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Möchtest du bereits gelöschte Meldungen durchsuchen?</source>
-        <target>Möchtest du bereits gelöschte Meldungen durchsuchen?</target>
+        <target>¿Quieres buscar entre los reportes eliminados?</target>
       </segment>
     </unit>
     <unit id="V5OxsLs" name="Zum Papierkorb">
       <notes>
         <note category="german">Zum Papierkorb</note>
         <note category="from">twig:///templates/ajax/admin/reports/reports.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Zum Papierkorb</source>
-        <target>Zum Papierkorb</target>
+        <target>Abrir la papelera de reciclaje</target>
       </segment>
     </unit>
   </file>

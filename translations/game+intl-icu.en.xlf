@@ -23233,5 +23233,16 @@
         <target><![CDATA[A moderator has removed a restriction from your account.<br/>Limitation: <b>{type}</b>]]></target>
       </segment>
     </unit>
+    <unit id="l_hkK1Y" name="{citizen} wollte das Gebiet säubern, aber ohne Erfolg.">
+      <notes>
+        <note category="german">{citizen} wollte das Gebiet säubern, aber ohne Erfolg.</note>
+        <note category="from">db://LogEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>{citizen} wollte das Gebiet säubern, aber ohne Erfolg.</source>
+        <target>{citizen} wollte das Gebiet säubern, aber ohne Erfolg.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
