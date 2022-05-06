@@ -8824,5 +8824,14 @@
         <target>Du hältst das Fläschchen an deine Nase....WOOOW! Der Gestank alleine könnte ein Pferd töten.</target>
       </segment>
     </unit>
+    <unit id="Dkrg9_A">
+      <notes>
+        <note category="from">php:///src/Service/ActionHandler.php</note>
+      </notes>
+      <segment>
+        <source>So viel zum Survivalbuch. Kein Wunder, dass dieses Buch nicht über die Grundstufe hinausgekommen ist... Du hast absolut nichts gefunden, aber das wusstest du wahrscheinlich schon.</source>
+        <target>So viel zum Survivalbuch. Kein Wunder, dass dieses Buch nicht über die Grundstufe hinausgekommen ist... Du hast absolut nichts gefunden, aber das wusstest du wahrscheinlich schon.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
