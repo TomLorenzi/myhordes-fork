@@ -789,8 +789,6 @@ class AdminTownController extends AdminActionController
 
         $town->setManagedEvents($eventName !== "");
 
-
-
         if($eventName !== "" && $eventName !== null){
             $this->logger->invoke("[admin_town_set_event] Admin <info>{$this->getUser()->getName()}</info> enabled the event <info>$eventName</info> in the town <info>{$town->getName()}</info> (id: {$town->getId()})");
             $townHandler->updateCurrentEvents($town, [$this->conf->getEvent($eventName)]);
@@ -1190,7 +1188,12 @@ class AdminTownController extends AdminActionController
             'ruin_digs' => $zone->getPrototype() !== null ? $zone->getRuinDigs() : 0,
             'ruin_bury' => $zone->getBuryCount(),
             'camp_levl' => $zone->getImprovementLevel(),
-            'ruin_camp' => $zone->getPrototype()?->getCampingLevel()
+            'ruin_camp' => $zone->getPrototype()?->getCampingLevel(),
+            'zone_log' => $this->renderView("ajax/admin/towns/log.html.twig", [
+                'log_content' => $this->renderLog($parser->has('day') ? $parser->get('day') : $town->getDay(), $town, $zone)->getContent(),
+                'log_source' => $this->urlGenerator->generate('get_zone_infos', ['id' => $id]),
+                'day' => $parser->has('day') ? $parser->get('day') : $town->getDay()
+            ]),
         ]);
     }
 
