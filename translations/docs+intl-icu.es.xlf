@@ -388,7 +388,7 @@
       </notes>
       <segment>
         <source>ob der Spieler verkörpert ist (false) oder nicht (true)</source>
-        <target>si el jugador está vivo (false) o no (true)</target>
+        <target>Si el jugador está vivo (false) o no (true)</target>
       </segment>
     </unit>
     <unit id="YVtCp6_" name="Die Twinoid-ID, wenn er sein Konto verknüpft hat">

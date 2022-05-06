@@ -286,6 +286,9 @@ class GhostController extends CustomAbstractController
             case 'with-toxin':
                 $customConf['overrides']['named_drops'][] = 'with-toxin';
                 break;
+            case 'hungry-ghouls':
+                $customConf['features']['hungry_ghouls'] = true;
+                break;
         }
 
         if (!(bool)$parser->get('ruins', '')) $customConf['explorable_ruins'] = 0;

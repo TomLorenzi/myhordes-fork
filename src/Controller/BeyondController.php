@@ -1709,8 +1709,9 @@ class BeyondController extends InventoryAwareController
 
         if (!$success) {
             $str[] = $this->translator->trans('Doch nichts passiert... Soviel steht fest, du stehst nun wie ein lausiger Amateur da. Außer Blasen an den Füßen hat das alles nichts eingebracht...', [], 'game');
+            $this->entity_manager->persist($this->log->failureShaman($citizen));
         } else {
-            if (0 != $zone->getX() || 0 != $zone->getY()) {
+            if (!$zone->isTownZone()) {
                 $nbKills = min(mt_rand(3, 6), $zone->getZombies());
                 $this->entity_manager->persist($this->log->zombieKillShaman($citizen, $nbKills));
                 $zone->setZombies($citizen->getZone()->getZombies() - $nbKills);

@@ -3,6 +3,7 @@
 
 namespace App\Service;
 
+use App\Entity\AccountRestriction;
 use App\Entity\Award;
 use App\Entity\AwardPrototype;
 use App\Entity\Building;
@@ -223,6 +224,27 @@ class LogTemplateHandler
                     $transParams['{'.$typeEntry['name'].'}'] .= implode('', array_map( fn($e) => "<img alt='$e' src='{$this->asset->getUrl( "build/images/icons/title/$e.gif" )}' />", $variables[$typeEntry['name']] ));
                     $transParams['{'.$typeEntry['name'].'}'] .= "</div>";
                 }
+                elseif ($typeEntry['type'] === 'accountRestrictionMask') {
+
+                    $transParams['{'.$typeEntry['name'].'}'] = "<div class='list'>";
+                    $mask = (int)$variables[$typeEntry['name']];
+                    $binmatch = fn( $val, $res ) => ($val & $res) === $res;
+                    if ( $binmatch($mask, AccountRestriction::RestrictionForum) ) $transParams['{'.$typeEntry['name'].'}'] .= $this->wrap($this->trans->trans( 'In Foren posten', [], 'soul' ));
+                    if ( $binmatch($mask, AccountRestriction::RestrictionTownCommunication) ) $transParams['{'.$typeEntry['name'].'}'] .= $this->wrap($this->trans->trans( 'Kommunikation in der Stadt', [], 'soul' ));
+                    elseif ( $binmatch($mask, AccountRestriction::RestrictionBlackboard) ) $transParams['{'.$typeEntry['name'].'}'] .= $this->wrap($this->trans->trans( 'Schwarzes Brett', [], 'soul' ));
+                    if ( $binmatch($mask, AccountRestriction::RestrictionGlobalCommunication) ) $transParams['{'.$typeEntry['name'].'}'] .= $this->wrap($this->trans->trans( 'Stadtübergreifende Kommunikation', [], 'soul' ));
+                    if ( $binmatch($mask, AccountRestriction::RestrictionComments) ) $transParams['{'.$typeEntry['name'].'}'] .= $this->wrap($this->trans->trans( 'Kommentare', [], 'soul' ));
+                    if ( $binmatch($mask, AccountRestriction::RestrictionOrganization) ) $transParams['{'.$typeEntry['name'].'}'] .= $this->wrap($this->trans->trans( 'Gruppenorganisation', [], 'soul' ));
+                    if ( $binmatch($mask, AccountRestriction::RestrictionGameplay) ) $transParams['{'.$typeEntry['name'].'}'] .= $this->wrap($this->trans->trans( 'Spielen', [], 'soul' ));
+                    if ( $binmatch($mask, AccountRestriction::RestrictionProfile) ) $transParams['{'.$typeEntry['name'].'}'] .= $this->wrap($this->trans->trans( 'Ändern des Profils', [], 'soul' ));
+                    else {
+                        if ( $binmatch($mask, AccountRestriction::RestrictionProfileAvatar) ) $transParams['{'.$typeEntry['name'].'}'] .= $this->wrap($this->trans->trans( 'Ändern des Avatars', [], 'soul' ));
+                        if ( $binmatch($mask, AccountRestriction::RestrictionProfileTitle) ) $transParams['{'.$typeEntry['name'].'}'] .= $this->wrap($this->trans->trans( 'Ändern des Profiltitels', [], 'soul' ));
+                        if ( $binmatch($mask, AccountRestriction::RestrictionProfileDescription) ) $transParams['{'.$typeEntry['name'].'}'] .= $this->wrap($this->trans->trans( 'Ändern der Profilbeschreibung', [], 'soul' ) );
+                        if ( $binmatch($mask, AccountRestriction::RestrictionProfileDisplayName) ) $transParams['{'.$typeEntry['name'].'}'] .= $this->wrap($this->trans->trans( 'Ändern des Spielernamens', [], 'soul' ));
+                    }
+                    $transParams['{'.$typeEntry['name'].'}'] .= "</div>";
+                }
                 elseif ($typeEntry['type'] === 'title-custom-list') {
                     $transParams['{'.$typeEntry['name'].'}'] = "<div class='list'>";
                     $transParams['{'.$typeEntry['name'].'}'] .= implode('', array_map( function($e) {
@@ -429,6 +451,19 @@ class LogTemplateHandler
             ->setVariables($variables)
             ->setTown( $citizen->getTown() )
             ->setDay( $citizen->getTown()->getDay() )
+            ->setTimestamp( new DateTime('now') )
+            ->setCitizen( $citizen );
+    }
+
+    public function failureShaman( Citizen $citizen ): TownLogEntry {
+        $variables = array('citizen' => $citizen->getId());
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'failureShaman']);
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $citizen->getTown() )
+            ->setDay( $citizen->getTown()->getDay() )
+            ->setZone( $citizen->getZone() )
             ->setTimestamp( new DateTime('now') )
             ->setCitizen( $citizen );
     }

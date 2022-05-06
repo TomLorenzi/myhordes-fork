@@ -308,7 +308,7 @@
       </notes>
       <segment>
         <source>Du kannst auf dieser Zone nicht graben.</source>
-        <target>¡Es imposible hacer esto en una zona controlada por los zombies!</target>
+        <target>No puedes excavar en esta zona.</target>
       </segment>
     </unit>
     <unit id="Wevnltm" name="Deine Nachricht muss zwischen 2 und 256 Zeichen haben.">
@@ -859,7 +859,7 @@
       </notes>
       <segment>
         <source>Du hast {num} anonyme Anzeige(n).</source>
-        <target><![CDATA[Has recibido <strong>{num} denuncias</strong> anónimas. ¡Si acumulas 8 denuncias, serás desterrado!]]></target>
+        <target><![CDATA[Has recibido <strong>{num} denuncia(s)</strong> anónima(s). ¡Si acumulas 8 denuncias, serás desterrado!]]></target>
       </segment>
     </unit>
     <unit id="0drragL">
@@ -939,7 +939,7 @@
       </notes>
       <segment>
         <source>Mein Haus ausbauen</source>
-        <target>Mejora mi casa</target>
+        <target>Mejora tu casa (opcional)</target>
       </segment>
     </unit>
     <unit id="J53z_38">
@@ -1991,7 +1991,7 @@
       </notes>
       <segment>
         <source>Du hast folgende Auszeichnungen verliehen bekommen:</source>
-        <target>Has ganado las distinciones:</target>
+        <target>Has ganado las Distinciones:</target>
       </segment>
     </unit>
     <unit id="RcinBjy" name="Begrüße den Tod wie es sich gehört...">
@@ -5261,7 +5261,7 @@
       </notes>
       <segment>
         <source>Du kannst keine Aktionen ausführen, während du dich versteckst.</source>
-        <target>Todas las acciones que suelen estar disponibles fuera del pueblo se desactivan cuando te escondes.</target>
+        <target>Todas las acciones realizables en el exterior han sido desactivadas mientras estés escondido.</target>
       </segment>
     </unit>
     <unit id="rSInXr8" name="Du kannst dich nicht fortbewegen während du versteckt bist.">
@@ -6901,7 +6901,7 @@
       </notes>
       <segment>
         <source>Wenn du eine zusätzliche Nacht geblieben wärst, hättest du auch die folgenden Preise gewinnen können:</source>
-        <target>Si hubieras resisitido una noche extra, habrías ganado las siguientes distinciones:</target>
+        <target>Si hubieras resisitido una noche extra, habrías ganado las siguientes Distinciones:</target>
       </segment>
     </unit>
     <unit id="uBjALnI" name="Mein Rucksack">
@@ -7121,7 +7121,7 @@
       </notes>
       <segment>
         <source>Du hast die letzte Nacht in der Kälte der Außenwelt verbracht. Dabei konntest du die Windrichtung und den Marsch der Zombiehorde beobachten. Damit bist du für den Rest des Tages in der Lage, erfolgreicher Gegenstände zu finden.</source>
-        <target>Pasaste la última noche fuera, soportando el frío del Ultramundo. Fuiste capaz de observar los áridos vientos desérticos y el movimiento de las hordas de zombis. Gracias a la agudeza de tus observaciones hoy gozarás de un bonus al excavar.</target>
+        <target>Pasaste la última noche fuera, soportando el frío del Ultramundo. Fuiste capaz de observar los áridos vientos desérticos y el movimiento de las turbas de zombies. Gracias a la agudeza de tus observaciones hoy gozarás de un bonus en tus excavaciones.</target>
       </segment>
     </unit>
     <unit id="yuD1sSM">
@@ -7391,7 +7391,7 @@
       </notes>
       <segment>
         <source>Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.</source>
-        <target>Obtendrás un plano de obras si pasas la noche aquí.</target>
+        <target>Obtendrás un plano de obras si acampas en este edificio.</target>
       </segment>
     </unit>
     <unit id="XZI.RVp" name="Hier wurde bereits ein Bauplan gefunden.">
@@ -7451,7 +7451,7 @@
       </notes>
       <segment>
         <source>Herzlichen Glückwunsch, die Zone ist vollständig freigelegt worden! Du kannst nun mit der Suche nach Gegenständen im: {ruin} beginnen!</source>
-        <target><![CDATA[¡Felicitaciones, la zona ha sido despejada! Puedes <strong>comenzar a desenterrar</strong> lo que se escondía allí: ¡{ruin}!]]></target>
+        <target><![CDATA[¡Felicitaciones, la zona ha sido despejada! Finalmente <strong>has descubierto</strong> lo que se escondía allí: ¡{ruin}!]]></target>
       </segment>
     </unit>
     <unit id="dpgWUqk" name="Du hast {count} Aktionspunkt(e) benutzt.">
@@ -8013,7 +8013,7 @@
       </notes>
       <segment>
         <source>Bürger in dieser Zone</source>
-        <target>Habitantes en el sector</target>
+        <target>Habitantes presentes</target>
       </segment>
     </unit>
     <unit id="wVNJv3." name="Camping">
@@ -8625,7 +8625,7 @@
       </notes>
       <segment>
         <source>Diese Bürger hat hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist erst morgen wieder möglich.</source>
-        <target>Este habitante ya ha escarbado aquí. La próxima excavación será posible mañana.</target>
+        <target>Este habitante ya ha escarbado aquí. Mañana podrá hacerlo nuevamente.</target>
       </segment>
     </unit>
     <unit id="QOTB3sR" name="Dieser Bürger wird aktuell von {leader} eskortiert.">
@@ -8865,7 +8865,7 @@
       </notes>
       <segment>
         <source>Eine äußerst seltene Auszeichnung, die den Seelen vorbehalten ist, die das große Harmagedon des Universums von Die Verdammten erlebt haben!</source>
-        <target>¡Un premio extremadamente raro reservado para las almas que presenciaron El Gran Armagedón!</target>
+        <target>¡Una Distinción extremadamente rara reservado para las almas que presenciaron El Gran Armagedón!</target>
       </segment>
     </unit>
     <unit id="i.fN8wb" name="Zeuge der großen Verseuchung">
@@ -8885,7 +8885,7 @@
       </notes>
       <segment>
         <source>Äußerst seltene Marke, die für Seelen reserviert ist, die die Große Kontamination von Die Verdammten erlebt haben!</source>
-        <target>¡Distinición extremadamente rara reservada para las almas que presenciaron La Gran Contaminación!</target>
+        <target>¡Distinción extremadamente rara reservada para las almas que presenciaron La Gran Contaminación!</target>
       </segment>
     </unit>
     <unit id="kaJx_.U" name="{citizen} hat das Gebäude {plan} repariert und dabei {ap} ausgegeben.">
@@ -10996,7 +10996,7 @@
       </notes>
       <segment>
         <source>Diese seltene Auszeichnung haben nur jene Verdammten erhalten, die an der Schlacht der Berufe teilgenommen haben.</source>
-        <target>Una distinción muy rara, otorgada solo a los pocos intrépidos que participaron en el primer Choque de Héroes.</target>
+        <target>Una Distinción muy rara, otorgada solo a los pocos intrépidos que participaron en el primer Choque de Héroes.</target>
       </segment>
     </unit>
     <unit id="jgy_VVR" name="Shock of heroes">
@@ -11036,7 +11036,7 @@
       </notes>
       <segment>
         <source>Auszeichnung für den größten Helden, der während des Shock of Heroes Events am längsten überlebt hat. Du bist nun eine Legende der Außenwelt!</source>
-        <target>Esta distinción es entregada a un solo hombre, aquel que cumplió con su destino legendario y mantuvo a la muerte fuera de su camino en el Choque de Héroes.</target>
+        <target>Esta Distinción es entregada a un solo hombre, aquel que cumplió con su destino legendario y mantuvo a la muerte fuera de su camino en el Choque de Héroes.</target>
       </segment>
     </unit>
     <unit id="Ycwc7kf">
@@ -11296,7 +11296,7 @@
       </notes>
       <segment>
         <source>Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von 'MyHordes' vorbehalten ist. Drogen sind nicht gut.</source>
-        <target>Una distinción extremadamente rara, otorgada solo a los primeros habitantes de 'MyHordes'. Las drogas no son buenas.</target>
+        <target>Una Distinción extremadamente rara, otorgada solo a los primeros habitantes de 'MyHordes'. Las drogas no son buenas.</target>
       </segment>
     </unit>
     <unit id="CFjOf1p">
@@ -15435,7 +15435,7 @@
       </notes>
       <segment>
         <source>Dies ist eine äußerst seltene Belohnung, die den ersten MyHordes-Spielern vorbehalten ist, die das Finale mit großem F erlebt haben.</source>
-        <target>Esta es una distinción extremadamente rara reservada a los primeros jugadores de MyHordes, quienes presenciaron el final, uno con F mayúscula.</target>
+        <target>Esta es una Distinción extremadamente rara reservada a los primeros jugadores de MyHordes, quienes presenciaron el final, uno con F mayúscula.</target>
       </segment>
     </unit>
     <unit id="d5d0_u_">
@@ -19992,7 +19992,7 @@
       </notes>
       <segment>
         <source>Dieser Bürger hat sich für heute Nacht hier versteckt.</source>
-        <target>Este habitante se ha estado escondiendo aquí esta noche.</target>
+        <target>Este habitante está escondido para pasar la noche aquí</target>
       </segment>
     </unit>
     <unit id="PEGlllX">
@@ -21087,7 +21087,7 @@
       </notes>
       <segment>
         <source>Dieses Leben wird aus den Annalen der Geschichte getilgt. Du erhälst weder Seelenpunkte noch Auszeichnungen.</source>
-        <target>Esta vida se borra de los anales de la historia. No recibe puntos de alma ni premios.</target>
+        <target>Esta vida se borra de los anales de la historia. No recibe puntos de alma ni Distinciones.</target>
       </segment>
     </unit>
     <unit id="gLhMShO" name="Das wird dir in Zukunft schlaflose Nächte bereiten!">
@@ -21234,11 +21234,10 @@
       <notes>
         <note category="german">&lt;strong&gt;Das Stadttor ist geschlossen&lt;/strong&gt;, eine Rückkehr ist nicht möglich!</note>
         <note category="from">twig:///templates/scripts/errors/beyond.txt.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>&lt;strong&gt;Das Stadttor ist geschlossen&lt;/strong&gt;, eine Rückkehr ist nicht möglich!</source>
-        <target><![CDATA[<strong>Das Stadttor ist geschlossen</strong>, eine Rückkehr ist nicht möglich!]]></target>
+        <target><![CDATA[¡<strong>El portal del pueblo está cerrado</strong>, no puedes regresar!]]></target>
       </segment>
     </unit>
     <unit id="im0eaJb">
@@ -21493,7 +21492,7 @@
       </notes>
       <segment>
         <source>Auszeichnungsdetails</source>
-        <target>Detalles del premio</target>
+        <target>Detalles de la Distinción</target>
       </segment>
     </unit>
     <unit id="N.42Sjo" name="Trinken (Oder du stirbst heute Nacht)">
@@ -21613,7 +21612,7 @@
       </notes>
       <segment>
         <source>Du erhälst einen Bauplan wenn Du in diesem Gebäude campst, aber du musst zunächst die Zone aufräumen.</source>
-        <target>Se le dará un plano cuando acampe en este edificio, pero primero debe despejar la zona.</target>
+        <target>Podrías obtener un plano de obras acampando aquí, pero antes habría que despejar la zona.</target>
       </segment>
     </unit>
     <unit id="O_a3lwS" name="(seit {num} Stunden herrscht völlige Flaute)">
@@ -21863,7 +21862,7 @@
       </notes>
       <segment>
         <source>Für die vollständige Instandsetzung dieses Gebäudes sind noch {remaining} AP erforderlich.</source>
-        <target>Para la reparación completa de este edificio, se requieren {remaining} AP.</target>
+        <target>Para reparar completamente este edificio, aún tenemos que invertir {remaining} PA.</target>
       </segment>
     </unit>
     <unit id="Plqho0r" name="Niemand ist in der Nähe der Stadt (maximal 2 Felder).">
@@ -21933,7 +21932,7 @@
       </notes>
       <segment>
         <source>Du hast keine Seelenpunkte gewonnen (am ersten Tag gestorben).</source>
-        <target>No ha ganado ningún punto de alma (murió el primer día).</target>
+        <target>No has ganado ningún Punto de Alma (por haber muerto el primer día)..</target>
       </segment>
     </unit>
     <unit id="5kMswLn">
@@ -22907,7 +22906,6 @@
       <notes>
         <note category="german">Mit dem richtigen Schlüssel kannst du diese Tür öffnen.</note>
         <note category="from">twig:///templates/ajax/game/beyond/ruin.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Mit dem richtigen Schlüssel kannst du diese Tür öffnen.</source>
@@ -22932,7 +22930,7 @@
       </notes>
       <segment>
         <source>Du hast keine Seelenpunkte gewonnen.</source>
-        <target>No has ganado ningún Punto de Alma (por haber muerto el primer día).</target>
+        <target>No has ganado ningún Punto de Alma.</target>
       </segment>
     </unit>
     <unit id="DAZTSgM" name="Ein anderer Bürger hat sich in der Zwischenzeit diesen Gegenstand geschnappt.">
@@ -22959,7 +22957,6 @@
       <notes>
         <note category="german">Mysteriöser Fremder</note>
         <note category="from">php:///src/Service/LogTemplateHandler.php;twig:///templates/ajax/game/town/citizen.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Mysteriöser Fremder</source>
@@ -23121,6 +23118,47 @@
       <segment>
         <source>Du hast bereits etwas gegessen. Dir bleiben nur noch Drogen und Alkohol!</source>
         <target>Ya has comido. ¡Todo lo que te queda son las drogas y el alcohol!</target>
+      </segment>
+    </unit>
+    <unit id="LVLAweZ">
+      <notes>
+        <note category="german">Ein Moderator hat eine Beschränkung für deinen Account festgelegt, da du gegen eine oder mehrere unserer Verhaltensregeln verstoßen hast.&lt;br/&gt;Art der Beschränkung: &lt;b&gt;{type}&lt;/b&gt;&lt;br/&gt;Grund: &lt;i&gt;{reason}&lt;/i&gt;&lt;br /&gt;Dauer: &lt;i&gt;{duration}&lt;/i&gt;</note>
+        <note category="from">db://LogEntryTemplate</note>
+      </notes>
+      <segment>
+        <source>Ein Moderator hat eine Beschränkung für deinen Account festgelegt, da du gegen eine oder mehrere unserer Verhaltensregeln verstoßen hast.&lt;br/&gt;Art der Beschränkung: &lt;b&gt;{type}&lt;/b&gt;&lt;br/&gt;Grund: &lt;i&gt;{reason}&lt;/i&gt;&lt;br /&gt;Dauer: &lt;i&gt;{duration}&lt;/i&gt;</source>
+        <target><![CDATA[Un moderador ha restringido tu cuenta debido a que incumpliste por lo menos una de nuestras reglas de conducta.<br/>Restricción: <b>{type}</b><br/>Razón: <i>{reason}</i><br />Duración: <i>{duration}</i>]]></target>
+      </segment>
+    </unit>
+    <unit id="MZuvd1.">
+      <notes>
+        <note category="german">Ein Moderator hat die Dauer einer Beschränkung, die für deinen Account festgelegt war, geändert.&lt;br/&gt;Art der Beschränkung: &lt;b&gt;{type}&lt;/b&gt;&lt;br/&gt;Alte Dauer: &lt;i&gt;{old_duration}&lt;/i&gt;&lt;br /&gt;Neue Dauer: &lt;i&gt;{duration}&lt;/i&gt;</note>
+        <note category="from">db://LogEntryTemplate</note>
+      </notes>
+      <segment>
+        <source>Ein Moderator hat die Dauer einer Beschränkung, die für deinen Account festgelegt war, geändert.&lt;br/&gt;Art der Beschränkung: &lt;b&gt;{type}&lt;/b&gt;&lt;br/&gt;Alte Dauer: &lt;i&gt;{old_duration}&lt;/i&gt;&lt;br /&gt;Neue Dauer: &lt;i&gt;{duration}&lt;/i&gt;</source>
+        <target><![CDATA[Un moderador ha cambiado la duración de una restricción impuesta sobre tu cuenta.<br/>Restricción: <b>{type}</b><br/>Duración anterior: <i>{old_duration}</i><br />Duración actual: <i>{duration}</i>]]></target>
+      </segment>
+    </unit>
+    <unit id="RZ4FfGa">
+      <notes>
+        <note category="german">Ein Moderator hat eine Beschränkung für deinen Account aufgehoben.&lt;br/&gt;Art der Beschränkung: &lt;b&gt;{type}&lt;/b&gt;</note>
+        <note category="from">db://LogEntryTemplate</note>
+      </notes>
+      <segment>
+        <source>Ein Moderator hat eine Beschränkung für deinen Account aufgehoben.&lt;br/&gt;Art der Beschränkung: &lt;b&gt;{type}&lt;/b&gt;</source>
+        <target><![CDATA[Un moderador ha quitado una restricción impuesta sobre tu cuenta.<br/>Restricción: <b>{type}</b>]]></target>
+      </segment>
+    </unit>
+    <unit id="l_hkK1Y" name="{citizen} wollte das Gebiet säubern, aber ohne Erfolg.">
+      <notes>
+        <note category="german">{citizen} wollte das Gebiet säubern, aber ohne Erfolg.</note>
+        <note category="from">db://LogEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>{citizen} wollte das Gebiet säubern, aber ohne Erfolg.</source>
+        <target>{citizen} wollte das Gebiet säubern, aber ohne Erfolg.</target>
       </segment>
     </unit>
   </file>

@@ -38,7 +38,7 @@
       </notes>
       <segment>
         <source>Um deine Registrierung abzuschließen, benötigst du folgenden Validierungscode:</source>
-        <target>Para completar su registro, necesita el siguiente código de validación:</target>
+        <target>Para completar tu registro, necesitas el siguiente código de validación:</target>
       </segment>
     </unit>
     <unit id="AevPeyo">
@@ -50,7 +50,7 @@
       <segment>
         <source>Du erhälst diese Mail, da du (oder jemand anderes) deine E-Mail Adresse bei der Registrierung angegeben hat.
         Wenn du dich nicht bei MyHordes registriert hast, ignoriere diese Nachricht.</source>
-        <target>Recibió este correo electrónico porque usted (u otra persona) proporcionó su dirección de correo electrónico al registrarse. Si no se ha registrado en MyHordes, ignore este mensaje.</target>
+        <target>Recibiste este correo electrónico porque tú (u otra persona) ingresaste tu dirección de correo electrónico al registrarte. Si no te has registrado en MyHordes, ignora este mensaje.</target>
       </segment>
     </unit>
     <unit id="Y9f6YEq" name="Hallo {user}!">
@@ -70,7 +70,7 @@
       </notes>
       <segment>
         <source>Um dein Passwort zurückzusetzen, besuche bitte folgenden Link :</source>
-        <target>Para restablecer su contraseña, visite el siguiente enlace:</target>
+        <target>Para restablecer tu contraseña, visita el siguiente enlace:</target>
       </segment>
     </unit>
     <unit id="WdF_yfy">
@@ -84,7 +84,7 @@
         <source>Du erhälst diese Mail, da du (oder jemand anderes) deine E-Mail Adresse in die Passwort-Zurücksetzen-Funktion eingegeben hat.
         Wenn du dein Passwort nicht zurücksetzen willst, ignoriere diese E-Mail. Dein altes Passwort bleibt weiterhin gültig, wenn du es nicht
         durch das Anklicken des oben genannten Links änderst.</source>
-        <target>Recibió este correo electrónico porque usted (u otra persona) ingresó su dirección de correo electrónico en la función de restablecimiento de contraseña. Si no desea restablecer su contraseña, ignore este correo electrónico. Su contraseña anterior sigue siendo válida a menos que la cambie haciendo clic en el enlace de arriba.</target>
+        <target>Recibiste este correo electrónico porque tú (u otra persona) ingresaste tu dirección de correo electrónico en la función de restablecimiento de contraseña. Si no deseas restablecer tu contraseña, ignora este correo electrónico. Tu contraseña anterior sigue siendo válida a menos que la cambies haciendo clic en el enlace de arriba.</target>
       </segment>
     </unit>
     <unit id="8PZ98mx" name="E-Mail Validierung">
@@ -104,7 +104,7 @@
       </notes>
       <segment>
         <source>Jemand (hoffentlich du!) hat versucht, die mit deinem Account verknüpfte E-Mail Adresse zu ändern. Um die Änderung durchzuführen, verwende bitte folgenden Token in deinen Seelen-Einstellungen:</source>
-        <target>Alguien (¡con suerte usted!) Intentó cambiar la dirección de correo electrónico asociada a su cuenta. Para realizar el cambio, utilice el siguiente token en la configuración de su alma:</target>
+        <target>Alguien (¡ojalá hayas sido tú!) Intentó cambiar la dirección de correo electrónico asociada a tu cuenta. Para confirmar el cambio, utiliza el siguiente token en la configuración de tu alma:</target>
       </segment>
     </unit>
   </file>

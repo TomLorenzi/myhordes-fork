@@ -1530,7 +1530,7 @@
       </notes>
       <segment>
         <source>Schön hier im Warmen bleiben</source>
-        <target>Quedarse en Zombinoia</target>
+        <target>Quedarse en MyHordes</target>
       </segment>
     </unit>
     <unit id="VpbGnR1" name="Spamschutz: Du musst eine Weile warten, bis du wieder schreiben kannst.">
@@ -1820,7 +1820,7 @@
       </notes>
       <segment>
         <source>Diese Kosten können durch den Aufbau der &lt;strong&gt;Müll für Alle&lt;/strong&gt;.</source>
-        <target><![CDATA[Este costo puede reducirse con la construcción <strong>Vertedero libre</strong>.]]></target>
+        <target><![CDATA[Este costo puede reducirse con la construcción <strong>Vertedero gratuito</strong>.]]></target>
       </segment>
     </unit>
     <unit id="BC_uip5" name="Ausblenden">
@@ -4197,6 +4197,28 @@
       <segment>
         <source>Diskussion aktualisieren</source>
         <target>Actualizar la conversación</target>
+      </segment>
+    </unit>
+    <unit id="kmZd3k9" name="Support-Postfach">
+      <notes>
+        <note category="german">Support-Postfach</note>
+        <note category="from">twig:///templates/ajax/pm/view.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Support-Postfach</source>
+        <target>Contacto con el Soporte</target>
+      </segment>
+    </unit>
+    <unit id="l1ILLYu">
+      <notes>
+        <note category="german">Du hast diese Aktion bereits zu oft durchgeführt. Warte eine Weile und versuche es dann erneut.</note>
+        <note category="from">twig:///templates/scripts/errors/generic.txt.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Du hast diese Aktion bereits zu oft durchgeführt. Warte eine Weile und versuche es dann erneut.</source>
+        <target>Estás intentando volver a hacer esto demasiado pronto. Inténtalo de nuevo en unos minutos.</target>
       </segment>
     </unit>
   </file>

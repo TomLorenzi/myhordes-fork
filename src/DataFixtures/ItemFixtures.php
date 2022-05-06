@@ -155,6 +155,7 @@ class ItemFixtures extends Fixture
                 ->setDescription( $item_prototype_data['descriptions'][ $entry_unique_id ] ?? "" )
                 ->setHideInForeignChest( $entry['hideInForeignChest'] ?? false )
                 ->setDecoText($entry['deco_text'] ?? null)
+                ->setIndividual( $entry['unstackable'] ?? false )
                 ->getProperties()->clear();
 
             $entity

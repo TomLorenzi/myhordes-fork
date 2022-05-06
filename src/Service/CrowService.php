@@ -35,6 +35,7 @@ class CrowService {
     const ModerationActionTargetPost = 2;
     const ModerationActionTargetForumBan = 101;
     const ModerationActionTargetGameBan = 102;
+    const ModerationActionTargetAnyBan = 103;
     const ModerationActionTargetGameName = 201;
 
     const ModerationActionEdit = 1;
@@ -233,15 +234,35 @@ class CrowService {
             }
 
             case self::ModerationActionDomainAccount: {
-                if (!is_int($object) && $object !== null) return null;
-                switch ("{$target}.{$action}") {
-                    case self::ModerationActionTargetForumBan .'.'. self::ModerationActionImpose: $name = 'gpm_mod_forumBanOn'; break;
-                    case self::ModerationActionTargetGameBan .'.'.  self::ModerationActionImpose: $name = 'gpm_mod_gameBanOn'; break;
-                    case self::ModerationActionTargetForumBan .'.'. self::ModerationActionRevoke: $name = 'gpm_mod_forumBanOff'; break;
-                    case self::ModerationActionTargetGameBan .'.'.  self::ModerationActionRevoke: $name = 'gpm_mod_gameBanOff'; break;
+                switch ($target) {
+                    case self::ModerationActionTargetForumBan:
+                    case self::ModerationActionTargetGameBan:
+                        if (!is_int($object) && $object !== null) return null;
+                        switch ("{$target}.{$action}") {
+                            case self::ModerationActionTargetForumBan .'.'. self::ModerationActionImpose: $name = 'gpm_mod_forumBanOn'; break;
+                            case self::ModerationActionTargetGameBan .'.'.  self::ModerationActionImpose: $name = 'gpm_mod_gameBanOn'; break;
+                            case self::ModerationActionTargetForumBan .'.'. self::ModerationActionRevoke: $name = 'gpm_mod_forumBanOff'; break;
+                            case self::ModerationActionTargetGameBan .'.'.  self::ModerationActionRevoke: $name = 'gpm_mod_gameBanOff'; break;
+                            default: return null;
+                        }
+                        $data = [ 'reason' => $reason, 'duration' => $object ?? -1 ];
+                        break;
+
+                    case self::ModerationActionTargetAnyBan:
+                        if (!is_array($object)) return null;
+                        ['mask' => $mask, 'duration' => $duration, 'old_duration' => $old_duration] = $object;
+                        switch ($action) {
+                            case self::ModerationActionImpose: $name = 'gpm_mod_AnyBanOn'; break;
+                            case self::ModerationActionEdit:   $name = 'gpm_mod_AnyBanMod'; break;
+                            case self::ModerationActionRevoke: $name = 'gpm_mod_AnyBanOff'; break;
+                            default: return null;
+                        }
+                        $data = [ 'reason' => $reason, 'duration' => $duration ?? -1, 'old_duration' => $old_duration, 'type' => $mask ];
+                        break;
+
                     default: return null;
                 }
-                $data = [ 'reason' => $reason, 'duration' => $object ?? -1 ];
+
                 break;
             }
 

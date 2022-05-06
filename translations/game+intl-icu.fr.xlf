@@ -8360,7 +8360,16 @@
       </notes>
       <segment>
         <source>{num} Zombies haben vergeblich versucht, in das Haus von {citizen} einzudringen.</source>
-        <target>{num} zombies ont tenté sans succès d'entrer dans la maison de {citizen}.</target>
+        <target>
+          {ref__icu, select,
+            on {
+              {num, plural,
+                =1 {# zombie a tenté sans succès d'entrer dans la maison de {citizen}.}
+                other {# zombies ont tenté sans succès d'entrer dans la maison de {citizen}.}
+                }
+              }
+           other { {num} zombies ont tenté sans succès d'entrer dans la maison de {citizen}.} 
+          }</target>
       </segment>
     </unit>
     <unit id="O1hJcxB" name="{citizen} wurde von {num} Zombies zerfleischt!">
@@ -21699,7 +21708,7 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>Die Ratten haben das Schiff schon vor Tagen verlassen... Diese Stadt ist nur noch ein Schatten ihrer selbst.</source>
-        <target>De toute manière, tous les rats ont déjà abandonné le navire depuis des jours... Cette vile n'est plus que l'ombre d'elle-même.</target>
+        <target>De toute manière, tous les rats ont déjà abandonné le navire depuis des jours... Cette ville n'est plus que l'ombre d'elle-même.</target>
       </segment>
     </unit>
     <unit id="UOD7ZoJ">
@@ -23113,6 +23122,49 @@ cette violente opération...]]></target>
       <segment>
         <source>Neutraler Status</source>
         <target>Statut neutre</target>
+      </segment>
+    </unit>
+    <unit id="LVLAweZ">
+      <notes>
+        <note category="german">Ein Moderator hat eine Beschränkung für deinen Account festgelegt, da du gegen eine oder mehrere unserer Verhaltensregeln verstoßen hast.&lt;br/&gt;Art der Beschränkung: &lt;b&gt;{type}&lt;/b&gt;&lt;br/&gt;Grund: &lt;i&gt;{reason}&lt;/i&gt;&lt;br /&gt;Dauer: &lt;i&gt;{duration}&lt;/i&gt;</note>
+        <note category="from">db://LogEntryTemplate</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Ein Moderator hat eine Beschränkung für deinen Account festgelegt, da du gegen eine oder mehrere unserer Verhaltensregeln verstoßen hast.&lt;br/&gt;Art der Beschränkung: &lt;b&gt;{type}&lt;/b&gt;&lt;br/&gt;Grund: &lt;i&gt;{reason}&lt;/i&gt;&lt;br /&gt;Dauer: &lt;i&gt;{duration}&lt;/i&gt;</source>
+        <target><![CDATA[Un modérateur a appliqué une restriction à votre compte parce que vous avez enfreint une ou plusieurs de nos règles de conduite.<br/> Limitation : <b>{type}</b><br/>Raison : <i>{reason}</i><br />Durée : <i>{duration}</i>]]></target>
+      </segment>
+    </unit>
+    <unit id="MZuvd1.">
+      <notes>
+        <note category="german">Ein Moderator hat die Dauer einer Beschränkung, die für deinen Account festgelegt war, geändert.&lt;br/&gt;Art der Beschränkung: &lt;b&gt;{type}&lt;/b&gt;&lt;br/&gt;Alte Dauer: &lt;i&gt;{old_duration}&lt;/i&gt;&lt;br /&gt;Neue Dauer: &lt;i&gt;{duration}&lt;/i&gt;</note>
+        <note category="from">db://LogEntryTemplate</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Ein Moderator hat die Dauer einer Beschränkung, die für deinen Account festgelegt war, geändert.&lt;br/&gt;Art der Beschränkung: &lt;b&gt;{type}&lt;/b&gt;&lt;br/&gt;Alte Dauer: &lt;i&gt;{old_duration}&lt;/i&gt;&lt;br /&gt;Neue Dauer: &lt;i&gt;{duration}&lt;/i&gt;</source>
+        <target><![CDATA[Un modérateur a modifié la durée d’une restriction définie pour votre compte.<br/> Limitation : <b>{type}</b><br/>Ancienne durée : <i>{old_duration}</i><br />Nouvelle durée : <i>{duration}</i>]]></target>
+      </segment>
+    </unit>
+    <unit id="RZ4FfGa">
+      <notes>
+        <note category="german">Ein Moderator hat eine Beschränkung für deinen Account aufgehoben.&lt;br/&gt;Art der Beschränkung: &lt;b&gt;{type}&lt;/b&gt;</note>
+        <note category="from">db://LogEntryTemplate</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Ein Moderator hat eine Beschränkung für deinen Account aufgehoben.&lt;br/&gt;Art der Beschränkung: &lt;b&gt;{type}&lt;/b&gt;</source>
+        <target><![CDATA[Un modérateur a supprimé une restriction sur votre compte.<br/> Limitation : <b>{type}</b>]]></target>
+      </segment>
+    </unit>
+    <unit id="l_hkK1Y" name="{citizen} wollte das Gebiet säubern, aber ohne Erfolg.">
+      <notes>
+        <note category="german">{citizen} wollte das Gebiet säubern, aber ohne Erfolg.</note>
+        <note category="from">db://LogEntryTemplate</note>
+      </notes>
+      <segment>
+        <source>{citizen} wollte das Gebiet säubern, aber ohne Erfolg.</source>
+        <target>{citizen} a souhaité purifier la zone, mais sans succès.</target>
       </segment>
     </unit>
   </file>

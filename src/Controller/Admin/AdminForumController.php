@@ -8,7 +8,9 @@ use App\Entity\AdminReport;
 use App\Entity\ForumModerationSnippet;
 use App\Entity\ForumUsagePermissions;
 use App\Entity\GlobalPrivateMessage;
+use App\Entity\Post;
 use App\Entity\PrivateMessage;
+use App\Entity\ReportSeenMarker;
 use App\Entity\User;
 use App\Response\AjaxResponse;
 use App\Service\AdminActionHandler;
@@ -43,7 +45,7 @@ class AdminForumController extends AdminActionController
         if (!($pm = $this->entity_manager->getRepository(PrivateMessage::class)->find($pmid)))
             return new Response();
 
-        if ($pm->getAdminReports(true)->isEmpty())  return new Response();
+        if ($pm->getAdminReports(false)->isEmpty())  return new Response();
 
         $thread = $pm->getPrivateMessageThread();
         if (!$thread || !$thread->getSender() || !$thread->getSender()->getTown()->getForum()) return new Response();
@@ -77,7 +79,7 @@ class AdminForumController extends AdminActionController
         if (!($message = $this->entity_manager->getRepository(GlobalPrivateMessage::class)->find($pmid)))
             return new Response();
 
-        if ($message->getAdminReports(true)->isEmpty())  return new Response();
+        if ($message->getAdminReports(false)->isEmpty()) return new Response();
 
         $group = $message->getReceiverGroup();
         if (!$group || !$message->getSender()) return new Response();
@@ -111,6 +113,36 @@ class AdminForumController extends AdminActionController
             return AjaxResponse::success();
         }
         return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+    }
+
+    /**
+     * @Route("api/admin/forum/reports/seen", name="admin_reports_seen")
+     * @AdminLogProfile(enabled=true)
+     * @param JSONRequestParser $parser
+     * @param AdminActionHandler $admh
+     * @return Response
+     */
+    public function reports_seen(JSONRequestParser $parser, AdminActionHandler $admh): Response
+    {
+        if (!$parser->has_all(['postId'], true))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $user = $this->getUser();
+        $post = $this->entity_manager->getRepository(Post::class)->find($parser->get('postId'));
+        $reports = $post->getAdminReports();
+
+        try
+        {
+            foreach ($reports as $report) {
+                $existing_seen = $this->entity_manager->getRepository(ReportSeenMarker::class)->findOneBy(['user' => $user, 'report' => $report]);
+                if (!$existing_seen) $this->entity_manager->persist( (new ReportSeenMarker())->setUser($user)->setReport($report) );
+            }
+            $this->entity_manager->flush();
+        }
+        catch (\Throwable $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+        return AjaxResponse::success();
     }
 
     /**
@@ -176,6 +208,39 @@ class AdminForumController extends AdminActionController
     }
 
     /**
+     * @Route("api/admin/forum/reports/seen-pm", name="admin_reports_seen_pm")
+     * @AdminLogProfile(enabled=true)
+     * @param JSONRequestParser $parser
+     * @param PermissionHandler $perm
+     * @param CrowService $crow
+     * @return Response
+     */
+    public function reports_seen_pm(JSONRequestParser $parser, PermissionHandler $perm, CrowService $crow): Response
+    {
+        $user = $this->getUser();
+
+        $pmid = $parser->get('pmid', null);
+        if ($pmid === null) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        /** @var PrivateMessage $pm */
+        if (!($pm = $this->entity_manager->getRepository(PrivateMessage::class)->find($pmid)))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        foreach ($pm->getAdminReports() as $report) {
+            $existing_seen = $this->entity_manager->getRepository(ReportSeenMarker::class)->findOneBy(['user' => $user, 'report' => $report]);
+            if (!$existing_seen) $this->entity_manager->persist( (new ReportSeenMarker())->setUser($user)->setReport($report) );
+        }
+
+        try {
+            $this->entity_manager->flush();
+        } catch (\Exception $e) {
+            AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        return AjaxResponse::success();
+    }
+
+    /**
      * @Route("api/admin/forum/reports/moderate-gpm", name="admin_reports_mod_gpm")
      * @AdminLogProfile(enabled=true)
      * @param JSONRequestParser $parser
@@ -221,6 +286,40 @@ class AdminForumController extends AdminActionController
                 $pm, $message ?? ''
             );
             if ($notification) $this->entity_manager->persist($notification);
+        }
+
+        try {
+            $this->entity_manager->flush();
+        } catch (\Exception $e) {
+            AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/admin/forum/reports/seen-gpm", name="admin_reports_seen_gpm")
+     * @AdminLogProfile(enabled=true)
+     * @param JSONRequestParser $parser
+     * @param CrowService $crow
+     * @return Response
+     */
+    public function reports_seen_gpm(JSONRequestParser $parser, CrowService $crow): Response
+    {
+        $user = $this->getUser();
+
+        $pmid = $parser->get('pmid', null);
+        if ($pmid === null) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        /** @var GlobalPrivateMessage $pm */
+        if (!($pm = $this->entity_manager->getRepository(GlobalPrivateMessage::class)->find($pmid)))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        if (!$pm->getReceiverGroup()) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        foreach ($pm->getAdminReports() as $report) {
+            $existing_seen = $this->entity_manager->getRepository(ReportSeenMarker::class)->findOneBy(['user' => $user, 'report' => $report]);
+            if (!$existing_seen) $this->entity_manager->persist( (new ReportSeenMarker())->setUser($user)->setReport($report) );
         }
 
         try {
@@ -291,16 +390,18 @@ class AdminForumController extends AdminActionController
     /**
      * @Route("jx/admin/forum/{tab}/{opt}", name="admin_reports")
      * @param PermissionHandler $perm
+     * @param string $tab
      * @param string $opt
      * @return Response
      */
     public function reports(PermissionHandler $perm, string $tab = 'reports', string $opt = ''): Response
     {
-        $show_all = $opt === 'all';
+        $show_bin = $opt === 'bin';
+        $show_all = $show_bin || $opt === 'all';
 
         $allowed_forums = [];
 
-        $reports = $this->entity_manager->getRepository(AdminReport::class)->findBy(['seen' => false]);
+        $reports = $this->entity_manager->getRepository(AdminReport::class)->findBy(['seen' => $show_bin]);
 
         $forum_reports = array_filter($reports, function(AdminReport $r) use (&$allowed_forums, $perm) {
             if ($r->getPost() === null) return false;
@@ -311,8 +412,8 @@ class AdminForumController extends AdminActionController
 
         // Make sure to fetch only unseen reports for posts with at least 2 unseen reports
         $postsList = [
-            'post' => array_map(function($report) { return $report->getPost(); }, $forum_reports),
-            'reporter' => array_map(function($report) { return $report->getSourceUser(); }, $forum_reports)
+            'post' => array_map(fn(AdminReport $report) => $report->getPost(), $forum_reports),
+            'reporter' => array_map(fn(AdminReport $report) => $report->getSourceUser(), $forum_reports)
         ];
 
         $alreadyCountedIndexes = [];
@@ -323,7 +424,8 @@ class AdminForumController extends AdminActionController
             $keys = array_keys($postsList['post'], $post);
             $alreadyCountedIndexes = array_merge($alreadyCountedIndexes, $keys);
             $reportCount = count($keys);
-            if ($reportCount > ($show_all ? 0 : 1)) {
+            $seenCount = array_reduce($keys, fn(int $i, $key) => $i + ( $this->entity_manager->getRepository(ReportSeenMarker::class)->findOneBy(['user' => $this->getUser(), 'report' => $forum_reports[$key]]) ? 1 : 0 ), 0);
+            if ($show_all || ($reportCount > 1 && $reportCount > $seenCount)) {
                 $reporters = [];
                 foreach ($keys as $key){
                     $reporters[] = $postsList['reporter'][$key];
@@ -341,15 +443,18 @@ class AdminForumController extends AdminActionController
         });
 
         $pm_cache = [];
-        foreach ($pm_reports as $report)
+        foreach ($pm_reports as $report) {
+            $seen = $this->entity_manager->getRepository(ReportSeenMarker::class)->findOneBy(['user' => $this->getUser(), 'report' => $report]) !== null;
             if (!isset($pm_cache[$report->getPm()->getId()]))
                 $pm_cache[$report->getPm()->getId()] = [
-                    'post' => $report->getPm(), 'count' => 1, 'reporters' => [ $report->getSourceUser() ]
+                    'post' => $report->getPm(), 'count' => 1, 'seen' => $seen ? 1 : 0, 'reporters' => [ $report->getSourceUser() ]
                 ];
             else {
                 $pm_cache[$report->getPm()->getId()]['count']++;
+                $pm_cache[$report->getPm()->getId()]['seen'] += $seen ? 1 : 0;
                 $pm_cache[$report->getPm()->getId()]['reporters'][] = $report->getSourceUser();
             }
+        }
 
         /** @var AdminReport[] $pm_reports */
         $gpm_reports = array_filter($reports, function(AdminReport $r) {
@@ -358,15 +463,23 @@ class AdminForumController extends AdminActionController
         });
 
         $gpm_cache = [];
-        foreach ($gpm_reports as $report)
+        foreach ($gpm_reports as $report) {
+            $seen = $this->entity_manager->getRepository(ReportSeenMarker::class)->findOneBy(['user' => $this->getUser(), 'report' => $report]) !== null;
             if (!isset($gpm_cache[$report->getGpm()->getId()]))
                 $gpm_cache[$report->getGpm()->getId()] = [
-                    'post' => $report->getGpm(), 'count' => 1, 'reporters' => [ $report->getSourceUser() ]
+                    'post' => $report->getGpm(), 'count' => 1, 'seen' => $seen ? 1 : 0, 'reporters' => [ $report->getSourceUser() ]
                 ];
             else {
                 $gpm_cache[$report->getGpm()->getId()]['count']++;
+                $gpm_cache[$report->getGpm()->getId()]['seen'] += $seen ? 1 : 0;
                 $gpm_cache[$report->getGpm()->getId()]['reporters'][] = $report->getSourceUser();
             }
+        }
+
+        if (!$show_all) {
+            $pm_cache = array_filter( $pm_cache, fn($e) => $e['count'] > $e['seen'] );
+            $gpm_cache = array_filter( $gpm_cache, fn($e) => $e['count'] > $e['seen'] );
+        }
 
         return $this->render( 'ajax/admin/reports/reports.html.twig', $this->addDefaultTwigArgs(null, [
             'tab' => $tab,
@@ -374,7 +487,10 @@ class AdminForumController extends AdminActionController
             'posts' => $selectedReports,
             'pms'  => $pm_cache,
             'gpms' => $gpm_cache,
+
+            'opt' => $opt,
             'all_shown' => $show_all,
+            'bin_shown' => $show_bin,
 
             'snippets' => $this->entity_manager->getRepository(ForumModerationSnippet::class)->findAll()
         ]));

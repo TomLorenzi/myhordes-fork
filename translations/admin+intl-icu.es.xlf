@@ -1158,7 +1158,7 @@
     <unit id="bC01IWH" name="Löschen">
       <notes>
         <note category="german">Löschen</note>
-        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/users/account.html.twig;twig:///templates/ajax/admin/widget/controls.twig</note>
+        <note category="from">twig:///templates/ajax/admin/reports/reports.html.twig;twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/users/account.html.twig;twig:///templates/ajax/admin/widget/controls.twig</note>
       </notes>
       <segment>
         <source>Löschen</source>
@@ -2144,7 +2144,7 @@
       </notes>
       <segment>
         <source>Bürger nach Sprache</source>
-        <target>Habitantes por lenguaje</target>
+        <target>Habitantes por idioma</target>
       </segment>
     </unit>
     <unit id="gvDyCm1" name="Geöffnet">
@@ -4349,7 +4349,7 @@
       </notes>
       <segment>
         <source>Diese Auszeichnung wird nicht verdient, wenn der Bürger heute Nacht stirbt.</source>
-        <target>Esta distinción no se otorgará si el habitante muere esta noche.</target>
+        <target>Esta Distinción no se otorgará si el habitante muere esta noche.</target>
       </segment>
     </unit>
     <unit id="WJg1nZp" name="Diese Auszeichnung wurde verdient.">
@@ -4359,7 +4359,7 @@
       </notes>
       <segment>
         <source>Diese Auszeichnung wurde verdient.</source>
-        <target>Se ha otorgado la distinción.</target>
+        <target>Se ha otorgado la Distinción.</target>
       </segment>
     </unit>
     <unit id="I2eWURG" name="Freundesliste">
@@ -4529,7 +4529,7 @@
       </notes>
       <segment>
         <source>Stadtnamen regenerieren</source>
-        <target>Regenerar nombre del pueblo</target>
+        <target>Regenerar el nombre del pueblo</target>
       </segment>
     </unit>
     <unit id="cUEl3DK" name="Sprache wechseln">
@@ -4539,7 +4539,7 @@
       </notes>
       <segment>
         <source>Sprache wechseln</source>
-        <target>Cambiar lenguaje</target>
+        <target>Cambiar el Idioma</target>
       </segment>
     </unit>
     <unit id="jupu8vs" name="Fremder">
@@ -4616,7 +4616,6 @@
       <notes>
         <note category="german">Tödlich</note>
         <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Tödlich</source>
@@ -4627,7 +4626,6 @@
       <notes>
         <note category="german">Infektiös</note>
         <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Infektiös</source>
@@ -4638,7 +4636,6 @@
       <notes>
         <note category="german">AP zum Freilegen der Ruine:</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>AP zum Freilegen der Ruine:</source>
@@ -4649,7 +4646,6 @@
       <notes>
         <note category="german">Camping-Ausbaulevel:</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Camping-Ausbaulevel:</source>
@@ -4660,11 +4656,87 @@
       <notes>
         <note category="german">Basis:</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Basis:</source>
         <target>Base:</target>
+      </segment>
+    </unit>
+    <unit id=".EtG8c." name="MyHordes-Seele wiederherstellen">
+      <notes>
+        <note category="german">MyHordes-Seele wiederherstellen</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>MyHordes-Seele wiederherstellen</source>
+        <target>Reiniciar el alma de MyHordes</target>
+      </segment>
+    </unit>
+    <unit id="Qgq13W4" name="Seele zurückgesetzt">
+      <notes>
+        <note category="german">Seele zurückgesetzt</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Seele zurückgesetzt</source>
+        <target>Reinicio de alma</target>
+      </segment>
+    </unit>
+    <unit id="WCGHAE6" name="{num} Städte betroffen">
+      <notes>
+        <note category="german">{num} Städte betroffen</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>{num} Städte betroffen</source>
+        <target>{num} Pueblos afectados</target>
+      </segment>
+    </unit>
+    <unit id="D_SOjKp" name="Du siehst aktuell gelöschte Meldungen.">
+      <notes>
+        <note category="german">Du siehst aktuell gelöschte Meldungen.</note>
+        <note category="from">twig:///templates/ajax/admin/reports/reports.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Du siehst aktuell gelöschte Meldungen.</source>
+        <target>Estás viendo reportes eliminados.</target>
+      </segment>
+    </unit>
+    <unit id="KIO8WN8" name="Zurück zur Meldungsübersicht">
+      <notes>
+        <note category="german">Zurück zur Meldungsübersicht</note>
+        <note category="from">twig:///templates/ajax/admin/reports/reports.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Zurück zur Meldungsübersicht</source>
+        <target>Volver a la vista general</target>
+      </segment>
+    </unit>
+    <unit id="mP7gm7N" name="Möchtest du bereits gelöschte Meldungen durchsuchen?">
+      <notes>
+        <note category="german">Möchtest du bereits gelöschte Meldungen durchsuchen?</note>
+        <note category="from">twig:///templates/ajax/admin/reports/reports.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Möchtest du bereits gelöschte Meldungen durchsuchen?</source>
+        <target>¿Quieres buscar entre los reportes eliminados?</target>
+      </segment>
+    </unit>
+    <unit id="V5OxsLs" name="Zum Papierkorb">
+      <notes>
+        <note category="german">Zum Papierkorb</note>
+        <note category="from">twig:///templates/ajax/admin/reports/reports.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Zum Papierkorb</source>
+        <target>Abrir la papelera de reciclaje</target>
       </segment>
     </unit>
   </file>

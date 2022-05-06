@@ -173,12 +173,13 @@
                             <label for="rules">{{'Spezialregeln'|trans({}, 'ghost')}}</label>
                         </div>
                         <div class="cell padded rw-9 rw-md-6 rw-sm-12">
-                            <select id="rules" name="rules" multiple size="5" x-payload="rules">
+                            <select id="rules" name="rules" multiple size="6" x-payload="rules">
                                 <option value="none" title="{{'Keine Spezialregeln'|trans({}, 'ghost')}}" selected>{{'Keine'|trans({}, 'ghost')}}</option>
                                 <option value="nobuilding" title="{{'Kein Gebäude ist zu Beginn freigeschaltet. Alle müssen in der Aussenwelt gefunden werden!'|trans({}, 'ghost')}}">{{'Keine Startgebäude'|trans({}, 'ghost')}}</option>
                                 <option value="poison" title="{{'Jedes Essen und jede Droge, die du zu dir nimmst, birgt ein geringes Infektionsrisiko.'|trans({}, 'ghost')}}">{{'Kontaminierte Zone'|trans({}, 'ghost')}}</option>
                                 <option value="beta" title="{{'Jeder Spieler erhält 1x Betapropin beim Start der Stadt.'|trans({}, 'ghost')}}">{{'Beta-Funktionen aktivieren'|trans({}, 'ghost')}}</option>
                                 <option value="with-toxin" title="{{'Ermöglicht es, in begehbaren Ruinen den Gegenstand "Blutdurchtränkter Verband" zu finden, aus dem Toxin hergestellt werden kann.'|trans({}, 'ghost')}}">{{'Toxin aktivieren'|trans({}, 'ghost')}}</option>
+                                <option value="hungry-ghouls" title="{{'Ist diese Option aktiviert, haben frisch in Ghule verwandelte Bürger bereits Hunger.'|trans({}, 'ghost')}}">{{'Hungrige Ghule'|trans({}, 'ghost')}}</option>
                             </select>
                         </div>
                     </div>

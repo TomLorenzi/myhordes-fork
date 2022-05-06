@@ -119,6 +119,9 @@
                                                     <option value="{{ url('admin_users_account_manage', {action: 'twin_main_reset', id: user.id}) }}">{{ 'Hauptseele zurücksetzen'|trans({},'admin') }}</option>
                                                     <option value="{{ url('admin_users_account_manage', {action: 'twin_main_full_import', id: user.id}) }}">{{ 'Hauptseele ohne Einschränkungen importieren'|trans({},'admin') }}</option>
                                                 {% endif %}
+                                                {% if count_reset > 0 %}
+                                                    <option value="{{ url('admin_users_account_manage', {action: 'mh_unreset', id: user.id}) }}">{{ 'MyHordes-Seele wiederherstellen'|trans({},'admin') }}</option>
+                                                {% endif %}
                                             </optgroup>
                                         {% endif %}
                                         {% if user.eternalID is not null %}
@@ -217,6 +220,13 @@
                                     [{{ 'Nur für Administratoren sichtbar'|trans({}, 'admin') }}]
                                 {% endif %}
                             {% endif %}
+                        </div>
+                        <div class="cell padded rw-3 rw-sm-12 note note-lightest">
+                            {{ 'Seele zurückgesetzt'|trans({}, 'admin') }}
+                        </div>
+                        <div class="cell padded rw-9 rw-sm-12">
+                            {% if count_reset > 0 %}<b>{{ 'Ja'|trans({},'admin') }}</b> <span class="small">({{ '{num} Städte betroffen'|trans({num: count_reset}, 'admin') }})</span>
+                            {% else %}<b>{{ 'Nein'|trans({},'admin') }}</b>{%endif%}
                         </div>
                         <div class="cell padded rw-3 rw-sm-12 note note-lightest">
                             {{ 'Berechtigungsstufe'|trans({}, 'admin') }}

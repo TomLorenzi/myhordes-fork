@@ -385,7 +385,7 @@ class DebugCommand extends Command
             else $town_cutoff = null;
 
             $this->helper->leChunk($output, TwinoidImport::class, 50, [], true, true, function(TwinoidImport $import) use ($limited,$threshold,$town_threshold,$town_cutoff) {
-                $limit = $limited && ($import->getUser()->getSoulPoints() > $threshold || $this->entity_manager->getRepository(CitizenRankingProxy::class)->countNonAlphaTowns($import->getUser(), $town_cutoff) > $town_threshold);
+                $limit = $limited && ($import->getUser()->getSoulPoints() > $threshold || $this->entity_manager->getRepository(CitizenRankingProxy::class)->countNonAlphaTowns($import->getUser(), $town_cutoff, true) > $town_threshold);
                 $this->twin->importData($import->getUser(), $import->getScope(), $import->getData($this->entity_manager), $import->getMain(), $limit);
             }, true);
 

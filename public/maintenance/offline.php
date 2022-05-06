@@ -86,8 +86,8 @@
 
                 <h1>Modo de Mantenimiento</h1>
                 <p class="text es">
-                    <i>MyHordes</i> está actualmente en <b>modo de mantenimiento</b>. Esto suele ocurrir cuando se instala una actualización. Por favor, tenga paciencia por un momento, el funcionamiento normal seguramente continuará en breve.
-                    Recargue esta página o haga clic en el botón de la parte superior para intentarlo de nuevo.
+                    <i>MyHordes</i> está actualmente en <b>Modo de Mantenimiento</b>. Esto suele ocurrir cuando se instala una actualización. Por favor, ten paciencia por un momento, el funcionamiento normal seguramente continuará en breve.
+                    Recarga esta página o haz clic en el botón de la parte superior para intentarlo de nuevo.
                 </p>
             </div>
         </div>

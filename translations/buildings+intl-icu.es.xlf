@@ -1368,7 +1368,7 @@
       </notes>
       <segment>
         <source>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 3km um die Stadt aufhalten.</source>
-        <target>Cada mañana, detecta todos los zombies a 3 km del pueblo.</target>
+        <target>Cada mañana, revela todas las zonas a 3 km del pueblo.</target>
       </segment>
     </unit>
     <unit id="NZeNsxy">
@@ -1378,7 +1378,7 @@
       </notes>
       <segment>
         <source>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 6km um die Stadt aufhalten.</source>
-        <target>Cada mañana, detecta todos los zombies a 6 km del pueblo.</target>
+        <target>Cada mañana, revela todas las zonas a 6 km del pueblo.</target>
       </segment>
     </unit>
     <unit id="wGZu2sa">
@@ -1388,7 +1388,7 @@
       </notes>
       <segment>
         <source>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten.</source>
-        <target>Cada mañana, detecta todos los zombies a 10 km del pueblo.</target>
+        <target>Cada mañana, revela todas las zonas a 10 km del pueblo.</target>
       </segment>
     </unit>
     <unit id="h1r5RdI">
@@ -1398,7 +1398,7 @@
       </notes>
       <segment>
         <source>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten. Bürger im Umkreis von 1km um die Stadt können ohne AP-Verbrauch die Stadt betreten.</source>
-        <target>Detecta zombies a 10 km + permite ingresar gratuitamente a los habitantes a 1km del pueblo.</target>
+        <target>Revela las zonas a 10 km y además permite ingresar gratuitamente a los habitantes que se encuentren a 1km del pueblo.</target>
       </segment>
     </unit>
     <unit id="N0sOdNf">
@@ -1408,7 +1408,7 @@
       </notes>
       <segment>
         <source>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten. Bürger im Umkreis von 2km um die Stadt können ohne AP-Verbrauch die Stadt betreten.</source>
-        <target>Detecta zombies a 10 km + permite ingresar gratuitamente a los habitantes a 2km del pueblo.</target>
+        <target>Revela las zonas a 10 km y además permite ingresar gratuitamente a los habitantes que se encuentren a 2km del pueblo.</target>
       </segment>
     </unit>
     <unit id="2B9BF5F" name="Bohrturm">
@@ -1528,7 +1528,7 @@
       </notes>
       <segment>
         <source>Müll für Alle</source>
-        <target>Vertedero libre</target>
+        <target>Vertedero gratuito</target>
       </segment>
     </unit>
     <unit id="NNvtYXk" name="Waffenabfall">
@@ -2190,7 +2190,7 @@
       </notes>
       <segment>
         <source>Na ja, dieser Stachel"draht" ist noch simpler als der normale... Der Grund: Der Draht fehlt.</source>
-        <target>Esperamos que sirva, no sabemos cómo fue hecho, puesto que en el pueblo no había alambres.</target>
+        <target>Esperamos que sirva. No sabemos cómo fue hecho, puesto que en el pueblo no había alambres.</target>
       </segment>
     </unit>
     <unit id="b82mDa7">
@@ -2310,7 +2310,7 @@
       </notes>
       <segment>
         <source>Ein simpler Verteidigungsgegenstand, aber du wirst ihn zu schätzen wissen, wenn dein Ex-Nachbar Kevo versuchen sollte, an deinem Gehirn rumzuknabbern..</source>
-        <target>Puede parecer muy simple pero estarás contento de tener uno cuando, Carlos, tu antiguo vecino, venga para comerte los sesos.</target>
+        <target>Puede parecer muy simple pero estarás contento de tener uno cuando BOSSU, tu antiguo vecino, venga para comerte los sesos.</target>
       </segment>
     </unit>
     <unit id="Wv2Tkzm">
@@ -2580,7 +2580,7 @@
       </notes>
       <segment>
         <source>Ein selbstgebauer Raketenwerfer feuert in den Boden: Denk mal drüber nach! Der Legende nach wollte der geistige Vater dieses Bauprojekts eigentlich den "Rocket Jump" erfinden. Egal, +60 Rationen Wasser werden so zum Brunnen hinzugefügt.</source>
-        <target>La innovación: apunta hacia el suelo. Surgió como muchos inventos de un error. Alguien quiso salir del pueblo propulsado por un cohete, la máquina giró hacia abajo y terminó con la cabeza metida en un río subterráneo.'</target>
+        <target>La innovación: apunta hacia el suelo. Surgió como muchos inventos de un error. Alguien quiso salir del pueblo propulsado por un cohete, la máquina giró hacia abajo y terminó con la cabeza metida en un río subterráneo.</target>
       </segment>
     </unit>
     <unit id="Fec.c3L">
@@ -3340,7 +3340,7 @@
       </notes>
       <segment>
         <source>Wenn es eines gibt, woran hier wahrlich kein Mangel herrscht, dann ist es Sand. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.</source>
-        <target>Si algo podíamos hacer con tanta arena, lo hicimos.  Esta maravilla brilla por su gran inutilidad, pero su construcción otorga una distinción rarísima a todos los habitantes del pueblo.</target>
+        <target>Si algo podíamos hacer con tanta arena, lo hicimos.  Esta maravilla brilla por su gran inutilidad, pero su construcción otorga una Distinción rarísima a todos los habitantes del pueblo.</target>
       </segment>
     </unit>
     <unit id="D_tzr7L">
@@ -3390,7 +3390,7 @@
       </notes>
       <segment>
         <source>Nicht mehr als ein Akt der Verzweiflung! Alle Gegenstände in der Bank werden zerstört und bringen jeweils +1 vorübergehende Verteidigung.</source>
-        <target>Es el colmo de la desesperación. Todos los objetos del Almacén serán destruidos y darán +1 punto de defensa temporal a cada uno.</target>
+        <target>Es el colmo de la desesperación. Todos los objetos del Almacén serán destruidos y cada uno dará +1 punto de defensa temporal.</target>
       </segment>
     </unit>
     <unit id="G1W3bpP">
@@ -3400,7 +3400,7 @@
       </notes>
       <segment>
         <source>Ein wirklich riesiger KVF, auf dem die Namen aller Bürger der Stadt eingraviert sind, erhebt sich stolz in den Himmel... äh. Genau, ein KVF. Niemand weiß warum, aber jemand hat am Fuße des Bauwerks "Eigentum der tiefsinnigen Nacht" eingraviert. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.</source>
-        <target>Una inmensa construcción en la que están grabados todos los nombres de los habitantes del pueblo. Sus iniciales C.O.S.A son un misterio. Tampoco nadie puede explicar la frase que figura en su base: ''Antro de la Noche Profunda''. Esta maravilla brilla por su gran inutilidad, pero su construcción otorga una distinción rarísima a todos los habitantes del pueblo.</target>
+        <target>Una inmensa construcción en la que están grabados todos los nombres de los habitantes del pueblo. Sus iniciales C.O.S.A son un misterio. Tampoco nadie puede explicar la frase que figura en su base: ''Antro de la Noche Profunda''. Esta maravilla brilla por su gran inutilidad, pero su construcción otorga una Distinción rarísima a todos los habitantes del pueblo.</target>
       </segment>
     </unit>
     <unit id="qVqfrKN">
@@ -3410,7 +3410,7 @@
       </notes>
       <segment>
         <source>Es ist wirklich eine enorme und beeindruckente Konstruktion. Ihr habt eure kostbarsten Materialien an dieses verdammte Ding verschwendet, und denoch seid ihr irgendwie stolz darauf. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.</source>
-        <target>Es una bella y gran construcción. Ha consumido una buena parte de nuestros recursos pero estás orgulloso. Esta maravilla brilla por su gran inutilidad, pero su construcción otorga una distinción rarísima a todos los habitantes del pueblo.</target>
+        <target>Es una bella y gran construcción. Ha consumido una buena parte de nuestros recursos pero estás orgulloso. Esta maravilla brilla por su gran inutilidad, pero su construcción otorga una Distinción rarísima a todos los habitantes del pueblo.</target>
       </segment>
     </unit>
     <unit id="IakGX2Y">
@@ -3430,7 +3430,7 @@
       </notes>
       <segment>
         <source>Huldigt den Raben! Gelobt sei deine Milde und deine erhabene Austrahlung! Befreie uns vom Spam und vergib uns unsere Trollenbeiträge so wie auch wir vergeben anderen Trollen. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.</source>
-        <target>¡Gloria al Cuervo! Gloria a su benevolencia. Líbranos del spam y perdona a los trolls como nosotros perdonamos a quienes nos han trolleado. Esta maravilla brilla por su gran inutilidad, pero su construcción otorga una distinción rarísima a todos los habitantes del pueblo.</target>
+        <target>¡Gloria al Cuervo! Gloria a su benevolencia. Líbranos del spam y perdona a los trolls como nosotros perdonamos a quienes nos han trolleado. Esta maravilla brilla por su gran inutilidad, pero su construcción otorga una Distinción rarísima a todos los habitantes del pueblo.</target>
       </segment>
     </unit>
     <unit id="cYlMU3f">

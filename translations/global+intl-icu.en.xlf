@@ -4236,5 +4236,25 @@
         <target>Refresh the discussion</target>
       </segment>
     </unit>
+    <unit id="kmZd3k9" name="Support-Postfach">
+      <notes>
+        <note category="german">Support-Postfach</note>
+        <note category="from">twig:///templates/ajax/pm/view.html.twig</note>
+      </notes>
+      <segment>
+        <source>Support-Postfach</source>
+        <target>Support Inbox</target>
+      </segment>
+    </unit>
+    <unit id="l1ILLYu">
+      <notes>
+        <note category="german">Du hast diese Aktion bereits zu oft durchgeführt. Warte eine Weile und versuche es dann erneut.</note>
+        <note category="from">twig:///templates/scripts/errors/generic.txt.twig</note>
+      </notes>
+      <segment>
+        <source>Du hast diese Aktion bereits zu oft durchgeführt. Warte eine Weile und versuche es dann erneut.</source>
+        <target>You've performed this action too often. Wait for a bit and then try again.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
