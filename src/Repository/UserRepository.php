@@ -415,7 +415,7 @@ class UserRepository extends ServiceEntityRepository implements UserLoaderInterf
                 return $this->findOneByEternalID( $name );
             case 'tkn':
                 $token = $this->getEntityManager()->getRepository(RememberMeTokens::class)->findOneBy(['token' => $name]);
-                return $token ? $token->getUser() : null;
+                return $token?->getUser()?->isDisabled() ? null : $token?->getUser();
             default: return null;
         }
     }

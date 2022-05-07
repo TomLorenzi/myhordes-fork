@@ -1241,6 +1241,11 @@ class SoulController extends CustomAbstractController
 
         $name = $user->getUsername();
         $user->setDeleteAfter( new DateTime('+24hour') );
+        $user->setCheckInt($user->getCheckInt() + 1);
+
+        if ($rm_token = $this->entity_manager->getRepository(RememberMeTokens::class)->findOneBy(['user' => $user]))
+            $this->entity_manager->remove($rm_token);
+
         $this->entity_manager->flush();
 
         $this->addFlash( 'notice', $this->translator->trans('Auf wiedersehen, {name}. Wir werden dich vermissen und hoffen, dass du vielleicht doch noch einmal zurück kommst.', ['{name}' => $name], 'login') );

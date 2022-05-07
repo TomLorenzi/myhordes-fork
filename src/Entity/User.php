@@ -418,13 +418,17 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
         return $this;
     }
 
+    public function isDisabled(): bool {
+        return $this->pass === null && $this->getEternalID() === null;
+    }
+
     /**
      * @inheritDoc
      */
     public function getRoles(): array
     {
         $roles = [];
-        if ($this->pass === null && $this->getEternalID() === null) return $roles;
+        if ($this->isDisabled()) return $roles;
 
         if     ($this->rightsElevation >= self::USER_LEVEL_SUPER)  $roles[] = 'ROLE_SUPER';
         elseif ($this->rightsElevation >= self::USER_LEVEL_ADMIN)  $roles[] = 'ROLE_ADMIN';
