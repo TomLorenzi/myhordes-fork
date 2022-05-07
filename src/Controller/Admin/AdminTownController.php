@@ -1190,11 +1190,34 @@ class AdminTownController extends AdminActionController
             'camp_levl' => $zone->getImprovementLevel(),
             'ruin_camp' => $zone->getPrototype()?->getCampingLevel(),
             'zone_log' => $this->renderView("ajax/admin/towns/log.html.twig", [
+                'additional_log_params' => [ 'zone_id' => $zone_id ],
                 'log_content' => $this->renderLog($parser->has('day') ? $parser->get('day') : $town->getDay(), $town, $zone)->getContent(),
-                'log_source' => $this->urlGenerator->generate('get_zone_infos', ['id' => $id]),
+                'log_source' => $this->urlGenerator->generate('get_zone_info_log', ['id' => $id]),
                 'day' => $parser->has('day') ? $parser->get('day') : $town->getDay()
             ]),
         ]);
+    }
+
+    /**
+     * @Route("jx/admin/town/{id<\d+>}/get_zone_info_log", priority=1, name="get_zone_info_log")
+     * @AdminLogProfile(enabled=true)
+     * @Security("is_granted('ROLE_ADMIN')")
+     * Returns the floor of a given zone
+     * @param int $id Town ID
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function get_zone_info_log(int $id, JSONRequestParser  $parser): Response {
+        $town = $this->entity_manager->getRepository(Town::class)->find($id);
+        if (!$town) return new Response('');
+
+        $zone_id = $parser->get('zone_id', -1);
+        $zone = $this->entity_manager->getRepository(Zone::class)->find($zone_id);
+
+        if(!$zone || $zone->getTown() !== $town)
+            return new Response('');
+
+        return $this->renderLog($parser->has('day') ? $parser->get('day') : $town->getDay(), $town, $zone);
     }
 
     /**
