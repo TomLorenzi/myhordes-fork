@@ -4782,11 +4782,101 @@
       <notes>
         <note category="german">Kurztext bearbeiten ({name})</note>
         <note category="from">twig:///templates/ajax/admin/reports/reports.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Kurztext bearbeiten ({name})</source>
-        <target>Kurztext bearbeiten ({name})</target>
+        <target>Edit short text ({name})</target>
+      </segment>
+    </unit>
+    <unit id="YiIAWLn" name="Register herunterladen">
+      <notes>
+        <note category="german">Register herunterladen</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Register herunterladen</source>
+        <target>Download the register</target>
+      </segment>
+    </unit>
+    <unit id="gse1HoC" name="Stadtregister herunterladen">
+      <notes>
+        <note category="german">Stadtregister herunterladen</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Stadtregister herunterladen</source>
+        <target>Download town register</target>
+      </segment>
+    </unit>
+    <unit id="WCJkiWS" name="Stadt- und Zonenregister herunterladen (gruppiert nach Zonen)">
+      <notes>
+        <note category="german">Stadt- und Zonenregister herunterladen (gruppiert nach Zonen)</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Stadt- und Zonenregister herunterladen (gruppiert nach Zonen)</source>
+        <target>Download town and zone registers (grouped by zones)</target>
+      </segment>
+    </unit>
+    <unit id="9XMDN2u" name="Stadt- und Zonenregister herunterladen (gruppiert nach Bürgern)">
+      <notes>
+        <note category="german">Stadt- und Zonenregister herunterladen (gruppiert nach Bürgern)</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Stadt- und Zonenregister herunterladen (gruppiert nach Bürgern)</source>
+        <target>Download town and zone registers (grouped by citizens)</target>
+      </segment>
+    </unit>
+    <unit id="_iAXN_K" name="Stadt- und Zonenregister herunterladen (chronologisch)">
+      <notes>
+        <note category="german">Stadt- und Zonenregister herunterladen (chronologisch)</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Stadt- und Zonenregister herunterladen (chronologisch)</source>
+        <target>Download town and zone registers (chronologically)</target>
+      </segment>
+    </unit>
+    <unit id="NB6Gonl" name="Instanzeigenschaften">
+      <notes>
+        <note category="german">Instanzeigenschaften</note>
+        <note category="from">twig:///templates/ajax/game/item_tooltip.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Instanzeigenschaften</source>
+        <target>Instance properties</target>
+      </segment>
+    </unit>
+    <unit id="t6AH21h" name="Vergiftet">
+      <notes>
+        <note category="german">Vergiftet</note>
+        <note category="from">twig:///templates/ajax/game/item_tooltip.html.twig</note>
+      </notes>
+      <segment>
+        <source>Vergiftet</source>
+        <target>Poisoned</target>
+      </segment>
+    </unit>
+    <unit id="T3Ok4_w" name="Infiziert">
+      <notes>
+        <note category="german">Infiziert</note>
+        <note category="from">twig:///templates/ajax/game/item_tooltip.html.twig</note>
+      </notes>
+      <segment>
+        <source>Infiziert</source>
+        <target>Infected</target>
+      </segment>
+    </unit>
+    <unit id=".7_a1a_" name="Noch nicht aufgehoben">
+      <notes>
+        <note category="german">Noch nicht aufgehoben</note>
+        <note category="from">twig:///templates/ajax/game/item_tooltip.html.twig</note>
+      </notes>
+      <segment>
+        <source>Noch nicht aufgehoben</source>
+        <target>Not yet picked up</target>
       </segment>
     </unit>
   </file>

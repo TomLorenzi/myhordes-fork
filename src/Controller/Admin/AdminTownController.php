@@ -137,14 +137,13 @@ class AdminTownController extends AdminActionController
         $qb = $this->entity_manager->createQueryBuilder();
         $qb
             ->select('i.id', 'c.label as l1', 'cr.label as l2', 'SUM(i.count) as n')->from('App:Item','i')
-            ->where('i.inventory = :inv')->setParameter('inv', $inventory);
-        $qb->groupBy('i.prototype', 'i.broken');
-        $qb
+            ->where('i.inventory = :inv')->setParameter('inv', $inventory)
+            ->groupBy('i.prototype', 'i.broken', 'i.poison')
             ->leftJoin('App:ItemPrototype', 'p', Join::WITH, 'i.prototype = p.id')
             ->leftJoin('App:ItemCategory', 'c', Join::WITH, 'p.category = c.id')
             ->leftJoin('App:ItemCategory', 'cr', Join::WITH, 'c.parent = cr.id')
             ->addOrderBy('c.ordering','ASC')
-            ->addOrderBy('p.id', 'ASC')
+            ->addOrderBy('p.icon', 'DESC')
             ->addOrderBy('i.id', 'ASC');
 
         $data = $qb->getQuery()->getResult(AbstractQuery::HYDRATE_ARRAY);

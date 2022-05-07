@@ -372,7 +372,7 @@
                                 </div>
                             </div>
                         {% endif %}
-                        {% embed "ajax/game/inventory.html.twig" with {'size': 0, 'items': bank, 'bankmode': true} %}
+                        {% embed "ajax/game/inventory.html.twig" with {'size': 0, 'items': bank, 'bankmode': true, 'debug': is_granted("ROLE_ADMIN")} %}
                             {% block class %}bank{% endblock %}
                             {% block title %}{% endblock %}
                         {% endembed %}
@@ -647,6 +647,15 @@
 
                 {% embed "ajax/admin/towns/log.html.twig" with {'log_content': log, 'log_source': path('admin_newspaper_log_controller') } %}
                 {% endembed %}
+
+                <br/>
+                <h1 class="page-head">{{ 'Register herunterladen'|trans({},'admin') }}</h1>
+                <div class="row">
+                    <div class="padded cell rw-12"><a href="{{ path('admin_townlog', {id: town.id, type: 'register'}) }}"><i class="fa fa-file"></i> {{ 'Stadtregister herunterladen'|trans({},'admin') }}</a></div>
+                    <div class="padded cell rw-12"><a href="{{ path('admin_townlog', {id: town.id, type: 'zones'}) }}"><i class="fa fa-file"></i> {{ 'Stadt- und Zonenregister herunterladen (gruppiert nach Zonen)'|trans({},'admin') }}</a></div>
+                    <div class="padded cell rw-12"><a href="{{ path('admin_townlog', {id: town.id, type: 'citizens'}) }}"><i class="fa fa-file"></i> {{ 'Stadt- und Zonenregister herunterladen (gruppiert nach Bürgern)'|trans({},'admin') }}</a></div>
+                    <div class="padded cell rw-12"><a href="{{ path('admin_townlog', {id: town.id, type: 'all'}) }}"><i class="fa fa-file"></i> {{ 'Stadt- und Zonenregister herunterladen (chronologisch)'|trans({},'admin') }}</a></div>
+                </div>
             </div>
 
             <div x-tab-group="admin-town" x-tab-id="blackboard" x-tab-target>

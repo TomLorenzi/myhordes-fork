@@ -21,7 +21,7 @@
         {% endif %}
         {% for item in ( sort is defined and sort ? items|sort((a,b) => b.essential <=> a.essential ?: b.prototype.sort <=> a.prototype.sort ?: a.prototype.id <=> b.prototype.id ) : items) %}
             {% if (not item.hidden or show_banished_hidden) and (not foreignChestMode or not item.prototype.hideInForeignChest) %}
-                {% embed "ajax/game/item.html.twig" with {'item': item, 'escort': escort} %}{% endembed %}
+                {% embed "ajax/game/item.html.twig" with {'item': item, 'escort': escort, 'debug': debug is defined and debug} %}{% endembed %}
             {% endif %}
         {% endfor %}
         {% if items|length < size and showFreeSlots %}
@@ -40,7 +40,7 @@
         {% for category,list in items %}
             <li class="category">{{ category|trans({},'items') }}</li>
             {% for entry in list %}
-                {% embed "ajax/game/item.html.twig" with {'item': entry.item, 'count': entry.count} %}{% endembed %}
+                {% embed "ajax/game/item.html.twig" with {'item': entry.item, 'count': entry.count, 'debug': debug is defined and debug} %}{% endembed %}
             {% endfor %}
         {% endfor %}
 
