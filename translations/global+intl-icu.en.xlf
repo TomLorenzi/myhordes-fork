@@ -4266,5 +4266,15 @@
         <target>You are moderating this forum, but you do not have reading rights. You will only see threads where at least one post has been reported.</target>
       </segment>
     </unit>
+    <unit id="YPszuOR" name="Für diese Aktion hast du nicht genug MP.">
+      <notes>
+        <note category="german">Für diese Aktion hast du nicht genug MP.</note>
+        <note category="from">twig:///templates/scripts/errors/generic.txt.twig</note>
+      </notes>
+      <segment>
+        <source>Für diese Aktion hast du nicht genug MP.</source>
+        <target>You do not have sufficient MP for this action.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

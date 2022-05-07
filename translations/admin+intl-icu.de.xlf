@@ -4483,5 +4483,14 @@
         <target>Zum Papierkorb</target>
       </segment>
     </unit>
+    <unit id="RATqO5N" name="Kurztext bearbeiten ({name})">
+      <notes>
+        <note category="from">twig:///templates/ajax/admin/reports/reports.html.twig</note>
+      </notes>
+      <segment>
+        <source>Kurztext bearbeiten ({name})</source>
+        <target>Kurztext bearbeiten ({name})</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -1687,7 +1687,7 @@ class BeyondController extends InventoryAwareController
         
         // Forbidden if not shaman
         if($citizen->hasRole('shaman') && $citizen->getProfession()->getName() !== "shaman" && $citizen->getPM() < 3) {
-            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+            return AjaxResponse::error( ErrorHelper::ErrorNoMP );
         } else if ($citizen->getProfession()->getName() == "shaman") {
             if($citizen->getAp() < 1){
                 return AjaxResponse::error( ErrorHelper::ErrorNoAP );

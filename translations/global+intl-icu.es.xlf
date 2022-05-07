@@ -4232,5 +4232,15 @@
         <target>Du moderierst dieses Forum, verfügst aber nicht über Leserechte. Es werden dir nur Threads angezeigt, in denen mindestens ein Post gemeldet wurde.</target>
       </segment>
     </unit>
+    <unit id="YPszuOR" name="Für diese Aktion hast du nicht genug MP.">
+      <notes>
+        <note category="german">Für diese Aktion hast du nicht genug MP.</note>
+        <note category="from">twig:///templates/scripts/errors/generic.txt.twig</note>
+      </notes>
+      <segment>
+        <source>Für diese Aktion hast du nicht genug MP.</source>
+        <target>No tienes suficientes PM para esta acción.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

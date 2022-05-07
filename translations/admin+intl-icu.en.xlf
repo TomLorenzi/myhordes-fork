@@ -4778,5 +4778,16 @@
         <target>Open recycle bin</target>
       </segment>
     </unit>
+    <unit id="RATqO5N" name="Kurztext bearbeiten ({name})">
+      <notes>
+        <note category="german">Kurztext bearbeiten ({name})</note>
+        <note category="from">twig:///templates/ajax/admin/reports/reports.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Kurztext bearbeiten ({name})</source>
+        <target>Kurztext bearbeiten ({name})</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

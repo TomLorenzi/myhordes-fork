@@ -4241,5 +4241,15 @@
         <target>Vous modérez ce forum, mais n’avez pas de droits de lecture. Vous ne verrez que les sujets où au moins un message a été signalé.</target>
       </segment>
     </unit>
+    <unit id="YPszuOR" name="Für diese Aktion hast du nicht genug MP.">
+      <notes>
+        <note category="german">Für diese Aktion hast du nicht genug MP.</note>
+        <note category="from">twig:///templates/scripts/errors/generic.txt.twig</note>
+      </notes>
+      <segment>
+        <source>Für diese Aktion hast du nicht genug MP.</source>
+        <target>Vous n'avez pas assez de PM pour cette action.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
