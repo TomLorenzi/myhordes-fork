@@ -1,5 +1,8 @@
 (function() {
-    let log_boxes = document.querySelectorAll('.log-container');
+    {% if base_element is not defined %}
+    {% set base_element = 'document' %}
+    {% endif %}
+    let log_boxes = {{ base_element|raw }}.querySelectorAll('.log-container');
     for (let i = 0; i < log_boxes.length; i++) {
         let log = log_boxes[i].querySelector( '.log' );
 
