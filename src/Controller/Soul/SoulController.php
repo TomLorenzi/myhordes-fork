@@ -370,15 +370,33 @@ class SoulController extends CustomAbstractController
 
             $return[] =
                 [
-                    'exists' => $u !== null,
+                    'exists' => $u !== null ? 1 : 0,
                     'id' => $u?->getId() ?? $id,
                     'displayName' => $name_fixed ?? $u?->getName() ?? $name,
                     'queryName' => $name
                 ];
         };
 
-        foreach ( array_slice( $parser->get_array( 'names', [] ), 0, 100 ) as $name )
-           $add( $this->entity_manager->getRepository(User::class)->findOneByNameOrDisplayName( trim($name) ), $name, -1 );
+        $missing_name = $this->translator->trans( 'Specify using player search', [], 'soul' );
+
+        $addMultiple = function(int $count, string $name) use (&$return, $missing_name) {
+            if ($count > 1)
+                $return[] =
+                    [
+                        'exists' => $count,
+                        'id' => -1,
+                        'displayName' => $missing_name,
+                        'queryName' => $name
+                    ];
+        };
+
+        foreach ( array_slice( $parser->get_array( 'names', [] ), 0, 100 ) as $name ) {
+
+            if (($count = $this->entity_manager->getRepository(User::class)->countByNameOrDisplayName( trim($name) )) < 2)
+                $add( $this->entity_manager->getRepository(User::class)->findOneByNameOrDisplayName( trim($name) ), $name, -1 );
+            else $addMultiple( $count, $name );
+        }
+
 
         foreach ( array_slice( $parser->get_array( 'ids', [] ), 0, 100 ) as $id )
             $add( $this->entity_manager->getRepository(User::class)->find( (int)$id ), '', $id );

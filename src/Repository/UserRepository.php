@@ -90,6 +90,29 @@ class UserRepository extends ServiceEntityRepository implements UserLoaderInterf
 
     /**
      * @param string $value
+     * @param bool $filter_special_users
+     * @return int
+     */
+    public function countByNameOrDisplayName(string $value, bool $filter_special_users = true): int
+    {
+        try {
+            return $filter_special_users
+                ? $this->createQueryBuilder('u')
+                    ->select('COUNT(u.id)')
+                    ->andWhere('u.name = :val OR u.displayName = :val')->setParameter('val', $value)
+                    ->andWhere('u.email NOT LIKE :crow')->setParameter('crow', 'crow')
+                    ->andWhere('u.email NOT LIKE :anim')->setParameter('anim', 'anim')
+                    ->andWhere('u.email NOT LIKE :local')->setParameter('local', "%@localhost")
+                    ->andWhere('u.email != u.name')
+                    ->getQuery()->getSingleScalarResult()
+                : $this->createQueryBuilder('u')
+                    ->andWhere('u.name = :val OR u.displayName = :val')->setParameter('val', $value)
+                    ->getQuery()->getSingleScalarResult();
+        } catch (\Throwable $t) { return 0; }
+    }
+
+    /**
+     * @param string $value
      * @return User[] Returns an array of User objects
      */
     public function findByNameContains(string $value)
