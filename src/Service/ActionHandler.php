@@ -932,6 +932,10 @@ class ActionHandler
                             $target = [ $citizen->getInventory() ];
                             $force = true;
                             break;
+                        case AffectItemSpawn::DropTargetPreferRucksack:
+                            $target = [ $citizen->getInventory(), $floor_inventory ];
+                            $force = true;
+                            break;
                         case AffectItemSpawn::DropTargetDefault:
                         default:
                             $target = [$execute_info_cache['source_inv'] ?? null, $citizen->getInventory(), $floor_inventory, $citizen->getZone() ? null : $citizen->getTown()->getBank() ];
