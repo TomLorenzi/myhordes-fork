@@ -303,6 +303,11 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
      */
     private $classicBankSort = false;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $noAutomaticNameManagement = false;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -1232,6 +1237,18 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
     public function setClassicBankSort(bool $classicBankSort): self
     {
         $this->classicBankSort = $classicBankSort;
+
+        return $this;
+    }
+
+    public function getNoAutomaticNameManagement(): ?bool
+    {
+        return $this->noAutomaticNameManagement;
+    }
+
+    public function setNoAutomaticNameManagement(bool $noAutomaticNameManagement): self
+    {
+        $this->noAutomaticNameManagement = $noAutomaticNameManagement;
 
         return $this;
     }

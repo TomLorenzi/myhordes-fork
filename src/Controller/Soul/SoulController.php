@@ -552,7 +552,7 @@ class SoulController extends CustomAbstractController
         if ($name_change && $user->getLastNameChange() !== null && $user->getLastNameChange()->diff(new DateTime())->days < (30 * 4)) { // 6 months
             return  AjaxResponse::error(self::ErrorUserEditTooSoon);
         }
-        if ($name_change && $user->getEternalID() !== null)
+        if ($name_change && $user->getEternalID() !== null && !$user->getNoAutomaticNameManagement())
             return AjaxResponse::error(self::ErrorUserUseEternalTwin);
 
         if ($this->user_handler->isRestricted($user, AccountRestriction::RestrictionProfileDisplayName) && $name_change)
@@ -593,7 +593,7 @@ class SoulController extends CustomAbstractController
             }
         } elseif ($desc_obj) $this->entity_manager->remove($desc_obj);
 
-        if(!empty($displayName) && $displayName !== $user->getName() && $user->getEternalID() === null) {
+        if(!empty($displayName) && $displayName !== $user->getName() && ($user->getEternalID() === null || $user->getNoAutomaticNameManagement())) {
             $history = $user->getNameHistory() ?? [];
             if(!in_array($user->getName(), $history))
                 $history[] = $user->getName();

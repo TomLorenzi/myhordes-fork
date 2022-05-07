@@ -4842,7 +4842,6 @@
       <notes>
         <note category="german">Instanzeigenschaften</note>
         <note category="from">twig:///templates/ajax/game/item_tooltip.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Instanzeigenschaften</source>
@@ -4877,6 +4876,36 @@
       <segment>
         <source>Noch nicht aufgehoben</source>
         <target>Not yet picked up</target>
+      </segment>
+    </unit>
+    <unit id="P_.E9gw" name="Spielernamen nicht von EternalTwin übernehmen">
+      <notes>
+        <note category="german">Spielernamen nicht von EternalTwin übernehmen</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
+      </notes>
+      <segment>
+        <source>Spielernamen nicht von EternalTwin übernehmen</source>
+        <target>Don't take display name from EternalTwin</target>
+      </segment>
+    </unit>
+    <unit id="y64_fvj" name="Automatische Verwaltung des Spielernamens wiederherstellen">
+      <notes>
+        <note category="german">Automatische Verwaltung des Spielernamens wiederherstellen</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
+      </notes>
+      <segment>
+        <source>Automatische Verwaltung des Spielernamens wiederherstellen</source>
+        <target>Restore automatic display name management</target>
+      </segment>
+    </unit>
+    <unit id="_jfxrwz" name="Nicht von ET verwaltet.">
+      <notes>
+        <note category="german">Nicht von ET verwaltet.</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
+      </notes>
+      <segment>
+        <source>Nicht von ET verwaltet.</source>
+        <target>Not managed by ET.</target>
       </segment>
     </unit>
   </file>

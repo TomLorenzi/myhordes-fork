@@ -4573,5 +4573,32 @@
         <target>Noch nicht aufgehoben</target>
       </segment>
     </unit>
+    <unit id="P_.E9gw" name="Spielernamen nicht von EternalTwin übernehmen">
+      <notes>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
+      </notes>
+      <segment>
+        <source>Spielernamen nicht von EternalTwin übernehmen</source>
+        <target>Spielernamen nicht von EternalTwin übernehmen</target>
+      </segment>
+    </unit>
+    <unit id="y64_fvj" name="Automatische Verwaltung des Spielernamens wiederherstellen">
+      <notes>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
+      </notes>
+      <segment>
+        <source>Automatische Verwaltung des Spielernamens wiederherstellen</source>
+        <target>Automatische Verwaltung des Spielernamens wiederherstellen</target>
+      </segment>
+    </unit>
+    <unit id="_jfxrwz" name="Nicht von ET verwaltet.">
+      <notes>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
+      </notes>
+      <segment>
+        <source>Nicht von ET verwaltet.</source>
+        <target>Nicht von ET verwaltet.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

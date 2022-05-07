@@ -271,7 +271,7 @@ class AdminUserController extends AdminActionController
 
         if (in_array($action, [
             'delete_token', 'invalidate', 'validate', 'twin_full_reset', 'twin_main_reset', 'twin_main_full_import', 'delete', 'rename',
-            'shadow', 'whitelist', 'unwhitelist', 'etwin_reset', 'overwrite_pw', 'initiate_pw_reset',
+            'shadow', 'whitelist', 'unwhitelist', 'etwin_reset', 'overwrite_pw', 'initiate_pw_reset', 'name_manual', 'name_auto',
             'enforce_pw_reset', 'change_mail', 'ref_rename', 'ref_disable', 'ref_enable', 'set_sponsor', 'mh_unreset'
         ]) && !$this->isGranted('ROLE_ADMIN'))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
@@ -425,6 +425,7 @@ class AdminUserController extends AdminActionController
                 if (empty($param) || $user->getEternalID() === null)
                     return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
                 $user
+                    ->setNoAutomaticNameManagement(false)
                     ->setEternalID( null )
                     ->setEmail( $param );
                 $this->entity_manager->persist($user);
@@ -439,6 +440,18 @@ class AdminUserController extends AdminActionController
             case 'rename_pseudo':
                 if (empty($param)) $user->setDisplayName( null );
                 else $user->setDisplayName( $param );
+                $this->entity_manager->persist($user);
+                break;
+
+            case 'name_manual':
+                if (!$user->getEternalID())
+                    return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+                $user->setNoAutomaticNameManagement( true );
+                $this->entity_manager->persist($user);
+                break;
+
+            case 'name_auto':
+                $user->setNoAutomaticNameManagement( false );
                 $this->entity_manager->persist($user);
                 break;
 
