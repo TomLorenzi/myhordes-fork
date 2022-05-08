@@ -841,7 +841,7 @@ class GazetteService
 
             if ($parent) $parents[] = $parent;
             $citizenData['_parent'] = ($parent && $parent->getCitizen()) ? [$parent->getCitizen()] : [];
-            $citizenData['_siblings'] = $siblings;
+            $citizenData['_siblings'] = array_filter( array_map( fn(CouncilEntry $t) => $t->getCitizen(), $siblings ) );
 
             /** @var CouncilEntryTemplate $template */
             foreach ($templates as $template) {
