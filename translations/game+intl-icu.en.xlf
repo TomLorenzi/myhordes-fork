@@ -20407,7 +20407,7 @@
     <unit id="aZTP5kd" name="Behausung:">
       <notes>
         <note category="german">Behausung:</note>
-        <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Behausung:</source>
@@ -20417,7 +20417,7 @@
     <unit id="DPEWu9n" name="Bauarbeiten:">
       <notes>
         <note category="german">Bauarbeiten:</note>
-        <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Bauarbeiten:</source>
@@ -20427,7 +20427,7 @@
     <unit id="da5HmMo" name="Verteidigungsgegenstände:">
       <notes>
         <note category="german">Verteidigungsgegenstände:</note>
-        <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Verteidigungsgegenstände:</source>
@@ -20437,7 +20437,7 @@
     <unit id="82mfAu." name="Heldenbonus:">
       <notes>
         <note category="german">Heldenbonus:</note>
-        <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Heldenbonus:</source>
@@ -20448,7 +20448,7 @@
       <notes>
         <note category="german">Total:</note>
         <note category="state">new</note>
-        <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Total:</source>
@@ -20458,7 +20458,7 @@
     <unit id="wyKmZM_">
       <notes>
         <note category="german">Verteidigungsgegenstände (Blechplatten usw...) müssen in der Truhe abgelegt werden.</note>
-        <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Verteidigungsgegenstände (Blechplatten usw...) müssen in der Truhe abgelegt werden.</source>

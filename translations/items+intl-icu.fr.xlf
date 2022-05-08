@@ -114,7 +114,7 @@
     <unit id="6MESOb8" name="Trotz intensiver Suche hast du nichts verwertbares gefunden...">
       <notes>
         <note category="german">Trotz intensiver Suche hast du nichts verwertbares gefunden...</note>
-        <note category="from">php:///src/Service/ActionHandler.php</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Trotz intensiver Suche hast du nichts verwertbares gefunden...</source>
@@ -3856,7 +3856,7 @@
     <unit id="AfDbNyS" name="Hierfür bist du zu weit von der Stadt entfernt ...">
       <notes>
         <note category="german">Hierfür bist du zu weit von der Stadt entfernt ...</note>
-        <note category="from">db://Requirement</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Hierfür bist du zu weit von der Stadt entfernt ...</source>

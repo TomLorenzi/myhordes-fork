@@ -44,7 +44,7 @@
     <unit id="Vlb5Lbe" name="Aktionen">
       <notes>
         <note category="german">Aktionen</note>
-        <note category="from">twig:///templates/ajax/game/town/citizen_vote.html.twig;twig:///templates/ajax/ghost/intro.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen_vote.html.twig</note>
       </notes>
       <segment>
         <source>Aktionen</source>
@@ -64,7 +64,7 @@
     <unit id="gqk_gdE" name="Beitreten">
       <notes>
         <note category="german">Beitreten</note>
-        <note category="from">twig:///templates/ajax/ghost/intro.html.twig</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Beitreten</source>

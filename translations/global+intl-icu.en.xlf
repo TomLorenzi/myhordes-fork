@@ -685,7 +685,7 @@
     <unit id="Bw5vcAl" name="Loslösen">
       <notes>
         <note category="german">Loslösen</note>
-        <note category="from">twig:///templates/ajax/forum/posts.html.twig</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
       </notes>
       <segment>
         <source>Loslösen</source>
@@ -695,7 +695,7 @@
     <unit id="_zZCBE9" name="Anpinnen">
       <notes>
         <note category="german">Anpinnen</note>
-        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/pm/bubbles.html.twig</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/pm/bubbles.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
       </notes>
       <segment>
         <source>Anpinnen</source>
