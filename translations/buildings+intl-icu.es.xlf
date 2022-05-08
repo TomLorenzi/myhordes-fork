@@ -3560,7 +3560,7 @@
       </notes>
       <segment>
         <source>Die Verteidigung der Stadt wird um 12% erhöht.</source>
-        <target>La organización de la defensa total del pueblo aumenta a 12%</target>
+        <target>Las defensas del pueblo aumentan en 12% (+2%)</target>
       </segment>
     </unit>
     <unit id="ZSyuopW" name="Die Verteidigung der Stadt wird um 14% erhöht.">
@@ -3570,7 +3570,7 @@
       </notes>
       <segment>
         <source>Die Verteidigung der Stadt wird um 14% erhöht.</source>
-        <target>La organización de la defensa total del pueblo aumenta a 14%</target>
+        <target>Las defensas del pueblo aumentan en 14% (+2%)</target>
       </segment>
     </unit>
     <unit id="K_1scXO" name="Zaun (Baustellen)">
@@ -3710,7 +3710,7 @@
       </notes>
       <segment>
         <source>Die Verteidigung der Stadt wird um 10% erhöht.</source>
-        <target>La defensa total del pueblo aumenta a 10%.</target>
+        <target>Las defensas del pueblo aumentan en 10%.</target>
       </segment>
     </unit>
     <unit id="ds6jhOT" name="Der Verteidigungswert der Stadt steigt mit dem Großen Graben auf 10 Punkte.">
