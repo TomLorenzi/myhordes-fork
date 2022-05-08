@@ -9025,7 +9025,7 @@
       </notes>
       <segment>
         <source>Beschädigte Verteidigung: {defense} / {max}</source>
-        <target>Defensas dañadas: {defense} / {max}</target>
+        <target>Defensas restantes: {defense} / {max}</target>
       </segment>
     </unit>
     <unit id="1EzQJxv" name="Zustand:">
