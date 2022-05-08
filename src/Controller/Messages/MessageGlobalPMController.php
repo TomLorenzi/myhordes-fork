@@ -229,6 +229,7 @@ class MessageGlobalPMController extends MessageController
             $entries[] = [
                 'obj'    => $association,
                 'date'   => $last_post_date,
+                'pinned' => $association->getPriority(),
                 'system' => false,
                 'archive' => $association->getBref(),
                 'official' => $official_meta ? $official_meta->getOfficialGroup() : null,
@@ -257,6 +258,7 @@ class MessageGlobalPMController extends MessageController
             $entries[] = [
                 'obj'    => $announcement,
                 'date'   => $announcement->getTimestamp(),
+                'pinned' => 0,
                 'system' => false,
                 'archive' => false,
                 'official' => null,
@@ -306,6 +308,7 @@ class MessageGlobalPMController extends MessageController
             $entries[] = [
                 'obj'    => $subscription->getThread(),
                 'date'   => new DateTime(),
+                'pinned' => 0,
                 'system' => false,
                 'archive' => false,
                 'official' => null,
@@ -329,18 +332,20 @@ class MessageGlobalPMController extends MessageController
         if ($entries === null) $entries = [];
 
         $latest_pm = empty($pms) ? null : $pms[0];
+        $unread = $this->entity_manager->getRepository(GlobalPrivateMessage::class)->countUnreadDirectPMsByUser($this->getUser());
 
         if ($latest_pm) {
             $crow = $this->entity_manager->getRepository(User::class)->find(66);
             $entries[] = [
                 'obj'    => $latest_pm,
                 'date'   => $latest_pm->getTimestamp(),
+                'pinned' => $unread > 0 ? 200 : 0,
                 'system' => true,
                 'official' => null,
                 'title'  => $this->translator->trans('Nachrichten des Raben', [], 'global'),
                 'closed' => false,
                 'count'  => $this->entity_manager->getRepository(GlobalPrivateMessage::class)->count(['receiverUser' => $this->getUser(), 'receiverGroup' => null]),
-                'unread' => $this->entity_manager->getRepository(GlobalPrivateMessage::class)->countUnreadDirectPMsByUser($this->getUser()),
+                'unread' => $unread,
                 'owner'  => $crow,
                 'users'  => [$this->getUser(),$crow]
             ];
@@ -386,7 +391,7 @@ class MessageGlobalPMController extends MessageController
         if ($set === 'forum')
             $this->render_forumNotifications($entries, $skip['f'] ?? [], $query );
 
-        usort($entries, fn($a,$b) => $b['date'] <=> $a['date']);
+        usort($entries, fn($a,$b) => $b['pinned'] <=> $a['pinned'] ?: $b['date'] <=> $a['date']);
 
         return $this->render( 'ajax/pm/list.html.twig', $this->addDefaultTwigArgs(null, [
             'more' => count($entries) > $num,
@@ -890,6 +895,35 @@ class MessageGlobalPMController extends MessageController
         if (!$group_association) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         $this->entity_manager->persist( $group_association->setBref($arch !== 0) );
+
+        try {
+            $em->flush();
+        } catch (\Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/pm/conversation/group/pin/{id<\d+>}/{pin<\d>}", name="pm_pin_conv_group")
+     * @param int $id
+     * @param int $pin
+     * @param EntityManagerInterface $em
+     * @return Response
+     */
+    public function pm_pin_conversation_group(int $id, int $pin, EntityManagerInterface $em): Response {
+
+        $group = $em->getRepository( UserGroup::class )->find($id);
+        if (!$group || $group->getType() !== UserGroup::GroupMessageGroup) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        /** @var UserGroupAssociation $group_association */
+        $group_association = $em->getRepository(UserGroupAssociation::class)->findOneBy(['user' => $this->getUser(), 'associationType' => [
+            UserGroupAssociation::GroupAssociationTypePrivateMessageMember, UserGroupAssociation::GroupAssociationTypePrivateMessageMemberInactive, UserGroupAssociation::GroupAssociationTypeOfficialGroupMessageMember
+        ], 'association' => $group]);
+        if (!$group_association) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        $this->entity_manager->persist( $group_association->setPriority($pin !== 0 ? 100 : 0) );
 
         try {
             $em->flush();

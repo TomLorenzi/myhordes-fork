@@ -9,6 +9,8 @@
     {% set endpoint_block   = null %}
     {% set endpoint_block_n = null %}
     {% set endpoint_archive = null %}
+    {% set endpoint_pin     = null %}
+    {% set endpoint_unpin   = null %}
     {% set endpoint_restore = null %}
     {% set message_title_pre= null %}
     {% set message_title    = entry.title %}
@@ -34,6 +36,11 @@
             {% set endpoint_restore = path('pm_archive_conv_group', {'id': entry.obj.association.id, 'arch': 0}) %}
         {% else %}
             {% set endpoint_archive = path('pm_archive_conv_group', {'id': entry.obj.association.id, 'arch': 1}) %}
+        {% endif %}
+        {% if entry.obj.priority > 0 %}
+            {% set endpoint_unpin = path('pm_pin_conv_group', {'id': entry.obj.association.id, 'pin': 0}) %}
+        {% else %}
+            {% set endpoint_pin = path('pm_pin_conv_group', {'id': entry.obj.association.id, 'pin': 1}) %}
         {% endif %}
         {% set message_id      = entry.obj.id %}
         {% set message_type    = 'g' %}
@@ -74,6 +81,8 @@
             {% if endpoint_unread is not null %}x-unread="{{ endpoint_unread }}"{% endif %}
             {% if endpoint_archive is not null %}x-archive="{{ endpoint_archive }}"{% endif %}
             {% if endpoint_restore is not null %}x-restore="{{ endpoint_restore }}"{% endif %}
+            {% if endpoint_pin is not null %}x-pin="{{ endpoint_pin }}"{% endif %}
+            {% if endpoint_unpin is not null %}x-unpin="{{ endpoint_unpin }}"{% endif %}
             {% if endpoint_users  is not null %}x-userlist="{{ endpoint_users }}"{% endif %}
             {% if endpoint_block  is not null %}x-block="{{ endpoint_block }}"{% endif %}
             {% if endpoint_block_n is not null %}x-block-name="{{ endpoint_block_n }}"{% endif %}
@@ -112,6 +121,7 @@
         {% endif %}
 
         <b class="title {% if entry.system %}crow-note{% endif %}">{% if message_title_pre %}{{ message_title_pre }}<br />{% endif %}{{ entry.title }}</b>
+        {% if entry.pinned > 0 %}<i class="fa fa-thumbtack"></i>{% endif %}
         {% if message_type == 'f' %}
             {% for message_partner in entry.users|filter(u => u != entry.owner) %}
                 {% if loop.index0 < 5 %}

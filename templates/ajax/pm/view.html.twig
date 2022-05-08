@@ -94,6 +94,19 @@
                                     </div>
                                 {% endif %}
                                 <div class="cell">
+                                    <div x-pm-action="pin-single" class="pm-button" id="pin-single-button">
+                                        <i class="fa fa-thumbtack"></i> {{ 'Anpinnen'|trans({},'global') }}
+                                    </div>
+                                </div>
+                                <div class="cell">
+                                    <div x-pm-action="unpin-single" class="pm-button" id="unpin-single-button">
+                                        <span style="display: inline-block; transform: rotate(45deg); padding-right: 4px">
+                                            <i class="fa fa-thumbtack"></i>
+                                        </span>
+                                        {{ 'Loslösen'|trans({},'global') }}
+                                    </div>
+                                </div>
+                                <div class="cell">
                                     <div x-pm-action="archive-single" class="pm-button" id="archive-single-button">
                                         <i class="fa fa-archive"></i> {{ 'Archivieren'|trans({},'global') }}
                                     </div>
@@ -355,6 +368,8 @@
                         ['x-unread'  , 'unread-single'],
                         ['x-userlist', 'show-single'],
                         ['x-block'   , 'block-sender'],
+                        ['x-pin'     , 'pin-single'],
+                        ['x-unpin'   , 'unpin-single'],
                         ['x-archive' , 'archive-single'],
                         ['x-restore' , 'restore-single'],
                         ['x-archive' , 'refresh-single'],
@@ -785,6 +800,36 @@
                 if (!selected_thread) return;
 
                 $.ajax.easySend(selected_thread.getAttribute('x-restore'), {}, function() {
+                    $.ajax.load( document.getElementById('post-office-content'), '{{ path('pm_view')|e('js') }}' );
+                });
+            });
+
+            $.html.addEventListenerAll('[x-pm-action="pin-single"]', 'click', function () {
+
+                const selected_thread = document.querySelector('ul.pm-conversation-list>li[x-unread].selected');
+                if (!selected_thread) return;
+
+                $.ajax.easySend(selected_thread.getAttribute('x-pin'), {}, function() {
+                    $.ajax.load( document.getElementById('post-office-content'), '{{ path('pm_view')|e('js') }}' );
+                });
+            });
+
+            $.html.addEventListenerAll('[x-pm-action="unpin-single"]', 'click', function () {
+
+                const selected_thread = document.querySelector('ul.pm-conversation-list>li[x-unread].selected');
+                if (!selected_thread) return;
+
+                $.ajax.easySend(selected_thread.getAttribute('x-unpin'), {}, function() {
+                    $.ajax.load( document.getElementById('post-office-content'), '{{ path('pm_view')|e('js') }}' );
+                });
+            });
+
+            $.html.addEventListenerAll('[x-pm-action="pin-single"]', 'click', function () {
+
+                const selected_thread = document.querySelector('ul.pm-conversation-list>li[x-unread].selected');
+                if (!selected_thread) return;
+
+                $.ajax.easySend(selected_thread.getAttribute('x-pin'), {}, function() {
                     $.ajax.load( document.getElementById('post-office-content'), '{{ path('pm_view')|e('js') }}' );
                 });
             });

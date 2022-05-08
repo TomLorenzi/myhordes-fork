@@ -50,7 +50,8 @@ class UserGroupAssociationRepository extends ServiceEntityRepository
         $qb = $this->createQueryBuilder('u')->select('u')->leftJoin('u.association', 'g')
             ->andWhere('u.user = :user')->setParameter('user', $user)
             ->andWhere('u.bref = :arch')->setParameter('arch', $archive)
-            ->orderBy('g.ref2', 'DESC')->addOrderBy('u.id', 'DESC');
+            ->orderBy('u.priority', 'DESC')
+            ->addOrderBy('g.ref2', 'DESC')->addOrderBy('u.id', 'DESC');
 
         if ($filter !== null)
             $qb->andWhere('g.name LIKE :filter')->setParameter('filter', "%{$filter}%");
