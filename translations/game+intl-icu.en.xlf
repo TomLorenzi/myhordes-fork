@@ -19909,12 +19909,12 @@
     <unit id="G2mvpQw" name="Wir denken, der morgige Angriff wird ungefähr folgendermaßen aussehen:">
       <notes>
         <note category="german">Wir denken, der morgige Angriff wird ungefähr folgendermaßen aussehen:</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/game/town/watchtower.html.twig</note>
       </notes>
       <segment>
         <source>Wir denken, der morgige Angriff wird ungefähr folgendermaßen aussehen:</source>
-        <target>Wir denken, der morgige Angriff wird ungefähr folgendermaßen aussehen:</target>
+        <target>We reckon that tomorrow's attack will involve somewhere between :</target>
       </segment>
     </unit>
     <unit id="BIzSHqq" name="Erforschung einer beengten Ruine in erstickender Atmosphäre">
@@ -19971,12 +19971,12 @@
     <unit id="i7ayglv">
       <notes>
         <note category="german">Die Schätzung des heutigen Tages muss zuerst abgeschlossen werden, um die Schätzung des nächsten Tages zu berechnen.</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/game/town/watchtower.html.twig</note>
       </notes>
       <segment>
         <source>Die Schätzung des heutigen Tages muss zuerst abgeschlossen werden, um die Schätzung des nächsten Tages zu berechnen.</source>
-        <target>Die Schätzung des heutigen Tages muss zuerst abgeschlossen werden, um die Schätzung des nächsten Tages zu berechnen.</target>
+        <target>The estimation of today's attack must be calculated before working out tomorrow's.</target>
       </segment>
     </unit>
     <unit id="we4FuM3">
@@ -23231,6 +23231,17 @@
       <segment>
         <source>Ein Moderator hat eine Beschränkung für deinen Account aufgehoben.&lt;br/&gt;Art der Beschränkung: &lt;b&gt;{type}&lt;/b&gt;</source>
         <target><![CDATA[A moderator has removed a restriction from your account.<br/>Limitation: <b>{type}</b>]]></target>
+      </segment>
+    </unit>
+    <unit id="l_hkK1Y" name="{citizen} wollte das Gebiet säubern, aber ohne Erfolg.">
+      <notes>
+        <note category="german">{citizen} wollte das Gebiet säubern, aber ohne Erfolg.</note>
+        <note category="from">db://LogEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>{citizen} wollte das Gebiet säubern, aber ohne Erfolg.</source>
+        <target>{citizen} wollte das Gebiet säubern, aber ohne Erfolg.</target>
       </segment>
     </unit>
   </file>

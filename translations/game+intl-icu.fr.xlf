@@ -8363,9 +8363,9 @@
         <target>
           {ref__icu, select,
             on {
-              {num, plural,
-                =1 {# zombie a tenté sans succès d'entrer dans la maison de {citizen}.}
-                other {# zombies ont tenté sans succès d'entrer dans la maison de {citizen}.}
+              {raw_num, plural,
+                =1 {{num} zombie a tenté sans succès d'entrer dans la maison de {citizen}.}
+                other {{num} zombies ont tenté sans succès d'entrer dans la maison de {citizen}.}
                 }
               }
            other { {num} zombies ont tenté sans succès d'entrer dans la maison de {citizen}.} 
@@ -23155,6 +23155,16 @@ cette violente opération...]]></target>
       <segment>
         <source>Ein Moderator hat eine Beschränkung für deinen Account aufgehoben.&lt;br/&gt;Art der Beschränkung: &lt;b&gt;{type}&lt;/b&gt;</source>
         <target><![CDATA[Un modérateur a supprimé une restriction sur votre compte.<br/> Limitation : <b>{type}</b>]]></target>
+      </segment>
+    </unit>
+    <unit id="l_hkK1Y" name="{citizen} wollte das Gebiet säubern, aber ohne Erfolg.">
+      <notes>
+        <note category="german">{citizen} wollte das Gebiet säubern, aber ohne Erfolg.</note>
+        <note category="from">db://LogEntryTemplate</note>
+      </notes>
+      <segment>
+        <source>{citizen} wollte das Gebiet säubern, aber ohne Erfolg.</source>
+        <target>{citizen} a souhaité purifier la zone, mais sans succès.</target>
       </segment>
     </unit>
   </file>

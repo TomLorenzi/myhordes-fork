@@ -131,9 +131,9 @@
                             <div x-ajax-href="{{ url('forum_list') }}" class="forum-button"><img alt="" src="{{ asset('build/images/forum/back.png') }}" /><div class="tooltip forum-tooltip">{{ 'Zurück'|trans({},'global') }}</div></div>
                             {% if select > 0 %}
                                 <div x-ajax-href="{{ url('forum_thread_view', {fid: forum.id, tid: select, page: post_page}) }}" class="forum-button forum-reload-button"><img alt="" src="{{ asset('build/images/forum/refresh.png') }}" /><div class="tooltip forum-tooltip">{{ 'Liste der Themen aktualisieren'|trans({},'global') }}{{ select }}</div></div>
-                            {% else%}
+                            {% else %}
                                 <div x-ajax-href="{{ url('forum_view', {id: forum.id}) }}" class="forum-button forum-reload-button"><img alt="" src="{{ asset('build/images/forum/refresh.png') }}" /><div class="tooltip forum-tooltip">{{ 'Liste der Themen aktualisieren'|trans({},'global') }}</div></div>
-                            {%endif%}
+                            {% endif %}
 
                             {% if not permission.only_mod_access %}
                                 <div x-forum-action="search" class="forum-button"><img alt="" src="{{ asset('build/images/forum/search.png') }}" /><div class="tooltip forum-tooltip">{{ 'Nachrichten suchen'|trans({},'global') }}</div></div>
@@ -158,7 +158,7 @@
                     {% if permission.only_mod_access %}
                         <div class="forum-control">
                             <b><i class="fa fa-exclamation"></i> {{ 'Moderation'|trans({},'global') }}</b>
-                            <div class="pad">{{ 'Du moderierst dieses Forum, verfügst aber nicht über Leserechte. Es werden dir nur Threads angezeigt, in denen mindestens ein Post gemeldet wurde.' }}</div>
+                            <div class="pad">{{ 'Du moderierst dieses Forum, verfügst aber nicht über Leserechte. Es werden dir nur Threads angezeigt, in denen mindestens ein Post gemeldet wurde.'|trans({}, 'global') }}</div>
                         </div>
                         <br />
                     {% endif %}
@@ -172,11 +172,21 @@
                     {% if pages > 1 %}
                         <div class="row">
                             <div class="cell rw-12 padded center">
-                                <div class="forum-button" x-forum-action="thread-pager" x-to-page="1"><i class="fa fa-fast-backward"></i></div>
-                                <div class="forum-button" x-forum-action="thread-pager" x-to-page="{{ current_page - 1 }}"><i class="fa fa-backward"></i></div>
+                                {% if current_page > 1 %}
+                                <div class="forum-button" x-forum-action="thread-pager" x-to-page="1"><img alt="" src="{{ asset('build/images/icons/small_prev.gif') }}" /></div>
+                                <div class="forum-button" x-forum-action="thread-pager" x-to-page="{{ current_page - 1 }}"><img alt="" src="{{ asset('build/images/icons/small_moveleft.gif') }}" /></div>
+                                {% else %}
+                                <div class="forum-button-disabled"><img alt="" src="{{ asset('build/images/icons/small_prev.gif') }}" /></div>
+                                <div class="forum-button-disabled"><img alt="" src="{{ asset('build/images/icons/small_moveleft.gif') }}" /></div>
+                                {% endif %}
                                 <div class="forum-button">{{ 'Seite {page}/{pages}'|trans({'{page}': current_page, '{pages}': pages},'global') }}</div>
-                                <div class="forum-button" x-forum-action="thread-pager" x-to-page="{{ current_page + 1 }}"><i class="fa fa-forward"></i></div>
-                                <div class="forum-button" x-forum-action="thread-pager" x-to-page="{{ pages }}"><i class="fa fa-fast-forward"></i></div>
+                                {% if current_page < pages %}
+                                <div class="forum-button" x-forum-action="thread-pager" x-to-page="{{ current_page + 1 }}"><img alt="" src="{{ asset('build/images/icons/small_move.gif') }}" /></div>
+                                <div class="forum-button" x-forum-action="thread-pager" x-to-page="{{ pages }}"><img alt="" src="{{ asset('build/images/icons/small_next.gif') }}" /></div>
+                                {% else %}
+                                <div class="forum-button-disabled"><img alt="" src="{{ asset('build/images/icons/small_move.gif') }}" /></div>
+                                <div class="forum-button-disabled"><img alt="" src="{{ asset('build/images/icons/small_next.gif') }}" /></div>
+                                {% endif %}
                             </div>
                         </div>
                     {% endif %}
@@ -231,7 +241,9 @@
                 $.html.forEach('[x-thread-id]', element => element.classList.remove('selected'))
                 let viewer = document.getElementById('forum-content');
                 {let c; while ((c = viewer.firstChild)) viewer.removeChild(c);}
-                $.ajax.no_history().load( viewer, '{{ url('forum_id_search_controller', {fid: forum.id}) }}', false )
+                $.ajax.no_history().load( viewer, '{{ url('forum_id_search_controller', {fid: forum.id}) }}', false, null, () => {
+                    document.getElementById('search-query').focus();
+                } )
             });
         {% endif %}
 

@@ -13,7 +13,7 @@ const mark_zone = function(map, x = null, y = null, manual = false) {
     let marker_direction = map.querySelector('.marker-direction');
     if (marker_direction) marker_direction.style.display = 'none';
 
-    const last_zone = $.client.get('marker','routes',null);
+    const last_zone = $.client.get('marker','routes',null, Client.DomainScavenger);
     $.client.set('marker','routes',null,false);
     if (last_zone && last_zone[0] === x && last_zone[1] === y && manual) x = y = 0;
     if (x === {{ map.pos_x }} && y === {{ map.pos_y }}) return;
@@ -297,7 +297,7 @@ for (let i = 0; i < scroll_areas.length; i++) {
                 }
             });
 
-        let show_tags = $.client.get('map', 'tags', 'hide');
+        let show_tags = $.client.get('map', 'tags', 'hide', Client.DomainScavenger);
         if (show_tags === 'show') {
             map_area.classList.add('show-tags');
             if (tags_button) {
@@ -306,7 +306,7 @@ for (let i = 0; i < scroll_areas.length; i++) {
             }
         }
 
-        let show_global = $.client.get('map', 'global', 'hide');
+        let show_global = $.client.get('map', 'global', 'hide', Client.DomainScavenger);
         if (show_global === 'show') {
             map_area.classList.add('show-global');
             if (global_button) {
@@ -319,7 +319,7 @@ for (let i = 0; i < scroll_areas.length; i++) {
     let route_selectors = route_plane.querySelectorAll('[x-route-id]');
     for (let i = 0; i < route_selectors.length; i++)
         route_selectors[i].addEventListener('click', function () {
-            const old_route = $.client.get('current','routes');
+            const old_route = $.client.get('current','routes', null, Client.DomainDaily);
             const new_route = old_route == route_selectors[i].getAttribute('x-route-id') ? null : route_selectors[i].getAttribute('x-route-id');
             activate_route( map, '#b4da4c', new_route );
             $.client.set('current','routes',new_route,false);
@@ -370,10 +370,10 @@ for (let i = 0; i < scroll_areas.length; i++) {
             });
     }
 
-    const user_active_route = $.client.get('current','routes');
+    const user_active_route = $.client.get('current','routes', null, Client.DomainDaily);
     if (user_active_route !== null && known_routes[user_active_route])
         activate_route( map, '#b4da4c', user_active_route );
-    const active_marker = $.client.get('marker','routes',null);
+    const active_marker = $.client.get('marker','routes',null, Client.DomainScavenger);
     if (active_marker !== null)
         mark_zone( map, active_marker[0], active_marker[1], false );
     else mark_zone( map);

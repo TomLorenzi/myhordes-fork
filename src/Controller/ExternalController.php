@@ -2072,9 +2072,9 @@ class ExternalController extends InventoryAwareController {
         $request = Request::createFromGlobals();
         $this->request = $request;
 
-        $val = $request->request->get($param);
+        $val = $request->request->get($param) ?? '';
         if (trim($val) === '') {
-            $val = $request->query->get($param);
+            $val = $request->query->get($param) ?? '';
         }
 
         if (trim($val) === '') {

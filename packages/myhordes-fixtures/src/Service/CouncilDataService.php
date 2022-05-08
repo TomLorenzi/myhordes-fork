@@ -924,7 +924,7 @@ class CouncilDataService implements FixtureProcessorInterface {
             'shaman_vote_004' => [
                 'semantic' => CouncilEntryTemplate::CouncilNodeShamanVoteAny, 'mode' => CouncilEntryTemplate::CouncilBranchModeRandom,
                 'branch_count' => [0,2], 'branches' => [CouncilEntryTemplate::CouncilNodeShamanVoteResponseAny,CouncilEntryTemplate::CouncilNodeGenericVoteResponseAny],
-                'text' => 'Wie wäre es mit {voted}? Er hat immerhin vorhergesehen, dass {previous} etwas dämliches sagen wird...', // Why not -Sieg ried-? He did predict that DefenestrateMe was gonna say mething stupid...
+                'text' => 'Wie wäre es mit {voted}? Er hat immerhin vorhergesehen, dass {previous} etwas dämliches sagen wird...', // Why not -Sieg ried-? He did predict that DefenestrateMe was gonna say something stupid...
                 'variables' => [ 'types' => [['type'=>"citizen", 'name'=>'voted'],['type'=>"citizen", 'name'=>'previous']], 'config' => [ 'main' => ['from' => '_council?'], 'voted' => ['from' => 'voted', 'consume' => true], 'previous' => ['from' => '_siblings'] ] ]
             ],
 

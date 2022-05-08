@@ -542,10 +542,13 @@ class ZoneHandler
             foreach ($zone->getChatSilenceTimers() as $cst)
                 $this->entity_manager->remove( $cst );
             $zone->getChatSilenceTimers()->clear();
-            foreach ($this->entity_manager->getRepository(TownLogEntry::class)->findByFilter( $zone->getTown(), null, null, $zone, null, null ) as $entry)
+            foreach ($this->entity_manager->getRepository(TownLogEntry::class)->findByFilter( $zone->getTown(), null, null, $zone, null, null ) as $entry) {
                 /** @var TownLogEntry $entry */
-                if ($entry->getLogEntryTemplate() === null || !$entry->getLogEntryTemplate()->getNonVolatile() )
-                    $this->entity_manager->remove( $entry );
+                if ($entry->getLogEntryTemplate() === null || !$entry->getLogEntryTemplate()->getNonVolatile()) {
+                    $entry->setAdminOnly(true);
+                    $this->entity_manager->persist($entry);
+                }
+            }
         }
 
         // If zombies can take control after leaving the zone and there are citizens remaining, install a grace escape timer

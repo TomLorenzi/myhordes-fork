@@ -68,9 +68,9 @@
                         </div>
                     </div>
                     <div class="padded cell rw-9 rw-md-8 rw-sm-12">
-                        <input {% if app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionProfileDisplayName')) or app.user.eternalID is not null or next_name_change_days > 0 %}disabled{% endif %} id="user_displayname" type="text" value="{% if app.user.displayName is not null %}{{ app.user.displayName }}{% else %}{{ app.user.name }}{% endif %}" />
+                        <input {% if app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionProfileDisplayName')) or (app.user.eternalID is not null and not app.user.noAutomaticNameManagement) or next_name_change_days > 0 %}disabled{% endif %} id="user_displayname" type="text" value="{% if app.user.displayName is not null %}{{ app.user.displayName }}{% else %}{{ app.user.name }}{% endif %}" />
                     </div>
-                    {% if app.user.eternalID is null and app.user.displayName is not null and app.user.displayName != app.user.username %}
+                    {% if (app.user.eternalID is null or app.user.noAutomaticNameManagement) and app.user.displayName is not null and app.user.displayName != app.user.username %}
                         <div class="padded cell ro-3 rw-9 ro-md-4 rw-md-8 ro-sm-0 rw-sm-12">
                             <div  class="note warning-box">
                                 {{ 'Um dich einzuloggen, musst du nach wie vor deinen <b>ursprünglichen Namen</b> verwenden: <i>{name}</i>.'|trans({name: app.user.username},'login')|raw }}
@@ -82,7 +82,7 @@
                     {% endif %}
                     <div id="name-warning-box" class="padded cell ro-3 rw-9 ro-md-4 rw-md-8 ro-sm-0 rw-sm-12 {% if app.user.eternalID is null %}hidden{% endif %}">
                         <div  class="note warning-box">
-                            {% if app.user.eternalID is null %}
+                            {% if app.user.eternalID is null or app.user.noAutomaticNameManagement %}
                                 {{ 'WARNUNG: Du kannst deinen Spielernamen nicht jederzeit ändern, wähle ihn also weiße, denn du wirst ihn für mehrere Monate behalten. Um anderen Spielern zu helfen dich zu finden wird der Verlauf deiner Spielernamen in deinem Profil angezeigt.'|trans({}, 'soul') }}
                             {% else %}
                                 {{ 'Du kannst deinen Spielernamen nicht ändern, weil du einen zugehörigen Eternal Twin Account hast. Du musst zu deinem Eternal Twin-Konto gehen, um deinen Spielernamen zu ändern.'|trans({}, 'soul') }}
@@ -631,8 +631,11 @@
 
             $.ajax.easySend( '{{ path('api_soul_delete_account') }}', {'pw': pw},
                 function () {
-                    alert('{{ 'Du wirst nun ausgeloggt. Dein Account wird in 24-48 Stunden gelöscht. Bis dahin kannst du dich jederzeit erneut einloggen und dadurch die Löschung deines Accounts abbrechen.'|trans({},'soul')|e('js') }}');
-                    $.ajax.load(null, '{{ path('public_welcome') }}', true);
+                    alert(
+                        '{{ 'Auf wiedersehen, {name}. Wir werden dich vermissen und hoffen, dass du vielleicht doch noch einmal zurück kommst.'|trans( {'name': app.user.name}, 'login')|e('js') }}' + "\n\n" +
+                        '{{ 'Du wirst nun ausgeloggt. Dein Account wird in 24-48 Stunden gelöscht. Bis dahin kannst du dich jederzeit erneut einloggen und dadurch die Löschung deines Accounts abbrechen.'|trans({},'soul')|e('js') }}'
+                    );
+                    window.location.href = $.ajax.getBaseURL();
                 } )
         });
 

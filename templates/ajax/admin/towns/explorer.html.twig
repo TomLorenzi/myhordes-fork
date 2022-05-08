@@ -200,11 +200,10 @@
                         {% embed "ajax/admin/towns/map.html.twig" with {'default_zoom': 0, 'default_show_zone': false, 'allow_zone_view': false, 'map': map_data} %}
                         {% endembed %}
                         {% if is_granted("ROLE_ADMIN") %}
+                            <div id="zone_floor"></div>
                             <div id="dash_zone_generator" x-target="zone" x-id="">
-                                {{ 'Zone'|trans({}, 'admin') }} <span id="zone_coords"></span>
                                 {{ item_creator(itemPrototypes, 'zone') }}
                             </div>
-                            <div id="zone_floor"></div>
                             <div class="lightbox">
                                 <div class="row">
                                     <div class="cell rw-12 padded">
@@ -251,6 +250,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <div id="dash_zone_log"></div>
                         {% endif %}
                     </div>
                 </div>
@@ -372,7 +372,7 @@
                                 </div>
                             </div>
                         {% endif %}
-                        {% embed "ajax/game/inventory.html.twig" with {'size': 0, 'items': bank, 'bankmode': true} %}
+                        {% embed "ajax/game/inventory.html.twig" with {'size': 0, 'items': bank, 'bankmode': true, 'debug': is_granted("ROLE_ADMIN")} %}
                             {% block class %}bank{% endblock %}
                             {% block title %}{% endblock %}
                         {% endembed %}
@@ -647,6 +647,15 @@
 
                 {% embed "ajax/admin/towns/log.html.twig" with {'log_content': log, 'log_source': path('admin_newspaper_log_controller') } %}
                 {% endembed %}
+
+                <br/>
+                <h1 class="page-head">{{ 'Register herunterladen'|trans({},'admin') }}</h1>
+                <div class="row">
+                    <div class="padded cell rw-12"><a href="{{ path('admin_townlog', {id: town.id, type: 'register'}) }}"><i class="fa fa-file"></i> {{ 'Stadtregister herunterladen'|trans({},'admin') }}</a></div>
+                    <div class="padded cell rw-12"><a href="{{ path('admin_townlog', {id: town.id, type: 'zones'}) }}"><i class="fa fa-file"></i> {{ 'Stadt- und Zonenregister herunterladen (gruppiert nach Zonen)'|trans({},'admin') }}</a></div>
+                    <div class="padded cell rw-12"><a href="{{ path('admin_townlog', {id: town.id, type: 'citizens'}) }}"><i class="fa fa-file"></i> {{ 'Stadt- und Zonenregister herunterladen (gruppiert nach Bürgern)'|trans({},'admin') }}</a></div>
+                    <div class="padded cell rw-12"><a href="{{ path('admin_townlog', {id: town.id, type: 'all'}) }}"><i class="fa fa-file"></i> {{ 'Stadt- und Zonenregister herunterladen (chronologisch)'|trans({},'admin') }}</a></div>
+                </div>
             </div>
 
             <div x-tab-group="admin-town" x-tab-id="blackboard" x-tab-target>
@@ -865,7 +874,6 @@
         {% embed "scripts/log.js.twig" %}{% endembed %}
 
         (function() {
-
             $.html.addEventListenerAll('input[x-all][x-target]', 'click', (e,elem) => {
                 $.html.forEach( 'input[x-id][x-target="' + elem.getAttribute('x-target') + '"]', c => c.checked = elem.checked );
             });
@@ -1001,11 +1009,11 @@
                     ev.preventDefault();ev.stopPropagation();
                     let target = ev.target.parentElement;
                     document.getElementById("dash_zone_generator").setAttribute('x-id', target.getAttribute("x-id"));
-                    document.getElementById("zone_coords").innerText = "[" + target.getAttribute("x-zone-x") + ", " + target.getAttribute("x-zone-y") + "]";
+                    // document.getElementById("zone_coords").innerText = "[" + target.getAttribute("x-zone-x") + ", " + target.getAttribute("x-zone-y") + "]";
                     $.ajax.easySend('{{ url('get_zone_infos', {id: town.id}) }}', {'zone_id': target.getAttribute("x-id")}, function(data){
                         document.querySelector("#zone_floor").innerHTML = data.view;
                         document.querySelector("#zone_floor .inventory").classList.add('desert');
-                        document.querySelector("#zone_floor .inventory .title").innerText = "[" + target.getAttribute("x-zone-x") + ", " + target.getAttribute("x-zone-y") + "]";
+                        document.querySelector("#zone_floor .inventory .title").innerText = "{{ 'Zone'|trans({}, 'admin') }} [" + target.getAttribute("x-zone-x") + ", " + target.getAttribute("x-zone-y") + "]";
                         let items = document.querySelectorAll('#zone_floor .inventory .item:not(.locked)[x-item-id]');
                         for (let i = 0; i < items.length; i++)
                             items[i].addEventListener('click', function(ev) {
@@ -1027,6 +1035,8 @@
                         document.getElementById("ruin_camp_level").value = data.camp_levl;
                         document.querySelector("#ruin_camp_base>span").innerText = data.ruin_camp;
                         document.getElementById("ruin_camp_base").classList.toggle('hidden', data.ruin_camp === null);
+                        document.getElementById("dash_zone_log").innerHTML = data.zone_log;
+                        {% embed "scripts/log.js.twig" with {'base_element': "document.getElementById('dash_zone_log')"} %}{% endembed %}
                     });
                 });
             }

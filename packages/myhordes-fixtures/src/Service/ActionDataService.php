@@ -790,8 +790,8 @@ class ActionDataService implements FixtureProcessorInterface {
                 'watercup_2' => [ 'label' => 'Reinigen (Wasser)', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_micropur' ], 'result' => [ 'consume_micropur', 'consume_item', ['spawn' => [ ['water_cup_#00', 2] ], 'picto' => ['r_solban_#00'] ] ], 'message_key' => 'item_clean_watercup' ],
                 'watercup_3' => [ 'label' => 'In den Brunnen schütten', 'meta' => [ 'must_be_inside', 'must_have_purifier', 'must_not_be_banished' ], 'result' => [ 'consume_item', [ 'well' => [ 'min' => 2, 'max' => 2 ] ] ], 'message_key' => 'water_to_well' ],
                 'jerrycan_1' => [ 'label' => 'Reinigen (Wasser)', 'meta' => [ 'must_be_inside', 'must_have_micropur_in', 'must_not_have_purifier', 'must_not_be_banished' ], 'result' => [ 'consume_micropur', 'consume_item', ['group' => [
-                    [ [ ['spawn' => [ ['water_#00', 2] ] ] ], 1 ],
-                    [ [ ['spawn' => [ ['water_#00', 3] ] ] ], 1 ]
+                    [ [ ['spawn' => [ 'what' => [['water_#00', 2]], 'where' => AffectItemSpawn::DropTargetPreferRucksack ] ] ], 1 ],
+                    [ [ ['spawn' => [ 'what' => [['water_#00', 3]], 'where' => AffectItemSpawn::DropTargetPreferRucksack ] ] ], 1 ]
                 ]] ], 'message_key' => 'item_clean' ],
                 'jerrycan_2' => [ 'label' => 'In den Brunnen schütten', 'meta' => [ 'must_be_inside', 'must_have_purifier', 'must_not_have_filter', 'must_not_be_banished' ], 'result' => [ 'consume_item', [ 'well' => [ 'min' => 1, 'max' => 3 ] ] ], 'message_key' => 'water_to_well' ],
                 'jerrycan_3' => [ 'label' => 'In den Brunnen schütten', 'meta' => [ 'must_be_inside', 'must_have_filter', 'must_not_be_banished' ], 'result' => [ 'consume_item', [ 'well' => [ 'min' => 4, 'max' => 9 ] ] ], 'message_key' => 'water_to_well' ],

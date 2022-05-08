@@ -4750,5 +4750,148 @@
         <target>Ouvrir la corbeille</target>
       </segment>
     </unit>
+    <unit id="RATqO5N" name="Kurztext bearbeiten ({name})">
+      <notes>
+        <note category="german">Kurztext bearbeiten ({name})</note>
+        <note category="from">twig:///templates/ajax/admin/reports/reports.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Kurztext bearbeiten ({name})</source>
+        <target>Kurztext bearbeiten ({name})</target>
+      </segment>
+    </unit>
+    <unit id="YiIAWLn" name="Register herunterladen">
+      <notes>
+        <note category="german">Register herunterladen</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Register herunterladen</source>
+        <target>Register herunterladen</target>
+      </segment>
+    </unit>
+    <unit id="gse1HoC" name="Stadtregister herunterladen">
+      <notes>
+        <note category="german">Stadtregister herunterladen</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Stadtregister herunterladen</source>
+        <target>Stadtregister herunterladen</target>
+      </segment>
+    </unit>
+    <unit id="WCJkiWS" name="Stadt- und Zonenregister herunterladen (gruppiert nach Zonen)">
+      <notes>
+        <note category="german">Stadt- und Zonenregister herunterladen (gruppiert nach Zonen)</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Stadt- und Zonenregister herunterladen (gruppiert nach Zonen)</source>
+        <target>Stadt- und Zonenregister herunterladen (gruppiert nach Zonen)</target>
+      </segment>
+    </unit>
+    <unit id="9XMDN2u" name="Stadt- und Zonenregister herunterladen (gruppiert nach Bürgern)">
+      <notes>
+        <note category="german">Stadt- und Zonenregister herunterladen (gruppiert nach Bürgern)</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Stadt- und Zonenregister herunterladen (gruppiert nach Bürgern)</source>
+        <target>Stadt- und Zonenregister herunterladen (gruppiert nach Bürgern)</target>
+      </segment>
+    </unit>
+    <unit id="_iAXN_K" name="Stadt- und Zonenregister herunterladen (chronologisch)">
+      <notes>
+        <note category="german">Stadt- und Zonenregister herunterladen (chronologisch)</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Stadt- und Zonenregister herunterladen (chronologisch)</source>
+        <target>Stadt- und Zonenregister herunterladen (chronologisch)</target>
+      </segment>
+    </unit>
+    <unit id="NB6Gonl" name="Instanzeigenschaften">
+      <notes>
+        <note category="german">Instanzeigenschaften</note>
+        <note category="from">twig:///templates/ajax/game/item_tooltip.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Instanzeigenschaften</source>
+        <target>Instanzeigenschaften</target>
+      </segment>
+    </unit>
+    <unit id="t6AH21h" name="Vergiftet">
+      <notes>
+        <note category="german">Vergiftet</note>
+        <note category="from">twig:///templates/ajax/game/item_tooltip.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Vergiftet</source>
+        <target>Vergiftet</target>
+      </segment>
+    </unit>
+    <unit id="T3Ok4_w" name="Infiziert">
+      <notes>
+        <note category="german">Infiziert</note>
+        <note category="from">twig:///templates/ajax/game/item_tooltip.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Infiziert</source>
+        <target>Infiziert</target>
+      </segment>
+    </unit>
+    <unit id=".7_a1a_" name="Noch nicht aufgehoben">
+      <notes>
+        <note category="german">Noch nicht aufgehoben</note>
+        <note category="from">twig:///templates/ajax/game/item_tooltip.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Noch nicht aufgehoben</source>
+        <target>Noch nicht aufgehoben</target>
+      </segment>
+    </unit>
+    <unit id="P_.E9gw" name="Spielernamen nicht von EternalTwin übernehmen">
+      <notes>
+        <note category="german">Spielernamen nicht von EternalTwin übernehmen</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Spielernamen nicht von EternalTwin übernehmen</source>
+        <target>Spielernamen nicht von EternalTwin übernehmen</target>
+      </segment>
+    </unit>
+    <unit id="y64_fvj" name="Automatische Verwaltung des Spielernamens wiederherstellen">
+      <notes>
+        <note category="german">Automatische Verwaltung des Spielernamens wiederherstellen</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Automatische Verwaltung des Spielernamens wiederherstellen</source>
+        <target>Automatische Verwaltung des Spielernamens wiederherstellen</target>
+      </segment>
+    </unit>
+    <unit id="_jfxrwz" name="Nicht von ET verwaltet.">
+      <notes>
+        <note category="german">Nicht von ET verwaltet.</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Nicht von ET verwaltet.</source>
+        <target>Nicht von ET verwaltet.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

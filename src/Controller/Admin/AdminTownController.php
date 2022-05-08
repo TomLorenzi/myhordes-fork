@@ -137,14 +137,13 @@ class AdminTownController extends AdminActionController
         $qb = $this->entity_manager->createQueryBuilder();
         $qb
             ->select('i.id', 'c.label as l1', 'cr.label as l2', 'SUM(i.count) as n')->from('App:Item','i')
-            ->where('i.inventory = :inv')->setParameter('inv', $inventory);
-        $qb->groupBy('i.prototype', 'i.broken');
-        $qb
+            ->where('i.inventory = :inv')->setParameter('inv', $inventory)
+            ->groupBy('i.prototype', 'i.broken', 'i.poison')
             ->leftJoin('App:ItemPrototype', 'p', Join::WITH, 'i.prototype = p.id')
             ->leftJoin('App:ItemCategory', 'c', Join::WITH, 'p.category = c.id')
             ->leftJoin('App:ItemCategory', 'cr', Join::WITH, 'c.parent = cr.id')
             ->addOrderBy('c.ordering','ASC')
-            ->addOrderBy('p.id', 'ASC')
+            ->addOrderBy('p.icon', 'DESC')
             ->addOrderBy('i.id', 'ASC');
 
         $data = $qb->getQuery()->getResult(AbstractQuery::HYDRATE_ARRAY);
@@ -418,15 +417,6 @@ class AdminTownController extends AdminActionController
      * @AdminLogProfile(enabled=true)
      * @param int $id The ID of the town
      * @param string $action The action to perform
-     * @param ItemFactory $itemFactory
-     * @param RandomGenerator $random
-     * @param NightlyHandler $night
-     * @param GameFactory $gameFactory
-     * @param CrowService $crowService
-     * @param KernelInterface $kernel
-     * @param JSONRequestParser $parser
-     * @param TownHandler $townHandler
-     * @return Response
      */
     public function town_manager(int $id, string $action, ItemFactory $itemFactory, RandomGenerator $random, NightlyHandler $night, GameFactory $gameFactory, CrowService $crowService, KernelInterface $kernel, JSONRequestParser $parser, TownHandler $townHandler, GameProfilerService $gps): Response
     {
@@ -446,7 +436,7 @@ class AdminTownController extends AdminActionController
             ]) && !$this->isGranted('ROLE_ADMIN'))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
-        $this->logger->invoke("[town_manager] Admin <info>{$this->getUser()->getName()}</info> did the action <info>$action</info> in the town <info>{$town->getName()}</info> (id: {$town->getId()}");
+        $this->logger->invoke("[town_manager] Admin <info>{$this->getUser()->getName()}</info> did the action <info>$action</info> in the town <info>{$town->getName()}</info> (id: {$town->getId()})");
 
         $param = $parser->get('param');
 
@@ -799,8 +789,10 @@ class AdminTownController extends AdminActionController
         $town->setManagedEvents($eventName !== "");
 
         if($eventName !== "" && $eventName !== null){
+            $this->logger->invoke("[admin_town_set_event] Admin <info>{$this->getUser()->getName()}</info> enabled the event <info>$eventName</info> in the town <info>{$town->getName()}</info> (id: {$town->getId()})");
             $townHandler->updateCurrentEvents($town, [$this->conf->getEvent($eventName)]);
         } else {
+            $this->logger->invoke("[admin_town_set_event] Admin <info>{$this->getUser()->getName()}</info> disabled the events in the town <info>{$town->getName()}</info> (id: {$town->getId()})");
             $currentEvents = $this->conf->getCurrentEvents($town, $markers);
             foreach ($markers as $marker) {
                 /** @var EventActivationMarker $marker */
@@ -1195,8 +1187,36 @@ class AdminTownController extends AdminActionController
             'ruin_digs' => $zone->getPrototype() !== null ? $zone->getRuinDigs() : 0,
             'ruin_bury' => $zone->getBuryCount(),
             'camp_levl' => $zone->getImprovementLevel(),
-            'ruin_camp' => $zone->getPrototype()?->getCampingLevel()
+            'ruin_camp' => $zone->getPrototype()?->getCampingLevel(),
+            'zone_log' => $this->renderView("ajax/admin/towns/log.html.twig", [
+                'additional_log_params' => [ 'zone_id' => $zone_id ],
+                'log_content' => $this->renderLog($parser->has('day') ? $parser->get('day') : $town->getDay(), $town, $zone)->getContent(),
+                'log_source' => $this->urlGenerator->generate('get_zone_info_log', ['id' => $id]),
+                'day' => $parser->has('day') ? $parser->get('day') : $town->getDay()
+            ]),
         ]);
+    }
+
+    /**
+     * @Route("jx/admin/town/{id<\d+>}/get_zone_info_log", priority=1, name="get_zone_info_log")
+     * @AdminLogProfile(enabled=true)
+     * @Security("is_granted('ROLE_ADMIN')")
+     * Returns the floor of a given zone
+     * @param int $id Town ID
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function get_zone_info_log(int $id, JSONRequestParser  $parser): Response {
+        $town = $this->entity_manager->getRepository(Town::class)->find($id);
+        if (!$town) return new Response('');
+
+        $zone_id = $parser->get('zone_id', -1);
+        $zone = $this->entity_manager->getRepository(Zone::class)->find($zone_id);
+
+        if(!$zone || $zone->getTown() !== $town)
+            return new Response('');
+
+        return $this->renderLog($parser->has('day') ? $parser->get('day') : $town->getDay(), $town, $zone);
     }
 
     /**

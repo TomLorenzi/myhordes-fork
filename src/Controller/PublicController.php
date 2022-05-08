@@ -437,7 +437,7 @@ class PublicController extends CustomAbstractController
             if ($potential_user !== null && $myhordes_user === null) {
                 $etu = substr($user->getDisplayName(),0,32);
 
-                if ($etu !== $potential_user->getName() && $userHandler->isNameValid($etu)) {
+                if (!$potential_user->getNoAutomaticNameManagement() && $etu !== $potential_user->getName() && $userHandler->isNameValid($etu)) {
                     $history = $potential_user->getNameHistory() ?? [];
                     if(!in_array($etu, $history))
                         $history[] = $etu;
@@ -613,7 +613,7 @@ class PublicController extends CustomAbstractController
                 return AjaxResponse::error( SoulController::ErrorETwinImportProfileInUse );
 
             $myhordes_user->setEternalID( $etwin_user->getID() );
-            if ($etwin_user->getDisplayName() !== $myhordes_user->getUsername()) {
+            if (!$myhordes_user->getNoAutomaticNameManagement() && $etwin_user->getDisplayName() !== $myhordes_user->getUsername()) {
                 $history = $myhordes_user->getNameHistory() ?? [];
                 if(!in_array($myhordes_user->getName(), $history))
                     $history[] = $myhordes_user->getName();

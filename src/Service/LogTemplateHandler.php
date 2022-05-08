@@ -192,6 +192,8 @@ class LogTemplateHandler
                 }
                 elseif ($typeEntry['type'] === 'num' || $typeEntry['type'] === 'string') {
                     $transParams['{'.$typeEntry['name'].'}'] = $wrap_fun($variables[$typeEntry['name']] ?? 0);
+                    if($typeEntry['type'] === 'num')
+                        $transParams['{raw_'.$typeEntry['name'].'}'] = $variables[$typeEntry['name']];
                 }
                 elseif ($typeEntry['type'] === 'transString') {
                     $transParams['{'.$typeEntry['name'].'}'] = $wrap_fun( $this->trans->trans($variables[$typeEntry['name']], [], $typeEntry['from'] ?? 'game') );
@@ -451,6 +453,19 @@ class LogTemplateHandler
             ->setVariables($variables)
             ->setTown( $citizen->getTown() )
             ->setDay( $citizen->getTown()->getDay() )
+            ->setTimestamp( new DateTime('now') )
+            ->setCitizen( $citizen );
+    }
+
+    public function failureShaman( Citizen $citizen ): TownLogEntry {
+        $variables = array('citizen' => $citizen->getId());
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'failureShaman']);
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $citizen->getTown() )
+            ->setDay( $citizen->getTown()->getDay() )
+            ->setZone( $citizen->getZone() )
             ->setTimestamp( new DateTime('now') )
             ->setCitizen( $citizen );
     }

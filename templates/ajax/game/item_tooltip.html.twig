@@ -23,4 +23,13 @@
     {% if item.prototype.hasProperty('defence') %}<div class="item-tag item-tag-defense">{{ 'Verteidigungsgegenstand'|trans({},'items') }}</div>{% endif %}
     {% if item.prototype.hasProperty('weapon') %}<div class="item-tag item-tag-weapon">{{ 'Waffe'|trans({},'items') }}</div>{% endif %}
     {% if item.prototype.watchpoint != 0 %}<div class="item-tag item-tag-weapon">{{ 'Nachtwache-Waffen'|trans({},'items') }} <em>({{'{watchpoint} pkt attacke'|trans({'{watchpoint}': (virtual ? item.prototype : item)|watchpoint},'items')}})</em></div>{% endif %}
+
+    {% if not virtual and debug is defined and debug %}
+        <br/>
+        <div><b>{{ 'Instanzeigenschaften'|trans({},'admin') }}</b></div>
+        <div class="item-tag item-tag-item-id">{{ item.id }}</div>
+        {% if item.poison.value == 1 %}<div class="item-tag item-tag-poison-deadly">{{ 'Vergiftet'|trans({},'admin') }}</div>{% endif %}
+        {% if item.poison.value == 2 %}<div class="item-tag item-tag-poison-infect">{{ 'Infiziert'|trans({},'admin') }}</div>{% endif %}
+        {% if item.firstPick %}<div class="item-tag item-tag-first-pick">{{ 'Noch nicht aufgehoben'|trans({},'admin') }}</div>{% endif %}
+    {% endif %}
 </div>

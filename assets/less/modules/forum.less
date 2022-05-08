@@ -256,7 +256,7 @@
     &>*+* { margin-left: 10px; }
   }
   font-size: 1.1rem;
-  background: #3c2018; box-shadow: 0 0 5px rgba(0,0,0,0.2);  padding: 0 0 5px;
+  background: #3c2018; box-shadow: 0 0 5px rgba(0,0,0,0.2);
 
   &>.quote {
     padding: 15px; font-style: italic;
@@ -272,6 +272,7 @@ ul.subscriptions {
     &.new { list-style: url("../../img/icons/anim_icon_mail.gif"); font-weight: bold }
     &:not(.new) { list-style: none }
     &+li { margin-top: 4px; }
+    &:hover { color: white; }
   }
 }
 
@@ -458,7 +459,7 @@ ul.subscriptions {
   color: #f0d79e; font-weight: bold; cursor: pointer; display: inline-flex; justify-content: center;
   align-items: center; height: 25px; padding: 7px 7px; vertical-align: middle; border-radius: 2px;
   box-shadow: 1px 1px 1px 0 black; margin-bottom: .5em;
-  &:hover,&:focus { border-color: #f0d79e; box-shadow: 0 0 8px 0 black; }
+  &:not(.forum-button-disabled):hover,&:not(.forum-button-disabled):focus { border-color: #f0d79e; box-shadow: 0 0 8px 0 black; }
   img {
     vertical-align: middle;
 
@@ -528,7 +529,7 @@ ul.subscriptions {
 }
 
 .forum-separator {
-  cursor: default; font-size: 0.9em; font-weight: bold; padding-left: 10px;
+  cursor: default; font-size: 0.9em; font-weight: bold; padding-left: 10px; font-variant: small-caps;
 }
 
 .forum-note {

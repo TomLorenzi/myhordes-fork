@@ -4230,5 +4230,48 @@
         <target>Vous avez effectué cette action trop de fois. Attendez un peu, puis réessayez.</target>
       </segment>
     </unit>
+    <unit id="Zk.GHM6">
+      <notes>
+        <note category="german">Du moderierst dieses Forum, verfügst aber nicht über Leserechte. Es werden dir nur Threads angezeigt, in denen mindestens ein Post gemeldet wurde.</note>
+        <note category="from">twig:///templates/ajax/forum/view.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Du moderierst dieses Forum, verfügst aber nicht über Leserechte. Es werden dir nur Threads angezeigt, in denen mindestens ein Post gemeldet wurde.</source>
+        <target>Vous modérez ce forum, mais n’avez pas de droits de lecture. Vous ne verrez que les sujets où au moins un message a été signalé.</target>
+      </segment>
+    </unit>
+    <unit id="YPszuOR" name="Für diese Aktion hast du nicht genug MP.">
+      <notes>
+        <note category="german">Für diese Aktion hast du nicht genug MP.</note>
+        <note category="from">twig:///templates/scripts/errors/generic.txt.twig</note>
+      </notes>
+      <segment>
+        <source>Für diese Aktion hast du nicht genug MP.</source>
+        <target>Vous n'avez pas assez de PM pour cette action.</target>
+      </segment>
+    </unit>
+    <unit id="vdD8Evg" name="Ankündigungen">
+      <notes>
+        <note category="german">Ankündigungen</note>
+        <note category="from">twig:///templates/ajax/pm/view.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Ankündigungen</source>
+        <target>Ankündigungen</target>
+      </segment>
+    </unit>
+    <unit id="7VfCrWl" name="Foren">
+      <notes>
+        <note category="german">Foren</note>
+        <note category="from">twig:///templates/ajax/pm/view.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Foren</source>
+        <target>Foren</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

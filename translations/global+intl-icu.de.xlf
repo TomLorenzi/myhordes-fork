@@ -3918,5 +3918,41 @@
         <target>Du hast diese Aktion bereits zu oft durchgeführt. Warte eine Weile und versuche es dann erneut.</target>
       </segment>
     </unit>
+    <unit id="Zk.GHM6">
+      <notes>
+        <note category="from">twig:///templates/ajax/forum/view.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du moderierst dieses Forum, verfügst aber nicht über Leserechte. Es werden dir nur Threads angezeigt, in denen mindestens ein Post gemeldet wurde.</source>
+        <target>Du moderierst dieses Forum, verfügst aber nicht über Leserechte. Es werden dir nur Threads angezeigt, in denen mindestens ein Post gemeldet wurde.</target>
+      </segment>
+    </unit>
+    <unit id="YPszuOR" name="Für diese Aktion hast du nicht genug MP.">
+      <notes>
+        <note category="from">twig:///templates/scripts/errors/generic.txt.twig</note>
+      </notes>
+      <segment>
+        <source>Für diese Aktion hast du nicht genug MP.</source>
+        <target>Für diese Aktion hast du nicht genug MP.</target>
+      </segment>
+    </unit>
+    <unit id="vdD8Evg" name="Ankündigungen">
+      <notes>
+        <note category="from">twig:///templates/ajax/pm/view.html.twig</note>
+      </notes>
+      <segment>
+        <source>Ankündigungen</source>
+        <target>Ankündigungen</target>
+      </segment>
+    </unit>
+    <unit id="7VfCrWl" name="Foren">
+      <notes>
+        <note category="from">twig:///templates/ajax/pm/view.html.twig</note>
+      </notes>
+      <segment>
+        <source>Foren</source>
+        <target>Foren</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

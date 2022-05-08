@@ -4256,5 +4256,45 @@
         <target>You've performed this action too often. Wait for a bit and then try again.</target>
       </segment>
     </unit>
+    <unit id="Zk.GHM6">
+      <notes>
+        <note category="german">Du moderierst dieses Forum, verfügst aber nicht über Leserechte. Es werden dir nur Threads angezeigt, in denen mindestens ein Post gemeldet wurde.</note>
+        <note category="from">twig:///templates/ajax/forum/view.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du moderierst dieses Forum, verfügst aber nicht über Leserechte. Es werden dir nur Threads angezeigt, in denen mindestens ein Post gemeldet wurde.</source>
+        <target>You are moderating this forum, but you do not have reading rights. You will only see threads where at least one post has been reported.</target>
+      </segment>
+    </unit>
+    <unit id="YPszuOR" name="Für diese Aktion hast du nicht genug MP.">
+      <notes>
+        <note category="german">Für diese Aktion hast du nicht genug MP.</note>
+        <note category="from">twig:///templates/scripts/errors/generic.txt.twig</note>
+      </notes>
+      <segment>
+        <source>Für diese Aktion hast du nicht genug MP.</source>
+        <target>You do not have sufficient MP for this action.</target>
+      </segment>
+    </unit>
+    <unit id="vdD8Evg" name="Ankündigungen">
+      <notes>
+        <note category="german">Ankündigungen</note>
+        <note category="from">twig:///templates/ajax/pm/view.html.twig</note>
+      </notes>
+      <segment>
+        <source>Ankündigungen</source>
+        <target>Announcements</target>
+      </segment>
+    </unit>
+    <unit id="7VfCrWl" name="Foren">
+      <notes>
+        <note category="german">Foren</note>
+        <note category="from">twig:///templates/ajax/pm/view.html.twig</note>
+      </notes>
+      <segment>
+        <source>Foren</source>
+        <target>Forum</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

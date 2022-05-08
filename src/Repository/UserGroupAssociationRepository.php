@@ -50,7 +50,8 @@ class UserGroupAssociationRepository extends ServiceEntityRepository
         $qb = $this->createQueryBuilder('u')->select('u')->leftJoin('u.association', 'g')
             ->andWhere('u.user = :user')->setParameter('user', $user)
             ->andWhere('u.bref = :arch')->setParameter('arch', $archive)
-            ->orderBy('g.ref2', 'DESC')->addOrderBy('u.id', 'DESC');
+            ->orderBy('u.priority', 'DESC')
+            ->addOrderBy('g.ref2', 'DESC')->addOrderBy('u.id', 'DESC');
 
         if ($filter !== null)
             $qb->andWhere('g.name LIKE :filter')->setParameter('filter', "%{$filter}%");
@@ -85,14 +86,22 @@ class UserGroupAssociationRepository extends ServiceEntityRepository
 
     /**
      * @param User $user
-     * @return int|mixed|string
+     * @param bool $include_pm
+     * @param bool $include_groups
+     * @return int
      */
-    public function countUnreadPMsByUser( User $user ): int {
+    public function countUnreadPMsByUser( User $user, bool $include_pm = true, bool $include_groups = true ): int {
+        $filter = [];
+        if ($include_pm) $filter[] = UserGroupAssociation::GroupAssociationTypePrivateMessageMember;
+        if ($include_groups) $filter[] = UserGroupAssociation::GroupAssociationTypeOfficialGroupMessageMember;
+
+        if (empty($filter)) return 0;
+
         $qb = $this->createQueryBuilder('u')->select('COUNT(u.id)')->leftJoin('u.association', 'g')
             ->andWhere('u.user = :user')->setParameter('user', $user)
             ->andWhere('u.ref1 < g.ref1 OR u.ref1 IS NULL')
             ->andWhere('u.bref = false')
-            ->andWhere('u.associationType IN (:assoc)')->setParameter('assoc', [UserGroupAssociation::GroupAssociationTypePrivateMessageMember,UserGroupAssociation::GroupAssociationTypeOfficialGroupMessageMember]);
+            ->andWhere('u.associationType IN (:assoc)')->setParameter('assoc', $filter);
 
         try {
             return $qb->getQuery()->getSingleScalarResult();

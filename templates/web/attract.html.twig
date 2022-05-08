@@ -146,7 +146,7 @@
             $.ajax.load(null, '{{ path('public_welcome') }}', true);
         })
         document.addEventListener('mh-navigation-complete', e => {
-            document.querySelector('.back-dash').classList.toggle('hidden', e.detail.url === '{{ path('public_welcome') }}' || e.detail.url === '{{ path('initial_landing') }}')
+            document.querySelector('.back-dash').classList.toggle('hidden', e.detail.url === '{{ path('public_welcome') }}' || e.detail.url === '{{ path('initial_landing') }}' || e.detail.url === '{{ path('maintenance_attack') }}')
         });
     })();
 </script>

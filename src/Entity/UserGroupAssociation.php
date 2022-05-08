@@ -83,6 +83,11 @@ class UserGroupAssociation
      */
     private $bref = false;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $priority = 0;
+
 
     public function getId(): ?int
     {
@@ -193,6 +198,18 @@ class UserGroupAssociation
     public function setBref(bool $bref): self
     {
         $this->bref = $bref;
+
+        return $this;
+    }
+
+    public function getPriority(): ?int
+    {
+        return $this->priority;
+    }
+
+    public function setPriority(int $priority): self
+    {
+        $this->priority = $priority;
 
         return $this;
     }

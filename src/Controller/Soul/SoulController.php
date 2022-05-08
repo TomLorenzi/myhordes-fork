@@ -355,21 +355,48 @@ class SoulController extends CustomAbstractController
      * @Route("jx/soul/exists", name="user_exists")
      * @GateKeeperProfile(allow_during_attack=true,record_user_activity=false)
      */
-    public function users_exists(JSONRequestParser $parser): Response {
+    public function users_exists(JSONRequestParser $parser, TranslatorInterface $translator): Response {
         $return = [];
 
-        $add = function(?User $u, string $name, int $id) use (&$return) {
+        $fixed_account_translators = [
+            66 => 'Der Rabe',
+            67 => 'Animateur-Team',
+        ];
+
+        $add = function(?User $u, string $name, int $id) use (&$return, &$translator, &$fixed_account_translators) {
+            $name_fixed = ($fixed_account_translators[$u?->getId() ?? -1] ?? null)
+                ? $translator->trans($fixed_account_translators[$u?->getId() ?? -1], [], 'global')
+                : null;
+
             $return[] =
                 [
-                    'exists' => $u !== null,
+                    'exists' => $u !== null ? 1 : 0,
                     'id' => $u?->getId() ?? $id,
-                    'displayName' => $u?->getName() ?? $name,
+                    'displayName' => $name_fixed ?? $u?->getName() ?? $name,
                     'queryName' => $name
                 ];
         };
 
-        foreach ( array_slice( $parser->get_array( 'names', [] ), 0, 100 ) as $name )
-           $add( $this->entity_manager->getRepository(User::class)->findOneByNameOrDisplayName( trim($name) ), $name, -1 );
+        $missing_name = $this->translator->trans( 'Specify using player search', [], 'soul' );
+
+        $addMultiple = function(int $count, string $name) use (&$return, $missing_name) {
+            if ($count > 1)
+                $return[] =
+                    [
+                        'exists' => $count,
+                        'id' => -1,
+                        'displayName' => $missing_name,
+                        'queryName' => $name
+                    ];
+        };
+
+        foreach ( array_slice( $parser->get_array( 'names', [] ), 0, 100 ) as $name ) {
+
+            if (($count = $this->entity_manager->getRepository(User::class)->countByNameOrDisplayName( trim($name) )) < 2)
+                $add( $this->entity_manager->getRepository(User::class)->findOneByNameOrDisplayName( trim($name) ), $name, -1 );
+            else $addMultiple( $count, $name );
+        }
+
 
         foreach ( array_slice( $parser->get_array( 'ids', [] ), 0, 100 ) as $id )
             $add( $this->entity_manager->getRepository(User::class)->find( (int)$id ), '', $id );
@@ -525,7 +552,7 @@ class SoulController extends CustomAbstractController
         if ($name_change && $user->getLastNameChange() !== null && $user->getLastNameChange()->diff(new DateTime())->days < (30 * 4)) { // 6 months
             return  AjaxResponse::error(self::ErrorUserEditTooSoon);
         }
-        if ($name_change && $user->getEternalID() !== null)
+        if ($name_change && $user->getEternalID() !== null && !$user->getNoAutomaticNameManagement())
             return AjaxResponse::error(self::ErrorUserUseEternalTwin);
 
         if ($this->user_handler->isRestricted($user, AccountRestriction::RestrictionProfileDisplayName) && $name_change)
@@ -566,7 +593,7 @@ class SoulController extends CustomAbstractController
             }
         } elseif ($desc_obj) $this->entity_manager->remove($desc_obj);
 
-        if(!empty($displayName) && $displayName !== $user->getName() && $user->getEternalID() === null) {
+        if(!empty($displayName) && $displayName !== $user->getName() && ($user->getEternalID() === null || $user->getNoAutomaticNameManagement())) {
             $history = $user->getNameHistory() ?? [];
             if(!in_array($user->getName(), $history))
                 $history[] = $user->getName();
@@ -1232,6 +1259,11 @@ class SoulController extends CustomAbstractController
 
         $name = $user->getUsername();
         $user->setDeleteAfter( new DateTime('+24hour') );
+        $user->setCheckInt($user->getCheckInt() + 1);
+
+        if ($rm_token = $this->entity_manager->getRepository(RememberMeTokens::class)->findOneBy(['user' => $user]))
+            $this->entity_manager->remove($rm_token);
+
         $this->entity_manager->flush();
 
         $this->addFlash( 'notice', $this->translator->trans('Auf wiedersehen, {name}. Wir werden dich vermissen und hoffen, dass du vielleicht doch noch einmal zurück kommst.', ['{name}' => $name], 'login') );

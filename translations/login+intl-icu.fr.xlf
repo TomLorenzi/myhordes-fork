@@ -336,7 +336,7 @@
     <unit id="MO7x7sr">
       <notes>
         <note category="german">Auf wiedersehen, {name}. Wir werden dich vermissen und hoffen, dass du vielleicht doch noch einmal zurück kommst.</note>
-        <note category="from">php:///src/Controller/Soul/SoulController.php</note>
+        <note category="from">php:///src/Controller/Soul/SoulController.php;twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Auf wiedersehen, {name}. Wir werden dich vermissen und hoffen, dass du vielleicht doch noch einmal zurück kommst.</source>
