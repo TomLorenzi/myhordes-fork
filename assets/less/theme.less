@@ -1381,7 +1381,7 @@ span.defense-broken,div.defense-broken { .icon_div("../img/icons/small_def_broke
     &.inline { display: inline; }
     &:not(.left) { float: right; }
     &:not(.tab-floater) { padding-top: 9px };
-    overflow: hidden;
+    overflow: hidden; position: relative;
 
     &:first-child.left.inline > div.avatar.small:first-child {
       margin-left: -4px;
@@ -1393,7 +1393,13 @@ span.defense-broken,div.defense-broken { .icon_div("../img/icons/small_def_broke
         &>a { position: absolute; bottom: 0; left: 0; width: 100%; font-size: 0.75em; text-align: center; }
       }
       &:hover > h4.soul-name { opacity: 1; }
+    }
 
+    &.highlight-new::after {
+      display: block; content: " "; width: 16px; height: 16px;
+      top: 5px; left: 0;
+      background-image: url(../img/forum/recent.png);
+      position: absolute;
     }
 
     .tab-link {

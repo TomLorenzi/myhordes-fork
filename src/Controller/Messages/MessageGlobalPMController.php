@@ -207,9 +207,6 @@ class MessageGlobalPMController extends MessageController
         if ($entries === null) $entries = [];
 
         foreach ($group_associations as $association) {
-
-
-
             $official_meta = $this->entity_manager->getRepository(OfficialGroupMessageLink::class)->findOneBy(['messageGroup' => $association->getAssociation()]);
 
             $owner_assoc = $this->entity_manager->getRepository(UserGroupAssociation::class)->findOneBy([
@@ -278,7 +275,7 @@ class MessageGlobalPMController extends MessageController
      * @param array|null $entries
      * @param int[] $skip
      */
-    private function render_forumNotifications( ?array &$entries = null, array $skip = [] ): void {
+    private function render_forumNotifications( ?array &$entries = null, array $skip = [], ?string $query = null ): void {
         if ($entries === null) $entries = [];
 
         /** @var Collection|ForumThreadSubscription[] $subscriptions */
@@ -290,7 +287,7 @@ class MessageGlobalPMController extends MessageController
 
         if (!empty($subscriptions)) {
             $forums = $this->perm->getForumsWithPermission($this->getUser());
-            $subscriptions =  $subscriptions->filter(fn(ForumThreadSubscription $s) => !in_array($s->getThread()->getId(), $skip) && in_array($s->getThread()->getForum(), $forums));
+            $subscriptions =  $subscriptions->filter(fn(ForumThreadSubscription $s) => !in_array($s->getThread()->getId(), $skip) && ($query === null || mb_strpos( mb_strtolower($s->getThread()->getTitle()), mb_strtolower( $query ) ) !== false) && in_array($s->getThread()->getForum(), $forums));
         }
 
         foreach ($subscriptions as $subscription) {
@@ -361,7 +358,7 @@ class MessageGlobalPMController extends MessageController
     public function pm_load_list(EntityManagerInterface $em, JSONRequestParser $p, string $set = 'inbox'): Response {
         $entries = [];
 
-        if (!in_array($set,['inbox','archive','support'])) return new Response('');
+        if (!in_array($set,['inbox','archive','support','forum','announcements'])) return new Response('');
 
         $group_filter = match($set) {
             'support' => [ UserGroupAssociation::GroupAssociationTypeOfficialGroupMessageMember ],
@@ -375,18 +372,19 @@ class MessageGlobalPMController extends MessageController
 
         $query = $p->get('filter');
 
-        $this->render_group_associations( $em->getRepository(UserGroupAssociation::class)->findByUserAssociation($this->getUser(), $group_filter,
-                $skip['g'] ?? [], $num+1, $set === 'archive', $query), $entries );
+        if (!empty($group_filter))
+            $this->render_group_associations( $em->getRepository(UserGroupAssociation::class)->findByUserAssociation($this->getUser(), $group_filter,
+                    $skip['g'] ?? [], $num+1, $set === 'archive', $query), $entries );
 
-        if ($set !== 'support')
+        if ($set === 'announcements' || $set === 'archive')
             $this->render_announcements( $em->getRepository(Announcement::class)->findByLang($this->getUserLanguage(),
                                                                                          $skip['a'] ?? [], $num+1, $set === 'archive', $query), $entries );
         if ($set === 'inbox' && $query === null) {
-
             if (empty($skip['d'])) $this->render_directNotifications($this->entity_manager->getRepository(GlobalPrivateMessage::class)->getDirectPMsByUser($this->getUser(), 0, 1), $entries);
-            $this->render_forumNotifications($entries, $skip['f'] ?? [] );
-
         }
+
+        if ($set === 'forum')
+            $this->render_forumNotifications($entries, $skip['f'] ?? [], $query );
 
         usort($entries, fn($a,$b) => $b['date'] <=> $a['date']);
 
@@ -394,6 +392,55 @@ class MessageGlobalPMController extends MessageController
             'more' => count($entries) > $num,
             'entries' => array_slice($entries,0,$num)
         ] ));
+    }
+
+    /**
+     * @Route("api/pm/folders/state", name="pm_check_folder_states")
+     * @param EntityManagerInterface $em
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function check_folder_states( EntityManagerInterface $em, JSONRequestParser $parser ): Response {
+
+        $folders = array_unique( $parser->get_array('folders') );
+        $user = $this->getUser();
+
+        $return = [];
+        foreach ($folders as $folder)
+            switch ($folder) {
+                case 'inbox':
+                    $return[$folder] =
+                        $em->getRepository(UserGroupAssociation::class)->countUnreadPMsByUser($user, true, false) +
+                        $em->getRepository(UserGroupAssociation::class)->countUnreadInactivePMsByUser($user) +
+                        $em->getRepository(GlobalPrivateMessage::class)->countUnreadDirectPMsByUser($user);
+                    break;
+                case 'support':
+                    $return[$folder] =
+                        $em->getRepository(UserGroupAssociation::class)->countUnreadPMsByUser($user, false, true);
+                    break;
+                case 'announcements':
+                    $return[$folder] = $em->getRepository(Announcement::class)->countUnreadByUser($user, $this->getUserLanguage());
+                    break;
+                case 'forum':
+                    /** @var Collection|ForumThreadSubscription[] $subscriptions */
+                    $subscriptions = $em->getRepository(ForumThreadSubscription::class)->matching(
+                        (new Criteria())
+                            ->andWhere( Criteria::expr()->eq('user', $user) )
+                            ->andWhere( Criteria::expr()->gt('num', 0))
+                    );
+
+                    if (!empty($subscriptions)) {
+                        $forums = $this->perm->getForumsWithPermission($user);
+                        $subscriptions =  $subscriptions->filter(fn(ForumThreadSubscription $s) => in_array($s->getThread()->getForum(), $forums));
+                    }
+
+                    $return[$folder] = count($subscriptions);
+                    break;
+                default:
+                    $return[$folder] = 0;
+                    break;
+            }
+        return AjaxResponse::success(true, ['folders' => $return]);
     }
 
     /**

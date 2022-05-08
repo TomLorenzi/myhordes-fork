@@ -4276,5 +4276,25 @@
         <target>You do not have sufficient MP for this action.</target>
       </segment>
     </unit>
+    <unit id="vdD8Evg" name="Ankündigungen">
+      <notes>
+        <note category="german">Ankündigungen</note>
+        <note category="from">twig:///templates/ajax/pm/view.html.twig</note>
+      </notes>
+      <segment>
+        <source>Ankündigungen</source>
+        <target>Announcements</target>
+      </segment>
+    </unit>
+    <unit id="7VfCrWl" name="Foren">
+      <notes>
+        <note category="german">Foren</note>
+        <note category="from">twig:///templates/ajax/pm/view.html.twig</note>
+      </notes>
+      <segment>
+        <source>Foren</source>
+        <target>Forum</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

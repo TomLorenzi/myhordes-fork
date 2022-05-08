@@ -40,6 +40,8 @@
                 <div class="cell grow-0">
                     <ul class="tabs plain" x-tab-group="gpm-inbox" x-tab-control id="gpm-inbox-control">
                         <li class="tab" x-tab-id="inbox"><div class="tab-link"><img  src="{{ asset("build/images/icons/small_mail.gif") }}" alt="" /><span class="hide-sm hide-md hide-lg hide-elg"> {{ 'Posteingang'|trans({},'global') }}</span></div></li>
+                        <li class="tab" x-tab-id="announcements"><div class="tab-link"><img  src="{{ asset("build/images/icons/small_rp.gif") }}" alt="" /><span class="hide-sm hide-md hide-lg hide-elg"> {{ 'Ankündigungen'|trans({},'global') }}</span></div></li>
+                        <li class="tab" x-tab-id="forum"><div class="tab-link"><img  src="{{ asset("build/images/icons/small_talk.gif") }}" alt="" /><span class="hide-sm hide-md hide-lg hide-elg"> {{ 'Foren'|trans({},'global') }}</span></div></li>
                         {% if official_groups is not empty %}
                             <li class="tab" x-tab-id="support"><div class="tab-link"><img  src="{{ asset("build/images/icons/small_star.gif") }}" alt="" /><span class="hide-sm hide-md hide-lg hide-elg"> {{ 'Support-Postfach'|trans({},'global') }}</span></div></li>
                         {% endif %}
@@ -254,6 +256,17 @@
                 window.location.href = '{{ path('home') }}';
             })
 
+            const update_folder_states = () => {
+                let folders = [];
+                $.html.forEach( 'ul#gpm-inbox-control>li[x-tab-id]', e => folders.push( e.getAttribute('x-tab-id') ) );
+
+                $.ajax.background().easySend( '{{ path('pm_check_folder_states') }}', {folders}, data =>
+                    $.html.forEach( 'ul#gpm-inbox-control>li[x-tab-id]', e => e.classList.toggle( 'highlight-new', (data?.folders[e.getAttribute('x-tab-id')] ?? 0) > 0 ) )
+                );
+            }
+
+            update_folder_states();
+
             let loading_conv_list = false;
             let conv_list_more = null;
 
@@ -295,7 +308,9 @@
 
             document.getElementById('gpm-inbox-control').addEventListener('tab-switch', (e) => {
                 switch (e.detail.tab) {
-                    case 'inbox'  : core_list_path = '{{ path('pm_list', {set: 'inbox'}) }}'; break;
+                    case 'inbox' : core_list_path = '{{ path('pm_list', {set: 'inbox'}) }}'; break;
+                    case 'announcements' : core_list_path = '{{ path('pm_list', {set: 'announcements'}) }}'; break;
+                    case 'forum' : core_list_path = '{{ path('pm_list', {set: 'forum'}) }}'; break;
                     {% if official_groups is not empty %}
                         case 'support': core_list_path = '{{ path('pm_list', {set: 'support'}) }}'; break;
                     {% endif %}
@@ -367,6 +382,7 @@
                         else $.msg.restoreFetchEndpoint();
 
                         $.html.setTitleSegmentCount( document.querySelector('ul.pm-conversation-list>li[x-title][x-endpoint].new') ? 99 : 0 );
+                        update_folder_states();
                     } );
                 });
 

@@ -3936,5 +3936,23 @@
         <target>Für diese Aktion hast du nicht genug MP.</target>
       </segment>
     </unit>
+    <unit id="vdD8Evg" name="Ankündigungen">
+      <notes>
+        <note category="from">twig:///templates/ajax/pm/view.html.twig</note>
+      </notes>
+      <segment>
+        <source>Ankündigungen</source>
+        <target>Ankündigungen</target>
+      </segment>
+    </unit>
+    <unit id="7VfCrWl" name="Foren">
+      <notes>
+        <note category="from">twig:///templates/ajax/pm/view.html.twig</note>
+      </notes>
+      <segment>
+        <source>Foren</source>
+        <target>Foren</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
